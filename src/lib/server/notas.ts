@@ -12,7 +12,7 @@ import { primerNombre } from "@/lib/nombres";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
 import { cursosDelDocente } from "./cursos";
-import { destinatariosDeAlumno, encolarParaDestinatario, type Destinatario } from "./notificaciones/encolar";
+import { destinatariosDeAlumno, encolarParaDestinatario, tieneCanalAviso, type Destinatario } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
 import { alumnoIdsVisibles, requireAlumnoVisible, requireCursoDelProfesor, requireRol, type TenantContext } from "./tenant";
 
@@ -199,7 +199,7 @@ export async function publicarLibreta(ctx: TenantContext, periodoId: string, opc
   const porFamilia = new Map<string, { destinatario: Destinatario; hijos: string[] }>();
   for (const a of alumnos) {
     for (const d of await destinatariosDeAlumno(ctx.db, a.id)) {
-      if (!d.correo && d.pushEndpoints.length === 0) continue;
+      if (!tieneCanalAviso(d)) continue;
       const actual = porFamilia.get(d.apoderadoId) ?? { destinatario: d, hijos: [] };
       actual.hijos.push(primerNombre(a.nombres));
       porFamilia.set(d.apoderadoId, actual);

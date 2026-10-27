@@ -7,6 +7,7 @@ import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { CasillasCanalesPago, type OpcionesCanalesPago } from "../perfil/CasillasCanalesPago";
 import { guardarPreferenciasAction, guardarSuscripcionPushAction, quitarSuscripcionPushAction, type EstadoFormulario } from "./actions";
 
 function claveABytes(base64: string): Uint8Array<ArrayBuffer> {
@@ -20,7 +21,7 @@ function claveABytes(base64: string): Uint8Array<ArrayBuffer> {
 type EstadoPush = "cargando" | "no-soportado" | "bloqueado" | "activo" | "inactivo";
 
 /** Preferencias de aviso (correo / push) y activación de notificaciones en este dispositivo. */
-export function PreferenciasAvisos({ slug, correo, push, vapidPublica }: { slug: string; correo: boolean; push: boolean; vapidPublica: string }) {
+export function PreferenciasAvisos({ slug, correo, push, vapidPublica, canalesPago }: { slug: string; correo: boolean; push: boolean; vapidPublica: string; canalesPago?: OpcionesCanalesPago }) {
   const [estado, accion, guardando] = useActionState<EstadoFormulario, FormData>(guardarPreferenciasAction.bind(null, slug), {});
   const [estadoPush, setEstadoPush] = useState<EstadoPush>("cargando");
   const [mensajePush, setMensajePush] = useState<string | null>(null);
@@ -92,6 +93,7 @@ export function PreferenciasAvisos({ slug, correo, push, vapidPublica }: { slug:
           <label className={fila}>
             <input type="checkbox" name="push" defaultChecked={push} className={casilla} /> Recibir notificaciones en el celular o la computadora
           </label>
+          {canalesPago && <CasillasCanalesPago opciones={canalesPago} />}
           <div>
             <Boton type="submit" variante="secundario" disabled={guardando}>
               {guardando ? <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden /> : <Save className="size-4" strokeWidth={2} aria-hidden />} Guardar

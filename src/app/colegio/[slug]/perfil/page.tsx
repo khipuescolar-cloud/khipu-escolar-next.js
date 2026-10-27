@@ -7,7 +7,10 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CONSENTIMIENTO_VERSION } from "@/lib/consentimiento";
+import { formatearTelefono } from "@/lib/telefono";
 import { nombreRol } from "@/lib/roles";
+import { guardarTelefonoAction } from "./actions";
+import { obtenerOpcionesCanalesPago } from "@/lib/server/notificaciones/canales-pago";
 import { obtenerPreferencias } from "@/lib/server/notificaciones/preferencias";
 import { estadoConsentimiento } from "@/lib/server/consentimiento";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -23,6 +26,7 @@ export default async function PerfilPage({ params, searchParams }: PageProps<"/c
   const estado = ctx.rol === "apoderado" ? await estadoConsentimiento(ctx) : null;
   const esPersonal = ctx.rol === "profesor" || ctx.rol === "direccion" || ctx.rol === "administrativo";
   const preferencias = esPersonal ? await obtenerPreferencias(ctx) : null;
+  const canalesPago = await obtenerOpcionesCanalesPago(ctx);
   const descripcionAvisos =
     ctx.rol === "profesor"
       ? "Elige cómo quieres enterarte cuando una familia te escriba por el chat."
@@ -56,8 +60,36 @@ export default async function PerfilPage({ params, searchParams }: PageProps<"/c
             push={preferencias.push}
             vapidPublica={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? ""}
             descripcion={descripcionAvisos}
+            canalesPago={canalesPago}
           />
         )}
+
+        <Card id="celular">
+          <CardHeader>
+            <CardTitle className="text-lg">Mi celular</CardTitle>
+            <CardDescription>
+              Solo se usa si activas los avisos por WhatsApp o mensaje de texto{canalesPago.whatsappActivo || canalesPago.smsActivo ? "" : " (tu colegio aún no los activó)"}. Nadie más lo ve.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form action={guardarTelefonoAction} className="flex flex-wrap items-end gap-3">
+              <label className="flex flex-col gap-1.5 text-sm font-medium">
+                Celular de Perú
+                <input
+                  name="telefono"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel-national"
+                  defaultValue={canalesPago.telefono ? formatearTelefono(canalesPago.telefono) : ""}
+                  placeholder="987 654 321"
+                  className="min-h-10 w-56 rounded-md border border-input bg-card px-3 text-sm"
+                />
+                <span className="text-xs font-normal text-muted-foreground">9 dígitos que empiezan en 9. Déjalo vacío para quitarlo.</span>
+              </label>
+              <Boton type="submit" variante="secundario">Guardar celular</Boton>
+            </form>
+          </CardContent>
+        </Card>
 
         {estado && (
           <Card>

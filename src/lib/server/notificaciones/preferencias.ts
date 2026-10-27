@@ -8,7 +8,11 @@ import type { TenantContext } from "../tenant";
 // `PreferenciaAviso.apoderadoId` es en realidad un id de MEMBRESÍA (`memberships.id`): aplica a cualquier rol
 // (apoderado, profesor, dirección, administrativo). Sin fila = correo y push activados.
 
-export type DestinoPersonal = { email: string; correo: boolean; pushEndpoints: string[] };
+export type DestinoPersonal = {
+  email: string; correo: boolean; pushEndpoints: string[];
+  /** Celular del perfil y lo que eligió para WhatsApp/SMS (el colegio y las credenciales se revisan al encolar). */
+  telefono: string | null; canalesPago: { whatsapp: boolean; sms: boolean };
+};
 
 /**
  * Canales a los que se puede avisar a un miembro del personal (profesor, dirección, administrativo) según su
@@ -18,11 +22,14 @@ export type DestinoPersonal = { email: string; correo: boolean; pushEndpoints: s
 export async function destinoPersonal(tdb: DbTenant, membershipId: string, roles: ("profesor" | "direccion" | "administrativo")[]): Promise<DestinoPersonal | null> {
   const m = await tdb.membership.findFirst({
     where: { id: membershipId, rol: { in: roles }, estado: "activa" },
-    select: { preferenciaAviso: { select: { correo: true, push: true } }, user: { select: { email: true, pushSuscripciones: { select: { endpoint: true } } } } },
+    select: { preferenciaAviso: { select: { correo: true, push: true, whatsapp: true, sms: true } }, user: { select: { email: true, telefono: true, pushSuscripciones: { select: { endpoint: true } } } } },
   });
   if (!m) return null;
-  const pref = m.preferenciaAviso ?? { correo: true, push: true };
-  return { email: m.user.email, correo: pref.correo, pushEndpoints: pref.push ? m.user.pushSuscripciones.map((s) => s.endpoint) : [] };
+  const pref = m.preferenciaAviso ?? { correo: true, push: true, whatsapp: false, sms: false };
+  return {
+    email: m.user.email, correo: pref.correo, pushEndpoints: pref.push ? m.user.pushSuscripciones.map((s) => s.endpoint) : [],
+    telefono: m.user.telefono, canalesPago: { whatsapp: pref.whatsapp, sms: pref.sms },
+  };
 }
 
 export async function obtenerPreferencias(ctx: TenantContext) {
@@ -30,12 +37,16 @@ export async function obtenerPreferencias(ctx: TenantContext) {
   return { correo: pref?.correo ?? true, push: pref?.push ?? true };
 }
 
-export async function guardarPreferencias(ctx: TenantContext, datos: { correo: boolean; push: boolean }) {
-  const { correo, push } = z.object({ correo: z.boolean(), push: z.boolean() }).parse(datos);
+/** `whatsapp` y `sms` son opcionales: si no vienen (el colegio no activó el canal), se conserva lo guardado. */
+export async function guardarPreferencias(ctx: TenantContext, datos: { correo: boolean; push: boolean; whatsapp?: boolean; sms?: boolean }) {
+  const { correo, push, whatsapp, sms } = z
+    .object({ correo: z.boolean(), push: z.boolean(), whatsapp: z.boolean().optional(), sms: z.boolean().optional() })
+    .parse(datos);
+  const extra = { ...(whatsapp === undefined ? {} : { whatsapp }), ...(sms === undefined ? {} : { sms }) };
   await ctx.db.preferenciaAviso.upsert({
     where: { apoderadoId: ctx.membership.id },
-    update: { correo, push },
-    create: { tenantId: ctx.tenant.id, apoderadoId: ctx.membership.id, correo, push },
+    update: { correo, push, ...extra },
+    create: { tenantId: ctx.tenant.id, apoderadoId: ctx.membership.id, correo, push, ...extra },
   });
 }
 

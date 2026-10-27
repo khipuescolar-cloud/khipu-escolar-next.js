@@ -101,6 +101,14 @@ pnpm exec web-push generate-vapid-keys
 
 Pon la clave pública en `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, la privada en `VAPID_PRIVATE_KEY` y `VAPID_SUBJECT=mailto:soporte@khipuescolar.pe`. No cambies las claves luego: invalidarías las suscripciones existentes.
 
+## 6b. WhatsApp y SMS (opcional, con costo por mensaje)
+
+Apagados por defecto: sin estas variables nada se envía ni se encola (la pantalla *Configuración → Canales de pago* muestra «Falta configurar en el servidor»). Detalle y costos en `specs/06-avisos-notificaciones.md`.
+
+- **WhatsApp (Meta Cloud API)**: cuenta Meta Business verificada, número dedicado y las plantillas `khipu_*` aprobadas. Variables: `WHATSAPP_TOKEN` (token permanente de usuario del sistema), `WHATSAPP_PHONE_NUMBER_ID`, `WHATSAPP_API_VERSION` (por ejemplo `v21.0`), `WHATSAPP_WEBHOOK_VERIFY_TOKEN` (texto que tú inventas) y `WHATSAPP_APP_SECRET`. En Meta, registra el webhook `https://<dominio>/api/webhooks/whatsapp` con ese verify token y suscríbete a los eventos de mensajes. Tope: `WHATSAPP_DAILY_LIMIT`.
+- **SMS (Twilio)**: `SMS_PROVEEDOR=twilio`, `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_FROM` (número o remitente habilitado para Perú). Tope: `SMS_DAILY_LIMIT`.
+- Luego cada colegio los activa en *Configuración → Canales de pago* y cada familia o docente los elige en sus preferencias.
+
 ## 7. Super administrador
 
 Con `DATABASE_URL` (5432) y las claves de Supabase en tu `.env` local apuntando al proyecto cloud:
@@ -121,6 +129,7 @@ El usuario recibe el correo de invitación/recuperación para definir su contras
 - [ ] Correo de prueba recibido (bandeja, no spam); `EMAIL_DAILY_LIMIT` acorde al proveedor.
 - [ ] Almacenamiento: subir y ver un archivo de prueba.
 - [ ] VAPID configurado; push de prueba recibido.
+- [ ] (Opcional) WhatsApp/SMS: variables del §6b, webhook verificado en Meta y un mensaje de prueba entregado.
 - [ ] Super administrador creado; ingreso a `/plataforma` y creación de un colegio de prueba.
 - [ ] Revisión legal (términos, privacidad, menores de edad) **(externo)**.
 - [ ] Logotipo e isotipo oficiales de la marca **(externo)**.

@@ -1,18 +1,19 @@
 # 06 — Avisos y notificaciones
 
-> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-pendientes`)
+> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/p3-canales-pago`)
 
 ## Objetivo
-Avisar a la familia por correo y push cada vez que se registra la asistencia (y en mensajes, comunicados, invitaciones, justificaciones y tareas), avisar al personal cuando le toca actuar (mensajes de familias, justificaciones recibidas, correos desactivados) y no pasarse de los límites del proveedor.
+Avisar a la familia por correo y push (y, si el colegio lo activa, WhatsApp y SMS) cada vez que se registra la asistencia (y en mensajes, comunicados, invitaciones, justificaciones y tareas), avisar al personal cuando le toca actuar (mensajes de familias, justificaciones recibidas, correos desactivados) y no pasarse de los límites del proveedor.
 
 ## Roles y permisos
 | Rol | Puede | No puede |
 |---|---|---|
-| Apoderado | Elegir correo y/o push (`/asistencia#avisos`), activar push en su dispositivo | Ver avisos de otras familias |
-| Dirección | Ver `/avisos`: enviados, apertura (meta 70 %), cola, rebotes, errores; recibir `alerta_rebote` y `soporte_inicio` | — |
+| Apoderado | Elegir correo y/o push (`/asistencia#avisos`), activar push en su dispositivo; WhatsApp/SMS si el colegio los activó; guardar su celular en `/perfil#celular` | Ver avisos de otras familias |
+| Dirección | Activar o apagar WhatsApp y SMS (`/configuracion`, «Canales de pago»); ver `/avisos`: enviados, apertura (meta 70 %), cola, rebotes, errores; recibir `alerta_rebote` y `soporte_inicio` | — |
 | Profesor | Recibir `mensaje_nuevo` (correo + push) cuando una familia le escribe y `justificacion_recibida` como tutor | — |
 | Cron | `GET/POST /api/cron/avisos` con `Authorization: Bearer <CRON_SECRET>` | — |
 | SNS (AWS) | `POST /api/webhooks/ses` con firma SNS válida | — |
+| Meta (WhatsApp) | `GET/POST /api/webhooks/whatsapp` (verificación y estados, firma HMAC) | — |
 
 ## Flujos
 1. Un módulo crea filas `pendiente` en `avisos` (ver **Contrato**). Asistencia y portería usan `encolarAvisosAsistencia()`; justificaciones, `encolarAviso()` / `encolarParaDestinatario()`; chat, `avisarMensajeNuevo()`; tareas, `avisarTareaNueva()`; el webhook de SES, `alertarCorreoDesactivado()`.
@@ -74,10 +75,10 @@ encolarParaDestinatario(tdb, destinatario, { tenantId, tipo, plantilla, payload,
 encolarAvisosAsistencia(tdb, { tenant, asistencia, alumnoNombre, momento, urlMensajes? }): Promise<number /* familias */>
 crearTokenJustificacion(tdb, { tenantId, asistenciaId, apoderadoId }): Promise<{ id, token }>
 // notificaciones/cola.ts
-procesarCola({ ahora?, tenantId?, maxAvisos = 100, canales?, esperar?, limites? }): Promise<{ enviados, reintentos, errores, omitidos, diferidos, resumenes, recuperados }>
+procesarCola({ ahora?, tenantId?, maxAvisos = 100, canales?, esperar?, limites?, limitesPago? }): Promise<{ enviados, reintentos, errores, omitidos, diferidos, resumenes, recuperados }>
 ENVIANDO_MAX_MINUTOS = 10
 generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
-// notificaciones/limites.ts (puras): cupoDiario, pausaEntreCorreosMs, esperaReintentoMs, MAX_INTENTOS = 4, leerLimites, tocaResumen
+// notificaciones/limites.ts (puras): limiteCanalDePago, CANALES_DE_PAGO, cupoDiario, pausaEntreCorreosMs, esperaReintentoMs, MAX_INTENTOS = 4, leerLimites, tocaResumen
 // notificaciones/ses.ts: urlDeAwsValida, textoAFirmar, verificarFirmaSns, confirmarSuscripcion, procesarEventoSes
 // notificaciones/avisos-familia.ts: encolarAvisoFamilia(ctx, { plantilla: mensaje_nuevo (con conversacionId) | comunicado | invitacion, … })
 // notificaciones/avisos-mensajes.ts: avisarMensajeNuevo(ctx, conversacion): number   // a la familia o al profesor según quién escribe
@@ -87,17 +88,55 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 //   `preferencias_aviso.apoderado_id` es en realidad un id de MEMBRESÍA: aplica a cualquier rol (apoderado, profesor, dirección, administrativo). Sin fila = correo y push activos.
 // email/plantillas/index.ts: renderizarPlantilla(nombre, payload): { asunto, html, texto, push }, NOMBRES_PLANTILLA
 // avisos.ts: panelAvisos(ctx) (dirección)
+// notificaciones/whatsapp.ts: WhatsAppChannel, plantillaMeta(plantilla, payload), armarSolicitudWhatsapp, whatsappConfigurado, whatsappSoportaPlantilla
+// notificaciones/sms.ts: SmsChannel, textoSms(plantilla, payload) (≤ 160, sin tildes), smsConfigurado, smsSoportaPlantilla
+// notificaciones/whatsapp-webhook.ts: firmaWhatsappValida, verificarSuscripcionWhatsapp, extraerEstadosWhatsapp, aplicarEstadosWhatsapp
+// notificaciones/canales-pago.ts: estadoCredenciales, resolverCanalesPago, actualizarCanalesPago (solo dirección, audita), obtenerOpcionesCanalesPago, guardarTelefonoPerfil
+// encolar.ts: encolarCanalesPago(tdb, destinos, datos), tieneCanalAviso(destinatario)
+// lib/telefono.ts: normalizarTelefonoPeru, enmascararTelefono, formatearTelefono
 ```
 
 ## Rutas y UI
 - `/api/cron/avisos` (GET/POST, bearer `CRON_SECRET`, comparación en tiempo constante; sin `CRON_SECRET` siempre 401).
 - `/api/webhooks/ses` (POST): firma SNS v1 (SHA1) y v2 (SHA256) con `node:crypto`; certificado solo de `https://sns.<región>.amazonaws.com(.cn)/….pem`; si `SES_SNS_TOPIC_ARN` está definido, exige ese tema.
+- `/api/webhooks/whatsapp`: **GET** verificación (`hub.mode=subscribe` + `hub.verify_token` = `WHATSAPP_WEBHOOK_VERIFY_TOKEN`, comparación en tiempo constante; responde `hub.challenge` en texto plano, si no 403). **POST** estados: exige `X-Hub-Signature-256: sha256=<hmac>` (HMAC SHA-256 del cuerpo crudo con `WHATSAPP_APP_SECRET`, tiempo constante; sin secreto o firma mala → 403). Cada `status` se busca por `providerMessageId` (el `wamid`): `delivered → entregado` (+`entregadoAt`), `read → abierto` (+`abiertoAt`), `failed → error` con el motivo de Meta. Un estado nunca retrocede (un «entregado» tardío no pisa «abierto»).
+- `/configuracion` → **Canales de pago** (solo dirección): interruptores WhatsApp y SMS, aviso de costo por mensaje y estado de credenciales del servidor («Configurado» / «Falta configurar en el servidor», nunca los valores). Guardar audita (`editar`, `configuracion`).
+- `/perfil#celular` (todos los roles): celular de Perú que se guarda en E.164 en `profiles.telefono`. Las preferencias (`/asistencia#avisos` del apoderado y `/perfil#avisos` del personal) muestran las casillas WhatsApp/SMS **solo si el colegio activó el canal**, con el celular enmascarado («+51 *** *** 321») o un enlace para agregarlo.
 - `/perfil#avisos` (profesor, dirección, administrativo): las mismas casillas correo/push y «Activar notificaciones en este dispositivo» (`PreferenciasPersonal`, acciones en `perfil/actions.ts`). Se respetan en `mensaje_nuevo` al profesor (`avisarMensajeNuevo`) y en la alerta de correo desactivado a dirección (`alertarCorreoDesactivado`, que ahora también envía push a sus dispositivos). Si apaga ambos canales no se encola nada.
 - **Envío inmediato (`after()`)**: `enviarMensajeAction` (chat) y `/api/webhooks/ses` (alerta a dirección, vía `procesarEventoSes(evento, { alEncolarAlerta })`) llaman a `procesarCola({ tenantId })` tras responder, solo si se encoló algo. Es el mismo worker del cron: respeta el tope diario global y la reserva atómica `pendiente → enviando`.
 - Familias: `encolarAvisoFamilia` (mensaje y comunicado) ahora encola también **push** (una fila por dispositivo) según `preferencias_aviso`.
 - `/asistencia#avisos` (apoderado): casillas correo/push y «Activar notificaciones en este dispositivo» (registra `public/sw.js`, suscribe con VAPID y guarda vía server action).
 - `/avisos` (dirección): tarjetas (enviados 30 días, apertura, cola/rebotes/errores) y los 100 últimos avisos; filtros por estado (incluye `enviando`) y tipo (incluye `justificacion`, `tarea`, `alerta_direccion`).
 - Componente `VistaPreviaAviso` (iframe `sandbox`) usado al pasar lista.
+
+## WhatsApp y SMS (canales de pago, apagados por defecto)
+Misma interfaz `NotificationChannel` que correo y push; la fila de `avisos` lleva `canal = whatsapp | sms` y `destinatario` = celular E.164.
+
+**Cuándo se encola** (todo debe cumplirse; `resolverCanalesPago` + `encolarCanalesPago`):
+1. el colegio activó el canal (`Tenant.whatsappActivo` / `smsActivo`, por defecto `false`);
+2. el servidor tiene las credenciales (si no, **no se encola** y se deja `console.warn`: así no hay filas condenadas a fallar ni se acumulan errores);
+3. el destinatario lo eligió (`PreferenciaAviso.whatsapp` / `sms`, por defecto `false`) y tiene un celular válido en su perfil (`+51` + 9 dígitos que empiezan en 9; se acepta «987 654 321», «+51…», «0051…»);
+4. la plantilla tiene versión para el canal: asistencia llegó/tarde/falta, comunicado, mensaje nuevo (a familia y a profesor) y libreta publicada. Resumen de llegadas, tarea, problema, justificaciones, invitación, bienvenida y alerta de rebote **no** salen por WhatsApp/SMS.
+Una fila extra por canal, además del correo y push (la familia puede elegir solo WhatsApp: `tieneCanalAviso`). Comparte reglas de consentimiento con el resto.
+
+**Worker** (`cola.ts`): reserva atómica y reintentos iguales a correo. Tope diario **propio por canal** en ventana de 24 h, global: `WHATSAPP_DAILY_LIMIT` (1000 por defecto) y `SMS_DAILY_LIMIT` (300); lo que excede queda `pendiente` (`diferidos`). Si las credenciales desaparecen después de encolar, el canal lanza `EnvioPermanenteError` y la fila pasa a `omitido` con el motivo («WhatsApp sin credenciales en el servidor…»), sin reintentos. Errores permanentes del proveedor (número sin WhatsApp, 131026; número inválido en Twilio, 21211…) → `omitido`; 5xx/429/red → reintento.
+
+**WhatsApp Cloud API** (`whatsapp.ts`): `POST https://graph.facebook.com/<WHATSAPP_API_VERSION>/<WHATSAPP_PHONE_NUMBER_ID>/messages` con `Authorization: Bearer <WHATSAPP_TOKEN>`; mensaje `type: "template"`, idioma `es` (`IDIOMA_PLANTILLA`; se puede cambiar a `es_PE` si así se aprobaron), parámetros de texto del cuerpo. Plantillas a aprobar en Meta (categoría *Utility*, cuerpo con variables en este orden):
+| Plantilla Meta | Parámetros |
+|---|---|
+| `khipu_asistencia_llego` | {{1}} alumno · {{2}} hora · {{3}} colegio |
+| `khipu_asistencia_tarde` | {{1}} alumno · {{2}} hora · {{3}} colegio |
+| `khipu_asistencia_falta` | {{1}} alumno · {{2}} momento («a la 1.ª hora») · {{3}} colegio |
+| `khipu_comunicado` | {{1}} título · {{2}} colegio |
+| `khipu_mensaje_nuevo` | {{1}} remitente · {{2}} alumno · {{3}} colegio |
+| `khipu_libreta` | {{1}} alumno («tu hijo» si falta) · {{2}} periodo · {{3}} colegio |
+Los parámetros se limpian (sin saltos de línea ni tabulaciones, ≤ 1024). Las plantillas no llevan botón con enlace: la familia entra a Khipu para justificar o leer.
+
+**SMS** (`sms.ts`): `SMS_PROVEEDOR=twilio`; `POST https://api.twilio.com/2010-04-01/Accounts/<TWILIO_ACCOUNT_SID>/Messages.json` con Basic auth y `To`, `From = TWILIO_FROM`, `Body`. Texto ≤ 160 caracteres, sin tildes (GSM-7), con solo el nombre de pila del alumno: «<colegio>: Mateo no llego hoy a la 1.a hora. Justifica en Khipu Escolar.»; comunicado, mensaje y libreta no incluyen título ni remitente.
+
+**Costos aproximados en Perú** (referenciales; verifica la tarifa vigente de cada proveedor): WhatsApp, conversación/mensaje de plantilla *utility* ≈ US$ 0.01–0.02 por mensaje (Meta cobra por mensaje de plantilla entregado, según país y categoría; los *marketing* cuestan varias veces más: por eso solo se usan plantillas *utility*). SMS Twilio a celulares de Perú ≈ US$ 0.05–0.10 por segmento. El correo y push siguen sin costo por mensaje. La pantalla de configuración advierte este costo antes de activar.
+
+**Requisitos externos**: *Meta* — cuenta de Meta Business verificada, app con producto WhatsApp, número de teléfono dedicado, token permanente (usuario del sistema), las 6 plantillas aprobadas, webhook apuntando a `/api/webhooks/whatsapp` (campo `messages`/estados) con el *verify token* y el *App Secret*. *Twilio* — cuenta, número remitente o *Alphanumeric Sender ID* habilitado para Perú y permisos geográficos para Perú. Pasos de variables en `docs/despliegue.md` §6b.
 
 ## Textos y UX
 - llegó: «Mateo llegó al colegio a las 7:52 a. m.»
@@ -114,17 +153,17 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 ## Errores y casos borde
 - SMTP caído → reintentos; Mailpit/SES sin respuesta no bloquea al profesor (se envía en `after()`).
 - Push sin claves VAPID → aviso `omitido`.
+- WhatsApp/SMS sin credenciales → no se encola; si se quitan después, `omitido` con motivo. El webhook de WhatsApp que llega antes de guardar el `wamid` no encuentra fila y se ignora (200).
 - Evento SES sin fila conocida → se ignora (200).
 - Worker caído a mitad del lote → las filas quedan en `enviando` y el siguiente worker las recupera pasados 10 min (puede repetirse un envío que sí salió; preferimos eso a perder el aviso).
 - Si falla encolar la alerta a dirección, el webhook igual responde 200 (se registra en el log).
 
 ## Pruebas
-- unit: `plantillas-avisos.test.ts` (textos exactos, botón de falta, sin emojis, todas las plantillas del contrato incl. `tarea_nueva`, `libreta_publicada`, `alerta_rebote` y `soporte_inicio`, payload inválido), `cola-limites.test.ts` (tope diario, ritmo, reintentos, hora del resumen), `firma-sns.test.ts`.
-- integración: `cola-avisos.test.ts` (cola → Mailpit con remitente y enlace, tope diario → pendiente, reintentos → error, plantilla desconocida, eventos SES y rebote permanente, resumen de llegadas una vez al día); `preferencias-personal-y-comunicados-push.test.ts` (preferencias del personal, alerta a dirección, comunicado con push y enlace directo); `avisos-pendientes.test.ts` (dos workers en paralelo no repiten filas, recuperación de `enviando`, aviso al profesor correo + push y límite de 15 min, aviso de tarea, alerta de rebote/queja una vez por día).
+- unit: `plantillas-avisos.test.ts` (textos exactos, botón de falta, sin emojis, todas las plantillas del contrato incl. `tarea_nueva`, `libreta_publicada`, `alerta_rebote` y `soporte_inicio`, payload inválido), `cola-limites.test.ts` (tope diario, ritmo, reintentos, hora del resumen), `firma-sns.test.ts`, `telefono-peru.test.ts` (E.164 y máscara), `canales-whatsapp-sms.test.ts` (mapeo de plantillas, request a Meta/Twilio con `fetch` simulado, errores permanentes vs. reintentables, texto SMS ≤ 160, firma y verificación del webhook, estados).
+- integración: `cola-avisos.test.ts` (cola → Mailpit con remitente y enlace, tope diario → pendiente, reintentos → error, plantilla desconocida, eventos SES y rebote permanente, resumen de llegadas una vez al día); `preferencias-personal-y-comunicados-push.test.ts` (preferencias del personal, alerta a dirección, comunicado con push y enlace directo); `canales-whatsapp-sms.test.ts` (encolado según colegio/preferencia/celular/credenciales/plantilla, worker con proveedor simulado, webhook de estados sin retroceso, tope por canal, sin credenciales, configuración solo dirección); `avisos-pendientes.test.ts` (dos workers en paralelo no repiten filas, recuperación de `enviando`, aviso al profesor correo + push y límite de 15 min, aviso de tarea, alerta de rebote/queja una vez por día)
 
 ## Pendientes
-- WhatsApp Cloud API y SMS con la misma interfaz.
-- Ninguno propio de este módulo más allá de WhatsApp/SMS (arriba).
+- **Externo:** crear las cuentas (Meta Business verificada con número, Twilio) y **aprobar las plantillas** de WhatsApp; luego definir las variables en el servidor y activar los canales por colegio. El código está listo y apagado.
 
 ## Cron programado
 `vercel.json` ejecuta `/api/cron/avisos` cada minuto (y `/api/cron/exportaciones` cada 5). Vercel envía `Authorization: Bearer <CRON_SECRET>`. Guía: `docs/despliegue.md`.

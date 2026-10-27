@@ -2,6 +2,9 @@
 
 import { headers } from "next/headers";
 import { guardarPreferencias, guardarSuscripcionPush, quitarSuscripcionPush } from "@/lib/server/notificaciones/preferencias";
+import { contextoDeAccion } from "@/lib/server/contexto-accion";
+import { ejecutarYVolver, texto } from "@/lib/server/accion-formulario";
+import { guardarTelefonoPerfil } from "@/lib/server/notificaciones/canales-pago";
 import { requireTenantContext } from "@/lib/server/tenant";
 
 export type EstadoFormulario = { ok?: boolean; error?: string };
@@ -12,7 +15,12 @@ const ROLES_PERSONAL = ["profesor", "direccion", "administrativo"] as const;
 
 export async function guardarPreferenciasPersonalAction(slug: string, _prev: EstadoFormulario, formData: FormData): Promise<EstadoFormulario> {
   const ctx = await requireTenantContext(slug, [...ROLES_PERSONAL]);
-  await guardarPreferencias(ctx, { correo: formData.get("correo") === "on", push: formData.get("push") === "on" });
+  await guardarPreferencias(ctx, {
+    correo: formData.get("correo") === "on",
+    push: formData.get("push") === "on",
+    ...(ctx.tenant.whatsappActivo ? { whatsapp: formData.get("whatsapp") === "on" } : {}),
+    ...(ctx.tenant.smsActivo ? { sms: formData.get("sms") === "on" } : {}),
+  });
   return { ok: true };
 }
 
@@ -30,4 +38,13 @@ export async function quitarSuscripcionPushPersonalAction(slug: string, endpoint
   const ctx = await requireTenantContext(slug, [...ROLES_PERSONAL]);
   await quitarSuscripcionPush(ctx, endpoint);
   return { ok: true };
+}
+
+/** Celular del perfil (sirve para WhatsApp y SMS si el colegio los activó). Cualquier rol. */
+export async function guardarTelefonoAction(formData: FormData) {
+  const ctx = await contextoDeAccion();
+  await ejecutarYVolver("/perfil", async () => {
+    const telefono = await guardarTelefonoPerfil(ctx, texto(formData, "telefono"));
+    return telefono ? "Celular guardado." : "Celular quitado.";
+  });
 }

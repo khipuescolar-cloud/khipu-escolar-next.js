@@ -5,7 +5,7 @@ import { fechaLima } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
 import { auditar } from "../auditoria";
 import type { TenantContext } from "../tenant";
-import { destinatariosDeAlumno, encolarParaDestinatario, type Destinatario } from "./encolar";
+import { destinatariosDeAlumno, encolarParaDestinatario, tieneCanalAviso, type Destinatario } from "./encolar";
 
 // Aviso «tarea nueva» a las familias del salón (specs/12). Solo si el profesor marcó «Avisar a las familias».
 // Una fila por familia y canal (consentimiento y preferencias vía destinatariosDeAlumno), `referenciaId = tareaId`.
@@ -48,7 +48,7 @@ export async function avisarTareaNueva(ctx: TenantContext, tareaId: string, entr
   const porFamilia = new Map<string, { destinatario: Destinatario; hijos: string[] }>();
   for (const a of alumnos) {
     for (const d of await destinatariosDeAlumno(ctx.db, a.id)) {
-      if (!d.correo && d.pushEndpoints.length === 0) continue;
+      if (!tieneCanalAviso(d)) continue;
       const actual = porFamilia.get(d.apoderadoId) ?? { destinatario: d, hijos: [] };
       actual.hijos.push(primerNombre(a.nombres));
       porFamilia.set(d.apoderadoId, actual);
