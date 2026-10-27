@@ -109,3 +109,38 @@ Respuestas: SMTP del piloto: «Amazon SES». Canales extra: «Notificaciones pus
   - estado «invitada» real en las membresías;
   - columna para los botones en `nudito_mensajes`.
 - Cron real en el hosting (`/api/cron/avisos`), y pruebas con cuentas reales de SES y Cloudinary.
+
+## Continuación (2026-10-27): pendientes del MVP
+
+> que mas falta ? todos los subagentes terminaron ?
+
+> quiero que lo hagas todo por ahora con claude, creando subagentes para que termines con los pendientes
+
+### Decisiones
+- El orquestador hizo antes, en un solo commit, los cambios de esquema para los pendientes, para que los agentes no migraran en paralelo:
+  - `profiles.genero`;
+  - `justificaciones.comentario_revision`;
+  - `EstadoAviso.enviando`;
+  - `TipoAviso.{justificacion, tarea, alerta_direccion}`;
+  - `avisos.referencia_id`;
+  - `nudito_mensajes.acciones`.
+- Se lanzaron 3 subagentes de Claude:
+
+  | Rama | Modelo | Alcance |
+  |---|---|---|
+  | `feat/avisos-pendientes` | Opus | cola con reserva atómica y recuperación, aviso al profesor, aviso de tarea, alerta de rebote a dirección, comentario de la justificación |
+  | `feat/ui-pendientes` | Sonnet | contador de no leídos, «Escribir a la tutora», Tutora/Tutor según género, estado «invitada» y reenvío, logo del colegio, botones de Nudito en el historial |
+  | `feat/extras-pendientes` | Sonnet | editar tareas y eventos, descarga .ics, exportación ZIP con chequeo de tablas, borrado de archivos al borrar un colegio |
+
+- Los e2e corren con `workers: 1`: comparten la BD y las sesiones demo, y en paralelo el login fallaba de forma intermitente.
+
+### Validación (main)
+- `pnpm lint` y `pnpm typecheck` OK.
+- `pnpm test`: 27 archivos y 224 tests OK.
+- `pnpm e2e`: 25/25 OK, después de borrar `.next` (Turbopack tenía cacheado el cliente Prisma viejo).
+
+### Pendientes
+- Preferencias de aviso para profesores (hoy siempre reciben correo y push).
+- El logo WEBP no sale en la libreta PDF (solo PNG/JPG); no se aceptan logos SVG.
+- La exportación ZIP se arma en memoria (para colegios grandes conviene una cola). El .ics es una descarga, no una suscripción.
+- Externos: dominio, SES, Cloudinary, Supabase cloud, Vercel con cron, revisión legal, SVG reales de la marca.

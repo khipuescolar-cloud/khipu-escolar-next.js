@@ -33,6 +33,7 @@ pnpm dev                     # http://lvh.me:3000  ·  colegios: http://<slug>.l
 pnpm lint && pnpm typecheck && pnpm test   # checks rápidos (tests de integración usan la BD local)
 pnpm e2e                     # Playwright (requiere BD con seed)
 pnpm db:migrate              # nueva migración tras cambiar prisma/schema.prisma
+pnpm db:generate && rm -rf .next   # tras cambiar el esquema: Prisma 7 no regenera solo y Turbopack cachea el cliente viejo
 ```
 
 Mailpit (correos locales): http://127.0.0.1:54324 · Supabase Studio: http://127.0.0.1:54323
