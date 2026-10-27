@@ -8,7 +8,7 @@ export const MAX_FILAS_CSV = 500;
 const COLUMNAS = ["nombres", "apellidos", "codigo", "salon"] as const;
 
 /** Divide una línea CSV respetando comillas dobles. Acepta «,» o «;» como separador. */
-function dividirLinea(linea: string, separador: string): string[] {
+export function dividirLinea(linea: string, separador: string): string[] {
   const celdas: string[] = [];
   let actual = "";
   let entreComillas = false;
@@ -30,7 +30,7 @@ function dividirLinea(linea: string, separador: string): string[] {
   return celdas;
 }
 
-function normalizar(s: string): string {
+export function normalizar(s: string): string {
   return s.normalize("NFD").replace(/[̀-ͯ]/g, "").trim().toLowerCase();
 }
 

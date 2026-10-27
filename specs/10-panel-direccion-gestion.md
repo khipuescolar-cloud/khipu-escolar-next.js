@@ -1,6 +1,6 @@
 # 10 — Panel de dirección y gestión
 
-> Estado: implementado · Plan: Básico · Última actualización: 2026-10-26 (Claude Code, rama `feat/gestion`)
+> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/crm-personal`)
 
 ## Objetivo
 Que dirección administre profesores, salones, alumnos y familias, configure el colegio y vea si los avisos llegan.
@@ -10,8 +10,8 @@ Todo lo de esta spec es **solo dirección** (`requireRol` + `requireFeature(ctx,
 
 ## Flujos
 - **Inicio de dirección:** componente `inicio/ResumenDireccion.tsx` con llegaron / tarde / faltas / sin registrar de hoy por salón (fecha en `tenant.zonaHoraria`; por alumno prevalece la asistencia del día, `ambito = "dia"`).
-- **Profesores** (`/gestion/profesores`): invitar (Supabase `inviteUserByEmail`, `redirectTo = urlRaiz("/auth/callback?next=/restablecer")`) crea `Profile` (con `genero` opcional) + `Membership` en estado **`invitada`** y encola el aviso `invitacion`; mientras no entre se muestra «Invitación pendiente» con la acción **«Reenviar invitación»** (`reenviarInvitacion`: nueva invitación de Supabase o enlace de recuperación si la cuenta ya existe) y pasa a `activa` en el primer ingreso (spec 02). Un profesor `invitada` ya puede asignarse como tutor o a un curso. Dirección puede indicar o cambiar el **género** del profesor (`Profile.genero`: femenino / masculino / no especifica) para que se le nombre «Tutora», «Profesor»…, ver `tituloProfesor` en `src/lib/roles.ts`; desactivar/reactivar (`estado = inactiva`, nunca se borra; al desactivar se liberan tutoría y cursos).
-- **Salones y cursos** (`/gestion/salones`): crear, editar, borrar (solo vacío); tutor y profesor por curso; borrar curso solo sin asistencia, notas ni tareas.
+- **Profesores y personal** (`/gestion/profesores`, `/gestion/personal`): ahora son un CRM con alta con datos personales (DNI, correo, cargo…), lista con filtros, ficha, desactivar/reactivar y reenviar bienvenida; el detalle está en `specs/17-crm-personal-colegio.md`. Ya no se invita a profesores por Supabase `inviteUserByEmail`: se crea la cuenta con el DNI como contraseña inicial. Se conservan `reenviarInvitacion` (apoderados y profesores antiguos en estado `invitada`) y `cambiarGeneroProfesor`. Un profesor `invitada` puede asignarse como tutor o a un curso; el género sigue definiendo «Tutora», «Profesor»… (`tituloProfesor`).
+- **Grados y salones** (`/gestion/salones`): vista nivel → grado → sección con tutor, alumnos y cursos; crear, editar, quitar (solo vacío, sin campo de archivado); tutor y profesor por curso; borrar curso solo sin asistencia, notas ni tareas.
 - **Alumnos** (`/gestion/alumnos`): crear, editar, retirar/reactivar, filtrar por salón, **importar CSV** (`nombres, apellidos, codigo, salon`; todo o nada, errores por línea, máx. 500 filas y 1 MB).
 - **Familias** (`/gestion/apoderados`): invitar al correo personal y vincular al alumno con parentesco; vincular más alumnos; quitar vínculos; ver estado del consentimiento.
 - **Consentimiento** (`/consentimiento`): primer ingreso del apoderado; texto versionado en `src/lib/consentimiento.ts` (`CONSENTIMIENTO_VERSION`); crea `consentimientos` y lo enlaza a todos sus `apoderados_alumnos.consentimientoId`. Sin aceptar, `/inicio`, `/mensajes` y `/comunicados` redirigen aquí y no se le encolan avisos.
@@ -27,13 +27,13 @@ Todo lo de esta spec es **solo dirección** (`requireRol` + `requireFeature(ctx,
 `memberships`, `profiles`, `salones`, `cursos`, `alumnos`, `apoderados_alumnos`, `consentimientos`, `tenants` (configuración), `avisos`.
 
 ## Contratos de `src/lib/server`
-`gestion.ts` (invitarUsuario, reenviarInvitacion, cambiarGeneroProfesor, cambiarEstadoMembresia, listarProfesores, crear/editar/eliminarSalon|Curso, crear/editar/cambiarEstadoAlumno, importarAlumnosCsv, vincular/desvincular/invitarApoderado, listarApoderados), `configuracion.ts` (actualizarConfiguracion), `avisos-panel.ts` (panelAvisos, porcentajeApertura), `resumen-direccion.ts` (resumenAsistenciaHoy), `consentimiento.ts`, `notificaciones/encolar.ts` (`encolarAviso`, contrato de plantillas `mensaje_nuevo`, `comunicado`, `invitacion`).
+`gestion.ts` (invitarUsuario [solo apoderados], reenviarInvitacion, cambiarGeneroProfesor, cambiarEstadoMembresia, listarProfesores, crear/editar/eliminarSalon|Curso, crear/editar/cambiarEstadoAlumno, importarAlumnosCsv, vincular/desvincular/invitarApoderado, listarApoderados), `personal.ts` (altaPersonal, reenviarBienvenida, listarPersonal, obtenerFicha, editarFicha, importarPersonalCsv), `configuracion.ts` (actualizarConfiguracion), `avisos-panel.ts` (panelAvisos, porcentajeApertura), `resumen-direccion.ts` (resumenAsistenciaHoy), `consentimiento.ts`, `notificaciones/encolar.ts` (`encolarAviso`, contrato de plantillas `mensaje_nuevo`, `comunicado`, `invitacion`).
 
 ## Errores y casos borde
 Correo ya registrado con ese rol, código de alumno repetido, salón inexistente en el CSV, dominio usado por otro colegio, borrar salón con alumnos.
 
 ## Pruebas
-- unit: `tests/unit/importar-alumnos.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts`, `tests/integracion/invitaciones-y-logo.test.ts` · e2e: `tests/e2e/direccion-panel.test.ts`, `tests/e2e/ui-pendientes.test.ts` (logo).
+- unit: `tests/unit/importar-alumnos.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts`, `tests/integracion/invitaciones-y-logo.test.ts`, `tests/integracion/crm-personal.test.ts` · e2e: `tests/e2e/direccion-panel.test.ts`, `tests/e2e/ui-pendientes.test.ts` (logo).
 
 ## Pendientes
 - Avisos enviados/abiertos/con error dentro del resumen del inicio (hoy están en `/avisos`).

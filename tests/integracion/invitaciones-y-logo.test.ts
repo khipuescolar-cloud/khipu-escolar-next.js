@@ -5,6 +5,7 @@ import type { Membership, Profile, Tenant } from "@/generated/prisma/client";
 import { activarInvitaciones } from "@/lib/server/auth";
 import { db, dbTenant } from "@/lib/server/db";
 import { cambiarGeneroProfesor, invitarUsuario, listarProfesores, reenviarInvitacion } from "@/lib/server/gestion";
+import { altaPersonal } from "@/lib/server/personal";
 import { logoParaPdf, quitarLogoColegio, subirLogoColegio, urlLogoColegio } from "@/lib/server/logo";
 import { supabaseAdmin } from "@/lib/server/supabase";
 import type { TenantContext } from "@/lib/server/tenant";
@@ -34,19 +35,16 @@ afterAll(async () => {
   await db.$disconnect();
 });
 
-describe("invitación → activa en el primer ingreso", () => {
+describe("invitación de familias → activa en el primer ingreso", () => {
   let userId = "";
   let membershipId = "";
 
-  it("invitar deja la membresía «invitada», guarda el género y aparece en la lista", async () => {
-    const r = await invitarUsuario(ctx, { email: `prof-${sufijo}@prueba.demo`, nombres: "Ana", apellidos: "Profesora", rol: "profesor", genero: "femenino" });
+  it("invitar a un apoderado deja la membresía «invitada»", async () => {
+    const r = await invitarUsuario(ctx, { email: `fam-${sufijo}@prueba.demo`, nombres: "Ana", apellidos: "Familia", rol: "apoderado" });
     userId = r.userId;
     membershipId = r.membershipId;
     authCreados.push(userId);
     expect((await db.membership.findUniqueOrThrow({ where: { id: membershipId } })).estado).toBe("invitada");
-    expect((await db.profile.findUniqueOrThrow({ where: { id: userId } })).genero).toBe("femenino");
-    const lista = await listarProfesores(ctx);
-    expect(lista.find((p) => p.id === membershipId)).toMatchObject({ estado: "invitada", user: { genero: "femenino" } });
   });
 
   it("se puede reenviar la invitación mientras esté pendiente", async () => {
@@ -60,6 +58,23 @@ describe("invitación → activa en el primer ingreso", () => {
     expect((await db.membership.findUniqueOrThrow({ where: { id: membershipId } })).estado).toBe("activa");
     expect(await activarInvitaciones(userId)).toBe(0);
     await expect(reenviarInvitacion(ctx, membershipId)).rejects.toThrow("invitación pendiente");
+  });
+});
+
+describe("género del profesor (alta con datos personales)", () => {
+  let userId = "";
+  let membershipId = "";
+
+  it("el alta lo deja activo, con su género, y aparece en la lista", async () => {
+    const r = await altaPersonal(ctx, {
+      rol: "profesor", email: `prof-${sufijo}@prueba.demo`, nombres: "Ana", apellidos: "Profesora", genero: "femenino",
+      tipoDocumento: "dni", numeroDocumento: "45678901",
+    });
+    userId = r.userId;
+    membershipId = r.membershipId;
+    authCreados.push(userId);
+    const lista = await listarProfesores(ctx);
+    expect(lista.find((p) => p.id === membershipId)).toMatchObject({ estado: "activa", user: { genero: "femenino" } });
   });
 
   it("dirección cambia el género de un profesor", async () => {

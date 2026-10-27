@@ -18,7 +18,7 @@ const fecha = new Intl.DateTimeFormat("es-PE", { dateStyle: "long", timeStyle: "
 export default async function ComunicadosPage({ params, searchParams }: PageProps<"/colegio/[slug]/comunicados">) {
   const { slug } = await params;
   const { ok, error } = await searchParams;
-  const ctx = await requireTenantContext(slug, ["direccion", "profesor", "apoderado"]);
+  const ctx = await requireTenantContext(slug, ["direccion", "profesor", "apoderado", "administrativo"]);
   requireFeature(ctx, "comunicados");
   await requireConsentimiento(ctx);
   const [comunicados, salones] = await Promise.all([listarComunicados(ctx), salonesParaPublicar(ctx)]);

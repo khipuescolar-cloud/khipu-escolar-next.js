@@ -28,13 +28,13 @@ function validar<T extends z.ZodType>(esquema: T, entrada: unknown): z.infer<T> 
 const texto = (max: number, mensaje: string) => z.string().trim().min(1, mensaje).max(max, "Es demasiado largo.");
 const textoOpcional = (max: number) => z.string().trim().max(max, "Es demasiado largo.").transform((v) => v || null);
 
-// ───────────── Invitaciones (profesores y apoderados) ─────────────
+// ───────────── Invitaciones (apoderados; profesores y personal se dan de alta en personal.ts) ─────────────
 
 const esquemaInvitacion = z.object({
   email: z.email("Escribe un correo válido.").transform((v) => v.trim().toLowerCase()),
   nombres: texto(80, "Escribe los nombres."),
   apellidos: texto(120, "Escribe los apellidos."),
-  rol: z.enum(["profesor", "apoderado"]),
+  rol: z.literal("apoderado"),
   genero: z.enum(["femenino", "masculino", "no_especifica"]).nullable().optional().catch(null),
 });
 
@@ -72,8 +72,8 @@ export async function invitarUsuario(ctx: TenantContext, entrada: z.input<typeof
   await encolarAvisoFamilia(ctx, {
     plantilla: "invitacion",
     destinatario: d.email,
-    apoderadoId: d.rol === "apoderado" ? membershipId : undefined,
-    payload: { colegio: ctx.tenant.nombre, nombre: d.nombres, rol: d.rol === "profesor" ? "profesor(a)" : "familia", url: urlColegio(ctx.tenant.slug, "/inicio") },
+    apoderadoId: membershipId,
+    payload: { colegio: ctx.tenant.nombre, nombre: d.nombres, rol: "familia", url: urlColegio(ctx.tenant.slug, "/inicio") },
   });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "membresia", entidadId: membershipId, detalle: { rol: d.rol } });
   return { membershipId, userId: perfil.id };
@@ -119,7 +119,7 @@ export async function cambiarGeneroProfesor(ctx: TenantContext, membershipId: st
 /** Desactiva o reactiva una membresía de profesor o familia (nunca se borra). Al desactivar a un profesor se liberan sus tutorías y cursos. */
 export async function cambiarEstadoMembresia(ctx: TenantContext, membershipId: string, estado: "activa" | "inactiva"): Promise<void> {
   exigirGestion(ctx);
-  const m = await ctx.db.membership.findFirst({ where: { id: membershipId, rol: { in: ["profesor", "apoderado"] } } });
+  const m = await ctx.db.membership.findFirst({ where: { id: membershipId, rol: { in: ["profesor", "apoderado", "administrativo", "porteria"] } } });
   if (!m) throw new ErrorDeNegocio("No se encontró a esa persona.");
   await ctx.db.membership.update({ where: { id: m.id }, data: { estado } });
   if (estado === "inactiva" && m.rol === "profesor") {
@@ -230,7 +230,11 @@ export async function listarSalones(ctx: TenantContext) {
   exigirGestion(ctx);
   return ctx.db.salon.findMany({
     orderBy: [{ anio: "desc" }, { nombre: "asc" }],
-    include: { cursos: { orderBy: { nombre: "asc" } }, _count: { select: { alumnos: true } } },
+    include: {
+      cursos: { orderBy: { nombre: "asc" } },
+      tutor: { select: { user: { select: { nombres: true, apellidos: true } } } },
+      _count: { select: { alumnos: { where: { estado: "activo" } } } },
+    },
   });
 }
 
