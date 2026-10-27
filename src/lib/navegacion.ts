@@ -24,13 +24,13 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/avisos", titulo: "Avisos enviados", descripcion: "Correos y notificaciones a las familias.", icono: "MailCheck", feature: "avisos", roles: ["direccion"] },
   { href: "/justificaciones", titulo: "Justificaciones", descripcion: "Faltas justificadas por las familias.", icono: "FileText", feature: "justificaciones", roles: ["profesor", "direccion", "apoderado"] },
   { href: "/mensajes", titulo: "Mensajes", descripcion: "Chat entre familia y profesor, sin teléfonos.", icono: "MessagesSquare", feature: "mensajes", roles: ["profesor", "apoderado", "direccion"], contador: "mensajes" },
-  { href: "/comunicados", titulo: "Comunicados", descripcion: "Anuncios del colegio.", icono: "Megaphone", feature: "comunicados", roles: ["direccion", "profesor", "apoderado"] },
+  { href: "/comunicados", titulo: "Comunicados", descripcion: "Anuncios del colegio.", icono: "Megaphone", feature: "comunicados", roles: ["direccion", "profesor", "apoderado", "administrativo"] },
   { href: "/notas", titulo: "Notas", descripcion: "Evaluaciones y calificaciones por competencia.", icono: "GraduationCap", feature: "notas", roles: ["profesor", "direccion", "apoderado"] },
   { href: "/libreta", titulo: "Libreta", descripcion: "Libreta de notas por periodo.", icono: "BookOpen", feature: "libreta", roles: ["direccion", "apoderado", "profesor"] },
   { href: "/tareas", titulo: "Tareas", descripcion: "Tareas y fechas de entrega.", icono: "ListTodo", feature: "tareas", roles: ["profesor", "direccion", "apoderado"] },
   { href: "/agenda", titulo: "Agenda", descripcion: "Eventos, exámenes y reuniones.", icono: "CalendarDays", feature: "agenda", roles: ["profesor", "direccion", "apoderado"] },
   { href: "/nudito", titulo: "Nudito", descripcion: "Tu asistente para el día a día del colegio.", icono: "Sparkles", feature: "nudito", roles: ["apoderado"] },
-  { href: "/gestion", titulo: "Gestión", descripcion: "Profesores, salones, alumnos y familias.", icono: "Users", feature: "gestion", roles: ["direccion"] },
+  { href: "/gestion", titulo: "Gestión", descripcion: "Profesores, personal, grados, alumnos y familias.", icono: "Users", feature: "gestion", roles: ["direccion"] },
   { href: "/configuracion", titulo: "Configuración", descripcion: "Avisos, logo, dominio y escala de notas.", icono: "Settings", feature: "gestion", roles: ["direccion"] },
 ];
 

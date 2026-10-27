@@ -20,7 +20,8 @@ test("dirección recorre su panel y exporta los datos", async ({ page }) => {
   const rutas: [string, string][] = [
     ["/gestion", "Gestión"],
     ["/gestion/profesores", "Profesores"],
-    ["/gestion/salones", "Salones y cursos"],
+    ["/gestion/personal", "Personal"],
+    ["/gestion/salones", "Grados y salones"],
     ["/gestion/alumnos", "Alumnos"],
     ["/gestion/apoderados", "Familias"],
     ["/configuracion", "Configuración"],

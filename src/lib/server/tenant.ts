@@ -9,7 +9,7 @@ import { db, dbTenant, type DbTenant } from "./db";
 import { supabaseServidor } from "./supabase";
 
 /** Prioridad cuando un usuario tiene varios roles en el mismo colegio. */
-const PRIORIDAD_ROL: Rol[] = ["direccion", "profesor", "porteria", "apoderado", "alumno"];
+const PRIORIDAD_ROL: Rol[] = ["direccion", "profesor", "administrativo", "porteria", "apoderado", "alumno"];
 export const COOKIE_ROL = "khipu_rol";
 
 export type TenantContext = {

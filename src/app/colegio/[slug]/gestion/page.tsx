@@ -1,4 +1,4 @@
-import { BookOpen, GraduationCap, HeartHandshake, School } from "lucide-react";
+import { BookOpen, BriefcaseBusiness, GraduationCap, HeartHandshake, IdCard, School } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { exigirGestion } from "@/lib/server/gestion";
@@ -10,17 +10,20 @@ export default async function GestionPage({ params }: PageProps<"/colegio/[slug]
   const { slug } = await params;
   const ctx = await requireTenantContext(slug, ["direccion"]);
   exigirGestion(ctx);
-  const [profesores, salones, alumnos, familias] = await Promise.all([
+  const [profesores, personal, salones, alumnos, familias] = await Promise.all([
     ctx.db.membership.count({ where: { rol: "profesor", estado: "activa" } }),
+    ctx.db.membership.count({ where: { rol: { in: ["administrativo", "porteria"] }, estado: "activa" } }),
     ctx.db.salon.count(),
     ctx.db.alumno.count({ where: { estado: "activo" } }),
     ctx.db.membership.count({ where: { rol: "apoderado", estado: "activa" } }),
   ]);
   const tarjetas = [
-    { href: "/gestion/profesores", titulo: "Profesores", detalle: `${profesores} activos`, Icono: GraduationCap },
-    { href: "/gestion/salones", titulo: "Salones y cursos", detalle: `${salones} salones`, Icono: School },
+    { href: "/gestion/profesores", titulo: "Profesores", detalle: `${profesores} activos · datos personales y correos`, Icono: GraduationCap },
+    { href: "/gestion/personal", titulo: "Personal", detalle: `${personal} activos · administrativos y portería`, Icono: BriefcaseBusiness },
+    { href: "/gestion/salones", titulo: "Grados y salones", detalle: `${salones} salones · tutores y cursos`, Icono: School },
     { href: "/gestion/alumnos", titulo: "Alumnos", detalle: `${alumnos} activos`, Icono: BookOpen },
     { href: "/gestion/apoderados", titulo: "Familias", detalle: `${familias} cuentas`, Icono: HeartHandshake },
+    { href: "/gestion/carnets", titulo: "Carnets", detalle: "Carnets QR por salón", Icono: IdCard },
   ];
   return (
     <div className="flex flex-col gap-4">

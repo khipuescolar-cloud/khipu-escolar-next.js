@@ -2,9 +2,11 @@ import Link from "next/link";
 
 const SECCIONES = [
   { href: "/gestion/profesores", texto: "Profesores" },
-  { href: "/gestion/salones", texto: "Salones y cursos" },
+  { href: "/gestion/personal", texto: "Personal" },
+  { href: "/gestion/salones", texto: "Grados y salones" },
   { href: "/gestion/alumnos", texto: "Alumnos" },
   { href: "/gestion/apoderados", texto: "Familias" },
+  { href: "/gestion/carnets", texto: "Carnets" },
 ];
 
 export default function LayoutGestion({ children }: LayoutProps<"/colegio/[slug]/gestion">) {
