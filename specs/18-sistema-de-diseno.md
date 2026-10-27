@@ -180,7 +180,7 @@ Interlineado 1.5 en cuerpo, máximo `max-w-prose` para párrafos largos. Nada de
 
 ## Pendientes
 
-- Gráficos del panel con `chart-1…5` (métricas de 30 días de la plataforma).
+- (Hecho) Gráficos de 30 días de la plataforma con `chart-1`/`chart-2` (specs/16).
 - **Externo:** SVG oficiales de la marca (isotipo y logotipo) cuando lleguen los archivos del equipo de diseño.
 
 ## Estados de carga

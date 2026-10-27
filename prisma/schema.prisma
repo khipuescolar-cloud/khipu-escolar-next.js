@@ -95,6 +95,8 @@ enum TipoAviso {
 enum CanalAviso {
   correo
   push
+  whatsapp
+  sms
 }
 
 enum EstadoAviso {
@@ -179,6 +181,9 @@ model Tenant {
   escalaCalificacion      EscalaCalificacion @default(literal) @map("escala_calificacion")
   /// Plazo del reglamento para justificar una falta (el enlace del correo vence a esta hora).
   plazoJustificacionHoras Int                @default(48) @map("plazo_justificacion_horas")
+  /// Canales de pago habilitados por el colegio (specs/06). Requieren credenciales del proveedor en el servidor.
+  whatsappActivo          Boolean            @default(false) @map("whatsapp_activo")
+  smsActivo               Boolean            @default(false) @map("sms_activo")
   estado                  EstadoTenant       @default(activo)
   createdAt               DateTime           @default(now()) @map("created_at") @db.Timestamptz
 
@@ -631,6 +636,9 @@ model PreferenciaAviso {
   apoderadoId String  @unique @map("apoderado_id") @db.Uuid
   correo      Boolean @default(true)
   push        Boolean @default(true)
+  /// Canales de pago (specs/06): solo se usan si el colegio los activó y hay teléfono.
+  whatsapp    Boolean @default(false)
+  sms         Boolean @default(false)
 
   tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   apoderado Membership @relation(fields: [apoderadoId], references: [id], onDelete: Cascade)
