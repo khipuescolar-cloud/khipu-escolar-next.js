@@ -1,6 +1,8 @@
 import { LogOut } from "lucide-react";
 import Link from "next/link";
 import { Logo } from "@/components/marca/Logo";
+import { NuditoWidget } from "@/components/nudito/NuditoWidget";
+import { planIncluye } from "@/lib/planes";
 import { NOMBRE_ROL } from "@/lib/roles";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cambiarRolAction, salirAction } from "./actions";
@@ -41,6 +43,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
         </div>
       </header>
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6">{children}</main>
+      {ctx.rol === "apoderado" && planIncluye(ctx.tenant.plan, "nudito") && <NuditoWidget slug={slug} />}
     </div>
   );
 }
