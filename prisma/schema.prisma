@@ -153,6 +153,7 @@ model Tenant {
   emailDomains       String[]           @default([]) @map("email_domains")
   logoArchivoId      String?            @map("logo_archivo_id") @db.Uuid
   horaEnvioAvisos    String             @default("09:00") @map("hora_envio_avisos") // HH:mm, resumen de llegadas
+  horaLimiteTardanza String             @default("08:00") @map("hora_limite_tardanza") // HH:mm, desde esta hora la llegada es «tarde»
   zonaHoraria        String             @default("America/Lima") @map("zona_horaria")
   modoAvisos         ModoAvisos         @default(todos) @map("modo_avisos")
   escalaCalificacion EscalaCalificacion @default(literal) @map("escala_calificacion")
