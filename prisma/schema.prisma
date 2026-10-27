@@ -166,26 +166,26 @@ enum AutorNudito {
 // ───────────────────────────── Núcleo ─────────────────────────────
 
 model Tenant {
-  id                      String             @id @default(uuid()) @db.Uuid
-  slug                    String             @unique
-  nombre                  String
-  ciudad                  String?
-  eslogan                 String?
-  plan                    Plan               @default(basico)
-  emailDomains            String[]           @default([]) @map("email_domains")
-  logoArchivoId           String?            @map("logo_archivo_id") @db.Uuid
-  horaEnvioAvisos         String             @default("09:00") @map("hora_envio_avisos") // HH:mm, resumen de llegadas
-  horaLimiteTardanza      String             @default("08:00") @map("hora_limite_tardanza") // HH:mm, desde esta hora la llegada es «tarde»
-  zonaHoraria             String             @default("America/Lima") @map("zona_horaria")
-  modoAvisos              ModoAvisos         @default(todos) @map("modo_avisos")
-  escalaCalificacion      EscalaCalificacion @default(literal) @map("escala_calificacion")
-  /// Plazo del reglamento para justificar una falta (el enlace del correo vence a esta hora).
-  plazoJustificacionHoras Int                @default(48) @map("plazo_justificacion_horas")
+  id                            String             @id @default(uuid()) @db.Uuid
+  slug                          String             @unique
+  nombre                        String
+  ciudad                        String?
+  eslogan                       String?
+  plan                          Plan               @default(basico)
+  emailDomains                  String[]           @default([]) @map("email_domains")
+  logoArchivoId                 String?            @map("logo_archivo_id") @db.Uuid
+  horaEnvioAvisos               String             @default("09:00") @map("hora_envio_avisos") // HH:mm, resumen de llegadas
+  horaLimiteTardanza            String             @default("08:00") @map("hora_limite_tardanza") // HH:mm, desde esta hora la llegada es «tarde»
+  zonaHoraria                   String             @default("America/Lima") @map("zona_horaria")
+  modoAvisos                    ModoAvisos         @default(todos) @map("modo_avisos")
+  escalaCalificacion            EscalaCalificacion @default(literal) @map("escala_calificacion")
+  /// Plazo del reglamento para justificar una falta, en días hábiles (lunes a viernes sin feriados nacionales del Perú) desde el día de la falta.
+  plazoJustificacionDiasHabiles Int                @default(15) @map("plazo_justificacion_dias_habiles")
   /// Canales de pago habilitados por el colegio (specs/06). Requieren credenciales del proveedor en el servidor.
-  whatsappActivo          Boolean            @default(false) @map("whatsapp_activo")
-  smsActivo               Boolean            @default(false) @map("sms_activo")
-  estado                  EstadoTenant       @default(activo)
-  createdAt               DateTime           @default(now()) @map("created_at") @db.Timestamptz
+  whatsappActivo                Boolean            @default(false) @map("whatsapp_activo")
+  smsActivo                     Boolean            @default(false) @map("sms_activo")
+  estado                        EstadoTenant       @default(activo)
+  createdAt                     DateTime           @default(now()) @map("created_at") @db.Timestamptz
 
   memberships           Membership[]
   salones               Salon[]
