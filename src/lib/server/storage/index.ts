@@ -3,6 +3,7 @@ import type { Archivo } from "@/generated/prisma/client";
 import type { DbTenant } from "../db";
 import { CloudinaryStorage } from "./cloudinary";
 import { leerArchivoLocal, LocalStorage } from "./local";
+import { S3Storage } from "./s3";
 import type { FileStorage } from "./tipos";
 import { MENSAJE_VALIDACION, validarArchivo } from "./validacion";
 
@@ -11,16 +12,24 @@ export type { FileStorage } from "./tipos";
 /** URLs firmadas de archivos privados: 5 minutos. */
 export const SEGUNDOS_URL_TEMPORAL = 5 * 60;
 
-let instancia: FileStorage | null = null;
+const instancias = new Map<string, FileStorage>();
+
+/** Proveedor concreto (para leer o migrar archivos que viven en otro proveedor que el activo). */
+export function storageDe(proveedor: string): FileStorage {
+  const existente = instancias.get(proveedor);
+  if (existente) return existente;
+  let nuevo: FileStorage;
+  if (proveedor === "cloudinary") nuevo = new CloudinaryStorage();
+  else if (proveedor === "local") nuevo = new LocalStorage();
+  else if (proveedor === "s3") nuevo = new S3Storage();
+  else throw new Error(`STORAGE_PROVIDER no soportado: ${proveedor}`);
+  instancias.set(proveedor, nuevo);
+  return nuevo;
+}
 
 /** Proveedor según STORAGE_PROVIDER (local por defecto). */
 export function storage(): FileStorage {
-  if (instancia) return instancia;
-  const proveedor = process.env.STORAGE_PROVIDER || "local";
-  if (proveedor === "cloudinary") instancia = new CloudinaryStorage();
-  else if (proveedor === "local") instancia = new LocalStorage();
-  else throw new Error(`STORAGE_PROVIDER no soportado todavía: ${proveedor}`);
-  return instancia;
+  return storageDe(process.env.STORAGE_PROVIDER || "local");
 }
 
 export type ResultadoGuardar = { ok: true; archivo: Archivo } | { ok: false; error: string };
@@ -67,12 +76,12 @@ export async function urlArchivo(archivo: Archivo): Promise<string> {
 /** Contenido de un archivo registrado (para exportar o migrar). Lanza si el proveedor no lo entrega. */
 export async function leerArchivo(archivo: Archivo): Promise<Buffer> {
   if (archivo.proveedor === "local") return leerArchivoLocal(archivo.publicId);
-  const res = await fetch(await storage().urlTemporal(archivo, SEGUNDOS_URL_TEMPORAL));
+  const res = await fetch(await storageDe(archivo.proveedor).urlTemporal(archivo, SEGUNDOS_URL_TEMPORAL));
   if (!res.ok) throw new Error(`El proveedor respondió ${res.status}`);
   return Buffer.from(await res.arrayBuffer());
 }
 
 /** Borra el archivo del proveedor (no toca la fila en `archivos`). */
 export async function borrarArchivoDelProveedor(archivo: Archivo): Promise<void> {
-  return storage().borrar(archivo);
+  return storageDe(archivo.proveedor).borrar(archivo);
 }

@@ -63,7 +63,7 @@ Que el equipo de Khipu cree colegios (tenants), los monitoree y gestione su cicl
 - Resumen (alumnos, profesores, familias, asistencia, apertura y último ingreso).
 - Métricas de los últimos 30 días por semana: asistencia registrada, correos enviados, apertura, rebotes y quejas, ingresos.
 - Administradores: nombre, cargo, correo y si ya cambió su contraseña inicial.
-- Acciones (todas auditadas): cambiar plan, cambiar estado (piloto, activo o suspendido), editar datos, cambiar insignia, reenviar la bienvenida, agregar otro administrador, exportar ZIP (`/colegios/[id]/exportar`).
+- Acciones (todas auditadas): cambiar plan, cambiar estado (piloto, activo o suspendido), editar datos, cambiar insignia, reenviar la bienvenida, agregar otro administrador, exportar ZIP (`/colegios/[id]/exportar`, asíncrono).
 - Bitácora de la plataforma para ese colegio (últimas 20 acciones).
 - **Borrado:** solo con el script `khipu:borrar-colegio`; el panel no borra.
 
@@ -71,7 +71,7 @@ Que el equipo de Khipu cree colegios (tenants), los monitoree y gestione su cicl
 - Subdominio: 3 a 40 caracteres, `[a-z0-9-]`, sin guion al inicio, al final ni doble; no puede ser `www`, `app`, `api` ni `admin` (`SUBDOMINIOS_RESERVADOS` en `src/lib/dominio.ts`); único.
 - Ningún id del cliente se usa sin volver a consultarlo: `tenantId` debe existir (404 si no) y la membresía a reenviar debe ser `direccion` de ese colegio.
 - El super administrador no tiene `TenantContext`: las escrituras del colegio usan `dbTenant(tenant.id)` con FK escalares.
-- Exportar desde la plataforma usa el mismo `exportarColegioZip` que dirección; queda en la auditoría del colegio (actor = super administrador) y en `auditoria_plataforma`.
+- Exportar desde la plataforma usa la misma cola asíncrona que dirección (spec 15): `/colegios/[id]/exportar` es una página con «Preparar exportación» (`solicitarExportacion`), la lista de exportaciones con su estado y «Descargar» (`/colegios/[id]/exportar/descargar/[exportacionId]`, válido 7 días). Queda en la auditoría del colegio (actor = super administrador, al terminar) y en `auditoria_plataforma` (`exportar_colegio`, al solicitar y al descargar). `exportarColegioDesdePlataforma` (síncrono) se conserva solo para pruebas.
 - Agregar un administrador que ya es dirección activa del colegio → error; si estaba inactivo/invitado, se reactiva.
 - Reenviar la bienvenida indica «contraseña inicial = documento» solo si la persona aún no la cambió.
 
@@ -115,7 +115,7 @@ aCsv(encabezados, filas)
 - `admin.<dominio>/` → `src/app/plataforma/page.tsx`: vista principal.
 - `/colegios` → reporte con filtros y CSV (`/colegios/reporte.csv`, route handler).
 - `/colegios/nuevo` → formulario en dos secciones (Colegio / Administrador principal).
-- `/colegios/[id]` → detalle y acciones; `/colegios/[id]/exportar` → ZIP.
+- `/colegios/[id]` → detalle y acciones; `/colegios/[id]/exportar` → exportaciones del colegio (pedir y descargar el ZIP).
 - Layout propio: logo de Khipu, etiqueta «Plataforma Khipu», navegación, nombre del usuario y «Salir».
 - En el encabezado del colegio (`src/app/colegio/[slug]/layout.tsx`) se muestra el eslogan bajo el nombre.
 

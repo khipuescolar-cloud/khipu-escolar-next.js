@@ -1,12 +1,12 @@
 // Borra un colegio y TODOS sus datos (cascade por tenant_id). Solo para el equipo de Khipu.
 // Uso: pnpm khipu:borrar-colegio <slug> --confirmar <slug> [--dry-run]
-// Antes del cascade borra los archivos del colegio en el proveedor (FileStorage: local/Cloudinary).
+// Antes del cascade borra los archivos del colegio en el proveedor (FileStorage: local, Cloudinary o S3; cada archivo con su propio proveedor).
 // Si algún archivo no se puede borrar, se aborta SIN tocar la BD (se puede reintentar).
 // --dry-run: solo cuenta y lista lo que se borraría. Se ejecuta con `tsx --conditions=react-server` para poder importar src/lib/server.
 import "dotenv/config";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../src/generated/prisma/client";
-import { borrarArchivoDelProveedor, storage } from "../src/lib/server/storage";
+import { borrarArchivoDelProveedor } from "../src/lib/server/storage";
 
 async function main() {
   const args = process.argv.slice(2);
@@ -36,8 +36,7 @@ async function main() {
       process.exit(1);
     }
     const archivos = await prisma.archivo.findMany({ where: { tenantId: tenant.id } });
-    const proveedorActivo = storage().proveedor;
-    console.log(`Colegio «${slug}»: ${archivos.length} archivo(s) en el proveedor (activo: ${proveedorActivo}).`);
+    console.log(`Colegio «${slug}»: ${archivos.length} archivo(s) en el almacenamiento.`);
     if (simulacro) {
       archivos.slice(0, 10).forEach((a) => console.log(`  [dry-run] borraría ${a.proveedor}:${a.publicId}`));
       if (archivos.length > 10) console.log(`  … y ${archivos.length - 10} más`);
@@ -46,10 +45,6 @@ async function main() {
     }
     const fallidos: string[] = [];
     for (const a of archivos) {
-      if (a.proveedor !== proveedorActivo) {
-        fallidos.push(`${a.proveedor}:${a.publicId} (proveedor distinto del activo; ajusta STORAGE_PROVIDER)`);
-        continue;
-      }
       try {
         await borrarArchivoDelProveedor(a);
       } catch (error) {

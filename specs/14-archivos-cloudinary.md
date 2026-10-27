@@ -53,7 +53,13 @@ interface FileStorage {
 - unit (`tests/unit/validacion-archivos.test.ts`): firmas válidas, archivos disfrazados, vacío y > 5 MB.
 - integración: el adjunto de una justificación se guarda como `local`, privado y PDF; la URL temporal lleva `exp` y `sig`.
 
+## S3, migración y limpieza
+- `S3Storage` (`storage/s3.ts`, `@aws-sdk/client-s3` + presigner): clave `khipu/<tenantId>/<carpeta>/<uuid>.<ext>`; privados con URL firmada que vence (5 min); públicos con `S3_PUBLIC_BASE_URL` o la URL estándar del bucket (o `S3_ENDPOINT/<bucket>/…` con endpoint propio, p. ej. MinIO). Se activa con `STORAGE_PROVIDER=s3` y `S3_BUCKET`, `S3_REGION`, `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY` (opcionales `S3_ENDPOINT`, `S3_PUBLIC_BASE_URL`; ver `.env.example`). `storageDe(proveedor)` entrega el proveedor de cada archivo, así leer o borrar funciona aunque el activo sea otro.
+- Migrar: `pnpm tsx --conditions=react-server scripts/migrar-archivos.ts --de cloudinary|local --a s3 [--dry-run]` copia cada archivo, actualiza `Archivo.proveedor/publicId/url` y borra el original (`migrarArchivos` en `mantenimiento-archivos.ts`).
+- Huérfanos: `pnpm tsx --conditions=react-server scripts/limpiar-archivos.ts` lista (simulacro por defecto); con `--confirmar` borra del almacenamiento y de la BD los `Archivo` de más de 24 h que no son logo, foto de alumno, adjunto de justificación, comunicado o tarea, ni ZIP de exportación. (`--conditions=react-server` es necesario para importar `src/lib/server`, igual que `khipu:borrar-colegio`.)
+- Al borrar un colegio (`khipu:borrar-colegio`) se borran antes sus archivos del almacenamiento, cada uno con su proveedor; si alguno falla se aborta sin tocar la BD.
+- Tests: `tests/unit/s3-storage.test.ts` (cliente S3 simulado) y `tests/integracion/exportacion-asincrona-archivos.test.ts` (huérfanos y migración).
+
 ## Pendientes
-- `S3Storage` y migración de archivos.
-- Borrado de archivos huérfanos y al cerrar la cuenta (spec 15).
-- Probar `CloudinaryStorage` contra una cuenta real en el piloto.
+- **Externo:** probar `CloudinaryStorage` y `S3Storage` contra cuentas reales en el piloto (requiere credenciales).
+- **Externo:** consentimiento para fotos (spec 15), cuando exista subida de fotos.
