@@ -6,7 +6,7 @@ import { leerCsvAlumnos, type ErrorFila } from "@/lib/importar-alumnos";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { db } from "./db";
-import { encolarAviso } from "./notificaciones/encolar";
+import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
 import { requireFeature } from "./plan";
 import { supabaseAdmin } from "./supabase";
 import { requireRol, type TenantContext } from "./tenant";
@@ -65,7 +65,7 @@ export async function invitarUsuario(ctx: TenantContext, entrada: z.input<typeof
     membershipId = (await ctx.db.membership.create({ data: { tenantId: ctx.tenant.id, userId: perfil.id, rol: d.rol } })).id;
   }
 
-  await encolarAviso(ctx, {
+  await encolarAvisoFamilia(ctx, {
     plantilla: "invitacion",
     destinatario: d.email,
     apoderadoId: d.rol === "apoderado" ? membershipId : undefined,

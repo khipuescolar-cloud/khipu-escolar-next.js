@@ -35,7 +35,8 @@ test("plan Básico muestra candados en funciones de planes superiores", async ({
 
 test("contraseña incorrecta muestra un error claro", async ({ page }) => {
   await page.goto("/login");
-  await page.getByLabel("Correo").fill("ana.paredes@losolivos.demo");
+  // Correo único por corrida: el límite de intentos no bloquea ejecuciones repetidas.
+  await page.getByLabel("Correo").fill(`no-existe-${Date.now()}@losolivos.demo`);
   await page.getByLabel("Contraseña").fill("incorrecta");
   await page.getByRole("button", { name: "Entrar" }).click();
   await expect(page.getByText("El correo o la contraseña no coinciden.")).toBeVisible();

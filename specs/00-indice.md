@@ -7,15 +7,15 @@ Cada módulo tiene su spec. Se actualiza en el mismo commit que cambia el compor
 | 01 | [Arquitectura multitenant](01-arquitectura-multitenant.md) | Todos | implementado (base) |
 | 02 | [Autenticación y login](02-autenticacion-login.md) | Todos | implementado |
 | 03 | [Planes y permisos](03-planes-y-permisos.md) | Todos | implementado |
-| 04 | [Asistencia (pasar lista)](04-asistencia.md) | Básico | borrador |
-| 05 | [Portería con carnet QR](05-porteria-qr.md) | Básico | borrador |
-| 06 | [Avisos y notificaciones](06-avisos-notificaciones.md) | Básico | borrador |
-| 07 | [Justificaciones](07-justificaciones.md) | Básico | borrador |
+| 04 | [Asistencia (pasar lista)](04-asistencia.md) | Básico | implementado |
+| 05 | [Portería con carnet QR](05-porteria-qr.md) | Básico | implementado |
+| 06 | [Avisos y notificaciones](06-avisos-notificaciones.md) | Básico | implementado |
+| 07 | [Justificaciones](07-justificaciones.md) | Básico | implementado |
 | 08 | [Chat familia ↔ profesor](08-chat-familia-profesor.md) | Básico | implementado |
 | 09 | [Comunicados](09-comunicados.md) | Básico | implementado |
 | 10 | [Panel de dirección y gestión](10-panel-direccion-gestion.md) | Básico | implementado |
 | 11 | [Notas y libreta](11-notas-y-libreta.md) | Fase 2 | implementado |
 | 12 | [Tareas y agenda](12-tareas-y-agenda.md) | Fase 2 | implementado |
 | 13 | [Nudito](13-nudito.md) | Pro Max | implementado |
-| 14 | [Archivos (Cloudinary → S3)](14-archivos-cloudinary.md) | Todos | borrador |
+| 14 | [Archivos (Cloudinary → S3)](14-archivos-cloudinary.md) | Todos | implementado |
 | 15 | [Privacidad, auditoría y exportación](15-privacidad-auditoria-exportacion.md) | Todos | implementado |

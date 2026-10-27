@@ -4,7 +4,7 @@ import { z } from "zod";
 import { urlColegio } from "@/lib/dominio";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
-import { encolarAviso } from "./notificaciones/encolar";
+import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
 import { salonIdsVisibles, type TenantContext } from "./tenant";
 
 // Comunicados (specs/09-comunicados.md).
@@ -85,7 +85,7 @@ export async function publicarComunicado(ctx: TenantContext, entrada: { titulo: 
   const familias = [...new Set(vinculos.map((v) => v.apoderadoId))];
   let avisados = 0;
   for (const apoderadoId of familias) {
-    const ok = await encolarAviso(ctx, {
+    const ok = await encolarAvisoFamilia(ctx, {
       plantilla: "comunicado",
       apoderadoId,
       payload: { colegio: ctx.tenant.nombre, titulo: datos.titulo, url: urlColegio(ctx.tenant.slug, "/comunicados") },

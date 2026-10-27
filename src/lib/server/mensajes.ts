@@ -5,7 +5,7 @@ import { urlColegio } from "@/lib/dominio";
 import { etiquetaApoderado, etiquetaProfesor, MAX_MENSAJE, nombreCompleto } from "@/lib/mensajes";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
-import { encolarAviso } from "./notificaciones/encolar";
+import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
 import { salonIdsVisibles, type TenantContext } from "./tenant";
 
 // Chat familia ↔ profesor (specs/08-chat-familia-profesor.md).
@@ -212,7 +212,7 @@ export async function enviarMensaje(ctx: TenantContext, entrada: { conversacionI
     data: { tenantId: ctx.tenant.id, conversacionId: c.id, autorId: ctx.membership.id, cuerpo: datos.data.cuerpo },
   });
   if (ctx.rol === "profesor") {
-    await encolarAviso(ctx, {
+    await encolarAvisoFamilia(ctx, {
       plantilla: "mensaje_nuevo",
       apoderadoId: c.apoderadoId,
       payload: {
