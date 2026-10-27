@@ -14,8 +14,8 @@ Cada módulo tiene su spec. Se actualiza en el mismo commit que cambia el compor
 | 08 | [Chat familia ↔ profesor](08-chat-familia-profesor.md) | Básico | borrador |
 | 09 | [Comunicados](09-comunicados.md) | Básico | borrador |
 | 10 | [Panel de dirección y gestión](10-panel-direccion-gestion.md) | Básico | borrador |
-| 11 | [Notas y libreta](11-notas-y-libreta.md) | Fase 2 | borrador |
-| 12 | [Tareas y agenda](12-tareas-y-agenda.md) | Fase 2 | borrador |
+| 11 | [Notas y libreta](11-notas-y-libreta.md) | Fase 2 | implementado |
+| 12 | [Tareas y agenda](12-tareas-y-agenda.md) | Fase 2 | implementado |
 | 13 | [Nudito](13-nudito.md) | Pro Max | borrador |
 | 14 | [Archivos (Cloudinary → S3)](14-archivos-cloudinary.md) | Todos | borrador |
 | 15 | [Privacidad, auditoría y exportación](15-privacidad-auditoria-exportacion.md) | Todos | borrador |
