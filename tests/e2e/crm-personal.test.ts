@@ -53,6 +53,7 @@ test("dirección registra un profesor con DNI; recibe la bienvenida y entra con 
   await page.goto(`${COLEGIO}/gestion/profesores`);
   await expect(page.getByRole("heading", { name: "Profesores", exact: true })).toBeVisible();
 
+  await page.getByRole("button", { name: "Agregar profesor" }).click();
   await page.getByLabel("Nombres").fill("Elena");
   await page.getByLabel("Apellidos").fill("Prueba Crm");
   await page.getByLabel("Número de documento").fill(PROFE.dni);
@@ -102,6 +103,7 @@ test("personal administrativo: dirección lo registra y ve su inicio con Comunic
   await page.waitForURL(`${COLEGIO}/inicio`);
   await page.goto(`${COLEGIO}/gestion/personal`);
   await expect(page.getByRole("heading", { name: "Personal", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Agregar personal" }).click();
   await page.getByLabel("Rol").selectOption("administrativo");
   await page.getByLabel("Nombres").fill("Sara");
   await page.getByLabel("Apellidos").fill("Secretaria Crm");

@@ -1,5 +1,9 @@
-import { CheckCircle2, Clock, Send, XCircle } from "lucide-react";
+import { CheckCircle2, Clock, HeartHandshake, UserPlus, XCircle } from "lucide-react";
 import type { Metadata } from "next";
+import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EstadoVacio } from "@/components/shell/EstadoVacio";
+import { Badge } from "@/components/ui/badge";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
@@ -8,6 +12,9 @@ import { Tarjeta } from "@/components/ui/Tarjeta";
 import { listarAlumnos, listarApoderados } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cambiarEstadoMembresiaAction, desvincularApoderadoAction, invitarApoderadoAction, reenviarInvitacionAction, vincularApoderadoAction } from "../actions";
+import { AccionesFila, type ItemFila } from "../_componentes/AccionesFila";
+import { AvatarPersona } from "../_componentes/AvatarPersona";
+import { PanelFormulario } from "../_componentes/PanelFormulario";
 
 export const metadata: Metadata = { title: "Familias" };
 
@@ -25,81 +32,112 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
   const opcionesAlumno = alumnos.map((a) => <option key={a.id} value={a.id}>{a.apellidos}, {a.nombres} ({a.salon.nombre})</option>);
 
   return (
-    <div className="flex max-w-4xl flex-col gap-6">
-      <h1 className="text-2xl font-bold">Familias</h1>
-      <Flash ok={ok} error={error} />
+    <div className="flex flex-col gap-6">
+      <div>
+        <EncabezadoPagina
+          titulo="Familias"
+          descripcion="Apoderados, sus alumnos y el consentimiento para recibir avisos."
+          acciones={
+            <PanelFormulario
+              boton={<><UserPlus strokeWidth={2} aria-hidden /> Invitar apoderado</>}
+              titulo="Invitar a un apoderado"
+              descripcion="Usa su correo personal. Al entrar por primera vez aceptará el consentimiento; sin él no recibe avisos."
+            >
+              <form action={invitarApoderadoAction} className="grid gap-4 sm:grid-cols-2">
+                <Campo etiqueta="Nombres" name="nombres" required />
+                <Campo etiqueta="Apellidos" name="apellidos" required />
+                <Campo etiqueta="Correo personal" name="email" type="email" required />
+                <Campo etiqueta="Parentesco" name="parentesco" placeholder="madre, padre, tutor legal…" required />
+                <Selector etiqueta="Alumno" name="alumnoId" required className="sm:col-span-2">{opcionesAlumno}</Selector>
+                <Boton type="submit" className="justify-self-start sm:col-span-2">Enviar invitación</Boton>
+              </form>
+            </PanelFormulario>
+          }
+        />
+        <Flash ok={ok} error={error} />
+      </div>
 
-      <Tarjeta>
-        <h2 className="mb-1 text-lg font-semibold">Invitar a un apoderado</h2>
-        <p className="mb-3 text-sm text-pizarra">Usa su correo personal. Al entrar por primera vez aceptará el consentimiento; sin él no recibe avisos.</p>
-        <form action={invitarApoderadoAction} className="grid gap-3 sm:grid-cols-2">
-          <Campo etiqueta="Nombres" name="nombres" required />
-          <Campo etiqueta="Apellidos" name="apellidos" required />
-          <Campo etiqueta="Correo personal" name="email" type="email" required />
-          <Campo etiqueta="Parentesco" name="parentesco" placeholder="madre, padre, tutor legal…" required />
-          <Selector etiqueta="Alumno" name="alumnoId" required className="sm:col-span-2">{opcionesAlumno}</Selector>
-          <Boton type="submit" className="self-start sm:col-span-2">Enviar invitación</Boton>
-        </form>
-      </Tarjeta>
-
-      <ul className="flex flex-col gap-3">
-        {apoderados.map((a) => {
-          const c = CONSENTIMIENTO[a.consentimiento];
-          return (
-            <li key={a.id}>
-              <Tarjeta className="flex flex-col gap-3">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div>
-                    <p className="font-semibold">{a.user.nombres} {a.user.apellidos}</p>
-                    <p className="text-sm text-pizarra">{a.user.email}</p>
+      {apoderados.length === 0 ? (
+        <EstadoVacio icono={HeartHandshake} titulo="Aún no hay familias registradas" descripcion="Invita al primer apoderado con el botón «Invitar apoderado»." />
+      ) : (
+        <ul className="grid gap-4 lg:grid-cols-2">
+          {apoderados.map((a) => {
+            const c = CONSENTIMIENTO[a.consentimiento];
+            const nombre = `${a.user.nombres} ${a.user.apellidos}`;
+            const items: ItemFila[] = [
+              {
+                tipo: "panel", texto: "Vincular otro alumno", icono: "vincular", titulo: `Vincular un alumno a ${nombre}`,
+                contenido: (
+                  <form action={vincularApoderadoAction} className="grid gap-4">
+                    <input type="hidden" name="apoderadoId" value={a.id} />
+                    <Selector etiqueta="Vincular otro alumno" name="alumnoId">{opcionesAlumno}</Selector>
+                    <Campo etiqueta="Parentesco" name="parentesco" required />
+                    <Boton type="submit" className="justify-self-start">Vincular</Boton>
+                  </form>
+                ),
+              },
+              ...(a.estado === "invitada"
+                ? [{
+                    tipo: "confirmar" as const, texto: "Reenviar invitación", icono: "enviar" as const, titulo: "¿Reenviar la invitación?",
+                    descripcion: `Enviaremos de nuevo el enlace de invitación a ${a.user.email}.`, confirmar: "Reenviar invitación",
+                    accion: reenviarInvitacionAction, campos: { id: a.id, volver: "apoderados" },
+                  }]
+                : []),
+              a.estado === "inactiva"
+                ? {
+                    tipo: "confirmar" as const, texto: "Reactivar cuenta", icono: "reactivar" as const, titulo: `¿Reactivar la cuenta de ${nombre}?`,
+                    descripcion: "Volverá a entrar y a recibir avisos si tiene el consentimiento vigente.", confirmar: "Reactivar cuenta",
+                    accion: cambiarEstadoMembresiaAction, campos: { id: a.id, volver: "apoderados", estado: "activa" },
+                  }
+                : {
+                    tipo: "confirmar" as const, texto: "Desactivar cuenta", icono: "retirar" as const, peligro: true, titulo: `¿Desactivar la cuenta de ${nombre}?`,
+                    descripcion: "Dejará de entrar y de recibir avisos. Puedes reactivarla cuando quieras.", confirmar: "Desactivar cuenta",
+                    accion: cambiarEstadoMembresiaAction, campos: { id: a.id, volver: "apoderados", estado: "inactiva" },
+                  },
+            ];
+            return (
+              <li key={a.id}>
+                <Tarjeta className="flex h-full flex-col gap-4">
+                  <div className="flex items-start gap-3">
+                    <AvatarPersona nombres={a.user.nombres} apellidos={a.user.apellidos} />
+                    <div className="min-w-0 flex-1">
+                      <p className="font-semibold">{nombre}</p>
+                      <p className="truncate text-sm text-muted-foreground">{a.user.email}</p>
+                    </div>
+                    <AccionesFila etiqueta={`Acciones para ${nombre}`} items={items} />
                   </div>
                   <div className="flex flex-wrap items-center gap-2">
                     {a.estado === "invitada" && (
-                      <>
-                        <span className="inline-flex items-center gap-1.5 rounded-pildora bg-tarde-fondo px-2.5 py-1 text-xs font-semibold text-tarde">
-                          <Clock className="h-3.5 w-3.5" strokeWidth={2} aria-hidden /> Invitación pendiente
-                        </span>
-                        <form action={reenviarInvitacionAction}>
-                          <input type="hidden" name="id" value={a.id} />
-                          <input type="hidden" name="volver" value="apoderados" />
-                          <Boton type="submit" variante="secundario"><Send className="mr-1.5 h-4 w-4" strokeWidth={2} aria-hidden /> Reenviar invitación</Boton>
-                        </form>
-                      </>
+                      <Badge className="h-6 bg-tarde-fondo px-2.5 text-xs font-semibold text-tarde"><Clock strokeWidth={2} aria-hidden /> Invitación pendiente</Badge>
                     )}
-                    <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-xs font-semibold ${c.clase}`}>
-                      <c.Icono className="h-3.5 w-3.5" strokeWidth={2} aria-hidden /> {c.texto}
-                    </span>
+                    {a.estado === "inactiva" && <Badge className="h-6 bg-muted px-2.5 text-xs font-semibold text-muted-foreground">Cuenta inactiva</Badge>}
+                    <Badge className={`h-6 px-2.5 text-xs font-semibold ${c.clase}`}><c.Icono strokeWidth={2} aria-hidden /> {c.texto}</Badge>
                   </div>
-                </div>
-                <ul className="text-sm">
-                  {a.hijos.map((h) => (
-                    <li key={h.id} className="flex items-center justify-between gap-2 py-0.5">
-                      <span>{h.parentesco} de {h.alumno.nombres} {h.alumno.apellidos} ({h.alumno.salon.nombre})</span>
-                      <form action={desvincularApoderadoAction}>
-                        <input type="hidden" name="id" value={h.id} />
-                        <button className="text-xs font-semibold text-acento">Quitar</button>
-                      </form>
-                    </li>
-                  ))}
-                  {a.hijos.length === 0 && <li className="text-pizarra">Sin alumnos vinculados.</li>}
-                </ul>
-                <form action={vincularApoderadoAction} className="flex flex-wrap items-end gap-2 border-t border-arena pt-3">
-                  <input type="hidden" name="apoderadoId" value={a.id} />
-                  <Selector etiqueta="Vincular otro alumno" name="alumnoId">{opcionesAlumno}</Selector>
-                  <Campo etiqueta="Parentesco" name="parentesco" required />
-                  <Boton type="submit" variante="secundario">Vincular</Boton>
-                </form>
-                <form action={cambiarEstadoMembresiaAction}>
-                  <input type="hidden" name="id" value={a.id} />
-                  <input type="hidden" name="volver" value="apoderados" />
-                  <input type="hidden" name="estado" value={a.estado === "inactiva" ? "activa" : "inactiva"} />
-                  <Boton type="submit" variante="fantasma">{a.estado === "inactiva" ? "Reactivar cuenta" : "Desactivar cuenta"}</Boton>
-                </form>
-              </Tarjeta>
-            </li>
-          );
-        })}
-      </ul>
+                  <ul className="flex flex-col divide-y border-t text-sm">
+                    {a.hijos.map((h) => (
+                      <li key={h.id} className="flex items-center justify-between gap-2 py-2">
+                        <span>{h.parentesco} de {h.alumno.nombres} {h.alumno.apellidos} <span className="text-muted-foreground">({h.alumno.salon.nombre})</span></span>
+                        <BotonConfirmar
+                          etiqueta="Quitar"
+                          titulo="¿Quitar este vínculo?"
+                          descripcion={`${a.user.nombres} dejará de ver a ${h.alumno.nombres} y de recibir sus avisos.`}
+                          confirmar="Quitar vínculo"
+                          accion={desvincularApoderadoAction}
+                          campos={{ id: h.id }}
+                          peligro
+                          variante="ghost"
+                          tamano="sm"
+                        />
+                      </li>
+                    ))}
+                    {a.hijos.length === 0 && <li className="py-2 text-muted-foreground">Sin alumnos vinculados.</li>}
+                  </ul>
+                </Tarjeta>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }

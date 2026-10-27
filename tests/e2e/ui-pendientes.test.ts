@@ -67,6 +67,7 @@ test("dirección sube el logo, se ve en el encabezado y se puede quitar", async 
   await expect(dir.getByText("El logo debe ser una imagen PNG, JPG o WEBP.")).toBeVisible();
 
   await dir.getByRole("button", { name: "Quitar logo" }).click();
+  await dir.getByRole("alertdialog").getByRole("button", { name: "Quitar logo" }).click();
   await expect(dir.getByText("Logo quitado.")).toBeVisible();
   await expect(dir.getByRole("link", { name: /ir al inicio/ }).getByRole("img", { name: /Logo de/ })).toHaveCount(0);
 });

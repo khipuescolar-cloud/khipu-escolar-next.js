@@ -1,4 +1,9 @@
+import { Plus, School } from "lucide-react";
 import type { Metadata } from "next";
+import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EstadoVacio } from "@/components/shell/EstadoVacio";
+import { Badge } from "@/components/ui/badge";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
@@ -6,6 +11,8 @@ import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { listarProfesores, listarSalones } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
+import { AccionesFila } from "../_componentes/AccionesFila";
+import { PanelFormulario } from "../_componentes/PanelFormulario";
 import { crearCursoAction, crearSalonAction, editarCursoAction, editarSalonAction, eliminarCursoAction, eliminarSalonAction } from "../actions";
 
 export const metadata: Metadata = { title: "Grados y salones" };
@@ -42,90 +49,117 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
     </>
   );
 
+  const grupos = agrupar(salones);
+
   return (
-    <div className="flex max-w-4xl flex-col gap-6">
-      <h1 className="text-2xl font-bold">Grados y salones</h1>
-      <Flash ok={ok} error={error} />
+    <div className="flex flex-col gap-6">
+      <div>
+        <EncabezadoPagina
+          titulo="Grados y salones"
+          descripcion="Salones por nivel y grado, con su tutor(a) y sus cursos."
+          acciones={
+            <PanelFormulario boton={<><Plus strokeWidth={2} aria-hidden /> Crear salón</>} titulo="Crear un salón" descripcion="Después podrás agregarle cursos y asignar a cada profesor.">
+              <form action={crearSalonAction} className="grid gap-4 sm:grid-cols-2">
+                <Campo etiqueta="Nombre" name="nombre" placeholder="3.° B" required />
+                <Selector etiqueta="Nivel" name="nivel" defaultValue="primaria">
+                  {NIVELES.map(([v, t]) => <option key={v} value={v}>{t}</option>)}
+                </Selector>
+                <Campo etiqueta="Año" name="anio" type="number" defaultValue={anio} required />
+                <Campo etiqueta="Grado" name="grado" type="number" min={0} max={12} />
+                <Campo etiqueta="Sección" name="seccion" />
+                <Selector etiqueta="Tutor(a)" name="tutorId">{opcionesProfesor}</Selector>
+                <Boton type="submit" className="justify-self-start sm:col-span-2">Crear salón</Boton>
+              </form>
+            </PanelFormulario>
+          }
+        />
+        <Flash ok={ok} error={error} />
+      </div>
 
-      <Tarjeta>
-        <h2 className="mb-3 text-lg font-semibold">Crear un salón</h2>
-        <form action={crearSalonAction} className="grid gap-3 sm:grid-cols-3">
-          <Campo etiqueta="Nombre" name="nombre" placeholder="3.° B" required />
-          <Selector etiqueta="Nivel" name="nivel" defaultValue="primaria">
-            {NIVELES.map(([v, t]) => <option key={v} value={v}>{t}</option>)}
-          </Selector>
-          <Campo etiqueta="Año" name="anio" type="number" defaultValue={anio} required />
-          <Campo etiqueta="Grado" name="grado" type="number" min={0} max={12} />
-          <Campo etiqueta="Sección" name="seccion" />
-          <Selector etiqueta="Tutor(a)" name="tutorId">{opcionesProfesor}</Selector>
-          <Boton type="submit" className="self-end sm:col-span-3 sm:justify-self-start">Crear salón</Boton>
-        </form>
-      </Tarjeta>
+      {grupos.length === 0 && <EstadoVacio icono={School} titulo="Aún no hay salones" descripcion="Crea el primer salón con el botón «Crear salón»." />}
 
-      {agrupar(salones).map((n) => (
+      {grupos.map((n) => (
         <section key={n.nivel} className="flex flex-col gap-4" aria-labelledby={`nivel-${n.nivel}`}>
-          <h2 id={`nivel-${n.nivel}`} className="border-b border-arena pb-1 text-xl font-bold">{n.titulo}</h2>
+          <h2 id={`nivel-${n.nivel}`} className="border-b pb-2 text-xl font-bold">{n.titulo}</h2>
           {n.grados.map(({ grado, lista }) => (
             <div key={grado ?? "sin"} className="flex flex-col gap-3">
-              <h3 className="font-semibold text-pizarra">{grado === null ? "Sin grado" : `${grado}.° grado`}</h3>
-              {lista.map((s) => (
-                <Tarjeta key={s.id} className="flex flex-col gap-3">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <p className="font-titulo text-lg font-semibold">{s.nombre} <span className="text-sm font-normal text-pizarra">· sección {s.seccion ?? "—"} · {s.anio}</span></p>
-                    <p className="text-sm">
-                      <span className="font-semibold">Tutor(a):</span> {s.tutor ? `${s.tutor.user.nombres} ${s.tutor.user.apellidos}` : "Sin asignar"} · {s._count.alumnos} alumnos · {s.cursos.length} cursos
-                    </p>
-                  </div>
-                  <details>
-                    <summary className="cursor-pointer text-sm font-semibold text-acento">Editar salón y cursos</summary>
-                    <div className="mt-3 flex flex-col gap-4">
-                      <form action={editarSalonAction} className="grid gap-3 sm:grid-cols-3">
-                        <input type="hidden" name="id" value={s.id} />
-                        <Campo etiqueta="Nombre" name="nombre" defaultValue={s.nombre} required />
-                        <Selector etiqueta="Nivel" name="nivel" defaultValue={s.nivel}>
-                          {NIVELES.map(([v, t]) => <option key={v} value={v}>{t}</option>)}
-                        </Selector>
-                        <Campo etiqueta="Año" name="anio" type="number" defaultValue={s.anio} required />
-                        <Campo etiqueta="Grado" name="grado" type="number" min={0} max={12} defaultValue={s.grado ?? ""} />
-                        <Campo etiqueta="Sección" name="seccion" defaultValue={s.seccion ?? ""} />
-                        <Selector etiqueta="Tutor(a)" name="tutorId" defaultValue={s.tutorId ?? ""}>{opcionesProfesor}</Selector>
-                        <Boton type="submit" variante="secundario" className="self-end justify-self-start">Guardar salón</Boton>
-                      </form>
-                      <form action={eliminarSalonAction} className="flex flex-wrap items-center gap-3">
-                        <input type="hidden" name="id" value={s.id} />
-                        <Boton type="submit" variante="fantasma">Quitar salón vacío</Boton>
-                        <span className="text-xs text-pizarra">Aún no hay archivado: solo se puede quitar un salón sin alumnos ni cursos.</span>
-                      </form>
+              <h3 className="text-sm font-semibold tracking-wide text-muted-foreground uppercase">{grado === null ? "Sin grado" : `${grado}.° grado`}</h3>
+              <ul className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                {lista.map((s) => (
+                  <li key={s.id}>
+                    <Tarjeta className="flex h-full flex-col gap-3 p-4">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="min-w-0">
+                          <p className="font-heading text-lg font-semibold">{s.nombre}</p>
+                          <p className="text-sm text-muted-foreground">Sección {s.seccion ?? "—"} · {s.anio}</p>
+                        </div>
+                        <AccionesFila
+                          etiqueta={`Acciones para ${s.nombre}`}
+                          items={[
+                            {
+                              tipo: "panel", panel: "sheet", texto: "Editar salón y cursos", icono: "editar", titulo: `Editar ${s.nombre}`,
+                              descripcion: "Datos del salón y cursos con su profesor.",
+                              contenido: (
+                                <div className="flex flex-col gap-6">
+                                  <form action={editarSalonAction} className="grid gap-4 sm:grid-cols-2">
+                                    <input type="hidden" name="id" value={s.id} />
+                                    <Campo etiqueta="Nombre" name="nombre" defaultValue={s.nombre} required />
+                                    <Selector etiqueta="Nivel" name="nivel" defaultValue={s.nivel}>
+                                      {NIVELES.map(([v, t]) => <option key={v} value={v}>{t}</option>)}
+                                    </Selector>
+                                    <Campo etiqueta="Año" name="anio" type="number" defaultValue={s.anio} required />
+                                    <Campo etiqueta="Grado" name="grado" type="number" min={0} max={12} defaultValue={s.grado ?? ""} />
+                                    <Campo etiqueta="Sección" name="seccion" defaultValue={s.seccion ?? ""} />
+                                    <Selector etiqueta="Tutor(a)" name="tutorId" defaultValue={s.tutorId ?? ""}>{opcionesProfesor}</Selector>
+                                    <Boton type="submit" variante="secundario" className="justify-self-start sm:col-span-2">Guardar salón</Boton>
+                                  </form>
 
-                      <div>
-                        <h4 className="mb-2 font-semibold">Cursos</h4>
-                        <ul className="flex flex-col gap-2">
-                          {s.cursos.map((c) => (
-                            <li key={c.id} className="flex flex-wrap items-end gap-2">
-                              <form action={editarCursoAction} className="flex flex-wrap items-end gap-2">
-                                <input type="hidden" name="id" value={c.id} />
-                                <Campo etiqueta="Curso" name="nombre" defaultValue={c.nombre} required />
-                                <Selector etiqueta="Profesor(a)" name="profesorId" defaultValue={c.profesorId ?? ""}>{opcionesProfesor}</Selector>
-                                <Boton type="submit" variante="secundario">Guardar</Boton>
-                              </form>
-                              <form action={eliminarCursoAction}>
-                                <input type="hidden" name="id" value={c.id} />
-                                <Boton type="submit" variante="fantasma">Borrar</Boton>
-                              </form>
-                            </li>
-                          ))}
-                        </ul>
-                        <form action={crearCursoAction} className="mt-3 flex flex-wrap items-end gap-2 border-t border-arena pt-3">
-                          <input type="hidden" name="salonId" value={s.id} />
-                          <Campo etiqueta="Nuevo curso" name="nombre" placeholder="Matemática" required />
-                          <Selector etiqueta="Profesor(a)" name="profesorId">{opcionesProfesor}</Selector>
-                          <Boton type="submit">Agregar curso</Boton>
-                        </form>
+                                  <div className="border-t pt-5">
+                                    <h4 className="mb-3 font-semibold">Cursos</h4>
+                                    <ul className="flex flex-col gap-3">
+                                      {s.cursos.length === 0 && <li className="text-sm text-muted-foreground">Este salón aún no tiene cursos.</li>}
+                                      {s.cursos.map((c) => (
+                                        <li key={c.id} className="flex flex-wrap items-end gap-2 rounded-lg border p-3">
+                                          <form action={editarCursoAction} className="flex min-w-0 flex-1 flex-wrap items-end gap-2">
+                                            <input type="hidden" name="id" value={c.id} />
+                                            <Campo etiqueta="Curso" name="nombre" defaultValue={c.nombre} required />
+                                            <Selector etiqueta="Profesor(a)" name="profesorId" defaultValue={c.profesorId ?? ""}>{opcionesProfesor}</Selector>
+                                            <Boton type="submit" variante="secundario">Guardar</Boton>
+                                          </form>
+                                          <BotonConfirmar
+                                            etiqueta="Borrar" titulo={`¿Borrar el curso ${c.nombre}?`} descripcion="Se quita el curso del salón. Esta acción no se deshace."
+                                            confirmar="Borrar curso" accion={eliminarCursoAction} campos={{ id: c.id }} peligro variante="ghost"
+                                          />
+                                        </li>
+                                      ))}
+                                    </ul>
+                                    <form action={crearCursoAction} className="mt-4 flex flex-wrap items-end gap-2 border-t pt-4">
+                                      <input type="hidden" name="salonId" value={s.id} />
+                                      <Campo etiqueta="Nuevo curso" name="nombre" placeholder="Matemática" required />
+                                      <Selector etiqueta="Profesor(a)" name="profesorId">{opcionesProfesor}</Selector>
+                                      <Boton type="submit">Agregar curso</Boton>
+                                    </form>
+                                  </div>
+                                </div>
+                              ),
+                            },
+                            {
+                              tipo: "confirmar", texto: "Quitar salón vacío", icono: "borrar", peligro: true, titulo: `¿Quitar ${s.nombre}?`,
+                              descripcion: "Aún no hay archivado: solo se puede quitar un salón sin alumnos ni cursos.", confirmar: "Quitar salón",
+                              accion: eliminarSalonAction, campos: { id: s.id },
+                            },
+                          ]}
+                        />
                       </div>
-                    </div>
-                  </details>
-                </Tarjeta>
-              ))}
+                      <p className="text-sm"><span className="font-semibold">Tutor(a):</span> {s.tutor ? `${s.tutor.user.nombres} ${s.tutor.user.apellidos}` : <span className="text-muted-foreground">Sin asignar</span>}</p>
+                      <div className="mt-auto flex flex-wrap gap-2">
+                        <Badge variant="secondary" className="h-6 px-2.5">{s._count.alumnos} alumnos</Badge>
+                        <Badge variant="secondary" className="h-6 px-2.5">{s.cursos.length} cursos</Badge>
+                      </div>
+                    </Tarjeta>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </section>

@@ -1,6 +1,7 @@
-import { BookOpen, BriefcaseBusiness, GraduationCap, HeartHandshake, IdCard, School } from "lucide-react";
+import { ArrowRight, BookOpen, BriefcaseBusiness, GraduationCap, HeartHandshake, IdCard, School } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { exigirGestion } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 
@@ -26,15 +27,23 @@ export default async function GestionPage({ params }: PageProps<"/colegio/[slug]
     { href: "/gestion/carnets", titulo: "Carnets", detalle: "Carnets QR por salón", Icono: IdCard },
   ];
   return (
-    <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold">Gestión</h1>
-      <ul className="grid gap-4 sm:grid-cols-2">
+    <div>
+      <EncabezadoPagina titulo="Gestión" descripcion="Personas, salones y carnets del colegio en un solo lugar." />
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {tarjetas.map(({ href, titulo, detalle, Icono }) => (
           <li key={href}>
-            <Link href={href} className="flex flex-col gap-2 rounded-lg border border-arena bg-superficie p-5 transition hover:border-acento">
-              <Icono className="h-7 w-7 text-acento" strokeWidth={2} aria-hidden />
-              <span className="font-titulo text-lg font-semibold">{titulo}</span>
-              <span className="text-sm text-pizarra">{detalle}</span>
+            <Link
+              href={href}
+              className="group flex h-full min-h-40 flex-col gap-3 rounded-xl border bg-card p-5 text-card-foreground shadow-xs transition-colors hover:border-primary/40 hover:bg-accent/50 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+            >
+              <span className="flex items-start justify-between">
+                <span className="flex size-11 items-center justify-center rounded-lg bg-accent text-primary">
+                  <Icono className="size-6" strokeWidth={2} aria-hidden />
+                </span>
+                <ArrowRight className="size-5 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary" strokeWidth={2} aria-hidden />
+              </span>
+              <span className="font-heading text-lg font-semibold">{titulo}</span>
+              <span className="text-sm text-muted-foreground">{detalle}</span>
             </Link>
           </li>
         ))}
