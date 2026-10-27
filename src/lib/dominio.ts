@@ -1,7 +1,7 @@
 // Construcción y lectura de URLs por colegio: <slug>.<APP_BASE_DOMAIN>.
 // Sin dependencias de servidor: se usa también en proxy.ts.
 
-const SUBDOMINIOS_RESERVADOS = new Set(["www", "app", "api", "admin"]);
+export const SUBDOMINIOS_RESERVADOS: ReadonlySet<string> = new Set(["www", "app", "api", "admin"]);
 
 export function baseDomain(): string {
   return process.env.APP_BASE_DOMAIN ?? "lvh.me:3000";
