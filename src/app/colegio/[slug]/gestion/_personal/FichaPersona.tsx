@@ -1,4 +1,4 @@
-import { ArrowLeft, Pencil } from "lucide-react";
+import { ArrowLeft, Info, Pencil } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
@@ -8,7 +8,7 @@ import { Tarjeta } from "@/components/ui/Tarjeta";
 import { NOMBRE_ROL } from "@/lib/roles";
 import { obtenerFicha, ROLES_NO_DOCENTES, type RolPersonal } from "@/lib/server/personal";
 import type { TenantContext } from "@/lib/server/tenant";
-import { cambiarEstadoMembresiaAction, editarPersonaAction, reenviarBienvenidaAction, reenviarInvitacionAction } from "../actions";
+import { cambiarEstadoMembresiaAction, editarPersonaAction, reenviarBienvenidaAction, reenviarInvitacionAction, restablecerPasswordAction } from "../actions";
 import { AccionesFila } from "../_componentes/AccionesFila";
 import { AvatarPersona } from "../_componentes/AvatarPersona";
 import { PanelFormulario } from "../_componentes/PanelFormulario";
@@ -25,6 +25,7 @@ function resumen(d: Record<string, unknown> | null): string {
   if (Array.isArray(d.campos)) partes.push(d.campos.length > 0 ? `Cambió: ${d.campos.join(", ")}` : "Sin cambios en los datos");
   if (typeof d.estado === "string") partes.push(`Estado: ${d.estado}`);
   if (typeof d.rol === "string") partes.push(`Rol: ${d.rol}`);
+  if (typeof d.reinicioPassword === "string") partes.push("Contraseña restablecida al documento");
   if (typeof d.reenvio === "string") partes.push(`Reenvío de ${d.reenvio}`);
   return partes.join(" · ");
 }
@@ -69,7 +70,7 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
             variante="outline"
             boton={<><Pencil strokeWidth={2} aria-hidden /> Editar datos</>}
             titulo="Datos personales"
-            descripcion="Estos datos son de la persona en todos los colegios donde trabaje. Cambiar el documento no cambia su contraseña."
+            descripcion="Estos datos son de la persona en todos los colegios donde trabaje. Cambiar el documento no cambia su contraseña: para eso usa «Restablecer contraseña al documento» en «Más acciones»."
           >
             <form action={editarPersonaAction} className="grid gap-4 sm:grid-cols-2">
               <input type="hidden" name="id" value={f.id} />
@@ -82,6 +83,12 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
                   genero: u.genero, fechaNacimiento: u.fechaNacimiento?.toISOString().slice(0, 10), direccion: u.direccion, cargo: f.cargo,
                 }}
               />
+              {f.otrosColegios > 0 && (
+                <p role="note" className="flex items-start gap-2 rounded-lg border border-tarde/40 bg-tarde-fondo p-3 text-sm text-tarde sm:col-span-2">
+                  <Info className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
+                  Estos datos también se ven en los otros colegios de esta persona. El cambio queda en la auditoría de cada colegio.
+                </p>
+              )}
               <p className="text-sm text-muted-foreground sm:col-span-2">Correo (usuario): <strong className="text-foreground">{u.email}</strong></p>
               <Boton type="submit" className="justify-self-start sm:col-span-2">Guardar datos</Boton>
             </form>
@@ -94,6 +101,22 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
                 descripcion: `Enviaremos de nuevo el correo de bienvenida a ${u.email}.`, confirmar: "Reenviar bienvenida",
                 accion: reenviarBienvenidaAction, campos: { id: f.id, volver },
               },
+              ...(u.numeroDocumento
+                ? [
+                    {
+                      tipo: "confirmar" as const, texto: "Restablecer contraseña al documento", icono: "reactivar" as const, peligro: true,
+                      titulo: "¿Restablecer la contraseña al documento?",
+                      descripcion: `La contraseña de ${u.nombres} volverá a ser su número de documento actual y tendrá que cambiarla al entrar. Úsalo si corregiste el documento y la contraseña inicial quedó con el número anterior. No se muestra la contraseña.${f.otrosColegios > 0 ? " Su cuenta es la misma en los otros colegios donde está." : ""}`,
+                      confirmar: "Restablecer contraseña", accion: restablecerPasswordAction, campos: { id: f.id, volver },
+                    },
+                    {
+                      tipo: "confirmar" as const, texto: "Restablecer y avisar por correo", icono: "enviar" as const, peligro: true,
+                      titulo: "¿Restablecer la contraseña y reenviar la bienvenida?",
+                      descripcion: `Además de volver la contraseña al documento, enviaremos de nuevo el correo de bienvenida a ${u.email} (sin el número de documento).`,
+                      confirmar: "Restablecer y avisar", accion: restablecerPasswordAction, campos: { id: f.id, volver, avisar: "1" },
+                    },
+                  ]
+                : []),
               ...(f.estado === "invitada"
                 ? [{
                     tipo: "confirmar" as const, texto: "Reenviar invitación", icono: "enviar" as const, titulo: "¿Reenviar la invitación?",

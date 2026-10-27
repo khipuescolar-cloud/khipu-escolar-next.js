@@ -44,7 +44,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
   const sp = await searchParams;
   const ctx = await requireTenantContext(slug);
   requireFeature(ctx, "agenda");
-  if (ctx.rol !== "apoderado" && ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();
+  if (ctx.rol !== "apoderado" && ctx.rol !== "profesor" && ctx.rol !== "direccion" && ctx.rol !== "administrativo") forbidden();
 
   const hoy = fechaLima(new Date());
   const f = Array.isArray(sp.fecha) ? sp.fecha[0] : sp.fecha;
@@ -90,8 +90,8 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
               >
                 <div className="sm:col-span-2"><Campo etiqueta="Título" name="titulo" required maxLength={150} /></div>
                 <Selector etiqueta="Tipo" name="tipo"><OpcionesTipo /></Selector>
-                <Selector etiqueta="Para" name="salonId" defaultValue={ctx.rol === "direccion" ? "" : salones[0]?.id}>
-                  {ctx.rol === "direccion" && <option value="">Todo el colegio</option>}
+                <Selector etiqueta="Para" name="salonId" defaultValue={ctx.rol === "profesor" ? salones[0]?.id : ""}>
+                  {ctx.rol !== "profesor" && <option value="">Todo el colegio</option>}
                   {salones.map((s) => <option key={s.id} value={s.id}>{s.nombre}</option>)}
                 </Selector>
                 <Campo etiqueta="Fecha" name="fecha" type="date" required defaultValue={fecha} />

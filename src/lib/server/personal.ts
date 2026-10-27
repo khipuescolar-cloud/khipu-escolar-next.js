@@ -8,7 +8,8 @@ import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { crearCuentaConDocumento, encolarBienvenida, ErrorCuenta, esquemaDocumento, esquemaPersona } from "./cuentas";
 import { db } from "./db";
-import { exigirGestion } from "./gestion";
+import { auditarCambioGlobal, exigirGestion, otrosColegiosDe } from "./gestion";
+import { supabaseAdmin } from "./supabase";
 import type { TenantContext } from "./tenant";
 
 // CRM del colegio: profesores y personal (specs/17-crm-personal-colegio.md). Solo dirección.
@@ -172,7 +173,8 @@ export async function obtenerFicha(ctx: TenantContext, membershipId: string, rol
     fecha: e.createdAt,
     detalle: (e.detalle ?? null) as Record<string, unknown> | null,
   }));
-  return { ...m, historial };
+  const otrosColegios = await otrosColegiosDe(ctx, m.user.id);
+  return { ...m, historial, otrosColegios };
 }
 
 const esquemaEdicion = z
@@ -215,6 +217,29 @@ export async function editarFicha(ctx: TenantContext, membershipId: string, role
   await ctx.db.membership.update({ where: { id: m.id }, data: { cargo: d.cargo } });
   // Solo se guardan los NOMBRES de los campos cambiados, nunca los valores (p. ej. el documento).
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: m.id, detalle: { campos: modificados } });
+  // El perfil es global: si cambió algo que ven los otros colegios de la persona, queda auditado también allí.
+  await auditarCambioGlobal(ctx, m.userId, modificados);
+}
+
+/**
+ * Restablece la contraseña de la cuenta al número de documento actual (para cuando se corrigió el documento y la
+ * contraseña inicial quedó con el valor viejo) y obliga a cambiarla en el próximo ingreso. Solo dirección.
+ * Nunca devuelve ni registra la contraseña. Con `avisar` encola de nuevo el correo de bienvenida (sin el número).
+ * Si la persona tiene membresías en otros colegios, también se le reinicia allí (la cuenta es una sola): se advierte en la UI.
+ */
+export async function restablecerPasswordAlDocumento(ctx: TenantContext, membershipId: string, opciones: { avisar?: boolean } = {}): Promise<{ otrosColegios: number }> {
+  exigirGestion(ctx);
+  const m = await ctx.db.membership.findFirst({ where: { id: membershipId, rol: { in: ROLES_PERSONAL } }, select: { id: true, userId: true } });
+  if (!m) throw new ErrorDeNegocio("No se encontró a esa persona.");
+  const perfil = await db.profile.findUniqueOrThrow({ where: { id: m.userId }, select: { tipoDocumento: true, numeroDocumento: true } });
+  const doc = esquemaDocumento.safeParse({ tipoDocumento: perfil.tipoDocumento ?? "dni", numeroDocumento: perfil.numeroDocumento ?? "" });
+  if (!doc.success) throw new ErrorDeNegocio("Esta persona no tiene un documento válido. Corrígelo en «Editar datos» y vuelve a intentarlo.");
+  const { error } = await supabaseAdmin().auth.admin.updateUserById(m.userId, { password: doc.data.numeroDocumento });
+  if (error) throw new ErrorDeNegocio("No se pudo restablecer la contraseña. Inténtalo de nuevo en unos minutos.");
+  await db.profile.update({ where: { id: m.userId }, data: { debeCambiarPassword: true } });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: m.id, detalle: { reinicioPassword: "documento", avisoEnviado: Boolean(opciones.avisar) } });
+  if (opciones.avisar) await reenviarBienvenida(ctx, m.id);
+  return { otrosColegios: await otrosColegiosDe(ctx, m.userId) };
 }
 
 // ───────────── Importación CSV ─────────────

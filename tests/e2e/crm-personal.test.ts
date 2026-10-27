@@ -135,5 +135,45 @@ test("personal administrativo: dirección lo registra y ve su inicio con Comunic
   await p2.getByRole("main").getByRole("link", { name: /Comunicados/ }).click();
   await expect(p2.getByRole("heading", { name: "Comunicados" })).toBeVisible();
   expect((await p2.goto(`${COLEGIO}/gestion/personal`))?.status()).toBe(403);
+  // Permisos del administrativo: alumnos y familias sí; profesores, salones y configuración no; el chat tampoco.
+  await p2.goto(`${COLEGIO}/gestion/alumnos`);
+  await expect(p2.getByRole("heading", { name: "Alumnos", exact: true })).toBeVisible();
+  await p2.goto(`${COLEGIO}/gestion/apoderados`);
+  await expect(p2.getByRole("heading", { name: "Familias", exact: true })).toBeVisible();
+  await p2.getByLabel("Buscar familia").fill("zzz-no-existe");
+  await p2.getByRole("button", { name: "Buscar" }).click();
+  await expect(p2.getByText("No encontramos familias con esa búsqueda")).toBeVisible();
+  for (const ruta of ["gestion/profesores", "gestion/salones", "configuracion", "mensajes"]) {
+    expect((await p2.goto(`${COLEGIO}/${ruta}`))?.status(), ruta).toBe(403);
+  }
   await ctx.close();
+});
+
+test("dirección archiva un salón y lo reactiva", async ({ page }) => {
+  const nombre = `Archivo E2E ${azar}`;
+  await entrar(page, "direccion@nuevohorizonte.demo", "demo123");
+  await page.waitForURL(`${COLEGIO}/inicio`);
+  await page.goto(`${COLEGIO}/gestion/salones`);
+  await page.getByRole("button", { name: "Crear salón" }).first().click();
+  await page.getByLabel("Nombre").fill(nombre);
+  await page.getByRole("button", { name: "Crear salón" }).last().click();
+  await expect(page.getByText("Salón creado.")).toBeVisible();
+  const tarjeta = page.getByRole("main").locator("li", { hasText: nombre });
+  await tarjeta.getByRole("button", { name: `Acciones para ${nombre}` }).click();
+  await page.getByRole("menuitem", { name: "Archivar salón" }).click();
+  await page.getByRole("button", { name: "Archivar salón" }).click();
+  await expect(page.getByText("Salón archivado.")).toBeVisible();
+  await expect(page.getByRole("main").getByText(nombre)).toHaveCount(0);
+  await page.getByRole("link", { name: "Ver archivados" }).click();
+  await expect(page.getByRole("main").getByText(nombre)).toBeVisible();
+  await page.getByRole("button", { name: `Acciones para ${nombre}` }).click();
+  await page.getByRole("menuitem", { name: "Reactivar salón" }).click();
+  await page.getByRole("button", { name: "Reactivar salón" }).click();
+  await expect(page.getByText("Salón reactivado.")).toBeVisible();
+
+  const cliente = new Client({ connectionString: process.env.DATABASE_URL });
+  await cliente.connect();
+  await cliente.query("delete from auditoria where entidad = 'salon' and entidad_id in (select id::text from salones where nombre = $1)", [nombre]);
+  await cliente.query("delete from salones where nombre = $1", [nombre]);
+  await cliente.end();
 });

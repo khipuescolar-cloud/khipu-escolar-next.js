@@ -1,5 +1,6 @@
-import { CheckCircle2, Clock, HeartHandshake, UserPlus, XCircle } from "lucide-react";
+import { CheckCircle2, Clock, HeartHandshake, Info, Search, UserPlus, XCircle } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -8,10 +9,11 @@ import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { Tarjeta } from "@/components/ui/Tarjeta";
-import { listarAlumnos, listarApoderados } from "@/lib/server/gestion";
+import { FAMILIAS_POR_PAGINA, listarAlumnos, listarApoderados } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { cambiarEstadoMembresiaAction, desvincularApoderadoAction, invitarApoderadoAction, reenviarInvitacionAction, vincularApoderadoAction } from "../actions";
+import { cambiarEstadoMembresiaAction, desvincularApoderadoAction, editarApoderadoAction, invitarApoderadoAction, reenviarInvitacionAction, vincularApoderadoAction } from "../actions";
 import { AccionesFila, type ItemFila } from "../_componentes/AccionesFila";
 import { AvatarPersona } from "../_componentes/AvatarPersona";
 import { PanelFormulario } from "../_componentes/PanelFormulario";
@@ -26,9 +28,17 @@ const CONSENTIMIENTO = {
 
 export default async function ApoderadosPage({ params, searchParams }: PageProps<"/colegio/[slug]/gestion/apoderados">) {
   const { slug } = await params;
-  const { ok, error } = await searchParams;
-  const ctx = await requireTenantContext(slug, ["direccion"]);
-  const [apoderados, alumnos] = await Promise.all([listarApoderados(ctx), listarAlumnos(ctx)]);
+  const sp = await searchParams;
+  const { ok, error } = sp;
+  const uno = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
+  const q = uno(sp.q)?.trim().slice(0, 80) || undefined;
+  const ctx = await requireTenantContext(slug, ["direccion", "administrativo"]);
+  const [{ familias: apoderados, total, pagina, paginas }, alumnos] = await Promise.all([
+    listarApoderados(ctx, { q, pagina: Number(uno(sp.pagina)) || 1 }),
+    listarAlumnos(ctx),
+  ]);
+  const hrefPagina = (n: number) => `/gestion/apoderados?${new URLSearchParams({ ...(q ? { q } : {}), ...(n > 1 ? { pagina: String(n) } : {}) }).toString()}`.replace(/\?$/, "");
+  const numeros = Array.from({ length: paginas }, (_, i) => i + 1).filter((n) => n === 1 || n === paginas || Math.abs(n - pagina) <= 1);
   const opcionesAlumno = alumnos.map((a) => <option key={a.id} value={a.id}>{a.apellidos}, {a.nombres} ({a.salon.nombre})</option>);
 
   return (
@@ -57,14 +67,45 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
         <Flash ok={ok} error={error} />
       </div>
 
+      <Tarjeta className="p-4">
+        <form method="get" className="flex flex-wrap items-end gap-3" role="search">
+          <Campo etiqueta="Buscar familia" name="q" type="search" defaultValue={q ?? ""} placeholder={ctx.rol === "direccion" ? "Nombre, correo, documento o alumno" : "Nombre, correo o alumno"} />
+          <Boton type="submit" variante="secundario"><Search strokeWidth={2} aria-hidden /> Buscar</Boton>
+          {q && <Link href="/gestion/apoderados" className="inline-flex h-10 items-center px-2 text-sm font-semibold text-primary hover:underline">Limpiar</Link>}
+        </form>
+      </Tarjeta>
+
       {apoderados.length === 0 ? (
-        <EstadoVacio icono={HeartHandshake} titulo="Aún no hay familias registradas" descripcion="Invita al primer apoderado con el botón «Invitar apoderado»." />
+        q ? (
+          <EstadoVacio icono={Search} titulo="No encontramos familias con esa búsqueda" descripcion="Prueba con otro nombre, correo o con el nombre del alumno." />
+        ) : (
+          <EstadoVacio icono={HeartHandshake} titulo="Aún no hay familias registradas" descripcion="Invita al primer apoderado con el botón «Invitar apoderado»." />
+        )
       ) : (
         <ul className="grid gap-4 lg:grid-cols-2">
           {apoderados.map((a) => {
             const c = CONSENTIMIENTO[a.consentimiento];
             const nombre = `${a.user.nombres} ${a.user.apellidos}`;
             const items: ItemFila[] = [
+              {
+                tipo: "panel", texto: "Editar datos", icono: "editar", titulo: `Datos de ${nombre}`,
+                descripcion: "Nombres, apellidos y teléfono de contacto.",
+                contenido: (
+                  <form action={editarApoderadoAction} className="grid gap-4 sm:grid-cols-2">
+                    <input type="hidden" name="id" value={a.id} />
+                    <Campo etiqueta="Nombres" name="nombres" defaultValue={a.user.nombres} required />
+                    <Campo etiqueta="Apellidos" name="apellidos" defaultValue={a.user.apellidos} required />
+                    <Campo etiqueta="Teléfono" name="telefono" defaultValue={a.user.telefono ?? ""} />
+                    {a.otrosColegios && (
+                      <p role="note" className="flex items-start gap-2 rounded-lg border border-tarde/40 bg-tarde-fondo p-3 text-sm text-tarde sm:col-span-2">
+                        <Info className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
+                        Estos datos también se ven en los otros colegios de esta persona.
+                      </p>
+                    )}
+                    <Boton type="submit" className="justify-self-start sm:col-span-2">Guardar datos</Boton>
+                  </form>
+                ),
+              },
               {
                 tipo: "panel", texto: "Vincular otro alumno", icono: "vincular", titulo: `Vincular un alumno a ${nombre}`,
                 contenido: (
@@ -138,6 +179,23 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
           })}
         </ul>
       )}
+
+      <div className="flex flex-col items-center gap-3">
+        <p className="text-xs text-muted-foreground">
+          {total} {total === 1 ? "familia" : "familias"}{paginas > 1 ? ` · página ${pagina} de ${paginas} (${FAMILIAS_POR_PAGINA} por página)` : ""}.
+        </p>
+        {paginas > 1 && (
+          <Pagination aria-label="Paginación de familias">
+            <PaginationContent>
+              {pagina > 1 && <PaginationItem><PaginationPrevious href={hrefPagina(pagina - 1)} text="Anterior" /></PaginationItem>}
+              {numeros.map((n) => (
+                <PaginationItem key={n}><PaginationLink href={hrefPagina(n)} isActive={n === pagina}>{n}</PaginationLink></PaginationItem>
+              ))}
+              {pagina < paginas && <PaginationItem><PaginationNext href={hrefPagina(pagina + 1)} text="Siguiente" /></PaginationItem>}
+            </PaginationContent>
+          </Pagination>
+        )}
+      </div>
     </div>
   );
 }

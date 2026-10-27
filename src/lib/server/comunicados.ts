@@ -5,7 +5,11 @@ import { urlColegio } from "@/lib/dominio";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
+import { salonEsActivo, whereSalonActivo } from "./salones-activos";
 import { salonIdsVisibles, type TenantContext } from "./tenant";
+
+/** Roles que publican para todo el colegio o cualquier salón (el profesor, solo sus salones). */
+const esGeneral = (rol: string) => rol === "direccion" || rol === "administrativo";
 
 // Comunicados (specs/09-comunicados.md).
 
@@ -32,7 +36,7 @@ export function esEditable(publicadoAt: Date, ahora = new Date()): boolean {
 }
 
 export async function listarComunicados(ctx: TenantContext): Promise<ComunicadoVista[]> {
-  const salonIds = ctx.rol === "direccion" ? null : await salonIdsVisibles(ctx);
+  const salonIds = esGeneral(ctx.rol) ? null : await salonIdsVisibles(ctx);
   const filas = await ctx.db.comunicado.findMany({
     where: salonIds ? { OR: [{ salonId: null }, { salonId: { in: salonIds } }] } : {},
     orderBy: { publicadoAt: "desc" },
@@ -52,9 +56,9 @@ export async function listarComunicados(ctx: TenantContext): Promise<ComunicadoV
 
 /** Salones en los que el usuario puede publicar (dirección: todos; profesor: donde es tutor o dicta). */
 export async function salonesParaPublicar(ctx: TenantContext) {
-  if (ctx.rol !== "direccion" && ctx.rol !== "profesor") return [];
-  const ids = await salonIdsVisibles(ctx);
-  return ctx.db.salon.findMany({ where: { id: { in: ids } }, select: { id: true, nombre: true }, orderBy: { nombre: "asc" } });
+  if (!esGeneral(ctx.rol) && ctx.rol !== "profesor") return [];
+  const ids = esGeneral(ctx.rol) ? undefined : await salonIdsVisibles(ctx);
+  return ctx.db.salon.findMany({ where: { ...(ids ? { id: { in: ids } } : {}), ...whereSalonActivo }, select: { id: true, nombre: true }, orderBy: { nombre: "asc" } });
 }
 
 function validar(entrada: { titulo: string; cuerpo: string; salonId: string | null }) {
@@ -65,11 +69,12 @@ function validar(entrada: { titulo: string; cuerpo: string; salonId: string | nu
 
 /** Dirección publica para todo el colegio o un salón; el profesor solo para sus salones. Encola un aviso por familia con consentimiento. */
 export async function publicarComunicado(ctx: TenantContext, entrada: { titulo: string; cuerpo: string; salonId: string | null }): Promise<{ id: string; avisados: number }> {
-  if (ctx.rol !== "direccion" && ctx.rol !== "profesor") forbidden();
+  if (!esGeneral(ctx.rol) && ctx.rol !== "profesor") forbidden();
   const datos = validar(entrada);
   if (datos.salonId) {
-    if (!(await salonIdsVisibles(ctx)).includes(datos.salonId)) forbidden();
-  } else if (ctx.rol !== "direccion") {
+    if (ctx.rol === "profesor" && !(await salonIdsVisibles(ctx)).includes(datos.salonId)) forbidden();
+    if (!(await salonEsActivo(ctx, datos.salonId))) throw new ErrorDeNegocio("Ese salón está archivado o no existe.");
+  } else if (ctx.rol === "profesor") {
     throw new ErrorDeNegocio("Elige uno de tus salones.");
   }
 

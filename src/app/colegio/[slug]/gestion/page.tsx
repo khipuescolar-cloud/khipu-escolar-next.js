@@ -2,23 +2,25 @@ import { ArrowRight, BookOpen, BriefcaseBusiness, GraduationCap, HeartHandshake,
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
-import { exigirGestion } from "@/lib/server/gestion";
+import { exigirAlumnosFamilias } from "@/lib/server/gestion";
+import { whereSalonActivo } from "@/lib/server/salones-activos";
 import { requireTenantContext } from "@/lib/server/tenant";
 
 export const metadata: Metadata = { title: "Gestión" };
 
 export default async function GestionPage({ params }: PageProps<"/colegio/[slug]/gestion">) {
   const { slug } = await params;
-  const ctx = await requireTenantContext(slug, ["direccion"]);
-  exigirGestion(ctx);
+  const ctx = await requireTenantContext(slug, ["direccion", "administrativo"]);
+  exigirAlumnosFamilias(ctx);
+  const esDireccion = ctx.rol === "direccion";
   const [profesores, personal, salones, alumnos, familias] = await Promise.all([
     ctx.db.membership.count({ where: { rol: "profesor", estado: "activa" } }),
     ctx.db.membership.count({ where: { rol: { in: ["administrativo", "porteria"] }, estado: "activa" } }),
-    ctx.db.salon.count(),
+    ctx.db.salon.count({ where: whereSalonActivo }),
     ctx.db.alumno.count({ where: { estado: "activo" } }),
     ctx.db.membership.count({ where: { rol: "apoderado", estado: "activa" } }),
   ]);
-  const tarjetas = [
+  const todas = [
     { href: "/gestion/profesores", titulo: "Profesores", detalle: `${profesores} activos · datos personales y correos`, Icono: GraduationCap },
     { href: "/gestion/personal", titulo: "Personal", detalle: `${personal} activos · administrativos y portería`, Icono: BriefcaseBusiness },
     { href: "/gestion/salones", titulo: "Grados y salones", detalle: `${salones} salones · tutores y cursos`, Icono: School },
@@ -26,9 +28,10 @@ export default async function GestionPage({ params }: PageProps<"/colegio/[slug]
     { href: "/gestion/apoderados", titulo: "Familias", detalle: `${familias} cuentas`, Icono: HeartHandshake },
     { href: "/gestion/carnets", titulo: "Carnets", detalle: "Carnets QR por salón", Icono: IdCard },
   ];
+  const tarjetas = esDireccion ? todas : todas.filter((t) => t.href === "/gestion/alumnos" || t.href === "/gestion/apoderados");
   return (
     <div>
-      <EncabezadoPagina titulo="Gestión" descripcion="Personas, salones y carnets del colegio en un solo lugar." />
+      <EncabezadoPagina titulo="Gestión" descripcion={esDireccion ? "Personas, salones y carnets del colegio en un solo lugar." : "Alumnos y familias del colegio."} />
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {tarjetas.map(({ href, titulo, detalle, Icono }) => (
           <li key={href}>

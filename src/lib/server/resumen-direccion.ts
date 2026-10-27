@@ -1,4 +1,5 @@
 import "server-only";
+import { whereSalonActivo } from "./salones-activos";
 import type { TenantContext } from "./tenant";
 
 // Resumen del día para el inicio de dirección: asistencia por salón.
@@ -13,7 +14,7 @@ export type ResumenSalon = { salonId: string; salon: string; llego: number; tard
 export async function resumenAsistenciaHoy(ctx: TenantContext): Promise<ResumenSalon[]> {
   const fecha = new Date(`${hoyEnZona(ctx.tenant.zonaHoraria)}T00:00:00.000Z`);
   const [salones, asistencias] = await Promise.all([
-    ctx.db.salon.findMany({ orderBy: { nombre: "asc" }, select: { id: true, nombre: true, alumnos: { where: { estado: "activo" }, select: { id: true } } } }),
+    ctx.db.salon.findMany({ where: whereSalonActivo, orderBy: { nombre: "asc" }, select: { id: true, nombre: true, alumnos: { where: { estado: "activo" }, select: { id: true } } } }),
     ctx.db.asistencia.findMany({ where: { fecha }, select: { alumnoId: true, ambito: true, estado: true, hora: true } }),
   ]);
   // Por alumno prevalece la asistencia del día; si no hay, la primera registrada.

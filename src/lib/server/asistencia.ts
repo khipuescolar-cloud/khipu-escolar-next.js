@@ -8,6 +8,7 @@ import { primerNombre } from "@/lib/nombres";
 import { auditar } from "./auditoria";
 import { encolarAvisosAsistencia } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
+import { whereSalonActivo } from "./salones-activos";
 import { alumnoIdsVisibles, requireCursoDelProfesor, type TenantContext } from "./tenant";
 
 // Pasar lista y ver asistencia (specs/04-asistencia.md).
@@ -23,9 +24,10 @@ export async function opcionesDeLista(ctx: TenantContext): Promise<OpcionLista[]
   if (ctx.rol !== "direccion" && ctx.rol !== "profesor") forbidden();
   const esDireccion = ctx.rol === "direccion";
   const salones = await ctx.db.salon.findMany({
-    where: esDireccion
-      ? {}
-      : { OR: [{ tutorId: ctx.membership.id }, { cursos: { some: { profesorId: ctx.membership.id } } }] },
+    where: {
+      ...whereSalonActivo,
+      ...(esDireccion ? {} : { OR: [{ tutorId: ctx.membership.id }, { cursos: { some: { profesorId: ctx.membership.id } } }] }),
+    },
     orderBy: { nombre: "asc" },
     select: { id: true, nombre: true, tutorId: true, cursos: { orderBy: { nombre: "asc" }, select: { id: true, nombre: true, profesorId: true } } },
   });
@@ -46,8 +48,8 @@ export async function opcionesDeLista(ctx: TenantContext): Promise<OpcionLista[]
 async function requireLista(ctx: TenantContext, salonId: string, ambito: string) {
   requireFeature(ctx, "asistencia");
   if (ctx.rol !== "direccion" && ctx.rol !== "profesor") forbidden();
-  const salon = await ctx.db.salon.findUnique({ where: { id: salonId }, select: { id: true, nombre: true, tutorId: true } });
-  if (!salon) notFound();
+  const salon = await ctx.db.salon.findUnique({ where: { id: salonId }, select: { id: true, nombre: true, tutorId: true, archivadoAt: true } });
+  if (!salon || salon.archivadoAt) notFound();
   if (ambito === AMBITO_DIA) {
     if (ctx.rol !== "direccion" && salon.tutorId !== ctx.membership.id) forbidden();
     return { salon, curso: null };

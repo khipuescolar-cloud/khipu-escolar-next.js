@@ -1,7 +1,7 @@
 import "server-only";
 import type { EstadoAviso, TipoAviso } from "@/generated/prisma/enums";
 import { auditar } from "./auditoria";
-import { exigirGestion } from "./gestion";
+import { exigirAlumnosFamilias } from "./gestion";
 import type { TenantContext } from "./tenant";
 
 // Tabla de avisos y tasa de apertura semanal para dirección (specs/10 · /avisos).
@@ -16,7 +16,7 @@ export function porcentajeApertura(enviados: number, abiertos: number): number |
 export type FiltroAvisos = { estado?: EstadoAviso; tipo?: TipoAviso; q?: string };
 
 export async function panelAvisos(ctx: TenantContext, filtro: FiltroAvisos) {
-  exigirGestion(ctx);
+  exigirAlumnosFamilias(ctx); // solo lectura; el administrativo también
   const desde = new Date(Date.now() - 7 * 24 * 3600_000);
   const [avisos, enviados, abiertos] = await Promise.all([
     ctx.db.aviso.findMany({
