@@ -1,8 +1,9 @@
-import { ArrowLeft, Ban, RefreshCw } from "lucide-react";
+import { ArrowLeft, Ban, Download, RefreshCw } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Boton } from "@/components/ui/Boton";
+import { buttonVariants } from "@/components/ui/button";
 import { urlLogoColegio } from "@/lib/server/logo";
 import { carnetsParaImprimir } from "@/lib/server/porteria";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -29,6 +30,16 @@ export default async function ImprimirCarnetsPage({ params }: PageProps<"/colegi
             <form action={generarCarnetsAction.bind(null, slug, salon.id)}>
               <Boton type="submit" variante="secundario">Generar {sinCarnet} faltantes</Boton>
             </form>
+          )}
+          {sinCarnet < carnets.length && (
+            <>
+              <a href={`/api/carnets/${salon.id}?formato=a4`} className={buttonVariants({ variant: "outline" })}>
+                <Download strokeWidth={2} aria-hidden /> Descargar PDF (A4, 8 por hoja)
+              </a>
+              <a href={`/api/carnets/${salon.id}?formato=cr80`} className={buttonVariants({ variant: "outline" })}>
+                <Download strokeWidth={2} aria-hidden /> Descargar PDF (tamaño tarjeta)
+              </a>
+            </>
           )}
           <BotonImprimir />
         </div>

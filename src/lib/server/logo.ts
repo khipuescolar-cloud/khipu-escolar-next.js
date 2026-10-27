@@ -29,15 +29,22 @@ export async function urlLogoColegio(tenant: TenantLogo): Promise<string | null>
   return storage().urlTemporal(archivo, SEGUNDOS_URL_TEMPORAL);
 }
 
-/** Bytes del logo para incrustarlo en un PDF (solo PNG y JPG: es lo que admite el generador). */
+/** Bytes del logo para incrustarlo en un PDF: PNG y JPG tal cual; WEBP o SVG se convierten a PNG con sharp (el generador no los admite). */
 export async function logoParaPdf(tenant: TenantLogo): Promise<{ data: Buffer; format: "png" | "jpg" } | null> {
   const archivo = await archivoDelLogo(tenant);
-  if (!archivo || (archivo.mimeType !== "image/png" && archivo.mimeType !== "image/jpeg")) return null;
-  const format = archivo.mimeType === "image/png" ? "png" : "jpg";
+  if (!archivo || !archivo.mimeType.startsWith("image/")) return null;
   try {
-    if (archivo.proveedor === "local") return { data: await leerArchivoLocal(archivo.publicId), format };
-    const respuesta = await fetch(await storage().urlTemporal(archivo, SEGUNDOS_URL_TEMPORAL));
-    return respuesta.ok ? { data: Buffer.from(await respuesta.arrayBuffer()), format } : null;
+    let data: Buffer;
+    if (archivo.proveedor === "local") data = await leerArchivoLocal(archivo.publicId);
+    else {
+      const respuesta = await fetch(await storage().urlTemporal(archivo, SEGUNDOS_URL_TEMPORAL));
+      if (!respuesta.ok) return null;
+      data = Buffer.from(await respuesta.arrayBuffer());
+    }
+    if (archivo.mimeType === "image/png") return { data, format: "png" };
+    if (archivo.mimeType === "image/jpeg") return { data, format: "jpg" };
+    const { default: sharp } = await import("sharp");
+    return { data: await sharp(data).png().toBuffer(), format: "png" };
   } catch {
     return null;
   }

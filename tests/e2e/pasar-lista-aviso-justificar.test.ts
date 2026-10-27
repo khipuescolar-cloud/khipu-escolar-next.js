@@ -67,6 +67,6 @@ test("Lucía pasa lista, la familia recibe el aviso de falta y lo justifica con 
 
   // 5) El enlace es de un solo uso.
   await pagina.reload();
-  await expect(pagina.getByText("Este enlace ya se usó o venció. Escríbele a la tutora desde Khipu.")).toBeVisible();
+  await expect(pagina.getByText("Este enlace ya se usó o no es válido. Escríbele a la tutora desde Khipu.")).toBeVisible();
   await familia.close();
 });

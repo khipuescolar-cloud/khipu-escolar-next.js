@@ -1,14 +1,23 @@
 "use client";
 
 import type { IScannerControls } from "@zxing/browser";
-import { Camera, CameraOff, Loader2, Maximize, ScanLine, Search, UserRound, XCircle } from "lucide-react";
+import { Camera, CameraOff, CloudOff, Loader2, Maximize, ScanLine, Search, UserRound, XCircle } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
+import { toast } from "sonner";
 import { EstadoAsistencia, ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
+import { IndicadorSinConexion } from "@/components/IndicadorSinConexion";
 import { Boton } from "@/components/ui/Boton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { useColaOffline } from "@/lib/cliente/cola-offline";
+import { esErrorDeRed, textoPendientes, type ResultadoEnvio } from "@/lib/registro-offline";
+import { tokenDesdeQr } from "@/lib/token-qr";
 import type { ResultadoPorteria } from "@/lib/server/porteria";
+import { colaEscaneos, type EscaneoPendiente } from "./colaEscaneos";
 import { buscarAlumnosAction, registrarManualAction, registrarPorQrAction } from "./actions";
+
+/** Resultado mostrado en pantalla: el del servidor o «guardado sin conexión» (no se muestran datos del alumno). */
+type ResultadoLocal = ResultadoPorteria | { ok: true; tipo: "sin-conexion" };
 
 type Encontrado = Awaited<ReturnType<typeof buscarAlumnosAction>>[number];
 
@@ -35,19 +44,35 @@ export function Escaner({ slug }: { slug: string }) {
   const controles = useRef<IScannerControls | null>(null);
   const ultimaLectura = useRef<{ texto: string; at: number } | null>(null);
   const [camara, setCamara] = useState<"apagada" | "encendida" | "error">("apagada");
-  const [resultado, setResultado] = useState<ResultadoPorteria | null>(null);
+  const [resultado, setResultado] = useState<ResultadoLocal | null>(null);
   const [sonido, setSonido] = useState(true);
   const [busqueda, setBusqueda] = useState("");
   const [encontrados, setEncontrados] = useState<Encontrado[]>([]);
   const [pendiente, iniciar] = useTransition();
 
   const mostrar = useCallback(
-    (r: ResultadoPorteria) => {
+    (r: ResultadoLocal) => {
       setResultado(r);
       if (sonido) avisar(r.ok);
     },
     [sonido],
   );
+
+  const enviarPendiente = useCallback(
+    async (item: EscaneoPendiente): Promise<ResultadoEnvio> => {
+      try {
+        const r = await registrarPorQrAction(item.slug, item.token, item.creadoAt);
+        return r.ok ? "enviado" : "descartar";
+      } catch {
+        return "reintentar";
+      }
+    },
+    [],
+  );
+  const { pendientes, enLinea, enviando } = useColaOffline(colaEscaneos, enviarPendiente, ({ enviados, descartados }) => {
+    if (enviados > 0) toast.success(enviados === 1 ? "Se sincronizó 1 llegada guardada sin conexión" : `Se sincronizaron ${enviados} llegadas guardadas sin conexión`);
+    if (descartados > 0) toast.error(descartados === 1 ? "1 carnet guardado sin conexión no era válido y se descartó" : `${descartados} carnets guardados sin conexión no eran válidos y se descartaron`);
+  });
 
   const alLeer = useCallback(
     (texto: string) => {
@@ -55,7 +80,22 @@ export function Escaner({ slug }: { slug: string }) {
       const ultima = ultimaLectura.current;
       if (ultima && ultima.texto === texto && ahora - ultima.at < PAUSA_MS) return;
       ultimaLectura.current = { texto, at: ahora };
-      iniciar(async () => mostrar(await registrarPorQrAction(slug, texto)));
+      iniciar(async () => {
+        const guardarSinConexion = async () => {
+          const token = tokenDesdeQr(texto);
+          if (!token) return mostrar({ ok: false, mensaje: "Carnet no válido para este colegio" });
+          const iso = new Date().toISOString();
+          await colaEscaneos.agregarSiNoExiste({ id: token, creadoAt: iso, slug, token });
+          mostrar({ ok: true, tipo: "sin-conexion" });
+        };
+        if (!navigator.onLine) return guardarSinConexion();
+        try {
+          mostrar(await registrarPorQrAction(slug, texto));
+        } catch (error) {
+          if (esErrorDeRed(error, navigator.onLine)) return guardarSinConexion();
+          throw error;
+        }
+      });
     },
     [slug, mostrar],
   );
@@ -122,6 +162,7 @@ export function Escaner({ slug }: { slug: string }) {
             Sonido y vibración
           </label>
         </div>
+        <IndicadorSinConexion enLinea={enLinea} enviando={enviando} pendientes={pendientes} textoPendientes={textoPendientes(pendientes, "llegada", "llegadas", "guardada")} />
         <Resultado resultado={resultado} />
       </div>
 
@@ -130,7 +171,7 @@ export function Escaner({ slug }: { slug: string }) {
           <CardContent className="flex flex-col gap-4">
             <div>
               <h2 id="titulo-manual" className="text-xl font-semibold">¿No trae su carnet?</h2>
-              <p className="text-sm text-muted-foreground">Busca al alumno y registra su llegada a mano.</p>
+              <p className="text-sm text-muted-foreground">{enLinea ? "Busca al alumno y registra su llegada a mano." : "La búsqueda manual necesita conexión. Los carnets sí se guardan sin conexión."}</p>
             </div>
             <form onSubmit={buscar} className="flex gap-2">
               <label htmlFor="busqueda" className="sr-only">Nombre, apellido o código</label>
@@ -142,7 +183,7 @@ export function Escaner({ slug }: { slug: string }) {
                 placeholder="Nombre, apellido o código"
                 className="h-11 min-w-0 flex-1"
               />
-              <Boton type="submit" variante="secundario" tamano="lg" disabled={pendiente}>
+              <Boton type="submit" variante="secundario" tamano="lg" disabled={pendiente || !enLinea}>
                 {pendiente ? <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden /> : <Search className="size-4" strokeWidth={2} aria-hidden />} Buscar
               </Boton>
             </form>
@@ -161,7 +202,7 @@ export function Escaner({ slug }: { slug: string }) {
                         {a.codigo ? ` · ${a.codigo}` : ""}
                       </span>
                     </span>
-                    <Boton type="button" disabled={pendiente} onClick={() => iniciar(async () => mostrar(await registrarManualAction(slug, a.id)))}>
+                    <Boton type="button" disabled={pendiente || !enLinea} onClick={() => iniciar(async () => mostrar(await registrarManualAction(slug, a.id)))}>
                       Registrar llegada
                     </Boton>
                   </li>
@@ -175,7 +216,7 @@ export function Escaner({ slug }: { slug: string }) {
   );
 }
 
-function Resultado({ resultado }: { resultado: ResultadoPorteria | null }) {
+function Resultado({ resultado }: { resultado: ResultadoLocal | null }) {
   if (!resultado) {
     return (
       <p className="flex items-center gap-2 rounded-xl border border-dashed p-4 text-sm text-muted-foreground">
@@ -188,6 +229,17 @@ function Resultado({ resultado }: { resultado: ResultadoPorteria | null }) {
       <div role="alert" className="flex items-center gap-4 rounded-xl border border-falta/30 bg-falta-fondo p-5 text-falta">
         <XCircle className="size-12 shrink-0" strokeWidth={2} aria-hidden />
         <p className="text-xl font-bold">{resultado.mensaje}</p>
+      </div>
+    );
+  }
+  if (resultado.tipo === "sin-conexion") {
+    return (
+      <div role="status" className="flex items-center gap-4 rounded-xl border border-tarde/30 bg-tarde-fondo p-5 text-tarde">
+        <CloudOff className="size-12 shrink-0" strokeWidth={2} aria-hidden />
+        <div>
+          <p className="text-xl font-bold">Guardado sin conexión</p>
+          <p className="text-sm text-foreground">Se registrará la llegada cuando vuelva la conexión.</p>
+        </div>
       </div>
     );
   }

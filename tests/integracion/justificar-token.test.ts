@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { db } from "@/lib/server/db";
 import {
-  buscarTokenJustificacion, justificarConSesion, justificarConToken, listarJustificaciones, MENSAJE_TOKEN_INVALIDO, revisarJustificacion,
+  buscarTokenJustificacion, consultarTokenJustificacion, justificarConSesion, justificarConToken, listarJustificaciones, MENSAJE_PLAZO_VENCIDO, MENSAJE_TOKEN_INVALIDO, revisarJustificacion,
 } from "@/lib/server/justificaciones";
 import { guardarLista } from "@/lib/server/asistencia";
 import { tokenDerivado } from "@/lib/server/tokens";
@@ -30,9 +30,13 @@ describe("justificar falta con token", () => {
   });
 
   it("un token vencido no sirve", async () => {
-    const en8Dias = new Date(Date.now() + 8 * 86_400_000);
-    expect(await buscarTokenJustificacion(token, { ahora: en8Dias })).toBeNull();
-    expect(await justificarConToken(token, { motivo: "Fiebre", archivo: null }, { ahora: en8Dias })).toEqual({ ok: false, error: MENSAJE_TOKEN_INVALIDO });
+    // Plazo por defecto del reglamento: 48 h.
+    const en47h = new Date(Date.now() + 47 * 3_600_000);
+    const en49h = new Date(Date.now() + 49 * 3_600_000);
+    expect(await buscarTokenJustificacion(token, { ahora: en47h })).not.toBeNull();
+    expect(await buscarTokenJustificacion(token, { ahora: en49h })).toBeNull();
+    expect(await consultarTokenJustificacion(token, { ahora: en49h })).toEqual({ ok: false, motivo: "vencido" });
+    expect(await justificarConToken(token, { motivo: "Fiebre", archivo: null }, { ahora: en49h })).toEqual({ ok: false, error: MENSAJE_PLAZO_VENCIDO });
   });
 
   it("un token de otro colegio no sirve", async () => {

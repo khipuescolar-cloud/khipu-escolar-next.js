@@ -19,9 +19,10 @@ function procesarDespues(tenantId: string) {
   });
 }
 
-export async function registrarPorQrAction(slug: string, textoLeido: string): Promise<ResultadoPorteria> {
+/** `leidoAt`: hora real de la lectura si se guardó sin conexión; el servidor la respeta solo si es razonable. */
+export async function registrarPorQrAction(slug: string, textoLeido: string, leidoAt?: string): Promise<ResultadoPorteria> {
   const ctx = await requireTenantContext(slug, [...ROLES]);
-  const r = await registrarLlegadaPorQr(ctx, String(textoLeido));
+  const r = await registrarLlegadaPorQr(ctx, String(textoLeido), new Date(), typeof leidoAt === "string" ? leidoAt : null);
   if (r.ok && r.tipo === "registrado") procesarDespues(ctx.tenant.id);
   return r;
 }

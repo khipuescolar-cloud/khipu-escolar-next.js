@@ -11,6 +11,7 @@ export async function guardarConfiguracionAction(formData: FormData) {
     await actualizarConfiguracion(ctx, {
       horaEnvioAvisos: texto(formData, "horaEnvioAvisos"),
       horaLimiteTardanza: texto(formData, "horaLimiteTardanza"),
+      plazoJustificacionHoras: texto(formData, "plazoJustificacionHoras") || undefined,
       modoAvisos: texto(formData, "modoAvisos") as "todos",
       escalaCalificacion: texto(formData, "escalaCalificacion") as "literal",
       emailDomains: texto(formData, "emailDomains"),
