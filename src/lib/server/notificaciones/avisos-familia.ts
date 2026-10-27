@@ -1,6 +1,8 @@
 import "server-only";
 import type { TipoAviso } from "@/generated/prisma/enums";
 import type { TenantContext } from "../tenant";
+import { resolverCanalesPago } from "./canales-pago";
+import { encolarCanalesPago } from "./encolar";
 
 /**
  * Avisos de chat, comunicados e invitaciones (correo). Solo INSERTA filas en `avisos` con estado "pendiente"; el worker de la cola
@@ -54,7 +56,7 @@ export async function encolarAvisoFamilia(ctx: Pick<TenantContext, "db" | "tenan
 
   const apoderado = await ctx.db.membership.findFirst({
     where: { id: entrada.apoderadoId, rol: "apoderado", estado: "activa" },
-    select: { user: { select: { email: true, pushSuscripciones: { select: { endpoint: true } } } } },
+    select: { user: { select: { email: true, telefono: true, pushSuscripciones: { select: { endpoint: true } } } } },
   });
   if (!apoderado) return false;
   const consentimiento = await ctx.db.consentimiento.count({ where: { apoderadoId: entrada.apoderadoId, revocadoAt: null } });
@@ -62,7 +64,9 @@ export async function encolarAvisoFamilia(ctx: Pick<TenantContext, "db" | "tenan
   const preferencia = await ctx.db.preferenciaAviso.findFirst({ where: { apoderadoId: entrada.apoderadoId } });
   const correo = preferencia?.correo ?? true;
   const endpoints = (preferencia?.push ?? true) ? apoderado.user.pushSuscripciones.map((s) => s.endpoint) : [];
-  if (!correo && endpoints.length === 0) return false;
+  const canalesPago = { whatsapp: preferencia?.whatsapp ?? false, sms: preferencia?.sms ?? false };
+  const destinosPago = await resolverCanalesPago(ctx.tenant.id, { telefono: apoderado.user.telefono, preferencias: canalesPago });
+  if (!correo && endpoints.length === 0 && !destinosPago.whatsapp && !destinosPago.sms) return false;
 
   if (entrada.plantilla === "mensaje_nuevo") {
     const desde = new Date(Date.now() - VENTANA_MENSAJE_MINUTOS * 60_000);
@@ -74,5 +78,10 @@ export async function encolarAvisoFamilia(ctx: Pick<TenantContext, "db" | "tenan
 
   if (correo) await ctx.db.aviso.create({ data: { ...base, canal: "correo", destinatario: apoderado.user.email } });
   for (const endpoint of endpoints) await ctx.db.aviso.create({ data: { ...base, canal: "push", destinatario: endpoint } });
+  // WhatsApp y SMS (si el colegio los activó, el apoderado los eligió y hay credenciales): mismas filas, otro canal.
+  await encolarCanalesPago(ctx.db, destinosPago, {
+    tenantId: ctx.tenant.id, tipo: base.tipo, apoderadoId, referenciaId,
+    plantilla: entrada.plantilla, payload: entrada.payload,
+  } as Parameters<typeof encolarCanalesPago>[2]);
   return true;
 }

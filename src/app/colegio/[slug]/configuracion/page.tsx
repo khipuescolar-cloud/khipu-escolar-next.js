@@ -1,4 +1,4 @@
-import { Bell, Download, Globe, GraduationCap, ImageIcon, ScrollText } from "lucide-react";
+import { Bell, Download, Globe, GraduationCap, ImageIcon, MessageCircle, ScrollText } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -12,6 +12,8 @@ import { requireTenantContext } from "@/lib/server/tenant";
 import { urlLogoColegio } from "@/lib/server/logo";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Tarjeta } from "@/components/ui/Tarjeta";
+import { estadoCredenciales } from "@/lib/server/notificaciones/canales-pago";
+import { CanalesPago } from "./CanalesPago";
 import { guardarConfiguracionAction, quitarLogoAction, subirLogoAction } from "./actions";
 
 export const metadata: Metadata = { title: "Configuración" };
@@ -79,6 +81,12 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
 
           <Boton type="submit" className="self-start">Guardar</Boton>
         </form>
+      </Tarjeta>
+
+      <Tarjeta>
+        <Seccion icono={MessageCircle} titulo="Canales de pago" descripcion="WhatsApp y SMS: llegan más rápido, pero cada mensaje cuesta. Están apagados hasta que los actives.">
+          <CanalesPago whatsappActivo={t.whatsappActivo} smsActivo={t.smsActivo} credenciales={estadoCredenciales()} />
+        </Seccion>
       </Tarjeta>
 
       <Tarjeta>

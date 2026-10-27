@@ -15,6 +15,7 @@ import {
   AMBITO_DIA, ESTADOS, historialDeHijos, hoyDelColegio, obtenerLista, opcionesDeLista, resumenDelDia,
 } from "@/lib/server/asistencia";
 import { renderizarPlantilla } from "@/lib/server/email/plantillas";
+import { obtenerOpcionesCanalesPago } from "@/lib/server/notificaciones/canales-pago";
 import { obtenerPreferencias } from "@/lib/server/notificaciones/preferencias";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext, type TenantContext } from "@/lib/server/tenant";
@@ -145,7 +146,7 @@ async function PasarLista({ ctx, slug, salonId, ambito }: { ctx: TenantContext; 
 const PALABRA_JUSTIFICACION = { pendiente: "Justificación en revisión", aceptada: "Falta justificada", rechazada: "Justificación no aceptada" } as const;
 
 async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: string; mes?: string }) {
-  const [historial, preferencias] = await Promise.all([historialDeHijos(ctx, mes), obtenerPreferencias(ctx)]);
+  const [historial, preferencias, canalesPago] = await Promise.all([historialDeHijos(ctx, mes), obtenerPreferencias(ctx), obtenerOpcionesCanalesPago(ctx)]);
   const { hijos, anio, mes: numeroMes, hoy } = historial;
   return (
     <div className="flex flex-col gap-6">
@@ -206,7 +207,7 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
         </section>
       ))}
 
-      <PreferenciasAvisos slug={slug} correo={preferencias.correo} push={preferencias.push} vapidPublica={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? ""} />
+      <PreferenciasAvisos slug={slug} correo={preferencias.correo} push={preferencias.push} vapidPublica={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? ""} canalesPago={canalesPago} />
     </div>
   );
 }

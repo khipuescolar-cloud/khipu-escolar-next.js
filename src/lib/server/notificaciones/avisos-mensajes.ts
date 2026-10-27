@@ -2,7 +2,8 @@ import "server-only";
 import { urlColegio } from "@/lib/dominio";
 import { nombreCompleto } from "@/lib/mensajes";
 import type { TenantContext } from "../tenant";
-import { encolarAviso } from "./encolar";
+import { resolverCanalesPago } from "./canales-pago";
+import { encolarAviso, encolarCanalesPago } from "./encolar";
 import { destinoPersonal } from "./preferencias";
 import { encolarAvisoFamilia, VENTANA_MENSAJE_MINUTOS } from "./avisos-familia";
 
@@ -34,7 +35,9 @@ export async function avisarMensajeNuevo(ctx: TenantContext, c: ConversacionPara
   if (ctx.rol !== "apoderado") return 0;
 
   const profesor = await destinoPersonal(ctx.db, c.profesorId, ["profesor"]);
-  if (!profesor || (!profesor.correo && profesor.pushEndpoints.length === 0)) return 0;
+  if (!profesor) return 0;
+  const destinosPago = await resolverCanalesPago(ctx.tenant.id, { telefono: profesor.telefono, preferencias: profesor.canalesPago });
+  if (!profesor.correo && profesor.pushEndpoints.length === 0 && !destinosPago.whatsapp && !destinosPago.sms) return 0;
   const desde = new Date(Date.now() - VENTANA_MENSAJE_MINUTOS * 60_000);
   const reciente = await ctx.db.aviso.count({
     where: { plantilla: "mensaje_nuevo", referenciaId: c.id, apoderadoId: null, createdAt: { gte: desde } },
@@ -46,5 +49,6 @@ export async function avisarMensajeNuevo(ctx: TenantContext, c: ConversacionPara
   for (const endpoint of profesor.pushEndpoints) {
     await encolarAviso(ctx.db, { ...base, canal: "push", destinatario: endpoint });
   }
-  return (profesor.correo ? 1 : 0) + profesor.pushEndpoints.length;
+  const pago = await encolarCanalesPago(ctx.db, destinosPago, { tenantId: ctx.tenant.id, tipo: "mensaje", plantilla: "mensaje_nuevo", payload, referenciaId: c.id });
+  return (profesor.correo ? 1 : 0) + profesor.pushEndpoints.length + pago;
 }

@@ -38,6 +38,9 @@ Exportar o ver auditoría sin ser dirección → 403. Una tabla nueva de colegio
 ## Pruebas
 - integración: exportación solo dirección y auditada, visor de auditoría, revocación; `extras-edicion-ics-zip.test.ts` (cobertura de tablas vs. esquema Prisma, ZIP con JSON por tabla, README y archivo subido) · `exportacion-asincrona-archivos.test.ts` (solicitud solo dirección y sin duplicados, worker, reserva atómica, recuperación de colgadas, reintentos/error, vencimiento a 7 días, descarga acotada al colegio) · e2e: `direccion-panel.test.ts` (página de exportación y botón, 403 para profesor).
 
+## Celular y canales de pago
+El celular de `profiles.telefono` solo se usa si la persona activó WhatsApp o SMS (y el colegio los activó); se guarda en E.164, se muestra enmascarado («+51 *** *** 321») en las preferencias y nunca aparece en el SMS más que el nombre de pila del alumno. Activar o apagar los canales del colegio queda en la auditoría (`editar` · `configuracion`). La exportación del colegio incluye las preferencias (`preferencias_aviso.whatsapp/sms`) y los avisos con su canal. Ver `specs/06-avisos-notificaciones.md`.
+
 ## Pendientes
 - **Con un abogado:** texto del consentimiento, política de privacidad, contrato e inscripción del banco de datos.
 - Programar el cron `/api/cron/exportaciones` en el hosting (cada 5 minutos).

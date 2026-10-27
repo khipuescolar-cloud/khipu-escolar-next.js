@@ -35,11 +35,14 @@ Correo ya registrado con ese rol, código de alumno repetido, salón inexistente
 ## Pruebas
 - unit: `tests/unit/importar-alumnos.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts`, `tests/integracion/invitaciones-y-logo.test.ts`, `tests/integracion/crm-personal.test.ts`, `tests/integracion/gestion-p2.test.ts` · e2e: `tests/e2e/direccion-panel.test.ts`, `tests/e2e/ui-pendientes.test.ts` (logo). · e2e: `tests/e2e/dia-a-dia-offline-calendario.test.ts` (avisos de hoy en el inicio), `tests/e2e/direccion-panel.test.ts`, `tests/e2e/ui-pendientes.test.ts` (logo).
 
+## Canales de pago (WhatsApp y SMS)
+`/configuracion` tiene la sección **Canales de pago** (solo dirección, `actualizarCanalesPago`): interruptores `Tenant.whatsappActivo` y `smsActivo` (apagados por defecto), aviso del costo aproximado por mensaje y el estado de las credenciales del servidor («Configurado» / «Falta configurar en el servidor», sin mostrar valores). El cambio se audita. Diseño completo, costos y requisitos: `specs/06-avisos-notificaciones.md`.
+
 ## Pendientes
 - Ninguno propio del módulo.
 
 ## Cambios de interfaz (rediseño)
-Hub de gestión con tarjetas y pestañas de sección en las subpáginas; alumnos, familias, salones y carnets siguen el sistema de diseño (specs/18): formularios de alta en `Dialog`/`Sheet`, acciones por fila en menú con confirmación, estados vacíos y avance de carnets con `Progress`. Configuración se agrupa en secciones (avisos, dominio, escala, logo, privacidad); «Quitar logo» ahora pide confirmación. Auditoría con ícono por acción. Sin cambios de lógica.
+Hub de gestión con tarjetas y pestañas de sección en las subpáginas; alumnos, familias, salones y carnets siguen el sistema de diseño (specs/18): formularios de alta en `Dialog`/`Sheet`, acciones por fila en menú con confirmación, estados vacíos y avance de carnets con `Progress`. Configuración se agrupa en secciones (avisos, dominio, escala, **canales de pago**, logo, privacidad); «Quitar logo» ahora pide confirmación. Auditoría con ícono por acción. Sin cambios de lógica.
 
 ## Redirect URLs locales
 `supabase/config.toml` permite `lvh.me` y `*.lvh.me` en los puertos 3000–3030, así el enlace de invitación y recuperación vuelve al puerto del worktree.
