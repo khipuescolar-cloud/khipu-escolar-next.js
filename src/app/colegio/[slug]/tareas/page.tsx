@@ -1,6 +1,8 @@
 import { CalendarDays, CheckCircle2, Clock, ListTodo, Pencil, Plus, Users, XCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { forbidden } from "next/navigation";
+import { CamposAdjuntos } from "@/components/adjuntos/CamposAdjuntos";
+import { ListaAdjuntos } from "@/components/adjuntos/ListaAdjuntos";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -76,6 +78,7 @@ export default async function TareasPage({ params }: PageProps<"/colegio/[slug]/
                                   <p className="text-muted-foreground">{t.curso}</p>
                                   {t.descripcion && <p className="text-muted-foreground">{t.descripcion}</p>}
                                   <div><FechaEntrega fecha={t.fechaEntrega} /></div>
+                                  <ListaAdjuntos adjuntos={t.adjuntos} />
                                 </div>
                               </li>
                             ))}
@@ -126,6 +129,7 @@ export default async function TareasPage({ params }: PageProps<"/colegio/[slug]/
                   <span className="block text-muted-foreground">Las familias reciben un aviso por correo o en el celular con esta tarea.</span>
                 </span>
               </label>
+              <CamposAdjuntos id="adjuntos-nueva-tarea" />
             </DialogoAccion>
           ) : undefined
         }
@@ -150,6 +154,7 @@ export default async function TareasPage({ params }: PageProps<"/colegio/[slug]/
                   </div>
                   <p className="text-sm text-muted-foreground">{t.curso} · {t.salon}</p>
                   {t.descripcion && <p className="text-sm text-muted-foreground">{t.descripcion}</p>}
+                  <ListaAdjuntos adjuntos={t.adjuntos} />
                 </div>
                 <div className="flex flex-wrap items-center gap-2 border-t pt-3">
                   {ctx.rol === "profesor" && (
@@ -166,6 +171,7 @@ export default async function TareasPage({ params }: PageProps<"/colegio/[slug]/
                         <span className="font-medium">Descripción (opcional)</span>
                         <Textarea name="descripcion" rows={3} maxLength={1000} defaultValue={t.descripcion ?? ""} />
                       </label>
+                      <CamposAdjuntos id={`adjuntos-${t.id}`} existentes={t.adjuntos} />
                     </DialogoAccion>
                   )}
                   <BotonConfirmar

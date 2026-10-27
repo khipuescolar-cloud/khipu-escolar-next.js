@@ -1,9 +1,11 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { after } from "next/server";
 import { ejecutarYVolver, texto } from "@/lib/server/accion-formulario";
 import { ErrorDeNegocio, contextoDeAccion } from "@/lib/server/contexto-accion";
 import { abrirConversacion, enviarMensaje, obtenerHilo, type HiloVista } from "@/lib/server/mensajes";
+import { procesarCola } from "@/lib/server/notificaciones/cola";
 import { requireFeature } from "@/lib/server/plan";
 
 export async function abrirConversacionAction(formData: FormData) {
@@ -27,7 +29,17 @@ export async function enviarMensajeAction(id: string, cuerpo: string): Promise<{
   const ctx = await contextoDeAccion(["apoderado", "profesor"]);
   requireFeature(ctx, "mensajes");
   try {
-    await enviarMensaje(ctx, { conversacionId: id, cuerpo });
+    const { avisos } = await enviarMensaje(ctx, { conversacionId: id, cuerpo });
+    // Aviso al otro lado ahora, sin esperar al cron (mismo worker: respeta el tope diario y la reserva atómica).
+    if (avisos > 0) {
+      after(async () => {
+        try {
+          await procesarCola({ tenantId: ctx.tenant.id });
+        } catch (error) {
+          console.error("[avisos] error al procesar la cola", error);
+        }
+      });
+    }
     return {};
   } catch (e) {
     if (e instanceof ErrorDeNegocio) return { error: e.message };

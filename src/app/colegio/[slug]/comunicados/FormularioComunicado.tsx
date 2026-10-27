@@ -2,11 +2,13 @@
 
 import { Loader2, Megaphone, Pencil } from "lucide-react";
 import { useState, useTransition } from "react";
+import { CamposAdjuntos } from "@/components/adjuntos/CamposAdjuntos";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
 import { CLASE_CAMPO, Selector } from "@/components/ui/Selector";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import type { AdjuntoVista } from "@/lib/adjuntos";
 import { editarComunicadoAction, publicarComunicadoAction } from "./actions";
 
 type Salon = { id: string; nombre: string };
@@ -20,7 +22,7 @@ export function DialogoPublicar({ salones, esDireccion }: { salones: Salon[]; es
       <DialogTrigger render={<Button />}>
         <Megaphone strokeWidth={2} aria-hidden /> Publicar un comunicado
       </DialogTrigger>
-      <DialogContent className="sm:max-w-lg">
+      <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="text-lg">Publicar un comunicado</DialogTitle>
           <DialogDescription>Las familias recibirán el aviso en cuanto lo publiques.</DialogDescription>
@@ -40,6 +42,7 @@ export function DialogoPublicar({ salones, esDireccion }: { salones: Salon[]; es
             <span className="font-medium">Mensaje</span>
             <textarea name="cuerpo" rows={5} maxLength={5000} required className={CLASE_CAMPO} />
           </label>
+          <CamposAdjuntos id="adjuntos-nuevo-comunicado" />
           <DialogFooter>
             <Boton type="submit" disabled={pendiente}>
               {pendiente && <Loader2 className="animate-spin" strokeWidth={2} aria-hidden />} Publicar y avisar
@@ -52,7 +55,7 @@ export function DialogoPublicar({ salones, esDireccion }: { salones: Salon[]; es
 }
 
 /** Editar título y mensaje de un comunicado (primeras 24 h). */
-export function DialogoEditar({ id, titulo, cuerpo }: { id: string; titulo: string; cuerpo: string }) {
+export function DialogoEditar({ id, titulo, cuerpo, adjuntos }: { id: string; titulo: string; cuerpo: string; adjuntos: AdjuntoVista[] }) {
   const [abierto, setAbierto] = useState(false);
   const [pendiente, iniciar] = useTransition();
   return (
@@ -60,7 +63,7 @@ export function DialogoEditar({ id, titulo, cuerpo }: { id: string; titulo: stri
       <DialogTrigger render={<Button variant="outline" />}>
         <Pencil strokeWidth={2} aria-hidden /> Editar
       </DialogTrigger>
-      <DialogContent className="sm:max-w-lg">
+      <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="text-lg">Editar comunicado</DialogTitle>
           <DialogDescription>Puedes editarlo o borrarlo durante las primeras 24 horas.</DialogDescription>
@@ -75,6 +78,7 @@ export function DialogoEditar({ id, titulo, cuerpo }: { id: string; titulo: stri
             <span className="font-medium">Mensaje</span>
             <textarea name="cuerpo" rows={5} maxLength={5000} defaultValue={cuerpo} required className={CLASE_CAMPO} />
           </label>
+          <CamposAdjuntos id={`adjuntos-${id}`} existentes={adjuntos} />
           <DialogFooter>
             <Boton type="submit" disabled={pendiente}>
               {pendiente && <Loader2 className="animate-spin" strokeWidth={2} aria-hidden />} Guardar cambios

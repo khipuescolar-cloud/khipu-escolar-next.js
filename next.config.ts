@@ -5,8 +5,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   experimental: {
     authInterrupts: true, // forbidden() / unauthorized() para el bloqueo por plan y rol
-    // Adjuntos de hasta 5 MB (specs/14) + margen del multipart.
-    serverActions: { bodySizeLimit: "6mb" },
+    // Adjuntos de comunicados y tareas: hasta 5 archivos de 10 MB (specs/14) + margen del multipart.
+    // El proxy también bufferiza el cuerpo (10 MB por defecto): se sube al mismo tope.
+    serverActions: { bodySizeLimit: "55mb" },
+    proxyClientMaxBodySize: "55mb",
   },
   allowedDevOrigins: ["lvh.me", "*.lvh.me"],
   serverExternalPackages: ["@react-pdf/renderer", "pg"],

@@ -3,12 +3,13 @@ import { urlColegio } from "@/lib/dominio";
 import { nombreCompleto } from "@/lib/mensajes";
 import type { TenantContext } from "../tenant";
 import { encolarAviso } from "./encolar";
+import { destinoPersonal } from "./preferencias";
 import { encolarAvisoFamilia, VENTANA_MENSAJE_MINUTOS } from "./avisos-familia";
 
 // Aviso de mensaje nuevo en el chat familia ↔ profesor (specs/08). Solo encola; el worker envía.
 // - Escribe el profesor → aviso a la familia (consentimiento y preferencias; ver avisos-familia.ts).
-// - Escribe la familia → aviso al profesor por correo y por cada suscripción push suya (el personal no necesita
-//   consentimiento). La fila no lleva `apoderadoId` (no es un aviso a familia).
+// - Escribe la familia → aviso al profesor por correo y por cada suscripción push suya, según sus preferencias de
+//   perfil (`preferencias_aviso`; el personal no necesita consentimiento). La fila no lleva `apoderadoId` (no es un aviso a familia).
 // En ambos casos `referenciaId = conversacionId` y máx. 1 aviso por conversación y destinatario cada 15 min.
 
 export type ConversacionParaAviso = {
@@ -32,11 +33,8 @@ export async function avisarMensajeNuevo(ctx: TenantContext, c: ConversacionPara
   }
   if (ctx.rol !== "apoderado") return 0;
 
-  const profesor = await ctx.db.membership.findFirst({
-    where: { id: c.profesorId, rol: "profesor", estado: "activa" },
-    select: { user: { select: { email: true, pushSuscripciones: { select: { endpoint: true } } } } },
-  });
-  if (!profesor) return 0;
+  const profesor = await destinoPersonal(ctx.db, c.profesorId, ["profesor"]);
+  if (!profesor || (!profesor.correo && profesor.pushEndpoints.length === 0)) return 0;
   const desde = new Date(Date.now() - VENTANA_MENSAJE_MINUTOS * 60_000);
   const reciente = await ctx.db.aviso.count({
     where: { plantilla: "mensaje_nuevo", referenciaId: c.id, apoderadoId: null, createdAt: { gte: desde } },
@@ -44,9 +42,9 @@ export async function avisarMensajeNuevo(ctx: TenantContext, c: ConversacionPara
   if (reciente > 0) return 0;
 
   const base = { tenantId: ctx.tenant.id, tipo: "mensaje" as const, plantilla: "mensaje_nuevo" as const, payload, referenciaId: c.id };
-  await encolarAviso(ctx.db, { ...base, canal: "correo", destinatario: profesor.user.email });
-  for (const { endpoint } of profesor.user.pushSuscripciones) {
+  if (profesor.correo) await encolarAviso(ctx.db, { ...base, canal: "correo", destinatario: profesor.email });
+  for (const endpoint of profesor.pushEndpoints) {
     await encolarAviso(ctx.db, { ...base, canal: "push", destinatario: endpoint });
   }
-  return 1 + profesor.user.pushSuscripciones.length;
+  return (profesor.correo ? 1 : 0) + profesor.pushEndpoints.length;
 }

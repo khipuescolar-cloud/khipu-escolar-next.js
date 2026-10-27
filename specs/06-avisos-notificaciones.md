@@ -80,7 +80,8 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 // notificaciones/avisos-mensajes.ts: avisarMensajeNuevo(ctx, conversacion): number   // a la familia o al profesor según quién escribe
 // notificaciones/avisos-tareas.ts: avisarTareaNueva(ctx, tareaId, entrada): number, pideAvisarFamilias(entrada)
 // notificaciones/alertas-direccion.ts: alertarCorreoDesactivado(tenantId, apoderadoId, "rebote" | "queja", ahora?): number
-// notificaciones/preferencias.ts: obtenerPreferencias, guardarPreferencias, guardarSuscripcionPush, quitarSuscripcionPush
+// notificaciones/preferencias.ts: obtenerPreferencias, guardarPreferencias, guardarSuscripcionPush, quitarSuscripcionPush, destinoPersonal(tdb, membershipId, roles)
+//   `preferencias_aviso.apoderado_id` es en realidad un id de MEMBRESÍA: aplica a cualquier rol (apoderado, profesor, dirección, administrativo). Sin fila = correo y push activos.
 // email/plantillas/index.ts: renderizarPlantilla(nombre, payload): { asunto, html, texto, push }, NOMBRES_PLANTILLA
 // avisos.ts: panelAvisos(ctx) (dirección)
 ```
@@ -88,6 +89,9 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 ## Rutas y UI
 - `/api/cron/avisos` (GET/POST, bearer `CRON_SECRET`, comparación en tiempo constante; sin `CRON_SECRET` siempre 401).
 - `/api/webhooks/ses` (POST): firma SNS v1 (SHA1) y v2 (SHA256) con `node:crypto`; certificado solo de `https://sns.<región>.amazonaws.com(.cn)/….pem`; si `SES_SNS_TOPIC_ARN` está definido, exige ese tema.
+- `/perfil#avisos` (profesor, dirección, administrativo): las mismas casillas correo/push y «Activar notificaciones en este dispositivo» (`PreferenciasPersonal`, acciones en `perfil/actions.ts`). Se respetan en `mensaje_nuevo` al profesor (`avisarMensajeNuevo`) y en la alerta de correo desactivado a dirección (`alertarCorreoDesactivado`, que ahora también envía push a sus dispositivos). Si apaga ambos canales no se encola nada.
+- **Envío inmediato (`after()`)**: `enviarMensajeAction` (chat) y `/api/webhooks/ses` (alerta a dirección, vía `procesarEventoSes(evento, { alEncolarAlerta })`) llaman a `procesarCola({ tenantId })` tras responder, solo si se encoló algo. Es el mismo worker del cron: respeta el tope diario global y la reserva atómica `pendiente → enviando`.
+- Familias: `encolarAvisoFamilia` (mensaje y comunicado) ahora encola también **push** (una fila por dispositivo) según `preferencias_aviso`.
 - `/asistencia#avisos` (apoderado): casillas correo/push y «Activar notificaciones en este dispositivo» (registra `public/sw.js`, suscribe con VAPID y guarda vía server action).
 - `/avisos` (dirección): tarjetas (enviados 30 días, apertura, cola/rebotes/errores) y los 100 últimos avisos; filtros por estado (incluye `enviando`) y tipo (incluye `justificacion`, `tarea`, `alerta_direccion`).
 - Componente `VistaPreviaAviso` (iframe `sandbox`) usado al pasar lista.
@@ -98,7 +102,7 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 - falta: «Mateo no llegó hoy a la 1.ª hora. Si ya lo sabías, puedes justificar la falta.» + botón **Justificar falta**.
 - problema: «Hoy, a las 10:05 a. m., el colegio registró una situación con Mateo que necesita tu atención.» · «Detalle: …» · «Por favor, escríbele a su tutora para conversarlo.» + **Escribir a la tutora**.
 - resumen: «Llegadas de hoy» con una línea por hijo.
-- mensaje: «Lucía García te escribió sobre Mateo.» + **Leer mensaje** · comunicado: «<colegio> publicó un comunicado: «<título>».» + **Leer comunicado** · invitación: «Hola, Rosa.» «<colegio> te invitó a Khipu Escolar como Familia.» + **Aceptar invitación**.
+- mensaje: «Lucía García te escribió sobre Mateo.» + **Leer mensaje** · comunicado: «<colegio> publicó un comunicado: «<título>».» (+ «Incluye N archivos adjuntos.») + **Leer comunicado** (lleva a `/comunicados#comunicado-<id>`) · invitación: «Hola, Rosa.» «<colegio> te invitó a Khipu Escolar como Familia.» + **Aceptar invitación**.
 - tarea: «Mateo tiene una tarea nueva de Matemática: «Fichas de fracciones».» · «Se entrega el 30/10/2026.» + **Ver tareas** (sin hijo: «Hay una tarea nueva de…»).
 - alerta a dirección (insignia «! Correo desactivado»): «Dejamos de enviar avisos por correo a Rosa Quispe (familia de Mateo) porque su correo rebotó (la dirección no existe o no recibe mensajes).» · «Revisa su correo con la familia y actualízalo para que vuelva a recibir avisos.» + **Ver avisos**. Con queja: «… porque marcó nuestro correo como spam.»
 - justificación revisada: «El colegio revisó la justificación de la falta de Mateo del 26/10/2026.» + «La falta quedó justificada.» o «La justificación no fue aceptada. Si tienes dudas, escríbele a su tutora.»
@@ -113,12 +117,11 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 
 ## Pruebas
 - unit: `plantillas-avisos.test.ts` (textos exactos, botón de falta, sin emojis, todas las plantillas del contrato incl. `tarea_nueva` y `alerta_rebote`, payload inválido), `cola-limites.test.ts` (tope diario, ritmo, reintentos, hora del resumen), `firma-sns.test.ts`.
-- integración: `cola-avisos.test.ts` (cola → Mailpit con remitente y enlace, tope diario → pendiente, reintentos → error, plantilla desconocida, eventos SES y rebote permanente, resumen de llegadas una vez al día); `avisos-pendientes.test.ts` (dos workers en paralelo no repiten filas, recuperación de `enviando`, aviso al profesor correo + push y límite de 15 min, aviso de tarea, alerta de rebote/queja una vez por día).
+- integración: `cola-avisos.test.ts` (cola → Mailpit con remitente y enlace, tope diario → pendiente, reintentos → error, plantilla desconocida, eventos SES y rebote permanente, resumen de llegadas una vez al día); `preferencias-personal-y-comunicados-push.test.ts` (preferencias del personal, alerta a dirección, comunicado con push y enlace directo); `avisos-pendientes.test.ts` (dos workers en paralelo no repiten filas, recuperación de `enviando`, aviso al profesor correo + push y límite de 15 min, aviso de tarea, alerta de rebote/queja una vez por día).
 
 ## Pendientes
 - WhatsApp Cloud API y SMS con la misma interfaz.
-- Preferencias de aviso para el personal (hoy el profesor siempre recibe `mensaje_nuevo` por correo y en sus dispositivos con push).
-- Los avisos de chat y de alertas a dirección los envía el cron (no hay `after()` en esas acciones).
+- Ninguno propio de este módulo más allá de WhatsApp/SMS (arriba).
 
 ## Cron programado
 `vercel.json` ejecuta `/api/cron/avisos` cada minuto (y `/api/cron/exportaciones` cada 5). Vercel envía `Authorization: Bearer <CRON_SECRET>`. Guía: `docs/despliegue.md`.

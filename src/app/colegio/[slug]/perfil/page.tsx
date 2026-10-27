@@ -8,8 +8,10 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CONSENTIMIENTO_VERSION } from "@/lib/consentimiento";
 import { nombreRol } from "@/lib/roles";
+import { obtenerPreferencias } from "@/lib/server/notificaciones/preferencias";
 import { estadoConsentimiento } from "@/lib/server/consentimiento";
 import { requireTenantContext } from "@/lib/server/tenant";
+import { PreferenciasPersonal } from "./PreferenciasPersonal";
 import { aceptarConsentimientoAction, revocarConsentimientoAction } from "../consentimiento/actions";
 
 export const metadata: Metadata = { title: "Mi perfil" };
@@ -19,6 +21,14 @@ export default async function PerfilPage({ params, searchParams }: PageProps<"/c
   const { ok, error } = await searchParams;
   const ctx = await requireTenantContext(slug);
   const estado = ctx.rol === "apoderado" ? await estadoConsentimiento(ctx) : null;
+  const esPersonal = ctx.rol === "profesor" || ctx.rol === "direccion" || ctx.rol === "administrativo";
+  const preferencias = esPersonal ? await obtenerPreferencias(ctx) : null;
+  const descripcionAvisos =
+    ctx.rol === "profesor"
+      ? "Elige cómo quieres enterarte cuando una familia te escriba por el chat."
+      : ctx.rol === "direccion"
+        ? "Elige cómo quieres recibir las alertas del colegio, como un correo de familia que dejó de recibir avisos."
+        : "Elige cómo quieres recibir los avisos del colegio.";
   const iniciales = `${ctx.user.nombres[0] ?? ""}${ctx.user.apellidos[0] ?? ""}`.toUpperCase();
 
   return (
@@ -38,6 +48,16 @@ export default async function PerfilPage({ params, searchParams }: PageProps<"/c
             </div>
           </CardContent>
         </Card>
+
+        {preferencias && (
+          <PreferenciasPersonal
+            slug={slug}
+            correo={preferencias.correo}
+            push={preferencias.push}
+            vapidPublica={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? ""}
+            descripcion={descripcionAvisos}
+          />
+        )}
 
         {estado && (
           <Card>

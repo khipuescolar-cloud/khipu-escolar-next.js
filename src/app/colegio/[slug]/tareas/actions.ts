@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { after } from "next/server";
 import type { Resultado } from "@/lib/resultado";
+import { adjuntosDeFormData, idsParaQuitar } from "@/lib/server/adjuntos";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
 import { requireFeature } from "@/lib/server/plan";
 import { actualizarTarea, crearTarea, eliminarTarea } from "@/lib/server/tareas";
@@ -22,7 +23,7 @@ export async function crearTareaAction(slug: string, _previo: Resultado | null, 
   const r = await crearTarea(ctx, {
     cursoId: texto(f, "cursoId"), titulo: texto(f, "titulo"), descripcion: texto(f, "descripcion"), fechaEntrega: texto(f, "fechaEntrega"),
     avisarFamilias,
-  });
+  }, await adjuntosDeFormData(f));
   if (r.ok) {
     revalidatePath("/colegio/[slug]/tareas", "page");
     if (avisarFamilias) {
@@ -47,7 +48,7 @@ export async function eliminarTareaAction(slug: string, tareaId: string): Promis
 export async function actualizarTareaAction(slug: string, tareaId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
   const r = await actualizarTarea(await contexto(slug), tareaId, {
     titulo: texto(f, "titulo"), descripcion: texto(f, "descripcion"), fechaEntrega: texto(f, "fechaEntrega"),
-  });
+  }, { nuevos: await adjuntosDeFormData(f), quitar: idsParaQuitar(f) });
   if (r.ok) revalidatePath("/colegio/[slug]/tareas", "page");
   return r;
 }

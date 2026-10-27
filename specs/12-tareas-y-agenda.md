@@ -58,6 +58,10 @@ eliminarEvento(ctx, eventoId): Resultado
 ## Exportación .ics
 `GET /api/agenda.ics` (sesión + `requireFeature(ctx, "agenda")`, `no-store`): calendario iCalendar (RFC 5545) con los eventos y las fechas de entrega visibles para el usuario (apoderado: salones de sus hijos; profesor: sus salones; dirección: todos), de hace 30 días a 1 año. Constructor puro en `src/lib/ics.ts`: CRLF, plegado a 75 octetos, escape de `\ ; ,` y saltos de línea, `DTSTAMP`, `UID` = `<id>@khipuescolar`. Eventos con hora en UTC (1 h de duración); entregas de tarea como evento de día completo (día de Lima). Enlace «Descargar calendario (.ics)» en `/agenda`. Es una descarga puntual, no una suscripción.
 
+## Adjuntos
+- Hasta 5 por tarea, 10 MB cada uno (PDF, JPG, PNG, WEBP, DOCX, XLSX), privados en `FileStorage` con `archivos.tarea_id` (módulo `adjuntos.ts`, spec 14). El formulario de crear y de editar tienen el selector de archivos (`CamposAdjuntos`); al editar se pueden quitar y agregar. Un adjunto inválido devuelve el error de formulario y no crea la tarea.
+- `/tareas` los lista con `ListaAdjuntos` (ícono por tipo, nombre, tamaño, descarga) para el profesor, dirección y las familias. Descarga por `/archivos/<id>`: dirección, quien creó la tarea, profesores del salón y apoderados de ese salón; otros salones, 403. Al eliminar la tarea se borran los archivos.
+
 ## Errores y casos borde
 - Editar: el profesor edita título, descripción y fecha de sus tareas (`actualizarTarea`, mismas reglas que borrar; la fecha solo se valida si cambia) y los eventos que creó (`actualizarEvento`, no cambia el salón); dirección edita cualquier evento y solo consulta tareas. Queda auditado (`editar · tarea` / `editar · evento_agenda`). En la UI, un desplegable «Editar tarea» / «Editar evento».
 - «La fecha de entrega ya pasó.» · «Solo puedes crear eventos de tus salones.» · «Elige el salón del evento.» (profesor sin salón).
@@ -67,7 +71,8 @@ eliminarEvento(ctx, eventoId): Resultado
 - unit: `tests/unit/fechas.test.ts` (zona Lima, agrupación, semanas y cuadrícula del mes).
 - unit: `tests/unit/ics.test.ts` (escape, plegado a 75 octetos, CRLF, fechas).
 - integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (tareas por curso y agrupación, alcance de eventos por salón, permisos de creación, plan Básico → 403); `tests/integracion/avisos-pendientes.test.ts` (aviso de tarea solo con la casilla y solo a familias con consentimiento); `tests/integracion/extras-edicion-ics-zip.test.ts` (editar tarea/evento: permisos, auditoría, aislamiento entre colegios; alcance de la agenda por rol).
+- integración: `tests/integracion/adjuntos-comunicados-tareas.test.ts` (adjuntos de tareas: acceso y borrado).
 - e2e: `tests/e2e/tareas-agenda.test.ts` (profesora crea tarea con «Avisar a las familias», el correo llega a Mailpit y la familia la ve en «Para mañana»; agenda; periodos de dirección; edita su tarea y descarga el .ics).
 
 ## Pendientes
-- Adjuntos en tareas (requiere el módulo de archivos).
+- Adjuntos en la vista de agenda (hoy solo en `/tareas`).

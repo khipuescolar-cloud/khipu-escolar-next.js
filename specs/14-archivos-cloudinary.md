@@ -1,6 +1,6 @@
 # 14 — Archivos (Cloudinary hoy, S3 después)
 
-> Estado: implementado · Plan: todos · Última actualización: 2026-10-26 (Claude Code, rama `feat/basico`)
+> Estado: implementado · Plan: todos · Última actualización: 2026-10-27 (Claude Code, rama `feat/p2-comunicacion`)
 
 ## Objetivo
 Guardar adjuntos y fotos de menores de forma privada, con un proveedor intercambiable.
@@ -11,6 +11,8 @@ Guardar adjuntos y fotos de menores de forma privada, con un proveedor intercamb
 | Quien sube (familia, colegio) | Subir imágenes o PDF ≤ 5 MB | Subir otros tipos |
 | Dirección / tutor del salón / apoderado autor | Ver el adjunto de una justificación | Ver adjuntos fuera de su alcance (403) |
 | Quien ve al alumno | Ver su foto | — |
+| Dirección, profesor y personal que publican | Adjuntar hasta 5 archivos de 10 MB a comunicados y tareas | Adjuntar otros tipos |
+| Autor, dirección y quien ve el comunicado o la tarea | Descargar sus adjuntos | Descargar adjuntos de otro salón o sin rol que los vea (403) |
 
 ## Flujos
 1. `guardarArchivo(tdb, buffer, { tenantId, carpeta, privado = true, subidoPorId })` valida, sube con el proveedor de `STORAGE_PROVIDER` y crea la fila `archivos`.
@@ -21,10 +23,12 @@ Guardar adjuntos y fotos de menores de forma privada, con un proveedor intercamb
 - Validación por *magic bytes*: JPG (`FF D8 FF`), PNG, WEBP (`RIFF…WEBP`), PDF (`%PDF-`); máx. 5 MB; vacío rechazado. El mime guardado es el detectado, no el del navegador.
 - `LocalStorage`: `.uploads/<tenantId>/<carpeta>/<uuid>.<ext>` (ignorado por git), con control de ruta.
 - `CloudinaryStorage`: subida firmada desde el servidor (`upload_stream`), carpeta `khipu/<tenantId>/<carpeta>`, `type: "authenticated"` si es privado; URL temporal con `private_download_url(…, { expires_at: ahora + 5 min })`; públicos (logo) con `secure_url`.
-- Server actions aceptan hasta 6 MB (`experimental.serverActions.bodySizeLimit` en `next.config.ts`).
+- Server actions aceptan hasta 55 MB (`experimental.serverActions.bodySizeLimit` y `proxyClientMaxBodySize` en `next.config.ts`): 5 adjuntos de 10 MB + margen del multipart (el proxy bufferiza el cuerpo y su tope por defecto es 10 MB).
+- **Adjuntos de comunicados y tareas** (`src/lib/server/adjuntos.ts`): PDF, JPG, PNG, WEBP, DOCX y XLSX; máx. 10 MB por archivo y 5 por elemento (los límites de 5 MB de `validacion.ts` siguen para justificaciones, fotos y logo). DOCX/XLSX se detectan por firma ZIP + entrada interna. Suben con `storage().subir(…, privado: true)` y se registran con `comunicadoId`/`tareaId` y `nombre` (limpio, sin rutas). Si falla algo se deshace lo subido. `borrarAdjuntosDe`/`quitarAdjuntos` borran del proveedor y de la BD.
+- **Descarga de adjuntos** (`/archivos/<id>` sin firma): exige sesión y `requireArchivoVisible`, que ahora cubre `comunicadoId` (`puedeVerComunicado`) y `tareaId` (`puedeVerTarea`). Local: se sirve con `Content-Disposition: attachment`; Cloudinary: redirección 307 a una URL temporal (5 min) generada solo tras pasar el control. Los demás archivos locales siguen exigiendo firma.
 
 ## Modelo de datos
-- `archivos`: `proveedor`, `publicId`, `url` (solo públicos), `mimeType`, `bytes`, `privado`, `subidoPorId`.
+- `archivos`: `proveedor`, `publicId`, `url` (solo públicos), `mimeType`, `bytes`, `privado`, `subidoPorId`, `comunicadoId`, `tareaId`, `nombre` (los dos últimos, con borrado en cascada, para adjuntos).
 
 ## Contratos de `src/lib/server`
 ```ts
@@ -51,6 +55,7 @@ interface FileStorage {
 
 ## Pruebas
 - unit (`tests/unit/validacion-archivos.test.ts`): firmas válidas, archivos disfrazados, vacío y > 5 MB.
+- integración: `tests/integracion/adjuntos-comunicados-tareas.test.ts` (tipos, límites, acceso por rol y salón, borrado) · e2e `tests/e2e/comunicados-adjuntos.test.ts`.
 - integración: el adjunto de una justificación se guarda como `local`, privado y PDF; la URL temporal lleva `exp` y `sig`.
 
 ## S3, migración y limpieza
@@ -63,3 +68,4 @@ interface FileStorage {
 ## Pendientes
 - **Externo:** probar `CloudinaryStorage` y `S3Storage` contra cuentas reales en el piloto (requiere credenciales).
 - **Externo:** consentimiento para fotos (spec 15), cuando exista subida de fotos.
+- Archivos del proveedor que quedan sin fila cuando se borra en cascada un salón o un curso (sus tareas y adjuntos): `scripts/limpiar-archivos.ts` no los ve porque la fila ya no existe.
