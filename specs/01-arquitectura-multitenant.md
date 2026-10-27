@@ -45,5 +45,8 @@ const ctx = await requireTenantContext(slug, rolesPermitidos?)
 - `tests/integracion/aislamiento-tenant.test.ts`: lectura, edición y creación aisladas por colegio.
 
 ## Pendientes
-- Dominio definitivo y región de Supabase.
-- Subdominio de correo por colegio.
+- **Externo:** dominio definitivo y región de Supabase (sugerida `sa-east-1`; ver `docs/despliegue.md`).
+- **Externo:** subdominio de correo por colegio.
+
+## Despliegue
+Pasos de Supabase cloud, Vercel (dominio comodín, `APP_BASE_DOMAIN`, `COOKIE_DOMAIN`), crons y correo en `docs/despliegue.md`.

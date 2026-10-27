@@ -27,4 +27,4 @@ Entrar con correo y contraseña, y llegar al colegio correcto sin preguntar nada
 - e2e: `tests/e2e/login-flow.test.ts` (dominio → subdominio, apoderada con 2 colegios, candados del Básico, contraseña incorrecta).
 
 ## Pendientes
-- En producción, configurar el SMTP de Supabase Auth con Amazon SES.
+- **Externo:** en producción, configurar el SMTP de Supabase Auth (Gmail en el piloto, luego Amazon SES; ver `docs/despliegue.md`).

@@ -181,4 +181,7 @@ Interlineado 1.5 en cuerpo, máximo `max-w-prose` para párrafos largos. Nada de
 ## Pendientes
 
 - Gráficos del panel con `chart-1…5` (métricas de 30 días de la plataforma).
-- SVG oficiales de la marca (isotipo y logotipo) cuando lleguen los archivos del equipo de diseño.
+- **Externo:** SVG oficiales de la marca (isotipo y logotipo) cuando lleguen los archivos del equipo de diseño.
+
+## Estados de carga
+Cada ruta con datos de `colegio/[slug]` y `plataforma` tiene `loading.tsx` con esqueletos (`src/components/carga/Esqueletos.tsx`: `EsqueletoPagina`, `EsqueletoTarjetas`, `EsqueletoTabla`, `EsqueletoLista`, `EsqueletoFormulario`) con `aria-busy` y texto `sr-only` «Cargando…».

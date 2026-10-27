@@ -117,6 +117,8 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 
 ## Pendientes
 - WhatsApp Cloud API y SMS con la misma interfaz.
-- Programar el cron en el hosting (p. ej., cada minuto).
 - Preferencias de aviso para el personal (hoy el profesor siempre recibe `mensaje_nuevo` por correo y en sus dispositivos con push).
 - Los avisos de chat y de alertas a dirección los envía el cron (no hay `after()` en esas acciones).
+
+## Cron programado
+`vercel.json` ejecuta `/api/cron/avisos` cada minuto (y `/api/cron/exportaciones` cada 5). Vercel envía `Authorization: Bearer <CRON_SECRET>`. Guía: `docs/despliegue.md`.

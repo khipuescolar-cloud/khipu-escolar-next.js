@@ -33,6 +33,7 @@ pnpm dev                     # http://lvh.me:3000  ·  colegios: http://<slug>.l
 pnpm lint && pnpm typecheck && pnpm test   # checks rápidos (tests de integración usan la BD local)
 pnpm e2e                     # Playwright (requiere BD con seed)
 pnpm khipu:crear-superadmin --email x --nombres … --apellidos … [--documento …]   # super administrador (specs/16)
+# Despliegue a producción: docs/despliegue.md
 pnpm db:migrate              # nueva migración tras cambiar prisma/schema.prisma
 pnpm db:generate && rm -rf .next   # tras cambiar el esquema: Prisma 7 no regenera solo y Turbopack cachea el cliente viejo
 ```

@@ -37,7 +37,9 @@ Correo ya registrado con ese rol, código de alumno repetido, salón inexistente
 
 ## Pendientes
 - Avisos enviados/abiertos/con error dentro del resumen del inicio (hoy están en `/avisos`).
-- `supabase/config.toml`: agregar el puerto de cada entorno a `additional_redirect_urls` (hoy solo `:3000`) para que el enlace de invitación vuelva al puerto correcto.
 
 ## Cambios de interfaz (rediseño)
 Hub de gestión con tarjetas y pestañas de sección en las subpáginas; alumnos, familias, salones y carnets siguen el sistema de diseño (specs/18): formularios de alta en `Dialog`/`Sheet`, acciones por fila en menú con confirmación, estados vacíos y avance de carnets con `Progress`. Configuración se agrupa en secciones (avisos, dominio, escala, logo, privacidad); «Quitar logo» ahora pide confirmación. Auditoría con ícono por acción. Sin cambios de lógica.
+
+## Redirect URLs locales
+`supabase/config.toml` permite `lvh.me` y `*.lvh.me` en los puertos 3000–3030, así el enlace de invitación y recuperación vuelve al puerto del worktree.
