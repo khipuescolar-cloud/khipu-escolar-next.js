@@ -4,6 +4,7 @@ import type { Prisma } from "@/generated/prisma/client";
 import type { Nivel } from "@/generated/prisma/enums";
 import { urlColegio, urlRaiz } from "@/lib/dominio";
 import { leerCsvAlumnos, type ErrorFila } from "@/lib/importar-alumnos";
+import { adjuntosDeCurso, adjuntosDeSalon, borrarDelProveedor } from "./adjuntos";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { db } from "./db";
@@ -213,8 +214,10 @@ export async function eliminarSalon(ctx: TenantContext, id: string): Promise<voi
   exigirGestion(ctx);
   const [alumnos, cursos] = await Promise.all([ctx.db.alumno.count({ where: { salonId: id } }), ctx.db.curso.count({ where: { salonId: id } })]);
   if (alumnos > 0 || cursos > 0) throw new ErrorDeNegocio("El salón tiene alumnos o cursos. Muévelos antes de borrarlo.");
+  const archivos = await adjuntosDeSalon(ctx, id); // comunicados del salón: se borran en cascada
   const r = await ctx.db.salon.deleteMany({ where: { id } });
   if (r.count === 0) throw new ErrorDeNegocio("No se encontró el salón.");
+  await borrarDelProveedor(archivos);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "salon", entidadId: id });
 }
 
@@ -251,7 +254,9 @@ export async function eliminarCurso(ctx: TenantContext, id: string): Promise<voi
   if (usos._count.asistencias + usos._count.evaluaciones + usos._count.tareas > 0) {
     throw new ErrorDeNegocio("El curso ya tiene asistencia, notas o tareas. No se puede borrar.");
   }
+  const archivos = await adjuntosDeCurso(ctx, id);
   await ctx.db.curso.deleteMany({ where: { id } });
+  await borrarDelProveedor(archivos);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "curso", entidadId: id });
 }
 

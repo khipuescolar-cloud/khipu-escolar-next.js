@@ -1,7 +1,10 @@
 import "server-only";
 import { z } from "zod";
+import type { AdjuntoVista } from "@/lib/adjuntos";
 import { instanteLima } from "@/lib/fechas";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
+import { adjuntoVista } from "./adjuntos";
+import { puedeVerTarea } from "./archivos";
 import { auditar } from "./auditoria";
 import { requireFeature } from "./plan";
 import { salonEsActivo, whereSalonActivo } from "./salones-activos";
@@ -17,6 +20,8 @@ export type ItemAgenda = {
   ambito: string;
   /** Solo eventos: el usuario puede borrarlos. */
   eliminable: boolean;
+  /** Adjuntos de la tarea (solo entregas) y solo si el usuario puede descargarlos: misma regla que `/archivos/<id>`. */
+  adjuntos: AdjuntoVista[];
 };
 
 /** Eventos y entregas de tareas visibles para el usuario entre dos instantes (`hasta` excluido). */
@@ -32,7 +37,10 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
     }),
     ctx.db.tarea.findMany({
       where: { fechaEntrega: rango, curso: { salonId: { in: salonIds } } },
-      include: { curso: { select: { nombre: true, salon: { select: { nombre: true } } } } },
+      include: {
+        adjuntos: { orderBy: { createdAt: "asc" } },
+        curso: { select: { nombre: true, salonId: true, salon: { select: { nombre: true } } } },
+      },
     }),
   ]);
   const items: ItemAgenda[] = [
@@ -40,11 +48,13 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
       id: e.id, tipo: e.tipo, titulo: e.titulo, descripcion: e.descripcion, inicio: e.inicio,
       ambito: e.salon?.nombre ?? "Todo el colegio",
       eliminable: ctx.rol === "direccion" || ((ctx.rol === "profesor" || ctx.rol === "administrativo") && e.creadoPorId === ctx.membership.id),
+      adjuntos: [],
     })),
-    ...tareas.map((t) => ({
+    ...(await Promise.all(tareas.map(async (t) => ({
       id: t.id, tipo: "entrega" as const, titulo: `Entrega: ${t.titulo}`, descripcion: t.descripcion, inicio: t.fechaEntrega,
       ambito: `${t.curso.nombre} · ${t.curso.salon.nombre}`, eliminable: false,
-    })),
+      adjuntos: t.adjuntos.length > 0 && (await puedeVerTarea(ctx, t)) ? t.adjuntos.map(adjuntoVista) : [],
+    })))),
   ];
   return items.sort((a, b) => a.inicio.getTime() - b.inicio.getTime());
 }

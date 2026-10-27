@@ -65,7 +65,13 @@ interface FileStorage {
 - Al borrar un colegio (`khipu:borrar-colegio`) se borran antes sus archivos del almacenamiento, cada uno con su proveedor; si alguno falla se aborta sin tocar la BD.
 - Tests: `tests/unit/s3-storage.test.ts` (cliente S3 simulado) y `tests/integracion/exportacion-asincrona-archivos.test.ts` (huérfanos y migración).
 
+## Borrado sin huérfanos
+- Al borrar un comunicado (`borrarComunicado`), una tarea (`eliminarTarea`), un salón (`eliminarSalon`: comunicados dirigidos al salón y tareas de sus cursos) o un curso (`eliminarCurso`: tareas), primero se **recolectan** sus `Archivo` (`adjuntosDe`, `adjuntosDeSalon`, `adjuntosDeCurso` en `adjuntos.ts`), luego se borra el elemento (la BD borra las filas en cascada) y **después** se borran los objetos del proveedor (`borrarDelProveedor`). Si el proveedor falla se registra el error (`console.error`) y la operación sigue. Borrar un colegio entero lo hace `khipu:borrar-colegio` (y `deshacerColegio` en plataforma) borrando antes todos sus archivos.
+- `scripts/limpiar-archivos.ts --proveedor` lista (y con `--confirmar` borra) los objetos de `.uploads/` (proveedor **local**) sin fila en `archivos` y con más de 24 h: son los sobrantes de un borrado en el proveedor que falló. Cloudinary/S3: ver Pendientes.
+- Subida desde disco: `FileStorage.subirDesdeRuta?` (opcional) la implementan local (copia), S3 (`PutObject` con stream y `ContentLength`) y Cloudinary (`upload_stream`); `subirArchivoDesdeRuta` cae a `subir(buffer)` si un proveedor no la tiene. La usa la exportación.
+
 ## Pendientes
 - **Externo:** probar `CloudinaryStorage` y `S3Storage` contra cuentas reales en el piloto (requiere credenciales).
 - **Externo:** consentimiento para fotos (spec 15), cuando exista subida de fotos.
-- Archivos del proveedor que quedan sin fila cuando se borra en cascada un salón o un curso (sus tareas y adjuntos): `scripts/limpiar-archivos.ts` no los ve porque la fila ya no existe.
+- (Resuelto) Borrado en cascada sin archivos huérfanos: ver «Borrado sin huérfanos».
+- Listar objetos sin fila en **Cloudinary y S3** no es posible desde `limpiar-archivos.ts` (haría falta recorrer el bucket/la cuenta con sus credenciales); se revisan en su consola bajo `khipu/<tenantId>/…`.

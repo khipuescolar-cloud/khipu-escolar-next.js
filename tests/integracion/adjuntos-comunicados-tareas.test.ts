@@ -4,7 +4,11 @@ import { randomUUID } from "node:crypto";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { zipSync } from "fflate";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { rm } from "node:fs/promises";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
+import { itemsDeAgenda } from "@/lib/server/agenda";
+import { eliminarSalon } from "@/lib/server/gestion";
+import { LocalStorage } from "@/lib/server/storage/local";
 import { requireArchivoVisible } from "@/lib/server/archivos";
 import { borrarComunicado, editarComunicado, listarComunicados, publicarComunicado } from "@/lib/server/comunicados";
 import { db } from "@/lib/server/db";
@@ -124,10 +128,47 @@ describe("adjuntos de comunicados y tareas", () => {
     await esperarProhibido(requireArchivoVisible(c.ctxDe("otroProfesor"), archivo.id));
     await esperarProhibido(requireArchivoVisible(administrativo, archivo.id));
 
+    // La agenda lista los adjuntos con el mismo control de acceso que la descarga.
+    const desde = new Date();
+    const hasta = new Date(Date.now() + 10 * 86_400_000);
+    const entrega = async (quien: TenantContext) => (await itemsDeAgenda(quien, desde, hasta)).find((i) => i.id === tarea.id);
+    expect((await entrega(c.ctxDe("madre")))?.adjuntos.map((a) => a.nombre).sort()).toEqual(["autorizacion.docx", "ficha.pdf"]);
+    expect((await entrega(tutora))?.adjuntos).toHaveLength(2);
+    expect((await entrega(c.ctxDe("direccion")))?.adjuntos).toHaveLength(2);
+    expect((await entrega(administrativo))?.adjuntos ?? []).toEqual([]); // no puede descargarlos: no se los muestra
+
     const ruta = path.resolve(process.cwd(), ".uploads", archivo.publicId);
     expect(existsSync(ruta)).toBe(true);
     expect(await eliminarTarea(tutora, tarea.id)).toMatchObject({ ok: true });
     expect(await c.db.archivo.count({ where: { tareaId: tarea.id } })).toBe(0);
     expect(existsSync(ruta)).toBe(false);
+  });
+
+  it("al borrar un salón se borran del proveedor los adjuntos de sus comunicados (no quedan huérfanos)", async () => {
+    const salon = await c.db.salon.create({ data: { tenantId: c.tenant.id, nombre: "Salón efímero", nivel: "primaria", anio: 2026 } });
+    const { id } = await publicarComunicado(c.ctxDe("direccion"), { titulo: "Del salón", cuerpo: "Cuerpo", salonId: salon.id }, [pdf("salon.pdf")]);
+    const archivo = await c.db.archivo.findFirstOrThrow({ where: { comunicadoId: id } });
+    const ruta = path.resolve(process.cwd(), ".uploads", archivo.publicId);
+    expect(existsSync(ruta)).toBe(true);
+    await eliminarSalon(c.ctxDe("direccion"), salon.id);
+    expect(await c.db.archivo.count({ where: { id: archivo.id } })).toBe(0);
+    expect(existsSync(ruta)).toBe(false);
+  });
+
+  it("si el proveedor falla al borrar, la operación no se rompe", async () => {
+    const dir = c.ctxDe("direccion");
+    const { id: comunicadoId } = await publicarComunicado(dir, { titulo: "Falla", cuerpo: "Cuerpo", salonId: null }, [pdf("falla.pdf")]);
+    const espia = vi.spyOn(LocalStorage.prototype, "borrar").mockRejectedValue(new Error("proveedor caído"));
+    const silencio = vi.spyOn(console, "error").mockImplementation(() => undefined);
+    const archivo = await c.db.archivo.findFirstOrThrow({ where: { comunicadoId } });
+    try {
+      await expect(borrarComunicado(dir, archivo.comunicadoId!)).resolves.toBeUndefined();
+      expect(silencio).toHaveBeenCalled();
+    } finally {
+      espia.mockRestore();
+      silencio.mockRestore();
+    }
+    expect(await c.db.comunicado.count({ where: { id: archivo.comunicadoId! } })).toBe(0);
+    await rm(path.resolve(process.cwd(), ".uploads", archivo.publicId), { force: true });
   });
 });

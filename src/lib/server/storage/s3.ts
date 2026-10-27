@@ -1,5 +1,7 @@
 import "server-only";
 import { randomUUID } from "node:crypto";
+import { createReadStream } from "node:fs";
+import { stat } from "node:fs/promises";
 import { DeleteObjectCommand, GetObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import type { ArchivoSubido, FileStorage, OpcionesSubida, ReferenciaArchivo } from "./tipos";
@@ -61,6 +63,18 @@ export class S3Storage implements FileStorage {
   async subir(buffer: Buffer, { tenantId, carpeta, privado, mimeType }: OpcionesSubida): Promise<ArchivoSubido> {
     const clave = `khipu/${tenantId}/${carpeta}/${randomUUID()}.${EXTENSION[mimeType] ?? "bin"}`;
     await this.cliente.send(new PutObjectCommand({ Bucket: this.config.bucket, Key: clave, Body: buffer, ContentType: mimeType }));
+    return { proveedor: "s3", publicId: clave, url: privado ? null : this.urlPublica(clave) };
+  }
+
+  async subirDesdeRuta(ruta: string, { tenantId, carpeta, privado, mimeType }: OpcionesSubida): Promise<ArchivoSubido> {
+    const clave = `khipu/${tenantId}/${carpeta}/${randomUUID()}.${EXTENSION[mimeType] ?? "bin"}`;
+    const { size } = await stat(ruta);
+    const flujo = createReadStream(ruta);
+    try {
+      await this.cliente.send(new PutObjectCommand({ Bucket: this.config.bucket, Key: clave, Body: flujo, ContentLength: size, ContentType: mimeType }));
+    } finally {
+      flujo.destroy();
+    }
     return { proveedor: "s3", publicId: clave, url: privado ? null : this.urlPublica(clave) };
   }
 

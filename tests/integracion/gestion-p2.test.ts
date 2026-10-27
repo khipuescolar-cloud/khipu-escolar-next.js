@@ -213,6 +213,8 @@ describe("datos globales del perfil y reinicio de contraseña", () => {
     const avisos = await db.aviso.findMany({ where: { tenantId: tenant.id, plantilla: "bienvenida", destinatario: correo("multi") } });
     expect(avisos.length).toBeGreaterThanOrEqual(2);
     expect(JSON.stringify(avisos.map((a) => a.payload))).not.toContain("22222222");
+    // «Restablecer y avisar» encola la variante «restablecida», no la bienvenida.
+    expect(avisos.some((a) => (a.payload as { restablecida?: boolean }).restablecida === true)).toBe(true);
   });
 
   it("sin documento válido no restablece", async () => {

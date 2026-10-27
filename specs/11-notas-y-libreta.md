@@ -102,4 +102,4 @@ cursosDelDocente(ctx)
 
 ## Pendientes
 - El título del tutor sigue su género («Tutora:», «Tutor:», «Tutor(a):»).
-- El corte de «libretas antiguas» (`CORTE_LIBRETA_PUBLICADA`) es una constante porque `periodos` no guarda cuándo se cerró; si un colegio necesita otra regla, habría que añadir esa fecha al esquema.
+- (Decisión cerrada) `CORTE_LIBRETA_PUBLICADA` se queda como constante: `periodos` no guarda la fecha de cierre y no se cambia el esquema. Los periodos cerrados antes del corte siguen visibles para las familias; los nuevos requieren publicar la libreta.

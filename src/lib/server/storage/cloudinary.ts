@@ -1,4 +1,5 @@
 import "server-only";
+import { createReadStream } from "node:fs";
 import { v2 as cloudinary, type UploadApiResponse } from "cloudinary";
 import type { ArchivoSubido, FileStorage, OpcionesSubida, ReferenciaArchivo } from "./tipos";
 
@@ -40,6 +41,23 @@ export class CloudinaryStorage implements FileStorage {
         (error, res) => (error || !res ? reject(error ?? new Error("Cloudinary no respondió")) : resolve(res)),
       );
       stream.end(buffer);
+    });
+    return { proveedor: "cloudinary", publicId: resultado.public_id, url: privado ? null : resultado.secure_url };
+  }
+
+  async subirDesdeRuta(ruta: string, { tenantId, carpeta, privado, mimeType }: OpcionesSubida): Promise<ArchivoSubido> {
+    const resultado = await new Promise<UploadApiResponse>((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        {
+          folder: `khipu/${tenantId}/${carpeta}`,
+          type: privado ? "authenticated" : "upload",
+          resource_type: tipoRecurso(mimeType),
+        },
+        (error, res) => (error || !res ? reject(error ?? new Error("Cloudinary no respondió")) : resolve(res)),
+      );
+      const origen = createReadStream(ruta);
+      origen.on("error", reject);
+      origen.pipe(stream);
     });
     return { proveedor: "cloudinary", publicId: resultado.public_id, url: privado ? null : resultado.secure_url };
   }

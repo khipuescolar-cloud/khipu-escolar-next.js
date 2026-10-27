@@ -3,7 +3,7 @@ import { forbidden } from "next/navigation";
 import { z } from "zod";
 import { urlColegio } from "@/lib/dominio";
 import { type AdjuntoVista } from "@/lib/adjuntos";
-import { adjuntoVista, borrarAdjuntosDe, contarRestantes, guardarAdjuntos, quitarAdjuntos, validarAdjuntos, type EntradaAdjunto } from "./adjuntos";
+import { adjuntoVista, adjuntosDe, borrarDelProveedor, contarRestantes, guardarAdjuntos, quitarAdjuntos, validarAdjuntos, type EntradaAdjunto } from "./adjuntos";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
@@ -148,7 +148,8 @@ export async function editarComunicado(
 
 export async function borrarComunicado(ctx: TenantContext, id: string): Promise<void> {
   const c = await cargarEditable(ctx, id);
-  await borrarAdjuntosDe(ctx, { comunicadoId: id });
-  await ctx.db.comunicado.delete({ where: { id } });
+  const archivos = await adjuntosDe(ctx, { comunicadoId: id });
+  await ctx.db.comunicado.delete({ where: { id } }); // los adjuntos se borran en cascada de la BD
+  await borrarDelProveedor(archivos);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "comunicado", entidadId: id, detalle: { titulo: c.titulo } });
 }
