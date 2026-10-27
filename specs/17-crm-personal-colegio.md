@@ -54,3 +54,6 @@ Documento inválido (DNI de 8 dígitos; CE/pasaporte 8–12 alfanuméricos), cor
 - Editar nombres, documento o teléfono cambia el `Profile` global (vale en todos los colegios de la persona).
 - El administrativo solo ve Comunicados; Mensajes, agenda, etc. quedan para cuando se definan sus permisos.
 - Corregir el documento no cambia la contraseña de la persona.
+
+## Cambios de interfaz (rediseño)
+Las listas de profesores y personal usan `Table` en `Card` con barra de búsqueda y filtros; «Agregar profesor/personal» e «Importar CSV» están en el encabezado y abren un `Sheet`/`Dialog`. La ficha muestra avatar con iniciales, datos en lista descriptiva, historial en línea de tiempo, y «Editar datos» (Sheet) y acciones de cuenta (reenviar bienvenida, desactivar/reactivar con confirmación) en un menú. Sin cambios de comportamiento ni de campos.

@@ -134,6 +134,10 @@ Interlineado 1.5 en cuerpo, máximo `max-w-prose` para párrafos largos. Nada de
 | Cambio de estado crítico (suspender) | `CambiarEstado` (`BotonConfirmar` con `peligro`) | Explica la consecuencia antes de aplicar |
 | Plan del colegio | `PlanColegio` (`plataforma/EstadoColegio.tsx`) | Insignia con contorno, junto a `EstadoColegio` |
 | Menú de acciones por fila | `DropdownMenu` con botón `MoreHorizontal` (`aria-label`) | |
+| Formulario en panel con server action que redirige (CRM de gestión) | `gestion/_componentes/PanelFormulario` (`Dialog`/`Sheet`, se cierra solo al cambiar la URL con `?ok=`/`?error=`) | El `<form action>` sigue renderizado por el servidor; los nombres de campo no cambian |
+| Acciones por fila con confirmación o formulario | `gestion/_componentes/AccionesFila` (menú `MoreHorizontal` con enlaces, paneles y `AlertDialog`) | Las acciones destructivas van en rojo y con verbo concreto |
+| Persona (alumno, profesor, familia) | `AvatarPersona` (iniciales, sin fotos) + `InsigniaEstado` | |
+| Pestañas de sección (gestión) | `gestion/_componentes/NavGestion` (subrayado índigo, `aria-current`; oculto en el hub) | |
 
 ## 9. Movimiento
 

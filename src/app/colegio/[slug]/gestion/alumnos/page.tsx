@@ -1,14 +1,22 @@
-import { CheckCircle2, UserRoundX } from "lucide-react";
+import { CheckCircle2, FileUp, GraduationCap, Search, UserPlus, UserRoundX } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EstadoVacio } from "@/components/shell/EstadoVacio";
+import { Badge } from "@/components/ui/badge";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { listarAlumnos, listarSalones } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cambiarEstadoAlumnoAction, crearAlumnoAction, editarAlumnoAction, importarAlumnosAction } from "../actions";
+import { AccionesFila } from "../_componentes/AccionesFila";
+import { AvatarPersona } from "../_componentes/AvatarPersona";
+import { CampoArchivoCsv } from "../_componentes/CargaCsv";
+import { PanelFormulario } from "../_componentes/PanelFormulario";
 
 export const metadata: Metadata = { title: "Alumnos" };
 
@@ -21,78 +29,126 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
   const [salones, alumnos] = await Promise.all([listarSalones(ctx), listarAlumnos(ctx, { salonId, incluirRetirados: verRetirados })]);
   const opcionesSalon = salones.map((s) => <option key={s.id} value={s.id}>{s.nombre} ({s.anio})</option>);
 
-  return (
-    <div className="flex max-w-4xl flex-col gap-6">
-      <h1 className="text-2xl font-bold">Alumnos</h1>
-      <Flash ok={ok} error={error} />
-
-      <Tarjeta>
-        <h2 className="mb-3 text-lg font-semibold">Agregar un alumno</h2>
-        <form action={crearAlumnoAction} className="grid gap-3 sm:grid-cols-2">
+  const acciones = (
+    <>
+      <PanelFormulario
+        variante="outline"
+        boton={<><FileUp strokeWidth={2} aria-hidden /> Importar CSV</>}
+        titulo="Importar desde un archivo CSV"
+        descripcion={<>Columnas: <code>nombres, apellidos, codigo, salon</code>. El salón debe existir con el mismo nombre. Si alguna fila falla, no se importa ninguna.</>}
+      >
+        <form action={importarAlumnosAction} className="flex flex-col gap-4">
+          <CampoArchivoCsv />
+          <Boton type="submit" className="self-start">Importar</Boton>
+        </form>
+      </PanelFormulario>
+      <PanelFormulario boton={<><UserPlus strokeWidth={2} aria-hidden /> Agregar alumno</>} titulo="Agregar un alumno" descripcion="Queda dentro del salón que elijas.">
+        <form action={crearAlumnoAction} className="grid gap-4 sm:grid-cols-2">
           <Campo etiqueta="Nombres" name="nombres" required />
           <Campo etiqueta="Apellidos" name="apellidos" required />
           <Campo etiqueta="Código (opcional)" name="codigo" />
           <Selector etiqueta="Salón" name="salonId" required>{opcionesSalon}</Selector>
-          <Boton type="submit" className="self-start sm:col-span-2">Agregar alumno</Boton>
+          <Boton type="submit" className="justify-self-start sm:col-span-2">Agregar alumno</Boton>
         </form>
-      </Tarjeta>
+      </PanelFormulario>
+    </>
+  );
 
-      <Tarjeta>
-        <h2 className="mb-1 text-lg font-semibold">Importar desde un archivo CSV</h2>
-        <p className="mb-3 text-sm text-pizarra">Columnas: <code>nombres, apellidos, codigo, salon</code>. El salón debe existir con el mismo nombre. Si alguna fila falla, no se importa ninguna.</p>
-        <form action={importarAlumnosAction} className="flex flex-wrap items-end gap-3">
-          <label className="flex flex-col gap-1.5 text-sm">
-            <span className="font-medium">Archivo CSV</span>
-            <input type="file" name="archivo" accept=".csv,text/csv" required className="text-sm" />
+  return (
+    <div className="flex flex-col gap-6">
+      <div>
+        <EncabezadoPagina titulo="Alumnos" descripcion="Alumnos matriculados, su salón y su estado." acciones={acciones} />
+        <Flash ok={ok} error={error} />
+      </div>
+
+      <Tarjeta className="p-4">
+        <form method="get" className="flex flex-wrap items-end gap-3" role="search">
+          <Selector etiqueta="Filtrar por salón" name="salon" defaultValue={salonId ?? ""}>
+            <option value="">Todos</option>
+            {opcionesSalon}
+          </Selector>
+          <label className="flex min-h-10 items-center gap-2 text-sm">
+            <input type="checkbox" name="retirados" value="1" defaultChecked={verRetirados} className="size-5 accent-primary" /> Incluir retirados
           </label>
-          <Boton type="submit">Importar</Boton>
+          <Boton type="submit" variante="secundario"><Search strokeWidth={2} aria-hidden /> Filtrar</Boton>
+          <Link href="/gestion/alumnos" className="inline-flex h-10 items-center px-2 text-sm font-semibold text-primary hover:underline">Limpiar</Link>
         </form>
       </Tarjeta>
 
-      <form method="get" className="flex flex-wrap items-end gap-3">
-        <Selector etiqueta="Filtrar por salón" name="salon" defaultValue={salonId ?? ""}>
-          <option value="">Todos</option>
-          {opcionesSalon}
-        </Selector>
-        <label className="flex items-center gap-2 pb-3 text-sm">
-          <input type="checkbox" name="retirados" value="1" defaultChecked={verRetirados} /> Incluir retirados
-        </label>
-        <Boton type="submit" variante="secundario">Filtrar</Boton>
-        <Link href="/gestion/alumnos" className="pb-3 text-sm text-acento">Limpiar</Link>
-      </form>
-
-      <ul className="flex flex-col gap-3">
-        {alumnos.map((a) => (
-          <li key={a.id}>
-            <Tarjeta className="flex flex-col gap-3">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="font-semibold">{a.nombres} {a.apellidos} <span className="font-normal text-pizarra">· {a.salon.nombre}</span></p>
-                <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-xs font-semibold ${a.estado === "activo" ? "bg-llego-fondo text-llego" : "bg-superficie-2 text-pizarra"}`}>
-                  {a.estado === "activo" ? <CheckCircle2 className="h-3.5 w-3.5" strokeWidth={2} aria-hidden /> : <UserRoundX className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />}
-                  {a.estado === "activo" ? "Activo" : "Retirado"}
-                </span>
-              </div>
-              <details>
-                <summary className="cursor-pointer text-sm font-semibold text-acento">Editar</summary>
-                <form action={editarAlumnoAction} className="mt-3 grid gap-3 sm:grid-cols-2">
-                  <input type="hidden" name="id" value={a.id} />
-                  <Campo etiqueta="Nombres" name="nombres" defaultValue={a.nombres} required />
-                  <Campo etiqueta="Apellidos" name="apellidos" defaultValue={a.apellidos} required />
-                  <Campo etiqueta="Código" name="codigo" defaultValue={a.codigo ?? ""} />
-                  <Selector etiqueta="Salón" name="salonId" defaultValue={a.salonId}>{opcionesSalon}</Selector>
-                  <Boton type="submit" variante="secundario" className="self-start">Guardar</Boton>
-                </form>
-              </details>
-              <form action={cambiarEstadoAlumnoAction}>
-                <input type="hidden" name="id" value={a.id} />
-                <input type="hidden" name="estado" value={a.estado === "activo" ? "retirado" : "activo"} />
-                <Boton type="submit" variante="fantasma">{a.estado === "activo" ? "Retirar del colegio" : "Reactivar"}</Boton>
-              </form>
-            </Tarjeta>
-          </li>
-        ))}
-        {alumnos.length === 0 && <li className="text-sm text-pizarra">No hay alumnos con ese filtro.</li>}
-      </ul>
+      {alumnos.length === 0 ? (
+        <EstadoVacio icono={GraduationCap} titulo="No hay alumnos con ese filtro" descripcion="Prueba con otro salón o agrega a un alumno con el botón de arriba." />
+      ) : (
+        <Tarjeta className="overflow-hidden p-0">
+          <Table>
+            <caption className="sr-only">Alumnos del colegio</caption>
+            <TableHeader>
+              <TableRow className="bg-muted/50 hover:bg-muted/50">
+                <TableHead className="h-11 px-4">Alumno</TableHead>
+                <TableHead className="hidden h-11 px-4 sm:table-cell">Código</TableHead>
+                <TableHead className="hidden h-11 px-4 sm:table-cell">Salón</TableHead>
+                <TableHead className="h-11 px-4">Estado</TableHead>
+                <TableHead className="h-11 w-14 px-4"><span className="sr-only">Acciones</span></TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {alumnos.map((a) => {
+                const activo = a.estado === "activo";
+                const nombre = `${a.nombres} ${a.apellidos}`;
+                return (
+                  <TableRow key={a.id}>
+                    <TableCell className="px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <AvatarPersona nombres={a.nombres} apellidos={a.apellidos} />
+                        <span className="min-w-0"><span className="font-semibold">{nombre}</span><span className="block text-xs text-muted-foreground sm:hidden">{a.salon.nombre}</span></span>
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden px-4 py-3 sm:table-cell">{a.codigo ?? "—"}</TableCell>
+                    <TableCell className="hidden px-4 py-3 sm:table-cell">{a.salon.nombre}</TableCell>
+                    <TableCell className="px-4 py-3">
+                      <Badge className={`h-6 px-2.5 text-xs font-semibold ${activo ? "bg-llego-fondo text-llego" : "bg-muted text-muted-foreground"}`}>
+                        {activo ? <CheckCircle2 strokeWidth={2} aria-hidden /> : <UserRoundX strokeWidth={2} aria-hidden />}
+                        {activo ? "Activo" : "Retirado"}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="px-2 py-2">
+                      <AccionesFila
+                        etiqueta={`Acciones para ${nombre}`}
+                        items={[
+                          {
+                            tipo: "panel", texto: "Editar", icono: "editar", titulo: `Editar a ${nombre}`,
+                            contenido: (
+                              <form action={editarAlumnoAction} className="grid gap-4 sm:grid-cols-2">
+                                <input type="hidden" name="id" value={a.id} />
+                                <Campo etiqueta="Nombres" name="nombres" defaultValue={a.nombres} required />
+                                <Campo etiqueta="Apellidos" name="apellidos" defaultValue={a.apellidos} required />
+                                <Campo etiqueta="Código" name="codigo" defaultValue={a.codigo ?? ""} />
+                                <Selector etiqueta="Salón" name="salonId" defaultValue={a.salonId}>{opcionesSalon}</Selector>
+                                <Boton type="submit" className="justify-self-start sm:col-span-2">Guardar</Boton>
+                              </form>
+                            ),
+                          },
+                          activo
+                            ? {
+                                tipo: "confirmar", texto: "Retirar del colegio", icono: "retirar", peligro: true, titulo: `¿Retirar a ${nombre}?`,
+                                descripcion: "Dejará de aparecer en las listas del día. Podrás reactivarlo cuando quieras.", confirmar: "Retirar",
+                                accion: cambiarEstadoAlumnoAction, campos: { id: a.id, estado: "retirado" },
+                              }
+                            : {
+                                tipo: "confirmar", texto: "Reactivar", icono: "reactivar", titulo: `¿Reactivar a ${nombre}?`,
+                                descripcion: "Volverá a aparecer en las listas de su salón.", confirmar: "Reactivar",
+                                accion: cambiarEstadoAlumnoAction, campos: { id: a.id, estado: "activo" },
+                              },
+                        ]}
+                      />
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </Tarjeta>
+      )}
+      <p className="text-xs text-muted-foreground">{alumnos.length} {alumnos.length === 1 ? "alumno" : "alumnos"}.</p>
     </div>
   );
 }

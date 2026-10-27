@@ -1,13 +1,20 @@
+import { ArrowLeft, Download, Eye, FilePlus2, LogIn, Pencil, ScrollText, Send, Trash2, type LucideIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EstadoVacio } from "@/components/shell/EstadoVacio";
+import { Badge } from "@/components/ui/badge";
 import { Boton } from "@/components/ui/Boton";
 import { Selector } from "@/components/ui/Selector";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Tarjeta } from "@/components/ui/Tarjeta";
 import { listarAuditoria } from "@/lib/server/exportar";
 import { requireTenantContext } from "@/lib/server/tenant";
 
 export const metadata: Metadata = { title: "Auditoría" };
 
 const ACCIONES = ["ver", "crear", "editar", "borrar", "exportar", "enviar", "login"];
+const ICONO_ACCION: Record<string, LucideIcon> = { ver: Eye, crear: FilePlus2, editar: Pencil, borrar: Trash2, exportar: Download, enviar: Send, login: LogIn };
 const fecha = new Intl.DateTimeFormat("es-PE", { dateStyle: "short", timeStyle: "medium", timeZone: "America/Lima" });
 
 export default async function AuditoriaPage({ params, searchParams }: PageProps<"/colegio/[slug]/configuracion/auditoria">) {
@@ -18,35 +25,53 @@ export default async function AuditoriaPage({ params, searchParams }: PageProps<
   const filas = await listarAuditoria(ctx, { accion: filtro });
 
   return (
-    <div className="flex flex-col gap-4">
-      <Link href="/configuracion" className="text-sm font-semibold text-acento">← Configuración</Link>
-      <h1 className="text-2xl font-bold">Auditoría</h1>
-      <p className="text-sm text-pizarra">Los últimos 200 registros de quién vio o cambió datos.</p>
-      <form method="get" className="flex flex-wrap items-end gap-3">
-        <Selector etiqueta="Acción" name="accion" defaultValue={filtro ?? ""}>
-          <option value="">Todas</option>
-          {ACCIONES.map((a) => <option key={a} value={a}>{a}</option>)}
-        </Selector>
-        <Boton type="submit" variante="secundario">Filtrar</Boton>
-      </form>
-      <div className="overflow-x-auto rounded-lg border border-arena bg-superficie">
-        <table className="w-full text-left text-sm">
-          <thead className="bg-superficie-2 text-pizarra">
-            <tr><th className="p-3">Fecha</th><th className="p-3">Quién</th><th className="p-3">Acción</th><th className="p-3">Qué</th></tr>
-          </thead>
-          <tbody>
-            {filas.map((f) => (
-              <tr key={f.id} className="border-t border-arena">
-                <td className="whitespace-nowrap p-3">{fecha.format(f.createdAt)}</td>
-                <td className="p-3">{f.actor}</td>
-                <td className="p-3">{f.accion}</td>
-                <td className="p-3">{f.entidad}{f.entidadId ? ` · ${f.entidadId.slice(0, 8)}` : ""}</td>
-              </tr>
-            ))}
-            {filas.length === 0 && <tr><td colSpan={4} className="p-4 text-center text-pizarra">Sin registros.</td></tr>}
-          </tbody>
-        </table>
-      </div>
+    <div className="flex flex-col gap-6">
+      <Link href="/configuracion" className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Configuración
+      </Link>
+      <EncabezadoPagina titulo="Auditoría" descripcion="Los últimos 200 registros de quién vio o cambió datos." />
+      <Tarjeta className="-mt-2 p-4">
+        <form method="get" className="flex flex-wrap items-end gap-3" role="search">
+          <Selector etiqueta="Acción" name="accion" defaultValue={filtro ?? ""}>
+            <option value="">Todas</option>
+            {ACCIONES.map((a) => <option key={a} value={a}>{a}</option>)}
+          </Selector>
+          <Boton type="submit" variante="secundario">Filtrar</Boton>
+          {filtro && <Link href="/configuracion/auditoria" className="inline-flex h-10 items-center px-2 text-sm font-semibold text-primary hover:underline">Limpiar</Link>}
+        </form>
+      </Tarjeta>
+      {filas.length === 0 ? (
+        <EstadoVacio icono={ScrollText} titulo="Sin registros" descripcion="Cuando alguien vea o cambie datos de alumnos, aparecerá aquí." />
+      ) : (
+        <Tarjeta className="overflow-hidden p-0">
+          <Table>
+            <caption className="sr-only">Registro de auditoría</caption>
+            <TableHeader>
+              <TableRow className="bg-muted/50 hover:bg-muted/50">
+                <TableHead className="h-11 px-4">Fecha</TableHead>
+                <TableHead className="h-11 px-4">Quién</TableHead>
+                <TableHead className="h-11 px-4">Acción</TableHead>
+                <TableHead className="h-11 px-4">Qué</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {filas.map((f) => {
+                const Icono = ICONO_ACCION[f.accion] ?? ScrollText;
+                return (
+                  <TableRow key={f.id}>
+                    <TableCell className="px-4 py-3 whitespace-nowrap">{fecha.format(f.createdAt)}</TableCell>
+                    <TableCell className="px-4 py-3">{f.actor}</TableCell>
+                    <TableCell className="px-4 py-3">
+                      <Badge variant="secondary" className="h-6 px-2.5"><Icono strokeWidth={2} aria-hidden /> {f.accion}</Badge>
+                    </TableCell>
+                    <TableCell className="px-4 py-3">{f.entidad}{f.entidadId ? ` · ${f.entidadId.slice(0, 8)}` : ""}</TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </Tarjeta>
+      )}
     </div>
   );
 }

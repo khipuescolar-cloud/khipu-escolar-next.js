@@ -1,6 +1,7 @@
-import { ArrowLeft, Send } from "lucide-react";
+import { ArrowLeft, Pencil } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Badge } from "@/components/ui/badge";
 import { Boton } from "@/components/ui/Boton";
 import { Flash } from "@/components/ui/Flash";
 import { Tarjeta } from "@/components/ui/Tarjeta";
@@ -8,9 +9,14 @@ import { NOMBRE_ROL } from "@/lib/roles";
 import { obtenerFicha, ROLES_NO_DOCENTES, type RolPersonal } from "@/lib/server/personal";
 import type { TenantContext } from "@/lib/server/tenant";
 import { cambiarEstadoMembresiaAction, editarPersonaAction, reenviarBienvenidaAction, reenviarInvitacionAction } from "../actions";
+import { AccionesFila } from "../_componentes/AccionesFila";
+import { AvatarPersona } from "../_componentes/AvatarPersona";
+import { PanelFormulario } from "../_componentes/PanelFormulario";
 import { CamposPersona, InsigniaEstado, type Ambito } from "./PanelPersonal";
 
 const fechaHora = new Intl.DateTimeFormat("es-PE", { dateStyle: "medium", timeStyle: "short", timeZone: "America/Lima" });
+const GENERO: Record<string, string> = { femenino: "Femenino", masculino: "Masculino", no_especifica: "Prefiere no indicar" };
+const fechaCorta = new Intl.DateTimeFormat("es-PE", { dateStyle: "long", timeZone: "UTC" });
 const ACCION: Record<string, string> = { ver: "Vio la ficha", crear: "Alta", editar: "Edición", enviar: "Envío", borrar: "Borrado", exportar: "Exportación", login: "Ingreso" };
 
 function resumen(d: Record<string, unknown> | null): string {
@@ -30,92 +36,147 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
   const f = await obtenerFicha(ctx, id, roles);
   if (!f) notFound();
   const u = f.user;
+  const volver = `${base}/${f.id}`;
+  const datos: [string, string][] = [
+    ["Documento", u.numeroDocumento ? `${(u.tipoDocumento ?? "dni").toUpperCase()} ${u.numeroDocumento}` : "—"],
+    ["Correo (usuario)", u.email],
+    ["Teléfono", u.telefono ?? "—"],
+    ["Género", u.genero ? (GENERO[u.genero] ?? u.genero) : "—"],
+    ["Fecha de nacimiento", u.fechaNacimiento ? fechaCorta.format(u.fechaNacimiento) : "—"],
+    ["Dirección", u.direccion ?? "—"],
+    ["Cargo", f.cargo ?? "—"],
+  ];
 
   return (
-    <div className="flex max-w-4xl flex-col gap-6">
-      <Link href={base} className="inline-flex items-center gap-1.5 text-sm font-semibold text-acento">
-        <ArrowLeft className="h-4 w-4" strokeWidth={2} aria-hidden /> {ambito === "profesores" ? "Profesores" : "Personal"}
+    <div className="flex flex-col gap-6">
+      <Link href={base} className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> {ambito === "profesores" ? "Profesores" : "Personal"}
       </Link>
-      <div className="flex flex-wrap items-center gap-3">
-        <h1 className="text-2xl font-bold">{u.nombres} {u.apellidos}</h1>
-        <InsigniaEstado estado={f.estado} />
-        <span className="text-sm text-pizarra">{NOMBRE_ROL[f.rol]}{f.cargo ? ` · ${f.cargo}` : ""}</span>
-      </div>
+
+      <Tarjeta className="flex flex-col gap-4 sm:flex-row sm:items-center">
+        <AvatarPersona nombres={u.nombres} apellidos={u.apellidos} grande />
+        <div className="min-w-0 flex-1">
+          <h1 className="text-2xl font-bold text-balance sm:text-3xl">{u.nombres} {u.apellidos}</h1>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <InsigniaEstado estado={f.estado} />
+            <Badge variant="outline" className="h-6 px-2.5">{NOMBRE_ROL[f.rol]}</Badge>
+            {f.cargo && <span className="text-sm text-muted-foreground">{f.cargo}</span>}
+          </div>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <PanelFormulario
+            tipo="sheet"
+            variante="outline"
+            boton={<><Pencil strokeWidth={2} aria-hidden /> Editar datos</>}
+            titulo="Datos personales"
+            descripcion="Estos datos son de la persona en todos los colegios donde trabaje. Cambiar el documento no cambia su contraseña."
+          >
+            <form action={editarPersonaAction} className="grid gap-4 sm:grid-cols-2">
+              <input type="hidden" name="id" value={f.id} />
+              <input type="hidden" name="volver" value={volver} />
+              <input type="hidden" name="ambito" value={ambito === "personal" ? "personal" : "profesores"} />
+              <CamposPersona
+                conEmail={false}
+                valores={{
+                  nombres: u.nombres, apellidos: u.apellidos, tipoDocumento: u.tipoDocumento, numeroDocumento: u.numeroDocumento, telefono: u.telefono,
+                  genero: u.genero, fechaNacimiento: u.fechaNacimiento?.toISOString().slice(0, 10), direccion: u.direccion, cargo: f.cargo,
+                }}
+              />
+              <p className="text-sm text-muted-foreground sm:col-span-2">Correo (usuario): <strong className="text-foreground">{u.email}</strong></p>
+              <Boton type="submit" className="justify-self-start sm:col-span-2">Guardar datos</Boton>
+            </form>
+          </PanelFormulario>
+          <AccionesFila
+            etiqueta={`Más acciones para ${u.nombres} ${u.apellidos}`}
+            items={[
+              {
+                tipo: "confirmar", texto: "Reenviar bienvenida", icono: "enviar", titulo: "¿Reenviar el correo de bienvenida?",
+                descripcion: `Enviaremos de nuevo el correo de bienvenida a ${u.email}.`, confirmar: "Reenviar bienvenida",
+                accion: reenviarBienvenidaAction, campos: { id: f.id, volver },
+              },
+              ...(f.estado === "invitada"
+                ? [{
+                    tipo: "confirmar" as const, texto: "Reenviar invitación", icono: "enviar" as const, titulo: "¿Reenviar la invitación?",
+                    descripcion: "Enviaremos un enlace para que cree su contraseña.", confirmar: "Reenviar invitación",
+                    accion: reenviarInvitacionAction, campos: { id: f.id, volver },
+                  }]
+                : []),
+              f.estado === "inactiva"
+                ? {
+                    tipo: "confirmar" as const, texto: "Reactivar", icono: "reactivar" as const, titulo: `¿Reactivar a ${u.nombres}?`,
+                    descripcion: "Podrá volver a entrar a Khipu con su cuenta.", confirmar: "Reactivar",
+                    accion: cambiarEstadoMembresiaAction, campos: { id: f.id, volver, estado: "activa" },
+                  }
+                : {
+                    tipo: "confirmar" as const, texto: "Desactivar", icono: "retirar" as const, peligro: true, titulo: `¿Desactivar a ${u.nombres}?`,
+                    descripcion: `Dejará de entrar${f.rol === "profesor" ? " y se liberarán sus tutorías y cursos" : ""}. Nunca se borra a una persona: puedes reactivarla cuando quieras.`,
+                    confirmar: "Desactivar", accion: cambiarEstadoMembresiaAction, campos: { id: f.id, volver, estado: "inactiva" },
+                  },
+            ]}
+          />
+        </div>
+      </Tarjeta>
       <Flash ok={searchParams.ok} error={searchParams.error} />
 
-      <Tarjeta>
-        <h2 className="mb-3 text-lg font-semibold">Datos personales</h2>
-        <form action={editarPersonaAction} className="grid gap-3 sm:grid-cols-2">
-          <input type="hidden" name="id" value={f.id} />
-          <input type="hidden" name="volver" value={`${base}/${f.id}`} />
-          <input type="hidden" name="ambito" value={ambito === "personal" ? "personal" : "profesores"} />
-          <CamposPersona
-            conEmail={false}
-            valores={{
-              nombres: u.nombres, apellidos: u.apellidos, tipoDocumento: u.tipoDocumento, numeroDocumento: u.numeroDocumento, telefono: u.telefono,
-              genero: u.genero, fechaNacimiento: u.fechaNacimiento?.toISOString().slice(0, 10), direccion: u.direccion, cargo: f.cargo,
-            }}
-          />
-          <p className="text-sm text-pizarra sm:col-span-2">
-            Correo (usuario): <strong>{u.email}</strong>. Estos datos son de la persona en todos los colegios donde trabaje. Cambiar el documento no cambia su contraseña.
-          </p>
-          <Boton type="submit" className="justify-self-start">Guardar datos</Boton>
-        </form>
-      </Tarjeta>
+      <div className="grid gap-6 lg:grid-cols-3">
+        <div className="flex flex-col gap-6 lg:col-span-2">
+          <Tarjeta>
+            <h2 className="mb-4 text-lg font-semibold">Datos personales</h2>
+            <dl className="grid gap-x-6 gap-y-4 sm:grid-cols-2">
+              {datos.map(([k, v]) => (
+                <div key={k} className="min-w-0">
+                  <dt className="text-xs font-medium text-muted-foreground">{k}</dt>
+                  <dd className="mt-0.5 text-sm break-words">{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-4 text-xs text-muted-foreground">El documento solo lo ve la dirección. Abrir esta ficha queda registrado en la auditoría.</p>
+          </Tarjeta>
 
-      {ambito === "profesores" && (
-        <Tarjeta>
-          <h2 className="mb-3 text-lg font-semibold">Cursos y tutoría</h2>
-          <p className="text-sm">
-            <strong>Tutoría:</strong> {f.salonesTutor.length > 0 ? f.salonesTutor.map((s) => s.nombre).join(", ") : "Sin tutoría."}
-          </p>
-          <ul className="mt-2 list-disc pl-5 text-sm">
-            {f.cursosDictados.length === 0 && <li className="list-none text-pizarra">Sin cursos asignados.</li>}
-            {f.cursosDictados.map((c) => <li key={c.id}>{c.nombre} · {c.salon.nombre}</li>)}
-          </ul>
-          <p className="mt-3 text-xs text-pizarra">Los cursos y la tutoría se asignan en <Link href="/gestion/salones" className="font-semibold text-acento">Grados y salones</Link>.</p>
+          {ambito === "profesores" && (
+            <Tarjeta>
+              <h2 className="mb-3 text-lg font-semibold">Cursos y tutoría</h2>
+              <p className="text-sm">
+                <strong>Tutoría:</strong> {f.salonesTutor.length > 0 ? f.salonesTutor.map((s) => s.nombre).join(", ") : "Sin tutoría."}
+              </p>
+              <ul className="mt-2 flex flex-col gap-1 text-sm">
+                {f.cursosDictados.length === 0 && <li className="text-muted-foreground">Sin cursos asignados.</li>}
+                {f.cursosDictados.map((c) => <li key={c.id}>{c.nombre} · {c.salon.nombre}</li>)}
+              </ul>
+              <p className="mt-3 text-xs text-muted-foreground">Los cursos y la tutoría se asignan en <Link href="/gestion/salones" className="font-semibold text-primary hover:underline">Grados y salones</Link>.</p>
+            </Tarjeta>
+          )}
+
+          <Tarjeta>
+            <h2 className="mb-4 text-lg font-semibold">Historial de cambios</h2>
+            <ol className="flex flex-col gap-4 border-l pl-4 text-sm">
+              {f.historial.length === 0 && <li className="text-muted-foreground">Sin movimientos todavía.</li>}
+              {f.historial.map((e) => (
+                <li key={e.id} className="relative">
+                  <span className="absolute top-1.5 -left-[1.3125rem] size-2.5 rounded-full border-2 border-card bg-primary" aria-hidden />
+                  <p className="flex flex-wrap gap-x-2">
+                    <span className="font-semibold">{ACCION[e.accion] ?? e.accion}</span>
+                    <span className="text-muted-foreground">por {e.actor}</span>
+                  </p>
+                  <p className="text-xs text-muted-foreground">{fechaHora.format(e.fecha)}</p>
+                  {resumen(e.detalle) && <p className="mt-0.5 text-muted-foreground">{resumen(e.detalle)}</p>}
+                </li>
+              ))}
+            </ol>
+          </Tarjeta>
+        </div>
+
+        <Tarjeta className="h-fit">
+          <h2 className="mb-3 text-lg font-semibold">Cuenta</h2>
+          <div className="flex flex-col gap-3 text-sm">
+            <InsigniaEstado estado={f.estado} />
+            <p>{u.debeCambiarPassword ? "Aún no cambia su contraseña inicial." : "Ya cambió su contraseña inicial."}</p>
+            <p className="text-xs text-muted-foreground">
+              Nunca se borra a una persona: al desactivarla deja de entrar{f.rol === "profesor" ? " y se liberan sus tutorías y cursos" : ""}. Las acciones de la cuenta están en el menú «Más acciones».
+            </p>
+          </div>
         </Tarjeta>
-      )}
-
-      <Tarjeta className="flex flex-wrap items-center gap-3">
-        <h2 className="w-full text-lg font-semibold">Cuenta</h2>
-        <form action={cambiarEstadoMembresiaAction}>
-          <input type="hidden" name="id" value={f.id} />
-          <input type="hidden" name="volver" value={`${base}/${f.id}`} />
-          <input type="hidden" name="estado" value={f.estado === "inactiva" ? "activa" : "inactiva"} />
-          <Boton type="submit" variante={f.estado === "inactiva" ? "primario" : "secundario"}>{f.estado === "inactiva" ? "Reactivar" : "Desactivar"}</Boton>
-        </form>
-        <form action={reenviarBienvenidaAction}>
-          <input type="hidden" name="id" value={f.id} />
-          <input type="hidden" name="volver" value={`${base}/${f.id}`} />
-          <Boton type="submit" variante="secundario"><Send className="h-4 w-4" strokeWidth={2} aria-hidden /> Reenviar bienvenida</Boton>
-        </form>
-        {f.estado === "invitada" && (
-          <form action={reenviarInvitacionAction}>
-            <input type="hidden" name="id" value={f.id} />
-            <input type="hidden" name="volver" value={`${base}/${f.id}`} />
-            <Boton type="submit" variante="secundario">Reenviar invitación (enlace para crear contraseña)</Boton>
-          </form>
-        )}
-        <p className="w-full text-xs text-pizarra">
-          {u.debeCambiarPassword ? "Aún no cambia su contraseña inicial." : "Ya cambió su contraseña inicial."} Nunca se borra a una persona: al desactivarla deja de entrar{f.rol === "profesor" ? " y se liberan sus tutorías y cursos" : ""}.
-        </p>
-      </Tarjeta>
-
-      <Tarjeta>
-        <h2 className="mb-3 text-lg font-semibold">Historial de cambios</h2>
-        <ul className="flex flex-col gap-2 text-sm">
-          {f.historial.length === 0 && <li className="text-pizarra">Sin movimientos todavía.</li>}
-          {f.historial.map((e) => (
-            <li key={e.id} className="flex flex-wrap gap-x-3 border-b border-arena pb-2 last:border-0">
-              <span className="text-pizarra">{fechaHora.format(e.fecha)}</span>
-              <span className="font-semibold">{ACCION[e.accion] ?? e.accion}</span>
-              <span>{e.actor}</span>
-              <span className="text-pizarra">{resumen(e.detalle)}</span>
-            </li>
-          ))}
-        </ul>
-      </Tarjeta>
+      </div>
     </div>
   );
 }
