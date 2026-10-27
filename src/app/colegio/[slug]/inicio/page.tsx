@@ -4,13 +4,16 @@ import Link from "next/link";
 import { PlanLock } from "@/components/PlanLock";
 import { mosaicosParaRol } from "@/lib/navegacion";
 import { NOMBRE_PLAN, planIncluye, planMinimo } from "@/lib/planes";
+import { requireConsentimiento } from "@/lib/server/consentimiento";
 import { requireTenantContext } from "@/lib/server/tenant";
+import { ResumenDireccion } from "./ResumenDireccion";
 
 export const metadata: Metadata = { title: "Inicio" };
 
 export default async function InicioPage({ params }: PageProps<"/colegio/[slug]/inicio">) {
   const { slug } = await params;
   const ctx = await requireTenantContext(slug);
+  await requireConsentimiento(ctx);
   const mosaicos = mosaicosParaRol(ctx.rol);
 
   return (
@@ -50,6 +53,8 @@ export default async function InicioPage({ params }: PageProps<"/colegio/[slug]/
           );
         })}
       </ul>
+      {ctx.rol === "direccion" && <ResumenDireccion ctx={ctx} />}
+      <p className="text-sm"><Link href="/perfil" className="font-semibold text-acento">Mi perfil y privacidad</Link></p>
     </div>
   );
 }
