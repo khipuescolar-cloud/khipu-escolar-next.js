@@ -23,3 +23,13 @@ export function tituloProfesor(genero: Genero | null | undefined, tipo: "profeso
 export function nombreRol(rol: Rol, genero: Genero | null | undefined): string {
   return rol === "profesor" ? tituloProfesor(genero) : NOMBRE_ROL[rol];
 }
+
+/**
+ * Roles que usan las vistas «de familia» (solo lectura de sus propios alumnos): el apoderado (sus hijos)
+ * y el alumno con cuenta propia (solo él mismo). El alcance real lo decide `alumnoIdsVisibles` en el servidor.
+ */
+export const ROLES_FAMILIA = ["apoderado", "alumno"] as const satisfies readonly Rol[];
+
+export function esVistaFamilia(rol: Rol): rol is (typeof ROLES_FAMILIA)[number] {
+  return (ROLES_FAMILIA as readonly Rol[]).includes(rol);
+}

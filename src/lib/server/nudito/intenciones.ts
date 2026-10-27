@@ -62,6 +62,97 @@ export function nombreCorto(h: Pick<Hijo, "nombres">): string {
   return h.nombres.trim().split(/\s+/)[0] ?? h.nombres;
 }
 
+// ───────────── Nombres que no son de los hijos ─────────────
+// Si la familia pregunta por un niño que no es su hijo, Nudito NO debe responder con los datos de su hijo
+// como si fuera ese otro niño, ni revelar si ese alumno existe en el colegio (specs/13). Detector puro y conservador:
+// nombres de pila comunes en cualquier posición, palabras con mayúscula fuera del inicio de una oración,
+// y la palabra que sigue a «mi hijo/hija…».
+
+/** Nombres de pila frecuentes (normalizados). Se evitan los que también son palabras comunes (luz, paz, flor, sol…). */
+const NOMBRES_COMUNES = new Set(
+  (
+    "mateo santiago sebastian thiago tiago valentino leonardo matias gael dylan liam lucas joaquin benjamin adrian diego daniel " +
+    "alejandro gabriel samuel nicolas emiliano maximiliano rodrigo fernando carlos jose juan luis jorge miguel pedro pablo andres " +
+    "manuel ricardo eduardo francisco antonio javier martin bruno franco renato piero fabricio alonso gonzalo ignacio esteban " +
+    "jesus cristian christian kevin brayan jhon jhonatan jean anthony alexander alessandro alvaro hugo ivan oscar raul sergio " +
+    "valentina sofia camila isabella valeria mariana luciana ximena daniela gabriela victoria martina antonella fernanda " +
+    "catalina renata emilia regina julieta romina allison ariana alessandra adriana andrea carla carolina claudia diana " +
+    "elena fiorella gianella jimena karla katherine kiara lucia luana maria mia micaela naomi natalia nicole paola " +
+    "patricia rafaela sara sarah tatiana vanessa ana belen brenda cielo dayana estrella fatima itzel nayeli zoe abigail " +
+    "ashley melany milagros rocio sandra silvia susana yesenia ingrid janet rosa"
+  ).split(" "),
+);
+
+/** Palabras que pueden ir con mayúscula sin ser el nombre de un niño (cursos, días, meses, saludos, lugares…). */
+const NO_NOMBRES = new Set(
+  (
+    "hola buenas buenos gracias muchas que como cuando cuanto cuantos donde cual cuales quien por para con sin del las los una uno " +
+    "mi mis tu tus su sus hoy ayer manana semana mes ano dia noche tarde lunes martes miercoles jueves viernes sabado domingo " +
+    "enero febrero marzo abril mayo junio julio agosto septiembre setiembre octubre noviembre diciembre " +
+    "matematica matematicas comunicacion ingles ciencia ciencias tecnologia ambiente arte religion personal social sociales " +
+    "educacion fisica computacion historia geografia economia civica tutoria musica danza teatro deporte quimica biologia " +
+    "literatura lenguaje razonamiento verbal aritmetica algebra geometria trigonometria frances quechua aymara " +
+    "nudito khipu escolar colegio profesor profesora profe miss tutor tutora director directora dios lima peru " +
+    "primaria secundaria inicial grado seccion salon aula clase curso curso nivel bimestre trimestre periodo unidad " +
+    "ok okay listo vale bien mal hijo hija hijos hijas nino nina ninos ninas alumno alumna"
+  ).split(" "),
+);
+
+const TITULOS = new Set(
+  "profesor profesora profe miss tutor tutora senor senora senorita sr sra srta don dona director directora maestro maestra lic licenciada licenciado doctor doctora dr dra auxiliar psicologa psicologo"
+    .split(" "),
+);
+
+const PARENTESCO = new Set("hijo hija hijito hijita nino nina sobrino sobrina nieto nieta menor mayor engreido engreida".split(" "));
+
+export type OpcionesNombres = {
+  /** Palabras que no cuentan como nombre ajeno: el nombre del apoderado, el del colegio… */
+  excluir?: string[];
+};
+
+function capitalizar(t: string): string {
+  return t.charAt(0).toUpperCase() + t.slice(1).toLowerCase();
+}
+
+/**
+ * Nombres de personas que aparecen en el mensaje y que NO son de los hijos del apoderado.
+ * No consulta la BD: nunca revela si ese alumno existe en el colegio.
+ */
+export function nombresAjenos(texto: string, hijos: Hijo[], opciones: OpcionesNombres = {}): string[] {
+  const propios = new Set(
+    hijos.flatMap((h) => palabras(normalizar(`${h.nombres} ${h.apellidos ?? ""}`))),
+  );
+  const excluidos = new Set((opciones.excluir ?? []).flatMap((e) => palabras(normalizar(e))));
+  const salida: string[] = [];
+  const tokens = [...texto.matchAll(/\p{L}+/gu)];
+  tokens.forEach((m, i) => {
+    const original = m[0];
+    const n = normalizar(original);
+    if (n.length < 3 || n.includes(" ") || propios.has(n) || excluidos.has(n) || NO_NOMBRES.has(n)) return;
+    const previo = i > 0 ? normalizar(tokens[i - 1][0]) : "";
+    if (TITULOS.has(previo)) return; // «la miss Lucía», «la profesora Ana»: no es un niño
+    if (detectarIntencion(original) !== "desconocido" || esTemaDelicado(original)) return; // «Tareas», «Notas», «Tarde»…
+    const antes = texto.slice(0, m.index).trimEnd();
+    const inicioOracion = antes === "" || /[.!?¿¡\n]$/.test(antes);
+    const conMayuscula = /^\p{Lu}/u.test(original) && !inicioOracion;
+    if (NOMBRES_COMUNES.has(n) || conMayuscula || PARENTESCO.has(previo)) {
+      const nombre = capitalizar(original);
+      if (!salida.includes(nombre)) salida.push(nombre);
+    }
+  });
+  return salida;
+}
+
+/** Respuesta corta a «¿de cuál hijo?» que no es ninguno de ellos («pepe»): 1 o 2 palabras sin intención. */
+function pareceSoloUnNombre(texto: string, opciones: OpcionesNombres): string | null {
+  const tokens = [...texto.matchAll(/\p{L}+/gu)].map((m) => m[0]);
+  if (tokens.length === 0 || tokens.length > 2) return null;
+  const excluidos = new Set((opciones.excluir ?? []).flatMap((e) => palabras(normalizar(e))));
+  const n = normalizar(tokens[0]);
+  if (n.length < 3 || NO_NOMBRES.has(n) || excluidos.has(n) || SALUDO.test(n)) return null;
+  return capitalizar(tokens[0]);
+}
+
 const PREFIJO_PENDIENTE = "elegir_hijo:";
 
 export function marcarPendiente(i: Intencion): string {
@@ -78,21 +169,31 @@ export function intencionPendiente(historial: MensajeHistorial[]): Intencion | n
 
 export type Decision =
   | { tipo: "comparar" }
+  | { tipo: "no_es_hijo"; nombre: string; intencion: Intencion }
   | { tipo: "delicado"; intencion: Intencion }
   | { tipo: "preguntar_hijo"; intencion: Intencion }
   | { tipo: "resolver"; intencion: Intencion; hijo: Hijo | null };
 
+/** Intenciones en las que un nombre ajeno cambia la respuesta (las del colegio, como horario o reglamento, no). */
+const SOBRE_UN_NINO: Intencion[] = [...NECESITAN_HIJO, "desconocido", "hablar_con_persona"];
+
 /** Decide qué hacer con el mensaje sin tocar la BD. */
-export function decidir(entrada: string, hijos: Hijo[], historial: MensajeHistorial[]): Decision {
+export function decidir(entrada: string, hijos: Hijo[], historial: MensajeHistorial[], opciones: OpcionesNombres = {}): Decision {
   if (pideComparar(entrada)) return { tipo: "comparar" };
 
   let intencion = detectarIntencion(entrada);
   const mencionados = hijosMencionados(entrada, hijos);
+  const pendiente = intencionPendiente(historial);
 
   // Respuesta a «¿de cuál hijo?»: el mensaje es solo el nombre.
-  if (intencion === "desconocido" && mencionados.length > 0) {
-    const pendiente = intencionPendiente(historial);
-    if (pendiente) intencion = pendiente;
+  if (intencion === "desconocido" && mencionados.length > 0 && pendiente) intencion = pendiente;
+
+  // Nombra a un niño que no es su hijo: nunca se responde con los datos de su hijo como si fuera el otro.
+  if (mencionados.length === 0 && SOBRE_UN_NINO.includes(intencion)) {
+    const ajeno =
+      nombresAjenos(entrada, hijos, opciones)[0] ??
+      (intencion === "desconocido" && pendiente ? pareceSoloUnNombre(entrada, opciones) : null);
+    if (ajeno) return { tipo: "no_es_hijo", nombre: ajeno, intencion: intencion === "desconocido" && pendiente ? pendiente : intencion };
   }
 
   if (["asistencia_hoy", "notas", "desconocido", "ayuda"].includes(intencion) && esTemaDelicado(entrada)) {

@@ -25,7 +25,7 @@ describe("asistencia: solo buenas noticias", () => {
     const r = respuestaAsistencia("Mateo", { estado, hora: "08:30" }, hijos, "a1");
     expect(r.texto).toBe(TEXTO_DERIVAR_TUTORA);
     expect(r.derivado).toBe(true);
-    expect(r.acciones).toEqual([{ tipo: "abrir_chat", etiqueta: "Hablar con la tutora", valor: "/mensajes?alumno=a1" }]);
+    expect(r.acciones).toEqual([{ tipo: "abrir_chat", etiqueta: "Hablar con la tutora", valor: "/mensajes/nuevo?alumno=a1" }]);
     expect(r.texto).not.toMatch(/tarde|falt|problema/i);
   });
   it("sin registro lo dice sin inventar", () => {

@@ -9,7 +9,7 @@ import { ErrorDeNegocio } from "./contexto-accion";
 import { cursosDelDocente } from "./cursos";
 import { avisarTareaNueva } from "./notificaciones/avisos-tareas";
 import { requireFeature } from "./plan";
-import { requireCursoDelProfesor, requireRol, type TenantContext } from "./tenant";
+import { alumnoIdsVisibles, requireCursoDelProfesor, requireRol, type TenantContext } from "./tenant";
 
 const esquemaTarea = z.object({
   cursoId: z.uuid("Elige el curso."),
@@ -89,12 +89,13 @@ export async function tareasDelDocente(ctx: TenantContext) {
 
 export type TareasDeHijo = Awaited<ReturnType<typeof tareasDeFamilia>>[number];
 
-/** Tareas pendientes por hijo, agrupadas: Para mañana · Esta semana · Más adelante. */
+/** Tareas pendientes por hijo (o del propio alumno), agrupadas: Para mañana · Esta semana · Más adelante. */
 export async function tareasDeFamilia(ctx: TenantContext, ahora: Date = new Date()) {
   requireFeature(ctx, "tareas");
-  requireRol(ctx, ["apoderado"]);
+  requireRol(ctx, ["apoderado", "alumno"]);
+  const ids = await alumnoIdsVisibles(ctx);
   const hijos = await ctx.db.alumno.findMany({
-    where: { apoderados: { some: { apoderadoId: ctx.membership.id } }, estado: "activo" },
+    where: { id: { in: ids }, estado: "activo" },
     select: { id: true, nombres: true, apellidos: true, salonId: true },
     orderBy: { nombres: "asc" },
   });

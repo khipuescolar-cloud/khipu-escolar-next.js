@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { fechaLarga, hora12 } from "@/lib/fechas";
 import { planIncluye } from "@/lib/planes";
+import { esVistaFamilia } from "@/lib/roles";
 import { MARCADOR_ALUMNO } from "@/lib/vista-previa";
 import {
   AMBITO_DIA, ESTADOS, historialDeHijos, hoyDelColegio, obtenerLista, opcionesDeLista, resumenDelDia,
@@ -30,10 +31,10 @@ export const metadata: Metadata = { title: "Asistencia" };
 export default async function AsistenciaPage({ params, searchParams }: PageProps<"/colegio/[slug]/asistencia">) {
   const { slug } = await params;
   const sp = await searchParams;
-  const ctx = await requireTenantContext(slug, ["profesor", "direccion", "apoderado"]);
+  const ctx = await requireTenantContext(slug, ["profesor", "direccion", "apoderado", "alumno"]);
   requireFeature(ctx, "asistencia");
 
-  if (ctx.rol === "apoderado") return <VistaFamilia ctx={ctx} slug={slug} mes={typeof sp.mes === "string" ? sp.mes : undefined} />;
+  if (esVistaFamilia(ctx.rol)) return <VistaFamilia ctx={ctx} slug={slug} mes={typeof sp.mes === "string" ? sp.mes : undefined} />;
 
   const salon = typeof sp.salon === "string" ? sp.salon : null;
   const ambito = typeof sp.ambito === "string" ? sp.ambito : null;
@@ -146,14 +147,24 @@ async function PasarLista({ ctx, slug, salonId, ambito }: { ctx: TenantContext; 
 const PALABRA_JUSTIFICACION = { pendiente: "Justificación en revisión", aceptada: "Falta justificada", rechazada: "Justificación no aceptada" } as const;
 
 async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: string; mes?: string }) {
-  const [historial, preferencias, canalesPago] = await Promise.all([historialDeHijos(ctx, mes), obtenerPreferencias(ctx), obtenerOpcionesCanalesPago(ctx)]);
+  // El alumno con cuenta propia ve solo su asistencia: sin chat, sin justificar y sin preferencias de avisos (son de la familia).
+  const esAlumno = ctx.rol === "alumno";
+  const [historial, preferencias, canalesPago] = await Promise.all([
+    historialDeHijos(ctx, mes),
+    esAlumno ? null : obtenerPreferencias(ctx),
+    esAlumno ? null : obtenerOpcionesCanalesPago(ctx),
+  ]);
   const { hijos, anio, mes: numeroMes, hoy } = historial;
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina titulo="Asistencia" descripcion="Calendario del mes de cada hijo, con el detalle de cada día." />
+      <EncabezadoPagina titulo="Asistencia" descripcion={esAlumno ? "Tu calendario del mes, con el detalle de cada día." : "Calendario del mes de cada hijo, con el detalle de cada día."} />
 
       {hijos.length === 0 && (
-        <EstadoVacio icono={Users} titulo="Aún no hay alumnos vinculados a tu cuenta" descripcion="Cuando el colegio vincule a tus hijos, verás aquí su asistencia." />
+        <EstadoVacio
+          icono={Users}
+          titulo={esAlumno ? "Tu cuenta aún no está vinculada a tu ficha" : "Aún no hay alumnos vinculados a tu cuenta"}
+          descripcion={esAlumno ? "Avisa a la dirección del colegio para que la revise." : "Cuando el colegio vincule a tus hijos, verás aquí su asistencia."}
+        />
       )}
 
       {hijos.map((h) => (
@@ -162,7 +173,7 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
             <h2 id={`hijo-${h.id}`} className="text-xl font-semibold">
               {h.nombres} {h.apellidos} <span className="font-sans text-sm font-normal text-muted-foreground">· {h.salon}</span>
             </h2>
-            {planIncluye(ctx.tenant.plan, "mensajes") && (
+            {!esAlumno && planIncluye(ctx.tenant.plan, "mensajes") && (
               <Link href={`/mensajes/nuevo?alumno=${h.id}`} className={cn(buttonVariants({ variant: "outline" }))}>
                 <MessageSquarePlus strokeWidth={2} aria-hidden /> Escribir a la tutora
               </Link>
@@ -175,7 +186,7 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
             mes={armarMesAsistencia(anio, numeroMes, h.registros.map((r) => ({ fecha: r.fecha, estado: r.estado, esDia: r.esDia })), hoy)}
           />
           {h.registros.length === 0 ? (
-            <EstadoVacio icono={ClipboardCheck} titulo={`No hay registros en ${nombreMes(anio, numeroMes)}`} descripcion="Cuando tu hijo tenga asistencia registrada, aparecerá aquí." />
+            <EstadoVacio icono={ClipboardCheck} titulo={`No hay registros en ${nombreMes(anio, numeroMes)}`} descripcion={esAlumno ? "Cuando tengas asistencia registrada, aparecerá aquí." : "Cuando tu hijo tenga asistencia registrada, aparecerá aquí."} />
           ) : (
             <Card className="py-0">
               <ul className="divide-y">
@@ -207,7 +218,9 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
         </section>
       ))}
 
-      <PreferenciasAvisos slug={slug} correo={preferencias.correo} push={preferencias.push} vapidPublica={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? ""} canalesPago={canalesPago} />
+      {preferencias && canalesPago && (
+        <PreferenciasAvisos slug={slug} correo={preferencias.correo} push={preferencias.push} vapidPublica={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? ""} canalesPago={canalesPago} />
+      )}
     </div>
   );
 }

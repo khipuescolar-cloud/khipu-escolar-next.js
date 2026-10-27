@@ -33,8 +33,8 @@ const ctx = await requireTenantContext(slug, rolesPermitidos?)
 - **Modo soporte (specs/16):** sin membresía, un super administrador activo con un `AccesoSoporte` vigente para ese colegio recibe rol `direccion`, `ctx.soporte` y `ctx.db` de solo lectura; `requireFeature` le niega `mensajes`, `notas`, `libreta` y `nudito`, y cada request se audita como `soporte_ver` en la auditoría del colegio. Un colegio **suspendido** da 403 a todas sus membresías, pero admite el acceso de soporte vigente (solo lectura).
 - Si el usuario tiene varios roles en el colegio, se usa la cookie `khipu_rol` o la prioridad: dirección > profesor > portería > apoderado > alumno.
 - Alcance por rol (`tenant.ts`):
-  - `salonIdsVisibles`: dirección y portería ven todos; el profesor, donde es tutor o dicta; el apoderado, los salones de sus hijos.
-  - `alumnoIdsVisibles`: el apoderado ve solo a sus hijos.
+  - `salonIdsVisibles`: dirección y portería ven todos; el profesor, donde es tutor o dicta; el apoderado, los salones de sus hijos; el alumno, solo el suyo.
+  - `alumnoIdsVisibles`: el apoderado ve solo a sus hijos; el alumno (cuenta propia, `alumnoDeLaCuenta`: `Alumno.cuentaId` = su membresía, alumno activo) solo a sí mismo, nunca a sus compañeros.
   - `requireAlumnoVisible` y `requireCursoDelProfesor` devuelven 403.
 
 ## Reglas para el código

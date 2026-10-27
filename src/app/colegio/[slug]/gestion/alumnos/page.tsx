@@ -1,4 +1,4 @@
-import { CheckCircle2, FileUp, GraduationCap, Search, UserPlus, UserRoundX } from "lucide-react";
+import { CheckCircle2, FileUp, GraduationCap, KeyRound, Search, ShieldAlert, UserPlus, UserRoundX } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -11,12 +11,15 @@ import { Selector } from "@/components/ui/Selector";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { listarAlumnos, listarSalonesParaSelector } from "@/lib/server/gestion";
+import { estadoCuentasAlumnos, MOTIVO_SIN_CONSENTIMIENTO, type EstadoCuentaAlumno } from "@/lib/server/gestion-cuentas-alumno";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cambiarEstadoAlumnoAction, crearAlumnoAction, editarAlumnoAction, importarAlumnosAction } from "../actions";
 import { AccionesFila } from "../_componentes/AccionesFila";
 import { AvatarPersona } from "../_componentes/AvatarPersona";
 import { CampoArchivoCsv } from "../_componentes/CargaCsv";
 import { PanelFormulario } from "../_componentes/PanelFormulario";
+import type { ItemFila } from "../_componentes/AccionesFila";
+import { cambiarEstadoCuentaAlumnoAction, crearCuentaAlumnoAction } from "./actions";
 
 export const metadata: Metadata = { title: "Alumnos" };
 
@@ -27,6 +30,7 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
   const salonId = typeof salon === "string" && salon ? salon : undefined;
   const verRetirados = retirados === "1";
   const [salones, alumnos] = await Promise.all([listarSalonesParaSelector(ctx), listarAlumnos(ctx, { salonId, incluirRetirados: verRetirados })]);
+  const cuentas = await estadoCuentasAlumnos(ctx, alumnos.map((a) => a.id));
   const opcionesSalon = salones.map((s) => <option key={s.id} value={s.id}>{s.nombre} ({s.anio})</option>);
 
   const acciones = (
@@ -87,6 +91,7 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
                 <TableHead className="hidden h-11 px-4 sm:table-cell">Código</TableHead>
                 <TableHead className="hidden h-11 px-4 sm:table-cell">Salón</TableHead>
                 <TableHead className="h-11 px-4">Estado</TableHead>
+                <TableHead className="hidden h-11 px-4 md:table-cell">Cuenta del alumno</TableHead>
                 <TableHead className="h-11 w-14 px-4"><span className="sr-only">Acciones</span></TableHead>
               </TableRow>
             </TableHeader>
@@ -110,6 +115,7 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
                         {activo ? "Activo" : "Retirado"}
                       </Badge>
                     </TableCell>
+                    <TableCell className="hidden px-4 py-3 md:table-cell"><EstadoCuenta estado={cuentas.get(a.id)} /></TableCell>
                     <TableCell className="px-2 py-2">
                       <AccionesFila
                         etiqueta={`Acciones para ${nombre}`}
@@ -141,6 +147,7 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
                                 descripcion: "Volverá a aparecer en las listas de su salón.", confirmar: "Reactivar",
                                 accion: cambiarEstadoAlumnoAction, campos: { id: a.id, estado: "activo" },
                               },
+                          ...(activo ? accionesCuenta(a.id, nombre, cuentas.get(a.id)) : []),
                         ]}
                       />
                     </TableCell>
@@ -154,4 +161,61 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
       <p className="text-xs text-muted-foreground">{alumnos.length} {alumnos.length === 1 ? "alumno" : "alumnos"}.</p>
     </div>
   );
+}
+
+function EstadoCuenta({ estado }: { estado?: EstadoCuentaAlumno }) {
+  if (!estado?.cuenta) return <span className="text-sm text-muted-foreground">Sin cuenta</span>;
+  const activa = estado.cuenta.estado === "activa";
+  return (
+    <Badge className={`h-6 px-2.5 text-xs font-semibold ${activa ? "bg-llego-fondo text-llego" : "bg-muted text-muted-foreground"}`}>
+      {activa ? <KeyRound strokeWidth={2} aria-hidden /> : <UserRoundX strokeWidth={2} aria-hidden />}
+      {activa ? "Cuenta activa" : "Cuenta desactivada"}
+    </Badge>
+  );
+}
+
+/** Crear, desactivar o reactivar la cuenta propia del alumno (specs/17). Sin consentimiento de un apoderado, explica por qué no se puede. */
+function accionesCuenta(alumnoId: string, nombre: string, estado?: EstadoCuentaAlumno): ItemFila[] {
+  if (!estado) return [];
+  if (estado.cuenta) {
+    return estado.cuenta.estado === "activa"
+      ? [{
+          tipo: "confirmar", texto: "Desactivar cuenta del alumno", icono: "retirar", peligro: true, titulo: `¿Desactivar la cuenta de ${nombre}?`,
+          descripcion: "Ya no podrá entrar a Khipu. Sus datos y los de su familia no cambian. Podrás reactivarla cuando quieras.", confirmar: "Desactivar",
+          accion: cambiarEstadoCuentaAlumnoAction, campos: { alumnoId, estado: "inactiva" },
+        }]
+      : [{
+          tipo: "confirmar", texto: "Reactivar cuenta del alumno", icono: "reactivar", titulo: `¿Reactivar la cuenta de ${nombre}?`,
+          descripcion: "Podrá volver a entrar con su correo y su contraseña.", confirmar: "Reactivar",
+          accion: cambiarEstadoCuentaAlumnoAction, campos: { alumnoId, estado: "activa" },
+        }];
+  }
+  if (!estado.consentimiento) {
+    return [{
+      tipo: "panel", texto: "Crear cuenta del alumno", icono: "vincular", titulo: `Cuenta de ${nombre}`,
+      contenido: (
+        <div className="flex flex-col gap-2 text-sm" data-testid="cuenta-alumno-sin-consentimiento">
+          <p className="flex items-center gap-2 font-semibold text-falta"><ShieldAlert className="size-4 shrink-0" strokeWidth={2} aria-hidden /> Todavía no se puede crear</p>
+          <p className="text-muted-foreground">{MOTIVO_SIN_CONSENTIMIENTO}</p>
+        </div>
+      ),
+    }];
+  }
+  return [{
+    tipo: "panel", texto: "Crear cuenta del alumno", icono: "vincular", titulo: `Crear la cuenta de ${nombre}`,
+    descripcion: "Entrará con su correo y su documento como contraseña inicial; deberá cambiarla al ingresar. Verá solo su asistencia, notas, libreta, tareas, agenda y comunicados.",
+    contenido: (
+      <form action={crearCuentaAlumnoAction} className="grid gap-4 sm:grid-cols-2">
+        <input type="hidden" name="alumnoId" value={alumnoId} />
+        <div className="sm:col-span-2"><Campo etiqueta="Correo del alumno" name="email" type="email" required /></div>
+        <Selector etiqueta="Tipo de documento" name="tipoDocumento" defaultValue="dni">
+          <option value="dni">DNI</option>
+          <option value="ce">Carné de extranjería</option>
+          <option value="pasaporte">Pasaporte</option>
+        </Selector>
+        <Campo etiqueta="Número de documento" name="numeroDocumento" required inputMode="text" autoComplete="off" />
+        <Boton type="submit" className="justify-self-start sm:col-span-2"><UserPlus strokeWidth={2} aria-hidden /> Crear cuenta</Boton>
+      </form>
+    ),
+  }];
 }

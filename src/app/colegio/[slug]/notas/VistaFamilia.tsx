@@ -34,7 +34,7 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
     <div className="flex flex-col gap-5">
       <EncabezadoPagina
         titulo="Notas"
-        descripcion="Así va el avance de tu hijo o hija en cada competencia."
+        descripcion={ctx.rol === "alumno" ? "Así va tu avance en cada competencia." : "Así va el avance de tu hijo o hija en cada competencia."}
         acciones={
           !libretaVisibleParaFamilia(periodo) ? undefined : <Link href={`/libreta?alumno=${hijo.id}&periodo=${periodo.id}`} className={buttonVariants({ variant: "outline" })}>
             <BookOpenCheck strokeWidth={2} aria-hidden />Ver libreta

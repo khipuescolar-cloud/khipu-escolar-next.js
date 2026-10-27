@@ -26,7 +26,7 @@ function iniciales(nombre: string) {
 export default async function ComunicadosPage({ params, searchParams }: PageProps<"/colegio/[slug]/comunicados">) {
   const { slug } = await params;
   const { ok, error } = await searchParams;
-  const ctx = await requireTenantContext(slug, ["direccion", "profesor", "apoderado", "administrativo"]);
+  const ctx = await requireTenantContext(slug, ["direccion", "profesor", "apoderado", "administrativo", "alumno"]);
   requireFeature(ctx, "comunicados");
   await requireConsentimiento(ctx);
   const [comunicados, salones] = await Promise.all([listarComunicados(ctx), salonesParaPublicar(ctx)]);
@@ -42,7 +42,7 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
       <Notificar ok={okTexto} error={errorTexto} />
       <EncabezadoPagina
         titulo="Comunicados"
-        descripcion={puedePublicar ? "Publica avisos para todo el colegio o para un salón. Las familias reciben el aviso al instante." : "Los avisos del colegio y de los profesores de tu hijo."}
+        descripcion={puedePublicar ? "Publica avisos para todo el colegio o para un salón. Las familias reciben el aviso al instante." : ctx.rol === "alumno" ? "Los avisos del colegio y de tu salón." : "Los avisos del colegio y de los profesores de tu hijo."}
         acciones={publicar}
       />
 

@@ -12,6 +12,7 @@ import { Selector } from "@/components/ui/Selector";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { fechaLima, formatoDia, NOMBRE_GRUPO, sumarDias } from "@/lib/fechas";
+import { esVistaFamilia } from "@/lib/roles";
 import { requireFeature } from "@/lib/server/plan";
 import { cursosParaTareas, tareasDeFamilia, tareasDelDocente } from "@/lib/server/tareas";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -45,11 +46,11 @@ export default async function TareasPage({ params }: PageProps<"/colegio/[slug]/
   const ctx = await requireTenantContext(slug);
   requireFeature(ctx, "tareas");
 
-  if (ctx.rol === "apoderado") {
+  if (esVistaFamilia(ctx.rol)) {
     const hijos = await tareasDeFamilia(ctx);
     return (
       <div>
-        <EncabezadoPagina titulo="Tareas" descripcion="Lo que tus hijos tienen que entregar." />
+        <EncabezadoPagina titulo="Tareas" descripcion={ctx.rol === "alumno" ? "Lo que tienes que entregar." : "Lo que tus hijos tienen que entregar."} />
         {hijos.length === 0 ? (
           <EstadoVacio icono={Users} titulo="No encontramos hijos vinculados a tu cuenta" descripcion="Si crees que es un error, avisa al colegio." />
         ) : (

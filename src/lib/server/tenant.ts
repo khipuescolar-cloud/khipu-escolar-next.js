@@ -148,7 +148,19 @@ export function requireRol(ctx: TenantContext, permitidos: Rol[]): void {
 
 // ───────────── Alcance por rol: qué salones y alumnos puede ver cada quien ─────────────
 
-/** Salones visibles: dirección y portería → todos; profesor → donde es tutor o dicta; apoderado → los de sus hijos. */
+/**
+ * Alumno vinculado a la cuenta propia del estudiante (`Alumno.cuentaId` = membresía con rol `alumno`).
+ * Solo cuenta si el alumno sigue activo: un alumno retirado no ve nada.
+ */
+export async function alumnoDeLaCuenta(ctx: TenantContext): Promise<{ id: string; salonId: string } | null> {
+  if (ctx.rol !== "alumno") return null;
+  return ctx.db.alumno.findFirst({ where: { cuentaId: ctx.membership.id, estado: "activo" }, select: { id: true, salonId: true } });
+}
+
+/**
+ * Salones visibles: dirección y portería → todos; profesor → donde es tutor o dicta; apoderado → los de sus hijos;
+ * alumno → solo el suyo.
+ */
 export async function salonIdsVisibles(ctx: TenantContext): Promise<string[]> {
   if (ctx.rol === "direccion" || ctx.rol === "porteria") {
     return (await ctx.db.salon.findMany({ select: { id: true } })).map((s) => s.id);
@@ -167,11 +179,19 @@ export async function salonIdsVisibles(ctx: TenantContext): Promise<string[]> {
     });
     return [...new Set(hijos.map((h) => h.salonId))];
   }
+  if (ctx.rol === "alumno") {
+    const propio = await alumnoDeLaCuenta(ctx);
+    return propio ? [propio.salonId] : [];
+  }
   return [];
 }
 
-/** Alumnos visibles según el rol. El apoderado solo ve a sus hijos. */
+/** Alumnos visibles según el rol. El apoderado solo ve a sus hijos; el alumno, solo a sí mismo (nunca a sus compañeros). */
 export async function alumnoIdsVisibles(ctx: TenantContext): Promise<string[]> {
+  if (ctx.rol === "alumno") {
+    const propio = await alumnoDeLaCuenta(ctx);
+    return propio ? [propio.id] : [];
+  }
   if (ctx.rol === "apoderado") {
     const vinculos = await ctx.db.apoderadoAlumno.findMany({
       where: { apoderadoId: ctx.membership.id },

@@ -14,7 +14,7 @@ Que la familia y el profesor se escriban sobre un alumno sin compartir teléfono
 | Portería | — | Todo |
 
 ## Flujos
-1. `/mensajes/nuevo` lista a quién puede escribir (con etiqueta «Lucía García · Tutora de 3.° B — sobre Mateo»; el título sigue `Profile.genero`: femenino → Tutora/Profesora, masculino → Tutor/Profesor, sin dato → Tutor(a)/Profesor(a)). «Escribir» abre o reutiliza la conversación `(alumno, profesor, apoderado)`. Admite `?alumno=<id>`: la vista de asistencia de la familia (spec 04) muestra por hijo el botón «Escribir a la tutora» que enlaza ahí (si el plan incluye mensajes).
+1. `/mensajes/nuevo` lista a quién puede escribir (con etiqueta «Lucía García · Tutora de 3.° B — sobre Mateo»; el título sigue `Profile.genero`: femenino → Tutora/Profesora, masculino → Tutor/Profesor, sin dato → Tutor(a)/Profesor(a)). «Escribir» abre o reutiliza la conversación `(alumno, profesor, apoderado)`. Admite `?alumno=<id>` (validado con `requireAlumnoVisible`: 403 si no es su hijo o su alumno): la vista de asistencia de la familia (spec 04) y Nudito (spec 13) enlazan ahí. `/mensajes?alumno=<id>` redirige a `/mensajes/nuevo?alumno=<id>` (enlaces antiguos de Nudito). El rol `alumno` no tiene chat (403).
 2. `/mensajes/[id]`: hilo. El cliente consulta cada 10 s la acción `refrescarHiloAction` (polling; sin Realtime). Al abrir o refrescar se marcan como leídos los mensajes de la otra parte.
 3. Al enviar se encola un aviso `mensaje_nuevo` a la otra parte con `avisarMensajeNuevo()` (`notificaciones/avisos-mensajes.ts`), `referenciaId = conversacionId`, máximo 1 por conversación y destinatario cada 15 min:
    - escribe el profesor → a la familia, solo con consentimiento vigente y si acepta correos;

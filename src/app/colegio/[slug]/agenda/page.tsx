@@ -45,7 +45,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
   const sp = await searchParams;
   const ctx = await requireTenantContext(slug);
   requireFeature(ctx, "agenda");
-  if (ctx.rol !== "apoderado" && ctx.rol !== "profesor" && ctx.rol !== "direccion" && ctx.rol !== "administrativo") forbidden();
+  if (!["apoderado", "alumno", "profesor", "direccion", "administrativo"].includes(ctx.rol)) forbidden();
 
   const hoy = fechaLima(new Date());
   const f = Array.isArray(sp.fecha) ? sp.fecha[0] : sp.fecha;
@@ -64,11 +64,12 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
     const d = fechaLima(it.inicio);
     porDia.set(d, [...(porDia.get(d) ?? []), it]);
   }
-  const salones = ctx.rol === "apoderado" ? [] : await salonesParaEventos(ctx);
+  const soloLectura = ctx.rol === "apoderado" || ctx.rol === "alumno";
+  const salones = soloLectura ? [] : await salonesParaEventos(ctx);
   const mesAnterior = `${mes === 1 ? anio - 1 : anio}-${String(mes === 1 ? 12 : mes - 1).padStart(2, "0")}-01`;
   const mesSiguiente = `${mes === 12 ? anio + 1 : anio}-${String(mes === 12 ? 1 : mes + 1).padStart(2, "0")}-01`;
   const nombreMes = formatoDia(`${anio}-${String(mes).padStart(2, "0")}-15`, { month: "long", year: "numeric" });
-  const puedeCrear = ctx.rol !== "apoderado" && !(salones.length === 0 && ctx.rol === "profesor");
+  const puedeCrear = !soloLectura && !(salones.length === 0 && ctx.rol === "profesor");
   const enlaceNav = "inline-flex min-h-10 items-center gap-1 rounded-md px-3 text-sm font-medium text-primary transition-colors hover:bg-accent";
 
   return (
