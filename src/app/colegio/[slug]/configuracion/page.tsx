@@ -108,9 +108,9 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             <Link href="/configuracion/auditoria" className={buttonVariants({ variant: "outline" })}>
               <ScrollText strokeWidth={2} aria-hidden /> Ver quién vio o cambió datos (auditoría)
             </Link>
-            <a href="/api/exportar" className={buttonVariants({ variant: "outline" })}>
-              <Download strokeWidth={2} aria-hidden /> Descargar todos los datos del colegio (ZIP)
-            </a>
+            <Link href="/configuracion/exportar" className={buttonVariants({ variant: "outline" })}>
+              <Download strokeWidth={2} aria-hidden /> Exportar todos los datos del colegio (ZIP)
+            </Link>
           </div>
         </Seccion>
       </Tarjeta>

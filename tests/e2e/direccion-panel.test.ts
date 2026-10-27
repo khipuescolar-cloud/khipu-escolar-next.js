@@ -1,4 +1,3 @@
-import { strFromU8, unzipSync } from "fflate";
 import { expect, test } from "@playwright/test";
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
@@ -35,19 +34,24 @@ test("dirección recorre su panel y exporta los datos", async ({ page }) => {
     await expect(page.getByRole("heading", { name: titulo, exact: true }).first()).toBeVisible();
   }
 
-  const r = await page.request.get(`${COLEGIO}/api/exportar`);
-  expect(r.status()).toBe(200);
-  expect(r.headers()["content-disposition"]).toContain("nuevohorizonte-datos-");
-  expect(r.headers()["content-type"]).toContain("application/zip");
-  const zip = unzipSync(new Uint8Array(await r.body()));
-  expect(zip["README.txt"]).toBeDefined();
-  expect(JSON.parse(strFromU8(zip["colegio.json"])).colegio.slug).toBe("nuevohorizonte");
-  expect(JSON.parse(strFromU8(zip["tablas/alumno.json"])).length).toBeGreaterThan(0);
+  // El enlace antiguo lleva a la exportación asíncrona.
+  const antiguo = await page.request.get(`${COLEGIO}/api/exportar`, { maxRedirects: 0 });
+  expect(antiguo.status()).toBe(307);
+  await page.goto(`${COLEGIO}/configuracion/exportar`);
+  const main = page.getByRole("main");
+  await expect(main.getByRole("heading", { name: "Exportar datos" })).toBeVisible();
+  const preparar = main.getByRole("button", { name: "Preparar exportación" });
+  if (await preparar.isEnabled()) {
+    await preparar.click();
+    await expect(main.getByText("Preparamos tu exportación")).toBeVisible();
+  }
+  await expect(main.getByRole("table").getByText(/En cola|Preparando|Lista|Con error|Vencida/).first()).toBeVisible();
 });
 
 test("una profesora no puede exportar ni entrar a gestión", async ({ page }) => {
   await entrar(page, "lucia.garcia@nuevohorizonte.demo");
-  expect((await page.request.get(`${COLEGIO}/api/exportar`)).status()).toBe(403);
+  expect((await page.request.get(`${COLEGIO}/api/exportar`, { maxRedirects: 0 })).status()).toBe(403);
+  expect((await page.request.get(`${COLEGIO}/api/exportar/00000000-0000-0000-0000-000000000000`)).status()).toBe(403);
   await page.goto(`${COLEGIO}/gestion`);
   await expect(page.getByRole("heading", { name: "No tienes acceso a esta sección" })).toBeVisible();
 });
