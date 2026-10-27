@@ -8,6 +8,7 @@ export const NOMBRE_ROL: Record<Rol, string> = {
   apoderado: "Familia",
   alumno: "Alumno(a)",
   porteria: "Portería",
+  administrativo: "Personal administrativo",
 };
 
 /** Título con género: femenino → «Profesora», masculino → «Profesor», sin dato → «Profesor(a)». */

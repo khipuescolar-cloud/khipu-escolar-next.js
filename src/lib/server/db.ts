@@ -19,7 +19,8 @@ function crearCliente() {
 export const db = globalParaPrisma.prisma ?? crearCliente();
 if (process.env.NODE_ENV !== "production") globalParaPrisma.prisma = db;
 
-export const MODELOS_GLOBALES = new Set(["Tenant", "Profile", "LoginIntento", "PushSuscripcion"]);
+// AuditoriaPlataforma tiene tenantId pero es del equipo Khipu (specs/16): no se filtra ni se exporta al colegio.
+export const MODELOS_GLOBALES = new Set(["Tenant", "Profile", "LoginIntento", "PushSuscripcion", "AdminPlataforma", "AuditoriaPlataforma"]);
 
 const OPERACIONES_CON_WHERE = new Set([
   "findUnique", "findUniqueOrThrow", "findFirst", "findFirstOrThrow", "findMany",

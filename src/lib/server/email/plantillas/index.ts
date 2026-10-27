@@ -40,6 +40,20 @@ const ESQUEMAS = {
   mensaje_nuevo: z.object({ ...comun, remitente: z.string().min(1), alumno: z.string().min(1), url }),
   comunicado: z.object({ ...comun, titulo: z.string().min(1), url }),
   invitacion: z.object({ ...comun, nombre: z.string().min(1), rol: z.string().min(1), url }),
+  /** Bienvenida con credenciales: el usuario es el correo y la contraseña inicial es su documento (no se envía el número). */
+  bienvenida: z.object({
+    ...comun,
+    nombre: z.string().min(1),
+    rol: z.string().min(1),
+    email: z.string().min(1),
+    /** «DNI», «carné de extranjería» o «pasaporte». */
+    documento: z.string().min(1),
+    /** false si la persona ya tenía cuenta en Khipu (conserva su contraseña). */
+    cuentaNueva: z.boolean().default(true),
+    url,
+    /** Dirección del colegio para mostrar, p. ej. «nuevohorizonte.khipuescolar.pe». */
+    dominio: z.string().min(1),
+  }),
   justificacion_revisada: z.object({
     ...comun,
     alumno: z.string().min(1),
@@ -154,6 +168,22 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       asunto: `${p.colegio} te invita a Khipu Escolar`,
       parrafos: [`Hola, ${p.nombre}.`, `${p.colegio} te invitó a Khipu Escolar como ${p.rol}.`],
       boton: { texto: "Aceptar invitación", url: p.url },
+    }),
+
+  bienvenida: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      asunto: `Bienvenido(a) a Khipu Escolar · ${p.colegio}`,
+      parrafos: [
+        `Hola, ${p.nombre}.`,
+        `${p.colegio} ya tiene Khipu Escolar y tienes acceso como ${p.rol}.`,
+        `Tu usuario es: ${p.email}`,
+        p.cuentaNueva
+          ? `Tu contraseña inicial es tu número de ${p.documento}. Al entrar te pediremos cambiarla.`
+          : "Entra con la contraseña que ya usas en Khipu Escolar.",
+        `La dirección de tu colegio es ${p.dominio}`,
+      ],
+      boton: { texto: "Ingresar a Khipu Escolar", url: p.url },
     }),
 
   justificacion_revisada: (p) =>

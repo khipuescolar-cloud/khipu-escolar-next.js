@@ -39,6 +39,7 @@ export const usuarioActual = cache(async (): Promise<Profile | null> => {
 const contextoDelColegio = cache(async (slug: string): Promise<TenantContext> => {
   const user = await usuarioActual();
   if (!user) redirect(urlRaiz(`/login?colegio=${encodeURIComponent(slug)}`));
+  if (user.debeCambiarPassword) redirect(urlRaiz(`/cambiar-password?siguiente=${encodeURIComponent(`/entrando?colegio=${slug}`)}`));
 
   const tenant = await db.tenant.findUnique({ where: { slug } });
   if (!tenant) notFound();

@@ -130,7 +130,7 @@ describe("exportación ZIP", () => {
   it("cubre todos los modelos con tenantId del esquema Prisma (salvo los omitidos a propósito)", () => {
     const esquema = readFileSync(path.resolve(import.meta.dirname, "../../prisma/schema.prisma"), "utf8");
     const conTenant = [...esquema.matchAll(/^model (\w+) \{([\s\S]*?)^\}/gm)]
-      .filter(([, , cuerpo]) => /^\s+tenantId\s+String/m.test(cuerpo))
+      .filter(([, nombre, cuerpo]) => /^\s+tenantId\s+String/m.test(cuerpo) && !MODELOS_GLOBALES.has(nombre))
       .map(([, nombre]) => nombre);
     expect(conTenant.length).toBeGreaterThan(20);
     const exportadas = new Set(tablasExportadas());

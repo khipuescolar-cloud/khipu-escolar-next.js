@@ -9,10 +9,15 @@ export const MAX_FALLOS_POR_IP = 20;
 export const VENTANA_MINUTOS = 15;
 
 export type ResultadoLogin =
-  | { ok: true; destino: Destino }
+  | { ok: true; destino: Destino; debeCambiarPassword: boolean }
   | { ok: false; error: "credenciales" | "bloqueado" | "sin-colegio" };
 
-export type Destino = { tipo: "colegio"; slug: string; nombre: string } | { tipo: "elegir" };
+export type Destino = { tipo: "colegio"; slug: string; nombre: string } | { tipo: "elegir" } | { tipo: "plataforma" };
+
+/** Super administrador activo de la plataforma (specs/16). */
+export async function esAdminPlataforma(userId: string): Promise<boolean> {
+  return (await db.adminPlataforma.count({ where: { userId, activo: true } })) > 0;
+}
 
 export async function estaBloqueado(email: string, ip: string): Promise<boolean> {
   const desde = new Date(Date.now() - VENTANA_MINUTOS * 60_000);
@@ -79,12 +84,15 @@ export async function iniciarSesion(emailCrudo: string, password: string, ip: st
   if (error || !data.user) return { ok: false, error: "credenciales" };
 
   await activarInvitaciones(data.user.id);
+  const perfil = await db.profile.findUnique({ where: { id: data.user.id }, select: { debeCambiarPassword: true } });
+  const debeCambiarPassword = perfil?.debeCambiarPassword ?? false;
+  if (await esAdminPlataforma(data.user.id)) return { ok: true, destino: { tipo: "plataforma" }, debeCambiarPassword };
   const destino = await resolverDestino(data.user.id, email);
   if (!destino) {
     await supabase.auth.signOut();
     return { ok: false, error: "sin-colegio" };
   }
-  return { ok: true, destino };
+  return { ok: true, destino, debeCambiarPassword };
 }
 
 export async function cerrarSesion(): Promise<void> {

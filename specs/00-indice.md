@@ -19,3 +19,5 @@ Cada módulo tiene su spec. Se actualiza en el mismo commit que cambia el compor
 | 13 | [Nudito](13-nudito.md) | Pro Max | implementado |
 | 14 | [Archivos (Cloudinary → S3)](14-archivos-cloudinary.md) | Todos | implementado |
 | 15 | [Privacidad, auditoría y exportación](15-privacidad-auditoria-exportacion.md) | Todos | implementado |
+| 16 | [Plataforma: super administrador](16-plataforma-superadmin.md) | Interno | en desarrollo |
+| 17 | [CRM del colegio: profesores, personal y grados](17-crm-personal-colegio.md) | Básico | en desarrollo |

@@ -255,6 +255,10 @@ async function main() {
   const familiaBenites = await membresia(lo.id, await usuario("familia.benites@familia.demo", "Lucía", "Sosa"), "apoderado");
   await vincularApoderado(lo.id, familiaBenites.id, alumnosLo[0].id, "madre");
 
+  // ───────── Plataforma: super administrador del equipo Khipu ─────────
+  const superadminId = await usuario("admin@khipuescolar.demo", "Equipo", "Khipu");
+  await prisma.adminPlataforma.upsert({ where: { userId: superadminId }, update: { activo: true }, create: { userId: superadminId } });
+
   // Trato en la interfaz («Tutora» / «Tutor»).
   for (const [genero, emails] of [
     ["femenino", ["lucia.garcia@nuevohorizonte.demo", "direccion@nuevohorizonte.demo", "direccion@losolivos.demo", "ana.paredes@losolivos.demo", "rosa.quispe@gmail.com", "familia.benites@familia.demo"]],
@@ -270,6 +274,7 @@ async function main() {
   console.log("  jorge.ramos@academiaeuler.demo    profesor  · Fase 2");
   console.log("  direccion@losolivos.demo          dirección · Básico");
   console.log("  rosa.quispe@gmail.com             apoderada · 2 colegios");
+  console.log("  admin@khipuescolar.demo           super administrador · http://admin.lvh.me:3000");
 }
 
 main()

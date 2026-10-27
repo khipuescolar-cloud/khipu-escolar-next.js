@@ -3,7 +3,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { esCorreoPersonal } from "@/lib/dominio";
+import { esCorreoPersonal, urlPlataforma } from "@/lib/dominio";
 import { colegioPorDominio, iniciarSesion } from "@/lib/server/auth";
 
 export type EstadoLogin = { error?: string; email?: string };
@@ -29,8 +29,15 @@ export async function loginAction(_prev: EstadoLogin, formData: FormData): Promi
   const resultado = await iniciarSesion(datos.data.email, datos.data.password, ip);
   if (!resultado.ok) return { error: MENSAJES[resultado.error], email };
 
-  if (resultado.destino.tipo === "elegir") redirect("/elegir-colegio");
-  redirect(`/entrando?colegio=${resultado.destino.slug}`);
+  const siguiente =
+    resultado.destino.tipo === "plataforma"
+      ? urlPlataforma("/")
+      : resultado.destino.tipo === "elegir"
+        ? "/elegir-colegio"
+        : `/entrando?colegio=${resultado.destino.slug}`;
+  // Contraseña inicial (su documento): primero debe cambiarla.
+  if (resultado.debeCambiarPassword) redirect(`/cambiar-password?siguiente=${encodeURIComponent(siguiente)}`);
+  redirect(siguiente);
 }
 
 /** Muestra el colegio detectado por el dominio del correo. Para correos personales no revela nada. */

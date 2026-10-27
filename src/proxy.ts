@@ -1,10 +1,11 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
-import { slugDesdeHost, urlColegio, urlRaiz } from "@/lib/dominio";
+import { esHostPlataforma, slugDesdeHost, urlColegio, urlPlataforma, urlRaiz } from "@/lib/dominio";
 
 // Resolución de colegio por subdominio (specs/01-arquitectura-multitenant.md):
 //   <slug>.<APP_BASE_DOMAIN>/asistencia  →  rewrite interno a /colegio/<slug>/asistencia
 //   <APP_BASE_DOMAIN>/colegio/<slug>/…   →  redirect al subdominio (las rutas del colegio solo viven ahí)
+//   admin.<APP_BASE_DOMAIN>/x            →  rewrite a /plataforma/x (super administrador, specs/16)
 // Además refresca la sesión de Supabase Auth en cada request.
 
 const RUTAS_GLOBALES = /^\/api\/(webhooks|cron)\//;
@@ -15,7 +16,17 @@ export async function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
   let response: NextResponse;
-  if (slug) {
+  if (esHostPlataforma(host)) {
+    // Panel del super administrador: admin.<dominio>/x → /plataforma/x
+    if (pathname === "/login") return NextResponse.redirect(urlRaiz("/login"));
+    if (RUTAS_GLOBALES.test(pathname) || pathname.startsWith("/plataforma")) {
+      response = NextResponse.next({ request });
+    } else {
+      const destino = request.nextUrl.clone();
+      destino.pathname = `/plataforma${pathname === "/" ? "" : pathname}`;
+      response = NextResponse.rewrite(destino, { request });
+    }
+  } else if (slug) {
     if (pathname === "/login") {
       return NextResponse.redirect(urlRaiz(`/login?colegio=${slug}`));
     }
@@ -29,6 +40,7 @@ export async function proxy(request: NextRequest) {
   } else {
     const match = pathname.match(/^\/colegio\/([a-z0-9-]+)(\/.*)?$/);
     if (match) return NextResponse.redirect(urlColegio(match[1], (match[2] ?? "/inicio") + search));
+    if (pathname.startsWith("/plataforma")) return NextResponse.redirect(urlPlataforma(pathname.slice("/plataforma".length) || "/"));
     if (pathname === "/") return NextResponse.redirect(urlRaiz("/login"));
     response = NextResponse.next({ request });
   }

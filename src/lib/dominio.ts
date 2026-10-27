@@ -21,6 +21,18 @@ export function urlColegio(slug: string, path = "/inicio"): string {
   return `${protocolo()}://${slug}.${baseDomain()}${path}`;
 }
 
+export const SUBDOMINIO_PLATAFORMA = "admin";
+
+/** URL del panel de plataforma (super administrador): admin.<APP_BASE_DOMAIN>. */
+export function urlPlataforma(path = "/"): string {
+  return `${protocolo()}://${SUBDOMINIO_PLATAFORMA}.${baseDomain()}${path}`;
+}
+
+/** true si el host es el panel de plataforma. */
+export function esHostPlataforma(host: string | null | undefined, base = baseDomain()): boolean {
+  return !!host && host.toLowerCase() === `${SUBDOMINIO_PLATAFORMA}.${base.toLowerCase()}`;
+}
+
 /** Devuelve el slug si el host es un subdominio de colegio; null si es el dominio raíz. */
 export function slugDesdeHost(host: string | null | undefined, base = baseDomain()): string | null {
   if (!host) return null;

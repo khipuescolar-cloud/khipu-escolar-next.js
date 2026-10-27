@@ -69,6 +69,7 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       mensaje_nuevo: { colegio, remitente: "Lucía García", alumno: "Mateo", url: "http://m" },
       comunicado: { colegio, titulo: "Reunión de padres", url: "http://c" },
       invitacion: { colegio, nombre: "Rosa", rol: "Familia", url: "http://i" },
+      bienvenida: { colegio, nombre: "Carmen", rol: "Dirección", email: "c@x.pe", documento: "DNI", url: "http://i", dominio: "x.khipu" },
       justificacion_revisada: { colegio, alumno: "Mateo", fecha: "2026-10-26", estado: "aceptada" },
       justificacion_recibida: { colegio, alumno: "Mateo", fecha: "2026-10-26", url: "http://j" },
       tarea_nueva: { colegio, curso: "Matemática", titulo: "Fichas de fracciones", fechaEntrega: "2026-10-30", url: "http://t" },

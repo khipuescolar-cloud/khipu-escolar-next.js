@@ -25,6 +25,13 @@ enum Rol {
   apoderado
   alumno
   porteria
+  administrativo // personal no docente (secretaría, auxiliares, psicología…)
+}
+
+enum TipoIdentificacion {
+  dni
+  ce // carné de extranjería
+  pasaporte
 }
 
 enum EstadoMembresia {
@@ -160,6 +167,7 @@ model Tenant {
   slug               String             @unique
   nombre             String
   ciudad             String?
+  eslogan            String?
   plan               Plan               @default(basico)
   emailDomains       String[]           @default([]) @map("email_domains")
   logoArchivoId      String?            @map("logo_archivo_id") @db.Uuid
@@ -204,17 +212,26 @@ model Tenant {
 
 /// Usuario global. id = auth.users.id de Supabase.
 model Profile {
-  id        String   @id @db.Uuid
-  email     String   @unique
-  nombres   String
-  apellidos String   @default("")
-  telefono  String?
-  genero    Genero?
-  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  id                  String              @id @db.Uuid
+  email               String              @unique
+  nombres             String
+  apellidos           String              @default("")
+  telefono            String?
+  genero              Genero?
+  tipoDocumento       TipoIdentificacion? @map("tipo_documento")
+  numeroDocumento     String?             @map("numero_documento")
+  fechaNacimiento     DateTime?           @map("fecha_nacimiento") @db.Date
+  direccion           String?
+  /// true mientras use la contraseña inicial (su DNI): se le obliga a cambiarla al entrar.
+  debeCambiarPassword Boolean             @default(false) @map("debe_cambiar_password")
+  createdAt           DateTime            @default(now()) @map("created_at") @db.Timestamptz
 
   memberships       Membership[]
   pushSuscripciones PushSuscripcion[]
 
+  adminPlataforma AdminPlataforma?
+
+  @@index([numeroDocumento])
   @@map("profiles")
 }
 
@@ -225,6 +242,7 @@ model Membership {
   userId    String          @map("user_id") @db.Uuid
   rol       Rol
   estado    EstadoMembresia @default(activa)
+  cargo     String? // «Director(a) general», «Secretaria», «Docente de Matemática»…
   createdAt DateTime        @default(now()) @map("created_at") @db.Timestamptz
 
   tenant Tenant  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
@@ -796,4 +814,32 @@ model NuditoMensaje {
 
   @@index([conversacionId, createdAt])
   @@map("nudito_mensajes")
+}
+
+// ───────────────────────── Plataforma (equipo Khipu) ─────────────────────────
+
+/// Super administrador de la plataforma: crea colegios y ve reportes globales. No pertenece a ningún colegio.
+/// Se crea solo por script (pnpm khipu:crear-superadmin), nunca desde la web.
+model AdminPlataforma {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @unique @map("user_id") @db.Uuid
+  activo    Boolean  @default(true)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  user Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("admins_plataforma")
+}
+
+/// Auditoría de acciones de plataforma (crear colegio, cambiar plan, suspender, exportar, borrar).
+model AuditoriaPlataforma {
+  id        BigInt   @id @default(autoincrement())
+  actorId   String   @map("actor_id") @db.Uuid
+  accion    String
+  tenantId  String?  @map("tenant_id") @db.Uuid // sin FK: debe sobrevivir al borrado del colegio
+  detalle   Json?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([createdAt])
+  @@map("auditoria_plataforma")
 }
