@@ -1,11 +1,15 @@
 import { ArrowLeft, Download, ExternalLink, History, ImageIcon, KeyRound, Mail, Pencil, Settings2, UserPlus, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
+import { Notificar } from "@/components/shell/Notificar";
 import { Boton } from "@/components/ui/Boton";
+import { buttonVariants } from "@/components/ui/button";
 import { Campo } from "@/components/ui/Campo";
-import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { urlColegio } from "@/lib/dominio";
 import { fechaCorta } from "@/lib/fechas";
 import { NOMBRE_PLAN } from "@/lib/planes";
@@ -14,7 +18,8 @@ import {
   agregarAdministradorAction, cambiarEstadoAction, cambiarInsigniaAction, cambiarPlanAction, editarColegioAction, reenviarBienvenidaAction,
 } from "../../actions";
 import { CamposAdministrador } from "../CamposAdministrador";
-import { EstadoColegio, fechaHora, fechaSimple, porcentaje } from "../../EstadoColegio";
+import { CambiarEstado } from "../../_componentes/CambiarEstado";
+import { EstadoColegio, fechaHora, fechaSimple, PlanColegio, porcentaje } from "../../EstadoColegio";
 import { FormularioPlataforma } from "../FormularioPlataforma";
 
 export const metadata: Metadata = { title: "Colegio" };
@@ -56,36 +61,42 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
 
   return (
     <div className="flex flex-col gap-6">
-      <Link href="/colegios" className="inline-flex items-center gap-1 self-start text-sm font-semibold text-acento">
-        <ArrowLeft className="h-4 w-4" strokeWidth={2} aria-hidden /> Reporte de colegios
+      <Link href="/colegios" className="inline-flex min-h-10 items-center gap-1 self-start text-sm font-semibold text-primary underline-offset-4 hover:underline">
+        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Reporte de colegios
       </Link>
 
-      <div className="flex flex-wrap items-center gap-4">
-        <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-lg border border-arena bg-white">
+      <div className="-mt-4 flex items-start gap-4">
+        <div className="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border bg-card">
           {logoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={logoUrl} alt={`Insignia de ${t.nombre}`} className="h-full w-full object-contain" />
           ) : (
-            <ImageIcon className="h-6 w-6 text-pizarra" strokeWidth={2} aria-label="Sin insignia" />
+            <ImageIcon className="size-6 text-muted-foreground" strokeWidth={2} aria-label="Sin insignia" />
           )}
         </div>
         <div className="min-w-0 flex-1">
-          <h1 className="text-2xl font-bold">{t.nombre}</h1>
-          {t.eslogan && <p className="text-sm italic text-pizarra">{t.eslogan}</p>}
-          <div className="mt-1 flex flex-wrap items-center gap-2 text-sm">
+          <EncabezadoPagina
+            titulo={t.nombre}
+            descripcion={t.eslogan ? <span className="italic">{t.eslogan}</span> : undefined}
+            acciones={
+              <a href={url} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "outline" })}>
+                <ExternalLink strokeWidth={2} aria-hidden /> Abrir colegio
+              </a>
+            }
+          />
+          <div className="-mt-3 flex flex-wrap items-center gap-2 text-sm">
             <EstadoColegio estado={t.estado} />
-            <span className="text-pizarra">Plan {NOMBRE_PLAN[t.plan]}{t.ciudad ? ` · ${t.ciudad}` : ""} · alta {fechaSimple(t.createdAt)}</span>
-            <a href={url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-mono text-acento">
-              {url.replace(/^https?:\/\//, "").replace(/\/inicio$/, "")} <ExternalLink className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
-            </a>
+            <PlanColegio plan={t.plan} />
+            <span className="text-muted-foreground">{t.ciudad ? `${t.ciudad} · ` : ""}alta {fechaSimple(t.createdAt)}</span>
+            <span className="font-mono text-xs text-muted-foreground">{url.replace(/^https?:\/\//, "").replace(/\/inicio$/, "")}</span>
           </div>
         </div>
       </div>
 
-      <Flash ok={ok} error={error} />
+      <Notificar ok={typeof ok === "string" ? ok : undefined} error={typeof error === "string" ? error : undefined} />
 
       {fila && (
-        <section aria-labelledby="resumen" className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        <section aria-labelledby="resumen" className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           <h2 id="resumen" className="sr-only">Resumen</h2>
           {[
             ["Alumnos", fila.alumnos],
@@ -95,75 +106,77 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
             ["Apertura (7 d)", porcentaje(fila.avisos7d ? fila.abiertos7d / fila.avisos7d : null)],
             ["Último ingreso", fechaHora(fila.ultimoIngreso)],
           ].map(([titulo, valor]) => (
-            <Tarjeta key={titulo} className="p-4">
-              <p className="text-xs font-medium text-pizarra">{titulo}</p>
-              <p className="font-titulo text-lg font-bold">{valor}</p>
+            <Tarjeta key={titulo} className="flex flex-col gap-1 p-4">
+              <p className="text-xs font-medium text-muted-foreground">{titulo}</p>
+              <p className="font-heading text-lg font-bold tracking-tight">{valor}</p>
             </Tarjeta>
           ))}
         </section>
       )}
 
-      <section aria-labelledby="metricas" className="flex flex-col gap-2">
-        <h2 id="metricas" className="text-lg font-semibold">Últimos 30 días</h2>
-        <div className="overflow-x-auto rounded-lg border border-arena bg-superficie">
-          <table className="w-full min-w-[640px] text-sm">
-            <thead className="bg-superficie-2 text-left text-xs uppercase tracking-wide text-pizarra">
-              <tr>
-                <th scope="col" className="px-3 py-2">Semana</th>
-                <th scope="col" className="px-3 py-2 text-right">Asistencia registrada</th>
-                <th scope="col" className="px-3 py-2 text-right">Correos enviados</th>
-                <th scope="col" className="px-3 py-2 text-right">Apertura</th>
-                <th scope="col" className="px-3 py-2 text-right">Rebotes y quejas</th>
-                <th scope="col" className="px-3 py-2 text-right">Ingresos</th>
-              </tr>
-            </thead>
-            <tbody>
+      <section aria-labelledby="metricas" className="flex flex-col gap-3">
+        <h2 id="metricas" className="text-xl font-semibold">Últimos 30 días</h2>
+        <Tarjeta className="overflow-hidden p-0">
+          <Table className="min-w-[640px]">
+            <TableHeader>
+              <TableRow>
+                <TableHead className="pl-4">Semana</TableHead>
+                <TableHead className="text-right">Asistencia registrada</TableHead>
+                <TableHead className="text-right">Correos enviados</TableHead>
+                <TableHead className="text-right">Apertura</TableHead>
+                <TableHead className="text-right">Rebotes y quejas</TableHead>
+                <TableHead className="pr-4 text-right">Ingresos</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
               {semanas.map((s) => (
-                <tr key={s.desde} className="border-t border-arena">
-                  <td className="px-3 py-2">{fechaCorta(s.desde)} – {fechaCorta(s.hasta)}</td>
-                  <td className="px-3 py-2 text-right">{s.asistencias}</td>
-                  <td className="px-3 py-2 text-right">{s.avisos}</td>
-                  <td className="px-3 py-2 text-right">{porcentaje(s.avisos ? s.abiertos / s.avisos : null)}</td>
-                  <td className="px-3 py-2 text-right">{s.rebotes}</td>
-                  <td className="px-3 py-2 text-right">{s.ingresos}</td>
-                </tr>
+                <TableRow key={s.desde}>
+                  <TableCell className="pl-4">{fechaCorta(s.desde)} – {fechaCorta(s.hasta)}</TableCell>
+                  <TableCell className="text-right tabular-nums">{s.asistencias}</TableCell>
+                  <TableCell className="text-right tabular-nums">{s.avisos}</TableCell>
+                  <TableCell className="text-right tabular-nums">{porcentaje(s.avisos ? s.abiertos / s.avisos : null)}</TableCell>
+                  <TableCell className="text-right tabular-nums">{s.rebotes}</TableCell>
+                  <TableCell className="pr-4 text-right tabular-nums">{s.ingresos}</TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="text-xs text-pizarra">Ingresos: suma diaria de personas del colegio que iniciaron sesión.</p>
+            </TableBody>
+          </Table>
+        </Tarjeta>
+        <p className="text-xs text-muted-foreground">Ingresos: suma diaria de personas del colegio que iniciaron sesión.</p>
       </section>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Tarjeta className="flex flex-col gap-3">
-          <h2 className="flex items-center gap-2 text-lg font-semibold"><Users className="h-5 w-5 text-pizarra" strokeWidth={2} aria-hidden /> Administradores</h2>
-          <ul className="flex flex-col divide-y divide-arena">
+          <h2 className="flex items-center gap-2 text-lg font-semibold"><Users className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Administradores</h2>
+          <ul className="flex flex-col divide-y divide-border">
             {administradores.map((a) => (
               <li key={a.id} className="flex flex-wrap items-center justify-between gap-2 py-2">
                 <div className="min-w-0">
                   <p className="font-semibold">{a.user.nombres} {a.user.apellidos}</p>
-                  <p className="text-sm text-pizarra">{a.cargo ?? "Dirección"} · {a.user.email}</p>
-                  <p className="inline-flex items-center gap-1 text-xs text-pizarra">
-                    <KeyRound className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                  <p className="text-sm text-muted-foreground">{a.cargo ?? "Dirección"} · {a.user.email}</p>
+                  <p className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+                    <KeyRound className="size-3.5" strokeWidth={2} aria-hidden />
                     {a.user.debeCambiarPassword ? "Aún no cambia su contraseña inicial" : "Ya eligió su contraseña"}
                     {a.estado !== "activa" ? ` · membresía ${a.estado}` : ""}
                   </p>
                 </div>
-                <form action={reenviarBienvenidaAction}>
-                  <input type="hidden" name="tenantId" value={t.id} />
-                  <input type="hidden" name="membershipId" value={a.id} />
-                  <Boton type="submit" variante="secundario" className="px-3 py-1.5">
-                    <Mail className="h-4 w-4" strokeWidth={2} aria-hidden /> Reenviar bienvenida
-                  </Boton>
-                </form>
+                <BotonConfirmar
+                  etiqueta={<><Mail strokeWidth={2} aria-hidden /> Reenviar bienvenida</>}
+                  titulo="¿Reenviar la bienvenida?"
+                  descripcion={`Enviaremos otra vez el correo con el acceso a ${a.user.email}.`}
+                  confirmar="Reenviar correo"
+                  accion={reenviarBienvenidaAction}
+                  campos={{ tenantId: t.id, membershipId: a.id }}
+                  tamano="sm"
+                />
               </li>
             ))}
-            {administradores.length === 0 && <li className="py-2 text-sm text-pizarra">Sin administradores.</li>}
+            {administradores.length === 0 && <li className="py-2 text-sm text-muted-foreground">Sin administradores.</li>}
           </ul>
         </Tarjeta>
 
         <Tarjeta className="flex flex-col gap-4">
-          <h2 className="flex items-center gap-2 text-lg font-semibold"><Settings2 className="h-5 w-5 text-pizarra" strokeWidth={2} aria-hidden /> Plan y estado</h2>
+          <h2 className="flex items-center gap-2 text-lg font-semibold"><Settings2 className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Plan y estado</h2>
           <form action={cambiarPlanAction} className="flex flex-wrap items-end gap-3">
             <input type="hidden" name="tenantId" value={t.id} />
             <Selector etiqueta="Plan" name="plan" defaultValue={t.plan}>
@@ -173,23 +186,15 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
             </Selector>
             <Boton type="submit" variante="secundario">Cambiar plan</Boton>
           </form>
-          <form action={cambiarEstadoAction} className="flex flex-wrap items-end gap-3">
-            <input type="hidden" name="tenantId" value={t.id} />
-            <Selector etiqueta="Estado" name="estado" defaultValue={t.estado}>
-              <option value="piloto">Piloto</option>
-              <option value="activo">Activo</option>
-              <option value="suspendido">Suspendido (nadie puede entrar)</option>
-            </Selector>
-            <Boton type="submit" variante="secundario">Cambiar estado</Boton>
-          </form>
-          <a href={`/colegios/${t.id}/exportar`} className="inline-flex items-center gap-2 text-sm font-semibold text-acento">
-            <Download className="h-4 w-4" strokeWidth={2} aria-hidden /> Exportar todos los datos (ZIP, garantía de salida)
+          <CambiarEstado tenantId={t.id} nombre={t.nombre} estadoActual={t.estado} accion={cambiarEstadoAction} />
+          <a href={`/colegios/${t.id}/exportar`} className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline">
+            <Download className="size-4" strokeWidth={2} aria-hidden /> Exportar todos los datos (ZIP, garantía de salida)
           </a>
-          <p className="text-xs text-pizarra">El panel no borra colegios: se hace con el script <code>khipu:borrar-colegio</code>.</p>
+          <p className="text-xs text-muted-foreground">El panel no borra colegios: se hace con el script <code>khipu:borrar-colegio</code>.</p>
         </Tarjeta>
 
         <Tarjeta className="flex flex-col gap-4">
-          <h2 className="flex items-center gap-2 text-lg font-semibold"><Pencil className="h-5 w-5 text-pizarra" strokeWidth={2} aria-hidden /> Datos del colegio</h2>
+          <h2 className="flex items-center gap-2 text-lg font-semibold"><Pencil className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Datos del colegio</h2>
           <form action={editarColegioAction} className="flex flex-col gap-4">
             <input type="hidden" name="tenantId" value={t.id} />
             <Campo etiqueta="Nombre" name="nombre" defaultValue={t.nombre} required />
@@ -202,19 +207,19 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
             </Selector>
             <Boton type="submit" className="self-start">Guardar datos</Boton>
           </form>
-          <form action={cambiarInsigniaAction} className="flex flex-wrap items-end gap-3 border-t border-arena pt-4">
+          <form action={cambiarInsigniaAction} className="flex flex-wrap items-end gap-3 border-t border-border pt-4">
             <input type="hidden" name="tenantId" value={t.id} />
             <label className="flex flex-col gap-1 text-sm font-medium">
               Nueva insignia
               <input type="file" name="insignia" accept="image/png,image/jpeg,image/webp" required className="text-sm" />
-              <span className="text-xs font-normal text-pizarra">PNG, JPG o WEBP, hasta 1 MB.</span>
+              <span className="text-xs font-normal text-muted-foreground">PNG, JPG o WEBP, hasta 1 MB.</span>
             </label>
             <Boton type="submit" variante="secundario">Cambiar insignia</Boton>
           </form>
         </Tarjeta>
 
         <Tarjeta className="flex flex-col gap-4">
-          <h2 className="flex items-center gap-2 text-lg font-semibold"><UserPlus className="h-5 w-5 text-pizarra" strokeWidth={2} aria-hidden /> Agregar otro administrador</h2>
+          <h2 className="flex items-center gap-2 text-lg font-semibold"><UserPlus className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Agregar otro administrador</h2>
           <FormularioPlataforma accion={agregarAdministradorAction} etiqueta="Agregar administrador" className="flex flex-col gap-4">
             <input type="hidden" name="tenantId" value={t.id} />
             <CamposAdministrador />
@@ -222,16 +227,22 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
         </Tarjeta>
       </div>
 
-      <section aria-labelledby="bitacora" className="flex flex-col gap-2">
-        <h2 id="bitacora" className="flex items-center gap-2 text-lg font-semibold"><History className="h-5 w-5 text-pizarra" strokeWidth={2} aria-hidden /> Acciones de la plataforma</h2>
+      <section aria-labelledby="bitacora" className="flex flex-col gap-3">
+        <h2 id="bitacora" className="flex items-center gap-2 text-lg font-semibold"><History className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Acciones de la plataforma</h2>
         {bitacora.length === 0 ? (
-          <p className="text-sm text-pizarra">Sin acciones registradas.</p>
+          <p className="text-sm text-muted-foreground">Sin acciones registradas.</p>
         ) : (
-          <ul className="flex flex-col gap-1 text-sm">
-            {bitacora.map((b) => (
-              <li key={b.id}><span className="text-pizarra">{fechaHora(b.createdAt)}</span> · {b.actor} · {NOMBRE_ACCION[b.accion] ?? b.accion}</li>
-            ))}
-          </ul>
+          <Tarjeta className="p-0">
+            <ul className="flex flex-col divide-y text-sm">
+              {bitacora.map((b) => (
+                <li key={b.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3">
+                  <span className="text-muted-foreground tabular-nums">{fechaHora(b.createdAt)}</span>
+                  <span className="font-medium">{NOMBRE_ACCION[b.accion] ?? b.accion}</span>
+                  <span className="text-muted-foreground">· {b.actor}</span>
+                </li>
+              ))}
+            </ul>
+          </Tarjeta>
         )}
       </section>
     </div>

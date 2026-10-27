@@ -24,9 +24,9 @@ export default async function CambiarPasswordPage({ searchParams }: PageProps<"/
   const destino = typeof siguiente === "string" ? siguiente : "/elegir-colegio";
 
   return (
-    <Tarjeta className="p-6 sm:p-8">
+    <Tarjeta className="p-6 shadow-sm sm:p-8">
       <h1 className="mb-1 text-2xl font-bold">Crea tu contraseña</h1>
-      <p className="mb-6 text-sm text-pizarra">
+      <p className="mb-6 text-sm text-muted-foreground">
         Hola, {user.nombres}. Entraste con tu contraseña inicial. Elige una nueva para proteger tu cuenta.
       </p>
       <form action={cambiarPasswordAction} className="flex flex-col gap-4">
@@ -34,7 +34,7 @@ export default async function CambiarPasswordPage({ searchParams }: PageProps<"/
         <Campo etiqueta="Nueva contraseña" name="password" type="password" minLength={8} autoComplete="new-password" required ayuda="Mínimo 8 caracteres. No uses tu DNI." />
         <Campo etiqueta="Repite la contraseña" name="confirmacion" type="password" minLength={8} autoComplete="new-password" required />
         {typeof error === "string" && ERRORES[error] && <Alerta tipo="error">{ERRORES[error]}</Alerta>}
-        <Boton type="submit">Guardar y entrar</Boton>
+        <Boton type="submit" tamano="lg">Guardar y entrar</Boton>
       </form>
     </Tarjeta>
   );

@@ -21,12 +21,12 @@ export function CamposColegio({ baseDomain }: { baseDomain: string }) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap items-start gap-4">
-        <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-arena bg-white">
+        <div className="flex size-24 shrink-0 items-center justify-center overflow-hidden rounded-lg border border bg-card">
           {vista ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={vista} alt="Vista previa de la insignia" className="h-full w-full object-contain" />
           ) : (
-            <ImageIcon className="h-8 w-8 text-pizarra" strokeWidth={2} aria-hidden />
+            <ImageIcon className="size-8 text-muted-foreground" strokeWidth={2} aria-hidden />
           )}
         </div>
         <label className="flex flex-col gap-1.5 text-sm">
@@ -36,15 +36,15 @@ export function CamposColegio({ baseDomain }: { baseDomain: string }) {
             name="insignia"
             accept="image/png,image/jpeg,image/webp"
             required
-            className="text-sm"
+            className="text-sm file:mr-3 file:rounded-md file:border file:bg-secondary file:px-3 file:py-1.5 file:text-sm file:font-medium"
             onChange={(e) => {
               const f = e.target.files?.[0];
               setErrorInsignia(f && f.size > 1024 * 1024 ? "La insignia pesa más de 1 MB." : null);
               setVista(f ? URL.createObjectURL(f) : null);
             }}
           />
-          <span className="text-pizarra">PNG, JPG o WEBP, hasta 1 MB.</span>
-          {errorInsignia && <span className="text-falta">{errorInsignia}</span>}
+          <span className="text-muted-foreground">PNG, JPG o WEBP, hasta 1 MB.</span>
+          {errorInsignia && <span className="text-destructive">{errorInsignia}</span>}
         </label>
       </div>
 
@@ -67,10 +67,10 @@ export function CamposColegio({ baseDomain }: { baseDomain: string }) {
           ayuda="Minúsculas, números y guiones. Se sugiere a partir del nombre."
           className="font-mono"
         />
-        <p className="inline-flex items-center gap-1.5 text-sm text-pizarra" aria-live="polite">
-          <Globe className="h-4 w-4" strokeWidth={2} aria-hidden />
+        <p className="inline-flex items-center gap-1.5 text-sm text-muted-foreground" aria-live="polite">
+          <Globe className="size-4" strokeWidth={2} aria-hidden />
           <span>El colegio estará en</span>
-          <strong className="font-mono text-tinta" data-testid="subdominio">{slugMostrado || "…"}.{baseDomain}</strong>
+          <strong className="font-mono text-foreground" data-testid="subdominio">{slugMostrado || "…"}.{baseDomain}</strong>
         </p>
       </div>
     </div>

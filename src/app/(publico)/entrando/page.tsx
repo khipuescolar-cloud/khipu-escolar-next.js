@@ -23,13 +23,13 @@ export default async function EntrandoPage({ searchParams }: PageProps<"/entrand
 
   const url = urlColegio(tenant.slug);
   return (
-    <Tarjeta className="flex flex-col items-center gap-3 p-8 text-center">
-      <Loader2 className="h-8 w-8 animate-spin text-acento" aria-hidden />
-      <h1 className="text-xl font-bold">Entrando a {tenant.nombre}</h1>
-      <p className="font-mono text-sm text-pizarra">{url.replace(/^https?:\/\//, "").replace(/\/inicio$/, "")}</p>
+    <Tarjeta className="flex flex-col items-center gap-3 p-8 text-center shadow-sm" role="status" aria-live="polite">
+      <span className="flex size-14 items-center justify-center rounded-full bg-accent text-primary"><Loader2 className="size-7 animate-spin" strokeWidth={2} aria-hidden /></span>
+      <h1 className="text-xl font-bold text-balance">Entrando a {tenant.nombre}</h1>
+      <p className="rounded-pildora bg-muted px-3 py-1 font-mono text-sm text-muted-foreground">{url.replace(/^https?:\/\//, "").replace(/\/inicio$/, "")}</p>
       <Redireccion url={url} />
       <noscript>
-        <a href={url}>Continuar</a>
+        <a href={url} className="font-medium text-primary underline">Continuar</a>
       </noscript>
     </Tarjeta>
   );

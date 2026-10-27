@@ -1,6 +1,6 @@
 "use client";
 
-import { School, UserRound } from "lucide-react";
+import { Loader2, School, UserRound } from "lucide-react";
 import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
 import { Alerta } from "@/components/ui/Alerta";
@@ -34,20 +34,21 @@ export function LoginForm({ emailInicial }: { emailInicial?: string }) {
       />
       {detectado && "nombre" in detectado && (
         <p className="flex items-center gap-2 text-sm text-turquesa" aria-live="polite">
-          <School className="h-4 w-4" aria-hidden /> Entrarás a <strong>{detectado.nombre}</strong>
+          <School className="size-4" strokeWidth={2} aria-hidden /> Entrarás a <strong>{detectado.nombre}</strong>
         </p>
       )}
       {detectado && "personal" in detectado && (
-        <p className="flex items-center gap-2 text-sm text-pizarra" aria-live="polite">
-          <UserRound className="h-4 w-4" aria-hidden /> Cuenta de familia: verás a todos tus hijos.
+        <p className="flex items-center gap-2 text-sm text-muted-foreground" aria-live="polite">
+          <UserRound className="size-4" strokeWidth={2} aria-hidden /> Cuenta de familia: verás a todos tus hijos.
         </p>
       )}
       <Campo etiqueta="Contraseña" name="password" type="password" autoComplete="current-password" required />
       {estado.error && <Alerta tipo="error">{estado.error}</Alerta>}
-      <Boton type="submit" disabled={enviando}>
+      <Boton type="submit" tamano="lg" disabled={enviando}>
+        {enviando && <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />}
         {enviando ? "Entrando…" : "Entrar"}
       </Boton>
-      <Link href="/recuperar" className="text-center text-sm text-indigo-cielo underline-offset-4 hover:underline">
+      <Link href="/recuperar" className="inline-flex min-h-10 items-center justify-center text-sm font-medium text-primary underline-offset-4 hover:underline">
         ¿Olvidaste tu contraseña?
       </Link>
     </form>

@@ -1,5 +1,6 @@
 import { School, UserRound } from "lucide-react";
 import type { Metadata } from "next";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
@@ -16,19 +17,19 @@ export const metadata: Metadata = { title: "Nuevo colegio" };
 export default async function NuevoColegio() {
   await requireAdminPlataforma();
   return (
-    <div className="flex max-w-3xl flex-col gap-5">
-      <div>
-        <h1 className="text-2xl font-bold">Nuevo colegio</h1>
-        <p className="text-sm text-pizarra">
-          Al guardar se crea el colegio y la cuenta del administrador principal. Le llega un correo de bienvenida con su usuario
-          (el correo) y el botón para entrar. Su contraseña inicial es su número de documento y la cambia en su primer ingreso.
-        </p>
-      </div>
-      <FormularioPlataforma accion={crearColegioAction} etiqueta="Crear colegio">
-        <Tarjeta className="flex flex-col gap-4">
-          <h2 className="flex items-center gap-2 text-lg font-semibold">
-            <School className="h-5 w-5 text-pizarra" strokeWidth={2} aria-hidden /> Colegio
-          </h2>
+    <div className="flex max-w-3xl flex-col">
+      <EncabezadoPagina
+        titulo="Nuevo colegio"
+        descripcion="Al guardar se crea el colegio y la cuenta del administrador principal. Le llega un correo de bienvenida con su usuario (el correo) y el botón para entrar. Su contraseña inicial es su número de documento y la cambia en su primer ingreso."
+      />
+      <FormularioPlataforma accion={crearColegioAction} etiqueta="Crear colegio" className="flex flex-col gap-6">
+        <Tarjeta className="flex flex-col gap-5">
+          <div>
+            <h2 className="flex items-center gap-2 text-lg font-semibold">
+              <School className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Colegio
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">Identidad, plan y dirección web del colegio.</p>
+          </div>
           <CamposColegio baseDomain={baseDomain()} />
           <div className="grid gap-4 sm:grid-cols-2">
             <Campo etiqueta="Ciudad" name="ciudad" placeholder="Arequipa" />
@@ -48,11 +49,13 @@ export default async function NuevoColegio() {
             <Campo etiqueta="Dominios de correo (opcional)" name="emailDomains" placeholder="micolegio.edu.pe" ayuda="Separados por coma. Sirven para detectar el colegio al iniciar sesión." />
           </div>
         </Tarjeta>
-        <Tarjeta className="flex flex-col gap-4">
-          <h2 className="flex items-center gap-2 text-lg font-semibold">
-            <UserRound className="h-5 w-5 text-pizarra" strokeWidth={2} aria-hidden /> Administrador principal
-          </h2>
-          <p className="text-sm text-pizarra">Tendrá el rol de dirección. Si el correo ya tiene cuenta en Khipu, conserva su contraseña.</p>
+        <Tarjeta className="flex flex-col gap-5">
+          <div>
+            <h2 className="flex items-center gap-2 text-lg font-semibold">
+              <UserRound className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Administrador principal
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">Tendrá el rol de dirección. Si el correo ya tiene cuenta en Khipu, conserva su contraseña.</p>
+          </div>
           <CamposAdministrador />
         </Tarjeta>
       </FormularioPlataforma>

@@ -12,7 +12,7 @@ export default async function RestablecerPage({ searchParams }: PageProps<"/rest
   const { error } = await searchParams;
   const user = await usuarioActual();
   return (
-    <Tarjeta className="p-6 sm:p-8">
+    <Tarjeta className="p-6 shadow-sm sm:p-8">
       <h1 className="mb-6 text-2xl font-bold">Nueva contraseña</h1>
       {!user ? (
         <Alerta tipo="aviso">El enlace venció o ya se usó. Pide uno nuevo desde «¿Olvidaste tu contraseña?».</Alerta>
@@ -20,7 +20,7 @@ export default async function RestablecerPage({ searchParams }: PageProps<"/rest
         <form action={restablecerAction} className="flex flex-col gap-4">
           <Campo etiqueta="Nueva contraseña" name="password" type="password" minLength={8} autoComplete="new-password" required ayuda="Mínimo 8 caracteres." />
           {error && <Alerta tipo="error">No se pudo guardar. Intenta con otra contraseña.</Alerta>}
-          <Boton type="submit">Guardar contraseña</Boton>
+          <Boton type="submit" tamano="lg">Guardar contraseña</Boton>
         </form>
       )}
     </Tarjeta>

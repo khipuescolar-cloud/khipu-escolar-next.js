@@ -1,11 +1,17 @@
-import { Download, Filter } from "lucide-react";
+import { Download, Filter, School, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EstadoVacio } from "@/components/shell/EstadoVacio";
+import { Boton } from "@/components/ui/Boton";
+import { Campo } from "@/components/ui/Campo";
+import { buttonVariants } from "@/components/ui/button";
 import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { NOMBRE_PLAN } from "@/lib/planes";
 import { esquemaFiltroReporte, reporteColegios, requireAdminPlataforma } from "@/lib/server/plataforma";
-import { EstadoColegio, fechaHora, fechaSimple, porcentaje } from "../EstadoColegio";
+import { EstadoColegio, fechaHora, fechaSimple, PlanColegio, porcentaje } from "../EstadoColegio";
 
 export const metadata: Metadata = { title: "Reporte de colegios" };
 
@@ -17,23 +23,22 @@ export default async function ReporteColegios({ searchParams }: PageProps<"/plat
   const query = new URLSearchParams(Object.entries(filtro).filter((e): e is [string, string] => !!e[1])).toString();
 
   return (
-    <div className="flex flex-col gap-5">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-bold">Reporte de colegios</h1>
-          <p className="text-sm text-pizarra">Conteos agregados. Asistencia, avisos y apertura de los últimos 7 días.</p>
-        </div>
-        <a href={`/colegios/reporte.csv${query ? `?${query}` : ""}`} className="inline-flex items-center gap-2 rounded-md border border-arena bg-superficie px-4 py-2.5 text-sm font-semibold hover:bg-superficie-2">
-          <Download className="h-4 w-4" strokeWidth={2} aria-hidden /> Descargar CSV
-        </a>
-      </div>
+    <div className="flex flex-col gap-6">
+      <EncabezadoPagina
+        titulo="Reporte de colegios"
+        descripcion="Conteos agregados. Asistencia, avisos y apertura de los últimos 7 días."
+        acciones={
+          <a href={`/colegios/reporte.csv${query ? `?${query}` : ""}`} className={buttonVariants({ variant: "outline" })}>
+            <Download strokeWidth={2} aria-hidden /> Descargar CSV
+          </a>
+        }
+      />
 
-      <Tarjeta className="p-4">
-        <form className="flex flex-wrap items-end gap-3">
-          <label className="flex flex-col gap-1.5 text-sm">
-            <span className="font-medium">Buscar</span>
-            <input name="q" defaultValue={filtro.q ?? ""} placeholder="Nombre, dirección o ciudad" className="rounded-md border border-arena bg-superficie px-3 py-2.5 text-base" />
-          </label>
+      <Tarjeta className="-mt-2 p-4">
+        <form className="grid gap-3 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end">
+          <div className="lg:w-72">
+            <Campo etiqueta="Buscar" name="q" defaultValue={filtro.q ?? ""} placeholder="Nombre, dirección o ciudad" />
+          </div>
           <Selector etiqueta="Plan" name="plan" defaultValue={filtro.plan ?? ""}>
             <option value="">Todos</option>
             <option value="basico">{NOMBRE_PLAN.basico}</option>
@@ -46,57 +51,68 @@ export default async function ReporteColegios({ searchParams }: PageProps<"/plat
             <option value="piloto">Piloto</option>
             <option value="suspendido">Suspendido</option>
           </Selector>
-          <button className="inline-flex items-center gap-1.5 rounded-md bg-acento px-4 py-2.5 text-sm font-semibold text-sobre-acento">
-            <Filter className="h-4 w-4" strokeWidth={2} aria-hidden /> Filtrar
-          </button>
-          {query && <Link href="/colegios" className="py-2.5 text-sm font-semibold text-acento">Quitar filtros</Link>}
+          <div className="flex items-center gap-2">
+            <Boton type="submit">
+              <Filter strokeWidth={2} aria-hidden /> Filtrar
+            </Boton>
+            {query && (
+              <Link href="/colegios" className={buttonVariants({ variant: "ghost" })}>
+                <X strokeWidth={2} aria-hidden /> Quitar filtros
+              </Link>
+            )}
+          </div>
         </form>
       </Tarjeta>
 
       {filas.length === 0 ? (
-        <Tarjeta className="text-sm text-pizarra">Ningún colegio coincide con los filtros.</Tarjeta>
+        <EstadoVacio
+          icono={School}
+          titulo="Ningún colegio coincide con los filtros."
+          descripcion="Prueba con otros filtros o quítalos para ver todos los colegios."
+          accion={<Link href="/colegios" className={buttonVariants({ variant: "outline" })}>Quitar filtros</Link>}
+        />
       ) : (
-        <div className="overflow-x-auto rounded-lg border border-arena bg-superficie">
-          <table className="w-full min-w-[960px] text-sm">
-            <thead className="bg-superficie-2 text-left text-xs uppercase tracking-wide text-pizarra">
-              <tr>
-                <th scope="col" className="px-3 py-2">Colegio</th>
-                <th scope="col" className="px-3 py-2">Plan</th>
-                <th scope="col" className="px-3 py-2">Estado</th>
-                <th scope="col" className="px-3 py-2 text-right">Alumnos</th>
-                <th scope="col" className="px-3 py-2 text-right">Profesores</th>
-                <th scope="col" className="px-3 py-2 text-right">Familias</th>
-                <th scope="col" className="px-3 py-2">Último ingreso</th>
-                <th scope="col" className="px-3 py-2 text-right">Asistencia (7 d)</th>
-                <th scope="col" className="px-3 py-2 text-right">Avisos (7 d)</th>
-                <th scope="col" className="px-3 py-2 text-right">Apertura</th>
-                <th scope="col" className="px-3 py-2 text-right">Rebotes</th>
-                <th scope="col" className="px-3 py-2">Alta</th>
-              </tr>
-            </thead>
-            <tbody>
+        <Tarjeta className="overflow-hidden p-0">
+          <Table className="min-w-[1040px]">
+            <TableHeader>
+              <TableRow>
+                <TableHead className="pl-4">Colegio</TableHead>
+                <TableHead>Plan</TableHead>
+                <TableHead>Estado</TableHead>
+                <TableHead className="text-right">Alumnos</TableHead>
+                <TableHead className="text-right">Profesores</TableHead>
+                <TableHead className="text-right">Familias</TableHead>
+                <TableHead>Último ingreso</TableHead>
+                <TableHead className="text-right">Asistencia (7 d)</TableHead>
+                <TableHead className="text-right">Avisos (7 d)</TableHead>
+                <TableHead className="text-right">Apertura</TableHead>
+                <TableHead className="text-right">Rebotes</TableHead>
+                <TableHead className="pr-4">Alta</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
               {filas.map((f) => (
-                <tr key={f.id} className="border-t border-arena">
-                  <td className="px-3 py-2">
-                    <Link href={`/colegios/${f.id}`} className="font-semibold text-acento">{f.nombre}</Link>
-                    <p className="font-mono text-xs text-pizarra">{f.slug}</p>
-                  </td>
-                  <td className="px-3 py-2">{NOMBRE_PLAN[f.plan]}</td>
-                  <td className="px-3 py-2"><EstadoColegio estado={f.estado} /></td>
-                  <td className="px-3 py-2 text-right">{f.alumnos}</td>
-                  <td className="px-3 py-2 text-right">{f.profesores}</td>
-                  <td className="px-3 py-2 text-right">{f.familias}</td>
-                  <td className="px-3 py-2">{fechaHora(f.ultimoIngreso)}</td>
-                  <td className="px-3 py-2 text-right">{f.asistencias7d}</td>
-                  <td className="px-3 py-2 text-right">{f.avisos7d}</td>
-                  <td className="px-3 py-2 text-right">{porcentaje(f.avisos7d ? f.abiertos7d / f.avisos7d : null)}</td>
-                  <td className="px-3 py-2 text-right">{f.rebotes7d}</td>
-                  <td className="px-3 py-2">{fechaSimple(f.createdAt)}</td>
-                </tr>
+                <TableRow key={f.id}>
+                  <TableCell className="pl-4">
+                    <Link href={`/colegios/${f.id}`} className="font-semibold text-primary underline-offset-4 hover:underline">{f.nombre}</Link>
+                    <p className="font-mono text-xs text-muted-foreground">{f.slug}</p>
+                  </TableCell>
+                  <TableCell><PlanColegio plan={f.plan} /></TableCell>
+                  <TableCell><EstadoColegio estado={f.estado} /></TableCell>
+                  <TableCell className="text-right tabular-nums">{f.alumnos}</TableCell>
+                  <TableCell className="text-right tabular-nums">{f.profesores}</TableCell>
+                  <TableCell className="text-right tabular-nums">{f.familias}</TableCell>
+                  <TableCell>{fechaHora(f.ultimoIngreso)}</TableCell>
+                  <TableCell className="text-right tabular-nums">{f.asistencias7d}</TableCell>
+                  <TableCell className="text-right tabular-nums">{f.avisos7d}</TableCell>
+                  <TableCell className="text-right tabular-nums">{porcentaje(f.avisos7d ? f.abiertos7d / f.avisos7d : null)}</TableCell>
+                  <TableCell className="text-right tabular-nums">{f.rebotes7d}</TableCell>
+                  <TableCell className="pr-4">{fechaSimple(f.createdAt)}</TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
-        </div>
+            </TableBody>
+          </Table>
+        </Tarjeta>
       )}
     </div>
   );

@@ -1,7 +1,8 @@
 "use client";
 
 import { Loader2 } from "lucide-react";
-import { startTransition, useActionState, type ReactNode } from "react";
+import { startTransition, useActionState, useEffect, type ReactNode } from "react";
+import { toast } from "sonner";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import type { EstadoFormulario } from "../actions";
@@ -21,6 +22,9 @@ export function FormularioPlataforma({
   className?: string;
 }) {
   const [estado, enviar, pendiente] = useActionState(accion, null);
+  useEffect(() => {
+    if (estado?.ok) toast.success(estado.ok);
+  }, [estado]);
   return (
     <form
       encType="multipart/form-data"
@@ -34,9 +38,8 @@ export function FormularioPlataforma({
       {children}
       <div className="flex flex-col gap-2">
         {estado?.error && <Alerta tipo="error">{estado.error}</Alerta>}
-        {estado?.ok && <Alerta tipo="exito">{estado.ok}</Alerta>}
         <Boton type="submit" disabled={pendiente} className="self-start">
-          {pendiente && <Loader2 className="h-4 w-4 animate-spin" strokeWidth={2} aria-hidden />}
+          {pendiente && <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />}
           {etiqueta}
         </Boton>
       </div>

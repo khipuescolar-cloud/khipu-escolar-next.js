@@ -129,6 +129,10 @@ Interlineado 1.5 en cuerpo, máximo `max-w-prose` para párrafos largos. Nada de
 | Secciones dentro de una página | shadcn `Tabs` | Si el contenido es independiente |
 | Filtros rápidos | `ToggleGroup` o `Selector` | |
 | Cargando | `Skeleton` con la forma del contenido; `Loader2` girando en botones | Nunca pantallas en blanco |
+| Métrica | `StatTile` + `Semaforo` (`plataforma/_componentes`) | Ícono en recuadro `bg-accent`, valor `font-heading text-3xl`, nota con ícono + palabra |
+| Páginas públicas | `(publico)/layout.tsx` | Escritorio: panel índigo de marca (`bg-sidebar`) con el lema + tarjeta centrada; móvil: logo arriba y tarjeta |
+| Cambio de estado crítico (suspender) | `CambiarEstado` (`BotonConfirmar` con `peligro`) | Explica la consecuencia antes de aplicar |
+| Plan del colegio | `PlanColegio` (`plataforma/EstadoColegio.tsx`) | Insignia con contorno, junto a `EstadoColegio` |
 | Menú de acciones por fila | `DropdownMenu` con botón `MoreHorizontal` (`aria-label`) | |
 
 ## 9. Movimiento

@@ -1,38 +1,22 @@
-import { AlertTriangle, CheckCircle2, Inbox, MailOpen, Plus, School, Search, Send, Users, UserCheck } from "lucide-react";
+import { AlertTriangle, ChevronRight, Inbox, MailOpen, Plus, School, Search, Send, UserCheck, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EstadoVacio } from "@/components/shell/EstadoVacio";
+import { Boton } from "@/components/ui/Boton";
+import { buttonVariants } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import type { EstadoTenant, Plan } from "@/generated/prisma/enums";
 import { NOMBRE_PLAN } from "@/lib/planes";
 import { META_APERTURA, metricasPlataforma, reporteColegios, requireAdminPlataforma } from "@/lib/server/plataforma";
-import { EstadoColegio, NOMBRE_ESTADO, porcentaje } from "./EstadoColegio";
+import { cn } from "@/lib/utils";
+import { StatTile, Semaforo } from "./_componentes/StatTile";
+import { EstadoColegio, NOMBRE_ESTADO, PlanColegio, porcentaje } from "./EstadoColegio";
 
 export const metadata: Metadata = { title: "Vista principal" };
 
 const numero = (n: number) => n.toLocaleString("es-PE");
-
-function Kpi({ titulo, valor, Icono, children }: { titulo: string; valor: string; Icono: typeof Users; children?: ReactNode }) {
-  return (
-    <Tarjeta className="flex flex-col gap-1 p-4">
-      <p className="flex items-center gap-2 text-sm font-medium text-pizarra">
-        <Icono className="h-4 w-4" strokeWidth={2} aria-hidden /> {titulo}
-      </p>
-      <p className="font-titulo text-2xl font-bold">{valor}</p>
-      {children && <div className="text-xs text-pizarra">{children}</div>}
-    </Tarjeta>
-  );
-}
-
-/** Indicador con ícono + palabra: «Bien» o «Revisar». */
-function Semaforo({ bien, texto }: { bien: boolean; texto: string }) {
-  const Icono = bien ? CheckCircle2 : AlertTriangle;
-  return (
-    <span className={`inline-flex items-center gap-1 font-semibold ${bien ? "text-llego" : "text-tarde"}`}>
-      <Icono className="h-3.5 w-3.5" strokeWidth={2} aria-hidden /> {bien ? "Bien" : "Revisar"} · {texto}
-    </span>
-  );
-}
 
 export default async function VistaPrincipal({ searchParams }: PageProps<"/plataforma">) {
   const admin = await requireAdminPlataforma();
@@ -42,87 +26,108 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
   const usoCorreo = m.limiteDiario > 0 ? m.correos24h / m.limiteDiario : 0;
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-bold">Vista principal</h1>
-          <p className="text-sm text-pizarra">Métricas agregadas de todos los colegios. Sin datos de alumnos, notas ni chats.</p>
-        </div>
-        <Link href="/colegios/nuevo" className="inline-flex items-center gap-2 rounded-md bg-acento px-4 py-2.5 text-sm font-semibold text-sobre-acento hover:opacity-90">
-          <Plus className="h-4 w-4" strokeWidth={2} aria-hidden /> Nuevo colegio
-        </Link>
-      </div>
+    <div className="flex flex-col gap-8">
+      <EncabezadoPagina
+        titulo="Vista principal"
+        descripcion="Métricas agregadas de todos los colegios. Sin datos de alumnos, notas ni chats."
+        acciones={
+          <Link href="/colegios/nuevo" className={buttonVariants({ variant: "default" })}>
+            <Plus strokeWidth={2} aria-hidden /> Nuevo colegio
+          </Link>
+        }
+      />
 
-      <section aria-labelledby="kpis" className="flex flex-col gap-3">
+      <section aria-labelledby="kpis" className="-mt-2 flex flex-col gap-3">
         <h2 id="kpis" className="sr-only">Indicadores</h2>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <Kpi titulo="Colegios" valor={numero(m.colegios.total)} Icono={School}>
-            {(Object.keys(m.colegios.porEstado) as EstadoTenant[]).map((e) => `${NOMBRE_ESTADO[e]}: ${m.colegios.porEstado[e]}`).join(" · ")}
-            <br />
-            {(Object.keys(m.colegios.porPlan) as Plan[]).map((p) => `${NOMBRE_PLAN[p]}: ${m.colegios.porPlan[p]}`).join(" · ")}
-          </Kpi>
-          <Kpi titulo="Alumnos activos" valor={numero(m.alumnos)} Icono={Users} />
-          <Kpi titulo="Usuarios activos (7 días)" valor={numero(m.usuariosActivos7d)} Icono={UserCheck}>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <StatTile titulo="Colegios" valor={numero(m.colegios.total)} Icono={School}>
+            <span className="block">
+              {(Object.keys(m.colegios.porEstado) as EstadoTenant[]).map((e) => `${NOMBRE_ESTADO[e]}: ${m.colegios.porEstado[e]}`).join(" · ")}
+            </span>
+            <span className="block">
+              {(Object.keys(m.colegios.porPlan) as Plan[]).map((p) => `${NOMBRE_PLAN[p]}: ${m.colegios.porPlan[p]}`).join(" · ")}
+            </span>
+          </StatTile>
+          <StatTile titulo="Alumnos activos" valor={numero(m.alumnos)} Icono={Users} />
+          <StatTile titulo="Usuarios activos (7 días)" valor={numero(m.usuariosActivos7d)} Icono={UserCheck}>
             Personas que iniciaron sesión con éxito.
-          </Kpi>
-          <Kpi titulo="Correos (últimas 24 h)" valor={`${numero(m.correos24h)} / ${numero(m.limiteDiario)}`} Icono={Send}>
+          </StatTile>
+          <StatTile titulo="Correos (últimas 24 h)" valor={`${numero(m.correos24h)} / ${numero(m.limiteDiario)}`} Icono={Send}>
             <Semaforo bien={usoCorreo < 0.8} texto={`${porcentaje(usoCorreo)} del tope diario`} />
-          </Kpi>
-          <Kpi titulo="Apertura de la semana" valor={porcentaje(m.apertura7d.tasa)} Icono={MailOpen}>
+          </StatTile>
+          <StatTile titulo="Apertura de la semana" valor={porcentaje(m.apertura7d.tasa)} Icono={MailOpen}>
             {m.apertura7d.tasa === null ? (
               "Aún no hay correos enviados esta semana."
             ) : (
               <Semaforo bien={m.apertura7d.tasa >= META_APERTURA} texto={`meta ${porcentaje(META_APERTURA)} · ${m.apertura7d.abiertos} de ${m.apertura7d.enviados}`} />
             )}
-          </Kpi>
-          <Kpi titulo="Rebotes y quejas (7 días)" valor={`${m.rebotes7d} · ${m.quejas7d}`} Icono={AlertTriangle}>
+          </StatTile>
+          <StatTile titulo="Rebotes y quejas (7 días)" valor={`${m.rebotes7d} · ${m.quejas7d}`} Icono={AlertTriangle}>
             <Semaforo bien={m.rebotes7d + m.quejas7d === 0} texto={`${m.rebotes7d} rebotes, ${m.quejas7d} quejas`} />
-          </Kpi>
-          <Kpi titulo="Cola de avisos" valor={numero(m.cola.pendientes)} Icono={Inbox}>
+          </StatTile>
+          <StatTile titulo="Cola de avisos" valor={numero(m.cola.pendientes)} Icono={Inbox}>
             <Semaforo
               bien={m.cola.vencidos + m.cola.atascados === 0}
               texto={`${m.cola.vencidos} retrasados, ${m.cola.atascados} atascados, ${m.cola.errores7d} con error (7 días)`}
             />
-          </Kpi>
+          </StatTile>
         </div>
       </section>
 
-      <section aria-labelledby="lista-colegios" className="flex flex-col gap-3">
+      <section aria-labelledby="lista-colegios" className="flex flex-col gap-4">
         <div className="flex flex-wrap items-end justify-between gap-3">
-          <h2 id="lista-colegios" className="text-lg font-semibold">Colegios</h2>
-          <form role="search" className="flex items-center gap-2">
+          <h2 id="lista-colegios" className="text-xl font-semibold">Colegios</h2>
+          <form role="search" className="flex w-full items-center gap-2 sm:w-auto">
             <label htmlFor="q" className="sr-only">Buscar colegio</label>
-            <input
-              id="q"
-              name="q"
-              defaultValue={busqueda}
-              placeholder="Nombre, dirección o ciudad"
-              className="rounded-md border border-arena bg-superficie px-3 py-2 text-sm"
-            />
-            <button className="inline-flex items-center gap-1.5 rounded-md border border-arena px-3 py-2 text-sm font-semibold hover:bg-superficie-2">
-              <Search className="h-4 w-4" strokeWidth={2} aria-hidden /> Buscar
-            </button>
+            <Input id="q" name="q" defaultValue={busqueda} placeholder="Nombre, dirección o ciudad" className="sm:w-64" />
+            <Boton type="submit" variante="secundario">
+              <Search strokeWidth={2} aria-hidden /> Buscar
+            </Boton>
           </form>
         </div>
         {colegios.length === 0 ? (
-          <Tarjeta className="text-sm text-pizarra">{busqueda ? "Ningún colegio coincide con la búsqueda." : "Aún no hay colegios."}</Tarjeta>
+          <EstadoVacio
+            icono={School}
+            titulo={busqueda ? "Ningún colegio coincide con la búsqueda." : "Aún no hay colegios."}
+            descripcion={busqueda ? "Prueba con otro nombre o ciudad." : "Crea el primero para empezar a recibir métricas."}
+            accion={
+              busqueda ? (
+                <Link href="/" className={buttonVariants({ variant: "outline" })}>Quitar búsqueda</Link>
+              ) : (
+                <Link href="/colegios/nuevo" className={buttonVariants()}><Plus strokeWidth={2} aria-hidden /> Nuevo colegio</Link>
+              )
+            }
+          />
         ) : (
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {colegios.map((c) => (
               <li key={c.id}>
-                <Link href={`/colegios/${c.id}`} className="block h-full rounded-lg border border-arena bg-superficie p-4 shadow-sm hover:border-acento">
-                  <p className="font-titulo font-semibold">{c.nombre}</p>
-                  <p className="font-mono text-xs text-pizarra">{c.slug}</p>
-                  <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
-                    <EstadoColegio estado={c.estado} />
-                    <span className="text-pizarra">Plan {NOMBRE_PLAN[c.plan]} · {numero(c.alumnos)} alumnos</span>
-                  </div>
+                <Link
+                  href={`/colegios/${c.id}`}
+                  className={cn("group block h-full rounded-xl focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none")}
+                >
+                  <Tarjeta className="flex h-full flex-col gap-3 transition-colors group-hover:border-primary/40">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0">
+                        <p className="truncate font-heading font-semibold">{c.nombre}</p>
+                        <p className="truncate font-mono text-xs text-muted-foreground">{c.slug}</p>
+                      </div>
+                      <ChevronRight className="size-5 shrink-0 text-muted-foreground" strokeWidth={2} aria-hidden />
+                    </div>
+                    <div className="mt-auto flex flex-wrap items-center gap-2 text-sm">
+                      <EstadoColegio estado={c.estado} />
+                      <PlanColegio plan={c.plan} />
+                      <span className="text-muted-foreground">{numero(c.alumnos)} alumnos</span>
+                    </div>
+                  </Tarjeta>
                 </Link>
               </li>
             ))}
           </ul>
         )}
-        <Link href="/colegios" className="self-start text-sm font-semibold text-acento">Ver el reporte completo</Link>
+        <Link href="/colegios" className="inline-flex min-h-10 items-center gap-1 self-start text-sm font-semibold text-primary underline-offset-4 hover:underline">
+          Ver el reporte completo <ChevronRight className="size-4" strokeWidth={2} aria-hidden />
+        </Link>
       </section>
     </div>
   );
