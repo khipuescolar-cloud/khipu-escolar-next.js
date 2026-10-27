@@ -89,6 +89,7 @@ enum TipoAviso {
   justificacion
   tarea
   alerta_direccion
+  libreta
 }
 
 enum CanalAviso {
@@ -163,21 +164,23 @@ enum AutorNudito {
 // ───────────────────────────── Núcleo ─────────────────────────────
 
 model Tenant {
-  id                 String             @id @default(uuid()) @db.Uuid
-  slug               String             @unique
-  nombre             String
-  ciudad             String?
-  eslogan            String?
-  plan               Plan               @default(basico)
-  emailDomains       String[]           @default([]) @map("email_domains")
-  logoArchivoId      String?            @map("logo_archivo_id") @db.Uuid
-  horaEnvioAvisos    String             @default("09:00") @map("hora_envio_avisos") // HH:mm, resumen de llegadas
-  horaLimiteTardanza String             @default("08:00") @map("hora_limite_tardanza") // HH:mm, desde esta hora la llegada es «tarde»
-  zonaHoraria        String             @default("America/Lima") @map("zona_horaria")
-  modoAvisos         ModoAvisos         @default(todos) @map("modo_avisos")
-  escalaCalificacion EscalaCalificacion @default(literal) @map("escala_calificacion")
-  estado             EstadoTenant       @default(activo)
-  createdAt          DateTime           @default(now()) @map("created_at") @db.Timestamptz
+  id                      String             @id @default(uuid()) @db.Uuid
+  slug                    String             @unique
+  nombre                  String
+  ciudad                  String?
+  eslogan                 String?
+  plan                    Plan               @default(basico)
+  emailDomains            String[]           @default([]) @map("email_domains")
+  logoArchivoId           String?            @map("logo_archivo_id") @db.Uuid
+  horaEnvioAvisos         String             @default("09:00") @map("hora_envio_avisos") // HH:mm, resumen de llegadas
+  horaLimiteTardanza      String             @default("08:00") @map("hora_limite_tardanza") // HH:mm, desde esta hora la llegada es «tarde»
+  zonaHoraria             String             @default("America/Lima") @map("zona_horaria")
+  modoAvisos              ModoAvisos         @default(todos) @map("modo_avisos")
+  escalaCalificacion      EscalaCalificacion @default(literal) @map("escala_calificacion")
+  /// Plazo del reglamento para justificar una falta (el enlace del correo vence a esta hora).
+  plazoJustificacionHoras Int                @default(48) @map("plazo_justificacion_horas")
+  estado                  EstadoTenant       @default(activo)
+  createdAt               DateTime           @default(now()) @map("created_at") @db.Timestamptz
 
   memberships           Membership[]
   salones               Salon[]
@@ -206,6 +209,9 @@ model Tenant {
   documentosColegio     DocumentoColegio[]
   nuditoConversaciones  NuditoConversacion[]
   nuditoMensajes        NuditoMensaje[]
+  exportaciones         ExportacionColegio[]
+  accesosSoporte        AccesoSoporte[]
+  cierresCurso          CierreCurso[]
 
   @@map("tenants")
 }
@@ -224,6 +230,7 @@ model Profile {
   direccion           String?
   /// true mientras use la contraseña inicial (su DNI): se le obliga a cambiarla al entrar.
   debeCambiarPassword Boolean             @default(false) @map("debe_cambiar_password")
+  ultimoIngresoAt     DateTime?           @map("ultimo_ingreso_at") @db.Timestamptz
   createdAt           DateTime            @default(now()) @map("created_at") @db.Timestamptz
 
   memberships       Membership[]
@@ -266,6 +273,8 @@ model Membership {
   tareasCreadas            Tarea[]
   eventosCreados           EventoAgenda[]
   nuditoConversaciones     NuditoConversacion[]
+  alumnoVinculado          Alumno?              @relation("CuentaAlumno")
+  cierresCurso             CierreCurso[]
 
   @@unique([tenantId, userId, rol])
   @@index([userId])
@@ -273,14 +282,16 @@ model Membership {
 }
 
 model Salon {
-  id       String  @id @default(uuid()) @db.Uuid
-  tenantId String  @map("tenant_id") @db.Uuid
-  nombre   String // "3.° B"
-  nivel    Nivel
-  grado    Int?
-  seccion  String?
-  anio     Int
-  tutorId  String? @map("tutor_id") @db.Uuid
+  id          String    @id @default(uuid()) @db.Uuid
+  tenantId    String    @map("tenant_id") @db.Uuid
+  nombre      String // "3.° B"
+  nivel       Nivel
+  grado       Int?
+  seccion     String?
+  anio        Int
+  tutorId     String?   @map("tutor_id") @db.Uuid
+  /// Salón de un año cerrado: deja de listarse para pasar lista, pero conserva su historial.
+  archivadoAt DateTime? @map("archivado_at") @db.Timestamptz
 
   tenant      Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   tutor       Membership?    @relation("TutorSalon", fields: [tutorId], references: [id], onDelete: SetNull)
@@ -307,6 +318,7 @@ model Curso {
   competencias Competencia[]
   evaluaciones Evaluacion[]
   tareas       Tarea[]
+  cierres      CierreCurso[]
 
   @@index([tenantId])
   @@index([profesorId])
@@ -323,9 +335,12 @@ model Alumno {
   codigo        String?
   estado        EstadoAlumno @default(activo)
   fotoArchivoId String?      @map("foto_archivo_id") @db.Uuid
+  /// Membresía con rol `alumno` (cuenta propia del estudiante), si tiene.
+  cuentaId      String?      @unique @map("cuenta_id") @db.Uuid
   createdAt     DateTime     @default(now()) @map("created_at") @db.Timestamptz
 
   tenant                Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  cuenta                Membership?           @relation("CuentaAlumno", fields: [cuentaId], references: [id], onDelete: SetNull)
   salon                 Salon                 @relation(fields: [salonId], references: [id], onDelete: NoAction)
   apoderados            ApoderadoAlumno[]
   asistencias           Asistencia[]
@@ -399,9 +414,12 @@ model LoginIntento {
   email     String
   ip        String
   exito     Boolean
+  /// Solo en ingresos exitosos (sin FK: el registro sobrevive al borrado del perfil).
+  userId    String?  @map("user_id") @db.Uuid
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
 
   @@index([email, createdAt])
+  @@index([userId, createdAt])
   @@index([ip, createdAt])
   @@map("login_intentos")
 }
@@ -510,21 +528,30 @@ model Justificacion {
 
 /// Archivos subidos (Cloudinary hoy, S3 después). Los de menores son privados.
 model Archivo {
-  id          String           @id @default(uuid()) @db.Uuid
-  tenantId    String           @map("tenant_id") @db.Uuid
-  proveedor   ProveedorArchivo
-  publicId    String           @map("public_id")
-  url         String? // solo para archivos públicos (p. ej. logo)
-  mimeType    String           @map("mime_type")
-  bytes       Int
-  privado     Boolean          @default(true)
-  subidoPorId String?          @map("subido_por") @db.Uuid
-  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz
+  id           String           @id @default(uuid()) @db.Uuid
+  tenantId     String           @map("tenant_id") @db.Uuid
+  proveedor    ProveedorArchivo
+  publicId     String           @map("public_id")
+  url          String? // solo para archivos públicos (p. ej. logo)
+  mimeType     String           @map("mime_type")
+  bytes        Int
+  privado      Boolean          @default(true)
+  subidoPorId  String?          @map("subido_por") @db.Uuid
+  /// Adjunto de un comunicado o de una tarea (specs/09, specs/12).
+  comunicadoId String?          @map("comunicado_id") @db.Uuid
+  tareaId      String?          @map("tarea_id") @db.Uuid
+  nombre       String?
+  createdAt    DateTime         @default(now()) @map("created_at") @db.Timestamptz
 
-  tenant          Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenant          Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   justificaciones Justificacion[]
+  comunicado      Comunicado?          @relation(fields: [comunicadoId], references: [id], onDelete: Cascade)
+  tarea           Tarea?               @relation(fields: [tareaId], references: [id], onDelete: Cascade)
+  exportaciones   ExportacionColegio[]
 
   @@index([tenantId])
+  @@index([comunicadoId])
+  @@index([tareaId])
   @@map("archivos")
 }
 
@@ -574,9 +601,10 @@ model Comunicado {
   cuerpo      String
   publicadoAt DateTime @default(now()) @map("publicado_at") @db.Timestamptz
 
-  tenant Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  autor  Membership @relation(fields: [autorId], references: [id], onDelete: Cascade)
-  salon  Salon?     @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  tenant   Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  autor    Membership @relation(fields: [autorId], references: [id], onDelete: Cascade)
+  salon    Salon?     @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  adjuntos Archivo[]
 
   @@index([tenantId, publicadoAt])
   @@map("comunicados")
@@ -630,19 +658,22 @@ model CarnetQr {
 // ───────────────────────── Fase 2 (Familia) ─────────────────────────
 
 model Periodo {
-  id       String      @id @default(uuid()) @db.Uuid
-  tenantId String      @map("tenant_id") @db.Uuid
-  anio     Int
-  tipo     TipoPeriodo
-  numero   Int
-  nombre   String // "I Bimestre"
-  inicio   DateTime    @db.Date
-  fin      DateTime    @db.Date
-  cerrado  Boolean     @default(false)
+  id                 String      @id @default(uuid()) @db.Uuid
+  tenantId           String      @map("tenant_id") @db.Uuid
+  anio               Int
+  tipo               TipoPeriodo
+  numero             Int
+  nombre             String // "I Bimestre"
+  inicio             DateTime    @db.Date
+  fin                DateTime    @db.Date
+  cerrado            Boolean     @default(false)
+  /// Cuándo se avisó a las familias que la libreta del periodo está lista.
+  libretaPublicadaAt DateTime?   @map("libreta_publicada_at") @db.Timestamptz
 
   tenant                Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   evaluaciones          Evaluacion[]
   calificacionesPeriodo CalificacionPeriodo[]
+  cierresCurso          CierreCurso[]
 
   @@unique([tenantId, anio, tipo, numero])
   @@map("periodos")
@@ -741,6 +772,7 @@ model Tarea {
   tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   curso     Curso      @relation(fields: [cursoId], references: [id], onDelete: Cascade)
   creadoPor Membership @relation(fields: [creadoPorId], references: [id], onDelete: NoAction)
+  adjuntos  Archivo[]
 
   @@index([tenantId, fechaEntrega])
   @@map("tareas")
@@ -841,5 +873,72 @@ model AuditoriaPlataforma {
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
 
   @@index([createdAt])
+  @@index([tenantId, createdAt])
   @@map("auditoria_plataforma")
+}
+
+// ─── Pendientes v2 (2026-10-27) ──────────────────────────────────────────────
+
+/// Cierre de notas de un curso en un periodo (además del cierre general del periodo).
+model CierreCurso {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @map("tenant_id") @db.Uuid
+  periodoId    String   @map("periodo_id") @db.Uuid
+  cursoId      String   @map("curso_id") @db.Uuid
+  cerradoPorId String   @map("cerrado_por") @db.Uuid
+  cerradoAt    DateTime @default(now()) @map("cerrado_at") @db.Timestamptz
+
+  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  periodo    Periodo    @relation(fields: [periodoId], references: [id], onDelete: Cascade)
+  curso      Curso      @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  cerradoPor Membership @relation(fields: [cerradoPorId], references: [id], onDelete: NoAction)
+
+  @@unique([periodoId, cursoId])
+  @@index([tenantId])
+  @@map("cierres_curso")
+}
+
+enum EstadoExportacion {
+  pendiente
+  procesando
+  lista
+  error
+}
+
+/// Exportación del colegio armada en segundo plano por el cron (specs/15).
+model ExportacionColegio {
+  id              String            @id @default(uuid()) @db.Uuid
+  tenantId        String            @map("tenant_id") @db.Uuid
+  /// Perfil que la pidió (dirección del colegio o super administrador).
+  solicitadoPorId String            @map("solicitado_por") @db.Uuid
+  estado          EstadoExportacion @default(pendiente)
+  archivoId       String?           @map("archivo_id") @db.Uuid
+  error           String?
+  intentos        Int               @default(0)
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz
+  terminadoAt     DateTime?         @map("terminado_at") @db.Timestamptz
+
+  tenant  Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  archivo Archivo? @relation(fields: [archivoId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, createdAt])
+  @@index([estado, createdAt])
+  @@map("exportaciones_colegio")
+}
+
+/// Acceso temporal del super administrador a un colegio para dar soporte (specs/16). Siempre auditado.
+model AccesoSoporte {
+  id        String    @id @default(uuid()) @db.Uuid
+  tenantId  String    @map("tenant_id") @db.Uuid
+  adminId   String    @map("admin_id") @db.Uuid
+  motivo    String
+  inicioAt  DateTime  @default(now()) @map("inicio_at") @db.Timestamptz
+  expiraAt  DateTime  @map("expira_at") @db.Timestamptz
+  cerradoAt DateTime? @map("cerrado_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, inicioAt])
+  @@index([adminId, expiraAt])
+  @@map("accesos_soporte")
 }
