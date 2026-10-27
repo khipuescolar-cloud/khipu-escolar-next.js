@@ -1,4 +1,4 @@
-import { ListTodo, Plus } from "lucide-react";
+import { ListTodo, Pencil, Plus } from "lucide-react";
 import type { Metadata } from "next";
 import { forbidden } from "next/navigation";
 import { FormAccion } from "@/components/FormAccion";
@@ -9,7 +9,7 @@ import { fechaLima, formatoDia, NOMBRE_GRUPO } from "@/lib/fechas";
 import { requireFeature } from "@/lib/server/plan";
 import { cursosParaTareas, tareasDeFamilia, tareasDelDocente } from "@/lib/server/tareas";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { crearTareaAction, eliminarTareaAction } from "./actions";
+import { actualizarTareaAction, crearTareaAction, eliminarTareaAction } from "./actions";
 
 export const metadata: Metadata = { title: "Tareas" };
 
@@ -105,6 +105,19 @@ export default async function TareasPage({ params }: PageProps<"/colegio/[slug]/
                 {t.descripcion && <p className="text-pizarra">{t.descripcion}</p>}
               </div>
               <FormAccion accion={eliminarTareaAction.bind(null, slug, t.id)} etiqueta="Eliminar" variante="fantasma" className="contents" />
+              {ctx.rol === "profesor" && (
+                <details className="w-full rounded-md border border-arena p-3 text-sm">
+                  <summary className="flex cursor-pointer items-center gap-2 font-semibold text-acento"><Pencil className="h-4 w-4" strokeWidth={2} aria-hidden />Editar tarea</summary>
+                  <FormAccion accion={actualizarTareaAction.bind(null, slug, t.id)} etiqueta="Guardar cambios" className="mt-3 grid gap-3 sm:grid-cols-2">
+                    <div className="sm:col-span-2"><Campo etiqueta="Nombre de la tarea" id={`titulo-${t.id}`} name="titulo" required maxLength={150} defaultValue={t.titulo} /></div>
+                    <Campo etiqueta="Día de entrega" id={`fecha-${t.id}`} name="fechaEntrega" type="date" required defaultValue={fechaLima(t.fechaEntrega)} />
+                    <label className="flex flex-col gap-1.5 text-sm sm:col-span-2">
+                      <span className="font-medium">Descripción (opcional)</span>
+                      <textarea name="descripcion" rows={2} maxLength={1000} defaultValue={t.descripcion ?? ""} className="rounded-md border border-arena bg-superficie px-3 py-2.5 text-base" />
+                    </label>
+                  </FormAccion>
+                </details>
+              )}
             </li>
           ))}
         </ul>

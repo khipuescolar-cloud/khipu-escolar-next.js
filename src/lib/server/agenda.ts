@@ -98,3 +98,25 @@ export async function eliminarEvento(ctx: TenantContext, eventoId: string): Prom
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "evento_agenda", entidadId: eventoId });
   return ok("Evento eliminado.");
 }
+
+const esquemaEdicionEvento = esquemaEvento.omit({ salonId: true });
+
+/** Dirección edita cualquier evento; el profesor, solo los que creó en sus salones. No cambia el salón. */
+export async function actualizarEvento(ctx: TenantContext, eventoId: string, entrada: unknown): Promise<Resultado> {
+  requireFeature(ctx, "agenda");
+  requireRol(ctx, ["direccion", "profesor"]);
+  const d = esquemaEdicionEvento.safeParse(entrada);
+  if (!d.success) return fallo(d.error.issues[0].message);
+  const e = await ctx.db.eventoAgenda.findFirst({ where: { id: eventoId } });
+  if (!e) return fallo("No encontramos ese evento.");
+  if (ctx.rol === "profesor" && e.creadoPorId !== ctx.membership.id) return fallo("Solo puedes editar los eventos que creaste.");
+  await ctx.db.eventoAgenda.updateMany({
+    where: { id: eventoId },
+    data: {
+      titulo: d.data.titulo, descripcion: d.data.descripcion || null, tipo: d.data.tipo,
+      inicio: instanteLima(d.data.fecha, d.data.hora ?? "08:00"),
+    },
+  });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "evento_agenda", entidadId: eventoId });
+  return ok("Evento actualizado.");
+}
