@@ -17,14 +17,14 @@ export default async function JustificarConSesionPage({ params }: PageProps<"/co
   const falta = await faltaParaJustificar(ctx, asistenciaId);
 
   return (
-    <div className="mx-auto flex max-w-lg flex-col gap-4">
-      <Link href="/asistencia" className="inline-flex items-center gap-1 text-sm font-semibold text-acento">
-        <ArrowLeft className="h-4 w-4" strokeWidth={2} aria-hidden /> Volver a asistencia
+    <div className="mx-auto flex max-w-lg flex-col gap-2">
+      <Link href="/asistencia" className="inline-flex min-h-10 w-fit items-center gap-1 text-sm font-semibold text-primary hover:underline">
+        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Volver a asistencia
       </Link>
       <Tarjeta className="flex flex-col gap-4">
         <div>
-          <h1 className="text-xl font-bold">Justificar falta</h1>
-          <p className="text-sm text-pizarra">
+          <h1 className="text-2xl font-bold">Justificar falta</h1>
+          <p className="text-sm text-muted-foreground">
             {falta.alumno} · <span className="first-letter:uppercase">{fechaLarga(falta.fecha)}</span>
           </p>
         </div>

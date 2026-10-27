@@ -144,6 +144,10 @@ Interlineado 1.5 en cuerpo, máximo `max-w-prose` para párrafos largos. Nada de
 | Fecha de entrega / tipo de evento | Insignia con ícono + palabra (`FechaEntrega` en tareas, `TIPOS` en agenda) | `falta` vencida, `tarde` hoy/mañana, `muted` resto |
 | Chat (burbujas) | Propias `bg-primary text-primary-foreground rounded-2xl rounded-br-sm`; ajenas `bg-muted rounded-bl-sm` con `Avatar` de iniciales (`bg-maiz text-indigo`) y hora `text-[11px]` | Caja de envío fija al pie del contenedor; la lista hace el scroll, no la página. Lista + hilo en 2 columnas desde `lg` (mensajes y Nudito) |
 | Sugerencias rápidas | Chips `rounded-pildora border-primary/40 text-primary`, ≥ 40 px | Ej. preguntas sugeridas de Nudito |
+| Lista de alumnos para marcar en el celular | Tarjeta por alumno con botones `min-h-12` ícono + palabra y barra de acción `sticky bottom-0` (solo `< lg`) | El botón de guardar se duplica por CSS: `lg:hidden` en la barra y `max-lg:hidden` en el panel lateral |
+| Revisión que avisa a familias con comentario | `BotonConfirmar` con `campos` dinámicos (ver `RevisionJustificacion`) | La decisión confirma antes de enviar |
+| Mosaico del inicio | Enlace-tarjeta con ícono en contenedor `bg-primary/10 text-primary`, `Badge` para contadores | Fuera del plan: `PlanLock` y sin enlace |
+| Tabla con vista móvil | `Card`+`Table` desde `md`; lista de `Card size="sm"` en móvil | Ver `avisos/page.tsx` |
 
 ## 9. Movimiento
 

@@ -1,9 +1,11 @@
 "use client";
 
-import { CheckCircle2, Paperclip, Send } from "lucide-react";
+import { CheckCircle2, Loader2, Paperclip, Send } from "lucide-react";
 import { useActionState } from "react";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
+import { CLASE_CAMPO } from "@/components/ui/Selector";
+import { cn } from "@/lib/utils";
 
 export type EstadoJustificar = { ok?: boolean; error?: string };
 
@@ -18,9 +20,11 @@ export function FormJustificar({
   if (estado.ok) {
     return (
       <div role="status" className="flex flex-col items-center gap-2 py-4 text-center">
-        <CheckCircle2 className="h-10 w-10 text-llego" strokeWidth={2} aria-hidden />
-        <p className="font-titulo text-lg font-semibold">Justificación enviada</p>
-        <p className="text-sm text-pizarra">La tutora la revisará y te avisaremos.</p>
+        <span className="flex size-14 items-center justify-center rounded-full bg-llego-fondo text-llego">
+          <CheckCircle2 className="size-8" strokeWidth={2} aria-hidden />
+        </span>
+        <p className="font-heading text-lg font-semibold">Justificación enviada</p>
+        <p className="text-sm text-muted-foreground">La tutora la revisará y te avisaremos.</p>
       </div>
     );
   }
@@ -34,21 +38,26 @@ export function FormJustificar({
           required
           maxLength={500}
           rows={4}
-          className="rounded-md border border-arena bg-superficie px-3 py-2.5 text-base"
+          className={cn(CLASE_CAMPO, "min-h-28 resize-y")}
           placeholder="Por ejemplo: tuvo fiebre y lo llevamos al médico."
         />
-        <span className="text-pizarra">Hasta 500 caracteres.</span>
+        <span className="text-muted-foreground">Hasta 500 caracteres.</span>
       </label>
       <label className="flex flex-col gap-1.5 text-sm">
         <span className="inline-flex items-center gap-1.5 font-medium">
-          <Paperclip className="h-4 w-4" strokeWidth={2} aria-hidden /> Adjunto (opcional)
+          <Paperclip className="size-4" strokeWidth={2} aria-hidden /> Adjunto (opcional)
         </span>
-        <input name="adjunto" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" className="text-sm" />
-        <span className="text-pizarra">Foto o PDF de hasta 5 MB.</span>
+        <input
+          name="adjunto"
+          type="file"
+          accept="image/jpeg,image/png,image/webp,application/pdf"
+          className={cn(CLASE_CAMPO, "cursor-pointer py-1.5 file:mr-3 file:cursor-pointer file:rounded-md file:border-0 file:bg-secondary file:px-3 file:py-1 file:text-sm file:font-medium file:text-secondary-foreground")}
+        />
+        <span className="text-muted-foreground">Foto o PDF de hasta 5 MB.</span>
       </label>
       {estado.error && <Alerta tipo="error">{estado.error}</Alerta>}
-      <Boton type="submit" disabled={enviando}>
-        <Send className="h-4 w-4" strokeWidth={2} aria-hidden />
+      <Boton type="submit" disabled={enviando} tamano="lg">
+        {enviando ? <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden /> : <Send className="size-4" strokeWidth={2} aria-hidden />}
         {enviando ? "Enviando…" : "Enviar justificación"}
       </Boton>
     </form>

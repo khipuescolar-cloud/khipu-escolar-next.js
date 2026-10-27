@@ -1,9 +1,12 @@
 "use client";
 
-import { Bell, BellOff, Save } from "lucide-react";
+import { Bell, BellOff, Loader2, Save } from "lucide-react";
 import { useActionState, useEffect, useState } from "react";
+import { toast } from "sonner";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { guardarPreferenciasAction, guardarSuscripcionPushAction, quitarSuscripcionPushAction, type EstadoFormulario } from "./actions";
 
 function claveABytes(base64: string): Uint8Array<ArrayBuffer> {
@@ -21,6 +24,10 @@ export function PreferenciasAvisos({ slug, correo, push, vapidPublica }: { slug:
   const [estado, accion, guardando] = useActionState<EstadoFormulario, FormData>(guardarPreferenciasAction.bind(null, slug), {});
   const [estadoPush, setEstadoPush] = useState<EstadoPush>("cargando");
   const [mensajePush, setMensajePush] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (estado.ok) toast.success("Preferencias guardadas");
+  }, [estado]);
 
   useEffect(() => {
     let cancelado = false;
@@ -68,54 +75,65 @@ export function PreferenciasAvisos({ slug, correo, push, vapidPublica }: { slug:
     setEstadoPush("inactivo");
   }
 
+  const fila = "flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border bg-card px-3 py-2 text-sm transition-colors hover:bg-accent/40 has-[:checked]:border-primary/40";
+  const casilla = "size-5 shrink-0 accent-primary";
   return (
-    <section id="avisos" className="flex flex-col gap-3 rounded-lg border border-arena bg-superficie p-5" aria-labelledby="titulo-avisos">
-      <h2 id="titulo-avisos" className="font-titulo text-lg font-semibold">Tus avisos</h2>
-      <form action={accion} className="flex flex-col gap-3">
-        <label className="flex items-center gap-2">
-          <input type="checkbox" name="correo" defaultChecked={correo} className="h-5 w-5" /> Recibir avisos por correo
-        </label>
-        <label className="flex items-center gap-2">
-          <input type="checkbox" name="push" defaultChecked={push} className="h-5 w-5" /> Recibir notificaciones en el celular o la computadora
-        </label>
+    <section id="avisos" aria-labelledby="titulo-avisos">
+    <Card>
+      <CardContent className="flex flex-col gap-4">
         <div>
-          <Boton type="submit" variante="secundario" disabled={guardando}>
-            <Save className="h-4 w-4" strokeWidth={2} aria-hidden /> Guardar
-          </Boton>
+          <h2 id="titulo-avisos" className="text-xl font-semibold">Tus avisos</h2>
+          <p className="text-sm text-muted-foreground">Elige cómo quieres enterarte cuando tu hijo llegue tarde o falte.</p>
         </div>
-        {estado.ok && <Alerta tipo="exito">Guardamos tus preferencias.</Alerta>}
-      </form>
-
-      <div className="flex flex-col gap-2 border-t border-arena pt-3">
-        {estadoPush === "activo" && (
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-llego">
-              <Bell className="h-4 w-4" strokeWidth={2} aria-hidden /> Notificaciones activas en este dispositivo
-            </span>
-            <button type="button" onClick={desactivar} className="text-sm font-semibold text-acento hover:underline">
-              Desactivar
-            </button>
-          </div>
-        )}
-        {estadoPush === "inactivo" && (
+        <form action={accion} className="flex flex-col gap-3">
+          <label className={fila}>
+            <input type="checkbox" name="correo" defaultChecked={correo} className={casilla} /> Recibir avisos por correo
+          </label>
+          <label className={fila}>
+            <input type="checkbox" name="push" defaultChecked={push} className={casilla} /> Recibir notificaciones en el celular o la computadora
+          </label>
           <div>
-            <Boton type="button" onClick={activar}>
-              <Bell className="h-4 w-4" strokeWidth={2} aria-hidden /> Activar notificaciones en este dispositivo
+            <Boton type="submit" variante="secundario" disabled={guardando}>
+              {guardando ? <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden /> : <Save className="size-4" strokeWidth={2} aria-hidden />} Guardar
             </Boton>
           </div>
-        )}
-        {estadoPush === "bloqueado" && (
-          <p className="inline-flex items-center gap-1.5 text-sm text-pizarra">
-            <BellOff className="h-4 w-4" strokeWidth={2} aria-hidden /> Las notificaciones están bloqueadas en este navegador. Puedes permitirlas en su configuración.
-          </p>
-        )}
-        {estadoPush === "no-soportado" && (
-          <p className="inline-flex items-center gap-1.5 text-sm text-pizarra">
-            <BellOff className="h-4 w-4" strokeWidth={2} aria-hidden /> Este navegador no permite notificaciones. Seguirás recibiendo los correos.
-          </p>
-        )}
-        {mensajePush && <Alerta tipo="error">{mensajePush}</Alerta>}
-      </div>
+          {estado.ok && <Alerta tipo="exito">Guardamos tus preferencias.</Alerta>}
+        </form>
+
+        <Separator />
+
+        <div className="flex flex-col gap-2">
+          {estadoPush === "activo" && (
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-llego">
+                <Bell className="size-4" strokeWidth={2} aria-hidden /> Notificaciones activas en este dispositivo
+              </span>
+              <Boton type="button" variante="fantasma" tamano="sm" onClick={desactivar}>
+                Desactivar
+              </Boton>
+            </div>
+          )}
+          {estadoPush === "inactivo" && (
+            <div>
+              <Boton type="button" onClick={activar}>
+                <Bell className="size-4" strokeWidth={2} aria-hidden /> Activar notificaciones en este dispositivo
+              </Boton>
+            </div>
+          )}
+          {estadoPush === "bloqueado" && (
+            <p className="inline-flex items-start gap-1.5 text-sm text-muted-foreground">
+              <BellOff className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden /> Las notificaciones están bloqueadas en este navegador. Puedes permitirlas en su configuración.
+            </p>
+          )}
+          {estadoPush === "no-soportado" && (
+            <p className="inline-flex items-start gap-1.5 text-sm text-muted-foreground">
+              <BellOff className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden /> Este navegador no permite notificaciones. Seguirás recibiendo los correos.
+            </p>
+          )}
+          {mensajePush && <Alerta tipo="error">{mensajePush}</Alerta>}
+        </div>
+      </CardContent>
+    </Card>
     </section>
   );
 }
