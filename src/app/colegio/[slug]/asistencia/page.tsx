@@ -1,10 +1,11 @@
-import { ArrowLeft, CalendarCheck, ChevronRight, FileText } from "lucide-react";
+import { ArrowLeft, CalendarCheck, ChevronRight, FileText, MessageSquarePlus } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EstadoAsistencia } from "@/components/EstadoAsistencia";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { fechaLarga, hora12 } from "@/lib/fechas";
+import { planIncluye } from "@/lib/planes";
 import { MARCADOR_ALUMNO } from "@/lib/vista-previa";
 import {
   AMBITO_DIA, ESTADOS, historialDeHijos, hoyDelColegio, obtenerLista, opcionesDeLista, resumenDelDia,
@@ -151,6 +152,14 @@ async function VistaFamilia({ ctx, slug }: { ctx: TenantContext; slug: string })
           <h2 id={`hijo-${h.id}`} className="font-titulo text-lg font-semibold">
             {h.nombres} {h.apellidos} <span className="text-sm font-normal text-pizarra">· {h.salon}</span>
           </h2>
+          {planIncluye(ctx.tenant.plan, "mensajes") && (
+            <Link
+              href={`/mensajes/nuevo?alumno=${h.id}`}
+              className="inline-flex w-fit items-center gap-1.5 rounded-md border border-arena px-3 py-1.5 text-sm font-semibold text-acento hover:bg-superficie-2"
+            >
+              <MessageSquarePlus className="h-4 w-4" strokeWidth={2} aria-hidden /> Escribir a la tutora
+            </Link>
+          )}
           {h.registros.length === 0 ? (
             <p className="text-sm text-pizarra">No hay registros en los últimos 30 días.</p>
           ) : (

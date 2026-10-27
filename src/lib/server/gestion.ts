@@ -35,11 +35,12 @@ const esquemaInvitacion = z.object({
   nombres: texto(80, "Escribe los nombres."),
   apellidos: texto(120, "Escribe los apellidos."),
   rol: z.enum(["profesor", "apoderado"]),
+  genero: z.enum(["femenino", "masculino", "no_especifica"]).nullable().optional().catch(null),
 });
 
 /**
  * Invita por correo (Supabase `inviteUserByEmail`, enlace para fijar la contraseña), crea el `Profile` si no existe
- * y la `Membership` activa del colegio. Si el correo ya tenía cuenta (p. ej. una familia con hijos en otro colegio), solo se agrega la membresía.
+ * y la `Membership` en estado «invitada» del colegio (pasa a «activa» en el primer ingreso, ver `activarInvitaciones`). Si el correo ya tenía cuenta (p. ej. una familia con hijos en otro colegio), solo se agrega la membresía.
  */
 export async function invitarUsuario(ctx: TenantContext, entrada: z.input<typeof esquemaInvitacion>): Promise<{ membershipId: string; userId: string }> {
   exigirGestion(ctx);
@@ -52,17 +53,20 @@ export async function invitarUsuario(ctx: TenantContext, entrada: z.input<typeof
       data: { nombres: d.nombres, apellidos: d.apellidos },
     });
     if (error || !data.user) throw new ErrorDeNegocio("No se pudo enviar la invitación. Revisa el correo e inténtalo de nuevo.");
-    perfil = await db.profile.create({ data: { id: data.user.id, email: d.email, nombres: d.nombres, apellidos: d.apellidos } });
+    perfil = await db.profile.create({ data: { id: data.user.id, email: d.email, nombres: d.nombres, apellidos: d.apellidos, genero: d.genero ?? null } });
+  } else if (d.genero && !perfil.genero) {
+    await db.profile.update({ where: { id: perfil.id }, data: { genero: d.genero } });
   }
 
   const existente = await ctx.db.membership.findFirst({ where: { userId: perfil.id, rol: d.rol } });
   let membershipId: string;
   if (existente) {
     if (existente.estado === "activa") throw new ErrorDeNegocio("Esa persona ya tiene ese rol en el colegio.");
-    await ctx.db.membership.update({ where: { id: existente.id }, data: { estado: "activa" } });
+    if (existente.estado === "invitada") throw new ErrorDeNegocio("Esa persona ya tiene ese rol en el colegio y su invitación está pendiente. Usa «Reenviar invitación».");
+    await ctx.db.membership.update({ where: { id: existente.id }, data: { estado: "invitada" } });
     membershipId = existente.id;
   } else {
-    membershipId = (await ctx.db.membership.create({ data: { tenantId: ctx.tenant.id, userId: perfil.id, rol: d.rol } })).id;
+    membershipId = (await ctx.db.membership.create({ data: { tenantId: ctx.tenant.id, userId: perfil.id, rol: d.rol, estado: "invitada" } })).id;
   }
 
   await encolarAvisoFamilia(ctx, {
@@ -73,6 +77,43 @@ export async function invitarUsuario(ctx: TenantContext, entrada: z.input<typeof
   });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "membresia", entidadId: membershipId, detalle: { rol: d.rol } });
   return { membershipId, userId: perfil.id };
+}
+
+/**
+ * Reenvía el correo a quien aún no entró (membresía «invitada»): una invitación nueva de Supabase o,
+ * si la cuenta ya existe, el enlace para fijar la contraseña. También vuelve a encolar el aviso de invitación.
+ */
+export async function reenviarInvitacion(ctx: TenantContext, membershipId: string): Promise<void> {
+  exigirGestion(ctx);
+  const m = await ctx.db.membership.findFirst({
+    where: { id: membershipId, rol: { in: ["profesor", "apoderado"] }, estado: "invitada" },
+    select: { id: true, rol: true, user: { select: { email: true, nombres: true, apellidos: true } } },
+  });
+  if (!m) throw new ErrorDeNegocio("Esa persona no tiene una invitación pendiente.");
+  const redirectTo = urlRaiz("/auth/callback?next=/restablecer");
+  const admin = supabaseAdmin();
+  const { error } = await admin.auth.admin.inviteUserByEmail(m.user.email, { redirectTo, data: { nombres: m.user.nombres, apellidos: m.user.apellidos } });
+  if (error) {
+    const { error: errorRecuperacion } = await admin.auth.resetPasswordForEmail(m.user.email, { redirectTo });
+    if (errorRecuperacion) throw new ErrorDeNegocio("No se pudo reenviar la invitación. Inténtalo de nuevo en unos minutos.");
+  }
+  await encolarAvisoFamilia(ctx, {
+    plantilla: "invitacion",
+    destinatario: m.user.email,
+    apoderadoId: m.rol === "apoderado" ? m.id : undefined,
+    payload: { colegio: ctx.tenant.nombre, nombre: m.user.nombres, rol: m.rol === "profesor" ? "profesor(a)" : "familia", url: urlColegio(ctx.tenant.slug, "/inicio") },
+  });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: m.id, detalle: { reenvio: "invitacion" } });
+}
+
+/** Género con el que se muestra a un profesor («Tutora», «Profesor»…). Opcional: sin dato se usa «Tutor(a)». */
+export async function cambiarGeneroProfesor(ctx: TenantContext, membershipId: string, genero: "femenino" | "masculino" | "no_especifica" | null): Promise<void> {
+  exigirGestion(ctx);
+  const valor = validar(z.enum(["femenino", "masculino", "no_especifica"]).nullable(), genero);
+  const m = await ctx.db.membership.findFirst({ where: { id: membershipId, rol: "profesor" }, select: { id: true, userId: true } });
+  if (!m) throw new ErrorDeNegocio("No se encontró al profesor.");
+  await db.profile.update({ where: { id: m.userId }, data: { genero: valor } });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: m.id, detalle: { genero: valor } });
 }
 
 /** Desactiva o reactiva una membresía de profesor o familia (nunca se borra). Al desactivar a un profesor se liberan sus tutorías y cursos. */
@@ -96,7 +137,7 @@ export async function listarProfesores(ctx: TenantContext) {
     select: {
       id: true,
       estado: true,
-      user: { select: { nombres: true, apellidos: true, email: true } },
+      user: { select: { nombres: true, apellidos: true, email: true, genero: true } },
       salonesTutor: { select: { nombre: true } },
       cursosDictados: { select: { nombre: true, salon: { select: { nombre: true } } } },
     },
@@ -105,7 +146,7 @@ export async function listarProfesores(ctx: TenantContext) {
 
 async function exigirProfesorActivo(ctx: TenantContext, id: string | null): Promise<void> {
   if (!id) return;
-  const m = await ctx.db.membership.count({ where: { id, rol: "profesor", estado: "activa" } });
+  const m = await ctx.db.membership.count({ where: { id, rol: "profesor", estado: { in: ["activa", "invitada"] } } });
   if (m === 0) throw new ErrorDeNegocio("Elige un profesor activo.");
 }
 

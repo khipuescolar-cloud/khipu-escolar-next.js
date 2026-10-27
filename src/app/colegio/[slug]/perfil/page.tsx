@@ -4,7 +4,7 @@ import { Boton } from "@/components/ui/Boton";
 import { Flash } from "@/components/ui/Flash";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { CONSENTIMIENTO_VERSION } from "@/lib/consentimiento";
-import { NOMBRE_ROL } from "@/lib/roles";
+import { nombreRol } from "@/lib/roles";
 import { estadoConsentimiento } from "@/lib/server/consentimiento";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { aceptarConsentimientoAction, revocarConsentimientoAction } from "../consentimiento/actions";
@@ -23,7 +23,7 @@ export default async function PerfilPage({ params, searchParams }: PageProps<"/c
       <Flash ok={ok} error={error} />
       <Tarjeta>
         <p className="font-semibold">{ctx.user.nombres} {ctx.user.apellidos}</p>
-        <p className="text-sm text-pizarra">{ctx.user.email} · {NOMBRE_ROL[ctx.rol]}</p>
+        <p className="text-sm text-pizarra">{ctx.user.email} · {nombreRol(ctx.rol, ctx.user.genero)}</p>
       </Tarjeta>
       {estado && (
         <Tarjeta className="flex flex-col gap-3">

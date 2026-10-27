@@ -66,7 +66,7 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
           <div>
             <p className="flex items-center gap-2 font-titulo text-lg font-semibold"><BookOpen className="h-5 w-5 text-acento" strokeWidth={2} aria-hidden />{datos.colegio.nombre}</p>
             <p className="mt-1 font-medium">{datos.alumno.apellidos}, {datos.alumno.nombres}</p>
-            <p className="text-sm text-pizarra">{datos.alumno.salon} · {datos.periodo.nombre} {datos.periodo.anio}{datos.alumno.tutor ? ` · Tutor(a): ${datos.alumno.tutor}` : ""}</p>
+            <p className="text-sm text-pizarra">{datos.alumno.salon} · {datos.periodo.nombre} {datos.periodo.anio}{datos.alumno.tutor ? ` · ${datos.alumno.tutorTitulo}: ${datos.alumno.tutor}` : ""}</p>
           </div>
           <a
             href={`/api/libreta/${alumno.id}?periodo=${periodo.id}`}

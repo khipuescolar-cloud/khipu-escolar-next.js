@@ -64,5 +64,5 @@ buscarAlumnosPorteria(ctx, texto)              // 2..60 caracteres, máx. 10
 - e2e: búsqueda manual en `/porteria` y `/q/<token>` sin datos.
 
 ## Pendientes
-- PDF de carnets (hoy, página imprimible). Logo del colegio en el carnet cuando exista `logoArchivoId`.
+- PDF de carnets (hoy, página imprimible). El carnet imprimible ya muestra el logo del colegio (`urlLogoColegio`, spec 10).
 - Modo quiosco sin conexión.

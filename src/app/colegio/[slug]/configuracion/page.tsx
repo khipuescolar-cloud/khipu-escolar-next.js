@@ -1,7 +1,6 @@
-import { Download, ImageOff, ScrollText } from "lucide-react";
+import { Download, ImageIcon, ScrollText } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
@@ -9,7 +8,8 @@ import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { exigirGestion } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { guardarConfiguracionAction } from "./actions";
+import { urlLogoColegio } from "@/lib/server/logo";
+import { guardarConfiguracionAction, quitarLogoAction, subirLogoAction } from "./actions";
 
 export const metadata: Metadata = { title: "Configuración" };
 
@@ -19,6 +19,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
   const ctx = await requireTenantContext(slug, ["direccion"]);
   exigirGestion(ctx);
   const t = ctx.tenant;
+  const logoUrl = await urlLogoColegio(t);
 
   return (
     <div className="flex max-w-2xl flex-col gap-6">
@@ -43,9 +44,26 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
       </Tarjeta>
 
       <Tarjeta className="flex flex-col gap-2">
-        <h2 className="flex items-center gap-2 text-lg font-semibold"><ImageOff className="h-5 w-5 text-pizarra" strokeWidth={2} aria-hidden /> Logo del colegio</h2>
-        {/* PENDIENTE: la subida del logo depende de FileStorage (spec 14), que construye otro agente. Al integrarlo, aquí va el input de archivo y se guarda tenants.logo_archivo_id. */}
-        <Alerta tipo="info">La carga del logo estará disponible cuando se active el almacenamiento de archivos (pendiente).</Alerta>
+        <h2 className="flex items-center gap-2 text-lg font-semibold"><ImageIcon className="h-5 w-5 text-pizarra" strokeWidth={2} aria-hidden /> Logo del colegio</h2>
+        {logoUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={logoUrl} alt={`Logo de ${t.nombre}`} className="h-20 w-20 rounded-md border border-arena bg-white object-contain" />
+        ) : (
+          <p className="text-sm text-pizarra">Aún no subiste un logo.</p>
+        )}
+        <form action={subirLogoAction} className="flex flex-wrap items-end gap-3">
+          <label className="flex flex-col gap-1 text-sm font-medium">
+            Imagen del logo
+            <input type="file" name="logo" accept="image/png,image/jpeg,image/webp" required className="text-sm" />
+            <span className="text-xs font-normal text-pizarra">PNG, JPG o WEBP, hasta 1 MB. Para la libreta en PDF se usa PNG o JPG.</span>
+          </label>
+          <Boton type="submit">Subir logo</Boton>
+        </form>
+        {logoUrl && (
+          <form action={quitarLogoAction}>
+            <Boton type="submit" variante="fantasma">Quitar logo</Boton>
+          </form>
+        )}
       </Tarjeta>
 
       <Tarjeta className="flex flex-col gap-3">

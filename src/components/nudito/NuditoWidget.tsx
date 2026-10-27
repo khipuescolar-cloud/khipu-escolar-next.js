@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState, useTransition } from "react";
 import { X, Send } from "lucide-react";
-import { enviarMensajeNuditoAction } from "@/app/colegio/[slug]/nudito/actions";
+import { cargarConversacionNuditoAction, enviarMensajeNuditoAction } from "@/app/colegio/[slug]/nudito/actions";
 import type { AccionNudito } from "@/lib/server/nudito/tipos";
 import { NuditoMascota } from "./NuditoMascota";
 
@@ -23,9 +23,26 @@ export function NuditoWidget({ slug }: { slug: string }) {
   const finRef = useRef<HTMLDivElement>(null);
   const contador = useRef(0);
 
+  const historialCargado = useRef(false);
+
   useEffect(() => {
     if (abierto) inputRef.current?.focus();
   }, [abierto]);
+
+  // Al abrir por primera vez, retoma la conversación reciente con sus botones.
+  useEffect(() => {
+    if (!abierto || historialCargado.current) return;
+    historialCargado.current = true;
+    cargarConversacionNuditoAction(slug)
+      .then((previa) => {
+        if (!previa) return;
+        setConversacionId((actual) => actual ?? previa.conversacionId);
+        setMensajes((actuales) =>
+          actuales.length > 0 ? actuales : previa.mensajes.map((m) => ({ id: ++contador.current, autor: m.autor, texto: m.texto, acciones: m.acciones })),
+        );
+      })
+      .catch(() => undefined);
+  }, [abierto, slug]);
 
   useEffect(() => {
     finRef.current?.scrollIntoView?.({ block: "end" });

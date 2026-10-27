@@ -17,7 +17,7 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
   const { ok, error } = await searchParams;
   const ctx = await requireTenantContext(slug, ["direccion"]);
   const [salones, todos] = await Promise.all([listarSalones(ctx), listarProfesores(ctx)]);
-  const profesores = todos.filter((p) => p.estado === "activa");
+  const profesores = todos.filter((p) => p.estado !== "inactiva");
   const anio = new Date().getFullYear();
 
   const opcionesProfesor = (

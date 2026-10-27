@@ -2,6 +2,7 @@ import { renderToBuffer } from "@react-pdf/renderer";
 import { forbidden } from "next/navigation";
 import { z } from "zod";
 import { datosLibreta } from "@/lib/server/libreta";
+import { logoParaPdf } from "@/lib/server/logo";
 import { LibretaPdf } from "@/lib/server/libreta-pdf";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -21,7 +22,7 @@ export async function GET(request: Request, { params }: RouteContext<"/colegio/[
   if (ctx.rol === "porteria" || ctx.rol === "alumno") forbidden();
 
   const datos = await datosLibreta(ctx, alumnoId, periodoId as string, "exportar");
-  const pdf = await renderToBuffer(LibretaPdf({ datos }));
+  const pdf = await renderToBuffer(LibretaPdf({ datos, logo: await logoParaPdf(ctx.tenant) }));
   const nombre = `libreta-${datos.alumno.apellidos}-${datos.alumno.nombres}-${datos.periodo.nombre}`
     .normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase();
   return new Response(new Uint8Array(pdf), {

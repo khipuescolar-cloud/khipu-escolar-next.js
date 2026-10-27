@@ -1,7 +1,9 @@
 "use server";
 
 import { z } from "zod";
+import type { Prisma } from "@/generated/prisma/client";
 import { auditar } from "@/lib/server/auditoria";
+import { leerAcciones } from "@/lib/server/nudito/acciones";
 import { nuditoProvider } from "@/lib/server/nudito/intent-nudito";
 import { detectarIntencion } from "@/lib/server/nudito/intenciones";
 import type { AccionNudito, MensajeHistorial } from "@/lib/server/nudito/tipos";
@@ -65,7 +67,9 @@ export async function enviarMensajeNuditoAction(entrada: z.input<typeof entradaS
     data: { tenantId: ctx.tenant.id, conversacionId: convId, autor: "usuario", cuerpo: texto, intencion: detectarIntencion(texto) },
   });
   await ctx.db.nuditoMensaje.create({
-    data: { tenantId: ctx.tenant.id, conversacionId: convId, autor: "nudito", cuerpo: respuesta.texto, intencion: respuesta.intencion, derivado: respuesta.derivado },
+    data: { tenantId: ctx.tenant.id, conversacionId: convId, autor: "nudito", cuerpo: respuesta.texto, intencion: respuesta.intencion, derivado: respuesta.derivado,
+      acciones: respuesta.acciones && respuesta.acciones.length > 0 ? (respuesta.acciones as unknown as Prisma.InputJsonValue) : undefined,
+    },
   });
   if (respuesta.alumnoId) {
     await ctx.db.nuditoConversacion.updateMany({ where: { id: convId, alumnoId: null }, data: { alumnoId: respuesta.alumnoId } });
@@ -80,4 +84,34 @@ export async function enviarMensajeNuditoAction(entrada: z.input<typeof entradaS
   });
 
   return { ok: true, conversacionId: convId, texto: respuesta.texto, derivado: respuesta.derivado, acciones: respuesta.acciones ?? [] };
+}
+
+export type ConversacionReabierta = {
+  conversacionId: string;
+  mensajes: { autor: "usuario" | "nudito"; texto: string; acciones: AccionNudito[] }[];
+};
+
+const VENTANA_REABRIR_MS = 12 * 60 * 60 * 1000;
+
+/** Al reabrir la burbuja: la última conversación de esta familia si tuvo actividad en las últimas 12 horas. */
+export async function cargarConversacionNuditoAction(slug: string): Promise<ConversacionReabierta | null> {
+  if (typeof slug !== "string" || slug.length === 0 || slug.length > 63) return null;
+  const ctx = await requireTenantContext(slug, ["apoderado"]);
+  requireFeature(ctx, "nudito");
+  const ultima = await ctx.db.nuditoMensaje.findFirst({
+    where: { conversacion: { membershipId: ctx.membership.id }, createdAt: { gte: new Date(Date.now() - VENTANA_REABRIR_MS) } },
+    orderBy: { createdAt: "desc" },
+    select: { conversacionId: true },
+  });
+  if (!ultima) return null;
+  const recientes = await ctx.db.nuditoMensaje.findMany({
+    where: { conversacionId: ultima.conversacionId },
+    orderBy: { createdAt: "desc" },
+    take: 30,
+    select: { autor: true, cuerpo: true, acciones: true },
+  });
+  return {
+    conversacionId: ultima.conversacionId,
+    mensajes: recientes.reverse().map((m) => ({ autor: m.autor, texto: m.cuerpo, acciones: leerAcciones(m.acciones) })),
+  };
 }

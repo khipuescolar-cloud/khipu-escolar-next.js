@@ -14,7 +14,7 @@ Que la familia y el profesor se escriban sobre un alumno sin compartir teléfono
 | Portería | — | Todo |
 
 ## Flujos
-1. `/mensajes/nuevo` lista a quién puede escribir (con etiqueta «Lucía García · Tutor(a) de 3.° B — sobre Mateo»). «Escribir» abre o reutiliza la conversación `(alumno, profesor, apoderado)`. Admite `?alumno=<id>` para el botón «Escribir a la tutora» desde la asistencia.
+1. `/mensajes/nuevo` lista a quién puede escribir (con etiqueta «Lucía García · Tutora de 3.° B — sobre Mateo»; el título sigue `Profile.genero`: femenino → Tutora/Profesora, masculino → Tutor/Profesor, sin dato → Tutor(a)/Profesor(a)). «Escribir» abre o reutiliza la conversación `(alumno, profesor, apoderado)`. Admite `?alumno=<id>`: la vista de asistencia de la familia (spec 04) muestra por hijo el botón «Escribir a la tutora» que enlaza ahí (si el plan incluye mensajes).
 2. `/mensajes/[id]`: hilo. El cliente consulta cada 10 s la acción `refrescarHiloAction` (polling; sin Realtime). Al abrir o refrescar se marcan como leídos los mensajes de la otra parte.
 3. Al enviar, si el destinatario es una familia, se encola un aviso `mensaje_nuevo` (máximo 1 por conversación cada 15 min, solo con consentimiento vigente).
 
@@ -40,6 +40,7 @@ enviarMensaje(ctx, { conversacionId, cuerpo }): void          // 403 a direcció
 Etiquetas puras en `src/lib/mensajes.ts`.
 
 ## Rutas y UI
+- `/inicio`: el mosaico Mensajes muestra un contador (ícono + número + texto accesible «N mensajes sin leer») con `conteoNoLeidos` (`Mosaico.contador` en `navegacion.ts`).
 - `/mensajes` (bandeja con «N sin leer»), `/mensajes/nuevo`, `/mensajes/[id]` (componente cliente `Hilo`).
 
 ## Textos y UX
@@ -53,6 +54,4 @@ Etiquetas puras en `src/lib/mensajes.ts`.
 - unit: `tests/unit/mensajes-etiquetas.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts` (alcance, no leídos, sin correo/teléfono, dirección solo lectura, límite de avisos, consentimiento) · e2e: `tests/e2e/chat-familia-profesor.test.ts` (Rosa ↔ Lucía).
 
 ## Pendientes
-- Contador de no leídos en el mosaico de `/inicio` (requiere editar `navegacion.ts` / la página; `conteoNoLeidos` ya existe).
 - Aviso al profesor cuando la familia escribe (hoy solo se avisa a familias) y push.
-- Botón «Escribir a la tutora» en la asistencia del hijo (spec 04): enlazar a `/mensajes/nuevo?alumno=<id>`.

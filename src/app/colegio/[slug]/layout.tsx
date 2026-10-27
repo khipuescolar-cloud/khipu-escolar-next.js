@@ -3,13 +3,15 @@ import Link from "next/link";
 import { Logo } from "@/components/marca/Logo";
 import { NuditoWidget } from "@/components/nudito/NuditoWidget";
 import { planIncluye } from "@/lib/planes";
-import { NOMBRE_ROL } from "@/lib/roles";
+import { nombreRol } from "@/lib/roles";
+import { urlLogoColegio } from "@/lib/server/logo";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cambiarRolAction, salirAction } from "./actions";
 
 export default async function LayoutColegio({ children, params }: LayoutProps<"/colegio/[slug]">) {
   const { slug } = await params;
   const ctx = await requireTenantContext(slug);
+  const logoUrl = await urlLogoColegio(ctx.tenant);
 
   return (
     <div className="flex min-h-full flex-1 flex-col">
@@ -18,10 +20,14 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
           <Link href="/inicio" aria-label="Ir al inicio">
             <Logo compacto />
           </Link>
+          {logoUrl && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={logoUrl} alt={`Logo de ${ctx.tenant.nombre}`} className="h-10 w-10 rounded-md object-contain" />
+          )}
           <div className="min-w-0 flex-1">
             <p className="truncate font-titulo font-semibold">{ctx.tenant.nombre}</p>
             <p className="truncate text-xs text-pizarra">
-              {ctx.user.nombres} {ctx.user.apellidos} · {NOMBRE_ROL[ctx.rol]}
+              {ctx.user.nombres} {ctx.user.apellidos} · {nombreRol(ctx.rol, ctx.user.genero)}
             </p>
           </div>
           {ctx.roles.length > 1 && (
@@ -29,7 +35,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
               <label htmlFor="rol" className="sr-only">Cambiar de rol</label>
               <select id="rol" name="rol" defaultValue={ctx.rol} className="rounded-md border border-arena bg-superficie px-2 py-1.5 text-sm">
                 {ctx.roles.map((r) => (
-                  <option key={r} value={r}>{NOMBRE_ROL[r]}</option>
+                  <option key={r} value={r}>{nombreRol(r, ctx.user.genero)}</option>
                 ))}
               </select>
               <button className="text-sm font-semibold text-acento">Cambiar</button>
