@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { fechaLarga } from "@/lib/fechas";
 import { hoyDelColegio } from "@/lib/server/asistencia";
 import { requireFeature } from "@/lib/server/plan";
@@ -14,13 +15,15 @@ export default async function PorteriaPage({ params }: PageProps<"/colegio/[slug
   const hoy = hoyDelColegio(ctx);
 
   return (
-    <div className="flex flex-col gap-4">
-      <div>
-        <h1 className="text-2xl font-bold">Portería</h1>
-        <p className="text-sm text-pizarra first-letter:uppercase">
-          {fechaLarga(hoy.isoFecha)} · Tardanza desde las {ctx.tenant.horaLimiteTardanza}
-        </p>
-      </div>
+    <div className="flex flex-col">
+      <EncabezadoPagina
+        titulo="Portería"
+        descripcion={
+          <>
+            <span className="first-letter:uppercase">{fechaLarga(hoy.isoFecha)}</span> · Tardanza desde las {ctx.tenant.horaLimiteTardanza}
+          </>
+        }
+      />
       <Escaner slug={slug} />
     </div>
   );

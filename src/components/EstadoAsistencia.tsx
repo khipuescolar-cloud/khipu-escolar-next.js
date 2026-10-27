@@ -12,8 +12,8 @@ export const ESTADOS_ASISTENCIA: Record<Estado, { palabra: string; Icono: typeof
 export function EstadoAsistencia({ estado, hora }: { estado: Estado; hora?: string }) {
   const { palabra, Icono, clase } = ESTADOS_ASISTENCIA[estado];
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-xs font-semibold ${clase}`}>
-      <Icono className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+    <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-xs font-semibold whitespace-nowrap ${clase}`}>
+      <Icono className="size-3.5" strokeWidth={2} aria-hidden />
       {palabra}
       {hora && <span className="font-normal">· {hora}</span>}
     </span>

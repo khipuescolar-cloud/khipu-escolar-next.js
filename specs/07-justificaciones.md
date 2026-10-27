@@ -57,3 +57,6 @@ revisarJustificacion(ctx, { id, decision: "aceptada" | "rechazada", comentario? 
 
 ## Pendientes
 - Plazo de 48 h del reglamento (hoy el enlace dura 7 días).
+
+## Diseño
+- Aceptar y rechazar piden confirmación (`BotonConfirmar`) porque avisan a la familia; el comentario sigue siendo opcional. Tarjetas con `Card`, estados con ícono + palabra y estado vacío con `EstadoVacio`.

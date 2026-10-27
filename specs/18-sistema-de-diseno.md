@@ -130,6 +130,10 @@ Interlineado 1.5 en cuerpo, máximo `max-w-prose` para párrafos largos. Nada de
 | Filtros rápidos | `ToggleGroup` o `Selector` | |
 | Cargando | `Skeleton` con la forma del contenido; `Loader2` girando en botones | Nunca pantallas en blanco |
 | Menú de acciones por fila | `DropdownMenu` con botón `MoreHorizontal` (`aria-label`) | |
+| Lista de alumnos para marcar en el celular | Tarjeta por alumno con botones `min-h-12` ícono + palabra y barra de acción `sticky bottom-0` (solo `< lg`) | El botón de guardar se duplica por CSS: `lg:hidden` en la barra y `max-lg:hidden` en el panel lateral |
+| Revisión que avisa a familias con comentario | `BotonConfirmar` con `campos` dinámicos (ver `RevisionJustificacion`) | La decisión confirma antes de enviar |
+| Mosaico del inicio | Enlace-tarjeta con ícono en contenedor `bg-primary/10 text-primary`, `Badge` para contadores | Fuera del plan: `PlanLock` y sin enlace |
+| Tabla con vista móvil | `Card`+`Table` desde `md`; lista de `Card size="sm"` en móvil | Ver `avisos/page.tsx` |
 
 ## 9. Movimiento
 

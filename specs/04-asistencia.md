@@ -54,6 +54,10 @@ hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 - Botón: «Guardar y avisar a los padres». Resultado: «Lista guardada. Se avisó a 1 familia.» / «… a N familias.»
 - Estados siempre con ícono + palabra; en la familia: «Justificación en revisión», «Falta justificada».
 
+## Diseño (rediseño del día a día)
+- Pasar lista: tarjeta por alumno con botones grandes (Llegó/Tarde/Falta/Problema, ícono + palabra); en móvil la barra «Guardar y avisar a los padres» queda fija abajo con el conteo; en escritorio vive en el panel lateral junto a la vista previa. Éxito: aviso en página y toast «Asistencia guardada».
+- Vista de la familia: registros en tarjeta, estados vacíos con `EstadoVacio`, preferencias de aviso en tarjeta.
+
 ## Errores y casos borde
 - Datos inválidos → «Revisa la lista: hay datos que no son válidos.»
 - Salón sin alumnos activos → mensaje y sin botón.

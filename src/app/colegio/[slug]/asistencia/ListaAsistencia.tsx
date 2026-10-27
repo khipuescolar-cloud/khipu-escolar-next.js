@@ -1,11 +1,16 @@
 "use client";
 
-import { Send } from "lucide-react";
+import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
 import { EstadoAsistencia, ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
+import { toast } from "sonner";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { NativeSelect } from "@/components/ui/native-select";
 import { VistaPreviaAviso } from "@/components/VistaPreviaAviso";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { hora12 } from "@/lib/fechas";
@@ -67,120 +72,141 @@ export function ListaAsistencia({
         })),
       });
       setResultado(r);
-      if (r.ok) router.refresh();
+      if (r.ok) {
+        toast.success("Asistencia guardada");
+        router.refresh();
+      }
     });
   }
 
   const alumnoPrevia = alumnos.find((a) => a.id === previaDe) ?? alumnos[0];
   const previa = alumnoPrevia ? previas[marcas[alumnoPrevia.id].estado] : null;
 
+  const botonGuardar = (className: string) => (
+    <Boton type="button" tamano="lg" onClick={guardar} disabled={guardando || alumnos.length === 0} className={className}>
+      {guardando ? <Loader2 className="size-5 animate-spin" strokeWidth={2} aria-hidden /> : <Send className="size-5" strokeWidth={2} aria-hidden />}
+      {guardando ? "Guardando…" : "Guardar y avisar a los padres"}
+    </Boton>
+  );
+  const resumenConteo = (
+    <ul className="flex flex-wrap gap-x-3 gap-y-1.5">
+      {ORDEN.map((e) => (
+        <li key={e} className="flex items-center gap-1 text-sm">
+          <EstadoAsistencia estado={e} /> <span className="font-semibold">{conteo[e]}</span>
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
       <div className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="text-sm text-pizarra">
-            Hora actual: <strong className="text-tinta">{hora12(horaActual)}</strong> · {alumnos.length} alumnos
+          <p className="text-sm text-muted-foreground">
+            Hora actual: <strong className="text-foreground">{hora12(horaActual)}</strong> · {alumnos.length} alumnos
           </p>
-          <button
+          <Button
             type="button"
-            className="text-sm font-semibold text-acento hover:underline"
+            variant="outline"
             onClick={() => setMarcas((m) => Object.fromEntries(Object.entries(m).map(([k, v]) => [k, { ...v, estado: "llego" as Estado }])))}
           >
-            Marcar a todos «Llegó»
-          </button>
+            <CheckCircle2 strokeWidth={2} aria-hidden /> Marcar a todos «Llegó»
+          </Button>
+        </div>
+
+        <div aria-live="polite">
+          {resultado?.ok && (
+            <Alerta tipo="exito">
+              Lista guardada. {resultado.familiasAvisadas === 1 ? "Se avisó a 1 familia." : `Se avisó a ${resultado.familiasAvisadas} familias.`}
+            </Alerta>
+          )}
+          {resultado && !resultado.ok && <Alerta tipo="error">{resultado.error}</Alerta>}
         </div>
 
         <ul className="flex flex-col gap-3">
           {alumnos.map((a) => {
             const marca = marcas[a.id];
             return (
-              <li key={a.id} className="rounded-lg border border-arena bg-superficie p-4">
-                <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-                  <p className="font-semibold">
-                    {a.apellidos}, {a.nombres}
-                  </p>
-                  {a.registro && <EstadoAsistencia estado={a.registro.estado} hora={hora12(a.registro.hora)} />}
-                </div>
-                <div role="group" aria-label={`Asistencia de ${a.nombres}`} className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-                  {ORDEN.map((estado) => {
-                    const { palabra, Icono, clase } = ESTADOS_ASISTENCIA[estado];
-                    const activo = marca.estado === estado;
-                    return (
-                      <button
-                        key={estado}
-                        type="button"
-                        aria-pressed={activo}
-                        onClick={() => marcar(a.id, estado)}
-                        className={`flex min-h-14 items-center justify-center gap-2 rounded-md border-2 px-3 py-3 text-base font-semibold transition ${
-                          activo ? `${clase} border-current` : "border-arena bg-superficie text-pizarra hover:bg-superficie-2"
-                        }`}
-                      >
-                        <Icono className="h-5 w-5" strokeWidth={2} aria-hidden />
-                        {palabra}
-                      </button>
-                    );
-                  })}
-                </div>
-                {marca.estado === "problema" && (
-                  <label className="mt-3 flex flex-col gap-1.5 text-sm">
-                    <span className="font-medium">Nota para la familia (opcional)</span>
-                    <input
-                      maxLength={300}
-                      value={marca.nota}
-                      onChange={(e) => setMarcas((m) => ({ ...m, [a.id]: { ...m[a.id], nota: e.target.value } }))}
-                      className="rounded-md border border-arena bg-superficie px-3 py-2 text-base"
-                    />
-                  </label>
-                )}
+              <li key={a.id}>
+                <Card size="sm">
+                  <CardContent className="flex flex-col gap-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <p className="font-heading font-semibold">
+                        {a.apellidos}, {a.nombres}
+                      </p>
+                      {a.registro && <EstadoAsistencia estado={a.registro.estado} hora={hora12(a.registro.hora)} />}
+                    </div>
+                    <div role="group" aria-label={`Asistencia de ${a.nombres}`} className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                      {ORDEN.map((estado) => {
+                        const { palabra, Icono, clase } = ESTADOS_ASISTENCIA[estado];
+                        const activo = marca.estado === estado;
+                        return (
+                          <button
+                            key={estado}
+                            type="button"
+                            aria-pressed={activo}
+                            onClick={() => marcar(a.id, estado)}
+                            className={`flex min-h-12 items-center justify-center gap-2 rounded-lg border-2 px-3 py-2.5 text-base font-semibold transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 ${
+                              activo ? `${clase} border-current` : "border-input bg-card text-muted-foreground hover:bg-accent hover:text-foreground"
+                            }`}
+                          >
+                            <Icono className="size-5 shrink-0" strokeWidth={2} aria-hidden />
+                            {palabra}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    {marca.estado === "problema" && (
+                      <label className="flex flex-col gap-1.5 text-sm">
+                        <span className="font-medium">Nota para la familia (opcional)</span>
+                        <Input
+                          maxLength={300}
+                          value={marca.nota}
+                          onChange={(e) => setMarcas((m) => ({ ...m, [a.id]: { ...m[a.id], nota: e.target.value } }))}
+                        />
+                      </label>
+                    )}
+                  </CardContent>
+                </Card>
               </li>
             );
           })}
         </ul>
+
+        {/* Barra de acción fija abajo en móvil y tableta; en escritorio el botón vive en el panel lateral. */}
+        <div className="sticky bottom-0 z-10 -mx-4 flex flex-col gap-2 border-t bg-background/95 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6 lg:hidden">
+          {resumenConteo}
+          {botonGuardar("w-full")}
+        </div>
       </div>
 
-      <aside className="flex flex-col gap-4 lg:sticky lg:top-4 lg:self-start">
-        <div className="rounded-lg border border-arena bg-superficie p-4">
-          <h2 className="mb-2 font-titulo font-semibold">Resumen</h2>
-          <ul className="flex flex-wrap gap-2">
-            {ORDEN.map((e) => (
-              <li key={e} className="flex items-center gap-1 text-sm">
-                <EstadoAsistencia estado={e} /> <span className="font-semibold">{conteo[e]}</span>
-              </li>
-            ))}
-          </ul>
-          <Boton type="button" onClick={guardar} disabled={guardando || alumnos.length === 0} className="mt-4 w-full py-3 text-base">
-            <Send className="h-5 w-5" strokeWidth={2} aria-hidden />
-            {guardando ? "Guardando…" : "Guardar y avisar a los padres"}
-          </Boton>
-          <div className="mt-3" aria-live="polite">
-            {resultado?.ok && (
-              <Alerta tipo="exito">
-                Lista guardada. {resultado.familiasAvisadas === 1 ? "Se avisó a 1 familia." : `Se avisó a ${resultado.familiasAvisadas} familias.`}
-              </Alerta>
-            )}
-            {resultado && !resultado.ok && <Alerta tipo="error">{resultado.error}</Alerta>}
-          </div>
-        </div>
+      <aside className="flex flex-col gap-4 lg:sticky lg:top-20 lg:self-start">
+        <Card>
+          <CardContent className="flex flex-col gap-3">
+            <h2 className="font-heading font-semibold">Resumen</h2>
+            {resumenConteo}
+            {botonGuardar("mt-1 w-full max-lg:hidden")}
+            <p className="text-xs text-muted-foreground max-lg:hidden">Las familias reciben el aviso por correo y notificación.</p>
+          </CardContent>
+        </Card>
 
         {alumnoPrevia && previa && (
-          <div className="rounded-lg border border-arena bg-superficie p-4">
-            <h2 className="mb-2 font-titulo font-semibold">Vista previa del correo</h2>
-            <label className="mb-3 flex flex-col gap-1.5 text-sm">
-              <span className="text-pizarra">Familia de</span>
-              <select
-                value={alumnoPrevia.id}
-                onChange={(e) => setPreviaDe(e.target.value)}
-                className="rounded-md border border-arena bg-superficie px-2 py-2"
-              >
-                {alumnos.map((a) => (
-                  <option key={a.id} value={a.id}>
-                    {a.nombres} {a.apellidos}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <VistaPreviaAviso asunto={previa.asunto} html={previa.html} alumno={alumnoPrevia.nombres.split(" ")[0]} />
-          </div>
+          <Card>
+            <CardContent className="flex flex-col gap-3">
+              <h2 className="font-heading font-semibold">Vista previa del correo</h2>
+              <label className="flex flex-col gap-1.5 text-sm">
+                <span className="text-muted-foreground">Familia de</span>
+                <NativeSelect className="w-full" value={alumnoPrevia.id} onChange={(e) => setPreviaDe(e.target.value)}>
+                  {alumnos.map((a) => (
+                    <option key={a.id} value={a.id}>
+                      {a.nombres} {a.apellidos}
+                    </option>
+                  ))}
+                </NativeSelect>
+              </label>
+              <VistaPreviaAviso asunto={previa.asunto} html={previa.html} alumno={alumnoPrevia.nombres.split(" ")[0]} />
+            </CardContent>
+          </Card>
         )}
       </aside>
     </div>
