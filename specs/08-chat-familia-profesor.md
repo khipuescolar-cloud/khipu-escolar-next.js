@@ -18,7 +18,7 @@ Que la familia y el profesor se escriban sobre un alumno sin compartir teléfono
 2. `/mensajes/[id]`: hilo. El cliente consulta cada 10 s la acción `refrescarHiloAction` (polling; sin Realtime). Al abrir o refrescar se marcan como leídos los mensajes de la otra parte.
 3. Al enviar se encola un aviso `mensaje_nuevo` a la otra parte con `avisarMensajeNuevo()` (`notificaciones/avisos-mensajes.ts`), `referenciaId = conversacionId`, máximo 1 por conversación y destinatario cada 15 min:
    - escribe el profesor → a la familia, solo con consentimiento vigente y si acepta correos;
-   - escribe la familia → al profesor por correo y por cada suscripción push suya (el personal no necesita consentimiento). La fila no lleva `apoderadoId`, así que el correo no incluye «Ajustar mis avisos».
+   - escribe la familia → al profesor por correo y por cada suscripción push suya, según sus preferencias de `/perfil#avisos` (`preferencias_aviso` por membresía; sin fila, ambos; el personal no necesita consentimiento). La fila no lleva `apoderadoId`, así que el correo no incluye «Ajustar mis avisos».
 
 ## Reglas de negocio
 - Mensaje de texto, 1 a 2000 caracteres (zod).
@@ -37,7 +37,7 @@ abrirConversacion(ctx, { alumnoId, contraparteId }): string   // 403 si no corre
 listarConversaciones(ctx): ResumenConversacion[]
 conteoNoLeidos(ctx): number                                   // apoderado y profesor
 obtenerHilo(ctx, id): HiloVista                               // 403 si no es suyo; marca leídos; audita a dirección
-enviarMensaje(ctx, { conversacionId, cuerpo }): void          // 403 a dirección; encola aviso
+enviarMensaje(ctx, { conversacionId, cuerpo }): { avisos }    // 403 a dirección; encola aviso. La action llama a procesarCola con after() si avisos > 0
 ```
 Etiquetas puras en `src/lib/mensajes.ts`.
 
@@ -54,6 +54,7 @@ Etiquetas puras en `src/lib/mensajes.ts`.
 - Apoderado sin consentimiento aceptado → redirige a `/consentimiento`.
 
 ## Pruebas
-- unit: `tests/unit/mensajes-etiquetas.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts` (alcance, no leídos, sin correo/teléfono, dirección solo lectura, límite de avisos, consentimiento) y `tests/integracion/avisos-pendientes.test.ts` (aviso al profesor por correo + push, 1 cada 15 min) · e2e: `tests/e2e/chat-familia-profesor.test.ts` (Rosa ↔ Lucía).
+- unit: `tests/unit/mensajes-etiquetas.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts` (alcance, no leídos, sin correo/teléfono, dirección solo lectura, límite de avisos, consentimiento) y `tests/integracion/avisos-pendientes.test.ts` (aviso al profesor por correo + push, 1 cada 15 min) y `tests/integracion/preferencias-personal-y-comunicados-push.test.ts` (preferencias del profesor) · e2e: `tests/e2e/chat-familia-profesor.test.ts` (Rosa ↔ Lucía).
 
 ## Pendientes
+- Ninguno.

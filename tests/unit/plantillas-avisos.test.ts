@@ -53,6 +53,15 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(m.texto).toContain("Ajustar mis avisos: http://p");
   });
 
+  it("comunicado: el botón y el push llevan al comunicado concreto y menciona los adjuntos", () => {
+    const url = "http://nh.lvh.me:3000/comunicados#comunicado-123";
+    const m = renderizarPlantilla("comunicado", { colegio, titulo: "Reunión", url, adjuntos: 2 });
+    expect(m.texto).toContain("Incluye 2 archivos adjuntos.");
+    expect(m.texto).toContain(`Leer comunicado: ${url}`);
+    expect(m.push.url).toBe(url);
+    expect(renderizarPlantilla("comunicado", { colegio, titulo: "Reunión", url }).texto).not.toContain("adjunto");
+  });
+
   it("escapa el HTML de los datos", () => {
     const m = renderizarPlantilla("comunicado", { colegio, titulo: "<script>x</script>", url: "http://c" });
     expect(m.html).not.toContain("<script>x</script>");

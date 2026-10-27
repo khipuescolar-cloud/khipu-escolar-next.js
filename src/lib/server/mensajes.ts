@@ -198,7 +198,7 @@ const esquemaMensaje = z.object({
 });
 
 /** Guarda un mensaje. Dirección no puede escribir. Encola el aviso a la otra parte (máx. 1 cada 15 min por conversación). */
-export async function enviarMensaje(ctx: TenantContext, entrada: { conversacionId: string; cuerpo: string }): Promise<void> {
+export async function enviarMensaje(ctx: TenantContext, entrada: { conversacionId: string; cuerpo: string }): Promise<{ avisos: number }> {
   if (ctx.rol !== "apoderado" && ctx.rol !== "profesor") forbidden();
   const datos = esquemaMensaje.safeParse(entrada);
   if (!datos.success) throw new ErrorDeNegocio(datos.error.issues[0].message);
@@ -211,5 +211,5 @@ export async function enviarMensaje(ctx: TenantContext, entrada: { conversacionI
   await ctx.db.mensaje.create({
     data: { tenantId: ctx.tenant.id, conversacionId: c.id, autorId: ctx.membership.id, cuerpo: datos.data.cuerpo },
   });
-  await avisarMensajeNuevo(ctx, c);
+  return { avisos: await avisarMensajeNuevo(ctx, c) };
 }

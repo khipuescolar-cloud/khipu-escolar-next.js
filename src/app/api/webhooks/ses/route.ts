@@ -1,4 +1,5 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
+import { procesarCola } from "@/lib/server/notificaciones/cola";
 import { confirmarSuscripcion, procesarEventoSes, verificarFirmaSns, type MensajeSns } from "@/lib/server/notificaciones/ses";
 
 // Eventos de Amazon SES publicados por SNS (specs/06). Solo se aceptan mensajes con firma SNS válida.
@@ -23,6 +24,16 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ ok: true, ignorado: true });
   }
-  const estado = await procesarEventoSes(evento as Parameters<typeof procesarEventoSes>[0]);
+  const estado = await procesarEventoSes(evento as Parameters<typeof procesarEventoSes>[0], {
+    // La alerta a dirección sale ya, sin esperar al cron (mismo worker: tope diario y reserva atómica intactos).
+    alEncolarAlerta: (tenantId) =>
+      after(async () => {
+        try {
+          await procesarCola({ tenantId });
+        } catch (error) {
+          console.error("[avisos] error al procesar la cola", error);
+        }
+      }),
+  });
   return NextResponse.json({ ok: true, estado });
 }

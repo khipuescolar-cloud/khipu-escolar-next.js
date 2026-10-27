@@ -103,7 +103,10 @@ function limpiarId(id: string | undefined): string | null {
 }
 
 /** Aplica un evento de SES a la fila de `avisos`. Devuelve el nuevo estado o null si no aplica. */
-export async function procesarEventoSes(evento: EventoSes): Promise<EstadoAviso | null> {
+export async function procesarEventoSes(
+  evento: EventoSes,
+  opciones: { /** Se llama cuando se encoló una alerta a dirección, para enviarla sin esperar al cron. */ alEncolarAlerta?: (tenantId: string) => void } = {},
+): Promise<EstadoAviso | null> {
   const tipo = evento.eventType ?? evento.notificationType;
   const nuevo: EstadoAviso | null =
     tipo === "Delivery" ? "entregado" : tipo === "Open" ? "abierto" : tipo === "Bounce" ? "rebotado" : tipo === "Complaint" ? "queja" : null;
@@ -155,7 +158,8 @@ export async function procesarEventoSes(evento: EventoSes): Promise<EstadoAviso 
       detalle: { motivo: nuevo === "queja" ? "queja de correo" : "rebote permanente", avisoId: aviso.id },
     });
     try {
-      await alertarCorreoDesactivado(aviso.tenantId, aviso.apoderadoId, nuevo === "queja" ? "queja" : "rebote");
+      const encoladas = await alertarCorreoDesactivado(aviso.tenantId, aviso.apoderadoId, nuevo === "queja" ? "queja" : "rebote");
+      if (encoladas > 0) opciones.alEncolarAlerta?.(aviso.tenantId);
     } catch (error) {
       console.error("[avisos] no se pudo encolar la alerta a dirección", error);
     }

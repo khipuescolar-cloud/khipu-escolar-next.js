@@ -38,7 +38,7 @@ const ESQUEMAS = {
     fecha: fechaIso.optional(),
   }),
   mensaje_nuevo: z.object({ ...comun, remitente: z.string().min(1), alumno: z.string().min(1), url }),
-  comunicado: z.object({ ...comun, titulo: z.string().min(1), url }),
+  comunicado: z.object({ ...comun, titulo: z.string().min(1), url, adjuntos: z.number().int().min(0).optional() }),
   invitacion: z.object({ ...comun, nombre: z.string().min(1), rol: z.string().min(1), url }),
   /** Bienvenida con credenciales: el usuario es el correo y la contraseña inicial es su documento (no se envía el número). */
   bienvenida: z.object({
@@ -157,7 +157,10 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       asunto: `Comunicado: ${p.titulo}`,
       insignia: "info",
       palabraInsignia: "Comunicado",
-      parrafos: [`${p.colegio} publicó un comunicado: «${p.titulo}».`],
+      parrafos: [
+        `${p.colegio} publicó un comunicado: «${p.titulo}».`,
+        ...(p.adjuntos ? [p.adjuntos === 1 ? "Incluye 1 archivo adjunto." : `Incluye ${p.adjuntos} archivos adjuntos.`] : []),
+      ],
       boton: { texto: "Leer comunicado", url: p.url },
       urlPreferencias: p.urlPreferencias,
     }),

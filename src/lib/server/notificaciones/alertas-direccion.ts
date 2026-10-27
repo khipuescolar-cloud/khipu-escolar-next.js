@@ -5,9 +5,10 @@ import { nombreCompleto } from "@/lib/mensajes";
 import { primerNombre } from "@/lib/nombres";
 import { db, dbTenant } from "../db";
 import { encolarAviso } from "./encolar";
+import { destinoPersonal } from "./preferencias";
 
 // Alerta a dirección cuando SES desactiva el correo de una familia (rebote permanente o queja), specs/06.
-// Correo a cada miembro activo de dirección (sin consentimiento: es personal del colegio).
+// Correo y push a cada miembro activo de dirección según sus preferencias de perfil (sin consentimiento: es personal).
 // `referenciaId = apoderadoId`; máx. 1 alerta por apoderado por día (hora de Lima). Las filas no llevan
 // `apoderadoId` (no son avisos a familia), así un rebote del correo de dirección no genera otra alerta.
 
@@ -39,7 +40,7 @@ export async function alertarCorreoDesactivado(
         hijos: { select: { alumno: { select: { nombres: true } } } },
       },
     }),
-    tdb.membership.findMany({ where: { rol: "direccion", estado: "activa" }, select: { user: { select: { email: true } } } }),
+    tdb.membership.findMany({ where: { rol: "direccion", estado: "activa" }, select: { id: true } }),
   ]);
   if (!colegio || !apoderado) return 0;
 
@@ -50,11 +51,20 @@ export async function alertarCorreoDesactivado(
     motivo: MOTIVO[motivo],
     url: urlColegio(colegio.slug, "/avisos"),
   };
+  let encoladas = 0;
   for (const d of direccion) {
-    await encolarAviso(tdb, {
-      tenantId, tipo: "alerta_direccion", canal: "correo", destinatario: d.user.email,
-      plantilla: "alerta_rebote", payload, referenciaId: apoderadoId,
-    });
+    // Cada miembro de dirección elige correo y/o push en su perfil (sin fila: ambos).
+    const destino = await destinoPersonal(tdb, d.id, ["direccion"]);
+    if (!destino) continue;
+    const base = { tenantId, tipo: "alerta_direccion" as const, plantilla: "alerta_rebote" as const, payload, referenciaId: apoderadoId };
+    if (destino.correo) {
+      await encolarAviso(tdb, { ...base, canal: "correo", destinatario: destino.email });
+      encoladas++;
+    }
+    for (const endpoint of destino.pushEndpoints) {
+      await encolarAviso(tdb, { ...base, canal: "push", destinatario: endpoint });
+      encoladas++;
+    }
   }
-  return direccion.length;
+  return encoladas;
 }
