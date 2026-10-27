@@ -64,3 +64,48 @@ Respuestas: SMTP del piloto: «Amazon SES». Canales extra: «Notificaciones pus
 - Dominio definitivo, cuenta de SES (salir del sandbox), cuenta de Cloudinary y región de Supabase.
 - Revisión legal del consentimiento.
 - Copiar los SVG reales de marca (`docs/marca/`) cuando estén en la máquina. Hoy hay un isotipo provisional.
+
+## Continuación: implementación en paralelo e integración
+
+> por el momento trabaja todo con claude, crea multiagentes de claude para terminar el trabajo y luego cuando se restaure lo hacemos con codex, usa sabiamente que modelos vas a usar para cada tarea del subagente
+
+(Respuesta a: «A Codex le queda menos del 10 % del límite de 5 h».)
+
+### Decisiones
+- Los agentes de Codex quedaron abiertos e inactivos en Herdr (panes w3–w5). El colaborador autorizó «Trust and continue».
+- Se usaron 4 subagentes de Claude, cada uno en su worktree:
+
+  | Rama | Modelo | Alcance |
+  |---|---|---|
+  | `feat/basico` | Opus | asistencia, avisos, QR, justificaciones y archivos (lo más sensible: tokens, cola, webhooks) |
+  | `feat/gestion` | Sonnet | chat, comunicados, gestión y privacidad |
+  | `feat/fase2` | Sonnet | notas, libreta, tareas y agenda |
+  | `feat/promax` | Sonnet | Nudito |
+
+- Antes de lanzarlos se agregó `tenants.hora_limite_tardanza` para que ningún agente tuviera que migrar.
+- Integración:
+  - `encolar.ts` (cola central de Básico) + `avisos-familia.ts` (avisos de chat, comunicados e invitaciones, antes `encolar.ts` de gestión);
+  - se unieron las funciones de `fechas.ts`;
+  - se mantuvo el panel `/avisos` con filtros de gestión;
+  - se borró `lib/server/avisos.ts`, que quedó sin uso.
+- El test e2e de contraseña incorrecta ahora usa un correo único por corrida (el límite de intentos lo bloqueaba).
+- `config.toml` permite redirigir a los puertos 3001–3004.
+
+### Validación (main `b10bb1d`)
+- `pnpm lint`, `pnpm typecheck`: sin errores.
+- `pnpm test`: 22 archivos y 190 tests OK.
+- `pnpm e2e`: 22/22 OK.
+
+### Pendientes reportados por los agentes
+- Mosaico de Mensajes con contador de no leídos y botón «Escribir a la tutora» desde asistencia (`/mensajes/nuevo?alumno=`).
+- Subir el logo del colegio con `FileStorage` (ya existe) y mostrarlo en la libreta PDF y en los carnets.
+- Avisos a profesores (mensaje nuevo de una familia), aviso al crear tareas y aviso a dirección por rebotes.
+- Editar tareas y eventos, exportar .ics, exportar en ZIP.
+- Brechas de esquema que no se resolvieron (no se cambió el esquema):
+  - comentario de revisión en `justificaciones`;
+  - valores de `TipoAviso` para justificaciones y tareas;
+  - estado «enviando» en `avisos`;
+  - género o tratamiento del tutor;
+  - estado «invitada» real en las membresías;
+  - columna para los botones en `nudito_mensajes`.
+- Cron real en el hosting (`/api/cron/avisos`), y pruebas con cuentas reales de SES y Cloudinary.
