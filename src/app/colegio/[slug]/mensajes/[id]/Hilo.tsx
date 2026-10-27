@@ -3,10 +3,14 @@
 import { Send } from "lucide-react";
 import { useEffect, useRef, useState, useTransition } from "react";
 import { Alerta } from "@/components/ui/Alerta";
-import { Boton } from "@/components/ui/Boton";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 import { MAX_MENSAJE } from "@/lib/mensajes";
 import type { HiloVista } from "@/lib/server/mensajes";
+import { cn } from "@/lib/utils";
 import { enviarMensajeAction, refrescarHiloAction } from "../actions";
+import { iniciales } from "../ListaConversaciones";
 
 const INTERVALO_MS = 10_000;
 
@@ -18,7 +22,7 @@ export function Hilo({ inicial }: { inicial: HiloVista }) {
   const [cuerpo, setCuerpo] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [enviando, iniciar] = useTransition();
-  const fin = useRef<HTMLDivElement>(null);
+  const lista = useRef<HTMLOListElement>(null);
 
   useEffect(() => {
     if (!inicial.puedeEscribir) return; // Dirección solo lee: no se audita en cada refresco.
@@ -29,8 +33,10 @@ export function Hilo({ inicial }: { inicial: HiloVista }) {
     return () => clearInterval(t);
   }, [inicial.id, inicial.puedeEscribir]);
 
+  // Desplaza solo la lista (no la página) al último mensaje.
   useEffect(() => {
-    fin.current?.scrollIntoView({ block: "end" });
+    const el = lista.current;
+    if (el) el.scrollTop = el.scrollHeight;
   }, [mensajes.length]);
 
   function enviar(e: React.FormEvent) {
@@ -50,35 +56,52 @@ export function Hilo({ inicial }: { inicial: HiloVista }) {
   }
 
   return (
-    <div className="flex flex-col gap-4">
-      <ol className="flex max-h-[60vh] min-h-48 flex-col gap-3 overflow-y-auto rounded-lg border border-arena bg-superficie p-4" aria-live="polite" aria-label="Mensajes">
-        {mensajes.length === 0 && <li className="text-center text-sm text-pizarra">Escribe el primer mensaje.</li>}
+    <div className="flex h-[calc(100dvh-11rem)] min-h-96 flex-col overflow-hidden rounded-xl border bg-card shadow-xs">
+      <header className="flex items-center gap-3 border-b px-4 py-3">
+        <Avatar size="lg">
+          <AvatarFallback className="bg-maiz text-sm font-semibold text-indigo">{iniciales(inicial.etiqueta)}</AvatarFallback>
+        </Avatar>
+        <h1 className="min-w-0 text-base font-semibold leading-snug sm:text-lg">{inicial.etiqueta}</h1>
+      </header>
+
+      <ol ref={lista} className="flex flex-1 flex-col gap-3 overflow-y-auto bg-background p-4" aria-live="polite" aria-label="Mensajes">
+        {mensajes.length === 0 && <li className="my-auto text-center text-sm text-muted-foreground">Escribe el primer mensaje.</li>}
         {mensajes.map((m) => (
-          <li key={m.id} className={`flex max-w-[85%] flex-col gap-0.5 rounded-lg px-3 py-2 ${m.propio ? "self-end bg-acento text-sobre-acento" : "self-start bg-superficie-2 text-tinta"}`}>
-            {!m.propio && <span className="text-xs font-semibold">{m.autor}</span>}
-            <span className="whitespace-pre-wrap break-words text-sm">{m.cuerpo}</span>
-            <time className="self-end text-[11px] opacity-80" dateTime={m.createdAt}>{formatoHora.format(new Date(m.createdAt))}</time>
+          <li key={m.id} className={cn("flex max-w-[85%] items-end gap-2 sm:max-w-[75%]", m.propio ? "self-end" : "self-start")}>
+            {!m.propio && (
+              <Avatar size="sm" className="mb-0.5">
+                <AvatarFallback className="bg-muted text-[10px] font-semibold">{iniciales(m.autor)}</AvatarFallback>
+              </Avatar>
+            )}
+            <div className={cn("flex min-w-0 flex-col gap-0.5 px-3.5 py-2", m.propio ? "rounded-2xl rounded-br-sm bg-primary text-primary-foreground" : "rounded-2xl rounded-bl-sm bg-muted text-foreground")}>
+              {!m.propio && <span className="text-xs font-semibold">{m.autor}</span>}
+              <span className="whitespace-pre-wrap break-words text-sm">{m.cuerpo}</span>
+              <time className={cn("self-end text-[11px]", m.propio ? "text-primary-foreground/80" : "text-muted-foreground")} dateTime={m.createdAt}>
+                {formatoHora.format(new Date(m.createdAt))}
+              </time>
+            </div>
           </li>
         ))}
-        <div ref={fin} />
       </ol>
 
       {inicial.puedeEscribir && (
-        <form onSubmit={enviar} className="flex flex-col gap-2">
-          <label htmlFor="cuerpo" className="sr-only">Tu mensaje</label>
-          <textarea
-            id="cuerpo"
-            value={cuerpo}
-            onChange={(e) => setCuerpo(e.target.value)}
-            maxLength={MAX_MENSAJE}
-            rows={3}
-            placeholder="Escribe tu mensaje"
-            className="rounded-md border border-arena bg-superficie px-3 py-2.5 text-base text-tinta placeholder:text-pizarra"
-          />
+        <form onSubmit={enviar} className="flex flex-col gap-2 border-t bg-card p-3">
           {error && <Alerta tipo="error">{error}</Alerta>}
-          <Boton type="submit" disabled={enviando || cuerpo.trim() === ""} className="self-end">
-            <Send className="h-4 w-4" strokeWidth={2} aria-hidden /> {enviando ? "Enviando…" : "Enviar"}
-          </Boton>
+          <div className="flex items-end gap-2">
+            <label htmlFor="cuerpo" className="sr-only">Tu mensaje</label>
+            <Textarea
+              id="cuerpo"
+              value={cuerpo}
+              onChange={(e) => setCuerpo(e.target.value)}
+              maxLength={MAX_MENSAJE}
+              rows={1}
+              placeholder="Escribe tu mensaje"
+              className="max-h-32 min-h-10 resize-none"
+            />
+            <Button type="submit" disabled={enviando || cuerpo.trim() === ""}>
+              <Send strokeWidth={2} aria-hidden /> {enviando ? "Enviando…" : "Enviar"}
+            </Button>
+          </div>
         </form>
       )}
     </div>

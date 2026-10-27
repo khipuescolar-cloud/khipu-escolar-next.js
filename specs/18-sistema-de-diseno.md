@@ -142,6 +142,8 @@ Interlineado 1.5 en cuerpo, máximo `max-w-prose` para párrafos largos. Nada de
 | Rejilla de notas editable | `GrillaNotas` (`notas/`) dentro de tarjeta con `overflow-x-auto` | Primera columna fija, celdas de 40 px, guarda al cambiar/salir del campo, estado «Guardando/Guardado» con ícono + palabra |
 | Secciones o periodos por enlace | `NavegacionPildoras` (`components/academico`) | Píldoras con `aria-current`; activa en `primary` |
 | Fecha de entrega / tipo de evento | Insignia con ícono + palabra (`FechaEntrega` en tareas, `TIPOS` en agenda) | `falta` vencida, `tarde` hoy/mañana, `muted` resto |
+| Chat (burbujas) | Propias `bg-primary text-primary-foreground rounded-2xl rounded-br-sm`; ajenas `bg-muted rounded-bl-sm` con `Avatar` de iniciales (`bg-maiz text-indigo`) y hora `text-[11px]` | Caja de envío fija al pie del contenedor; la lista hace el scroll, no la página. Lista + hilo en 2 columnas desde `lg` (mensajes y Nudito) |
+| Sugerencias rápidas | Chips `rounded-pildora border-primary/40 text-primary`, ≥ 40 px | Ej. preguntas sugeridas de Nudito |
 
 ## 9. Movimiento
 

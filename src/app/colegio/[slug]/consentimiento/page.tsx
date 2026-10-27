@@ -18,19 +18,22 @@ export default async function ConsentimientoPage({ params }: PageProps<"/colegio
   if ((await estadoConsentimiento(ctx)) === "vigente") redirect("/inicio");
 
   return (
-    <div className="mx-auto flex max-w-2xl flex-col gap-4">
+    <div className="mx-auto max-w-2xl">
       <Tarjeta className="flex flex-col gap-4 p-6">
-        <h1 className="flex items-center gap-2 text-2xl font-bold">
-          <ShieldCheck className="h-6 w-6 text-acento" strokeWidth={2} aria-hidden /> {CONSENTIMIENTO_TITULO}
-        </h1>
+        <div className="flex items-center gap-3">
+          <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
+            <ShieldCheck className="size-6" strokeWidth={2} aria-hidden />
+          </span>
+          <h1 className="text-2xl font-bold text-balance">{CONSENTIMIENTO_TITULO}</h1>
+        </div>
         {CONSENTIMIENTO_PARRAFOS.map((p) => (
-          <p key={p}>{p}</p>
+          <p key={p} className="max-w-prose leading-relaxed">{p}</p>
         ))}
-        <p className="text-xs text-pizarra">Versión {CONSENTIMIENTO_VERSION}</p>
+        <p className="text-xs text-muted-foreground">Versión {CONSENTIMIENTO_VERSION}</p>
         <Alerta tipo="aviso">{CONSENTIMIENTO_NOTA_LEGAL}</Alerta>
-        <form action={aceptarConsentimientoAction} className="flex flex-wrap items-center gap-3">
-          <Boton type="submit">Acepto</Boton>
-          <span className="text-sm text-pizarra">Sin tu autorización no podremos enviarte avisos por correo.</span>
+        <form action={aceptarConsentimientoAction} className="flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center">
+          <Boton type="submit" tamano="lg">Acepto</Boton>
+          <span className="text-sm text-muted-foreground">Sin tu autorización no podremos enviarte avisos por correo.</span>
         </form>
       </Tarjeta>
     </div>

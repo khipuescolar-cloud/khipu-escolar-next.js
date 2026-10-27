@@ -44,6 +44,7 @@ Etiquetas puras en `src/lib/mensajes.ts`.
 ## Rutas y UI
 - `/inicio`: el mosaico Mensajes muestra un contador (ícono + número + texto accesible «N mensajes sin leer») con `conteoNoLeidos` (`Mosaico.contador` en `navegacion.ts`).
 - `/mensajes` (bandeja con «N sin leer»), `/mensajes/nuevo`, `/mensajes/[id]` (componente cliente `Hilo`).
+- Diseño (spec 18 §8): en escritorio dos columnas (lista `ListaConversaciones` + hilo; junto a un hilo abierto la lista omite la vista previa); en móvil lista → hilo con botón «Mensajes» para volver. Burbujas propias en `primary`, ajenas en `muted` con avatar de iniciales y hora; caja de envío fija al pie; «N sin leer» como `Badge`. Estado vacío con `EstadoVacio`.
 
 ## Textos y UX
 «Hablas con el colegio sin compartir tu teléfono.» Estado no leído con ícono + «N sin leer». Dirección: «Estás leyendo como Dirección. No puedes escribir…».
