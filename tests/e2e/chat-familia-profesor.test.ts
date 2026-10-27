@@ -48,7 +48,7 @@ test("Rosa y la tutora Lucía conversan sin ver teléfonos ni correos", async ({
   // Lucía ve el mensaje sin leer, lo abre y responde.
   const lucia = await entrar(browser, "lucia.garcia@nuevohorizonte.demo", false);
   await lucia.goto(`${COLEGIO}/mensajes`);
-  await expect(lucia.getByText("1 sin leer")).toBeVisible();
+  await expect(lucia.getByRole("main").getByText("1 sin leer")).toBeVisible();
   await expect(lucia.getByText("Rosa Quispe Mamani · madre de Mateo Quispe Huamán")).toBeVisible();
   await lucia.getByRole("link", { name: /Rosa Quispe Mamani/ }).click();
   await expect(lucia.getByText(mensajeRosa)).toBeVisible();

@@ -1,12 +1,15 @@
 import type { SelectHTMLAttributes } from "react";
+import { cn } from "@/lib/utils";
 
-export const CLASE_CAMPO = "rounded-md border border-arena bg-superficie px-3 py-2.5 text-base text-tinta";
+/** Clase de campo nativo (select, textarea, date) alineada con shadcn `Input`. */
+export const CLASE_CAMPO =
+  "min-h-10 w-full min-w-0 rounded-md border border-input bg-card px-3 py-2 text-base text-foreground shadow-xs transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:bg-input/30";
 
 export function Selector({ etiqueta, className = "", children, ...props }: SelectHTMLAttributes<HTMLSelectElement> & { etiqueta: string }) {
   return (
     <label className="flex flex-col gap-1.5 text-sm">
-      <span className="font-medium text-tinta">{etiqueta}</span>
-      <select className={`${CLASE_CAMPO} ${className}`} {...props}>
+      <span className="font-medium text-foreground">{etiqueta}</span>
+      <select className={cn(CLASE_CAMPO, "cursor-pointer", className)} {...props}>
         {children}
       </select>
     </label>

@@ -1,13 +1,21 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-/* Tokens de marca Khipu Escolar (docs/marca/tokens.json).
+/* Sistema de diseño: specs/18-sistema-de-diseno.md
+   Tema claro/oscuro por clase `.dark` (next-themes, por defecto sigue al sistema).
    maiz NUNCA como texto sobre blanco (1.8:1). Todo par de texto revisado ≥ 4.5:1 (WCAG AA). */
+@custom-variant dark (&:is(.dark *));
+
 :root {
+  /* — Marca — */
   --indigo: #1e2a78;
   --indigo-cielo: #3a4bb5;
   --cochinilla: #a8325e;
   --turquesa: #0f7c7a;
   --maiz: #f2b84b;
+
+  /* — Superficies y texto (nombres propios del proyecto) — */
   --fondo: #faf7f2;
   --superficie: #ffffff;
   --superficie-2: #f3f0ea;
@@ -16,6 +24,8 @@
   --arena: #e4e1da;
   --acento: #1e2a78;
   --sobre-acento: #ffffff;
+
+  /* — Estados de asistencia (siempre con ícono + palabra) — */
   --estado-llego: #166534;
   --estado-llego-fondo: #e8f5ec;
   --estado-tarde: #9a4a07;
@@ -24,31 +34,82 @@
   --estado-falta-fondo: #fbeaea;
   --estado-problema: #6b21a8;
   --estado-problema-fondo: #f3e8fb;
+
+  /* — Formas — */
+  --radius: 0.625rem; /* 10px: campos y botones */
   --radio-md: 10px;
   --radio-lg: 14px;
   --radio-pildora: 999px;
+
+  /* — Tokens shadcn mapeados a la marca — */
+  --background: var(--fondo);
+  --foreground: var(--tinta);
+  --card: var(--superficie);
+  --card-foreground: var(--tinta);
+  --popover: var(--superficie);
+  --popover-foreground: var(--tinta);
+  --primary: var(--indigo);
+  --primary-foreground: #ffffff;
+  --secondary: var(--superficie-2);
+  --secondary-foreground: var(--tinta);
+  --muted: var(--superficie-2);
+  --muted-foreground: var(--pizarra);
+  --accent: #eceefa;
+  --accent-foreground: var(--indigo);
+  --destructive: #b91c1c;
+  --border: var(--arena);
+  --input: #d6d2c9;
+  --ring: var(--indigo-cielo);
+  --chart-1: var(--indigo);
+  --chart-2: var(--turquesa);
+  --chart-3: var(--cochinilla);
+  --chart-4: var(--maiz);
+  --chart-5: var(--indigo-cielo);
+
+  /* Barra lateral en índigo de marca */
+  --sidebar: var(--indigo);
+  --sidebar-foreground: #e8eaf8;
+  --sidebar-primary: var(--maiz);
+  --sidebar-primary-foreground: #1b1f2a;
+  --sidebar-accent: rgb(255 255 255 / 0.1);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgb(255 255 255 / 0.12);
+  --sidebar-ring: var(--maiz);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --fondo: #12141c;
-    --superficie: #1b1f2a;
-    --superficie-2: #242938;
-    --tinta: #f1efe9;
-    --pizarra: #b4b8c4;
-    --arena: #343a4c;
-    --acento: #8f9cf0;
-    --sobre-acento: #12141c;
-    --indigo-cielo: #a5b0f5;
-    --estado-llego: #86efac;
-    --estado-llego-fondo: #14321f;
-    --estado-tarde: #fcd34d;
-    --estado-tarde-fondo: #3a2a0c;
-    --estado-falta: #fca5a5;
-    --estado-falta-fondo: #3d1515;
-    --estado-problema: #d8b4fe;
-    --estado-problema-fondo: #2e1a40;
-  }
+.dark {
+  --fondo: #12141c;
+  --superficie: #1b1f2a;
+  --superficie-2: #242938;
+  --tinta: #f1efe9;
+  --pizarra: #b4b8c4;
+  --arena: #343a4c;
+  --acento: #8f9cf0;
+  --sobre-acento: #12141c;
+  --indigo-cielo: #a5b0f5;
+  --estado-llego: #86efac;
+  --estado-llego-fondo: #14321f;
+  --estado-tarde: #fcd34d;
+  --estado-tarde-fondo: #3a2a0c;
+  --estado-falta: #fca5a5;
+  --estado-falta-fondo: #3d1515;
+  --estado-problema: #d8b4fe;
+  --estado-problema-fondo: #2e1a40;
+
+  --primary: #8f9cf0;
+  --primary-foreground: #12141c;
+  --accent: #2a3052;
+  --accent-foreground: #e6e9ff;
+  --destructive: #f87171;
+  --input: #434a60;
+  --chart-1: #8f9cf0;
+  --chart-2: #4fd1c5;
+  --chart-3: #f08bb0;
+
+  --sidebar: #161a33;
+  --sidebar-foreground: #d9dcf2;
+  --sidebar-accent: rgb(255 255 255 / 0.08);
+  --sidebar-border: rgb(255 255 255 / 0.08);
 }
 
 @theme inline {
@@ -73,26 +134,72 @@
   --color-falta-fondo: var(--estado-falta-fondo);
   --color-problema: var(--estado-problema);
   --color-problema-fondo: var(--estado-problema-fondo);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: var(--radio-md);
   --radius-lg: var(--radio-lg);
+  --radius-xl: calc(var(--radius) * 1.8);
+  --radius-2xl: calc(var(--radius) * 2.2);
   --radius-pildora: var(--radio-pildora);
-  --font-sans: var(--font-inter);
-  --font-titulo: var(--font-sora);
-  --font-nudito: var(--font-nunito);
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-sora), system-ui, sans-serif;
+  --font-titulo: var(--font-sora), system-ui, sans-serif;
+  --font-nudito: var(--font-nunito), system-ui, sans-serif;
 }
 
-body {
-  background: var(--fondo);
-  color: var(--tinta);
-  font-family: var(--font-inter), system-ui, sans-serif;
-}
-
-h1, h2, h3 {
-  font-family: var(--font-sora), system-ui, sans-serif;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3 {
+    @apply font-heading tracking-tight;
+  }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), a[href], summary, label[for] {
+    cursor: pointer;
+  }
 }
 
 :focus-visible {
-  outline: 3px solid var(--indigo-cielo);
+  outline: 3px solid var(--ring);
   outline-offset: 2px;
 }
 

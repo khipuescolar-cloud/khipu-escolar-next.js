@@ -59,7 +59,7 @@ test("dirección sube el logo, se ve en el encabezado y se puede quitar", async 
   await dir.locator('input[name="logo"]').setInputFiles({ name: "logo.png", mimeType: "image/png", buffer: PNG });
   await dir.getByRole("button", { name: "Subir logo" }).click();
   await expect(dir.getByText("Logo actualizado.")).toBeVisible();
-  await expect(dir.locator("header").getByRole("img", { name: /Logo de/ })).toBeVisible();
+  await expect(dir.getByRole("link", { name: /ir al inicio/ }).getByRole("img", { name: /Logo de/ })).toBeVisible();
 
   // Un archivo que no es imagen se rechaza.
   await dir.locator('input[name="logo"]').setInputFiles({ name: "logo.png", mimeType: "image/png", buffer: Buffer.from("no soy una imagen") });
@@ -68,5 +68,5 @@ test("dirección sube el logo, se ve en el encabezado y se puede quitar", async 
 
   await dir.getByRole("button", { name: "Quitar logo" }).click();
   await expect(dir.getByText("Logo quitado.")).toBeVisible();
-  await expect(dir.locator("header").getByRole("img", { name: /Logo de/ })).toHaveCount(0);
+  await expect(dir.getByRole("link", { name: /ir al inicio/ }).getByRole("img", { name: /Logo de/ })).toHaveCount(0);
 });

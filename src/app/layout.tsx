@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Nunito, Sora } from "next/font/google";
+import { Proveedores } from "@/components/shell/Proveedores";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
@@ -13,10 +14,19 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#1e2a78" },
+    { media: "(prefers-color-scheme: dark)", color: "#12141c" },
+  ],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es-PE" className={`${inter.variable} ${sora.variable} ${nunito.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="es-PE" suppressHydrationWarning className={`${inter.variable} ${sora.variable} ${nunito.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col">
+        <Proveedores>{children}</Proveedores>
+      </body>
     </html>
   );
 }

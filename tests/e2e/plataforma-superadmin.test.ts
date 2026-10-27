@@ -55,7 +55,7 @@ test("el super administrador crea un colegio y su administrador entra con correo
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
   await page.waitForURL(`http://admin.${BASE}/`);
-  await expect(page.getByText("Plataforma Khipu")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Plataforma Khipu/ })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Vista principal" })).toBeVisible();
   await expect(page.getByText("Apertura de la semana")).toBeVisible();
 
@@ -94,7 +94,8 @@ test("el super administrador crea un colegio y su administrador entra con correo
   expect(correo.Text).not.toContain(DNI);
 
   // 4. Sale el super administrador; el nuevo administrador usa el botón del correo.
-  await page.getByRole("button", { name: "Salir" }).click();
+  await page.getByRole("button", { name: "Menú de tu cuenta" }).click();
+  await page.getByRole("menuitem", { name: "Salir" }).click();
   await page.waitForURL("**/login");
   await page.goto(urlBoton);
   await page.waitForURL("**/login?colegio=*");

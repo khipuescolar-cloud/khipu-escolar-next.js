@@ -130,7 +130,7 @@ test("personal administrativo: dirección lo registra y ve su inicio con Comunic
   await p2.waitForURL(`${COLEGIO}/inicio`);
   await expect(p2.getByRole("heading", { name: "Hola, Sara" })).toBeVisible();
   await expect(p2.getByText("Personal administrativo")).toBeVisible();
-  await p2.getByRole("link", { name: /Comunicados/ }).click();
+  await p2.getByRole("main").getByRole("link", { name: /Comunicados/ }).click();
   await expect(p2.getByRole("heading", { name: "Comunicados" })).toBeVisible();
   expect((await p2.goto(`${COLEGIO}/gestion/personal`))?.status()).toBe(403);
   await ctx.close();

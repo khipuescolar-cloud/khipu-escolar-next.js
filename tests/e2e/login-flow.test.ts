@@ -9,7 +9,7 @@ test("profesora entra por el dominio de su colegio y llega a su subdominio", asy
   await expect(page.getByRole("heading", { name: /Entrando a I.E.P. Nuevo Horizonte/ })).toBeVisible();
   await page.waitForURL(`http://nuevohorizonte.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
   await expect(page.getByRole("heading", { name: "Hola, Lucía" })).toBeVisible();
-  await expect(page.getByText("Pasar lista")).toBeVisible();
+  await expect(page.getByRole("main").getByText("Pasar lista")).toBeVisible();
 });
 
 test("apoderada con hijos en dos colegios elige a cuál entrar", async ({ page }) => {
@@ -21,7 +21,7 @@ test("apoderada con hijos en dos colegios elige a cuál entrar", async ({ page }
   await expect(page.getByText("Academia Euler")).toBeVisible();
   await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
   await page.waitForURL(`http://nuevohorizonte.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
-  await expect(page.getByText("Nudito")).toBeVisible();
+  await expect(page.getByRole("main").getByText("Nudito")).toBeVisible();
 });
 
 test("plan Básico muestra candados en funciones de planes superiores", async ({ page }) => {

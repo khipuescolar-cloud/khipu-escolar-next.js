@@ -1,14 +1,16 @@
 "use client";
 
 import { Loader2 } from "lucide-react";
-import { useActionState, type ReactNode } from "react";
+import { useActionState, useEffect, type ReactNode } from "react";
+import { toast } from "sonner";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import type { Resultado } from "@/lib/resultado";
 
 type Accion = (previo: Resultado | null, datos: FormData) => Promise<Resultado>;
 
-/** Formulario que llama a una server action y muestra su resultado con ícono + palabra. */
+/** Formulario que llama a una server action: el éxito sale como notificación emergente
+ *  y el error queda junto al formulario (ícono + palabra). */
 export function FormAccion({
   accion, children, etiqueta, variante = "primario", className = "flex flex-col gap-3",
 }: {
@@ -19,6 +21,9 @@ export function FormAccion({
   className?: string;
 }) {
   const [estado, enviar, pendiente] = useActionState(accion, null);
+  useEffect(() => {
+    if (estado?.ok && estado.mensaje) toast.success(estado.mensaje);
+  }, [estado]);
   return (
     <form action={enviar} className={className}>
       {children}
@@ -27,7 +32,7 @@ export function FormAccion({
           {pendiente && <Loader2 className="h-4 w-4 animate-spin" strokeWidth={2} aria-hidden />}
           {etiqueta}
         </Boton>
-        {estado && (estado.ok ? (estado.mensaje && <Alerta tipo="exito">{estado.mensaje}</Alerta>) : <Alerta tipo="error">{estado.error}</Alerta>)}
+        {estado && !estado.ok && <Alerta tipo="error">{estado.error}</Alerta>}
       </div>
     </form>
   );

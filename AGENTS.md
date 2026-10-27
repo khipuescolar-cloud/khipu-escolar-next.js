@@ -41,7 +41,8 @@ Mailpit (correos locales): http://127.0.0.1:54324 · Supabase Studio: http://127
 
 ## Arquitectura (resumen; detalle en `specs/01-arquitectura-multitenant.md`)
 
-- **Next.js 16** (App Router, `src/proxy.ts` reemplaza a middleware), TypeScript estricto, Tailwind v4 con tokens de marca en `src/app/globals.css`.
+- **Next.js 16** (App Router, `src/proxy.ts` reemplaza a middleware), TypeScript estricto, Tailwind v4 + **shadcn/ui** (Base UI) con tokens de marca en `src/app/globals.css`.
+- **Diseño:** sigue `specs/18-sistema-de-diseno.md` (colores, tipografía, formas, patrones). Estructura en `src/components/shell/` (barra lateral, barra superior, `EncabezadoPagina`, `EstadoVacio`, `BotonConfirmar`). Agrega componentes con `pnpm dlx shadcn@latest add <nombre>` sin sobrescribir `button.tsx` (tiene tamaños táctiles propios).
 - **Prisma 7** (`prisma/schema.prisma`, cliente en `src/generated/prisma`) sobre la Postgres de Supabase. **Supabase solo se usa para Auth.**
 - **Toda lógica de negocio y acceso a datos vive en `src/lib/server/*`** (server actions y route handlers la llaman). Los componentes cliente nunca escriben en la BD ni llaman a Supabase directamente. Así migrar a Go solo toca esta capa.
 - **Multitenancy:** el colegio sale del subdominio (`<slug>.<APP_BASE_DOMAIN>`); `proxy.ts` reescribe a `src/app/colegio/[slug]/…`.
@@ -57,7 +58,7 @@ Mailpit (correos locales): http://127.0.0.1:54324 · Supabase Studio: http://127
 
 - Nombres de dominio en español (`asistencia`, `apoderado`); `PascalCase` para componentes y tipos, `camelCase` para funciones y variables, `kebab-case` para carpetas que no sean rutas.
 - Textos a familias: «tú», una idea por mensaje, sin tecnicismos. Estados siempre con **ícono + palabra**, nunca solo color. Los avisos de falta los firma el colegio, en tono serio y sin emojis. **Nudito nunca da malas noticias.**
-- Íconos: `lucide-react`, trazo 2. Fuentes: Sora (títulos), Inter (texto), Nunito (solo Nudito).
+- Íconos: `lucide-react`, trazo 2, importados uno por uno. Fuentes: Sora (títulos), Inter (texto), Nunito (solo Nudito).
 - Tests: `tests/unit` (puros), `tests/integracion` (BD local), `tests/e2e` (Playwright). Nombra los archivos por comportamiento: `pasar-lista.test.ts`.
 - Commits: asunto imperativo y breve (`Add attendance roll call`).
 
