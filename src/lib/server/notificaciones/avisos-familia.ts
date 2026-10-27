@@ -5,14 +5,14 @@ import type { TenantContext } from "../tenant";
 /**
  * Avisos de chat, comunicados e invitaciones (correo). Solo INSERTA filas en `avisos` con estado "pendiente"; el worker de la cola
  * (notificaciones/cola.ts) las envía. Contrato de plantillas y payloads:
- *   mensaje_nuevo → { colegio, remitente, alumno, url }  (tipo mensaje; máx. 1 por conversación cada 15 min)
+ *   mensaje_nuevo → { colegio, remitente, alumno, url }  (tipo mensaje; referenciaId = conversación; máx. 1 por conversación cada 15 min)
  *   comunicado    → { colegio, titulo, url }             (tipo comunicado)
  *   invitacion    → { colegio, nombre, rol, url }        (tipo invitacion)
  * Para mensajes y comunicados solo se encola si el apoderado tiene consentimiento sin revocar,
  * aceptó correos y `recibeAvisos` no está apagado. Las invitaciones no exigen consentimiento (aún no entró).
  */
 export type EntradaAviso =
-  | { plantilla: "mensaje_nuevo"; apoderadoId: string; payload: { colegio: string; remitente: string; alumno: string; url: string } }
+  | { plantilla: "mensaje_nuevo"; apoderadoId: string; conversacionId: string; payload: { colegio: string; remitente: string; alumno: string; url: string } }
   | { plantilla: "comunicado"; apoderadoId: string; payload: { colegio: string; titulo: string; url: string } }
   | { plantilla: "invitacion"; destinatario: string; apoderadoId?: string; payload: { colegio: string; nombre: string; rol: string; url: string } };
 
@@ -53,7 +53,7 @@ export async function encolarAvisoFamilia(ctx: Pick<TenantContext, "db" | "tenan
     if (entrada.plantilla === "mensaje_nuevo") {
       const desde = new Date(Date.now() - VENTANA_MENSAJE_MINUTOS * 60_000);
       const reciente = await ctx.db.aviso.count({
-        where: { apoderadoId, plantilla: "mensaje_nuevo", createdAt: { gte: desde }, payload: { path: ["url"], equals: entrada.payload.url } },
+        where: { apoderadoId, plantilla: "mensaje_nuevo", referenciaId: entrada.conversacionId, createdAt: { gte: desde } },
       });
       if (reciente > 0) return false;
     }
@@ -69,6 +69,7 @@ export async function encolarAvisoFamilia(ctx: Pick<TenantContext, "db" | "tenan
       plantilla: entrada.plantilla,
       asunto: asunto(entrada),
       payload: entrada.payload,
+      referenciaId: entrada.plantilla === "mensaje_nuevo" ? entrada.conversacionId : null,
       estado: "pendiente",
     },
   });

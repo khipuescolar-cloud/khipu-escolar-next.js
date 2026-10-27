@@ -11,16 +11,32 @@ async function entrar(page: Page, correo: string, slug: string) {
   await page.waitForURL(colegio(slug, "/inicio"));
 }
 
-test("profesora crea una tarea y la familia la ve agrupada", async ({ page, context }) => {
+/** Espera un correo en Mailpit que contenga `texto` (para `to`). */
+async function esperarCorreo(to: string, texto: string, ms = 20_000) {
+  const fin = Date.now() + ms;
+  const query = encodeURIComponent(`to:"${to}" "${texto}"`);
+  while (Date.now() < fin) {
+    const res = await fetch(`http://127.0.0.1:54324/api/v1/search?query=${query}`);
+    const json = (await res.json()) as { messages: { Subject: string }[] };
+    if (json.messages.length > 0) return json.messages[0];
+    await new Promise((r) => setTimeout(r, 500));
+  }
+  return null;
+}
+
+test("profesora crea una tarea con aviso y la familia la ve agrupada", async ({ page, context }) => {
   const titulo = `Tarea e2e ${Date.now()}`;
   await entrar(page, "lucia.garcia@nuevohorizonte.demo", "nuevohorizonte");
   await page.goto(colegio("nuevohorizonte", "/tareas"));
   await page.getByLabel("Título").fill(titulo);
   const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
   await page.getByLabel("Fecha de entrega").fill(manana);
+  await page.getByLabel("Avisar a las familias").check();
   await page.getByRole("button", { name: "Crear tarea" }).click();
   await expect(page.getByText("Tarea creada.")).toBeVisible();
   await expect(page.getByText(titulo)).toBeVisible();
+  const correo = await esperarCorreo("rosa.quispe@gmail.com", titulo);
+  expect(correo?.Subject).toMatch(/^Nueva tarea de /);
 
   await context.clearCookies();
   await page.goto("/login");

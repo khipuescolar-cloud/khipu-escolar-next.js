@@ -1,11 +1,10 @@
 import "server-only";
 import { forbidden } from "next/navigation";
 import { z } from "zod";
-import { urlColegio } from "@/lib/dominio";
 import { etiquetaApoderado, etiquetaProfesor, MAX_MENSAJE, nombreCompleto } from "@/lib/mensajes";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
-import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
+import { avisarMensajeNuevo } from "./notificaciones/avisos-mensajes";
 import { salonIdsVisibles, type TenantContext } from "./tenant";
 
 // Chat familia ↔ profesor (specs/08-chat-familia-profesor.md).
@@ -197,7 +196,7 @@ const esquemaMensaje = z.object({
   cuerpo: z.string().trim().min(1, "Escribe un mensaje.").max(MAX_MENSAJE, `El mensaje puede tener hasta ${MAX_MENSAJE} caracteres.`),
 });
 
-/** Guarda un mensaje. Dirección no puede escribir. Si lo recibe una familia, encola el aviso (máx. 1 cada 15 min por conversación). */
+/** Guarda un mensaje. Dirección no puede escribir. Encola el aviso a la otra parte (máx. 1 cada 15 min por conversación). */
 export async function enviarMensaje(ctx: TenantContext, entrada: { conversacionId: string; cuerpo: string }): Promise<void> {
   if (ctx.rol !== "apoderado" && ctx.rol !== "profesor") forbidden();
   const datos = esquemaMensaje.safeParse(entrada);
@@ -211,16 +210,5 @@ export async function enviarMensaje(ctx: TenantContext, entrada: { conversacionI
   await ctx.db.mensaje.create({
     data: { tenantId: ctx.tenant.id, conversacionId: c.id, autorId: ctx.membership.id, cuerpo: datos.data.cuerpo },
   });
-  if (ctx.rol === "profesor") {
-    await encolarAvisoFamilia(ctx, {
-      plantilla: "mensaje_nuevo",
-      apoderadoId: c.apoderadoId,
-      payload: {
-        colegio: ctx.tenant.nombre,
-        remitente: nombreCompleto(ctx.user),
-        alumno: nombreCompleto(c.alumno),
-        url: urlColegio(ctx.tenant.slug, `/mensajes/${c.id}`),
-      },
-    });
-  }
+  await avisarMensajeNuevo(ctx, c);
 }

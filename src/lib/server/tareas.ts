@@ -4,6 +4,7 @@ import { fechaLima, grupoEntrega, instanteLima, inicioDiaLima, sumarDias, type G
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
 import { cursosDelDocente } from "./cursos";
+import { avisarTareaNueva } from "./notificaciones/avisos-tareas";
 import { requireFeature } from "./plan";
 import { requireCursoDelProfesor, requireRol, type TenantContext } from "./tenant";
 
@@ -31,6 +32,7 @@ export async function crearTarea(ctx: TenantContext, entrada: unknown): Promise<
     },
   });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "tarea", entidadId: t.id });
+  await avisarTareaNueva(ctx, t.id, entrada);
   return ok("Tarea creada.");
 }
 

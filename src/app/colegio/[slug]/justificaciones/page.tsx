@@ -58,6 +58,11 @@ export default async function JustificacionesPage({ params }: PageProps<"/colegi
                 </a>
               )}
               {j.revisadoPor && <p className="text-sm text-pizarra">Revisada por {j.revisadoPor}</p>}
+              {j.comentarioRevision && (
+                <p className="rounded-md bg-fondo px-3 py-2 text-sm">
+                  <span className="font-medium">Comentario del colegio:</span> {j.comentarioRevision}
+                </p>
+              )}
               {revisa && j.estado === "pendiente" && (
                 <form action={revisarJustificacionAction.bind(null, slug, j.id)} className="flex flex-col gap-2 border-t border-arena pt-3">
                   <label className="flex flex-col gap-1.5 text-sm">

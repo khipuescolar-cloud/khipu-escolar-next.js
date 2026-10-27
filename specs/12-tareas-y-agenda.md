@@ -1,6 +1,6 @@
 # 12 — Tareas y agenda
 
-> Estado: implementado · Plan: Fase 2 (Familia) · Última actualización: 2026-10-26 (Claude Code)
+> Estado: implementado · Plan: Fase 2 (Familia) · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-pendientes`: aviso de tareas)
 
 ## Objetivo
 Que los profesores publiquen tareas por curso y eventos por salón, que dirección publique eventos del colegio y que las familias vean todo ordenado por fecha, sin llamadas ni grupos de mensajería.
@@ -14,7 +14,7 @@ Que los profesores publiquen tareas por curso y eventos por salón, que direcci�
 | Plan Básico | — | 403 en `/tareas` y `/agenda` |
 
 ## Flujos
-1. Profesor → `/tareas`: formulario (curso, fecha de entrega, título, descripción opcional) y lista de sus tareas (próximas y de la última semana) con «Eliminar».
+1. Profesor → `/tareas`: formulario (curso, fecha de entrega, título, descripción opcional, casilla **«Avisar a las familias»**, desmarcada por defecto) y lista de sus tareas (próximas y de la última semana) con «Eliminar».
 2. Apoderado → `/tareas`: por hijo, tareas pendientes en «Para mañana», «Esta semana» y «Más adelante».
 3. `/agenda`: lista de la semana (lunes a domingo) con navegación anterior/siguiente/hoy, mini calendario mensual con puntos en los días con algo, y formulario «Nuevo evento» (dirección y profesor). `?fecha=AAAA-MM-DD` fija semana y mes. Las tareas aparecen como «Entrega de tarea».
 
@@ -22,6 +22,7 @@ Que los profesores publiquen tareas por curso y eventos por salón, que direcci�
 - Todas las fechas se calculan en **America/Lima** (`src/lib/fechas.ts`). La tarea vence a las 8:00 a. m. del día elegido; el evento sin hora se guarda a las 8:00.
 - Agrupación: hoy y mañana → «Para mañana»; de 2 a 7 días → «Esta semana»; más → «Más adelante». Las vencidas no aparecen a las familias; el profesor las ve hasta 7 días después.
 - No se crean tareas con fecha pasada.
+- **Aviso a familias** (solo si se marcó la casilla): `avisarTareaNueva()` (`notificaciones/avisos-tareas.ts`) encola `tarea_nueva` (tipo `tarea`, `referenciaId = tareaId`) a las familias de los alumnos activos del salón del curso, solo con consentimiento vigente y según sus preferencias (`destinatariosDeAlumno`). Una fila por familia y canal aunque tenga varios hijos en el salón (`alumno` = «Mateo» o «Mateo y Ana»). Idempotente: si la tarea ya tiene avisos, no vuelve a encolar. La action procesa la cola con `after()`. Se audita `enviar · tarea`.
 - Alcance de eventos: sin salón = todo el colegio (lo ven todos); con salón = solo ese salón (profesores del salón, familias de sus alumnos, dirección).
 
 ## Modelo de datos
@@ -30,7 +31,9 @@ Que los profesores publiquen tareas por curso y eventos por salón, que direcci�
 ## Contratos de `src/lib/server`
 ```ts
 // tareas.ts — requireFeature(ctx, "tareas")
-crearTarea(ctx, { cursoId, titulo, descripcion?, fechaEntrega: "AAAA-MM-DD" }): Resultado   // profesor + requireCursoDelProfesor
+crearTarea(ctx, { cursoId, titulo, descripcion?, fechaEntrega: "AAAA-MM-DD", avisarFamilias? }): Resultado   // profesor + requireCursoDelProfesor
+// notificaciones/avisos-tareas.ts
+avisarTareaNueva(ctx, tareaId, entrada): number /* familias */   // no hace nada si entrada.avisarFamilias no es true/"on"
 eliminarTarea(ctx, tareaId): Resultado
 cursosParaTareas(ctx); tareasDelDocente(ctx)
 tareasDeFamilia(ctx, ahora?)  // [{ alumno, grupos: { manana, semana, despues } }]
@@ -47,6 +50,8 @@ eliminarEvento(ctx, eventoId): Resultado
 ## Textos y UX
 - Tipos con ícono + palabra: Evento, Reunión, Examen, Feriado, Actividad, Entrega de tarea.
 - Familias: «Lo que tus hijos tienen que entregar.» / «No tiene tareas pendientes.»
+- Casilla: «Avisar a las familias» · «Las familias reciben un aviso por correo o en el celular con esta tarea.»
+- Aviso: asunto «Nueva tarea de Matemática» · «Mateo tiene una tarea nueva de Matemática: «Fichas de fracciones».» · «Se entrega el 30/10/2026.» + **Ver tareas**.
 
 ## Errores y casos borde
 - «La fecha de entrega ya pasó.» · «Solo puedes crear eventos de tus salones.» · «Elige el salón del evento.» (profesor sin salón).
@@ -54,11 +59,10 @@ eliminarEvento(ctx, eventoId): Resultado
 
 ## Pruebas
 - unit: `tests/unit/fechas.test.ts` (zona Lima, agrupación, semanas y cuadrícula del mes).
-- integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (tareas por curso y agrupación, alcance de eventos por salón, permisos de creación, plan Básico → 403).
-- e2e: `tests/e2e/tareas-agenda.test.ts` (profesora crea tarea que la familia ve en «Para mañana»; agenda; periodos de dirección).
+- integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (tareas por curso y agrupación, alcance de eventos por salón, permisos de creación, plan Básico → 403); `tests/integracion/avisos-pendientes.test.ts` (aviso de tarea solo con la casilla y solo a familias con consentimiento).
+- e2e: `tests/e2e/tareas-agenda.test.ts` (profesora crea tarea con «Avisar a las familias», el correo llega a Mailpit y la familia la ve en «Para mañana»; agenda; periodos de dirección).
 
 ## Pendientes
-- Aviso opcional a las familias al crear la tarea (falta el módulo de avisos en esta rama y un `TipoAviso` para tareas).
 - Editar tareas y eventos (hoy: borrar y crear de nuevo).
 - Exportación .ics.
 - Adjuntos en tareas (requiere el módulo de archivos).

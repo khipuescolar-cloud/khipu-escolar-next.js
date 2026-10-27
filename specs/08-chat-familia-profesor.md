@@ -1,6 +1,6 @@
 # 08 — Chat familia ↔ profesor
 
-> Estado: implementado · Plan: Básico · Última actualización: 2026-10-26 (Claude Code, rama `feat/gestion`)
+> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-pendientes`: aviso al profesor)
 
 ## Objetivo
 Que la familia y el profesor se escriban sobre un alumno sin compartir teléfonos ni correos.
@@ -16,14 +16,16 @@ Que la familia y el profesor se escriban sobre un alumno sin compartir teléfono
 ## Flujos
 1. `/mensajes/nuevo` lista a quién puede escribir (con etiqueta «Lucía García · Tutor(a) de 3.° B — sobre Mateo»). «Escribir» abre o reutiliza la conversación `(alumno, profesor, apoderado)`. Admite `?alumno=<id>` para el botón «Escribir a la tutora» desde la asistencia.
 2. `/mensajes/[id]`: hilo. El cliente consulta cada 10 s la acción `refrescarHiloAction` (polling; sin Realtime). Al abrir o refrescar se marcan como leídos los mensajes de la otra parte.
-3. Al enviar, si el destinatario es una familia, se encola un aviso `mensaje_nuevo` (máximo 1 por conversación cada 15 min, solo con consentimiento vigente).
+3. Al enviar se encola un aviso `mensaje_nuevo` a la otra parte con `avisarMensajeNuevo()` (`notificaciones/avisos-mensajes.ts`), `referenciaId = conversacionId`, máximo 1 por conversación y destinatario cada 15 min:
+   - escribe el profesor → a la familia, solo con consentimiento vigente y si acepta correos;
+   - escribe la familia → al profesor por correo y por cada suscripción push suya (el personal no necesita consentimiento). La fila no lleva `apoderadoId`, así que el correo no incluye «Ajustar mis avisos».
 
 ## Reglas de negocio
 - Mensaje de texto, 1 a 2000 caracteres (zod).
 - Nunca se serializa `email` ni `telefono` de la otra parte: las consultas solo seleccionan nombres y apellidos.
 - Solo cuentan profesores con membresía `activa`; alumnos `activo`.
 - Dirección no ve contador de no leídos y su polling está desactivado (para no llenar la auditoría).
-- Los avisos de mensajes nuevos se envían solo a familias (contrato de la cola); el profesor ve el contador en la bandeja.
+- Los avisos al profesor van a su correo de la cuenta y a sus dispositivos con push activado; además ve el contador en la bandeja.
 
 ## Modelo de datos
 `conversaciones` (única por alumno+profesor+apoderado), `mensajes` (`cuerpo`, `leidoAt`), `avisos` (cola).
@@ -50,9 +52,8 @@ Etiquetas puras en `src/lib/mensajes.ts`.
 - Apoderado sin consentimiento aceptado → redirige a `/consentimiento`.
 
 ## Pruebas
-- unit: `tests/unit/mensajes-etiquetas.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts` (alcance, no leídos, sin correo/teléfono, dirección solo lectura, límite de avisos, consentimiento) · e2e: `tests/e2e/chat-familia-profesor.test.ts` (Rosa ↔ Lucía).
+- unit: `tests/unit/mensajes-etiquetas.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts` (alcance, no leídos, sin correo/teléfono, dirección solo lectura, límite de avisos, consentimiento) y `tests/integracion/avisos-pendientes.test.ts` (aviso al profesor por correo + push, 1 cada 15 min) · e2e: `tests/e2e/chat-familia-profesor.test.ts` (Rosa ↔ Lucía).
 
 ## Pendientes
 - Contador de no leídos en el mosaico de `/inicio` (requiere editar `navegacion.ts` / la página; `conteoNoLeidos` ya existe).
-- Aviso al profesor cuando la familia escribe (hoy solo se avisa a familias) y push.
 - Botón «Escribir a la tutora» en la asistencia del hijo (spec 04): enlazar a `/mensajes/nuevo?alumno=<id>`.

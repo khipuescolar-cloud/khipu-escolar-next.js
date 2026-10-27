@@ -3,6 +3,7 @@ import { createVerify } from "node:crypto";
 import type { EstadoAviso } from "@/generated/prisma/enums";
 import { auditar } from "../auditoria";
 import { db } from "../db";
+import { alertarCorreoDesactivado } from "./alertas-direccion";
 
 // Eventos de Amazon SES vía SNS → /api/webhooks/ses (specs/06).
 // La firma SNS se verifica con node:crypto. El certificado solo se descarga de sns.<región>.amazonaws.com.
@@ -153,6 +154,11 @@ export async function procesarEventoSes(evento: EventoSes): Promise<EstadoAviso 
       entidadId: aviso.apoderadoId,
       detalle: { motivo: nuevo === "queja" ? "queja de correo" : "rebote permanente", avisoId: aviso.id },
     });
+    try {
+      await alertarCorreoDesactivado(aviso.tenantId, aviso.apoderadoId, nuevo === "queja" ? "queja" : "rebote");
+    } catch (error) {
+      console.error("[avisos] no se pudo encolar la alerta a dirección", error);
+    }
   }
   return nuevo;
 }

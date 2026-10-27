@@ -12,8 +12,8 @@ import type { EstadoAviso, TipoAviso } from "@/generated/prisma/enums";
 
 export const metadata: Metadata = { title: "Avisos enviados" };
 
-const ESTADOS: EstadoAviso[] = ["pendiente", "enviado", "entregado", "abierto", "rebotado", "queja", "error", "omitido"];
-const TIPOS: TipoAviso[] = ["asistencia", "resumen_llegadas", "mensaje", "comunicado", "invitacion"];
+const ESTADOS: EstadoAviso[] = ["pendiente", "enviando", "enviado", "entregado", "abierto", "rebotado", "queja", "error", "omitido"];
+const TIPOS: TipoAviso[] = ["asistencia", "resumen_llegadas", "mensaje", "comunicado", "invitacion", "justificacion", "tarea", "alerta_direccion"];
 const fecha = new Intl.DateTimeFormat("es-PE", { dateStyle: "short", timeStyle: "short", timeZone: "America/Lima" });
 
 export default async function AvisosPage({ params, searchParams }: PageProps<"/colegio/[slug]/avisos">) {

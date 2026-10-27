@@ -63,6 +63,8 @@ export async function encolarAviso<N extends NombrePlantilla>(
     payload: PayloadDe<N>;
     apoderadoId?: string | null;
     asistenciaId?: string | null;
+    /** Conversación, tarea, apoderado… (para agrupar y limitar avisos). */
+    referenciaId?: string | null;
     programadoPara?: Date;
   },
 ): Promise<string> {
@@ -78,6 +80,7 @@ export async function encolarAviso<N extends NombrePlantilla>(
       payload: datos.payload as Prisma.InputJsonValue,
       apoderadoId: datos.apoderadoId ?? null,
       asistenciaId: datos.asistenciaId ?? null,
+      referenciaId: datos.referenciaId ?? null,
       programadoPara: datos.programadoPara ?? new Date(),
     },
     select: { id: true },
@@ -89,7 +92,7 @@ export async function encolarAviso<N extends NombrePlantilla>(
 export async function encolarParaDestinatario<N extends NombrePlantilla>(
   tdb: DbTenant,
   destinatario: Destinatario,
-  datos: { tenantId: string; tipo: TipoAviso; plantilla: N; payload: PayloadDe<N>; asistenciaId?: string | null },
+  datos: { tenantId: string; tipo: TipoAviso; plantilla: N; payload: PayloadDe<N>; asistenciaId?: string | null; referenciaId?: string | null },
 ): Promise<number> {
   let filas = 0;
   if (destinatario.correo) {
