@@ -38,3 +38,16 @@
 - Cuentas/credenciales: dominio, Supabase cloud, Gmail (contraseña de aplicación), Cloudinary/S3, Meta WhatsApp Business + plantillas, Twilio, Vercel (crons por minuto requieren plan Pro).
 - Legal: consentimiento, política de privacidad, banco de datos.
 - Marca: SVG oficiales. Nudito con LLM: solo con aprobación explícita.
+
+## Continuación: aviso de presentes y plazo de 15 días hábiles
+
+> al momento de pasar lista y cerrar la lista los alumnos que estuvieron presente les debe de llegar una notificacion a sus apoderados; el plaso para poder justificar una falta es de 15 dias habiles
+
+> okey ahora como lo estas trabajando ? se que los servicios lo tienes de manera local  como el supabase pero yo ya tengo la cuenta creaday tambien del caludinary, dime o dame la lista de key que necesitas para dartelos
+
+- Migración `20261027230000_plazo_dias_habiles`: `Tenant.plazoJustificacionDiasHabiles` (15) reemplaza a las horas; todos los colegios en `modoAvisos = todos`.
+- Se eliminó el modo «solo excepciones» y el resumen de llegadas: al guardar la lista se avisa a las familias de presentes (una llegada por alumno y día, por costo y tope de Gmail), tardanzas, faltas y problemas; la cola se procesa al instante con `after()`.
+- Plazo: 15 días hábiles desde la falta (lunes a viernes sin feriados nacionales del Perú, Semana Santa calculada), fin del día en Lima; aplica al enlace del correo y a la justificación con sesión; configurable 1–30.
+- Claves de nube: se pidió al colaborador crear `.env.nube` (ignorado por git) en vez de pegarlas en el chat. Pendiente: migrar su Supabase con su confirmación.
+- Validación: 486 pruebas y 43 e2e en verde (un `ERR_NETWORK_CHANGED` transitorio, repetido y en verde).
+- Pendiente: feriados regionales o días no laborables por colegio (la lógica acepta `feriadosExtra`).
