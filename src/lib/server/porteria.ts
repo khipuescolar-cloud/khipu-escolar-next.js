@@ -12,6 +12,7 @@ import { auditar } from "./auditoria";
 import { encolarAvisosAsistencia } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
 import { urlArchivo } from "./storage";
+import { whereSalonActivo } from "./salones-activos";
 import type { TenantContext } from "./tenant";
 import { formatoTokenValido, hashToken, tokenDerivado } from "./tokens";
 
@@ -51,6 +52,7 @@ function requirePorteria(ctx: TenantContext) {
 export async function salonesParaCarnets(ctx: TenantContext) {
   requireDireccion(ctx);
   const salones = await ctx.db.salon.findMany({
+    where: whereSalonActivo,
     orderBy: { nombre: "asc" },
     select: {
       id: true, nombre: true,

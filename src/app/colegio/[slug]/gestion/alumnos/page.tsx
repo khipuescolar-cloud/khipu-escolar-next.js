@@ -10,7 +10,7 @@ import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tarjeta } from "@/components/ui/Tarjeta";
-import { listarAlumnos, listarSalones } from "@/lib/server/gestion";
+import { listarAlumnos, listarSalonesParaSelector } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cambiarEstadoAlumnoAction, crearAlumnoAction, editarAlumnoAction, importarAlumnosAction } from "../actions";
 import { AccionesFila } from "../_componentes/AccionesFila";
@@ -23,10 +23,10 @@ export const metadata: Metadata = { title: "Alumnos" };
 export default async function AlumnosPage({ params, searchParams }: PageProps<"/colegio/[slug]/gestion/alumnos">) {
   const { slug } = await params;
   const { ok, error, salon, retirados } = await searchParams;
-  const ctx = await requireTenantContext(slug, ["direccion"]);
+  const ctx = await requireTenantContext(slug, ["direccion", "administrativo"]);
   const salonId = typeof salon === "string" && salon ? salon : undefined;
   const verRetirados = retirados === "1";
-  const [salones, alumnos] = await Promise.all([listarSalones(ctx), listarAlumnos(ctx, { salonId, incluirRetirados: verRetirados })]);
+  const [salones, alumnos] = await Promise.all([listarSalonesParaSelector(ctx), listarAlumnos(ctx, { salonId, incluirRetirados: verRetirados })]);
   const opcionesSalon = salones.map((s) => <option key={s.id} value={s.id}>{s.nombre} ({s.anio})</option>);
 
   const acciones = (
@@ -122,7 +122,10 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
                                 <Campo etiqueta="Nombres" name="nombres" defaultValue={a.nombres} required />
                                 <Campo etiqueta="Apellidos" name="apellidos" defaultValue={a.apellidos} required />
                                 <Campo etiqueta="Código" name="codigo" defaultValue={a.codigo ?? ""} />
-                                <Selector etiqueta="Salón" name="salonId" defaultValue={a.salonId}>{opcionesSalon}</Selector>
+                                <Selector etiqueta="Salón" name="salonId" defaultValue={a.salonId}>
+                                  {opcionesSalon}
+                                  {!salones.some((s) => s.id === a.salonId) && <option value={a.salonId}>{a.salon.nombre} (archivado)</option>}
+                                </Selector>
                                 <Boton type="submit" className="justify-self-start sm:col-span-2">Guardar</Boton>
                               </form>
                             ),

@@ -33,7 +33,7 @@ const fecha = new Intl.DateTimeFormat("es-PE", { dateStyle: "short", timeStyle: 
 export default async function AvisosPage({ params, searchParams }: PageProps<"/colegio/[slug]/avisos">) {
   const { slug } = await params;
   const sp = await searchParams;
-  const ctx = await requireTenantContext(slug, ["direccion"]);
+  const ctx = await requireTenantContext(slug, ["direccion", "administrativo"]);
   requireFeature(ctx, "avisos");
   const uno = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
   const estado = ESTADOS.find((e) => e === uno(sp.estado));

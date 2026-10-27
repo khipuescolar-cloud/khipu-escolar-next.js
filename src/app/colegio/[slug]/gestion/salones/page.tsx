@@ -1,4 +1,5 @@
-import { Plus, School } from "lucide-react";
+import { Archive, Plus, School } from "lucide-react";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -13,7 +14,7 @@ import { listarProfesores, listarSalones } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { AccionesFila } from "../_componentes/AccionesFila";
 import { PanelFormulario } from "../_componentes/PanelFormulario";
-import { crearCursoAction, crearSalonAction, editarCursoAction, editarSalonAction, eliminarCursoAction, eliminarSalonAction } from "../actions";
+import { archivarSalonAction, crearCursoAction, crearSalonAction, editarCursoAction, editarSalonAction, eliminarCursoAction, eliminarSalonAction, reactivarSalonAction } from "../actions";
 
 export const metadata: Metadata = { title: "Grados y salones" };
 
@@ -34,9 +35,10 @@ function agrupar(salones: SalonLista[]) {
 
 export default async function SalonesPage({ params, searchParams }: PageProps<"/colegio/[slug]/gestion/salones">) {
   const { slug } = await params;
-  const { ok, error } = await searchParams;
+  const { ok, error, archivados } = await searchParams;
+  const verArchivados = archivados === "1";
   const ctx = await requireTenantContext(slug, ["direccion"]);
-  const [salones, todos] = await Promise.all([listarSalones(ctx), listarProfesores(ctx)]);
+  const [salones, todos] = await Promise.all([listarSalones(ctx, { archivados: verArchivados }), listarProfesores(ctx)]);
   const profesores = todos.filter((p) => p.estado !== "inactiva");
   const anio = new Date().getFullYear();
 
@@ -74,9 +76,21 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
           }
         />
         <Flash ok={ok} error={error} />
+        <p className="mt-2 text-sm">
+          {verArchivados ? (
+            <Link href="/gestion/salones" className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline"><School className="size-4" strokeWidth={2} aria-hidden /> Volver a los salones activos</Link>
+          ) : (
+            <Link href="/gestion/salones?archivados=1" className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline"><Archive className="size-4" strokeWidth={2} aria-hidden /> Ver archivados</Link>
+          )}
+        </p>
       </div>
 
-      {grupos.length === 0 && <EstadoVacio icono={School} titulo="Aún no hay salones" descripcion="Crea el primer salón con el botón «Crear salón»." />}
+      {verArchivados && <p className="-mt-2 rounded-lg border bg-muted/40 p-3 text-sm text-muted-foreground">Estos salones están archivados: no salen al pasar lista ni en los selectores, pero conservan su asistencia, notas y alumnos.</p>}
+      {grupos.length === 0 && (
+        verArchivados
+          ? <EstadoVacio icono={Archive} titulo="No hay salones archivados" descripcion="Cuando archives un salón, aparecerá aquí y podrás reactivarlo." />
+          : <EstadoVacio icono={School} titulo="Aún no hay salones" descripcion="Crea el primer salón con el botón «Crear salón»." />
+      )}
 
       {grupos.map((n) => (
         <section key={n.nivel} className="flex flex-col gap-4" aria-labelledby={`nivel-${n.nivel}`}>
@@ -143,11 +157,24 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
                                 </div>
                               ),
                             },
-                            {
-                              tipo: "confirmar", texto: "Quitar salón vacío", icono: "borrar", peligro: true, titulo: `¿Quitar ${s.nombre}?`,
-                              descripcion: "Aún no hay archivado: solo se puede quitar un salón sin alumnos ni cursos.", confirmar: "Quitar salón",
-                              accion: eliminarSalonAction, campos: { id: s.id },
-                            },
+                            s.archivadoAt
+                              ? {
+                                  tipo: "confirmar" as const, texto: "Reactivar salón", icono: "reactivar" as const, titulo: `¿Reactivar ${s.nombre}?`,
+                                  descripcion: "Volverá a salir al pasar lista y en los selectores (comunicados, tareas, agenda, notas, carnets y alumnos nuevos).", confirmar: "Reactivar salón",
+                                  accion: reactivarSalonAction, campos: { id: s.id },
+                                }
+                              : {
+                                  tipo: "confirmar" as const, texto: "Archivar salón", icono: "retirar" as const, titulo: `¿Archivar ${s.nombre}?`,
+                                  descripcion: "Dejará de aparecer para pasar lista y en los selectores (comunicados, tareas, agenda, notas, carnets y alumnos nuevos), y no se podrán agregar alumnos nuevos. Se conservan sus alumnos, asistencia y notas, y las familias siguen viendo el historial. Puedes reactivarlo cuando quieras.",
+                                  confirmar: "Archivar salón", accion: archivarSalonAction, campos: { id: s.id },
+                                },
+                            ...(s._count.alumnos === 0 && s.cursos.length === 0
+                              ? [{
+                                  tipo: "confirmar" as const, texto: "Quitar salón vacío", icono: "borrar" as const, peligro: true, titulo: `¿Quitar ${s.nombre}?`,
+                                  descripcion: "Se borra del todo. Solo se puede quitar un salón sin alumnos ni cursos; si ya se usó, archívalo.", confirmar: "Quitar salón",
+                                  accion: eliminarSalonAction, campos: { id: s.id },
+                                }]
+                              : []),
                           ]}
                         />
                       </div>
@@ -155,6 +182,7 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
                       <div className="mt-auto flex flex-wrap gap-2">
                         <Badge variant="secondary" className="h-6 px-2.5">{s._count.alumnos} alumnos</Badge>
                         <Badge variant="secondary" className="h-6 px-2.5">{s.cursos.length} cursos</Badge>
+                        {s.archivadoAt && <Badge variant="outline" className="h-6 px-2.5"><Archive strokeWidth={2} aria-hidden /> Archivado</Badge>}
                       </div>
                     </Tarjeta>
                   </li>

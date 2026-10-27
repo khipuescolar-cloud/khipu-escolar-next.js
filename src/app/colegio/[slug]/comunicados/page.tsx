@@ -29,12 +29,12 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
   requireFeature(ctx, "comunicados");
   await requireConsentimiento(ctx);
   const [comunicados, salones] = await Promise.all([listarComunicados(ctx), salonesParaPublicar(ctx)]);
-  const puedePublicar = ctx.rol === "direccion" || ctx.rol === "profesor";
+  const puedePublicar = ctx.rol === "direccion" || ctx.rol === "profesor" || ctx.rol === "administrativo";
   const okTexto = Array.isArray(ok) ? ok[0] : ok;
   const errorTexto = Array.isArray(error) ? error[0] : error;
   // Al cambiar el resultado, los diálogos se remontan y quedan cerrados.
   const clave = `${okTexto ?? ""}|${errorTexto ?? ""}`;
-  const publicar = puedePublicar ? <DialogoPublicar key={clave} salones={salones} esDireccion={ctx.rol === "direccion"} /> : undefined;
+  const publicar = puedePublicar ? <DialogoPublicar key={clave} salones={salones} esDireccion={ctx.rol !== "profesor"} /> : undefined;
 
   return (
     <div className="max-w-3xl">

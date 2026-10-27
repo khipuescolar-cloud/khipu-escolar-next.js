@@ -13,14 +13,17 @@ const SECCIONES = [
   { href: "/gestion/carnets", texto: "Carnets" },
 ];
 
+/** El personal administrativo solo gestiona alumnos y familias. */
+const SECCIONES_ADMINISTRATIVO = SECCIONES.filter((s) => s.href === "/gestion/alumnos" || s.href === "/gestion/apoderados");
+
 /** Pestañas de las secciones de gestión. En el hub (`/gestion`) no se muestran: ahí están las tarjetas. */
-export function NavGestion() {
+export function NavGestion({ soloAlumnosFamilias = false }: { soloAlumnosFamilias?: boolean }) {
   const ruta = usePathname();
   if (ruta === "/gestion") return null;
   return (
     <nav aria-label="Secciones de gestión" className="-mb-2 overflow-x-auto border-b print:hidden">
       <ul className="flex min-w-max gap-1">
-        {[{ href: "/gestion", texto: "Gestión" }, ...SECCIONES].map((s) => {
+        {[{ href: "/gestion", texto: "Gestión" }, ...(soloAlumnosFamilias ? SECCIONES_ADMINISTRATIVO : SECCIONES)].map((s) => {
           const activa = s.href !== "/gestion" && (ruta === s.href || ruta.startsWith(`${s.href}/`));
           return (
             <li key={s.href}>

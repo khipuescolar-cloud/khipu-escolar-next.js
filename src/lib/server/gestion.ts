@@ -1,5 +1,6 @@
 import "server-only";
 import { z } from "zod";
+import type { Prisma } from "@/generated/prisma/client";
 import type { Nivel } from "@/generated/prisma/enums";
 import { urlColegio, urlRaiz } from "@/lib/dominio";
 import { leerCsvAlumnos, type ErrorFila } from "@/lib/importar-alumnos";
@@ -9,6 +10,7 @@ import { db } from "./db";
 import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
 import { requireFeature } from "./plan";
 import { supabaseAdmin } from "./supabase";
+import { salonEsActivo, whereSalonActivo } from "./salones-activos";
 import { requireRol, type TenantContext } from "./tenant";
 
 // Panel de gestión de dirección (specs/10-panel-direccion-gestion.md): profesores, salones, cursos, alumnos y apoderados.
@@ -16,6 +18,15 @@ import { requireRol, type TenantContext } from "./tenant";
 /** Todas las funciones de este módulo exigen dirección y un plan que incluya «gestion». */
 export function exigirGestion(ctx: TenantContext): void {
   requireRol(ctx, ["direccion"]);
+  requireFeature(ctx, "gestion");
+}
+
+/**
+ * Alumnos y familias (altas, ediciones, invitaciones, vínculos): dirección y personal administrativo.
+ * El administrativo NO ve profesores, personal, configuración ni salones (specs/03).
+ */
+export function exigirAlumnosFamilias(ctx: TenantContext): void {
+  requireRol(ctx, ["direccion", "administrativo"]);
   requireFeature(ctx, "gestion");
 }
 
@@ -43,7 +54,7 @@ const esquemaInvitacion = z.object({
  * y la `Membership` en estado «invitada» del colegio (pasa a «activa» en el primer ingreso, ver `activarInvitaciones`). Si el correo ya tenía cuenta (p. ej. una familia con hijos en otro colegio), solo se agrega la membresía.
  */
 export async function invitarUsuario(ctx: TenantContext, entrada: z.input<typeof esquemaInvitacion>): Promise<{ membershipId: string; userId: string }> {
-  exigirGestion(ctx);
+  exigirAlumnosFamilias(ctx);
   const d = validar(esquemaInvitacion, entrada);
 
   let perfil = await db.profile.findUnique({ where: { email: d.email } });
@@ -84,9 +95,9 @@ export async function invitarUsuario(ctx: TenantContext, entrada: z.input<typeof
  * si la cuenta ya existe, el enlace para fijar la contraseña. También vuelve a encolar el aviso de invitación.
  */
 export async function reenviarInvitacion(ctx: TenantContext, membershipId: string): Promise<void> {
-  exigirGestion(ctx);
+  exigirAlumnosFamilias(ctx);
   const m = await ctx.db.membership.findFirst({
-    where: { id: membershipId, rol: { in: ["profesor", "apoderado"] }, estado: "invitada" },
+    where: { id: membershipId, rol: { in: ctx.rol === "direccion" ? ["profesor", "apoderado"] : ["apoderado"] }, estado: "invitada" },
     select: { id: true, rol: true, user: { select: { email: true, nombres: true, apellidos: true } } },
   });
   if (!m) throw new ErrorDeNegocio("Esa persona no tiene una invitación pendiente.");
@@ -118,8 +129,8 @@ export async function cambiarGeneroProfesor(ctx: TenantContext, membershipId: st
 
 /** Desactiva o reactiva una membresía de profesor o familia (nunca se borra). Al desactivar a un profesor se liberan sus tutorías y cursos. */
 export async function cambiarEstadoMembresia(ctx: TenantContext, membershipId: string, estado: "activa" | "inactiva"): Promise<void> {
-  exigirGestion(ctx);
-  const m = await ctx.db.membership.findFirst({ where: { id: membershipId, rol: { in: ["profesor", "apoderado", "administrativo", "porteria"] } } });
+  exigirAlumnosFamilias(ctx);
+  const m = await ctx.db.membership.findFirst({ where: { id: membershipId, rol: { in: ctx.rol === "direccion" ? ["profesor", "apoderado", "administrativo", "porteria"] : ["apoderado"] } } });
   if (!m) throw new ErrorDeNegocio("No se encontró a esa persona.");
   await ctx.db.membership.update({ where: { id: m.id }, data: { estado } });
   if (estado === "inactiva" && m.rol === "profesor") {
@@ -179,6 +190,24 @@ export async function editarSalon(ctx: TenantContext, id: string, entrada: z.inp
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "salon", entidadId: id });
 }
 
+/**
+ * Archivar deja de mostrar el salón al pasar lista y en los selectores (comunicados, tareas, agenda, notas, carnets, alumnos nuevos),
+ * pero conserva alumnos, asistencia y notas: las vistas históricas lo siguen mostrando. Se puede reactivar.
+ */
+export async function archivarSalon(ctx: TenantContext, id: string): Promise<void> {
+  exigirGestion(ctx);
+  const r = await ctx.db.salon.updateMany({ where: { id, archivadoAt: null }, data: { archivadoAt: new Date() } });
+  if (r.count === 0) throw new ErrorDeNegocio("No se encontró el salón o ya estaba archivado.");
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "salon", entidadId: id, detalle: { archivado: true } });
+}
+
+export async function reactivarSalon(ctx: TenantContext, id: string): Promise<void> {
+  exigirGestion(ctx);
+  const r = await ctx.db.salon.updateMany({ where: { id, archivadoAt: { not: null } }, data: { archivadoAt: null } });
+  if (r.count === 0) throw new ErrorDeNegocio("No se encontró el salón o no estaba archivado.");
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "salon", entidadId: id, detalle: { archivado: false } });
+}
+
 /** Solo se borra un salón vacío (sin alumnos ni cursos); si no, hay que retirar o mover primero. */
 export async function eliminarSalon(ctx: TenantContext, id: string): Promise<void> {
   exigirGestion(ctx);
@@ -226,9 +255,11 @@ export async function eliminarCurso(ctx: TenantContext, id: string): Promise<voi
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "curso", entidadId: id });
 }
 
-export async function listarSalones(ctx: TenantContext) {
+/** Salones activos o, con `archivados`, solo los archivados. */
+export async function listarSalones(ctx: TenantContext, filtro: { archivados?: boolean } = {}) {
   exigirGestion(ctx);
   return ctx.db.salon.findMany({
+    where: filtro.archivados ? { archivadoAt: { not: null } } : whereSalonActivo,
     orderBy: [{ anio: "desc" }, { nombre: "asc" }],
     include: {
       cursos: { orderBy: { nombre: "asc" } },
@@ -236,6 +267,12 @@ export async function listarSalones(ctx: TenantContext) {
       _count: { select: { alumnos: { where: { estado: "activo" } } } },
     },
   });
+}
+
+/** Salones activos para los selectores de alumnos y familias (dirección y administrativo; solo id y nombre). */
+export async function listarSalonesParaSelector(ctx: TenantContext) {
+  exigirAlumnosFamilias(ctx);
+  return ctx.db.salon.findMany({ where: whereSalonActivo, select: { id: true, nombre: true, anio: true }, orderBy: [{ anio: "desc" }, { nombre: "asc" }] });
 }
 
 // ───────────── Alumnos ─────────────
@@ -254,9 +291,9 @@ async function exigirCodigoLibre(ctx: TenantContext, codigo: string | null, exce
 }
 
 export async function crearAlumno(ctx: TenantContext, entrada: z.input<typeof esquemaAlumno>): Promise<string> {
-  exigirGestion(ctx);
+  exigirAlumnosFamilias(ctx);
   const d = validar(esquemaAlumno, entrada);
-  if ((await ctx.db.salon.count({ where: { id: d.salonId } })) === 0) throw new ErrorDeNegocio("No se encontró el salón.");
+  if (!(await salonEsActivo(ctx, d.salonId))) throw new ErrorDeNegocio("No se encontró el salón o está archivado.");
   await exigirCodigoLibre(ctx, d.codigo);
   const a = await ctx.db.alumno.create({ data: { tenantId: ctx.tenant.id, ...d } });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "alumno", entidadId: a.id });
@@ -264,9 +301,12 @@ export async function crearAlumno(ctx: TenantContext, entrada: z.input<typeof es
 }
 
 export async function editarAlumno(ctx: TenantContext, id: string, entrada: z.input<typeof esquemaAlumno>): Promise<void> {
-  exigirGestion(ctx);
+  exigirAlumnosFamilias(ctx);
   const d = validar(esquemaAlumno, entrada);
-  if ((await ctx.db.salon.count({ where: { id: d.salonId } })) === 0) throw new ErrorDeNegocio("No se encontró el salón.");
+  const actual = await ctx.db.alumno.findFirst({ where: { id }, select: { salonId: true } });
+  // Un alumno que ya está en un salón archivado puede editarse sin moverlo; mudarlo a uno archivado no.
+  if (actual?.salonId !== d.salonId && !(await salonEsActivo(ctx, d.salonId))) throw new ErrorDeNegocio("No se encontró el salón o está archivado.");
+  if (actual?.salonId === d.salonId && (await ctx.db.salon.count({ where: { id: d.salonId } })) === 0) throw new ErrorDeNegocio("No se encontró el salón.");
   await exigirCodigoLibre(ctx, d.codigo, id);
   const r = await ctx.db.alumno.updateMany({ where: { id }, data: d });
   if (r.count === 0) throw new ErrorDeNegocio("No se encontró al alumno.");
@@ -275,7 +315,7 @@ export async function editarAlumno(ctx: TenantContext, id: string, entrada: z.in
 
 /** Retirar no borra: el alumno deja de salir en listas, avisos y chats, pero su historial se conserva. */
 export async function cambiarEstadoAlumno(ctx: TenantContext, id: string, estado: "activo" | "retirado"): Promise<void> {
-  exigirGestion(ctx);
+  exigirAlumnosFamilias(ctx);
   const r = await ctx.db.alumno.updateMany({ where: { id }, data: { estado } });
   if (r.count === 0) throw new ErrorDeNegocio("No se encontró al alumno.");
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "alumno", entidadId: id, detalle: { estado } });
@@ -288,9 +328,9 @@ export type ResultadoImportacion = { ok: boolean; creados: number; errores: Erro
  * (salón desconocido, código repetido…) no se crea ninguno y se devuelve la lista de errores por línea.
  */
 export async function importarAlumnosCsv(ctx: TenantContext, csv: string): Promise<ResultadoImportacion> {
-  exigirGestion(ctx);
+  exigirAlumnosFamilias(ctx);
   const { filas, errores } = leerCsvAlumnos(csv);
-  const salones = await ctx.db.salon.findMany({ select: { id: true, nombre: true } });
+  const salones = await ctx.db.salon.findMany({ where: whereSalonActivo, select: { id: true, nombre: true } });
   const porNombre = new Map(salones.map((s) => [s.nombre.trim().toLowerCase(), s.id]));
   const codigosExistentes = new Set((await ctx.db.alumno.findMany({ where: { codigo: { not: null } }, select: { codigo: true } })).map((a) => a.codigo));
 
@@ -312,7 +352,7 @@ export async function importarAlumnosCsv(ctx: TenantContext, csv: string): Promi
 }
 
 export async function listarAlumnos(ctx: TenantContext, filtro: { salonId?: string; incluirRetirados?: boolean } = {}) {
-  exigirGestion(ctx);
+  exigirAlumnosFamilias(ctx);
   return ctx.db.alumno.findMany({
     where: { ...(filtro.salonId ? { salonId: filtro.salonId } : {}), ...(filtro.incluirRetirados ? {} : { estado: "activo" }) },
     orderBy: [{ apellidos: "asc" }, { nombres: "asc" }],
@@ -331,7 +371,7 @@ const esquemaVinculo = z.object({
 
 /** Vincula un apoderado con un alumno. Si la familia ya aceptó el consentimiento, el vínculo nuevo lo hereda. */
 export async function vincularApoderado(ctx: TenantContext, entrada: z.input<typeof esquemaVinculo>): Promise<void> {
-  exigirGestion(ctx);
+  exigirAlumnosFamilias(ctx);
   const d = validar(esquemaVinculo, entrada);
   const [apoderado, alumno] = await Promise.all([
     ctx.db.membership.count({ where: { id: d.apoderadoId, rol: "apoderado" } }),
@@ -348,7 +388,7 @@ export async function vincularApoderado(ctx: TenantContext, entrada: z.input<typ
 }
 
 export async function desvincularApoderado(ctx: TenantContext, vinculoId: string): Promise<void> {
-  exigirGestion(ctx);
+  exigirAlumnosFamilias(ctx);
   const r = await ctx.db.apoderadoAlumno.deleteMany({ where: { id: vinculoId } });
   if (r.count === 0) throw new ErrorDeNegocio("No se encontró el vínculo.");
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "apoderado_alumno", entidadId: vinculoId });
@@ -356,27 +396,105 @@ export async function desvincularApoderado(ctx: TenantContext, vinculoId: string
 
 /** Invita a un apoderado a su correo personal y lo vincula al alumno. */
 export async function invitarApoderado(ctx: TenantContext, entrada: { email: string; nombres: string; apellidos: string; alumnoId: string; parentesco: string }): Promise<void> {
-  exigirGestion(ctx);
+  exigirAlumnosFamilias(ctx);
   validar(esquemaVinculo.omit({ apoderadoId: true }), entrada);
   const { membershipId } = await invitarUsuario(ctx, { email: entrada.email, nombres: entrada.nombres, apellidos: entrada.apellidos, rol: "apoderado" });
   await vincularApoderado(ctx, { apoderadoId: membershipId, alumnoId: entrada.alumnoId, parentesco: entrada.parentesco });
 }
 
-export async function listarApoderados(ctx: TenantContext) {
-  exigirGestion(ctx);
+export const FAMILIAS_POR_PAGINA = 20;
+
+export type FiltroFamilias = { q?: string; pagina?: number };
+
+/**
+ * Familias con buscador (nombre, correo, documento o alumno) y paginación de 20 en 20.
+ * El documento solo se busca si quien consulta es dirección (el administrativo no ve documentos).
+ */
+export async function listarApoderados(ctx: TenantContext, filtro: FiltroFamilias = {}) {
+  exigirAlumnosFamilias(ctx);
+  const q = filtro.q?.trim();
+  const where: Prisma.MembershipWhereInput = {
+    rol: "apoderado",
+    ...(q
+      ? {
+          OR: [
+            { user: { nombres: { contains: q, mode: "insensitive" } } },
+            { user: { apellidos: { contains: q, mode: "insensitive" } } },
+            { user: { email: { contains: q, mode: "insensitive" } } },
+            ...(ctx.rol === "direccion" ? [{ user: { numeroDocumento: { contains: q } } }] : []),
+            { hijos: { some: { alumno: { OR: [{ nombres: { contains: q, mode: "insensitive" } }, { apellidos: { contains: q, mode: "insensitive" } }] } } } },
+          ],
+        }
+      : {}),
+  };
+  const total = await ctx.db.membership.count({ where });
+  const paginas = Math.max(1, Math.ceil(total / FAMILIAS_POR_PAGINA));
+  const pagina = Math.min(Math.max(1, Math.trunc(filtro.pagina ?? 1) || 1), paginas);
   const filas = await ctx.db.membership.findMany({
-    where: { rol: "apoderado" },
-    orderBy: { user: { apellidos: "asc" } },
+    where,
+    orderBy: [{ user: { apellidos: "asc" } }, { id: "asc" }],
+    skip: (pagina - 1) * FAMILIAS_POR_PAGINA,
+    take: FAMILIAS_POR_PAGINA,
     select: {
       id: true,
       estado: true,
-      user: { select: { nombres: true, apellidos: true, email: true } },
+      user: { select: { id: true, nombres: true, apellidos: true, email: true, telefono: true } },
       hijos: { select: { id: true, parentesco: true, alumno: { select: { nombres: true, apellidos: true, salon: { select: { nombre: true } } } } } },
       consentimientos: { select: { revocadoAt: true } },
     },
   });
-  return filas.map(({ consentimientos, ...f }) => ({
+  const enOtros = new Set(
+    (await db.membership.findMany({ where: { userId: { in: filas.map((f) => f.user.id) }, tenantId: { not: ctx.tenant.id } }, select: { userId: true } })).map((o) => o.userId),
+  );
+  const familias = filas.map(({ consentimientos, ...f }) => ({
     ...f,
+    otrosColegios: enOtros.has(f.user.id),
     consentimiento: (consentimientos.length === 0 ? "pendiente" : consentimientos.some((c) => !c.revocadoAt) ? "vigente" : "revocado") as "pendiente" | "vigente" | "revocado",
   }));
+  return { familias, total, pagina, paginas };
+}
+
+// ───────────── Datos globales del perfil ─────────────
+
+/** Campos del perfil que se ven en todos los colegios de la persona. */
+export const CAMPOS_PERFIL_GLOBALES = ["nombres", "apellidos", "tipoDocumento", "numeroDocumento", "telefono"] as const;
+
+/** En cuántos OTROS colegios tiene membresías la persona (el perfil es global). */
+export async function otrosColegiosDe(ctx: TenantContext, userId: string): Promise<number> {
+  const filas = await db.membership.findMany({ where: { userId, tenantId: { not: ctx.tenant.id } }, select: { tenantId: true }, distinct: ["tenantId"] });
+  return filas.length;
+}
+
+/**
+ * Si se cambiaron datos globales de una persona con membresías en otros colegios, lo deja asentado en la auditoría
+ * de este colegio y de cada uno de los otros (solo los NOMBRES de los campos, nunca los valores).
+ */
+export async function auditarCambioGlobal(ctx: TenantContext, userId: string, campos: string[]): Promise<number> {
+  const globales = campos.filter((c) => (CAMPOS_PERFIL_GLOBALES as readonly string[]).includes(c));
+  if (globales.length === 0) return 0;
+  const otros = await db.membership.findMany({ where: { userId, tenantId: { not: ctx.tenant.id } }, select: { tenantId: true }, distinct: ["tenantId"] });
+  if (otros.length === 0) return 0;
+  const detalle = { campos: globales, origenColegio: ctx.tenant.slug };
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "perfil_global", entidadId: userId, detalle: { ...detalle, otrosColegios: otros.length } });
+  for (const o of otros) await auditar({ tenantId: o.tenantId, actorId: ctx.user.id, accion: "editar", entidad: "perfil_global", entidadId: userId, detalle });
+  return otros.length;
+}
+
+const esquemaEdicionApoderado = z.object({
+  nombres: texto(80, "Escribe los nombres."),
+  apellidos: texto(120, "Escribe los apellidos."),
+  telefono: textoOpcional(20),
+});
+
+/** Edita nombres, apellidos y teléfono de una familia. El perfil es global: si la persona está en otros colegios, queda auditado. */
+export async function editarDatosApoderado(ctx: TenantContext, membershipId: string, entrada: z.input<typeof esquemaEdicionApoderado>): Promise<{ otrosColegios: number }> {
+  exigirAlumnosFamilias(ctx);
+  const d = validar(esquemaEdicionApoderado, entrada);
+  const m = await ctx.db.membership.findFirst({ where: { id: membershipId, rol: "apoderado" }, select: { id: true, userId: true } });
+  if (!m) throw new ErrorDeNegocio("No se encontró a esa familia.");
+  const antes = await db.profile.findUniqueOrThrow({ where: { id: m.userId } });
+  const modificados = (["nombres", "apellidos", "telefono"] as const).filter((k) => (antes[k] ?? null) !== (d[k] ?? null));
+  await db.profile.update({ where: { id: m.userId }, data: d });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: m.id, detalle: { campos: modificados } });
+  return { otrosColegios: await auditarCambioGlobal(ctx, m.userId, modificados) };
 }

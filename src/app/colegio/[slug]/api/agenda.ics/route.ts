@@ -11,7 +11,7 @@ export async function GET(_request: Request, { params }: RouteContext<"/colegio/
   const { slug } = await params;
   const ctx = await requireTenantContext(slug);
   requireFeature(ctx, "agenda");
-  if (ctx.rol !== "apoderado" && ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();
+  if (ctx.rol !== "apoderado" && ctx.rol !== "profesor" && ctx.rol !== "direccion" && ctx.rol !== "administrativo") forbidden();
   const ahora = new Date();
   const items = await itemsDeAgenda(ctx, new Date(ahora.getTime() - 30 * MS_DIA), new Date(ahora.getTime() + 365 * MS_DIA));
   const ics = construirIcs({

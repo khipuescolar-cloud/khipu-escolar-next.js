@@ -7,7 +7,7 @@ import { contextoDeAccion } from "@/lib/server/contexto-accion";
 import { requireFeature } from "@/lib/server/plan";
 
 export async function publicarComunicadoAction(formData: FormData) {
-  const ctx = await contextoDeAccion(["direccion", "profesor"]);
+  const ctx = await contextoDeAccion(["direccion", "profesor", "administrativo"]);
   requireFeature(ctx, "comunicados");
   await ejecutarYVolver("/comunicados", async () => {
     const r = await publicarComunicado(ctx, { titulo: texto(formData, "titulo"), cuerpo: texto(formData, "cuerpo"), salonId: textoONulo(formData, "salonId") });
@@ -17,7 +17,7 @@ export async function publicarComunicadoAction(formData: FormData) {
 }
 
 export async function editarComunicadoAction(formData: FormData) {
-  const ctx = await contextoDeAccion(["direccion", "profesor"]);
+  const ctx = await contextoDeAccion(["direccion", "profesor", "administrativo"]);
   requireFeature(ctx, "comunicados");
   await ejecutarYVolver("/comunicados", async () => {
     await editarComunicado(ctx, texto(formData, "id"), { titulo: texto(formData, "titulo"), cuerpo: texto(formData, "cuerpo") });
@@ -26,7 +26,7 @@ export async function editarComunicadoAction(formData: FormData) {
 }
 
 export async function borrarComunicadoAction(formData: FormData) {
-  const ctx = await contextoDeAccion(["direccion", "profesor"]);
+  const ctx = await contextoDeAccion(["direccion", "profesor", "administrativo"]);
   requireFeature(ctx, "comunicados");
   await ejecutarYVolver("/comunicados", async () => {
     await borrarComunicado(ctx, texto(formData, "id"));

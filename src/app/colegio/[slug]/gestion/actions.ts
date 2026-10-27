@@ -4,14 +4,17 @@ import { after } from "next/server";
 import { ejecutarYVolver, texto, textoONulo } from "@/lib/server/accion-formulario";
 import { ErrorDeNegocio, contextoDeAccion } from "@/lib/server/contexto-accion";
 import {
+  archivarSalon, reactivarSalon, editarDatosApoderado,
   cambiarEstadoAlumno, cambiarEstadoMembresia, cambiarGeneroProfesor, reenviarInvitacion, crearAlumno, crearCurso, crearSalon, desvincularApoderado, editarAlumno, editarCurso,
   editarSalon, eliminarCurso, eliminarSalon, importarAlumnosCsv, invitarApoderado, vincularApoderado,
 } from "@/lib/server/gestion";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
-import { altaPersonal, editarFicha, importarPersonalCsv, reenviarBienvenida, type RolPersonal } from "@/lib/server/personal";
+import { altaPersonal, editarFicha, importarPersonalCsv, reenviarBienvenida, restablecerPasswordAlDocumento, type RolPersonal } from "@/lib/server/personal";
 
 const ROLES = ["direccion"] as const;
 const gestionar = () => contextoDeAccion([...ROLES]);
+/** Alumnos y familias: también el personal administrativo (specs/03). */
+const gestionarAlumnosFamilias = () => contextoDeAccion([...ROLES, "administrativo"]);
 
 function generoDe(f: FormData): "femenino" | "masculino" | "no_especifica" | null {
   const g = textoONulo(f, "genero");
@@ -96,6 +99,17 @@ export async function reenviarBienvenidaAction(formData: FormData) {
   });
 }
 
+export async function restablecerPasswordAction(formData: FormData) {
+  const ctx = await gestionar();
+  await ejecutarYVolver(volverA(formData, "/gestion/profesores"), async () => {
+    const avisar = texto(formData, "avisar") === "1";
+    const { otrosColegios } = await restablecerPasswordAlDocumento(ctx, texto(formData, "id"), { avisar });
+    if (avisar) procesarDespues(ctx.tenant.id);
+    const base = avisar ? "Contraseña restablecida al documento y bienvenida reenviada." : "Contraseña restablecida al documento. Tendrá que cambiarla al entrar.";
+    return otrosColegios > 0 ? `${base} La cuenta es la misma en los otros colegios de esta persona.` : base;
+  });
+}
+
 export async function importarPersonalAction(formData: FormData) {
   const ctx = await gestionar();
   const tipo = texto(formData, "tipo") === "personal" ? "personal" : "profesores";
@@ -112,7 +126,7 @@ export async function importarPersonalAction(formData: FormData) {
 }
 
 export async function cambiarEstadoMembresiaAction(formData: FormData) {
-  const ctx = await gestionar();
+  const ctx = await gestionarAlumnosFamilias();
   const estado = texto(formData, "estado") === "inactiva" ? "inactiva" : "activa";
   await ejecutarYVolver(volverA(formData, "/gestion/profesores"), async () => {
     await cambiarEstadoMembresia(ctx, texto(formData, "id"), estado);
@@ -156,6 +170,22 @@ export async function eliminarSalonAction(formData: FormData) {
   });
 }
 
+export async function archivarSalonAction(formData: FormData) {
+  const ctx = await gestionar();
+  await ejecutarYVolver("/gestion/salones", async () => {
+    await archivarSalon(ctx, texto(formData, "id"));
+    return "Salón archivado. Sus alumnos, asistencia y notas se conservan.";
+  });
+}
+
+export async function reactivarSalonAction(formData: FormData) {
+  const ctx = await gestionar();
+  await ejecutarYVolver("/gestion/salones?archivados=1", async () => {
+    await reactivarSalon(ctx, texto(formData, "id"));
+    return "Salón reactivado.";
+  });
+}
+
 export async function crearCursoAction(formData: FormData) {
   const ctx = await gestionar();
   await ejecutarYVolver("/gestion/salones", async () => {
@@ -182,7 +212,7 @@ export async function eliminarCursoAction(formData: FormData) {
 
 // ── Alumnos ──
 export async function crearAlumnoAction(formData: FormData) {
-  const ctx = await gestionar();
+  const ctx = await gestionarAlumnosFamilias();
   await ejecutarYVolver("/gestion/alumnos", async () => {
     await crearAlumno(ctx, { nombres: texto(formData, "nombres"), apellidos: texto(formData, "apellidos"), codigo: texto(formData, "codigo"), salonId: texto(formData, "salonId") });
     return "Alumno creado.";
@@ -190,7 +220,7 @@ export async function crearAlumnoAction(formData: FormData) {
 }
 
 export async function editarAlumnoAction(formData: FormData) {
-  const ctx = await gestionar();
+  const ctx = await gestionarAlumnosFamilias();
   await ejecutarYVolver("/gestion/alumnos", async () => {
     await editarAlumno(ctx, texto(formData, "id"), { nombres: texto(formData, "nombres"), apellidos: texto(formData, "apellidos"), codigo: texto(formData, "codigo"), salonId: texto(formData, "salonId") });
     return "Alumno actualizado.";
@@ -198,7 +228,7 @@ export async function editarAlumnoAction(formData: FormData) {
 }
 
 export async function cambiarEstadoAlumnoAction(formData: FormData) {
-  const ctx = await gestionar();
+  const ctx = await gestionarAlumnosFamilias();
   const estado = texto(formData, "estado") === "retirado" ? "retirado" : "activo";
   await ejecutarYVolver("/gestion/alumnos", async () => {
     await cambiarEstadoAlumno(ctx, texto(formData, "id"), estado);
@@ -207,7 +237,7 @@ export async function cambiarEstadoAlumnoAction(formData: FormData) {
 }
 
 export async function importarAlumnosAction(formData: FormData) {
-  const ctx = await gestionar();
+  const ctx = await gestionarAlumnosFamilias();
   const archivo = formData.get("archivo");
   await ejecutarYVolver("/gestion/alumnos", async () => {
     if (!(archivo instanceof File) || archivo.size === 0) throw new ErrorDeNegocio("Elige un archivo CSV.");
@@ -221,7 +251,7 @@ export async function importarAlumnosAction(formData: FormData) {
 
 // ── Apoderados ──
 export async function invitarApoderadoAction(formData: FormData) {
-  const ctx = await gestionar();
+  const ctx = await gestionarAlumnosFamilias();
   await ejecutarYVolver("/gestion/apoderados", async () => {
     await invitarApoderado(ctx, {
       email: texto(formData, "email"), nombres: texto(formData, "nombres"), apellidos: texto(formData, "apellidos"),
@@ -232,7 +262,7 @@ export async function invitarApoderadoAction(formData: FormData) {
 }
 
 export async function vincularApoderadoAction(formData: FormData) {
-  const ctx = await gestionar();
+  const ctx = await gestionarAlumnosFamilias();
   await ejecutarYVolver("/gestion/apoderados", async () => {
     await vincularApoderado(ctx, { apoderadoId: texto(formData, "apoderadoId"), alumnoId: texto(formData, "alumnoId"), parentesco: texto(formData, "parentesco") });
     return "Alumno vinculado.";
@@ -240,15 +270,23 @@ export async function vincularApoderadoAction(formData: FormData) {
 }
 
 export async function desvincularApoderadoAction(formData: FormData) {
-  const ctx = await gestionar();
+  const ctx = await gestionarAlumnosFamilias();
   await ejecutarYVolver("/gestion/apoderados", async () => {
     await desvincularApoderado(ctx, texto(formData, "id"));
     return "Vínculo quitado.";
   });
 }
 
+export async function editarApoderadoAction(formData: FormData) {
+  const ctx = await gestionarAlumnosFamilias();
+  await ejecutarYVolver("/gestion/apoderados", async () => {
+    const { otrosColegios } = await editarDatosApoderado(ctx, texto(formData, "id"), { nombres: texto(formData, "nombres"), apellidos: texto(formData, "apellidos"), telefono: texto(formData, "telefono") });
+    return otrosColegios > 0 ? "Datos guardados. También se ven en los otros colegios de esta persona." : "Datos guardados.";
+  });
+}
+
 export async function reenviarInvitacionAction(formData: FormData) {
-  const ctx = await gestionar();
+  const ctx = await gestionarAlumnosFamilias();
   await ejecutarYVolver(volverA(formData, "/gestion/profesores"), async () => {
     await reenviarInvitacion(ctx, texto(formData, "id"));
     return "Invitación reenviada.";

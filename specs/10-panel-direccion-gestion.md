@@ -11,12 +11,12 @@ Todo lo de esta spec es **solo dirección** (`requireRol` + `requireFeature(ctx,
 ## Flujos
 - **Inicio de dirección:** componente `inicio/ResumenDireccion.tsx` con llegaron / tarde / faltas / sin registrar de hoy por salón (fecha en `tenant.zonaHoraria`; por alumno prevalece la asistencia del día, `ambito = "dia"`).
 - **Profesores y personal** (`/gestion/profesores`, `/gestion/personal`): ahora son un CRM con alta con datos personales (DNI, correo, cargo…), lista con filtros, ficha, desactivar/reactivar y reenviar bienvenida; el detalle está en `specs/17-crm-personal-colegio.md`. Ya no se invita a profesores por Supabase `inviteUserByEmail`: se crea la cuenta con el DNI como contraseña inicial. Se conservan `reenviarInvitacion` (apoderados y profesores antiguos en estado `invitada`) y `cambiarGeneroProfesor`. Un profesor `invitada` puede asignarse como tutor o a un curso; el género sigue definiendo «Tutora», «Profesor»… (`tituloProfesor`).
-- **Grados y salones** (`/gestion/salones`): vista nivel → grado → sección con tutor, alumnos y cursos; crear, editar, quitar (solo vacío, sin campo de archivado); tutor y profesor por curso; borrar curso solo sin asistencia, notas ni tareas.
+- **Grados y salones** (`/gestion/salones`): vista nivel → grado → sección con tutor, alumnos y cursos; crear, editar, **archivar/reactivar** (`archivadoAt`, «Ver archivados») y quitar (solo vacío); tutor y profesor por curso; borrar curso solo sin asistencia, notas ni tareas.
 - **Alumnos** (`/gestion/alumnos`): crear, editar, retirar/reactivar, filtrar por salón, **importar CSV** (`nombres, apellidos, codigo, salon`; todo o nada, errores por línea, máx. 500 filas y 1 MB).
-- **Familias** (`/gestion/apoderados`): invitar al correo personal y vincular al alumno con parentesco; vincular más alumnos; quitar vínculos; ver estado del consentimiento.
+- **Familias** (`/gestion/apoderados`): invitar al correo personal y vincular al alumno con parentesco; vincular más alumnos; quitar vínculos; editar nombres, apellidos y teléfono; ver estado del consentimiento; **buscador** (nombre, correo, documento o alumno) y **paginación** de 20 en 20. Alumnos y Familias también son del rol `administrativo` (specs/17 y specs/03); los salones archivados no admiten alumnos nuevos.
 - **Consentimiento** (`/consentimiento`): primer ingreso del apoderado; texto versionado en `src/lib/consentimiento.ts` (`CONSENTIMIENTO_VERSION`); crea `consentimientos` y lo enlaza a todos sus `apoderados_alumnos.consentimientoId`. Sin aceptar, `/inicio`, `/mensajes` y `/comunicados` redirigen aquí y no se le encolan avisos.
 - **Configuración** (`/configuracion`): hora del resumen, hora límite de tardanza, modo de avisos, dominios de correo (únicos entre colegios), escala de calificación. **Logo**: subida real (PNG, JPG o WEBP, máx. 1 MB, validada por magic bytes) con `FileStorage` como archivo público; se guarda en `tenants.logo_archivo_id`, reemplaza y borra el anterior, y se puede quitar (`src/lib/server/logo.ts`: `subirLogoColegio`, `quitarLogoColegio`, `urlLogoColegio(tenant)`, `logoParaPdf`). Se muestra en el encabezado del colegio, en la libreta PDF (solo PNG/JPG) y en los carnets QR. SVG no se admite (el validador no lo soporta).
-- **Avisos** (`/avisos`): tabla filtrable (estado, tipo, correo) y apertura de la semana (abiertos / enviados de los últimos 7 días; meta 70 %), con ícono + palabra.
+- **Avisos** (`/avisos`, también solo lectura para `administrativo`): tabla filtrable (estado, tipo, correo) y apertura de la semana (abiertos / enviados de los últimos 7 días; meta 70 %), con ícono + palabra.
 
 ## Reglas de negocio
 - Toda escritura valida con zod, usa `ctx.db` con FKs escalares y llama a `auditar()`.
@@ -33,7 +33,7 @@ Todo lo de esta spec es **solo dirección** (`requireRol` + `requireFeature(ctx,
 Correo ya registrado con ese rol, código de alumno repetido, salón inexistente en el CSV, dominio usado por otro colegio, borrar salón con alumnos.
 
 ## Pruebas
-- unit: `tests/unit/importar-alumnos.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts`, `tests/integracion/invitaciones-y-logo.test.ts`, `tests/integracion/crm-personal.test.ts` · e2e: `tests/e2e/direccion-panel.test.ts`, `tests/e2e/ui-pendientes.test.ts` (logo).
+- unit: `tests/unit/importar-alumnos.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts`, `tests/integracion/invitaciones-y-logo.test.ts`, `tests/integracion/crm-personal.test.ts`, `tests/integracion/gestion-p2.test.ts` · e2e: `tests/e2e/direccion-panel.test.ts`, `tests/e2e/ui-pendientes.test.ts` (logo).
 
 ## Pendientes
 - Avisos enviados/abiertos/con error dentro del resumen del inicio (hoy están en `/avisos`).

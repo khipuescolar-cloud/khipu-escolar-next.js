@@ -4,6 +4,7 @@ import { instanteLima } from "@/lib/fechas";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
 import { requireFeature } from "./plan";
+import { salonEsActivo, whereSalonActivo } from "./salones-activos";
 import { requireRol, salonIdsVisibles, type TenantContext } from "./tenant";
 
 export type ItemAgenda = {
@@ -21,7 +22,7 @@ export type ItemAgenda = {
 /** Eventos y entregas de tareas visibles para el usuario entre dos instantes (`hasta` excluido). */
 export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date): Promise<ItemAgenda[]> {
   requireFeature(ctx, "agenda");
-  requireRol(ctx, ["direccion", "profesor", "apoderado"]);
+  requireRol(ctx, ["direccion", "profesor", "apoderado", "administrativo"]);
   const salonIds = await salonIdsVisibles(ctx);
   const rango = { gte: desde, lt: hasta };
   const [eventos, tareas] = await Promise.all([
@@ -38,7 +39,7 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
     ...eventos.map((e) => ({
       id: e.id, tipo: e.tipo, titulo: e.titulo, descripcion: e.descripcion, inicio: e.inicio,
       ambito: e.salon?.nombre ?? "Todo el colegio",
-      eliminable: ctx.rol === "direccion" || (ctx.rol === "profesor" && e.creadoPorId === ctx.membership.id),
+      eliminable: ctx.rol === "direccion" || ((ctx.rol === "profesor" || ctx.rol === "administrativo") && e.creadoPorId === ctx.membership.id),
     })),
     ...tareas.map((t) => ({
       id: t.id, tipo: "entrega" as const, titulo: `Entrega: ${t.titulo}`, descripcion: t.descripcion, inicio: t.fechaEntrega,
@@ -51,9 +52,10 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
 /** Salones donde el usuario puede crear eventos (dirección: todos; profesor: los suyos). */
 export async function salonesParaEventos(ctx: TenantContext) {
   requireFeature(ctx, "agenda");
-  requireRol(ctx, ["direccion", "profesor"]);
+  requireRol(ctx, ["direccion", "profesor", "administrativo"]);
+  if (ctx.rol === "administrativo") return []; // solo eventos de todo el colegio
   const ids = await salonIdsVisibles(ctx);
-  return ctx.db.salon.findMany({ where: { id: { in: ids } }, select: { id: true, nombre: true }, orderBy: { nombre: "asc" } });
+  return ctx.db.salon.findMany({ where: { id: { in: ids }, ...whereSalonActivo }, select: { id: true, nombre: true }, orderBy: { nombre: "asc" } });
 }
 
 const esquemaEvento = z.object({
@@ -68,14 +70,16 @@ const esquemaEvento = z.object({
 /** Dirección crea eventos del colegio o de cualquier salón; el profesor, solo de sus salones. */
 export async function crearEvento(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
   requireFeature(ctx, "agenda");
-  requireRol(ctx, ["direccion", "profesor"]);
+  requireRol(ctx, ["direccion", "profesor", "administrativo"]);
   const d = esquemaEvento.safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
   const { salonId } = d.data;
   if (ctx.rol === "profesor") {
     if (!salonId) return fallo("Elige el salón del evento.");
-    if (!(await salonIdsVisibles(ctx)).includes(salonId)) return fallo("Solo puedes crear eventos de tus salones.");
-  } else if (salonId && !(await ctx.db.salon.findFirst({ where: { id: salonId } }))) {
+    if (!(await salonIdsVisibles(ctx)).includes(salonId) || !(await salonEsActivo(ctx, salonId))) return fallo("Solo puedes crear eventos de tus salones.");
+  } else if (ctx.rol === "administrativo") {
+    if (salonId) return fallo("El personal administrativo crea eventos de todo el colegio.");
+  } else if (salonId && !(await salonEsActivo(ctx, salonId))) {
     return fallo("No encontramos ese salón.");
   }
   const e = await ctx.db.eventoAgenda.create({
@@ -90,10 +94,10 @@ export async function crearEvento(ctx: TenantContext, entrada: unknown): Promise
 
 export async function eliminarEvento(ctx: TenantContext, eventoId: string): Promise<Resultado> {
   requireFeature(ctx, "agenda");
-  requireRol(ctx, ["direccion", "profesor"]);
+  requireRol(ctx, ["direccion", "profesor", "administrativo"]);
   const e = await ctx.db.eventoAgenda.findFirst({ where: { id: eventoId } });
   if (!e) return fallo("No encontramos ese evento.");
-  if (ctx.rol === "profesor" && e.creadoPorId !== ctx.membership.id) return fallo("Solo puedes borrar los eventos que creaste.");
+  if (ctx.rol !== "direccion" && e.creadoPorId !== ctx.membership.id) return fallo("Solo puedes borrar los eventos que creaste.");
   await ctx.db.eventoAgenda.deleteMany({ where: { id: eventoId } });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "evento_agenda", entidadId: eventoId });
   return ok("Evento eliminado.");
@@ -104,12 +108,12 @@ const esquemaEdicionEvento = esquemaEvento.omit({ salonId: true });
 /** Dirección edita cualquier evento; el profesor, solo los que creó en sus salones. No cambia el salón. */
 export async function actualizarEvento(ctx: TenantContext, eventoId: string, entrada: unknown): Promise<Resultado> {
   requireFeature(ctx, "agenda");
-  requireRol(ctx, ["direccion", "profesor"]);
+  requireRol(ctx, ["direccion", "profesor", "administrativo"]);
   const d = esquemaEdicionEvento.safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
   const e = await ctx.db.eventoAgenda.findFirst({ where: { id: eventoId } });
   if (!e) return fallo("No encontramos ese evento.");
-  if (ctx.rol === "profesor" && e.creadoPorId !== ctx.membership.id) return fallo("Solo puedes editar los eventos que creaste.");
+  if (ctx.rol !== "direccion" && e.creadoPorId !== ctx.membership.id) return fallo("Solo puedes editar los eventos que creaste.");
   await ctx.db.eventoAgenda.updateMany({
     where: { id: eventoId },
     data: {

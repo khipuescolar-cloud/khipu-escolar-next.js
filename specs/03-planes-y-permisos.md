@@ -14,7 +14,8 @@ El mapa vive en `src/lib/planes.ts` (`FEATURES`, `planIncluye`).
 ## Reglas
 - **El bloqueo se valida en el servidor:** `requireFeature(ctx, feature)` (`src/lib/server/plan.ts`) llama a `forbidden()` (403) en páginas, server actions y route handlers.
 - La UI solo informa: el mosaico bloqueado muestra 🔒 «Plan Familia» o «Plan Pro Max» (ícono + texto) y no es un enlace.
-- Roles por membresía (`direccion`, `profesor`, `apoderado`, `alumno`, `porteria`), nunca globales. `requireRol` / `requireTenantContext(slug, roles)`.
+- Roles por membresía (`direccion`, `profesor`, `apoderado`, `alumno`, `porteria`, `administrativo`), nunca globales.
+- **`administrativo`** (personal no docente): Comunicados (crear/editar), Agenda (ver y crear eventos del colegio), Gestión → Alumnos y Familias, y Avisos enviados (solo lectura). NO: profesores, personal, salones, carnets, configuración ni Mensajes. Servidor: `exigirAlumnosFamilias` y listas de roles en cada acción; navegación: `src/lib/navegacion.ts`. `requireRol` / `requireTenantContext(slug, roles)`.
 - Mosaicos por rol: `src/lib/navegacion.ts`.
 
 ## Pruebas
