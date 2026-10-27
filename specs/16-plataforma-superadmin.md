@@ -1,6 +1,6 @@
 # 16 — Plataforma: super administrador
 
-> Estado: implementado · Plan: interno (equipo Khipu) · Última actualización: 2026-10-27 (Claude Code)
+> Estado: implementado · Plan: interno (equipo Khipu) · Última actualización: 2026-10-27 (Claude Code · pendientes v2: métricas por `user_id`, gráficos y acceso de soporte)
 
 ## Objetivo
 Que el equipo de Khipu cree colegios (tenants), los monitoree y gestione su ciclo de vida desde un panel propio. Khipu es un SaaS y este es el usuario principal.
@@ -8,7 +8,7 @@ Que el equipo de Khipu cree colegios (tenants), los monitoree y gestione su cicl
 ## Roles y permisos
 | Rol | Puede | No puede |
 |---|---|---|
-| Super administrador (`admins_plataforma.activo`) | Ver métricas agregadas de todos los colegios; crear colegios; cambiar plan, estado, datos e insignia; reenviar la bienvenida; agregar administradores; exportar el ZIP de un colegio | Ver chats, notas, asistencia por alumno ni nombres de alumnos o familias; borrar colegios (solo por script); crear otros super administradores desde la web |
+| Super administrador (`admins_plataforma.activo`) | Ver métricas agregadas de todos los colegios; crear colegios; cambiar plan, estado, datos e insignia; reenviar la bienvenida; agregar administradores; exportar el ZIP de un colegio; entrar a un colegio como **soporte** (solo lectura, con motivo y vencimiento) | Ver chats, notas, libretas ni Nudito (tampoco en modo soporte); escribir nada en el colegio en modo soporte; ver nombres de alumnos o familias desde el panel; borrar colegios (solo por script); crear otros super administradores desde la web |
 | Cualquier otro usuario | — | Entrar al panel (403) |
 
 ## Acceso
@@ -24,12 +24,17 @@ Que el equipo de Khipu cree colegios (tenants), los monitoree y gestione su cicl
 - KPIs globales:
   - colegios por estado y plan;
   - alumnos activos;
-  - usuarios activos (correos distintos con ingreso exitoso en `login_intentos` en los últimos 7 días);
+  - usuarios activos: perfiles con membresía activa en algún colegio y `profiles.ultimo_ingreso_at` en los últimos 7 días;
   - correos de las últimas 24 h frente a `EMAIL_DAILY_LIMIT` (la misma ventana móvil que usa la cola);
   - apertura de la semana (abiertos / enviados, meta 70 %);
   - rebotes y quejas (7 días);
   - cola: pendientes, retrasados (pendientes con más de 15 min), atascados (en `enviando` más de `ENVIANDO_MAX_MINUTOS`) y con error (7 días).
 - Cada indicador con semáforo de ícono + palabra («Bien» / «Revisar»).
+- **Últimos 30 días** (gráficos con `src/components/ui/chart.tsx` + recharts, colores `--chart-1`/`--chart-2`; la 2.ª serie además punteada y con leyenda):
+  - ingresos diarios (personas distintas por `login_intentos.user_id`, día en hora de Lima);
+  - correos enviados frente a abiertos por día;
+  - alumnos activos por colegio (barras horizontales, los 8 mayores + «Otros»).
+  Cada gráfico tiene una tabla `sr-only` con los mismos datos y un total de 30 días en texto (`serieDiariaPlataforma`).
 - Lista de colegios con buscador (nombre, subdominio o ciudad) y botón «Nuevo colegio».
 
 ### Crear colegio (`/colegios/nuevo`)
@@ -54,18 +59,27 @@ Que el equipo de Khipu cree colegios (tenants), los monitoree y gestione su cicl
 6. **Primer ingreso:** el botón lleva al subdominio → `/login?colegio=<slug>` → con correo + DNI → `/cambiar-password` (no puede contener el documento) → `/entrando` → `/inicio` del colegio.
 
 ### Reporte de colegios (`/colegios`)
-- **Tabla:** colegio, subdominio, plan, estado, alumnos, profesores, familias, último ingreso (de cualquier miembro), asistencia registrada (7 días), avisos y apertura (7 días), rebotes y fecha de alta.
+- **Tabla:** colegio, subdominio, plan, estado, alumnos, profesores, familias, último ingreso (máximo `ultimo_ingreso_at` de los perfiles con membresía activa en ese colegio), asistencia registrada (7 días), avisos y apertura (7 días), rebotes y fecha de alta. `FilaReporte.usuariosActivos7d`: perfiles con membresía activa en el colegio e ingreso en los últimos 7 días.
 - **Filtros:** texto (nombre, subdominio o ciudad), plan y estado.
 - **CSV:** `/colegios/reporte.csv` con los mismos filtros (UTF-8 con BOM, celdas que empiezan con `= + - @` se anteponen con `'`).
 
 ### Detalle (`/colegios/[id]`)
 - Insignia, nombre, eslogan, estado, plan, ciudad, alta y enlace al subdominio.
-- Resumen (alumnos, profesores, familias, asistencia, apertura y último ingreso).
-- Métricas de los últimos 30 días por semana: asistencia registrada, correos enviados, apertura, rebotes y quejas, ingresos.
+- Resumen (alumnos, profesores, familias, usuarios activos 7 d, asistencia, apertura y último ingreso).
+- Últimos 30 días en gráficos diarios: ingresos (`login_intentos.user_id` de miembros activos del colegio), correos enviados frente a abiertos y asistencia registrada (cada uno con tabla `sr-only`). La tabla por semana sigue disponible en «Ver la tabla por semana» (`<details>`).
 - Administradores: nombre, cargo, correo y si ya cambió su contraseña inicial.
 - Acciones (todas auditadas): cambiar plan, cambiar estado (piloto, activo o suspendido), editar datos, cambiar insignia, reenviar la bienvenida, agregar otro administrador, exportar ZIP (`/colegios/[id]/exportar`, asíncrono).
-- Bitácora de la plataforma para ese colegio (últimas 20 acciones).
+- Bitácora de la plataforma para ese colegio (últimas 20 acciones; filtra y ordena por `(tenant_id, created_at)`, que tiene índice).
 - **Borrado:** solo con el script `khipu:borrar-colegio`; el panel no borra.
+
+### Acceso de soporte (`AccesoSoporte`, tabla `accesos_soporte`)
+1. En la ficha, «Entrar como soporte» abre un `Dialog` con **motivo** (obligatorio, 5–300 caracteres) y duración (30, 60 o 120 min). No aparece si el colegio está suspendido o si ya hay un acceso vigente.
+2. `iniciarAccesoSoporte()` cierra cualquier acceso abierto del mismo administrador en ese colegio, crea el `AccesoSoporte` (`inicioAt`, `expiraAt`), audita `soporte_inicio` (motivo y minutos) y la action redirige a `<slug>.<dominio>/inicio`.
+3. `requireTenantContext` (`resolverContextoColegio` en `tenant.ts`): si el usuario **no** tiene membresía activa pero es super administrador activo con un acceso **vigente** (sin `cerradoAt` y `expiraAt` futuro) en ese colegio, arma un contexto con rol `direccion`, una membresía sintética (`MEMBERSHIP_SOPORTE_ID`, cargo «Soporte Khipu»), `ctx.soporte = { accesoId, expiraAt }` y **`ctx.db` de solo lectura** (`dbTenant(id, { soloLectura: true })`): create, createMany(AndReturn), update, updateMany(AndReturn), upsert, delete y deleteMany lanzan `ErrorSoloLectura` («Modo soporte: solo lectura»), también sobre modelos globales. Vencido, cerrado, admin inactivo o un usuario que no es admin con un `AccesoSoporte` a su nombre → 403.
+4. **Privacidad:** en modo soporte `requireFeature`/`tieneFeature` (`plan.ts`, `FEATURES_PRIVADAS_SOPORTE`) niegan `mensajes`, `notas`, `libreta` y `nudito` aunque el plan los incluya (todas sus páginas, actions y route handlers ya llaman a `requireFeature`). La exportación ZIP del colegio (`/api/exportar`) también se niega. La barra lateral oculta esos módulos.
+5. Cada request en modo soporte registra `auditar({ accion: "soporte_ver", entidad: "colegio", detalle: { accesoId } })` en la auditoría **del colegio** (una vez por request: `contextoDelColegio` está cacheado).
+6. Banner en el layout del colegio: «Modo soporte · solo lectura · vence a las HH:mm · Terminar». «Terminar» es un POST de formulario a `admin.<dominio>/soporte/terminar` (route handler que exige `Origin` de nuestro dominio y `requireAdminPlataforma`), que cierra el acceso, audita `soporte_fin` y vuelve a la ficha. En la ficha también hay «Terminar acceso» (con confirmación).
+7. Si un super administrador además es miembro del colegio, entra con su membresía normal (sin modo soporte).
 
 ## Reglas de negocio
 - Subdominio: 3 a 40 caracteres, `[a-z0-9-]`, sin guion al inicio, al final ni doble; no puede ser `www`, `app`, `api` ni `admin` (`SUBDOMINIOS_RESERVADOS` en `src/lib/dominio.ts`); único.
@@ -73,15 +87,18 @@ Que el equipo de Khipu cree colegios (tenants), los monitoree y gestione su cicl
 - El super administrador no tiene `TenantContext`: las escrituras del colegio usan `dbTenant(tenant.id)` con FK escalares.
 - Exportar desde la plataforma usa la misma cola asíncrona que dirección (spec 15): `/colegios/[id]/exportar` es una página con «Preparar exportación» (`solicitarExportacion`), la lista de exportaciones con su estado y «Descargar» (`/colegios/[id]/exportar/descargar/[exportacionId]`, válido 7 días). Queda en la auditoría del colegio (actor = super administrador, al terminar) y en `auditoria_plataforma` (`exportar_colegio`, al solicitar y al descargar). `exportarColegioDesdePlataforma` (síncrono) se conserva solo para pruebas.
 - Agregar un administrador que ya es dirección activa del colegio → error; si estaba inactivo/invitado, se reactiva.
+- `crearCuentaConDocumento` devuelve `camposCompletados` (datos vacíos de un perfil existente que llenó). Si luego falla `crearColegio` o `agregarAdministrador`, la compensación (`revertirCamposCompletados`) los vuelve a `null`, salvo los que alguien cambió entretanto.
 - Reenviar la bienvenida indica «contraseña inicial = documento» solo si la persona aún no la cambió.
 
 ## Modelo de datos
 - `admins_plataforma` (`userId`, `activo`).
-- `auditoria_plataforma` (`actorId`, `accion`, `tenantId` sin FK, `detalle` JSON).
+- `auditoria_plataforma` (`actorId`, `accion`, `tenantId` sin FK, `detalle` JSON; índice `(tenant_id, created_at)`). Acciones: `crear_colegio`, `cambiar_plan`, `cambiar_estado`, `editar_colegio`, `cambiar_insignia`, `reenviar_bienvenida`, `agregar_administrador`, `exportar_colegio`, `soporte_inicio`, `soporte_fin`.
+- `accesos_soporte` (`tenantId`, `adminId`, `motivo`, `inicioAt`, `expiraAt`, `cerradoAt`).
+- `login_intentos.user_id` (solo ingresos exitosos) y `profiles.ultimo_ingreso_at`, que `iniciarSesion` llena vía `registrarIntentoLogin` (specs/02).
 - `tenants.eslogan`, `tenants.logo_archivo_id`.
 - `profiles.tipo_documento`, `numero_documento`, `debe_cambiar_password`.
 - `memberships.cargo`.
-- Se leen (solo conteos): `alumnos`, `memberships`, `asistencias`, `avisos`, `login_intentos`.
+- Se leen (solo conteos): `alumnos`, `memberships`, `profiles.ultimo_ingreso_at`, `asistencias`, `avisos`, `login_intentos`.
 
 ## Contratos de `src/lib/server`
 ```ts
@@ -100,7 +117,19 @@ exportarColegioDesdePlataforma(admin, tenantId): Promise<{ tenant, zip }>
 metricasPlataforma(admin): Promise<MetricasPlataforma>
 reporteColegios(admin, { q?, plan?, estado? }): Promise<FilaReporte[]>
 detalleColegio(admin, tenantId): Promise<{ tenant, fila, administradores, logoUrl, dias: DiaMetricas[] }>
-auditoriaDelColegio(admin, tenantId, limite?)
+auditoriaDelColegio(admin, tenantId, limite?, desde?)
+serieDiariaPlataforma(admin): Promise<{ fecha, ingresos, enviados, abiertos }[]>   // 30 días
+iniciarAccesoSoporte(admin, tenantId, { motivo, minutos: 30 | 60 | 120 }): Promise<{ accesoId, expiraAt, url }>
+terminarAccesoSoporte(admin, accesoId): Promise<{ tenantId } | null>   // solo accesos propios
+accesoSoporteActual(admin, tenantId)
+
+// src/lib/server/tenant.ts
+resolverContextoColegio(user, slug, rolPreferido?): Promise<TenantContext>   // membresía o soporte vigente; 403/404
+accesoSoporteVigente(userId, tenantId)
+// src/lib/server/db.ts
+dbTenant(tenantId, { soloLectura? }) · ErrorSoloLectura
+// src/lib/server/cuentas.ts
+crearCuentaConDocumento(persona): Promise<{ userId, nueva, camposCompletados }> · revertirCamposCompletados(cuenta, persona)
 
 // src/lib/server/logo.ts (sin TenantContext; los usan dirección y la plataforma)
 validarLogo(buffer) · reemplazarLogo(tenant, buffer, subidoPorId) → archivoId · retirarLogo(tenant)
@@ -116,6 +145,8 @@ aCsv(encabezados, filas)
 - `/colegios` → reporte con filtros y CSV (`/colegios/reporte.csv`, route handler).
 - `/colegios/nuevo` → formulario en dos secciones (Colegio / Administrador principal).
 - `/colegios/[id]` → detalle y acciones; `/colegios/[id]/exportar` → exportaciones del colegio (pedir y descargar el ZIP).
+- `POST /soporte/terminar` → cierra un acceso de soporte desde el banner del colegio.
+- La página 403 global (`src/app/forbidden.tsx`) enlaza a `/` («Volver al inicio»), que existe tanto en el panel como en el colegio.
 - Layout propio: logo de Khipu, etiqueta «Plataforma Khipu», navegación, nombre del usuario y «Salir».
 - En el encabezado del colegio (`src/app/colegio/[slug]/layout.tsx`) se muestra el eslogan bajo el nombre.
 
@@ -136,13 +167,11 @@ aCsv(encabezados, filas)
 
 ## Pruebas
 - unit: `tests/unit/slug-colegio.test.ts` (sugerencia y validación del subdominio, reservados, CSV).
-- integración: `tests/integracion/plataforma-superadmin.test.ts` (403 para no administradores e inactivos, redirect con contraseña inicial, creación completa con aviso sin el DNI, login con el DNI, subdominios inválidos, acciones auditadas, 404 con ids ajenos, ZIP, compensación con cuenta nueva y existente, reportes sin datos de alumnos).
-- e2e: `tests/e2e/plataforma-superadmin.test.ts` (crear colegio con insignia y administrador con DNI → correo en Mailpit con el botón al subdominio → ingreso con DNI → cambio obligatorio de contraseña → `/inicio` del colegio; un usuario de colegio recibe 403 en el panel).
+- integración: `tests/integracion/plataforma-superadmin.test.ts` (403 para no administradores e inactivos, redirect con contraseña inicial, creación completa con aviso sin el DNI, login con el DNI, subdominios inválidos, acciones auditadas, 404 con ids ajenos, ZIP, compensación con cuenta nueva y existente —revierte los datos completados y respeta los que ya tenía—, reportes sin datos de alumnos).
+- integración: `tests/integracion/acceso-soporte.test.ts` (acceso vigente → contexto `direccion` de solo lectura; cada escritura lanza «Modo soporte: solo lectura»; mensajes/notas/libreta/Nudito → 403; `soporte_ver` en la auditoría del colegio; terminado, vencido, admin inactivo o no-admin con un acceso a su nombre → 403; no se cierra un acceso ajeno; login guarda `userId`/`ultimoIngresoAt` y el reporte cuenta activos por membresía; `camposCompletados`).
+- e2e: `tests/e2e/plataforma-superadmin.test.ts` (crear colegio con insignia y administrador con DNI → correo en Mailpit con el botón al subdominio → ingreso con DNI → cambio obligatorio de contraseña → `/inicio` del colegio; un usuario de colegio recibe 403 en el panel; modo soporte: gráficos en la vista principal, «Entrar como soporte» con motivo → banner en el colegio, `/mensajes` y `/notas` → 403, «Terminar» → vuelve a la ficha y el colegio da 403).
 
 ## Pendientes
-- `login_intentos` no guarda `userId` ni colegio: «usuarios activos» y «último ingreso» se calculan por correo. Si una persona está en varios colegios, su ingreso cuenta para todos.
-- `profiles` no tiene `ultimo_ingreso`; las consultas por colegio hacen join por correo (bien para el piloto, revisar con volumen).
-- `auditoria_plataforma` no tiene índice por `tenant_id` (la bitácora del detalle filtra por él).
-- `crearCuentaConDocumento` completa datos vacíos de un perfil existente (p. ej. el documento); la compensación no los revierte.
-- La página 403 global enlaza a `/inicio`, que no existe en el panel.
-- Métricas de 30 días como tabla semanal; un gráfico queda para después.
+- Pendiente de producto: el acceso de soporte no avisa a la dirección del colegio (correo o aviso en su panel) cuando el equipo Khipu entra; la entrada queda solo en su auditoría.
+- `login_intentos` anteriores a la migración `20261027180000_pendientes_v2` no tienen `user_id`: los gráficos de ingresos solo cuentan desde entonces.
+- Los ingresos que no pasan por `iniciarSesion` (p. ej. fijar contraseña desde la invitación) no actualizan `ultimo_ingreso_at`.

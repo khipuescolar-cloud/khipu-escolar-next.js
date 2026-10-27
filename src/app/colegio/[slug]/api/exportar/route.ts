@@ -6,6 +6,6 @@ import { requireTenantContext } from "@/lib/server/tenant";
 export async function GET(request: NextRequest, { params }: RouteContext<"/colegio/[slug]/api/exportar">) {
   const { slug } = await params;
   const ctx = await requireTenantContext(slug);
-  if (ctx.rol !== "direccion") forbidden();
+  if (ctx.rol !== "direccion" || ctx.soporte) forbidden(); // el ZIP incluye chats y notas: nunca en modo soporte
   return NextResponse.redirect(new URL("/configuracion/exportar", request.url));
 }

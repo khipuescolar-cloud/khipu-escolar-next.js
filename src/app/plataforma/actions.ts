@@ -9,8 +9,8 @@ import { cerrarSesion } from "@/lib/server/auth";
 import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
 import {
-  agregarAdministrador, cambiarEstado, cambiarInsignia, cambiarPlan, crearColegio, editarColegio,
-  reenviarBienvenida, requireAdminPlataforma, type EntradaAdministrador,
+  agregarAdministrador, cambiarEstado, cambiarInsignia, cambiarPlan, crearColegio, editarColegio, iniciarAccesoSoporte,
+  reenviarBienvenida, requireAdminPlataforma, terminarAccesoSoporte, type EntradaAdministrador,
 } from "@/lib/server/plataforma";
 
 // Acciones del panel de plataforma (specs/16). Cada una valida al super administrador; los ids del
@@ -146,6 +146,27 @@ export async function reenviarBienvenidaAction(f: FormData) {
     await reenviarBienvenida(admin, tenantId, texto(f, "membershipId"));
     procesarDespues(tenantId);
     return "Volvimos a enviar el correo de bienvenida.";
+  });
+}
+
+/** «Entrar como soporte»: crea el acceso (motivo + duración) y lleva al subdominio del colegio. */
+export async function entrarSoporteAction(_previo: EstadoFormulario, f: FormData): Promise<EstadoFormulario> {
+  const admin = await requireAdminPlataforma();
+  let url = "";
+  const r = await conMensaje(async () => {
+    const acceso = await iniciarAccesoSoporte(admin, texto(f, "tenantId"), { motivo: texto(f, "motivo"), minutos: texto(f, "minutos") });
+    url = acceso.url;
+    return null;
+  });
+  if (r) return r;
+  redirect(url);
+}
+
+export async function terminarSoporteAction(f: FormData) {
+  const admin = await requireAdminPlataforma();
+  await ejecutarYVolver(volver(f), async () => {
+    await terminarAccesoSoporte(admin, texto(f, "accesoId"));
+    return "Acceso de soporte terminado.";
   });
 }
 

@@ -9,8 +9,9 @@ import { Input } from "@/components/ui/input";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import type { EstadoTenant, Plan } from "@/generated/prisma/enums";
 import { NOMBRE_PLAN } from "@/lib/planes";
-import { META_APERTURA, metricasPlataforma, reporteColegios, requireAdminPlataforma } from "@/lib/server/plataforma";
+import { META_APERTURA, metricasPlataforma, reporteColegios, requireAdminPlataforma, serieDiariaPlataforma } from "@/lib/server/plataforma";
 import { cn } from "@/lib/utils";
+import { GraficoBarras, GraficoDiario } from "./_componentes/Graficos";
 import { StatTile, Semaforo } from "./_componentes/StatTile";
 import { EstadoColegio, NOMBRE_ESTADO, PlanColegio, porcentaje } from "./EstadoColegio";
 
@@ -22,7 +23,14 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
   const admin = await requireAdminPlataforma();
   const { q } = await searchParams;
   const busqueda = typeof q === "string" ? q : "";
-  const [m, colegios] = await Promise.all([metricasPlataforma(admin), reporteColegios(admin, { q: busqueda || undefined })]);
+  const [m, serie, todos] = await Promise.all([metricasPlataforma(admin), serieDiariaPlataforma(admin), reporteColegios(admin)]);
+  const colegios = busqueda ? await reporteColegios(admin, { q: busqueda }) : todos;
+  const MAX_BARRAS = 8;
+  const ordenados = [...todos].sort((a, b) => b.alumnos - a.alumnos);
+  const alumnosPorColegio = ordenados.slice(0, MAX_BARRAS).map((c) => ({ nombre: c.nombre, valor: c.alumnos }));
+  if (ordenados.length > MAX_BARRAS) {
+    alumnosPorColegio.push({ nombre: `Otros (${ordenados.length - MAX_BARRAS})`, valor: ordenados.slice(MAX_BARRAS).reduce((s, c) => s + c.alumnos, 0) });
+  }
   const usoCorreo = m.limiteDiario > 0 ? m.correos24h / m.limiteDiario : 0;
 
   return (
@@ -50,7 +58,7 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
           </StatTile>
           <StatTile titulo="Alumnos activos" valor={numero(m.alumnos)} Icono={Users} />
           <StatTile titulo="Usuarios activos (7 días)" valor={numero(m.usuariosActivos7d)} Icono={UserCheck}>
-            Personas que iniciaron sesión con éxito.
+            Personas de algún colegio que ingresaron en los últimos 7 días.
           </StatTile>
           <StatTile titulo="Correos (últimas 24 h)" valor={`${numero(m.correos24h)} / ${numero(m.limiteDiario)}`} Icono={Send}>
             <Semaforo bien={usoCorreo < 0.8} texto={`${porcentaje(usoCorreo)} del tope diario`} />
@@ -71,6 +79,32 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
               texto={`${m.cola.vencidos} retrasados, ${m.cola.atascados} atascados, ${m.cola.errores7d} con error (7 días)`}
             />
           </StatTile>
+        </div>
+      </section>
+
+      <section aria-labelledby="ultimos-30" className="flex flex-col gap-3">
+        <h2 id="ultimos-30" className="text-xl font-semibold">Últimos 30 días</h2>
+        <div className="grid gap-4 lg:grid-cols-2">
+          <GraficoDiario
+            titulo="Ingresos diarios"
+            descripcion="Personas distintas que iniciaron sesión cada día."
+            datos={serie}
+            series={[{ clave: "ingresos", etiqueta: "Ingresos", color: "var(--chart-1)" }]}
+          />
+          <GraficoDiario
+            titulo="Correos enviados y abiertos"
+            descripcion="Avisos por correo de todos los colegios."
+            datos={serie}
+            series={[
+              { clave: "enviados", etiqueta: "Enviados", color: "var(--chart-1)" },
+              { clave: "abiertos", etiqueta: "Abiertos", color: "var(--chart-2)", punteada: true },
+            ]}
+          />
+          {alumnosPorColegio.length > 0 && (
+            <div className="lg:col-span-2">
+              <GraficoBarras titulo="Alumnos activos por colegio" descripcion="Los colegios con más alumnos." datos={alumnosPorColegio} etiqueta="Alumnos" />
+            </div>
+          )}
         </div>
       </section>
 

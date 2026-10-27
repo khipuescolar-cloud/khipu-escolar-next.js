@@ -6,7 +6,7 @@ import { requireTenantContext } from "@/lib/server/tenant";
 export async function GET(_request: Request, { params }: RouteContext<"/colegio/[slug]/api/exportar/[id]">) {
   const { slug, id } = await params;
   const ctx = await requireTenantContext(slug);
-  if (ctx.rol !== "direccion") forbidden();
+  if (ctx.rol !== "direccion" || ctx.soporte) forbidden(); // el ZIP incluye chats y notas: nunca en modo soporte
   const lista = await exportacionDescargable(ctx.tenant.id, id);
   if (!lista) notFound();
   await auditarDescargaExportacion(ctx, lista.exportacion.id);

@@ -49,11 +49,15 @@ export type DatosPersona = z.input<typeof esquemaPersona>;
 
 export class ErrorCuenta extends Error {}
 
+/** Resultado de `crearCuentaConDocumento`. `camposCompletados`: campos del perfil existente que estaban vacíos y se llenaron. */
+export type CuentaCreada = { userId: string; nueva: boolean; camposCompletados: string[] };
+
 /**
  * Crea (o reutiliza) el usuario global. Si el correo ya tenía cuenta, NO cambia su contraseña
- * (puede tener hijos o trabajar en otro colegio); solo completa datos personales vacíos.
+ * (puede tener hijos o trabajar en otro colegio); solo completa datos personales vacíos y devuelve
+ * cuáles llenó, para que una compensación pueda revertirlos (`revertirCamposCompletados`).
  */
-export async function crearCuentaConDocumento(entrada: DatosPersona): Promise<{ userId: string; nueva: boolean }> {
+export async function crearCuentaConDocumento(entrada: DatosPersona): Promise<CuentaCreada> {
   const r = esquemaPersona.safeParse(entrada);
   if (!r.success) throw new ErrorCuenta(r.error.issues[0].message);
   const d = r.data;
@@ -73,8 +77,9 @@ export async function crearCuentaConDocumento(entrada: DatosPersona): Promise<{ 
     const completar = Object.fromEntries(
       Object.entries(datosPerfil).filter(([k, v]) => v !== null && (existente as Record<string, unknown>)[k] == null),
     );
-    if (Object.keys(completar).length) await db.profile.update({ where: { id: existente.id }, data: completar });
-    return { userId: existente.id, nueva: false };
+    const camposCompletados = Object.keys(completar);
+    if (camposCompletados.length) await db.profile.update({ where: { id: existente.id }, data: completar });
+    return { userId: existente.id, nueva: false, camposCompletados };
   }
 
   const { data, error } = await supabaseAdmin().auth.admin.createUser({
@@ -89,7 +94,37 @@ export async function crearCuentaConDocumento(entrada: DatosPersona): Promise<{ 
     );
   }
   await db.profile.create({ data: { id: data.user.id, email: d.email, ...datosPerfil, debeCambiarPassword: true } });
-  return { userId: data.user.id, nueva: true };
+  return { userId: data.user.id, nueva: true, camposCompletados: [] };
+}
+
+/**
+ * Compensación: vuelve a `null` los campos que `crearCuentaConDocumento` llenó en un perfil existente.
+ * Solo toca los que siguen con el valor que se escribió (si alguien los cambió después, se respetan).
+ */
+export async function revertirCamposCompletados(cuenta: CuentaCreada, entrada: DatosPersona): Promise<void> {
+  if (cuenta.nueva || cuenta.camposCompletados.length === 0) return;
+  const actual = await db.profile.findUnique({ where: { id: cuenta.userId } });
+  if (!actual) return;
+  const r = esquemaPersona.safeParse(entrada);
+  const escritos: Record<string, unknown> = r.success
+    ? {
+        telefono: r.data.telefono ?? null,
+        genero: r.data.genero ?? null,
+        tipoDocumento: r.data.tipoDocumento,
+        numeroDocumento: r.data.numeroDocumento,
+        fechaNacimiento: r.data.fechaNacimiento ? new Date(`${r.data.fechaNacimiento}T00:00:00.000Z`).getTime() : null,
+        direccion: r.data.direccion ?? null,
+        nombres: r.data.nombres,
+        apellidos: r.data.apellidos,
+      }
+    : {};
+  const comparable = (v: unknown) => (v instanceof Date ? v.getTime() : v);
+  const datos = Object.fromEntries(
+    cuenta.camposCompletados
+      .filter((k) => !(k in escritos) || comparable((actual as Record<string, unknown>)[k]) === escritos[k])
+      .map((k) => [k, null]),
+  );
+  if (Object.keys(datos).length) await db.profile.update({ where: { id: cuenta.userId }, data: datos });
 }
 
 /** Encola el correo de bienvenida con el usuario y la indicación de la contraseña (sin el número). */

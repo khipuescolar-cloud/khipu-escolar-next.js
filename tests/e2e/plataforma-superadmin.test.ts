@@ -129,3 +129,50 @@ test("un usuario de colegio no puede entrar al panel de plataforma", async ({ pa
   expect(res?.status()).toBe(403);
   await expect(page.getByText("No tienes acceso a esta sección")).toBeVisible();
 });
+
+test("el super administrador entra a un colegio como soporte en solo lectura y sin chats", async ({ page }) => {
+  const motivo = `Prueba e2e de soporte ${sufijo}`;
+  try {
+    await page.goto("/login");
+    await page.getByLabel("Correo").fill("admin@khipuescolar.demo");
+    await page.getByLabel("Contraseña").fill("demo123");
+    await page.getByRole("button", { name: "Entrar" }).click();
+    await page.waitForURL(`http://admin.${BASE}/`);
+    await expect(page.getByRole("heading", { name: "Ingresos diarios" })).toBeVisible();
+
+    await page.goto(`http://admin.${BASE}/colegios?q=nuevohorizonte`);
+    await page.getByRole("main").getByRole("link", { name: /Nuevo Horizonte/ }).first().click();
+    await page.waitForURL(/\/colegios\/[0-9a-f-]{36}/);
+    const ficha = page.url();
+
+    await page.getByRole("button", { name: "Entrar como soporte" }).click();
+    const dialogo = page.getByRole("dialog");
+    await dialogo.getByLabel("Motivo").fill(motivo);
+    await dialogo.getByLabel("Duración").selectOption("30");
+    await dialogo.getByRole("button", { name: "Entrar en solo lectura" }).click();
+
+    await page.waitForURL(`http://nuevohorizonte.${BASE}/inicio`);
+    await expect(page.getByTestId("banner-soporte")).toContainText("Modo soporte · solo lectura · vence a las");
+
+    const res = await page.goto(`http://nuevohorizonte.${BASE}/mensajes`);
+    expect(res?.status()).toBe(403);
+    const notas = await page.goto(`http://nuevohorizonte.${BASE}/notas`);
+    expect(notas?.status()).toBe(403);
+
+    await page.goto(`http://nuevohorizonte.${BASE}/inicio`);
+    await page.getByTestId("banner-soporte").getByRole("button", { name: "Terminar" }).click();
+    await page.waitForURL(`${ficha.split("?")[0]}?ok=*`);
+    await expect(page.getByText("Acceso de soporte terminado.")).toBeVisible();
+    const sinAcceso = await page.goto(`http://nuevohorizonte.${BASE}/inicio`);
+    expect(sinAcceso?.status()).toBe(403);
+  } finally {
+    const cliente = new Client({ connectionString: process.env.DATABASE_URL });
+    await cliente.connect();
+    const { rows } = await cliente.query<{ id: string }>("select id::text from accesos_soporte where motivo = $1", [motivo]);
+    const ids = rows.map((r) => r.id);
+    await cliente.query("delete from auditoria where accion = 'soporte_ver' and detalle->>'accesoId' = any($1::text[])", [ids]);
+    await cliente.query("delete from auditoria_plataforma where detalle->>'accesoId' = any($1::text[])", [ids]);
+    await cliente.query("delete from accesos_soporte where id = any($1::uuid[])", [ids]);
+    await cliente.end();
+  }
+});

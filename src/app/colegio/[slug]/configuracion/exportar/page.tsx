@@ -1,6 +1,7 @@
 import { ArrowLeft, Download, FileArchive, PackagePlus } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { forbidden } from "next/navigation";
 import { EstadoExportacion } from "@/components/exportacion/EstadoExportacion";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -22,6 +23,7 @@ export default async function ExportarPage({ params, searchParams }: PageProps<"
   const { slug } = await params;
   const { ok, error } = await searchParams;
   const ctx = await requireTenantContext(slug, ["direccion"]);
+  if (ctx.soporte) forbidden(); // el ZIP incluye chats y notas: nunca en modo soporte
   const filas = await listarExportaciones(ctx.tenant.id);
   const enCurso = filas.some((f) => f.estado === "pendiente" || f.estado === "procesando");
 

@@ -1,5 +1,6 @@
 import "server-only";
 import { strToU8, zipSync } from "fflate";
+import { forbidden } from "next/navigation";
 import { Prisma, type Archivo, type ExportacionColegio, type Membership } from "@/generated/prisma/client";
 import { auditar } from "./auditoria";
 import { db, dbTenant, MODELOS_GLOBALES } from "./db";
@@ -125,6 +126,7 @@ export async function solicitarExportacion(tenantId: string, solicitadoPorId: st
 /** Solicitud desde el colegio: solo dirección. */
 export async function solicitarExportacionDireccion(ctx: TenantContext): Promise<ExportacionColegio> {
   requireRol(ctx, ["direccion"]);
+  if (ctx.soporte) forbidden(); // el ZIP incluye chats y notas: nunca en modo soporte (specs/16)
   return solicitarExportacion(ctx.tenant.id, ctx.user.id);
 }
 

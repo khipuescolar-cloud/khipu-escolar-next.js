@@ -1,6 +1,6 @@
 # 01 — Arquitectura multitenant
 
-> Estado: implementado (base) · Plan: todos · Última actualización: 2026-10-26 (Claude Code)
+> Estado: implementado (base) · Plan: todos · Última actualización: 2026-10-27 (Claude Code · modo soporte)
 
 ## Objetivo
 Un solo sistema para muchos colegios (tenants), donde ningún colegio ve datos de otro, y cada colegio tiene su propio subdominio.
@@ -11,7 +11,8 @@ Un solo sistema para muchos colegios (tenants), donde ningún colegio ve datos d
 - Prisma se conecta con un rol que salta RLS. Por eso **el aislamiento real está en `dbTenant(tenantId)`** (`src/lib/server/db.ts`), una extensión de Prisma que:
   - agrega `tenantId` a todo `where` (find, update, delete, count, aggregate, groupBy, upsert);
   - fuerza `tenantId` en `create`, `createMany` y `upsert`;
-  - borra `tenantId` del `data` de los `update` (no se puede mover una fila a otro colegio).
+  - borra `tenantId` del `data` de los `update` (no se puede mover una fila a otro colegio);
+  - con `dbTenant(tenantId, { soloLectura: true })` (modo soporte) lanza `ErrorSoloLectura` («Modo soporte: solo lectura») en toda escritura: create, createMany(AndReturn), update, updateMany(AndReturn), upsert, delete y deleteMany, de cualquier modelo.
 - **Respaldo:** RLS activado y forzado en todas las tablas, sin políticas, con `REVOKE ALL` para `anon` y `authenticated` (migración `rls_cerrado`). Nadie puede leer datos por PostgREST con la clave pública.
 - Modelos globales sin `tenantId`: `Tenant`, `Profile`, `LoginIntento`, `PushSuscripcion`.
 - La lógica de negocio va en `src/lib/server/*`, para poder migrar a Go cambiando solo esa capa.
@@ -26,9 +27,10 @@ Un solo sistema para muchos colegios (tenants), donde ningún colegio ve datos d
 ## Contexto por request
 ```ts
 const ctx = await requireTenantContext(slug, rolesPermitidos?)
-// ctx: { tenant, user (Profile), membership, rol, roles, db (dbTenant) }
+// ctx: { tenant, user (Profile), membership, rol, roles, db (dbTenant), soporte?: { accesoId, expiraAt } }
 ```
-- Verifica la sesión con `supabase.auth.getUser()`, el colegio (no suspendido) y una membresía `activa`.
+- Verifica la sesión con `supabase.auth.getUser()`, el colegio (no suspendido) y una membresía `activa`. La lógica sin cookies está en `resolverContextoColegio(user, slug, rolPreferido?)`.
+- **Modo soporte (specs/16):** sin membresía, un super administrador activo con un `AccesoSoporte` vigente para ese colegio recibe rol `direccion`, `ctx.soporte` y `ctx.db` de solo lectura; `requireFeature` le niega `mensajes`, `notas`, `libreta` y `nudito`, y cada request se audita como `soporte_ver` en la auditoría del colegio.
 - Si el usuario tiene varios roles en el colegio, se usa la cookie `khipu_rol` o la prioridad: dirección > profesor > portería > apoderado > alumno.
 - Alcance por rol (`tenant.ts`):
   - `salonIdsVisibles`: dirección y portería ven todos; el profesor, donde es tutor o dicta; el apoderado, los salones de sus hijos.

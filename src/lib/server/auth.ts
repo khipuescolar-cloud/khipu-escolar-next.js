@@ -74,20 +74,31 @@ export async function activarInvitaciones(userId: string): Promise<number> {
   return r.count;
 }
 
+/**
+ * Registra el intento en `login_intentos`. Si fue exitoso guarda el `userId` y actualiza
+ * `profiles.ultimo_ingreso_at` (base de «usuarios activos» y «último ingreso», specs/16).
+ */
+export async function registrarIntentoLogin(intento: { email: string; ip: string; userId: string | null }, ahora = new Date()): Promise<void> {
+  const { email, ip, userId } = intento;
+  await db.loginIntento.create({ data: { email, ip, exito: userId !== null, userId, createdAt: ahora } });
+  if (userId) await db.profile.updateMany({ where: { id: userId }, data: { ultimoIngresoAt: ahora } });
+}
+
 export async function iniciarSesion(emailCrudo: string, password: string, ip: string): Promise<ResultadoLogin> {
   const email = emailCrudo.trim().toLowerCase();
   if (await estaBloqueado(email, ip)) return { ok: false, error: "bloqueado" };
 
   const supabase = await supabaseServidor();
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-  await db.loginIntento.create({ data: { email, ip, exito: !error } });
-  if (error || !data.user) return { ok: false, error: "credenciales" };
+  const usuario = error ? null : data.user;
+  await registrarIntentoLogin({ email, ip, userId: usuario?.id ?? null });
+  if (!usuario) return { ok: false, error: "credenciales" };
 
-  await activarInvitaciones(data.user.id);
-  const perfil = await db.profile.findUnique({ where: { id: data.user.id }, select: { debeCambiarPassword: true } });
+  await activarInvitaciones(usuario.id);
+  const perfil = await db.profile.findUnique({ where: { id: usuario.id }, select: { debeCambiarPassword: true } });
   const debeCambiarPassword = perfil?.debeCambiarPassword ?? false;
-  if (await esAdminPlataforma(data.user.id)) return { ok: true, destino: { tipo: "plataforma" }, debeCambiarPassword };
-  const destino = await resolverDestino(data.user.id, email);
+  if (await esAdminPlataforma(usuario.id)) return { ok: true, destino: { tipo: "plataforma" }, debeCambiarPassword };
+  const destino = await resolverDestino(usuario.id, email);
   if (!destino) {
     await supabase.auth.signOut();
     return { ok: false, error: "sin-colegio" };
