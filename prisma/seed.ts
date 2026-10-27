@@ -255,6 +255,14 @@ async function main() {
   const familiaBenites = await membresia(lo.id, await usuario("familia.benites@familia.demo", "Lucía", "Sosa"), "apoderado");
   await vincularApoderado(lo.id, familiaBenites.id, alumnosLo[0].id, "madre");
 
+  // Trato en la interfaz («Tutora» / «Tutor»).
+  for (const [genero, emails] of [
+    ["femenino", ["lucia.garcia@nuevohorizonte.demo", "direccion@nuevohorizonte.demo", "direccion@losolivos.demo", "ana.paredes@losolivos.demo", "rosa.quispe@gmail.com", "familia.benites@familia.demo"]],
+    ["masculino", ["pedro.salas@nuevohorizonte.demo", "jorge.ramos@academiaeuler.demo", "direccion@academiaeuler.demo", "porteria@nuevohorizonte.demo", "familia.rios@familia.demo"]],
+  ] as const) {
+    await prisma.profile.updateMany({ where: { email: { in: [...emails] } }, data: { genero } });
+  }
+
   console.log("Seed listo. Cuentas (contraseña demo123):");
   console.log("  lucia.garcia@nuevohorizonte.demo  profesora · Pro Max");
   console.log("  direccion@nuevohorizonte.demo     dirección · Pro Max");

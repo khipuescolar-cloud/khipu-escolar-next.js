@@ -79,6 +79,9 @@ enum TipoAviso {
   mensaje
   comunicado
   invitacion
+  justificacion
+  tarea
+  alerta_direccion
 }
 
 enum CanalAviso {
@@ -88,6 +91,7 @@ enum CanalAviso {
 
 enum EstadoAviso {
   pendiente
+  enviando // reservado por un worker; evita envíos duplicados
   enviado
   entregado
   abierto
@@ -95,6 +99,13 @@ enum EstadoAviso {
   queja
   error
   omitido
+}
+
+/// Para el trato en la interfaz («Tutora» / «Tutor»). Opcional.
+enum Genero {
+  femenino
+  masculino
+  no_especifica
 }
 
 enum EstadoJustificacion {
@@ -198,6 +209,7 @@ model Profile {
   nombres   String
   apellidos String   @default("")
   telefono  String?
+  genero    Genero?
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
 
   memberships       Membership[]
@@ -418,6 +430,7 @@ model Aviso {
   plantilla         String
   asunto            String
   payload           Json        @default("{}")
+  referenciaId      String?     @map("referencia_id") // conversación, tarea, etc. (para agrupar y limitar avisos)
   providerMessageId String?     @unique @map("provider_message_id")
   estado            EstadoAviso @default(pendiente)
   intentos          Int         @default(0)
@@ -455,16 +468,17 @@ model JustificacionToken {
 }
 
 model Justificacion {
-  id               String              @id @default(uuid()) @db.Uuid
-  tenantId         String              @map("tenant_id") @db.Uuid
-  asistenciaId     String              @map("asistencia_id") @db.Uuid
-  apoderadoId      String              @map("apoderado_id") @db.Uuid
-  motivo           String
-  adjuntoArchivoId String?             @map("adjunto_archivo_id") @db.Uuid
-  estado           EstadoJustificacion @default(pendiente)
-  revisadoPorId    String?             @map("revisado_por") @db.Uuid
-  revisadoAt       DateTime?           @map("revisado_at") @db.Timestamptz
-  createdAt        DateTime            @default(now()) @map("created_at") @db.Timestamptz
+  id                 String              @id @default(uuid()) @db.Uuid
+  tenantId           String              @map("tenant_id") @db.Uuid
+  asistenciaId       String              @map("asistencia_id") @db.Uuid
+  apoderadoId        String              @map("apoderado_id") @db.Uuid
+  motivo             String
+  adjuntoArchivoId   String?             @map("adjunto_archivo_id") @db.Uuid
+  estado             EstadoJustificacion @default(pendiente)
+  comentarioRevision String?             @map("comentario_revision")
+  revisadoPorId      String?             @map("revisado_por") @db.Uuid
+  revisadoAt         DateTime?           @map("revisado_at") @db.Timestamptz
+  createdAt          DateTime            @default(now()) @map("created_at") @db.Timestamptz
 
   tenant      Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   asistencia  Asistencia  @relation(fields: [asistenciaId], references: [id], onDelete: Cascade)
@@ -774,6 +788,7 @@ model NuditoMensaje {
   cuerpo         String
   intencion      String?
   derivado       Boolean     @default(false)
+  acciones       Json? // botones de la respuesta (abrir_chat, elegir_hijo, ir)
   createdAt      DateTime    @default(now()) @map("created_at") @db.Timestamptz
 
   tenant       Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
