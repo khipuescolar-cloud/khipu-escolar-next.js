@@ -138,6 +138,10 @@ Interlineado 1.5 en cuerpo, máximo `max-w-prose` para párrafos largos. Nada de
 | Acciones por fila con confirmación o formulario | `gestion/_componentes/AccionesFila` (menú `MoreHorizontal` con enlaces, paneles y `AlertDialog`) | Las acciones destructivas van en rojo y con verbo concreto |
 | Persona (alumno, profesor, familia) | `AvatarPersona` (iniciales, sin fotos) + `InsigniaEstado` | |
 | Pestañas de sección (gestión) | `gestion/_componentes/NavGestion` (subrayado índigo, `aria-current`; oculto en el hub) | |
+| Formulario corto en modal con server action | `DialogoAccion` (`components/academico`) | Botón disparador + `Dialog`; éxito → toast y cierra; error → `Alerta` dentro. Se usa en notas, tareas, agenda y periodos |
+| Rejilla de notas editable | `GrillaNotas` (`notas/`) dentro de tarjeta con `overflow-x-auto` | Primera columna fija, celdas de 40 px, guarda al cambiar/salir del campo, estado «Guardando/Guardado» con ícono + palabra |
+| Secciones o periodos por enlace | `NavegacionPildoras` (`components/academico`) | Píldoras con `aria-current`; activa en `primary` |
+| Fecha de entrega / tipo de evento | Insignia con ícono + palabra (`FechaEntrega` en tareas, `TIPOS` en agenda) | `falta` vencida, `tarde` hoy/mañana, `muted` resto |
 
 ## 9. Movimiento
 

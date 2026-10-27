@@ -29,5 +29,5 @@ export function Calificacion({ valor }: { valor: ValorCalificacion }) {
       </span>
     );
   }
-  return <span className="text-xs text-pizarra">Sin calificar</span>;
+  return <span className="text-xs text-muted-foreground">Sin calificar</span>;
 }

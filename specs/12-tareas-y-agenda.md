@@ -48,6 +48,8 @@ eliminarEvento(ctx, eventoId): Resultado
 - `/tareas` (profesor, dirección, apoderado) · `/agenda` (los mismos). Acciones en `tareas/actions.ts` y `agenda/actions.ts`.
 
 ## Textos y UX
+
+- **Diseño (spec 18):** «Nueva tarea» y «Nuevo evento» están en el encabezado y abren un `Dialog`; editar tarea/evento también es un `Dialog`; eliminar pide confirmación (`BotonConfirmar`, botón «Eliminar tarea»/«Eliminar evento»). Tareas como tarjetas con insignia de fecha (ícono + palabra); agenda por día con insignia de tipo y mini calendario con celdas de 40 px.
 - Tipos con ícono + palabra: Evento, Reunión, Examen, Feriado, Actividad, Entrega de tarea.
 - Familias: «Lo que tus hijos tienen que entregar.» / «No tiene tareas pendientes.»
 - Casilla: «Avisar a las familias» · «Las familias reciben un aviso por correo o en el celular con esta tarea.»

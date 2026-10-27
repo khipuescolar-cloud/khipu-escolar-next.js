@@ -1,9 +1,16 @@
-import { CalendarDays, Lock, Plus } from "lucide-react";
+import { BookMarked, CalendarDays, GraduationCap, Info, Lock, Pencil, Plus, Target } from "lucide-react";
 import Link from "next/link";
+import { DialogoAccion } from "@/components/academico/DialogoAccion";
+import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
 import { Alerta } from "@/components/ui/Alerta";
+import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
-import { Tarjeta } from "@/components/ui/Tarjeta";
-import { FormAccion } from "@/components/FormAccion";
+import { Selector } from "@/components/ui/Selector";
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
+import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { ETIQUETA_LITERAL, LITERALES, formatearNumero } from "@/lib/calificaciones";
 import { fechaLima } from "@/lib/fechas";
 import { calificacionesPeriodo, cursosDelDocente, grillaNotas, listarPeriodos, periodoEnCurso } from "@/lib/server/notas";
@@ -30,76 +37,69 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
   const seccion = SECCIONES.find((s) => s.id === uno(sp.seccion))?.id ?? "notas";
   const esDireccion = ctx.rol === "direccion";
 
-  const encabezado = (
-    <div className="flex flex-wrap items-start justify-between gap-3">
-      <div>
-        <h1 className="text-2xl font-bold">Notas</h1>
-        <p className="text-sm text-pizarra">
-          Escala {ctx.tenant.escalaCalificacion === "literal" ? "literal (AD, A, B, C)" : "vigesimal (0 a 20)"}.
-        </p>
-      </div>
-      {esDireccion && (
-        <Link href="/notas/periodos" className="inline-flex items-center gap-2 rounded-md border border-arena bg-superficie px-4 py-2.5 text-sm font-semibold hover:bg-superficie-2">
-          <CalendarDays className="h-4 w-4" strokeWidth={2} aria-hidden /> Gestionar periodos
-        </Link>
-      )}
-    </div>
+  const descripcion = `Escala ${ctx.tenant.escalaCalificacion === "literal" ? "literal (AD, A, B, C)" : "vigesimal (0 a 20)"}.`;
+  const botonPeriodos = esDireccion && (
+    <Link href="/notas/periodos" className={buttonVariants({ variant: "outline" })}>
+      <CalendarDays strokeWidth={2} aria-hidden /> Gestionar periodos
+    </Link>
   );
 
   if (!curso || !periodo) {
     return (
-      <div className="flex flex-col gap-4">
-        {encabezado}
-        <Alerta tipo="info">
-          {!curso ? "Todavía no tienes cursos asignados." : "Dirección aún no ha creado los periodos del año."}
-        </Alerta>
+      <div>
+        <EncabezadoPagina titulo="Notas" descripcion={descripcion} acciones={botonPeriodos} />
+        <EstadoVacio
+          icono={!curso ? GraduationCap : CalendarDays}
+          titulo={!curso ? "Todavía no tienes cursos asignados" : "Aún no hay periodos del año"}
+          descripcion={!curso ? "Cuando dirección te asigne un curso, podrás registrar notas aquí." : "Dirección aún no ha creado los periodos del año."}
+        />
       </div>
     );
   }
 
   const base = `curso=${curso.id}&periodo=${periodo.id}`;
+  const puedeCrear = ctx.rol === "profesor" && !periodo.cerrado && seccion === "notas";
 
   return (
     <div className="flex flex-col gap-5">
-      {encabezado}
+      <EncabezadoPagina
+        titulo="Notas"
+        descripcion={descripcion}
+        acciones={
+          <>
+            {botonPeriodos}
+            {puedeCrear && <BotonNuevaEvaluacion slug={slug} ctx={ctx} cursoId={curso.id} periodoId={periodo.id} />}
+          </>
+        }
+      />
 
-      <form method="get" className="flex flex-wrap items-end gap-3 rounded-lg border border-arena bg-superficie p-4">
-        <input type="hidden" name="seccion" value={seccion} />
-        <label className="flex flex-col gap-1.5 text-sm">
-          <span className="font-medium">Curso</span>
-          <select name="curso" defaultValue={curso.id} className="rounded-md border border-arena bg-superficie px-3 py-2.5">
-            {cursos.map((c) => <option key={c.id} value={c.id}>{c.nombre} · {c.salon.nombre}</option>)}
-          </select>
-        </label>
-        <label className="flex flex-col gap-1.5 text-sm">
-          <span className="font-medium">Periodo</span>
-          <select name="periodo" defaultValue={periodo.id} className="rounded-md border border-arena bg-superficie px-3 py-2.5">
-            {periodos.map((p) => <option key={p.id} value={p.id}>{p.nombre} {p.anio}{p.cerrado ? " (cerrado)" : ""}</option>)}
-          </select>
-        </label>
-        <button className="rounded-md bg-acento px-4 py-2.5 text-sm font-semibold text-sobre-acento hover:opacity-90">Ver</button>
-      </form>
+      <Card>
+        <CardContent>
+          <form method="get" className="grid gap-3 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
+            <input type="hidden" name="seccion" value={seccion} />
+            <Selector etiqueta="Curso" name="curso" defaultValue={curso.id}>
+              {cursos.map((c) => <option key={c.id} value={c.id}>{c.nombre} · {c.salon.nombre}</option>)}
+            </Selector>
+            <Selector etiqueta="Periodo" name="periodo" defaultValue={periodo.id}>
+              {periodos.map((p) => <option key={p.id} value={p.id}>{p.nombre} {p.anio}{p.cerrado ? " (cerrado)" : ""}</option>)}
+            </Selector>
+            <Boton type="submit">Ver</Boton>
+          </form>
+        </CardContent>
+      </Card>
 
       {periodo.cerrado && (
-        <div className="flex items-center gap-2 rounded-md bg-superficie-2 px-3 py-2.5 text-sm">
-          <Lock className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden />
-          <p><span className="font-semibold">Periodo cerrado.</span> Solo puedes mirar las notas; ya no se pueden cambiar.</p>
-        </div>
+        <Alerta tipo="aviso">
+          <Lock className="mr-1 inline size-3.5 align-[-2px]" strokeWidth={2} aria-hidden />
+          <strong>Periodo cerrado.</strong> Solo puedes mirar las notas; ya no se pueden cambiar.
+        </Alerta>
       )}
       {esDireccion && !periodo.cerrado && <Alerta tipo="info">Estás viendo las notas como dirección. Solo los profesores del curso pueden editarlas.</Alerta>}
 
-      <nav aria-label="Secciones" className="flex flex-wrap gap-2">
-        {SECCIONES.map((s) => (
-          <Link
-            key={s.id}
-            href={`/notas?${base}&seccion=${s.id}`}
-            aria-current={s.id === seccion ? "page" : undefined}
-            className={`rounded-pildora px-4 py-2 text-sm font-semibold ${s.id === seccion ? "bg-acento text-sobre-acento" : "border border-arena bg-superficie hover:bg-superficie-2"}`}
-          >
-            {s.nombre}
-          </Link>
-        ))}
-      </nav>
+      <NavegacionPildoras
+        etiqueta="Secciones"
+        items={SECCIONES.map((s) => ({ href: `/notas?${base}&seccion=${s.id}`, texto: s.nombre, activo: s.id === seccion }))}
+      />
 
       {seccion === "notas" && <SeccionNotas ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} />}
       {seccion === "periodo" && <SeccionPeriodo ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} sp={sp} />}
@@ -108,63 +108,88 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
   );
 }
 
+function SelectCompetencia({ competencias, defecto }: { competencias: { id: string; nombre: string }[]; defecto?: string | null }) {
+  return (
+    <Selector etiqueta="Competencia" name="competenciaId" defaultValue={defecto ?? ""}>
+      <option value="">Sin competencia</option>
+      {competencias.map((c) => <option key={c.id} value={c.id}>{c.nombre}</option>)}
+    </Selector>
+  );
+}
+
+async function BotonNuevaEvaluacion({ slug, ctx, cursoId, periodoId }: { slug: string; ctx: TenantContext; cursoId: string; periodoId: string }) {
+  const g = await grillaNotas(ctx, cursoId, periodoId);
+  return (
+    <DialogoAccion
+      disparador={<><Plus strokeWidth={2} aria-hidden />Nueva evaluación</>}
+      titulo="Nueva evaluación"
+      descripcion="Aparecerá como una columna nueva en la rejilla de notas."
+      etiqueta="Crear evaluación"
+      accion={crearEvaluacionAction.bind(null, slug)}
+    >
+      <input type="hidden" name="cursoId" value={cursoId} />
+      <input type="hidden" name="periodoId" value={periodoId} />
+      <div className="sm:col-span-2"><Campo etiqueta="Título" name="titulo" required maxLength={120} placeholder="Práctica 2" /></div>
+      <SelectCompetencia competencias={g.competencias} />
+      <Campo etiqueta="Fecha" name="fecha" type="date" required defaultValue={fechaLima(new Date())} />
+      <Campo etiqueta="Peso" name="peso" type="number" min={0.01} step={0.01} defaultValue={1} required ayuda="Cuánto cuenta en el promedio." />
+    </DialogoAccion>
+  );
+}
+
 async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantContext; slug: string; cursoId: string; periodoId: string }) {
   const g = await grillaNotas(ctx, cursoId, periodoId);
-  const puedeCrear = ctx.rol === "profesor" && !g.periodo.cerrado;
-  const selectCompetencia = (defecto?: string | null) => (
-    <label className="flex flex-col gap-1.5 text-sm">
-      <span className="font-medium">Competencia</span>
-      <select name="competenciaId" defaultValue={defecto ?? ""} className="rounded-md border border-arena bg-superficie px-3 py-2.5">
-        <option value="">Sin competencia</option>
-        {g.competencias.map((c) => <option key={c.id} value={c.id}>{c.nombre}</option>)}
-      </select>
-    </label>
-  );
+  const puedeEditar = ctx.rol === "profesor" && !g.periodo.cerrado;
   return (
     <div className="flex flex-col gap-5">
       {g.escala === "literal" && (
-        <p className="text-sm text-pizarra">
+        <p className="flex items-start gap-2 text-sm text-muted-foreground">
+          <Info className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
           {LITERALES.map((l) => `${l}: ${ETIQUETA_LITERAL[l]}`).join(" · ")}
         </p>
       )}
       <GrillaNotas slug={slug} escala={g.escala} editable={g.editable} alumnos={g.alumnos} evaluaciones={g.evaluaciones} notas={g.notas} />
 
-      {puedeCrear && (
-        <Tarjeta>
-          <h2 className="mb-3 flex items-center gap-2 text-lg font-semibold"><Plus className="h-5 w-5" strokeWidth={2} aria-hidden />Nueva evaluación</h2>
-          <FormAccion accion={crearEvaluacionAction.bind(null, slug)} etiqueta="Crear evaluación" className="grid gap-3 sm:grid-cols-2">
-            <input type="hidden" name="cursoId" value={cursoId} />
-            <input type="hidden" name="periodoId" value={periodoId} />
-            <Campo etiqueta="Título" name="titulo" required maxLength={120} placeholder="Práctica 2" />
-            {selectCompetencia()}
-            <Campo etiqueta="Fecha" name="fecha" type="date" required defaultValue={fechaLima(new Date())} />
-            <Campo etiqueta="Peso" name="peso" type="number" min={0.01} step={0.01} defaultValue={1} required ayuda="Cuánto cuenta en el promedio." />
-          </FormAccion>
-        </Tarjeta>
-      )}
-
-      {puedeCrear && g.evaluaciones.length > 0 && (
-        <Tarjeta>
-          <h2 className="mb-3 text-lg font-semibold">Editar evaluaciones</h2>
-          <ul className="flex flex-col gap-2">
-            {g.evaluaciones.map((e) => (
-              <li key={e.id}>
-                <details className="rounded-md border border-arena px-3 py-2">
-                  <summary className="cursor-pointer text-sm font-medium">{e.titulo} · {e.fecha} · peso {formatearNumero(e.peso)}</summary>
-                  <div className="mt-3 flex flex-col gap-3">
-                    <FormAccion accion={editarEvaluacionAction.bind(null, slug, e.id)} etiqueta="Guardar cambios" variante="secundario" className="grid gap-3 sm:grid-cols-2">
-                      <Campo etiqueta="Título" name="titulo" required defaultValue={e.titulo} />
-                      {selectCompetencia(e.competenciaId)}
+      {puedeEditar && g.evaluaciones.length > 0 && (
+        <Card>
+          <CardHeader>
+            <h2 className="font-heading text-base font-medium leading-snug">Editar evaluaciones</h2>
+            <CardDescription>Cambia el título, la fecha o el peso. Al eliminar una evaluación también se borran sus notas.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul className="divide-y">
+              {g.evaluaciones.map((e) => (
+                <li key={e.id} className="flex flex-wrap items-center justify-between gap-3 py-3 first:pt-0 last:pb-0">
+                  <div className="min-w-0">
+                    <p className="font-medium">{e.titulo}</p>
+                    <p className="text-sm text-muted-foreground">{e.fecha} · peso {formatearNumero(e.peso)}</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <DialogoAccion
+                      disparador={<><Pencil strokeWidth={2} aria-hidden />Editar<span className="sr-only"> {e.titulo}</span></>}
+                      variante="outline"
+                      titulo={`Editar ${e.titulo}`}
+                      etiqueta="Guardar cambios"
+                      accion={editarEvaluacionAction.bind(null, slug, e.id)}
+                    >
+                      <div className="sm:col-span-2"><Campo etiqueta="Título" name="titulo" required defaultValue={e.titulo} /></div>
+                      <SelectCompetencia competencias={g.competencias} defecto={e.competenciaId} />
                       <Campo etiqueta="Fecha" name="fecha" type="date" required defaultValue={e.fecha} />
                       <Campo etiqueta="Peso" name="peso" type="number" min={0.01} step={0.01} required defaultValue={e.peso} />
-                    </FormAccion>
-                    <FormAccion accion={eliminarEvaluacionAction.bind(null, slug, e.id)} etiqueta="Eliminar evaluación" variante="peligro" />
+                    </DialogoAccion>
+                    <BotonConfirmar
+                      etiqueta="Eliminar evaluación" variante="ghost" peligro
+                      titulo={`¿Eliminar «${e.titulo}»?`}
+                      descripcion="Se borran también las notas que ya pusiste en esta evaluación. No se puede deshacer."
+                      confirmar="Eliminar evaluación"
+                      accion={eliminarEvaluacionAction.bind(null, slug, e.id)}
+                    />
                   </div>
-                </details>
-              </li>
-            ))}
-          </ul>
-        </Tarjeta>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
       )}
     </div>
   );
@@ -174,29 +199,31 @@ async function SeccionPeriodo({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
   const c = await calificacionesPeriodo(ctx, cursoId, periodoId);
   const fila = c.filas.find((f) => f.competencia.id === uno(sp.competencia)) ?? c.filas[0];
   if (!fila) {
-    return <Alerta tipo="info">Primero agrega las competencias del curso en la pestaña «Competencias».</Alerta>;
+    return (
+      <EstadoVacio
+        icono={Target}
+        titulo="Aún no hay competencias en este curso"
+        descripcion="Primero agrega las competencias del curso en la pestaña «Competencias»."
+      />
+    );
   }
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-sm text-pizarra">
+      <p className="max-w-prose text-sm text-muted-foreground">
         La calificación sugerida sale de las notas del periodo
         {c.escala === "vigesimal" ? " (promedio con pesos, redondeado)" : " (la más frecuente; si empatan, la más reciente)"}.
         Tú la confirmas o la cambias.
         {c.escala === "literal" && " En B y C la conclusión descriptiva es obligatoria."}
       </p>
-      <nav aria-label="Competencias" className="flex flex-wrap gap-2">
-        {c.filas.map((f) => (
-          <Link
-            key={f.competencia.id}
-            href={`/notas?curso=${cursoId}&periodo=${periodoId}&seccion=periodo&competencia=${f.competencia.id}`}
-            aria-current={f.competencia.id === fila.competencia.id ? "page" : undefined}
-            className={`rounded-pildora px-3 py-1.5 text-sm ${f.competencia.id === fila.competencia.id ? "bg-acento font-semibold text-sobre-acento" : "border border-arena bg-superficie hover:bg-superficie-2"}`}
-          >
-            {f.competencia.nombre}
-          </Link>
-        ))}
-      </nav>
-      <ul className="flex flex-col gap-3">
+      <NavegacionPildoras
+        etiqueta="Competencias"
+        items={c.filas.map((f) => ({
+          href: `/notas?curso=${cursoId}&periodo=${periodoId}&seccion=periodo&competencia=${f.competencia.id}`,
+          texto: f.competencia.nombre,
+          activo: f.competencia.id === fila.competencia.id,
+        }))}
+      />
+      <ul className="grid gap-3 lg:grid-cols-2">
         {fila.alumnos.map((a) => (
           <li key={a.alumno.id}>
             <FilaCalificacion
@@ -215,37 +242,50 @@ async function SeccionCompetencias({ ctx, slug, cursoId, periodoId }: { ctx: Ten
   const g = await grillaNotas(ctx, cursoId, periodoId);
   const puedeEditar = ctx.rol === "profesor";
   return (
-    <div className="flex flex-col gap-4">
-      <Tarjeta>
-        <h2 className="mb-3 text-lg font-semibold">Competencias de {g.curso.nombre}</h2>
+    <Card>
+      <CardHeader>
+        <h2 className="font-heading text-base font-medium leading-snug">Competencias de {g.curso.nombre}</h2>
+        {puedeEditar && (
+          <div className="mt-2">
+            <DialogoAccion
+              disparador={<><Plus strokeWidth={2} aria-hidden />Nueva competencia</>}
+              variante="outline"
+              titulo="Nueva competencia"
+              etiqueta="Agregar competencia"
+              accion={crearCompetenciaAction.bind(null, slug)}
+            >
+              <input type="hidden" name="cursoId" value={cursoId} />
+              <div className="sm:col-span-2"><Campo etiqueta="Nombre" name="nombre" required maxLength={200} placeholder="Resuelve problemas de cantidad" /></div>
+              <div className="sm:col-span-2"><Campo etiqueta="Descripción (opcional)" name="descripcion" maxLength={500} /></div>
+            </DialogoAccion>
+          </div>
+        )}
+      </CardHeader>
+      <CardContent>
         {g.competencias.length === 0 ? (
-          <p className="text-sm text-pizarra">Este curso aún no tiene competencias.</p>
+          <EstadoVacio icono={BookMarked} titulo="Este curso aún no tiene competencias" descripcion={puedeEditar ? "Agrega la primera con «Nueva competencia»." : undefined} />
         ) : (
-          <ul className="flex flex-col gap-3">
+          <ul className="divide-y">
             {g.competencias.map((c) => (
-              <li key={c.id} className="flex flex-wrap items-start justify-between gap-2 border-b border-arena pb-3 last:border-0 last:pb-0">
-                <div>
+              <li key={c.id} className="flex flex-wrap items-start justify-between gap-2 py-3 first:pt-0 last:pb-0">
+                <div className="min-w-0">
                   <p className="font-medium">{c.nombre}</p>
-                  {c.descripcion && <p className="text-sm text-pizarra">{c.descripcion}</p>}
+                  {c.descripcion && <p className="text-sm text-muted-foreground">{c.descripcion}</p>}
                 </div>
                 {puedeEditar && (
-                  <FormAccion accion={eliminarCompetenciaAction.bind(null, slug, c.id)} etiqueta="Eliminar" variante="fantasma" />
+                  <BotonConfirmar
+                    etiqueta="Eliminar" variante="ghost" peligro
+                    titulo={`¿Eliminar la competencia «${c.nombre}»?`}
+                    descripcion="Se quita del curso. Si ya tiene calificaciones en la libreta, no se podrá eliminar."
+                    confirmar="Eliminar competencia"
+                    accion={eliminarCompetenciaAction.bind(null, slug, c.id)}
+                  />
                 )}
               </li>
             ))}
           </ul>
         )}
-      </Tarjeta>
-      {puedeEditar && (
-        <Tarjeta>
-          <h2 className="mb-3 flex items-center gap-2 text-lg font-semibold"><Plus className="h-5 w-5" strokeWidth={2} aria-hidden />Nueva competencia</h2>
-          <FormAccion accion={crearCompetenciaAction.bind(null, slug)} etiqueta="Agregar competencia">
-            <input type="hidden" name="cursoId" value={cursoId} />
-            <Campo etiqueta="Nombre" name="nombre" required maxLength={200} placeholder="Resuelve problemas de cantidad" />
-            <Campo etiqueta="Descripción (opcional)" name="descripcion" maxLength={500} />
-          </FormAccion>
-        </Tarjeta>
-      )}
-    </div>
+      </CardContent>
+    </Card>
   );
 }
