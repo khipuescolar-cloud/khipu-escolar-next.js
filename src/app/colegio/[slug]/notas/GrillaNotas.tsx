@@ -7,6 +7,7 @@ import { CLASE_CAMPO } from "@/components/ui/Selector";
 import { LITERALES, ETIQUETA_LITERAL, formatearNumero, type Escala, type Literal } from "@/lib/calificaciones";
 import { cn } from "@/lib/utils";
 import { guardarNotaAction } from "./actions";
+import { ComentarioNota } from "./ComentarioNota";
 
 type Estado = { fase: "guardando" } | { fase: "guardado" } | { fase: "error"; mensaje: string };
 
@@ -16,7 +17,7 @@ type Props = {
   editable: boolean;
   alumnos: { id: string; nombres: string; apellidos: string }[];
   evaluaciones: { id: string; titulo: string; fecha: string; peso: number }[];
-  notas: { evaluacionId: string; alumnoId: string; valorLiteral: Literal | null; valorNumerico: number | null }[];
+  notas: { evaluacionId: string; alumnoId: string; valorLiteral: Literal | null; valorNumerico: number | null; comentario?: string | null }[];
 };
 
 const valorInicial = (n: Props["notas"][number] | undefined): string => (n?.valorLiteral ?? (n?.valorNumerico != null ? formatearNumero(n.valorNumerico) : ""));
@@ -27,6 +28,9 @@ export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, not
   const [valores, setValores] = useState<Record<string, string>>(() =>
     Object.fromEntries(notas.map((n) => [`${n.evaluacionId}:${n.alumnoId}`, valorInicial(n)])),
   );
+  const [comentarios, setComentarios] = useState<Record<string, string>>(() =>
+    Object.fromEntries(notas.map((n) => [`${n.evaluacionId}:${n.alumnoId}`, n.comentario ?? ""])),
+  );
   const [estados, setEstados] = useState<Record<string, Estado>>({});
 
   async function guardar(evaluacionId: string, alumnoId: string, valor: string) {
@@ -34,6 +38,7 @@ export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, not
     setEstados((e) => ({ ...e, [clave]: { fase: "guardando" } }));
     const r = await guardarNotaAction(slug, evaluacionId, alumnoId, valor);
     setEstados((e) => ({ ...e, [clave]: r.ok ? { fase: "guardado" } : { fase: "error", mensaje: r.error } }));
+    if (r.ok && valor.trim() === "") setComentarios((m) => ({ ...m, [clave]: "" })); // sin nota no hay observación
   }
 
   if (evaluaciones.length === 0) {
@@ -73,6 +78,7 @@ export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, not
                 const etiqueta = `Nota de ${a.nombres} en ${e.titulo}`;
                 return (
                   <td key={e.id} className="px-3 py-2 align-top">
+                    <div className="flex items-center gap-1">
                     {editable ? (
                       escala === "literal" ? (
                         <select
@@ -102,6 +108,12 @@ export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, not
                     ) : (
                       <span className="inline-flex h-10 items-center font-medium tabular-nums">{valor === "" ? "—" : valor}</span>
                     )}
+                    <ComentarioNota
+                      slug={slug} evaluacionId={e.id} alumnoId={a.id} alumno={`${a.nombres} ${a.apellidos}`} evaluacion={e.titulo}
+                      comentario={comentarios[clave] ?? ""} hayNota={valor !== ""} editable={editable}
+                      alGuardar={(c) => setComentarios((m) => ({ ...m, [clave]: c }))}
+                    />
+                    </div>
                     {estado && (
                       <span role="status" className={`mt-1 flex items-center gap-1 text-xs ${estado.fase === "error" ? "text-falta" : estado.fase === "guardado" ? "text-llego" : "text-muted-foreground"}`}>
                         {estado.fase === "guardando" && <><Loader2 className="size-3 animate-spin" strokeWidth={2} aria-hidden />Guardando</>}

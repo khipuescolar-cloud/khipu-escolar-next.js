@@ -5,9 +5,14 @@ import {
   interpretarValor, requiereConclusion, sugerirCalificacion,
   type Escala, type Literal, type ValorCalificacion,
 } from "@/lib/calificaciones";
+import { analizarNotasCsv, exportarNotasCsv, MAX_BYTES_CSV_NOTAS, type ResultadoNotasCsv } from "@/lib/notas-csv";
+import { puedePublicarLibreta } from "@/lib/libreta-publicacion";
+import { urlColegio } from "@/lib/dominio";
+import { primerNombre } from "@/lib/nombres";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
 import { cursosDelDocente } from "./cursos";
+import { destinatariosDeAlumno, encolarParaDestinatario, type Destinatario } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
 import { alumnoIdsVisibles, requireAlumnoVisible, requireCursoDelProfesor, requireRol, type TenantContext } from "./tenant";
 
@@ -16,6 +21,7 @@ export { cursosDelDocente };
 const num = (d: { toString(): string } | null | undefined): number | null => (d === null || d === undefined ? null : Number(d.toString()));
 const fechaDate = (iso: string) => new Date(`${iso}T00:00:00.000Z`);
 const MENSAJE_CERRADO = "Este periodo está cerrado. Las notas ya no se pueden cambiar.";
+const MENSAJE_CURSO_CERRADO = "Las notas de este curso ya están cerradas en este periodo. Dirección puede reabrirlas.";
 
 function escalaDe(ctx: TenantContext): Escala {
   return ctx.tenant.escalaCalificacion;
@@ -95,11 +101,124 @@ async function cursoLectura(ctx: TenantContext, cursoId: string) {
   return curso;
 }
 
-async function periodoAbierto(ctx: TenantContext, periodoId: string) {
+/** Periodo abierto y, si se indica el curso, curso sin cierre en ese periodo. Lo valida el servidor en toda escritura. */
+async function periodoAbierto(ctx: TenantContext, periodoId: string, cursoId?: string) {
   const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
   if (!periodo) return { error: "No encontramos ese periodo." as const };
   if (periodo.cerrado) return { error: MENSAJE_CERRADO };
+  if (cursoId && (await ctx.db.cierreCurso.count({ where: { periodoId, cursoId } })) > 0) return { error: MENSAJE_CURSO_CERRADO };
   return { periodo };
+}
+
+// ───────────── Cierre por curso ─────────────
+
+/** El profesor del curso (o dirección) cierra las notas del curso en un periodo abierto. */
+export async function cerrarCursoPeriodo(ctx: TenantContext, cursoId: string, periodoId: string): Promise<Resultado> {
+  await cursoLectura(ctx, cursoId); // profesor del curso o dirección
+  const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
+  if (!periodo) return fallo("No encontramos ese periodo.");
+  if (periodo.cerrado) return fallo(MENSAJE_CERRADO);
+  if ((await ctx.db.cierreCurso.count({ where: { periodoId, cursoId } })) > 0) return fallo("Las notas de este curso ya estaban cerradas.");
+  try {
+    await ctx.db.cierreCurso.create({ data: { tenantId: ctx.tenant.id, periodoId, cursoId, cerradoPorId: ctx.membership.id } });
+  } catch {
+    return fallo("Las notas de este curso ya estaban cerradas.");
+  }
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "cierre_curso", entidadId: cursoId, detalle: { periodoId, cerrado: true } });
+  return ok("Notas del curso cerradas.");
+}
+
+/** Solo dirección reabre las notas de un curso. */
+export async function reabrirCursoPeriodo(ctx: TenantContext, cursoId: string, periodoId: string): Promise<Resultado> {
+  requireFeature(ctx, "notas");
+  requireRol(ctx, ["direccion"]);
+  const r = await ctx.db.cierreCurso.deleteMany({ where: { periodoId, cursoId } });
+  if (r.count === 0) return fallo("Las notas de este curso no estaban cerradas.");
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "cierre_curso", entidadId: cursoId, detalle: { periodoId, cerrado: false } });
+  return ok("Notas del curso abiertas de nuevo.");
+}
+
+/** Cierre del curso en el periodo (null si está abierto). */
+export async function cierreDeCurso(ctx: TenantContext, cursoId: string, periodoId: string) {
+  requireFeature(ctx, "notas");
+  const c = await ctx.db.cierreCurso.findFirst({
+    where: { cursoId, periodoId },
+    include: { cerradoPor: { select: { user: { select: { nombres: true, apellidos: true } } } } },
+  });
+  return c ? { cerradoAt: c.cerradoAt, por: `${c.cerradoPor.user.nombres} ${c.cerradoPor.user.apellidos}`.trim() } : null;
+}
+
+// ───────────── Publicar la libreta y avisar a las familias ─────────────
+
+/** Cursos de salones no archivados con su estado de cierre en el periodo (dirección). */
+export async function estadoPublicacionLibreta(ctx: TenantContext, periodoId: string) {
+  requireFeature(ctx, "libreta");
+  requireRol(ctx, ["direccion"]);
+  const [periodo, cursos, cierres] = await Promise.all([
+    ctx.db.periodo.findFirst({ where: { id: periodoId } }),
+    ctx.db.curso.findMany({ where: { salon: { archivadoAt: null } }, select: { id: true } }),
+    ctx.db.cierreCurso.findMany({ where: { periodoId }, select: { cursoId: true } }),
+  ]);
+  if (!periodo) forbidden();
+  const ids = new Set(cursos.map((c) => c.id));
+  const cerrados = cierres.filter((c) => ids.has(c.cursoId)).length;
+  return {
+    totalCursos: ids.size,
+    cursosCerrados: cerrados,
+    publicadaAt: periodo.libretaPublicadaAt,
+    puedePublicar: puedePublicarLibreta(periodo.cerrado, ids.size, cerrados),
+  };
+}
+
+const unirNombres = (n: string[]) => (n.length <= 1 ? (n[0] ?? "") : `${n.slice(0, -1).join(", ")} y ${n.at(-1)}`);
+
+/**
+ * Dirección publica la libreta del periodo y avisa a las familias (aviso `libreta`, correo y push según sus preferencias).
+ * Requiere el periodo cerrado o todos sus cursos cerrados. Idempotente: si ya se publicó no reenvía,
+ * salvo `reenviar: true` («Reenviar aviso»). Una fila por familia y canal aunque tenga varios hijos.
+ */
+export async function publicarLibreta(ctx: TenantContext, periodoId: string, opciones: { reenviar?: boolean } = {}): Promise<Resultado> {
+  requireFeature(ctx, "libreta");
+  requireRol(ctx, ["direccion"]);
+  const estado = await estadoPublicacionLibreta(ctx, periodoId);
+  const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
+  if (!periodo) return fallo("No encontramos ese periodo.");
+  if (estado.publicadaAt && !opciones.reenviar) return fallo("La libreta de este periodo ya se publicó. Usa «Reenviar aviso» si quieres avisar otra vez.");
+  if (!estado.puedePublicar) return fallo("Para publicar, cierra el periodo o cierra las notas de todos los cursos.");
+  if (!estado.publicadaAt) {
+    // Reclama la publicación de forma atómica: si dos personas hacen clic a la vez, solo una encola.
+    const r = await ctx.db.periodo.updateMany({ where: { id: periodoId, libretaPublicadaAt: null }, data: { libretaPublicadaAt: new Date() } });
+    if (r.count === 0 && !opciones.reenviar) return fallo("La libreta de este periodo ya se publicó.");
+  }
+
+  const alumnos = await ctx.db.alumno.findMany({
+    where: { estado: "activo", salon: { archivadoAt: null, cursos: { some: {} } } },
+    select: { id: true, nombres: true },
+    orderBy: { nombres: "asc" },
+  });
+  const porFamilia = new Map<string, { destinatario: Destinatario; hijos: string[] }>();
+  for (const a of alumnos) {
+    for (const d of await destinatariosDeAlumno(ctx.db, a.id)) {
+      if (!d.correo && d.pushEndpoints.length === 0) continue;
+      const actual = porFamilia.get(d.apoderadoId) ?? { destinatario: d, hijos: [] };
+      actual.hijos.push(primerNombre(a.nombres));
+      porFamilia.set(d.apoderadoId, actual);
+    }
+  }
+  for (const { destinatario, hijos } of porFamilia.values()) {
+    await encolarParaDestinatario(ctx.db, destinatario, {
+      tenantId: ctx.tenant.id,
+      tipo: "libreta",
+      plantilla: "libreta_publicada",
+      referenciaId: periodoId,
+      payload: { colegio: ctx.tenant.nombre, alumno: unirNombres(hijos), periodo: `${periodo.nombre} ${periodo.anio}`, url: urlColegio(ctx.tenant.slug, "/libreta") },
+    });
+  }
+  await auditar({
+    tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "enviar", entidad: "libreta_publicada", entidadId: periodoId,
+    detalle: { familias: porFamilia.size, reenvio: Boolean(opciones.reenviar && estado.publicadaAt) },
+  });
+  return ok(porFamilia.size === 0 ? "Libreta publicada. Ninguna familia tiene avisos activos." : `Libreta publicada. Avisamos a ${porFamilia.size} ${porFamilia.size === 1 ? "familia" : "familias"}.`);
 }
 
 // ───────────── Competencias ─────────────
@@ -155,7 +274,7 @@ export async function crearEvaluacion(ctx: TenantContext, entrada: unknown): Pro
   const d = esquemaEvaluacion.safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
   await cursoEscritura(ctx, d.data.cursoId);
-  const p = await periodoAbierto(ctx, d.data.periodoId);
+  const p = await periodoAbierto(ctx, d.data.periodoId, d.data.cursoId);
   if (p.error) return fallo(p.error);
   if (d.data.competenciaId) {
     const c = await ctx.db.competencia.findFirst({ where: { id: d.data.competenciaId, cursoId: d.data.cursoId } });
@@ -178,7 +297,7 @@ export async function editarEvaluacion(ctx: TenantContext, evaluacionId: string,
   const d = esquemaEvaluacion.safeParse({ ...(entrada as object), cursoId: actual.cursoId, periodoId: actual.periodoId });
   if (!d.success) return fallo(d.error.issues[0].message);
   await cursoEscritura(ctx, actual.cursoId);
-  const p = await periodoAbierto(ctx, actual.periodoId);
+  const p = await periodoAbierto(ctx, actual.periodoId, actual.cursoId);
   if (p.error) return fallo(p.error);
   if (d.data.competenciaId) {
     const c = await ctx.db.competencia.findFirst({ where: { id: d.data.competenciaId, cursoId: actual.cursoId } });
@@ -197,7 +316,7 @@ export async function eliminarEvaluacion(ctx: TenantContext, evaluacionId: strin
   const actual = await ctx.db.evaluacion.findFirst({ where: { id: evaluacionId } });
   if (!actual) return fallo("No encontramos esa evaluación.");
   await cursoEscritura(ctx, actual.cursoId);
-  const p = await periodoAbierto(ctx, actual.periodoId);
+  const p = await periodoAbierto(ctx, actual.periodoId, actual.cursoId);
   if (p.error) return fallo(p.error);
   await ctx.db.evaluacion.deleteMany({ where: { id: evaluacionId } });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "evaluacion", entidadId: evaluacionId });
@@ -222,7 +341,10 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
     ctx.db.competencia.findMany({ where: { cursoId }, orderBy: [{ orden: "asc" }, { nombre: "asc" }] }),
     ctx.db.evaluacion.findMany({ where: { cursoId, periodoId }, orderBy: [{ fecha: "asc" }, { titulo: "asc" }] }),
   ]);
-  const notas = await ctx.db.nota.findMany({ where: { evaluacionId: { in: evaluaciones.map((e) => e.id) } } });
+  const [notas, cierre] = await Promise.all([
+    ctx.db.nota.findMany({ where: { evaluacionId: { in: evaluaciones.map((e) => e.id) } } }),
+    ctx.db.cierreCurso.findFirst({ where: { cursoId, periodoId }, select: { id: true } }),
+  ]);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "notas_curso", entidadId: cursoId, detalle: { periodoId } });
   return {
     curso, salon, periodo, alumnos, competencias,
@@ -230,9 +352,10 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
       id: e.id, titulo: e.titulo, fecha: e.fecha.toISOString().slice(0, 10), peso: Number(e.peso), competenciaId: e.competenciaId,
     })),
     notas: notas.map((n) => ({
-      evaluacionId: n.evaluacionId, alumnoId: n.alumnoId, valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico),
+      evaluacionId: n.evaluacionId, alumnoId: n.alumnoId, valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico), comentario: n.comentario,
     })),
-    editable: ctx.rol === "profesor" && !periodo.cerrado,
+    cursoCerrado: cierre !== null,
+    editable: ctx.rol === "profesor" && !periodo.cerrado && cierre === null,
     escala: escalaDe(ctx),
   };
 }
@@ -245,7 +368,7 @@ export async function guardarNota(ctx: TenantContext, entrada: { evaluacionId: s
   const evaluacion = await ctx.db.evaluacion.findFirst({ where: { id: d.data.evaluacionId } });
   if (!evaluacion) return fallo("No encontramos esa evaluación.");
   const curso = await cursoEscritura(ctx, evaluacion.cursoId);
-  const p = await periodoAbierto(ctx, evaluacion.periodoId);
+  const p = await periodoAbierto(ctx, evaluacion.periodoId, evaluacion.cursoId);
   if (p.error) return fallo(p.error);
   const alumno = await ctx.db.alumno.findFirst({ where: { id: d.data.alumnoId, salonId: curso.salonId } });
   if (!alumno) return fallo("Ese alumno no está en este curso.");
@@ -266,6 +389,84 @@ export async function guardarNota(ctx: TenantContext, entrada: { evaluacionId: s
   return ok();
 }
 
+/** Observación de una nota (máx. 500 caracteres). La nota debe existir; vacío borra el comentario. */
+export async function guardarComentarioNota(ctx: TenantContext, entrada: { evaluacionId: string; alumnoId: string; comentario: string }): Promise<Resultado> {
+  requireFeature(ctx, "notas");
+  const d = z
+    .object({ evaluacionId: z.uuid(), alumnoId: z.uuid(), comentario: z.string().trim().max(500, "La observación es muy larga (máximo 500 caracteres).") })
+    .safeParse(entrada);
+  if (!d.success) return fallo(d.error.issues[0].message);
+  const evaluacion = await ctx.db.evaluacion.findFirst({ where: { id: d.data.evaluacionId } });
+  if (!evaluacion) return fallo("No encontramos esa evaluación.");
+  await cursoEscritura(ctx, evaluacion.cursoId);
+  const p = await periodoAbierto(ctx, evaluacion.periodoId, evaluacion.cursoId);
+  if (p.error) return fallo(p.error);
+  const r = await ctx.db.nota.updateMany({
+    where: { evaluacionId: evaluacion.id, alumnoId: d.data.alumnoId },
+    data: { comentario: d.data.comentario || null, registradoPorId: ctx.membership.id },
+  });
+  if (r.count === 0) return fallo("Primero pon la nota; después puedes agregar una observación.");
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "nota", entidadId: evaluacion.id, detalle: { alumnoId: d.data.alumnoId, comentario: true } });
+  return ok(d.data.comentario ? "Observación guardada." : "Observación borrada.");
+}
+
+// ───────────── Importar y exportar notas (CSV) ─────────────
+
+async function datosParaCsv(ctx: TenantContext, cursoId: string, periodoId: string) {
+  const g = await grillaNotas(ctx, cursoId, periodoId);
+  const alumnosCompleto = await ctx.db.alumno.findMany({
+    where: { id: { in: g.alumnos.map((a) => a.id) } },
+    select: { id: true, nombres: true, apellidos: true, codigo: true },
+    orderBy: [{ apellidos: "asc" }, { nombres: "asc" }],
+  });
+  return { g, alumnos: alumnosCompleto };
+}
+
+/** CSV (UTF-8 con BOM, separador «;») de la rejilla del curso en el periodo. Profesor del curso o dirección. */
+export async function exportarNotasCurso(ctx: TenantContext, cursoId: string, periodoId: string): Promise<{ nombre: string; csv: string }> {
+  const { g, alumnos } = await datosParaCsv(ctx, cursoId, periodoId);
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "exportar", entidad: "notas_curso", entidadId: cursoId, detalle: { periodoId } });
+  return {
+    nombre: `notas-${g.curso.nombre}-${g.periodo.nombre}`.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase(),
+    csv: exportarNotasCsv({ alumnos, evaluaciones: g.evaluaciones, notas: g.notas }),
+  };
+}
+
+export type VistaPreviaImportacion = ResultadoNotasCsv & { editable: boolean; motivoBloqueo: string | null };
+
+/** Vista previa de la importación: valida el CSV sin guardar nada. */
+export async function previsualizarImportacionNotas(ctx: TenantContext, cursoId: string, periodoId: string, texto: string): Promise<VistaPreviaImportacion> {
+  const { g, alumnos } = await datosParaCsv(ctx, cursoId, periodoId);
+  const vacio: ResultadoNotasCsv = { cambios: [], errores: [], columnasIgnoradas: [], vacias: 0 };
+  const motivoBloqueo =
+    ctx.rol !== "profesor" ? "Solo el profesor del curso puede importar notas."
+    : g.periodo.cerrado ? MENSAJE_CERRADO
+    : g.cursoCerrado ? MENSAJE_CURSO_CERRADO
+    : null;
+  if (texto.length > MAX_BYTES_CSV_NOTAS) return { ...vacio, errores: [{ linea: 1, mensaje: "El archivo es demasiado grande (máximo 500 KB)." }], editable: false, motivoBloqueo };
+  const r = analizarNotasCsv(texto, { escala: escalaDe(ctx), alumnos, evaluaciones: g.evaluaciones });
+  return { ...r, editable: motivoBloqueo === null, motivoBloqueo };
+}
+
+/** Guarda las notas válidas del CSV (las filas con error se omiten). No pisa cursos ni periodos cerrados. */
+export async function importarNotas(ctx: TenantContext, cursoId: string, periodoId: string, texto: string): Promise<Resultado> {
+  const curso = await cursoEscritura(ctx, cursoId);
+  const p = await periodoAbierto(ctx, periodoId, cursoId);
+  if (p.error) return fallo(p.error);
+  const vista = await previsualizarImportacionNotas(ctx, cursoId, periodoId, texto);
+  if (vista.cambios.length === 0) return fallo(vista.errores[0]?.mensaje ?? "No hay notas para importar.");
+  for (const c of vista.cambios) {
+    await ctx.db.nota.upsert({
+      where: { evaluacionId_alumnoId: { evaluacionId: c.evaluacionId, alumnoId: c.alumnoId } },
+      create: { tenantId: ctx.tenant.id, evaluacionId: c.evaluacionId, alumnoId: c.alumnoId, ...c.valor, registradoPorId: ctx.membership.id },
+      update: { ...c.valor, registradoPorId: ctx.membership.id },
+    });
+  }
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "notas_curso", entidadId: curso.id, detalle: { periodoId, importadas: vista.cambios.length, errores: vista.errores.length } });
+  const omitidas = vista.errores.length > 0 ? ` ${vista.errores.length} ${vista.errores.length === 1 ? "celda no se importó" : "celdas no se importaron"}.` : "";
+  return ok(`Se importaron ${vista.cambios.length} ${vista.cambios.length === 1 ? "nota" : "notas"}.${omitidas}`);
+}
+
 // ───────────── Calificaciones del periodo (lo que va a la libreta) ─────────────
 
 export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string, periodoId: string) {
@@ -273,7 +474,7 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
   const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
   if (!periodo) forbidden();
   const escala = escalaDe(ctx);
-  const [alumnos, competencias, guardadas, notas] = await Promise.all([
+  const [alumnos, competencias, guardadas, notas, cierre] = await Promise.all([
     ctx.db.alumno.findMany({
       where: { salonId: curso.salonId, estado: "activo" },
       select: { id: true, nombres: true, apellidos: true },
@@ -285,6 +486,7 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
       where: { evaluacion: { cursoId, periodoId, competenciaId: { not: null } } },
       include: { evaluacion: { select: { competenciaId: true, peso: true, fecha: true } } },
     }),
+    ctx.db.cierreCurso.findFirst({ where: { cursoId, periodoId }, select: { id: true } }),
   ]);
   const filas = competencias.map((c) => ({
     competencia: c,
@@ -305,7 +507,7 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
       };
     }),
   }));
-  return { curso, periodo, filas, escala, editable: ctx.rol === "profesor" && !periodo.cerrado };
+  return { curso, periodo, filas, escala, editable: ctx.rol === "profesor" && !periodo.cerrado && cierre === null };
 }
 
 const esquemaCalificacion = z.object({
@@ -323,7 +525,7 @@ export async function guardarCalificacionPeriodo(ctx: TenantContext, entrada: un
   const comp = await ctx.db.competencia.findFirst({ where: { id: d.data.competenciaId } });
   if (!comp) return fallo("No encontramos esa competencia.");
   const curso = await cursoEscritura(ctx, comp.cursoId);
-  const p = await periodoAbierto(ctx, d.data.periodoId);
+  const p = await periodoAbierto(ctx, d.data.periodoId, comp.cursoId);
   if (p.error) return fallo(p.error);
   const alumno = await ctx.db.alumno.findFirst({ where: { id: d.data.alumnoId, salonId: curso.salonId } });
   if (!alumno) return fallo("Ese alumno no está en este curso.");

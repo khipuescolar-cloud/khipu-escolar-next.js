@@ -1,4 +1,4 @@
-import { BookOpenCheck, ClipboardList, GraduationCap } from "lucide-react";
+import { BookOpenCheck, ClipboardList, GraduationCap, MessageSquareText } from "lucide-react";
 import Link from "next/link";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
 import { Calificacion } from "@/components/Calificacion";
@@ -6,6 +6,7 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { libretaVisibleParaFamilia } from "@/lib/libreta-publicacion";
 import { alumnosVisibles, listarPeriodos, notasDeAlumno, periodoEnCurso } from "@/lib/server/notas";
 import type { TenantContext } from "@/lib/server/tenant";
 
@@ -35,7 +36,7 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
         titulo="Notas"
         descripcion="Así va el avance de tu hijo o hija en cada competencia."
         acciones={
-          <Link href={`/libreta?alumno=${hijo.id}&periodo=${periodo.id}`} className={buttonVariants({ variant: "outline" })}>
+          !libretaVisibleParaFamilia(periodo) ? undefined : <Link href={`/libreta?alumno=${hijo.id}&periodo=${periodo.id}`} className={buttonVariants({ variant: "outline" })}>
             <BookOpenCheck strokeWidth={2} aria-hidden />Ver libreta
           </Link>
         }
@@ -81,9 +82,12 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
                   <h3 className="mb-2 text-sm font-semibold">Evaluaciones</h3>
                   <ul className="flex flex-col gap-2">
                     {curso.evaluaciones.map((e) => (
-                      <li key={e.id} className="flex flex-wrap items-center justify-between gap-2 text-sm">
-                        <span>{e.titulo}<span className="text-muted-foreground"> · {e.fecha}{e.competencia ? ` · ${e.competencia}` : ""}</span></span>
-                        <Calificacion valor={e.valor} />
+                      <li key={e.id} className="flex flex-col gap-1 text-sm">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <span>{e.titulo}<span className="text-muted-foreground"> · {e.fecha}{e.competencia ? ` · ${e.competencia}` : ""}</span></span>
+                          <Calificacion valor={e.valor} />
+                        </div>
+                        {e.comentario && <p className="flex items-start gap-1.5 text-muted-foreground"><MessageSquareText className="mt-0.5 size-3.5 shrink-0" strokeWidth={2} aria-hidden /><span><span className="font-medium">Observación:</span> {e.comentario}</span></p>}
                       </li>
                     ))}
                   </ul>

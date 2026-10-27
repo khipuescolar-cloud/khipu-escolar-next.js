@@ -33,6 +33,7 @@ Avisar a la familia por correo y push cada vez que se registra la asistencia (y 
 - SES: un estado nunca retrocede (abierto no vuelve a entregado). Rebote **permanente** o queja → `recibeAvisos = false` en todos los vínculos de ese apoderado en el colegio + auditoría + `alerta_rebote` (tipo `alerta_direccion`, correo) a cada miembro activo de dirección, `referenciaId = apoderadoId`, **máx. 1 por apoderado por día** (Lima). Esas filas no llevan `apoderadoId`, así un rebote del correo de dirección no genera otra alerta.
 - **Mensajes**: `mensaje_nuevo` con `referenciaId = conversacionId`; máx. 1 por conversación y destinatario cada 15 min (familia: por `apoderadoId`; profesor: filas sin `apoderadoId`). Al profesor: correo + push por cada suscripción, sin consentimiento.
 - **Tareas**: `tarea_nueva` solo si el profesor marca «Avisar a las familias»; familias del salón con consentimiento, `referenciaId = tareaId`, una vez por tarea.
+- **Libreta publicada**: `libreta_publicada` (tipo `libreta`) cuando dirección usa «Publicar libreta y avisar a las familias» (spec 11): una fila por familia y canal (no por hijo; los nombres de los hijos van juntos), `referenciaId = periodoId`. Solo se envía una vez por periodo; «Reenviar aviso» lo repite.
 - **Enlace de preferencias**: el worker agrega `urlPreferencias` (y `List-Unsubscribe`) solo a plantillas de familia **en filas con `apoderadoId`**; los avisos al personal no lo llevan.
 
 ## Contrato de plantillas (para otros módulos)
@@ -51,6 +52,7 @@ Insertar en `avisos`: `tenantId`, `tipo`, `canal` (`correo` → `destinatario` =
 | `justificacion_recibida` | justificacion | tutora (correo) | justificacionId | `{ colegio, alumno, fecha: "AAAA-MM-DD", url }` |
 | `justificacion_revisada` | justificacion | familia | justificacionId | `{ colegio, alumno, fecha: "AAAA-MM-DD", estado: "aceptada" \| "rechazada", comentario? }` |
 | `tarea_nueva` | tarea | familia | tareaId | `{ colegio, alumno?, curso, titulo, fechaEntrega: "AAAA-MM-DD", url }` |
+| `libreta_publicada` | libreta | familia | periodoId | `{ colegio, alumno?, periodo: "I Bimestre 2026", url }` (botón «Ver libreta» → `/libreta`) |
 | `alerta_rebote` | alerta_direccion | dirección (correo) | apoderadoId | `{ colegio, apoderado, alumnos: string[], motivo, url }` |
 
 `justificacion_*` también guardan `asistenciaId`.
@@ -112,7 +114,7 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 - Si falla encolar la alerta a dirección, el webhook igual responde 200 (se registra en el log).
 
 ## Pruebas
-- unit: `plantillas-avisos.test.ts` (textos exactos, botón de falta, sin emojis, todas las plantillas del contrato incl. `tarea_nueva` y `alerta_rebote`, payload inválido), `cola-limites.test.ts` (tope diario, ritmo, reintentos, hora del resumen), `firma-sns.test.ts`.
+- unit: `plantillas-avisos.test.ts` (textos exactos, botón de falta, sin emojis, todas las plantillas del contrato incl. `tarea_nueva`, `libreta_publicada` y `alerta_rebote`, payload inválido), `cola-limites.test.ts` (tope diario, ritmo, reintentos, hora del resumen), `firma-sns.test.ts`.
 - integración: `cola-avisos.test.ts` (cola → Mailpit con remitente y enlace, tope diario → pendiente, reintentos → error, plantilla desconocida, eventos SES y rebote permanente, resumen de llegadas una vez al día); `avisos-pendientes.test.ts` (dos workers en paralelo no repiten filas, recuperación de `enviando`, aviso al profesor correo + push y límite de 15 min, aviso de tarea, alerta de rebote/queja una vez por día).
 
 ## Pendientes
