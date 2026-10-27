@@ -1,4 +1,4 @@
-import { CheckCircle2, IdCard, Printer } from "lucide-react";
+import { CheckCircle2, Download, IdCard, Printer } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -54,6 +54,11 @@ export default async function CarnetsPage({ params }: PageProps<"/colegio/[slug]
                       <Link href={`/gestion/carnets/${s.id}`} className={buttonVariants({ variant: "outline" })}>
                         <Printer strokeWidth={2} aria-hidden /> Ver e imprimir
                       </Link>
+                    )}
+                    {s.conCarnet > 0 && (
+                      <a href={`/api/carnets/${s.id}`} className={buttonVariants({ variant: "outline" })}>
+                        <Download strokeWidth={2} aria-hidden /> Descargar PDF
+                      </a>
                     )}
                   </div>
                 </Tarjeta>

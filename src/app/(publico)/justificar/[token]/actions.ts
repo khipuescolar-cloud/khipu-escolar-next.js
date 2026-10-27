@@ -5,7 +5,7 @@ import type { EstadoJustificar } from "@/components/FormJustificar";
 import { justificarConToken } from "@/lib/server/justificaciones";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
 
-/** Sin sesión: el token del enlace autoriza (un solo uso, 7 días). */
+/** Sin sesión: el token del enlace autoriza (un solo uso; vence según el plazo del reglamento del colegio). */
 export async function justificarConTokenAction(token: string, _prev: EstadoJustificar, formData: FormData): Promise<EstadoJustificar> {
   const archivo = formData.get("adjunto");
   const buffer = archivo instanceof File && archivo.size > 0 ? Buffer.from(await archivo.arrayBuffer()) : null;

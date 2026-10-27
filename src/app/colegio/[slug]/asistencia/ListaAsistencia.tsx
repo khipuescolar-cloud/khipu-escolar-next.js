@@ -14,7 +14,9 @@ import { NativeSelect } from "@/components/ui/native-select";
 import { VistaPreviaAviso } from "@/components/VistaPreviaAviso";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { hora12 } from "@/lib/fechas";
+import { esErrorDeRed } from "@/lib/registro-offline";
 import { guardarListaAction, type EstadoGuardarLista } from "./actions";
+import { colaListas } from "./colaListas";
 
 const ORDEN: Estado[] = ["llego", "tarde", "falta", "problema"];
 
@@ -46,6 +48,7 @@ export function ListaAsistencia({
   );
   const [previaDe, setPreviaDe] = useState(alumnos[0]?.id ?? "");
   const [resultado, setResultado] = useState<EstadoGuardarLista | null>(null);
+  const [guardadaSinConexion, setGuardadaSinConexion] = useState(false);
   const [guardando, iniciar] = useTransition();
 
   const conteo = useMemo(() => {
@@ -62,19 +65,30 @@ export function ListaAsistencia({
 
   function guardar() {
     iniciar(async () => {
-      const r = await guardarListaAction(slug, {
-        salonId,
-        ambito,
-        registros: alumnos.map((a) => ({
-          alumnoId: a.id,
-          estado: marcas[a.id].estado,
-          ...(marcas[a.id].estado === "problema" && marcas[a.id].nota.trim() ? { nota: marcas[a.id].nota.trim() } : {}),
-        })),
-      });
-      setResultado(r);
-      if (r.ok) {
-        toast.success("Asistencia guardada");
-        router.refresh();
+      setGuardadaSinConexion(false);
+      const registros = alumnos.map((a) => ({
+        alumnoId: a.id,
+        estado: marcas[a.id].estado,
+        ...(marcas[a.id].estado === "problema" && marcas[a.id].nota.trim() ? { nota: marcas[a.id].nota.trim() } : {}),
+      }));
+      const guardarSinConexion = async () => {
+        const ahora = new Date().toISOString();
+        await colaListas.guardar({ id: `${salonId}:${ambito}`, creadoAt: ahora, registradoAt: ahora, slug, salonId, ambito, registros });
+        setResultado(null);
+        setGuardadaSinConexion(true);
+        toast.warning("Lista guardada en este dispositivo. Se enviará sola cuando vuelva la conexión.");
+      };
+      if (!navigator.onLine) return guardarSinConexion();
+      try {
+        const r = await guardarListaAction(slug, { salonId, ambito, registros });
+        setResultado(r);
+        if (r.ok) {
+          toast.success("Asistencia guardada");
+          router.refresh();
+        }
+      } catch (error) {
+        if (esErrorDeRed(error, navigator.onLine)) return guardarSinConexion();
+        throw error;
       }
     });
   }
@@ -121,6 +135,9 @@ export function ListaAsistencia({
             </Alerta>
           )}
           {resultado && !resultado.ok && <Alerta tipo="error">{resultado.error}</Alerta>}
+          {guardadaSinConexion && (
+            <Alerta tipo="aviso">Sin conexión: la lista quedó guardada en este dispositivo y se enviará sola al volver la conexión. Las familias recibirán el aviso entonces.</Alerta>
+          )}
         </div>
 
         <ul className="flex flex-col gap-3">

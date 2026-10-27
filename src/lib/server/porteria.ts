@@ -7,6 +7,8 @@ import type { EstadoAsistencia } from "@/generated/prisma/enums";
 import { urlColegio, urlRaiz } from "@/lib/dominio";
 import { esHoraIgualOPosterior, fechaDb, hora12 } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
+import { instanteDeRegistro } from "@/lib/registro-offline";
+import { tokenDesdeQr } from "@/lib/token-qr";
 import { hoyDelColegio, AMBITO_DIA } from "./asistencia";
 import { auditar } from "./auditoria";
 import { encolarAvisosAsistencia } from "./notificaciones/encolar";
@@ -14,7 +16,7 @@ import { requireFeature } from "./plan";
 import { urlArchivo } from "./storage";
 import { whereSalonActivo } from "./salones-activos";
 import type { TenantContext } from "./tenant";
-import { formatoTokenValido, hashToken, tokenDerivado } from "./tokens";
+import { hashToken, tokenDerivado } from "./tokens";
 
 // Portería con carnet QR (specs/05-porteria-qr.md).
 // El QR lleva <raíz>/q/<token>. El token = HMAC(APP_SECRET, "carnet:<id>") y en carnets_qr solo va su hash:
@@ -25,13 +27,7 @@ export function estadoDeLlegada(hora: string, horaLimiteTardanza: string): "lleg
   return esHoraIgualOPosterior(hora, horaLimiteTardanza) ? "tarde" : "llego";
 }
 
-/** Saca el token del texto leído: la URL /q/<token> o el token solo. */
-export function tokenDesdeQr(texto: string): string | null {
-  const limpio = texto.trim();
-  const match = limpio.match(/\/q\/([A-Za-z0-9_-]{43})(?:[/?#].*)?$/);
-  const token = match ? match[1] : limpio;
-  return formatoTokenValido(token) ? token : null;
-}
+export { tokenDesdeQr };
 
 export function urlDeCarnet(carnetId: string): string {
   return urlRaiz(`/q/${tokenDerivado("carnet", carnetId)}`);
@@ -151,8 +147,12 @@ export type ResultadoPorteria =
 export const MENSAJE_CARNET_INVALIDO = "Carnet no válido para este colegio";
 
 /** Lee el QR: valida hash activo y mismo colegio; registra la llegada del día sin duplicar. */
-export async function registrarLlegadaPorQr(ctx: TenantContext, textoLeido: string, ahora = new Date()): Promise<ResultadoPorteria> {
+export async function registrarLlegadaPorQr(
+  ctx: TenantContext, textoLeido: string, ahora = new Date(), leidoAt?: string | null,
+): Promise<ResultadoPorteria> {
   requirePorteria(ctx);
+  // Lectura hecha sin conexión: se respeta la hora real del escaneo solo si es razonable (specs/05).
+  ahora = instanteDeRegistro(leidoAt, ahora);
   const token = tokenDesdeQr(z.string().max(500).parse(textoLeido));
   if (!token) return { ok: false, mensaje: MENSAJE_CARNET_INVALIDO };
   // ctx.db filtra por el colegio del contexto: un carnet de otro colegio no se encuentra.

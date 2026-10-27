@@ -4,6 +4,7 @@ import { fechaLarga } from "@/lib/fechas";
 import { hoyDelColegio } from "@/lib/server/asistencia";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
+import { RegistrarServiceWorker } from "@/components/RegistrarServiceWorker";
 import { Escaner } from "./Escaner";
 
 export const metadata: Metadata = { title: "Portería" };
@@ -24,6 +25,7 @@ export default async function PorteriaPage({ params }: PageProps<"/colegio/[slug
           </>
         }
       />
+      <RegistrarServiceWorker />
       <Escaner slug={slug} />
     </div>
   );

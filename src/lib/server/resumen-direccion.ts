@@ -1,5 +1,6 @@
 import "server-only";
 import { whereSalonActivo } from "./salones-activos";
+import { momentoEnZona } from "@/lib/fechas";
 import type { TenantContext } from "./tenant";
 
 // Resumen del día para el inicio de dirección: asistencia por salón.
@@ -32,4 +33,24 @@ export async function resumenAsistenciaHoy(ctx: TenantContext): Promise<ResumenS
     }
     return r;
   });
+}
+
+/** Instante en que empezó hoy en la zona del colegio (medianoche local). */
+export function inicioDiaEnZona(zona: string, ahora = new Date()): Date {
+  const [h, m] = momentoEnZona(ahora, zona).hora.split(":").map(Number);
+  const sobrante = ahora.getUTCSeconds() * 1000 + ahora.getUTCMilliseconds();
+  return new Date(ahora.getTime() - (h * 60 + m) * 60_000 - sobrante);
+}
+
+export type ResumenAvisosHoy = { enviados: number; abiertos: number; conError: number };
+
+/** Avisos creados hoy (zona del colegio): enviados, abiertos y con error (error, rebotado o queja). */
+export async function resumenAvisosHoy(ctx: TenantContext, ahora = new Date()): Promise<ResumenAvisosHoy> {
+  const desde = { gte: inicioDiaEnZona(ctx.tenant.zonaHoraria, ahora) };
+  const [enviados, abiertos, conError] = await Promise.all([
+    ctx.db.aviso.count({ where: { createdAt: desde, enviadoAt: { not: null } } }),
+    ctx.db.aviso.count({ where: { createdAt: desde, abiertoAt: { not: null } } }),
+    ctx.db.aviso.count({ where: { createdAt: desde, estado: { in: ["error", "rebotado", "queja"] } } }),
+  ]);
+  return { enviados, abiertos, conError };
 }

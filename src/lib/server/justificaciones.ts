@@ -4,6 +4,7 @@ import { z } from "zod";
 import type { EstadoJustificacion } from "@/generated/prisma/enums";
 import { urlColegio } from "@/lib/dominio";
 import { isoDeFechaDb } from "@/lib/fechas";
+import { MENSAJE_PLAZO_VENCIDO } from "@/lib/plazo-justificacion";
 import { primerNombre } from "@/lib/nombres";
 import { auditar } from "./auditoria";
 import { db, dbTenant, type DbTenant } from "./db";
@@ -16,7 +17,8 @@ import { formatoTokenValido, hashToken } from "./tokens";
 
 // Justificaciones de faltas (specs/07-justificaciones.md).
 
-export const MENSAJE_TOKEN_INVALIDO = "Este enlace ya se usó o venció. Escríbele a la tutora desde Khipu.";
+export const MENSAJE_TOKEN_INVALIDO = "Este enlace ya se usó o no es válido. Escríbele a la tutora desde Khipu.";
+export { MENSAJE_PLAZO_VENCIDO };
 
 export const esquemaMotivo = z
   .string()
@@ -33,12 +35,16 @@ export type DatosTokenJustificar = {
   apoderadoId: string;
 };
 
-/** Token válido (existe, sin usar, sin vencer, falta vigente) o null. Sin sesión: el token autoriza. */
-export async function buscarTokenJustificacion(
+export type ConsultaToken =
+  | { ok: true; datos: DatosTokenJustificar }
+  | { ok: false; motivo: "invalido" | "vencido" };
+
+/** Como `buscarTokenJustificacion`, pero distingue un enlace vencido (plazo del reglamento) de uno inválido o usado. */
+export async function consultarTokenJustificacion(
   token: string,
   opciones: { tenantId?: string; ahora?: Date } = {},
-): Promise<DatosTokenJustificar | null> {
-  if (!formatoTokenValido(token)) return null;
+): Promise<ConsultaToken> {
+  if (!formatoTokenValido(token)) return { ok: false, motivo: "invalido" };
   const fila = await db.justificacionToken.findUnique({
     where: { tokenHash: hashToken(token) },
     select: {
@@ -48,17 +54,30 @@ export async function buscarTokenJustificacion(
     },
   });
   const ahora = opciones.ahora ?? new Date();
-  if (!fila || fila.usadoAt || fila.expiraAt <= ahora) return null;
-  if (opciones.tenantId && fila.tenantId !== opciones.tenantId) return null;
-  if (fila.tenant.estado === "suspendido" || fila.asistencia.estado !== "falta") return null;
+  if (!fila || fila.usadoAt) return { ok: false, motivo: "invalido" };
+  if (opciones.tenantId && fila.tenantId !== opciones.tenantId) return { ok: false, motivo: "invalido" };
+  if (fila.tenant.estado === "suspendido" || fila.asistencia.estado !== "falta") return { ok: false, motivo: "invalido" };
+  if (fila.expiraAt <= ahora) return { ok: false, motivo: "vencido" };
   return {
-    tokenId: fila.id,
-    tenant: { id: fila.tenant.id, nombre: fila.tenant.nombre, slug: fila.tenant.slug },
-    alumno: primerNombre(fila.asistencia.alumno.nombres),
-    fecha: isoDeFechaDb(fila.asistencia.fecha),
-    asistenciaId: fila.asistenciaId,
-    apoderadoId: fila.apoderadoId,
+    ok: true,
+    datos: {
+      tokenId: fila.id,
+      tenant: { id: fila.tenant.id, nombre: fila.tenant.nombre, slug: fila.tenant.slug },
+      alumno: primerNombre(fila.asistencia.alumno.nombres),
+      fecha: isoDeFechaDb(fila.asistencia.fecha),
+      asistenciaId: fila.asistenciaId,
+      apoderadoId: fila.apoderadoId,
+    },
   };
+}
+
+/** Token válido (existe, sin usar, sin vencer, falta vigente) o null. Sin sesión: el token autoriza. */
+export async function buscarTokenJustificacion(
+  token: string,
+  opciones: { tenantId?: string; ahora?: Date } = {},
+): Promise<DatosTokenJustificar | null> {
+  const r = await consultarTokenJustificacion(token, opciones);
+  return r.ok ? r.datos : null;
 }
 
 export type ResultadoJustificar = { ok: true; tenantId?: string } | { ok: false; error: string };
@@ -115,8 +134,9 @@ export async function justificarConToken(
     const v = validarArchivo(entrada.archivo);
     if (!v.ok) return { ok: false, error: MENSAJE_VALIDACION[v.error] };
   }
-  const datos = await buscarTokenJustificacion(token, opciones);
-  if (!datos) return { ok: false, error: MENSAJE_TOKEN_INVALIDO };
+  const consulta = await consultarTokenJustificacion(token, opciones);
+  if (!consulta.ok) return { ok: false, error: consulta.motivo === "vencido" ? MENSAJE_PLAZO_VENCIDO : MENSAJE_TOKEN_INVALIDO };
+  const datos = consulta.datos;
 
   const ahora = opciones.ahora ?? new Date();
   const reservado = await db.justificacionToken.updateMany({

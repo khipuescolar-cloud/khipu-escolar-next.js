@@ -2,6 +2,7 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import type { Prisma } from "@/generated/prisma/client";
 import type { CanalAviso, EstadoAsistencia, TipoAviso } from "@/generated/prisma/enums";
+import { expiracionJustificacion } from "@/lib/plazo-justificacion";
 import type { DbTenant } from "../db";
 import { renderizarPlantilla, type NombrePlantilla, type PayloadDe } from "../email/plantillas";
 import { hashToken, tokenDerivado } from "../tokens";
@@ -9,8 +10,7 @@ import { hashToken, tokenDerivado } from "../tokens";
 // Encolado de avisos (specs/06). Solo se encola para apoderados con `recibeAvisos`,
 // consentimiento vigente (no revocado) y según `preferencias_aviso` (correo y/o push).
 
-/** Vigencia del enlace «Justificar falta». */
-export const DIAS_TOKEN_JUSTIFICAR = 7;
+// La vigencia del enlace «Justificar falta» sale de `Tenant.plazoJustificacionHoras` (48 h por defecto; specs/07).
 
 export type Destinatario = {
   apoderadoId: string;
@@ -109,7 +109,7 @@ export async function encolarParaDestinatario<N extends NombrePlantilla>(
 /** Crea el token de un solo uso para justificar la falta. Solo se guarda su hash. */
 export async function crearTokenJustificacion(
   tdb: DbTenant,
-  datos: { tenantId: string; asistenciaId: string; apoderadoId: string; ahora?: Date },
+  datos: { tenantId: string; asistenciaId: string; apoderadoId: string; plazoHoras?: number | null; ahora?: Date },
 ): Promise<{ id: string; token: string }> {
   const id = randomUUID();
   const token = tokenDerivado("justificar", id);
@@ -121,7 +121,7 @@ export async function crearTokenJustificacion(
       asistenciaId: datos.asistenciaId,
       apoderadoId: datos.apoderadoId,
       tokenHash: hashToken(token),
-      expiraAt: new Date(ahora.getTime() + DIAS_TOKEN_JUSTIFICAR * 86_400_000),
+      expiraAt: expiracionJustificacion(ahora, datos.plazoHoras),
     },
   });
   return { id, token };
@@ -142,7 +142,7 @@ export type AsistenciaParaAviso = {
 export async function encolarAvisosAsistencia(
   tdb: DbTenant,
   datos: {
-    tenant: { id: string; nombre: string; modoAvisos: "todos" | "solo_excepciones" };
+    tenant: { id: string; nombre: string; modoAvisos: "todos" | "solo_excepciones"; plazoJustificacionHoras?: number };
     asistencia: AsistenciaParaAviso;
     alumnoNombre: string;
     /** «a la 1.ª hora» o «a Matemática» (texto del aviso de falta). */
@@ -172,7 +172,7 @@ export async function encolarAvisosAsistencia(
         });
         break;
       case "falta": {
-        const { id } = await crearTokenJustificacion(tdb, { tenantId: tenant.id, asistenciaId: asistencia.id, apoderadoId: d.apoderadoId });
+        const { id } = await crearTokenJustificacion(tdb, { tenantId: tenant.id, asistenciaId: asistencia.id, apoderadoId: d.apoderadoId, plazoHoras: tenant.plazoJustificacionHoras });
         filas = await encolarParaDestinatario(tdb, d, {
           ...base,
           plantilla: "asistencia_falta",

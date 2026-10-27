@@ -1,6 +1,7 @@
 import "server-only";
 import { z } from "zod";
 import type { Prisma } from "@/generated/prisma/client";
+import { PLAZO_JUSTIFICACION_MAX_HORAS, PLAZO_JUSTIFICACION_MIN_HORAS } from "@/lib/plazo-justificacion";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { db } from "./db";
@@ -15,6 +16,12 @@ const dominio = z.string().regex(/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z
 const esquema = z.object({
   horaEnvioAvisos: hora,
   horaLimiteTardanza: hora,
+  plazoJustificacionHoras: z.coerce
+    .number("El plazo para justificar debe ser un número de horas.")
+    .int("El plazo para justificar debe ser un número entero de horas.")
+    .min(PLAZO_JUSTIFICACION_MIN_HORAS, `El plazo para justificar va de ${PLAZO_JUSTIFICACION_MIN_HORAS} a ${PLAZO_JUSTIFICACION_MAX_HORAS} horas.`)
+    .max(PLAZO_JUSTIFICACION_MAX_HORAS, `El plazo para justificar va de ${PLAZO_JUSTIFICACION_MIN_HORAS} a ${PLAZO_JUSTIFICACION_MAX_HORAS} horas.`)
+    .optional(),
   modoAvisos: z.enum(["todos", "solo_excepciones"]),
   escalaCalificacion: z.enum(["literal", "vigesimal"]),
   emailDomains: z.string().transform((v) => [...new Set(v.split(/[\s,;]+/).map((d) => d.trim().toLowerCase().replace(/^@/, "")).filter(Boolean))]).pipe(z.array(dominio)),

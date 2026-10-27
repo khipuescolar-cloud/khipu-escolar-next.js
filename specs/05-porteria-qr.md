@@ -1,6 +1,6 @@
 # 05 — Portería con carnet QR
 
-> Estado: implementado · Plan: Básico · Última actualización: 2026-10-26 (Claude Code, rama `feat/basico`)
+> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/p2-dia-a-dia`: PDF de carnets y quiosco sin conexión)
 
 ## Objetivo
 Verificar la llegada del alumno en la puerta escaneando su carnet, sin depender solo de la lista del profesor.
@@ -58,11 +58,23 @@ buscarAlumnosPorteria(ctx, texto)              // 2..60 caracteres, máx. 10
 - Sin permiso de cámara → «No se pudo abrir la cámara. Revisa los permisos o usa la búsqueda manual.»
 - Si `APP_SECRET` cambia, todos los carnets impresos dejan de servir (hay que regenerarlos).
 
+## PDF de carnets
+- `GET /api/carnets/<salonId>?formato=a4|cr80` (`src/app/colegio/[slug]/api/carnets/[salonId]/route.ts`): PDF con `@react-pdf/renderer` (`src/lib/server/carnets-pdf.tsx`). **A4** (por defecto): 8 carnets por hoja (2 × 4); **CR80** (85,6 × 54 mm): un carnet por página. Cada carnet lleva QR (paquete `qrcode`), logo del colegio, nombres, apellidos, salón y código.
+- El logo se convierte a PNG con `sharp` si es WEBP o SVG (`logoParaPdf` en `src/lib/server/logo.ts`, que también usa la libreta). Solo dirección (otros roles, 403); audita `ver` (datos de los carnets) y `exportar` (la descarga). Sin carnets generados → 404.
+- Botones «Descargar PDF» en `/gestion/carnets` y en la página de impresión (A4 y tarjeta). La página imprimible se conserva.
+
+## Quiosco sin conexión
+- Con sesión de portería (o dirección), si no hay conexión el escaneo se guarda en la cola local (IndexedDB, almacén `escaneos`) y se envía solo al reconectar (evento `online` y al abrir la página), con el indicador «Sin conexión · N llegadas guardadas de enviar» y un toast al sincronizar.
+- **Sin datos personales en el dispositivo:** la cola guarda solo el token opaco del QR y la hora de lectura. El token se valida en el servidor al sincronizar (hash activo y mismo colegio); offline la pantalla muestra «Guardado sin conexión» en lugar del nombre. Un carnet inválido o de otro colegio se descarta al sincronizar con un toast. Repetir el mismo carnet offline no duplica la cola.
+- Servidor idempotente: `registrarLlegadaPorQr(ctx, texto, ahora, leidoAt)` respeta la hora real de la lectura (`leidoAt`) solo si es razonable (misma regla que pasar lista: máx. 5 min en el futuro, 48 h en el pasado) y calcula «Llegó»/«Tarde» con esa hora. Si ya había llegada hoy responde «Ya registrado» sin duplicar.
+- La búsqueda manual necesita conexión (queda deshabilitada y lo dice). `/porteria` guarda su cascarón en caché en el service worker (no trae datos de alumnos) para reabrir el quiosco sin red; solo en HTTPS.
+- El lector de QR (`@zxing/browser`) y la lógica de token (`src/lib/token-qr.ts`) corren en el navegador.
+
 ## Pruebas
 - unit (`tests/unit/porteria-qr.test.ts`, `tokens-y-fechas.test.ts`): extracción del token, hora límite, hash y token derivado.
 - integración (`tests/integracion/porteria-qr.test.ts`): solo hash guardado y reimpresión, QR de otro colegio rechazado, tarde desde la hora límite, sin duplicados, regenerar invalida el QR anterior, permisos por rol.
-- e2e: búsqueda manual en `/porteria` y `/q/<token>` sin datos.
+- unit: `tests/unit/registro-offline.test.ts`, `tests/unit/carnets-pdf.test.ts` (A4 con 8 por hoja, CR80). integración: `tests/integracion/dia-a-dia-offline-plazo.test.ts` (escaneo offline con hora real).
+- e2e: búsqueda manual en `/porteria` y `/q/<token>` sin datos; `tests/e2e/dia-a-dia-offline-calendario.test.ts` (indicador sin conexión en portería, descarga del PDF).
 
 ## Pendientes
-- PDF de carnets (hoy, página imprimible). El carnet imprimible ya muestra el logo del colegio (`urlLogoColegio`, spec 10).
-- Modo quiosco sin conexión.
+- No hay e2e del escaneo offline (la cámara no se puede simular en Playwright); está cubierto por unit e integración.

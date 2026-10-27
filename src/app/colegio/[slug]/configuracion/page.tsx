@@ -54,6 +54,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             <div className="grid gap-4 sm:grid-cols-2">
               <Campo etiqueta="Hora del resumen de llegadas" name="horaEnvioAvisos" type="time" defaultValue={t.horaEnvioAvisos} required ayuda="Las familias reciben el resumen a esta hora." />
               <Campo etiqueta="Hora límite de tardanza" name="horaLimiteTardanza" type="time" defaultValue={t.horaLimiteTardanza} required ayuda="Desde esta hora, la llegada cuenta como tarde." />
+              <Campo etiqueta="Plazo para justificar faltas (horas)" name="plazoJustificacionHoras" type="number" min={24} max={168} step={1} defaultValue={t.plazoJustificacionHoras} required ayuda="Entre 24 y 168 horas. El enlace del correo de falta vence pasado este plazo." />
               <Selector etiqueta="Modo de avisos" name="modoAvisos" defaultValue={t.modoAvisos}>
                 <option value="todos">Avisar siempre (llegadas y faltas)</option>
                 <option value="solo_excepciones">Solo excepciones (tardanzas y faltas)</option>

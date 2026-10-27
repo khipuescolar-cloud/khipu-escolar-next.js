@@ -23,9 +23,9 @@ describe("pasar lista", () => {
 
   it("guarda con upsert idempotente: repetir la misma lista no crea filas ni avisos nuevos", async () => {
     const primera = await guardarLista(c.ctxDe("tutora"), lista("llego"));
-    expect(primera).toEqual({ guardados: 2, cambios: 2, familiasAvisadas: 1 });
+    expect(primera).toEqual({ guardados: 2, cambios: 2, familiasAvisadas: 1, omitidos: 0 });
     const segunda = await guardarLista(c.ctxDe("tutora"), lista("llego"));
-    expect(segunda).toEqual({ guardados: 2, cambios: 0, familiasAvisadas: 0 });
+    expect(segunda).toEqual({ guardados: 2, cambios: 0, familiasAvisadas: 0, omitidos: 0 });
     expect(await c.db.asistencia.count()).toBe(2);
     expect(await c.db.aviso.count()).toBe(1);
   });
@@ -45,7 +45,7 @@ describe("pasar lista", () => {
     expect(payload.urlJustificar).toBeUndefined();
     const token = await c.db.justificacionToken.findUniqueOrThrow({ where: { id: payload.justificacionTokenId } });
     expect(token.tokenHash).toMatch(/^[0-9a-f]{64}$/);
-    expect(token.expiraAt.getTime() - Date.now()).toBeGreaterThan(6.9 * 86_400_000);
+    expect(token.expiraAt.getTime() - Date.now()).toBeGreaterThan(1.9 * 86_400_000);
   });
 
   it("registra la auditoría de cada cambio", async () => {

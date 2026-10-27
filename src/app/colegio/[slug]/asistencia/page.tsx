@@ -18,7 +18,10 @@ import { renderizarPlantilla } from "@/lib/server/email/plantillas";
 import { obtenerPreferencias } from "@/lib/server/notificaciones/preferencias";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext, type TenantContext } from "@/lib/server/tenant";
+import { armarMesAsistencia } from "@/lib/calendario-asistencia";
+import { CalendarioAsistencia, nombreMes } from "./CalendarioAsistencia";
 import { ListaAsistencia } from "./ListaAsistencia";
+import { SincronizadorListas } from "./SincronizadorListas";
 import { PreferenciasAvisos } from "./PreferenciasAvisos";
 
 export const metadata: Metadata = { title: "Asistencia" };
@@ -29,7 +32,7 @@ export default async function AsistenciaPage({ params, searchParams }: PageProps
   const ctx = await requireTenantContext(slug, ["profesor", "direccion", "apoderado"]);
   requireFeature(ctx, "asistencia");
 
-  if (ctx.rol === "apoderado") return <VistaFamilia ctx={ctx} slug={slug} />;
+  if (ctx.rol === "apoderado") return <VistaFamilia ctx={ctx} slug={slug} mes={typeof sp.mes === "string" ? sp.mes : undefined} />;
 
   const salon = typeof sp.salon === "string" ? sp.salon : null;
   const ambito = typeof sp.ambito === "string" ? sp.ambito : null;
@@ -47,6 +50,7 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
   return (
     <div className="flex flex-col gap-6">
       <EncabezadoPagina titulo="Pasar lista" descripcion={<span className="first-letter:uppercase">{fechaLarga(hoy.isoFecha)}</span>} />
+      <div className="-mt-2"><SincronizadorListas /></div>
 
       {resumen && (
         <Card className="-mt-2">
@@ -121,6 +125,7 @@ async function PasarLista({ ctx, slug, salonId, ambito }: { ctx: TenantContext; 
         titulo={`${lista.curso ? lista.curso.nombre : "Asistencia del día"} · ${lista.salon.nombre}`}
         descripcion={<span className="first-letter:uppercase">{fechaLarga(lista.hoy.isoFecha)}</span>}
       />
+      <div className="mb-2"><SincronizadorListas /></div>
       {lista.alumnos.length === 0 ? (
         <EstadoVacio icono={Users} titulo="Este salón no tiene alumnos activos" descripcion="Pide a dirección que agregue alumnos al salón." />
       ) : (
@@ -139,11 +144,12 @@ async function PasarLista({ ctx, slug, salonId, ambito }: { ctx: TenantContext; 
 
 const PALABRA_JUSTIFICACION = { pendiente: "Justificación en revisión", aceptada: "Falta justificada", rechazada: "Justificación no aceptada" } as const;
 
-async function VistaFamilia({ ctx, slug }: { ctx: TenantContext; slug: string }) {
-  const [hijos, preferencias] = await Promise.all([historialDeHijos(ctx), obtenerPreferencias(ctx)]);
+async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: string; mes?: string }) {
+  const [historial, preferencias] = await Promise.all([historialDeHijos(ctx, mes), obtenerPreferencias(ctx)]);
+  const { hijos, anio, mes: numeroMes, hoy } = historial;
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina titulo="Asistencia" descripcion="Últimos 30 días." />
+      <EncabezadoPagina titulo="Asistencia" descripcion="Calendario del mes de cada hijo, con el detalle de cada día." />
 
       {hijos.length === 0 && (
         <EstadoVacio icono={Users} titulo="Aún no hay alumnos vinculados a tu cuenta" descripcion="Cuando el colegio vincule a tus hijos, verás aquí su asistencia." />
@@ -161,8 +167,14 @@ async function VistaFamilia({ ctx, slug }: { ctx: TenantContext; slug: string })
               </Link>
             )}
           </div>
+          <CalendarioAsistencia
+            hijoId={h.id}
+            nombre={h.nombres}
+            hoy={hoy}
+            mes={armarMesAsistencia(anio, numeroMes, h.registros.map((r) => ({ fecha: r.fecha, estado: r.estado, esDia: r.esDia })), hoy)}
+          />
           {h.registros.length === 0 ? (
-            <EstadoVacio icono={ClipboardCheck} titulo="No hay registros en los últimos 30 días" descripcion="Cuando tu hijo tenga asistencia registrada, aparecerá aquí." />
+            <EstadoVacio icono={ClipboardCheck} titulo={`No hay registros en ${nombreMes(anio, numeroMes)}`} descripcion="Cuando tu hijo tenga asistencia registrada, aparecerá aquí." />
           ) : (
             <Card className="py-0">
               <ul className="divide-y">
