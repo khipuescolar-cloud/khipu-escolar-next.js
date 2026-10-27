@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { NuditoMascota } from "@/components/nudito/NuditoMascota";
 import { Tarjeta } from "@/components/ui/Tarjeta";
+import { leerAcciones } from "@/lib/server/nudito/acciones";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 
@@ -45,12 +47,18 @@ export default async function NuditoPage({ params }: PageProps<"/colegio/[slug]/
                 </h2>
                 <ol className="flex flex-col gap-2 font-nudito text-sm">
                   {c.mensajes.map((m) => (
-                    <li
-                      key={m.id}
-                      className={`max-w-[85%] whitespace-pre-line rounded-lg px-3 py-2 ${m.autor === "usuario" ? "self-end bg-acento text-sobre-acento" : "self-start bg-superficie-2"}`}
-                    >
-                      <span className="sr-only">{m.autor === "usuario" ? "Tú: " : "Nudito: "}</span>
-                      {m.cuerpo}
+                    <li key={m.id} className={`flex max-w-[85%] flex-col gap-2 ${m.autor === "usuario" ? "self-end" : "self-start"}`}>
+                      <p className={`whitespace-pre-line rounded-lg px-3 py-2 ${m.autor === "usuario" ? "bg-acento text-sobre-acento" : "bg-superficie-2"}`}>
+                        <span className="sr-only">{m.autor === "usuario" ? "Tú: " : "Nudito: "}</span>
+                        {m.cuerpo}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {leerAcciones(m.acciones).filter((a) => a.tipo !== "elegir_hijo").map((a) => (
+                          <Link key={a.etiqueta} href={a.valor} className="rounded-pildora bg-acento px-3 py-1.5 text-sm font-semibold text-sobre-acento hover:opacity-90">
+                            {a.etiqueta}
+                          </Link>
+                        ))}
+                      </div>
                     </li>
                   ))}
                 </ol>

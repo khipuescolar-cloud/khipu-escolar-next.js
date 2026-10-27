@@ -1,6 +1,7 @@
 import "server-only";
 import { forbidden } from "next/navigation";
 import { z } from "zod";
+import type { Genero } from "@/lib/roles";
 import { urlColegio } from "@/lib/dominio";
 import { etiquetaApoderado, etiquetaProfesor, MAX_MENSAJE, nombreCompleto } from "@/lib/mensajes";
 import { auditar } from "./auditoria";
@@ -11,7 +12,7 @@ import { salonIdsVisibles, type TenantContext } from "./tenant";
 // Chat familia ↔ profesor (specs/08-chat-familia-profesor.md).
 // Conversación = (alumno, profesor, apoderado). Nunca se expone teléfono ni correo de la otra parte.
 
-const SELECT_NOMBRE = { select: { user: { select: { nombres: true, apellidos: true } } } } as const;
+const SELECT_NOMBRE = { select: { user: { select: { nombres: true, apellidos: true, genero: true } } } } as const;
 const SELECT_SALON = { select: { nombre: true, tutorId: true, cursos: { select: { nombre: true, profesorId: true } } } } as const;
 
 export type Interlocutor = { alumnoId: string; profesorId: string; apoderadoId: string; etiqueta: string };
@@ -29,13 +30,13 @@ export async function destinatariosPosibles(ctx: TenantContext): Promise<Interlo
     const salida: Interlocutor[] = [];
     for (const v of vinculos) {
       const salon = v.alumno.salon;
-      const profesores = new Map<string, { nombre: string }>();
-      if (salon.tutorId && salon.tutor?.estado === "activa") profesores.set(salon.tutorId, { nombre: nombreCompleto(salon.tutor.user) });
+      const profesores = new Map<string, { nombre: string; genero: Genero | null }>();
+      if (salon.tutorId && salon.tutor?.estado === "activa") profesores.set(salon.tutorId, { nombre: nombreCompleto(salon.tutor.user), genero: salon.tutor.user.genero });
       for (const c of salon.cursos) {
-        if (c.profesorId && c.profesor?.estado === "activa") profesores.set(c.profesorId, { nombre: nombreCompleto(c.profesor.user) });
+        if (c.profesorId && c.profesor?.estado === "activa") profesores.set(c.profesorId, { nombre: nombreCompleto(c.profesor.user), genero: c.profesor.user.genero });
       }
-      for (const [profesorId, { nombre }] of profesores) {
-        salida.push({ alumnoId: v.alumnoId, profesorId, apoderadoId: ctx.membership.id, etiqueta: `${etiquetaProfesor(nombre, profesorId, salon)} — sobre ${v.alumno.nombres}` });
+      for (const [profesorId, { nombre, genero }] of profesores) {
+        salida.push({ alumnoId: v.alumnoId, profesorId, apoderadoId: ctx.membership.id, etiqueta: `${etiquetaProfesor(nombre, profesorId, salon, genero)} — sobre ${v.alumno.nombres}` });
       }
     }
     return salida;
@@ -93,7 +94,7 @@ const INCLUDE_CONVERSACION = {
 
 type ConversacionCargada = {
   alumno: { nombres: string; apellidos: string };
-  profesor: { id: string; user: { nombres: string; apellidos: string } };
+  profesor: { id: string; user: { nombres: string; apellidos: string; genero: Genero | null } };
   apoderado: { id: string; user: { nombres: string; apellidos: string } };
   alumnoId: string;
   apoderadoId: string;
@@ -108,7 +109,7 @@ async function etiquetaDe(ctx: TenantContext, c: ConversacionCargada): Promise<s
     return etiquetaApoderado(nombreCompleto(c.apoderado.user), v?.parentesco ?? "apoderado", alumno);
   }
   const salon = await ctx.db.salon.findFirst({ where: { alumnos: { some: { id: c.alumnoId } } }, ...SELECT_SALON });
-  const prof = salon ? etiquetaProfesor(nombreCompleto(c.profesor.user), c.profesorId, salon) : nombreCompleto(c.profesor.user);
+  const prof = salon ? etiquetaProfesor(nombreCompleto(c.profesor.user), c.profesorId, salon, c.profesor.user.genero) : nombreCompleto(c.profesor.user);
   if (ctx.rol === "direccion") {
     return `${prof} ⇄ ${nombreCompleto(c.apoderado.user)} (sobre ${alumno})`;
   }

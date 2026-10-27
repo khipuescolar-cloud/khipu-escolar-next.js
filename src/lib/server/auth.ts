@@ -60,6 +60,15 @@ export async function resolverDestino(userId: string, email: string): Promise<De
   return { tipo: "elegir" };
 }
 
+/**
+ * Primer ingreso: las membresías «invitada» del usuario pasan a «activa» (specs/02).
+ * Se llama al iniciar sesión y al fijar la contraseña desde el enlace de invitación.
+ */
+export async function activarInvitaciones(userId: string): Promise<number> {
+  const r = await db.membership.updateMany({ where: { userId, estado: "invitada" }, data: { estado: "activa" } });
+  return r.count;
+}
+
 export async function iniciarSesion(emailCrudo: string, password: string, ip: string): Promise<ResultadoLogin> {
   const email = emailCrudo.trim().toLowerCase();
   if (await estaBloqueado(email, ip)) return { ok: false, error: "bloqueado" };
@@ -69,6 +78,7 @@ export async function iniciarSesion(emailCrudo: string, password: string, ip: st
   await db.loginIntento.create({ data: { email, ip, exito: !error } });
   if (error || !data.user) return { ok: false, error: "credenciales" };
 
+  await activarInvitaciones(data.user.id);
   const destino = await resolverDestino(data.user.id, email);
   if (!destino) {
     await supabase.auth.signOut();

@@ -1,5 +1,5 @@
 import "server-only";
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Document, Image, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { APROBADO_VIGESIMAL, ETIQUETA_LITERAL, LITERALES, textoValor } from "@/lib/calificaciones";
 import { formatoDia } from "@/lib/fechas";
 import type { DatosLibreta } from "./libreta";
@@ -7,6 +7,7 @@ import type { DatosLibreta } from "./libreta";
 const estilos = StyleSheet.create({
   pagina: { padding: 36, fontSize: 10, fontFamily: "Helvetica", color: "#1b1f2a" },
   cabecera: { flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 2, borderBottomColor: "#1e2a78", paddingBottom: 8, marginBottom: 12 },
+  logo: { width: 40, height: 40, marginRight: 8, objectFit: "contain" },
   colegio: { fontSize: 15, fontFamily: "Helvetica-Bold", color: "#1e2a78" },
   titulo: { fontSize: 12, fontFamily: "Helvetica-Bold" },
   suave: { color: "#5b6170" },
@@ -25,15 +26,19 @@ const estilos = StyleSheet.create({
 });
 
 /** Libreta de un alumno en un periodo (specs/11-notas-y-libreta.md). */
-export function LibretaPdf({ datos }: { datos: DatosLibreta }) {
+export function LibretaPdf({ datos, logo }: { datos: DatosLibreta; logo?: { data: Buffer; format: "png" | "jpg" } | null }) {
   const a = datos.asistencia;
   return (
     <Document title={`Libreta ${datos.alumno.apellidos} ${datos.alumno.nombres} - ${datos.periodo.nombre}`} author={datos.colegio.nombre}>
       <Page size="A4" style={estilos.pagina}>
         <View style={estilos.cabecera}>
-          <View>
-            <Text style={estilos.colegio}>{datos.colegio.nombre}</Text>
-            {datos.colegio.ciudad && <Text style={estilos.suave}>{datos.colegio.ciudad}</Text>}
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            {/* eslint-disable-next-line jsx-a11y/alt-text -- Image de react-pdf no admite alt */}
+            {logo && <Image src={logo} style={estilos.logo} />}
+            <View>
+              <Text style={estilos.colegio}>{datos.colegio.nombre}</Text>
+              {datos.colegio.ciudad && <Text style={estilos.suave}>{datos.colegio.ciudad}</Text>}
+            </View>
           </View>
           <View>
             <Text style={estilos.titulo}>Libreta de notas</Text>
@@ -45,7 +50,7 @@ export function LibretaPdf({ datos }: { datos: DatosLibreta }) {
           <Text style={estilos.dato}>Alumno(a): {datos.alumno.apellidos}, {datos.alumno.nombres}</Text>
           <Text style={estilos.dato}>Salón: {datos.alumno.salon}</Text>
           {datos.alumno.codigo && <Text style={estilos.dato}>Código: {datos.alumno.codigo}</Text>}
-          {datos.alumno.tutor && <Text style={estilos.dato}>Tutor(a): {datos.alumno.tutor}</Text>}
+          {datos.alumno.tutor && <Text style={estilos.dato}>{datos.alumno.tutorTitulo}: {datos.alumno.tutor}</Text>}
         </View>
 
         {datos.cursos.map((curso) => (

@@ -13,6 +13,8 @@ export type Mosaico = {
   icono: IconoMosaico;
   feature: Feature;
   roles: Rol[];
+  /** Contador que se muestra sobre el mosaico (hoy: mensajes sin leer). */
+  contador?: "mensajes";
 };
 
 export const MOSAICOS: Mosaico[] = [
@@ -21,7 +23,7 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/porteria", titulo: "Portería", descripcion: "Escanea el carnet QR en la entrada.", icono: "ScanLine", feature: "porteria", roles: ["porteria", "direccion"] },
   { href: "/avisos", titulo: "Avisos enviados", descripcion: "Correos y notificaciones a las familias.", icono: "MailCheck", feature: "avisos", roles: ["direccion"] },
   { href: "/justificaciones", titulo: "Justificaciones", descripcion: "Faltas justificadas por las familias.", icono: "FileText", feature: "justificaciones", roles: ["profesor", "direccion", "apoderado"] },
-  { href: "/mensajes", titulo: "Mensajes", descripcion: "Chat entre familia y profesor, sin teléfonos.", icono: "MessagesSquare", feature: "mensajes", roles: ["profesor", "apoderado", "direccion"] },
+  { href: "/mensajes", titulo: "Mensajes", descripcion: "Chat entre familia y profesor, sin teléfonos.", icono: "MessagesSquare", feature: "mensajes", roles: ["profesor", "apoderado", "direccion"], contador: "mensajes" },
   { href: "/comunicados", titulo: "Comunicados", descripcion: "Anuncios del colegio.", icono: "Megaphone", feature: "comunicados", roles: ["direccion", "profesor", "apoderado"] },
   { href: "/notas", titulo: "Notas", descripcion: "Evaluaciones y calificaciones por competencia.", icono: "GraduationCap", feature: "notas", roles: ["profesor", "direccion", "apoderado"] },
   { href: "/libreta", titulo: "Libreta", descripcion: "Libreta de notas por periodo.", icono: "BookOpen", feature: "libreta", roles: ["direccion", "apoderado", "profesor"] },

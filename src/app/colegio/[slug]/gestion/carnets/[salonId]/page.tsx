@@ -1,6 +1,7 @@
 import { ArrowLeft, Ban, RefreshCw } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { urlLogoColegio } from "@/lib/server/logo";
 import { carnetsParaImprimir } from "@/lib/server/porteria";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { generarCarnetsAction, regenerarCarnetAction, revocarCarnetAction } from "../actions";
@@ -12,6 +13,7 @@ export default async function ImprimirCarnetsPage({ params }: PageProps<"/colegi
   const { slug, salonId } = await params;
   const ctx = await requireTenantContext(slug, ["direccion"]);
   const { salon, carnets } = await carnetsParaImprimir(ctx, salonId);
+  const logoUrl = await urlLogoColegio(ctx.tenant);
   const sinCarnet = carnets.filter((c) => !c.qr).length;
 
   return (
@@ -40,7 +42,13 @@ export default async function ImprimirCarnetsPage({ params }: PageProps<"/colegi
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={c.qr!} alt={`Código QR del carnet de ${c.nombres} ${c.apellidos}`} className="h-32 w-32" />
                 <div className="flex min-w-0 flex-col gap-1">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-[#1e2a78]">{ctx.tenant.nombre}</p>
+                  <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[#1e2a78]">
+                    {logoUrl && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={logoUrl} alt="" className="h-8 w-8 object-contain" />
+                    )}
+                    {ctx.tenant.nombre}
+                  </p>
                   <p className="font-titulo text-lg font-bold leading-tight">{c.nombres}</p>
                   <p className="leading-tight">{c.apellidos}</p>
                   <p className="text-sm">{salon.nombre}{c.codigo ? ` · ${c.codigo}` : ""}</p>

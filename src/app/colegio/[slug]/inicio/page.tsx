@@ -5,6 +5,7 @@ import { PlanLock } from "@/components/PlanLock";
 import { mosaicosParaRol } from "@/lib/navegacion";
 import { NOMBRE_PLAN, planIncluye, planMinimo } from "@/lib/planes";
 import { requireConsentimiento } from "@/lib/server/consentimiento";
+import { conteoNoLeidos } from "@/lib/server/mensajes";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { ResumenDireccion } from "./ResumenDireccion";
 
@@ -15,6 +16,7 @@ export default async function InicioPage({ params }: PageProps<"/colegio/[slug]/
   const ctx = await requireTenantContext(slug);
   await requireConsentimiento(ctx);
   const mosaicos = mosaicosParaRol(ctx.rol);
+  const mensajesSinLeer = mosaicos.some((m) => m.contador === "mensajes" && planIncluye(ctx.tenant.plan, m.feature)) ? await conteoNoLeidos(ctx) : 0;
 
   return (
     <div className="flex flex-col gap-6">
@@ -31,6 +33,13 @@ export default async function InicioPage({ params }: PageProps<"/colegio/[slug]/
               <span className="flex items-start justify-between gap-2">
                 <Icono className={`h-7 w-7 ${incluido ? "text-acento" : "text-pizarra"}`} strokeWidth={2} aria-hidden />
                 {!incluido && <PlanLock planMinimo={planMinimo(m.feature)} />}
+                {incluido && m.contador === "mensajes" && mensajesSinLeer > 0 && (
+                  <span className="inline-flex items-center gap-1 rounded-pildora bg-acento px-2.5 py-1 text-xs font-bold text-white" data-testid="contador-mensajes">
+                    <Iconos.MailWarning className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                    <span aria-hidden>{mensajesSinLeer}</span>
+                    <span className="sr-only">{mensajesSinLeer === 1 ? "1 mensaje sin leer" : `${mensajesSinLeer} mensajes sin leer`}</span>
+                  </span>
+                )}
               </span>
               <span className="font-titulo text-lg font-semibold">{m.titulo}</span>
               <span className="text-sm text-pizarra">{m.descripcion}</span>

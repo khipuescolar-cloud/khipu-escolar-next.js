@@ -82,7 +82,7 @@ cursosDelDocente(ctx)
 - e2e: `tests/e2e/notas-libreta.test.ts` (profesor de Euler ingresa nota vigesimal; apoderada descarga el PDF; losolivos 403).
 
 ## Pendientes
-- Logo del colegio en el PDF (requiere el módulo de archivos; hoy solo el nombre).
+- El logo del colegio aparece en el PDF si es PNG o JPG (WEBP no lo admite el generador; ver spec 10). El título del tutor sigue su género («Tutora:», «Tutor:», «Tutor(a):»).
 - Importar/exportar notas desde Excel; observaciones por nota (`comentario` existe en la BD pero no se edita aún).
 - Cierre por curso (hoy el cierre es por periodo para todo el colegio).
 - Avisar a la familia cuando se publique la libreta.

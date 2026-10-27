@@ -1,4 +1,4 @@
-import { CheckCircle2, Clock, XCircle } from "lucide-react";
+import { CheckCircle2, Clock, Send, XCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
@@ -7,7 +7,7 @@ import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { listarAlumnos, listarApoderados } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { cambiarEstadoMembresiaAction, desvincularApoderadoAction, invitarApoderadoAction, vincularApoderadoAction } from "../actions";
+import { cambiarEstadoMembresiaAction, desvincularApoderadoAction, invitarApoderadoAction, reenviarInvitacionAction, vincularApoderadoAction } from "../actions";
 
 export const metadata: Metadata = { title: "Familias" };
 
@@ -53,9 +53,23 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
                     <p className="font-semibold">{a.user.nombres} {a.user.apellidos}</p>
                     <p className="text-sm text-pizarra">{a.user.email}</p>
                   </div>
-                  <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-xs font-semibold ${c.clase}`}>
-                    <c.Icono className="h-3.5 w-3.5" strokeWidth={2} aria-hidden /> {c.texto}
-                  </span>
+                  <div className="flex flex-wrap items-center gap-2">
+                    {a.estado === "invitada" && (
+                      <>
+                        <span className="inline-flex items-center gap-1.5 rounded-pildora bg-tarde-fondo px-2.5 py-1 text-xs font-semibold text-tarde">
+                          <Clock className="h-3.5 w-3.5" strokeWidth={2} aria-hidden /> Invitación pendiente
+                        </span>
+                        <form action={reenviarInvitacionAction}>
+                          <input type="hidden" name="id" value={a.id} />
+                          <input type="hidden" name="volver" value="apoderados" />
+                          <Boton type="submit" variante="secundario"><Send className="mr-1.5 h-4 w-4" strokeWidth={2} aria-hidden /> Reenviar invitación</Boton>
+                        </form>
+                      </>
+                    )}
+                    <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-xs font-semibold ${c.clase}`}>
+                      <c.Icono className="h-3.5 w-3.5" strokeWidth={2} aria-hidden /> {c.texto}
+                    </span>
+                  </div>
                 </div>
                 <ul className="text-sm">
                   {a.hijos.map((h) => (
@@ -78,8 +92,8 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
                 <form action={cambiarEstadoMembresiaAction}>
                   <input type="hidden" name="id" value={a.id} />
                   <input type="hidden" name="volver" value="apoderados" />
-                  <input type="hidden" name="estado" value={a.estado === "activa" ? "inactiva" : "activa"} />
-                  <Boton type="submit" variante="fantasma">{a.estado === "activa" ? "Desactivar cuenta" : "Reactivar cuenta"}</Boton>
+                  <input type="hidden" name="estado" value={a.estado === "inactiva" ? "activa" : "inactiva"} />
+                  <Boton type="submit" variante="fantasma">{a.estado === "inactiva" ? "Reactivar cuenta" : "Desactivar cuenta"}</Boton>
                 </form>
               </Tarjeta>
             </li>

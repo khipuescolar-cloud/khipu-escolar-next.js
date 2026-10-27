@@ -37,7 +37,7 @@ test("Rosa y la tutora Lucía conversan sin ver teléfonos ni correos", async ({
   // Rosa escribe a la tutora.
   const rosa = await entrar(browser, "rosa.quispe@gmail.com", true);
   await rosa.goto(`${COLEGIO}/mensajes/nuevo`);
-  const fila = rosa.getByRole("listitem").filter({ hasText: "Lucía García Paz · Tutor(a) de 3.° B" });
+  const fila = rosa.getByRole("listitem").filter({ hasText: "Lucía García Paz · Tutora de 3.° B" });
   await fila.getByRole("button", { name: "Escribir" }).click();
   await rosa.waitForURL(/\/mensajes\/[0-9a-f-]{36}$/);
   await rosa.getByLabel("Tu mensaje").fill(mensajeRosa);

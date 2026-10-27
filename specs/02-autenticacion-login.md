@@ -15,8 +15,9 @@ Entrar con correo y contraseña, y llegar al colegio correcto sin preguntar nada
    - `/entrando?colegio=<slug>` muestra «Entrando a <colegio>» y la dirección, y salta a `https://<slug>.<dominio>/inicio`.
 2. **Límite de intentos:** 5 fallos por correo o 20 por IP en 15 minutos → «Hubo demasiados intentos. Espera 15 minutos o recupera tu contraseña.» (tabla `login_intentos`). Además aplican los *rate limits* de Supabase Auth.
 3. **Recuperar contraseña:** `/recuperar` → `resetPasswordForEmail` (la respuesta es siempre la misma) → el correo lleva a `/auth/callback?next=/restablecer` → `/restablecer` guarda la nueva contraseña (mínimo 8 caracteres).
-4. **Salir:** `salirAction` en el encabezado del colegio.
-5. **Cambiar de rol** (si tiene varios en el mismo colegio): cookie `khipu_rol`.
+4. **Invitación → activa:** gestión crea las membresías en estado `invitada`. En el primer ingreso (`iniciarSesion`, tras validar la contraseña) o al fijar la contraseña desde el enlace de invitación (`/restablecer`), `activarInvitaciones(userId)` pasa todas las `invitada` del usuario a `activa`; así entra aunque su única membresía fuera `invitada`. Una cuenta `inactiva` sigue sin entrar.
+5. **Salir:** `salirAction` en el encabezado del colegio.
+6. **Cambiar de rol** (si tiene varios en el mismo colegio): cookie `khipu_rol`.
 
 ## Textos de error
 - «El correo o la contraseña no coinciden.»
@@ -26,5 +27,4 @@ Entrar con correo y contraseña, y llegar al colegio correcto sin preguntar nada
 - e2e: `tests/e2e/login-flow.test.ts` (dominio → subdominio, apoderada con 2 colegios, candados del Básico, contraseña incorrecta).
 
 ## Pendientes
-- Invitaciones de apoderados y profesores (ver spec 10).
 - En producción, configurar el SMTP de Supabase Auth con Amazon SES.

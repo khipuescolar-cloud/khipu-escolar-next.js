@@ -2,6 +2,7 @@ import "server-only";
 import { forbidden } from "next/navigation";
 import type { Literal, ValorCalificacion } from "@/lib/calificaciones";
 import { fechaDeColumnaDate } from "@/lib/fechas";
+import { tituloProfesor } from "@/lib/roles";
 import { auditar } from "./auditoria";
 import { requireFeature } from "./plan";
 import { requireAlumnoVisible, type TenantContext } from "./tenant";
@@ -50,6 +51,7 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
     alumno: {
       id: alumno.id, nombres: alumno.nombres, apellidos: alumno.apellidos, codigo: alumno.codigo,
       salon: alumno.salon.nombre, tutor: alumno.salon.tutor ? `${alumno.salon.tutor.user.nombres} ${alumno.salon.tutor.user.apellidos}` : null,
+      tutorTitulo: tituloProfesor(alumno.salon.tutor?.user.genero, "tutor"),
     },
     periodo: { id: periodo.id, nombre: periodo.nombre, anio: periodo.anio, cerrado: periodo.cerrado },
     cursos: cursos.map((curso) => ({

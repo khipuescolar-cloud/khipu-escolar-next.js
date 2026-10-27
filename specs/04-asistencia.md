@@ -64,5 +64,6 @@ hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 - e2e (`tests/e2e/pasar-lista-aviso-justificar.test.ts`): Lucía pasa lista en 3.° B → correo en Mailpit → enlace de justificar funciona una vez. `tests/e2e/paginas-basico-por-rol.test.ts`: resumen del día, vista de familia, portería sin acceso.
 
 ## Pendientes
+- (Hecho) Vista de la familia: botón «Escribir a la tutora» por hijo → `/mensajes/nuevo?alumno=<id>` (spec 08).
 - Calendario mensual para la familia (hoy es lista de 30 días).
 - Guardado sin conexión (PWA) para salones sin buena señal.

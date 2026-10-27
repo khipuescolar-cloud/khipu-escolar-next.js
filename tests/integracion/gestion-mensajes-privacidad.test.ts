@@ -194,7 +194,7 @@ describe("gestión de dirección", () => {
     const { membershipId, userId } = await invitarUsuario(ctxs.dir, { email, nombres: "Inés", apellidos: "Invitada", rol: "apoderado" });
     authCreados.push(userId);
     perfiles.push({ id: userId } as Profile);
-    expect((await db.membership.findUniqueOrThrow({ where: { id: membershipId } })).rol).toBe("apoderado");
+    expect(await db.membership.findUniqueOrThrow({ where: { id: membershipId } })).toMatchObject({ rol: "apoderado", estado: "invitada" });
     const aviso = await db.aviso.findFirstOrThrow({ where: { tenantId: tenant.id, plantilla: "invitacion", destinatario: email } });
     expect(aviso).toMatchObject({ tipo: "invitacion", canal: "correo", estado: "pendiente" });
     await expect(invitarUsuario(ctxs.dir, { email, nombres: "Inés", apellidos: "Invitada", rol: "apoderado" })).rejects.toThrow("ya tiene ese rol");

@@ -3,18 +3,23 @@
 import { ejecutarYVolver, texto, textoONulo } from "@/lib/server/accion-formulario";
 import { ErrorDeNegocio, contextoDeAccion } from "@/lib/server/contexto-accion";
 import {
-  cambiarEstadoAlumno, cambiarEstadoMembresia, crearAlumno, crearCurso, crearSalon, desvincularApoderado, editarAlumno, editarCurso,
+  cambiarEstadoAlumno, cambiarEstadoMembresia, cambiarGeneroProfesor, reenviarInvitacion, crearAlumno, crearCurso, crearSalon, desvincularApoderado, editarAlumno, editarCurso,
   editarSalon, eliminarCurso, eliminarSalon, importarAlumnosCsv, invitarApoderado, invitarUsuario, vincularApoderado,
 } from "@/lib/server/gestion";
 
 const ROLES = ["direccion"] as const;
 const gestionar = () => contextoDeAccion([...ROLES]);
 
+function generoDe(f: FormData) {
+  const g = textoONulo(f, "genero");
+  return g === "femenino" || g === "masculino" || g === "no_especifica" ? g : null;
+}
+
 // ── Profesores ──
 export async function invitarProfesorAction(formData: FormData) {
   const ctx = await gestionar();
   await ejecutarYVolver("/gestion/profesores", async () => {
-    await invitarUsuario(ctx, { email: texto(formData, "email"), nombres: texto(formData, "nombres"), apellidos: texto(formData, "apellidos"), rol: "profesor" });
+    await invitarUsuario(ctx, { email: texto(formData, "email"), nombres: texto(formData, "nombres"), apellidos: texto(formData, "apellidos"), rol: "profesor", genero: generoDe(formData) });
     return "Invitación enviada. La persona recibirá un correo para crear su contraseña.";
   });
 }
@@ -153,5 +158,22 @@ export async function desvincularApoderadoAction(formData: FormData) {
   await ejecutarYVolver("/gestion/apoderados", async () => {
     await desvincularApoderado(ctx, texto(formData, "id"));
     return "Vínculo quitado.";
+  });
+}
+
+export async function reenviarInvitacionAction(formData: FormData) {
+  const ctx = await gestionar();
+  const volver = texto(formData, "volver") === "apoderados" ? "/gestion/apoderados" : "/gestion/profesores";
+  await ejecutarYVolver(volver, async () => {
+    await reenviarInvitacion(ctx, texto(formData, "id"));
+    return "Invitación reenviada.";
+  });
+}
+
+export async function cambiarGeneroProfesorAction(formData: FormData) {
+  const ctx = await gestionar();
+  await ejecutarYVolver("/gestion/profesores", async () => {
+    await cambiarGeneroProfesor(ctx, texto(formData, "id"), generoDe(formData));
+    return "Datos guardados.";
   });
 }

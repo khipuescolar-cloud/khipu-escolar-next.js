@@ -31,7 +31,7 @@ Un asistente conversacional para las familias del colegio (rol **apoderado**) qu
 - Tono: «tú», corto, una idea por mensaje.
 
 ## Modelo de datos
-`nudito_conversaciones` (`membership_id`, `alumno_id` opcional: último hijo consultado) y `nudito_mensajes` (`autor`, `cuerpo`, `intencion`, `derivado`). Lee: `tareas`, `eventos_agenda`, `asistencias`, `calificaciones_periodo`, `notas`, `documentos_colegio`. No se cambió el esquema.
+`nudito_conversaciones` (`membership_id`, `alumno_id` opcional: último hijo consultado) y `nudito_mensajes` (`autor`, `cuerpo`, `intencion`, `derivado`, `acciones` Json opcional: los botones de la respuesta). Lee: `tareas`, `eventos_agenda`, `asistencias`, `calificaciones_periodo`, `notas`, `documentos_colegio`. No se cambió el esquema.
 
 ## Contratos de `src/lib/server/nudito`
 ```ts
@@ -45,7 +45,8 @@ Intenciones: `saludo`, `ayuda`, `tareas_pendientes`, `proximas_fechas`, `asisten
 
 ## Rutas y UI
 - Widget `NuditoWidget` (cliente, `font-nudito`) renderizado desde `src/app/colegio/[slug]/layout.tsx` solo si `rol === "apoderado"` y el plan incluye `nudito`. Mascota SVG con animación suave desactivada con `prefers-reduced-motion`. Accesible: `role="dialog"`, foco al abrir, Esc cierra y devuelve el foco, respuestas en `aria-live`.
-- `/nudito` (apoderado): historial de conversaciones.
+- `/nudito` (apoderado): historial de conversaciones; los botones guardados (`abrir_chat`, `ir`) se muestran como enlaces bajo cada respuesta (los de `elegir_hijo` ya no tienen sentido y se omiten).
+- Al abrir el widget por primera vez retoma la última conversación con actividad en las últimas 12 horas (`cargarConversacionNuditoAction`), con sus botones. `leerAcciones` (`nudito/acciones.ts`) valida el Json guardado.
 
 ## Textos y UX
 Los textos exactos están en `src/lib/server/nudito/respuestas.ts`. Estados siempre con texto; sin emojis en avisos serios.
