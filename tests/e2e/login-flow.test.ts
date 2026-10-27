@@ -7,7 +7,7 @@ test("profesora entra por el dominio de su colegio y llega a su subdominio", asy
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
   await expect(page.getByRole("heading", { name: /Entrando a I.E.P. Nuevo Horizonte/ })).toBeVisible();
-  await page.waitForURL("http://nuevohorizonte.lvh.me:3000/inicio");
+  await page.waitForURL(`http://nuevohorizonte.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
   await expect(page.getByRole("heading", { name: "Hola, Lucía" })).toBeVisible();
   await expect(page.getByText("Pasar lista")).toBeVisible();
 });
@@ -20,7 +20,7 @@ test("apoderada con hijos en dos colegios elige a cuál entrar", async ({ page }
   await page.waitForURL("**/elegir-colegio");
   await expect(page.getByText("Academia Euler")).toBeVisible();
   await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
-  await page.waitForURL("http://nuevohorizonte.lvh.me:3000/inicio");
+  await page.waitForURL(`http://nuevohorizonte.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
   await expect(page.getByText("Nudito")).toBeVisible();
 });
 
@@ -29,7 +29,7 @@ test("plan Básico muestra candados en funciones de planes superiores", async ({
   await page.getByLabel("Correo").fill("direccion@losolivos.demo");
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  await page.waitForURL("http://losolivos.lvh.me:3000/inicio");
+  await page.waitForURL(`http://losolivos.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
   await expect(page.getByText("Plan Familia").first()).toBeVisible();
 });
 
