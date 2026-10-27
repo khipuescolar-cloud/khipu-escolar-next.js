@@ -27,16 +27,34 @@ const OPERACIONES_CON_WHERE = new Set([
   "update", "updateMany", "updateManyAndReturn", "delete", "deleteMany", "count", "aggregate", "groupBy", "upsert",
 ]);
 
+/** Operaciones de escritura que bloquea el modo soporte (specs/16 · acceso de soporte). */
+export const OPERACIONES_DE_ESCRITURA = new Set([
+  "create", "createMany", "createManyAndReturn", "update", "updateMany", "updateManyAndReturn", "upsert", "delete", "deleteMany",
+]);
+
+export const MENSAJE_SOLO_LECTURA = "Modo soporte: solo lectura";
+
+/** Se lanza al intentar escribir con un cliente de solo lectura (super administrador en modo soporte). */
+export class ErrorSoloLectura extends Error {
+  constructor(public readonly modelo?: string, public readonly operacion?: string) {
+    super(MENSAJE_SOLO_LECTURA);
+    this.name = "ErrorSoloLectura";
+  }
+}
+
 /**
  * Cliente con aislamiento por colegio: agrega `tenantId` a todo where/create de los modelos de negocio.
  * Es la barrera principal multitenant (Prisma salta RLS). Las escrituras anidadas deben pasar tenantId a mano.
+ * Con `soloLectura` toda escritura (de cualquier modelo, también los globales) lanza `ErrorSoloLectura`.
  */
-export function dbTenant(tenantId: string) {
+export function dbTenant(tenantId: string, opciones: { soloLectura?: boolean } = {}) {
+  const soloLectura = opciones.soloLectura === true;
   return db.$extends({
     name: "aislamiento-tenant",
     query: {
       $allModels: {
         async $allOperations({ model, operation, args, query }) {
+          if (soloLectura && OPERACIONES_DE_ESCRITURA.has(operation)) throw new ErrorSoloLectura(model, operation);
           if (MODELOS_GLOBALES.has(model)) return query(args);
           const a = (args ?? {}) as Record<string, unknown>;
           if (OPERACIONES_CON_WHERE.has(operation)) {

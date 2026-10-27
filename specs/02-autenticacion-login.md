@@ -1,6 +1,6 @@
 # 02 — Autenticación y login
 
-> Estado: implementado · Plan: todos · Última actualización: 2026-10-26 (Claude Code)
+> Estado: implementado · Plan: todos · Última actualización: 2026-10-27 (Claude Code · último ingreso)
 
 ## Objetivo
 Entrar con correo y contraseña, y llegar al colegio correcto sin preguntar nada de más.
@@ -13,6 +13,7 @@ Entrar con correo y contraseña, y llegar al colegio correcto sin preguntar nada
      - si no, su único colegio;
      - si tiene varios → `/elegir-colegio`.
    - `/entrando?colegio=<slug>` muestra «Entrando a <colegio>» y la dirección, y salta a `https://<slug>.<dominio>/inicio`.
+   - Cada intento queda en `login_intentos` (`registrarIntentoLogin`); si es exitoso guarda `user_id` y actualiza `profiles.ultimo_ingreso_at` (base de «usuarios activos» y «último ingreso» del panel de plataforma, specs/16).
 2. **Límite de intentos:** 5 fallos por correo o 20 por IP en 15 minutos → «Hubo demasiados intentos. Espera 15 minutos o recupera tu contraseña.» (tabla `login_intentos`). Además aplican los *rate limits* de Supabase Auth.
 3. **Recuperar contraseña:** `/recuperar` → `resetPasswordForEmail` (la respuesta es siempre la misma) → el correo lleva a `/auth/callback?next=/restablecer` → `/restablecer` guarda la nueva contraseña (mínimo 8 caracteres).
 4. **Invitación → activa:** gestión crea las membresías en estado `invitada`. En el primer ingreso (`iniciarSesion`, tras validar la contraseña) o al fijar la contraseña desde el enlace de invitación (`/restablecer`), `activarInvitaciones(userId)` pasa todas las `invitada` del usuario a `activa`; así entra aunque su única membresía fuera `invitada`. Una cuenta `inactiva` sigue sin entrar.

@@ -7,11 +7,14 @@ import { BarraSuperior } from "@/components/shell/BarraSuperior";
 import { MenuUsuario } from "@/components/shell/MenuUsuario";
 import type { GrupoNavResuelto } from "@/components/shell/tipos";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { ShieldAlert } from "lucide-react";
+import { urlPlataforma } from "@/lib/dominio";
 import { mosaicosParaRol, NOMBRE_GRUPO, type GrupoNav } from "@/lib/navegacion";
 import { NOMBRE_PLAN, planIncluye, planMinimo } from "@/lib/planes";
 import { nombreRol } from "@/lib/roles";
 import { urlLogoColegio } from "@/lib/server/logo";
 import { conteoNoLeidos } from "@/lib/server/mensajes";
+import { FEATURES_PRIVADAS_SOPORTE } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cambiarRolAction, salirAction } from "./actions";
 
@@ -21,7 +24,8 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
   const { slug } = await params;
   const ctx = await requireTenantContext(slug);
   const plan = ctx.tenant.plan;
-  const mosaicos = mosaicosParaRol(ctx.rol);
+  // Modo soporte (specs/16): sin chats, notas, libreta ni Nudito en la navegación.
+  const mosaicos = mosaicosParaRol(ctx.rol).filter((m) => !(ctx.soporte && FEATURES_PRIVADAS_SOPORTE.has(m.feature)));
   const tieneMensajes = mosaicos.some((m) => m.contador === "mensajes" && planIncluye(plan, m.feature));
   const [logoUrl, sinLeer, estadoBarra] = await Promise.all([
     urlLogoColegio(ctx.tenant),
@@ -78,6 +82,21 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
         }
       />
       <SidebarInset>
+        {ctx.soporte && (
+          <div role="status" className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-maiz px-4 py-2 text-sm font-semibold text-indigo" data-testid="banner-soporte">
+            <ShieldAlert className="size-4 shrink-0" strokeWidth={2} aria-hidden />
+            <span>
+              Modo soporte · solo lectura · vence a las{" "}
+              {ctx.soporte.expiraAt.toLocaleTimeString("es-PE", { timeZone: "America/Lima", hour: "2-digit", minute: "2-digit", hour12: false })}
+            </span>
+            <form method="post" action={urlPlataforma("/soporte/terminar")}>
+              <input type="hidden" name="accesoId" value={ctx.soporte.accesoId} />
+              <button type="submit" className="min-h-8 rounded-md px-2 underline underline-offset-4 hover:bg-black/5 focus-visible:ring-2 focus-visible:ring-indigo focus-visible:outline-none">
+                Terminar
+              </button>
+            </form>
+          </div>
+        )}
         <BarraSuperior grupos={grupos} notificaciones={tieneMensajes ? [{ titulo: "Mensajes sin leer", href: "/mensajes", cantidad: sinLeer }] : []} />
         <div className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6 lg:py-8">{children}</div>
       </SidebarInset>

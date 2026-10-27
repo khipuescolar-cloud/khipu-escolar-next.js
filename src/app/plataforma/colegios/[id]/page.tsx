@@ -1,4 +1,4 @@
-import { ArrowLeft, Download, ExternalLink, History, ImageIcon, KeyRound, Mail, Pencil, Settings2, UserPlus, Users } from "lucide-react";
+import { ArrowLeft, Download, ExternalLink, History, ImageIcon, KeyRound, LifeBuoy, Mail, Pencil, Settings2, UserPlus, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -13,10 +13,13 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { urlColegio } from "@/lib/dominio";
 import { fechaCorta } from "@/lib/fechas";
 import { NOMBRE_PLAN } from "@/lib/planes";
-import { auditoriaDelColegio, detalleColegio, requireAdminPlataforma, type DiaMetricas } from "@/lib/server/plataforma";
+import { accesoSoporteActual, auditoriaDelColegio, detalleColegio, requireAdminPlataforma, type DiaMetricas } from "@/lib/server/plataforma";
 import {
-  agregarAdministradorAction, cambiarEstadoAction, cambiarInsigniaAction, cambiarPlanAction, editarColegioAction, reenviarBienvenidaAction,
+  agregarAdministradorAction, cambiarEstadoAction, cambiarInsigniaAction, cambiarPlanAction, editarColegioAction, entrarSoporteAction,
+  reenviarBienvenidaAction, terminarSoporteAction,
 } from "../../actions";
+import { DialogoSoporte } from "../../_componentes/DialogoSoporte";
+import { GraficoDiario } from "../../_componentes/Graficos";
 import { CamposAdministrador } from "../CamposAdministrador";
 import { CambiarEstado } from "../../_componentes/CambiarEstado";
 import { EstadoColegio, fechaHora, fechaSimple, PlanColegio, porcentaje } from "../../EstadoColegio";
@@ -33,7 +36,11 @@ const NOMBRE_ACCION: Record<string, string> = {
   reenviar_bienvenida: "Reenvió la bienvenida",
   agregar_administrador: "Agregó un administrador",
   exportar_colegio: "Exportó los datos (ZIP)",
+  soporte_inicio: "Entró como soporte (solo lectura)",
+  soporte_fin: "Terminó el acceso de soporte",
 };
+
+const horaLima = (d: Date) => d.toLocaleTimeString("es-PE", { timeZone: "America/Lima", hour: "2-digit", minute: "2-digit", hour12: false });
 
 /** Agrupa los 30 días en semanas (de la más reciente a la más antigua). */
 function porSemana(dias: DiaMetricas[]) {
@@ -55,7 +62,11 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
   const admin = await requireAdminPlataforma();
   const { id } = await params;
   const { ok, error } = await searchParams;
-  const [{ tenant: t, fila, administradores, logoUrl, dias }, bitacora] = await Promise.all([detalleColegio(admin, id), auditoriaDelColegio(admin, id)]);
+  const [{ tenant: t, fila, administradores, logoUrl, dias }, bitacora, soporte] = await Promise.all([
+    detalleColegio(admin, id),
+    auditoriaDelColegio(admin, id),
+    accesoSoporteActual(admin, id),
+  ]);
   const url = urlColegio(t.slug, "/inicio");
   const semanas = porSemana(dias);
 
@@ -79,9 +90,12 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
             titulo={t.nombre}
             descripcion={t.eslogan ? <span className="italic">{t.eslogan}</span> : undefined}
             acciones={
-              <a href={url} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "outline" })}>
-                <ExternalLink strokeWidth={2} aria-hidden /> Abrir colegio
-              </a>
+              <>
+                {t.estado !== "suspendido" && !soporte && <DialogoSoporte tenantId={t.id} nombre={t.nombre} accion={entrarSoporteAction} />}
+                <a href={url} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "outline" })}>
+                  <ExternalLink strokeWidth={2} aria-hidden /> Abrir colegio
+                </a>
+              </>
             }
           />
           <div className="-mt-3 flex flex-wrap items-center gap-2 text-sm">
@@ -95,13 +109,40 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
 
       <Notificar ok={typeof ok === "string" ? ok : undefined} error={typeof error === "string" ? error : undefined} />
 
+      {soporte && (
+        <Tarjeta role="region" className="flex flex-wrap items-center justify-between gap-3 border-primary/40 p-4" aria-labelledby="soporte-activo">
+          <div className="flex min-w-0 items-start gap-3">
+            <LifeBuoy className="mt-0.5 size-5 shrink-0 text-primary" strokeWidth={2} aria-hidden />
+            <div className="min-w-0">
+              <p id="soporte-activo" className="font-semibold">Acceso de soporte activo · solo lectura · vence a las {horaLima(soporte.expiraAt)}</p>
+              <p className="truncate text-sm text-muted-foreground">Motivo: {soporte.motivo}</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <a href={url} className={buttonVariants({ variant: "outline" })}>
+              <ExternalLink strokeWidth={2} aria-hidden /> Ir al colegio
+            </a>
+            <BotonConfirmar
+              etiqueta="Terminar acceso"
+              titulo="¿Terminar el acceso de soporte?"
+              descripcion="Dejarás de ver el colegio. Para volver a entrar tendrás que indicar otro motivo."
+              confirmar="Terminar acceso"
+              accion={terminarSoporteAction}
+              campos={{ tenantId: t.id, accesoId: soporte.id }}
+              variante="destructive"
+            />
+          </div>
+        </Tarjeta>
+      )}
+
       {fila && (
-        <section aria-labelledby="resumen" className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        <section aria-labelledby="resumen" className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
           <h2 id="resumen" className="sr-only">Resumen</h2>
           {[
             ["Alumnos", fila.alumnos],
             ["Profesores", fila.profesores],
             ["Familias", fila.familias],
+            ["Activos (7 d)", fila.usuariosActivos7d],
             ["Asistencia (7 d)", fila.asistencias7d],
             ["Apertura (7 d)", porcentaje(fila.avisos7d ? fila.abiertos7d / fila.avisos7d : null)],
             ["Último ingreso", fechaHora(fila.ultimoIngreso)],
@@ -116,32 +157,57 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
 
       <section aria-labelledby="metricas" className="flex flex-col gap-3">
         <h2 id="metricas" className="text-xl font-semibold">Últimos 30 días</h2>
-        <Tarjeta className="overflow-hidden p-0">
-          <Table className="min-w-[640px]">
-            <TableHeader>
-              <TableRow>
-                <TableHead className="pl-4">Semana</TableHead>
-                <TableHead className="text-right">Asistencia registrada</TableHead>
-                <TableHead className="text-right">Correos enviados</TableHead>
-                <TableHead className="text-right">Apertura</TableHead>
-                <TableHead className="text-right">Rebotes y quejas</TableHead>
-                <TableHead className="pr-4 text-right">Ingresos</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {semanas.map((s) => (
-                <TableRow key={s.desde}>
-                  <TableCell className="pl-4">{fechaCorta(s.desde)} – {fechaCorta(s.hasta)}</TableCell>
-                  <TableCell className="text-right tabular-nums">{s.asistencias}</TableCell>
-                  <TableCell className="text-right tabular-nums">{s.avisos}</TableCell>
-                  <TableCell className="text-right tabular-nums">{porcentaje(s.avisos ? s.abiertos / s.avisos : null)}</TableCell>
-                  <TableCell className="text-right tabular-nums">{s.rebotes}</TableCell>
-                  <TableCell className="pr-4 text-right tabular-nums">{s.ingresos}</TableCell>
+        <div className="grid gap-4 lg:grid-cols-2">
+          <GraficoDiario
+            titulo="Ingresos diarios"
+            descripcion="Personas del colegio que iniciaron sesión cada día."
+            datos={dias}
+            series={[{ clave: "ingresos", etiqueta: "Ingresos", color: "var(--chart-1)" }]}
+          />
+          <GraficoDiario
+            titulo="Correos enviados y abiertos"
+            datos={dias}
+            series={[
+              { clave: "avisos", etiqueta: "Enviados", color: "var(--chart-1)" },
+              { clave: "abiertos", etiqueta: "Abiertos", color: "var(--chart-2)", punteada: true },
+            ]}
+          />
+          <GraficoDiario
+            titulo="Asistencia registrada"
+            descripcion="Registros de asistencia por día."
+            datos={dias}
+            series={[{ clave: "asistencias", etiqueta: "Registros", color: "var(--chart-1)" }]}
+          />
+        </div>
+        <details className="group rounded-xl border bg-card">
+          <summary className="flex min-h-10 cursor-pointer items-center px-4 text-sm font-semibold text-primary">Ver la tabla por semana</summary>
+          <div className="overflow-x-auto">
+            <Table className="min-w-[640px]">
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="pl-4">Semana</TableHead>
+                  <TableHead className="text-right">Asistencia registrada</TableHead>
+                  <TableHead className="text-right">Correos enviados</TableHead>
+                  <TableHead className="text-right">Apertura</TableHead>
+                  <TableHead className="text-right">Rebotes y quejas</TableHead>
+                  <TableHead className="pr-4 text-right">Ingresos</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Tarjeta>
+              </TableHeader>
+              <TableBody>
+                {semanas.map((s) => (
+                  <TableRow key={s.desde}>
+                    <TableCell className="pl-4">{fechaCorta(s.desde)} – {fechaCorta(s.hasta)}</TableCell>
+                    <TableCell className="text-right tabular-nums">{s.asistencias}</TableCell>
+                    <TableCell className="text-right tabular-nums">{s.avisos}</TableCell>
+                    <TableCell className="text-right tabular-nums">{porcentaje(s.avisos ? s.abiertos / s.avisos : null)}</TableCell>
+                    <TableCell className="text-right tabular-nums">{s.rebotes}</TableCell>
+                    <TableCell className="pr-4 text-right tabular-nums">{s.ingresos}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </details>
         <p className="text-xs text-muted-foreground">Ingresos: suma diaria de personas del colegio que iniciaron sesión.</p>
       </section>
 

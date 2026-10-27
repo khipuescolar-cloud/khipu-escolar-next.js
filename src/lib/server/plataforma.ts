@@ -4,12 +4,12 @@ import { forbidden, notFound, redirect } from "next/navigation";
 import { z } from "zod";
 import { Prisma, type Membership, type Profile, type Tenant } from "@/generated/prisma/client";
 import type { EstadoAviso, EstadoTenant, Plan } from "@/generated/prisma/enums";
-import { urlPlataforma, urlRaiz } from "@/lib/dominio";
+import { urlColegio, urlPlataforma, urlRaiz } from "@/lib/dominio";
 import { fechaDb, fechaLima, inicioDiaLima, restarDias } from "@/lib/fechas";
 import { errorDeSlug } from "@/lib/slug-colegio";
 import { esAdminPlataforma } from "./auth";
 import { ErrorDeNegocio } from "./contexto-accion";
-import { crearCuentaConDocumento, encolarBienvenida, ErrorCuenta, esquemaPersona } from "./cuentas";
+import { crearCuentaConDocumento, encolarBienvenida, ErrorCuenta, esquemaPersona, revertirCamposCompletados, type CuentaCreada } from "./cuentas";
 import { db, dbTenant } from "./db";
 import { exportarColegioZip } from "./exportar";
 import { leerLimites } from "./notificaciones/limites";
@@ -51,7 +51,9 @@ export type AccionPlataforma =
   | "cambiar_insignia"
   | "reenviar_bienvenida"
   | "agregar_administrador"
-  | "exportar_colegio";
+  | "exportar_colegio"
+  | "soporte_inicio"
+  | "soporte_fin";
 
 export async function auditarPlataforma(
   admin: AdminContext,
@@ -157,7 +159,7 @@ export async function crearColegio(admin: AdminContext, entrada: EntradaNuevoCol
     throw e;
   }
 
-  let cuenta: { userId: string; nueva: boolean } | null = null;
+  let cuenta: CuentaCreada | null = null;
   try {
     if (insignia && insignia.length > 0) {
       await reemplazarLogo(tenant, insignia, admin.user.id);
@@ -187,14 +189,17 @@ export async function crearColegio(admin: AdminContext, entrada: EntradaNuevoCol
     });
     return { tenant, userId: cuenta.userId, cuentaNueva: cuenta.nueva, avisoId };
   } catch (e) {
-    await deshacerColegio(tenant.id, cuenta);
+    await deshacerColegio(tenant.id, cuenta, administrador);
     if (e instanceof ErrorCuenta) throw new ErrorDeNegocio(e.message);
     throw e;
   }
 }
 
-/** Compensación de `crearColegio`: archivos del proveedor, colegio (cascade) y cuenta nueva (Auth + perfil). */
-async function deshacerColegio(tenantId: string, cuenta: { userId: string; nueva: boolean } | null): Promise<void> {
+/**
+ * Compensación de `crearColegio`: archivos del proveedor, colegio (cascade) y cuenta nueva (Auth + perfil).
+ * Si la cuenta ya existía, vuelve a `null` los datos personales vacíos que se completaron.
+ */
+async function deshacerColegio(tenantId: string, cuenta: CuentaCreada | null, administrador: EntradaAdministrador): Promise<void> {
   try {
     const archivos = await db.archivo.findMany({ where: { tenantId } });
     for (const a of archivos) await borrarArchivoDelProveedor(a).catch(() => undefined);
@@ -202,6 +207,8 @@ async function deshacerColegio(tenantId: string, cuenta: { userId: string; nueva
     if (cuenta?.nueva) {
       await supabaseAdmin().auth.admin.deleteUser(cuenta.userId).catch(() => undefined);
       await db.profile.deleteMany({ where: { id: cuenta.userId } });
+    } else if (cuenta) {
+      await revertirCamposCompletados(cuenta, administrador);
     }
   } catch (error) {
     console.error("[plataforma] no se pudo deshacer la creación del colegio", tenantId, error);
@@ -291,7 +298,7 @@ export async function agregarAdministrador(
   const tenant = await colegioOError(tenantId);
   const d = validar(esquemaAdministrador, entrada);
   const tdb = dbTenant(tenant.id);
-  let cuenta: { userId: string; nueva: boolean };
+  let cuenta: CuentaCreada;
   try {
     cuenta = await crearCuentaConDocumento(d);
   } catch (e) {
@@ -319,6 +326,8 @@ export async function agregarAdministrador(
     if (cuenta.nueva) {
       await supabaseAdmin().auth.admin.deleteUser(cuenta.userId).catch(() => undefined);
       await db.profile.deleteMany({ where: { id: cuenta.userId } });
+    } else {
+      await revertirCamposCompletados(cuenta, d).catch(() => undefined);
     }
     throw e;
   }
@@ -369,7 +378,8 @@ export async function metricasPlataforma(_admin: AdminContext, ahora = new Date(
     db.tenant.groupBy({ by: ["estado"], _count: { _all: true } }),
     db.tenant.groupBy({ by: ["plan"], _count: { _all: true } }),
     db.alumno.count({ where: { estado: "activo" } }),
-    db.loginIntento.groupBy({ by: ["email"], where: { exito: true, createdAt: { gte: hace7d } } }),
+    // Personas con membresía activa en algún colegio que ingresaron en la ventana (profiles.ultimo_ingreso_at).
+    db.profile.count({ where: { ultimoIngresoAt: { gte: hace7d }, memberships: { some: { estado: "activa" } } } }),
     db.aviso.count({ where: { canal: "correo", enviadoAt: { gte: hace24h } } }),
     db.aviso.groupBy({ by: ["estado"], where: { canal: "correo", createdAt: { gte: hace7d } }, _count: { _all: true } }),
     db.aviso.count({ where: { estado: "pendiente" } }),
@@ -387,7 +397,7 @@ export async function metricasPlataforma(_admin: AdminContext, ahora = new Date(
       porPlan: { basico: 0, fase2: 0, promax: 0, ...Object.fromEntries(porPlan.map((e) => [e.plan, e._count._all])) },
     },
     alumnos,
-    usuariosActivos7d: logins.length,
+    usuariosActivos7d: logins,
     correos24h,
     limiteDiario: leerLimites().limiteDiario,
     apertura7d: { enviados, abiertos, tasa: enviados > 0 ? abiertos / enviados : null },
@@ -417,6 +427,8 @@ export type FilaReporte = {
   profesores: number;
   familias: number;
   ultimoIngreso: Date | null;
+  /** Perfiles con membresía activa en el colegio y `ultimoIngresoAt` en los últimos 7 días. */
+  usuariosActivos7d: number;
   asistencias7d: number;
   avisos7d: number;
   abiertos7d: number;
@@ -458,12 +470,13 @@ async function filasReporte(filtro: z.output<typeof esquemaFiltroReporte> & { id
     db.membership.groupBy({ by: ["tenantId", "rol"], where: { tenantId: { in: ids }, estado: "activa", rol: { in: ["profesor", "apoderado"] } }, _count: { _all: true } }),
     db.asistencia.groupBy({ by: ["tenantId"], where: { tenantId: { in: ids }, fecha: { gte: desdeFecha } }, _count: { _all: true } }),
     db.aviso.groupBy({ by: ["tenantId", "estado"], where: { tenantId: { in: ids }, canal: "correo", createdAt: { gte: hace7d } }, _count: { _all: true } }),
-    db.$queryRaw<{ tenant_id: string; ultimo: Date }[]>`
-      SELECT m.tenant_id::text AS tenant_id, max(l.created_at) AS ultimo
+    db.$queryRaw<{ tenant_id: string; ultimo: Date | null; activos: bigint }[]>`
+      SELECT m.tenant_id::text AS tenant_id,
+             max(p.ultimo_ingreso_at) AS ultimo,
+             count(DISTINCT p.id) FILTER (WHERE p.ultimo_ingreso_at >= ${hace7d}) AS activos
       FROM memberships m
       JOIN profiles p ON p.id = m.user_id
-      JOIN login_intentos l ON l.email = p.email AND l.exito
-      WHERE m.tenant_id = ANY(${ids}::uuid[])
+      WHERE m.tenant_id = ANY(${ids}::uuid[]) AND m.estado = 'activa'
       GROUP BY m.tenant_id`,
   ]);
   const nAlumnos = porTenant(alumnos, (f) => f._count._all);
@@ -474,6 +487,7 @@ async function filasReporte(filtro: z.output<typeof esquemaFiltroReporte> & { id
   const nAbiertos = porTenant(avisos.filter((a) => a.estado === "abierto"), (f) => f._count._all);
   const nRebotes = porTenant(avisos.filter((a) => a.estado === "rebotado" || a.estado === "queja"), (f) => f._count._all);
   const ultimo = new Map(ingresos.map((i) => [i.tenant_id, i.ultimo]));
+  const activos = new Map(ingresos.map((i) => [i.tenant_id, Number(i.activos)]));
 
   return tenants.map((t) => ({
     ...t,
@@ -481,6 +495,7 @@ async function filasReporte(filtro: z.output<typeof esquemaFiltroReporte> & { id
     profesores: nProfes.get(t.id) ?? 0,
     familias: nFamilias.get(t.id) ?? 0,
     ultimoIngreso: ultimo.get(t.id) ?? null,
+    usuariosActivos7d: activos.get(t.id) ?? 0,
     asistencias7d: nAsist.get(t.id) ?? 0,
     avisos7d: nEnviados.get(t.id) ?? 0,
     abiertos7d: nAbiertos.get(t.id) ?? 0,
@@ -512,10 +527,10 @@ export async function detalleColegio(_admin: AdminContext, tenantId: string, aho
       WHERE tenant_id = ${tenant.id}::uuid AND canal = 'correo' AND created_at >= ${desdeInstante}
       GROUP BY 1`,
     db.$queryRaw<{ dia: string; usuarios: bigint }[]>`
-      SELECT to_char(l.created_at AT TIME ZONE 'America/Lima', 'YYYY-MM-DD') AS dia, count(DISTINCT l.email) AS usuarios
+      SELECT to_char(l.created_at AT TIME ZONE 'America/Lima', 'YYYY-MM-DD') AS dia, count(DISTINCT l.user_id) AS usuarios
       FROM login_intentos l
-      WHERE l.exito AND l.created_at >= ${desdeInstante}
-        AND l.email IN (SELECT p.email FROM memberships m JOIN profiles p ON p.id = m.user_id WHERE m.tenant_id = ${tenant.id}::uuid)
+      WHERE l.exito AND l.user_id IS NOT NULL AND l.created_at >= ${desdeInstante}
+        AND l.user_id IN (SELECT m.user_id FROM memberships m WHERE m.tenant_id = ${tenant.id}::uuid AND m.estado = 'activa')
       GROUP BY 1`,
   ]);
 
@@ -535,13 +550,115 @@ export async function detalleColegio(_admin: AdminContext, tenantId: string, aho
   return { tenant, fila, administradores, logoUrl, dias };
 }
 
-/** Bitácora de plataforma de un colegio (más recientes primero). */
-export async function auditoriaDelColegio(_admin: AdminContext, tenantId: string, limite = 20) {
-  const filas = await db.auditoriaPlataforma.findMany({ where: { tenantId }, orderBy: { createdAt: "desc" }, take: limite });
+/**
+ * Bitácora de plataforma de un colegio (más recientes primero). Filtra y ordena por (tenant_id, created_at),
+ * que es el índice `auditoria_plataforma_tenant_id_created_at_idx`.
+ */
+export async function auditoriaDelColegio(_admin: AdminContext, tenantId: string, limite = 20, desde?: Date) {
+  const filas = await db.auditoriaPlataforma.findMany({
+    where: { tenantId, ...(desde ? { createdAt: { gte: desde } } : {}) },
+    orderBy: [{ tenantId: "asc" }, { createdAt: "desc" }],
+    take: limite,
+  });
   const actores = await db.profile.findMany({
     where: { id: { in: [...new Set(filas.map((f) => f.actorId))] } },
     select: { id: true, nombres: true, apellidos: true },
   });
   const nombre = new Map(actores.map((a) => [a.id, `${a.nombres} ${a.apellidos}`.trim()]));
   return filas.map((f) => ({ id: f.id.toString(), accion: f.accion, createdAt: f.createdAt, actor: nombre.get(f.actorId) ?? "Cuenta eliminada" }));
+}
+
+// ───────────── Series de 30 días de toda la plataforma (vista principal) ─────────────
+
+export type DiaPlataforma = { fecha: string; ingresos: number; enviados: number; abiertos: number };
+
+/**
+ * Una fila por día (zona Lima) de los últimos 30 días: personas distintas que ingresaron
+ * (`login_intentos.user_id`) y correos enviados frente a abiertos. Solo conteos.
+ */
+export async function serieDiariaPlataforma(_admin: AdminContext, ahora = new Date()): Promise<DiaPlataforma[]> {
+  const hoy = fechaLima(ahora);
+  const desdeInstante = inicioDiaLima(restarDias(hoy, 29));
+  const [ingresos, avisos] = await Promise.all([
+    db.$queryRaw<{ dia: string; usuarios: bigint }[]>`
+      SELECT to_char(created_at AT TIME ZONE 'America/Lima', 'YYYY-MM-DD') AS dia, count(DISTINCT user_id) AS usuarios
+      FROM login_intentos
+      WHERE exito AND user_id IS NOT NULL AND created_at >= ${desdeInstante}
+      GROUP BY 1`,
+    db.$queryRaw<{ dia: string; enviados: bigint; abiertos: bigint }[]>`
+      SELECT to_char(created_at AT TIME ZONE 'America/Lima', 'YYYY-MM-DD') AS dia,
+             count(*) FILTER (WHERE estado IN ('enviado','entregado','abierto','rebotado','queja')) AS enviados,
+             count(*) FILTER (WHERE estado = 'abierto') AS abiertos
+      FROM avisos
+      WHERE canal = 'correo' AND created_at >= ${desdeInstante}
+      GROUP BY 1`,
+  ]);
+  const dias: DiaPlataforma[] = [];
+  for (let i = 29; i >= 0; i--) {
+    const fecha = restarDias(hoy, i);
+    const a = avisos.find((x) => x.dia === fecha);
+    dias.push({
+      fecha,
+      ingresos: Number(ingresos.find((x) => x.dia === fecha)?.usuarios ?? 0),
+      enviados: Number(a?.enviados ?? 0),
+      abiertos: Number(a?.abiertos ?? 0),
+    });
+  }
+  return dias;
+}
+
+// ───────────── Acceso de soporte a un colegio ─────────────
+
+/** Duraciones permitidas del acceso de soporte, en minutos. */
+export const DURACIONES_SOPORTE = [30, 60, 120] as const;
+
+export const esquemaAccesoSoporte = z.object({
+  motivo: z.string().trim().min(5, "Escribe el motivo del acceso (mínimo 5 caracteres).").max(300, "El motivo es muy largo (máximo 300 caracteres)."),
+  minutos: z.coerce
+    .number()
+    .refine((n) => (DURACIONES_SOPORTE as readonly number[]).includes(n), "Elige una duración de 30, 60 o 120 minutos."),
+});
+
+/**
+ * Abre un acceso de soporte de solo lectura al colegio (specs/16). Cierra antes cualquier acceso
+ * abierto del mismo administrador en ese colegio. Devuelve la URL de entrada al subdominio.
+ */
+export async function iniciarAccesoSoporte(
+  admin: AdminContext,
+  tenantId: string,
+  entrada: z.input<typeof esquemaAccesoSoporte>,
+  ahora = new Date(),
+): Promise<{ accesoId: string; expiraAt: Date; url: string }> {
+  const tenant = await colegioOError(tenantId);
+  const { motivo, minutos } = validar(esquemaAccesoSoporte, entrada);
+  if (tenant.estado === "suspendido") throw new ErrorDeNegocio("El colegio está suspendido: actívalo antes de entrar como soporte.");
+  await db.accesoSoporte.updateMany({ where: { tenantId: tenant.id, adminId: admin.user.id, cerradoAt: null }, data: { cerradoAt: ahora } });
+  const acceso = await db.accesoSoporte.create({
+    data: { tenantId: tenant.id, adminId: admin.user.id, motivo, inicioAt: ahora, expiraAt: new Date(ahora.getTime() + minutos * 60_000) },
+  });
+  await auditarPlataforma(admin, "soporte_inicio", tenant.id, { accesoId: acceso.id, motivo, minutos });
+  return { accesoId: acceso.id, expiraAt: acceso.expiraAt, url: urlColegio(tenant.slug, "/inicio") };
+}
+
+/** Cierra un acceso de soporte propio. Devuelve el colegio, o null si no existe o ya estaba cerrado. */
+export async function terminarAccesoSoporte(admin: AdminContext, accesoId: string, ahora = new Date()): Promise<{ tenantId: string } | null> {
+  if (!z.uuid().safeParse(accesoId).success) return null;
+  const acceso = await db.accesoSoporte.findFirst({ where: { id: accesoId, adminId: admin.user.id } });
+  if (!acceso) return null;
+  if (acceso.cerradoAt) return { tenantId: acceso.tenantId };
+  await db.accesoSoporte.update({ where: { id: acceso.id }, data: { cerradoAt: ahora } });
+  await auditarPlataforma(admin, "soporte_fin", acceso.tenantId, {
+    accesoId: acceso.id,
+    vencido: acceso.expiraAt <= ahora,
+  });
+  return { tenantId: acceso.tenantId };
+}
+
+/** Acceso de soporte vigente del administrador en el colegio (para la ficha), o null. */
+export async function accesoSoporteActual(admin: AdminContext, tenantId: string, ahora = new Date()) {
+  return db.accesoSoporte.findFirst({
+    where: { tenantId, adminId: admin.user.id, cerradoAt: null, expiraAt: { gt: ahora } },
+    orderBy: { expiraAt: "desc" },
+    select: { id: true, motivo: true, inicioAt: true, expiraAt: true },
+  });
 }

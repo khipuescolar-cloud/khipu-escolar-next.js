@@ -2,7 +2,7 @@ import "server-only";
 import type { Prisma } from "@/generated/prisma/client";
 import { db } from "./db";
 
-export type AccionAuditoria = "ver" | "crear" | "editar" | "borrar" | "exportar" | "enviar" | "login";
+export type AccionAuditoria = "ver" | "crear" | "editar" | "borrar" | "exportar" | "enviar" | "login" | "soporte_ver";
 
 /** Registra quién vio o cambió datos de alumnos (Ley 29733). No interrumpe el flujo si falla. */
 export async function auditar(entrada: {

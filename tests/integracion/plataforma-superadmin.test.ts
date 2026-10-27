@@ -204,7 +204,7 @@ describe("crearColegio", () => {
       expect(texto).not.toContain(documento);
     }
     expect(Object.keys(filas[0]).sort()).toEqual(
-      ["abiertos7d", "alumnos", "asistencias7d", "avisos7d", "ciudad", "createdAt", "estado", "familias", "id", "nombre", "plan", "profesores", "rebotes7d", "slug", "ultimoIngreso"].sort(),
+      ["abiertos7d", "alumnos", "asistencias7d", "avisos7d", "ciudad", "createdAt", "estado", "familias", "id", "nombre", "plan", "profesores", "rebotes7d", "slug", "ultimoIngreso", "usuariosActivos7d"].sort(),
     );
   });
 });
@@ -225,8 +225,10 @@ describe("compensación si algo falla a la mitad", () => {
     expect(await db.auditoriaPlataforma.count({ where: { accion: "crear_colegio", detalle: { path: ["slug"], equals: slug } } })).toBe(0);
   });
 
-  it("si la cuenta ya existía, no la borra", async () => {
+  it("si la cuenta ya existía, no la borra y revierte los datos vacíos que completó", async () => {
     const slug = `test-plat-${sufijo}-rollback2`;
+    const antes = await db.profile.findUniqueOrThrow({ where: { id: comun.id } });
+    expect(antes.numeroDocumento).toBeNull();
     control.fallarBienvenida = true;
     try {
       await expect(crearColegio(admin, entrada(slug, correo("comun"), dni()))).rejects.toThrow("falla simulada");
@@ -234,6 +236,23 @@ describe("compensación si algo falla a la mitad", () => {
       control.fallarBienvenida = false;
     }
     expect(await db.tenant.count({ where: { slug } })).toBe(0);
-    expect(await db.profile.count({ where: { id: comun.id } })).toBe(1);
+    const despues = await db.profile.findUniqueOrThrow({ where: { id: comun.id } });
+    expect(despues).toMatchObject({ nombres: antes.nombres, apellidos: antes.apellidos, tipoDocumento: null, numeroDocumento: null, genero: null });
+  });
+
+  it("no revierte datos que el perfil ya tenía", async () => {
+    const slug = `test-plat-${sufijo}-rollback3`;
+    await db.profile.update({ where: { id: comun.id }, data: { telefono: "999111222" } });
+    control.fallarBienvenida = true;
+    try {
+      const e = entrada(slug, correo("comun"), dni());
+      await expect(crearColegio(admin, { ...e, administrador: { ...e.administrador, telefono: "988000000" } })).rejects.toThrow("falla simulada");
+    } finally {
+      control.fallarBienvenida = false;
+    }
+    const despues = await db.profile.findUniqueOrThrow({ where: { id: comun.id } });
+    expect(despues.telefono).toBe("999111222");
+    expect(despues.numeroDocumento).toBeNull();
+    await db.profile.update({ where: { id: comun.id }, data: { telefono: null } });
   });
 });
