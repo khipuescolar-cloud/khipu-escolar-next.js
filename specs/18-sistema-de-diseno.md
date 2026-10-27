@@ -130,6 +130,10 @@ Interlineado 1.5 en cuerpo, máximo `max-w-prose` para párrafos largos. Nada de
 | Filtros rápidos | `ToggleGroup` o `Selector` | |
 | Cargando | `Skeleton` con la forma del contenido; `Loader2` girando en botones | Nunca pantallas en blanco |
 | Menú de acciones por fila | `DropdownMenu` con botón `MoreHorizontal` (`aria-label`) | |
+| Formulario corto en modal con server action | `DialogoAccion` (`components/academico`) | Botón disparador + `Dialog`; éxito → toast y cierra; error → `Alerta` dentro. Se usa en notas, tareas, agenda y periodos |
+| Rejilla de notas editable | `GrillaNotas` (`notas/`) dentro de tarjeta con `overflow-x-auto` | Primera columna fija, celdas de 40 px, guarda al cambiar/salir del campo, estado «Guardando/Guardado» con ícono + palabra |
+| Secciones o periodos por enlace | `NavegacionPildoras` (`components/academico`) | Píldoras con `aria-current`; activa en `primary` |
+| Fecha de entrega / tipo de evento | Insignia con ícono + palabra (`FechaEntrega` en tareas, `TIPOS` en agenda) | `falta` vencida, `tarde` hoy/mañana, `muted` resto |
 
 ## 9. Movimiento
 

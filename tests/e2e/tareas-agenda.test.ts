@@ -29,6 +29,7 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada", async ({ 
   const titulo = `Tarea e2e ${Date.now()}`;
   await entrar(page, "lucia.garcia@nuevohorizonte.demo", "nuevohorizonte");
   await page.goto(colegio("nuevohorizonte", "/tareas"));
+  await page.getByRole("button", { name: "Nueva tarea" }).click();
   await page.getByLabel("Título", { exact: true }).fill(titulo);
   const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
   await page.getByLabel("Fecha de entrega", { exact: true }).fill(manana);
@@ -56,6 +57,7 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada", async ({ 
   await entrar(page, "lucia.garcia@nuevohorizonte.demo", "nuevohorizonte");
   await page.goto(colegio("nuevohorizonte", "/tareas"));
   await page.locator("li", { hasText: titulo }).getByRole("button", { name: "Eliminar" }).click();
+  await page.getByRole("alertdialog").getByRole("button", { name: "Eliminar tarea" }).click();
   await expect(page.getByText(titulo)).toHaveCount(0);
 });
 
@@ -64,7 +66,7 @@ test("la agenda muestra la semana, el mini calendario y las entregas", async ({ 
   await page.goto(colegio("nuevohorizonte", "/agenda"));
   await expect(page.getByRole("heading", { name: /Semana del/ })).toBeVisible();
   await expect(page.getByRole("link", { name: /Mes siguiente/ })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Nuevo evento" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Nuevo evento" })).toBeVisible();
 });
 
 test("dirección ve los periodos y las notas de todos los cursos", async ({ page }) => {
@@ -82,6 +84,7 @@ test("la profesora edita su tarea y descarga el calendario .ics", async ({ page 
   const nuevo = `${titulo} (corregida)`;
   await entrar(page, "lucia.garcia@nuevohorizonte.demo", "nuevohorizonte");
   await page.goto(colegio("nuevohorizonte", "/tareas"));
+  await page.getByRole("button", { name: "Nueva tarea" }).click();
   await page.getByLabel("Título", { exact: true }).fill(titulo);
   const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
   await page.getByLabel("Fecha de entrega", { exact: true }).fill(manana);
@@ -89,9 +92,10 @@ test("la profesora edita su tarea y descarga el calendario .ics", async ({ page 
   await expect(page.getByText("Tarea creada.")).toBeVisible();
 
   const fila = page.locator("li", { hasText: titulo }).first();
-  await fila.getByText("Editar tarea").click();
-  await fila.getByLabel("Nombre de la tarea").fill(nuevo);
-  await fila.getByRole("button", { name: "Guardar cambios" }).click();
+  await fila.getByRole("button", { name: "Editar tarea" }).click();
+  const dialogo = page.getByRole("dialog");
+  await dialogo.getByLabel("Nombre de la tarea").fill(nuevo);
+  await dialogo.getByRole("button", { name: "Guardar cambios" }).click();
   await expect(page.getByText("Tarea actualizada.")).toBeVisible();
   await expect(page.locator("li", { hasText: nuevo }).first()).toBeVisible();
 
@@ -109,5 +113,6 @@ test("la profesora edita su tarea y descarga el calendario .ics", async ({ page 
   // Limpieza.
   await page.goto(colegio("nuevohorizonte", "/tareas"));
   await page.locator("li", { hasText: nuevo }).first().getByRole("button", { name: "Eliminar" }).click();
+  await page.getByRole("alertdialog").getByRole("button", { name: "Eliminar tarea" }).click();
   await expect(page.getByText(nuevo)).toHaveCount(0);
 });

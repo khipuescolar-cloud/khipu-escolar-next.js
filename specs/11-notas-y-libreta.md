@@ -67,6 +67,8 @@ cursosDelDocente(ctx)
 - Acciones: `src/app/colegio/[slug]/notas/actions.ts`; formularios con `FormAccion` y píldoras con `Calificacion` (`src/components/`).
 
 ## Textos y UX
+
+- **Diseño (spec 18):** barra de filtros (curso/periodo) en tarjeta; secciones como `NavegacionPildoras`; rejilla de notas con primera columna fija y celdas de 40 px; «Nueva evaluación», «Editar», «Nueva competencia» y «Nuevo periodo» abren un `Dialog`; eliminar evaluación/competencia y cerrar/abrir periodo piden confirmación (`BotonConfirmar`); calificación confirmada con toast; libreta en tarjeta centrada con «Descargar PDF» en el encabezado.
 - Familias: «Así va el avance de tu hijo o hija en cada competencia.» Calificaciones siempre con ícono + valor + palabra («B · En proceso»). Periodo abierto en libreta: aviso «puede cambiar hasta que el colegio lo cierre».
 - Periodo cerrado (profesor): «Periodo cerrado. Solo puedes mirar las notas; ya no se pueden cambiar.»
 
