@@ -22,27 +22,68 @@ export function textoPendientes(cantidad: number, singular: string, plural: stri
   return cantidad === 1 ? `1 ${singular} ${cola} de enviar` : `${cantidad} ${plural} ${cola}s de enviar`;
 }
 
-export type ResultadoEnvio = "enviado" | "descartar" | "reintentar";
+/**
+ * - `enviado`: el servidor lo aceptó.
+ * - `descartar`: el servidor lo rechazó con una respuesta clara; reenviarlo no sirve.
+ * - `reintentar`: no hay conexión (error de red); se detiene el proceso y NO cuenta como intento.
+ * - `fallo`: el servidor respondió con un error que no es de red (500, etc.); cuenta un intento y se sigue con el resto.
+ */
+export type ResultadoEnvio = "enviado" | "descartar" | "reintentar" | "fallo";
+
+/** Tras tantos fallos que no son de red, el registro queda como «No se pudo enviar» hasta que el profesor lo descarte. */
+export const MAX_INTENTOS_COLA = 5;
+
+export type ConIntentos = { intentos?: number };
+
+/** Los items de la cola pueden traer `intentos`; los que no, cuentan 0. */
+export const intentosDe = (item: unknown) => (item as ConIntentos).intentos ?? 0;
+export const estaAgotado = (item: unknown, max = MAX_INTENTOS_COLA) => intentosDe(item) >= max;
+
+export type ResumenVaciado = {
+  enviados: number;
+  descartados: number;
+  /** Quedan en la cola esperando un nuevo intento (sin conexión o con fallos aún por debajo del tope). */
+  pendientes: number;
+  /** Alcanzaron el tope en esta pasada: ahora figuran como «No se pudo enviar». */
+  agotados: number;
+};
 
 /**
- * Envía los pendientes en orden. «enviado» y «descartar» (el servidor los rechazó, reenviarlos no sirve) salen de la cola;
- * «reintentar» (seguimos sin conexión o falló el servidor) detiene el proceso y conserva el resto.
+ * Envía los pendientes en orden. «enviado» y «descartar» salen de la cola; «reintentar» (sin conexión) detiene el proceso y
+ * conserva el resto sin contar intento; «fallo» suma un intento (`marcarFallo`) y sigue con el siguiente. Los ya agotados
+ * (`estaAgotado`) no se reenvían: esperan a que el profesor los descarte.
  */
 export async function vaciarCola<T>(
   items: T[],
   enviar: (item: T) => Promise<ResultadoEnvio>,
   quitar: (item: T) => Promise<void>,
-): Promise<{ enviados: number; descartados: number; pendientes: number }> {
+  marcarFallo: (item: T, intentos: number) => Promise<void> = async () => {},
+  max = MAX_INTENTOS_COLA,
+): Promise<ResumenVaciado> {
   let enviados = 0;
   let descartados = 0;
+  let agotados = 0;
+  let conservados = 0;
   for (let i = 0; i < items.length; i++) {
-    const r = await enviar(items[i]);
-    if (r === "reintentar") return { enviados, descartados, pendientes: items.length - i };
-    await quitar(items[i]);
+    const item = items[i];
+    if (estaAgotado(item, max)) continue;
+    const r = await enviar(item);
+    if (r === "reintentar") {
+      const restantes = items.slice(i).filter((x) => !estaAgotado(x, max)).length;
+      return { enviados, descartados, pendientes: conservados + restantes, agotados };
+    }
+    if (r === "fallo") {
+      const intentos = intentosDe(item) + 1;
+      await marcarFallo(item, intentos);
+      if (intentos >= max) agotados++;
+      else conservados++;
+      continue;
+    }
+    await quitar(item);
     if (r === "enviado") enviados++;
     else descartados++;
   }
-  return { enviados, descartados, pendientes: 0 };
+  return { enviados, descartados, pendientes: conservados, agotados };
 }
 
 /** Un fallo de red del navegador (sin conexión, servidor inalcanzable) al llamar a una acción del servidor. */

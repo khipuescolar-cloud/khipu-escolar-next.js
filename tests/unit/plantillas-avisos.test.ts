@@ -96,6 +96,18 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(renderizarPlantilla("justificacion_revisada", payloads.justificacion_revisada).texto).toContain("del 26/10/2026");
   });
 
+  it("bienvenida restablecida: avisa del restablecimiento y no repite la bienvenida ni el número", () => {
+    const base = { colegio, nombre: "Carmen", rol: "Dirección", email: "c@x.pe", documento: "DNI", url: "http://i", dominio: "x.khipu" };
+    const normal = renderizarPlantilla("bienvenida", base);
+    expect(normal.asunto).toContain("Bienvenido(a)");
+    expect(normal.texto).not.toContain("Restablecimos");
+    const m = renderizarPlantilla("bienvenida", { ...base, restablecida: true });
+    expect(m.asunto).toBe(`Restablecimos tu contraseña · ${colegio}`);
+    expect(m.texto).toContain("Restablecimos tu contraseña: ahora es tu número de documento. Al entrar te pediremos cambiarla.");
+    expect(m.texto).toContain("Tu usuario es: c@x.pe");
+    expect(m.texto).not.toContain("ya tiene Khipu Escolar");
+  });
+
   it("tarea nueva: texto corto con el hijo, el curso y la fecha de entrega", () => {
     const p = { colegio, alumno: "Mateo", curso: "Matemática", titulo: "Fichas de fracciones", fechaEntrega: "2026-10-30", url: "http://t" };
     const m = renderizarPlantilla("tarea_nueva", { ...p, urlPreferencias: "http://p" });

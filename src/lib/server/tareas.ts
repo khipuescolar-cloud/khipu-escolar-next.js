@@ -3,7 +3,7 @@ import { z } from "zod";
 import { fechaLima, grupoEntrega, instanteLima, inicioDiaLima, sumarDias, type GrupoEntrega } from "@/lib/fechas";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import type { AdjuntoVista } from "@/lib/adjuntos";
-import { adjuntoVista, borrarAdjuntosDe, contarRestantes, guardarAdjuntos, quitarAdjuntos, validarAdjuntos, type EntradaAdjunto } from "./adjuntos";
+import { adjuntoVista, adjuntosDe, borrarDelProveedor, contarRestantes, guardarAdjuntos, quitarAdjuntos, validarAdjuntos, type EntradaAdjunto } from "./adjuntos";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { cursosDelDocente } from "./cursos";
@@ -58,8 +58,9 @@ export async function eliminarTarea(ctx: TenantContext, tareaId: string): Promis
   const t = await ctx.db.tarea.findFirst({ where: { id: tareaId } });
   if (!t) return fallo("No encontramos esa tarea.");
   await requireCursoDelProfesor(ctx, t.cursoId);
-  await borrarAdjuntosDe(ctx, { tareaId });
-  await ctx.db.tarea.deleteMany({ where: { id: tareaId } });
+  const archivos = await adjuntosDe(ctx, { tareaId });
+  await ctx.db.tarea.deleteMany({ where: { id: tareaId } }); // los adjuntos se borran en cascada de la BD
+  await borrarDelProveedor(archivos);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "tarea", entidadId: tareaId });
   return ok("Tarea eliminada.");
 }

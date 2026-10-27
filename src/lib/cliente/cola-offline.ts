@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { vaciarCola, type ResultadoEnvio } from "@/lib/registro-offline";
+import { estaAgotado, vaciarCola, type ResultadoEnvio, type ResumenVaciado } from "@/lib/registro-offline";
 
 // Cola local en IndexedDB (API nativa, sin paquetes) para registros hechos sin conexión (specs/04, specs/05).
 // Una sola base «khipu-offline» con un almacén por tipo de cola. Solo guarda lo mínimo para reenviar; se vacía al sincronizar.
@@ -40,7 +40,8 @@ async function operar<R>(almacen: NombreCola, modo: IDBTransactionMode, fn: (s: 
   }
 }
 
-export type ItemCola = { id: string; creadoAt: string };
+/** `intentos` cuenta los fallos que no son de red (tope en `MAX_INTENTOS_COLA`); `ultimoError` es solo para soporte. */
+export type ItemCola = { id: string; creadoAt: string; intentos?: number; ultimoError?: string };
 
 export const indexedDbDisponible = () => typeof indexedDB !== "undefined";
 
@@ -68,6 +69,13 @@ export function crearCola<T extends ItemCola>(almacen: NombreCola) {
     async contar(): Promise<number> {
       return operar(almacen, "readonly", (s) => s.count());
     },
+    /** Suma un fallo (que no es de red) al item; si ya no existe no hace nada. */
+    async registrarFallo(id: string, intentos: number, ultimoError?: string): Promise<void> {
+      const actual = await operar<T | undefined>(almacen, "readonly", (s) => s.get(id) as IDBRequest<T | undefined>);
+      if (!actual) return;
+      await operar(almacen, "readwrite", (s) => s.put({ ...actual, intentos, ultimoError }));
+      avisarCambio();
+    },
     async quitar(id: string): Promise<void> {
       await operar(almacen, "readwrite", (s) => s.delete(id));
       avisarCambio();
@@ -84,9 +92,10 @@ export type Cola<T extends ItemCola> = ReturnType<typeof crearCola<T>>;
 export function useColaOffline<T extends ItemCola>(
   cola: Cola<T>,
   enviar: (item: T) => Promise<ResultadoEnvio>,
-  alTerminar: (r: { enviados: number; descartados: number; pendientes: number }) => void,
+  alTerminar: (r: ResumenVaciado) => void,
 ) {
   const [pendientes, setPendientes] = useState(0);
+  const [agotados, setAgotados] = useState<T[]>([]);
   const [enLinea, setEnLinea] = useState(true);
   const [enviando, setEnviando] = useState(false);
   const enCurso = useRef(false);
@@ -97,9 +106,13 @@ export function useColaOffline<T extends ItemCola>(
 
   const refrescar = useCallback(async () => {
     try {
-      setPendientes(await cola.contar());
+      const todos = await cola.listar();
+      const sinTope = todos.filter((i) => !estaAgotado(i));
+      setPendientes(sinTope.length);
+      setAgotados(todos.filter((i) => estaAgotado(i)));
     } catch {
       setPendientes(0);
+      setAgotados([]);
     }
   }, [cola]);
 
@@ -109,8 +122,9 @@ export function useColaOffline<T extends ItemCola>(
     const correr = async () => {
       const items = await cola.listar();
       if (items.length === 0) return;
+      if (items.every((i) => estaAgotado(i))) return;
       setEnviando(true);
-      const r = await vaciarCola(items, refs.current.enviar, (i) => cola.quitar(i.id));
+      const r = await vaciarCola(items, refs.current.enviar, (i) => cola.quitar(i.id), (i, intentos) => cola.registrarFallo(i.id, intentos));
       refs.current.alTerminar(r);
     };
     try {
@@ -146,5 +160,14 @@ export function useColaOffline<T extends ItemCola>(
     };
   }, [refrescar, sincronizar]);
 
-  return { pendientes, enLinea, enviando, sincronizar };
+  /** Descarta un registro que ya no se puede enviar («No se pudo enviar»). */
+  const descartar = useCallback(
+    async (id: string) => {
+      await cola.quitar(id);
+      await refrescar();
+    },
+    [cola, refrescar],
+  );
+
+  return { pendientes, agotados, enLinea, enviando, sincronizar, descartar };
 }

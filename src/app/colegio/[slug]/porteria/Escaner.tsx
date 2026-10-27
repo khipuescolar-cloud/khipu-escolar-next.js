@@ -4,6 +4,7 @@ import type { IScannerControls } from "@zxing/browser";
 import { Camera, CameraOff, CloudOff, Loader2, Maximize, ScanLine, Search, UserRound, XCircle } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import { toast } from "sonner";
+import { AvisoColaFallida } from "@/components/AvisoColaFallida";
 import { EstadoAsistencia, ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
 import { IndicadorSinConexion } from "@/components/IndicadorSinConexion";
 import { Boton } from "@/components/ui/Boton";
@@ -63,14 +64,16 @@ export function Escaner({ slug }: { slug: string }) {
       try {
         const r = await registrarPorQrAction(item.slug, item.token, item.creadoAt);
         return r.ok ? "enviado" : "descartar";
-      } catch {
-        return "reintentar";
+      } catch (error) {
+        // Sin red no cuenta intento; un error del servidor sí (tope: MAX_INTENTOS_COLA).
+        return esErrorDeRed(error, navigator.onLine) ? "reintentar" : "fallo";
       }
     },
     [],
   );
-  const { pendientes, enLinea, enviando } = useColaOffline(colaEscaneos, enviarPendiente, ({ enviados, descartados }) => {
+  const { pendientes, agotados, enLinea, enviando, descartar } = useColaOffline(colaEscaneos, enviarPendiente, ({ enviados, descartados, agotados }) => {
     if (enviados > 0) toast.success(enviados === 1 ? "Se sincronizó 1 llegada guardada sin conexión" : `Se sincronizaron ${enviados} llegadas guardadas sin conexión`);
+    if (agotados > 0) toast.error("No se pudo enviar una llegada guardada sin conexión después de varios intentos. Descártala y vuelve a escanear el carnet.");
     if (descartados > 0) toast.error(descartados === 1 ? "1 carnet guardado sin conexión no era válido y se descartó" : `${descartados} carnets guardados sin conexión no eran válidos y se descartaron`);
   });
 
@@ -163,6 +166,7 @@ export function Escaner({ slug }: { slug: string }) {
           </label>
         </div>
         <IndicadorSinConexion enLinea={enLinea} enviando={enviando} pendientes={pendientes} textoPendientes={textoPendientes(pendientes, "llegada", "llegadas", "guardada")} />
+        <AvisoColaFallida cantidad={agotados.length} singular="llegada" plural="llegadas" onDescartar={() => void Promise.all(agotados.map((e) => descartar(e.id)))} />
         <Resultado resultado={resultado} />
       </div>
 

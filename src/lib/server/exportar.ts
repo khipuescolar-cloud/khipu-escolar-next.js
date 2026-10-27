@@ -1,10 +1,13 @@
 import "server-only";
-import { strToU8, zipSync } from "fflate";
+import { open, mkdtemp, readFile, rm, stat, type FileHandle } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import path from "node:path";
+import { strToU8, Zip, ZipDeflate, ZipPassThrough } from "fflate";
 import { forbidden } from "next/navigation";
 import { Prisma, type Archivo, type ExportacionColegio, type Membership } from "@/generated/prisma/client";
 import { auditar } from "./auditoria";
 import { db, dbTenant, MODELOS_GLOBALES } from "./db";
-import { borrarArchivoDelProveedor, leerArchivo, storage } from "./storage";
+import { borrarArchivoDelProveedor, leerArchivo, storage, subirArchivoDesdeRuta } from "./storage";
 import { requireRol, type TenantContext } from "./tenant";
 
 // Garantía de salida del piloto (specs/15-privacidad-auditoria-exportacion.md): todos los datos del colegio en un ZIP (JSON por tabla + archivos).
@@ -36,15 +39,11 @@ async function recolectar(ctx: TenantContext) {
   );
   const tablas = Object.fromEntries(nombres.map((n, i) => [n, filas[i]])) as Record<string, unknown[]>;
   const userIds = [...new Set((tablas.membership as { userId: string }[]).map((m) => m.userId))];
-  const perfiles = await db.profile.findMany({
-    where: { id: { in: userIds } },
-    select: { id: true, email: true, nombres: true, apellidos: true, telefono: true },
-  });
-  // Los ZIP de exportaciones anteriores no se vuelven a meter dentro del nuevo.
-  const zipsAnteriores = new Set((tablas.exportacionColegio as ExportacionColegio[]).map((e) => e.archivoId).filter(Boolean));
-  const archivos = (tablas.archivo as Archivo[]).filter((a) => !zipsAnteriores.has(a.id));
-  return { tablas: { perfiles, ...tablas }, archivos };
+  const perfiles = await db.profile.findMany({ where: { id: { in: userIds } }, select: CAMPOS_PERFIL });
+  return { perfiles, ...tablas };
 }
+
+const CAMPOS_PERFIL = { id: true, email: true, nombres: true, apellidos: true, telefono: true } as const;
 
 function cabecera(ctx: TenantContext) {
   return { exportadoAt: new Date().toISOString(), colegio: { id: ctx.tenant.id, slug: ctx.tenant.slug, nombre: ctx.tenant.nombre, plan: ctx.tenant.plan } };
@@ -59,7 +58,7 @@ const auditarExportacion = (ctx: TenantContext, detalle?: Prisma.InputJsonValue)
  */
 export async function exportarColegio(ctx: TenantContext) {
   requireRol(ctx, ["direccion"]);
-  const { tablas } = await recolectar(ctx);
+  const tablas = await recolectar(ctx);
   await auditarExportacion(ctx);
   return { ...cabecera(ctx), ...tablas } as ReturnType<typeof cabecera> & { perfiles: unknown[] } & Record<string, unknown[]>;
 }
@@ -67,37 +66,170 @@ export async function exportarColegio(ctx: TenantContext) {
 /** Nombre sin caracteres raros para guardar un archivo dentro del ZIP. */
 const extension = (mime: string) => ({ "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "application/pdf": "pdf" })[mime] ?? "bin";
 
-/** Arma el ZIP en memoria (JSON por tabla, README y los archivos que el proveedor entregue). Sin control de rol ni auditoría. */
-async function armarZip(ctx: TenantContext): Promise<{ zip: Uint8Array; incluidos: number; faltantes: number; tablas: number }> {
-  const { tablas, archivos } = await recolectar(ctx);
-  const cab = cabecera(ctx);
-  const entradas: Record<string, Uint8Array | [Uint8Array, { level: 0 }]> = {};
-  entradas["colegio.json"] = strToU8(aJson(cab));
-  for (const [nombre, filas] of Object.entries(tablas)) entradas[`tablas/${nombre}.json`] = strToU8(aJson(filas));
+/** Filas por consulta al exportar: acota la memoria pico sin importar el tamaño del colegio. */
+export const LOTE_FILAS_EXPORTACION = 500;
 
-  const faltantes: string[] = [];
-  let incluidos = 0;
-  for (const a of archivos) {
-    try {
-      entradas[`archivos/${a.id}.${extension(a.mimeType)}`] = [new Uint8Array(await leerArchivo(a)), { level: 0 }];
-      incluidos++;
-    } catch {
-      faltantes.push(a.id);
+/** Recorre una tabla del colegio por lotes (cursor por `id`; todos los modelos lo tienen). */
+export async function* filasPorLotes(ctx: TenantContext, nombre: string, tamano = LOTE_FILAS_EXPORTACION): AsyncGenerator<unknown[]> {
+  type Delegado = { findMany: (args: object) => Promise<{ id: unknown }[]> };
+  const delegadoDb = (ctx.db as unknown as Record<string, Delegado>)[nombre];
+  let cursor: unknown;
+  for (;;) {
+    const lote = await delegadoDb.findMany({
+      take: tamano,
+      orderBy: { id: "asc" },
+      ...(cursor === undefined ? {} : { cursor: { id: cursor }, skip: 1 }),
+    });
+    if (lote.length === 0) return;
+    yield lote;
+    if (lote.length < tamano) return;
+    cursor = lote[lote.length - 1].id;
+  }
+}
+
+/** Escribe un arreglo JSON con el mismo formato que `aJson(filas)` (sangría de 2), fila por fila. */
+async function* jsonArreglo(lotes: AsyncIterable<unknown[]>): AsyncGenerator<string> {
+  let primero = true;
+  for await (const lote of lotes) {
+    for (const fila of lote) {
+      yield (primero ? "[\n" : ",\n") + "  " + aJson(fila).replace(/\n/g, "\n  ");
+      primero = false;
     }
   }
-  entradas["README.txt"] = strToU8(readme(ctx, cab.exportadoAt, Object.keys(tablas), incluidos, faltantes));
-  return { zip: zipSync(entradas), incluidos, faltantes: faltantes.length, tablas: Object.keys(tablas).length };
+  yield primero ? "[]" : "\n]";
+}
+
+/** ZIP en flujo hacia un archivo en disco: cada entrada se comprime y se escribe sin acumular el ZIP en memoria. */
+class EscritorZip {
+  private cola: Promise<void> = Promise.resolve();
+  private error: unknown;
+  private readonly zip: Zip;
+
+  constructor(private readonly destino: FileHandle) {
+    this.zip = new Zip((err, chunk) => {
+      if (err) {
+        this.error ??= err;
+        return;
+      }
+      this.cola = this.cola.then(() => this.destino.write(chunk)).then(() => undefined, (e) => { this.error ??= e; });
+    });
+  }
+
+  /** Espera a que lo producido hasta ahora esté en disco (da contrapresión). */
+  async vaciar(): Promise<void> {
+    await this.cola;
+    if (this.error) throw this.error;
+  }
+
+  async json(nombre: string, trozos: AsyncIterable<string>): Promise<void> {
+    const f = new ZipDeflate(nombre, { level: 6 });
+    this.zip.add(f);
+    for await (const t of trozos) {
+      f.push(strToU8(t));
+      await this.vaciar();
+    }
+    f.push(new Uint8Array(0), true);
+    await this.vaciar();
+  }
+
+  async texto(nombre: string, contenido: string): Promise<void> {
+    await this.json(nombre, (async function* () { yield contenido; })());
+  }
+
+  /** Sin compresión (fotos y PDF ya vienen comprimidos). */
+  async binario(nombre: string, datos: Uint8Array): Promise<void> {
+    const f = new ZipPassThrough(nombre);
+    this.zip.add(f);
+    f.push(datos, true);
+    await this.vaciar();
+  }
+
+  async terminar(): Promise<void> {
+    this.zip.end();
+    await this.vaciar();
+  }
+}
+
+type ResultadoZip = { ruta: string; bytes: number; incluidos: number; faltantes: number; tablas: number; limpiar: () => Promise<void> };
+
+/**
+ * Arma el ZIP en flujo en un archivo temporal de `os.tmpdir()` (JSON por tabla leído por lotes, README y los archivos que el
+ * proveedor entregue, uno a la vez). Quien llama debe invocar `limpiar()`. Sin control de rol ni auditoría.
+ */
+async function armarZip(ctx: TenantContext): Promise<ResultadoZip> {
+  const dir = await mkdtemp(path.join(tmpdir(), "khipu-export-"));
+  const ruta = path.join(dir, "exportacion.zip");
+  const limpiar = () => rm(dir, { recursive: true, force: true });
+  let destino: FileHandle | undefined;
+  try {
+    destino = await open(ruta, "w");
+    const zip = new EscritorZip(destino);
+    const cab = cabecera(ctx);
+    const nombres = tablasExportadas();
+    await zip.texto("colegio.json", aJson(cab));
+
+    const userIds = new Set<string>();
+    const zipsAnteriores = new Set<string>();
+    for (const nombre of nombres) {
+      const lotes = filasPorLotes(ctx, nombre);
+      const observados = (async function* () {
+        for await (const lote of lotes) {
+          if (nombre === "membership") for (const m of lote as { userId: string }[]) userIds.add(m.userId);
+          if (nombre === "exportacionColegio") for (const e of lote as ExportacionColegio[]) if (e.archivoId) zipsAnteriores.add(e.archivoId);
+          yield lote;
+        }
+      })();
+      await zip.json(`tablas/${nombre}.json`, jsonArreglo(observados));
+    }
+    // «perfiles» (tabla global) por lotes de ids.
+    const ids = [...userIds];
+    await zip.json("tablas/perfiles.json", jsonArreglo((async function* () {
+      for (let i = 0; i < ids.length; i += LOTE_FILAS_EXPORTACION) {
+        yield await db.profile.findMany({ where: { id: { in: ids.slice(i, i + LOTE_FILAS_EXPORTACION) } }, select: CAMPOS_PERFIL });
+      }
+    })()));
+
+    // Los ZIP de exportaciones anteriores no se vuelven a meter dentro del nuevo.
+    const faltantes: string[] = [];
+    let incluidos = 0;
+    for await (const lote of filasPorLotes(ctx, "archivo")) {
+      for (const a of lote as Archivo[]) {
+        if (zipsAnteriores.has(a.id)) continue;
+        try {
+          await zip.binario(`archivos/${a.id}.${extension(a.mimeType)}`, new Uint8Array(await leerArchivo(a)));
+          incluidos++;
+        } catch {
+          faltantes.push(a.id);
+        }
+      }
+    }
+    await zip.texto("README.txt", readme(ctx, cab.exportadoAt, ["perfiles", ...nombres], incluidos, faltantes));
+    await zip.terminar();
+    await destino.close();
+    destino = undefined;
+    return { ruta, bytes: (await stat(ruta)).size, incluidos, faltantes: faltantes.length, tablas: nombres.length + 1, limpiar };
+  } catch (e) {
+    await destino?.close().catch(() => undefined);
+    await limpiar();
+    throw e;
+  }
 }
 
 /**
  * ZIP con un JSON por tabla, un README.txt y los archivos subidos (los que el proveedor entregue), en una sola petición.
- * Solo dirección; queda auditado una vez. La vía normal es la asíncrona (`solicitarExportacion`); esta queda para pruebas y scripts.
+ * Solo dirección; queda auditado una vez. La vía normal es la asíncrona (`solicitarExportacion`); esta queda para pruebas y scripts
+ * (arma en flujo en disco, pero devuelve el ZIP entero en memoria).
  */
 export async function exportarColegioZip(ctx: TenantContext): Promise<Uint8Array> {
   requireRol(ctx, ["direccion"]);
-  const { zip, incluidos, faltantes, tablas } = await armarZip(ctx);
-  await auditarExportacion(ctx, { tablas, archivos: incluidos, archivosFaltantes: faltantes });
-  return zip;
+  const { ruta, incluidos, faltantes, tablas, limpiar } = await armarZip(ctx);
+  try {
+    const zip = new Uint8Array(await readFile(ruta));
+    await auditarExportacion(ctx, { tablas, archivos: incluidos, archivosFaltantes: faltantes });
+    return zip;
+  } finally {
+    await limpiar();
+  }
 }
 
 // ───────────── Exportación asíncrona (cola `exportaciones_colegio`) ─────────────
@@ -231,12 +363,14 @@ async function contextoDeExportacion(tenantId: string, userId: string): Promise<
 
 async function procesarUna(exp: ExportacionColegio): Promise<boolean> {
   let subido: { proveedor: "local" | "cloudinary" | "s3"; publicId: string; url: string | null } | null = null;
+  let armado: ResultadoZip | null = null;
   try {
     const ctx = await contextoDeExportacion(exp.tenantId, exp.solicitadoPorId);
-    const { zip, incluidos, faltantes, tablas } = await armarZip(ctx);
-    subido = await storage().subir(Buffer.from(zip), { tenantId: exp.tenantId, carpeta: "exportaciones", privado: true, mimeType: "application/zip" });
+    armado = await armarZip(ctx);
+    const { ruta, bytes, incluidos, faltantes, tablas } = armado;
+    subido = await subirArchivoDesdeRuta(ruta, { tenantId: exp.tenantId, carpeta: "exportaciones", privado: true, mimeType: "application/zip" });
     const archivo = await db.archivo.create({
-      data: { tenantId: exp.tenantId, proveedor: subido.proveedor, publicId: subido.publicId, url: null, mimeType: "application/zip", bytes: zip.length, privado: true, subidoPorId: exp.solicitadoPorId, nombre: nombreZip(ctx.tenant.slug, new Date()) },
+      data: { tenantId: exp.tenantId, proveedor: subido.proveedor, publicId: subido.publicId, url: null, mimeType: "application/zip", bytes, privado: true, subidoPorId: exp.solicitadoPorId, nombre: nombreZip(ctx.tenant.slug, new Date()) },
     });
     await db.exportacionColegio.update({ where: { id: exp.id }, data: { estado: "lista", archivoId: archivo.id, terminadoAt: new Date(), error: null } });
     await auditarExportacion(ctx, { tablas, archivos: incluidos, archivosFaltantes: faltantes, exportacionId: exp.id });
@@ -251,6 +385,8 @@ async function procesarUna(exp: ExportacionColegio): Promise<boolean> {
     });
     console.error("[exportaciones] falló", exp.id, mensaje);
     return false;
+  } finally {
+    await armado?.limpiar();
   }
 }
 

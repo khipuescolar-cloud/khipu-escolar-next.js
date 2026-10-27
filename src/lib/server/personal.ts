@@ -75,7 +75,7 @@ export async function altaPersonal(ctx: TenantContext, entrada: EntradaAlta): Pr
 }
 
 /** Reenvía la bienvenida (sin el número de documento). Dice «contraseña inicial» solo si la persona aún no la cambió. */
-export async function reenviarBienvenida(ctx: TenantContext, membershipId: string): Promise<void> {
+export async function reenviarBienvenida(ctx: TenantContext, membershipId: string, opciones: { restablecida?: boolean } = {}): Promise<void> {
   exigirGestion(ctx);
   const m = await ctx.db.membership.findFirst({
     where: { id: membershipId, rol: { in: ROLES_PERSONAL } },
@@ -90,8 +90,9 @@ export async function reenviarBienvenida(ctx: TenantContext, membershipId: strin
     genero: m.user.genero,
     tipoDocumento: m.user.tipoDocumento ?? "dni",
     cuentaNueva: m.user.debeCambiarPassword,
+    restablecida: opciones.restablecida,
   });
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "enviar", entidad: "membresia", entidadId: m.id, detalle: { reenvio: "bienvenida" } });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "enviar", entidad: "membresia", entidadId: m.id, detalle: { reenvio: opciones.restablecida ? "restablecimiento" : "bienvenida" } });
 }
 
 // ───────────── Lista ─────────────
@@ -224,7 +225,7 @@ export async function editarFicha(ctx: TenantContext, membershipId: string, role
 /**
  * Restablece la contraseña de la cuenta al número de documento actual (para cuando se corrigió el documento y la
  * contraseña inicial quedó con el valor viejo) y obliga a cambiarla en el próximo ingreso. Solo dirección.
- * Nunca devuelve ni registra la contraseña. Con `avisar` encola de nuevo el correo de bienvenida (sin el número).
+ * Nunca devuelve ni registra la contraseña. Con `avisar` encola el correo «Restablecimos tu contraseña» (variante de `bienvenida`, sin el número).
  * Si la persona tiene membresías en otros colegios, también se le reinicia allí (la cuenta es una sola): se advierte en la UI.
  */
 export async function restablecerPasswordAlDocumento(ctx: TenantContext, membershipId: string, opciones: { avisar?: boolean } = {}): Promise<{ otrosColegios: number }> {
@@ -238,7 +239,7 @@ export async function restablecerPasswordAlDocumento(ctx: TenantContext, members
   if (error) throw new ErrorDeNegocio("No se pudo restablecer la contraseña. Inténtalo de nuevo en unos minutos.");
   await db.profile.update({ where: { id: m.userId }, data: { debeCambiarPassword: true } });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: m.id, detalle: { reinicioPassword: "documento", avisoEnviado: Boolean(opciones.avisar) } });
-  if (opciones.avisar) await reenviarBienvenida(ctx, m.id);
+  if (opciones.avisar) await reenviarBienvenida(ctx, m.id, { restablecida: true });
   return { otrosColegios: await otrosColegiosDe(ctx, m.userId) };
 }
 

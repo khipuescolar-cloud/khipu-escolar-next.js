@@ -138,6 +138,8 @@ export async function encolarBienvenida(
     genero?: Genero | null;
     tipoDocumento: TipoIdentificacion;
     cuentaNueva: boolean;
+    /** Correo de «Restablecimos tu contraseña» en vez de la bienvenida. */
+    restablecida?: boolean;
   },
 ): Promise<string> {
   const url = urlColegio(datos.tenant.slug, "/inicio");
@@ -154,6 +156,7 @@ export async function encolarBienvenida(
       email: datos.email,
       documento: datos.tipoDocumento === "dni" ? "DNI" : datos.tipoDocumento === "ce" ? "carné de extranjería" : "pasaporte",
       cuentaNueva: datos.cuentaNueva,
+      ...(datos.restablecida ? { restablecida: true } : {}),
       url,
       dominio: url.replace(/^https?:\/\//, "").replace(/\/inicio$/, ""),
     },

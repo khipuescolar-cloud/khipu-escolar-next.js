@@ -29,6 +29,8 @@ export type ReferenciaArchivo = {
 export interface FileStorage {
   readonly proveedor: ProveedorArchivo;
   subir(buffer: Buffer, opciones: OpcionesSubida): Promise<ArchivoSubido>;
+  /** Opcional: sube desde un archivo en disco sin cargarlo entero en memoria (ZIP de exportación). Si falta, se usa `subir`. */
+  subirDesdeRuta?(ruta: string, opciones: OpcionesSubida): Promise<ArchivoSubido>;
   /** URL que vence en `segundos` (los privados) o la URL pública. */
   urlTemporal(archivo: ReferenciaArchivo, segundos: number): Promise<string>;
   borrar(archivo: ReferenciaArchivo): Promise<void>;

@@ -1,13 +1,17 @@
 // Requiere la BD local. Crea su propio colegio `test-exportacion-*`; la limpieza borra también sus archivos locales.
 import { randomUUID } from "node:crypto";
+import { existsSync } from "node:fs";
+import { mkdir, mkdtemp, rm, utimes, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import path from "node:path";
 import { strFromU8, unzipSync } from "fflate";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import type { Archivo } from "@/generated/prisma/client";
 import { db } from "@/lib/server/db";
 import {
-  EXPORTACION_VENCE_DIAS, exportacionDescargable, listarExportaciones, procesarExportaciones, solicitarExportacion, solicitarExportacionDireccion,
+  aJson, EXPORTACION_VENCE_DIAS, exportacionDescargable, exportarColegio, exportarColegioZip, filasPorLotes, tablasExportadas, listarExportaciones, procesarExportaciones, solicitarExportacion, solicitarExportacionDireccion,
 } from "@/lib/server/exportar";
-import { encontrarArchivosHuerfanos, limpiarArchivosHuerfanos, migrarArchivos } from "@/lib/server/mantenimiento-archivos";
+import { encontrarArchivosHuerfanos, encontrarObjetosLocalesHuerfanos, limpiarArchivosHuerfanos, limpiarObjetosLocalesHuerfanos, migrarArchivos } from "@/lib/server/mantenimiento-archivos";
 import { borrarArchivoDelProveedor, guardarArchivo, leerArchivo } from "@/lib/server/storage";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
@@ -71,6 +75,25 @@ describe("exportación asíncrona", () => {
     const f2 = await db.exportacionColegio.findUniqueOrThrow({ where: { id: e2.id }, include: { archivo: true } });
     const zip2 = unzipSync(new Uint8Array(await leerArchivo(f2.archivo!)));
     expect(Object.keys(zip2).some((k) => k.includes(fila.archivoId!))).toBe(false);
+  });
+
+  it("el ZIP en flujo trae el mismo contenido que la exportación en memoria y la paginación por lotes recorre todo", async () => {
+    const zip = unzipSync(await exportarColegioZip(dir()));
+    const objeto = await exportarColegio(dir());
+    // La bitácora y la cola de exportaciones cambian entre una llamada y otra.
+    for (const tabla of tablasExportadas().filter((t) => !["auditoria", "exportacionColegio"].includes(t))) {
+      const filas = [...(objeto[tabla] as { id: string }[])].sort((a, b) => (String(a.id) < String(b.id) ? -1 : 1));
+      expect(strFromU8(zip[`tablas/${tabla}.json`]), tabla).toBe(aJson(filas));
+    }
+    const porId = (x: { id: string }, y: { id: string }) => (x.id < y.id ? -1 : 1);
+    const perfiles = (JSON.parse(strFromU8(zip["tablas/perfiles.json"])) as { id: string }[]).sort(porId);
+    expect(perfiles).toEqual(JSON.parse(aJson([...(objeto.perfiles as { id: string }[])].sort(porId))));
+    expect(JSON.parse(strFromU8(zip["colegio.json"])).colegio.slug).toBe(c.tenant.slug);
+    // Lotes de 1 fila: no se pierde ni se repite ninguna.
+    const ids: string[] = [];
+    for await (const lote of filasPorLotes(dir(), "alumno", 1)) for (const f of lote as { id: string }[]) ids.push(f.id);
+    expect(ids).toHaveLength(await db.alumno.count({ where: { tenantId: c.tenant.id } }));
+    expect(new Set(ids).size).toBe(ids.length);
   });
 
   it("la reserva es atómica: dos workers a la vez procesan la exportación una sola vez", async () => {
@@ -186,5 +209,31 @@ describe("mantenimiento de archivos", () => {
     expect(r.migrados).toBeGreaterThanOrEqual(1);
     expect(await db.archivo.findUniqueOrThrow({ where: { id: a.id } })).toMatchObject({ proveedor: "s3", publicId: `khipu/${c.tenant.id}/migrados/${a.id}.png` });
     await expect(migrarArchivos(db, { de: "s3", a: "s3", simulacro: true })).rejects.toThrow();
+  });
+
+  it("--proveedor: lista y borra objetos locales sin fila en archivos (con más de 24 h)", async () => {
+    const raiz = await mkdtemp(path.join(tmpdir(), "khipu-uploads-"));
+    try {
+      await mkdir(path.join(raiz, "t1", "x"), { recursive: true });
+      const conFila = await archivo();
+      await writeFile(path.join(raiz, "t1", "x", "sobrante.png"), PNG);
+      await writeFile(path.join(raiz, "t1", "x", "nuevo.png"), PNG);
+      await writeFile(path.join(raiz, conFila.publicId.replace(/\//g, "_")), PNG); // mismo nombre que la fila no coincide: es sobrante
+      await mkdir(path.join(raiz, path.dirname(conFila.publicId)), { recursive: true });
+      await writeFile(path.join(raiz, conFila.publicId), PNG);
+      const ahora = new Date(Date.now() + 2 * 86_400_000); // todo lo creado ahora ya pasó el margen de 24 h…
+      const nuevo = path.join(raiz, "t1", "x", "nuevo.png");
+      const manana = new Date(Date.now() + 86_400_000);
+      await utimes(nuevo, manana, manana); // …menos este (modificado «en el futuro» respecto al límite)
+      const antes = await encontrarObjetosLocalesHuerfanos(db, { raiz, ahora: new Date(Date.now() + 86_400_000 * 1.5) });
+      expect(antes.map((o) => o.publicId).sort()).toEqual([conFila.publicId.replace(/\//g, "_"), "t1/x/sobrante.png"].sort());
+      expect(await limpiarObjetosLocalesHuerfanos(db, { confirmar: false, raiz, ahora })).toMatchObject({ borrados: 0 });
+      expect((await limpiarObjetosLocalesHuerfanos(db, { confirmar: true, raiz, ahora: new Date(Date.now() + 86_400_000 * 1.5) })).borrados).toBe(2);
+      expect(existsSync(path.join(raiz, "t1", "x", "sobrante.png"))).toBe(false);
+      expect(existsSync(path.join(raiz, conFila.publicId))).toBe(true);
+      expect(existsSync(nuevo)).toBe(true);
+    } finally {
+      await rm(raiz, { recursive: true, force: true });
+    }
   });
 });

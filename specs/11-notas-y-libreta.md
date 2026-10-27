@@ -102,4 +102,4 @@ cursosDelDocente(ctx)
 - e2e: `tests/e2e/notas-libreta.test.ts` (profesor de Euler ingresa nota vigesimal; apoderada descarga el PDF; losolivos 403; observación por nota; cerrar/reabrir curso; exportar CSV; publicar libreta y reenviar aviso, con limpieza de datos). El envío real del correo (Mailpit) no se prueba en e2e: el worker corre por cron, y el aviso queda verificado en la tabla `avisos`.
 
 ## Pendientes
-- El corte de «libretas antiguas» (`CORTE_LIBRETA_PUBLICADA`) es una constante porque `periodos` no guarda cuándo se cerró; si un colegio necesita otra regla, habría que añadir esa fecha al esquema.
+- (Decisión cerrada) `CORTE_LIBRETA_PUBLICADA` se queda como constante: `periodos` no guarda la fecha de cierre y no se cambia el esquema. Los periodos cerrados antes del corte siguen visibles para las familias; los nuevos requieren publicar la libreta.

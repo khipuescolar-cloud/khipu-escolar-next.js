@@ -50,6 +50,8 @@ const ESQUEMAS = {
     documento: z.string().min(1),
     /** false si la persona ya tenía cuenta en Khipu (conserva su contraseña). */
     cuentaNueva: z.boolean().default(true),
+    /** true tras «Restablecer contraseña al documento»: el correo avisa del restablecimiento en vez de dar la bienvenida. */
+    restablecida: z.boolean().optional(),
     url,
     /** Dirección del colegio para mostrar, p. ej. «nuevohorizonte.khipuescolar.pe». */
     dominio: z.string().min(1),
@@ -184,20 +186,32 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
     }),
 
   bienvenida: (p) =>
-    armarMensaje({
-      colegio: p.colegio,
-      asunto: `Bienvenido(a) a Khipu Escolar · ${p.colegio}`,
-      parrafos: [
-        `Hola, ${p.nombre}.`,
-        `${p.colegio} ya tiene Khipu Escolar y tienes acceso como ${p.rol}.`,
-        `Tu usuario es: ${p.email}`,
-        p.cuentaNueva
-          ? `Tu contraseña inicial es tu número de ${p.documento}. Al entrar te pediremos cambiarla.`
-          : "Entra con la contraseña que ya usas en Khipu Escolar.",
-        `La dirección de tu colegio es ${p.dominio}`,
-      ],
-      boton: { texto: "Ingresar a Khipu Escolar", url: p.url },
-    }),
+    p.restablecida
+      ? armarMensaje({
+          colegio: p.colegio,
+          asunto: `Restablecimos tu contraseña · ${p.colegio}`,
+          parrafos: [
+            `Hola, ${p.nombre}.`,
+            "Restablecimos tu contraseña: ahora es tu número de documento. Al entrar te pediremos cambiarla.",
+            `Tu usuario es: ${p.email}`,
+            `La dirección de tu colegio es ${p.dominio}`,
+          ],
+          boton: { texto: "Ingresar a Khipu Escolar", url: p.url },
+        })
+      : armarMensaje({
+          colegio: p.colegio,
+          asunto: `Bienvenido(a) a Khipu Escolar · ${p.colegio}`,
+          parrafos: [
+            `Hola, ${p.nombre}.`,
+            `${p.colegio} ya tiene Khipu Escolar y tienes acceso como ${p.rol}.`,
+            `Tu usuario es: ${p.email}`,
+            p.cuentaNueva
+              ? `Tu contraseña inicial es tu número de ${p.documento}. Al entrar te pediremos cambiarla.`
+              : "Entra con la contraseña que ya usas en Khipu Escolar.",
+            `La dirección de tu colegio es ${p.dominio}`,
+          ],
+          boton: { texto: "Ingresar a Khipu Escolar", url: p.url },
+        }),
 
   justificacion_revisada: (p) =>
     armarMensaje({

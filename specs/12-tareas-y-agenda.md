@@ -60,7 +60,8 @@ eliminarEvento(ctx, eventoId): Resultado
 
 ## Adjuntos
 - Hasta 5 por tarea, 10 MB cada uno (PDF, JPG, PNG, WEBP, DOCX, XLSX), privados en `FileStorage` con `archivos.tarea_id` (módulo `adjuntos.ts`, spec 14). El formulario de crear y de editar tienen el selector de archivos (`CamposAdjuntos`); al editar se pueden quitar y agregar. Un adjunto inválido devuelve el error de formulario y no crea la tarea.
-- `/tareas` los lista con `ListaAdjuntos` (ícono por tipo, nombre, tamaño, descarga) para el profesor, dirección y las familias. Descarga por `/archivos/<id>`: dirección, quien creó la tarea, profesores del salón y apoderados de ese salón; otros salones, 403. Al eliminar la tarea se borran los archivos.
+- `/tareas` los lista con `ListaAdjuntos` (ícono por tipo, nombre, tamaño, descarga) para el profesor, dirección y las familias. Descarga por `/archivos/<id>`: dirección, quien creó la tarea, profesores del salón y apoderados de ese salón; otros salones, 403. Al eliminar la tarea se borran los archivos (de la BD en cascada y luego del proveedor).
+- `/agenda` muestra, bajo cada «Entrega de tarea», sus adjuntos con el mismo `ListaAdjuntos`. `itemsDeAgenda` solo los incluye si `puedeVerTarea` (la misma regla que `/archivos/<id>`): el personal administrativo ve la entrega pero no sus adjuntos, porque no podría descargarlos.
 
 ## Errores y casos borde
 - Editar: el profesor edita título, descripción y fecha de sus tareas (`actualizarTarea`, mismas reglas que borrar; la fecha solo se valida si cambia) y los eventos que creó (`actualizarEvento`, no cambia el salón); dirección edita cualquier evento y solo consulta tareas. Queda auditado (`editar · tarea` / `editar · evento_agenda`). En la UI, un desplegable «Editar tarea» / «Editar evento».
@@ -75,4 +76,4 @@ eliminarEvento(ctx, eventoId): Resultado
 - e2e: `tests/e2e/tareas-agenda.test.ts` (profesora crea tarea con «Avisar a las familias», el correo llega a Mailpit y la familia la ve en «Para mañana»; agenda; periodos de dirección; edita su tarea y descarga el .ics).
 
 ## Pendientes
-- Adjuntos en la vista de agenda (hoy solo en `/tareas`).
+- (Resuelto) Adjuntos en la agenda: ver «Adjuntos».

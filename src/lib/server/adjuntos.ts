@@ -105,16 +105,41 @@ export async function guardarAdjuntos(ctx: TenantContext, destino: DestinoAdjunt
   return guardados;
 }
 
-/** Borra del proveedor y de la BD los archivos dados (mejor esfuerzo en el proveedor). */
-export async function borrarArchivos(ctx: TenantContext, archivos: Archivo[]): Promise<void> {
-  for (const a of archivos) await storage().borrar(a).catch(() => undefined);
-  if (archivos.length > 0) await ctx.db.archivo.deleteMany({ where: { id: { in: archivos.map((a) => a.id) } } });
+/**
+ * Borra del proveedor los archivos dados. Mejor esfuerzo: si el proveedor falla se registra y se sigue (la fila ya no existe
+ * o se borrará en cascada; el sobrante lo detecta `scripts/limpiar-archivos.ts --proveedor` en el almacenamiento local).
+ */
+export async function borrarDelProveedor(archivos: Archivo[]): Promise<void> {
+  for (const a of archivos) {
+    await storage().borrar(a).catch((error) => console.error("[archivos] no se pudo borrar del proveedor", a.proveedor, a.publicId, error));
+  }
 }
 
-/** Borra los adjuntos de un comunicado o tarea. Llamar antes de borrar el elemento (la BD los borra en cascada). */
+/** Borra de la BD y luego del proveedor los archivos dados. */
+export async function borrarArchivos(ctx: TenantContext, archivos: Archivo[]): Promise<void> {
+  if (archivos.length === 0) return;
+  await ctx.db.archivo.deleteMany({ where: { id: { in: archivos.map((a) => a.id) } } });
+  await borrarDelProveedor(archivos);
+}
+
+/** Adjuntos de un comunicado o tarea. Se recolectan ANTES de borrar el elemento (la BD los borra en cascada) y se pasan a `borrarDelProveedor` DESPUÉS. */
+export async function adjuntosDe(ctx: TenantContext, destino: DestinoAdjunto): Promise<Archivo[]> {
+  return ctx.db.archivo.findMany({ where: destino });
+}
+
+/** Adjuntos de comunicados dirigidos al salón y de tareas de sus cursos: todo lo que se borra en cascada con el salón. */
+export async function adjuntosDeSalon(ctx: TenantContext, salonId: string): Promise<Archivo[]> {
+  return ctx.db.archivo.findMany({ where: { OR: [{ comunicado: { salonId } }, { tarea: { curso: { salonId } } }] } });
+}
+
+/** Adjuntos de las tareas de un curso (se borran en cascada con el curso). */
+export async function adjuntosDeCurso(ctx: TenantContext, cursoId: string): Promise<Archivo[]> {
+  return ctx.db.archivo.findMany({ where: { tarea: { cursoId } } });
+}
+
+/** Borra los adjuntos de un comunicado o tarea (fila y proveedor). Para borrar el elemento mismo usa `adjuntosDe` + `borrarDelProveedor`. */
 export async function borrarAdjuntosDe(ctx: TenantContext, destino: DestinoAdjunto): Promise<void> {
-  const archivos = await ctx.db.archivo.findMany({ where: destino });
-  await borrarArchivos(ctx, archivos);
+  await borrarArchivos(ctx, await adjuntosDe(ctx, destino));
 }
 
 /** Quita adjuntos concretos de un elemento (ignora ids que no le pertenecen). Devuelve cuántos quitó. */

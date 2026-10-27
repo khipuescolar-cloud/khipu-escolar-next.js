@@ -1,6 +1,6 @@
 import "server-only";
 import { randomUUID } from "node:crypto";
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { firmar, firmaValida } from "../tokens";
 import { EXTENSION, type MimePermitido } from "./validacion";
@@ -9,7 +9,8 @@ import type { ArchivoSubido, FileStorage, OpcionesSubida, ReferenciaArchivo } fr
 // Almacenamiento en disco para desarrollo: carpeta .uploads/ (ignorada por git).
 // Se sirve con /archivos/<id> dentro del colegio: exige sesión y una firma con vencimiento.
 
-const RAIZ = path.resolve(process.cwd(), ".uploads");
+export const RAIZ_LOCAL = path.resolve(process.cwd(), ".uploads");
+const RAIZ = RAIZ_LOCAL;
 
 function rutaSegura(publicId: string): string {
   const ruta = path.resolve(RAIZ, publicId);
@@ -38,6 +39,15 @@ export class LocalStorage implements FileStorage {
     const ruta = rutaSegura(publicId);
     await mkdir(path.dirname(ruta), { recursive: true });
     await writeFile(ruta, buffer);
+    return { proveedor: "local", publicId, url: null };
+  }
+
+  async subirDesdeRuta(origen: string, { tenantId, carpeta, mimeType }: OpcionesSubida): Promise<ArchivoSubido> {
+    const ext = EXTENSION[mimeType as MimePermitido] ?? "bin";
+    const publicId = path.posix.join(tenantId, carpeta, `${randomUUID()}.${ext}`);
+    const ruta = rutaSegura(publicId);
+    await mkdir(path.dirname(ruta), { recursive: true });
+    await copyFile(origen, ruta);
     return { proveedor: "local", publicId, url: null };
   }
 

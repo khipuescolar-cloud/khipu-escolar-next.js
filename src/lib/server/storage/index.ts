@@ -1,10 +1,11 @@
 import "server-only";
+import { readFile } from "node:fs/promises";
 import type { Archivo } from "@/generated/prisma/client";
 import type { DbTenant } from "../db";
 import { CloudinaryStorage } from "./cloudinary";
 import { leerArchivoLocal, LocalStorage } from "./local";
 import { S3Storage } from "./s3";
-import type { FileStorage } from "./tipos";
+import type { ArchivoSubido, FileStorage, OpcionesSubida } from "./tipos";
 import { MENSAJE_VALIDACION, validarArchivo } from "./validacion";
 
 export type { FileStorage } from "./tipos";
@@ -66,6 +67,13 @@ export async function guardarArchivo(
     },
   });
   return { ok: true, archivo };
+}
+
+/** Sube un archivo en disco: en flujo si el proveedor lo permite; si no, lo lee entero y usa `subir`. */
+export async function subirArchivoDesdeRuta(ruta: string, opciones: OpcionesSubida): Promise<ArchivoSubido> {
+  const proveedor = storage();
+  if (proveedor.subirDesdeRuta) return proveedor.subirDesdeRuta(ruta, opciones);
+  return proveedor.subir(await readFile(ruta), opciones);
 }
 
 /** URL temporal (5 min) de un archivo registrado. */

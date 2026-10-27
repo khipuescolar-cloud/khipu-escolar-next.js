@@ -2,6 +2,7 @@ import { BookOpenCheck, CalendarDays, ChevronLeft, ChevronRight, Download, Flag,
 import type { Metadata } from "next";
 import Link from "next/link";
 import { forbidden } from "next/navigation";
+import { ListaAdjuntos } from "@/components/adjuntos/ListaAdjuntos";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -145,6 +146,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
                               <p className="font-medium">{it.titulo}</p>
                               <p className="text-muted-foreground">{it.tipo === "entrega" ? "" : `${formatoHora(it.inicio)} · `}{it.ambito}</p>
                               {it.descripcion && <p className="text-muted-foreground">{it.descripcion}</p>}
+                              {it.adjuntos.length > 0 && <ListaAdjuntos adjuntos={it.adjuntos} />}
                             </div>
                             {it.eliminable && (
                               <div className="flex items-center gap-1">
