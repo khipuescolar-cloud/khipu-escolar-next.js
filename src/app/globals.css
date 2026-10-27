@@ -1,26 +1,105 @@
 @import "tailwindcss";
 
+/* Tokens de marca Khipu Escolar (docs/marca/tokens.json).
+   maiz NUNCA como texto sobre blanco (1.8:1). Todo par de texto revisado ≥ 4.5:1 (WCAG AA). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --indigo: #1e2a78;
+  --indigo-cielo: #3a4bb5;
+  --cochinilla: #a8325e;
+  --turquesa: #0f7c7a;
+  --maiz: #f2b84b;
+  --fondo: #faf7f2;
+  --superficie: #ffffff;
+  --superficie-2: #f3f0ea;
+  --tinta: #1b1f2a;
+  --pizarra: #5b6170;
+  --arena: #e4e1da;
+  --acento: #1e2a78;
+  --sobre-acento: #ffffff;
+  --estado-llego: #166534;
+  --estado-llego-fondo: #e8f5ec;
+  --estado-tarde: #9a4a07;
+  --estado-tarde-fondo: #fdf2e3;
+  --estado-falta: #b91c1c;
+  --estado-falta-fondo: #fbeaea;
+  --estado-problema: #6b21a8;
+  --estado-problema-fondo: #f3e8fb;
+  --radio-md: 10px;
+  --radio-lg: 14px;
+  --radio-pildora: 999px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --fondo: #12141c;
+    --superficie: #1b1f2a;
+    --superficie-2: #242938;
+    --tinta: #f1efe9;
+    --pizarra: #b4b8c4;
+    --arena: #343a4c;
+    --acento: #8f9cf0;
+    --sobre-acento: #12141c;
+    --indigo-cielo: #a5b0f5;
+    --estado-llego: #86efac;
+    --estado-llego-fondo: #14321f;
+    --estado-tarde: #fcd34d;
+    --estado-tarde-fondo: #3a2a0c;
+    --estado-falta: #fca5a5;
+    --estado-falta-fondo: #3d1515;
+    --estado-problema: #d8b4fe;
+    --estado-problema-fondo: #2e1a40;
   }
 }
 
+@theme inline {
+  --color-indigo: var(--indigo);
+  --color-indigo-cielo: var(--indigo-cielo);
+  --color-cochinilla: var(--cochinilla);
+  --color-turquesa: var(--turquesa);
+  --color-maiz: var(--maiz);
+  --color-fondo: var(--fondo);
+  --color-superficie: var(--superficie);
+  --color-superficie-2: var(--superficie-2);
+  --color-tinta: var(--tinta);
+  --color-pizarra: var(--pizarra);
+  --color-arena: var(--arena);
+  --color-acento: var(--acento);
+  --color-sobre-acento: var(--sobre-acento);
+  --color-llego: var(--estado-llego);
+  --color-llego-fondo: var(--estado-llego-fondo);
+  --color-tarde: var(--estado-tarde);
+  --color-tarde-fondo: var(--estado-tarde-fondo);
+  --color-falta: var(--estado-falta);
+  --color-falta-fondo: var(--estado-falta-fondo);
+  --color-problema: var(--estado-problema);
+  --color-problema-fondo: var(--estado-problema-fondo);
+  --radius-md: var(--radio-md);
+  --radius-lg: var(--radio-lg);
+  --radius-pildora: var(--radio-pildora);
+  --font-sans: var(--font-inter);
+  --font-titulo: var(--font-sora);
+  --font-nudito: var(--font-nunito);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-sora), system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 3px solid var(--indigo-cielo);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

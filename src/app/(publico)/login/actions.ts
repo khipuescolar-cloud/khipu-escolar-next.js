@@ -1,0 +1,42 @@
+"use server";
+
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { z } from "zod";
+import { esCorreoPersonal } from "@/lib/dominio";
+import { colegioPorDominio, iniciarSesion } from "@/lib/server/auth";
+
+export type EstadoLogin = { error?: string; email?: string };
+
+const esquema = z.object({
+  email: z.email("Escribe un correo válido."),
+  password: z.string().min(1, "Escribe tu contraseña."),
+});
+
+const MENSAJES = {
+  credenciales: "El correo o la contraseña no coinciden.",
+  bloqueado: "Hubo demasiados intentos. Espera 15 minutos o recupera tu contraseña.",
+  "sin-colegio": "Tu cuenta no está vinculada a ningún colegio activo. Escribe a tu colegio.",
+} as const;
+
+export async function loginAction(_prev: EstadoLogin, formData: FormData): Promise<EstadoLogin> {
+  const datos = esquema.safeParse({ email: formData.get("email"), password: formData.get("password") });
+  const email = String(formData.get("email") ?? "");
+  if (!datos.success) return { error: datos.error.issues[0].message, email };
+
+  const h = await headers();
+  const ip = h.get("x-forwarded-for")?.split(",")[0]?.trim() || h.get("x-real-ip") || "local";
+  const resultado = await iniciarSesion(datos.data.email, datos.data.password, ip);
+  if (!resultado.ok) return { error: MENSAJES[resultado.error], email };
+
+  if (resultado.destino.tipo === "elegir") redirect("/elegir-colegio");
+  redirect(`/entrando?colegio=${resultado.destino.slug}`);
+}
+
+/** Muestra el colegio detectado por el dominio del correo. Para correos personales no revela nada. */
+export async function detectarColegio(email: string): Promise<{ nombre: string } | { personal: true } | null> {
+  if (!z.email().safeParse(email).success) return null;
+  if (esCorreoPersonal(email)) return { personal: true };
+  const colegio = await colegioPorDominio(email);
+  return colegio ? { nombre: colegio.nombre } : null;
+}

@@ -1,0 +1,783 @@
+// Esquema de Khipu Escolar. Documentación por módulo en specs/.
+// Toda tabla de negocio lleva tenantId. El acceso pasa SIEMPRE por src/lib/server (db.forTenant).
+// RLS está activado en todas las tablas y cerrado para anon/authenticated (ver migración rls_cerrado).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ───────────────────────────── Enums ─────────────────────────────
+
+enum Plan {
+  basico
+  fase2
+  promax
+}
+
+enum Rol {
+  direccion
+  profesor
+  apoderado
+  alumno
+  porteria
+}
+
+enum EstadoMembresia {
+  activa
+  invitada
+  inactiva
+}
+
+enum EstadoTenant {
+  activo
+  piloto
+  suspendido
+}
+
+enum ModoAvisos {
+  todos
+  solo_excepciones
+}
+
+enum EscalaCalificacion {
+  literal
+  vigesimal
+}
+
+enum Nivel {
+  inicial
+  primaria
+  secundaria
+  academia
+}
+
+enum EstadoAlumno {
+  activo
+  retirado
+}
+
+enum EstadoAsistencia {
+  llego
+  tarde
+  falta
+  problema
+}
+
+enum OrigenAsistencia {
+  lista
+  porteria
+}
+
+enum TipoAviso {
+  asistencia
+  resumen_llegadas
+  mensaje
+  comunicado
+  invitacion
+}
+
+enum CanalAviso {
+  correo
+  push
+}
+
+enum EstadoAviso {
+  pendiente
+  enviado
+  entregado
+  abierto
+  rebotado
+  queja
+  error
+  omitido
+}
+
+enum EstadoJustificacion {
+  pendiente
+  aceptada
+  rechazada
+}
+
+enum ProveedorArchivo {
+  local
+  cloudinary
+  s3
+}
+
+enum TipoPeriodo {
+  bimestre
+  trimestre
+  semestre
+}
+
+enum CalificacionLiteral {
+  AD
+  A
+  B
+  C
+}
+
+enum TipoEvento {
+  evento
+  reunion
+  examen
+  feriado
+  actividad
+}
+
+enum TipoDocumento {
+  reglamento
+  horario
+  calendario
+  otro
+}
+
+enum AutorNudito {
+  usuario
+  nudito
+}
+
+// ───────────────────────────── Núcleo ─────────────────────────────
+
+model Tenant {
+  id                 String             @id @default(uuid()) @db.Uuid
+  slug               String             @unique
+  nombre             String
+  ciudad             String?
+  plan               Plan               @default(basico)
+  emailDomains       String[]           @default([]) @map("email_domains")
+  logoArchivoId      String?            @map("logo_archivo_id") @db.Uuid
+  horaEnvioAvisos    String             @default("09:00") @map("hora_envio_avisos") // HH:mm, resumen de llegadas
+  zonaHoraria        String             @default("America/Lima") @map("zona_horaria")
+  modoAvisos         ModoAvisos         @default(todos) @map("modo_avisos")
+  escalaCalificacion EscalaCalificacion @default(literal) @map("escala_calificacion")
+  estado             EstadoTenant       @default(activo)
+  createdAt          DateTime           @default(now()) @map("created_at") @db.Timestamptz
+
+  memberships           Membership[]
+  salones               Salon[]
+  cursos                Curso[]
+  alumnos               Alumno[]
+  apoderadosAlumnos     ApoderadoAlumno[]
+  consentimientos       Consentimiento[]
+  auditoria             Auditoria[]
+  asistencias           Asistencia[]
+  avisos                Aviso[]
+  justificacionTokens   JustificacionToken[]
+  justificaciones       Justificacion[]
+  archivos              Archivo[]
+  conversaciones        Conversacion[]
+  mensajes              Mensaje[]
+  comunicados           Comunicado[]
+  preferenciasAviso     PreferenciaAviso[]
+  carnetsQr             CarnetQr[]
+  periodos              Periodo[]
+  competencias          Competencia[]
+  evaluaciones          Evaluacion[]
+  notas                 Nota[]
+  calificacionesPeriodo CalificacionPeriodo[]
+  tareas                Tarea[]
+  eventosAgenda         EventoAgenda[]
+  documentosColegio     DocumentoColegio[]
+  nuditoConversaciones  NuditoConversacion[]
+  nuditoMensajes        NuditoMensaje[]
+
+  @@map("tenants")
+}
+
+/// Usuario global. id = auth.users.id de Supabase.
+model Profile {
+  id        String   @id @db.Uuid
+  email     String   @unique
+  nombres   String
+  apellidos String   @default("")
+  telefono  String?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  memberships       Membership[]
+  pushSuscripciones PushSuscripcion[]
+
+  @@map("profiles")
+}
+
+/// Rol de un usuario dentro de un colegio. Un usuario puede tener varias.
+model Membership {
+  id        String          @id @default(uuid()) @db.Uuid
+  tenantId  String          @map("tenant_id") @db.Uuid
+  userId    String          @map("user_id") @db.Uuid
+  rol       Rol
+  estado    EstadoMembresia @default(activa)
+  createdAt DateTime        @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant Tenant  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user   Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  salonesTutor             Salon[]              @relation("TutorSalon")
+  cursosDictados           Curso[]              @relation("ProfesorCurso")
+  hijos                    ApoderadoAlumno[]
+  consentimientos          Consentimiento[]
+  asistenciasRegistradas   Asistencia[]         @relation("RegistradoPor")
+  avisos                   Aviso[]
+  justificacionTokens      JustificacionToken[]
+  justificaciones          Justificacion[]      @relation("JustificacionApoderado")
+  justificacionesRevisadas Justificacion[]      @relation("JustificacionRevisor")
+  conversacionesProfesor   Conversacion[]       @relation("ConversacionProfesor")
+  conversacionesApoderado  Conversacion[]       @relation("ConversacionApoderado")
+  mensajes                 Mensaje[]
+  comunicados              Comunicado[]
+  preferenciaAviso         PreferenciaAviso?
+  notasRegistradas         Nota[]
+  tareasCreadas            Tarea[]
+  eventosCreados           EventoAgenda[]
+  nuditoConversaciones     NuditoConversacion[]
+
+  @@unique([tenantId, userId, rol])
+  @@index([userId])
+  @@map("memberships")
+}
+
+model Salon {
+  id       String  @id @default(uuid()) @db.Uuid
+  tenantId String  @map("tenant_id") @db.Uuid
+  nombre   String // "3.° B"
+  nivel    Nivel
+  grado    Int?
+  seccion  String?
+  anio     Int
+  tutorId  String? @map("tutor_id") @db.Uuid
+
+  tenant      Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tutor       Membership?    @relation("TutorSalon", fields: [tutorId], references: [id], onDelete: SetNull)
+  cursos      Curso[]
+  alumnos     Alumno[]
+  comunicados Comunicado[]
+  eventos     EventoAgenda[]
+
+  @@index([tenantId])
+  @@map("salones")
+}
+
+model Curso {
+  id         String  @id @default(uuid()) @db.Uuid
+  tenantId   String  @map("tenant_id") @db.Uuid
+  salonId    String  @map("salon_id") @db.Uuid
+  nombre     String // "Matemática"
+  profesorId String? @map("profesor_id") @db.Uuid
+
+  tenant       Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  salon        Salon         @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  profesor     Membership?   @relation("ProfesorCurso", fields: [profesorId], references: [id], onDelete: SetNull)
+  asistencias  Asistencia[]
+  competencias Competencia[]
+  evaluaciones Evaluacion[]
+  tareas       Tarea[]
+
+  @@index([tenantId])
+  @@index([profesorId])
+  @@map("cursos")
+}
+
+/// El menor NO necesita cuenta en el plan Básico.
+model Alumno {
+  id            String       @id @default(uuid()) @db.Uuid
+  tenantId      String       @map("tenant_id") @db.Uuid
+  salonId       String       @map("salon_id") @db.Uuid
+  nombres       String
+  apellidos     String
+  codigo        String?
+  estado        EstadoAlumno @default(activo)
+  fotoArchivoId String?      @map("foto_archivo_id") @db.Uuid
+  createdAt     DateTime     @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant                Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  salon                 Salon                 @relation(fields: [salonId], references: [id], onDelete: NoAction)
+  apoderados            ApoderadoAlumno[]
+  asistencias           Asistencia[]
+  conversaciones        Conversacion[]
+  carnets               CarnetQr[]
+  notas                 Nota[]
+  calificacionesPeriodo CalificacionPeriodo[]
+  nuditoConversaciones  NuditoConversacion[]
+
+  @@index([tenantId, salonId])
+  @@map("alumnos")
+}
+
+model ApoderadoAlumno {
+  id               String  @id @default(uuid()) @db.Uuid
+  tenantId         String  @map("tenant_id") @db.Uuid
+  apoderadoId      String  @map("apoderado_id") @db.Uuid
+  alumnoId         String  @map("alumno_id") @db.Uuid
+  parentesco       String  @default("apoderado") // madre, padre, tutor legal…
+  recibeAvisos     Boolean @default(true) @map("recibe_avisos")
+  consentimientoId String? @map("consentimiento_id") @db.Uuid
+
+  tenant         Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  apoderado      Membership      @relation(fields: [apoderadoId], references: [id], onDelete: Cascade)
+  alumno         Alumno          @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  consentimiento Consentimiento? @relation(fields: [consentimientoId], references: [id], onDelete: SetNull)
+
+  @@unique([apoderadoId, alumnoId])
+  @@index([tenantId])
+  @@map("apoderados_alumnos")
+}
+
+/// Consentimiento versionado del apoderado (Ley 29733). Requerido antes de enviar avisos.
+model Consentimiento {
+  id           String    @id @default(uuid()) @db.Uuid
+  tenantId     String    @map("tenant_id") @db.Uuid
+  apoderadoId  String    @map("apoderado_id") @db.Uuid
+  versionTexto String    @map("version_texto")
+  aceptadoAt   DateTime  @default(now()) @map("aceptado_at") @db.Timestamptz
+  ip           String?
+  revocadoAt   DateTime? @map("revocado_at") @db.Timestamptz
+
+  tenant    Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  apoderado Membership        @relation(fields: [apoderadoId], references: [id], onDelete: Cascade)
+  vinculos  ApoderadoAlumno[]
+
+  @@index([tenantId, apoderadoId])
+  @@map("consentimientos")
+}
+
+/// Quién vio o cambió qué.
+model Auditoria {
+  id        BigInt   @id @default(autoincrement())
+  tenantId  String   @map("tenant_id") @db.Uuid
+  actorId   String?  @map("actor_id") @db.Uuid // profile id
+  accion    String // ver | crear | editar | borrar | exportar | enviar
+  entidad   String
+  entidadId String?  @map("entidad_id")
+  detalle   Json?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, createdAt])
+  @@map("auditoria")
+}
+
+/// Límite de intentos de login (servidor).
+model LoginIntento {
+  id        BigInt   @id @default(autoincrement())
+  email     String
+  ip        String
+  exito     Boolean
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([email, createdAt])
+  @@index([ip, createdAt])
+  @@map("login_intentos")
+}
+
+// ───────────────────────── Plan Básico ─────────────────────────
+
+model Asistencia {
+  id              String           @id @default(uuid()) @db.Uuid
+  tenantId        String           @map("tenant_id") @db.Uuid
+  alumnoId        String           @map("alumno_id") @db.Uuid
+  cursoId         String?          @map("curso_id") @db.Uuid // null = asistencia del día (portería / tutor)
+  ambito          String // = cursoId, o "dia" para la asistencia del día; hace única la fila
+  fecha           DateTime         @db.Date
+  hora            String // HH:mm, hora local del colegio
+  estado          EstadoAsistencia
+  nota            String?
+  origen          OrigenAsistencia @default(lista)
+  registradoPorId String           @map("registrado_por") @db.Uuid
+  createdAt       DateTime         @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime         @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant          Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno          Alumno               @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  curso           Curso?               @relation(fields: [cursoId], references: [id], onDelete: SetNull)
+  registradoPor   Membership           @relation("RegistradoPor", fields: [registradoPorId], references: [id], onDelete: NoAction)
+  avisos          Aviso[]
+  tokens          JustificacionToken[]
+  justificaciones Justificacion[]
+
+  @@unique([alumnoId, fecha, ambito])
+  @@index([tenantId, fecha])
+  @@map("asistencias")
+}
+
+/// Cola y registro de avisos (correo o push). El worker respeta EMAIL_DAILY_LIMIT.
+model Aviso {
+  id                String      @id @default(uuid()) @db.Uuid
+  tenantId          String      @map("tenant_id") @db.Uuid
+  tipo              TipoAviso
+  canal             CanalAviso
+  asistenciaId      String?     @map("asistencia_id") @db.Uuid
+  apoderadoId       String?     @map("apoderado_id") @db.Uuid
+  destinatario      String // correo o endpoint push
+  plantilla         String
+  asunto            String
+  payload           Json        @default("{}")
+  providerMessageId String?     @unique @map("provider_message_id")
+  estado            EstadoAviso @default(pendiente)
+  intentos          Int         @default(0)
+  error             String?
+  programadoPara    DateTime    @default(now()) @map("programado_para") @db.Timestamptz
+  enviadoAt         DateTime?   @map("enviado_at") @db.Timestamptz
+  entregadoAt       DateTime?   @map("entregado_at") @db.Timestamptz
+  abiertoAt         DateTime?   @map("abierto_at") @db.Timestamptz
+  createdAt         DateTime    @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant     Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  asistencia Asistencia? @relation(fields: [asistenciaId], references: [id], onDelete: SetNull)
+  apoderado  Membership? @relation(fields: [apoderadoId], references: [id], onDelete: SetNull)
+
+  @@index([estado, programadoPara])
+  @@index([tenantId, createdAt])
+  @@map("avisos")
+}
+
+/// Enlace «Justificar falta» de un solo uso. Se guarda solo el hash.
+model JustificacionToken {
+  id           String    @id @default(uuid()) @db.Uuid
+  tenantId     String    @map("tenant_id") @db.Uuid
+  asistenciaId String    @map("asistencia_id") @db.Uuid
+  apoderadoId  String    @map("apoderado_id") @db.Uuid
+  tokenHash    String    @unique @map("token_hash")
+  expiraAt     DateTime  @map("expira_at") @db.Timestamptz
+  usadoAt      DateTime? @map("usado_at") @db.Timestamptz
+
+  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  asistencia Asistencia @relation(fields: [asistenciaId], references: [id], onDelete: Cascade)
+  apoderado  Membership @relation(fields: [apoderadoId], references: [id], onDelete: Cascade)
+
+  @@map("justificacion_tokens")
+}
+
+model Justificacion {
+  id               String              @id @default(uuid()) @db.Uuid
+  tenantId         String              @map("tenant_id") @db.Uuid
+  asistenciaId     String              @map("asistencia_id") @db.Uuid
+  apoderadoId      String              @map("apoderado_id") @db.Uuid
+  motivo           String
+  adjuntoArchivoId String?             @map("adjunto_archivo_id") @db.Uuid
+  estado           EstadoJustificacion @default(pendiente)
+  revisadoPorId    String?             @map("revisado_por") @db.Uuid
+  revisadoAt       DateTime?           @map("revisado_at") @db.Timestamptz
+  createdAt        DateTime            @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant      Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  asistencia  Asistencia  @relation(fields: [asistenciaId], references: [id], onDelete: Cascade)
+  apoderado   Membership  @relation("JustificacionApoderado", fields: [apoderadoId], references: [id], onDelete: Cascade)
+  revisadoPor Membership? @relation("JustificacionRevisor", fields: [revisadoPorId], references: [id], onDelete: SetNull)
+  adjunto     Archivo?    @relation(fields: [adjuntoArchivoId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, estado])
+  @@map("justificaciones")
+}
+
+/// Archivos subidos (Cloudinary hoy, S3 después). Los de menores son privados.
+model Archivo {
+  id          String           @id @default(uuid()) @db.Uuid
+  tenantId    String           @map("tenant_id") @db.Uuid
+  proveedor   ProveedorArchivo
+  publicId    String           @map("public_id")
+  url         String? // solo para archivos públicos (p. ej. logo)
+  mimeType    String           @map("mime_type")
+  bytes       Int
+  privado     Boolean          @default(true)
+  subidoPorId String?          @map("subido_por") @db.Uuid
+  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant          Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  justificaciones Justificacion[]
+
+  @@index([tenantId])
+  @@map("archivos")
+}
+
+/// Chat familia ↔ profesor sin exponer teléfonos.
+model Conversacion {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @map("tenant_id") @db.Uuid
+  alumnoId    String   @map("alumno_id") @db.Uuid
+  profesorId  String   @map("profesor_id") @db.Uuid
+  apoderadoId String   @map("apoderado_id") @db.Uuid
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno    Alumno     @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  profesor  Membership @relation("ConversacionProfesor", fields: [profesorId], references: [id], onDelete: Cascade)
+  apoderado Membership @relation("ConversacionApoderado", fields: [apoderadoId], references: [id], onDelete: Cascade)
+  mensajes  Mensaje[]
+
+  @@unique([alumnoId, profesorId, apoderadoId])
+  @@index([tenantId])
+  @@map("conversaciones")
+}
+
+model Mensaje {
+  id             String    @id @default(uuid()) @db.Uuid
+  tenantId       String    @map("tenant_id") @db.Uuid
+  conversacionId String    @map("conversacion_id") @db.Uuid
+  autorId        String    @map("autor_id") @db.Uuid
+  cuerpo         String
+  leidoAt        DateTime? @map("leido_at") @db.Timestamptz
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant       Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  conversacion Conversacion @relation(fields: [conversacionId], references: [id], onDelete: Cascade)
+  autor        Membership   @relation(fields: [autorId], references: [id], onDelete: Cascade)
+
+  @@index([conversacionId, createdAt])
+  @@map("mensajes")
+}
+
+model Comunicado {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @map("tenant_id") @db.Uuid
+  autorId     String   @map("autor_id") @db.Uuid
+  salonId     String?  @map("salon_id") @db.Uuid // null = todo el colegio
+  titulo      String
+  cuerpo      String
+  publicadoAt DateTime @default(now()) @map("publicado_at") @db.Timestamptz
+
+  tenant Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  autor  Membership @relation(fields: [autorId], references: [id], onDelete: Cascade)
+  salon  Salon?     @relation(fields: [salonId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, publicadoAt])
+  @@map("comunicados")
+}
+
+/// Suscripción Web Push de un dispositivo (global al usuario).
+model PushSuscripcion {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  endpoint  String   @unique
+  p256dh    String
+  auth      String
+  userAgent String?  @map("user_agent")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  user Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("push_suscripciones")
+}
+
+model PreferenciaAviso {
+  id          String  @id @default(uuid()) @db.Uuid
+  tenantId    String  @map("tenant_id") @db.Uuid
+  apoderadoId String  @unique @map("apoderado_id") @db.Uuid
+  correo      Boolean @default(true)
+  push        Boolean @default(true)
+
+  tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  apoderado Membership @relation(fields: [apoderadoId], references: [id], onDelete: Cascade)
+
+  @@map("preferencias_aviso")
+}
+
+/// Carnet con QR para portería. El QR lleva un token firmado; aquí solo el hash.
+model CarnetQr {
+  id         String    @id @default(uuid()) @db.Uuid
+  tenantId   String    @map("tenant_id") @db.Uuid
+  alumnoId   String    @map("alumno_id") @db.Uuid
+  tokenHash  String    @unique @map("token_hash")
+  activo     Boolean   @default(true)
+  createdAt  DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  revocadoAt DateTime? @map("revocado_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno Alumno @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, alumnoId])
+  @@map("carnets_qr")
+}
+
+// ───────────────────────── Fase 2 (Familia) ─────────────────────────
+
+model Periodo {
+  id       String      @id @default(uuid()) @db.Uuid
+  tenantId String      @map("tenant_id") @db.Uuid
+  anio     Int
+  tipo     TipoPeriodo
+  numero   Int
+  nombre   String // "I Bimestre"
+  inicio   DateTime    @db.Date
+  fin      DateTime    @db.Date
+  cerrado  Boolean     @default(false)
+
+  tenant                Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  evaluaciones          Evaluacion[]
+  calificacionesPeriodo CalificacionPeriodo[]
+
+  @@unique([tenantId, anio, tipo, numero])
+  @@map("periodos")
+}
+
+/// Competencia del CNEB asociada a un curso.
+model Competencia {
+  id          String  @id @default(uuid()) @db.Uuid
+  tenantId    String  @map("tenant_id") @db.Uuid
+  cursoId     String  @map("curso_id") @db.Uuid
+  nombre      String
+  descripcion String?
+  orden       Int     @default(0)
+
+  tenant                Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  curso                 Curso                 @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  evaluaciones          Evaluacion[]
+  calificacionesPeriodo CalificacionPeriodo[]
+
+  @@index([tenantId, cursoId])
+  @@map("competencias")
+}
+
+model Evaluacion {
+  id            String   @id @default(uuid()) @db.Uuid
+  tenantId      String   @map("tenant_id") @db.Uuid
+  cursoId       String   @map("curso_id") @db.Uuid
+  periodoId     String   @map("periodo_id") @db.Uuid
+  competenciaId String?  @map("competencia_id") @db.Uuid
+  titulo        String
+  fecha         DateTime @db.Date
+  peso          Decimal  @default(1) @db.Decimal(5, 2)
+
+  tenant      Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  curso       Curso        @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  periodo     Periodo      @relation(fields: [periodoId], references: [id], onDelete: Cascade)
+  competencia Competencia? @relation(fields: [competenciaId], references: [id], onDelete: SetNull)
+  notas       Nota[]
+
+  @@index([tenantId, cursoId, periodoId])
+  @@map("evaluaciones")
+}
+
+/// Nota de una evaluación. Literal (AD/A/B/C) o vigesimal (0–20) según la escala del colegio.
+model Nota {
+  id              String               @id @default(uuid()) @db.Uuid
+  tenantId        String               @map("tenant_id") @db.Uuid
+  evaluacionId    String               @map("evaluacion_id") @db.Uuid
+  alumnoId        String               @map("alumno_id") @db.Uuid
+  valorLiteral    CalificacionLiteral? @map("valor_literal")
+  valorNumerico   Decimal?             @map("valor_numerico") @db.Decimal(4, 2)
+  comentario      String?
+  registradoPorId String               @map("registrado_por") @db.Uuid
+  updatedAt       DateTime             @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant        Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  evaluacion    Evaluacion @relation(fields: [evaluacionId], references: [id], onDelete: Cascade)
+  alumno        Alumno     @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  registradoPor Membership @relation(fields: [registradoPorId], references: [id], onDelete: NoAction)
+
+  @@unique([evaluacionId, alumnoId])
+  @@map("notas")
+}
+
+/// Calificación de una competencia en un periodo (lo que va en la libreta), con conclusión descriptiva.
+model CalificacionPeriodo {
+  id            String               @id @default(uuid()) @db.Uuid
+  tenantId      String               @map("tenant_id") @db.Uuid
+  alumnoId      String               @map("alumno_id") @db.Uuid
+  competenciaId String               @map("competencia_id") @db.Uuid
+  periodoId     String               @map("periodo_id") @db.Uuid
+  valorLiteral  CalificacionLiteral? @map("valor_literal")
+  valorNumerico Decimal?             @map("valor_numerico") @db.Decimal(4, 2)
+  conclusion    String?
+  updatedAt     DateTime             @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant      Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno      Alumno      @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  competencia Competencia @relation(fields: [competenciaId], references: [id], onDelete: Cascade)
+  periodo     Periodo     @relation(fields: [periodoId], references: [id], onDelete: Cascade)
+
+  @@unique([alumnoId, competenciaId, periodoId])
+  @@map("calificaciones_periodo")
+}
+
+model Tarea {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @map("tenant_id") @db.Uuid
+  cursoId      String   @map("curso_id") @db.Uuid
+  titulo       String
+  descripcion  String?
+  fechaEntrega DateTime @map("fecha_entrega") @db.Timestamptz
+  creadoPorId  String   @map("creado_por") @db.Uuid
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  curso     Curso      @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  creadoPor Membership @relation(fields: [creadoPorId], references: [id], onDelete: NoAction)
+
+  @@index([tenantId, fechaEntrega])
+  @@map("tareas")
+}
+
+model EventoAgenda {
+  id          String     @id @default(uuid()) @db.Uuid
+  tenantId    String     @map("tenant_id") @db.Uuid
+  salonId     String?    @map("salon_id") @db.Uuid // null = todo el colegio
+  titulo      String
+  descripcion String?
+  tipo        TipoEvento @default(evento)
+  inicio      DateTime   @db.Timestamptz
+  fin         DateTime?  @db.Timestamptz
+  creadoPorId String     @map("creado_por") @db.Uuid
+
+  tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  salon     Salon?     @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  creadoPor Membership @relation(fields: [creadoPorId], references: [id], onDelete: NoAction)
+
+  @@index([tenantId, inicio])
+  @@map("eventos_agenda")
+}
+
+// ───────────────────────── Pro Max (Nudito) ─────────────────────────
+
+/// Documentos del colegio que Nudito puede citar (reglamento, horario, calendario).
+model DocumentoColegio {
+  id        String        @id @default(uuid()) @db.Uuid
+  tenantId  String        @map("tenant_id") @db.Uuid
+  tipo      TipoDocumento
+  titulo    String
+  contenido String
+  updatedAt DateTime      @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, tipo])
+  @@map("documentos_colegio")
+}
+
+model NuditoConversacion {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @map("tenant_id") @db.Uuid
+  membershipId String   @map("membership_id") @db.Uuid
+  alumnoId     String?  @map("alumno_id") @db.Uuid
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant     Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  membership Membership      @relation(fields: [membershipId], references: [id], onDelete: Cascade)
+  alumno     Alumno?         @relation(fields: [alumnoId], references: [id], onDelete: SetNull)
+  mensajes   NuditoMensaje[]
+
+  @@index([tenantId, membershipId])
+  @@map("nudito_conversaciones")
+}
+
+model NuditoMensaje {
+  id             String      @id @default(uuid()) @db.Uuid
+  tenantId       String      @map("tenant_id") @db.Uuid
+  conversacionId String      @map("conversacion_id") @db.Uuid
+  autor          AutorNudito
+  cuerpo         String
+  intencion      String?
+  derivado       Boolean     @default(false)
+  createdAt      DateTime    @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant       Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  conversacion NuditoConversacion @relation(fields: [conversacionId], references: [id], onDelete: Cascade)
+
+  @@index([conversacionId, createdAt])
+  @@map("nudito_mensajes")
+}

@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/src/generated/prisma
+
+# env (se permite el ejemplo)
+!.env.example
+
+# archivos subidos en local
+/.uploads
+
+# Playwright
+/test-results
+/playwright-report
