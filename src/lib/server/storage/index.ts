@@ -2,7 +2,7 @@ import "server-only";
 import type { Archivo } from "@/generated/prisma/client";
 import type { DbTenant } from "../db";
 import { CloudinaryStorage } from "./cloudinary";
-import { LocalStorage } from "./local";
+import { leerArchivoLocal, LocalStorage } from "./local";
 import type { FileStorage } from "./tipos";
 import { MENSAJE_VALIDACION, validarArchivo } from "./validacion";
 
@@ -62,4 +62,17 @@ export async function guardarArchivo(
 /** URL temporal (5 min) de un archivo registrado. */
 export async function urlArchivo(archivo: Archivo): Promise<string> {
   return storage().urlTemporal(archivo, SEGUNDOS_URL_TEMPORAL);
+}
+
+/** Contenido de un archivo registrado (para exportar o migrar). Lanza si el proveedor no lo entrega. */
+export async function leerArchivo(archivo: Archivo): Promise<Buffer> {
+  if (archivo.proveedor === "local") return leerArchivoLocal(archivo.publicId);
+  const res = await fetch(await storage().urlTemporal(archivo, SEGUNDOS_URL_TEMPORAL));
+  if (!res.ok) throw new Error(`El proveedor respondió ${res.status}`);
+  return Buffer.from(await res.arrayBuffer());
+}
+
+/** Borra el archivo del proveedor (no toca la fila en `archivos`). */
+export async function borrarArchivoDelProveedor(archivo: Archivo): Promise<void> {
+  return storage().borrar(archivo);
 }

@@ -213,9 +213,9 @@ describe("privacidad y exportación", () => {
     await expect(exportarColegio(ctxs.tutora)).rejects.toThrow();
     const datos = await exportarColegio(ctxs.dir);
     expect(datos.colegio.slug).toBe(tenant.slug);
-    expect(datos.alumnos.length).toBeGreaterThanOrEqual(2);
-    expect(datos.alumnos.every((a) => a.tenantId === tenant.id)).toBe(true);
-    expect(datos.mensajes.length).toBeGreaterThan(0);
+    expect(datos.alumno.length).toBeGreaterThanOrEqual(2);
+    expect((datos.alumno as { tenantId: string }[]).every((a) => a.tenantId === tenant.id)).toBe(true);
+    expect(datos.mensaje.length).toBeGreaterThan(0);
     expect(JSON.stringify(datos, (_k, v) => (typeof v === "bigint" ? v.toString() : v))).not.toContain("tokenHash");
     expect(await db.auditoria.count({ where: { tenantId: tenant.id, accion: "exportar" } })).toBe(1);
   });

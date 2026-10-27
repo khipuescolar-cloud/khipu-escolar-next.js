@@ -1,3 +1,4 @@
+import { strFromU8 } from "fflate";
 import { expect, test, type Page } from "@playwright/test";
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
@@ -28,9 +29,9 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada", async ({ 
   const titulo = `Tarea e2e ${Date.now()}`;
   await entrar(page, "lucia.garcia@nuevohorizonte.demo", "nuevohorizonte");
   await page.goto(colegio("nuevohorizonte", "/tareas"));
-  await page.getByLabel("Título").fill(titulo);
+  await page.getByLabel("Título", { exact: true }).fill(titulo);
   const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
-  await page.getByLabel("Fecha de entrega").fill(manana);
+  await page.getByLabel("Fecha de entrega", { exact: true }).fill(manana);
   await page.getByLabel("Avisar a las familias").check();
   await page.getByRole("button", { name: "Crear tarea" }).click();
   await expect(page.getByText("Tarea creada.")).toBeVisible();
@@ -74,4 +75,39 @@ test("dirección ve los periodos y las notas de todos los cursos", async ({ page
   await expect(page.getByRole("link", { name: "Gestionar periodos" })).toBeVisible();
   await page.goto(colegio("nuevohorizonte", "/notas?seccion=periodo"));
   await expect(page.getByText("Calificación del periodo").first()).toBeVisible();
+});
+
+test("la profesora edita su tarea y descarga el calendario .ics", async ({ page }) => {
+  const titulo = `Tarea editable ${Date.now()}`;
+  const nuevo = `${titulo} (corregida)`;
+  await entrar(page, "lucia.garcia@nuevohorizonte.demo", "nuevohorizonte");
+  await page.goto(colegio("nuevohorizonte", "/tareas"));
+  await page.getByLabel("Título", { exact: true }).fill(titulo);
+  const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
+  await page.getByLabel("Fecha de entrega", { exact: true }).fill(manana);
+  await page.getByRole("button", { name: "Crear tarea" }).click();
+  await expect(page.getByText("Tarea creada.")).toBeVisible();
+
+  const fila = page.locator("li", { hasText: titulo }).first();
+  await fila.getByText("Editar tarea").click();
+  await fila.getByLabel("Nombre de la tarea").fill(nuevo);
+  await fila.getByRole("button", { name: "Guardar cambios" }).click();
+  await expect(page.getByText("Tarea actualizada.")).toBeVisible();
+  await expect(page.locator("li", { hasText: nuevo }).first()).toBeVisible();
+
+  const r = await page.request.get(colegio("nuevohorizonte", "/api/agenda.ics"));
+  expect(r.status()).toBe(200);
+  expect(r.headers()["content-type"]).toContain("text/calendar");
+  const ics = strFromU8(new Uint8Array(await r.body()));
+  expect(ics.startsWith("BEGIN:VCALENDAR\r\n")).toBe(true);
+  expect(ics).toContain(`Entrega: ${nuevo}`);
+  expect(ics).toContain("@khipuescolar");
+
+  await page.goto(colegio("nuevohorizonte", "/agenda"));
+  await expect(page.getByRole("link", { name: "Descargar calendario (.ics)" })).toBeVisible();
+
+  // Limpieza.
+  await page.goto(colegio("nuevohorizonte", "/tareas"));
+  await page.locator("li", { hasText: nuevo }).first().getByRole("button", { name: "Eliminar" }).click();
+  await expect(page.getByText(nuevo)).toHaveCount(0);
 });

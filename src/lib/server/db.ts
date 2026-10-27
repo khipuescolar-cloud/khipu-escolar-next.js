@@ -19,7 +19,7 @@ function crearCliente() {
 export const db = globalParaPrisma.prisma ?? crearCliente();
 if (process.env.NODE_ENV !== "production") globalParaPrisma.prisma = db;
 
-const MODELOS_GLOBALES = new Set(["Tenant", "Profile", "LoginIntento", "PushSuscripcion"]);
+export const MODELOS_GLOBALES = new Set(["Tenant", "Profile", "LoginIntento", "PushSuscripcion"]);
 
 const OPERACIONES_CON_WHERE = new Set([
   "findUnique", "findUniqueOrThrow", "findFirst", "findFirstOrThrow", "findMany",

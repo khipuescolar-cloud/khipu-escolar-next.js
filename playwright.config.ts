@@ -7,6 +7,7 @@ export default defineConfig({
   testDir: "tests/e2e",
   timeout: 60_000,
   fullyParallel: false,
+  workers: 1, // comparten BD y sesiones demo: en paralelo el login se vuelve intermitente
   use: { baseURL: `http://lvh.me:${PORT}`, trace: "retain-on-failure", locale: "es-PE" },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
   webServer: { command: `pnpm dev --port ${PORT}`, url: `http://lvh.me:${PORT}/login`, reuseExistingServer: true, timeout: 120_000 },

@@ -1,3 +1,4 @@
+import { strFromU8, unzipSync } from "fflate";
 import { expect, test } from "@playwright/test";
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
@@ -36,9 +37,11 @@ test("dirección recorre su panel y exporta los datos", async ({ page }) => {
   const r = await page.request.get(`${COLEGIO}/api/exportar`);
   expect(r.status()).toBe(200);
   expect(r.headers()["content-disposition"]).toContain("nuevohorizonte-datos-");
-  const datos = await r.json();
-  expect(datos.colegio.slug).toBe("nuevohorizonte");
-  expect(datos.alumnos.length).toBeGreaterThan(0);
+  expect(r.headers()["content-type"]).toContain("application/zip");
+  const zip = unzipSync(new Uint8Array(await r.body()));
+  expect(zip["README.txt"]).toBeDefined();
+  expect(JSON.parse(strFromU8(zip["colegio.json"])).colegio.slug).toBe("nuevohorizonte");
+  expect(JSON.parse(strFromU8(zip["tablas/alumno.json"])).length).toBeGreaterThan(0);
 });
 
 test("una profesora no puede exportar ni entrar a gestión", async ({ page }) => {

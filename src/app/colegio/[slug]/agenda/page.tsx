@@ -1,4 +1,4 @@
-import { BookOpenCheck, CalendarDays, ChevronLeft, ChevronRight, Flag, ListTodo, PartyPopper, Plus, Users } from "lucide-react";
+import { BookOpenCheck, CalendarDays, ChevronLeft, ChevronRight, Download, Flag, ListTodo, Pencil, PartyPopper, Plus, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { forbidden } from "next/navigation";
@@ -10,7 +10,7 @@ import { cuadriculaMes, diasDeSemana, esFechaIso, fechaLima, formatoDia, formato
 import { itemsDeAgenda, salonesParaEventos, type ItemAgenda } from "@/lib/server/agenda";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { crearEventoAction, eliminarEventoAction } from "./actions";
+import { actualizarEventoAction, crearEventoAction, eliminarEventoAction } from "./actions";
 
 export const metadata: Metadata = { title: "Agenda" };
 
@@ -73,6 +73,9 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
               <Link href={`/agenda?fecha=${sumarDias(lunes, 7)}`} className="inline-flex items-center gap-1 rounded-md px-2 py-1.5 text-acento hover:bg-superficie-2">Siguiente<ChevronRight className="h-4 w-4" strokeWidth={2} aria-hidden /></Link>
             </div>
           </div>
+          <a href="/api/agenda.ics" className="inline-flex items-center gap-2 self-start text-sm font-semibold text-acento">
+            <Download className="h-4 w-4" strokeWidth={2} aria-hidden />Descargar calendario (.ics)
+          </a>
           <ul className="flex flex-col gap-3">
             {diasDeSemana(lunes).map((dia) => {
               const delDia = porDia.get(dia) ?? [];
@@ -98,6 +101,27 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
                               </div>
                             </div>
                             {it.eliminable && <FormAccion accion={eliminarEventoAction.bind(null, slug, it.id)} etiqueta="Eliminar" variante="fantasma" className="contents" />}
+                            {it.eliminable && (
+                              <details className="w-full rounded-md border border-arena p-3">
+                                <summary className="flex cursor-pointer items-center gap-2 font-semibold text-acento"><Pencil className="h-4 w-4" strokeWidth={2} aria-hidden />Editar evento</summary>
+                                <FormAccion accion={actualizarEventoAction.bind(null, slug, it.id)} etiqueta="Guardar cambios" className="mt-3 flex flex-col gap-3">
+                                  <Campo etiqueta="Nombre del evento" id={`titulo-${it.id}`} name="titulo" required maxLength={150} defaultValue={it.titulo} />
+                                  <label className="flex flex-col gap-1.5 text-sm">
+                                    <span className="font-medium">Tipo</span>
+                                    <select name="tipo" defaultValue={it.tipo} className="rounded-md border border-arena bg-superficie px-3 py-2.5">
+                                      <option value="evento">Evento</option><option value="reunion">Reunión</option><option value="examen">Examen</option>
+                                      <option value="feriado">Feriado</option><option value="actividad">Actividad</option>
+                                    </select>
+                                  </label>
+                                  <Campo etiqueta="Día" id={`fecha-${it.id}`} name="fecha" type="date" required defaultValue={fechaLima(it.inicio)} />
+                                  <Campo etiqueta="Hora de inicio" id={`hora-${it.id}`} name="hora" type="time" defaultValue={formatoHora(it.inicio)} />
+                                  <label className="flex flex-col gap-1.5 text-sm">
+                                    <span className="font-medium">Descripción (opcional)</span>
+                                    <textarea name="descripcion" rows={2} maxLength={1000} defaultValue={it.descripcion ?? ""} className="rounded-md border border-arena bg-superficie px-3 py-2.5 text-base" />
+                                  </label>
+                                </FormAccion>
+                              </details>
+                            )}
                           </li>
                         );
                       })}

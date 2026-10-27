@@ -72,7 +72,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
           <ScrollText className="h-4 w-4" strokeWidth={2} aria-hidden /> Ver quién vio o cambió datos (auditoría)
         </Link>
         <a href="/api/exportar" className="inline-flex items-center gap-2 text-sm font-semibold text-acento">
-          <Download className="h-4 w-4" strokeWidth={2} aria-hidden /> Descargar todos los datos del colegio (JSON)
+          <Download className="h-4 w-4" strokeWidth={2} aria-hidden /> Descargar todos los datos del colegio (ZIP)
         </a>
       </Tarjeta>
     </div>

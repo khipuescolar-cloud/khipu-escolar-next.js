@@ -99,3 +99,33 @@ export async function tareasDeFamilia(ctx: TenantContext, ahora: Date = new Date
   });
 }
 
+
+const esquemaEdicionTarea = z.object({
+  titulo: z.string().trim().min(3, "Escribe el título de la tarea.").max(150),
+  descripcion: z.string().trim().max(1000).optional(),
+  fechaEntrega: z.iso.date("Elige la fecha de entrega."),
+});
+
+/** El profesor edita una tarea de un curso que dicta (mismas reglas que borrar). Dirección solo consulta. */
+export async function actualizarTarea(ctx: TenantContext, tareaId: string, entrada: unknown): Promise<Resultado> {
+  requireFeature(ctx, "tareas");
+  requireRol(ctx, ["profesor", "direccion"]);
+  const d = esquemaEdicionTarea.safeParse(entrada);
+  if (!d.success) return fallo(d.error.issues[0].message);
+  const t = await ctx.db.tarea.findFirst({ where: { id: tareaId } });
+  if (!t) return fallo("No encontramos esa tarea.");
+  await requireCursoDelProfesor(ctx, t.cursoId);
+  // La fecha solo se valida si cambió: se puede corregir el texto de una tarea que ya venció.
+  const cambioFecha = d.data.fechaEntrega !== fechaLima(t.fechaEntrega);
+  if (cambioFecha && d.data.fechaEntrega < fechaLima(new Date())) return fallo("La fecha de entrega ya pasó.");
+  await ctx.db.tarea.updateMany({
+    where: { id: tareaId },
+    data: {
+      titulo: d.data.titulo,
+      descripcion: d.data.descripcion || null,
+      ...(cambioFecha ? { fechaEntrega: instanteLima(d.data.fechaEntrega, "08:00") } : {}),
+    },
+  });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "tarea", entidadId: tareaId });
+  return ok("Tarea actualizada.");
+}
