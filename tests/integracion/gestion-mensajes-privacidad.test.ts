@@ -111,9 +111,11 @@ describe("chat familia ↔ profesor", () => {
 
     await enviarMensaje(ctxs.tutora, { conversacionId: convId, cuerpo: "Gracias por avisar." });
     await enviarMensaje(ctxs.tutora, { conversacionId: convId, cuerpo: "Lo esperamos." });
-    const avisos = await db.aviso.findMany({ where: { tenantId: tenant.id, plantilla: "mensaje_nuevo" } });
+    const avisos = await db.aviso.findMany({ where: { tenantId: tenant.id, plantilla: "mensaje_nuevo", apoderadoId: m.madre.id } });
     expect(avisos).toHaveLength(1);
-    expect(avisos[0]).toMatchObject({ tipo: "mensaje", canal: "correo", estado: "pendiente", destinatario: ctxs.madre.user.email, apoderadoId: m.madre.id });
+    expect(avisos[0]).toMatchObject({
+      tipo: "mensaje", canal: "correo", estado: "pendiente", destinatario: ctxs.madre.user.email, apoderadoId: m.madre.id, referenciaId: convId,
+    });
     expect(avisos[0].payload).toMatchObject({ colegio: "Colegio de Prueba", remitente: "Lucía Tutora", alumno: "Mateo Hijo Madre" });
 
     await revocarConsentimiento(ctxs.madre);

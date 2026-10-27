@@ -86,11 +86,12 @@ async function crearJustificacion(
   if (tutor && tutor.estado === "activa") {
     await encolarAviso(tdb, {
       tenantId: datos.tenant.id,
-      tipo: "asistencia",
+      tipo: "justificacion",
       canal: "correo",
       destinatario: tutor.user.email,
       plantilla: "justificacion_recibida",
       asistenciaId: datos.asistenciaId,
+      referenciaId: justificacion.id,
       payload: {
         colegio: datos.tenant.nombre,
         alumno: primerNombre(justificacion.asistencia.alumno.nombres),
@@ -197,6 +198,8 @@ export type JustificacionVista = {
   adjuntoUrl: string | null;
   adjuntoMime: string | null;
   revisadoPor: string | null;
+  /** Comentario de quien revisó (visible para la familia). */
+  comentarioRevision: string | null;
 };
 
 /** Dirección: todas; tutor: las de su salón; apoderado: las suyas. */
@@ -207,7 +210,7 @@ export async function listarJustificaciones(ctx: TenantContext): Promise<Justifi
     orderBy: [{ estado: "asc" }, { createdAt: "desc" }],
     take: 200,
     select: {
-      id: true, motivo: true, estado: true, createdAt: true, adjunto: true,
+      id: true, motivo: true, estado: true, createdAt: true, adjunto: true, comentarioRevision: true,
       apoderado: { select: { user: { select: { nombres: true, apellidos: true } } } },
       revisadoPor: { select: { user: { select: { nombres: true, apellidos: true } } } },
       asistencia: { select: { fecha: true, alumno: { select: { nombres: true, apellidos: true, salon: { select: { nombre: true } } } } } },
@@ -227,6 +230,7 @@ export async function listarJustificaciones(ctx: TenantContext): Promise<Justifi
       adjuntoUrl: f.adjunto ? await urlArchivo(f.adjunto) : null,
       adjuntoMime: f.adjunto?.mimeType ?? null,
       revisadoPor: f.revisadoPor ? `${f.revisadoPor.user.nombres} ${f.revisadoPor.user.apellidos}`.trim() : null,
+      comentarioRevision: f.comentarioRevision,
     })),
   );
 }
@@ -254,7 +258,7 @@ export async function revisarJustificacion(ctx: TenantContext, entrada: unknown)
 
   const actualizada = await ctx.db.justificacion.updateMany({
     where: { id: j.id, estado: "pendiente" },
-    data: { estado: datos.decision, revisadoPorId: ctx.membership.id, revisadoAt: new Date() },
+    data: { estado: datos.decision, revisadoPorId: ctx.membership.id, revisadoAt: new Date(), comentarioRevision: datos.comentario || null },
   });
   if (actualizada.count === 0) return;
   await auditar({
@@ -266,9 +270,10 @@ export async function revisarJustificacion(ctx: TenantContext, entrada: unknown)
   if (destinatario) {
     await encolarParaDestinatario(ctx.db, destinatario, {
       tenantId: ctx.tenant.id,
-      tipo: "asistencia",
+      tipo: "justificacion",
       plantilla: "justificacion_revisada",
       asistenciaId: j.asistenciaId,
+      referenciaId: j.id,
       payload: {
         colegio: ctx.tenant.nombre,
         alumno: primerNombre(j.asistencia.alumno.nombres),

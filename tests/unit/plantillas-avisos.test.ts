@@ -71,6 +71,8 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       invitacion: { colegio, nombre: "Rosa", rol: "Familia", url: "http://i" },
       justificacion_revisada: { colegio, alumno: "Mateo", fecha: "2026-10-26", estado: "aceptada" },
       justificacion_recibida: { colegio, alumno: "Mateo", fecha: "2026-10-26", url: "http://j" },
+      tarea_nueva: { colegio, curso: "Matemática", titulo: "Fichas de fracciones", fechaEntrega: "2026-10-30", url: "http://t" },
+      alerta_rebote: { colegio, apoderado: "Rosa Quispe", alumnos: ["Mateo"], motivo: "su correo rebotó", url: "http://a" },
     };
     for (const nombre of NOMBRES_PLANTILLA) {
       const m = renderizarPlantilla(nombre, payloads[nombre]);
@@ -80,6 +82,26 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(renderizarPlantilla("resumen_llegadas", payloads.resumen_llegadas).texto).toContain("Ana llegó al colegio a las 7:40 a. m.");
     expect(renderizarPlantilla("mensaje_nuevo", payloads.mensaje_nuevo).texto).toContain("Lucía García te escribió sobre Mateo.");
     expect(renderizarPlantilla("justificacion_revisada", payloads.justificacion_revisada).texto).toContain("del 26/10/2026");
+  });
+
+  it("tarea nueva: texto corto con el hijo, el curso y la fecha de entrega", () => {
+    const p = { colegio, alumno: "Mateo", curso: "Matemática", titulo: "Fichas de fracciones", fechaEntrega: "2026-10-30", url: "http://t" };
+    const m = renderizarPlantilla("tarea_nueva", { ...p, urlPreferencias: "http://p" });
+    expect(m.asunto).toBe("Nueva tarea de Matemática");
+    expect(m.texto).toContain("Mateo tiene una tarea nueva de Matemática: «Fichas de fracciones».");
+    expect(m.texto).toContain("Se entrega el 30/10/2026.");
+    expect(m.texto).toContain("Ver tareas: http://t");
+    expect(m.texto).toContain("Ajustar mis avisos: http://p");
+    expect(renderizarPlantilla("tarea_nueva", { ...p, alumno: undefined }).texto).toContain("Hay una tarea nueva de Matemática");
+    expect(() => renderizarPlantilla("tarea_nueva", { ...p, fechaEntrega: "30/10/2026" })).toThrow(PlantillaInvalidaError);
+  });
+
+  it("alerta de rebote a dirección: nombra a la familia, el motivo y no lleva emojis", () => {
+    const m = renderizarPlantilla("alerta_rebote", { colegio, apoderado: "Rosa Quispe", alumnos: ["Mateo", "Ana"], motivo: "su correo rebotó", url: "http://a" });
+    expect(m.asunto).toBe("Correo desactivado: Rosa Quispe");
+    expect(m.texto).toContain("Dejamos de enviar avisos por correo a Rosa Quispe (familia de Mateo, Ana) porque su correo rebotó.");
+    expect(m.texto).toContain("[Correo desactivado]");
+    expect(EMOJI.test(m.texto + m.html + m.asunto)).toBe(false);
   });
 
   it("rechaza plantillas desconocidas y payloads inválidos", () => {

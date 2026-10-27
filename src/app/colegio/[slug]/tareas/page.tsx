@@ -88,6 +88,13 @@ export default async function TareasPage({ params }: PageProps<"/colegio/[slug]/
                 <span className="font-medium">Descripción (opcional)</span>
                 <textarea name="descripcion" rows={2} maxLength={1000} className="rounded-md border border-arena bg-superficie px-3 py-2.5 text-base" />
               </label>
+              <label className="flex items-start gap-2 text-sm sm:col-span-2">
+                <input type="checkbox" name="avisarFamilias" className="mt-0.5 h-4 w-4 accent-acento" />
+                <span>
+                  <span className="font-medium">Avisar a las familias</span>
+                  <span className="block text-pizarra">Las familias reciben un aviso por correo o en el celular con esta tarea.</span>
+                </span>
+              </label>
             </FormAccion>
           )}
         </Tarjeta>

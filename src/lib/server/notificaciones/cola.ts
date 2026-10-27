@@ -15,17 +15,23 @@ import { EnvioPermanenteError, type NotificationChannel } from "./tipos";
 
 // Worker de la cola `avisos` (specs/06). Lo llama /api/cron/avisos (cron) y after() tras guardar asistencia.
 // - Respeta EMAIL_DAILY_LIMIT en una ventana móvil de 24 h (global) y EMAIL_RATE_PER_SECOND.
-// - Cada fila se «reserva» moviendo programadoPara (lease), así dos workers no envían la misma.
+// - Cada fila se reserva pasándola de `pendiente` a `enviando` con un UPDATE condicionado (atómico en Postgres):
+//   si dos workers corren a la vez, solo uno la obtiene. Las filas que quedan en `enviando` más de
+//   ENVIANDO_MAX_MINUTOS (worker caído a la mitad) vuelven a `pendiente` y cuentan como un intento.
 // - 1 intento + 3 reintentos con espera creciente; después, `error`.
 
-const LEASE_MS = 10 * 60_000;
-/** Plantillas dirigidas a familias: llevan enlace para ajustar avisos. */
+export const ENVIANDO_MAX_MINUTOS = 10;
+/** Plantillas dirigidas a familias: llevan enlace para ajustar avisos (solo si la fila es de un apoderado). */
 const PLANTILLAS_FAMILIA = new Set([
   "asistencia_llego", "asistencia_tarde", "asistencia_falta", "asistencia_problema",
-  "resumen_llegadas", "mensaje_nuevo", "comunicado", "justificacion_revisada",
+  "resumen_llegadas", "mensaje_nuevo", "comunicado", "justificacion_revisada", "tarea_nueva",
 ]);
 
-export type ResumenCola = { enviados: number; reintentos: number; errores: number; omitidos: number; diferidos: number; resumenes: number };
+export type ResumenCola = {
+  enviados: number; reintentos: number; errores: number; omitidos: number; diferidos: number; resumenes: number;
+  /** Filas recuperadas de `enviando` (worker caído). */
+  recuperados: number;
+};
 
 export type OpcionesCola = {
   ahora?: Date;
@@ -48,7 +54,7 @@ function prepararPayload(aviso: Aviso, colegio: DatosColegio): Record<string, un
   if (aviso.plantilla === "asistencia_falta" && typeof payload.justificacionTokenId === "string" && !payload.urlJustificar) {
     payload.urlJustificar = urlRaiz(`/justificar/${tokenDerivado("justificar", payload.justificacionTokenId)}`);
   }
-  if (PLANTILLAS_FAMILIA.has(aviso.plantilla) && !payload.urlPreferencias) {
+  if (PLANTILLAS_FAMILIA.has(aviso.plantilla) && aviso.apoderadoId && !payload.urlPreferencias) {
     payload.urlPreferencias = urlColegio(colegio.slug, "/asistencia#avisos");
   }
   return payload;
@@ -63,37 +69,41 @@ export async function procesarCola(opciones: OpcionesCola = {}): Promise<Resumen
     correo: new EmailChannel(),
     push: new PushChannel(),
   };
-  const resumen: ResumenCola = { enviados: 0, reintentos: 0, errores: 0, omitidos: 0, diferidos: 0, resumenes: 0 };
+  const resumen: ResumenCola = { enviados: 0, reintentos: 0, errores: 0, omitidos: 0, diferidos: 0, resumenes: 0, recuperados: 0 };
 
   resumen.resumenes = await generarResumenesLlegadas({ ahora, tenantId: opciones.tenantId });
+  resumen.recuperados = await recuperarAtascados(ahora, opciones.tenantId);
 
-  const pendientes = await db.aviso.findMany({
+  const candidatos = await db.aviso.findMany({
     where: { estado: "pendiente", programadoPara: { lte: ahora }, ...(opciones.tenantId ? { tenantId: opciones.tenantId } : {}) },
     orderBy: { programadoPara: "asc" },
     take: opciones.maxAvisos ?? 100,
+    select: { id: true, canal: true },
   });
-  if (pendientes.length === 0) return resumen;
+  if (candidatos.length === 0) return resumen;
 
   // Tope global: correos enviados en las últimas 24 h, de todos los colegios.
   const enviados24h = await db.aviso.count({
     where: { canal: "correo", enviadoAt: { gte: new Date(ahora.getTime() - 86_400_000) } },
   });
   let cupo = cupoDiario(enviados24h, limiteDiario);
+  const elegidos: string[] = [];
+  for (const c of candidatos) {
+    if (c.canal === "correo") {
+      if (cupo <= 0) {
+        resumen.diferidos++; // queda pendiente para cuando se libere la ventana de 24 h
+        continue;
+      }
+      cupo--;
+    }
+    elegidos.push(c.id);
+  }
+  const reservados = await reservar(elegidos);
+
   const colegios = new Map<string, DatosColegio>();
   let correosEnviados = 0;
 
-  for (const aviso of pendientes) {
-    if (aviso.canal === "correo" && cupo <= 0) {
-      resumen.diferidos++; // queda pendiente para cuando se libere la ventana de 24 h
-      continue;
-    }
-    // Reserva (lease): si otro worker la tomó, count = 0.
-    const reservado = await db.aviso.updateMany({
-      where: { id: aviso.id, estado: "pendiente", programadoPara: { lte: ahora } },
-      data: { programadoPara: new Date(Date.now() + LEASE_MS) },
-    });
-    if (reservado.count === 0) continue;
-
+  for (const aviso of reservados) {
     let colegio = colegios.get(aviso.tenantId);
     if (!colegio) {
       colegio = await db.tenant.findUniqueOrThrow({ where: { id: aviso.tenantId }, select: { nombre: true, slug: true } });
@@ -125,10 +135,7 @@ export async function procesarCola(opciones: OpcionesCola = {}): Promise<Resumen
         },
       });
       resumen.enviados++;
-      if (aviso.canal === "correo") {
-        cupo--;
-        correosEnviados++;
-      }
+      if (aviso.canal === "correo") correosEnviados++;
     } catch (error) {
       const texto = error instanceof Error ? error.message : String(error);
       const permanente = error instanceof PlantillaInvalidaError || error instanceof EnvioPermanenteError;
@@ -153,6 +160,42 @@ export async function procesarCola(opciones: OpcionesCola = {}): Promise<Resumen
     }
   }
   return resumen;
+}
+
+/**
+ * Reserva las filas pasándolas de `pendiente` a `enviando` en una sola sentencia. Postgres bloquea cada fila
+ * y vuelve a evaluar `estado = 'pendiente'` si otro worker la cambió: cada fila la obtiene un solo worker.
+ * Devuelve solo las filas reservadas por esta llamada, en orden de programación.
+ */
+async function reservar(ids: string[]): Promise<Aviso[]> {
+  if (ids.length === 0) return [];
+  const filas = await db.$queryRaw<{ id: string }[]>`
+    UPDATE avisos SET estado = 'enviando'::"EstadoAviso", programado_para = now()
+    WHERE id = ANY(${ids}::uuid[]) AND estado = 'pendiente'::"EstadoAviso"
+    RETURNING id`;
+  if (filas.length === 0) return [];
+  const avisos = await db.aviso.findMany({ where: { id: { in: filas.map((f) => f.id) } } });
+  const orden = new Map(ids.map((id, i) => [id, i]));
+  return avisos.sort((a, b) => (orden.get(a.id) ?? 0) - (orden.get(b.id) ?? 0));
+}
+
+/**
+ * Filas en `enviando` hace más de ENVIANDO_MAX_MINUTOS (el worker se cayó): vuelven a `pendiente` contando
+ * el intento, o pasan a `error` si ya no quedan reintentos. Al reservar, `programadoPara` guarda la hora de reserva.
+ */
+async function recuperarAtascados(ahora: Date, tenantId?: string): Promise<number> {
+  const limite = new Date(Date.now() - ENVIANDO_MAX_MINUTOS * 60_000);
+  const where = { estado: "enviando" as const, programadoPara: { lt: limite }, ...(tenantId ? { tenantId } : {}) };
+  const error = "Quedó en «enviando» sin respuesta del worker";
+  const agotados = await db.aviso.updateMany({
+    where: { ...where, intentos: { gte: MAX_INTENTOS - 1 } },
+    data: { estado: "error", intentos: { increment: 1 }, error },
+  });
+  const devueltos = await db.aviso.updateMany({
+    where,
+    data: { estado: "pendiente", intentos: { increment: 1 }, error, programadoPara: ahora },
+  });
+  return agotados.count + devueltos.count;
 }
 
 /**

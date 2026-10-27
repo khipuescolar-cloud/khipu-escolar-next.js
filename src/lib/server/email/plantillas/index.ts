@@ -49,6 +49,24 @@ const ESQUEMAS = {
     comentario: z.string().max(500).optional(),
   }),
   justificacion_recibida: z.object({ ...comun, alumno: z.string().min(1), fecha: fechaIso, url }),
+  tarea_nueva: z.object({
+    ...comun,
+    /** Nombre(s) de los hijos de esa familia en el salón; si falta, el texto no nombra al alumno. */
+    alumno: z.string().min(1).optional(),
+    curso: z.string().min(1),
+    titulo: z.string().min(1),
+    /** AAAA-MM-DD (fecha de entrega en Lima). */
+    fechaEntrega: fechaIso,
+    url,
+  }),
+  alerta_rebote: z.object({
+    ...comun,
+    apoderado: z.string().min(1),
+    alumnos: z.array(z.string().min(1)).default([]),
+    /** Texto para personas, p. ej. «el correo rebotó». */
+    motivo: z.string().min(1),
+    url,
+  }),
 } as const;
 
 export type NombrePlantilla = keyof typeof ESQUEMAS;
@@ -162,6 +180,33 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       palabraInsignia: "Justificación",
       parrafos: [`La familia de ${p.alumno} justificó la falta del ${fechaCorta(p.fecha)}.`, "Revísala para aceptarla o rechazarla."],
       boton: { texto: "Revisar justificación", url: p.url },
+    }),
+
+  tarea_nueva: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      asunto: `Nueva tarea de ${p.curso}`,
+      insignia: "info",
+      palabraInsignia: "Tarea",
+      parrafos: [
+        `${p.alumno ? `${p.alumno} tiene` : "Hay"} una tarea nueva de ${p.curso}: «${p.titulo}».`,
+        `Se entrega el ${fechaCorta(p.fechaEntrega)}.`,
+      ],
+      boton: { texto: "Ver tareas", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  alerta_rebote: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      asunto: `Correo desactivado: ${p.apoderado}`,
+      insignia: "problema",
+      palabraInsignia: "Correo desactivado",
+      parrafos: [
+        `Dejamos de enviar avisos por correo a ${p.apoderado}${p.alumnos.length ? ` (familia de ${p.alumnos.join(", ")})` : ""} porque ${p.motivo}.`,
+        "Revisa su correo con la familia y actualízalo para que vuelva a recibir avisos.",
+      ],
+      boton: { texto: "Ver avisos", url: p.url },
     }),
 };
 

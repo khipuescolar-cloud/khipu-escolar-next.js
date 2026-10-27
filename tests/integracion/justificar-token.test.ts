@@ -53,7 +53,7 @@ describe("justificar falta con token", () => {
     expect(j).toMatchObject({ estado: "pendiente", motivo: "Tuvo fiebre.", apoderadoId: c.miembros.madre.membership.id });
     expect(j.adjunto).toMatchObject({ mimeType: "application/pdf", privado: true, proveedor: "local" });
     const aTutora = await c.db.aviso.findFirstOrThrow({ where: { plantilla: "justificacion_recibida" } });
-    expect(aTutora.destinatario).toBe(c.miembros.tutora.user.email);
+    expect(aTutora).toMatchObject({ destinatario: c.miembros.tutora.user.email, tipo: "justificacion", referenciaId: j.id });
 
     expect(await justificarConToken(token, { motivo: "Otra vez", archivo: null })).toEqual({ ok: false, error: MENSAJE_TOKEN_INVALIDO });
     expect(await c.db.justificacion.count()).toBe(1);
@@ -69,7 +69,11 @@ describe("justificar falta con token", () => {
     await revisarJustificacion(c.ctxDe("tutora"), { id: lista[0].id, decision: "aceptada", comentario: "Gracias por avisar." });
     expect((await c.db.justificacion.findUniqueOrThrow({ where: { id: lista[0].id } })).estado).toBe("aceptada");
     const aviso = await c.db.aviso.findFirstOrThrow({ where: { plantilla: "justificacion_revisada" } });
-    expect(aviso.payload).toMatchObject({ estado: "aceptada", alumno: "Mateo" });
+    expect(aviso).toMatchObject({ tipo: "justificacion", referenciaId: lista[0].id });
+    expect(aviso.payload).toMatchObject({ estado: "aceptada", alumno: "Mateo", comentario: "Gracias por avisar." });
+    expect((await c.db.justificacion.findUniqueOrThrow({ where: { id: lista[0].id } })).comentarioRevision).toBe("Gracias por avisar.");
+    const deLaFamilia = await listarJustificaciones(c.ctxDe("madre"));
+    expect(deLaFamilia[0]).toMatchObject({ estado: "aceptada", comentarioRevision: "Gracias por avisar." });
   });
 
   it("el apoderado con sesión no puede justificar dos veces ni faltas ajenas", async () => {

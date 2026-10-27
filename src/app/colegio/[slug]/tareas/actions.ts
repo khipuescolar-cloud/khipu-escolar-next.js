@@ -1,7 +1,9 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { after } from "next/server";
 import type { Resultado } from "@/lib/resultado";
+import { procesarCola } from "@/lib/server/notificaciones/cola";
 import { requireFeature } from "@/lib/server/plan";
 import { crearTarea, eliminarTarea } from "@/lib/server/tareas";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -15,10 +17,24 @@ async function contexto(slug: string) {
 }
 
 export async function crearTareaAction(slug: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
-  const r = await crearTarea(await contexto(slug), {
+  const ctx = await contexto(slug);
+  const avisarFamilias = f.get("avisarFamilias") === "on";
+  const r = await crearTarea(ctx, {
     cursoId: texto(f, "cursoId"), titulo: texto(f, "titulo"), descripcion: texto(f, "descripcion"), fechaEntrega: texto(f, "fechaEntrega"),
+    avisarFamilias,
   });
-  if (r.ok) revalidatePath("/colegio/[slug]/tareas", "page");
+  if (r.ok) {
+    revalidatePath("/colegio/[slug]/tareas", "page");
+    if (avisarFamilias) {
+      after(async () => {
+        try {
+          await procesarCola({ tenantId: ctx.tenant.id });
+        } catch (error) {
+          console.error("[avisos] error al procesar la cola", error);
+        }
+      });
+    }
+  }
   return r;
 }
 

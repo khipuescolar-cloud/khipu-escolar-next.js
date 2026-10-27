@@ -1,7 +1,7 @@
 // Colegio de prueba aislado para tests de integración: slug único (test-basico-<azar>) y limpieza al final.
 // La BD local es compartida: nunca se tocan los colegios demo ni se re-ejecuta el seed.
 import { randomUUID } from "node:crypto";
-import type { ModoAvisos, Rol } from "@/generated/prisma/enums";
+import type { ModoAvisos, Plan, Rol } from "@/generated/prisma/enums";
 import { db, dbTenant } from "@/lib/server/db";
 import type { TenantContext } from "@/lib/server/tenant";
 
@@ -10,13 +10,15 @@ process.env.__NEXT_EXPERIMENTAL_AUTH_INTERRUPTS = "true";
 
 export type ColegioPrueba = Awaited<ReturnType<typeof crearColegioPrueba>>;
 
-export async function crearColegioPrueba(opciones: { modoAvisos?: ModoAvisos; horaLimiteTardanza?: string } = {}) {
+export async function crearColegioPrueba(
+  opciones: { modoAvisos?: ModoAvisos; horaLimiteTardanza?: string; plan?: Plan; prefijo?: string } = {},
+) {
   const sufijo = randomUUID().slice(0, 8);
   const tenant = await db.tenant.create({
     data: {
-      slug: `test-basico-${sufijo}`,
+      slug: `${opciones.prefijo ?? "test-basico"}-${sufijo}`,
       nombre: `Colegio Prueba ${sufijo}`,
-      plan: "basico",
+      plan: opciones.plan ?? "basico",
       modoAvisos: opciones.modoAvisos ?? "todos",
       horaLimiteTardanza: opciones.horaLimiteTardanza ?? "08:00",
     },
