@@ -1,4 +1,5 @@
 import "server-only";
+import { convertirAPng } from "@/lib/imagen-png";
 import type { Tenant } from "@/generated/prisma/client";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
@@ -29,15 +30,23 @@ export async function urlLogoColegio(tenant: TenantLogo): Promise<string | null>
   return storage().urlTemporal(archivo, SEGUNDOS_URL_TEMPORAL);
 }
 
-/** Bytes del logo para incrustarlo en un PDF (solo PNG y JPG: es lo que admite el generador). */
+/** Bytes del logo para incrustarlo en un PDF. El generador solo admite PNG y JPG: WEBP y SVG se convierten a PNG (con caché en memoria). */
 export async function logoParaPdf(tenant: TenantLogo): Promise<{ data: Buffer; format: "png" | "jpg" } | null> {
   const archivo = await archivoDelLogo(tenant);
-  if (!archivo || (archivo.mimeType !== "image/png" && archivo.mimeType !== "image/jpeg")) return null;
-  const format = archivo.mimeType === "image/png" ? "png" : "jpg";
+  if (!archivo || !["image/png", "image/jpeg", "image/webp", "image/svg+xml"].includes(archivo.mimeType)) return null;
+  const clave = `${archivo.id}:${archivo.mimeType}`;
   try {
-    if (archivo.proveedor === "local") return { data: await leerArchivoLocal(archivo.publicId), format };
-    const respuesta = await fetch(await storage().urlTemporal(archivo, SEGUNDOS_URL_TEMPORAL));
-    return respuesta.ok ? { data: Buffer.from(await respuesta.arrayBuffer()), format } : null;
+    const original =
+      archivo.proveedor === "local"
+        ? await leerArchivoLocal(archivo.publicId)
+        : await (async () => {
+            const respuesta = await fetch(await storage().urlTemporal(archivo, SEGUNDOS_URL_TEMPORAL));
+            return respuesta.ok ? Buffer.from(await respuesta.arrayBuffer()) : null;
+          })();
+    if (!original) return null;
+    if (archivo.mimeType === "image/png") return { data: original, format: "png" };
+    if (archivo.mimeType === "image/jpeg") return { data: original, format: "jpg" };
+    return { data: await convertirAPng(original, clave), format: "png" };
   } catch {
     return null;
   }

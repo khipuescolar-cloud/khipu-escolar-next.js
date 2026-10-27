@@ -24,7 +24,7 @@ export const ENVIANDO_MAX_MINUTOS = 10;
 /** Plantillas dirigidas a familias: llevan enlace para ajustar avisos (solo si la fila es de un apoderado). */
 const PLANTILLAS_FAMILIA = new Set([
   "asistencia_llego", "asistencia_tarde", "asistencia_falta", "asistencia_problema",
-  "resumen_llegadas", "mensaje_nuevo", "comunicado", "justificacion_revisada", "tarea_nueva",
+  "resumen_llegadas", "mensaje_nuevo", "comunicado", "justificacion_revisada", "tarea_nueva", "libreta_publicada",
 ]);
 
 export type ResumenCola = {

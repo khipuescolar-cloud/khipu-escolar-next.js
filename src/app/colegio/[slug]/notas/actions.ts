@@ -3,6 +3,8 @@
 import { revalidatePath } from "next/cache";
 import type { Resultado } from "@/lib/resultado";
 import {
+  cerrarCursoPeriodo, guardarComentarioNota, importarNotas, previsualizarImportacionNotas, publicarLibreta, reabrirCursoPeriodo,
+  type VistaPreviaImportacion,
   cambiarEstadoPeriodo, crearCompetencia, crearEvaluacion, crearPeriodo, editarEvaluacion, eliminarCompetencia,
   eliminarEvaluacion, guardarCalificacionPeriodo, guardarNota,
 } from "@/lib/server/notas";
@@ -81,5 +83,41 @@ export async function crearPeriodoAction(slug: string, _previo: Resultado | null
 export async function cambiarEstadoPeriodoAction(slug: string, periodoId: string, cerrado: boolean): Promise<Resultado> {
   const r = await cambiarEstadoPeriodo(await contexto(slug), periodoId, cerrado);
   if (r.ok) refrescar();
+  return r;
+}
+
+export async function cerrarCursoAction(slug: string, cursoId: string, periodoId: string): Promise<Resultado> {
+  const r = await cerrarCursoPeriodo(await contexto(slug), cursoId, periodoId);
+  if (r.ok) refrescar();
+  return r;
+}
+
+export async function reabrirCursoAction(slug: string, cursoId: string, periodoId: string): Promise<Resultado> {
+  const r = await reabrirCursoPeriodo(await contexto(slug), cursoId, periodoId);
+  if (r.ok) refrescar();
+  return r;
+}
+
+export async function guardarComentarioNotaAction(slug: string, evaluacionId: string, alumnoId: string, comentario: string): Promise<Resultado> {
+  return guardarComentarioNota(await contexto(slug), { evaluacionId, alumnoId, comentario });
+}
+
+export async function previsualizarImportacionAction(slug: string, cursoId: string, periodoId: string, texto: string): Promise<VistaPreviaImportacion> {
+  return previsualizarImportacionNotas(await contexto(slug), cursoId, periodoId, texto);
+}
+
+export async function importarNotasAction(slug: string, cursoId: string, periodoId: string, texto: string): Promise<Resultado> {
+  const r = await importarNotas(await contexto(slug), cursoId, periodoId, texto);
+  if (r.ok) refrescar();
+  return r;
+}
+
+/** `reenviar = "1"` repite el aviso de una libreta ya publicada. */
+export async function publicarLibretaAction(slug: string, periodoId: string, reenviar: boolean): Promise<Resultado> {
+  const r = await publicarLibreta(await contexto(slug), periodoId, { reenviar });
+  if (r.ok) {
+    refrescar();
+    revalidatePath("/colegio/[slug]/libreta", "layout");
+  }
   return r;
 }

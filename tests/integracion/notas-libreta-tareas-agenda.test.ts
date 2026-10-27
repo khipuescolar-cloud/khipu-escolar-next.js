@@ -6,7 +6,9 @@ import { crearEvento, itemsDeAgenda } from "@/lib/server/agenda";
 import { db, dbTenant } from "@/lib/server/db";
 import { datosLibreta } from "@/lib/server/libreta";
 import {
-  calificacionesPeriodo, crearEvaluacion, guardarCalificacionPeriodo, guardarNota, listarPeriodos, notasDeAlumno,
+  calificacionesPeriodo, cerrarCursoPeriodo, crearEvaluacion, editarEvaluacion, estadoPublicacionLibreta, exportarNotasCurso, grillaNotas,
+  guardarCalificacionPeriodo, guardarComentarioNota, guardarNota, importarNotas, listarPeriodos, notasDeAlumno, previsualizarImportacionNotas,
+  publicarLibreta, reabrirCursoPeriodo,
 } from "@/lib/server/notas";
 import { crearTarea, tareasDeFamilia } from "@/lib/server/tareas";
 import type { TenantContext } from "@/lib/server/tenant";
@@ -174,6 +176,114 @@ describe("libreta", () => {
   it("un profesor de otro salón no accede a la libreta", async () => {
     await expect(datosLibreta(profeAjeno, ids.a1, ids.cerrado)).rejects.toMatchObject(PROHIBIDO);
     expect((await datosLibreta(profe, ids.a1, ids.cerrado)).alumno.nombres).toBe("Ana");
+  });
+});
+
+describe("cierre por curso", () => {
+  it("con el curso cerrado no se editan notas ni evaluaciones; reabrir lo permite", async () => {
+    expect((await guardarNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, valor: "16" })).ok).toBe(true);
+    // Solo el profesor del curso o dirección cierran.
+    await expect(cerrarCursoPeriodo(profeAjeno, ids.curso, ids.abierto)).rejects.toMatchObject(PROHIBIDO);
+    await expect(cerrarCursoPeriodo(madreA, ids.curso, ids.abierto)).rejects.toMatchObject(PROHIBIDO);
+    expect((await cerrarCursoPeriodo(profe, ids.curso, ids.abierto)).ok).toBe(true);
+    expect((await cerrarCursoPeriodo(profe, ids.curso, ids.abierto)).ok).toBe(false); // ya cerrado
+
+    const bloqueada = await guardarNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, valor: "10" });
+    expect(bloqueada).toEqual({ ok: false, error: expect.stringContaining("cerradas") });
+    expect((await db.nota.findFirstOrThrow({ where: { evaluacionId: ids.evA, alumnoId: ids.a1 } })).valorNumerico?.toString()).toBe("16");
+    expect((await crearEvaluacion(profe, { cursoId: ids.curso, periodoId: ids.abierto, titulo: "Nueva", fecha: "2026-10-25", peso: 1 })).ok).toBe(false);
+    expect((await editarEvaluacion(profe, ids.evA, { titulo: "Cambio", fecha: "2026-10-10", peso: 1 })).ok).toBe(false);
+    expect((await guardarCalificacionPeriodo(profe, { alumnoId: ids.a1, competenciaId: ids.comp, periodoId: ids.abierto, valor: "11", conclusion: "" })).ok).toBe(false);
+    expect((await guardarComentarioNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, comentario: "x" })).ok).toBe(false);
+    expect((await importarNotas(profe, ids.curso, ids.abierto, "Código;Práctica 1\n;9")).ok).toBe(false);
+    expect((await grillaNotas(profe, ids.curso, ids.abierto)).editable).toBe(false);
+
+    // Otro periodo del mismo curso no se ve afectado por el cierre.
+    await expect(reabrirCursoPeriodo(profe, ids.curso, ids.abierto)).rejects.toMatchObject(PROHIBIDO); // solo dirección
+    expect((await reabrirCursoPeriodo(direccion, ids.curso, ids.abierto)).ok).toBe(true);
+    expect((await guardarNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, valor: "15" })).ok).toBe(true);
+    expect((await grillaNotas(profe, ids.curso, ids.abierto)).editable).toBe(true);
+  });
+
+  it("dirección también puede cerrar el curso", async () => {
+    expect((await cerrarCursoPeriodo(direccion, ids.curso, ids.abierto)).ok).toBe(true);
+    expect((await guardarNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, valor: "15" })).ok).toBe(false);
+    expect((await reabrirCursoPeriodo(direccion, ids.curso, ids.abierto)).ok).toBe(true);
+  });
+});
+
+describe("observaciones por nota", () => {
+  it("el profesor guarda un comentario (máx. 500) y la familia lo ve; sin nota no se puede", async () => {
+    expect((await guardarComentarioNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, comentario: "  Mejoró mucho.  " })).ok).toBe(true);
+    const vista = await notasDeAlumno(madreA, ids.a1, ids.abierto);
+    expect(vista.cursos.flatMap((c) => c.evaluaciones).find((e) => e.id === ids.evA)?.comentario).toBe("Mejoró mucho.");
+    expect((await guardarComentarioNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, comentario: "x".repeat(501) })).ok).toBe(false);
+    expect((await guardarComentarioNota(profe, { evaluacionId: ids.evB, alumnoId: ids.a2, comentario: "sin nota" })).ok).toBe(false);
+    await expect(guardarComentarioNota(madreA, { evaluacionId: ids.evA, alumnoId: ids.a1, comentario: "hack" })).rejects.toMatchObject(PROHIBIDO);
+    expect((await guardarComentarioNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, comentario: "" })).ok).toBe(true);
+    expect((await db.nota.findFirstOrThrow({ where: { evaluacionId: ids.evA, alumnoId: ids.a1 } })).comentario).toBeNull();
+  });
+});
+
+describe("importar y exportar notas", () => {
+  it("exporta la rejilla, previsualiza y guarda solo lo válido; el curso cerrado no se pisa", async () => {
+    const exp = await exportarNotasCurso(profe, ids.curso, ids.abierto);
+    expect(exp.csv.startsWith("\uFEFFCódigo;Alumno;Práctica 1;Examen")).toBe(true);
+    expect(exp.csv).toContain("Uno, Ana;");
+    const csv = "Código;Alumno;Práctica 1;Examen\n;Uno, Ana;;18\n;Dos, Beto;99;12,5\n;Fantasma;1;1";
+    const vista = await previsualizarImportacionNotas(profe, ids.curso, ids.abierto, csv);
+    expect(vista.cambios).toHaveLength(2);
+    expect(vista.errores).toHaveLength(2);
+    expect(vista.editable).toBe(true);
+    expect(await db.nota.count({ where: { evaluacionId: ids.evB, alumnoId: ids.a2 } })).toBe(0); // la vista previa no guarda
+    const r = await importarNotas(profe, ids.curso, ids.abierto, csv);
+    expect(r).toMatchObject({ ok: true });
+    expect((await db.nota.findFirstOrThrow({ where: { evaluacionId: ids.evB, alumnoId: ids.a2 } })).valorNumerico?.toString()).toBe("12.5");
+    expect((await db.nota.findFirstOrThrow({ where: { evaluacionId: ids.evA, alumnoId: ids.a2 } })).valorNumerico?.toString()).toBe("7");
+    // Dirección y profesores ajenos no importan.
+    await expect(importarNotas(direccion, ids.curso, ids.abierto, csv)).rejects.toMatchObject(PROHIBIDO);
+    await expect(importarNotas(profeAjeno, ids.curso, ids.abierto, csv)).rejects.toMatchObject(PROHIBIDO);
+    // Periodo cerrado: ni vista previa editable ni importación.
+    expect((await importarNotas(profe, ids.curso, ids.cerrado, "Código;Antiguo\n;Uno, Ana;5")).ok).toBe(false);
+    expect((await previsualizarImportacionNotas(profe, ids.curso, ids.cerrado, "Código;Antiguo\n;Uno, Ana;5")).editable).toBe(false);
+  });
+});
+
+describe("publicar la libreta y avisar a las familias", () => {
+  it("las familias solo ven periodos publicados (o antiguos ya cerrados); dirección publica una vez y puede reenviar", async () => {
+    const mA = madreA.membership.id;
+    await db.consentimiento.create({ data: { tenantId, apoderadoId: mA, versionTexto: "v1" } });
+    // El periodo abierto no es visible para la familia; el III (cerrado, anterior al corte) sí.
+    await expect(datosLibreta(madreA, ids.a1, ids.abierto)).rejects.toMatchObject(PROHIBIDO);
+    expect((await datosLibreta(madreA, ids.a1, ids.cerrado)).alumno.nombres).toBe("Ana");
+    expect((await datosLibreta(profe, ids.a1, ids.abierto)).periodo.cerrado).toBe(false);
+
+    // Solo dirección; no se puede publicar con el periodo abierto y cursos sin cerrar.
+    await expect(publicarLibreta(profe, ids.abierto)).rejects.toMatchObject(PROHIBIDO);
+    expect(await estadoPublicacionLibreta(direccion, ids.abierto)).toMatchObject({ totalCursos: 1, cursosCerrados: 0, puedePublicar: false });
+    expect((await publicarLibreta(direccion, ids.abierto)).ok).toBe(false);
+
+    // Con todos los cursos cerrados se puede publicar.
+    await cerrarCursoPeriodo(profe, ids.curso, ids.abierto);
+    expect((await estadoPublicacionLibreta(direccion, ids.abierto)).puedePublicar).toBe(true);
+    const r = await publicarLibreta(direccion, ids.abierto);
+    expect(r).toMatchObject({ ok: true, mensaje: expect.stringContaining("1 familia") });
+    const periodo = await db.periodo.findFirstOrThrow({ where: { id: ids.abierto } });
+    expect(periodo.libretaPublicadaAt).not.toBeNull();
+    const avisos = await db.aviso.findMany({ where: { tenantId, plantilla: "libreta_publicada" } });
+    expect(avisos).toHaveLength(1);
+    expect(avisos[0]).toMatchObject({ tipo: "libreta", canal: "correo", apoderadoId: mA, referenciaId: ids.abierto, estado: "pendiente" });
+    expect(avisos[0].payload).toMatchObject({ alumno: "Ana", periodo: "IV Bimestre 2026" });
+    expect(avisos[0].destinatario).toContain("madrea-");
+
+    // La familia ya ve el periodo publicado.
+    expect((await datosLibreta(madreA, ids.a1, ids.abierto)).periodo.id).toBe(ids.abierto);
+    // Idempotente: publicar otra vez no reenvía; «Reenviar aviso» sí.
+    expect((await publicarLibreta(direccion, ids.abierto)).ok).toBe(false);
+    expect(await db.aviso.count({ where: { tenantId, plantilla: "libreta_publicada" } })).toBe(1);
+    expect((await publicarLibreta(direccion, ids.abierto, { reenviar: true })).ok).toBe(true);
+    expect(await db.aviso.count({ where: { tenantId, plantilla: "libreta_publicada" } })).toBe(2);
+    await reabrirCursoPeriodo(direccion, ids.curso, ids.abierto);
   });
 });
 

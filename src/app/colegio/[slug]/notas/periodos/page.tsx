@@ -1,4 +1,4 @@
-import { ArrowLeft, CalendarDays, CheckCircle2, Lock, Plus } from "lucide-react";
+import { ArrowLeft, CalendarDays, CheckCircle2, Lock, Megaphone, Plus } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
@@ -9,11 +9,11 @@ import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { formatoDia, fechaDeColumnaDate } from "@/lib/fechas";
-import { listarPeriodos } from "@/lib/server/notas";
+import { fechaLima, formatoDia, fechaDeColumnaDate } from "@/lib/fechas";
+import { estadoPublicacionLibreta, listarPeriodos } from "@/lib/server/notas";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { cambiarEstadoPeriodoAction, crearPeriodoAction } from "../actions";
+import { cambiarEstadoPeriodoAction, crearPeriodoAction, publicarLibretaAction } from "../actions";
 
 export const metadata: Metadata = { title: "Periodos" };
 
@@ -23,12 +23,13 @@ export default async function PeriodosPage({ params }: PageProps<"/colegio/[slug
   requireFeature(ctx, "notas");
   const periodos = await listarPeriodos(ctx);
   const anio = new Date().getFullYear();
+  const publicacion = new Map(await Promise.all(periodos.map(async (p) => [p.id, await estadoPublicacionLibreta(ctx, p.id)] as const)));
 
   return (
     <div className="flex flex-col gap-5">
       <EncabezadoPagina
         titulo="Periodos"
-        descripcion="Al cerrar un periodo, los profesores ya no pueden cambiar sus notas."
+        descripcion="Al cerrar un periodo, los profesores ya no pueden cambiar sus notas. Cuando todo esté listo, publica la libreta para avisar a las familias."
         acciones={
           <>
             <Link href="/notas" className={buttonVariants({ variant: "outline" })}><ArrowLeft strokeWidth={2} aria-hidden />Volver a notas</Link>
@@ -66,6 +67,39 @@ export default async function PeriodosPage({ params }: PageProps<"/colegio/[slug
                     <p className="text-sm text-muted-foreground">{formatoDia(fechaDeColumnaDate(p.inicio), { day: "numeric", month: "short" })} al {formatoDia(fechaDeColumnaDate(p.fin), { day: "numeric", month: "short" })}</p>
                   </div>
                   <div className="flex flex-wrap items-center gap-3">
+                    {(() => {
+                      const pub = publicacion.get(p.id)!;
+                      return (
+                        <>
+                          <span className="text-xs text-muted-foreground">{pub.cursosCerrados} de {pub.totalCursos} cursos cerrados</span>
+                          {pub.publicadaAt && (
+                            <span className="inline-flex items-center gap-1.5 rounded-pildora bg-llego-fondo px-2.5 py-1 text-xs font-semibold text-llego">
+                              <Megaphone className="size-3.5" strokeWidth={2} aria-hidden />Libreta publicada el {fechaLima(pub.publicadaAt)}
+                            </span>
+                          )}
+                          {pub.publicadaAt ? (
+                            <BotonConfirmar
+                              etiqueta="Reenviar aviso"
+                              titulo={`¿Reenviar el aviso de ${p.nombre} ${p.anio}?`}
+                              descripcion="Las familias volverán a recibir el aviso de que la libreta está disponible."
+                              confirmar="Reenviar aviso"
+                              accion={publicarLibretaAction.bind(null, slug, p.id, true)}
+                            />
+                          ) : pub.puedePublicar ? (
+                            <BotonConfirmar
+                              etiqueta="Publicar libreta y avisar a las familias"
+                              titulo={`¿Publicar la libreta de ${p.nombre} ${p.anio}?`}
+                              descripcion="Las familias podrán ver y descargar la libreta, y recibirán un aviso por correo o push según sus preferencias."
+                              confirmar="Publicar y avisar"
+                              variante="default"
+                              accion={publicarLibretaAction.bind(null, slug, p.id, false)}
+                            />
+                          ) : (
+                            <span className="text-xs text-muted-foreground">Para publicar la libreta, cierra el periodo o las notas de todos los cursos.</span>
+                          )}
+                        </>
+                      );
+                    })()}
                     <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-xs font-semibold ${p.cerrado ? "bg-muted text-muted-foreground" : "bg-llego-fondo text-llego"}`}>
                       {p.cerrado ? <Lock className="size-3.5" strokeWidth={2} aria-hidden /> : <CheckCircle2 className="size-3.5" strokeWidth={2} aria-hidden />}
                       {p.cerrado ? "Cerrado" : "Abierto"}

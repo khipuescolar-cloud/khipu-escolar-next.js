@@ -12,6 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Calificacion } from "@/components/Calificacion";
 import { APROBADO_VIGESIMAL, ETIQUETA_LITERAL, LITERALES } from "@/lib/calificaciones";
+import { libretaVisibleParaFamilia } from "@/lib/libreta-publicacion";
 import { datosLibreta } from "@/lib/server/libreta";
 import { alumnosVisibles, listarPeriodos, periodoParaLibreta } from "@/lib/server/notas";
 import { requireFeature } from "@/lib/server/plan";
@@ -28,7 +29,9 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
   requireFeature(ctx, "libreta");
   if (!["apoderado", "profesor", "direccion"].includes(ctx.rol)) forbidden();
 
-  const [alumnos, periodos] = await Promise.all([alumnosVisibles(ctx), listarPeriodos(ctx)]);
+  const [alumnos, todos] = await Promise.all([alumnosVisibles(ctx), listarPeriodos(ctx)]);
+  // Las familias solo ven los periodos que el colegio publicó.
+  const periodos = ctx.rol === "apoderado" ? todos.filter(libretaVisibleParaFamilia) : todos;
   const alumno = alumnos.find((a) => a.id === uno(sp.alumno)) ?? alumnos[0];
   const periodo = periodos.find((p) => p.id === uno(sp.periodo)) ?? periodoParaLibreta(periodos);
 
@@ -38,7 +41,7 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
     return (
       <div>
         <EncabezadoPagina titulo={titulo} descripcion={descripcion} />
-        <EstadoVacio icono={NotebookText} titulo="Todavía no hay una libreta para mostrar" descripcion="Cuando el colegio cierre o abra un periodo con notas, la verás aquí." />
+        <EstadoVacio icono={NotebookText} titulo="Todavía no hay una libreta para mostrar" descripcion={ctx.rol === "apoderado" ? "Cuando el colegio publique la libreta de un periodo, la verás aquí y te avisaremos." : "Cuando el colegio cree un periodo con notas, la verás aquí."} />
       </div>
     );
   }

@@ -73,6 +73,14 @@ const ESQUEMAS = {
     fechaEntrega: fechaIso,
     url,
   }),
+  libreta_publicada: z.object({
+    ...comun,
+    /** Nombre(s) de los hijos de esa familia; si falta, el texto no nombra al alumno. */
+    alumno: z.string().min(1).optional(),
+    /** «I Bimestre 2026». */
+    periodo: z.string().min(1),
+    url,
+  }),
   alerta_rebote: z.object({
     ...comun,
     apoderado: z.string().min(1),
@@ -226,6 +234,17 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
         `Se entrega el ${fechaCorta(p.fechaEntrega)}.`,
       ],
       boton: { texto: "Ver tareas", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  libreta_publicada: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      asunto: `La libreta de ${p.periodo} ya está disponible`,
+      insignia: "info",
+      palabraInsignia: "Libreta",
+      parrafos: [`${p.alumno ? `La libreta de ${p.alumno}` : "La libreta"} de ${p.periodo} ya está disponible.`, "Puedes verla y descargarla en PDF."],
+      boton: { texto: "Ver libreta", url: p.url },
       urlPreferencias: p.urlPreferencias,
     }),
 

@@ -82,6 +82,7 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       justificacion_revisada: { colegio, alumno: "Mateo", fecha: "2026-10-26", estado: "aceptada" },
       justificacion_recibida: { colegio, alumno: "Mateo", fecha: "2026-10-26", url: "http://j" },
       tarea_nueva: { colegio, curso: "Matemática", titulo: "Fichas de fracciones", fechaEntrega: "2026-10-30", url: "http://t" },
+      libreta_publicada: { colegio, alumno: "Mateo", periodo: "III Bimestre 2026", url: "http://l" },
       alerta_rebote: { colegio, apoderado: "Rosa Quispe", alumnos: ["Mateo"], motivo: "su correo rebotó", url: "http://a" },
     };
     for (const nombre of NOMBRES_PLANTILLA) {
@@ -104,6 +105,17 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(m.texto).toContain("Ajustar mis avisos: http://p");
     expect(renderizarPlantilla("tarea_nueva", { ...p, alumno: undefined }).texto).toContain("Hay una tarea nueva de Matemática");
     expect(() => renderizarPlantilla("tarea_nueva", { ...p, fechaEntrega: "30/10/2026" })).toThrow(PlantillaInvalidaError);
+  });
+
+  it("libreta publicada: texto breve, firma del colegio y botón «Ver libreta»", () => {
+    const p = { colegio, alumno: "Mateo", periodo: "III Bimestre 2026", url: "http://l" };
+    const m = renderizarPlantilla("libreta_publicada", p);
+    expect(m.asunto).toBe("La libreta de III Bimestre 2026 ya está disponible");
+    expect(m.texto.startsWith(colegio)).toBe(true);
+    expect(m.texto).toContain("La libreta de Mateo de III Bimestre 2026 ya está disponible.");
+    expect(m.texto).toContain("Ver libreta: http://l");
+    expect(renderizarPlantilla("libreta_publicada", { ...p, alumno: undefined }).texto).toContain("La libreta de III Bimestre 2026 ya está disponible.");
+    expect(() => renderizarPlantilla("libreta_publicada", { colegio, url: "http://l" })).toThrow(PlantillaInvalidaError);
   });
 
   it("alerta de rebote a dirección: nombra a la familia, el motivo y no lleva emojis", () => {

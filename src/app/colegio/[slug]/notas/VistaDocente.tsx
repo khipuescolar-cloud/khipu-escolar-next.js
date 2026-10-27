@@ -1,4 +1,4 @@
-import { BookMarked, CalendarDays, GraduationCap, Info, Lock, Pencil, Plus, Target } from "lucide-react";
+import { BookMarked, CalendarDays, CheckCircle2, Download, GraduationCap, Info, Lock, Pencil, Plus, Target } from "lucide-react";
 import Link from "next/link";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
@@ -13,13 +13,14 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { ETIQUETA_LITERAL, LITERALES, formatearNumero } from "@/lib/calificaciones";
 import { fechaLima } from "@/lib/fechas";
-import { calificacionesPeriodo, cursosDelDocente, grillaNotas, listarPeriodos, periodoEnCurso } from "@/lib/server/notas";
+import { calificacionesPeriodo, cierreDeCurso, cursosDelDocente, grillaNotas, listarPeriodos, periodoEnCurso } from "@/lib/server/notas";
 import type { TenantContext } from "@/lib/server/tenant";
 import {
-  crearCompetenciaAction, crearEvaluacionAction, editarEvaluacionAction, eliminarCompetenciaAction, eliminarEvaluacionAction,
+  cerrarCursoAction, crearCompetenciaAction, crearEvaluacionAction, reabrirCursoAction, editarEvaluacionAction, eliminarCompetenciaAction, eliminarEvaluacionAction,
 } from "./actions";
 import { FilaCalificacion } from "./FilaCalificacion";
 import { GrillaNotas } from "./GrillaNotas";
+import { ImportarNotas } from "./ImportarNotas";
 
 type SP = Record<string, string | string[] | undefined>;
 const uno = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
@@ -28,6 +29,7 @@ const SECCIONES = [
   { id: "notas", nombre: "Notas por evaluación" },
   { id: "periodo", nombre: "Calificación del periodo" },
   { id: "competencias", nombre: "Competencias" },
+  { id: "excel", nombre: "Importar y exportar" },
 ] as const;
 
 export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug: string; sp: SP }) {
@@ -58,7 +60,8 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
   }
 
   const base = `curso=${curso.id}&periodo=${periodo.id}`;
-  const puedeCrear = ctx.rol === "profesor" && !periodo.cerrado && seccion === "notas";
+  const cierre = await cierreDeCurso(ctx, curso.id, periodo.id);
+  const puedeCrear = ctx.rol === "profesor" && !periodo.cerrado && !cierre && seccion === "notas";
 
   return (
     <div className="flex flex-col gap-5">
@@ -88,10 +91,21 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
         </CardContent>
       </Card>
 
+      <CierreCursoCard
+        slug={slug} esDireccion={esDireccion} cursoId={curso.id} periodoId={periodo.id} nombreCurso={curso.nombre}
+        periodoCerrado={periodo.cerrado} cierre={cierre}
+      />
+
       {periodo.cerrado && (
         <Alerta tipo="aviso">
           <Lock className="mr-1 inline size-3.5 align-[-2px]" strokeWidth={2} aria-hidden />
           <strong>Periodo cerrado.</strong> Solo puedes mirar las notas; ya no se pueden cambiar.
+        </Alerta>
+      )}
+      {cierre && !periodo.cerrado && (
+        <Alerta tipo="aviso">
+          <Lock className="mr-1 inline size-3.5 align-[-2px]" strokeWidth={2} aria-hidden />
+          <strong>Notas del curso cerradas.</strong> Ya no se pueden cambiar notas ni evaluaciones de este curso en este periodo.
         </Alerta>
       )}
       {esDireccion && !periodo.cerrado && <Alerta tipo="info">Estás viendo las notas como dirección. Solo los profesores del curso pueden editarlas.</Alerta>}
@@ -103,7 +117,81 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
 
       {seccion === "notas" && <SeccionNotas ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} />}
       {seccion === "periodo" && <SeccionPeriodo ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} sp={sp} />}
+      {seccion === "excel" && <SeccionExcel ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} />}
       {seccion === "competencias" && <SeccionCompetencias ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} />}
+    </div>
+  );
+}
+
+function CierreCursoCard({
+  slug, esDireccion, cursoId, periodoId, nombreCurso, periodoCerrado, cierre,
+}: {
+  slug: string; esDireccion: boolean; cursoId: string; periodoId: string; nombreCurso: string; periodoCerrado: boolean;
+  cierre: { cerradoAt: Date; por: string } | null;
+}) {
+  const cerrado = periodoCerrado || cierre !== null;
+  return (
+    <Card>
+      <CardContent className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-col gap-0.5">
+          <p className="text-sm font-medium">Cierre de notas de {nombreCurso}</p>
+          <p className="flex items-center gap-1.5 text-sm">
+            {cerrado ? <Lock className="size-4 text-muted-foreground" strokeWidth={2} aria-hidden /> : <CheckCircle2 className="size-4 text-llego" strokeWidth={2} aria-hidden />}
+            <span className="font-semibold">{periodoCerrado ? "Periodo cerrado" : cierre ? "Cerrado" : "Abierto"}</span>
+            {cierre && !periodoCerrado && <span className="text-muted-foreground">· por {cierre.por} el {fechaLima(cierre.cerradoAt)}</span>}
+          </p>
+        </div>
+        {!periodoCerrado && !cierre && (
+          <BotonConfirmar
+            etiqueta={<><Lock strokeWidth={2} aria-hidden />Cerrar notas del curso</>}
+            titulo={`¿Cerrar las notas de ${nombreCurso}?`}
+            descripcion="Ya no se podrán cambiar notas ni evaluaciones de este curso en este periodo. Dirección puede reabrirlas si hace falta."
+            confirmar="Cerrar notas del curso"
+            accion={cerrarCursoAction.bind(null, slug, cursoId, periodoId)}
+          />
+        )}
+        {!periodoCerrado && cierre && esDireccion && (
+          <BotonConfirmar
+            etiqueta="Reabrir notas del curso"
+            titulo={`¿Reabrir las notas de ${nombreCurso}?`}
+            descripcion="El profesor podrá volver a cambiar notas y evaluaciones de este curso en este periodo."
+            confirmar="Reabrir notas del curso"
+            accion={reabrirCursoAction.bind(null, slug, cursoId, periodoId)}
+          />
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+async function SeccionExcel({ ctx, slug, cursoId, periodoId }: { ctx: TenantContext; slug: string; cursoId: string; periodoId: string }) {
+  const g = await grillaNotas(ctx, cursoId, periodoId);
+  const bloqueo = ctx.rol !== "profesor" ? "Solo el profesor del curso puede importar notas." : g.editable ? null : g.cursoCerrado ? "Las notas de este curso están cerradas en este periodo." : "Este periodo está cerrado.";
+  return (
+    <div className="grid gap-4 lg:grid-cols-2">
+      <Card>
+        <CardHeader>
+          <h2 className="font-heading text-base font-medium leading-snug">Exportar a Excel (CSV)</h2>
+          <CardDescription>Una fila por alumno y una columna por evaluación. Se abre en Excel con tildes y columnas separadas por «;».</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <a href={`/api/notas/exportar?curso=${cursoId}&periodo=${periodoId}`} className={buttonVariants({ variant: "outline" })}>
+            <Download strokeWidth={2} aria-hidden />Descargar CSV
+          </a>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <h2 className="font-heading text-base font-medium leading-snug">Importar notas</h2>
+          <CardDescription>
+            Usa el CSV descargado como base. Identificamos al alumno por su código o su nombre y cada columna por el título de la evaluación.
+            Valores: {g.escala === "literal" ? "AD, A, B o C" : "números de 0 a 20"}. Las celdas vacías no borran notas.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ImportarNotas slug={slug} cursoId={cursoId} periodoId={periodoId} bloqueo={bloqueo} />
+        </CardContent>
+      </Card>
     </div>
   );
 }
@@ -139,7 +227,7 @@ async function BotonNuevaEvaluacion({ slug, ctx, cursoId, periodoId }: { slug: s
 
 async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantContext; slug: string; cursoId: string; periodoId: string }) {
   const g = await grillaNotas(ctx, cursoId, periodoId);
-  const puedeEditar = ctx.rol === "profesor" && !g.periodo.cerrado;
+  const puedeEditar = g.editable;
   return (
     <div className="flex flex-col gap-5">
       {g.escala === "literal" && (
