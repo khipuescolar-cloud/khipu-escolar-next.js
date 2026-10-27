@@ -1,5 +1,6 @@
 import "dotenv/config";
 import { expect, test, type Browser, type Page } from "@playwright/test";
+import { esperarSinAcceso } from "./sin-acceso";
 import { Client } from "pg";
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
@@ -60,9 +61,7 @@ test("apoderada ve las notas de su hijo sin comparaciones", async ({ page }) => 
 
 test("dirección del plan Básico recibe 403 en /notas", async ({ page }) => {
   await entrar(page, "direccion@losolivos.demo", "losolivos");
-  const respuesta = await page.goto(colegio("losolivos", "/notas"));
-  expect(respuesta?.status()).toBe(403);
-  await expect(page.getByText("No tienes acceso a esta sección")).toBeVisible();
+  await esperarSinAcceso(page, await page.goto(colegio("losolivos", "/notas")));
 });
 
 async function sql<T = Record<string, unknown>>(consulta: string, params: unknown[] = []): Promise<T[]> {

@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { Client } from "pg";
 import { expect, test, type Page } from "@playwright/test";
+import { esperarSinAcceso } from "./sin-acceso";
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const COLEGIO = `http://nuevohorizonte.lvh.me:${PUERTO}`;
@@ -93,8 +94,7 @@ test("dirección registra un profesor con DNI; recibe la bienvenida y entra con 
   await p2.waitForURL(`${COLEGIO}/inicio`);
   await expect(p2.getByRole("heading", { name: "Hola, Elena" })).toBeVisible();
   // Un profesor no entra a la gestión (403).
-  const r = await p2.goto(`${COLEGIO}/gestion/profesores`);
-  expect(r?.status()).toBe(403);
+  await esperarSinAcceso(p2, await p2.goto(`${COLEGIO}/gestion/profesores`));
   await ctx.close();
 });
 
@@ -134,7 +134,7 @@ test("personal administrativo: dirección lo registra y ve su inicio con Comunic
   await expect(p2.getByText("Personal administrativo")).toBeVisible();
   await p2.getByRole("main").getByRole("link", { name: /Comunicados/ }).click();
   await expect(p2.getByRole("heading", { name: "Comunicados" })).toBeVisible();
-  expect((await p2.goto(`${COLEGIO}/gestion/personal`))?.status()).toBe(403);
+  await esperarSinAcceso(p2, await p2.goto(`${COLEGIO}/gestion/personal`));
   // Permisos del administrativo: alumnos y familias sí; profesores, salones y configuración no; el chat tampoco.
   await p2.goto(`${COLEGIO}/gestion/alumnos`);
   await expect(p2.getByRole("heading", { name: "Alumnos", exact: true })).toBeVisible();
@@ -144,7 +144,7 @@ test("personal administrativo: dirección lo registra y ve su inicio con Comunic
   await p2.getByRole("button", { name: "Buscar" }).click();
   await expect(p2.getByText("No encontramos familias con esa búsqueda")).toBeVisible();
   for (const ruta of ["gestion/profesores", "gestion/salones", "configuracion", "mensajes"]) {
-    expect((await p2.goto(`${COLEGIO}/${ruta}`))?.status(), ruta).toBe(403);
+    await esperarSinAcceso(p2, await p2.goto(`${COLEGIO}/${ruta}`), ruta);
   }
   await ctx.close();
 });

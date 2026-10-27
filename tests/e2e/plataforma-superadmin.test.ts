@@ -4,6 +4,7 @@ import { execFileSync } from "node:child_process";
 import { createClient } from "@supabase/supabase-js";
 import { Client } from "pg";
 import { expect, test } from "@playwright/test";
+import { esperarSinAcceso } from "./sin-acceso";
 
 // Super administrador (specs/16): crea un colegio con insignia y un administrador con DNI; el correo de
 // bienvenida llega a Mailpit con el botón al subdominio; el nuevo administrador entra con correo + DNI,
@@ -154,17 +155,14 @@ test("el super administrador entra a un colegio como soporte en solo lectura y s
     await page.waitForURL(`http://nuevohorizonte.${BASE}/inicio`);
     await expect(page.getByTestId("banner-soporte")).toContainText("Modo soporte · solo lectura · vence a las");
 
-    const res = await page.goto(`http://nuevohorizonte.${BASE}/mensajes`);
-    expect(res?.status()).toBe(403);
-    const notas = await page.goto(`http://nuevohorizonte.${BASE}/notas`);
-    expect(notas?.status()).toBe(403);
+    await esperarSinAcceso(page, await page.goto(`http://nuevohorizonte.${BASE}/mensajes`));
+    await esperarSinAcceso(page, await page.goto(`http://nuevohorizonte.${BASE}/notas`));
 
     await page.goto(`http://nuevohorizonte.${BASE}/inicio`);
     await page.getByTestId("banner-soporte").getByRole("button", { name: "Terminar" }).click();
     await page.waitForURL(`${ficha.split("?")[0]}?ok=*`);
     await expect(page.getByText("Acceso de soporte terminado.")).toBeVisible();
-    const sinAcceso = await page.goto(`http://nuevohorizonte.${BASE}/inicio`);
-    expect(sinAcceso?.status()).toBe(403);
+    await esperarSinAcceso(page, await page.goto(`http://nuevohorizonte.${BASE}/inicio`));
   } finally {
     const cliente = new Client({ connectionString: process.env.DATABASE_URL });
     await cliente.connect();

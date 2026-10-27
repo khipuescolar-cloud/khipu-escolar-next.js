@@ -1,6 +1,6 @@
 # 03 — Planes y permisos
 
-> Estado: implementado · Plan: todos · Última actualización: 2026-10-26 (Claude Code)
+> Estado: implementado · Plan: todos · Última actualización: 2026-10-27 (Claude Code)
 
 ## Planes
 | Plan | Clave | Funciones |
@@ -17,7 +17,8 @@ El mapa vive en `src/lib/planes.ts` (`FEATURES`, `planIncluye`).
 - Roles por membresía (`direccion`, `profesor`, `apoderado`, `alumno`, `porteria`, `administrativo`), nunca globales.
 - **`administrativo`** (personal no docente): Comunicados (crear/editar), Agenda (ver y crear eventos del colegio), Gestión → Alumnos y Familias, y Avisos enviados (solo lectura). NO: profesores, personal, salones, carnets, configuración ni Mensajes. Servidor: `exigirAlumnosFamilias` y listas de roles en cada acción; navegación: `src/lib/navegacion.ts`. `requireRol` / `requireTenantContext(slug, roles)`.
 - Mosaicos por rol: `src/lib/navegacion.ts`.
+- **Código HTTP de una página denegada:** las rutas con `loading.tsx` (pantallas de carga) empiezan a transmitir antes de que corra el chequeo, así que una página denegada puede responder **200** mostrando la página 403 («No tienes acceso a esta sección») sin ningún dato del módulo. Las rutas de API y las server actions sí devuelven 403. En e2e se usa `tests/e2e/sin-acceso.ts` (`esperarSinAcceso`).
 
 ## Pruebas
 - unit: `tests/unit/planes.test.ts`.
-- e2e: candados en Los Olivos (Básico). Pendiente: acceso directo a `/notas` en Básico → 403.
+- e2e: candados en Los Olivos (Básico) y acceso directo a `/notas` en Básico → página 403 (`notas-libreta.test.ts`).
