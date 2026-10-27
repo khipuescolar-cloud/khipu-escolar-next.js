@@ -1,8 +1,11 @@
 import { ShieldCheck, ShieldOff } from "lucide-react";
 import type { Metadata } from "next";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { Notificar } from "@/components/shell/Notificar";
 import { Boton } from "@/components/ui/Boton";
-import { Flash } from "@/components/ui/Flash";
-import { Tarjeta } from "@/components/ui/Tarjeta";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CONSENTIMIENTO_VERSION } from "@/lib/consentimiento";
 import { nombreRol } from "@/lib/roles";
 import { estadoConsentimiento } from "@/lib/server/consentimiento";
@@ -16,36 +19,53 @@ export default async function PerfilPage({ params, searchParams }: PageProps<"/c
   const { ok, error } = await searchParams;
   const ctx = await requireTenantContext(slug);
   const estado = ctx.rol === "apoderado" ? await estadoConsentimiento(ctx) : null;
+  const iniciales = `${ctx.user.nombres[0] ?? ""}${ctx.user.apellidos[0] ?? ""}`.toUpperCase();
 
   return (
-    <div className="flex max-w-2xl flex-col gap-4">
-      <h1 className="text-2xl font-bold">Mi perfil</h1>
-      <Flash ok={ok} error={error} />
-      <Tarjeta>
-        <p className="font-semibold">{ctx.user.nombres} {ctx.user.apellidos}</p>
-        <p className="text-sm text-pizarra">{ctx.user.email} · {nombreRol(ctx.rol, ctx.user.genero)}</p>
-      </Tarjeta>
-      {estado && (
-        <Tarjeta className="flex flex-col gap-3">
-          <h2 className="text-lg font-semibold">Privacidad</h2>
-          {estado === "vigente" ? (
-            <>
-              <p className="flex items-center gap-2 text-sm text-llego"><ShieldCheck className="h-4 w-4" strokeWidth={2} aria-hidden /> Autorizaste el uso de tus datos (versión {CONSENTIMIENTO_VERSION}).</p>
-              <p className="text-sm text-pizarra">Si retiras tu autorización, dejarás de recibir avisos por correo.</p>
-              <form action={revocarConsentimientoAction}>
-                <Boton type="submit" variante="peligro">Retirar mi autorización</Boton>
-              </form>
-            </>
-          ) : (
-            <>
-              <p className="flex items-center gap-2 text-sm text-falta"><ShieldOff className="h-4 w-4" strokeWidth={2} aria-hidden /> No tienes una autorización vigente: no recibes avisos.</p>
-              <form action={aceptarConsentimientoAction}>
-                <Boton type="submit">Volver a autorizar</Boton>
-              </form>
-            </>
-          )}
-        </Tarjeta>
-      )}
+    <div className="max-w-2xl">
+      <Notificar ok={Array.isArray(ok) ? ok[0] : ok} error={Array.isArray(error) ? error[0] : error} />
+      <EncabezadoPagina titulo="Mi perfil" descripcion="Tus datos en este colegio y tu privacidad." />
+      <div className="flex flex-col gap-4">
+        <Card>
+          <CardContent className="flex items-center gap-4">
+            <Avatar size="lg" className="size-14">
+              <AvatarFallback className="bg-maiz text-lg font-semibold text-indigo">{iniciales}</AvatarFallback>
+            </Avatar>
+            <div className="min-w-0">
+              <p className="text-lg font-semibold">{ctx.user.nombres} {ctx.user.apellidos}</p>
+              <p className="truncate text-sm text-muted-foreground">{ctx.user.email}</p>
+              <Badge variant="secondary" className="mt-1.5">{nombreRol(ctx.rol, ctx.user.genero)}</Badge>
+            </div>
+          </CardContent>
+        </Card>
+
+        {estado && (
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Privacidad</CardTitle>
+              <CardDescription>Tu autorización para recibir avisos del colegio.</CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-3">
+              {estado === "vigente" ? (
+                <>
+                  <p className="flex items-center gap-2 text-sm font-medium text-llego"><ShieldCheck className="size-4" strokeWidth={2} aria-hidden /> Autorizaste el uso de tus datos (versión {CONSENTIMIENTO_VERSION}).</p>
+                  <p className="text-sm text-muted-foreground">Si retiras tu autorización, dejarás de recibir avisos por correo.</p>
+                  <form action={revocarConsentimientoAction}>
+                    <Boton type="submit" variante="peligro">Retirar mi autorización</Boton>
+                  </form>
+                </>
+              ) : (
+                <>
+                  <p className="flex items-center gap-2 text-sm font-medium text-falta"><ShieldOff className="size-4" strokeWidth={2} aria-hidden /> No tienes una autorización vigente: no recibes avisos.</p>
+                  <form action={aceptarConsentimientoAction}>
+                    <Boton type="submit">Volver a autorizar</Boton>
+                  </form>
+                </>
+              )}
+            </CardContent>
+          </Card>
+        )}
+      </div>
     </div>
   );
 }

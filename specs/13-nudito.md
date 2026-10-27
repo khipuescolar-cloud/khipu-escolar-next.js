@@ -46,6 +46,7 @@ Intenciones: `saludo`, `ayuda`, `tareas_pendientes`, `proximas_fechas`, `asisten
 ## Rutas y UI
 - Widget `NuditoWidget` (cliente, `font-nudito`) renderizado desde `src/app/colegio/[slug]/layout.tsx` solo si `rol === "apoderado"` y el plan incluye `nudito`. Mascota SVG con animación suave desactivada con `prefers-reduced-motion`. Accesible: `role="dialog"`, foco al abrir, Esc cierra y devuelve el foco, respuestas en `aria-live`.
 - `/nudito` (apoderado): historial de conversaciones; los botones guardados (`abrir_chat`, `ir`) se muestran como enlaces bajo cada respuesta (los de `elegir_hijo` ya no tienen sentido y se omiten).
+- Diseño: el panel del widget usa tokens shadcn (cabecera `primary` con mascota, burbujas propias `primary` / de Nudito `muted`, botones y sugerencias iniciales como chips `rounded-pildora`). Se mantienen `font-nudito`, la animación y `prefers-reduced-motion`. `/nudito` usa `EncabezadoPagina`, `Card` por conversación y `EstadoVacio`.
 - Al abrir el widget por primera vez retoma la última conversación con actividad en las últimas 12 horas (`cargarConversacionNuditoAction`), con sus botones. `leerAcciones` (`nudito/acciones.ts`) valida el Json guardado.
 
 ## Textos y UX

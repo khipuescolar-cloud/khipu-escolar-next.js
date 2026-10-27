@@ -130,6 +130,8 @@ Interlineado 1.5 en cuerpo, máximo `max-w-prose` para párrafos largos. Nada de
 | Filtros rápidos | `ToggleGroup` o `Selector` | |
 | Cargando | `Skeleton` con la forma del contenido; `Loader2` girando en botones | Nunca pantallas en blanco |
 | Menú de acciones por fila | `DropdownMenu` con botón `MoreHorizontal` (`aria-label`) | |
+| Chat (burbujas) | Propias `bg-primary text-primary-foreground rounded-2xl rounded-br-sm`; ajenas `bg-muted rounded-bl-sm` con `Avatar` de iniciales (`bg-maiz text-indigo`) y hora `text-[11px]` | Caja de envío fija al pie del contenedor; la lista hace el scroll, no la página. Lista + hilo en 2 columnas desde `lg` (mensajes y Nudito) |
+| Sugerencias rápidas | Chips `rounded-pildora border-primary/40 text-primary`, ≥ 40 px | Ej. preguntas sugeridas de Nudito |
 
 ## 9. Movimiento
 

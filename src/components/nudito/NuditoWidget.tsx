@@ -2,14 +2,17 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState, useTransition } from "react";
-import { X, Send } from "lucide-react";
+import { Send, X, XCircle } from "lucide-react";
 import { cargarConversacionNuditoAction, enviarMensajeNuditoAction } from "@/app/colegio/[slug]/nudito/actions";
 import type { AccionNudito } from "@/lib/server/nudito/tipos";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { NuditoMascota } from "./NuditoMascota";
 
 type Burbuja = { id: number; autor: "usuario" | "nudito"; texto: string; acciones?: AccionNudito[] };
 
 const MAX = 500;
+const SUGERENCIAS = ["¿Qué tareas hay esta semana?", "¿Qué fechas importantes vienen?", "¿Cuál es el horario?"];
 
 export function NuditoWidget({ slug }: { slug: string }) {
   const [abierto, setAbierto] = useState(false);
@@ -94,24 +97,43 @@ export function NuditoWidget({ slug }: { slug: string }) {
           id="nudito-panel"
           role="dialog"
           aria-label="Nudito, tu asistente"
-          className="flex h-[min(32rem,calc(100dvh-7rem))] w-[min(22rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-lg border border-arena bg-superficie shadow-lg"
+          className="flex h-[min(34rem,calc(100dvh-7rem))] w-[min(23rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-xl bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/10"
         >
-          <div className="flex items-center gap-2 bg-indigo px-3 py-2 text-white">
-            <NuditoMascota tamano={32} animada={false} />
-            <p className="flex-1 text-base font-bold">Nudito</p>
-            <button type="button" onClick={cerrar} aria-label="Cerrar Nudito" className="rounded-md p-1.5 hover:bg-white/15">
-              <X className="h-5 w-5" strokeWidth={2} aria-hidden />
+          <div className="flex items-center gap-3 bg-primary px-4 py-3 text-primary-foreground">
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-card">
+              <NuditoMascota tamano={32} animada={false} />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-base font-bold leading-tight">Nudito</p>
+              <p className="text-xs leading-tight opacity-90">Tu asistente del colegio</p>
+            </div>
+            <button type="button" onClick={cerrar} aria-label="Cerrar Nudito" className="flex size-10 items-center justify-center rounded-md outline-none transition-colors hover:bg-primary-foreground/15 focus-visible:ring-2 focus-visible:ring-primary-foreground">
+              <X className="size-5" strokeWidth={2} aria-hidden />
             </button>
           </div>
 
-          <div role="log" aria-live="polite" aria-label="Conversación con Nudito" className="flex flex-1 flex-col gap-2 overflow-y-auto p-3 text-sm">
-            <p className="max-w-[85%] self-start whitespace-pre-line rounded-lg bg-superficie-2 px-3 py-2">
+          <div role="log" aria-live="polite" aria-label="Conversación con Nudito" className="flex flex-1 flex-col gap-3 overflow-y-auto bg-background p-4 text-sm">
+            <p className="max-w-[85%] self-start whitespace-pre-line rounded-2xl rounded-bl-sm bg-muted px-3.5 py-2.5">
               ¡Hola! Soy Nudito. Pregúntame por las tareas, las fechas o el horario del colegio.
             </p>
+            {mensajes.length === 0 && !pendiente && (
+              <div className="flex flex-wrap gap-2" aria-label="Preguntas sugeridas">
+                {SUGERENCIAS.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => enviar(s)}
+                    className="min-h-10 rounded-pildora border border-primary/40 bg-card px-3.5 py-1.5 text-sm font-semibold text-primary outline-none transition-colors hover:bg-accent focus-visible:ring-3 focus-visible:ring-ring/50"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            )}
             {mensajes.map((m) => (
               <div key={m.id} className={`flex max-w-[85%] flex-col gap-2 ${m.autor === "usuario" ? "self-end" : "self-start"}`}>
                 <p
-                  className={`whitespace-pre-line rounded-lg px-3 py-2 ${m.autor === "usuario" ? "bg-acento text-sobre-acento" : "bg-superficie-2"}`}
+                  className={`whitespace-pre-line px-3.5 py-2.5 ${m.autor === "usuario" ? "rounded-2xl rounded-br-sm bg-primary text-primary-foreground" : "rounded-2xl rounded-bl-sm bg-muted text-foreground"}`}
                 >
                   {m.texto}
                 </p>
@@ -124,7 +146,7 @@ export function NuditoWidget({ slug }: { slug: string }) {
                           type="button"
                           onClick={() => enviar(a.valor)}
                           disabled={pendiente}
-                          className="rounded-pildora border border-acento px-3 py-1.5 text-sm font-semibold text-acento hover:bg-superficie-2 disabled:opacity-60"
+                          className="min-h-10 rounded-pildora border border-primary/40 bg-card px-3.5 py-1.5 text-sm font-semibold text-primary outline-none transition-colors hover:bg-accent focus-visible:ring-3 focus-visible:ring-ring/50 disabled:opacity-60"
                         >
                           {a.etiqueta}
                         </button>
@@ -133,7 +155,7 @@ export function NuditoWidget({ slug }: { slug: string }) {
                           key={a.etiqueta}
                           href={a.valor}
                           onClick={cerrar}
-                          className="rounded-pildora bg-acento px-3 py-1.5 text-sm font-semibold text-sobre-acento hover:opacity-90"
+                          className="inline-flex min-h-10 items-center rounded-pildora bg-primary px-3.5 py-1.5 text-sm font-semibold text-primary-foreground outline-none transition-opacity hover:opacity-90 focus-visible:ring-3 focus-visible:ring-ring/50"
                         >
                           {a.etiqueta}
                         </Link>
@@ -143,20 +165,20 @@ export function NuditoWidget({ slug }: { slug: string }) {
                 )}
               </div>
             ))}
-            {pendiente && <p className="self-start text-pizarra">Nudito está escribiendo…</p>}
-            {error && <p role="alert" className="self-start rounded-lg bg-falta-fondo px-3 py-2 text-falta">{error}</p>}
+            {pendiente && <p className="self-start text-muted-foreground">Nudito está escribiendo…</p>}
+            {error && <p role="alert" className="flex items-start gap-2 self-start rounded-lg bg-falta-fondo px-3 py-2 text-falta"><XCircle className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />{error}</p>}
             <div ref={finRef} />
           </div>
 
           <form
-            className="flex items-center gap-2 border-t border-arena p-2"
+            className="flex items-center gap-2 border-t bg-card p-3"
             onSubmit={(e) => {
               e.preventDefault();
               enviar(texto);
             }}
           >
             <label htmlFor="nudito-entrada" className="sr-only">Escribe tu pregunta</label>
-            <input
+            <Input
               id="nudito-entrada"
               ref={inputRef}
               value={texto}
@@ -164,16 +186,11 @@ export function NuditoWidget({ slug }: { slug: string }) {
               onChange={(e) => setTexto(e.target.value)}
               placeholder="Escribe tu pregunta"
               autoComplete="off"
-              className="min-w-0 flex-1 rounded-md border border-arena bg-superficie px-3 py-2 text-sm"
+              className="min-w-0 flex-1"
             />
-            <button
-              type="submit"
-              disabled={pendiente || !texto.trim()}
-              aria-label="Enviar"
-              className="rounded-md bg-acento p-2.5 text-sobre-acento hover:opacity-90 disabled:opacity-60"
-            >
-              <Send className="h-4 w-4" strokeWidth={2} aria-hidden />
-            </button>
+            <Button type="submit" size="icon" disabled={pendiente || !texto.trim()} aria-label="Enviar">
+              <Send strokeWidth={2} aria-hidden />
+            </Button>
           </form>
         </div>
       )}
@@ -185,7 +202,7 @@ export function NuditoWidget({ slug }: { slug: string }) {
         aria-expanded={abierto}
         aria-controls="nudito-panel"
         aria-label={abierto ? "Cerrar Nudito" : "Abrir Nudito, tu asistente"}
-        className="flex h-14 w-14 items-center justify-center rounded-full border border-arena bg-superficie shadow-lg hover:shadow-xl"
+        className="flex size-14 items-center justify-center rounded-full border bg-card shadow-lg outline-none transition-shadow hover:shadow-xl focus-visible:ring-3 focus-visible:ring-ring/50"
       >
         <NuditoMascota tamano={40} />
       </button>

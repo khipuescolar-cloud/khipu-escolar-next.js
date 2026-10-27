@@ -30,6 +30,7 @@ Cumplir lo mínimo de la Ley 29733 en el MVP: consentimiento, trazabilidad, gara
 
 ## Rutas y UI
 `/consentimiento`, `/perfil`, `/configuracion/auditoria`, `/api/exportar`.
+- Diseño: `/perfil` con `EncabezadoPagina`, tarjeta de identidad (avatar, rol en `Badge`) y tarjeta de Privacidad; `/consentimiento` en tarjeta centrada con ícono, `Alerta` legal y botón «Acepto» grande. Resultados por toast.
 
 ## Errores y casos borde
 Exportar o ver auditoría sin ser dirección → 403. Una tabla nueva de colegio se exporta sola; si guarda secretos hay que añadirla a `TABLAS_OMITIDAS` (el test falla si un modelo con `tenantId` no queda cubierto ni omitido a propósito).

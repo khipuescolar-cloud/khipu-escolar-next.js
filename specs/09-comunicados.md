@@ -34,6 +34,7 @@ editarComunicado(ctx, id, { titulo, cuerpo }) / borrarComunicado(ctx, id)   // s
 
 ## Rutas y UI
 `/comunicados` (todos los roles de plan Básico+).
+- Diseño: tarjetas (`Card`) con insignia de destino y autor con avatar. Publicar y editar se hacen en `Dialog` (`FormularioComunicado.tsx`); borrar con `BotonConfirmar`. El resultado sale como toast (`Notificar`). Estado vacío con `EstadoVacio`.
 
 ## Errores y casos borde
 Fuera de las 24 h: «Solo se puede cambiar dentro de las primeras 24 horas.» Profesor sin salón elegido: «Elige uno de tus salones.»
