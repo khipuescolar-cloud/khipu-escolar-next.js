@@ -26,6 +26,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
           )}
           <div className="min-w-0 flex-1">
             <p className="truncate font-titulo font-semibold">{ctx.tenant.nombre}</p>
+            {ctx.tenant.eslogan && <p className="truncate text-xs italic text-pizarra">{ctx.tenant.eslogan}</p>}
             <p className="truncate text-xs text-pizarra">
               {ctx.user.nombres} {ctx.user.apellidos} · {nombreRol(ctx.rol, ctx.user.genero)}
             </p>

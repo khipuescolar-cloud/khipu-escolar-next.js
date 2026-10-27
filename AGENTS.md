@@ -32,6 +32,7 @@ pnpm db:deploy && pnpm db:seed   # migraciones + datos demo (contraseña demo123
 pnpm dev                     # http://lvh.me:3000  ·  colegios: http://<slug>.lvh.me:3000
 pnpm lint && pnpm typecheck && pnpm test   # checks rápidos (tests de integración usan la BD local)
 pnpm e2e                     # Playwright (requiere BD con seed)
+pnpm khipu:crear-superadmin --email x --nombres … --apellidos … [--documento …]   # super administrador (specs/16)
 pnpm db:migrate              # nueva migración tras cambiar prisma/schema.prisma
 pnpm db:generate && rm -rf .next   # tras cambiar el esquema: Prisma 7 no regenera solo y Turbopack cachea el cliente viejo
 ```
@@ -71,3 +72,4 @@ Mailpit (correos locales): http://127.0.0.1:54324 · Supabase Studio: http://127
 | jorge.ramos@academiaeuler.demo | profesor | Academia Euler · Fase 2 (vigesimal) |
 | direccion@losolivos.demo | dirección | Los Olivos · Básico |
 | rosa.quispe@gmail.com | apoderada (2 colegios) | Nuevo Horizonte y Academia Euler |
+| admin@khipuescolar.demo | super administrador (equipo Khipu) | Panel http://admin.lvh.me:3000 (specs/16) |
