@@ -19,15 +19,16 @@ test("apoderada pregunta por las tareas y Nudito responde con datos reales", asy
   await expect(panel).toBeVisible();
   await expect(page.getByLabel("Escribe tu pregunta")).toBeFocused();
 
+  // El widget recarga la última conversación (≤ 12 h): las respuestas pueden repetirse en el historial.
   await page.getByLabel("Escribe tu pregunta").fill("¿qué tareas tiene Mateo?");
   await page.getByRole("button", { name: "Enviar" }).click();
-  await expect(panel.getByText("Soy un asistente con IA. Si no sé algo, te paso con una persona del colegio.")).toBeVisible();
-  await expect(panel.getByText(/Fichas de fracciones/)).toBeVisible();
+  await expect(panel.getByText("Soy un asistente con IA. Si no sé algo, te paso con una persona del colegio.").first()).toBeVisible();
+  await expect(panel.getByText(/Fichas de fracciones/).last()).toBeVisible();
 
   await page.getByLabel("Escribe tu pregunta").fill("¿Mateo faltó ayer?");
   await page.getByRole("button", { name: "Enviar" }).click();
-  await expect(panel.getByText("Para eso es mejor hablar con su tutora.")).toBeVisible();
-  await expect(panel.getByRole("link", { name: "Hablar con la tutora" })).toHaveAttribute("href", /\/mensajes\?alumno=/);
+  await expect(panel.getByText("Para eso es mejor hablar con su tutora.").last()).toBeVisible();
+  await expect(panel.getByRole("link", { name: "Hablar con la tutora" }).last()).toHaveAttribute("href", /\/mensajes\?alumno=/);
 
   await page.keyboard.press("Escape");
   await expect(panel).toBeHidden();

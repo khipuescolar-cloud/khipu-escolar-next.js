@@ -144,3 +144,39 @@ Respuestas: SMTP del piloto: «Amazon SES». Canales extra: «Notificaciones pus
 - El logo WEBP no sale en la libreta PDF (solo PNG/JPG); no se aceptan logos SVG.
 - La exportación ZIP se arma en memoria (para colegios grandes conviene una cola). El .ics es una descarga, no una suscripción.
 - Externos: dominio, SES, Cloudinary, Supabase cloud, Vercel con cron, revisión legal, SVG reales de la marca.
+
+## Continuación (2026-10-27): super administrador y CRM del colegio
+
+> cual es el correo con el cual puedo ingresar? y cual es el usuario superior, el que crea los workspace de los colegios, ya que esto es un sistema SAS debe haber un usuario principal el cual se encargue del monitoreo
+
+> si, crealo con subagentes; necesitamos la vista principal del super super admin, luego dentro del mismo podemos crear un tenant que sera un nuevo colegio, tambien vamos a poder ver el reporte de todos los tenants, cuando se crea un nuvo tenant se va a subir la insignia del colegio, el nombre, un pequeño eslogan si es que lo usan , el correo del administrador principal de ese colegio , al correo que acabamos de registrar como administrador principal le llegara un correo de bienvenida al sistema y que sus credenciales seran el correo que ingreso y su contraseña sera su dni, para esto cuando se crea el nuevo tenant debe solicitar los datos de la persona involucrada; bueno despues de que le llegue el correo con las credenciales podra darle click a un boton que le aparezca donde estara la ruta del dominio del sistema, y con eso mismo poder ingresar al sistema que es un crm , lista de profesores, lista de grados, lista de personal , va a tener muchos modulos y podra agregar nuevos profesores con sus respectivos datos personales y correos tambien
+
+### Decisiones
+- Contraseña inicial = DNI, como pidió el colaborador, con dos mitigaciones agregadas e informadas:
+  - cambio obligatorio en el primer ingreso (la nueva no puede contener el documento);
+  - el correo no incluye el número de DNI.
+- El superadmin tiene su propio panel en `admin.<dominio>` y su tabla `admins_plataforma`; se crea solo por script (`pnpm khipu:crear-superadmin`).
+- El superadmin ve métricas agregadas y la configuración, nunca chats, notas ni datos de alumnos (Ley 29733).
+- La misma bienvenida con DNI se usa para profesores y personal creados por dirección.
+- Rol nuevo `administrativo` (personal no docente), por ahora solo con Comunicados.
+- Base hecha por el orquestador:
+  - esquema y migraciones (con RLS cerrado para las tablas nuevas);
+  - `cuentas.ts` y la plantilla `bienvenida`;
+  - `/cambiar-password`, el destino «plataforma» en el login y la ruta `admin.` en `proxy.ts`;
+  - el seed con `admin@khipuescolar.demo`.
+- Subagentes:
+  - `feat/plataforma` (Opus): panel, crear colegio con deshacer si falla, reportes y CSV, detalle con acciones, script.
+  - `feat/crm-personal` (Sonnet): profesores y personal con datos personales, ficha, grados y salones, importación CSV.
+
+### Validación (main)
+- `pnpm lint` y `pnpm typecheck` OK.
+- `pnpm test`: 31 archivos y 275 tests OK.
+- `pnpm e2e`: 29/29 OK. Se ajustó el e2e de Nudito porque el widget ahora recarga la conversación anterior.
+
+### Pendientes
+- Archivar salones (falta el campo `archivado_at`).
+- Permisos del rol `administrativo` más allá de Comunicados.
+- `login_intentos` sin `user_id`: las métricas de ingreso se calculan por correo.
+- Falta el índice en `auditoria_plataforma.tenant_id`.
+- Las métricas de 30 días se muestran como tabla, no como gráfico.
+- Opcional: que el superadmin pueda entrar a un colegio para dar soporte, con auditoría.
