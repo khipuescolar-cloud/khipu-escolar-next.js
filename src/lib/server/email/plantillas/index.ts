@@ -89,6 +89,8 @@ const ESQUEMAS = {
     motivo: z.string().min(1),
     url,
   }),
+  /** A dirección cuando el equipo Khipu entra en modo soporte (specs/16). `hasta` en HH:mm (Lima). */
+  soporte_inicio: z.object({ ...comun, hasta: hhmm, motivo: z.string().min(1).max(300), url }),
 } as const;
 
 export type NombrePlantilla = keyof typeof ESQUEMAS;
@@ -259,6 +261,20 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
         "Revisa su correo con la familia y actualízalo para que vuelva a recibir avisos.",
       ],
       boton: { texto: "Ver avisos", url: p.url },
+    }),
+
+  soporte_inicio: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      asunto: "El equipo de Khipu Escolar entró a tu colegio en modo soporte",
+      insignia: "info",
+      palabraInsignia: "Soporte",
+      parrafos: [
+        `El equipo de Khipu Escolar entró a tu colegio en modo soporte (solo lectura) hasta las ${p.hasta}.`,
+        `Motivo: ${p.motivo}`,
+        "No puede ver chats, notas, libretas ni conversaciones con Nudito. Cada ingreso queda en la auditoría.",
+      ],
+      boton: { texto: "Ver auditoría", url: p.url },
     }),
 };
 

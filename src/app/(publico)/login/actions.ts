@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { esCorreoPersonal, urlPlataforma } from "@/lib/dominio";
-import { colegioPorDominio, iniciarSesion } from "@/lib/server/auth";
+import { colegioPorDominio, iniciarSesion, ipDeCabeceras } from "@/lib/server/auth";
 
 export type EstadoLogin = { error?: string; email?: string };
 
@@ -24,8 +24,7 @@ export async function loginAction(_prev: EstadoLogin, formData: FormData): Promi
   const email = String(formData.get("email") ?? "");
   if (!datos.success) return { error: datos.error.issues[0].message, email };
 
-  const h = await headers();
-  const ip = h.get("x-forwarded-for")?.split(",")[0]?.trim() || h.get("x-real-ip") || "local";
+  const ip = ipDeCabeceras(await headers());
   const resultado = await iniciarSesion(datos.data.email, datos.data.password, ip);
   if (!resultado.ok) return { error: MENSAJES[resultado.error], email };
 

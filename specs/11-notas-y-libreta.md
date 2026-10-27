@@ -94,12 +94,12 @@ cursosDelDocente(ctx)
 - B o C sin conclusión: «Escribe la conclusión descriptiva: es obligatoria para B y C.»
 - Curso sin competencias: la pestaña de calificación pide crearlas primero.
 - Borrar el valor de una calificación del periodo elimina también su conclusión.
+- Título del tutor (página y PDF de la libreta): sigue `Profile.genero` del tutor del salón con `tituloProfesor(genero, "tutor")` → «Tutora:», «Tutor:» o «Tutor(a):» (sin dato o «no especifica»).
 
 ## Pruebas
-- unit: `tests/unit/calificaciones.test.ts` (escalas, etiquetas, aprobado, sugeridas), `tests/unit/fechas.test.ts`, `tests/unit/notas-csv.test.ts` (exportar/importar, visibilidad y publicación de la libreta), `tests/unit/imagen-png.test.ts` (WEBP/SVG → PNG y caché), `tests/unit/plantillas-avisos.test.ts` (`libreta_publicada`).
+- unit: `tests/unit/calificaciones.test.ts` (escalas, etiquetas, aprobado, sugeridas), `tests/unit/fechas.test.ts`, `tests/unit/notas-csv.test.ts` (exportar/importar, visibilidad y publicación de la libreta), `tests/unit/imagen-png.test.ts` (WEBP/SVG → PNG y caché), `tests/unit/plantillas-avisos.test.ts` (`libreta_publicada`), `tests/unit/titulo-tutor-libreta.test.ts` (Tutora/Tutor/Tutor(a)); integración `tests/integracion/soporte-seguridad.test.ts` (`datosLibreta` devuelve el título según el género).
 - integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (apoderado no ve a otros alumnos ni sus notas, periodo cerrado no se edita, profesor ajeno y dirección no escriben, conclusión en B/C, libreta con asistencia y auditoría, plan Básico → 403; cierre por curso y reabrir, observaciones, importar/exportar, publicar libreta con avisos, idempotencia y visibilidad familiar).
 - e2e: `tests/e2e/notas-libreta.test.ts` (profesor de Euler ingresa nota vigesimal; apoderada descarga el PDF; losolivos 403; observación por nota; cerrar/reabrir curso; exportar CSV; publicar libreta y reenviar aviso, con limpieza de datos). El envío real del correo (Mailpit) no se prueba en e2e: el worker corre por cron, y el aviso queda verificado en la tabla `avisos`.
 
 ## Pendientes
-- El título del tutor sigue su género («Tutora:», «Tutor:», «Tutor(a):»).
 - El corte de «libretas antiguas» (`CORTE_LIBRETA_PUBLICADA`) es una constante porque `periodos` no guarda cuándo se cerró; si un colegio necesita otra regla, habría que añadir esa fecha al esquema.

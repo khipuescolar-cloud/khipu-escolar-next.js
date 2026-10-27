@@ -12,6 +12,7 @@ import { ErrorDeNegocio } from "./contexto-accion";
 import { crearCuentaConDocumento, encolarBienvenida, ErrorCuenta, esquemaPersona, revertirCamposCompletados, type CuentaCreada } from "./cuentas";
 import { db, dbTenant } from "./db";
 import { exportarColegioZip } from "./exportar";
+import { avisarInicioSoporte } from "./notificaciones/aviso-soporte";
 import { leerLimites } from "./notificaciones/limites";
 import { ENVIANDO_MAX_MINUTOS } from "./notificaciones/cola";
 import { reemplazarLogo, retirarLogo, urlLogoColegio, validarLogo } from "./logo";
@@ -631,12 +632,14 @@ export async function iniciarAccesoSoporte(
 ): Promise<{ accesoId: string; expiraAt: Date; url: string }> {
   const tenant = await colegioOError(tenantId);
   const { motivo, minutos } = validar(esquemaAccesoSoporte, entrada);
-  if (tenant.estado === "suspendido") throw new ErrorDeNegocio("El colegio está suspendido: actívalo antes de entrar como soporte.");
+  // Un colegio suspendido también admite soporte (es cuando más se necesita): sigue siendo solo lectura y auditado.
   await db.accesoSoporte.updateMany({ where: { tenantId: tenant.id, adminId: admin.user.id, cerradoAt: null }, data: { cerradoAt: ahora } });
   const acceso = await db.accesoSoporte.create({
     data: { tenantId: tenant.id, adminId: admin.user.id, motivo, inicioAt: ahora, expiraAt: new Date(ahora.getTime() + minutos * 60_000) },
   });
-  await auditarPlataforma(admin, "soporte_inicio", tenant.id, { accesoId: acceso.id, motivo, minutos });
+  await auditarPlataforma(admin, "soporte_inicio", tenant.id, { accesoId: acceso.id, motivo, minutos, suspendido: tenant.estado === "suspendido" });
+  // Transparencia: la dirección del colegio recibe un aviso (correo/push según su perfil).
+  await avisarInicioSoporte(tenant.id, acceso);
   return { accesoId: acceso.id, expiraAt: acceso.expiraAt, url: urlColegio(tenant.slug, "/inicio") };
 }
 

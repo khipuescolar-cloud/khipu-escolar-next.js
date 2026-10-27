@@ -42,16 +42,60 @@ export class ErrorSoloLectura extends Error {
   }
 }
 
+/** SQL crudo de un `$queryRaw`: solo se permite en modo soporte si es una lectura (SELECT o WITH sin escrituras). */
+export function esSqlDeSoloLectura(sql: string): boolean {
+  const limpio = sql.replace(/--[^\n]*/g, " ").replace(/\/\*[\s\S]*?\*\//g, " ").trim();
+  if (!/^(select|with)\b/i.test(limpio)) return false;
+  if (/;\s*\S/.test(limpio)) return false; // una sola sentencia
+  return !/\b(insert|update|delete|merge|truncate|alter|drop|create|grant|revoke|copy|call|do|lock|vacuum|refresh|reindex|cluster|comment|set_config|nextval|setval|pg_advisory\w*)\b/i.test(limpio)
+    && !/\bfor\s+(update|share|no\s+key\s+update|key\s+share)\b/i.test(limpio);
+}
+
+/** Texto SQL de los argumentos de un `$queryRaw` (plantilla etiquetada o `Prisma.sql`) o `$queryRawUnsafe`. */
+function textoSql(args: unknown): string {
+  if (typeof args === "string") return args;
+  if (Array.isArray(args)) {
+    const [primero] = args as unknown[];
+    if (typeof primero === "string") return primero;
+    if (Array.isArray(primero)) return (primero as string[]).join("?");
+    if (primero && typeof primero === "object" && "sql" in primero) return String((primero as { sql: string }).sql);
+  }
+  if (args && typeof args === "object") {
+    const a = args as { sql?: unknown; strings?: unknown };
+    if (typeof a.sql === "string") return a.sql;
+    if (Array.isArray(a.strings)) return (a.strings as string[]).join("?");
+  }
+  return "";
+}
+
 /**
  * Cliente con aislamiento por colegio: agrega `tenantId` a todo where/create de los modelos de negocio.
  * Es la barrera principal multitenant (Prisma salta RLS). Las escrituras anidadas deben pasar tenantId a mano.
- * Con `soloLectura` toda escritura (de cualquier modelo, también los globales) lanza `ErrorSoloLectura`.
+ * Con `soloLectura` toda escritura (de cualquier modelo, también los globales) lanza `ErrorSoloLectura`:
+ * también `$executeRaw`/`$executeRawUnsafe` y los `$queryRaw`/`$queryRawUnsafe` que no sean lecturas puras.
+ * `$transaction` (en lote o interactiva) pasa por estas mismas intercepciones.
  */
 export function dbTenant(tenantId: string, opciones: { soloLectura?: boolean } = {}) {
   const soloLectura = opciones.soloLectura === true;
   return db.$extends({
     name: "aislamiento-tenant",
     query: {
+      async $executeRaw({ args, query }) {
+        if (soloLectura) throw new ErrorSoloLectura(undefined, "$executeRaw");
+        return query(args);
+      },
+      async $executeRawUnsafe({ args, query }) {
+        if (soloLectura) throw new ErrorSoloLectura(undefined, "$executeRawUnsafe");
+        return query(args);
+      },
+      async $queryRaw({ args, query }) {
+        if (soloLectura && !esSqlDeSoloLectura(textoSql(args))) throw new ErrorSoloLectura(undefined, "$queryRaw");
+        return query(args);
+      },
+      async $queryRawUnsafe({ args, query }) {
+        if (soloLectura && !esSqlDeSoloLectura(textoSql(args))) throw new ErrorSoloLectura(undefined, "$queryRawUnsafe");
+        return query(args);
+      },
       $allModels: {
         async $allOperations({ model, operation, args, query }) {
           if (soloLectura && OPERACIONES_DE_ESCRITURA.has(operation)) throw new ErrorSoloLectura(model, operation);

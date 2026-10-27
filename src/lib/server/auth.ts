@@ -84,6 +84,30 @@ export async function registrarIntentoLogin(intento: { email: string; ip: string
   if (userId) await db.profile.updateMany({ where: { id: userId }, data: { ultimoIngresoAt: ahora } });
 }
 
+/** IP del request (primer `x-forwarded-for`, luego `x-real-ip`); «local» si no hay. */
+export function ipDeCabeceras(h: Headers): string {
+  return h.get("x-forwarded-for")?.split(",")[0]?.trim() || h.get("x-real-ip") || "local";
+}
+
+/** Ventana en la que un mismo usuario no suma otro ingreso (callback → restablecer en el mismo flujo). */
+export const VENTANA_INGRESO_MINUTOS = 5;
+
+/**
+ * Ingreso exitoso que NO pasa por `iniciarSesion` (enlace de invitación o recuperación en `/auth/callback`,
+ * fijar contraseña en `/restablecer` o `/cambiar-password`): guarda `login_intentos.user_id` y
+ * `profiles.ultimo_ingreso_at` igual que un login. Si ya hubo un ingreso de ese usuario en los últimos
+ * `VENTANA_INGRESO_MINUTOS` no duplica la fila. Devuelve true si registró.
+ */
+export async function registrarIngreso(usuario: { id: string; email?: string | null }, ip: string, ahora = new Date()): Promise<boolean> {
+  const desde = new Date(ahora.getTime() - VENTANA_INGRESO_MINUTOS * 60_000);
+  const reciente = await db.loginIntento.count({ where: { userId: usuario.id, exito: true, createdAt: { gte: desde, lte: ahora } } });
+  if (reciente > 0) return false;
+  let email = usuario.email?.trim().toLowerCase();
+  if (!email) email = (await db.profile.findUnique({ where: { id: usuario.id }, select: { email: true } }))?.email ?? "";
+  await registrarIntentoLogin({ email, ip, userId: usuario.id }, ahora);
+  return true;
+}
+
 export async function iniciarSesion(emailCrudo: string, password: string, ip: string): Promise<ResultadoLogin> {
   const email = emailCrudo.trim().toLowerCase();
   if (await estaBloqueado(email, ip)) return { ok: false, error: "bloqueado" };

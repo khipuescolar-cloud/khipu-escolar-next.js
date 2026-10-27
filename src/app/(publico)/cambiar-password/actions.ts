@@ -1,6 +1,8 @@
 "use server";
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { ipDeCabeceras, registrarIngreso } from "@/lib/server/auth";
 import { db } from "@/lib/server/db";
 import { supabaseServidor } from "@/lib/server/supabase";
 import { usuarioActual } from "@/lib/server/tenant";
@@ -32,5 +34,6 @@ export async function cambiarPasswordAction(formData: FormData) {
   const { error } = await supabase.auth.updateUser({ password });
   if (error) volver("guardar");
   await db.profile.update({ where: { id: user.id }, data: { debeCambiarPassword: false } });
+  await registrarIngreso(user, ipDeCabeceras(await headers()));
   redirect(siguiente);
 }

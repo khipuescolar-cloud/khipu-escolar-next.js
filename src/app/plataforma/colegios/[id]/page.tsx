@@ -91,7 +91,7 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
             descripcion={t.eslogan ? <span className="italic">{t.eslogan}</span> : undefined}
             acciones={
               <>
-                {t.estado !== "suspendido" && !soporte && <DialogoSoporte tenantId={t.id} nombre={t.nombre} accion={entrarSoporteAction} />}
+                {!soporte && <DialogoSoporte tenantId={t.id} nombre={t.nombre} accion={entrarSoporteAction} />}
                 <a href={url} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "outline" })}>
                   <ExternalLink strokeWidth={2} aria-hidden /> Abrir colegio
                 </a>

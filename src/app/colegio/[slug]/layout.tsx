@@ -15,7 +15,8 @@ import { nombreRol } from "@/lib/roles";
 import { urlLogoColegio } from "@/lib/server/logo";
 import { conteoNoLeidos } from "@/lib/server/mensajes";
 import { FEATURES_PRIVADAS_SOPORTE } from "@/lib/server/plan";
-import { requireTenantContext } from "@/lib/server/tenant";
+import { requireTenantContext, soporteVigenteHasta } from "@/lib/server/tenant";
+import { formatoHora } from "@/lib/fechas";
 import { cambiarRolAction, salirAction } from "./actions";
 
 const ORDEN_GRUPOS: GrupoNav[] = ["dia", "comunicacion", "academico", "colegio"];
@@ -27,11 +28,17 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
   // Modo soporte (specs/16): sin chats, notas, libreta ni Nudito en la navegación.
   const mosaicos = mosaicosParaRol(ctx.rol).filter((m) => !(ctx.soporte && FEATURES_PRIVADAS_SOPORTE.has(m.feature)));
   const tieneMensajes = mosaicos.some((m) => m.contador === "mensajes" && planIncluye(plan, m.feature));
-  const [logoUrl, sinLeer, estadoBarra] = await Promise.all([
+  const [logoUrl, sinLeer, estadoBarra, soporteHasta] = await Promise.all([
     urlLogoColegio(ctx.tenant),
     tieneMensajes ? conteoNoLeidos(ctx) : Promise.resolve(0),
     cookies().then((c) => c.get("sidebar_state")?.value),
+    // Transparencia (specs/16): la dirección ve en la campana si el equipo Khipu está dentro en modo soporte.
+    ctx.rol === "direccion" && !ctx.soporte ? soporteVigenteHasta(ctx.tenant.id) : Promise.resolve(null),
   ]);
+  const notificaciones = [
+    ...(tieneMensajes ? [{ titulo: "Mensajes sin leer", href: "/mensajes", cantidad: sinLeer }] : []),
+    ...(soporteHasta ? [{ titulo: `Soporte de Khipu activo hasta ${formatoHora(soporteHasta)}`, href: "/configuracion/auditoria", cantidad: 1 }] : []),
+  ];
 
   const grupos: GrupoNavResuelto[] = [
     { items: [{ href: "/inicio", titulo: "Inicio", icono: "House" }] },
@@ -97,7 +104,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
             </form>
           </div>
         )}
-        <BarraSuperior grupos={grupos} notificaciones={tieneMensajes ? [{ titulo: "Mensajes sin leer", href: "/mensajes", cantidad: sinLeer }] : []} />
+        <BarraSuperior grupos={grupos} notificaciones={notificaciones} />
         <div className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6 lg:py-8">{children}</div>
       </SidebarInset>
       {ctx.rol === "apoderado" && planIncluye(plan, "nudito") && <NuditoWidget slug={slug} />}

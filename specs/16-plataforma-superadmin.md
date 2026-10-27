@@ -1,6 +1,6 @@
 # 16 — Plataforma: super administrador
 
-> Estado: implementado · Plan: interno (equipo Khipu) · Última actualización: 2026-10-27 (Claude Code · pendientes v2: métricas por `user_id`, gráficos y acceso de soporte)
+> Estado: implementado · Plan: interno (equipo Khipu) · Última actualización: 2026-10-27 (Claude Code · pendientes v2: métricas por `user_id`, gráficos y acceso de soporte; p3: aviso a dirección, soporte a suspendidos y solo lectura en SQL crudo)
 
 ## Objetivo
 Que el equipo de Khipu cree colegios (tenants), los monitoree y gestione su ciclo de vida desde un panel propio. Khipu es un SaaS y este es el usuario principal.
@@ -73,13 +73,14 @@ Que el equipo de Khipu cree colegios (tenants), los monitoree y gestione su cicl
 - **Borrado:** solo con el script `khipu:borrar-colegio`; el panel no borra.
 
 ### Acceso de soporte (`AccesoSoporte`, tabla `accesos_soporte`)
-1. En la ficha, «Entrar como soporte» abre un `Dialog` con **motivo** (obligatorio, 5–300 caracteres) y duración (30, 60 o 120 min). No aparece si el colegio está suspendido o si ya hay un acceso vigente.
-2. `iniciarAccesoSoporte()` cierra cualquier acceso abierto del mismo administrador en ese colegio, crea el `AccesoSoporte` (`inicioAt`, `expiraAt`), audita `soporte_inicio` (motivo y minutos) y la action redirige a `<slug>.<dominio>/inicio`.
-3. `requireTenantContext` (`resolverContextoColegio` en `tenant.ts`): si el usuario **no** tiene membresía activa pero es super administrador activo con un acceso **vigente** (sin `cerradoAt` y `expiraAt` futuro) en ese colegio, arma un contexto con rol `direccion`, una membresía sintética (`MEMBERSHIP_SOPORTE_ID`, cargo «Soporte Khipu»), `ctx.soporte = { accesoId, expiraAt }` y **`ctx.db` de solo lectura** (`dbTenant(id, { soloLectura: true })`): create, createMany(AndReturn), update, updateMany(AndReturn), upsert, delete y deleteMany lanzan `ErrorSoloLectura` («Modo soporte: solo lectura»), también sobre modelos globales. Vencido, cerrado, admin inactivo o un usuario que no es admin con un `AccesoSoporte` a su nombre → 403.
+1. En la ficha, «Entrar como soporte» abre un `Dialog` con **motivo** (obligatorio, 5–300 caracteres) y duración (30, 60 o 120 min). No aparece si ya hay un acceso vigente. **Sí aparece en colegios suspendidos** (decisión p3: un colegio suspendido es justo cuando más se necesita soporte; sigue siendo solo lectura, con motivo, vencimiento y auditoría, y la auditoría de plataforma guarda `suspendido: true`). Los miembros del colegio suspendido siguen recibiendo 403.
+2. `iniciarAccesoSoporte()` cierra cualquier acceso abierto del mismo administrador en ese colegio, crea el `AccesoSoporte` (`inicioAt`, `expiraAt`), audita `soporte_inicio` (motivo, minutos y si estaba suspendido), **avisa a la dirección** (`avisarInicioSoporte`, `src/lib/server/notificaciones/aviso-soporte.ts`: plantilla `soporte_inicio`, tipo `alerta_direccion`, `referenciaId = accesoId`, a cada membresía activa de rol `direccion`, por correo y/o push según sus preferencias; nunca a otros roles) y la action redirige a `<slug>.<dominio>/inicio`.
+3. `requireTenantContext` (`resolverContextoColegio` en `tenant.ts`): si el usuario **no** tiene membresía activa pero es super administrador activo con un acceso **vigente** (sin `cerradoAt` y `expiraAt` futuro) en ese colegio, arma un contexto con rol `direccion`, una membresía sintética (`MEMBERSHIP_SOPORTE_ID`, cargo «Soporte Khipu»), `ctx.soporte = { accesoId, expiraAt }` y **`ctx.db` de solo lectura** (`dbTenant(id, { soloLectura: true })`): create, createMany(AndReturn), update, updateMany(AndReturn), upsert, delete y deleteMany lanzan `ErrorSoloLectura` («Modo soporte: solo lectura»), también sobre modelos globales; también `$executeRaw`/`$executeRawUnsafe` y los `$queryRaw`/`$queryRawUnsafe` que no sean una lectura pura (`esSqlDeSoloLectura`: una sola sentencia `SELECT`/`WITH` sin `INSERT/UPDATE/DELETE/…`, `FOR UPDATE`, `nextval`, `set_config`…). `$transaction` (en lote o interactiva) pasa por las mismas intercepciones. Un colegio **suspendido** ignora las membresías (403 para todos) pero admite el acceso de soporte vigente. Vencido, cerrado, admin inactivo o un usuario que no es admin con un `AccesoSoporte` a su nombre → 403.
 4. **Privacidad:** en modo soporte `requireFeature`/`tieneFeature` (`plan.ts`, `FEATURES_PRIVADAS_SOPORTE`) niegan `mensajes`, `notas`, `libreta` y `nudito` aunque el plan los incluya (todas sus páginas, actions y route handlers ya llaman a `requireFeature`). La exportación ZIP del colegio (`/api/exportar`) también se niega. La barra lateral oculta esos módulos.
 5. Cada request en modo soporte registra `auditar({ accion: "soporte_ver", entidad: "colegio", detalle: { accesoId } })` en la auditoría **del colegio** (una vez por request: `contextoDelColegio` está cacheado).
 6. Banner en el layout del colegio: «Modo soporte · solo lectura · vence a las HH:mm · Terminar». «Terminar» es un POST de formulario a `admin.<dominio>/soporte/terminar` (route handler que exige `Origin` de nuestro dominio y `requireAdminPlataforma`), que cierra el acceso, audita `soporte_fin` y vuelve a la ficha. En la ficha también hay «Terminar acceso» (con confirmación).
 7. Si un super administrador además es miembro del colegio, entra con su membresía normal (sin modo soporte).
+8. **Transparencia en el panel del colegio:** mientras haya un acceso vigente de un super administrador activo (`soporteVigenteHasta(tenantId)` en `tenant.ts`), la dirección (no en modo soporte) ve en la campana de la barra superior «Soporte de Khipu activo hasta HH:mm» con enlace a `/configuracion/auditoria`.
 
 ## Reglas de negocio
 - Subdominio: 3 a 40 caracteres, `[a-z0-9-]`, sin guion al inicio, al final ni doble; no puede ser `www`, `app`, `api` ni `admin` (`SUBDOMINIOS_RESERVADOS` en `src/lib/dominio.ts`); único.
@@ -126,6 +127,8 @@ accesoSoporteActual(admin, tenantId)
 // src/lib/server/tenant.ts
 resolverContextoColegio(user, slug, rolPreferido?): Promise<TenantContext>   // membresía o soporte vigente; 403/404
 accesoSoporteVigente(userId, tenantId)
+soporteVigenteHasta(tenantId): Promise<Date | null>   // campana de dirección
+avisarInicioSoporte(tenantId, { id, motivo, expiraAt }): Promise<number>   // notificaciones/aviso-soporte.ts
 // src/lib/server/db.ts
 dbTenant(tenantId, { soloLectura? }) · ErrorSoloLectura
 // src/lib/server/cuentas.ts
@@ -169,9 +172,8 @@ aCsv(encabezados, filas)
 - unit: `tests/unit/slug-colegio.test.ts` (sugerencia y validación del subdominio, reservados, CSV).
 - integración: `tests/integracion/plataforma-superadmin.test.ts` (403 para no administradores e inactivos, redirect con contraseña inicial, creación completa con aviso sin el DNI, login con el DNI, subdominios inválidos, acciones auditadas, 404 con ids ajenos, ZIP, compensación con cuenta nueva y existente —revierte los datos completados y respeta los que ya tenía—, reportes sin datos de alumnos).
 - integración: `tests/integracion/acceso-soporte.test.ts` (acceso vigente → contexto `direccion` de solo lectura; cada escritura lanza «Modo soporte: solo lectura»; mensajes/notas/libreta/Nudito → 403; `soporte_ver` en la auditoría del colegio; terminado, vencido, admin inactivo o no-admin con un acceso a su nombre → 403; no se cierra un acceso ajeno; login guarda `userId`/`ultimoIngresoAt` y el reporte cuenta activos por membresía; `camposCompletados`).
-- e2e: `tests/e2e/plataforma-superadmin.test.ts` (crear colegio con insignia y administrador con DNI → correo en Mailpit con el botón al subdominio → ingreso con DNI → cambio obligatorio de contraseña → `/inicio` del colegio; un usuario de colegio recibe 403 en el panel; modo soporte: gráficos en la vista principal, «Entrar como soporte» con motivo → banner en el colegio, `/mensajes` y `/notas` → 403, «Terminar» → vuelve a la ficha y el colegio da 403).
+- integración: `tests/integracion/soporte-seguridad.test.ts` (`soporte_inicio` encolado a cada directora según sus preferencias y a ningún otro rol; campana vigente/terminada/admin inactivo; `$executeRaw(Unsafe)`, `$queryRaw` de escritura, `FOR UPDATE` y `$transaction` con escrituras → «Modo soporte»; lecturas crudas permitidas; colegio suspendido: soporte entra y los miembros no; `registrarIngreso`; título del tutor en la libreta).
+- e2e: `tests/e2e/plataforma-superadmin.test.ts` (crear colegio con insignia y administrador con DNI → correo en Mailpit con el botón al subdominio → ingreso con DNI → cambio obligatorio de contraseña → `/inicio` del colegio; un usuario de colegio recibe 403 en el panel; modo soporte: gráficos en la vista principal, «Entrar como soporte» con motivo → banner en el colegio, `/mensajes` y `/notas` → 403, la dirección del colegio ve «Soporte de Khipu activo hasta HH:mm» en su campana y llega a la auditoría; «Terminar» → vuelve a la ficha y el colegio da 403).
 
 ## Pendientes
-- Pendiente de producto: el acceso de soporte no avisa a la dirección del colegio (correo o aviso en su panel) cuando el equipo Khipu entra; la entrada queda solo en su auditoría.
 - `login_intentos` anteriores a la migración `20261027180000_pendientes_v2` no tienen `user_id`: los gráficos de ingresos solo cuentan desde entonces.
-- Los ingresos que no pasan por `iniciarSesion` (p. ej. fijar contraseña desde la invitación) no actualizan `ultimo_ingreso_at`.

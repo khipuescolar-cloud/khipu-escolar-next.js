@@ -131,7 +131,7 @@ test("un usuario de colegio no puede entrar al panel de plataforma", async ({ pa
   await expect(page.getByText("No tienes acceso a esta sección")).toBeVisible();
 });
 
-test("el super administrador entra a un colegio como soporte en solo lectura y sin chats", async ({ page }) => {
+test("el super administrador entra a un colegio como soporte en solo lectura y sin chats", async ({ page, browser }) => {
   const motivo = `Prueba e2e de soporte ${sufijo}`;
   try {
     await page.goto("/login");
@@ -158,6 +158,24 @@ test("el super administrador entra a un colegio como soporte en solo lectura y s
     await esperarSinAcceso(page, await page.goto(`http://nuevohorizonte.${BASE}/mensajes`));
     await esperarSinAcceso(page, await page.goto(`http://nuevohorizonte.${BASE}/notas`));
 
+    // Transparencia: la dirección del colegio ve el soporte activo en su campana.
+    const contextoDireccion = await browser.newContext();
+    try {
+      const direccion = await contextoDireccion.newPage();
+      await direccion.goto("/login");
+      await direccion.getByLabel("Correo").fill("direccion@nuevohorizonte.demo");
+      await direccion.getByLabel("Contraseña").fill("demo123");
+      await direccion.getByRole("button", { name: "Entrar" }).click();
+      await direccion.waitForURL(`http://nuevohorizonte.${BASE}/**`);
+      await direccion.getByRole("button", { name: /^Notificaciones/ }).click();
+      const item = direccion.getByRole("menuitem", { name: /Soporte de Khipu activo hasta \d{2}:\d{2}/ });
+      await expect(item).toBeVisible();
+      await item.click();
+      await direccion.waitForURL("**/configuracion/auditoria");
+    } finally {
+      await contextoDireccion.close();
+    }
+
     await page.goto(`http://nuevohorizonte.${BASE}/inicio`);
     await page.getByTestId("banner-soporte").getByRole("button", { name: "Terminar" }).click();
     await page.waitForURL(`${ficha.split("?")[0]}?ok=*`);
@@ -170,6 +188,7 @@ test("el super administrador entra a un colegio como soporte en solo lectura y s
     const ids = rows.map((r) => r.id);
     await cliente.query("delete from auditoria where accion = 'soporte_ver' and detalle->>'accesoId' = any($1::text[])", [ids]);
     await cliente.query("delete from auditoria_plataforma where detalle->>'accesoId' = any($1::text[])", [ids]);
+    await cliente.query("delete from avisos where plantilla = 'soporte_inicio' and referencia_id::text = any($1::text[])", [ids]);
     await cliente.query("delete from accesos_soporte where id = any($1::uuid[])", [ids]);
     await cliente.end();
   }

@@ -43,6 +43,20 @@ export async function accesoSoporteVigente(userId: string, tenantId: string, aho
   });
 }
 
+/** Fin del acceso de soporte vigente más tardío de cualquier administrador en el colegio (campana de dirección), o null. */
+export async function soporteVigenteHasta(tenantId: string, ahora = new Date()): Promise<Date | null> {
+  const accesos = await db.accesoSoporte.findMany({
+    where: { tenantId, cerradoAt: null, expiraAt: { gt: ahora } },
+    orderBy: { expiraAt: "desc" },
+    select: { adminId: true, expiraAt: true },
+  });
+  if (accesos.length === 0) return null;
+  // Solo cuentan los de super administradores activos (los demás no dan entrada).
+  const activos = await db.adminPlataforma.findMany({ where: { userId: { in: accesos.map((a) => a.adminId) }, activo: true }, select: { userId: true } });
+  const ids = new Set(activos.map((a) => a.userId));
+  return accesos.find((a) => ids.has(a.adminId))?.expiraAt ?? null;
+}
+
 /** Usuario autenticado (verificado contra Supabase Auth) o null. */
 export const usuarioActual = cache(async (): Promise<Profile | null> => {
   const supabase = await supabaseServidor();
@@ -81,15 +95,17 @@ const contextoDelColegio = cache(async (slug: string): Promise<TenantContext> =>
  * 2. Sin membresía, pero super administrador con `AccesoSoporte` vigente → rol `direccion`,
  *    `ctx.soporte` y `ctx.db` de solo lectura.
  * 3. Si no → 403.
+ * Colegio suspendido: se ignoran las membresías (403 para todos) salvo el acceso de soporte vigente.
  */
 export async function resolverContextoColegio(user: Profile, slug: string, rolPreferido?: Rol, ahora = new Date()): Promise<TenantContext> {
   const tenant = await db.tenant.findUnique({ where: { slug } });
   if (!tenant) notFound();
-  if (tenant.estado === "suspendido") forbidden();
+  // Colegio suspendido: nadie del colegio entra, pero el soporte de Khipu sí (solo lectura y auditado, specs/16).
+  const suspendido = tenant.estado === "suspendido";
 
-  const memberships = await db.membership.findMany({
-    where: { tenantId: tenant.id, userId: user.id, estado: "activa" },
-  });
+  const memberships = suspendido
+    ? []
+    : await db.membership.findMany({ where: { tenantId: tenant.id, userId: user.id, estado: "activa" } });
   if (memberships.length === 0) {
     const acceso = await accesoSoporteVigente(user.id, tenant.id, ahora);
     if (!acceso) forbidden();

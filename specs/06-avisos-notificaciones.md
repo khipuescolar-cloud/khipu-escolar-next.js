@@ -9,7 +9,7 @@ Avisar a la familia por correo y push cada vez que se registra la asistencia (y 
 | Rol | Puede | No puede |
 |---|---|---|
 | Apoderado | Elegir correo y/o push (`/asistencia#avisos`), activar push en su dispositivo | Ver avisos de otras familias |
-| Dirección | Ver `/avisos`: enviados, apertura (meta 70 %), cola, rebotes, errores; recibir `alerta_rebote` | — |
+| Dirección | Ver `/avisos`: enviados, apertura (meta 70 %), cola, rebotes, errores; recibir `alerta_rebote` y `soporte_inicio` | — |
 | Profesor | Recibir `mensaje_nuevo` (correo + push) cuando una familia le escribe y `justificacion_recibida` como tutor | — |
 | Cron | `GET/POST /api/cron/avisos` con `Authorization: Bearer <CRON_SECRET>` | — |
 | SNS (AWS) | `POST /api/webhooks/ses` con firma SNS válida | — |
@@ -54,6 +54,7 @@ Insertar en `avisos`: `tenantId`, `tipo`, `canal` (`correo` → `destinatario` =
 | `tarea_nueva` | tarea | familia | tareaId | `{ colegio, alumno?, curso, titulo, fechaEntrega: "AAAA-MM-DD", url }` |
 | `libreta_publicada` | libreta | familia | periodoId | `{ colegio, alumno?, periodo: "I Bimestre 2026", url }` (botón «Ver libreta» → `/libreta`) |
 | `alerta_rebote` | alerta_direccion | dirección (correo) | apoderadoId | `{ colegio, apoderado, alumnos: string[], motivo, url }` |
+| `soporte_inicio` | alerta_direccion | dirección (correo y/o push según su perfil) | accesoId | `{ colegio, hasta: "HH:mm", motivo, url }` → «El equipo de Khipu Escolar entró a tu colegio en modo soporte (solo lectura) hasta las HH:mm. Motivo: …», botón «Ver auditoría» (specs/16) |
 
 `justificacion_*` también guardan `asistenciaId`.
 
@@ -118,7 +119,7 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 - Si falla encolar la alerta a dirección, el webhook igual responde 200 (se registra en el log).
 
 ## Pruebas
-- unit: `plantillas-avisos.test.ts` (textos exactos, botón de falta, sin emojis, todas las plantillas del contrato incl. `tarea_nueva`, `libreta_publicada` y `alerta_rebote`, payload inválido), `cola-limites.test.ts` (tope diario, ritmo, reintentos, hora del resumen), `firma-sns.test.ts`.
+- unit: `plantillas-avisos.test.ts` (textos exactos, botón de falta, sin emojis, todas las plantillas del contrato incl. `tarea_nueva`, `libreta_publicada`, `alerta_rebote` y `soporte_inicio`, payload inválido), `cola-limites.test.ts` (tope diario, ritmo, reintentos, hora del resumen), `firma-sns.test.ts`.
 - integración: `cola-avisos.test.ts` (cola → Mailpit con remitente y enlace, tope diario → pendiente, reintentos → error, plantilla desconocida, eventos SES y rebote permanente, resumen de llegadas una vez al día); `preferencias-personal-y-comunicados-push.test.ts` (preferencias del personal, alerta a dirección, comunicado con push y enlace directo); `avisos-pendientes.test.ts` (dos workers en paralelo no repiten filas, recuperación de `enviando`, aviso al profesor correo + push y límite de 15 min, aviso de tarea, alerta de rebote/queja una vez por día).
 
 ## Pendientes

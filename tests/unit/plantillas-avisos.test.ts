@@ -84,6 +84,7 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       tarea_nueva: { colegio, curso: "Matemática", titulo: "Fichas de fracciones", fechaEntrega: "2026-10-30", url: "http://t" },
       libreta_publicada: { colegio, alumno: "Mateo", periodo: "III Bimestre 2026", url: "http://l" },
       alerta_rebote: { colegio, apoderado: "Rosa Quispe", alumnos: ["Mateo"], motivo: "su correo rebotó", url: "http://a" },
+      soporte_inicio: { colegio, hasta: "15:30", motivo: "Revisar la asistencia", url: "http://s" },
     };
     for (const nombre of NOMBRES_PLANTILLA) {
       const m = renderizarPlantilla(nombre, payloads[nombre]);
@@ -124,6 +125,15 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(m.texto).toContain("Dejamos de enviar avisos por correo a Rosa Quispe (familia de Mateo, Ana) porque su correo rebotó.");
     expect(m.texto).toContain("[Correo desactivado]");
     expect(EMOJI.test(m.texto + m.html + m.asunto)).toBe(false);
+  });
+
+  it("inicio de soporte a dirección: hora de fin, motivo, botón a la auditoría y sin emojis", () => {
+    const m = renderizarPlantilla("soporte_inicio", { colegio, hasta: "15:30", motivo: "Revisar la asistencia", url: "http://s/configuracion/auditoria" });
+    expect(m.texto).toContain("El equipo de Khipu Escolar entró a tu colegio en modo soporte (solo lectura) hasta las 15:30.");
+    expect(m.texto).toContain("Motivo: Revisar la asistencia");
+    expect(m.texto).toContain("Ver auditoría: http://s/configuracion/auditoria");
+    expect(EMOJI.test(m.texto + m.html + m.asunto)).toBe(false);
+    expect(() => renderizarPlantilla("soporte_inicio", { colegio, hasta: "3pm", motivo: "x", url: "http://s" })).toThrow(PlantillaInvalidaError);
   });
 
   it("rechaza plantillas desconocidas y payloads inválidos", () => {
