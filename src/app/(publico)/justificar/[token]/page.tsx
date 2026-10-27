@@ -3,7 +3,7 @@ import { FormJustificar } from "@/components/FormJustificar";
 import { Alerta } from "@/components/ui/Alerta";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { fechaLarga } from "@/lib/fechas";
-import { consultarTokenJustificacion, MENSAJE_PLAZO_VENCIDO, MENSAJE_TOKEN_INVALIDO } from "@/lib/server/justificaciones";
+import { consultarTokenJustificacion, mensajePlazoVencido, MENSAJE_TOKEN_INVALIDO } from "@/lib/server/justificaciones";
 import { justificarConTokenAction } from "./actions";
 
 export const metadata: Metadata = { title: "Justificar falta", robots: { index: false, follow: false } };
@@ -16,7 +16,7 @@ export default async function JustificarPublicoPage({ params }: PageProps<"/just
     return (
       <Tarjeta className="flex flex-col gap-4 p-6 shadow-sm sm:p-8">
         <h1 className="text-2xl font-bold">Justificar falta</h1>
-        <Alerta tipo="aviso">{consulta.motivo === "vencido" ? MENSAJE_PLAZO_VENCIDO : MENSAJE_TOKEN_INVALIDO}</Alerta>
+        <Alerta tipo="aviso">{consulta.motivo === "vencido" ? mensajePlazoVencido(consulta.plazoDias) : MENSAJE_TOKEN_INVALIDO}</Alerta>
       </Tarjeta>
     );
   }

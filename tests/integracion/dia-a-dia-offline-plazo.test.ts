@@ -1,4 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { venceJustificacion } from "@/lib/dias-habiles";
 import { fechaDb, momentoEnZona } from "@/lib/fechas";
 import { guardarLista } from "@/lib/server/asistencia";
 import { actualizarConfiguracion } from "@/lib/server/configuracion";
@@ -17,26 +18,34 @@ describe("día a día: plazo de justificación, registros sin conexión y avisos
 
   const falta = (alumnoId: string, extra: object = {}) => ({ salonId: c.salon.id, ambito: "dia", registros: [{ alumnoId, estado: "falta" as const }], ...extra });
 
-  it("el enlace de justificar vence a las 48 h por defecto", async () => {
-    const antes = Date.now();
+  it("el enlace de justificar vence a los 15 días hábiles de la falta por defecto", async () => {
     await guardarLista(c.ctxDe("tutora"), falta(c.alumnos.mateo.id));
     const token = await c.db.justificacionToken.findFirstOrThrow();
-    const horas = (token.expiraAt.getTime() - antes) / 3_600_000;
-    expect(horas).toBeGreaterThan(47.9);
-    expect(horas).toBeLessThan(48.1);
+    const hoy = momentoEnZona(new Date(), c.tenant.zonaHoraria).isoFecha;
+    expect(c.tenant.plazoJustificacionDiasHabiles).toBe(15);
+    expect(token.expiraAt.toISOString()).toBe(venceJustificacion(hoy, 15).toISOString());
   });
 
-  it("el plazo lo configura dirección (24 a 168 h) y el enlace nuevo lo respeta", async () => {
-    await expect(actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionHoras: 12 })).rejects.toThrow(/24 a 168/);
-    await actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionHoras: 72 });
+  it("el plazo lo configura dirección (1 a 30 días hábiles) y el enlace nuevo lo respeta", async () => {
+    await expect(actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDiasHabiles: 0 })).rejects.toThrow(/1 a 30 días hábiles/);
+    await expect(actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDiasHabiles: 31 })).rejects.toThrow(/1 a 30 días hábiles/);
+    await actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDiasHabiles: 5 });
     const tenant = await c.db.tenant.findUniqueOrThrow({ where: { id: c.tenant.id } });
-    expect(tenant.plazoJustificacionHoras).toBe(72);
+    expect(tenant.plazoJustificacionDiasHabiles).toBe(5);
 
     const ctx = { ...c.ctxDe("tutora"), tenant };
-    const antes = Date.now();
     await guardarLista(ctx, falta(c.alumnos.mateo.id, { ambito: c.cursoTutora.id }));
-    const tokens = await c.db.justificacionToken.findMany({ orderBy: { expiraAt: "desc" } });
-    expect((tokens[0].expiraAt.getTime() - antes) / 3_600_000).toBeGreaterThan(71.9);
+    const tokens = await c.db.justificacionToken.findMany({ orderBy: { expiraAt: "asc" } }); // el de 5 días vence antes
+    const hoy = momentoEnZona(new Date(), c.tenant.zonaHoraria).isoFecha;
+    expect(tokens[0].expiraAt.toISOString()).toBe(venceJustificacion(hoy, 5).toISOString());
+    await actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDiasHabiles: 15 });
+  });
+
+  it("ya no acepta el modo ni la hora de los avisos", async () => {
+    const viejo = { ...datosConfig(c), modoAvisos: "solo_excepciones" } as unknown as Parameters<typeof actualizarConfiguracion>[1];
+    await expect(actualizarConfiguracion(c.ctxDe("direccion"), viejo)).rejects.toThrow(/ya no se configuran/);
+    const conHora = { ...datosConfig(c), horaEnvioAvisos: "09:00" } as unknown as Parameters<typeof actualizarConfiguracion>[1];
+    await expect(actualizarConfiguracion(c.ctxDe("direccion"), conHora)).rejects.toThrow(/ya no se configuran/);
   });
 
   it("una lista guardada sin conexión usa la hora real del registro y es idempotente", async () => {
@@ -108,7 +117,7 @@ describe("día a día: plazo de justificación, registros sin conexión y avisos
 
 function datosConfig(c: ColegioPrueba) {
   return {
-    horaEnvioAvisos: c.tenant.horaEnvioAvisos, horaLimiteTardanza: c.tenant.horaLimiteTardanza,
-    modoAvisos: c.tenant.modoAvisos as "todos", escalaCalificacion: c.tenant.escalaCalificacion as "literal", emailDomains: "",
+    horaLimiteTardanza: c.tenant.horaLimiteTardanza,
+    escalaCalificacion: c.tenant.escalaCalificacion as "literal", emailDomains: "",
   };
 }

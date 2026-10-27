@@ -85,29 +85,3 @@ describe("cola de avisos → Mailpit", () => {
     expect(vinculo.recibeAvisos).toBe(false);
   });
 });
-
-describe("resumen de llegadas (solo excepciones)", () => {
-  let c: ColegioPrueba;
-  beforeAll(async () => {
-    c = await crearColegioPrueba({ modoAvisos: "solo_excepciones" });
-  });
-  afterAll(async () => {
-    await c?.limpiar();
-  });
-
-  it("agrupa las llegadas en un correo por familia desde la hora de envío, una sola vez al día", async () => {
-    // Fechas fijas: 20/10/2026 a las 07:50 de Lima (12:50 UTC).
-    const llegada = new Date("2026-10-20T12:50:00Z");
-    await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: "dia", registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] }, llegada);
-    expect(await c.db.aviso.count()).toBe(0);
-
-    const antes = await procesarCola({ tenantId: c.tenant.id, limites: RAPIDO, ahora: new Date("2026-10-20T13:30:00Z") }); // 08:30
-    expect(antes.resumenes).toBe(0);
-    const despues = await procesarCola({ tenantId: c.tenant.id, limites: RAPIDO, ahora: new Date("2026-10-20T14:05:00Z") }); // 09:05
-    expect(despues.resumenes).toBe(1);
-    const resumen = await c.db.aviso.findFirstOrThrow({ where: { plantilla: "resumen_llegadas" } });
-    expect(resumen.payload).toMatchObject({ fecha: "2026-10-20", llegadas: [{ alumno: "Mateo", hora: "07:50" }] });
-    const otraVez = await procesarCola({ tenantId: c.tenant.id, limites: RAPIDO, ahora: new Date("2026-10-20T20:00:00Z") });
-    expect(otraVez.resumenes).toBe(0);
-  });
-});

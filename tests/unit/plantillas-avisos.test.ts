@@ -74,7 +74,6 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       asistencia_tarde: { colegio, alumno: "Mateo", hora: "08:15" },
       asistencia_falta: { colegio, alumno: "Mateo" },
       asistencia_problema: { colegio, alumno: "Mateo", hora: "09:00" },
-      resumen_llegadas: { colegio, llegadas: [{ alumno: "Mateo", hora: "07:52" }, { alumno: "Ana", hora: "07:40" }] },
       mensaje_nuevo: { colegio, remitente: "Lucía García", alumno: "Mateo", url: "http://m" },
       comunicado: { colegio, titulo: "Reunión de padres", url: "http://c" },
       invitacion: { colegio, nombre: "Rosa", rol: "Familia", url: "http://i" },
@@ -91,7 +90,6 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       expect(m.asunto.length, nombre).toBeGreaterThan(0);
       expect(m.push.cuerpo.length, nombre).toBeGreaterThan(0);
     }
-    expect(renderizarPlantilla("resumen_llegadas", payloads.resumen_llegadas).texto).toContain("Ana llegó al colegio a las 7:40 a. m.");
     expect(renderizarPlantilla("mensaje_nuevo", payloads.mensaje_nuevo).texto).toContain("Lucía García te escribió sobre Mateo.");
     expect(renderizarPlantilla("justificacion_revisada", payloads.justificacion_revisada).texto).toContain("del 26/10/2026");
   });

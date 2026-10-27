@@ -31,12 +31,6 @@ const ESQUEMAS = {
     nota: z.string().max(500).optional(),
     urlMensajes: url.optional(),
   }),
-  resumen_llegadas: z.object({
-    ...comun,
-    llegadas: z.array(z.object({ alumno: z.string().min(1), hora: hhmm })).min(1),
-    /** AAAA-MM-DD; evita enviar dos resúmenes el mismo día. */
-    fecha: fechaIso.optional(),
-  }),
   mensaje_nuevo: z.object({ ...comun, remitente: z.string().min(1), alumno: z.string().min(1), url }),
   comunicado: z.object({ ...comun, titulo: z.string().min(1), url, adjuntos: z.number().int().min(0).optional() }),
   invitacion: z.object({ ...comun, nombre: z.string().min(1), rol: z.string().min(1), url }),
@@ -140,15 +134,6 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
         "Por favor, escríbele a su tutora para conversarlo.",
       ],
       boton: p.urlMensajes ? { texto: "Escribir a la tutora", url: p.urlMensajes } : undefined,
-      urlPreferencias: p.urlPreferencias,
-    }),
-
-  resumen_llegadas: (p) =>
-    armarMensaje({
-      colegio: p.colegio,
-      asunto: "Llegadas de hoy",
-      insignia: "llego",
-      parrafos: p.llegadas.map((l) => `${l.alumno} llegó al colegio a las ${hora12(l.hora)}`),
       urlPreferencias: p.urlPreferencias,
     }),
 

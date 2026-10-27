@@ -2,6 +2,7 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import type { Prisma } from "@/generated/prisma/client";
 import type { CanalAviso, EstadoAsistencia, TipoAviso } from "@/generated/prisma/enums";
+import { isoDeFechaDb } from "@/lib/fechas";
 import { expiracionJustificacion } from "@/lib/plazo-justificacion";
 import type { DbTenant } from "../db";
 import { renderizarPlantilla, type NombrePlantilla, type PayloadDe } from "../email/plantillas";
@@ -13,7 +14,8 @@ import { whatsappSoportaPlantilla } from "./whatsapp";
 // Encolado de avisos (specs/06). Solo se encola para apoderados con `recibeAvisos`,
 // consentimiento vigente (no revocado) y según `preferencias_aviso` (correo y/o push).
 
-// La vigencia del enlace «Justificar falta» sale de `Tenant.plazoJustificacionHoras` (48 h por defecto; specs/07).
+// El enlace «Justificar falta» vence al fin del día (hora del colegio) del n-ésimo día hábil posterior a la falta,
+// con n = `Tenant.plazoJustificacionDiasHabiles` (15 por defecto; specs/07). Se cuenta desde la falta, no desde el envío.
 
 export type Destinatario = {
   apoderadoId: string;
@@ -59,6 +61,38 @@ export async function destinatariosDeAlumno(tdb: DbTenant, alumnoId: string): Pr
       canalesPago: { whatsapp: "whatsapp" in pref ? pref.whatsapp : false, sms: "sms" in pref ? pref.sms : false },
     };
   });
+}
+
+/** Cuántas familias con algún canal de aviso tiene cada alumno (para el resumen previo de pasar lista). */
+export async function familiasConAvisoPorAlumno(tdb: DbTenant, alumnoIds: string[]): Promise<Map<string, number>> {
+  const vinculos = await tdb.apoderadoAlumno.findMany({
+    where: {
+      alumnoId: { in: alumnoIds },
+      recibeAvisos: true,
+      apoderado: { estado: "activa", consentimientos: { some: { revocadoAt: null } } },
+    },
+    select: {
+      alumnoId: true,
+      apoderado: {
+        select: {
+          preferenciaAviso: { select: { correo: true, push: true, whatsapp: true, sms: true } },
+          user: { select: { telefono: true, _count: { select: { pushSuscripciones: true } } } },
+        },
+      },
+    },
+  });
+  const conteo = new Map<string, number>();
+  for (const v of vinculos) {
+    const pref = v.apoderado.preferenciaAviso ?? { correo: true, push: true, whatsapp: false, sms: false };
+    const ok = tieneCanalAviso({
+      correo: pref.correo,
+      pushEndpoints: pref.push && v.apoderado.user._count.pushSuscripciones > 0 ? ["x"] : [],
+      telefono: v.apoderado.user.telefono,
+      canalesPago: { whatsapp: pref.whatsapp, sms: pref.sms },
+    });
+    if (ok) conteo.set(v.alumnoId, (conteo.get(v.alumnoId) ?? 0) + 1);
+  }
+  return conteo;
 }
 
 /**
@@ -145,11 +179,16 @@ export async function encolarParaDestinatario<N extends NombrePlantilla>(
 /** Crea el token de un solo uso para justificar la falta. Solo se guarda su hash. */
 export async function crearTokenJustificacion(
   tdb: DbTenant,
-  datos: { tenantId: string; asistenciaId: string; apoderadoId: string; plazoHoras?: number | null; ahora?: Date },
+  datos: {
+    tenantId: string; asistenciaId: string; apoderadoId: string;
+    /** Día de la falta (AAAA-MM-DD, hora del colegio). */
+    fechaFalta: string;
+    plazoDias?: number | null;
+    zonaHoraria?: string;
+  },
 ): Promise<{ id: string; token: string }> {
   const id = randomUUID();
   const token = tokenDerivado("justificar", id);
-  const ahora = datos.ahora ?? new Date();
   await tdb.justificacionToken.create({
     data: {
       id,
@@ -157,7 +196,7 @@ export async function crearTokenJustificacion(
       asistenciaId: datos.asistenciaId,
       apoderadoId: datos.apoderadoId,
       tokenHash: hashToken(token),
-      expiraAt: expiracionJustificacion(ahora, datos.plazoHoras),
+      expiraAt: expiracionJustificacion(datos.fechaFalta, datos.plazoDias, datos.zonaHoraria),
     },
   });
   return { id, token };
@@ -165,6 +204,8 @@ export async function crearTokenJustificacion(
 
 export type AsistenciaParaAviso = {
   id: string;
+  /** Columna `@db.Date` de la asistencia (día de la falta para el plazo de justificación). */
+  fecha: Date;
   alumnoId: string;
   estado: EstadoAsistencia;
   hora: string;
@@ -172,13 +213,14 @@ export type AsistenciaParaAviso = {
 };
 
 /**
- * Encola los avisos de un registro de asistencia. Con `modoAvisos = solo_excepciones` las llegadas
- * no se avisan aquí (van en el resumen de llegadas). Devuelve cuántas familias recibirán aviso.
+ * Encola los avisos de un registro de asistencia: llegada, tardanza, falta o problema, a cada familia
+ * con consentimiento y según sus preferencias. Todas las llegadas se avisan (el modo «solo excepciones»
+ * se eliminó); quien llama evita repetir la llegada del mismo alumno el mismo día. Devuelve cuántas familias recibirán aviso.
  */
 export async function encolarAvisosAsistencia(
   tdb: DbTenant,
   datos: {
-    tenant: { id: string; nombre: string; modoAvisos: "todos" | "solo_excepciones"; plazoJustificacionHoras?: number };
+    tenant: { id: string; nombre: string; plazoJustificacionDiasHabiles?: number; zonaHoraria?: string };
     asistencia: AsistenciaParaAviso;
     alumnoNombre: string;
     /** «a la 1.ª hora» o «a Matemática» (texto del aviso de falta). */
@@ -187,8 +229,6 @@ export async function encolarAvisosAsistencia(
   },
 ): Promise<number> {
   const { tenant, asistencia, alumnoNombre } = datos;
-  if (asistencia.estado === "llego" && tenant.modoAvisos === "solo_excepciones") return 0;
-
   const destinatarios = await destinatariosDeAlumno(tdb, asistencia.alumnoId);
   let familias = 0;
   for (const d of destinatarios) {
@@ -208,7 +248,10 @@ export async function encolarAvisosAsistencia(
         });
         break;
       case "falta": {
-        const { id } = await crearTokenJustificacion(tdb, { tenantId: tenant.id, asistenciaId: asistencia.id, apoderadoId: d.apoderadoId, plazoHoras: tenant.plazoJustificacionHoras });
+        const { id } = await crearTokenJustificacion(tdb, {
+          tenantId: tenant.id, asistenciaId: asistencia.id, apoderadoId: d.apoderadoId,
+          fechaFalta: isoDeFechaDb(asistencia.fecha), plazoDias: tenant.plazoJustificacionDiasHabiles, zonaHoraria: tenant.zonaHoraria,
+        });
         filas = await encolarParaDestinatario(tdb, d, {
           ...base,
           plantilla: "asistencia_falta",

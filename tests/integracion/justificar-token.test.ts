@@ -1,7 +1,8 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { venceJustificacion } from "@/lib/dias-habiles";
 import { db } from "@/lib/server/db";
 import {
-  buscarTokenJustificacion, consultarTokenJustificacion, justificarConSesion, justificarConToken, listarJustificaciones, MENSAJE_PLAZO_VENCIDO, MENSAJE_TOKEN_INVALIDO, revisarJustificacion,
+  buscarTokenJustificacion, consultarTokenJustificacion, faltaParaJustificar, justificarConSesion, justificarConToken, listarJustificaciones, mensajePlazoVencido, MENSAJE_TOKEN_INVALIDO, revisarJustificacion,
 } from "@/lib/server/justificaciones";
 import { guardarLista } from "@/lib/server/asistencia";
 import { tokenDerivado } from "@/lib/server/tokens";
@@ -30,13 +31,15 @@ describe("justificar falta con token", () => {
   });
 
   it("un token vencido no sirve", async () => {
-    // Plazo por defecto del reglamento: 48 h.
-    const en47h = new Date(Date.now() + 47 * 3_600_000);
-    const en49h = new Date(Date.now() + 49 * 3_600_000);
-    expect(await buscarTokenJustificacion(token, { ahora: en47h })).not.toBeNull();
-    expect(await buscarTokenJustificacion(token, { ahora: en49h })).toBeNull();
-    expect(await consultarTokenJustificacion(token, { ahora: en49h })).toEqual({ ok: false, motivo: "vencido" });
-    expect(await justificarConToken(token, { motivo: "Fiebre", archivo: null }, { ahora: en49h })).toEqual({ ok: false, error: MENSAJE_PLAZO_VENCIDO });
+    // Plazo por defecto del reglamento: 15 días hábiles desde la falta (fin del día en Lima).
+    const fila = await c.db.justificacionToken.findFirstOrThrow();
+    const antes = new Date(fila.expiraAt.getTime() - 1);
+    const despues = new Date(fila.expiraAt.getTime() + 1);
+    expect(await buscarTokenJustificacion(token, { ahora: antes })).not.toBeNull();
+    expect(await buscarTokenJustificacion(token, { ahora: despues })).toBeNull();
+    expect(await consultarTokenJustificacion(token, { ahora: despues })).toEqual({ ok: false, motivo: "vencido", plazoDias: 15 });
+    expect(await justificarConToken(token, { motivo: "Fiebre", archivo: null }, { ahora: despues })).toEqual({ ok: false, error: mensajePlazoVencido(15) });
+    expect(mensajePlazoVencido(15)).toBe("El plazo para justificar venció (15 días hábiles). Escribe a la tutora.");
   });
 
   it("un token de otro colegio no sirve", async () => {
@@ -93,5 +96,38 @@ describe("justificar falta con token", () => {
     const { rm } = await import("node:fs/promises");
     for (const t of [c.tenant.id, otro.tenant.id]) await rm(`.uploads/${t}`, { recursive: true, force: true });
     expect(await db.archivo.count({ where: { tenantId: c.tenant.id } })).toBe(1);
+  });
+});
+
+describe("justificar con sesión: plazo de días hábiles", () => {
+  let c: ColegioPrueba;
+  beforeAll(async () => {
+    c = await crearColegioPrueba();
+  });
+  afterAll(async () => {
+    await c?.limpiar();
+  });
+
+  it("fuera de plazo el servidor la rechaza; dentro la acepta", async () => {
+    await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: "dia", registros: [{ alumnoId: c.alumnos.mateo.id, estado: "falta" }] });
+    const asistencia = await c.db.asistencia.findFirstOrThrow({ where: { alumnoId: c.alumnos.mateo.id } });
+    const fecha = asistencia.fecha.toISOString().slice(0, 10);
+    const vence = venceJustificacion(fecha, 15);
+
+    const falta = await faltaParaJustificar(c.ctxDe("madre"), asistencia.id);
+    expect(falta).toMatchObject({ disponible: true, plazoVencido: false });
+    expect(falta.venceAt.toISOString()).toBe(vence.toISOString());
+    expect(falta.textoPlazo).toMatch(/^Puedes justificar hasta el /);
+
+    const tarde = new Date(vence.getTime() + 1);
+    expect(await faltaParaJustificar(c.ctxDe("madre"), asistencia.id, tarde)).toMatchObject({ plazoVencido: true });
+    expect(await justificarConSesion(c.ctxDe("madre"), asistencia.id, { motivo: "Fiebre", archivo: null }, tarde)).toEqual({
+      ok: false, error: "El plazo para justificar venció (15 días hábiles). Escribe a la tutora.",
+    });
+    expect(await c.db.justificacion.count()).toBe(0);
+
+    const r = await justificarConSesion(c.ctxDe("madre"), asistencia.id, { motivo: "Fiebre", archivo: null }, new Date(vence.getTime() - 1));
+    expect(r).toMatchObject({ ok: true });
+    expect(await c.db.justificacion.count()).toBe(1);
   });
 });

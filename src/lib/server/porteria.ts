@@ -204,13 +204,17 @@ async function registrarLlegada(ctx: TenantContext, alumnoId: string, ahora: Dat
       origen: "porteria", registradoPorId: ctx.membership.id,
     },
     update: { estado, hora: hoy.hora, origen: "porteria", registradoPorId: ctx.membership.id, nota: null },
-    select: { id: true, alumnoId: true, estado: true, hora: true, nota: true },
+    select: { id: true, alumnoId: true, fecha: true, estado: true, hora: true, nota: true },
   });
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: anterior ? "editar" : "crear", entidad: "asistencia", entidadId: asistencia.id,
     detalle: { alumnoId, ambito: AMBITO_DIA, origen: "porteria", antes: anterior?.estado ?? null, ahora: estado },
   });
-  await encolarAvisosAsistencia(ctx.db, {
+  // Un solo aviso de llegada por día: si una lista de curso ya registró su llegada, portería no la repite.
+  const llegadaPrevia = estado === "llego"
+    ? await ctx.db.asistencia.count({ where: { alumnoId, fecha, ambito: { not: AMBITO_DIA }, estado: { in: ["llego", "tarde"] } } })
+    : 0;
+  if (llegadaPrevia === 0) await encolarAvisosAsistencia(ctx.db, {
     tenant: ctx.tenant,
     asistencia,
     alumnoNombre: primerNombre(alumno.nombres),

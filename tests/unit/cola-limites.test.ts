@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cupoDiario, esperaReintentoMs, leerLimites, MAX_INTENTOS, pausaEntreCorreosMs, tocaResumen } from "@/lib/server/notificaciones/limites";
+import { cupoDiario, esperaReintentoMs, leerLimites, MAX_INTENTOS, pausaEntreCorreosMs } from "@/lib/server/notificaciones/limites";
 
 describe("tope diario y ritmo de la cola de avisos", () => {
   it("el cupo es el límite menos lo enviado en 24 h, sin bajar de cero", () => {
@@ -26,11 +26,5 @@ describe("tope diario y ritmo de la cola de avisos", () => {
     const esperas = [1, 2, 3].map(esperaReintentoMs);
     expect(esperas[0]).toBeLessThan(esperas[1]);
     expect(esperas[1]).toBeLessThan(esperas[2]);
-  });
-
-  it("el resumen de llegadas se envía desde la hora configurada", () => {
-    expect(tocaResumen("08:59", "09:00")).toBe(false);
-    expect(tocaResumen("09:00", "09:00")).toBe(true);
-    expect(tocaResumen("13:10", "09:00")).toBe(true);
   });
 });

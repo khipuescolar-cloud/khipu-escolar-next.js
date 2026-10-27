@@ -30,11 +30,6 @@ export function leerLimites(entorno: Record<string, string | undefined> = proces
   };
 }
 
-/** true si `hora` (HH:mm local) ya pasó la hora de envío del resumen. */
-export function tocaResumen(horaLocal: string, horaEnvioAvisos: string): boolean {
-  return horaLocal >= horaEnvioAvisos;
-}
-
 /** Canales de pago (WhatsApp y SMS) tienen su propio tope diario en ventana móvil de 24 h, global. */
 export type CanalDePago = "whatsapp" | "sms";
 export const CANALES_DE_PAGO: readonly CanalDePago[] = ["whatsapp", "sms"];

@@ -1,6 +1,6 @@
 # 04 — Asistencia (pasar lista)
 
-> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/p2-dia-a-dia`: calendario mensual y pasar lista sin conexión)
+> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-presentes-plazo`: aviso de llegada a las familias de los presentes al cerrar la lista, resumen previo de avisos y plazo de justificación en días hábiles)
 
 ## Objetivo
 El profesor pasa lista en menos de un minuto y las familias se enteran al instante.
@@ -17,14 +17,16 @@ El profesor pasa lista en menos de un minuto y las familias se enteran al instan
 1. `/asistencia` (profesor/dirección) muestra las listas disponibles agrupadas por salón: «Asistencia del día · 3.° B» (`ambito = "dia"`) y cada curso (`ambito = cursoId`). Dirección ve además el conteo del día (Llegó/Tarde/Falta/Problema/Sin registro).
 2. `/asistencia?salon=<id>&ambito=<dia|cursoId>`: lista de alumnos con 4 botones grandes **Llegó / Tarde / Falta / Problema** (ícono + palabra, `aria-pressed`). Por defecto «Llegó» o el estado ya guardado hoy. Muestra la hora actual de Lima. «Problema» abre un campo de nota (máx. 300).
 3. Vista previa del correo (componente `VistaPreviaAviso`, compartido con la spec 06) para la familia del alumno elegido, según el estado marcado.
-4. **«Guardar y avisar a los padres»** → `guardarListaAction` → `guardarLista()` → resumen «Lista guardada. Se avisó a N familias.» y `after()` procesa la cola del colegio.
-5. Apoderado: `/asistencia` calendario del mes por hijo (`CalendarioAsistencia`, lógica en `src/lib/calendario-asistencia.ts`) y, debajo, la lista detallada del mes con `EstadoAsistencia` y, en faltas sin justificar (o con justificación rechazada), el botón **Justificar falta** → `/asistencia/justificar/<asistenciaId>` (spec 07). Debajo, «Tus avisos» (preferencias y push, spec 06).
+4. Antes de guardar, el resumen (panel lateral en escritorio, barra fija en móvil) dice a quién se avisará: «Se avisará a 24 familias: 20 llegadas, 2 tardanzas, 2 faltas.» y, si aplica, «La llegada de 3 alumnos ya se avisó hoy.» (`src/lib/resumen-avisos-lista.ts`, con `familiasConAviso` y `llegadaAvisada` que devuelve `obtenerLista`).
+5. **«Guardar y avisar a los padres»** (cerrar la lista) → `guardarListaAction` → `guardarLista()` → resumen «Lista guardada. Se avisó a N familias.» y `after()` procesa la cola del colegio en ese momento (el aviso sale sin esperar al cron).
+6. Apoderado: `/asistencia` calendario del mes por hijo (`CalendarioAsistencia`, lógica en `src/lib/calendario-asistencia.ts`) y, debajo, la lista detallada del mes con `EstadoAsistencia` y, en faltas sin justificar (o con justificación rechazada) **dentro del plazo** (spec 07), el botón **Justificar falta** → `/asistencia/justificar/<asistenciaId>` con la fecha límite debajo («Puedes justificar hasta el vie 14 nov»); fuera de plazo se muestra «Plazo vencido» (ícono + palabra) en lugar del botón. Debajo, «Tus avisos» (preferencias y push, spec 06).
 
 ## Reglas de negocio
 - Fecha y hora en `tenant.zonaHoraria` (America/Lima) con `momentoEnZona()` (`src/lib/fechas.ts`).
 - Upsert por `(alumnoId, fecha, ambito)` con `origen = lista`. La hora se fija al crear o al cambiar el estado; si solo cambia la nota, se conserva.
+- **Regla del colegio:** al guardar (cerrar) la lista, las familias de **todos** los alumnos reciben aviso según su estado: presentes (`llego` → `asistencia_llego`), tardanzas, faltas y problemas, por correo, push y demás canales según sus preferencias y consentimiento (spec 06). Ya no existe el modo «solo excepciones».
 - Solo se encola aviso si el registro es nuevo o **cambia el estado**. Repetir la misma lista no crea filas ni avisos.
-- En la lista de un curso, «Llegó» no se vuelve a avisar si el alumno ya tiene hoy otra llegada (del día u otro curso). Tarde, falta y problema siempre se avisan.
+- **Un solo aviso de llegada por alumno y día:** «Llegó» no se vuelve a avisar si el alumno ya tuvo hoy una llegada en otra lista o en portería (`llego`/`tarde` en otro ámbito), ni si esta misma lista lo tenía «Tarde». Motivo: cada correo cuesta y el envío diario tiene tope (Gmail ~500 por día; `EMAIL_DAILY_LIMIT`). Tardanza, falta y problema siempre se avisan.
 - Falta: texto «no llegó hoy a la 1.ª hora» (lista del día) o «no llegó hoy a <curso>».
 - Todos los alumnos enviados deben ser del salón y estar activos; si no, 403.
 - `auditar()` en cada creación y cambio (con estado antes/después) y al ver la lista o el historial.
@@ -38,10 +40,11 @@ El profesor pasa lista en menos de un minuto y las familias se enteran al instan
 // src/lib/server/asistencia.ts
 opcionesDeLista(ctx): Promise<{ salonId; salonNombre; ambito; titulo }[]>   // profesor/dirección
 obtenerLista(ctx, salonId, ambito)    // 403 si no es su lista; audita «ver»
-guardarLista(ctx, entrada: unknown, ahora?) : Promise<{ guardados; cambios; familiasAvisadas }>
+obtenerLista(...).alumnos[i]: { id, nombres, apellidos, registro, familiasConAviso, llegadaAvisada }
+guardarLista(ctx, entrada: unknown, ahora?) : Promise<{ guardados; cambios; familiasAvisadas; omitidos }>
   // zod: { salonId: uuid, ambito: "dia" | uuid, registros: [{ alumnoId, estado, nota? }] (1..200) }
 resumenDelDia(ctx)                    // solo dirección
-historialDeHijos(ctx, dias = 30)      // solo apoderado
+historialDeHijos(ctx, mes?)           // apoderado/alumno; cada registro trae puedeJustificar, justificarHasta y plazoVencido
 hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 ```
 
@@ -78,8 +81,9 @@ hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 
 ## Pruebas
 - unit: `tests/unit/calendario-asistencia.test.ts` (armado del mes, estado por día, navegación, zona Lima), `tests/unit/registro-offline.test.ts` (hora razonable, cola, contador). integración: `tests/integracion/dia-a-dia-offline-plazo.test.ts` (lista offline con hora real, idempotencia, no pisa un cambio posterior). e2e: `tests/e2e/dia-a-dia-offline-calendario.test.ts` (calendario y navegación; lista sin conexión con `context.setOffline`).
-- integración (`tests/integracion/pasar-lista.test.ts`): upsert idempotente, avisos solo con consentimiento, corrección = aviso nuevo, token de falta solo con hash, auditoría, preferencia sin correo, llegada en curso no se re-avisa, profesor no pasa lista en curso o salón ajeno, alumno de otro salón rechazado, apoderado no pasa lista, modo `solo_excepciones`.
-- e2e (`tests/e2e/pasar-lista-aviso-justificar.test.ts`): Lucía pasa lista en 3.° B → correo en Mailpit → enlace de justificar funciona una vez. `tests/e2e/paginas-basico-por-rol.test.ts`: resumen del día, vista de familia, portería sin acceso.
+- integración (`tests/integracion/pasar-lista.test.ts`): upsert idempotente, avisos solo con consentimiento, corrección = aviso nuevo, token de falta solo con hash, auditoría, preferencia sin correo, llegada en curso no se re-avisa, profesor no pasa lista en curso o salón ajeno, alumno de otro salón rechazado, apoderado no pasa lista; **aviso de presentes**: al guardar se encola `asistencia_llego` a cada apoderado con consentimiento, una segunda lista del mismo día no duplica la llegada (pero avisa la falta), una lista del día tras una de curso tampoco, `obtenerLista` devuelve `familiasConAviso`/`llegadaAvisada`.
+- unit: `tests/unit/resumen-avisos-lista.test.ts` (conteo del resumen previo).
+- e2e (`tests/e2e/pasar-lista-aviso-justificar.test.ts`): Lucía pasa lista en 3.° B → el resumen dice «Se avisará a N familias: … llegadas» → el correo «Mateo llegó al colegio» llega a Mailpit → luego la falta → correo de falta → enlace de justificar funciona una vez. `tests/e2e/paginas-basico-por-rol.test.ts`: resumen del día, vista de familia, portería sin acceso.
 
 ## Pendientes
 - (Hecho) Vista de la familia: botón «Escribir a la tutora» por hijo → `/mensajes/nuevo?alumno=<id>` (spec 08).

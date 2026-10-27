@@ -4,7 +4,7 @@ import { z } from "zod";
 import type { EstadoJustificacion } from "@/generated/prisma/enums";
 import { urlColegio } from "@/lib/dominio";
 import { isoDeFechaDb } from "@/lib/fechas";
-import { MENSAJE_PLAZO_VENCIDO } from "@/lib/plazo-justificacion";
+import { expiracionJustificacion, mensajePlazoVencido, normalizarPlazoDias, textoPlazoJustificacion } from "@/lib/plazo-justificacion";
 import { primerNombre } from "@/lib/nombres";
 import { auditar } from "./auditoria";
 import { db, dbTenant, type DbTenant } from "./db";
@@ -18,7 +18,7 @@ import { formatoTokenValido, hashToken } from "./tokens";
 // Justificaciones de faltas (specs/07-justificaciones.md).
 
 export const MENSAJE_TOKEN_INVALIDO = "Este enlace ya se usó o no es válido. Escríbele a la tutora desde Khipu.";
-export { MENSAJE_PLAZO_VENCIDO };
+export { mensajePlazoVencido };
 
 export const esquemaMotivo = z
   .string()
@@ -37,7 +37,9 @@ export type DatosTokenJustificar = {
 
 export type ConsultaToken =
   | { ok: true; datos: DatosTokenJustificar }
-  | { ok: false; motivo: "invalido" | "vencido" };
+  | { ok: false; motivo: "invalido" }
+  /** `plazoDias`: días hábiles del reglamento del colegio, para el mensaje. */
+  | { ok: false; motivo: "vencido"; plazoDias: number };
 
 /** Como `buscarTokenJustificacion`, pero distingue un enlace vencido (plazo del reglamento) de uno inválido o usado. */
 export async function consultarTokenJustificacion(
@@ -49,7 +51,7 @@ export async function consultarTokenJustificacion(
     where: { tokenHash: hashToken(token) },
     select: {
       id: true, tenantId: true, asistenciaId: true, apoderadoId: true, expiraAt: true, usadoAt: true,
-      tenant: { select: { id: true, nombre: true, slug: true, estado: true } },
+      tenant: { select: { id: true, nombre: true, slug: true, estado: true, plazoJustificacionDiasHabiles: true } },
       asistencia: { select: { fecha: true, estado: true, alumno: { select: { nombres: true } } } },
     },
   });
@@ -57,7 +59,7 @@ export async function consultarTokenJustificacion(
   if (!fila || fila.usadoAt) return { ok: false, motivo: "invalido" };
   if (opciones.tenantId && fila.tenantId !== opciones.tenantId) return { ok: false, motivo: "invalido" };
   if (fila.tenant.estado === "suspendido" || fila.asistencia.estado !== "falta") return { ok: false, motivo: "invalido" };
-  if (fila.expiraAt <= ahora) return { ok: false, motivo: "vencido" };
+  if (fila.expiraAt <= ahora) return { ok: false, motivo: "vencido", plazoDias: normalizarPlazoDias(fila.tenant.plazoJustificacionDiasHabiles) };
   return {
     ok: true,
     datos: {
@@ -135,7 +137,7 @@ export async function justificarConToken(
     if (!v.ok) return { ok: false, error: MENSAJE_VALIDACION[v.error] };
   }
   const consulta = await consultarTokenJustificacion(token, opciones);
-  if (!consulta.ok) return { ok: false, error: consulta.motivo === "vencido" ? MENSAJE_PLAZO_VENCIDO : MENSAJE_TOKEN_INVALIDO };
+  if (!consulta.ok) return { ok: false, error: consulta.motivo === "vencido" ? mensajePlazoVencido(consulta.plazoDias) : MENSAJE_TOKEN_INVALIDO };
   const datos = consulta.datos;
 
   const ahora = opciones.ahora ?? new Date();
@@ -162,8 +164,11 @@ export async function justificarConToken(
   }
 }
 
-/** Falta del hijo que el apoderado con sesión puede justificar, o 404/403. */
-export async function faltaParaJustificar(ctx: TenantContext, asistenciaId: string) {
+/**
+ * Falta del hijo que el apoderado con sesión puede justificar, o 404/403. `disponible`: es falta sin justificación
+ * vigente; `plazoVencido`: pasaron los días hábiles del reglamento desde la falta (specs/07).
+ */
+export async function faltaParaJustificar(ctx: TenantContext, asistenciaId: string, ahora = new Date()) {
   requireFeature(ctx, "justificaciones");
   if (ctx.rol !== "apoderado") forbidden();
   const asistencia = await ctx.db.asistencia.findUnique({
@@ -177,7 +182,17 @@ export async function faltaParaJustificar(ctx: TenantContext, asistenciaId: stri
   await requireAlumnoVisible(ctx, asistencia.alumnoId);
   const ultima = asistencia.justificaciones[0]?.estado;
   const disponible = asistencia.estado === "falta" && (!ultima || ultima === "rechazada");
-  return { id: asistencia.id, alumno: primerNombre(asistencia.alumno.nombres), fecha: isoDeFechaDb(asistencia.fecha), disponible };
+  const fecha = isoDeFechaDb(asistencia.fecha);
+  const dias = ctx.tenant.plazoJustificacionDiasHabiles;
+  const vence = expiracionJustificacion(fecha, dias, ctx.tenant.zonaHoraria);
+  return {
+    id: asistencia.id, alumno: primerNombre(asistencia.alumno.nombres), fecha, disponible,
+    plazoVencido: vence <= ahora,
+    venceAt: vence,
+    /** «Puedes justificar hasta el vie 14 nov» */
+    textoPlazo: textoPlazoJustificacion(fecha, dias),
+    mensajeVencido: mensajePlazoVencido(dias),
+  };
 }
 
 /** Justificación desde /asistencia con sesión. Invalida los enlaces pendientes de esa falta. */
@@ -185,9 +200,11 @@ export async function justificarConSesion(
   ctx: TenantContext,
   asistenciaId: string,
   entrada: { motivo: unknown; archivo: Buffer | null },
+  ahora = new Date(),
 ): Promise<ResultadoJustificar> {
-  const falta = await faltaParaJustificar(ctx, asistenciaId);
+  const falta = await faltaParaJustificar(ctx, asistenciaId, ahora);
   if (!falta.disponible) return { ok: false, error: "Esta falta ya tiene una justificación." };
+  if (falta.plazoVencido) return { ok: false, error: falta.mensajeVencido };
   const motivo = esquemaMotivo.safeParse(entrada.motivo);
   if (!motivo.success) return { ok: false, error: motivo.error.issues[0].message };
   await ctx.db.justificacionToken.updateMany({

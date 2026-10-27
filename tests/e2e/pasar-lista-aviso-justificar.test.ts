@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 // Flujo completo del plan Básico (specs/04, 06 y 07):
-// Lucía pasa lista en 3.° B → la familia recibe el correo en Mailpit → el enlace «Justificar falta» funciona una sola vez.
+// Lucía pasa lista en 3.° B → la familia de un presente recibe el correo de llegada y la de un ausente el de falta en Mailpit → el enlace «Justificar falta» funciona una sola vez.
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const MAILPIT = process.env.MAILPIT_URL ?? "http://127.0.0.1:54324";
 const COLEGIO = `http://nuevohorizonte.lvh.me:${PUERTO}`;
@@ -20,7 +20,7 @@ async function esperarCorreo(para: string, asunto: string, desde: Date): Promise
   throw new Error(`No llegó el correo «${asunto}» a ${para}`);
 }
 
-test("Lucía pasa lista, la familia recibe el aviso de falta y lo justifica con el enlace", async ({ page, browser }) => {
+test("Lucía pasa lista, la familia recibe el aviso de llegada y el de falta, y lo justifica con el enlace", async ({ page, browser }) => {
   test.setTimeout(120_000);
   await page.goto("/login");
   await page.getByLabel("Correo").fill("lucia.garcia@nuevohorizonte.demo");
@@ -32,19 +32,30 @@ test("Lucía pasa lista, la familia recibe el aviso de falta y lo justifica con 
   await page.getByRole("link", { name: "Asistencia del día · 3.° B" }).click();
   await expect(page.getByRole("heading", { name: "Asistencia del día · 3.° B" })).toBeVisible();
 
-  // 1) Todos llegaron (deja a Mateo en «Llegó» aunque una corrida anterior lo dejara en «Falta»).
-  await page.getByRole("button", { name: "Marcar a todos «Llegó»" }).click();
-  await page.getByRole("button", { name: "Guardar y avisar a los padres" }).click();
+  const mateo = page.getByRole("group", { name: "Asistencia de Mateo" });
+  const guardar = page.getByRole("button", { name: "Guardar y avisar a los padres" }).first();
+
+  // 0) Deja a Mateo en «Falta» (estado conocido aunque una corrida anterior lo dejara en «Llegó»).
+  await mateo.getByRole("button", { name: "Falta" }).click();
+  await guardar.click();
   await expect(page.getByText("Lista guardada.")).toBeVisible();
+
+  // 1) Todos llegaron: al cerrar la lista, la familia de cada presente recibe el aviso de llegada.
+  const desdeLlegada = new Date(Date.now() - 2000);
+  await page.getByRole("button", { name: "Marcar a todos «Llegó»" }).click();
+  await expect(page.getByTestId("resumen-avisos").first()).toContainText(/Se avisará a \d+ familias?: \d+ llegadas?/);
+  await guardar.click();
+  await expect(page.getByText(/Lista guardada\. Se avisó a \d+ familias?\./)).toBeVisible();
+  const llegada = await esperarCorreo("rosa.quispe@gmail.com", "Mateo llegó al colegio", desdeLlegada);
+  expect(llegada.From.Name).toBe("I.E.P. Nuevo Horizonte");
 
   // 2) Mateo no vino.
   const desde = new Date(Date.now() - 2000);
-  const mateo = page.getByRole("group", { name: "Asistencia de Mateo" });
   await mateo.getByRole("button", { name: "Falta" }).click();
   await expect(mateo.getByRole("button", { name: "Falta" })).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByTitle("Vista previa del correo para la familia de Mateo")).toBeVisible();
   await expect(page.getByText("Asunto: Mateo no llegó hoy")).toBeVisible();
-  await page.getByRole("button", { name: "Guardar y avisar a los padres" }).click();
+  await guardar.click();
   await expect(page.getByText("Se avisó a 1 familia.")).toBeVisible();
 
   // 3) El correo llega a Mailpit firmado por el colegio, con el botón «Justificar falta».

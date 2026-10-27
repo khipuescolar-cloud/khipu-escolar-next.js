@@ -2,14 +2,11 @@ import "server-only";
 import type { Aviso } from "@/generated/prisma/client";
 import type { CanalAviso } from "@/generated/prisma/enums";
 import { urlColegio, urlRaiz } from "@/lib/dominio";
-import { fechaDb, momentoEnZona } from "@/lib/fechas";
-import { primerNombre } from "@/lib/nombres";
-import { db, dbTenant } from "../db";
+import { db } from "../db";
 import { PlantillaInvalidaError, renderizarPlantilla } from "../email/plantillas";
 import { tokenDerivado } from "../tokens";
 import { EmailChannel } from "./email";
-import { destinatariosDeAlumno, encolarParaDestinatario } from "./encolar";
-import { CANALES_DE_PAGO, cupoDiario, esperaReintentoMs, leerLimites, limiteCanalDePago, MAX_INTENTOS, pausaEntreCorreosMs, tocaResumen, type CanalDePago } from "./limites";
+import { CANALES_DE_PAGO, cupoDiario, esperaReintentoMs, leerLimites, limiteCanalDePago, MAX_INTENTOS, pausaEntreCorreosMs, type CanalDePago } from "./limites";
 import { PushChannel } from "./push";
 import { SmsChannel } from "./sms";
 import { WhatsAppChannel } from "./whatsapp";
@@ -28,11 +25,11 @@ export const ENVIANDO_MAX_MINUTOS = 10;
 /** Plantillas dirigidas a familias: llevan enlace para ajustar avisos (solo si la fila es de un apoderado). */
 const PLANTILLAS_FAMILIA = new Set([
   "asistencia_llego", "asistencia_tarde", "asistencia_falta", "asistencia_problema",
-  "resumen_llegadas", "mensaje_nuevo", "comunicado", "justificacion_revisada", "tarea_nueva", "libreta_publicada",
+  "mensaje_nuevo", "comunicado", "justificacion_revisada", "tarea_nueva", "libreta_publicada",
 ]);
 
 export type ResumenCola = {
-  enviados: number; reintentos: number; errores: number; omitidos: number; diferidos: number; resumenes: number;
+  enviados: number; reintentos: number; errores: number; omitidos: number; diferidos: number;
   /** Filas recuperadas de `enviando` (worker caído). */
   recuperados: number;
 };
@@ -77,9 +74,8 @@ export async function procesarCola(opciones: OpcionesCola = {}): Promise<Resumen
     whatsapp: new WhatsAppChannel(),
     sms: new SmsChannel(),
   };
-  const resumen: ResumenCola = { enviados: 0, reintentos: 0, errores: 0, omitidos: 0, diferidos: 0, resumenes: 0, recuperados: 0 };
+  const resumen: ResumenCola = { enviados: 0, reintentos: 0, errores: 0, omitidos: 0, diferidos: 0, recuperados: 0 };
 
-  resumen.resumenes = await generarResumenesLlegadas({ ahora, tenantId: opciones.tenantId });
   resumen.recuperados = await recuperarAtascados(ahora, opciones.tenantId);
 
   const candidatos = await db.aviso.findMany({
@@ -219,58 +215,4 @@ async function recuperarAtascados(ahora: Date, tenantId?: string): Promise<numbe
     data: { estado: "pendiente", intentos: { increment: 1 }, error, programadoPara: ahora },
   });
   return agotados.count + devueltos.count;
-}
-
-/**
- * Colegios con `modoAvisos = solo_excepciones`: a partir de `horaEnvioAvisos` encola un correo
- * `resumen_llegadas` por familia con las llegadas del día (una vez al día por familia).
- */
-export async function generarResumenesLlegadas({ ahora, tenantId }: { ahora: Date; tenantId?: string }): Promise<number> {
-  const colegios = await db.tenant.findMany({
-    where: { modoAvisos: "solo_excepciones", estado: { not: "suspendido" }, ...(tenantId ? { id: tenantId } : {}) },
-    select: { id: true, nombre: true, zonaHoraria: true, horaEnvioAvisos: true },
-  });
-  let creados = 0;
-  for (const colegio of colegios) {
-    const { isoFecha, hora } = momentoEnZona(ahora, colegio.zonaHoraria);
-    if (!tocaResumen(hora, colegio.horaEnvioAvisos)) continue;
-    const tdb = dbTenant(colegio.id);
-
-    const llegadas = await tdb.asistencia.findMany({
-      where: { fecha: fechaDb(isoFecha), estado: "llego" },
-      orderBy: { hora: "asc" },
-      select: { alumnoId: true, hora: true, alumno: { select: { nombres: true } } },
-    });
-    if (llegadas.length === 0) continue;
-    // Primera llegada de cada alumno.
-    const porAlumno = new Map<string, { alumno: string; hora: string }>();
-    for (const l of llegadas) if (!porAlumno.has(l.alumnoId)) porAlumno.set(l.alumnoId, { alumno: primerNombre(l.alumno.nombres), hora: l.hora });
-
-    // Familias que ya recibieron el resumen hoy.
-    const yaEnviados = await tdb.aviso.findMany({
-      where: { plantilla: "resumen_llegadas", payload: { path: ["fecha"], equals: isoFecha } },
-      select: { apoderadoId: true },
-    });
-    const omitir = new Set(yaEnviados.map((a) => a.apoderadoId));
-
-    const porFamilia = new Map<string, { destinatario: Awaited<ReturnType<typeof destinatariosDeAlumno>>[number]; llegadas: { alumno: string; hora: string }[] }>();
-    for (const [alumnoId, llegada] of porAlumno) {
-      for (const d of await destinatariosDeAlumno(tdb, alumnoId)) {
-        if (omitir.has(d.apoderadoId)) continue;
-        const actual = porFamilia.get(d.apoderadoId) ?? { destinatario: d, llegadas: [] };
-        actual.llegadas.push(llegada);
-        porFamilia.set(d.apoderadoId, actual);
-      }
-    }
-    for (const { destinatario, llegadas: lista } of porFamilia.values()) {
-      const filas = await encolarParaDestinatario(tdb, destinatario, {
-        tenantId: colegio.id,
-        tipo: "resumen_llegadas",
-        plantilla: "resumen_llegadas",
-        payload: { colegio: colegio.nombre, llegadas: lista, fecha: isoFecha },
-      });
-      creados += filas;
-    }
-  }
-  return creados;
 }

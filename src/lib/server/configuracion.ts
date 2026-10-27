@@ -1,7 +1,7 @@
 import "server-only";
 import { z } from "zod";
 import type { Prisma } from "@/generated/prisma/client";
-import { PLAZO_JUSTIFICACION_MAX_HORAS, PLAZO_JUSTIFICACION_MIN_HORAS } from "@/lib/plazo-justificacion";
+import { PLAZO_JUSTIFICACION_MAX_DIAS, PLAZO_JUSTIFICACION_MIN_DIAS } from "@/lib/plazo-justificacion";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { db } from "./db";
@@ -9,26 +9,31 @@ import { exigirGestion } from "./gestion";
 import type { TenantContext } from "./tenant";
 
 // Configuración del colegio (specs/10-panel-direccion-gestion.md).
+// Ya no se configuran `modoAvisos` ni `horaEnvioAvisos`: todas las llegadas se avisan al cerrar la lista
+// (el resumen de llegadas se eliminó). Las columnas quedan en la BD sin uso.
 
 const hora = z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/, "Usa el formato HH:mm (por ejemplo, 08:00).");
 const dominio = z.string().regex(/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$/, "Un dominio no es válido (ejemplo: micolegio.edu.pe).");
 
-const esquema = z.object({
-  horaEnvioAvisos: hora,
+const rangoPlazo = `El plazo para justificar va de ${PLAZO_JUSTIFICACION_MIN_DIAS} a ${PLAZO_JUSTIFICACION_MAX_DIAS} días hábiles.`;
+
+const esquema = z.strictObject({
   horaLimiteTardanza: hora,
-  plazoJustificacionHoras: z.coerce
-    .number("El plazo para justificar debe ser un número de horas.")
-    .int("El plazo para justificar debe ser un número entero de horas.")
-    .min(PLAZO_JUSTIFICACION_MIN_HORAS, `El plazo para justificar va de ${PLAZO_JUSTIFICACION_MIN_HORAS} a ${PLAZO_JUSTIFICACION_MAX_HORAS} horas.`)
-    .max(PLAZO_JUSTIFICACION_MAX_HORAS, `El plazo para justificar va de ${PLAZO_JUSTIFICACION_MIN_HORAS} a ${PLAZO_JUSTIFICACION_MAX_HORAS} horas.`)
+  plazoJustificacionDiasHabiles: z.coerce
+    .number("El plazo para justificar debe ser un número de días hábiles.")
+    .int("El plazo para justificar debe ser un número entero de días hábiles.")
+    .min(PLAZO_JUSTIFICACION_MIN_DIAS, rangoPlazo)
+    .max(PLAZO_JUSTIFICACION_MAX_DIAS, rangoPlazo)
     .optional(),
-  modoAvisos: z.enum(["todos", "solo_excepciones"]),
   escalaCalificacion: z.enum(["literal", "vigesimal"]),
   emailDomains: z.string().transform((v) => [...new Set(v.split(/[\s,;]+/).map((d) => d.trim().toLowerCase().replace(/^@/, "")).filter(Boolean))]).pipe(z.array(dominio)),
 });
 
 export async function actualizarConfiguracion(ctx: TenantContext, entrada: z.input<typeof esquema>): Promise<void> {
   exigirGestion(ctx);
+  if (entrada && typeof entrada === "object" && ("modoAvisos" in entrada || "horaEnvioAvisos" in entrada)) {
+    throw new ErrorDeNegocio("El modo y la hora de los avisos ya no se configuran: cada llegada se avisa al cerrar la lista.");
+  }
   const r = esquema.safeParse(entrada);
   if (!r.success) throw new ErrorDeNegocio(r.error.issues[0].message);
   const d = r.data;

@@ -28,10 +28,15 @@ export default async function JustificarConSesionPage({ params }: PageProps<"/co
             {falta.alumno} · <span className="first-letter:uppercase">{fechaLarga(falta.fecha)}</span>
           </p>
         </div>
-        {falta.disponible ? (
-          <FormJustificar accion={justificarConSesionAction.bind(null, slug, falta.id)} />
-        ) : (
+        {!falta.disponible ? (
           <Alerta tipo="info">Esta falta ya tiene una justificación.</Alerta>
+        ) : falta.plazoVencido ? (
+          <Alerta tipo="aviso">{falta.mensajeVencido}</Alerta>
+        ) : (
+          <>
+            <p className="text-sm font-medium">{falta.textoPlazo}.</p>
+            <FormJustificar accion={justificarConSesionAction.bind(null, slug, falta.id)} />
+          </>
         )}
       </Tarjeta>
     </div>

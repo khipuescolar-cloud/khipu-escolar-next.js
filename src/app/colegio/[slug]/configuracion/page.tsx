@@ -7,6 +7,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
+import { PLAZO_JUSTIFICACION_DEFECTO_DIAS, PLAZO_JUSTIFICACION_MAX_DIAS, PLAZO_JUSTIFICACION_MIN_DIAS } from "@/lib/plazo-justificacion";
 import { exigirGestion } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { urlLogoColegio } from "@/lib/server/logo";
@@ -52,15 +53,10 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
 
       <Tarjeta>
         <form action={guardarConfiguracionAction} className="flex flex-col gap-8">
-          <Seccion icono={Bell} titulo="Avisos a las familias" descripcion="Cuándo y cómo se avisa la asistencia de cada alumno.">
+          <Seccion icono={Bell} titulo="Avisos a las familias" descripcion="Al cerrar la lista, cada familia recibe el aviso de llegada, tardanza, falta o problema de su hijo.">
             <div className="grid gap-4 sm:grid-cols-2">
-              <Campo etiqueta="Hora del resumen de llegadas" name="horaEnvioAvisos" type="time" defaultValue={t.horaEnvioAvisos} required ayuda="Las familias reciben el resumen a esta hora." />
               <Campo etiqueta="Hora límite de tardanza" name="horaLimiteTardanza" type="time" defaultValue={t.horaLimiteTardanza} required ayuda="Desde esta hora, la llegada cuenta como tarde." />
-              <Campo etiqueta="Plazo para justificar faltas (horas)" name="plazoJustificacionHoras" type="number" min={24} max={168} step={1} defaultValue={t.plazoJustificacionHoras} required ayuda="Entre 24 y 168 horas. El enlace del correo de falta vence pasado este plazo." />
-              <Selector etiqueta="Modo de avisos" name="modoAvisos" defaultValue={t.modoAvisos}>
-                <option value="todos">Avisar siempre (llegadas y faltas)</option>
-                <option value="solo_excepciones">Solo excepciones (tardanzas y faltas)</option>
-              </Selector>
+              <Campo etiqueta="Plazo para justificar faltas (días hábiles)" name="plazoJustificacionDiasHabiles" type="number" min={PLAZO_JUSTIFICACION_MIN_DIAS} max={PLAZO_JUSTIFICACION_MAX_DIAS} step={1} defaultValue={t.plazoJustificacionDiasHabiles} required ayuda={`De ${PLAZO_JUSTIFICACION_MIN_DIAS} a ${PLAZO_JUSTIFICACION_MAX_DIAS} días hábiles (lunes a viernes, sin feriados) desde el día de la falta. Por defecto, ${PLAZO_JUSTIFICACION_DEFECTO_DIAS}.`} />
             </div>
           </Seccion>
 

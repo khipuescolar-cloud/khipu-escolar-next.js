@@ -1,4 +1,4 @@
-import { ArrowLeft, CalendarCheck, ChevronRight, ClipboardCheck, FileText, MessageSquarePlus, Users } from "lucide-react";
+import { ArrowLeft, CalendarCheck, CalendarX, ChevronRight, ClipboardCheck, FileText, MessageSquarePlus, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EstadoAsistencia } from "@/components/EstadoAsistencia";
@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { fechaLarga, hora12 } from "@/lib/fechas";
 import { planIncluye } from "@/lib/planes";
+import { mensajePlazoVencido, textoPlazoJustificacion } from "@/lib/plazo-justificacion";
 import { esVistaFamilia } from "@/lib/roles";
 import { MARCADOR_ALUMNO } from "@/lib/vista-previa";
 import {
@@ -205,9 +206,17 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
                         </span>
                       )}
                       {r.puedeJustificar && (
-                        <Link href={`/asistencia/justificar/${r.id}`} className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
-                          <FileText aria-hidden strokeWidth={2} /> Justificar falta
-                        </Link>
+                        <span className="flex flex-col items-end gap-0.5">
+                          <Link href={`/asistencia/justificar/${r.id}`} className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+                            <FileText aria-hidden strokeWidth={2} /> Justificar falta
+                          </Link>
+                          <span className="text-xs text-muted-foreground">{textoPlazoJustificacion(r.fecha, ctx.tenant.plazoJustificacionDiasHabiles)}</span>
+                        </span>
+                      )}
+                      {!esAlumno && r.plazoVencido && (
+                        <span className="inline-flex items-center gap-1 text-xs text-muted-foreground" title={mensajePlazoVencido(ctx.tenant.plazoJustificacionDiasHabiles)}>
+                          <CalendarX className="size-3.5" strokeWidth={2} aria-hidden /> Plazo vencido
+                        </span>
                       )}
                     </div>
                   </li>

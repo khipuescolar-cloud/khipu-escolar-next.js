@@ -16,7 +16,7 @@ import type { EstadoAviso, TipoAviso } from "@/generated/prisma/enums";
 export const metadata: Metadata = { title: "Avisos enviados" };
 
 const ESTADOS: EstadoAviso[] = ["pendiente", "enviando", "enviado", "entregado", "abierto", "rebotado", "queja", "error", "omitido"];
-const TIPOS: TipoAviso[] = ["asistencia", "resumen_llegadas", "mensaje", "comunicado", "invitacion", "justificacion", "tarea", "alerta_direccion"];
+const TIPOS: TipoAviso[] = ["asistencia", "mensaje", "comunicado", "invitacion", "justificacion", "tarea", "alerta_direccion"];
 function EstadoEnvio({ estado }: { estado: EstadoAviso }) {
   const malo = estado === "error" || estado === "rebotado" || estado === "queja";
   const [Icono, clase] = malo ? [MailX, "text-falta"] : estado === "abierto" ? [CheckCircle2, "text-llego"] : [Clock, "text-muted-foreground"];

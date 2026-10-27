@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { CheckCircle2, Loader2, Mail, Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
 import { EstadoAsistencia, ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
@@ -15,6 +15,7 @@ import { VistaPreviaAviso } from "@/components/VistaPreviaAviso";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { hora12 } from "@/lib/fechas";
 import { esErrorDeRed } from "@/lib/registro-offline";
+import { resumenAvisosLista, textoResumenAvisos } from "@/lib/resumen-avisos-lista";
 import { guardarListaAction, type EstadoGuardarLista } from "./actions";
 import { colaListas } from "./colaListas";
 
@@ -25,6 +26,10 @@ export type AlumnoLista = {
   nombres: string;
   apellidos: string;
   registro: { estado: Estado; hora: string; nota: string | null } | null;
+  /** Familias que recibirán el aviso de este alumno. */
+  familiasConAviso: number;
+  /** Su llegada ya se avisó hoy (portería u otra lista): no se repite. */
+  llegadaAvisada: boolean;
 };
 
 export function ListaAsistencia({
@@ -56,6 +61,10 @@ export function ListaAsistencia({
     for (const m of Object.values(marcas)) c[m.estado]++;
     return c;
   }, [marcas]);
+  const avisos = useMemo(
+    () => resumenAvisosLista(alumnos, Object.fromEntries(Object.entries(marcas).map(([id, m]) => [id, m.estado]))),
+    [alumnos, marcas],
+  );
 
   function marcar(id: string, estado: Estado) {
     setMarcas((m) => ({ ...m, [id]: { ...m[id], estado } }));
@@ -103,13 +112,27 @@ export function ListaAsistencia({
     </Boton>
   );
   const resumenConteo = (
-    <ul className="flex flex-wrap gap-x-3 gap-y-1.5">
-      {ORDEN.map((e) => (
-        <li key={e} className="flex items-center gap-1 text-sm">
-          <EstadoAsistencia estado={e} /> <span className="font-semibold">{conteo[e]}</span>
-        </li>
-      ))}
-    </ul>
+    <div className="flex flex-col gap-1.5">
+      <ul className="flex flex-wrap gap-x-3 gap-y-1.5">
+        {ORDEN.map((e) => (
+          <li key={e} className="flex items-center gap-1 text-sm">
+            <EstadoAsistencia estado={e} /> <span className="font-semibold">{conteo[e]}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="flex items-start gap-1.5 text-sm" data-testid="resumen-avisos">
+        <Mail className="mt-0.5 size-4 shrink-0 text-primary" strokeWidth={2} aria-hidden />
+        <span>
+          {textoResumenAvisos(avisos)}
+          {avisos.llegadasYaAvisadas > 0 && (
+            <span className="text-muted-foreground">
+              {" "}
+              {avisos.llegadasYaAvisadas === 1 ? "La llegada de 1 alumno ya se avisó hoy." : `La llegada de ${avisos.llegadasYaAvisadas} alumnos ya se avisó hoy.`}
+            </span>
+          )}
+        </span>
+      </p>
+    </div>
   );
 
   return (
@@ -122,7 +145,10 @@ export function ListaAsistencia({
           <Button
             type="button"
             variant="outline"
-            onClick={() => setMarcas((m) => Object.fromEntries(Object.entries(m).map(([k, v]) => [k, { ...v, estado: "llego" as Estado }])))}
+            onClick={() => {
+              setMarcas((m) => Object.fromEntries(Object.entries(m).map(([k, v]) => [k, { ...v, estado: "llego" as Estado }])));
+              setResultado(null);
+            }}
           >
             <CheckCircle2 strokeWidth={2} aria-hidden /> Marcar a todos «Llegó»
           </Button>
@@ -203,7 +229,7 @@ export function ListaAsistencia({
             <h2 className="font-heading font-semibold">Resumen</h2>
             {resumenConteo}
             {botonGuardar("mt-1 w-full max-lg:hidden")}
-            <p className="text-xs text-muted-foreground max-lg:hidden">Las familias reciben el aviso por correo y notificación.</p>
+            <p className="text-xs text-muted-foreground max-lg:hidden">Al guardar, las familias de los presentes, tardanzas, faltas y problemas reciben el aviso por correo y notificación. La llegada se avisa una sola vez al día.</p>
           </CardContent>
         </Card>
 

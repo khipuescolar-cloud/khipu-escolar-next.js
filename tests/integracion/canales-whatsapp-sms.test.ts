@@ -25,7 +25,7 @@ function conCredenciales(activas: boolean) {
 describe("WhatsApp y SMS: encolado y worker", () => {
   let c: ColegioPrueba;
   const sufijo = randomUUID().slice(0, 6);
-  const tenantDe = () => ({ id: c.tenant.id, nombre: c.tenant.nombre, modoAvisos: "todos" as const });
+  const tenantDe = () => ({ id: c.tenant.id, nombre: c.tenant.nombre });
   let dia = 0;
   /** Asistencia real (el aviso la referencia) de un día distinto cada vez. */
   const asistencia = async (estado: "tarde" | "problema") =>
@@ -37,7 +37,7 @@ describe("WhatsApp y SMS: encolado y worker", () => {
     });
   const falta = async () => {
     const a = await asistencia("tarde");
-    return encolarAvisosAsistencia(c.db, { tenant: tenantDe(), asistencia: { id: a.id, alumnoId: a.alumnoId, estado: "tarde", hora: "08:20", nota: null }, alumnoNombre: "Mateo", momento: "a la 1.ª hora" });
+    return encolarAvisosAsistencia(c.db, { tenant: tenantDe(), asistencia: { id: a.id, alumnoId: a.alumnoId, fecha: a.fecha, estado: "tarde", hora: "08:20", nota: null }, alumnoNombre: "Mateo", momento: "a la 1.ª hora" });
   };
   const filas = (canal: "whatsapp" | "sms") => c.db.aviso.findMany({ where: { canal } });
   const limpiarAvisos = () => c.db.aviso.deleteMany({});
@@ -99,7 +99,7 @@ describe("WhatsApp y SMS: encolado y worker", () => {
     const problema = await asistencia("problema");
     await encolarAvisosAsistencia(c.db, {
       tenant: tenantDe(),
-      asistencia: { id: problema.id, alumnoId: problema.alumnoId, estado: "problema", hora: "08:20", nota: null },
+      asistencia: { id: problema.id, alumnoId: problema.alumnoId, fecha: problema.fecha, estado: "problema", hora: "08:20", nota: null },
       alumnoNombre: "Mateo", momento: "a la 1.ª hora",
     });
     expect(await filas("whatsapp")).toHaveLength(0); // asistencia_problema no tiene plantilla de WhatsApp

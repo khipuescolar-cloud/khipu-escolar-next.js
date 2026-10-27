@@ -8,7 +8,8 @@ import { fechaDb, isoDeFechaDb, momentoEnZona } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
 import { instanteDeRegistro } from "@/lib/registro-offline";
 import { auditar } from "./auditoria";
-import { encolarAvisosAsistencia } from "./notificaciones/encolar";
+import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-justificacion";
+import { encolarAvisosAsistencia, familiasConAvisoPorAlumno } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
 import { whereSalonActivo } from "./salones-activos";
 import { esVistaFamilia } from "@/lib/roles";
@@ -79,6 +80,15 @@ export async function obtenerLista(ctx: TenantContext, salonId: string, ambito: 
       asistencias: { where: { fecha: fechaDb(hoy.isoFecha), ambito }, select: { estado: true, hora: true, nota: true, origen: true } },
     },
   });
+  const ids = alumnos.map((a) => a.id);
+  const [familias, llegadasPrevias] = await Promise.all([
+    familiasConAvisoPorAlumno(ctx.db, ids),
+    ctx.db.asistencia.findMany({
+      where: { alumnoId: { in: ids }, fecha: fechaDb(hoy.isoFecha), ambito: { not: ambito }, estado: { in: ["llego", "tarde"] } },
+      select: { alumnoId: true },
+    }),
+  ]);
+  const yaLlegaron = new Set(llegadasPrevias.map((l) => l.alumnoId));
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "asistencia",
     detalle: { salonId: salon.id, ambito, fecha: hoy.isoFecha },
@@ -88,7 +98,13 @@ export async function obtenerLista(ctx: TenantContext, salonId: string, ambito: 
     curso,
     ambito,
     hoy,
-    alumnos: alumnos.map((a) => ({ id: a.id, nombres: a.nombres, apellidos: a.apellidos, registro: a.asistencias[0] ?? null })),
+    alumnos: alumnos.map((a) => ({
+      id: a.id, nombres: a.nombres, apellidos: a.apellidos, registro: a.asistencias[0] ?? null,
+      /** Familias que recibirán el aviso (con consentimiento y algún canal). */
+      familiasConAviso: familias.get(a.id) ?? 0,
+      /** Hoy ya se avisó su llegada en otra lista o en portería: esta lista no la repite. */
+      llegadaAvisada: yaLlegaron.has(a.id),
+    })),
   };
 }
 
@@ -113,8 +129,12 @@ export const esquemaGuardarLista = z.object({
 export type ResultadoGuardarLista = { guardados: number; cambios: number; familiasAvisadas: number; omitidos: number };
 
 /**
- * Upsert por (alumnoId, fecha, ambito) con origen «lista». Encola avisos solo para registros nuevos
- * o con estado cambiado. En la lista de un curso, la llegada no se vuelve a avisar si ya se avisó hoy.
+ * Upsert por (alumnoId, fecha, ambito) con origen «lista». Al guardar («cerrar») la lista se encola el aviso
+ * a las familias de cada alumno nuevo o con estado cambiado: presentes (llegada), tardanzas, faltas y problemas.
+ *
+ * Un solo aviso de llegada por alumno y día: si ya tuvo una llegada hoy (portería, la primera lista u otra lista,
+ * o la misma lista lo tenía «tarde»), las listas siguientes no repiten el aviso de llegada. Así no se duplica el
+ * correo (cuesta y el envío diario tiene tope; Gmail ~500 por día). Tardanza, falta y problema sí se avisan siempre.
  *
  * Idempotente (la fila es única por alumno/fecha/ámbito): reenviar la misma lista no cambia nada ni vuelve a avisar.
  * Si llega con `registradoAt` (lista guardada sin conexión), la fecha y hora del registro son las de ese instante
@@ -159,7 +179,7 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
         hora, estado: r.estado, nota, origen: "lista", registradoPorId: ctx.membership.id,
       },
       update: { estado: r.estado, hora, nota, origen: "lista", registradoPorId: ctx.membership.id },
-      select: { id: true, alumnoId: true, estado: true, hora: true, nota: true },
+      select: { id: true, alumnoId: true, fecha: true, estado: true, hora: true, nota: true },
     });
     cambios++;
     await auditar({
@@ -168,8 +188,9 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
     });
 
     if (!cambiaEstado) continue; // solo cambió la nota: no se vuelve a avisar
-    if (r.estado === "llego" && datos.ambito !== AMBITO_DIA) {
-      // La llegada ya se avisó si hoy hay otro registro de llegada (del día o de otro curso).
+    if (r.estado === "llego") {
+      // La llegada ya se avisó si esta lista lo tenía «tarde» o si hoy hay otro registro de llegada (portería, día u otro curso).
+      if (anterior?.estado === "tarde") continue;
       const yaLlego = await ctx.db.asistencia.count({
         where: { alumnoId: r.alumnoId, fecha, ambito: { not: datos.ambito }, estado: { in: ["llego", "tarde"] } },
       });
@@ -213,6 +234,10 @@ export type RegistroHistorial = {
   esDia: boolean;
   justificacion: EstadoJustificacion | null;
   puedeJustificar: boolean;
+  /** Último día para justificar (AAAA-MM-DD), solo en faltas. */
+  justificarHasta: string | null;
+  /** Falta sin justificar cuyo plazo (días hábiles) ya venció. */
+  plazoVencido: boolean;
 };
 
 /** Asistencia de un mes (por defecto el actual) de cada hijo, para el calendario de la familia (solo lectura). */
@@ -238,6 +263,9 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
       },
     },
   });
+  const ahora = new Date();
+  const plazo = ctx.tenant.plazoJustificacionDiasHabiles;
+  const zona = ctx.tenant.zonaHoraria;
   await Promise.all(
     hijos.map((h) =>
       auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "asistencia", entidadId: h.id, detalle: { mes: claveMes(anio, numeroMes) } }),
@@ -254,16 +282,23 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
       salon: h.salon.nombre,
       registros: h.asistencias.map<RegistroHistorial>((a) => {
         const justificacion = a.justificaciones[0]?.estado ?? null;
+        const fecha = isoDeFechaDb(a.fecha);
+        const esFalta = a.estado === "falta";
+        const pendiente = esFalta && (justificacion === null || justificacion === "rechazada");
+        const plazoVencido = pendiente && expiracionJustificacion(fecha, plazo, zona) <= ahora;
         return {
           id: a.id,
-          fecha: isoDeFechaDb(a.fecha),
+          fecha,
           hora: a.hora,
           estado: a.estado,
           lugar: a.ambito === AMBITO_DIA ? "Ingreso al colegio" : a.curso?.nombre ?? "Clase",
           esDia: a.ambito === AMBITO_DIA,
           justificacion,
           // Solo el apoderado justifica faltas; el alumno ve su asistencia en solo lectura.
-          puedeJustificar: ctx.rol === "apoderado" && a.estado === "falta" && (justificacion === null || justificacion === "rechazada"),
+          // Solo dentro del plazo del reglamento (días hábiles desde la falta; specs/07).
+          puedeJustificar: ctx.rol === "apoderado" && pendiente && !plazoVencido,
+          justificarHasta: esFalta ? ultimoDiaJustificacion(fecha, plazo) : null,
+          plazoVencido,
         };
       }),
     })),
