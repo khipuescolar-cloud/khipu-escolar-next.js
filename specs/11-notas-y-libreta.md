@@ -78,7 +78,7 @@ cursosDelDocente(ctx)
 `Resultado = { ok: true; mensaje? } | { ok: false; error }` (`src/lib/resultado.ts`). Los accesos no permitidos lanzan `forbidden()` (403).
 
 ## Rutas y UI
-- `/notas` (profesor, dirección, apoderado) · `/notas/periodos` (dirección) · `/libreta` (apoderado, profesor, dirección).
+- `/notas` (profesor, dirección, apoderado, alumno) · `/notas/periodos` (dirección) · `/libreta` (apoderado, alumno, profesor, dirección). El rol `alumno` (cuenta propia) usa la vista de familia con un solo alumno, ve la libreta solo de periodos publicados (misma regla que la familia, también en `datosLibreta`) y no tiene «Descargar PDF» (`/api/libreta` le da 403). `/libreta?alumno=<id>` abre la libreta de ese alumno y se valida con `requireAlumnoVisible` (403 si no está en su alcance); es el enlace «Abrir la libreta» de Nudito.
 - `GET /api/notas/exportar?curso=<id>&periodo=<id>` → CSV de la rejilla.
 - `GET /api/libreta/[alumnoId]?periodo=<id>` → PDF (`@react-pdf/renderer`, `src/lib/server/libreta-pdf.tsx`): logo del colegio (PNG/JPG tal cual; WEBP y SVG se convierten a PNG con `sharp`, `src/lib/imagen-png.ts`, caché en memoria), colegio, datos del alumno, tabla por curso con competencia, calificación y conclusión, asistencia del periodo, leyenda de la escala y firma de dirección. 400 si faltan parámetros, 403 sin permiso. Descarga auditada («exportar»).
 - Acciones: `src/app/colegio/[slug]/notas/actions.ts`; formularios con `FormAccion` y píldoras con `Calificacion` (`src/components/`).

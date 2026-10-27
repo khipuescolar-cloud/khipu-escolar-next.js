@@ -6,6 +6,8 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
+import { alumnosVisibles } from "@/lib/server/notas";
 import { leerAcciones } from "@/lib/server/nudito/acciones";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -14,13 +16,26 @@ export const metadata: Metadata = { title: "Nudito" };
 
 const FORMATO = new Intl.DateTimeFormat("es-PE", { timeZone: "America/Lima", dateStyle: "medium", timeStyle: "short" });
 
-export default async function NuditoPage({ params }: PageProps<"/colegio/[slug]/nudito">) {
+/** Filtro «Sin hijo»: conversaciones generales (horario, reglamento…) que no hablaron de un hijo. */
+const SIN_HIJO = "general";
+
+export default async function NuditoPage({ params, searchParams }: PageProps<"/colegio/[slug]/nudito">) {
   const { slug } = await params;
+  const sp = await searchParams;
+  // Solo el apoderado: el alumno con cuenta propia no usa Nudito (protección de menores, specs/13).
   const ctx = await requireTenantContext(slug, ["apoderado"]);
   requireFeature(ctx, "nudito");
 
+  // Historial agrupado por hijo (`NuditoConversacion.alumnoId`): el apoderado repasa lo que preguntó de cada uno.
+  const hijos = await alumnosVisibles(ctx);
+  const pedido = Array.isArray(sp.hijo) ? sp.hijo[0] : sp.hijo;
+  const filtro = pedido === SIN_HIJO ? SIN_HIJO : hijos.find((h) => h.id === pedido)?.id;
+
   const conversaciones = await ctx.db.nuditoConversacion.findMany({
-    where: { membershipId: ctx.membership.id },
+    where: {
+      membershipId: ctx.membership.id,
+      ...(filtro === SIN_HIJO ? { alumnoId: null } : filtro ? { alumnoId: filtro } : {}),
+    },
     orderBy: { createdAt: "desc" },
     take: 20,
     include: { mensajes: { orderBy: { createdAt: "asc" } }, alumno: { select: { nombres: true } } },
@@ -34,11 +49,24 @@ export default async function NuditoPage({ params }: PageProps<"/colegio/[slug]/
         acciones={<NuditoMascota tamano={56} />}
       />
 
+      {hijos.length > 0 && (
+        <div className="mb-4">
+          <NavegacionPildoras
+            etiqueta="Conversaciones por hijo"
+            items={[
+              { href: "/nudito", texto: "Todas", activo: !filtro },
+              ...hijos.map((h) => ({ href: `/nudito?hijo=${h.id}`, texto: h.nombres.split(" ")[0], activo: filtro === h.id })),
+              { href: `/nudito?hijo=${SIN_HIJO}`, texto: "Generales", activo: filtro === SIN_HIJO },
+            ]}
+          />
+        </div>
+      )}
+
       {conversaciones.length === 0 ? (
         <EstadoVacio
           icono={MessageCircleHeart}
-          titulo="Todavía no has conversado con Nudito"
-          descripcion="Abre la burbuja y pregúntale por las tareas de tu hijo."
+          titulo={filtro ? "No hay conversaciones con este filtro" : "Todavía no has conversado con Nudito"}
+          descripcion={filtro ? "Prueba con «Todas» o pregúntale algo nuevo desde la burbuja." : "Abre la burbuja y pregúntale por las tareas de tu hijo."}
         />
       ) : (
         <ul className="flex flex-col gap-4">

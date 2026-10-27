@@ -11,6 +11,7 @@ import { auditar } from "./auditoria";
 import { encolarAvisosAsistencia } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
 import { whereSalonActivo } from "./salones-activos";
+import { esVistaFamilia } from "@/lib/roles";
 import { alumnoIdsVisibles, requireCursoDelProfesor, type TenantContext } from "./tenant";
 
 // Pasar lista y ver asistencia (specs/04-asistencia.md).
@@ -217,7 +218,7 @@ export type RegistroHistorial = {
 /** Asistencia de un mes (por defecto el actual) de cada hijo, para el calendario de la familia (solo lectura). */
 export async function historialDeHijos(ctx: TenantContext, mes?: string) {
   requireFeature(ctx, "asistencia");
-  if (ctx.rol !== "apoderado") forbidden();
+  if (!esVistaFamilia(ctx.rol)) forbidden(); // apoderado (sus hijos) o alumno (solo él)
   const ids = await alumnoIdsVisibles(ctx);
   const hoy = hoyDelColegio(ctx);
   const { anio, mes: numeroMes } = mesPedido(mes, hoy.isoFecha);
@@ -261,7 +262,8 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
           lugar: a.ambito === AMBITO_DIA ? "Ingreso al colegio" : a.curso?.nombre ?? "Clase",
           esDia: a.ambito === AMBITO_DIA,
           justificacion,
-          puedeJustificar: a.estado === "falta" && (justificacion === null || justificacion === "rechazada"),
+          // Solo el apoderado justifica faltas; el alumno ve su asistencia en solo lectura.
+          puedeJustificar: ctx.rol === "apoderado" && a.estado === "falta" && (justificacion === null || justificacion === "rechazada"),
         };
       }),
     })),

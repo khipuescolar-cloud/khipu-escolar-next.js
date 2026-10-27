@@ -22,7 +22,7 @@ export type ItemAgenda = {
 /** Eventos y entregas de tareas visibles para el usuario entre dos instantes (`hasta` excluido). */
 export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date): Promise<ItemAgenda[]> {
   requireFeature(ctx, "agenda");
-  requireRol(ctx, ["direccion", "profesor", "apoderado", "administrativo"]);
+  requireRol(ctx, ["direccion", "profesor", "apoderado", "administrativo", "alumno"]);
   const salonIds = await salonIdsVisibles(ctx);
   const rango = { gte: desde, lt: hasta };
   const [eventos, tareas] = await Promise.all([

@@ -3,7 +3,7 @@ import { forbidden } from "next/navigation";
 import type { Literal, ValorCalificacion } from "@/lib/calificaciones";
 import { fechaDeColumnaDate } from "@/lib/fechas";
 import { libretaVisibleParaFamilia } from "@/lib/libreta-publicacion";
-import { tituloProfesor } from "@/lib/roles";
+import { esVistaFamilia, tituloProfesor } from "@/lib/roles";
 import { auditar } from "./auditoria";
 import { requireFeature } from "./plan";
 import { requireAlumnoVisible, type TenantContext } from "./tenant";
@@ -23,8 +23,8 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
     ctx.db.periodo.findFirst({ where: { id: periodoId } }),
   ]);
   if (!alumno || !periodo) forbidden();
-  // Las familias solo ven periodos publicados (o antiguos ya cerrados); profesores y dirección ven todos.
-  if (ctx.rol === "apoderado" && !libretaVisibleParaFamilia(periodo)) forbidden();
+  // Las familias y el propio alumno solo ven periodos publicados (o antiguos ya cerrados); profesores y dirección ven todos.
+  if (esVistaFamilia(ctx.rol) && !libretaVisibleParaFamilia(periodo)) forbidden();
 
   const cursos = await ctx.db.curso.findMany({ where: { salonId: alumno.salonId }, orderBy: { nombre: "asc" } });
   const cursoIds = cursos.map((c) => c.id);

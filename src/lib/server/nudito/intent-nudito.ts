@@ -1,10 +1,10 @@
 import "server-only";
 import type { TenantContext } from "@/lib/server/tenant";
 import { alumnoIdsVisibles } from "@/lib/server/tenant";
-import { decidir, nombreCorto } from "./intenciones";
+import { decidir, intencionNecesitaHijo, nombreCorto } from "./intenciones";
 import { normalizar } from "./normalizar";
 import {
-  ayuda, conDisclaimer, derivarAPersona, derivarATutora, derivarDesconocido, noCompara, preguntarHijo,
+  ayuda, conDisclaimer, derivarAPersona, derivarATutora, derivarDesconocido, noCompara, noEsHijo, preguntarHijo,
   respuestaAsistencia, respuestaDocumento, respuestaFechas, respuestaNotas, respuestaTareas, saludar, type NotaDato,
 } from "./respuestas";
 import { esAgradecimiento } from "./intenciones";
@@ -24,7 +24,7 @@ export class IntentNudito implements NuditoProvider {
         ? []
         : await ctx.db.alumno.findMany({
             where: { id: { in: ids } },
-            select: { id: true, nombres: true, salonId: true },
+            select: { id: true, nombres: true, apellidos: true, salonId: true },
             orderBy: { nombres: "asc" },
           });
     const respuesta = await this.resolver(ctx, entrada, historial, hijos);
@@ -34,8 +34,10 @@ export class IntentNudito implements NuditoProvider {
 
   private async resolver(ctx: TenantContext, entrada: string, historial: MensajeHistorial[], hijos: Hijo[]): Promise<RespuestaNudito> {
     const corto = hijos.map((h) => ({ id: h.id, nombre: nombreCorto(h) }));
-    const d = decidir(entrada, hijos, historial);
+    // El nombre del apoderado y el del colegio no cuentan como «otro niño».
+    const d = decidir(entrada, hijos, historial, { excluir: [ctx.user.nombres, ctx.user.apellidos, ctx.tenant.nombre] });
 
+    if (d.tipo === "no_es_hijo") return noEsHijo(d.nombre, corto, intencionNecesitaHijo(d.intencion) ? d.intencion : null);
     if (d.tipo === "comparar") return noCompara(hijos.length === 1 ? nombreCorto(hijos[0]) : null);
     if (d.tipo === "delicado") return derivarATutora(d.intencion, corto);
     if (d.tipo === "preguntar_hijo") return preguntarHijo(d.intencion, corto);

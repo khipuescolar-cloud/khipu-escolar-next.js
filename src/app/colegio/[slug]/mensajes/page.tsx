@@ -1,22 +1,30 @@
 import { MessageSquarePlus, MessagesSquare } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
 import { requireConsentimiento } from "@/lib/server/consentimiento";
 import { listarConversaciones } from "@/lib/server/mensajes";
 import { requireFeature } from "@/lib/server/plan";
-import { requireTenantContext } from "@/lib/server/tenant";
+import { requireAlumnoVisible, requireTenantContext } from "@/lib/server/tenant";
 import { ListaConversaciones } from "./ListaConversaciones";
 
 export const metadata: Metadata = { title: "Mensajes" };
 
-export default async function MensajesPage({ params }: PageProps<"/colegio/[slug]/mensajes">) {
+export default async function MensajesPage({ params, searchParams }: PageProps<"/colegio/[slug]/mensajes">) {
   const { slug } = await params;
+  const { alumno } = await searchParams;
   const ctx = await requireTenantContext(slug, ["apoderado", "profesor", "direccion"]);
   requireFeature(ctx, "mensajes");
   await requireConsentimiento(ctx);
+  // Enlaces «Hablar con la tutora» (Nudito, asistencia): `?alumno=` abre el nuevo mensaje sobre ese hijo.
+  const alumnoId = Array.isArray(alumno) ? alumno[0] : alumno;
+  if (alumnoId && ctx.rol !== "direccion") {
+    await requireAlumnoVisible(ctx, alumnoId);
+    redirect(`/mensajes/nuevo?alumno=${encodeURIComponent(alumnoId)}`);
+  }
   const conversaciones = await listarConversaciones(ctx);
   const puedeEscribir = ctx.rol !== "direccion";
 

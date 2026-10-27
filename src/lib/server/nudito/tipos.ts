@@ -37,7 +37,8 @@ export type MensajeHistorial = {
   derivado: boolean;
 };
 
-export type Hijo = { id: string; nombres: string; salonId: string };
+/** `apellidos` (opcional) sirve para no confundir el apellido del hijo con el nombre de otro niño. */
+export type Hijo = { id: string; nombres: string; apellidos?: string; salonId: string };
 
 export interface NuditoProvider {
   responder(ctx: TenantContext, entrada: string, historial: MensajeHistorial[]): Promise<RespuestaNudito>;

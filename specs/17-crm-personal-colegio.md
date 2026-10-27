@@ -40,6 +40,13 @@ Que la dirección administre a su gente desde el sistema: profesores, personal a
 - **Importación CSV** (`importarPersonalCsv`, parser puro en `src/lib/importar-personal.ts`): columnas `nombres, apellidos, documento, correo` (obligatorias) más `tipo_documento, telefono, genero, fecha_nacimiento, direccion, cargo` (y `rol` = administrativo o porteria en el CSV de personal). Todo o nada: valida cada línea (datos, correos y documentos repetidos, rol ya registrado) y devuelve errores por línea; máx. 200 filas y 1 MB.
 - **Navegación** de `/gestion`: Profesores, Personal, Grados y salones, Alumnos, Familias y Carnets. Apoderados mantienen la invitación por correo personal (`invitarUsuario` ahora solo admite `apoderado`).
 
+## Cuenta propia del alumno (`/gestion/alumnos`)
+- Dirección y administrativo (`exigirAlumnosFamilias`), desde las acciones de cada alumno activo: **Crear cuenta del alumno** (correo del alumno + tipo y número de documento). Columna «Cuenta del alumno»: Sin cuenta · Cuenta activa · Cuenta desactivada (ícono + palabra).
+- `crearCuentaAlumno` (`src/lib/server/gestion-cuentas-alumno.ts`): reutiliza `crearCuentaConDocumento` (contraseña inicial = documento, `debeCambiarPassword = true`), crea la membresía `alumno` activa, la enlaza en `Alumno.cuentaId` (enlace atómico: si otro proceso la enlazó antes, se revierte) y encola `encolarBienvenida` (sin el número). Auditado como `crear · cuenta_alumno`.
+- **Consentimiento (datos de menores, specs/15):** exige que al menos un apoderado vinculado tenga un consentimiento **vigente** (sin revocar). Si no, la acción muestra por qué no se puede («Ningún apoderado vinculado ha dado su consentimiento…») y el servidor rechaza el alta. Reactivar la cuenta vuelve a exigirlo.
+- No acepta el correo de alguien que ya tiene membresía en el colegio (apoderado, personal u otro alumno): la cuenta es del alumno.
+- **Desactivar / reactivar** (`cambiarEstadoCuentaAlumno`): cambia el estado de la membresía; desactivada no entra al colegio (403). Retirar al alumno del colegio deja su cuenta sin datos visibles (el alcance solo cuenta alumnos activos).
+
 ## Contratos de `src/lib/server/personal.ts`
 `altaPersonal`, `reenviarBienvenida`, `listarPersonal`, `obtenerFicha`, `editarFicha`, `importarPersonalCsv` (todas con `exigirGestion`). Quien llama a `altaPersonal`/`importarPersonalCsv`/`reenviarBienvenida` debe disparar `procesarCola()` (la acción lo hace con `after()`).
 
@@ -47,6 +54,7 @@ Que la dirección administre a su gente desde el sistema: profesores, personal a
 Documento inválido (DNI de 8 dígitos; CE/pasaporte 8–12 alfanuméricos), correo duplicado con el mismo rol, correo existente en otro colegio, CSV con líneas inválidas, salón con alumnos o cursos.
 
 ## Pruebas
+- integración: `tests/integracion/rol-alumno.test.ts` (cuenta del alumno: sin consentimiento no, correo de un apoderado no, DNI como contraseña, bienvenida sin el número, desactivar) · e2e: `tests/e2e/rol-alumno.test.ts` (dirección crea la cuenta; el alumno entra con su DNI, cambia la contraseña y ve su inicio).
 - unit: `tests/unit/importar-personal.test.ts` · integración: `tests/integracion/gestion-p2.test.ts` (archivar salones, permisos del administrativo, familias, datos globales y reinicio de contraseña), `tests/integracion/crm-personal.test.ts` (alta sin DNI en el aviso, correo existente, 403, filtros, historial, CSV) e `invitaciones-y-logo.test.ts` (adaptada) · e2e: `tests/e2e/crm-personal.test.ts` (alta con DNI, correo en Mailpit, ingreso con DNI y cambio obligatorio; personal administrativo con su inicio) y `direccion-panel.test.ts`.
 
 ## Datos globales del perfil y contraseña

@@ -52,7 +52,7 @@ export async function requireArchivoVisible(ctx: TenantContext, archivoId: strin
 /** Misma regla que `listarComunicados`: dirección y autor siempre; el resto, los de todo el colegio y los de sus salones. */
 export async function puedeVerComunicado(ctx: TenantContext, c: { autorId: string; salonId: string | null }): Promise<boolean> {
   if (ctx.rol === "direccion" || c.autorId === ctx.membership.id) return true;
-  if (!["profesor", "apoderado", "administrativo"].includes(ctx.rol)) return false;
+  if (!["profesor", "apoderado", "administrativo", "alumno"].includes(ctx.rol)) return false;
   if (c.salonId === null) return true;
   return (await salonIdsVisibles(ctx)).includes(c.salonId);
 }
@@ -60,6 +60,6 @@ export async function puedeVerComunicado(ctx: TenantContext, c: { autorId: strin
 /** Tareas: dirección y creador siempre; profesores y apoderados solo de sus salones. */
 export async function puedeVerTarea(ctx: TenantContext, t: { creadoPorId: string; curso: { salonId: string } }): Promise<boolean> {
   if (ctx.rol === "direccion" || t.creadoPorId === ctx.membership.id) return true;
-  if (ctx.rol !== "profesor" && ctx.rol !== "apoderado") return false;
+  if (ctx.rol !== "profesor" && ctx.rol !== "apoderado" && ctx.rol !== "alumno") return false;
   return (await salonIdsVisibles(ctx)).includes(t.curso.salonId);
 }

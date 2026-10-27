@@ -19,7 +19,7 @@ Cumplir lo mínimo de la Ley 29733 en el MVP: consentimiento, trazabilidad, gara
 4. **Borrado:** `pnpm khipu:borrar-colegio <slug> --confirmar <slug> [--dry-run]` (`scripts/borrar-colegio.ts`): sin la confirmación idéntica no hace nada. Primero borra los archivos del colegio en el proveedor con `FileStorage` (si alguno falla o es de otro proveedor, aborta sin tocar la BD y se puede reintentar); luego borra el `tenant` y el cascade por `tenant_id` elimina sus datos. `--dry-run` solo cuenta y lista lo que se borraría. El script corre con `tsx --conditions=react-server` para poder importar `src/lib/server`.
 
 ## Reglas de negocio
-- Minimización: el alumno no tiene cuenta; el chat nunca expone teléfono ni correo de la otra parte.
+- Minimización: el alumno solo tiene cuenta si dirección o el administrativo la crean, y **solo con el consentimiento vigente de al menos un apoderado vinculado** (menores de edad; `specs/17`). Esa cuenta ve únicamente sus propios datos, sin chat ni Nudito. El chat nunca expone teléfono ni correo de la otra parte.
 - Los datos demo son ficticios.
 
 ## Modelo de datos
@@ -42,4 +42,5 @@ Exportar o ver auditoría sin ser dirección → 403. Una tabla nueva de colegio
 - **Con un abogado:** texto del consentimiento, política de privacidad, contrato e inscripción del banco de datos.
 - Programar el cron `/api/cron/exportaciones` en el hosting (cada 5 minutos).
 - **Externo:** consentimiento para fotos (no hay subida de fotos todavía).
+- **Con un abogado:** si al revocar el consentimiento el apoderado debe desactivar automáticamente la cuenta del alumno (hoy la revocación no la apaga; dirección puede desactivarla y reactivar exige un consentimiento vigente).
 - El ZIP se sigue armando en memoria dentro del worker (ya no bloquea la petición); si un colegio supera cientos de MB habría que pasarlo a flujo.

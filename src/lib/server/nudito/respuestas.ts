@@ -32,10 +32,20 @@ export function conDisclaimer(r: RespuestaNudito, esPrimera: boolean): Respuesta
   return esPrimera ? { ...r, texto: `${DISCLAIMER}\n\n${r.texto}` } : r;
 }
 
+/** Ruta para escribir a los profesores de un hijo (`/mensajes/nuevo` valida que sea del apoderado). */
+export function rutaChatDe(alumnoId: string): string {
+  return `/mensajes/nuevo?alumno=${alumnoId}`;
+}
+
+/** Ruta de la libreta de un hijo (`/libreta` valida que sea del apoderado). */
+export function rutaLibretaDe(alumnoId: string): string {
+  return `/libreta?alumno=${alumnoId}`;
+}
+
 export function accionesChat(hijos: { id: string; nombre: string }[]): AccionNudito[] {
   if (hijos.length === 0) return [{ tipo: "abrir_chat", etiqueta: "Abrir el chat", valor: "/mensajes" }];
-  if (hijos.length === 1) return [{ tipo: "abrir_chat", etiqueta: "Hablar con la tutora", valor: `/mensajes?alumno=${hijos[0].id}` }];
-  return hijos.map((h) => ({ tipo: "abrir_chat", etiqueta: `Hablar con la tutora de ${h.nombre}`, valor: `/mensajes?alumno=${h.id}` }));
+  if (hijos.length === 1) return [{ tipo: "abrir_chat", etiqueta: "Hablar con la tutora", valor: rutaChatDe(hijos[0].id) }];
+  return hijos.map((h) => ({ tipo: "abrir_chat", etiqueta: `Hablar con la tutora de ${h.nombre}`, valor: rutaChatDe(h.id) }));
 }
 
 export function derivarATutora(intencion: string, hijos: { id: string; nombre: string }[], alumnoId?: string): RespuestaNudito {
@@ -56,6 +66,27 @@ export function preguntarHijo(intencionPendiente: string, hijos: { nombre: strin
     intencion: `elegir_hijo:${intencionPendiente}`,
     derivado: false,
     acciones: hijos.map((h) => ({ tipo: "elegir_hijo", etiqueta: h.nombre, valor: h.nombre })),
+  };
+}
+
+/** «Mateo», «Mateo y Sofía», «Mateo, Sofía y Luis». */
+export function listaNombres(nombres: string[]): string {
+  if (nombres.length <= 1) return nombres[0] ?? "";
+  return `${nombres.slice(0, -1).join(", ")} y ${nombres[nombres.length - 1]}`;
+}
+
+/**
+ * La familia nombró a un niño que no es su hijo. No se revela si ese alumno existe en el colegio y no se
+ * responde con los datos de su hijo. Si la pregunta necesitaba un hijo, ofrece elegir uno de los suyos.
+ */
+export function noEsHijo(nombre: string, hijos: { nombre: string }[], intencionPendiente: string | null): RespuestaNudito {
+  const base = `No encuentro a ${nombre} entre tus hijos.`;
+  if (hijos.length === 0) return { texto: base, intencion: "no_es_hijo", derivado: false };
+  return {
+    texto: `${base} Puedo ayudarte con ${listaNombres(hijos.map((h) => h.nombre))}.`,
+    intencion: intencionPendiente ? `elegir_hijo:${intencionPendiente}` : "no_es_hijo",
+    derivado: false,
+    acciones: intencionPendiente ? hijos.map((h) => ({ tipo: "elegir_hijo", etiqueta: h.nombre, valor: h.nombre })) : undefined,
   };
 }
 
@@ -140,7 +171,7 @@ export function respuestaNotas(
     intencion: "notas",
     derivado: false,
     alumnoId,
-    acciones: [{ tipo: "ir", etiqueta: "Abrir la libreta", valor: `/libreta?alumno=${alumnoId}` }],
+    acciones: [{ tipo: "ir", etiqueta: "Abrir la libreta", valor: rutaLibretaDe(alumnoId) }],
   };
 }
 

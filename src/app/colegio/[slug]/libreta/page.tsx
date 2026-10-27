@@ -16,7 +16,8 @@ import { libretaVisibleParaFamilia } from "@/lib/libreta-publicacion";
 import { datosLibreta } from "@/lib/server/libreta";
 import { alumnosVisibles, listarPeriodos, periodoParaLibreta } from "@/lib/server/notas";
 import { requireFeature } from "@/lib/server/plan";
-import { requireTenantContext } from "@/lib/server/tenant";
+import { esVistaFamilia } from "@/lib/roles";
+import { requireAlumnoVisible, requireTenantContext } from "@/lib/server/tenant";
 
 export const metadata: Metadata = { title: "Libreta" };
 
@@ -27,12 +28,16 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
   const sp = await searchParams;
   const ctx = await requireTenantContext(slug);
   requireFeature(ctx, "libreta");
-  if (!["apoderado", "profesor", "direccion"].includes(ctx.rol)) forbidden();
+  if (!["apoderado", "alumno", "profesor", "direccion"].includes(ctx.rol)) forbidden();
+  const familia = esVistaFamilia(ctx.rol);
 
+  // `?alumno=` (enlaces de Nudito, notas y avisos) abre la libreta de ese alumno, solo si está en el alcance del usuario.
+  const pedido = uno(sp.alumno);
+  if (pedido) await requireAlumnoVisible(ctx, pedido);
   const [alumnos, todos] = await Promise.all([alumnosVisibles(ctx), listarPeriodos(ctx)]);
-  // Las familias solo ven los periodos que el colegio publicó.
-  const periodos = ctx.rol === "apoderado" ? todos.filter(libretaVisibleParaFamilia) : todos;
-  const alumno = alumnos.find((a) => a.id === uno(sp.alumno)) ?? alumnos[0];
+  // Las familias (y el propio alumno) solo ven los periodos que el colegio publicó.
+  const periodos = familia ? todos.filter(libretaVisibleParaFamilia) : todos;
+  const alumno = alumnos.find((a) => a.id === pedido) ?? alumnos[0];
   const periodo = periodos.find((p) => p.id === uno(sp.periodo)) ?? periodoParaLibreta(periodos);
 
   const titulo = "Libreta";
@@ -41,7 +46,7 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
     return (
       <div>
         <EncabezadoPagina titulo={titulo} descripcion={descripcion} />
-        <EstadoVacio icono={NotebookText} titulo="Todavía no hay una libreta para mostrar" descripcion={ctx.rol === "apoderado" ? "Cuando el colegio publique la libreta de un periodo, la verás aquí y te avisaremos." : "Cuando el colegio cree un periodo con notas, la verás aquí."} />
+        <EstadoVacio icono={NotebookText} titulo="Todavía no hay una libreta para mostrar" descripcion={familia ? "Cuando el colegio publique la libreta de un periodo, la verás aquí y te avisaremos." : "Cuando el colegio cree un periodo con notas, la verás aquí."} />
       </div>
     );
   }
@@ -55,9 +60,12 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
         titulo={titulo}
         descripcion={descripcion}
         acciones={
-          <a href={`/api/libreta/${alumno.id}?periodo=${periodo.id}`} className={buttonVariants()}>
-            <Download strokeWidth={2} aria-hidden /> Descargar PDF
-          </a>
+          // El PDF lo descarga la familia o el colegio (`/api/libreta` no admite al rol alumno).
+          ctx.rol === "alumno" ? undefined : (
+            <a href={`/api/libreta/${alumno.id}?periodo=${periodo.id}`} className={buttonVariants()}>
+              <Download strokeWidth={2} aria-hidden /> Descargar PDF
+            </a>
+          )
         }
       />
       <Card>
@@ -120,7 +128,7 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
           <p className="text-xs text-muted-foreground">Firmada por la dirección de {datos.colegio.nombre}.</p>
         </CardContent>
       </Card>
-      {ctx.rol === "apoderado" && <p className="text-sm"><Link href={`/notas?alumno=${alumno.id}&periodo=${periodo.id}`} className="font-semibold text-primary underline-offset-4 hover:underline">Ver el detalle de notas</Link></p>}
+      {familia && <p className="text-sm"><Link href={`/notas?alumno=${alumno.id}&periodo=${periodo.id}`} className="font-semibold text-primary underline-offset-4 hover:underline">Ver el detalle de notas</Link></p>}
     </div>
   );
 }

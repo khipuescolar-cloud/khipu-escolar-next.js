@@ -54,6 +54,15 @@ describe("Nudito: aislamiento de datos", () => {
     expect(r.texto).toContain("TAREA_PROPIA");
     expect(r.texto).not.toContain("TAREA_AJENA");
 
+    // Nombra a un alumno que SÍ existe en el colegio pero no es su hijo: no responde con datos de su hijo
+    // ni revela que ese alumno existe (misma respuesta que con un nombre inventado).
+    const ajeno = await motor.responder(ctxPrueba, "¿qué tareas tiene Ajeno?", []);
+    expect(ajeno.texto).toContain("No encuentro a Ajeno entre tus hijos. Puedo ayudarte con Hijo.");
+    expect(ajeno.texto).not.toContain("TAREA_PROPIA");
+    expect(ajeno.texto).not.toContain("TAREA_AJENA");
+    const inventado = await motor.responder(ctxPrueba, "¿qué tareas tiene Zzyzx?", []);
+    expect(inventado.texto.replace("Zzyzx", "Ajeno")).toBe(ajeno.texto);
+
     const ctxNh = await contextoDe("nuevohorizonte", "rosa.quispe@gmail.com");
     const rNh = await motor.responder(ctxNh, "¿qué tareas tiene Mateo?", []);
     expect(rNh.texto).not.toContain("TAREA_PROPIA");
