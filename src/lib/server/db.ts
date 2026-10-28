@@ -24,6 +24,8 @@ export const MODELOS_GLOBALES = new Set([
   "Tenant", "Profile", "LoginIntento", "PushSuscripcion", "AdminPlataforma", "AuditoriaPlataforma",
   // Panel de plataforma v2 (specs/19): catálogo y ajustes globales; `FeriadoExtra` mezcla filas globales y por colegio y se filtra a mano.
   "PlanCatalogo", "PlanModulo", "RolModulo", "AnuncioPlataforma", "FeriadoExtra", "ConfigPlataforma",
+  // Landing (specs/25): pedidos de demo de colegios que aún no existen.
+  "SolicitudDemo",
 ]);
 
 const OPERACIONES_CON_WHERE = new Set([

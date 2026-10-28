@@ -1251,3 +1251,41 @@ model MensajeSoporte {
   @@index([ticketId, createdAt])
   @@map("mensajes_soporte")
 }
+
+// ─── Landing: solicitudes de demo de colegios interesados (specs/25) ─────────
+
+enum EstadoSolicitud {
+  nueva
+  contactada
+  demo_agendada
+  convertida // se creó el colegio
+  descartada
+}
+
+/// Pedido de demo enviado desde la landing pública. Global (aún no hay colegio).
+model SolicitudDemo {
+  id          String          @id @default(uuid()) @db.Uuid
+  nombre      String
+  cargo       String?
+  colegio     String
+  ciudad      String?
+  correo      String
+  telefono    String?
+  alumnos     Int? // tamaño aproximado del colegio
+  mensaje     String?
+  /// Plan de interés si vino desde la sección de planes.
+  planInteres Plan?           @map("plan_interes")
+  estado      EstadoSolicitud @default(nueva)
+  notas       String? // notas internas del equipo Khipu
+  /// Hash de la IP (con APP_SECRET) solo para limitar envíos repetidos; nunca la IP en claro.
+  ipHash      String          @map("ip_hash")
+  /// Colegio creado a partir de esta solicitud.
+  tenantId    String?         @map("tenant_id") @db.Uuid
+  atendidaPor String?         @map("atendida_por") @db.Uuid
+  createdAt   DateTime        @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt   DateTime        @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([estado, createdAt])
+  @@index([ipHash, createdAt])
+  @@map("solicitudes_demo")
+}
