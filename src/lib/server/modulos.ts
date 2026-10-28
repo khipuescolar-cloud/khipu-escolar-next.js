@@ -85,6 +85,32 @@ export function nombreDelPlan(catalogo: CatalogoModulos, plan: Plan): string {
   return catalogo.planes.find((p) => p.plan === plan)?.nombre ?? NOMBRE_PLAN[plan];
 }
 
+/** Nombre comercial de cada plan (catálogo cacheado; respaldo `NOMBRE_PLAN` para los que no estén). */
+export function nombresDeCatalogo(catalogo: CatalogoModulos): Record<Plan, string> {
+  const nombres = { ...NOMBRE_PLAN };
+  for (const p of catalogo.planes) if (p.nombre.trim()) nombres[p.plan] = p.nombre;
+  return nombres;
+}
+
+/** Planes que se ofrecen hoy (solo `activo`, por `orden`). Sin catálogo: los tres de código. */
+export function ofrecidosDeCatalogo(catalogo: CatalogoModulos): { plan: Plan; nombre: string }[] {
+  if (catalogo.planes.length === 0) return (Object.keys(NOMBRE_PLAN) as Plan[]).sort((a, b) => ORDEN_PLANES[a] - ORDEN_PLANES[b]).map((plan) => ({ plan, nombre: NOMBRE_PLAN[plan] }));
+  return catalogo.planes
+    .filter((p) => p.activo)
+    .sort((a, b) => a.orden - b.orden)
+    .map((p) => ({ plan: p.plan, nombre: p.nombre }));
+}
+
+/** Nombres comerciales de todos los planes (para pantallas y reportes). */
+export async function nombresDePlanes(): Promise<Record<Plan, string>> {
+  return nombresDeCatalogo(await catalogoModulos());
+}
+
+/** Planes que se pueden asignar a un colegio hoy (solo activos, ordenados). */
+export async function planesOfrecidos(): Promise<{ plan: Plan; nombre: string }[]> {
+  return ofrecidosDeCatalogo(await catalogoModulos());
+}
+
 /**
  * Plan más bajo (por orden) que incluye el módulo, para el candado. Prefiere planes activos (los que se ofrecen);
  * si ninguno lo incluye, null («No incluido»).

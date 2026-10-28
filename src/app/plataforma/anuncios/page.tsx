@@ -6,7 +6,7 @@ import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { estadoAnuncio, localDeLima, NOMBRE_AUDIENCIA, NOMBRE_ESTADO_ANUNCIO, NOMBRE_NIVEL, type EstadoAnuncio } from "@/lib/anuncios-plataforma";
-import { NOMBRE_PLAN } from "@/lib/planes";
+import { nombresDePlanes } from "@/lib/server/modulos";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import { listarAnuncios } from "@/lib/server/plataforma-anuncios";
 import { eliminarAnuncioAction, guardarAnuncioAction } from "./actions";
@@ -24,7 +24,7 @@ const fecha = (d: Date) => new Intl.DateTimeFormat("es-PE", { timeZone: "America
 
 export default async function Anuncios() {
   const admin = await requireAdminPlataforma();
-  const anuncios = await listarAnuncios(admin);
+  const [anuncios, nombres] = await Promise.all([listarAnuncios(admin), nombresDePlanes()]);
   const ahora = new Date();
   const desdePorDefecto = localDeLima(ahora).slice(0, 16);
   const hastaPorDefecto = localDeLima(new Date(ahora.getTime() + 7 * 86_400_000));
@@ -33,7 +33,7 @@ export default async function Anuncios() {
       <EncabezadoPagina
         titulo="Anuncios"
         descripcion="Mensajes del equipo Khipu para los colegios: novedades, mantenimientos y avisos urgentes."
-        acciones={<FormularioAnuncio accion={guardarAnuncioAction} desdePorDefecto={desdePorDefecto} hastaPorDefecto={hastaPorDefecto} />}
+        acciones={<FormularioAnuncio accion={guardarAnuncioAction} nombresPlanes={nombres} desdePorDefecto={desdePorDefecto} hastaPorDefecto={hastaPorDefecto} />}
       />
       {anuncios.length === 0 ? (
         <EstadoVacio icono={Megaphone} titulo="Aún no hay anuncios." descripcion="Crea el primero para avisar de una novedad o de un mantenimiento." />
@@ -63,7 +63,7 @@ export default async function Anuncios() {
                     <TableCell>{NOMBRE_NIVEL[a.nivel]}</TableCell>
                     <TableCell>
                       {NOMBRE_AUDIENCIA[a.audiencia]}
-                      <p className="text-cuerpo-sm text-muted-foreground">{a.planes.length ? a.planes.map((p) => NOMBRE_PLAN[p]).join(", ") : "Todos los planes"}</p>
+                      <p className="text-cuerpo-sm text-muted-foreground">{a.planes.length ? a.planes.map((p) => nombres[p]).join(", ") : "Todos los planes"}</p>
                     </TableCell>
                     <TableCell className="text-cuerpo-sm text-muted-foreground">
                       {fecha(a.desde)}
@@ -79,6 +79,7 @@ export default async function Anuncios() {
                       <div className="flex justify-end gap-2">
                         <FormularioAnuncio
                           accion={guardarAnuncioAction}
+                          nombresPlanes={nombres}
                           desdePorDefecto={desdePorDefecto}
                           hastaPorDefecto={hastaPorDefecto}
                           anuncio={{ id: a.id, titulo: a.titulo, cuerpo: a.cuerpo, nivel: a.nivel, audiencia: a.audiencia, planes: a.planes, desde: localDeLima(a.desde), hasta: localDeLima(a.hasta) }}

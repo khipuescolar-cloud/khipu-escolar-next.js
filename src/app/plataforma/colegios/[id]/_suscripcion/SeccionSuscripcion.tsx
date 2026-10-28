@@ -6,7 +6,7 @@ import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { estadoRenovacion, finDePeriodo, formatoSoles, NOMBRE_CICLO, nombreMetodo } from "@/lib/comercial";
 import { fechaCorta, sumarDias } from "@/lib/fechas";
-import { NOMBRE_PLAN } from "@/lib/planes";
+import type { Plan } from "@/generated/prisma/enums";
 import type { suscripcionDelColegio } from "@/lib/server/plataforma-suscripciones";
 import { cambiarPlanAction } from "../../../actions";
 import { EstadoDeSuscripcion, EtiquetaRenovacion } from "../../../_componentes/EtiquetasComerciales";
@@ -17,8 +17,11 @@ import { HojaSuscripcion } from "./HojaSuscripcion";
 type Datos = Awaited<ReturnType<typeof suscripcionDelColegio>>;
 
 /** «Suscripción» de la ficha del colegio (specs/20): contrato, alumnos contratados vs. activos y pagos manuales. */
-export function SeccionSuscripcion({ datos }: { datos: Datos }) {
+export function SeccionSuscripcion({ datos, nombres, ofrecidos }: { datos: Datos; nombres: Record<Plan, string>; ofrecidos: { plan: Plan; nombre: string }[] }) {
   const { tenant, suscripcion: s, pagos, alumnosActivos, hoy } = datos;
+  // Solo se ofrecen planes activos; si el actual ya no se ofrece, se conserva marcado para no perderlo al guardar.
+  const planActual = s?.plan ?? tenant.plan;
+  const opcionesPlan = ofrecidos.some((p) => p.plan === planActual) ? ofrecidos : [...ofrecidos, { plan: planActual, nombre: `${nombres[planActual]} (no se ofrece)` }];
   const renovacion = s ? estadoRenovacion(s.proximaRenovacion, hoy) : null;
   const excede = !!s && s.alumnosContratados !== null && alumnosActivos > s.alumnosContratados;
   const ciclo = s?.ciclo ?? "mensual";
@@ -41,7 +44,7 @@ export function SeccionSuscripcion({ datos }: { datos: Datos }) {
           <Receipt className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Suscripción
         </h2>
         <div className="flex flex-wrap gap-2">
-          <HojaSuscripcion tenantId={tenant.id} datos={porDefecto} existe={!!s} />
+          <HojaSuscripcion tenantId={tenant.id} datos={porDefecto} existe={!!s} planes={opcionesPlan} />
           <DialogoPago
             tenantId={tenant.id}
             monto={s?.montoPorCiclo ?? null}
@@ -58,7 +61,7 @@ export function SeccionSuscripcion({ datos }: { datos: Datos }) {
       ) : (
         <Tarjeta className="flex flex-col gap-4">
           <dl className="grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-3 lg:grid-cols-4">
-            <Dato titulo="Plan">Plan {NOMBRE_PLAN[s.plan]}</Dato>
+            <Dato titulo="Plan">Plan {nombres[s.plan]}</Dato>
             <Dato titulo="Estado"><EstadoDeSuscripcion estado={s.estado} /></Dato>
             <Dato titulo="Ciclo">{NOMBRE_CICLO[s.ciclo]}</Dato>
             <Dato titulo={`Monto ${s.ciclo === "anual" ? "anual" : "mensual"}`}><span className="tabular-nums">{formatoSoles(s.montoPorCiclo)}</span></Dato>
@@ -83,11 +86,11 @@ export function SeccionSuscripcion({ datos }: { datos: Datos }) {
             <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-tarde/20 bg-tarde-fondo px-3.5 py-3 text-cuerpo-sm text-tarde">
               <p className="flex items-center gap-2">
                 <AlertTriangle className="size-4 shrink-0" strokeWidth={2} aria-hidden />
-                <span>La suscripción dice plan {NOMBRE_PLAN[s.plan]}, pero el colegio usa el plan {NOMBRE_PLAN[tenant.plan]}.</span>
+                <span>La suscripción dice plan {nombres[s.plan]}, pero el colegio usa el plan {nombres[tenant.plan]}.</span>
               </p>
               <BotonConfirmar
                 etiqueta="Aplicar plan al colegio"
-                titulo={`¿Pasar el colegio al plan ${NOMBRE_PLAN[s.plan]}?`}
+                titulo={`¿Pasar el colegio al plan ${nombres[s.plan]}?`}
                 descripcion="Cambia las funciones disponibles para todo el colegio de inmediato."
                 confirmar="Aplicar plan"
                 accion={cambiarPlanAction}

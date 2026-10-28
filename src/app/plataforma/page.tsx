@@ -8,7 +8,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import type { EstadoTenant, Plan } from "@/generated/prisma/enums";
-import { NOMBRE_PLAN } from "@/lib/planes";
+import { nombresDePlanes } from "@/lib/server/modulos";
 import { META_APERTURA, metricasPlataforma, reporteColegios, requireAdminPlataforma, serieDiariaPlataforma } from "@/lib/server/plataforma";
 import { cn } from "@/lib/utils";
 import { GraficoBarras, GraficoDiario } from "./_componentes/Graficos";
@@ -23,7 +23,7 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
   const admin = await requireAdminPlataforma();
   const { q } = await searchParams;
   const busqueda = typeof q === "string" ? q : "";
-  const [m, serie, todos] = await Promise.all([metricasPlataforma(admin), serieDiariaPlataforma(admin), reporteColegios(admin)]);
+  const [m, serie, todos, nombres] = await Promise.all([metricasPlataforma(admin), serieDiariaPlataforma(admin), reporteColegios(admin), nombresDePlanes()]);
   const colegios = busqueda ? await reporteColegios(admin, { q: busqueda }) : todos;
   const MAX_BARRAS = 8;
   const ordenados = [...todos].sort((a, b) => b.alumnos - a.alumnos);
@@ -53,7 +53,7 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
               {(Object.keys(m.colegios.porEstado) as EstadoTenant[]).map((e) => `${NOMBRE_ESTADO[e]}: ${m.colegios.porEstado[e]}`).join(" · ")}
             </span>
             <span className="block">
-              {(Object.keys(m.colegios.porPlan) as Plan[]).map((p) => `${NOMBRE_PLAN[p]}: ${m.colegios.porPlan[p]}`).join(" · ")}
+              {(Object.keys(m.colegios.porPlan) as Plan[]).map((p) => `${nombres[p]}: ${m.colegios.porPlan[p]}`).join(" · ")}
             </span>
           </StatTile>
           <StatTile titulo="Alumnos activos" valor={numero(m.alumnos)} Icono={Users} />
@@ -150,7 +150,7 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
                     </div>
                     <div className="mt-auto flex flex-wrap items-center gap-2 text-cuerpo-sm">
                       <EstadoColegio estado={c.estado} />
-                      <PlanColegio plan={c.plan} />
+                      <PlanColegio plan={c.plan} nombre={nombres[c.plan]} />
                       <span className="text-muted-foreground">{numero(c.alumnos)} alumnos</span>
                     </div>
                   </Tarjeta>

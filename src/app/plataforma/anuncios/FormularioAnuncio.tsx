@@ -12,7 +12,7 @@ import { Selector } from "@/components/ui/Selector";
 import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Textarea } from "@/components/ui/textarea";
 import { NOMBRE_AUDIENCIA, NOMBRE_NIVEL } from "@/lib/anuncios-plataforma";
-import { NOMBRE_PLAN } from "@/lib/planes";
+import type { Plan } from "@/generated/prisma/enums";
 import type { EstadoFormulario } from "../actions";
 
 export type AnuncioEditable = {
@@ -21,7 +21,7 @@ export type AnuncioEditable = {
   cuerpo: string;
   nivel: keyof typeof NOMBRE_NIVEL;
   audiencia: keyof typeof NOMBRE_AUDIENCIA;
-  planes: (keyof typeof NOMBRE_PLAN)[];
+  planes: Plan[];
   /** «AAAA-MM-DDTHH:mm» en hora de Lima. */
   desde: string;
   hasta: string;
@@ -29,10 +29,12 @@ export type AnuncioEditable = {
 
 /** Crear o editar un anuncio (Sheet) con vista previa de cómo lo verá el colegio. */
 export function FormularioAnuncio({
-  accion, anuncio, desdePorDefecto, hastaPorDefecto,
+  accion, anuncio, nombresPlanes, desdePorDefecto, hastaPorDefecto,
 }: {
   accion: (previo: EstadoFormulario, datos: FormData) => Promise<EstadoFormulario>;
   anuncio?: AnuncioEditable;
+  /** Nombre comercial de cada plan (catálogo). */
+  nombresPlanes: Record<Plan, string>;
   desdePorDefecto: string;
   hastaPorDefecto: string;
 }) {
@@ -99,7 +101,7 @@ export function FormularioAnuncio({
           <fieldset className="flex flex-col gap-2 text-sm">
             <legend className="mb-1 font-medium text-foreground">Planes</legend>
             <div className="flex flex-wrap gap-x-5 gap-y-2">
-              {Object.entries(NOMBRE_PLAN).map(([v, n]) => (
+              {Object.entries(nombresPlanes).map(([v, n]) => (
                 <label key={v} className="inline-flex min-h-8 items-center gap-2">
                   <input type="checkbox" name="planes" value={v} defaultChecked={anuncio?.planes.includes(v as "basico")} className="size-4 accent-[var(--acento)]" /> {n}
                 </label>

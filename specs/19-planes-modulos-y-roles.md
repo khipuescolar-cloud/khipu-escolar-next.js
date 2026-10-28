@@ -94,15 +94,26 @@ Estados siempre con ícono + palabra: «Incluido» / «No incluido» / «Siempre
 - Si ningún plan incluye un módulo que el colegio no tiene, se oculta (no hay candado que ofrecer).
 
 ## Pruebas
-- unit: `tests/unit/modulos.test.ts` (resolución, respaldo, roles soportados).
+- unit: `tests/unit/modulos.test.ts` (resolución, respaldo, roles soportados) y `tests/unit/nombres-planes.test.ts`
+  (nombres con respaldo, inactivos fuera de `planesOfrecidos`).
 - integración: `tests/integracion/planes-modulos-roles.test.ts` (quitar de un plan → 403 en páginas/acciones; extra
   por colegio; quitar a un rol solo afecta a ese rol; `gestion` intocable; caché invalidada al guardar; restablecer).
 - e2e: `tests/e2e/planes-modulos.test.ts` (quita Agenda del plan Familia → candado «Plan Pro Max» en Academia Euler y
   `/agenda` sin acceso; restaura).
 
+## Nombres comerciales de los planes
+- `nombresDePlanes()` (`Record<Plan, string>`, catálogo cacheado con `NOMBRE_PLAN` de respaldo) y `planesOfrecidos()`
+  (solo `activo`, por `orden`) en `src/lib/server/modulos.ts`; versiones puras `nombresDeCatalogo` / `ofrecidosDeCatalogo`.
+- Todas las pantallas y CSV de plataforma (vista principal, colegios, ficha, suscripciones, anuncios) muestran el nombre
+  comercial; los componentes cliente lo reciben por props. Filtros y reportes listan todos los planes; **«Nuevo colegio»**,
+  el selector de plan de la ficha y el de la suscripción ofrecen solo planes activos (si el colegio ya tiene un plan
+  inactivo, se muestra igual como «<nombre> (no se ofrece)»). En el colegio, `ctx.accesoModulos.nombrePlan` ya trae el nombre.
+- `NOMBRE_PLAN` queda solo como respaldo.
+
+## Decisión: módulo `avisos`
+El módulo `avisos` es la pantalla de seguimiento «Avisos enviados». Quitarlo a un colegio **no detiene** los avisos
+automáticos de falta/tardanza a las familias: son parte de asistencia y se siguen enviando. (Texto en la descripción del
+módulo en `/planes`.)
+
 ## Pendientes
-- Las pantallas de plataforma que listan planes con `NOMBRE_PLAN` (crear colegio, filtros, insignia de plan) aún usan
-  el nombre del código; pasar al nombre del catálogo (y ocultar planes inactivos en «Nuevo colegio»).
-- El aviso automático de falta/tardanza al pasar lista no consulta si el colegio tiene `avisos`; hoy todos los planes
-  lo incluyen. Si se quita, decidir si se deja de enviar.
 - Caché en memoria por proceso: con varias instancias, un cambio tarda hasta 30 s en verse en las demás.

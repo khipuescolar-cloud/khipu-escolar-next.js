@@ -7,7 +7,7 @@ import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { baseDomain } from "@/lib/dominio";
 import { NOMBRE_TIPO_CONTACTO, TIPOS_ELEGIBLES } from "@/lib/comercial";
-import { NOMBRE_PLAN } from "@/lib/planes";
+import { planesOfrecidos } from "@/lib/server/modulos";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import { crearColegioAction } from "../../actions";
 import { CamposAdministrador } from "../CamposAdministrador";
@@ -18,6 +18,7 @@ export const metadata: Metadata = { title: "Nuevo colegio" };
 
 export default async function NuevoColegio() {
   await requireAdminPlataforma();
+  const planes = await planesOfrecidos();
   return (
     <div className="flex max-w-3xl flex-col">
       {/* «Nuevo colegio» es una acción del módulo Colegios: se vuelve a la lista, no es un módulo propio. */}
@@ -39,10 +40,8 @@ export default async function NuevoColegio() {
           <CamposColegio baseDomain={baseDomain()} />
           <div className="grid gap-4 sm:grid-cols-2">
             <Campo etiqueta="Ciudad" name="ciudad" placeholder="Arequipa" />
-            <Selector etiqueta="Plan" name="plan" defaultValue="basico">
-              <option value="basico">{NOMBRE_PLAN.basico}</option>
-              <option value="fase2">{NOMBRE_PLAN.fase2}</option>
-              <option value="promax">{NOMBRE_PLAN.promax}</option>
+            <Selector etiqueta="Plan" name="plan" defaultValue={planes.find((p) => p.plan === "basico")?.plan ?? planes[0]?.plan}>
+              {planes.map((p) => <option key={p.plan} value={p.plan}>{p.nombre}</option>)}
             </Selector>
             <Selector etiqueta="Estado" name="estado" defaultValue="piloto">
               <option value="piloto">Piloto</option>

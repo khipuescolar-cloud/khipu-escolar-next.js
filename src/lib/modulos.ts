@@ -19,7 +19,7 @@ export function esModulo(valor: string): valor is Feature {
 
 export const INFO_MODULO: Record<Feature, { nombre: string; descripcion: string; icono: IconoMosaico }> = {
   asistencia: { nombre: "Asistencia", descripcion: "Pasar lista por salón y por curso, y el calendario de asistencia de la familia.", icono: "ClipboardCheck" },
-  avisos: { nombre: "Avisos a las familias", descripcion: "Correos y notificaciones de falta o tardanza, con su seguimiento.", icono: "MailCheck" },
+  avisos: { nombre: "Avisos a las familias", descripcion: "Pantalla «Avisos enviados» para dar seguimiento a los correos y notificaciones de falta o tardanza. Los avisos automáticos se siguen enviando aunque se quite este módulo.", icono: "MailCheck" },
   porteria: { nombre: "Portería", descripcion: "Registro de entrada con el carnet QR.", icono: "ScanLine" },
   justificaciones: { nombre: "Justificaciones", descripcion: "La familia justifica faltas y el colegio las revisa.", icono: "FileText" },
   mensajes: { nombre: "Mensajes", descripcion: "Chat entre la familia y el profesor, sin compartir teléfonos.", icono: "MessagesSquare" },

@@ -5,7 +5,6 @@ import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { Textarea } from "@/components/ui/textarea";
 import { NOMBRE_CICLO, NOMBRE_ESTADO_SUSCRIPCION } from "@/lib/comercial";
-import { NOMBRE_PLAN } from "@/lib/planes";
 import { PanelFormulario } from "../_comun/PanelFormulario";
 import { guardarSuscripcionAction } from "../_acciones";
 
@@ -21,7 +20,7 @@ export type DatosSuscripcion = {
 };
 
 /** Crear o editar la suscripción del colegio (Sheet). `actual` es null si aún no tiene. */
-export function HojaSuscripcion({ tenantId, datos, existe }: { tenantId: string; datos: DatosSuscripcion; existe: boolean }) {
+export function HojaSuscripcion({ tenantId, datos, existe, planes }: { tenantId: string; datos: DatosSuscripcion; existe: boolean; planes: { plan: string; nombre: string }[] }) {
   return (
     <PanelFormulario
       tipo="sheet"
@@ -35,7 +34,7 @@ export function HojaSuscripcion({ tenantId, datos, existe }: { tenantId: string;
       <input type="hidden" name="tenantId" value={tenantId} />
       <div className="grid gap-4 sm:grid-cols-2">
         <Selector etiqueta="Plan" name="plan" defaultValue={datos.plan}>
-          {Object.entries(NOMBRE_PLAN).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
+          {planes.map((p) => <option key={p.plan} value={p.plan}>{p.nombre}</option>)}
         </Selector>
         <Selector etiqueta="Ciclo de facturación" name="ciclo" defaultValue={datos.ciclo}>
           {Object.entries(NOMBRE_CICLO).map(([k, v]) => <option key={k} value={k}>{v}</option>)}

@@ -10,7 +10,7 @@ import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { formatoSoles, NOMBRE_CICLO, NOMBRE_ESTADO_SUSCRIPCION } from "@/lib/comercial";
 import { fechaCorta } from "@/lib/fechas";
-import { NOMBRE_PLAN } from "@/lib/planes";
+import { nombresDePlanes } from "@/lib/server/modulos";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import { esquemaFiltroSuscripciones, reporteSuscripciones } from "@/lib/server/plataforma-suscripciones";
 import { EstadoDeSuscripcion, EtiquetaRenovacion } from "../_componentes/EtiquetasComerciales";
@@ -21,7 +21,7 @@ export default async function Suscripciones({ searchParams }: PageProps<"/plataf
   const admin = await requireAdminPlataforma();
   const sp = await searchParams;
   const filtro = esquemaFiltroSuscripciones.parse({ estado: sp.estado || undefined, plan: sp.plan || undefined });
-  const { filas, resumen, diasAviso } = await reporteSuscripciones(admin, filtro);
+  const [{ filas, resumen, diasAviso }, nombres] = await Promise.all([reporteSuscripciones(admin, filtro), nombresDePlanes()]);
   const query = new URLSearchParams(Object.entries(filtro).flatMap(([k, v]): [string, string][] => (v ? [[k, v]] : []))).toString();
 
   const tiles = [
@@ -71,7 +71,7 @@ export default async function Suscripciones({ searchParams }: PageProps<"/plataf
           </Selector>
           <Selector etiqueta="Plan" name="plan" defaultValue={filtro.plan ?? ""}>
             <option value="">Todos</option>
-            {Object.entries(NOMBRE_PLAN).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
+            {Object.entries(nombres).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
           </Selector>
           <div className="flex items-center gap-2">
             <Boton type="submit"><Filter strokeWidth={2} aria-hidden /> Filtrar</Boton>
@@ -115,7 +115,7 @@ export default async function Suscripciones({ searchParams }: PageProps<"/plataf
                       <Link href={`/colegios/${f.tenantId}`} className="enlace font-semibold">{f.nombre}</Link>
                       <p className="font-mono text-cuerpo-sm text-muted-foreground">{f.slug}</p>
                     </TableCell>
-                    <TableCell>Plan {NOMBRE_PLAN[s?.plan ?? f.planColegio]}</TableCell>
+                    <TableCell>Plan {nombres[s?.plan ?? f.planColegio]}</TableCell>
                     <TableCell>
                       {s ? <EstadoDeSuscripcion estado={s.estado} /> : <span className="text-muted-foreground">Sin suscripción</span>}
                     </TableCell>

@@ -12,7 +12,7 @@ import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { urlColegio } from "@/lib/dominio";
 import { fechaCorta } from "@/lib/fechas";
-import { NOMBRE_PLAN } from "@/lib/planes";
+import { nombresDePlanes, planesOfrecidos } from "@/lib/server/modulos";
 import { listarResponsables } from "@/lib/server/plataforma-responsables";
 import { suscripcionDelColegio } from "@/lib/server/plataforma-suscripciones";
 import { accesoSoporteActual, auditoriaDelColegio, detalleColegio, requireAdminPlataforma, type DiaMetricas } from "@/lib/server/plataforma";
@@ -73,13 +73,16 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
   const admin = await requireAdminPlataforma();
   const { id } = await params;
   const { ok, error } = await searchParams;
-  const [{ tenant: t, fila, logoUrl, dias }, bitacora, soporte, responsables, comercial] = await Promise.all([
+  const [{ tenant: t, fila, logoUrl, dias }, bitacora, soporte, responsables, comercial, nombres, ofrecidos] = await Promise.all([
     detalleColegio(admin, id),
     auditoriaDelColegio(admin, id),
     accesoSoporteActual(admin, id),
     listarResponsables(admin, id),
     suscripcionDelColegio(admin, id),
+    nombresDePlanes(),
+    planesOfrecidos(),
   ]);
+  const opcionesPlan = ofrecidos.some((p) => p.plan === t.plan) ? ofrecidos : [...ofrecidos, { plan: t.plan, nombre: `${nombres[t.plan]} (no se ofrece)` }];
   const url = urlColegio(t.slug, "/inicio");
   const semanas = porSemana(dias);
 
@@ -113,7 +116,7 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
           />
           <div className="-mt-3 flex flex-wrap items-center gap-2 text-cuerpo-sm">
             <EstadoColegio estado={t.estado} />
-            <PlanColegio plan={t.plan} />
+            <PlanColegio plan={t.plan} nombre={nombres[t.plan]} />
             <span className="text-muted-foreground">{t.ciudad ? `${t.ciudad} · ` : ""}alta {fechaSimple(t.createdAt)}</span>
             <span className="font-mono text-cuerpo-sm text-muted-foreground">{url.replace(/^https?:\/\//, "").replace(/\/inicio$/, "")}</span>
           </div>
@@ -226,7 +229,7 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
 
       {/* Comercial (specs/20): responsables y suscripción */}
       <SeccionResponsables tenantId={t.id} responsables={responsables} />
-      <SeccionSuscripcion datos={comercial} />
+      <SeccionSuscripcion datos={comercial} nombres={nombres} ofrecidos={ofrecidos} />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Tarjeta className="flex flex-col gap-4">
@@ -234,9 +237,7 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
           <form action={cambiarPlanAction} className="flex flex-wrap items-end gap-3">
             <input type="hidden" name="tenantId" value={t.id} />
             <Selector etiqueta="Plan" name="plan" defaultValue={t.plan}>
-              <option value="basico">{NOMBRE_PLAN.basico}</option>
-              <option value="fase2">{NOMBRE_PLAN.fase2}</option>
-              <option value="promax">{NOMBRE_PLAN.promax}</option>
+              {opcionesPlan.map((p) => <option key={p.plan} value={p.plan}>{p.nombre}</option>)}
             </Selector>
             <Boton type="submit" variante="secundario">Cambiar plan</Boton>
           </form>

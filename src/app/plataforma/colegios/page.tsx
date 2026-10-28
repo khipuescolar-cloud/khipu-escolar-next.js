@@ -9,7 +9,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { NOMBRE_PLAN } from "@/lib/planes";
+import type { Plan } from "@/generated/prisma/enums";
+import { nombresDePlanes } from "@/lib/server/modulos";
 import { esquemaFiltroReporte, reporteColegios, requireAdminPlataforma } from "@/lib/server/plataforma";
 import { EstadoColegio, fechaHora, fechaSimple, PlanColegio, porcentaje } from "../EstadoColegio";
 
@@ -19,7 +20,7 @@ export default async function ReporteColegios({ searchParams }: PageProps<"/plat
   const admin = await requireAdminPlataforma();
   const sp = await searchParams;
   const filtro = esquemaFiltroReporte.parse({ q: sp.q, plan: sp.plan, estado: sp.estado });
-  const filas = await reporteColegios(admin, filtro);
+  const [filas, nombres] = await Promise.all([reporteColegios(admin, filtro), nombresDePlanes()]);
   const query = new URLSearchParams(Object.entries(filtro).filter((e): e is [string, string] => !!e[1])).toString();
 
   return (
@@ -46,9 +47,7 @@ export default async function ReporteColegios({ searchParams }: PageProps<"/plat
           </div>
           <Selector etiqueta="Plan" name="plan" defaultValue={filtro.plan ?? ""}>
             <option value="">Todos</option>
-            <option value="basico">{NOMBRE_PLAN.basico}</option>
-            <option value="fase2">{NOMBRE_PLAN.fase2}</option>
-            <option value="promax">{NOMBRE_PLAN.promax}</option>
+            {(Object.keys(nombres) as Plan[]).map((p) => <option key={p} value={p}>{nombres[p]}</option>)}
           </Selector>
           <Selector etiqueta="Estado" name="estado" defaultValue={filtro.estado ?? ""}>
             <option value="">Todos</option>
@@ -102,7 +101,7 @@ export default async function ReporteColegios({ searchParams }: PageProps<"/plat
                     <Link href={`/colegios/${f.id}`} className="enlace font-semibold">{f.nombre}</Link>
                     <p className="font-mono text-cuerpo-sm text-muted-foreground">{f.slug}</p>
                   </TableCell>
-                  <TableCell><PlanColegio plan={f.plan} /></TableCell>
+                  <TableCell><PlanColegio plan={f.plan} nombre={nombres[f.plan]} /></TableCell>
                   <TableCell><EstadoColegio estado={f.estado} /></TableCell>
                   <TableCell className="text-right tabular-nums">{f.alumnos}</TableCell>
                   <TableCell className="text-right tabular-nums">{f.profesores}</TableCell>

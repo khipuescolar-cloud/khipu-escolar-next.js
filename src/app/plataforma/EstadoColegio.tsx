@@ -21,10 +21,11 @@ export function EstadoColegio({ estado }: { estado: EstadoTenant }) {
 }
 
 /** Plan contratado, como insignia con contorno. */
-export function PlanColegio({ plan }: { plan: Plan }) {
+/** `nombre` es el nombre comercial del catálogo; sin él, el de respaldo en código. */
+export function PlanColegio({ plan, nombre }: { plan: Plan; nombre?: string }) {
   return (
     <span className="inline-flex items-center gap-1 rounded-pildora border px-2 py-0.5 text-etiqueta text-foreground">
-      <Layers className="size-3.5" strokeWidth={2} aria-hidden /> Plan {NOMBRE_PLAN[plan]}
+      <Layers className="size-3.5" strokeWidth={2} aria-hidden /> Plan {nombre ?? NOMBRE_PLAN[plan]}
     </span>
   );
 }
