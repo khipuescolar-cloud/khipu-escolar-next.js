@@ -28,7 +28,7 @@ export function ListaConversaciones({ filas, activa, compacta = false }: { filas
             className={cn("flex min-h-16 items-center gap-3 px-4 py-3 outline-none transition-colors hover:bg-accent focus-visible:bg-accent focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-inset", c.id === activa && "bg-accent")}
           >
             <Avatar size="lg">
-              <AvatarFallback className="bg-maiz text-sm font-semibold text-indigo">{iniciales(c.etiqueta)}</AvatarFallback>
+              <AvatarFallback className="bg-maiz text-sm font-semibold text-sobre-maiz">{iniciales(c.etiqueta)}</AvatarFallback>
             </Avatar>
             <span className="min-w-0 flex-1">
               <span className={cn("block truncate text-sm", c.noLeidos > 0 ? "font-bold" : "font-semibold")}>{c.etiqueta}</span>

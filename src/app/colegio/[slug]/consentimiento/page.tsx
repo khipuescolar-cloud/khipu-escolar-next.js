@@ -21,19 +21,19 @@ export default async function ConsentimientoPage({ params }: PageProps<"/colegio
     <div className="mx-auto max-w-2xl">
       <Tarjeta className="flex flex-col gap-4 p-6">
         <div className="flex items-center gap-3">
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
+          <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-superficie-2 text-primary">
             <ShieldCheck className="size-6" strokeWidth={2} aria-hidden />
           </span>
-          <h1 className="text-2xl font-bold text-balance">{CONSENTIMIENTO_TITULO}</h1>
+          <h1 className="text-titulo-1 text-balance">{CONSENTIMIENTO_TITULO}</h1>
         </div>
         {CONSENTIMIENTO_PARRAFOS.map((p) => (
           <p key={p} className="max-w-prose leading-relaxed">{p}</p>
         ))}
-        <p className="text-xs text-muted-foreground">Versión {CONSENTIMIENTO_VERSION}</p>
+        <p className="text-cuerpo-sm text-muted-foreground">Versión {CONSENTIMIENTO_VERSION}</p>
         <Alerta tipo="aviso">{CONSENTIMIENTO_NOTA_LEGAL}</Alerta>
         <form action={aceptarConsentimientoAction} className="flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center">
           <Boton type="submit" tamano="lg">Acepto</Boton>
-          <span className="text-sm text-muted-foreground">Sin tu autorización no podremos enviarte avisos por correo.</span>
+          <span className="text-cuerpo-sm text-muted-foreground">Sin tu autorización no podremos enviarte avisos por correo.</span>
         </form>
       </Tarjeta>
     </div>

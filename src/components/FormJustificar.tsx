@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Loader2, Paperclip, Send } from "lucide-react";
+import { Check, Loader2, Paperclip, Send } from "lucide-react";
 import { useActionState } from "react";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
@@ -21,17 +21,17 @@ export function FormJustificar({
     return (
       <div role="status" className="flex flex-col items-center gap-2 py-4 text-center">
         <span className="flex size-14 items-center justify-center rounded-full bg-llego-fondo text-llego">
-          <CheckCircle2 className="size-8" strokeWidth={2} aria-hidden />
+          <Check className="size-8" strokeWidth={2} aria-hidden />
         </span>
-        <p className="font-heading text-lg font-semibold">Justificación enviada</p>
-        <p className="text-sm text-muted-foreground">La tutora la revisará y te avisaremos.</p>
+        <p className="text-titulo-2">Justificación enviada</p>
+        <p className="text-cuerpo-sm text-muted-foreground">La tutora la revisará y te avisaremos.</p>
       </div>
     );
   }
 
   return (
     <form action={enviar} className="flex flex-col gap-4">
-      <label className="flex flex-col gap-1.5 text-sm">
+      <label className="flex flex-col gap-1.5 text-cuerpo-sm">
         <span className="font-medium">Motivo de la falta</span>
         <textarea
           name="motivo"
@@ -43,7 +43,7 @@ export function FormJustificar({
         />
         <span className="text-muted-foreground">Hasta 500 caracteres.</span>
       </label>
-      <label className="flex flex-col gap-1.5 text-sm">
+      <label className="flex flex-col gap-1.5 text-cuerpo-sm">
         <span className="inline-flex items-center gap-1.5 font-medium">
           <Paperclip className="size-4" strokeWidth={2} aria-hidden /> Adjunto (opcional)
         </span>

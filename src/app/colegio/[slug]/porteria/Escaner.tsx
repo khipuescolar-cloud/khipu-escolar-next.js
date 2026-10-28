@@ -1,7 +1,7 @@
 "use client";
 
 import type { IScannerControls } from "@zxing/browser";
-import { Camera, CameraOff, CloudOff, Loader2, Maximize, ScanLine, Search, UserRound, XCircle } from "lucide-react";
+import { Camera, CameraOff, CloudOff, Loader2, Maximize, ScanLine, Search, UserRound, CircleAlert } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import { toast } from "sonner";
 import { AvisoColaFallida } from "@/components/AvisoColaFallida";
@@ -136,10 +136,10 @@ export function Escaner({ slug }: { slug: string }) {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       <div ref={contenedor} className="flex flex-col gap-4 bg-background">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-xl border bg-sidebar">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-lg border bg-sidebar">
           <video ref={video} className="h-full w-full object-cover" muted playsInline aria-label="Cámara para leer el carnet" />
           {camara === "encendida" ? (
-            <span aria-hidden className="pointer-events-none absolute inset-[18%] rounded-2xl border-2 border-maiz/90" />
+            <span aria-hidden className="pointer-events-none absolute inset-[18%] rounded-lg border-2 border-maiz/90" />
           ) : (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center text-sidebar-foreground">
               <CameraOff className="size-10" strokeWidth={2} aria-hidden />
@@ -174,7 +174,7 @@ export function Escaner({ slug }: { slug: string }) {
         <Card>
           <CardContent className="flex flex-col gap-4">
             <div>
-              <h2 id="titulo-manual" className="text-xl font-semibold">¿No trae su carnet?</h2>
+              <h2 id="titulo-manual" className="text-titulo-2">¿No trae su carnet?</h2>
               <p className="text-sm text-muted-foreground">{enLinea ? "Busca al alumno y registra su llegada a mano." : "La búsqueda manual necesita conexión. Los carnets sí se guardan sin conexión."}</p>
             </div>
             <form onSubmit={buscar} className="flex gap-2">
@@ -223,25 +223,25 @@ export function Escaner({ slug }: { slug: string }) {
 function Resultado({ resultado }: { resultado: ResultadoLocal | null }) {
   if (!resultado) {
     return (
-      <p className="flex items-center gap-2 rounded-xl border border-dashed p-4 text-sm text-muted-foreground">
+      <p className="flex items-center gap-2 rounded-lg border border-dashed p-4 text-sm text-muted-foreground">
         <ScanLine className="size-5 shrink-0" strokeWidth={2} aria-hidden /> Acerca el carnet a la cámara. Aquí verás el resultado.
       </p>
     );
   }
   if (!resultado.ok) {
     return (
-      <div role="alert" className="flex items-center gap-4 rounded-xl border border-falta/30 bg-falta-fondo p-5 text-falta">
-        <XCircle className="size-12 shrink-0" strokeWidth={2} aria-hidden />
-        <p className="text-xl font-bold">{resultado.mensaje}</p>
+      <div role="alert" className="flex items-center gap-4 rounded-lg border border-falta/30 bg-falta-fondo p-5 text-falta">
+        <CircleAlert className="size-12 shrink-0" strokeWidth={2} aria-hidden />
+        <p className="text-titulo-2">{resultado.mensaje}</p>
       </div>
     );
   }
   if (resultado.tipo === "sin-conexion") {
     return (
-      <div role="status" className="flex items-center gap-4 rounded-xl border border-tarde/30 bg-tarde-fondo p-5 text-tarde">
+      <div role="status" className="flex items-center gap-4 rounded-lg border border-tarde/30 bg-tarde-fondo p-5 text-tarde">
         <CloudOff className="size-12 shrink-0" strokeWidth={2} aria-hidden />
         <div>
-          <p className="text-xl font-bold">Guardado sin conexión</p>
+          <p className="text-titulo-2">Guardado sin conexión</p>
           <p className="text-sm text-foreground">Se registrará la llegada cuando vuelva la conexión.</p>
         </div>
       </div>
@@ -249,7 +249,7 @@ function Resultado({ resultado }: { resultado: ResultadoLocal | null }) {
   }
   const { clase } = ESTADOS_ASISTENCIA[resultado.estado];
   return (
-    <div role="status" className={`flex items-center gap-4 rounded-xl border border-current/20 p-5 ${clase}`}>
+    <div role="status" className={`flex items-center gap-4 rounded-lg border border-current/20 p-5 ${clase}`}>
       {resultado.alumno.fotoUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={resultado.alumno.fotoUrl} alt="" className="size-20 shrink-0 rounded-full object-cover" />
@@ -259,11 +259,11 @@ function Resultado({ resultado }: { resultado: ResultadoLocal | null }) {
         </span>
       )}
       <div className="flex min-w-0 flex-col gap-1">
-        <p className="text-2xl font-bold text-balance text-foreground">{resultado.alumno.nombre}</p>
+        <p className="text-titulo-2 text-balance text-foreground">{resultado.alumno.nombre}</p>
         <p className="text-muted-foreground">{resultado.alumno.salon}</p>
         <div className="flex flex-wrap items-center gap-2">
           <EstadoAsistencia estado={resultado.estado} />
-          <span className="text-lg font-semibold">{resultado.mensaje}</span>
+          <span className="text-cuerpo font-semibold">{resultado.mensaje}</span>
         </div>
       </div>
     </div>

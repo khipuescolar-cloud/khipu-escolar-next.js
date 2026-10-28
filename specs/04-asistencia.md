@@ -14,8 +14,8 @@ El profesor pasa lista en menos de un minuto y las familias se enteran al instan
 | Portería | Registra llegadas desde `/porteria` (spec 05) | Entrar a `/asistencia` (403) |
 
 ## Flujos
-1. `/asistencia` (profesor/dirección) muestra las listas disponibles agrupadas por salón: «Asistencia del día · 3.° B» (`ambito = "dia"`) y cada curso (`ambito = cursoId`). Dirección ve además el conteo del día (Llegó/Tarde/Falta/Problema/Sin registro).
-2. `/asistencia?salon=<id>&ambito=<dia|cursoId>`: lista de alumnos con 4 botones grandes **Llegó / Tarde / Falta / Problema** (ícono + palabra, `aria-pressed`). Por defecto «Llegó» o el estado ya guardado hoy. Muestra la hora actual de Lima. «Problema» abre un campo de nota (máx. 300).
+1. `/asistencia` (profesor/dirección) muestra las listas disponibles agrupadas por salón: «Asistencia del día · 3.° B» (`ambito = "dia"`) y cada curso (`ambito = cursoId`). Dirección ve además el conteo del día (Llegó/Tarde/No llegó/Aviso/Sin registro).
+2. `/asistencia?salon=<id>&ambito=<dia|cursoId>`: lista de alumnos con 4 botones grandes **Llegó / Tarde / No llegó / Aviso** (valor interno `falta` y `problema`; manual de marca: Check, Clock, CircleAlert, TriangleAlert) (ícono + palabra, `aria-pressed`). Por defecto «Llegó» o el estado ya guardado hoy. Muestra la hora actual de Lima. «Aviso» abre un campo de nota (máx. 300).
 3. Vista previa del correo (componente `VistaPreviaAviso`, compartido con la spec 06) para la familia del alumno elegido, según el estado marcado.
 4. Antes de guardar, el resumen (panel lateral en escritorio, barra fija en móvil) dice a quién se avisará: «Se avisará a 24 familias: 20 llegadas, 2 tardanzas, 2 faltas.» y, si aplica, «La llegada de 3 alumnos ya se avisó hoy.» (`src/lib/resumen-avisos-lista.ts`, con `familiasConAviso` y `llegadaAvisada` que devuelve `obtenerLista`).
 5. **«Guardar y avisar a los padres»** (cerrar la lista) → `guardarListaAction` → `guardarLista()` → resumen «Lista guardada. Se avisó a N familias.» y `after()` procesa la cola del colegio en ese momento (el aviso sale sin esperar al cron).
@@ -58,7 +58,7 @@ hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 - Estados siempre con ícono + palabra; en la familia: «Justificación en revisión», «Falta justificada».
 
 ## Diseño (rediseño del día a día)
-- Pasar lista: tarjeta por alumno con botones grandes (Llegó/Tarde/Falta/Problema, ícono + palabra); en móvil la barra «Guardar y avisar a los padres» queda fija abajo con el conteo; en escritorio vive en el panel lateral junto a la vista previa. Éxito: aviso en página y toast «Asistencia guardada».
+- Pasar lista: tarjeta por alumno con botones grandes (Llegó/Tarde/No llegó/Aviso, ícono + palabra); en móvil la barra «Guardar y avisar a los padres» queda fija abajo con el conteo; en escritorio vive en el panel lateral junto a la vista previa. Éxito: aviso en página y toast «Asistencia guardada».
 - Vista de la familia: registros en tarjeta, estados vacíos con `EstadoVacio`, preferencias de aviso en tarjeta.
 
 ## Errores y casos borde

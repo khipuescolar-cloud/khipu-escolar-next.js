@@ -83,7 +83,7 @@ export function PreferenciasAvisos({ slug, correo, push, vapidPublica, canalesPa
     <Card>
       <CardContent className="flex flex-col gap-4">
         <div>
-          <h2 id="titulo-avisos" className="text-xl font-semibold">Tus avisos</h2>
+          <h2 id="titulo-avisos" className="text-titulo-2">Tus avisos</h2>
           <p className="text-sm text-muted-foreground">Elige cómo quieres enterarte cuando tu hijo llegue tarde o falte.</p>
         </div>
         <form action={accion} className="flex flex-col gap-3">

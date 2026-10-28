@@ -58,7 +58,7 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
       {resumen && (
         <Card className="-mt-2">
           <CardContent className="flex flex-col gap-3">
-            <h2 className="font-heading font-semibold">Asistencia del día en el colegio</h2>
+            <h2 className="text-titulo-2">Asistencia del día en el colegio</h2>
             <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
               {ESTADOS.map((e) => (
                 <li key={e} className="flex items-center gap-1.5 text-sm">
@@ -76,13 +76,13 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
       ) : (
         [...porSalon.entries()].map(([nombre, lista]) => (
           <section key={nombre} className="flex flex-col gap-3">
-            <h2 className="text-xl font-semibold">{nombre}</h2>
+            <h2 className="text-titulo-2">{nombre}</h2>
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {lista.map((o) => (
                 <li key={o.ambito}>
                   <Link
                     href={`/asistencia?salon=${o.salonId}&ambito=${o.ambito}`}
-                    className="group/lista flex min-h-16 items-center justify-between gap-3 rounded-xl border bg-card p-4 font-semibold shadow-xs transition-colors outline-none hover:border-primary/40 hover:bg-accent/40 focus-visible:ring-3 focus-visible:ring-ring/50"
+                    className="group/lista flex min-h-16 items-center justify-between gap-3 rounded-lg border bg-superficie p-4 font-semibold transition-shadow outline-none hover:shadow-sombra-1 focus-visible:ring-3 focus-visible:ring-ring/50"
                   >
                     <span className="flex items-center gap-3">
                       <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -121,7 +121,7 @@ async function PasarLista({ ctx, slug, salonId, ambito }: { ctx: TenantContext; 
 
   return (
     <div className="flex flex-col gap-2">
-      <Link href="/asistencia" className="mb-2 inline-flex min-h-10 w-fit items-center gap-1 text-sm font-semibold text-primary hover:underline">
+      <Link href="/asistencia" className="mb-2 inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Elegir otra lista
       </Link>
       <EncabezadoPagina
@@ -171,7 +171,7 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
       {hijos.map((h) => (
         <section key={h.id} className="flex flex-col gap-3" aria-labelledby={`hijo-${h.id}`}>
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 id={`hijo-${h.id}`} className="text-xl font-semibold">
+            <h2 id={`hijo-${h.id}`} className="text-titulo-2">
               {h.nombres} {h.apellidos} <span className="font-sans text-sm font-normal text-muted-foreground">· {h.salon}</span>
             </h2>
             {!esAlumno && planIncluye(ctx.tenant.plan, "mensajes") && (
@@ -200,7 +200,7 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
                     <div className="flex flex-wrap items-center gap-2">
                       <EstadoAsistencia estado={r.estado} hora={r.estado === "falta" ? undefined : hora12(r.hora)} />
                       {r.justificacion && r.justificacion !== "rechazada" && (
-                        <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+                        <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground">
                           <FileText className="size-3.5" strokeWidth={2} aria-hidden />
                           {PALABRA_JUSTIFICACION[r.justificacion]}
                         </span>
@@ -210,11 +210,11 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
                           <Link href={`/asistencia/justificar/${r.id}`} className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
                             <FileText aria-hidden strokeWidth={2} /> Justificar falta
                           </Link>
-                          <span className="text-xs text-muted-foreground">{textoPlazoJustificacion(r.fecha, ctx.tenant.plazoJustificacionDiasHabiles)}</span>
+                          <span className="text-cuerpo-sm text-muted-foreground">{textoPlazoJustificacion(r.fecha, ctx.tenant.plazoJustificacionDiasHabiles)}</span>
                         </span>
                       )}
                       {!esAlumno && r.plazoVencido && (
-                        <span className="inline-flex items-center gap-1 text-xs text-muted-foreground" title={mensajePlazoVencido(ctx.tenant.plazoJustificacionDiasHabiles)}>
+                        <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground" title={mensajePlazoVencido(ctx.tenant.plazoJustificacionDiasHabiles)}>
                           <CalendarX className="size-3.5" strokeWidth={2} aria-hidden /> Plazo vencido
                         </span>
                       )}

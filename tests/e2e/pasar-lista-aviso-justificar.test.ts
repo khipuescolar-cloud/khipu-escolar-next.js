@@ -35,8 +35,8 @@ test("Lucía pasa lista, la familia recibe el aviso de llegada y el de falta, y 
   const mateo = page.getByRole("group", { name: "Asistencia de Mateo" });
   const guardar = page.getByRole("button", { name: "Guardar y avisar a los padres" }).first();
 
-  // 0) Deja a Mateo en «Falta» (estado conocido aunque una corrida anterior lo dejara en «Llegó»).
-  await mateo.getByRole("button", { name: "Falta" }).click();
+  // 0) Deja a Mateo en «No llegó» (estado conocido aunque una corrida anterior lo dejara en «Llegó»).
+  await mateo.getByRole("button", { name: "No llegó" }).click();
   await guardar.click();
   await expect(page.getByText("Lista guardada.")).toBeVisible();
 
@@ -51,8 +51,8 @@ test("Lucía pasa lista, la familia recibe el aviso de llegada y el de falta, y 
 
   // 2) Mateo no vino.
   const desde = new Date(Date.now() - 2000);
-  await mateo.getByRole("button", { name: "Falta" }).click();
-  await expect(mateo.getByRole("button", { name: "Falta" })).toHaveAttribute("aria-pressed", "true");
+  await mateo.getByRole("button", { name: "No llegó" }).click();
+  await expect(mateo.getByRole("button", { name: "No llegó" })).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByTitle("Vista previa del correo para la familia de Mateo")).toBeVisible();
   await expect(page.getByText("Asunto: Mateo no llegó hoy")).toBeVisible();
   await guardar.click();

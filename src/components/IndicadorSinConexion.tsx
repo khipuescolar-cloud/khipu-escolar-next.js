@@ -13,7 +13,7 @@ export function IndicadorSinConexion({
       {visible && (
         <p
           role="status"
-          className={`flex items-center gap-2 rounded-lg border px-3.5 py-2.5 text-sm font-semibold ${
+          className={`flex items-center gap-2 rounded-lg border px-3.5 py-2.5 text-cuerpo-sm font-semibold ${
             enLinea ? "border-tarde/20 bg-tarde-fondo text-tarde" : "border-problema/20 bg-problema-fondo text-problema"
           }`}
         >

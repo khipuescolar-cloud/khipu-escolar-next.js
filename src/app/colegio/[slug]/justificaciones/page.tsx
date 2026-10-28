@@ -1,4 +1,4 @@
-import { CheckCircle2, Clock, FileText, Paperclip, XCircle } from "lucide-react";
+import { Check, Clock, FileText, Paperclip, CircleAlert } from "lucide-react";
 import type { Metadata } from "next";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -15,8 +15,8 @@ export const metadata: Metadata = { title: "Justificaciones" };
 
 const ESTADO: Record<EstadoJustificacion, { palabra: string; Icono: typeof Clock; clase: string }> = {
   pendiente: { palabra: "Pendiente", Icono: Clock, clase: "bg-tarde-fondo text-tarde" },
-  aceptada: { palabra: "Aceptada", Icono: CheckCircle2, clase: "bg-llego-fondo text-llego" },
-  rechazada: { palabra: "No aceptada", Icono: XCircle, clase: "bg-falta-fondo text-falta" },
+  aceptada: { palabra: "Aceptada", Icono: Check, clase: "bg-llego-fondo text-llego" },
+  rechazada: { palabra: "No aceptada", Icono: CircleAlert, clase: "bg-falta-fondo text-falta" },
 };
 
 export default async function JustificacionesPage({ params }: PageProps<"/colegio/[slug]/justificaciones">) {
@@ -48,7 +48,7 @@ export default async function JustificacionesPage({ params }: PageProps<"/colegi
                 <CardContent className="flex flex-col gap-3">
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <div>
-                      <p className="font-heading font-semibold">
+                      <p className="text-cuerpo font-semibold">
                         {j.alumno} <span className="font-sans font-normal text-muted-foreground">· {j.salon}</span>
                       </p>
                       <p className="text-sm text-muted-foreground">
@@ -56,13 +56,13 @@ export default async function JustificacionesPage({ params }: PageProps<"/colegi
                         {revisa && ` · enviada por ${j.apoderado}`}
                       </p>
                     </div>
-                    <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-xs font-semibold ${clase}`}>
+                    <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-etiqueta ${clase}`}>
                       <Icono className="size-3.5" strokeWidth={2} aria-hidden /> {palabra}
                     </span>
                   </div>
                   <p className="text-base whitespace-pre-line">{j.motivo}</p>
                   {j.adjuntoUrl && (
-                    <a href={j.adjuntoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 w-fit items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+                    <a href={j.adjuntoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 w-fit items-center gap-1.5 text-cuerpo-sm enlace">
                       <Paperclip className="size-4" strokeWidth={2} aria-hidden /> Ver adjunto ({j.adjuntoMime === "application/pdf" ? "PDF" : "imagen"})
                     </a>
                   )}

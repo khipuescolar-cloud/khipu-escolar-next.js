@@ -55,11 +55,11 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
           </span>
           <div>
             <p className="text-sm text-muted-foreground">Apertura de la semana (últimos 7 días)</p>
-            <p className="font-heading text-3xl font-bold">{semana.porcentaje === null ? "Sin envíos" : `${semana.porcentaje} %`}</p>
+            <p className="text-titulo-1">{semana.porcentaje === null ? "Sin envíos" : `${semana.porcentaje} %`}</p>
             <p className="text-sm text-muted-foreground">{semana.abiertos} abiertos de {semana.enviados} enviados · meta {semana.meta} %</p>
           </div>
           {semana.porcentaje !== null && (
-            <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-xs font-semibold ${cumple ? "bg-llego-fondo text-llego" : "bg-tarde-fondo text-tarde"}`}>
+            <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-etiqueta ${cumple ? "bg-llego-fondo text-llego" : "bg-tarde-fondo text-tarde"}`}>
               {cumple ? <CheckCircle2 className="size-3.5" strokeWidth={2} aria-hidden /> : <Clock className="size-3.5" strokeWidth={2} aria-hidden />}
               {cumple ? "Meta alcanzada" : "Por debajo de la meta"}
             </span>
@@ -79,7 +79,7 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
         <Campo etiqueta="Correo contiene" name="q" defaultValue={q ?? ""} />
         <div className="flex items-center gap-3 sm:col-span-2">
           <Boton type="submit" variante="secundario">Filtrar</Boton>
-          <Link href="/avisos" className="inline-flex min-h-10 items-center text-sm font-semibold text-primary hover:underline">Limpiar</Link>
+          <Link href="/avisos" className="inline-flex min-h-10 items-center text-cuerpo-sm enlace">Limpiar</Link>
         </div>
       </form>
 
@@ -88,7 +88,7 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
           icono={Mail}
           titulo={filtrado ? "No hay avisos con ese filtro" : "Aún no se envió ningún aviso"}
           descripcion={filtrado ? "Prueba con otro estado, tipo o correo." : "Cuando pases lista o envíes comunicados, los avisos aparecerán aquí."}
-          accion={filtrado ? <Link href="/avisos" className="text-sm font-semibold text-primary hover:underline">Limpiar filtros</Link> : undefined}
+          accion={filtrado ? <Link href="/avisos" className="text-cuerpo-sm enlace">Limpiar filtros</Link> : undefined}
         />
       ) : (
         <>
@@ -99,7 +99,7 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
                   <CardContent className="flex flex-col gap-1.5 text-sm">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <EstadoEnvio estado={a.estado} />
-                      <span className="text-xs text-muted-foreground">{fecha.format(a.createdAt)}</span>
+                      <span className="text-cuerpo-sm text-muted-foreground">{fecha.format(a.createdAt)}</span>
                     </div>
                     <p className="font-medium">{a.asunto}</p>
                     <p className="text-muted-foreground break-all">{a.destinatario} · <span className="capitalize">{a.tipo.replace("_", " ")}</span></p>

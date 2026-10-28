@@ -1,6 +1,6 @@
 "use client";
 
-import { XCircle } from "lucide-react";
+import { CircleAlert } from "lucide-react";
 import { Boton } from "@/components/ui/Boton";
 
 /**
@@ -12,9 +12,9 @@ export function AvisoColaFallida({
 }: { cantidad: number; singular: string; plural: string; onDescartar: () => void }) {
   if (cantidad === 0) return null;
   return (
-    <div role="alert" data-testid="aviso-cola-fallida" className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-falta/20 bg-falta-fondo px-3.5 py-3 text-sm text-falta">
+    <div role="alert" data-testid="aviso-cola-fallida" className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-falta/20 bg-falta-fondo px-3.5 py-3 text-cuerpo-sm text-falta">
       <p className="flex items-start gap-2.5">
-        <XCircle className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
+        <CircleAlert className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
         <span>
           <span className="font-semibold">No se pudo enviar.</span>{" "}
           {cantidad === 1 ? `1 ${singular} guardada` : `${cantidad} ${plural} guardadas`} en este dispositivo no llegó al colegio tras varios intentos. Descarta y vuelve a registrar.
