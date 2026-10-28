@@ -32,7 +32,7 @@ function Marco({ titulo, descripcion, children }: { titulo: string; descripcion?
   );
 }
 
-/** Serie diaria (30 días) con una o dos líneas de la misma unidad. */
+/** Serie diaria (tantos días como filas tenga `datos`) con una o dos líneas de la misma unidad. */
 export function GraficoDiario({
   titulo, descripcion, datos, series,
 }: {
@@ -66,7 +66,7 @@ export function GraficoDiario({
         </LineChart>
       </ChartContainer>
       <p className="text-cuerpo-sm text-muted-foreground">
-        Total 30 días: {series.map((s) => `${s.etiqueta.toLowerCase()} ${numero(total(s.clave))}`).join(" · ")}
+        Total {datos.length} días: {series.map((s) => `${s.etiqueta.toLowerCase()} ${numero(total(s.clave))}`).join(" · ")}
       </p>
       <table className="sr-only">
         <caption>{titulo} por día</caption>
