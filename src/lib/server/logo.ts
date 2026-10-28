@@ -30,6 +30,13 @@ export async function urlLogoColegio(tenant: TenantLogo): Promise<string | null>
   return storage().urlTemporal(archivo, SEGUNDOS_URL_TEMPORAL);
 }
 
+/** URL del logo para los correos: solo una pública y permanente en https (Cloudinary/S3). Las firmadas
+ *  vencen en minutos y las locales no las alcanza el programa de correo, así que en esos casos va solo el nombre. */
+export async function urlLogoColegioCorreo(tenant: TenantLogo): Promise<string | null> {
+  const archivo = await archivoDelLogo(tenant);
+  return archivo?.url?.startsWith("https://") ? archivo.url : null;
+}
+
 /** Bytes del logo para incrustarlo en un PDF. El generador solo admite PNG y JPG: WEBP y SVG se convierten a PNG (con caché en memoria). */
 export async function logoParaPdf(tenant: TenantLogo): Promise<{ data: Buffer; format: "png" | "jpg" } | null> {
   const archivo = await archivoDelLogo(tenant);

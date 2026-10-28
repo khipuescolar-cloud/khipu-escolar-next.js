@@ -4,6 +4,7 @@ import type { CanalAviso } from "@/generated/prisma/enums";
 import { urlColegio, urlRaiz } from "@/lib/dominio";
 import { db } from "../db";
 import { PlantillaInvalidaError, renderizarPlantilla } from "../email/plantillas";
+import { urlLogoColegioCorreo } from "../logo";
 import { tokenDerivado } from "../tokens";
 import { EmailChannel } from "./email";
 import { CANALES_DE_PAGO, cupoDiario, esperaReintentoMs, leerLimites, limiteCanalDePago, MAX_INTENTOS, pausaEntreCorreosMs, type CanalDePago } from "./limites";
@@ -48,12 +49,13 @@ export type OpcionesCola = {
 
 const dormir = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
-type DatosColegio = { nombre: string; slug: string };
+type DatosColegio = { nombre: string; slug: string; logoUrl: string | null };
 
 /** Completa el payload con lo que no se guarda en la BD (enlace de justificar) y el enlace de preferencias. */
 function prepararPayload(aviso: Aviso, colegio: DatosColegio): Record<string, unknown> {
   const payload = { ...((aviso.payload ?? {}) as Record<string, unknown>) };
   if (!payload.colegio) payload.colegio = colegio.nombre;
+  if (colegio.logoUrl && !payload.logoColegioUrl) payload.logoColegioUrl = colegio.logoUrl;
   if (aviso.plantilla === "asistencia_falta" && typeof payload.justificacionTokenId === "string" && !payload.urlJustificar) {
     payload.urlJustificar = urlRaiz(`/justificar/${tokenDerivado("justificar", payload.justificacionTokenId)}`);
   }
@@ -123,7 +125,8 @@ export async function procesarCola(opciones: OpcionesCola = {}): Promise<Resumen
   for (const aviso of reservados) {
     let colegio = colegios.get(aviso.tenantId);
     if (!colegio) {
-      colegio = await db.tenant.findUniqueOrThrow({ where: { id: aviso.tenantId }, select: { nombre: true, slug: true } });
+      const t = await db.tenant.findUniqueOrThrow({ where: { id: aviso.tenantId }, select: { id: true, nombre: true, slug: true, logoArchivoId: true } });
+      colegio = { nombre: t.nombre, slug: t.slug, logoUrl: await urlLogoColegioCorreo(t) };
       colegios.set(aviso.tenantId, colegio);
     }
 
