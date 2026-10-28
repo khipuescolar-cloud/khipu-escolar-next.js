@@ -9,6 +9,10 @@ import { esHostPlataforma, slugDesdeHost, urlColegio, urlPlataforma, urlRaiz } f
 // Además refresca la sesión de Supabase Auth en cada request.
 
 const RUTAS_GLOBALES = /^\/api\/(webhooks|cron)\//;
+// App instalable (specs/24): públicas y sin reescribir en la raíz, en cada colegio y en el panel, porque cada
+// subdominio es su propio origen y se instala desde su dirección. (/manifest.webmanifest, /sw.js, /marca/** y
+// las imágenes de /app/** ya quedan fuera del `matcher`.)
+const RUTAS_APP = /^\/(instalar|sin-conexion|\.well-known\/assetlinks\.json)$/;
 
 export async function proxy(request: NextRequest) {
   const host = request.headers.get("host");
@@ -19,7 +23,7 @@ export async function proxy(request: NextRequest) {
   if (esHostPlataforma(host)) {
     // Panel del super administrador: admin.<dominio>/x → /plataforma/x
     if (pathname === "/login") return NextResponse.redirect(urlRaiz("/login"));
-    if (RUTAS_GLOBALES.test(pathname) || pathname.startsWith("/plataforma")) {
+    if (RUTAS_GLOBALES.test(pathname) || RUTAS_APP.test(pathname) || pathname.startsWith("/plataforma")) {
       response = NextResponse.next({ request });
     } else {
       const destino = request.nextUrl.clone();
@@ -30,7 +34,7 @@ export async function proxy(request: NextRequest) {
     if (pathname === "/login") {
       return NextResponse.redirect(urlRaiz(`/login?colegio=${slug}`));
     }
-    if (RUTAS_GLOBALES.test(pathname) || pathname.startsWith("/colegio/")) {
+    if (RUTAS_GLOBALES.test(pathname) || RUTAS_APP.test(pathname) || pathname.startsWith("/colegio/")) {
       response = NextResponse.next({ request });
     } else {
       const destino = request.nextUrl.clone();

@@ -8,7 +8,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 
 /** Páginas públicas (src/app/(publico)): siempre en el tema claro de la marca, sin importar el sistema
  *  ni el tema guardado por el usuario (que se conserva para el panel). */
-const RUTAS_PUBLICAS = ["/login", "/elegir-colegio", "/entrando", "/recuperar", "/restablecer", "/cambiar-password", "/justificar", "/q"];
+const RUTAS_PUBLICAS = ["/login", "/elegir-colegio", "/entrando", "/recuperar", "/restablecer", "/cambiar-password", "/justificar", "/q", "/instalar", "/sin-conexion"];
 
 export function esRutaPublica(pathname: string) {
   return RUTAS_PUBLICAS.some((r) => pathname === r || pathname.startsWith(`${r}/`));

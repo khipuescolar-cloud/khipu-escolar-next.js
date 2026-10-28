@@ -4,6 +4,7 @@ import { ChevronsUpDown, LogOut, Monitor, Moon, Sun, UserRound, Repeat } from "l
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useTransition } from "react";
+import { ItemMenuInstalarApp } from "@/components/app/InstalarApp";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioGroup,
@@ -86,6 +87,8 @@ export function MenuUsuario({ usuario, perfilHref, salir, roles = [], rolActual,
                 <UserRound strokeWidth={2} aria-hidden /> Mi perfil
               </DropdownMenuItem>
             )}
+            {/* App instalable (specs/24): no aparece si ya se usa como app. */}
+            <ItemMenuInstalarApp />
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
                 <Sun strokeWidth={2} aria-hidden /> Tema

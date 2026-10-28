@@ -111,7 +111,7 @@ export function NuditoWidget({ slug, horario }: { slug: string; horario?: { inic
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3 font-nudito" data-testid="nudito-widget">
+    <div className="fixed right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1rem,env(safe-area-inset-bottom))] z-50 flex flex-col items-end gap-3 font-nudito" data-testid="nudito-widget">
       {abierto && (
         <div
           id="nudito-panel"
