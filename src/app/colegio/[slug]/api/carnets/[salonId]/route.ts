@@ -4,6 +4,7 @@ import { z } from "zod";
 import { CarnetsPdf, parseFormatoCarnets } from "@/lib/server/carnets-pdf";
 import { auditar } from "@/lib/server/auditoria";
 import { logoParaPdf } from "@/lib/server/logo";
+import { isotipoParaPdf } from "@/lib/server/marca-pdf";
 import { carnetsParaImprimir } from "@/lib/server/porteria";
 import { requireTenantContext } from "@/lib/server/tenant";
 
@@ -22,7 +23,7 @@ export async function GET(request: Request, { params }: RouteContext<"/colegio/[
   if (conQr.length === 0) return new Response("Este salón aún no tiene carnets generados.", { status: 404 });
 
   const pdf = await renderToBuffer(
-    CarnetsPdf({ colegio: ctx.tenant.nombre, salon: salon.nombre, carnets: conQr, formato, logo: await logoParaPdf(ctx.tenant) }),
+    CarnetsPdf({ colegio: ctx.tenant.nombre, salon: salon.nombre, carnets: conQr, formato, logo: await logoParaPdf(ctx.tenant), isotipo: await isotipoParaPdf() }),
   );
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "exportar", entidad: "carnet_qr",

@@ -1,4 +1,5 @@
 import "server-only";
+import { LADO_ISOTIPO_PDF, type ImagenPdf } from "./marca-pdf";
 import { Document, Image, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 
 // Carnets con QR en PDF (specs/05-porteria-qr.md): CR80 (85,6 × 54 mm, un carnet por página) o A4 con 8 por hoja.
@@ -40,9 +41,14 @@ const estilos = StyleSheet.create({
   nombres: { fontSize: 10.5, fontFamily: "Helvetica-Bold", color: "#1b1f2a" },
   apellidos: { fontSize: 9, color: "#1b1f2a" },
   salon: { fontSize: 7.5, color: "#5b6170", marginTop: 3 },
+  firmaMarca: { position: "absolute", right: 6, bottom: 5, width: 80, flexDirection: "row", alignItems: "center", justifyContent: "flex-end" },
+  isotipo: { width: LADO_ISOTIPO_PDF, height: LADO_ISOTIPO_PDF, marginRight: 3 },
+  firmaMarcaTexto: { fontSize: 6, fontFamily: "Helvetica-Bold", color: "#1e2a78" },
 });
 
-function Carnet({ c, colegio, salon, logo }: { c: CarnetPdf; colegio: string; salon: string; logo?: { data: Buffer; format: "png" | "jpg" } | null }) {
+type ImagenesCarnet = { logo?: ImagenPdf | null; isotipo?: ImagenPdf | null };
+
+function Carnet({ c, colegio, salon, logo, isotipo }: { c: CarnetPdf; colegio: string; salon: string } & ImagenesCarnet) {
   return (
     <View style={estilos.carnet}>
       {/* eslint-disable-next-line jsx-a11y/alt-text -- Image de react-pdf no admite alt */}
@@ -57,20 +63,27 @@ function Carnet({ c, colegio, salon, logo }: { c: CarnetPdf; colegio: string; sa
         <Text style={estilos.apellidos}>{c.apellidos}</Text>
         <Text style={estilos.salon}>{salon}{c.codigo ? ` · ${c.codigo}` : ""}</Text>
       </View>
+      <View style={estilos.firmaMarca}>
+        {/* eslint-disable-next-line jsx-a11y/alt-text -- Image de react-pdf no admite alt */}
+        {isotipo && <Image src={isotipo} style={estilos.isotipo} />}
+        <Text style={estilos.firmaMarcaTexto}>Khipu Escolar</Text>
+      </View>
     </View>
   );
 }
 
+/** Marca: índigo en el borde y el nombre del colegio, tinta y pizarra en texto; firma «Khipu Escolar» con el isotipo oficial.
+ *  Fuente: Helvetica del PDF (Sora/Inter no se incrustan todavía). */
 export function CarnetsPdf({
-  colegio, salon, carnets, formato, logo,
-}: { colegio: string; salon: string; carnets: CarnetPdf[]; formato: FormatoCarnets; logo?: { data: Buffer; format: "png" | "jpg" } | null }) {
+  colegio, salon, carnets, formato, logo, isotipo,
+}: { colegio: string; salon: string; carnets: CarnetPdf[]; formato: FormatoCarnets } & ImagenesCarnet) {
   const titulo = `Carnets ${salon} - ${colegio}`;
   if (formato === "cr80") {
     return (
       <Document title={titulo} author={colegio}>
         {carnets.map((c) => (
           <Page key={c.alumnoId} size={[ANCHO, ALTO]} style={estilos.hoja}>
-            <Carnet c={c} colegio={colegio} salon={salon} logo={logo} />
+            <Carnet c={c} colegio={colegio} salon={salon} logo={logo} isotipo={isotipo} />
           </Page>
         ))}
       </Document>
@@ -82,7 +95,7 @@ export function CarnetsPdf({
         <Page key={i} size="A4" style={[estilos.hoja, estilos.hojaA4]}>
           {grupo.map((c) => (
             <View key={c.alumnoId} style={estilos.celda}>
-              <Carnet c={c} colegio={colegio} salon={salon} logo={logo} />
+              <Carnet c={c} colegio={colegio} salon={salon} logo={logo} isotipo={isotipo} />
             </View>
           ))}
         </Page>

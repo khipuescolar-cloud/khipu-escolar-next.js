@@ -11,7 +11,7 @@ const ESTADO = {
 export function InsigniaEstado({ estado }: { estado: keyof typeof ESTADO }) {
   const { texto, clase, Icono } = ESTADO[estado];
   return (
-    <Badge className={`h-6 px-2.5 text-xs font-semibold ${clase}`}>
+    <Badge className={`h-6 px-2.5 text-etiqueta ${clase}`}>
       <Icono strokeWidth={2} aria-hidden /> {texto}
     </Badge>
   );

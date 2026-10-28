@@ -1,3 +1,4 @@
+import { EtiquetaCurso } from "@/components/academico/EtiquetaCurso";
 import { CalendarDays, CheckCircle2, Clock, ListTodo, Pencil, Plus, Users, XCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { forbidden } from "next/navigation";
@@ -35,7 +36,7 @@ function FechaEntrega({ fecha, vencida = false }: { fecha: Date; vencida?: boole
     Icono = Clock; clase = "bg-tarde-fondo text-tarde"; texto = "Entrega mañana";
   }
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-xs font-semibold ${clase}`}>
+    <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-etiqueta ${clase}`}>
       <Icono className="size-3.5" strokeWidth={2} aria-hidden />{texto}
     </span>
   );
@@ -59,24 +60,24 @@ export default async function TareasPage({ params }: PageProps<"/colegio/[slug]/
               const total = grupos.manana.length + grupos.semana.length + grupos.despues.length;
               return (
                 <Card key={alumno.id}>
-                  <CardHeader><h2 className="font-heading font-medium leading-snug text-base">{alumno.nombres} {alumno.apellidos}</h2></CardHeader>
+                  <CardHeader><h2 className="font-titulo text-cuerpo font-semibold">{alumno.nombres} {alumno.apellidos}</h2></CardHeader>
                   <CardContent className="flex flex-col gap-4">
                     {total === 0 && (
-                      <p className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <p className="flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
                         <CheckCircle2 className="size-4 text-llego" strokeWidth={2} aria-hidden />No tiene tareas pendientes.
                       </p>
                     )}
                     {(Object.keys(NOMBRE_GRUPO) as (keyof typeof NOMBRE_GRUPO)[]).map((g) =>
                       grupos[g].length === 0 ? null : (
                         <section key={g}>
-                          <h3 className="mb-2 text-sm font-semibold text-primary">{NOMBRE_GRUPO[g]}</h3>
+                          <h3 className="sobretitulo mb-2">{NOMBRE_GRUPO[g]}</h3>
                           <ul className="flex flex-col gap-2">
                             {grupos[g].map((t) => (
                               <li key={t.id} className="flex items-start gap-3 rounded-lg border bg-background p-3 text-sm">
                                 <ListTodo className="mt-0.5 size-4 shrink-0 text-muted-foreground" strokeWidth={2} aria-hidden />
                                 <div className="flex min-w-0 flex-col gap-1">
                                   <p className="font-medium">{t.titulo}</p>
-                                  <p className="text-muted-foreground">{t.curso}</p>
+                                  <p><EtiquetaCurso>{t.curso}</EtiquetaCurso></p>
                                   {t.descripcion && <p className="text-muted-foreground">{t.descripcion}</p>}
                                   <div><FechaEntrega fecha={t.fechaEntrega} /></div>
                                   <ListaAdjuntos adjuntos={t.adjuntos} />
@@ -144,17 +145,17 @@ export default async function TareasPage({ params }: PageProps<"/colegio/[slug]/
         <EstadoVacio icono={CheckCircle2} titulo="No hay tareas próximas" descripcion={ctx.rol === "profesor" ? "Crea una con «Nueva tarea» y las familias la verán al instante." : undefined} />
       ) : (
         <>
-          <h2 className="mb-3 text-lg font-semibold">Tareas de tus cursos</h2>
+          <h2 className="mb-3 text-titulo-2">Tareas de tus cursos</h2>
           <ul className="grid gap-3 lg:grid-cols-2">
             {tareas.map((t) => (
-              <li key={t.id} className="flex flex-col gap-3 rounded-xl border bg-card p-4 shadow-xs">
+              <li key={t.id} className="flex flex-col gap-3 rounded-lg border bg-card p-4">
                 <div className="flex flex-col gap-1.5">
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <p className="font-medium">{t.titulo}</p>
                     <FechaEntrega fecha={t.fechaEntrega} vencida={t.vencida} />
                   </div>
-                  <p className="text-sm text-muted-foreground">{t.curso} · {t.salon}</p>
-                  {t.descripcion && <p className="text-sm text-muted-foreground">{t.descripcion}</p>}
+                  <p className="flex flex-wrap items-center gap-2 text-cuerpo-sm text-muted-foreground"><EtiquetaCurso>{t.curso}</EtiquetaCurso>{t.salon}</p>
+                  {t.descripcion && <p className="text-cuerpo-sm text-muted-foreground">{t.descripcion}</p>}
                   <ListaAdjuntos adjuntos={t.adjuntos} />
                 </div>
                 <div className="flex flex-wrap items-center gap-2 border-t pt-3">

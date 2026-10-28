@@ -103,3 +103,8 @@ cursosDelDocente(ctx)
 
 ## Pendientes
 - (Decisión cerrada) `CORTE_LIBRETA_PUBLICADA` se queda como constante: `periodos` no guarda la fecha de cierre y no se cambia el esquema. Los periodos cerrados antes del corte siguen visibles para las familias; los nuevos requieren publicar la libreta.
+
+## PDF de la libreta y marca
+- El PDF usa solo colores del manual: índigo en encabezados, tinta y pizarra en texto, arena en líneas. Pie con la firma «Khipu Escolar» y el isotipo oficial (`public/marca/isotipo.svg` convertido a PNG con `sharp`, 24 pt; helper `src/lib/server/marca-pdf.ts`).
+- Asistencia del periodo con las palabras fijas: «Llegó», «Tarde», «No llegó», «Aviso» (también en `/libreta`).
+- Fuente: Helvetica del PDF (Sora e Inter aún no se incrustan en `@react-pdf/renderer`).

@@ -3,9 +3,10 @@ import { Document, Image, Page, StyleSheet, Text, View } from "@react-pdf/render
 import { APROBADO_VIGESIMAL, ETIQUETA_LITERAL, LITERALES, textoValor } from "@/lib/calificaciones";
 import { formatoDia } from "@/lib/fechas";
 import type { DatosLibreta } from "./libreta";
+import { LADO_ISOTIPO_PDF, type ImagenPdf } from "./marca-pdf";
 
 const estilos = StyleSheet.create({
-  pagina: { padding: 36, fontSize: 10, fontFamily: "Helvetica", color: "#1b1f2a" },
+  pagina: { padding: 36, paddingBottom: 64, fontSize: 10, fontFamily: "Helvetica", color: "#1b1f2a" },
   cabecera: { flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 2, borderBottomColor: "#1e2a78", paddingBottom: 8, marginBottom: 12 },
   logo: { width: 40, height: 40, marginRight: 8, objectFit: "contain" },
   colegio: { fontSize: 15, fontFamily: "Helvetica-Bold", color: "#1e2a78" },
@@ -22,11 +23,17 @@ const estilos = StyleSheet.create({
   seccion: { marginTop: 14, fontSize: 11, fontFamily: "Helvetica-Bold", color: "#1e2a78" },
   firma: { marginTop: 28, alignItems: "center" },
   linea: { width: 180, borderTopWidth: 0.7, borderTopColor: "#1b1f2a", marginBottom: 3 },
-  pie: { position: "absolute", bottom: 20, left: 36, right: 36, fontSize: 8, color: "#5b6170", textAlign: "center" },
+  pie: { position: "absolute", bottom: 20, left: 36, right: 36, flexDirection: "row", alignItems: "center", justifyContent: "space-between", borderTopWidth: 0.5, borderTopColor: "#e4e1da", paddingTop: 6 },
+  pieTexto: { flex: 1, fontSize: 8, color: "#5b6170", paddingRight: 12 },
+  firmaMarca: { flexDirection: "row", alignItems: "center" },
+  isotipo: { width: LADO_ISOTIPO_PDF, height: LADO_ISOTIPO_PDF, marginRight: 5 },
+  firmaMarcaTexto: { fontSize: 9, fontFamily: "Helvetica-Bold", color: "#1e2a78" },
 });
 
-/** Libreta de un alumno en un periodo (specs/11-notas-y-libreta.md). */
-export function LibretaPdf({ datos, logo }: { datos: DatosLibreta; logo?: { data: Buffer; format: "png" | "jpg" } | null }) {
+/** Libreta de un alumno en un periodo (specs/11-notas-y-libreta.md).
+ *  Marca: índigo en encabezados, tinta y pizarra en texto, arena en líneas; firma «Khipu Escolar» con el isotipo oficial en el pie.
+ *  Fuente: Helvetica del PDF (Sora/Inter no se incrustan todavía; ver specs/18-sistema-de-diseno.md). */
+export function LibretaPdf({ datos, logo, isotipo }: { datos: DatosLibreta; logo?: ImagenPdf | null; isotipo?: ImagenPdf | null }) {
   const a = datos.asistencia;
   return (
     <Document title={`Libreta ${datos.alumno.apellidos} ${datos.alumno.nombres} - ${datos.periodo.nombre}`} author={datos.colegio.nombre}>
@@ -74,8 +81,8 @@ export function LibretaPdf({ datos, logo }: { datos: DatosLibreta; logo?: { data
 
         <Text style={estilos.seccion}>Asistencia del periodo</Text>
         <Text>
-          Días registrados: {a.total} · Llegó: {a.llego} · Tarde: {a.tarde} · Falta: {a.falta}
-          {a.problema > 0 ? ` · Con problema: ${a.problema}` : ""}
+          Días registrados: {a.total} · Llegó: {a.llego} · Tarde: {a.tarde} · No llegó: {a.falta}
+          {a.problema > 0 ? ` · Aviso: ${a.problema}` : ""}
         </Text>
 
         <Text style={estilos.seccion}>Escala de calificación</Text>
@@ -89,9 +96,16 @@ export function LibretaPdf({ datos, logo }: { datos: DatosLibreta; logo?: { data
           <View style={estilos.linea} />
           <Text>Dirección · {datos.colegio.nombre}</Text>
         </View>
-        <Text style={estilos.pie} fixed>
-          Emitida el {formatoDia(new Date(), { day: "numeric", month: "long", year: "numeric" })} · Documento generado con Khipu Escolar. Los datos del alumno son confidenciales.
-        </Text>
+        <View style={estilos.pie} fixed>
+          <Text style={estilos.pieTexto}>
+            Emitida el {formatoDia(new Date(), { day: "numeric", month: "long", year: "numeric" })}. Los datos del alumno son confidenciales.
+          </Text>
+          <View style={estilos.firmaMarca}>
+            {/* eslint-disable-next-line jsx-a11y/alt-text -- Image de react-pdf no admite alt */}
+            {isotipo && <Image src={isotipo} style={estilos.isotipo} />}
+            <Text style={estilos.firmaMarcaTexto}>Khipu Escolar</Text>
+          </View>
+        </View>
       </Page>
     </Document>
   );

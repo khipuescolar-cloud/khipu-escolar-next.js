@@ -78,14 +78,14 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
         <Flash ok={ok} error={error} />
         <p className="mt-2 text-sm">
           {verArchivados ? (
-            <Link href="/gestion/salones" className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline"><School className="size-4" strokeWidth={2} aria-hidden /> Volver a los salones activos</Link>
+            <Link href="/gestion/salones" className="inline-flex items-center gap-1.5 enlace"><School className="size-4" strokeWidth={2} aria-hidden /> Volver a los salones activos</Link>
           ) : (
-            <Link href="/gestion/salones?archivados=1" className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline"><Archive className="size-4" strokeWidth={2} aria-hidden /> Ver archivados</Link>
+            <Link href="/gestion/salones?archivados=1" className="inline-flex items-center gap-1.5 enlace"><Archive className="size-4" strokeWidth={2} aria-hidden /> Ver archivados</Link>
           )}
         </p>
       </div>
 
-      {verArchivados && <p className="-mt-2 rounded-lg border bg-muted/40 p-3 text-sm text-muted-foreground">Estos salones están archivados: no salen al pasar lista ni en los selectores, pero conservan su asistencia, notas y alumnos.</p>}
+      {verArchivados && <p className="-mt-2 rounded-lg border bg-muted/40 p-3 text-cuerpo-sm text-muted-foreground">Estos salones están archivados: no salen al pasar lista ni en los selectores, pero conservan su asistencia, notas y alumnos.</p>}
       {grupos.length === 0 && (
         verArchivados
           ? <EstadoVacio icono={Archive} titulo="No hay salones archivados" descripcion="Cuando archives un salón, aparecerá aquí y podrás reactivarlo." />
@@ -94,18 +94,18 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
 
       {grupos.map((n) => (
         <section key={n.nivel} className="flex flex-col gap-4" aria-labelledby={`nivel-${n.nivel}`}>
-          <h2 id={`nivel-${n.nivel}`} className="border-b pb-2 text-xl font-bold">{n.titulo}</h2>
+          <h2 id={`nivel-${n.nivel}`} className="border-b pb-2 text-titulo-2">{n.titulo}</h2>
           {n.grados.map(({ grado, lista }) => (
             <div key={grado ?? "sin"} className="flex flex-col gap-3">
-              <h3 className="text-sm font-semibold tracking-wide text-muted-foreground uppercase">{grado === null ? "Sin grado" : `${grado}.° grado`}</h3>
+              <h3 className="sobretitulo">{grado === null ? "Sin grado" : `${grado}.° grado`}</h3>
               <ul className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
                 {lista.map((s) => (
                   <li key={s.id}>
                     <Tarjeta className="flex h-full flex-col gap-3 p-4">
                       <div className="flex items-start justify-between gap-2">
                         <div className="min-w-0">
-                          <p className="font-heading text-lg font-semibold">{s.nombre}</p>
-                          <p className="text-sm text-muted-foreground">Sección {s.seccion ?? "—"} · {s.anio}</p>
+                          <p className="font-titulo text-cuerpo font-semibold">{s.nombre}</p>
+                          <p className="text-cuerpo-sm text-muted-foreground">Sección {s.seccion ?? "—"} · {s.anio}</p>
                         </div>
                         <AccionesFila
                           etiqueta={`Acciones para ${s.nombre}`}
@@ -131,7 +131,7 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
                                   <div className="border-t pt-5">
                                     <h4 className="mb-3 font-semibold">Cursos</h4>
                                     <ul className="flex flex-col gap-3">
-                                      {s.cursos.length === 0 && <li className="text-sm text-muted-foreground">Este salón aún no tiene cursos.</li>}
+                                      {s.cursos.length === 0 && <li className="text-cuerpo-sm text-muted-foreground">Este salón aún no tiene cursos.</li>}
                                       {s.cursos.map((c) => (
                                         <li key={c.id} className="flex flex-wrap items-end gap-2 rounded-lg border p-3">
                                           <form action={editarCursoAction} className="flex min-w-0 flex-1 flex-wrap items-end gap-2">

@@ -52,7 +52,7 @@ export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, not
   }
 
   return (
-    <div className="overflow-x-auto rounded-xl border bg-card shadow-xs">
+    <div className="overflow-x-auto rounded-lg border bg-card">
       <table className="w-full min-w-max border-collapse text-sm">
         <thead className="bg-muted text-left">
           <tr>
@@ -60,7 +60,7 @@ export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, not
             {evaluaciones.map((e) => (
               <th key={e.id} scope="col" className="min-w-32 px-3 py-2.5 font-semibold">
                 <span className="block">{e.titulo}</span>
-                <span className="block text-xs font-normal text-muted-foreground">{e.fecha} · peso {formatearNumero(e.peso)}</span>
+                <span className="block text-cuerpo-sm font-normal text-muted-foreground">{e.fecha} · peso {formatearNumero(e.peso)}</span>
               </th>
             ))}
           </tr>
@@ -115,7 +115,7 @@ export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, not
                     />
                     </div>
                     {estado && (
-                      <span role="status" className={`mt-1 flex items-center gap-1 text-xs ${estado.fase === "error" ? "text-falta" : estado.fase === "guardado" ? "text-llego" : "text-muted-foreground"}`}>
+                      <span role="status" className={`mt-1 flex items-center gap-1 text-cuerpo-sm ${estado.fase === "error" ? "text-falta" : estado.fase === "guardado" ? "text-llego" : "text-muted-foreground"}`}>
                         {estado.fase === "guardando" && <><Loader2 className="size-3 animate-spin" strokeWidth={2} aria-hidden />Guardando</>}
                         {estado.fase === "guardado" && <><CheckCircle2 className="size-3" strokeWidth={2} aria-hidden />Guardado</>}
                         {estado.fase === "error" && <><AlertTriangle className="size-3" strokeWidth={2} aria-hidden />{estado.mensaje}</>}

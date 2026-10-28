@@ -70,7 +70,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
   const mesSiguiente = `${mes === 12 ? anio + 1 : anio}-${String(mes === 12 ? 1 : mes + 1).padStart(2, "0")}-01`;
   const nombreMes = formatoDia(`${anio}-${String(mes).padStart(2, "0")}-15`, { month: "long", year: "numeric" });
   const puedeCrear = !soloLectura && !(salones.length === 0 && ctx.rol === "profesor");
-  const enlaceNav = "inline-flex min-h-10 items-center gap-1 rounded-md px-3 text-sm font-medium text-primary transition-colors hover:bg-accent";
+  const enlaceNav = "inline-flex min-h-10 items-center gap-1 rounded-md px-3 text-sm font-medium text-indigo-cielo transition-colors hover:bg-accent";
 
   return (
     <div className="flex flex-col">
@@ -111,10 +111,10 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
         <div className="mb-4"><Alerta tipo="info">Todavía no tienes salones asignados, por eso no puedes crear eventos.</Alerta></div>
       )}
 
-      <div className="grid gap-5 lg:grid-cols-[1fr_20rem]">
+      <div className="grid gap-6 lg:grid-cols-[1fr_20rem]">
         <section aria-labelledby="semana" className="flex flex-col gap-3">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 id="semana" className="text-lg font-semibold">
+            <h2 id="semana" className="text-titulo-2">
               Semana del {formatoDia(lunes, { day: "numeric", month: "long" })}
             </h2>
             <div className="flex items-center gap-1">
@@ -127,13 +127,13 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
             {diasDeSemana(lunes).map((dia) => {
               const delDia = porDia.get(dia) ?? [];
               return (
-                <li key={dia} className={`rounded-xl border bg-card p-4 shadow-xs ${dia === hoy ? "border-primary ring-1 ring-primary" : ""}`}>
-                  <h3 className="flex items-center gap-2 text-sm font-semibold first-letter:uppercase">
+                <li key={dia} className={`rounded-lg border bg-card p-4 ${dia === hoy ? "border-primary ring-1 ring-primary" : ""}`}>
+                  <h3 className="flex items-center gap-2 font-titulo text-cuerpo font-semibold first-letter:uppercase">
                     {formatoDia(dia)}
-                    {dia === hoy && <span className="rounded-pildora bg-primary px-2 py-0.5 text-xs font-semibold text-primary-foreground">Hoy</span>}
+                    {dia === hoy && <span className="rounded-pildora bg-primary px-2 py-0.5 text-etiqueta text-primary-foreground">Hoy</span>}
                   </h3>
                   {delDia.length === 0 ? (
-                    <p className="mt-1 text-sm text-muted-foreground">Sin eventos.</p>
+                    <p className="mt-1 text-cuerpo-sm text-muted-foreground">Sin eventos.</p>
                   ) : (
                     <ul className="mt-3 flex flex-col gap-3">
                       {delDia.map((it) => {
@@ -141,7 +141,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
                         return (
                           <li key={`${it.tipo}-${it.id}`} className="flex flex-wrap items-start justify-between gap-2 rounded-lg border bg-background p-3 text-sm">
                             <div className="flex min-w-0 flex-col gap-1.5">
-                              <span className={`inline-flex w-fit shrink-0 items-center gap-1.5 rounded-pildora px-2.5 py-1 text-xs font-semibold ${clase}`}>
+                              <span className={`inline-flex w-fit shrink-0 items-center gap-1.5 rounded-pildora px-2.5 py-1 text-etiqueta ${clase}`}>
                                 <Icono className="size-3.5" strokeWidth={2} aria-hidden />{palabra}
                               </span>
                               <p className="font-medium">{it.titulo}</p>
@@ -191,7 +191,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
           <Card>
             <CardContent>
               <div className="mb-2 flex items-center justify-between">
-                <h2 className="text-base font-semibold first-letter:uppercase">{nombreMes}</h2>
+                <h2 className="font-titulo text-cuerpo font-semibold first-letter:uppercase">{nombreMes}</h2>
                 <div className="flex">
                   <Link href={`/agenda?fecha=${mesAnterior}`} aria-label="Mes anterior" className="inline-flex size-10 items-center justify-center rounded-md hover:bg-accent"><ChevronLeft className="size-4" strokeWidth={2} aria-hidden /></Link>
                   <Link href={`/agenda?fecha=${mesSiguiente}`} aria-label="Mes siguiente" className="inline-flex size-10 items-center justify-center rounded-md hover:bg-accent"><ChevronRight className="size-4" strokeWidth={2} aria-hidden /></Link>
@@ -226,7 +226,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
                   ))}
                 </tbody>
               </table>
-              <p className="mt-2 text-xs text-muted-foreground">Los puntos marcan días con eventos o entregas.</p>
+              <p className="mt-2 text-cuerpo-sm text-muted-foreground">Los puntos marcan días con eventos o entregas.</p>
             </CardContent>
           </Card>
         </aside>

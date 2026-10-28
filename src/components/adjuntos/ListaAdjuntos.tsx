@@ -7,7 +7,7 @@ export function ListaAdjuntos({ adjuntos, etiqueta = "Adjuntos" }: { adjuntos: A
   if (adjuntos.length === 0) return null;
   return (
     <section aria-label={etiqueta} className="flex flex-col gap-2">
-      <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{etiqueta}</h3>
+      <h3 className="text-etiqueta uppercase tracking-wide text-muted-foreground">{etiqueta}</h3>
       <ul className="flex flex-col gap-1.5">
         {adjuntos.map((a) => (
           <li key={a.id}>
@@ -18,7 +18,7 @@ export function ListaAdjuntos({ adjuntos, etiqueta = "Adjuntos" }: { adjuntos: A
             >
               <IconoAdjunto mimeType={a.mimeType} nombre={a.nombre} />
               <span className="min-w-0 flex-1 truncate font-medium">{a.nombre}</span>
-              <span className="shrink-0 text-xs text-muted-foreground">{formatoTamano(a.bytes)}</span>
+              <span className="shrink-0 text-cuerpo-sm text-muted-foreground">{formatoTamano(a.bytes)}</span>
               <Download className="size-4 shrink-0 text-primary" strokeWidth={2} aria-hidden />
               <span className="sr-only">Descargar</span>
             </a>

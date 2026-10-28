@@ -53,7 +53,7 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
         items={periodos.map((p) => ({ href: `/notas?alumno=${hijo.id}&periodo=${p.id}`, texto: p.nombre, activo: p.id === periodo.id }))}
       />
 
-      <p className="text-sm text-muted-foreground">
+      <p className="text-cuerpo-sm text-muted-foreground">
         {datos.alumno.nombres} {datos.alumno.apellidos} · {datos.alumno.salon} · {datos.periodo.nombre}
       </p>
 
@@ -63,7 +63,7 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
         {datos.cursos.map((curso) => (
           <Card key={curso.id}>
             <CardHeader>
-              <h2 className="font-heading font-medium leading-snug flex items-center gap-2 text-base"><GraduationCap className="size-5 text-primary" strokeWidth={2} aria-hidden />{curso.nombre}</h2>
+              <h2 className="font-titulo text-cuerpo font-semibold flex items-center gap-2"><GraduationCap className="size-5 text-primary" strokeWidth={2} aria-hidden />{curso.nombre}</h2>
             </CardHeader>
             <CardContent className="flex flex-col gap-4">
               {curso.competencias.length > 0 && (
@@ -71,15 +71,15 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
                   {curso.competencias.map((c) => (
                     <li key={c.id} className="flex flex-col gap-1.5 border-b pb-3 last:border-0 last:pb-0">
                       <p className="text-sm font-medium">{c.nombre}</p>
-                      <div>{c.calificacion ? <Calificacion valor={c.calificacion} /> : <span className="text-xs text-muted-foreground">Sin calificar todavía</span>}</div>
-                      {c.conclusion && <p className="text-sm text-muted-foreground">{c.conclusion}</p>}
+                      <div>{c.calificacion ? <Calificacion valor={c.calificacion} /> : <span className="text-cuerpo-sm text-muted-foreground">Sin calificar todavía</span>}</div>
+                      {c.conclusion && <p className="text-cuerpo-sm text-muted-foreground">{c.conclusion}</p>}
                     </li>
                   ))}
                 </ul>
               )}
               {curso.evaluaciones.length > 0 && (
                 <div>
-                  <h3 className="mb-2 text-sm font-semibold">Evaluaciones</h3>
+                  <h3 className="sobretitulo mb-2">Evaluaciones</h3>
                   <ul className="flex flex-col gap-2">
                     {curso.evaluaciones.map((e) => (
                       <li key={e.id} className="flex flex-col gap-1 text-sm">

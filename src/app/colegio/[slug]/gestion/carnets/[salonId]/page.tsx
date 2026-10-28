@@ -22,7 +22,7 @@ export default async function ImprimirCarnetsPage({ params }: PageProps<"/colegi
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap items-center justify-between gap-3 print:hidden">
-        <Link href="/gestion/carnets" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+        <Link href="/gestion/carnets" className="inline-flex items-center gap-1.5 enlace">
           <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Carnets
         </Link>
         <div className="flex flex-wrap gap-2">
@@ -44,28 +44,33 @@ export default async function ImprimirCarnetsPage({ params }: PageProps<"/colegi
           <BotonImprimir />
         </div>
       </div>
-      <h1 className="text-2xl font-bold sm:text-3xl print:hidden">Carnets · {salon.nombre}</h1>
+      <h1 className="text-titulo-1 print:hidden">Carnets · {salon.nombre}</h1>
 
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 print:grid-cols-2 print:gap-2">
         {carnets
           .filter((c) => c.qr)
           .map((c) => (
             <li key={c.alumnoId} className="flex break-inside-avoid flex-col gap-2">
-              <div className="flex items-center gap-4 rounded-lg border-2 border-indigo bg-white p-4 text-neutral-900">
+              <div className="flex items-center gap-4 relative rounded-lg border-2 border-indigo bg-white p-4 text-tinta">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={c.qr!} alt={`Código QR del carnet de ${c.nombres} ${c.apellidos}`} className="h-32 w-32" />
                 <div className="flex min-w-0 flex-col gap-1">
-                  <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-indigo">
+                  <p className="flex items-center gap-2 text-etiqueta uppercase tracking-wide text-indigo">
                     {logoUrl && (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={logoUrl} alt="" className="h-8 w-8 object-contain" />
                     )}
                     {ctx.tenant.nombre}
                   </p>
-                  <p className="font-titulo text-lg font-bold leading-tight">{c.nombres}</p>
+                  <p className="font-titulo text-cuerpo font-bold leading-tight">{c.nombres}</p>
                   <p className="leading-tight">{c.apellidos}</p>
-                  <p className="text-sm">{salon.nombre}{c.codigo ? ` · ${c.codigo}` : ""}</p>
+                  <p className="text-cuerpo-sm">{salon.nombre}{c.codigo ? ` · ${c.codigo}` : ""}</p>
                 </div>
+                <p className="absolute right-3 bottom-2 flex items-center gap-1 text-etiqueta text-indigo">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/marca/isotipo.svg" alt="" width={24} height={24} />
+                  Khipu Escolar
+                </p>
               </div>
               <div className="flex flex-wrap gap-2 print:hidden">
                 <BotonConfirmar

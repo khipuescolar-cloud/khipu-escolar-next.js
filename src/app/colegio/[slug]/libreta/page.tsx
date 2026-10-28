@@ -88,23 +88,23 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
       <Card className="mx-auto w-full max-w-3xl">
         <CardContent className="flex flex-col gap-5">
           <div className="border-b pb-4">
-            <p className="flex items-center gap-2 font-heading text-lg font-semibold"><BookOpen className="size-5 text-primary" strokeWidth={2} aria-hidden />{datos.colegio.nombre}</p>
+            <p className="flex items-center gap-2 font-titulo text-cuerpo font-semibold"><BookOpen className="size-5 text-primary" strokeWidth={2} aria-hidden />{datos.colegio.nombre}</p>
             <p className="mt-1 font-medium">{datos.alumno.apellidos}, {datos.alumno.nombres}</p>
-            <p className="text-sm text-muted-foreground">{datos.alumno.salon} · {datos.periodo.nombre} {datos.periodo.anio}{datos.alumno.tutor ? ` · ${datos.alumno.tutorTitulo}: ${datos.alumno.tutor}` : ""}</p>
+            <p className="text-cuerpo-sm text-muted-foreground">{datos.alumno.salon} · {datos.periodo.nombre} {datos.periodo.anio}{datos.alumno.tutor ? ` · ${datos.alumno.tutorTitulo}: ${datos.alumno.tutor}` : ""}</p>
           </div>
 
           {!datos.periodo.cerrado && <Alerta tipo="aviso">Este periodo sigue en curso: la libreta puede cambiar hasta que el colegio lo cierre.</Alerta>}
 
           {datos.cursos.map((curso) => (
             <section key={curso.nombre} className="flex flex-col gap-3">
-              <h2 className="text-lg font-semibold">{curso.nombre}</h2>
-              {curso.competencias.length === 0 && <p className="text-sm text-muted-foreground">Sin competencias registradas.</p>}
+              <h2 className="text-titulo-2">{curso.nombre}</h2>
+              {curso.competencias.length === 0 && <p className="text-cuerpo-sm text-muted-foreground">Sin competencias registradas.</p>}
               <ul className="flex flex-col gap-3">
                 {curso.competencias.map((c) => (
                   <li key={c.nombre} className="flex flex-col gap-1.5 border-b pb-3 last:border-0 last:pb-0">
                     <p className="text-sm font-medium">{c.nombre}</p>
-                    <div>{c.calificacion ? <Calificacion valor={c.calificacion} /> : <span className="text-xs text-muted-foreground">Sin calificar todavía</span>}</div>
-                    {c.conclusion && <p className="text-sm text-muted-foreground">{c.conclusion}</p>}
+                    <div>{c.calificacion ? <Calificacion valor={c.calificacion} /> : <span className="text-cuerpo-sm text-muted-foreground">Sin calificar todavía</span>}</div>
+                    {c.conclusion && <p className="text-cuerpo-sm text-muted-foreground">{c.conclusion}</p>}
                   </li>
                 ))}
               </ul>
@@ -113,22 +113,22 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
 
           <Separator />
           <section className="flex flex-col gap-1">
-            <h2 className="text-lg font-semibold">Asistencia del periodo</h2>
+            <h2 className="text-titulo-2">Asistencia del periodo</h2>
             <p className="text-sm">
-              {a.total === 0 ? "No hay asistencia registrada en este periodo." : `Días registrados: ${a.total} · Llegó: ${a.llego} · Tarde: ${a.tarde} · Falta: ${a.falta}${a.problema ? ` · Con problema: ${a.problema}` : ""}`}
+              {a.total === 0 ? "No hay asistencia registrada en este periodo." : `Días registrados: ${a.total} · Llegó: ${a.llego} · Tarde: ${a.tarde} · No llegó: ${a.falta}${a.problema ? ` · Aviso: ${a.problema}` : ""}`}
             </p>
           </section>
 
-          <section className="flex flex-col gap-1 text-sm text-muted-foreground">
-            <h2 className="text-base font-semibold text-foreground">Escala de calificación</h2>
+          <section className="flex flex-col gap-1 text-cuerpo-sm text-muted-foreground">
+            <h2 className="text-titulo-2">Escala de calificación</h2>
             {datos.escala === "literal"
               ? <p>{LITERALES.map((l) => `${l}: ${ETIQUETA_LITERAL[l]}`).join(" · ")}</p>
               : <p>Escala vigesimal de 0 a 20. Aprobado desde {APROBADO_VIGESIMAL}.</p>}
           </section>
-          <p className="text-xs text-muted-foreground">Firmada por la dirección de {datos.colegio.nombre}.</p>
+          <p className="text-cuerpo-sm text-muted-foreground">Firmada por la dirección de {datos.colegio.nombre}.</p>
         </CardContent>
       </Card>
-      {familia && <p className="text-sm"><Link href={`/notas?alumno=${alumno.id}&periodo=${periodo.id}`} className="font-semibold text-primary underline-offset-4 hover:underline">Ver el detalle de notas</Link></p>}
+      {familia && <p className="text-sm"><Link href={`/notas?alumno=${alumno.id}&periodo=${periodo.id}`} className="enlace">Ver el detalle de notas</Link></p>}
     </div>
   );
 }
