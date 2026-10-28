@@ -155,6 +155,7 @@ aCsv(encabezados, filas)
 - **Planes y módulos** (`/planes`), **Roles y permisos** (`/roles`) y la sección «Módulos del colegio» de la ficha: ver `specs/19-planes-modulos-y-roles.md`.
 
 - Módulos `/equipo`, `/anuncios` y `/configuracion`: ver `specs/22-equipo-anuncios-y-configuracion.md`. El script `crear-superadmin` usa ahora `src/lib/server/plataforma-equipo.ts`.
+- **Mesa de ayuda** (`/mesa-ayuda`): bandeja y chat con los colegios, ver `specs/23-mesa-de-ayuda.md`. En modo soporte el módulo «Soporte Khipu» del colegio no se muestra (`FEATURES_PRIVADAS_SOPORTE`).
 
 ## Textos y UX
 - Estados del colegio con ícono + palabra: «Activo» (check), «Piloto» (matraz), «Suspendido» (prohibido).

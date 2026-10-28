@@ -26,6 +26,11 @@ export const TEXTO_ACCION: Record<string, string> = {
   usuario_forzar_cambio_password: "Obligó a cambiar la contraseña",
   avisos_reintentar: "Reintentó los avisos con error de un colegio",
   cola_procesar: "Procesó la cola de avisos",
+  mesa_responder: "Respondió en la mesa de ayuda",
+  mesa_nota_interna: "Agregó una nota interna en la mesa de ayuda",
+  mesa_asignar: "Asignó una conversación de la mesa de ayuda",
+  mesa_estado: "Cambió el estado de una conversación de la mesa de ayuda",
+  mesa_prioridad: "Cambió la prioridad de una conversación de la mesa de ayuda",
 };
 
 export function textoAccion(accion: string): string {

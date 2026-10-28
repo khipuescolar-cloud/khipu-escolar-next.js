@@ -7,9 +7,10 @@ import type { TenantContext } from "./tenant";
 /**
  * Funciones privadas que el super administrador NUNCA ve en modo soporte (specs/16, Ley 29733):
  * chats, notas, libreta y Nudito. Se bloquean aquí porque todas sus páginas, actions y route handlers
- * ya llaman a `requireFeature`.
+ * ya llaman a `requireFeature`. La mesa de ayuda («soporte», specs/23) tampoco: el equipo Khipu responde desde
+ * /mesa-ayuda, no haciéndose pasar por el colegio.
  */
-export const FEATURES_PRIVADAS_SOPORTE: ReadonlySet<Feature> = new Set<Feature>(["mensajes", "notas", "libreta", "nudito"]);
+export const FEATURES_PRIVADAS_SOPORTE: ReadonlySet<Feature> = new Set<Feature>(["mensajes", "notas", "libreta", "nudito", "soporte"]);
 
 /**
  * Corta el request con 403 si el colegio no tiene el módulo (plan ± ajustes del colegio), si el módulo

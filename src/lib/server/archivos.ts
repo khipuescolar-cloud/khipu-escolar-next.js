@@ -1,6 +1,7 @@
 import "server-only";
 import { forbidden, notFound } from "next/navigation";
 import type { Archivo } from "@/generated/prisma/client";
+import { puedeVerAdjuntoSoporte } from "./soporte";
 import { alumnoIdsVisibles, salonIdsVisibles, type TenantContext } from "./tenant";
 
 // Quién puede ver un archivo privado del colegio (specs/14). Se usa en /archivos/<id>.
@@ -40,6 +41,12 @@ export async function requireArchivoVisible(ctx: TenantContext, archivoId: strin
       select: { creadoPorId: true, curso: { select: { salonId: true } } },
     });
     if (t && (await puedeVerTarea(ctx, t))) return archivo;
+    forbidden();
+  }
+
+  // Captura de la mesa de ayuda (specs/23): quien ve la conversación, nunca de una nota interna.
+  if (archivo.mensajeSoporteId) {
+    if (await puedeVerAdjuntoSoporte(ctx, archivo.mensajeSoporteId)) return archivo;
     forbidden();
   }
 

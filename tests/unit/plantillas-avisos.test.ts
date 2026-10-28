@@ -108,6 +108,8 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       libreta_publicada: { colegio, alumno: "Mateo", periodo: "III Bimestre 2026", url: "http://l" },
       alerta_rebote: { colegio, apoderado: "Rosa Quispe", alumnos: ["Mateo"], motivo: "su correo rebotó", url: "http://a" },
       soporte_inicio: { colegio, hasta: "15:30", motivo: "Revisar la asistencia", url: "http://s" },
+      soporte_respuesta: { colegio, asunto: "No llegan los correos", url: "http://s/soporte/1" },
+      soporte_nuevo: { colegio, asunto: "No llegan los correos", prioridad: "Alta", nueva: true, url: "http://admin/mesa-ayuda/1" },
     };
     for (const nombre of NOMBRES_PLANTILLA) {
       const m = renderizarPlantilla(nombre, payloads[nombre]);
@@ -168,6 +170,18 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(m.texto).toContain("Ver auditoría: http://s/configuracion/auditoria");
     expect(EMOJI.test(m.texto + m.html + m.asunto)).toBe(false);
     expect(() => renderizarPlantilla("soporte_inicio", { colegio, hasta: "3pm", motivo: "x", url: "http://s" })).toThrow(PlantillaInvalidaError);
+  });
+
+  it("mesa de ayuda: la respuesta no incluye el mensaje y el aviso al equipo lleva colegio, asunto y prioridad", () => {
+    const r = renderizarPlantilla("soporte_respuesta", { colegio, asunto: "No llegan los correos", url: "http://s/soporte/1" });
+    expect(r.asunto).toBe('El equipo de Khipu respondió a tu consulta "No llegan los correos"');
+    expect(r.texto).toContain("Ver conversación: http://s/soporte/1");
+    expect(EMOJI.test(r.texto + r.html + r.asunto)).toBe(false);
+    const n = renderizarPlantilla("soporte_nuevo", { colegio, asunto: "No llegan los correos", prioridad: "Urgente", url: "http://admin/mesa-ayuda/1" });
+    expect(n.asunto).toBe(`Nueva consulta de ${colegio}: No llegan los correos`);
+    expect(n.texto).toContain("Prioridad: Urgente");
+    expect(n.texto).toContain("Abrir en la mesa de ayuda: http://admin/mesa-ayuda/1");
+    expect(renderizarPlantilla("soporte_nuevo", { colegio, asunto: "x", prioridad: "Baja", nueva: false, url: "http://a" }).asunto).toContain("Nuevo mensaje");
   });
 
   it("rechaza plantillas desconocidas y payloads inválidos", () => {

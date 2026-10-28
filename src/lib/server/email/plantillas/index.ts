@@ -87,6 +87,18 @@ const ESQUEMAS = {
   }),
   /** A dirección cuando el equipo Khipu entra en modo soporte (specs/16). `hasta` en HH:mm (Lima). */
   soporte_inicio: z.object({ ...comun, hasta: hhmm, motivo: z.string().min(1).max(300), url }),
+  /** Mesa de ayuda (specs/23): el equipo Khipu respondió. Sin el texto del mensaje (puede tener datos sensibles). */
+  soporte_respuesta: z.object({ ...comun, asunto: z.string().min(1).max(200), url }),
+  /** Mesa de ayuda (specs/23): al buzón del equipo Khipu cuando un colegio abre o escribe en una conversación. */
+  soporte_nuevo: z.object({
+    ...comun,
+    asunto: z.string().min(1).max(200),
+    /** «Normal», «Urgente»… */
+    prioridad: z.string().min(1),
+    /** true: conversación nueva; false: mensaje nuevo en una existente. */
+    nueva: z.boolean().default(true),
+    url,
+  }),
 } as const;
 
 export type NombrePlantilla = keyof typeof ESQUEMAS;
@@ -291,6 +303,31 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
         "No puede ver chats, notas, libretas ni conversaciones con Nudito. Cada ingreso queda en la auditoría.",
       ],
       boton: { texto: "Ver auditoría", url: p.url },
+    }),
+
+  soporte_respuesta: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `El equipo de Khipu respondió a tu consulta "${p.asunto}"`,
+      insignia: "info",
+      palabraInsignia: "Soporte",
+      parrafos: [`El equipo de Khipu respondió a tu consulta "${p.asunto}".`, "Entra para leer la respuesta y seguir la conversación."],
+      boton: { texto: "Ver conversación", url: p.url },
+    }),
+
+  soporte_nuevo: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      asunto: `${p.nueva ? "Nueva consulta" : "Nuevo mensaje"} de ${p.colegio}: ${p.asunto}`,
+      insignia: "info",
+      palabraInsignia: p.prioridad,
+      parrafos: [
+        p.nueva ? `${p.colegio} abrió una conversación en la mesa de ayuda.` : `${p.colegio} escribió en una conversación de la mesa de ayuda.`,
+        `Asunto: ${p.asunto}`,
+        `Prioridad: ${p.prioridad}`,
+      ],
+      boton: { texto: "Abrir en la mesa de ayuda", url: p.url },
     }),
 };
 

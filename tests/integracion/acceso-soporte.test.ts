@@ -84,9 +84,9 @@ describe("acceso de soporte vigente", () => {
     expect((await db.alumno.findUniqueOrThrow({ where: { id: mateo.id } })).nombres).toBe("Mateo");
   });
 
-  it("niega mensajes, notas, libreta y Nudito aunque el plan los incluya", async () => {
+  it("niega mensajes, notas, libreta, Nudito y la mesa de ayuda aunque el plan los incluya", async () => {
     const ctx = await resolverContextoColegio(superadmin, colegio.tenant.slug);
-    for (const f of ["mensajes", "notas", "libreta", "nudito"] as const) {
+    for (const f of ["mensajes", "notas", "libreta", "nudito", "soporte"] as const) {
       expect(tieneFeature(ctx, f)).toBe(false);
       await esperarProhibido(Promise.resolve().then(() => requireFeature(ctx, f)));
     }

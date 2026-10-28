@@ -5,14 +5,14 @@ import { leerArchivoLocal, verificarFirmaArchivoLocal } from "@/lib/server/stora
 import { requireTenantContext } from "@/lib/server/tenant";
 
 // Sirve archivos privados del colegio (specs/14). Siempre exige sesión y alcance (`requireArchivoVisible`).
-// - Adjuntos de comunicados y tareas: enlace estable `/archivos/<id>` (sin firma); se descargan como adjunto.
+// - Adjuntos de comunicados, tareas y mesa de ayuda: enlace estable `/archivos/<id>` (sin firma); se descargan como adjunto.
 // - Resto de archivos locales (justificaciones, fotos): además exigen una URL firmada vigente.
 export async function GET(request: NextRequest, ctx: RouteContext<"/colegio/[slug]/archivos/[id]">) {
   const { slug, id } = await ctx.params;
   const tenant = await requireTenantContext(slug);
   if (!/^[0-9a-f-]{36}$/i.test(id)) return new NextResponse("No encontrado", { status: 404 });
   const archivo = await requireArchivoVisible(tenant, id);
-  const esAdjunto = !!(archivo.comunicadoId || archivo.tareaId);
+  const esAdjunto = !!(archivo.comunicadoId || archivo.tareaId || archivo.mensajeSoporteId);
 
   if (!esAdjunto) {
     const exp = Number(request.nextUrl.searchParams.get("exp"));

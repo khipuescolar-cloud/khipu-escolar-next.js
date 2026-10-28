@@ -15,12 +15,16 @@ export function porcentajeApertura(enviados: number, abiertos: number): number |
 
 export type FiltroAvisos = { estado?: EstadoAviso; tipo?: TipoAviso; q?: string };
 
+/** Avisos al equipo Khipu (mesa de ayuda, specs/23): llevan el tenantId del colegio pero no son del colegio. */
+const SIN_AVISOS_A_KHIPU = { NOT: { plantilla: "soporte_nuevo" } };
+
 export async function panelAvisos(ctx: TenantContext, filtro: FiltroAvisos) {
   exigirAlumnosFamilias(ctx); // solo lectura; el administrativo también
   const desde = new Date(Date.now() - 7 * 24 * 3600_000);
   const [avisos, enviados, abiertos] = await Promise.all([
     ctx.db.aviso.findMany({
       where: {
+        ...SIN_AVISOS_A_KHIPU,
         ...(filtro.estado ? { estado: filtro.estado } : {}),
         ...(filtro.tipo ? { tipo: filtro.tipo } : {}),
         ...(filtro.q ? { destinatario: { contains: filtro.q, mode: "insensitive" } } : {}),
@@ -29,8 +33,8 @@ export async function panelAvisos(ctx: TenantContext, filtro: FiltroAvisos) {
       take: 100,
       select: { id: true, tipo: true, canal: true, destinatario: true, asunto: true, estado: true, createdAt: true, enviadoAt: true, abiertoAt: true, error: true },
     }),
-    ctx.db.aviso.count({ where: { createdAt: { gte: desde }, enviadoAt: { not: null } } }),
-    ctx.db.aviso.count({ where: { createdAt: { gte: desde }, abiertoAt: { not: null } } }),
+    ctx.db.aviso.count({ where: { ...SIN_AVISOS_A_KHIPU, createdAt: { gte: desde }, enviadoAt: { not: null } } }),
+    ctx.db.aviso.count({ where: { ...SIN_AVISOS_A_KHIPU, createdAt: { gte: desde }, abiertoAt: { not: null } } }),
   ]);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "avisos" });
   return { avisos, semana: { enviados, abiertos, porcentaje: porcentajeApertura(enviados, abiertos), meta: META_APERTURA } };

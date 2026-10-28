@@ -19,6 +19,7 @@ import { formatoHora } from "@/lib/fechas";
 import { AnunciosPlataforma } from "@/components/AnunciosPlataforma";
 import { anunciosVigentes } from "@/lib/server/plataforma-anuncios";
 import { horarioNudito } from "@/lib/server/plataforma-configuracion";
+import { respuestasNuevasSoporte } from "@/lib/server/soporte";
 import { cambiarRolAction, salirAction } from "./actions";
 
 const ORDEN_GRUPOS: GrupoNav[] = ["dia", "comunicacion", "academico", "colegio"];
@@ -38,9 +39,16 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
     // Transparencia (specs/16): la dirección ve en la campana si el equipo Khipu está dentro en modo soporte.
     ctx.rol === "direccion" && !ctx.soporte ? soporteVigenteHasta(ctx.tenant.id) : Promise.resolve(null),
   ]);
-  const [anuncios, horario] = await Promise.all([anunciosVigentes(ctx), horarioNudito()]);
+  // Mesa de ayuda (specs/23): respuestas nuevas del equipo Khipu en la campana.
+  const tieneSoporte = mosaicos.some((m) => m.feature === "soporte" && m.acceso.estado === "activo");
+  const [anuncios, horario, respuestasSoporte] = await Promise.all([
+    anunciosVigentes(ctx),
+    horarioNudito(),
+    tieneSoporte ? respuestasNuevasSoporte(ctx) : Promise.resolve(0),
+  ]);
   const notificaciones = [
     ...(tieneMensajes ? [{ titulo: "Mensajes sin leer", href: "/mensajes", cantidad: sinLeer }] : []),
+    ...(respuestasSoporte > 0 ? [{ titulo: `Soporte: ${respuestasSoporte} ${respuestasSoporte === 1 ? "respuesta nueva" : "respuestas nuevas"}`, href: "/soporte", cantidad: respuestasSoporte }] : []),
     ...(soporteHasta ? [{ titulo: `Soporte de Khipu activo hasta ${formatoHora(soporteHasta)}`, href: "/configuracion/auditoria", cantidad: 1 }] : []),
   ];
 
