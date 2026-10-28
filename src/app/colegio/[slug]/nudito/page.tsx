@@ -46,7 +46,7 @@ export default async function NuditoPage({ params, searchParams }: PageProps<"/c
       <EncabezadoPagina
         titulo="Nudito"
         descripcion="Aquí puedes repasar tus conversaciones con Nudito. Para preguntarle algo nuevo, usa la burbuja de abajo a la derecha."
-        acciones={<NuditoMascota tamano={56} />}
+        acciones={<NuditoMascota tamano={56} estado="reposo" titulo="Nudito" />}
       />
 
       {hijos.length > 0 && (
@@ -74,16 +74,16 @@ export default async function NuditoPage({ params, searchParams }: PageProps<"/c
             <li key={c.id}>
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex flex-wrap items-center gap-2 text-base">
+                  <CardTitle className="flex flex-wrap items-center gap-2 text-titulo-2">
                     {FORMATO.format(c.createdAt)}
                     {c.alumno && <Badge variant="secondary">{c.alumno.nombres.split(" ")[0]}</Badge>}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ol className="flex flex-col gap-3 font-nudito text-sm">
+                  <ol className="flex flex-col gap-3 font-nudito text-voz-nudito">
                     {c.mensajes.map((m) => (
                       <li key={m.id} className={`flex max-w-[85%] flex-col gap-2 ${m.autor === "usuario" ? "self-end" : "self-start"}`}>
-                        <p className={`whitespace-pre-line px-3.5 py-2.5 ${m.autor === "usuario" ? "rounded-2xl rounded-br-sm bg-primary text-primary-foreground" : "rounded-2xl rounded-bl-sm bg-muted text-foreground"}`}>
+                        <p className={`whitespace-pre-line px-3.5 py-2.5 ${m.autor === "usuario" ? "rounded-lg rounded-br-sm bg-primary text-primary-foreground" : "rounded-lg rounded-bl-sm bg-muted text-foreground"}`}>
                           <span className="sr-only">{m.autor === "usuario" ? "Tú: " : "Nudito: "}</span>
                           {m.cuerpo}
                         </p>

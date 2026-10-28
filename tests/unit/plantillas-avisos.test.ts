@@ -25,7 +25,31 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(m.texto).toContain("Mateo no llegó hoy a la 1.ª hora. Si ya lo sabías, puedes justificar la falta.");
     expect(m.texto).toContain(`Justificar falta: ${url}`);
     expect(m.html).toMatch(new RegExp(`<a href="${url}"[^>]*>Justificar falta</a>`));
-    expect(m.texto).toContain("[Falta]");
+    expect(m.texto).toContain("[No llegó]");
+  });
+
+  it("marca: cabecera con logo de Khipu, pie con lema y etiquetas de estado con ícono + palabra", () => {
+    const m = renderizarPlantilla("asistencia_llego", { colegio, alumno: "Mateo", hora: "07:52", logoColegioUrl: "http://x/logo.png" });
+    expect(m.html).toMatch(/<img src="[^"]*\/marca\/logotipo-horizontal@2x\.png"[^>]*alt="Khipu Escolar"/);
+    expect(m.html).toContain('src="http://x/logo.png"');
+    expect(m.html).toContain("Inter,Arial,Helvetica,sans-serif");
+    expect(m.html).toContain("✓</span> Llegó");
+    expect(m.texto).toContain("Khipu Escolar · Cada día de tu hijo, bien anudado.");
+    const falta = renderizarPlantilla("asistencia_falta", { colegio, alumno: "Mateo" });
+    expect(falta.html).toContain("!</span> No llegó");
+    expect(renderizarPlantilla("asistencia_problema", { colegio, alumno: "Mateo", hora: "10:00" }).html).toContain("!</span> Aviso");
+  });
+
+  it("Nudito solo aparece en tarea y libreta; nunca en faltas, tardanzas ni problemas", () => {
+    const alt = 'alt="Nudito, el asistente de Khipu"';
+    expect(renderizarPlantilla("tarea_nueva", { colegio, curso: "Matemática", titulo: "x", fechaEntrega: "2026-10-30", url: "http://t" }).html).toContain(alt);
+    expect(renderizarPlantilla("libreta_publicada", { colegio, periodo: "I Bimestre 2026", url: "http://l" }).html).toContain(alt);
+    for (const [n, p] of [
+      ["asistencia_falta", { colegio, alumno: "Mateo" }],
+      ["asistencia_tarde", { colegio, alumno: "Mateo", hora: "08:15" }],
+      ["asistencia_problema", { colegio, alumno: "Mateo", hora: "10:00" }],
+      ["asistencia_llego", { colegio, alumno: "Mateo", hora: "07:52" }],
+    ] as const) expect(renderizarPlantilla(n, p).html, n).not.toContain("Nudito");
   });
 
   it("las malas noticias no llevan emojis", () => {

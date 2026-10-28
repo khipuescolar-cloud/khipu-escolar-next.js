@@ -10,7 +10,7 @@ export type { Mensaje } from "./base";
 const hhmm = z.string().regex(/^\d{2}:\d{2}$/);
 const fechaIso = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 const url = z.string().min(1);
-const comun = { colegio: z.string().min(1), urlPreferencias: url.optional() };
+const comun = { colegio: z.string().min(1), urlPreferencias: url.optional(), logoColegioUrl: url.optional() };
 
 const ESQUEMAS = {
   asistencia_llego: z.object({ ...comun, alumno: z.string().min(1), hora: hhmm }),
@@ -98,6 +98,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   asistencia_llego: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `${p.alumno} llegó al colegio`,
       insignia: "llego",
       parrafos: [`${p.alumno} llegó al colegio a las ${hora12(p.hora)}`],
@@ -107,6 +108,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   asistencia_tarde: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `${p.alumno} llegó tarde hoy`,
       insignia: "tarde",
       parrafos: [`${p.alumno} llegó tarde hoy (${hora12(p.hora)}). Si tienes dudas, escríbele a su tutora.`],
@@ -116,6 +118,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   asistencia_falta: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `${p.alumno} no llegó hoy`,
       insignia: "falta",
       parrafos: [`${p.alumno} no llegó hoy ${p.momento}. Si ya lo sabías, puedes justificar la falta.`],
@@ -126,6 +129,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   asistencia_problema: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `Aviso del colegio sobre ${p.alumno}`,
       insignia: "problema",
       parrafos: [
@@ -140,6 +144,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   mensaje_nuevo: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `Nuevo mensaje de ${p.remitente}`,
       insignia: "info",
       palabraInsignia: "Mensaje",
@@ -151,6 +156,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   comunicado: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `Comunicado: ${p.titulo}`,
       insignia: "info",
       palabraInsignia: "Comunicado",
@@ -165,6 +171,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   invitacion: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `${p.colegio} te invita a Khipu Escolar`,
       parrafos: [`Hola, ${p.nombre}.`, `${p.colegio} te invitó a Khipu Escolar como ${p.rol}.`],
       boton: { texto: "Aceptar invitación", url: p.url },
@@ -174,6 +181,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
     p.restablecida
       ? armarMensaje({
           colegio: p.colegio,
+          logoColegioUrl: p.logoColegioUrl,
           asunto: `Restablecimos tu contraseña · ${p.colegio}`,
           parrafos: [
             `Hola, ${p.nombre}.`,
@@ -185,6 +193,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
         })
       : armarMensaje({
           colegio: p.colegio,
+          logoColegioUrl: p.logoColegioUrl,
           asunto: `Bienvenido(a) a Khipu Escolar · ${p.colegio}`,
           parrafos: [
             `Hola, ${p.nombre}.`,
@@ -201,6 +210,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   justificacion_revisada: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `Justificación de ${p.alumno} revisada`,
       insignia: "info",
       palabraInsignia: p.estado === "aceptada" ? "Aceptada" : "No aceptada",
@@ -217,6 +227,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   justificacion_recibida: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `Nueva justificación de ${p.alumno}`,
       insignia: "info",
       palabraInsignia: "Justificación",
@@ -227,9 +238,11 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   tarea_nueva: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `Nueva tarea de ${p.curso}`,
       insignia: "info",
       palabraInsignia: "Tarea",
+      nudito: true,
       parrafos: [
         `${p.alumno ? `${p.alumno} tiene` : "Hay"} una tarea nueva de ${p.curso}: «${p.titulo}».`,
         `Se entrega el ${fechaCorta(p.fechaEntrega)}.`,
@@ -241,9 +254,11 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   libreta_publicada: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `La libreta de ${p.periodo} ya está disponible`,
       insignia: "info",
       palabraInsignia: "Libreta",
+      nudito: true,
       parrafos: [`${p.alumno ? `La libreta de ${p.alumno}` : "La libreta"} de ${p.periodo} ya está disponible.`, "Puedes verla y descargarla en PDF."],
       boton: { texto: "Ver libreta", url: p.url },
       urlPreferencias: p.urlPreferencias,
@@ -252,6 +267,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   alerta_rebote: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: `Correo desactivado: ${p.apoderado}`,
       insignia: "problema",
       palabraInsignia: "Correo desactivado",
@@ -265,6 +281,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
   soporte_inicio: (p) =>
     armarMensaje({
       colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
       asunto: "El equipo de Khipu Escolar entró a tu colegio en modo soporte",
       insignia: "info",
       palabraInsignia: "Soporte",

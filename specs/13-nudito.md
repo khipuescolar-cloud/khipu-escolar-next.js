@@ -69,3 +69,8 @@ Los textos exactos están en `src/lib/server/nudito/respuestas.ts`. Estados siem
 
 ## Pendientes
 - **Externo:** LLM tras aprobación explícita (AGENTS.md prohíbe API keys de IA); se enchufaría implementando `NuditoProvider` y mejoraría la detección de nombres.
+
+## Marca (manual, 28/10/2026)
+- `NuditoMascota` dibuja el diseño oficial (`public/marca/nudito.svg`) en SVG en línea con estados `reposo|saludo|pensando|avisando|celebrando|preocupado|durmiendo` (animaciones CSS de 0,5–2 s; en bucle solo reposo, pensando y durmiendo; quieto con `prefers-reduced-motion`; `aria-hidden`). En tema oscuro se dibuja sobre un círculo crema.
+- El estado lo elige `src/lib/nudito/estado.ts` (`elegirEstadoNudito`): durmiendo fuera del horario escolar 7:00–17:00 (Lima, constante `HORARIO_ESCOLAR`), pensando mientras responde, saludo 1,2 s al abrir.
+- Widget: botón de 64 × 64 px, `aria-label="Abrir a Nudito, asistente de Khipu"`; burbujas en `font-nudito text-voz-nudito`; aviso fijo «Soy un asistente con IA. Si no sé algo, te paso con una persona del colegio.»; avatar de 32 px (cara y colita). No cambia la lógica de respuestas.

@@ -7,11 +7,13 @@ import { cargarConversacionNuditoAction, enviarMensajeNuditoAction } from "@/app
 import type { AccionNudito } from "@/lib/server/nudito/tipos";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { elegirEstadoNudito } from "@/lib/nudito/estado";
 import { NuditoMascota } from "./NuditoMascota";
 
 type Burbuja = { id: number; autor: "usuario" | "nudito"; texto: string; acciones?: AccionNudito[] };
 
 const MAX = 500;
+export const AVISO_IA = "Soy un asistente con IA. Si no sé algo, te paso con una persona del colegio.";
 const SUGERENCIAS = ["¿Qué tareas hay esta semana?", "¿Qué fechas importantes vienen?", "¿Cuál es el horario?"];
 
 export function NuditoWidget({ slug }: { slug: string }) {
@@ -27,6 +29,23 @@ export function NuditoWidget({ slug }: { slug: string }) {
   const contador = useRef(0);
 
   const historialCargado = useRef(false);
+  // Hora de Lima: se calcula al montar para no desfasar la hidratación; fuera de 7:00–17:00 Nudito duerme.
+  const [ahora, setAhora] = useState<Date | null>(null);
+  const [saludando, setSaludando] = useState(false);
+  useEffect(() => {
+    const t0 = setTimeout(() => setAhora(new Date()), 0);
+    const t = setInterval(() => setAhora(new Date()), 60_000);
+    return () => {
+      clearTimeout(t0);
+      clearInterval(t);
+    };
+  }, []);
+  function abrir() {
+    setAbierto(true);
+    setSaludando(true);
+    setTimeout(() => setSaludando(false), 1200);
+  }
+  const estado = elegirEstadoNudito({ ahora: ahora ?? new Date(2026, 0, 5, 12), pensando: pendiente, saludando });
 
   useEffect(() => {
     if (abierto) inputRef.current?.focus();
@@ -97,23 +116,23 @@ export function NuditoWidget({ slug }: { slug: string }) {
           id="nudito-panel"
           role="dialog"
           aria-label="Nudito, tu asistente"
-          className="flex h-[min(34rem,calc(100dvh-7rem))] w-[min(23rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-xl bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/10"
+          className="flex h-[min(34rem,calc(100dvh-7rem))] w-[min(23rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-lg border bg-popover text-popover-foreground shadow-sombra-1"
         >
           <div className="flex items-center gap-3 bg-primary px-4 py-3 text-primary-foreground">
-            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-card">
-              <NuditoMascota tamano={32} animada={false} />
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#FAF7F2]">
+              <NuditoMascota tamano={32} variante="avatar" estado={estado} />
             </span>
             <div className="min-w-0 flex-1">
               <p className="text-base font-bold leading-tight">Nudito</p>
-              <p className="text-xs leading-tight opacity-90">Tu asistente del colegio</p>
+              <p className="text-etiqueta opacity-90">Tu asistente del colegio</p>
             </div>
             <button type="button" onClick={cerrar} aria-label="Cerrar Nudito" className="flex size-10 items-center justify-center rounded-md outline-none transition-colors hover:bg-primary-foreground/15 focus-visible:ring-2 focus-visible:ring-primary-foreground">
               <X className="size-5" strokeWidth={2} aria-hidden />
             </button>
           </div>
 
-          <div role="log" aria-live="polite" aria-label="Conversación con Nudito" className="flex flex-1 flex-col gap-3 overflow-y-auto bg-background p-4 text-sm">
-            <p className="max-w-[85%] self-start whitespace-pre-line rounded-2xl rounded-bl-sm bg-muted px-3.5 py-2.5">
+          <div role="log" aria-live="polite" aria-label="Conversación con Nudito" className="flex flex-1 flex-col gap-3 overflow-y-auto bg-background p-4 font-nudito text-voz-nudito text-foreground">
+            <p className="max-w-[85%] self-start whitespace-pre-line rounded-lg rounded-bl-sm bg-muted px-3.5 py-2.5">
               ¡Hola! Soy Nudito. Pregúntame por las tareas, las fechas o el horario del colegio.
             </p>
             {mensajes.length === 0 && !pendiente && (
@@ -133,7 +152,7 @@ export function NuditoWidget({ slug }: { slug: string }) {
             {mensajes.map((m) => (
               <div key={m.id} className={`flex max-w-[85%] flex-col gap-2 ${m.autor === "usuario" ? "self-end" : "self-start"}`}>
                 <p
-                  className={`whitespace-pre-line px-3.5 py-2.5 ${m.autor === "usuario" ? "rounded-2xl rounded-br-sm bg-primary text-primary-foreground" : "rounded-2xl rounded-bl-sm bg-muted text-foreground"}`}
+                  className={`whitespace-pre-line px-3.5 py-2.5 ${m.autor === "usuario" ? "rounded-lg rounded-br-sm bg-primary text-primary-foreground" : "rounded-lg rounded-bl-sm bg-muted text-foreground"}`}
                 >
                   {m.texto}
                 </p>
@@ -165,13 +184,19 @@ export function NuditoWidget({ slug }: { slug: string }) {
                 )}
               </div>
             ))}
-            {pendiente && <p className="self-start text-muted-foreground">Nudito está escribiendo…</p>}
+            {pendiente && (
+              <p className="flex items-center gap-2 self-start text-muted-foreground">
+                <NuditoMascota tamano={32} variante="avatar" estado="pensando" />
+                Nudito está escribiendo…
+              </p>
+            )}
             {error && <p role="alert" className="flex items-start gap-2 self-start rounded-lg bg-falta-fondo px-3 py-2 text-falta"><XCircle className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />{error}</p>}
             <div ref={finRef} />
           </div>
 
+          <p className="border-t bg-card px-4 pt-2 text-etiqueta font-normal text-muted-foreground">{AVISO_IA}</p>
           <form
-            className="flex items-center gap-2 border-t bg-card p-3"
+            className="flex items-center gap-2 bg-card p-3"
             onSubmit={(e) => {
               e.preventDefault();
               enviar(texto);
@@ -198,13 +223,13 @@ export function NuditoWidget({ slug }: { slug: string }) {
       <button
         ref={botonRef}
         type="button"
-        onClick={() => (abierto ? cerrar() : setAbierto(true))}
+        onClick={() => (abierto ? cerrar() : abrir())}
         aria-expanded={abierto}
         aria-controls="nudito-panel"
-        aria-label={abierto ? "Cerrar Nudito" : "Abrir Nudito, tu asistente"}
-        className="flex size-14 items-center justify-center rounded-full border bg-card shadow-lg outline-none transition-shadow hover:shadow-xl focus-visible:ring-3 focus-visible:ring-ring/50"
+        aria-label={abierto ? "Cerrar a Nudito" : "Abrir a Nudito, asistente de Khipu"}
+        className="flex size-16 items-center justify-center rounded-full border bg-card shadow-sombra-1 outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-ring"
       >
-        <NuditoMascota tamano={40} />
+        <NuditoMascota tamano={52} estado={estado} />
       </button>
     </div>
   );
