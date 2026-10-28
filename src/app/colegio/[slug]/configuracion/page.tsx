@@ -7,6 +7,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
+import { NOMBRE_PLAN } from "@/lib/planes";
 import { PLAZO_JUSTIFICACION_DEFECTO_DIAS, PLAZO_JUSTIFICACION_MAX_DIAS, PLAZO_JUSTIFICACION_MIN_DIAS } from "@/lib/plazo-justificacion";
 import { exigirGestion } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -27,8 +28,8 @@ function Seccion({ icono: Icono, titulo, descripcion, children }: { icono: typeo
           <Icono className="size-5" strokeWidth={2} aria-hidden />
         </span>
         <div>
-          <h2 className="text-lg font-semibold">{titulo}</h2>
-          <p className="text-sm text-muted-foreground">{descripcion}</p>
+          <h2 className="text-titulo-2">{titulo}</h2>
+          <p className="text-cuerpo-sm text-muted-foreground">{descripcion}</p>
         </div>
       </div>
       {children}
@@ -48,6 +49,10 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
     <div className="flex max-w-3xl flex-col gap-6">
       <div>
         <EncabezadoPagina titulo="Configuración" descripcion="Avisos a las familias, identidad del colegio y privacidad de los datos." />
+        <p className="-mt-3 mb-3 flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
+          {t.nombre}
+          <span className="rounded-pildora bg-accent px-2.5 py-1 text-etiqueta text-accent-foreground">Plan {NOMBRE_PLAN[t.plan]}</span>
+        </p>
         <Flash ok={ok} error={error} />
       </div>
 
@@ -92,7 +97,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
               // eslint-disable-next-line @next/next/no-img-element
               <img src={logoUrl} alt={`Logo de ${t.nombre}`} className="size-20 rounded-lg border bg-white object-contain" />
             ) : (
-              <p className="text-sm text-muted-foreground">Aún no subiste un logo.</p>
+              <p className="text-cuerpo-sm text-muted-foreground">Aún no subiste un logo.</p>
             )}
             {logoUrl && <BotonConfirmar etiqueta="Quitar logo" titulo="¿Quitar el logo?" descripcion="Los carnets y la libreta saldrán sin logo hasta que subas otro." confirmar="Quitar logo" accion={quitarLogoAction} peligro variante="ghost" />}
           </div>
@@ -100,7 +105,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             <label className="flex flex-col gap-1.5 text-sm font-medium">
               Imagen del logo
               <input type="file" name="logo" accept="image/png,image/jpeg,image/webp" required className="min-h-10 text-sm file:mr-3 file:h-10 file:cursor-pointer file:rounded-md file:border file:border-input file:bg-card file:px-3 file:text-sm file:font-semibold" />
-              <span className="text-xs font-normal text-muted-foreground">PNG, JPG o WEBP, hasta 1 MB. Para la libreta en PDF se usa PNG o JPG.</span>
+              <span className="text-cuerpo-sm font-normal text-muted-foreground">PNG, JPG o WEBP, hasta 1 MB. Para la libreta en PDF se usa PNG o JPG.</span>
             </label>
             <Boton type="submit">Subir logo</Boton>
           </form>

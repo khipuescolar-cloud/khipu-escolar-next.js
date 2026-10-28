@@ -79,3 +79,6 @@ buscarAlumnosPorteria(ctx, texto)              // 2..60 caracteres, máx. 10
 
 ## Pendientes
 - No hay e2e del escaneo offline (la cámara no se puede simular en Playwright); está cubierto por unit e integración.
+
+## Marca en los carnets
+- Carnet impreso (HTML) y PDF (`carnets-pdf.tsx`): borde y nombre del colegio en índigo, texto en tinta y pizarra, firma «Khipu Escolar» con el isotipo oficial (24 pt, mínimo del manual) en la esquina inferior derecha. Fuente Helvetica en el PDF.

@@ -171,7 +171,7 @@ async function SeccionExcel({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
     <div className="grid gap-4 lg:grid-cols-2">
       <Card>
         <CardHeader>
-          <h2 className="font-heading text-base font-medium leading-snug">Exportar a Excel (CSV)</h2>
+          <h2 className="font-titulo text-cuerpo font-semibold">Exportar a Excel (CSV)</h2>
           <CardDescription>Una fila por alumno y una columna por evaluación. Se abre en Excel con tildes y columnas separadas por «;».</CardDescription>
         </CardHeader>
         <CardContent>
@@ -182,7 +182,7 @@ async function SeccionExcel({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
       </Card>
       <Card>
         <CardHeader>
-          <h2 className="font-heading text-base font-medium leading-snug">Importar notas</h2>
+          <h2 className="font-titulo text-cuerpo font-semibold">Importar notas</h2>
           <CardDescription>
             Usa el CSV descargado como base. Identificamos al alumno por su código o su nombre y cada columna por el título de la evaluación.
             Valores: {g.escala === "literal" ? "AD, A, B o C" : "números de 0 a 20"}. Las celdas vacías no borran notas.
@@ -231,7 +231,7 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
   return (
     <div className="flex flex-col gap-5">
       {g.escala === "literal" && (
-        <p className="flex items-start gap-2 text-sm text-muted-foreground">
+        <p className="flex items-start gap-2 text-cuerpo-sm text-muted-foreground">
           <Info className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
           {LITERALES.map((l) => `${l}: ${ETIQUETA_LITERAL[l]}`).join(" · ")}
         </p>
@@ -241,7 +241,7 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
       {puedeEditar && g.evaluaciones.length > 0 && (
         <Card>
           <CardHeader>
-            <h2 className="font-heading text-base font-medium leading-snug">Editar evaluaciones</h2>
+            <h2 className="font-titulo text-cuerpo font-semibold">Editar evaluaciones</h2>
             <CardDescription>Cambia el título, la fecha o el peso. Al eliminar una evaluación también se borran sus notas.</CardDescription>
           </CardHeader>
           <CardContent>
@@ -250,7 +250,7 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
                 <li key={e.id} className="flex flex-wrap items-center justify-between gap-3 py-3 first:pt-0 last:pb-0">
                   <div className="min-w-0">
                     <p className="font-medium">{e.titulo}</p>
-                    <p className="text-sm text-muted-foreground">{e.fecha} · peso {formatearNumero(e.peso)}</p>
+                    <p className="text-cuerpo-sm text-muted-foreground">{e.fecha} · peso {formatearNumero(e.peso)}</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <DialogoAccion
@@ -297,7 +297,7 @@ async function SeccionPeriodo({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
   }
   return (
     <div className="flex flex-col gap-4">
-      <p className="max-w-prose text-sm text-muted-foreground">
+      <p className="max-w-prose text-cuerpo-sm text-muted-foreground">
         La calificación sugerida sale de las notas del periodo
         {c.escala === "vigesimal" ? " (promedio con pesos, redondeado)" : " (la más frecuente; si empatan, la más reciente)"}.
         Tú la confirmas o la cambias.
@@ -332,7 +332,7 @@ async function SeccionCompetencias({ ctx, slug, cursoId, periodoId }: { ctx: Ten
   return (
     <Card>
       <CardHeader>
-        <h2 className="font-heading text-base font-medium leading-snug">Competencias de {g.curso.nombre}</h2>
+        <h2 className="font-titulo text-cuerpo font-semibold">Competencias de {g.curso.nombre}</h2>
         {puedeEditar && (
           <div className="mt-2">
             <DialogoAccion
@@ -358,7 +358,7 @@ async function SeccionCompetencias({ ctx, slug, cursoId, periodoId }: { ctx: Ten
               <li key={c.id} className="flex flex-wrap items-start justify-between gap-2 py-3 first:pt-0 last:pb-0">
                 <div className="min-w-0">
                   <p className="font-medium">{c.nombre}</p>
-                  {c.descripcion && <p className="text-sm text-muted-foreground">{c.descripcion}</p>}
+                  {c.descripcion && <p className="text-cuerpo-sm text-muted-foreground">{c.descripcion}</p>}
                 </div>
                 {puedeEditar && (
                   <BotonConfirmar

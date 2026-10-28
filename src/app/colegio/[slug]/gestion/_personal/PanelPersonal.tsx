@@ -104,7 +104,7 @@ export async function PanelPersonal({ ctx, ambito, searchParams }: { ctx: Tenant
           )}
           <CamposPersona />
           <Boton type="submit" className="self-end justify-self-start sm:col-span-2">Registrar y enviar bienvenida</Boton>
-          <p className="text-xs text-muted-foreground sm:col-span-2">
+          <p className="text-cuerpo-sm text-muted-foreground sm:col-span-2">
             {esProfesores ? "La tutoría y los cursos se asignan en «Grados y salones». " : ""}Si el correo ya tiene cuenta en Khipu, solo se agrega al colegio y conserva su contraseña.
           </p>
         </form>
@@ -151,7 +151,7 @@ export async function PanelPersonal({ ctx, ambito, searchParams }: { ctx: Tenant
             </>
           )}
           <Boton type="submit" variante="secundario">Filtrar</Boton>
-          <Link href={base} className="inline-flex h-10 items-center px-2 text-sm font-semibold text-primary hover:underline">Limpiar</Link>
+          <Link href={base} className="inline-flex h-10 items-center px-2 enlace">Limpiar</Link>
         </form>
       </Tarjeta>
 
@@ -194,8 +194,8 @@ export async function PanelPersonal({ ctx, ambito, searchParams }: { ctx: Tenant
                       <div className="flex items-center gap-3">
                         <AvatarPersona nombres={p.user.nombres} apellidos={p.user.apellidos} />
                         <div className="min-w-0">
-                          <Link href={`${base}/${p.id}`} className="font-semibold text-primary hover:underline">{nombreCompleto}</Link>
-                          <p className="truncate text-xs text-muted-foreground">{p.user.email}</p>
+                          <Link href={`${base}/${p.id}`} className="enlace">{nombreCompleto}</Link>
+                          <p className="truncate text-cuerpo-sm text-muted-foreground">{p.user.email}</p>
                         </div>
                       </div>
                     </TableCell>
@@ -239,7 +239,7 @@ export async function PanelPersonal({ ctx, ambito, searchParams }: { ctx: Tenant
           </Table>
         </Tarjeta>
       )}
-      <p className="text-xs text-muted-foreground">
+      <p className="text-cuerpo-sm text-muted-foreground">
         {personas.length} {personas.length === 1 ? "persona" : "personas"}. El documento solo lo ve la dirección. Abrir una ficha o esta lista queda registrado en la auditoría.
       </p>
     </div>

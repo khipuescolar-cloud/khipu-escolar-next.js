@@ -26,7 +26,7 @@ export default async function AuditoriaPage({ params, searchParams }: PageProps<
 
   return (
     <div className="flex flex-col gap-6">
-      <Link href="/configuracion" className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+      <Link href="/configuracion" className="inline-flex w-fit items-center gap-1.5 enlace">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Configuración
       </Link>
       <EncabezadoPagina titulo="Auditoría" descripcion="Los últimos 200 registros de quién vio o cambió datos." />
@@ -37,7 +37,7 @@ export default async function AuditoriaPage({ params, searchParams }: PageProps<
             {ACCIONES.map((a) => <option key={a} value={a}>{a}</option>)}
           </Selector>
           <Boton type="submit" variante="secundario">Filtrar</Boton>
-          {filtro && <Link href="/configuracion/auditoria" className="inline-flex h-10 items-center px-2 text-sm font-semibold text-primary hover:underline">Limpiar</Link>}
+          {filtro && <Link href="/configuracion/auditoria" className="inline-flex h-10 items-center px-2 enlace">Limpiar</Link>}
         </form>
       </Tarjeta>
       {filas.length === 0 ? (

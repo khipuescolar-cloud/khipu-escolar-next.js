@@ -48,12 +48,12 @@ export function FilaCalificacion({
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="font-medium">{alumno.apellidos}, {alumno.nombres}</p>
           {guardado ? (
-            <span className="inline-flex items-center gap-1.5 rounded-pildora bg-llego-fondo px-2.5 py-1 text-xs font-semibold text-llego"><CheckCircle2 className="size-3.5" strokeWidth={2} aria-hidden />Confirmada</span>
+            <span className="inline-flex items-center gap-1.5 rounded-pildora bg-llego-fondo px-2.5 py-1 text-etiqueta text-llego"><CheckCircle2 className="size-3.5" strokeWidth={2} aria-hidden />Confirmada</span>
           ) : (
-            <span className="inline-flex items-center gap-1.5 rounded-pildora bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground"><CircleDashed className="size-3.5" strokeWidth={2} aria-hidden />Sin confirmar</span>
+            <span className="inline-flex items-center gap-1.5 rounded-pildora bg-muted px-2.5 py-1 text-etiqueta text-muted-foreground"><CircleDashed className="size-3.5" strokeWidth={2} aria-hidden />Sin confirmar</span>
           )}
         </div>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-cuerpo-sm text-muted-foreground">
           {sugerido ? <>Sugerida: <strong className="text-foreground">{textoValor(sugerido)}</strong> según {cantidadNotas} {cantidadNotas === 1 ? "nota" : "notas"}.</> : "Sin notas para sugerir una calificación."}
         </p>
 

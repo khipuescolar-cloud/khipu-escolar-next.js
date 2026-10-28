@@ -32,16 +32,16 @@ export default async function CarnetsPage({ params }: PageProps<"/colegio/[slug]
               <li key={s.id}>
                 <Tarjeta className="flex h-full flex-col gap-4">
                   <div className="flex items-start justify-between gap-2">
-                    <p className="flex items-center gap-2 font-heading text-lg font-semibold">
+                    <p className="flex items-center gap-2 font-titulo text-cuerpo font-semibold">
                       <span className="flex size-9 items-center justify-center rounded-lg bg-accent text-primary">
                         <IdCard className="size-5" strokeWidth={2} aria-hidden />
                       </span>
                       {s.nombre}
                     </p>
-                    {completo && <Badge className="h-6 bg-llego-fondo px-2.5 text-xs font-semibold text-llego"><CheckCircle2 strokeWidth={2} aria-hidden /> Completo</Badge>}
+                    {completo && <Badge className="h-6 bg-llego-fondo px-2.5 text-etiqueta text-llego"><CheckCircle2 strokeWidth={2} aria-hidden /> Completo</Badge>}
                   </div>
                   <div className="flex flex-col gap-2">
-                    <p className="text-sm text-muted-foreground">{s.conCarnet} de {s.alumnos} alumnos con carnet</p>
+                    <p className="text-cuerpo-sm text-muted-foreground">{s.conCarnet} de {s.alumnos} alumnos con carnet</p>
                     <Progress value={s.alumnos > 0 ? Math.round((s.conCarnet / s.alumnos) * 100) : 0} aria-label={`Carnets generados en ${s.nombre}`} />
                   </div>
                   <div className="mt-auto flex flex-wrap gap-2">

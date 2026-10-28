@@ -29,7 +29,7 @@ export default async function ExportarPage({ params, searchParams }: PageProps<"
 
   return (
     <div className="flex max-w-3xl flex-col gap-6">
-      <Link href="/configuracion" className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+      <Link href="/configuracion" className="inline-flex w-fit items-center gap-1.5 enlace">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Configuración
       </Link>
       <div>
@@ -38,7 +38,7 @@ export default async function ExportarPage({ params, searchParams }: PageProps<"
       </div>
 
       <Tarjeta className="flex flex-col gap-3">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-cuerpo-sm text-muted-foreground">
           Preparar la copia puede tardar unos minutos. Cuando esté lista, aparecerá abajo y podrás descargarla durante {EXPORTACION_VENCE_DIAS} días.
           El archivo contiene datos personales de menores y familias: guárdalo con cuidado.
         </p>
@@ -47,7 +47,7 @@ export default async function ExportarPage({ params, searchParams }: PageProps<"
             <PackagePlus strokeWidth={2} aria-hidden /> Preparar exportación
           </Boton>
         </form>
-        {enCurso && <p className="text-sm text-muted-foreground">Ya hay una exportación en preparación. Actualiza esta página en unos minutos.</p>}
+        {enCurso && <p className="text-cuerpo-sm text-muted-foreground">Ya hay una exportación en preparación. Actualiza esta página en unos minutos.</p>}
       </Tarjeta>
 
       {filas.length === 0 ? (
@@ -71,8 +71,8 @@ export default async function ExportarPage({ params, searchParams }: PageProps<"
                   <TableCell>
                     <div className="flex flex-col gap-1">
                       <EstadoExportacion estado={f.estado} />
-                      {f.error && <span className="text-xs text-muted-foreground">No se pudo preparar. Inténtalo de nuevo o escríbenos.</span>}
-                      {f.estado === "vencida" && <span className="text-xs text-muted-foreground">Pasaron {EXPORTACION_VENCE_DIAS} días: prepara una nueva.</span>}
+                      {f.error && <span className="text-cuerpo-sm text-muted-foreground">No se pudo preparar. Inténtalo de nuevo o escríbenos.</span>}
+                      {f.estado === "vencida" && <span className="text-cuerpo-sm text-muted-foreground">Pasaron {EXPORTACION_VENCE_DIAS} días: prepara una nueva.</span>}
                     </div>
                   </TableCell>
                   <TableCell>{tamanio(f.bytes)}</TableCell>
@@ -82,10 +82,10 @@ export default async function ExportarPage({ params, searchParams }: PageProps<"
                         <a href={`/api/exportar/${f.id}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
                           <Download strokeWidth={2} aria-hidden /> Descargar
                         </a>
-                        {f.venceAt && <span className="text-xs text-muted-foreground">Vence el {fecha.format(f.venceAt)}</span>}
+                        {f.venceAt && <span className="text-cuerpo-sm text-muted-foreground">Vence el {fecha.format(f.venceAt)}</span>}
                       </div>
                     ) : (
-                      <span className="text-sm text-muted-foreground">—</span>
+                      <span className="text-cuerpo-sm text-muted-foreground">—</span>
                     )}
                   </TableCell>
                 </TableRow>

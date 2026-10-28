@@ -54,7 +54,7 @@ export function ImportarNotas({ slug, cursoId, periodoId, bloqueo }: { slug: str
           className={cn(buttonVariants({ variant: "outline" }), "h-auto w-full cursor-pointer py-2 file:mr-3 file:font-medium sm:w-fit")}
         />
       </label>
-      {pendiente && !vista && <p className="flex items-center gap-2 text-sm text-muted-foreground"><Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />Revisando el archivo…</p>}
+      {pendiente && !vista && <p className="flex items-center gap-2 text-cuerpo-sm text-muted-foreground"><Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />Revisando el archivo…</p>}
       {error && <Alerta tipo="error">{error}</Alerta>}
 
       {vista && (
@@ -75,9 +75,9 @@ export function ImportarNotas({ slug, cursoId, periodoId, bloqueo }: { slug: str
               </ul>
             </div>
           )}
-          {vista.columnasIgnoradas.length > 0 && <p className="text-sm text-muted-foreground">Columnas ignoradas (no son evaluaciones de este periodo): {vista.columnasIgnoradas.join(", ")}.</p>}
+          {vista.columnasIgnoradas.length > 0 && <p className="text-cuerpo-sm text-muted-foreground">Columnas ignoradas (no son evaluaciones de este periodo): {vista.columnasIgnoradas.join(", ")}.</p>}
           {vista.cambios.length > 0 && (
-            <div className="max-h-72 overflow-auto rounded-xl border">
+            <div className="max-h-72 overflow-auto rounded-lg border">
               <table className="w-full text-sm">
                 <thead className="sticky top-0 bg-muted text-left"><tr><th className="px-3 py-2">Alumno</th><th className="px-3 py-2">Evaluación</th><th className="px-3 py-2">Nota</th></tr></thead>
                 <tbody>
@@ -90,7 +90,7 @@ export function ImportarNotas({ slug, cursoId, periodoId, bloqueo }: { slug: str
               </table>
             </div>
           )}
-          {vista.cambios.length > 200 && <p className="text-xs text-muted-foreground">Se muestran las primeras 200 filas.</p>}
+          {vista.cambios.length > 200 && <p className="text-cuerpo-sm text-muted-foreground">Se muestran las primeras 200 filas.</p>}
           <div>
             <button type="button" onClick={confirmar} disabled={pendiente || !vista.editable || vista.cambios.length === 0} className={buttonVariants()}>
               {pendiente && <Loader2 className="animate-spin" strokeWidth={2} aria-hidden />}

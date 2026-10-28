@@ -71,7 +71,7 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
         <form method="get" className="flex flex-wrap items-end gap-3" role="search">
           <Campo etiqueta="Buscar familia" name="q" type="search" defaultValue={q ?? ""} placeholder={ctx.rol === "direccion" ? "Nombre, correo, documento o alumno" : "Nombre, correo o alumno"} />
           <Boton type="submit" variante="secundario"><Search strokeWidth={2} aria-hidden /> Buscar</Boton>
-          {q && <Link href="/gestion/apoderados" className="inline-flex h-10 items-center px-2 text-sm font-semibold text-primary hover:underline">Limpiar</Link>}
+          {q && <Link href="/gestion/apoderados" className="inline-flex h-10 items-center px-2 enlace">Limpiar</Link>}
         </form>
       </Tarjeta>
 
@@ -143,16 +143,16 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
                     <AvatarPersona nombres={a.user.nombres} apellidos={a.user.apellidos} />
                     <div className="min-w-0 flex-1">
                       <p className="font-semibold">{nombre}</p>
-                      <p className="truncate text-sm text-muted-foreground">{a.user.email}</p>
+                      <p className="truncate text-cuerpo-sm text-muted-foreground">{a.user.email}</p>
                     </div>
                     <AccionesFila etiqueta={`Acciones para ${nombre}`} items={items} />
                   </div>
                   <div className="flex flex-wrap items-center gap-2">
                     {a.estado === "invitada" && (
-                      <Badge className="h-6 bg-tarde-fondo px-2.5 text-xs font-semibold text-tarde"><Clock strokeWidth={2} aria-hidden /> Invitación pendiente</Badge>
+                      <Badge className="h-6 bg-tarde-fondo px-2.5 text-etiqueta text-tarde"><Clock strokeWidth={2} aria-hidden /> Invitación pendiente</Badge>
                     )}
-                    {a.estado === "inactiva" && <Badge className="h-6 bg-muted px-2.5 text-xs font-semibold text-muted-foreground">Cuenta inactiva</Badge>}
-                    <Badge className={`h-6 px-2.5 text-xs font-semibold ${c.clase}`}><c.Icono strokeWidth={2} aria-hidden /> {c.texto}</Badge>
+                    {a.estado === "inactiva" && <Badge className="h-6 bg-muted px-2.5 text-etiqueta text-muted-foreground">Cuenta inactiva</Badge>}
+                    <Badge className={`h-6 px-2.5 text-etiqueta ${c.clase}`}><c.Icono strokeWidth={2} aria-hidden /> {c.texto}</Badge>
                   </div>
                   <ul className="flex flex-col divide-y border-t text-sm">
                     {a.hijos.map((h) => (
@@ -181,7 +181,7 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
       )}
 
       <div className="flex flex-col items-center gap-3">
-        <p className="text-xs text-muted-foreground">
+        <p className="text-cuerpo-sm text-muted-foreground">
           {total} {total === 1 ? "familia" : "familias"}{paginas > 1 ? ` · página ${pagina} de ${paginas} (${FAMILIAS_POR_PAGINA} por página)` : ""}.
         </p>
         {paginas > 1 && (

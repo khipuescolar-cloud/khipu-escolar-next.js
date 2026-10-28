@@ -45,7 +45,7 @@ export function CamposAdjuntos({ existentes = [], id = "adjuntos" }: { existente
           {existentes.map((a) => (
             <label key={a.id} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border bg-card px-3 py-2 text-sm has-[:checked]:border-falta/40 has-[:checked]:bg-falta-fondo">
               <IconoAdjunto mimeType={a.mimeType} nombre={a.nombre} />
-              <span className="min-w-0 flex-1 truncate">{a.nombre} <span className="text-xs text-muted-foreground">({formatoTamano(a.bytes)})</span></span>
+              <span className="min-w-0 flex-1 truncate">{a.nombre} <span className="text-cuerpo-sm text-muted-foreground">({formatoTamano(a.bytes)})</span></span>
               <input
                 type="checkbox"
                 name="quitarAdjuntos"
@@ -73,7 +73,7 @@ export function CamposAdjuntos({ existentes = [], id = "adjuntos" }: { existente
           aria-describedby={`${id}-ayuda`}
           className="min-h-10 text-sm file:mr-3 file:h-10 file:cursor-pointer file:rounded-md file:border file:border-input file:bg-card file:px-3 file:text-sm file:font-semibold"
         />
-        <p id={`${id}-ayuda`} className="text-xs text-muted-foreground">
+        <p id={`${id}-ayuda`} className="text-cuerpo-sm text-muted-foreground">
           Hasta {MAX_ADJUNTOS} archivos de 10 MB: {TIPOS_ADJUNTO_TEXTO}.
         </p>
       </div>
@@ -83,7 +83,7 @@ export function CamposAdjuntos({ existentes = [], id = "adjuntos" }: { existente
             <li key={`${f.name}-${i}`} className="flex min-h-11 items-center gap-3 rounded-lg border bg-background px-3 py-2 text-sm">
               <IconoAdjunto mimeType={f.type} nombre={f.name} />
               <span className="min-w-0 flex-1 truncate">{f.name}</span>
-              <span className="shrink-0 text-xs text-muted-foreground">{formatoTamano(f.size)}</span>
+              <span className="shrink-0 text-cuerpo-sm text-muted-foreground">{formatoTamano(f.size)}</span>
               <button type="button" onClick={() => descartar(i)} className="inline-flex size-8 items-center justify-center rounded-md hover:bg-accent" aria-label={`Quitar ${f.name} de la selección`}>
                 <X className="size-4" strokeWidth={2} aria-hidden />
               </button>

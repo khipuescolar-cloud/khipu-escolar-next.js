@@ -58,7 +58,7 @@ export function PanelFormulario({ tipo = "dialog", titulo, descripcion, children
         {boton && <SheetTrigger className={claseBoton}>{boton}</SheetTrigger>}
         <SheetContent className="data-[side=right]:w-full data-[side=right]:sm:max-w-xl">
           <SheetHeader className="border-b pr-12">
-            <SheetTitle className="text-lg">{titulo}</SheetTitle>
+            <SheetTitle className="text-titulo-2">{titulo}</SheetTitle>
             {descripcion && <SheetDescription>{descripcion}</SheetDescription>}
           </SheetHeader>
           <div className="flex-1 overflow-y-auto px-4 pb-6">{children}</div>
@@ -71,7 +71,7 @@ export function PanelFormulario({ tipo = "dialog", titulo, descripcion, children
       {boton && <DialogTrigger className={claseBoton}>{boton}</DialogTrigger>}
       <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle className="text-lg">{titulo}</DialogTitle>
+          <DialogTitle className="text-titulo-2">{titulo}</DialogTitle>
           {descripcion && <DialogDescription>{descripcion}</DialogDescription>}
         </DialogHeader>
         {children}

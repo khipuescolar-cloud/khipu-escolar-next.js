@@ -75,7 +75,7 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
             <input type="checkbox" name="retirados" value="1" defaultChecked={verRetirados} className="size-5 accent-primary" /> Incluir retirados
           </label>
           <Boton type="submit" variante="secundario"><Search strokeWidth={2} aria-hidden /> Filtrar</Boton>
-          <Link href="/gestion/alumnos" className="inline-flex h-10 items-center px-2 text-sm font-semibold text-primary hover:underline">Limpiar</Link>
+          <Link href="/gestion/alumnos" className="inline-flex h-10 items-center px-2 enlace">Limpiar</Link>
         </form>
       </Tarjeta>
 
@@ -104,13 +104,13 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
                     <TableCell className="px-4 py-3">
                       <div className="flex items-center gap-3">
                         <AvatarPersona nombres={a.nombres} apellidos={a.apellidos} />
-                        <span className="min-w-0"><span className="font-semibold">{nombre}</span><span className="block text-xs text-muted-foreground sm:hidden">{a.salon.nombre}</span></span>
+                        <span className="min-w-0"><span className="font-semibold">{nombre}</span><span className="block text-cuerpo-sm text-muted-foreground sm:hidden">{a.salon.nombre}</span></span>
                       </div>
                     </TableCell>
                     <TableCell className="hidden px-4 py-3 sm:table-cell">{a.codigo ?? "—"}</TableCell>
                     <TableCell className="hidden px-4 py-3 sm:table-cell">{a.salon.nombre}</TableCell>
                     <TableCell className="px-4 py-3">
-                      <Badge className={`h-6 px-2.5 text-xs font-semibold ${activo ? "bg-llego-fondo text-llego" : "bg-muted text-muted-foreground"}`}>
+                      <Badge className={`h-6 px-2.5 text-etiqueta ${activo ? "bg-llego-fondo text-llego" : "bg-muted text-muted-foreground"}`}>
                         {activo ? <CheckCircle2 strokeWidth={2} aria-hidden /> : <UserRoundX strokeWidth={2} aria-hidden />}
                         {activo ? "Activo" : "Retirado"}
                       </Badge>
@@ -158,16 +158,16 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
           </Table>
         </Tarjeta>
       )}
-      <p className="text-xs text-muted-foreground">{alumnos.length} {alumnos.length === 1 ? "alumno" : "alumnos"}.</p>
+      <p className="text-cuerpo-sm text-muted-foreground">{alumnos.length} {alumnos.length === 1 ? "alumno" : "alumnos"}.</p>
     </div>
   );
 }
 
 function EstadoCuenta({ estado }: { estado?: EstadoCuentaAlumno }) {
-  if (!estado?.cuenta) return <span className="text-sm text-muted-foreground">Sin cuenta</span>;
+  if (!estado?.cuenta) return <span className="text-cuerpo-sm text-muted-foreground">Sin cuenta</span>;
   const activa = estado.cuenta.estado === "activa";
   return (
-    <Badge className={`h-6 px-2.5 text-xs font-semibold ${activa ? "bg-llego-fondo text-llego" : "bg-muted text-muted-foreground"}`}>
+    <Badge className={`h-6 px-2.5 text-etiqueta ${activa ? "bg-llego-fondo text-llego" : "bg-muted text-muted-foreground"}`}>
       {activa ? <KeyRound strokeWidth={2} aria-hidden /> : <UserRoundX strokeWidth={2} aria-hidden />}
       {activa ? "Cuenta activa" : "Cuenta desactivada"}
     </Badge>

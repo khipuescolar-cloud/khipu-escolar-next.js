@@ -50,18 +50,18 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
 
   return (
     <div className="flex flex-col gap-6">
-      <Link href={base} className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+      <Link href={base} className="inline-flex w-fit items-center gap-1.5 enlace">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> {ambito === "profesores" ? "Profesores" : "Personal"}
       </Link>
 
       <Tarjeta className="flex flex-col gap-4 sm:flex-row sm:items-center">
         <AvatarPersona nombres={u.nombres} apellidos={u.apellidos} grande />
         <div className="min-w-0 flex-1">
-          <h1 className="text-2xl font-bold text-balance sm:text-3xl">{u.nombres} {u.apellidos}</h1>
+          <h1 className="text-titulo-1 text-balance">{u.nombres} {u.apellidos}</h1>
           <div className="mt-2 flex flex-wrap items-center gap-2">
             <InsigniaEstado estado={f.estado} />
             <Badge variant="outline" className="h-6 px-2.5">{NOMBRE_ROL[f.rol]}</Badge>
-            {f.cargo && <span className="text-sm text-muted-foreground">{f.cargo}</span>}
+            {f.cargo && <span className="text-cuerpo-sm text-muted-foreground">{f.cargo}</span>}
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -89,7 +89,7 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
                   Estos datos también se ven en los otros colegios de esta persona. El cambio queda en la auditoría de cada colegio.
                 </p>
               )}
-              <p className="text-sm text-muted-foreground sm:col-span-2">Correo (usuario): <strong className="text-foreground">{u.email}</strong></p>
+              <p className="text-cuerpo-sm text-muted-foreground sm:col-span-2">Correo (usuario): <strong className="text-foreground">{u.email}</strong></p>
               <Boton type="submit" className="justify-self-start sm:col-span-2">Guardar datos</Boton>
             </form>
           </PanelFormulario>
@@ -144,21 +144,21 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="flex flex-col gap-6 lg:col-span-2">
           <Tarjeta>
-            <h2 className="mb-4 text-lg font-semibold">Datos personales</h2>
+            <h2 className="mb-4 text-titulo-2">Datos personales</h2>
             <dl className="grid gap-x-6 gap-y-4 sm:grid-cols-2">
               {datos.map(([k, v]) => (
                 <div key={k} className="min-w-0">
-                  <dt className="text-xs font-medium text-muted-foreground">{k}</dt>
+                  <dt className="text-cuerpo-sm font-medium text-muted-foreground">{k}</dt>
                   <dd className="mt-0.5 text-sm break-words">{v}</dd>
                 </div>
               ))}
             </dl>
-            <p className="mt-4 text-xs text-muted-foreground">El documento solo lo ve la dirección. Abrir esta ficha queda registrado en la auditoría.</p>
+            <p className="mt-4 text-cuerpo-sm text-muted-foreground">El documento solo lo ve la dirección. Abrir esta ficha queda registrado en la auditoría.</p>
           </Tarjeta>
 
           {ambito === "profesores" && (
             <Tarjeta>
-              <h2 className="mb-3 text-lg font-semibold">Cursos y tutoría</h2>
+              <h2 className="mb-3 text-titulo-2">Cursos y tutoría</h2>
               <p className="text-sm">
                 <strong>Tutoría:</strong> {f.salonesTutor.length > 0 ? f.salonesTutor.map((s) => s.nombre).join(", ") : "Sin tutoría."}
               </p>
@@ -166,12 +166,12 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
                 {f.cursosDictados.length === 0 && <li className="text-muted-foreground">Sin cursos asignados.</li>}
                 {f.cursosDictados.map((c) => <li key={c.id}>{c.nombre} · {c.salon.nombre}</li>)}
               </ul>
-              <p className="mt-3 text-xs text-muted-foreground">Los cursos y la tutoría se asignan en <Link href="/gestion/salones" className="font-semibold text-primary hover:underline">Grados y salones</Link>.</p>
+              <p className="mt-3 text-cuerpo-sm text-muted-foreground">Los cursos y la tutoría se asignan en <Link href="/gestion/salones" className="enlace">Grados y salones</Link>.</p>
             </Tarjeta>
           )}
 
           <Tarjeta>
-            <h2 className="mb-4 text-lg font-semibold">Historial de cambios</h2>
+            <h2 className="mb-4 text-titulo-2">Historial de cambios</h2>
             <ol className="flex flex-col gap-4 border-l pl-4 text-sm">
               {f.historial.length === 0 && <li className="text-muted-foreground">Sin movimientos todavía.</li>}
               {f.historial.map((e) => (
@@ -181,7 +181,7 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
                     <span className="font-semibold">{ACCION[e.accion] ?? e.accion}</span>
                     <span className="text-muted-foreground">por {e.actor}</span>
                   </p>
-                  <p className="text-xs text-muted-foreground">{fechaHora.format(e.fecha)}</p>
+                  <p className="text-cuerpo-sm text-muted-foreground">{fechaHora.format(e.fecha)}</p>
                   {resumen(e.detalle) && <p className="mt-0.5 text-muted-foreground">{resumen(e.detalle)}</p>}
                 </li>
               ))}
@@ -190,11 +190,11 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
         </div>
 
         <Tarjeta className="h-fit">
-          <h2 className="mb-3 text-lg font-semibold">Cuenta</h2>
+          <h2 className="mb-3 text-titulo-2">Cuenta</h2>
           <div className="flex flex-col gap-3 text-sm">
             <InsigniaEstado estado={f.estado} />
             <p>{u.debeCambiarPassword ? "Aún no cambia su contraseña inicial." : "Ya cambió su contraseña inicial."}</p>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-cuerpo-sm text-muted-foreground">
               Nunca se borra a una persona: al desactivarla deja de entrar{f.rol === "profesor" ? " y se liberan sus tutorías y cursos" : ""}. Las acciones de la cuenta están en el menú «Más acciones».
             </p>
           </div>

@@ -124,6 +124,7 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 
 | Necesidad | Usa | Notas |
 |---|---|---|
+| Etiqueta de curso | `EtiquetaCurso` (`components/academico`) | Pastilla `turquesa` (texto turquesa sobre `turquesa/10`), solo como acento |
 | Título de página | `EncabezadoPagina` (`components/shell`) | Un solo `h1` por página; acciones principales a la derecha |
 | Acción principal / secundaria | `Boton` (`primario`, `secundario`, `fantasma`, `peligro`) o shadcn `Button` | Un solo botón primario por bloque. Verbos concretos («Guardar y avisar», no «Aceptar») |
 | Formulario con server action | `FormAccion` | Éxito → **toast**; error → `Alerta` junto al formulario |

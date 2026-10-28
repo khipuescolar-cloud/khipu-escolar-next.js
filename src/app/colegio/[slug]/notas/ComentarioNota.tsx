@@ -83,7 +83,7 @@ export function ComentarioNota({ slug, evaluacionId, alumnoId, alumno, evaluacio
         ) : (
           <p className="whitespace-pre-wrap text-sm">{comentario}</p>
         )}
-        {editable && <p className="text-xs text-muted-foreground">{texto.length}/{MAX_COMENTARIO} caracteres</p>}
+        {editable && <p className="text-cuerpo-sm text-muted-foreground">{texto.length}/{MAX_COMENTARIO} caracteres</p>}
         {error && <Alerta tipo="error">{error}</Alerta>}
         <DialogFooter>
           <DialogClose className={buttonVariants({ variant: "outline" })} disabled={pendiente}>{editable ? "Cancelar" : "Cerrar"}</DialogClose>
