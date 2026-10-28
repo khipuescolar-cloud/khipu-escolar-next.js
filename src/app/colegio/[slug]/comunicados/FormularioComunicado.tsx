@@ -24,7 +24,7 @@ export function DialogoPublicar({ salones, esDireccion }: { salones: Salon[]; es
       </DialogTrigger>
       <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle className="text-lg">Publicar un comunicado</DialogTitle>
+          <DialogTitle className="text-titulo-2">Publicar un comunicado</DialogTitle>
           <DialogDescription>Las familias recibirán el aviso en cuanto lo publiques.</DialogDescription>
         </DialogHeader>
         <form
@@ -65,7 +65,7 @@ export function DialogoEditar({ id, titulo, cuerpo, adjuntos }: { id: string; ti
       </DialogTrigger>
       <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle className="text-lg">Editar comunicado</DialogTitle>
+          <DialogTitle className="text-titulo-2">Editar comunicado</DialogTitle>
           <DialogDescription>Puedes editarlo o borrarlo durante las primeras 24 horas.</DialogDescription>
         </DialogHeader>
         <form

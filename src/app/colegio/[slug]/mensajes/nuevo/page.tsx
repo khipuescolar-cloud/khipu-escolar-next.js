@@ -38,11 +38,11 @@ export default async function NuevoMensajePage({ params, searchParams }: PagePro
         <ul className="flex flex-col gap-3">
           {posibles.map((p) => (
             <li key={`${p.alumnoId}-${p.profesorId}-${p.apoderadoId}`}>
-              <form action={abrirConversacionAction} className="flex items-center gap-3 rounded-xl border bg-card p-3 shadow-xs">
+              <form action={abrirConversacionAction} className="flex items-center gap-3 rounded-lg border bg-card p-3">
                 <input type="hidden" name="alumnoId" value={p.alumnoId} />
                 <input type="hidden" name="contraparteId" value={ctx.rol === "apoderado" ? p.profesorId : p.apoderadoId} />
                 <Avatar size="lg">
-                  <AvatarFallback className="bg-maiz text-sm font-semibold text-indigo">{iniciales(p.etiqueta)}</AvatarFallback>
+                  <AvatarFallback className="bg-maiz text-sm font-semibold text-sobre-maiz">{iniciales(p.etiqueta)}</AvatarFallback>
                 </Avatar>
                 <span className="min-w-0 flex-1 text-sm font-medium">{p.etiqueta}</span>
                 <Boton type="submit" variante="secundario">Escribir</Boton>

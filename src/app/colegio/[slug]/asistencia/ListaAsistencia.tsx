@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Loader2, Mail, Send } from "lucide-react";
+import { Check, Loader2, Mail, Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
 import { EstadoAsistencia, ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
@@ -150,7 +150,7 @@ export function ListaAsistencia({
               setResultado(null);
             }}
           >
-            <CheckCircle2 strokeWidth={2} aria-hidden /> Marcar a todos «Llegó»
+            <Check strokeWidth={2} aria-hidden /> Marcar a todos «Llegó»
           </Button>
         </div>
 
@@ -174,7 +174,7 @@ export function ListaAsistencia({
                 <Card size="sm">
                   <CardContent className="flex flex-col gap-3">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <p className="font-heading font-semibold">
+                      <p className="text-cuerpo font-semibold">
                         {a.apellidos}, {a.nombres}
                       </p>
                       {a.registro && <EstadoAsistencia estado={a.registro.estado} hora={hora12(a.registro.hora)} />}
@@ -189,7 +189,7 @@ export function ListaAsistencia({
                             type="button"
                             aria-pressed={activo}
                             onClick={() => marcar(a.id, estado)}
-                            className={`flex min-h-12 items-center justify-center gap-2 rounded-lg border-2 px-3 py-2.5 text-base font-semibold transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 ${
+                            className={`flex min-h-12 items-center justify-center gap-2 rounded-md border-2 px-3 py-2.5 text-cuerpo font-semibold transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 ${
                               activo ? `${clase} border-current` : "border-input bg-card text-muted-foreground hover:bg-accent hover:text-foreground"
                             }`}
                           >
@@ -226,17 +226,17 @@ export function ListaAsistencia({
       <aside className="flex flex-col gap-4 lg:sticky lg:top-20 lg:self-start">
         <Card>
           <CardContent className="flex flex-col gap-3">
-            <h2 className="font-heading font-semibold">Resumen</h2>
+            <h2 className="text-titulo-2">Resumen</h2>
             {resumenConteo}
             {botonGuardar("mt-1 w-full max-lg:hidden")}
-            <p className="text-xs text-muted-foreground max-lg:hidden">Al guardar, las familias de los presentes, tardanzas, faltas y problemas reciben el aviso por correo y notificación. La llegada se avisa una sola vez al día.</p>
+            <p className="text-cuerpo-sm text-muted-foreground max-lg:hidden">Al guardar, las familias de los presentes, tardanzas, faltas y problemas reciben el aviso por correo y notificación. La llegada se avisa una sola vez al día.</p>
           </CardContent>
         </Card>
 
         {alumnoPrevia && previa && (
           <Card>
             <CardContent className="flex flex-col gap-3">
-              <h2 className="font-heading font-semibold">Vista previa del correo</h2>
+              <h2 className="text-titulo-2">Vista previa del correo</h2>
               <label className="flex flex-col gap-1.5 text-sm">
                 <span className="text-muted-foreground">Familia de</span>
                 <NativeSelect className="w-full" value={alumnoPrevia.id} onChange={(e) => setPreviaDe(e.target.value)}>

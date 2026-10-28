@@ -26,9 +26,9 @@ export function CasillasCanalesPago({ opciones, enPerfil = false }: { opciones: 
       )}
       <p className="text-sm text-muted-foreground">
         {opciones.telefono ? (
-          <>Los enviaremos al celular {enmascararTelefono(opciones.telefono)}. {enPerfil ? "Puedes cambiarlo abajo, en «Mi celular»." : <>Puedes cambiarlo en <Link href="/perfil#celular" className="font-medium text-primary underline">tu perfil</Link>.</>}</>
+          <>Los enviaremos al celular {enmascararTelefono(opciones.telefono)}. {enPerfil ? "Puedes cambiarlo abajo, en «Mi celular»." : <>Puedes cambiarlo en <Link href="/perfil#celular" className="enlace">tu perfil</Link>.</>}</>
         ) : (
-          <>Aún no tienes un celular guardado. {enPerfil ? "Agrégalo abajo, en «Mi celular»." : <><Link href="/perfil#celular" className="font-medium text-primary underline">Agrégalo en tu perfil</Link>.</>} Sin celular no podemos enviarte estos avisos.</>
+          <>Aún no tienes un celular guardado. {enPerfil ? "Agrégalo abajo, en «Mi celular»." : <><Link href="/perfil#celular" className="enlace">Agrégalo en tu perfil</Link>.</>} Sin celular no podemos enviarte estos avisos.</>
         )}
       </p>
     </div>

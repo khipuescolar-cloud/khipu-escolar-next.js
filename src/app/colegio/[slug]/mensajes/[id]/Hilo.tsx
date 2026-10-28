@@ -56,12 +56,12 @@ export function Hilo({ inicial }: { inicial: HiloVista }) {
   }
 
   return (
-    <div className="flex h-[calc(100dvh-11rem)] min-h-96 flex-col overflow-hidden rounded-xl border bg-card shadow-xs">
+    <div className="flex h-[calc(100dvh-11rem)] min-h-96 flex-col overflow-hidden rounded-lg border bg-card">
       <header className="flex items-center gap-3 border-b px-4 py-3">
         <Avatar size="lg">
-          <AvatarFallback className="bg-maiz text-sm font-semibold text-indigo">{iniciales(inicial.etiqueta)}</AvatarFallback>
+          <AvatarFallback className="bg-maiz text-sm font-semibold text-sobre-maiz">{iniciales(inicial.etiqueta)}</AvatarFallback>
         </Avatar>
-        <h1 className="min-w-0 text-base font-semibold leading-snug sm:text-lg">{inicial.etiqueta}</h1>
+        <h1 className="min-w-0 text-cuerpo font-semibold leading-snug sm:text-titulo-2">{inicial.etiqueta}</h1>
       </header>
 
       <ol ref={lista} className="flex flex-1 flex-col gap-3 overflow-y-auto bg-background p-4" aria-live="polite" aria-label="Mensajes">
@@ -70,13 +70,13 @@ export function Hilo({ inicial }: { inicial: HiloVista }) {
           <li key={m.id} className={cn("flex max-w-[85%] items-end gap-2 sm:max-w-[75%]", m.propio ? "self-end" : "self-start")}>
             {!m.propio && (
               <Avatar size="sm" className="mb-0.5">
-                <AvatarFallback className="bg-muted text-[10px] font-semibold">{iniciales(m.autor)}</AvatarFallback>
+                <AvatarFallback className="bg-superficie-2 text-xs font-semibold">{iniciales(m.autor)}</AvatarFallback>
               </Avatar>
             )}
-            <div className={cn("flex min-w-0 flex-col gap-0.5 px-3.5 py-2", m.propio ? "rounded-2xl rounded-br-sm bg-primary text-primary-foreground" : "rounded-2xl rounded-bl-sm bg-muted text-foreground")}>
+            <div className={cn("flex min-w-0 flex-col gap-0.5 px-3.5 py-2", m.propio ? "rounded-lg bg-primary text-primary-foreground" : "rounded-lg bg-superficie-2 text-foreground")}>
               {!m.propio && <span className="text-xs font-semibold">{m.autor}</span>}
               <span className="whitespace-pre-wrap break-words text-sm">{m.cuerpo}</span>
-              <time className={cn("self-end text-[11px]", m.propio ? "text-primary-foreground/80" : "text-muted-foreground")} dateTime={m.createdAt}>
+              <time className={cn("self-end text-xs", m.propio ? "text-primary-foreground/80" : "text-muted-foreground")} dateTime={m.createdAt}>
                 {formatoHora.format(new Date(m.createdAt))}
               </time>
             </div>

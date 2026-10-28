@@ -43,7 +43,7 @@ export default async function PerfilPage({ params, searchParams }: PageProps<"/c
         <Card>
           <CardContent className="flex items-center gap-4">
             <Avatar size="lg" className="size-14">
-              <AvatarFallback className="bg-maiz text-lg font-semibold text-indigo">{iniciales}</AvatarFallback>
+              <AvatarFallback className="bg-maiz text-lg font-semibold text-sobre-maiz">{iniciales}</AvatarFallback>
             </Avatar>
             <div className="min-w-0">
               <p className="text-lg font-semibold">{ctx.user.nombres} {ctx.user.apellidos}</p>
@@ -66,7 +66,7 @@ export default async function PerfilPage({ params, searchParams }: PageProps<"/c
 
         <Card id="celular">
           <CardHeader>
-            <CardTitle className="text-lg">Mi celular</CardTitle>
+            <CardTitle className="text-titulo-2">Mi celular</CardTitle>
             <CardDescription>
               Solo se usa si activas los avisos por WhatsApp o mensaje de texto{canalesPago.whatsappActivo || canalesPago.smsActivo ? "" : " (tu colegio aún no los activó)"}. Nadie más lo ve.
             </CardDescription>
@@ -94,7 +94,7 @@ export default async function PerfilPage({ params, searchParams }: PageProps<"/c
         {estado && (
           <Card>
             <CardHeader>
-              <CardTitle className="text-lg">Privacidad</CardTitle>
+              <CardTitle className="text-titulo-2">Privacidad</CardTitle>
               <CardDescription>Tu autorización para recibir avisos del colegio.</CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col gap-3">

@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, XCircle } from "lucide-react";
+import { CheckCircle2, CircleAlert } from "lucide-react";
 import { useState } from "react";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Input } from "@/components/ui/input";
@@ -36,7 +36,7 @@ export function RevisionJustificacion({
           campos={{ decision: "aceptada", comentario }}
         />
         <BotonConfirmar
-          etiqueta={<><XCircle strokeWidth={2} aria-hidden /> Rechazar</>}
+          etiqueta={<><CircleAlert strokeWidth={2} aria-hidden /> Rechazar</>}
           titulo="¿Rechazar esta justificación?"
           descripcion={`La falta de ${alumno} seguirá sin justificar y le avisaremos a la familia por correo.`}
           confirmar="Rechazar justificación"

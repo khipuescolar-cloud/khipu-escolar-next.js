@@ -51,7 +51,7 @@ export default async function MensajesPage({ params, searchParams }: PageProps<"
         />
       ) : (
         <div className="lg:grid lg:grid-cols-[22rem_1fr] lg:gap-6">
-          <div className="overflow-hidden rounded-xl border bg-card shadow-xs">
+          <div className="overflow-hidden rounded-lg border bg-card">
             <ListaConversaciones filas={conversaciones} />
           </div>
           <div className="hidden lg:block">

@@ -32,7 +32,7 @@ export function CalendarioAsistencia({ hijoId, nombre, mes, hoy }: { hijoId: str
     <Card>
       <CardContent className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 className="font-heading text-lg font-semibold capitalize" id={`mes-${hijoId}`}>{titulo}</h3>
+          <h3 className="text-titulo-2 capitalize" id={`mes-${hijoId}`}>{titulo}</h3>
           <nav aria-label={`Cambiar de mes para ${nombre}`} className="flex gap-2">
             {hayAnterior ? (
               <Link href={`/asistencia?mes=${claveMes(anterior.anio, anterior.mes)}`} className={cn(buttonVariants({ variant: "outline" }), nav)} scroll={false}>
@@ -51,7 +51,7 @@ export function CalendarioAsistencia({ hijoId, nombre, mes, hoy }: { hijoId: str
           <thead>
             <tr>
               {DIAS.map((d) => (
-                <th key={d.largo} scope="col" className="pb-1 text-center text-xs font-semibold text-muted-foreground">
+                <th key={d.largo} scope="col" className="pb-1 text-center text-etiqueta text-muted-foreground">
                   <abbr title={d.largo} className="no-underline">{d.corto}</abbr>
                   <span className="sr-only">{d.largo}</span>
                 </th>
@@ -95,7 +95,7 @@ export function CalendarioAsistencia({ hijoId, nombre, mes, hoy }: { hijoId: str
             const { palabra, Icono, clase } = ESTADOS_ASISTENCIA[e];
             return (
               <li key={e} className="flex items-center gap-1.5 text-sm">
-                <span className={`flex size-6 items-center justify-center rounded ${clase}`}><Icono className="size-4" strokeWidth={2} aria-hidden /></span>
+                <span className={`flex size-6 items-center justify-center rounded-sm ${clase}`}><Icono className="size-4" strokeWidth={2} aria-hidden /></span>
                 {palabra} <strong>{mes.conteo[e]}</strong>
               </li>
             );

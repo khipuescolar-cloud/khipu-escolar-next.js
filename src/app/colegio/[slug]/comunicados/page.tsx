@@ -60,12 +60,12 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
               <Card>
                 <CardHeader className="gap-3">
                   <div className="flex flex-wrap items-start justify-between gap-2">
-                    <CardTitle className="text-lg">{c.titulo}</CardTitle>
+                    <CardTitle className="text-titulo-2">{c.titulo}</CardTitle>
                     <Badge variant="secondary"><Users strokeWidth={2} aria-hidden /> {c.salon ?? "Todo el colegio"}</Badge>
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
                     <Avatar size="sm">
-                      <AvatarFallback className="bg-maiz text-[10px] font-semibold text-indigo">{iniciales(c.autor)}</AvatarFallback>
+                      <AvatarFallback className="bg-maiz text-xs font-semibold text-indigo">{iniciales(c.autor)}</AvatarFallback>
                     </Avatar>
                     <span>{c.autor} · {fecha.format(c.publicadoAt)}</span>
                   </div>
@@ -75,7 +75,7 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
                   <ListaAdjuntos adjuntos={c.adjuntos} />
                   {c.editable && (
                     <div className="flex flex-wrap items-center gap-2 border-t pt-4">
-                      <span className="mr-auto flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <span className="mr-auto flex items-center gap-1.5 text-cuerpo-sm text-muted-foreground">
                         <Clock className="size-3.5" strokeWidth={2} aria-hidden /> Editable las primeras 24 h
                       </span>
                       <DialogoEditar id={c.id} titulo={c.titulo} cuerpo={c.cuerpo} adjuntos={c.adjuntos} />
