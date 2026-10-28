@@ -4,10 +4,11 @@ import { z } from "zod";
 import type { EstadoAsistencia, EstadoJustificacion } from "@/generated/prisma/enums";
 import { claveMes, mesPedido, rangoDelMes } from "@/lib/calendario-asistencia";
 import { urlColegio } from "@/lib/dominio";
-import { fechaDb, isoDeFechaDb, momentoEnZona } from "@/lib/fechas";
+import { fechaDb, isoDeFechaDb, momentoEnZona, sumarDias } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
 import { instanteDeRegistro } from "@/lib/registro-offline";
 import { auditar } from "./auditoria";
+import { feriadosAplicables } from "./plataforma-configuracion";
 import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-justificacion";
 import { encolarAvisosAsistencia, familiasConAvisoPorAlumno } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
@@ -266,6 +267,7 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
   const ahora = new Date();
   const plazo = ctx.tenant.plazoJustificacionDiasHabiles;
   const zona = ctx.tenant.zonaHoraria;
+  const feriados = await feriadosAplicables(ctx.tenant.id, desde, sumarDias(hasta, 90));
   await Promise.all(
     hijos.map((h) =>
       auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "asistencia", entidadId: h.id, detalle: { mes: claveMes(anio, numeroMes) } }),
@@ -285,7 +287,7 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
         const fecha = isoDeFechaDb(a.fecha);
         const esFalta = a.estado === "falta";
         const pendiente = esFalta && (justificacion === null || justificacion === "rechazada");
-        const plazoVencido = pendiente && expiracionJustificacion(fecha, plazo, zona) <= ahora;
+        const plazoVencido = pendiente && expiracionJustificacion(fecha, plazo, zona, feriados) <= ahora;
         return {
           id: a.id,
           fecha,
@@ -297,7 +299,7 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
           // Solo el apoderado justifica faltas; el alumno ve su asistencia en solo lectura.
           // Solo dentro del plazo del reglamento (días hábiles desde la falta; specs/07).
           puedeJustificar: ctx.rol === "apoderado" && pendiente && !plazoVencido,
-          justificarHasta: esFalta ? ultimoDiaJustificacion(fecha, plazo) : null,
+          justificarHasta: esFalta ? ultimoDiaJustificacion(fecha, plazo, feriados) : null,
           plazoVencido,
         };
       }),

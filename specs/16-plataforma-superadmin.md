@@ -153,6 +153,8 @@ aCsv(encabezados, filas)
 - Layout propio: logo de Khipu, etiqueta «Plataforma Khipu», navegación, nombre del usuario y «Salir».
 - En el encabezado del colegio (`src/app/colegio/[slug]/layout.tsx`) se muestra el eslogan bajo el nombre.
 
+- Módulos `/equipo`, `/anuncios` y `/configuracion`: ver `specs/22-equipo-anuncios-y-configuracion.md`. El script `crear-superadmin` usa ahora `src/lib/server/plataforma-equipo.ts`.
+
 ## Textos y UX
 - Estados del colegio con ícono + palabra: «Activo» (check), «Piloto» (matraz), «Suspendido» (prohibido).
 - Formulario: «Será su contraseña inicial. No se envía por correo.» bajo el número de documento; «El colegio estará en `<slug>.<dominio>`».

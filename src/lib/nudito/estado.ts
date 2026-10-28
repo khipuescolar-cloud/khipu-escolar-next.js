@@ -5,6 +5,15 @@ export type EstadoNudito = "reposo" | "saludo" | "pensando" | "avisando" | "cele
 /** Horario escolar en hora de Lima: de 7:00 (incluida) a 17:00 (excluida). Configurable por colegio más adelante. */
 export const HORARIO_ESCOLAR = { inicio: 7, fin: 17 } as const;
 
+/** Horario guardado en `ConfigPlataforma` («nudito:horario», p. ej. `{ inicio: "07:00", fin: "17:00" }`) → horas enteras. Si no es válido, el horario por defecto. */
+export function horarioDesdeConfig(valor: unknown): { inicio: number; fin: number } {
+  const hora = (v: unknown) => (typeof v === "string" && /^([01]\d|2[0-3]):[0-5]\d$/.test(v) ? Number(v.slice(0, 2)) : null);
+  const o = (valor ?? {}) as { inicio?: unknown; fin?: unknown };
+  const inicio = hora(o.inicio);
+  const fin = hora(o.fin);
+  return inicio !== null && fin !== null && inicio < fin ? { inicio, fin } : { ...HORARIO_ESCOLAR };
+}
+
 /** Hora (0–23) en Lima de una fecha. */
 export function horaEnLima(ahora: Date): number {
   const h = new Intl.DateTimeFormat("en-US", { timeZone: "America/Lima", hour: "numeric", hourCycle: "h23" }).format(ahora);

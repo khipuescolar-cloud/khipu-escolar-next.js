@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { fechaLarga, hora12 } from "@/lib/fechas";
 import { planIncluye } from "@/lib/planes";
-import { mensajePlazoVencido, textoPlazoJustificacion } from "@/lib/plazo-justificacion";
+import { mensajePlazoVencido, textoPlazoJustificacion, textoUltimoDiaJustificacion } from "@/lib/plazo-justificacion";
 import { esVistaFamilia } from "@/lib/roles";
 import { MARCADOR_ALUMNO } from "@/lib/vista-previa";
 import {
@@ -210,7 +210,7 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
                           <Link href={`/asistencia/justificar/${r.id}`} className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
                             <FileText aria-hidden strokeWidth={2} /> Justificar falta
                           </Link>
-                          <span className="text-cuerpo-sm text-muted-foreground">{textoPlazoJustificacion(r.fecha, ctx.tenant.plazoJustificacionDiasHabiles)}</span>
+                          <span className="text-cuerpo-sm text-muted-foreground">{r.justificarHasta ? textoUltimoDiaJustificacion(r.justificarHasta) : textoPlazoJustificacion(r.fecha, ctx.tenant.plazoJustificacionDiasHabiles)}</span>
                         </span>
                       )}
                       {!esAlumno && r.plazoVencido && (

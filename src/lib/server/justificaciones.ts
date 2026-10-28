@@ -3,11 +3,12 @@ import { forbidden, notFound } from "next/navigation";
 import { z } from "zod";
 import type { EstadoJustificacion } from "@/generated/prisma/enums";
 import { urlColegio } from "@/lib/dominio";
-import { isoDeFechaDb } from "@/lib/fechas";
+import { isoDeFechaDb, sumarDias } from "@/lib/fechas";
 import { expiracionJustificacion, mensajePlazoVencido, normalizarPlazoDias, textoPlazoJustificacion } from "@/lib/plazo-justificacion";
 import { primerNombre } from "@/lib/nombres";
 import { auditar } from "./auditoria";
 import { db, dbTenant, type DbTenant } from "./db";
+import { feriadosAplicables } from "./plataforma-configuracion";
 import { destinatariosDeAlumno, encolarAviso, encolarParaDestinatario } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
 import { guardarArchivo, urlArchivo } from "./storage";
@@ -184,13 +185,14 @@ export async function faltaParaJustificar(ctx: TenantContext, asistenciaId: stri
   const disponible = asistencia.estado === "falta" && (!ultima || ultima === "rechazada");
   const fecha = isoDeFechaDb(asistencia.fecha);
   const dias = ctx.tenant.plazoJustificacionDiasHabiles;
-  const vence = expiracionJustificacion(fecha, dias, ctx.tenant.zonaHoraria);
+  const feriados = await feriadosAplicables(ctx.tenant.id, fecha, sumarDias(fecha, 90));
+  const vence = expiracionJustificacion(fecha, dias, ctx.tenant.zonaHoraria, feriados);
   return {
     id: asistencia.id, alumno: primerNombre(asistencia.alumno.nombres), fecha, disponible,
     plazoVencido: vence <= ahora,
     venceAt: vence,
     /** «Puedes justificar hasta el vie 14 nov» */
-    textoPlazo: textoPlazoJustificacion(fecha, dias),
+    textoPlazo: textoPlazoJustificacion(fecha, dias, feriados),
     mensajeVencido: mensajePlazoVencido(dias),
   };
 }

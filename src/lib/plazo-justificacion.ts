@@ -21,18 +21,24 @@ export function mensajePlazoVencido(dias?: number | null): string {
 }
 
 /** Momento en que vence la justificación de una falta del día `fechaFaltaIso` (fin del día en Lima). */
-export function expiracionJustificacion(fechaFaltaIso: string, dias: number | null | undefined, zona = "America/Lima"): Date {
-  return venceJustificacion(fechaFaltaIso, normalizarPlazoDias(dias), zona);
+export function expiracionJustificacion(
+  fechaFaltaIso: string, dias: number | null | undefined, zona = "America/Lima", feriadosExtra: readonly string[] = [],
+): Date {
+  return venceJustificacion(fechaFaltaIso, normalizarPlazoDias(dias), zona, feriadosExtra);
 }
 
 /** Último día (AAAA-MM-DD) en que se puede justificar. */
-export function ultimoDiaJustificacion(fechaFaltaIso: string, dias: number | null | undefined): string {
-  return sumarDiasHabiles(fechaFaltaIso, normalizarPlazoDias(dias));
+export function ultimoDiaJustificacion(fechaFaltaIso: string, dias: number | null | undefined, feriadosExtra: readonly string[] = []): string {
+  return sumarDiasHabiles(fechaFaltaIso, normalizarPlazoDias(dias), feriadosExtra);
 }
 
 /** «Puedes justificar hasta el vie 14 nov» */
-export function textoPlazoJustificacion(fechaFaltaIso: string, dias: number | null | undefined): string {
-  const ultimo = ultimoDiaJustificacion(fechaFaltaIso, dias);
+export function textoPlazoJustificacion(fechaFaltaIso: string, dias: number | null | undefined, feriadosExtra: readonly string[] = []): string {
+  return textoUltimoDiaJustificacion(ultimoDiaJustificacion(fechaFaltaIso, dias, feriadosExtra));
+}
+
+/** «Puedes justificar hasta el vie 14 nov» a partir del último día ya calculado. */
+export function textoUltimoDiaJustificacion(ultimo: string): string {
   const texto = new Intl.DateTimeFormat("es-PE", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" })
     .format(new Date(`${ultimo}T12:00:00Z`))
     .replace(/\./g, "")
