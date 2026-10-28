@@ -217,6 +217,11 @@ model Tenant {
   exportaciones         ExportacionColegio[]
   accesosSoporte        AccesoSoporte[]
   cierresCurso          CierreCurso[]
+  modulosAjustados      TenantModulo[]
+  contactos             ContactoColegio[]
+  suscripcion           Suscripcion?
+  pagos                 PagoRegistro[]
+  feriados              FeriadoExtra[]
 
   @@map("tenants")
 }
@@ -949,4 +954,207 @@ model AccesoSoporte {
   @@index([tenantId, inicioAt])
   @@index([adminId, expiraAt])
   @@map("accesos_soporte")
+}
+
+// ─── Panel de plataforma v2 (2026-10-28): catálogo de planes, roles, responsables, suscripciones ───
+
+/// Catálogo comercial de cada plan (specs/19). El código del plan sigue siendo el enum `Plan`.
+model PlanCatalogo {
+  plan                Plan     @id
+  nombre              String // «Básico», «Familia», «Pro Max»
+  descripcion         String?
+  /// Precio por alumno al mes en soles (referencial; el precio real va en la suscripción del colegio).
+  precioPorAlumno     Decimal? @map("precio_por_alumno") @db.Decimal(8, 2)
+  precioMinimoMensual Decimal? @map("precio_minimo_mensual") @db.Decimal(10, 2)
+  maxAlumnos          Int?     @map("max_alumnos")
+  orden               Int      @default(0)
+  activo              Boolean  @default(true) // si es false no se ofrece a colegios nuevos
+  updatedAt           DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  modulos PlanModulo[]
+
+  @@map("planes_catalogo")
+}
+
+/// Módulos que incluye cada plan. `modulo` es una clave de `FEATURES` (src/lib/planes.ts).
+model PlanModulo {
+  plan   Plan
+  modulo String
+
+  catalogo PlanCatalogo @relation(fields: [plan], references: [plan], onDelete: Cascade)
+
+  @@id([plan, modulo])
+  @@map("plan_modulos")
+}
+
+/// Roles por defecto de todos los colegios: qué módulos ve cada rol. Solo se guardan las celdas
+/// cambiadas respecto del comportamiento del código (sin fila = habilitado si el código lo permite).
+model RolModulo {
+  rol        Rol
+  modulo     String
+  habilitado Boolean
+  updatedAt  DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@id([rol, modulo])
+  @@map("rol_modulos")
+}
+
+/// Ajuste de módulos de un colegio sobre su plan: `habilitado=true` agrega un módulo extra; `false` lo quita.
+model TenantModulo {
+  id         String   @id @default(uuid()) @db.Uuid
+  tenantId   String   @map("tenant_id") @db.Uuid
+  modulo     String
+  habilitado Boolean
+  motivo     String?
+  updatedAt  DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, modulo])
+  @@map("tenant_modulos")
+}
+
+enum TipoContacto {
+  principal
+  direccion_academica
+  administrativo
+  facturacion
+  tecnico
+  otro
+}
+
+/// Responsables y contactos del colegio (puede haber varios; uno es el principal).
+/// Si tiene acceso al sistema, `membershipId` apunta a su membresía (normalmente rol dirección).
+model ContactoColegio {
+  id           String       @id @default(uuid()) @db.Uuid
+  tenantId     String       @map("tenant_id") @db.Uuid
+  tipo         TipoContacto
+  nombres      String
+  apellidos    String       @default("")
+  cargo        String?
+  email        String
+  telefono     String?
+  principal    Boolean      @default(false)
+  membershipId String?      @map("membership_id") @db.Uuid
+  notas        String?
+  createdAt    DateTime     @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt    DateTime     @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, email])
+  @@index([tenantId])
+  @@map("contactos_colegio")
+}
+
+enum CicloFacturacion {
+  mensual
+  anual
+}
+
+enum EstadoSuscripcion {
+  prueba
+  activa
+  suspendida
+  cancelada
+}
+
+/// Contrato comercial del colegio (registro manual; no hay pasarela de pagos).
+model Suscripcion {
+  id                 String            @id @default(uuid()) @db.Uuid
+  tenantId           String            @unique @map("tenant_id") @db.Uuid
+  plan               Plan
+  ciclo              CicloFacturacion  @default(mensual)
+  estado             EstadoSuscripcion @default(prueba)
+  moneda             String            @default("PEN")
+  /// Monto por ciclo acordado con el colegio.
+  montoPorCiclo      Decimal           @map("monto_por_ciclo") @db.Decimal(10, 2)
+  alumnosContratados Int?              @map("alumnos_contratados")
+  inicio             DateTime          @db.Date
+  proximaRenovacion  DateTime          @map("proxima_renovacion") @db.Date
+  notas              String?
+  createdAt          DateTime          @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt          DateTime          @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([proximaRenovacion])
+  @@map("suscripciones")
+}
+
+/// Pago recibido de un colegio (registro manual del equipo Khipu).
+model PagoRegistro {
+  id              String   @id @default(uuid()) @db.Uuid
+  tenantId        String   @map("tenant_id") @db.Uuid
+  monto           Decimal  @db.Decimal(10, 2)
+  moneda          String   @default("PEN")
+  fechaPago       DateTime @map("fecha_pago") @db.Date
+  periodoDesde    DateTime @map("periodo_desde") @db.Date
+  periodoHasta    DateTime @map("periodo_hasta") @db.Date
+  metodo          String // transferencia, yape, plin, depósito, otro
+  comprobante     String? // número de boleta/factura
+  registradoPorId String   @map("registrado_por") @db.Uuid // perfil del super administrador
+  createdAt       DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, fechaPago])
+  @@map("pagos_registro")
+}
+
+enum NivelAnuncio {
+  info
+  novedad
+  mantenimiento
+  urgente
+}
+
+enum AudienciaAnuncio {
+  direccion
+  personal // dirección, profesores, administrativos, portería
+  todos // también familias y alumnos
+}
+
+/// Anuncio del equipo Khipu a los colegios (franja en su panel entre `desde` y `hasta`).
+model AnuncioPlataforma {
+  id          String           @id @default(uuid()) @db.Uuid
+  titulo      String
+  cuerpo      String
+  nivel       NivelAnuncio     @default(info)
+  audiencia   AudienciaAnuncio @default(direccion)
+  /// Vacío = todos los colegios; si no, solo estos planes.
+  planes      Plan[]           @default([])
+  desde       DateTime         @db.Timestamptz
+  hasta       DateTime         @db.Timestamptz
+  creadoPorId String           @map("creado_por") @db.Uuid
+  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([desde, hasta])
+  @@map("anuncios_plataforma")
+}
+
+/// Días no laborables además de los feriados nacionales fijos (src/lib/dias-habiles.ts):
+/// feriados regionales, días decretados por el gobierno o días propios de un colegio (`tenantId`).
+model FeriadoExtra {
+  id        String   @id @default(uuid()) @db.Uuid
+  fecha     DateTime @db.Date
+  nombre    String
+  /// null = todo el país (o la región indicada); con valor = solo ese colegio.
+  tenantId  String?  @map("tenant_id") @db.Uuid
+  region    String? // p. ej. «Cusco»; null = nacional
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant Tenant? @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([fecha])
+  @@map("feriados_extra")
+}
+
+/// Ajustes globales de la plataforma (clave → valor JSON). P. ej. horario de Nudito, última ejecución de crons.
+model ConfigPlataforma {
+  clave     String   @id
+  valor     Json
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@map("config_plataforma")
 }

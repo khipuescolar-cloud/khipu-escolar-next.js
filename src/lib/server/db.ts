@@ -20,7 +20,11 @@ export const db = globalParaPrisma.prisma ?? crearCliente();
 if (process.env.NODE_ENV !== "production") globalParaPrisma.prisma = db;
 
 // AuditoriaPlataforma tiene tenantId pero es del equipo Khipu (specs/16): no se filtra ni se exporta al colegio.
-export const MODELOS_GLOBALES = new Set(["Tenant", "Profile", "LoginIntento", "PushSuscripcion", "AdminPlataforma", "AuditoriaPlataforma"]);
+export const MODELOS_GLOBALES = new Set([
+  "Tenant", "Profile", "LoginIntento", "PushSuscripcion", "AdminPlataforma", "AuditoriaPlataforma",
+  // Panel de plataforma v2 (specs/19): catálogo y ajustes globales; `FeriadoExtra` mezcla filas globales y por colegio y se filtra a mano.
+  "PlanCatalogo", "PlanModulo", "RolModulo", "AnuncioPlataforma", "FeriadoExtra", "ConfigPlataforma",
+]);
 
 const OPERACIONES_CON_WHERE = new Set([
   "findUnique", "findUniqueOrThrow", "findFirst", "findFirstOrThrow", "findMany",

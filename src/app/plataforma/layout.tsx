@@ -13,12 +13,37 @@ import { salirPlataformaAction } from "./actions";
 
 export const metadata: Metadata = { title: { default: "Plataforma · Khipu Escolar", template: "%s · Khipu Escolar" } };
 
-// Un ítem por módulo. Las acciones de un módulo (p. ej. «Nuevo colegio») viven dentro de su página, no en el menú.
+// Un ítem por módulo. Las acciones de un módulo (p. ej. «Nuevo colegio») viven dentro de su página, no en el menú (specs/18 §7).
 const GRUPOS: GrupoNavResuelto[] = [
+  { items: [{ href: "/", titulo: "Vista principal", icono: "House" }] },
   {
+    titulo: "Colegios",
     items: [
-      { href: "/", titulo: "Vista principal", icono: "House" },
       { href: "/colegios", titulo: "Colegios", icono: "School" },
+      { href: "/suscripciones", titulo: "Suscripciones", icono: "Receipt" },
+    ],
+  },
+  {
+    titulo: "Catálogo",
+    items: [
+      { href: "/planes", titulo: "Planes y módulos", icono: "Layers" },
+      { href: "/roles", titulo: "Roles y permisos", icono: "KeyRound" },
+    ],
+  },
+  {
+    titulo: "Operación",
+    items: [
+      { href: "/usuarios", titulo: "Usuarios", icono: "UserSearch" },
+      { href: "/monitoreo", titulo: "Monitoreo", icono: "Activity" },
+      { href: "/anuncios", titulo: "Anuncios", icono: "Megaphone" },
+    ],
+  },
+  {
+    titulo: "Plataforma",
+    items: [
+      { href: "/equipo", titulo: "Equipo Khipu", icono: "UsersRound" },
+      { href: "/configuracion", titulo: "Configuración", icono: "Settings" },
+      { href: "/auditoria", titulo: "Auditoría", icono: "History" },
     ],
   },
 ];
