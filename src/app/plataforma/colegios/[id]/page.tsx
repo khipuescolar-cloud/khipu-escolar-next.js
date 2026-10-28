@@ -1,4 +1,4 @@
-import { ArrowLeft, Download, ExternalLink, History, ImageIcon, KeyRound, LifeBuoy, Mail, Pencil, Settings2, UserPlus, Users } from "lucide-react";
+import { ArrowLeft, Download, ExternalLink, History, ImageIcon, LifeBuoy, Pencil, Settings2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -13,17 +13,19 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { urlColegio } from "@/lib/dominio";
 import { fechaCorta } from "@/lib/fechas";
 import { NOMBRE_PLAN } from "@/lib/planes";
+import { listarResponsables } from "@/lib/server/plataforma-responsables";
+import { suscripcionDelColegio } from "@/lib/server/plataforma-suscripciones";
 import { accesoSoporteActual, auditoriaDelColegio, detalleColegio, requireAdminPlataforma, type DiaMetricas } from "@/lib/server/plataforma";
 import {
-  agregarAdministradorAction, cambiarEstadoAction, cambiarInsigniaAction, cambiarPlanAction, editarColegioAction, entrarSoporteAction,
-  reenviarBienvenidaAction, terminarSoporteAction,
+  cambiarEstadoAction, cambiarInsigniaAction, cambiarPlanAction, editarColegioAction, entrarSoporteAction,
+  terminarSoporteAction,
 } from "../../actions";
 import { DialogoSoporte } from "../../_componentes/DialogoSoporte";
 import { GraficoDiario } from "../../_componentes/Graficos";
-import { CamposAdministrador } from "../CamposAdministrador";
+import { SeccionResponsables } from "./_responsables/SeccionResponsables";
+import { SeccionSuscripcion } from "./_suscripcion/SeccionSuscripcion";
 import { CambiarEstado } from "../../_componentes/CambiarEstado";
 import { EstadoColegio, fechaHora, fechaSimple, PlanColegio, porcentaje } from "../../EstadoColegio";
-import { FormularioPlataforma } from "../FormularioPlataforma";
 
 export const metadata: Metadata = { title: "Colegio" };
 
@@ -35,6 +37,13 @@ const NOMBRE_ACCION: Record<string, string> = {
   cambiar_insignia: "Cambió la insignia",
   reenviar_bienvenida: "Reenvió la bienvenida",
   agregar_administrador: "Agregó un administrador",
+  agregar_responsable: "Agregó un responsable",
+  editar_responsable: "Editó un responsable",
+  marcar_responsable_principal: "Cambió el responsable principal",
+  quitar_responsable: "Quitó un responsable",
+  guardar_suscripcion: "Guardó la suscripción",
+  registrar_pago: "Registró un pago",
+  anular_pago: "Anuló un pago",
   exportar_colegio: "Exportó los datos (ZIP)",
   soporte_inicio: "Entró como soporte (solo lectura)",
   soporte_fin: "Terminó el acceso de soporte",
@@ -62,10 +71,12 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
   const admin = await requireAdminPlataforma();
   const { id } = await params;
   const { ok, error } = await searchParams;
-  const [{ tenant: t, fila, administradores, logoUrl, dias }, bitacora, soporte] = await Promise.all([
+  const [{ tenant: t, fila, logoUrl, dias }, bitacora, soporte, responsables, comercial] = await Promise.all([
     detalleColegio(admin, id),
     auditoriaDelColegio(admin, id),
     accesoSoporteActual(admin, id),
+    listarResponsables(admin, id),
+    suscripcionDelColegio(admin, id),
   ]);
   const url = urlColegio(t.slug, "/inicio");
   const semanas = porSemana(dias);
@@ -211,36 +222,11 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
         <p className="text-cuerpo-sm text-muted-foreground">Ingresos: suma diaria de personas del colegio que iniciaron sesión.</p>
       </section>
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        <Tarjeta className="flex flex-col gap-3">
-          <h2 className="flex items-center gap-2 font-heading text-titulo-2"><Users className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Administradores</h2>
-          <ul className="flex flex-col divide-y divide-border">
-            {administradores.map((a) => (
-              <li key={a.id} className="flex flex-wrap items-center justify-between gap-2 py-2">
-                <div className="min-w-0">
-                  <p className="font-semibold">{a.user.nombres} {a.user.apellidos}</p>
-                  <p className="text-cuerpo-sm text-muted-foreground">{a.cargo ?? "Dirección"} · {a.user.email}</p>
-                  <p className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground">
-                    <KeyRound className="size-3.5" strokeWidth={2} aria-hidden />
-                    {a.user.debeCambiarPassword ? "Aún no cambia su contraseña inicial" : "Ya eligió su contraseña"}
-                    {a.estado !== "activa" ? ` · membresía ${a.estado}` : ""}
-                  </p>
-                </div>
-                <BotonConfirmar
-                  etiqueta={<><Mail strokeWidth={2} aria-hidden /> Reenviar bienvenida</>}
-                  titulo="¿Reenviar la bienvenida?"
-                  descripcion={`Enviaremos otra vez el correo con el acceso a ${a.user.email}.`}
-                  confirmar="Reenviar correo"
-                  accion={reenviarBienvenidaAction}
-                  campos={{ tenantId: t.id, membershipId: a.id }}
-                  tamano="sm"
-                />
-              </li>
-            ))}
-            {administradores.length === 0 && <li className="py-2 text-cuerpo-sm text-muted-foreground">Sin administradores.</li>}
-          </ul>
-        </Tarjeta>
+      {/* Comercial (specs/20): responsables y suscripción */}
+      <SeccionResponsables tenantId={t.id} responsables={responsables} />
+      <SeccionSuscripcion datos={comercial} />
 
+      <div className="grid gap-6 lg:grid-cols-2">
         <Tarjeta className="flex flex-col gap-4">
           <h2 className="flex items-center gap-2 font-heading text-titulo-2"><Settings2 className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Plan y estado</h2>
           <form action={cambiarPlanAction} className="flex flex-wrap items-end gap-3">
@@ -284,13 +270,6 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
           </form>
         </Tarjeta>
 
-        <Tarjeta className="flex flex-col gap-4">
-          <h2 className="flex items-center gap-2 font-heading text-titulo-2"><UserPlus className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Agregar otro administrador</h2>
-          <FormularioPlataforma accion={agregarAdministradorAction} etiqueta="Agregar administrador" className="flex flex-col gap-4">
-            <input type="hidden" name="tenantId" value={t.id} />
-            <CamposAdministrador />
-          </FormularioPlataforma>
-        </Tarjeta>
       </div>
 
       <section aria-labelledby="bitacora" className="flex flex-col gap-3">

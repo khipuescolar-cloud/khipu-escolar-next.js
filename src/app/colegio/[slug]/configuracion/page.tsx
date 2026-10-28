@@ -1,4 +1,4 @@
-import { Bell, Download, Globe, GraduationCap, ImageIcon, MessageCircle, ScrollText } from "lucide-react";
+import { Bell, Contact, Download, Globe, GraduationCap, ImageIcon, MessageCircle, ScrollText } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -9,6 +9,8 @@ import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
 import { NOMBRE_PLAN } from "@/lib/planes";
 import { PLAZO_JUSTIFICACION_DEFECTO_DIAS, PLAZO_JUSTIFICACION_MAX_DIAS, PLAZO_JUSTIFICACION_MIN_DIAS } from "@/lib/plazo-justificacion";
+import { NOMBRE_TIPO_CONTACTO } from "@/lib/comercial";
+import { responsablesAnteKhipu } from "@/lib/server/plataforma-responsables";
 import { exigirGestion } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { urlLogoColegio } from "@/lib/server/logo";
@@ -44,6 +46,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
   exigirGestion(ctx);
   const t = ctx.tenant;
   const logoUrl = await urlLogoColegio(t);
+  const responsables = await responsablesAnteKhipu(t.id);
 
   return (
     <div className="flex max-w-3xl flex-col gap-6">
@@ -124,6 +127,24 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
           </div>
         </Seccion>
       </Tarjeta>
+
+      {responsables.length > 0 && (
+        <Tarjeta>
+          <Seccion icono={Contact} titulo="Responsables ante Khipu" descripcion="Las personas de tu colegio con las que habla el equipo de Khipu. Si algo cambia, avísanos.">
+            <ul className="flex flex-col divide-y text-cuerpo-sm">
+              {responsables.map((r) => (
+                <li key={r.id} className="flex flex-col gap-0.5 py-2">
+                  <p className="font-semibold">
+                    {r.nombres} {r.apellidos}
+                    <span className="ml-2 rounded-pildora border px-2 py-0.5 text-etiqueta font-normal">{r.principal ? "Principal" : NOMBRE_TIPO_CONTACTO[r.tipo]}</span>
+                  </p>
+                  <p className="text-muted-foreground">{[r.cargo, r.email, r.telefono].filter(Boolean).join(" · ")}</p>
+                </li>
+              ))}
+            </ul>
+          </Seccion>
+        </Tarjeta>
+      )}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { ArrowLeft, School, UserRound } from "lucide-react";
+import { ArrowLeft, Contact, School, UserRound } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -6,6 +6,7 @@ import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { baseDomain } from "@/lib/dominio";
+import { NOMBRE_TIPO_CONTACTO, TIPOS_ELEGIBLES } from "@/lib/comercial";
 import { NOMBRE_PLAN } from "@/lib/planes";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import { crearColegioAction } from "../../actions";
@@ -62,6 +63,26 @@ export default async function NuevoColegio() {
             <p className="mt-1 text-cuerpo-sm text-muted-foreground">Tendrá el rol de dirección. Si el correo ya tiene cuenta en Khipu, conserva su contraseña.</p>
           </div>
           <CamposAdministrador />
+        </Tarjeta>
+        <Tarjeta className="flex flex-col gap-5">
+          <div>
+            <h2 className="flex items-center gap-2 font-heading text-titulo-2">
+              <Contact className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Segundo responsable (opcional)
+            </h2>
+            <p className="mt-1 text-cuerpo-sm text-muted-foreground">Por ejemplo, la persona de facturación. Queda como contacto del colegio, sin acceso al sistema. Más responsables se agregan luego desde la ficha.</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Campo etiqueta="Nombres" name="resp2_nombres" autoComplete="off" />
+            <Campo etiqueta="Apellidos" name="resp2_apellidos" autoComplete="off" />
+            <Campo etiqueta="Correo" name="resp2_email" type="email" autoComplete="off" />
+            <Campo etiqueta="Teléfono" name="resp2_telefono" type="tel" autoComplete="off" />
+            <Campo etiqueta="Cargo" name="resp2_cargo" placeholder="Contadora" />
+            <Selector etiqueta="Tipo" name="resp2_tipo" defaultValue="facturacion">
+              {TIPOS_ELEGIBLES.map((t) => (
+                <option key={t} value={t}>{NOMBRE_TIPO_CONTACTO[t]}</option>
+              ))}
+            </Selector>
+          </div>
         </Tarjeta>
       </FormularioPlataforma>
     </div>

@@ -10,7 +10,7 @@ import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
 import {
   agregarAdministrador, cambiarEstado, cambiarInsignia, cambiarPlan, crearColegio, editarColegio, iniciarAccesoSoporte,
-  reenviarBienvenida, requireAdminPlataforma, terminarAccesoSoporte, type EntradaAdministrador,
+  reenviarBienvenida, requireAdminPlataforma, terminarAccesoSoporte, type EntradaAdministrador, type EntradaNuevoColegio,
 } from "@/lib/server/plataforma";
 
 // Acciones del panel de plataforma (specs/16). Cada una valida al super administrador; los ids del
@@ -41,6 +41,13 @@ function datosAdministrador(f: FormData): EntradaAdministrador {
     genero: (v("genero") || undefined) as "femenino" | undefined,
     cargo: v("cargo"),
   };
+}
+
+/** Segundo responsable opcional del formulario de nuevo colegio (prefijo `resp2_`); vacío → sin segundo responsable. */
+function segundoResponsable(f: FormData): EntradaNuevoColegio["responsable"] {
+  const v = (n: string) => texto(f, `resp2_${n}`).trim();
+  if (!v("nombres") && !v("email")) return undefined;
+  return { tipo: (v("tipo") || "facturacion") as "facturacion", nombres: v("nombres"), apellidos: v("apellidos"), cargo: v("cargo"), email: v("email"), telefono: v("telefono") };
 }
 
 async function archivo(f: FormData, nombre: string): Promise<Buffer | null> {
@@ -76,6 +83,7 @@ export async function crearColegioAction(_previo: EstadoFormulario, f: FormData)
           escalaCalificacion: (texto(f, "escalaCalificacion") || "literal") as "literal",
         },
         administrador: datosAdministrador(f),
+        responsable: segundoResponsable(f),
       },
       await archivo(f, "insignia"),
     );

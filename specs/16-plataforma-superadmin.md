@@ -175,6 +175,8 @@ aCsv(encabezados, filas)
 - integración: `tests/integracion/soporte-seguridad.test.ts` (`soporte_inicio` encolado a cada directora según sus preferencias y a ningún otro rol; campana vigente/terminada/admin inactivo; `$executeRaw(Unsafe)`, `$queryRaw` de escritura, `FOR UPDATE` y `$transaction` con escrituras → «Modo soporte»; lecturas crudas permitidas; colegio suspendido: soporte entra y los miembros no; `registrarIngreso`; título del tutor en la libreta).
 - e2e: `tests/e2e/plataforma-superadmin.test.ts` (crear colegio con insignia y administrador con DNI → correo en Mailpit con el botón al subdominio → ingreso con DNI → cambio obligatorio de contraseña → `/inicio` del colegio; un usuario de colegio recibe 403 en el panel; modo soporte: gráficos en la vista principal, «Entrar como soporte» con motivo → banner en el colegio, `/mensajes` y `/notas` → 403, la dirección del colegio ve «Soporte de Khipu activo hasta HH:mm» en su campana y llega a la auditoría; «Terminar» → vuelve a la ficha y el colegio da 403).
 
+- Responsables del colegio y suscripciones/pagos (ficha y `/suscripciones`): ver `specs/20-responsables-y-suscripciones.md`. «Administradores» y «Agregar otro administrador» de la ficha pasaron a la sección «Responsables».
+
 ## Pendientes
 - `login_intentos` anteriores a la migración `20261027180000_pendientes_v2` no tienen `user_id`: los gráficos de ingresos solo cuentan desde entonces.
 
