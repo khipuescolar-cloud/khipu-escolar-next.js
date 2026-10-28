@@ -2,7 +2,7 @@ import { Check, ChevronRight, Clock, HelpCircle, Mail, MailCheck, MailX, School,
 import Link from "next/link";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Card, CardContent } from "@/components/ui/card";
-import { planIncluye } from "@/lib/planes";
+import { tieneFeature } from "@/lib/server/plan";
 import { resumenAsistenciaHoy, resumenAvisosHoy } from "@/lib/server/resumen-direccion";
 import type { TenantContext } from "@/lib/server/tenant";
 
@@ -12,7 +12,7 @@ type Dato = { palabra: string; valor: number; Icono: typeof Clock; clase: string
 export async function ResumenDireccion({ ctx }: { ctx: TenantContext }) {
   const [salones, avisos] = await Promise.all([
     resumenAsistenciaHoy(ctx),
-    planIncluye(ctx.tenant.plan, "avisos") ? resumenAvisosHoy(ctx) : Promise.resolve(null),
+    tieneFeature(ctx, "avisos") ? resumenAvisosHoy(ctx) : Promise.resolve(null),
   ]);
   return (
     <>

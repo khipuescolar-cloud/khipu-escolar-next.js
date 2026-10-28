@@ -7,6 +7,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { Prisma, type Membership, type Profile, type Tenant } from "@/generated/prisma/client";
 import type { Rol } from "@/generated/prisma/enums";
 import { actualizarEvento, crearEvento, itemsDeAgenda } from "@/lib/server/agenda";
+import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant, MODELOS_GLOBALES } from "@/lib/server/db";
 import { exportarColegio, exportarColegioZip, TABLAS_OMITIDAS, tablasExportadas } from "@/lib/server/exportar";
 import { borrarArchivoDelProveedor, guardarArchivo } from "@/lib/server/storage";
@@ -28,7 +29,7 @@ async function persona(clave: string, rol: Rol, nombres: string) {
   const user = await db.profile.create({ data: { id: randomUUID(), email: `${clave}-${sufijo}@prueba.demo`, nombres, apellidos: "Extras" } });
   perfiles.push(user);
   m[clave] = await db.membership.create({ data: { tenantId: tenant.id, userId: user.id, rol } });
-  ctxs[clave] = { tenant, user, membership: m[clave], rol, roles: [rol], db: dbTenant(tenant.id) };
+  ctxs[clave] = { tenant, user, membership: m[clave], rol, roles: [rol], db: dbTenant(tenant.id), ...accesoModulosDeCodigo(tenant.plan) };
 }
 
 const manana = new Date(Date.now() + 2 * 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });

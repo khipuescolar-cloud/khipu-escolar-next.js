@@ -5,9 +5,12 @@ import { forbidden, notFound, redirect } from "next/navigation";
 import type { Membership, Profile, Tenant } from "@/generated/prisma/client";
 import type { Rol } from "@/generated/prisma/enums";
 import { urlRaiz } from "@/lib/dominio";
+import type { AccesoModulos } from "@/lib/modulos";
+import type { Feature } from "@/lib/planes";
 import { auditar } from "./auditoria";
 import { esAdminPlataforma } from "./auth";
 import { db, dbTenant, type DbTenant } from "./db";
+import { accesoModulos } from "./modulos";
 import { supabaseServidor } from "./supabase";
 
 /** Prioridad cuando un usuario tiene varios roles en el mismo colegio. */
@@ -29,6 +32,10 @@ export type TenantContext = {
    * actúa como `direccion`, en solo lectura y sin acceso a chats, notas, libreta ni Nudito.
    */
   soporte?: { accesoId: string; expiraAt: Date };
+  /** Módulos activos del colegio: los de su plan (BD con respaldo en código) ± ajustes del colegio (specs/19). */
+  modulos: ReadonlySet<Feature>;
+  /** Módulos quitados al colegio o al rol (no se muestran) y nombres de plan para los candados. */
+  accesoModulos: AccesoModulos;
 };
 
 /** Id de la membresía sintética del modo soporte (no existe en la BD). */
@@ -126,6 +133,7 @@ export async function resolverContextoColegio(user: Profile, slug: string, rolPr
       roles: ["direccion"],
       db: dbTenant(tenant.id, { soloLectura: true }),
       soporte: { accesoId: acceso.id, expiraAt: acceso.expiraAt },
+      ...(await accesoModulos(tenant, "direccion")),
     };
   }
 
@@ -133,7 +141,7 @@ export async function resolverContextoColegio(user: Profile, slug: string, rolPr
   const rol = rolPreferido && roles.includes(rolPreferido) ? rolPreferido : roles[0];
   const membership = memberships.find((m) => m.rol === rol)!;
 
-  return { tenant, user, membership, rol, roles, db: dbTenant(tenant.id) };
+  return { tenant, user, membership, rol, roles, db: dbTenant(tenant.id), ...(await accesoModulos(tenant, rol)) };
 }
 
 export async function requireTenantContext(slug: string, rolesPermitidos?: Rol[]): Promise<TenantContext> {

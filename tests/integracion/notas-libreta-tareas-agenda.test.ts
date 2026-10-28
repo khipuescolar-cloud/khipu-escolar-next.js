@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { Rol } from "@/generated/prisma/enums";
 import { crearEvento, itemsDeAgenda } from "@/lib/server/agenda";
+import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant } from "@/lib/server/db";
 import { datosLibreta } from "@/lib/server/libreta";
 import {
@@ -26,7 +27,7 @@ const ids = {} as Record<string, string>;
 async function ctxDe(tenant: Awaited<ReturnType<typeof db.tenant.findFirstOrThrow>>, membershipId: string, rol: Rol): Promise<TenantContext> {
   const membership = await db.membership.findUniqueOrThrow({ where: { id: membershipId } });
   const user = await db.profile.findUniqueOrThrow({ where: { id: membership.userId } });
-  return { tenant, user, membership, rol, roles: [rol], db: dbTenant(tenant.id) };
+  return { tenant, user, membership, rol, roles: [rol], db: dbTenant(tenant.id), ...accesoModulosDeCodigo(tenant.plan) };
 }
 
 async function miembro(rol: Rol, nombre: string) {

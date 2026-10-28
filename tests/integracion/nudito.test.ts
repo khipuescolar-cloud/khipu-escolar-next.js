@@ -1,6 +1,7 @@
 // Requiere la BD local con el seed. Crea su propio colegio de prueba y lo borra al terminar.
 import { randomUUID } from "node:crypto";
 import { afterAll, describe, expect, it } from "vitest";
+import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant } from "@/lib/server/db";
 import { IntentNudito } from "@/lib/server/nudito/intent-nudito";
 import { planIncluye } from "@/lib/planes";
@@ -13,7 +14,7 @@ async function contextoDe(slug: string, email: string, rol: "apoderado" = "apode
   const tenant = await db.tenant.findUniqueOrThrow({ where: { slug } });
   const user = await db.profile.findUniqueOrThrow({ where: { email } });
   const membership = await db.membership.findFirstOrThrow({ where: { tenantId: tenant.id, userId: user.id, rol } });
-  return { tenant, user, membership, rol, roles: [rol], db: dbTenant(tenant.id) };
+  return { tenant, user, membership, rol, roles: [rol], db: dbTenant(tenant.id), ...accesoModulosDeCodigo(tenant.plan) };
 }
 
 describe("Nudito: aislamiento de datos", () => {

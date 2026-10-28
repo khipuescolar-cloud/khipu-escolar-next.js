@@ -12,6 +12,7 @@ import { ErrorDeNegocio } from "./contexto-accion";
 import { crearCuentaConDocumento, encolarBienvenida, ErrorCuenta, esquemaPersona, revertirCamposCompletados, type CuentaCreada } from "./cuentas";
 import { db, dbTenant } from "./db";
 import { exportarColegioZip } from "./exportar";
+import { accesoModulos } from "./modulos";
 import { avisarInicioSoporte } from "./notificaciones/aviso-soporte";
 import { leerLimites } from "./notificaciones/limites";
 import { ENVIANDO_MAX_MINUTOS } from "./notificaciones/cola";
@@ -54,7 +55,13 @@ export type AccionPlataforma =
   | "agregar_administrador"
   | "exportar_colegio"
   | "soporte_inicio"
-  | "soporte_fin";
+  | "soporte_fin"
+  // Planes, módulos y roles (specs/19)
+  | "editar_plan"
+  | "plan_modulo"
+  | "rol_modulo"
+  | "restablecer_roles"
+  | "colegio_modulo";
 
 export async function auditarPlataforma(
   admin: AdminContext,
@@ -349,7 +356,7 @@ export async function exportarColegioDesdePlataforma(admin: AdminContext, tenant
     cargo: "Equipo Khipu",
     createdAt: new Date(),
   };
-  const ctx: TenantContext = { tenant, user: admin.user, membership, rol: "direccion", roles: ["direccion"], db: dbTenant(tenant.id) };
+  const ctx: TenantContext = { tenant, user: admin.user, membership, rol: "direccion", roles: ["direccion"], db: dbTenant(tenant.id), ...(await accesoModulos(tenant, "direccion")) };
   const zip = await exportarColegioZip(ctx);
   await auditarPlataforma(admin, "exportar_colegio", tenant.id, { bytes: zip.length });
   return { tenant, zip };

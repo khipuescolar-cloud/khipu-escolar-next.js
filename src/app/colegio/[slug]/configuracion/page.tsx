@@ -7,7 +7,6 @@ import { buttonVariants } from "@/components/ui/button";
 import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
-import { NOMBRE_PLAN } from "@/lib/planes";
 import { PLAZO_JUSTIFICACION_DEFECTO_DIAS, PLAZO_JUSTIFICACION_MAX_DIAS, PLAZO_JUSTIFICACION_MIN_DIAS } from "@/lib/plazo-justificacion";
 import { exigirGestion } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -51,7 +50,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
         <EncabezadoPagina titulo="Configuración" descripcion="Avisos a las familias, identidad del colegio y privacidad de los datos." />
         <p className="-mt-3 mb-3 flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
           {t.nombre}
-          <span className="rounded-pildora bg-accent px-2.5 py-1 text-etiqueta text-accent-foreground">Plan {NOMBRE_PLAN[t.plan]}</span>
+          <span className="rounded-pildora bg-accent px-2.5 py-1 text-etiqueta text-accent-foreground">Plan {ctx.accesoModulos.nombrePlan}</span>
         </p>
         <Flash ok={ok} error={error} />
       </div>

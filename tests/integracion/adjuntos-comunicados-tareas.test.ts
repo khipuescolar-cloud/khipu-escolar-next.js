@@ -6,6 +6,7 @@ import path from "node:path";
 import { zipSync } from "fflate";
 import { rm } from "node:fs/promises";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
+import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { itemsDeAgenda } from "@/lib/server/agenda";
 import { eliminarSalon } from "@/lib/server/gestion";
 import { LocalStorage } from "@/lib/server/storage/local";
@@ -35,7 +36,7 @@ describe("adjuntos de comunicados y tareas", () => {
       perfiles.push(id);
       const user = await db.profile.create({ data: { id, email: `${nombre}-${id.slice(0, 8)}@test-adjuntos.local`, nombres: nombre, apellidos: "Prueba" } });
       const membership = await db.membership.create({ data: { tenantId: c.tenant.id, userId: id, rol } });
-      return { tenant: c.tenant, user, membership, rol, roles: [rol], db: c.db } as TenantContext;
+      return { tenant: c.tenant, user, membership, rol, roles: [rol], db: c.db, ...accesoModulosDeCodigo(c.tenant.plan) } as TenantContext;
     };
     otraFamilia = await mk("apoderado", "Marta");
     administrativo = await mk("administrativo", "Ana");
