@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { Membership, Profile, Tenant } from "@/generated/prisma/client";
 import type { Rol } from "@/generated/prisma/enums";
+import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant } from "@/lib/server/db";
 import { borrarComunicado, editarComunicado, listarComunicados, publicarComunicado } from "@/lib/server/comunicados";
 import { aceptarConsentimiento, estadoConsentimiento, revocarConsentimiento } from "@/lib/server/consentimiento";
@@ -26,7 +27,7 @@ async function persona(clave: string, rol: Rol, nombres: string, apellidos: stri
   const user = await db.profile.create({ data: { id: randomUUID(), email: `${clave}-${sufijo}@prueba.demo`, nombres, apellidos, telefono: "999111222" } });
   perfiles.push(user);
   m[clave] = await db.membership.create({ data: { tenantId: tenant.id, userId: user.id, rol } });
-  ctxs[clave] = { tenant, user, membership: m[clave], rol, roles: [rol], db: dbTenant(tenant.id) };
+  ctxs[clave] = { tenant, user, membership: m[clave], rol, roles: [rol], db: dbTenant(tenant.id), ...accesoModulosDeCodigo(tenant.plan) };
 }
 
 beforeAll(async () => {

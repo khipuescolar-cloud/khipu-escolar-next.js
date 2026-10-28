@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { Membership, Profile, Tenant } from "@/generated/prisma/client";
 import type { Rol } from "@/generated/prisma/enums";
+import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant } from "@/lib/server/db";
 import { cambiarEstadoMembresia, listarProfesores, listarSalones } from "@/lib/server/gestion";
 import { altaPersonal, editarFicha, importarPersonalCsv, listarPersonal, obtenerFicha, reenviarBienvenida } from "@/lib/server/personal";
@@ -26,7 +27,7 @@ async function miembro(clave: string, rol: Rol, t: Tenant = tenant) {
   perfiles.push(user);
   const membership = await db.membership.create({ data: { tenantId: t.id, userId: user.id, rol } });
   ms[clave] = membership;
-  ctxs[clave] = { tenant: t, user, membership, rol, roles: [rol], db: dbTenant(t.id) };
+  ctxs[clave] = { tenant: t, user, membership, rol, roles: [rol], db: dbTenant(t.id), ...accesoModulosDeCodigo(t.plan) };
 }
 
 const base = { tipoDocumento: "dni" as const, genero: "femenino" as const };

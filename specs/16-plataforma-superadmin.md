@@ -152,6 +152,7 @@ aCsv(encabezados, filas)
 - La página 403 global (`src/app/forbidden.tsx`) enlaza a `/` («Volver al inicio»), que existe tanto en el panel como en el colegio.
 - Layout propio: logo de Khipu, etiqueta «Plataforma Khipu», navegación, nombre del usuario y «Salir».
 - En el encabezado del colegio (`src/app/colegio/[slug]/layout.tsx`) se muestra el eslogan bajo el nombre.
+- **Planes y módulos** (`/planes`), **Roles y permisos** (`/roles`) y la sección «Módulos del colegio» de la ficha: ver `specs/19-planes-modulos-y-roles.md`.
 
 - Módulos `/equipo`, `/anuncios` y `/configuracion`: ver `specs/22-equipo-anuncios-y-configuracion.md`. El script `crear-superadmin` usa ahora `src/lib/server/plataforma-equipo.ts`.
 

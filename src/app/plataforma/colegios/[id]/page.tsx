@@ -26,6 +26,7 @@ import { SeccionResponsables } from "./_responsables/SeccionResponsables";
 import { SeccionSuscripcion } from "./_suscripcion/SeccionSuscripcion";
 import { CambiarEstado } from "../../_componentes/CambiarEstado";
 import { EstadoColegio, fechaHora, fechaSimple, PlanColegio, porcentaje } from "../../EstadoColegio";
+import { ModulosColegio } from "./ModulosColegio";
 
 export const metadata: Metadata = { title: "Colegio" };
 
@@ -47,6 +48,7 @@ const NOMBRE_ACCION: Record<string, string> = {
   exportar_colegio: "Exportó los datos (ZIP)",
   soporte_inicio: "Entró como soporte (solo lectura)",
   soporte_fin: "Terminó el acceso de soporte",
+  colegio_modulo: "Cambió los módulos del colegio",
 };
 
 const horaLima = (d: Date) => d.toLocaleTimeString("es-PE", { timeZone: "America/Lima", hour: "2-digit", minute: "2-digit", hour12: false });
@@ -271,6 +273,8 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
         </Tarjeta>
 
       </div>
+
+      <ModulosColegio admin={admin} tenantId={t.id} />
 
       <section aria-labelledby="bitacora" className="flex flex-col gap-3">
         <h2 id="bitacora" className="flex items-center gap-2 font-heading text-titulo-2"><History className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Acciones de la plataforma</h2>

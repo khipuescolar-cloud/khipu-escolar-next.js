@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { Membership, Profile, Tenant } from "@/generated/prisma/client";
 import { activarInvitaciones } from "@/lib/server/auth";
+import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant } from "@/lib/server/db";
 import { cambiarGeneroProfesor, invitarUsuario, listarProfesores, reenviarInvitacion } from "@/lib/server/gestion";
 import { altaPersonal } from "@/lib/server/personal";
@@ -24,7 +25,7 @@ beforeAll(async () => {
   tenant = await db.tenant.create({ data: { slug: `test-ui2-${sufijo}`, nombre: "Colegio UI2", plan: "basico" } });
   direccion = await db.profile.create({ data: { id: randomUUID(), email: `dir-${sufijo}@prueba.demo`, nombres: "Dora", apellidos: "Directora" } });
   dirMembership = await db.membership.create({ data: { tenantId: tenant.id, userId: direccion.id, rol: "direccion" } });
-  ctx = { tenant, user: direccion, membership: dirMembership, rol: "direccion", roles: ["direccion"], db: dbTenant(tenant.id) };
+  ctx = { tenant, user: direccion, membership: dirMembership, rol: "direccion", roles: ["direccion"], db: dbTenant(tenant.id), ...accesoModulosDeCodigo(tenant.plan) };
 });
 
 afterAll(async () => {

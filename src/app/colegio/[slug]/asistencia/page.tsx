@@ -9,7 +9,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { fechaLarga, hora12 } from "@/lib/fechas";
-import { planIncluye } from "@/lib/planes";
 import { mensajePlazoVencido, textoPlazoJustificacion, textoUltimoDiaJustificacion } from "@/lib/plazo-justificacion";
 import { esVistaFamilia } from "@/lib/roles";
 import { MARCADOR_ALUMNO } from "@/lib/vista-previa";
@@ -19,7 +18,7 @@ import {
 import { renderizarPlantilla } from "@/lib/server/email/plantillas";
 import { obtenerOpcionesCanalesPago } from "@/lib/server/notificaciones/canales-pago";
 import { obtenerPreferencias } from "@/lib/server/notificaciones/preferencias";
-import { requireFeature } from "@/lib/server/plan";
+import { requireFeature, tieneFeature } from "@/lib/server/plan";
 import { requireTenantContext, type TenantContext } from "@/lib/server/tenant";
 import { armarMesAsistencia } from "@/lib/calendario-asistencia";
 import { CalendarioAsistencia, nombreMes } from "./CalendarioAsistencia";
@@ -174,7 +173,7 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
             <h2 id={`hijo-${h.id}`} className="text-titulo-2">
               {h.nombres} {h.apellidos} <span className="font-sans text-sm font-normal text-muted-foreground">· {h.salon}</span>
             </h2>
-            {!esAlumno && planIncluye(ctx.tenant.plan, "mensajes") && (
+            {!esAlumno && tieneFeature(ctx, "mensajes") && (
               <Link href={`/mensajes/nuevo?alumno=${h.id}`} className={cn(buttonVariants({ variant: "outline" }))}>
                 <MessageSquarePlus strokeWidth={2} aria-hidden /> Escribir a la tutora
               </Link>

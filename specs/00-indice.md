@@ -22,6 +22,7 @@ Cada módulo tiene su spec. Se actualiza en el mismo commit que cambia el compor
 | 16 | [Plataforma: super administrador](16-plataforma-superadmin.md) | Interno | implementado |
 | 17 | [CRM del colegio: profesores, personal y grados](17-crm-personal-colegio.md) | Básico | implementado |
 | 18 | [Sistema de diseño (tema, colores, formas, estilos)](18-sistema-de-diseno.md) | Todos | implementado (base) |
+| 19 | [Planes, módulos y roles (desde la BD)](19-planes-modulos-y-roles.md) | Interno | implementado |
 | 20 | [Responsables del colegio y suscripciones](20-responsables-y-suscripciones.md) | Interno | implementado |
 | 21 | [Operación de plataforma: usuarios, monitoreo y auditoría](21-operacion-de-plataforma.md) | Interno | implementado |
 | 22 | [Equipo Khipu, anuncios y configuración de la plataforma](22-equipo-anuncios-y-configuracion.md) | Interno | implementado |

@@ -2,6 +2,7 @@
 // La BD local es compartida: nunca se tocan los colegios demo ni se re-ejecuta el seed.
 import { randomUUID } from "node:crypto";
 import type { Plan, Rol } from "@/generated/prisma/enums";
+import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant } from "@/lib/server/db";
 import type { TenantContext } from "@/lib/server/tenant";
 
@@ -62,7 +63,7 @@ export async function crearColegioPrueba(
 
   function ctxDe(quien: keyof typeof miembros): TenantContext {
     const m = miembros[quien];
-    return { tenant, user: m.user, membership: m.membership, rol: m.membership.rol, roles: [m.membership.rol], db: dbTenant(tenant.id) };
+    return { tenant, user: m.user, membership: m.membership, rol: m.membership.rol, roles: [m.membership.rol], db: dbTenant(tenant.id), ...accesoModulosDeCodigo(tenant.plan) };
   }
 
   async function limpiar() {
@@ -70,7 +71,7 @@ export async function crearColegioPrueba(
     await db.profile.deleteMany({ where: { id: { in: perfiles } } });
   }
 
-  return { tenant, salon, otroSalon, cursoTutora, cursoAjeno, alumnos: { mateo, valentina, thiago }, miembros, ctxDe, limpiar, db: dbTenant(tenant.id) };
+  return { tenant, salon, otroSalon, cursoTutora, cursoAjeno, alumnos: { mateo, valentina, thiago }, miembros, ctxDe, limpiar, db: dbTenant(tenant.id), ...accesoModulosDeCodigo(tenant.plan) };
 }
 
 /** Espera a que una promesa que debe cortar con forbidden() lo haga (403). */

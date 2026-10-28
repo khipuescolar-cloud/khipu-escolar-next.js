@@ -7,6 +7,7 @@ import { forbidden } from "next/navigation";
 import { Prisma, type Archivo, type ExportacionColegio, type Membership } from "@/generated/prisma/client";
 import { auditar } from "./auditoria";
 import { db, dbTenant, MODELOS_GLOBALES } from "./db";
+import { accesoModulos } from "./modulos";
 import { borrarArchivoDelProveedor, leerArchivo, storage, subirArchivoDesdeRuta } from "./storage";
 import { requireRol, type TenantContext } from "./tenant";
 
@@ -358,7 +359,7 @@ async function contextoDeExportacion(tenantId: string, userId: string): Promise<
     cargo: "Exportación",
     createdAt: new Date(),
   };
-  return { tenant, user, membership, rol: "direccion", roles: ["direccion"], db: dbTenant(tenantId) };
+  return { tenant, user, membership, rol: "direccion", roles: ["direccion"], db: dbTenant(tenantId), ...(await accesoModulos(tenant, "direccion")) };
 }
 
 async function procesarUna(exp: ExportacionColegio): Promise<boolean> {

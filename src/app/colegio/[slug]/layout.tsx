@@ -10,11 +10,10 @@ import { MarcoPanel } from "@/components/shell/MarcoPanel";
 import { ShieldAlert } from "lucide-react";
 import { urlPlataforma } from "@/lib/dominio";
 import { mosaicosParaRol, NOMBRE_GRUPO, type GrupoNav } from "@/lib/navegacion";
-import { NOMBRE_PLAN, planIncluye, planMinimo } from "@/lib/planes";
 import { nombreRol } from "@/lib/roles";
 import { urlLogoColegio } from "@/lib/server/logo";
 import { conteoNoLeidos } from "@/lib/server/mensajes";
-import { FEATURES_PRIVADAS_SOPORTE } from "@/lib/server/plan";
+import { estadoModulo, tieneFeature } from "@/lib/server/plan";
 import { requireTenantContext, soporteVigenteHasta } from "@/lib/server/tenant";
 import { formatoHora } from "@/lib/fechas";
 import { AnunciosPlataforma } from "@/components/AnunciosPlataforma";
@@ -27,10 +26,11 @@ const ORDEN_GRUPOS: GrupoNav[] = ["dia", "comunicacion", "academico", "colegio"]
 export default async function LayoutColegio({ children, params }: LayoutProps<"/colegio/[slug]">) {
   const { slug } = await params;
   const ctx = await requireTenantContext(slug);
-  const plan = ctx.tenant.plan;
-  // Modo soporte (specs/16): sin chats, notas, libreta ni Nudito en la navegación.
-  const mosaicos = mosaicosParaRol(ctx.rol).filter((m) => !(ctx.soporte && FEATURES_PRIVADAS_SOPORTE.has(m.feature)));
-  const tieneMensajes = mosaicos.some((m) => m.contador === "mensajes" && planIncluye(plan, m.feature));
+  // Módulos quitados al colegio o al rol (specs/19) y, en modo soporte (specs/16), chats, notas, libreta y Nudito: no se muestran.
+  const mosaicos = mosaicosParaRol(ctx.rol)
+    .map((m) => ({ ...m, acceso: estadoModulo(ctx, m.feature) }))
+    .filter((m) => m.acceso.estado !== "oculto");
+  const tieneMensajes = mosaicos.some((m) => m.contador === "mensajes" && m.acceso.estado === "activo");
   const [logoUrl, sinLeer, estadoBarra, soporteHasta] = await Promise.all([
     urlLogoColegio(ctx.tenant),
     tieneMensajes ? conteoNoLeidos(ctx) : Promise.resolve(0),
@@ -54,7 +54,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
           href: m.href,
           titulo: m.titulo,
           icono: m.icono,
-          bloqueadoPlan: planIncluye(plan, m.feature) ? undefined : NOMBRE_PLAN[planMinimo(m.feature)],
+          bloqueadoPlan: m.acceso.estado === "bloqueado" ? m.acceso.planMinimo : undefined,
           contador: m.contador === "mensajes" ? sinLeer : undefined,
         })),
     })).filter((g) => g.items.length > 0),
@@ -116,7 +116,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
         <AnunciosPlataforma anuncios={anuncios} />
         </>
       }
-      flotante={ctx.rol === "apoderado" && planIncluye(plan, "nudito") && <NuditoWidget slug={slug} horario={horario} />}
+      flotante={ctx.rol === "apoderado" && tieneFeature(ctx, "nudito") && <NuditoWidget slug={slug} horario={horario} />}
     >
       {children}
     </MarcoPanel>

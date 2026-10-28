@@ -8,6 +8,7 @@ import { opcionesDeLista } from "@/lib/server/asistencia";
 import { panelAvisos } from "@/lib/server/avisos-panel";
 import { publicarComunicado, salonesParaPublicar } from "@/lib/server/comunicados";
 import { cursosDelDocente } from "@/lib/server/cursos";
+import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant } from "@/lib/server/db";
 import {
   archivarSalon, cambiarEstadoMembresia, crearAlumno, editarAlumno, editarDatosApoderado, eliminarSalon, importarAlumnosCsv, listarAlumnos,
@@ -37,7 +38,7 @@ async function miembro(clave: string, rol: Rol, t: Tenant = tenant, user?: Profi
   if (!user) perfiles.push(u.id);
   const membership = await db.membership.create({ data: { tenantId: t.id, userId: u.id, rol } });
   ms[clave] = membership;
-  ctxs[clave] = { tenant: t, user: u, membership, rol, roles: [rol], db: dbTenant(t.id) };
+  ctxs[clave] = { tenant: t, user: u, membership, rol, roles: [rol], db: dbTenant(t.id), ...accesoModulosDeCodigo(t.plan) };
   return u;
 }
 

@@ -6,9 +6,9 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { ICONOS_NAV } from "@/components/shell/iconos";
 import { Badge } from "@/components/ui/badge";
 import { type GrupoNav, mosaicosParaRol, NOMBRE_GRUPO } from "@/lib/navegacion";
-import { NOMBRE_PLAN, planIncluye, planMinimo } from "@/lib/planes";
 import { requireConsentimiento } from "@/lib/server/consentimiento";
 import { conteoNoLeidos } from "@/lib/server/mensajes";
+import { estadoModulo } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { ResumenDireccion } from "./ResumenDireccion";
 
@@ -20,8 +20,11 @@ export default async function InicioPage({ params }: PageProps<"/colegio/[slug]/
   const { slug } = await params;
   const ctx = await requireTenantContext(slug);
   await requireConsentimiento(ctx);
-  const mosaicos = mosaicosParaRol(ctx.rol);
-  const mensajesSinLeer = mosaicos.some((m) => m.contador === "mensajes" && planIncluye(ctx.tenant.plan, m.feature)) ? await conteoNoLeidos(ctx) : 0;
+  // Ocultos: quitados al colegio o al rol, o privados en modo soporte (specs/19, specs/16). Bloqueados: candado.
+  const mosaicos = mosaicosParaRol(ctx.rol)
+    .map((m) => ({ ...m, acceso: estadoModulo(ctx, m.feature) }))
+    .filter((m) => m.acceso.estado !== "oculto");
+  const mensajesSinLeer = mosaicos.some((m) => m.contador === "mensajes" && m.acceso.estado === "activo") ? await conteoNoLeidos(ctx) : 0;
 
   return (
     <div className="flex flex-col gap-8">
@@ -30,7 +33,7 @@ export default async function InicioPage({ params }: PageProps<"/colegio/[slug]/
         descripcion={
           <span className="inline-flex items-center gap-1.5">
             <ShieldCheck className="size-4 shrink-0" strokeWidth={2} aria-hidden />
-            Plan {NOMBRE_PLAN[ctx.tenant.plan]}
+            Plan {ctx.accesoModulos.nombrePlan}
           </span>
         }
       />
@@ -43,14 +46,14 @@ export default async function InicioPage({ params }: PageProps<"/colegio/[slug]/
             <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {delGrupo.map((m) => {
                 const Icono = ICONOS_NAV[m.icono];
-                const incluido = planIncluye(ctx.tenant.plan, m.feature);
+                const incluido = m.acceso.estado === "activo";
                 const contenido = (
                   <>
                     <span className="flex items-start justify-between gap-2">
                       <span className={`flex size-10 items-center justify-center rounded-md ${incluido ? "bg-superficie-2 text-primary" : "bg-superficie-2 text-muted-foreground"}`}>
                         <Icono className="size-5" strokeWidth={2} aria-hidden />
                       </span>
-                      {!incluido && <PlanLock planMinimo={planMinimo(m.feature)} />}
+                      {m.acceso.estado === "bloqueado" && <PlanLock nombrePlan={m.acceso.planMinimo} />}
                       {incluido && m.contador === "mensajes" && mensajesSinLeer > 0 && (
                         <Badge className="h-6 gap-1 bg-maiz px-2 text-sobre-maiz" data-testid="contador-mensajes">
                           <MailWarning strokeWidth={2} aria-hidden />
