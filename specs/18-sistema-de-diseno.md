@@ -1,113 +1,124 @@
 # 18 · Sistema de diseño (tema, colores, formas y estilos)
 
-- **Estado:** implementado (base y estructura) · páginas en migración
+- **Estado:** implementado · alineado al manual de marca (2026-10-28)
 - **Plan:** todos
 - **Fuente de verdad del código:** `src/app/globals.css` (tokens), `src/components/ui/*` (shadcn/ui), `src/components/shell/*` (estructura)
 - **Herramientas:** shadcn/ui (estilo `base-nova`, primitivas Base UI), Tailwind CSS v4, `lucide-react`, `next-themes`, `sonner`. Dirección visual definida con la skill *ui-ux-pro-max* (estilo «Minimalism & Swiss»: limpio, funcional, alto contraste, cuadrícula).
 
+## 0. Fuente de verdad
+
+El **manual de marca** entregado por marketing manda sobre esta spec: `docs/marca/MANUAL-DE-MARCA.md`, `docs/marca/tokens.json` y `docs/marca/documentos/04-identidad-visual.md` y `05-nudito-personaje.md`. Los SVG oficiales están en `public/marca/` (no se recolorean, estiran, giran ni se les pone sombra o degradado). Si algo de esta spec contradice el manual, se corrige la spec.
+
 ## 1. Principios
 
-1. **Claridad antes que decoración.** Es una herramienta de trabajo para dirección y profesores, y una ventana tranquila para las familias. Una idea por pantalla, una acción principal por bloque.
-2. **Estado = ícono + palabra + color.** Nunca solo color (daltonismo, pantallas al sol).
-3. **Celular primero.** Los profesores pasan lista y los padres consultan desde el teléfono: objetivos táctiles ≥ 40 px (botones `h-10`, recomendados 44 px en acciones frecuentes), nada de scroll horizontal salvo tablas, que se desplazan dentro de su contenedor.
-4. **Marca peruana sobria.** Índigo de base, maíz como chispa, cochinilla y turquesa como acentos. Sin degradados chillones ni emojis como íconos.
-5. **Accesible (WCAG 2.2 AA).** Contraste ≥ 4.5:1 en texto, foco visible, navegación con teclado, `prefers-reduced-motion` respetado.
+1. **Confiable, cercana, clara y orgullosamente peruana** (personalidad de marca). Moderna, nunca «de souvenir»: nada de grecas, llamas ni mezclar todos los colores.
+2. **Proporción de color en una pantalla:** 60 % fondo claro, 25 % `indigo`, 10 % `cochinilla` o `turquesa`, 5 % `maiz`.
+3. **Estado = ícono + palabra + color.** Nunca solo color (daltonismo, correos impresos en blanco y negro).
+4. **Celular primero:** controles ≥ 40 px, margen lateral mínimo `espacio-4` (16 px), sin scroll horizontal de página.
+5. **Accesible (WCAG 2.2 AA):** todo par de texto ≥ 4.5:1 (revisado en `tokens.json`); foco visible; `prefers-reduced-motion`.
 
 ## 2. Tema y modos
 
-- Claro y oscuro con `next-themes` (`attribute="class"`, por defecto **sigue al dispositivo**). El usuario lo cambia en *Menú de cuenta → Tema*.
-- Todo color se usa por **token**, nunca hex sueltos en componentes. El modo oscuro solo redefine variables en `.dark`.
-- Variante de Tailwind: `dark:` = `&:is(.dark *)`.
+- Claro y oscuro con los valores de `tokens.json` (`next-themes`, `attribute="class"`, por defecto sigue al dispositivo; el usuario elige en *Menú de cuenta → Tema*).
+- Todo color se usa por **token** (`src/app/globals.css`), nunca hex sueltos en componentes.
 
-## 3. Colores
+## 3. Colores (`tokens.json`)
 
 ### 3.1 Marca
 
-| Token | Hex | Uso |
-|---|---|---|
-| `indigo` | `#1E2A78` | Color primario: botones principales, barra lateral, enlaces activos |
-| `indigo-cielo` | `#3A4BB5` (oscuro `#A5B0F5`) | Anillo de foco, hover de enlaces |
-| `maiz` | `#F2B84B` | Chispa: indicador de ítem activo, avatar, insignias en fondo índigo. **Nunca texto sobre blanco** (1.8:1) |
-| `cochinilla` | `#A8325E` | Contador de notificaciones, acento secundario |
-| `turquesa` | `#0F7C7A` | Acento informativo, gráficos |
-
-### 3.2 Roles semánticos (tokens shadcn → marca)
-
-| Token shadcn | Claro | Oscuro | Uso |
+| Token | Claro | Oscuro | Uso |
 |---|---|---|---|
-| `background` | `#FAF7F2` (papel cálido) | `#12141C` | Fondo de la app |
-| `foreground` | `#1B1F2A` (tinta) | `#F1EFE9` | Texto principal |
-| `card` / `popover` | `#FFFFFF` | `#1B1F2A` | Tarjetas, menús, modales |
-| `primary` | `#1E2A78` | `#8F9CF0` | Acción principal |
-| `secondary` / `muted` | `#F3F0EA` | `#242938` | Fondos secundarios |
-| `muted-foreground` | `#5B6170` (pizarra) | `#B4B8C4` | Texto de apoyo (≥ 4.5:1) |
-| `accent` | `#ECEEFA` | `#2A3052` | Hover de ítems de menú |
-| `destructive` | `#B91C1C` | `#F87171` | Acciones que borran o desactivan |
-| `border` | `#E4E1DA` (arena) | `#343A4C` | Bordes |
-| `input` | `#D6D2C9` | `#434A60` | Borde de campos |
-| `ring` | `#3A4BB5` | `#A5B0F5` | Foco |
-| `sidebar` | `#1E2A78` | `#161A33` | Barra lateral (texto `#E8EAF8`, activo con barra maíz) |
-| `chart-1…5` | índigo, turquesa, cochinilla, maíz, índigo cielo | versiones claras | Gráficos |
+| `indigo` | `#1E2A78` | `#2F3FA8` | Color de la marca y de la **barra superior** del panel; fondo del ícono de app. Texto `blanco` encima |
+| `indigo-cielo` | `#3A4BB5` | `#A9B5FF` | **Enlaces** (`.enlace`), gráficos y **anillo de foco** |
+| `cochinilla` | `#A8325E` | `#E8789F` | Nudito y destacados. **Nunca para errores** |
+| `turquesa` | `#0F7C7A` | `#4FC3BF` | Íconos de acento, etiquetas de curso, gráficos (`chart-1`) |
+| `maiz` | `#F2B84B` | `#F2B84B` | Solo nudos y fondos cálidos (contadores, franja de soporte). **Nunca texto sobre blanco**; encima va `sobre-maiz` (tinta) |
+| `blanco` | `#FFFFFF` | — | Texto y marca sobre `indigo` |
 
-Los nombres propios anteriores (`fondo`, `superficie`, `superficie-2`, `tinta`, `pizarra`, `arena`, `acento`) siguen existiendo y apuntan a los mismos valores. En código nuevo usa los nombres shadcn (`bg-card`, `text-muted-foreground`, `border`).
+### 3.2 Interfaz
 
-### 3.3 Estados de asistencia (siempre ícono + palabra)
-
-| Estado | Texto / fondo claro | Oscuro | Ícono Lucide |
+| Token | Claro | Oscuro | Uso |
 |---|---|---|---|
-| Llegó | `#166534` / `#E8F5EC` | `#86EFAC` / `#14321F` | `CheckCircle2` |
-| Tarde | `#9A4A07` / `#FDF2E3` | `#FCD34D` / `#3A2A0C` | `Clock` |
-| Falta | `#B91C1C` / `#FBEAEA` | `#FCA5A5` / `#3D1515` | `XCircle` |
-| Problema | `#6B21A8` / `#F3E8FB` | `#D8B4FE` / `#2E1A40` | `AlertTriangle` |
+| `fondo` (`background`) | `#FAF7F2` | `#12141C` | Página. Crema cálido, nunca blanco puro |
+| `superficie` (`card`, `sidebar`) | `#FFFFFF` | `#1A1D28` | Tarjetas, mosaicos, formularios, barra lateral |
+| `superficie-2` (`muted`, `secondary`, `accent`) | `#F3F0EA` | `#222636` | Botón secundario, campos deshabilitados, hover de menús |
+| `tinta` (`foreground`) | `#1B1F2A` | `#ECEEF5` | Texto principal |
+| `pizarra` (`muted-foreground`) | `#5B6170` | `#A3A9BA` | Texto secundario, fechas, ayudas, sobretítulos |
+| `arena` (`border`) | `#E4E1DA` | `#2E3345` | Divisiones y bordes de tarjetas (no de controles) |
+| `acento` (`primary`) | `#1E2A78` | `#8C9BFF` | Botón principal y **estados activos** (ítem activo de la barra lateral) |
+| `sobre-acento` | `#FFFFFF` | `#10132A` | Texto sobre `acento` |
 
-Clases: `text-llego bg-llego-fondo`, `text-tarde bg-tarde-fondo`, `text-falta bg-falta-fondo`, `text-problema bg-problema-fondo`. Las mismas sirven para éxito, aviso, error y especial en `Alerta`.
+### 3.3 Estados de asistencia (fijos, no cambian por colegio)
 
-## 4. Tipografía
+| Estado | Palabra | Ícono (Lucide) | Texto / fondo claro | Oscuro |
+|---|---|---|---|---|
+| Llegó | «Llegó» | `Check` (✓) | `#166534` / `#E8F5EC` | `#6FD394` / `#16301F` |
+| Tarde | «Tarde» | `Clock` | `#9A4A07` / `#FDF2E3` | `#F5B266` / `#33240F` |
+| Falta | «No llegó» | `CircleAlert` (!) | `#B91C1C` / `#FBEAEA` | `#FF8A8A` / `#3A1A1A` |
+| Problema | «Aviso» | `TriangleAlert` | mismo rojo que falta | mismo rojo que falta |
 
-| Rol | Fuente | Tamaños |
-|---|---|---|
-| Títulos (`h1–h3`, `font-heading`) | **Sora** 600–700, `tracking-tight`, `text-balance` | h1 `text-2xl sm:text-3xl` · h2 `text-xl` · h3 `text-base font-semibold` |
-| Texto (`font-sans`) | **Inter** 400–600 | Cuerpo `text-base` en móvil (evita el zoom de iOS en campos), `text-sm` en tablas y ayudas |
-| Nudito (`font-nudito`) | **Nunito** | Solo en el asistente Nudito |
+El rojo de falta también es el de **errores del sistema** (`destructive`). El verde y el rojo se distinguen además por su claridad.
 
-Interlineado 1.5 en cuerpo, máximo `max-w-prose` para párrafos largos. Nada de texto de cuerpo menor a 12 px.
+## 4. Tipografía (`tokens.json` · type)
 
-## 5. Formas, espacio y elevación
+| Clase | Fuente | Tamaño / interlínea / peso | Uso |
+|---|---|---|---|
+| `text-titulo-xl` | Sora | 40/44 · 700 · −0.02em | Portadas (login) |
+| `text-titulo-1` | Sora | 32/38 · 700 · −0.01em | Título de cada pantalla (`EncabezadoPagina`) |
+| `text-titulo-2` | Sora | 22/28 · 600 | Subtítulos y títulos de sección |
+| `text-cuerpo` | Inter | 16/24 · 400 | Texto de lectura (por defecto en `body`) |
+| `text-cuerpo-sm` | Inter | 14/20 · 400 | Secundario y descripciones de mosaicos, en `pizarra` |
+| `text-etiqueta` | Inter | 13/16 · 600 | Etiquetas de estado, chips, botones pequeños |
+| `sobretitulo` | Inter | 12/16 · 600 · 0.1em · MAYÚSCULAS · `pizarra` | Rótulos sobre grupos de mosaicos y de la barra lateral («MI DÍA») |
+| `text-voz-nudito` | Nunito | 15/22 · 700 | **Solo** burbujas de Nudito |
 
-- **Radios:** `--radius` 10 px. Campos y botones `rounded-md` (10 px); tarjetas y modales `rounded-xl` (18 px); píldoras e insignias `rounded-pildora`.
-- **Espaciado:** escala de 4 px de Tailwind. Página: `px-4 sm:px-6`, `py-6 lg:py-8`, ancho máximo `max-w-6xl`. Entre secciones `gap-6`/`space-y-8`; dentro de tarjetas `p-5`.
-- **Sombras:** mínimas (Swiss). Tarjetas `shadow-xs` + borde; menús y modales usan la sombra de shadcn. Sin sombras de color.
-- **Bordes:** 1 px `border` (arena). Separadores con `Separator`.
-- **Alturas de control:** botón `h-10` (sm `h-9`, lg `h-11`), campo `h-10`, ítem de barra lateral `h-10`, ícono `size-10`.
+- El texto de lectura **nunca baja de 14 px** (`text-xs` quedó en 13 px y solo se usa para etiquetas).
+- Los títulos llevan `text-wrap: balance` (regla base en `globals.css`).
+- En correos: fuentes con respaldo `Arial, Helvetica, sans-serif`.
 
-## 6. Iconografía
+## 5. Espacio, radios y sombras
 
-- `lucide-react`, **trazo 2**, tamaño 16 px en botones y menús, 20–24 px en tarjetas. Importar íconos uno por uno (no `import *`) en componentes cliente.
-- Íconos decorativos con `aria-hidden`; botones solo-ícono con `aria-label`.
-- Prohibido usar emojis como íconos.
+- **Espacio:** `espacio-1…12` = 4, 8, 12, 16, 24, 32, 48 px (escala de Tailwind: 1, 2, 3, 4, 6, 8, 12). Relleno de tarjetas y mosaicos 16 px; entre grupos 24 px; entre secciones 32 px.
+- **Radios:** `rounded-sm` 6 px (chips cuadrados) · `rounded-md` 10 px (**botones, campos, segmentos de asistencia**) · `rounded-lg` 14 px (**tarjetas, mosaicos, modales**; `rounded-xl` y `rounded-2xl` también valen 14 px) · `rounded-pildora` (etiquetas de estado y de plan).
+- **Sombras:** en reposo **nada lleva sombra**; las tarjetas se separan con borde `arena` (`shadow-xs`/`shadow-sm` valen `none`). `shadow-sombra-1` solo **al pasar el cursor por un mosaico** y en el **botón flotante de Nudito**; los menús y modales flotantes usan la misma `sombra-1`.
+- **Foco:** anillo sólido de **2 px en `indigo-cielo`, separado 2 px** del control (regla global `:focus-visible`).
+
+## 6. Logotipo, isotipo e íconos
+
+| Pieza (`public/marca/`) | Dónde se usa en el sistema |
+|---|---|
+| `logotipo-horizontal-blanco.svg` | Barra superior `indigo` del panel y portada del login (componente `Logo tono="blanco"`) |
+| `logotipo-horizontal.svg` | Sobre fondos claros (`Logo`); `logotipo-horizontal@2x.png` en los correos |
+| `logotipo-escolar.svg` | Versión pública: login en celular (`Logo variante="escolar"`) |
+| `isotipo.svg` / `isotipo-blanco.svg` | Cabecera de la barra lateral cuando el colegio no tiene insignia (`Logo variante="isotipo"`) |
+| `favicon.svg` (+ `favicon-32.png`) | Pestaña del navegador (`src/app/icon.svg`) e insignia de las notificaciones push |
+| `icono-app.svg` (+ `icono-192/512.png`, `apple-touch-icon.png`) | Manifiesto PWA y pantalla de inicio del celular |
+| `nudito.svg` (+ `nudito@2x.png`) | Mascota (widget, avatar del chat, correos de Nudito) |
+| `patron-khipu.svg` | Fondo decorativo de portadas (login); nunca detrás de texto largo |
+
+- **Nombre:** «Khipu Escolar» en lo público; dentro del panel la barra superior dice solo «khipu». Nunca «Quipu», «Kipu» ni «KHIPU». Nada de monedas, tarjetas ni gráficos de pagos junto a la marca.
+- **Tamaños mínimos:** logotipo horizontal 96 px de ancho; isotipo 24 px (por debajo, `favicon.svg`). Área de seguridad: media altura de la «k».
+- **Íconos:** Lucide de línea, trazo 2, puntas redondeadas, en `tinta` o `indigo`; el color de estado solo en íconos de asistencia. Sin íconos rellenos, 3D ni emojis en avisos serios.
 
 ## 7. Estructura de la app (shell)
 
 ```
-┌────────────┬──────────────────────────────────────────┐
-│ Barra      │ Barra superior (sticky, h-14):           │
-│ lateral    │ [≡] Título de sección        [🔔 3]      │
-│ índigo     ├──────────────────────────────────────────┤
-│            │ EncabezadoPagina: h1 + descripción  [Acción] │
-│ Inicio     │                                          │
-│ Día a día  │ Contenido (max-w-6xl)                    │
-│ Comunicac. │                                          │
-│ Académico  │                                          │
-│ Colegio    │                                          │
-│ [Avatar ▾] │                                          │
-└────────────┴──────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│ [≡]  khipu  (logotipo blanco)        BARRA SUPERIOR · indigo  [🔔•] │
+├────────────┬─────────────────────────────────────────────────┤
+│ [insignia] │ titulo-1 (EncabezadoPagina)          [Acción]    │
+│ Colegio    │                                                 │
+│ DÍA A DÍA  │  Tarjetas `superficie` con borde `arena`        │
+│ ▌Pasar lista (activo en acento)                              │
+│ ACADÉMICO  │                                                 │
+│ [Avatar ▾] │                                                 │
+└────────────┴─────────────────────────────────────────────────┘
 ```
 
-- **Barra lateral** (`components/shell/BarraLateral.tsx`, shadcn `Sidebar`): logo e insignia del colegio arriba, módulos agrupados por rol (`lib/navegacion.ts` → `grupo`), ítem activo con barra maíz. Funciones fuera del plan aparecen con candado (`Lock`) y tooltip con el plan que las incluye. En escritorio se colapsa a íconos (`Ctrl/⌘ + B`, estado guardado en cookie `sidebar_state`); en móvil (< 768 px) es un **drawer** (`Sheet`) que se cierra al navegar.
-- **Menú de cuenta** (`MenuUsuario.tsx`): nombre, correo, *Entrar como* (cambio de rol), Mi perfil, Tema y Salir.
-- **Barra superior** (`BarraSuperior.tsx`): botón de menú, título de la sección actual y **campana de notificaciones** con contador (hoy: mensajes sin leer).
-- El panel de **Plataforma** (super administrador) usa la misma estructura con su propio menú.
-- Las páginas públicas (login, recuperar, justificar) no llevan barra lateral: tarjeta centrada sobre `background`, con el logo.
+- `MarcoPanel` (`src/components/shell/MarcoPanel.tsx`): barra superior a todo el ancho y debajo la barra lateral y el contenido (`--header-height` 3.5rem). Lo usan el colegio y la plataforma.
+- **Barra superior** (`BarraSuperior.tsx`): fondo `indigo`, botón de menú, logotipo blanco (enlace al inicio), etiqueta opcional («Plataforma») y campana con contador en nudo `maiz` + número en tinta.
+- **Barra lateral** (`BarraLateral.tsx`): `superficie` con borde `arena`; cabecera con la insignia y el nombre del colegio; grupos con `sobretitulo`; ítem activo relleno en `acento` con texto `sobre-acento`; funciones fuera del plan con candado. Colapsable a íconos (Ctrl/⌘+B) y **drawer** en móvil.
+- **Páginas públicas:** portada `indigo` con logotipo blanco, lema en `titulo-xl`, tres puntos y el patrón; en móvil, `logotipo-escolar` sobre `fondo`.
 
 ## 8. Patrones de componentes
 
