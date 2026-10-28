@@ -90,6 +90,7 @@ enum TipoAviso {
   tarea
   alerta_direccion
   libreta
+  soporte
 }
 
 enum CanalAviso {
@@ -222,6 +223,8 @@ model Tenant {
   suscripcion           Suscripcion?
   pagos                 PagoRegistro[]
   feriados              FeriadoExtra[]
+  ticketsSoporte        TicketSoporte[]
+  mensajesSoporte       MensajeSoporte[]
 
   @@map("tenants")
 }
@@ -283,6 +286,7 @@ model Membership {
   tareasCreadas            Tarea[]
   eventosCreados           EventoAgenda[]
   nuditoConversaciones     NuditoConversacion[]
+  ticketsSoporte           TicketSoporte[]      @relation("TicketsCreados")
   alumnoVinculado          Alumno?              @relation("CuentaAlumno")
   cierresCurso             CierreCurso[]
 
@@ -538,26 +542,29 @@ model Justificacion {
 
 /// Archivos subidos (Cloudinary hoy, S3 después). Los de menores son privados.
 model Archivo {
-  id           String           @id @default(uuid()) @db.Uuid
-  tenantId     String           @map("tenant_id") @db.Uuid
-  proveedor    ProveedorArchivo
-  publicId     String           @map("public_id")
-  url          String? // solo para archivos públicos (p. ej. logo)
-  mimeType     String           @map("mime_type")
-  bytes        Int
-  privado      Boolean          @default(true)
-  subidoPorId  String?          @map("subido_por") @db.Uuid
+  id               String           @id @default(uuid()) @db.Uuid
+  tenantId         String           @map("tenant_id") @db.Uuid
+  proveedor        ProveedorArchivo
+  publicId         String           @map("public_id")
+  url              String? // solo para archivos públicos (p. ej. logo)
+  mimeType         String           @map("mime_type")
+  bytes            Int
+  privado          Boolean          @default(true)
+  subidoPorId      String?          @map("subido_por") @db.Uuid
   /// Adjunto de un comunicado o de una tarea (specs/09, specs/12).
-  comunicadoId String?          @map("comunicado_id") @db.Uuid
-  tareaId      String?          @map("tarea_id") @db.Uuid
-  nombre       String?
-  createdAt    DateTime         @default(now()) @map("created_at") @db.Timestamptz
+  comunicadoId     String?          @map("comunicado_id") @db.Uuid
+  tareaId          String?          @map("tarea_id") @db.Uuid
+  /// Captura o archivo adjunto a un mensaje de la mesa de ayuda (specs/23).
+  mensajeSoporteId String?          @map("mensaje_soporte_id") @db.Uuid
+  nombre           String?
+  createdAt        DateTime         @default(now()) @map("created_at") @db.Timestamptz
 
   tenant          Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   justificaciones Justificacion[]
   comunicado      Comunicado?          @relation(fields: [comunicadoId], references: [id], onDelete: Cascade)
   tarea           Tarea?               @relation(fields: [tareaId], references: [id], onDelete: Cascade)
   exportaciones   ExportacionColegio[]
+  mensajeSoporte  MensajeSoporte?      @relation(fields: [mensajeSoporteId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
   @@index([comunicadoId])
@@ -1157,4 +1164,90 @@ model ConfigPlataforma {
   updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
 
   @@map("config_plataforma")
+}
+
+// ─── Mesa de ayuda: chat colegio ↔ equipo Khipu (specs/23) ───────────────────
+
+enum CategoriaTicket {
+  duda
+  problema
+  sugerencia
+  facturacion
+  cuentas_accesos
+  otro
+}
+
+enum PrioridadTicket {
+  baja
+  normal
+  alta
+  urgente
+}
+
+enum EstadoTicket {
+  abierto // nuevo, sin respuesta de Khipu
+  en_progreso // Khipu lo está atendiendo
+  esperando_colegio // Khipu respondió y espera al colegio
+  resuelto // Khipu lo dio por resuelto (el colegio puede reabrir)
+  cerrado // cerrado definitivamente
+}
+
+enum AutorSoporte {
+  colegio
+  khipu
+  sistema // cambios de estado y asignación
+}
+
+/// Conversación de soporte de un colegio con el equipo Khipu.
+model TicketSoporte {
+  id                   String          @id @default(uuid()) @db.Uuid
+  tenantId             String          @map("tenant_id") @db.Uuid
+  asunto               String
+  categoria            CategoriaTicket @default(duda)
+  prioridad            PrioridadTicket @default(normal)
+  estado               EstadoTicket    @default(abierto)
+  /// Membresía de quien la abrió (dirección o quien tenga el módulo «soporte»).
+  creadoPorId          String          @map("creado_por") @db.Uuid
+  /// Perfil del super administrador asignado (sin FK: el equipo vive en admins_plataforma).
+  asignadoAId          String?         @map("asignado_a") @db.Uuid
+  ultimoMensajeAt      DateTime        @default(now()) @map("ultimo_mensaje_at") @db.Timestamptz
+  primeraRespuestaAt   DateTime?       @map("primera_respuesta_at") @db.Timestamptz
+  resueltoAt           DateTime?       @map("resuelto_at") @db.Timestamptz
+  /// Hasta cuándo leyó cada lado (contadores de no leídos).
+  leidoColegioHasta    DateTime?       @map("leido_colegio_hasta") @db.Timestamptz
+  leidoKhipuHasta      DateTime?       @map("leido_khipu_hasta") @db.Timestamptz
+  /// Valoración del colegio (1–5) y comentario opcional.
+  valoracion           Int?
+  comentarioValoracion String?         @map("comentario_valoracion")
+  createdAt            DateTime        @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt            DateTime        @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant    Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  creadoPor Membership       @relation("TicketsCreados", fields: [creadoPorId], references: [id], onDelete: NoAction)
+  mensajes  MensajeSoporte[]
+
+  @@index([tenantId, ultimoMensajeAt])
+  @@index([estado, ultimoMensajeAt])
+  @@index([asignadoAId])
+  @@map("tickets_soporte")
+}
+
+/// Mensaje de una conversación de soporte. `interno = true`: nota del equipo Khipu que el colegio no ve.
+model MensajeSoporte {
+  id        String       @id @default(uuid()) @db.Uuid
+  tenantId  String       @map("tenant_id") @db.Uuid
+  ticketId  String       @map("ticket_id") @db.Uuid
+  autor     AutorSoporte
+  /// Perfil de quien escribe; null en mensajes del sistema.
+  autorId   String?      @map("autor_id") @db.Uuid
+  cuerpo    String
+  interno   Boolean      @default(false)
+  createdAt DateTime     @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant   Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  ticket   TicketSoporte @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  adjuntos Archivo[]
+
+  @@index([ticketId, createdAt])
+  @@map("mensajes_soporte")
 }

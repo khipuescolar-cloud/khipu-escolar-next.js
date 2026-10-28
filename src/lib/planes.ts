@@ -23,6 +23,8 @@ export const FEATURES = {
   tareas: "fase2",
   agenda: "fase2",
   nudito: "promax",
+  /** Chat con el equipo Khipu (mesa de ayuda, specs/23): en todos los planes. */
+  soporte: "basico",
 } as const satisfies Record<string, Plan>;
 
 export type Feature = keyof typeof FEATURES;

@@ -4,7 +4,7 @@ import type { Feature } from "@/lib/planes";
 
 export type IconoMosaico =
   | "ClipboardCheck" | "ScanLine" | "MailCheck" | "FileText" | "MessagesSquare" | "Megaphone"
-  | "Users" | "Settings" | "GraduationCap" | "BookOpen" | "ListTodo" | "CalendarDays" | "Sparkles" | "School";
+  | "Users" | "Settings" | "LifeBuoy" | "GraduationCap" | "BookOpen" | "ListTodo" | "CalendarDays" | "Sparkles" | "School";
 
 /** Grupo de la barra lateral. */
 export type GrupoNav = "dia" | "comunicacion" | "academico" | "colegio";
@@ -45,6 +45,7 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/gestion", grupo: "colegio", titulo: "Gestión", descripcion: "Profesores, personal, grados, alumnos y familias.", icono: "Users", feature: "gestion", roles: ["direccion"] },
   { href: "/gestion", grupo: "colegio", titulo: "Alumnos y familias", descripcion: "Altas, datos e invitaciones de alumnos y familias.", icono: "Users", feature: "gestion", roles: ["administrativo"] },
   { href: "/configuracion", grupo: "colegio", titulo: "Configuración", descripcion: "Avisos, logo, dominio y escala de notas.", icono: "Settings", feature: "gestion", roles: ["direccion"] },
+  { href: "/soporte", grupo: "colegio", titulo: "Soporte Khipu", descripcion: "Escríbele al equipo de Khipu Escolar: dudas, problemas o sugerencias.", icono: "LifeBuoy", feature: "soporte", roles: ["direccion", "administrativo"] },
 ];
 
 export function mosaicosParaRol(rol: Rol): Mosaico[] {
