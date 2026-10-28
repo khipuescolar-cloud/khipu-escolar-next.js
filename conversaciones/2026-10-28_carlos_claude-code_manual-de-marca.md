@@ -36,3 +36,10 @@
 
 - Las páginas públicas fuerzan el tema claro (`forcedTheme="light"` en `Proveedores` según la ruta, `colorScheme: light` en su layout y el toaster sigue el tema forzado). La preferencia guardada del usuario no se borra: el panel la sigue respetando (verificado con preferencia «Oscuro»: login claro, panel oscuro).
 - Se corrigió un error de typecheck preexistente (TS2321 en `salones-activos.ts`) declarando el tipo de resultado.
+
+## Continuación: rediseño del login
+
+> /ui-ux-pro-max [captura del login] mejoremos el diseño y como esta organizado el login
+
+- Diagnóstico: patrón como recorte pegado en el panel, formulario pequeño perdido en espacio vacío, sin ver contraseña ni ayuda de primera vez, jerarquía débil.
+- Cambios: portada en dos mitades con sobretítulo, lema, promesa de marca, tres puntos con título y frase, y cuerdas de khipu (`src/components/marca/CuerdasKhipu.tsx`) colgando hasta el borde; formulario de 440 px con `titulo-1`, campos de 44 px, `CampoClave` (botón «Mostrar lo escrito», sin la palabra «contraseña» para no chocar con la etiqueta), botón a todo el ancho, ayuda «¿Primera vez?» y pie © Khipu Escolar. Pautas de la skill aplicadas: visibilidad de la contraseña, etiquetas visibles, controles ≥ 44 px.

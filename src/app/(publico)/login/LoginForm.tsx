@@ -6,6 +6,7 @@ import { useActionState, useEffect, useState } from "react";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
+import { CampoClave } from "@/components/ui/CampoClave";
 import { detectarColegio, loginAction, type EstadoLogin } from "./actions";
 
 export function LoginForm({ emailInicial }: { emailInicial?: string }) {
@@ -21,12 +22,17 @@ export function LoginForm({ emailInicial }: { emailInicial?: string }) {
   }, [email]);
 
   return (
-    <form action={accion} className="flex flex-col gap-4">
+    <form action={accion} className="flex flex-col gap-5">
       <Campo
         etiqueta="Correo"
         name="email"
         type="email"
+        inputMode="email"
         autoComplete="email"
+        autoCapitalize="none"
+        spellCheck={false}
+        autoFocus
+        className="h-11"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
@@ -42,13 +48,13 @@ export function LoginForm({ emailInicial }: { emailInicial?: string }) {
           <UserRound className="size-4" strokeWidth={2} aria-hidden /> Cuenta de familia: verás a todos tus hijos.
         </p>
       )}
-      <Campo etiqueta="Contraseña" name="password" type="password" autoComplete="current-password" required />
+      <CampoClave etiqueta="Contraseña" name="password" autoComplete="current-password" required />
       {estado.error && <Alerta tipo="error">{estado.error}</Alerta>}
-      <Boton type="submit" tamano="lg" disabled={enviando}>
+      <Boton type="submit" tamano="lg" disabled={enviando} className="mt-1 w-full">
         {enviando && <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />}
         {enviando ? "Entrando…" : "Entrar"}
       </Boton>
-      <Link href="/recuperar" className="enlace inline-flex min-h-10 items-center justify-center text-cuerpo-sm">
+      <Link href="/recuperar" className="enlace inline-flex min-h-10 items-center justify-center self-center text-cuerpo-sm">
         ¿Olvidaste tu contraseña?
       </Link>
     </form>

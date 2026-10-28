@@ -119,7 +119,8 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 - `MarcoPanel` (`src/components/shell/MarcoPanel.tsx`): barra superior a todo el ancho y debajo la barra lateral y el contenido (`--header-height` 3.5rem). Lo usan el colegio y la plataforma.
 - **Barra superior** (`BarraSuperior.tsx`): fondo `indigo`, botón de menú, logotipo blanco (enlace al inicio), etiqueta opcional («Plataforma») y campana con contador en nudo `maiz` + número en tinta.
 - **Barra lateral** (`BarraLateral.tsx`): `superficie` con borde `arena`; cabecera con la insignia y el nombre del colegio; grupos con `sobretitulo`; ítem activo relleno en `acento` con texto `sobre-acento`; funciones fuera del plan con candado. Colapsable a íconos (Ctrl/⌘+B) y **drawer** en móvil.
-- **Páginas públicas:** portada `indigo` con logotipo blanco, lema en `titulo-xl`, tres puntos y el patrón; en móvil, `logotipo-escolar` sobre `fondo`.
+- **Páginas públicas** (`(publico)/layout.tsx`): escritorio en dos mitades. Izquierda, portada `indigo`: logotipo blanco, sobretítulo «PARA COLEGIOS DEL PERÚ», lema en `titulo-xl`, la promesa de marca, tres puntos (ícono + título + frase) y las cuerdas de khipu (`CuerdasKhipu`, en los tonos claros de la paleta) colgando hasta el borde inferior, nunca detrás del texto. Derecha, el formulario (máx. 440 px) centrado y un pie «© Khipu Escolar · Perú». En móvil: `logotipo-escolar`, formulario y pie. Siempre en tema claro.
+- **Login:** tarjeta con sobretítulo «INGRESA A TU COLEGIO», `titulo-1` «Entrar», campos de 44 px, contraseña con botón «Mostrar lo escrito» (`CampoClave`), botón principal a todo el ancho y bloque de ayuda «¿Primera vez?».
 
 ## 8. Patrones de componentes
 
