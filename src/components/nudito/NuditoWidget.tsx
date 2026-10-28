@@ -16,7 +16,8 @@ const MAX = 500;
 export const AVISO_IA = "Soy un asistente con IA. Si no sé algo, te paso con una persona del colegio.";
 const SUGERENCIAS = ["¿Qué tareas hay esta semana?", "¿Qué fechas importantes vienen?", "¿Cuál es el horario?"];
 
-export function NuditoWidget({ slug }: { slug: string }) {
+/** `horario`: horas de Lima en que Nudito está despierto (editable en Configuración de la plataforma; por defecto 7–17). */
+export function NuditoWidget({ slug, horario }: { slug: string; horario?: { inicio: number; fin: number } }) {
   const [abierto, setAbierto] = useState(false);
   const [mensajes, setMensajes] = useState<Burbuja[]>([]);
   const [texto, setTexto] = useState("");
@@ -45,7 +46,7 @@ export function NuditoWidget({ slug }: { slug: string }) {
     setSaludando(true);
     setTimeout(() => setSaludando(false), 1200);
   }
-  const estado = elegirEstadoNudito({ ahora: ahora ?? new Date(2026, 0, 5, 12), pensando: pendiente, saludando });
+  const estado = elegirEstadoNudito({ ahora: ahora ?? new Date(2026, 0, 5, 12), pensando: pendiente, saludando, horario });
 
   useEffect(() => {
     if (abierto) inputRef.current?.focus();

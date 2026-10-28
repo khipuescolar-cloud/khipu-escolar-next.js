@@ -21,6 +21,34 @@ const FERIADOS_FIJOS = [
   "12-25", // Navidad
 ];
 
+/** Nombre de cada feriado nacional de fecha fija (MM-DD). */
+const NOMBRES_FERIADOS_FIJOS: Record<string, string> = {
+  "01-01": "Año Nuevo",
+  "05-01": "Día del Trabajo",
+  "06-07": "Batalla de Arica y Día de la Bandera",
+  "06-29": "San Pedro y San Pablo",
+  "07-23": "Día de la Fuerza Aérea",
+  "07-28": "Fiestas Patrias",
+  "07-29": "Fiestas Patrias",
+  "08-06": "Batalla de Junín",
+  "08-30": "Santa Rosa de Lima",
+  "10-08": "Combate de Angamos",
+  "11-01": "Todos los Santos",
+  "12-08": "Inmaculada Concepción",
+  "12-09": "Batalla de Ayacucho",
+  "12-25": "Navidad",
+};
+
+/** Feriados nacionales de un año con su nombre, ordenados por fecha. */
+export function feriadosNacionalesConNombre(anio: number): { fecha: string; nombre: string }[] {
+  const pascua = domingoDePascua(anio);
+  return [
+    ...FERIADOS_FIJOS.map((md) => ({ fecha: `${anio}-${md}`, nombre: NOMBRES_FERIADOS_FIJOS[md] ?? md })),
+    { fecha: sumarDiasIso(pascua, -3), nombre: "Jueves Santo" },
+    { fecha: sumarDiasIso(pascua, -2), nombre: "Viernes Santo" },
+  ].sort((a, b) => a.fecha.localeCompare(b.fecha));
+}
+
 function iso(d: Date): string {
   return d.toISOString().slice(0, 10);
 }

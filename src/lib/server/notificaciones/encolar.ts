@@ -2,9 +2,10 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import type { Prisma } from "@/generated/prisma/client";
 import type { CanalAviso, EstadoAsistencia, TipoAviso } from "@/generated/prisma/enums";
-import { isoDeFechaDb } from "@/lib/fechas";
+import { isoDeFechaDb, sumarDias } from "@/lib/fechas";
 import { expiracionJustificacion } from "@/lib/plazo-justificacion";
 import type { DbTenant } from "../db";
+import { feriadosAplicables } from "../plataforma-configuracion";
 import { renderizarPlantilla, type NombrePlantilla, type PayloadDe } from "../email/plantillas";
 import { hashToken, tokenDerivado } from "../tokens";
 import { resolverCanalesPago, type DestinosCanalesPago, type PreferenciasCanalesPago } from "./canales-pago";
@@ -189,6 +190,7 @@ export async function crearTokenJustificacion(
 ): Promise<{ id: string; token: string }> {
   const id = randomUUID();
   const token = tokenDerivado("justificar", id);
+  const feriados = await feriadosAplicables(datos.tenantId, datos.fechaFalta, sumarDias(datos.fechaFalta, 90));
   await tdb.justificacionToken.create({
     data: {
       id,
@@ -196,7 +198,7 @@ export async function crearTokenJustificacion(
       asistenciaId: datos.asistenciaId,
       apoderadoId: datos.apoderadoId,
       tokenHash: hashToken(token),
-      expiraAt: expiracionJustificacion(datos.fechaFalta, datos.plazoDias, datos.zonaHoraria),
+      expiraAt: expiracionJustificacion(datos.fechaFalta, datos.plazoDias, datos.zonaHoraria, feriados),
     },
   });
   return { id, token };

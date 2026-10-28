@@ -17,6 +17,9 @@ import { conteoNoLeidos } from "@/lib/server/mensajes";
 import { FEATURES_PRIVADAS_SOPORTE } from "@/lib/server/plan";
 import { requireTenantContext, soporteVigenteHasta } from "@/lib/server/tenant";
 import { formatoHora } from "@/lib/fechas";
+import { AnunciosPlataforma } from "@/components/AnunciosPlataforma";
+import { anunciosVigentes } from "@/lib/server/plataforma-anuncios";
+import { horarioNudito } from "@/lib/server/plataforma-configuracion";
 import { cambiarRolAction, salirAction } from "./actions";
 
 const ORDEN_GRUPOS: GrupoNav[] = ["dia", "comunicacion", "academico", "colegio"];
@@ -35,6 +38,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
     // Transparencia (specs/16): la dirección ve en la campana si el equipo Khipu está dentro en modo soporte.
     ctx.rol === "direccion" && !ctx.soporte ? soporteVigenteHasta(ctx.tenant.id) : Promise.resolve(null),
   ]);
+  const [anuncios, horario] = await Promise.all([anunciosVigentes(ctx), horarioNudito()]);
   const notificaciones = [
     ...(tieneMensajes ? [{ titulo: "Mensajes sin leer", href: "/mensajes", cantidad: sinLeer }] : []),
     ...(soporteHasta ? [{ titulo: `Soporte de Khipu activo hasta ${formatoHora(soporteHasta)}`, href: "/configuracion/auditoria", cantidad: 1 }] : []),
@@ -93,7 +97,8 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
         />
       }
       avisoSuperior={
-        ctx.soporte && (
+        <>
+        {ctx.soporte && (
           <div role="status" className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-maiz px-4 py-2 text-cuerpo-sm font-semibold text-sobre-maiz" data-testid="banner-soporte">
             <ShieldAlert className="size-4 shrink-0" strokeWidth={2} aria-hidden />
             <span>
@@ -107,9 +112,11 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
               </button>
             </form>
           </div>
-        )
+        )}
+        <AnunciosPlataforma anuncios={anuncios} />
+        </>
       }
-      flotante={ctx.rol === "apoderado" && planIncluye(plan, "nudito") && <NuditoWidget slug={slug} />}
+      flotante={ctx.rol === "apoderado" && planIncluye(plan, "nudito") && <NuditoWidget slug={slug} horario={horario} />}
     >
       {children}
     </MarcoPanel>
