@@ -12,7 +12,7 @@ const PUNTOS = [
  *  en celular, el logotipo «khipu ESCOLAR» sobre `fondo`. */
 export default function LayoutPublico({ children }: LayoutProps<"/">) {
   return (
-    <div className="flex min-h-dvh flex-1 flex-col lg:flex-row">
+    <div className="flex min-h-dvh flex-1 flex-col lg:flex-row" style={{ colorScheme: "light" }}>
       <aside className="hidden w-[44%] max-w-xl flex-col justify-between gap-10 bg-indigo p-12 text-white lg:flex">
         <Logo tono="blanco" alto={40} />
         <div className="flex flex-col gap-8">

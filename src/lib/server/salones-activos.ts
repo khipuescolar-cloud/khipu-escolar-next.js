@@ -9,8 +9,15 @@ import type { TenantContext } from "./tenant";
 export const whereSalonActivo = { archivadoAt: null } satisfies Prisma.SalonWhereInput;
 
 /** Salones no archivados del colegio (para selectores). `extra` se combina con Y. */
-export function salonesActivos<S extends Prisma.SalonSelect>(ctx: TenantContext, select: S, extra: Prisma.SalonWhereInput = {}) {
-  return ctx.db.salon.findMany({ where: { AND: [whereSalonActivo, extra] }, select, orderBy: { nombre: "asc" } });
+// El tipo del resultado se declara a mano: inferirlo desde el cliente extendido (`ctx.db`) con un `select` genérico
+// hace que TypeScript se pierda comparando tipos (TS2321 «Excessive stack depth»).
+export function salonesActivos<S extends Prisma.SalonSelect>(
+  ctx: TenantContext,
+  select: S,
+  extra: Prisma.SalonWhereInput = {},
+): Promise<Prisma.SalonGetPayload<{ select: S }>[]> {
+  const consulta: Prisma.SalonFindManyArgs = { where: { AND: [whereSalonActivo, extra] }, select, orderBy: { nombre: "asc" } };
+  return ctx.db.salon.findMany(consulta) as unknown as Promise<Prisma.SalonGetPayload<{ select: S }>[]>;
 }
 
 /** true si el salón existe y no está archivado. */

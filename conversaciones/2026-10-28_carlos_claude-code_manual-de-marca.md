@@ -29,3 +29,10 @@
 - Nudito animado en Rive/Lottie cuando marketing entregue los archivos (`docs/marca/documentos/05-nudito-personaje.md` §6).
 - La palabra ESCOLAR de `logotipo-escolar.svg` es texto en Sora: marketing debe convertirla a trazos (manual).
 - Logo del colegio en correos solo cuando esté en Cloudinary/S3 (URL pública https).
+
+## Continuación: login siempre en tema claro
+
+> el login no me gusta , debe tener un color estandar de siempre, el login no debe de depender de tema del sistema o del tema que se quedo guardado
+
+- Las páginas públicas fuerzan el tema claro (`forcedTheme="light"` en `Proveedores` según la ruta, `colorScheme: light` en su layout y el toaster sigue el tema forzado). La preferencia guardada del usuario no se borra: el panel la sigue respetando (verificado con preferencia «Oscuro»: login claro, panel oscuro).
+- Se corrigió un error de typecheck preexistente (TS2321 en `salones-activos.ts`) declarando el tipo de resultado.
