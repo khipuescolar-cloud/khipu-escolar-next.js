@@ -1,4 +1,11 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
+
+/** Otras pruebas agregan feriados extra globales por un instante (configuración de la plataforma) y corren en paralelo:
+ *  un feriado solo puede alargar el plazo, así que se verifica que caiga entre n y n + 2 días hábiles. */
+function esperarVenceEntre(expira: Date, hoy: string, dias: number) {
+  expect(expira.getTime()).toBeGreaterThanOrEqual(venceJustificacion(hoy, dias).getTime());
+  expect(expira.getTime()).toBeLessThanOrEqual(venceJustificacion(hoy, dias + 2).getTime());
+}
 import { venceJustificacion } from "@/lib/dias-habiles";
 import { fechaDb, momentoEnZona } from "@/lib/fechas";
 import { guardarLista } from "@/lib/server/asistencia";
@@ -23,7 +30,7 @@ describe("día a día: plazo de justificación, registros sin conexión y avisos
     const token = await c.db.justificacionToken.findFirstOrThrow();
     const hoy = momentoEnZona(new Date(), c.tenant.zonaHoraria).isoFecha;
     expect(c.tenant.plazoJustificacionDiasHabiles).toBe(15);
-    expect(token.expiraAt.toISOString()).toBe(venceJustificacion(hoy, 15).toISOString());
+    esperarVenceEntre(token.expiraAt, hoy, 15);
   });
 
   it("el plazo lo configura dirección (1 a 30 días hábiles) y el enlace nuevo lo respeta", async () => {
@@ -37,7 +44,7 @@ describe("día a día: plazo de justificación, registros sin conexión y avisos
     await guardarLista(ctx, falta(c.alumnos.mateo.id, { ambito: c.cursoTutora.id }));
     const tokens = await c.db.justificacionToken.findMany({ orderBy: { expiraAt: "asc" } }); // el de 5 días vence antes
     const hoy = momentoEnZona(new Date(), c.tenant.zonaHoraria).isoFecha;
-    expect(tokens[0].expiraAt.toISOString()).toBe(venceJustificacion(hoy, 5).toISOString());
+    esperarVenceEntre(tokens[0].expiraAt, hoy, 5);
     await actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDiasHabiles: 15 });
   });
 
