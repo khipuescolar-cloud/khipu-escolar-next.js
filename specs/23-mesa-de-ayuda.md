@@ -92,7 +92,8 @@ Puro y compartido: `src/lib/soporte.ts` (textos, límites, `minutosHabiles`, `et
 - e2e: `tests/e2e/mesa-ayuda.test.ts` (dirección abre → Khipu nota + responde → dirección ve la respuesta por sondeo, no la nota, y resuelve).
 
 ## Pendientes
-- Contador de pendientes en el ítem «Mesa de ayuda» de la barra lateral de la plataforma (el layout es compartido; no se tocó).
-- Pantalla en `/configuracion` de la plataforma para editar «soporte:correo» y «soporte:horario» (hoy se cargan directo en `config_plataforma`).
-- El SLA no descuenta feriados; el resumen del inicio de dirección (`resumen-direccion.ts`) aún cuenta los avisos `soporte_nuevo` en sus totales.
+- (Hecho) Contador de pendientes (abiertas + en progreso) en el ítem «Mesa de ayuda» de la barra lateral y en la campana de la plataforma.
+- (Hecho) `/configuracion` de la plataforma → «Mesa de ayuda»: buzón del equipo (vacío = remitente del sistema) y horario de atención (`guardarConfigSoporte`, auditado como `config_soporte`).
+- El SLA no descuenta feriados.
+- (Hecho) El resumen de avisos del inicio de dirección excluye los avisos de tipo `soporte`.
 - La habilitación real del administrativo se probó simulando `RolModulo` habilitado en el contexto (la tabla es global y la BD se comparte con otros agentes); la lectura del valor sembrado sí se prueba contra la BD.

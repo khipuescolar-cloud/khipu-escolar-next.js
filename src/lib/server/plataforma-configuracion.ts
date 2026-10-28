@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars -- `_admin` solo exige haber pasado por requireAdminPlataforma() */
 import "server-only";
+import { CLAVE_HORARIO_SOPORTE, horarioSoporte } from "./soporte";
+import { CLAVE_CORREO_SOPORTE, correoEquipoSoporte } from "./notificaciones/avisos-soporte";
 import { z } from "zod";
 import { feriadosNacionalesConNombre } from "@/lib/dias-habiles";
 import { fechaDb, isoDeFechaDb } from "@/lib/fechas";
@@ -152,6 +154,34 @@ export async function guardarHorarioNudito(admin: AdminContext, entrada: { inici
   if (!r.success) throw new ErrorDeNegocio(r.error.issues[0]?.message ?? "Revisa el horario.");
   await db.configPlataforma.upsert({ where: { clave: CLAVE_HORARIO_NUDITO }, update: { valor: r.data }, create: { clave: CLAVE_HORARIO_NUDITO, valor: r.data } });
   await registrarPlataforma(admin.user.id, "config_horario_nudito", null, r.data);
+}
+
+// ───────────── Mesa de ayuda: buzón del equipo y horario de atención (specs/23) ─────────────
+
+const esquemaSoporte = z.object({
+  correo: z.union([z.literal(""), z.email("Escribe un correo válido para el buzón de soporte.")]),
+  horario: z.string().trim().min(5, "Escribe el horario de atención.").max(120, "El horario es demasiado largo."),
+});
+
+/** Guarda el buzón del equipo (vacío = usar el remitente del sistema) y el horario que ven los colegios. */
+export async function guardarConfigSoporte(admin: AdminContext, entrada: { correo: string; horario: string }): Promise<void> {
+  const r = esquemaSoporte.safeParse({ correo: entrada.correo.trim().toLowerCase(), horario: entrada.horario });
+  if (!r.success) throw new ErrorDeNegocio(r.error.issues[0]?.message ?? "Revisa los datos de soporte.");
+  await db.$transaction([
+    r.data.correo
+      ? db.configPlataforma.upsert({ where: { clave: CLAVE_CORREO_SOPORTE }, update: { valor: { correo: r.data.correo } }, create: { clave: CLAVE_CORREO_SOPORTE, valor: { correo: r.data.correo } } })
+      : db.configPlataforma.deleteMany({ where: { clave: CLAVE_CORREO_SOPORTE } }),
+    db.configPlataforma.upsert({ where: { clave: CLAVE_HORARIO_SOPORTE }, update: { valor: { texto: r.data.horario } }, create: { clave: CLAVE_HORARIO_SOPORTE, valor: { texto: r.data.horario } } }),
+  ]);
+  await registrarPlataforma(admin.user.id, "config_soporte", null, { correo: r.data.correo || "(remitente del sistema)", horario: r.data.horario });
+}
+
+/** Valores actuales para el formulario: el buzón guardado (vacío si se usa el remitente) y el horario. */
+export async function configSoporte(): Promise<{ correoGuardado: string; correoEfectivo: string | null; horario: string }> {
+  const fila = await db.configPlataforma.findUnique({ where: { clave: CLAVE_CORREO_SOPORTE } });
+  const v = fila?.valor as { correo?: unknown } | string | null | undefined;
+  const correoGuardado = typeof v === "string" ? v : typeof v?.correo === "string" ? v.correo : "";
+  return { correoGuardado, correoEfectivo: await correoEquipoSoporte(), horario: await horarioSoporte() };
 }
 
 // ───────────── Datos de la plataforma (solo lectura, sin secretos) ─────────────

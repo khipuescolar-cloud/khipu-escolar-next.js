@@ -9,6 +9,7 @@ import type { GrupoNavResuelto } from "@/components/shell/tipos";
 import { MarcoPanel } from "@/components/shell/MarcoPanel";
 import { Logo } from "@/components/marca/Logo";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
+import { pendientesMesaAyuda } from "@/lib/server/plataforma-mesa-ayuda";
 import { salirPlataformaAction } from "./actions";
 
 export const metadata: Metadata = { title: { default: "Plataforma · Khipu Escolar", template: "%s · Khipu Escolar" } };
@@ -51,7 +52,14 @@ const GRUPOS: GrupoNavResuelto[] = [
 
 /** Panel del super administrador (specs/16): admin.<dominio> → /plataforma/… */
 export default async function LayoutPlataforma({ children }: LayoutProps<"/plataforma">) {
-  const { user } = await requireAdminPlataforma();
+  const admin = await requireAdminPlataforma();
+  const { user } = admin;
+  // Contador de la mesa de ayuda (abiertas + en progreso) en el menú y en la campana.
+  const pendientes = await pendientesMesaAyuda(admin);
+  const grupos = GRUPOS.map((g) => ({
+    ...g,
+    items: g.items.map((i) => (i.href === "/mesa-ayuda" ? { ...i, contador: pendientes } : i)),
+  }));
   const estadoBarra = (await cookies()).get("sidebar_state")?.value;
   const nombre = `${user.nombres} ${user.apellidos}`.trim();
   const iniciales = `${user.nombres[0] ?? ""}${user.apellidos[0] ?? ""}`.toUpperCase();
@@ -59,10 +67,16 @@ export default async function LayoutPlataforma({ children }: LayoutProps<"/plata
   return (
     <MarcoPanel
       abierta={estadoBarra !== "false"}
-      barraSuperior={<BarraSuperior inicioHref="/" etiqueta="Plataforma" />}
+      barraSuperior={
+        <BarraSuperior
+          inicioHref="/"
+          etiqueta="Plataforma"
+          notificaciones={[{ titulo: "Mesa de ayuda: conversaciones pendientes", href: "/mesa-ayuda", cantidad: pendientes }]}
+        />
+      }
       barraLateral={
         <BarraLateral
-          grupos={GRUPOS}
+          grupos={grupos}
           cabecera={
             <Link href="/" className="flex items-center gap-3 rounded-md p-1" aria-label="Plataforma Khipu: vista principal">
               <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-superficie-2">

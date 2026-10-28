@@ -110,3 +110,43 @@ export function FormularioHorarioNudito({ accion, inicio, fin }: { accion: Accio
     </form>
   );
 }
+
+/** Buzón del equipo (mesa de ayuda) y horario de atención que ven los colegios (specs/23). */
+export function FormularioSoporte({
+  accion, correo, correoEfectivo, horario,
+}: { accion: Accion; correo: string; correoEfectivo: string | null; horario: string }) {
+  const [estado, enviar, pendiente] = useActionState(async (previo: EstadoFormulario, datos: FormData) => {
+    const r = await accion(previo, datos);
+    if (r?.ok) toast.success(r.ok);
+    return r;
+  }, null);
+  return (
+    <form
+      className="flex flex-col gap-4"
+      onSubmit={(e) => {
+        e.preventDefault();
+        const datos = new FormData(e.currentTarget);
+        startTransition(() => enviar(datos));
+      }}
+    >
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Campo
+          etiqueta="Buzón del equipo de soporte"
+          name="correo"
+          type="email"
+          defaultValue={correo}
+          placeholder={correoEfectivo ?? "soporte@khipuescolar.pe"}
+          ayuda={correo ? "Aquí llegan los avisos de conversaciones nuevas." : `Vacío: se usa el remitente del sistema${correoEfectivo ? ` (${correoEfectivo})` : ""}.`}
+        />
+        <Campo etiqueta="Horario de atención" name="horario" defaultValue={horario} ayuda="Lo ven los colegios al escribir a soporte." required />
+      </div>
+      {estado?.error && <Alerta tipo="error">{estado.error}</Alerta>}
+      <div>
+        <Boton type="submit" disabled={pendiente}>
+          {pendiente && <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />}
+          Guardar
+        </Boton>
+      </div>
+    </form>
+  );
+}

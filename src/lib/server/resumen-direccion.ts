@@ -47,10 +47,12 @@ export type ResumenAvisosHoy = { enviados: number; abiertos: number; conError: n
 /** Avisos creados hoy (zona del colegio): enviados, abiertos y con error (error, rebotado o queja). */
 export async function resumenAvisosHoy(ctx: TenantContext, ahora = new Date()): Promise<ResumenAvisosHoy> {
   const desde = { gte: inicioDiaEnZona(ctx.tenant.zonaHoraria, ahora) };
+  // Los avisos de la mesa de ayuda (al equipo Khipu o a la dirección) no son avisos a las familias.
+  const tipo = { not: "soporte" as const };
   const [enviados, abiertos, conError] = await Promise.all([
-    ctx.db.aviso.count({ where: { createdAt: desde, enviadoAt: { not: null } } }),
-    ctx.db.aviso.count({ where: { createdAt: desde, abiertoAt: { not: null } } }),
-    ctx.db.aviso.count({ where: { createdAt: desde, estado: { in: ["error", "rebotado", "queja"] } } }),
+    ctx.db.aviso.count({ where: { createdAt: desde, tipo, enviadoAt: { not: null } } }),
+    ctx.db.aviso.count({ where: { createdAt: desde, tipo, abiertoAt: { not: null } } }),
+    ctx.db.aviso.count({ where: { createdAt: desde, tipo, estado: { in: ["error", "rebotado", "queja"] } } }),
   ]);
   return { enviados, abiertos, conError };
 }

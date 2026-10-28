@@ -30,3 +30,17 @@
 
 - Aplicar las 2 migraciones nuevas al Supabase en la nube (requiere confirmación del colaborador; `pnpm dev:nube` las necesita).
 - Recordatorios de renovación por correo, comprobantes adjuntos, otras monedas; horario de Nudito por colegio; estadísticas de lectura de anuncios; correo a la persona tras restablecer su contraseña desde plataforma.
+
+## Continuación: mesa de ayuda (chat con el equipo Khipu)
+
+> okey aplicalas,esta muy bien que preguntes antes de hacer algo en el sistema de la nube
+
+> [captura de error «Cannot read properties of undefined (reading 'findMany')»] tengo este error
+
+> puedes agregarle una nueva funcionalidad para el soporte tecnico, sera como un chat en el cual el director o la persona que tendra el permiso , podra entrar y hablar directamente com mi equipo de soporte
+
+- Migraciones `plataforma_v2` aplicadas a Supabase cloud con confirmación (47 tablas con RLS forzado).
+- Error `findMany` en :3100: caché de Turbopack con el cliente Prisma anterior; se reinició `dev:nube` limpiando `.next-nube`. Al reiniciar se usó por error un `pgrep -f` amplio que cortó el propio comando; luego se detuvieron solo los procesos verificados por carpeta.
+- Mesa de ayuda (migración `20261028150000_mesa_de_ayuda`, spec 23): módulo «Soporte Khipu» en todos los planes (dirección; administrativo activable en Roles y permisos), chat con sondeo, notas internas que el colegio nunca ve, estados, prioridad, asignación, valoración, cierre automático a 7 días, avisos en ambos sentidos; bandeja «Mesa de ayuda» en la plataforma con SLA, contador en el menú y la campana, y configuración del buzón y el horario.
+- Validación: 576 pruebas; e2e de mesa de ayuda y plataforma en verde.
+- Pendiente: aplicar la migración de la mesa de ayuda en Supabase cloud (requiere confirmación).

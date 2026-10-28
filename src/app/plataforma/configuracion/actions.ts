@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { texto } from "@/lib/server/accion-formulario";
 import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
-import { agregarFeriado, guardarHorarioNudito, quitarFeriado } from "@/lib/server/plataforma-configuracion";
+import { agregarFeriado, guardarConfigSoporte, guardarHorarioNudito, quitarFeriado } from "@/lib/server/plataforma-configuracion";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import type { EstadoFormulario } from "../actions";
 
@@ -34,6 +34,18 @@ export async function quitarFeriadoAction(f: FormData): Promise<Resultado> {
     return ok("Día quitado de la lista.");
   } catch (e) {
     if (e instanceof ErrorDeNegocio) return fallo(e.message);
+    throw e;
+  }
+}
+
+export async function guardarConfigSoporteAction(_previo: EstadoFormulario, f: FormData): Promise<EstadoFormulario> {
+  const admin = await requireAdminPlataforma();
+  try {
+    await guardarConfigSoporte(admin, { correo: texto(f, "correo"), horario: texto(f, "horario") });
+    revalidatePath("/plataforma/configuracion");
+    return { ok: "Datos de soporte guardados." };
+  } catch (e) {
+    if (e instanceof ErrorDeNegocio) return { error: e.message };
     throw e;
   }
 }
