@@ -14,7 +14,7 @@ async function entrarComoRosa(page: Page, colegio: RegExp) {
 
 test("apoderada pregunta por las tareas y Nudito responde con datos reales", async ({ page }) => {
   await entrarComoRosa(page, /I.E.P. Nuevo Horizonte/);
-  await page.getByRole("button", { name: "Abrir Nudito, tu asistente" }).click();
+  await page.getByRole("button", { name: "Abrir a Nudito, asistente de Khipu" }).click();
   const panel = page.getByRole("dialog", { name: /Nudito/ });
   await expect(panel).toBeVisible();
   await expect(page.getByLabel("Escribe tu pregunta")).toBeFocused();
@@ -39,7 +39,7 @@ test("apoderada pregunta por las tareas y Nudito responde con datos reales", asy
 
   await page.keyboard.press("Escape");
   await expect(panel).toBeHidden();
-  await expect(page.getByRole("button", { name: "Abrir Nudito, tu asistente" })).toBeFocused();
+  await expect(page.getByRole("button", { name: "Abrir a Nudito, asistente de Khipu" })).toBeFocused();
 
   // El enlace de Nudito abre el nuevo mensaje sobre el hijo correcto; el enlace antiguo `/mensajes?alumno=` redirige ahí.
   await page.goto(`http://nuevohorizonte.lvh.me:${PUERTO}${hrefChat}`);
