@@ -52,8 +52,8 @@ self.addEventListener("push", (event) => {
   event.waitUntil(
     self.registration.showNotification(titulo, {
       body: datos.cuerpo || "",
-      icon: "/marca/isotipo.svg",
-      badge: "/marca/isotipo.svg",
+      icon: "/marca/icono-192.png",
+      badge: "/marca/favicon-32.png",
       lang: "es-PE",
       data: { url: datos.url || "/" },
     }),

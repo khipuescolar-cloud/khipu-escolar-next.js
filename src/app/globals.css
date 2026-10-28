@@ -2,20 +2,24 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/* Sistema de diseño: specs/18-sistema-de-diseno.md
-   Tema claro/oscuro por clase `.dark` (next-themes, por defecto sigue al sistema).
-   maiz NUNCA como texto sobre blanco (1.8:1). Todo par de texto revisado ≥ 4.5:1 (WCAG AA). */
+/* Sistema de diseño = manual de marca de Khipu Escolar.
+   Fuente de verdad: docs/marca/tokens.json y docs/marca/MANUAL-DE-MARCA.md · resumen en specs/18-sistema-de-diseno.md.
+   Tema claro/oscuro por clase `.dark` (next-themes; por defecto sigue al dispositivo).
+   maiz NUNCA como texto sobre blanco (1.8:1). cochinilla NUNCA para errores. */
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* — Marca — */
+  /* — Marca (tokens.json · color) — */
   --indigo: #1e2a78;
   --indigo-cielo: #3a4bb5;
   --cochinilla: #a8325e;
   --turquesa: #0f7c7a;
   --maiz: #f2b84b;
+  --blanco: #ffffff;
+  /* Texto sobre maíz: siempre tinta oscura, también en tema oscuro (9.2:1). */
+  --sobre-maiz: #1b1f2a;
 
-  /* — Superficies y texto (nombres propios del proyecto) — */
+  /* — Interfaz — */
   --fondo: #faf7f2;
   --superficie: #ffffff;
   --superficie-2: #f3f0ea;
@@ -25,99 +29,101 @@
   --acento: #1e2a78;
   --sobre-acento: #ffffff;
 
-  /* — Estados de asistencia (siempre con ícono + palabra) — */
+  /* — Estados de asistencia (fijos; siempre con ícono + palabra) — */
   --estado-llego: #166534;
   --estado-llego-fondo: #e8f5ec;
   --estado-tarde: #9a4a07;
   --estado-tarde-fondo: #fdf2e3;
   --estado-falta: #b91c1c;
   --estado-falta-fondo: #fbeaea;
-  --estado-problema: #6b21a8;
-  --estado-problema-fondo: #f3e8fb;
+  /* «Problema» usa el rojo de falta (manual: «Falta o problema · ! No llegó / Aviso»). */
+  --estado-problema: var(--estado-falta);
+  --estado-problema-fondo: var(--estado-falta-fondo);
 
-  /* — Formas — */
-  --radius: 0.625rem; /* 10px: campos y botones */
-  --radio-md: 10px;
-  --radio-lg: 14px;
-  --radio-pildora: 999px;
+  /* — Radios (tokens.json · radius) — */
+  --radio-sm: 6px; /* chips cuadrados, enlaces enfocados */
+  --radio-md: 10px; /* botones, campos, segmentos de asistencia */
+  --radio-lg: 14px; /* tarjetas, mosaicos, modales */
+  --radio-pildora: 999px; /* etiquetas de estado y de plan */
+  --radius: 0.625rem;
 
-  /* — Tokens shadcn mapeados a la marca — */
+  /* — Sombra (solo al pasar el cursor y en el botón de Nudito; menús y modales flotantes) — */
+  --sombra-1: 0 1px 2px rgba(27, 31, 42, 0.06), 0 8px 24px rgba(27, 31, 42, 0.06);
+
+  /* — Tokens shadcn → marca — */
   --background: var(--fondo);
   --foreground: var(--tinta);
   --card: var(--superficie);
   --card-foreground: var(--tinta);
   --popover: var(--superficie);
   --popover-foreground: var(--tinta);
-  --primary: var(--indigo);
-  --primary-foreground: #ffffff;
+  --primary: var(--acento);
+  --primary-foreground: var(--sobre-acento);
   --secondary: var(--superficie-2);
   --secondary-foreground: var(--tinta);
   --muted: var(--superficie-2);
   --muted-foreground: var(--pizarra);
-  --accent: #eceefa;
-  --accent-foreground: var(--indigo);
-  --destructive: #b91c1c;
+  --accent: var(--superficie-2);
+  --accent-foreground: var(--tinta);
+  --destructive: var(--estado-falta);
   --border: var(--arena);
-  --input: #d6d2c9;
+  /* `arena` no alcanza para el borde de un control (manual): los campos usan pizarra suavizada. */
+  --input: color-mix(in oklab, var(--pizarra) 45%, var(--superficie));
   --ring: var(--indigo-cielo);
-  --chart-1: var(--indigo);
-  --chart-2: var(--turquesa);
+  --chart-1: var(--turquesa);
+  --chart-2: var(--indigo-cielo);
   --chart-3: var(--cochinilla);
   --chart-4: var(--maiz);
-  --chart-5: var(--indigo-cielo);
+  --chart-5: var(--indigo);
 
-  /* Barra lateral en índigo de marca */
-  --sidebar: var(--indigo);
-  --sidebar-foreground: #e8eaf8;
-  --sidebar-primary: var(--maiz);
-  --sidebar-primary-foreground: #1b1f2a;
-  --sidebar-accent: rgb(255 255 255 / 0.1);
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgb(255 255 255 / 0.12);
-  --sidebar-ring: var(--maiz);
+  /* Barra superior del panel: `indigo` con texto blanco (manual). */
+  --barra: var(--indigo);
+  --barra-foreground: var(--blanco);
+
+  /* Barra lateral: superficie clara; el ítem activo va en `acento`. */
+  --sidebar: var(--superficie);
+  --sidebar-foreground: var(--tinta);
+  --sidebar-primary: var(--acento);
+  --sidebar-primary-foreground: var(--sobre-acento);
+  --sidebar-accent: var(--superficie-2);
+  --sidebar-accent-foreground: var(--tinta);
+  --sidebar-border: var(--arena);
+  --sidebar-ring: var(--indigo-cielo);
 }
 
 .dark {
+  --indigo: #2f3fa8;
+  --indigo-cielo: #a9b5ff;
+  --cochinilla: #e8789f;
+  --turquesa: #4fc3bf;
+
   --fondo: #12141c;
-  --superficie: #1b1f2a;
-  --superficie-2: #242938;
-  --tinta: #f1efe9;
-  --pizarra: #b4b8c4;
-  --arena: #343a4c;
-  --acento: #8f9cf0;
-  --sobre-acento: #12141c;
-  --indigo-cielo: #a5b0f5;
-  --estado-llego: #86efac;
-  --estado-llego-fondo: #14321f;
-  --estado-tarde: #fcd34d;
-  --estado-tarde-fondo: #3a2a0c;
-  --estado-falta: #fca5a5;
-  --estado-falta-fondo: #3d1515;
-  --estado-problema: #d8b4fe;
-  --estado-problema-fondo: #2e1a40;
+  --superficie: #1a1d28;
+  --superficie-2: #222636;
+  --tinta: #eceef5;
+  --pizarra: #a3a9ba;
+  --arena: #2e3345;
+  --acento: #8c9bff;
+  --sobre-acento: #10132a;
 
-  --primary: #8f9cf0;
-  --primary-foreground: #12141c;
-  --accent: #2a3052;
-  --accent-foreground: #e6e9ff;
-  --destructive: #f87171;
-  --input: #434a60;
-  --chart-1: #8f9cf0;
-  --chart-2: #4fd1c5;
-  --chart-3: #f08bb0;
+  --estado-llego: #6fd394;
+  --estado-llego-fondo: #16301f;
+  --estado-tarde: #f5b266;
+  --estado-tarde-fondo: #33240f;
+  --estado-falta: #ff8a8a;
+  --estado-falta-fondo: #3a1a1a;
 
-  --sidebar: #161a33;
-  --sidebar-foreground: #d9dcf2;
-  --sidebar-accent: rgb(255 255 255 / 0.08);
-  --sidebar-border: rgb(255 255 255 / 0.08);
+  --sombra-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 @theme inline {
+  /* Colores propios del proyecto */
   --color-indigo: var(--indigo);
   --color-indigo-cielo: var(--indigo-cielo);
   --color-cochinilla: var(--cochinilla);
   --color-turquesa: var(--turquesa);
   --color-maiz: var(--maiz);
+  --color-sobre-maiz: var(--sobre-maiz);
   --color-fondo: var(--fondo);
   --color-superficie: var(--superficie);
   --color-superficie-2: var(--superficie-2);
@@ -126,6 +132,8 @@
   --color-arena: var(--arena);
   --color-acento: var(--acento);
   --color-sobre-acento: var(--sobre-acento);
+  --color-barra: var(--barra);
+  --color-barra-foreground: var(--barra-foreground);
   --color-llego: var(--estado-llego);
   --color-llego-fondo: var(--estado-llego-fondo);
   --color-tarde: var(--estado-tarde);
@@ -135,6 +143,7 @@
   --color-problema: var(--estado-problema);
   --color-problema-fondo: var(--estado-problema-fondo);
 
+  /* Colores shadcn */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -167,39 +176,92 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --radius-sm: calc(var(--radius) * 0.6);
+  /* Radios: `rounded-xl` y `rounded-2xl` (que usan los componentes shadcn) quedan en radio-lg. */
+  --radius-sm: var(--radio-sm);
   --radius-md: var(--radio-md);
   --radius-lg: var(--radio-lg);
-  --radius-xl: calc(var(--radius) * 1.8);
-  --radius-2xl: calc(var(--radius) * 2.2);
+  --radius-xl: var(--radio-lg);
+  --radius-2xl: var(--radio-lg);
   --radius-pildora: var(--radio-pildora);
 
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-heading: var(--font-sora), system-ui, sans-serif;
-  --font-titulo: var(--font-sora), system-ui, sans-serif;
-  --font-nudito: var(--font-nunito), system-ui, sans-serif;
+  /* Sombras: en reposo nada lleva sombra (las tarjetas se separan con borde `arena`). */
+  --shadow-2xs: none;
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow-md: var(--sombra-1);
+  --shadow-lg: var(--sombra-1);
+  --shadow-xl: var(--sombra-1);
+  --shadow-sombra-1: var(--sombra-1);
+
+  /* Tipografía (tokens.json · type). Uso: text-titulo-1, text-cuerpo-sm, text-sobretitulo… */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: var(--font-sora), ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-titulo: var(--font-sora), ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-nudito: var(--font-nunito), ui-rounded, system-ui, sans-serif;
+
+  --text-titulo-xl: 40px;
+  --text-titulo-xl--line-height: 44px;
+  --text-titulo-xl--letter-spacing: -0.02em;
+  --text-titulo-xl--font-weight: 700;
+  --text-titulo-1: 32px;
+  --text-titulo-1--line-height: 38px;
+  --text-titulo-1--letter-spacing: -0.01em;
+  --text-titulo-1--font-weight: 700;
+  --text-titulo-2: 22px;
+  --text-titulo-2--line-height: 28px;
+  --text-titulo-2--font-weight: 600;
+  --text-cuerpo: 16px;
+  --text-cuerpo--line-height: 24px;
+  --text-cuerpo-sm: 14px;
+  --text-cuerpo-sm--line-height: 20px;
+  --text-etiqueta: 13px;
+  --text-etiqueta--line-height: 16px;
+  --text-etiqueta--font-weight: 600;
+  --text-sobretitulo: 12px;
+  --text-sobretitulo--line-height: 16px;
+  --text-sobretitulo--letter-spacing: 0.1em;
+  --text-sobretitulo--font-weight: 600;
+  --text-voz-nudito: 15px;
+  --text-voz-nudito--line-height: 22px;
+  --text-voz-nudito--font-weight: 700;
+  /* El texto de lectura nunca baja de 14 px: `text-xs` queda en el tamaño de etiqueta (13 px). */
+  --text-xs: 13px;
+  --text-xs--line-height: 16px;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
   html {
     @apply font-sans;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-cuerpo text-foreground;
   }
   h1, h2, h3 {
-    @apply font-heading tracking-tight;
+    @apply font-heading;
+    text-wrap: balance;
   }
   button:not(:disabled), [role="button"]:not([aria-disabled="true"]), a[href], summary, label[for] {
     cursor: pointer;
   }
 }
 
+@layer utilities {
+  /* Rótulo en mayúsculas sobre grupos de mosaicos y secciones («MI DÍA»), en pizarra. */
+  .sobretitulo {
+    @apply text-sobretitulo text-pizarra uppercase;
+  }
+  /* Enlace de texto de la marca. */
+  .enlace {
+    @apply font-medium text-indigo-cielo underline-offset-4 hover:underline;
+  }
+}
+
+/* Foco del teclado: anillo sólido de 2 px en indigo-cielo, separado 2 px del control (manual). */
 :focus-visible {
-  outline: 3px solid var(--ring);
+  outline: 2px solid var(--indigo-cielo);
   outline-offset: 2px;
 }
 

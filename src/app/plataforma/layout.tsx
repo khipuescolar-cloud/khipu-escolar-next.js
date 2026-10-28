@@ -6,7 +6,8 @@ import { BarraLateral } from "@/components/shell/BarraLateral";
 import { BarraSuperior } from "@/components/shell/BarraSuperior";
 import { MenuUsuario } from "@/components/shell/MenuUsuario";
 import type { GrupoNavResuelto } from "@/components/shell/tipos";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { MarcoPanel } from "@/components/shell/MarcoPanel";
+import { Logo } from "@/components/marca/Logo";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import { salirPlataformaAction } from "./actions";
 
@@ -31,28 +32,30 @@ export default async function LayoutPlataforma({ children }: LayoutProps<"/plata
   const iniciales = `${user.nombres[0] ?? ""}${user.apellidos[0] ?? ""}`.toUpperCase();
 
   return (
-    <SidebarProvider defaultOpen={estadoBarra !== "false"}>
-      <BarraLateral
-        grupos={GRUPOS}
-        cabecera={
-          <Link href="/" className="flex items-center gap-3 rounded-md p-1" aria-label="Plataforma Khipu: vista principal">
-            <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-              <ShieldCheck className="size-5" strokeWidth={2} aria-hidden />
-            </span>
-            <span className="grid min-w-0 leading-tight group-data-[collapsible=icon]:hidden">
-              <span className="truncate font-heading text-sm font-semibold text-white">Khipu Escolar</span>
-              <span className="truncate text-xs text-sidebar-foreground/70">Plataforma · super administración</span>
-            </span>
-          </Link>
-        }
-        pie={
-          <MenuUsuario usuario={{ nombre, correo: user.email, rolNombre: "Super administrador", iniciales }} salir={salirPlataformaAction} />
-        }
-      />
-      <SidebarInset>
-        <BarraSuperior grupos={GRUPOS} />
-        <div className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6 lg:py-8">{children}</div>
-      </SidebarInset>
-    </SidebarProvider>
+    <MarcoPanel
+      abierta={estadoBarra !== "false"}
+      barraSuperior={<BarraSuperior inicioHref="/" etiqueta="Plataforma" />}
+      barraLateral={
+        <BarraLateral
+          grupos={GRUPOS}
+          cabecera={
+            <Link href="/" className="flex items-center gap-3 rounded-md p-1" aria-label="Plataforma Khipu: vista principal">
+              <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-superficie-2">
+                <Logo variante="isotipo" alto={24} />
+              </span>
+              <span className="grid min-w-0 leading-tight group-data-[collapsible=icon]:hidden">
+                <span className="truncate font-heading text-cuerpo-sm font-semibold text-foreground">Khipu Escolar</span>
+                <span className="inline-flex items-center gap-1 truncate text-xs text-muted-foreground">
+                  <ShieldCheck className="size-3.5" strokeWidth={2} aria-hidden /> Super administración
+                </span>
+              </span>
+            </Link>
+          }
+          pie={<MenuUsuario usuario={{ nombre, correo: user.email, rolNombre: "Super administrador", iniciales }} salir={salirPlataformaAction} />}
+        />
+      }
+    >
+      {children}
+    </MarcoPanel>
   );
 }

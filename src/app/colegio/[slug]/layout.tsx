@@ -6,7 +6,7 @@ import { BarraLateral } from "@/components/shell/BarraLateral";
 import { BarraSuperior } from "@/components/shell/BarraSuperior";
 import { MenuUsuario } from "@/components/shell/MenuUsuario";
 import type { GrupoNavResuelto } from "@/components/shell/tipos";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { MarcoPanel } from "@/components/shell/MarcoPanel";
 import { ShieldAlert } from "lucide-react";
 import { urlPlataforma } from "@/lib/dominio";
 import { mosaicosParaRol, NOMBRE_GRUPO, type GrupoNav } from "@/lib/navegacion";
@@ -60,24 +60,27 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
   const iniciales = `${ctx.user.nombres[0] ?? ""}${ctx.user.apellidos[0] ?? ""}`.toUpperCase();
 
   return (
-    <SidebarProvider defaultOpen={estadoBarra !== "false"}>
-      <BarraLateral
-        grupos={grupos}
-        cabecera={
+    <MarcoPanel
+      abierta={estadoBarra !== "false"}
+      barraSuperior={<BarraSuperior inicioHref="/inicio" notificaciones={notificaciones} />}
+      barraLateral={
+        <BarraLateral
+          grupos={grupos}
+          cabecera={
           <Link href="/inicio" className="flex items-center gap-3 rounded-md p-1 outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring" aria-label={`${ctx.tenant.nombre}: ir al inicio`}>
             {logoUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={logoUrl} alt={`Logo de ${ctx.tenant.nombre}`} className="size-9 shrink-0 rounded-lg bg-white object-contain p-0.5" />
+              <img src={logoUrl} alt={`Logo de ${ctx.tenant.nombre}`} className="size-9 shrink-0 rounded-lg border bg-white object-contain p-0.5" />
             ) : (
-              <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-white/10"><Logo compacto /></span>
+              <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-superficie-2"><Logo variante="isotipo" alto={24} /></span>
             )}
             <span className="grid min-w-0 leading-tight group-data-[collapsible=icon]:hidden">
-              <span className="truncate font-heading text-sm font-semibold text-white">{ctx.tenant.nombre}</span>
-              <span className="truncate text-xs text-sidebar-foreground/70">{ctx.tenant.eslogan ?? "Khipu Escolar"}</span>
+              <span className="truncate font-heading text-cuerpo-sm font-semibold text-foreground">{ctx.tenant.nombre}</span>
+              <span className="truncate text-xs text-muted-foreground">{ctx.tenant.eslogan ?? "Khipu Escolar"}</span>
             </span>
           </Link>
-        }
-        pie={
+          }
+          pie={
           <MenuUsuario
             usuario={{ nombre, correo: ctx.user.email, rolNombre: nombreRol(ctx.rol, ctx.user.genero), iniciales }}
             perfilHref="/perfil"
@@ -86,11 +89,12 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
             rolActual={ctx.rol}
             cambiarRol={cambiarRolAction}
           />
-        }
-      />
-      <SidebarInset>
-        {ctx.soporte && (
-          <div role="status" className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-maiz px-4 py-2 text-sm font-semibold text-indigo" data-testid="banner-soporte">
+          }
+        />
+      }
+      avisoSuperior={
+        ctx.soporte && (
+          <div role="status" className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-maiz px-4 py-2 text-cuerpo-sm font-semibold text-sobre-maiz" data-testid="banner-soporte">
             <ShieldAlert className="size-4 shrink-0" strokeWidth={2} aria-hidden />
             <span>
               Modo soporte · solo lectura · vence a las{" "}
@@ -98,16 +102,16 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
             </span>
             <form method="post" action={urlPlataforma("/soporte/terminar")}>
               <input type="hidden" name="accesoId" value={ctx.soporte.accesoId} />
-              <button type="submit" className="min-h-8 rounded-md px-2 underline underline-offset-4 hover:bg-black/5 focus-visible:ring-2 focus-visible:ring-indigo focus-visible:outline-none">
+              <button type="submit" className="min-h-8 rounded-md px-2 underline underline-offset-4 hover:bg-black/5 ">
                 Terminar
               </button>
             </form>
           </div>
-        )}
-        <BarraSuperior grupos={grupos} notificaciones={notificaciones} />
-        <div className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6 lg:py-8">{children}</div>
-      </SidebarInset>
-      {ctx.rol === "apoderado" && planIncluye(plan, "nudito") && <NuditoWidget slug={slug} />}
-    </SidebarProvider>
+        )
+      }
+      flotante={ctx.rol === "apoderado" && planIncluye(plan, "nudito") && <NuditoWidget slug={slug} />}
+    >
+      {children}
+    </MarcoPanel>
   );
 }

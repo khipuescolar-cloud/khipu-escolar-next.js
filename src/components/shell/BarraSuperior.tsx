@@ -2,44 +2,51 @@
 
 import { Bell } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
-import { buttonVariants } from "@/components/ui/button";
+import { Logo } from "@/components/marca/Logo";
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
-import { esRutaActiva } from "./BarraLateral";
-import type { GrupoNavResuelto } from "./tipos";
 
 export type Notificacion = { titulo: string; href: string; cantidad: number };
 
-/** Barra superior pegajosa: abrir/cerrar menú, título de la sección y notificaciones. */
-export function BarraSuperior({ grupos, notificaciones = [], extra }: { grupos: GrupoNavResuelto[]; notificaciones?: Notificacion[]; extra?: ReactNode }) {
-  const pathname = usePathname();
-  const actual = grupos
-    .flatMap((g) => g.items)
-    .filter((i) => esRutaActiva(pathname, i.href))
-    .sort((a, b) => b.href.length - a.href.length)[0];
+const BOTON_BARRA =
+  "relative inline-grid size-10 place-items-center rounded-md text-barra-foreground transition-colors hover:bg-white/10 data-popup-open:bg-white/15";
+
+/** Barra superior del panel en `indigo` (manual de marca): menú, logotipo blanco de khipu, contexto y notificaciones. */
+export function BarraSuperior({
+  inicioHref = "/",
+  etiqueta,
+  notificaciones = [],
+  extra,
+}: {
+  inicioHref?: string;
+  /** Texto corto junto al logotipo (p. ej. «Plataforma»). */
+  etiqueta?: string;
+  notificaciones?: Notificacion[];
+  extra?: ReactNode;
+}) {
   const total = notificaciones.reduce((s, n) => s + n.cantidad, 0);
 
   return (
-    <header className="sticky top-0 z-20 flex h-14 shrink-0 items-center gap-2 border-b bg-background/85 px-3 backdrop-blur supports-[backdrop-filter]:bg-background/70 sm:px-4">
-      <SidebarTrigger className="size-10" aria-label="Abrir o cerrar el menú" />
-      <Separator orientation="vertical" className="mr-1 data-[orientation=vertical]:h-5" />
-      <p className="min-w-0 flex-1 truncate font-heading text-base font-semibold">{actual?.titulo ?? ""}</p>
+    <header className="sticky top-0 z-30 flex h-(--header-height) shrink-0 items-center gap-1 bg-barra px-2 text-barra-foreground sm:gap-2 sm:px-3">
+      <SidebarTrigger className={`${BOTON_BARRA} hover:text-barra-foreground [&_svg]:size-5`} aria-label="Abrir o cerrar el menú" />
+      <Link href={inicioHref} className="flex items-center gap-3 rounded-sm px-1 py-1" aria-label="khipu: ir al inicio">
+        <Logo tono="blanco" alto={28} />
+        {etiqueta && (
+          <span className="hidden rounded-pildora border border-white/30 px-2.5 py-0.5 text-etiqueta sm:inline">{etiqueta}</span>
+        )}
+      </Link>
+      <div className="flex-1" />
       {extra}
       <DropdownMenu>
-        <DropdownMenuTrigger
-          className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "relative")}
-          aria-label={total ? `Notificaciones: ${total} nuevas` : "Notificaciones"}
-        >
-          <Bell strokeWidth={2} aria-hidden />
+        <DropdownMenuTrigger className={BOTON_BARRA} aria-label={total ? `Notificaciones: ${total} nuevas` : "Notificaciones"}>
+          <Bell className="size-5" strokeWidth={2} aria-hidden />
           {total > 0 && (
-            <span className="absolute top-1.5 right-1.5 grid min-w-4 place-items-center rounded-pildora bg-cochinilla px-1 text-[0.65rem] leading-4 font-bold text-white" aria-hidden>
+            // Nudo maíz con el número en tinta (9.2:1), como el aviso de Nudito.
+            <span className="absolute top-1 right-1 grid min-w-5 place-items-center rounded-pildora bg-maiz px-1 text-etiqueta leading-5 text-sobre-maiz" aria-hidden>
               {total > 9 ? "9+" : total}
             </span>
           )}
@@ -50,14 +57,14 @@ export function BarraSuperior({ grupos, notificaciones = [], extra }: { grupos: 
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           {total === 0 ? (
-            <p className="px-2 py-6 text-center text-sm text-muted-foreground">Estás al día. No hay nada nuevo.</p>
+            <p className="px-2 py-6 text-center text-cuerpo-sm text-muted-foreground">Estás al día. No hay nada nuevo.</p>
           ) : (
             notificaciones
               .filter((n) => n.cantidad > 0)
               .map((n) => (
                 <DropdownMenuItem key={n.href} render={<Link href={n.href} />} className="justify-between">
                   <span>{n.titulo}</span>
-                  <span className="rounded-pildora bg-primary px-2 py-0.5 text-xs font-bold text-primary-foreground">{n.cantidad}</span>
+                  <span className="rounded-pildora bg-primary px-2 py-0.5 text-etiqueta text-primary-foreground">{n.cantidad}</span>
                 </DropdownMenuItem>
               ))
           )}

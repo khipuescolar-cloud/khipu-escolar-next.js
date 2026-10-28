@@ -52,7 +52,7 @@ export function MenuUsuario({ usuario, perfilHref, salir, roles = [], rolActual,
             </Avatar>
             <span className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-semibold">{usuario.nombre}</span>
-              <span className="truncate text-xs text-sidebar-foreground/70">{usuario.rolNombre}</span>
+              <span className="truncate text-xs text-muted-foreground">{usuario.rolNombre}</span>
             </span>
             <ChevronsUpDown className="ml-auto" strokeWidth={2} aria-hidden />
           </DropdownMenuTrigger>

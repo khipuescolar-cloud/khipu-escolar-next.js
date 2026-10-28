@@ -22,12 +22,16 @@ export function BarraLateral({ cabecera, grupos, pie }: { cabecera: ReactNode; g
   const cerrarEnMovil = () => isMobile && setOpenMobile(false);
 
   return (
-    <Sidebar collapsible="icon" aria-label="Navegación principal">
+    <Sidebar
+      collapsible="icon"
+      aria-label="Navegación principal"
+      className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
+    >
       <SidebarHeader className="border-b border-sidebar-border">{cabecera}</SidebarHeader>
       <SidebarContent>
         {grupos.map((grupo, i) => (
           <SidebarGroup key={grupo.titulo ?? i}>
-            {grupo.titulo && <SidebarGroupLabel className="text-sidebar-foreground/60">{grupo.titulo}</SidebarGroupLabel>}
+            {grupo.titulo && <SidebarGroupLabel className="sobretitulo">{grupo.titulo}</SidebarGroupLabel>}
             <SidebarMenu>
               {grupo.items.map((item) => {
                 const Icono = ICONOS_NAV[item.icono];
@@ -54,13 +58,13 @@ export function BarraLateral({ cabecera, grupos, pie }: { cabecera: ReactNode; g
                       isActive={activo}
                       tooltip={item.titulo}
                       render={<Link href={item.href} onClick={cerrarEnMovil} aria-current={activo ? "page" : undefined} />}
-                      className="relative data-active:before:absolute data-active:before:inset-y-2 data-active:before:left-0 data-active:before:w-1 data-active:before:rounded-full data-active:before:bg-sidebar-primary"
+                      className="text-cuerpo-sm data-active:bg-sidebar-primary data-active:font-semibold data-active:text-sidebar-primary-foreground data-active:hover:bg-sidebar-primary data-active:hover:text-sidebar-primary-foreground"
                     >
                       <Icono strokeWidth={2} aria-hidden />
                       <span>{item.titulo}</span>
                     </SidebarMenuButton>
                     {!!item.contador && (
-                      <SidebarMenuBadge className="rounded-pildora bg-sidebar-primary text-sidebar-primary-foreground">
+                      <SidebarMenuBadge className="rounded-pildora bg-maiz text-etiqueta text-sobre-maiz peer-data-active/menu-button:text-sobre-maiz">
                         {item.contador}
                         <span className="sr-only"> nuevos</span>
                       </SidebarMenuBadge>

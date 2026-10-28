@@ -10,7 +10,6 @@ const nunito = Nunito({ variable: "--font-nunito", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: { default: "Khipu Escolar", template: "%s · Khipu Escolar" },
   description: "Cada día de tu hijo, bien anudado.",
-  icons: { icon: "/marca/isotipo.svg" },
   manifest: "/manifest.webmanifest",
 };
 
