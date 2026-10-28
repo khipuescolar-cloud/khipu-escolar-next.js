@@ -69,13 +69,15 @@ describe("día a día: plazo de justificación, registros sin conexión y avisos
   });
 
   it("un registro más reciente en el servidor no se pisa con una lista vieja enviada sin conexión", async () => {
-    const hace1h = new Date(Date.now() - 3_600_000).toISOString();
+    // Mediodía fijo en Lima: «hace 1 h» no debe cruzar la medianoche (la prueba fallaba si se corría entre 00:00 y 01:00).
+    const ahora = new Date("2026-10-20T17:00:00Z"); // 12:00 en Lima (otro día que el de la prueba de portería)
+    const hace1h = new Date(ahora.getTime() - 3_600_000).toISOString();
     const base = { salonId: c.salon.id, ambito: "dia" };
-    // Valentina quedó «llegó» en el servidor ahora mismo; la lista offline (de hace 1 h) decía «falta».
-    await guardarLista(c.ctxDe("tutora"), { ...base, registros: [{ alumnoId: c.alumnos.valentina.id, estado: "llego" }] });
-    const r = await guardarLista(c.ctxDe("tutora"), { ...base, registros: [{ alumnoId: c.alumnos.valentina.id, estado: "falta" }], registradoAt: hace1h });
+    // Valentina quedó «llegó» en el servidor; la lista offline (de hace 1 h) decía «falta».
+    await guardarLista(c.ctxDe("tutora"), { ...base, registros: [{ alumnoId: c.alumnos.valentina.id, estado: "llego" }] }, ahora);
+    const r = await guardarLista(c.ctxDe("tutora"), { ...base, registros: [{ alumnoId: c.alumnos.valentina.id, estado: "falta" }], registradoAt: hace1h }, ahora);
     expect(r).toMatchObject({ cambios: 0, omitidos: 1 });
-    const fila = await c.db.asistencia.findFirstOrThrow({ where: { alumnoId: c.alumnos.valentina.id, ambito: "dia" } });
+    const fila = await c.db.asistencia.findFirstOrThrow({ where: { alumnoId: c.alumnos.valentina.id, ambito: "dia", fecha: fechaDb("2026-10-20") } });
     expect(fila.estado).toBe("llego");
   });
 
