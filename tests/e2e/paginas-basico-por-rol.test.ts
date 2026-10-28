@@ -50,5 +50,5 @@ test("portería no puede entrar a pasar lista", async ({ page }) => {
 
 test("el QR abierto sin sesión no muestra datos del alumno", async ({ page }) => {
   await page.goto(`/q/${"A".repeat(43)}`);
-  await expect(page.getByRole("heading", { name: "Carnet escolar de Khipu" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Carnet escolar" })).toBeVisible();
 });
