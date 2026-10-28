@@ -51,3 +51,22 @@
 - Claves de nube: se pidió al colaborador crear `.env.nube` (ignorado por git) en vez de pegarlas en el chat. Pendiente: migrar su Supabase con su confirmación.
 - Validación: 486 pruebas y 43 e2e en verde (un `ERR_NETWORK_CHANGED` transitorio, repetido y en verde).
 - Pendiente: feriados regionales o días no laborables por colegio (la lógica acepta `feriadosExtra`).
+
+## Continuación (2026-10-28): conexión a la nube y super administrador real
+
+> ya  agregue claudinary y el gmail tambien, puedes verificar porfavor
+
+> antes de pasar a eso, quiero preguntarte por unas carpetas que tenemos  como el src y en .venv que esta a la par de la carpeta donde nosotros estamos trabajando
+
+> si no te sirve puedes eliminarlo
+
+> okey vamos a crear el usuario superAdmin el cual es el principal
+
+> khipuescolar@gmail.com este seria el correo y los nombres y apellidos serian Khipu Escolar
+
+- Claves en `khipu-escolar/.env.nube` (ignorado por git, permisos 600). Verificado sin mostrar valores: Supabase (pooler 6543 y 5432; la conexión directa es solo IPv6 y no se usa), Cloudinary (plan Free) y Gmail (contraseña de aplicación; la normal fue rechazada por Google). Secretos internos (`APP_SECRET`, `CRON_SECRET`, VAPID, token del webhook de WhatsApp) generados localmente. Se recomendó cambiar la contraseña normal de Gmail porque apareció en el chat.
+- Decisiones del colaborador: proyecto de Supabase en Virginia (`us-east-1`) y base limpia (sin colegios demo).
+- Nube: 11 migraciones aplicadas; 37 tablas con RLS forzado y sin permisos para `anon`/`authenticated`.
+- Super administrador real `khipuescolar@gmail.com` (Khipu Escolar) creado con contraseña temporal guardada en un archivo privado del equipo del colaborador ([REDACTADO]); `debeCambiarPassword = true`; inicio de sesión en Supabase Auth verificado.
+- Se borraron `Asistente Virtual Academico (AVA)/src` (caché `.pyc` de un orquestador Python antiguo) y `.venv` (vacío), y se actualizó el `AGENTS.md` raíz.
+- Pendiente: dominio + despliegue en Vercel (variables de `.env.nube`), configurar en Supabase Auth la Site URL y las redirect URLs del dominio, y el SMTP de Auth con Gmail.
