@@ -46,6 +46,8 @@ export async function proxy(request: NextRequest) {
     const match = pathname.match(/^\/colegio\/([a-z0-9-]+)(\/.*)?$/);
     if (match) return NextResponse.redirect(urlColegio(match[1], (match[2] ?? "/inicio") + search));
     if (pathname.startsWith("/plataforma")) return NextResponse.redirect(urlPlataforma(pathname.slice("/plataforma".length) || "/"));
+    // La app instalada desde el dominio principal abre en `/?origen=app` (manifest, specs/24): va al ingreso, no a la landing.
+    if (pathname === "/" && request.nextUrl.searchParams.get("origen") === "app") return NextResponse.redirect(urlRaiz("/login"));
     response = NextResponse.next({ request });
   }
 
