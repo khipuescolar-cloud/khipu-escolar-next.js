@@ -22,3 +22,4 @@ Cada módulo tiene su spec. Se actualiza en el mismo commit que cambia el compor
 | 16 | [Plataforma: super administrador](16-plataforma-superadmin.md) | Interno | implementado |
 | 17 | [CRM del colegio: profesores, personal y grados](17-crm-personal-colegio.md) | Básico | implementado |
 | 18 | [Sistema de diseño (tema, colores, formas, estilos)](18-sistema-de-diseno.md) | Todos | implementado (base) |
+| 21 | [Operación de plataforma: usuarios, monitoreo y auditoría](21-operacion-de-plataforma.md) | Interno | implementado |
