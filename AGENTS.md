@@ -30,6 +30,7 @@ pnpm db:start                # Supabase local (Docker): Postgres, Auth y Mailpit
 cp .env.example .env         # completa las claves con `pnpm exec supabase status`
 pnpm db:deploy && pnpm db:seed   # migraciones + datos demo (contraseña demo123)
 pnpm dev                     # http://lvh.me:3000  ·  colegios: http://<slug>.lvh.me:3000
+pnpm dev:nube                # misma app con los servicios REALES de .env.nube (Supabase cloud, Cloudinary, Gmail) → http://lvh.me:3100 · panel http://admin.lvh.me:3100
 pnpm lint && pnpm typecheck && pnpm test   # checks rápidos (tests de integración usan la BD local)
 pnpm e2e                     # Playwright (requiere BD con seed)
 pnpm khipu:crear-superadmin --email x --nombres … --apellidos … [--documento …]   # super administrador (specs/16)

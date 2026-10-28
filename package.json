@@ -20,6 +20,7 @@
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio",
     "khipu:borrar-colegio": "tsx --conditions=react-server scripts/borrar-colegio.ts",
+    "dev:nube": "node scripts/dev-nube.mjs",
     "khipu:crear-superadmin": "tsx --conditions=react-server scripts/crear-superadmin.ts",
     "postinstall": "prisma generate"
   },

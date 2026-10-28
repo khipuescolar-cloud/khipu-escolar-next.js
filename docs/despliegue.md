@@ -134,3 +134,12 @@ El usuario recibe el correo de invitación/recuperación para definir su contras
 - [ ] Revisión legal (términos, privacidad, menores de edad) **(externo)**.
 - [ ] Logotipo e isotipo oficiales de la marca **(externo)**.
 - [ ] Copias de seguridad de Supabase habilitadas y `lint/typecheck/test` en verde en la rama desplegada.
+
+## Probar con los servicios reales desde tu equipo (antes de Vercel)
+
+`pnpm dev:nube` (`scripts/dev-nube.mjs`) levanta la app en `http://lvh.me:3100` usando las claves de `.env.nube` (Supabase cloud, Cloudinary, Gmail) y solo cambia el dominio a `lvh.me:3100` con `http`. Compila en `.next-nube/`, así que convive con `pnpm dev` (Supabase local en Docker, puerto 3000).
+
+- Panel del super administrador: `http://admin.lvh.me:3100`. Colegios: `http://<slug>.lvh.me:3100`.
+- **Escribe en la base real y envía correos reales por Gmail**: no cargues datos de prueba ni correos inventados (rebotan y dañan la reputación de la cuenta).
+- Los enlaces de los correos (bienvenida, justificar) apuntan a `lvh.me:3100`: solo funcionan en este equipo hasta que se configure el dominio.
+
