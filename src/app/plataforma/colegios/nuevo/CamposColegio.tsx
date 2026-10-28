@@ -29,14 +29,14 @@ export function CamposColegio({ baseDomain }: { baseDomain: string }) {
             <ImageIcon className="size-8 text-muted-foreground" strokeWidth={2} aria-hidden />
           )}
         </div>
-        <label className="flex flex-col gap-1.5 text-sm">
+        <label className="flex flex-col gap-1.5 text-cuerpo-sm">
           <span className="font-medium">Insignia o escudo</span>
           <input
             type="file"
             name="insignia"
             accept="image/png,image/jpeg,image/webp"
             required
-            className="text-sm file:mr-3 file:rounded-md file:border file:bg-secondary file:px-3 file:py-1.5 file:text-sm file:font-medium"
+            className="text-cuerpo-sm file:mr-3 file:rounded-md file:border file:bg-secondary file:px-3 file:py-1.5 file:text-sm file:font-medium"
             onChange={(e) => {
               const f = e.target.files?.[0];
               setErrorInsignia(f && f.size > 1024 * 1024 ? "La insignia pesa más de 1 MB." : null);
@@ -67,7 +67,7 @@ export function CamposColegio({ baseDomain }: { baseDomain: string }) {
           ayuda="Minúsculas, números y guiones. Se sugiere a partir del nombre."
           className="font-mono"
         />
-        <p className="inline-flex items-center gap-1.5 text-sm text-muted-foreground" aria-live="polite">
+        <p className="inline-flex items-center gap-1.5 text-cuerpo-sm text-muted-foreground" aria-live="polite">
           <Globe className="size-4" strokeWidth={2} aria-hidden />
           <span>El colegio estará en</span>
           <strong className="font-mono text-foreground" data-testid="subdominio">{slugMostrado || "…"}.{baseDomain}</strong>

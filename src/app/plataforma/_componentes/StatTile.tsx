@@ -5,15 +5,15 @@ import { Tarjeta } from "@/components/ui/Tarjeta";
 /** Tarjeta de métrica: ícono + título, valor grande y nota opcional. */
 export function StatTile({ titulo, valor, Icono, children }: { titulo: string; valor: string; Icono: LucideIcon; children?: ReactNode }) {
   return (
-    <Tarjeta className="flex flex-col gap-3 p-5">
+    <Tarjeta className="flex flex-col gap-3 p-4">
       <div className="flex items-center gap-3">
         <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-accent text-primary">
           <Icono className="size-5" strokeWidth={2} aria-hidden />
         </span>
-        <p className="text-sm font-medium text-muted-foreground">{titulo}</p>
+        <p className="text-cuerpo-sm font-medium text-muted-foreground">{titulo}</p>
       </div>
-      <p className="font-heading text-3xl font-bold tracking-tight">{valor}</p>
-      {children && <div className="text-xs text-muted-foreground">{children}</div>}
+      <p className="font-heading text-titulo-1">{valor}</p>
+      {children && <div className="text-cuerpo-sm text-muted-foreground">{children}</div>}
     </Tarjeta>
   );
 }

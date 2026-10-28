@@ -25,10 +25,10 @@ export default async function NuevoColegio() {
       <FormularioPlataforma accion={crearColegioAction} etiqueta="Crear colegio" className="flex flex-col gap-6">
         <Tarjeta className="flex flex-col gap-5">
           <div>
-            <h2 className="flex items-center gap-2 text-lg font-semibold">
+            <h2 className="flex items-center gap-2 font-heading text-titulo-2">
               <School className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Colegio
             </h2>
-            <p className="mt-1 text-sm text-muted-foreground">Identidad, plan y dirección web del colegio.</p>
+            <p className="mt-1 text-cuerpo-sm text-muted-foreground">Identidad, plan y dirección web del colegio.</p>
           </div>
           <CamposColegio baseDomain={baseDomain()} />
           <div className="grid gap-4 sm:grid-cols-2">
@@ -51,10 +51,10 @@ export default async function NuevoColegio() {
         </Tarjeta>
         <Tarjeta className="flex flex-col gap-5">
           <div>
-            <h2 className="flex items-center gap-2 text-lg font-semibold">
+            <h2 className="flex items-center gap-2 font-heading text-titulo-2">
               <UserRound className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Administrador principal
             </h2>
-            <p className="mt-1 text-sm text-muted-foreground">Tendrá el rol de dirección. Si el correo ya tiene cuenta en Khipu, conserva su contraseña.</p>
+            <p className="mt-1 text-cuerpo-sm text-muted-foreground">Tendrá el rol de dirección. Si el correo ya tiene cuenta en Khipu, conserva su contraseña.</p>
           </div>
           <CamposAdministrador />
         </Tarjeta>

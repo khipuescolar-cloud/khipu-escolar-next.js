@@ -15,9 +15,9 @@ export default async function ElegirColegioPage() {
   if (colegios.length === 1) redirect(`/entrando?colegio=${colegios[0].slug}`);
 
   return (
-    <Tarjeta className="p-6 shadow-sm sm:p-8">
-      <h1 className="mb-1 text-2xl font-bold">Hola, {user.nombres}</h1>
-      <p className="mb-6 text-sm text-muted-foreground">Tienes hijos en más de un colegio. ¿A cuál quieres entrar?</p>
+    <Tarjeta className="p-6 sm:p-8">
+      <h1 className="mb-1 font-heading text-titulo-2">Hola, {user.nombres}</h1>
+      <p className="mb-6 text-cuerpo-sm text-muted-foreground">Tienes hijos en más de un colegio. ¿A cuál quieres entrar?</p>
       <ul className="flex flex-col gap-3">
         {colegios.map((c) => (
           <li key={c.slug}>
@@ -28,7 +28,7 @@ export default async function ElegirColegioPage() {
               <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-accent text-primary"><School className="size-5" strokeWidth={2} aria-hidden /></span>
               <span className="flex-1">
                 <span className="block font-semibold">{c.nombre}</span>
-                {c.ciudad && <span className="text-sm text-muted-foreground">{c.ciudad}</span>}
+                {c.ciudad && <span className="text-cuerpo-sm text-muted-foreground">{c.ciudad}</span>}
               </span>
               <ChevronRight className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden />
             </Link>

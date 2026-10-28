@@ -12,9 +12,9 @@ export const metadata: Metadata = { title: "Recuperar contraseña" };
 export default async function RecuperarPage({ searchParams }: PageProps<"/recuperar">) {
   const { enviado } = await searchParams;
   return (
-    <Tarjeta className="p-6 shadow-sm sm:p-8">
-      <h1 className="mb-1 text-2xl font-bold">Recuperar contraseña</h1>
-      <p className="mb-6 text-sm text-muted-foreground">Te enviaremos un enlace a tu correo.</p>
+    <Tarjeta className="p-6 sm:p-8">
+      <h1 className="mb-1 font-heading text-titulo-2">Recuperar contraseña</h1>
+      <p className="mb-6 text-cuerpo-sm text-muted-foreground">Te enviaremos un enlace a tu correo.</p>
       {enviado ? (
         <Alerta tipo="exito">Si el correo está registrado, te llegará un enlace en unos minutos.</Alerta>
       ) : (
@@ -23,7 +23,7 @@ export default async function RecuperarPage({ searchParams }: PageProps<"/recupe
           <Boton type="submit" tamano="lg">Enviar enlace</Boton>
         </form>
       )}
-          <Link href="/login" className="mt-4 inline-flex min-h-10 items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline">
+          <Link href="/login" className="mt-4 enlace inline-flex min-h-10 items-center gap-1 text-cuerpo-sm">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Volver a entrar
       </Link>
     </Tarjeta>

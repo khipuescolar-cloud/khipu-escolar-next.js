@@ -177,3 +177,6 @@ aCsv(encabezados, filas)
 
 ## Pendientes
 - `login_intentos` anteriores a la migración `20261027180000_pendientes_v2` no tienen `user_id`: los gráficos de ingresos solo cuentan desde entonces.
+
+## Marca (2026-10-28)
+Panel de plataforma y pantallas públicas según el manual de marca: títulos en `text-titulo-2`, tarjetas sin sombra con borde `arena`, cabeceras de tabla con `sobretitulo`, insignias de estado y plan `rounded-pildora` con ícono + palabra, título de pestaña «… · Khipu Escolar». El carnet público (`/q/[token]`) se titula «Carnet escolar».

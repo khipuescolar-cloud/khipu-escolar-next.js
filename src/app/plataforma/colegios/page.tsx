@@ -76,26 +76,26 @@ export default async function ReporteColegios({ searchParams }: PageProps<"/plat
           <Table className="min-w-[1040px]">
             <TableHeader>
               <TableRow>
-                <TableHead className="pl-4">Colegio</TableHead>
-                <TableHead>Plan</TableHead>
-                <TableHead>Estado</TableHead>
-                <TableHead className="text-right">Alumnos</TableHead>
-                <TableHead className="text-right">Profesores</TableHead>
-                <TableHead className="text-right">Familias</TableHead>
-                <TableHead>Último ingreso</TableHead>
-                <TableHead className="text-right">Asistencia (7 d)</TableHead>
-                <TableHead className="text-right">Avisos (7 d)</TableHead>
-                <TableHead className="text-right">Apertura</TableHead>
-                <TableHead className="text-right">Rebotes</TableHead>
-                <TableHead className="pr-4">Alta</TableHead>
+                <TableHead className="sobretitulo pl-4">Colegio</TableHead>
+                <TableHead className="sobretitulo">Plan</TableHead>
+                <TableHead className="sobretitulo">Estado</TableHead>
+                <TableHead className="sobretitulo text-right">Alumnos</TableHead>
+                <TableHead className="sobretitulo text-right">Profesores</TableHead>
+                <TableHead className="sobretitulo text-right">Familias</TableHead>
+                <TableHead className="sobretitulo">Último ingreso</TableHead>
+                <TableHead className="sobretitulo text-right">Asistencia (7 d)</TableHead>
+                <TableHead className="sobretitulo text-right">Avisos (7 d)</TableHead>
+                <TableHead className="sobretitulo text-right">Apertura</TableHead>
+                <TableHead className="sobretitulo text-right">Rebotes</TableHead>
+                <TableHead className="sobretitulo pr-4">Alta</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {filas.map((f) => (
                 <TableRow key={f.id}>
                   <TableCell className="pl-4">
-                    <Link href={`/colegios/${f.id}`} className="font-semibold text-primary underline-offset-4 hover:underline">{f.nombre}</Link>
-                    <p className="font-mono text-xs text-muted-foreground">{f.slug}</p>
+                    <Link href={`/colegios/${f.id}`} className="enlace font-semibold">{f.nombre}</Link>
+                    <p className="font-mono text-cuerpo-sm text-muted-foreground">{f.slug}</p>
                   </TableCell>
                   <TableCell><PlanColegio plan={f.plan} /></TableCell>
                   <TableCell><EstadoColegio estado={f.estado} /></TableCell>

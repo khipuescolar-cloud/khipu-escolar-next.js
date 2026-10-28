@@ -33,12 +33,12 @@ export function LoginForm({ emailInicial }: { emailInicial?: string }) {
         placeholder="tu.correo@colegio.edu.pe"
       />
       {detectado && "nombre" in detectado && (
-        <p className="flex items-center gap-2 text-sm text-turquesa" aria-live="polite">
+        <p className="flex items-center gap-2 text-cuerpo-sm text-foreground" aria-live="polite">
           <School className="size-4" strokeWidth={2} aria-hidden /> Entrarás a <strong>{detectado.nombre}</strong>
         </p>
       )}
       {detectado && "personal" in detectado && (
-        <p className="flex items-center gap-2 text-sm text-muted-foreground" aria-live="polite">
+        <p className="flex items-center gap-2 text-cuerpo-sm text-muted-foreground" aria-live="polite">
           <UserRound className="size-4" strokeWidth={2} aria-hidden /> Cuenta de familia: verás a todos tus hijos.
         </p>
       )}
@@ -48,7 +48,7 @@ export function LoginForm({ emailInicial }: { emailInicial?: string }) {
         {enviando && <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />}
         {enviando ? "Entrando…" : "Entrar"}
       </Boton>
-      <Link href="/recuperar" className="inline-flex min-h-10 items-center justify-center text-sm font-medium text-primary underline-offset-4 hover:underline">
+      <Link href="/recuperar" className="enlace inline-flex min-h-10 items-center justify-center text-cuerpo-sm">
         ¿Olvidaste tu contraseña?
       </Link>
     </form>

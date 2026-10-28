@@ -1,4 +1,4 @@
-import { Ban, CheckCircle2, FlaskConical } from "lucide-react";
+import { Ban, CheckCircle2, FlaskConical, Layers } from "lucide-react";
 import type { EstadoTenant, Plan } from "@/generated/prisma/enums";
 import { NOMBRE_PLAN } from "@/lib/planes";
 
@@ -14,7 +14,7 @@ export const NOMBRE_ESTADO: Record<EstadoTenant, string> = { activo: "Activo", p
 export function EstadoColegio({ estado }: { estado: EstadoTenant }) {
   const { Icono, palabra, clase } = CONFIG[estado];
   return (
-    <span className={`inline-flex items-center gap-1 rounded-pildora px-2 py-0.5 text-xs font-semibold ${clase}`}>
+    <span className={`inline-flex items-center gap-1 rounded-pildora px-2 py-0.5 text-etiqueta ${clase}`}>
       <Icono className="size-3.5" strokeWidth={2} aria-hidden /> {palabra}
     </span>
   );
@@ -23,8 +23,8 @@ export function EstadoColegio({ estado }: { estado: EstadoTenant }) {
 /** Plan contratado, como insignia con contorno. */
 export function PlanColegio({ plan }: { plan: Plan }) {
   return (
-    <span className="inline-flex items-center rounded-pildora border px-2 py-0.5 text-xs font-semibold text-foreground">
-      Plan {NOMBRE_PLAN[plan]}
+    <span className="inline-flex items-center gap-1 rounded-pildora border px-2 py-0.5 text-etiqueta text-foreground">
+      <Layers className="size-3.5" strokeWidth={2} aria-hidden /> Plan {NOMBRE_PLAN[plan]}
     </span>
   );
 }

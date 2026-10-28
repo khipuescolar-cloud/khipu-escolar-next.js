@@ -22,10 +22,10 @@ function configDe(series: Serie[]): ChartConfig {
 
 function Marco({ titulo, descripcion, children }: { titulo: string; descripcion?: string; children: ReactNode }) {
   return (
-    <Tarjeta className="flex min-w-0 flex-col gap-3 p-5">
+    <Tarjeta className="flex min-w-0 flex-col gap-3 p-4">
       <div>
-        <h3 className="font-heading text-base font-semibold">{titulo}</h3>
-        {descripcion && <p className="text-xs text-muted-foreground">{descripcion}</p>}
+        <h3 className="font-heading text-titulo-2">{titulo}</h3>
+        {descripcion && <p className="text-cuerpo-sm text-muted-foreground">{descripcion}</p>}
       </div>
       {children}
     </Tarjeta>
@@ -65,7 +65,7 @@ export function GraficoDiario({
           ))}
         </LineChart>
       </ChartContainer>
-      <p className="text-xs text-muted-foreground">
+      <p className="text-cuerpo-sm text-muted-foreground">
         Total 30 días: {series.map((s) => `${s.etiqueta.toLowerCase()} ${numero(total(s.clave))}`).join(" · ")}
       </p>
       <table className="sr-only">

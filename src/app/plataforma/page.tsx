@@ -83,7 +83,7 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
       </section>
 
       <section aria-labelledby="ultimos-30" className="flex flex-col gap-3">
-        <h2 id="ultimos-30" className="text-xl font-semibold">Últimos 30 días</h2>
+        <h2 id="ultimos-30" className="font-heading text-titulo-2">Últimos 30 días</h2>
         <div className="grid gap-4 lg:grid-cols-2">
           <GraficoDiario
             titulo="Ingresos diarios"
@@ -110,7 +110,7 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
 
       <section aria-labelledby="lista-colegios" className="flex flex-col gap-4">
         <div className="flex flex-wrap items-end justify-between gap-3">
-          <h2 id="lista-colegios" className="text-xl font-semibold">Colegios</h2>
+          <h2 id="lista-colegios" className="font-heading text-titulo-2">Colegios</h2>
           <form role="search" className="flex w-full items-center gap-2 sm:w-auto">
             <label htmlFor="q" className="sr-only">Buscar colegio</label>
             <Input id="q" name="q" defaultValue={busqueda} placeholder="Nombre, dirección o ciudad" className="sm:w-64" />
@@ -138,17 +138,17 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
               <li key={c.id}>
                 <Link
                   href={`/colegios/${c.id}`}
-                  className={cn("group block h-full rounded-xl focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none")}
+                  className={cn("group block h-full rounded-lg focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none")}
                 >
                   <Tarjeta className="flex h-full flex-col gap-3 transition-colors group-hover:border-primary/40">
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0">
                         <p className="truncate font-heading font-semibold">{c.nombre}</p>
-                        <p className="truncate font-mono text-xs text-muted-foreground">{c.slug}</p>
+                        <p className="truncate font-mono text-cuerpo-sm text-muted-foreground">{c.slug}</p>
                       </div>
                       <ChevronRight className="size-5 shrink-0 text-muted-foreground" strokeWidth={2} aria-hidden />
                     </div>
-                    <div className="mt-auto flex flex-wrap items-center gap-2 text-sm">
+                    <div className="mt-auto flex flex-wrap items-center gap-2 text-cuerpo-sm">
                       <EstadoColegio estado={c.estado} />
                       <PlanColegio plan={c.plan} />
                       <span className="text-muted-foreground">{numero(c.alumnos)} alumnos</span>
@@ -159,7 +159,7 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
             ))}
           </ul>
         )}
-        <Link href="/colegios" className="inline-flex min-h-10 items-center gap-1 self-start text-sm font-semibold text-primary underline-offset-4 hover:underline">
+        <Link href="/colegios" className="inline-flex min-h-10 items-center gap-1 self-start text-cuerpo-sm enlace font-semibold">
           Ver el reporte completo <ChevronRight className="size-4" strokeWidth={2} aria-hidden />
         </Link>
       </section>

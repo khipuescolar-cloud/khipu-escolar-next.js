@@ -72,7 +72,7 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
 
   return (
     <div className="flex flex-col gap-6">
-      <Link href="/colegios" className="inline-flex min-h-10 items-center gap-1 self-start text-sm font-semibold text-primary underline-offset-4 hover:underline">
+      <Link href="/colegios" className="inline-flex min-h-10 items-center gap-1 self-start text-cuerpo-sm enlace font-semibold">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Reporte de colegios
       </Link>
 
@@ -98,11 +98,11 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
               </>
             }
           />
-          <div className="-mt-3 flex flex-wrap items-center gap-2 text-sm">
+          <div className="-mt-3 flex flex-wrap items-center gap-2 text-cuerpo-sm">
             <EstadoColegio estado={t.estado} />
             <PlanColegio plan={t.plan} />
             <span className="text-muted-foreground">{t.ciudad ? `${t.ciudad} · ` : ""}alta {fechaSimple(t.createdAt)}</span>
-            <span className="font-mono text-xs text-muted-foreground">{url.replace(/^https?:\/\//, "").replace(/\/inicio$/, "")}</span>
+            <span className="font-mono text-cuerpo-sm text-muted-foreground">{url.replace(/^https?:\/\//, "").replace(/\/inicio$/, "")}</span>
           </div>
         </div>
       </div>
@@ -115,7 +115,7 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
             <LifeBuoy className="mt-0.5 size-5 shrink-0 text-primary" strokeWidth={2} aria-hidden />
             <div className="min-w-0">
               <p id="soporte-activo" className="font-semibold">Acceso de soporte activo · solo lectura · vence a las {horaLima(soporte.expiraAt)}</p>
-              <p className="truncate text-sm text-muted-foreground">Motivo: {soporte.motivo}</p>
+              <p className="truncate text-cuerpo-sm text-muted-foreground">Motivo: {soporte.motivo}</p>
             </div>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -148,15 +148,15 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
             ["Último ingreso", fechaHora(fila.ultimoIngreso)],
           ].map(([titulo, valor]) => (
             <Tarjeta key={titulo} className="flex flex-col gap-1 p-4">
-              <p className="text-xs font-medium text-muted-foreground">{titulo}</p>
-              <p className="font-heading text-lg font-bold tracking-tight">{valor}</p>
+              <p className="text-cuerpo-sm font-medium text-muted-foreground">{titulo}</p>
+              <p className="font-heading text-titulo-2">{valor}</p>
             </Tarjeta>
           ))}
         </section>
       )}
 
       <section aria-labelledby="metricas" className="flex flex-col gap-3">
-        <h2 id="metricas" className="text-xl font-semibold">Últimos 30 días</h2>
+        <h2 id="metricas" className="font-heading text-titulo-2">Últimos 30 días</h2>
         <div className="grid gap-4 lg:grid-cols-2">
           <GraficoDiario
             titulo="Ingresos diarios"
@@ -180,17 +180,17 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
           />
         </div>
         <details className="group rounded-xl border bg-card">
-          <summary className="flex min-h-10 cursor-pointer items-center px-4 text-sm font-semibold text-primary">Ver la tabla por semana</summary>
+          <summary className="flex min-h-10 cursor-pointer items-center px-4 text-cuerpo-sm font-semibold text-primary">Ver la tabla por semana</summary>
           <div className="overflow-x-auto">
             <Table className="min-w-[640px]">
               <TableHeader>
                 <TableRow>
-                  <TableHead className="pl-4">Semana</TableHead>
-                  <TableHead className="text-right">Asistencia registrada</TableHead>
-                  <TableHead className="text-right">Correos enviados</TableHead>
-                  <TableHead className="text-right">Apertura</TableHead>
-                  <TableHead className="text-right">Rebotes y quejas</TableHead>
-                  <TableHead className="pr-4 text-right">Ingresos</TableHead>
+                  <TableHead className="sobretitulo pl-4">Semana</TableHead>
+                  <TableHead className="sobretitulo text-right">Asistencia registrada</TableHead>
+                  <TableHead className="sobretitulo text-right">Correos enviados</TableHead>
+                  <TableHead className="sobretitulo text-right">Apertura</TableHead>
+                  <TableHead className="sobretitulo text-right">Rebotes y quejas</TableHead>
+                  <TableHead className="sobretitulo pr-4 text-right">Ingresos</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -208,19 +208,19 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
             </Table>
           </div>
         </details>
-        <p className="text-xs text-muted-foreground">Ingresos: suma diaria de personas del colegio que iniciaron sesión.</p>
+        <p className="text-cuerpo-sm text-muted-foreground">Ingresos: suma diaria de personas del colegio que iniciaron sesión.</p>
       </section>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Tarjeta className="flex flex-col gap-3">
-          <h2 className="flex items-center gap-2 text-lg font-semibold"><Users className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Administradores</h2>
+          <h2 className="flex items-center gap-2 font-heading text-titulo-2"><Users className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Administradores</h2>
           <ul className="flex flex-col divide-y divide-border">
             {administradores.map((a) => (
               <li key={a.id} className="flex flex-wrap items-center justify-between gap-2 py-2">
                 <div className="min-w-0">
                   <p className="font-semibold">{a.user.nombres} {a.user.apellidos}</p>
-                  <p className="text-sm text-muted-foreground">{a.cargo ?? "Dirección"} · {a.user.email}</p>
-                  <p className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+                  <p className="text-cuerpo-sm text-muted-foreground">{a.cargo ?? "Dirección"} · {a.user.email}</p>
+                  <p className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground">
                     <KeyRound className="size-3.5" strokeWidth={2} aria-hidden />
                     {a.user.debeCambiarPassword ? "Aún no cambia su contraseña inicial" : "Ya eligió su contraseña"}
                     {a.estado !== "activa" ? ` · membresía ${a.estado}` : ""}
@@ -237,12 +237,12 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
                 />
               </li>
             ))}
-            {administradores.length === 0 && <li className="py-2 text-sm text-muted-foreground">Sin administradores.</li>}
+            {administradores.length === 0 && <li className="py-2 text-cuerpo-sm text-muted-foreground">Sin administradores.</li>}
           </ul>
         </Tarjeta>
 
         <Tarjeta className="flex flex-col gap-4">
-          <h2 className="flex items-center gap-2 text-lg font-semibold"><Settings2 className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Plan y estado</h2>
+          <h2 className="flex items-center gap-2 font-heading text-titulo-2"><Settings2 className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Plan y estado</h2>
           <form action={cambiarPlanAction} className="flex flex-wrap items-end gap-3">
             <input type="hidden" name="tenantId" value={t.id} />
             <Selector etiqueta="Plan" name="plan" defaultValue={t.plan}>
@@ -253,14 +253,14 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
             <Boton type="submit" variante="secundario">Cambiar plan</Boton>
           </form>
           <CambiarEstado tenantId={t.id} nombre={t.nombre} estadoActual={t.estado} accion={cambiarEstadoAction} />
-          <a href={`/colegios/${t.id}/exportar`} className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline">
+          <a href={`/colegios/${t.id}/exportar`} className="inline-flex min-h-10 items-center gap-2 text-cuerpo-sm enlace font-semibold">
             <Download className="size-4" strokeWidth={2} aria-hidden /> Exportar todos los datos (ZIP, garantía de salida)
           </a>
-          <p className="text-xs text-muted-foreground">El panel no borra colegios: se hace con el script <code>khipu:borrar-colegio</code>.</p>
+          <p className="text-cuerpo-sm text-muted-foreground">El panel no borra colegios: se hace con el script <code>khipu:borrar-colegio</code>.</p>
         </Tarjeta>
 
         <Tarjeta className="flex flex-col gap-4">
-          <h2 className="flex items-center gap-2 text-lg font-semibold"><Pencil className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Datos del colegio</h2>
+          <h2 className="flex items-center gap-2 font-heading text-titulo-2"><Pencil className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Datos del colegio</h2>
           <form action={editarColegioAction} className="flex flex-col gap-4">
             <input type="hidden" name="tenantId" value={t.id} />
             <Campo etiqueta="Nombre" name="nombre" defaultValue={t.nombre} required />
@@ -275,17 +275,17 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
           </form>
           <form action={cambiarInsigniaAction} className="flex flex-wrap items-end gap-3 border-t border-border pt-4">
             <input type="hidden" name="tenantId" value={t.id} />
-            <label className="flex flex-col gap-1 text-sm font-medium">
+            <label className="flex flex-col gap-1 text-cuerpo-sm font-medium">
               Nueva insignia
-              <input type="file" name="insignia" accept="image/png,image/jpeg,image/webp" required className="text-sm" />
-              <span className="text-xs font-normal text-muted-foreground">PNG, JPG o WEBP, hasta 1 MB.</span>
+              <input type="file" name="insignia" accept="image/png,image/jpeg,image/webp" required className="text-cuerpo-sm" />
+              <span className="text-cuerpo-sm font-normal text-muted-foreground">PNG, JPG o WEBP, hasta 1 MB.</span>
             </label>
             <Boton type="submit" variante="secundario">Cambiar insignia</Boton>
           </form>
         </Tarjeta>
 
         <Tarjeta className="flex flex-col gap-4">
-          <h2 className="flex items-center gap-2 text-lg font-semibold"><UserPlus className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Agregar otro administrador</h2>
+          <h2 className="flex items-center gap-2 font-heading text-titulo-2"><UserPlus className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Agregar otro administrador</h2>
           <FormularioPlataforma accion={agregarAdministradorAction} etiqueta="Agregar administrador" className="flex flex-col gap-4">
             <input type="hidden" name="tenantId" value={t.id} />
             <CamposAdministrador />
@@ -294,12 +294,12 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
       </div>
 
       <section aria-labelledby="bitacora" className="flex flex-col gap-3">
-        <h2 id="bitacora" className="flex items-center gap-2 text-lg font-semibold"><History className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Acciones de la plataforma</h2>
+        <h2 id="bitacora" className="flex items-center gap-2 font-heading text-titulo-2"><History className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden /> Acciones de la plataforma</h2>
         {bitacora.length === 0 ? (
-          <p className="text-sm text-muted-foreground">Sin acciones registradas.</p>
+          <p className="text-cuerpo-sm text-muted-foreground">Sin acciones registradas.</p>
         ) : (
           <Tarjeta className="p-0">
-            <ul className="flex flex-col divide-y text-sm">
+            <ul className="flex flex-col divide-y text-cuerpo-sm">
               {bitacora.map((b) => (
                 <li key={b.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3">
                   <span className="text-muted-foreground tabular-nums">{fechaHora(b.createdAt)}</span>

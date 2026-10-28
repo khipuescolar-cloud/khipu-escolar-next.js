@@ -38,7 +38,7 @@ export function DialogoSoporte({ tenantId, nombre, accion }: { tenantId: string;
           }}
         >
           <input type="hidden" name="tenantId" value={tenantId} />
-          <label htmlFor="motivo-soporte" className="flex flex-col gap-1.5 text-sm">
+          <label htmlFor="motivo-soporte" className="flex flex-col gap-1.5 text-cuerpo-sm">
             <span className="font-medium text-foreground">Motivo</span>
             <Textarea id="motivo-soporte" name="motivo" required minLength={5} maxLength={300} rows={3} placeholder="P. ej. La directora reporta que no ve la asistencia de 3.° B." />
           </label>

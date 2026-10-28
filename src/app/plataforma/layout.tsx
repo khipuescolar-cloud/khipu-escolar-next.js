@@ -11,7 +11,7 @@ import { Logo } from "@/components/marca/Logo";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import { salirPlataformaAction } from "./actions";
 
-export const metadata: Metadata = { title: { default: "Plataforma", template: "%s · Plataforma Khipu" } };
+export const metadata: Metadata = { title: { default: "Plataforma · Khipu Escolar", template: "%s · Khipu Escolar" } };
 
 const GRUPOS: GrupoNavResuelto[] = [
   { items: [{ href: "/", titulo: "Vista principal", icono: "House" }] },
@@ -45,7 +45,7 @@ export default async function LayoutPlataforma({ children }: LayoutProps<"/plata
               </span>
               <span className="grid min-w-0 leading-tight group-data-[collapsible=icon]:hidden">
                 <span className="truncate font-heading text-cuerpo-sm font-semibold text-foreground">Khipu Escolar</span>
-                <span className="inline-flex items-center gap-1 truncate text-xs text-muted-foreground">
+                <span className="inline-flex items-center gap-1 truncate text-cuerpo-sm text-muted-foreground">
                   <ShieldCheck className="size-3.5" strokeWidth={2} aria-hidden /> Super administración
                 </span>
               </span>

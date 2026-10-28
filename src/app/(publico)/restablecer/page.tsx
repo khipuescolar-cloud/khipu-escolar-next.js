@@ -12,8 +12,8 @@ export default async function RestablecerPage({ searchParams }: PageProps<"/rest
   const { error } = await searchParams;
   const user = await usuarioActual();
   return (
-    <Tarjeta className="p-6 shadow-sm sm:p-8">
-      <h1 className="mb-6 text-2xl font-bold">Nueva contraseña</h1>
+    <Tarjeta className="p-6 sm:p-8">
+      <h1 className="mb-6 font-heading text-titulo-2">Nueva contraseña</h1>
       {!user ? (
         <Alerta tipo="aviso">El enlace venció o ya se usó. Pide uno nuevo desde «¿Olvidaste tu contraseña?».</Alerta>
       ) : (

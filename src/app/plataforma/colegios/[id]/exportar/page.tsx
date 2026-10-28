@@ -32,7 +32,7 @@ export default async function ExportarColegioPage({ params, searchParams }: Page
 
   return (
     <div className="flex max-w-3xl flex-col gap-6">
-      <Link href={`/colegios/${tenant.id}`} className="inline-flex min-h-10 w-fit items-center gap-1 text-sm font-semibold text-primary underline-offset-4 hover:underline">
+      <Link href={`/colegios/${tenant.id}`} className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace font-semibold">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> {tenant.nombre}
       </Link>
       <div className="-mt-2">
@@ -46,7 +46,7 @@ export default async function ExportarColegioPage({ params, searchParams }: Page
             <PackagePlus strokeWidth={2} aria-hidden /> Preparar exportación
           </Boton>
         </form>
-        {enCurso && <p className="text-sm text-muted-foreground">Ya hay una exportación en preparación. Actualiza esta página en unos minutos.</p>}
+        {enCurso && <p className="text-cuerpo-sm text-muted-foreground">Ya hay una exportación en preparación. Actualiza esta página en unos minutos.</p>}
       </Tarjeta>
       {filas.length === 0 ? (
         <EstadoVacio icono={FileArchive} titulo="Sin exportaciones" descripcion="Cuando prepares una, aparecerá aquí con su estado." />
@@ -68,7 +68,7 @@ export default async function ExportarColegioPage({ params, searchParams }: Page
                   <TableCell>
                     <div className="flex flex-col gap-1">
                       <EstadoExportacion estado={f.estado} />
-                      {f.error && <span className="text-xs text-muted-foreground">{f.error}</span>}
+                      {f.error && <span className="text-cuerpo-sm text-muted-foreground">{f.error}</span>}
                     </div>
                   </TableCell>
                   <TableCell className="text-right">
@@ -77,7 +77,7 @@ export default async function ExportarColegioPage({ params, searchParams }: Page
                         <Download strokeWidth={2} aria-hidden /> Descargar
                       </a>
                     ) : (
-                      <span className="text-sm text-muted-foreground">—</span>
+                      <span className="text-cuerpo-sm text-muted-foreground">—</span>
                     )}
                   </TableCell>
                 </TableRow>
