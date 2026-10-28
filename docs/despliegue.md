@@ -101,6 +101,10 @@ pnpm exec web-push generate-vapid-keys
 
 Pon la clave pública en `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, la privada en `VAPID_PRIVATE_KEY` y `VAPID_SUBJECT=mailto:soporte@khipuescolar.pe`. No cambies las claves luego: invalidarías las suscripciones existentes.
 
+## 6c. App instalable y tiendas (opcional)
+
+La app se instala desde el navegador sin tiendas (specs/24, página `/instalar`; requiere HTTPS). Para publicarla en Google Play como TWA o evaluar App Store sigue `docs/app-tiendas.md` y define `ANDROID_PACKAGE_NAME` y `ANDROID_SHA256_FINGERPRINTS` en Vercel.
+
 ## 6b. WhatsApp y SMS (opcional, con costo por mensaje)
 
 Apagados por defecto: sin estas variables nada se envía ni se encola (la pantalla *Configuración → Canales de pago* muestra «Falta configurar en el servidor»). Detalle y costos en `specs/06-avisos-notificaciones.md`.

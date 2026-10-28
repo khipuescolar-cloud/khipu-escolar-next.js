@@ -1,6 +1,7 @@
 import { ChevronRight, MailWarning, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TarjetaInstalarApp } from "@/components/app/InstalarApp";
 import { PlanLock } from "@/components/PlanLock";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { ICONOS_NAV } from "@/components/shell/iconos";
@@ -37,6 +38,7 @@ export default async function InicioPage({ params }: PageProps<"/colegio/[slug]/
           </span>
         }
       />
+      <TarjetaInstalarApp />
       {GRUPOS.map((grupo) => {
         const delGrupo = mosaicos.filter((m) => m.grupo === grupo);
         if (delGrupo.length === 0) return null;

@@ -31,7 +31,7 @@ export function BarraSuperior({
   const total = notificaciones.reduce((s, n) => s + n.cantidad, 0);
 
   return (
-    <header className="sticky top-0 z-30 flex h-(--header-height) shrink-0 items-center gap-1 bg-barra px-2 text-barra-foreground sm:gap-2 sm:px-3">
+    <header className="sticky top-0 z-30 box-content flex h-(--header-height) shrink-0 items-center pt-[env(safe-area-inset-top)] gap-1 bg-barra px-2 text-barra-foreground sm:gap-2 sm:px-3">
       <SidebarTrigger className={`${BOTON_BARRA} hover:text-barra-foreground [&_svg]:size-5`} aria-label="Abrir o cerrar el menú" />
       <Link href={inicioHref} className="flex items-center gap-3 rounded-sm px-1 py-1" aria-label="khipu: ir al inicio">
         <Logo tono="blanco" alto={28} />
