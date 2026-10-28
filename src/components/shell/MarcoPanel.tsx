@@ -24,9 +24,9 @@ export function MarcoPanel({
       {barraSuperior}
       <div className="flex flex-1">
         {barraLateral}
-        <SidebarInset>
+        <SidebarInset className="min-w-0">
           {avisoSuperior}
-          <div className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6 lg:py-8">{children}</div>
+          <div className="mx-auto w-full max-w-6xl min-w-0 flex-1 px-4 py-6 sm:px-6 lg:py-8">{children}</div>
         </SidebarInset>
       </div>
       {flotante}

@@ -4,7 +4,7 @@ import type { IconoMosaico } from "@/lib/navegacion";
 export type ItemNav = {
   href: string;
   titulo: string;
-  icono: IconoMosaico | "House" | "PlusCircle";
+  icono: IconoMosaico | "House";
   /** Nombre del plan que lo incluye, si el colegio no lo tiene. */
   bloqueadoPlan?: string;
   contador?: number;

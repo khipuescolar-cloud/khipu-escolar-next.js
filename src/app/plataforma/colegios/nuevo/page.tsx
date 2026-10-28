@@ -1,5 +1,6 @@
-import { School, UserRound } from "lucide-react";
+import { ArrowLeft, School, UserRound } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
@@ -18,6 +19,10 @@ export default async function NuevoColegio() {
   await requireAdminPlataforma();
   return (
     <div className="flex max-w-3xl flex-col">
+      {/* «Nuevo colegio» es una acción del módulo Colegios: se vuelve a la lista, no es un módulo propio. */}
+      <Link href="/colegios" className="enlace mb-2 inline-flex min-h-10 items-center gap-1 self-start text-cuerpo-sm font-semibold">
+        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Colegios
+      </Link>
       <EncabezadoPagina
         titulo="Nuevo colegio"
         descripcion="Al guardar se crea el colegio y la cuenta del administrador principal. Le llega un correo de bienvenida con su usuario (el correo) y el botón para entrar. Su contraseña inicial es su número de documento y la cambia en su primer ingreso."

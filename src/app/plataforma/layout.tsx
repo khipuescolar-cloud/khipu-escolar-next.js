@@ -13,13 +13,12 @@ import { salirPlataformaAction } from "./actions";
 
 export const metadata: Metadata = { title: { default: "Plataforma · Khipu Escolar", template: "%s · Khipu Escolar" } };
 
+// Un ítem por módulo. Las acciones de un módulo (p. ej. «Nuevo colegio») viven dentro de su página, no en el menú.
 const GRUPOS: GrupoNavResuelto[] = [
-  { items: [{ href: "/", titulo: "Vista principal", icono: "House" }] },
   {
-    titulo: "Colegios",
     items: [
+      { href: "/", titulo: "Vista principal", icono: "House" },
       { href: "/colegios", titulo: "Colegios", icono: "School" },
-      { href: "/colegios/nuevo", titulo: "Nuevo colegio", icono: "PlusCircle" },
     ],
   },
 ];

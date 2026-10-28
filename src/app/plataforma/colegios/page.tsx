@@ -1,4 +1,4 @@
-import { Download, Filter, School, X } from "lucide-react";
+import { Download, Filter, Plus, School, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -13,7 +13,7 @@ import { NOMBRE_PLAN } from "@/lib/planes";
 import { esquemaFiltroReporte, reporteColegios, requireAdminPlataforma } from "@/lib/server/plataforma";
 import { EstadoColegio, fechaHora, fechaSimple, PlanColegio, porcentaje } from "../EstadoColegio";
 
-export const metadata: Metadata = { title: "Reporte de colegios" };
+export const metadata: Metadata = { title: "Colegios" };
 
 export default async function ReporteColegios({ searchParams }: PageProps<"/plataforma/colegios">) {
   const admin = await requireAdminPlataforma();
@@ -25,12 +25,17 @@ export default async function ReporteColegios({ searchParams }: PageProps<"/plat
   return (
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
-        titulo="Reporte de colegios"
-        descripcion="Conteos agregados. Asistencia, avisos y apertura de los últimos 7 días."
+        titulo="Colegios"
+        descripcion="Todos los colegios de la plataforma. Asistencia, avisos y apertura de los últimos 7 días."
         acciones={
-          <a href={`/colegios/reporte.csv${query ? `?${query}` : ""}`} className={buttonVariants({ variant: "outline" })}>
-            <Download strokeWidth={2} aria-hidden /> Descargar CSV
-          </a>
+          <>
+            <a href={`/colegios/reporte.csv${query ? `?${query}` : ""}`} className={buttonVariants({ variant: "outline" })}>
+              <Download strokeWidth={2} aria-hidden /> Descargar CSV
+            </a>
+            <Link href="/colegios/nuevo" className={buttonVariants()}>
+              <Plus strokeWidth={2} aria-hidden /> Nuevo colegio
+            </Link>
+          </>
         }
       />
 

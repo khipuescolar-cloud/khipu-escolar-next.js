@@ -43,3 +43,12 @@
 
 - Diagnóstico: patrón como recorte pegado en el panel, formulario pequeño perdido en espacio vacío, sin ver contraseña ni ayuda de primera vez, jerarquía débil.
 - Cambios: portada en dos mitades con sobretítulo, lema, promesa de marca, tres puntos con título y frase, y cuerdas de khipu (`src/components/marca/CuerdasKhipu.tsx`) colgando hasta el borde; formulario de 440 px con `titulo-1`, campos de 44 px, `CampoClave` (botón «Mostrar lo escrito», sin la palabra «contraseña» para no chocar con la etiqueta), botón a todo el ancho, ayuda «¿Primera vez?» y pie © Khipu Escolar. Pautas de la skill aplicadas: visibilidad de la contraseña, etiquetas visibles, controles ≥ 44 px.
+
+## Continuación: «Nuevo colegio» no es un módulo
+
+> [captura de la barra lateral con «Colegios» y «Nuevo colegio» resaltados] si es un submodulo no deberia tener ese diseño no tampoco deberia verse asi , ten en cuenta que crear un nuevo colegio no deberia ser un nuevo modulo, ya que esa es una funcion dentro del modulo de colegios
+
+- La barra lateral de la plataforma queda con dos módulos: «Vista principal» y «Colegios» (sin rótulo de grupo). «Nuevo colegio» pasa a ser un botón en el encabezado de Colegios (junto a «Descargar CSV»), y su pantalla tiene «← Colegios»; en `/colegios/nuevo` solo «Colegios» queda activo.
+- La página «Reporte de colegios» se llama «Colegios» (también el enlace de vuelta desde el detalle).
+- Arreglo de paso: el contenido de `MarcoPanel` no tenía `min-w-0` y una tabla ancha estiraba la página (botones cortados). Ahora la tabla se desplaza dentro de su tarjeta.
+- Regla nueva en specs/18 §7: la barra lateral lista solo módulos; las acciones van en el encabezado del módulo.

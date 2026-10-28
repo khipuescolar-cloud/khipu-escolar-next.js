@@ -73,7 +73,7 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
   return (
     <div className="flex flex-col gap-6">
       <Link href="/colegios" className="inline-flex min-h-10 items-center gap-1 self-start text-cuerpo-sm enlace font-semibold">
-        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Reporte de colegios
+        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Colegios
       </Link>
 
       <div className="-mt-4 flex items-start gap-4">
