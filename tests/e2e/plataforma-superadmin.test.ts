@@ -71,11 +71,12 @@ test("el super administrador crea un colegio y su administrador entra con correo
   await expect(page.getByTestId("subdominio")).toHaveText(`${SLUG}.${BASE}`);
   await page.getByLabel("Eslogan (opcional)").fill("Crecemos juntos");
   await page.getByLabel("Ciudad").fill("Arequipa");
-  await page.getByLabel(/^Correo/).fill(EMAIL);
-  await page.getByLabel("Cargo").fill("Directora general");
-  await page.getByLabel("Nombres", { exact: true }).fill("Elena");
-  await page.getByLabel("Apellidos", { exact: true }).fill("Prueba");
-  await page.getByLabel("Número de documento").fill(DNI);
+  // El formulario tiene también un segundo responsable opcional: los datos del administrador se buscan por nombre de campo.
+  await page.locator('[name="admin_email"]').fill(EMAIL);
+  await page.locator('[name="admin_cargo"]').fill("Directora general");
+  await page.locator('[name="admin_nombres"]').fill("Elena");
+  await page.locator('[name="admin_apellidos"]').fill("Prueba");
+  await page.locator('[name="admin_numeroDocumento"]').fill(DNI);
   await page.getByRole("button", { name: "Crear colegio" }).click();
 
   await page.waitForURL(new RegExp(`^http://admin\\.${BASE.replace(".", "\\.")}/colegios/[0-9a-f-]{36}\\?ok=`));

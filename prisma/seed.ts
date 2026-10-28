@@ -122,6 +122,29 @@ async function periodosBimestrales(tenantId: string) {
   return periodos;
 }
 
+/** Responsables (la dirección de cada colegio es la principal) y suscripciones de ejemplo para /suscripciones (specs/20). */
+async function responsablesYSuscripcionesDemo() {
+  const dia = (n: number) => new Date(Date.now() + n * 86_400_000);
+  const contratos: Record<string, { plan: Plan; ciclo: "mensual" | "anual"; estado: "prueba" | "activa"; monto: number; alumnos: number; renueva: number }> = {
+    nuevohorizonte: { plan: "promax", ciclo: "anual", estado: "activa", monto: 5400, alumnos: 400, renueva: 120 },
+    academiaeuler: { plan: "fase2", ciclo: "mensual", estado: "activa", monto: 350, alumnos: 120, renueva: 12 },
+    losolivos: { plan: "basico", ciclo: "mensual", estado: "prueba", monto: 180, alumnos: 80, renueva: 20 },
+  };
+  for (const t of await prisma.tenant.findMany({ where: { slug: { in: Object.keys(contratos) } } })) {
+    const dir = await prisma.membership.findFirst({ where: { tenantId: t.id, rol: "direccion" }, include: { user: true }, orderBy: { createdAt: "asc" } });
+    if (dir) {
+      await prisma.contactoColegio.upsert({
+        where: { tenantId_email: { tenantId: t.id, email: dir.user.email } },
+        update: {},
+        create: { tenantId: t.id, tipo: "principal", principal: true, nombres: dir.user.nombres, apellidos: dir.user.apellidos, cargo: dir.cargo, email: dir.user.email, telefono: dir.user.telefono, membershipId: dir.id },
+      });
+    }
+    const c = contratos[t.slug];
+    const datos = { plan: c.plan, ciclo: c.ciclo, estado: c.estado, montoPorCiclo: c.monto, alumnosContratados: c.alumnos, inicio: dia(-30), proximaRenovacion: dia(c.renueva) };
+    await prisma.suscripcion.upsert({ where: { tenantId: t.id }, update: {}, create: { tenantId: t.id, ...datos } });
+  }
+}
+
 async function main() {
   // ───────── I.E.P. Nuevo Horizonte — Pro Max, escala literal (CNEB) ─────────
   const nh = await crearColegio({ slug: "nuevohorizonte", nombre: "I.E.P. Nuevo Horizonte", ciudad: "Lima", plan: "promax", escala: "literal" });
@@ -266,6 +289,8 @@ async function main() {
   ] as const) {
     await prisma.profile.updateMany({ where: { email: { in: [...emails] } }, data: { genero } });
   }
+
+  await responsablesYSuscripcionesDemo();
 
   console.log("Seed listo. Cuentas (contraseña demo123):");
   console.log("  lucia.garcia@nuevohorizonte.demo  profesora · Pro Max");

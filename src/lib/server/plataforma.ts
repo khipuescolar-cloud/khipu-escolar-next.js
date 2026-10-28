@@ -3,7 +3,7 @@ import { cache } from "react";
 import { forbidden, notFound, redirect } from "next/navigation";
 import { z } from "zod";
 import { Prisma, type Membership, type Profile, type Tenant } from "@/generated/prisma/client";
-import type { EstadoAviso, EstadoTenant, Plan } from "@/generated/prisma/enums";
+import type { EstadoAviso, EstadoTenant, Plan, TipoContacto } from "@/generated/prisma/enums";
 import { urlColegio, urlPlataforma, urlRaiz } from "@/lib/dominio";
 import { fechaDb, fechaLima, inicioDiaLima, restarDias } from "@/lib/fechas";
 import { errorDeSlug } from "@/lib/slug-colegio";
@@ -110,6 +110,16 @@ export const esquemaAdministrador = esquemaPersona.and(
   z.object({ cargo: z.string().trim().min(2, "Escribe el cargo (p. ej. Director general).").max(80) }),
 );
 
+/** Segundo responsable opcional al crear el colegio (p. ej. facturación): contacto sin acceso al sistema. */
+export const esquemaResponsableInicial = z.object({
+  tipo: z.enum(["direccion_academica", "administrativo", "facturacion", "tecnico", "otro"]).default("facturacion"),
+  nombres: z.string().trim().min(1, "Escribe los nombres del segundo responsable.").max(80),
+  apellidos: z.string().trim().max(80).default(""),
+  cargo: textoOpcional(80),
+  email: z.email("Escribe un correo válido para el segundo responsable.").transform((v) => v.trim().toLowerCase()),
+  telefono: textoOpcional(20),
+});
+
 export const esquemaNuevoColegio = z.object({
   colegio: esquemaDatosColegio.extend({
     slug: esquemaSlug,
@@ -117,6 +127,7 @@ export const esquemaNuevoColegio = z.object({
     estado: z.enum(["piloto", "activo"]),
   }),
   administrador: esquemaAdministrador,
+  responsable: esquemaResponsableInicial.optional(),
 });
 
 export type EntradaNuevoColegio = z.input<typeof esquemaNuevoColegio>;
@@ -133,7 +144,10 @@ export type ColegioCreado = { tenant: Tenant; userId: string; cuentaNueva: boole
  * Quien llama debe procesar la cola después (after() + procesarCola).
  */
 export async function crearColegio(admin: AdminContext, entrada: EntradaNuevoColegio, insignia?: Buffer | null): Promise<ColegioCreado> {
-  const { colegio, administrador } = validar(esquemaNuevoColegio, entrada);
+  const { colegio, administrador, responsable } = validar(esquemaNuevoColegio, entrada);
+  if (responsable && responsable.email === administrador.email.trim().toLowerCase()) {
+    throw new ErrorDeNegocio("El segundo responsable debe tener un correo distinto al del administrador principal.");
+  }
   if (insignia && insignia.length > 0) validarLogo(insignia);
   if (await db.tenant.findUnique({ where: { slug: colegio.slug }, select: { id: true } })) {
     throw new ErrorDeNegocio(`La dirección «${colegio.slug}» ya está en uso. Elige otra.`);
@@ -168,7 +182,7 @@ export async function crearColegio(admin: AdminContext, entrada: EntradaNuevoCol
     }
     cuenta = await crearCuentaConDocumento(administrador);
     const tdb = dbTenant(tenant.id);
-    await tdb.membership.create({
+    const membership = await tdb.membership.create({
       data: { tenantId: tenant.id, userId: cuenta.userId, rol: "direccion", estado: "activa", cargo: administrador.cargo },
     });
     const avisoId = await encolarBienvenida(tdb, {
@@ -180,6 +194,21 @@ export async function crearColegio(admin: AdminContext, entrada: EntradaNuevoCol
       tipoDocumento: administrador.tipoDocumento,
       cuentaNueva: cuenta.nueva,
     });
+    // Responsables ante Khipu (specs/20): el administrador es el principal; el segundo (si hay) no tiene acceso.
+    await db.contactoColegio.create({
+      data: {
+        tenantId: tenant.id,
+        tipo: "principal",
+        principal: true,
+        nombres: administrador.nombres.trim(),
+        apellidos: administrador.apellidos.trim(),
+        cargo: administrador.cargo,
+        email: administrador.email.trim().toLowerCase(),
+        telefono: administrador.telefono?.trim() || null,
+        membershipId: membership.id,
+      },
+    });
+    if (responsable) await db.contactoColegio.create({ data: { tenantId: tenant.id, ...responsable } });
     await auditarPlataforma(admin, "crear_colegio", tenant.id, {
       slug: tenant.slug,
       nombre: tenant.nombre,
@@ -290,11 +319,40 @@ export async function reenviarBienvenida(admin: AdminContext, tenantId: string, 
   return avisoId;
 }
 
+/**
+ * Todo administrador es también responsable ante Khipu: si el correo ya era contacto, se enlaza a su membresía;
+ * si no, se crea (y es el principal si el colegio aún no tiene uno).
+ */
+async function vincularContacto(tenantId: string, membershipId: string, d: z.output<typeof esquemaAdministrador>, tipo: TipoContacto): Promise<void> {
+  const email = d.email.trim().toLowerCase();
+  const existente = await db.contactoColegio.findUnique({ where: { tenantId_email: { tenantId, email } } });
+  if (existente) {
+    await db.contactoColegio.update({ where: { id: existente.id }, data: { membershipId } });
+    return;
+  }
+  const hayPrincipal = (await db.contactoColegio.count({ where: { tenantId, principal: true } })) > 0;
+  await db.contactoColegio.create({
+    data: {
+      tenantId,
+      tipo: hayPrincipal ? tipo : "principal",
+      principal: !hayPrincipal,
+      nombres: d.nombres,
+      apellidos: d.apellidos,
+      cargo: d.cargo,
+      email,
+      telefono: d.telefono ?? null,
+      membershipId,
+    },
+  });
+}
+
 /** Agrega otro administrador (rol `direccion`, activo) al colegio y le envía la bienvenida. */
 export async function agregarAdministrador(
   admin: AdminContext,
   tenantId: string,
   entrada: EntradaAdministrador,
+  /** Tipo con el que queda como responsable (specs/20); por defecto «Dirección académica». */
+  tipoContacto: Exclude<TipoContacto, "principal"> = "direccion_academica",
 ): Promise<{ userId: string; cuentaNueva: boolean; membership: Membership }> {
   const tenant = await colegioOError(tenantId);
   const d = validar(esquemaAdministrador, entrada);
@@ -321,6 +379,7 @@ export async function agregarAdministrador(
       tipoDocumento: d.tipoDocumento,
       cuentaNueva: cuenta.nueva,
     });
+    await vincularContacto(tenant.id, membership.id, d, tipoContacto);
     await auditarPlataforma(admin, "agregar_administrador", tenant.id, { userId: cuenta.userId, cuentaNueva: cuenta.nueva });
     return { userId: cuenta.userId, cuentaNueva: cuenta.nueva, membership };
   } catch (e) {
