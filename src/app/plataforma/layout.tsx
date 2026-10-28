@@ -33,6 +33,7 @@ const GRUPOS: GrupoNavResuelto[] = [
   {
     titulo: "Operación",
     items: [
+      { href: "/mesa-ayuda", titulo: "Mesa de ayuda", icono: "LifeBuoy" },
       { href: "/usuarios", titulo: "Usuarios", icono: "UserSearch" },
       { href: "/monitoreo", titulo: "Monitoreo", icono: "Activity" },
       { href: "/anuncios", titulo: "Anuncios", icono: "Megaphone" },

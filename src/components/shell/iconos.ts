@@ -6,7 +6,7 @@ import {
 import type { IconoMosaico } from "@/lib/navegacion";
 
 /** Íconos de la plataforma (super administrador) además de los del colegio. */
-export type IconoPlataforma = "Layers" | "KeyRound" | "Receipt" | "UserSearch" | "Activity" | "UsersRound" | "History";
+export type IconoPlataforma = "LifeBuoy" | "Layers" | "KeyRound" | "Receipt" | "UserSearch" | "Activity" | "UsersRound" | "History";
 
 /** Íconos de navegación importados uno por uno (no `import *`) para no inflar el bundle del cliente. */
 export const ICONOS_NAV: Record<IconoMosaico | IconoPlataforma | "House", LucideIcon> = {
