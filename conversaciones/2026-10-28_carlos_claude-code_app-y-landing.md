@@ -25,3 +25,13 @@
 - Confirmar y aplicar la migración `solicitudes_demo` en Supabase cloud.
 - Retomar las capturas de la landing en horario escolar (las actuales muestran horas de madrugada).
 - Revisión legal de `/privacidad`; cuentas de Google Play/Apple para publicar; probar la instalación en celulares reales con HTTPS.
+
+## Seguimiento (mismo día)
+
+> si confirmo que suban las migraciones, sobre las capturas de la landing no hay problema con la hora y sobre las revision legal lo revisaremos despues cuando todo el sistema ya este terminado , si me gustaria publicarlo en las tiendas pero ns como hariamos para migrar todo el sistema, por medio de reactNative con Expo ? o con que hariamos?
+
+> okey creo que eso de apps vamos a hacerlo despues cuando todo el sistetma este implementado
+
+- Migración `20261028180000_solicitudes_demo` aplicada en Supabase cloud (con confirmación); base al día.
+- Capturas de la landing: se quedan como están. Revisión legal: al terminar el sistema.
+- Apps en tiendas: **no** reescribir en React Native/Expo. Plan: Android con TWA (Bubblewrap) e iOS con Capacitor + push nativo, cámara QR y Face ID (regla 4.2 de Apple). **Postergado** hasta que el sistema esté completo; requiere dominio HTTPS, cuentas de Play/Apple y Mac o compilación en la nube.
