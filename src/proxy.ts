@@ -6,6 +6,7 @@ import { esHostPlataforma, slugDesdeHost, urlColegio, urlPlataforma, urlRaiz } f
 //   <slug>.<APP_BASE_DOMAIN>/asistencia  →  rewrite interno a /colegio/<slug>/asistencia
 //   <APP_BASE_DOMAIN>/colegio/<slug>/…   →  redirect al subdominio (las rutas del colegio solo viven ahí)
 //   admin.<APP_BASE_DOMAIN>/x            →  rewrite a /plataforma/x (super administrador, specs/16)
+//   <APP_BASE_DOMAIN>/                   →  landing pública (src/app/(sitio), specs/25)
 // Además refresca la sesión de Supabase Auth en cada request.
 
 const RUTAS_GLOBALES = /^\/api\/(webhooks|cron)\//;
@@ -41,7 +42,6 @@ export async function proxy(request: NextRequest) {
     const match = pathname.match(/^\/colegio\/([a-z0-9-]+)(\/.*)?$/);
     if (match) return NextResponse.redirect(urlColegio(match[1], (match[2] ?? "/inicio") + search));
     if (pathname.startsWith("/plataforma")) return NextResponse.redirect(urlPlataforma(pathname.slice("/plataforma".length) || "/"));
-    if (pathname === "/") return NextResponse.redirect(urlRaiz("/login"));
     response = NextResponse.next({ request });
   }
 

@@ -27,3 +27,4 @@ Cada módulo tiene su spec. Se actualiza en el mismo commit que cambia el compor
 | 21 | [Operación de plataforma: usuarios, monitoreo y auditoría](21-operacion-de-plataforma.md) | Interno | implementado |
 | 22 | [Equipo Khipu, anuncios y configuración de la plataforma](22-equipo-anuncios-y-configuracion.md) | Interno | implementado |
 | 23 | [Mesa de ayuda (chat del colegio con el equipo Khipu)](23-mesa-de-ayuda.md) | Todos | implementado |
+| 25 | [Landing pública (sitio de Khipu Escolar)](25-landing-publica.md) | Público | implementado |

@@ -19,7 +19,7 @@ El **manual de marca** entregado por marketing manda sobre esta spec: `docs/marc
 
 ## 2. Tema y modos
 
-- **Las páginas públicas (login, elegir colegio, recuperar, restablecer, cambiar contraseña, justificar y carnet QR) van siempre en tema claro**, sin importar el tema del dispositivo ni el guardado por el usuario: `forcedTheme="light"` en `src/components/shell/Proveedores.tsx` (`esRutaPublica`). La preferencia del usuario se conserva y se aplica al entrar al panel.
+- **Las páginas públicas (login, elegir colegio, recuperar, restablecer, cambiar contraseña, justificar y carnet QR) van siempre en tema claro**, sin importar el tema del dispositivo ni el guardado por el usuario: `forcedTheme="light"` en `src/components/shell/Proveedores.tsx` (`esRutaPublica`). La landing y `/privacidad` (grupo `(sitio)`, specs/25) también, reconocidas por su segmento de ruta y no por `pathname === "/"` (en un subdominio de colegio «/» es el inicio del panel). La preferencia del usuario se conserva y se aplica al entrar al panel.
 - Claro y oscuro con los valores de `tokens.json` (`next-themes`, `attribute="class"`, por defecto sigue al dispositivo; el usuario elige en *Menú de cuenta → Tema*).
 - Todo color se usa por **token** (`src/app/globals.css`), nunca hex sueltos en componentes.
 
