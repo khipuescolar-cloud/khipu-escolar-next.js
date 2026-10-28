@@ -16,9 +16,19 @@ import { CamposColegio } from "./CamposColegio";
 
 export const metadata: Metadata = { title: "Nuevo colegio" };
 
-export default async function NuevoColegio() {
+const uno = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v)?.slice(0, 200) ?? "";
+
+export default async function NuevoColegio({ searchParams }: PageProps<"/plataforma/colegios/nuevo">) {
   await requireAdminPlataforma();
-  const planes = await planesOfrecidos();
+  const [planes, sp] = await Promise.all([planesOfrecidos(), searchParams]);
+  // Prellenado desde una solicitud de demo (specs/25): solo valores iniciales; `solicitud` se envía oculto.
+  const inicial = {
+    solicitudId: uno(sp.solicitud),
+    nombre: uno(sp.nombre),
+    ciudad: uno(sp.ciudad),
+    plan: planes.find((p) => p.plan === uno(sp.plan))?.plan,
+    admin: { nombres: uno(sp.admin_nombres), email: uno(sp.admin_email), telefono: uno(sp.admin_telefono), cargo: uno(sp.admin_cargo) },
+  };
   return (
     <div className="flex max-w-3xl flex-col">
       {/* «Nuevo colegio» es una acción del módulo Colegios: se vuelve a la lista, no es un módulo propio. */}
@@ -30,6 +40,7 @@ export default async function NuevoColegio() {
         descripcion="Al guardar se crea el colegio y la cuenta del administrador principal. Le llega un correo de bienvenida con su usuario (el correo) y el botón para entrar. Su contraseña inicial es su número de documento y la cambia en su primer ingreso."
       />
       <FormularioPlataforma accion={crearColegioAction} etiqueta="Crear colegio" className="flex flex-col gap-6">
+        {inicial.solicitudId && <input type="hidden" name="solicitudId" value={inicial.solicitudId} />}
         <Tarjeta className="flex flex-col gap-5">
           <div>
             <h2 className="flex items-center gap-2 font-heading text-titulo-2">
@@ -37,10 +48,10 @@ export default async function NuevoColegio() {
             </h2>
             <p className="mt-1 text-cuerpo-sm text-muted-foreground">Identidad, plan y dirección web del colegio.</p>
           </div>
-          <CamposColegio baseDomain={baseDomain()} />
+          <CamposColegio baseDomain={baseDomain()} nombreInicial={inicial.nombre} />
           <div className="grid gap-4 sm:grid-cols-2">
-            <Campo etiqueta="Ciudad" name="ciudad" placeholder="Arequipa" />
-            <Selector etiqueta="Plan" name="plan" defaultValue={planes.find((p) => p.plan === "basico")?.plan ?? planes[0]?.plan}>
+            <Campo etiqueta="Ciudad" name="ciudad" defaultValue={inicial.ciudad} placeholder="Arequipa" />
+            <Selector etiqueta="Plan" name="plan" defaultValue={inicial.plan ?? planes.find((p) => p.plan === "basico")?.plan ?? planes[0]?.plan}>
               {planes.map((p) => <option key={p.plan} value={p.plan}>{p.nombre}</option>)}
             </Selector>
             <Selector etiqueta="Estado" name="estado" defaultValue="piloto">
@@ -61,7 +72,7 @@ export default async function NuevoColegio() {
             </h2>
             <p className="mt-1 text-cuerpo-sm text-muted-foreground">Tendrá el rol de dirección. Si el correo ya tiene cuenta en Khipu, conserva su contraseña.</p>
           </div>
-          <CamposAdministrador />
+          <CamposAdministrador inicial={inicial.admin} />
         </Tarjeta>
         <Tarjeta className="flex flex-col gap-5">
           <div>

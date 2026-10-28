@@ -1,10 +1,14 @@
 import "server-only";
 import { createHmac } from "node:crypto";
+import { after } from "next/server";
 import { z } from "zod";
 import type { Plan, SolicitudDemo } from "@/generated/prisma/client";
 import { env } from "@/lib/env";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { db } from "./db";
+import { plantillaSolicitudDemo } from "./email/plantillas/solicitud-demo";
+import { correoEquipoSoporte } from "./notificaciones/avisos-soporte";
+import { EmailChannel } from "./notificaciones/email";
 
 // Pedidos de demo desde la landing pública (specs/25). La tabla es global: todavía no hay colegio.
 // Protección: campo trampa (bots), máximo de envíos por IP y por hora (la IP se guarda solo como HMAC).
@@ -52,5 +56,44 @@ export async function crearSolicitudDemo(entrada: EntradaSolicitudDemo, ip: stri
   if (recientes >= MAX_SOLICITUDES_POR_HORA) {
     throw new ErrorDeNegocio("Ya recibimos tus datos. Te escribiremos pronto; si es urgente, inténtalo de nuevo en una hora.");
   }
-  return db.solicitudDemo.create({ data: { ...datos, planInteres: datos.planInteres as Plan | undefined, ipHash } });
+  const solicitud = await db.solicitudDemo.create({ data: { ...datos, planInteres: datos.planInteres as Plan | undefined, ipHash } });
+  await programarAviso(solicitud);
+  return solicitud;
+}
+
+/**
+ * Avisa al buzón del equipo Khipu (`soporte:correo`, o el remitente del sistema). La cola de avisos exige colegio, así que
+ * se envía directo con el transporte de correo. Nunca lanza: un fallo se registra y el pedido ya quedó guardado.
+ * Devuelve `true` si el correo salió.
+ */
+export async function avisarSolicitudNueva(solicitud: SolicitudDemo, canal: Pick<EmailChannel, "enviar"> = new EmailChannel()): Promise<boolean> {
+  try {
+    const destinatario = await correoEquipoSoporte();
+    if (!destinatario) {
+      console.error("[solicitudes] sin buzón del equipo configurado: no se avisó de la solicitud", solicitud.id);
+      return false;
+    }
+    await canal.enviar({
+      avisoId: `solicitud-${solicitud.id}`,
+      destinatario,
+      remitente: "Khipu Escolar",
+      mensaje: plantillaSolicitudDemo(solicitud),
+      plantilla: "solicitud_demo",
+    });
+    return true;
+  } catch (error) {
+    console.error("[solicitudes] no se pudo avisar de la solicitud", solicitud.id, error);
+    return false;
+  }
+}
+
+/** Dentro de un request, el aviso sale tras responder (`after`); fuera de uno (scripts, pruebas) se envía de forma directa. */
+async function programarAviso(solicitud: SolicitudDemo): Promise<void> {
+  try {
+    after(async () => {
+      await avisarSolicitudNueva(solicitud);
+    });
+  } catch {
+    await avisarSolicitudNueva(solicitud);
+  }
 }

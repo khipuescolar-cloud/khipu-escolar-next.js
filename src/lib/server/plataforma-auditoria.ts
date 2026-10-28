@@ -31,6 +31,12 @@ export const TEXTO_ACCION: Record<string, string> = {
   mesa_asignar: "Asignó una conversación de la mesa de ayuda",
   mesa_estado: "Cambió el estado de una conversación de la mesa de ayuda",
   mesa_prioridad: "Cambió la prioridad de una conversación de la mesa de ayuda",
+  solicitud_estado: "Cambió el estado de una solicitud de demo",
+  solicitud_notas: "Editó las notas de una solicitud de demo",
+  solicitud_asignar: "Asignó una solicitud de demo",
+  solicitud_convertir: "Convirtió una solicitud de demo en colegio",
+  solicitud_eliminar: "Eliminó una solicitud de demo",
+  solicitud_exportar: "Exportó las solicitudes de demo",
 };
 
 export function textoAccion(accion: string): string {

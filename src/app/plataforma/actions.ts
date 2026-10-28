@@ -7,6 +7,7 @@ import { urlRaiz } from "@/lib/dominio";
 import { ejecutarYVolver, texto } from "@/lib/server/accion-formulario";
 import { cerrarSesion } from "@/lib/server/auth";
 import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
+import { vincularSolicitudColegio } from "@/lib/server/plataforma-solicitudes";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
 import {
   agregarAdministrador, cambiarEstado, cambiarInsignia, cambiarPlan, crearColegio, editarColegio, iniciarAccesoSoporte,
@@ -89,6 +90,15 @@ export async function crearColegioAction(_previo: EstadoFormulario, f: FormData)
     );
     id = creado.tenant.id;
     procesarDespues(creado.tenant.id);
+    // Viene de una solicitud de demo: queda convertida y enlazada al colegio (el colegio ya existe; no se revierte si falla).
+    const solicitudId = texto(f, "solicitudId");
+    if (solicitudId) {
+      try {
+        await vincularSolicitudColegio(admin, solicitudId, creado.tenant.id);
+      } catch (error) {
+        console.error("[plataforma] no se pudo enlazar la solicitud de demo", error);
+      }
+    }
     return null;
   });
   if (r) return r;

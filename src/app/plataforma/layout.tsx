@@ -10,6 +10,7 @@ import { MarcoPanel } from "@/components/shell/MarcoPanel";
 import { Logo } from "@/components/marca/Logo";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import { pendientesMesaAyuda } from "@/lib/server/plataforma-mesa-ayuda";
+import { pendientesSolicitudes } from "@/lib/server/plataforma-solicitudes";
 import { salirPlataformaAction } from "./actions";
 
 export const metadata: Metadata = { title: { default: "Plataforma · Khipu Escolar", template: "%s · Khipu Escolar" } };
@@ -22,6 +23,7 @@ const GRUPOS: GrupoNavResuelto[] = [
     items: [
       { href: "/colegios", titulo: "Colegios", icono: "School" },
       { href: "/suscripciones", titulo: "Suscripciones", icono: "Receipt" },
+      { href: "/solicitudes", titulo: "Solicitudes de demo", icono: "Inbox" },
     ],
   },
   {
@@ -55,10 +57,10 @@ export default async function LayoutPlataforma({ children }: LayoutProps<"/plata
   const admin = await requireAdminPlataforma();
   const { user } = admin;
   // Contador de la mesa de ayuda (abiertas + en progreso) en el menú y en la campana.
-  const pendientes = await pendientesMesaAyuda(admin);
+  const [pendientes, solicitudesNuevas] = await Promise.all([pendientesMesaAyuda(admin), pendientesSolicitudes(admin)]);
   const grupos = GRUPOS.map((g) => ({
     ...g,
-    items: g.items.map((i) => (i.href === "/mesa-ayuda" ? { ...i, contador: pendientes } : i)),
+    items: g.items.map((i) => (i.href === "/mesa-ayuda" ? { ...i, contador: pendientes } : i.href === "/solicitudes" ? { ...i, contador: solicitudesNuevas } : i)),
   }));
   const estadoBarra = (await cookies()).get("sidebar_state")?.value;
   const nombre = `${user.nombres} ${user.apellidos}`.trim();

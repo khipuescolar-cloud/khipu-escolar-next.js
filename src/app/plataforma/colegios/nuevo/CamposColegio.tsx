@@ -6,8 +6,8 @@ import { Campo } from "@/components/ui/Campo";
 import { errorDeSlug, sugerirSlug } from "@/lib/slug-colegio";
 
 /** Insignia con vista previa, nombre, eslogan y subdominio sugerido en vivo (specs/16). */
-export function CamposColegio({ baseDomain }: { baseDomain: string }) {
-  const [nombre, setNombre] = useState("");
+export function CamposColegio({ baseDomain, nombreInicial = "" }: { baseDomain: string; nombreInicial?: string }) {
+  const [nombre, setNombre] = useState(nombreInicial);
   const [slug, setSlug] = useState("");
   const [slugEditado, setSlugEditado] = useState(false);
   const [vista, setVista] = useState<string | null>(null);
