@@ -35,3 +35,11 @@
 - Migración `20261028180000_solicitudes_demo` aplicada en Supabase cloud (con confirmación); base al día.
 - Capturas de la landing: se quedan como están. Revisión legal: al terminar el sistema.
 - Apps en tiendas: **no** reescribir en React Native/Expo. Plan: Android con TWA (Bubblewrap) e iOS con Capacitor + push nativo, cámara QR y Face ID (regla 4.2 de Apple). **Postergado** hasta que el sistema esté completo; requiere dominio HTTPS, cuentas de Play/Apple y Mac o compilación en la nube.
+
+## Rediseño de la landing con la paleta
+
+> /ui-ux-pro-max vamos a mejorar la landing que tenemos, porfavor mejora el diseño y usa mucho la matriz de colores que tenemos
+
+- Cada sección con un tono de la marca (detalle en specs/25 · «Color»): hero, cómo funciona y demo en índigo; Nudito en cochinilla; piloto en maíz; seguridad en turquesa suave; paneles de color por grupo de funciones, rol y plan.
+- Nuevos: `src/app/(sitio)/_componentes/tonos.ts`, `src/components/marca/HiloKhipu.tsx`. Cambiados: `page.tsx`, `layout.tsx`, `PestanasRoles.tsx`.
+- Contraste revisado (blanco sobre sólidos ≥ 5:1; tinta sobre maíz). Textos, ids y pruebas sin cambios. lint, typecheck y e2e de landing + solicitudes: 6/6.

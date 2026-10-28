@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HiloKhipu } from "@/components/marca/HiloKhipu";
 import { Logo } from "@/components/marca/Logo";
 import { correoContactoPublico } from "@/lib/server/landing";
 import { EncabezadoSitio } from "./_componentes/EncabezadoSitio";
@@ -37,7 +38,8 @@ export default async function LayoutSitio({ children }: LayoutProps<"/">) {
       <main id="contenido" className="flex-1">
         {children}
       </main>
-      <footer className="border-t border-arena bg-superficie">
+      <footer className="bg-superficie">
+        <HiloKhipu className="-mt-2" />
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-[1fr_auto]">
           <div className="flex flex-col gap-3">
             <Logo variante="escolar" alto={52} />
