@@ -91,3 +91,7 @@
 > quiero que sea mas rapido, cada 2 segundos si es posible, haces el cambio y subes los cambios
 
 - Avisos del hero cada 2 s (antes 3,4 s): `CADA_MS` en `AvisosEnVivo.tsx`; specs/25 actualizada.
+
+> mejor ponlo cada 1.5 segundos , y sube el cambio a produccion porfavor
+
+- Avisos del hero cada 1,5 s. Subido a `main` (Vercel despliega desde ahí).
