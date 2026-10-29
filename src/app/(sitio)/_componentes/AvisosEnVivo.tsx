@@ -22,7 +22,7 @@ const AVISOS: Aviso[] = [
 ];
 
 const NUDOS = 9;
-const CADA_MS = 3400;
+const CADA_MS = 2000;
 
 type Estado = { indice: number; anterior: number | null; atados: number; enMovimiento: boolean };
 const QUIETO: Estado = { indice: 0, anterior: null, atados: NUDOS, enMovimiento: false };
