@@ -95,3 +95,7 @@
 > mejor ponlo cada 1.5 segundos , y sube el cambio a produccion porfavor
 
 - Avisos del hero cada 1,5 s. Subido a `main` (Vercel despliega desde ahí).
+
+> TENGO ESTE ERROR EN PRODUCCION: [log de Vercel: «Module not found: Can't resolve '@/generated/prisma/client'» tras «Restored build cache» y «Already up to date»]
+
+- Causa: con la caché restaurada pnpm no corre `postinstall` y el cliente de Prisma (`src/generated/prisma`, fuera de git) no existe. `build` pasa a `prisma generate && next build`; nota en `docs/despliegue.md` §2.

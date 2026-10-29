@@ -42,6 +42,8 @@ Los pasos marcados **(externo)** requieren cuentas o decisiones del equipo (domi
 3. Dominios: agrega `khipuescolar.pe` y el **comodín `*.khipuescolar.pe`** (Vercel exige delegar los nameservers a Vercel para emitir certificados comodín) **(externo: dominio)**.
 4. Despliega. Cada colegio vive en `https://<slug>.khipuescolar.pe`.
 
+> **Cliente de Prisma en el build:** `pnpm build` corre `prisma generate && next build`. Vercel reutiliza la caché de dependencias y, si nada cambió, pnpm no ejecuta `postinstall`; como `src/generated/prisma` no está en git, sin este paso el build falla con «Can't resolve '@/generated/prisma/client'». `prisma generate` no necesita conexión a la base.
+
 ## 3. Crons
 
 `vercel.json` programa (compatible con el plan **Hobby**, que solo permite una ejecución al día):
