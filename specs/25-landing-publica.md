@@ -23,7 +23,7 @@ Que un director o promotor que llega a la raíz del dominio entienda en un minut
 - **No se inventa nada:** sin testimonios, logos de clientes, cifras de usuarios ni premios. Cada función descrita existe en su spec (04–17, 19, 23, 24). En su lugar va la franja «Programa piloto 2026: buscamos los primeros colegios».
 - **Planes desde la BD:** `PlanCatalogo` + `PlanModulo` (solo `activo`, por `orden`). Cada tarjeta muestra nombre, descripción, precio (si `precioPorAlumno > 0`: «S/ X.XX por alumno al mes», más «Mínimo S/ Y al mes» si hay mínimo; si no, «Precio según tamaño del colegio»), «Todo lo de <anterior>, más:» con los módulos nuevos (o «Incluye:» en el primero) y «Quiero este plan». `soporte` y `avisos` no se listan como módulo del plan (la mesa de ayuda se anuncia para todos los planes; los avisos van dentro de asistencia). Si la BD no responde o el catálogo está vacío, se usan los planes de `FEATURES` (la landing no se cae).
 - **Campo trampa** `sitio`: fuera de la vista (`absolute -left-[9999px]`), `aria-hidden`, `tabIndex={-1}`, `autoComplete="off"`.
-- **Contacto del pie:** `mailto:` al buzón de soporte de la plataforma (`ConfigPlataforma` `soporte:correo`, specs/22) o, si no hay, a `EMAIL_FROM_ADDRESS`. Nunca a `SMTP_USER` (puede ser una cuenta personal).
+- **Contacto del pie:** `mailto:` al buzón de soporte de la plataforma (`ConfigPlataforma` `soporte:correo`, specs/22) o, si no hay, al correo público fijo `CORREO_CONTACTO_KHIPU` = khipuescolar@gmail.com (2026-10-29). Nunca al remitente de los avisos ni a `SMTP_USER`.
 - **Tema siempre claro:** `esRutaPublica(pathname, segmentos)` en `Proveedores.tsx` reconoce el sitio por su grupo de rutas (`useSelectedLayoutSegments()[0] === "(sitio)"`), **no** por `pathname === "/"`: en un subdominio de colegio el navegador también ve `/` (rewrite a `/inicio`) y forzaría el tema claro en el panel.
 - **Voz:** «usted» al director en las secciones de venta (hero, planes, preguntas, formulario) y «tú» cuando se habla de la familia (pestaña Familias, mensaje de éxito que pide la spec).
 
@@ -41,7 +41,7 @@ Solo lectura: `planes_catalogo`, `plan_modulos`, `config_plataforma` (`soporte:c
 // src/lib/server/landing.ts (sin sesión, solo lectura)
 leerCatalogoPublico(): Promise<FilaCatalogoPublico[]>
 planesPublicos(): Promise<{ planes: PlanPublico[]; desdeCatalogo: boolean }>   // respaldo: planes del código
-correoContactoPublico(): Promise<string | null>                               // buzón de soporte o remitente
+correoContactoPublico(): Promise<string>                                      // buzón de soporte o khipuescolar@gmail.com
 // src/lib/landing-planes.ts (puro)
 armarPlanesPublicos(filas): PlanPublico[]   // activos, por orden, incluyeA/nuevos, precio en PEN o SIN_PRECIO
 catalogoDeCodigo(): FilaCatalogoPublico[]
@@ -70,7 +70,7 @@ solicitarDemoAction(previo, formData): Promise<EstadoFormularioDemo>   // ok | e
 - **Para cada rol** (`_componentes/PestanasRoles.tsx`): pestañas propias (tablist accesible con flechas, Inicio y Fin) con el rol y a quién va dirigido. Los tres paneles comparten la celda de la rejilla (los inactivos con `inert` e invisibles), así el bloque no cambia de tamaño al cambiar de pestaña.
 - **Preguntas frecuentes:** fondo índigo cielo suave, cada pregunta en su tarjeta con un ícono de color y borde del mismo tono al abrirse. Nudito invita a preguntar (burbuja cochinilla, Nunito) con el botón «Hacer otra pregunta» (→ #demo).
 - **Formulario de demo:** tres bloques numerados (Sobre usted · Su colegio · ¿Cómo le contactamos?) con ejemplos en cada campo; el consentimiento y el envío van separados por un filete.
-- **Pie** (`_componentes/PieSitio.tsx`): fondo `tinta` con la cuerda del khipu arriba; cierre con el lema y «Solicitar demo» / «Ingresar»; columnas El producto, Empieza y Khipu Escolar (correo de contacto, Privacidad, Programa piloto 2026); «Hecho en el Perú para los colegios del Perú».
+- **Pie** (`_componentes/PieSitio.tsx`): fondo `tinta` con la cuerda del khipu arriba; cierre con el lema (sin botones: la demo está justo arriba); columnas El producto, Empieza y Khipu Escolar (correo de contacto, Privacidad, Programa piloto 2026); «Hecho en el Perú para los colegios del Perú».
 - **Seguridad:** la sección se quitó de la landing por ahora (2026-10-29), igual que su ancla del encabezado. La Ley 29733 sigue en las garantías del hero y en las preguntas frecuentes.
 - Detalles: los botones se hunden a 0,96 al presionar; precios y horas con `tabular-nums`; selección de texto en maíz y cursor de texto en índigo cielo; los planes suben 4 px al pasar el cursor.
 - **Sin JS o con «reducir movimiento»** (`gsap.matchMedia`): el HTML ya trae el estado final y la página se ve completa y quieta (primer aviso, cuerdas anudadas, día completo). Nada se oculta antes de que cargue el JS.
@@ -92,7 +92,7 @@ solicitarDemoAction(previo, formData): Promise<EstadoFormularioDemo>   // ok | e
 - Demasiados envíos desde la misma IP (3 por hora) → `Alerta` con el mensaje de `crearSolicitudDemo`; lo escrito se conserva.
 - Error inesperado al guardar → «No pudimos enviar tus datos. Inténtalo de nuevo en unos minutos.» (se registra en el log).
 - `?plan=` con un valor que no es un plan → se ignora.
-- BD caída → planes del código y contacto = remitente.
+- BD caída → planes del código y contacto = khipuescolar@gmail.com.
 
 ## Pruebas
 - unit: `tests/unit/landing-planes.test.ts` (activos y orden, «todo lo de X» y módulos nuevos, plan que no contiene al anterior, precio en soles o «Precio según tamaño del colegio», respaldo del código).

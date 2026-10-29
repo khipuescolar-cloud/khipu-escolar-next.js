@@ -75,3 +75,11 @@
 
 - Día en el colegio con 4 avisos con Khipu (llegó, tarea, reunión, libreta) frente a 3 sin Khipu (cuaderno, WhatsApp, días después); tarjeta del hero bajo la laptop; mini barra de funciones eliminada (`NavFunciones.tsx` borrado); pestañas de roles de tamaño fijo y con a quién va cada una; sección de seguridad quitada (y su ancla); preguntas frecuentes con color, íconos y Nudito; formulario en 3 bloques numerados; pie nuevo (`PieSitio.tsx`). Detalle en specs/25 · «Movimiento».
 - e2e: la lista de secciones de `landing-publica.test.ts` cambia «seguridad» por «roles». lint, typecheck y e2e de landing + solicitudes 6/6; capturas en 1440 y 390 px.
+
+> [imagen] tenemos un scroll horizontal, no me gusta por que descuadra toda la pantalla
+
+- La marca de la hora de «Un día en el colegio» se salía de la tarjeta al final del recorrido; ahora la recorta su contenedor (`overflow-x-clip`). Sin scroll horizontal en 1440, 1024, 768, 390 y 375 px.
+
+> quitamos los botones de solicitar demo y de ingresar , que se encuentran en el footer ; y el correo par khipu es de khipuescolar@gmail.com
+
+- Pie sin botones. `correoContactoPublico()` usa el buzón de soporte configurado o, si no hay, `CORREO_CONTACTO_KHIPU` (khipuescolar@gmail.com), ya no el remitente de los avisos. Aplica al pie y a /privacidad.

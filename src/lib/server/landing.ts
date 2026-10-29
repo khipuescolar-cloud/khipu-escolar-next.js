@@ -36,19 +36,21 @@ export async function planesPublicos(): Promise<{ planes: PlanPublico[]; desdeCa
   return { planes: armarPlanesPublicos(catalogoDeCodigo()), desdeCatalogo: false };
 }
 
+/** Correo público de Khipu Escolar (pie de la landing y privacidad) cuando la plataforma no configuró otro. */
+export const CORREO_CONTACTO_KHIPU = "khipuescolar@gmail.com";
+
 /**
- * Correo de contacto público: el buzón de soporte configurado en la plataforma (specs/22) o, si no hay, el
- * remitente de los avisos. Nunca la cuenta SMTP (puede ser personal).
+ * Correo de contacto público: el buzón de soporte configurado en la plataforma (specs/22) o, si no hay,
+ * `CORREO_CONTACTO_KHIPU`. Nunca el remitente de los avisos ni la cuenta SMTP.
  */
-export async function correoContactoPublico(): Promise<string | null> {
+export async function correoContactoPublico(): Promise<string> {
   try {
     const fila = await db.configPlataforma.findUnique({ where: { clave: CLAVE_CORREO_SOPORTE } });
     const v = fila?.valor as { correo?: unknown } | string | null | undefined;
     const guardado = typeof v === "string" ? v : typeof v?.correo === "string" ? v.correo : "";
     if (guardado.includes("@")) return guardado.trim();
   } catch {
-    // sin BD: se usa el remitente
+    // sin BD: se usa el correo público fijo
   }
-  const remitente = process.env.EMAIL_FROM_ADDRESS?.trim() ?? "";
-  return remitente.includes("@") ? remitente : null;
+  return CORREO_CONTACTO_KHIPU;
 }
