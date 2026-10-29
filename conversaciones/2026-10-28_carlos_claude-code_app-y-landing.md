@@ -55,3 +55,4 @@
 - Las exportaciones ahora se procesan al momento con `after()` (dirección y panel de plataforma); los avisos ya lo hacían. El cron queda como respaldo.
 - Docs: `docs/despliegue.md` §3 (disparador externo tipo cron-job.org o Vercel Pro), specs/06 y specs/15.
 - Pendiente: dominio propio con comodín para los subdominios de colegios.
+- Deploy en Vercel falló en `postinstall` (`prisma generate`: «Cannot resolve environment variable: DATABASE_URL»). `prisma.config.ts` usa ahora `process.env.DATABASE_URL` en vez de `env()`: generate no necesita la base; migrate/status siguen exigiéndola.
