@@ -59,7 +59,15 @@ solicitarDemoAction(previo, formData): Promise<EstadoFormularioDemo>   // ok | e
 ### Color (rediseño 2026-10-28: uso intenso de la paleta)
 - Tonos en `_componentes/tonos.ts` (`TONOS`, `BOTON_MAIZ`): indigo, indigo-cielo, turquesa, cochinilla y maíz; clases literales. Blanco sobre los sólidos; sobre maíz siempre `sobre-maiz`; maíz nunca como texto sobre claro (sí sobre índigo: «al toque.», «La promesa:»).
 - Bloques: hero **índigo** (CTA en maíz, tarjeta de aviso «Llegó» con ícono + palabra, `HiloKhipu`) → problema (tarjetas con borde superior cochinilla/maíz/turquesa y promesa en índigo) → funciones (chips por grupo y panel de color detrás de cada captura: día a día turquesa, comunicación cochinilla, académico índigo cielo, gestión maíz) → Nudito en tarjeta **cochinilla** → cómo funciona **índigo** (pasos numerados en 4 tonos) → roles (panel sólido por rol: dirección índigo, profesores turquesa, familias cochinilla) → planes sobre `superficie-2` (franja de color por plan; Pro Max en índigo con «El más completo» en maíz) → seguridad sobre turquesa suave → piloto **maíz** sólido → preguntas → demo **índigo** con el formulario en tarjeta blanca → pie con `HiloKhipu`.
-- Cada sobretítulo lleva un nudo de color delante (`Rotulo`). `src/components/marca/HiloKhipu.tsx`: cuerda horizontal con nudos, decorativa.
+- Sin sobretítulos encima de los títulos (2026-10-29): el título se sostiene solo y el color lo ponen los nudos. Problema y seguridad ya no son rejillas de tarjetas iguales: columnas con un nudo y una cuerda (problema) y lista a dos columnas con filetes (seguridad). `src/components/marca/HiloKhipu.tsx` queda en el pie.
+
+### Movimiento (2026-10-29, GSAP + ScrollTrigger con `@gsap/react`)
+- **Momento principal, el hero** (`_componentes/AvisosEnVivo.tsx`: `EscenaAvisos`, `TarjetaAviso`, `CuerdaAvisos`): cada 3,4 s llega un aviso de ejemplo (Llegó 7:52 a. m. → Tarea nueva → Comunicado → Libreta publicada; datos ficticios, ícono + palabra) y ata el siguiente nudo de la cuerda del hero, con su color. El aviso nuevo sube aclarándose y el anterior se hunde detrás. Se pausa fuera de la pantalla y en otra pestaña. Es `aria-hidden`: el texto del hero ya lo dice.
+- **«Un día en el colegio»** (`_componentes/DiaEnElColegio.tsx`, sección del problema): el scroll corre el reloj de 7:00 a. m. a 5:00 p. m. Con Khipu el nudo se ata a las 7:52 a. m.; sin Khipu, a las 4:30 p. m. («8 h 38 min después»). Es un ejemplo ilustrativo.
+- **Cómo funciona** (`_componentes/PasosKhipu.tsx`): los 4 pasos son nudos de una cuerda en maíz que se dibuja con el scroll (horizontal en escritorio, vertical en el celular).
+- **Funciones** (`_componentes/NavFunciones.tsx`): los atajos por grupo quedan fijos bajo el encabezado y marcan el grupo que se está leyendo (`aria-current="location"`).
+- Detalles: los botones se hunden a 0,96 al presionar; precios y horas con `tabular-nums`; selección de texto en maíz y cursor de texto en índigo cielo; los planes suben 4 px al pasar el cursor.
+- **Sin JS o con «reducir movimiento»** (`gsap.matchMedia`): el HTML ya trae el estado final y la página se ve completa y quieta (primer aviso, cuerdas anudadas, día completo). Nada se oculta antes de que cargue el JS.
 
 ### Capturas reales
 - `public/landing/*.webp` (≤ 200 KB cada una; medidas y `alt` en `_componentes/capturas.ts`): `pasar-lista`, `familia-asistencia`, `chat`, `notas`, `direccion-inicio`, `nudito`, `porteria`, `carnets`, `mesa-ayuda`. Escritorio 1366 × 854; celular 390 px a 2× (780 × 1688). Tema claro.
@@ -67,11 +75,11 @@ solicitarDemoAction(previo, formData): Promise<EstadoFormularioDemo>   // ok | e
 - Hero: laptop (pasar lista) + celular (calendario de la familia) con `priority`; el resto con carga diferida.
 
 ## Textos y UX
-- Sobretítulo del hero «PARA COLEGIOS DEL PERÚ»; subtítulo = la promesa de marca; CTA «Solicitar demo» y «Ver funciones».
+- Hero sin sobretítulo; «Hecho para colegios del Perú» va primero en la lista de garantías; subtítulo = la promesa de marca; CTA «Solicitar demo» y «Ver funciones».
 - Problema (3 puntos): la familia no se entera a tiempo; el profesor avisa uno por uno (30 alumnos = 30 mensajes); la información está dispersa (WhatsApp, cuadernos, Excel).
 - Cómo funciona: el colegio se registra con Khipu → carga profesores y alumnos (CSV) → el profesor pasa lista → la familia recibe el aviso.
 - Estados de error del formulario junto al campo; error general con `Alerta`; éxito con ícono + texto y foco en el mensaje.
-- Accesibilidad: un solo `h1`; títulos en orden (h2 por sección, h3/h4 dentro); foco visible global; controles ≥ 44 px; íconos decorativos `aria-hidden`; sin animaciones de entrada (las del `Accordion`/`Sheet` respetan `prefers-reduced-motion` por la regla global).
+- Accesibilidad: un solo `h1`; títulos en orden (h2 por sección, h3/h4 dentro); foco visible global; controles ≥ 44 px; íconos decorativos `aria-hidden`; el movimiento de «Movimiento» respeta `prefers-reduced-motion` (y las animaciones de `Accordion`/`Sheet` también, por la regla global).
 - Responsive verificado sin scroll horizontal en 375, 390, 768, 1024, 1366 y 1440 px.
 
 ## Errores y casos borde

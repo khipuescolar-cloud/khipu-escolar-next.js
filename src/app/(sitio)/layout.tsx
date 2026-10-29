@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default async function LayoutSitio({ children }: LayoutProps<"/">) {
   const contacto = await correoContactoPublico();
   return (
-    <div className="flex min-h-dvh flex-1 flex-col bg-background text-foreground" style={{ colorScheme: "light" }}>
+    <div className="flex min-h-dvh flex-1 flex-col bg-background text-foreground caret-indigo-cielo antialiased selection:bg-maiz selection:text-sobre-maiz" style={{ colorScheme: "light" }}>
       <a href="#contenido" className="sr-only z-50 rounded-md bg-primary px-4 py-2 text-primary-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
         Saltar al contenido
       </a>

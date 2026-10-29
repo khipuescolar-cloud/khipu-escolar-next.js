@@ -1,18 +1,13 @@
 /* eslint-disable @next/next/no-img-element -- SVG oficiales de la marca (public/marca), sin optimización de imagen */
 import {
-  BellRing,
   BookOpen,
   CalendarDays,
   Check,
   ClipboardCheck,
-  Clock,
   Database,
   Download,
-  Eye,
   FileText,
-  FolderSearch,
   GraduationCap,
-  Handshake,
   HeartHandshake,
   LifeBuoy,
   ListTodo,
@@ -24,8 +19,6 @@ import {
   Send,
   ShieldCheck,
   Smartphone,
-  Upload,
-  UserCheck,
   Users,
   WifiOff,
   type LucideIcon,
@@ -33,30 +26,33 @@ import {
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { CuerdasKhipu } from "@/components/marca/CuerdasKhipu";
-import { HiloKhipu } from "@/components/marca/HiloKhipu";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { buttonVariants } from "@/components/ui/button";
 import type { Plan } from "@/generated/prisma/enums";
 import { planesPublicos } from "@/lib/server/landing";
 import { cn } from "@/lib/utils";
+import { CuerdaAvisos, EscenaAvisos, TarjetaAviso } from "./_componentes/AvisosEnVivo";
 import { CAPTURAS } from "./_componentes/capturas";
+import { DiaEnElColegio } from "./_componentes/DiaEnElColegio";
 import { Celular, Laptop, Ventana } from "./_componentes/Dispositivos";
 import { FormularioDemo } from "./_componentes/FormularioDemo";
+import { NavFunciones } from "./_componentes/NavFunciones";
+import { PasosKhipu } from "./_componentes/PasosKhipu";
 import { PestanasRoles } from "./_componentes/PestanasRoles";
 import { BOTON_MAIZ, TONOS, type Tono } from "./_componentes/tonos";
 
 // Landing pública de Khipu Escolar (specs/25-landing-publica.md). Server Component: solo el formulario,
-// el menú móvil y las pestañas de roles llevan JS. Voz: «usted» al director (ventas) y «tú» a las familias.
+// el menú móvil, las pestañas de roles y el movimiento (AvisosEnVivo, DiaEnElColegio, PasosKhipu, NavFunciones) llevan JS. Voz: «usted» al director (ventas) y «tú» a las familias.
 
 const PLANES_VALIDOS: Plan[] = ["basico", "fase2", "promax"];
 
 type Funcion = { Icono: LucideIcon; titulo: string; texto: ReactNode };
 
-const GRUPOS: { id: string; tono: Tono; sobretitulo: string; titulo: string; funciones: Funcion[]; captura: ReactNode }[] = [
+const GRUPOS: { id: string; tono: Tono; nombre: string; titulo: string; funciones: Funcion[]; captura: ReactNode }[] = [
   {
     id: "dia-a-dia",
     tono: "turquesa",
-    sobretitulo: "Día a día",
+    nombre: "Día a día",
     titulo: "La asistencia llega a la casa en el momento",
     funciones: [
       {
@@ -90,7 +86,7 @@ const GRUPOS: { id: string; tono: Tono; sobretitulo: string; titulo: string; fun
   {
     id: "comunicacion",
     tono: "cochinilla",
-    sobretitulo: "Comunicación",
+    nombre: "Comunicación",
     titulo: "Familia y colegio conversan sin grupos ni teléfonos",
     funciones: [
       {
@@ -113,7 +109,7 @@ const GRUPOS: { id: string; tono: Tono; sobretitulo: string; titulo: string; fun
   {
     id: "academico",
     tono: "cielo",
-    sobretitulo: "Académico",
+    nombre: "Académico",
     titulo: "Notas, libreta y tareas en el mismo lugar",
     funciones: [
       {
@@ -137,7 +133,7 @@ const GRUPOS: { id: string; tono: Tono; sobretitulo: string; titulo: string; fun
   {
     id: "colegio",
     tono: "maiz",
-    sobretitulo: "Gestión del colegio",
+    nombre: "Gestión del colegio",
     titulo: "Dirección tiene todo a la vista",
     funciones: [
       {
@@ -173,32 +169,22 @@ const GRUPOS: { id: string; tono: Tono; sobretitulo: string; titulo: string; fun
   },
 ];
 
-const PROBLEMAS: { Icono: LucideIcon; tono: Tono; titulo: string; texto: string }[] = [
+const PROBLEMAS: { tono: Tono; titulo: string; texto: string }[] = [
   {
-    Icono: Eye,
     tono: "cochinilla",
     titulo: "La familia no se entera a tiempo",
     texto: "Si un alumno no llega, muchas familias lo saben recién en la tarde, por el cuaderno de control o en la reunión.",
   },
   {
-    Icono: Clock,
     tono: "maiz",
     titulo: "El profesor avisa uno por uno",
     texto: "En un salón de 30 alumnos, avisar a cada familia son 30 mensajes. Ese tiempo sale de la clase.",
   },
   {
-    Icono: FolderSearch,
     tono: "turquesa",
     titulo: "La información está dispersa",
     texto: "Grupos de WhatsApp, cuadernos, hojas de Excel y llamadas: cada dato en un lugar distinto y difícil de encontrar.",
   },
-];
-
-const PASOS = [
-  { Icono: Handshake, titulo: "El colegio se registra con Khipu", texto: "Creamos su colegio, su dirección web propia y la cuenta de dirección." },
-  { Icono: Upload, titulo: "Carga profesores y alumnos", texto: "Con un archivo CSV o uno por uno. Las familias reciben su invitación por correo." },
-  { Icono: UserCheck, titulo: "El profesor pasa lista", texto: "Desde el celular o la computadora, con botones grandes y aunque no haya internet." },
-  { Icono: BellRing, titulo: "La familia recibe el aviso", texto: "«Mateo llegó al colegio a las 7:52 a. m.» Firmado por el colegio, sin tecnicismos." },
 ];
 
 const SEGURIDAD = [
@@ -238,7 +224,6 @@ const PREGUNTAS = [
 ];
 
 const TONO_SEGURIDAD: Tono[] = ["indigo", "turquesa", "cochinilla", "cielo", "indigo", "turquesa"];
-const TONO_PASO: Tono[] = ["turquesa", "cochinilla", "maiz", "cielo"];
 const TONO_PLAN: Record<string, Tono> = { basico: "turquesa", fase2: "cielo", promax: "maiz" };
 
 function Seccion({ id, className, children, etiqueta }: { id?: string; className?: string; children: ReactNode; etiqueta?: string }) {
@@ -249,24 +234,14 @@ function Seccion({ id, className, children, etiqueta }: { id?: string; className
   );
 }
 
-/** Rótulo con un nudo de color delante: cada sección lleva el tono de la paleta que le toca. */
-function Rotulo({ texto, tono, claro }: { texto: string; tono: Tono; claro?: boolean }) {
+// Sin sobretítulos encima de los títulos (rediseño 2026-10-29): el título se sostiene solo; el color lo ponen los nudos.
+function Encabezado({ id, titulo, texto, claro, centrado }: { id: string; titulo: string; texto?: string; claro?: boolean; centrado?: boolean }) {
   return (
-    <p className={cn("flex items-center gap-2 text-sobretitulo uppercase", claro ? "text-white/85" : TONOS[tono].rotulo)}>
-      <span className={cn("size-2.5 rounded-full", TONOS[tono].nudo)} aria-hidden />
-      {texto}
-    </p>
-  );
-}
-
-function Encabezado({ id, sobretitulo, titulo, texto, claro, tono = "cochinilla", centrado }: { id: string; sobretitulo: string; titulo: string; texto?: string; claro?: boolean; tono?: Tono; centrado?: boolean }) {
-  return (
-    <div className={cn("flex max-w-2xl flex-col gap-3", centrado && "mx-auto items-center text-center")}>
-      <Rotulo texto={sobretitulo} tono={tono} claro={claro} />
+    <div className={cn("flex max-w-2xl flex-col gap-4", centrado && "mx-auto items-center text-center")}>
       <h2 id={id} className="font-heading text-titulo-1 text-balance sm:text-[40px] sm:leading-[46px]">
         {titulo}
       </h2>
-      {texto && <p className={cn("text-cuerpo sm:text-lg", claro ? "text-white/80" : "text-muted-foreground")}>{texto}</p>}
+      {texto && <p className={cn("text-cuerpo text-pretty sm:text-lg", claro ? "text-white/80" : "text-muted-foreground")}>{texto}</p>}
     </div>
   );
 }
@@ -287,74 +262,65 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
 
   return (
     <>
-      {/* ───────── Hero (índigo) ───────── */}
-      <section aria-labelledby="titulo-principal" className="relative overflow-hidden bg-indigo text-white">
+      {/* ───────── Hero (índigo): los avisos llegan y cada uno ata un nudo en la cuerda ───────── */}
+      <EscenaAvisos aria-labelledby="titulo-principal" className="relative overflow-hidden bg-indigo text-white">
         <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-4 pt-12 pb-10 sm:px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-10 lg:pt-20 lg:pb-14">
-          <div className="flex flex-col gap-6">
-            <p className="flex w-fit items-center gap-2 rounded-pildora bg-white/10 px-3 py-1.5 text-sobretitulo uppercase">
-              <span className="size-2 rounded-full bg-maiz" aria-hidden /> Para colegios del Perú
-            </p>
-            <h1 id="titulo-principal" className="font-heading text-[36px] leading-[42px] font-bold tracking-[-0.02em] text-balance sm:text-[48px] sm:leading-[54px] lg:text-[54px] lg:leading-[60px]">
+          <div className="flex flex-col gap-7">
+            <h1 id="titulo-principal" className="font-heading text-[38px] leading-[44px] font-bold tracking-[-0.025em] text-balance sm:text-[50px] sm:leading-[56px] lg:text-[58px] lg:leading-[64px]">
               Lo que pasa en el aula, le llega a la familia <span className="text-maiz">al toque.</span>
             </h1>
-            <p className="max-w-xl text-lg leading-7 text-white/85">
+            <p className="max-w-xl text-lg leading-7 text-pretty text-white/85">
               Lo importante del colegio llega a tiempo, claro y seguro: asistencia, notas y tareas, en el momento en que pasan. Khipu Escolar une a dirección, profesores y familias en un solo lugar.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="#demo" className={cn(buttonVariants({ size: "lg" }), "h-12 px-6", BOTON_MAIZ)}>
+              <a href="#demo" className={cn(buttonVariants({ size: "lg" }), "h-12 px-6 active:not-aria-[haspopup]:translate-y-0 active:scale-[0.96]", BOTON_MAIZ)}>
                 <Send strokeWidth={2} aria-hidden /> Solicitar demo
               </a>
-              <a href="#funciones" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 border-white/40 bg-transparent px-6 text-white hover:bg-white/10 hover:text-white")}>
+              <a href="#funciones" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 border-white/40 bg-transparent px-6 text-white hover:bg-white/10 hover:text-white active:not-aria-[haspopup]:translate-y-0 active:scale-[0.96]")}>
                 Ver funciones
               </a>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 text-cuerpo-sm text-white/85">
-              {["Sin instalar nada", "Funciona en el celular", "Ley 29733"].map((t) => (
+              {["Hecho para colegios del Perú", "Sin instalar nada", "Funciona en el celular", "Ley 29733"].map((t) => (
                 <li key={t} className="flex items-center gap-2">
                   <Check className="size-4 text-maiz" strokeWidth={2.5} aria-hidden /> {t}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="relative pr-[16%] pb-[6%] sm:pr-[18%]">
+          <div className="relative mb-10 pr-[16%] pb-[6%] sm:mb-0 sm:pr-[18%]">
             <Laptop captura={CAPTURAS.pasarLista} prioridad tamanos="(min-width: 1024px) 560px, 84vw" />
             <Celular captura={CAPTURAS.familiaAsistencia} prioridad className="absolute right-0 bottom-0 w-[30%]" tamanos="(min-width: 1024px) 190px, 30vw" />
-            {/* Ejemplo del aviso que recibe la familia (datos ficticios): estado con ícono + palabra. */}
-            <div className="absolute bottom-[14%] -left-2 hidden max-w-[250px] items-start gap-3 rounded-lg border border-arena bg-superficie p-3 text-tinta shadow-sombra-1 sm:flex lg:-left-8" aria-hidden>
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-llego-fondo text-llego">
-                <Check className="size-5" strokeWidth={2.5} />
-              </span>
-              <span className="flex flex-col">
-                <span className="text-etiqueta text-llego">Llegó</span>
-                <span className="text-cuerpo-sm">Mateo llegó al colegio a las 7:52 a. m.</span>
-              </span>
-            </div>
+            {/* Avisos de ejemplo que recibe la familia (datos ficticios): estado con ícono + palabra. */}
+            <TarjetaAviso className="absolute -bottom-10 left-0 w-[min(272px,82%)] sm:bottom-[12%] sm:-left-2 sm:w-[272px] lg:-left-10" />
           </div>
         </div>
         <div className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
-          <HiloKhipu claro />
+          <CuerdaAvisos />
         </div>
-      </section>
+      </EscenaAvisos>
 
       {/* ───────── Problema y promesa ───────── */}
       <Seccion etiqueta="titulo-problema">
         <Encabezado
           id="titulo-problema"
-          sobretitulo="El problema"
-          tono="cochinilla"
           titulo="Hoy, lo que pasa en el colegio llega tarde a la casa"
           texto="Khipu Escolar nace para que ningún padre se quede sin saber cómo está su hijo y para que el profesor no pierda horas avisando uno por uno."
         />
-        <ul className="mt-10 grid gap-4 md:grid-cols-3">
+        <DiaEnElColegio className="mt-10" />
+        <ul className="mt-12 grid gap-8 md:grid-cols-3 md:gap-10">
           {PROBLEMAS.map((p) => (
-            <li key={p.titulo} className={cn("flex flex-col gap-4 rounded-lg border border-t-4 border-arena bg-superficie p-6 transition-shadow hover:shadow-sombra-1", TONOS[p.tono].tope)}>
-              <Icono Icono={p.Icono} tono={p.tono} />
+            <li key={p.titulo} className="flex flex-col gap-3">
+              <span className="flex items-center gap-3" aria-hidden>
+                <span className={cn("size-3.5 rounded-full", TONOS[p.tono].nudo)} />
+                <span className="h-[3px] flex-1 rounded-full bg-arena" />
+              </span>
               <h3 className="font-heading text-titulo-2 text-balance">{p.titulo}</h3>
-              <p className="text-cuerpo text-muted-foreground">{p.texto}</p>
+              <p className="text-cuerpo text-pretty text-muted-foreground">{p.texto}</p>
             </li>
           ))}
         </ul>
-        <div className="mt-8 flex items-start gap-4 rounded-lg bg-indigo p-6 text-white sm:items-center sm:p-8">
+        <div className="mt-12 flex items-start gap-4 rounded-lg bg-indigo p-6 text-white sm:items-center sm:p-8">
           <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-maiz text-sobre-maiz">
             <Check className="size-6" strokeWidth={2.5} aria-hidden />
           </span>
@@ -368,35 +334,24 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
       <Seccion id="funciones" etiqueta="titulo-funciones" className="border-t border-arena bg-superficie">
         <Encabezado
           id="titulo-funciones"
-          sobretitulo="Funciones"
-          tono="turquesa"
           titulo="Todo lo que el colegio necesita para comunicarse, en un solo lugar"
           texto="Las capturas son del producto real, en un colegio de ejemplo con datos ficticios."
         />
-        <nav aria-label="Grupos de funciones" className="mt-8 flex flex-wrap gap-2">
-          {GRUPOS.map((g) => (
-            <a key={g.id} href={`#${g.id}`} className={cn("flex min-h-11 items-center gap-2 rounded-pildora px-4 text-cuerpo-sm font-semibold transition-opacity hover:opacity-90", TONOS[g.tono].solido)}>
-              {g.sobretitulo}
-            </a>
-          ))}
-        </nav>
-        <div className="mt-14 flex flex-col gap-20 lg:gap-24">
+        <NavFunciones grupos={GRUPOS.map((g) => ({ id: g.id, nombre: g.nombre, tono: g.tono }))} />
+        <div className="mt-10 flex flex-col gap-20 lg:gap-28">
           {GRUPOS.map((g, i) => (
-            <article key={g.id} id={g.id} aria-labelledby={`grupo-${g.id}`} className="grid scroll-mt-24 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <article key={g.id} id={g.id} aria-labelledby={`grupo-${g.id}`} className="grid scroll-mt-40 items-center gap-10 lg:grid-cols-2 lg:gap-14">
               <div className={cn("flex flex-col gap-6", i % 2 === 1 && "lg:order-2")}>
-                <div className="flex flex-col gap-2">
-                  <Rotulo texto={g.sobretitulo} tono={g.tono} />
-                  <h3 id={`grupo-${g.id}`} className="font-heading text-titulo-1 text-balance">
-                    {g.titulo}
-                  </h3>
-                </div>
+                <h3 id={`grupo-${g.id}`} className="font-heading text-titulo-1 text-balance">
+                  {g.titulo}
+                </h3>
                 <ul className="flex flex-col gap-5">
                   {g.funciones.map((f) => (
                     <li key={f.titulo} className="flex items-start gap-4">
                       <Icono Icono={f.Icono} tono={g.tono} />
                       <div className="flex flex-col gap-1">
                         <h4 className="text-cuerpo font-semibold">{f.titulo}</h4>
-                        <p className="text-cuerpo-sm text-muted-foreground">{f.texto}</p>
+                        <p className="text-cuerpo-sm text-pretty text-muted-foreground">{f.texto}</p>
                       </div>
                     </li>
                   ))}
@@ -415,10 +370,10 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
             <span className="flex size-24 items-center justify-center rounded-full bg-white">
               <img src="/marca/nudito.svg" alt="Nudito, el asistente de Khipu Escolar: un nudo de cuerda que sonríe" width={72} height={72} loading="lazy" className="size-18" />
             </span>
-            <p className="flex w-fit items-center gap-2 rounded-pildora bg-maiz px-3 py-1 text-sobretitulo text-sobre-maiz uppercase">Plan Pro Max</p>
             <h2 id="titulo-nudito" className="font-heading text-titulo-1 text-balance sm:text-[40px] sm:leading-[46px]">
               Nudito, el asistente que responde con los datos del colegio
             </h2>
+            <p className="w-fit rounded-pildora bg-maiz px-3 py-1 text-etiqueta text-sobre-maiz">Incluido en el plan Pro Max</p>
             <p className="text-cuerpo text-white/90 sm:text-lg">
               Las familias le preguntan qué tareas hay esta semana, qué fechas vienen, el horario o el reglamento. Nudito responde solo con datos reales del colegio y de sus hijos; si no sabe algo, ofrece escribirle a una persona del colegio.
             </p>
@@ -446,32 +401,16 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
 
       {/* ───────── Cómo funciona (índigo) ───────── */}
       <section id="como-funciona" aria-labelledby="titulo-como" className="relative scroll-mt-20 overflow-hidden bg-indigo text-white">
-        <div className="relative z-10 mx-auto max-w-6xl px-4 pt-16 pb-10 sm:px-6 sm:pt-24">
-          <Encabezado id="titulo-como" sobretitulo="Cómo funciona" tono="maiz" titulo="De la firma al primer aviso, en cuatro pasos" claro />
-          <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {PASOS.map((p, i) => (
-              <li key={p.titulo} className="flex flex-col gap-4 rounded-lg border border-white/15 bg-white/5 p-6">
-                <div className="flex items-center justify-between">
-                  <Icono Icono={p.Icono} tono={TONO_PASO[i]} />
-                  <span className={cn("flex size-11 items-center justify-center rounded-full font-heading text-titulo-2", TONOS[TONO_PASO[i]].solido)} aria-hidden>
-                    {i + 1}
-                  </span>
-                </div>
-                <h3 className="font-heading text-titulo-2 text-balance">
-                  <span className="sr-only">Paso {i + 1}: </span>
-                  {p.titulo}
-                </h3>
-                <p className="text-cuerpo text-white/80">{p.texto}</p>
-              </li>
-            ))}
-          </ol>
+        <div className="relative z-10 mx-auto max-w-6xl px-4 pt-16 pb-14 sm:px-6 sm:pt-24">
+          <Encabezado id="titulo-como" titulo="De la firma al primer aviso, en cuatro pasos" claro />
+          <PasosKhipu className="mt-14" />
         </div>
         <CuerdasKhipu className="h-40 w-full sm:h-52" />
       </section>
 
       {/* ───────── Para cada rol ───────── */}
       <Seccion id="roles" etiqueta="titulo-roles">
-        <Encabezado id="titulo-roles" sobretitulo="Para cada rol" tono="cielo" titulo="Cada persona del colegio gana algo distinto" />
+        <Encabezado id="titulo-roles" titulo="Cada persona del colegio gana algo distinto" />
         <div className="mt-10">
           <PestanasRoles />
         </div>
@@ -481,8 +420,6 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
       <Seccion id="planes" etiqueta="titulo-planes" className="border-t border-arena bg-superficie-2">
         <Encabezado
           id="titulo-planes"
-          sobretitulo="Planes"
-          tono="indigo"
           centrado
           titulo="Empiece con lo esencial y crezca cuando lo necesite"
           texto="Todos los planes incluyen la mesa de ayuda con el equipo Khipu, la app instalable y el trabajo sin conexión."
@@ -496,7 +433,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
                 key={p.plan}
                 data-plan={p.plan}
                 className={cn(
-                  "relative flex flex-col gap-5 overflow-hidden rounded-lg border p-6 pt-8 transition-shadow hover:shadow-sombra-1 sm:p-8 sm:pt-10",
+                  "relative flex flex-col gap-5 overflow-hidden rounded-lg border p-6 pt-8 transition-[box-shadow,translate] duration-300 ease-out hover:-translate-y-1 hover:shadow-sombra-1 sm:p-8 sm:pt-10",
                   destacado ? "border-indigo bg-indigo text-white" : "border-arena bg-superficie",
                 )}
               >
@@ -509,7 +446,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
                   {p.descripcion && <p className={cn("text-cuerpo-sm", destacado ? "text-white/80" : "text-muted-foreground")}>{p.descripcion}</p>}
                 </div>
                 <div className={cn("flex flex-col gap-1 border-y py-4", destacado ? "border-white/15" : "border-arena")}>
-                  <p className="font-heading text-titulo-2">{p.precio}</p>
+                  <p className="font-heading text-titulo-2 tabular-nums">{p.precio}</p>
                   {p.minimo && <p className={cn("text-cuerpo-sm", destacado ? "text-white/80" : "text-muted-foreground")}>{p.minimo}</p>}
                 </div>
                 <div className="flex flex-1 flex-col gap-3">
@@ -528,7 +465,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
                 <Link
                   href={`/?plan=${p.plan}#demo`}
                   scroll={false}
-                  className={cn(buttonVariants({ variant: destacado ? "default" : "outline", size: "lg" }), "h-12 w-full", destacado && BOTON_MAIZ)}
+                  className={cn(buttonVariants({ variant: destacado ? "default" : "outline", size: "lg" }), "h-12 w-full active:not-aria-[haspopup]:translate-y-0 active:scale-[0.96]", destacado && BOTON_MAIZ)}
                   aria-label={`Quiero el plan ${p.nombre}`}
                 >
                   Quiero este plan
@@ -543,17 +480,17 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
       <Seccion id="seguridad" etiqueta="titulo-seguridad" className="bg-turquesa/8">
         <Encabezado
           id="titulo-seguridad"
-          sobretitulo="Seguridad y privacidad"
-          tono="turquesa"
           titulo="Los datos de los niños, bien cuidados"
           texto="Khipu Escolar se diseñó desde el inicio para cumplir la Ley 29733 de protección de datos personales."
         />
-        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-x-12 sm:grid-cols-2">
           {SEGURIDAD.map((s, i) => (
-            <li key={s.titulo} className="flex flex-col gap-3 rounded-lg border border-arena bg-superficie p-6 transition-shadow hover:shadow-sombra-1">
+            <li key={s.titulo} className="flex gap-4 border-t border-turquesa/25 py-6">
               <Icono Icono={s.Icono} tono={TONO_SEGURIDAD[i]} />
-              <h3 className="text-cuerpo font-semibold">{s.titulo}</h3>
-              <p className="text-cuerpo-sm text-muted-foreground">{s.texto}</p>
+              <div className="flex flex-col gap-1.5">
+                <h3 className="text-cuerpo font-semibold">{s.titulo}</h3>
+                <p className="text-cuerpo-sm text-pretty text-muted-foreground">{s.texto}</p>
+              </div>
             </li>
           ))}
         </ul>
@@ -573,7 +510,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
               <p className="text-cuerpo">Estamos eligiendo a los primeros colegios del Perú que usarán Khipu Escolar. ¿Quiere que el suyo sea uno de ellos?</p>
             </div>
           </div>
-          <a href="#demo" className={cn(buttonVariants({ size: "lg" }), "h-12 shrink-0 bg-indigo px-6 text-white hover:bg-indigo/90")}>
+          <a href="#demo" className={cn(buttonVariants({ size: "lg" }), "h-12 shrink-0 bg-indigo px-6 text-white hover:bg-indigo/90 active:not-aria-[haspopup]:translate-y-0 active:scale-[0.96]")}>
             Postular a mi colegio
           </a>
         </div>
@@ -583,7 +520,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
       <Seccion id="preguntas" etiqueta="titulo-preguntas">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div className="flex flex-col gap-6">
-            <Encabezado id="titulo-preguntas" sobretitulo="Preguntas frecuentes" tono="cochinilla" titulo="Respuestas rápidas" />
+            <Encabezado id="titulo-preguntas" titulo="Respuestas rápidas" />
             <img src="/marca/nudito.svg" alt="" width={96} height={96} loading="lazy" className="hidden size-24 lg:block" />
           </div>
           <Accordion className="rounded-lg border border-arena bg-superficie px-5">
@@ -603,8 +540,6 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
           <div className="flex flex-col gap-6">
             <Encabezado
               id="titulo-demo"
-              sobretitulo="Demo sin costo"
-              tono="maiz"
               claro
               titulo="Solicita una demo"
               texto="Déjenos sus datos y le mostramos Khipu Escolar con un colegio de ejemplo, en una videollamada o en su colegio."

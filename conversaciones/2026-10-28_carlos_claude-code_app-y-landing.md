@@ -56,3 +56,15 @@
 - Docs: `docs/despliegue.md` §3 (disparador externo tipo cron-job.org o Vercel Pro), specs/06 y specs/15.
 - Pendiente: dominio propio con comodín para los subdominios de colegios.
 - Deploy en Vercel falló en `postinstall` (`prisma generate`: «Cannot resolve environment variable: DATABASE_URL»). `prisma.config.ts` usa ahora `process.env.DATABASE_URL` en vez de `env()`: generate no necesita la base; migrate/status siguen exigiéndola.
+
+## Skills de diseño y movimiento en la landing (2026-10-29)
+
+> una consulta tienes una skill que se llama impecable , transitions.dev , las skill oficiales de GSAP ,  make interface feel beter? y si no la tienes lo puedes descargar porfavor
+
+> /impeccable porfavor usa estas skills para poder mejorar mucho mas y muchisimo mas la landing del sistema de Khipu
+
+- Skills instaladas en `~/.claude/skills` (fuera del repo) desde sus repos oficiales: impeccable (pbakaus), gsap-* (greensock), transitions-dev/-polish/-ui-generation (jakubantalik) y make-interfaces-feel-better (jakubkrehel).
+- Dependencias nuevas: `gsap` 3.13.0 y `@gsap/react` 2.1.2.
+- Hero con avisos en vivo que atan nudos en la cuerda; «Un día en el colegio» movido por el scroll (7:52 a. m. con Khipu frente a 4:30 p. m. sin Khipu); pasos unidos por una cuerda que se dibuja; atajos de funciones fijos con el grupo activo. Sin sobretítulos ni rejillas de tarjetas iguales en problema y seguridad. Detalle en specs/25 · «Movimiento».
+- Nuevos: `AvisosEnVivo.tsx`, `DiaEnElColegio.tsx`, `PasosKhipu.tsx`, `NavFunciones.tsx` (en `src/app/(sitio)/_componentes/`). Cambiados: `page.tsx`, `layout.tsx`, `globals.css`.
+- Verificado: lint, typecheck y e2e de landing + solicitudes 6/6; capturas en 1440 y 390 px; con «reducir movimiento» la página queda completa y quieta.
