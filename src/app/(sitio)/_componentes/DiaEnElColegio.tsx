@@ -52,8 +52,11 @@ function Fila({ nombre, resumen, eventos, base, relleno, destacada }: { nombre: 
       <div className="relative h-7">
         <span className={cn("absolute inset-x-0 top-1/2 h-[3px] -translate-y-1/2 rounded-full", base)} />
         <span data-relleno className={cn("absolute inset-x-0 top-1/2 h-[3px] origin-left -translate-y-1/2 rounded-full", relleno)} />
-        <span data-ahora className="pointer-events-none absolute inset-0 opacity-0">
-          <span className="absolute -top-1.5 -bottom-1.5 left-0 w-0.5 -translate-x-1/2 rounded-full bg-indigo" />
+        {/* La marca recorre el ancho moviendo una capa del mismo ancho: la recorta su contenedor para no ensanchar la página. */}
+        <span className="pointer-events-none absolute inset-0 overflow-x-clip">
+          <span data-ahora className="absolute inset-0 opacity-0">
+            <span className="absolute -top-1.5 -bottom-1.5 left-0 w-0.5 -translate-x-1/2 rounded-full bg-indigo" />
+          </span>
         </span>
         {eventos.map((e) => (
           <span
