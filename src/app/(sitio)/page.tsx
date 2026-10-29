@@ -4,15 +4,14 @@ import {
   CalendarDays,
   Check,
   ClipboardCheck,
-  Database,
+  Clock,
   Download,
   FileText,
   GraduationCap,
-  HeartHandshake,
   LifeBuoy,
   ListTodo,
-  Lock,
   Megaphone,
+  MonitorPlay,
   MessagesSquare,
   ScanLine,
   School,
@@ -36,13 +35,12 @@ import { CAPTURAS } from "./_componentes/capturas";
 import { DiaEnElColegio } from "./_componentes/DiaEnElColegio";
 import { Celular, Laptop, Ventana } from "./_componentes/Dispositivos";
 import { FormularioDemo } from "./_componentes/FormularioDemo";
-import { NavFunciones } from "./_componentes/NavFunciones";
 import { PasosKhipu } from "./_componentes/PasosKhipu";
 import { PestanasRoles } from "./_componentes/PestanasRoles";
 import { BOTON_MAIZ, TONOS, type Tono } from "./_componentes/tonos";
 
 // Landing pública de Khipu Escolar (specs/25-landing-publica.md). Server Component: solo el formulario,
-// el menú móvil, las pestañas de roles y el movimiento (AvisosEnVivo, DiaEnElColegio, PasosKhipu, NavFunciones) llevan JS. Voz: «usted» al director (ventas) y «tú» a las familias.
+// el menú móvil, las pestañas de roles y el movimiento (AvisosEnVivo, DiaEnElColegio, PasosKhipu) llevan JS. Voz: «usted» al director (ventas) y «tú» a las familias.
 
 const PLANES_VALIDOS: Plan[] = ["basico", "fase2", "promax"];
 
@@ -187,43 +185,53 @@ const PROBLEMAS: { tono: Tono; titulo: string; texto: string }[] = [
   },
 ];
 
-const SEGURIDAD = [
-  { Icono: ShieldCheck, titulo: "Ley 29733", texto: "Pedimos solo los datos necesarios y llevamos registro de quién ve o cambia los datos de un alumno." },
-  { Icono: Database, titulo: "Datos separados por colegio", texto: "Cada colegio vive en su propio espacio: ningún colegio ve a otro. La base de datos tiene RLS como respaldo." },
-  { Icono: HeartHandshake, titulo: "Consentimiento de las familias", texto: "Los avisos se envían con el consentimiento de la familia, que puede retirarlo desde su perfil." },
-  { Icono: Users, titulo: "Cada uno ve lo suyo", texto: "La familia solo ve a sus hijos y el profesor solo sus salones." },
-  { Icono: Lock, titulo: "El equipo Khipu no lee chats ni notas", texto: "Cuando damos soporte, entramos en modo de solo lectura, por tiempo limitado y con un motivo, sin acceso a mensajes, notas, libretas ni Nudito. Queda registrado y dirección lo ve." },
-  { Icono: Download, titulo: "Sus datos son suyos", texto: "Dirección puede exportar los datos del colegio cuando lo necesite." },
-];
-
-const PREGUNTAS = [
+const PREGUNTAS: { Icono: LucideIcon; tono: Tono; p: string; r: string }[] = [
   {
+    Icono: Download,
+    tono: "turquesa",
     p: "¿Necesitan instalar algo?",
     r: "No. Khipu Escolar funciona en el navegador del celular o de la computadora. Si lo prefieren, se instala como app desde la página «Instalar la app», sin pasar por tiendas.",
   },
   {
+    Icono: Clock,
+    tono: "cochinilla",
     p: "¿Cuánto tarda empezar?",
     r: "Lo que tome cargar a su gente. Nosotros creamos el colegio y la cuenta de dirección; ustedes cargan profesores y alumnos con un archivo CSV o uno por uno, y las familias reciben su invitación por correo. En la demo coordinamos las fechas.",
   },
   {
+    Icono: Smartphone,
+    tono: "maiz",
     p: "¿Funciona en celulares baratos?",
     r: "Sí, está pensado primero para el celular: botones grandes, pantallas livianas y textos claros. Basta un navegador actualizado, como Chrome o Safari.",
   },
   {
+    Icono: WifiOff,
+    tono: "cielo",
     p: "¿Qué pasa si no hay internet?",
     r: "Pasar lista y la portería siguen funcionando: los registros se guardan en el dispositivo y se envían solos cuando vuelve la conexión, con la hora en que se hicieron.",
   },
   {
+    Icono: ShieldCheck,
+    tono: "turquesa",
     p: "¿Cómo se manejan los datos de los alumnos?",
     r: "Según la Ley 29733: cada colegio tiene sus datos separados, se piden solo los necesarios, las familias dan su consentimiento y cada persona ve solo lo que le corresponde. El equipo de Khipu no lee chats ni notas.",
   },
   {
+    Icono: MonitorPlay,
+    tono: "cochinilla",
     p: "¿Puedo probarlo?",
     r: "Sí. Solicite una demo con el formulario de abajo: le mostramos Khipu Escolar con un colegio de ejemplo y conversamos sobre el programa piloto 2026.",
   },
 ];
 
-const TONO_SEGURIDAD: Tono[] = ["indigo", "turquesa", "cochinilla", "cielo", "indigo", "turquesa"];
+// Clases literales (Tailwind no ve las armadas): borde del tono en la pregunta abierta.
+const PREGUNTA_ABIERTA: Record<Tono, string> = {
+  indigo: "data-open:border-indigo",
+  cielo: "data-open:border-indigo-cielo",
+  turquesa: "data-open:border-turquesa",
+  cochinilla: "data-open:border-cochinilla",
+  maiz: "data-open:border-maiz",
+};
 const TONO_PLAN: Record<string, Tono> = { basico: "turquesa", fase2: "cielo", promax: "maiz" };
 
 function Seccion({ id, className, children, etiqueta }: { id?: string; className?: string; children: ReactNode; etiqueta?: string }) {
@@ -288,11 +296,11 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
               ))}
             </ul>
           </div>
-          <div className="relative mb-10 pr-[16%] pb-[6%] sm:mb-0 sm:pr-[18%]">
+          <div className="relative mb-16 pr-[16%] pb-[6%] sm:mb-12 sm:pr-[18%]">
             <Laptop captura={CAPTURAS.pasarLista} prioridad tamanos="(min-width: 1024px) 560px, 84vw" />
             <Celular captura={CAPTURAS.familiaAsistencia} prioridad className="absolute right-0 bottom-0 w-[30%]" tamanos="(min-width: 1024px) 190px, 30vw" />
             {/* Avisos de ejemplo que recibe la familia (datos ficticios): estado con ícono + palabra. */}
-            <TarjetaAviso className="absolute -bottom-10 left-0 w-[min(272px,82%)] sm:bottom-[12%] sm:-left-2 sm:w-[272px] lg:-left-10" />
+            <TarjetaAviso className="absolute top-full left-0 -mt-6 w-[min(300px,86%)] sm:left-[5%] sm:w-[300px]" />
           </div>
         </div>
         <div className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
@@ -337,10 +345,9 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
           titulo="Todo lo que el colegio necesita para comunicarse, en un solo lugar"
           texto="Las capturas son del producto real, en un colegio de ejemplo con datos ficticios."
         />
-        <NavFunciones grupos={GRUPOS.map((g) => ({ id: g.id, nombre: g.nombre, tono: g.tono }))} />
-        <div className="mt-10 flex flex-col gap-20 lg:gap-28">
+        <div className="mt-14 flex flex-col gap-20 lg:gap-28">
           {GRUPOS.map((g, i) => (
-            <article key={g.id} id={g.id} aria-labelledby={`grupo-${g.id}`} className="grid scroll-mt-40 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <article key={g.id} id={g.id} aria-labelledby={`grupo-${g.id}`} className="grid scroll-mt-24 items-center gap-10 lg:grid-cols-2 lg:gap-14">
               <div className={cn("flex flex-col gap-6", i % 2 === 1 && "lg:order-2")}>
                 <h3 id={`grupo-${g.id}`} className="font-heading text-titulo-1 text-balance">
                   {g.titulo}
@@ -476,26 +483,6 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
         </ul>
       </Seccion>
 
-      {/* ───────── Seguridad (turquesa) ───────── */}
-      <Seccion id="seguridad" etiqueta="titulo-seguridad" className="bg-turquesa/8">
-        <Encabezado
-          id="titulo-seguridad"
-          titulo="Los datos de los niños, bien cuidados"
-          texto="Khipu Escolar se diseñó desde el inicio para cumplir la Ley 29733 de protección de datos personales."
-        />
-        <ul className="mt-12 grid gap-x-12 sm:grid-cols-2">
-          {SEGURIDAD.map((s, i) => (
-            <li key={s.titulo} className="flex gap-4 border-t border-turquesa/25 py-6">
-              <Icono Icono={s.Icono} tono={TONO_SEGURIDAD[i]} />
-              <div className="flex flex-col gap-1.5">
-                <h3 className="text-cuerpo font-semibold">{s.titulo}</h3>
-                <p className="text-cuerpo-sm text-pretty text-muted-foreground">{s.texto}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </Seccion>
-
       {/* ───────── Programa piloto (maíz) ───────── */}
       <section aria-labelledby="titulo-piloto" className="bg-maiz text-sobre-maiz">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
@@ -516,18 +503,35 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
         </div>
       </section>
 
-      {/* ───────── Preguntas frecuentes ───────── */}
-      <Seccion id="preguntas" etiqueta="titulo-preguntas">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div className="flex flex-col gap-6">
-            <Encabezado id="titulo-preguntas" titulo="Respuestas rápidas" />
-            <img src="/marca/nudito.svg" alt="" width={96} height={96} loading="lazy" className="hidden size-24 lg:block" />
+      {/* ───────── Preguntas frecuentes (índigo cielo suave; Nudito invita a preguntar) ───────── */}
+      <Seccion id="preguntas" etiqueta="titulo-preguntas" className="bg-indigo-cielo/10">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.45fr] lg:gap-14">
+          <div className="flex flex-col gap-8 lg:sticky lg:top-28 lg:self-start">
+            <Encabezado id="titulo-preguntas" titulo="Respuestas rápidas" texto="Lo que más nos preguntan los colegios antes de empezar." />
+            <div className="flex items-end gap-3">
+              <img src="/marca/nudito.svg" alt="" width={80} height={80} loading="lazy" className="size-20 shrink-0" />
+              <p className="relative rounded-lg rounded-bl-sm bg-cochinilla px-4 py-3 font-nudito text-voz-nudito text-pretty text-white">
+                ¿No encuentras tu pregunta? Déjala en el formulario y una persona del equipo te responde.
+              </p>
+            </div>
+            <a href="#demo" className={cn(buttonVariants({ size: "lg" }), "h-12 w-fit bg-indigo px-6 text-white hover:bg-indigo/90 active:not-aria-[haspopup]:translate-y-0 active:scale-[0.96]")}>
+              <MessagesSquare strokeWidth={2} aria-hidden /> Hacer otra pregunta
+            </a>
           </div>
-          <Accordion className="rounded-lg border border-arena bg-superficie px-5">
+          <Accordion className="flex flex-col gap-3">
             {PREGUNTAS.map((q) => (
-              <AccordionItem key={q.p} value={q.p} className="border-arena">
-                <AccordionTrigger className="min-h-14 items-center py-4 text-cuerpo font-semibold hover:text-indigo-cielo hover:no-underline">{q.p}</AccordionTrigger>
-                <AccordionContent className="pb-5 text-cuerpo text-muted-foreground">{q.r}</AccordionContent>
+              <AccordionItem
+                key={q.p}
+                value={q.p}
+                className={cn("rounded-lg border-2 border-transparent bg-superficie px-4 transition-[border-color,box-shadow] duration-200 not-last:border-b-2 hover:shadow-sombra-1 data-open:shadow-sombra-1 sm:px-5", PREGUNTA_ABIERTA[q.tono])}
+              >
+                <AccordionTrigger className="min-h-16 items-center gap-4 py-3 text-cuerpo font-semibold hover:no-underline">
+                  <span className="flex items-center gap-4">
+                    <Icono Icono={q.Icono} tono={q.tono} />
+                    {q.p}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="pb-5 pl-15 text-cuerpo text-pretty text-muted-foreground">{q.r}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

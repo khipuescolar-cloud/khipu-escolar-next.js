@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { HiloKhipu } from "@/components/marca/HiloKhipu";
-import { Logo } from "@/components/marca/Logo";
 import { correoContactoPublico } from "@/lib/server/landing";
 import { EncabezadoSitio } from "./_componentes/EncabezadoSitio";
+import { PieSitio } from "./_componentes/PieSitio";
 
 // Sitio público de Khipu Escolar en la raíz del dominio (specs/25-landing-publica.md): landing y privacidad.
 // Siempre en tema claro (esRutaPublica en Proveedores). No usa el layout de (publico) del login.
@@ -38,34 +36,7 @@ export default async function LayoutSitio({ children }: LayoutProps<"/">) {
       <main id="contenido" className="flex-1">
         {children}
       </main>
-      <footer className="bg-superficie">
-        <HiloKhipu className="-mt-2" />
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-[1fr_auto]">
-          <div className="flex flex-col gap-3">
-            <Logo variante="escolar" alto={52} />
-            <p className="text-cuerpo text-muted-foreground">Cada día de tu hijo, bien anudado.</p>
-          </div>
-          <nav aria-label="Enlaces del pie" className="grid grid-cols-2 gap-x-8 gap-y-1 sm:flex sm:flex-wrap sm:items-start sm:gap-x-6">
-            <Link href="/login" className="flex min-h-11 items-center text-cuerpo-sm font-medium hover:underline">
-              Ingresar
-            </Link>
-            <Link href="/instalar" className="flex min-h-11 items-center text-cuerpo-sm font-medium hover:underline">
-              Instalar la app
-            </Link>
-            <Link href="/privacidad" className="flex min-h-11 items-center text-cuerpo-sm font-medium hover:underline">
-              Privacidad
-            </Link>
-            {contacto && (
-              <a href={`mailto:${contacto}`} className="flex min-h-11 items-center text-cuerpo-sm font-medium hover:underline">
-                Contacto
-              </a>
-            )}
-          </nav>
-        </div>
-        <div className="border-t border-arena">
-          <p className="mx-auto max-w-6xl px-4 py-5 text-cuerpo-sm text-muted-foreground sm:px-6">© 2026 Khipu Escolar · Perú</p>
-        </div>
-      </footer>
+      <PieSitio contacto={contacto} />
     </div>
   );
 }

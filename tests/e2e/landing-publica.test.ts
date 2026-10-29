@@ -33,7 +33,7 @@ test("la raíz muestra la landing con sus secciones y los planes del catálogo",
   await expect(page).toHaveTitle("Khipu Escolar · Cada día de tu hijo, bien anudado.");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Lo que pasa en el aula, le llega a la familia al toque.");
   await expect(page.locator("h1")).toHaveCount(1);
-  for (const id of ["funciones", "como-funciona", "planes", "seguridad", "preguntas", "demo"]) {
+  for (const id of ["funciones", "como-funciona", "roles", "planes", "preguntas", "demo"]) {
     await expect(page.locator(`section#${id}`)).toHaveCount(1);
   }
   await expect(page.getByText("Programa piloto 2026: buscamos los primeros colegios")).toBeVisible();

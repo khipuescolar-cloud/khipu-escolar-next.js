@@ -63,9 +63,15 @@ solicitarDemoAction(previo, formData): Promise<EstadoFormularioDemo>   // ok | e
 
 ### Movimiento (2026-10-29, GSAP + ScrollTrigger con `@gsap/react`)
 - **Momento principal, el hero** (`_componentes/AvisosEnVivo.tsx`: `EscenaAvisos`, `TarjetaAviso`, `CuerdaAvisos`): cada 3,4 s llega un aviso de ejemplo (Llegó 7:52 a. m. → Tarea nueva → Comunicado → Libreta publicada; datos ficticios, ícono + palabra) y ata el siguiente nudo de la cuerda del hero, con su color. El aviso nuevo sube aclarándose y el anterior se hunde detrás. Se pausa fuera de la pantalla y en otra pestaña. Es `aria-hidden`: el texto del hero ya lo dice.
-- **«Un día en el colegio»** (`_componentes/DiaEnElColegio.tsx`, sección del problema): el scroll corre el reloj de 7:00 a. m. a 5:00 p. m. Con Khipu el nudo se ata a las 7:52 a. m.; sin Khipu, a las 4:30 p. m. («8 h 38 min después»). Es un ejemplo ilustrativo.
+- La tarjeta de avisos va **debajo** de la laptop (solo monta sobre su base), para no tapar la captura.
+- **«Un día en el colegio»** (`_componentes/DiaEnElColegio.tsx`, sección del problema): el scroll corre el reloj de 7:00 a. m. a 9:00 p. m. y cada aviso se enciende cuando el reloj lo alcanza. Con Khipu: llegó (7:52 a. m.), tarea nueva (10:15 a. m.), reunión (12:40 p. m.) y libreta (3:05 p. m.). Sin Khipu: llegada y tarea por el cuaderno (4:30 p. m.), reunión perdida en el grupo de WhatsApp (8:40 p. m.) y libreta días después. Es un ejemplo ilustrativo.
 - **Cómo funciona** (`_componentes/PasosKhipu.tsx`): los 4 pasos son nudos de una cuerda en maíz que se dibuja con el scroll (horizontal en escritorio, vertical en el celular).
-- **Funciones** (`_componentes/NavFunciones.tsx`): los atajos por grupo quedan fijos bajo el encabezado y marcan el grupo que se está leyendo (`aria-current="location"`).
+- **Funciones:** sin barra de atajos (se quitó el 2026-10-29: se veía mal, sobre todo en el celular).
+- **Para cada rol** (`_componentes/PestanasRoles.tsx`): pestañas propias (tablist accesible con flechas, Inicio y Fin) con el rol y a quién va dirigido. Los tres paneles comparten la celda de la rejilla (los inactivos con `inert` e invisibles), así el bloque no cambia de tamaño al cambiar de pestaña.
+- **Preguntas frecuentes:** fondo índigo cielo suave, cada pregunta en su tarjeta con un ícono de color y borde del mismo tono al abrirse. Nudito invita a preguntar (burbuja cochinilla, Nunito) con el botón «Hacer otra pregunta» (→ #demo).
+- **Formulario de demo:** tres bloques numerados (Sobre usted · Su colegio · ¿Cómo le contactamos?) con ejemplos en cada campo; el consentimiento y el envío van separados por un filete.
+- **Pie** (`_componentes/PieSitio.tsx`): fondo `tinta` con la cuerda del khipu arriba; cierre con el lema y «Solicitar demo» / «Ingresar»; columnas El producto, Empieza y Khipu Escolar (correo de contacto, Privacidad, Programa piloto 2026); «Hecho en el Perú para los colegios del Perú».
+- **Seguridad:** la sección se quitó de la landing por ahora (2026-10-29), igual que su ancla del encabezado. La Ley 29733 sigue en las garantías del hero y en las preguntas frecuentes.
 - Detalles: los botones se hunden a 0,96 al presionar; precios y horas con `tabular-nums`; selección de texto en maíz y cursor de texto en índigo cielo; los planes suben 4 px al pasar el cursor.
 - **Sin JS o con «reducir movimiento»** (`gsap.matchMedia`): el HTML ya trae el estado final y la página se ve completa y quieta (primer aviso, cuerdas anudadas, día completo). Nada se oculta antes de que cargue el JS.
 

@@ -8,7 +8,6 @@ export const ANCLAS = [
   { href: "/#funciones", texto: "Funciones" },
   { href: "/#como-funciona", texto: "Cómo funciona" },
   { href: "/#planes", texto: "Planes" },
-  { href: "/#seguridad", texto: "Seguridad" },
   { href: "/#preguntas", texto: "Preguntas" },
 ];
 
