@@ -44,12 +44,22 @@ Los pasos marcados **(externo)** requieren cuentas o decisiones del equipo (domi
 
 ## 3. Crons
 
-`vercel.json` programa:
+`vercel.json` programa (compatible con el plan **Hobby**, que solo permite una ejecución al día):
 
-- `/api/cron/avisos` cada minuto (cola de avisos).
-- `/api/cron/exportaciones` cada 5 minutos (exportaciones de datos del colegio).
+- `/api/cron/avisos` a las 12:00 UTC (7:00 a. m. de Lima).
+- `/api/cron/exportaciones` a las 9:00 UTC (4:00 a. m. de Lima).
 
-Autenticación: con `CRON_SECRET` definido en Vercel, Vercel envía `Authorization: Bearer <CRON_SECRET>` en cada invocación. Las rutas comparan el secreto en tiempo constante y responden 401 si falta o no coincide (sin `CRON_SECRET` siempre 401). Los crons por minuto requieren plan Pro de Vercel; en Hobby solo hay ejecución diaria: usa un disparador externo (p. ej. un cron que llame con `curl -H "Authorization: Bearer $CRON_SECRET"`) si no hay Pro.
+No dependen de ellos el uso normal: los avisos se envían al momento (`after()` + `procesarCola()` tras pasar lista, la portería, etc.) y las exportaciones se preparan al momento de pedirlas (`after()` + `procesarExportaciones()`). El cron es el **respaldo** que recoge reintentos, avisos que pasaron el tope diario y exportaciones que quedaron pendientes.
+
+Para un respaldo más frecuente sin pagar Pro, usa un disparador externo gratuito (p. ej. [cron-job.org](https://cron-job.org)):
+
+- `GET https://<dominio>/api/cron/avisos` cada 1–5 minutos.
+- `GET https://<dominio>/api/cron/exportaciones` cada 5–15 minutos.
+- Encabezado `Authorization: Bearer <CRON_SECRET>` (el secreto va solo en ese servicio y en Vercel).
+
+Con el plan **Pro** de Vercel puedes volver a `* * * * *` y `*/5 * * * *` en `vercel.json`.
+
+Autenticación: con `CRON_SECRET` definido en Vercel, Vercel envía `Authorization: Bearer <CRON_SECRET>` en cada invocación. Las rutas comparan el secreto en tiempo constante y responden 401 si falta o no coincide (sin `CRON_SECRET` siempre 401).
 
 ## 4. Correo
 

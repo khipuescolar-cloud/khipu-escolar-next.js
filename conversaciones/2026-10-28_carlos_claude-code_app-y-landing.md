@@ -43,3 +43,15 @@
 - Cada sección con un tono de la marca (detalle en specs/25 · «Color»): hero, cómo funciona y demo en índigo; Nudito en cochinilla; piloto en maíz; seguridad en turquesa suave; paneles de color por grupo de funciones, rol y plan.
 - Nuevos: `src/app/(sitio)/_componentes/tonos.ts`, `src/components/marca/HiloKhipu.tsx`. Cambiados: `page.tsx`, `layout.tsx`, `PestanasRoles.tsx`.
 - Contraste revisado (blanco sobre sólidos ≥ 5:1; tinta sobre maíz). Textos, ids y pruebas sin cambios. lint, typecheck y e2e de landing + solicitudes: 6/6.
+
+## Vercel: crons del plan Hobby
+
+> okey me gusta, si lo  quiero conectar a vercel, no habria problema con la forma de arrancar el modo nube y el modo local?
+
+> [imagen: Vercel «Hobby accounts are limited to daily cron jobs. This cron expression (* * * * *) would run more than once per day»] no entiendo por q me aparece esto , que sucede?
+
+- Repositorio subido a GitHub (`khipuescolar-cloud/khipu-escolar-next.js`, privado) tras revisar que el historial no tiene secretos.
+- `vercel.json`: crons diarios (avisos 12:00 UTC, exportaciones 9:00 UTC) para que el plan Hobby acepte el despliegue.
+- Las exportaciones ahora se procesan al momento con `after()` (dirección y panel de plataforma); los avisos ya lo hacían. El cron queda como respaldo.
+- Docs: `docs/despliegue.md` §3 (disparador externo tipo cron-job.org o Vercel Pro), specs/06 y specs/15.
+- Pendiente: dominio propio con comodín para los subdominios de colegios.

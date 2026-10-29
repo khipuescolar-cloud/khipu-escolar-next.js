@@ -166,4 +166,4 @@ Los parámetros se limpian (sin saltos de línea ni tabulaciones, ≤ 1024). Las
 - **Externo:** crear las cuentas (Meta Business verificada con número, Twilio) y **aprobar las plantillas** de WhatsApp; luego definir las variables en el servidor y activar los canales por colegio. El código está listo y apagado.
 
 ## Cron programado
-`vercel.json` ejecuta `/api/cron/avisos` cada minuto (y `/api/cron/exportaciones` cada 5). Vercel envía `Authorization: Bearer <CRON_SECRET>`. Guía: `docs/despliegue.md`.
+`vercel.json` ejecuta `/api/cron/avisos` y `/api/cron/exportaciones` una vez al día (límite de Vercel Hobby); es un respaldo, porque cada acción procesa la cola al momento con `after()`. Para un respaldo más frecuente: disparador externo o Vercel Pro. Vercel envía `Authorization: Bearer <CRON_SECRET>`. Guía: `docs/despliegue.md` §3.
