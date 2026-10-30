@@ -19,7 +19,8 @@ export function aJson(valor: unknown): string {
 }
 
 /** Modelos que no se exportan: guardan solo hashes de secretos (tokens de justificación y carnets QR). */
-export const TABLAS_OMITIDAS = ["JustificacionToken", "CarnetQr"] as const;
+// NuditoMensaje: las conversaciones de Nudito+ son del alumno; ni la familia ni el colegio las leen (specs/29).
+export const TABLAS_OMITIDAS = ["JustificacionToken", "CarnetQr", "NuditoMensaje"] as const;
 
 /** Delegado de Prisma (`alumno`) de un modelo (`Alumno`). */
 const delegado = (modelo: string) => modelo.charAt(0).toLowerCase() + modelo.slice(1);
@@ -446,7 +447,7 @@ function readme(ctx: TenantContext, fecha: string, tablas: string[], incluidos: 
     "",
     "Notas",
     "- Fechas en formato ISO 8601 (UTC). Los números grandes (auditoría) van como texto.",
-    `- Por seguridad no se exportan los hashes de tokens de justificación ni de carnets QR (${TABLAS_OMITIDAS.join(", ")}).`,
+    `- Por seguridad y privacidad no se exportan los hashes de tokens de justificación ni de carnets QR, ni los mensajes de Nudito+ del alumno (${TABLAS_OMITIDAS.join(", ")}).`,
     "- Este paquete contiene datos personales de menores y familias: guárdalo con cuidado (Ley 29733).",
     "",
   ].filter((l, i, a) => l !== "" || a[i - 1] !== "").join("\r\n");

@@ -31,6 +31,8 @@ cada uno de los roles por defecto de todos los colegios. El bloqueo sigue siendo
   `módulos del colegio = PlanModulo(plan) ± TenantModulo(colegio)`. Si el plan no tiene filas en `plan_modulos`, se usa
   `FEATURES` (código) como respaldo. `TenantModulo.habilitado=true` agrega un extra (solo si el plan no lo trae);
   `false` lo quita (solo si el plan lo trae). Claves desconocidas se ignoran. `gestion` siempre está.
+  Módulos **fijos por plan** (`MODULOS_FIJOS_POR_PLAN`, hoy solo `nudito_plus`, specs/29): los decide solo `FEATURES`
+  (código), nunca la BD ni los ajustes; no aparecen en el panel (`MODULOS` los excluye).
 - **Roles**: `ROLES_SOPORTADOS` = roles de `MOSAICOS` por módulo + usos fuera de la navegación (la familia usa
   `avisos` para sus preferencias y push). `RolModulo.habilitado=false` lo quita a ese rol en todos los colegios; sin
   fila = habilitado. Solo se guardan combinaciones soportadas.

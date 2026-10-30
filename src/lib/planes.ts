@@ -30,6 +30,8 @@ export const FEATURES = {
   reuniones: "pro",
   /** Chat con el equipo Khipu (mesa de ayuda, specs/23): en todos los planes. */
   soporte: "base",
+  /** Nudito+ (tutor IA por alumno, specs/29): solo Khipu Pro, fijo por plan (ver MODULOS_FIJOS_POR_PLAN). */
+  nudito_plus: "pro",
 } as const satisfies Record<string, Plan>;
 
 export type Feature = keyof typeof FEATURES;
