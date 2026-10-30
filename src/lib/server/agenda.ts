@@ -6,7 +6,7 @@ import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { adjuntoVista } from "./adjuntos";
 import { puedeVerTarea } from "./archivos";
 import { auditar } from "./auditoria";
-import { requireFeature } from "./plan";
+import { requireFeature, tieneFeature } from "./plan";
 import { salonEsActivo, whereSalonActivo } from "./salones-activos";
 import { requireRol, salonIdsVisibles, type TenantContext } from "./tenant";
 
@@ -22,6 +22,8 @@ export type ItemAgenda = {
   eliminable: boolean;
   /** Adjuntos de la tarea (solo entregas) y solo si el usuario puede descargarlos: misma regla que `/archivos/<id>`. */
   adjuntos: AdjuntoVista[];
+  /** Ruta dentro del colegio con más detalle (reuniones: `/reuniones/<id>`). */
+  href?: string;
 };
 
 /** Eventos y entregas de tareas visibles para el usuario entre dos instantes (`hasta` excluido). */
@@ -30,7 +32,10 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
   requireRol(ctx, ["direccion", "profesor", "apoderado", "administrativo", "alumno"]);
   const salonIds = await salonIdsVisibles(ctx);
   const rango = { gte: desde, lt: hasta };
-  const [eventos, tareas] = await Promise.all([
+  // Reuniones (specs/32): se muestran desde su propia tabla, sin duplicarlas como EventoAgenda. Solo las que el
+  // usuario puede ver (dirección: todas; profesor: las que convocó; familia: donde la invitan) y no canceladas.
+  const verReuniones = tieneFeature(ctx, "reuniones") && ["direccion", "profesor", "apoderado"].includes(ctx.rol);
+  const [eventos, tareas, reuniones] = await Promise.all([
     ctx.db.eventoAgenda.findMany({
       where: { inicio: rango, OR: [{ salonId: null }, { salonId: { in: salonIds } }] },
       include: { salon: { select: { nombre: true } } },
@@ -42,8 +47,23 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
         curso: { select: { nombre: true, salonId: true, salon: { select: { nombre: true } } } },
       },
     }),
+    verReuniones
+      ? ctx.db.reunion.findMany({
+          where: {
+            inicio: rango,
+            estado: { not: "cancelada" },
+            ...(ctx.rol === "direccion" ? {} : ctx.rol === "profesor" ? { convocadaPorId: ctx.membership.id } : { invitados: { some: { membershipId: ctx.membership.id } } }),
+          },
+          include: { salon: { select: { nombre: true } } },
+        })
+      : Promise.resolve([]),
   ]);
   const items: ItemAgenda[] = [
+    ...reuniones.map((r) => ({
+      id: r.id, tipo: "reunion" as const, titulo: r.titulo, descripcion: r.descripcion, inicio: r.inicio,
+      ambito: r.alcance === "colegio" ? "Todo el colegio" : r.alcance === "individual" ? "Reunión individual" : (r.salon?.nombre ?? "Reunión"),
+      eliminable: false, adjuntos: [], href: `/reuniones/${r.id}`,
+    })),
     ...eventos.map((e) => ({
       id: e.id, tipo: e.tipo, titulo: e.titulo, descripcion: e.descripcion, inicio: e.inicio,
       ambito: e.salon?.nombre ?? "Todo el colegio",

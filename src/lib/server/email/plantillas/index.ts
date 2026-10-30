@@ -12,6 +12,17 @@ const fechaIso = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 const url = z.string().min(1);
 const comun = { colegio: z.string().min(1), urlPreferencias: url.optional(), logoColegioUrl: url.optional() };
 
+const reunionBase = {
+  titulo: z.string().min(1),
+  fecha: fechaIso,
+  hora: hhmm,
+  lugar: z.string().optional(),
+  enlace: z.string().optional(),
+  /** Hijo(s) por los que se cita; si falta, el texto no los nombra. */
+  alumno: z.string().min(1).optional(),
+  url,
+};
+
 const ESQUEMAS = {
   asistencia_llego: z.object({ ...comun, alumno: z.string().min(1), hora: hhmm }),
   asistencia_tarde: z.object({ ...comun, alumno: z.string().min(1), hora: hhmm }),
@@ -69,6 +80,11 @@ const ESQUEMAS = {
     fechaEntrega: fechaIso,
     url,
   }),
+  /** Reuniones (specs/32). `fecha` AAAA-MM-DD y `hora` HH:mm en hora del colegio. */
+  reunion_convocada: z.object({ ...comun, ...reunionBase }),
+  reunion_recordatorio: z.object({ ...comun, ...reunionBase }),
+  reunion_cancelada: z.object({ ...comun, ...reunionBase }),
+  reunion_acta: z.object({ ...comun, ...reunionBase }),
   libreta_publicada: z.object({
     ...comun,
     /** Nombre(s) de los hijos de esa familia; si falta, el texto no nombra al alumno. */
@@ -260,6 +276,65 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
         `Se entrega el ${fechaCorta(p.fechaEntrega)}.`,
       ],
       boton: { texto: "Ver tareas", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  reunion_convocada: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `Reunión: ${p.titulo}`,
+      insignia: "info",
+      palabraInsignia: "Reunión",
+      parrafos: [
+        `${p.colegio} te invita a la reunión «${p.titulo}»${p.alumno ? ` (por ${p.alumno})` : ""}.`,
+        `Es el ${fechaCorta(p.fecha)} a las ${hora12(p.hora)}.${p.lugar ? ` Lugar: ${p.lugar}.` : ""}${p.enlace ? ` Enlace: ${p.enlace}` : ""}`,
+        "Cuéntanos si podrás asistir.",
+      ],
+      boton: { texto: "Responder", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  reunion_recordatorio: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `Recordatorio: ${p.titulo}`,
+      insignia: "info",
+      palabraInsignia: "Reunión",
+      nudito: true,
+      parrafos: [
+        `Aún no nos respondes si asistirás a la reunión «${p.titulo}»${p.alumno ? ` (por ${p.alumno})` : ""}.`,
+        `Es el ${fechaCorta(p.fecha)} a las ${hora12(p.hora)}.${p.lugar ? ` Lugar: ${p.lugar}.` : ""}${p.enlace ? ` Enlace: ${p.enlace}` : ""}`,
+      ],
+      boton: { texto: "Responder", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  reunion_cancelada: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `Reunión cancelada: ${p.titulo}`,
+      insignia: "info",
+      palabraInsignia: "Cancelada",
+      parrafos: [
+        `La reunión «${p.titulo}» del ${fechaCorta(p.fecha)} a las ${hora12(p.hora)} se canceló.`,
+        "Si el colegio fija una nueva fecha, te avisaremos.",
+      ],
+      boton: { texto: "Ver reuniones", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  reunion_acta: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `Acta de la reunión: ${p.titulo}`,
+      insignia: "info",
+      palabraInsignia: "Acta",
+      parrafos: [`Ya está disponible el acta de la reunión «${p.titulo}» del ${fechaCorta(p.fecha)}.`],
+      boton: { texto: "Leer acta", url: p.url },
       urlPreferencias: p.urlPreferencias,
     }),
 

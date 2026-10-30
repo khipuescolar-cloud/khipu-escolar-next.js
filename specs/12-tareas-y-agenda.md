@@ -55,6 +55,9 @@ eliminarEvento(ctx, eventoId): Resultado
 - Casilla: «Avisar a las familias» · «Las familias reciben un aviso por correo o en el celular con esta tarea.»
 - Aviso: asunto «Nueva tarea de Matemática» · «Mateo tiene una tarea nueva de Matemática: «Fichas de fracciones».» · «Se entrega el 30/10/2026.» + **Ver tareas**.
 
+## Reuniones en la agenda
+`itemsDeAgenda` también devuelve las reuniones de padres visibles para el usuario (módulo `reuniones`, `specs/32`) como ítems `tipo: "reunion"` con enlace a `/reuniones/<id>`; no son `EventoAgenda`. El `.ics` las incluye.
+
 ## Exportación .ics
 `GET /api/agenda.ics` (sesión + `requireFeature(ctx, "agenda")`, `no-store`): calendario iCalendar (RFC 5545) con los eventos y las fechas de entrega visibles para el usuario (apoderado: salones de sus hijos; profesor: sus salones; dirección: todos), de hace 30 días a 1 año. Constructor puro en `src/lib/ics.ts`: CRLF, plegado a 75 octetos, escape de `\ ; ,` y saltos de línea, `DTSTAMP`, `UID` = `<id>@khipuescolar`. Eventos con hora en UTC (1 h de duración); entregas de tarea como evento de día completo (día de Lima). Enlace «Descargar calendario (.ics)» en `/agenda`. Es una descarga puntual, no una suscripción.
 

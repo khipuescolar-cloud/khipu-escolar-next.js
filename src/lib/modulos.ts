@@ -29,6 +29,7 @@ export const INFO_MODULO: Record<Feature, { nombre: string; descripcion: string;
   libreta: { nombre: "Libreta", descripcion: "Libreta de notas por periodo, en pantalla y en PDF.", icono: "BookOpen" },
   tareas: { nombre: "Tareas", descripcion: "Tareas con fecha de entrega y adjuntos.", icono: "ListTodo" },
   agenda: { nombre: "Agenda", descripcion: "Eventos, exámenes y reuniones del colegio y de cada salón.", icono: "CalendarDays" },
+  reuniones: { nombre: "Reuniones", descripcion: "Convocar reuniones de padres, confirmar asistencia, marcar quién asistió y publicar el acta.", icono: "Users" },
   soporte: { nombre: "Soporte Khipu", descripcion: "Chat del colegio con el equipo de Khipu Escolar (mesa de ayuda): dudas, problemas y sugerencias.", icono: "LifeBuoy" },
 };
 
