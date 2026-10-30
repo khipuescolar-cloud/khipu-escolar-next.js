@@ -30,6 +30,7 @@ export const INFO_MODULO: Record<Feature, { nombre: string; descripcion: string;
   tareas: { nombre: "Tareas", descripcion: "Tareas con fecha de entrega y adjuntos.", icono: "ListTodo" },
   agenda: { nombre: "Agenda", descripcion: "Eventos, exámenes y reuniones del colegio y de cada salón.", icono: "CalendarDays" },
   soporte: { nombre: "Soporte Khipu", descripcion: "Chat del colegio con el equipo de Khipu Escolar (mesa de ayuda): dudas, problemas y sugerencias.", icono: "LifeBuoy" },
+  nuditoPlus: { nombre: "Nudito+", descripcion: "Tutor con IA por alumno que compra la familia (Yape): licencia, autorización y reportes. Solo Khipu Pro.", icono: "Sparkles" },
 };
 
 export const INFO_ROL: Record<Rol, { nombre: string; descripcion: string }> = {

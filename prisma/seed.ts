@@ -4,6 +4,7 @@ import "dotenv/config";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { createClient } from "@supabase/supabase-js";
 import { PrismaClient } from "../src/generated/prisma/client";
+import { sembrarNuditoPlus } from "./seed-nudito-plus";
 import type { Nivel, Plan, Rol, EscalaCalificacion } from "../src/generated/prisma/enums";
 
 const PASSWORD = "demo123";
@@ -291,6 +292,7 @@ async function main() {
   }
 
   await responsablesYSuscripcionesDemo();
+  await sembrarNuditoPlus(prisma, { superadminId });
 
   console.log("Seed listo. Cuentas (contraseña demo123):");
   console.log("  lucia.garcia@nuevohorizonte.demo  profesora · Khipu Pro");

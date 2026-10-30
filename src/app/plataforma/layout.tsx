@@ -24,6 +24,7 @@ const GRUPOS: GrupoNavResuelto[] = [
       { href: "/colegios", titulo: "Colegios", icono: "School" },
       { href: "/suscripciones", titulo: "Suscripciones", icono: "Receipt" },
       { href: "/solicitudes", titulo: "Solicitudes de demo", icono: "Inbox" },
+      { href: "/nudito-plus", titulo: "Nudito+", icono: "Sparkles" },
     ],
   },
   {

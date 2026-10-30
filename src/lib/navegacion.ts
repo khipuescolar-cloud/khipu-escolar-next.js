@@ -47,6 +47,7 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/gestion", grupo: "colegio", titulo: "Alumnos y familias", descripcion: "Altas, datos e invitaciones de alumnos y familias.", icono: "Users", feature: "gestion", roles: ["administrativo"] },
   { href: "/configuracion", grupo: "colegio", titulo: "Configuración", descripcion: "Avisos, logo, dominio y escala de notas.", icono: "Settings", feature: "gestion", roles: ["direccion"] },
   { href: "/soporte", grupo: "colegio", titulo: "Soporte Khipu", descripcion: "Escríbele al equipo de Khipu Escolar: dudas, problemas o sugerencias.", icono: "LifeBuoy", feature: "soporte", roles: ["direccion", "administrativo"] },
+  { href: "/nudito-plus", grupo: "academico", titulo: "Nudito+", descripcion: "Tutor con IA para tu hijo: licencia, autorización y reportes.", icono: "Sparkles", feature: "nuditoPlus", roles: ["apoderado"] },
 ];
 
 export function mosaicosParaRol(rol: Rol): Mosaico[] {

@@ -55,6 +55,7 @@ Insertar en `avisos`: `tenantId`, `tipo`, `canal` (`correo` → `destinatario` =
 | `libreta_publicada` | libreta | familia | periodoId | `{ colegio, alumno?, periodo: "I Bimestre 2026", url }` (botón «Ver libreta» → `/libreta`) |
 | `alerta_rebote` | alerta_direccion | dirección (correo) | apoderadoId | `{ colegio, apoderado, alumnos: string[], motivo, url }` |
 | `soporte_inicio` | alerta_direccion | dirección (correo y/o push según su perfil) | accesoId | `{ colegio, hasta: "HH:mm", motivo, url }` → «El equipo de Khipu Escolar entró a tu colegio en modo soporte (solo lectura) hasta las HH:mm. Motivo: …», botón «Ver auditoría» (specs/16) |
+| `nudito_plus` | nudito | familia | `nudito-pago:<pagoId>` o `nudito-vence:<licenciaId>:<hasta>` | `{ colegio, alumno, titulo, parrafos: string[1..4], url }` → licencia activada, pago no confirmado o «vence el dd/mm/aaaa»; firmado por el equipo Khipu, botón «Ver Nudito+» (specs/28) |
 
 `justificacion_*` también guardan `asistenciaId`.
 

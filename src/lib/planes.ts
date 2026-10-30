@@ -24,6 +24,8 @@ export const FEATURES = {
   agenda: "pro",
   /** Chat con el equipo Khipu (mesa de ayuda, specs/23): en todos los planes. */
   soporte: "base",
+  /** Nudito+ (specs/28): la familia compra la licencia por alumno; solo colegios Khipu Pro. */
+  nuditoPlus: "pro",
 } as const satisfies Record<string, Plan>;
 
 export type Feature = keyof typeof FEATURES;

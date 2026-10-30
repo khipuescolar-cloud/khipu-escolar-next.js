@@ -28,7 +28,7 @@ local se usa un proveedor falso (interfaz intercambiable, como `FileStorage`). T
 - Topes y costos: `UsoNudito` por (alumno, mes «AAAA-MM» en hora de Lima). Al llegar al tope se corta y se crea `AlertaNudito` tipo `uso`.
 - Avisos a la familia (alerta o resumen nuevo) con `TipoAviso.nudito` (ya en el enum).
 - Nudito nunca da malas noticias; los textos de alertas para la familia son resúmenes, nunca la cita textual del alumno.
-- Exportación del colegio (`specs/15`): hoy exporta todo modelo con `tenantId`, **incluidas** `nudito_mensajes` → ver pendientes.
+- Exportación del colegio (`specs/15`): **no** incluye `NuditoConversacion`, `NuditoMensaje`, `AlertaNudito`, `ResumenNudito` ni `UsoNudito` (`TABLAS_NUDITO_PLUS_PRIVADAS` en `exportar.ts`).
 
 ## Modelo de datos
 Migración `20261031130000_pro_completo_nudito_plus`.
@@ -46,10 +46,13 @@ Migración `20261031130000_pro_completo_nudito_plus`.
 ## Contratos de `src/lib/server`
 ```ts
 // por definir: nudito-plus/ — proveedor (interfaz + falso), conversar(ctx, alumnoId, texto), registrarUso, crearAlerta, generarResumen
+// ya disponible (specs/28, nudito-plus/licencias.ts): licenciaVigente, consentimientoVigente, limitesNudito, sitiosPermitidos;
+// urlPermitida(url, dominios) y normalizarDominio en src/lib/nudito-plus.ts
 ```
 
 ## Rutas y UI
-- Por definir: `/nudito` (alumno o modo hijo), `/nudito/reportes` (apoderado).
+- Apoderado (implementado en `specs/28`): `/nudito-plus/[alumnoId]` muestra uso del mes, resúmenes y alertas (marcar como vista) y el botón «Usar en modo hijo» → `/nudito-plus/hijo/[alumnoId]` (ruta del tutor, por construir aquí).
+- Por definir: pantalla del alumno con cuenta propia.
 
 ## Textos y UX
 - Fuente Nunito solo para Nudito. Por definir.
@@ -62,5 +65,4 @@ Migración `20261031130000_pro_completo_nudito_plus`.
 
 ## Pendientes
 - Elegir proveedor de IA y su política de datos de menores.
-- Excluir `NuditoMensaje` (y quizá `NuditoConversacion`) de la exportación del colegio (`TABLAS_OMITIDAS` en `src/lib/server/exportar.ts`) para cumplir «la familia no ve las conversaciones».
 - Retención de conversaciones (días) y acceso ante incidentes de seguridad.
