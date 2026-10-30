@@ -414,7 +414,6 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-cuerpo-sm text-muted-foreground">Imágenes referenciales.</p>
       </Seccion>
 
       {/* ───────── Funciones (un tono por grupo) ───────── */}

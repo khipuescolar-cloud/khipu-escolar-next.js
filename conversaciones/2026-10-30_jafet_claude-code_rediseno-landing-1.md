@@ -46,3 +46,7 @@
 - Fotos generadas por Jafet en Google Flow (Nano Banana 2.1), estilo foto de celular, nivel socioeconómico B. Recortadas y comprimidas (JPEG 80) en `public/landing/fotos/`.
 - Sección nueva «Así se vive un día con Khipu» en `page.tsx` (mosaico de 5 fotos con etiqueta de ícono + texto y la nota «Imágenes referenciales.»). Sin ancla nueva y sin `<figure>`, para no cambiar el `figure img` del hero que revisa el test e2e.
 - `foto-papa-oficina.jpg` queda de reserva (no se usa todavía).
+
+> quiero que quites la parte de imagenes referenciales
+
+- Se quitó la nota «Imágenes referenciales.» debajo del mosaico, a pedido de Jafet.
