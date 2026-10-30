@@ -106,7 +106,7 @@ describe("contexto y conversación", () => {
     const r = await conversar(ctxAlumno(), acceso, { conversacionId: null, texto: "no entiendo las fracciones" });
     expect(r.bloqueado).toBe(false);
     expect(r.texto).toContain("?");
-    const dominios = (await sitiosPermitidos()).map((s) => s.dominio);
+    const dominios = await sitiosPermitidos();
     const urls = [...r.texto.matchAll(/https:\/\/([^\s/]+)/g)].map((m) => m[1]);
     expect(urls.length).toBeGreaterThan(0);
     for (const host of urls) expect(dominioPermitido(host, dominios)).toBe(true);

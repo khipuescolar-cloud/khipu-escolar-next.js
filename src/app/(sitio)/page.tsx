@@ -382,7 +382,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
               Nudito+
             </h2>
             <p className="max-w-prose text-cuerpo text-white/90 sm:text-lg">
-              Un complemento opcional que estamos preparando para los colegios con Khipu Pro. Se contrata por alumno y lo paga la familia que lo quiera. No está incluido en ningún plan.
+              Un tutor con inteligencia artificial que estamos preparando para los alumnos de colegios con Khipu Pro. Lo activa cada familia por alumno, pagando por adelantado con Yape; el colegio no paga nada. No está incluido en ningún plan.
             </p>
           </div>
         </div>

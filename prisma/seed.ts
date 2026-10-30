@@ -6,6 +6,7 @@ import { createClient } from "@supabase/supabase-js";
 import { PrismaClient } from "../src/generated/prisma/client";
 import { sembrarDocumentos } from "./seed-documentos";
 import { sembrarReuniones } from "./seed-reuniones";
+import { sembrarNuditoPlus } from "./seed-nudito-plus";
 import type { Nivel, Plan, Rol, EscalaCalificacion } from "../src/generated/prisma/enums";
 import { sembrarTablero } from "./seed-tablero";
 import { sembrarCneb } from "./seed-cneb";
@@ -300,6 +301,9 @@ async function main() {
   await sembrarTablero(prisma);
   await sembrarDocumentos(prisma, {});
   await sembrarReuniones(prisma, {});
+  // Nudito+: primero el tutor (crea a Lucas y a su madre Julia), luego licencias, sitios y configuración (specs/28–29).
+  await sembrarNuditoPlusTutor(prisma, {});
+  await sembrarNuditoPlus(prisma, { superadminId });
 
   console.log("Seed listo. Cuentas (contraseña demo123):");
   console.log("  lucia.garcia@nuevohorizonte.demo  profesora · Khipu Pro");
@@ -309,7 +313,8 @@ async function main() {
   console.log("  direccion@losolivos.demo          dirección · Khipu Base");
   console.log("  rosa.quispe@gmail.com             apoderada · 2 colegios");
   console.log("  admin@khipuescolar.demo           super administrador · http://admin.lvh.me:3000");
-  await sembrarNuditoPlusTutor(prisma, {});
+  console.log("  lucas.huaman@nuevohorizonte.demo  alumno con Nudito+ activo · Nuevo Horizonte");
+  console.log("  familia.huaman@familia.demo       apoderada de Lucas · Nuevo Horizonte");
 }
 
 main()

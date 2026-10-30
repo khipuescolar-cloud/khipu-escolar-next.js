@@ -38,9 +38,10 @@ export const SIN_PRECIO = "Precio según tamaño del colegio";
 
 /**
  * Módulos que la landing no lista como función del plan: la mesa de ayuda va en todos los planes y se
- * presenta aparte; «avisos» es la pantalla de seguimiento de dirección (los avisos van dentro de asistencia).
+ * presenta aparte; «avisos» es la pantalla de seguimiento de dirección (los avisos van dentro de asistencia);
+ * Nudito+ no está incluido en ningún plan: lo compra cada familia (specs/28).
  */
-const OCULTOS: ReadonlySet<Feature> = new Set<Feature>(["soporte", "avisos"]);
+const OCULTOS: ReadonlySet<Feature> = new Set<Feature>(["soporte", "avisos", "nudito_plus"]);
 
 /** Nombre del módulo para la landing (más claro para quien no conoce el producto). */
 const NOMBRE_PUBLICO: Partial<Record<Feature, string>> = {

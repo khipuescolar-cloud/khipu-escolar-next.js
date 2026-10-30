@@ -18,9 +18,15 @@ export function aJson(valor: unknown): string {
   return JSON.stringify(valor, (_k, v) => (typeof v === "bigint" ? v.toString() : v), 2);
 }
 
-/** Modelos que no se exportan: guardan solo hashes de secretos (tokens de justificación y carnets QR). */
-// NuditoMensaje: las conversaciones de Nudito+ son del alumno; ni la familia ni el colegio las leen (specs/29).
-export const TABLAS_OMITIDAS = ["JustificacionToken", "CarnetQr", "NuditoMensaje"] as const;
+/** Hashes de enlaces y carnets: nunca salen del sistema. */
+export const TABLAS_SECRETAS = ["JustificacionToken", "CarnetQr"] as const;
+/**
+ * Nudito+ (specs/28–29): la actividad del alumno con el tutor IA es privada de la familia; el colegio no la recibe
+ * (conversaciones, mensajes, alertas, resúmenes y uso). Licencias, pagos y consentimientos sí se exportan.
+ */
+export const TABLAS_NUDITO_PLUS_PRIVADAS = ["NuditoConversacion", "NuditoMensaje", "AlertaNudito", "ResumenNudito", "UsoNudito"] as const;
+/** Modelos que no se exportan: secretos y actividad privada de Nudito+. */
+export const TABLAS_OMITIDAS = [...TABLAS_SECRETAS, ...TABLAS_NUDITO_PLUS_PRIVADAS] as const;
 
 /** Delegado de Prisma (`alumno`) de un modelo (`Alumno`). */
 const delegado = (modelo: string) => modelo.charAt(0).toLowerCase() + modelo.slice(1);
@@ -447,7 +453,8 @@ function readme(ctx: TenantContext, fecha: string, tablas: string[], incluidos: 
     "",
     "Notas",
     "- Fechas en formato ISO 8601 (UTC). Los números grandes (auditoría) van como texto.",
-    `- Por seguridad y privacidad no se exportan los hashes de tokens de justificación ni de carnets QR, ni los mensajes de Nudito+ del alumno (${TABLAS_OMITIDAS.join(", ")}).`,
+    `- Por seguridad no se exportan los hashes de tokens de justificación ni de carnets QR (${TABLAS_SECRETAS.join(", ")}).`,
+    `- Tampoco se exporta la actividad de los alumnos con el tutor Nudito+ (${TABLAS_NUDITO_PLUS_PRIVADAS.join(", ")}): es privada de cada familia.`,
     "- Este paquete contiene datos personales de menores y familias: guárdalo con cuidado (Ley 29733).",
     "",
   ].filter((l, i, a) => l !== "" || a[i - 1] !== "").join("\r\n");

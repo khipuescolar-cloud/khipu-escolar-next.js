@@ -117,6 +117,15 @@ const ESQUEMAS = {
     nueva: z.boolean().default(true),
     url,
   }),
+  /** Nudito+ (specs/28): licencia activada, pago no confirmado o licencia por vencer. Lo firma el equipo Khipu. */
+  nudito_plus: z.object({
+    ...comun,
+    alumno: z.string().min(1),
+    /** Asunto y primera línea, p. ej. «Nudito+ está activo para Mateo». */
+    titulo: z.string().min(1).max(160),
+    parrafos: z.array(z.string().min(1).max(600)).min(1).max(4),
+    url,
+  }),
 } as const;
 
 export type NombrePlantilla = keyof typeof ESQUEMAS;
@@ -417,6 +426,18 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
         `Prioridad: ${p.prioridad}`,
       ],
       boton: { texto: "Abrir en la mesa de ayuda", url: p.url },
+    }),
+
+  nudito_plus: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: p.titulo,
+      insignia: "info",
+      palabraInsignia: "Nudito+",
+      parrafos: [p.titulo, ...p.parrafos],
+      boton: { texto: "Ver Nudito+", url: p.url },
+      urlPreferencias: p.urlPreferencias,
     }),
 };
 

@@ -1,7 +1,7 @@
 import "server-only";
 import { fechaDb, fechaLima, formatoDia } from "@/lib/fechas";
 import type { DbTenant } from "../db";
-import { sitiosPermitidos } from "./licencias";
+import { sitiosPermitidosConNombre } from "./licencias";
 import { armarSistema, type CursoNudito, type DatosAlumnoNudito } from "./prompt";
 
 // Contexto del alumno para Nudito+ (specs/29): SOLO datos del propio alumno en su colegio (`ctx.db` ya filtra por
@@ -31,7 +31,7 @@ export async function datosDelAlumno(cliente: DbTenant, alumnoId: string, ahora:
       select: { id: true, nombre: true, competencias: { orderBy: { orden: "asc" }, select: { id: true, nombre: true } } },
     }),
     cliente.periodo.findFirst({ where: { inicio: { lte: fechaDb(hoy) }, fin: { gte: fechaDb(hoy) } }, select: { id: true, nombre: true } }),
-    sitiosPermitidos(),
+    sitiosPermitidosConNombre(),
   ]);
   const cursoIds = cursos.map((c) => c.id);
   const competenciaIds = cursos.flatMap((c) => c.competencias.map((x) => x.id));

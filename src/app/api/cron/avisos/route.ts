@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { registrarEjecucionCron } from "@/lib/server/plataforma-monitoreo";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
 import { cerrarResueltosInactivos } from "@/lib/server/soporte";
+import { procesarVencimientosNudito } from "@/lib/server/nudito-plus/licencias";
 
 // Worker de avisos (specs/06). Lo llama el cron con «Authorization: Bearer <CRON_SECRET>».
 export const maxDuration = 300;
@@ -21,7 +22,9 @@ async function manejar(request: Request) {
   try {
     // Mesa de ayuda (specs/23): las resueltas sin actividad hace 7 días pasan a cerradas.
     const soporteCerradas = await cerrarResueltosInactivos();
-    const resumen = { ...(await procesarCola()), soporteCerradas };
+    // Nudito+ (specs/28): licencias vencidas y recordatorio «vence en 3 días» (se encolan antes de procesar la cola).
+    const nuditoPlus = await procesarVencimientosNudito();
+    const resumen = { ...(await procesarCola()), soporteCerradas, nuditoPlus };
     await registrarEjecucionCron("avisos", "ok", Date.now() - inicio);
     return NextResponse.json(resumen);
   } catch (error) {

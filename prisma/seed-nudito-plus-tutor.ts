@@ -3,21 +3,15 @@
 // - Lucas Huamán Soto en 5.° A con cuenta propia (lucas.huaman@nuevohorizonte.demo / demo123) y su madre
 //   Julia Soto Rivas (familia.huaman@familia.demo / demo123). No se agrega un 2.° hijo a Rosa en Nuevo Horizonte:
 //   varios e2e asumen que Rosa tiene un solo hijo allí (Mateo, 3.° B, sin cuenta → «modo hijo»).
-// - Lista blanca de sitios (SitioPermitido) y dos conversaciones pasadas de Lucas con su uso del mes.
-// NO crea licencias ni consentimientos de IA (los maneja specs/28): ver «Pruebas» en specs/29.
+// - Dos conversaciones pasadas de Lucas con su uso del mes.
+// NO crea la lista blanca de sitios, licencias ni consentimientos de IA: los siembra `prisma/seed-nudito-plus.ts`
+// (specs/28), que corre DESPUÉS de este y da a Lucas una licencia activa con el consentimiento de Julia.
 import { createClient } from "@supabase/supabase-js";
 import type { PrismaClient } from "../src/generated/prisma/client";
 
 const PASSWORD = "demo123";
 const CORREO_LUCAS = "lucas.huaman@nuevohorizonte.demo";
 const CORREO_JULIA = "familia.huaman@familia.demo";
-
-const SITIOS = [
-  { dominio: "perueduca.pe", nombre: "PerúEduca", descripcion: "Plataforma educativa del Minedu." },
-  { dominio: "aprendoencasa.pe", nombre: "Aprendo en casa", descripcion: "Recursos por grado del Minedu." },
-  { dominio: "minedu.gob.pe", nombre: "Minedu", descripcion: "Ministerio de Educación del Perú (CNEB)." },
-  { dominio: "khanacademy.org", nombre: "Khan Academy", descripcion: "Ejercicios guiados de matemática y ciencias." },
-];
 
 async function usuarioAuth(email: string): Promise<string> {
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
@@ -48,12 +42,6 @@ export async function sembrarNuditoPlusTutor(prisma: PrismaClient, _ids: Record<
   const s5a = salones.find((s) => s.nombre.startsWith("5"));
   if (!s5a) return;
   if (s5a.grado === null) await prisma.salon.update({ where: { id: s5a.id }, data: { grado: 5 } });
-
-  // Lista blanca global (la administra el equipo Khipu).
-  const admin = await prisma.profile.findUnique({ where: { email: "admin@khipuescolar.demo" } });
-  for (const s of SITIOS) {
-    await prisma.sitioPermitido.upsert({ where: { dominio: s.dominio }, update: {}, create: { ...s, creadoPorId: admin?.id ?? "00000000-0000-0000-0000-000000000000" } });
-  }
 
   // Familia Huamán: Julia (apoderada, con consentimiento de avisos) y Lucas (5.° A, con cuenta propia).
   const juliaId = await usuarioAuth(CORREO_JULIA);
