@@ -67,8 +67,6 @@ export async function guardarPreferenciasAction(slug: string, _prev: EstadoFormu
     correo: formData.get("correo") === "on",
     push: formData.get("push") === "on",
     // Solo si el colegio activó el canal (si no, la casilla no existe y se conserva lo guardado).
-    ...(ctx.tenant.whatsappActivo ? { whatsapp: formData.get("whatsapp") === "on" } : {}),
-    ...(ctx.tenant.smsActivo ? { sms: formData.get("sms") === "on" } : {}),
   });
   return { ok: true };
 }

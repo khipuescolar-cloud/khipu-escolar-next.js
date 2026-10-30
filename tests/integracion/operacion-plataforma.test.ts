@@ -41,7 +41,7 @@ beforeAll(async () => {
     data: { id: data.user.id, email: correo("persona"), nombres: "Marta", apellidos: "Quispe Soporte", tipoDocumento: "dni", numeroDocumento: DNI },
   });
   sinDoc = await db.profile.create({ data: { id: randomUUID(), email: correo("sindoc"), nombres: "Sin", apellidos: "Documento" } });
-  const tenant = await db.tenant.create({ data: { slug: `test-op-${sufijo}`, nombre: `Colegio Operacion ${sufijo}`, plan: "basico" } });
+  const tenant = await db.tenant.create({ data: { slug: `test-op-${sufijo}`, nombre: `Colegio Operacion ${sufijo}`, plan: "base" } });
   tenantId = tenant.id;
   membershipId = (await db.membership.create({ data: { tenantId, userId: persona.id, rol: "profesor" } })).id;
   const salon = await db.salon.create({ data: { tenantId, nombre: "1.° A", nivel: "primaria", anio: 2026 } });
@@ -172,7 +172,7 @@ describe("monitoreo", () => {
     expect(panel.erroresPorColegio.find((c) => c.tenantId === tenantId)?.avisos).toBe(2);
     expect(panel.rebotesPorColegio.find((c) => c.tenantId === tenantId)).toMatchObject({ rebotes: 1, quejas: 0 });
     expect(JSON.stringify(panel)).not.toMatch(/ASUNTO-SECRETO|padre@secreto/);
-    expect(panel.usoCanales.map((c) => c.canal)).toEqual(["correo", "push", "whatsapp", "sms"]);
+    expect(panel.usoCanales.map((c) => c.canal)).toEqual(["correo", "push"]);
 
     expect(await reintentarAvisosConError(admin, tenantId)).toBe(2);
     expect(await db.aviso.count({ where: { tenantId, estado: "pendiente", intentos: 0, error: null } })).toBe(2);

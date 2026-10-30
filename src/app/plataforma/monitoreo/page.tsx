@@ -14,7 +14,7 @@ import { procesarColaAction, reintentarAvisosAction } from "./actions";
 export const metadata: Metadata = { title: "Monitoreo" };
 export const dynamic = "force-dynamic";
 
-const NOMBRE_CANAL = { correo: "Correo", push: "Notificaciones push", whatsapp: "WhatsApp", sms: "SMS" } as const;
+const NOMBRE_CANAL = { correo: "Correo", push: "Notificaciones push" } as const;
 const NOMBRE_CRON = { avisos: "Proceso de avisos", exportaciones: "Proceso de exportaciones" } as const;
 const NOMBRE_TIPO: Record<string, string> = {
   asistencia: "Asistencia", resumen_llegadas: "Resumen de llegadas", mensaje: "Mensaje", comunicado: "Comunicado", invitacion: "Invitación",

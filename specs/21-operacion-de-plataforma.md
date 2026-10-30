@@ -20,7 +20,7 @@ Dar al equipo Khipu herramientas para soportar a personas (`/usuarios`), vigilar
 - Toda acción exige `requireAdminPlataforma()` y se registra en `auditoria_plataforma` (acciones `usuario_restablecer_password`, `usuario_enviar_recuperacion`, `usuario_forzar_cambio_password`, `usuario_membresia_estado`, `avisos_reintentar`, `cola_procesar`) y, cuando afecta a un colegio, también en su `auditoria`.
 - Restablecer al documento: solo con documento válido (`esquemaDocumento`), nunca a uno mismo; fija `debeCambiarPassword`. No devuelve ni registra la contraseña ni el documento.
 - IP enmascarada: IPv4 `a.b.•.•`, IPv6 primeros dos grupos.
-- Topes: `EMAIL_DAILY_LIMIT`, `WHATSAPP_DAILY_LIMIT`, `SMS_DAILY_LIMIT` sobre ventana móvil de 24 h (push no tiene). Barra con texto y aviso desde 80 %.
+- Canales: correo y push (WhatsApp y SMS se retiraron el 2026-10-31). Tope: `EMAIL_DAILY_LIMIT` sobre ventana móvil de 24 h (push no tiene). Barra con texto y aviso desde 80 %.
 - Cron: `ConfigPlataforma` clave `cron:<avisos|exportaciones>` = `{ ultimaEjecucion, resultado: "ok"|"error", duracionMs }`, escrita por `registrarEjecucionCron` al terminar cada ruta de cron (nunca interrumpe al cron). Estado: al día ≤ 10 min · atrasado > 10 min · nunca.
 - Reintentar: solo avisos en estado `error` del colegio pasan a `pendiente` (intentos 0, error vacío). Rebotes y quejas no se tocan.
 - Auditoría: el detalle oculta valores de claves sensibles (`pass`, `contraseña`, `token`, `documento`, `dni`, `hash`, `key`…). CSV: máximo 5000 filas, anti-fórmulas (`aCsv`). Las acciones desconocidas se muestran con su código legible.

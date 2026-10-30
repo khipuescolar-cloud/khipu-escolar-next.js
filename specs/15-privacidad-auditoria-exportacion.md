@@ -19,7 +19,7 @@ Cumplir lo mínimo de la Ley 29733 en el MVP: consentimiento, trazabilidad, gara
 4. **Borrado:** `pnpm khipu:borrar-colegio <slug> --confirmar <slug> [--dry-run]` (`scripts/borrar-colegio.ts`): sin la confirmación idéntica no hace nada. Primero borra los archivos del colegio en el proveedor con `FileStorage` (si alguno falla o es de otro proveedor, aborta sin tocar la BD y se puede reintentar); luego borra el `tenant` y el cascade por `tenant_id` elimina sus datos. `--dry-run` solo cuenta y lista lo que se borraría. El script corre con `tsx --conditions=react-server` para poder importar `src/lib/server`.
 
 ## Reglas de negocio
-- Minimización: el alumno solo tiene cuenta si dirección o el administrativo la crean, y **solo con el consentimiento vigente de al menos un apoderado vinculado** (menores de edad; `specs/17`). Esa cuenta ve únicamente sus propios datos, sin chat ni Nudito. El chat nunca expone teléfono ni correo de la otra parte.
+- Minimización: el alumno solo tiene cuenta si dirección o el administrativo la crean, y **solo con el consentimiento vigente de al menos un apoderado vinculado** (menores de edad; `specs/17`). Esa cuenta ve únicamente sus propios datos, sin chat. El chat nunca expone teléfono ni correo de la otra parte.
 - Los datos demo son ficticios.
 
 ## Modelo de datos
@@ -38,8 +38,8 @@ Exportar o ver auditoría sin ser dirección → 403. Una tabla nueva de colegio
 ## Pruebas
 - integración: exportación solo dirección y auditada, visor de auditoría, revocación; `extras-edicion-ics-zip.test.ts` (cobertura de tablas vs. esquema Prisma, ZIP con JSON por tabla, README y archivo subido) · `exportacion-asincrona-archivos.test.ts` (ZIP en flujo con el mismo contenido que `exportarColegio` y lotes de 1 fila, objetos locales huérfanos; solicitud solo dirección y sin duplicados, worker, reserva atómica, recuperación de colgadas, reintentos/error, vencimiento a 7 días, descarga acotada al colegio) · e2e: `direccion-panel.test.ts` (página de exportación y botón, 403 para profesor).
 
-## Celular y canales de pago
-El celular de `profiles.telefono` solo se usa si la persona activó WhatsApp o SMS (y el colegio los activó); se guarda en E.164, se muestra enmascarado («+51 *** *** 321») en las preferencias y nunca aparece en el SMS más que el nombre de pila del alumno. Activar o apagar los canales del colegio queda en la auditoría (`editar` · `configuracion`). La exportación del colegio incluye las preferencias (`preferencias_aviso.whatsapp/sms`) y los avisos con su canal. Ver `specs/06-avisos-notificaciones.md`.
+## Canales de aviso
+Los avisos salen solo por correo y Web Push (WhatsApp y SMS se retiraron el 2026-10-31; `specs/06`). El celular de `profiles.telefono` ya no se usa para avisos. La exportación del colegio incluye las preferencias (`preferencias_aviso.correo/push`) y los avisos con su canal.
 
 ## Pendientes
 - **Con un abogado:** texto del consentimiento, política de privacidad, contrato e inscripción del banco de datos.

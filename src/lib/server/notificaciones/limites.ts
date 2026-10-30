@@ -29,16 +29,3 @@ export function leerLimites(entorno: Record<string, string | undefined> = proces
     porSegundo: Number.isFinite(porSegundo) && porSegundo > 0 ? porSegundo : 1,
   };
 }
-
-/** Canales de pago (WhatsApp y SMS) tienen su propio tope diario en ventana móvil de 24 h, global. */
-export type CanalDePago = "whatsapp" | "sms";
-export const CANALES_DE_PAGO: readonly CanalDePago[] = ["whatsapp", "sms"];
-
-const TOPES_POR_DEFECTO: Record<CanalDePago, number> = { whatsapp: 1000, sms: 300 };
-
-/** WHATSAPP_DAILY_LIMIT / SMS_DAILY_LIMIT (mensajes por 24 h). */
-export function limiteCanalDePago(canal: CanalDePago, entorno: Record<string, string | undefined> = process.env): number {
-  const crudo = entorno[canal === "whatsapp" ? "WHATSAPP_DAILY_LIMIT" : "SMS_DAILY_LIMIT"];
-  const n = crudo === undefined || crudo === "" ? NaN : Number(crudo);
-  return Number.isFinite(n) && n >= 0 ? Math.floor(n) : TOPES_POR_DEFECTO[canal];
-}

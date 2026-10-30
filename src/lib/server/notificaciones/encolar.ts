@@ -8,9 +8,6 @@ import type { DbTenant } from "../db";
 import { feriadosAplicables } from "../plataforma-configuracion";
 import { renderizarPlantilla, type NombrePlantilla, type PayloadDe } from "../email/plantillas";
 import { hashToken, tokenDerivado } from "../tokens";
-import { resolverCanalesPago, type DestinosCanalesPago, type PreferenciasCanalesPago } from "./canales-pago";
-import { smsSoportaPlantilla } from "./sms";
-import { whatsappSoportaPlantilla } from "./whatsapp";
 
 // Encolado de avisos (specs/06). Solo se encola para apoderados con `recibeAvisos`,
 // consentimiento vigente (no revocado) y según `preferencias_aviso` (correo y/o push).
@@ -23,14 +20,11 @@ export type Destinatario = {
   email: string;
   correo: boolean;
   pushEndpoints: string[];
-  /** Celular del perfil (tal como se guardó) y lo que eligió para WhatsApp/SMS; el colegio y las credenciales se revisan al encolar. */
-  telefono?: string | null;
-  canalesPago?: PreferenciasCanalesPago;
 };
 
-/** true si el destinatario eligió algún canal (correo, push, o WhatsApp/SMS con celular). */
-export function tieneCanalAviso(d: Pick<Destinatario, "correo" | "pushEndpoints" | "telefono" | "canalesPago">): boolean {
-  return d.correo || d.pushEndpoints.length > 0 || Boolean(d.telefono && (d.canalesPago?.whatsapp || d.canalesPago?.sms));
+/** true si el destinatario eligió algún canal (correo o push). */
+export function tieneCanalAviso(d: Pick<Destinatario, "correo" | "pushEndpoints">): boolean {
+  return d.correo || d.pushEndpoints.length > 0;
 }
 
 /** Familias que pueden recibir avisos de un alumno. */
@@ -45,8 +39,8 @@ export async function destinatariosDeAlumno(tdb: DbTenant, alumnoId: string): Pr
       apoderadoId: true,
       apoderado: {
         select: {
-          preferenciaAviso: { select: { correo: true, push: true, whatsapp: true, sms: true } },
-          user: { select: { email: true, telefono: true, pushSuscripciones: { select: { endpoint: true } } } },
+          preferenciaAviso: { select: { correo: true, push: true } },
+          user: { select: { email: true, pushSuscripciones: { select: { endpoint: true } } } },
         },
       },
     },
@@ -58,8 +52,6 @@ export async function destinatariosDeAlumno(tdb: DbTenant, alumnoId: string): Pr
       email: v.apoderado.user.email,
       correo: pref.correo,
       pushEndpoints: pref.push ? v.apoderado.user.pushSuscripciones.map((s) => s.endpoint) : [],
-      telefono: v.apoderado.user.telefono,
-      canalesPago: { whatsapp: "whatsapp" in pref ? pref.whatsapp : false, sms: "sms" in pref ? pref.sms : false },
     };
   });
 }
@@ -76,20 +68,18 @@ export async function familiasConAvisoPorAlumno(tdb: DbTenant, alumnoIds: string
       alumnoId: true,
       apoderado: {
         select: {
-          preferenciaAviso: { select: { correo: true, push: true, whatsapp: true, sms: true } },
-          user: { select: { telefono: true, _count: { select: { pushSuscripciones: true } } } },
+          preferenciaAviso: { select: { correo: true, push: true } },
+          user: { select: { _count: { select: { pushSuscripciones: true } } } },
         },
       },
     },
   });
   const conteo = new Map<string, number>();
   for (const v of vinculos) {
-    const pref = v.apoderado.preferenciaAviso ?? { correo: true, push: true, whatsapp: false, sms: false };
+    const pref = v.apoderado.preferenciaAviso ?? { correo: true, push: true };
     const ok = tieneCanalAviso({
       correo: pref.correo,
       pushEndpoints: pref.push && v.apoderado.user._count.pushSuscripciones > 0 ? ["x"] : [],
-      telefono: v.apoderado.user.telefono,
-      canalesPago: { whatsapp: pref.whatsapp, sms: pref.sms },
     });
     if (ok) conteo.set(v.alumnoId, (conteo.get(v.alumnoId) ?? 0) + 1);
   }
@@ -136,25 +126,6 @@ export async function encolarAviso<N extends NombrePlantilla>(
   return aviso.id;
 }
 
-/** Una fila `avisos` por canal de pago que aplique (y que tenga versión de esa plantilla). Devuelve cuántas creó. */
-export async function encolarCanalesPago<N extends NombrePlantilla>(
-  tdb: DbTenant,
-  destinos: DestinosCanalesPago,
-  datos: { tenantId: string; tipo: TipoAviso; plantilla: N; payload: PayloadDe<N>; apoderadoId?: string | null; asistenciaId?: string | null; referenciaId?: string | null },
-): Promise<number> {
-  let filas = 0;
-  const canales: [CanalAviso, string | null, (p: string) => boolean][] = [
-    ["whatsapp", destinos.whatsapp, whatsappSoportaPlantilla],
-    ["sms", destinos.sms, smsSoportaPlantilla],
-  ];
-  for (const [canal, telefono, soporta] of canales) {
-    if (!telefono || !soporta(datos.plantilla)) continue;
-    await encolarAviso(tdb, { ...datos, canal, destinatario: telefono });
-    filas++;
-  }
-  return filas;
-}
-
 /** Encola el mismo aviso por cada canal activo del destinatario. Devuelve cuántas filas creó. */
 export async function encolarParaDestinatario<N extends NombrePlantilla>(
   tdb: DbTenant,
@@ -169,10 +140,6 @@ export async function encolarParaDestinatario<N extends NombrePlantilla>(
   for (const endpoint of destinatario.pushEndpoints) {
     await encolarAviso(tdb, { ...datos, canal: "push", destinatario: endpoint, apoderadoId: destinatario.apoderadoId });
     filas++;
-  }
-  if (destinatario.canalesPago && destinatario.telefono) {
-    const destinos = await resolverCanalesPago(datos.tenantId, { telefono: destinatario.telefono, preferencias: destinatario.canalesPago });
-    filas += await encolarCanalesPago(tdb, destinos, { ...datos, apoderadoId: destinatario.apoderadoId });
   }
   return filas;
 }

@@ -30,7 +30,7 @@ export const esquemaSolicitudDemo = z.object({
     .refine((v) => !v || /^[+\d\s()-]{6,20}$/.test(v), "Escribe un teléfono válido."),
   alumnos: z.coerce.number().int().min(1).max(20000).optional().catch(undefined),
   mensaje: z.string().trim().max(1500).optional().transform((v) => v || undefined),
-  planInteres: z.enum(["basico", "fase2", "promax"]).optional().catch(undefined),
+  planInteres: z.enum(["base", "pro"]).optional().catch(undefined),
   /** Campo trampa: invisible para personas; si viene lleno, es un bot. */
   sitio: z.string().optional(),
 });
@@ -78,7 +78,6 @@ export async function avisarSolicitudNueva(solicitud: SolicitudDemo, canal: Pick
       destinatario,
       remitente: "Khipu Escolar",
       mensaje: plantillaSolicitudDemo(solicitud),
-      plantilla: "solicitud_demo",
     });
     return true;
   } catch (error) {

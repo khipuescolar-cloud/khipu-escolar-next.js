@@ -7,10 +7,8 @@ import { PlantillaInvalidaError, renderizarPlantilla } from "../email/plantillas
 import { urlLogoColegioCorreo } from "../logo";
 import { tokenDerivado } from "../tokens";
 import { EmailChannel } from "./email";
-import { CANALES_DE_PAGO, cupoDiario, esperaReintentoMs, leerLimites, limiteCanalDePago, MAX_INTENTOS, pausaEntreCorreosMs, type CanalDePago } from "./limites";
+import { cupoDiario, esperaReintentoMs, leerLimites, MAX_INTENTOS, pausaEntreCorreosMs } from "./limites";
 import { PushChannel } from "./push";
-import { SmsChannel } from "./sms";
-import { WhatsAppChannel } from "./whatsapp";
 import { EnvioPermanenteError, type NotificationChannel } from "./tipos";
 
 // Worker de la cola `avisos` (specs/06). Lo llama /api/cron/avisos (cron) y after() tras guardar asistencia.
@@ -18,8 +16,7 @@ import { EnvioPermanenteError, type NotificationChannel } from "./tipos";
 // - Cada fila se reserva pasándola de `pendiente` a `enviando` con un UPDATE condicionado (atómico en Postgres):
 //   si dos workers corren a la vez, solo uno la obtiene. Las filas que quedan en `enviando` más de
 //   ENVIANDO_MAX_MINUTOS (worker caído a la mitad) vuelven a `pendiente` y cuentan como un intento.
-// - WhatsApp y SMS (apagados por defecto) tienen su propio tope en ventana de 24 h (WHATSAPP_DAILY_LIMIT, SMS_DAILY_LIMIT).
-//   Sin credenciales en el servidor la fila pasa a `omitido` con el motivo (error permanente, sin reintentos).
+// - Canales: solo correo y push (WhatsApp y SMS se retiraron el 2026-10-31). Un canal sin configurar deja la fila en `omitido`.
 // - 1 intento + 3 reintentos con espera creciente; después, `error`.
 
 export const ENVIANDO_MAX_MINUTOS = 10;
@@ -43,8 +40,6 @@ export type OpcionesCola = {
   canales?: Partial<Record<CanalAviso, NotificationChannel>>;
   esperar?: (ms: number) => Promise<void>;
   limites?: { limiteDiario: number; porSegundo: number };
-  /** Topes diarios de WhatsApp y SMS (por defecto, de las variables de entorno). */
-  limitesPago?: Record<CanalDePago, number>;
 };
 
 const dormir = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
@@ -73,8 +68,6 @@ export async function procesarCola(opciones: OpcionesCola = {}): Promise<Resumen
   const canales: Partial<Record<CanalAviso, NotificationChannel>> = opciones.canales ?? {
     correo: new EmailChannel(),
     push: new PushChannel(),
-    whatsapp: new WhatsAppChannel(),
-    sms: new SmsChannel(),
   };
   const resumen: ResumenCola = { enviados: 0, reintentos: 0, errores: 0, omitidos: 0, diferidos: 0, recuperados: 0 };
 
@@ -93,13 +86,6 @@ export async function procesarCola(opciones: OpcionesCola = {}): Promise<Resumen
     where: { canal: "correo", enviadoAt: { gte: new Date(ahora.getTime() - 86_400_000) } },
   });
   let cupo = cupoDiario(enviados24h, limiteDiario);
-  // Tope propio de cada canal de pago (misma ventana móvil de 24 h, global).
-  const cupoPago = new Map<CanalAviso, number>();
-  for (const canal of CANALES_DE_PAGO) {
-    if (!candidatos.some((c) => c.canal === canal)) continue;
-    const enviados = await db.aviso.count({ where: { canal, enviadoAt: { gte: new Date(ahora.getTime() - 86_400_000) } } });
-    cupoPago.set(canal, cupoDiario(enviados, (opciones.limitesPago ?? { whatsapp: limiteCanalDePago("whatsapp"), sms: limiteCanalDePago("sms") })[canal]));
-  }
   const elegidos: string[] = [];
   for (const c of candidatos) {
     if (c.canal === "correo") {
@@ -108,12 +94,6 @@ export async function procesarCola(opciones: OpcionesCola = {}): Promise<Resumen
         continue;
       }
       cupo--;
-    } else if (cupoPago.has(c.canal)) {
-      if ((cupoPago.get(c.canal) ?? 0) <= 0) {
-        resumen.diferidos++;
-        continue;
-      }
-      cupoPago.set(c.canal, (cupoPago.get(c.canal) ?? 0) - 1);
     }
     elegidos.push(c.id);
   }
@@ -142,8 +122,6 @@ export async function procesarCola(opciones: OpcionesCola = {}): Promise<Resumen
         remitente: colegio.nombre,
         mensaje,
         urlPreferencias: typeof payload.urlPreferencias === "string" ? payload.urlPreferencias : undefined,
-        plantilla: aviso.plantilla,
-        payload,
       });
       await db.aviso.update({
         where: { id: aviso.id },

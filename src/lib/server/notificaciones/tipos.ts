@@ -10,9 +10,6 @@ export type EnvioAviso = {
   mensaje: Mensaje;
   /** Para el encabezado List-Unsubscribe. */
   urlPreferencias?: string;
-  /** Plantilla y payload ya completado: WhatsApp y SMS arman su texto con ellos (no usan el HTML del correo). */
-  plantilla?: string;
-  payload?: Record<string, unknown>;
 };
 
 export type ResultadoEnvio = { providerMessageId?: string };
@@ -20,7 +17,7 @@ export type ResultadoEnvio = { providerMessageId?: string };
 /** Error que no vale la pena reintentar (destino inválido o dado de baja). */
 export class EnvioPermanenteError extends Error {}
 
-/** Interfaz común de canales (correo, push, WhatsApp y SMS). */
+/** Interfaz común de canales (correo y push). */
 export interface NotificationChannel {
   readonly canal: CanalAviso;
   enviar(envio: EnvioAviso): Promise<ResultadoEnvio>;

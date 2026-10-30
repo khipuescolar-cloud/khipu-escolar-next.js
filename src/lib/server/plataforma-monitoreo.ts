@@ -5,7 +5,7 @@ import { db } from "./db";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { ENVIANDO_MAX_MINUTOS, procesarCola } from "./notificaciones/cola";
-import { CANALES_DE_PAGO, leerLimites, limiteCanalDePago } from "./notificaciones/limites";
+import { leerLimites } from "./notificaciones/limites";
 import type { AdminContext } from "./plataforma";
 import { registrarAuditoriaPlataforma } from "./plataforma-auditoria";
 
@@ -48,7 +48,7 @@ function comoEjecucion(valor: Prisma.JsonValue | undefined): EjecucionCron | nul
 
 // ───────────── Panel ─────────────
 
-export type UsoCanal = { canal: "correo" | "push" | "whatsapp" | "sms"; enviados: number; tope: number | null };
+export type UsoCanal = { canal: "correo" | "push"; enviados: number; tope: number | null };
 
 export async function panelMonitoreo(_admin: AdminContext, ahora = new Date()) {
   const hace24h = new Date(ahora.getTime() - 86_400_000);
@@ -83,7 +83,6 @@ export async function panelMonitoreo(_admin: AdminContext, ahora = new Date()) {
   const usoCanales: UsoCanal[] = [
     { canal: "correo", enviados: enviados("correo"), tope: limites.limiteDiario },
     { canal: "push", enviados: enviados("push"), tope: null },
-    ...CANALES_DE_PAGO.map((c) => ({ canal: c, enviados: enviados(c), tope: limiteCanalDePago(c) })),
   ];
 
   const idsColegio = [...new Set([...rebotes.map((r) => r.tenantId), ...erroresPorTenant.map((r) => r.tenantId)])];
