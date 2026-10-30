@@ -64,10 +64,13 @@ test.beforeAll(async () => {
   await sql("insert into memberships (id, tenant_id, user_id, rol) values ($1, $2, $3, 'alumno'), ($4, $2, $5, 'apoderado')", [ids.cuentaAlumno, tenant_id, ids.alumnoUser, ids.apoderado, ids.familiaUser]);
   await sql("insert into alumnos (id, tenant_id, salon_id, nombres, apellidos, cuenta_id) values ($1, $2, $3, $4, 'Prueba Nudito', $5), ($6, $2, $7, $8, 'Prueba Nudito', null)", [ids.alumno, tenant_id, salon5, ALUMNO.nombres, ids.cuentaAlumno, ids.hijo, salon3, HIJO.nombres]);
   const [{ id: consentimiento }] = await sql<{ id: string }>("insert into consentimientos (id, tenant_id, apoderado_id, version_texto) values (gen_random_uuid(), $1, $2, 'e2e') returning id", [tenant_id, ids.apoderado]);
+  // El consentimiento de IA solo vale para la versión vigente del texto (specs/28; por defecto «v1»).
+  const [config] = await sql<{ version: string | null }>("select valor->>'version' as version from config_plataforma where clave = 'nudito_plus:consentimiento'");
+  const versionIa = config?.version ?? "v1";
   for (const alumno of [ids.alumno, ids.hijo]) {
     await sql("insert into apoderados_alumnos (id, tenant_id, apoderado_id, alumno_id, consentimiento_id) values (gen_random_uuid(), $1, $2, $3, $4)", [tenant_id, ids.apoderado, alumno, consentimiento]);
     await sql("insert into licencias_nudito (id, tenant_id, alumno_id, origen, desde, hasta, registrada_por, updated_at) values (gen_random_uuid(), $1, $2, 'prueba', current_date - 1, current_date + 30, $3, now())", [tenant_id, alumno, randomUUID()]);
-    await sql("insert into consentimientos_ia (id, tenant_id, apoderado_id, alumno_id, version_texto) values (gen_random_uuid(), $1, $2, $3, 'e2e')", [tenant_id, ids.apoderado, alumno]);
+    await sql("insert into consentimientos_ia (id, tenant_id, apoderado_id, alumno_id, version_texto) values (gen_random_uuid(), $1, $2, $3, $4)", [tenant_id, ids.apoderado, alumno, versionIa]);
   }
   await sql("insert into sitios_permitidos (id, dominio, nombre, creado_por, updated_at) values (gen_random_uuid(), $1, 'Sitio e2e', $2, now())", [SITIO, randomUUID()]);
 });

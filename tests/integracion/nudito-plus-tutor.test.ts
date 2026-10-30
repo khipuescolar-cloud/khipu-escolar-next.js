@@ -9,7 +9,7 @@ import { aJson, exportarColegio, tablasExportadas } from "@/lib/server/exportar"
 import { evaluarAccesoNuditoPlus, requireNuditoPlus } from "@/lib/server/nudito-plus/acceso";
 import { datosDelAlumno } from "@/lib/server/nudito-plus/contexto";
 import { conversar, listarConversacionesNudito, MENSAJE_MUY_RAPIDO, MENSAJE_PROVEEDOR_CAIDO, mensajesDeConversacion } from "@/lib/server/nudito-plus/conversar";
-import { sitiosPermitidos } from "@/lib/server/nudito-plus/licencias";
+import { consentimientoActual, sitiosPermitidos } from "@/lib/server/nudito-plus/licencias";
 import type { ProveedorIA } from "@/lib/server/nudito-plus/proveedor";
 import { generarResumenAlumno } from "@/lib/server/nudito-plus/resumenes";
 import { dominioPermitido } from "@/lib/server/nudito-plus/seguridad";
@@ -32,7 +32,7 @@ function ctxAlumno(): TenantContext {
 async function darLicencia(alumnoId: string, conConsentimiento = true) {
   const hoy = fechaLima(new Date());
   await db.licenciaNudito.create({ data: { tenantId: c.tenant.id, alumnoId, origen: "prueba", desde: new Date(`${sumarDias(hoy, -1)}T00:00:00Z`), hasta: new Date(`${sumarDias(hoy, 29)}T00:00:00Z`), registradaPorId: ADMIN } });
-  if (conConsentimiento) await db.consentimientoIa.create({ data: { tenantId: c.tenant.id, apoderadoId: c.miembros.madre.membership.id, alumnoId, versionTexto: "test" } });
+  if (conConsentimiento) await db.consentimientoIa.create({ data: { tenantId: c.tenant.id, apoderadoId: c.miembros.madre.membership.id, alumnoId, versionTexto: (await consentimientoActual()).version } });
 }
 
 beforeAll(async () => {
@@ -69,7 +69,7 @@ describe("acceso", () => {
     expect(await evaluarAccesoNuditoPlus(ctxAlumno(), c.alumnos.thiago.id)).toMatchObject({ ok: false, motivo: "licencia" });
     await darLicencia(c.alumnos.thiago.id, false);
     expect(await evaluarAccesoNuditoPlus(ctxAlumno(), c.alumnos.thiago.id)).toMatchObject({ ok: false, motivo: "consentimiento" });
-    await db.consentimientoIa.create({ data: { tenantId: c.tenant.id, apoderadoId: c.miembros.madre.membership.id, alumnoId: c.alumnos.thiago.id, versionTexto: "test" } });
+    await db.consentimientoIa.create({ data: { tenantId: c.tenant.id, apoderadoId: c.miembros.madre.membership.id, alumnoId: c.alumnos.thiago.id, versionTexto: (await consentimientoActual()).version } });
     expect(await requireNuditoPlus(ctxAlumno(), c.alumnos.thiago.id)).toMatchObject({ modo: "alumno", alumno: { id: c.alumnos.thiago.id } });
   });
 
