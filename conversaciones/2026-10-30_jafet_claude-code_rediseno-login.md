@@ -36,3 +36,8 @@
 ## Pendientes y preguntas abiertas
 - Aviso a Sebas: este layout también envuelve recuperar, instalar y justificar, así que la foto aparece ahí también.
 - Revisar en laptop y en pantalla grande el encuadre de las caras.
+
+## Reversión
+> no me gusto vuelve a como estaba antes porfavor
+
+- Jafet decidió no usar el retrato en el panel del login. Se revirtió `src/app/(publico)/layout.tsx`, se quitó `public/landing/fotos/login-familia.jpg` y se deshizo la nota en `specs/18-sistema-de-diseno.md`. El login queda como antes. La foto original se conserva en la carpeta KHIPU del disco externo.

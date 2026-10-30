@@ -1,5 +1,4 @@
 import { BellRing, MessageCircle, ShieldCheck } from "lucide-react";
-import Image from "next/image";
 import { CuerdasKhipu } from "@/components/marca/CuerdasKhipu";
 import { Logo } from "@/components/marca/Logo";
 
@@ -42,24 +41,6 @@ export default function LayoutPublico({ children }: LayoutProps<"/">) {
         </div>
         {/* Cuerdas del khipu colgando hasta el borde: decorativas y lejos del texto (manual de marca). */}
         <CuerdasKhipu className="mt-10 h-56 w-full shrink-0" />
-        {/* Retrato de familia (rediseño Jafet 2026-10-30): decorativo, a la derecha y abajo. Se funde con el índigo
-         *  por arriba y por la izquierda (máscara) y deja ver las cuerdas. Los 560 px de ancho dan 750 px de alto. */}
-        <Image
-          src="/landing/fotos/login-familia.jpg"
-          alt=""
-          aria-hidden
-          width={1200}
-          height={1607}
-          sizes="560px"
-          className="pointer-events-none absolute right-0 z-[5] w-[560px] max-w-none select-none"
-          style={{
-            top: "max(41%, calc(100% - 750px))",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 0, #000 16%), linear-gradient(to right, transparent 0, #000 28%)",
-            WebkitMaskComposite: "source-in",
-            maskImage: "linear-gradient(to bottom, transparent 0, #000 16%), linear-gradient(to right, transparent 0, #000 28%)",
-            maskComposite: "intersect",
-          }}
-        />
       </aside>
 
       <main className="flex flex-1 flex-col px-4 sm:px-6">
