@@ -1,4 +1,4 @@
-import { ArrowLeft, BarChart3, BookOpenCheck, FileSpreadsheet, FileText, PencilLine, School } from "lucide-react";
+import { ArrowLeft, BarChart3, BookOpenCheck, ChevronDown, FileSpreadsheet, FileText, PencilLine, School, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ZodError } from "zod";
@@ -24,6 +24,7 @@ import {
   type DetalleCurso, type OpcionesReporte, type ReporteAsistencia, type ReporteColegio,
 } from "@/lib/server/reportes-asistencia";
 import { requireTenantContext } from "@/lib/server/tenant";
+import { FiltroReporte } from "./FiltroReporte";
 
 export const metadata: Metadata = { title: "Reportes de asistencia" };
 
@@ -82,9 +83,17 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
   const curso = filtros && cursoId && !error ? await cursoODetalle(ctx, { cursoId, desde: filtros.desde, hasta: filtros.hasta }) : null;
   if (curso && "error" in curso) error = curso.error;
   const reporte = filtros && !cursoId && (familia && !filtros.alumnoId ? null : await reporteSegunFiltros(ctx, filtros));
-  // Dirección y administrativo: la vista general empieza por la asistencia al colegio de un día (hoy por defecto).
-  const delDia = reporte && reporte.tipo === "colegio" && veTodo ? await resumenColegio(ctx, { desde: dia, hasta: dia }) : null;
+  // Dirección y administrativo: la página siempre empieza por la asistencia al colegio de un día (hoy por defecto),
+  // también con un filtro aplicado; el resultado del filtro va debajo.
+  const delDia = veTodo && !cursoId ? await resumenColegio(ctx, { desde: dia, hasta: dia }) : null;
   const base = filtros ?? { desde: rangoEsteMes(hoy).desde, hasta: hoy };
+  const atajos = atajosDeFecha(hoy, periodo);
+  // ¿Eligió algo en el filtro? Sin filtro, dirección ve primero el día y el resumen del rango queda plegado.
+  const conFiltro = Boolean(uno("salon") || uno("alumno") || uno("desde") || uno("hasta"));
+  const activos = [uno("salon"), uno("alumno"), uno("desde") || uno("hasta")].filter(Boolean).length;
+  const nombreSalon = opciones.salones.find((s) => s.id === base.salonId)?.nombre;
+  const alumnoElegido = opciones.alumnos.find((a) => a.id === base.alumnoId);
+  const plegado = veTodo && !conFiltro && reporte && reporte.tipo === "colegio";
 
   return (
     <div className="flex flex-col gap-6">
@@ -96,22 +105,79 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
             : "Porcentaje de asistencia al colegio por alumno, salón o colegio en el rango de fechas que elijas."
         }
         acciones={
-          familia || ctx.rol === "profesor" ? (
-            <Link href="/asistencia" className={buttonVariants({ variant: "outline" })}>
-              <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> {familia ? "Calendario" : "Pasar lista"}
-            </Link>
-          ) : undefined
+          <>
+            {(familia || ctx.rol === "profesor") && (
+              <Link href="/asistencia" className={buttonVariants({ variant: "outline" })}>
+                <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> {familia ? "Calendario" : "Pasar lista"}
+              </Link>
+            )}
+            {!familia && <FiltroReporte opciones={opciones} inicial={base} atajos={atajos} hoy={hoy} activos={activos} />}
+          </>
         }
       />
 
-      <Filtros base={base} opciones={opciones} familia={familia} periodo={periodo} hoy={hoy} />
+      {familia && <Filtros base={base} opciones={opciones} familia={familia} atajos={atajos} hoy={hoy} />}
       {error && <Alerta tipo="error">{error}</Alerta>}
 
-      {delDia && <AsistenciaDelDia reporte={delDia} dia={dia} hoy={hoy} filtros={base} puedeCorregir={puedeCorregir} />}
+      {delDia && <AsistenciaDelDia reporte={delDia} dia={dia} hoy={hoy} filtros={conFiltro ? base : {}} puedeCorregir={puedeCorregir} />}
+
+      {!familia && conFiltro && (
+        <FiltrosActivos
+          partes={[
+            nombreSalon ? `Salón ${nombreSalon}` : "Todos los salones",
+            ...(alumnoElegido ? [`${alumnoElegido.apellidos}, ${alumnoElegido.nombres}`] : []),
+            `Del ${fechaCorta(base.desde)} al ${fechaCorta(base.hasta)}`,
+          ]}
+        />
+      )}
 
       {curso && !("error" in curso) && filtros && <VistaCurso detalle={curso} filtros={filtros} puedeCorregir={puedeCorregir} />}
 
-      {reporte && filtros && (
+      {reporte && filtros && plegado && (
+        <details className="group rounded-lg border bg-superficie">
+          <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 [&::-webkit-details-marker]:hidden">
+            <span className="flex flex-col">
+              <span className="font-medium">Resumen del colegio de este mes</span>
+              <span className="text-cuerpo-sm text-muted-foreground">Del {fechaCorta(reporte.desde)} a hoy, por salón y por curso. Para otro salón, alumno o fechas usa «Filtrar reporte».</span>
+            </span>
+            <ChevronDown className="size-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" strokeWidth={2} aria-hidden />
+          </summary>
+          <div className="flex flex-col gap-6 border-t p-4">
+            <ResultadoRango reporte={reporte} filtros={filtros} familia={familia} puedeCorregir={puedeCorregir} />
+          </div>
+        </details>
+      )}
+      {reporte && filtros && !plegado && <ResultadoRango reporte={reporte} filtros={filtros} familia={familia} puedeCorregir={puedeCorregir} />}
+      {!error && !reporte && !curso && <EstadoVacio icono={BarChart3} titulo="Aún no hay un alumno para mostrar" descripcion="Cuando tu hijo(a) tenga asistencia registrada, verás aquí su reporte." />}
+    </div>
+  );
+}
+
+function atajosDeFecha(hoy: string, periodo?: { nombre: string; inicio: string; fin: string }) {
+  return [
+    { texto: "Este mes", ...rangoEsteMes(hoy) },
+    ...(periodo ? [{ texto: periodo.nombre, desde: periodo.inicio, hasta: periodo.fin < hoy ? periodo.fin : hoy }] : []),
+    { texto: "Año", ...rangoAnio(hoy) },
+  ];
+}
+
+/** Lo que eligió en «Filtrar reporte», con el atajo para quitarlo. */
+function FiltrosActivos({ partes }: { partes: string[] }) {
+  return (
+    <div className="flex flex-wrap items-center gap-2" aria-label="Filtros aplicados">
+      {partes.map((p) => (
+        <span key={p} className="rounded-pildora border bg-superficie px-3 py-1 text-sm">{p}</span>
+      ))}
+      <Link href="/asistencia/reportes" className={buttonVariants({ variant: "ghost", size: "sm" })}>
+        <X className="size-4" strokeWidth={2} aria-hidden /> Quitar filtros
+      </Link>
+    </div>
+  );
+}
+
+/** Reporte del rango elegido: descargas, totales y tabla (colegio, salón o alumno). */
+function ResultadoRango({ reporte, filtros, familia, puedeCorregir }: { reporte: ReporteAsistencia; filtros: FiltrosReporte; familia: boolean; puedeCorregir: boolean }) {
+  return (
         <>
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="text-cuerpo-sm text-muted-foreground">
@@ -133,19 +199,12 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
           </p>
           {reporte.tipo === "colegio" && reporte.cursos && <AsistenciaPorCurso reporte={reporte} filtros={filtros} />}
         </>
-      )}
-      {!error && !reporte && !curso && <EstadoVacio icono={BarChart3} titulo="Aún no hay un alumno para mostrar" descripcion="Cuando tu hijo(a) tenga asistencia registrada, verás aquí su reporte." />}
-    </div>
   );
 }
 
-function Filtros({ base, opciones, familia, periodo, hoy }: { base: Partial<FiltrosReporte>; opciones: OpcionesReporte; familia: boolean; periodo?: { nombre: string; inicio: string; fin: string }; hoy: string }) {
+/** Filtros en línea de la familia (solo sus hijos y fechas); el personal usa el panel «Filtrar reporte». */
+function Filtros({ base, opciones, familia, atajos, hoy }: { base: Partial<FiltrosReporte>; opciones: OpcionesReporte; familia: boolean; atajos: { texto: string; desde: string; hasta: string }[]; hoy: string }) {
   const alumnos = familia ? opciones.alumnos : opciones.alumnos.filter((a) => !base.salonId || a.salonId === base.salonId);
-  const atajos: { texto: string; desde: string; hasta: string }[] = [
-    { texto: "Este mes", ...rangoEsteMes(hoy) },
-    ...(periodo ? [{ texto: periodo.nombre, desde: periodo.inicio, hasta: periodo.fin < hoy ? periodo.fin : hoy }] : []),
-    { texto: "Año", ...rangoAnio(hoy) },
-  ];
   return (
     <section aria-label="Filtros" className="flex flex-col gap-3">
       <form method="get" className="grid gap-3 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end">

@@ -24,6 +24,9 @@ test("dirección no pasa lista: ve el reporte general del colegio y abre una lis
   await expect(page.getByRole("heading", { name: "Asistencia al colegio", exact: true })).toBeVisible();
   const delDia = page.getByTestId("asistencia-del-dia");
   for (const cifra of ["Asistieron", "Faltaron", "Sin registro"]) await expect(delDia.getByText(cifra, { exact: true })).toBeVisible();
+  // El resumen del mes queda plegado debajo del día.
+  await expect(page.getByRole("heading", { name: "Asistencia al colegio en el rango" })).toBeHidden();
+  await page.getByText("Resumen del colegio de este mes").click();
   await expect(page.getByRole("heading", { name: "Asistencia al colegio en el rango" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Asistencia por curso" })).toBeVisible();
 
@@ -83,6 +86,8 @@ test("dirección activa y desactiva la asistencia por curso por nivel y la profe
 
   // Dirección ve la falta a clase en «Asistencia por curso» y entra al detalle del curso, con «Corregir».
   await page.goto(`${COLEGIO}/asistencia/reportes`);
+  // Sin filtro, el resumen del mes (por salón y por curso) está plegado debajo de la asistencia de hoy.
+  await page.getByText("Resumen del colegio de este mes").click();
   const seccionCursos = page.getByRole("region", { name: "Asistencia por curso" });
   await expect(seccionCursos.getByRole("columnheader", { name: "Ingresó pero faltó" })).toBeVisible();
   await seccionCursos.getByRole("link", { name: "Matemática" }).first().click();
