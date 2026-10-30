@@ -26,6 +26,8 @@ export const MODELOS_GLOBALES = new Set([
   "PlanCatalogo", "PlanModulo", "RolModulo", "AnuncioPlataforma", "FeriadoExtra", "ConfigPlataforma",
   // Landing (specs/25): pedidos de demo de colegios que aún no existen.
   "SolicitudDemo",
+  // Nudito+ (specs/29): lista blanca de sitios para materiales, administrada por el equipo Khipu.
+  "SitioPermitido",
 ]);
 
 const OPERACIONES_CON_WHERE = new Set([

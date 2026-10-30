@@ -18,7 +18,7 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 10 | [Panel de dirección y gestión](10-panel-direccion-gestion.md) | Khipu Base | implementado |
 | 11 | [Notas y libreta](11-notas-y-libreta.md) | Khipu Pro | implementado |
 | 12 | [Tareas y agenda](12-tareas-y-agenda.md) | Khipu Pro | implementado |
-| 13 | [Nudito (retirado)](13-nudito.md) | — | retirado 2026-10-31: reemplazado por Nudito+ (por alumno, en preparación) |
+| 13 | [Nudito (retirado)](13-nudito.md) | — | retirado 2026-10-31: reemplazado por Nudito+ (specs/28–29) |
 | 14 | [Archivos (Cloudinary → S3)](14-archivos-cloudinary.md) | Todos | implementado |
 | 15 | [Privacidad, auditoría y exportación](15-privacidad-auditoria-exportacion.md) | Todos | implementado |
 | 16 | [Plataforma: super administrador](16-plataforma-superadmin.md) | Interno | implementado |
@@ -33,3 +33,9 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 25 | [Landing pública (sitio de Khipu Escolar)](25-landing-publica.md) | Público | implementado |
 | 26 | [Solicitudes de demo (panel de plataforma)](26-solicitudes-de-demo.md) | Interno | implementado |
 | 27 | [Reportes de asistencia (alumno, salón, fechas; Excel y PDF)](27-reportes-asistencia.md) | Base (asistencia) | implementado (integración y e2e pendientes de correr) |
+| 28 | [Licencias de Nudito+ (por alumno, pago con Yape)](28-licencias-nudito-plus.md) | Pro + licencia por alumno | en construcción (esquema listo) |
+| 29 | [Nudito+ (tutor IA por alumno)](29-nudito-plus-tutor.md) | Pro + licencia por alumno | en construcción (esquema listo) |
+| 30 | [Capacidades y desempeños del CNEB](30-capacidades-desempenos.md) | Khipu Pro | en construcción (esquema listo) |
+| 31 | [Biblioteca de documentos](31-documentos.md) | Khipu Pro | en construcción (esquema listo) |
+| 32 | [Reuniones (convocatoria, confirmación y acta)](32-reuniones.md) | Khipu Pro | en construcción (esquema listo) |
+| 33 | [Tablero de dirección](33-tablero-direccion.md) | Khipu Pro | en construcción |

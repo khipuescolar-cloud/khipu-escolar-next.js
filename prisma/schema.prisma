@@ -91,6 +91,9 @@ enum TipoAviso {
   alerta_direccion
   libreta
   soporte
+  reunion // convocatoria, cambio o acta de una reunión (specs/32)
+  documento // documento nuevo en la biblioteca (specs/31)
+  nudito // Nudito+: licencia, alerta o resumen para la familia (specs/28–29)
 }
 
 enum CanalAviso {
@@ -222,6 +225,20 @@ model Tenant {
   feriados              FeriadoExtra[]
   ticketsSoporte        TicketSoporte[]
   mensajesSoporte       MensajeSoporte[]
+  // Khipu Pro completo (specs/30–33) y Nudito+ (specs/28–29)
+  capacidades           Capacidad[]
+  desempenos            Desempeno[]
+  evaluacionDesempenos  EvaluacionDesempeno[]
+  carpetasDocumento     CarpetaDocumento[]
+  documentos            Documento[]
+  reuniones             Reunion[]
+  reunionInvitados      ReunionInvitado[]
+  licenciasNudito       LicenciaNudito[]
+  pagosNudito           PagoNudito[]
+  consentimientosIa     ConsentimientoIa[]
+  usosNudito            UsoNudito[]
+  alertasNudito         AlertaNudito[]
+  resumenesNudito       ResumenNudito[]
 
   @@map("tenants")
 }
@@ -286,6 +303,12 @@ model Membership {
   ticketsSoporte           TicketSoporte[]      @relation("TicketsCreados")
   alumnoVinculado          Alumno?              @relation("CuentaAlumno")
   cierresCurso             CierreCurso[]
+  carpetasCreadas          CarpetaDocumento[]
+  documentosPublicados     Documento[]
+  reunionesConvocadas      Reunion[]
+  invitacionesReunion      ReunionInvitado[]
+  pagosNudito              PagoNudito[]
+  consentimientosIa        ConsentimientoIa[]
 
   @@unique([tenantId, userId, rol])
   @@index([userId])
@@ -310,6 +333,8 @@ model Salon {
   alumnos     Alumno[]
   comunicados Comunicado[]
   eventos     EventoAgenda[]
+  documentos  Documento[]
+  reuniones   Reunion[]
 
   @@index([tenantId])
   @@map("salones")
@@ -360,6 +385,13 @@ model Alumno {
   notas                 Nota[]
   calificacionesPeriodo CalificacionPeriodo[]
   nuditoConversaciones  NuditoConversacion[]
+  invitacionesReunion   ReunionInvitado[]
+  licenciasNudito       LicenciaNudito[]
+  pagosNudito           PagoNudito[]
+  consentimientosIa     ConsentimientoIa[]
+  usosNudito            UsoNudito[]
+  alertasNudito         AlertaNudito[]
+  resumenesNudito       ResumenNudito[]
 
   @@index([tenantId, salonId])
   @@map("alumnos")
@@ -553,6 +585,8 @@ model Archivo {
   tareaId          String?          @map("tarea_id") @db.Uuid
   /// Captura o archivo adjunto a un mensaje de la mesa de ayuda (specs/23).
   mensajeSoporteId String?          @map("mensaje_soporte_id") @db.Uuid
+  /// Archivo de un documento de la biblioteca (specs/31). Un documento tiene un archivo vigente (el más reciente).
+  documentoId      String?          @map("documento_id") @db.Uuid
   nombre           String?
   createdAt        DateTime         @default(now()) @map("created_at") @db.Timestamptz
 
@@ -562,10 +596,12 @@ model Archivo {
   tarea           Tarea?               @relation(fields: [tareaId], references: [id], onDelete: Cascade)
   exportaciones   ExportacionColegio[]
   mensajeSoporte  MensajeSoporte?      @relation(fields: [mensajeSoporteId], references: [id], onDelete: Cascade)
+  documento       Documento?           @relation(fields: [documentoId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
   @@index([comunicadoId])
   @@index([tareaId])
+  @@index([documentoId])
   @@map("archivos")
 }
 
@@ -706,6 +742,8 @@ model Competencia {
   curso                 Curso                 @relation(fields: [cursoId], references: [id], onDelete: Cascade)
   evaluaciones          Evaluacion[]
   calificacionesPeriodo CalificacionPeriodo[]
+  capacidades           Capacidad[]
+  desempenos            Desempeno[]
 
   @@index([tenantId, cursoId])
   @@map("competencias")
@@ -721,11 +759,12 @@ model Evaluacion {
   fecha         DateTime @db.Date
   peso          Decimal  @default(1) @db.Decimal(5, 2)
 
-  tenant      Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  curso       Curso        @relation(fields: [cursoId], references: [id], onDelete: Cascade)
-  periodo     Periodo      @relation(fields: [periodoId], references: [id], onDelete: Cascade)
-  competencia Competencia? @relation(fields: [competenciaId], references: [id], onDelete: SetNull)
+  tenant      Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  curso       Curso                 @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  periodo     Periodo               @relation(fields: [periodoId], references: [id], onDelete: Cascade)
+  competencia Competencia?          @relation(fields: [competenciaId], references: [id], onDelete: SetNull)
   notas       Nota[]
+  desempenos  EvaluacionDesempeno[]
 
   @@index([tenantId, cursoId, periodoId])
   @@map("evaluaciones")
@@ -811,7 +850,7 @@ model EventoAgenda {
   @@map("eventos_agenda")
 }
 
-// ──────────── Nudito (retirado 2026-10-31; tablas reservadas para Nudito+) ────────────
+// ──────────── Nudito: tablas del asistente retirado, reutilizadas por Nudito+ (specs/29) ────────────
 
 /// Documentos del colegio que Nudito puede citar (reglamento, horario, calendario).
 model DocumentoColegio {
@@ -828,19 +867,26 @@ model DocumentoColegio {
   @@map("documentos_colegio")
 }
 
+/// Conversación con Nudito+ (tutor IA, specs/29). Solo el alumno conversa: con su cuenta (`modo = alumno`)
+/// o dentro de la cuenta del apoderado (`modo = hijo`, alumnos sin cuenta propia). El apoderado NO ve las conversaciones.
 model NuditoConversacion {
-  id           String   @id @default(uuid()) @db.Uuid
-  tenantId     String   @map("tenant_id") @db.Uuid
-  membershipId String   @map("membership_id") @db.Uuid
-  alumnoId     String?  @map("alumno_id") @db.Uuid
-  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz
+  id           String     @id @default(uuid()) @db.Uuid
+  tenantId     String     @map("tenant_id") @db.Uuid
+  /// Quién escribe: la cuenta del alumno (modo alumno) o la del apoderado que presta su sesión (modo hijo).
+  membershipId String     @map("membership_id") @db.Uuid
+  /// Alumno con la licencia. Obligatorio en conversaciones de Nudito+; null solo en filas antiguas del Nudito retirado.
+  alumnoId     String?    @map("alumno_id") @db.Uuid
+  modo         ModoNudito @default(alumno)
+  createdAt    DateTime   @default(now()) @map("created_at") @db.Timestamptz
 
   tenant     Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   membership Membership      @relation(fields: [membershipId], references: [id], onDelete: Cascade)
   alumno     Alumno?         @relation(fields: [alumnoId], references: [id], onDelete: SetNull)
   mensajes   NuditoMensaje[]
+  alertas    AlertaNudito[]
 
   @@index([tenantId, membershipId])
+  @@index([tenantId, alumnoId, createdAt])
   @@map("nudito_conversaciones")
 }
 
@@ -853,6 +899,11 @@ model NuditoMensaje {
   intencion      String?
   derivado       Boolean     @default(false)
   acciones       Json? // botones de la respuesta (abrir_chat, elegir_hijo, ir)
+  /// Tokens del proveedor de IA para este mensaje (solo respuestas de Nudito+); alimentan UsoNudito.
+  tokensEntrada  Int?        @map("tokens_entrada")
+  tokensSalida   Int?        @map("tokens_salida")
+  /// true si el filtro de seguridad bloqueó el mensaje (del alumno o de la IA); puede generar una AlertaNudito.
+  bloqueado      Boolean     @default(false)
   createdAt      DateTime    @default(now()) @map("created_at") @db.Timestamptz
 
   tenant       Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
@@ -1282,4 +1333,388 @@ model SolicitudDemo {
   @@index([estado, createdAt])
   @@index([ipHash, createdAt])
   @@map("solicitudes_demo")
+}
+
+// ─── Khipu Pro completo (2026-10-31): CNEB, documentos, reuniones (specs/30–33) ───
+
+/// Capacidad del CNEB dentro de una competencia (specs/30). Las competencias siguen siendo por curso.
+model Capacidad {
+  id            String  @id @default(uuid()) @db.Uuid
+  tenantId      String  @map("tenant_id") @db.Uuid
+  competenciaId String  @map("competencia_id") @db.Uuid
+  nombre        String
+  descripcion   String?
+  orden         Int     @default(0)
+
+  tenant      Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  competencia Competencia @relation(fields: [competenciaId], references: [id], onDelete: Cascade)
+  desempenos  Desempeno[]
+
+  @@index([tenantId, competenciaId])
+  @@map("capacidades")
+}
+
+/// Desempeño esperado del CNEB para un nivel y grado (specs/30). Pertenece a una competencia y,
+/// opcionalmente, a una de sus capacidades. Las evaluaciones se vinculan a desempeños (EvaluacionDesempeno).
+model Desempeno {
+  id            String  @id @default(uuid()) @db.Uuid
+  tenantId      String  @map("tenant_id") @db.Uuid
+  competenciaId String  @map("competencia_id") @db.Uuid
+  capacidadId   String? @map("capacidad_id") @db.Uuid
+  nivel         Nivel
+  /// Grado dentro del nivel (1–6 primaria, 1–5 secundaria; edad en inicial: 3, 4, 5).
+  grado         Int
+  descripcion   String
+  /// Código opcional del colegio o de la norma («MAT-3P-01»).
+  codigo        String?
+  orden         Int     @default(0)
+
+  tenant       Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  competencia  Competencia           @relation(fields: [competenciaId], references: [id], onDelete: Cascade)
+  capacidad    Capacidad?            @relation(fields: [capacidadId], references: [id], onDelete: SetNull)
+  evaluaciones EvaluacionDesempeno[]
+
+  @@index([tenantId, competenciaId, nivel, grado])
+  @@index([capacidadId])
+  @@map("desempenos")
+}
+
+/// Qué desempeños mide una evaluación (M:N, specs/30).
+model EvaluacionDesempeno {
+  id           String @id @default(uuid()) @db.Uuid
+  tenantId     String @map("tenant_id") @db.Uuid
+  evaluacionId String @map("evaluacion_id") @db.Uuid
+  desempenoId  String @map("desempeno_id") @db.Uuid
+
+  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  evaluacion Evaluacion @relation(fields: [evaluacionId], references: [id], onDelete: Cascade)
+  desempeno  Desempeno  @relation(fields: [desempenoId], references: [id], onDelete: Cascade)
+
+  @@unique([evaluacionId, desempenoId])
+  @@index([tenantId])
+  @@index([desempenoId])
+  @@map("evaluacion_desempenos")
+}
+
+/// Carpeta de la biblioteca de documentos (specs/31). `parentId` null = carpeta raíz.
+model CarpetaDocumento {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @map("tenant_id") @db.Uuid
+  parentId     String?  @map("parent_id") @db.Uuid
+  nombre       String
+  /// Vacío = sin restricción propia; si tiene roles, solo esos roles (y dirección) ven la carpeta y su contenido.
+  visibleRoles Rol[]    @default([]) @map("visible_roles")
+  orden        Int      @default(0)
+  creadoPorId  String   @map("creado_por") @db.Uuid
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant     Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  parent     CarpetaDocumento?  @relation("SubcarpetasDocumento", fields: [parentId], references: [id], onDelete: Cascade)
+  hijas      CarpetaDocumento[] @relation("SubcarpetasDocumento")
+  creadoPor  Membership         @relation(fields: [creadoPorId], references: [id], onDelete: NoAction)
+  documentos Documento[]
+
+  @@index([tenantId, parentId])
+  @@map("carpetas_documento")
+}
+
+/// Documento de la biblioteca del colegio (specs/31). Su archivo es un `Archivo` con `documentoId`.
+model Documento {
+  id             String   @id @default(uuid()) @db.Uuid
+  tenantId       String   @map("tenant_id") @db.Uuid
+  /// null = en la raíz de la biblioteca.
+  carpetaId      String?  @map("carpeta_id") @db.Uuid
+  titulo         String
+  descripcion    String?
+  /// Roles que lo ven (dirección siempre). Vacío = solo dirección (borrador o documento interno).
+  visibleRoles   Rol[]    @default([]) @map("visible_roles")
+  /// Si tiene valor, solo lo ven el personal y las familias/alumnos de ese salón (además del filtro por rol).
+  salonId        String?  @map("salon_id") @db.Uuid
+  publicadoPorId String   @map("publicado_por") @db.Uuid
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt      DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant       Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  carpeta      CarpetaDocumento? @relation(fields: [carpetaId], references: [id], onDelete: Cascade)
+  salon        Salon?            @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  publicadoPor Membership        @relation(fields: [publicadoPorId], references: [id], onDelete: NoAction)
+  archivos     Archivo[]
+
+  @@index([tenantId, carpetaId])
+  @@index([tenantId, salonId])
+  @@map("documentos")
+}
+
+/// Para quién es una reunión (specs/32).
+enum AlcanceReunion {
+  colegio // todo el colegio (o los roles que se inviten)
+  salon // las familias y docentes de un salón
+  individual // una o pocas personas (p. ej. apoderado de un alumno)
+}
+
+enum EstadoReunion {
+  programada
+  realizada
+  cancelada
+}
+
+enum RespuestaReunion {
+  pendiente
+  asistire
+  no_asistire
+}
+
+/// Reunión convocada por el colegio, con confirmación de asistencia y acta (specs/32).
+model Reunion {
+  id              String         @id @default(uuid()) @db.Uuid
+  tenantId        String         @map("tenant_id") @db.Uuid
+  titulo          String
+  descripcion     String?
+  inicio          DateTime       @db.Timestamptz
+  fin             DateTime?      @db.Timestamptz
+  /// Lugar físico («Aula 3.° B»), enlace de videollamada, o ambos.
+  lugar           String?
+  enlace          String?
+  alcance         AlcanceReunion
+  /// Obligatorio cuando alcance = salon; opcional en individual (salón del alumno).
+  salonId         String?        @map("salon_id") @db.Uuid
+  convocadaPorId  String         @map("convocada_por") @db.Uuid
+  estado          EstadoReunion  @default(programada)
+  /// Acta en texto (Markdown simple). Las familias la ven solo desde `actaPublicadaAt`.
+  acta            String?
+  actaPublicadaAt DateTime?      @map("acta_publicada_at") @db.Timestamptz
+  createdAt       DateTime       @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime       @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant       Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  salon        Salon?            @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  convocadaPor Membership        @relation(fields: [convocadaPorId], references: [id], onDelete: NoAction)
+  invitados    ReunionInvitado[]
+
+  @@index([tenantId, inicio])
+  @@index([tenantId, salonId])
+  @@map("reuniones")
+}
+
+/// Invitación a una reunión: una fila por persona (y por alumno, si el apoderado viene por un hijo concreto).
+/// Único (reunión, membresía, alumno) con NULLS NOT DISTINCT (ver migración).
+model ReunionInvitado {
+  id           String           @id @default(uuid()) @db.Uuid
+  tenantId     String           @map("tenant_id") @db.Uuid
+  reunionId    String           @map("reunion_id") @db.Uuid
+  membershipId String           @map("membership_id") @db.Uuid
+  /// Alumno por el que se cita al apoderado (null para personal o invitaciones generales).
+  alumnoId     String?          @map("alumno_id") @db.Uuid
+  respuesta    RespuestaReunion @default(pendiente)
+  respondidaAt DateTime?        @map("respondida_at") @db.Timestamptz
+  /// Motivo opcional al responder «no asistiré».
+  comentario   String?
+  /// Asistencia real, marcada al cerrar la reunión (null = sin marcar).
+  asistio      Boolean?
+
+  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  reunion    Reunion    @relation(fields: [reunionId], references: [id], onDelete: Cascade)
+  membership Membership @relation(fields: [membershipId], references: [id], onDelete: Cascade)
+  alumno     Alumno?    @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+
+  @@unique([reunionId, membershipId, alumnoId])
+  @@index([tenantId, membershipId])
+  @@map("reunion_invitados")
+}
+
+// ─── Nudito+ (2026-10-31): tutor IA por alumno, pagado por la familia (specs/28–29) ───
+
+enum ModoNudito {
+  alumno // el alumno usa su propia cuenta
+  hijo // «modo hijo»: el alumno usa Nudito+ dentro de la cuenta del apoderado
+}
+
+enum EstadoLicenciaNudito {
+  activa
+  vencida
+  cancelada
+}
+
+enum OrigenLicenciaNudito {
+  pago
+  cortesia
+  prueba
+}
+
+enum MetodoPagoNudito {
+  yape
+  transferencia
+  otro
+}
+
+enum EstadoPagoNudito {
+  pendiente // reportado por la familia, falta verificar
+  verificado // el equipo Khipu confirmó el abono
+  rechazado
+}
+
+enum TipoAlertaNudito {
+  seguridad // filtro de seguridad, riesgo o tema delicado
+  animo // señales de desánimo o malestar
+  dificultad // dificultad persistente en un tema
+  uso // uso excesivo o tope mensual alcanzado
+}
+
+/// Licencia de Nudito+ de un alumno (specs/28). Prepago por periodo; se guarda el historial (varias filas por alumno).
+/// Vigente = estado activa y hoy entre `desde` y `hasta`. Solo para colegios con plan `pro`.
+/// La registra el equipo Khipu desde el panel de plataforma (cliente `db` global con tenantId explícito).
+model LicenciaNudito {
+  id              String               @id @default(uuid()) @db.Uuid
+  tenantId        String               @map("tenant_id") @db.Uuid
+  alumnoId        String               @map("alumno_id") @db.Uuid
+  estado          EstadoLicenciaNudito @default(activa)
+  origen          OrigenLicenciaNudito @default(pago)
+  desde           DateTime             @db.Date
+  /// Último día incluido.
+  hasta           DateTime             @db.Date
+  /// Perfil del super administrador que la registró (sin FK, como PagoRegistro).
+  registradaPorId String               @map("registrada_por") @db.Uuid
+  notas           String?
+  createdAt       DateTime             @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime             @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno Alumno       @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  pagos  PagoNudito[]
+
+  @@index([alumnoId, estado, hasta])
+  @@index([tenantId, estado])
+  @@index([estado, hasta])
+  @@map("licencias_nudito")
+}
+
+/// Pago de Nudito+ hecho por la familia (Yape u otro), verificado a mano por el equipo Khipu (specs/28).
+/// Puede existir antes de la licencia (pendiente de verificar); al activarla se enlaza `licenciaId`.
+model PagoNudito {
+  id              String           @id @default(uuid()) @db.Uuid
+  tenantId        String           @map("tenant_id") @db.Uuid
+  alumnoId        String           @map("alumno_id") @db.Uuid
+  licenciaId      String?          @map("licencia_id") @db.Uuid
+  /// Apoderado que pagó o reportó el pago.
+  apoderadoId     String?          @map("apoderado_id") @db.Uuid
+  monto           Decimal          @db.Decimal(10, 2)
+  moneda          String           @default("PEN")
+  /// Meses comprados con este pago.
+  meses           Int              @default(1)
+  metodo          MetodoPagoNudito @default(yape)
+  /// Número de operación de Yape o de la transferencia.
+  referencia      String?
+  fechaPago       DateTime         @map("fecha_pago") @db.Date
+  estado          EstadoPagoNudito @default(pendiente)
+  /// Perfil del super administrador que lo registró o verificó (sin FK). null mientras solo lo reportó la familia.
+  registradoPorId String?          @map("registrado_por") @db.Uuid
+  verificadoAt    DateTime?        @map("verificado_at") @db.Timestamptz
+  notas           String?
+  createdAt       DateTime         @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant    Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno    Alumno          @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  licencia  LicenciaNudito? @relation(fields: [licenciaId], references: [id], onDelete: SetNull)
+  apoderado Membership?     @relation(fields: [apoderadoId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, alumnoId])
+  @@index([estado, fechaPago])
+  @@map("pagos_nudito")
+}
+
+/// Consentimiento del apoderado para que su hijo use el tutor IA (Ley 29733, specs/28). Versionado y revocable.
+model ConsentimientoIa {
+  id           String    @id @default(uuid()) @db.Uuid
+  tenantId     String    @map("tenant_id") @db.Uuid
+  apoderadoId  String    @map("apoderado_id") @db.Uuid
+  alumnoId     String    @map("alumno_id") @db.Uuid
+  versionTexto String    @map("version_texto")
+  aceptadoAt   DateTime  @default(now()) @map("aceptado_at") @db.Timestamptz
+  ip           String?
+  revocadoAt   DateTime? @map("revocado_at") @db.Timestamptz
+
+  tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  apoderado Membership @relation(fields: [apoderadoId], references: [id], onDelete: Cascade)
+  alumno    Alumno     @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, alumnoId])
+  @@index([apoderadoId])
+  @@map("consentimientos_ia")
+}
+
+/// Uso y costo de Nudito+ por alumno y mes (topes en ConfigPlataforma «nudito_plus:limites», specs/29).
+model UsoNudito {
+  id               String   @id @default(uuid()) @db.Uuid
+  tenantId         String   @map("tenant_id") @db.Uuid
+  alumnoId         String   @map("alumno_id") @db.Uuid
+  /// Mes calendario en hora de Lima, «AAAA-MM».
+  mes              String
+  mensajes         Int      @default(0)
+  tokensEntrada    Int      @default(0) @map("tokens_entrada")
+  tokensSalida     Int      @default(0) @map("tokens_salida")
+  costoEstimadoUsd Decimal  @default(0) @map("costo_estimado_usd") @db.Decimal(10, 4)
+  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno Alumno @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+
+  @@unique([alumnoId, mes])
+  @@index([tenantId, mes])
+  @@map("usos_nudito")
+}
+
+/// Alerta para el apoderado sobre el uso de Nudito+ por su hijo (sin mostrar la conversación, specs/29).
+model AlertaNudito {
+  id             String           @id @default(uuid()) @db.Uuid
+  tenantId       String           @map("tenant_id") @db.Uuid
+  alumnoId       String           @map("alumno_id") @db.Uuid
+  tipo           TipoAlertaNudito
+  /// Texto para la familia (resumen, nunca la cita textual del alumno).
+  detalle        String
+  conversacionId String?          @map("conversacion_id") @db.Uuid
+  creadaAt       DateTime         @default(now()) @map("created_at") @db.Timestamptz
+  vistaAt        DateTime?        @map("vista_at") @db.Timestamptz
+
+  tenant       Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno       Alumno              @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  conversacion NuditoConversacion? @relation(fields: [conversacionId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, alumnoId, creadaAt])
+  @@map("alertas_nudito")
+}
+
+/// Resumen periódico para el apoderado: temas trabajados y avances (specs/29).
+model ResumenNudito {
+  id       String   @id @default(uuid()) @db.Uuid
+  tenantId String   @map("tenant_id") @db.Uuid
+  alumnoId String   @map("alumno_id") @db.Uuid
+  desde    DateTime @db.Date
+  hasta    DateTime @db.Date
+  texto    String
+  /// Lista de temas: [{ "area": "Matemática", "tema": "Fracciones", "mensajes": 12 }].
+  temas    Json     @default("[]")
+  creadoAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno Alumno @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, alumnoId, hasta])
+  @@map("resumenes_nudito")
+}
+
+/// Sitio del que Nudito+ puede recomendar materiales (lista blanca global del equipo Khipu, specs/29).
+model SitioPermitido {
+  id          String   @id @default(uuid()) @db.Uuid
+  /// Dominio sin esquema ni «www.», en minúsculas («perueduca.pe»). Incluye sus subdominios.
+  dominio     String   @unique
+  nombre      String
+  descripcion String?
+  activo      Boolean  @default(true)
+  /// Perfil del super administrador que lo agregó (sin FK).
+  creadoPorId String   @map("creado_por") @db.Uuid
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@map("sitios_permitidos")
 }

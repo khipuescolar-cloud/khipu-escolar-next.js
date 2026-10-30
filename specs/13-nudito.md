@@ -22,7 +22,7 @@ para colegios con Khipu Pro, que paga la familia. Nudito+ tendrá su propia spec
 - Se mantiene la **marca**: el personaje (`NuditoMascota`, `public/marca/nudito.svg`, `font-nudito`, `src/lib/nudito/estado.ts`) y su imagen en los correos de tareas y libretas. Nudito nunca da malas noticias.
 
 ## Modelo de datos
-Se conservan sin uso, para que Nudito+ las reutilice o rehaga: `nudito_conversaciones`, `nudito_mensajes` y `documentos_colegio`.
+`nudito_conversaciones` y `nudito_mensajes` se reutilizan y amplían para Nudito+ (migración `20261031130000_pro_completo_nudito_plus`, ver `specs/29`). `documentos_colegio` queda sin uso (la biblioteca nueva es `documentos`, `specs/31`).
 
 ## Contratos de `src/lib/server`
 ```ts
@@ -42,4 +42,4 @@ Se conservan sin uso, para que Nudito+ las reutilice o rehaga: `nudito_conversac
 - unit: `tests/unit/planes.test.ts` (sin `nudito` en `FEATURES`), `tests/unit/nudito-estado.test.ts` (estado visual del personaje).
 
 ## Pendientes
-- Diseñar Nudito+ (licencia por alumno, pago de la familia) y su spec.
+- Nudito+: `specs/28-licencias-nudito-plus.md` y `specs/29-nudito-plus-tutor.md`.

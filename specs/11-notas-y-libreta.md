@@ -45,7 +45,7 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
 - Periodo por defecto: en `/notas` el abierto más reciente; en `/libreta` el último cerrado.
 
 ## Modelo de datos
-`periodos`, `competencias` (por curso), `evaluaciones` (curso, periodo, competencia opcional, `peso` Decimal(5,2)), `notas` (única por evaluación+alumno), `calificaciones_periodo` (única por alumno+competencia+periodo, con `conclusion`), `asistencias` (resumen), `tenants.escala_calificacion`. No se cambió el esquema.
+`periodos`, `competencias` (por curso), `evaluaciones` (curso, periodo, competencia opcional, `peso` Decimal(5,2)), `notas` (única por evaluación+alumno), `calificaciones_periodo` (única por alumno+competencia+periodo, con `conclusion`), `asistencias` (resumen), `tenants.escala_calificacion`. Capacidades y desempeños del CNEB (`capacidades`, `desempenos`, `evaluacion_desempenos`): ver `specs/30` (esquema listo, en construcción).
 
 ## Importar y exportar (CSV)
 - Lógica pura en `src/lib/notas-csv.ts` (`exportarNotasCsv`, `analizarNotasCsv`). Exportar: `GET /api/notas/exportar?curso=&periodo=` (profesor del curso o dirección; auditado «exportar») → UTF-8 **con BOM**, separador **`;`** (Excel en español), una fila por alumno: `Código;Alumno;<título evaluación>…`, «Apellidos, Nombres», decimales con coma, celdas sin nota vacías. Evita inyección de fórmulas (`'` delante de `= + - @`).

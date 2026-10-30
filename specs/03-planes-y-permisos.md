@@ -6,13 +6,13 @@
 | Plan | Clave | Funciones |
 |---|---|---|
 | Khipu Base | `base` | asistencia, avisos, portería, justificaciones, mensajes, comunicados, gestión y soporte (mesa de ayuda) |
-| Khipu Pro | `pro` | Khipu Base + notas, libreta, tareas, agenda (y los módulos Pro que vengan) |
+| Khipu Pro | `pro` | Khipu Base + notas, libreta, tareas, agenda; en construcción: `documentos` (specs/31), `reuniones` (specs/32) y `tablero` (specs/33), ya sembrados en `plan_modulos` para `pro` (migración `20261031130000_pro_completo_nudito_plus`) pero aún no en `FEATURES` |
 
 Decisión del 2026-10-30: solo hay **dos planes institucionales** y se venden completos (no se venden módulos sueltos).
 El mecanismo interno de ajustes por colegio (`tenant_modulos`) se mantiene para pilotos y casos puntuales del equipo.
 Las claves anteriores se migraron en `20261031100000_planes_base_pro`: `basico` → `base`, `fase2` → `pro` y `promax` → `pro`.
 El asistente Nudito para familias se retiró (ver `specs/13`); lo reemplazará **Nudito+**, una licencia opcional por alumno
-para colegios con Khipu Pro que paga la familia (en preparación, fuera de los planes).
+para colegios con Khipu Pro que paga la familia (en preparación, fuera de los planes: `specs/28`, `specs/29`).
 Los avisos salen solo por correo y Web Push (WhatsApp y SMS se retiraron; ver `specs/06`).
 
 **Fuente de verdad: la base de datos** (`planes_catalogo` + `plan_modulos`, editables en el panel de plataforma

@@ -14,7 +14,7 @@ Un solo sistema para muchos colegios (tenants), donde ningún colegio ve datos d
   - borra `tenantId` del `data` de los `update` (no se puede mover una fila a otro colegio);
   - con `dbTenant(tenantId, { soloLectura: true })` (modo soporte) lanza `ErrorSoloLectura` («Modo soporte: solo lectura») en toda escritura: create, createMany(AndReturn), update, updateMany(AndReturn), upsert, delete y deleteMany, de cualquier modelo; además `$executeRaw`/`$executeRawUnsafe` y todo `$queryRaw`/`$queryRawUnsafe` que no sea una lectura pura (`esSqlDeSoloLectura`). Las transacciones (`$transaction` en lote o interactiva) usan las mismas intercepciones, así que una escritura dentro también falla. Las lecturas crudas (`SELECT`/`WITH` de una sola sentencia) siguen permitidas.
 - **Respaldo:** RLS activado y forzado en todas las tablas, sin políticas, con `REVOKE ALL` para `anon` y `authenticated` (migración `rls_cerrado`). Nadie puede leer datos por PostgREST con la clave pública.
-- Modelos globales sin `tenantId`: `Tenant`, `Profile`, `LoginIntento`, `PushSuscripcion`.
+- Modelos globales (sin filtro de colegio): la lista `MODELOS_GLOBALES` de `src/lib/server/db.ts` (`Tenant`, `Profile`, `LoginIntento`, `PushSuscripcion`, tablas de plataforma, `SolicitudDemo`, `SitioPermitido`…). Un modelo con `tenantId` que no esté ahí entra solo en el filtro y en la exportación del colegio.
 - La lógica de negocio va en `src/lib/server/*`, para poder migrar a Go cambiando solo esa capa.
 
 ## Resolución del colegio
