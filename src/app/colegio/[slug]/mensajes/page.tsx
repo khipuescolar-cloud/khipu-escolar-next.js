@@ -19,7 +19,7 @@ export default async function MensajesPage({ params, searchParams }: PageProps<"
   const ctx = await requireTenantContext(slug, ["apoderado", "profesor", "direccion"]);
   requireFeature(ctx, "mensajes");
   await requireConsentimiento(ctx);
-  // Enlaces «Hablar con la tutora» (Nudito, asistencia): `?alumno=` abre el nuevo mensaje sobre ese hijo.
+  // Enlaces «Hablar con la tutora» (asistencia): `?alumno=` abre el nuevo mensaje sobre ese hijo.
   const alumnoId = Array.isArray(alumno) ? alumno[0] : alumno;
   if (alumnoId && ctx.rol !== "direccion") {
     await requireAlumnoVisible(ctx, alumnoId);

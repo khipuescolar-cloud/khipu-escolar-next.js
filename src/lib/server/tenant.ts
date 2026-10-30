@@ -29,7 +29,7 @@ export type TenantContext = {
   db: DbTenant;
   /**
    * Solo cuando un super administrador entra con un acceso de soporte vigente (specs/16):
-   * actúa como `direccion`, en solo lectura y sin acceso a chats, notas, libreta ni Nudito.
+   * actúa como `direccion`, en solo lectura y sin acceso a chats, notas ni libreta.
    */
   soporte?: { accesoId: string; expiraAt: Date };
   /** Módulos activos del colegio: los de su plan (BD con respaldo en código) ± ajustes del colegio (specs/19). */

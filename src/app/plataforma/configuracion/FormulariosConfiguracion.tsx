@@ -71,46 +71,6 @@ export function DialogoAgregarFeriado({ accion, colegios, anio }: { accion: Acci
   );
 }
 
-const HORAS = Array.from({ length: 24 }, (_, h) => `${String(h).padStart(2, "0")}:00`);
-
-export function FormularioHorarioNudito({ accion, inicio, fin }: { accion: Accion; inicio: string; fin: string }) {
-  const [estado, enviar, pendiente] = useActionState(async (previo: EstadoFormulario, datos: FormData) => {
-    const r = await accion(previo, datos);
-    if (r?.ok) toast.success(r.ok);
-    return r;
-  }, null);
-  return (
-    <form
-      className="flex flex-col gap-4"
-      onSubmit={(e) => {
-        e.preventDefault();
-        const datos = new FormData(e.currentTarget);
-        startTransition(() => enviar(datos));
-      }}
-    >
-      <div className="grid max-w-md gap-4 sm:grid-cols-2">
-        <Selector etiqueta="Despierta a las" name="inicio" defaultValue={inicio}>
-          {HORAS.map((h) => (
-            <option key={h} value={h}>{h}</option>
-          ))}
-        </Selector>
-        <Selector etiqueta="Duerme a las" name="fin" defaultValue={fin}>
-          {HORAS.map((h) => (
-            <option key={h} value={h}>{h}</option>
-          ))}
-        </Selector>
-      </div>
-      {estado?.error && <Alerta tipo="error">{estado.error}</Alerta>}
-      <div>
-        <Boton type="submit" disabled={pendiente}>
-          {pendiente && <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />}
-          Guardar horario
-        </Boton>
-      </div>
-    </form>
-  );
-}
-
 /** Buzón del equipo (mesa de ayuda) y horario de atención que ven los colegios (specs/23). */
 export function FormularioSoporte({
   accion, correo, correoEfectivo, horario,

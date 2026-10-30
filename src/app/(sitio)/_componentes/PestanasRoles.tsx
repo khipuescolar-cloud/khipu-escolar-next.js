@@ -45,7 +45,6 @@ const ROLES = [
       "Recibes un aviso cuando tu hijo llega, llega tarde o no llega al colegio.",
       "Justificas una falta en un minuto, desde el correo o desde Khipu.",
       "Escribes a la tutora sin compartir tu teléfono, y ves notas, tareas y comunicados.",
-      "Con Nudito preguntas qué tareas hay o qué fechas vienen, con los datos reales del colegio.",
     ],
   },
 ] as const;

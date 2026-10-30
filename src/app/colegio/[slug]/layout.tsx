@@ -1,7 +1,6 @@
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { Logo } from "@/components/marca/Logo";
-import { NuditoWidget } from "@/components/nudito/NuditoWidget";
 import { BarraLateral } from "@/components/shell/BarraLateral";
 import { BarraSuperior } from "@/components/shell/BarraSuperior";
 import { MenuUsuario } from "@/components/shell/MenuUsuario";
@@ -13,12 +12,11 @@ import { mosaicosParaRol, NOMBRE_GRUPO, type GrupoNav } from "@/lib/navegacion";
 import { nombreRol } from "@/lib/roles";
 import { urlLogoColegio } from "@/lib/server/logo";
 import { conteoNoLeidos } from "@/lib/server/mensajes";
-import { estadoModulo, tieneFeature } from "@/lib/server/plan";
+import { estadoModulo } from "@/lib/server/plan";
 import { requireTenantContext, soporteVigenteHasta } from "@/lib/server/tenant";
 import { formatoHora } from "@/lib/fechas";
 import { AnunciosPlataforma } from "@/components/AnunciosPlataforma";
 import { anunciosVigentes } from "@/lib/server/plataforma-anuncios";
-import { horarioNudito } from "@/lib/server/plataforma-configuracion";
 import { respuestasNuevasSoporte } from "@/lib/server/soporte";
 import { cambiarRolAction, salirAction } from "./actions";
 
@@ -27,7 +25,7 @@ const ORDEN_GRUPOS: GrupoNav[] = ["dia", "comunicacion", "academico", "colegio"]
 export default async function LayoutColegio({ children, params }: LayoutProps<"/colegio/[slug]">) {
   const { slug } = await params;
   const ctx = await requireTenantContext(slug);
-  // Módulos quitados al colegio o al rol (specs/19) y, en modo soporte (specs/16), chats, notas, libreta y Nudito: no se muestran.
+  // Módulos quitados al colegio o al rol (specs/19) y, en modo soporte (specs/16), chats, notas y libreta: no se muestran.
   const mosaicos = mosaicosParaRol(ctx.rol)
     .map((m) => ({ ...m, acceso: estadoModulo(ctx, m.feature) }))
     .filter((m) => m.acceso.estado !== "oculto");
@@ -41,9 +39,8 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
   ]);
   // Mesa de ayuda (specs/23): respuestas nuevas del equipo Khipu en la campana.
   const tieneSoporte = mosaicos.some((m) => m.feature === "soporte" && m.acceso.estado === "activo");
-  const [anuncios, horario, respuestasSoporte] = await Promise.all([
+  const [anuncios, respuestasSoporte] = await Promise.all([
     anunciosVigentes(ctx),
-    horarioNudito(),
     tieneSoporte ? respuestasNuevasSoporte(ctx) : Promise.resolve(0),
   ]);
   const notificaciones = [
@@ -124,7 +121,6 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
         <AnunciosPlataforma anuncios={anuncios} />
         </>
       }
-      flotante={ctx.rol === "apoderado" && tieneFeature(ctx, "nudito") && <NuditoWidget slug={slug} horario={horario} />}
     >
       {children}
     </MarcoPanel>

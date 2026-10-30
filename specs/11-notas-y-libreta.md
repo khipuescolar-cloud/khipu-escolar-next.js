@@ -1,6 +1,6 @@
 # 11 — Notas y libreta (MINEDU)
 
-> Estado: implementado · Plan: Fase 2 (Familia) · Última actualización: 2026-10-27 (Claude Code)
+> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-10-27 (Claude Code)
 
 ## Objetivo
 Que el profesor registre evaluaciones y notas por competencia, confirme la calificación de cada periodo con su conclusión descriptiva, y que las familias vean el avance de sus hijos y descarguen la libreta en PDF. El colegio elige la escala (literal CNEB o vigesimal) en `tenant.escalaCalificacion`.
@@ -18,7 +18,7 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
 | Dirección | Ver todos los cursos y notas, abrir/cerrar/crear periodos, cerrar y **reabrir** cursos, **publicar la libreta** y reenviar el aviso, exportar CSV, ver todas las libretas | Editar notas o importar (solo lectura; las corrige el profesor) |
 | Apoderado | Ver las notas (con las observaciones) y la libreta publicada de **sus** hijos; descargar el PDF | Ver otros alumnos, promedios del salón, rankings o comparaciones (no existen en ninguna vista); ver la libreta de un periodo sin publicar |
 | Portería / alumno | — | Todo (403) |
-| Cualquiera en plan Básico | — | 403 en `/notas`, `/libreta` y su PDF (`requireFeature`) |
+| Cualquiera en un colegio con Khipu Base | — | 403 en `/notas`, `/libreta` y su PDF (`requireFeature`) |
 
 ## Flujos
 1. **Profesor** → `/notas`: elige curso y periodo (formulario GET) → pestañas:
@@ -78,7 +78,7 @@ cursosDelDocente(ctx)
 `Resultado = { ok: true; mensaje? } | { ok: false; error }` (`src/lib/resultado.ts`). Los accesos no permitidos lanzan `forbidden()` (403).
 
 ## Rutas y UI
-- `/notas` (profesor, dirección, apoderado, alumno) · `/notas/periodos` (dirección) · `/libreta` (apoderado, alumno, profesor, dirección). El rol `alumno` (cuenta propia) usa la vista de familia con un solo alumno, ve la libreta solo de periodos publicados (misma regla que la familia, también en `datosLibreta`) y no tiene «Descargar PDF» (`/api/libreta` le da 403). `/libreta?alumno=<id>` abre la libreta de ese alumno y se valida con `requireAlumnoVisible` (403 si no está en su alcance); es el enlace «Abrir la libreta» de Nudito.
+- `/notas` (profesor, dirección, apoderado, alumno) · `/notas/periodos` (dirección) · `/libreta` (apoderado, alumno, profesor, dirección). El rol `alumno` (cuenta propia) usa la vista de familia con un solo alumno, ve la libreta solo de periodos publicados (misma regla que la familia, también en `datosLibreta`) y no tiene «Descargar PDF» (`/api/libreta` le da 403). `/libreta?alumno=<id>` abre la libreta de ese alumno y se valida con `requireAlumnoVisible` (403 si no está en su alcance); (enlaces de notas y avisos).
 - `GET /api/notas/exportar?curso=<id>&periodo=<id>` → CSV de la rejilla.
 - `GET /api/libreta/[alumnoId]?periodo=<id>` → PDF (`@react-pdf/renderer`, `src/lib/server/libreta-pdf.tsx`): logo del colegio (PNG/JPG tal cual; WEBP y SVG se convierten a PNG con `sharp`, `src/lib/imagen-png.ts`, caché en memoria), colegio, datos del alumno, tabla por curso con competencia, calificación y conclusión, asistencia del periodo, leyenda de la escala y firma de dirección. 400 si faltan parámetros, 403 sin permiso. Descarga auditada («exportar»).
 - Acciones: `src/app/colegio/[slug]/notas/actions.ts`; formularios con `FormAccion` y píldoras con `Calificacion` (`src/components/`).
@@ -98,7 +98,7 @@ cursosDelDocente(ctx)
 
 ## Pruebas
 - unit: `tests/unit/calificaciones.test.ts` (escalas, etiquetas, aprobado, sugeridas), `tests/unit/fechas.test.ts`, `tests/unit/notas-csv.test.ts` (exportar/importar, visibilidad y publicación de la libreta), `tests/unit/imagen-png.test.ts` (WEBP/SVG → PNG y caché), `tests/unit/plantillas-avisos.test.ts` (`libreta_publicada`), `tests/unit/titulo-tutor-libreta.test.ts` (Tutora/Tutor/Tutor(a)); integración `tests/integracion/soporte-seguridad.test.ts` (`datosLibreta` devuelve el título según el género).
-- integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (apoderado no ve a otros alumnos ni sus notas, periodo cerrado no se edita, profesor ajeno y dirección no escriben, conclusión en B/C, libreta con asistencia y auditoría, plan Básico → 403; cierre por curso y reabrir, observaciones, importar/exportar, publicar libreta con avisos, idempotencia y visibilidad familiar).
+- integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (apoderado no ve a otros alumnos ni sus notas, periodo cerrado no se edita, profesor ajeno y dirección no escriben, conclusión en B/C, libreta con asistencia y auditoría, Khipu Base → 403; cierre por curso y reabrir, observaciones, importar/exportar, publicar libreta con avisos, idempotencia y visibilidad familiar).
 - e2e: `tests/e2e/notas-libreta.test.ts` (profesor de Euler ingresa nota vigesimal; apoderada descarga el PDF; losolivos 403; observación por nota; cerrar/reabrir curso; exportar CSV; publicar libreta y reenviar aviso, con limpieza de datos). El envío real del correo (Mailpit) no se prueba en e2e: el worker corre por cron, y el aviso queda verificado en la tabla `avisos`.
 
 ## Pendientes

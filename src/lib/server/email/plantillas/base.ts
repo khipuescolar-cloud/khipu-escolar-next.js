@@ -67,7 +67,7 @@ export function armarMensaje(c: Contenido): Mensaje {
     ? `<p style="margin:20px 0"><a href="${escaparHtml(c.boton.url)}" style="display:inline-block;padding:12px 20px;border-radius:10px;background:#1E2A78;color:#FFFFFF;font-family:${FUENTE};font-weight:600;font-size:16px;text-decoration:none">${escaparHtml(c.boton.texto)}</a></p>`
     : "";
   const noditoHtml = c.nudito
-    ? `<p style="margin:16px 0 0"><img src="${urlRaiz("/marca/nudito@2x.png")}" width="64" height="64" alt="Nudito, el asistente de Khipu" style="display:block;border:0;width:64px;height:64px"></p>`
+    ? `<p style="margin:16px 0 0"><img src="${urlRaiz("/marca/nudito@2x.png")}" width="64" height="64" alt="Nudito, de Khipu Escolar" style="display:block;border:0;width:64px;height:64px"></p>`
     : "";
   const logoColegioHtml = c.logoColegioUrl
     ? `<img src="${escaparHtml(c.logoColegioUrl)}" height="48" alt="${escaparHtml(c.colegio)}" style="display:block;border:0;height:48px;width:auto;max-width:120px">`

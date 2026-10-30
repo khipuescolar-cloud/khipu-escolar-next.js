@@ -8,7 +8,7 @@ import { PieSitio } from "./_componentes/PieSitio";
 
 const TITULO = "Khipu Escolar · Cada día de tu hijo, bien anudado.";
 const DESCRIPCION =
-  "Plataforma para colegios del Perú: asistencia con aviso a la familia al momento, portería con carnet QR, chat familia–tutor sin teléfonos, comunicados, notas por competencias, tareas y Nudito, el asistente.";
+  "Plataforma para colegios del Perú: asistencia con aviso a la familia al momento, portería con carnet QR, chat familia–tutor sin teléfonos, comunicados, notas por competencias, tareas y agenda.";
 
 export const metadata: Metadata = {
   title: { absolute: TITULO },

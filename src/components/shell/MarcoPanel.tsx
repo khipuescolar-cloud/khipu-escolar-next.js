@@ -16,7 +16,7 @@ export function MarcoPanel({
   /** Franja sobre el contenido (p. ej. el banner del modo soporte). */
   avisoSuperior?: ReactNode;
   children: ReactNode;
-  /** Elementos flotantes (p. ej. el botón de Nudito). */
+  /** Elementos flotantes (p. ej. un botón de ayuda). */
   flotante?: ReactNode;
 }) {
   return (

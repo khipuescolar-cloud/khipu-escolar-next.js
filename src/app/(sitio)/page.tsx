@@ -42,7 +42,7 @@ import { BOTON_MAIZ, TONOS, type Tono } from "./_componentes/tonos";
 // Landing pública de Khipu Escolar (specs/25-landing-publica.md). Server Component: solo el formulario,
 // el menú móvil, las pestañas de roles y el movimiento (AvisosEnVivo, DiaEnElColegio, PasosKhipu) llevan JS. Voz: «usted» al director (ventas) y «tú» a las familias.
 
-const PLANES_VALIDOS: Plan[] = ["basico", "fase2", "promax"];
+const PLANES_VALIDOS: Plan[] = ["base", "pro"];
 
 type Funcion = { Icono: LucideIcon; titulo: string; texto: ReactNode };
 
@@ -56,7 +56,7 @@ const GRUPOS: { id: string; tono: Tono; nombre: string; titulo: string; funcione
       {
         Icono: ClipboardCheck,
         titulo: "Asistencia con aviso al momento",
-        texto: "El profesor marca Llegó, Tarde, No llegó o Aviso y la familia recibe el aviso por correo y en el celular. WhatsApp y SMS, si el colegio los activa.",
+        texto: "El profesor marca Llegó, Tarde, No llegó o Aviso y la familia recibe el aviso por correo y como notificación en el celular.",
       },
       {
         Icono: ScanLine,
@@ -232,7 +232,7 @@ const PREGUNTA_ABIERTA: Record<Tono, string> = {
   cochinilla: "data-open:border-cochinilla",
   maiz: "data-open:border-maiz",
 };
-const TONO_PLAN: Record<string, Tono> = { basico: "turquesa", fase2: "cielo", promax: "maiz" };
+const TONO_PLAN: Record<string, Tono> = { base: "turquesa", pro: "maiz" };
 
 function Seccion({ id, className, children, etiqueta }: { id?: string; className?: string; children: ReactNode; etiqueta?: string }) {
   return (
@@ -370,38 +370,20 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
         </div>
       </Seccion>
 
-      {/* ───────── Nudito (cochinilla) ───────── */}
+      {/* ───────── Nudito+ (cochinilla): complemento opcional, aún no disponible ───────── */}
       <Seccion id="nudito" etiqueta="titulo-nudito">
-        <div className="relative grid items-center gap-10 overflow-hidden rounded-lg bg-cochinilla p-6 text-white sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:gap-14">
-          <div className="flex flex-col gap-5">
-            <span className="flex size-24 items-center justify-center rounded-full bg-white">
-              <img src="/marca/nudito.svg" alt="Nudito, el asistente de Khipu Escolar: un nudo de cuerda que sonríe" width={72} height={72} loading="lazy" className="size-18" />
-            </span>
+        <div className="flex flex-col items-start gap-6 rounded-lg bg-cochinilla p-6 text-white sm:flex-row sm:items-center sm:p-10">
+          <span className="flex size-24 shrink-0 items-center justify-center rounded-full bg-white">
+            <img src="/marca/nudito.svg" alt="Nudito, el personaje de Khipu Escolar: un nudo de cuerda que sonríe" width={72} height={72} loading="lazy" className="size-18" />
+          </span>
+          <div className="flex flex-col gap-3">
+            <p className="w-fit rounded-pildora bg-maiz px-3 py-1 text-etiqueta text-sobre-maiz">Próximamente</p>
             <h2 id="titulo-nudito" className="font-heading text-titulo-1 text-balance sm:text-[40px] sm:leading-[46px]">
-              Nudito, el asistente que responde con los datos del colegio
+              Nudito+
             </h2>
-            <p className="w-fit rounded-pildora bg-maiz px-3 py-1 text-etiqueta text-sobre-maiz">Incluido en el plan Pro Max</p>
-            <p className="text-cuerpo text-white/90 sm:text-lg">
-              Las familias le preguntan qué tareas hay esta semana, qué fechas vienen, el horario o el reglamento. Nudito responde solo con datos reales del colegio y de sus hijos; si no sabe algo, ofrece escribirle a una persona del colegio.
+            <p className="max-w-prose text-cuerpo text-white/90 sm:text-lg">
+              Un complemento opcional que estamos preparando para los colegios con Khipu Pro. Se contrata por alumno y lo paga la familia que lo quiera. No está incluido en ningún plan.
             </p>
-            <ul className="flex flex-col gap-3">
-              {[
-                "Nunca da malas noticias: los avisos de falta los firma el colegio, en tono serio.",
-                "Nunca inventa datos ni compara a un alumno con otro.",
-                "Siempre deja claro que es un asistente, no una persona.",
-                "Habla solo con las familias: los alumnos no lo usan.",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-3 text-cuerpo">
-                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-white/15">
-                    <Check className="size-4" strokeWidth={2.5} aria-hidden />
-                  </span>
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="mx-auto w-[64%] max-w-[300px]">
-            <Celular captura={CAPTURAS.nudito} tamanos="(min-width: 1024px) 300px, 64vw" />
           </div>
         </div>
       </Seccion>
@@ -431,9 +413,9 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
           titulo="Empiece con lo esencial y crezca cuando lo necesite"
           texto="Todos los planes incluyen la mesa de ayuda con el equipo Khipu, la app instalable y el trabajo sin conexión."
         />
-        <ul className="mt-12 grid items-stretch gap-6 lg:grid-cols-3" data-testid="planes-landing">
+        <ul className="mx-auto mt-12 grid max-w-4xl items-stretch gap-6 md:grid-cols-2" data-testid="planes-landing">
           {planes.map((p) => {
-            const destacado = p.plan === "promax";
+            const destacado = p.plan === "pro";
             const tono = TONOS[TONO_PLAN[p.plan] ?? "indigo"];
             return (
               <li

@@ -300,7 +300,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       parrafos: [
         `El equipo de Khipu Escolar entró a tu colegio en modo soporte (solo lectura) hasta las ${p.hasta}.`,
         `Motivo: ${p.motivo}`,
-        "No puede ver chats, notas, libretas ni conversaciones con Nudito. Cada ingreso queda en la auditoría.",
+        "No puede ver chats, notas ni libretas. Cada ingreso queda en la auditoría.",
       ],
       boton: { texto: "Ver auditoría", url: p.url },
     }),

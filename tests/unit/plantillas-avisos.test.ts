@@ -41,7 +41,7 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
   });
 
   it("Nudito solo aparece en tarea y libreta; nunca en faltas, tardanzas ni problemas", () => {
-    const alt = 'alt="Nudito, el asistente de Khipu"';
+    const alt = 'alt="Nudito, de Khipu Escolar"';
     expect(renderizarPlantilla("tarea_nueva", { colegio, curso: "Matemática", titulo: "x", fechaEntrega: "2026-10-30", url: "http://t" }).html).toContain(alt);
     expect(renderizarPlantilla("libreta_publicada", { colegio, periodo: "I Bimestre 2026", url: "http://l" }).html).toContain(alt);
     for (const [n, p] of [

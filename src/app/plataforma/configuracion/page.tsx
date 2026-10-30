@@ -8,9 +8,9 @@ import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { fechaLarga } from "@/lib/fechas";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
-import { colegiosParaSelector, configSoporte, datosPlataforma, feriadosDelAnio, horarioNuditoTexto } from "@/lib/server/plataforma-configuracion";
-import { agregarFeriadoAction, guardarConfigSoporteAction, guardarHorarioNuditoAction, quitarFeriadoAction } from "./actions";
-import { DialogoAgregarFeriado, FormularioHorarioNudito, FormularioSoporte } from "./FormulariosConfiguracion";
+import { colegiosParaSelector, configSoporte, datosPlataforma, feriadosDelAnio } from "@/lib/server/plataforma-configuracion";
+import { agregarFeriadoAction, guardarConfigSoporteAction, quitarFeriadoAction } from "./actions";
+import { DialogoAgregarFeriado, FormularioSoporte } from "./FormulariosConfiguracion";
 
 export const metadata: Metadata = { title: "Configuración" };
 
@@ -22,7 +22,7 @@ export default async function Configuracion({ searchParams }: PageProps<"/plataf
   const anioActual = new Date().getFullYear();
   const pedido = Number(Array.isArray(sp.anio) ? sp.anio[0] : sp.anio);
   const anio = Number.isInteger(pedido) && pedido >= 2020 && pedido <= 2100 ? pedido : anioActual;
-  const [feriados, colegios, horario, soporte] = await Promise.all([feriadosDelAnio(admin, anio), colegiosParaSelector(admin), horarioNuditoTexto(), configSoporte()]);
+  const [feriados, colegios, soporte] = await Promise.all([feriadosDelAnio(admin, anio), colegiosParaSelector(admin), configSoporte()]);
   const datos = datosPlataforma();
 
   return (
@@ -95,16 +95,6 @@ export default async function Configuracion({ searchParams }: PageProps<"/plataf
         )}
       </section>
 
-      <section aria-labelledby="nudito" className="flex flex-col gap-3">
-        <div>
-          <h2 id="nudito" className="font-heading text-titulo-2">Horario de Nudito</h2>
-          <p className="max-w-prose text-cuerpo-sm text-muted-foreground">Fuera de este horario (hora de Lima), Nudito aparece durmiendo en el panel de las familias.</p>
-        </div>
-        <Tarjeta>
-          <FormularioHorarioNudito accion={guardarHorarioNuditoAction} inicio={horario.inicio} fin={horario.fin} />
-        </Tarjeta>
-      </section>
-
       <section aria-labelledby="soporte" className="flex flex-col gap-3">
         <div>
           <h2 id="soporte" className="font-heading text-titulo-2">Mesa de ayuda</h2>
@@ -126,8 +116,6 @@ export default async function Configuracion({ searchParams }: PageProps<"/plataf
               ["Dominio base", datos.dominioBase],
               ["Almacenamiento de archivos", datos.almacenamiento],
               ["Tope diario de correos", `${nf.format(datos.topeCorreo)} por 24 h`],
-              ["Tope diario de WhatsApp", `${nf.format(datos.topeWhatsapp)} por 24 h · ${datos.whatsappActivo ? "Activo" : "Apagado"}`],
-              ["Tope diario de SMS", `${nf.format(datos.topeSms)} por 24 h · ${datos.smsActivo ? "Activo" : "Apagado"}`],
             ].map(([t, v]) => (
               <div key={t} className="flex flex-col gap-0.5 p-4">
                 <dt className="text-cuerpo-sm font-medium text-muted-foreground">{t}</dt>

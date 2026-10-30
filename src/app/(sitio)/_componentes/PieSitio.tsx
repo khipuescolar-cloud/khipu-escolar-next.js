@@ -35,7 +35,7 @@ export function PieSitio({ contacto }: { contacto: string }) {
           <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
             <Logo variante="horizontal" tono="blanco" alto={40} />
             <p className="max-w-xs text-cuerpo-sm text-pretty text-white/65">
-              Asistencia con aviso al momento, chat familia–tutor, comunicados, notas y Nudito, el asistente.
+              Asistencia con aviso al momento, chat familia–tutor, comunicados, notas y tareas.
             </p>
           </div>
           <Columna titulo="El producto">

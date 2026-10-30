@@ -31,7 +31,7 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
   if (!["apoderado", "alumno", "profesor", "direccion"].includes(ctx.rol)) forbidden();
   const familia = esVistaFamilia(ctx.rol);
 
-  // `?alumno=` (enlaces de Nudito, notas y avisos) abre la libreta de ese alumno, solo si está en el alcance del usuario.
+  // `?alumno=` (enlaces de notas y avisos) abre la libreta de ese alumno, solo si está en el alcance del usuario.
   const pedido = uno(sp.alumno);
   if (pedido) await requireAlumnoVisible(ctx, pedido);
   const [alumnos, todos] = await Promise.all([alumnosVisibles(ctx), listarPeriodos(ctx)]);

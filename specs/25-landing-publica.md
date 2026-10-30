@@ -1,6 +1,6 @@
 # 25 — Landing pública (sitio de Khipu Escolar)
 
-> Estado: implementado · Plan: público (sin sesión) · Última actualización: 2026-10-28 (Claude Code, rama `feat/p5-landing`)
+> Estado: implementado · Plan: público (sin sesión) · Última actualización: 2026-10-31 (Claude Code: dos planes, Khipu Base y Khipu Pro; Nudito+ próximamente; sin WhatsApp/SMS)
 
 ## Objetivo
 Que un director o promotor que llega a la raíz del dominio entienda en un minuto qué hace Khipu Escolar, vea **todas las funciones reales** con capturas del producto, compare los planes del catálogo y **solicite una demo**. Es la primera página pública del proyecto.
@@ -14,8 +14,8 @@ Que un director o promotor que llega a la raíz del dominio entienda en un minut
 ## Flujos
 1. `http://<APP_BASE_DOMAIN>/` → `src/proxy.ts` ya no redirige a `/login`: sirve `src/app/(sitio)/page.tsx`. Los subdominios de colegio (`<slug>.` → `/colegio/<slug>/inicio`) y `admin.` (→ `/plataforma`) no cambian.
 2. Encabezado fijo: `logotipo-escolar`, anclas (Funciones, Cómo funciona, Planes, Seguridad, Preguntas), «Ingresar» (→ `/login`) y «Solicitar demo» (→ `#demo`). En celular y tableta (< `lg`) las anclas y los dos botones van en un `Sheet` (`MenuMovil`).
-3. Secciones, en orden: hero → problema y promesa → funciones (4 grupos) → Nudito → cómo funciona (índigo, con `CuerdasKhipu`) → para cada rol (`Tabs`) → planes → seguridad y privacidad → franja «Programa piloto 2026» → preguntas frecuentes (`Accordion`) → formulario `#demo` → pie.
-4. «Quiero este plan» enlaza a `/?plan=<plan>#demo`: la página lee `searchParams.plan` (solo `basico|fase2|promax`) y lo pasa como valor inicial de «Plan de interés».
+3. Secciones, en orden: hero → problema y promesa → funciones (4 grupos) → Nudito+ (próximamente) → cómo funciona (índigo, con `CuerdasKhipu`) → para cada rol (`Tabs`) → planes → seguridad y privacidad → franja «Programa piloto 2026» → preguntas frecuentes (`Accordion`) → formulario `#demo` → pie.
+4. «Quiero este plan» enlaza a `/?plan=<plan>#demo`: la página lee `searchParams.plan` (solo `base|pro`) y lo pasa como valor inicial de «Plan de interés».
 5. Formulario: `solicitarDemoAction` (`src/app/(sitio)/actions.ts`) valida con `esquemaSolicitudDemo` para mostrar el error **junto a cada campo**, exige la casilla de consentimiento y llama a `crearSolicitudDemo(datos, ip)` (specs/26). La IP sale de `x-forwarded-for` (primera) o `x-real-ip` y solo se guarda como hash. Éxito: «Gracias, [nombre]. Te escribiremos en menos de 1 día hábil.» (también si era un bot, sin pistas).
 6. `/privacidad`: qué datos del formulario se guardan y para qué; marcada «Borrador pendiente de revisión por un abogado».
 
@@ -30,7 +30,9 @@ Que un director o promotor que llega a la raíz del dominio entienda en un minut
 ## Decisiones
 - **Titular (h1):** «Lo que pasa en el aula, le llega a la familia al toque.» (variante para directores: dice qué hace el producto). El lema «Cada día de tu hijo, bien anudado.» va en el `<title>`, en Open Graph y en el pie.
 - **Aviso sobre la fintech:** no se incluye «Khipu Escolar no es Khipu, la plataforma de pagos». Nombrar a la fintech en nuestra propia página la asocia más; el manual pide separarse por contexto («Khipu» siempre con «Escolar», sin monedas ni pagos), y la página lo cumple.
-- **Nudito** se presenta como función del plan Pro Max (manual §6: en ventas, Nudito es función, no protagonista), con su SVG oficial y sus reglas: nunca da malas noticias, no inventa ni compara, se presenta como asistente y no habla con alumnos.
+- **Planes (2026-10-31):** solo **Khipu Base** y **Khipu Pro**, en dos tarjetas (`md:grid-cols-2`); Khipu Pro destacada. Se venden completos.
+- **Nudito+** (2026-10-31): Nudito sigue como personaje de la marca (SVG oficial, burbuja de preguntas frecuentes), pero **no** se describe como incluido en un plan. Una tarjeta cochinilla corta presenta «Nudito+ · Próximamente»: complemento opcional por alumno para colegios con Khipu Pro, lo paga la familia; sin capturas ni funciones prometidas. Se quitaron la captura `nudito.webp` y la mención a Nudito en la pestaña Familias, el pie, la descripción y la imagen Open Graph.
+- **Canales:** el aviso llega «por correo y como notificación en el celular»; ya no se mencionan WhatsApp ni SMS como canales de Khipu. Los grupos de WhatsApp siguen nombrados solo como el problema actual de los colegios (sección del problema y «Un día en el colegio»).
 - `metadataBase` = `urlRaiz("/")` en el layout raíz (URLs absolutas de Open Graph). En `next dev` Next usa igual `localhost` para las imágenes de archivo; en producción, el dominio real.
 
 ## Modelo de datos
@@ -58,7 +60,7 @@ solicitarDemoAction(previo, formData): Promise<EstadoFormularioDemo>   // ok | e
 
 ### Color (rediseño 2026-10-28: uso intenso de la paleta)
 - Tonos en `_componentes/tonos.ts` (`TONOS`, `BOTON_MAIZ`): indigo, indigo-cielo, turquesa, cochinilla y maíz; clases literales. Blanco sobre los sólidos; sobre maíz siempre `sobre-maiz`; maíz nunca como texto sobre claro (sí sobre índigo: «al toque.», «La promesa:»).
-- Bloques: hero **índigo** (CTA en maíz, tarjeta de aviso «Llegó» con ícono + palabra, `HiloKhipu`) → problema (tarjetas con borde superior cochinilla/maíz/turquesa y promesa en índigo) → funciones (chips por grupo y panel de color detrás de cada captura: día a día turquesa, comunicación cochinilla, académico índigo cielo, gestión maíz) → Nudito en tarjeta **cochinilla** → cómo funciona **índigo** (pasos numerados en 4 tonos) → roles (panel sólido por rol: dirección índigo, profesores turquesa, familias cochinilla) → planes sobre `superficie-2` (franja de color por plan; Pro Max en índigo con «El más completo» en maíz) → seguridad sobre turquesa suave → piloto **maíz** sólido → preguntas → demo **índigo** con el formulario en tarjeta blanca → pie con `HiloKhipu`.
+- Bloques: hero **índigo** (CTA en maíz, tarjeta de aviso «Llegó» con ícono + palabra, `HiloKhipu`) → problema (tarjetas con borde superior cochinilla/maíz/turquesa y promesa en índigo) → funciones (chips por grupo y panel de color detrás de cada captura: día a día turquesa, comunicación cochinilla, académico índigo cielo, gestión maíz) → Nudito+ en tarjeta **cochinilla** → cómo funciona **índigo** (pasos numerados en 4 tonos) → roles (panel sólido por rol: dirección índigo, profesores turquesa, familias cochinilla) → planes sobre `superficie-2` (franja de color por plan; Khipu Pro destacada) → seguridad sobre turquesa suave → piloto **maíz** sólido → preguntas → demo **índigo** con el formulario en tarjeta blanca → pie con `HiloKhipu`.
 - Sin sobretítulos encima de los títulos (2026-10-29): el título se sostiene solo y el color lo ponen los nudos. Problema y seguridad ya no son rejillas de tarjetas iguales: columnas con un nudo y una cuerda (problema) y lista a dos columnas con filetes (seguridad). `src/components/marca/HiloKhipu.tsx` queda en el pie.
 
 ### Movimiento (2026-10-29, GSAP + ScrollTrigger con `@gsap/react`)
@@ -76,7 +78,7 @@ solicitarDemoAction(previo, formData): Promise<EstadoFormularioDemo>   // ok | e
 - **Sin JS o con «reducir movimiento»** (`gsap.matchMedia`): el HTML ya trae el estado final y la página se ve completa y quieta (primer aviso, cuerdas anudadas, día completo). Nada se oculta antes de que cargue el JS.
 
 ### Capturas reales
-- `public/landing/*.webp` (≤ 200 KB cada una; medidas y `alt` en `_componentes/capturas.ts`): `pasar-lista`, `familia-asistencia`, `chat`, `notas`, `direccion-inicio`, `nudito`, `porteria`, `carnets`, `mesa-ayuda`. Escritorio 1366 × 854; celular 390 px a 2× (780 × 1688). Tema claro.
+- `public/landing/*.webp` (≤ 200 KB cada una; medidas y `alt` en `_componentes/capturas.ts`): `pasar-lista`, `familia-asistencia`, `chat`, `notas`, `direccion-inicio`, `porteria`, `carnets`, `mesa-ayuda`. Escritorio 1366 × 854; celular 390 px a 2× (780 × 1688). Tema claro.
 - Se regeneran con `E2E_PORT=<puerto> pnpm exec tsx scripts/capturas-landing.ts` (app corriendo y BD con seed; `CAPTURAS_SOLO=chat,notas` para algunas). El script entra con las cuentas demo, reemplaza cualquier correo visible por «correo oculto», crea una conversación de chat y una consulta de mesa de ayuda **de ejemplo** y las borra al terminar.
 - Hero: laptop (pasar lista) + celular (calendario de la familia) con `priority`; el resto con carga diferida.
 
@@ -95,7 +97,7 @@ solicitarDemoAction(previo, formData): Promise<EstadoFormularioDemo>   // ok | e
 - BD caída → planes del código y contacto = khipuescolar@gmail.com.
 
 ## Pruebas
-- unit: `tests/unit/landing-planes.test.ts` (activos y orden, «todo lo de X» y módulos nuevos, plan que no contiene al anterior, precio en soles o «Precio según tamaño del colegio», respaldo del código).
+- unit: `tests/unit/landing-planes.test.ts` (activos y orden, «todo lo de Khipu Base» y módulos nuevos de Khipu Pro, plan que no contiene al anterior, precio en soles o «Precio según tamaño del colegio», respaldo del código).
 - e2e: `tests/e2e/landing-publica.test.ts` (h1, secciones y planes iguales al catálogo; «Quiero este plan» preselecciona y «Ingresar» lleva a `/login`; el formulario valida junto a los campos, pide consentimiento, guarda la solicitud y el campo trampa no guarda nada; los subdominios de colegio y `admin.` siguen yendo a su login/inicio; `/privacidad` marcada como borrador). Usa un `x-forwarded-for` distinto por prueba para no chocar con el límite por IP.
 
 ## Pendientes

@@ -25,7 +25,7 @@ export function DialogoSoporte({ tenantId, nombre, accion }: { tenantId: string;
         <DialogHeader>
           <DialogTitle className="text-lg">Entrar a {nombre} como soporte</DialogTitle>
           <DialogDescription>
-            Verás el colegio como dirección, en solo lectura. No podrás ver chats, notas, libretas ni Nudito. Tu ingreso y cada página
+            Verás el colegio como dirección, en solo lectura. No podrás ver chats, notas ni libretas. Tu ingreso y cada página
             que abras quedan registrados en la auditoría del colegio.
           </DialogDescription>
         </DialogHeader>

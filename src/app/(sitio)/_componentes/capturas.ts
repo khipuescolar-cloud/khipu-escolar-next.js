@@ -24,10 +24,6 @@ export const CAPTURAS = {
     "Registro de notas de Matemática · 3.° B en escala literal (AD, A, B, C), con el estado del cierre de notas del curso.",
   ),
   direccionInicio: escritorio("direccion-inicio", "Inicio de la dirección del colegio con los módulos Pasar lista, Portería, Avisos enviados, Justificaciones, Mensajes y Comunicados."),
-  nudito: celular(
-    "nudito",
-    "Nudito, el asistente, responde en el celular qué tareas tiene el hijo esta semana, con el curso y la fecha de entrega de cada una.",
-  ),
   porteria: celular("porteria", "Pantalla de portería en el celular: escaneo del carnet QR y búsqueda manual del alumno que no trae su carnet."),
   carnets: escritorio("carnets", "Carnets con código QR de los alumnos de 3.° B, listos para imprimir o descargar en PDF."),
   mesaAyuda: escritorio(

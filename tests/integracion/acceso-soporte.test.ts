@@ -1,5 +1,5 @@
 // Acceso de soporte del super administrador a un colegio (specs/16): solo lectura, con vencimiento,
-// sin chats/notas/libreta/Nudito y auditado. Requiere la BD local. Crea datos con sufijo aleatorio y los borra.
+// sin chats/notas/libreta y auditado. Requiere la BD local. Crea datos con sufijo aleatorio y los borra.
 import { randomUUID } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import type { Profile } from "@/generated/prisma/client";
@@ -29,7 +29,7 @@ let impostor: Profile;
 let admin: AdminContext;
 
 beforeAll(async () => {
-  colegio = await crearColegioPrueba({ plan: "promax", prefijo: "test-soporte" });
+  colegio = await crearColegioPrueba({ plan: "pro", prefijo: "test-soporte" });
   superadmin = await db.profile.create({ data: { id: randomUUID(), email: `super-${sufijo}@test-soporte.local`, nombres: "Equipo", apellidos: "Soporte" } });
   await db.adminPlataforma.create({ data: { userId: superadmin.id } });
   impostor = await db.profile.create({ data: { id: randomUUID(), email: `impostor-${sufijo}@test-soporte.local`, nombres: "Otro", apellidos: "Usuario" } });
@@ -84,14 +84,14 @@ describe("acceso de soporte vigente", () => {
     expect((await db.alumno.findUniqueOrThrow({ where: { id: mateo.id } })).nombres).toBe("Mateo");
   });
 
-  it("niega mensajes, notas, libreta, Nudito y la mesa de ayuda aunque el plan los incluya", async () => {
+  it("niega mensajes, notas, libreta y la mesa de ayuda aunque el plan los incluya", async () => {
     const ctx = await resolverContextoColegio(superadmin, colegio.tenant.slug);
-    for (const f of ["mensajes", "notas", "libreta", "nudito", "soporte"] as const) {
+    for (const f of ["mensajes", "notas", "libreta", "soporte"] as const) {
       expect(tieneFeature(ctx, f)).toBe(false);
       await esperarProhibido(Promise.resolve().then(() => requireFeature(ctx, f)));
     }
     expect(() => requireFeature(ctx, "asistencia")).not.toThrow();
-    // Dirección normal sí los tiene (plan Pro Max).
+    // Dirección normal sí los tiene (plan Khipu Pro).
     expect(tieneFeature(colegio.ctxDe("direccion"), "mensajes")).toBe(true);
   });
 

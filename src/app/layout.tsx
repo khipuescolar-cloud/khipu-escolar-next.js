@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  // `cover` + env(safe-area-inset-*) en la barra superior y el botón de Nudito (muesca y barra de inicio del iPhone).
+  // `cover` + env(safe-area-inset-*) en la barra superior y los elementos flotantes (muesca y barra de inicio del iPhone).
   viewportFit: "cover",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#1e2a78" },

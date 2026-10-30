@@ -21,7 +21,7 @@ export default async function NuevoMensajePage({ params, searchParams }: PagePro
   requireFeature(ctx, "mensajes");
   await requireConsentimiento(ctx);
   const alumnoId = Array.isArray(alumno) ? alumno[0] : alumno;
-  // `?alumno=` (Nudito, asistencia) acota a los profesores de ese hijo, solo si está en el alcance del usuario.
+  // `?alumno=` (asistencia) acota a los profesores de ese hijo, solo si está en el alcance del usuario.
   if (alumnoId) await requireAlumnoVisible(ctx, alumnoId);
   const posibles = (await destinatariosPosibles(ctx)).filter((p) => !alumnoId || p.alumnoId === alumnoId);
 

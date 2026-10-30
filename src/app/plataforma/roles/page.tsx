@@ -61,7 +61,7 @@ export default async function RolesPage() {
         <div>
           <h2 id="matriz-roles" className="text-titulo-2">Módulos por rol</h2>
           <p className="text-cuerpo-sm text-muted-foreground">
-            «No disponible» significa que el módulo no tiene pantallas para ese rol (p. ej. el alumno no usa Mensajes ni Nudito). El plan de cada colegio sigue mandando: un rol solo ve los módulos que su colegio tiene.
+            «No disponible» significa que el módulo no tiene pantallas para ese rol (p. ej. el alumno no usa Mensajes). El plan de cada colegio sigue mandando: un rol solo ve los módulos que su colegio tiene.
           </p>
         </div>
         <Tarjeta className="overflow-x-auto p-0 sm:p-0">

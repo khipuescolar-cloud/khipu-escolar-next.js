@@ -23,7 +23,7 @@ export default async function Image() {
         <div style={{ display: "flex", flexDirection: "column", marginTop: 44, gap: 18 }}>
           <div style={{ fontSize: 22, letterSpacing: 4, opacity: 0.75 }}>PARA COLEGIOS DEL PERÚ</div>
           <div style={{ fontSize: 66, fontWeight: 700, lineHeight: 1.08, maxWidth: 900 }}>Cada día de tu hijo, bien anudado.</div>
-          <div style={{ fontSize: 28, opacity: 0.82, maxWidth: 940, lineHeight: 1.35 }}>Asistencia con aviso a la familia, chat con el tutor, notas, tareas y Nudito.</div>
+          <div style={{ fontSize: 28, opacity: 0.82, maxWidth: 940, lineHeight: 1.35 }}>Asistencia con aviso a la familia, chat con el tutor, notas, tareas y agenda.</div>
         </div>
         <div style={{ display: "flex", flex: 1, position: "relative", marginTop: 36, marginLeft: -72, marginRight: -72 }}>
           <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 6, background: "rgba(255,255,255,0.7)" }} />

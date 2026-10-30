@@ -6,8 +6,7 @@ import { expiracionJustificacion } from "@/lib/plazo-justificacion";
 import { db } from "@/lib/server/db";
 import { crearAnuncio, anunciosVigentes, editarAnuncio, eliminarAnuncio } from "@/lib/server/plataforma-anuncios";
 import {
-  agregarFeriado, feriadosAplicables, feriadosDelAnio, guardarHorarioNudito, horarioNudito, limpiarCacheFeriados, quitarFeriado,
-  CLAVE_HORARIO_NUDITO,
+  agregarFeriado, feriadosAplicables, feriadosDelAnio, limpiarCacheFeriados, quitarFeriado,
 } from "@/lib/server/plataforma-configuracion";
 import { agregarMiembro, cambiarActivoMiembro, listarEquipo } from "@/lib/server/plataforma-equipo";
 import type { AdminContext } from "@/lib/server/plataforma";
@@ -33,7 +32,6 @@ afterAll(async () => {
   const perfiles = await db.profile.findMany({ where: { email: { endsWith: `-${sufijo}@test-p4c.demo` } } });
   for (const p of perfiles) await supabaseAdmin().auth.admin.deleteUser(p.id).catch(() => {});
   await db.profile.deleteMany({ where: { id: { in: perfiles.map((p) => p.id) } } });
-  await db.configPlataforma.deleteMany({ where: { clave: CLAVE_HORARIO_NUDITO, valor: { equals: { inicio: "06:00", fin: "18:00" } } } });
   await db.$disconnect();
 });
 
@@ -74,7 +72,7 @@ describe("equipo Khipu", () => {
 
 describe("anuncios", () => {
   const base = (t: string) => ({ titulo: `${t} ${sufijo}`, cuerpo: "Mensaje de prueba", nivel: "novedad" as const, audiencia: "direccion" as const, planes: [] as never[] });
-  const ctx = (rol: "direccion" | "profesor" | "apoderado", plan: "basico" | "promax", soporte = false) => ({ rol, tenant: { plan }, soporte: soporte ? {} : null });
+  const ctx = (rol: "direccion" | "profesor" | "apoderado", plan: "base" | "pro", soporte = false) => ({ rol, tenant: { plan }, soporte: soporte ? {} : null });
   const mios = (l: { titulo: string }[]) => l.filter((a) => a.titulo.includes(sufijo)).map((a) => a.titulo.split(" ")[0]);
 
   it("CRUD y filtro por vigencia, rol, plan y modo soporte", async () => {
@@ -83,17 +81,17 @@ describe("anuncios", () => {
     const lima = (d: Date) => new Date(d.getTime() - 5 * 3_600_000).toISOString().slice(0, 16);
     await crearAnuncio(admin, { ...base("vigenteDireccion"), desde: lima(h(-1)), hasta: lima(h(2)) });
     await crearAnuncio(admin, { ...base("vigenteTodos"), audiencia: "todos", nivel: "urgente", desde: lima(h(-1)), hasta: lima(h(2)) });
-    await crearAnuncio(admin, { ...base("soloPromax"), audiencia: "todos", planes: ["promax"], desde: lima(h(-1)), hasta: lima(h(2)) });
+    await crearAnuncio(admin, { ...base("soloPromax"), audiencia: "todos", planes: ["pro"], desde: lima(h(-1)), hasta: lima(h(2)) });
     await crearAnuncio(admin, { ...base("programado"), desde: lima(h(5)), hasta: lima(h(9)) });
     await crearAnuncio(admin, { ...base("terminado"), desde: lima(h(-9)), hasta: lima(h(-5)) });
 
-    expect(mios(await anunciosVigentes(ctx("direccion", "basico"), ahora))).toEqual(["vigenteTodos", "vigenteDireccion"]); // urgente primero
-    const promax = mios(await anunciosVigentes(ctx("direccion", "promax"), ahora));
+    expect(mios(await anunciosVigentes(ctx("direccion", "base"), ahora))).toEqual(["vigenteTodos", "vigenteDireccion"]); // urgente primero
+    const promax = mios(await anunciosVigentes(ctx("direccion", "pro"), ahora));
     expect(promax[0]).toBe("vigenteTodos");
     expect([...promax].sort()).toEqual(["soloPromax", "vigenteDireccion", "vigenteTodos"]);
-    expect(mios(await anunciosVigentes(ctx("profesor", "basico"), ahora))).toEqual(["vigenteTodos"]);
-    expect(mios(await anunciosVigentes(ctx("apoderado", "promax"), ahora)).sort()).toEqual(["soloPromax", "vigenteTodos"]);
-    expect(await anunciosVigentes(ctx("direccion", "promax", true), ahora)).toEqual([]);
+    expect(mios(await anunciosVigentes(ctx("profesor", "base"), ahora))).toEqual(["vigenteTodos"]);
+    expect(mios(await anunciosVigentes(ctx("apoderado", "pro"), ahora)).sort()).toEqual(["soloPromax", "vigenteTodos"]);
+    expect(await anunciosVigentes(ctx("direccion", "pro", true), ahora)).toEqual([]);
   });
 
   it("valida las fechas, edita y elimina", async () => {
@@ -149,19 +147,5 @@ describe("feriados extra", () => {
   it("rechaza alcance regional sin región y colegio inexistente", async () => {
     await expect(agregarFeriado(admin, { fecha: "2026-11-04", nombre: "Sin región", alcance: "regional" })).rejects.toThrow(/región/);
     await expect(agregarFeriado(admin, { fecha: "2026-11-04", nombre: "Sin colegio", alcance: "colegio", tenantId: randomUUID() })).rejects.toThrow(/colegio/);
-  });
-});
-
-describe("horario de Nudito", () => {
-  it("se guarda, se lee y valida fin > inicio", async () => {
-    const previo = await db.configPlataforma.findUnique({ where: { clave: CLAVE_HORARIO_NUDITO } });
-    try {
-      await guardarHorarioNudito(admin, { inicio: "06:00", fin: "18:00" });
-      expect(await horarioNudito()).toEqual({ inicio: 6, fin: 18 });
-      await expect(guardarHorarioNudito(admin, { inicio: "18:00", fin: "06:00" })).rejects.toThrow(/posterior/);
-    } finally {
-      if (previo) await db.configPlataforma.update({ where: { clave: CLAVE_HORARIO_NUDITO }, data: { valor: previo.valor as object } });
-      else await db.configPlataforma.deleteMany({ where: { clave: CLAVE_HORARIO_NUDITO } });
-    }
   });
 });

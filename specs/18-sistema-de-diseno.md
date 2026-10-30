@@ -81,7 +81,7 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 
 - **Espacio:** `espacio-1…12` = 4, 8, 12, 16, 24, 32, 48 px (escala de Tailwind: 1, 2, 3, 4, 6, 8, 12). Relleno de tarjetas y mosaicos 16 px; entre grupos 24 px; entre secciones 32 px.
 - **Radios:** `rounded-sm` 6 px (chips cuadrados) · `rounded-md` 10 px (**botones, campos, segmentos de asistencia**) · `rounded-lg` 14 px (**tarjetas, mosaicos, modales**; `rounded-xl` y `rounded-2xl` también valen 14 px) · `rounded-pildora` (etiquetas de estado y de plan).
-- **Sombras:** en reposo **nada lleva sombra**; las tarjetas se separan con borde `arena` (`shadow-xs`/`shadow-sm` valen `none`). `shadow-sombra-1` solo **al pasar el cursor por un mosaico** y en el **botón flotante de Nudito**; los menús y modales flotantes usan la misma `sombra-1`.
+- **Sombras:** en reposo **nada lleva sombra**; las tarjetas se separan con borde `arena` (`shadow-xs`/`shadow-sm` valen `none`). `shadow-sombra-1` solo **al pasar el cursor por un mosaico** y en los **botones flotantes**; los menús y modales flotantes usan la misma `sombra-1`.
 - **Foco:** anillo sólido de **2 px en `indigo-cielo`, separado 2 px** del control (regla global `:focus-visible`).
 
 ## 6. Logotipo, isotipo e íconos
@@ -94,7 +94,7 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 | `isotipo.svg` / `isotipo-blanco.svg` | Cabecera de la barra lateral cuando el colegio no tiene insignia (`Logo variante="isotipo"`) |
 | `favicon.svg` (+ `favicon-32.png`) | Pestaña del navegador (`src/app/icon.svg`) e insignia de las notificaciones push |
 | `icono-app.svg` (+ `icono-192/512.png`, `apple-touch-icon.png`) | Manifiesto PWA y pantalla de inicio del celular |
-| `nudito.svg` (+ `nudito@2x.png`) | Mascota (widget, avatar del chat, correos de Nudito) |
+| `nudito.svg` (+ `nudito@2x.png`) | Mascota de la marca (landing, correos de tareas y libretas; el asistente se retiró, `specs/13`) |
 | `patron-khipu.svg` | Fondo decorativo de portadas (login); nunca detrás de texto largo |
 
 - **Nombre:** «Khipu Escolar» en lo público; dentro del panel la barra superior dice solo «khipu». Nunca «Quipu», «Kipu» ni «KHIPU». Nada de monedas, tarjetas ni gráficos de pagos junto a la marca.
@@ -157,8 +157,8 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 | Rejilla de notas editable | `GrillaNotas` (`notas/`) dentro de tarjeta con `overflow-x-auto` | Primera columna fija, celdas de 40 px, guarda al cambiar/salir del campo, estado «Guardando/Guardado» con ícono + palabra |
 | Secciones o periodos por enlace | `NavegacionPildoras` (`components/academico`) | Píldoras con `aria-current`; activa en `primary` |
 | Fecha de entrega / tipo de evento | Insignia con ícono + palabra (`FechaEntrega` en tareas, `TIPOS` en agenda) | `falta` vencida, `tarde` hoy/mañana, `muted` resto |
-| Chat (burbujas) | Propias `bg-primary text-primary-foreground rounded-2xl rounded-br-sm`; ajenas `bg-muted rounded-bl-sm` con `Avatar` de iniciales (`bg-maiz text-indigo`) y hora `text-[11px]` | Caja de envío fija al pie del contenedor; la lista hace el scroll, no la página. Lista + hilo en 2 columnas desde `lg` (mensajes y Nudito) |
-| Sugerencias rápidas | Chips `rounded-pildora border-primary/40 text-primary`, ≥ 40 px | Ej. preguntas sugeridas de Nudito |
+| Chat (burbujas) | Propias `bg-primary text-primary-foreground rounded-2xl rounded-br-sm`; ajenas `bg-muted rounded-bl-sm` con `Avatar` de iniciales (`bg-maiz text-indigo`) y hora `text-[11px]` | Caja de envío fija al pie del contenedor; la lista hace el scroll, no la página. Lista + hilo en 2 columnas desde `lg` (mensajes) |
+| Sugerencias rápidas | Chips `rounded-pildora border-primary/40 text-primary`, ≥ 40 px | Ej. preguntas sugeridas |
 | Lista de alumnos para marcar en el celular | Tarjeta por alumno con botones `min-h-12` ícono + palabra y barra de acción `sticky bottom-0` (solo `< lg`) | El botón de guardar se duplica por CSS: `lg:hidden` en la barra y `max-lg:hidden` en el panel lateral |
 | Revisión que avisa a familias con comentario | `BotonConfirmar` con `campos` dinámicos (ver `RevisionJustificacion`) | La decisión confirma antes de enviar |
 | Mosaico del inicio | Enlace-tarjeta con ícono en contenedor `bg-primary/10 text-primary`, `Badge` para contadores | Fuera del plan: `PlanLock` y sin enlace |

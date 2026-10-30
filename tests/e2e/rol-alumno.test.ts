@@ -77,13 +77,12 @@ test("dirección crea la cuenta del alumno; el alumno entra con su DNI, cambia l
   await expect(p2.getByRole("heading", { name: `Hola, ${ALUMNO.nombres}` })).toBeVisible();
   const main = p2.getByRole("main");
   for (const t of ["Mi asistencia", "Comunicados", "Notas", "Libreta", "Tareas", "Agenda"]) await expect(main.getByText(t, { exact: true })).toBeVisible();
-  for (const t of ["Mensajes", "Nudito", "Gestión"]) await expect(main.getByText(t, { exact: true })).toHaveCount(0);
+  for (const t of ["Mensajes", "Gestión"]) await expect(main.getByText(t, { exact: true })).toHaveCount(0);
 
   await p2.goto(`${COLEGIO}/tareas`);
   await expect(p2.getByRole("heading", { name: "Tareas" })).toBeVisible();
   await expect(p2.getByText("Lo que tienes que entregar.")).toBeVisible();
   await esperarSinAcceso(p2, await p2.goto(`${COLEGIO}/mensajes`));
   await esperarSinAcceso(p2, await p2.goto(`${COLEGIO}/gestion/alumnos`));
-  await esperarSinAcceso(p2, await p2.goto(`${COLEGIO}/nudito`));
   await ctx.close();
 });

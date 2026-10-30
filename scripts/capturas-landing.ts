@@ -138,19 +138,6 @@ const CAPTURAS: Captura[] = [
     },
   },
   {
-    nombre: "nudito",
-    cuenta: "rosa.quispe@gmail.com",
-    vista: "celular",
-    ancho: 390,
-    preparar: async (page) => {
-      await page.goto(`${COLEGIO}/inicio`);
-      await page.getByRole("button", { name: /Abrir a Nudito/ }).click();
-      await page.getByRole("button", { name: "¿Qué tareas hay esta semana?" }).click();
-      await page.getByRole("log", { name: "Conversación con Nudito" }).getByText(/tarea/i).nth(1).waitFor({ timeout: 20_000 });
-      await page.waitForTimeout(1500);
-    },
-  },
-  {
     nombre: "porteria",
     cuenta: "porteria@nuevohorizonte.demo",
     vista: "celular",

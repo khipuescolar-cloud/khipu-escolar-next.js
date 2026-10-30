@@ -5,14 +5,13 @@ import { CLAVE_CORREO_SOPORTE, correoEquipoSoporte } from "./notificaciones/avis
 import { z } from "zod";
 import { feriadosNacionalesConNombre } from "@/lib/dias-habiles";
 import { fechaDb, isoDeFechaDb } from "@/lib/fechas";
-import { horarioDesdeConfig } from "@/lib/nudito/estado";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { db } from "./db";
-import { leerLimites, limiteCanalDePago } from "./notificaciones/limites";
+import { leerLimites } from "./notificaciones/limites";
 import type { AdminContext } from "./plataforma";
 import { registrarPlataforma } from "./plataforma-registro";
 
-// Configuración global de la plataforma (specs/22): feriados extra, horario de Nudito y datos de solo lectura.
+// Configuración global de la plataforma (specs/22): feriados extra, mesa de ayuda y datos de solo lectura.
 
 // ───────────── Feriados ─────────────
 
@@ -126,36 +125,6 @@ export async function feriadosAplicables(tenantId: string, desde: string, hasta:
   return c.fechas.filter((f) => f >= desde && f <= hasta);
 }
 
-// ───────────── Horario de Nudito ─────────────
-
-export const CLAVE_HORARIO_NUDITO = "nudito:horario";
-
-/** Horario (horas enteras) para el widget de Nudito. */
-export async function horarioNudito(): Promise<{ inicio: number; fin: number }> {
-  const fila = await db.configPlataforma.findUnique({ where: { clave: CLAVE_HORARIO_NUDITO } });
-  return horarioDesdeConfig(fila?.valor);
-}
-
-export async function horarioNuditoTexto(): Promise<{ inicio: string; fin: string }> {
-  const h = await horarioNudito();
-  const t = (n: number) => `${String(n).padStart(2, "0")}:00`;
-  return { inicio: t(h.inicio), fin: t(h.fin) };
-}
-
-const esquemaHorario = z
-  .object({
-    inicio: z.string().regex(/^([01]\d|2[0-3]):00$/, "Elige la hora de inicio."),
-    fin: z.string().regex(/^([01]\d|2[0-3]):00$/, "Elige la hora de fin."),
-  })
-  .refine((h) => h.inicio < h.fin, { message: "La hora de fin debe ser posterior a la de inicio.", path: ["fin"] });
-
-export async function guardarHorarioNudito(admin: AdminContext, entrada: { inicio: string; fin: string }): Promise<void> {
-  const r = esquemaHorario.safeParse(entrada);
-  if (!r.success) throw new ErrorDeNegocio(r.error.issues[0]?.message ?? "Revisa el horario.");
-  await db.configPlataforma.upsert({ where: { clave: CLAVE_HORARIO_NUDITO }, update: { valor: r.data }, create: { clave: CLAVE_HORARIO_NUDITO, valor: r.data } });
-  await registrarPlataforma(admin.user.id, "config_horario_nudito", null, r.data);
-}
-
 // ───────────── Mesa de ayuda: buzón del equipo y horario de atención (specs/23) ─────────────
 
 const esquemaSoporte = z.object({
@@ -187,14 +156,9 @@ export async function configSoporte(): Promise<{ correoGuardado: string; correoE
 // ───────────── Datos de la plataforma (solo lectura, sin secretos) ─────────────
 
 export function datosPlataforma(entorno: Record<string, string | undefined> = process.env) {
-  const smsActivo = !!entorno.SMS_PROVEEDOR && !!entorno.TWILIO_ACCOUNT_SID;
   return {
     dominioBase: entorno.APP_BASE_DOMAIN ?? "lvh.me:3000",
     almacenamiento: entorno.STORAGE_PROVIDER || "local",
     topeCorreo: leerLimites(entorno).limiteDiario,
-    topeWhatsapp: limiteCanalDePago("whatsapp", entorno),
-    topeSms: limiteCanalDePago("sms", entorno),
-    whatsappActivo: !!entorno.WHATSAPP_TOKEN && !!entorno.WHATSAPP_PHONE_NUMBER_ID,
-    smsActivo,
   };
 }
