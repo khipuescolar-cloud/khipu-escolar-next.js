@@ -30,6 +30,7 @@ export const INFO_MODULO: Record<Feature, { nombre: string; descripcion: string;
   tareas: { nombre: "Tareas", descripcion: "Tareas con fecha de entrega y adjuntos.", icono: "ListTodo" },
   agenda: { nombre: "Agenda", descripcion: "Eventos, exámenes y reuniones del colegio y de cada salón.", icono: "CalendarDays" },
   tablero: { nombre: "Tablero de dirección", descripcion: "Indicadores de asistencia, notas, tareas y avisos del colegio, y el consolidado de notas por salón en Excel y PDF.", icono: "BarChart3" },
+  documentos: { nombre: "Documentos", descripcion: "Biblioteca del colegio con carpetas y permisos por rol y salón: reglamento, calendario y comunicados oficiales.", icono: "FolderOpen" },
   soporte: { nombre: "Soporte Khipu", descripcion: "Chat del colegio con el equipo de Khipu Escolar (mesa de ayuda): dudas, problemas y sugerencias.", icono: "LifeBuoy" },
 };
 

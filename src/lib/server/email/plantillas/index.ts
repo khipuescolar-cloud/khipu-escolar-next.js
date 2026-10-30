@@ -69,6 +69,8 @@ const ESQUEMAS = {
     fechaEntrega: fechaIso,
     url,
   }),
+  /** Documento nuevo en la biblioteca (specs/31). */
+  documento_nuevo: z.object({ ...comun, titulo: z.string().min(1), carpeta: z.string().min(1).optional(), url }),
   libreta_publicada: z.object({
     ...comun,
     /** Nombre(s) de los hijos de esa familia; si falta, el texto no nombra al alumno. */
@@ -260,6 +262,18 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
         `Se entrega el ${fechaCorta(p.fechaEntrega)}.`,
       ],
       boton: { texto: "Ver tareas", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  documento_nuevo: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `Nuevo documento: ${p.titulo}`,
+      insignia: "info",
+      palabraInsignia: "Documento",
+      parrafos: [`El colegio publicó un documento nuevo: «${p.titulo}»${p.carpeta ? ` (carpeta ${p.carpeta})` : ""}.`, "Puedes verlo y descargarlo en la biblioteca de documentos."],
+      boton: { texto: "Ver documentos", url: p.url },
       urlPreferencias: p.urlPreferencias,
     }),
 

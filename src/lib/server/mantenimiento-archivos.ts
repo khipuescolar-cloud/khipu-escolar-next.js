@@ -29,6 +29,7 @@ export async function encontrarArchivosHuerfanos(prisma: PrismaClient, ahora = n
       id: { notIn: referenciados },
       comunicadoId: null,
       tareaId: null,
+      documentoId: null,
       justificaciones: { none: {} },
       exportaciones: { none: {} },
     },

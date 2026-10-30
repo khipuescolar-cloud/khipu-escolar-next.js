@@ -4,6 +4,7 @@ import "dotenv/config";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { createClient } from "@supabase/supabase-js";
 import { PrismaClient } from "../src/generated/prisma/client";
+import { sembrarDocumentos } from "./seed-documentos";
 import type { Nivel, Plan, Rol, EscalaCalificacion } from "../src/generated/prisma/enums";
 import { sembrarTablero } from "./seed-tablero";
 
@@ -293,6 +294,7 @@ async function main() {
 
   await responsablesYSuscripcionesDemo();
   await sembrarTablero(prisma);
+  await sembrarDocumentos(prisma, {});
 
   console.log("Seed listo. Cuentas (contraseña demo123):");
   console.log("  lucia.garcia@nuevohorizonte.demo  profesora · Khipu Pro");

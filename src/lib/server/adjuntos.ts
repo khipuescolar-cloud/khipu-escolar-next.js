@@ -16,8 +16,8 @@ export const MIME_XLSX = "application/vnd.openxmlformats-officedocument.spreadsh
 export type MimeAdjunto = "application/pdf" | "image/jpeg" | "image/png" | "image/webp" | typeof MIME_DOCX | typeof MIME_XLSX;
 
 export type EntradaAdjunto = { nombre: string; buffer: Buffer };
-/** Comunicado, tarea o mensaje de la mesa de ayuda (specs/23). */
-export type DestinoAdjunto = { comunicadoId: string } | { tareaId: string } | { mensajeSoporteId: string };
+/** Comunicado, tarea, mensaje de la mesa de ayuda (specs/23) o documento de la biblioteca (specs/31). */
+export type DestinoAdjunto = { comunicadoId: string } | { tareaId: string } | { mensajeSoporteId: string } | { documentoId: string };
 
 /** Detecta el tipo real por la firma. Los DOCX y XLSX son ZIP: se distinguen por sus entradas internas. */
 export function detectarMimeAdjunto(buffer: Uint8Array): MimeAdjunto | null {
@@ -81,7 +81,7 @@ export const adjuntoVista = (a: Pick<Archivo, "id" | "nombre" | "mimeType" | "by
 /** Sube los archivos ya validados como privados y los registra en el elemento. Si algo falla, deshace lo subido. */
 export async function guardarAdjuntos(ctx: TenantContext, destino: DestinoAdjunto, validados: AdjuntoValidado[]): Promise<Archivo[]> {
   const guardados: Archivo[] = [];
-  const carpeta = "comunicadoId" in destino ? "comunicados" : "tareaId" in destino ? "tareas" : "soporte";
+  const carpeta = "comunicadoId" in destino ? "comunicados" : "tareaId" in destino ? "tareas" : "documentoId" in destino ? "documentos" : "soporte";
   try {
     for (const v of validados) {
       const subido = await storage().subir(v.buffer, { tenantId: ctx.tenant.id, carpeta, privado: true, mimeType: v.mimeType });
