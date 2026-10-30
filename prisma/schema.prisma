@@ -413,6 +413,8 @@ model ApoderadoAlumno {
 
   @@unique([apoderadoId, alumnoId])
   @@index([tenantId])
+  // Índices de rendimiento (docs/pruebas-de-estres.md, migración 20261101090000_indices_rendimiento).
+  @@index([alumnoId])
   @@map("apoderados_alumnos")
 }
 
@@ -431,6 +433,8 @@ model Consentimiento {
   vinculos  ApoderadoAlumno[]
 
   @@index([tenantId, apoderadoId])
+  // Índices de rendimiento (docs/pruebas-de-estres.md, migración 20261101090000_indices_rendimiento).
+  @@index([apoderadoId])
   @@map("consentimientos")
 }
 
@@ -494,6 +498,9 @@ model Asistencia {
 
   @@unique([alumnoId, fecha, ambito])
   @@index([tenantId, fecha])
+  // Índices de rendimiento (docs/pruebas-de-estres.md, migración 20261101090000_indices_rendimiento).
+  @@index([cursoId])
+  @@index([registradoPorId])
   @@map("asistencias")
 }
 
@@ -526,6 +533,10 @@ model Aviso {
 
   @@index([estado, programadoPara])
   @@index([tenantId, createdAt])
+  // Índices de rendimiento (docs/pruebas-de-estres.md, migración 20261101090000_indices_rendimiento).
+  @@index([asistenciaId])
+  @@index([apoderadoId])
+  @@index([canal, enviadoAt])
   @@map("avisos")
 }
 
@@ -543,6 +554,8 @@ model JustificacionToken {
   asistencia Asistencia @relation(fields: [asistenciaId], references: [id], onDelete: Cascade)
   apoderado  Membership @relation(fields: [apoderadoId], references: [id], onDelete: Cascade)
 
+  // Índices de rendimiento (docs/pruebas-de-estres.md, migración 20261101090000_indices_rendimiento).
+  @@index([asistenciaId])
   @@map("justificacion_tokens")
 }
 
@@ -566,6 +579,8 @@ model Justificacion {
   adjunto     Archivo?    @relation(fields: [adjuntoArchivoId], references: [id], onDelete: SetNull)
 
   @@index([tenantId, estado])
+  // Índices de rendimiento (docs/pruebas-de-estres.md, migración 20261101090000_indices_rendimiento).
+  @@index([asistenciaId])
   @@map("justificaciones")
 }
 
@@ -788,6 +803,9 @@ model Nota {
   registradoPor Membership @relation(fields: [registradoPorId], references: [id], onDelete: NoAction)
 
   @@unique([evaluacionId, alumnoId])
+  // Índices de rendimiento (docs/pruebas-de-estres.md, migración 20261101090000_indices_rendimiento).
+  @@index([alumnoId])
+  @@index([registradoPorId])
   @@map("notas")
 }
 
