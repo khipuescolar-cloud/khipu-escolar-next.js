@@ -68,7 +68,7 @@ solicitarDemoAction(previo, formData): Promise<EstadoFormularioDemo>   // ok | e
 - **Cómo funciona** (`_componentes/PasosKhipu.tsx`): los 4 pasos son nudos de una cuerda en maíz que se dibuja con el scroll (horizontal en escritorio, vertical en el celular).
 - **Funciones:** sin barra de atajos (se quitó el 2026-10-29: se veía mal, sobre todo en el celular).
 - **Para cada rol** (`_componentes/PestanasRoles.tsx`): pestañas propias (tablist accesible con flechas, Inicio y Fin) con el rol y a quién va dirigido. Los tres paneles comparten la celda de la rejilla (los inactivos con `inert` e invisibles), así el bloque no cambia de tamaño al cambiar de pestaña.
-- **Preguntas frecuentes:** fondo índigo cielo suave, cada pregunta en su tarjeta con un ícono de color y borde del mismo tono al abrirse. Nudito invita a preguntar (burbuja cochinilla, Nunito) con el botón «Hacer otra pregunta» (→ #demo).
+- **Preguntas frecuentes:** fondo índigo cielo suave, cada pregunta en su tarjeta con un ícono índigo (un solo tono desde 2026-10-30) y borde índigo al abrirse. Nudito invita a preguntar (burbuja cochinilla, Nunito) con el botón «Hacer otra pregunta» (→ #demo).
 - **Formulario de demo:** tres bloques numerados (Sobre usted · Su colegio · ¿Cómo le contactamos?) con ejemplos en cada campo; el consentimiento y el envío van separados por un filete.
 - **Pie** (`_componentes/PieSitio.tsx`): fondo `tinta` con la cuerda del khipu arriba; cierre con el lema (sin botones: la demo está justo arriba); columnas El producto, Empieza y Khipu Escolar (correo de contacto, Privacidad, Programa piloto 2026); «Hecho en el Perú para los colegios del Perú».
 - **Seguridad:** la sección se quitó de la landing por ahora (2026-10-29), igual que su ancla del encabezado. La Ley 29733 sigue en las garantías del hero y en las preguntas frecuentes.
@@ -81,7 +81,8 @@ solicitarDemoAction(previo, formData): Promise<EstadoFormularioDemo>   // ok | e
 - Hero: laptop (pasar lista) + celular (calendario de la familia) con `priority`; el resto con carga diferida.
 
 ## Textos y UX
-- Hero sin sobretítulo; «Hecho para colegios del Perú» va primero en la lista de garantías; subtítulo = la promesa de marca; CTA «Solicitar demo» y «Ver funciones».
+- Hero sin sobretítulo; «Hecho para colegios del Perú» va primero en la lista de garantías; CTA «Solicitar demo» y «Ver funciones».
+- **Rediseño Jafet (2026-10-30, rama `REDISEÑO-LANDING-JAFET`, solo diseño y textos):** el subtítulo del hero le habla al director (pasa lista en menos de un minuto, aviso firmado por el colegio, sin grupos de WhatsApp); la garantía dice «Datos protegidos según la Ley 29733»; detrás del hero va la textura decorativa `public/landing/textura-khipu.svg` (7 % de opacidad, `aria-hidden`); la franja del piloto suma tres beneficios (8 semanas sin costo, le ayudamos a cargar su lista, precio de colegio fundador en 2027) y su botón dice «Quiero ser colegio fundador» (mismo `#demo`); el FAQ «¿Cuánto tarda empezar?» dice que ayudamos a cargar la lista desde Excel; los íconos del FAQ van todos en índigo; el título de la demo pasa a «Solicite una demo» (usted). **Los beneficios del piloto los confirman Jafet y Sebas antes de integrar.**
 - Problema (3 puntos): la familia no se entera a tiempo; el profesor avisa uno por uno (30 alumnos = 30 mensajes); la información está dispersa (WhatsApp, cuadernos, Excel).
 - Cómo funciona: el colegio se registra con Khipu → carga profesores y alumnos (CSV) → el profesor pasa lista → la familia recibe el aviso.
 - Estados de error del formulario junto al campo; error general con `Alerta`; éxito con ícono + texto y foco en el mensaje.

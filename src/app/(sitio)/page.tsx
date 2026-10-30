@@ -188,37 +188,37 @@ const PROBLEMAS: { tono: Tono; titulo: string; texto: string }[] = [
 const PREGUNTAS: { Icono: LucideIcon; tono: Tono; p: string; r: string }[] = [
   {
     Icono: Download,
-    tono: "turquesa",
+    tono: "indigo",
     p: "¿Necesitan instalar algo?",
     r: "No. Khipu Escolar funciona en el navegador del celular o de la computadora. Si lo prefieren, se instala como app desde la página «Instalar la app», sin pasar por tiendas.",
   },
   {
     Icono: Clock,
-    tono: "cochinilla",
+    tono: "indigo",
     p: "¿Cuánto tarda empezar?",
-    r: "Lo que tome cargar a su gente. Nosotros creamos el colegio y la cuenta de dirección; ustedes cargan profesores y alumnos con un archivo CSV o uno por uno, y las familias reciben su invitación por correo. En la demo coordinamos las fechas.",
+    r: "Pocos días. Nosotros creamos el colegio y la cuenta de dirección, y le ayudamos a cargar a profesores y alumnos desde su lista en Excel. Las familias reciben su invitación por correo. En la demo coordinamos las fechas.",
   },
   {
     Icono: Smartphone,
-    tono: "maiz",
+    tono: "indigo",
     p: "¿Funciona en celulares baratos?",
     r: "Sí, está pensado primero para el celular: botones grandes, pantallas livianas y textos claros. Basta un navegador actualizado, como Chrome o Safari.",
   },
   {
     Icono: WifiOff,
-    tono: "cielo",
+    tono: "indigo",
     p: "¿Qué pasa si no hay internet?",
     r: "Pasar lista y la portería siguen funcionando: los registros se guardan en el dispositivo y se envían solos cuando vuelve la conexión, con la hora en que se hicieron.",
   },
   {
     Icono: ShieldCheck,
-    tono: "turquesa",
+    tono: "indigo",
     p: "¿Cómo se manejan los datos de los alumnos?",
     r: "Según la Ley 29733: cada colegio tiene sus datos separados, se piden solo los necesarios, las familias dan su consentimiento y cada persona ve solo lo que le corresponde. El equipo de Khipu no lee chats ni notas.",
   },
   {
     Icono: MonitorPlay,
-    tono: "cochinilla",
+    tono: "indigo",
     p: "¿Puedo probarlo?",
     r: "Sí. Solicite una demo con el formulario de abajo: le mostramos Khipu Escolar con un colegio de ejemplo y conversamos sobre el programa piloto 2026.",
   },
@@ -272,13 +272,15 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
     <>
       {/* ───────── Hero (índigo): los avisos llegan y cada uno ata un nudo en la cuerda ───────── */}
       <EscenaAvisos aria-labelledby="titulo-principal" className="relative overflow-hidden bg-indigo text-white">
+        {/* Textura de cuerdas del khipu (decorativa, rediseño Jafet 2026-10-30). */}
+        <div className="pointer-events-none absolute inset-0 bg-[url(/landing/textura-khipu.svg)] bg-[length:144px_180px] opacity-[0.07] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" aria-hidden />
         <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-4 pt-12 pb-10 sm:px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-10 lg:pt-20 lg:pb-14">
           <div className="flex flex-col gap-7">
             <h1 id="titulo-principal" className="font-heading text-[38px] leading-[44px] font-bold tracking-[-0.025em] text-balance sm:text-[50px] sm:leading-[56px] lg:text-[58px] lg:leading-[64px]">
               Lo que pasa en el aula, le llega a la familia <span className="text-maiz">al toque.</span>
             </h1>
             <p className="max-w-xl text-lg leading-7 text-pretty text-white/85">
-              Lo importante del colegio llega a tiempo, claro y seguro: asistencia, notas y tareas, en el momento en que pasan. Khipu Escolar une a dirección, profesores y familias en un solo lugar.
+              El profesor pasa lista en menos de un minuto y cada familia recibe su aviso, firmado por el colegio. Usted ve qué avisos llegaron, sin grupos de WhatsApp ni profesores dando su número.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <a href="#demo" className={cn(buttonVariants({ size: "lg" }), "h-12 px-6 active:not-aria-[haspopup]:translate-y-0 active:scale-[0.96]", BOTON_MAIZ)}>
@@ -289,7 +291,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
               </a>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 text-cuerpo-sm text-white/85">
-              {["Hecho para colegios del Perú", "Sin instalar nada", "Funciona en el celular", "Ley 29733"].map((t) => (
+              {["Hecho para colegios del Perú", "Sin instalar nada", "Funciona en el celular", "Datos protegidos según la Ley 29733"].map((t) => (
                 <li key={t} className="flex items-center gap-2">
                   <Check className="size-4 text-maiz" strokeWidth={2.5} aria-hidden /> {t}
                 </li>
@@ -485,20 +487,27 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
 
       {/* ───────── Programa piloto (maíz) ───────── */}
       <section aria-labelledby="titulo-piloto" className="bg-maiz text-sobre-maiz">
-        <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-12 sm:px-6 md:flex-row md:items-center md:justify-between">
           <div className="flex items-start gap-4">
             <span className="flex size-12 shrink-0 items-center justify-center rounded-md bg-indigo text-white">
               <School className="size-6" strokeWidth={2} aria-hidden />
             </span>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-3">
               <h2 id="titulo-piloto" className="font-heading text-titulo-2 text-balance">
                 Programa piloto 2026: buscamos los primeros colegios
               </h2>
-              <p className="text-cuerpo">Estamos eligiendo a los primeros colegios del Perú que usarán Khipu Escolar. ¿Quiere que el suyo sea uno de ellos?</p>
+              <p className="text-cuerpo">Pocos colegios fundadores estrenan Khipu Escolar con nosotros, en persona. Atendemos a pocos para hacerlo bien.</p>
+              <ul className="flex flex-col gap-2 text-cuerpo sm:flex-row sm:flex-wrap sm:gap-x-6">
+                {["8 semanas sin costo", "Le ayudamos a cargar su lista", "Precio de colegio fundador en 2027"].map((t) => (
+                  <li key={t} className="flex items-center gap-2 font-semibold">
+                    <Check className="size-4 shrink-0" strokeWidth={2.5} aria-hidden /> {t}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
           <a href="#demo" className={cn(buttonVariants({ size: "lg" }), "h-12 shrink-0 bg-indigo px-6 text-white hover:bg-indigo/90 active:not-aria-[haspopup]:translate-y-0 active:scale-[0.96]")}>
-            Postular a mi colegio
+            Quiero ser colegio fundador
           </a>
         </div>
       </section>
@@ -545,7 +554,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
             <Encabezado
               id="titulo-demo"
               claro
-              titulo="Solicita una demo"
+              titulo="Solicite una demo"
               texto="Déjenos sus datos y le mostramos Khipu Escolar con un colegio de ejemplo, en una videollamada o en su colegio."
             />
             <ul className="flex flex-col gap-3 text-cuerpo">
