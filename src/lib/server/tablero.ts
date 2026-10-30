@@ -76,7 +76,7 @@ export type ParametrosTablero = { p?: string | null; umbral?: string | null };
 
 // ───────────── SQL ─────────────
 
-/** Un registro por alumno y día, con la misma regla que los reportes (specs/27): prevalece el ingreso al colegio (`ambito = 'dia'`); si no, el primero por hora. */
+/** Un registro por alumno y día, con la misma regla que los reportes (specs/27): solo la asistencia al colegio (`ambito = 'dia'`, única por alumno y día). */
 function registrosDelDia(tenantId: string, dias: string[]) {
   return Prisma.sql`
     reg AS (
@@ -84,8 +84,8 @@ function registrosDelDia(tenantId: string, dias: string[]) {
       FROM asistencias a
       JOIN alumnos al ON al.id = a.alumno_id AND al.tenant_id = a.tenant_id AND al.estado = 'activo'
       JOIN salones s ON s.id = al.salon_id AND s.archivado_at IS NULL
-      WHERE a.tenant_id = ${tenantId}::uuid AND a.fecha = ANY(${dias}::date[])
-      ORDER BY a.alumno_id, a.fecha, (a.ambito = 'dia') DESC, a.hora ASC
+      WHERE a.tenant_id = ${tenantId}::uuid AND a.fecha = ANY(${dias}::date[]) AND a.ambito = 'dia'
+      ORDER BY a.alumno_id, a.fecha
     )`;
 }
 

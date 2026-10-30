@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   diasHabilesDelRango, elegirRegistroDelDia, filtrosDeBusqueda, MAX_DIAS_RANGO, nombreArchivoReporte,
-  porcentajeAsistencia, rangoSchema, resumirAlumno, sumarResumenes, textoPorcentaje, type RegistroDia,
+  porcentajeAsistencia, rangoSchema, resumirAlumno, sumarResumenes, textoJustificacion, textoPorcentaje, type RegistroDia,
 } from "@/lib/reportes-asistencia";
 import { tablaDeReporte } from "@/lib/reportes-asistencia-tabla";
 
@@ -57,9 +57,26 @@ describe("porcentaje de asistencia", () => {
       // 30: sin registro
       reg("2026-10-31", "llego"), // sábado: fuera de los días hábiles, no cuenta
     ]);
-    expect(resumen).toMatchObject({ diasHabiles: 5, diasConRegistro: 4, diasSinRegistro: 1, llego: 1, tarde: 1, falta: 2, problema: 0, faltasJustificadas: 1, faltasInjustificadas: 1 });
+    expect(resumen).toMatchObject({ diasHabiles: 5, diasConRegistro: 4, diasSinRegistro: 1, llego: 1, tarde: 1, falta: 2, problema: 0, faltasJustificadas: 1, faltasEnRevision: 0, faltasInjustificadas: 1 });
     expect(resumen.porcentaje).toBe(50);
-    expect(detalle.at(-1)).toEqual({ fecha: "2026-10-30", estado: null, hora: null, justificada: false });
+    expect(detalle.at(-1)).toEqual({ fecha: "2026-10-30", estado: null, hora: null, justificada: false, enRevision: false });
+  });
+
+  it("separa las faltas justificadas, en revisión (justificación pendiente) y sin justificar", () => {
+    const { resumen, detalle } = resumirAlumno(dias.slice(0, 4), [
+      reg("2026-10-26", "falta", { justificacion: "aceptada" }),
+      reg("2026-10-27", "falta", { justificacion: "pendiente" }),
+      reg("2026-10-28", "falta", { justificacion: "rechazada" }),
+      reg("2026-10-29", "falta"),
+    ]);
+    expect(resumen).toMatchObject({ falta: 4, faltasJustificadas: 1, faltasEnRevision: 1, faltasInjustificadas: 2 });
+    expect(detalle.map(textoJustificacion)).toEqual(["Justificada", "En revisión", "Sin justificar", "Sin justificar"]);
+    expect(sumarResumenes([resumen, resumen])).toMatchObject({ faltasEnRevision: 2, faltasInjustificadas: 4 });
+  });
+
+  it("solo cuenta la asistencia al colegio: un día con solo registros de curso queda sin registro", () => {
+    const { resumen } = resumirAlumno(["2026-10-26", "2026-10-27"], [reg("2026-10-26", "falta", { ambito: "c1" }), reg("2026-10-27", "llego", { ambito: "c1" }), reg("2026-10-27", "tarde")]);
+    expect(resumen).toMatchObject({ diasConRegistro: 1, diasSinRegistro: 1, falta: 0, tarde: 1, porcentaje: 100 });
   });
 
   it("un día con ingreso y curso cuenta una sola vez, con el ingreso", () => {

@@ -14,7 +14,10 @@ const base = { colegio: "Colegio Prueba", desde: "2026-03-02", hasta: "2026-03-0
 const reportes: ReporteAsistencia[] = [
   { ...base, tipo: "salon", salon: { id: "s", nombre: "3.° B" }, filas: [{ alumnoId: "a", nombres: "Mateo", apellidos: "Quispe", codigo: "M-1", resumen: resumen.resumen }], total: resumen.resumen },
   { ...base, tipo: "alumno", alumno: { id: "a", nombres: "Mateo", apellidos: "Quispe", codigo: null, salonId: "s", salon: "3.° B" }, resumen: resumen.resumen, detalle: resumen.detalle },
-  { ...base, tipo: "colegio", filas: [{ salonId: "s", salon: "3.° B", alumnos: 1, resumen: resumen.resumen }], total: resumen.resumen },
+  {
+    ...base, tipo: "colegio", filas: [{ salonId: "s", salon: "3.° B", alumnos: 1, resumen: resumen.resumen }], total: resumen.resumen,
+    cursos: [{ salonId: "s", salon: "3.° B", cursoId: "c", curso: "Matemática", registros: 10, faltas: 2, faltasConIngreso: 1, tardanzas: 1 }],
+  },
 ];
 
 describe("exportación de reportes de asistencia", () => {
@@ -28,6 +31,15 @@ describe("exportación de reportes de asistencia", () => {
     let hallado = false;
     hoja.eachRow((fila) => fila.eachCell((c) => { if (c.value === 0.5 && c.numFmt === "0.0%") hallado = true; }));
     expect(hallado).toBe(true);
+  });
+
+  it("el resumen del colegio exporta la sección «Asistencia por curso» con las faltas de quien ingresó", async () => {
+    const libro = new ExcelJS.Workbook();
+    await libro.xlsx.load((await reporteAExcel(reportes[2])) as never);
+    const valores = JSON.stringify(libro.getWorksheet("Asistencia")!.getSheetValues());
+    expect(valores).toContain("Asistencia por curso");
+    expect(valores).toContain("Ingresó pero faltó a clase");
+    expect(valores).toContain("Matemática");
   });
 
   it.each(reportes.map((r) => [r.tipo, r] as const))("genera un PDF válido (%s)", async (_t, reporte) => {

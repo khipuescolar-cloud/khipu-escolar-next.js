@@ -1,13 +1,15 @@
 import "server-only";
 import { forbidden, notFound } from "next/navigation";
 import { z } from "zod";
+import { Prisma } from "@/generated/prisma/client";
+import type { EstadoJustificacion } from "@/generated/prisma/enums";
 import { fechaDb, isoDeFechaDb } from "@/lib/fechas";
 import {
   diasHabilesDelRango, rangoSchema, resumirAlumno, sumarResumenes,
   type DetalleDia, type FiltrosReporte, type RegistroDia, type ResumenAlumno,
 } from "@/lib/reportes-asistencia";
 import { esVistaFamilia } from "@/lib/roles";
-import { hoyDelColegio } from "./asistencia";
+import { AMBITO_DIA, hoyDelColegio } from "./asistencia";
 import { auditar } from "./auditoria";
 import { feriadosAplicables } from "./plataforma-configuracion";
 import { requireFeature } from "./plan";
@@ -15,7 +17,8 @@ import { whereSalonActivo } from "./salones-activos";
 import { requireAlumnoVisible, salonIdsVisibles, type TenantContext } from "./tenant";
 
 // Reportes de asistencia por alumno, salón y rango de fechas (specs/27-reportes-asistencia.md).
-// Porcentaje = (llegó + tarde) / días hábiles con registro. Las reglas puras viven en src/lib/reportes-asistencia.ts.
+// Asistencia al colegio (solo `ambito = "dia"`): porcentaje = (llegó + tarde) / días hábiles con registro.
+// Asistencia por curso: faltas y tardanzas a clase por salón y curso, aparte. Las reglas puras viven en src/lib/reportes-asistencia.ts.
 
 export type AccionReporte = { accion: "ver" } | { accion: "exportar"; formato: "excel" | "pdf" };
 
@@ -49,6 +52,20 @@ export type ReporteSalon = {
 
 export type FilaSalonReporte = { salonId: string; salon: string; alumnos: number; resumen: ResumenAlumno };
 
+/** Asistencia por curso en el rango: una fila por curso con registros (alumnos activos). */
+export type FilaCursoReporte = {
+  salonId: string;
+  salon: string;
+  cursoId: string;
+  curso: string;
+  /** Registros de esa lista en el rango (alumno-clase). */
+  registros: number;
+  faltas: number;
+  /** Faltas a clase de alumnos que ese día sí ingresaron al colegio (llegó o tarde en la asistencia del día). */
+  faltasConIngreso: number;
+  tardanzas: number;
+};
+
 export type ReporteColegio = {
   tipo: "colegio";
   colegio: string;
@@ -57,6 +74,8 @@ export type ReporteColegio = {
   hastaEfectivo: string;
   filas: FilaSalonReporte[];
   total: ResumenAlumno;
+  /** Asistencia por curso; null si ningún nivel del colegio la tiene activa (Configuración). */
+  cursos: FilaCursoReporte[] | null;
 };
 
 export type ReporteAsistencia = ReporteAlumno | ReporteSalon | ReporteColegio;
@@ -95,7 +114,8 @@ export async function diasHabiles(ctx: TenantContext, desde: string, hastaEfecti
 async function registrosPorAlumno(ctx: TenantContext, alumnoIds: string[], desde: string, hasta: string): Promise<Map<string, RegistroDia[]>> {
   const mapa = new Map<string, RegistroDia[]>();
   if (alumnoIds.length === 0) return mapa;
-  const enRango = { alumnoId: { in: alumnoIds }, fecha: { gte: fechaDb(desde), lte: fechaDb(hasta) } };
+  // Solo la asistencia al colegio: los registros de curso no cuentan en el porcentaje (specs/27).
+  const enRango = { alumnoId: { in: alumnoIds }, fecha: { gte: fechaDb(desde), lte: fechaDb(hasta) }, ambito: AMBITO_DIA };
   // Las justificaciones van en una consulta aparte filtrada por relación: incluirlas con `include` hacía que Prisma
   // pasara cada id de asistencia como parámetro y el reporte del colegio (≈1 000 alumnos × 2 meses = 80 000 filas)
   // superaba el tope de 32 767 parámetros de Postgres (P2029). Ver docs/pruebas-de-estres.md.
@@ -184,13 +204,106 @@ export async function resumenColegio(ctx: TenantContext, entrada: unknown, como:
     }),
     diasHabiles(ctx, desde, hastaEfectivo),
   ]);
-  const registros = await registrosPorAlumno(ctx, salones.flatMap((s) => s.alumnos.map((a) => a.id)), desde, hastaEfectivo);
+  const [registros, cursos] = await Promise.all([
+    registrosPorAlumno(ctx, salones.flatMap((s) => s.alumnos.map((a) => a.id)), desde, hastaEfectivo),
+    ctx.tenant.asistenciaPorCursoNiveles.length > 0 ? asistenciaPorCurso(ctx, alcance, desde, hastaEfectivo) : Promise.resolve(null),
+  ]);
   const filas = salones.map<FilaSalonReporte>((s) => ({
     salonId: s.id, salon: s.nombre, alumnos: s.alumnos.length,
     resumen: sumarResumenes(s.alumnos.map((a) => resumirAlumno(dias, registros.get(a.id) ?? []).resumen)),
   }));
   await auditarReporte(ctx, ctx.tenant.id, { tipo: "colegio", desde, hasta }, como);
-  return { tipo: "colegio", colegio: ctx.tenant.nombre, desde, hasta, hastaEfectivo, filas, total: sumarResumenes(filas.map((f) => f.resumen)) };
+  return { tipo: "colegio", colegio: ctx.tenant.nombre, desde, hasta, hastaEfectivo, filas, total: sumarResumenes(filas.map((f) => f.resumen)), cursos };
+}
+
+/**
+ * Faltas y tardanzas a clase por salón y curso en el rango, con las faltas de alumnos que ese día sí ingresaron al
+ * colegio. Una sola consulta agregada en SQL (sin listas de ids: un colegio de 1 000 alumnos no pasa el tope de parámetros).
+ * `alcance`: salones visibles (null = todos). Solo alumnos activos y salones no archivados.
+ */
+async function asistenciaPorCurso(ctx: TenantContext, alcance: string[] | null, desde: string, hasta: string): Promise<FilaCursoReporte[]> {
+  if (alcance && alcance.length === 0) return [];
+  const filtroSalon = alcance ? Prisma.sql`AND s.id = ANY(${alcance}::uuid[])` : Prisma.empty;
+  const filas = await ctx.db.$queryRaw<{ salon_id: string; salon: string; curso_id: string; curso: string; registros: number; faltas: number; faltas_con_ingreso: number; tardanzas: number }[]>`
+    SELECT s.id::text AS salon_id, s.nombre AS salon, c.id::text AS curso_id, c.nombre AS curso,
+      count(*)::int AS registros,
+      count(*) FILTER (WHERE a.estado = 'falta')::int AS faltas,
+      count(*) FILTER (WHERE a.estado = 'falta' AND d.estado IN ('llego', 'tarde'))::int AS faltas_con_ingreso,
+      count(*) FILTER (WHERE a.estado = 'tarde')::int AS tardanzas
+    FROM asistencias a
+    JOIN cursos c ON c.id = a.curso_id
+    JOIN salones s ON s.id = c.salon_id AND s.archivado_at IS NULL
+    JOIN alumnos al ON al.id = a.alumno_id AND al.estado = 'activo'
+    LEFT JOIN asistencias d ON d.alumno_id = a.alumno_id AND d.fecha = a.fecha AND d.ambito = 'dia'
+    WHERE a.tenant_id = ${ctx.tenant.id}::uuid AND a.ambito <> 'dia' AND a.fecha BETWEEN ${desde}::date AND ${hasta}::date ${filtroSalon}
+    GROUP BY s.id, s.nombre, c.id, c.nombre
+    ORDER BY s.nombre, c.nombre`;
+  return filas.map((f) => ({
+    salonId: f.salon_id, salon: f.salon, cursoId: f.curso_id, curso: f.curso,
+    registros: f.registros, faltas: f.faltas, faltasConIngreso: f.faltas_con_ingreso, tardanzas: f.tardanzas,
+  }));
+}
+
+export type FaltaCurso = {
+  asistenciaId: string;
+  alumnoId: string;
+  alumno: string;
+  fecha: string;
+  hora: string;
+  estado: "falta" | "tarde";
+  /** Ingreso al colegio de ese día (asistencia del día), o null si no hay registro. */
+  ingreso: { estado: "llego" | "tarde" | "falta" | "problema"; hora: string } | null;
+  justificacion: EstadoJustificacion | null;
+};
+
+export type DetalleCurso = {
+  salon: { id: string; nombre: string };
+  curso: { id: string; nombre: string };
+  desde: string;
+  hasta: string;
+  hastaEfectivo: string;
+  filas: FaltaCurso[];
+};
+
+const entradaCurso = z.object({ cursoId: z.uuid() }).and(rangoSchema);
+
+/** Detalle de un curso: cada falta o tardanza a clase del rango con el ingreso al colegio de ese día. Profesor: solo sus salones. */
+export async function detalleCurso(ctx: TenantContext, entrada: unknown): Promise<DetalleCurso> {
+  requireFeature(ctx, "asistencia");
+  const { cursoId, desde, hasta } = entradaCurso.parse(entrada);
+  const curso = await ctx.db.curso.findFirst({ where: { id: cursoId }, select: { id: true, nombre: true, salonId: true } });
+  if (!curso) notFound();
+  const salon = await requireSalonDelReporte(ctx, curso.salonId);
+  const hastaEfectivo = hastaEfectivoDe(ctx, hasta);
+  const rango = { gte: fechaDb(desde), lte: fechaDb(hastaEfectivo) };
+  const registros = await ctx.db.asistencia.findMany({
+    where: { ambito: cursoId, fecha: rango, estado: { in: ["falta", "tarde"] }, alumno: { estado: "activo" } },
+    orderBy: [{ fecha: "desc" }, { hora: "asc" }],
+    select: {
+      id: true, alumnoId: true, fecha: true, hora: true, estado: true,
+      alumno: { select: { nombres: true, apellidos: true } },
+      justificaciones: { orderBy: { createdAt: "desc" }, take: 1, select: { estado: true } },
+    },
+  });
+  // Ingresos al colegio de esos alumnos en el rango (a lo sumo los alumnos de un salón: pocos parámetros).
+  const alumnoIds = [...new Set(registros.map((r) => r.alumnoId))];
+  const ingresos = alumnoIds.length === 0 ? [] : await ctx.db.asistencia.findMany({
+    where: { alumnoId: { in: alumnoIds }, ambito: AMBITO_DIA, fecha: rango },
+    select: { alumnoId: true, fecha: true, estado: true, hora: true },
+  });
+  const ingresoDe = new Map(ingresos.map((i) => [`${i.alumnoId}:${isoDeFechaDb(i.fecha)}`, { estado: i.estado, hora: i.hora }]));
+  await auditarReporte(ctx, cursoId, { tipo: "curso", desde, hasta }, { accion: "ver" });
+  return {
+    salon, curso: { id: curso.id, nombre: curso.nombre }, desde, hasta, hastaEfectivo,
+    filas: registros.map((r) => {
+      const fecha = isoDeFechaDb(r.fecha);
+      return {
+        asistenciaId: r.id, alumnoId: r.alumnoId, alumno: `${r.alumno.apellidos}, ${r.alumno.nombres}`, fecha, hora: r.hora,
+        estado: r.estado as "falta" | "tarde", ingreso: ingresoDe.get(`${r.alumnoId}:${fecha}`) ?? null,
+        justificacion: r.justificaciones[0]?.estado ?? null,
+      };
+    }),
+  };
 }
 
 /** Reporte según los filtros: alumno → detalle; salón → tabla de alumnos; nada → resumen por salón. */

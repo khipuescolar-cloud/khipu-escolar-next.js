@@ -52,13 +52,23 @@ export type ResumenAlumno = {
   tarde: number;
   falta: number;
   problema: number;
+  /** Faltas con justificación aceptada. */
   faltasJustificadas: number;
+  /** Faltas con una justificación enviada que la tutora o dirección aún no revisa. */
+  faltasEnRevision: number;
+  /** Faltas sin justificación o con la justificación rechazada. */
   faltasInjustificadas: number;
   /** (llegó + tarde) / días con registro × 100, con un decimal; null si no hay días con registro. */
   porcentaje: number | null;
 };
 
-export type DetalleDia = { fecha: string; estado: EstadoRegistro | null; hora: string | null; justificada: boolean };
+export type DetalleDia = { fecha: string; estado: EstadoRegistro | null; hora: string | null; justificada: boolean; enRevision: boolean };
+
+/** Texto de la justificación de una falta en el detalle por día. */
+export function textoJustificacion(d: Pick<DetalleDia, "estado" | "justificada" | "enRevision">): string {
+  if (d.estado !== "falta") return "";
+  return d.justificada ? "Justificada" : d.enRevision ? "En revisión" : "Sin justificar";
+}
 
 /** Porcentaje con un decimal (nulo sin base). */
 export function porcentajeAsistencia(presentes: number, base: number): number | null {
@@ -68,29 +78,31 @@ export function porcentajeAsistencia(presentes: number, base: number): number | 
 
 /**
  * Resumen de un alumno. `diasHabiles` son los días hábiles ya recortados (hasta hoy en la zona del colegio).
- * Los registros en fines de semana, feriados o fuera del rango no cuentan.
- * Falta justificada = falta con justificación aceptada; las pendientes o rechazadas son injustificadas.
+ * Solo cuenta la **asistencia al colegio** (`ambito = "dia"`: portería o lista del día); los registros de curso se ven en
+ * «Asistencia por curso» (specs/27). Los registros en fines de semana, feriados o fuera del rango no cuentan.
+ * Falta justificada = justificación aceptada; en revisión = pendiente; sin justificar = sin justificación o rechazada.
  */
 export function resumirAlumno(diasHabiles: readonly string[], registros: readonly RegistroDia[]): { resumen: ResumenAlumno; detalle: DetalleDia[] } {
   const porFecha = new Map<string, RegistroDia[]>();
-  for (const r of registros) porFecha.set(r.fecha, [...(porFecha.get(r.fecha) ?? []), r]);
+  for (const r of registros) if (r.ambito === "dia") porFecha.set(r.fecha, [...(porFecha.get(r.fecha) ?? []), r]);
   const resumen: ResumenAlumno = {
     diasHabiles: diasHabiles.length, diasConRegistro: 0, diasSinRegistro: 0,
-    llego: 0, tarde: 0, falta: 0, problema: 0, faltasJustificadas: 0, faltasInjustificadas: 0, porcentaje: null,
+    llego: 0, tarde: 0, falta: 0, problema: 0, faltasJustificadas: 0, faltasEnRevision: 0, faltasInjustificadas: 0, porcentaje: null,
   };
   const detalle: DetalleDia[] = [];
   for (const fecha of diasHabiles) {
     const r = elegirRegistroDelDia(porFecha.get(fecha) ?? []);
     if (!r) {
       resumen.diasSinRegistro++;
-      detalle.push({ fecha, estado: null, hora: null, justificada: false });
+      detalle.push({ fecha, estado: null, hora: null, justificada: false, enRevision: false });
       continue;
     }
     resumen.diasConRegistro++;
     resumen[r.estado]++;
     const justificada = r.estado === "falta" && r.justificacion === "aceptada";
-    if (r.estado === "falta") resumen[justificada ? "faltasJustificadas" : "faltasInjustificadas"]++;
-    detalle.push({ fecha, estado: r.estado, hora: r.hora, justificada });
+    const enRevision = r.estado === "falta" && r.justificacion === "pendiente";
+    if (r.estado === "falta") resumen[justificada ? "faltasJustificadas" : enRevision ? "faltasEnRevision" : "faltasInjustificadas"]++;
+    detalle.push({ fecha, estado: r.estado, hora: r.hora, justificada, enRevision });
   }
   resumen.porcentaje = porcentajeAsistencia(resumen.llego + resumen.tarde, resumen.diasConRegistro);
   return { resumen, detalle };
@@ -100,12 +112,12 @@ export function resumirAlumno(diasHabiles: readonly string[], registros: readonl
 export function sumarResumenes(resumenes: readonly ResumenAlumno[]): ResumenAlumno {
   const t: ResumenAlumno = {
     diasHabiles: 0, diasConRegistro: 0, diasSinRegistro: 0,
-    llego: 0, tarde: 0, falta: 0, problema: 0, faltasJustificadas: 0, faltasInjustificadas: 0, porcentaje: null,
+    llego: 0, tarde: 0, falta: 0, problema: 0, faltasJustificadas: 0, faltasEnRevision: 0, faltasInjustificadas: 0, porcentaje: null,
   };
   for (const r of resumenes) {
     t.diasHabiles += r.diasHabiles; t.diasConRegistro += r.diasConRegistro; t.diasSinRegistro += r.diasSinRegistro;
     t.llego += r.llego; t.tarde += r.tarde; t.falta += r.falta; t.problema += r.problema;
-    t.faltasJustificadas += r.faltasJustificadas; t.faltasInjustificadas += r.faltasInjustificadas;
+    t.faltasJustificadas += r.faltasJustificadas; t.faltasEnRevision += r.faltasEnRevision; t.faltasInjustificadas += r.faltasInjustificadas;
   }
   t.porcentaje = porcentajeAsistencia(t.llego + t.tarde, t.diasConRegistro);
   return t;
