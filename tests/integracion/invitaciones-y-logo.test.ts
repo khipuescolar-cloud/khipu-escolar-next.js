@@ -22,7 +22,7 @@ const authCreados: string[] = [];
 const PNG = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==", "base64");
 
 beforeAll(async () => {
-  tenant = await db.tenant.create({ data: { slug: `test-ui2-${sufijo}`, nombre: "Colegio UI2", plan: "basico" } });
+  tenant = await db.tenant.create({ data: { slug: `test-ui2-${sufijo}`, nombre: "Colegio UI2", plan: "base" } });
   direccion = await db.profile.create({ data: { id: randomUUID(), email: `dir-${sufijo}@prueba.demo`, nombres: "Dora", apellidos: "Directora" } });
   dirMembership = await db.membership.create({ data: { tenantId: tenant.id, userId: direccion.id, rol: "direccion" } });
   ctx = { tenant, user: direccion, membership: dirMembership, rol: "direccion", roles: ["direccion"], db: dbTenant(tenant.id), ...accesoModulosDeCodigo(tenant.plan) };

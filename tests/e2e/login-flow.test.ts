@@ -21,16 +21,17 @@ test("apoderada con hijos en dos colegios elige a cuál entrar", async ({ page }
   await expect(page.getByText("Academia Euler")).toBeVisible();
   await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
   await page.waitForURL(`http://nuevohorizonte.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
-  await expect(page.getByRole("main").getByText("Nudito")).toBeVisible();
+  await expect(page.getByRole("main").getByText("Tareas", { exact: true })).toBeVisible();
+  await expect(page.getByRole("main").getByText("Nudito")).toHaveCount(0);
 });
 
-test("plan Básico muestra candados en funciones de planes superiores", async ({ page }) => {
+test("Khipu Base muestra el candado «Plan Khipu Pro» en las funciones de Pro", async ({ page }) => {
   await page.goto("/login");
   await page.getByLabel("Correo").fill("direccion@losolivos.demo");
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
   await page.waitForURL(`http://losolivos.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
-  await expect(page.getByText("Plan Familia").first()).toBeVisible();
+  await expect(page.getByText("Plan Khipu Pro").first()).toBeVisible();
 });
 
 test("contraseña incorrecta muestra un error claro", async ({ page }) => {

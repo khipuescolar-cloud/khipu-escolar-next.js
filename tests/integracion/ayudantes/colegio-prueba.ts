@@ -19,7 +19,7 @@ export async function crearColegioPrueba(
     data: {
       slug: `${opciones.prefijo ?? "test-basico"}-${sufijo}`,
       nombre: `Colegio Prueba ${sufijo}`,
-      plan: opciones.plan ?? "basico",
+      plan: opciones.plan ?? "base",
       horaLimiteTardanza: opciones.horaLimiteTardanza ?? "08:00",
     },
   });

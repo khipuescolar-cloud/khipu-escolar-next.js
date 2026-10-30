@@ -1,6 +1,6 @@
 # 23 — Mesa de ayuda (chat del colegio con el equipo Khipu)
 
-> Estado: implementado · Plan: Básico, Familia y Pro Max (todos) · Última actualización: 2026-10-28 (Claude, subagente mesa-ayuda)
+> Estado: implementado · Plan: Khipu Base y Khipu Pro (todos) · Última actualización: 2026-10-28 (Claude, subagente mesa-ayuda)
 
 ## Objetivo
 Que la dirección (o quien tenga el permiso) hable directamente con el equipo de soporte de Khipu desde el colegio, en un chat con historial, estados y valoración; y que el equipo atienda todas las conversaciones desde una bandeja en el panel de plataforma (`/mesa-ayuda`) con notas internas, asignación y SLA.

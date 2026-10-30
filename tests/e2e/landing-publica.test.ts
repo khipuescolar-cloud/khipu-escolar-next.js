@@ -50,9 +50,9 @@ test("la raíz muestra la landing con sus secciones y los planes del catálogo",
 
 test("«Ingresar» lleva al login y «Quiero este plan» preselecciona el plan en el formulario", async ({ page }) => {
   await page.goto(`${RAIZ}/`);
-  await page.getByRole("link", { name: "Quiero el plan Pro Max" }).click();
-  await expect(page).toHaveURL(/\?plan=promax#demo$/);
-  await expect(page.getByLabel(/Plan de interés/)).toHaveValue("promax");
+  await page.getByRole("link", { name: "Quiero el plan Khipu Pro" }).click();
+  await expect(page).toHaveURL(/\?plan=pro#demo$/);
+  await expect(page.getByLabel(/Plan de interés/)).toHaveValue("pro");
 
   await page.getByRole("banner").getByRole("link", { name: "Ingresar" }).click();
   await page.waitForURL(`${RAIZ}/login`);
@@ -77,7 +77,7 @@ test("el formulario de demo guarda la solicitud, pide el consentimiento y descar
   await form.getByLabel(/^Correo/).fill(correo);
   await form.getByLabel(/^Teléfono/).fill("987 654 321");
   await form.getByLabel(/Número aproximado/).fill("320");
-  await form.getByLabel(/Plan de interés/).selectOption("fase2");
+  await form.getByLabel(/Plan de interés/).selectOption("pro");
   await form.getByLabel(/^Mensaje/).fill("Queremos verlo antes de diciembre.");
   await form.getByLabel(/Acepto que Khipu Escolar me contacte/).check();
   await form.getByRole("button", { name: "Solicitar demo" }).click();
@@ -88,7 +88,7 @@ test("el formulario de demo guarda la solicitud, pide el consentimiento y descar
     [correo],
   );
   expect(filas).toHaveLength(1);
-  expect(filas[0]).toMatchObject({ colegio: "I.E.P. Prueba E2E", alumnos: 320, plan_interes: "fase2" });
+  expect(filas[0]).toMatchObject({ colegio: "I.E.P. Prueba E2E", alumnos: 320, plan_interes: "pro" });
   expect(filas[0].ip_hash).not.toMatch(/^10\./);
 
   // Bot: llena el campo trampa. Ve la misma respuesta, pero no se guarda nada.

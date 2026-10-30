@@ -31,7 +31,7 @@ async function persona(clave: string, rol: Rol, nombres: string, apellidos: stri
 }
 
 beforeAll(async () => {
-  tenant = await db.tenant.create({ data: { slug: `test-gestion-${sufijo}`, nombre: "Colegio de Prueba", plan: "basico" } });
+  tenant = await db.tenant.create({ data: { slug: `test-gestion-${sufijo}`, nombre: "Colegio de Prueba", plan: "base" } });
   await persona("dir", "direccion", "Dora", "Directora");
   await persona("tutora", "profesor", "Lucía", "Tutora");
   await persona("prof", "profesor", "Pedro", "Curso");

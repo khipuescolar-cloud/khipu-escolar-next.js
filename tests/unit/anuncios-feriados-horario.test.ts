@@ -8,15 +8,15 @@ import { motivoNoDesactivar } from "@/lib/server/plataforma-equipo";
 describe("anuncioAplica", () => {
   it("filtra por audiencia", () => {
     const a = { planes: [] as never[] };
-    expect(anuncioAplica({ ...a, audiencia: "direccion" }, { rol: "direccion", plan: "basico" })).toBe(true);
-    expect(anuncioAplica({ ...a, audiencia: "direccion" }, { rol: "profesor", plan: "basico" })).toBe(false);
-    expect(anuncioAplica({ ...a, audiencia: "personal" }, { rol: "porteria", plan: "basico" })).toBe(true);
-    expect(anuncioAplica({ ...a, audiencia: "personal" }, { rol: "apoderado", plan: "basico" })).toBe(false);
-    expect(anuncioAplica({ ...a, audiencia: "todos" }, { rol: "apoderado", plan: "basico" })).toBe(true);
+    expect(anuncioAplica({ ...a, audiencia: "direccion" }, { rol: "direccion", plan: "base" })).toBe(true);
+    expect(anuncioAplica({ ...a, audiencia: "direccion" }, { rol: "profesor", plan: "base" })).toBe(false);
+    expect(anuncioAplica({ ...a, audiencia: "personal" }, { rol: "porteria", plan: "base" })).toBe(true);
+    expect(anuncioAplica({ ...a, audiencia: "personal" }, { rol: "apoderado", plan: "base" })).toBe(false);
+    expect(anuncioAplica({ ...a, audiencia: "todos" }, { rol: "apoderado", plan: "base" })).toBe(true);
   });
   it("filtra por plan (vacío = todos)", () => {
-    expect(anuncioAplica({ audiencia: "todos", planes: ["promax"] }, { rol: "direccion", plan: "basico" })).toBe(false);
-    expect(anuncioAplica({ audiencia: "todos", planes: ["promax", "basico"] }, { rol: "direccion", plan: "basico" })).toBe(true);
+    expect(anuncioAplica({ audiencia: "todos", planes: ["pro"] }, { rol: "direccion", plan: "base" })).toBe(false);
+    expect(anuncioAplica({ audiencia: "todos", planes: ["pro", "base"] }, { rol: "direccion", plan: "base" })).toBe(true);
   });
 });
 

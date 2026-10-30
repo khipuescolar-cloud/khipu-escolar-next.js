@@ -15,35 +15,31 @@ const fila = (f: Partial<FilaCatalogoPublico> & Pick<FilaCatalogoPublico, "plan"
 describe("armarPlanesPublicos (landing)", () => {
   it("muestra solo los planes activos, por orden, con «todo lo de X, más» y los módulos nuevos", () => {
     const planes = armarPlanesPublicos([
-      fila({ plan: "promax", nombre: "Pro Max", orden: 3, modulos: ["asistencia", "mensajes", "gestion", "notas", "nudito"] }),
-      fila({ plan: "basico", nombre: "Básico", orden: 1, modulos: ["asistencia", "mensajes", "gestion", "soporte", "avisos"] }),
-      fila({ plan: "fase2", nombre: "Familia", orden: 2, modulos: ["asistencia", "mensajes", "gestion", "notas"] }),
+      fila({ plan: "pro", nombre: "Khipu Pro", orden: 2, modulos: ["asistencia", "mensajes", "gestion", "notas", "tareas"] }),
+      fila({ plan: "base", nombre: "Khipu Base", orden: 1, modulos: ["asistencia", "mensajes", "gestion", "soporte", "avisos"] }),
     ]);
-    expect(planes.map((p) => p.nombre)).toEqual(["Básico", "Familia", "Pro Max"]);
+    expect(planes.map((p) => p.nombre)).toEqual(["Khipu Base", "Khipu Pro"]);
     expect(planes[0].incluyeA).toBeNull();
     // soporte y avisos no se listan como función del plan
     expect(planes[0].nuevos.map((m) => m.clave)).toEqual(["asistencia", "mensajes", "gestion"]);
-    expect(planes[1].incluyeA).toBe("Básico");
-    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["notas"]);
-    expect(planes[2].incluyeA).toBe("Familia");
-    expect(planes[2].nuevos.map((m) => m.nombre)).toEqual(["Nudito, el asistente para las familias"]);
+    expect(planes[1].incluyeA).toBe("Khipu Base");
+    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["notas", "tareas"]);
   });
 
   it("oculta los planes inactivos y no dice «todo lo de» si el plan no contiene al anterior", () => {
+    expect(armarPlanesPublicos([fila({ plan: "base", orden: 1, activo: false }), fila({ plan: "pro", orden: 2 })]).map((p) => p.plan)).toEqual(["pro"]);
     const planes = armarPlanesPublicos([
-      fila({ plan: "basico", nombre: "Básico", orden: 1, modulos: ["asistencia", "comunicados"] }),
-      fila({ plan: "fase2", nombre: "Familia", orden: 2, activo: false }),
-      fila({ plan: "promax", nombre: "Pro Max", orden: 3, modulos: ["asistencia", "nudito"] }),
+      fila({ plan: "base", nombre: "Khipu Base", orden: 1, modulos: ["asistencia", "comunicados"] }),
+      fila({ plan: "pro", nombre: "Khipu Pro", orden: 2, modulos: ["asistencia", "notas"] }),
     ]);
-    expect(planes.map((p) => p.plan)).toEqual(["basico", "promax"]);
     expect(planes[1].incluyeA).toBeNull();
-    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["asistencia", "gestion", "nudito"]);
+    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["asistencia", "gestion", "notas"]);
   });
 
   it("muestra el precio en soles si existe y, si no, «Precio según tamaño del colegio»", () => {
     const [con, sin] = armarPlanesPublicos([
-      fila({ plan: "basico", orden: 1, precioPorAlumno: 4, precioMinimoMensual: 300 }),
-      fila({ plan: "fase2", orden: 2, precioPorAlumno: 0 }),
+      fila({ plan: "base", orden: 1, precioPorAlumno: 4, precioMinimoMensual: 300 }),
+      fila({ plan: "pro", orden: 2, precioPorAlumno: 0 }),
     ]);
     expect(con.precio).toMatch(/^S\/\s?4\.00 por alumno al mes$/);
     expect(con.minimo).toMatch(/^Mínimo S\/\s?300\.00 al mes$/);
@@ -51,9 +47,10 @@ describe("armarPlanesPublicos (landing)", () => {
     expect(sin.minimo).toBeNull();
   });
 
-  it("sin filas en la BD usa los planes del código", () => {
+  it("sin filas en la BD usa los planes del código: Khipu Base y Khipu Pro", () => {
     const planes = armarPlanesPublicos(catalogoDeCodigo());
-    expect(planes.map((p) => p.nombre)).toEqual(["Básico", "Familia", "Pro Max"]);
-    expect(planes[2].modulos.some((m) => m.clave === "nudito")).toBe(true);
+    expect(planes.map((p) => p.nombre)).toEqual(["Khipu Base", "Khipu Pro"]);
+    expect(planes[1].incluyeA).toBe("Khipu Base");
+    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["notas", "libreta", "tareas", "agenda"]);
   });
 });

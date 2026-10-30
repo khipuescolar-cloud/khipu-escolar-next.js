@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Khipu Escolar — guía para agentes y colaboradores
 
-Plataforma web multitenant para colegios del Perú: asistencia con aviso a la familia, chat familia ↔ profesor, notas y libreta, tareas y agenda, y el asistente Nudito. Idioma del producto, del código de dominio y de la documentación: **español (Perú)**.
+Plataforma web multitenant para colegios del Perú: asistencia con aviso a la familia, chat familia ↔ profesor, notas y libreta, tareas y agenda. Dos planes: **Khipu Base** (`base`) y **Khipu Pro** (`pro`); ver `specs/03`. Idioma del producto, del código de dominio y de la documentación: **español (Perú)**.
 
 ## Normas obligatorias (para personas y agentes de cualquier tipo)
 
@@ -54,7 +54,7 @@ Mailpit (correos locales): http://127.0.0.1:54324 · Supabase Studio: http://127
   - Plan: `requireFeature(ctx, "notas")` (`src/lib/server/plan.ts`) en cada página, action y route handler de funciones de pago. La UI solo muestra el candado.
   - RLS está activado y **cerrado** para `anon`/`authenticated` en todas las tablas (respaldo si alguien usa supabase-js).
 - **Auditoría:** `auditar()` al ver o cambiar datos de alumnos.
-- **Correo:** Nodemailer (Mailpit local; Amazon SES en el piloto). **Push:** web-push. **Archivos:** interfaz `FileStorage` (local / Cloudinary; luego S3).
+- **Correo:** Nodemailer (Mailpit local; Amazon SES en el piloto). **Push:** web-push. Son los únicos canales de aviso (sin WhatsApp ni SMS). **Archivos:** interfaz `FileStorage` (local / Cloudinary; luego S3).
 
 ## Estilo
 
@@ -68,11 +68,11 @@ Mailpit (correos locales): http://127.0.0.1:54324 · Supabase Studio: http://127
 
 | Correo | Rol | Colegio · plan |
 |---|---|---|
-| lucia.garcia@nuevohorizonte.demo | profesora (tutora 3.° B) | Nuevo Horizonte · Pro Max |
-| pedro.salas@nuevohorizonte.demo | profesor | Nuevo Horizonte · Pro Max |
-| direccion@nuevohorizonte.demo | dirección | Nuevo Horizonte · Pro Max |
-| porteria@nuevohorizonte.demo | portería | Nuevo Horizonte · Pro Max |
-| jorge.ramos@academiaeuler.demo | profesor | Academia Euler · Fase 2 (vigesimal) |
-| direccion@losolivos.demo | dirección | Los Olivos · Básico |
+| lucia.garcia@nuevohorizonte.demo | profesora (tutora 3.° B) | Nuevo Horizonte · Khipu Pro |
+| pedro.salas@nuevohorizonte.demo | profesor | Nuevo Horizonte · Khipu Pro |
+| direccion@nuevohorizonte.demo | dirección | Nuevo Horizonte · Khipu Pro |
+| porteria@nuevohorizonte.demo | portería | Nuevo Horizonte · Khipu Pro |
+| jorge.ramos@academiaeuler.demo | profesor | Academia Euler · Khipu Pro (vigesimal) |
+| direccion@losolivos.demo | dirección | Los Olivos · Khipu Base |
 | rosa.quispe@gmail.com | apoderada (2 colegios) | Nuevo Horizonte y Academia Euler |
 | admin@khipuescolar.demo | super administrador (equipo Khipu) | Panel http://admin.lvh.me:3000 (specs/16) |

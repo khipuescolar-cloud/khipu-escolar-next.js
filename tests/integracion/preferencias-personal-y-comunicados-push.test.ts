@@ -12,7 +12,7 @@ describe("preferencias de aviso del personal y comunicados con push", () => {
   let c: ColegioPrueba;
   const endpoints: string[] = [];
   beforeAll(async () => {
-    c = await crearColegioPrueba({ plan: "fase2", prefijo: "test-prefs" });
+    c = await crearColegioPrueba({ plan: "pro", prefijo: "test-prefs" });
   });
   afterAll(async () => {
     await db.pushSuscripcion.deleteMany({ where: { endpoint: { in: endpoints } } });

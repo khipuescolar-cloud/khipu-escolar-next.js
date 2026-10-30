@@ -1,6 +1,6 @@
 # 04 — Asistencia (pasar lista)
 
-> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-presentes-plazo`: aviso de llegada a las familias de los presentes al cerrar la lista, resumen previo de avisos y plazo de justificación en días hábiles)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-presentes-plazo`: aviso de llegada a las familias de los presentes al cerrar la lista, resumen previo de avisos y plazo de justificación en días hábiles)
 
 ## Objetivo
 El profesor pasa lista en menos de un minuto y las familias se enteran al instante.
@@ -83,7 +83,7 @@ hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 - unit: `tests/unit/calendario-asistencia.test.ts` (armado del mes, estado por día, navegación, zona Lima), `tests/unit/registro-offline.test.ts` (hora razonable, cola, contador). integración: `tests/integracion/dia-a-dia-offline-plazo.test.ts` (lista offline con hora real, idempotencia, no pisa un cambio posterior). e2e: `tests/e2e/dia-a-dia-offline-calendario.test.ts` (calendario y navegación; lista sin conexión con `context.setOffline`).
 - integración (`tests/integracion/pasar-lista.test.ts`): upsert idempotente, avisos solo con consentimiento, corrección = aviso nuevo, token de falta solo con hash, auditoría, preferencia sin correo, llegada en curso no se re-avisa, profesor no pasa lista en curso o salón ajeno, alumno de otro salón rechazado, apoderado no pasa lista; **aviso de presentes**: al guardar se encola `asistencia_llego` a cada apoderado con consentimiento, una segunda lista del mismo día no duplica la llegada (pero avisa la falta), una lista del día tras una de curso tampoco, `obtenerLista` devuelve `familiasConAviso`/`llegadaAvisada`.
 - unit: `tests/unit/resumen-avisos-lista.test.ts` (conteo del resumen previo).
-- e2e (`tests/e2e/pasar-lista-aviso-justificar.test.ts`): Lucía pasa lista en 3.° B → el resumen dice «Se avisará a N familias: … llegadas» → el correo «Mateo llegó al colegio» llega a Mailpit → luego la falta → correo de falta → enlace de justificar funciona una vez. `tests/e2e/paginas-basico-por-rol.test.ts`: resumen del día, vista de familia, portería sin acceso.
+- e2e (`tests/e2e/pasar-lista-aviso-justificar.test.ts`): Lucía pasa lista en 3.° B → el resumen dice «Se avisará a N familias: … llegadas» → el correo «Mateo llegó al colegio» llega a Mailpit → luego la falta → correo de falta → enlace de justificar funciona una vez. `tests/e2e/paginas-basico-por-rol.test.ts` (Khipu Base): resumen del día, vista de familia, portería sin acceso.
 
 ## Pendientes
 - (Hecho) Vista de la familia: botón «Escribir a la tutora» por hijo → `/mensajes/nuevo?alumno=<id>` (spec 08).

@@ -30,7 +30,7 @@ describe("adjuntos de comunicados y tareas", () => {
   const perfiles: string[] = [];
 
   beforeAll(async () => {
-    c = await crearColegioPrueba({ plan: "fase2", prefijo: "test-adjuntos" });
+    c = await crearColegioPrueba({ plan: "pro", prefijo: "test-adjuntos" });
     const mk = async (rol: "apoderado" | "administrativo", nombre: string) => {
       const id = randomUUID();
       perfiles.push(id);

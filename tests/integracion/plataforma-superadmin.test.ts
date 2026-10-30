@@ -48,7 +48,7 @@ async function authIdsPorCorreo(email: string): Promise<string[]> {
 
 function entrada(slug: string, email: string, documento: string): EntradaNuevoColegio {
   return {
-    colegio: { nombre: `Colegio Plataforma ${sufijo}`, eslogan: "Aprender juntos", slug, ciudad: "Cusco", plan: "fase2", estado: "piloto", emailDomains: "", escalaCalificacion: "literal" },
+    colegio: { nombre: `Colegio Plataforma ${sufijo}`, eslogan: "Aprender juntos", slug, ciudad: "Cusco", plan: "base", estado: "piloto", emailDomains: "", escalaCalificacion: "literal" },
     administrador: { email, nombres: "Elena", apellidos: "Directora", tipoDocumento: "dni", numeroDocumento: documento, genero: "femenino", cargo: "Directora general" },
   };
 }
@@ -116,7 +116,7 @@ describe("crearColegio", () => {
     expect(r.cuentaNueva).toBe(true);
 
     const tenant = await db.tenant.findUniqueOrThrow({ where: { id: tenantId } });
-    expect(tenant).toMatchObject({ slug, eslogan: "Aprender juntos", plan: "fase2", estado: "piloto", ciudad: "Cusco" });
+    expect(tenant).toMatchObject({ slug, eslogan: "Aprender juntos", plan: "base", estado: "piloto", ciudad: "Cusco" });
     expect(tenant.logoArchivoId).not.toBeNull();
     expect(await db.archivo.findFirst({ where: { id: tenant.logoArchivoId!, tenantId, privado: false } })).not.toBeNull();
 
@@ -152,9 +152,9 @@ describe("crearColegio", () => {
   });
 
   it("acciones del detalle: plan, estado, reenviar bienvenida y otro administrador (todas auditadas)", async () => {
-    await cambiarPlan(admin, tenantId, "promax");
+    await cambiarPlan(admin, tenantId, "pro");
     await cambiarEstado(admin, tenantId, "activo");
-    expect(await db.tenant.findUniqueOrThrow({ where: { id: tenantId } })).toMatchObject({ plan: "promax", estado: "activo" });
+    expect(await db.tenant.findUniqueOrThrow({ where: { id: tenantId } })).toMatchObject({ plan: "pro", estado: "activo" });
 
     const m = await db.membership.findFirstOrThrow({ where: { tenantId, userId } });
     const avisoId = await reenviarBienvenida(admin, tenantId, m.id);
@@ -173,8 +173,8 @@ describe("crearColegio", () => {
   });
 
   it("un id de colegio de otro lado o inválido da 404", async () => {
-    await expect(cambiarPlan(admin, randomUUID(), "basico")).rejects.toMatchObject({ digest: expect.stringContaining("404") });
-    await expect(cambiarPlan(admin, "no-es-uuid", "basico")).rejects.toMatchObject({ digest: expect.stringContaining("404") });
+    await expect(cambiarPlan(admin, randomUUID(), "base")).rejects.toMatchObject({ digest: expect.stringContaining("404") });
+    await expect(cambiarPlan(admin, "no-es-uuid", "base")).rejects.toMatchObject({ digest: expect.stringContaining("404") });
     const m = await db.membership.findFirstOrThrow({ where: { tenantId, userId } });
     const otro = await db.tenant.findFirstOrThrow({ where: { id: { not: tenantId } } });
     await expect(reenviarBienvenida(admin, otro.id, m.id)).rejects.toMatchObject({ digest: expect.stringContaining("404") });

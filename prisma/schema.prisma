@@ -13,10 +13,10 @@ datasource db {
 
 // ───────────────────────────── Enums ─────────────────────────────
 
+/// Planes institucionales (specs/03): Khipu Base y Khipu Pro. Se venden completos.
 enum Plan {
-  basico
-  fase2
-  promax
+  base
+  pro
 }
 
 enum Rol {
@@ -96,8 +96,6 @@ enum TipoAviso {
 enum CanalAviso {
   correo
   push
-  whatsapp
-  sms
 }
 
 enum EstadoAviso {
@@ -172,7 +170,7 @@ model Tenant {
   nombre                        String
   ciudad                        String?
   eslogan                       String?
-  plan                          Plan               @default(basico)
+  plan                          Plan               @default(base)
   emailDomains                  String[]           @default([]) @map("email_domains")
   logoArchivoId                 String?            @map("logo_archivo_id") @db.Uuid
   horaEnvioAvisos               String             @default("09:00") @map("hora_envio_avisos") // HH:mm, resumen de llegadas
@@ -182,9 +180,8 @@ model Tenant {
   escalaCalificacion            EscalaCalificacion @default(literal) @map("escala_calificacion")
   /// Plazo del reglamento para justificar una falta, en días hábiles (lunes a viernes sin feriados nacionales del Perú) desde el día de la falta.
   plazoJustificacionDiasHabiles Int                @default(15) @map("plazo_justificacion_dias_habiles")
-  /// Canales de pago habilitados por el colegio (specs/06). Requieren credenciales del proveedor en el servidor.
-  whatsappActivo                Boolean            @default(false) @map("whatsapp_activo")
-  smsActivo                     Boolean            @default(false) @map("sms_activo")
+  /// Grado de primaria (1–6) desde el que un alumno puede tener cuenta propia. Secundaria siempre; inicial nunca (specs/10).
+  gradoMinimoCuentaAlumno       Int                @default(5) @map("grado_minimo_cuenta_alumno")
   estado                        EstadoTenant       @default(activo)
   createdAt                     DateTime           @default(now()) @map("created_at") @db.Timestamptz
 
@@ -339,7 +336,7 @@ model Curso {
   @@map("cursos")
 }
 
-/// El menor NO necesita cuenta en el plan Básico.
+/// El menor NO necesita cuenta propia (se usa desde el grado que fije el colegio).
 model Alumno {
   id            String       @id @default(uuid()) @db.Uuid
   tenantId      String       @map("tenant_id") @db.Uuid
@@ -438,7 +435,7 @@ model LoginIntento {
   @@map("login_intentos")
 }
 
-// ───────────────────────── Plan Básico ─────────────────────────
+// ───────────────────────── Khipu Base ─────────────────────────
 
 model Asistencia {
   id              String           @id @default(uuid()) @db.Uuid
@@ -648,9 +645,6 @@ model PreferenciaAviso {
   apoderadoId String  @unique @map("apoderado_id") @db.Uuid
   correo      Boolean @default(true)
   push        Boolean @default(true)
-  /// Canales de pago (specs/06): solo se usan si el colegio los activó y hay teléfono.
-  whatsapp    Boolean @default(false)
-  sms         Boolean @default(false)
 
   tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   apoderado Membership @relation(fields: [apoderadoId], references: [id], onDelete: Cascade)
@@ -675,7 +669,7 @@ model CarnetQr {
   @@map("carnets_qr")
 }
 
-// ───────────────────────── Fase 2 (Familia) ─────────────────────────
+// ───────────────────────── Khipu Pro ─────────────────────────
 
 model Periodo {
   id                 String      @id @default(uuid()) @db.Uuid
@@ -817,7 +811,7 @@ model EventoAgenda {
   @@map("eventos_agenda")
 }
 
-// ───────────────────────── Pro Max (Nudito) ─────────────────────────
+// ──────────── Nudito (retirado 2026-10-31; tablas reservadas para Nudito+) ────────────
 
 /// Documentos del colegio que Nudito puede citar (reglamento, horario, calendario).
 model DocumentoColegio {
@@ -968,7 +962,7 @@ model AccesoSoporte {
 /// Catálogo comercial de cada plan (specs/19). El código del plan sigue siendo el enum `Plan`.
 model PlanCatalogo {
   plan                Plan     @id
-  nombre              String // «Básico», «Familia», «Pro Max»
+  nombre              String // «Khipu Base», «Khipu Pro»
   descripcion         String?
   /// Precio por alumno al mes en soles (referencial; el precio real va en la suscripción del colegio).
   precioPorAlumno     Decimal? @map("precio_por_alumno") @db.Decimal(8, 2)
@@ -1157,7 +1151,7 @@ model FeriadoExtra {
   @@map("feriados_extra")
 }
 
-/// Ajustes globales de la plataforma (clave → valor JSON). P. ej. horario de Nudito, última ejecución de crons.
+/// Ajustes globales de la plataforma (clave → valor JSON). P. ej. última ejecución de crons.
 model ConfigPlataforma {
   clave     String   @id
   valor     Json

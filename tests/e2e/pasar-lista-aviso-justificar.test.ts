@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-// Flujo completo del plan Básico (specs/04, 06 y 07):
+// Flujo completo de Khipu Base (specs/04, 06 y 07):
 // Lucía pasa lista en 3.° B → la familia de un presente recibe el correo de llegada y la de un ausente el de falta en Mailpit → el enlace «Justificar falta» funciona una sola vez.
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const MAILPIT = process.env.MAILPIT_URL ?? "http://127.0.0.1:54324";

@@ -59,7 +59,7 @@ test("apoderada ve las notas de su hijo sin comparaciones", async ({ page }) => 
   await expect(page.getByText(/promedio del salón|ranking|puesto/i)).toHaveCount(0);
 });
 
-test("dirección del plan Básico recibe 403 en /notas", async ({ page }) => {
+test("dirección de Khipu Base recibe 403 en /notas", async ({ page }) => {
   await entrar(page, "direccion@losolivos.demo", "losolivos");
   await esperarSinAcceso(page, await page.goto(colegio("losolivos", "/notas")));
 });

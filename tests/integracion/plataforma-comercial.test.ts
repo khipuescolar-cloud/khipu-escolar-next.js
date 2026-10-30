@@ -21,7 +21,7 @@ let tenantA = "";
 let tenantB = "";
 
 const entrada = (slug: string, email: string): EntradaNuevoColegio => ({
-  colegio: { nombre: `Colegio Comercial ${sufijo}`, eslogan: "", slug, ciudad: "Lima", plan: "basico", estado: "piloto", emailDomains: "", escalaCalificacion: "literal" },
+  colegio: { nombre: `Colegio Comercial ${sufijo}`, eslogan: "", slug, ciudad: "Lima", plan: "base", estado: "piloto", emailDomains: "", escalaCalificacion: "literal" },
   administrador: { email, nombres: "Rosa", apellidos: "Directora", tipoDocumento: "dni", numeroDocumento: dni(), cargo: "Directora general" },
   responsable: { tipo: "facturacion", nombres: "Carlos", apellidos: "Conta", email: correo("conta"), cargo: "Contador", telefono: "999111222" },
 });
@@ -144,13 +144,13 @@ describe("responsables del colegio", () => {
 
 describe("suscripción y pagos", () => {
   const hoy = fechaLima(new Date());
-  const base = { plan: "fase2", ciclo: "anual", estado: "activa", montoPorCiclo: 3600 as number, alumnosContratados: 100 as number, inicio: "2026-01-01", proximaRenovacion: "2026-12-31", notas: "Convenio" } as const;
+  const base = { plan: "pro", ciclo: "anual", estado: "activa", montoPorCiclo: 3600 as number, alumnosContratados: 100 as number, inicio: "2026-01-01", proximaRenovacion: "2026-12-31", notas: "Convenio" } as const;
 
   it("crea y edita la suscripción (una por colegio) con auditoría", async () => {
     await guardarSuscripcion(admin, tenantA, base);
     await guardarSuscripcion(admin, tenantA, { ...base, montoPorCiclo: 3000 });
     const d = await suscripcionDelColegio(admin, tenantA);
-    expect(d.suscripcion).toMatchObject({ plan: "fase2", ciclo: "anual", estado: "activa", montoPorCiclo: 3000, alumnosContratados: 100, proximaRenovacion: "2026-12-31" });
+    expect(d.suscripcion).toMatchObject({ plan: "pro", ciclo: "anual", estado: "activa", montoPorCiclo: 3000, alumnosContratados: 100, proximaRenovacion: "2026-12-31" });
     expect(await db.suscripcion.count({ where: { tenantId: tenantA } })).toBe(1);
     expect(await db.auditoriaPlataforma.count({ where: { tenantId: tenantA, accion: "guardar_suscripcion" } })).toBe(2);
     await expect(guardarSuscripcion(admin, tenantA, { ...base, proximaRenovacion: "2025-12-31" })).rejects.toThrow(/antes del inicio/);

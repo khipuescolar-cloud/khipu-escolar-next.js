@@ -36,7 +36,7 @@ const manana = new Date(Date.now() + 2 * 86_400_000).toLocaleDateString("en-CA",
 const pasado = new Date(Date.now() + 5 * 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
 
 beforeAll(async () => {
-  tenant = await db.tenant.create({ data: { slug: `test-extras-${sufijo}`, nombre: "Colegio Extras", plan: "promax" } });
+  tenant = await db.tenant.create({ data: { slug: `test-extras-${sufijo}`, nombre: "Colegio Extras", plan: "pro" } });
   await persona("dir", "direccion", "Dora");
   await persona("prof", "profesor", "Pedro");
   await persona("otro", "profesor", "Ana");
@@ -102,7 +102,7 @@ describe("editar eventos", () => {
   });
 
   it("no cruza colegios: un evento de otro colegio no se edita", async () => {
-    const ajeno = await db.tenant.create({ data: { slug: `test-extras-${randomUUID().slice(0, 8)}`, nombre: "Otro", plan: "promax" } });
+    const ajeno = await db.tenant.create({ data: { slug: `test-extras-${randomUUID().slice(0, 8)}`, nombre: "Otro", plan: "pro" } });
     try {
       const autor = await db.membership.create({ data: { tenantId: ajeno.id, userId: ctxs.prof.user.id, rol: "profesor" } });
       const ev = await db.eventoAgenda.create({ data: { tenantId: ajeno.id, creadoPorId: autor.id, titulo: "Ajeno", tipo: "evento", inicio: new Date() } });

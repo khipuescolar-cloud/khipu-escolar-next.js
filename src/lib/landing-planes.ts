@@ -24,7 +24,7 @@ export type PlanPublico = {
   descripcion: string | null;
   /** Todos los módulos del plan, en el orden del producto. */
   modulos: ModuloPublico[];
-  /** Plan anterior (por orden) cuyo contenido incluye entero: «Todo lo de Básico, más…». */
+  /** Plan anterior (por orden) cuyo contenido incluye entero: «Todo lo de Khipu Base, más…». */
   incluyeA: string | null;
   /** Módulos que agrega respecto del plan anterior (o todos, si no incluye a otro). */
   nuevos: ModuloPublico[];
@@ -54,7 +54,6 @@ const NOMBRE_PUBLICO: Partial<Record<Feature, string>> = {
   libreta: "Libreta en PDF",
   tareas: "Tareas",
   agenda: "Agenda",
-  nudito: "Nudito, el asistente para las familias",
 };
 
 const soles = new Intl.NumberFormat("es-PE", { style: "currency", currency: "PEN", minimumFractionDigits: 2 });

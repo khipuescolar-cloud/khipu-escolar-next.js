@@ -20,7 +20,7 @@ const PNG = Buffer.concat([Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a
 const dias = (n: number) => new Date(Date.now() - n * 86_400_000);
 
 beforeAll(async () => {
-  c = await crearColegioPrueba({ prefijo: "test-exportacion", plan: "promax" });
+  c = await crearColegioPrueba({ prefijo: "test-exportacion", plan: "pro" });
 });
 afterAll(async () => {
   const archivos = await db.archivo.findMany({ where: { tenantId: c.tenant.id } });

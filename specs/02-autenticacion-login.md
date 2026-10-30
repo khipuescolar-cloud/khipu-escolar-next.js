@@ -27,7 +27,7 @@ Entrar con correo y contraseña, y llegar al colegio correcto sin preguntar nada
 
 ## Pruebas
 - integración: `tests/integracion/soporte-seguridad.test.ts` (`registrarIngreso`: guarda `user_id` y `ultimo_ingreso_at`, sin duplicar dentro de la ventana).
-- e2e: `tests/e2e/login-flow.test.ts` (dominio → subdominio, apoderada con 2 colegios, candados del Básico, contraseña incorrecta).
+- e2e: `tests/e2e/login-flow.test.ts` (dominio → subdominio, apoderada con 2 colegios, candado «Plan Khipu Pro» en Khipu Base, contraseña incorrecta).
 
 ## Pendientes
 - **Externo:** en producción, configurar el SMTP de Supabase Auth (Gmail en el piloto, luego Amazon SES; ver `docs/despliegue.md`).

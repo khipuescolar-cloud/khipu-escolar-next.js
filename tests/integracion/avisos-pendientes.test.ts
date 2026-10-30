@@ -29,7 +29,7 @@ function canalFalso(canal: "correo" | "push", enviados: EnvioAviso[]): Notificat
 describe("avisos pendientes del MVP", () => {
   let c: ColegioPrueba;
   beforeAll(async () => {
-    c = await crearColegioPrueba({ plan: "fase2", prefijo: "test-avisos2" });
+    c = await crearColegioPrueba({ plan: "pro", prefijo: "test-avisos2" });
   });
   afterAll(async () => {
     await c?.limpiar();

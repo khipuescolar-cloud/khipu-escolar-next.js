@@ -35,7 +35,7 @@ let desde: string | undefined;
 
 const datos = (extra: Record<string, unknown> = {}) => ({
   nombre: "Marta Quispe", cargo: "Directora", colegio: `Colegio ${sufijo}`, ciudad: "Cusco", correo: `marta-${randomUUID().slice(0, 6)}@${DOMINIO}`,
-  telefono: "987654321", alumnos: 320, planInteres: "fase2" as const, ...extra,
+  telefono: "987654321", alumnos: 320, planInteres: "pro" as const, ...extra,
 });
 const ip = () => `10.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}`;
 

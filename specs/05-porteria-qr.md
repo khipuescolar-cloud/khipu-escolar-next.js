@@ -1,6 +1,6 @@
 # 05 — Portería con carnet QR
 
-> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/p2-dia-a-dia`: PDF de carnets y quiosco sin conexión)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-27 (Claude Code, rama `feat/p2-dia-a-dia`: PDF de carnets y quiosco sin conexión)
 
 ## Objetivo
 Verificar la llegada del alumno en la puerta escaneando su carnet, sin depender solo de la lista del profesor.

@@ -41,7 +41,7 @@ let tenant: Awaited<ReturnType<typeof db.tenant.findFirstOrThrow>>;
 let profe: TenantContext, profeAjeno: TenantContext, madreA: TenantContext, madreB: TenantContext, direccion: TenantContext;
 
 beforeAll(async () => {
-  tenant = await db.tenant.create({ data: { slug, nombre: "Colegio de prueba fase 2", plan: "fase2", escalaCalificacion: "vigesimal" } });
+  tenant = await db.tenant.create({ data: { slug, nombre: "Colegio de prueba Khipu Pro", plan: "pro", escalaCalificacion: "vigesimal" } });
   tenantId = tenant.id;
   const [mProfe, mAjeno, mA, mB, mDir] = await Promise.all([
     miembro("profesor", "profe"), miembro("profesor", "ajeno"), miembro("apoderado", "madrea"), miembro("apoderado", "madreb"), miembro("direccion", "dir"),
@@ -324,10 +324,10 @@ describe("tareas y agenda", () => {
   });
 });
 
-describe("plan Básico", () => {
+describe("Khipu Base", () => {
   it("responde 403 en notas, libreta, tareas y agenda", async () => {
     const lo = await db.tenant.findUniqueOrThrow({ where: { slug: "losolivos" } });
-    expect(lo.plan).toBe("basico");
+    expect(lo.plan).toBe("base");
     const dir = await db.membership.findFirstOrThrow({ where: { tenantId: lo.id, rol: "direccion" } });
     const ctx = await ctxDe(lo, dir.id, "direccion");
     const alumno = await db.alumno.findFirstOrThrow({ where: { tenantId: lo.id } });

@@ -1,6 +1,6 @@
 # NN — Nombre del módulo
 
-> Estado: borrador | en desarrollo | implementado · Plan: Básico | Fase 2 | Pro Max · Última actualización: AAAA-MM-DD (autor)
+> Estado: borrador | en desarrollo | implementado · Plan: Khipu Base | Khipu Pro · Última actualización: AAAA-MM-DD (autor)
 
 ## Objetivo
 Qué problema resuelve y para quién.

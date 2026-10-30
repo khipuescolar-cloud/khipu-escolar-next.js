@@ -2,29 +2,28 @@
 // Archivo compartido cliente/servidor: solo datos y funciones puras. El bloqueo real se hace en lib/server/plan.ts.
 import type { Plan } from "@/generated/prisma/enums";
 
-export const ORDEN_PLANES: Record<Plan, number> = { basico: 1, fase2: 2, promax: 3 };
+export const ORDEN_PLANES: Record<Plan, number> = { base: 1, pro: 2 };
 
+/** Respaldo si el catálogo (`planes_catalogo.nombre`) no tiene el plan. */
 export const NOMBRE_PLAN: Record<Plan, string> = {
-  basico: "Básico",
-  fase2: "Familia",
-  promax: "Pro Max",
+  base: "Khipu Base",
+  pro: "Khipu Pro",
 };
 
 export const FEATURES = {
-  asistencia: "basico",
-  avisos: "basico",
-  porteria: "basico",
-  justificaciones: "basico",
-  mensajes: "basico",
-  comunicados: "basico",
-  gestion: "basico",
-  notas: "fase2",
-  libreta: "fase2",
-  tareas: "fase2",
-  agenda: "fase2",
-  nudito: "promax",
+  asistencia: "base",
+  avisos: "base",
+  porteria: "base",
+  justificaciones: "base",
+  mensajes: "base",
+  comunicados: "base",
+  gestion: "base",
+  notas: "pro",
+  libreta: "pro",
+  tareas: "pro",
+  agenda: "pro",
   /** Chat con el equipo Khipu (mesa de ayuda, specs/23): en todos los planes. */
-  soporte: "basico",
+  soporte: "base",
 } as const satisfies Record<string, Plan>;
 
 export type Feature = keyof typeof FEATURES;

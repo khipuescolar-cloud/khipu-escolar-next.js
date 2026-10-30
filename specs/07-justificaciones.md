@@ -1,6 +1,6 @@
 # 07 — Justificaciones de faltas
 
-> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-presentes-plazo`: plazo de 15 días hábiles para todas las vías)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-presentes-plazo`: plazo de 15 días hábiles para todas las vías)
 
 ## Objetivo
 Que la familia justifique una falta en un minuto, desde el correo o desde Khipu, y que la tutora la revise.

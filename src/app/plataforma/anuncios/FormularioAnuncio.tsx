@@ -103,7 +103,7 @@ export function FormularioAnuncio({
             <div className="flex flex-wrap gap-x-5 gap-y-2">
               {Object.entries(nombresPlanes).map(([v, n]) => (
                 <label key={v} className="inline-flex min-h-8 items-center gap-2">
-                  <input type="checkbox" name="planes" value={v} defaultChecked={anuncio?.planes.includes(v as "basico")} className="size-4 accent-[var(--acento)]" /> {n}
+                  <input type="checkbox" name="planes" value={v} defaultChecked={anuncio?.planes.includes(v as "base")} className="size-4 accent-[var(--acento)]" /> {n}
                 </label>
               ))}
             </div>

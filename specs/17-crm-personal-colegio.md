@@ -1,6 +1,6 @@
 # 17 — CRM del colegio: profesores, personal y grados
 
-> Estado: implementado · Última actualización: 2026-10-27 (Claude Code, rama `feat/crm-personal`) · Plan: Básico (gestión)
+> Estado: implementado · Última actualización: 2026-10-27 (Claude Code, rama `feat/crm-personal`) · Plan: Khipu Base (gestión)
 
 ## Objetivo
 Que la dirección administre a su gente desde el sistema: profesores, personal administrativo y grados/salones, con sus datos personales y correos.

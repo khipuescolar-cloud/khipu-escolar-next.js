@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 
-// Las páginas del plan Básico cargan para cada rol (specs/04, 05, 06, 07). Solo lectura: no cambia datos demo.
+// Las páginas de Khipu Base cargan para cada rol (specs/04, 05, 06, 07). Solo lectura: no cambia datos demo.
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const COLEGIO = `http://nuevohorizonte.lvh.me:${PUERTO}`;
 

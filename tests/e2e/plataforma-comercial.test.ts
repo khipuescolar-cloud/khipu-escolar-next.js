@@ -99,7 +99,7 @@ test("responsables y suscripción desde la ficha, y resumen en /suscripciones", 
   await hojaSus.getByLabel("Estado").selectOption("activa");
   await hojaSus.getByLabel("Alumnos contratados").fill("1");
   await hojaSus.getByRole("button", { name: "Guardar suscripción" }).click();
-  await expect(page.getByText("Plan Básico", { exact: true })).toBeVisible();
+  await expect(page.getByText("Plan Khipu Base", { exact: true })).toBeVisible();
   await expect(page.getByText("S/ 250.00")).toBeVisible();
 
   await page.getByRole("button", { name: "Registrar pago" }).click();

@@ -1,6 +1,6 @@
 # 12 — Tareas y agenda
 
-> Estado: implementado · Plan: Fase 2 (Familia) · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-pendientes`: aviso de tareas)
+> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-pendientes`: aviso de tareas)
 
 ## Objetivo
 Que los profesores publiquen tareas por curso y eventos por salón, que dirección publique eventos del colegio y que las familias vean todo ordenado por fecha, sin llamadas ni grupos de mensajería.
@@ -11,7 +11,7 @@ Que los profesores publiquen tareas por curso y eventos por salón, que direcci�
 | Profesor | Crear/borrar tareas de sus cursos; crear eventos de sus salones y borrar los que creó; ver tareas y agenda de sus salones | Crear eventos de otros salones o del colegio |
 | Dirección | Ver todas las tareas y borrarlas; crear eventos del colegio o de cualquier salón; borrar eventos | Crear tareas (son del profesor) |
 | Apoderado | Ver tareas de sus hijos y la agenda de sus salones y del colegio | Crear o borrar |
-| Plan Básico | — | 403 en `/tareas` y `/agenda` |
+| Colegio con Khipu Base | — | 403 en `/tareas` y `/agenda` |
 
 ## Flujos
 1. Profesor → `/tareas`: formulario (curso, fecha de entrega, título, descripción opcional, casilla **«Avisar a las familias»**, desmarcada por defecto) y lista de sus tareas (próximas y de la última semana) con «Eliminar».
@@ -71,7 +71,7 @@ eliminarEvento(ctx, eventoId): Resultado
 ## Pruebas
 - unit: `tests/unit/fechas.test.ts` (zona Lima, agrupación, semanas y cuadrícula del mes).
 - unit: `tests/unit/ics.test.ts` (escape, plegado a 75 octetos, CRLF, fechas).
-- integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (tareas por curso y agrupación, alcance de eventos por salón, permisos de creación, plan Básico → 403); `tests/integracion/avisos-pendientes.test.ts` (aviso de tarea solo con la casilla y solo a familias con consentimiento); `tests/integracion/extras-edicion-ics-zip.test.ts` (editar tarea/evento: permisos, auditoría, aislamiento entre colegios; alcance de la agenda por rol).
+- integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (tareas por curso y agrupación, alcance de eventos por salón, permisos de creación, Khipu Base → 403); `tests/integracion/avisos-pendientes.test.ts` (aviso de tarea solo con la casilla y solo a familias con consentimiento); `tests/integracion/extras-edicion-ics-zip.test.ts` (editar tarea/evento: permisos, auditoría, aislamiento entre colegios; alcance de la agenda por rol).
 - integración: `tests/integracion/adjuntos-comunicados-tareas.test.ts` (adjuntos de tareas: acceso y borrado).
 - e2e: `tests/e2e/tareas-agenda.test.ts` (profesora crea tarea con «Avisar a las familias», el correo llega a Mailpit y la familia la ve en «Para mañana»; agenda; periodos de dirección; edita su tarea y descarga el .ics).
 

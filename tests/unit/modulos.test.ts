@@ -3,13 +3,13 @@ import { MODULO_ESENCIAL, modulosDeCodigo, resolverModulos, rolPuedeVer, rolSopo
 
 describe("resolverModulos", () => {
   it("usa los módulos de la BD y, si el plan no tiene filas, el respaldo en código", () => {
-    expect([...resolverModulos("basico", ["asistencia", "gestion"]).activos].sort()).toEqual(["asistencia", "gestion"]);
-    expect(resolverModulos("fase2", []).activos).toEqual(modulosDeCodigo("fase2"));
-    expect(resolverModulos("fase2", null).activos.has("notas")).toBe(true);
+    expect([...resolverModulos("base", ["asistencia", "gestion"]).activos].sort()).toEqual(["asistencia", "gestion"]);
+    expect(resolverModulos("pro", []).activos).toEqual(modulosDeCodigo("pro"));
+    expect(resolverModulos("pro", null).activos.has("notas")).toBe(true);
   });
 
   it("aplica extras y quitados del colegio, ignora claves desconocidas y siempre deja gestion", () => {
-    const r = resolverModulos("basico", ["asistencia", "comunicados"], [
+    const r = resolverModulos("base", ["asistencia", "comunicados"], [
       { modulo: "notas", habilitado: true },
       { modulo: "comunicados", habilitado: false },
       { modulo: "gestion", habilitado: false },
@@ -27,7 +27,6 @@ describe("resolverModulos", () => {
 describe("roles por módulo", () => {
   it("el código fija qué roles soporta cada módulo", () => {
     expect(rolSoporta("alumno", "mensajes")).toBe(false);
-    expect(rolSoporta("alumno", "nudito")).toBe(false);
     expect(rolSoporta("apoderado", "avisos")).toBe(true); // preferencias de avisos
     expect(rolSoporta("porteria", "porteria")).toBe(true);
   });

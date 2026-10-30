@@ -22,7 +22,7 @@ let directora2: Profile;
 const endpoint = `https://push.test-soporte.local/${sufijo}`;
 
 beforeAll(async () => {
-  colegio = await crearColegioPrueba({ plan: "promax", prefijo: "test-soporte-seg" });
+  colegio = await crearColegioPrueba({ plan: "pro", prefijo: "test-soporte-seg" });
   superadmin = await db.profile.create({ data: { id: randomUUID(), email: `super-seg-${sufijo}@test-soporte.local`, nombres: "Equipo", apellidos: "Soporte" } });
   await db.adminPlataforma.create({ data: { userId: superadmin.id } });
   admin = { user: superadmin };

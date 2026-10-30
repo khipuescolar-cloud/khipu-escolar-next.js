@@ -1,6 +1,6 @@
 # 09 — Comunicados
 
-> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/p2-comunicacion`)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-27 (Claude Code, rama `feat/p2-comunicacion`)
 
 ## Objetivo
 Dirección y profesores publican anuncios para todo el colegio o para un salón; las familias los leen y reciben un aviso por correo y push, con archivos adjuntos opcionales.
@@ -37,7 +37,7 @@ urlComunicado(slug, id)   // /comunicados#comunicado-<id>
 ```
 
 ## Rutas y UI
-`/comunicados` (todos los roles de plan Básico+).
+`/comunicados` (todos los roles; Khipu Base y Khipu Pro).
 - Diseño: tarjetas (`Card`) con insignia de destino y autor con avatar. Publicar y editar se hacen en `Dialog` (`FormularioComunicado.tsx`) con `CamposAdjuntos` (input de archivos con etiqueta visible «Adjuntar archivos (opcional)», lista de elegidos y casillas «Quitar» al editar); los adjuntos se listan con `ListaAdjuntos` (ícono por tipo, nombre, tamaño y descarga); borrar con `BotonConfirmar`. El resultado sale como toast (`Notificar`). Estado vacío con `EstadoVacio`.
 
 ## Errores y casos borde

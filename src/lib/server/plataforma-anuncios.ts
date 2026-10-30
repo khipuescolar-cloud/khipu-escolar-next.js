@@ -18,7 +18,7 @@ export const esquemaAnuncio = z
     cuerpo: z.string().trim().min(3, "Escribe el mensaje.").max(600, "El mensaje es muy largo (máximo 600)."),
     nivel: z.enum(["info", "novedad", "mantenimiento", "urgente"]),
     audiencia: z.enum(["direccion", "personal", "todos"]),
-    planes: z.array(z.enum(["basico", "fase2", "promax"])).default([]),
+    planes: z.array(z.enum(["base", "pro"])).default([]),
     desde: fechaLocal,
     hasta: fechaLocal,
   })

@@ -43,8 +43,8 @@ async function miembro(clave: string, rol: Rol, t: Tenant = tenant, user?: Profi
 }
 
 beforeAll(async () => {
-  tenant = await db.tenant.create({ data: { slug: `test-p2g-${sufijo}`, nombre: "Colegio P2 Gestión", plan: "promax" } });
-  otro = await db.tenant.create({ data: { slug: `test-p2g-otro-${sufijo}`, nombre: "Otro P2", plan: "promax" } });
+  tenant = await db.tenant.create({ data: { slug: `test-p2g-${sufijo}`, nombre: "Colegio P2 Gestión", plan: "pro" } });
+  otro = await db.tenant.create({ data: { slug: `test-p2g-otro-${sufijo}`, nombre: "Otro P2", plan: "pro" } });
   await miembro("dir", "direccion");
   await miembro("adm", "administrativo");
   await miembro("prof", "profesor");

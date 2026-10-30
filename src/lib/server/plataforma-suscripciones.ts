@@ -17,7 +17,7 @@ const monto = (mensaje: string) =>
 
 export const esquemaSuscripcion = z
   .object({
-    plan: z.enum(["basico", "fase2", "promax"], "Elige un plan."),
+    plan: z.enum(["base", "pro"], "Elige un plan."),
     ciclo: z.enum(["mensual", "anual"], "Elige el ciclo."),
     estado: z.enum(["prueba", "activa", "suspendida", "cancelada"], "Elige el estado."),
     montoPorCiclo: monto("Escribe el monto por ciclo en soles."),
@@ -186,7 +186,7 @@ export async function anularPago(admin: AdminContext, tenantId: string, pagoId: 
 
 export const esquemaFiltroSuscripciones = z.object({
   estado: z.enum(["prueba", "activa", "suspendida", "cancelada", "sin"]).optional().catch(undefined),
-  plan: z.enum(["basico", "fase2", "promax"]).optional().catch(undefined),
+  plan: z.enum(["base", "pro"]).optional().catch(undefined),
 });
 export type FiltroSuscripciones = z.infer<typeof esquemaFiltroSuscripciones>;
 

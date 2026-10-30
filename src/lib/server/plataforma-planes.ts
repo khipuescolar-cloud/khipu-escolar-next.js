@@ -13,7 +13,7 @@ import { auditarPlataforma, type AdminContext } from "./plataforma";
 // Panel de plataforma · «Planes y módulos» y «Módulos del colegio» (specs/19-planes-modulos-y-roles.md).
 // Cada cambio se audita en `auditoria_plataforma` e invalida la caché de módulos (src/lib/server/modulos.ts).
 
-export const PLANES: Plan[] = ["basico", "fase2", "promax"];
+export const PLANES: Plan[] = ["base", "pro"];
 
 function validar<T extends z.ZodType>(esquema: T, entrada: unknown): z.infer<T> {
   const r = esquema.safeParse(entrada);
@@ -21,7 +21,7 @@ function validar<T extends z.ZodType>(esquema: T, entrada: unknown): z.infer<T> 
   return r.data;
 }
 
-const esquemaPlan = z.enum(["basico", "fase2", "promax"], "Elige un plan válido.");
+const esquemaPlan = z.enum(["base", "pro"], "Elige un plan válido.");
 const esquemaModulo = z.string().refine(esModulo, "Elige un módulo válido.");
 
 /** Estados que cuentan como «colegio que usa el plan» (el suspendido no se ve afectado hoy). */

@@ -51,7 +51,7 @@ export default async function NuevoColegio({ searchParams }: PageProps<"/platafo
           <CamposColegio baseDomain={baseDomain()} nombreInicial={inicial.nombre} />
           <div className="grid gap-4 sm:grid-cols-2">
             <Campo etiqueta="Ciudad" name="ciudad" defaultValue={inicial.ciudad} placeholder="Arequipa" />
-            <Selector etiqueta="Plan" name="plan" defaultValue={inicial.plan ?? planes.find((p) => p.plan === "basico")?.plan ?? planes[0]?.plan}>
+            <Selector etiqueta="Plan" name="plan" defaultValue={inicial.plan ?? planes.find((p) => p.plan === "base")?.plan ?? planes[0]?.plan}>
               {planes.map((p) => <option key={p.plan} value={p.plan}>{p.nombre}</option>)}
             </Selector>
             <Selector etiqueta="Estado" name="estado" defaultValue="piloto">

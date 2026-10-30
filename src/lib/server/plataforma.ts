@@ -130,7 +130,7 @@ export const esquemaResponsableInicial = z.object({
 export const esquemaNuevoColegio = z.object({
   colegio: esquemaDatosColegio.extend({
     slug: esquemaSlug,
-    plan: z.enum(["basico", "fase2", "promax"]),
+    plan: z.enum(["base", "pro"]),
     estado: z.enum(["piloto", "activo"]),
   }),
   administrador: esquemaAdministrador,
@@ -256,7 +256,7 @@ async function deshacerColegio(tenantId: string, cuenta: CuentaCreada | null, ad
 
 export async function cambiarPlan(admin: AdminContext, tenantId: string, plan: Plan): Promise<void> {
   const tenant = await colegioOError(tenantId);
-  const nuevo = validar(z.enum(["basico", "fase2", "promax"], "Elige un plan válido."), plan);
+  const nuevo = validar(z.enum(["base", "pro"], "Elige un plan válido."), plan);
   if (nuevo === tenant.plan) return;
   await db.tenant.update({ where: { id: tenant.id }, data: { plan: nuevo } });
   await auditarPlataforma(admin, "cambiar_plan", tenant.id, { antes: tenant.plan, despues: nuevo });
@@ -461,7 +461,7 @@ export async function metricasPlataforma(_admin: AdminContext, ahora = new Date(
     colegios: {
       total,
       porEstado: { activo: 0, piloto: 0, suspendido: 0, ...Object.fromEntries(porEstado.map((e) => [e.estado, e._count._all])) },
-      porPlan: { basico: 0, fase2: 0, promax: 0, ...Object.fromEntries(porPlan.map((e) => [e.plan, e._count._all])) },
+      porPlan: { base: 0, pro: 0, ...Object.fromEntries(porPlan.map((e) => [e.plan, e._count._all])) },
     },
     alumnos,
     usuariosActivos7d: logins,
@@ -478,7 +478,7 @@ export async function metricasPlataforma(_admin: AdminContext, ahora = new Date(
 
 export const esquemaFiltroReporte = z.object({
   q: z.string().trim().max(80).optional().catch(undefined),
-  plan: z.enum(["basico", "fase2", "promax"]).optional().catch(undefined),
+  plan: z.enum(["base", "pro"]).optional().catch(undefined),
   estado: z.enum(["activo", "piloto", "suspendido"]).optional().catch(undefined),
 });
 export type FiltroReporte = z.input<typeof esquemaFiltroReporte>;

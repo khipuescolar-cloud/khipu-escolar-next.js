@@ -14,7 +14,7 @@ function datos(f: FormData): EntradaAnuncio {
     cuerpo: texto(f, "cuerpo"),
     nivel: texto(f, "nivel") as "info",
     audiencia: texto(f, "audiencia") as "todos",
-    planes: f.getAll("planes").map(String) as ("basico" | "fase2" | "promax")[],
+    planes: f.getAll("planes").map(String) as ("base" | "pro")[],
     desde: texto(f, "desde"),
     hasta: texto(f, "hasta"),
   };

@@ -31,7 +31,7 @@ test.beforeAll(async () => {
   await conBd((c) =>
     c.query(
       `insert into solicitudes_demo (id, nombre, cargo, colegio, ciudad, correo, telefono, alumnos, plan_interes, ip_hash, updated_at)
-       values (gen_random_uuid(), 'Marta Quispe', 'Directora', $1, 'Cusco', $2, '987654321', 250, 'fase2', 'e2e', now())`,
+       values (gen_random_uuid(), 'Marta Quispe', 'Directora', $1, 'Cusco', $2, '987654321', 250, 'pro', 'e2e', now())`,
       [NOMBRE, EMAIL],
     ),
   );
@@ -85,7 +85,7 @@ test("solicitud de demo: lista, estado y crear colegio prellenado", async ({ pag
   await page.waitForURL(/\/colegios\/nuevo\?/);
   await expect(page.getByLabel("Nombre del colegio")).toHaveValue(NOMBRE);
   await expect(page.locator('[name="ciudad"]')).toHaveValue("Cusco");
-  await expect(page.locator('[name="plan"]')).toHaveValue("fase2");
+  await expect(page.locator('[name="plan"]')).toHaveValue("pro");
   await expect(page.locator('[name="admin_email"]')).toHaveValue(EMAIL);
   await expect(page.locator('[name="admin_nombres"]')).toHaveValue("Marta Quispe");
   await expect(page.locator('[name="admin_cargo"]')).toHaveValue("Directora");

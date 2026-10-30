@@ -126,7 +126,7 @@ export async function guardarSuscripcionAction(_previo: EstadoFormulario, f: For
   const tenantId = texto(f, "tenantId");
   return paraFormulario(async () => {
     await guardarSuscripcion(admin, tenantId, {
-      plan: texto(f, "plan") as "basico",
+      plan: texto(f, "plan") as "base",
       ciclo: texto(f, "ciclo") as "mensual",
       estado: texto(f, "estado") as "prueba",
       montoPorCiclo: texto(f, "montoPorCiclo") as unknown as number,

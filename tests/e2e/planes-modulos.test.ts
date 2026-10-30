@@ -3,8 +3,9 @@ import { Client } from "pg";
 import { expect, test, type Browser, type Page } from "@playwright/test";
 import { esperarSinAcceso } from "./sin-acceso";
 
-// Planes y módulos (specs/19): el super administrador quita Agenda del plan Familia (fase2) y la dirección de
-// Academia Euler (plan Familia) ve el candado «Plan Pro Max» y /agenda sin acceso. Al final se restaura.
+// Planes y módulos (specs/19): Los Olivos (Khipu Base) ve Agenda con el candado «Plan Khipu Pro». El super administrador
+// quita Agenda de Khipu Pro: ningún plan la incluye, así que en Academia Euler (Khipu Pro) desaparece y /agenda queda sin acceso.
+// Al final se restaura.
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const BASE = `lvh.me:${PUERTO}`;
@@ -31,8 +32,8 @@ async function entrar(browser: Browser, correo: string, destino: string): Promis
 }
 
 test.afterAll(async () => {
-  // Respaldo por si la prueba falla a mitad: Agenda vuelve al plan Familia.
-  await sql(`insert into plan_modulos (plan, modulo) values ('fase2', 'agenda') on conflict do nothing`);
+  // Respaldo por si la prueba falla a mitad: Agenda vuelve a Khipu Pro.
+  await sql(`insert into plan_modulos (plan, modulo) values ('pro', 'agenda') on conflict do nothing`);
 });
 
 // Cada paso del panel abre su propia sesión: otros e2e que cierran sesión del super administrador demo
@@ -43,24 +44,29 @@ const panel = async (browser: Browser, ruta: string) => {
   return p;
 };
 
-test("quitar Agenda del plan Familia pone el candado en un colegio de ese plan", async ({ browser }) => {
+test("Khipu Base ve el candado de Pro y quitar Agenda de Khipu Pro la retira de sus colegios", async ({ browser }) => {
+  const base = await entrar(browser, "direccion@losolivos.demo", colegio("losolivos", "/inicio"));
+  await expect(base.getByRole("main").locator("li", { hasText: "Agenda" }).getByText("Plan Khipu Pro")).toBeVisible();
+  await base.close();
+
   const admin = await panel(browser, "/planes");
   await expect(admin.getByRole("heading", { name: "Planes y módulos" })).toBeVisible();
-  await admin.getByRole("button", { name: "Quitar Agenda del plan Familia" }).click();
+  await admin.getByRole("button", { name: "Quitar Agenda del plan Khipu Pro" }).click();
   await expect(admin.getByRole("alertdialog")).toContainText(/Afecta a \d+ colegios?/);
   await admin.getByRole("button", { name: "Quitar módulo" }).click();
   await expect(admin.getByText(/Módulo quitado del plan/)).toBeVisible();
-  await expect(admin.getByRole("button", { name: "Incluir Agenda en el plan Familia" })).toBeVisible();
+  await expect(admin.getByRole("button", { name: "Incluir Agenda en el plan Khipu Pro" })).toBeVisible();
   await admin.close();
 
   try {
     const dir = await entrar(browser, "direccion@academiaeuler.demo", colegio("academiaeuler", "/inicio"));
-    await expect(dir.getByRole("main").locator("li", { hasText: "Agenda" }).getByText("Plan Pro Max")).toBeVisible();
+    await expect(dir.getByRole("main").getByText("Comunicados", { exact: true })).toBeVisible();
+    await expect(dir.getByRole("main").getByText("Agenda", { exact: true })).toHaveCount(0);
     await esperarSinAcceso(dir, await dir.goto(colegio("academiaeuler", "/agenda")));
     await dir.close();
   } finally {
     const restaurar = await panel(browser, "/planes");
-    await restaurar.getByRole("button", { name: "Incluir Agenda en el plan Familia" }).click();
+    await restaurar.getByRole("button", { name: "Incluir Agenda en el plan Khipu Pro" }).click();
     await expect(restaurar.getByText(/Módulo incluido en el plan/)).toBeVisible();
     await restaurar.close();
   }

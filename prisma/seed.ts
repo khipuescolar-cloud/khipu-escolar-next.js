@@ -126,9 +126,9 @@ async function periodosBimestrales(tenantId: string) {
 async function responsablesYSuscripcionesDemo() {
   const dia = (n: number) => new Date(Date.now() + n * 86_400_000);
   const contratos: Record<string, { plan: Plan; ciclo: "mensual" | "anual"; estado: "prueba" | "activa"; monto: number; alumnos: number; renueva: number }> = {
-    nuevohorizonte: { plan: "promax", ciclo: "anual", estado: "activa", monto: 5400, alumnos: 400, renueva: 120 },
-    academiaeuler: { plan: "fase2", ciclo: "mensual", estado: "activa", monto: 350, alumnos: 120, renueva: 12 },
-    losolivos: { plan: "basico", ciclo: "mensual", estado: "prueba", monto: 180, alumnos: 80, renueva: 20 },
+    nuevohorizonte: { plan: "pro", ciclo: "anual", estado: "activa", monto: 5400, alumnos: 400, renueva: 120 },
+    academiaeuler: { plan: "pro", ciclo: "mensual", estado: "activa", monto: 350, alumnos: 120, renueva: 12 },
+    losolivos: { plan: "base", ciclo: "mensual", estado: "prueba", monto: 180, alumnos: 80, renueva: 20 },
   };
   for (const t of await prisma.tenant.findMany({ where: { slug: { in: Object.keys(contratos) } } })) {
     const dir = await prisma.membership.findFirst({ where: { tenantId: t.id, rol: "direccion" }, include: { user: true }, orderBy: { createdAt: "asc" } });
@@ -146,8 +146,8 @@ async function responsablesYSuscripcionesDemo() {
 }
 
 async function main() {
-  // ───────── I.E.P. Nuevo Horizonte — Pro Max, escala literal (CNEB) ─────────
-  const nh = await crearColegio({ slug: "nuevohorizonte", nombre: "I.E.P. Nuevo Horizonte", ciudad: "Lima", plan: "promax", escala: "literal" });
+  // ───────── I.E.P. Nuevo Horizonte — Khipu Pro, escala literal (CNEB) ─────────
+  const nh = await crearColegio({ slug: "nuevohorizonte", nombre: "I.E.P. Nuevo Horizonte", ciudad: "Lima", plan: "pro", escala: "literal" });
   const nhDireccion = await membresia(nh.id, await usuario("direccion@nuevohorizonte.demo", "Carmen", "Torres Vega"), "direccion");
   const lucia = await membresia(nh.id, await usuario("lucia.garcia@nuevohorizonte.demo", "Lucía", "García Paz"), "profesor");
   const pedro = await membresia(nh.id, await usuario("pedro.salas@nuevohorizonte.demo", "Pedro", "Salas Ríos"), "profesor");
@@ -184,7 +184,7 @@ async function main() {
     });
   }
 
-  // Fase 2: periodos, competencias CNEB, evaluaciones, notas, tareas y agenda.
+  // Khipu Pro: periodos, competencias CNEB, evaluaciones, notas, tareas y agenda.
   const periodosNh = await periodosBimestrales(nh.id);
   const competencias = await Promise.all(
     [
@@ -245,8 +245,8 @@ async function main() {
     ],
   });
 
-  // ───────── Academia Euler — Fase 2, escala vigesimal ─────────
-  const eu = await crearColegio({ slug: "academiaeuler", nombre: "Academia Euler", ciudad: "Arequipa", plan: "fase2", escala: "vigesimal" });
+  // ───────── Academia Euler — Khipu Pro, escala vigesimal ─────────
+  const eu = await crearColegio({ slug: "academiaeuler", nombre: "Academia Euler", ciudad: "Arequipa", plan: "pro", escala: "vigesimal" });
   await membresia(eu.id, await usuario("direccion@academiaeuler.demo", "Raúl", "Medina"), "direccion");
   const jorge = await membresia(eu.id, await usuario("jorge.ramos@academiaeuler.demo", "Jorge", "Ramos Calle"), "profesor");
   const preu = await crearSalon(eu.id, "Ciclo Pre-U A", "academia", jorge.id);
@@ -268,8 +268,8 @@ async function main() {
     data: { tenantId: eu.id, cursoId: algebra.id, titulo: "Banco de problemas: ecuaciones cuadráticas", fechaEntrega: enDias(3), creadoPorId: jorge.id },
   });
 
-  // ───────── Colegio Los Olivos — Básico ─────────
-  const lo = await crearColegio({ slug: "losolivos", nombre: "Colegio Los Olivos", ciudad: "Lima", plan: "basico", escala: "literal" });
+  // ───────── Colegio Los Olivos — Khipu Base ─────────
+  const lo = await crearColegio({ slug: "losolivos", nombre: "Colegio Los Olivos", ciudad: "Lima", plan: "base", escala: "literal" });
   await membresia(lo.id, await usuario("direccion@losolivos.demo", "Elena", "Paredes Rosas"), "direccion");
   const ana = await membresia(lo.id, await usuario("ana.paredes@losolivos.demo", "Ana", "Paredes"), "profesor");
   const lo1a = await crearSalon(lo.id, "1.° A", "secundaria", ana.id);
@@ -293,11 +293,11 @@ async function main() {
   await responsablesYSuscripcionesDemo();
 
   console.log("Seed listo. Cuentas (contraseña demo123):");
-  console.log("  lucia.garcia@nuevohorizonte.demo  profesora · Pro Max");
-  console.log("  direccion@nuevohorizonte.demo     dirección · Pro Max");
-  console.log("  porteria@nuevohorizonte.demo      portería  · Pro Max");
-  console.log("  jorge.ramos@academiaeuler.demo    profesor  · Fase 2");
-  console.log("  direccion@losolivos.demo          dirección · Básico");
+  console.log("  lucia.garcia@nuevohorizonte.demo  profesora · Khipu Pro");
+  console.log("  direccion@nuevohorizonte.demo     dirección · Khipu Pro");
+  console.log("  porteria@nuevohorizonte.demo      portería  · Khipu Pro");
+  console.log("  jorge.ramos@academiaeuler.demo    profesor  · Khipu Pro");
+  console.log("  direccion@losolivos.demo          dirección · Khipu Base");
   console.log("  rosa.quispe@gmail.com             apoderada · 2 colegios");
   console.log("  admin@khipuescolar.demo           super administrador · http://admin.lvh.me:3000");
 }

@@ -33,8 +33,8 @@ async function miembro(clave: string, rol: Rol, t: Tenant = tenant) {
 const base = { tipoDocumento: "dni" as const, genero: "femenino" as const };
 
 beforeAll(async () => {
-  tenant = await db.tenant.create({ data: { slug: `test-crm-${sufijo}`, nombre: "Colegio CRM", plan: "basico" } });
-  otroTenant = await db.tenant.create({ data: { slug: `test-crm-otro-${sufijo}`, nombre: "Otro Colegio", plan: "basico" } });
+  tenant = await db.tenant.create({ data: { slug: `test-crm-${sufijo}`, nombre: "Colegio CRM", plan: "base" } });
+  otroTenant = await db.tenant.create({ data: { slug: `test-crm-otro-${sufijo}`, nombre: "Otro Colegio", plan: "base" } });
   await miembro("dir", "direccion");
   await miembro("prof", "profesor");
   await miembro("admin", "administrativo");
