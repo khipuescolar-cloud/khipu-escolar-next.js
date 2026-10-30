@@ -84,4 +84,50 @@ describe("cola de avisos → Mailpit", () => {
     const vinculo = await c.db.apoderadoAlumno.findFirstOrThrow({ where: { apoderadoId: c.miembros.madre.membership.id } });
     expect(vinculo.recibeAvisos).toBe(false);
   });
+
+  it("con varios workers a la vez vacía toda la cola: ningún aviso queda esperando al cron", async () => {
+    // Prueba de estrés (docs/pruebas-de-estres.md): 40 listas guardadas a la vez lanzaban 40 after() que competían por
+    // el mismo lote; los que no reservaban nada terminaban y ~300 avisos quedaban pendientes hasta el cron diario.
+    const enviados: string[] = [];
+    const falso: NotificationChannel = { canal: "correo", enviar: async ({ avisoId }) => (enviados.push(avisoId), {}) };
+    const ids = await Promise.all(
+      Array.from({ length: 130 }, (_, i) =>
+        encolarAviso(c.db, {
+          tenantId: c.tenant.id, tipo: "comunicado", canal: "correo", destinatario: `lote${i}@test-basico.local`,
+          plantilla: "comunicado", payload: { colegio: c.tenant.nombre, titulo: `Lote ${i}`, url: "http://x" },
+        }),
+      ),
+    );
+    await Promise.all(Array.from({ length: 6 }, () => procesarCola({ tenantId: c.tenant.id, limites: RAPIDO, maxAvisos: 20, canales: { correo: falso } })));
+    const delLote = enviados.filter((id) => ids.includes(id));
+    expect(new Set(delLote).size).toBe(130);
+    expect(delLote).toHaveLength(130); // ninguno se envió dos veces
+    expect(await c.db.aviso.count({ where: { id: { in: ids }, estado: { not: "enviado" } } })).toBe(0);
+  });
+
+  it("el worker activo también envía lo que se encola mientras trabaja (los after() nuevos se retiran)", async () => {
+    const enviados: string[] = [];
+    const nuevo = (i: number) =>
+      encolarAviso(c.db, {
+        tenantId: c.tenant.id, tipo: "comunicado", canal: "correo", destinatario: `tarde${i}@test-basico.local`,
+        plantilla: "comunicado", payload: { colegio: c.tenant.nombre, titulo: `Tarde ${i}`, url: "http://x" },
+      });
+    const primeros = await Promise.all([0, 1, 2].map(nuevo));
+    let encolados: string[] = [];
+    const lento: NotificationChannel = {
+      canal: "correo",
+      enviar: async ({ avisoId }) => {
+        enviados.push(avisoId);
+        // Mientras el primer worker envía, otra lista encola más avisos y lanza su propio worker.
+        if (enviados.length === 1) {
+          encolados = await Promise.all([3, 4].map(nuevo));
+          const otro = await procesarCola({ tenantId: c.tenant.id, limites: RAPIDO, canales: { correo: lento } });
+          expect(otro.enviados).toBe(0); // se retira: ya hay un worker en el colegio
+        }
+        return {};
+      },
+    };
+    await procesarCola({ tenantId: c.tenant.id, limites: RAPIDO, maxAvisos: 2, canales: { correo: lento } });
+    expect(new Set(enviados)).toEqual(new Set([...primeros, ...encolados]));
+  });
 });

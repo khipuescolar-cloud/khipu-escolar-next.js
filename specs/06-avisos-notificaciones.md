@@ -17,13 +17,14 @@ Avisar a la familia por correo y push cada vez que se registra la asistencia (y 
 ## Flujos
 1. Un módulo crea filas `pendiente` en `avisos` (ver **Contrato**). Asistencia y portería usan `encolarAvisosAsistencia()`; justificaciones, `encolarAviso()` / `encolarParaDestinatario()`; chat, `avisarMensajeNuevo()`; tareas, `avisarTareaNueva()`; el webhook de SES, `alertarCorreoDesactivado()`.
 2. Tras guardar, la action llama `after(() => procesarCola({ tenantId }))`. El cron llama `procesarCola()` global.
-3. El worker recupera las filas atascadas en `enviando`, reserva su lote (`pendiente → enviando`), renderiza por `plantilla` + `payload`, envía por el canal y guarda `estado = enviado`, `enviadoAt`, `providerMessageId` (Message-ID de Nodemailer).
+3. El worker recupera las filas atascadas en `enviando`, reserva su lote (`pendiente → enviando`), renderiza por `plantilla` + `payload`, envía por el canal y guarda `estado = enviado`, `enviadoAt`, `providerMessageId` (Message-ID de Nodemailer). **Repite por lotes** hasta vaciar la cola, quedarse sin cupo diario o agotar su presupuesto de tiempo (`PRESUPUESTO_MS` = 240 s, dentro del límite de la función en Vercel).
 4. SES → SNS → `/api/webhooks/ses`: valida la firma, confirma la suscripción y actualiza `entregado` / `abierto` / `rebotado` / `queja`. Rebote permanente o queja → desactiva los avisos de esa familia y encola `alerta_rebote` a dirección.
 
 ## Reglas de negocio
 - **Destinatarios** (`destinatariosDeAlumno`): vínculo con `recibeAvisos = true`, membresía activa y **consentimiento no revocado**; canales según `preferencias_aviso` (sin fila = correo y push). Push = una fila por suscripción del usuario.
 - **Tope diario** `EMAIL_DAILY_LIMIT`: correos con `enviadoAt` en las últimas 24 h, **global** (todos los colegios). Sin cupo, la fila queda `pendiente` (se cuenta como `diferidos`).
-- **Ritmo** `EMAIL_RATE_PER_SECOND`: pausa de `ceil(1000/ritmo)` ms entre correos.
+- **Ritmo** `EMAIL_RATE_PER_SECOND`: `ceil(1000/ritmo)` ms entre el inicio de un correo y el siguiente (la pausa descuenta lo que tardó el envío). Es por colegio: hay un solo worker por colegio.
+- **Un worker por colegio** (2026-10-30, prueba de estrés, `docs/pruebas-de-estres.md`): cada lote dura ~60 s al ritmo configurado (`tamaño = min(maxAvisos, 60 × EMAIL_RATE_PER_SECOND)`). Antes de cada lote, un worker con `tenantId` comprueba que ningún otro worker del colegio tenga filas `enviando` reservadas en los últimos 120 s (y la reserva lo vuelve a exigir en la misma sentencia `UPDATE … AND NOT EXISTS (…)`); si las hay, se retira y el otro, que vuelve a buscar pendientes tras cada lote (con la hora actual, así toma lo encolado mientras enviaba), sigue con el resto. Lo que no alcance a salir en `PRESUPUESTO_MS` lo continúa el siguiente llamado (otro `after()` o el cron): por eso `EMAIL_RATE_PER_SECOND` debe ser la cuota real del proveedor (SES: 14/s) y conviene un cron frecuente (ver `docs/pruebas-de-estres.md`). Una fila `enviando` de un worker caído deja de bloquear a los 120 s y se recupera a los 10 min. Antes, 40 listas guardadas a la vez lanzaban 40 `after()` que competían por las mismas 100 filas: los que no reservaban nada terminaban y ~20 % de los avisos de la mañana quedaban `pendiente` hasta el cron diario; además el ritmo real era N workers × `EMAIL_RATE_PER_SECOND`. El cron (sin `tenantId`) no se retira. Una fila devuelta a `pendiente` para reintentar no se reintenta en el mismo llamado.
 - **Reserva atómica**: el worker elige el lote (respetando el cupo diario) y lo reserva con un solo `UPDATE avisos SET estado = 'enviando', programado_para = now() WHERE id = ANY(lote) AND estado = 'pendiente' RETURNING id`. Postgres bloquea cada fila y reevalúa la condición: si dos workers corren a la vez, cada fila la obtiene uno solo (probado con dos `procesarCola()` en paralelo). Mientras está `enviando`, `programadoPara` guarda la hora de la reserva.
 - **Recuperación**: al empezar, las filas en `enviando` hace más de `ENVIANDO_MAX_MINUTOS` (10) vuelven a `pendiente` contando un intento (o pasan a `error` si ya agotaron los reintentos). El resumen devuelve `recuperados`.
 - **Reintentos**: 1 intento + 3 reintentos (esperas 1, 5 y 15 min); al 4.º fallo, `error`. Plantilla o payload inválido → `error` sin reintento. Suscripción push vencida (404/410) → se borra y el aviso queda `omitido`.
@@ -73,10 +74,11 @@ interface NotificationChannel { canal: CanalAviso; enviar(e: EnvioAviso): Promis
 destinatariosDeAlumno(tdb, alumnoId): Promise<Destinatario[]>
 encolarAviso(tdb, { tenantId, tipo, canal, destinatario, plantilla, payload, apoderadoId?, asistenciaId?, referenciaId?, programadoPara? }): Promise<string>
 encolarParaDestinatario(tdb, destinatario, { tenantId, tipo, plantilla, payload, asistenciaId?, referenciaId? }): Promise<number>
-encolarAvisosAsistencia(tdb, { tenant, asistencia, alumnoNombre, momento, urlMensajes? }): Promise<number /* familias */>
+encolarAvisosAsistencia(tdb, { tenant, asistencia, alumnoNombre, momento, urlMensajes?, destinatarios? }): Promise<number /* familias */>
+destinatariosPorAlumno(tdb, alumnoIds): Promise<Map<alumnoId, Destinatario[]>>   // una consulta para toda la lista (pasar lista)
 crearTokenJustificacion(tdb, { tenantId, asistenciaId, apoderadoId }): Promise<{ id, token }>
 // notificaciones/cola.ts
-procesarCola({ ahora?, tenantId?, maxAvisos = 100, canales?, esperar?, limites? }): Promise<{ enviados, reintentos, errores, omitidos, diferidos, resumenes, recuperados }>
+procesarCola({ ahora?, tenantId?, maxAvisos = 100 /* por lote */, presupuestoMs = PRESUPUESTO_MS, canales?, esperar?, limites? }): Promise<{ enviados, reintentos, errores, omitidos, diferidos, resumenes, recuperados }>
 ENVIANDO_MAX_MINUTOS = 10
 generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 // notificaciones/limites.ts (puras): cupoDiario, pausaEntreCorreosMs, esperaReintentoMs, MAX_INTENTOS = 4, leerLimites, tocaResumen
@@ -131,7 +133,7 @@ La interfaz `NotificationChannel` se mantiene para correo y push.
 
 ## Pruebas
 - unit: `plantillas-avisos.test.ts` (textos exactos, botón de falta, sin emojis, todas las plantillas del contrato incl. `tarea_nueva`, `libreta_publicada`, `alerta_rebote` y `soporte_inicio`, payload inválido), `cola-limites.test.ts` (tope diario, ritmo, reintentos), `firma-sns.test.ts`.
-- integración: `cola-avisos.test.ts` (cola → Mailpit con remitente y enlace, tope diario → pendiente, reintentos → error, plantilla desconocida, eventos SES y rebote permanente); `preferencias-personal-y-comunicados-push.test.ts` (preferencias del personal, alerta a dirección, comunicado con push y enlace directo); `avisos-pendientes.test.ts` (dos workers en paralelo no repiten filas, recuperación de `enviando`, aviso al profesor correo + push y límite de 15 min, aviso de tarea, alerta de rebote/queja una vez por día)
+- integración: `cola-avisos.test.ts` (cola → Mailpit con remitente y enlace, tope diario → pendiente, reintentos → error, plantilla desconocida, eventos SES y rebote permanente, varios workers a la vez vacían toda la cola sin repetir filas, el worker activo toma lo que se encola mientras envía); `preferencias-personal-y-comunicados-push.test.ts` (preferencias del personal, alerta a dirección, comunicado con push y enlace directo); `avisos-pendientes.test.ts` (dos workers en paralelo no repiten filas, recuperación de `enviando` —con otro worker activo en el colegio el llamado se retira y la fila recuperada sale en el siguiente—, aviso al profesor correo + push y límite de 15 min, aviso de tarea, alerta de rebote/queja una vez por día)
 
 ## Pendientes
 - Ninguno de canales: no se agregarán WhatsApp ni SMS.

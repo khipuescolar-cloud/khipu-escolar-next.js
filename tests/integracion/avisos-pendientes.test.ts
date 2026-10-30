@@ -68,13 +68,19 @@ describe("avisos pendientes del MVP", () => {
     const reciente = await c.db.aviso.create({ data: { ...base, destinatario: "c@test-avisos2.local", programadoPara: new Date() } });
 
     const enviados: EnvioAviso[] = [];
-    const r = await procesarCola({ tenantId: c.tenant.id, limites: RAPIDO, esperar: sinEspera, canales: { correo: canalFalso("correo", enviados) } });
+    const opciones = { tenantId: c.tenant.id, limites: RAPIDO, esperar: sinEspera, canales: { correo: canalFalso("correo", enviados) } };
+    const r = await procesarCola(opciones);
     expect(r.recuperados).toBe(2);
+    expect(await c.db.aviso.findUniqueOrThrow({ where: { id: agotado.id } })).toMatchObject({ estado: "error", intentos: 4 });
+    // Otro worker del colegio la está enviando ahora mismo: no se toca y este worker le deja el resto (uno por colegio).
+    expect(await c.db.aviso.findUniqueOrThrow({ where: { id: reciente.id } })).toMatchObject({ estado: "enviando", intentos: 0 });
+    expect(enviados).toEqual([]);
+    expect(await c.db.aviso.findUniqueOrThrow({ where: { id: atascado.id } })).toMatchObject({ estado: "pendiente", intentos: 1 });
+    // Cuando ese worker termina, el siguiente llamado envía la recuperada.
+    await c.db.aviso.update({ where: { id: reciente.id }, data: { estado: "enviado", enviadoAt: new Date() } });
+    await procesarCola(opciones);
     expect(enviados.map((e) => e.avisoId)).toEqual([atascado.id]);
     expect(await c.db.aviso.findUniqueOrThrow({ where: { id: atascado.id } })).toMatchObject({ estado: "enviado", intentos: 2 });
-    expect(await c.db.aviso.findUniqueOrThrow({ where: { id: agotado.id } })).toMatchObject({ estado: "error", intentos: 4 });
-    // Otro worker la está enviando ahora mismo: no se toca.
-    expect(await c.db.aviso.findUniqueOrThrow({ where: { id: reciente.id } })).toMatchObject({ estado: "enviando", intentos: 0 });
     await c.db.aviso.deleteMany({});
   });
 
