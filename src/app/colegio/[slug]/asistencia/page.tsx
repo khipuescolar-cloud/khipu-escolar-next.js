@@ -1,4 +1,4 @@
-import { ArrowLeft, CalendarCheck, CalendarX, ChevronRight, ClipboardCheck, FileText, MessageSquarePlus, Users } from "lucide-react";
+import { ArrowLeft, BarChart3, CalendarCheck, CalendarX, ChevronRight, ClipboardCheck, FileText, MessageSquarePlus, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EstadoAsistencia } from "@/components/EstadoAsistencia";
@@ -50,7 +50,11 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
 
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina titulo="Pasar lista" descripcion={<span className="first-letter:uppercase">{fechaLarga(hoy.isoFecha)}</span>} />
+      <EncabezadoPagina
+        titulo="Pasar lista"
+        descripcion={<span className="first-letter:uppercase">{fechaLarga(hoy.isoFecha)}</span>}
+        acciones={<Link href="/asistencia/reportes" className={buttonVariants({ variant: "outline" })}><BarChart3 className="size-4" strokeWidth={2} aria-hidden /> Reportes</Link>}
+      />
       <div className="-mt-2"><SincronizadorListas /></div>
 
       {resumen && (

@@ -85,6 +85,9 @@ hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 - unit: `tests/unit/resumen-avisos-lista.test.ts` (conteo del resumen previo).
 - e2e (`tests/e2e/pasar-lista-aviso-justificar.test.ts`): Lucía pasa lista en 3.° B → el resumen dice «Se avisará a N familias: … llegadas» → el correo «Mateo llegó al colegio» llega a Mailpit → luego la falta → correo de falta → enlace de justificar funciona una vez. `tests/e2e/paginas-basico-por-rol.test.ts` (Khipu Base): resumen del día, vista de familia, portería sin acceso.
 
+## Reportes
+- Porcentaje de asistencia por alumno, salón y fechas, con descarga en Excel y PDF: ver [spec 27](27-reportes-asistencia.md) (`/asistencia/reportes`).
+
 ## Pendientes
 - (Hecho) Vista de la familia: botón «Escribir a la tutora» por hijo → `/mensajes/nuevo?alumno=<id>` (spec 08).
 - (Resuelto) Reintentos acotados de la cola sin conexión: ver el párrafo de la cola.

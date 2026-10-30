@@ -1,6 +1,7 @@
 import "server-only";
 import { whereSalonActivo } from "./salones-activos";
 import { momentoEnZona } from "@/lib/fechas";
+import { elegirRegistroDelDia } from "@/lib/reportes-asistencia";
 import type { TenantContext } from "./tenant";
 
 // Resumen del día para el inicio de dirección: asistencia por salón.
@@ -19,10 +20,12 @@ export async function resumenAsistenciaHoy(ctx: TenantContext): Promise<ResumenS
     ctx.db.asistencia.findMany({ where: { fecha }, select: { alumnoId: true, ambito: true, estado: true, hora: true } }),
   ]);
   // Por alumno prevalece la asistencia del día; si no hay, la primera registrada.
-  const porAlumno = new Map<string, { ambito: string; estado: string; hora: string }>();
-  for (const a of asistencias) {
-    const actual = porAlumno.get(a.alumnoId);
-    if (!actual || (a.ambito === "dia" && actual.ambito !== "dia") || (actual.ambito !== "dia" && a.hora < actual.hora)) porAlumno.set(a.alumnoId, a);
+  const porAlumno = new Map<string, { estado: string }>();
+  const registrosPorAlumno = new Map<string, typeof asistencias>();
+  for (const a of asistencias) registrosPorAlumno.set(a.alumnoId, [...(registrosPorAlumno.get(a.alumnoId) ?? []), a]);
+  for (const [alumnoId, registros] of registrosPorAlumno) {
+    const elegido = elegirRegistroDelDia(registros);
+    if (elegido) porAlumno.set(alumnoId, elegido);
   }
   return salones.map((s) => {
     const r: ResumenSalon = { salonId: s.id, salon: s.nombre, llego: 0, tarde: 0, falta: 0, problema: 0, sinRegistrar: 0, total: s.alumnos.length };

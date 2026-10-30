@@ -32,3 +32,4 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 24 | [App instalable (PWA) y camino a tiendas](24-app-instalable.md) | Todos | implementado |
 | 25 | [Landing pública (sitio de Khipu Escolar)](25-landing-publica.md) | Público | implementado |
 | 26 | [Solicitudes de demo (panel de plataforma)](26-solicitudes-de-demo.md) | Interno | implementado |
+| 27 | [Reportes de asistencia (alumno, salón, fechas; Excel y PDF)](27-reportes-asistencia.md) | Base (asistencia) | implementado (integración y e2e pendientes de correr) |
