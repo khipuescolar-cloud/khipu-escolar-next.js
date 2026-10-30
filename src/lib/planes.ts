@@ -22,6 +22,8 @@ export const FEATURES = {
   libreta: "pro",
   tareas: "pro",
   agenda: "pro",
+  /** Tablero e informes de dirección (specs/33). */
+  tablero: "pro",
   /** Chat con el equipo Khipu (mesa de ayuda, specs/23): en todos los planes. */
   soporte: "base",
 } as const satisfies Record<string, Plan>;

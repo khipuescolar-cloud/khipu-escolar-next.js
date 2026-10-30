@@ -38,4 +38,4 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 30 | [Capacidades y desempeños del CNEB](30-capacidades-desempenos.md) | Khipu Pro | en construcción (esquema listo) |
 | 31 | [Biblioteca de documentos](31-documentos.md) | Khipu Pro | en construcción (esquema listo) |
 | 32 | [Reuniones (convocatoria, confirmación y acta)](32-reuniones.md) | Khipu Pro | en construcción (esquema listo) |
-| 33 | [Tablero de dirección](33-tablero-direccion.md) | Khipu Pro | en construcción |
+| 33 | [Tablero de dirección](33-tablero-direccion.md) | Khipu Pro | implementada |
