@@ -103,8 +103,19 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
                 {curso.competencias.map((c) => (
                   <li key={c.nombre} className="flex flex-col gap-1.5 border-b pb-3 last:border-0 last:pb-0">
                     <p className="text-sm font-medium">{c.nombre}</p>
+                    {c.capacidades.length > 0 && (
+                      <p className="text-cuerpo-sm text-muted-foreground"><span className="font-medium">Capacidades:</span> {c.capacidades.join(" · ")}</p>
+                    )}
                     <div>{c.calificacion ? <Calificacion valor={c.calificacion} /> : <span className="text-cuerpo-sm text-muted-foreground">Sin calificar todavía</span>}</div>
                     {c.conclusion && <p className="text-cuerpo-sm text-muted-foreground">{c.conclusion}</p>}
+                    {c.desempenosEvaluados.length > 0 && (
+                      <details className="text-cuerpo-sm">
+                        <summary className="cursor-pointer font-medium text-primary">Desempeños evaluados ({c.desempenosEvaluados.length})</summary>
+                        <ul className="mt-1.5 flex list-disc flex-col gap-1 pl-5 text-muted-foreground">
+                          {c.desempenosEvaluados.map((d) => <li key={d}>{d}</li>)}
+                        </ul>
+                      </details>
+                    )}
                   </li>
                 ))}
               </ul>

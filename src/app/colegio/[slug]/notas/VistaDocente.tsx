@@ -13,14 +13,17 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { ETIQUETA_LITERAL, LITERALES, formatearNumero } from "@/lib/calificaciones";
 import { fechaLima } from "@/lib/fechas";
+import { desempenosParaEvaluar } from "@/lib/server/cneb";
 import { calificacionesPeriodo, cierreDeCurso, cursosDelDocente, grillaNotas, listarPeriodos, periodoEnCurso } from "@/lib/server/notas";
 import type { TenantContext } from "@/lib/server/tenant";
 import {
   cerrarCursoAction, crearCompetenciaAction, crearEvaluacionAction, reabrirCursoAction, editarEvaluacionAction, eliminarCompetenciaAction, eliminarEvaluacionAction,
 } from "./actions";
+import { CompetenciaYDesempenos } from "./CompetenciaYDesempenos";
 import { FilaCalificacion } from "./FilaCalificacion";
 import { GrillaNotas } from "./GrillaNotas";
 import { ImportarNotas } from "./ImportarNotas";
+import { SeccionCneb } from "./SeccionCneb";
 
 type SP = Record<string, string | string[] | undefined>;
 const uno = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
@@ -29,6 +32,7 @@ const SECCIONES = [
   { id: "notas", nombre: "Notas por evaluación" },
   { id: "periodo", nombre: "Calificación del periodo" },
   { id: "competencias", nombre: "Competencias" },
+  { id: "cneb", nombre: "Capacidades y desempeños" },
   { id: "excel", nombre: "Importar y exportar" },
 ] as const;
 
@@ -119,6 +123,7 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
       {seccion === "periodo" && <SeccionPeriodo ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} sp={sp} />}
       {seccion === "excel" && <SeccionExcel ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} />}
       {seccion === "competencias" && <SeccionCompetencias ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} />}
+      {seccion === "cneb" && <SeccionCneb ctx={ctx} slug={slug} cursoId={curso.id} />}
     </div>
   );
 }
@@ -196,17 +201,9 @@ async function SeccionExcel({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
   );
 }
 
-function SelectCompetencia({ competencias, defecto }: { competencias: { id: string; nombre: string }[]; defecto?: string | null }) {
-  return (
-    <Selector etiqueta="Competencia" name="competenciaId" defaultValue={defecto ?? ""}>
-      <option value="">Sin competencia</option>
-      {competencias.map((c) => <option key={c.id} value={c.id}>{c.nombre}</option>)}
-    </Selector>
-  );
-}
-
 async function BotonNuevaEvaluacion({ slug, ctx, cursoId, periodoId }: { slug: string; ctx: TenantContext; cursoId: string; periodoId: string }) {
   const g = await grillaNotas(ctx, cursoId, periodoId);
+  const opciones = await desempenosParaEvaluar(ctx, cursoId);
   return (
     <DialogoAccion
       disparador={<><Plus strokeWidth={2} aria-hidden />Nueva evaluación</>}
@@ -218,7 +215,7 @@ async function BotonNuevaEvaluacion({ slug, ctx, cursoId, periodoId }: { slug: s
       <input type="hidden" name="cursoId" value={cursoId} />
       <input type="hidden" name="periodoId" value={periodoId} />
       <div className="sm:col-span-2"><Campo etiqueta="Título" name="titulo" required maxLength={120} placeholder="Práctica 2" /></div>
-      <SelectCompetencia competencias={g.competencias} />
+      <CompetenciaYDesempenos competencias={g.competencias} porCompetencia={opciones.porCompetencia} textoGrado={opciones.textoGrado} />
       <Campo etiqueta="Fecha" name="fecha" type="date" required defaultValue={fechaLima(new Date())} />
       <Campo etiqueta="Peso" name="peso" type="number" min={0.01} step={0.01} defaultValue={1} required ayuda="Cuánto cuenta en el promedio." />
     </DialogoAccion>
@@ -228,6 +225,7 @@ async function BotonNuevaEvaluacion({ slug, ctx, cursoId, periodoId }: { slug: s
 async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantContext; slug: string; cursoId: string; periodoId: string }) {
   const g = await grillaNotas(ctx, cursoId, periodoId);
   const puedeEditar = g.editable;
+  const opciones = puedeEditar ? await desempenosParaEvaluar(ctx, cursoId) : { porCompetencia: {}, textoGrado: null };
   return (
     <div className="flex flex-col gap-5">
       {g.escala === "literal" && (
@@ -250,7 +248,10 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
                 <li key={e.id} className="flex flex-wrap items-center justify-between gap-3 py-3 first:pt-0 last:pb-0">
                   <div className="min-w-0">
                     <p className="font-medium">{e.titulo}</p>
-                    <p className="text-cuerpo-sm text-muted-foreground">{e.fecha} · peso {formatearNumero(e.peso)}</p>
+                    <p className="text-cuerpo-sm text-muted-foreground">
+                      {e.fecha} · peso {formatearNumero(e.peso)}
+                      {e.desempenoIds.length > 0 && ` · ${e.desempenoIds.length} ${e.desempenoIds.length === 1 ? "desempeño" : "desempeños"}`}
+                    </p>
                   </div>
                   <div className="flex items-center gap-2">
                     <DialogoAccion
@@ -261,7 +262,10 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
                       accion={editarEvaluacionAction.bind(null, slug, e.id)}
                     >
                       <div className="sm:col-span-2"><Campo etiqueta="Título" name="titulo" required defaultValue={e.titulo} /></div>
-                      <SelectCompetencia competencias={g.competencias} defecto={e.competenciaId} />
+                      <CompetenciaYDesempenos
+                        competencias={g.competencias} porCompetencia={opciones.porCompetencia} textoGrado={opciones.textoGrado}
+                        defecto={e.competenciaId} marcados={e.desempenoIds}
+                      />
                       <Campo etiqueta="Fecha" name="fecha" type="date" required defaultValue={e.fecha} />
                       <Campo etiqueta="Peso" name="peso" type="number" min={0.01} step={0.01} required defaultValue={e.peso} />
                     </DialogoAccion>
@@ -317,7 +321,7 @@ async function SeccionPeriodo({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
             <FilaCalificacion
               slug={slug} escala={c.escala} editable={c.editable}
               alumno={a.alumno} competenciaId={fila.competencia.id} periodoId={periodoId}
-              guardado={a.guardado} sugerido={a.sugerido} cantidadNotas={a.cantidadNotas}
+              guardado={a.guardado} sugerido={a.sugerido} cantidadNotas={a.cantidadNotas} desempenos={a.desempenos}
             />
           </li>
         ))}

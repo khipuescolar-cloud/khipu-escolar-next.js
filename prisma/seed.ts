@@ -5,6 +5,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { createClient } from "@supabase/supabase-js";
 import { PrismaClient } from "../src/generated/prisma/client";
 import type { Nivel, Plan, Rol, EscalaCalificacion } from "../src/generated/prisma/enums";
+import { sembrarCneb } from "./seed-cneb";
 
 const PASSWORD = "demo123";
 const ANIO = 2026;
@@ -291,6 +292,7 @@ async function main() {
   }
 
   await responsablesYSuscripcionesDemo();
+  await sembrarCneb(prisma);
 
   console.log("Seed listo. Cuentas (contraseña demo123):");
   console.log("  lucia.garcia@nuevohorizonte.demo  profesora · Khipu Pro");
