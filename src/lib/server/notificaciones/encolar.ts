@@ -194,8 +194,9 @@ export type AsistenciaParaAviso = {
 
 /**
  * Encola los avisos de un registro de asistencia: llegada, tardanza, falta o problema, a cada familia
- * con consentimiento y según sus preferencias. Todas las llegadas se avisan (el modo «solo excepciones»
- * se eliminó); quien llama evita repetir la llegada del mismo alumno el mismo día. Devuelve cuántas familias recibirán aviso.
+ * con consentimiento y según sus preferencias. Quien llama decide QUÉ se avisa (specs/04): la llegada solo desde
+ * la asistencia al colegio y una vez al día; en las listas de curso solo tardanzas, faltas a clase (si el alumno
+ * ingresó al colegio) y problemas. Devuelve cuántas familias recibirán aviso.
  */
 export async function encolarAvisosAsistencia(
   tdb: DbTenant,
@@ -205,6 +206,10 @@ export async function encolarAvisosAsistencia(
     alumnoNombre: string;
     /** «a la 1.ª hora» o «a Matemática» (texto del aviso de falta). */
     momento: string;
+    /** Lista de un curso (specs/04): nombre del curso para la tardanza y la falta a clase. */
+    curso?: string;
+    /** Hora de ingreso al colegio de ese día (HH:mm): la falta a clase dice «ingresó a las 7:52, pero no estuvo en…». */
+    ingreso?: string;
     urlMensajes?: string;
     /** Destinatarios ya cargados (p. ej. con `destinatariosPorAlumno` para toda la lista); si no, se consultan. */
     destinatarios?: Destinatario[];
@@ -226,7 +231,8 @@ export async function encolarAvisosAsistencia(
         break;
       case "tarde":
         filas = await encolarParaDestinatario(tdb, d, {
-          ...base, plantilla: "asistencia_tarde", payload: { colegio, alumno: alumnoNombre, hora: asistencia.hora },
+          ...base, plantilla: "asistencia_tarde",
+          payload: { colegio, alumno: alumnoNombre, hora: asistencia.hora, ...(datos.curso ? { curso: datos.curso } : {}) },
         });
         break;
       case "falta": {
@@ -237,7 +243,10 @@ export async function encolarAvisosAsistencia(
         filas = await encolarParaDestinatario(tdb, d, {
           ...base,
           plantilla: "asistencia_falta",
-          payload: { colegio, alumno: alumnoNombre, momento: datos.momento, justificacionTokenId: id },
+          payload: {
+            colegio, alumno: alumnoNombre, momento: datos.momento, justificacionTokenId: id,
+            ...(datos.curso && datos.ingreso ? { curso: datos.curso, ingreso: datos.ingreso, horaClase: asistencia.hora } : {}),
+          },
         });
         break;
       }

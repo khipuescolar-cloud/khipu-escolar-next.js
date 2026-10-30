@@ -71,6 +71,11 @@ export function esFechaIso(s: string | undefined): s is string {
   return !!s && /^\d{4}-\d{2}-\d{2}$/.test(s) && !Number.isNaN(Date.parse(`${s}T00:00:00Z`));
 }
 
+/** Fecha real AAAA-MM-DD (rechaza 2026-02-31). */
+export function esFechaReal(s: string | undefined): s is string {
+  return esFechaIso(s) && new Date(`${s}T00:00:00Z`).toISOString().slice(0, 10) === s;
+}
+
 export function formatoDia(d: Date | string, opciones: Intl.DateTimeFormatOptions = { weekday: "long", day: "numeric", month: "long" }): string {
   const fecha = typeof d === "string" ? new Date(`${d}T12:00:00-05:00`) : d;
   return new Intl.DateTimeFormat("es-PE", { timeZone: ZONA_LIMA, ...opciones }).format(fecha);

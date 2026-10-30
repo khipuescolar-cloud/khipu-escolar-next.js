@@ -15,8 +15,10 @@ test("dirección filtra un salón por fechas y descarga Excel y PDF", async ({ p
   await entrar(page, "direccion@nuevohorizonte.demo");
   await page.goto(`${COLEGIO}/asistencia/reportes`);
   await expect(page.getByRole("heading", { name: "Reportes de asistencia", exact: true })).toBeVisible();
-  // Sin filtros: resumen del colegio, una fila por salón.
+  // Sin filtros: asistencia al colegio del día y resumen del rango, una fila por salón.
+  await expect(page.getByTestId("asistencia-del-dia").getByText("Asistieron", { exact: true })).toBeVisible();
   await expect(page.getByRole("columnheader", { name: "% asistencia" })).toBeVisible();
+  await expect(page.getByRole("columnheader", { name: "En revisión" })).toBeVisible();
 
   await page.getByRole("combobox", { name: "Salón", exact: true }).selectOption({ label: "3.° B" });
   await page.getByLabel("Desde").fill("2026-03-02");

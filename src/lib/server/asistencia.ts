@@ -4,13 +4,17 @@ import { z } from "zod";
 import type { EstadoAsistencia, EstadoJustificacion } from "@/generated/prisma/enums";
 import { claveMes, mesPedido, rangoDelMes } from "@/lib/calendario-asistencia";
 import { urlColegio } from "@/lib/dominio";
-import { fechaDb, isoDeFechaDb, momentoEnZona, sumarDias } from "@/lib/fechas";
+import { esFechaReal, fechaDb, isoDeFechaDb, momentoEnZona, sumarDias } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
 import { instanteDeRegistro } from "@/lib/registro-offline";
 import { auditar, auditarVarios } from "./auditoria";
 import { feriadosAplicables } from "./plataforma-configuracion";
 import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-justificacion";
-import { destinatariosPorAlumno, encolarAvisosAsistencia, familiasConAvisoPorAlumno, type AsistenciaParaAviso } from "./notificaciones/encolar";
+import { asistenciaPorCursoActiva, ingresoAlColegio, mensajeCursoDesactivado, seAvisaCambio } from "@/lib/asistencia-por-curso";
+import { ErrorDeNegocio } from "./contexto-accion";
+import {
+  destinatariosPorAlumno, encolarAvisosAsistencia, familiasConAvisoPorAlumno, type AsistenciaParaAviso, type Destinatario,
+} from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
 import { whereSalonActivo } from "./salones-activos";
 import { esVistaFamilia } from "@/lib/roles";
@@ -23,7 +27,13 @@ export const ESTADOS: EstadoAsistencia[] = ["llego", "tarde", "falta", "problema
 
 export type OpcionLista = { salonId: string; salonNombre: string; ambito: string; titulo: string };
 
-/** Listas que el usuario puede pasar: «Asistencia del día» (tutor o dirección) y sus cursos. */
+/** Error legible (403 de negocio) al pasar o corregir una lista de curso de un nivel sin asistencia por curso. */
+export class AsistenciaPorCursoDesactivada extends ErrorDeNegocio {}
+
+/**
+ * Listas que el usuario puede pasar: «Asistencia del día» (tutor; dirección para corregir) y sus cursos.
+ * Las listas de curso solo se ofrecen en salones de los niveles con asistencia por curso activa (Configuración).
+ */
 export async function opcionesDeLista(ctx: TenantContext): Promise<OpcionLista[]> {
   requireFeature(ctx, "asistencia");
   if (ctx.rol !== "direccion" && ctx.rol !== "profesor") forbidden();
@@ -34,12 +44,13 @@ export async function opcionesDeLista(ctx: TenantContext): Promise<OpcionLista[]
       ...(esDireccion ? {} : { OR: [{ tutorId: ctx.membership.id }, { cursos: { some: { profesorId: ctx.membership.id } } }] }),
     },
     orderBy: { nombre: "asc" },
-    select: { id: true, nombre: true, tutorId: true, cursos: { orderBy: { nombre: "asc" }, select: { id: true, nombre: true, profesorId: true } } },
+    select: { id: true, nombre: true, nivel: true, tutorId: true, cursos: { orderBy: { nombre: "asc" }, select: { id: true, nombre: true, profesorId: true } } },
   });
   const opciones: OpcionLista[] = [];
   for (const s of salones) {
     const esTutor = s.tutorId === ctx.membership.id;
     if (esDireccion || esTutor) opciones.push({ salonId: s.id, salonNombre: s.nombre, ambito: AMBITO_DIA, titulo: "Asistencia del día" });
+    if (!asistenciaPorCursoActiva(ctx.tenant.asistenciaPorCursoNiveles, s.nivel)) continue;
     for (const c of s.cursos) {
       if (esDireccion || esTutor || c.profesorId === ctx.membership.id) {
         opciones.push({ salonId: s.id, salonNombre: s.nombre, ambito: c.id, titulo: c.nombre });
@@ -49,11 +60,14 @@ export async function opcionesDeLista(ctx: TenantContext): Promise<OpcionLista[]
   return opciones;
 }
 
-/** 403 si el usuario no puede pasar esa lista. Devuelve el salón y, si aplica, el curso. */
+/**
+ * 403 si el usuario no puede pasar esa lista. Devuelve el salón y, si aplica, el curso.
+ * Lista de curso de un nivel sin asistencia por curso → `AsistenciaPorCursoDesactivada` (también para dirección).
+ */
 async function requireLista(ctx: TenantContext, salonId: string, ambito: string) {
   requireFeature(ctx, "asistencia");
   if (ctx.rol !== "direccion" && ctx.rol !== "profesor") forbidden();
-  const salon = await ctx.db.salon.findUnique({ where: { id: salonId }, select: { id: true, nombre: true, tutorId: true, archivadoAt: true } });
+  const salon = await ctx.db.salon.findUnique({ where: { id: salonId }, select: { id: true, nombre: true, nivel: true, tutorId: true, archivadoAt: true } });
   if (!salon || salon.archivadoAt) notFound();
   if (ambito === AMBITO_DIA) {
     if (ctx.rol !== "direccion" && salon.tutorId !== ctx.membership.id) forbidden();
@@ -62,6 +76,7 @@ async function requireLista(ctx: TenantContext, salonId: string, ambito: string)
   await requireCursoDelProfesor(ctx, ambito);
   const curso = await ctx.db.curso.findUnique({ where: { id: ambito }, select: { id: true, nombre: true, salonId: true } });
   if (!curso || curso.salonId !== salon.id) forbidden();
+  if (!asistenciaPorCursoActiva(ctx.tenant.asistenciaPorCursoNiveles, salon.nivel)) throw new AsistenciaPorCursoDesactivada(mensajeCursoDesactivado(salon.nivel));
   return { salon, curso };
 }
 
@@ -69,43 +84,61 @@ export function hoyDelColegio(ctx: Pick<TenantContext, "tenant">, ahora = new Da
   return momentoEnZona(ahora, ctx.tenant.zonaHoraria);
 }
 
-/** Alumnos del salón con el registro de hoy (si existe) para esa lista. */
-export async function obtenerLista(ctx: TenantContext, salonId: string, ambito: string) {
+const fechaCorreccion = z.string().refine(esFechaReal, "Fecha no válida.");
+
+/**
+ * Día de la lista. Sin `fecha`, hoy. Con `fecha` (modo «corregir» desde los reportes), solo dirección y nunca un día futuro;
+ * un profesor solo puede pedir hoy. Devuelve también si es hoy: corregir un día pasado no avisa a las familias.
+ */
+function diaDeLista(ctx: TenantContext, fecha: string | undefined, ahora = new Date()) {
+  const hoy = hoyDelColegio(ctx, ahora);
+  if (!fecha || fecha === hoy.isoFecha) return { isoFecha: hoy.isoFecha, hora: hoy.hora, esHoy: true };
+  if (!fechaCorreccion.safeParse(fecha).success) throw new ErrorDeNegocio("La fecha de la lista no es válida.");
+  if (ctx.rol !== "direccion") forbidden();
+  if (fecha > hoy.isoFecha) throw new ErrorDeNegocio("No se puede corregir la asistencia de un día que aún no llega.");
+  return { isoFecha: fecha, hora: hoy.hora, esHoy: false };
+}
+
+/**
+ * Alumnos del salón con su registro de ese día (hoy por defecto) para esa lista.
+ * En las listas de curso trae además el ingreso al colegio de ese día (para decidir y mostrar el aviso de falta a clase).
+ */
+export async function obtenerLista(ctx: TenantContext, salonId: string, ambito: string, fecha?: string) {
   const { salon, curso } = await requireLista(ctx, salonId, ambito);
-  const hoy = hoyDelColegio(ctx);
+  const dia = diaDeLista(ctx, fecha);
+  const fechaLista = fechaDb(dia.isoFecha);
   const alumnos = await ctx.db.alumno.findMany({
     where: { salonId: salon.id, estado: "activo" },
     orderBy: [{ apellidos: "asc" }, { nombres: "asc" }],
     select: {
       id: true, nombres: true, apellidos: true,
-      asistencias: { where: { fecha: fechaDb(hoy.isoFecha), ambito }, select: { estado: true, hora: true, nota: true, origen: true } },
+      asistencias: { where: { fecha: fechaLista, ambito: curso ? { in: [ambito, AMBITO_DIA] } : ambito }, select: { ambito: true, estado: true, hora: true, nota: true, origen: true } },
     },
   });
-  const ids = alumnos.map((a) => a.id);
-  const [familias, llegadasPrevias] = await Promise.all([
-    familiasConAvisoPorAlumno(ctx.db, ids),
-    ctx.db.asistencia.findMany({
-      where: { alumnoId: { in: ids }, fecha: fechaDb(hoy.isoFecha), ambito: { not: ambito }, estado: { in: ["llego", "tarde"] } },
-      select: { alumnoId: true },
-    }),
-  ]);
-  const yaLlegaron = new Set(llegadasPrevias.map((l) => l.alumnoId));
+  const familias = await familiasConAvisoPorAlumno(ctx.db, alumnos.map((a) => a.id));
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "asistencia",
-    detalle: { salonId: salon.id, ambito, fecha: hoy.isoFecha },
+    detalle: { salonId: salon.id, ambito, fecha: dia.isoFecha },
   });
   return {
     salon: { id: salon.id, nombre: salon.nombre },
-    curso,
+    curso: curso ? { id: curso.id, nombre: curso.nombre } : null,
     ambito,
-    hoy,
-    alumnos: alumnos.map((a) => ({
-      id: a.id, nombres: a.nombres, apellidos: a.apellidos, registro: a.asistencias[0] ?? null,
-      /** Familias que recibirán el aviso (con consentimiento y algún canal). */
-      familiasConAviso: familias.get(a.id) ?? 0,
-      /** Hoy ya se avisó su llegada en otra lista o en portería: esta lista no la repite. */
-      llegadaAvisada: yaLlegaron.has(a.id),
-    })),
+    hoy: { isoFecha: dia.isoFecha, hora: dia.hora },
+    /** false al corregir un día pasado: no se avisa a las familias. */
+    esHoy: dia.esHoy,
+    alumnos: alumnos.map((a) => {
+      const registro = a.asistencias.find((r) => r.ambito === ambito);
+      const ingreso = curso ? a.asistencias.find((r) => r.ambito === AMBITO_DIA) : undefined;
+      return {
+        id: a.id, nombres: a.nombres, apellidos: a.apellidos,
+        registro: registro ? { estado: registro.estado, hora: registro.hora, nota: registro.nota, origen: registro.origen } : null,
+        /** Familias que recibirán el aviso (con consentimiento y algún canal). */
+        familiasConAviso: familias.get(a.id) ?? 0,
+        /** Solo listas de curso: ingreso al colegio de ese día (portería o lista del día). */
+        ingreso: ingreso ? { estado: ingreso.estado, hora: ingreso.hora } : null,
+      };
+    }),
   };
 }
 
@@ -124,18 +157,22 @@ export const esquemaGuardarLista = z.object({
     .max(200),
   /** Hora real en que se pasó lista, si se guardó sin conexión (ISO). Solo se respeta si es razonable. */
   registradoAt: z.iso.datetime().optional(),
+  /** Día que dirección corrige desde los reportes (AAAA-MM-DD). Sin fecha, hoy. */
+  fecha: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
 });
 
 /** `omitidos`: registros enviados sin conexión que no se aplicaron porque el servidor ya tenía un cambio más reciente. */
 export type ResultadoGuardarLista = { guardados: number; cambios: number; familiasAvisadas: number; omitidos: number };
 
 /**
- * Upsert por (alumnoId, fecha, ambito) con origen «lista». Al guardar («cerrar») la lista se encola el aviso
- * a las familias de cada alumno nuevo o con estado cambiado: presentes (llegada), tardanzas, faltas y problemas.
- *
- * Un solo aviso de llegada por alumno y día: si ya tuvo una llegada hoy (portería, la primera lista u otra lista,
- * o la misma lista lo tenía «tarde»), las listas siguientes no repiten el aviso de llegada. Así no se duplica el
- * correo (cuesta y el envío diario tiene tope; Gmail ~500 por día). Tardanza, falta y problema sí se avisan siempre.
+ * Upsert por (alumnoId, fecha, ambito) con origen «lista». Al guardar («cerrar») la lista se encola el aviso a las
+ * familias de cada alumno nuevo o con estado cambiado, según `seAvisaCambio` (specs/04):
+ * - Asistencia del día: llegada, tardanza, falta y problema. La llegada se avisa una sola vez (no si esta lista lo
+ *   tenía «tarde»; portería escribe en la misma fila, así que tampoco se repite tras el escaneo).
+ * - Lista de un curso: nunca la llegada. Tardanza («llegó tarde a Matemática») y problema siempre. La falta a clase
+ *   solo si el alumno ingresó al colegio ese día («ingresó a las 7:52, pero no estuvo en Matemática»); si no ingresó,
+ *   la familia ya recibe «no llegó» de la asistencia del día y no se duplica.
+ * - Corrección de un día pasado (dirección, `fecha`): se guarda y se audita, pero no se avisa (el aviso habla de «hoy»).
  *
  * Idempotente (la fila es única por alumno/fecha/ámbito): reenviar la misma lista no cambia nada ni vuelve a avisar.
  * Si llega con `registradoAt` (lista guardada sin conexión), la fecha y hora del registro son las de ese instante
@@ -144,9 +181,11 @@ export type ResultadoGuardarLista = { guardados: number; cambios: number; famili
 export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora = new Date()): Promise<ResultadoGuardarLista> {
   const datos = esquemaGuardarLista.parse(entrada);
   const { salon, curso } = await requireLista(ctx, datos.salonId, datos.ambito);
-  const instante = instanteDeRegistro(datos.registradoAt, ahora);
+  const correccion = datos.fecha ? diaDeLista(ctx, datos.fecha, ahora) : null;
+  const instante = correccion ? ahora : instanteDeRegistro(datos.registradoAt, ahora);
   const sinConexion = instante !== ahora;
-  const hoy = hoyDelColegio(ctx, instante);
+  const hoy = correccion ?? hoyDelColegio(ctx, instante);
+  const avisa = correccion ? correccion.esHoy : true;
   const fecha = fechaDb(hoy.isoFecha);
 
   const alumnos = await ctx.db.alumno.findMany({
@@ -164,11 +203,11 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
       where: { alumnoId: { in: ids }, fecha, ambito: datos.ambito },
       select: { id: true, alumnoId: true, estado: true, hora: true, nota: true, updatedAt: true },
     }),
-    destinatariosPorAlumno(ctx.db, ids),
+    avisa ? destinatariosPorAlumno(ctx.db, ids) : Promise.resolve(new Map<string, Destinatario[]>()),
   ]);
   const anteriores = new Map(previos.map((p) => [p.alumnoId, p]));
   const auditorias: Parameters<typeof auditarVarios>[0] = [];
-  const porAvisar: { asistencia: AsistenciaParaAviso; anterior: string | null }[] = [];
+  const porAvisar: { asistencia: AsistenciaParaAviso; anterior: EstadoAsistencia | null }[] = [];
 
   let cambios = 0;
   let omitidos = 0;
@@ -183,7 +222,8 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
     const cambiaEstado = !anterior || anterior.estado !== r.estado;
     if (anterior && !cambiaEstado && anterior.nota === nota) continue;
 
-    const hora = cambiaEstado ? hoy.hora : anterior!.hora;
+    // Al corregir un día pasado se conserva la hora del registro (si lo había): la hora de hoy no dice nada de ese día.
+    const hora = !cambiaEstado ? anterior!.hora : correccion && !correccion.esHoy ? (anterior?.hora ?? hoy.hora) : hoy.hora;
     const asistencia = await ctx.db.asistencia.upsert({
       where: { alumnoId_fecha_ambito: { alumnoId: r.alumnoId, fecha, ambito: datos.ambito } },
       create: {
@@ -196,58 +236,43 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
     cambios++;
     auditorias.push({
       tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: anterior ? "editar" : "crear", entidad: "asistencia",
-      entidadId: asistencia.id, detalle: { alumnoId: r.alumnoId, ambito: datos.ambito, antes: anterior?.estado ?? null, ahora: r.estado },
+      entidadId: asistencia.id,
+      detalle: {
+        alumnoId: r.alumnoId, ambito: datos.ambito, fecha: hoy.isoFecha, antes: anterior?.estado ?? null, ahora: r.estado,
+        ...(correccion ? { correccion: true } : {}),
+      },
     });
 
-    if (!cambiaEstado) continue; // solo cambió la nota: no se vuelve a avisar
+    if (!cambiaEstado || !avisa) continue; // solo cambió la nota, o es la corrección de un día pasado: no se avisa
     porAvisar.push({ asistencia, anterior: anterior?.estado ?? null });
   }
   await auditarVarios(auditorias);
 
-  // Llegadas ya registradas hoy en otra lista o en portería, consultadas DESPUÉS de guardar (no al inicio) para que
-  // dos listas del mismo alumno guardadas a la vez no repitan el aviso de llegada.
-  const llegadas = porAvisar.filter((p) => p.asistencia.estado === "llego").map((p) => p.asistencia.alumnoId);
-  const yaLlegoEnOtraLista = new Set(
-    llegadas.length === 0
+  // Lista de curso: ingreso al colegio de ese día de los alumnos con falta, consultado DESPUÉS de guardar
+  // (si portería o la lista del día registraron el ingreso mientras tanto, cuenta).
+  const conFalta = curso ? porAvisar.filter((p) => p.asistencia.estado === "falta").map((p) => p.asistencia.alumnoId) : [];
+  const ingresos = new Map(
+    conFalta.length === 0
       ? []
       : (await ctx.db.asistencia.findMany({
-          where: { alumnoId: { in: llegadas }, fecha, ambito: { not: datos.ambito }, estado: { in: ["llego", "tarde"] } },
-          select: { alumnoId: true },
-        })).map((l) => l.alumnoId),
+          where: { alumnoId: { in: conFalta }, fecha, ambito: AMBITO_DIA },
+          select: { alumnoId: true, estado: true, hora: true },
+        })).map((i) => [i.alumnoId, i]),
   );
   for (const { asistencia, anterior } of porAvisar) {
-    if (asistencia.estado === "llego") {
-      // La llegada ya se avisó si esta lista lo tenía «tarde» o si hoy hay otro registro de llegada (portería, día u otro curso).
-      if (anterior === "tarde") continue;
-      if (yaLlegoEnOtraLista.has(asistencia.alumnoId)) continue;
-    }
+    const ingreso = ingresos.get(asistencia.alumnoId) ?? null;
+    if (!seAvisaCambio({ esCurso: !!curso, estado: asistencia.estado, anterior, ingreso })) continue;
     familiasAvisadas += await encolarAvisosAsistencia(ctx.db, {
       tenant: ctx.tenant,
       asistencia,
       alumnoNombre: nombres.get(asistencia.alumnoId)!,
       momento: curso ? `a ${curso.nombre}` : "a la 1.ª hora",
+      ...(curso ? { curso: curso.nombre, ...(ingreso && ingresoAlColegio(ingreso) ? { ingreso: ingreso.hora } : {}) } : {}),
       urlMensajes: urlColegio(ctx.tenant.slug, "/mensajes"),
       destinatarios: destinatarios.get(asistencia.alumnoId) ?? [],
     });
   }
   return { guardados: datos.registros.length, cambios, familiasAvisadas, omitidos };
-}
-
-/** Conteo de la asistencia del día en todo el colegio (dirección). */
-export async function resumenDelDia(ctx: TenantContext) {
-  requireFeature(ctx, "asistencia");
-  if (ctx.rol !== "direccion") forbidden();
-  const hoy = hoyDelColegio(ctx);
-  const grupos = await ctx.db.asistencia.groupBy({
-    by: ["estado"],
-    where: { fecha: fechaDb(hoy.isoFecha), ambito: AMBITO_DIA },
-    _count: { _all: true },
-  });
-  const totalAlumnos = await ctx.db.alumno.count({ where: { estado: "activo" } });
-  const conteo = Object.fromEntries(ESTADOS.map((e) => [e, 0])) as Record<EstadoAsistencia, number>;
-  for (const g of grupos) conteo[g.estado] = g._count._all;
-  const registrados = ESTADOS.reduce((s, e) => s + conteo[e], 0);
-  return { conteo, totalAlumnos, sinRegistro: Math.max(0, totalAlumnos - registrados) };
 }
 
 export type RegistroHistorial = {

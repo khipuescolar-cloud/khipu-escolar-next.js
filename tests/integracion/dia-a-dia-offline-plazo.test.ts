@@ -41,6 +41,8 @@ describe("día a día: plazo de justificación, registros sin conexión y avisos
     expect(tenant.plazoJustificacionDiasHabiles).toBe(5);
 
     const ctx = { ...c.ctxDe("tutora"), tenant };
+    // La falta a clase solo se avisa (con su enlace) si el alumno ingresó al colegio ese día (specs/04).
+    await guardarLista(ctx, { salonId: c.salon.id, ambito: "dia", registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] });
     await guardarLista(ctx, falta(c.alumnos.mateo.id, { ambito: c.cursoTutora.id }));
     const tokens = await c.db.justificacionToken.findMany({ orderBy: { expiraAt: "asc" } }); // el de 5 días vence antes
     const hoy = momentoEnZona(new Date(), c.tenant.zonaHoraria).isoFecha;

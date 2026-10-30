@@ -1,57 +1,75 @@
 # 04 — Asistencia (pasar lista)
 
-> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-presentes-plazo`: aviso de llegada a las familias de los presentes al cerrar la lista, resumen previo de avisos y plazo de justificación en días hábiles)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-30 (Claude Code, rama `feat/asistencia-colegio-cursos`: asistencia al colegio vs. asistencia por curso, asistencia por curso configurable por nivel, avisos de curso solo de faltas y tardanzas, dirección ya no pasa lista: ve y corrige desde los reportes)
 
 ## Objetivo
 El profesor pasa lista en menos de un minuto y las familias se enteran al instante.
 
+## Dos asistencias
+- **Asistencia al colegio** (`ambito = "dia"`, `cursoId = null`): ¿entró al colegio hoy? La fuente principal es la **portería con QR** (spec 05); la lista «Asistencia del día» del **tutor** es el respaldo (olvidó el carnet, portería no lo escaneó). Es la única que cuenta en los porcentajes de asistencia (spec 27).
+- **Asistencia por curso** (`ambito = cursoId`): ¿estuvo en Matemática? Puede haber entrado al colegio y faltar a la clase; esa falta debe llegar a la familia. La **dirección la activa por nivel** (inicial, primaria, secundaria; academia solo si el colegio tiene salones de academia) en Configuración. Por defecto, ningún nivel.
+
 ## Roles y permisos
 | Rol | Puede | No puede |
 |---|---|---|
-| Profesor | Pasar lista en los cursos que dicta; si es tutor, la «Asistencia del día» y los cursos de su salón | Pasar lista en cursos o salones ajenos (403) |
-| Dirección | Todo lo anterior en cualquier salón + resumen del día del colegio | — |
+| Profesor | Pasar lista (hoy) en los cursos que dicta; si es tutor, la «Asistencia del día» y los cursos de su salón. Las listas de curso solo en salones de niveles con asistencia por curso activa | Cursos o salones ajenos (403); listas de curso de un nivel apagado (error de negocio); otro día que no sea hoy (403) |
+| Dirección | **No pasa lista** (no tiene «Pasar lista» en el menú; `/asistencia` la lleva a `/asistencia/reportes`). Desde los reportes abre la lista de un salón (del día o de un curso) de cualquier fecha hasta hoy y **corrige** entradas; activa la asistencia por curso por nivel | Corregir días futuros; listas de curso de un nivel apagado |
 | Apoderado | Ver el calendario mensual de sus hijos y justificar faltas | Ver otros alumnos; pasar lista |
 | Portería | Registra llegadas desde `/porteria` (spec 05) | Entrar a `/asistencia` (403) |
 
 ## Flujos
-1. `/asistencia` (profesor/dirección) muestra las listas disponibles agrupadas por salón: «Asistencia del día · 3.° B» (`ambito = "dia"`) y cada curso (`ambito = cursoId`). Dirección ve además el conteo del día (Llegó/Tarde/No llegó/Aviso/Sin registro).
+1. `/asistencia` (profesor) muestra las listas disponibles agrupadas por salón: «Asistencia del día · 3.° B» (`ambito = "dia"`, solo el tutor) y cada curso (`ambito = cursoId`, solo si el nivel del salón tiene asistencia por curso). Dirección es redirigida a `/asistencia/reportes` (el conteo del día del colegio vive allí, spec 27).
 2. `/asistencia?salon=<id>&ambito=<dia|cursoId>`: lista de alumnos con 4 botones grandes **Llegó / Tarde / No llegó / Aviso** (valor interno `falta` y `problema`; manual de marca: Check, Clock, CircleAlert, TriangleAlert) (ícono + palabra, `aria-pressed`). Por defecto «Llegó» o el estado ya guardado hoy. Muestra la hora actual de Lima. «Aviso» abre un campo de nota (máx. 300).
-3. Vista previa del correo (componente `VistaPreviaAviso`, compartido con la spec 06) para la familia del alumno elegido, según el estado marcado.
-4. Antes de guardar, el resumen (panel lateral en escritorio, barra fija en móvil) dice a quién se avisará: «Se avisará a 24 familias: 20 llegadas, 2 tardanzas, 2 faltas.» y, si aplica, «La llegada de 3 alumnos ya se avisó hoy.» (`src/lib/resumen-avisos-lista.ts`, con `familiasConAviso` y `llegadaAvisada` que devuelve `obtenerLista`).
-5. **«Guardar y avisar a los padres»** (cerrar la lista) → `guardarListaAction` → `guardarLista()` → resumen «Lista guardada. Se avisó a N familias.» y `after()` procesa la cola del colegio en ese momento (el aviso sale sin esperar al cron).
+3. Vista previa del correo (componente `VistaPreviaAviso`, compartido con la spec 06) para la familia del alumno elegido, según el estado marcado. En una lista de curso: «Llegó» muestra «En las listas de curso no se avisa la llegada…»; «No llegó» muestra el aviso de falta a clase con la hora de ingreso real del alumno (el servidor renderiza con la hora marcador `HORA_MARCADOR_INGRESO` de `src/lib/vista-previa.ts` y el cliente la reemplaza) o, si el alumno no registra ingreso al colegio, explica que no se avisa aparte. Cada tarjeta de alumno de un curso muestra «Ingresó 7:52 a. m.» o «Sin ingreso al colegio».
+4. Antes de guardar, el resumen (panel lateral en escritorio, barra fija en móvil) dice a quién se avisará, con la misma regla que el servidor (`seAvisaCambio` de `src/lib/asistencia-por-curso.ts`, usada por `src/lib/resumen-avisos-lista.ts`): «Se avisará a 24 familias: 20 llegadas, 2 tardanzas, 2 faltas.»; en un curso «Se avisará a 3 familias: 1 tardanza, 2 faltas a clase.» y, si aplica, «2 faltas no se avisan aparte: esos alumnos no registran ingreso al colegio hoy (sus familias reciben el aviso de la asistencia del día).» o «La llegada de 1 alumno ya se avisó hoy.» (`obtenerLista` devuelve `familiasConAviso` e `ingreso` por alumno).
+5. **«Guardar y avisar a los padres»** (cerrar la lista) → `guardarListaAction` → `guardarLista()` → resumen «Lista guardada. Se avisó a N familias.» y `after()` procesa la cola del colegio en ese momento (el aviso sale sin esperar al cron). Un error de negocio (nivel apagado, fecha futura) vuelve como mensaje en la lista.
+5b. **Dirección corrige** (modo «corregir»): desde `/asistencia/reportes` («Corregir» en la tabla del día por salón, en el detalle de un alumno o en el detalle de un curso) abre `/asistencia?salon=<id>&ambito=<dia|cursoId>&fecha=AAAA-MM-DD`. Título «Corregir · Matemática · 3.° B», enlace «Volver a los reportes», sin «Marcar a todos «Llegó»» ni cola sin conexión. Los alumnos sin registro quedan sin marcar («Sin registro») y solo se envían los alumnos que cambiaron («No hay cambios para guardar.» si ninguno). Botón «Guardar corrección y avisar» (hoy) o «Guardar corrección» (día pasado: «Corrección de un día pasado: no se envían avisos.»).
 6. Apoderado: `/asistencia` calendario del mes por hijo (`CalendarioAsistencia`, lógica en `src/lib/calendario-asistencia.ts`) y, debajo, la lista detallada del mes con `EstadoAsistencia` y, en faltas sin justificar (o con justificación rechazada) **dentro del plazo** (spec 07), el botón **Justificar falta** → `/asistencia/justificar/<asistenciaId>` con la fecha límite debajo («Puedes justificar hasta el vie 14 nov»); fuera de plazo se muestra «Plazo vencido» (ícono + palabra) en lugar del botón. Debajo, «Tus avisos» (preferencias y push, spec 06).
 
 ## Reglas de negocio
 - Fecha y hora en `tenant.zonaHoraria` (America/Lima) con `momentoEnZona()` (`src/lib/fechas.ts`).
 - Upsert por `(alumnoId, fecha, ambito)` con `origen = lista`. La hora se fija al crear o al cambiar el estado; si solo cambia la nota, se conserva.
-- **Regla del colegio:** al guardar (cerrar) la lista, las familias de **todos** los alumnos reciben aviso según su estado: presentes (`llego` → `asistencia_llego`), tardanzas, faltas y problemas, por correo, push y demás canales según sus preferencias y consentimiento (spec 06). Ya no existe el modo «solo excepciones».
+- **Asistencia del día (portería / tutor):** al guardar (cerrar) la lista, las familias de **todos** los alumnos reciben aviso según su estado: presentes (`llego` → `asistencia_llego`), tardanzas, faltas y problemas, por correo, push y demás canales según sus preferencias y consentimiento (spec 06). Ya no existe el modo «solo excepciones».
 - Solo se encola aviso si el registro es nuevo o **cambia el estado**. Repetir la misma lista no crea filas ni avisos.
-- **Un solo aviso de llegada por alumno y día:** «Llegó» no se vuelve a avisar si el alumno ya tuvo hoy una llegada en otra lista o en portería (`llego`/`tarde` en otro ámbito), ni si esta misma lista lo tenía «Tarde». Motivo: cada correo cuesta y el envío diario tiene tope (Gmail ~500 por día; `EMAIL_DAILY_LIMIT`). Tardanza, falta y problema siempre se avisan.
-- Falta: texto «no llegó hoy a la 1.ª hora» (lista del día) o «no llegó hoy a <curso>».
+- **Un solo aviso de llegada por alumno y día:** la llegada solo se avisa desde la asistencia al colegio (portería y la lista del día escriben la misma fila `ambito = "dia"`), así que sale una vez; «Llegó» tampoco se avisa si esta lista lo tenía «Tarde». Motivo: cada correo cuesta y el envío diario tiene tope (Gmail ~500 por día; `EMAIL_DAILY_LIMIT`). Una llegada marcada antes en un curso **no** impide el aviso de ingreso (las listas de curso nunca lo avisan).
+- **Listas de curso: solo faltas y tardanzas** (y «Aviso»/problema como siempre), **nunca «llegó»** (`seAvisaCambio`, `src/lib/asistencia-por-curso.ts`):
+  - Tardanza → `asistencia_tarde` con `curso`: «Mateo llegó tarde a Matemática (10:12 a. m.).»
+  - Falta, si el alumno **ingresó al colegio** ese día (registro `dia` en «Llegó» o «Tarde», consultado después de guardar) → `asistencia_falta` con `curso`, `ingreso` y `horaClase`: «Mateo ingresó al colegio a las 7:52 a. m., pero no estuvo en Matemática (10:00 a. m.).», con «Justificar falta».
+  - Falta **sin ingreso al colegio** (sin registro del día, o con «No llegó» o «Aviso» en el día) → **no se avisa aparte**: la familia ya recibe (o recibirá) «no llegó» de la asistencia del día. El registro se guarda igual y cuenta en «Asistencia por curso» (spec 27). Límite conocido: si el ingreso se registra *después* de la lista del curso, esa falta a clase no se avisa (la decisión se toma al guardar la lista del curso).
+  - Se respetan consentimiento, preferencias (correo/push) y el tope diario de la cola como cualquier aviso (spec 06).
+- **Asistencia por curso por nivel:** `Tenant.asistenciaPorCursoNiveles` (`Nivel[]`, por defecto vacío). Si el nivel del salón no está activo, `opcionesDeLista` no ofrece sus cursos y `obtenerLista`/`guardarLista` con ese `ambito` lanzan `AsistenciaPorCursoDesactivada` (`ErrorDeNegocio`): «La asistencia por curso está desactivada para primaria. Dirección puede activarla en Configuración.» Vale también para dirección. Apagar un nivel no borra registros: el historial de la familia y los reportes siguen mostrando los de curso pasados.
+- **Corrección de dirección** (`fecha` en `obtenerLista`/`guardarLista`): solo dirección (un profesor con otra fecha que no sea hoy → 403), nunca un día futuro («No se puede corregir la asistencia de un día que aún no llega.»). Hoy: mismas reglas de aviso que la lista. Día pasado: se guarda y se audita (`correccion: true`, `fecha`), **sin avisos** (los textos dicen «hoy» y el momento pasó; la familia puede justificar desde su calendario dentro del plazo). Al corregir un día pasado se conserva la hora del registro anterior si lo había.
+- Falta del día: texto «no llegó hoy a la 1.ª hora».
 - Todos los alumnos enviados deben ser del salón y estar activos; si no, 403.
 - `auditar()` en cada creación y cambio (con estado antes/después) y al ver la lista o el historial.
 
 ## Modelo de datos
 - `asistencias`: `alumnoId`, `cursoId` (null en el día), `ambito`, `fecha` (`@db.Date`), `hora` (HH:mm), `estado`, `nota`, `origen`, `registradoPorId`. Única `(alumnoId, fecha, ambito)`.
+- `tenants.asistencia_por_curso_niveles` (`Nivel[]`, `DEFAULT ARRAY[]`; migración aditiva `20261102090000_asistencia_por_curso_niveles`). Seed: Nuevo Horizonte primaria y secundaria; Academia Euler academia; Los Olivos ninguno (solo asistencia al colegio).
 - Lee `salones`, `cursos`, `alumnos`, `justificaciones`; escribe `avisos` y `justificacion_tokens` vía spec 06/07.
 
 ## Contratos de `src/lib/server`
 ```ts
 // src/lib/server/asistencia.ts
-opcionesDeLista(ctx): Promise<{ salonId; salonNombre; ambito; titulo }[]>   // profesor/dirección
-obtenerLista(ctx, salonId, ambito)    // 403 si no es su lista; audita «ver»
-obtenerLista(...).alumnos[i]: { id, nombres, apellidos, registro, familiasConAviso, llegadaAvisada }
+opcionesDeLista(ctx): Promise<{ salonId; salonNombre; ambito; titulo }[]>   // profesor/dirección; cursos solo de niveles activos
+obtenerLista(ctx, salonId, ambito, fecha?)   // 403 si no es su lista; fecha ≠ hoy solo dirección; audita «ver»
+obtenerLista(...): { salon, curso, ambito, hoy: { isoFecha, hora }, esHoy, alumnos[] }
+obtenerLista(...).alumnos[i]: { id, nombres, apellidos, registro, familiasConAviso, ingreso /* solo cursos: registro del día */ }
 guardarLista(ctx, entrada: unknown, ahora?) : Promise<{ guardados; cambios; familiasAvisadas; omitidos }>
-  // zod: { salonId: uuid, ambito: "dia" | uuid, registros: [{ alumnoId, estado, nota? }] (1..200) }
-  // Carga de una vez los registros previos de la lista, las llegadas en otras listas y las familias a avisar
-  // (destinatariosPorAlumno) y audita con un solo INSERT: ~3 consultas por alumno en vez de ~10 (docs/pruebas-de-estres.md).
-resumenDelDia(ctx)                    // solo dirección
+  // zod: { salonId: uuid, ambito: "dia" | uuid, registros: [{ alumnoId, estado, nota? }] (1..200), registradoAt?, fecha? (corrección) }
+  // Carga de una vez los registros previos de la lista y las familias a avisar (destinatariosPorAlumno), consulta en
+  // una sola query el ingreso al colegio de los alumnos con falta (cursos) y audita con un solo INSERT (docs/pruebas-de-estres.md).
+class AsistenciaPorCursoDesactivada extends ErrorDeNegocio
+// src/lib/asistencia-por-curso.ts (puro): NIVELES, NOMBRE_NIVEL, asistenciaPorCursoActiva, mensajeCursoDesactivado,
+//   nivelesConfigurables(tieneAcademia), ingresoAlColegio, seAvisaCambio({ esCurso, estado, anterior, ingreso })
+// src/lib/server/configuracion.ts: actualizarAsistenciaPorCurso(ctx, niveles) // solo dirección; audita { antes, ahora }
 historialDeHijos(ctx, mes?)           // apoderado/alumno; cada registro trae puedeJustificar, justificarHasta y plazoVencido
 hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 ```
 
 ## Rutas y UI
-- `/asistencia` (profesor, dirección): elegir lista; con `?salon&ambito`, pasar lista (`ListaAsistencia.tsx`, cliente).
+- `/asistencia` (profesor): elegir lista; con `?salon&ambito`, pasar lista (`ListaAsistencia.tsx`, cliente). Dirección: sin parámetros → redirige a `/asistencia/reportes`; con `?salon&ambito&fecha` → modo «corregir». Lista de curso de un nivel apagado → estado vacío «No se puede abrir esta lista» con el mensaje.
+- `/configuracion` (dirección): tarjeta «Asistencia por curso» con una casilla por nivel (y cuántos salones tiene) → `guardarAsistenciaPorCursoAction`.
 - `/asistencia` (apoderado): calendario mensual + lista del mes (`?mes=AAAA-MM`, «Mes anterior» / «Mes siguiente»; no pasa del mes actual ni retrocede más de 24 meses) + preferencias de aviso (`#avisos`).
 - `/asistencia/justificar/[asistenciaId]` (apoderado): formulario de justificación con sesión.
 
@@ -83,8 +101,9 @@ hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 
 ## Pruebas
 - unit: `tests/unit/calendario-asistencia.test.ts` (armado del mes, estado por día, navegación, zona Lima), `tests/unit/registro-offline.test.ts` (hora razonable, cola, contador). integración: `tests/integracion/dia-a-dia-offline-plazo.test.ts` (lista offline con hora real, idempotencia, no pisa un cambio posterior). e2e: `tests/e2e/dia-a-dia-offline-calendario.test.ts` (calendario y navegación; lista sin conexión con `context.setOffline`).
-- integración (`tests/integracion/pasar-lista.test.ts`): upsert idempotente, avisos solo con consentimiento, corrección = aviso nuevo, token de falta solo con hash, auditoría, preferencia sin correo, llegada en curso no se re-avisa, profesor no pasa lista en curso o salón ajeno, alumno de otro salón rechazado, apoderado no pasa lista; **aviso de presentes**: al guardar se encola `asistencia_llego` a cada apoderado con consentimiento, una segunda lista del mismo día no duplica la llegada (pero avisa la falta), una lista del día tras una de curso tampoco, `obtenerLista` devuelve `familiasConAviso`/`llegadaAvisada`.
-- unit: `tests/unit/resumen-avisos-lista.test.ts` (conteo del resumen previo).
+- integración (`tests/integracion/pasar-lista.test.ts`): upsert idempotente, avisos solo con consentimiento, corrección = aviso nuevo, token de falta solo con hash, auditoría, preferencia sin correo, el curso nunca avisa la llegada, profesor no pasa lista en curso o salón ajeno, alumno de otro salón rechazado, apoderado no pasa lista; **aviso de presentes**: `asistencia_llego` a cada apoderado con consentimiento; **cursos**: `obtenerLista` trae `ingreso`, falta a clase con ingreso («no estuvo en Matemática», payload con `curso`/`ingreso`), tardanza a clase, sin ingreso o con falta del día no hay aviso aparte (un solo «no llegó»), una llegada previa en un curso no impide el aviso de ingreso; **nivel**: apagado no ofrece cursos y `guardarLista` falla con el mensaje (también dirección), dirección lo activa (auditado, valida niveles, profesor no puede), apagarlo conserva registros; **dirección**: sin «Pasar lista» en el menú, corrige hoy (auditado, con aviso), corrige un día pasado sin aviso conservando la hora, profesor no abre otro día (403), nadie corrige un día futuro.
+- unit: `tests/unit/resumen-avisos-lista.test.ts` (conteo del resumen previo del día y de un curso, `seAvisaCambio`), `tests/unit/plantillas-avisos.test.ts` (falta y tardanza a clase).
+- e2e: `tests/e2e/asistencia-colegio-cursos.test.ts` (dirección no ve «Pasar lista», `/asistencia` la lleva a los reportes, reporte general del día, activa/desactiva la asistencia por curso en Configuración, abre una lista en modo «corregir»).
 - e2e (`tests/e2e/pasar-lista-aviso-justificar.test.ts`): Lucía pasa lista en 3.° B → el resumen dice «Se avisará a N familias: … llegadas» → el correo «Mateo llegó al colegio» llega a Mailpit → luego la falta → correo de falta → enlace de justificar funciona una vez. `tests/e2e/paginas-basico-por-rol.test.ts` (Khipu Base): resumen del día, vista de familia, portería sin acceso.
 
 ## Reportes

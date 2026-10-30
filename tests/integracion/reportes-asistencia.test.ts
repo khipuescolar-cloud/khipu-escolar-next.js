@@ -3,7 +3,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { db } from "@/lib/server/db";
 import { fechaDb, restarDias, sumarDias } from "@/lib/fechas";
 import { hoyDelColegio } from "@/lib/server/asistencia";
-import { opcionesDeReporte, reporteAlumno, reporteSalon, resumenColegio } from "@/lib/server/reportes-asistencia";
+import { detalleCurso, opcionesDeReporte, reporteAlumno, reporteSalon, resumenColegio } from "@/lib/server/reportes-asistencia";
 import { reporteAExcel, TIPO_XLSX } from "@/lib/server/reportes-asistencia-excel";
 import { ReporteAsistenciaPdf } from "@/lib/server/reportes-asistencia-pdf";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
@@ -145,5 +145,64 @@ describe("reportes de asistencia", () => {
 
     const pdf = await renderToBuffer(ReporteAsistenciaPdf({ reporte }));
     expect(pdf.subarray(0, 4).toString()).toBe("%PDF");
+  });
+});
+
+describe("reporte general de dirección: asistencia al colegio y por curso", () => {
+  let c: ColegioPrueba;
+  const DIA = "2026-03-02"; // lunes hábil
+  beforeAll(async () => {
+    c = await crearColegioPrueba();
+    const registrar = (alumnoId: string, estado: "llego" | "tarde" | "falta", ambito = "dia", hora = "07:50") =>
+      db.asistencia.create({
+        data: { tenantId: c.tenant.id, alumnoId, fecha: fechaDb(DIA), ambito, cursoId: ambito === "dia" ? null : ambito, hora, estado, registradoPorId: c.miembros.tutora.membership.id },
+      });
+    const { mateo, valentina, thiago } = c.alumnos;
+    await registrar(mateo.id, "llego");
+    await registrar(mateo.id, "falta", c.cursoTutora.id, "10:00"); // ingresó pero faltó a Matemática
+    const faltaValentina = await registrar(valentina.id, "falta");
+    await registrar(valentina.id, "falta", c.cursoTutora.id, "10:00"); // no ingresó: falta a clase sin ingreso
+    await db.justificacion.create({ data: { tenantId: c.tenant.id, asistenciaId: faltaValentina.id, apoderadoId: c.miembros.madre.membership.id, motivo: "Fiebre", estado: "pendiente" } });
+    // Thiago: solo un registro de curso «llegó»; para el colegio queda sin registro.
+    const cursoOtro = c.cursoAjeno.id;
+    await registrar(thiago.id, "llego", cursoOtro, "09:00");
+  });
+  afterAll(async () => {
+    await c?.limpiar();
+  });
+
+  it("del día: asistieron solo por la asistencia al colegio; faltas justificadas, en revisión y sin registro", async () => {
+    const r = await resumenColegio(c.ctxDe("direccion"), { desde: DIA, hasta: DIA });
+    expect(r.total).toMatchObject({ llego: 1, tarde: 0, falta: 1, faltasJustificadas: 0, faltasEnRevision: 1, faltasInjustificadas: 0, diasSinRegistro: 1, porcentaje: 50 });
+    expect(r.filas.find((f) => f.salonId === c.otroSalon.id)!.resumen).toMatchObject({ llego: 0, diasSinRegistro: 1 });
+  });
+
+  it("al aceptar la justificación pasa a «justificada»", async () => {
+    await db.justificacion.updateMany({ where: { tenantId: c.tenant.id }, data: { estado: "aceptada" } });
+    const r = await resumenColegio(c.ctxDe("direccion"), { desde: DIA, hasta: DIA });
+    expect(r.total).toMatchObject({ falta: 1, faltasJustificadas: 1, faltasEnRevision: 0, faltasInjustificadas: 0 });
+  });
+
+  it("asistencia por curso: faltas a clase y cuántos ingresaron al colegio pero faltaron", async () => {
+    const r = await resumenColegio(c.ctxDe("direccion"), { desde: DIA, hasta: DIA });
+    const mate = r.cursos!.find((f) => f.cursoId === c.cursoTutora.id)!;
+    expect(mate).toMatchObject({ salon: "3.° B", curso: "Matemática", registros: 2, faltas: 2, faltasConIngreso: 1, tardanzas: 0 });
+    expect(r.cursos!.find((f) => f.cursoId === c.cursoAjeno.id)).toMatchObject({ registros: 1, faltas: 0 });
+  });
+
+  it("el detalle del curso trae cada falta con el ingreso al colegio de ese día", async () => {
+    const d = await detalleCurso(c.ctxDe("direccion"), { cursoId: c.cursoTutora.id, desde: DIA, hasta: DIA });
+    const porAlumno = new Map(d.filas.map((f) => [f.alumnoId, f]));
+    expect(porAlumno.get(c.alumnos.mateo.id)).toMatchObject({ estado: "falta", ingreso: { estado: "llego", hora: "07:50" } });
+    expect(porAlumno.get(c.alumnos.valentina.id)).toMatchObject({ estado: "falta", ingreso: { estado: "falta" } });
+  });
+
+  it("el profesor solo ve los cursos de sus salones; sin niveles activos no hay sección de cursos", async () => {
+    const r = await resumenColegio(c.ctxDe("tutora"), { desde: DIA, hasta: DIA });
+    expect(r.cursos!.map((f) => f.cursoId)).toEqual([c.cursoTutora.id]);
+    await esperarProhibido(detalleCurso(c.ctxDe("tutora"), { cursoId: c.cursoAjeno.id, desde: DIA, hasta: DIA }));
+    const ctx = c.ctxDe("direccion");
+    const sinCursos = await resumenColegio({ ...ctx, tenant: { ...ctx.tenant, asistenciaPorCursoNiveles: [] } }, { desde: DIA, hasta: DIA });
+    expect(sinCursos.cursos).toBeNull();
   });
 });

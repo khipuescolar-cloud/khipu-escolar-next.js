@@ -25,12 +25,24 @@ const reunionBase = {
 
 const ESQUEMAS = {
   asistencia_llego: z.object({ ...comun, alumno: z.string().min(1), hora: hhmm }),
-  asistencia_tarde: z.object({ ...comun, alumno: z.string().min(1), hora: hhmm }),
+  asistencia_tarde: z.object({
+    ...comun,
+    alumno: z.string().min(1),
+    hora: hhmm,
+    /** Lista de un curso (specs/04): «llegó tarde a Matemática (10:12 a. m.)». Sin curso, es la llegada al colegio. */
+    curso: z.string().min(1).optional(),
+  }),
   asistencia_falta: z.object({
     ...comun,
     alumno: z.string().min(1),
     /** «a la 1.ª hora» (asistencia del día) o «a Matemática». */
     momento: z.string().default("a la 1.ª hora"),
+    /** Falta a una clase (lista de un curso) de un alumno que sí ingresó al colegio (specs/04). */
+    curso: z.string().min(1).optional(),
+    /** Hora de ingreso al colegio ese día (portería o lista del día). */
+    ingreso: hhmm.optional(),
+    /** Hora en que se pasó la lista del curso. */
+    horaClase: hhmm.optional(),
     /** La arma el worker a partir de `justificacionTokenId`; nunca se guarda el token en la BD. */
     urlJustificar: url.optional(),
     justificacionTokenId: z.string().optional(),
@@ -148,9 +160,13 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
     armarMensaje({
       colegio: p.colegio,
       logoColegioUrl: p.logoColegioUrl,
-      asunto: `${p.alumno} llegó tarde hoy`,
+      asunto: p.curso ? `${p.alumno} llegó tarde a ${p.curso}` : `${p.alumno} llegó tarde hoy`,
       insignia: "tarde",
-      parrafos: [`${p.alumno} llegó tarde hoy (${hora12(p.hora)}). Si tienes dudas, escríbele a su tutora.`],
+      parrafos: [
+        p.curso
+          ? `${p.alumno} llegó tarde a ${p.curso} (${hora12(p.hora)}). Si tienes dudas, escríbele a su tutora.`
+          : `${p.alumno} llegó tarde hoy (${hora12(p.hora)}). Si tienes dudas, escríbele a su tutora.`,
+      ],
       urlPreferencias: p.urlPreferencias,
     }),
 
@@ -158,9 +174,15 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
     armarMensaje({
       colegio: p.colegio,
       logoColegioUrl: p.logoColegioUrl,
-      asunto: `${p.alumno} no llegó hoy`,
+      asunto: p.curso && p.ingreso ? `${p.alumno} no estuvo en ${p.curso}` : `${p.alumno} no llegó hoy`,
       insignia: "falta",
-      parrafos: [`${p.alumno} no llegó hoy ${p.momento}. Si ya lo sabías, puedes justificar la falta.`],
+      parrafos:
+        p.curso && p.ingreso
+          ? [
+              `${p.alumno} ingresó al colegio a las ${hora12(p.ingreso)}, pero no estuvo en ${p.curso}${p.horaClase ? ` (${hora12(p.horaClase)})` : ""}.`,
+              "Si ya lo sabías, puedes justificar la falta. Si tienes dudas, escríbele a su tutora.",
+            ]
+          : [`${p.alumno} no llegó hoy ${p.momento}. Si ya lo sabías, puedes justificar la falta.`],
       boton: p.urlJustificar ? { texto: "Justificar falta", url: p.urlJustificar } : undefined,
       urlPreferencias: p.urlPreferencias,
     }),

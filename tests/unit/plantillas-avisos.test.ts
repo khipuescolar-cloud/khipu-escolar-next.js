@@ -28,6 +28,26 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(m.texto).toContain("[No llegó]");
   });
 
+  it("falta a clase (lista de curso) de un alumno que ingresó al colegio: hora de ingreso, curso y hora de la clase", () => {
+    const m = renderizarPlantilla("asistencia_falta", {
+      colegio, alumno: "Mateo", momento: "a Matemática", curso: "Matemática", ingreso: "07:52", horaClase: "10:00", urlJustificar: "http://j",
+    });
+    expect(m.asunto).toBe("Mateo no estuvo en Matemática");
+    expect(m.texto).toContain("Mateo ingresó al colegio a las 7:52 a. m., pero no estuvo en Matemática (10:00 a. m.).");
+    expect(m.texto).toContain("Justificar falta: http://j");
+    expect(m.texto).toContain("[No llegó]");
+  });
+
+  it("tardanza a clase: «llegó tarde a Matemática (10:12 a. m.)»", () => {
+    const m = renderizarPlantilla("asistencia_tarde", { colegio, alumno: "Mateo", hora: "10:12", curso: "Matemática" });
+    expect(m.asunto).toBe("Mateo llegó tarde a Matemática");
+    expect(m.texto).toContain("Mateo llegó tarde a Matemática (10:12 a. m.).");
+  });
+
+  it("los avisos de curso validan el formato de la hora de ingreso", () => {
+    expect(() => renderizarPlantilla("asistencia_falta", { colegio, alumno: "Mateo", curso: "Matemática", ingreso: "7:52" })).toThrow(PlantillaInvalidaError);
+  });
+
   it("marca: cabecera con logo de Khipu, pie con lema y etiquetas de estado con ícono + palabra", () => {
     const m = renderizarPlantilla("asistencia_llego", { colegio, alumno: "Mateo", hora: "07:52", logoColegioUrl: "http://x/logo.png" });
     expect(m.html).toMatch(/<img src="[^"]*\/marca\/logotipo-horizontal@2x\.png"[^>]*alt="Khipu Escolar"/);

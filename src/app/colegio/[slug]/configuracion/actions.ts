@@ -1,7 +1,7 @@
 "use server";
 
 import { ejecutarYVolver, texto } from "@/lib/server/accion-formulario";
-import { actualizarConfiguracion } from "@/lib/server/configuracion";
+import { actualizarAsistenciaPorCurso, actualizarConfiguracion } from "@/lib/server/configuracion";
 import { ErrorDeNegocio, contextoDeAccion } from "@/lib/server/contexto-accion";
 import { quitarLogoColegio, subirLogoColegio } from "@/lib/server/logo";
 
@@ -34,5 +34,13 @@ export async function quitarLogoAction() {
   await ejecutarYVolver("/configuracion", async () => {
     await quitarLogoColegio(ctx);
     return "Logo quitado.";
+  });
+}
+
+export async function guardarAsistenciaPorCursoAction(formData: FormData) {
+  const ctx = await contextoDeAccion(["direccion"]);
+  await ejecutarYVolver("/configuracion", async () => {
+    const niveles = await actualizarAsistenciaPorCurso(ctx, formData.getAll("niveles").map(String));
+    return niveles.length === 0 ? "Asistencia por curso desactivada: solo se toma la asistencia al colegio." : "Asistencia por curso guardada.";
   });
 }

@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { after } from "next/server";
 import { ZodError } from "zod";
 import { guardarLista, type ResultadoGuardarLista } from "@/lib/server/asistencia";
+import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
 import { justificarConSesion, type ResultadoJustificar } from "@/lib/server/justificaciones";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
 import { guardarPreferencias, guardarSuscripcionPush, quitarSuscripcionPush } from "@/lib/server/notificaciones/preferencias";
@@ -32,6 +33,8 @@ export async function guardarListaAction(slug: string, entrada: unknown): Promis
     return { ok: true, ...resultado };
   } catch (error) {
     if (error instanceof ZodError) return { ok: false, error: "Revisa la lista: hay datos que no son válidos." };
+    // Asistencia por curso apagada para el nivel, fecha futura, etc.: mensaje claro en la lista.
+    if (error instanceof ErrorDeNegocio) return { ok: false, error: error.message };
     throw error;
   }
 }

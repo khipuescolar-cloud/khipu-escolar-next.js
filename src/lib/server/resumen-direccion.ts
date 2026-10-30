@@ -17,9 +17,9 @@ export async function resumenAsistenciaHoy(ctx: TenantContext): Promise<ResumenS
   const fecha = new Date(`${hoyEnZona(ctx.tenant.zonaHoraria)}T00:00:00.000Z`);
   const [salones, asistencias] = await Promise.all([
     ctx.db.salon.findMany({ where: whereSalonActivo, orderBy: { nombre: "asc" }, select: { id: true, nombre: true, alumnos: { where: { estado: "activo" }, select: { id: true } } } }),
-    ctx.db.asistencia.findMany({ where: { fecha }, select: { alumnoId: true, ambito: true, estado: true, hora: true } }),
+    ctx.db.asistencia.findMany({ where: { fecha, ambito: "dia" }, select: { alumnoId: true, ambito: true, estado: true, hora: true } }),
   ]);
-  // Por alumno prevalece la asistencia del día; si no hay, la primera registrada.
+  // Solo la asistencia al colegio (portería o lista del día), como los reportes (specs/27): las listas de curso no cuentan.
   const porAlumno = new Map<string, { estado: string }>();
   const registrosPorAlumno = new Map<string, typeof asistencias>();
   for (const a of asistencias) registrosPorAlumno.set(a.alumnoId, [...(registrosPorAlumno.get(a.alumnoId) ?? []), a]);

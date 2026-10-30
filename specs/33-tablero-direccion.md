@@ -22,7 +22,7 @@ Colegio con plan Base: 403 en páginas y en las rutas de descarga; el inicio mue
 
 ## Reglas de negocio
 - Zona horaria y «hoy» son los del colegio. El rango se corta en hoy.
-- **Asistencia** igual que los reportes (spec 27): un registro por alumno y día (prevalece el ingreso `ambito = dia`; si no, el primero por hora), solo días hábiles sin feriados, alumnos activos de salones no archivados; % = (llegó + tarde) / días con registro (problema cuenta en el denominador).
+- **Asistencia** igual que los reportes (spec 27): solo la asistencia al colegio (`ambito = dia`, un registro por alumno y día; las listas de curso no cuentan desde el 2026-10-30), solo días hábiles sin feriados, alumnos activos de salones no archivados; % = (llegó + tarde) / días con registro (problema cuenta en el denominador).
 - Tendencia por semana (lunes); las semanas sin registros no aparecen.
 - Ausentismo crónico: % estrictamente menor al umbral y al menos 3 días con registro. Lista de hasta 30, del más bajo.
 - Ranking de salones: % sobre el total de registros del salón.

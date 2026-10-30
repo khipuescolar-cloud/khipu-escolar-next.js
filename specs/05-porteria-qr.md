@@ -1,6 +1,6 @@
 # 05 — Portería con carnet QR
 
-> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-27 (Claude Code, rama `feat/p2-dia-a-dia`: PDF de carnets y quiosco sin conexión)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-30 (Claude Code, rama `feat/asistencia-colegio-cursos`: portería es la fuente principal de la asistencia al colegio; la llegada ya no depende de las listas de curso)
 
 ## Objetivo
 Verificar la llegada del alumno en la puerta escaneando su carnet, sin depender solo de la lista del profesor.
@@ -66,7 +66,7 @@ buscarAlumnosPorteria(ctx, texto)              // 2..60 caracteres, máx. 10
 ## Quiosco sin conexión
 - Con sesión de portería (o dirección), si no hay conexión el escaneo se guarda en la cola local (IndexedDB, almacén `escaneos`) y se envía solo al reconectar (evento `online` y al abrir la página), con el indicador «Sin conexión · N llegadas guardadas de enviar» y un toast al sincronizar.
 - **Sin datos personales en el dispositivo:** la cola guarda solo el token opaco del QR y la hora de lectura. El token se valida en el servidor al sincronizar (hash activo y mismo colegio); offline la pantalla muestra «Guardado sin conexión» en lugar del nombre. Un carnet inválido o de otro colegio se descarta al sincronizar con un toast. Repetir el mismo carnet offline no duplica la cola. **Reintentos acotados:** un error del servidor que no es de red suma un intento al escaneo; tras 5 queda como «No se pudo enviar» con el botón «Descartar» (misma lógica que las listas, spec 04); los errores de red no cuentan.
-- Un solo aviso de llegada por alumno y día (spec 04): si una lista de curso ya registró hoy su llegada, el escaneo «Llegó» se guarda pero no vuelve a avisar a la familia (la tardanza sí se avisa).
+- Un solo aviso de llegada por alumno y día (spec 04): portería es la fuente principal de la **asistencia al colegio** y avisa la llegada; las listas de curso nunca avisan la llegada, así que un «Llegó» previo en un curso ya no la silencia (cambio del 2026-10-30). Un segundo escaneo responde «Ya registrado» sin avisar.
 - Servidor idempotente: `registrarLlegadaPorQr(ctx, texto, ahora, leidoAt)` respeta la hora real de la lectura (`leidoAt`) solo si es razonable (misma regla que pasar lista: máx. 5 min en el futuro, 48 h en el pasado) y calcula «Llegó»/«Tarde» con esa hora. Si ya había llegada hoy responde «Ya registrado» sin duplicar.
 - La búsqueda manual necesita conexión (queda deshabilitada y lo dice). `/porteria` guarda su cascarón en caché en el service worker (no trae datos de alumnos) para reabrir el quiosco sin red; solo en HTTPS.
 - El lector de QR (`@zxing/browser`) y la lógica de token (`src/lib/token-qr.ts`) corren en el navegador.
