@@ -4,7 +4,8 @@ import type { Feature } from "@/lib/planes";
 
 export type IconoMosaico =
   | "ClipboardCheck" | "ScanLine" | "MailCheck" | "FileText" | "MessagesSquare" | "Megaphone"
-  | "Users" | "Settings" | "LifeBuoy" | "GraduationCap" | "BookOpen" | "ListTodo" | "CalendarDays" | "Sparkles" | "School" | "BarChart3";
+  | "Users" | "Settings" | "LifeBuoy" | "GraduationCap" | "BookOpen" | "ListTodo" | "CalendarDays" | "Sparkles" | "School" | "BarChart3"
+  | "FolderOpen";
 
 /** Grupo de la barra lateral. */
 export type GrupoNav = "dia" | "comunicacion" | "academico" | "colegio";
@@ -39,6 +40,7 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/justificaciones", grupo: "dia", titulo: "Justificaciones", descripcion: "Faltas justificadas por las familias.", icono: "FileText", feature: "justificaciones", roles: ["profesor", "direccion", "apoderado"] },
   { href: "/mensajes", grupo: "comunicacion", titulo: "Mensajes", descripcion: "Chat entre familia y profesor, sin teléfonos.", icono: "MessagesSquare", feature: "mensajes", roles: ["profesor", "apoderado", "direccion"], contador: "mensajes" },
   { href: "/comunicados", grupo: "comunicacion", titulo: "Comunicados", descripcion: "Anuncios del colegio.", icono: "Megaphone", feature: "comunicados", roles: ["direccion", "profesor", "apoderado", "administrativo", "alumno"] },
+  { href: "/documentos", grupo: "comunicacion", titulo: "Documentos", descripcion: "Reglamento, calendario y documentos del colegio.", icono: "FolderOpen", feature: "documentos", roles: ["direccion", "administrativo", "profesor", "apoderado", "alumno"] },
   { href: "/notas", grupo: "academico", titulo: "Notas", descripcion: "Evaluaciones y calificaciones por competencia.", icono: "GraduationCap", feature: "notas", roles: ["profesor", "direccion", "apoderado", "alumno"] },
   { href: "/libreta", grupo: "academico", titulo: "Libreta", descripcion: "Libreta de notas por periodo.", icono: "BookOpen", feature: "libreta", roles: ["direccion", "apoderado", "profesor", "alumno"] },
   { href: "/tareas", grupo: "academico", titulo: "Tareas", descripcion: "Tareas y fechas de entrega.", icono: "ListTodo", feature: "tareas", roles: ["profesor", "direccion", "apoderado", "alumno"] },

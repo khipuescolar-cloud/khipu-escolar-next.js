@@ -1,6 +1,9 @@
 import "server-only";
 import { forbidden, notFound } from "next/navigation";
 import type { Archivo } from "@/generated/prisma/client";
+import { auditar } from "./auditoria";
+import { puedeVerDocumento } from "./documentos";
+import { requireFeature } from "./plan";
 import { puedeVerAdjuntoSoporte } from "./soporte";
 import { alumnoIdsVisibles, salonIdsVisibles, type TenantContext } from "./tenant";
 
@@ -42,6 +45,14 @@ export async function requireArchivoVisible(ctx: TenantContext, archivoId: strin
     });
     if (t && (await puedeVerTarea(ctx, t))) return archivo;
     forbidden();
+  }
+
+  // Documento de la biblioteca (specs/31): lo ve quien cumple la regla de visibilidad por rol, carpeta y salón. Cada descarga se audita.
+  if (archivo.documentoId) {
+    requireFeature(ctx, "documentos");
+    if (!(await puedeVerDocumento(ctx, archivo.documentoId))) forbidden();
+    await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "documento", entidadId: archivo.documentoId, detalle: { descarga: true, archivoId: archivo.id } });
+    return archivo;
   }
 
   // Captura de la mesa de ayuda (specs/23): quien ve la conversación, nunca de una nota interna.

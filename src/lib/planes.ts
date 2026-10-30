@@ -22,6 +22,8 @@ export const FEATURES = {
   libreta: "pro",
   tareas: "pro",
   agenda: "pro",
+  /** Biblioteca de documentos con carpetas y permisos por rol y salón (specs/31). */
+  documentos: "pro",
   /** Chat con el equipo Khipu (mesa de ayuda, specs/23): en todos los planes. */
   soporte: "base",
 } as const satisfies Record<string, Plan>;

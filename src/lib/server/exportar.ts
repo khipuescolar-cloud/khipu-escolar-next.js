@@ -65,7 +65,7 @@ export async function exportarColegio(ctx: TenantContext) {
 }
 
 /** Nombre sin caracteres raros para guardar un archivo dentro del ZIP. */
-const extension = (mime: string) => ({ "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "application/pdf": "pdf" })[mime] ?? "bin";
+const extension = (mime: string) => ({ "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "application/pdf": "pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "docx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "xlsx" })[mime] ?? "bin";
 
 /** Filas por consulta al exportar: acota la memoria pico sin importar el tamaño del colegio. */
 export const LOTE_FILAS_EXPORTACION = 500;
