@@ -1,6 +1,7 @@
 "use client";
 
 import { Check, GraduationCap, HeartHandshake, School } from "lucide-react";
+import Image from "next/image";
 import { useRef, useState, type KeyboardEvent } from "react";
 import { cn } from "@/lib/utils";
 import { TONOS } from "./tonos";
@@ -11,6 +12,8 @@ const ROLES = [
     tono: "indigo",
     Icono: School,
     nombre: "Dirección",
+    foto: "/landing/fotos/foto-directora.jpg",
+    fotoClase: "object-[62%_30%]",
     para: "Directores y promotores",
     titulo: "Todo el colegio en una pantalla",
     puntos: [
@@ -25,6 +28,8 @@ const ROLES = [
     tono: "turquesa",
     Icono: GraduationCap,
     nombre: "Profesores",
+    foto: "/landing/fotos/foto-profesora.jpg",
+    fotoClase: "object-[82%_30%]",
     para: "Tutores y profesores de curso",
     titulo: "Menos tiempo avisando, más tiempo enseñando",
     puntos: [
@@ -39,6 +44,8 @@ const ROLES = [
     tono: "cochinilla",
     Icono: HeartHandshake,
     nombre: "Familias",
+    foto: "/landing/fotos/foto-papa-app.jpg",
+    fotoClase: "object-[50%_35%]",
     para: "Mamás, papás y apoderados",
     titulo: "Sabes cómo está tu hijo, el mismo día",
     puntos: [
@@ -118,7 +125,10 @@ export function PestanasRoles() {
                 es ? "translate-y-0 opacity-100" : "pointer-events-none invisible translate-y-2 opacity-0",
               )}
             >
-              <div className={cn("flex flex-col justify-between gap-6 p-6 sm:p-8", tono.solido)}>
+              <div className={cn("relative isolate flex flex-col justify-between gap-6 overflow-hidden p-6 sm:p-8", tono.solido)}>
+                {/* Foto en duotono (rediseño Jafet 2026-10-30): gris mezclado con el color del rol y degradado oscuro para el texto. */}
+                <Image src={r.foto} alt="" fill sizes="(min-width: 768px) 260px, 100vw" className={cn("-z-10 object-cover opacity-30 mix-blend-luminosity", r.fotoClase)} />
+                <span className="absolute inset-0 -z-10 bg-linear-to-t from-black/55 via-black/25 to-transparent" aria-hidden />
                 <r.Icono className="size-10" strokeWidth={2} aria-hidden />
                 <div className="flex flex-col gap-2">
                   <p className="text-cuerpo-sm opacity-85">{r.para}</p>

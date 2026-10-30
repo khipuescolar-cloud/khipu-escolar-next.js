@@ -138,7 +138,7 @@ export function DiaEnElColegio({ className }: { className?: string }) {
         ))}
       </div>
       <Fila nombre="Con Khipu Escolar" resumen="Cada aviso llega en el momento en que pasa." eventos={CON_KHIPU} base="bg-turquesa/15" relleno="bg-turquesa" destacada />
-      <Fila nombre="Sin Khipu" resumen="La familia se entera en la tarde, en la noche o días después." eventos={SIN_KHIPU} base="bg-arena" relleno="bg-pizarra/45" />
+      <Fila nombre="Sin Khipu" resumen="La familia se entera en la tarde, en la noche o días después." eventos={SIN_KHIPU} base="bg-arena" relleno="bg-pizarra/70" />
     </div>
   );
 }
