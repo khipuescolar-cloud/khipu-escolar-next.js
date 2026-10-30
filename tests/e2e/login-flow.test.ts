@@ -22,7 +22,9 @@ test("apoderada con hijos en dos colegios elige a cuál entrar", async ({ page }
   await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
   await page.waitForURL(`http://nuevohorizonte.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
   await expect(page.getByRole("main").getByText("Tareas", { exact: true })).toBeVisible();
-  await expect(page.getByRole("main").getByText("Nudito")).toHaveCount(0);
+  // El Nudito retirado no aparece; sí el acceso a Nudito+ de la familia (colegio Pro, specs/28).
+  await expect(page.getByRole("main").getByText("Nudito", { exact: true })).toHaveCount(0);
+  await expect(page.getByRole("main").getByRole("link", { name: /^Nudito\+/ })).toBeVisible();
 });
 
 test("Khipu Base muestra el candado «Plan Khipu Pro» en las funciones de Pro", async ({ page }) => {

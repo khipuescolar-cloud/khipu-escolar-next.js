@@ -30,8 +30,9 @@ async function entrar(page: Page, correo: string, clave: string) {
 }
 
 test.beforeAll(async () => {
+  // Un salón cuyo grado alcanza el mínimo para cuenta propia (el seed del CNEB da grado 3 al 3.° B y el mínimo es 5.°).
   const [{ tenant_id, salon_id }] = await sql<{ tenant_id: string; salon_id: string }>(
-    "select t.id as tenant_id, s.id as salon_id from tenants t join salones s on s.tenant_id = t.id where t.slug = 'nuevohorizonte' and s.nombre like '3%B%' limit 1",
+    "select t.id as tenant_id, s.id as salon_id from tenants t join salones s on s.tenant_id = t.id where t.slug = 'nuevohorizonte' and (s.grado is null or s.grado >= t.grado_minimo_cuenta_alumno) order by s.grado desc nulls last, s.nombre limit 1",
   );
   await sql("insert into profiles (id, email, nombres, apellidos) values ($1, $2, 'Apoderada', 'Prueba Alumno')", [ids.apoderadoUser, `apo-${azar}@test-alumno.demo`]);
   await sql("insert into memberships (id, tenant_id, user_id, rol) values ($1, $2, $3, 'apoderado')", [ids.apoderado, tenant_id, ids.apoderadoUser]);
