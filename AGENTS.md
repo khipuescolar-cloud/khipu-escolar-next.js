@@ -76,3 +76,5 @@ Mailpit (correos locales): http://127.0.0.1:54324 · Supabase Studio: http://127
 | direccion@losolivos.demo | dirección | Los Olivos · Khipu Base |
 | rosa.quispe@gmail.com | apoderada (2 colegios) | Nuevo Horizonte y Academia Euler |
 | admin@khipuescolar.demo | super administrador (equipo Khipu) | Panel http://admin.lvh.me:3000 (specs/16) |
+| lucas.huaman@nuevohorizonte.demo | alumno 5.° A con Nudito+ activo (`/nudito-plus/chat`) | Nuevo Horizonte · Khipu Pro |
+| familia.huaman@familia.demo | apoderada de Lucas (reportes de Nudito+ en `/nudito-plus`) | Nuevo Horizonte · Khipu Pro |
