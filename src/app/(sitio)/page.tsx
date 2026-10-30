@@ -22,6 +22,7 @@ import {
   WifiOff,
   type LucideIcon,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { CuerdasKhipu } from "@/components/marca/CuerdasKhipu";
@@ -234,6 +235,52 @@ const PREGUNTA_ABIERTA: Record<Tono, string> = {
 };
 const TONO_PLAN: Record<string, Tono> = { basico: "turquesa", fase2: "cielo", promax: "maiz" };
 
+// Mosaico «Un día con Khipu» (rediseño Jafet 2026-10-30): fotos referenciales en public/landing/fotos.
+// Clases literales por foto: posición en la grilla (4 columnas en lg) y proporción en pantallas chicas.
+const FOTOS_DIA: { src: string; alt: string; Icono: LucideIcon; texto: string; llego?: boolean; className: string; sizes: string }[] = [
+  {
+    src: "/landing/fotos/foto-papa-app.jpg",
+    alt: "Un papá en la sala de su casa muestra en su celular la asistencia de su hijo en Khipu Escolar.",
+    Icono: Smartphone,
+    texto: "Ve la asistencia de su hijo desde el celular",
+    className: "aspect-[3/4] sm:row-span-2 sm:aspect-auto",
+    sizes: "(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw",
+  },
+  {
+    src: "/landing/fotos/foto-mama.jpg",
+    alt: "Una mamá revisa su celular en la puerta del colegio mientras los alumnos entran.",
+    Icono: Check,
+    texto: "7:52 a. m. · Mateo llegó al colegio",
+    llego: true,
+    className: "aspect-[4/3] lg:col-span-2 lg:aspect-auto",
+    sizes: "(min-width: 1024px) 560px, (min-width: 640px) 50vw, 100vw",
+  },
+  {
+    src: "/landing/fotos/foto-directora.jpg",
+    alt: "Una directora revisa en su laptop el panel del colegio en su oficina.",
+    Icono: Users,
+    texto: "Dirección ve qué avisos llegaron",
+    className: "aspect-[4/3] lg:aspect-auto",
+    sizes: "(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw",
+  },
+  {
+    src: "/landing/fotos/foto-profesora.jpg",
+    alt: "Una profesora pasa lista en su celular frente a sus alumnos en el aula.",
+    Icono: ClipboardCheck,
+    texto: "Pasa lista en menos de un minuto",
+    className: "aspect-[4/3] sm:col-span-2 sm:aspect-[16/9] lg:col-span-1 lg:aspect-auto",
+    sizes: "(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw",
+  },
+  {
+    src: "/landing/fotos/foto-ninos.jpg",
+    alt: "Alumnos de primaria con uniforme conversan mientras entran al colegio por la mañana.",
+    Icono: ScanLine,
+    texto: "La portería registra cada llegada",
+    className: "aspect-[4/3] sm:col-span-2 sm:aspect-[16/9] lg:aspect-auto",
+    sizes: "(min-width: 1024px) 560px, 100vw",
+  },
+];
+
 function Seccion({ id, className, children, etiqueta }: { id?: string; className?: string; children: ReactNode; etiqueta?: string }) {
   return (
     <section id={id} aria-labelledby={etiqueta} className={cn("scroll-mt-20 py-16 sm:py-24", className)}>
@@ -338,6 +385,36 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
             <span className="font-heading font-semibold text-maiz">La promesa:</span> lo importante del colegio llega a tiempo, claro y seguro. El profesor pasa lista una vez y cada familia recibe su aviso.
           </p>
         </div>
+      </Seccion>
+
+      {/* ───────── Un día con Khipu: mosaico de fotos (rediseño Jafet 2026-10-30) ───────── */}
+      <Seccion etiqueta="titulo-dia-khipu" className="border-t border-arena bg-superficie-2">
+        <Encabezado
+          id="titulo-dia-khipu"
+          titulo="Así se vive un día con Khipu"
+          texto="La profesora pasa lista, la portería registra la llegada y la familia recibe su aviso en el momento, esté donde esté."
+        />
+        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[300px_300px]">
+          {FOTOS_DIA.map((f) => (
+            <li key={f.src} className={cn("group relative overflow-hidden rounded-lg bg-arena shadow-sombra-1", f.className)}>
+              <Image
+                src={f.src}
+                alt={f.alt}
+                fill
+                sizes={f.sizes}
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              />
+              <span className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-tinta/55 to-transparent" aria-hidden />
+              <p className="absolute inset-x-3 bottom-3 flex items-center gap-2.5 rounded-md bg-superficie/95 px-3 py-2 text-cuerpo-sm font-semibold text-foreground shadow-sombra-1 backdrop-blur-sm">
+                <span className={cn("flex size-7 shrink-0 items-center justify-center rounded-full", f.llego ? "bg-llego-fondo text-llego" : "bg-indigo text-white")}>
+                  <f.Icono className="size-4" strokeWidth={2.5} aria-hidden />
+                </span>
+                {f.texto}
+              </p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 text-cuerpo-sm text-muted-foreground">Imágenes referenciales.</p>
       </Seccion>
 
       {/* ───────── Funciones (un tono por grupo) ───────── */}

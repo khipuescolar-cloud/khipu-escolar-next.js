@@ -37,3 +37,12 @@
 - **Antes de integrar:** Jafet y Sebas confirman los beneficios del piloto (8 semanas sin costo, ayuda para cargar la lista, precio de fundador en 2027).
 - Sebas: si se aprueba el titular nuevo, cambiar el h1 y el test e2e; mostrar «Solicitar demo» en el encabezado del celular; enlace de WhatsApp y correo con dominio propio; `metadataBase` (hoy lvh.me:3000).
 - Jafet: capturas nuevas en horario escolar, logo (opción A o B) y Nudito 2.0 (bocetos en el panel de Jafet, docs/12-analisis-landing).
+
+## Parte 2: fotos del mosaico
+> ok ahora ponlo en la pagina web por favorlo de las imagenes nuevas
+
+> listo, y que se vea super profesional por favor
+
+- Fotos generadas por Jafet en Google Flow (Nano Banana 2.1), estilo foto de celular, nivel socioeconómico B. Recortadas y comprimidas (JPEG 80) en `public/landing/fotos/`.
+- Sección nueva «Así se vive un día con Khipu» en `page.tsx` (mosaico de 5 fotos con etiqueta de ícono + texto y la nota «Imágenes referenciales.»). Sin ancla nueva y sin `<figure>`, para no cambiar el `figure img` del hero que revisa el test e2e.
+- `foto-papa-oficina.jpg` queda de reserva (no se usa todavía).
