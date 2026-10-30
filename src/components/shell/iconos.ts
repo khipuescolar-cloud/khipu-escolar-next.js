@@ -1,5 +1,5 @@
 import {
-  Activity, BookOpen, CalendarDays, ClipboardCheck, FileText, GraduationCap, History, House, Inbox, KeyRound, Layers, LifeBuoy, ListTodo,
+  Activity, BarChart3, BookOpen, CalendarDays, ClipboardCheck, FileText, GraduationCap, History, House, Inbox, KeyRound, Layers, LifeBuoy, ListTodo,
   MailCheck, Megaphone, MessagesSquare, Receipt, School, ScanLine, Settings, Sparkles, UserSearch, Users, UsersRound,
   type LucideIcon,
 } from "lucide-react";
@@ -10,6 +10,6 @@ export type IconoPlataforma = "LifeBuoy" | "Layers" | "KeyRound" | "Receipt" | "
 
 /** Íconos de navegación importados uno por uno (no `import *`) para no inflar el bundle del cliente. */
 export const ICONOS_NAV: Record<IconoMosaico | IconoPlataforma | "House", LucideIcon> = {
-  Activity, BookOpen, CalendarDays, ClipboardCheck, FileText, GraduationCap, History, House, Inbox, KeyRound, Layers, LifeBuoy, ListTodo,
+  Activity, BarChart3, BookOpen, CalendarDays, ClipboardCheck, FileText, GraduationCap, History, House, Inbox, KeyRound, Layers, LifeBuoy, ListTodo,
   MailCheck, Megaphone, MessagesSquare, Receipt, School, ScanLine, Settings, Sparkles, UserSearch, Users, UsersRound,
 };
