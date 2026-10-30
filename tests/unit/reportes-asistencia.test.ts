@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  diasHabilesDelRango, elegirRegistroDelDia, filtrosDeBusqueda, MAX_DIAS_RANGO, nombreArchivoReporte,
+  agregarPorDia, diasHabilesDelRango, elegirRegistroDelDia, filtrosDeBusqueda, MAX_DIAS_RANGO, nombreArchivoReporte,
   porcentajeAsistencia, rangoSchema, resumirAlumno, sumarResumenes, textoJustificacion, textoPorcentaje, type RegistroDia,
 } from "@/lib/reportes-asistencia";
 import { tablaDeReporte } from "@/lib/reportes-asistencia-tabla";
@@ -137,11 +137,23 @@ describe("tabla y nombre de archivo", () => {
     const resumen = resumirAlumno(["2026-10-26"], [reg("2026-10-26", "llego")]).resumen;
     const t = tablaDeReporte({
       tipo: "salon", colegio: "Colegio", salon: { id: "s", nombre: "3.° B" }, desde: "2026-10-01", hasta: "2026-10-30", hastaEfectivo: "2026-10-30",
-      filas: [{ alumnoId: "a", nombres: "Mateo", apellidos: "Quispe", codigo: null, resumen }], total: resumen,
+      filas: [{ alumnoId: "a", nombres: "Mateo", apellidos: "Quispe", codigo: null, resumen }], total: resumen, porDia: [],
     });
     expect(t.archivo).toBe("asistencia-3-b-2026-10-01-2026-10-30");
     expect(t.secciones[0].filas[0].at(-1)).toBe(100);
     expect(t.secciones[0].columnas.length).toBe(t.secciones[0].filas[0].length);
     expect(t.secciones[0].columnasPorcentaje).toEqual([t.secciones[0].columnas.length - 1]);
+  });
+});
+
+describe("agregarPorDia", () => {
+  it("cuenta por día los estados de varios alumnos, las faltas justificadas y el porcentaje sin los días sin registro", () => {
+    const dias = ["2026-10-26", "2026-10-27"];
+    const a = resumirAlumno(dias, [reg("2026-10-26", "llego"), reg("2026-10-27", "falta", { justificacion: "aceptada" })]).detalle;
+    const b = resumirAlumno(dias, [reg("2026-10-26", "tarde")]).detalle;
+    expect(agregarPorDia([a, b])).toEqual([
+      { fecha: "2026-10-26", llego: 1, tarde: 1, falta: 0, problema: 0, sinRegistro: 0, faltasJustificadas: 0, porcentaje: 100 },
+      { fecha: "2026-10-27", llego: 0, tarde: 0, falta: 1, problema: 0, sinRegistro: 1, faltasJustificadas: 1, porcentaje: 0 },
+    ]);
   });
 });

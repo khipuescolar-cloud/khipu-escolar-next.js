@@ -1,6 +1,7 @@
-import { ArrowLeft, BarChart3, BookOpenCheck, ChevronDown, FileSpreadsheet, FileText, PencilLine, School, X } from "lucide-react";
+import { ArrowLeft, BarChart3, BookOpenCheck, ChevronDown, School } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { ZodError } from "zod";
 import { EstadoAsistencia, ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -14,48 +15,22 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { esFechaReal, fechaCorta, fechaLarga, hora12 } from "@/lib/fechas";
 import {
-  filtrosDeBusqueda, rangoAnio, rangoEsteMes, textoJustificacion, textoPorcentaje, type FiltrosReporte, type ResumenAlumno,
+  filtrosDeBusqueda, rangoEsteMes, type FiltrosReporte,
 } from "@/lib/reportes-asistencia";
 import { esVistaFamilia } from "@/lib/roles";
 import { hoyDelColegio } from "@/lib/server/asistencia";
 import { requireFeature } from "@/lib/server/plan";
 import {
   detalleCurso, opcionesDeReporte, reporteSegunFiltros, resumenColegio,
-  type DetalleCurso, type OpcionesReporte, type ReporteAsistencia, type ReporteColegio,
+  type DetalleCurso, type OpcionesReporte, type ReporteColegio,
 } from "@/lib/server/reportes-asistencia";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { FiltroReporte } from "./FiltroReporte";
+import { atajosDeFecha, BotonCorregir, enlace, enlaceCorregir, NUM, ResultadoRango, RUTA_VER } from "./vistas";
+
+const RUTA_GENERAL = "/asistencia/reportes";
 
 export const metadata: Metadata = { title: "Reportes de asistencia" };
-
-const NUM = "text-right tabular-nums";
-
-type Enlace = Partial<FiltrosReporte> & { cursoId?: string; dia?: string };
-
-function enlace(base: Enlace, cambios: Enlace, ruta = "/asistencia/reportes"): string {
-  const f = { ...base, ...cambios };
-  const q = new URLSearchParams();
-  if (f.salonId) q.set("salon", f.salonId);
-  if (f.alumnoId) q.set("alumno", f.alumnoId);
-  if (f.cursoId) q.set("curso", f.cursoId);
-  if (f.desde) q.set("desde", f.desde);
-  if (f.hasta) q.set("hasta", f.hasta);
-  if (f.dia) q.set("dia", f.dia);
-  return `${ruta}?${q.toString()}`;
-}
-
-/** Abre una lista en modo «corregir» (solo dirección; specs/04): `/asistencia?salon&ambito&fecha`. */
-function enlaceCorregir(salonId: string, ambito: string, fecha: string): string {
-  return `/asistencia?${new URLSearchParams({ salon: salonId, ambito, fecha }).toString()}`;
-}
-
-function BotonCorregir({ href, etiqueta }: { href: string; etiqueta: string }) {
-  return (
-    <Link href={href} aria-label={etiqueta} className={buttonVariants({ variant: "outline", size: "sm" })}>
-      <PencilLine className="size-4" strokeWidth={2} aria-hidden /> Corregir
-    </Link>
-  );
-}
 
 export default async function ReportesAsistenciaPage({ params, searchParams }: PageProps<"/colegio/[slug]/asistencia/reportes">) {
   const { slug } = await params;
@@ -64,8 +39,14 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
   requireFeature(ctx, "asistencia");
   const hoy = hoyDelColegio(ctx).isoFecha;
   const uno = (k: string) => (typeof sp[k] === "string" ? (sp[k] as string) : null);
-  const opciones = await opcionesDeReporte(ctx);
   const familia = esVistaFamilia(ctx.rol);
+  // El personal ve el resultado de un filtro en su propia vista (tabla o calendario); aquí queda el día y el resumen.
+  if (!familia && !uno("curso") && (uno("salon") || uno("alumno") || uno("desde") || uno("hasta"))) {
+    const q = new URLSearchParams();
+    for (const k of ["salon", "alumno", "desde", "hasta", "vista"]) if (uno(k)) q.set(k, uno(k)!);
+    redirect(`${RUTA_VER}?${q.toString()}`);
+  }
+  const opciones = await opcionesDeReporte(ctx);
   const veTodo = ctx.rol === "direccion" || ctx.rol === "administrativo";
   const puedeCorregir = ctx.rol === "direccion";
 
@@ -83,17 +64,12 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
   const curso = filtros && cursoId && !error ? await cursoODetalle(ctx, { cursoId, desde: filtros.desde, hasta: filtros.hasta }) : null;
   if (curso && "error" in curso) error = curso.error;
   const reporte = filtros && !cursoId && (familia && !filtros.alumnoId ? null : await reporteSegunFiltros(ctx, filtros));
-  // Dirección y administrativo: la página siempre empieza por la asistencia al colegio de un día (hoy por defecto),
-  // también con un filtro aplicado; el resultado del filtro va debajo.
+  // Dirección y administrativo: la página empieza por la asistencia al colegio de un día (hoy por defecto).
   const delDia = veTodo && !cursoId ? await resumenColegio(ctx, { desde: dia, hasta: dia }) : null;
   const base = filtros ?? { desde: rangoEsteMes(hoy).desde, hasta: hoy };
   const atajos = atajosDeFecha(hoy, periodo);
-  // ¿Eligió algo en el filtro? Sin filtro, dirección ve primero el día y el resumen del rango queda plegado.
-  const conFiltro = Boolean(uno("salon") || uno("alumno") || uno("desde") || uno("hasta"));
-  const activos = [uno("salon"), uno("alumno"), uno("desde") || uno("hasta")].filter(Boolean).length;
-  const nombreSalon = opciones.salones.find((s) => s.id === base.salonId)?.nombre;
-  const alumnoElegido = opciones.alumnos.find((a) => a.id === base.alumnoId);
-  const plegado = veTodo && !conFiltro && reporte && reporte.tipo === "colegio";
+  // Dirección ve primero el día; el resumen del mes queda plegado.
+  const plegado = veTodo && reporte && reporte.tipo === "colegio";
 
   return (
     <div className="flex flex-col gap-6">
@@ -111,7 +87,7 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
                 <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> {familia ? "Calendario" : "Pasar lista"}
               </Link>
             )}
-            {!familia && <FiltroReporte opciones={opciones} inicial={base} atajos={atajos} hoy={hoy} activos={activos} />}
+            {!familia && <FiltroReporte opciones={opciones} inicial={base} atajos={atajos} hoy={hoy} activos={0} />}
           </>
         }
       />
@@ -119,19 +95,9 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
       {familia && <Filtros base={base} opciones={opciones} familia={familia} atajos={atajos} hoy={hoy} />}
       {error && <Alerta tipo="error">{error}</Alerta>}
 
-      {delDia && <AsistenciaDelDia reporte={delDia} dia={dia} hoy={hoy} filtros={conFiltro ? base : {}} puedeCorregir={puedeCorregir} />}
+      {delDia && <AsistenciaDelDia reporte={delDia} dia={dia} hoy={hoy} puedeCorregir={puedeCorregir} />}
 
-      {!familia && conFiltro && (
-        <FiltrosActivos
-          partes={[
-            nombreSalon ? `Salón ${nombreSalon}` : "Todos los salones",
-            ...(alumnoElegido ? [`${alumnoElegido.apellidos}, ${alumnoElegido.nombres}`] : []),
-            `Del ${fechaCorta(base.desde)} al ${fechaCorta(base.hasta)}`,
-          ]}
-        />
-      )}
-
-      {curso && !("error" in curso) && filtros && <VistaCurso detalle={curso} filtros={filtros} puedeCorregir={puedeCorregir} />}
+      {curso && !("error" in curso) && <VistaCurso detalle={curso} puedeCorregir={puedeCorregir} />}
 
       {reporte && filtros && plegado && (
         <details className="group rounded-lg border bg-superficie">
@@ -150,55 +116,6 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
       {reporte && filtros && !plegado && <ResultadoRango reporte={reporte} filtros={filtros} familia={familia} puedeCorregir={puedeCorregir} />}
       {!error && !reporte && !curso && <EstadoVacio icono={BarChart3} titulo="Aún no hay un alumno para mostrar" descripcion="Cuando tu hijo(a) tenga asistencia registrada, verás aquí su reporte." />}
     </div>
-  );
-}
-
-function atajosDeFecha(hoy: string, periodo?: { nombre: string; inicio: string; fin: string }) {
-  return [
-    { texto: "Este mes", ...rangoEsteMes(hoy) },
-    ...(periodo ? [{ texto: periodo.nombre, desde: periodo.inicio, hasta: periodo.fin < hoy ? periodo.fin : hoy }] : []),
-    { texto: "Año", ...rangoAnio(hoy) },
-  ];
-}
-
-/** Lo que eligió en «Filtrar reporte», con el atajo para quitarlo. */
-function FiltrosActivos({ partes }: { partes: string[] }) {
-  return (
-    <div className="flex flex-wrap items-center gap-2" aria-label="Filtros aplicados">
-      {partes.map((p) => (
-        <span key={p} className="rounded-pildora border bg-superficie px-3 py-1 text-sm">{p}</span>
-      ))}
-      <Link href="/asistencia/reportes" className={buttonVariants({ variant: "ghost", size: "sm" })}>
-        <X className="size-4" strokeWidth={2} aria-hidden /> Quitar filtros
-      </Link>
-    </div>
-  );
-}
-
-/** Reporte del rango elegido: descargas, totales y tabla (colegio, salón o alumno). */
-function ResultadoRango({ reporte, filtros, familia, puedeCorregir }: { reporte: ReporteAsistencia; filtros: FiltrosReporte; familia: boolean; puedeCorregir: boolean }) {
-  return (
-        <>
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <p className="text-cuerpo-sm text-muted-foreground">
-              Del {fechaCorta(reporte.desde)} al {fechaCorta(reporte.hasta)}
-              {reporte.hastaEfectivo !== reporte.hasta && ` · se cuenta hasta hoy (${fechaCorta(reporte.hastaEfectivo)})`}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <a href={enlace(filtros, {}, "/api/reportes-asistencia/excel")} className={buttonVariants({ variant: "outline" })}>
-                <FileSpreadsheet className="size-4" strokeWidth={2} aria-hidden /> Descargar Excel
-              </a>
-              <a href={enlace(filtros, {}, "/api/reportes-asistencia/pdf")} className={buttonVariants({ variant: "outline" })}>
-                <FileText className="size-4" strokeWidth={2} aria-hidden /> Descargar PDF
-              </a>
-            </div>
-          </div>
-          <Contenido reporte={reporte} filtros={filtros} familia={familia} puedeCorregir={puedeCorregir} />
-          <p className="text-sm text-muted-foreground">
-            Cuenta la asistencia al colegio (portería o lista del día); las listas de curso no cambian el porcentaje. % de asistencia = (llegó + tarde) ÷ días hábiles con registro. Los días hábiles son de lunes a viernes sin feriados; los días sin registro no cuentan en el porcentaje.
-          </p>
-          {reporte.tipo === "colegio" && reporte.cursos && <AsistenciaPorCurso reporte={reporte} filtros={filtros} />}
-        </>
   );
 }
 
@@ -227,152 +144,10 @@ function Filtros({ base, opciones, familia, atajos, hoy }: { base: Partial<Filtr
       <p className="flex flex-wrap items-center gap-2 text-sm">
         <span className="text-muted-foreground">Atajos:</span>
         {atajos.map((a) => (
-          <Link key={a.texto} href={enlace(base, { desde: a.desde, hasta: a.hasta })} className={buttonVariants({ variant: "outline", size: "sm" })}>{a.texto}</Link>
+          <Link key={a.texto} href={enlace(base, { desde: a.desde, hasta: a.hasta }, RUTA_GENERAL)} className={buttonVariants({ variant: "outline", size: "sm" })}>{a.texto}</Link>
         ))}
       </p>
     </section>
-  );
-}
-
-function Contenido({ reporte, filtros, familia, puedeCorregir }: { reporte: ReporteAsistencia; filtros: FiltrosReporte; familia: boolean; puedeCorregir: boolean }) {
-  if (reporte.tipo === "alumno") return <DetalleAlumno reporte={reporte} filtros={filtros} familia={familia} puedeCorregir={puedeCorregir} />;
-  const total = reporte.total;
-  const filas = reporte.tipo === "salon"
-    ? reporte.filas.map((f) => ({ clave: f.alumnoId, nombre: `${f.apellidos}, ${f.nombres}`, href: enlace(filtros, { alumnoId: f.alumnoId, salonId: reporte.salon.id }), resumen: f.resumen, extra: null as number | null }))
-    : reporte.filas.map((f) => ({ clave: f.salonId, nombre: f.salon, href: enlace({ desde: filtros.desde, hasta: filtros.hasta }, { salonId: f.salonId }), resumen: f.resumen, extra: f.alumnos }));
-  return (
-    <>
-      {reporte.tipo === "colegio" && <h2 className="text-titulo-2">Asistencia al colegio en el rango</h2>}
-      <Totales resumen={total} titulo={reporte.tipo === "salon" ? `Salón ${reporte.salon.nombre}` : "Todo el colegio"} />
-      {filas.length === 0 ? (
-        <EstadoVacio icono={BarChart3} titulo="No hay alumnos para este reporte" descripcion="Cuando haya alumnos activos con asistencia, aparecerán aquí." />
-      ) : (
-        <Card>
-          <CardContent className="p-0">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>{reporte.tipo === "salon" ? "Alumno" : "Salón"}</TableHead>
-                  {reporte.tipo === "colegio" && <TableHead className={NUM}>Alumnos</TableHead>}
-                  <CabecerasResumen />
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {filas.map((f) => (
-                  <TableRow key={f.clave}>
-                    <TableCell><Link href={f.href} className="enlace font-medium">{f.nombre}</Link></TableCell>
-                    {reporte.tipo === "colegio" && <TableCell className={NUM}>{f.extra}</TableCell>}
-                    <CeldasResumen r={f.resumen} />
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
-      )}
-    </>
-  );
-}
-
-function CabecerasResumen() {
-  return (
-    <>
-      <TableHead className={NUM}>Llegó</TableHead>
-      <TableHead className={NUM}>Tarde</TableHead>
-      <TableHead className={NUM}>No llegó</TableHead>
-      <TableHead className={NUM}>Aviso</TableHead>
-      <TableHead className={NUM}>Justificadas</TableHead>
-      <TableHead className={NUM}>En revisión</TableHead>
-      <TableHead className={NUM}>Sin justificar</TableHead>
-      <TableHead className={NUM}>Sin registro</TableHead>
-      <TableHead className={NUM}>% asistencia</TableHead>
-    </>
-  );
-}
-
-function CeldasResumen({ r }: { r: ResumenAlumno }) {
-  return (
-    <>
-      <TableCell className={NUM}>{r.llego}</TableCell>
-      <TableCell className={NUM}>{r.tarde}</TableCell>
-      <TableCell className={NUM}>{r.falta}</TableCell>
-      <TableCell className={NUM}>{r.problema}</TableCell>
-      <TableCell className={NUM}>{r.faltasJustificadas}</TableCell>
-      <TableCell className={NUM}>{r.faltasEnRevision}</TableCell>
-      <TableCell className={NUM}>{r.faltasInjustificadas}</TableCell>
-      <TableCell className={NUM}>{r.diasSinRegistro}</TableCell>
-      <TableCell className={`${NUM} font-semibold`}>{textoPorcentaje(r.porcentaje)}</TableCell>
-    </>
-  );
-}
-
-function Totales({ resumen, titulo }: { resumen: ResumenAlumno; titulo: string }) {
-  return (
-    <Card>
-      <CardContent className="flex flex-wrap items-center gap-x-8 gap-y-3">
-        <div>
-          <p className="text-sm text-muted-foreground">Asistencia · {titulo}</p>
-          <p className="text-titulo-1 tabular-nums">{textoPorcentaje(resumen.porcentaje)}</p>
-          <p className="text-sm text-muted-foreground tabular-nums">{resumen.llego + resumen.tarde} presencias de {resumen.diasConRegistro} días con registro</p>
-        </div>
-        <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <li className="flex items-center gap-1.5 text-sm"><EstadoAsistencia estado="llego" /> <strong className="tabular-nums">{resumen.llego}</strong></li>
-          <li className="flex items-center gap-1.5 text-sm"><EstadoAsistencia estado="tarde" /> <strong className="tabular-nums">{resumen.tarde}</strong></li>
-          <li className="flex items-center gap-1.5 text-sm"><EstadoAsistencia estado="falta" /> <strong className="tabular-nums">{resumen.falta}</strong></li>
-          <li className="flex items-center gap-1.5 text-sm"><EstadoAsistencia estado="problema" /> <strong className="tabular-nums">{resumen.problema}</strong></li>
-        </ul>
-        <p className="text-sm text-muted-foreground tabular-nums">
-          Faltas justificadas: <strong className="text-foreground">{resumen.faltasJustificadas}</strong> · en revisión: <strong className="text-foreground">{resumen.faltasEnRevision}</strong> · sin justificar: <strong className="text-foreground">{resumen.faltasInjustificadas}</strong> · días sin registro: <strong className="text-foreground">{resumen.diasSinRegistro}</strong>
-        </p>
-      </CardContent>
-    </Card>
-  );
-}
-
-function DetalleAlumno({ reporte, filtros, familia, puedeCorregir }: { reporte: Extract<ReporteAsistencia, { tipo: "alumno" }>; filtros: FiltrosReporte; familia: boolean; puedeCorregir: boolean }) {
-  return (
-    <>
-      <div className="flex flex-wrap items-center gap-3">
-        <h2 className="text-titulo-2">{reporte.alumno.apellidos}, {reporte.alumno.nombres} · {reporte.alumno.salon}</h2>
-        {!familia && (
-          <Link href={enlace(filtros, { alumnoId: undefined, salonId: reporte.alumno.salonId })} className={buttonVariants({ variant: "outline", size: "sm" })}>
-            <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Volver al salón
-          </Link>
-        )}
-      </div>
-      <Totales resumen={reporte.resumen} titulo={reporte.alumno.nombres} />
-      <Card>
-        <CardContent className="p-0">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Día</TableHead>
-                <TableHead>Estado</TableHead>
-                <TableHead className={NUM}>Hora</TableHead>
-                <TableHead>Justificación</TableHead>
-                {puedeCorregir && <TableHead><span className="sr-only">Corregir</span></TableHead>}
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {reporte.detalle.map((d) => (
-                <TableRow key={d.fecha}>
-                  <TableCell className="capitalize">{fechaLarga(d.fecha)}</TableCell>
-                  <TableCell>{d.estado ? <EstadoAsistencia estado={d.estado} /> : <span className="text-muted-foreground">Sin registro</span>}</TableCell>
-                  <TableCell className={NUM}>{d.hora ?? ""}</TableCell>
-                  <TableCell>{textoJustificacion(d)}</TableCell>
-                  {puedeCorregir && (
-                    <TableCell className="text-right">
-                      <BotonCorregir href={enlaceCorregir(reporte.alumno.salonId, "dia", d.fecha)} etiqueta={`Corregir la asistencia del día del ${fechaCorta(d.fecha)}`} />
-                    </TableCell>
-                  )}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-          {reporte.detalle.length === 0 && <p className="p-4 text-sm text-muted-foreground">No hay días hábiles en este rango.</p>}
-        </CardContent>
-      </Card>
-    </>
   );
 }
 
@@ -387,7 +162,7 @@ async function cursoODetalle(ctx: Parameters<typeof detalleCurso>[0], entrada: {
 }
 
 /** Asistencia al colegio de un día: cuántos asistieron, faltaron (justificadas o no) y sin registro; luego por salón. */
-function AsistenciaDelDia({ reporte, dia, hoy, filtros, puedeCorregir }: { reporte: ReporteColegio; dia: string; hoy: string; filtros: Enlace; puedeCorregir: boolean }) {
+function AsistenciaDelDia({ reporte, dia, hoy, puedeCorregir }: { reporte: ReporteColegio; dia: string; hoy: string; puedeCorregir: boolean }) {
   const t = reporte.total;
   const alumnos = reporte.filas.reduce((s, f) => s + f.alumnos, 0);
   const esHabil = t.diasHabiles > 0;
@@ -401,8 +176,6 @@ function AsistenciaDelDia({ reporte, dia, hoy, filtros, puedeCorregir }: { repor
           <p className="text-cuerpo-sm text-muted-foreground first-letter:uppercase">{dia === hoy ? `Hoy, ${fechaLarga(dia)}` : fechaLarga(dia)}</p>
         </div>
         <form method="get" className="flex flex-wrap items-end gap-2">
-          {filtros.desde && <input type="hidden" name="desde" value={filtros.desde} />}
-          {filtros.hasta && <input type="hidden" name="hasta" value={filtros.hasta} />}
           <Campo etiqueta="Día" name="dia" type="date" defaultValue={dia} max={hoy} />
           <Boton type="submit" variante="secundario">Ver día</Boton>
         </form>
@@ -479,60 +252,13 @@ function Cifra({ titulo, valor, detalle, estado }: { titulo: string; valor: numb
   );
 }
 
-/** Faltas y tardanzas a clase por salón y curso en el rango (solo si algún nivel tiene asistencia por curso). */
-function AsistenciaPorCurso({ reporte, filtros }: { reporte: ReporteColegio; filtros: FiltrosReporte }) {
-  const cursos = reporte.cursos ?? [];
-  return (
-    <section aria-labelledby="titulo-cursos" className="flex flex-col gap-3">
-      <div>
-        <h2 id="titulo-cursos" className="flex items-center gap-2 text-titulo-2">
-          <BookOpenCheck className="size-5 text-primary" strokeWidth={2} aria-hidden /> Asistencia por curso
-        </h2>
-        <p className="text-cuerpo-sm text-muted-foreground">Faltas a clase en el rango. «Ingresó pero faltó»: el alumno entró al colegio ese día y no estuvo en la clase.</p>
-      </div>
-      {cursos.length === 0 ? (
-        <EstadoVacio icono={BookOpenCheck} titulo="Aún no hay listas de curso en este rango" descripcion="Cuando los profesores pasen lista en sus cursos, verás aquí las faltas a clase." />
-      ) : (
-        <Card>
-          <CardContent className="p-0">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Salón</TableHead>
-                  <TableHead>Curso</TableHead>
-                  <TableHead className={NUM}>Registros</TableHead>
-                  <TableHead className={NUM}>Faltas a clase</TableHead>
-                  <TableHead className={NUM}>Ingresó pero faltó</TableHead>
-                  <TableHead className={NUM}>Tardanzas</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {cursos.map((c) => (
-                  <TableRow key={c.cursoId}>
-                    <TableCell>{c.salon}</TableCell>
-                    <TableCell><Link href={enlace({ desde: filtros.desde, hasta: filtros.hasta }, { cursoId: c.cursoId })} className="enlace font-medium">{c.curso}</Link></TableCell>
-                    <TableCell className={NUM}>{c.registros}</TableCell>
-                    <TableCell className={NUM}>{c.faltas}</TableCell>
-                    <TableCell className={`${NUM} font-semibold`}>{c.faltasConIngreso}</TableCell>
-                    <TableCell className={NUM}>{c.tardanzas}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
-      )}
-    </section>
-  );
-}
-
 /** Detalle de un curso: cada falta o tardanza a clase con el ingreso al colegio de ese día y el enlace para corregir. */
-function VistaCurso({ detalle, filtros, puedeCorregir }: { detalle: DetalleCurso; filtros: FiltrosReporte; puedeCorregir: boolean }) {
+function VistaCurso({ detalle, puedeCorregir }: { detalle: DetalleCurso; puedeCorregir: boolean }) {
   return (
     <section aria-labelledby="titulo-curso" className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-3">
         <h2 id="titulo-curso" className="text-titulo-2">{detalle.curso.nombre} · {detalle.salon.nombre}</h2>
-        <Link href={enlace({ desde: filtros.desde, hasta: filtros.hasta }, {})} className={buttonVariants({ variant: "outline", size: "sm" })}>
+        <Link href={RUTA_GENERAL} className={buttonVariants({ variant: "outline", size: "sm" })}>
           <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Volver al colegio
         </Link>
       </div>

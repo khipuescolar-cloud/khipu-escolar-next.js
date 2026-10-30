@@ -5,8 +5,8 @@ import { Prisma } from "@/generated/prisma/client";
 import type { EstadoJustificacion } from "@/generated/prisma/enums";
 import { fechaDb, isoDeFechaDb } from "@/lib/fechas";
 import {
-  diasHabilesDelRango, rangoSchema, resumirAlumno, sumarResumenes,
-  type DetalleDia, type FiltrosReporte, type RegistroDia, type ResumenAlumno,
+  agregarPorDia, diasHabilesDelRango, rangoSchema, resumirAlumno, sumarResumenes,
+  type DetalleDia, type DiaAgregado, type FiltrosReporte, type RegistroDia, type ResumenAlumno,
 } from "@/lib/reportes-asistencia";
 import { esVistaFamilia } from "@/lib/roles";
 import { AMBITO_DIA, hoyDelColegio } from "./asistencia";
@@ -48,6 +48,8 @@ export type ReporteSalon = {
   hastaEfectivo: string;
   filas: FilaAlumnoReporte[];
   total: ResumenAlumno;
+  /** Conteo por día hábil del salón (vista calendario). */
+  porDia: DiaAgregado[];
 };
 
 export type FilaSalonReporte = { salonId: string; salon: string; alumnos: number; resumen: ResumenAlumno };
@@ -74,6 +76,8 @@ export type ReporteColegio = {
   hastaEfectivo: string;
   filas: FilaSalonReporte[];
   total: ResumenAlumno;
+  /** Conteo por día hábil de todo el alcance (vista calendario). */
+  porDia: DiaAgregado[];
   /** Asistencia por curso; null si ningún nivel del colegio la tiene activa (Configuración). */
   cursos: FilaCursoReporte[] | null;
 };
@@ -159,12 +163,13 @@ export async function reporteSalon(ctx: TenantContext, entrada: unknown, como: A
     diasHabiles(ctx, desde, hastaEfectivo),
   ]);
   const registros = await registrosPorAlumno(ctx, alumnos.map((a) => a.id), desde, hastaEfectivo);
-  const filas = alumnos.map<FilaAlumnoReporte>((a) => ({
-    alumnoId: a.id, nombres: a.nombres, apellidos: a.apellidos, codigo: a.codigo,
-    resumen: resumirAlumno(dias, registros.get(a.id) ?? []).resumen,
-  }));
+  const resumidos = alumnos.map((a) => ({ a, ...resumirAlumno(dias, registros.get(a.id) ?? []) }));
+  const filas = resumidos.map<FilaAlumnoReporte>(({ a, resumen }) => ({ alumnoId: a.id, nombres: a.nombres, apellidos: a.apellidos, codigo: a.codigo, resumen }));
   await auditarReporte(ctx, salon.id, { tipo: "salon", desde, hasta }, como);
-  return { tipo: "salon", colegio: ctx.tenant.nombre, salon, desde, hasta, hastaEfectivo, filas, total: sumarResumenes(filas.map((f) => f.resumen)) };
+  return {
+    tipo: "salon", colegio: ctx.tenant.nombre, salon, desde, hasta, hastaEfectivo, filas,
+    total: sumarResumenes(filas.map((f) => f.resumen)), porDia: agregarPorDia(resumidos.map((r) => r.detalle)),
+  };
 }
 
 /** Reporte de un alumno con el detalle día a día. Apoderado/alumno: solo los suyos. */
@@ -208,12 +213,17 @@ export async function resumenColegio(ctx: TenantContext, entrada: unknown, como:
     registrosPorAlumno(ctx, salones.flatMap((s) => s.alumnos.map((a) => a.id)), desde, hastaEfectivo),
     ctx.tenant.asistenciaPorCursoNiveles.length > 0 ? asistenciaPorCurso(ctx, alcance, desde, hastaEfectivo) : Promise.resolve(null),
   ]);
-  const filas = salones.map<FilaSalonReporte>((s) => ({
-    salonId: s.id, salon: s.nombre, alumnos: s.alumnos.length,
-    resumen: sumarResumenes(s.alumnos.map((a) => resumirAlumno(dias, registros.get(a.id) ?? []).resumen)),
-  }));
+  const detalles: DetalleDia[][] = [];
+  const filas = salones.map<FilaSalonReporte>((s) => {
+    const resumidos = s.alumnos.map((a) => resumirAlumno(dias, registros.get(a.id) ?? []));
+    for (const r of resumidos) detalles.push(r.detalle);
+    return { salonId: s.id, salon: s.nombre, alumnos: s.alumnos.length, resumen: sumarResumenes(resumidos.map((r) => r.resumen)) };
+  });
   await auditarReporte(ctx, ctx.tenant.id, { tipo: "colegio", desde, hasta }, como);
-  return { tipo: "colegio", colegio: ctx.tenant.nombre, desde, hasta, hastaEfectivo, filas, total: sumarResumenes(filas.map((f) => f.resumen)), cursos };
+  return {
+    tipo: "colegio", colegio: ctx.tenant.nombre, desde, hasta, hastaEfectivo, filas,
+    total: sumarResumenes(filas.map((f) => f.resumen)), porDia: agregarPorDia(detalles), cursos,
+  };
 }
 
 /**

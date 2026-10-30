@@ -29,7 +29,10 @@ test("dirección filtra un salón por fechas y descarga Excel y PDF", async ({ p
   await panel.getByLabel("Desde").fill("2026-03-02");
   await panel.getByLabel("Hasta").fill("2026-03-31");
   await panel.getByRole("button", { name: "Ver reporte" }).click();
-  await expect(page).toHaveURL(/salon=/);
+  // El resultado se abre en su propia vista, en modo tabla.
+  await expect(page).toHaveURL(/\/asistencia\/reportes\/ver\?.*salon=/);
+  await expect(page.getByRole("heading", { name: "Salón 3.° B", level: 1 })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Tabla" })).toHaveAttribute("aria-current", "page");
   await expect(page.getByRole("columnheader", { name: "Alumno", exact: true })).toBeVisible();
   await expect(page.getByLabel("Filtros aplicados").getByText("Salón 3.° B")).toBeVisible();
   await expect(page.getByText(/Asistencia · Salón 3\.° B/)).toBeVisible();
@@ -39,9 +42,26 @@ test("dirección filtra un salón por fechas y descarga Excel y PDF", async ({ p
   const [pdf] = await Promise.all([page.waitForEvent("download"), page.getByRole("link", { name: "Descargar PDF" }).click()]);
   expect(pdf.suggestedFilename()).toMatch(/^asistencia-3-b-2026-03-02-2026-03-31\.pdf$/);
 
+  // Modo calendario del salón: cada día con asistieron / con registro.
+  await page.getByRole("link", { name: "Calendario" }).click();
+  await expect(page).toHaveURL(/vista=calendario/);
+  const calendario = page.getByTestId("calendario-reporte");
+  await expect(calendario.getByRole("heading", { name: /marzo de 2026/i })).toBeVisible();
+  await expect(calendario.getByText(/^\d+\/\d+$/).first()).toBeVisible();
+  await page.getByRole("link", { name: "Tabla" }).click();
+
   // Detalle de un alumno.
   await page.getByRole("table").filter({ has: page.getByRole("columnheader", { name: "Alumno", exact: true }) }).getByRole("link").first().click();
   await expect(page.getByRole("columnheader", { name: "Justificación" })).toBeVisible();
+  await page.getByRole("link", { name: "Calendario" }).click();
+  await expect(page.getByTestId("calendario-reporte").getByRole("heading", { name: /marzo de 2026/i })).toBeVisible();
+
+  // Los enlaces antiguos con filtro en la página general llevan a la vista nueva; «Reportes» vuelve a la general.
+  await page.goto(`${COLEGIO}/asistencia/reportes?desde=2026-03-02&hasta=2026-03-31`);
+  await expect(page).toHaveURL(/\/asistencia\/reportes\/ver\?/);
+  await expect(page.getByRole("heading", { name: "Todo el colegio", level: 1 })).toBeVisible();
+  await page.getByRole("link", { name: "Reportes", exact: true }).click();
+  await expect(page.getByTestId("asistencia-del-dia")).toBeVisible();
 });
 
 test("el servidor responde con el tipo de archivo correcto y rechaza rangos inválidos", async ({ page }) => {

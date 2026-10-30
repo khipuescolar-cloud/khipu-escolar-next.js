@@ -18,16 +18,18 @@ type Atajo = { texto: string; desde: string; hasta: string };
 
 /**
  * Filtro del reporte en un panel lateral (specs/27): primero el salón, dentro del salón la lista de
- * sus alumnos (o «Todo el salón») y al final el rango de fechas. Navega con los mismos parámetros GET.
+ * sus alumnos (o «Todo el salón») y al final el rango de fechas. Abre el reporte en su propia vista (`ver/`).
  */
 export function FiltroReporte({
-  opciones, inicial, atajos, hoy, activos,
+  opciones, inicial, atajos, hoy, activos, vista,
 }: {
   opciones: Opciones;
   inicial: { salonId?: string; alumnoId?: string; desde: string; hasta: string };
   atajos: Atajo[];
   hoy: string;
   activos: number;
+  /** Vista elegida en el reporte filtrado («tabla» o «calendario»); se conserva al cambiar el filtro. */
+  vista?: string;
 }) {
   const router = useRouter();
   const [abierto, setAbierto] = useState(false);
@@ -50,8 +52,9 @@ export function FiltroReporte({
     if (salonId && alumnoId) q.set("alumno", alumnoId);
     q.set("desde", desde);
     q.set("hasta", hasta);
+    if (vista) q.set("vista", vista);
     setAbierto(false);
-    router.push(`/asistencia/reportes?${q.toString()}`);
+    router.push(`/asistencia/reportes/ver?${q.toString()}`);
   }
 
   return (

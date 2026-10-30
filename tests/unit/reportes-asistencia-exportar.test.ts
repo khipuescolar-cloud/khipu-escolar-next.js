@@ -12,10 +12,10 @@ const resumen = resumirAlumno(["2026-03-02", "2026-03-03"], [
 ]);
 const base = { colegio: "Colegio Prueba", desde: "2026-03-02", hasta: "2026-03-06", hastaEfectivo: "2026-03-06" };
 const reportes: ReporteAsistencia[] = [
-  { ...base, tipo: "salon", salon: { id: "s", nombre: "3.° B" }, filas: [{ alumnoId: "a", nombres: "Mateo", apellidos: "Quispe", codigo: "M-1", resumen: resumen.resumen }], total: resumen.resumen },
+  { ...base, tipo: "salon", salon: { id: "s", nombre: "3.° B" }, filas: [{ alumnoId: "a", nombres: "Mateo", apellidos: "Quispe", codigo: "M-1", resumen: resumen.resumen }], total: resumen.resumen, porDia: [] },
   { ...base, tipo: "alumno", alumno: { id: "a", nombres: "Mateo", apellidos: "Quispe", codigo: null, salonId: "s", salon: "3.° B" }, resumen: resumen.resumen, detalle: resumen.detalle },
   {
-    ...base, tipo: "colegio", filas: [{ salonId: "s", salon: "3.° B", alumnos: 1, resumen: resumen.resumen }], total: resumen.resumen,
+    ...base, tipo: "colegio", filas: [{ salonId: "s", salon: "3.° B", alumnos: 1, resumen: resumen.resumen }], total: resumen.resumen, porDia: [],
     cursos: [{ salonId: "s", salon: "3.° B", cursoId: "c", curso: "Matemática", registros: 10, faltas: 2, faltasConIngreso: 1, tardanzas: 1 }],
   },
 ];

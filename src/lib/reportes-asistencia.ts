@@ -108,6 +108,36 @@ export function resumirAlumno(diasHabiles: readonly string[], registros: readonl
   return { resumen, detalle };
 }
 
+/** Un día hábil de un salón o del colegio en el calendario del reporte: cuántos alumnos en cada estado. */
+export type DiaAgregado = {
+  fecha: string;
+  llego: number;
+  tarde: number;
+  falta: number;
+  problema: number;
+  sinRegistro: number;
+  faltasJustificadas: number;
+  /** (llegó + tarde) / alumnos con registro ese día × 100; null si nadie tiene registro. */
+  porcentaje: number | null;
+};
+
+/** Junta el detalle día a día de varios alumnos (mismos días hábiles) en un conteo por día, en orden de fecha. */
+export function agregarPorDia(detalles: readonly (readonly DetalleDia[])[]): DiaAgregado[] {
+  const porFecha = new Map<string, DiaAgregado>();
+  for (const detalle of detalles) {
+    for (const d of detalle) {
+      const dia = porFecha.get(d.fecha) ?? { fecha: d.fecha, llego: 0, tarde: 0, falta: 0, problema: 0, sinRegistro: 0, faltasJustificadas: 0, porcentaje: null };
+      if (d.estado) dia[d.estado]++;
+      else dia.sinRegistro++;
+      if (d.estado === "falta" && d.justificada) dia.faltasJustificadas++;
+      porFecha.set(d.fecha, dia);
+    }
+  }
+  return [...porFecha.values()]
+    .sort((a, b) => a.fecha.localeCompare(b.fecha))
+    .map((d) => ({ ...d, porcentaje: porcentajeAsistencia(d.llego + d.tarde, d.llego + d.tarde + d.falta + d.problema) }));
+}
+
 /** Suma resúmenes (salón o colegio): el porcentaje es sobre el total de días con registro, no el promedio de porcentajes. */
 export function sumarResumenes(resumenes: readonly ResumenAlumno[]): ResumenAlumno {
   const t: ResumenAlumno = {
