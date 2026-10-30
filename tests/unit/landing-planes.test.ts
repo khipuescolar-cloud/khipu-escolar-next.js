@@ -51,6 +51,6 @@ describe("armarPlanesPublicos (landing)", () => {
     const planes = armarPlanesPublicos(catalogoDeCodigo());
     expect(planes.map((p) => p.nombre)).toEqual(["Khipu Base", "Khipu Pro"]);
     expect(planes[1].incluyeA).toBe("Khipu Base");
-    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["notas", "libreta", "tareas", "agenda", "tablero", "documentos"]);
+    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["notas", "libreta", "tareas", "agenda", "tablero", "documentos", "reuniones"]);
   });
 });

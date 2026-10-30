@@ -24,6 +24,7 @@ export const ENVIANDO_MAX_MINUTOS = 10;
 const PLANTILLAS_FAMILIA = new Set([
   "asistencia_llego", "asistencia_tarde", "asistencia_falta", "asistencia_problema",
   "mensaje_nuevo", "comunicado", "justificacion_revisada", "tarea_nueva", "libreta_publicada", "documento_nuevo",
+  "reunion_convocada", "reunion_recordatorio", "reunion_cancelada", "reunion_acta",
 ]);
 
 export type ResumenCola = {
