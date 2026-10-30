@@ -29,13 +29,21 @@ export function tieneCanalAviso(d: Pick<Destinatario, "correo" | "pushEndpoints"
 
 /** Familias que pueden recibir avisos de un alumno. */
 export async function destinatariosDeAlumno(tdb: DbTenant, alumnoId: string): Promise<Destinatario[]> {
+  return (await destinatariosPorAlumno(tdb, [alumnoId])).get(alumnoId) ?? [];
+}
+
+/** Familias que pueden recibir avisos de cada alumno, en una sola consulta (pasar lista de un salón entero). */
+export async function destinatariosPorAlumno(tdb: DbTenant, alumnoIds: string[]): Promise<Map<string, Destinatario[]>> {
+  const mapa = new Map<string, Destinatario[]>();
+  if (alumnoIds.length === 0) return mapa;
   const vinculos = await tdb.apoderadoAlumno.findMany({
     where: {
-      alumnoId,
+      alumnoId: { in: alumnoIds },
       recibeAvisos: true,
       apoderado: { estado: "activa", consentimientos: { some: { revocadoAt: null } } },
     },
     select: {
+      alumnoId: true,
       apoderadoId: true,
       apoderado: {
         select: {
@@ -45,15 +53,18 @@ export async function destinatariosDeAlumno(tdb: DbTenant, alumnoId: string): Pr
       },
     },
   });
-  return vinculos.map((v) => {
+  for (const v of vinculos) {
     const pref = v.apoderado.preferenciaAviso ?? { correo: true, push: true };
-    return {
+    const lista = mapa.get(v.alumnoId) ?? [];
+    lista.push({
       apoderadoId: v.apoderadoId,
       email: v.apoderado.user.email,
       correo: pref.correo,
       pushEndpoints: pref.push ? v.apoderado.user.pushSuscripciones.map((s) => s.endpoint) : [],
-    };
-  });
+    });
+    mapa.set(v.alumnoId, lista);
+  }
+  return mapa;
 }
 
 /** Cuántas familias con algún canal de aviso tiene cada alumno (para el resumen previo de pasar lista). */
@@ -195,10 +206,12 @@ export async function encolarAvisosAsistencia(
     /** «a la 1.ª hora» o «a Matemática» (texto del aviso de falta). */
     momento: string;
     urlMensajes?: string;
+    /** Destinatarios ya cargados (p. ej. con `destinatariosPorAlumno` para toda la lista); si no, se consultan. */
+    destinatarios?: Destinatario[];
   },
 ): Promise<number> {
   const { tenant, asistencia, alumnoNombre } = datos;
-  const destinatarios = await destinatariosDeAlumno(tdb, asistencia.alumnoId);
+  const destinatarios = datos.destinatarios ?? (await destinatariosDeAlumno(tdb, asistencia.alumnoId));
   let familias = 0;
   for (const d of destinatarios) {
     if (!tieneCanalAviso(d)) continue;

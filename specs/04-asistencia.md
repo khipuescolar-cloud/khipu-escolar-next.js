@@ -43,6 +43,8 @@ obtenerLista(ctx, salonId, ambito)    // 403 si no es su lista; audita «ver»
 obtenerLista(...).alumnos[i]: { id, nombres, apellidos, registro, familiasConAviso, llegadaAvisada }
 guardarLista(ctx, entrada: unknown, ahora?) : Promise<{ guardados; cambios; familiasAvisadas; omitidos }>
   // zod: { salonId: uuid, ambito: "dia" | uuid, registros: [{ alumnoId, estado, nota? }] (1..200) }
+  // Carga de una vez los registros previos de la lista, las llegadas en otras listas y las familias a avisar
+  // (destinatariosPorAlumno) y audita con un solo INSERT: ~3 consultas por alumno en vez de ~10 (docs/pruebas-de-estres.md).
 resumenDelDia(ctx)                    // solo dirección
 historialDeHijos(ctx, mes?)           // apoderado/alumno; cada registro trae puedeJustificar, justificarHasta y plazoVencido
 hoyDelColegio(ctx, ahora?) : { isoFecha, hora }

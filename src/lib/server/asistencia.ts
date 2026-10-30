@@ -7,10 +7,10 @@ import { urlColegio } from "@/lib/dominio";
 import { fechaDb, isoDeFechaDb, momentoEnZona, sumarDias } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
 import { instanteDeRegistro } from "@/lib/registro-offline";
-import { auditar } from "./auditoria";
+import { auditar, auditarVarios } from "./auditoria";
 import { feriadosAplicables } from "./plataforma-configuracion";
 import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-justificacion";
-import { encolarAvisosAsistencia, familiasConAvisoPorAlumno } from "./notificaciones/encolar";
+import { destinatariosPorAlumno, encolarAvisosAsistencia, familiasConAvisoPorAlumno, type AsistenciaParaAviso } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
 import { whereSalonActivo } from "./salones-activos";
 import { esVistaFamilia } from "@/lib/roles";
@@ -156,15 +156,26 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
   const nombres = new Map(alumnos.map((a) => [a.id, primerNombre(a.nombres)]));
   if (nombres.size !== new Set(datos.registros.map((r) => r.alumnoId)).size) forbidden();
 
+  // Lo que se necesita de toda la lista se carga de una vez (antes eran ~10 consultas en serie por alumno:
+  // ~250 idas y vueltas a la BD por salón, que en producción se multiplican por la latencia Vercel → Supabase).
+  const ids = datos.registros.map((r) => r.alumnoId);
+  const [previos, destinatarios] = await Promise.all([
+    ctx.db.asistencia.findMany({
+      where: { alumnoId: { in: ids }, fecha, ambito: datos.ambito },
+      select: { id: true, alumnoId: true, estado: true, hora: true, nota: true, updatedAt: true },
+    }),
+    destinatariosPorAlumno(ctx.db, ids),
+  ]);
+  const anteriores = new Map(previos.map((p) => [p.alumnoId, p]));
+  const auditorias: Parameters<typeof auditarVarios>[0] = [];
+  const porAvisar: { asistencia: AsistenciaParaAviso; anterior: string | null }[] = [];
+
   let cambios = 0;
   let omitidos = 0;
   let familiasAvisadas = 0;
   for (const r of datos.registros) {
     const nota = r.estado === "problema" && r.nota ? r.nota : null;
-    const anterior = await ctx.db.asistencia.findUnique({
-      where: { alumnoId_fecha_ambito: { alumnoId: r.alumnoId, fecha, ambito: datos.ambito } },
-      select: { id: true, estado: true, hora: true, nota: true, updatedAt: true },
-    });
+    const anterior = anteriores.get(r.alumnoId) ?? null;
     if (sinConexion && anterior && anterior.updatedAt > instante) {
       omitidos++;
       continue;
@@ -183,26 +194,40 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
       select: { id: true, alumnoId: true, fecha: true, estado: true, hora: true, nota: true },
     });
     cambios++;
-    await auditar({
+    auditorias.push({
       tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: anterior ? "editar" : "crear", entidad: "asistencia",
       entidadId: asistencia.id, detalle: { alumnoId: r.alumnoId, ambito: datos.ambito, antes: anterior?.estado ?? null, ahora: r.estado },
     });
 
     if (!cambiaEstado) continue; // solo cambió la nota: no se vuelve a avisar
-    if (r.estado === "llego") {
+    porAvisar.push({ asistencia, anterior: anterior?.estado ?? null });
+  }
+  await auditarVarios(auditorias);
+
+  // Llegadas ya registradas hoy en otra lista o en portería, consultadas DESPUÉS de guardar (no al inicio) para que
+  // dos listas del mismo alumno guardadas a la vez no repitan el aviso de llegada.
+  const llegadas = porAvisar.filter((p) => p.asistencia.estado === "llego").map((p) => p.asistencia.alumnoId);
+  const yaLlegoEnOtraLista = new Set(
+    llegadas.length === 0
+      ? []
+      : (await ctx.db.asistencia.findMany({
+          where: { alumnoId: { in: llegadas }, fecha, ambito: { not: datos.ambito }, estado: { in: ["llego", "tarde"] } },
+          select: { alumnoId: true },
+        })).map((l) => l.alumnoId),
+  );
+  for (const { asistencia, anterior } of porAvisar) {
+    if (asistencia.estado === "llego") {
       // La llegada ya se avisó si esta lista lo tenía «tarde» o si hoy hay otro registro de llegada (portería, día u otro curso).
-      if (anterior?.estado === "tarde") continue;
-      const yaLlego = await ctx.db.asistencia.count({
-        where: { alumnoId: r.alumnoId, fecha, ambito: { not: datos.ambito }, estado: { in: ["llego", "tarde"] } },
-      });
-      if (yaLlego > 0) continue;
+      if (anterior === "tarde") continue;
+      if (yaLlegoEnOtraLista.has(asistencia.alumnoId)) continue;
     }
     familiasAvisadas += await encolarAvisosAsistencia(ctx.db, {
       tenant: ctx.tenant,
       asistencia,
-      alumnoNombre: nombres.get(r.alumnoId)!,
+      alumnoNombre: nombres.get(asistencia.alumnoId)!,
       momento: curso ? `a ${curso.nombre}` : "a la 1.ª hora",
       urlMensajes: urlColegio(ctx.tenant.slug, "/mensajes"),
+      destinatarios: destinatarios.get(asistencia.alumnoId) ?? [],
     });
   }
   return { guardados: datos.registros.length, cambios, familiasAvisadas, omitidos };

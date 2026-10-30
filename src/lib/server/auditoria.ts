@@ -19,3 +19,13 @@ export async function auditar(entrada: {
     console.error("[auditoria] no se pudo registrar", error);
   }
 }
+
+/** Varias entradas de auditoría en un solo INSERT (p. ej. una por alumno al guardar la lista). No interrumpe si falla. */
+export async function auditarVarios(entradas: Parameters<typeof auditar>[0][]): Promise<void> {
+  if (entradas.length === 0) return;
+  try {
+    await db.auditoria.createMany({ data: entradas.map((e) => ({ ...e, entidadId: e.entidadId ?? null })) });
+  } catch (error) {
+    console.error("[auditoria] no se pudo registrar", error);
+  }
+}
