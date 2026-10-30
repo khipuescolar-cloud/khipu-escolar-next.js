@@ -48,6 +48,15 @@ describe("día a día: plazo de justificación, registros sin conexión y avisos
     await actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDiasHabiles: 15 });
   });
 
+  it("dirección fija desde qué grado de primaria el alumno tiene cuenta propia (1.° a 6.°)", async () => {
+    expect(c.tenant.gradoMinimoCuentaAlumno).toBe(5);
+    await expect(actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), gradoMinimoCuentaAlumno: 0 })).rejects.toThrow(/1\.° a 6\.° de primaria/);
+    await expect(actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), gradoMinimoCuentaAlumno: 7 })).rejects.toThrow(/1\.° a 6\.° de primaria/);
+    await actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), gradoMinimoCuentaAlumno: "3" });
+    expect((await c.db.tenant.findUniqueOrThrow({ where: { id: c.tenant.id } })).gradoMinimoCuentaAlumno).toBe(3);
+    await actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), gradoMinimoCuentaAlumno: 5 });
+  });
+
   it("ya no acepta el modo ni la hora de los avisos", async () => {
     const viejo = { ...datosConfig(c), modoAvisos: "solo_excepciones" } as unknown as Parameters<typeof actualizarConfiguracion>[1];
     await expect(actualizarConfiguracion(c.ctxDe("direccion"), viejo)).rejects.toThrow(/ya no se configuran/);

@@ -1,5 +1,5 @@
 // Rol alumno (cuenta propia del estudiante): alcance solo de sí mismo. Requiere la BD local y Supabase Auth.
-// Crea su propio colegio `test-alumno-*` (Pro Max) y lo borra al terminar.
+// Crea su propio colegio `test-alumno-*` (Khipu Pro) y lo borra al terminar.
 import { randomUUID } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { historialDeHijos } from "@/lib/server/asistencia";
@@ -23,7 +23,7 @@ const dni = `7${sufijo.replace(/\D/g, "").padEnd(7, "1").slice(0, 7)}`;
 let periodoId = "";
 
 beforeAll(async () => {
-  c = await crearColegioPrueba({ plan: "promax", prefijo: "test-alumno" });
+  c = await crearColegioPrueba({ plan: "pro", prefijo: "test-alumno" });
   const manana = new Date(Date.now() + 2 * 86_400_000);
   await db.tarea.createMany({
     data: [
@@ -53,6 +53,19 @@ describe("crear la cuenta del alumno", () => {
   it("no acepta el correo de un apoderado del colegio ni la pide un profesor", async () => {
     await expect(crearCuentaAlumno(c.ctxDe("direccion"), { alumnoId: c.alumnos.mateo.id, email: c.miembros.madre.user.email, tipoDocumento: "dni", numeroDocumento: dni })).rejects.toThrow("otra persona del colegio");
     await esperarProhibido(crearCuentaAlumno(c.ctxDe("tutora"), { alumnoId: c.alumnos.mateo.id, email: correoAlumno, tipoDocumento: "dni", numeroDocumento: dni }));
+  });
+
+  it("respeta el grado mínimo del colegio: inicial nunca, primaria desde el grado fijado (5.° por defecto)", async () => {
+    const entrada = { alumnoId: c.alumnos.mateo.id, email: correoAlumno, tipoDocumento: "dni" as const, numeroDocumento: dni };
+    try {
+      await db.salon.update({ where: { id: c.salon.id }, data: { nivel: "primaria", grado: 3 } });
+      await expect(crearCuentaAlumno(c.ctxDe("direccion"), entrada)).rejects.toThrow("Este colegio da cuenta propia desde 5.° de primaria.");
+      await db.salon.update({ where: { id: c.salon.id }, data: { nivel: "inicial", grado: null } });
+      await expect(crearCuentaAlumno(c.ctxDe("direccion"), entrada)).rejects.toThrow("En inicial el alumno no tiene cuenta propia.");
+    } finally {
+      await db.salon.update({ where: { id: c.salon.id }, data: { nivel: "primaria", grado: null } });
+    }
+    expect((await db.alumno.findUniqueOrThrow({ where: { id: c.alumnos.mateo.id } })).cuentaId).toBeNull();
   });
 
   it("dirección la crea: DNI como contraseña inicial, cambio obligatorio y bienvenida sin el número", async () => {

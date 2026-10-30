@@ -1,6 +1,6 @@
 # 10 — Panel de dirección y gestión
 
-> Estado: implementado · Plan: Básico · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-presentes-plazo`: plazo en días hábiles; sin modo ni hora de avisos)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-31 (Claude Code: grado mínimo para la cuenta del alumno; sin canales de pago)
 
 ## Objetivo
 Que dirección administre profesores, salones, alumnos y familias, configure el colegio y vea si los avisos llegan.
@@ -15,7 +15,7 @@ Todo lo de esta spec es **solo dirección** (`requireRol` + `requireFeature(ctx,
 - **Alumnos** (`/gestion/alumnos`): crear, editar, retirar/reactivar, filtrar por salón, **importar CSV** (`nombres, apellidos, codigo, salon`; todo o nada, errores por línea, máx. 500 filas y 1 MB).
 - **Familias** (`/gestion/apoderados`): invitar al correo personal y vincular al alumno con parentesco; vincular más alumnos; quitar vínculos; editar nombres, apellidos y teléfono; ver estado del consentimiento; **buscador** (nombre, correo, documento o alumno) y **paginación** de 20 en 20. Alumnos y Familias también son del rol `administrativo` (specs/17 y specs/03); los salones archivados no admiten alumnos nuevos.
 - **Consentimiento** (`/consentimiento`): primer ingreso del apoderado; texto versionado en `src/lib/consentimiento.ts` (`CONSENTIMIENTO_VERSION`); crea `consentimientos` y lo enlaza a todos sus `apoderados_alumnos.consentimientoId`. Sin aceptar, `/inicio`, `/mensajes` y `/comunicados` redirigen aquí y no se le encolan avisos.
-- **Configuración** (`/configuracion`): hora límite de tardanza, dominios de correo (únicos entre colegios), escala de calificación y **plazo para justificar faltas (días hábiles)** (1–30, 15 por defecto; spec 07). Ya **no** se configuran el «Modo de avisos» ni la «Hora del resumen de llegadas»: cada llegada se avisa al cerrar la lista (spec 04/06); `actualizarConfiguracion` rechaza `modoAvisos` y `horaEnvioAvisos` («El modo y la hora de los avisos ya no se configuran…») y las columnas `Tenant.modoAvisos`/`horaEnvioAvisos` quedan sin uso en la BD. **Logo**: subida real (PNG, JPG o WEBP, máx. 1 MB, validada por magic bytes) con `FileStorage` como archivo público; se guarda en `tenants.logo_archivo_id`, reemplaza y borra el anterior, y se puede quitar (`src/lib/server/logo.ts`: `subirLogoColegio`, `quitarLogoColegio`, `urlLogoColegio(tenant)`, `logoParaPdf`). Se muestra en el encabezado del colegio, en la libreta PDF y los carnets en PDF (WEBP se convierte a PNG con `sharp`) y en los carnets QR. SVG no se admite (el validador no lo soporta).
+- **Configuración** (`/configuracion`): hora límite de tardanza, dominios de correo (únicos entre colegios), escala de calificación, **plazo para justificar faltas (días hábiles)** (1–30, 15 por defecto; spec 07) y **cuenta propia del alumno** (desde qué grado de primaria; ver abajo). Ya **no** se configuran el «Modo de avisos» ni la «Hora del resumen de llegadas»: cada llegada se avisa al cerrar la lista (spec 04/06); `actualizarConfiguracion` rechaza `modoAvisos` y `horaEnvioAvisos` («El modo y la hora de los avisos ya no se configuran…») y las columnas `Tenant.modoAvisos`/`horaEnvioAvisos` quedan sin uso en la BD. **Logo**: subida real (PNG, JPG o WEBP, máx. 1 MB, validada por magic bytes) con `FileStorage` como archivo público; se guarda en `tenants.logo_archivo_id`, reemplaza y borra el anterior, y se puede quitar (`src/lib/server/logo.ts`: `subirLogoColegio`, `quitarLogoColegio`, `urlLogoColegio(tenant)`, `logoParaPdf`). Se muestra en el encabezado del colegio, en la libreta PDF y los carnets en PDF (WEBP se convierte a PNG con `sharp`) y en los carnets QR. SVG no se admite (el validador no lo soporta).
 - **Avisos** (`/avisos`, también solo lectura para `administrativo`): tabla filtrable (estado, tipo, correo) y apertura de la semana (abiertos / enviados de los últimos 7 días; meta 70 %), con ícono + palabra.
 
 ## Reglas de negocio
@@ -35,14 +35,18 @@ Correo ya registrado con ese rol, código de alumno repetido, salón inexistente
 ## Pruebas
 - unit: `tests/unit/importar-alumnos.test.ts` · integración: `tests/integracion/dia-a-dia-offline-plazo.test.ts` (plazo en días hábiles 1–30; rechaza modo/hora de avisos), `tests/integracion/gestion-mensajes-privacidad.test.ts`, `tests/integracion/invitaciones-y-logo.test.ts`, `tests/integracion/crm-personal.test.ts`, `tests/integracion/gestion-p2.test.ts` · e2e: `tests/e2e/direccion-panel.test.ts`, `tests/e2e/ui-pendientes.test.ts` (logo). · e2e: `tests/e2e/dia-a-dia-offline-calendario.test.ts` (avisos de hoy en el inicio), `tests/e2e/direccion-panel.test.ts`, `tests/e2e/ui-pendientes.test.ts` (logo).
 
-## Canales de pago (WhatsApp y SMS)
-`/configuracion` tiene la sección **Canales de pago** (solo dirección, `actualizarCanalesPago`): interruptores `Tenant.whatsappActivo` y `smsActivo` (apagados por defecto), aviso del costo aproximado por mensaje y el estado de las credenciales del servidor («Configurado» / «Falta configurar en el servidor», sin mostrar valores). El cambio se audita. Diseño completo, costos y requisitos: `specs/06-avisos-notificaciones.md`.
+## Cuenta propia del alumno: grado mínimo
+- `Tenant.gradoMinimoCuentaAlumno` (`grado_minimo_cuenta_alumno`, entero, **5** por defecto): grado de **primaria** (1–6) desde el que un alumno puede tener cuenta propia. **Secundaria** (y academia) siempre; **inicial** nunca.
+- Se fija en `/configuracion` (solo dirección), sección «Cuenta propia del alumno»: selector «Desde qué grado de primaria» (1.° a 6.°). `actualizarConfiguracion` lo valida con zod (entero 1..6; error «El grado mínimo para la cuenta propia del alumno va de 1.° a 6.° de primaria.») y lo audita con el resto.
+- `crearCuentaAlumno` (`gestion-cuentas-alumno.ts`) lo exige con `motivoSinCuentaPorGrado(nivel, grado, minimo)` (`src/lib/cuenta-alumno.ts`): primaria por debajo del mínimo → «Este colegio da cuenta propia desde X.° de primaria.»; inicial → «En inicial el alumno no tiene cuenta propia.». Si el salón de primaria no tiene `grado` registrado, no se bloquea (no se puede saber).
+- Pruebas: unit `tests/unit/grado-minimo-cuenta-alumno.test.ts`; integración `tests/integracion/dia-a-dia-offline-plazo.test.ts` (validación 1..6) y `tests/integracion/rol-alumno.test.ts` (bloqueo por grado e inicial).
+- WhatsApp y SMS se retiraron el 2026-10-31: ya no hay sección «Canales de pago» (`specs/06`).
 
 ## Pendientes
 - Ninguno propio del módulo.
 
 ## Cambios de interfaz (rediseño)
-Hub de gestión con tarjetas y pestañas de sección en las subpáginas; alumnos, familias, salones y carnets siguen el sistema de diseño (specs/18): formularios de alta en `Dialog`/`Sheet`, acciones por fila en menú con confirmación, estados vacíos y avance de carnets con `Progress`. Configuración se agrupa en secciones (avisos, dominio, escala, **canales de pago**, logo, privacidad); «Quitar logo» ahora pide confirmación. Auditoría con ícono por acción. Sin cambios de lógica.
+Hub de gestión con tarjetas y pestañas de sección en las subpáginas; alumnos, familias, salones y carnets siguen el sistema de diseño (specs/18): formularios de alta en `Dialog`/`Sheet`, acciones por fila en menú con confirmación, estados vacíos y avance de carnets con `Progress`. Configuración se agrupa en secciones (avisos, dominio, escala, cuenta propia del alumno, logo, privacidad); «Quitar logo» ahora pide confirmación. Auditoría con ícono por acción. Sin cambios de lógica.
 
 ## Redirect URLs locales
 `supabase/config.toml` permite `lvh.me` y `*.lvh.me` en los puertos 3000–3030, así el enlace de invitación y recuperación vuelve al puerto del worktree.

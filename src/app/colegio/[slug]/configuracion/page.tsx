@@ -1,4 +1,4 @@
-import { Bell, Contact, Download, Globe, GraduationCap, ImageIcon, MessageCircle, ScrollText } from "lucide-react";
+import { Bell, Contact, Download, Globe, GraduationCap, ImageIcon, ScrollText, UserRound } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -15,8 +15,6 @@ import { requireTenantContext } from "@/lib/server/tenant";
 import { urlLogoColegio } from "@/lib/server/logo";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Tarjeta } from "@/components/ui/Tarjeta";
-import { estadoCredenciales } from "@/lib/server/notificaciones/canales-pago";
-import { CanalesPago } from "./CanalesPago";
 import { guardarConfiguracionAction, quitarLogoAction, subirLogoAction } from "./actions";
 
 export const metadata: Metadata = { title: "Configuración" };
@@ -82,14 +80,18 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             </Seccion>
           </div>
 
+          <div className="border-t pt-8">
+            <Seccion icono={UserRound} titulo="Cuenta propia del alumno" descripcion="Desde qué grado de primaria un alumno puede entrar con su propia cuenta. En secundaria siempre puede; en inicial, nunca.">
+              <Selector etiqueta="Desde qué grado de primaria" name="gradoMinimoCuentaAlumno" defaultValue={String(t.gradoMinimoCuentaAlumno)}>
+                {[1, 2, 3, 4, 5, 6].map((g) => (
+                  <option key={g} value={g}>{g}.° de primaria</option>
+                ))}
+              </Selector>
+            </Seccion>
+          </div>
+
           <Boton type="submit" className="self-start">Guardar</Boton>
         </form>
-      </Tarjeta>
-
-      <Tarjeta>
-        <Seccion icono={MessageCircle} titulo="Canales de pago" descripcion="WhatsApp y SMS: llegan más rápido, pero cada mensaje cuesta. Están apagados hasta que los actives.">
-          <CanalesPago whatsappActivo={t.whatsappActivo} smsActivo={t.smsActivo} credenciales={estadoCredenciales()} />
-        </Seccion>
       </Tarjeta>
 
       <Tarjeta>

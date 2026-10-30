@@ -1,6 +1,7 @@
 import "server-only";
 import { z } from "zod";
 import type { TipoIdentificacion } from "@/generated/prisma/enums";
+import { motivoSinCuentaPorGrado } from "@/lib/cuenta-alumno";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { crearCuentaConDocumento, encolarBienvenida, ErrorCuenta, esquemaDocumento } from "./cuentas";
@@ -77,10 +78,15 @@ export async function crearCuentaAlumno(ctx: TenantContext, entrada: EntradaCuen
   if (!r.success) throw new ErrorDeNegocio(r.error.issues[0].message);
   const d = r.data;
 
-  const alumno = await ctx.db.alumno.findFirst({ where: { id: d.alumnoId }, select: { id: true, nombres: true, apellidos: true, estado: true, cuentaId: true } });
+  const alumno = await ctx.db.alumno.findFirst({
+    where: { id: d.alumnoId },
+    select: { id: true, nombres: true, apellidos: true, estado: true, cuentaId: true, salon: { select: { nivel: true, grado: true } } },
+  });
   if (!alumno) throw new ErrorDeNegocio("No encontramos a ese alumno.");
   if (alumno.estado !== "activo") throw new ErrorDeNegocio("El alumno está retirado. Reactívalo antes de crear su cuenta.");
   if (alumno.cuentaId) throw new ErrorDeNegocio("Este alumno ya tiene una cuenta. Puedes reactivarla o desactivarla desde sus acciones.");
+  const motivoGrado = motivoSinCuentaPorGrado(alumno.salon.nivel, alumno.salon.grado, ctx.tenant.gradoMinimoCuentaAlumno);
+  if (motivoGrado) throw new ErrorDeNegocio(motivoGrado);
   if (!(await tieneConsentimiento(ctx, alumno.id))) throw new ErrorDeNegocio(MOTIVO_SIN_CONSENTIMIENTO);
 
   // El correo debe ser del alumno: no se reutiliza el de un apoderado ni el de alguien del personal de este colegio.

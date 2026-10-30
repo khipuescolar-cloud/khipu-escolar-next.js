@@ -15,6 +15,8 @@ import type { TenantContext } from "./tenant";
 const hora = z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/, "Usa el formato HH:mm (por ejemplo, 08:00).");
 const dominio = z.string().regex(/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$/, "Un dominio no es válido (ejemplo: micolegio.edu.pe).");
 
+const rangoGrado = "El grado mínimo para la cuenta propia del alumno va de 1.° a 6.° de primaria.";
+
 const rangoPlazo = `El plazo para justificar va de ${PLAZO_JUSTIFICACION_MIN_DIAS} a ${PLAZO_JUSTIFICACION_MAX_DIAS} días hábiles.`;
 
 const esquema = z.strictObject({
@@ -26,6 +28,13 @@ const esquema = z.strictObject({
     .max(PLAZO_JUSTIFICACION_MAX_DIAS, rangoPlazo)
     .optional(),
   escalaCalificacion: z.enum(["literal", "vigesimal"]),
+  /** Grado de primaria desde el que un alumno puede tener cuenta propia (secundaria siempre; inicial nunca). */
+  gradoMinimoCuentaAlumno: z.coerce
+    .number("Elige el grado mínimo para la cuenta propia del alumno.")
+    .int(rangoGrado)
+    .min(1, rangoGrado)
+    .max(6, rangoGrado)
+    .optional(),
   emailDomains: z.string().transform((v) => [...new Set(v.split(/[\s,;]+/).map((d) => d.trim().toLowerCase().replace(/^@/, "")).filter(Boolean))]).pipe(z.array(dominio)),
 });
 

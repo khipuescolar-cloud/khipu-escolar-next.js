@@ -3,7 +3,6 @@
 import { ejecutarYVolver, texto } from "@/lib/server/accion-formulario";
 import { actualizarConfiguracion } from "@/lib/server/configuracion";
 import { ErrorDeNegocio, contextoDeAccion } from "@/lib/server/contexto-accion";
-import { actualizarCanalesPago } from "@/lib/server/notificaciones/canales-pago";
 import { quitarLogoColegio, subirLogoColegio } from "@/lib/server/logo";
 
 export async function guardarConfiguracionAction(formData: FormData) {
@@ -14,6 +13,7 @@ export async function guardarConfiguracionAction(formData: FormData) {
       plazoJustificacionDiasHabiles: texto(formData, "plazoJustificacionDiasHabiles") || undefined,
       escalaCalificacion: texto(formData, "escalaCalificacion") as "literal",
       emailDomains: texto(formData, "emailDomains"),
+      gradoMinimoCuentaAlumno: texto(formData, "gradoMinimoCuentaAlumno") || undefined,
     });
     return "Configuración guardada.";
   });
@@ -34,13 +34,5 @@ export async function quitarLogoAction() {
   await ejecutarYVolver("/configuracion", async () => {
     await quitarLogoColegio(ctx);
     return "Logo quitado.";
-  });
-}
-
-export async function guardarCanalesPagoAction(formData: FormData) {
-  const ctx = await contextoDeAccion(["direccion"]);
-  await ejecutarYVolver("/configuracion", async () => {
-    await actualizarCanalesPago(ctx, { whatsappActivo: formData.get("whatsappActivo") === "on", smsActivo: formData.get("smsActivo") === "on" });
-    return "Canales de pago guardados.";
   });
 }
