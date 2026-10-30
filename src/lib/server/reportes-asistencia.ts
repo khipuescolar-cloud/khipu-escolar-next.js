@@ -95,16 +95,19 @@ export async function diasHabiles(ctx: TenantContext, desde: string, hastaEfecti
 async function registrosPorAlumno(ctx: TenantContext, alumnoIds: string[], desde: string, hasta: string): Promise<Map<string, RegistroDia[]>> {
   const mapa = new Map<string, RegistroDia[]>();
   if (alumnoIds.length === 0) return mapa;
-  const filas = await ctx.db.asistencia.findMany({
-    where: { alumnoId: { in: alumnoIds }, fecha: { gte: fechaDb(desde), lte: fechaDb(hasta) } },
-    select: {
-      alumnoId: true, fecha: true, ambito: true, hora: true, estado: true,
-      justificaciones: { orderBy: { createdAt: "desc" }, take: 1, select: { estado: true } },
-    },
-  });
+  const enRango = { alumnoId: { in: alumnoIds }, fecha: { gte: fechaDb(desde), lte: fechaDb(hasta) } };
+  // Las justificaciones van en una consulta aparte filtrada por relación: incluirlas con `include` hacía que Prisma
+  // pasara cada id de asistencia como parámetro y el reporte del colegio (≈1 000 alumnos × 2 meses = 80 000 filas)
+  // superaba el tope de 32 767 parámetros de Postgres (P2029). Ver docs/pruebas-de-estres.md.
+  const [filas, justificaciones] = await Promise.all([
+    ctx.db.asistencia.findMany({ where: enRango, select: { id: true, alumnoId: true, fecha: true, ambito: true, hora: true, estado: true } }),
+    ctx.db.justificacion.findMany({ where: { asistencia: enRango }, orderBy: { createdAt: "asc" }, select: { asistenciaId: true, estado: true } }),
+  ]);
+  // Orden ascendente: la última escritura en el mapa es la justificación más reciente de cada registro.
+  const justificacionDe = new Map(justificaciones.map((j) => [j.asistenciaId, j.estado]));
   for (const f of filas) {
     const lista = mapa.get(f.alumnoId) ?? [];
-    lista.push({ fecha: isoDeFechaDb(f.fecha), ambito: f.ambito, hora: f.hora, estado: f.estado, justificacion: f.justificaciones[0]?.estado ?? null });
+    lista.push({ fecha: isoDeFechaDb(f.fecha), ambito: f.ambito, hora: f.hora, estado: f.estado, justificacion: justificacionDe.get(f.id) ?? null });
     mapa.set(f.alumnoId, lista);
   }
   return mapa;

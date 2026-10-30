@@ -52,10 +52,11 @@ Validación zod: ids `uuid`, fechas reales `AAAA-MM-DD`, `desde ≤ hasta`, máx
 - Rango en el futuro: se cuenta hasta hoy. Rango sin días hábiles: tabla vacía y «Sin datos».
 - Alumno sin registros en el rango: 0 con registro, «Sin datos» (no 0 %).
 - Salón o alumno de otro colegio: 404 (`ctx.db` aísla por colegio).
+- Colegio grande (≈1 000 alumnos × 2 meses ≈ 80 000 registros): las justificaciones se leen en una consulta aparte filtrada por relación, no con `include` (Prisma pasaba cada id como parámetro y Postgres rechazaba más de 32 767: error P2029). Ver `docs/pruebas-de-estres.md`.
 
 ## Pruebas
 - unit: `tests/unit/reportes-asistencia.test.ts` (porcentaje, precedencia, días hábiles y feriados, rango), `tests/unit/reportes-asistencia-exportar.test.ts` (.xlsx y PDF válidos).
-- integración: `tests/integracion/reportes-asistencia.test.ts` (conteos y %, profesor solo sus salones, apoderado solo sus hijos, portería 403, aislamiento entre colegios, auditoría, archivos .xlsx/PDF).
+- integración: `tests/integracion/reportes-asistencia.test.ts` (conteos y %, profesor solo sus salones, apoderado solo sus hijos, portería 403, aislamiento entre colegios, auditoría, archivos .xlsx/PDF, resumen del colegio con más de 32 767 registros).
 - e2e: `tests/e2e/reportes-asistencia.test.ts` (dirección filtra salón y descarga Excel y PDF, content-type, 400 en rango inválido).
 
 ## Pendientes

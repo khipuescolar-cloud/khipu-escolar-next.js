@@ -64,6 +64,19 @@ describe("reportes de asistencia", () => {
     expect(r.filas.find((f) => f.salonId === c.otroSalon.id)!.resumen.porcentaje).toBe(0);
   });
 
+  it("el resumen del colegio aguanta un colegio grande (más de 32 767 registros en el rango)", async () => {
+    // Prueba de estrés (docs/pruebas-de-estres.md): con las justificaciones en un include, Prisma mandaba cada id de
+    // asistencia como parámetro y Postgres rechazaba la consulta (P2029) en un colegio de ~1 000 alumnos y 2 meses.
+    const alumnos = Array.from({ length: 280 }, (_, i) => ({ id: crypto.randomUUID(), tenantId: otro.tenant.id, salonId: otro.salon.id, nombres: `Alumno ${i}`, apellidos: "Carga" }));
+    await db.alumno.createMany({ data: alumnos });
+    const dias = Array.from({ length: 120 }, (_, i) => sumarDias("2026-03-02", i));
+    const filas = alumnos.flatMap((a) => dias.map((d) => ({ tenantId: otro.tenant.id, alumnoId: a.id, fecha: fechaDb(d), ambito: "dia", hora: "07:50", estado: "llego" as const, registradoPorId: otro.miembros.tutora.membership.id })));
+    for (let i = 0; i < filas.length; i += 10_000) await db.asistencia.createMany({ data: filas.slice(i, i + 10_000) });
+    const r = await resumenColegio(otro.ctxDe("direccion"), { desde: dias[0], hasta: dias.at(-1)! });
+    expect(r.filas.find((f) => f.salonId === otro.salon.id)!.alumnos).toBeGreaterThanOrEqual(280);
+    expect(r.total.porcentaje).toBeGreaterThan(0);
+  }, 60_000);
+
   it("valida el rango: desde > hasta y más de un año fallan", async () => {
     await expect(reporteSalon(c.ctxDe("direccion"), { salonId: c.salon.id, desde: "2026-03-06", hasta: "2026-03-02" })).rejects.toThrow();
     await expect(resumenColegio(c.ctxDe("direccion"), { desde: "2025-01-01", hasta: "2026-06-01" })).rejects.toThrow();
