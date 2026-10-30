@@ -79,13 +79,13 @@ async function requireSalonDelReporte(ctx: TenantContext, salonId: string) {
 }
 
 /** Último día que cuenta: hoy en la zona del colegio si el rango llega al futuro. */
-function hastaEfectivoDe(ctx: TenantContext, hasta: string): string {
+export function hastaEfectivoDe(ctx: TenantContext, hasta: string): string {
   const hoy = hoyDelColegio(ctx).isoFecha;
   return hasta > hoy ? hoy : hasta;
 }
 
 /** Días hábiles del rango (con los feriados nacionales y los extra del colegio), sin pasar de hoy. */
-async function diasHabiles(ctx: TenantContext, desde: string, hastaEfectivo: string): Promise<string[]> {
+export async function diasHabiles(ctx: TenantContext, desde: string, hastaEfectivo: string): Promise<string[]> {
   if (desde > hastaEfectivo) return [];
   const feriados = await feriadosAplicables(ctx.tenant.id, desde, hastaEfectivo);
   return diasHabilesDelRango(desde, hastaEfectivo, feriados);

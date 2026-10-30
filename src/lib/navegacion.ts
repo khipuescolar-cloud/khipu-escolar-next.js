@@ -43,6 +43,7 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/libreta", grupo: "academico", titulo: "Libreta", descripcion: "Libreta de notas por periodo.", icono: "BookOpen", feature: "libreta", roles: ["direccion", "apoderado", "profesor", "alumno"] },
   { href: "/tareas", grupo: "academico", titulo: "Tareas", descripcion: "Tareas y fechas de entrega.", icono: "ListTodo", feature: "tareas", roles: ["profesor", "direccion", "apoderado", "alumno"] },
   { href: "/agenda", grupo: "academico", titulo: "Agenda", descripcion: "Eventos, exámenes y reuniones.", icono: "CalendarDays", feature: "agenda", roles: ["profesor", "direccion", "apoderado", "administrativo", "alumno"] },
+  { href: "/tablero", grupo: "colegio", titulo: "Tablero", descripcion: "Asistencia, notas y avisos del colegio; consolidado de notas en Excel y PDF.", icono: "BarChart3", feature: "tablero", roles: ["direccion"] },
   { href: "/gestion", grupo: "colegio", titulo: "Gestión", descripcion: "Profesores, personal, grados, alumnos y familias.", icono: "Users", feature: "gestion", roles: ["direccion"] },
   { href: "/gestion", grupo: "colegio", titulo: "Alumnos y familias", descripcion: "Altas, datos e invitaciones de alumnos y familias.", icono: "Users", feature: "gestion", roles: ["administrativo"] },
   { href: "/configuracion", grupo: "colegio", titulo: "Configuración", descripcion: "Avisos, logo, dominio y escala de notas.", icono: "Settings", feature: "gestion", roles: ["direccion"] },
