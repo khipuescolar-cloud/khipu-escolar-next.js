@@ -13,6 +13,8 @@ import { requireTenantContext } from "@/lib/server/tenant";
 
 const texto = (f: FormData, k: string) => String(f.get(k) ?? "");
 const refrescar = () => revalidatePath("/colegio/[slug]/notas", "layout");
+/** Desempeños marcados (specs/30); undefined si el formulario no trae el selector (se conservan los actuales). */
+const desempenos = (f: FormData) => (f.has("desempenosEnviados") ? f.getAll("desempenoIds").map(String) : undefined);
 
 async function contexto(slug: string) {
   const ctx = await requireTenantContext(slug);
@@ -28,7 +30,7 @@ export async function guardarNotaAction(slug: string, evaluacionId: string, alum
 export async function crearEvaluacionAction(slug: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
   const r = await crearEvaluacion(await contexto(slug), {
     cursoId: texto(f, "cursoId"), periodoId: texto(f, "periodoId"), competenciaId: texto(f, "competenciaId"),
-    titulo: texto(f, "titulo"), fecha: texto(f, "fecha"), peso: texto(f, "peso"),
+    titulo: texto(f, "titulo"), fecha: texto(f, "fecha"), peso: texto(f, "peso"), desempenoIds: desempenos(f),
   });
   if (r.ok) refrescar();
   return r;
@@ -37,6 +39,7 @@ export async function crearEvaluacionAction(slug: string, _previo: Resultado | n
 export async function editarEvaluacionAction(slug: string, evaluacionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
   const r = await editarEvaluacion(await contexto(slug), evaluacionId, {
     competenciaId: texto(f, "competenciaId"), titulo: texto(f, "titulo"), fecha: texto(f, "fecha"), peso: texto(f, "peso"),
+    desempenoIds: desempenos(f),
   });
   if (r.ok) refrescar();
   return r;

@@ -28,10 +28,20 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
 
   const cursos = await ctx.db.curso.findMany({ where: { salonId: alumno.salonId }, orderBy: { nombre: "asc" } });
   const cursoIds = cursos.map((c) => c.id);
-  const [competencias, califs, asistencias] = await Promise.all([
-    ctx.db.competencia.findMany({ where: { cursoId: { in: cursoIds } }, orderBy: [{ orden: "asc" }, { nombre: "asc" }] }),
+  const [competencias, califs, asistencias, evaluados] = await Promise.all([
+    ctx.db.competencia.findMany({
+      where: { cursoId: { in: cursoIds } },
+      orderBy: [{ orden: "asc" }, { nombre: "asc" }],
+      include: { capacidades: { select: { nombre: true }, orderBy: [{ orden: "asc" }, { nombre: "asc" }] } },
+    }),
     ctx.db.calificacionPeriodo.findMany({ where: { alumnoId, periodoId } }),
     ctx.db.asistencia.findMany({ where: { alumnoId, fecha: { gte: periodo.inicio, lte: periodo.fin } } }),
+    // Desempeños del CNEB (specs/30) que midieron las evaluaciones del periodo en las que el alumno tiene nota.
+    ctx.db.desempeno.findMany({
+      where: { evaluaciones: { some: { evaluacion: { periodoId, cursoId: { in: cursoIds }, notas: { some: { alumnoId } } } } } },
+      select: { competenciaId: true, descripcion: true },
+      orderBy: [{ orden: "asc" }, { descripcion: "asc" }],
+    }),
   ]);
 
   // Asistencia: una fila por día. Si hay asistencia del día (portería/tutor) manda; si no, la del curso.
@@ -69,6 +79,8 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
               ? ({ valorLiteral: g.valorLiteral as Literal | null, valorNumerico: g.valorNumerico === null ? null : Number(g.valorNumerico.toString()) } as ValorCalificacion)
               : null,
             conclusion: g?.conclusion ?? null,
+            capacidades: c.capacidades.map((x) => x.nombre),
+            desempenosEvaluados: evaluados.filter((d) => d.competenciaId === c.id).map((d) => d.descripcion),
           };
         }),
     })),

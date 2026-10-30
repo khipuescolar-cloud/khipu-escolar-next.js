@@ -8,6 +8,7 @@ import { sembrarDocumentos } from "./seed-documentos";
 import { sembrarReuniones } from "./seed-reuniones";
 import type { Nivel, Plan, Rol, EscalaCalificacion } from "../src/generated/prisma/enums";
 import { sembrarTablero } from "./seed-tablero";
+import { sembrarCneb } from "./seed-cneb";
 
 const PASSWORD = "demo123";
 const ANIO = 2026;
@@ -294,6 +295,7 @@ async function main() {
   }
 
   await responsablesYSuscripcionesDemo();
+  await sembrarCneb(prisma);
   await sembrarTablero(prisma);
   await sembrarDocumentos(prisma, {});
   await sembrarReuniones(prisma, {});

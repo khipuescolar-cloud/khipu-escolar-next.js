@@ -11,6 +11,7 @@ import { urlColegio } from "@/lib/dominio";
 import { primerNombre } from "@/lib/nombres";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
+import { guardarDesempenosEvaluacion, validarDesempenosEvaluacion } from "./cneb";
 import { cursosDelDocente } from "./cursos";
 import { destinatariosDeAlumno, encolarParaDestinatario, tieneCanalAviso, type Destinatario } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
@@ -268,6 +269,8 @@ const esquemaEvaluacion = z.object({
   titulo: z.string().trim().min(2, "Escribe el título de la evaluación.").max(120),
   fecha: z.iso.date("Elige la fecha."),
   peso: z.coerce.number("El peso debe ser un número.").min(0.01, "El peso debe ser mayor que 0.").max(100, "El peso es demasiado alto."),
+  /** Desempeños del CNEB que mide (specs/30): de la competencia elegida y del grado del salón. */
+  desempenoIds: z.array(z.uuid("Algún desempeño no es válido.")).max(30, "Marca como máximo 30 desempeños por evaluación.").optional(),
 });
 
 export async function crearEvaluacion(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
@@ -280,12 +283,15 @@ export async function crearEvaluacion(ctx: TenantContext, entrada: unknown): Pro
     const c = await ctx.db.competencia.findFirst({ where: { id: d.data.competenciaId, cursoId: d.data.cursoId } });
     if (!c) return fallo("Esa competencia no es de este curso.");
   }
+  const errorDesempenos = await validarDesempenosEvaluacion(ctx, d.data.cursoId, d.data.competenciaId ?? null, d.data.desempenoIds ?? []);
+  if (errorDesempenos) return fallo(errorDesempenos);
   const e = await ctx.db.evaluacion.create({
     data: {
       tenantId: ctx.tenant.id, cursoId: d.data.cursoId, periodoId: d.data.periodoId,
       competenciaId: d.data.competenciaId ?? null, titulo: d.data.titulo, fecha: fechaDate(d.data.fecha), peso: d.data.peso,
     },
   });
+  if (d.data.desempenoIds?.length) await guardarDesempenosEvaluacion(ctx.db, ctx.tenant.id, e.id, d.data.desempenoIds);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "evaluacion", entidadId: e.id });
   return ok("Evaluación creada.");
 }
@@ -303,10 +309,18 @@ export async function editarEvaluacion(ctx: TenantContext, evaluacionId: string,
     const c = await ctx.db.competencia.findFirst({ where: { id: d.data.competenciaId, cursoId: actual.cursoId } });
     if (!c) return fallo("Esa competencia no es de este curso.");
   }
+  // Sin `desempenoIds` se conservan los vinculados, salvo los que ya no son de la competencia elegida.
+  const competenciaId = d.data.competenciaId;
+  const desempenoIds = d.data.desempenoIds ?? (competenciaId
+    ? (await ctx.db.evaluacionDesempeno.findMany({ where: { evaluacionId, desempeno: { competenciaId } }, select: { desempenoId: true } })).map((x) => x.desempenoId)
+    : []);
+  const errorDesempenos = await validarDesempenosEvaluacion(ctx, actual.cursoId, d.data.competenciaId ?? null, desempenoIds);
+  if (errorDesempenos) return fallo(errorDesempenos);
   await ctx.db.evaluacion.updateMany({
     where: { id: evaluacionId },
     data: { competenciaId: d.data.competenciaId ?? null, titulo: d.data.titulo, fecha: fechaDate(d.data.fecha), peso: d.data.peso },
   });
+  await guardarDesempenosEvaluacion(ctx.db, ctx.tenant.id, evaluacionId, desempenoIds);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "evaluacion", entidadId: evaluacionId });
   return ok("Evaluación actualizada.");
 }
@@ -339,7 +353,9 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
       orderBy: [{ apellidos: "asc" }, { nombres: "asc" }],
     }),
     ctx.db.competencia.findMany({ where: { cursoId }, orderBy: [{ orden: "asc" }, { nombre: "asc" }] }),
-    ctx.db.evaluacion.findMany({ where: { cursoId, periodoId }, orderBy: [{ fecha: "asc" }, { titulo: "asc" }] }),
+    ctx.db.evaluacion.findMany({
+      where: { cursoId, periodoId }, orderBy: [{ fecha: "asc" }, { titulo: "asc" }], include: { desempenos: { select: { desempenoId: true } } },
+    }),
   ]);
   const [notas, cierre] = await Promise.all([
     ctx.db.nota.findMany({ where: { evaluacionId: { in: evaluaciones.map((e) => e.id) } } }),
@@ -350,6 +366,7 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
     curso, salon, periodo, alumnos, competencias,
     evaluaciones: evaluaciones.map((e) => ({
       id: e.id, titulo: e.titulo, fecha: e.fecha.toISOString().slice(0, 10), peso: Number(e.peso), competenciaId: e.competenciaId,
+      desempenoIds: e.desempenos.map((x) => x.desempenoId),
     })),
     notas: notas.map((n) => ({
       evaluacionId: n.evaluacionId, alumnoId: n.alumnoId, valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico), comentario: n.comentario,
@@ -474,7 +491,7 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
   const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
   if (!periodo) forbidden();
   const escala = escalaDe(ctx);
-  const [alumnos, competencias, guardadas, notas, cierre] = await Promise.all([
+  const [alumnos, competencias, guardadas, notas, cierre, vinculos] = await Promise.all([
     ctx.db.alumno.findMany({
       where: { salonId: curso.salonId, estado: "activo" },
       select: { id: true, nombres: true, apellidos: true },
@@ -487,12 +504,23 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
       include: { evaluacion: { select: { competenciaId: true, peso: true, fecha: true } } },
     }),
     ctx.db.cierreCurso.findFirst({ where: { cursoId, periodoId }, select: { id: true } }),
+    ctx.db.evaluacionDesempeno.findMany({
+      where: { evaluacion: { cursoId, periodoId } },
+      select: { evaluacionId: true, desempeno: { select: { id: true, descripcion: true, codigo: true, orden: true, competenciaId: true } } },
+    }),
   ]);
+  // Desempeños (specs/30) por evaluación: un alumno «fue evaluado» en un desempeño si tiene nota en una evaluación que lo mide.
+  const desempenosPorEvaluacion = new Map<string, (typeof vinculos)[number]["desempeno"][]>();
+  for (const v of vinculos) desempenosPorEvaluacion.set(v.evaluacionId, [...(desempenosPorEvaluacion.get(v.evaluacionId) ?? []), v.desempeno]);
   const filas = competencias.map((c) => ({
     competencia: c,
     alumnos: alumnos.map((a) => {
       const g = guardadas.find((x) => x.alumnoId === a.id && x.competenciaId === c.id);
       const delAlumno = notas.filter((n) => n.alumnoId === a.id && n.evaluacion.competenciaId === c.id);
+      const evaluados = new Map<string, { id: string; descripcion: string; codigo: string | null; orden: number }>();
+      for (const n of delAlumno) {
+        for (const d of desempenosPorEvaluacion.get(n.evaluacionId) ?? []) if (d.competenciaId === c.id) evaluados.set(d.id, d);
+      }
       const sugerido = sugerirCalificacion(
         escala,
         delAlumno.map((n) => ({
@@ -504,6 +532,7 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
         guardado: g ? { valorLiteral: g.valorLiteral as Literal | null, valorNumerico: num(g.valorNumerico), conclusion: g.conclusion } : null,
         sugerido,
         cantidadNotas: delAlumno.length,
+        desempenos: [...evaluados.values()].sort((x, y) => x.orden - y.orden).map(({ id, descripcion, codigo }) => ({ id, descripcion, codigo })),
       };
     }),
   }));

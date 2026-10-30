@@ -1,6 +1,6 @@
 # 11 — Notas y libreta (MINEDU)
 
-> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-10-27 (Claude Code)
+> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-10-30 (Claude Code)
 
 ## Objetivo
 Que el profesor registre evaluaciones y notas por competencia, confirme la calificación de cada periodo con su conclusión descriptiva, y que las familias vean el avance de sus hijos y descarguen la libreta en PDF. El colegio elige la escala (literal CNEB o vigesimal) en `tenant.escalaCalificacion`.
@@ -25,12 +25,14 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
    - *Notas por evaluación*: grilla alumnos × evaluaciones. Literal: `<select>` que guarda al cambiar; vigesimal: campo numérico que guarda al salir. Cada celda muestra «Guardando / Guardado / error» con ícono + palabra. Debajo: crear evaluación (título, competencia, fecha, peso) y editar/eliminar.
    - *Calificación del periodo*: por competencia, una tarjeta por alumno con la calificación **sugerida** (y de cuántas notas sale), el valor a confirmar y la conclusión descriptiva (obligatoria en B y C). «Usar la sugerida» copia el valor; solo se guarda al confirmar.
    - *Competencias*: lista, alta y baja (no se puede borrar una con calificaciones en libreta).
+   - *Capacidades y desempeños* (CNEB, `specs/30`): capacidades de cada competencia y desempeños del grado del salón; dirección los importa del catálogo CNEB y los edita; el profesor los ve.
+   - «Nueva evaluación» y «Editar» permiten marcar los **desempeños** que mide la evaluación (de la competencia elegida y del grado del salón). En *Calificación del periodo* cada alumno muestra «Desempeños evaluados (N)».
    - *Importar y exportar*: «Descargar CSV» de la rejilla e importación con vista previa (ver «Importar y exportar»).
    - Encima de las pestañas, tarjeta **Cierre de notas del curso** con estado ícono + palabra (Abierto / Cerrado / Periodo cerrado) y botón «Cerrar notas del curso» (profesor o dirección, con `BotonConfirmar`); dirección ve «Reabrir notas del curso» si está cerrado.
    - Cada celda de la rejilla tiene un botón de **observación** (ícono de mensaje) que abre un `Dialog` con textarea (máx. 500 caracteres).
 2. **Dirección** → `/notas` (solo lectura) y `/notas/periodos`: crear periodos, cerrar y reabrir, y **publicar la libreta** (ver más abajo). Cada periodo muestra «N de M cursos cerrados».
 3. **Apoderado** → `/notas`: por hijo y periodo, cursos → competencias (calificación + conclusión) y evaluaciones con su nota y, si existe, la «Observación» del profesor.
-4. **Libreta** → `/libreta`: por alumno y periodo publicado; botón «Descargar PDF». La libreta PDF no lista evaluaciones, así que las observaciones por nota solo se ven en `/notas`.
+4. **Libreta** → `/libreta`: por alumno y periodo publicado; botón «Descargar PDF». Bajo cada competencia: «Capacidades: …» y el desplegable «Desempeños evaluados (N)» (specs/30). La libreta PDF no lista evaluaciones, así que las observaciones por nota solo se ven en `/notas`.
 
 ## Reglas de negocio
 - Sugerencia: vigesimal = promedio ponderado por `peso` redondeado al entero (`sugerirVigesimal`); literal = el valor más frecuente y, si empatan, el de la nota más reciente (`sugerirLiteral`). Solo cuentan evaluaciones con competencia.
@@ -45,7 +47,7 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
 - Periodo por defecto: en `/notas` el abierto más reciente; en `/libreta` el último cerrado.
 
 ## Modelo de datos
-`periodos`, `competencias` (por curso), `evaluaciones` (curso, periodo, competencia opcional, `peso` Decimal(5,2)), `notas` (única por evaluación+alumno), `calificaciones_periodo` (única por alumno+competencia+periodo, con `conclusion`), `asistencias` (resumen), `tenants.escala_calificacion`. Capacidades y desempeños del CNEB (`capacidades`, `desempenos`, `evaluacion_desempenos`): ver `specs/30` (esquema listo, en construcción).
+`periodos`, `competencias` (por curso), `evaluaciones` (curso, periodo, competencia opcional, `peso` Decimal(5,2)), `notas` (única por evaluación+alumno), `calificaciones_periodo` (única por alumno+competencia+periodo, con `conclusion`), `asistencias` (resumen), `tenants.escala_calificacion`. Capacidades y desempeños del CNEB (`capacidades`, `desempenos`, `evaluacion_desempenos`) y `salones.grado`: ver `specs/30`.
 
 ## Importar y exportar (CSV)
 - Lógica pura en `src/lib/notas-csv.ts` (`exportarNotasCsv`, `analizarNotasCsv`). Exportar: `GET /api/notas/exportar?curso=&periodo=` (profesor del curso o dirección; auditado «exportar») → UTF-8 **con BOM**, separador **`;`** (Excel en español), una fila por alumno: `Código;Alumno;<título evaluación>…`, «Apellidos, Nombres», decimales con coma, celdas sin nota vacías. Evita inyección de fórmulas (`'` delante de `= + - @`).
@@ -63,7 +65,7 @@ exportarNotasCurso(ctx, cursoId, periodoId); previsualizarImportacionNotas(...);
 crearPeriodo(ctx, entrada): Resultado            // solo dirección
 cambiarEstadoPeriodo(ctx, periodoId, cerrado): Resultado   // solo dirección
 listarCompetencias(ctx, cursoId); crearCompetencia(ctx, entrada); eliminarCompetencia(ctx, id)
-crearEvaluacion(ctx, entrada); editarEvaluacion(ctx, id, entrada); eliminarEvaluacion(ctx, id)
+crearEvaluacion(ctx, entrada); editarEvaluacion(ctx, id, entrada); eliminarEvaluacion(ctx, id)   // entrada.desempenoIds? (specs/30)
 grillaNotas(ctx, cursoId, periodoId)             // profesor/dirección; incluye `editable`
 guardarNota(ctx, { evaluacionId, alumnoId, valor }): Resultado   // valor "" borra
 calificacionesPeriodo(ctx, cursoId, periodoId)   // con sugerido por alumno y competencia
@@ -80,7 +82,7 @@ cursosDelDocente(ctx)
 ## Rutas y UI
 - `/notas` (profesor, dirección, apoderado, alumno) · `/notas/periodos` (dirección) · `/libreta` (apoderado, alumno, profesor, dirección). El rol `alumno` (cuenta propia) usa la vista de familia con un solo alumno, ve la libreta solo de periodos publicados (misma regla que la familia, también en `datosLibreta`) y no tiene «Descargar PDF» (`/api/libreta` le da 403). `/libreta?alumno=<id>` abre la libreta de ese alumno y se valida con `requireAlumnoVisible` (403 si no está en su alcance); (enlaces de notas y avisos).
 - `GET /api/notas/exportar?curso=<id>&periodo=<id>` → CSV de la rejilla.
-- `GET /api/libreta/[alumnoId]?periodo=<id>` → PDF (`@react-pdf/renderer`, `src/lib/server/libreta-pdf.tsx`): logo del colegio (PNG/JPG tal cual; WEBP y SVG se convierten a PNG con `sharp`, `src/lib/imagen-png.ts`, caché en memoria), colegio, datos del alumno, tabla por curso con competencia, calificación y conclusión, asistencia del periodo, leyenda de la escala y firma de dirección. 400 si faltan parámetros, 403 sin permiso. Descarga auditada («exportar»).
+- `GET /api/libreta/[alumnoId]?periodo=<id>` → PDF (`@react-pdf/renderer`, `src/lib/server/libreta-pdf.tsx`): logo del colegio (PNG/JPG tal cual; WEBP y SVG se convierten a PNG con `sharp`, `src/lib/imagen-png.ts`, caché en memoria), colegio, datos del alumno, tabla por curso con competencia (y debajo, en letra pequeña, sus capacidades), calificación y conclusión, asistencia del periodo, leyenda de la escala y firma de dirección. 400 si faltan parámetros, 403 sin permiso. Descarga auditada («exportar»).
 - Acciones: `src/app/colegio/[slug]/notas/actions.ts`; formularios con `FormAccion` y píldoras con `Calificacion` (`src/components/`).
 
 ## Textos y UX
@@ -99,7 +101,7 @@ cursosDelDocente(ctx)
 ## Pruebas
 - unit: `tests/unit/calificaciones.test.ts` (escalas, etiquetas, aprobado, sugeridas), `tests/unit/fechas.test.ts`, `tests/unit/notas-csv.test.ts` (exportar/importar, visibilidad y publicación de la libreta), `tests/unit/imagen-png.test.ts` (WEBP/SVG → PNG y caché), `tests/unit/plantillas-avisos.test.ts` (`libreta_publicada`), `tests/unit/titulo-tutor-libreta.test.ts` (Tutora/Tutor/Tutor(a)); integración `tests/integracion/soporte-seguridad.test.ts` (`datosLibreta` devuelve el título según el género).
 - integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (apoderado no ve a otros alumnos ni sus notas, periodo cerrado no se edita, profesor ajeno y dirección no escriben, conclusión en B/C, libreta con asistencia y auditoría, Khipu Base → 403; cierre por curso y reabrir, observaciones, importar/exportar, publicar libreta con avisos, idempotencia y visibilidad familiar).
-- e2e: `tests/e2e/notas-libreta.test.ts` (profesor de Euler ingresa nota vigesimal; apoderada descarga el PDF; losolivos 403; observación por nota; cerrar/reabrir curso; exportar CSV; publicar libreta y reenviar aviso, con limpieza de datos). El envío real del correo (Mailpit) no se prueba en e2e: el worker corre por cron, y el aviso queda verificado en la tabla `avisos`.
+- e2e: `tests/e2e/notas-libreta.test.ts` (profesor de Euler ingresa nota vigesimal; apoderada descarga el PDF; losolivos 403; observación por nota; cerrar/reabrir curso; exportar CSV; publicar libreta y reenviar aviso, con limpieza de datos). Capacidades y desempeños: `tests/unit/cneb-catalogo.test.ts`, `tests/integracion/cneb-desempenos.test.ts`, `tests/e2e/cneb-desempenos.test.ts` (specs/30). El envío real del correo (Mailpit) no se prueba en e2e: el worker corre por cron, y el aviso queda verificado en la tabla `avisos`.
 
 ## Pendientes
 - (Decisión cerrada) `CORTE_LIBRETA_PUBLICADA` se queda como constante: `periodos` no guarda la fecha de cierre y no se cambia el esquema. Los periodos cerrados antes del corte siguen visibles para las familias; los nuevos requieren publicar la libreta.

@@ -22,7 +22,7 @@ const comoTexto = (v: { valorLiteral: Literal | null; valorNumerico: number | nu
 
 /** Calificación de una competencia para un alumno: sugerida, valor y conclusión descriptiva. */
 export function FilaCalificacion({
-  slug, escala, editable, alumno, competenciaId, periodoId, guardado, sugerido, cantidadNotas,
+  slug, escala, editable, alumno, competenciaId, periodoId, guardado, sugerido, cantidadNotas, desempenos = [],
 }: {
   slug: string;
   escala: Escala;
@@ -33,6 +33,8 @@ export function FilaCalificacion({
   guardado: Guardado | null;
   sugerido: ValorCalificacion | null;
   cantidadNotas: number;
+  /** Desempeños del CNEB que midieron sus notas en esta competencia (specs/30). */
+  desempenos?: { id: string; descripcion: string; codigo: string | null }[];
 }) {
   const [estado, enviar, pendiente] = useActionState(guardarCalificacionAction.bind(null, slug), null);
   const [valor, setValor] = useState(comoTexto(guardado ?? sugerido));
@@ -56,6 +58,16 @@ export function FilaCalificacion({
         <p className="text-cuerpo-sm text-muted-foreground">
           {sugerido ? <>Sugerida: <strong className="text-foreground">{textoValor(sugerido)}</strong> según {cantidadNotas} {cantidadNotas === 1 ? "nota" : "notas"}.</> : "Sin notas para sugerir una calificación."}
         </p>
+        {desempenos.length > 0 ? (
+          <details className="text-cuerpo-sm">
+            <summary className="cursor-pointer font-medium text-primary">Desempeños evaluados ({desempenos.length})</summary>
+            <ul className="mt-1.5 flex list-disc flex-col gap-1 pl-5 text-muted-foreground">
+              {desempenos.map((d) => <li key={d.id}>{d.codigo && <span className="mr-1 font-mono text-xs">{d.codigo}</span>}{d.descripcion}</li>)}
+            </ul>
+          </details>
+        ) : (
+          cantidadNotas > 0 && <p className="text-cuerpo-sm text-muted-foreground">Sus evaluaciones no tienen desempeños marcados.</p>
+        )}
 
         {!editable ? (
           <div className="flex flex-col gap-2 text-sm">

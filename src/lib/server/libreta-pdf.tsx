@@ -18,6 +18,7 @@ const estilos = StyleSheet.create({
   fila: { flexDirection: "row", borderBottomWidth: 0.5, borderBottomColor: "#e4e1da", paddingVertical: 3 },
   filaCab: { flexDirection: "row", backgroundColor: "#f3f0ea", paddingVertical: 3, fontFamily: "Helvetica-Bold" },
   colComp: { width: "42%", paddingRight: 6 },
+  capacidades: { marginTop: 2, fontSize: 7.5, color: "#5b6170" },
   colNota: { width: "18%", paddingRight: 6 },
   colConc: { width: "40%" },
   seccion: { marginTop: 14, fontSize: 11, fontFamily: "Helvetica-Bold", color: "#1e2a78" },
@@ -71,7 +72,10 @@ export function LibretaPdf({ datos, logo, isotipo }: { datos: DatosLibreta; logo
             {curso.competencias.length === 0 && <Text style={estilos.suave}>Sin competencias registradas.</Text>}
             {curso.competencias.map((c) => (
               <View key={c.nombre} style={estilos.fila}>
-                <Text style={estilos.colComp}>{c.nombre}</Text>
+                <View style={estilos.colComp}>
+                  <Text>{c.nombre}</Text>
+                  {c.capacidades.length > 0 && <Text style={estilos.capacidades}>Capacidades: {c.capacidades.join(" · ")}</Text>}
+                </View>
                 <Text style={estilos.colNota}>{c.calificacion ? textoValor(c.calificacion) : "—"}</Text>
                 <Text style={estilos.colConc}>{c.conclusion ?? ""}</Text>
               </View>
