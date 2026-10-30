@@ -185,6 +185,9 @@ model Tenant {
   plazoJustificacionDiasHabiles Int                @default(15) @map("plazo_justificacion_dias_habiles")
   /// Grado de primaria (1–6) desde el que un alumno puede tener cuenta propia. Secundaria siempre; inicial nunca (specs/10).
   gradoMinimoCuentaAlumno       Int                @default(5) @map("grado_minimo_cuenta_alumno")
+  /// Niveles con asistencia por curso (specs/04): los profesores pasan lista de sus cursos solo en salones de estos niveles.
+  /// La asistencia al colegio (`ambito = "dia"`: portería o lista del tutor) no depende de esto.
+  asistenciaPorCursoNiveles     Nivel[]            @default([]) @map("asistencia_por_curso_niveles")
   estado                        EstadoTenant       @default(activo)
   createdAt                     DateTime           @default(now()) @map("created_at") @db.Timestamptz
 

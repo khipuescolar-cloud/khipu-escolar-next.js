@@ -1,5 +1,8 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { guardarLista, obtenerLista } from "@/lib/server/asistencia";
+import { fechaDb, momentoEnZona, restarDias } from "@/lib/fechas";
+import { mosaicosParaRol } from "@/lib/navegacion";
+import { AsistenciaPorCursoDesactivada, guardarLista, obtenerLista, opcionesDeLista } from "@/lib/server/asistencia";
+import { actualizarAsistenciaPorCurso } from "@/lib/server/configuracion";
 import { db } from "@/lib/server/db";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
@@ -60,7 +63,7 @@ describe("pasar lista", () => {
     await c.db.preferenciaAviso.deleteMany({});
   });
 
-  it("en la lista de un curso no vuelve a avisar la llegada ya avisada hoy", async () => {
+  it("en la lista de un curso nunca se avisa la llegada", async () => {
     await guardarLista(c.ctxDe("tutora"), lista("llego"));
     const r = await guardarLista(c.ctxDe("tutora"), { ...lista("llego"), ambito: c.cursoTutora.id });
     expect(r.cambios).toBe(2);
@@ -98,7 +101,7 @@ describe("aviso a las familias de los presentes al cerrar la lista", () => {
   it("el resumen previo sabe cuántas familias recibirán aviso por alumno", async () => {
     const l = await obtenerLista(c.ctxDe("tutora"), c.salon.id, "dia");
     const porId = new Map(l.alumnos.map((a) => [a.id, a]));
-    expect(porId.get(c.alumnos.mateo.id)).toMatchObject({ familiasConAviso: 1, llegadaAvisada: false });
+    expect(porId.get(c.alumnos.mateo.id)).toMatchObject({ familiasConAviso: 1, ingreso: null });
     expect(porId.get(c.alumnos.valentina.id)).toMatchObject({ familiasConAviso: 0 }); // consentimiento revocado
   });
 
@@ -113,22 +116,151 @@ describe("aviso a las familias de los presentes al cerrar la lista", () => {
     expect(avisos[0]).toMatchObject({ apoderadoId: c.miembros.madre.membership.id, destinatario: c.miembros.madre.user.email, canal: "correo", estado: "pendiente" });
   });
 
-  it("una segunda lista del mismo día no duplica la llegada (pero sí avisa la falta)", async () => {
+  it("la lista de un curso trae el ingreso al colegio de cada alumno y no repite la llegada", async () => {
     const l = await obtenerLista(c.ctxDe("tutora"), c.salon.id, c.cursoTutora.id);
-    expect(l.alumnos.find((a) => a.id === c.alumnos.mateo.id)).toMatchObject({ llegadaAvisada: true });
+    expect(l.alumnos.find((a) => a.id === c.alumnos.mateo.id)).toMatchObject({ ingreso: { estado: "llego" } });
     const r = await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: c.cursoTutora.id, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] });
     expect(r).toMatchObject({ cambios: 1, familiasAvisadas: 0 });
     expect(await c.db.aviso.count({ where: { plantilla: "asistencia_llego" } })).toBe(1);
-    const falta = await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: c.cursoTutora.id, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "falta" }] });
-    expect(falta.familiasAvisadas).toBe(1);
   });
 
-  it("si la primera llegada fue en un curso, la lista del día tampoco la repite", async () => {
+  it("si el alumno ingresó al colegio, su falta a clase se avisa con la hora de ingreso y el curso", async () => {
+    const ingreso = await c.db.asistencia.findFirstOrThrow({ where: { alumnoId: c.alumnos.mateo.id, ambito: "dia" } });
+    const falta = await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: c.cursoTutora.id, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "falta" }] });
+    expect(falta.familiasAvisadas).toBe(1);
+    const aviso = await c.db.aviso.findFirstOrThrow({ where: { plantilla: "asistencia_falta" } });
+    expect(aviso.asunto).toBe("Mateo no estuvo en Matemática");
+    expect(aviso.payload).toMatchObject({ curso: "Matemática", ingreso: ingreso.hora, momento: "a Matemática" });
+    expect((aviso.payload as { justificacionTokenId?: string }).justificacionTokenId).toBeTruthy();
+  });
+
+  it("la tardanza a clase se avisa con el curso; volver a «Llegó» en el curso no avisa", async () => {
+    const tarde = await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: c.cursoTutora.id, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "tarde" }] });
+    expect(tarde.familiasAvisadas).toBe(1);
+    expect((await c.db.aviso.findFirstOrThrow({ where: { plantilla: "asistencia_tarde" } })).asunto).toBe("Mateo llegó tarde a Matemática");
+    const antes = await c.db.aviso.count();
+    const llego = await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: c.cursoTutora.id, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] });
+    expect(llego).toMatchObject({ cambios: 1, familiasAvisadas: 0 });
+    expect(await c.db.aviso.count()).toBe(antes);
+  });
+
+  it("sin ingreso al colegio (o con falta en el día) la falta a clase no se avisa aparte", async () => {
+    await c.db.aviso.deleteMany({});
+    await c.db.asistencia.deleteMany({});
+    const sinIngreso = await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: c.cursoTutora.id, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "falta" }] });
+    expect(sinIngreso).toMatchObject({ cambios: 1, familiasAvisadas: 0 });
+    // La lista del día marca la falta: la familia recibe «no llegó» una sola vez.
+    const dia = await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: "dia", registros: [{ alumnoId: c.alumnos.mateo.id, estado: "falta" }] });
+    expect(dia.familiasAvisadas).toBe(1);
+    await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: c.cursoTutora.id, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] });
+    const otraVez = await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: c.cursoTutora.id, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "falta" }] });
+    expect(otraVez.familiasAvisadas).toBe(0);
+    const faltas = await c.db.aviso.findMany({ where: { plantilla: "asistencia_falta" } });
+    expect(faltas.map((f) => f.asunto)).toEqual(["Mateo no llegó hoy"]);
+  });
+
+  it("una llegada registrada antes en un curso no impide el aviso de llegada del ingreso al colegio", async () => {
     await c.db.aviso.deleteMany({});
     await c.db.asistencia.deleteMany({});
     await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: c.cursoTutora.id, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] });
     const r = await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: "dia", registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] });
-    expect(r.familiasAvisadas).toBe(0);
+    expect(r.familiasAvisadas).toBe(1);
     expect(await c.db.aviso.count({ where: { plantilla: "asistencia_llego" } })).toBe(1);
+  });
+});
+
+describe("asistencia por curso configurable por nivel", () => {
+  let c: ColegioPrueba;
+  beforeAll(async () => {
+    c = await crearColegioPrueba({ asistenciaPorCurso: [] });
+  });
+  afterAll(async () => {
+    await c?.limpiar();
+  });
+  const conNiveles = (quien: "tutora" | "direccion", niveles: ("primaria" | "secundaria")[]) => {
+    const ctx = c.ctxDe(quien);
+    return { ...ctx, tenant: { ...ctx.tenant, asistenciaPorCursoNiveles: niveles } };
+  };
+  const listaCurso = () => ({ salonId: c.salon.id, ambito: c.cursoTutora.id, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "falta" as const }] });
+
+  it("apagado: no se ofrecen listas de curso y guardar una falla con un mensaje claro (también para dirección)", async () => {
+    const opciones = await opcionesDeLista(c.ctxDe("tutora"));
+    expect(opciones.map((o) => o.ambito)).toEqual(["dia"]);
+    await expect(guardarLista(c.ctxDe("tutora"), listaCurso())).rejects.toThrow(AsistenciaPorCursoDesactivada);
+    await expect(guardarLista(c.ctxDe("tutora"), listaCurso())).rejects.toThrow("La asistencia por curso está desactivada para primaria. Dirección puede activarla en Configuración.");
+    await expect(obtenerLista(c.ctxDe("direccion"), c.salon.id, c.cursoTutora.id)).rejects.toThrow(AsistenciaPorCursoDesactivada);
+    expect(await c.db.asistencia.count()).toBe(0);
+    // La asistencia al colegio no depende de esto.
+    await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: "dia", registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] });
+  });
+
+  it("dirección lo activa por nivel, queda auditado y el profesor ya puede pasar la lista del curso", async () => {
+    await expect(actualizarAsistenciaPorCurso(c.ctxDe("direccion"), ["kinder"])).rejects.toThrow();
+    await expect(actualizarAsistenciaPorCurso(c.ctxDe("tutora"), ["primaria"])).rejects.toThrow();
+    expect(await actualizarAsistenciaPorCurso(c.ctxDe("direccion"), ["secundaria", "primaria", "primaria"])).toEqual(["primaria", "secundaria"]);
+    const tenant = await c.db.tenant.findUniqueOrThrow({ where: { id: c.tenant.id } });
+    expect(tenant.asistenciaPorCursoNiveles).toEqual(["primaria", "secundaria"]);
+    const auditoria = await db.auditoria.findFirstOrThrow({ where: { tenantId: c.tenant.id, entidad: "configuracion" }, orderBy: { createdAt: "desc" } });
+    expect(auditoria.detalle).toMatchObject({ asistenciaPorCursoNiveles: { antes: [], ahora: ["primaria", "secundaria"] } });
+
+    const tutora = conNiveles("tutora", ["primaria"]);
+    expect((await opcionesDeLista(tutora)).map((o) => o.titulo)).toEqual(["Asistencia del día", "Matemática"]);
+    expect(await guardarLista(tutora, listaCurso())).toMatchObject({ cambios: 1 });
+  });
+
+  it("al apagarlo otra vez, los registros pasados se conservan pero no se aceptan listas nuevas", async () => {
+    await actualizarAsistenciaPorCurso(c.ctxDe("direccion"), []);
+    await expect(guardarLista(conNiveles("tutora", ["secundaria"]), listaCurso())).rejects.toThrow(AsistenciaPorCursoDesactivada);
+    expect(await c.db.asistencia.count({ where: { ambito: c.cursoTutora.id } })).toBe(1);
+  });
+});
+
+describe("dirección no pasa lista: ve y corrige", () => {
+  let c: ColegioPrueba;
+  beforeAll(async () => {
+    c = await crearColegioPrueba();
+  });
+  afterAll(async () => {
+    await c?.limpiar();
+  });
+  const ayer = () => restarDias(momentoEnZona(new Date(), "America/Lima").isoFecha, 1);
+
+  it("«Pasar lista» no está en el menú de dirección (sí en el del profesor)", () => {
+    expect(mosaicosParaRol("direccion").some((m) => m.titulo === "Pasar lista")).toBe(false);
+    expect(mosaicosParaRol("profesor").some((m) => m.titulo === "Pasar lista")).toBe(true);
+    expect(mosaicosParaRol("direccion").some((m) => m.href === "/asistencia/reportes")).toBe(true);
+  });
+
+  it("corrige hoy una entrada: queda auditada como corrección y sigue la regla de avisos", async () => {
+    await guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: "dia", registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] });
+    const hoy = momentoEnZona(new Date(), "America/Lima").isoFecha;
+    const r = await guardarLista(c.ctxDe("direccion"), { salonId: c.salon.id, ambito: "dia", fecha: hoy, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "falta" }] });
+    expect(r).toMatchObject({ cambios: 1, familiasAvisadas: 1 });
+    const auditoria = await db.auditoria.findFirstOrThrow({ where: { tenantId: c.tenant.id, entidad: "asistencia", actorId: c.miembros.direccion.user.id, accion: "editar" } });
+    expect(auditoria.detalle).toMatchObject({ antes: "llego", ahora: "falta", correccion: true, fecha: hoy });
+  });
+
+  it("corrige un día pasado sin avisar a las familias, y abre esa lista con sus registros", async () => {
+    const fecha = ayer();
+    await c.db.asistencia.create({
+      data: { tenantId: c.tenant.id, alumnoId: c.alumnos.mateo.id, ambito: "dia", fecha: fechaDb(fecha), hora: "07:40", estado: "falta", registradoPorId: c.miembros.tutora.membership.id },
+    });
+    const lista = await obtenerLista(c.ctxDe("direccion"), c.salon.id, "dia", fecha);
+    expect(lista).toMatchObject({ esHoy: false, hoy: { isoFecha: fecha } });
+    expect(lista.alumnos.find((a) => a.id === c.alumnos.mateo.id)?.registro).toMatchObject({ estado: "falta" });
+    const avisos = await c.db.aviso.count();
+    const r = await guardarLista(c.ctxDe("direccion"), { salonId: c.salon.id, ambito: "dia", fecha, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] });
+    expect(r).toMatchObject({ cambios: 1, familiasAvisadas: 0 });
+    expect(await c.db.aviso.count()).toBe(avisos);
+    const fila = await c.db.asistencia.findFirstOrThrow({ where: { alumnoId: c.alumnos.mateo.id, ambito: "dia", fecha: fechaDb(fecha) } });
+    expect(fila).toMatchObject({ estado: "llego", hora: "07:40" }); // conserva la hora del registro de ese día
+  });
+
+  it("el profesor no puede abrir ni corregir otro día, y nadie corrige un día futuro", async () => {
+    const fecha = ayer();
+    await esperarProhibido(obtenerLista(c.ctxDe("tutora"), c.salon.id, "dia", fecha));
+    await esperarProhibido(guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: "dia", fecha, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] }));
+    const manana = restarDias(momentoEnZona(new Date(), "America/Lima").isoFecha, -1);
+    await expect(guardarLista(c.ctxDe("direccion"), { salonId: c.salon.id, ambito: "dia", fecha: manana, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] })).rejects.toThrow(/aún no llega/);
   });
 });

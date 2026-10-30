@@ -44,8 +44,8 @@ Insertar en `avisos`: `tenantId`, `tipo`, `canal` (`correo` → `destinatario` =
 | `plantilla` | `tipo` | Destinatario | `referenciaId` | `payload` |
 |---|---|---|---|---|
 | `asistencia_llego` | asistencia | familia | — | `{ colegio, alumno, hora: "HH:mm" }` |
-| `asistencia_tarde` | asistencia | familia | — | `{ colegio, alumno, hora }` |
-| `asistencia_falta` | asistencia | familia | — | `{ colegio, alumno, momento?: "a la 1.ª hora", justificacionTokenId? \| urlJustificar? }` |
+| `asistencia_tarde` | asistencia | familia | — | `{ colegio, alumno, hora, curso? }` — con `curso` (lista de un curso, spec 04): asunto «Mateo llegó tarde a Matemática», texto «Mateo llegó tarde a Matemática (10:12 a. m.).» |
+| `asistencia_falta` | asistencia | familia | — | `{ colegio, alumno, momento?: "a la 1.ª hora", justificacionTokenId? \| urlJustificar?, curso?, ingreso?: "HH:mm", horaClase?: "HH:mm" }` — con `curso` + `ingreso` (falta a clase de un alumno que ingresó al colegio, spec 04): asunto «Mateo no estuvo en Matemática», texto «Mateo ingresó al colegio a las 7:52 a. m., pero no estuvo en Matemática (10:00 a. m.).» |
 | `asistencia_problema` | asistencia | familia | — | `{ colegio, alumno, hora, nota?, urlMensajes? }` |
 | `mensaje_nuevo` | mensaje | familia o profesor | conversacionId | `{ colegio, remitente, alumno, url }` |
 | `comunicado` | comunicado | familia | — | `{ colegio, titulo, url }` |

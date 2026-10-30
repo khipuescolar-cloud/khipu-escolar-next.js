@@ -62,6 +62,8 @@ type ColegioDemo = {
   ciudad: string;
   plan: Plan;
   escala: EscalaCalificacion;
+  /** Niveles con asistencia por curso (specs/04). Sin esto, solo la asistencia al colegio. */
+  asistenciaPorCurso?: Nivel[];
 };
 
 async function crearColegio(c: ColegioDemo) {
@@ -75,6 +77,7 @@ async function crearColegio(c: ColegioDemo) {
       escalaCalificacion: c.escala,
       emailDomains: [`${c.slug}.demo`],
       estado: "piloto",
+      asistenciaPorCursoNiveles: c.asistenciaPorCurso ?? [],
     },
   });
 }
@@ -153,7 +156,7 @@ async function responsablesYSuscripcionesDemo() {
 
 async function main() {
   // ───────── I.E.P. Nuevo Horizonte — Khipu Pro, escala literal (CNEB) ─────────
-  const nh = await crearColegio({ slug: "nuevohorizonte", nombre: "I.E.P. Nuevo Horizonte", ciudad: "Lima", plan: "pro", escala: "literal" });
+  const nh = await crearColegio({ slug: "nuevohorizonte", nombre: "I.E.P. Nuevo Horizonte", ciudad: "Lima", plan: "pro", escala: "literal", asistenciaPorCurso: ["primaria", "secundaria"] });
   const nhDireccion = await membresia(nh.id, await usuario("direccion@nuevohorizonte.demo", "Carmen", "Torres Vega"), "direccion");
   const lucia = await membresia(nh.id, await usuario("lucia.garcia@nuevohorizonte.demo", "Lucía", "García Paz"), "profesor");
   const pedro = await membresia(nh.id, await usuario("pedro.salas@nuevohorizonte.demo", "Pedro", "Salas Ríos"), "profesor");
@@ -252,7 +255,7 @@ async function main() {
   });
 
   // ───────── Academia Euler — Khipu Pro, escala vigesimal ─────────
-  const eu = await crearColegio({ slug: "academiaeuler", nombre: "Academia Euler", ciudad: "Arequipa", plan: "pro", escala: "vigesimal" });
+  const eu = await crearColegio({ slug: "academiaeuler", nombre: "Academia Euler", ciudad: "Arequipa", plan: "pro", escala: "vigesimal", asistenciaPorCurso: ["academia"] });
   await membresia(eu.id, await usuario("direccion@academiaeuler.demo", "Raúl", "Medina"), "direccion");
   const jorge = await membresia(eu.id, await usuario("jorge.ramos@academiaeuler.demo", "Jorge", "Ramos Calle"), "profesor");
   const preu = await crearSalon(eu.id, "Ciclo Pre-U A", "academia", jorge.id);
@@ -275,6 +278,7 @@ async function main() {
   });
 
   // ───────── Colegio Los Olivos — Khipu Base ─────────
+  // Los Olivos deja la asistencia por curso apagada (valor por defecto): solo asistencia al colegio.
   const lo = await crearColegio({ slug: "losolivos", nombre: "Colegio Los Olivos", ciudad: "Lima", plan: "base", escala: "literal" });
   await membresia(lo.id, await usuario("direccion@losolivos.demo", "Elena", "Paredes Rosas"), "direccion");
   const ana = await membresia(lo.id, await usuario("ana.paredes@losolivos.demo", "Ana", "Paredes"), "profesor");

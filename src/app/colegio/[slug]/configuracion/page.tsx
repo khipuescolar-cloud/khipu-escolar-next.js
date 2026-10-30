@@ -1,4 +1,4 @@
-import { Bell, Contact, Download, Globe, GraduationCap, ImageIcon, ScrollText, UserRound } from "lucide-react";
+import { Bell, BookOpenCheck, Contact, Download, Globe, GraduationCap, ImageIcon, ScrollText, UserRound } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -15,7 +15,8 @@ import { requireTenantContext } from "@/lib/server/tenant";
 import { urlLogoColegio } from "@/lib/server/logo";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Tarjeta } from "@/components/ui/Tarjeta";
-import { guardarConfiguracionAction, quitarLogoAction, subirLogoAction } from "./actions";
+import { NOMBRE_NIVEL, nivelesConfigurables } from "@/lib/asistencia-por-curso";
+import { guardarAsistenciaPorCursoAction, guardarConfiguracionAction, quitarLogoAction, subirLogoAction } from "./actions";
 
 export const metadata: Metadata = { title: "Configuración" };
 
@@ -43,7 +44,11 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
   exigirGestion(ctx);
   const t = ctx.tenant;
   const logoUrl = await urlLogoColegio(t);
-  const responsables = await responsablesAnteKhipu(t.id);
+  const [responsables, nivelesConSalones] = await Promise.all([
+    responsablesAnteKhipu(t.id),
+    ctx.db.salon.groupBy({ by: ["nivel"], where: { archivadoAt: null }, _count: { _all: true } }),
+  ]);
+  const salonesPorNivel = new Map(nivelesConSalones.map((n) => [n.nivel, n._count._all]));
 
   return (
     <div className="flex max-w-3xl flex-col gap-6">
@@ -92,6 +97,33 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
 
           <Boton type="submit" className="self-start">Guardar</Boton>
         </form>
+      </Tarjeta>
+
+      <Tarjeta>
+        <Seccion
+          icono={BookOpenCheck}
+          titulo="Asistencia por curso"
+          descripcion="La asistencia al colegio se toma siempre (portería con QR o la lista del día del tutor). Activa por nivel si los profesores también pasan lista en cada clase."
+        >
+          <form action={guardarAsistenciaPorCursoAction} className="flex flex-col gap-4">
+            <fieldset className="flex flex-col gap-2">
+              <legend className="sr-only">Niveles con asistencia por curso</legend>
+              {nivelesConfigurables(salonesPorNivel.has("academia")).map((n) => (
+                <label key={n} className="flex min-h-11 items-center gap-3 rounded-lg border px-3 py-2 text-cuerpo">
+                  <input type="checkbox" name="niveles" value={n} defaultChecked={t.asistenciaPorCursoNiveles.includes(n)} className="size-4 accent-[var(--primary)]" />
+                  <span className="font-medium">{NOMBRE_NIVEL[n]}</span>
+                  <span className="ml-auto text-cuerpo-sm text-muted-foreground">
+                    {salonesPorNivel.get(n) ? `${salonesPorNivel.get(n)} ${salonesPorNivel.get(n) === 1 ? "salón" : "salones"}` : "Sin salones"}
+                  </span>
+                </label>
+              ))}
+            </fieldset>
+            <p className="text-cuerpo-sm text-muted-foreground">
+              En los niveles activos, cada profesor pasa lista en sus cursos y la familia recibe aviso si su hijo ingresó al colegio pero faltó a la clase, o si llegó tarde. Al desactivar un nivel no se borra nada: los registros pasados siguen en el historial y los reportes.
+            </p>
+            <Boton type="submit" className="self-start">Guardar asistencia por curso</Boton>
+          </form>
+        </Seccion>
       </Tarjeta>
 
       <Tarjeta>

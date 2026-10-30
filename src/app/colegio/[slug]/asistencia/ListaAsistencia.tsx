@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Loader2, Mail, Send } from "lucide-react";
+import { Check, Info, Loader2, Mail, Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
 import { EstadoAsistencia, ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
@@ -15,7 +15,8 @@ import { VistaPreviaAviso } from "@/components/VistaPreviaAviso";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { hora12 } from "@/lib/fechas";
 import { esErrorDeRed } from "@/lib/registro-offline";
-import { resumenAvisosLista, textoResumenAvisos } from "@/lib/resumen-avisos-lista";
+import { ingresoAlColegio } from "@/lib/asistencia-por-curso";
+import { notasResumenAvisos, resumenAvisosLista, textoResumenAvisos } from "@/lib/resumen-avisos-lista";
 import { guardarListaAction, type EstadoGuardarLista } from "./actions";
 import { colaListas } from "./colaListas";
 
@@ -28,9 +29,12 @@ export type AlumnoLista = {
   registro: { estado: Estado; hora: string; nota: string | null } | null;
   /** Familias que recibirán el aviso de este alumno. */
   familiasConAviso: number;
-  /** Su llegada ya se avisó hoy (portería u otra lista): no se repite. */
-  llegadaAvisada: boolean;
+  /** Solo listas de curso: ingreso al colegio de ese día (portería o lista del día). */
+  ingreso: { estado: Estado; hora: string } | null;
 };
+
+/** Dirección corrige una lista (desde los reportes): solo se envían los alumnos que cambió. */
+export type ModoCorregir = { fecha: string; avisa: boolean };
 
 export function ListaAsistencia({
   slug,
@@ -39,17 +43,23 @@ export function ListaAsistencia({
   alumnos,
   horaActual,
   previas,
+  esCurso = false,
+  corregir = null,
 }: {
   slug: string;
   salonId: string;
   ambito: string;
   alumnos: AlumnoLista[];
   horaActual: string;
-  previas: Record<Estado, { asunto: string; html: string }>;
+  /** null: ese estado no se avisa (llegada en un curso, o corrección de un día pasado). */
+  previas: Record<Estado, { asunto: string; html: string } | null>;
+  esCurso?: boolean;
+  corregir?: ModoCorregir | null;
 }) {
   const router = useRouter();
-  const [marcas, setMarcas] = useState<Record<string, { estado: Estado; nota: string }>>(() =>
-    Object.fromEntries(alumnos.map((a) => [a.id, { estado: a.registro?.estado ?? "llego", nota: a.registro?.nota ?? "" }])),
+  // Al pasar lista, «Llegó» por defecto. Al corregir, solo lo ya registrado: un alumno sin registro queda sin marcar.
+  const [marcas, setMarcas] = useState<Record<string, { estado: Estado | null; nota: string }>>(() =>
+    Object.fromEntries(alumnos.map((a) => [a.id, { estado: a.registro?.estado ?? (corregir ? null : "llego"), nota: a.registro?.nota ?? "" }])),
   );
   const [previaDe, setPreviaDe] = useState(alumnos[0]?.id ?? "");
   const [resultado, setResultado] = useState<EstadoGuardarLista | null>(null);
@@ -58,13 +68,14 @@ export function ListaAsistencia({
 
   const conteo = useMemo(() => {
     const c: Record<Estado, number> = { llego: 0, tarde: 0, falta: 0, problema: 0 };
-    for (const m of Object.values(marcas)) c[m.estado]++;
+    for (const m of Object.values(marcas)) if (m.estado) c[m.estado]++;
     return c;
   }, [marcas]);
   const avisos = useMemo(
-    () => resumenAvisosLista(alumnos, Object.fromEntries(Object.entries(marcas).map(([id, m]) => [id, m.estado]))),
-    [alumnos, marcas],
+    () => resumenAvisosLista(alumnos, Object.fromEntries(Object.entries(marcas).map(([id, m]) => [id, m.estado])), esCurso),
+    [alumnos, marcas, esCurso],
   );
+  const avisa = !corregir || corregir.avisa;
 
   function marcar(id: string, estado: Estado) {
     setMarcas((m) => ({ ...m, [id]: { ...m[id], estado } }));
@@ -75,11 +86,32 @@ export function ListaAsistencia({
   function guardar() {
     iniciar(async () => {
       setGuardadaSinConexion(false);
-      const registros = alumnos.map((a) => ({
-        alumnoId: a.id,
-        estado: marcas[a.id].estado,
-        ...(marcas[a.id].estado === "problema" && marcas[a.id].nota.trim() ? { nota: marcas[a.id].nota.trim() } : {}),
-      }));
+      const registros = alumnos.flatMap((a) => {
+        const { estado, nota } = marcas[a.id];
+        if (!estado) return [];
+        // Al corregir solo se envía lo que cambió (estado o nota del aviso).
+        if (corregir && a.registro?.estado === estado && (estado !== "problema" || (a.registro.nota ?? "") === nota.trim())) return [];
+        return [{ alumnoId: a.id, estado, ...(estado === "problema" && nota.trim() ? { nota: nota.trim() } : {}) }];
+      });
+      if (registros.length === 0) {
+        setResultado({ ok: false, error: "No hay cambios para guardar." });
+        return;
+      }
+      if (corregir) {
+        // Dirección corrige en línea: sin cola sin conexión (la corrección puede ser de otro día).
+        try {
+          const r = await guardarListaAction(slug, { salonId, ambito, registros, fecha: corregir.fecha });
+          setResultado(r);
+          if (r.ok) {
+            toast.success("Corrección guardada");
+            router.refresh();
+          }
+        } catch (error) {
+          if (!esErrorDeRed(error, navigator.onLine)) throw error;
+          setResultado({ ok: false, error: "Sin conexión: vuelve a intentarlo cuando tengas internet." });
+        }
+        return;
+      }
       const guardarSinConexion = async () => {
         const ahora = new Date().toISOString();
         await colaListas.guardar({ id: `${salonId}:${ambito}`, creadoAt: ahora, registradoAt: ahora, slug, salonId, ambito, registros });
@@ -103,12 +135,25 @@ export function ListaAsistencia({
   }
 
   const alumnoPrevia = alumnos.find((a) => a.id === previaDe) ?? alumnos[0];
-  const previa = alumnoPrevia ? previas[marcas[alumnoPrevia.id].estado] : null;
+  const estadoPrevia = alumnoPrevia ? marcas[alumnoPrevia.id].estado : null;
+  const previa = estadoPrevia ? previas[estadoPrevia] : null;
+  // Falta a clase de un alumno sin ingreso al colegio: no se avisa aparte (specs/04).
+  const faltaSinIngreso = esCurso && estadoPrevia === "falta" && !ingresoAlColegio(alumnoPrevia?.ingreso);
+  const sinAvisoPrevia = !avisa
+    ? "Es la corrección de un día pasado: se guarda sin avisar a las familias."
+    : !estadoPrevia
+      ? "Elige un estado para ver el aviso."
+      : esCurso && estadoPrevia === "llego"
+        ? "En las listas de curso no se avisa la llegada: la familia ya recibe el aviso de ingreso al colegio."
+        : faltaSinIngreso
+          ? `${alumnoPrevia?.nombres.split(" ")[0]} no registra ingreso al colegio hoy: su familia recibe el aviso de la asistencia del día y esta falta no se avisa aparte.`
+          : null;
+  const textoGuardar = corregir ? (avisa ? "Guardar corrección y avisar" : "Guardar corrección") : "Guardar y avisar a los padres";
 
   const botonGuardar = (className: string) => (
     <Boton type="button" tamano="lg" onClick={guardar} disabled={guardando || alumnos.length === 0} className={className}>
       {guardando ? <Loader2 className="size-5 animate-spin" strokeWidth={2} aria-hidden /> : <Send className="size-5" strokeWidth={2} aria-hidden />}
-      {guardando ? "Guardando…" : "Guardar y avisar a los padres"}
+      {guardando ? "Guardando…" : textoGuardar}
     </Boton>
   );
   const resumenConteo = (
@@ -123,13 +168,10 @@ export function ListaAsistencia({
       <p className="flex items-start gap-1.5 text-sm" data-testid="resumen-avisos">
         <Mail className="mt-0.5 size-4 shrink-0 text-primary" strokeWidth={2} aria-hidden />
         <span>
-          {textoResumenAvisos(avisos)}
-          {avisos.llegadasYaAvisadas > 0 && (
-            <span className="text-muted-foreground">
-              {" "}
-              {avisos.llegadasYaAvisadas === 1 ? "La llegada de 1 alumno ya se avisó hoy." : `La llegada de ${avisos.llegadasYaAvisadas} alumnos ya se avisó hoy.`}
-            </span>
-          )}
+          {avisa ? textoResumenAvisos(avisos) : "Corrección de un día pasado: no se envían avisos."}
+          {avisa && notasResumenAvisos(avisos).map((n) => (
+            <span key={n} className="text-muted-foreground"> {n}</span>
+          ))}
         </span>
       </p>
     </div>
@@ -142,7 +184,7 @@ export function ListaAsistencia({
           <p className="text-sm text-muted-foreground">
             Hora actual: <strong className="text-foreground">{hora12(horaActual)}</strong> · {alumnos.length} alumnos
           </p>
-          <Button
+          {!corregir && <Button
             type="button"
             variant="outline"
             onClick={() => {
@@ -151,13 +193,13 @@ export function ListaAsistencia({
             }}
           >
             <Check strokeWidth={2} aria-hidden /> Marcar a todos «Llegó»
-          </Button>
+          </Button>}
         </div>
 
         <div aria-live="polite">
           {resultado?.ok && (
             <Alerta tipo="exito">
-              Lista guardada. {resultado.familiasAvisadas === 1 ? "Se avisó a 1 familia." : `Se avisó a ${resultado.familiasAvisadas} familias.`}
+              {corregir ? "Corrección guardada." : "Lista guardada."} {resultado.familiasAvisadas === 1 ? "Se avisó a 1 familia." : `Se avisó a ${resultado.familiasAvisadas} familias.`}
             </Alerta>
           )}
           {resultado && !resultado.ok && <Alerta tipo="error">{resultado.error}</Alerta>}
@@ -177,7 +219,18 @@ export function ListaAsistencia({
                       <p className="text-cuerpo font-semibold">
                         {a.apellidos}, {a.nombres}
                       </p>
-                      {a.registro && <EstadoAsistencia estado={a.registro.estado} hora={hora12(a.registro.hora)} />}
+                      <span className="flex flex-wrap items-center gap-2">
+                        {esCurso && (
+                          <span className="text-cuerpo-sm text-muted-foreground">
+                            {ingresoAlColegio(a.ingreso) ? `Ingresó ${hora12(a.ingreso!.hora)}` : "Sin ingreso al colegio"}
+                          </span>
+                        )}
+                        {a.registro ? (
+                          <EstadoAsistencia estado={a.registro.estado} hora={hora12(a.registro.hora)} />
+                        ) : (
+                          corregir && <span className="text-cuerpo-sm text-muted-foreground">Sin registro</span>
+                        )}
+                      </span>
                     </div>
                     <div role="group" aria-label={`Asistencia de ${a.nombres}`} className="grid grid-cols-2 gap-2 sm:grid-cols-4">
                       {ORDEN.map((estado) => {
@@ -229,11 +282,17 @@ export function ListaAsistencia({
             <h2 className="text-titulo-2">Resumen</h2>
             {resumenConteo}
             {botonGuardar("mt-1 w-full max-lg:hidden")}
-            <p className="text-cuerpo-sm text-muted-foreground max-lg:hidden">Al guardar, las familias de los presentes, tardanzas, faltas y problemas reciben el aviso por correo y notificación. La llegada se avisa una sola vez al día.</p>
+            <p className="text-cuerpo-sm text-muted-foreground max-lg:hidden">
+              {!avisa
+                ? "Se guarda y queda en la auditoría. No se avisa a las familias porque no es el día de hoy."
+                : esCurso
+                  ? "Al guardar, las familias reciben el aviso de tardanzas, faltas a clase y problemas. La llegada a clase no se avisa; la falta solo si el alumno ingresó al colegio."
+                  : "Al guardar, las familias de los presentes, tardanzas, faltas y problemas reciben el aviso por correo y notificación. La llegada se avisa una sola vez al día."}
+            </p>
           </CardContent>
         </Card>
 
-        {alumnoPrevia && previa && (
+        {alumnoPrevia && (
           <Card>
             <CardContent className="flex flex-col gap-3">
               <h2 className="text-titulo-2">Vista previa del correo</h2>
@@ -247,7 +306,19 @@ export function ListaAsistencia({
                   ))}
                 </NativeSelect>
               </label>
-              <VistaPreviaAviso asunto={previa.asunto} html={previa.html} alumno={alumnoPrevia.nombres.split(" ")[0]} />
+              {previa && !sinAvisoPrevia ? (
+                <VistaPreviaAviso
+                  asunto={previa.asunto}
+                  html={previa.html}
+                  alumno={alumnoPrevia.nombres.split(" ")[0]}
+                  horaIngreso={esCurso && alumnoPrevia.ingreso ? alumnoPrevia.ingreso.hora : undefined}
+                />
+              ) : (
+                <p className="flex items-start gap-2 text-cuerpo-sm text-muted-foreground" data-testid="sin-aviso">
+                  <Info className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
+                  {sinAvisoPrevia ?? "Este estado no se avisa a la familia."}
+                </p>
+              )}
             </CardContent>
           </Card>
         )}

@@ -210,11 +210,9 @@ async function registrarLlegada(ctx: TenantContext, alumnoId: string, ahora: Dat
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: anterior ? "editar" : "crear", entidad: "asistencia", entidadId: asistencia.id,
     detalle: { alumnoId, ambito: AMBITO_DIA, origen: "porteria", antes: anterior?.estado ?? null, ahora: estado },
   });
-  // Un solo aviso de llegada por día: si una lista de curso ya registró su llegada, portería no la repite.
-  const llegadaPrevia = estado === "llego"
-    ? await ctx.db.asistencia.count({ where: { alumnoId, fecha, ambito: { not: AMBITO_DIA }, estado: { in: ["llego", "tarde"] } } })
-    : 0;
-  if (llegadaPrevia === 0) await encolarAvisosAsistencia(ctx.db, {
+  // Portería escribe la asistencia al colegio: la llegada se avisa aquí (las listas de curso nunca avisan la llegada, specs/04).
+  // Si ya había llegada hoy, se respondió «Ya registrado» arriba, así que el aviso sale una sola vez.
+  await encolarAvisosAsistencia(ctx.db, {
     tenant: ctx.tenant,
     asistencia,
     alumnoNombre: primerNombre(alumno.nombres),

@@ -9,7 +9,7 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 01 | [Arquitectura multitenant](01-arquitectura-multitenant.md) | Todos | implementado (base) |
 | 02 | [Autenticación y login](02-autenticacion-login.md) | Todos | implementado |
 | 03 | [Planes y permisos](03-planes-y-permisos.md) | Todos | implementado |
-| 04 | [Asistencia (pasar lista)](04-asistencia.md) | Khipu Base | implementado |
+| 04 | [Asistencia (al colegio y por curso; pasar lista y corregir)](04-asistencia.md) | Khipu Base | implementado |
 | 05 | [Portería con carnet QR](05-porteria-qr.md) | Khipu Base | implementado |
 | 06 | [Avisos y notificaciones](06-avisos-notificaciones.md) | Khipu Base | implementado |
 | 07 | [Justificaciones](07-justificaciones.md) | Khipu Base | implementado |
@@ -32,7 +32,7 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 24 | [App instalable (PWA) y camino a tiendas](24-app-instalable.md) | Todos | implementado |
 | 25 | [Landing pública (sitio de Khipu Escolar)](25-landing-publica.md) | Público | implementado |
 | 26 | [Solicitudes de demo (panel de plataforma)](26-solicitudes-de-demo.md) | Interno | implementado |
-| 27 | [Reportes de asistencia (alumno, salón, fechas; Excel y PDF)](27-reportes-asistencia.md) | Base (asistencia) | implementado (integración y e2e pendientes de correr) |
+| 27 | [Reportes de asistencia (general del colegio, por curso, alumno, salón, fechas; Excel y PDF)](27-reportes-asistencia.md) | Base (asistencia) | implementado (integración y e2e pendientes de correr) |
 | 28 | [Licencias de Nudito+ (por alumno, pago con Yape)](28-licencias-nudito-plus.md) | Pro + licencia por alumno | implementado (proveedor de IA falso) |
 | 29 | [Nudito+ (tutor IA por alumno)](29-nudito-plus-tutor.md) | Pro + licencia por alumno | implementado (proveedor de IA falso) |
 | 30 | [Capacidades y desempeños del CNEB](30-capacidades-desempenos.md) | Khipu Pro | implementado |

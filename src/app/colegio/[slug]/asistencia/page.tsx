@@ -1,20 +1,22 @@
 import { ArrowLeft, BarChart3, CalendarCheck, CalendarX, ChevronRight, ClipboardCheck, FileText, MessageSquarePlus, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { EstadoAsistencia } from "@/components/EstadoAsistencia";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { fechaLarga, hora12 } from "@/lib/fechas";
 import { mensajePlazoVencido, textoPlazoJustificacion, textoUltimoDiaJustificacion } from "@/lib/plazo-justificacion";
 import { esVistaFamilia } from "@/lib/roles";
-import { MARCADOR_ALUMNO } from "@/lib/vista-previa";
+import { HORA_MARCADOR_INGRESO, MARCADOR_ALUMNO } from "@/lib/vista-previa";
 import {
-  AMBITO_DIA, ESTADOS, historialDeHijos, hoyDelColegio, obtenerLista, opcionesDeLista, resumenDelDia,
+  AMBITO_DIA, ESTADOS, historialDeHijos, hoyDelColegio, obtenerLista, opcionesDeLista,
 } from "@/lib/server/asistencia";
+import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
 import { renderizarPlantilla } from "@/lib/server/email/plantillas";
 import { obtenerPreferencias } from "@/lib/server/notificaciones/preferencias";
 import { requireFeature, tieneFeature } from "@/lib/server/plan";
@@ -37,14 +39,16 @@ export default async function AsistenciaPage({ params, searchParams }: PageProps
 
   const salon = typeof sp.salon === "string" ? sp.salon : null;
   const ambito = typeof sp.ambito === "string" ? sp.ambito : null;
-  if (salon && ambito) return <PasarLista ctx={ctx} slug={slug} salonId={salon} ambito={ambito} />;
+  const fecha = typeof sp.fecha === "string" ? sp.fecha : undefined;
+  if (salon && ambito) return <PasarLista ctx={ctx} slug={slug} salonId={salon} ambito={ambito} fecha={fecha} />;
+  // Dirección no pasa lista (specs/04): ve la asistencia en los reportes y desde ahí abre una lista para corregirla.
+  if (ctx.rol === "direccion") redirect("/asistencia/reportes");
   return <ElegirLista ctx={ctx} />;
 }
 
 async function ElegirLista({ ctx }: { ctx: TenantContext }) {
   const opciones = await opcionesDeLista(ctx);
   const hoy = hoyDelColegio(ctx);
-  const resumen = ctx.rol === "direccion" ? await resumenDelDia(ctx) : null;
   const porSalon = new Map<string, typeof opciones>();
   for (const o of opciones) porSalon.set(o.salonNombre, [...(porSalon.get(o.salonNombre) ?? []), o]);
 
@@ -56,22 +60,6 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
         acciones={<Link href="/asistencia/reportes" className={buttonVariants({ variant: "outline" })}><BarChart3 className="size-4" strokeWidth={2} aria-hidden /> Reportes</Link>}
       />
       <div className="-mt-2"><SincronizadorListas /></div>
-
-      {resumen && (
-        <Card className="-mt-2">
-          <CardContent className="flex flex-col gap-3">
-            <h2 className="text-titulo-2">Asistencia del día en el colegio</h2>
-            <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              {ESTADOS.map((e) => (
-                <li key={e} className="flex items-center gap-1.5 text-sm">
-                  <EstadoAsistencia estado={e} /> <strong>{resumen.conteo[e]}</strong>
-                </li>
-              ))}
-              <li className="text-sm text-muted-foreground">Sin registro: <strong className="text-foreground">{resumen.sinRegistro}</strong> de {resumen.totalAlumnos}</li>
-            </ul>
-          </CardContent>
-        </Card>
-      )}
 
       {opciones.length === 0 ? (
         <EstadoVacio icono={Users} titulo="Aún no tienes salones ni cursos asignados" descripcion="Cuando dirección te asigne un salón, podrás pasar lista desde aquí." />
@@ -104,33 +92,60 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
   );
 }
 
-async function PasarLista({ ctx, slug, salonId, ambito }: { ctx: TenantContext; slug: string; salonId: string; ambito: string }) {
-  const lista = await obtenerLista(ctx, salonId, ambito);
+async function PasarLista({ ctx, slug, salonId, ambito, fecha }: { ctx: TenantContext; slug: string; salonId: string; ambito: string; fecha?: string }) {
+  const corregir = ctx.rol === "direccion";
+  const volver = corregir
+    ? { href: "/asistencia/reportes", texto: "Volver a los reportes" }
+    : { href: "/asistencia", texto: "Elegir otra lista" };
+  let lista: Awaited<ReturnType<typeof obtenerLista>>;
+  try {
+    lista = await obtenerLista(ctx, salonId, ambito, fecha);
+  } catch (error) {
+    // Asistencia por curso apagada para el nivel, fecha futura o no válida: mensaje claro en vez de una página de error.
+    if (!(error instanceof ErrorDeNegocio)) throw error;
+    return (
+      <div className="flex flex-col gap-4">
+        <Link href={volver.href} className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace">
+          <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> {volver.texto}
+        </Link>
+        <EstadoVacio icono={CalendarX} titulo="No se puede abrir esta lista" descripcion={error.message} />
+      </div>
+    );
+  }
+  const esCurso = !!lista.curso;
   const momento = lista.curso ? `a ${lista.curso.nombre}` : "a la 1.ª hora";
+  // Vista previa por estado. Corregir un día pasado no avisa; en un curso no se avisa la llegada (specs/04).
   const previas = Object.fromEntries(
     ESTADOS.map((estado) => {
+      if (!lista.esHoy || (esCurso && estado === "llego")) return [estado, null];
       const comun = { colegio: ctx.tenant.nombre, alumno: MARCADOR_ALUMNO, hora: lista.hoy.hora };
       const payload =
         estado === "falta"
-          ? { colegio: ctx.tenant.nombre, alumno: MARCADOR_ALUMNO, momento, urlJustificar: "#justificar" }
+          ? {
+              colegio: ctx.tenant.nombre, alumno: MARCADOR_ALUMNO, momento, urlJustificar: "#justificar",
+              ...(lista.curso ? { curso: lista.curso.nombre, ingreso: HORA_MARCADOR_INGRESO, horaClase: lista.hoy.hora } : {}),
+            }
           : estado === "problema"
             ? { ...comun, urlMensajes: "#mensajes" }
-            : comun;
+            : estado === "tarde" && lista.curso
+              ? { ...comun, curso: lista.curso.nombre }
+              : comun;
       const { asunto, html } = renderizarPlantilla(`asistencia_${estado}`, { ...payload, urlPreferencias: "#avisos" });
       return [estado, { asunto, html }];
     }),
-  ) as Record<Estado, { asunto: string; html: string }>;
+  ) as Record<Estado, { asunto: string; html: string } | null>;
+  const nombreLista = `${lista.curso ? lista.curso.nombre : "Asistencia del día"} · ${lista.salon.nombre}`;
 
   return (
     <div className="flex flex-col gap-2">
-      <Link href="/asistencia" className="mb-2 inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace">
-        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Elegir otra lista
+      <Link href={volver.href} className="mb-2 inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace">
+        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> {volver.texto}
       </Link>
       <EncabezadoPagina
-        titulo={`${lista.curso ? lista.curso.nombre : "Asistencia del día"} · ${lista.salon.nombre}`}
+        titulo={corregir ? `Corregir · ${nombreLista}` : nombreLista}
         descripcion={<span className="first-letter:uppercase">{fechaLarga(lista.hoy.isoFecha)}</span>}
       />
-      <div className="mb-2"><SincronizadorListas /></div>
+      {!corregir && <div className="mb-2"><SincronizadorListas /></div>}
       {lista.alumnos.length === 0 ? (
         <EstadoVacio icono={Users} titulo="Este salón no tiene alumnos activos" descripcion="Pide a dirección que agregue alumnos al salón." />
       ) : (
@@ -141,6 +156,8 @@ async function PasarLista({ ctx, slug, salonId, ambito }: { ctx: TenantContext; 
           alumnos={lista.alumnos}
           horaActual={lista.hoy.hora}
           previas={previas}
+          esCurso={esCurso}
+          corregir={corregir ? { fecha: lista.hoy.isoFecha, avisa: lista.esHoy } : null}
         />
       )}
     </div>

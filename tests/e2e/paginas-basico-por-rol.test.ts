@@ -11,11 +11,13 @@ async function entrar(page: Page, email: string) {
   await page.getByRole("button", { name: "Entrar" }).click();
 }
 
-test("dirección ve el resumen del día, carnets, portería, justificaciones y avisos", async ({ page }) => {
+test("dirección ve la asistencia al colegio del día, carnets, portería, justificaciones y avisos", async ({ page }) => {
   await entrar(page, "direccion@nuevohorizonte.demo");
   await page.waitForURL(`${COLEGIO}/inicio`);
+  // Dirección no pasa lista (specs/04): /asistencia la lleva al reporte general.
   await page.goto(`${COLEGIO}/asistencia`);
-  await expect(page.getByRole("heading", { name: "Asistencia del día en el colegio" })).toBeVisible();
+  await expect(page).toHaveURL(/\/asistencia\/reportes/);
+  await expect(page.getByRole("heading", { name: "Asistencia al colegio", exact: true })).toBeVisible();
   await page.goto(`${COLEGIO}/gestion/carnets`);
   await expect(page.getByRole("heading", { name: "Carnets con QR" })).toBeVisible();
   await expect(page.getByText("3.° B")).toBeVisible();

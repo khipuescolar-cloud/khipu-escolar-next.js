@@ -1,6 +1,8 @@
 import "server-only";
 import { z } from "zod";
 import type { Prisma } from "@/generated/prisma/client";
+import type { Nivel } from "@/generated/prisma/enums";
+import { NIVELES } from "@/lib/asistencia-por-curso";
 import { PLAZO_JUSTIFICACION_MAX_DIAS, PLAZO_JUSTIFICACION_MIN_DIAS } from "@/lib/plazo-justificacion";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
@@ -52,4 +54,24 @@ export async function actualizarConfiguracion(ctx: TenantContext, entrada: z.inp
   }
   await db.tenant.update({ where: { id: ctx.tenant.id }, data: d });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "configuracion", detalle: d as unknown as Prisma.InputJsonValue });
+}
+
+const esquemaNiveles = z.array(z.enum(NIVELES, "Ese nivel no existe.")).max(NIVELES.length);
+
+/**
+ * Niveles con asistencia por curso (specs/04). Solo dirección. Apagar un nivel no borra registros: los profesores dejan
+ * de ver esas listas y `guardarLista` las rechaza; el historial y los reportes las siguen mostrando. Audita antes/después.
+ */
+export async function actualizarAsistenciaPorCurso(ctx: TenantContext, niveles: unknown): Promise<Nivel[]> {
+  exigirGestion(ctx);
+  const r = esquemaNiveles.safeParse(niveles);
+  if (!r.success) throw new ErrorDeNegocio(r.error.issues[0].message);
+  const ahora = NIVELES.filter((n) => r.data.includes(n));
+  const antes = ctx.tenant.asistenciaPorCursoNiveles;
+  await db.tenant.update({ where: { id: ctx.tenant.id }, data: { asistenciaPorCursoNiveles: ahora } });
+  await auditar({
+    tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "configuracion",
+    detalle: { asistenciaPorCursoNiveles: { antes, ahora } },
+  });
+  return ahora;
 }
