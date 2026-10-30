@@ -34,7 +34,7 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 26 | [Solicitudes de demo (panel de plataforma)](26-solicitudes-de-demo.md) | Interno | implementado |
 | 27 | [Reportes de asistencia (alumno, salón, fechas; Excel y PDF)](27-reportes-asistencia.md) | Base (asistencia) | implementado (integración y e2e pendientes de correr) |
 | 28 | [Licencias de Nudito+ (por alumno, pago con Yape)](28-licencias-nudito-plus.md) | Pro + licencia por alumno | en construcción (esquema listo) |
-| 29 | [Nudito+ (tutor IA por alumno)](29-nudito-plus-tutor.md) | Pro + licencia por alumno | en construcción (esquema listo) |
+| 29 | [Nudito+ (tutor IA por alumno)](29-nudito-plus-tutor.md) | Pro + licencia por alumno | implementado (proveedor de IA falso; falta elegir el real) |
 | 30 | [Capacidades y desempeños del CNEB](30-capacidades-desempenos.md) | Khipu Pro | en construcción (esquema listo) |
 | 31 | [Biblioteca de documentos](31-documentos.md) | Khipu Pro | en construcción (esquema listo) |
 | 32 | [Reuniones (convocatoria, confirmación y acta)](32-reuniones.md) | Khipu Pro | en construcción (esquema listo) |

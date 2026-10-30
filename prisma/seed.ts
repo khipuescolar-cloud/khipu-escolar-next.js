@@ -5,6 +5,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { createClient } from "@supabase/supabase-js";
 import { PrismaClient } from "../src/generated/prisma/client";
 import type { Nivel, Plan, Rol, EscalaCalificacion } from "../src/generated/prisma/enums";
+import { sembrarNuditoPlusTutor } from "./seed-nudito-plus-tutor";
 
 const PASSWORD = "demo123";
 const ANIO = 2026;
@@ -300,6 +301,7 @@ async function main() {
   console.log("  direccion@losolivos.demo          dirección · Khipu Base");
   console.log("  rosa.quispe@gmail.com             apoderada · 2 colegios");
   console.log("  admin@khipuescolar.demo           super administrador · http://admin.lvh.me:3000");
+  await sembrarNuditoPlusTutor(prisma, {});
 }
 
 main()

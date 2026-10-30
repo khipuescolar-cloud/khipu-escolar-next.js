@@ -6,7 +6,18 @@ import type { Plan, Rol } from "@/generated/prisma/enums";
 import { MOSAICOS, type IconoMosaico } from "@/lib/navegacion";
 import { FEATURES, NOMBRE_PLAN, planIncluye, type Feature } from "@/lib/planes";
 
-export const MODULOS = Object.keys(FEATURES) as Feature[];
+/**
+ * Módulos fijos por plan: los activa SOLO el plan del colegio según `FEATURES` (código), no el catálogo de la BD
+ * ni los ajustes del panel. No se listan en el panel de planes, colegios ni roles.
+ * Nudito+ (specs/29): solo en Khipu Pro, sin excepciones (además exige licencia por alumno, specs/28).
+ */
+export const MODULOS_FIJOS_POR_PLAN: ReadonlySet<Feature> = new Set<Feature>(["nudito_plus"]);
+
+/** Todas las claves de `FEATURES` (incluidos los módulos fijos por plan). */
+const TODAS_LAS_FEATURES = Object.keys(FEATURES) as Feature[];
+
+/** Módulos configurables desde el panel (planes, colegios y roles). */
+export const MODULOS = TODAS_LAS_FEATURES.filter((m) => !MODULOS_FIJOS_POR_PLAN.has(m));
 
 /** Módulo esencial: ningún plan, colegio ni rol puede quedarse sin él (sin gestión no se administra el colegio). */
 export const MODULO_ESENCIAL: Feature = "gestion";
@@ -30,6 +41,7 @@ export const INFO_MODULO: Record<Feature, { nombre: string; descripcion: string;
   tareas: { nombre: "Tareas", descripcion: "Tareas con fecha de entrega y adjuntos.", icono: "ListTodo" },
   agenda: { nombre: "Agenda", descripcion: "Eventos, exámenes y reuniones del colegio y de cada salón.", icono: "CalendarDays" },
   soporte: { nombre: "Soporte Khipu", descripcion: "Chat del colegio con el equipo de Khipu Escolar (mesa de ayuda): dudas, problemas y sugerencias.", icono: "LifeBuoy" },
+  nudito_plus: { nombre: "Nudito+", descripcion: "Tutor con IA para el alumno, con licencia por alumno. Solo Khipu Pro (fijo por plan).", icono: "Sparkles" },
 };
 
 export const INFO_ROL: Record<Rol, { nombre: string; descripcion: string }> = {
@@ -51,7 +63,7 @@ const USOS_FUERA_DE_NAVEGACION: Partial<Record<Feature, Rol[]>> = {
 
 /** Roles que el código soporta para cada módulo (mosaicos de navegación + usos fuera de ella). */
 export const ROLES_SOPORTADOS: Record<Feature, ReadonlySet<Rol>> = Object.fromEntries(
-  MODULOS.map((m) => [
+  TODAS_LAS_FEATURES.map((m) => [
     m,
     new Set<Rol>([...MOSAICOS.filter((x) => x.feature === m).flatMap((x) => x.roles), ...(USOS_FUERA_DE_NAVEGACION[m] ?? [])]),
   ]),
@@ -86,7 +98,7 @@ export type ModulosResueltos = {
 
 /** Módulos de un plan según el código (respaldo cuando la BD no tiene filas para ese plan). */
 export function modulosDeCodigo(plan: Plan): Set<Feature> {
-  return new Set(MODULOS.filter((m) => planIncluye(plan, m)));
+  return new Set(TODAS_LAS_FEATURES.filter((m) => planIncluye(plan, m)));
 }
 
 /**
@@ -96,11 +108,16 @@ export function modulosDeCodigo(plan: Plan): Set<Feature> {
 export function resolverModulos(plan: Plan, modulosDelPlan: readonly string[] | null, ajustes: readonly AjusteModulo[] = []): ModulosResueltos {
   const delPlan = modulosDelPlan && modulosDelPlan.length > 0 ? new Set(modulosDelPlan.filter(esModulo)) : modulosDeCodigo(plan);
   delPlan.add(MODULO_ESENCIAL);
+  // Fijos por plan: los decide solo el código (FEATURES), nunca la BD ni los ajustes del colegio.
+  for (const m of MODULOS_FIJOS_POR_PLAN) {
+    if (planIncluye(plan, m)) delPlan.add(m);
+    else delPlan.delete(m);
+  }
   const activos = new Set(delPlan);
   const extras = new Set<Feature>();
   const quitados = new Set<Feature>();
   for (const a of ajustes) {
-    if (!esModulo(a.modulo) || a.modulo === MODULO_ESENCIAL) continue;
+    if (!esModulo(a.modulo) || a.modulo === MODULO_ESENCIAL || MODULOS_FIJOS_POR_PLAN.has(a.modulo)) continue;
     if (a.habilitado && !delPlan.has(a.modulo)) {
       activos.add(a.modulo);
       extras.add(a.modulo);
