@@ -18,7 +18,7 @@ test("dirección filtra un salón por fechas y descarga Excel y PDF", async ({ p
   // Sin filtros: resumen del colegio, una fila por salón.
   await expect(page.getByRole("columnheader", { name: "% asistencia" })).toBeVisible();
 
-  await page.getByLabel("Salón").selectOption({ label: "3.° B" });
+  await page.getByRole("combobox", { name: "Salón", exact: true }).selectOption({ label: "3.° B" });
   await page.getByLabel("Desde").fill("2026-03-02");
   await page.getByLabel("Hasta").fill("2026-03-31");
   await page.getByRole("button", { name: "Ver reporte" }).click();
