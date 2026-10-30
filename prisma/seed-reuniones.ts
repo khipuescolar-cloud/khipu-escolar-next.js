@@ -1,5 +1,6 @@
 // Datos demo de reuniones de padres (specs/32) en Nuevo Horizonte. Ficticios. Se llama desde prisma/seed.ts (al final).
-// Idempotente en una BD recién reseteada: busca todo por slug/correo y no duplica reuniones del mismo título.
+// Idempotente: busca todo por slug/correo, reutiliza los perfiles que ya existan (el seed borra y recrea los colegios,
+// no los perfiles) y no duplica reuniones del mismo título.
 import { randomUUID } from "node:crypto";
 import type { PrismaClient } from "../src/generated/prisma/client";
 
@@ -30,8 +31,8 @@ export async function sembrarReuniones(prisma: PrismaClient, ids: Record<string,
   async function familiaExtra(correo: string, nombres: string, apellidos: string, hijo: string) {
     let m = await miembro(correo, "apoderado");
     if (!m) {
-      const id = randomUUID();
-      await prisma.profile.create({ data: { id, email: correo, nombres, apellidos } });
+      const id = (await prisma.profile.findUnique({ where: { email: correo } }))?.id ?? randomUUID();
+      await prisma.profile.upsert({ where: { id }, update: { nombres, apellidos }, create: { id, email: correo, nombres, apellidos } });
       m = await prisma.membership.create({ data: { tenantId, userId: id, rol: "apoderado" } });
       const consentimiento = await prisma.consentimiento.create({ data: { tenantId, apoderadoId: m.id, versionTexto: "v1-2026-10 (borrador pendiente de revisión legal)" } });
       await prisma.apoderadoAlumno.create({ data: { tenantId, apoderadoId: m.id, alumnoId: alumno(hijo).id, parentesco: "madre", consentimientoId: consentimiento.id } });
