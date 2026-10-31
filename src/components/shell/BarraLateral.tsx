@@ -8,18 +8,16 @@ import {
   Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu,
   SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarRail, useSidebar,
 } from "@/components/ui/sidebar";
+import { rutaActiva } from "@/lib/navegacion";
 import { ICONOS_NAV } from "./iconos";
 import type { GrupoNavResuelto } from "./tipos";
-
-export function esRutaActiva(pathname: string, href: string) {
-  return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
-}
 
 /** Barra lateral: fija en escritorio (colapsable a íconos con Ctrl/⌘+B) y menú deslizable en móvil. */
 export function BarraLateral({ cabecera, grupos, pie }: { cabecera: ReactNode; grupos: GrupoNavResuelto[]; pie: ReactNode }) {
   const pathname = usePathname();
   const { isMobile, setOpenMobile } = useSidebar();
   const cerrarEnMovil = () => isMobile && setOpenMobile(false);
+  const activa = rutaActiva(pathname, grupos.flatMap((g) => g.items.map((i) => i.href)));
 
   return (
     <Sidebar
@@ -35,7 +33,7 @@ export function BarraLateral({ cabecera, grupos, pie }: { cabecera: ReactNode; g
             <SidebarMenu>
               {grupo.items.map((item) => {
                 const Icono = ICONOS_NAV[item.icono];
-                const activo = esRutaActiva(pathname, item.href);
+                const activo = item.href === activa;
                 if (item.bloqueadoPlan) {
                   return (
                     <SidebarMenuItem key={item.href}>

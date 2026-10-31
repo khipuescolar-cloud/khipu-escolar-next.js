@@ -63,3 +63,13 @@ export const MOSAICOS: Mosaico[] = [
 export function mosaicosParaRol(rol: Rol): Mosaico[] {
   return MOSAICOS.filter((m) => m.roles.includes(rol));
 }
+
+/** El enlace coincide con la ruta actual (o es un prefijo de ella). */
+export function esRutaActiva(pathname: string, href: string) {
+  return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+}
+
+/** El enlace más específico que coincide: en /asistencia/reportes solo «Reportes», no también «Pasar lista» (/asistencia). */
+export function rutaActiva(pathname: string, hrefs: readonly string[]): string | null {
+  return hrefs.filter((h) => esRutaActiva(pathname, h)).sort((a, b) => b.length - a.length)[0] ?? null;
+}

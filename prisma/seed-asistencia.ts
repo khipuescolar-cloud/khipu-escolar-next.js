@@ -11,8 +11,9 @@ import { enClases } from "./seed-colegio";
 import { clasesDelDia, type BloqueCurso } from "./seed-horario";
 import { NOMBRE_COLEGIO, SLUG_COLEGIO, crearAzar, diaHabil, diasHabilesAntes, fechaDb, hoyLima, instante } from "./seed-utilidades";
 
-const DIAS_HISTORIAL = 30;
-const DIAS_CURSOS = 10;
+// ~3 meses de clases (desde agosto): los atajos «Este mes», el bimestre y «Año» de los reportes muestran rangos distintos.
+const DIAS_HISTORIAL = 60;
+const DIAS_CURSOS = DIAS_HISTORIAL;
 const MOTIVOS = ["Cita médica", "Tuvo fiebre y se quedó en casa.", "Malestar estomacal", "Viaje familiar por un velorio", "Control dental", "Se le pasó la movilidad", "Trámite del DNI con la familia"];
 const COMENTARIOS_ACEPTADA = ["Gracias por avisar. Que se mejore.", "Recibido. Por favor, que se ponga al día con las tareas.", "Aceptada."];
 const COMENTARIOS_RECHAZADA = ["Para faltas de más de un día se requiere constancia médica.", "El motivo no corresponde a una falta justificada según el reglamento."];

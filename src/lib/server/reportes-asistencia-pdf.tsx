@@ -2,7 +2,7 @@ import "server-only";
 import { Document, Image, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { tablaDeReporte, textoCelda, type SeccionReporte } from "@/lib/reportes-asistencia-tabla";
 import { LADO_ISOTIPO_PDF, type ImagenPdf } from "./marca-pdf";
-import type { ReporteAsistencia } from "./reportes-asistencia";
+import type { ReporteAsistencia, ReporteCurso } from "./reportes-asistencia";
 
 const estilos = StyleSheet.create({
   pagina: { padding: 28, paddingBottom: 60, fontSize: 8, fontFamily: "Helvetica", color: "#1b1f2a" },
@@ -25,14 +25,21 @@ const estilos = StyleSheet.create({
 
 /** Ancho relativo: las dos o tres primeras columnas de texto son más anchas que las de conteo. */
 function anchos(s: SeccionReporte): number[] {
-  const textuales = s.columnas.findIndex((c) => c === "Días con registro");
+  // Matriz de un curso: «Alumno» ancho y una columna angosta por clase.
+  if (s.columnas[0] === "Alumno") return s.columnas.map((_, i) => (i === 0 ? 5 : 1));
+  const textuales = s.columnas.findIndex((c) => c === "Días con registro" || c === "Clases");
   return s.columnas.map((_, i) => (textuales < 0 ? 1 : i < textuales ? (i === 0 ? 2.2 : 1.6) : 1));
 }
 
 function Tabla({ seccion }: { seccion: SeccionReporte }) {
   const w = anchos(seccion);
   const suma = w.reduce((a, b) => a + b, 0);
-  const celda = (i: number) => ({ width: `${(w[i] / suma) * 100}%`, paddingRight: 3, textAlign: (i >= w.length - 9 && seccion.columnas.length > 4 ? "right" : "left") as "right" | "left" });
+  const matriz = seccion.columnas[0] === "Alumno";
+  // Los conteos (desde «Días con registro» o «Clases») van a la derecha; el texto, a la izquierda.
+  const primeraCifra = seccion.columnas.findIndex((c) => c === "Días con registro" || c === "Clases");
+  const alinear = (i: number) =>
+    matriz ? (i === 0 ? "left" : "center") : primeraCifra >= 0 ? (i >= primeraCifra ? "right" : "left") : i >= w.length - 9 && seccion.columnas.length > 4 ? "right" : "left";
+  const celda = (i: number) => ({ width: `${(w[i] / suma) * 100}%`, paddingRight: 3, textAlign: alinear(i) as "right" | "left" | "center" });
   return (
     <View>
       <Text style={estilos.seccion}>{seccion.titulo}</Text>
@@ -54,7 +61,7 @@ function Tabla({ seccion }: { seccion: SeccionReporte }) {
 }
 
 /** PDF del reporte de asistencia en A4 horizontal. Marca: índigo en encabezados y firma «Khipu Escolar» con isotipo en el pie. */
-export function ReporteAsistenciaPdf({ reporte, logo, isotipo }: { reporte: ReporteAsistencia; logo?: ImagenPdf | null; isotipo?: ImagenPdf | null }) {
+export function ReporteAsistenciaPdf({ reporte, logo, isotipo }: { reporte: ReporteAsistencia | ReporteCurso; logo?: ImagenPdf | null; isotipo?: ImagenPdf | null }) {
   const tabla = tablaDeReporte(reporte);
   return (
     <Document title={tabla.titulo} author={reporte.colegio}>

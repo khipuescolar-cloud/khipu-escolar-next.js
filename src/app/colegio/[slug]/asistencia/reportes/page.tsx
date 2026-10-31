@@ -21,11 +21,12 @@ import { esVistaFamilia } from "@/lib/roles";
 import { hoyDelColegio } from "@/lib/server/asistencia";
 import { requireFeature } from "@/lib/server/plan";
 import {
-  detalleCurso, opcionesDeReporte, reporteSegunFiltros, resumenColegio,
+  detalleCurso, opcionesDeReporte, panelReportesProfesor, reporteSegunFiltros, resumenColegio,
   type DetalleCurso, type OpcionesReporte, type ReporteColegio,
 } from "@/lib/server/reportes-asistencia";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { FiltroReporte } from "./FiltroReporte";
+import { PanelProfesor } from "./PanelProfesor";
 import { atajosDeFecha, BotonCorregir, enlace, enlaceCorregir, NUM, ResultadoRango, RUTA_VER } from "./vistas";
 
 const RUTA_GENERAL = "/asistencia/reportes";
@@ -45,6 +46,29 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
     const q = new URLSearchParams();
     for (const k of ["salon", "alumno", "desde", "hasta", "vista"]) if (uno(k)) q.set(k, uno(k)!);
     redirect(`${RUTA_VER}?${q.toString()}`);
+  }
+  // Profesor: su salón de tutoría (gráfico de los últimos 7 días) y sus cursos (specs/27).
+  if (ctx.rol === "profesor" && !uno("curso")) {
+    const [panel, opcionesProfesor] = await Promise.all([panelReportesProfesor(ctx), opcionesDeReporte(ctx)]);
+    const hoyIso = hoyDelColegio(ctx).isoFecha;
+    const periodoActual = opcionesProfesor.periodos.find((p) => p.inicio <= hoyIso && hoyIso <= p.fin);
+    return (
+      <div className="flex flex-col gap-6">
+        <EncabezadoPagina
+          titulo="Reportes de asistencia"
+          descripcion="La asistencia de tu salón de tutoría y el historial de las clases de tus cursos."
+          acciones={
+            <>
+              <Link href="/asistencia" className={buttonVariants({ variant: "outline" })}>
+                <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Pasar lista
+              </Link>
+              <FiltroReporte opciones={opcionesProfesor} inicial={{ desde: panel.desde, hasta: panel.hasta }} atajos={atajosDeFecha(hoyIso, periodoActual)} hoy={hoyIso} activos={0} />
+            </>
+          }
+        />
+        <PanelProfesor panel={panel} />
+      </div>
+    );
   }
   const opciones = await opcionesDeReporte(ctx);
   const veTodo = ctx.rol === "direccion" || ctx.rol === "administrativo";
@@ -109,7 +133,8 @@ function Filtros({ base, opciones, familia, atajos, hoy }: { base: Partial<Filtr
   const alumnos = familia ? opciones.alumnos : opciones.alumnos.filter((a) => !base.salonId || a.salonId === base.salonId);
   return (
     <section aria-label="Filtros" className="flex flex-col gap-3">
-      <form method="get" className="grid gap-3 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end">
+      {/* key: los atajos navegan sin volver a montar la página; así los campos muestran las fechas nuevas. */}
+      <form key={`${base.salonId ?? ""}|${base.alumnoId ?? ""}|${base.desde}|${base.hasta}`} method="get" className="grid gap-3 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end">
         {!familia && (
           <Selector etiqueta="Salón" name="salon" defaultValue={base.salonId ?? ""}>
             <option value="">Todos los salones</option>

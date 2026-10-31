@@ -7,7 +7,7 @@ import { reporteParaExportar } from "@/lib/server/reportes-asistencia-exportar";
 
 export const runtime = "nodejs";
 
-/** GET /api/reportes-asistencia/pdf?salon=&alumno=&desde=&hasta= → PDF. Mismos permisos que la página; auditado. */
+/** GET /api/reportes-asistencia/pdf?salon=&alumno=&curso=&desde=&hasta= → PDF. Mismos permisos que la página; auditado. */
 export async function GET(request: Request, { params }: RouteContext<"/colegio/[slug]/api/reportes-asistencia/pdf">) {
   const { slug } = await params;
   const r = await reporteParaExportar(request, slug, "pdf");

@@ -1,7 +1,8 @@
 // Tablas de los reportes de asistencia (specs/27) en una forma neutra que comparten Excel y PDF. Lógica pura.
 import { fechaCorta } from "@/lib/fechas";
 import { nombreArchivoReporte, textoJustificacion, textoPorcentaje, type ResumenAlumno } from "@/lib/reportes-asistencia";
-import type { ReporteAsistencia } from "@/lib/server/reportes-asistencia";
+import { LETRA_ESTADO, NOTA_CURSO, type ResumenCurso } from "@/lib/reportes-curso";
+import type { ReporteAsistencia, ReporteCurso } from "@/lib/server/reportes-asistencia";
 
 export type Celda = string | number | null;
 export type SeccionReporte = {
@@ -26,12 +27,50 @@ export function celdasResumen(r: ResumenAlumno): Celda[] {
   return [r.diasConRegistro, r.llego, r.tarde, r.falta, r.problema, r.faltasJustificadas, r.faltasEnRevision, r.faltasInjustificadas, r.diasSinRegistro, r.porcentaje];
 }
 
-function rango(r: ReporteAsistencia): string {
+/** Clases por bloque de la matriz del curso: más columnas no caben en un PDF A4 horizontal. */
+export const CLASES_POR_BLOQUE = 20;
+
+const COLUMNAS_CURSO = ["Clases", "Llegó", "Tarde", "No llegó", "Aviso", "Sin registro", "% asistencia"];
+const celdasCurso = (r: ResumenCurso): Celda[] => [r.clases, r.llego, r.tarde, r.falta, r.problema, r.sinRegistro, r.porcentaje];
+/** «12/10» (día/mes) para la cabecera de cada clase. */
+const diaMes = (iso: string) => `${iso.slice(8, 10)}/${iso.slice(5, 7)}`;
+
+function tablaDeCurso(r: ReporteCurso): TablaReporte {
+  const bloques: SeccionReporte[] = [];
+  for (let i = 0; i < r.fechas.length; i += CLASES_POR_BLOQUE) {
+    const fechas = r.fechas.slice(i, i + CLASES_POR_BLOQUE);
+    bloques.push({
+      titulo: r.fechas.length > CLASES_POR_BLOQUE ? `Clases del ${diaMes(fechas[0])} al ${diaMes(fechas.at(-1)!)}` : "Asistencia por clase",
+      columnas: ["Alumno", ...fechas.map(diaMes)],
+      filas: r.filas.map((f) => [`${f.apellidos}, ${f.nombres}`, ...f.estados.slice(i, i + CLASES_POR_BLOQUE).map((e) => (e ? LETRA_ESTADO[e] : "—"))]),
+      columnasPorcentaje: [],
+    });
+  }
+  return {
+    titulo: `${r.curso.nombre} · ${r.salon.nombre}`,
+    subtitulo: `${r.profesor ? `${r.profesor} · ` : ""}${rango(r)}`,
+    nota: NOTA_CURSO,
+    archivo: nombreArchivoReporte(["asistencia", r.curso.nombre, r.salon.nombre, r.desde, r.hasta]),
+    secciones: [
+      {
+        titulo: "Resumen por alumno",
+        columnas: ["Apellidos", "Nombres", "Código", ...COLUMNAS_CURSO],
+        filas: r.filas.map((f) => [f.apellidos, f.nombres, f.codigo ?? "", ...celdasCurso(f.resumen)]),
+        total: ["Total del curso", "", "", ...celdasCurso(r.total)],
+        columnasPorcentaje: [3 + COLUMNAS_CURSO.length - 1],
+      },
+      ...bloques,
+    ],
+  };
+}
+
+function rango(r: Pick<ReporteAsistencia, "desde" | "hasta" | "hastaEfectivo">): string {
   const efectivo = r.hastaEfectivo !== r.hasta ? ` (contado hasta ${fechaCorta(r.hastaEfectivo)})` : "";
   return `Del ${fechaCorta(r.desde)} al ${fechaCorta(r.hasta)}${efectivo}`;
 }
 
-export function tablaDeReporte(r: ReporteAsistencia): TablaReporte {
+export function tablaDeReporte(r: ReporteAsistencia | ReporteCurso): TablaReporte {
+  if (r.tipo === "curso") return tablaDeCurso(r);
   const nota = NOTA_PORCENTAJE;
   if (r.tipo === "salon") {
     return {

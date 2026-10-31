@@ -1,12 +1,12 @@
 import "server-only";
 import ExcelJS from "exceljs";
 import { tablaDeReporte } from "@/lib/reportes-asistencia-tabla";
-import type { ReporteAsistencia } from "./reportes-asistencia";
+import type { ReporteAsistencia, ReporteCurso } from "./reportes-asistencia";
 
 export const TIPO_XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
 /** Libro de Excel (.xlsx) del reporte: una hoja con cabecera del colegio, la tabla y el total. */
-export async function reporteAExcel(reporte: ReporteAsistencia): Promise<Buffer> {
+export async function reporteAExcel(reporte: ReporteAsistencia | ReporteCurso): Promise<Buffer> {
   const tabla = tablaDeReporte(reporte);
   const libro = new ExcelJS.Workbook();
   libro.creator = reporte.colegio;
@@ -49,7 +49,8 @@ export async function reporteAExcel(reporte: ReporteAsistencia): Promise<Buffer>
     if (seccion.total) agregar(seccion.total, true);
   }
   hoja.columns.forEach((col, i) => {
-    col.width = i === 0 ? 24 : 16;
+    // La matriz de un curso tiene muchas columnas angostas (una por clase).
+    col.width = i === 0 ? 24 : reporte.tipo === "curso" ? 12 : 16;
   });
   return Buffer.from(await libro.xlsx.writeBuffer());
 }

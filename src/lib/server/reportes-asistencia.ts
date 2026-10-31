@@ -3,11 +3,13 @@ import { forbidden, notFound } from "next/navigation";
 import { z } from "zod";
 import { Prisma } from "@/generated/prisma/client";
 import type { EstadoJustificacion } from "@/generated/prisma/enums";
-import { fechaDb, isoDeFechaDb } from "@/lib/fechas";
+import { asistenciaPorCursoActiva } from "@/lib/asistencia-por-curso";
+import { fechaDb, isoDeFechaDb, restarDias } from "@/lib/fechas";
 import {
   agregarPorDia, diasHabilesDelRango, rangoSchema, resumirAlumno, sumarResumenes,
   type DetalleDia, type DiaAgregado, type FiltrosReporte, type RegistroDia, type ResumenAlumno,
 } from "@/lib/reportes-asistencia";
+import { resumirCurso, type ConteoClase, type FilaCurso, type ResumenCurso } from "@/lib/reportes-curso";
 import { esVistaFamilia } from "@/lib/roles";
 import { AMBITO_DIA, hoyDelColegio } from "./asistencia";
 import { auditar } from "./auditoria";
@@ -347,4 +349,97 @@ export async function opcionesDeReporte(ctx: TenantContext): Promise<OpcionesRep
     ctx.db.periodo.findMany({ where: { anio: Number(hoyDelColegio(ctx).isoFecha.slice(0, 4)) }, orderBy: { inicio: "asc" }, select: { nombre: true, inicio: true, fin: true } }),
   ]);
   return { salones, alumnos, periodos: periodos.map((p) => ({ nombre: p.nombre, inicio: isoDeFechaDb(p.inicio), fin: isoDeFechaDb(p.fin) })) };
+}
+
+// ───────────── Profesor: su salón de tutoría y el historial de sus cursos (specs/27) ─────────────
+
+export type ReporteCurso = {
+  tipo: "curso";
+  colegio: string;
+  salon: { id: string; nombre: string };
+  curso: { id: string; nombre: string };
+  profesor: string | null;
+  desde: string;
+  hasta: string;
+  hastaEfectivo: string;
+  fechas: string[];
+  filas: FilaCurso[];
+  total: ResumenCurso;
+  porFecha: ConteoClase[];
+};
+
+/** Curso visible para el historial: dirección y administrativo, su profesor o el tutor del salón. */
+async function requireCursoDelHistorial(ctx: TenantContext, cursoId: string) {
+  const curso = await ctx.db.curso.findFirst({
+    where: { id: cursoId },
+    select: {
+      id: true, nombre: true, profesorId: true,
+      salon: { select: { id: true, nombre: true, tutorId: true } },
+      profesor: { select: { user: { select: { nombres: true, apellidos: true } } } },
+    },
+  });
+  if (!curso) notFound();
+  if (!veTodo(ctx) && !(ctx.rol === "profesor" && (curso.profesorId === ctx.membership.id || curso.salon.tutorId === ctx.membership.id))) forbidden();
+  return curso;
+}
+
+/**
+ * Historial de asistencia de un curso en un rango: alumnos activos del salón × fechas en que se pasó lista de ese curso,
+ * con el resumen por alumno y por clase. Auditado (ver o exportar).
+ */
+export async function historialCurso(ctx: TenantContext, entrada: unknown, como: AccionReporte = { accion: "ver" }): Promise<ReporteCurso> {
+  requireFeature(ctx, "asistencia");
+  const { cursoId, desde, hasta } = entradaCurso.parse(entrada);
+  const curso = await requireCursoDelHistorial(ctx, cursoId);
+  const hastaEfectivo = hastaEfectivoDe(ctx, hasta);
+  const [alumnos, registros] = await Promise.all([
+    ctx.db.alumno.findMany({
+      where: { salonId: curso.salon.id, estado: "activo" },
+      orderBy: [{ apellidos: "asc" }, { nombres: "asc" }],
+      select: { id: true, nombres: true, apellidos: true, codigo: true },
+    }),
+    ctx.db.asistencia.findMany({
+      where: { ambito: cursoId, fecha: { gte: fechaDb(desde), lte: fechaDb(hastaEfectivo) }, alumno: { estado: "activo" } },
+      select: { alumnoId: true, fecha: true, estado: true },
+    }),
+  ]);
+  const matriz = resumirCurso(alumnos, registros.map((r) => ({ alumnoId: r.alumnoId, fecha: isoDeFechaDb(r.fecha), estado: r.estado })));
+  await auditarReporte(ctx, cursoId, { tipo: "curso", desde, hasta }, como);
+  return {
+    tipo: "curso", colegio: ctx.tenant.nombre, salon: { id: curso.salon.id, nombre: curso.salon.nombre }, curso: { id: curso.id, nombre: curso.nombre },
+    profesor: curso.profesor ? `${curso.profesor.user.nombres} ${curso.profesor.user.apellidos}` : null,
+    desde, hasta, hastaEfectivo, ...matriz,
+  };
+}
+
+export type PanelProfesor = {
+  /** Salones de los que es tutor, con su asistencia al colegio de los últimos 7 días. */
+  tutorias: ReporteSalon[];
+  /** Cursos que dicta en salones activos. `porCurso`: su nivel pasa lista por curso (si no, no hay historial). */
+  cursos: { id: string; nombre: string; salon: string; porCurso: boolean }[];
+  desde: string;
+  hasta: string;
+};
+
+/** Inicio de «Reportes de asistencia» del profesor: su tutoría (últimos 7 días) y sus cursos. */
+export async function panelReportesProfesor(ctx: TenantContext): Promise<PanelProfesor> {
+  requireFeature(ctx, "asistencia");
+  if (ctx.rol !== "profesor") forbidden();
+  const hasta = hoyDelColegio(ctx).isoFecha;
+  const desde = restarDias(hasta, 6);
+  const [salones, cursos] = await Promise.all([
+    ctx.db.salon.findMany({ where: { ...whereSalonActivo, tutorId: ctx.membership.id }, orderBy: { nombre: "asc" }, select: { id: true } }),
+    ctx.db.curso.findMany({
+      where: { profesorId: ctx.membership.id, salon: whereSalonActivo },
+      orderBy: [{ salon: { nombre: "asc" } }, { nombre: "asc" }],
+      select: { id: true, nombre: true, salon: { select: { nombre: true, nivel: true } } },
+    }),
+  ]);
+  const tutorias = await Promise.all(salones.map((s) => reporteSalon(ctx, { salonId: s.id, desde, hasta })));
+  return {
+    tutorias,
+    cursos: cursos.map((c) => ({ id: c.id, nombre: c.nombre, salon: c.salon.nombre, porCurso: asistenciaPorCursoActiva(ctx.tenant.asistenciaPorCursoNiveles, c.salon.nivel) })),
+    desde,
+    hasta,
+  };
 }
