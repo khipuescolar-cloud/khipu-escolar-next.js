@@ -1,6 +1,6 @@
 # 06 — Avisos y notificaciones
 
-> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-31 (Claude Code)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-31 (Claude Code; pool SMTP 2026-10-30, rama `feat/comunicados-nivel`)
 
 ## Objetivo
 Avisar a la familia por correo y push cada vez que se registra la asistencia (y en mensajes, comunicados, invitaciones, justificaciones y tareas), avisar al personal cuando le toca actuar (mensajes de familias, justificaciones recibidas, correos desactivados) y no pasarse de los límites del proveedor.
@@ -69,6 +69,10 @@ Insertar en `avisos`: `tenantId`, `tipo`, `canal` (`correo` → `destinatario` =
 // notificaciones/tipos.ts
 interface NotificationChannel { canal: CanalAviso; enviar(e: EnvioAviso): Promise<{ providerMessageId? }> }
 // notificaciones/email.ts  → EmailChannel (Nodemailer, SMTP_HOST/PORT/SECURE/USER/PASS, EMAIL_FROM_ADDRESS)
+//   Un transporte por proceso (nivel de módulo). Con usuario SMTP (SES/Gmail) es un pool: `pool: true`,
+//   SMTP_MAX_CONNECTIONS (3) y SMTP_MAX_MESSAGES (100); SMTP_POOL=true|false lo fuerza. Mailpit local (sin usuario): sin pool.
+//   opcionesTransporte(env) (pura) · cerrarTransporteCorreo() (scripts y tests; el servidor lo deja abierto).
+//   El ritmo sigue siendo EMAIL_RATE_PER_SECOND en procesarCola (el pool no limita).
 // notificaciones/push.ts   → PushChannel (web-push, NEXT_PUBLIC_VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY, VAPID_SUBJECT)
 // notificaciones/encolar.ts
 destinatariosDeAlumno(tdb, alumnoId): Promise<Destinatario[]>
@@ -139,4 +143,4 @@ La interfaz `NotificationChannel` se mantiene para correo y push.
 - Ninguno de canales: no se agregarán WhatsApp ni SMS.
 
 ## Cron programado
-`vercel.json` ejecuta `/api/cron/avisos` y `/api/cron/exportaciones` una vez al día (límite de Vercel Hobby); es un respaldo, porque cada acción procesa la cola al momento con `after()`. Para un respaldo más frecuente: disparador externo o Vercel Pro. Vercel envía `Authorization: Bearer <CRON_SECRET>`. Guía: `docs/despliegue.md` §3.
+`vercel.json` ejecuta `/api/cron/avisos` y `/api/cron/exportaciones` una vez al día (límite de Vercel Hobby); es un respaldo, porque cada acción procesa la cola al momento con `after()`. En producción `/api/cron/avisos` debe correr **cada 1–5 min** (Vercel Pro, `pg_cron` + `pg_net` de Supabase o disparador externo; ejemplos en `docs/despliegue.md` §3). Vercel envía `Authorization: Bearer <CRON_SECRET>`. Guía: `docs/despliegue.md` §3.

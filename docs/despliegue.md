@@ -61,6 +61,44 @@ Para un respaldo más frecuente sin pagar Pro, usa un disparador externo gratuit
 
 Con el plan **Pro** de Vercel puedes volver a `* * * * *` y `*/5 * * * *` en `vercel.json`.
 
+### En producción: `/api/cron/avisos` cada 1–5 minutos (obligatorio)
+
+La prueba de estrés (`docs/pruebas-de-estres.md`) mostró que un llamado a `procesarCola` envía como máximo `PRESUPUESTO_MS` (240 s) × `EMAIL_RATE_PER_SECOND`; lo que sobra, los reintentos y lo diferido por el tope diario esperan al siguiente disparo. Con el cron diario de Hobby eso puede ser **un día**. Antes del piloto con familias reales, el cron de avisos debe correr **cada 1–5 min** con una de estas opciones:
+
+**A. Vercel Pro** (cambia solo la línea de avisos en `vercel.json`; **no lo hagas en Hobby**: Vercel rechaza el despliegue si un cron corre más de una vez al día):
+
+```json
+{ "path": "/api/cron/avisos", "schedule": "*/2 * * * *" }
+```
+
+**B. Supabase `pg_cron` + `pg_net`** (sirve con Vercel Hobby; *Database → Extensions*: activa `pg_cron` y `pg_net`). Guarda el secreto en Vault y prográmalo desde el *SQL Editor* **(externo: proyecto Supabase de producción)**:
+
+```sql
+select vault.create_secret('<CRON_SECRET>', 'khipu_cron_secret');
+
+select cron.schedule(
+  'khipu-avisos',
+  '*/2 * * * *',
+  $$
+  select net.http_get(
+    url := 'https://khipuescolar.pe/api/cron/avisos',
+    headers := jsonb_build_object(
+      'Authorization', 'Bearer ' || (select decrypted_secret from vault.decrypted_secrets where name = 'khipu_cron_secret')
+    ),
+    timeout_milliseconds := 300000
+  );
+  $$
+);
+-- Ver ejecuciones: select * from cron.job_run_details order by start_time desc limit 20;
+-- Quitar: select cron.unschedule('khipu-avisos');
+```
+
+`net.http_get` no espera la respuesta dentro de la transacción (la guarda en `net._http_response`); un llamado que se solape con el anterior no duplica envíos (reserva atómica y un worker por colegio, specs/06). En la base **local** no lo programes (el cron local no conoce la URL pública).
+
+**C. Disparador externo** (cron-job.org u otro, arriba): misma URL y encabezado.
+
+Comprueba en el monitoreo del panel de plataforma (specs/21) que el cron `avisos` registra ejecuciones cada pocos minutos.
+
 Autenticación: con `CRON_SECRET` definido en Vercel, Vercel envía `Authorization: Bearer <CRON_SECRET>` en cada invocación. Las rutas comparan el secreto en tiempo constante y responden 401 si falta o no coincide (sin `CRON_SECRET` siempre 401).
 
 ## 4. Correo
@@ -84,7 +122,15 @@ Autenticación: con `CRON_SECRET` definido en Vercel, Vercel envía `Authorizati
 ### Migración a Amazon SES
 
 1. Verifica el dominio en SES (DKIM, SPF, DMARC) y pide salir del *sandbox* **(externo)**.
-2. Crea credenciales SMTP de SES y cambia: `SMTP_HOST=email-smtp.<región>.amazonaws.com`, `SMTP_PORT=465`, `SMTP_SECURE=true`, `SMTP_USER/SMTP_PASS` de SES, `EMAIL_FROM_ADDRESS=avisos@khipuescolar.pe`, `EMAIL_DAILY_LIMIT` según la cuota aprobada.
+2. Crea credenciales SMTP de SES y cambia: `SMTP_HOST=email-smtp.<región>.amazonaws.com`, `SMTP_PORT=465`, `SMTP_SECURE=true`, `SMTP_USER/SMTP_PASS` de SES, `EMAIL_FROM_ADDRESS=avisos@khipuescolar.pe`, y los límites según la cuota que muestre *SES → Account dashboard* **(externo)**:
+
+   | Cuenta SES | `EMAIL_RATE_PER_SECOND` | `EMAIL_DAILY_LIMIT` |
+   |---|---|---|
+   | *Sandbox* (solo destinatarios verificados; no sirve para familias) | `1` | `200` |
+   | Producción (cuota inicial típica: 14/s y 50 000/día) | `14` (o la tasa real aprobada) | `50000` menos un margen, p. ej. `45000` |
+
+   `EMAIL_RATE_PER_SECOND` es **por colegio** (un worker por colegio): con varios colegios enviando a la vez, súmalos o baja el valor para no pasar la tasa de la cuenta (SES responde *Throttling* y el aviso se reintenta). `EMAIL_DAILY_LIMIT` es global (ventana de 24 h).
+   Con usuario SMTP el transporte usa **pool** (`pool: true`, 3 conexiones, 100 correos por conexión): no paga un handshake TLS + AUTH por correo. Se puede ajustar con `SMTP_POOL`, `SMTP_MAX_CONNECTIONS` y `SMTP_MAX_MESSAGES` (specs/06).
 3. Configura un tópico SNS para eventos (entregado/rebote/apertura) y pon su ARN en `SES_SNS_TOPIC_ARN`.
 4. Usa el mismo SMTP en *Supabase Auth → SMTP Settings*.
 

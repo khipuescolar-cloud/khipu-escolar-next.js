@@ -4,6 +4,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { db } from "@/lib/server/db";
 import { abrirConversacion, enviarMensaje } from "@/lib/server/mensajes";
 import { ENVIANDO_MAX_MINUTOS, procesarCola } from "@/lib/server/notificaciones/cola";
+import { cerrarTransporteCorreo } from "@/lib/server/notificaciones/email";
 import { encolarAviso } from "@/lib/server/notificaciones/encolar";
 import { procesarEventoSes } from "@/lib/server/notificaciones/ses";
 import type { EnvioAviso, NotificationChannel } from "@/lib/server/notificaciones/tipos";
@@ -32,6 +33,7 @@ describe("avisos pendientes del MVP", () => {
     c = await crearColegioPrueba({ plan: "pro", prefijo: "test-avisos2" });
   });
   afterAll(async () => {
+    cerrarTransporteCorreo(); // el transporte es de módulo (pool con SES/Gmail): no dejar conexiones abiertas
     await c?.limpiar();
   });
 
