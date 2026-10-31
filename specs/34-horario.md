@@ -38,7 +38,12 @@ action y cada función de `src/lib/server/horario.ts`.
 5. **Mi horario** (profesor): la semana en vista de calendario (estilo Google Calendar), en una sola tarjeta con barra
    superior (mes, «Semana del 2 al 6», «Próxima semana» si es fin de semana, y el resumen «Ahora: Matemática · 3.° B hasta
    las 10:30» / «Después: … a las 10:30»), leyenda de cursos con sus horas por semana al pie y las clases ya dictadas de
-   la semana atenuadas. Columnas de lunes a viernes con su fecha (la semana actual; el
+   la semana atenuadas. También muestra las **reuniones y los eventos de la agenda** de esa semana (misma visibilidad
+   que la agenda, specs/32: las reuniones que el profesor convocó y los eventos de sus salones y del colegio; sin las
+   entregas de tareas), con borde punteado, ícono y tipo («Reunión», «Examen», «Actividad», «Evento», «Feriado»);
+   los feriados y eventos sin hora van en una fila «Todo el día». Al tocarlos, su detalle con «Ver la reunión» o «Ver en
+   la agenda». Si quedan dos o más horas seguidas sin nada (p. ej. de 13:00 a 17:00 antes de una reunión), se comprimen
+   en una franja «Libre». Columnas de lunes a viernes con su fecha (la semana actual; el
    fin de semana, la siguiente), horas a la izquierda, cada bloque ubicado y medido según su hora, con el color de su
    curso (el mismo curso, el mismo color en todos los salones; «Tutoría» en gris) y una línea con la hora actual en el día
    de hoy, con la hora escrita en el margen. Los bloques que se cruzan se reparten el ancho. Al tocar un bloque se abre su detalle (salón, aula, duración,
@@ -105,7 +110,7 @@ Puros en `src/lib/horario.ts`: `seSolapan`, `buscarCruce`, `crucesDe`, `mensajeC
   (`EditorHoras`, `Sheet`), «Copiar de otro salón» (`DialogoAccion`), «Carga de profesores». Menú: grupo «Colegio»,
   «Horarios».
 - `/horario?vista=profesores`, `/horario?profesor=<id>` (dirección).
-- `/horario` (profesor, «Mi horario», grupo «Día a día»): `AhoraDespues` + `CalendarioSemana` (lógica pura en `src/lib/horario-calendario.ts`).
+- `/horario` (profesor, «Mi horario», grupo «Día a día»): `AhoraDespues` + `CalendarioSemana` (lógica pura en `src/lib/horario-calendario.ts`; reuniones y eventos con `agendaDeLaSemana` en `src/lib/server/horario.ts`).
 - `/horario?alumno=<id>` (familia, «Horario»; alumno, «Mi horario»; grupo «Día a día»): `AhoraDespues` + `TablaHorario`.
 - Inicio: `TarjetaHoy` (`inicio/TarjetaHoy.tsx`).
 - Responsive: desde `md` la cuadrícula es una tabla (`caption`, `th scope`); en el celular, pestañas Lun–Vie (Base UI
@@ -136,7 +141,7 @@ también entre niveles). Si ningún curso cabe, el casillero queda vacío. Idemp
 
 ## Pruebas
 - unit: `tests/unit/horario-calendario.test.ts` (horas visibles, carriles de bloques cruzados, color por curso, semana
-  mostrada); `tests/unit/horario.test.ts` (cruces y bordes, distintas horas por nivel, reemplazo del mismo casillero, pares de
+  mostrada, reuniones y eventos en la semana, franjas libres); `tests/unit/horario.test.ts` (cruces y bordes, distintas horas por nivel, reemplazo del mismo casillero, pares de
   cruces, ahora/después y recreo, días, horas sugeridas válidas, validación de horas, `planificarHorario` determinista y
   sin cruces).
 - integración: `tests/integracion/horario.test.ts` (módulo en Base y Pro, horas sugeridas una vez, validación, quitar una

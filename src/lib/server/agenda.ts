@@ -16,6 +16,10 @@ export type ItemAgenda = {
   titulo: string;
   descripcion: string | null;
   inicio: Date;
+  /** Fin (reuniones y eventos que lo tienen); null si no se indicó. */
+  fin: Date | null;
+  /** Lugar de la reunión. */
+  lugar?: string | null;
   /** Nombre del salón; «Todo el colegio» si es general; el curso para las entregas. */
   ambito: string;
   /** Solo eventos: el usuario puede borrarlos. */
@@ -60,18 +64,18 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
   ]);
   const items: ItemAgenda[] = [
     ...reuniones.map((r) => ({
-      id: r.id, tipo: "reunion" as const, titulo: r.titulo, descripcion: r.descripcion, inicio: r.inicio,
+      id: r.id, tipo: "reunion" as const, titulo: r.titulo, descripcion: r.descripcion, inicio: r.inicio, fin: r.fin, lugar: r.lugar,
       ambito: r.alcance === "colegio" ? "Todo el colegio" : r.alcance === "individual" ? "Reunión individual" : (r.salon?.nombre ?? "Reunión"),
       eliminable: false, adjuntos: [], href: `/reuniones/${r.id}`,
     })),
     ...eventos.map((e) => ({
-      id: e.id, tipo: e.tipo, titulo: e.titulo, descripcion: e.descripcion, inicio: e.inicio,
+      id: e.id, tipo: e.tipo, titulo: e.titulo, descripcion: e.descripcion, inicio: e.inicio, fin: e.fin,
       ambito: e.salon?.nombre ?? "Todo el colegio",
       eliminable: ctx.rol === "direccion" || ((ctx.rol === "profesor" || ctx.rol === "administrativo") && e.creadoPorId === ctx.membership.id),
       adjuntos: [],
     })),
     ...(await Promise.all(tareas.map(async (t) => ({
-      id: t.id, tipo: "entrega" as const, titulo: `Entrega: ${t.titulo}`, descripcion: t.descripcion, inicio: t.fechaEntrega,
+      id: t.id, tipo: "entrega" as const, titulo: `Entrega: ${t.titulo}`, descripcion: t.descripcion, inicio: t.fechaEntrega, fin: null,
       ambito: `${t.curso.nombre} · ${t.curso.salon.nombre}`, eliminable: false,
       adjuntos: t.adjuntos.length > 0 && (await puedeVerTarea(ctx, t)) ? t.adjuntos.map(adjuntoVista) : [],
     })))),

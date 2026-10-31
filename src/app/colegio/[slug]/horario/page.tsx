@@ -19,7 +19,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { NOMBRE_NIVEL } from "@/lib/asistencia-por-curso";
 import { ahoraYDespues, esDiaHorario, minutos, rango } from "@/lib/horario";
 import {
-  ahoraDelColegio, alumnosParaHorario, cargaDocente, horarioDelProfesor, horarioDelSalon, opcionesDeCasillero, puedePasarListaDeCurso,
+  agendaDeLaSemana, ahoraDelColegio, alumnosParaHorario, cargaDocente, horarioDelProfesor, horarioDelSalon, opcionesDeCasillero, puedePasarListaDeCurso,
   salonesParaHorario, type BloqueVista,
 } from "@/lib/server/horario";
 import { requireFeature, tieneFeature } from "@/lib/server/plan";
@@ -208,6 +208,7 @@ async function SemanaProfesor({ ctx, profesorId }: { ctx: TenantContext; profeso
     }
     return { ...b, acciones, enCruce: enCruce.has(b.id) };
   });
+  const eventos = esPropio ? await agendaDeLaSemana(ctx, isoFecha) : [];
   const horasSemana = bloques.reduce((t, b) => t + minutos(b.horaFin) - minutos(b.horaInicio), 0);
 
   return (
@@ -230,6 +231,7 @@ async function SemanaProfesor({ ctx, profesorId }: { ctx: TenantContext; profeso
         <>
           <CalendarioSemana
             bloques={conAcciones}
+            eventos={eventos}
             hoyIso={isoFecha}
             diaHoy={dia}
             horaAhora={hora}

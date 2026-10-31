@@ -1,6 +1,6 @@
 "use client";
 
-import { ClipboardCheck, Clock, GraduationCap, ListTodo, MapPin, School, TriangleAlert } from "lucide-react";
+import { ArrowRight, CalendarDays, CalendarOff, ClipboardCheck, Clock, GraduationCap, ListTodo, MapPin, NotebookPen, School, TriangleAlert, Users, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { buttonVariants } from "@/components/ui/button";
@@ -8,7 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { formatoDia } from "@/lib/fechas";
 import { DIAS, NOMBRE_DIA, NOMBRE_DIA_CORTO, minutos, rango, type DiaHorario } from "@/lib/horario";
-import { carriles, coloresPorCurso, fechasDeLaSemana, horasVisibles, type ColorCurso } from "@/lib/horario-calendario";
+import { carriles, coloresPorCurso, escalaHoras, fechasDeLaSemana, type ColorCurso, type EventoSemana, type TipoEventoSemana } from "@/lib/horario-calendario";
 import type { BloqueVista } from "@/lib/server/horario";
 import { cn } from "@/lib/utils";
 import { InsigniaAhora } from "./Insignias";
@@ -31,6 +31,15 @@ const COLOR: Record<ColorCurso | "sin-curso", { fondo: string; barra: string; mu
   "sin-curso": { fondo: "bg-superficie-2", barra: "before:bg-pizarra", muestra: "bg-pizarra" },
 };
 
+/** Reuniones y eventos de la agenda: ícono + palabra (nunca solo color) y un estilo propio, distinto de las clases. */
+const TIPO_EVENTO: Record<TipoEventoSemana, { palabra: string; Icono: LucideIcon }> = {
+  reunion: { palabra: "Reunión", Icono: Users },
+  examen: { palabra: "Examen", Icono: NotebookPen },
+  feriado: { palabra: "Feriado", Icono: CalendarOff },
+  actividad: { palabra: "Actividad", Icono: CalendarDays },
+  evento: { palabra: "Evento", Icono: CalendarDays },
+};
+
 const etiquetaHora = (min: number) => `${Math.floor(min / 60)}:${String(min % 60).padStart(2, "0")}`;
 const duracion = (min: number) => (min % 60 === 0 ? `${min / 60} h` : min > 60 ? `${Math.floor(min / 60)} h ${min % 60} min` : `${min} min`);
 
@@ -48,14 +57,15 @@ function useMinutoActual(horaServidor: string) {
 
 type Contexto = {
   bloques: BloqueConAcciones[];
+  eventos: EventoSemana[];
   fechas: Record<DiaHorario, string>;
-  horas: { inicio: number; fin: number };
+  horas: ReturnType<typeof escalaHoras>;
   colores: Map<string, ColorCurso>;
   minAhora: number;
   ahoraId: string | null;
   esHoy: (d: DiaHorario) => boolean;
   /** Clase que ya terminó en la semana en curso (se atenúa, como en Google Calendar). */
-  yaPaso: (b: BloqueConAcciones) => boolean;
+  yaPaso: (b: { dia: DiaHorario; horaFin: string }) => boolean;
 };
 
 /**
@@ -64,8 +74,10 @@ type Contexto = {
  * clases ya dictadas atenuadas, línea de la hora actual en el día de hoy y, al tocar un bloque, su detalle con los
  * accesos (pasar lista, tareas, notas). Abajo, la leyenda de cursos con sus horas por semana. En el celular, un día a la vez.
  */
-export function CalendarioSemana({ bloques, hoyIso, diaHoy, horaAhora, ahoraId, resumen }: {
+export function CalendarioSemana({ bloques, eventos = [], hoyIso, diaHoy, horaAhora, ahoraId, resumen }: {
   bloques: BloqueConAcciones[]; hoyIso: string; diaHoy: number; horaAhora: string; ahoraId: string | null;
+  /** Reuniones y eventos de la agenda de esta semana. */
+  eventos?: EventoSemana[];
   /** «Ahora / Después», en la barra superior del calendario. */
   resumen?: ReactNode;
 }) {
@@ -75,8 +87,9 @@ export function CalendarioSemana({ bloques, hoyIso, diaHoy, horaAhora, ahoraId, 
   const minAhora = useMinutoActual(horaAhora);
   const ctx: Contexto = {
     bloques,
+    eventos,
     fechas,
-    horas: horasVisibles(bloques),
+    horas: escalaHoras([...bloques, ...eventos.filter((e) => !e.todoElDia)], PX_MIN),
     colores: coloresPorCurso(bloques),
     minAhora,
     ahoraId,
@@ -120,7 +133,7 @@ export function CalendarioSemana({ bloques, hoyIso, diaHoy, horaAhora, ahoraId, 
         ))}
       </Tabs>
 
-      <Leyenda bloques={bloques} colores={ctx.colores} />
+      <Leyenda bloques={bloques} colores={ctx.colores} conEventos={eventos.length > 0} />
     </section>
   );
 }
@@ -142,9 +155,9 @@ function NumeroDia({ fecha, hoy, chico }: { fecha: string; hoy: boolean; chico?:
 
 function Cuadricula({ ctx, dias, sinEncabezado }: { ctx: Contexto; dias: readonly DiaHorario[]; sinEncabezado?: boolean }) {
   const { horas, minAhora, esHoy, fechas } = ctx;
-  const alto = (horas.fin - horas.inicio) * PX_MIN;
-  const marcas: number[] = [];
-  for (let m = horas.inicio; m <= horas.fin; m += 60) marcas.push(m);
+  const alto = horas.alto;
+  // Una línea por hora en los tramos a escala (los bordes de las franjas libres también llevan su hora).
+  const marcas = [...new Set(horas.tramos.flatMap((t) => (t.libre ? [t.desde, t.hasta] : Array.from({ length: (t.hasta - t.desde) / 60 + 1 }, (_, i) => t.desde + i * 60))))];
   const columnas = { gridTemplateColumns: `3.75rem repeat(${dias.length}, minmax(0, 1fr))` };
   const verAhora = dias.some(esHoy) && minAhora >= horas.inicio && minAhora <= horas.fin;
 
@@ -161,16 +174,28 @@ function Cuadricula({ ctx, dias, sinEncabezado }: { ctx: Contexto; dias: readonl
           ))}
         </div>
       )}
+      {dias.some((d) => ctx.eventos.some((e) => e.dia === d && e.todoElDia)) && (
+        <div className="grid border-b" style={columnas}>
+          <span className="px-2 py-2 text-right text-etiqueta leading-tight font-normal text-muted-foreground">Todo el día</span>
+          {dias.map((d) => (
+            <ul key={d} aria-label={`Todo el día del ${NOMBRE_DIA[d].toLowerCase()}`} className={cn("flex min-w-0 flex-col gap-1 border-l p-1", esHoy(d) && "bg-primary/[0.04]")}>
+              {ctx.eventos.filter((e) => e.dia === d && e.todoElDia).map((e) => (
+                <li key={e.id} className="h-7"><EventoAgenda e={e} pasado={false} /></li>
+              ))}
+            </ul>
+          ))}
+        </div>
+      )}
       <div className="grid pt-3 pb-4" style={columnas}>
         {/* Horas a la izquierda, centradas sobre su línea; la hora actual las reemplaza cuando caen cerca. */}
         <div className="relative" style={{ height: alto }} aria-hidden>
           {marcas.filter((m) => !verAhora || Math.abs(m - minAhora) >= 12).map((m) => (
-            <span key={m} className="absolute right-2.5 -translate-y-1/2 text-etiqueta font-normal text-muted-foreground tabular-nums" style={{ top: (m - horas.inicio) * PX_MIN }}>
+            <span key={m} className="absolute right-2.5 -translate-y-1/2 text-etiqueta font-normal text-muted-foreground tabular-nums" style={{ top: horas.y(m) }}>
               {etiquetaHora(m)}
             </span>
           ))}
           {verAhora && (
-            <span className="absolute right-1.5 z-10 -translate-y-1/2 rounded-pildora bg-cochinilla px-1.5 py-px text-etiqueta font-semibold text-background tabular-nums" style={{ top: (minAhora - horas.inicio) * PX_MIN }}>
+            <span className="absolute right-1.5 z-10 -translate-y-1/2 rounded-pildora bg-cochinilla px-1.5 py-px text-etiqueta font-semibold text-background tabular-nums" style={{ top: horas.y(minAhora) }}>
               {etiquetaHora(minAhora)}
             </span>
           )}
@@ -185,29 +210,45 @@ function ColumnaDia({ ctx, dia, marcas, alto }: { ctx: Contexto; dia: DiaHorario
   const { horas, minAhora, ahoraId, colores, fechas } = ctx;
   const hoy = ctx.esHoy(dia);
   const bloques = ctx.bloques.filter((b) => b.dia === dia);
-  const posicion = carriles(bloques);
+  const eventos = ctx.eventos.filter((e) => e.dia === dia && !e.todoElDia);
+  // Clases, reuniones y eventos comparten carriles: si se cruzan, se reparten el ancho.
+  const posicion = carriles([...bloques, ...eventos]);
+  const caja = (x: { id: string; horaInicio: string; horaFin: string }) => {
+    const { carril, carriles: total } = posicion.get(x.id) ?? { carril: 0, carriles: 1 };
+    return { top: y(minutos(x.horaInicio)) + 1, height: Math.max(y(minutos(x.horaFin)) - y(minutos(x.horaInicio)) - 2, 24), left: `${(carril / total) * 100}%`, width: `${100 / total}%` };
+  };
   const verLinea = hoy && minAhora >= horas.inicio && minAhora <= horas.fin;
-  const y = (m: number) => (m - horas.inicio) * PX_MIN;
+  const y = horas.y;
   return (
     <section aria-label={`${NOMBRE_DIA[dia]} ${formatoDia(fechas[dia], { day: "numeric", month: "long" })}${hoy ? " (hoy)" : ""}`} className={cn("relative border-l", hoy && "bg-primary/[0.04]")} style={{ height: alto }}>
       {marcas.map((m) => <div key={m} aria-hidden className="absolute inset-x-0 border-t" style={{ top: y(m) }} />)}
-      {marcas.slice(0, -1).map((m) => <div key={`m${m}`} aria-hidden className="absolute inset-x-0 border-t border-dashed border-border/60" style={{ top: y(m + 30) }} />)}
-      {bloques.length === 0 ? (
+      {horas.tramos.filter((t) => !t.libre).flatMap((t) => Array.from({ length: (t.hasta - t.desde) / 60 }, (_, i) => t.desde + i * 60 + 30)).map((m) => (
+        <div key={`m${m}`} aria-hidden className="absolute inset-x-0 border-t border-dashed border-border/60" style={{ top: y(m) }} />
+      ))}
+      {horas.tramos.filter((t) => t.libre).map((t) => (
+        <div
+          key={`l${t.desde}`}
+          aria-hidden
+          className="absolute inset-x-0 flex items-center justify-center bg-[repeating-linear-gradient(135deg,transparent_0_6px,var(--arena)_6px_7px)] text-etiqueta font-normal text-muted-foreground"
+          style={{ top: y(t.desde), height: y(t.hasta) - y(t.desde) }}
+        >
+          <span className="rounded-pildora bg-card px-2">Libre</span>
+        </div>
+      ))}
+      {bloques.length === 0 && eventos.length === 0 ? (
         <p className="absolute inset-x-0 top-3 text-center text-cuerpo-sm text-muted-foreground">Sin clases</p>
       ) : (
         <ul>
-          {bloques.map((b) => {
-            const { carril, carriles: total } = posicion.get(b.id) ?? { carril: 0, carriles: 1 };
-            return (
-              <li
-                key={b.id}
-                className="absolute px-[3px]"
-                style={{ top: y(minutos(b.horaInicio)) + 1, height: (minutos(b.horaFin) - minutos(b.horaInicio)) * PX_MIN - 2, left: `${(carril / total) * 100}%`, width: `${100 / total}%` }}
-              >
-                <Evento b={b} color={b.cursoId ? colores.get(b.titulo) ?? "indigo" : "sin-curso"} ahora={b.id === ahoraId} pasado={ctx.yaPaso(b)} />
-              </li>
-            );
-          })}
+          {bloques.map((b) => (
+            <li key={b.id} className="absolute px-[3px]" style={caja(b)}>
+              <Evento b={b} color={b.cursoId ? colores.get(b.titulo) ?? "indigo" : "sin-curso"} ahora={b.id === ahoraId} pasado={ctx.yaPaso(b)} />
+            </li>
+          ))}
+          {eventos.map((e) => (
+            <li key={e.id} className="absolute z-[1] px-[3px]" style={caja(e)}>
+              <EventoAgenda e={e} pasado={ctx.yaPaso(e)} />
+            </li>
+          ))}
         </ul>
       )}
       {verLinea && (
@@ -275,7 +316,7 @@ function Evento({ b, color, ahora, pasado }: { b: BloqueConAcciones; color: Colo
 }
 
 /** Cursos de la semana con su color y sus horas: identifica cada color con su nombre (no solo color). */
-function Leyenda({ bloques, colores }: { bloques: BloqueConAcciones[]; colores: Map<string, ColorCurso> }) {
+function Leyenda({ bloques, colores, conEventos }: { bloques: BloqueConAcciones[]; colores: Map<string, ColorCurso>; conEventos: boolean }) {
   const porCurso = new Map<string, { color: ColorCurso | "sin-curso"; min: number }>();
   for (const b of bloques) {
     const actual = porCurso.get(b.titulo) ?? { color: b.cursoId ? colores.get(b.titulo) ?? "indigo" : "sin-curso", min: 0 };
@@ -294,7 +335,61 @@ function Leyenda({ bloques, colores }: { bloques: BloqueConAcciones[]; colores: 
             <span className="text-muted-foreground tabular-nums">{duracion(min)}</span>
           </li>
         ))}
+        {conEventos && (
+          <li className="inline-flex items-center gap-2">
+            <span aria-hidden className="size-2.5 rounded-[3px] border border-dashed border-primary" />
+            <span className="font-medium">Reuniones y eventos de la agenda</span>
+          </li>
+        )}
       </ul>
     </footer>
+  );
+}
+
+/** Reunión o evento de la agenda: borde punteado del color principal sobre la superficie, con ícono y tipo. */
+function EventoAgenda({ e, pasado }: { e: EventoSemana; pasado: boolean }) {
+  const { palabra, Icono } = TIPO_EVENTO[e.tipo];
+  const horario = e.todoElDia ? "Todo el día" : `${e.horaInicio} – ${e.horaFin}`;
+  // Eventos cortos (≤ 35 min): una sola línea con la hora delante, para que no se corte el texto.
+  const unaLinea = e.todoElDia || minutos(e.horaFin) - minutos(e.horaInicio) <= 35;
+  return (
+    <Popover>
+      <PopoverTrigger
+        className={cn(
+          "flex size-full min-w-0 flex-col items-start gap-px overflow-hidden rounded-md border border-dashed border-primary/60 bg-card px-2 text-left",
+          unaLinea ? "justify-center py-0.5" : "py-1",
+          "transition-[box-shadow,opacity] duration-150 hover:opacity-100 hover:shadow-[var(--sombra-1)] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring data-[popup-open]:shadow-[var(--sombra-1)] motion-reduce:transition-none",
+          pasado && "opacity-60",
+        )}
+        aria-label={`${palabra}: ${e.titulo}, ${horario}`}
+      >
+        <span className="flex w-full min-w-0 items-center gap-1.5 text-cuerpo-sm leading-snug font-semibold">
+          <Icono className="size-3.5 shrink-0 text-primary" strokeWidth={2} aria-hidden />
+          {unaLinea && !e.todoElDia && <span className="shrink-0 font-normal text-muted-foreground tabular-nums">{e.horaInicio}</span>}
+          <span className="truncate">{e.titulo}</span>
+        </span>
+        {!unaLinea && <span className="w-full truncate text-etiqueta font-normal text-muted-foreground tabular-nums">{palabra} · {horario}</span>}
+      </PopoverTrigger>
+      <PopoverContent side="right" align="start" className="w-[22rem] max-w-[calc(100vw-2rem)] gap-0 p-0">
+        <div className="flex items-start gap-3 p-4 pb-3">
+          <Icono className="mt-1 size-4 shrink-0 text-primary" strokeWidth={2} aria-hidden />
+          <div className="flex min-w-0 flex-col gap-0.5">
+            <p className="text-etiqueta font-medium text-primary uppercase">{palabra}</p>
+            <p className="font-heading text-cuerpo font-semibold">{e.titulo}</p>
+            <p className="text-cuerpo-sm text-muted-foreground">{NOMBRE_DIA[e.dia]} · <span className="tabular-nums">{horario}</span></p>
+          </div>
+        </div>
+        <ul className="flex flex-col gap-2 px-4 pb-4 pl-11 text-cuerpo-sm">
+          <li className="flex items-center gap-2.5"><School className="size-4 text-muted-foreground" strokeWidth={2} aria-hidden />{e.ambito}</li>
+          {e.lugar && <li className="flex items-center gap-2.5"><MapPin className="size-4 text-muted-foreground" strokeWidth={2} aria-hidden />{e.lugar}</li>}
+          {e.descripcion && <li className="text-muted-foreground">{e.descripcion}</li>}
+        </ul>
+        <div className="border-t bg-muted/40 px-4 py-3">
+          <Link href={e.href ?? "/agenda"} className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+            {e.href ? "Ver la reunión" : "Ver en la agenda"}<ArrowRight className="size-4" strokeWidth={2} aria-hidden />
+          </Link>
+        </div>
+      </PopoverContent>
+    </Popover>
   );
 }

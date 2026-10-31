@@ -4,12 +4,14 @@ import { z } from "zod";
 import type { Prisma } from "@/generated/prisma/client";
 import type { Nivel, TipoHoraHorario } from "@/generated/prisma/enums";
 import { asistenciaPorCursoActiva } from "@/lib/asistencia-por-curso";
-import { momentoEnZona } from "@/lib/fechas";
+import { instanteLima, momentoEnZona, sumarDias } from "@/lib/fechas";
 import {
   PERIODOS_SUGERIDOS, ahoraYDespues, buscarCruce, crucesDe, diaDeSemana, esDiaHorario, mensajeCruce, minutos, ordenarPorHora, validarPeriodos,
   type DiaHorario, type OcupacionProfesor,
 } from "@/lib/horario";
+import { eventoDeSemana, fechasDeLaSemana, type EventoSemana } from "@/lib/horario-calendario";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
+import { itemsDeAgenda } from "./agenda";
 import { auditar } from "./auditoria";
 import { requireFeature, tieneFeature } from "./plan";
 import { salonesActivos, whereSalonActivo } from "./salones-activos";
@@ -414,6 +416,22 @@ export async function alumnosParaHorario(ctx: TenantContext) {
 export function ahoraDelColegio(ctx: Pick<TenantContext, "tenant">, ahora = new Date()) {
   const m = momentoEnZona(ahora, ctx.tenant.zonaHoraria);
   return { isoFecha: m.isoFecha, hora: m.hora, dia: diaDeSemana(m.isoFecha) };
+}
+
+/**
+ * Reuniones y eventos de la agenda de la semana que muestra «Mi horario» (specs/34), con la misma visibilidad que la
+ * agenda (specs/32): el profesor ve las reuniones que convocó y los eventos de sus salones y del colegio. Las entregas de
+ * tareas no se muestran (son plazos, no citas). Vacío si el colegio no tiene la agenda.
+ */
+export async function agendaDeLaSemana(ctx: TenantContext, hoyIso: string): Promise<EventoSemana[]> {
+  if (!tieneFeature(ctx, "agenda")) return [];
+  const fechas = fechasDeLaSemana(hoyIso);
+  const items = await itemsDeAgenda(ctx, instanteLima(fechas[1], "00:00"), instanteLima(sumarDias(fechas[5], 1), "00:00"));
+  return items.flatMap((i) => {
+    if (i.tipo === "entrega") return [];
+    const e = eventoDeSemana({ ...i, tipo: i.tipo }, ctx.tenant.zonaHoraria);
+    return e ? [e] : [];
+  });
 }
 
 export type GrupoHoy = { clave: string; etiqueta: string | null; bloques: BloqueVista[]; ahora: BloqueVista | null; despues: BloqueVista | null };
