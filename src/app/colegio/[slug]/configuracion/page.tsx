@@ -65,8 +65,8 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
         <form action={guardarConfiguracionAction} className="flex flex-col gap-8">
           <Seccion icono={Bell} titulo="Avisos a las familias" descripcion="Al cerrar la lista, cada familia recibe el aviso de llegada, tardanza, falta o problema de su hijo.">
             <div className="grid gap-4 sm:grid-cols-2">
-              <Campo etiqueta="Hora límite de tardanza" name="horaLimiteTardanza" type="time" defaultValue={t.horaLimiteTardanza} required ayuda="Desde esta hora, la llegada cuenta como tarde." />
-              <Campo etiqueta="Hora límite de falta" name="horaLimiteFalta" type="time" defaultValue={t.horaLimiteFalta} required ayuda="Con el control de ingreso, quien no llegó hasta esta hora queda con falta del día." />
+              <Campo etiqueta="Hora límite de tardanza" name="horaLimiteTardanza" type="time" defaultValue={t.horaLimiteTardanza} required ayuda="Solo para salones sin plantilla de horario: en los demás, la tardanza cuenta desde la entrada de su plantilla." />
+              <Campo etiqueta="Hora límite de falta" name="horaLimiteFalta" type="time" defaultValue={t.horaLimiteFalta} required ayuda="Solo para salones sin plantilla de horario (cada plantilla tiene la suya). Con el control de ingreso, quien no llegó hasta esta hora queda con falta del día." />
               <Campo etiqueta="Plazo para justificar faltas (días hábiles)" name="plazoJustificacionDiasHabiles" type="number" min={PLAZO_JUSTIFICACION_MIN_DIAS} max={PLAZO_JUSTIFICACION_MAX_DIAS} step={1} defaultValue={t.plazoJustificacionDiasHabiles} required ayuda={`De ${PLAZO_JUSTIFICACION_MIN_DIAS} a ${PLAZO_JUSTIFICACION_MAX_DIAS} días hábiles (lunes a viernes, sin feriados) desde el día de la falta. Por defecto, ${PLAZO_JUSTIFICACION_DEFECTO_DIAS}.`} />
             </div>
             {ctx.modulos.has("porteria") ? (
@@ -75,7 +75,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
                 <span className="flex flex-col gap-1">
                   <span className="font-medium">Control de ingreso automático por portería</span>
                   <span className="text-cuerpo-sm text-muted-foreground">
-                    A la hora de tardanza, Khipu avisa «aún no llega» a las familias de quienes no pasaron por portería. A la hora límite de falta, les pone falta del día y les pide justificarla. Si llegan después, al escanear el carnet la falta pasa a tardanza. Además, en las listas de curso, un alumno sin ingreso al colegio solo puede quedar con falta. Solo corre de lunes a viernes sin feriados, y no corre si ese día nadie pasó por portería.
+                    A la hora de entrada de la plantilla de horario de cada salón, Khipu avisa «aún no llega» a las familias de quienes no pasaron por portería. A su hora límite de falta, les pone falta del día y les pide justificarla. Si llegan después, al escanear el carnet la falta pasa a tardanza. Además, en las listas de curso, un alumno sin ingreso al colegio solo puede quedar con falta. Solo corre de lunes a viernes sin feriados, y no corre si ese día nadie pasó por portería.
                   </span>
                 </span>
               </label>

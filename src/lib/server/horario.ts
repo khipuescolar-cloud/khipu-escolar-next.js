@@ -9,7 +9,8 @@ import {
   PERIODOS_SUGERIDOS, ahoraYDespues, buscarCruce, crucesDe, diaDeSemana, esDiaHorario, mensajeCruce, minutos, ordenarPorHora, validarPeriodos,
   type DiaHorario, type OcupacionProfesor,
 } from "@/lib/horario";
-import { eventoDeSemana, fechasDeLaSemana, type EventoSemana } from "@/lib/horario-calendario";
+import { eventoDeSemana, fechasDeLaSemana, jornadaDe, type EventoSemana } from "@/lib/horario-calendario";
+import { faltaSugerida } from "@/lib/plantillas-horario";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { itemsDeAgenda } from "./agenda";
 import { auditar } from "./auditoria";
@@ -21,7 +22,6 @@ import { alumnoDeLaCuenta, requireRol, salonIdsVisibles, type TenantContext } fr
 // solo lo consultan. Todo el control de acceso es de servidor.
 
 const ROLES = ["direccion", "profesor", "apoderado", "alumno"] as const;
-const NIVELES = ["inicial", "primaria", "secundaria", "academia"] as const;
 
 function entrar(ctx: TenantContext) {
   requireFeature(ctx, "horario");
@@ -100,23 +100,44 @@ function aOcupacion(b: BloqueVista): OcupacionProfesor {
   return { id: b.id, profesorId: b.profesorId!, dia: b.dia, salonId: b.salonId, salonNombre: b.salonNombre, titulo: b.titulo, horaInicio: b.horaInicio, horaFin: b.horaFin };
 }
 
-// ───────────── Horas del día ─────────────
+// ───────────── Horas del día (de la plantilla del salón) ─────────────
 
-export async function periodosDelNivel(ctx: TenantContext, nivel: Nivel): Promise<PeriodoVista[]> {
+export async function periodosDeLaPlantilla(ctx: TenantContext, plantillaId: string | null): Promise<PeriodoVista[]> {
   requireFeature(ctx, "horario");
-  const filas = await ctx.db.horarioPeriodo.findMany({ where: { nivel }, select: { id: true, nombre: true, horaInicio: true, horaFin: true, tipo: true } });
+  if (!plantillaId) return [];
+  const filas = await ctx.db.horarioPeriodo.findMany({ where: { plantillaId }, select: { id: true, nombre: true, horaInicio: true, horaFin: true, tipo: true } });
   return ordenarPorHora(filas);
 }
 
-/** Crea las horas sugeridas del nivel (solo si aún no tiene ninguna). */
-export async function crearPeriodosSugeridos(ctx: TenantContext, nivel: string): Promise<Resultado> {
+const NOMBRE_NIVEL_PLANTILLA: Record<Nivel, string> = { inicial: "Inicial", primaria: "Primaria", secundaria: "Secundaria", academia: "Academia" };
+
+/**
+ * Atajo para empezar: crea la plantilla sugerida del nivel del salón (o reutiliza la que ya existe con ese nombre) y se la
+ * asigna a los salones activos del nivel que aún no tienen plantilla.
+ */
+export async function crearPlantillaSugerida(ctx: TenantContext, salonId: string): Promise<Resultado> {
   entrarDireccion(ctx);
-  const n = z.enum(NIVELES).safeParse(nivel);
-  if (!n.success) return fallo("Elige un nivel válido.");
-  if ((await ctx.db.horarioPeriodo.count({ where: { nivel: n.data } })) > 0) return fallo("Este nivel ya tiene sus horas del día.");
-  await ctx.db.horarioPeriodo.createMany({ data: PERIODOS_SUGERIDOS[n.data].map((p) => ({ ...p, nivel: n.data, tenantId: ctx.tenant.id })) });
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "horario_periodos", detalle: { nivel: n.data, sugeridas: true } });
-  return ok("Listo: usamos las horas sugeridas. Puedes ajustarlas cuando quieras.");
+  if (!z.uuid().safeParse(salonId).success) return fallo("Elige un salón.");
+  const salon = await ctx.db.salon.findFirst({ where: { id: salonId, ...whereSalonActivo }, select: { nivel: true, plantillaId: true } });
+  if (!salon) return fallo("No encontramos ese salón.");
+  if (salon.plantillaId) return fallo("Este salón ya tiene plantilla.");
+  const nombre = NOMBRE_NIVEL_PLANTILLA[salon.nivel];
+  let plantilla = await ctx.db.plantillaHorario.findFirst({ where: { nombre }, select: { id: true } });
+  if (!plantilla) {
+    const periodos = PERIODOS_SUGERIDOS[salon.nivel];
+    const entrada = periodos[0].horaInicio;
+    plantilla = await ctx.db.plantillaHorario.create({
+      data: {
+        tenantId: ctx.tenant.id, nombre, horaEntrada: entrada, horaSalida: periodos.at(-1)!.horaFin,
+        duracionClase: minutos(periodos[0].horaFin) - minutos(entrada), horaLimiteFalta: faltaSugerida(entrada),
+      },
+      select: { id: true },
+    });
+    await ctx.db.horarioPeriodo.createMany({ data: periodos.map((p) => ({ ...p, plantillaId: plantilla!.id, tenantId: ctx.tenant.id })) });
+  }
+  await ctx.db.salon.updateMany({ where: { nivel: salon.nivel, plantillaId: null, ...whereSalonActivo }, data: { plantillaId: plantilla.id } });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "plantillas_horario", entidadId: plantilla.id, detalle: { nivel: salon.nivel, sugerida: true } });
+  return ok(`Listo: los salones de ${nombre.toLowerCase()} usan la plantilla «${nombre}». Puedes ajustarla en «Plantillas de horario».`);
 }
 
 const esquemaPeriodo = z.object({
@@ -131,16 +152,16 @@ const esquemaPeriodo = z.object({
  * Reemplaza las horas del día de un nivel: actualiza las que siguen, crea las nuevas y borra las quitadas
  * (con sus casilleros). Una hora que pasa a «Recreo» pierde sus casilleros. Avisa si el cambio dejó cruces de profesores.
  */
-export async function guardarPeriodos(ctx: TenantContext, nivel: string, entrada: unknown): Promise<Resultado> {
-  entrarDireccion(ctx);
-  const n = z.enum(NIVELES).safeParse(nivel);
-  if (!n.success) return fallo("Elige un nivel válido.");
+export async function guardarPeriodos(ctx: TenantContext, plantillaId: string, entrada: unknown): Promise<Resultado> {
+  requireFeature(ctx, "horario");
+  requireRol(ctx, ["direccion", "administrativo"]);
+  if (!z.uuid().safeParse(plantillaId).success || !(await ctx.db.plantillaHorario.count({ where: { id: plantillaId } }))) return fallo("No encontramos esa plantilla.");
   const lista = z.array(esquemaPeriodo).safeParse(entrada);
   if (!lista.success) return fallo(lista.error.issues[0].message);
   const error = validarPeriodos(lista.data);
   if (error) return fallo(error);
 
-  const existentes = await ctx.db.horarioPeriodo.findMany({ where: { nivel: n.data }, select: { id: true } });
+  const existentes = await ctx.db.horarioPeriodo.findMany({ where: { plantillaId }, select: { id: true } });
   const idsExistentes = new Set(existentes.map((p) => p.id));
   if (lista.data.some((p) => p.id && !idsExistentes.has(p.id))) return fallo("Una de las horas ya no existe. Recarga la página.");
   const quedan = new Set(lista.data.flatMap((p) => (p.id ? [p.id] : [])));
@@ -154,12 +175,12 @@ export async function guardarPeriodos(ctx: TenantContext, nivel: string, entrada
     ...lista.data.map((p) =>
       p.id
         ? ctx.db.horarioPeriodo.updateMany({ where: { id: p.id }, data: { nombre: p.nombre, horaInicio: p.horaInicio, horaFin: p.horaFin, tipo: p.tipo } })
-        : ctx.db.horarioPeriodo.create({ data: { tenantId: ctx.tenant.id, nivel: n.data, nombre: p.nombre, horaInicio: p.horaInicio, horaFin: p.horaFin, tipo: p.tipo } }),
+        : ctx.db.horarioPeriodo.create({ data: { tenantId: ctx.tenant.id, plantillaId, nombre: p.nombre, horaInicio: p.horaInicio, horaFin: p.horaFin, tipo: p.tipo } }),
     ),
   ]);
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "horario_periodos", detalle: { nivel: n.data, horas: lista.data.length, casillerosBorrados: casillerosPerdidos } });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "horario_periodos", entidadId: plantillaId, detalle: { horas: lista.data.length, casillerosBorrados: casillerosPerdidos } });
 
-  // Cambiar horas puede hacer que dos clases del mismo profesor (en niveles distintos) ahora se crucen.
+  // Cambiar horas puede hacer que dos clases del mismo profesor (en salones con otra plantilla) ahora se crucen.
   const cruces = await contarCruces(ctx);
   const partes = ["Guardamos las horas del día."];
   if (casillerosPerdidos > 0) partes.push(casillerosPerdidos === 1 ? "Se vació 1 casillero del horario." : `Se vaciaron ${casillerosPerdidos} casilleros del horario.`);
@@ -184,19 +205,27 @@ export async function horarioDelSalon(ctx: TenantContext, salonId: string) {
   const salon = await ctx.db.salon.findFirst({
     where: { id: salonId, ...whereSalonActivo },
     select: {
-      id: true, nombre: true, nivel: true, grado: true, tutorId: true,
+      id: true, nombre: true, nivel: true, grado: true, tutorId: true, plantillaId: true,
+      plantilla: { select: { nombre: true, horaEntrada: true, horaSalida: true } },
       tutor: { select: { user: { select: { nombres: true, apellidos: true } } } },
     },
   });
   if (!salon) notFound();
-  const [periodos, bloques] = await Promise.all([periodosDelNivel(ctx, salon.nivel), buscarBloques(ctx, { salonId })]);
-  return { salon: { id: salon.id, nombre: salon.nombre, nivel: salon.nivel, grado: salon.grado, tutorId: salon.tutorId, tutorNombre: salon.tutor ? nombrePersona(salon.tutor.user) : null }, periodos, bloques };
+  const [periodos, bloques] = await Promise.all([periodosDeLaPlantilla(ctx, salon.plantillaId), buscarBloques(ctx, { salonId })]);
+  return {
+    salon: {
+      id: salon.id, nombre: salon.nombre, nivel: salon.nivel, grado: salon.grado, tutorId: salon.tutorId, tutorNombre: salon.tutor ? nombrePersona(salon.tutor.user) : null,
+      plantilla: salon.plantillaId && salon.plantilla ? { id: salon.plantillaId, ...salon.plantilla } : null,
+    },
+    periodos,
+    bloques,
+  };
 }
 
 /** Opciones para llenar un casillero: cursos del salón (con su profesor), profesores del colegio y salones del mismo grado. */
 export async function opcionesDeCasillero(ctx: TenantContext, salonId: string) {
   entrarDireccion(ctx);
-  const salon = await ctx.db.salon.findFirst({ where: { id: salonId, ...whereSalonActivo }, select: { id: true, nivel: true, grado: true } });
+  const salon = await ctx.db.salon.findFirst({ where: { id: salonId, ...whereSalonActivo }, select: { id: true, nivel: true, grado: true, plantillaId: true } });
   if (!salon) notFound();
   const [cursos, profesores, mismoGrado] = await Promise.all([
     ctx.db.curso.findMany({
@@ -205,7 +234,7 @@ export async function opcionesDeCasillero(ctx: TenantContext, salonId: string) {
       select: { id: true, nombre: true, profesor: { select: { user: { select: { nombres: true, apellidos: true } } } } },
     }),
     profesoresDelColegio(ctx),
-    salon.grado === null ? Promise.resolve([]) : salonesActivos(ctx, { id: true, nombre: true }, { nivel: salon.nivel, grado: salon.grado, id: { not: salon.id } }),
+    salon.grado === null ? Promise.resolve([]) : salonesActivos(ctx, { id: true, nombre: true }, { nivel: salon.nivel, grado: salon.grado, plantillaId: salon.plantillaId, id: { not: salon.id } }),
   ]);
   return {
     cursos: cursos.map((c) => ({ id: c.id, nombre: c.nombre, profesorNombre: c.profesor ? nombrePersona(c.profesor.user) : null })),
@@ -249,10 +278,10 @@ export async function asignarBloque(ctx: TenantContext, entrada: unknown): Promi
   const { salonId, dia, periodoId, cursoId, titulo, aula } = d.data;
   if (!cursoId && !titulo) return fallo("Elige un curso o escribe el título del bloque (por ejemplo «Tutoría»).");
 
-  const salon = await ctx.db.salon.findFirst({ where: { id: salonId, ...whereSalonActivo }, select: { id: true, nombre: true, nivel: true } });
+  const salon = await ctx.db.salon.findFirst({ where: { id: salonId, ...whereSalonActivo }, select: { id: true, nombre: true, plantillaId: true } });
   if (!salon) return fallo("No encontramos ese salón.");
-  const periodo = await ctx.db.horarioPeriodo.findFirst({ where: { id: periodoId }, select: { id: true, nivel: true, tipo: true, horaInicio: true, horaFin: true } });
-  if (!periodo || periodo.nivel !== salon.nivel) return fallo("Esa hora no es del nivel de este salón.");
+  const periodo = await ctx.db.horarioPeriodo.findFirst({ where: { id: periodoId }, select: { id: true, plantillaId: true, tipo: true, horaInicio: true, horaFin: true } });
+  if (!periodo || periodo.plantillaId !== salon.plantillaId) return fallo("Esa hora no es de la plantilla de este salón.");
   if (periodo.tipo === "recreo") return fallo("En el recreo no se programan clases.");
 
   let profesorId: string | null = null;
@@ -308,10 +337,11 @@ export async function copiarHorario(ctx: TenantContext, destinoId: string, orige
   if (!z.uuid().safeParse(destinoId).success || !z.uuid().safeParse(origenId).success) return fallo("Elige el salón del que copiar.");
   if (destinoId === origenId) return fallo("Elige otro salón.");
   const [destino, origen] = await Promise.all(
-    [destinoId, origenId].map((id) => ctx.db.salon.findFirst({ where: { id, ...whereSalonActivo }, select: { id: true, nombre: true, nivel: true, grado: true, tutorId: true } })),
+    [destinoId, origenId].map((id) => ctx.db.salon.findFirst({ where: { id, ...whereSalonActivo }, select: { id: true, nombre: true, nivel: true, grado: true, tutorId: true, plantillaId: true } })),
   );
   if (!destino || !origen) return fallo("No encontramos uno de los salones.");
   if (destino.nivel !== origen.nivel || destino.grado !== origen.grado) return fallo("Solo se copia entre salones del mismo grado.");
+  if (!destino.plantillaId || destino.plantillaId !== origen.plantillaId) return fallo("Solo se copia entre salones con la misma plantilla de horario.");
 
   const [bloquesOrigen, cursosDestino] = await Promise.all([
     ctx.db.bloqueHorario.findMany({
@@ -368,10 +398,15 @@ export async function horarioDelProfesor(ctx: TenantContext, profesorId?: string
   if (!prof) notFound();
   const bloques = await buscarBloques(ctx, wherePorProfesor(id));
   const cruces = crucesDe(bloques.map(aOcupacion));
-  return { profesor: { id: prof.id, nombre: nombrePersona(prof.user) }, bloques, cruces };
+  // Jornada (specs/34): entrada, salida, recreos y horas de clase de las plantillas de los salones donde enseña.
+  const plantillas = await ctx.db.plantillaHorario.findMany({
+    where: { salones: { some: { id: { in: [...new Set(bloques.map((b) => b.salonId))] } } } },
+    select: { horaEntrada: true, horaSalida: true, periodos: { select: { horaInicio: true, horaFin: true, tipo: true } } },
+  });
+  return { profesor: { id: prof.id, nombre: nombrePersona(prof.user) }, bloques, cruces, jornada: jornadaDe(plantillas) };
 }
 
-async function contarCruces(ctx: TenantContext): Promise<number> {
+export async function contarCruces(ctx: TenantContext): Promise<number> {
   const bloques = await buscarBloques(ctx, { salon: whereSalonActivo, OR: [{ curso: { profesorId: { not: null } } }, { cursoId: null, profesorId: { not: null } }] });
   return crucesDe(bloques.filter((b) => b.profesorId).map(aOcupacion)).length;
 }

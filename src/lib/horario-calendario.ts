@@ -2,51 +2,15 @@
 import { lunesDeSemana, momentoEnZona, sumarDias } from "@/lib/fechas";
 import { DIAS, diaDeSemana, esDiaHorario, minutos, type DiaHorario, type Intervalo } from "@/lib/horario";
 
-/** Horas que muestra la cuadrícula: de la hora en punto antes de la primera clase a la hora en punto después de la última. */
-export function horasVisibles(bloques: readonly Intervalo[]): { inicio: number; fin: number } {
-  if (bloques.length === 0) return { inicio: 8 * 60, fin: 13 * 60 };
-  const inicio = Math.min(...bloques.map((b) => minutos(b.horaInicio)));
-  const fin = Math.max(...bloques.map((b) => minutos(b.horaFin)));
-  return { inicio: Math.floor(inicio / 60) * 60, fin: Math.max(Math.ceil(fin / 60) * 60, Math.floor(inicio / 60) * 60 + 60) };
-}
+/** La cuadrícula va siempre de 7:00 a 19:00, una fila por hora. */
+export const HORA_INICIO = 7 * 60;
+export const HORA_FIN = 19 * 60;
 
-export type Tramo = { desde: number; hasta: number; libre: boolean };
-
-/** Alto (px) de una franja libre comprimida. */
-export const ALTO_LIBRE = 32;
-
-/**
- * Escala vertical de la cuadrícula: las horas con algo (en cualquier día) se dibujan a escala; dos o más horas seguidas
- * sin nada se comprimen en una franja «libre» de ALTO_LIBRE px (así una reunión a las 18:00 no estira la mañana).
- * `y(min)` da la posición en px y `alto` el total.
- */
-export function escalaHoras(intervalos: readonly Intervalo[], pxMin: number) {
-  const { inicio, fin } = horasVisibles(intervalos);
-  const ocupada = (h: number) => intervalos.some((i) => minutos(i.horaInicio) < (h + 1) * 60 && minutos(i.horaFin) > h * 60);
-  const tramos: Tramo[] = [];
-  for (let h = inicio / 60; h < fin / 60; ) {
-    let k = h;
-    while (k < fin / 60 && !ocupada(k)) k++;
-    if (k - h >= 2) {
-      tramos.push({ desde: h * 60, hasta: k * 60, libre: true });
-      h = k;
-    } else {
-      const ultimo = tramos.at(-1);
-      if (ultimo && !ultimo.libre) ultimo.hasta = (h + 1) * 60;
-      else tramos.push({ desde: h * 60, hasta: (h + 1) * 60, libre: false });
-      h++;
-    }
-  }
-  const largo = (t: Tramo) => (t.libre ? ALTO_LIBRE : (t.hasta - t.desde) * pxMin);
-  const y = (min: number) => {
-    let acc = 0;
-    for (const t of tramos) {
-      if (min <= t.hasta) return acc + (Math.max(min, t.desde) - t.desde) / (t.hasta - t.desde) * largo(t);
-      acc += largo(t);
-    }
-    return acc;
-  };
-  return { inicio, fin, tramos, y, alto: tramos.reduce((s, t) => s + largo(t), 0) };
+/** Horas que muestra la cuadrícula: de 7:00 a 19:00; se amplía a la hora en punto si algo empieza antes o termina después. */
+export function horasVisibles(intervalos: readonly Intervalo[]): { inicio: number; fin: number } {
+  const inicio = Math.min(HORA_INICIO, ...intervalos.map((i) => minutos(i.horaInicio)));
+  const fin = Math.max(HORA_FIN, ...intervalos.map((i) => minutos(i.horaFin)));
+  return { inicio: Math.floor(inicio / 60) * 60, fin: Math.ceil(fin / 60) * 60 };
 }
 
 /**
@@ -139,4 +103,27 @@ export function eventoDeSemana(
     todoElDia: item.tipo === "feriado" || inicio.hora === "00:00",
     href: item.href,
   };
+}
+
+// ───────────── Jornada del profesor (de las plantillas de sus salones) ─────────────
+
+export type Jornada = {
+  /** La entrada más temprana y la salida más tarde de las plantillas de sus salones. */
+  entrada: string;
+  salida: string;
+  /** Recreos de esas plantillas (sin repetir). */
+  recreos: Intervalo[];
+};
+
+/** Jornada a partir de las plantillas (con sus horas) de los salones del profesor. null si ninguno tiene plantilla. */
+export function jornadaDe(plantillas: readonly { horaEntrada: string; horaSalida: string; periodos: readonly (Intervalo & { tipo: string })[] }[]): Jornada | null {
+  if (plantillas.length === 0) return null;
+  const entrada = plantillas.reduce((m, p) => (minutos(p.horaEntrada) < minutos(m) ? p.horaEntrada : m), plantillas[0].horaEntrada);
+  const salida = plantillas.reduce((m, p) => (minutos(p.horaSalida) > minutos(m) ? p.horaSalida : m), plantillas[0].horaSalida);
+  const solo = (tipo: string) => {
+    const vistos = new Map<string, Intervalo>();
+    for (const p of plantillas) for (const x of p.periodos) if (x.tipo === tipo) vistos.set(`${x.horaInicio}-${x.horaFin}`, { horaInicio: x.horaInicio, horaFin: x.horaFin });
+    return [...vistos.values()].sort((a, b) => minutos(a.horaInicio) - minutos(b.horaInicio));
+  };
+  return { entrada, salida, recreos: solo("recreo") };
 }

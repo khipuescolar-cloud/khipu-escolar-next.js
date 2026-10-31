@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, CalendarDays, CalendarOff, ClipboardCheck, Clock, GraduationCap, ListTodo, MapPin, NotebookPen, School, TriangleAlert, Users, type LucideIcon } from "lucide-react";
+import { ArrowRight, CalendarDays, Coffee, CalendarOff, ClipboardCheck, Clock, GraduationCap, ListTodo, MapPin, NotebookPen, School, TriangleAlert, Users, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { buttonVariants } from "@/components/ui/button";
@@ -8,7 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { formatoDia } from "@/lib/fechas";
 import { DIAS, NOMBRE_DIA, NOMBRE_DIA_CORTO, minutos, rango, type DiaHorario } from "@/lib/horario";
-import { carriles, coloresPorCurso, escalaHoras, fechasDeLaSemana, type ColorCurso, type EventoSemana, type TipoEventoSemana } from "@/lib/horario-calendario";
+import { carriles, coloresPorCurso, fechasDeLaSemana, horasVisibles, type Jornada, type ColorCurso, type EventoSemana, type TipoEventoSemana } from "@/lib/horario-calendario";
 import type { BloqueVista } from "@/lib/server/horario";
 import { cn } from "@/lib/utils";
 import { InsigniaAhora } from "./Insignias";
@@ -40,6 +40,10 @@ const TIPO_EVENTO: Record<TipoEventoSemana, { palabra: string; Icono: LucideIcon
   evento: { palabra: "Evento", Icono: CalendarDays },
 };
 
+function escala({ inicio, fin }: { inicio: number; fin: number }) {
+  return { inicio, fin, alto: (fin - inicio) * PX_MIN, y: (min: number) => (min - inicio) * PX_MIN };
+}
+
 const etiquetaHora = (min: number) => `${Math.floor(min / 60)}:${String(min % 60).padStart(2, "0")}`;
 const duracion = (min: number) => (min % 60 === 0 ? `${min / 60} h` : min > 60 ? `${Math.floor(min / 60)} h ${min % 60} min` : `${min} min`);
 
@@ -58,8 +62,10 @@ function useMinutoActual(horaServidor: string) {
 type Contexto = {
   bloques: BloqueConAcciones[];
   eventos: EventoSemana[];
+  jornada: Jornada | null;
   fechas: Record<DiaHorario, string>;
-  horas: ReturnType<typeof escalaHoras>;
+  /** De 7:00 a 19:00 (o más si algo cae fuera); `y(min)` es la posición en px. */
+  horas: { inicio: number; fin: number; alto: number; y: (min: number) => number };
   colores: Map<string, ColorCurso>;
   minAhora: number;
   ahoraId: string | null;
@@ -74,7 +80,9 @@ type Contexto = {
  * clases ya dictadas atenuadas, línea de la hora actual en el día de hoy y, al tocar un bloque, su detalle con los
  * accesos (pasar lista, tareas, notas). Abajo, la leyenda de cursos con sus horas por semana. En el celular, un día a la vez.
  */
-export function CalendarioSemana({ bloques, eventos = [], hoyIso, diaHoy, horaAhora, ahoraId, resumen }: {
+export function CalendarioSemana({ bloques, eventos = [], jornada = null, hoyIso, diaHoy, horaAhora, ahoraId, resumen }: {
+  /** Entrada, salida, recreos y horas de clase de las plantillas de sus salones (specs/34). */
+  jornada?: Jornada | null;
   bloques: BloqueConAcciones[]; hoyIso: string; diaHoy: number; horaAhora: string; ahoraId: string | null;
   /** Reuniones y eventos de la agenda de esta semana. */
   eventos?: EventoSemana[];
@@ -88,8 +96,9 @@ export function CalendarioSemana({ bloques, eventos = [], hoyIso, diaHoy, horaAh
   const ctx: Contexto = {
     bloques,
     eventos,
+    jornada,
     fechas,
-    horas: escalaHoras([...bloques, ...eventos.filter((e) => !e.todoElDia)], PX_MIN),
+    horas: escala(horasVisibles([...bloques, ...eventos.filter((e) => !e.todoElDia)])),
     colores: coloresPorCurso(bloques),
     minAhora,
     ahoraId,
@@ -133,7 +142,7 @@ export function CalendarioSemana({ bloques, eventos = [], hoyIso, diaHoy, horaAh
         ))}
       </Tabs>
 
-      <Leyenda bloques={bloques} colores={ctx.colores} conEventos={eventos.length > 0} />
+      <Leyenda bloques={bloques} colores={ctx.colores} conEventos={eventos.length > 0} jornada={jornada} />
     </section>
   );
 }
@@ -156,10 +165,11 @@ function NumeroDia({ fecha, hoy, chico }: { fecha: string; hoy: boolean; chico?:
 function Cuadricula({ ctx, dias, sinEncabezado }: { ctx: Contexto; dias: readonly DiaHorario[]; sinEncabezado?: boolean }) {
   const { horas, minAhora, esHoy, fechas } = ctx;
   const alto = horas.alto;
-  // Una línea por hora en los tramos a escala (los bordes de las franjas libres también llevan su hora).
-  const marcas = [...new Set(horas.tramos.flatMap((t) => (t.libre ? [t.desde, t.hasta] : Array.from({ length: (t.hasta - t.desde) / 60 + 1 }, (_, i) => t.desde + i * 60))))];
+  // Una fila por hora.
+  const marcas = Array.from({ length: (horas.fin - horas.inicio) / 60 + 1 }, (_, i) => horas.inicio + i * 60);
   const columnas = { gridTemplateColumns: `3.75rem repeat(${dias.length}, minmax(0, 1fr))` };
   const verAhora = dias.some(esHoy) && minAhora >= horas.inicio && minAhora <= horas.fin;
+  const hitos = ctx.jornada ? [minutos(ctx.jornada.entrada), minutos(ctx.jornada.salida)] : [];
 
   return (
     <div>
@@ -189,9 +199,14 @@ function Cuadricula({ ctx, dias, sinEncabezado }: { ctx: Contexto; dias: readonl
       <div className="grid pt-3 pb-4" style={columnas}>
         {/* Horas a la izquierda, centradas sobre su línea; la hora actual las reemplaza cuando caen cerca. */}
         <div className="relative" style={{ height: alto }} aria-hidden>
-          {marcas.filter((m) => !verAhora || Math.abs(m - minAhora) >= 12).map((m) => (
+          {marcas.filter((m) => (!verAhora || Math.abs(m - minAhora) >= 12) && !hitos.some((h) => Math.abs(m - h) < 12)).map((m) => (
             <span key={m} className="absolute right-2.5 -translate-y-1/2 text-etiqueta font-normal text-muted-foreground tabular-nums" style={{ top: horas.y(m) }}>
               {etiquetaHora(m)}
+            </span>
+          ))}
+          {ctx.jornada && [ctx.jornada.entrada, ctx.jornada.salida].map((h) => (
+            <span key={h} className="absolute right-1.5 -translate-y-1/2 rounded-pildora border border-primary/40 bg-card px-1.5 text-etiqueta font-semibold text-primary tabular-nums" style={{ top: horas.y(minutos(h)) }}>
+              {etiquetaHora(minutos(h))}
             </span>
           ))}
           {verAhora && (
@@ -200,13 +215,13 @@ function Cuadricula({ ctx, dias, sinEncabezado }: { ctx: Contexto; dias: readonl
             </span>
           )}
         </div>
-        {dias.map((d) => <ColumnaDia key={d} ctx={ctx} dia={d} marcas={marcas} alto={alto} />)}
+        {dias.map((d, i) => <ColumnaDia key={d} ctx={ctx} dia={d} marcas={marcas} alto={alto} primera={i === 0} />)}
       </div>
     </div>
   );
 }
 
-function ColumnaDia({ ctx, dia, marcas, alto }: { ctx: Contexto; dia: DiaHorario; marcas: number[]; alto: number }) {
+function ColumnaDia({ ctx, dia, marcas, alto, primera }: { ctx: Contexto; dia: DiaHorario; marcas: number[]; alto: number; primera: boolean }) {
   const { horas, minAhora, ahoraId, colores, fechas } = ctx;
   const hoy = ctx.esHoy(dia);
   const bloques = ctx.bloques.filter((b) => b.dia === dia);
@@ -219,23 +234,28 @@ function ColumnaDia({ ctx, dia, marcas, alto }: { ctx: Contexto; dia: DiaHorario
   };
   const verLinea = hoy && minAhora >= horas.inicio && minAhora <= horas.fin;
   const y = horas.y;
+  const { jornada } = ctx;
+  const franja = (i: { horaInicio: string; horaFin: string }) => ({ top: y(minutos(i.horaInicio)), height: y(minutos(i.horaFin)) - y(minutos(i.horaInicio)) });
   return (
     <section aria-label={`${NOMBRE_DIA[dia]} ${formatoDia(fechas[dia], { day: "numeric", month: "long" })}${hoy ? " (hoy)" : ""}`} className={cn("relative border-l", hoy && "bg-primary/[0.04]")} style={{ height: alto }}>
       {marcas.map((m) => <div key={m} aria-hidden className="absolute inset-x-0 border-t" style={{ top: y(m) }} />)}
-      {horas.tramos.filter((t) => !t.libre).flatMap((t) => Array.from({ length: (t.hasta - t.desde) / 60 }, (_, i) => t.desde + i * 60 + 30)).map((m) => (
-        <div key={`m${m}`} aria-hidden className="absolute inset-x-0 border-t border-dashed border-border/60" style={{ top: y(m) }} />
-      ))}
-      {horas.tramos.filter((t) => t.libre).map((t) => (
-        <div
-          key={`l${t.desde}`}
-          aria-hidden
-          className="absolute inset-x-0 flex items-center justify-center bg-[repeating-linear-gradient(135deg,transparent_0_6px,var(--arena)_6px_7px)] text-etiqueta font-normal text-muted-foreground"
-          style={{ top: y(t.desde), height: y(t.hasta) - y(t.desde) }}
-        >
-          <span className="rounded-pildora bg-card px-2">Libre</span>
+      {marcas.slice(0, -1).map((m) => <div key={`m${m}`} aria-hidden className="absolute inset-x-0 border-t border-dashed border-border/60" style={{ top: y(m + 30) }} />)}
+      {jornada?.recreos.map((r) => (
+        <div key={`r${r.horaInicio}`} className="absolute inset-x-0 flex items-center justify-center gap-1 bg-[color-mix(in_oklab,var(--maiz)_16%,transparent)] text-etiqueta font-medium text-foreground/80" style={franja(r)}>
+          <Coffee className="size-3.5 shrink-0" strokeWidth={2} aria-hidden />
+          <span className="truncate">Recreo<span className="sr-only"> de {r.horaInicio} a {r.horaFin}</span></span>
         </div>
       ))}
-      {bloques.length === 0 && eventos.length === 0 ? (
+      {jornada && (["entrada", "salida"] as const).map((k) => (
+        <div key={k} aria-hidden className="pointer-events-none absolute inset-x-0 border-t-2 border-dashed border-primary/45" style={{ top: y(minutos(jornada[k])) }}>
+          {primera && (
+            <span className={cn("absolute left-1 rounded-sm bg-card px-1 text-etiqueta font-semibold text-primary", k === "entrada" ? "-top-5" : "top-0.5")}>
+              {k === "entrada" ? "Entrada" : "Salida"}
+            </span>
+          )}
+        </div>
+      ))}
+      {bloques.length === 0 && eventos.length === 0 && !jornada ? (
         <p className="absolute inset-x-0 top-3 text-center text-cuerpo-sm text-muted-foreground">Sin clases</p>
       ) : (
         <ul>
@@ -316,7 +336,7 @@ function Evento({ b, color, ahora, pasado }: { b: BloqueConAcciones; color: Colo
 }
 
 /** Cursos de la semana con su color y sus horas: identifica cada color con su nombre (no solo color). */
-function Leyenda({ bloques, colores, conEventos }: { bloques: BloqueConAcciones[]; colores: Map<string, ColorCurso>; conEventos: boolean }) {
+function Leyenda({ bloques, colores, conEventos, jornada }: { bloques: BloqueConAcciones[]; colores: Map<string, ColorCurso>; conEventos: boolean; jornada: Jornada | null }) {
   const porCurso = new Map<string, { color: ColorCurso | "sin-curso"; min: number }>();
   for (const b of bloques) {
     const actual = porCurso.get(b.titulo) ?? { color: b.cursoId ? colores.get(b.titulo) ?? "indigo" : "sin-curso", min: 0 };
@@ -340,6 +360,20 @@ function Leyenda({ bloques, colores, conEventos }: { bloques: BloqueConAcciones[
             <span aria-hidden className="size-2.5 rounded-[3px] border border-dashed border-primary" />
             <span className="font-medium">Reuniones y eventos de la agenda</span>
           </li>
+        )}
+        {jornada && (
+          <>
+            <li className="inline-flex items-center gap-2">
+              <span aria-hidden className="w-4 border-t-2 border-dashed border-primary/60" />
+              <span className="font-medium">Entrada {jornada.entrada} · salida {jornada.salida}</span>
+            </li>
+            {jornada.recreos.length > 0 && (
+              <li className="inline-flex items-center gap-2">
+                <span aria-hidden className="size-2.5 rounded-[3px] bg-[color-mix(in_oklab,var(--maiz)_45%,transparent)]" />
+                <span className="font-medium">{jornada.recreos.length === 1 ? "Recreo" : "Recreos"}</span>
+              </li>
+            )}
+          </>
         )}
       </ul>
     </footer>

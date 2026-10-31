@@ -17,7 +17,9 @@ import { whereSalonActivo } from "./salones-activos";
 // activaron en Configuración y tienen Portería:
 // 1. Desde la hora de tardanza (08:00): a las familias de quienes aún no registran ingreso, «aún no llega».
 // 2. Desde la hora límite de falta (09:00): falta del día (origen «automatico») y aviso con enlace para justificar.
-// Cada paso corre UNA vez por colegio y día (`control_ingreso_dia`, reserva atómica). Si al llegar la hora nadie ha
+// Las horas son las de la plantilla de horario de cada salón (specs/34): entrada = tardanza, y su hora límite de falta;
+// los salones sin plantilla usan las de Configuración. Cada grupo de horas («colegio» o una plantilla) avanza por su cuenta.
+// Cada paso corre UNA vez por colegio, día y grupo (`control_ingreso_dia`, reserva atómica). Si al llegar la hora nadie ha
 // registrado ingreso en todo el colegio (portería no abrió, día sin clases), no se hace nada: sería avisar a todas las
 // familias por error. Un alumno que llega después de la falta la corrige al escanear (pasa a «tarde» y se avisa).
 
@@ -47,22 +49,40 @@ export async function procesarControlIngreso(ahora = new Date()): Promise<Resume
   return resumen;
 }
 
-/** Corre el paso que toque en un colegio. Devuelve null si no tocaba nada. */
+/** Horas de un grupo de salones: los que usan una plantilla, o los que no tienen ninguna (`plantillaId: null`). */
+type Grupo = { clave: string; plantillaId: string | null; tardanza: string; falta: string };
+
+/** Corre el paso que toque en cada grupo de horas del colegio. Devuelve null si no tocaba nada. */
 export async function controlDelColegio(tenant: TenantControl, ahora = new Date()): Promise<{ avisosNoLlega: number; faltas: number } | null> {
   const hoy = momentoEnZona(ahora, tenant.zonaHoraria);
-  const fase = faseControlIngreso(hoy.hora, tenant.horaLimiteTardanza, tenant.horaLimiteFalta);
-  if (fase === "antes") return null;
+  const tdb = dbTenant(tenant.id);
+  const plantillas = await tdb.plantillaHorario.findMany({ where: { salones: { some: whereSalonActivo } }, select: { id: true, horaEntrada: true, horaLimiteFalta: true } });
+  const grupos: Grupo[] = [
+    { clave: "colegio", plantillaId: null, tardanza: tenant.horaLimiteTardanza, falta: tenant.horaLimiteFalta },
+    ...plantillas.map((p) => ({ clave: p.id, plantillaId: p.id, tardanza: p.horaEntrada, falta: p.horaLimiteFalta })),
+  ];
+  const pendientes = grupos.map((g) => ({ g, fase: faseControlIngreso(hoy.hora, g.tardanza, g.falta) })).filter((x) => x.fase !== "antes");
+  if (pendientes.length === 0) return null;
   if (!esDiaHabil(hoy.isoFecha, await feriadosAplicables(tenant.id, hoy.isoFecha, hoy.isoFecha))) return null;
   if (!(await modulosDelColegio(tenant)).activos.has("porteria")) return null;
 
-  const tdb = dbTenant(tenant.id);
   const fecha = fechaDb(hoy.isoFecha);
   const ingresosHoy = await tdb.asistencia.count({ where: { fecha, ambito: AMBITO_DIA, estado: { in: ["llego", "tarde"] } } });
   if (ingresosHoy === 0) return null; // portería no abrió o no hay clases: no se avisa a todo el colegio
 
+  const hechos = [];
+  for (const { g, fase } of pendientes) {
+    const r = await pasoDelGrupo(tdb, tenant, g, fase as "no_llega" | "falta", fecha, hoy.hora, ahora);
+    if (r) hechos.push(r);
+  }
+  if (hechos.length === 0) return null;
+  return { avisosNoLlega: hechos.reduce((t, r) => t + r.avisosNoLlega, 0), faltas: hechos.reduce((t, r) => t + r.faltas, 0) };
+}
+
+async function pasoDelGrupo(tdb: DbTenant, tenant: TenantControl, g: Grupo, fase: "no_llega" | "falta", fecha: Date, hora: string, ahora: Date) {
   const control = await tdb.controlIngresoDia.upsert({
-    where: { tenantId_fecha: { tenantId: tenant.id, fecha } },
-    create: { tenantId: tenant.id, fecha },
+    where: { tenantId_fecha_clave: { tenantId: tenant.id, fecha, clave: g.clave } },
+    create: { tenantId: tenant.id, fecha, clave: g.clave },
     update: {},
     select: { id: true },
   });
@@ -74,30 +94,30 @@ export async function controlDelColegio(tenant: TenantControl, ahora = new Date(
   });
   if (reservado.count === 0) return null;
 
-  const sinIngreso = await alumnosSinIngreso(tdb, fecha);
+  const sinIngreso = await alumnosSinIngreso(tdb, fecha, g.plantillaId);
   if (fase === "no_llega") {
-    const avisos = await avisarNoLlega(tdb, tenant, sinIngreso, hoy.hora);
+    const avisos = await avisarNoLlega(tdb, tenant, g, sinIngreso, hora);
     await tdb.controlIngresoDia.update({ where: { id: control.id }, data: { avisadosNoLlega: avisos } });
     return { avisosNoLlega: avisos, faltas: 0 };
   }
-  const faltas = await ponerFaltas(tdb, tenant, sinIngreso, fecha, hoy.hora);
+  const faltas = await ponerFaltas(tdb, tenant, g, sinIngreso, fecha, hora);
   await tdb.controlIngresoDia.update({ where: { id: control.id }, data: { faltas } });
   return { avisosNoLlega: 0, faltas };
 }
 
-/** Alumnos activos de salones activos sin ningún registro de asistencia del día (ni llegada, ni falta, ni problema). */
-async function alumnosSinIngreso(tdb: DbTenant, fecha: Date) {
+/** Alumnos activos de los salones activos del grupo sin ningún registro de asistencia del día (ni llegada, ni falta, ni problema). */
+async function alumnosSinIngreso(tdb: DbTenant, fecha: Date, plantillaId: string | null) {
   return tdb.alumno.findMany({
-    where: { estado: "activo", salon: whereSalonActivo, asistencias: { none: { fecha, ambito: AMBITO_DIA } } },
+    where: { estado: "activo", salon: { ...whereSalonActivo, plantillaId }, asistencias: { none: { fecha, ambito: AMBITO_DIA } } },
     select: { id: true, nombres: true },
   });
 }
 
 /** «Aún no llega» a cada familia con canal de aviso. Devuelve a cuántas familias se avisó. */
-async function avisarNoLlega(tdb: DbTenant, tenant: TenantControl, alumnos: { id: string; nombres: string }[], hora: string): Promise<number> {
+async function avisarNoLlega(tdb: DbTenant, tenant: TenantControl, g: Grupo, alumnos: { id: string; nombres: string }[], hora: string): Promise<number> {
   const destinatarios = await destinatariosPorAlumno(tdb, alumnos.map((a) => a.id));
   let familias = 0;
-  const envio = { tenantId: tenant.id, tipo: "asistencia" as const, titulo: `Aún no llega (${hora12(tenant.horaLimiteTardanza)})` };
+  const envio = { tenantId: tenant.id, tipo: "asistencia" as const, titulo: `Aún no llega (${hora12(g.tardanza)})` };
   await conEnvio(tdb, envio, async () => {
     for (const a of alumnos) {
       for (const d of destinatarios.get(a.id) ?? []) {
@@ -110,7 +130,7 @@ async function avisarNoLlega(tdb: DbTenant, tenant: TenantControl, alumnos: { id
           unidad: a.id,
           payload: {
             colegio: tenant.nombre, saludo: saludoFamilia(d.nombre, hora), alumno: primerNombre(a.nombres),
-            horaTardanza: tenant.horaLimiteTardanza, horaFalta: tenant.horaLimiteFalta,
+            horaTardanza: g.tardanza, horaFalta: g.falta,
           },
         });
         if (filas > 0) familias++;
@@ -121,12 +141,12 @@ async function avisarNoLlega(tdb: DbTenant, tenant: TenantControl, alumnos: { id
 }
 
 /** Falta del día para cada alumno sin ingreso, con aviso y enlace para justificar. Devuelve cuántas faltas puso. */
-async function ponerFaltas(tdb: DbTenant, tenant: TenantControl, alumnos: { id: string; nombres: string }[], fecha: Date, hora: string): Promise<number> {
+async function ponerFaltas(tdb: DbTenant, tenant: TenantControl, g: Grupo, alumnos: { id: string; nombres: string }[], fecha: Date, hora: string): Promise<number> {
   if (alumnos.length === 0) return 0;
   // skipDuplicates: si portería registró la llegada entre la consulta y este insert, se respeta la llegada.
   await tdb.asistencia.createMany({
     data: alumnos.map((a) => ({
-      tenantId: tenant.id, alumnoId: a.id, cursoId: null, ambito: AMBITO_DIA, fecha, hora: tenant.horaLimiteFalta,
+      tenantId: tenant.id, alumnoId: a.id, cursoId: null, ambito: AMBITO_DIA, fecha, hora: g.falta,
       estado: "falta" as const, origen: "automatico" as const, registradoPorId: null,
     })),
     skipDuplicates: true,
@@ -141,7 +161,7 @@ async function ponerFaltas(tdb: DbTenant, tenant: TenantControl, alumnos: { id: 
   })));
   const nombres = new Map(alumnos.map((a) => [a.id, primerNombre(a.nombres)]));
   const destinatarios = await destinatariosPorAlumno(tdb, creadas.map((c) => c.alumnoId));
-  const envio = { tenantId: tenant.id, tipo: "asistencia" as const, titulo: `Faltas del día (${hora12(tenant.horaLimiteFalta)})` };
+  const envio = { tenantId: tenant.id, tipo: "asistencia" as const, titulo: `Faltas del día (${hora12(g.falta)})` };
   await conEnvio(tdb, envio, async () => {
     for (const asistencia of creadas) {
       await encolarAvisosAsistencia(tdb, {
@@ -149,7 +169,7 @@ async function ponerFaltas(tdb: DbTenant, tenant: TenantControl, alumnos: { id: 
         asistencia,
         alumnoNombre: nombres.get(asistencia.alumnoId)!,
         momento: "hoy",
-        horaLimiteFalta: tenant.horaLimiteFalta,
+        horaLimiteFalta: g.falta,
         horaAhora: hora,
         destinatarios: destinatarios.get(asistencia.alumnoId) ?? [],
       });

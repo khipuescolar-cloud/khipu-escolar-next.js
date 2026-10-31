@@ -5,7 +5,7 @@
 // tienen horario ni niveles que ya tienen horas.
 import type { PrismaClient } from "../src/generated/prisma/client";
 import type { Nivel } from "../src/generated/prisma/enums";
-import { DIAS, PERIODOS_SUGERIDOS, buscarCruce, diaDeSemana, ordenarPorHora, type OcupacionProfesor } from "../src/lib/horario";
+import { DIAS, PERIODOS_SUGERIDOS, buscarCruce, diaDeSemana, minutos, ordenarPorHora, type OcupacionProfesor } from "../src/lib/horario";
 
 const ORDEN_NIVEL: Record<Nivel, number> = { inicial: 0, primaria: 1, secundaria: 2, academia: 3 };
 /** Como máximo dos horas del mismo curso por día. */
@@ -81,6 +81,28 @@ export function clasesDelDia(bloques: BloqueCurso[], salonId: string, isoFecha: 
 }
 
 /** Todos los colegios, o solo `tenantIds` (las pruebas lo usan con su colegio de prueba). */
+const NOMBRE_PLANTILLA: Record<Nivel, string> = { inicial: "Inicial", primaria: "Primaria", secundaria: "Secundaria", academia: "Academia" };
+
+/** Plantilla del nivel (la crea con las horas sugeridas si no existe). Entrada 08:00 = tardanza de Configuración del seed. */
+async function plantillaDelNivel(prisma: PrismaClient, tenantId: string, nivel: Nivel): Promise<string> {
+  const nombre = NOMBRE_PLANTILLA[nivel];
+  const existente = await prisma.plantillaHorario.findFirst({ where: { tenantId, nombre }, select: { id: true } });
+  if (existente) return existente.id;
+  const sugeridas = PERIODOS_SUGERIDOS[nivel];
+  const entrada = sugeridas[0].horaInicio;
+  const [h, m] = entrada.split(":").map(Number);
+  const plantilla = await prisma.plantillaHorario.create({
+    data: {
+      tenantId, nombre, horaEntrada: entrada, horaSalida: sugeridas.at(-1)!.horaFin,
+      duracionClase: minutos(sugeridas[0].horaFin) - minutos(entrada),
+      horaLimiteFalta: `${String(h + 1).padStart(2, "0")}:${String(m).padStart(2, "0")}`,
+    },
+    select: { id: true },
+  });
+  await prisma.horarioPeriodo.createMany({ data: sugeridas.map((p) => ({ ...p, tenantId, plantillaId: plantilla.id })) });
+  return plantilla.id;
+}
+
 export async function sembrarHorario(prisma: PrismaClient, opciones: { tenantIds?: string[] } = {}) {
   const tenants = await prisma.tenant.findMany({ where: opciones.tenantIds ? { id: { in: opciones.tenantIds } } : {}, select: { id: true, slug: true } });
   for (const t of tenants) {
@@ -90,14 +112,13 @@ export async function sembrarHorario(prisma: PrismaClient, opciones: { tenantIds
     });
     if (salones.length === 0) continue;
 
-    // Horas sugeridas de cada nivel que aún no tiene horas.
+    // Una plantilla de horario por nivel (specs/34) con las horas sugeridas; los salones sin plantilla usan la de su nivel.
     const niveles = [...new Set(salones.map((s) => s.nivel))];
     const periodos = new Map<Nivel, Periodo[]>();
     for (const nivel of niveles) {
-      if ((await prisma.horarioPeriodo.count({ where: { tenantId: t.id, nivel } })) === 0) {
-        await prisma.horarioPeriodo.createMany({ data: PERIODOS_SUGERIDOS[nivel].map((p) => ({ ...p, tenantId: t.id, nivel })) });
-      }
-      const filas = await prisma.horarioPeriodo.findMany({ where: { tenantId: t.id, nivel }, select: { id: true, horaInicio: true, horaFin: true, tipo: true } });
+      const plantillaId = await plantillaDelNivel(prisma, t.id, nivel);
+      await prisma.salon.updateMany({ where: { tenantId: t.id, nivel, plantillaId: null }, data: { plantillaId } });
+      const filas = await prisma.horarioPeriodo.findMany({ where: { tenantId: t.id, plantillaId }, select: { id: true, horaInicio: true, horaFin: true, tipo: true } });
       periodos.set(nivel, ordenarPorHora(filas));
     }
 

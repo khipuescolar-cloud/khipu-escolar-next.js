@@ -5,8 +5,8 @@ import { crucesDe } from "@/lib/horario";
 import { modulosDeCodigo } from "@/lib/modulos";
 import { db } from "@/lib/server/db";
 import {
-  asignarBloque, cargaDocente, copiarHorario, crearPeriodosSugeridos, cursosDeHoy, guardarPeriodos, horarioDeHoy, horarioDelProfesor, horarioDelSalon,
-  periodosDelNivel, quitarBloque,
+  asignarBloque, cargaDocente, copiarHorario, crearPlantillaSugerida, cursosDeHoy, guardarPeriodos, horarioDeHoy, horarioDelProfesor, horarioDelSalon,
+  periodosDeLaPlantilla, quitarBloque,
 } from "@/lib/server/horario";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
@@ -26,9 +26,16 @@ afterAll(async () => {
   await otro?.limpiar();
 }, 30_000);
 
+async function plantillaDe(c: ColegioPrueba, salonId = c.salon.id) {
+  return (await c.db.salon.findFirstOrThrow({ where: { id: salonId }, select: { plantillaId: true } })).plantillaId!;
+}
+
+async function periodosDe(c: ColegioPrueba, salonId = c.salon.id) {
+  return periodosDeLaPlantilla(c.ctxDe("direccion"), await plantillaDe(c, salonId));
+}
+
 async function primeraClase(c: ColegioPrueba) {
-  const periodos = await periodosDelNivel(c.ctxDe("direccion"), "primaria");
-  return periodos.filter((p) => p.tipo === "clase");
+  return (await periodosDe(c)).filter((p) => p.tipo === "clase");
 }
 
 describe("plan", () => {
@@ -38,7 +45,7 @@ describe("plan", () => {
   });
 
   it("un colegio Base arma y consulta su horario", async () => {
-    expect((await crearPeriodosSugeridos(base.ctxDe("direccion"), "primaria")).ok).toBe(true);
+    expect((await crearPlantillaSugerida(base.ctxDe("direccion"), base.salon.id)).ok).toBe(true);
     const [p1] = await primeraClase(base);
     const r = await asignarBloque(base.ctxDe("direccion"), { salonId: base.salon.id, dia: 1, periodoId: p1.id, cursoId: base.cursoTutora.id });
     expect(r).toEqual({ ok: true, mensaje: "Guardamos el horario." });
@@ -48,25 +55,29 @@ describe("plan", () => {
 });
 
 describe("horas del día", () => {
-  it("crea las sugeridas una sola vez y valida al editar", async () => {
+  it("la plantilla sugerida se crea una vez, la usan los salones del nivel y valida al editar", async () => {
     const ctx = pro.ctxDe("direccion");
-    expect((await crearPeriodosSugeridos(ctx, "primaria")).ok).toBe(true);
-    expect(await crearPeriodosSugeridos(ctx, "primaria")).toEqual({ ok: false, error: "Este nivel ya tiene sus horas del día." });
-    const periodos = await periodosDelNivel(ctx, "primaria");
+    expect((await crearPlantillaSugerida(ctx, pro.salon.id)).ok).toBe(true);
+    expect(await crearPlantillaSugerida(ctx, pro.salon.id)).toEqual({ ok: false, error: "Este salón ya tiene plantilla." });
+    // 5.° A (también primaria) quedó con la misma plantilla.
+    expect(await plantillaDe(pro, pro.otroSalon.id)).toBe(await plantillaDe(pro));
+    const periodos = await periodosDe(pro);
     expect(periodos.length).toBe(7);
+    const plantilla = await plantillaDe(pro);
     const cruzadas = periodos.map((p, i) => (i === 1 ? { ...p, horaInicio: "08:30" } : p));
-    expect(await guardarPeriodos(ctx, "primaria", cruzadas)).toMatchObject({ ok: false, error: expect.stringMatching(/se cruzan/) });
-    await esperarProhibido(guardarPeriodos(pro.ctxDe("tutora"), "primaria", periodos));
+    expect(await guardarPeriodos(ctx, plantilla, cruzadas)).toMatchObject({ ok: false, error: expect.stringMatching(/se cruzan/) });
+    await esperarProhibido(guardarPeriodos(pro.ctxDe("tutora"), plantilla, periodos));
   });
 
   it("quitar una hora vacía sus casilleros y queda auditado", async () => {
     const ctx = pro.ctxDe("direccion");
-    const periodos = await periodosDelNivel(ctx, "primaria");
+    const periodos = await periodosDe(pro);
+    const plantilla = await plantillaDe(pro);
     const extra = { nombre: "8.ª hora", horaInicio: "13:00", horaFin: "13:45", tipo: "clase" as const };
-    expect((await guardarPeriodos(ctx, "primaria", [...periodos, extra])).ok).toBe(true);
-    const nueva = (await periodosDelNivel(ctx, "primaria")).find((p) => p.nombre === "8.ª hora")!;
+    expect((await guardarPeriodos(ctx, plantilla, [...periodos, extra])).ok).toBe(true);
+    const nueva = (await periodosDe(pro)).find((p) => p.nombre === "8.ª hora")!;
     await asignarBloque(ctx, { salonId: pro.salon.id, dia: 3, periodoId: nueva.id, titulo: "Taller" });
-    const r = await guardarPeriodos(ctx, "primaria", periodos);
+    const r = await guardarPeriodos(ctx, plantilla, periodos);
     expect(r).toMatchObject({ ok: true, mensaje: expect.stringContaining("Se vació 1 casillero") });
     expect(await pro.db.bloqueHorario.count({ where: { periodoId: nueva.id } })).toBe(0);
     expect(await db.auditoria.count({ where: { tenantId: pro.tenant.id, entidad: "horario_periodos", accion: "editar" } })).toBe(2);
@@ -84,11 +95,12 @@ describe("armar el horario", () => {
     expect((await quitarBloque(ctx, { salonId: pro.salon.id, dia: 1, periodoId: p1.id })).ok).toBe(true);
     expect(await quitarBloque(ctx, { salonId: pro.salon.id, dia: 1, periodoId: p1.id })).toEqual({ ok: false, error: "Ese casillero ya estaba vacío." });
 
-    const recreo = (await periodosDelNivel(ctx, "primaria")).find((p) => p.tipo === "recreo")!;
+    const recreo = (await periodosDe(pro)).find((p) => p.tipo === "recreo")!;
     expect(await asignarBloque(ctx, { salonId: pro.salon.id, dia: 1, periodoId: recreo.id, cursoId: pro.cursoTutora.id })).toEqual({ ok: false, error: "En el recreo no se programan clases." });
-    await crearPeriodosSugeridos(ctx, "secundaria");
-    const [sec] = await periodosDelNivel(ctx, "secundaria");
-    expect(await asignarBloque(ctx, { salonId: pro.salon.id, dia: 1, periodoId: sec.id, cursoId: pro.cursoTutora.id })).toEqual({ ok: false, error: "Esa hora no es del nivel de este salón." });
+    const secundaria = await pro.db.salon.create({ data: { tenantId: pro.tenant.id, nombre: "1.° Sec", nivel: "secundaria", anio: 2026 } });
+    await crearPlantillaSugerida(ctx, secundaria.id);
+    const [sec] = await periodosDe(pro, secundaria.id);
+    expect(await asignarBloque(ctx, { salonId: pro.salon.id, dia: 1, periodoId: sec.id, cursoId: pro.cursoTutora.id })).toEqual({ ok: false, error: "Esa hora no es de la plantilla de este salón." });
     expect(await asignarBloque(ctx, { salonId: pro.salon.id, dia: 1, periodoId: p1.id, cursoId: pro.cursoAjeno.id })).toEqual({ ok: false, error: "Ese curso no es de este salón." });
     expect(await asignarBloque(ctx, { salonId: pro.salon.id, dia: 6, periodoId: p1.id, titulo: "Taller" })).toEqual({ ok: false, error: "Elige un día de lunes a viernes." });
     expect(await db.auditoria.count({ where: { tenantId: pro.tenant.id, entidad: "horario", entidadId: pro.salon.id } })).toBeGreaterThanOrEqual(3);
@@ -116,7 +128,7 @@ describe("armar el horario", () => {
   it("copia el horario a otro salón del mismo grado emparejando cursos por nombre", async () => {
     const ctx = pro.ctxDe("direccion");
     const [p1] = await primeraClase(pro);
-    const tercero = await pro.db.salon.create({ data: { tenantId: pro.tenant.id, nombre: "3.° C", nivel: "primaria", grado: 3, anio: 2026 } });
+    const tercero = await pro.db.salon.create({ data: { tenantId: pro.tenant.id, nombre: "3.° C", nivel: "primaria", grado: 3, anio: 2026, plantillaId: await plantillaDe(pro) } });
     await pro.db.salon.update({ where: { id: pro.salon.id }, data: { grado: 3 } });
     const mate = await pro.db.curso.create({ data: { tenantId: pro.tenant.id, salonId: tercero.id, nombre: "Matemática", profesorId: pro.miembros.otroProfesor.membership.id } });
     expect((await asignarBloque(ctx, { salonId: pro.salon.id, dia: 4, periodoId: p1.id, titulo: "Plan lector" })).ok).toBe(true);
@@ -136,7 +148,7 @@ describe("permisos y aislamiento", () => {
     await esperarProhibido(asignarBloque(pro.ctxDe("tutora"), datos));
     await esperarProhibido(asignarBloque(pro.ctxDe("madre"), datos));
     await esperarProhibido(quitarBloque(pro.ctxDe("tutora"), datos));
-    await esperarProhibido(crearPeriodosSugeridos(pro.ctxDe("tutora"), "inicial"));
+    await esperarProhibido(crearPlantillaSugerida(pro.ctxDe("tutora"), pro.salon.id));
     // Portería no usa el módulo.
     await esperarProhibido(horarioDelSalon(pro.ctxDe("porteria"), pro.salon.id));
     // La madre de Mateo (3.° B) ve 3.° B, pero no 5.° A.
@@ -150,11 +162,12 @@ describe("permisos y aislamiento", () => {
 
   it("un colegio no ve ni usa las horas ni los salones de otro", async () => {
     const [p1] = await primeraClase(pro);
-    await crearPeriodosSugeridos(otro.ctxDe("direccion"), "primaria");
+    await crearPlantillaSugerida(otro.ctxDe("direccion"), otro.salon.id);
     // Hora de Pro en un salón de «otro»: no la encuentra.
-    expect(await asignarBloque(otro.ctxDe("direccion"), { salonId: otro.salon.id, dia: 1, periodoId: p1.id, cursoId: otro.cursoTutora.id })).toEqual({ ok: false, error: "Esa hora no es del nivel de este salón." });
+    expect(await asignarBloque(otro.ctxDe("direccion"), { salonId: otro.salon.id, dia: 1, periodoId: p1.id, cursoId: otro.cursoTutora.id })).toEqual({ ok: false, error: "Esa hora no es de la plantilla de este salón." });
     expect(await asignarBloque(otro.ctxDe("direccion"), { salonId: pro.salon.id, dia: 1, periodoId: p1.id, titulo: "Taller" })).toEqual({ ok: false, error: "No encontramos ese salón." });
-    expect((await periodosDelNivel(otro.ctxDe("direccion"), "primaria")).some((p) => p.id === p1.id)).toBe(false);
+    expect((await periodosDe(otro)).some((p) => p.id === p1.id)).toBe(false);
+    expect(await periodosDeLaPlantilla(otro.ctxDe("direccion"), await plantillaDe(pro))).toEqual([]);
     await expect(horarioDelSalon(otro.ctxDe("direccion"), pro.salon.id)).rejects.toThrow();
   });
 });
@@ -194,7 +207,8 @@ describe("seed", () => {
       await sembrarHorario(db, { tenantIds: [c.tenant.id] });
       const total = await c.db.bloqueHorario.count();
       expect(total).toBeGreaterThan(20);
-      expect(await c.db.horarioPeriodo.count({ where: { nivel: "secundaria" } })).toBe(8);
+      expect(await c.db.horarioPeriodo.count({ where: { plantilla: { nombre: "Secundaria" } } })).toBe(8);
+      expect(await c.db.salon.count({ where: { plantillaId: null } })).toBe(0);
       const ctx = c.ctxDe("direccion");
       const carga = await cargaDocente(ctx);
       expect(carga.every((p) => p.cruces === 0)).toBe(true);

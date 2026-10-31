@@ -1,4 +1,4 @@
-import { ArrowLeft, CalendarClock, CheckCircle2, Copy, Eye, School, TriangleAlert, Users } from "lucide-react";
+import { ArrowLeft, CalendarClock, CheckCircle2, Copy, Eye, LayoutTemplate, Plus, Repeat, School, TriangleAlert, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { forbidden } from "next/navigation";
@@ -23,8 +23,10 @@ import {
   salonesParaHorario, type BloqueVista,
 } from "@/lib/server/horario";
 import { requireFeature, tieneFeature } from "@/lib/server/plan";
+import { listarPlantillas } from "@/lib/server/plantillas-horario";
 import { requireTenantContext, type TenantContext } from "@/lib/server/tenant";
 import { casilleroAction, copiarAction, periodosAction, sugeridasAction } from "./actions";
+import { asignarPlantillaAction } from "./plantillas/actions";
 
 export const metadata: Metadata = { title: "Horario" };
 
@@ -59,13 +61,18 @@ async function VistaDireccion({ ctx, slug, salonId }: { ctx: TenantContext; slug
     <EncabezadoPagina
       titulo="Horarios"
       descripcion="Elige un salón y toca cada casillero para asignar un curso. Khipu no deja que un profesor esté en dos salones a la vez."
-      acciones={<Link href="/horario?vista=profesores" className={buttonVariants({ variant: "outline" })}><Users strokeWidth={2} aria-hidden />Carga de profesores</Link>}
+      acciones={
+        <>
+          <Link href="/horario/plantillas" className={buttonVariants({ variant: "outline" })}><LayoutTemplate strokeWidth={2} aria-hidden />Plantillas de horario</Link>
+          <Link href="/horario?vista=profesores" className={buttonVariants({ variant: "outline" })}><Users strokeWidth={2} aria-hidden />Carga de profesores</Link>
+        </>
+      }
     />
   );
   if (!elegido) {
     return <div>{encabezado}<EstadoVacio icono={School} titulo="Aún no hay salones" descripcion="Crea los salones en Gestión y vuelve para armar su horario." /></div>;
   }
-  const [{ salon, periodos, bloques }, opciones] = await Promise.all([horarioDelSalon(ctx, elegido.id), opcionesDeCasillero(ctx, elegido.id)]);
+  const [{ salon, periodos, bloques }, opciones, plantillas] = await Promise.all([horarioDelSalon(ctx, elegido.id), opcionesDeCasillero(ctx, elegido.id), listarPlantillas(ctx)]);
   const { dia, hora } = ahoraDelColegio(ctx);
   const { ahora } = bloqueAhora(bloques, dia, hora);
   const nivel = NOMBRE_NIVEL[salon.nivel];
@@ -87,11 +94,27 @@ async function VistaDireccion({ ctx, slug, salonId }: { ctx: TenantContext; slug
         <div>
           <h2 className="text-titulo-2">{salon.nombre}</h2>
           <p className="text-cuerpo-sm text-muted-foreground">
-            {nivel}{salon.tutorNombre ? ` · Tutoría: ${salon.tutorNombre}` : ""} · {bloques.length} de {clases * 5} casilleros asignados
+            {nivel}{salon.tutorNombre ? ` · Tutoría: ${salon.tutorNombre}` : ""}
+            {salon.plantilla && <> · Plantilla «{salon.plantilla.nombre}» ({salon.plantilla.horaEntrada}–{salon.plantilla.horaSalida}) · {bloques.length} de {clases * 5} casilleros asignados</>}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
-          {periodos.length > 0 && <EditorHoras nivelNombre={nivel} periodos={periodos} accion={periodosAction.bind(null, slug, salon.nivel)} />}
+          {salon.plantilla && plantillas.length > 1 && (
+            <DialogoAccion
+              variante="outline"
+              disparador={<><Repeat strokeWidth={2} aria-hidden />Cambiar plantilla</>}
+              titulo={`Plantilla de ${salon.nombre}`}
+              descripcion="Las clases ya puestas pasan a la misma hora de la nueva plantilla (la 1.ª hora a la 1.ª hora); las que no tengan hora equivalente se vacían."
+              etiqueta="Cambiar plantilla"
+              accion={asignarPlantillaAction.bind(null, slug, salon.id)}
+            >
+              <Selector etiqueta="Plantilla" name="plantillaId" required defaultValue="">
+                <option value="" disabled>Elige la plantilla</option>
+                {plantillas.filter((p) => p.id !== salon.plantilla?.id).map((p) => <option key={p.id} value={p.id}>{p.nombre} · {p.horaEntrada}–{p.horaSalida}</option>)}
+              </Selector>
+            </DialogoAccion>
+          )}
+          {salon.plantilla && periodos.length > 0 && <EditorHoras plantillaNombre={salon.plantilla.nombre} periodos={periodos} accion={periodosAction.bind(null, slug, salon.plantilla.id)} />}
           {opciones.mismoGrado.length > 0 && periodos.length > 0 && (
             <DialogoAccion
               variante="outline"
@@ -110,12 +133,32 @@ async function VistaDireccion({ ctx, slug, salonId }: { ctx: TenantContext; slug
         </div>
       </div>
 
-      {periodos.length === 0 ? (
+      {!salon.plantilla ? (
         <EstadoVacio
           icono={CalendarClock}
-          titulo={`Primero define las horas del día de ${nivel.toLowerCase()}`}
-          descripcion="Te sugerimos horas de 45 minutos con recreo a media mañana (en inicial, una jornada más corta). Luego puedes ajustarlas."
-          accion={<BotonSugeridas accion={sugeridasAction.bind(null, slug, salon.nivel)} />}
+          titulo={`${salon.nombre} aún no tiene plantilla de horario`}
+          descripcion="La plantilla dice a qué hora entran, los recreos y a qué hora salen; con eso Khipu arma las horas de clase y sabe desde cuándo la llegada es tardanza."
+          accion={
+            <div className="flex flex-col items-center gap-3">
+              {plantillas.length > 0 ? (
+                <DialogoAccion
+                  disparador={<><LayoutTemplate strokeWidth={2} aria-hidden />Elegir plantilla</>}
+                  titulo={`Plantilla de ${salon.nombre}`}
+                  descripcion="Elige la jornada que sigue este salón."
+                  etiqueta="Usar plantilla"
+                  accion={asignarPlantillaAction.bind(null, slug, salon.id)}
+                >
+                  <Selector etiqueta="Plantilla" name="plantillaId" required defaultValue="">
+                    <option value="" disabled>Elige la plantilla</option>
+                    {plantillas.map((p) => <option key={p.id} value={p.id}>{p.nombre} · {p.horaEntrada}–{p.horaSalida}</option>)}
+                  </Selector>
+                </DialogoAccion>
+              ) : (
+                <BotonSugeridas texto={`Usar la plantilla sugerida de ${nivel.toLowerCase()}`} accion={sugeridasAction.bind(null, slug, salon.id)} />
+              )}
+              <Link href="/horario/plantillas/nueva" className="inline-flex min-h-10 items-center gap-1 text-cuerpo-sm enlace"><Plus className="size-4" strokeWidth={2} aria-hidden />Crear una plantilla nueva</Link>
+            </div>
+          }
         />
       ) : (
         <>
@@ -191,7 +234,7 @@ async function CargaProfesores({ ctx }: { ctx: TenantContext }) {
 // ───────────── Profesor: «Mi horario» (y dirección viendo la semana de un profesor) ─────────────
 
 async function SemanaProfesor({ ctx, profesorId }: { ctx: TenantContext; profesorId?: string }) {
-  const { profesor, bloques, cruces } = await horarioDelProfesor(ctx, profesorId);
+  const { profesor, bloques, cruces, jornada } = await horarioDelProfesor(ctx, profesorId);
   const { dia, hora, isoFecha } = ahoraDelColegio(ctx);
   const esPropio = ctx.rol === "profesor";
   const { ahora, despues } = bloqueAhora(bloques, dia, hora);
@@ -232,6 +275,7 @@ async function SemanaProfesor({ ctx, profesorId }: { ctx: TenantContext; profeso
           <CalendarioSemana
             bloques={conAcciones}
             eventos={eventos}
+            jornada={jornada}
             hoyIso={isoFecha}
             diaHoy={dia}
             horaAhora={hora}

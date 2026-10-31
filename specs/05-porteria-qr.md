@@ -22,13 +22,13 @@ Verificar la llegada del alumno en la puerta escaneando su carnet, sin depender 
 
 ## Reglas de negocio
 - El hash se busca con `ctx.db` (filtrado por colegio): un carnet de otro colegio no existe para este contexto → «Carnet no válido para este colegio». Carnet anulado o regenerado → mismo mensaje.
-- Registra `ambito = "dia"`, `origen = porteria`, `cursoId = null`; estado `tarde` si la hora local ≥ `tenant.horaLimiteTardanza` (por defecto 08:00), si no `llego`.
+- Registra `ambito = "dia"`, `origen = porteria`, `cursoId = null`; estado `tarde` si la hora local ≥ la **entrada de la plantilla de horario del salón** del alumno (specs/34); si el salón no tiene plantilla, `tenant.horaLimiteTardanza` (por defecto 08:00). Si no, `llego`.
 - Si ya hay registro del día que no sea «Falta» → no duplica ni re-avisa: «Ya registrado 7:52 a. m.». Si figuraba «Falta», se corrige a llegó/tarde y se avisa.
 - La misma lectura repetida en < 2,5 s se ignora en el cliente.
 - Auditoría: creación/anulación de carnets, impresión, lecturas rechazadas y cada registro.
 
 ## Control de ingreso automático (2026-11-06)
-Opcional por colegio: Configuración → «Control de ingreso automático por portería» (`tenants.control_ingreso_automatico`, por defecto apagado; requiere el módulo Portería). Horas: `horaLimiteTardanza` (08:00) y `horaLimiteFalta` (09:00, debe ser posterior). Lo corre `procesarControlIngreso()` (`src/lib/server/control-ingreso.ts`) desde `/api/cron/avisos`, antes de procesar la cola; el cron debe correr cada 1–5 min (docs/despliegue.md §3; en local `pnpm cron:local`).
+Opcional por colegio: Configuración → «Control de ingreso automático por portería» (`tenants.control_ingreso_automatico`, por defecto apagado; requiere el módulo Portería). Horas: las de la plantilla de horario de cada salón (entrada = tardanza, y su hora límite de falta; specs/34); los salones sin plantilla usan `horaLimiteTardanza` (08:00) y `horaLimiteFalta` (09:00, debe ser posterior) de Configuración. Cada grupo de horas («colegio» o una plantilla) avanza por su cuenta y cada paso se reserva una vez por colegio, día y grupo (`control_ingreso_dia.clave`). Lo corre `procesarControlIngreso()` (`src/lib/server/control-ingreso.ts`) desde `/api/cron/avisos`, antes de procesar la cola; el cron debe correr cada 1–5 min (docs/despliegue.md §3; en local `pnpm cron:local`).
 1. **Desde la hora de tardanza**: a las familias (con consentimiento y canal) de cada alumno activo, de salón activo, **sin ningún registro del día**, aviso `asistencia_no_llega`: «Buenos días, Rosa. Mateo aún no se presenta en el colegio. La hora de ingreso fue a las 8:00 a. m. Si llega antes de las 9:00 a. m., te avisaremos a qué hora ingresó y tendrá tardanza. Si no llega, tendrá falta hoy y podrás justificarla.»
 2. **Si llega tarde**: el escaneo registra «tarde» y avisa `asistencia_tarde`: «Mateo acaba de ingresar al colegio a las 8:30 a. m., así que hoy tiene tardanza.»
 3. **Desde la hora límite de falta**: a quien siga sin registro del día se le crea la falta (`ambito = "dia"`, `origen = automatico`, `registradoPorId = null`, `hora = horaLimiteFalta`, auditada con actor nulo) y se avisa `asistencia_falta` con `horaLimite`: «Mateo no se presentó en el colegio hasta las 9:00 a. m., así que hoy tiene falta. Por favor, justifícala con el botón de abajo…» con enlace «Justificar falta». Si llega después, el escaneo corrige la falta a «tarde», avisa la tardanza y el enlace de justificar deja de servir (la asistencia ya no es falta).
@@ -89,6 +89,7 @@ buscarAlumnosPorteria(ctx, texto)              // 2..60 caracteres, máx. 10
 
 ## Pruebas del control de ingreso
 - unit `tests/unit/control-ingreso.test.ts` (fases, horas válidas, saludo) y `tests/unit/plantillas-avisos.test.ts` (aún no llega, tardanza de portería, falta automática).
+- integración `tests/integracion/plantillas-horario.test.ts`: tardanza de portería según la plantilla del salón y control de ingreso por grupo de horas.
 - integración `tests/integracion/control-ingreso.test.ts`: nada antes de la hora, nada si nadie ingresó, «aún no llega» una sola vez con saludo, bloqueo en la lista de curso, falta automática una sola vez (origen, sin autor, aviso con `horaLimite` y token), llegada posterior → tardanza, fines de semana no corre.
 
 ## Pendientes

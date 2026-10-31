@@ -10,22 +10,34 @@ accesos a pasar lista, tareas y notas; el alumno y la familia ven el horario del
 ## Roles y permisos
 | Rol | Puede | No puede |
 |---|---|---|
-| Dirección | Definir las «Horas del día» de cada nivel; llenar, cambiar y vaciar casilleros de cualquier salón; copiar el horario de otro salón del mismo grado; ver la carga y la semana de cada profesor | Poner a un profesor en dos lugares que se cruzan; programar clases en el recreo |
+| Dirección | Crear, editar y eliminar plantillas de horario y asignarlas a los salones; retocar las «Horas del día» de una plantilla; llenar, cambiar y vaciar casilleros de cualquier salón; copiar el horario de otro salón del mismo grado; ver la carga y la semana de cada profesor | Poner a un profesor en dos lugares que se cruzan; programar clases en el recreo |
 | Profesor | Ver «Mi horario» (sus cursos y los bloques a su cargo en todos sus salones) y el horario de los salones donde es tutor o dicta | Editar horarios u horas; ver la semana de otro profesor (pedirla devuelve la suya) |
 | Apoderado | Ver el horario del salón de cada hijo (elige al hijo si tiene varios) | Ver salones que no son de sus hijos (403) |
 | Alumno | Ver el horario de su salón («Mi horario») | Ver otros salones (403) |
-| Portería, administrativo | — (el módulo no es para ellos: 403) | — |
+| Administrativo (secretaría) | Crear, editar y eliminar plantillas de horario y asignarlas a los salones (`/horario/plantillas`) | Armar los casilleros del horario |
+| Portería | — (el módulo no es para ella: 403) | — |
 
 Plan: módulo `horario` en `FEATURES` con plan mínimo `base` (está en **Khipu Base y Khipu Pro**); la migración
 `20261103090000_horario` lo agrega a `plan_modulos` de ambos planes. `requireFeature(ctx, "horario")` en la página, cada
 action y cada función de `src/lib/server/horario.ts`.
 
 ## Flujos
-1. **Horas del día** (dirección, `/horario`): al abrir un salón cuyo nivel no tiene horas, estado vacío con «Usar horas
-   sugeridas» (`PERIODOS_SUGERIDOS`): inicial 08:00–11:50 (5 horas de 40 min y recreo), primaria 08:00–13:00 (6 horas de
-   45 min y recreo de 30 min), secundaria y academia 08:00–13:35 (7 horas de 45 min y recreo de 20 min). El botón
-   «Horas del día» abre un panel lateral (`Sheet`) para editar nombre, inicio, fin y tipo (clase o recreo) de cada hora;
-   se guarda la lista completa.
+0. **Plantillas de horario** (dirección y administrativo, `/horario/plantillas`): lista de plantillas (entrada, salida,
+   recreos, horas de clase, hora de falta y salones que la usan) con «Nueva plantilla», «Editar» y «Eliminar» (solo si
+   ningún salón la usa). El formulario pide nombre («Primaria mañana»), hora de entrada, hora de salida, duración de cada
+   hora de clase (20–120 min), hora límite de falta (sugerida: entrada + 1 h) y los recreos (hasta 6, cada uno «desde» y
+   «hasta»). Khipu calcula las horas de clase (`generarPeriodos`: llena con horas completas cada tramo entre la entrada,
+   los recreos y la salida) y muestra la vista previa al lado (entrada, horas, recreos, salida) y avisa los minutos que
+   quedan sin clase. Abajo, «Salones que la usan»: los marcados pasan a esta plantilla. Al guardar una plantilla
+   existente, las horas se recalculan **en su lugar** (la 3.ª hora sigue siendo la 3.ª, con sus casilleros); las que
+   sobran se vacían. Al pasar un salón a otra plantilla, sus casilleros van a la misma hora de clase (por posición) de la
+   nueva; los que no tienen equivalente se vacían. Los mensajes dicen cuántos casilleros se vaciaron y si quedaron cruces.
+1. **Horas del día** (dirección, `/horario`): cada salón muestra su plantilla («Plantilla «Primaria» (08:00–13:00)») y
+   «Cambiar plantilla». Un salón sin plantilla muestra un estado vacío con «Elegir plantilla» (o, si el colegio aún no
+   tiene ninguna, «Usar la plantilla sugerida de primaria», que crea la plantilla del nivel con `PERIODOS_SUGERIDOS`:
+   inicial 08:00–11:50, primaria 08:00–13:00, secundaria y academia 08:00–13:35, y la asigna a los salones del nivel sin
+   plantilla) y el enlace «Crear una plantilla nueva». El botón «Horas del día» abre un panel lateral (`Sheet`) para
+   retocar a mano nombre, inicio, fin y tipo de cada hora de la plantilla; vale para todos los salones que la usan.
 2. **Armar el horario**: elegir el salón → cuadrícula (columnas Lun–Vie, filas = horas del nivel; el recreo ocupa la
    fila entera) → tocar un casillero → diálogo: «Un curso del salón» (muestra su profesor) u «Otro bloque» (título con
    sugerencias «Tutoría», «Formación»…, «A cargo de» con el tutor elegido por defecto) y aula opcional → «Guardar»;
@@ -35,15 +47,18 @@ action y cada función de `src/lib/server/horario.ts`.
    destino. Se saltan los casilleros sin curso equivalente o que cruzarían a un profesor (el mensaje dice cuántos).
 4. **Carga de profesores** (`/horario?vista=profesores`): por profesor, horas por semana, bloques, salones y cruces
    («Sin cruces» ✓ o «N cruces» ⚠). «Ver semana» abre `/horario?profesor=<id>` con su semana y los cruces marcados.
-5. **Mi horario** (profesor): la semana en vista de calendario (estilo Google Calendar), en una sola tarjeta con barra
+5. **Mi horario** (profesor): además de clases y reuniones, la **jornada** de las plantillas de sus salones: líneas
+   punteadas de **entrada** y **salida** (la entrada más temprana y la salida más tarde; la hora en el margen y la
+   palabra en la primera columna) y franjas de **recreo** en todos los días (las horas sin clase no se marcan). La
+   leyenda suma «Entrada 08:00 · salida 13:00» y «Recreo». La cuadrícula va **siempre de 7:00 a 19:00, una fila por
+   hora** (con línea punteada a la media hora); si una clase o reunión cae fuera, se amplía hasta su hora en punto. La semana en vista de calendario (estilo Google Calendar), en una sola tarjeta con barra
    superior (mes, «Semana del 2 al 6», «Próxima semana» si es fin de semana, y el resumen «Ahora: Matemática · 3.° B hasta
    las 10:30» / «Después: … a las 10:30»), leyenda de cursos con sus horas por semana al pie y las clases ya dictadas de
    la semana atenuadas. También muestra las **reuniones y los eventos de la agenda** de esa semana (misma visibilidad
    que la agenda, specs/32: las reuniones que el profesor convocó y los eventos de sus salones y del colegio; sin las
    entregas de tareas), con borde punteado, ícono y tipo («Reunión», «Examen», «Actividad», «Evento», «Feriado»);
    los feriados y eventos sin hora van en una fila «Todo el día». Al tocarlos, su detalle con «Ver la reunión» o «Ver en
-   la agenda». Si quedan dos o más horas seguidas sin nada (p. ej. de 13:00 a 17:00 antes de una reunión), se comprimen
-   en una franja «Libre». Columnas de lunes a viernes con su fecha (la semana actual; el
+   la agenda». Columnas de lunes a viernes con su fecha (la semana actual; el
    fin de semana, la siguiente), horas a la izquierda, cada bloque ubicado y medido según su hora, con el color de su
    curso (el mismo curso, el mismo color en todos los salones; «Tutoría» en gris) y una línea con la hora actual en el día
    de hoy, con la hora escrita en el margen. Los bloques que se cruzan se reparten el ancho. Al tocar un bloque se abre su detalle (salón, aula, duración,
@@ -67,16 +82,27 @@ action y cada función de `src/lib/server/horario.ts`.
   «Lucía García ya tiene Matemática en 3.° B el martes de 08:00–08:45. Elige otra hora u otro curso.»
 - Cambiar el profesor de un curso o las horas del día puede dejar cruces (no se bloquea): «Guardar horas» lo avisa y la
   carga de profesores y «Mi horario» los marcan («Se cruza con otra clase»).
-- Horas del día: por nivel, formato HH:mm, inicio antes del fin, sin cruces entre sí, nombre obligatorio, máximo 16.
+- Plantillas: nombre único en el colegio (sin distinguir mayúsculas); salida después de la entrada; falta después de la
+  entrada; recreos dentro de la jornada y sin cruzarse; al menos una hora de clase. Su **entrada** es la hora de tardanza
+  y su **hora límite de falta** la del control de ingreso de los salones que la usan (specs/05); los salones sin
+  plantilla usan las horas de Configuración.
+- Horas del día: por plantilla, formato HH:mm, inicio antes del fin, sin cruces entre sí, nombre obligatorio, máximo 16.
   Quitar una hora o volverla recreo vacía sus casilleros (el mensaje dice cuántos). En el recreo no se programan clases.
 - «Ahora» y «Después» usan la hora del colegio (`Tenant.zonaHoraria`).
 - Salones archivados: no salen en el selector ni en las semanas de los profesores.
-- Auditoría (`auditar`): `horario_periodos` (crear sugeridas, editar) y `horario` (editar / borrar casillero, copiar) con
+- Auditoría (`auditar`): `plantillas_horario` (crear, editar, borrar, sugerida), `salones` (cambio de plantilla),
+  `horario_periodos` (editar) y `horario` (editar / borrar casillero, copiar) con
   el salón como `entidadId`.
 
 ## Modelo de datos
-- `HorarioPeriodo` (`horario_periodos`): `tenantId`, `nivel`, `nombre`, `horaInicio`, `horaFin` (HH:mm), `tipo`
-  (`TipoHoraHorario`: `clase` | `recreo`). Índice `(tenant_id, nivel)`. Se ordena por hora de inicio.
+- `PlantillaHorario` (`plantillas_horario`): `tenantId`, `nombre` (único por colegio), `horaEntrada`, `horaSalida`,
+  `duracionClase` (min), `horaLimiteFalta`. `Salon.plantillaId?` (SetNull al borrar). Migración
+  `20261107090000_plantillas_horario`: crea una plantilla por nivel que ya tenía horas («Inicial», «Primaria»,
+  «Secundaria», «Academia»; entrada = primera hora, salida = última, falta = entrada + la distancia tardanza→falta de
+  Configuración), pasa las horas a ella y se la asigna a los salones del nivel.
+- `HorarioPeriodo` (`horario_periodos`): `tenantId`, `plantillaId`, `nombre`, `horaInicio`, `horaFin` (HH:mm), `tipo`
+  (`TipoHoraHorario`: `clase` | `recreo`). Índice `(tenant_id, plantilla_id)`; se borra con su plantilla. Se ordena por
+  hora de inicio.
 - `BloqueHorario` (`bloques_horario`): `tenantId`, `salonId`, `dia` (CHECK 1–5), `periodoId`, `cursoId?`, `titulo?`,
   `profesorId?` (solo bloques sin curso), `aula?`. Único `(salon_id, dia, periodo_id)`; índices `(tenant_id, salon_id)`,
   `(tenant_id, curso_id)`, `(tenant_id, profesor_id)`, `(periodo_id)`. Borrado en cascada con el colegio, el salón, la
@@ -87,27 +113,40 @@ action y cada función de `src/lib/server/horario.ts`.
 ## Contratos de `src/lib/server`
 ```ts
 // src/lib/server/horario.ts — todas exigen requireFeature(ctx, "horario")
-periodosDelNivel(ctx, nivel): Promise<PeriodoVista[]>
-crearPeriodosSugeridos(ctx, nivel): Promise<Resultado>            // dirección; solo si el nivel no tiene horas
-guardarPeriodos(ctx, nivel, lista): Promise<Resultado>            // dirección; valida, reemplaza, avisa cruces
+periodosDeLaPlantilla(ctx, plantillaId | null): Promise<PeriodoVista[]>
+crearPlantillaSugerida(ctx, salonId): Promise<Resultado>          // dirección; si el salón no tiene plantilla
+guardarPeriodos(ctx, plantillaId, lista): Promise<Resultado>      // dirección y administrativo; valida, reemplaza, avisa cruces
 salonesParaHorario(ctx)                                            // dirección: todos; otros: los que ven
 horarioDelSalon(ctx, salonId): { salon, periodos, bloques }        // 403 fuera de alcance; 404 si no existe/archivado
 opcionesDeCasillero(ctx, salonId): { cursos, profesores, mismoGrado } // dirección
 asignarBloque(ctx, { salonId, dia, periodoId, cursoId? | titulo?, profesorId?, aula? }): Promise<Resultado>
 quitarBloque(ctx, { salonId, dia, periodoId }): Promise<Resultado>
 copiarHorario(ctx, destinoId, origenId): Promise<Resultado>
-horarioDelProfesor(ctx, profesorId?): { profesor, bloques, cruces } // profesor: siempre el suyo
+horarioDelProfesor(ctx, profesorId?): { profesor, bloques, cruces, jornada } // profesor: siempre el suyo
+agendaDeLaSemana(ctx, hoyIso): EventoSemana[]                      // reuniones y eventos de la semana
+
+// src/lib/server/plantillas-horario.ts — dirección y administrativo
+listarPlantillas(ctx) / detallePlantilla(ctx, id): PlantillaVista
+salonesParaPlantillas(ctx)
+guardarPlantilla(ctx, id | null, { nombre, horaEntrada, horaSalida, duracionClase, horaLimiteFalta, recreos, salonIds })
+asignarPlantilla(ctx, salonId, plantillaId)                        // mueve casilleros por posición
+eliminarPlantilla(ctx, id)                                         // solo si ningún salón la usa
 cargaDocente(ctx): { id, nombre, bloques, minutosSemana, salones, cruces }[] // dirección
 alumnosParaHorario(ctx)                                            // apoderado: hijos activos; alumno: él
 horarioDeHoy(ctx, ahora?): { hora, grupos: GrupoHoy[] } | null    // tarjeta «Hoy»
 cursosDeHoy(ctx, ahora?): Map<cursoId, { horaInicio, horaFin, ahora }> // orden de las listas de curso
 ```
-Puros en `src/lib/horario.ts`: `seSolapan`, `buscarCruce`, `crucesDe`, `mensajeCruce`, `ahoraYDespues`, `validarPeriodos`,
+Puros en `src/lib/plantillas-horario.ts`: `generarPeriodos`, `validarPlantilla`, `faltaSugerida`, `horasDeIngreso`
+(tardanza y falta de un salón: su plantilla o Configuración). En `src/lib/horario-calendario.ts`: `jornadaDe`,
+`horasVisibles` (7:00–19:00). Puros en `src/lib/horario.ts`: `seSolapan`, `buscarCruce`, `crucesDe`, `mensajeCruce`, `ahoraYDespues`, `validarPeriodos`,
 `PERIODOS_SUGERIDOS`, `diaDeSemana`, `diaPorDefecto`.
 
 ## Rutas y UI
-- `/horario` (dirección): selector de salón + cuadrícula editable (`TablaHorario` + `DialogoCasillero`), «Horas del día»
-  (`EditorHoras`, `Sheet`), «Copiar de otro salón» (`DialogoAccion`), «Carga de profesores». Menú: grupo «Colegio»,
+- `/horario/plantillas`, `/horario/plantillas/nueva`, `/horario/plantillas/<id>` (dirección y administrativo;
+  `FormPlantilla` con vista previa). Menú del administrativo: grupo «Colegio», «Plantillas de horario»; dirección entra
+  desde el botón «Plantillas de horario» de `/horario`.
+- `/horario` (dirección): selector de salón + cuadrícula editable (`TablaHorario` + `DialogoCasillero`), «Cambiar
+  plantilla» (`DialogoAccion`), «Horas del día» (`EditorHoras`, `Sheet`), «Copiar de otro salón» (`DialogoAccion`), «Carga de profesores». Menú: grupo «Colegio»,
   «Horarios».
 - `/horario?vista=profesores`, `/horario?profesor=<id>` (dirección).
 - `/horario` (profesor, «Mi horario», grupo «Día a día»): `AhoraDespues` + `CalendarioSemana` (lógica pura en `src/lib/horario-calendario.ts`; reuniones y eventos con `agendaDeLaSemana` en `src/lib/server/horario.ts`).
@@ -134,20 +173,28 @@ Puros en `src/lib/horario.ts`: `seSolapan`, `buscarCruce`, `crucesDe`, `mensajeC
 
 ## Seed
 `prisma/seed-horario.ts` (`sembrarHorario(prisma, { tenantIds? })`, llamado en la última línea de `prisma/seed.ts`):
-para cada colegio crea las horas sugeridas de los niveles de sus salones y arma el horario de cada salón que aún no tiene,
+para cada colegio crea una plantilla por nivel con las horas sugeridas (entrada 08:00, falta 09:00), se la asigna a los
+salones sin plantilla y arma el horario de cada salón que aún no tiene,
 de forma determinista (`planificarHorario`): «Tutoría» con el tutor (viernes, la última hora libre), y el resto rotando
 los cursos del salón (máximo 2 horas del mismo curso por día) sin cruzar nunca a un profesor (compara horas reales,
 también entre niveles). Si ningún curso cabe, el casillero queda vacío. Idempotente.
 
 ## Pruebas
 - unit: `tests/unit/horario-calendario.test.ts` (horas visibles, carriles de bloques cruzados, color por curso, semana
-  mostrada, reuniones y eventos en la semana, franjas libres); `tests/unit/horario.test.ts` (cruces y bordes, distintas horas por nivel, reemplazo del mismo casillero, pares de
+  mostrada, reuniones y eventos en la semana, rango 7:00–19:00); `tests/unit/horario.test.ts` (cruces y bordes, distintas horas por nivel, reemplazo del mismo casillero, pares de
   cruces, ahora/después y recreo, días, horas sugeridas válidas, validación de horas, `planificarHorario` determinista y
   sin cruces).
-- integración: `tests/integracion/horario.test.ts` (módulo en Base y Pro, horas sugeridas una vez, validación, quitar una
+- unit: `tests/unit/plantillas-horario.test.ts` (horas calculadas con dos recreos y minutos sobrantes, validación, horas de
+  ingreso por salón); `horario-calendario.test.ts` también cubre la jornada.
+- integración: `tests/integracion/plantillas-horario.test.ts` (secretaría crea y asigna, nombre repetido, falta antes de la
+  entrada, permisos, editar conserva casilleros y vacía los que sobran, mover un salón de plantilla, eliminar solo sin
+  salones, tardanza en portería por plantilla, control de ingreso por grupo de horas).
+- integración: `tests/integracion/horario.test.ts` (módulo en Base y Pro, plantilla sugerida una vez, validación, quitar una
   hora vacía casilleros y audita, asignar/reemplazar/vaciar, recreo/otro nivel/otro salón/día inválido, cruce entre salones
   con mensaje, carga docente, copiar por nombre, permisos por rol, aislamiento entre colegios, «Hoy» y orden de listas,
   seed sin cruces e idempotente).
+- e2e: `tests/e2e/plantillas-horario.test.ts` (secretaría crea una plantilla con dos recreos, ve la vista previa y la
+  elimina).
 - e2e: `tests/e2e/horario.test.ts` (dirección asigna un bloque en 3.° B, Lucía lo ve en «Mi horario», Rosa en el horario
   de Mateo sin botones de edición; en 375 px pestañas por día con hoy elegido).
 

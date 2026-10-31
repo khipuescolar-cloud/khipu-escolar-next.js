@@ -7,6 +7,7 @@ import type { EstadoAsistencia } from "@/generated/prisma/enums";
 import { urlColegio, urlRaiz } from "@/lib/dominio";
 import { esHoraIgualOPosterior, fechaDb, hora12 } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
+import { horasDeIngreso } from "@/lib/plantillas-horario";
 import { instanteDeRegistro } from "@/lib/registro-offline";
 import { tokenDesdeQr } from "@/lib/token-qr";
 import { hoyDelColegio, AMBITO_DIA } from "./asistencia";
@@ -22,7 +23,7 @@ import { hashToken, tokenDerivado } from "./tokens";
 // El QR lleva <raíz>/q/<token>. El token = HMAC(APP_SECRET, "carnet:<id>") y en carnets_qr solo va su hash:
 // así el carnet se puede reimprimir sin guardar el token. Regenerar = nueva fila (nuevo token); revocar = activo=false.
 
-/** Estado de llegada según la hora límite del colegio (por defecto, tarde desde las 08:00). */
+/** Estado de llegada según la hora de tardanza del salón (por defecto, tarde desde las 08:00). */
 export function estadoDeLlegada(hora: string, horaLimiteTardanza: string): "llego" | "tarde" {
   return esHoraIgualOPosterior(hora, horaLimiteTardanza) ? "tarde" : "llego";
 }
@@ -176,7 +177,7 @@ async function registrarLlegada(ctx: TenantContext, alumnoId: string, ahora: Dat
   const fecha = fechaDb(hoy.isoFecha);
   const alumno = await ctx.db.alumno.findUnique({
     where: { id: alumnoId },
-    select: { id: true, nombres: true, apellidos: true, estado: true, fotoArchivoId: true, salon: { select: { nombre: true } } },
+    select: { id: true, nombres: true, apellidos: true, estado: true, fotoArchivoId: true, salon: { select: { nombre: true, plantilla: { select: { horaEntrada: true, horaLimiteFalta: true } } } } },
   });
   if (!alumno || alumno.estado !== "activo") return { ok: false, mensaje: MENSAJE_CARNET_INVALIDO };
   const foto = alumno.fotoArchivoId ? await ctx.db.archivo.findUnique({ where: { id: alumno.fotoArchivoId } }) : null;
@@ -196,7 +197,8 @@ async function registrarLlegada(ctx: TenantContext, alumnoId: string, ahora: Dat
     return { ok: true, tipo: "ya-registrado", alumno: datosAlumno, estado: anterior.estado, hora: anterior.hora, mensaje: `Ya registrado ${hora12(anterior.hora)}` };
   }
 
-  const estado = estadoDeLlegada(hoy.hora, ctx.tenant.horaLimiteTardanza);
+  // La tardanza cuenta desde la entrada de la plantilla de horario del salón (specs/34); sin plantilla, la de Configuración.
+  const estado = estadoDeLlegada(hoy.hora, horasDeIngreso(alumno.salon.plantilla, ctx.tenant).tardanza);
   const asistencia = await ctx.db.asistencia.upsert({
     where: { alumnoId_fecha_ambito: { alumnoId, fecha, ambito: AMBITO_DIA } },
     create: {

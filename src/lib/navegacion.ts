@@ -53,6 +53,7 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/tablero", grupo: "colegio", titulo: "Tablero", descripcion: "Asistencia, notas y avisos del colegio; consolidado de notas en Excel y PDF.", icono: "BarChart3", feature: "tablero", roles: ["direccion"] },
   { href: "/reuniones", grupo: "comunicacion", titulo: "Reuniones", descripcion: "Convocatorias, confirmaciones y actas de reuniones.", icono: "Users", feature: "reuniones", roles: ["profesor", "direccion", "apoderado"] },
   { href: "/horario", grupo: "colegio", titulo: "Horarios", descripcion: "Horario semanal de cada salón y carga de cada profesor.", icono: "CalendarClock", feature: "horario", roles: ["direccion"] },
+  { href: "/horario/plantillas", grupo: "colegio", titulo: "Plantillas de horario", descripcion: "Entrada, recreos y salida de cada jornada; cada salón usa una.", icono: "CalendarClock", feature: "horario", roles: ["administrativo"] },
   { href: "/gestion", grupo: "colegio", titulo: "Gestión", descripcion: "Profesores, personal, grados, alumnos y familias.", icono: "Users", feature: "gestion", roles: ["direccion"] },
   { href: "/gestion", grupo: "colegio", titulo: "Alumnos y familias", descripcion: "Altas, datos e invitaciones de alumnos y familias.", icono: "Users", feature: "gestion", roles: ["administrativo"] },
   { href: "/configuracion", grupo: "colegio", titulo: "Configuración", descripcion: "Avisos, logo, dominio y escala de notas.", icono: "Settings", feature: "gestion", roles: ["direccion"] },

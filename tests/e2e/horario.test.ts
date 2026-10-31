@@ -67,11 +67,12 @@ test.afterAll(async () => {
   }
 });
 
-/** Primera hora de clase de primaria en que Lucía no tiene nada (sin contar el propio casillero de 3.° B). */
+/** Primera hora de clase de la plantilla de 3.° B en que Lucía no tiene nada (sin contar el propio casillero de 3.° B). */
 async function horaLibreDeLucia() {
   const periodos = await sql<{ id: string; nombre: string; hora_inicio: string; hora_fin: string }>(
-    `select id, nombre, hora_inicio, hora_fin from horario_periodos where tenant_id = $1 and nivel = 'primaria' and tipo = 'clase' order by hora_inicio`,
-    [ids.tenant],
+    `select id, nombre, hora_inicio, hora_fin from horario_periodos
+      where plantilla_id = (select plantilla_id from salones where id = $1) and tipo = 'clase' order by hora_inicio`,
+    [ids.salon],
   );
   const ocupadas = await sql<{ hora_inicio: string; hora_fin: string; salon_id: string; periodo_id: string }>(
     `select hp.hora_inicio, hp.hora_fin, b.salon_id, b.periodo_id from bloques_horario b

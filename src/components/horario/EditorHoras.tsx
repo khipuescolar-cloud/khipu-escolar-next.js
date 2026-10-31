@@ -24,8 +24,8 @@ function sumar(hora: string, mins: number): string {
   return `${String(Math.floor(total / 60)).padStart(2, "0")}:${String(total % 60).padStart(2, "0")}`;
 }
 
-/** Panel «Horas del día» de un nivel: nombre, inicio, fin y tipo de cada hora. Guarda la lista completa. */
-export function EditorHoras({ nivelNombre, periodos, accion }: { nivelNombre: string; periodos: PeriodoVista[]; accion: (previo: Resultado | null, datos: FormData) => Promise<Resultado> }) {
+/** Panel «Horas del día» de una plantilla: retoques a mano de nombre, inicio, fin y tipo de cada hora. Guarda la lista completa. */
+export function EditorHoras({ plantillaNombre, periodos, accion }: { plantillaNombre: string; periodos: PeriodoVista[]; accion: (previo: Resultado | null, datos: FormData) => Promise<Resultado> }) {
   const [abierto, setAbierto] = useState(false);
   const inicial = () => periodos.map((p) => ({ ...p, clave: p.id }));
   const [filas, setFilas] = useState<Fila[]>(inicial);
@@ -54,8 +54,8 @@ export function EditorHoras({ nivelNombre, periodos, accion }: { nivelNombre: st
       </SheetTrigger>
       <SheetContent side="right" className="w-full overflow-y-auto data-[side=right]:sm:max-w-lg">
         <SheetHeader>
-          <SheetTitle>Horas del día · {nivelNombre}</SheetTitle>
-          <SheetDescription>Las comparten todos los salones de {nivelNombre.toLowerCase()}. Si quitas una hora o la vuelves recreo, sus casilleros se vacían.</SheetDescription>
+          <SheetTitle>Horas del día · {plantillaNombre}</SheetTitle>
+          <SheetDescription>Las comparten todos los salones con la plantilla «{plantillaNombre}». Si quitas una hora o la vuelves recreo, sus casilleros se vacían.</SheetDescription>
         </SheetHeader>
         <form action={enviar} className="flex flex-col gap-3 px-4 pb-4">
           <input type="hidden" name="periodos" value={JSON.stringify(filas.map((f) => ({ id: f.id, nombre: f.nombre, horaInicio: f.horaInicio, horaFin: f.horaFin, tipo: f.tipo })))} />

@@ -21,7 +21,7 @@ export default async function PorteriaPage({ params }: PageProps<"/colegio/[slug
         titulo="Portería"
         descripcion={
           <>
-            <span className="first-letter:uppercase">{fechaLarga(hoy.isoFecha)}</span> · Tardanza desde las {ctx.tenant.horaLimiteTardanza}
+            <span className="first-letter:uppercase">{fechaLarga(hoy.isoFecha)}</span> · Tardanza desde la entrada de cada salón
           </>
         }
       />

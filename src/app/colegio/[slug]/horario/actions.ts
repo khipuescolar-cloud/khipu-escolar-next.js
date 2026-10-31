@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { fallo, type Resultado } from "@/lib/resultado";
-import { asignarBloque, copiarHorario, crearPeriodosSugeridos, guardarPeriodos, quitarBloque } from "@/lib/server/horario";
+import { asignarBloque, copiarHorario, crearPlantillaSugerida, guardarPeriodos, quitarBloque } from "@/lib/server/horario";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 
@@ -46,7 +46,7 @@ export async function copiarAction(slug: string, destinoId: string, _previo: Res
   return refrescar(await copiarHorario(await contexto(slug), destinoId, texto(f, "origenId")));
 }
 
-export async function periodosAction(slug: string, nivel: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
+export async function periodosAction(slug: string, plantillaId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
   const ctx = await contexto(slug);
   let lista: unknown;
   try {
@@ -54,9 +54,9 @@ export async function periodosAction(slug: string, nivel: string, _previo: Resul
   } catch {
     return fallo("No pudimos leer las horas. Recarga la página e intenta otra vez.");
   }
-  return refrescar(await guardarPeriodos(ctx, nivel, lista));
+  return refrescar(await guardarPeriodos(ctx, plantillaId, lista));
 }
 
-export async function sugeridasAction(slug: string, nivel: string): Promise<Resultado> {
-  return refrescar(await crearPeriodosSugeridos(await contexto(slug), nivel));
+export async function sugeridasAction(slug: string, salonId: string): Promise<Resultado> {
+  return refrescar(await crearPlantillaSugerida(await contexto(slug), salonId));
 }

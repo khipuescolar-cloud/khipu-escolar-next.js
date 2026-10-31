@@ -252,6 +252,7 @@ model Tenant {
   resumenesNudito       ResumenNudito[]
   // Horario semanal por salón (specs/34)
   horarioPeriodos       HorarioPeriodo[]
+  plantillasHorario     PlantillaHorario[]
   bloquesHorario        BloqueHorario[]
 
   @@map("tenants")
@@ -342,9 +343,12 @@ model Salon {
   tutorId     String?   @map("tutor_id") @db.Uuid
   /// Salón de un año cerrado: deja de listarse para pasar lista, pero conserva su historial.
   archivadoAt DateTime? @map("archivado_at") @db.Timestamptz
+  /// Plantilla de horario (specs/34): horas del día y entrada/salida del salón; su entrada fija la tardanza (specs/05).
+  plantillaId String?   @map("plantilla_id") @db.Uuid
 
   tenant      Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   tutor       Membership?     @relation("TutorSalon", fields: [tutorId], references: [id], onDelete: SetNull)
+  plantilla   PlantillaHorario? @relation(fields: [plantillaId], references: [id], onDelete: SetNull)
   cursos      Curso[]
   alumnos     Alumno[]
   comunicados Comunicado[]
@@ -535,10 +539,12 @@ model ControlIngresoDia {
   faltasAt        DateTime? @map("faltas_at") @db.Timestamptz
   avisadosNoLlega Int       @default(0) @map("avisados_no_llega")
   faltas          Int       @default(0)
+  /// Grupo de horas: «colegio» (salones sin plantilla, horas de Configuración) o el id de la plantilla de horario.
+  clave           String    @default("colegio")
 
   tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
-  @@unique([tenantId, fecha])
+  @@unique([tenantId, fecha, clave])
   @@map("control_ingreso_dia")
 }
 
@@ -1813,12 +1819,35 @@ enum TipoHoraHorario {
   recreo
 }
 
-/// «Horas del día» de un nivel: los periodos (timbres) que comparten todos los salones de ese nivel en el colegio.
-/// Se ordenan por hora de inicio; no se solapan dentro del nivel (lo valida el servidor).
+/// Plantilla de horario (specs/34): la dirección o secretaría define entrada, duración de la hora de clase, recreos y
+/// salida; Khipu calcula las horas del día (`HorarioPeriodo`) y luego se pueden retocar. Cada salón usa una.
+model PlantillaHorario {
+  id              String   @id @default(uuid()) @db.Uuid
+  tenantId        String   @map("tenant_id") @db.Uuid
+  nombre          String
+  /// HH:mm. Desde la entrada, la llegada es tardanza (specs/05).
+  horaEntrada     String   @map("hora_entrada")
+  horaSalida      String   @map("hora_salida")
+  /// Minutos de cada hora de clase.
+  duracionClase   Int      @map("duracion_clase")
+  /// HH:mm. Sin ingreso a esta hora = falta del día (control de ingreso automático).
+  horaLimiteFalta String   @map("hora_limite_falta")
+  createdAt       DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant   Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  periodos HorarioPeriodo[]
+  salones  Salon[]
+
+  @@unique([tenantId, nombre])
+  @@map("plantillas_horario")
+}
+
+/// «Horas del día» de una plantilla: los periodos (timbres) que comparten todos los salones que la usan.
 model HorarioPeriodo {
-  id         String          @id @default(uuid()) @db.Uuid
-  tenantId   String          @map("tenant_id") @db.Uuid
-  nivel      Nivel
+  id          String          @id @default(uuid()) @db.Uuid
+  tenantId    String          @map("tenant_id") @db.Uuid
+  plantillaId String          @map("plantilla_id") @db.Uuid
   /// «1.ª hora», «Recreo»…
   nombre     String
   /// HH:mm (hora del colegio).
@@ -1826,10 +1855,11 @@ model HorarioPeriodo {
   horaFin    String          @map("hora_fin")
   tipo       TipoHoraHorario @default(clase)
 
-  tenant  Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  bloques BloqueHorario[]
+  tenant    Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  plantilla PlantillaHorario @relation(fields: [plantillaId], references: [id], onDelete: Cascade)
+  bloques   BloqueHorario[]
 
-  @@index([tenantId, nivel])
+  @@index([tenantId, plantillaId])
   @@map("horario_periodos")
 }
 
