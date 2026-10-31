@@ -134,13 +134,13 @@ function CamposDesempeno({ c, d }: { c: Competencia; d?: Competencia["desempenos
     <>
       <label className="flex flex-col gap-1.5 text-sm sm:col-span-2">
         <span className="font-medium text-foreground">Descripción</span>
-        <Textarea name="descripcion" rows={4} required minLength={10} maxLength={1000} defaultValue={d?.descripcion} />
+        <Textarea name="descripcion" rows={4} required minLength={10} maxLength={2000} defaultValue={d?.descripcion} />
       </label>
       <Selector etiqueta="Capacidad (opcional)" name="capacidadId" defaultValue={d?.capacidadId ?? ""}>
         <option value="">Sin capacidad</option>
         {c.capacidades.map((x) => <option key={x.id} value={x.id}>{x.nombre}</option>)}
       </Selector>
-      <Campo etiqueta="Código (opcional)" name="codigo" maxLength={30} defaultValue={d?.codigo ?? ""} placeholder="MAT-C1-P3-01" />
+      <Campo etiqueta="Código (opcional)" name="codigo" maxLength={30} defaultValue={d?.codigo ?? ""} placeholder="MAT-C23-P3-01" />
     </>
   );
 }
