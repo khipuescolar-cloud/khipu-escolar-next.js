@@ -10,7 +10,7 @@ const PUERTO = process.env.E2E_PORT ?? "3000";
 const COLEGIO = `http://nuevohorizonte.lvh.me:${PUERTO}`;
 const azar = Date.now().toString(36);
 const ALUMNO = { nombres: `Tito${azar}`, apellidos: "Prueba Alumno", email: `alumno-${azar}@test-alumno.demo`, dni: String(40000000 + (Date.now() % 9999999)) };
-const ids = { alumno: randomUUID(), apoderadoUser: randomUUID(), apoderado: randomUUID() };
+const ids = { alumno: randomUUID(), apoderadoUser: randomUUID(), apoderado: randomUUID(), salon: "" };
 
 async function sql<T extends Record<string, unknown>>(texto: string, valores: unknown[] = []): Promise<T[]> {
   const cliente = new Client({ connectionString: process.env.DATABASE_URL });
@@ -34,6 +34,7 @@ test.beforeAll(async () => {
   const [{ tenant_id, salon_id }] = await sql<{ tenant_id: string; salon_id: string }>(
     "select t.id as tenant_id, s.id as salon_id from tenants t join salones s on s.tenant_id = t.id where t.slug = 'nuevohorizonte' and (s.grado is null or s.grado >= t.grado_minimo_cuenta_alumno) order by s.grado desc nulls last, s.nombre limit 1",
   );
+  ids.salon = salon_id;
   await sql("insert into profiles (id, email, nombres, apellidos) values ($1, $2, 'Apoderada', 'Prueba Alumno')", [ids.apoderadoUser, `apo-${azar}@test-alumno.demo`]);
   await sql("insert into memberships (id, tenant_id, user_id, rol) values ($1, $2, $3, 'apoderado')", [ids.apoderado, tenant_id, ids.apoderadoUser]);
   const [{ id: consentimiento }] = await sql<{ id: string }>("insert into consentimientos (id, tenant_id, apoderado_id, version_texto) values (gen_random_uuid(), $1, $2, 'e2e') returning id", [tenant_id, ids.apoderado]);
@@ -59,9 +60,13 @@ test("dirección crea la cuenta del alumno; el alumno entra con su DNI, cambia l
   const nombre = `${ALUMNO.nombres} ${ALUMNO.apellidos}`;
   await entrar(page, "direccion@nuevohorizonte.demo", "demo123");
   await page.waitForURL(`${COLEGIO}/inicio`);
-  await page.goto(`${COLEGIO}/gestion/alumnos`);
-  await page.getByRole("button", { name: `Acciones para ${nombre}` }).click();
-  await page.getByRole("menuitem", { name: "Crear cuenta del alumno" }).click();
+  // Filtrado por su salón: la lista completa del colegio es larga.
+  await page.goto(`${COLEGIO}/gestion/alumnos?salon=${ids.salon}`);
+  // Si el menú no abrió al primer clic (página aún hidratándose), se reintenta.
+  await expect(async () => {
+    await page.getByRole("button", { name: `Acciones para ${nombre}` }).click();
+    await page.getByRole("menuitem", { name: "Crear cuenta del alumno" }).click({ timeout: 3_000 });
+  }).toPass({ timeout: 30_000 });
   await page.getByLabel("Correo del alumno").fill(ALUMNO.email);
   await page.getByLabel("Número de documento").fill(ALUMNO.dni);
   await page.getByRole("button", { name: "Crear cuenta" }).click();

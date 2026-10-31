@@ -34,4 +34,4 @@ puede tener módulos extra o quitados (`tenant_modulos`) y cada rol puede tener 
 - unit: `tests/unit/planes.test.ts` (solo `base` y `pro`, sin `nudito`), `tests/unit/modulos.test.ts`, `tests/unit/nombres-planes.test.ts`.
 - integración: `tests/integracion/planes-modulos-roles.test.ts` (módulos desde la BD, specs/19).
 - integración: `tests/integracion/rol-alumno.test.ts` (alcance del alumno: no ve notas, asistencia ni libreta de compañeros; ve sus tareas; sin mensajes ni gestión) · e2e: `tests/e2e/rol-alumno.test.ts`.
-- e2e: candado «Plan Khipu Pro» en Los Olivos (Khipu Base; `login-flow.test.ts`, `planes-modulos.test.ts`) y acceso directo a `/notas` en Khipu Base → página 403 (`notas-libreta.test.ts`).
+- e2e: candado «Plan Khipu Pro» en un colegio Khipu Base temporal (lo crea y borra cada e2e, specs/35; `login-flow.test.ts`, `planes-modulos.test.ts`) y acceso directo a `/notas` en Khipu Base → página 403 (`notas-libreta.test.ts`).

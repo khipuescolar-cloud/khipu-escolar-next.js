@@ -123,10 +123,10 @@ test("el super administrador crea un colegio y su administrador entra con correo
 
 test("un usuario de colegio no puede entrar al panel de plataforma", async ({ page }) => {
   await page.goto("/login");
-  await page.getByLabel("Correo").fill("direccion@losolivos.demo");
+  await page.getByLabel("Correo").fill("direccion@nuevohorizonte.demo");
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  await page.waitForURL(`http://losolivos.${BASE}/inicio`);
+  await page.waitForURL(`http://nuevohorizonte.${BASE}/inicio`);
   const res = await page.goto(`http://admin.${BASE}/`);
   expect(res?.status()).toBe(403);
   await expect(page.getByText("No tienes acceso a esta sección")).toBeVisible();

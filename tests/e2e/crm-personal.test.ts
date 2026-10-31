@@ -159,15 +159,20 @@ test("dirección archiva un salón y lo reactiva", async ({ page }) => {
   await page.getByRole("button", { name: "Crear salón" }).last().click();
   await expect(page.getByText("Salón creado.")).toBeVisible();
   const tarjeta = page.getByRole("main").locator("li", { hasText: nombre });
-  await tarjeta.getByRole("button", { name: `Acciones para ${nombre}` }).click();
-  await page.getByRole("menuitem", { name: "Archivar salón" }).click();
+  // Con muchos salones la página tarda en hidratarse: si el menú no abrió al primer clic, se reintenta.
+  await expect(async () => {
+    await tarjeta.getByRole("button", { name: `Acciones para ${nombre}` }).click();
+    await page.getByRole("menuitem", { name: "Archivar salón" }).click({ timeout: 3_000 });
+  }).toPass({ timeout: 30_000 });
   await page.getByRole("button", { name: "Archivar salón" }).click();
   await expect(page.getByText("Salón archivado.")).toBeVisible();
   await expect(page.getByRole("main").getByText(nombre)).toHaveCount(0);
   await page.getByRole("link", { name: "Ver archivados" }).click();
   await expect(page.getByRole("main").getByText(nombre)).toBeVisible();
-  await page.getByRole("button", { name: `Acciones para ${nombre}` }).click();
-  await page.getByRole("menuitem", { name: "Reactivar salón" }).click();
+  await expect(async () => {
+    await page.getByRole("button", { name: `Acciones para ${nombre}` }).click();
+    await page.getByRole("menuitem", { name: "Reactivar salón" }).click({ timeout: 3_000 });
+  }).toPass({ timeout: 30_000 });
   await page.getByRole("button", { name: "Reactivar salón" }).click();
   await expect(page.getByText("Salón reactivado.")).toBeVisible();
 

@@ -37,13 +37,10 @@ test("dirección pasa de «Por revisar» al historial y filtra por estado y alum
 });
 
 test("la familia ve solo su lista, sin pestañas", async ({ page }) => {
-  // Rosa tiene hijos en dos colegios: elige Nuevo Horizonte.
   await page.goto("/login");
   await page.getByLabel("Correo").fill("rosa.quispe@gmail.com");
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  await page.waitForURL("**/elegir-colegio");
-  await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
   await page.waitForURL(`${COLEGIO}/inicio`);
   await page.goto(`${COLEGIO}/justificaciones`);
   await expect(page.getByRole("heading", { name: "Justificaciones", level: 1 })).toBeVisible();

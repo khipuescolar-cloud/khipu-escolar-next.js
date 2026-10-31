@@ -2,6 +2,7 @@ import "dotenv/config";
 import { Client } from "pg";
 import { expect, test, type Browser, type Page } from "@playwright/test";
 import { esperarSinAcceso } from "./sin-acceso";
+import { crearColegioTemporal } from "./ayudantes/colegio-temporal";
 
 // Biblioteca de documentos (specs/31): dirección crea una carpeta y sube un PDF para las familias; la apoderada Rosa lo ve y
 // lo descarga; la profesora no ve lo que no es para su rol; Khipu Base ve el candado.
@@ -12,16 +13,12 @@ const CARPETA = `Reglamento E2E ${SUFIJO}`;
 const TITULO = `Reglamento de convivencia ${SUFIJO}`;
 const INTERNO = `Acta interna ${SUFIJO}`;
 
-async function entrar(browser: Browser, correo: string, destino: string, elegirColegio = false): Promise<Page> {
+async function entrar(browser: Browser, correo: string, destino: string): Promise<Page> {
   const page = await (await browser.newContext()).newPage();
   await page.goto("/login");
   await page.getByLabel("Correo").fill(correo);
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  if (elegirColegio) {
-    await page.waitForURL("**/elegir-colegio");
-    await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
-  }
   await page.waitForURL(destino);
   return page;
 }
@@ -64,7 +61,7 @@ test("dirección crea una carpeta y sube un PDF para las familias; Rosa lo ve y 
   await expect(direccion.getByText("Solo dirección")).toBeVisible();
 
   // Rosa (apoderada) entra a la carpeta, ve el documento para familias, busca por título y lo descarga.
-  const rosa = await entrar(browser, "rosa.quispe@gmail.com", `${COLEGIO}/inicio`, true);
+  const rosa = await entrar(browser, "rosa.quispe@gmail.com", `${COLEGIO}/inicio`);
   await rosa.goto(`${COLEGIO}/documentos`);
   await rosa.getByRole("link", { name: new RegExp(CARPETA) }).click();
   await expect(rosa.getByRole("heading", { name: TITULO })).toBeVisible();
@@ -95,8 +92,14 @@ test("dirección crea una carpeta y sube un PDF para las familias; Rosa lo ve y 
   expect((await rosa.request.get(`${COLEGIO}${href}`)).status()).toBe(404);
 });
 
-test("Khipu Base (Los Olivos) ve el candado de Documentos y no puede abrirlos", async ({ browser }) => {
-  const base = await entrar(browser, "direccion@losolivos.demo", `http://losolivos.lvh.me:${PUERTO}/inicio`);
-  await expect(base.getByRole("main").locator("li", { hasText: "Documentos" }).getByText("Plan Khipu Pro")).toBeVisible();
-  await esperarSinAcceso(base, await base.goto(`http://losolivos.lvh.me:${PUERTO}/documentos`), "Khipu Base");
+test("Khipu Base ve el candado de Documentos y no puede abrirlos", async ({ browser }) => {
+  const colegioBase = await crearColegioTemporal({ plan: "base", prefijo: "e2e-base" });
+  try {
+    const URL_BASE = `http://${colegioBase.slug}.lvh.me:${PUERTO}`;
+    const base = await entrar(browser, colegioBase.correos.direccion, `${URL_BASE}/inicio`);
+    await expect(base.getByRole("main").locator("li", { hasText: "Documentos" }).getByText("Plan Khipu Pro")).toBeVisible();
+    await esperarSinAcceso(base, await base.goto(`${URL_BASE}/documentos`), "Khipu Base");
+  } finally {
+    await colegioBase.limpiar();
+  }
 });

@@ -6,16 +6,12 @@ const PUERTO = process.env.E2E_PORT ?? "3000";
 const COLEGIO = `http://nuevohorizonte.lvh.me:${PUERTO}`;
 const TITULO = `Circular con adjunto ${Date.now()}`;
 
-async function entrar(browser: Browser, correo: string, elegirColegio: boolean): Promise<Page> {
+async function entrar(browser: Browser, correo: string): Promise<Page> {
   const page = await (await browser.newContext()).newPage();
   await page.goto("/login");
   await page.getByLabel("Correo").fill(correo);
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  if (elegirColegio) {
-    await page.waitForURL("**/elegir-colegio");
-    await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
-  }
   await page.waitForURL(`${COLEGIO}/inicio`);
   return page;
 }
@@ -33,7 +29,7 @@ test.afterAll(async () => {
 });
 
 test("dirección publica un comunicado con PDF y solo quien puede verlo lo descarga", async ({ browser }) => {
-  const direccion = await entrar(browser, "direccion@nuevohorizonte.demo", false);
+  const direccion = await entrar(browser, "direccion@nuevohorizonte.demo");
   await direccion.goto(`${COLEGIO}/comunicados`);
   await direccion.getByRole("button", { name: "Publicar un comunicado" }).first().click();
   const dialogo = direccion.getByRole("dialog");
@@ -53,7 +49,7 @@ test("dirección publica un comunicado con PDF y solo quien puede verlo lo desca
   expect(id).toMatch(/^comunicado-[0-9a-f-]{36}$/);
 
   // Rosa (apoderada del colegio) llega con el enlace directo y descarga el PDF.
-  const rosa = await entrar(browser, "rosa.quispe@gmail.com", true);
+  const rosa = await entrar(browser, "rosa.quispe@gmail.com");
   await rosa.goto(`${COLEGIO}/comunicados#${id}`);
   const suyo = rosa.getByRole("main").locator(`#${id}`);
   await expect(suyo.getByText(TITULO)).toBeVisible();
@@ -64,7 +60,7 @@ test("dirección publica un comunicado con PDF y solo quien puede verlo lo desca
   expect(descarga.headers()["content-disposition"]).toContain("circular.pdf");
 
   // Portería no ve comunicados: no descarga el adjunto.
-  const porteria = await entrar(browser, "porteria@nuevohorizonte.demo", false);
+  const porteria = await entrar(browser, "porteria@nuevohorizonte.demo");
   expect((await porteria.request.get(`${COLEGIO}${href}`)).status()).toBe(403);
 
   // Dirección borra el comunicado (y sus archivos).
@@ -74,7 +70,7 @@ test("dirección publica un comunicado con PDF y solo quien puede verlo lo desca
 });
 
 test("la profesora elige sus avisos (correo y push) en su perfil", async ({ browser }) => {
-  const lucia = await entrar(browser, "lucia.garcia@nuevohorizonte.demo", false);
+  const lucia = await entrar(browser, "lucia.garcia@nuevohorizonte.demo");
   await lucia.goto(`${COLEGIO}/perfil`);
   const seccion = lucia.getByRole("region", { name: "Tus avisos" });
   await expect(seccion.getByLabel("Recibir avisos por correo")).toBeChecked();

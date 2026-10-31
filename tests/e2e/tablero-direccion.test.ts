@@ -1,9 +1,17 @@
 import { expect, test } from "@playwright/test";
 import { esperarSinAcceso } from "./sin-acceso";
+import { crearColegioTemporal, type ColegioTemporal } from "./ayudantes/colegio-temporal";
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const COLEGIO = `http://nuevohorizonte.lvh.me:${PUERTO}`;
-const BASE = `http://losolivos.lvh.me:${PUERTO}`;
+// Colegio Khipu Base temporal (el seed solo trae Nuevo Horizonte, Pro).
+let base: ColegioTemporal;
+test.beforeAll(async () => {
+  base = await crearColegioTemporal({ plan: "base", prefijo: "e2e-base" });
+});
+test.afterAll(async () => {
+  await base?.limpiar();
+});
 
 async function entrar(page: import("@playwright/test").Page, correo: string, colegio = COLEGIO) {
   await page.goto("/login");
@@ -77,7 +85,8 @@ test("una profesora no entra al tablero ni descarga el consolidado", async ({ pa
 });
 
 test("en Khipu Base el inicio muestra el candado y el tablero responde 403", async ({ page }) => {
-  await entrar(page, "direccion@losolivos.demo", BASE);
+  const BASE = `http://${base.slug}.lvh.me:${PUERTO}`;
+  await entrar(page, base.correos.direccion, BASE);
   const mosaico = page.getByRole("main").locator("li", { hasText: "Asistencia, notas y avisos del colegio" });
   await expect(mosaico).toContainText("Khipu Pro");
   await esperarSinAcceso(page, await page.goto(`${BASE}/tablero`));

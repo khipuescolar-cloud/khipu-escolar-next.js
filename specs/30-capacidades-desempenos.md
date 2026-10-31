@@ -136,9 +136,10 @@ importarCneb(ctx, cursoId, area?): Resultado    // area: "matematica" | "comunic
   Crea su propio salón, curso y alumno en Nuevo Horizonte y los borra al terminar.
 
 ## Datos demo
-`prisma/seed-cneb.ts` (`sembrarCneb(prisma)`, llamado al final de `prisma/seed.ts`): grados de Nuevo Horizonte (3.° B → 3, 5.° A → 5),
-catálogo importado en Matemática (3.° B y 5.° A) y Comunicación (3.° B), «Práctica: fracciones» con 2 desempeños y una evaluación
-nueva «Lectura: «El zorro y el cóndor»» (Comunicación, IV Bimestre) con 3 desempeños y notas de los alumnos de 3.° B.
+`prisma/seed-cneb.ts` (`sembrarCneb(prisma)`, llamado desde `prisma/seed.ts`; specs/35): todos los salones de Nuevo Horizonte
+tienen grado; catálogo importado en Matemática y Comunicación de primaria y secundaria; en las demás áreas (e inicial), las
+competencias del CNEB del área; «Práctica: fracciones» (Matemática 3.° B) con 2 desempeños y «Lectura: «El zorro y el cóndor»»
+(Comunicación 3.° B) con 3, en el bimestre vigente (las notas las pone `seed-notas.ts`).
 
 ## Pendientes
 - Revisar los textos de los desempeños con el CNEB oficial; agregar inicial y otras áreas (Ciencia y Tecnología, Personal Social…).

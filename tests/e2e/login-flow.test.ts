@@ -1,4 +1,18 @@
 import { expect, test } from "@playwright/test";
+import { crearColegioTemporal, type ColegioTemporal } from "./ayudantes/colegio-temporal";
+
+// El seed solo trae Nuevo Horizonte (Pro): un segundo colegio Pro donde Rosa también es apoderada y un colegio Khipu Base
+// se crean para este archivo y se borran al terminar.
+let otroColegio: ColegioTemporal;
+let base: ColegioTemporal;
+test.beforeAll(async () => {
+  otroColegio = await crearColegioTemporal({ plan: "pro", apoderadaExistente: "rosa.quispe@gmail.com", prefijo: "e2e-otro" });
+  base = await crearColegioTemporal({ plan: "base", prefijo: "e2e-base" });
+});
+test.afterAll(async () => {
+  await otroColegio?.limpiar();
+  await base?.limpiar();
+});
 
 test("profesora entra por el dominio de su colegio y llega a su subdominio", async ({ page }) => {
   await page.goto("/login");
@@ -18,7 +32,7 @@ test("apoderada con hijos en dos colegios elige a cuál entrar", async ({ page }
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
   await page.waitForURL("**/elegir-colegio");
-  await expect(page.getByText("Academia Euler")).toBeVisible();
+  await expect(page.getByText(otroColegio.nombre)).toBeVisible();
   await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
   await page.waitForURL(`http://nuevohorizonte.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
   await expect(page.getByRole("main").getByText("Tareas", { exact: true })).toBeVisible();
@@ -29,17 +43,17 @@ test("apoderada con hijos en dos colegios elige a cuál entrar", async ({ page }
 
 test("Khipu Base muestra el candado «Plan Khipu Pro» en las funciones de Pro", async ({ page }) => {
   await page.goto("/login");
-  await page.getByLabel("Correo").fill("direccion@losolivos.demo");
+  await page.getByLabel("Correo").fill(base.correos.direccion);
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  await page.waitForURL(`http://losolivos.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
+  await page.waitForURL(`http://${base.slug}.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
   await expect(page.getByText("Plan Khipu Pro").first()).toBeVisible();
 });
 
 test("contraseña incorrecta muestra un error claro", async ({ page }) => {
   await page.goto("/login");
   // Correo único por corrida: el límite de intentos no bloquea ejecuciones repetidas.
-  await page.getByLabel("Correo").fill(`no-existe-${Date.now()}@losolivos.demo`);
+  await page.getByLabel("Correo").fill(`no-existe-${Date.now()}@nuevohorizonte.demo`);
   await page.getByLabel("Contraseña").fill("incorrecta");
   await page.getByRole("button", { name: "Entrar" }).click();
   await expect(page.getByText("El correo o la contraseña no coinciden.")).toBeVisible();

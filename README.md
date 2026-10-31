@@ -14,5 +14,6 @@ pnpm install
 pnpm db:start
 cp .env.example .env    # completa las claves con: pnpm exec supabase status
 pnpm db:deploy && pnpm db:seed
+pnpm db:reconstruir     # opcional: BD local limpia, solo el colegio demo (specs/35)
 pnpm dev                # http://lvh.me:3000  (contraseña demo123)
 ```

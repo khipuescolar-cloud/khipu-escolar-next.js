@@ -100,8 +100,8 @@ Estados siempre con ícono + palabra: «Incluido» / «No incluido» / «Siempre
   (nombres con respaldo, inactivos fuera de `planesOfrecidos`).
 - integración: `tests/integracion/planes-modulos-roles.test.ts` (quitar de un plan → 403 en páginas/acciones; extra
   por colegio; quitar a un rol solo afecta a ese rol; `gestion` intocable; caché invalidada al guardar; restablecer).
-- e2e: `tests/e2e/planes-modulos.test.ts` (Los Olivos, Khipu Base, ve Agenda con el candado «Plan Khipu Pro»; quita Agenda
-  de Khipu Pro → como ningún plan la incluye, desaparece en Academia Euler y `/agenda` queda sin acceso; restaura).
+- e2e: `tests/e2e/planes-modulos.test.ts` (colegio Khipu Base temporal ve Agenda con el candado «Plan Khipu Pro»; quita Agenda
+  de Khipu Pro → como ningún plan la incluye, desaparece en Nuevo Horizonte y `/agenda` queda sin acceso; restaura).
 
 ## Nombres comerciales de los planes
 - `nombresDePlanes()` (`Record<Plan, string>`, catálogo cacheado con `NOMBRE_PLAN` de respaldo) y `planesOfrecidos()`

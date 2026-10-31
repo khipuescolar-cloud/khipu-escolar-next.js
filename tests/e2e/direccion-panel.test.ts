@@ -1,7 +1,19 @@
 import { expect, test } from "@playwright/test";
+import { rm } from "node:fs/promises";
+import path from "node:path";
+import { sql } from "./ayudantes/colegio-temporal";
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const COLEGIO = `http://nuevohorizonte.lvh.me:${PUERTO}`;
+const INICIO = new Date();
+
+// Borra la exportación que prepara la prueba (y su archivo) para no dejar residuos en los datos demo.
+test.afterAll(async () => {
+  const filas = await sql<{ public_id: string }>("select public_id from archivos where created_at >= $1 and public_id like '%/exportaciones/%'", [INICIO]);
+  await sql("delete from exportaciones_colegio where created_at >= $1", [INICIO]);
+  await sql("delete from archivos where created_at >= $1 and public_id like '%/exportaciones/%'", [INICIO]);
+  for (const f of filas) await rm(path.resolve(process.cwd(), ".uploads", f.public_id), { force: true });
+});
 
 async function entrar(page: import("@playwright/test").Page, correo: string) {
   await page.goto("/login");

@@ -2,21 +2,35 @@ import "dotenv/config";
 import { expect, test, type Browser, type Page } from "@playwright/test";
 import { esperarSinAcceso } from "./sin-acceso";
 import { Client } from "pg";
+import { crearColegioTemporal, type ColegioTemporal } from "./ayudantes/colegio-temporal";
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const colegio = (slug: string, ruta: string) => `http://${slug}.lvh.me:${PUERTO}${ruta}`;
+
+// El seed solo trae Nuevo Horizonte (Pro, literal): la academia vigesimal (profesor «Jorge Ramos», «Simulacro 1») y el
+// colegio Khipu Base se crean para este archivo y se borran al terminar.
+let academia: ColegioTemporal;
+let base: ColegioTemporal;
+test.beforeAll(async () => {
+  academia = await crearColegioTemporal({ plan: "pro", vigesimal: true, prefijo: "e2e-vigesimal" });
+  base = await crearColegioTemporal({ plan: "base", prefijo: "e2e-base" });
+});
+test.afterAll(async () => {
+  await academia?.limpiar();
+  await base?.limpiar();
+});
 
 async function entrar(page: Page, correo: string, slug: string) {
   await page.goto("/login");
   await page.getByLabel("Correo").fill(correo);
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  await page.waitForURL(correo === "rosa.quispe@gmail.com" ? "**/elegir-colegio" : colegio(slug, "/inicio"));
+  await page.waitForURL(colegio(slug, "/inicio"));
 }
 
 test("profesor de la academia (vigesimal) registra una nota de 0 a 20", async ({ page }) => {
-  await entrar(page, "jorge.ramos@academiaeuler.demo", "academiaeuler");
-  await page.goto(colegio("academiaeuler", "/notas"));
+  await entrar(page, academia.correos.profesor, academia.slug);
+  await page.goto(colegio(academia.slug, "/notas"));
   await expect(page.getByRole("heading", { name: "Notas" })).toBeVisible();
   const celda = page.getByLabel("Nota de Franco en Simulacro 1");
   await celda.fill("13");
@@ -28,7 +42,7 @@ test("profesor de la academia (vigesimal) registra una nota de 0 a 20", async ({
   await page.getByLabel("Nota de Franco en Simulacro 1").fill("25");
   await page.getByLabel("Nota de Franco en Simulacro 1").blur();
   await expect(page.getByText("Escribe una nota entre 0 y 20.")).toBeVisible();
-  // Restaura el valor original del seed (9).
+  // Restaura el valor original (9).
   await page.getByLabel("Nota de Franco en Simulacro 1").fill("9");
   await page.getByLabel("Nota de Franco en Simulacro 1").blur();
   await expect(page.getByText("Guardado").first()).toBeVisible();
@@ -36,11 +50,12 @@ test("profesor de la academia (vigesimal) registra una nota de 0 a 20", async ({
 
 test("apoderada descarga la libreta en PDF de su hijo", async ({ page }) => {
   await entrar(page, "rosa.quispe@gmail.com", "nuevohorizonte");
-  await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
-  await page.waitForURL(colegio("nuevohorizonte", "/inicio"));
   await page.goto(colegio("nuevohorizonte", "/libreta"));
   await expect(page.getByRole("heading", { name: "Libreta" })).toBeVisible();
-  await expect(page.getByText("Quispe Huamán, Mateo")).toBeVisible();
+  // Rosa tiene dos hijos: elige a Mateo.
+  await page.getByRole("combobox", { name: "Alumno" }).selectOption({ label: "Quispe Huamán, Mateo · 3.° B" });
+  await page.getByRole("button", { name: "Ver", exact: true }).click();
+  await page.waitForURL(/\/libreta\?alumno=/);
   const descarga = page.waitForEvent("download");
   await page.getByRole("link", { name: "Descargar PDF" }).click();
   const archivo = await descarga;
@@ -52,16 +67,14 @@ test("apoderada descarga la libreta en PDF de su hijo", async ({ page }) => {
 
 test("apoderada ve las notas de su hijo sin comparaciones", async ({ page }) => {
   await entrar(page, "rosa.quispe@gmail.com", "nuevohorizonte");
-  await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
-  await page.waitForURL(colegio("nuevohorizonte", "/inicio"));
   await page.goto(colegio("nuevohorizonte", "/notas"));
   await expect(page.getByRole("heading", { name: "Matemática" })).toBeVisible();
   await expect(page.getByText(/promedio del salón|ranking|puesto/i)).toHaveCount(0);
 });
 
 test("dirección de Khipu Base recibe 403 en /notas", async ({ page }) => {
-  await entrar(page, "direccion@losolivos.demo", "losolivos");
-  await esperarSinAcceso(page, await page.goto(colegio("losolivos", "/notas")));
+  await entrar(page, base.correos.direccion, base.slug);
+  await esperarSinAcceso(page, await page.goto(colegio(base.slug, "/notas")));
 });
 
 async function sql<T = Record<string, unknown>>(consulta: string, params: unknown[] = []): Promise<T[]> {
@@ -81,8 +94,8 @@ async function paginaNueva(browser: Browser, correo: string, slug: string) {
 }
 
 test("profesor agrega una observación a una nota y la quita", async ({ page }) => {
-  await entrar(page, "jorge.ramos@academiaeuler.demo", "academiaeuler");
-  await page.goto(colegio("academiaeuler", "/notas"));
+  await entrar(page, academia.correos.profesor, academia.slug);
+  await page.goto(colegio(academia.slug, "/notas"));
   await page.getByRole("button", { name: /Agregar observación de Franco Herrera Poma en Simulacro 1/ }).click();
   await page.getByRole("textbox", { name: "Observación" }).fill("Mejoró mucho en el procedimiento.");
   await page.getByRole("button", { name: "Guardar observación" }).click();
@@ -98,11 +111,11 @@ test("profesor agrega una observación a una nota y la quita", async ({ page }) 
 });
 
 test("el profesor cierra las notas de su curso y dirección las reabre", async ({ page, browser }) => {
-  const limpiar = () => sql(`delete from cierres_curso where tenant_id in (select id from tenants where slug = 'academiaeuler')`);
+  const limpiar = () => sql(`delete from cierres_curso where tenant_id = $1`, [academia.tenantId]);
   await limpiar();
   try {
-    await entrar(page, "jorge.ramos@academiaeuler.demo", "academiaeuler");
-    await page.goto(colegio("academiaeuler", "/notas"));
+    await entrar(page, academia.correos.profesor, academia.slug);
+    await page.goto(colegio(academia.slug, "/notas"));
     const main = page.getByRole("main");
     await expect(main.getByText("Abierto", { exact: true })).toBeVisible();
     await main.getByRole("button", { name: "Cerrar notas del curso" }).click();
@@ -112,8 +125,8 @@ test("el profesor cierra las notas de su curso y dirección las reabre", async (
     await expect(page.getByLabel("Nota de Franco en Simulacro 1")).toHaveCount(0);
     await expect(main.getByRole("button", { name: "Reabrir notas del curso" })).toHaveCount(0);
 
-    const dir = await paginaNueva(browser, "direccion@academiaeuler.demo", "academiaeuler");
-    await dir.goto(colegio("academiaeuler", "/notas"));
+    const dir = await paginaNueva(browser, academia.correos.direccion, academia.slug);
+    await dir.goto(colegio(academia.slug, "/notas"));
     await dir.getByRole("main").getByRole("button", { name: "Reabrir notas del curso" }).click();
     await dir.getByRole("alertdialog").getByRole("button", { name: "Reabrir notas del curso" }).click();
     await expect(dir.getByRole("main").getByText("Abierto", { exact: true })).toBeVisible();
@@ -127,8 +140,8 @@ test("el profesor cierra las notas de su curso y dirección las reabre", async (
 });
 
 test("exporta la rejilla en CSV con BOM y separador «;»", async ({ page }) => {
-  await entrar(page, "jorge.ramos@academiaeuler.demo", "academiaeuler");
-  await page.goto(colegio("academiaeuler", "/notas?seccion=excel"));
+  await entrar(page, academia.correos.profesor, academia.slug);
+  await page.goto(colegio(academia.slug, "/notas?seccion=excel"));
   const descarga = page.waitForEvent("download");
   await page.getByRole("link", { name: "Descargar CSV" }).click();
   const archivo = await descarga;

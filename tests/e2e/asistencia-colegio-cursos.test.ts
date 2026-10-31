@@ -1,9 +1,14 @@
 import { expect, test, type Page } from "@playwright/test";
+import { diaHabilAnterior, limpiarAsistenciaDeHoy } from "./ayudantes/datos-demo";
 
 // Asistencia al colegio vs. por curso (specs/04 y 27): dirección no pasa lista, ve el reporte general,
 // abre una lista para corregir y activa la asistencia por curso por nivel. Deja la configuración demo como estaba.
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const COLEGIO = `http://nuevohorizonte.lvh.me:${PUERTO}`;
+
+test.afterAll(async () => {
+  await limpiarAsistenciaDeHoy("3.° B");
+});
 
 async function entrar(page: Page, email: string) {
   await page.goto("/login");
@@ -30,11 +35,13 @@ test("dirección no pasa lista: ve el reporte general del colegio y abre una lis
   await expect(page.getByRole("heading", { name: "Asistencia al colegio en el rango" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Asistencia por curso" })).toBeVisible();
 
-  // Un día pasado hábil (lunes 2 de marzo de 2026) y su lista del día en modo «corregir».
-  await page.goto(`${COLEGIO}/asistencia/reportes?dia=2026-03-02`);
-  await expect(page.getByText(/lunes,? 2 de marzo/i).first()).toBeVisible();
+  // Un día hábil pasado (con datos del seed) y su lista del día en modo «corregir».
+  const dia = diaHabilAnterior(5);
+  const [diaSemana, resto] = new Intl.DateTimeFormat("es-PE", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" }).format(new Date(`${dia}T12:00:00Z`)).split(", ");
+  await page.goto(`${COLEGIO}/asistencia/reportes?dia=${dia}`);
+  await expect(page.getByText(new RegExp(`${diaSemana},? ${resto}`, "i")).first()).toBeVisible();
   await page.getByRole("link", { name: "Corregir la asistencia del día de 3.° B" }).click();
-  await expect(page).toHaveURL(/ambito=dia&fecha=2026-03-02/);
+  await expect(page).toHaveURL(new RegExp(`ambito=dia&fecha=${dia}`));
   await expect(page.getByRole("heading", { name: "Corregir · Asistencia del día · 3.° B" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Marcar a todos «Llegó»" })).toHaveCount(0);
   await expect(page.getByText("Corrección de un día pasado: no se envían avisos.").filter({ visible: true }).first()).toBeVisible();
@@ -89,7 +96,8 @@ test("dirección activa y desactiva la asistencia por curso por nivel y la profe
   await page.goto(`${COLEGIO}/asistencia/reportes/ver`);
   const seccionCursos = page.getByRole("region", { name: "Asistencia por curso" });
   await expect(seccionCursos.getByRole("columnheader", { name: "Ingresó pero faltó" })).toBeVisible();
-  await seccionCursos.getByRole("link", { name: "Matemática" }).first().click();
+  // Hay cursos de muchos salones: la fila de Matemática de 3.° B.
+  await seccionCursos.getByRole("row").filter({ has: page.getByRole("cell", { name: "3.° B", exact: true }) }).getByRole("link", { name: "Matemática", exact: true }).click();
   await expect(page).toHaveURL(/curso=/);
   await expect(page.getByRole("heading", { name: "Matemática · 3.° B" })).toBeVisible();
   await expect(page.getByRole("link", { name: /^Corregir Matemática del / }).first()).toBeVisible();

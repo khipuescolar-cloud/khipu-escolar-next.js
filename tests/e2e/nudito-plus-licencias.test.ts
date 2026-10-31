@@ -70,8 +70,6 @@ async function entrar(page: Page, correo: string) {
 
 async function entrarComoRosa(page: Page) {
   await entrar(page, "rosa.quispe@gmail.com");
-  await page.waitForURL("**/elegir-colegio");
-  await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
   await page.waitForURL(colegio("/inicio"));
 }
 
@@ -79,7 +77,8 @@ test("Rosa paga con Yape y autoriza; el equipo Khipu verifica y la licencia qued
   await entrarComoRosa(page);
   await page.goto(colegio("/nudito-plus"));
   await expect(page.getByRole("heading", { name: "Nudito+", level: 1 })).toBeVisible();
-  await page.getByRole("link", { name: /^(Activar Nudito\+|Renovar)$/ }).first().click();
+  // Rosa tiene dos hijos (Mateo y Sofía): el botón de Mateo.
+  await page.getByRole("link", { name: /^(Activar Nudito\+|Renovar)$/ }).and(page.locator(`[href$="/nudito-plus/${alumnoId}/activar"]`)).first().click();
   await page.waitForURL(colegio(`/nudito-plus/${alumnoId}/activar`));
   await expect(page.getByTestId("yape-numero")).toBeVisible();
   await page.getByLabel("Meses que pagaste").selectOption("1");

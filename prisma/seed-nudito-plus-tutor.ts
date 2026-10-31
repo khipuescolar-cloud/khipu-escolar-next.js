@@ -1,8 +1,7 @@
 // Datos demo de Nudito+ · tutor (specs/29). Ficticios. Se llama al final de prisma/seed.ts.
-// - Grado del salón 5.° A de Nuevo Horizonte (→ 5). El 3.° B se deja sin grado: otros e2e crean ahí cuentas de alumno.
 // - Lucas Huamán Soto en 5.° A con cuenta propia (lucas.huaman@nuevohorizonte.demo / demo123) y su madre
-//   Julia Soto Rivas (familia.huaman@familia.demo / demo123). No se agrega un 2.° hijo a Rosa en Nuevo Horizonte:
-//   varios e2e asumen que Rosa tiene un solo hijo allí (Mateo, 3.° B, sin cuenta → «modo hijo»).
+//   Julia Soto Rivas (familia.huaman@familia.demo / demo123). Normalmente ya los creó `seed-colegio.ts`; aquí se
+//   buscan (y se crean solo si faltan, para poder correr este módulo suelto).
 // - Dos conversaciones pasadas de Lucas con su uso del mes.
 // NO crea la lista blanca de sitios, licencias ni consentimientos de IA: los siembra `prisma/seed-nudito-plus.ts`
 // (specs/28), que corre DESPUÉS de este y da a Lucas una licencia activa con el consentimiento de Julia.
