@@ -1,6 +1,6 @@
 # 30 — Capacidades y desempeños del CNEB
 
-> Estado: implementado · Plan: Khipu Pro (módulo `notas`; la libreta usa `libreta`) · Última actualización: 2026-10-30 (Claude Code)
+> Estado: implementado · Plan: Khipu Pro (módulo `notas`; la libreta usa `libreta`) · Última actualización: 2026-10-30 (Claude Code, catálogo completo)
 
 ## Objetivo
 Completar las notas por competencias (`specs/11`) con la estructura del Currículo Nacional de Educación Básica (CNEB, MINEDU):
@@ -24,10 +24,12 @@ la usa en solo lectura y pide cambios a dirección.
    su nivel), la pestaña muestra «Este salón no tiene grado.»; dirección lo indica con «Indicar grado» (diálogo con los grados del nivel:
    primaria 1–6, secundaria 1–5, inicial 3–5 años) o desde Gestión · Salones. Academia no usa el CNEB (aviso informativo). El profesor
    ve «Pide a dirección que lo indique». Sin grado no se listan desempeños, no se importan ni se marcan.
-2. **Importar desde el CNEB** (dirección) → `/notas?curso=…&seccion=cneb` → «Importar desde el CNEB»: diálogo con el **área** (se
-   sugiere por el nombre del curso: «Matemática», «Comunicación», «Lenguaje»…). Crea las competencias, capacidades y desempeños del
-   catálogo para el nivel y grado del salón que falten. Toast «Importamos N competencias, N capacidades y N desempeños del CNEB.» o
-   «Ya estaba todo importado. No se agregó nada.».
+2. **Importar desde el CNEB** (dirección) → `/notas?curso=…&seccion=cneb` → «Importar desde el CNEB»: diálogo con el **área** (solo
+   las áreas del nivel del salón; se sugiere por el nombre del curso con alias: «Matemática», «Lenguaje», «DPCC», «CCSS», «HGE», «EPT»,
+   «Religión», «Psicomotriz», «Ciencia y Ambiente», «CTA», «Computación»…; en inicial «Educación Física» sugiere Psicomotriz). Crea las
+   competencias, capacidades y desempeños del catálogo para el nivel y grado (o edad) del salón que falten. Toast «Importamos N
+   competencias, N capacidades y N desempeños del CNEB.» o «Ya estaba todo importado. No se agregó nada.»; si alguna competencia no
+   tiene desempeños en el catálogo para ese grado se agrega «… aún no tiene desempeños de {grado} en el catálogo: agrégalos a mano.».
 3. **Gestionar a mano** (dirección), en la misma pestaña, por competencia: «Nueva capacidad», editar (lápiz), subir/bajar, «Eliminar»
    (confirmación); «Nuevo desempeño» (descripción, capacidad opcional, código opcional) para el grado del salón, editar, subir/bajar,
    «Eliminar» (la confirmación dice en cuántas evaluaciones está). Las competencias también se suben o bajan (su orden se usa en
@@ -54,7 +56,11 @@ la usa en solo lectura y pide cambios a dirección.
   mayúsculas) o uno es prefijo del otro (15+ caracteres; «Lee diversos tipos de textos escritos» = «… en su lengua materna»);
   capacidad existente = mismo nombre dentro de la competencia; desempeño existente = mismo **código** o misma descripción normalizada,
   en el mismo nivel y grado. Lo existente no se modifica. Los nuevos van al final (`orden` = máximo + 1). Todo en una transacción.
-- Código de los desempeños del catálogo: `MAT-C1-P3-01` (área, competencia, P/S + grado, número). Sirve para no duplicar y para buscarlos.
+- Emparejar competencias al importar: primero nombres iguales y luego abreviados, del más parecido al menos parecido (así «Construye su
+  identidad» no toma la competencia 30 «Construye su identidad como persona humana…»).
+- Código de los desempeños del catálogo: `MAT-C23-P3-01` (prefijo del área, **número oficial de la competencia en el CNEB**, I/P/S +
+  grado o edad, número). Sirve para no duplicar y para buscarlos. (Hasta oct-2026 el código usaba la posición: `MAT-C1-P3-01`; esos
+  desempeños antiguos, de redacción resumida, no se tocan al reimportar: dirección puede borrarlos.)
 - Borrar una capacidad deja sus desempeños sin capacidad (SetNull). Borrar un desempeño lo quita de las evaluaciones (Cascade); las
   notas no cambian. Borrar una competencia sigue la regla de `specs/11` (no si tiene calificaciones en libreta) y arrastra capacidades
   y desempeños.
@@ -63,16 +69,26 @@ la usa en solo lectura y pide cambios a dirección.
 - Auditoría: `editar salon` (grado) y `crear cneb_importacion` (con área, grado y conteos).
 
 ## Catálogo CNEB incluido (`src/lib/cneb/`)
-- `matematica.json` y `comunicacion.json` (datos puros) + `catalogo.ts` (tipos, `detectarArea`, `plantillaCneb`, `planearImportacion`,
-  `reordenar`, `gradoValido`, `textoGrado`).
-- **Matemática** (primaria y secundaria): 4 competencias oficiales, cada una con sus 4 capacidades oficiales: «Resuelve problemas de
-  cantidad», «… de regularidad, equivalencia y cambio», «… de forma, movimiento y localización», «… de gestión de datos e incertidumbre».
-- **Comunicación** (primaria y secundaria): «Se comunica oralmente en su lengua materna» (6 capacidades), «Lee diversos tipos de textos
-  escritos en su lengua materna» (3), «Escribe diversos tipos de textos en su lengua materna» (4).
-- Desempeños: 3 o 4 por competencia y grado (primaria 1.°–6.°, secundaria 1.°–5.°), 253 en total, cada uno ligado a una capacidad.
-- Los nombres de competencias y capacidades siguen el CNEB oficial. **Los textos de los desempeños son una redacción cercana al
-  programa curricular, abreviada o resumida en varios casos: revisar con el texto oficial del CNEB** (Programas Curriculares de
-  Primaria y Secundaria, MINEDU 2016) antes de usarlos como oficiales. Inicial y las demás áreas no están incluidas.
+- Un JSON por área + `catalogo.ts` (tipos, `CATALOGO_CNEB`, `areasDelNivel`, `detectarArea(nombre, nivel?)`, `plantillaCneb`,
+  `planearImportacion`, `reordenar`, `gradoValido`, `textoGrado`) + `PENDIENTES.md` (fuentes, método, vacíos y lecturas dudosas).
+- Cada área: `area`, `nombre`, `prefijo`, `niveles`, `sinonimos` (nombres de curso normalizados; gana el más largo y se prefieren las
+  áreas del nivel), `fuentes` (documento, URL de minedu.gob.pe, año, páginas) y `competencias`: `numero` (1–31 del CNEB), `nombre`,
+  `niveles`, `capacidades` **por nivel** (inicial a veces lista menos) y `desempenos[nivel][grado] = string[]`.
+- Áreas: Inicial — Personal Social (1, 16, 30), Psicomotriz (2), Comunicación (7, 8, 9, 6), Castellano como segunda lengua (10),
+  Matemática (23, 26), Ciencia y Tecnología (20; alias «Descubrimiento del mundo», «Ciencia y Ambiente»). Primaria — Personal Social
+  (1, 16, 17, 18, 19), Educación Física (2, 3, 4), Comunicación (7, 8, 9), Arte y Cultura (5, 6), Castellano como segunda lengua
+  (10, 11, 12), Inglés (13, 14, 15), Matemática (23, 24, 26, 25), Ciencia y Tecnología (20, 21, 22), Educación Religiosa (30, 31).
+  Secundaria — DPCC (1, 16), Ciencias Sociales (17, 18, 19), EPT (27), Educación Física, Comunicación, Arte y Cultura, Castellano
+  como segunda lengua, Inglés, Matemática, Ciencia y Tecnología, Educación Religiosa. Transversales (28, 29) en los tres niveles, y
+  «TIC (Computación)» (28) para cursos de cómputo.
+- **Textos oficiales**: nombres y números de las 31 competencias según el CNEB (RM 281-2016-MINEDU); capacidades y desempeños
+  transcritos de los Programas Curriculares de Inicial, Primaria y Secundaria (MINEDU 2016–2017), incluidos sus «Ejemplo: …».
+  Inicial y Primaria se extrajeron del PDF con texto y se verificó que cada desempeño aparece literal; Secundaria (PDF escaneado) se
+  transcribió de la imagen y se contrastó con OCR. Los programas no ligan desempeños a capacidades: se importan sin capacidad.
+- Inicial: solo ciclo II (3, 4 y 5 años). Sin desempeños por definición del programa: «Escribe…» a los 3 años; Castellano como
+  segunda lengua, TIC y «Gestiona su aprendizaje» antes de 5 años; Inglés lee/escribe en 1.° y 2.° de primaria. Lo demás que falte
+  está en `PENDIENTES.md`.
+- Para actualizar el catálogo: regenerar los JSON desde los PDF oficiales con el mismo método y correr `tests/unit/cneb-catalogo.test.ts`.
 
 ## Modelo de datos
 Migración `20261031130000_pro_completo_nudito_plus` (sin cambios de esquema en esta función).
@@ -117,7 +133,8 @@ importarCneb(ctx, cursoId, area?): Resultado    // area: "matematica" | "comunic
 ## Errores y casos borde
 - Sin grado: «Primero indica el grado del salón: los desempeños dependen del nivel y del grado.»
 - Curso sin área reconocible: «Elige el área del CNEB que corresponde a este curso.» (el diálogo obliga a elegirla).
-- Nivel sin catálogo (inicial): «El catálogo incluido aún no tiene desempeños de inicial.»
+- Área que no es del nivel (p. ej. DPCC en primaria): «El área … no tiene competencias en primaria según el CNEB. Elige otra área.»
+- Academia: «El CNEB no se usa en academia.»
 - Desempeño de otra competencia, otro grado u otro colegio: «Algún desempeño no es de esta competencia o del grado del salón.»
 - Desempeños sin competencia: «Elige la competencia antes de marcar desempeños.»
 - Dos importaciones simultáneas del mismo curso podrían duplicar filas (no hay índice único en el esquema); la segunda importación
@@ -125,24 +142,28 @@ importarCneb(ctx, cursoId, area?): Resultado    // area: "matematica" | "comunic
 - Cambiar el grado del salón no borra los desempeños del grado anterior: dejan de mostrarse y los vínculos con evaluaciones se conservan.
 
 ## Pruebas
-- unit: `tests/unit/cneb-catalogo.test.ts` (integridad del catálogo: competencias y capacidades oficiales, todos los grados, capacidad
-  válida, sin repetidos; detección de área; plantilla y códigos; plan de importación vacío, parcial y repetido; reordenar).
+- unit: `tests/unit/cneb-catalogo.test.ts` (integridad del catálogo: las 31 competencias con número y nombre únicos y coherentes entre
+  áreas; capacidades oficiales por nivel (número según el CNEB); áreas por nivel; desempeños de grados válidos, sin repetir ni restos
+  del PDF; primaria completa; detección de área con alias y nivel; plantilla, códigos e inicial por edad; plan de importación vacío,
+  parcial, repetido y competencia 1 vs 30; reordenar).
 - integración: `tests/integracion/cneb-desempenos.test.ts` (grado: solo dirección y válido; importar solo dirección, idempotente; área
   obligatoria si no se detecta; aislamiento entre colegios; profesor no edita; dirección crea y reordena; profesor ajeno y dirección no
   crean evaluaciones; desempeños de otra competencia, sin competencia o de otro colegio se rechazan; editar conserva/quita;
-  calificación del periodo y libreta con desempeños evaluados y capacidades).
+  calificación del periodo y libreta con desempeños evaluados y capacidades; importar las 11 áreas de un salón de secundaria por nombre
+  de curso (DPCC, CCSS, EPT, Religión…) con conteos iguales al catálogo, idempotente y en menos de 15 s; inicial por edad (Psicomotriz,
+  Personal Social, «Educación Física» → Psicomotriz) y área de otro nivel rechazada).
 - e2e: `tests/e2e/cneb-desempenos.test.ts` (dirección indica el grado e importa el CNEB, reimportar no duplica; la profesora marca
   desempeños al crear una evaluación y los ve en la calificación del periodo; la libreta muestra capacidades y desempeños evaluados).
   Crea su propio salón, curso y alumno en Nuevo Horizonte y los borra al terminar.
 
 ## Datos demo
 `prisma/seed-cneb.ts` (`sembrarCneb(prisma)`, llamado desde `prisma/seed.ts`; specs/35): todos los salones de Nuevo Horizonte
-tienen grado; catálogo importado en Matemática y Comunicación de primaria y secundaria; en las demás áreas (e inicial), las
-competencias del CNEB del área; «Práctica: fracciones» (Matemática 3.° B) con 2 desempeños y «Lectura: «El zorro y el cóndor»»
+tienen grado; catálogo importado en todos los cursos cuya área se reconoce (inicial, primaria y secundaria); en cursos sin área
+reconocible, las competencias de una lista de respaldo; «Práctica: fracciones» (Matemática 3.° B) con 2 desempeños y «Lectura: «El zorro y el cóndor»»
 (Comunicación 3.° B) con 3, en el bimestre vigente (las notas las pone `seed-notas.ts`).
 
 ## Pendientes
-- Revisar los textos de los desempeños con el CNEB oficial; agregar inicial y otras áreas (Ciencia y Tecnología, Personal Social…).
+- Vacíos y lecturas dudosas del catálogo: `src/lib/cneb/PENDIENTES.md`. Ciclo I de inicial (0–2 años) no incluido.
 - ¿Calificación por desempeño? Hoy solo se califica por evaluación y competencia (decisión: no por ahora).
 - Mostrar los desempeños evaluados también en `/notas` de la familia y en reportes.
 - Índice único (competencia, nivel, grado, código) si se quiere blindar la importación concurrente (requiere migración).

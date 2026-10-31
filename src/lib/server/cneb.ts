@@ -3,7 +3,7 @@ import { forbidden } from "next/navigation";
 import { z } from "zod";
 import type { Nivel } from "@/generated/prisma/enums";
 import {
-  CATALOGO_CNEB, areaPorClave, detectarArea, gradoValido, mensajeImportacion, planearImportacion, plantillaCneb, reordenar, textoGrado,
+  areaPorClave, areasDelNivel, detectarArea, gradoValido, mensajeImportacion, planearImportacion, plantillaCneb, reordenar, textoGrado,
   GRADOS_POR_NIVEL, ETIQUETA_NIVEL,
 } from "@/lib/cneb/catalogo";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
@@ -67,14 +67,14 @@ export async function estructuraCurso(ctx: TenantContext, cursoId: string) {
       },
     },
   });
-  const area = detectarArea(curso.nombre);
+  const area = detectarArea(curso.nombre, curso.salon.nivel);
   return {
     curso: { id: curso.id, nombre: curso.nombre },
     salon: { id: curso.salon.id, nombre: curso.salon.nombre, nivel: curso.salon.nivel, grado },
     gradosDelNivel: GRADOS_POR_NIVEL[curso.salon.nivel],
     textoGrado: grado === null ? null : textoGrado(curso.salon.nivel, grado),
     areaSugerida: area?.area ?? null,
-    areas: CATALOGO_CNEB.map((a) => ({ area: a.area, nombre: a.nombre })),
+    areas: areasDelNivel(curso.salon.nivel).map((a) => ({ area: a.area, nombre: a.nombre })),
     puedeEditar: ctx.rol === "direccion",
     competencias: competencias.map((c) => ({
       id: c.id,
@@ -201,7 +201,7 @@ export async function moverCapacidad(ctx: TenantContext, capacidadId: string, di
 const opcional = z.string().trim().transform((v) => v || null);
 const esquemaDesempeno = z.object({
   capacidadId: z.uuid().optional().or(z.literal("").transform(() => undefined)),
-  descripcion: z.string().trim().min(10, "Describe el desempeño (al menos 10 caracteres).").max(1000, "El desempeño es muy largo (máximo 1000 caracteres)."),
+  descripcion: z.string().trim().min(10, "Describe el desempeño (al menos 10 caracteres).").max(2000, "El desempeño es muy largo (máximo 2000 caracteres)."),
   codigo: opcional.pipe(z.string().max(30, "El código es muy largo (máximo 30 caracteres).").nullable()).optional(),
 });
 
@@ -286,7 +286,7 @@ export async function moverCompetencia(ctx: TenantContext, competenciaId: string
  */
 export async function importarCneb(ctx: TenantContext, cursoId: string, areaClave?: string): Promise<Resultado> {
   const curso = await cursoGestion(ctx, cursoId);
-  const area = areaClave ? areaPorClave(areaClave) : detectarArea(curso.nombre);
+  const area = areaClave ? areaPorClave(areaClave) : detectarArea(curso.nombre, curso.salon.nivel);
   if (!area) return fallo("Elige el área del CNEB que corresponde a este curso.");
   const grado = gradoDe(curso.salon);
   if (grado === null) return fallo(MENSAJE_SIN_GRADO);
@@ -307,8 +307,12 @@ export async function importarCneb(ctx: TenantContext, cursoId: string, areaClav
       const competenciaId = paso.competenciaId
         ?? (await tx.competencia.create({ data: { tenantId, cursoId, nombre: paso.nombre, orden: paso.orden } })).id;
       const capacidades = { ...paso.capacidadesExistentes };
-      for (const c of paso.capacidadesNuevas) {
-        capacidades[c.nombre] = (await tx.capacidad.create({ data: { tenantId, competenciaId, nombre: c.nombre, orden: c.orden } })).id;
+      if (paso.capacidadesNuevas.length > 0) {
+        const creadas = await tx.capacidad.createManyAndReturn({
+          data: paso.capacidadesNuevas.map((c) => ({ tenantId, competenciaId, nombre: c.nombre, orden: c.orden })),
+          select: { id: true, nombre: true },
+        });
+        for (const c of creadas) capacidades[c.nombre] = c.id;
       }
       if (paso.desempenosNuevos.length > 0) {
         await tx.desempeno.createMany({
@@ -322,5 +326,9 @@ export async function importarCneb(ctx: TenantContext, cursoId: string, areaClav
     return plan.resumen;
   });
   await auditar({ tenantId, actorId: ctx.user.id, accion: "crear", entidad: "cneb_importacion", entidadId: cursoId, detalle: { area: area.area, grado, ...resumen } });
-  return ok(mensajeImportacion(resumen));
+  const faltan = plantilla.sinDesempenos.length;
+  const aviso = faltan === 0 ? "" : faltan === 1
+    ? ` «${plantilla.sinDesempenos[0]}» aún no tiene desempeños de ${textoGrado(curso.salon.nivel, grado)} en el catálogo: agrégalos a mano.`
+    : ` ${faltan} competencias aún no tienen desempeños de ${textoGrado(curso.salon.nivel, grado)} en el catálogo: agrégalos a mano.`;
+  return ok(mensajeImportacion(resumen) + aviso);
 }

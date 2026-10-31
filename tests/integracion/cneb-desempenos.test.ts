@@ -4,6 +4,8 @@ import { db } from "@/lib/server/db";
 import {
   crearCapacidad, crearDesempeno, editarCapacidad, eliminarDesempeno, estructuraCurso, fijarGradoSalon, importarCneb, moverCapacidad,
 } from "@/lib/server/cneb";
+import { detectarArea, plantillaCneb } from "@/lib/cneb/catalogo";
+import type { Nivel } from "@/generated/prisma/enums";
 import { datosLibreta } from "@/lib/server/libreta";
 import { calificacionesPeriodo, crearEvaluacion, editarEvaluacion } from "@/lib/server/notas";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
@@ -63,14 +65,81 @@ describe("importar desde el CNEB", () => {
     expect(e.textoGrado).toBe("3.° de primaria");
     expect(e.puedeEditar).toBe(false);
     expect(e.competencias[0].nombre).toBe("Resuelve problemas de cantidad");
-    expect(e.competencias[0].desempenos.every((d) => d.codigo?.startsWith("MAT-C1-P3-"))).toBe(true);
-    expect(e.competencias[0].desempenos[0].capacidadId).toBe(e.competencias[0].capacidades[0].id);
+    expect(e.competencias[0].desempenos.every((d) => d.codigo?.startsWith("MAT-C23-P3-"))).toBe(true);
+    // Los programas curriculares no asignan cada desempeño a una capacidad: se importan sin capacidad.
+    expect(e.competencias[0].desempenos[0].capacidadId).toBeNull();
+    expect(e.competencias[0].capacidades.map((c) => c.nombre)).toContain("Traduce cantidades a expresiones numéricas");
   });
 
   it("un curso sin área reconocible pide elegir el área", async () => {
     await fijarGradoSalon(a.ctxDe("direccion"), { salonId: a.otroSalon.id, grado: 5 });
     expect(await importarCneb(a.ctxDe("direccion"), a.cursoAjeno.id)).toEqual({ ok: false, error: "Elige el área del CNEB que corresponde a este curso." });
     ok(await importarCneb(a.ctxDe("direccion"), a.cursoAjeno.id, "comunicacion"));
+  });
+});
+
+describe("importar todas las áreas del CNEB", () => {
+  /** Salón con grado y un curso por nombre, en el colegio de prueba B (no toca los datos de A). */
+  async function salonConCursos(nombre: string, nivel: Nivel, grado: number, cursos: string[]) {
+    const salon = await db.salon.create({ data: { tenantId: b.tenant.id, nombre, nivel, grado, anio: 2026 } });
+    const creados = [];
+    for (const c of cursos) creados.push(await db.curso.create({ data: { tenantId: b.tenant.id, salonId: salon.id, nombre: c } }));
+    return creados;
+  }
+  const contar = async (cursoId: string) => ({
+    competencias: await db.competencia.count({ where: { cursoId } }),
+    capacidades: await db.capacidad.count({ where: { competencia: { cursoId } } }),
+    desempenos: await db.desempeno.count({ where: { competencia: { cursoId } } }),
+  });
+
+  it("secundaria: detecta DPCC, CCSS, EPT, Religión… por el nombre del curso e importa lo del catálogo, una sola vez", async () => {
+    const nombres = ["DPCC", "CCSS", "EPT", "Religión", "Educación Física", "Arte y Cultura", "Inglés", "Ciencia y Tecnología", "Castellano como segunda lengua", "Comunicación", "Matemática"];
+    const cursos = await salonConCursos("2.° A Sec. CNEB", "secundaria", 2, nombres);
+    const inicio = Date.now();
+    for (const curso of cursos) {
+      const r = await importarCneb(b.ctxDe("direccion"), curso.id);
+      expect(r, curso.nombre).toMatchObject({ ok: true });
+    }
+    // Importar las 11 áreas de un salón es rápido (una transacción por curso, inserciones en bloque).
+    expect(Date.now() - inicio).toBeLessThan(15_000);
+    for (const curso of cursos) {
+      const area = detectarArea(curso.nombre, "secundaria")!;
+      const p = plantillaCneb(area, "secundaria", 2);
+      if (!p.ok) throw new Error(p.error);
+      expect(await contar(curso.id), curso.nombre).toEqual({
+        competencias: p.competencias.length,
+        capacidades: p.competencias.reduce((n, c) => n + c.capacidades.length, 0),
+        desempenos: p.competencias.reduce((n, c) => n + c.desempenos.length, 0),
+      });
+      const antes = await contar(curso.id);
+      expect(await importarCneb(b.ctxDe("direccion"), curso.id)).toMatchObject({ ok: true, mensaje: expect.stringMatching(/^Ya estaba todo importado\. No se agregó nada\./) });
+      expect(await contar(curso.id)).toEqual(antes);
+    }
+    const dpcc = await estructuraCurso(b.ctxDe("direccion"), cursos[0].id);
+    expect(dpcc.areaSugerida).toBe("dpcc");
+    expect(dpcc.competencias.map((c) => c.nombre)).toEqual(["Construye su identidad", "Convive y participa democráticamente en la búsqueda del bien común"]);
+    expect(dpcc.areas.map((x) => x.area)).not.toContain("personal-social");
+    expect(dpcc.competencias[0].desempenos[0].codigo).toBe("DPCC-C1-S2-01");
+  });
+
+  it("inicial: Psicomotriz y Personal Social por edad; un área de otro nivel se rechaza", async () => {
+    const [psico, ps, ef] = await salonConCursos("Sala 4 años CNEB", "inicial", 4, ["Psicomotriz", "Personal Social", "Educación Física"]);
+    const r = await importarCneb(b.ctxDe("direccion"), psico.id);
+    expect(r).toMatchObject({ ok: true });
+    const e = await estructuraCurso(b.ctxDe("direccion"), psico.id);
+    expect(e.textoGrado).toBe("4 años");
+    expect(e.competencias.map((c) => c.nombre)).toEqual(["Se desenvuelve de manera autónoma a través de su motricidad"]);
+    expect(e.competencias[0].desempenos.length).toBeGreaterThan(0);
+    expect(e.competencias[0].desempenos[0].codigo).toBe("PSI-C2-I4-01");
+
+    ok(await importarCneb(b.ctxDe("direccion"), ps.id));
+    expect((await estructuraCurso(b.ctxDe("direccion"), ps.id)).competencias.map((c) => c.nombre.slice(0, 30))).toEqual([
+      "Construye su identidad", "Convive y participa democrátic", "Construye su identidad como pe",
+    ]);
+    // «Educación Física» en inicial es Psicomotriz.
+    expect((await estructuraCurso(b.ctxDe("direccion"), ef.id)).areaSugerida).toBe("psicomotriz");
+    expect(await importarCneb(b.ctxDe("direccion"), ef.id, "dpcc")).toEqual({ ok: false, error: expect.stringContaining("no tiene competencias en inicial") });
+    expect(await importarCneb(b.ctxDe("direccion"), ef.id, "no-existe")).toEqual({ ok: false, error: "Elige el área del CNEB que corresponde a este curso." });
   });
 });
 

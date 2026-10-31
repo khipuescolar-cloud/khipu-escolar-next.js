@@ -69,7 +69,7 @@ test("dirección indica el grado e importa el CNEB en un curso", async ({ page }
   await expect(page.getByText(/^Importamos 4 competencias, 16 capacidades y \d+ desempeños del CNEB\.$/)).toBeVisible();
   await expect(page.getByRole("heading", { name: "Resuelve problemas de cantidad" })).toBeVisible();
   await expect(page.getByText("Traduce cantidades a expresiones numéricas", { exact: true })).toBeVisible();
-  await expect(page.getByText("MAT-C1-P3-01")).toBeVisible();
+  await expect(page.getByText("MAT-C23-P3-01")).toBeVisible();
 
   // Importar otra vez no duplica.
   await page.getByRole("button", { name: "Importar desde el CNEB" }).click();
@@ -85,8 +85,8 @@ test("la profesora marca desempeños al crear una evaluación", async ({ page })
   await page.getByRole("button", { name: "Nueva evaluación" }).click();
   await page.getByLabel("Título").fill(`Práctica CNEB ${sufijo}`);
   await page.getByRole("dialog").locator('select[name="competenciaId"]').selectOption({ label: "Resuelve problemas de cantidad" });
-  await page.getByRole("checkbox", { name: /MAT-C1-P3-03/ }).check();
-  await page.getByRole("checkbox", { name: /MAT-C1-P3-04/ }).check();
+  await page.getByRole("checkbox", { name: /MAT-C23-P3-03/ }).check();
+  await page.getByRole("checkbox", { name: /MAT-C23-P3-04/ }).check();
   await page.getByRole("button", { name: "Crear evaluación" }).click();
   await expect(page.getByText("Evaluación creada.")).toBeVisible();
   await expect(page.getByText(/peso 1 · 2 desempeños/)).toBeVisible();
@@ -95,7 +95,7 @@ test("la profesora marca desempeños al crear una evaluación", async ({ page })
     `select d.codigo from evaluacion_desempenos ed join desempenos d on d.id = ed.desempeno_id join evaluaciones e on e.id = ed.evaluacion_id where e.curso_id = $1 order by d.codigo`,
     [ids.curso],
   );
-  expect(vinculos.map((v) => v.codigo)).toEqual(["MAT-C1-P3-03", "MAT-C1-P3-04"]);
+  expect(vinculos.map((v) => v.codigo)).toEqual(["MAT-C23-P3-03", "MAT-C23-P3-04"]);
 
   // Con una nota, la calificación del periodo muestra qué desempeños se evaluaron.
   await sql(
@@ -105,7 +105,7 @@ test("la profesora marca desempeños al crear una evaluación", async ({ page })
   );
   await page.goto(colegio(`/notas?curso=${ids.curso}&periodo=${ids.periodo}&seccion=periodo`));
   await page.getByText("Desempeños evaluados (2)").click();
-  await expect(page.getByText("MAT-C1-P3-03")).toBeVisible();
+  await expect(page.getByText("MAT-C23-P3-03")).toBeVisible();
 });
 
 test("la libreta muestra las capacidades y los desempeños evaluados", async ({ page }) => {
@@ -114,5 +114,5 @@ test("la libreta muestra las capacidades y los desempeños evaluados", async ({ 
   await expect(page.getByRole("heading", { name: "Libreta" })).toBeVisible();
   await expect(page.getByText(/Capacidades:.*Traduce cantidades a expresiones numéricas/).first()).toBeVisible();
   await page.getByText("Desempeños evaluados (2)").click();
-  await expect(page.getByText(/Emplea estrategias y procedimientos como el cálculo mental y escrito/)).toBeVisible();
+  await expect(page.getByText(/^Emplea estrategias y procedimientos como los siguientes: • Estrategias heurísticas/)).toBeVisible();
 });

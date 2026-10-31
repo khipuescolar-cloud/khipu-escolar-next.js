@@ -1,6 +1,7 @@
 // Competencias del CNEB (specs/30) en todos los cursos de Nuevo Horizonte:
-// - Matemática y Comunicación de primaria y secundaria: catálogo importado (competencias, capacidades y desempeños del grado).
-// - Las demás áreas (y todo inicial): las competencias del CNEB del área, sin capacidades.
+// - Cursos de un área del catálogo (todas las áreas de inicial, primaria y secundaria): catálogo importado (competencias,
+//   capacidades y desempeños del grado).
+// - Cursos con un nombre que no es de ningún área: las competencias de la lista de abajo, sin capacidades.
 // - Dos evaluaciones del bimestre vigente en 3.° B con desempeños marcados.
 // Idempotente: no duplica nada si se ejecuta otra vez.
 import type { PrismaClient } from "../src/generated/prisma/client";
@@ -31,13 +32,13 @@ const COMPETENCIAS: Record<string, string[]> = {
   "Ciencias Sociales": ["Construye interpretaciones históricas", "Gestiona responsablemente el espacio y el ambiente", "Gestiona responsablemente los recursos económicos"],
   "Desarrollo Personal, Ciudadanía y Cívica": ["Construye su identidad", "Convive y participa democráticamente en la búsqueda del bien común"],
   "Educación para el Trabajo": ["Gestiona proyectos de emprendimiento económico o social"],
-  // Inicial (el catálogo importable es solo de primaria y secundaria).
+  // Respaldo por si el área no se detecta.
   Matemática: ["Resuelve problemas de cantidad", "Resuelve problemas de forma, movimiento y localización"],
   Comunicación: ["Se comunica oralmente en su lengua materna", "Lee diversos tipos de textos escritos en su lengua materna"],
 };
 
 async function importarCurso(prisma: PrismaClient, tenantId: string, curso: { id: string; nombre: string; salon: { nivel: Nivel; grado: number | null } }): Promise<boolean> {
-  const area = detectarArea(curso.nombre);
+  const area = detectarArea(curso.nombre, curso.salon.nivel);
   const { nivel, grado } = curso.salon;
   if (!area || !gradoValido(nivel, grado)) return false;
   const plantilla = plantillaCneb(area, nivel, grado);
@@ -54,9 +55,11 @@ async function importarCurso(prisma: PrismaClient, tenantId: string, curso: { id
     const competenciaId = paso.competenciaId
       ?? (await prisma.competencia.create({ data: { tenantId, cursoId: curso.id, nombre: paso.nombre, orden: paso.orden } })).id;
     const capacidades = { ...paso.capacidadesExistentes };
-    for (const c of paso.capacidadesNuevas) {
-      capacidades[c.nombre] = (await prisma.capacidad.create({ data: { tenantId, competenciaId, nombre: c.nombre, orden: c.orden } })).id;
-    }
+    const creadas = await prisma.capacidad.createManyAndReturn({
+      data: paso.capacidadesNuevas.map((c) => ({ tenantId, competenciaId, nombre: c.nombre, orden: c.orden })),
+      select: { id: true, nombre: true },
+    });
+    for (const c of creadas) capacidades[c.nombre] = c.id;
     await prisma.desempeno.createMany({
       data: paso.desempenosNuevos.map((d) => ({
         tenantId, competenciaId, capacidadId: d.capacidad ? (capacidades[d.capacidad] ?? null) : null,
@@ -105,6 +108,6 @@ export async function sembrarCneb(prisma: PrismaClient) {
       ?? (await prisma.evaluacion.create({ data: { tenantId, cursoId, periodoId: periodo.id, competenciaId: comp.id, titulo, fecha: fechaEval(dias) } }));
     await marcar(prisma, tenantId, ev.id, codigos);
   };
-  await crear(curso("Matemática").id, "Resuelve problemas de cantidad", "Práctica: fracciones", 10, ["MAT-C1-P3-03", "MAT-C1-P3-04"]);
-  await crear(curso("Comunicación").id, "Lee diversos", "Lectura: «El zorro y el cóndor»", 8, ["COM-C2-P3-01", "COM-C2-P3-02", "COM-C2-P3-03"]);
+  await crear(curso("Matemática").id, "Resuelve problemas de cantidad", "Práctica: fracciones", 10, ["MAT-C23-P3-02", "MAT-C23-P3-03"]);
+  await crear(curso("Comunicación").id, "Lee diversos", "Lectura: «El zorro y el cóndor»", 8, ["COM-C8-P3-01", "COM-C8-P3-02", "COM-C8-P3-03"]);
 }
