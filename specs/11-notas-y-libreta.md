@@ -1,6 +1,6 @@
 # 11 — Notas y libreta (MINEDU)
 
-> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-10-30 (Claude Code)
+> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-10-30 (Claude Code: tabla de roles alineada con el código, alumno con lectura)
 
 ## Objetivo
 Que el profesor registre evaluaciones y notas por competencia, confirme la calificación de cada periodo con su conclusión descriptiva, y que las familias vean el avance de sus hijos y descarguen la libreta en PDF. El colegio elige la escala (literal CNEB o vigesimal) en `tenant.escalaCalificacion`.
@@ -17,7 +17,8 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
 | Profesor | Elegir curso y periodo, poner notas y observaciones, crear/editar/borrar evaluaciones, gestionar competencias de sus cursos (los que dicta o de los salones que tutorea), confirmar la calificación del periodo, **cerrar las notas de su curso**, exportar/importar CSV, ver la libreta de sus alumnos | Editar un periodo o curso cerrado, tocar cursos ajenos, reabrir un curso |
 | Dirección | Ver todos los cursos y notas, abrir/cerrar/crear periodos, cerrar y **reabrir** cursos, **publicar la libreta** y reenviar el aviso, exportar CSV, ver todas las libretas | Editar notas o importar (solo lectura; las corrige el profesor) |
 | Apoderado | Ver las notas (con las observaciones) y la libreta publicada de **sus** hijos; descargar el PDF | Ver otros alumnos, promedios del salón, rankings o comparaciones (no existen en ninguna vista); ver la libreta de un periodo sin publicar |
-| Portería / alumno | — | Todo (403) |
+| Alumno (cuenta propia, specs/29) | Ver **sus** notas (con observaciones) y su libreta publicada en `/notas` y `/libreta` (solo lectura, la misma vista que la familia) | Ver otros alumnos, editar, ver periodos sin publicar, descargar el PDF (`/api/libreta` no admite el rol alumno) |
+| Portería / administrativo | — | `/notas` y `/libreta` (403) |
 | Cualquiera en un colegio con Khipu Base | — | 403 en `/notas`, `/libreta` y su PDF (`requireFeature`) |
 
 ## Flujos

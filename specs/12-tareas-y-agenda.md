@@ -1,6 +1,6 @@
 # 12 — Tareas y agenda
 
-> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-pendientes`: aviso de tareas)
+> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-10-30 (Claude Code: tabla de roles con administrativo y alumno)
 
 ## Objetivo
 Que los profesores publiquen tareas por curso y eventos por salón, que dirección publique eventos del colegio y que las familias vean todo ordenado por fecha, sin llamadas ni grupos de mensajería.
@@ -10,7 +10,9 @@ Que los profesores publiquen tareas por curso y eventos por salón, que direcci�
 |---|---|---|
 | Profesor | Crear/borrar tareas de sus cursos; crear eventos de sus salones y borrar los que creó; ver tareas y agenda de sus salones | Crear eventos de otros salones o del colegio |
 | Dirección | Ver todas las tareas y borrarlas; crear eventos del colegio o de cualquier salón; borrar eventos | Crear tareas (son del profesor) |
+| Administrativo | Crear eventos de **todo el colegio** y editar o borrar los que creó; ver la agenda del colegio | Crear eventos de un salón («El personal administrativo crea eventos de todo el colegio.»); ver o crear tareas |
 | Apoderado | Ver tareas de sus hijos y la agenda de sus salones y del colegio | Crear o borrar |
+| Alumno (cuenta propia) | Ver sus tareas y la agenda de su salón y del colegio (con las entregas de sus tareas) | Crear, editar o borrar |
 | Colegio con Khipu Base | — | 403 en `/tareas` y `/agenda` |
 
 ## Flujos
