@@ -75,7 +75,7 @@ editarDocumento(ctx, id, datos), reemplazarArchivoDocumento(ctx, id, archivo), b
 
 ## Pruebas
 - integración `tests/integracion/documentos.test.ts`: regla pura, matriz de visibilidad por rol y salón con descargas, herencia de carpetas y búsqueda, ciclos y permisos de carpetas, profesor (solo sus salones y lo suyo), validación/reemplazo/borrado sin archivos huérfanos, aviso opcional, aislamiento entre colegios y plan Base (403).
-- e2e `tests/e2e/documentos.test.ts`: dirección crea carpeta y sube un PDF para familias, Rosa lo ve y lo descarga, portería no; Los Olivos (Base) ve el candado.
+- e2e `tests/e2e/documentos.test.ts`: dirección crea carpeta y sube un PDF para familias, Rosa lo ve y lo descarga, portería no; un colegio Khipu Base temporal ve el candado.
 - Demo: `prisma/seed-documentos.ts` (Nuevo Horizonte: «Reglamento y normas» con «Protocolos internos» solo para personal, «Calendario académico», «Comunicados oficiales»; siete PDF de ejemplo con visibilidad mixta, uno para 3.° B y un borrador solo de dirección).
 
 ## Pendientes

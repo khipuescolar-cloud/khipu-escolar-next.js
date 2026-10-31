@@ -1,45 +1,44 @@
-// Requiere la BD local con el seed (pnpm db:start && pnpm db:seed).
-import { afterAll, describe, expect, it } from "vitest";
+// Crea dos colegios de prueba aislados (no depende del seed) y los borra al terminar.
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { db, dbTenant } from "@/lib/server/db";
+import { crearColegioPrueba, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
 describe("dbTenant: aislamiento entre colegios", () => {
-  afterAll(() => db.$disconnect());
+  let a: ColegioPrueba;
+  let b: ColegioPrueba;
+  beforeAll(async () => {
+    a = await crearColegioPrueba({ plan: "pro", prefijo: "test-aisla" });
+    b = await crearColegioPrueba({ plan: "base", prefijo: "test-aisla" });
+  });
+  afterAll(async () => {
+    await a?.limpiar();
+    await b?.limpiar();
+    await db.$disconnect();
+  });
 
   it("solo devuelve filas del colegio indicado", async () => {
-    const [nh, lo] = await Promise.all([
-      db.tenant.findUniqueOrThrow({ where: { slug: "nuevohorizonte" } }),
-      db.tenant.findUniqueOrThrow({ where: { slug: "losolivos" } }),
-    ]);
-    const alumnosNh = await dbTenant(nh.id).alumno.findMany();
-    expect(alumnosNh.length).toBeGreaterThan(0);
-    expect(alumnosNh.every((a) => a.tenantId === nh.id)).toBe(true);
+    const alumnosA = await dbTenant(a.tenant.id).alumno.findMany();
+    expect(alumnosA.length).toBeGreaterThan(0);
+    expect(alumnosA.every((x) => x.tenantId === a.tenant.id)).toBe(true);
 
-    const alumnoLo = await db.alumno.findFirstOrThrow({ where: { tenantId: lo.id } });
-    expect(await dbTenant(nh.id).alumno.findUnique({ where: { id: alumnoLo.id } })).toBeNull();
-    expect(await dbTenant(nh.id).alumno.count({ where: { id: alumnoLo.id } })).toBe(0);
+    const alumnoB = await db.alumno.findFirstOrThrow({ where: { tenantId: b.tenant.id } });
+    expect(await dbTenant(a.tenant.id).alumno.findUnique({ where: { id: alumnoB.id } })).toBeNull();
+    expect(await dbTenant(a.tenant.id).alumno.count({ where: { id: alumnoB.id } })).toBe(0);
   });
 
   it("no permite editar ni mover filas de otro colegio", async () => {
-    const [nh, lo] = await Promise.all([
-      db.tenant.findUniqueOrThrow({ where: { slug: "nuevohorizonte" } }),
-      db.tenant.findUniqueOrThrow({ where: { slug: "losolivos" } }),
-    ]);
-    const alumnoLo = await db.alumno.findFirstOrThrow({ where: { tenantId: lo.id } });
-    const r = await dbTenant(nh.id).alumno.updateMany({ where: { id: alumnoLo.id }, data: { nombres: "X" } });
+    const alumnoB = await db.alumno.findFirstOrThrow({ where: { tenantId: b.tenant.id } });
+    const r = await dbTenant(a.tenant.id).alumno.updateMany({ where: { id: alumnoB.id }, data: { nombres: "X" } });
     expect(r.count).toBe(0);
 
-    const alumnoNh = await db.alumno.findFirstOrThrow({ where: { tenantId: nh.id } });
-    await dbTenant(nh.id).alumno.update({ where: { id: alumnoNh.id }, data: { tenantId: lo.id } as never });
-    expect((await db.alumno.findUniqueOrThrow({ where: { id: alumnoNh.id } })).tenantId).toBe(nh.id);
+    const alumnoA = await db.alumno.findFirstOrThrow({ where: { tenantId: a.tenant.id } });
+    await dbTenant(a.tenant.id).alumno.update({ where: { id: alumnoA.id }, data: { tenantId: b.tenant.id } as never });
+    expect((await db.alumno.findUniqueOrThrow({ where: { id: alumnoA.id } })).tenantId).toBe(a.tenant.id);
   });
 
   it("crea filas con el tenantId del contexto", async () => {
-    const nh = await db.tenant.findUniqueOrThrow({ where: { slug: "nuevohorizonte" } });
-    const lo = await db.tenant.findUniqueOrThrow({ where: { slug: "losolivos" } });
-    const a = await dbTenant(nh.id).auditoria.create({
-      data: { tenantId: lo.id, accion: "ver", entidad: "test" },
-    });
-    expect(a.tenantId).toBe(nh.id);
-    await db.auditoria.delete({ where: { id: a.id } });
+    const x = await dbTenant(a.tenant.id).auditoria.create({ data: { tenantId: b.tenant.id, accion: "ver", entidad: "test" } });
+    expect(x.tenantId).toBe(a.tenant.id);
+    await db.auditoria.delete({ where: { id: x.id } });
   });
 });

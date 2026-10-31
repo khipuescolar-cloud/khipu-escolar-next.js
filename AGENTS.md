@@ -29,6 +29,7 @@ pnpm install                 # instala y genera el cliente Prisma
 pnpm db:start                # Supabase local (Docker): Postgres, Auth y Mailpit
 cp .env.example .env         # completa las claves con `pnpm exec supabase status`
 pnpm db:deploy && pnpm db:seed   # migraciones + datos demo (contraseña demo123)
+pnpm db:reconstruir          # SOLO BD local: borra todos los colegios y usuarios demo, corre el seed y escribe StartUp/credenciales-pruebas.md (specs/35)
 pnpm dev                     # http://lvh.me:3000  ·  colegios: http://<slug>.lvh.me:3000
 pnpm dev:nube                # misma app con los servicios REALES de .env.nube (Supabase cloud, Cloudinary, Gmail) → http://lvh.me:3100 · panel http://admin.lvh.me:3100
 pnpm lint && pnpm typecheck && pnpm test   # checks rápidos (tests de integración usan la BD local)
@@ -66,15 +67,18 @@ Mailpit (correos locales): http://127.0.0.1:54324 · Supabase Studio: http://127
 
 ## Cuentas demo (contraseña `demo123`)
 
-| Correo | Rol | Colegio · plan |
-|---|---|---|
-| lucia.garcia@nuevohorizonte.demo | profesora (tutora 3.° B) | Nuevo Horizonte · Khipu Pro |
-| pedro.salas@nuevohorizonte.demo | profesor | Nuevo Horizonte · Khipu Pro |
-| direccion@nuevohorizonte.demo | dirección | Nuevo Horizonte · Khipu Pro |
-| porteria@nuevohorizonte.demo | portería | Nuevo Horizonte · Khipu Pro |
-| jorge.ramos@academiaeuler.demo | profesor | Academia Euler · Khipu Pro (vigesimal) |
-| direccion@losolivos.demo | dirección | Los Olivos · Khipu Base |
-| rosa.quispe@gmail.com | apoderada (2 colegios) | Nuevo Horizonte y Academia Euler |
-| admin@khipuescolar.demo | super administrador (equipo Khipu) | Panel http://admin.lvh.me:3000 (specs/16) |
-| lucas.huaman@nuevohorizonte.demo | alumno 5.° A con Nudito+ activo (`/nudito-plus/chat`) | Nuevo Horizonte · Khipu Pro |
-| familia.huaman@familia.demo | apoderada de Lucas (reportes de Nudito+ en `/nudito-plus`) | Nuevo Horizonte · Khipu Pro |
+La BD local tiene **un solo colegio**: I.E.P. Nuevo Horizonte (`http://nuevohorizonte.lvh.me:3000`, Khipu Pro) con ~170 alumnos, 26 profesores y ~210 apoderados (specs/35). `pnpm db:reconstruir` lo deja limpio y genera `StartUp/credenciales-pruebas.md` (fuera del repo) con **todas** las cuentas; el resto sale de `prisma/seed-colegio.ts`.
+
+| Correo | Rol |
+|---|---|
+| direccion@nuevohorizonte.demo | dirección (Carmen Torres Vega) |
+| lucia.garcia@nuevohorizonte.demo | profesora, tutora de 3.° B |
+| pedro.salas@nuevohorizonte.demo | profesor, tutor de 5.° A (y Ciencia y Tecnología en 3.° B, 5.° B y 6.° A) |
+| porteria@nuevohorizonte.demo | portería |
+| secretaria@nuevohorizonte.demo | administrativo (secretaría) |
+| rosa.quispe@gmail.com | apoderada de Mateo (3.° B) y Sofía (1.° A Sec.) |
+| lucas.huaman@nuevohorizonte.demo | alumno 5.° A con Nudito+ activo (`/nudito-plus/chat`) |
+| familia.huaman@familia.demo | apoderada de Lucas (reportes de Nudito+ en `/nudito-plus`) |
+| admin@khipuescolar.demo | super administrador (equipo Khipu) · panel http://admin.lvh.me:3000 (specs/16) |
+
+Colegios Khipu Base o con escala vigesimal: los e2e los crean y borran (`tests/e2e/ayudantes/colegio-temporal.ts`); para probarlos a mano, créalos desde el panel.

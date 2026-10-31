@@ -45,8 +45,6 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada", async ({ 
   await page.getByLabel("Correo").fill("rosa.quispe@gmail.com");
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  await page.waitForURL("**/elegir-colegio");
-  await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
   await page.waitForURL(colegio("nuevohorizonte", "/inicio"));
   await page.goto(colegio("nuevohorizonte", "/tareas"));
   await expect(page.getByRole("heading", { name: "Para mañana" })).toBeVisible();

@@ -34,8 +34,6 @@ test("dirección ve la asistencia al colegio del día, carnets, portería, justi
 
 test("la familia ve la asistencia de su hijo y sus preferencias de aviso", async ({ page }) => {
   await entrar(page, "rosa.quispe@gmail.com");
-  await page.waitForURL("**/elegir-colegio");
-  await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
   await page.waitForURL(`${COLEGIO}/inicio`);
   await page.goto(`${COLEGIO}/asistencia`);
   await expect(page.getByRole("heading", { name: /Mateo Quispe Huamán/ })).toBeVisible();

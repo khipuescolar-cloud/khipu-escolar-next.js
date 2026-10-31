@@ -2,10 +2,11 @@ import "dotenv/config";
 import { Client } from "pg";
 import { expect, test, type Browser, type Page } from "@playwright/test";
 import { esperarSinAcceso } from "./sin-acceso";
+import { crearColegioTemporal, type ColegioTemporal } from "./ayudantes/colegio-temporal";
 
-// Planes y módulos (specs/19): Los Olivos (Khipu Base) ve Agenda con el candado «Plan Khipu Pro». El super administrador
-// quita Agenda de Khipu Pro: ningún plan la incluye, así que en Academia Euler (Khipu Pro) desaparece y /agenda queda sin acceso.
-// Al final se restaura.
+// Planes y módulos (specs/19): un colegio Khipu Base temporal ve Agenda con el candado «Plan Khipu Pro». El super administrador
+// quita Agenda de Khipu Pro: ningún plan la incluye, así que en Nuevo Horizonte (Khipu Pro) desaparece y /agenda queda sin acceso.
+// Al final se restaura y se borra el colegio temporal.
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const BASE = `lvh.me:${PUERTO}`;
@@ -31,7 +32,13 @@ async function entrar(browser: Browser, correo: string, destino: string): Promis
   return page;
 }
 
+let colegioBase: ColegioTemporal;
+test.beforeAll(async () => {
+  colegioBase = await crearColegioTemporal({ plan: "base", prefijo: "e2e-base" });
+});
+
 test.afterAll(async () => {
+  await colegioBase?.limpiar();
   // Respaldo por si la prueba falla a mitad: Agenda vuelve a Khipu Pro.
   await sql(`insert into plan_modulos (plan, modulo) values ('pro', 'agenda') on conflict do nothing`);
 });
@@ -45,7 +52,7 @@ const panel = async (browser: Browser, ruta: string) => {
 };
 
 test("Khipu Base ve el candado de Pro y quitar Agenda de Khipu Pro la retira de sus colegios", async ({ browser }) => {
-  const base = await entrar(browser, "direccion@losolivos.demo", colegio("losolivos", "/inicio"));
+  const base = await entrar(browser, colegioBase.correos.direccion, colegio(colegioBase.slug, "/inicio"));
   await expect(base.getByRole("main").locator("li", { hasText: "Agenda" }).getByText("Plan Khipu Pro")).toBeVisible();
   await base.close();
 
@@ -59,10 +66,10 @@ test("Khipu Base ve el candado de Pro y quitar Agenda de Khipu Pro la retira de 
   await admin.close();
 
   try {
-    const dir = await entrar(browser, "direccion@academiaeuler.demo", colegio("academiaeuler", "/inicio"));
+    const dir = await entrar(browser, "direccion@nuevohorizonte.demo", colegio("nuevohorizonte", "/inicio"));
     await expect(dir.getByRole("main").getByText("Comunicados", { exact: true })).toBeVisible();
     await expect(dir.getByRole("main").getByText("Agenda", { exact: true })).toHaveCount(0);
-    await esperarSinAcceso(dir, await dir.goto(colegio("academiaeuler", "/agenda")));
+    await esperarSinAcceso(dir, await dir.goto(colegio("nuevohorizonte", "/agenda")));
     await dir.close();
   } finally {
     const restaurar = await panel(browser, "/planes");

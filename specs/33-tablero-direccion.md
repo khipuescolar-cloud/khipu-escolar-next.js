@@ -65,7 +65,7 @@ Las sumas se hacen en SQL (asistencia por día/estado y por alumno/estado con `D
 - `tests/unit/tablero.test.ts`: periodo, umbral, tendencia, crónicos, ranking, niveles, avance, zona horaria, tabla del consolidado.
 - `tests/integracion/tablero-direccion.test.ts`: cálculos en BD, aislamiento por colegio, 403 (plan Base, profesor, portería, familia), Excel, PDF y auditoría.
 - `tests/e2e/tablero-direccion.test.ts`: dirección abre, cambia de periodo y umbral, descarga Excel y PDF; profesora 403; Base con candado.
-- Datos demo: `prisma/seed-tablero.ts` (asistencia desde marzo, notas, justificaciones, avisos de Nuevo Horizonte).
+- Datos demo (specs/35): `prisma/seed-asistencia.ts` (≈6 semanas de asistencia, justificaciones y avisos) y `prisma/seed-notas.ts` (notas de todos los cursos, con profesores atrasados) de Nuevo Horizonte.
 
 ## Pendientes
 - Filtros por nivel y salón; comparar con el periodo anterior.

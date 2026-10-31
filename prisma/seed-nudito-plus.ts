@@ -1,7 +1,7 @@
 // Demo de Nudito+ (specs/28): configuración, sitios permitidos (fuente única de la lista blanca demo), licencia activa
 // con pago verificado y consentimiento para el hijo de Rosa en Nuevo Horizonte (Mateo, «modo hijo»), licencia de
-// cortesía con consentimiento de Julia para Lucas Huamán (cuenta propia, la crea `seed-nudito-plus-tutor.ts`, que corre
-// antes), un pago pendiente para su hijo en Academia Euler, y una licencia de prueba
+// cortesía con consentimiento de Julia para Lucas Huamán (cuenta propia, la crea `seed-colegio.ts`), un pago Yape
+// pendiente de verificar para Gael Chávez (5.° A), y una licencia de prueba
 // que vence en 2 días (para ver el recordatorio y el filtro «vencen en 7 días»). Datos ficticios. Idempotente:
 // reemplaza los datos de Nudito+ de esos alumnos y hace upsert de la configuración y los sitios.
 import type { PrismaClient } from "../src/generated/prisma/client";
@@ -35,18 +35,18 @@ export async function sembrarNuditoPlus(prisma: PrismaClient, ids: { superadminI
   for (const s of SITIOS) await prisma.sitioPermitido.upsert({ where: { dominio: s.dominio }, update: { nombre: s.nombre, descripcion: s.descripcion, activo: true }, create: { ...s, creadoPorId: superadminId } });
 
   const rosa = await prisma.profile.findUnique({ where: { email: "rosa.quispe@gmail.com" } });
-  const [nh, eu] = await Promise.all([prisma.tenant.findUnique({ where: { slug: "nuevohorizonte" } }), prisma.tenant.findUnique({ where: { slug: "academiaeuler" } })]);
-  if (!rosa || !nh || !eu) throw new Error("Nudito+: faltan Rosa o los colegios demo.");
+  const nh = await prisma.tenant.findUnique({ where: { slug: "nuevohorizonte" } });
+  if (!rosa || !nh) throw new Error("Nudito+: faltan Rosa o el colegio demo.");
   const hijoDe = async (tenantId: string) => {
     const m = await prisma.membership.findFirst({ where: { tenantId, userId: rosa.id, rol: "apoderado" }, include: { hijos: { include: { alumno: true }, orderBy: { alumno: { nombres: "asc" } } } } });
     if (!m || m.hijos.length === 0) throw new Error("Nudito+: Rosa no tiene hijos en el colegio demo.");
     return { membershipId: m.id, alumno: m.hijos[0].alumno };
   };
   const nhHijo = await hijoDe(nh.id);
-  const euHijo = await hijoDe(eu.id);
+  const gael = await prisma.alumno.findFirst({ where: { tenantId: nh.id, nombres: "Gael", apellidos: "Chávez Ortiz" }, include: { apoderados: { orderBy: { parentesco: "asc" } } } });
   const otro = await prisma.alumno.findFirst({ where: { tenantId: nh.id, nombres: "Valentina" } });
   const lucas = await prisma.alumno.findFirst({ where: { tenantId: nh.id, nombres: "Lucas", apellidos: "Huamán Soto" } });
-  const alumnoIds = [nhHijo.alumno.id, euHijo.alumno.id, ...(otro ? [otro.id] : [])];
+  const alumnoIds = [nhHijo.alumno.id, ...(gael ? [gael.id] : []), ...(otro ? [otro.id] : [])];
 
   // Limpieza de datos de Nudito+ de estos alumnos (las licencias borran los enlaces de pago con SetNull).
   for (const modelo of [prisma.pagoNudito, prisma.licenciaNudito, prisma.consentimientoIa, prisma.alertaNudito, prisma.resumenNudito, prisma.usoNudito] as unknown as { deleteMany: (a: object) => Promise<unknown> }[]) {
@@ -94,10 +94,12 @@ export async function sembrarNuditoPlus(prisma: PrismaClient, ids: { superadminI
     },
   });
 
-  // 2) Hijo de Rosa en Academia Euler: pago de 3 meses reportado, pendiente de verificar.
-  await prisma.pagoNudito.create({
-    data: { tenantId: eu.id, alumnoId: euHijo.alumno.id, apoderadoId: euHijo.membershipId, monto: 60, meses: 3, metodo: "yape", referencia: "00067890", fechaPago: fechaDb(sumar(hoy, -1)), estado: "pendiente" },
-  });
+  // 2) Gael Chávez (5.° A): su familia reportó un Yape de 3 meses, pendiente de verificar en el panel (admin → Nudito+).
+  if (gael && gael.apoderados[0]) {
+    await prisma.pagoNudito.create({
+      data: { tenantId: nh.id, alumnoId: gael.id, apoderadoId: gael.apoderados[0].apoderadoId, monto: 60, meses: 3, metodo: "yape", referencia: "00067890", fechaPago: fechaDb(sumar(hoy, -1)), estado: "pendiente" },
+    });
+  }
 
   // 3) Valentina (Nuevo Horizonte): prueba de 14 días que vence en 2 días.
   if (otro) {

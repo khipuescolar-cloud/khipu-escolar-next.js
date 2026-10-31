@@ -1,4 +1,4 @@
-// Requiere la BD local con el seed (solo lee losolivos). Crea su propio colegio de prueba y lo borra al terminar.
+// Requiere la BD local (no usa datos del seed). Crea sus propios colegios de prueba y los borra al terminar.
 import { randomUUID } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { Rol } from "@/generated/prisma/enums";
@@ -14,6 +14,7 @@ import {
 import { crearTarea, tareasDeFamilia } from "@/lib/server/tareas";
 import type { TenantContext } from "@/lib/server/tenant";
 import { fechaLima, sumarDias } from "@/lib/fechas";
+import { crearColegioPrueba } from "./ayudantes/colegio-prueba";
 
 // forbidden() solo lanza el 403 con digest si Next tiene activado authInterrupts (lo hace next.config.ts en la app).
 process.env.__NEXT_EXPERIMENTAL_AUTH_INTERRUPTS = "true";
@@ -326,16 +327,19 @@ describe("tareas y agenda", () => {
 
 describe("Khipu Base", () => {
   it("responde 403 en notas, libreta, tareas y agenda", async () => {
-    const lo = await db.tenant.findUniqueOrThrow({ where: { slug: "losolivos" } });
-    expect(lo.plan).toBe("base");
-    const dir = await db.membership.findFirstOrThrow({ where: { tenantId: lo.id, rol: "direccion" } });
-    const ctx = await ctxDe(lo, dir.id, "direccion");
-    const alumno = await db.alumno.findFirstOrThrow({ where: { tenantId: lo.id } });
-    const periodo = randomUUID();
-    await expect(listarPeriodos(ctx)).rejects.toMatchObject(PROHIBIDO);
-    await expect(notasDeAlumno(ctx, alumno.id, periodo)).rejects.toMatchObject(PROHIBIDO);
-    await expect(datosLibreta(ctx, alumno.id, periodo)).rejects.toMatchObject(PROHIBIDO);
-    await expect(itemsDeAgenda(ctx, new Date(), new Date())).rejects.toMatchObject(PROHIBIDO);
-    await expect(tareasDeFamilia(ctx)).rejects.toMatchObject(PROHIBIDO);
+    const base = await crearColegioPrueba({ plan: "base", prefijo: "test-base" });
+    try {
+      expect(base.tenant.plan).toBe("base");
+      const ctx = base.ctxDe("direccion");
+      const alumno = base.alumnos.mateo;
+      const periodo = randomUUID();
+      await expect(listarPeriodos(ctx)).rejects.toMatchObject(PROHIBIDO);
+      await expect(notasDeAlumno(ctx, alumno.id, periodo)).rejects.toMatchObject(PROHIBIDO);
+      await expect(datosLibreta(ctx, alumno.id, periodo)).rejects.toMatchObject(PROHIBIDO);
+      await expect(itemsDeAgenda(ctx, new Date(), new Date())).rejects.toMatchObject(PROHIBIDO);
+      await expect(tareasDeFamilia(ctx)).rejects.toMatchObject(PROHIBIDO);
+    } finally {
+      await base.limpiar();
+    }
   });
 });

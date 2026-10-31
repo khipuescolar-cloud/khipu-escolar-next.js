@@ -1,10 +1,16 @@
 import { expect, test } from "@playwright/test";
+import { limpiarAsistenciaDeHoy } from "./ayudantes/datos-demo";
 
 // Flujo completo de Khipu Base (specs/04, 06 y 07):
 // Lucía pasa lista en 3.° B → la familia de un presente recibe el correo de llegada y la de un ausente el de falta en Mailpit → el enlace «Justificar falta» funciona una sola vez.
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const MAILPIT = process.env.MAILPIT_URL ?? "http://127.0.0.1:54324";
 const COLEGIO = `http://nuevohorizonte.lvh.me:${PUERTO}`;
+
+// Deja 3.° B como en el seed: sin asistencia de hoy (ni avisos ni la justificación que crea la prueba).
+test.afterAll(async () => {
+  await limpiarAsistenciaDeHoy("3.° B");
+});
 
 type Mensaje = { ID: string; Subject: string; Created: string; From: { Name: string } };
 

@@ -2,6 +2,7 @@ import "dotenv/config";
 import pg from "pg";
 import { expect, test, type Page } from "@playwright/test";
 import { esperarSinAcceso } from "./sin-acceso";
+import { crearColegioTemporal, type ColegioTemporal } from "./ayudantes/colegio-temporal";
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const colegio = (slug: string, ruta: string) => `http://${slug}.lvh.me:${PUERTO}${ruta}`;
@@ -20,8 +21,6 @@ async function entrarRosa(page: Page) {
   await page.getByLabel("Correo").fill("rosa.quispe@gmail.com");
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  await page.waitForURL("**/elegir-colegio");
-  await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
   await page.waitForURL(colegio("nuevohorizonte", "/inicio"));
 }
 
@@ -92,11 +91,16 @@ test("Lucía convoca a 3.° B, Rosa confirma, Lucía ve la confirmación y publi
 });
 
 test("el colegio con plan Base no tiene reuniones (403)", async ({ page }) => {
-  await page.goto("/login");
-  await page.getByLabel("Correo").fill("direccion@losolivos.demo");
-  await page.getByLabel("Contraseña").fill("demo123");
-  await page.getByRole("button", { name: "Entrar" }).click();
-  await page.waitForURL(colegio("losolivos", "/inicio"));
-  const res = await page.goto(colegio("losolivos", "/reuniones"));
-  await esperarSinAcceso(page, res);
+  const base: ColegioTemporal = await crearColegioTemporal({ plan: "base", prefijo: "e2e-base" });
+  try {
+    await page.goto("/login");
+    await page.getByLabel("Correo").fill(base.correos.direccion);
+    await page.getByLabel("Contraseña").fill("demo123");
+    await page.getByRole("button", { name: "Entrar" }).click();
+    await page.waitForURL(colegio(base.slug, "/inicio"));
+    const res = await page.goto(colegio(base.slug, "/reuniones"));
+    await esperarSinAcceso(page, res);
+  } finally {
+    await base.limpiar();
+  }
 });

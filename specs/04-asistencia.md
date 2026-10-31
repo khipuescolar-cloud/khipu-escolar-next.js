@@ -45,7 +45,7 @@ El profesor pasa lista en menos de un minuto y las familias se enteran al instan
 
 ## Modelo de datos
 - `asistencias`: `alumnoId`, `cursoId` (null en el día), `ambito`, `fecha` (`@db.Date`), `hora` (HH:mm), `estado`, `nota`, `origen`, `registradoPorId`. Única `(alumnoId, fecha, ambito)`.
-- `tenants.asistencia_por_curso_niveles` (`Nivel[]`, `DEFAULT ARRAY[]`; migración aditiva `20261102090000_asistencia_por_curso_niveles`). Seed: Nuevo Horizonte primaria y secundaria; Academia Euler academia; Los Olivos ninguno (solo asistencia al colegio).
+- `tenants.asistencia_por_curso_niveles` (`Nivel[]`, `DEFAULT ARRAY[]`; migración aditiva `20261102090000_asistencia_por_curso_niveles`). Seed: Nuevo Horizonte (único colegio demo, specs/35) primaria y secundaria; los e2e crean colegios temporales sin asistencia por curso.
 - Lee `salones`, `cursos`, `alumnos`, `justificaciones`; escribe `avisos` y `justificacion_tokens` vía spec 06/07.
 
 ## Contratos de `src/lib/server`
