@@ -3,6 +3,21 @@
 export const LITERALES = ["AD", "A", "B", "C"] as const;
 export type Literal = (typeof LITERALES)[number];
 export type Escala = "literal" | "vigesimal";
+/** Cómo se sugiere la calificación literal del periodo: promedio (con pesos) o la más frecuente. */
+export type CalculoLiteral = "promedio" | "frecuente";
+
+/** Valor de cada literal para promediar: AD = 4, A = 3, B = 2, C = 1. */
+export const PUNTOS_LITERAL: Record<Literal, number> = { AD: 4, A: 3, B: 2, C: 1 };
+
+export const INSTRUMENTOS = ["prueba_escrita", "lista_cotejo", "rubrica", "ficha_observacion", "otro"] as const;
+export type Instrumento = (typeof INSTRUMENTOS)[number];
+export const NOMBRE_INSTRUMENTO: Record<Instrumento, string> = {
+  prueba_escrita: "Prueba escrita",
+  lista_cotejo: "Lista de cotejo",
+  rubrica: "Rúbrica",
+  ficha_observacion: "Ficha de observación",
+  otro: "Otro instrumento",
+};
 
 export const ETIQUETA_LITERAL: Record<Literal, string> = {
   AD: "Logro destacado",
@@ -73,11 +88,8 @@ export function interpretarValor(
 
 /** Vigesimal: promedio ponderado por peso, redondeado al entero. Sin notas → null. */
 export function sugerirVigesimal(items: { valor: number; peso: number }[]): number | null {
-  const validos = items.filter((i) => i.peso > 0);
-  const pesoTotal = validos.reduce((s, i) => s + i.peso, 0);
-  if (validos.length === 0 || pesoTotal === 0) return null;
-  const promedio = validos.reduce((s, i) => s + i.valor * i.peso, 0) / pesoTotal;
-  return Math.round(promedio);
+  const promedio = sugerirVigesimalSinRedondeo(items);
+  return promedio === null ? null : Math.round(promedio);
 }
 
 /** Literal: el valor más frecuente; si empatan, gana el que tiene la nota más reciente. */
@@ -97,6 +109,24 @@ export function sugerirLiteral(items: { valor: Literal; fecha: Date | string }[]
   return mejor;
 }
 
+/**
+ * Literal por promedio: AD = 4, A = 3, B = 2, C = 1, ponderado por peso. El promedio se redondea al literal más cercano
+ * y los empates (x,5) suben: 2,5 → A, 3,5 → AD. Sin notas → null.
+ */
+export function promedioLiteral(items: { valor: Literal; peso: number }[]): Literal | null {
+  const promedio = sugerirVigesimalSinRedondeo(items.map((i) => ({ valor: PUNTOS_LITERAL[i.valor], peso: i.peso })));
+  if (promedio === null) return null;
+  const puntos = Math.min(4, Math.max(1, Math.floor(promedio + 0.5 + 1e-9)));
+  return (Object.keys(PUNTOS_LITERAL) as Literal[]).find((l) => PUNTOS_LITERAL[l] === puntos)!;
+}
+
+function sugerirVigesimalSinRedondeo(items: { valor: number; peso: number }[]): number | null {
+  const validos = items.filter((i) => i.peso > 0);
+  const pesoTotal = validos.reduce((s, i) => s + i.peso, 0);
+  if (validos.length === 0 || pesoTotal === 0) return null;
+  return validos.reduce((s, i) => s + i.valor * i.peso, 0) / pesoTotal;
+}
+
 export type NotaParaSugerir = {
   valorLiteral: Literal | null;
   valorNumerico: number | null;
@@ -104,16 +134,25 @@ export type NotaParaSugerir = {
   fecha: Date | string;
 };
 
-/** Valor sugerido para una competencia según la escala del colegio. */
-export function sugerirCalificacion(escala: Escala, notas: NotaParaSugerir[]): ValorCalificacion | null {
+/** Valor sugerido para una competencia según la escala (y, en literal, el cálculo) del colegio. */
+export function sugerirCalificacion(escala: Escala, notas: NotaParaSugerir[], calculo: CalculoLiteral = "promedio"): ValorCalificacion | null {
   if (escala === "vigesimal") {
     const v = sugerirVigesimal(
       notas.filter((n) => n.valorNumerico !== null).map((n) => ({ valor: n.valorNumerico as number, peso: n.peso })),
     );
     return v === null ? null : { valorLiteral: null, valorNumerico: v };
   }
-  const l = sugerirLiteral(
-    notas.filter((n) => n.valorLiteral !== null).map((n) => ({ valor: n.valorLiteral as Literal, fecha: n.fecha })),
-  );
+  const literales = notas.filter((n) => n.valorLiteral !== null);
+  const l = calculo === "promedio"
+    ? promedioLiteral(literales.map((n) => ({ valor: n.valorLiteral as Literal, peso: n.peso })))
+    : sugerirLiteral(literales.map((n) => ({ valor: n.valorLiteral as Literal, fecha: n.fecha })));
   return l === null ? null : { valorLiteral: l, valorNumerico: null };
+}
+
+/** Cómo se explica la sugerencia al profesor. */
+export function textoCalculo(escala: Escala, calculo: CalculoLiteral): string {
+  if (escala === "vigesimal") return "el promedio con pesos, redondeado";
+  return calculo === "promedio"
+    ? "el promedio con pesos (AD = 4, A = 3, B = 2, C = 1), redondeado; 2,5 sube a A"
+    : "la más frecuente; si empatan, la más reciente";
 }

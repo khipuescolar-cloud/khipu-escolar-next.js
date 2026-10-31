@@ -91,11 +91,16 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
           </div>
 
           <div className="border-t pt-8">
-            <Seccion icono={GraduationCap} titulo="Escala de calificación" descripcion="Cómo se muestran las notas en el colegio.">
+            <Seccion icono={GraduationCap} titulo="Escala de calificación" descripcion="Cómo se muestran las notas en el colegio y cómo se sugiere la calificación del periodo.">
               <Selector etiqueta="Escala de calificación" name="escalaCalificacion" defaultValue={t.escalaCalificacion}>
                 <option value="literal">Literal (AD, A, B, C)</option>
                 <option value="vigesimal">Vigesimal (0 a 20)</option>
               </Selector>
+              <Selector etiqueta="Calificación sugerida del periodo (escala literal)" name="calculoLiteral" defaultValue={t.calculoLiteral}>
+                <option value="promedio">Promedio de las notas (AD = 4, A = 3, B = 2, C = 1)</option>
+                <option value="frecuente">La nota más frecuente</option>
+              </Selector>
+              <p className="text-cuerpo-sm text-muted-foreground">El profesor siempre la confirma o la cambia. En la escala vigesimal se usa el promedio con pesos.</p>
             </Seccion>
           </div>
 

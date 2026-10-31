@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  aprobado, ETIQUETA_LITERAL, interpretarValor, requiereConclusion, sugerirCalificacion, sugerirLiteral, sugerirVigesimal, textoValorLargo,
+  aprobado, ETIQUETA_LITERAL, interpretarValor, promedioLiteral, requiereConclusion, sugerirCalificacion, sugerirLiteral, sugerirVigesimal, textoValorLargo,
 } from "@/lib/calificaciones";
 
 describe("escalas de calificación", () => {
@@ -63,5 +63,22 @@ describe("calificación sugerida", () => {
     ];
     expect(sugerirCalificacion("vigesimal", notas)).toEqual({ valorLiteral: null, valorNumerico: 16 });
     expect(sugerirCalificacion("literal", notas)).toBeNull();
+  });
+
+  it("literal por promedio: AD = 4 … C = 1 con pesos; x,5 sube", () => {
+    const n = (valor: "AD" | "A" | "B" | "C", peso = 1) => ({ valor, peso });
+    expect(promedioLiteral([n("A"), n("B")])).toBe("A"); // 2,5 → A
+    expect(promedioLiteral([n("B"), n("B"), n("A")])).toBe("B"); // 2,33 → B
+    expect(promedioLiteral([n("AD"), n("A")])).toBe("AD"); // 3,5 → AD
+    expect(promedioLiteral([n("C", 3), n("AD", 1)])).toBe("B"); // (3 + 4) / 4 = 1,75 → B
+    expect(promedioLiteral([n("C")])).toBe("C");
+    expect(promedioLiteral([])).toBeNull();
+  });
+
+  it("el colegio elige promedio (por defecto) o la más frecuente", () => {
+    const l = (valorLiteral: "AD" | "A" | "B" | "C", fecha: string) => ({ valorLiteral, valorNumerico: null, peso: 1, fecha });
+    const notas = [l("C", "2026-10-01"), l("C", "2026-10-02"), l("AD", "2026-10-03"), l("AD", "2026-10-04"), l("AD", "2026-10-05")];
+    expect(sugerirCalificacion("literal", notas)).toEqual({ valorLiteral: "A", valorNumerico: null }); // (1+1+4+4+4)/5 = 2,8
+    expect(sugerirCalificacion("literal", notas, "frecuente")).toEqual({ valorLiteral: "AD", valorNumerico: null });
   });
 });

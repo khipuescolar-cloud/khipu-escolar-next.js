@@ -1,4 +1,4 @@
-import { BookMarked, CalendarDays, CheckCircle2, Download, GraduationCap, Info, Lock, Pencil, Plus, Target } from "lucide-react";
+import { BookMarked, CalendarDays, CheckCircle2, Download, GraduationCap, Info, Lock, Pencil, Plus, Send, Target } from "lucide-react";
 import Link from "next/link";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
@@ -11,15 +11,20 @@ import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
-import { ETIQUETA_LITERAL, LITERALES, formatearNumero } from "@/lib/calificaciones";
+import { ETIQUETA_LITERAL, INSTRUMENTOS, LITERALES, NOMBRE_INSTRUMENTO, formatearNumero, textoCalculo, type Instrumento } from "@/lib/calificaciones";
 import { fechaLima } from "@/lib/fechas";
 import { desempenosParaEvaluar } from "@/lib/server/cneb";
-import { calificacionesPeriodo, cierreDeCurso, cursosDelDocente, grillaNotas, listarPeriodos, periodoEnCurso } from "@/lib/server/notas";
+import {
+  calificacionesPeriodo, cierreDeCurso, cursosDelDocente, grillaNotas, informesProgreso, listarPeriodos, periodoEnCurso,
+} from "@/lib/server/notas";
 import type { TenantContext } from "@/lib/server/tenant";
 import {
-  cerrarCursoAction, crearCompetenciaAction, crearEvaluacionAction, reabrirCursoAction, editarEvaluacionAction, eliminarCompetenciaAction, eliminarEvaluacionAction,
+  cerrarCursoAction, compartirInformeAction, crearCompetenciaAction, crearEvaluacionAction, reabrirCursoAction, editarEvaluacionAction,
+  eliminarCompetenciaAction, eliminarEvaluacionAction,
 } from "./actions";
 import { CompetenciaYDesempenos } from "./CompetenciaYDesempenos";
+import { CompetenciasYDesempenos } from "./CompetenciasYDesempenos";
+import { FilaInforme } from "./FilaInforme";
 import { FilaCalificacion } from "./FilaCalificacion";
 import { GrillaNotas } from "./GrillaNotas";
 import { ImportarNotas } from "./ImportarNotas";
@@ -29,7 +34,8 @@ type SP = Record<string, string | string[] | undefined>;
 const uno = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
 const SECCIONES = [
-  { id: "notas", nombre: "Notas por evaluación" },
+  { id: "notas", nombre: "Registro auxiliar" },
+  { id: "informe", nombre: "Informe de progreso" },
   { id: "periodo", nombre: "Calificación del periodo" },
   { id: "competencias", nombre: "Competencias" },
   { id: "cneb", nombre: "Capacidades y desempeños" },
@@ -122,6 +128,7 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
       />
 
       {seccion === "notas" && <SeccionNotas ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} />}
+      {seccion === "informe" && <SeccionInforme ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} sp={sp} />}
       {seccion === "periodo" && <SeccionPeriodo ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} sp={sp} />}
       {seccion === "excel" && <SeccionExcel ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} />}
       {seccion === "competencias" && <SeccionCompetencias ctx={ctx} slug={slug} cursoId={curso.id} periodoId={periodo.id} />}
@@ -210,14 +217,15 @@ async function BotonNuevaEvaluacion({ slug, ctx, cursoId, periodoId }: { slug: s
     <DialogoAccion
       disparador={<><Plus strokeWidth={2} aria-hidden />Nueva evaluación</>}
       titulo="Nueva evaluación"
-      descripcion="Aparecerá como una columna nueva en la rejilla de notas."
+      descripcion="Aparecerá en el registro auxiliar con una columna por cada competencia que evalúe."
       etiqueta="Crear evaluación"
       accion={crearEvaluacionAction.bind(null, slug)}
     >
       <input type="hidden" name="cursoId" value={cursoId} />
       <input type="hidden" name="periodoId" value={periodoId} />
-      <div className="sm:col-span-2"><Campo etiqueta="Título" name="titulo" required maxLength={120} placeholder="Práctica 2" /></div>
-      <CompetenciaYDesempenos competencias={g.competencias} porCompetencia={opciones.porCompetencia} textoGrado={opciones.textoGrado} />
+      <Campo etiqueta="Título" name="titulo" required maxLength={120} placeholder="Prueba escrita 1" />
+      <SelectorInstrumento />
+      <CompetenciasYDesempenos competencias={g.competencias} porCompetencia={opciones.porCompetencia} textoGrado={opciones.textoGrado} />
       <Campo etiqueta="Fecha" name="fecha" type="date" required defaultValue={fechaLima(new Date())} />
       <Campo etiqueta="Peso" name="peso" type="number" min={0.01} step={0.01} defaultValue={1} required ayuda="Cuánto cuenta en el promedio." />
     </DialogoAccion>
@@ -236,22 +244,29 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
           {LITERALES.map((l) => `${l}: ${ETIQUETA_LITERAL[l]}`).join(" · ")}
         </p>
       )}
-      <GrillaNotas slug={slug} escala={g.escala} editable={g.editable} alumnos={g.alumnos} evaluaciones={g.evaluaciones} notas={g.notas} />
+      <p className="max-w-prose text-cuerpo-sm text-muted-foreground">
+        Las evaluaciones van agrupadas por competencia. El promedio de cada competencia se calcula al momento con{" "}
+        {textoCalculo(g.escala, g.calculo)}; es la calificación que se sugiere al cerrar el periodo.
+      </p>
+      <GrillaNotas
+        slug={slug} escala={g.escala} calculo={g.calculo} editable={g.editable} alumnos={g.alumnos}
+        competencias={g.competencias} evaluaciones={g.evaluaciones} notas={g.notas}
+      />
 
       {puedeEditar && g.evaluaciones.length > 0 && (
         <Card>
           <CardHeader>
             <h2 className="font-titulo text-cuerpo font-semibold">Editar evaluaciones</h2>
-            <CardDescription>Cambia el título, la fecha o el peso. Al eliminar una evaluación también se borran sus notas.</CardDescription>
+            <CardDescription>Cambia el título, el instrumento, la competencia, la fecha o el peso. Al eliminar una evaluación también se borran sus notas.</CardDescription>
           </CardHeader>
           <CardContent>
             <ul className="divide-y">
               {g.evaluaciones.map((e) => (
                 <li key={e.id} className="flex flex-wrap items-center justify-between gap-3 py-3 first:pt-0 last:pb-0">
                   <div className="min-w-0">
-                    <p className="font-medium">{e.titulo}</p>
+                    <p className="font-medium">{e.columna}</p>
                     <p className="text-cuerpo-sm text-muted-foreground">
-                      {e.fecha} · peso {formatearNumero(e.peso)}
+                      {e.instrumento && `${NOMBRE_INSTRUMENTO[e.instrumento]} · `}{e.fecha} · peso {formatearNumero(e.peso)}
                       {e.desempenoIds.length > 0 && ` · ${e.desempenoIds.length} ${e.desempenoIds.length === 1 ? "desempeño" : "desempeños"}`}
                     </p>
                   </div>
@@ -263,7 +278,8 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
                       etiqueta="Guardar cambios"
                       accion={editarEvaluacionAction.bind(null, slug, e.id)}
                     >
-                      <div className="sm:col-span-2"><Campo etiqueta="Título" name="titulo" required defaultValue={e.titulo} /></div>
+                      <Campo etiqueta="Título" name="titulo" required defaultValue={e.titulo} />
+                      <SelectorInstrumento defecto={e.instrumento} />
                       <CompetenciaYDesempenos
                         competencias={g.competencias} porCompetencia={opciones.porCompetencia} textoGrado={opciones.textoGrado}
                         defecto={e.competenciaId} marcados={e.desempenoIds}
@@ -289,6 +305,83 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
   );
 }
 
+function SelectorInstrumento({ defecto }: { defecto?: Instrumento | null }) {
+  return (
+    <Selector etiqueta="Instrumento" name="instrumento" defaultValue={defecto ?? ""}>
+      <option value="">Sin indicar</option>
+      {INSTRUMENTOS.map((i) => <option key={i} value={i}>{NOMBRE_INSTRUMENTO[i]}</option>)}
+    </Selector>
+  );
+}
+
+async function SeccionInforme({ ctx, slug, cursoId, periodoId, sp }: { ctx: TenantContext; slug: string; cursoId: string; periodoId: string; sp: SP }) {
+  const inf = await informesProgreso(ctx, cursoId, periodoId);
+  const fila = inf.filas.find((f) => f.competencia.id === uno(sp.competencia)) ?? inf.filas[0];
+  if (!fila) {
+    return (
+      <EstadoVacio
+        icono={Target}
+        titulo="Aún no hay competencias en este curso"
+        descripcion="Primero agrega las competencias del curso en la pestaña «Competencias»."
+      />
+    );
+  }
+  const puedeCompartir = inf.editable && inf.escritos > 0;
+  return (
+    <div className="flex flex-col gap-4">
+      <Card>
+        <CardContent className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex max-w-prose flex-col gap-1">
+            <p className="text-sm font-medium">Informe de progreso a mitad del periodo</p>
+            <p className="text-cuerpo-sm text-muted-foreground">
+              Por cada competencia, cuéntale a la familia qué ha logrado su hijo o hija, qué necesita mejorar y qué recomiendas reforzar.
+              Las familias lo ven en «Notas» cuando lo compartes.
+            </p>
+            <p className="flex items-center gap-1.5 text-cuerpo-sm">
+              {inf.envio ? <CheckCircle2 className="size-4 text-llego" strokeWidth={2} aria-hidden /> : <Lock className="size-4 text-muted-foreground" strokeWidth={2} aria-hidden />}
+              <span className="font-semibold">{inf.envio ? "Compartido con las familias" : "Aún no compartido"}</span>
+              {inf.envio && <span className="text-muted-foreground">· por {inf.envio.por} el {fechaLima(inf.envio.enviadoAt)}</span>}
+              <span className="text-muted-foreground">· {inf.escritos} {inf.escritos === 1 ? "informe escrito" : "informes escritos"}</span>
+            </p>
+          </div>
+          {puedeCompartir && (
+            <BotonConfirmar
+              etiqueta={<><Send strokeWidth={2} aria-hidden />{inf.envio ? "Reenviar aviso" : "Compartir con las familias"}</>}
+              variante={inf.envio ? "outline" : "default"}
+              titulo={inf.envio ? "¿Avisar otra vez a las familias?" : "¿Compartir el informe de progreso?"}
+              descripcion={
+                inf.envio
+                  ? "Las familias de los alumnos con informe recibirán el aviso de nuevo."
+                  : "Las familias de los alumnos con informe podrán leerlo en «Notas» y recibirán un aviso. Lo que cambies después también lo verán."
+              }
+              confirmar={inf.envio ? "Reenviar aviso" : "Compartir"}
+              accion={compartirInformeAction.bind(null, slug, cursoId, periodoId, Boolean(inf.envio))}
+            />
+          )}
+        </CardContent>
+      </Card>
+      <NavegacionPildoras
+        etiqueta="Competencias"
+        items={inf.filas.map((f) => ({
+          href: `/notas?curso=${cursoId}&periodo=${periodoId}&seccion=informe&competencia=${f.competencia.id}`,
+          texto: f.competencia.nombre,
+          activo: f.competencia.id === fila.competencia.id,
+        }))}
+      />
+      <ul className="grid gap-3 lg:grid-cols-2">
+        {fila.alumnos.map((a) => (
+          <li key={`${fila.competencia.id}:${a.alumno.id}`}>
+            <FilaInforme
+              slug={slug} editable={inf.editable} alumno={a.alumno} competenciaId={fila.competencia.id} periodoId={periodoId}
+              informe={a.informe} sugerido={a.sugerido} cantidadNotas={a.cantidadNotas}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 async function SeccionPeriodo({ ctx, slug, cursoId, periodoId, sp }: { ctx: TenantContext; slug: string; cursoId: string; periodoId: string; sp: SP }) {
   const c = await calificacionesPeriodo(ctx, cursoId, periodoId);
   const fila = c.filas.find((f) => f.competencia.id === uno(sp.competencia)) ?? c.filas[0];
@@ -304,8 +397,7 @@ async function SeccionPeriodo({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
   return (
     <div className="flex flex-col gap-4">
       <p className="max-w-prose text-cuerpo-sm text-muted-foreground">
-        La calificación sugerida sale de las notas del periodo
-        {c.escala === "vigesimal" ? " (promedio con pesos, redondeado)" : " (la más frecuente; si empatan, la más reciente)"}.
+        La calificación sugerida sale de las notas del periodo ({textoCalculo(c.escala, c.calculo)}).
         Tú la confirmas o la cambias.
         {c.escala === "literal" && " En B y C la conclusión descriptiva es obligatoria."}
       </p>

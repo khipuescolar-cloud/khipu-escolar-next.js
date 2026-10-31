@@ -34,6 +34,8 @@ const esquema = z.strictObject({
     .max(PLAZO_JUSTIFICACION_MAX_DIAS, rangoPlazo)
     .optional(),
   escalaCalificacion: z.enum(["literal", "vigesimal"]),
+  /** Cómo se sugiere la calificación literal del periodo (specs/11). */
+  calculoLiteral: z.enum(["promedio", "frecuente"], "Elige cómo se calcula la calificación del periodo.").optional(),
   /** Grado de primaria desde el que un alumno puede tener cuenta propia (secundaria siempre; inicial nunca). */
   gradoMinimoCuentaAlumno: z.coerce
     .number("Elige el grado mínimo para la cuenta propia del alumno.")

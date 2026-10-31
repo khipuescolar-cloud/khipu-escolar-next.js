@@ -56,6 +56,22 @@ enum EscalaCalificacion {
   vigesimal
 }
 
+/// Cómo se sugiere la calificación literal del periodo (specs/11): promedio de las notas (AD=4 … C=1, con pesos) o la
+/// más frecuente. En vigesimal siempre es el promedio con pesos.
+enum CalculoLiteral {
+  promedio
+  frecuente
+}
+
+/// Instrumento con que se recoge la evidencia de una evaluación (specs/11).
+enum InstrumentoEvaluacion {
+  prueba_escrita
+  lista_cotejo
+  rubrica
+  ficha_observacion
+  otro
+}
+
 enum Nivel {
   inicial
   primaria
@@ -187,6 +203,7 @@ model Tenant {
   zonaHoraria                   String             @default("America/Lima") @map("zona_horaria")
   modoAvisos                    ModoAvisos         @default(todos) @map("modo_avisos")
   escalaCalificacion            EscalaCalificacion @default(literal) @map("escala_calificacion")
+  calculoLiteral                CalculoLiteral     @default(promedio) @map("calculo_literal")
   /// Plazo del reglamento para justificar una falta, en días hábiles (lunes a viernes sin feriados nacionales del Perú) desde el día de la falta.
   plazoJustificacionDiasHabiles Int                @default(15) @map("plazo_justificacion_dias_habiles")
   /// Grado de primaria (1–6) desde el que un alumno puede tener cuenta propia. Secundaria siempre; inicial nunca (specs/10).
@@ -229,6 +246,8 @@ model Tenant {
   exportaciones         ExportacionColegio[]
   accesosSoporte        AccesoSoporte[]
   cierresCurso          CierreCurso[]
+  informesProgreso      InformeProgreso[]
+  enviosInformeProgreso EnvioInformeProgreso[]
   modulosAjustados      TenantModulo[]
   contactos             ContactoColegio[]
   suscripcion           Suscripcion?
@@ -297,18 +316,18 @@ model Membership {
   tenant Tenant  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   user   Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  salonesTutor             Salon[]              @relation("TutorSalon")
-  cursosDictados           Curso[]              @relation("ProfesorCurso")
+  salonesTutor             Salon[]                @relation("TutorSalon")
+  cursosDictados           Curso[]                @relation("ProfesorCurso")
   hijos                    ApoderadoAlumno[]
   consentimientos          Consentimiento[]
-  asistenciasRegistradas   Asistencia[]         @relation("RegistradoPor")
-  enviosCreados            EnvioAviso[]         @relation("EnviosCreados")
+  asistenciasRegistradas   Asistencia[]           @relation("RegistradoPor")
+  enviosCreados            EnvioAviso[]           @relation("EnviosCreados")
   avisos                   Aviso[]
   justificacionTokens      JustificacionToken[]
-  justificaciones          Justificacion[]      @relation("JustificacionApoderado")
-  justificacionesRevisadas Justificacion[]      @relation("JustificacionRevisor")
-  conversacionesProfesor   Conversacion[]       @relation("ConversacionProfesor")
-  conversacionesApoderado  Conversacion[]       @relation("ConversacionApoderado")
+  justificaciones          Justificacion[]        @relation("JustificacionApoderado")
+  justificacionesRevisadas Justificacion[]        @relation("JustificacionRevisor")
+  conversacionesProfesor   Conversacion[]         @relation("ConversacionProfesor")
+  conversacionesApoderado  Conversacion[]         @relation("ConversacionApoderado")
   mensajes                 Mensaje[]
   comunicados              Comunicado[]
   preferenciaAviso         PreferenciaAviso?
@@ -316,9 +335,11 @@ model Membership {
   tareasCreadas            Tarea[]
   eventosCreados           EventoAgenda[]
   nuditoConversaciones     NuditoConversacion[]
-  ticketsSoporte           TicketSoporte[]      @relation("TicketsCreados")
-  alumnoVinculado          Alumno?              @relation("CuentaAlumno")
+  ticketsSoporte           TicketSoporte[]        @relation("TicketsCreados")
+  alumnoVinculado          Alumno?                @relation("CuentaAlumno")
   cierresCurso             CierreCurso[]
+  informesProgreso         InformeProgreso[]
+  enviosInformeProgreso    EnvioInformeProgreso[]
   carpetasCreadas          CarpetaDocumento[]
   documentosPublicados     Documento[]
   reunionesConvocadas      Reunion[]
@@ -346,8 +367,8 @@ model Salon {
   /// Plantilla de horario (specs/34): horas del día y entrada/salida del salón; su entrada fija la tardanza (specs/05).
   plantillaId String?   @map("plantilla_id") @db.Uuid
 
-  tenant      Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  tutor       Membership?     @relation("TutorSalon", fields: [tutorId], references: [id], onDelete: SetNull)
+  tenant      Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tutor       Membership?       @relation("TutorSalon", fields: [tutorId], references: [id], onDelete: SetNull)
   plantilla   PlantillaHorario? @relation(fields: [plantillaId], references: [id], onDelete: SetNull)
   cursos      Curso[]
   alumnos     Alumno[]
@@ -368,15 +389,16 @@ model Curso {
   nombre     String // "Matemática"
   profesorId String? @map("profesor_id") @db.Uuid
 
-  tenant       Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  salon        Salon           @relation(fields: [salonId], references: [id], onDelete: Cascade)
-  profesor     Membership?     @relation("ProfesorCurso", fields: [profesorId], references: [id], onDelete: SetNull)
-  asistencias  Asistencia[]
-  competencias Competencia[]
-  evaluaciones Evaluacion[]
-  tareas       Tarea[]
-  cierres      CierreCurso[]
-  bloques      BloqueHorario[]
+  tenant                Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  salon                 Salon                  @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  profesor              Membership?            @relation("ProfesorCurso", fields: [profesorId], references: [id], onDelete: SetNull)
+  asistencias           Asistencia[]
+  competencias          Competencia[]
+  evaluaciones          Evaluacion[]
+  tareas                Tarea[]
+  cierres               CierreCurso[]
+  enviosInformeProgreso EnvioInformeProgreso[]
+  bloques               BloqueHorario[]
 
   @@index([tenantId])
   @@index([profesorId])
@@ -408,6 +430,7 @@ model Alumno {
   carnets               CarnetQr[]
   notas                 Nota[]
   calificacionesPeriodo CalificacionPeriodo[]
+  informesProgreso      InformeProgreso[]
   nuditoConversaciones  NuditoConversacion[]
   invitacionesReunion   ReunionInvitado[]
   licenciasNudito       LicenciaNudito[]
@@ -813,10 +836,12 @@ model Periodo {
   /// Cuándo se avisó a las familias que la libreta del periodo está lista.
   libretaPublicadaAt DateTime?   @map("libreta_publicada_at") @db.Timestamptz
 
-  tenant                Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenant                Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   evaluaciones          Evaluacion[]
   calificacionesPeriodo CalificacionPeriodo[]
   cierresCurso          CierreCurso[]
+  informesProgreso      InformeProgreso[]
+  enviosInformeProgreso EnvioInformeProgreso[]
 
   @@unique([tenantId, anio, tipo, numero])
   @@map("periodos")
@@ -837,20 +862,22 @@ model Competencia {
   calificacionesPeriodo CalificacionPeriodo[]
   capacidades           Capacidad[]
   desempenos            Desempeno[]
+  informesProgreso      InformeProgreso[]
 
   @@index([tenantId, cursoId])
   @@map("competencias")
 }
 
 model Evaluacion {
-  id            String   @id @default(uuid()) @db.Uuid
-  tenantId      String   @map("tenant_id") @db.Uuid
-  cursoId       String   @map("curso_id") @db.Uuid
-  periodoId     String   @map("periodo_id") @db.Uuid
-  competenciaId String?  @map("competencia_id") @db.Uuid
+  id            String                 @id @default(uuid()) @db.Uuid
+  tenantId      String                 @map("tenant_id") @db.Uuid
+  cursoId       String                 @map("curso_id") @db.Uuid
+  periodoId     String                 @map("periodo_id") @db.Uuid
+  competenciaId String?                @map("competencia_id") @db.Uuid
   titulo        String
-  fecha         DateTime @db.Date
-  peso          Decimal  @default(1) @db.Decimal(5, 2)
+  fecha         DateTime               @db.Date
+  peso          Decimal                @default(1) @db.Decimal(5, 2)
+  instrumento   InstrumentoEvaluacion?
 
   tenant      Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   curso       Curso                 @relation(fields: [cursoId], references: [id], onDelete: Cascade)
@@ -906,6 +933,51 @@ model CalificacionPeriodo {
 
   @@unique([alumnoId, competenciaId, periodoId])
   @@map("calificaciones_periodo")
+}
+
+/// Informe de progreso a mitad del periodo (specs/11): por alumno, competencia y periodo, qué logró, qué necesita mejorar
+/// y qué se recomienda reforzar. La familia lo ve cuando el profesor lo comparte (`EnvioInformeProgreso`).
+model InformeProgreso {
+  id              String   @id @default(uuid()) @db.Uuid
+  tenantId        String   @map("tenant_id") @db.Uuid
+  alumnoId        String   @map("alumno_id") @db.Uuid
+  competenciaId   String   @map("competencia_id") @db.Uuid
+  periodoId       String   @map("periodo_id") @db.Uuid
+  logros          String?
+  mejorar         String?
+  recomendaciones String?
+  registradoPorId String   @map("registrado_por") @db.Uuid
+  updatedAt       DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant        Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno        Alumno      @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  competencia   Competencia @relation(fields: [competenciaId], references: [id], onDelete: Cascade)
+  periodo       Periodo     @relation(fields: [periodoId], references: [id], onDelete: Cascade)
+  registradoPor Membership  @relation(fields: [registradoPorId], references: [id], onDelete: NoAction)
+
+  @@unique([alumnoId, competenciaId, periodoId])
+  @@index([tenantId])
+  @@index([periodoId, competenciaId])
+  @@map("informes_progreso")
+}
+
+/// Cuándo el profesor compartió con las familias el informe de progreso de un curso en un periodo.
+model EnvioInformeProgreso {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @map("tenant_id") @db.Uuid
+  cursoId      String   @map("curso_id") @db.Uuid
+  periodoId    String   @map("periodo_id") @db.Uuid
+  enviadoPorId String   @map("enviado_por") @db.Uuid
+  enviadoAt    DateTime @default(now()) @map("enviado_at") @db.Timestamptz
+
+  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  curso      Curso      @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  periodo    Periodo    @relation(fields: [periodoId], references: [id], onDelete: Cascade)
+  enviadoPor Membership @relation(fields: [enviadoPorId], references: [id], onDelete: NoAction)
+
+  @@unique([periodoId, cursoId])
+  @@index([tenantId])
+  @@map("envios_informe_progreso")
 }
 
 model Tarea {
@@ -1852,11 +1924,11 @@ model HorarioPeriodo {
   tenantId    String          @map("tenant_id") @db.Uuid
   plantillaId String          @map("plantilla_id") @db.Uuid
   /// «1.ª hora», «Recreo»…
-  nombre     String
+  nombre      String
   /// HH:mm (hora del colegio).
-  horaInicio String          @map("hora_inicio")
-  horaFin    String          @map("hora_fin")
-  tipo       TipoHoraHorario @default(clase)
+  horaInicio  String          @map("hora_inicio")
+  horaFin     String          @map("hora_fin")
+  tipo        TipoHoraHorario @default(clase)
 
   tenant    Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   plantilla PlantillaHorario @relation(fields: [plantillaId], references: [id], onDelete: Cascade)

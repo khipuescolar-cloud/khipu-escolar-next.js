@@ -1,30 +1,51 @@
 "use client";
 
 import { AlertTriangle, CheckCircle2, ClipboardList, Loader2 } from "lucide-react";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { CLASE_CAMPO } from "@/components/ui/Selector";
-import { LITERALES, ETIQUETA_LITERAL, formatearNumero, type Escala, type Literal } from "@/lib/calificaciones";
+import {
+  LITERALES, ETIQUETA_LITERAL, NOMBRE_INSTRUMENTO, formatearNumero, interpretarValor, sugerirCalificacion, textoValor,
+  type CalculoLiteral, type Escala, type Instrumento, type Literal,
+} from "@/lib/calificaciones";
 import { cn } from "@/lib/utils";
 import { guardarNotaAction } from "./actions";
 import { ComentarioNota } from "./ComentarioNota";
 
 type Estado = { fase: "guardando" } | { fase: "guardado" } | { fase: "error"; mensaje: string };
 
+type Evaluacion = { id: string; titulo: string; fecha: string; peso: number; competenciaId: string | null; instrumento: Instrumento | null };
+
 type Props = {
   slug: string;
   escala: Escala;
+  calculo: CalculoLiteral;
   editable: boolean;
   alumnos: { id: string; nombres: string; apellidos: string }[];
-  evaluaciones: { id: string; titulo: string; fecha: string; peso: number }[];
+  competencias: { id: string; nombre: string }[];
+  evaluaciones: Evaluacion[];
   notas: { evaluacionId: string; alumnoId: string; valorLiteral: Literal | null; valorNumerico: number | null; comentario?: string | null }[];
 };
 
 const valorInicial = (n: Props["notas"][number] | undefined): string => (n?.valorLiteral ?? (n?.valorNumerico != null ? formatearNumero(n.valorNumerico) : ""));
 
-/** Rejilla alumnos × evaluaciones. Cada celda se guarda sola al cambiar (literal) o al salir del campo (0–20).
- *  Se desplaza dentro de su tarjeta y la columna del alumno queda fija. Celdas de 40 px (specs/18 §8). */
-export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, notas }: Props) {
+/** Columnas agrupadas por competencia (en su orden); las evaluaciones sin competencia van al final. */
+function agrupar(competencias: Props["competencias"], evaluaciones: Evaluacion[]) {
+  const grupos = competencias
+    .map((c) => ({ id: c.id, nombre: c.nombre, evaluaciones: evaluaciones.filter((e) => e.competenciaId === c.id) }))
+    .filter((g) => g.evaluaciones.length > 0);
+  const sueltas = evaluaciones.filter((e) => !competencias.some((c) => c.id === e.competenciaId));
+  if (sueltas.length > 0) grupos.push({ id: "", nombre: "Sin competencia", evaluaciones: sueltas });
+  return grupos;
+}
+
+/**
+ * Registro auxiliar: alumnos × evaluaciones, agrupadas por competencia, con el promedio de cada competencia que se
+ * recalcula al poner notas (la misma regla que la calificación sugerida del periodo). Cada celda se guarda sola al
+ * cambiar (literal) o al salir del campo (0–20). Se desplaza dentro de su tarjeta y la columna del alumno queda fija.
+ * Celdas de 40 px (specs/18 §8).
+ */
+export function GrillaNotas({ slug, escala, calculo, editable, alumnos, competencias, evaluaciones, notas }: Props) {
   const [valores, setValores] = useState<Record<string, string>>(() =>
     Object.fromEntries(notas.map((n) => [`${n.evaluacionId}:${n.alumnoId}`, valorInicial(n)])),
   );
@@ -39,6 +60,16 @@ export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, not
     const r = await guardarNotaAction(slug, evaluacionId, alumnoId, valor);
     setEstados((e) => ({ ...e, [clave]: r.ok ? { fase: "guardado" } : { fase: "error", mensaje: r.error } }));
     if (r.ok && valor.trim() === "") setComentarios((m) => ({ ...m, [clave]: "" })); // sin nota no hay observación
+  }
+
+  const grupos = agrupar(competencias, evaluaciones);
+  /** Promedio en vivo de la competencia con lo que hay en la rejilla (misma regla que la calificación sugerida). */
+  function promedio(lista: Evaluacion[], alumnoId: string) {
+    const items = lista.flatMap((e) => {
+      const v = interpretarValor(escala, valores[`${e.id}:${alumnoId}`] ?? "");
+      return v.ok && v.valor ? [{ ...v.valor, peso: e.peso, fecha: e.fecha }] : [];
+    });
+    return sugerirCalificacion(escala, items, calculo);
   }
 
   if (evaluaciones.length === 0) {
@@ -56,12 +87,34 @@ export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, not
       <table className="w-full min-w-max border-collapse text-sm">
         <thead className="bg-muted text-left">
           <tr>
-            <th scope="col" className="sticky left-0 z-10 min-w-44 border-r bg-muted px-3 py-2.5 font-semibold">Alumno</th>
-            {evaluaciones.map((e) => (
-              <th key={e.id} scope="col" className="min-w-32 px-3 py-2.5 font-semibold">
-                <span className="block">{e.titulo}</span>
-                <span className="block text-cuerpo-sm font-normal text-muted-foreground">{e.fecha} · peso {formatearNumero(e.peso)}</span>
+            <th scope="col" rowSpan={2} className="sticky left-0 z-10 min-w-44 border-r bg-muted px-3 py-2.5 align-bottom font-semibold">Alumno</th>
+            {grupos.map((g) => (
+              <th
+                key={g.id || "sueltas"} scope="colgroup" colSpan={g.evaluaciones.length + (g.id ? 1 : 0)}
+                className="max-w-80 border-b border-l px-3 pt-2.5 pb-1.5 text-cuerpo-sm font-semibold text-foreground"
+              >
+                <span className="line-clamp-2">{g.nombre}</span>
               </th>
+            ))}
+          </tr>
+          <tr>
+            {grupos.map((g) => (
+              <Fragment key={g.id || "sueltas"}>
+                {g.evaluaciones.map((e, i) => (
+                  <th key={e.id} scope="col" className={cn("min-w-32 px-3 py-2 align-bottom font-semibold", i === 0 && "border-l")}>
+                    <span className="block">{e.titulo}</span>
+                    <span className="block text-cuerpo-sm font-normal text-muted-foreground">
+                      {e.instrumento && <>{NOMBRE_INSTRUMENTO[e.instrumento]} · </>}{e.fecha.slice(8, 10)}/{e.fecha.slice(5, 7)} · peso {formatearNumero(e.peso)}
+                    </span>
+                  </th>
+                ))}
+                {g.id && (
+                  <th scope="col" className="min-w-24 bg-secondary/60 px-3 py-2 align-bottom font-semibold">
+                    <span className="block">Promedio</span>
+                    <span className="block text-cuerpo-sm font-normal text-muted-foreground">sugerido</span>
+                  </th>
+                )}
+              </Fragment>
             ))}
           </tr>
         </thead>
@@ -71,13 +124,15 @@ export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, not
               <th scope="row" className="sticky left-0 z-10 border-r bg-card px-3 py-2 text-left font-medium">
                 {a.apellidos}, {a.nombres}
               </th>
-              {evaluaciones.map((e) => {
+              {grupos.map((g) => (
+                <Fragment key={g.id || "sueltas"}>
+              {g.evaluaciones.map((e, i) => {
                 const clave = `${e.id}:${a.id}`;
                 const valor = valores[clave] ?? "";
                 const estado = estados[clave];
                 const etiqueta = `Nota de ${a.nombres} en ${e.titulo}`;
                 return (
-                  <td key={e.id} className="px-3 py-2 align-top">
+                  <td key={e.id} className={cn("px-3 py-2 align-top", i === 0 && "border-l")}>
                     <div className="flex items-center gap-1">
                     {editable ? (
                       escala === "literal" ? (
@@ -124,10 +179,27 @@ export function GrillaNotas({ slug, escala, editable, alumnos, evaluaciones, not
                   </td>
                 );
               })}
+              {g.id && <CeldaPromedio valor={promedio(g.evaluaciones, a.id)} alumno={a.nombres} competencia={g.nombre} />}
+                </Fragment>
+              ))}
             </tr>
           ))}
         </tbody>
       </table>
     </div>
+  );
+}
+
+function CeldaPromedio({ valor, alumno, competencia }: { valor: ReturnType<typeof sugerirCalificacion>; alumno: string; competencia: string }) {
+  const texto = valor ? textoValor(valor) : "—";
+  return (
+    <td className="bg-secondary/40 px-3 py-2 align-top">
+      <span
+        className="inline-flex h-10 min-w-10 items-center justify-center font-semibold tabular-nums"
+        aria-label={`Promedio de ${alumno} en ${competencia}: ${valor?.valorLiteral ? `${texto}, ${ETIQUETA_LITERAL[valor.valorLiteral]}` : texto}`}
+      >
+        {texto}
+      </span>
+    </td>
   );
 }

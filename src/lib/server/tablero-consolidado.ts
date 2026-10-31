@@ -56,7 +56,7 @@ export async function consolidadoNotas(ctx: TenantContext, datos: unknown, como:
       const clave = `${a.id}|${comp.id}`;
       const o = oficial.get(clave);
       if (o && (o.valorLiteral || o.valorNumerico !== null)) return { valorLiteral: o.valorLiteral, valorNumerico: o.valorNumerico === null ? null : Number(o.valorNumerico) };
-      const s = sugerirCalificacion(escala, notasPorCelda.get(clave) ?? []);
+      const s = sugerirCalificacion(escala, notasPorCelda.get(clave) ?? [], ctx.tenant.calculoLiteral);
       if (s) sugeridas++;
       return s;
     }),

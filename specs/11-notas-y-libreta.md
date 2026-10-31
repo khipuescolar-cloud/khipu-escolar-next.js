@@ -1,6 +1,6 @@
 # 11 — Notas y libreta (MINEDU)
 
-> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-10-30 (Claude Code: tabla de roles alineada con el código, alumno con lectura)
+> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-10-31 (Claude Code: flujo de evaluación según la consulta a un docente — registro auxiliar por competencia, pruebas de varias competencias, instrumento, promedio literal e informe de progreso)
 
 ## Objetivo
 Que el profesor registre evaluaciones y notas por competencia, confirme la calificación de cada periodo con su conclusión descriptiva, y que las familias vean el avance de sus hijos y descarguen la libreta en PDF. El colegio elige la escala (literal CNEB o vigesimal) en `tenant.escalaCalificacion`.
@@ -21,9 +21,33 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
 | Portería / administrativo | — | `/notas` y `/libreta` (403) |
 | Cualquiera en un colegio con Khipu Base | — | 403 en `/notas`, `/libreta` y su PDF (`requireFeature`) |
 
+## Flujo de evaluación (consulta a un docente, 2026-10-31)
+Lo que contó un profesor con experiencia y cómo lo lleva Khipu. Es la práctica de **un** colegio; por eso lo que no está
+confirmado (cálculo, pesos) es configurable o solo sugerido, nunca obligatorio.
+- **Se califica por competencia.** Cada curso tiene competencias con capacidades y desempeños (`specs/30`); en clase se
+  evalúan desempeños, pero la nota que se reporta es la de la competencia.
+- **Una prueba puede medir varias competencias** (p. ej. una prueba de Comunicación con preguntas de sus tres
+  competencias): al crearla se marcan varias competencias y Khipu crea **una columna por competencia** con el mismo
+  título, así cada alumno tiene una nota por competencia.
+- **Instrumento** opcional de cada evaluación: prueba escrita, lista de cotejo, rúbrica, ficha de observación u otro.
+- **Registro auxiliar** (la rejilla): evaluaciones agrupadas por competencia con el **promedio** de cada una al momento.
+- **Nota del periodo = promedio** de las notas de la competencia (ver «Reglas de negocio»); el profesor la confirma.
+- **Dos momentos de comunicación por periodo:** a mitad, el **informe de progreso** por competencia (qué logró, qué
+  necesita mejorar y qué se recomienda reforzar); al final, la calificación con su conclusión descriptiva (libreta).
+- **SIAGIE:** en ese colegio la secretaria copia las calificaciones de la libreta. El consolidado del salón (alumnos ×
+  competencias, `specs/33`) sirve de base. Falta confirmar con personal de SIAGIE si conviene exportar en su formato.
+
 ## Flujos
 1. **Profesor** → `/notas`: elige curso y periodo (formulario GET) → pestañas:
-   - *Notas por evaluación*: grilla alumnos × evaluaciones. Literal: `<select>` que guarda al cambiar; vigesimal: campo numérico que guarda al salir. Cada celda muestra «Guardando / Guardado / error» con ícono + palabra. Debajo: crear evaluación (título, competencia, fecha, peso) y editar/eliminar.
+   - *Registro auxiliar*: grilla alumnos × evaluaciones **agrupadas por competencia** (fila de encabezado con la
+     competencia; las evaluaciones sin competencia van al final en «Sin competencia») y, al final de cada competencia, la
+     columna **«Promedio · sugerido»**, que se recalcula en el navegador al cambiar una nota con la misma regla que la
+     calificación sugerida del periodo. Bajo el título de cada evaluación: instrumento, fecha y peso. Literal: `<select>` que guarda al cambiar; vigesimal: campo numérico que guarda al salir. Cada celda muestra «Guardando / Guardado / error» con ícono + palabra. «Nueva evaluación» pide título, instrumento, fecha, peso y las **competencias que evalúa** (casillas; bajo cada una, sus desempeños del grado). Debajo de la rejilla: editar (una columna a la vez: título, instrumento, competencia, desempeños, fecha, peso) y eliminar.
+   - *Informe de progreso* (mitad del periodo): por competencia (píldoras), una tarjeta por alumno con «Va en X según N
+     notas hasta hoy» y tres campos de hasta 600 caracteres: «Qué ha logrado», «Qué necesita mejorar» y «Qué recomendamos
+     reforzar» (estado Escrito / Sin escribir). Arriba, el estado del envío (Aún no compartido / Compartido con las
+     familias · por quién y cuándo · N informes escritos) y «Compartir con las familias» (con confirmación; luego «Reenviar
+     aviso»).
    - *Calificación del periodo*: por competencia, una tarjeta por alumno con la calificación **sugerida** (y de cuántas notas sale), el valor a confirmar y la conclusión descriptiva (obligatoria en B y C). «Usar la sugerida» copia el valor; solo se guarda al confirmar.
    - *Competencias*: lista, alta y baja (no se puede borrar una con calificaciones en libreta).
    - *Capacidades y desempeños* (CNEB, `specs/30`): capacidades de cada competencia y desempeños del grado del salón; dirección los importa del catálogo CNEB y los edita; el profesor los ve.
@@ -41,11 +65,13 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
    - Lista de periodos del año con sus niveles, «Fechas» (nombre, inicio y fin; valen para todos sus niveles), cerrar y
      reabrir, y **publicar la libreta** (ver más abajo). Cada periodo muestra «N de M cursos cerrados» (solo cursos de sus
      niveles). «Nuevo periodo» pide también los niveles que lo usan.
-3. **Apoderado** → `/notas`: por hijo y periodo, cursos → competencias (calificación + conclusión) y evaluaciones con su nota y, si existe, la «Observación» del profesor.
+3. **Apoderado** → `/notas`: por hijo y periodo, cursos → competencias (calificación + conclusión y, si el profesor ya lo compartió, el bloque «Informe de progreso»: Ha logrado / Necesita mejorar / Te recomendamos reforzar) y evaluaciones con su nota y, si existe, la «Observación» del profesor.
 4. **Libreta** → `/libreta`: por alumno y periodo publicado; botón «Descargar PDF». Bajo cada competencia: «Capacidades: …» y el desplegable «Desempeños evaluados (N)» (specs/30). La libreta PDF no lista evaluaciones, así que las observaciones por nota solo se ven en `/notas`.
 
 ## Reglas de negocio
-- Sugerencia: vigesimal = promedio ponderado por `peso` redondeado al entero (`sugerirVigesimal`); literal = el valor más frecuente y, si empatan, el de la nota más reciente (`sugerirLiteral`). Solo cuentan evaluaciones con competencia.
+- Sugerencia: vigesimal = promedio ponderado por `peso` redondeado al entero (`sugerirVigesimal`). Literal según `tenants.calculo_literal` (dirección lo elige en Configuración → «Escala de calificación»): **`promedio`** (por defecto) = AD 4, A 3, B 2, C 1 ponderado por `peso` y redondeado al literal más cercano, los empates suben (2,5 → A; `promedioLiteral`); `frecuente` = el valor más frecuente y, si empatan, el de la nota más reciente (`sugerirLiteral`). Solo cuentan evaluaciones con competencia. Es solo una sugerencia: el profesor confirma la calificación.
+- **Varias competencias en una evaluación:** `crearEvaluacion` acepta `competenciaIds` (máx. 12) y crea una evaluación por competencia con el mismo título, instrumento, fecha y peso; cada desempeño marcado va a la evaluación de su competencia. Para que el CSV identifique cada columna, el nombre de columna (`columna`) es el título y, si se repite en el periodo, «título · competencia».
+- **Informe de progreso** (`informes_progreso`, único por alumno + competencia + periodo): lo escribe solo el profesor del curso, con el periodo y el curso abiertos y para alumnos activos del salón; las tres partes vacías lo borran. «Compartir» (`envios_informe_progreso`, único por curso + periodo) exige al menos un informe, marca el curso como compartido y encola `informe_progreso` (tipo `libreta`) a las familias con avisos activos **de los alumnos con informe**; compartir otra vez se rechaza y «Reenviar aviso» repite el envío. La familia ve los informes de los cursos compartidos (incluidos los cambios posteriores); los no compartidos no le llegan. Se audita al guardar (`informe_progreso`) y al enviar.
 - Periodo cerrado = nada se crea, edita ni borra (notas, evaluaciones, calificaciones). Lo valida el servidor, no solo la UI.
 - **Cierre por curso** (`cierres_curso`, único por periodo + curso): con el curso cerrado en un periodo, el servidor rechaza crear/editar/borrar evaluaciones, guardar notas, observaciones, calificaciones del periodo e importaciones de **ese curso en ese periodo** (otros cursos o periodos no se afectan). Cierra el profesor del curso o dirección, solo con el periodo abierto; reabre solo dirección. El cierre general del periodo sigue existiendo y manda sobre el de curso. Ambos se auditan (`cierre_curso`).
 - **Periodos por nivel** (`periodos.niveles`): un nivel usa un solo tipo de periodo por año. Profesor, familia y alumno
@@ -63,7 +89,7 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
 - Periodo por defecto: en `/notas` el abierto más reciente; en `/libreta` el último cerrado.
 
 ## Modelo de datos
-`periodos` (con `niveles Nivel[]`, por defecto todos; migración `20261107100000_periodos_por_nivel`), `competencias` (por curso), `evaluaciones` (curso, periodo, competencia opcional, `peso` Decimal(5,2)), `notas` (única por evaluación+alumno), `calificaciones_periodo` (única por alumno+competencia+periodo, con `conclusion`), `asistencias` (resumen), `tenants.escala_calificacion`. Capacidades y desempeños del CNEB (`capacidades`, `desempenos`, `evaluacion_desempenos`) y `salones.grado`: ver `specs/30`.
+`periodos` (con `niveles Nivel[]`, por defecto todos; migración `20261107100000_periodos_por_nivel`), `competencias` (por curso), `evaluaciones` (curso, periodo, competencia opcional, `peso` Decimal(5,2), `instrumento` opcional: `prueba_escrita | lista_cotejo | rubrica | ficha_observacion | otro`), `informes_progreso` (alumno, competencia, periodo, `logros`, `mejorar`, `recomendaciones`, `registrado_por`) y `envios_informe_progreso` (curso, periodo, `enviado_por`, `enviado_at`), `tenants.calculo_literal` (`promedio | frecuente`, por defecto `promedio`; migración `20261108090000_flujo_evaluacion`), `notas` (única por evaluación+alumno), `calificaciones_periodo` (única por alumno+competencia+periodo, con `conclusion`), `asistencias` (resumen), `tenants.escala_calificacion`. Capacidades y desempeños del CNEB (`capacidades`, `desempenos`, `evaluacion_desempenos`) y `salones.grado`: ver `specs/30`.
 
 ## Importar y exportar (CSV)
 - Lógica pura en `src/lib/notas-csv.ts` (`exportarNotasCsv`, `analizarNotasCsv`). Exportar: `GET /api/notas/exportar?curso=&periodo=` (profesor del curso o dirección; auditado «exportar») → UTF-8 **con BOM**, separador **`;`** (Excel en español), una fila por alumno: `Código;Alumno;<título evaluación>…`, «Apellidos, Nombres», decimales con coma, celdas sin nota vacías. Evita inyección de fórmulas (`'` delante de `= + - @`).
@@ -82,7 +108,10 @@ exportarNotasCurso(ctx, cursoId, periodoId); previsualizarImportacionNotas(...);
 crearPeriodo(ctx, entrada): Resultado            // solo dirección
 cambiarEstadoPeriodo(ctx, periodoId, cerrado): Resultado   // solo dirección
 listarCompetencias(ctx, cursoId); crearCompetencia(ctx, entrada); eliminarCompetencia(ctx, id)
-crearEvaluacion(ctx, entrada); editarEvaluacion(ctx, id, entrada); eliminarEvaluacion(ctx, id)   // entrada.desempenoIds? (specs/30)
+crearEvaluacion(ctx, entrada); editarEvaluacion(ctx, id, entrada); eliminarEvaluacion(ctx, id)   // entrada.desempenoIds? (specs/30), instrumento?; al crear, competenciaIds? (una evaluación por competencia)
+informesProgreso(ctx, cursoId, periodoId)        // profesor/dirección; filas por competencia y alumno con sugerido, informe y envío
+guardarInformeProgreso(ctx, { alumnoId, competenciaId, periodoId, logros, mejorar, recomendaciones }): Resultado   // profesor del curso
+compartirInformeProgreso(ctx, cursoId, periodoId, { reenviar? }): Resultado   // profesor del curso; aviso informe_progreso
 grillaNotas(ctx, cursoId, periodoId)             // profesor/dirección; incluye `editable`
 guardarNota(ctx, { evaluacionId, alumnoId, valor }): Resultado   // valor "" borra
 calificacionesPeriodo(ctx, cursoId, periodoId)   // con sugerido por alumno y competencia
@@ -117,12 +146,14 @@ cursosDelDocente(ctx)
 
 ## Pruebas
 - unit: `tests/unit/calificaciones.test.ts` (escalas, etiquetas, aprobado, sugeridas), `tests/unit/fechas.test.ts`, `tests/unit/notas-csv.test.ts` (exportar/importar, visibilidad y publicación de la libreta), `tests/unit/imagen-png.test.ts` (WEBP/SVG → PNG y caché), `tests/unit/plantillas-avisos.test.ts` (`libreta_publicada`), `tests/unit/titulo-tutor-libreta.test.ts` (Tutora/Tutor/Tutor(a)); integración `tests/integracion/soporte-seguridad.test.ts` (`datosLibreta` devuelve el título según el género).
+- Flujo de evaluación: unit `tests/unit/calificaciones.test.ts` (promedio literal con pesos y empates, promedio vs. más frecuente), `tests/unit/plantillas-avisos.test.ts` (`informe_progreso`); integración `tests/integracion/flujo-evaluacion.test.ts` (prueba de dos competencias = dos columnas con instrumento y nombres únicos en el CSV, sugerida por promedio y por la más frecuente, informe solo del profesor del curso, la familia no lo ve hasta compartirlo, aviso solo a familias con informe, reenviar, borrar con campos vacíos); e2e `tests/e2e/flujo-evaluacion.test.ts` (crear la prueba de dos competencias, encabezados por competencia, promedio en vivo; escribir y compartir el informe).
 - integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (apoderado no ve a otros alumnos ni sus notas, periodo cerrado no se edita, profesor ajeno y dirección no escriben, conclusión en B/C, libreta con asistencia y auditoría, Khipu Base → 403; cierre por curso y reabrir, observaciones, importar/exportar, publicar libreta con avisos, idempotencia y visibilidad familiar).
 - Periodos por nivel: unit `tests/unit/periodos-academicos.test.ts` (nombres, año escolar sugerido, periodos seguidos, un tipo por nivel); integración `tests/integracion/periodos-por-nivel.test.ts` (primaria por trimestres y secundaria por bimestres aislados, niveles que comparten tipo, notas y cierre rechazados en periodo de otro nivel, no se cambia con notas, sí sin notas, periodo manual sin mezclar tipos, solo dirección).
 - e2e: `tests/e2e/notas-libreta.test.ts` (profesor de una academia vigesimal temporal ingresa nota de 0 a 20; apoderada descarga el PDF; colegio Khipu Base temporal 403; observación por nota; cerrar/reabrir curso; exportar CSV; publicar libreta y reenviar aviso, con limpieza de datos). Capacidades y desempeños: `tests/unit/cneb-catalogo.test.ts`, `tests/integracion/cneb-desempenos.test.ts`, `tests/e2e/cneb-desempenos.test.ts` (specs/30). El envío real del correo (Mailpit) no se prueba en e2e: el worker corre por cron, y el aviso queda verificado en la tabla `avisos`.
 
 ## Pendientes
-- Definir con los profesores del piloto el flujo de evaluación (registros, capacidades y competencias por periodo).
+- Contrastar el flujo de evaluación con más docentes del piloto: pesos por instrumento, redondeo del promedio y si el informe de progreso debe ser obligatorio.
+- Confirmar con quien registra en el SIAGIE si conviene exportar el consolidado en su formato.
 - (Decisión cerrada) `CORTE_LIBRETA_PUBLICADA` se queda como constante: `periodos` no guarda la fecha de cierre y no se cambia el esquema. Los periodos cerrados antes del corte siguen visibles para las familias; los nuevos requieren publicar la libreta.
 
 ## PDF de la libreta y marca

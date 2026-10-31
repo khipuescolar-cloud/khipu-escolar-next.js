@@ -2,8 +2,8 @@ import "server-only";
 import { forbidden } from "next/navigation";
 import { z } from "zod";
 import {
-  interpretarValor, requiereConclusion, sugerirCalificacion,
-  type Escala, type Literal, type ValorCalificacion,
+  INSTRUMENTOS, interpretarValor, requiereConclusion, sugerirCalificacion,
+  type Escala, type Instrumento, type Literal, type ValorCalificacion,
 } from "@/lib/calificaciones";
 import { analizarNotasCsv, exportarNotasCsv, MAX_BYTES_CSV_NOTAS, type ResultadoNotasCsv } from "@/lib/notas-csv";
 import { puedePublicarLibreta } from "@/lib/libreta-publicacion";
@@ -378,31 +378,51 @@ const esquemaEvaluacion = z.object({
   titulo: z.string().trim().min(2, "Escribe el título de la evaluación.").max(120),
   fecha: z.iso.date("Elige la fecha."),
   peso: z.coerce.number("El peso debe ser un número.").min(0.01, "El peso debe ser mayor que 0.").max(100, "El peso es demasiado alto."),
+  instrumento: z.enum(INSTRUMENTOS, "Ese instrumento no existe.").optional().or(z.literal("").transform(() => undefined)),
   /** Desempeños del CNEB que mide (specs/30): de la competencia elegida y del grado del salón. */
   desempenoIds: z.array(z.uuid("Algún desempeño no es válido.")).max(30, "Marca como máximo 30 desempeños por evaluación.").optional(),
 });
 
+const esquemaNuevaEvaluacion = esquemaEvaluacion.extend({
+  /** Una prueba puede medir varias competencias: se crea una columna (evaluación) por competencia con el mismo título. */
+  competenciaIds: z.array(z.uuid("Alguna competencia no es válida.")).max(12, "Elige como máximo 12 competencias.").optional(),
+});
+
 export async function crearEvaluacion(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
-  const d = esquemaEvaluacion.safeParse(entrada);
+  const d = esquemaNuevaEvaluacion.safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
   await cursoEscritura(ctx, d.data.cursoId);
   const p = await periodoAbierto(ctx, d.data.periodoId, d.data.cursoId);
   if (p.error) return fallo(p.error);
-  if (d.data.competenciaId) {
-    const c = await ctx.db.competencia.findFirst({ where: { id: d.data.competenciaId, cursoId: d.data.cursoId } });
-    if (!c) return fallo("Esa competencia no es de este curso.");
+  const competenciaIds = [...new Set(d.data.competenciaIds ?? (d.data.competenciaId ? [d.data.competenciaId] : []))];
+  if (competenciaIds.length > 0) {
+    const n = await ctx.db.competencia.count({ where: { id: { in: competenciaIds }, cursoId: d.data.cursoId } });
+    if (n !== competenciaIds.length) return fallo("Esa competencia no es de este curso.");
   }
-  const errorDesempenos = await validarDesempenosEvaluacion(ctx, d.data.cursoId, d.data.competenciaId ?? null, d.data.desempenoIds ?? []);
-  if (errorDesempenos) return fallo(errorDesempenos);
-  const e = await ctx.db.evaluacion.create({
-    data: {
-      tenantId: ctx.tenant.id, cursoId: d.data.cursoId, periodoId: d.data.periodoId,
-      competenciaId: d.data.competenciaId ?? null, titulo: d.data.titulo, fecha: fechaDate(d.data.fecha), peso: d.data.peso,
-    },
-  });
-  if (d.data.desempenoIds?.length) await guardarDesempenosEvaluacion(ctx.db, ctx.tenant.id, e.id, d.data.desempenoIds);
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "evaluacion", entidadId: e.id });
-  return ok("Evaluación creada.");
+  // Cada desempeño va a la evaluación de su competencia.
+  const desempenoIds = d.data.desempenoIds ?? [];
+  const deDesempeno = new Map(
+    (await ctx.db.desempeno.findMany({ where: { id: { in: desempenoIds } }, select: { id: true, competenciaId: true } })).map((x) => [x.id, x.competenciaId]),
+  );
+  if (desempenoIds.length > 0 && competenciaIds.length === 0) return fallo("Elige la competencia antes de marcar desempeños.");
+  if (desempenoIds.some((id) => !competenciaIds.includes(deDesempeno.get(id) ?? ""))) return fallo("Algún desempeño no es de esta competencia o del grado del salón.");
+  const porCompetencia = (c: string | null) => desempenoIds.filter((id) => deDesempeno.get(id) === c);
+  for (const c of competenciaIds) {
+    const error = await validarDesempenosEvaluacion(ctx, d.data.cursoId, c, porCompetencia(c));
+    if (error) return fallo(error);
+  }
+  const base = {
+    tenantId: ctx.tenant.id, cursoId: d.data.cursoId, periodoId: d.data.periodoId, titulo: d.data.titulo,
+    fecha: fechaDate(d.data.fecha), peso: d.data.peso, instrumento: d.data.instrumento ?? null,
+  };
+  const destinos = competenciaIds.length > 0 ? competenciaIds : [null];
+  for (const competenciaId of destinos) {
+    const e = await ctx.db.evaluacion.create({ data: { ...base, competenciaId } });
+    const marcados = porCompetencia(competenciaId);
+    if (marcados.length) await guardarDesempenosEvaluacion(ctx.db, ctx.tenant.id, e.id, marcados);
+    await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "evaluacion", entidadId: e.id });
+  }
+  return ok(destinos.length > 1 ? `Evaluación creada: una columna por cada una de sus ${destinos.length} competencias.` : "Evaluación creada.");
 }
 
 export async function editarEvaluacion(ctx: TenantContext, evaluacionId: string, entrada: unknown): Promise<Resultado> {
@@ -427,7 +447,10 @@ export async function editarEvaluacion(ctx: TenantContext, evaluacionId: string,
   if (errorDesempenos) return fallo(errorDesempenos);
   await ctx.db.evaluacion.updateMany({
     where: { id: evaluacionId },
-    data: { competenciaId: d.data.competenciaId ?? null, titulo: d.data.titulo, fecha: fechaDate(d.data.fecha), peso: d.data.peso },
+    data: {
+      competenciaId: d.data.competenciaId ?? null, titulo: d.data.titulo, fecha: fechaDate(d.data.fecha), peso: d.data.peso,
+      instrumento: d.data.instrumento ?? null,
+    },
   });
   await guardarDesempenosEvaluacion(ctx.db, ctx.tenant.id, evaluacionId, desempenoIds);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "evaluacion", entidadId: evaluacionId });
@@ -477,6 +500,8 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
     curso, salon, periodo, alumnos, competencias,
     evaluaciones: evaluaciones.map((e) => ({
       id: e.id, titulo: e.titulo, fecha: e.fecha.toISOString().slice(0, 10), peso: Number(e.peso), competenciaId: e.competenciaId,
+      instrumento: e.instrumento as Instrumento | null,
+      columna: nombreColumna(e, evaluaciones, competencias),
       desempenoIds: e.desempenos.map((x) => x.desempenoId),
     })),
     notas: notas.map((n) => ({
@@ -485,7 +510,22 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
     cursoCerrado: cierre !== null,
     editable: ctx.rol === "profesor" && !periodo.cerrado && cierre === null,
     escala: escalaDe(ctx),
+    calculo: ctx.tenant.calculoLiteral,
   };
+}
+
+/**
+ * Nombre único de la columna (CSV y rejilla): el título; si otra evaluación del periodo se llama igual (una prueba que
+ * mide varias competencias), «título · competencia».
+ */
+function nombreColumna(
+  e: { id: string; titulo: string; competenciaId: string | null },
+  todas: { id: string; titulo: string }[],
+  competencias: { id: string; nombre: string }[],
+): string {
+  const repetido = todas.some((x) => x.id !== e.id && x.titulo.trim().toLowerCase() === e.titulo.trim().toLowerCase());
+  if (!repetido) return e.titulo;
+  return `${e.titulo} · ${competencias.find((c) => c.id === e.competenciaId)?.nombre ?? "Sin competencia"}`;
 }
 
 /** Guarda (o borra, si `valor` viene vacío) la nota de un alumno en una evaluación. */
@@ -556,7 +596,7 @@ export async function exportarNotasCurso(ctx: TenantContext, cursoId: string, pe
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "exportar", entidad: "notas_curso", entidadId: cursoId, detalle: { periodoId } });
   return {
     nombre: `notas-${g.curso.nombre}-${g.periodo.nombre}`.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase(),
-    csv: exportarNotasCsv({ alumnos, evaluaciones: g.evaluaciones, notas: g.notas }),
+    csv: exportarNotasCsv({ alumnos, evaluaciones: g.evaluaciones.map((e) => ({ id: e.id, titulo: e.columna })), notas: g.notas }),
   };
 }
 
@@ -572,7 +612,7 @@ export async function previsualizarImportacionNotas(ctx: TenantContext, cursoId:
     : g.cursoCerrado ? MENSAJE_CURSO_CERRADO
     : null;
   if (texto.length > MAX_BYTES_CSV_NOTAS) return { ...vacio, errores: [{ linea: 1, mensaje: "El archivo es demasiado grande (máximo 500 KB)." }], editable: false, motivoBloqueo };
-  const r = analizarNotasCsv(texto, { escala: escalaDe(ctx), alumnos, evaluaciones: g.evaluaciones });
+  const r = analizarNotasCsv(texto, { escala: escalaDe(ctx), alumnos, evaluaciones: g.evaluaciones.map((e) => ({ id: e.id, titulo: e.columna })) });
   return { ...r, editable: motivoBloqueo === null, motivoBloqueo };
 }
 
@@ -639,6 +679,7 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
         delAlumno.map((n) => ({
           valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico), peso: Number(n.evaluacion.peso), fecha: n.evaluacion.fecha,
         })),
+        ctx.tenant.calculoLiteral,
       );
       return {
         alumno: a,
@@ -649,7 +690,7 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
       };
     }),
   }));
-  return { curso, periodo, filas, escala, editable: ctx.rol === "profesor" && !periodo.cerrado && cierre === null };
+  return { curso, periodo, filas, escala, calculo: ctx.tenant.calculoLiteral, editable: ctx.rol === "profesor" && !periodo.cerrado && cierre === null };
 }
 
 const esquemaCalificacion = z.object({
@@ -690,6 +731,130 @@ export async function guardarCalificacionPeriodo(ctx: TenantContext, entrada: un
   return ok("Calificación guardada.");
 }
 
+// ───────────── Informe de progreso (mitad del periodo) ─────────────
+
+const MAX_INFORME = 600;
+const textoInforme = z.string().trim().max(MAX_INFORME, `Cada parte del informe admite como máximo ${MAX_INFORME} caracteres.`);
+const esquemaInforme = z.object({
+  alumnoId: z.uuid(),
+  competenciaId: z.uuid(),
+  periodoId: z.uuid(),
+  logros: textoInforme,
+  mejorar: textoInforme,
+  recomendaciones: textoInforme,
+});
+
+/**
+ * Informe de progreso del curso en el periodo, por competencia y alumno: qué logró, qué necesita mejorar y qué se
+ * recomienda reforzar. Incluye la calificación sugerida hasta hoy como referencia y si ya se compartió con las familias.
+ */
+export async function informesProgreso(ctx: TenantContext, cursoId: string, periodoId: string) {
+  const c = await calificacionesPeriodo(ctx, cursoId, periodoId);
+  const [informes, envio] = await Promise.all([
+    ctx.db.informeProgreso.findMany({ where: { periodoId, competencia: { cursoId } } }),
+    ctx.db.envioInformeProgreso.findFirst({
+      where: { cursoId, periodoId },
+      include: { enviadoPor: { select: { user: { select: { nombres: true, apellidos: true } } } } },
+    }),
+  ]);
+  return {
+    escala: c.escala,
+    editable: c.editable,
+    filas: c.filas.map((f) => ({
+      competencia: f.competencia,
+      alumnos: f.alumnos.map((a) => {
+        const i = informes.find((x) => x.alumnoId === a.alumno.id && x.competenciaId === f.competencia.id);
+        return {
+          alumno: a.alumno, sugerido: a.sugerido, cantidadNotas: a.cantidadNotas,
+          informe: i ? { logros: i.logros ?? "", mejorar: i.mejorar ?? "", recomendaciones: i.recomendaciones ?? "" } : null,
+        };
+      }),
+    })),
+    escritos: informes.length,
+    envio: envio ? { enviadoAt: envio.enviadoAt, por: `${envio.enviadoPor.user.nombres} ${envio.enviadoPor.user.apellidos}`.trim() } : null,
+  };
+}
+
+/** Guarda el informe de un alumno en una competencia; las tres partes vacías lo borran. Profesor del curso. */
+export async function guardarInformeProgreso(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
+  requireFeature(ctx, "notas");
+  const d = esquemaInforme.safeParse(entrada);
+  if (!d.success) return fallo(d.error.issues[0].message);
+  const comp = await ctx.db.competencia.findFirst({ where: { id: d.data.competenciaId } });
+  if (!comp) return fallo("No encontramos esa competencia.");
+  const curso = await cursoEscritura(ctx, comp.cursoId);
+  const p = await periodoAbierto(ctx, d.data.periodoId, comp.cursoId);
+  if (p.error) return fallo(p.error);
+  const alumno = await ctx.db.alumno.findFirst({ where: { id: d.data.alumnoId, salonId: curso.salonId, estado: "activo" } });
+  if (!alumno) return fallo("Ese alumno no está en este curso.");
+  const clave = { alumnoId: alumno.id, competenciaId: comp.id, periodoId: d.data.periodoId };
+  const { logros, mejorar, recomendaciones } = d.data;
+  if (!logros && !mejorar && !recomendaciones) {
+    await ctx.db.informeProgreso.deleteMany({ where: clave });
+    return ok("Informe borrado.");
+  }
+  const datos = { logros: logros || null, mejorar: mejorar || null, recomendaciones: recomendaciones || null, registradoPorId: ctx.membership.id };
+  await ctx.db.informeProgreso.upsert({
+    where: { alumnoId_competenciaId_periodoId: clave },
+    create: { tenantId: ctx.tenant.id, ...clave, ...datos },
+    update: datos,
+  });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "informe_progreso", entidadId: comp.id, detalle: { alumnoId: alumno.id, periodoId: d.data.periodoId } });
+  return ok("Informe guardado.");
+}
+
+/**
+ * El profesor comparte el informe de progreso del curso con las familias: desde ahí lo ven en «Notas» y les llega un aviso
+ * (solo a las familias de alumnos con informe). Se puede reenviar; los cambios posteriores se ven al momento.
+ */
+export async function compartirInformeProgreso(ctx: TenantContext, cursoId: string, periodoId: string, opciones: { reenviar?: boolean } = {}): Promise<Resultado> {
+  const curso = await cursoEscritura(ctx, cursoId);
+  const p = await periodoAbierto(ctx, periodoId, cursoId);
+  if (!p.periodo) return fallo(p.error ?? MENSAJE_CERRADO);
+  const alumnoIds = [...new Set((await ctx.db.informeProgreso.findMany({
+    where: { periodoId, competencia: { cursoId }, alumno: { estado: "activo", salonId: curso.salonId } },
+    select: { alumnoId: true },
+  })).map((i) => i.alumnoId))];
+  if (alumnoIds.length === 0) return fallo("Escribe al menos un informe antes de compartirlo con las familias.");
+  const previo = await ctx.db.envioInformeProgreso.findFirst({ where: { cursoId, periodoId } });
+  if (previo && !opciones.reenviar) return fallo("Este informe ya se compartió. Usa «Reenviar aviso» si quieres avisar otra vez.");
+  if (!previo) {
+    try {
+      await ctx.db.envioInformeProgreso.create({ data: { tenantId: ctx.tenant.id, cursoId, periodoId, enviadoPorId: ctx.membership.id } });
+    } catch {
+      return fallo("Este informe ya se compartió.");
+    }
+  }
+  const alumnos = await ctx.db.alumno.findMany({ where: { id: { in: alumnoIds } }, select: { id: true, nombres: true }, orderBy: { nombres: "asc" } });
+  const porFamilia = new Map<string, { destinatario: Destinatario; hijos: string[] }>();
+  for (const a of alumnos) {
+    for (const dest of await destinatariosDeAlumno(ctx.db, a.id)) {
+      if (!tieneCanalAviso(dest)) continue;
+      const actual = porFamilia.get(dest.apoderadoId) ?? { destinatario: dest, hijos: [] };
+      actual.hijos.push(primerNombre(a.nombres));
+      porFamilia.set(dest.apoderadoId, actual);
+    }
+  }
+  const periodo = `${p.periodo.nombre} ${p.periodo.anio}`;
+  await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "libreta", titulo: `Informe de progreso: ${curso.nombre} · ${periodo}`, creadoPorId: ctx.membership.id }, async () => {
+    for (const { destinatario, hijos } of porFamilia.values()) {
+      await encolarParaDestinatario(ctx.db, destinatario, {
+        tenantId: ctx.tenant.id,
+        tipo: "libreta",
+        plantilla: "informe_progreso",
+        referenciaId: cursoId,
+        payload: { colegio: ctx.tenant.nombre, alumno: unirNombres(hijos), curso: curso.nombre, periodo, url: urlColegio(ctx.tenant.slug, "/notas") },
+      });
+    }
+  });
+  await auditar({
+    tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "enviar", entidad: "informe_progreso", entidadId: cursoId,
+    detalle: { periodoId, familias: porFamilia.size, reenvio: Boolean(previo) },
+  });
+  const avisadas = porFamilia.size === 0 ? "Ninguna familia tiene avisos activos." : `Avisamos a ${porFamilia.size} ${porFamilia.size === 1 ? "familia" : "familias"}.`;
+  return ok(`${previo ? "Aviso reenviado." : "Informe compartido."} ${avisadas}`);
+}
+
 // ───────────── Vista de familia: notas de un alumno ─────────────
 
 export type NotasDeAlumno = Awaited<ReturnType<typeof notasDeAlumno>>;
@@ -706,7 +871,7 @@ export async function notasDeAlumno(ctx: TenantContext, alumnoId: string, period
   if (!alumno || !periodo || !periodo.niveles.includes(alumno.salon.nivel)) forbidden();
   const cursos = await ctx.db.curso.findMany({ where: { salonId: alumno.salonId }, orderBy: { nombre: "asc" } });
   const cursoIds = cursos.map((c) => c.id);
-  const [competencias, evaluaciones, califs] = await Promise.all([
+  const [competencias, evaluaciones, califs, informes] = await Promise.all([
     ctx.db.competencia.findMany({ where: { cursoId: { in: cursoIds } }, orderBy: [{ orden: "asc" }, { nombre: "asc" }] }),
     ctx.db.evaluacion.findMany({
       where: { cursoId: { in: cursoIds }, periodoId, notas: { some: { alumnoId } } },
@@ -714,6 +879,10 @@ export async function notasDeAlumno(ctx: TenantContext, alumnoId: string, period
       orderBy: { fecha: "asc" },
     }),
     ctx.db.calificacionPeriodo.findMany({ where: { alumnoId, periodoId } }),
+    // Solo los informes de progreso que el profesor ya compartió con las familias.
+    ctx.db.informeProgreso.findMany({
+      where: { alumnoId, periodoId, competencia: { curso: { enviosInformeProgreso: { some: { periodoId } } } } },
+    }),
   ]);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "notas_alumno", entidadId: alumnoId, detalle: { periodoId } });
   return {
@@ -727,10 +896,12 @@ export async function notasDeAlumno(ctx: TenantContext, alumnoId: string, period
         .filter((c) => c.cursoId === curso.id)
         .map((c) => {
           const g = califs.find((x) => x.competenciaId === c.id);
+          const i = informes.find((x) => x.competenciaId === c.id);
           return {
             id: c.id, nombre: c.nombre,
             calificacion: g ? { valorLiteral: g.valorLiteral as Literal | null, valorNumerico: num(g.valorNumerico) } as ValorCalificacion : null,
             conclusion: g?.conclusion ?? null,
+            informe: i ? { logros: i.logros, mejorar: i.mejorar, recomendaciones: i.recomendaciones } : null,
           };
         }),
       evaluaciones: evaluaciones

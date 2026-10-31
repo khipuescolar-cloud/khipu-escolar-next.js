@@ -1,4 +1,4 @@
-import { BookOpenCheck, ClipboardList, GraduationCap, MessageSquareText } from "lucide-react";
+import { BookOpenCheck, ClipboardList, GraduationCap, MessageSquareText, Sprout } from "lucide-react";
 import Link from "next/link";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
 import { Calificacion } from "@/components/Calificacion";
@@ -29,7 +29,7 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
     );
   }
   const datos = await notasDeAlumno(ctx, hijo.id, periodo.id);
-  const sinNotas = datos.cursos.every((c) => c.competencias.every((x) => !x.calificacion) && c.evaluaciones.length === 0);
+  const sinNotas = datos.cursos.every((c) => c.competencias.every((x) => !x.calificacion && !x.informe) && c.evaluaciones.length === 0);
 
   return (
     <div className="flex flex-col gap-5">
@@ -74,6 +74,16 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
                       <p className="text-sm font-medium">{c.nombre}</p>
                       <div>{c.calificacion ? <Calificacion valor={c.calificacion} /> : <span className="text-cuerpo-sm text-muted-foreground">Sin calificar todavía</span>}</div>
                       {c.conclusion && <p className="text-cuerpo-sm text-muted-foreground">{c.conclusion}</p>}
+                      {c.informe && (
+                        <div className="mt-1 rounded-md bg-muted/60 p-3 text-cuerpo-sm">
+                          <p className="mb-1.5 flex items-center gap-1.5 font-medium"><Sprout className="size-4 text-primary" strokeWidth={2} aria-hidden />Informe de progreso</p>
+                          <dl className="flex flex-col gap-1.5">
+                            {c.informe.logros && <div><dt className="font-medium">Ha logrado</dt><dd className="text-muted-foreground">{c.informe.logros}</dd></div>}
+                            {c.informe.mejorar && <div><dt className="font-medium">Necesita mejorar</dt><dd className="text-muted-foreground">{c.informe.mejorar}</dd></div>}
+                            {c.informe.recomendaciones && <div><dt className="font-medium">Te recomendamos reforzar</dt><dd className="text-muted-foreground">{c.informe.recomendaciones}</dd></div>}
+                          </dl>
+                        </div>
+                      )}
                     </li>
                   ))}
                 </ul>

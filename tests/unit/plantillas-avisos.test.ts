@@ -151,6 +151,7 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       reunion_cancelada: { colegio, titulo: "Reunión de padres", fecha: "2026-11-05", hora: "18:00", url: "http://r" },
       reunion_acta: { colegio, titulo: "Reunión de padres", fecha: "2026-11-05", hora: "18:00", url: "http://r" },
       libreta_publicada: { colegio, alumno: "Mateo", periodo: "III Bimestre 2026", url: "http://l" },
+      informe_progreso: { colegio, alumno: "Mateo", curso: "Matemática", periodo: "I Trimestre 2027", url: "http://n" },
       alerta_rebote: { colegio, apoderado: "Rosa Quispe", alumnos: ["Mateo"], motivo: "su correo rebotó", url: "http://a" },
       soporte_inicio: { colegio, hasta: "15:30", motivo: "Revisar la asistencia", url: "http://s" },
       soporte_respuesta: { colegio, asunto: "No llegan los correos", url: "http://s/soporte/1" },
@@ -199,6 +200,13 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(m.texto).toContain("Ver libreta: http://l");
     expect(renderizarPlantilla("libreta_publicada", { ...p, alumno: undefined }).texto).toContain("La libreta de III Bimestre 2026 ya está disponible.");
     expect(() => renderizarPlantilla("libreta_publicada", { colegio, url: "http://l" })).toThrow(PlantillaInvalidaError);
+  });
+
+  it("informe de progreso: nombra al hijo, el curso y el periodo, con botón «Ver el informe»", () => {
+    const m = renderizarPlantilla("informe_progreso", { colegio, alumno: "Mateo", curso: "Matemática", periodo: "I Trimestre 2027", url: "http://n" });
+    expect(m.asunto).toBe("Informe de progreso de Matemática");
+    expect(m.texto).toContain("El informe de progreso de Mateo en Matemática (I Trimestre 2027) ya está disponible.");
+    expect(m.texto).toContain("Ver el informe: http://n");
   });
 
   it("alerta de rebote a dirección: nombra a la familia, el motivo y no lleva emojis", () => {

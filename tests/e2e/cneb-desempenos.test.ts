@@ -84,7 +84,7 @@ test("la profesora marca desempeños al crear una evaluación", async ({ page })
   await page.goto(colegio(`/notas?curso=${ids.curso}&periodo=${ids.periodo}`));
   await page.getByRole("button", { name: "Nueva evaluación" }).click();
   await page.getByLabel("Título").fill(`Práctica CNEB ${sufijo}`);
-  await page.getByRole("dialog").locator('select[name="competenciaId"]').selectOption({ label: "Resuelve problemas de cantidad" });
+  await page.getByRole("dialog").getByRole("checkbox", { name: "Resuelve problemas de cantidad" }).check();
   await page.getByRole("checkbox", { name: /MAT-C23-P3-03/ }).check();
   await page.getByRole("checkbox", { name: /MAT-C23-P3-04/ }).check();
   await page.getByRole("button", { name: "Crear evaluación" }).click();

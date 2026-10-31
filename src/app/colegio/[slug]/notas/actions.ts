@@ -6,7 +6,8 @@ import {
   cerrarCursoPeriodo, guardarComentarioNota, importarNotas, previsualizarImportacionNotas, publicarLibreta, reabrirCursoPeriodo,
   type VistaPreviaImportacion,
   cambiarEstadoPeriodo, crearCompetencia, crearEvaluacion, crearPeriodo, editarEvaluacion, eliminarCompetencia,
-  eliminarEvaluacion, guardarCalificacionPeriodo, guardarNota, actualizarPeriodo, organizarNivel } from "@/lib/server/notas";
+  eliminarEvaluacion, guardarCalificacionPeriodo, guardarNota, actualizarPeriodo, organizarNivel,
+  compartirInformeProgreso, guardarInformeProgreso } from "@/lib/server/notas";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 
@@ -28,8 +29,9 @@ export async function guardarNotaAction(slug: string, evaluacionId: string, alum
 
 export async function crearEvaluacionAction(slug: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
   const r = await crearEvaluacion(await contexto(slug), {
-    cursoId: texto(f, "cursoId"), periodoId: texto(f, "periodoId"), competenciaId: texto(f, "competenciaId"),
-    titulo: texto(f, "titulo"), fecha: texto(f, "fecha"), peso: texto(f, "peso"), desempenoIds: desempenos(f),
+    cursoId: texto(f, "cursoId"), periodoId: texto(f, "periodoId"), competenciaIds: f.getAll("competenciaIds").map(String),
+    titulo: texto(f, "titulo"), fecha: texto(f, "fecha"), peso: texto(f, "peso"), instrumento: texto(f, "instrumento"),
+    desempenoIds: desempenos(f),
   });
   if (r.ok) refrescar();
   return r;
@@ -38,7 +40,7 @@ export async function crearEvaluacionAction(slug: string, _previo: Resultado | n
 export async function editarEvaluacionAction(slug: string, evaluacionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
   const r = await editarEvaluacion(await contexto(slug), evaluacionId, {
     competenciaId: texto(f, "competenciaId"), titulo: texto(f, "titulo"), fecha: texto(f, "fecha"), peso: texto(f, "peso"),
-    desempenoIds: desempenos(f),
+    instrumento: texto(f, "instrumento"), desempenoIds: desempenos(f),
   });
   if (r.ok) refrescar();
   return r;
@@ -133,5 +135,18 @@ export async function publicarLibretaAction(slug: string, periodoId: string, ree
     refrescar();
     revalidatePath("/colegio/[slug]/libreta", "layout");
   }
+  return r;
+}
+
+/** Guardado del informe de progreso de un alumno en una competencia (sin refrescar la página). */
+export async function guardarInformeAction(
+  slug: string, entrada: { alumnoId: string; competenciaId: string; periodoId: string; logros: string; mejorar: string; recomendaciones: string },
+): Promise<Resultado> {
+  return guardarInformeProgreso(await contexto(slug), entrada);
+}
+
+export async function compartirInformeAction(slug: string, cursoId: string, periodoId: string, reenviar: boolean): Promise<Resultado> {
+  const r = await compartirInformeProgreso(await contexto(slug), cursoId, periodoId, { reenviar });
+  if (r.ok) refrescar();
   return r;
 }

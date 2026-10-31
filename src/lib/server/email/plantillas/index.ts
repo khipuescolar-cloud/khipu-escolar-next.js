@@ -116,6 +116,15 @@ const ESQUEMAS = {
     periodo: z.string().min(1),
     url,
   }),
+  /** Informe de progreso a mitad del periodo de un curso (specs/11). */
+  informe_progreso: z.object({
+    ...comun,
+    alumno: z.string().min(1).optional(),
+    curso: z.string().min(1),
+    /** «I Trimestre 2027». */
+    periodo: z.string().min(1),
+    url,
+  }),
   alerta_rebote: z.object({
     ...comun,
     apoderado: z.string().min(1),
@@ -426,6 +435,22 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       nudito: true,
       parrafos: [`${p.alumno ? `La libreta de ${p.alumno}` : "La libreta"} de ${p.periodo} ya está disponible.`, "Puedes verla y descargarla en PDF."],
       boton: { texto: "Ver libreta", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  informe_progreso: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `Informe de progreso de ${p.curso}`,
+      insignia: "info",
+      palabraInsignia: "Progreso",
+      nudito: true,
+      parrafos: [
+        `${p.alumno ? `El informe de progreso de ${p.alumno}` : "El informe de progreso"} en ${p.curso} (${p.periodo}) ya está disponible.`,
+        "Cuenta qué ha logrado, qué necesita mejorar y qué te recomendamos reforzar en casa.",
+      ],
+      boton: { texto: "Ver el informe", url: p.url },
       urlPreferencias: p.urlPreferencias,
     }),
 
