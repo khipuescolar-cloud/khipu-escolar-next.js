@@ -138,7 +138,16 @@ describe("rol administrativo", () => {
     expect((await crearEvento(ctxs.adm, { titulo: "De un salón", tipo: "evento", fecha: manana, salonId: salonA })).ok).toBe(false);
     const items = await itemsDeAgenda(ctxs.adm, new Date(), new Date(Date.now() + 3 * 86_400_000));
     expect(items.some((i) => i.titulo === "Feria del colegio" && i.eliminable)).toBe(true);
-    expect((await panelAvisos(ctxs.adm, {})).avisos).toBeDefined();
+    const base = { tenantId: tenant.id, tipo: "comunicado" as const, canal: "correo" as const, destinatario: "f@test-p2g.demo", plantilla: "comunicado", asunto: "Prueba" };
+    await db.aviso.createMany({ data: [
+      { ...base, estado: "abierto", enviadoAt: new Date(), abiertoAt: new Date() },
+      { ...base, estado: "enviado", enviadoAt: new Date() },
+      { ...base, estado: "rebotado", enviadoAt: new Date() },
+      { ...base, estado: "pendiente" },
+    ] });
+    const panel = await panelAvisos(ctxs.adm, {});
+    expect(panel.hoy).toMatchObject({ generados: 4, correosEnviados: 2, abiertos: 1, apertura: 50, fallidos: 1, enCola: 1 });
+    expect((await panelAvisos(ctxs.adm, { estado: "fallidos" })).avisos.map((a) => a.estado)).toEqual(["rebotado"]);
     await esperarProhibido(panelAvisos(ctxs.prof, {}));
   });
 });

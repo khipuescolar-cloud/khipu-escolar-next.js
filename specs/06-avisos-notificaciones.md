@@ -105,7 +105,10 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 - **Envío inmediato (`after()`)**: `enviarMensajeAction` (chat) y `/api/webhooks/ses` (alerta a dirección, vía `procesarEventoSes(evento, { alEncolarAlerta })`) llaman a `procesarCola({ tenantId })` tras responder, solo si se encoló algo. Es el mismo worker del cron: respeta el tope diario global y la reserva atómica `pendiente → enviando`.
 - Familias: `encolarAvisoFamilia` (mensaje y comunicado) ahora encola también **push** (una fila por dispositivo) según `preferencias_aviso`.
 - `/asistencia#avisos` (apoderado): casillas correo/push y «Activar notificaciones en este dispositivo» (registra `public/sw.js`, suscribe con VAPID y guarda vía server action).
-- `/avisos` (dirección): tarjetas (enviados 30 días, apertura, cola/rebotes/errores) y los 100 últimos avisos; filtros por estado (incluye `enviando`) y tipo (incluye `justificacion`, `tarea`, `alerta_direccion`).
+- `/avisos` (dirección y administrativo):
+  - **Hoy** (día de Lima, avisos creados desde las 00:00): correos enviados (enviado/entregado/abierto) de N generados, correos abiertos con % de apertura (verde si llega a la meta), con error (error, rebotado o queja; enlace a `?estado=fallidos`), en cola (pendiente o enviando, de cualquier día), push enviados y no enviados (`omitido`). Debajo, chips por tipo que filtran la tabla. Cálculo en `resumirHoy` (`src/lib/server/avisos-panel.ts`).
+  - Apertura de los últimos 7 días contra la meta de 70 %.
+  - Los 100 últimos avisos; filtros por estado (incluye `enviando` y el grupo `fallidos`), tipo (todos los `TipoAviso`, con nombre legible) y correo.
 - Componente `VistaPreviaAviso` (iframe `sandbox`) usado al pasar lista.
 
 ## Canales
