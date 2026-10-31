@@ -34,7 +34,7 @@ test("dirección filtra un salón por fechas y descarga Excel y PDF", async ({ p
   await expect(page.getByRole("heading", { name: "Salón 3.° B", level: 1 })).toBeVisible();
   await expect(page.getByRole("link", { name: "Tabla" })).toHaveAttribute("aria-current", "page");
   await expect(page.getByRole("columnheader", { name: "Alumno", exact: true })).toBeVisible();
-  await expect(page.getByLabel("Filtros aplicados").getByText("Salón 3.° B")).toBeVisible();
+  await expect(page.getByLabel("Datos del reporte").getByText("Del 02/03/2026 al 31/03/2026")).toBeVisible();
   await expect(page.getByText(/Asistencia · Salón 3\.° B/)).toBeVisible();
 
   const [excel] = await Promise.all([page.waitForEvent("download"), page.getByRole("link", { name: "Descargar Excel" }).click()]);
@@ -45,6 +45,7 @@ test("dirección filtra un salón por fechas y descarga Excel y PDF", async ({ p
   // Modo calendario del salón: cada día con asistieron / con registro.
   await page.getByRole("link", { name: "Calendario" }).click();
   await expect(page).toHaveURL(/vista=calendario/);
+  await expect(page.getByRole("link", { name: "Calendario" })).toHaveAttribute("aria-current", "page");
   const calendario = page.getByTestId("calendario-reporte");
   await expect(calendario.getByRole("heading", { name: /marzo de 2026/i })).toBeVisible();
   await expect(calendario.getByText(/^\d+\/\d+$/).first()).toBeVisible();

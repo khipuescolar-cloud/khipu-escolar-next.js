@@ -16,7 +16,7 @@ import { requireTenantContext } from "@/lib/server/tenant";
 import { cn } from "@/lib/utils";
 import { CalendarioReporte } from "../CalendarioReporte";
 import { FiltroReporte } from "../FiltroReporte";
-import { AsistenciaPorCurso, atajosDeFecha, Contenido, enlace, FiltrosActivos, Totales } from "../vistas";
+import { AsistenciaPorCurso, atajosDeFecha, Contenido, contextoDe, enlace, Totales } from "../vistas";
 
 export const metadata: Metadata = { title: "Reporte de asistencia" };
 
@@ -56,30 +56,31 @@ export default async function VerReporteAsistenciaPage({ params, searchParams }:
         titulo={reporte ? tituloDe(reporte) : "Reporte de asistencia"}
         descripcion={reporte ? `Asistencia al colegio del ${fechaCorta(reporte.desde)} al ${fechaCorta(reporte.hastaEfectivo)}.` : undefined}
         acciones={
-          <>
-            <Link href="/asistencia/reportes" className={buttonVariants({ variant: "outline" })}>
-              <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Reportes
-            </Link>
-            <FiltroReporte opciones={opciones} inicial={base} atajos={atajosDeFecha(hoy, periodo)} hoy={hoy} activos={activos} vista={vista} />
-          </>
+          <div className="flex flex-col gap-3 sm:items-end">
+            <div className="flex flex-wrap items-center gap-2">
+              <Link href="/asistencia/reportes" className={buttonVariants({ variant: "outline" })}>
+                <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Reportes
+              </Link>
+              <FiltroReporte opciones={opciones} inicial={base} atajos={atajosDeFecha(hoy, periodo)} hoy={hoy} activos={activos} vista={vista} />
+            </div>
+            {reporte && filtros && (
+              <div className="flex flex-wrap items-center gap-2">
+                <SelectorVista filtros={filtros} vista={vista} />
+                <a href={enlace(filtros, {}, "/api/reportes-asistencia/excel")} className={buttonVariants({ variant: "outline" })}>
+                  <FileSpreadsheet className="size-4" strokeWidth={2} aria-hidden /> Descargar Excel
+                </a>
+                <a href={enlace(filtros, {}, "/api/reportes-asistencia/pdf")} className={buttonVariants({ variant: "outline" })}>
+                  <FileText className="size-4" strokeWidth={2} aria-hidden /> Descargar PDF
+                </a>
+              </div>
+            )}
+          </div>
         }
       />
       {error && <Alerta tipo="error">{error}</Alerta>}
 
       {reporte && filtros && (
         <>
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <FiltrosActivos partes={partesDe(reporte)} />
-            <div className="flex flex-wrap items-center gap-2">
-              <SelectorVista filtros={filtros} vista={vista} />
-              <a href={enlace(filtros, {}, "/api/reportes-asistencia/excel")} className={buttonVariants({ variant: "outline" })}>
-                <FileSpreadsheet className="size-4" strokeWidth={2} aria-hidden /> Descargar Excel
-              </a>
-              <a href={enlace(filtros, {}, "/api/reportes-asistencia/pdf")} className={buttonVariants({ variant: "outline" })}>
-                <FileText className="size-4" strokeWidth={2} aria-hidden /> Descargar PDF
-              </a>
-            </div>
-          </div>
           {reporte.hastaEfectivo !== reporte.hasta && (
             <p className="text-cuerpo-sm text-muted-foreground">Se cuenta hasta hoy ({fechaCorta(reporte.hastaEfectivo)}).</p>
           )}
@@ -91,7 +92,7 @@ export default async function VerReporteAsistenciaPage({ params, searchParams }:
             </>
           ) : (
             <>
-              <Totales resumen={reporte.tipo === "alumno" ? reporte.resumen : reporte.total} titulo={tituloDe(reporte)} />
+              <Totales resumen={reporte.tipo === "alumno" ? reporte.resumen : reporte.total} titulo={tituloDe(reporte)} contexto={contextoDe(reporte)} />
               <CalendarioReporte reporte={reporte} veTodo={veTodo} puedeCorregir={puedeCorregir} />
             </>
           )}
@@ -108,13 +109,6 @@ function tituloDe(r: ReporteAsistencia): string {
   if (r.tipo === "alumno") return `${r.alumno.apellidos}, ${r.alumno.nombres}`;
   if (r.tipo === "salon") return `Salón ${r.salon.nombre}`;
   return "Todo el colegio";
-}
-
-function partesDe(r: ReporteAsistencia): string[] {
-  const rango = `Del ${fechaCorta(r.desde)} al ${fechaCorta(r.hasta)}`;
-  if (r.tipo === "alumno") return [`Salón ${r.alumno.salon}`, `${r.alumno.apellidos}, ${r.alumno.nombres}`, rango];
-  if (r.tipo === "salon") return [`Salón ${r.salon.nombre}`, rango];
-  return ["Todos los salones", rango];
 }
 
 /** Tabla o calendario: dos enlaces con el mismo filtro (control segmentado). */

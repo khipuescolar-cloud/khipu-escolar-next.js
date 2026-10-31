@@ -1,4 +1,4 @@
-import { ArrowLeft, BarChart3, BookOpenCheck, FileSpreadsheet, FileText, PencilLine, X } from "lucide-react";
+import { ArrowLeft, BarChart3, BookOpenCheck, FileSpreadsheet, FileText, PencilLine } from "lucide-react";
 import Link from "next/link";
 import { EstadoAsistencia } from "@/components/EstadoAsistencia";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -82,7 +82,7 @@ export function Contenido({ reporte, filtros, familia, puedeCorregir }: { report
   return (
     <>
       {reporte.tipo === "colegio" && <h2 className="text-titulo-2">Asistencia al colegio en el rango</h2>}
-      <Totales resumen={total} titulo={reporte.tipo === "salon" ? `Salón ${reporte.salon.nombre}` : "Todo el colegio"} />
+      <Totales resumen={total} titulo={reporte.tipo === "salon" ? `Salón ${reporte.salon.nombre}` : "Todo el colegio"} contexto={contextoDe(reporte)} />
       {filas.length === 0 ? (
         <EstadoVacio icono={BarChart3} titulo="No hay alumnos para este reporte" descripcion="Cuando haya alumnos activos con asistencia, aparecerán aquí." />
       ) : (
@@ -145,10 +145,21 @@ export function CeldasResumen({ r }: { r: ResumenAlumno }) {
   );
 }
 
-export function Totales({ resumen, titulo }: { resumen: ResumenAlumno; titulo: string }) {
+/** Salón (si es un alumno) y rango del reporte: va dentro de la tarjeta de totales, no como filtros sueltos. */
+export function contextoDe(r: ReporteAsistencia): string[] {
+  const rango = `Del ${fechaCorta(r.desde)} al ${fechaCorta(r.hasta)}`;
+  return r.tipo === "alumno" ? [`Salón ${r.alumno.salon}`, rango] : [rango];
+}
+
+export function Totales({ resumen, titulo, contexto = [] }: { resumen: ResumenAlumno; titulo: string; contexto?: string[] }) {
   return (
     <Card>
       <CardContent className="flex flex-wrap items-center gap-x-8 gap-y-3">
+        {contexto.length > 0 && (
+          <ul className="flex basis-full flex-wrap gap-2" aria-label="Datos del reporte">
+            {contexto.map((c) => <li key={c} className="rounded-pildora border bg-superficie px-3 py-1 text-sm">{c}</li>)}
+          </ul>
+        )}
         <div>
           <p className="text-sm text-muted-foreground">Asistencia · {titulo}</p>
           <p className="text-titulo-1 tabular-nums">{textoPorcentaje(resumen.porcentaje)}</p>
@@ -171,15 +182,12 @@ export function Totales({ resumen, titulo }: { resumen: ResumenAlumno; titulo: s
 export function DetalleAlumno({ reporte, filtros, familia, puedeCorregir }: { reporte: Extract<ReporteAsistencia, { tipo: "alumno" }>; filtros: FiltrosReporte; familia: boolean; puedeCorregir: boolean }) {
   return (
     <>
-      <div className="flex flex-wrap items-center gap-3">
-        <h2 className="text-titulo-2">{reporte.alumno.apellidos}, {reporte.alumno.nombres} · {reporte.alumno.salon}</h2>
-        {!familia && (
-          <Link href={enlace(filtros, { alumnoId: undefined, salonId: reporte.alumno.salonId })} className={buttonVariants({ variant: "outline", size: "sm" })}>
-            <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Volver al salón
-          </Link>
-        )}
-      </div>
-      <Totales resumen={reporte.resumen} titulo={reporte.alumno.nombres} />
+      {!familia && (
+        <Link href={enlace(filtros, { alumnoId: undefined, salonId: reporte.alumno.salonId })} className={buttonVariants({ variant: "outline", size: "sm", className: "w-fit" })}>
+          <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Volver al salón
+        </Link>
+      )}
+      <Totales resumen={reporte.resumen} titulo={`${reporte.alumno.apellidos}, ${reporte.alumno.nombres}`} contexto={contextoDe(reporte)} />
       <Card>
         <CardContent className="p-0">
           <Table>
@@ -269,18 +277,4 @@ export function atajosDeFecha(hoy: string, periodo?: { nombre: string; inicio: s
     ...(periodo ? [{ texto: periodo.nombre, desde: periodo.inicio, hasta: periodo.fin < hoy ? periodo.fin : hoy }] : []),
     { texto: "Año", ...rangoAnio(hoy) },
   ];
-}
-
-/** Lo que eligió en «Filtrar reporte», con el atajo para quitarlo. */
-export function FiltrosActivos({ partes }: { partes: string[] }) {
-  return (
-    <div className="flex flex-wrap items-center gap-2" aria-label="Filtros aplicados">
-      {partes.map((p) => (
-        <span key={p} className="rounded-pildora border bg-superficie px-3 py-1 text-sm">{p}</span>
-      ))}
-      <Link href="/asistencia/reportes" className={buttonVariants({ variant: "ghost", size: "sm" })}>
-        <X className="size-4" strokeWidth={2} aria-hidden /> Quitar filtros
-      </Link>
-    </div>
-  );
 }
