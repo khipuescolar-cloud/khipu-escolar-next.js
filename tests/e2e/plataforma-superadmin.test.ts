@@ -159,7 +159,7 @@ test("el super administrador entra a un colegio como soporte en solo lectura y s
     await esperarSinAcceso(page, await page.goto(`http://nuevohorizonte.${BASE}/mensajes`));
     await esperarSinAcceso(page, await page.goto(`http://nuevohorizonte.${BASE}/notas`));
 
-    // Transparencia: la dirección del colegio ve el soporte activo en su campana.
+    // Transparencia: la dirección del colegio ve un aviso arriba con el soporte activo.
     const contextoDireccion = await browser.newContext();
     try {
       const direccion = await contextoDireccion.newPage();
@@ -168,10 +168,9 @@ test("el super administrador entra a un colegio como soporte en solo lectura y s
       await direccion.getByLabel("Contraseña").fill("demo123");
       await direccion.getByRole("button", { name: "Entrar" }).click();
       await direccion.waitForURL(`http://nuevohorizonte.${BASE}/**`);
-      await direccion.getByRole("button", { name: /^Notificaciones/ }).click();
-      const item = direccion.getByRole("menuitem", { name: /Soporte de Khipu activo hasta \d{2}:\d{2}/ });
-      await expect(item).toBeVisible();
-      await item.click();
+      const aviso = direccion.getByTestId("aviso-soporte-activo");
+      await expect(aviso).toContainText(/modo soporte \(solo lectura\) hasta las \d{2}:\d{2}/);
+      await aviso.getByRole("link", { name: "Ver auditoría" }).click();
       await direccion.waitForURL("**/configuracion/auditoria");
     } finally {
       await contextoDireccion.close();

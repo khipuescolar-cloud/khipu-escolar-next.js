@@ -57,7 +57,7 @@ const GRUPOS: GrupoNavResuelto[] = [
 export default async function LayoutPlataforma({ children }: LayoutProps<"/plataforma">) {
   const admin = await requireAdminPlataforma();
   const { user } = admin;
-  // Contador de la mesa de ayuda (abiertas + en progreso) en el menú y en la campana.
+  // Contador de la mesa de ayuda (abiertas + en progreso) en el menú.
   const [pendientes, solicitudesNuevas] = await Promise.all([pendientesMesaAyuda(admin), pendientesSolicitudes(admin)]);
   const grupos = GRUPOS.map((g) => ({
     ...g,
@@ -71,11 +71,7 @@ export default async function LayoutPlataforma({ children }: LayoutProps<"/plata
     <MarcoPanel
       abierta={estadoBarra !== "false"}
       barraSuperior={
-        <BarraSuperior
-          inicioHref="/"
-          etiqueta="Plataforma"
-          notificaciones={[{ titulo: "Mesa de ayuda: conversaciones pendientes", href: "/mesa-ayuda", cantidad: pendientes }]}
-        />
+        <BarraSuperior inicioHref="/" etiqueta="Plataforma" />
       }
       barraLateral={
         <BarraLateral

@@ -17,7 +17,7 @@ Que la dirección (o quien tenga el permiso) hable directamente con el equipo de
 ## Flujos
 1. **Colegio abre una conversación** (`/soporte` → «Nueva conversación», `Dialog`): asunto, categoría, prioridad, mensaje y captura opcional (PNG/JPG/PDF ≤ 5 MB) → estado «Abierta» (el colegio la ve como «Enviada») → correo `soporte_nuevo` al buzón del equipo y al asignado → redirige al hilo con toast.
 2. **Khipu atiende** (`/mesa-ayuda` → fila → detalle): lee el hilo (marca `leidoKhipuHasta`), agrega notas internas («Nota interna · solo el equipo», el colegio nunca las ve) o responde. La primera respuesta pública fija `primeraRespuestaAt`; si no estaba asignada, se asigna a quien responde; estado → «Esperando al colegio»; aviso `soporte_respuesta` al creador y, si no la abrió dirección, también a la dirección.
-3. **Colegio ve la respuesta** por sondeo (~5 s, pestaña visible) o al entrar; la campana muestra «Soporte: N respuestas nuevas». Puede responder (→ «En progreso»), «Marcar como resuelto», reabrir (si está resuelta), cerrar y valorar (1–5 + comentario) cuando está resuelta o cerrada.
+3. **Colegio ve la respuesta** por sondeo (~5 s, pestaña visible) o al entrar; el ítem «Soporte Khipu» del menú lateral muestra el contador de respuestas nuevas (la campana se quitó el 2026-10-30). Puede responder (→ «En progreso»), «Marcar como resuelto», reabrir (si está resuelta), cerrar y valorar (1–5 + comentario) cuando está resuelta o cerrada.
 4. **Cierre automático:** el cron de avisos (`/api/cron/avisos`) llama a `cerrarResueltosInactivos()`: las «Resueltas» sin actividad hace más de 7 días pasan a «Cerradas» con un mensaje del sistema.
 
 ## Reglas de negocio
@@ -53,7 +53,7 @@ crearTicket(ctx, entrada, adjuntos?): { id, avisos }
 responderColegio(ctx, id, cuerpo, adjuntos?): { avisos }
 marcarResueltoColegio / reabrirColegio / cerrarColegio(ctx, id)
 valorarTicket(ctx, id, { valoracion, comentario? })
-respuestasNuevasSoporte(ctx): number                 // campana
+respuestasNuevasSoporte(ctx): number                 // contador de «Soporte Khipu» en el menú
 puedeVerAdjuntoSoporte(ctx, mensajeSoporteId)        // lo usa requireArchivoVisible
 horarioSoporte(): string
 cerrarResueltosInactivos(ahora?): number             // cron
@@ -92,7 +92,7 @@ Puro y compartido: `src/lib/soporte.ts` (textos, límites, `minutosHabiles`, `et
 - e2e: `tests/e2e/mesa-ayuda.test.ts` (dirección abre → Khipu nota + responde → dirección ve la respuesta por sondeo, no la nota, y resuelve).
 
 ## Pendientes
-- (Hecho) Contador de pendientes (abiertas + en progreso) en el ítem «Mesa de ayuda» de la barra lateral y en la campana de la plataforma.
+- (Hecho) Contador de pendientes (abiertas + en progreso) en el ítem «Mesa de ayuda» de la barra lateral (la campana se quitó el 2026-10-30).
 - (Hecho) `/configuracion` de la plataforma → «Mesa de ayuda»: buzón del equipo (vacío = remitente del sistema) y horario de atención (`guardarConfigSoporte`, auditado como `config_soporte`).
 - El SLA no descuenta feriados.
 - (Hecho) El resumen de avisos del inicio de dirección excluye los avisos de tipo `soporte`.

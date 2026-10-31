@@ -34,20 +34,15 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
     urlLogoColegio(ctx.tenant),
     tieneMensajes ? conteoNoLeidos(ctx) : Promise.resolve(0),
     cookies().then((c) => c.get("sidebar_state")?.value),
-    // Transparencia (specs/16): la dirección ve en la campana si el equipo Khipu está dentro en modo soporte.
+    // Transparencia (specs/16): la dirección ve un aviso arriba si el equipo Khipu está dentro en modo soporte.
     ctx.rol === "direccion" && !ctx.soporte ? soporteVigenteHasta(ctx.tenant.id) : Promise.resolve(null),
   ]);
-  // Mesa de ayuda (specs/23): respuestas nuevas del equipo Khipu en la campana.
+  // Mesa de ayuda (specs/23): respuestas nuevas del equipo Khipu como contador de «Soporte Khipu» en el menú.
   const tieneSoporte = mosaicos.some((m) => m.feature === "soporte" && m.acceso.estado === "activo");
   const [anuncios, respuestasSoporte] = await Promise.all([
     anunciosVigentes(ctx),
     tieneSoporte ? respuestasNuevasSoporte(ctx) : Promise.resolve(0),
   ]);
-  const notificaciones = [
-    ...(tieneMensajes ? [{ titulo: "Mensajes sin leer", href: "/mensajes", cantidad: sinLeer }] : []),
-    ...(respuestasSoporte > 0 ? [{ titulo: `Soporte: ${respuestasSoporte} ${respuestasSoporte === 1 ? "respuesta nueva" : "respuestas nuevas"}`, href: "/soporte", cantidad: respuestasSoporte }] : []),
-    ...(soporteHasta ? [{ titulo: `Soporte de Khipu activo hasta ${formatoHora(soporteHasta)}`, href: "/configuracion/auditoria", cantidad: 1 }] : []),
-  ];
 
   const grupos: GrupoNavResuelto[] = [
     { items: [{ href: "/inicio", titulo: "Inicio", icono: "House" }] },
@@ -60,7 +55,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
           titulo: m.titulo,
           icono: m.icono,
           bloqueadoPlan: m.acceso.estado === "bloqueado" ? m.acceso.planMinimo : undefined,
-          contador: m.contador === "mensajes" ? sinLeer : undefined,
+          contador: m.contador === "mensajes" ? sinLeer : m.feature === "soporte" && respuestasSoporte > 0 ? respuestasSoporte : undefined,
         })),
     })).filter((g) => g.items.length > 0),
   ];
@@ -71,7 +66,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
   return (
     <MarcoPanel
       abierta={estadoBarra !== "false"}
-      barraSuperior={<BarraSuperior inicioHref="/inicio" notificaciones={notificaciones} />}
+      barraSuperior={<BarraSuperior inicioHref="/inicio" />}
       barraLateral={
         <BarraLateral
           grupos={grupos}
@@ -116,6 +111,13 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
                 Terminar
               </button>
             </form>
+          </div>
+        )}
+        {soporteHasta && (
+          <div role="status" className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-maiz px-4 py-2 text-cuerpo-sm font-semibold text-sobre-maiz" data-testid="aviso-soporte-activo">
+            <ShieldAlert className="size-4 shrink-0" strokeWidth={2} aria-hidden />
+            <span>El equipo de Khipu está dentro del colegio en modo soporte (solo lectura) hasta las {formatoHora(soporteHasta)}.</span>
+            <Link href="/configuracion/auditoria" className="min-h-8 rounded-md px-2 underline underline-offset-4 hover:bg-black/5">Ver auditoría</Link>
           </div>
         )}
         <AnunciosPlataforma anuncios={anuncios} />

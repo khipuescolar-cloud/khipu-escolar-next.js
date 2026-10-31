@@ -80,7 +80,7 @@ Que el equipo de Khipu cree colegios (tenants), los monitoree y gestione su cicl
 5. Cada request en modo soporte registra `auditar({ accion: "soporte_ver", entidad: "colegio", detalle: { accesoId } })` en la auditoría **del colegio** (una vez por request: `contextoDelColegio` está cacheado).
 6. Banner en el layout del colegio: «Modo soporte · solo lectura · vence a las HH:mm · Terminar». «Terminar» es un POST de formulario a `admin.<dominio>/soporte/terminar` (route handler que exige `Origin` de nuestro dominio y `requireAdminPlataforma`), que cierra el acceso, audita `soporte_fin` y vuelve a la ficha. En la ficha también hay «Terminar acceso» (con confirmación).
 7. Si un super administrador además es miembro del colegio, entra con su membresía normal (sin modo soporte).
-8. **Transparencia en el panel del colegio:** mientras haya un acceso vigente de un super administrador activo (`soporteVigenteHasta(tenantId)` en `tenant.ts`), la dirección (no en modo soporte) ve en la campana de la barra superior «Soporte de Khipu activo hasta HH:mm» con enlace a `/configuracion/auditoria`.
+8. **Transparencia en el panel del colegio:** mientras haya un acceso vigente de un super administrador activo (`soporteVigenteHasta(tenantId)` en `tenant.ts`), la dirección (no en modo soporte) ve un aviso arriba de todas las páginas (`aviso-soporte-activo`, en `maiz`): «El equipo de Khipu está dentro del colegio en modo soporte (solo lectura) hasta las HH:mm.» con «Ver auditoría» → `/configuracion/auditoria`. (Antes iba en la campana, que se quitó el 2026-10-30.)
 
 ## Reglas de negocio
 - Subdominio: 3 a 40 caracteres, `[a-z0-9-]`, sin guion al inicio, al final ni doble; no puede ser `www`, `app`, `api` ni `admin` (`SUBDOMINIOS_RESERVADOS` en `src/lib/dominio.ts`); único.
@@ -127,7 +127,7 @@ accesoSoporteActual(admin, tenantId)
 // src/lib/server/tenant.ts
 resolverContextoColegio(user, slug, rolPreferido?): Promise<TenantContext>   // membresía o soporte vigente; 403/404
 accesoSoporteVigente(userId, tenantId)
-soporteVigenteHasta(tenantId): Promise<Date | null>   // campana de dirección
+soporteVigenteHasta(tenantId): Promise<Date | null>   // aviso superior de dirección
 avisarInicioSoporte(tenantId, { id, motivo, expiraAt }): Promise<number>   // notificaciones/aviso-soporte.ts
 // src/lib/server/db.ts
 dbTenant(tenantId, { soloLectura? }) · ErrorSoloLectura
@@ -178,8 +178,8 @@ aCsv(encabezados, filas)
 - unit: `tests/unit/slug-colegio.test.ts` (sugerencia y validación del subdominio, reservados, CSV).
 - integración: `tests/integracion/plataforma-superadmin.test.ts` (403 para no administradores e inactivos, redirect con contraseña inicial, creación completa con aviso sin el DNI, login con el DNI, subdominios inválidos, acciones auditadas, 404 con ids ajenos, ZIP, compensación con cuenta nueva y existente —revierte los datos completados y respeta los que ya tenía—, reportes sin datos de alumnos).
 - integración: `tests/integracion/acceso-soporte.test.ts` (acceso vigente → contexto `direccion` de solo lectura; cada escritura lanza «Modo soporte: solo lectura»; mensajes/notas/libreta/mesa de ayuda → 403; `soporte_ver` en la auditoría del colegio; terminado, vencido, admin inactivo o no-admin con un acceso a su nombre → 403; no se cierra un acceso ajeno; login guarda `userId`/`ultimoIngresoAt` y el reporte cuenta activos por membresía; `camposCompletados`).
-- integración: `tests/integracion/soporte-seguridad.test.ts` (`soporte_inicio` encolado a cada directora según sus preferencias y a ningún otro rol; campana vigente/terminada/admin inactivo; `$executeRaw(Unsafe)`, `$queryRaw` de escritura, `FOR UPDATE` y `$transaction` con escrituras → «Modo soporte»; lecturas crudas permitidas; colegio suspendido: soporte entra y los miembros no; `registrarIngreso`; título del tutor en la libreta).
-- e2e: `tests/e2e/plataforma-superadmin.test.ts` (crear colegio con insignia y administrador con DNI → correo en Mailpit con el botón al subdominio → ingreso con DNI → cambio obligatorio de contraseña → `/inicio` del colegio; un usuario de colegio recibe 403 en el panel; modo soporte: gráficos en la vista principal, «Entrar como soporte» con motivo → banner en el colegio, `/mensajes` y `/notas` → 403, la dirección del colegio ve «Soporte de Khipu activo hasta HH:mm» en su campana y llega a la auditoría; «Terminar» → vuelve a la ficha y el colegio da 403).
+- integración: `tests/integracion/soporte-seguridad.test.ts` (`soporte_inicio` encolado a cada directora según sus preferencias y a ningún otro rol; aviso vigente/terminado/admin inactivo; `$executeRaw(Unsafe)`, `$queryRaw` de escritura, `FOR UPDATE` y `$transaction` con escrituras → «Modo soporte»; lecturas crudas permitidas; colegio suspendido: soporte entra y los miembros no; `registrarIngreso`; título del tutor en la libreta).
+- e2e: `tests/e2e/plataforma-superadmin.test.ts` (crear colegio con insignia y administrador con DNI → correo en Mailpit con el botón al subdominio → ingreso con DNI → cambio obligatorio de contraseña → `/inicio` del colegio; un usuario de colegio recibe 403 en el panel; modo soporte: gráficos en la vista principal, «Entrar como soporte» con motivo → banner en el colegio, `/mensajes` y `/notas` → 403, la dirección del colegio ve el aviso superior de soporte activo y llega a la auditoría con «Ver auditoría»; «Terminar» → vuelve a la ficha y el colegio da 403).
 
 - Responsables del colegio y suscripciones/pagos (ficha y `/suscripciones`): ver `specs/20-responsables-y-suscripciones.md`. «Administradores» y «Agregar otro administrador» de la ficha pasaron a la sección «Responsables».
 
