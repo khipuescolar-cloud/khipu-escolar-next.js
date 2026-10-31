@@ -35,8 +35,10 @@ action y cada función de `src/lib/server/horario.ts`.
    destino. Se saltan los casilleros sin curso equivalente o que cruzarían a un profesor (el mensaje dice cuántos).
 4. **Carga de profesores** (`/horario?vista=profesores`): por profesor, horas por semana, bloques, salones y cruces
    («Sin cruces» ✓ o «N cruces» ⚠). «Ver semana» abre `/horario?profesor=<id>` con su semana y los cruces marcados.
-5. **Mi horario** (profesor): tarjeta «Ahora: Matemática · 3.° B hasta las 10:30» / «Después: … a las 10:30», y la
-   semana en vista de calendario (estilo Google Calendar): columnas de lunes a viernes con su fecha (la semana actual; el
+5. **Mi horario** (profesor): la semana en vista de calendario (estilo Google Calendar), en una sola tarjeta con barra
+   superior (mes, «Semana del 2 al 6», «Próxima semana» si es fin de semana, y el resumen «Ahora: Matemática · 3.° B hasta
+   las 10:30» / «Después: … a las 10:30»), leyenda de cursos con sus horas por semana al pie y las clases ya dictadas de
+   la semana atenuadas. Columnas de lunes a viernes con su fecha (la semana actual; el
    fin de semana, la siguiente), horas a la izquierda, cada bloque ubicado y medido según su hora, con el color de su
    curso (el mismo curso, el mismo color en todos los salones; «Tutoría» en gris) y una línea con la hora actual en el día
    de hoy, con la hora escrita en el margen. Los bloques que se cruzan se reparten el ancho. Al tocar un bloque se abre su detalle (salón, aula, duración,

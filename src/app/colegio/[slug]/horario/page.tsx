@@ -228,12 +228,14 @@ async function SemanaProfesor({ ctx, profesorId }: { ctx: TenantContext; profeso
         <EstadoVacio icono={CalendarClock} titulo={esPropio ? "Aún no tienes clases en el horario" : "Este profesor aún no tiene clases en el horario"} descripcion="Cuando dirección arme los horarios de los salones, verás aquí la semana." />
       ) : (
         <>
-          {esPropio && esDiaHorario(dia) && (
-            <Card className="p-4">
-              <AhoraDespues ahora={ahora} despues={despues} hayClasesHoy={bloques.some((b) => b.dia === dia)} conSalon />
-            </Card>
-          )}
-          <CalendarioSemana bloques={conAcciones} hoyIso={isoFecha} diaHoy={dia} horaAhora={hora} ahoraId={ahora?.id ?? null} />
+          <CalendarioSemana
+            bloques={conAcciones}
+            hoyIso={isoFecha}
+            diaHoy={dia}
+            horaAhora={hora}
+            ahoraId={ahora?.id ?? null}
+            resumen={esPropio && esDiaHorario(dia) ? <AhoraDespues ahora={ahora} despues={despues} hayClasesHoy={bloques.some((b) => b.dia === dia)} conSalon /> : undefined}
+          />
         </>
       )}
     </div>
