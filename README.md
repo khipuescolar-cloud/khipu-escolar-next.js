@@ -5,6 +5,7 @@ Plataforma escolar multitenant para colegios del Perú. «Cada día de tu hijo, 
 - Guía para colaboradores y agentes, comandos y arquitectura: [`AGENTS.md`](AGENTS.md)
 - Despliegue (Supabase, Vercel, correo, crons): [`docs/despliegue.md`](docs/despliegue.md)
 - Specs por módulo: [`specs/`](specs/00-indice.md)
+- Manual de capacitación por rol (dirección, administrativos, profesores, portería, familias, alumnos e implementación): [`docs/manual/`](docs/manual/README.md)
 - Bitácora de conversaciones (obligatoria): [`conversaciones/`](conversaciones/README.md)
 
 ## Arranque rápido
