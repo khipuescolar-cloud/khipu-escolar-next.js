@@ -122,6 +122,7 @@ function Cuadricula({ dias, fechas, bloques, horas, colores, minAhora, ahoraId, 
   const marcas: number[] = [];
   for (let m = horas.inicio; m <= horas.fin; m += 60) marcas.push(m);
   const columnas = { gridTemplateColumns: `3.5rem repeat(${dias.length}, minmax(0, 1fr))` };
+  const verAhora = dias.some(esHoy) && minAhora >= horas.inicio && minAhora <= horas.fin;
 
   return (
     <div>
@@ -139,11 +140,17 @@ function Cuadricula({ dias, fechas, bloques, horas, colores, minAhora, ahoraId, 
       <div className="grid pt-3 pb-4" style={columnas}>
         {/* Horas a la izquierda: cada etiqueta centrada sobre su línea. */}
         <div className="relative" style={{ height: alto }} aria-hidden>
-          {marcas.map((m) => (
+          {marcas.filter((m) => !verAhora || Math.abs(m - minAhora) >= 12).map((m) => (
             <span key={m} className="absolute right-2 -translate-y-1/2 text-etiqueta text-muted-foreground tabular-nums" style={{ top: (m - horas.inicio) * PX_MIN }}>
               {etiquetaHora(m)}
             </span>
           ))}
+          {/* Hora actual en el margen, sobre la línea del día de hoy (como en Google Calendar). */}
+          {verAhora && (
+            <span className="absolute right-1 z-10 -translate-y-1/2 rounded-pildora bg-cochinilla px-1.5 text-etiqueta font-semibold text-background tabular-nums" style={{ top: (minAhora - horas.inicio) * PX_MIN }}>
+              {etiquetaHora(minAhora)}
+            </span>
+          )}
         </div>
         {dias.map((d) => (
           <ColumnaDia

@@ -39,7 +39,7 @@ action y cada función de `src/lib/server/horario.ts`.
    semana en vista de calendario (estilo Google Calendar): columnas de lunes a viernes con su fecha (la semana actual; el
    fin de semana, la siguiente), horas a la izquierda, cada bloque ubicado y medido según su hora, con el color de su
    curso (el mismo curso, el mismo color en todos los salones; «Tutoría» en gris) y una línea con la hora actual en el día
-   de hoy. Los bloques que se cruzan se reparten el ancho. Al tocar un bloque se abre su detalle (salón, aula, duración,
+   de hoy, con la hora escrita en el margen. Los bloques que se cruzan se reparten el ancho. Al tocar un bloque se abre su detalle (salón, aula, duración,
    cruce) con «Pasar lista» (solo hoy, si el colegio tiene asistencia y asistencia por curso en ese nivel), «Tareas» y
    «Notas» del curso (si el plan los incluye).
 6. **Horario** (familia) / **Mi horario** (alumno): píldoras por hijo si hay varios; tarjeta «Ahora / Después» y la
