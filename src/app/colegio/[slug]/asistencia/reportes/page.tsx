@@ -1,4 +1,4 @@
-import { ArrowLeft, BarChart3, BookOpenCheck, ChevronDown, School } from "lucide-react";
+import { ArrowLeft, BarChart3, BookOpenCheck, School } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -63,13 +63,12 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
   const dia = esFechaReal(uno("dia") ?? undefined) && uno("dia")! <= hoy ? uno("dia")! : hoy;
   const curso = filtros && cursoId && !error ? await cursoODetalle(ctx, { cursoId, desde: filtros.desde, hasta: filtros.hasta }) : null;
   if (curso && "error" in curso) error = curso.error;
-  const reporte = filtros && !cursoId && (familia && !filtros.alumnoId ? null : await reporteSegunFiltros(ctx, filtros));
+  // Dirección y administrativo solo ven aquí el día; el rango (y la asistencia por curso) va en «Filtrar reporte».
+  const reporte = filtros && !cursoId && !veTodo && (familia && !filtros.alumnoId ? null : await reporteSegunFiltros(ctx, filtros));
   // Dirección y administrativo: la página empieza por la asistencia al colegio de un día (hoy por defecto).
   const delDia = veTodo && !cursoId ? await resumenColegio(ctx, { desde: dia, hasta: dia }) : null;
   const base = filtros ?? { desde: rangoEsteMes(hoy).desde, hasta: hoy };
   const atajos = atajosDeFecha(hoy, periodo);
-  // Dirección ve primero el día; el resumen del mes queda plegado.
-  const plegado = veTodo && reporte && reporte.tipo === "colegio";
 
   return (
     <div className="flex flex-col gap-6">
@@ -99,22 +98,8 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
 
       {curso && !("error" in curso) && <VistaCurso detalle={curso} puedeCorregir={puedeCorregir} />}
 
-      {reporte && filtros && plegado && (
-        <details className="group rounded-lg border bg-superficie">
-          <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 [&::-webkit-details-marker]:hidden">
-            <span className="flex flex-col">
-              <span className="font-medium">Resumen del colegio de este mes</span>
-              <span className="text-cuerpo-sm text-muted-foreground">Del {fechaCorta(reporte.desde)} a hoy, por salón y por curso. Para otro salón, alumno o fechas usa «Filtrar reporte».</span>
-            </span>
-            <ChevronDown className="size-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" strokeWidth={2} aria-hidden />
-          </summary>
-          <div className="flex flex-col gap-6 border-t p-4">
-            <ResultadoRango reporte={reporte} filtros={filtros} familia={familia} puedeCorregir={puedeCorregir} />
-          </div>
-        </details>
-      )}
-      {reporte && filtros && !plegado && <ResultadoRango reporte={reporte} filtros={filtros} familia={familia} puedeCorregir={puedeCorregir} />}
-      {!error && !reporte && !curso && <EstadoVacio icono={BarChart3} titulo="Aún no hay un alumno para mostrar" descripcion="Cuando tu hijo(a) tenga asistencia registrada, verás aquí su reporte." />}
+      {reporte && filtros && <ResultadoRango reporte={reporte} filtros={filtros} familia={familia} puedeCorregir={puedeCorregir} />}
+      {!error && !reporte && !curso && !veTodo && <EstadoVacio icono={BarChart3} titulo="Aún no hay un alumno para mostrar" descripcion="Cuando tu hijo(a) tenga asistencia registrada, verás aquí su reporte." />}
     </div>
   );
 }

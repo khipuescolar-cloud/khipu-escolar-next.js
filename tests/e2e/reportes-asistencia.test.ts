@@ -15,11 +15,10 @@ test("dirección filtra un salón por fechas y descarga Excel y PDF", async ({ p
   await entrar(page, "direccion@nuevohorizonte.demo");
   await page.goto(`${COLEGIO}/asistencia/reportes`);
   await expect(page.getByRole("heading", { name: "Reportes de asistencia", exact: true })).toBeVisible();
-  // Sin filtros: primero la asistencia al colegio de hoy; el resumen del mes por salón está plegado.
+  // Sin filtros: solo la asistencia al colegio de hoy (sin resumen del mes).
   await expect(page.getByTestId("asistencia-del-dia").getByText("Asistieron", { exact: true })).toBeVisible();
-  await page.getByText("Resumen del colegio de este mes").click();
-  await expect(page.getByRole("columnheader", { name: "% asistencia" })).toBeVisible();
-  await expect(page.getByRole("columnheader", { name: "En revisión" })).toBeVisible();
+  await expect(page.getByText("Resumen del colegio de este mes")).toHaveCount(0);
+  await expect(page.getByRole("columnheader", { name: "% asistencia" })).toHaveCount(0);
 
   // El filtro es un panel lateral: salón, alumnos de ese salón y fechas.
   await page.getByRole("button", { name: /Filtrar reporte/ }).click();
