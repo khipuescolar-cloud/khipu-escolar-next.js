@@ -3,7 +3,7 @@ import { forbidden, notFound } from "next/navigation";
 import { z } from "zod";
 import type { EstadoJustificacion } from "@/generated/prisma/enums";
 import { urlColegio } from "@/lib/dominio";
-import { isoDeFechaDb, sumarDias } from "@/lib/fechas";
+import { esFechaReal, fechaDb, isoDeFechaDb, sumarDias } from "@/lib/fechas";
 import { expiracionJustificacion, mensajePlazoVencido, normalizarPlazoDias, textoPlazoJustificacion } from "@/lib/plazo-justificacion";
 import { primerNombre } from "@/lib/nombres";
 import { auditar } from "./auditoria";
@@ -237,41 +237,126 @@ export type JustificacionVista = {
   adjuntoUrl: string | null;
   adjuntoMime: string | null;
   revisadoPor: string | null;
+  revisadoAt: Date | null;
   /** Comentario de quien revisó (visible para la familia). */
   comentarioRevision: string | null;
 };
 
+const SELECT_VISTA = {
+  id: true, motivo: true, estado: true, createdAt: true, adjunto: true, comentarioRevision: true, revisadoAt: true,
+  apoderado: { select: { user: { select: { nombres: true, apellidos: true } } } },
+  revisadoPor: { select: { user: { select: { nombres: true, apellidos: true } } } },
+  asistencia: { select: { fecha: true, alumno: { select: { nombres: true, apellidos: true, salon: { select: { nombre: true } } } } } },
+} as const;
+
+type FilaVista = Awaited<ReturnType<typeof filasVista>>[number];
+const filasVista = (ctx: TenantContext, args: { where: object; orderBy: object[]; take: number; skip?: number }) =>
+  ctx.db.justificacion.findMany({ ...args, select: SELECT_VISTA });
+
+async function aVista(f: FilaVista): Promise<JustificacionVista> {
+  return {
+    id: f.id,
+    alumno: `${f.asistencia.alumno.nombres} ${f.asistencia.alumno.apellidos}`,
+    salon: f.asistencia.alumno.salon.nombre,
+    fecha: isoDeFechaDb(f.asistencia.fecha),
+    motivo: f.motivo,
+    estado: f.estado,
+    creada: f.createdAt,
+    apoderado: `${f.apoderado.user.nombres} ${f.apoderado.user.apellidos}`.trim(),
+    adjuntoUrl: f.adjunto ? await urlArchivo(f.adjunto) : null,
+    adjuntoMime: f.adjunto?.mimeType ?? null,
+    revisadoPor: f.revisadoPor ? `${f.revisadoPor.user.nombres} ${f.revisadoPor.user.apellidos}`.trim() : null,
+    revisadoAt: f.revisadoAt,
+    comentarioRevision: f.comentarioRevision,
+  };
+}
+
 /** Dirección: todas; tutor: las de su salón; apoderado: las suyas. */
 export async function listarJustificaciones(ctx: TenantContext): Promise<JustificacionVista[]> {
   requireFeature(ctx, "justificaciones");
-  const filas = await ctx.db.justificacion.findMany({
-    where: filtroPorRol(ctx),
-    orderBy: [{ estado: "asc" }, { createdAt: "desc" }],
-    take: 200,
-    select: {
-      id: true, motivo: true, estado: true, createdAt: true, adjunto: true, comentarioRevision: true,
-      apoderado: { select: { user: { select: { nombres: true, apellidos: true } } } },
-      revisadoPor: { select: { user: { select: { nombres: true, apellidos: true } } } },
-      asistencia: { select: { fecha: true, alumno: { select: { nombres: true, apellidos: true, salon: { select: { nombre: true } } } } } },
-    },
-  });
+  const filas = await filasVista(ctx, { where: filtroPorRol(ctx), orderBy: [{ estado: "asc" }, { createdAt: "desc" }], take: 200 });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "justificacion", detalle: { cantidad: filas.length } });
-  return Promise.all(
-    filas.map(async (f) => ({
-      id: f.id,
-      alumno: `${f.asistencia.alumno.nombres} ${f.asistencia.alumno.apellidos}`,
-      salon: f.asistencia.alumno.salon.nombre,
-      fecha: isoDeFechaDb(f.asistencia.fecha),
-      motivo: f.motivo,
-      estado: f.estado,
-      creada: f.createdAt,
-      apoderado: `${f.apoderado.user.nombres} ${f.apoderado.user.apellidos}`.trim(),
-      adjuntoUrl: f.adjunto ? await urlArchivo(f.adjunto) : null,
-      adjuntoMime: f.adjunto?.mimeType ?? null,
-      revisadoPor: f.revisadoPor ? `${f.revisadoPor.user.nombres} ${f.revisadoPor.user.apellidos}`.trim() : null,
-      comentarioRevision: f.comentarioRevision,
-    })),
-  );
+  return Promise.all(filas.map(aVista));
+}
+
+function requireRevisor(ctx: TenantContext) {
+  requireFeature(ctx, "justificaciones");
+  if (ctx.rol !== "direccion" && ctx.rol !== "profesor") forbidden();
+}
+
+/** Vista «Por revisar» (tutor/dirección): solo pendientes, la más antigua primero (orden de llegada). */
+export async function pendientesPorRevisar(ctx: TenantContext): Promise<JustificacionVista[]> {
+  requireRevisor(ctx);
+  const filas = await filasVista(ctx, { where: { ...filtroPorRol(ctx), estado: "pendiente" }, orderBy: [{ createdAt: "asc" }], take: 200 });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "justificacion", detalle: { vista: "por_revisar", cantidad: filas.length } });
+  return Promise.all(filas.map(aVista));
+}
+
+/** Cuántas pendientes ve el rol (contador de la pestaña «Por revisar»). */
+export async function contarPendientes(ctx: TenantContext): Promise<number> {
+  requireRevisor(ctx);
+  return ctx.db.justificacion.count({ where: { ...filtroPorRol(ctx), estado: "pendiente" } });
+}
+
+/** Salones para el filtro del historial: dirección, todos; el tutor, los suyos. */
+export async function salonesDeJustificaciones(ctx: TenantContext): Promise<{ id: string; nombre: string }[]> {
+  requireRevisor(ctx);
+  return ctx.db.salon.findMany({
+    where: ctx.rol === "direccion" ? {} : { tutorId: ctx.membership.id },
+    orderBy: { nombre: "asc" },
+    select: { id: true, nombre: true },
+  });
+}
+
+export const POR_PAGINA_HISTORIAL = 25;
+
+const fechaFiltro = z.string().refine((v) => esFechaReal(v), "Fecha no válida.");
+export const filtrosHistorialSchema = z
+  .object({
+    estado: z.enum(["pendiente", "aceptada", "rechazada"]).optional(),
+    salonId: z.uuid().optional(),
+    q: z.string().trim().max(80).optional(),
+    desde: fechaFiltro.optional(),
+    hasta: fechaFiltro.optional(),
+    pagina: z.coerce.number().int().min(1).max(10_000).default(1),
+  })
+  .refine((f) => !f.desde || !f.hasta || f.desde <= f.hasta, { message: "La fecha «desde» no puede ser posterior a «hasta».", path: ["hasta"] });
+export type FiltrosHistorial = z.infer<typeof filtrosHistorialSchema>;
+
+export type HistorialJustificaciones = { filas: JustificacionVista[]; total: number; pagina: number; paginas: number };
+
+/**
+ * Historial (tutor/dirección): todas las justificaciones de su alcance con filtros por estado, salón, alumno (nombre
+ * o apellido) y fecha de la falta; las más recientes primero, de 25 en 25.
+ */
+export async function historialJustificaciones(ctx: TenantContext, entrada: unknown): Promise<HistorialJustificaciones> {
+  requireRevisor(ctx);
+  const f = filtrosHistorialSchema.parse(entrada);
+  const palabras = (f.q ?? "").split(/\s+/).filter(Boolean).slice(0, 4);
+  const alumno = {
+    ...(f.salonId ? { salonId: f.salonId } : {}),
+    ...(palabras.length
+      ? { AND: palabras.map((p) => ({ OR: [{ nombres: { contains: p, mode: "insensitive" as const } }, { apellidos: { contains: p, mode: "insensitive" as const } }] })) }
+      : {}),
+  };
+  const fecha = f.desde || f.hasta ? { ...(f.desde ? { gte: fechaDb(f.desde) } : {}), ...(f.hasta ? { lte: fechaDb(f.hasta) } : {}) } : undefined;
+  const where = {
+    AND: [
+      filtroPorRol(ctx),
+      { ...(f.estado ? { estado: f.estado } : {}), asistencia: { ...(fecha ? { fecha } : {}), alumno } },
+    ],
+  };
+  const total = await ctx.db.justificacion.count({ where });
+  const paginas = Math.max(1, Math.ceil(total / POR_PAGINA_HISTORIAL));
+  const pagina = Math.min(f.pagina, paginas);
+  const filas = await filasVista(ctx, {
+    where, orderBy: [{ createdAt: "desc" }, { id: "asc" }], take: POR_PAGINA_HISTORIAL, skip: (pagina - 1) * POR_PAGINA_HISTORIAL,
+  });
+  await auditar({
+    tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "justificacion",
+    detalle: { vista: "historial", cantidad: filas.length, ...(f.estado ? { estado: f.estado } : {}), ...(f.salonId ? { salonId: f.salonId } : {}) },
+  });
+  return { filas: await Promise.all(filas.map(aVista)), total, pagina, paginas };
 }
 
 export const esquemaRevision = z.object({

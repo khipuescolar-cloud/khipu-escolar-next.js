@@ -1,6 +1,6 @@
 # 07 — Justificaciones de faltas
 
-> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-presentes-plazo`: plazo de 15 días hábiles para todas las vías)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-30 (Claude Code, rama `dev`: vistas «Por revisar» e «Historial» con filtros para tutor y dirección; antes, plazo de 15 días hábiles para todas las vías)
 
 ## Objetivo
 Que la familia justifique una falta en un minuto, desde el correo o desde Khipu, y que la tutora la revise.
@@ -18,7 +18,11 @@ Que la familia justifique una falta en un minuto, desde el correo o desde Khipu,
 2. `/justificar/[token]` (dominio raíz, sin sesión): muestra colegio, alumno y fecha; formulario **motivo** (1..500) + **adjunto opcional** (JPG/PNG/WEBP/PDF ≤ 5 MB, spec 14). Token usado, vencido o falta corregida → «Este enlace ya se usó o venció. Escríbele a la tutora desde Khipu.»
 3. Con sesión: `/asistencia` → «Justificar falta» (con «Puedes justificar hasta el vie 14 nov» debajo) → `/asistencia/justificar/[asistenciaId]`, que repite la fecha límite. Fuera de plazo, `/asistencia` muestra «Plazo vencido» en lugar del botón y la página de justificar muestra el mensaje de plazo vencido sin formulario. Al enviar, se invalidan los enlaces pendientes de esa falta.
 4. Al enviar: `justificaciones.estado = pendiente`, `usadoAt` del token, auditoría y aviso `justificacion_recibida` (tipo `justificacion`, `referenciaId = justificacionId`) por correo a la tutora del salón.
-5. `/justificaciones` (tutor/dirección): pendientes primero, adjunto con URL temporal (5 min), comentario opcional, **Aceptar** / **Rechazar**. El comentario se guarda en `justificaciones.comentarioRevision`; la familia lo ve en `/justificaciones` («Comentario del colegio: …») y recibe `justificacion_revisada` (neutral, tipo `justificacion`, con el comentario) según sus preferencias y consentimiento.
+5. `/justificaciones` (tutor/dirección) tiene **dos vistas** (pestañas con la vista en la URL):
+   - **Por revisar** (por defecto, contador de pendientes en la pestaña): solo las `pendiente`, la más antigua primero (`pendientesPorRevisar`, `contarPendientes`), cada una en tarjeta con Aceptar/Rechazar. Vacía: «No hay justificaciones por revisar» con enlace al historial.
+   - **Historial** (`?vista=historial`): tabla de todas las del alcance del rol (`historialJustificaciones`), de la más reciente a la más antigua, 25 por página, con filtros GET: **alumno** (nombre o apellido, varias palabras), **estado** (pendiente, aceptada, no aceptada), **salón** (`salonesDeJustificaciones`: dirección todos, tutor los suyos) y **fecha de la falta** desde/hasta (`desde ≤ hasta`). Columnas: falta, alumno y salón, motivo (con adjunto), enviada (fecha y quién), estado, revisión (quién, cuándo y comentario; «Revisar» si sigue pendiente). «Limpiar» quita los filtros.
+   - La familia (apoderado) no tiene pestañas: ve solo la lista de sus justificaciones.
+   Detalle de la revisión: pendientes primero, adjunto con URL temporal (5 min), comentario opcional, **Aceptar** / **Rechazar**. El comentario se guarda en `justificaciones.comentarioRevision`; la familia lo ve en `/justificaciones` («Comentario del colegio: …») y recibe `justificacion_revisada` (neutral, tipo `justificacion`, con el comentario) según sus preferencias y consentimiento.
 
 ## Reglas de negocio
 - El token se marca usado con un `updateMany` condicionado (`usadoAt IS NULL AND expiraAt > ahora`): un solo uso aunque haya dos envíos simultáneos. Si la subida o el guardado fallan, se libera.
