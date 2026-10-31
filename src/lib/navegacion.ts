@@ -5,7 +5,7 @@ import type { Feature } from "@/lib/planes";
 export type IconoMosaico =
   | "ClipboardCheck" | "ScanLine" | "MailCheck" | "FileText" | "MessagesSquare" | "Megaphone"
   | "Users" | "Settings" | "LifeBuoy" | "GraduationCap" | "BookOpen" | "ListTodo" | "CalendarDays" | "Sparkles" | "School" | "BarChart3"
-  | "FolderOpen";
+  | "FolderOpen" | "CalendarClock";
 
 /** Grupo de la barra lateral. */
 export type GrupoNav = "dia" | "comunicacion" | "academico" | "colegio";
@@ -36,6 +36,9 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/asistencia", grupo: "dia", titulo: "Mi asistencia", descripcion: "Mira tus llegadas al colegio.", icono: "ClipboardCheck", feature: "asistencia", roles: ["alumno"] },
   { href: "/asistencia/reportes", grupo: "dia", titulo: "Reportes de asistencia", descripcion: "Asistencia al colegio y por curso, por día, salón y fechas; Excel y PDF.", icono: "BarChart3", feature: "asistencia", roles: ["direccion", "administrativo", "profesor"] },
   { href: "/asistencia/reportes", grupo: "dia", titulo: "Reporte de asistencia", descripcion: "Porcentaje de asistencia de tus hijos por fechas.", icono: "BarChart3", feature: "asistencia", roles: ["apoderado", "alumno"] },
+  // Horario (specs/34): dirección lo arma (grupo «Colegio»); profesor, alumno y familia lo consultan en su día a día.
+  { href: "/horario", grupo: "dia", titulo: "Mi horario", descripcion: "Tus clases de la semana y la que sigue.", icono: "CalendarClock", feature: "horario", roles: ["profesor", "alumno"] },
+  { href: "/horario", grupo: "dia", titulo: "Horario", descripcion: "Las clases de la semana de tus hijos.", icono: "CalendarClock", feature: "horario", roles: ["apoderado"] },
   { href: "/porteria", grupo: "dia", titulo: "Portería", descripcion: "Escanea el carnet QR en la entrada.", icono: "ScanLine", feature: "porteria", roles: ["porteria", "direccion"] },
   { href: "/avisos", grupo: "dia", titulo: "Avisos enviados", descripcion: "Correos y notificaciones a las familias.", icono: "MailCheck", feature: "avisos", roles: ["direccion", "administrativo"] },
   { href: "/justificaciones", grupo: "dia", titulo: "Justificaciones", descripcion: "Faltas justificadas por las familias.", icono: "FileText", feature: "justificaciones", roles: ["profesor", "direccion", "apoderado"] },
@@ -49,6 +52,7 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/agenda", grupo: "academico", titulo: "Agenda", descripcion: "Eventos, exámenes y reuniones.", icono: "CalendarDays", feature: "agenda", roles: ["profesor", "direccion", "apoderado", "administrativo", "alumno"] },
   { href: "/tablero", grupo: "colegio", titulo: "Tablero", descripcion: "Asistencia, notas y avisos del colegio; consolidado de notas en Excel y PDF.", icono: "BarChart3", feature: "tablero", roles: ["direccion"] },
   { href: "/reuniones", grupo: "comunicacion", titulo: "Reuniones", descripcion: "Convocatorias, confirmaciones y actas de reuniones.", icono: "Users", feature: "reuniones", roles: ["profesor", "direccion", "apoderado"] },
+  { href: "/horario", grupo: "colegio", titulo: "Horarios", descripcion: "Horario semanal de cada salón y carga de cada profesor.", icono: "CalendarClock", feature: "horario", roles: ["direccion"] },
   { href: "/gestion", grupo: "colegio", titulo: "Gestión", descripcion: "Profesores, personal, grados, alumnos y familias.", icono: "Users", feature: "gestion", roles: ["direccion"] },
   { href: "/gestion", grupo: "colegio", titulo: "Alumnos y familias", descripcion: "Altas, datos e invitaciones de alumnos y familias.", icono: "Users", feature: "gestion", roles: ["administrativo"] },
   { href: "/configuracion", grupo: "colegio", titulo: "Configuración", descripcion: "Avisos, logo, dominio y escala de notas.", icono: "Settings", feature: "gestion", roles: ["direccion"] },

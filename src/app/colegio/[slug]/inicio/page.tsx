@@ -12,6 +12,7 @@ import { conteoNoLeidos } from "@/lib/server/mensajes";
 import { estadoModulo } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { ResumenDireccion } from "./ResumenDireccion";
+import { TarjetaHoy } from "./TarjetaHoy";
 
 const GRUPOS: GrupoNav[] = ["dia", "comunicacion", "academico", "colegio"];
 
@@ -39,6 +40,7 @@ export default async function InicioPage({ params }: PageProps<"/colegio/[slug]/
         }
       />
       <TarjetaInstalarApp />
+      <TarjetaHoy ctx={ctx} />
       {GRUPOS.map((grupo) => {
         const delGrupo = mosaicos.filter((m) => m.grupo === grupo);
         if (delGrupo.length === 0) return null;

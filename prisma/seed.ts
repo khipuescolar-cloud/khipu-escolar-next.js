@@ -308,6 +308,7 @@ async function main() {
   // Nudito+: primero el tutor (crea a Lucas y a su madre Julia), luego licencias, sitios y configuración (specs/28–29).
   await sembrarNuditoPlusTutor(prisma, {});
   await sembrarNuditoPlus(prisma, { superadminId });
+  await (await import("./seed-horario")).sembrarHorario(prisma); // Horario semanal por salón (specs/34), al final: usa los salones y cursos ya creados.
 
   console.log("Seed listo. Cuentas (contraseña demo123):");
   console.log("  lucia.garcia@nuevohorizonte.demo  profesora · Khipu Pro");

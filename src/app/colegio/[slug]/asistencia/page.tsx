@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { EstadoAsistencia } from "@/components/EstadoAsistencia";
+import { InsigniaAhora } from "@/components/horario/Insignias";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
@@ -10,6 +11,7 @@ import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { fechaLarga, hora12 } from "@/lib/fechas";
+import { rango } from "@/lib/horario";
 import { mensajePlazoVencido, textoPlazoJustificacion, textoUltimoDiaJustificacion } from "@/lib/plazo-justificacion";
 import { esVistaFamilia } from "@/lib/roles";
 import { HORA_MARCADOR_INGRESO, MARCADOR_ALUMNO } from "@/lib/vista-previa";
@@ -17,6 +19,7 @@ import {
   AMBITO_DIA, ESTADOS, historialDeHijos, hoyDelColegio, obtenerLista, opcionesDeLista,
 } from "@/lib/server/asistencia";
 import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
+import { cursosDeHoy } from "@/lib/server/horario";
 import { renderizarPlantilla } from "@/lib/server/email/plantillas";
 import { obtenerPreferencias } from "@/lib/server/notificaciones/preferencias";
 import { requireFeature, tieneFeature } from "@/lib/server/plan";
@@ -47,10 +50,16 @@ export default async function AsistenciaPage({ params, searchParams }: PageProps
 }
 
 async function ElegirLista({ ctx }: { ctx: TenantContext }) {
-  const opciones = await opcionesDeLista(ctx);
+  const [opciones, horario] = await Promise.all([opcionesDeLista(ctx), cursosDeHoy(ctx)]);
   const hoy = hoyDelColegio(ctx);
+  // Con horario (specs/34): las listas de curso de hoy van primero y en orden de hora; la que está en clase lleva «Ahora».
+  const enHorario = (o: (typeof opciones)[number]) => (o.ambito === AMBITO_DIA ? undefined : horario.get(o.ambito));
+  const clave = (o: (typeof opciones)[number]) => (o.ambito === AMBITO_DIA ? "" : enHorario(o)?.horaInicio ?? "99:99");
   const porSalon = new Map<string, typeof opciones>();
   for (const o of opciones) porSalon.set(o.salonNombre, [...(porSalon.get(o.salonNombre) ?? []), o]);
+  for (const lista of porSalon.values()) lista.sort((a, b) => clave(a).localeCompare(clave(b)));
+  const primeraClase = (lista: typeof opciones) => lista.map((o) => enHorario(o)?.horaInicio ?? "99:99").sort()[0] ?? "99:99";
+  const grupos = [...porSalon.entries()].sort(([, a], [, b]) => primeraClase(a).localeCompare(primeraClase(b)));
 
   return (
     <div className="flex flex-col gap-6">
@@ -64,7 +73,7 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
       {opciones.length === 0 ? (
         <EstadoVacio icono={Users} titulo="Aún no tienes salones ni cursos asignados" descripcion="Cuando dirección te asigne un salón, podrás pasar lista desde aquí." />
       ) : (
-        [...porSalon.entries()].map(([nombre, lista]) => (
+        grupos.map(([nombre, lista]) => (
           <section key={nombre} className="flex flex-col gap-3">
             <h2 className="text-titulo-2">{nombre}</h2>
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -78,7 +87,11 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
                       <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                         <CalendarCheck className="size-5" strokeWidth={2} aria-hidden />
                       </span>
-                      {o.ambito === AMBITO_DIA ? `Asistencia del día · ${nombre}` : `${o.titulo} · ${nombre}`}
+                      <span className="flex flex-col gap-0.5">
+                        {enHorario(o)?.ahora && <InsigniaAhora />}
+                        {o.ambito === AMBITO_DIA ? `Asistencia del día · ${nombre}` : `${o.titulo} · ${nombre}`}
+                        {enHorario(o) && <span className="text-cuerpo-sm font-normal text-muted-foreground tabular-nums">Hoy {rango(enHorario(o)!)}</span>}
+                      </span>
                     </span>
                     <ChevronRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover/lista:translate-x-0.5" strokeWidth={2} aria-hidden />
                   </Link>

@@ -242,6 +242,9 @@ model Tenant {
   usosNudito            UsoNudito[]
   alertasNudito         AlertaNudito[]
   resumenesNudito       ResumenNudito[]
+  // Horario semanal por salón (specs/34)
+  horarioPeriodos       HorarioPeriodo[]
+  bloquesHorario        BloqueHorario[]
 
   @@map("tenants")
 }
@@ -312,6 +315,7 @@ model Membership {
   invitacionesReunion      ReunionInvitado[]
   pagosNudito              PagoNudito[]
   consentimientosIa        ConsentimientoIa[]
+  bloquesHorarioACargo     BloqueHorario[]
 
   @@unique([tenantId, userId, rol])
   @@index([userId])
@@ -338,6 +342,7 @@ model Salon {
   eventos     EventoAgenda[]
   documentos  Documento[]
   reuniones   Reunion[]
+  bloques     BloqueHorario[]
 
   @@index([tenantId])
   @@map("salones")
@@ -358,6 +363,7 @@ model Curso {
   evaluaciones Evaluacion[]
   tareas       Tarea[]
   cierres      CierreCurso[]
+  bloques      BloqueHorario[]
 
   @@index([tenantId])
   @@index([profesorId])
@@ -1738,4 +1744,62 @@ model SitioPermitido {
   updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz
 
   @@map("sitios_permitidos")
+}
+
+// ─── Horario semanal por salón (2026-10-30, specs/34) ───
+
+enum TipoHoraHorario {
+  clase
+  recreo
+}
+
+/// «Horas del día» de un nivel: los periodos (timbres) que comparten todos los salones de ese nivel en el colegio.
+/// Se ordenan por hora de inicio; no se solapan dentro del nivel (lo valida el servidor).
+model HorarioPeriodo {
+  id         String          @id @default(uuid()) @db.Uuid
+  tenantId   String          @map("tenant_id") @db.Uuid
+  nivel      Nivel
+  /// «1.ª hora», «Recreo»…
+  nombre     String
+  /// HH:mm (hora del colegio).
+  horaInicio String          @map("hora_inicio")
+  horaFin    String          @map("hora_fin")
+  tipo       TipoHoraHorario @default(clase)
+
+  tenant  Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  bloques BloqueHorario[]
+
+  @@index([tenantId, nivel])
+  @@map("horario_periodos")
+}
+
+/// Un casillero del horario de un salón: día (1 = lunes … 5 = viernes) × periodo. Es un curso del salón
+/// (el profesor sale del curso) o un bloque sin curso con título («Tutoría», «Formación») y profesor opcional.
+model BloqueHorario {
+  id         String   @id @default(uuid()) @db.Uuid
+  tenantId   String   @map("tenant_id") @db.Uuid
+  salonId    String   @map("salon_id") @db.Uuid
+  dia        Int
+  periodoId  String   @map("periodo_id") @db.Uuid
+  cursoId    String?  @map("curso_id") @db.Uuid
+  /// Solo en bloques sin curso.
+  titulo     String?
+  /// Solo en bloques sin curso: quién está a cargo (p. ej. la tutora en «Tutoría»).
+  profesorId String?  @map("profesor_id") @db.Uuid
+  aula       String?
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt  DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant   Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  salon    Salon          @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  periodo  HorarioPeriodo @relation(fields: [periodoId], references: [id], onDelete: Cascade)
+  curso    Curso?         @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  profesor Membership?    @relation(fields: [profesorId], references: [id], onDelete: SetNull)
+
+  @@unique([salonId, dia, periodoId])
+  @@index([tenantId, salonId])
+  @@index([tenantId, cursoId])
+  @@index([tenantId, profesorId])
+  @@index([periodoId])
+  @@map("bloques_horario")
 }
