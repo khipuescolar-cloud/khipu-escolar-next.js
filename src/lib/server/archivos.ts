@@ -2,6 +2,7 @@ import "server-only";
 import { forbidden, notFound } from "next/navigation";
 import type { Archivo } from "@/generated/prisma/client";
 import { auditar } from "./auditoria";
+import { whereComunicadosVisibles } from "./comunicados";
 import { puedeVerDocumento } from "./documentos";
 import { requireFeature } from "./plan";
 import { puedeVerAdjuntoSoporte } from "./soporte";
@@ -32,8 +33,7 @@ export async function requireArchivoVisible(ctx: TenantContext, archivoId: strin
 
   // Adjunto de un comunicado: autor, dirección o quien puede ver el comunicado (todo el colegio o su salón).
   if (archivo.comunicadoId) {
-    const c = await ctx.db.comunicado.findFirst({ where: { id: archivo.comunicadoId }, select: { autorId: true, salonId: true } });
-    if (c && (await puedeVerComunicado(ctx, c))) return archivo;
+    if (await puedeVerComunicado(ctx, archivo.comunicadoId)) return archivo;
     forbidden();
   }
 
@@ -67,12 +67,10 @@ export async function requireArchivoVisible(ctx: TenantContext, archivoId: strin
   forbidden();
 }
 
-/** Misma regla que `listarComunicados`: dirección y autor siempre; el resto, los de todo el colegio y los de sus salones. */
-export async function puedeVerComunicado(ctx: TenantContext, c: { autorId: string; salonId: string | null }): Promise<boolean> {
-  if (ctx.rol === "direccion" || c.autorId === ctx.membership.id) return true;
-  if (!["profesor", "apoderado", "administrativo", "alumno"].includes(ctx.rol)) return false;
-  if (c.salonId === null) return true;
-  return (await salonIdsVisibles(ctx)).includes(c.salonId);
+/** Misma regla que `listarComunicados` (`whereComunicadosVisibles`): dirección, administrativo y autor siempre; el resto, todo el colegio, sus salones y su nivel o grado. */
+export async function puedeVerComunicado(ctx: TenantContext, comunicadoId: string): Promise<boolean> {
+  if (!["direccion", "profesor", "apoderado", "administrativo", "alumno"].includes(ctx.rol)) return false;
+  return (await ctx.db.comunicado.count({ where: { AND: [{ id: comunicadoId }, await whereComunicadosVisibles(ctx)] } })) > 0;
 }
 
 /** Tareas: dirección y creador siempre; profesores y apoderados solo de sus salones. */

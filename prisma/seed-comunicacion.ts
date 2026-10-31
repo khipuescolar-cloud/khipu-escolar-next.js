@@ -1,8 +1,8 @@
 // Comunicación del día a día en Nuevo Horizonte: tareas (vencidas, de esta semana y próximas), agenda, comunicados
-// (todo el colegio y por salón, con sus avisos), chats familia ↔ profesor (algunos sin leer), textos del colegio
+// (todo el colegio, por nivel, por grado y por salón, con sus avisos), chats familia ↔ profesor (algunos sin leer), textos del colegio
 // y conversaciones con la mesa de ayuda de Khipu. Fechas relativas a hoy (Lima), en días hábiles.
 import type { Prisma, PrismaClient } from "../src/generated/prisma/client";
-import type { EstadoAviso } from "../src/generated/prisma/enums";
+import type { EstadoAviso, Nivel } from "../src/generated/prisma/enums";
 import { feriadosNacionalesConNombre } from "../src/lib/dias-habiles";
 import { NOMBRE_COLEGIO, SLUG_COLEGIO, crearAzar, diaHabil, fechaDb, hoyLima, instante, sumarDias } from "./seed-utilidades";
 
@@ -35,6 +35,7 @@ export async function sembrarComunicacion(prisma: PrismaClient) {
   const azar = crearAzar(707);
   const hoy = hoyLima();
   const direccion = await prisma.membership.findFirstOrThrow({ where: { tenantId, rol: "direccion" } });
+  const secretaria = await prisma.membership.findFirstOrThrow({ where: { tenantId, rol: "administrativo", user: { email: { startsWith: "secretaria@" } } } });
   const salones = await prisma.salon.findMany({
     where: { tenantId },
     orderBy: { nombre: "asc" },
@@ -84,12 +85,17 @@ export async function sembrarComunicacion(prisma: PrismaClient) {
 
   // ───────── Comunicados (con sus avisos) ─────────
   const proximoFeriado = feriados.find((f) => f.fecha > hoy);
-  const comunicados: { salon?: string; autorId: string; titulo: string; cuerpo: string; dias: number }[] = [
+  // Destino (specs/09): `salon`, o `niveles` (+ `grado` para todas las secciones de un grado); nada = todo el colegio.
+  const comunicados: { salon?: string; niveles?: Nivel[]; grado?: number; autorId: string; titulo: string; cuerpo: string; dias: number }[] = [
     { autorId: direccion.id, titulo: "Bienvenidos a Khipu Escolar", cuerpo: "Desde hoy recibirás los avisos de asistencia por correo. Si tienes dudas, escribe a la tutora desde Mensajes.", dias: -40 },
     { autorId: direccion.id, titulo: "Entrega de libretas", cuerpo: "Las libretas del bimestre anterior ya están disponibles en Khipu. Puedes descargarlas en PDF desde Libreta.", dias: -15 },
     { autorId: direccion.id, titulo: "Campaña de vacunación en el colegio", cuerpo: "El centro de salud vacunará contra la influenza. Si no deseas que tu hijo o hija participe, avísale a la tutora.", dias: -8 },
     { autorId: direccion.id, titulo: "Simulacro escolar de sismo", cuerpo: "Realizaremos un simulacro. Conversa en casa sobre la mochila de emergencia y las zonas seguras.", dias: -2 },
     ...(proximoFeriado ? [{ autorId: direccion.id, titulo: `No hay clases el ${proximoFeriado.fecha.slice(8)}/${proximoFeriado.fecha.slice(5, 7)}`, cuerpo: `Por el feriado (${proximoFeriado.nombre}) no habrá clases. Retomamos al siguiente día hábil en el horario de siempre.`, dias: -1 }] : []),
+    { niveles: ["primaria"], autorId: direccion.id, titulo: "Juegos florales de primaria", cuerpo: "Cada salón de primaria presentará una poesía o una canción. Las inscripciones están abiertas hasta el viernes con la tutora.", dias: -4 },
+    { niveles: ["inicial", "primaria"], autorId: secretaria.id, titulo: "Horario de salida por la actuación", cuerpo: "Este jueves, inicial y primaria salen a las 12:00 m. por el ensayo general de la actuación. Secundaria mantiene su horario.", dias: -1 },
+    { niveles: ["primaria"], grado: 3, autorId: direccion.id, titulo: "Visita al Parque de las Leyendas · 3.° grado", cuerpo: "Las dos secciones de 3.° grado visitarán el parque. Envía la autorización firmada y una lonchera ligera.", dias: -2 },
+    { niveles: ["secundaria"], grado: 5, autorId: secretaria.id, titulo: "Charla de orientación vocacional · 5.° de secundaria", cuerpo: "Universidades e institutos visitarán a 5.° de secundaria. Las familias que deseen pueden acompañar en el auditorio.", dias: -3 },
     { salon: "3.° B", autorId: salon("3.° B").tutorId!, titulo: "Materiales para el proyecto de ciencias", cuerpo: "Para el viernes: 2 botellas recicladas, tijera punta roma y témperas. Gracias por su apoyo.", dias: -3 },
     { salon: "5.° A", autorId: salon("5.° A").tutorId!, titulo: "Salida pedagógica al Museo de Historia Natural", cuerpo: "Saldremos a las 8:30 a. m. y volveremos a las 12:30 p. m. Enviar la autorización firmada en la agenda.", dias: -5 },
     { salon: "1.° A Sec.", autorId: salon("1.° A Sec.").tutorId!, titulo: "Elección del comité de aula", cuerpo: "En la próxima reunión elegiremos el comité de aula. Si deseas postular, avísame por Mensajes.", dias: -6 },
@@ -100,10 +106,13 @@ export async function sembrarComunicacion(prisma: PrismaClient) {
   for (const c of comunicados) {
     const publicadoAt = instante(diaHabil(hoy, c.dias), "17:00");
     const s = c.salon ? salon(c.salon) : null;
-    const creado = await prisma.comunicado.create({ data: { tenantId, autorId: c.autorId, salonId: s?.id ?? null, titulo: c.titulo, cuerpo: c.cuerpo, publicadoAt } });
+    const creado = await prisma.comunicado.create({
+      data: { tenantId, autorId: c.autorId, salonId: s?.id ?? null, niveles: c.niveles ?? [], grado: c.grado ?? null, titulo: c.titulo, cuerpo: c.cuerpo, publicadoAt },
+    });
+    const destino = s ? [s] : salones.filter((y) => !y.archivadoAt && (!c.niveles || c.niveles.includes(y.nivel)) && (c.grado === undefined || y.grado === c.grado));
     const familias = new Map<string, string>();
-    for (const x of (s ? [s] : salones).flatMap((y) => y.alumnos).flatMap((a) => a.apoderados)) {
-      if (x.consentimiento && !x.consentimiento.revocadoAt) familias.set(x.apoderadoId, x.apoderado.user.email);
+    for (const x of destino.flatMap((y) => y.alumnos).flatMap((a) => a.apoderados)) {
+      if (x.consentimiento && !x.consentimiento.revocadoAt && x.recibeAvisos) familias.set(x.apoderadoId, x.apoderado.user.email);
     }
     for (const [apoderadoId, destinatario] of familias) {
       const estado = estadoAviso();

@@ -42,7 +42,7 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
       <Notificar ok={okTexto} error={errorTexto} />
       <EncabezadoPagina
         titulo="Comunicados"
-        descripcion={puedePublicar ? "Publica avisos para todo el colegio o para un salón. Las familias reciben el aviso al instante." : ctx.rol === "alumno" ? "Los avisos del colegio y de tu salón." : "Los avisos del colegio y de los profesores de tu hijo."}
+        descripcion={puedePublicar ? (ctx.rol === "profesor" ? "Publica avisos para tus salones." : "Publica avisos para todo el colegio, un nivel, un grado o un salón.") + " Las familias reciben el aviso al instante." : ctx.rol === "alumno" ? "Los avisos del colegio y de tu salón." : "Los avisos del colegio y de los profesores de tu hijo."}
         acciones={publicar}
       />
 
@@ -61,7 +61,7 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
                 <CardHeader className="gap-3">
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <CardTitle className="text-titulo-2">{c.titulo}</CardTitle>
-                    <Badge variant="secondary"><Users strokeWidth={2} aria-hidden /> {c.salon ?? "Todo el colegio"}</Badge>
+                    <Badge variant="secondary"><Users strokeWidth={2} aria-hidden /> <span className="sr-only">Para: </span>{c.audiencia}</Badge>
                   </div>
                   <div className="flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
                     <Avatar size="sm">
