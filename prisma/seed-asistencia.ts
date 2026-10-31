@@ -1,5 +1,6 @@
 // Asistencia de Nuevo Horizonte (specs/04, 05, 06, 07, 27, 33): ~6 semanas de ingreso al colegio (días hábiles de clases,
-// sin feriados ni vacaciones entre bimestres), listas de curso de las últimas 2 semanas (con casos «ingresó pero faltó»),
+// sin feriados ni vacaciones entre bimestres), listas de curso de las últimas 2 semanas que siguen el horario (specs/34:
+// solo los días y horas en que el curso tiene bloque, con la hora de inicio del periodo; con casos «ingresó pero faltó»),
 // las llegadas de hoy por portería en secundaria, justificaciones en todos los estados y el historial de avisos.
 // Fechas relativas a hoy (Lima). Deterministas (azar con semilla).
 import { randomUUID } from "node:crypto";
@@ -7,15 +8,21 @@ import type { Prisma, PrismaClient } from "../src/generated/prisma/client";
 import type { EstadoAsistencia, EstadoAviso, EstadoJustificacion } from "../src/generated/prisma/enums";
 import { esDiaHabil } from "../src/lib/dias-habiles";
 import { enClases } from "./seed-colegio";
+import { clasesDelDia, type BloqueCurso } from "./seed-horario";
 import { NOMBRE_COLEGIO, SLUG_COLEGIO, crearAzar, diaHabil, diasHabilesAntes, fechaDb, hoyLima, instante } from "./seed-utilidades";
 
 const DIAS_HISTORIAL = 30;
 const DIAS_CURSOS = 10;
-const HORA_CURSO: Record<string, string> = { Matemática: "08:00", Comunicación: "09:30", "Ciencia y Tecnología": "11:00", Inglés: "12:15" };
 const MOTIVOS = ["Cita médica", "Tuvo fiebre y se quedó en casa.", "Malestar estomacal", "Viaje familiar por un velorio", "Control dental", "Se le pasó la movilidad", "Trámite del DNI con la familia"];
 const COMENTARIOS_ACEPTADA = ["Gracias por avisar. Que se mejore.", "Recibido. Por favor, que se ponga al día con las tareas.", "Aceptada."];
 const COMENTARIOS_RECHAZADA = ["Para faltas de más de un día se requiere constancia médica.", "El motivo no corresponde a una falta justificada según el reglamento."];
 const NOTAS_AVISO = ["Llegó sin uniforme; se comunicó a la familia.", "Llegó con dolor de cabeza; descansó en tópico.", "Olvidó su lonchera; la familia la trajo a las 10."];
+
+/** «12:50» + 12 → «13:02». */
+const sumarMinutos = (hhmm: string, min: number) => {
+  const t = Number(hhmm.slice(0, 2)) * 60 + Number(hhmm.slice(3)) + min;
+  return `${String(Math.floor(t / 60)).padStart(2, "0")}:${String(t % 60).padStart(2, "0")}`;
+};
 
 export async function sembrarAsistencia(prisma: PrismaClient) {
   const nh = await prisma.tenant.findUnique({ where: { slug: SLUG_COLEGIO } });
@@ -85,20 +92,33 @@ export async function sembrarAsistencia(prisma: PrismaClient) {
     }
   }
 
-  // Listas de curso (primaria y secundaria) de los últimos días: Matemática y Comunicación un día; Ciencia e Inglés el otro.
+  // Listas de curso de los últimos días, según el horario (specs/34): en los niveles con asistencia por curso, cada curso que
+  // tiene bloque ese día de la semana, a la hora de inicio de su primer periodo. Requiere que el horario se siembre antes.
+  const bloques: BloqueCurso[] = (
+    await prisma.bloqueHorario.findMany({ where: { tenantId, cursoId: { not: null } }, select: { salonId: true, dia: true, cursoId: true, periodo: { select: { horaInicio: true } } } })
+  ).map((b) => ({ salonId: b.salonId, dia: b.dia, cursoId: b.cursoId, horaInicio: b.periodo.horaInicio }));
   const faltasCurso: { registro: Registro; curso: string; ingreso: string }[] = [];
-  for (const [d, f] of dias.slice(-DIAS_CURSOS).entries()) {
-    for (const s of salones.filter((x) => x.nivel !== "inicial")) {
-      const cursos = s.cursos.filter((c) => (d % 2 === 0 ? ["Matemática", "Comunicación"] : ["Ciencia y Tecnología", "Inglés"]).includes(c.nombre));
-      for (const c of cursos) {
+  for (const f of dias.slice(-DIAS_CURSOS)) {
+    for (const s of salones.filter((x) => nh.asistenciaPorCursoNiveles.includes(x.nivel))) {
+      const cursos = new Map(s.cursos.map((c) => [c.id, c]));
+      for (const clase of clasesDelDia(bloques, s.id, f)) {
+        const c = cursos.get(clase.cursoId)!;
         for (const a of s.alumnos) {
           const delDia = diaPorAlumno.get(a.id)!.get(f)!;
-          let estado: EstadoAsistencia = delDia.estado === "falta" ? "falta" : "llego";
-          if (delDia.estado !== "falta") { const r = azar.num(); estado = r < 0.035 ? "falta" : r < 0.06 ? "tarde" : "llego"; }
+          // Faltó al colegio → falta en cada clase. Llegó después del inicio de la clase → tarde, a su hora de ingreso.
+          // Si ya estaba en el colegio, a veces no llega a la clase («ingresó pero faltó») o llega unos minutos tarde.
+          let estado: EstadoAsistencia;
+          let horaReg = clase.hora;
+          if (delDia.estado === "falta") estado = "falta";
+          else if (delDia.hora > clase.hora) { estado = "tarde"; horaReg = delDia.hora; }
+          else {
+            const r = azar.num();
+            estado = r < 0.012 ? "falta" : r < 0.03 ? "tarde" : "llego";
+            if (estado === "tarde") horaReg = sumarMinutos(clase.hora, azar.entero(5, 12));
+          }
           const reg: Registro = {
             id: randomUUID(), tenantId, alumnoId: a.id, cursoId: c.id, ambito: c.id, fecha: fechaDb(f), estado,
-            hora: estado === "tarde" ? `${HORA_CURSO[c.nombre].slice(0, 3)}${String(azar.entero(8, 20)).padStart(2, "0")}` : HORA_CURSO[c.nombre],
-            origen: "lista", registradoPorId: c.profesorId!, createdAt: instante(f, HORA_CURSO[c.nombre]),
+            hora: horaReg, origen: "lista", registradoPorId: c.profesorId!, createdAt: instante(f, clase.hora),
           };
           asistencias.push(reg);
           if (estado === "falta" && delDia.estado !== "falta") faltasCurso.push({ registro: reg, curso: c.nombre, ingreso: delDia.hora });
