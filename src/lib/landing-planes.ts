@@ -45,16 +45,20 @@ const OCULTOS: ReadonlySet<Feature> = new Set<Feature>(["soporte", "avisos", "nu
 
 /** Nombre del módulo para la landing (más claro para quien no conoce el producto). */
 const NOMBRE_PUBLICO: Partial<Record<Feature, string>> = {
-  asistencia: "Asistencia con aviso a la familia",
+  asistencia: "Asistencia al colegio y por curso, con aviso a la familia y reportes",
   porteria: "Portería con carnet QR",
   justificaciones: "Justificación de faltas",
   mensajes: "Chat familia–profesor",
   comunicados: "Comunicados con adjuntos",
   gestion: "Panel de dirección",
-  notas: "Notas por competencias",
+  horario: "Horario semanal por salón",
+  notas: "Notas por competencias (CNEB)",
   libreta: "Libreta en PDF",
   tareas: "Tareas",
   agenda: "Agenda",
+  tablero: "Tablero de dirección",
+  documentos: "Documentos del colegio",
+  reuniones: "Reuniones con confirmación y acta",
 };
 
 const soles = new Intl.NumberFormat("es-PE", { style: "currency", currency: "PEN", minimumFractionDigits: 2 });

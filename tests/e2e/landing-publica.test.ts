@@ -27,13 +27,13 @@ test.afterAll(async () => {
   await consultar("delete from solicitudes_demo where correo like $1", [`${MARCA}%`]);
 });
 
-test("la raíz muestra la landing con sus secciones y los planes del catálogo", async ({ page }) => {
+test("la raíz muestra la landing con sus secciones, los planes del catálogo, su comparación y Nudito+ en piloto", async ({ page }) => {
   await page.goto(`${RAIZ}/`);
   await expect(page).toHaveURL(`${RAIZ}/`);
   await expect(page).toHaveTitle("Khipu Escolar · Cada día de tu hijo, bien anudado.");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Lo que pasa en el aula, le llega a la familia al toque.");
   await expect(page.locator("h1")).toHaveCount(1);
-  for (const id of ["funciones", "como-funciona", "roles", "planes", "preguntas", "demo"]) {
+  for (const id of ["funciones", "como-funciona", "roles", "planes", "nudito", "seguridad", "preguntas", "demo"]) {
     await expect(page.locator(`section#${id}`)).toHaveCount(1);
   }
   await expect(page.getByText("Programa piloto 2026: buscamos los primeros colegios")).toBeVisible();
@@ -42,6 +42,23 @@ test("la raíz muestra la landing con sus secciones y los planes del catálogo",
   const tarjetas = page.getByTestId("planes-landing").locator("> li");
   await expect(tarjetas).toHaveCount(planes.length);
   for (const [i, p] of planes.entries()) await expect(tarjetas.nth(i).getByRole("heading", { level: 3 })).toHaveText(p.nombre);
+
+  // Comparación Base vs Pro con los módulos del catálogo: horario en los dos, notas solo en Pro.
+  const tabla = page.getByTestId("comparacion-planes");
+  await expect(tabla.getByRole("columnheader")).toHaveText(["Función", ...planes.map((p) => p.nombre)]);
+  await expect(tabla.getByRole("row", { name: /Horario semanal por salón/ }).getByText("Incluido")).toHaveCount(2);
+  const filaNotas = tabla.getByRole("row", { name: /Notas por competencias/ });
+  await expect(filaNotas.getByText("No incluido")).toHaveCount(1);
+  await expect(filaNotas.getByText("Incluido", { exact: true })).toHaveCount(1);
+
+  // Nudito+ en piloto, por familia y solo con Khipu Pro; seguridad con garantías reales.
+  const nudito = page.locator("section#nudito");
+  await expect(nudito.getByText("Piloto · Próximamente para su colegio")).toBeVisible();
+  await expect(nudito.getByText(/licencia mensual que se paga por Yape/)).toBeVisible();
+  await expect(nudito.getByRole("heading", { name: "La familia ve reportes, no conversaciones" })).toBeVisible();
+  await expect(page.locator("section#seguridad").getByRole("heading", { name: "Modo soporte transparente" })).toBeVisible();
+  // Los avisos no salen por WhatsApp ni SMS.
+  await expect(page.locator("main").getByText(/por WhatsApp|SMS/).filter({ hasNotText: "¿Los avisos llegan por WhatsApp?" })).toHaveCount(0);
 
   // Capturas reales: la del hero carga de inmediato.
   const hero = page.locator("figure img").first();

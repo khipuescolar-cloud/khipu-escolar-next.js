@@ -1,20 +1,36 @@
 /* eslint-disable @next/next/no-img-element -- SVG oficiales de la marca (public/marca), sin optimización de imagen */
 import {
+  BellRing,
   BookOpen,
+  Building2,
+  CalendarCheck,
+  CalendarClock,
   CalendarDays,
+  ChartColumn,
   Check,
   ClipboardCheck,
   Clock,
+  Compass,
+  Database,
   Download,
-  FileText,
+  Eye,
+  FileCheck,
+  FolderOpen,
+  Gift,
   GraduationCap,
+  Inbox,
+  Layers,
   LifeBuoy,
+  Link2,
   ListTodo,
   Megaphone,
+  Minus,
   MonitorPlay,
   MessagesSquare,
+  Presentation,
   ScanLine,
   School,
+  ScrollText,
   Send,
   ShieldCheck,
   Smartphone,
@@ -28,6 +44,7 @@ import { CuerdasKhipu } from "@/components/marca/CuerdasKhipu";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { buttonVariants } from "@/components/ui/button";
 import type { Plan } from "@/generated/prisma/enums";
+import type { PlanPublico } from "@/lib/landing-planes";
 import { planesPublicos } from "@/lib/server/landing";
 import { cn } from "@/lib/utils";
 import { CuerdaAvisos, EscenaAvisos, TarjetaAviso } from "./_componentes/AvisosEnVivo";
@@ -44,29 +61,34 @@ import { BOTON_MAIZ, TONOS, type Tono } from "./_componentes/tonos";
 
 const PLANES_VALIDOS: Plan[] = ["base", "pro"];
 
-type Funcion = { Icono: LucideIcon; titulo: string; texto: ReactNode };
+/** `pro`: la función va solo en Khipu Pro (se marca con la pastilla «Khipu Pro»); sin `pro`, va en los dos planes. */
+type Funcion = { Icono: LucideIcon; titulo: string; texto: ReactNode; pro?: boolean };
 
-const GRUPOS: { id: string; tono: Tono; nombre: string; titulo: string; funciones: Funcion[]; captura: ReactNode }[] = [
+const GRUPOS: { id: string; tono: Tono; titulo: string; pro?: boolean; funciones: Funcion[]; captura: ReactNode }[] = [
   {
     id: "dia-a-dia",
     tono: "turquesa",
-    nombre: "Día a día",
     titulo: "La asistencia llega a la casa en el momento",
     funciones: [
       {
-        Icono: ClipboardCheck,
-        titulo: "Asistencia con aviso al momento",
-        texto: "El profesor marca Llegó, Tarde, No llegó o Aviso y la familia recibe el aviso por correo y como notificación en el celular.",
-      },
-      {
         Icono: ScanLine,
-        titulo: "Portería con carnet QR",
-        texto: "En la puerta se escanea el carnet de cada alumno y la llegada queda registrada. Los carnets se imprimen por salón, en A4 o tamaño tarjeta.",
+        titulo: "Asistencia al colegio con portería QR",
+        texto: "En la puerta se escanea el carnet de cada alumno y la familia recibe el aviso por correo y como notificación en el celular. Si alguien olvidó el carnet, la lista del tutor sirve de respaldo.",
       },
       {
-        Icono: FileText,
-        titulo: "Justificaciones en 15 días hábiles",
-        texto: "La familia justifica una falta desde el correo o desde Khipu, dentro del plazo del reglamento (15 días hábiles por defecto), y la tutora la revisa.",
+        Icono: ClipboardCheck,
+        titulo: "Asistencia por curso, si la necesita",
+        texto: "Dirección la activa por nivel. Si un alumno entró al colegio pero faltó o llegó tarde a una clase, la familia recibe el aviso; lo demás queda registrado sin llenar su correo.",
+      },
+      {
+        Icono: Inbox,
+        titulo: "Justificaciones con bandeja «Por revisar»",
+        texto: "La familia justifica una falta desde el correo o desde Khipu, dentro del plazo del reglamento. El tutor las revisa en su bandeja y encuentra todo en el historial, con filtros.",
+      },
+      {
+        Icono: ChartColumn,
+        titulo: "Reportes de asistencia en Excel y PDF",
+        texto: "Por alumno, por salón o de todo el colegio, en tabla o en calendario, para el rango de fechas que elija.",
       },
       {
         Icono: WifiOff,
@@ -84,7 +106,6 @@ const GRUPOS: { id: string; tono: Tono; nombre: string; titulo: string; funcione
   {
     id: "comunicacion",
     tono: "cochinilla",
-    nombre: "Comunicación",
     titulo: "Familia y colegio conversan sin grupos ni teléfonos",
     funciones: [
       {
@@ -97,6 +118,17 @@ const GRUPOS: { id: string; tono: Tono; nombre: string; titulo: string; funcione
         titulo: "Comunicados con adjuntos",
         texto: "Dirección y profesores publican anuncios para todo el colegio o para un salón, con archivos adjuntos. Las familias reciben el aviso.",
       },
+      {
+        Icono: BellRing,
+        titulo: "Avisos por correo y en el celular",
+        texto: "Cada familia elige si recibe los avisos por correo, como notificación en el celular o de las dos formas. Dirección ve si cada aviso llegó.",
+      },
+      {
+        Icono: CalendarCheck,
+        titulo: "Reuniones con confirmación y acta",
+        texto: "Convoque reuniones de aula, del colegio o con una familia: las familias confirman, usted marca quién asistió y publica el acta.",
+        pro: true,
+      },
     ],
     captura: (
       <div className="mx-auto w-[62%] max-w-[300px]">
@@ -107,13 +139,13 @@ const GRUPOS: { id: string; tono: Tono; nombre: string; titulo: string; funcione
   {
     id: "academico",
     tono: "cielo",
-    nombre: "Académico",
     titulo: "Notas, libreta y tareas en el mismo lugar",
+    pro: true,
     funciones: [
       {
         Icono: GraduationCap,
-        titulo: "Notas por competencias",
-        texto: "Escala del MINEDU literal (AD, A, B, C) o vigesimal (0 a 20), según el colegio. Cada curso cierra sus notas y dirección puede reabrirlas.",
+        titulo: "Notas por competencias del CNEB",
+        texto: "Competencias, capacidades y desempeños por grado, con escala literal (AD, A, B, C) o vigesimal (0 a 20). Cada curso cierra sus notas y dirección puede reabrirlas.",
       },
       {
         Icono: BookOpen,
@@ -125,19 +157,34 @@ const GRUPOS: { id: string; tono: Tono; nombre: string; titulo: string; funcione
         titulo: "Tareas y agenda",
         texto: "Tareas por curso con fecha de entrega y adjuntos; exámenes, reuniones y eventos del colegio ordenados por fecha.",
       },
+      {
+        Icono: FolderOpen,
+        titulo: "Documentos del colegio",
+        texto: "Reglamento, calendario y documentos oficiales en carpetas, con permisos por rol y por salón.",
+      },
     ],
     captura: <Ventana captura={CAPTURAS.notas} />,
   },
   {
     id: "colegio",
     tono: "maiz",
-    nombre: "Gestión del colegio",
     titulo: "Dirección tiene todo a la vista",
     funciones: [
       {
         Icono: Users,
-        titulo: "Panel de dirección y CRM",
-        texto: "Profesores, personal, grados y salones, alumnos, familias y carnets. Carga a su gente con un archivo CSV y vea si los avisos llegan.",
+        titulo: "Panel de dirección",
+        texto: "Profesores, personal, grados y salones, alumnos, familias y carnets. Cargue a su gente con un archivo CSV.",
+      },
+      {
+        Icono: CalendarClock,
+        titulo: "Horario semanal por salón",
+        texto: "Arme las horas del día por nivel y los cursos de cada salón. Profesores, alumnos y familias ven «Mi horario».",
+      },
+      {
+        Icono: Presentation,
+        titulo: "Tablero de dirección",
+        texto: "Indicadores de asistencia, notas, tareas y avisos del colegio, y el consolidado de notas por salón en Excel y PDF.",
+        pro: true,
       },
       {
         Icono: Smartphone,
@@ -193,35 +240,65 @@ const PREGUNTAS: { Icono: LucideIcon; tono: Tono; p: string; r: string }[] = [
     r: "No. Khipu Escolar funciona en el navegador del celular o de la computadora. Si lo prefieren, se instala como app desde la página «Instalar la app», sin pasar por tiendas.",
   },
   {
-    Icono: Clock,
+    Icono: Layers,
+    tono: "maiz",
+    p: "¿Puedo contratar solo algunos módulos?",
+    r: "No. Hay dos planes y se contratan completos: Khipu Base (asistencia, avisos, mensajes, comunicados, horario y gestión) y Khipu Pro (todo Khipu Base más notas, libreta, tareas, agenda, documentos, reuniones y el tablero de dirección).",
+  },
+  {
+    Icono: BellRing,
     tono: "cochinilla",
+    p: "¿Los avisos llegan por WhatsApp?",
+    r: "No. Los avisos llegan por correo y como notificación en el celular o la computadora, y cada familia elige cómo recibirlos. Así no dependen de números de teléfono ni de grupos.",
+  },
+  {
+    Icono: Clock,
+    tono: "cielo",
     p: "¿Cuánto tarda empezar?",
     r: "Lo que tome cargar a su gente. Nosotros creamos el colegio y la cuenta de dirección; ustedes cargan profesores y alumnos con un archivo CSV o uno por uno, y las familias reciben su invitación por correo. En la demo coordinamos las fechas.",
   },
   {
     Icono: Smartphone,
-    tono: "maiz",
+    tono: "turquesa",
     p: "¿Funciona en celulares baratos?",
     r: "Sí, está pensado primero para el celular: botones grandes, pantallas livianas y textos claros. Basta un navegador actualizado, como Chrome o Safari.",
   },
   {
     Icono: WifiOff,
-    tono: "cielo",
+    tono: "maiz",
     p: "¿Qué pasa si no hay internet?",
     r: "Pasar lista y la portería siguen funcionando: los registros se guardan en el dispositivo y se envían solos cuando vuelve la conexión, con la hora en que se hicieron.",
   },
   {
     Icono: ShieldCheck,
-    tono: "turquesa",
+    tono: "cochinilla",
     p: "¿Cómo se manejan los datos de los alumnos?",
     r: "Según la Ley 29733: cada colegio tiene sus datos separados, se piden solo los necesarios, las familias dan su consentimiento y cada persona ve solo lo que le corresponde. El equipo de Khipu no lee chats ni notas.",
   },
   {
     Icono: MonitorPlay,
-    tono: "cochinilla",
+    tono: "cielo",
     p: "¿Puedo probarlo?",
-    r: "Sí. Solicite una demo con el formulario de abajo: le mostramos Khipu Escolar con un colegio de ejemplo y conversamos sobre el programa piloto 2026.",
+    r: "Sí. Solicite una demo con el formulario de abajo: le mostramos Khipu Escolar con un colegio de ejemplo y puede probarlo gratis una semana con Khipu Pro. Los colegios del programa piloto empiezan con un mes de marcha blanca sin costo.",
   },
+];
+
+/** Nudito+ (specs/28–29): en piloto. Solo lo que hace hoy el tutor; sin nombrar al proveedor de IA. */
+const NUDITO_PLUS: { Icono: LucideIcon; titulo: string; texto: string }[] = [
+  { Icono: Compass, titulo: "Guía, no da respuestas", texto: "Acompaña paso a paso con preguntas. Si le piden la tarea resuelta, ayuda a pensarla." },
+  { Icono: GraduationCap, titulo: "Sigue el CNEB de su grado", texto: "Conoce los cursos, las competencias y los desempeños del grado del alumno." },
+  { Icono: Link2, titulo: "Materiales de sitios permitidos", texto: "Solo recomienda enlaces de una lista de sitios educativos aprobados." },
+  { Icono: Eye, titulo: "La familia ve reportes, no conversaciones", texto: "Recibe resúmenes y alertas. Las conversaciones del alumno son privadas: tampoco las leen el colegio ni el equipo Khipu." },
+];
+
+/** Seguridad y privacidad: solo garantías que el código cumple hoy (specs/01, 15 y 16). */
+const GARANTIAS: { Icono: LucideIcon; titulo: string; texto: string }[] = [
+  { Icono: Building2, titulo: "Cada colegio, sus datos", texto: "Los datos de cada colegio están separados de los demás y cada persona ve solo lo suyo: la familia, a sus hijos; el profesor, sus salones." },
+  { Icono: Database, titulo: "Base de datos cerrada", texto: "La seguridad por fila (RLS) de la base de datos está cerrada: nadie entra a los datos por fuera de Khipu Escolar." },
+  { Icono: ScrollText, titulo: "Auditoría", texto: "Queda registrado quién vio o cambió datos de alumnos. Dirección consulta el registro cuando lo necesite." },
+  { Icono: FileCheck, titulo: "Consentimiento de las familias", texto: "Cada familia acepta el uso de sus datos según la Ley 29733 y puede retirar su consentimiento desde su perfil." },
+  { Icono: LifeBuoy, titulo: "Modo soporte transparente", texto: "Si el equipo Khipu entra para ayudar, lo hace solo para leer, con motivo y hora de vencimiento, sin ver chats ni notas, y queda en la auditoría del colegio." },
+  { Icono: Download, titulo: "Sus datos son suyos", texto: "Dirección puede descargar todos los datos del colegio en un archivo cuando lo necesite." },
 ];
 
 // Clases literales (Tailwind no ve las armadas): borde del tono en la pregunta abierta.
@@ -259,6 +336,93 @@ function Icono({ Icono: I, tono = "indigo" }: { Icono: LucideIcon; tono?: Tono }
   return (
     <span className={cn("flex size-11 shrink-0 items-center justify-center rounded-md", TONOS[tono].solido)}>
       <I className="size-5" strokeWidth={2} aria-hidden />
+    </span>
+  );
+}
+
+/** Marca de las funciones que van solo en Khipu Pro (texto, no solo color). */
+function PastillaPro() {
+  return <span className="inline-flex w-fit items-center rounded-pildora bg-indigo px-2.5 py-0.5 text-etiqueta font-semibold text-white">Khipu Pro</span>;
+}
+
+/**
+ * Tabla «Base vs Pro» armada con los mismos datos del catálogo que las tarjetas (specs/25), más las filas comunes a
+ * todos los planes y Nudito+. Estado con ícono + palabra (Incluido / No incluido), nunca solo color.
+ */
+function ComparacionPlanes({ planes }: { planes: PlanPublico[] }) {
+  if (planes.length < 2) return null;
+  const vistos = new Set<string>();
+  const filas: { clave: string; nombre: string; en: (p: PlanPublico) => ReactNode }[] = [];
+  for (const p of planes)
+    for (const m of p.modulos)
+      if (!vistos.has(m.clave)) {
+        vistos.add(m.clave);
+        filas.push({ clave: m.clave, nombre: m.nombre, en: (x) => <Celda si={x.modulos.some((y) => y.clave === m.clave)} /> });
+      }
+  filas.push(
+    { clave: "soporte", nombre: "Mesa de ayuda, app instalable y trabajo sin conexión", en: () => <Celda si /> },
+    {
+      clave: "nudito-plus",
+      nombre: "Nudito+ (lo contrata cada familia, en piloto)",
+      en: (x) => (x.plan === "pro" ? <span className="text-cuerpo-sm font-medium">Opcional</span> : <Celda si={false} />),
+    },
+  );
+  return (
+    <div className="mx-auto mt-12 max-w-4xl">
+      <h3 className="font-heading text-titulo-2">Compare los planes</h3>
+      <div className="mt-4 overflow-x-auto rounded-lg border border-arena bg-superficie">
+        <table className="w-full border-collapse text-left text-cuerpo-sm" data-testid="comparacion-planes">
+          <caption className="sr-only">Funciones incluidas en cada plan</caption>
+          <thead>
+            <tr className="border-b border-arena bg-superficie-2">
+              <th scope="col" className="p-3 font-semibold sm:px-5">
+                Función
+              </th>
+              {planes.map((p) => (
+                <th key={p.plan} scope="col" className="w-24 p-3 text-center font-heading font-semibold sm:w-36 sm:px-5">
+                  {p.nombre}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {filas.map((f) => (
+              <tr key={f.clave} className="border-b border-arena last:border-b-0">
+                <th scope="row" className="p-3 font-normal text-pretty sm:px-5">
+                  {f.nombre}
+                </th>
+                {planes.map((p) => (
+                  <td key={p.plan} className="p-3 text-center sm:px-5">
+                    {f.en(p)}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function Celda({ si }: { si?: boolean }) {
+  return si ? (
+    <span className="inline-flex items-center gap-1.5 font-medium">
+      <span className="flex size-5 items-center justify-center rounded-full bg-turquesa text-white">
+        <Check className="size-3.5" strokeWidth={3} aria-hidden />
+      </span>
+      <span className="sr-only sm:not-sr-only">Incluido</span>
+      <span className="sm:hidden" aria-hidden>
+        Sí
+      </span>
+    </span>
+  ) : (
+    <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+      <Minus className="size-4" strokeWidth={2} aria-hidden />
+      <span className="sr-only sm:not-sr-only">No incluido</span>
+      <span className="sm:hidden" aria-hidden>
+        No
+      </span>
     </span>
   );
 }
@@ -343,21 +507,27 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
         <Encabezado
           id="titulo-funciones"
           titulo="Todo lo que el colegio necesita para comunicarse, en un solo lugar"
-          texto="Las capturas son del producto real, en un colegio de ejemplo con datos ficticios."
+          texto="Lo marcado con «Khipu Pro» va en ese plan; todo lo demás está en los dos. Las capturas son del producto real, en un colegio de ejemplo con datos ficticios."
         />
         <div className="mt-14 flex flex-col gap-20 lg:gap-28">
           {GRUPOS.map((g, i) => (
             <article key={g.id} id={g.id} aria-labelledby={`grupo-${g.id}`} className="grid scroll-mt-24 items-center gap-10 lg:grid-cols-2 lg:gap-14">
               <div className={cn("flex flex-col gap-6", i % 2 === 1 && "lg:order-2")}>
-                <h3 id={`grupo-${g.id}`} className="font-heading text-titulo-1 text-balance">
-                  {g.titulo}
-                </h3>
+                <div className="flex flex-col items-start gap-3">
+                  {g.pro && <PastillaPro />}
+                  <h3 id={`grupo-${g.id}`} className="font-heading text-titulo-1 text-balance">
+                    {g.titulo}
+                  </h3>
+                </div>
                 <ul className="flex flex-col gap-5">
                   {g.funciones.map((f) => (
                     <li key={f.titulo} className="flex items-start gap-4">
                       <Icono Icono={f.Icono} tono={g.tono} />
                       <div className="flex flex-col gap-1">
-                        <h4 className="text-cuerpo font-semibold">{f.titulo}</h4>
+                        <h4 className="flex flex-wrap items-center gap-x-2 gap-y-1 text-cuerpo font-semibold">
+                          {f.titulo}
+                          {f.pro && !g.pro && <PastillaPro />}
+                        </h4>
                         <p className="text-cuerpo-sm text-pretty text-muted-foreground">{f.texto}</p>
                       </div>
                     </li>
@@ -367,24 +537,6 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
               <div className={cn("rounded-lg p-5 sm:p-10", TONOS[g.tono].suave, i % 2 === 1 && "lg:order-1")}>{g.captura}</div>
             </article>
           ))}
-        </div>
-      </Seccion>
-
-      {/* ───────── Nudito+ (cochinilla): complemento opcional, aún no disponible ───────── */}
-      <Seccion id="nudito" etiqueta="titulo-nudito">
-        <div className="flex flex-col items-start gap-6 rounded-lg bg-cochinilla p-6 text-white sm:flex-row sm:items-center sm:p-10">
-          <span className="flex size-24 shrink-0 items-center justify-center rounded-full bg-white">
-            <img src="/marca/nudito.svg" alt="Nudito, el personaje de Khipu Escolar: un nudo de cuerda que sonríe" width={72} height={72} loading="lazy" className="size-18" />
-          </span>
-          <div className="flex flex-col gap-3">
-            <p className="w-fit rounded-pildora bg-maiz px-3 py-1 text-etiqueta text-sobre-maiz">Próximamente</p>
-            <h2 id="titulo-nudito" className="font-heading text-titulo-1 text-balance sm:text-[40px] sm:leading-[46px]">
-              Nudito+
-            </h2>
-            <p className="max-w-prose text-cuerpo text-white/90 sm:text-lg">
-              Un tutor con inteligencia artificial que estamos preparando para los alumnos de colegios con Khipu Pro. Lo activa cada familia por alumno, pagando por adelantado con Yape; el colegio no paga nada. No está incluido en ningún plan.
-            </p>
-          </div>
         </div>
       </Seccion>
 
@@ -410,8 +562,8 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
         <Encabezado
           id="titulo-planes"
           centrado
-          titulo="Empiece con lo esencial y crezca cuando lo necesite"
-          texto="Todos los planes incluyen la mesa de ayuda con el equipo Khipu, la app instalable y el trabajo sin conexión."
+          titulo="Dos planes completos, sin módulos sueltos"
+          texto="Khipu Base cubre la asistencia y la comunicación con las familias; Khipu Pro suma lo académico y la mirada de dirección. Los dos incluyen la mesa de ayuda con el equipo Khipu, la app instalable y el trabajo sin conexión."
         />
         <ul className="mx-auto mt-12 grid max-w-4xl items-stretch gap-6 md:grid-cols-2" data-testid="planes-landing">
           {planes.map((p) => {
@@ -462,6 +614,70 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
               </li>
             );
           })}
+        </ul>
+        <ul className="mx-auto mt-6 grid max-w-4xl gap-3 sm:grid-cols-2">
+          {[
+            { Icono: Gift, texto: "Pruébelo gratis una semana con Khipu Pro." },
+            { Icono: School, texto: "Colegios del programa piloto: un mes de marcha blanca sin costo." },
+          ].map((o) => (
+            <li key={o.texto} className="flex items-center gap-3 rounded-lg border border-arena bg-superficie p-4 text-cuerpo-sm font-medium">
+              <o.Icono className="size-5 shrink-0 text-turquesa" strokeWidth={2} aria-hidden />
+              {o.texto}
+            </li>
+          ))}
+        </ul>
+        <ComparacionPlanes planes={planes} />
+      </Seccion>
+
+      {/* ───────── Nudito+ (cochinilla): tutor con IA por alumno, en piloto ───────── */}
+      <Seccion id="nudito" etiqueta="titulo-nudito">
+        <div className="grid gap-8 rounded-lg bg-cochinilla p-6 text-white sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:gap-12">
+          <div className="flex flex-col items-start gap-5">
+            <div className="flex items-center gap-4">
+              <span className="flex size-20 shrink-0 items-center justify-center rounded-full bg-white sm:size-24">
+                <img src="/marca/nudito.svg" alt="Nudito, el personaje de Khipu Escolar: un nudo de cuerda que sonríe" width={72} height={72} loading="lazy" className="size-14 sm:size-18" />
+              </span>
+              <p className="w-fit rounded-pildora bg-maiz px-3 py-1 text-etiqueta text-sobre-maiz">Piloto · Próximamente para su colegio</p>
+            </div>
+            <h2 id="titulo-nudito" className="font-heading text-titulo-1 text-balance sm:text-[40px] sm:leading-[46px]">
+              Nudito+, un tutor con inteligencia artificial para cada alumno
+            </h2>
+            <p className="max-w-prose text-cuerpo text-pretty text-white/90 sm:text-lg">
+              El alumno conversa con Nudito+ cuando estudia o hace sus tareas, y la familia sigue su avance sin leer lo que conversa.
+            </p>
+            <p className="max-w-prose text-cuerpo-sm text-pretty text-white/85">
+              Lo contrata cada familia por alumno, con una licencia mensual que se paga por Yape. Solo está disponible en colegios con Khipu Pro y no forma parte de los planes: el colegio no paga nada por él.
+            </p>
+          </div>
+          <ul className="grid content-center gap-3 sm:grid-cols-2">
+            {NUDITO_PLUS.map((n) => (
+              <li key={n.titulo} className="flex flex-col gap-2 rounded-lg bg-white/10 p-4">
+                <n.Icono className="size-5 text-maiz" strokeWidth={2} aria-hidden />
+                <h3 className="text-cuerpo font-semibold">{n.titulo}</h3>
+                <p className="text-cuerpo-sm text-pretty text-white/85">{n.texto}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Seccion>
+
+      {/* ───────── Seguridad y privacidad (turquesa suave): lista a dos columnas con filetes ───────── */}
+      <Seccion id="seguridad" etiqueta="titulo-seguridad" className="bg-turquesa/10">
+        <Encabezado
+          id="titulo-seguridad"
+          titulo="Los datos de sus alumnos, cuidados"
+          texto="Khipu Escolar trata los datos según la Ley 29733 de protección de datos personales. Esto es lo que hace hoy, sin letra chica."
+        />
+        <ul className="mt-10 grid gap-x-12 md:grid-cols-2">
+          {GARANTIAS.map((g) => (
+            <li key={g.titulo} className="flex items-start gap-4 border-t border-turquesa/30 py-5">
+              <Icono Icono={g.Icono} tono="turquesa" />
+              <div className="flex flex-col gap-1">
+                <h3 className="text-cuerpo font-semibold">{g.titulo}</h3>
+                <p className="text-cuerpo-sm text-pretty text-muted-foreground">{g.texto}</p>
+              </div>
+            </li>
+          ))}
         </ul>
       </Seccion>
 
