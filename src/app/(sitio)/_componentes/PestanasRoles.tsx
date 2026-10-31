@@ -14,10 +14,10 @@ const ROLES = [
     para: "Directores y promotores",
     titulo: "Todo el colegio en una pantalla",
     puntos: [
-      "Ve si los avisos de asistencia llegaron a cada familia y cuántos se abrieron.",
-      "Administra profesores, personal, grados y salones, alumnos y familias, y carga listas por CSV.",
-      "Imprime los carnets con QR por salón y publica comunicados para todo el colegio o un salón.",
-      "Cierra las notas de cada curso, publica la libreta y exporta los datos del colegio cuando lo necesite.",
+      "Ve la asistencia de todo el colegio en tabla o calendario, y la descarga en Excel o PDF.",
+      "Administra profesores, personal, salones, alumnos y familias, carga listas por CSV y arma el horario de cada salón.",
+      "Imprime los carnets con QR, publica comunicados y ve si cada aviso llegó a la familia.",
+      "Con Khipu Pro: tablero con indicadores, cierre de notas por curso, libreta publicada y reuniones con acta.",
     ],
   },
   {
@@ -30,8 +30,8 @@ const ROLES = [
     puntos: [
       "Pasa lista en menos de un minuto, también desde el celular y sin conexión.",
       "Las familias reciben el aviso solas: ya no hay que escribir uno por uno.",
-      "Conversa con las familias de sus salones sin dar su número de teléfono.",
-      "Registra notas por competencias, publica tareas y revisa justificaciones en el mismo lugar.",
+      "Revisa las justificaciones en «Por revisar» y conversa con las familias sin dar su número.",
+      "Ve «Mi horario» y, con Khipu Pro, registra notas por competencias y publica tareas.",
     ],
   },
   {
@@ -44,7 +44,8 @@ const ROLES = [
     puntos: [
       "Recibes un aviso cuando tu hijo llega, llega tarde o no llega al colegio.",
       "Justificas una falta en un minuto, desde el correo o desde Khipu.",
-      "Escribes a la tutora sin compartir tu teléfono, y ves notas, tareas y comunicados.",
+      "Escribes a la tutora sin compartir tu teléfono y ves el horario de tu hijo.",
+      "Lees los comunicados y, con Khipu Pro, ves notas, tareas y la libreta.",
     ],
   },
 ] as const;

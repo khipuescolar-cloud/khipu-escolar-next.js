@@ -53,4 +53,11 @@ describe("armarPlanesPublicos (landing)", () => {
     expect(planes[1].incluyeA).toBe("Khipu Base");
     expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["notas", "libreta", "tareas", "agenda", "tablero", "documentos", "reuniones"]);
   });
+
+  it("nombra los módulos con su nombre público: horario en Khipu Base, reuniones y tablero en Khipu Pro, sin Nudito+", () => {
+    const [base, pro] = armarPlanesPublicos(catalogoDeCodigo());
+    expect(base.modulos.map((m) => m.nombre)).toContain("Horario semanal por salón");
+    expect(pro.nuevos.map((m) => m.nombre)).toEqual(expect.arrayContaining(["Notas por competencias (CNEB)", "Tablero de dirección", "Reuniones con confirmación y acta"]));
+    expect(pro.modulos.map((m) => m.clave)).not.toContain("nudito_plus");
+  });
 });
