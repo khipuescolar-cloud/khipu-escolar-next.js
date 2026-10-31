@@ -107,10 +107,10 @@ solicitarDemoAction(previo, formData): Promise<EstadoFormularioDemo>   // ok | e
 - e2e: `tests/e2e/landing-publica.test.ts` (h1, secciones —incluidas `nudito` y `seguridad`— y planes iguales al catálogo; tabla «Compare los planes» con horario en los dos y notas solo en Pro; Nudito+ marcado «Piloto», con Yape y «la familia ve reportes, no conversaciones»; modo soporte en seguridad; ninguna mención a avisos por WhatsApp o SMS; «Quiero este plan» preselecciona y «Ingresar» lleva a `/login`; el formulario valida junto a los campos, pide consentimiento, guarda la solicitud y el campo trampa no guarda nada; los subdominios de colegio y `admin.` siguen yendo a su login/inicio; `/privacidad` marcada como borrador). Usa un `x-forwarded-for` distinto por prueba para no chocar con el límite por IP.
 
 ## Pendientes
+(Hecho el 2026-10-30: las descripciones de `planes_catalogo` se actualizaron con la migración `20261104090000_descripciones_planes`, que solo reemplaza el texto original.)
 - **Legal:** texto de `/privacidad` revisado por un abogado (y la política general de la plataforma).
 - **Producción:** detrás de un proxy que no reescriba `x-forwarded-for`, un bot podría variar la IP; en Vercel la cabecera la pone la plataforma.
 - Regenerar las capturas en horario escolar (las actuales muestran horas de madrugada, p. ej. «3:43 a. m.»).
 - Fuentes Sora/Inter en la imagen Open Graph (hoy usa la fuente por defecto de `next/og`).
 - Cuando haya precios en el catálogo, revisar el texto de las tarjetas con ventas.
-- Actualizar desde `/planes` (plataforma) las descripciones de `planes_catalogo`: la de Khipu Pro no nombra documentos, reuniones ni tablero, y la de Base no nombra el horario.
 - Capturas de las funciones nuevas (horario, reportes en calendario, tablero, reuniones) con `scripts/capturas-landing.ts`.
