@@ -2,16 +2,17 @@
 
 import { Check, CircleAlert, Clock, type LucideIcon } from "lucide-react";
 import { useSyncExternalStore } from "react";
-import { Bar, BarChart, CartesianGrid, LabelList, Rectangle, XAxis, YAxis, type BarShapeProps, type TooltipContentProps } from "recharts";
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, LabelList, Rectangle, XAxis, YAxis, type BarShapeProps, type TooltipContentProps } from "recharts";
 import { ChartContainer, ChartTooltip, type ChartConfig } from "@/components/ui/chart";
 import { agruparConteos, type ConteoDia, type ConteoGrupo, type Agrupacion } from "@/lib/grafico-asistencia";
 import { formatoDia } from "@/lib/fechas";
 import { cn } from "@/lib/utils";
 
-// Barras apiladas de asistencia (specs/27): Llegó, Tarde y No llegó con los colores de estado de la marca. «No llegó» lleva
-// además un rayado a 45°: tarde y falta casi no se distinguen con daltonismo deutan (validador del skill dataviz, ΔE 1.0),
-// así que la identidad nunca depende solo del color. Rangos largos se agrupan por semana o por mes (`agruparConteos`).
-// Leyenda con totales, tooltip con ícono + palabra + número, % solo sobre las barras con faltas y tabla sr-only.
+// Gráfico de asistencia (specs/27). Pocos días (hasta 23): barras apiladas Llegó, Tarde y No llegó con los colores de estado;
+// «No llegó» lleva además un rayado a 45° (tarde y falta casi no se distinguen con daltonismo deutan, validador del skill
+// dataviz: ΔE 1.0), % solo sobre las barras con faltas. Rangos largos (agrupados por semana o mes con `agruparConteos`):
+// una línea con puntos del % de asistencia, en el color de la marca (es una magnitud, no un estado), con el punto más bajo
+// rotulado. En ambos: leyenda con totales, tooltip con ícono + palabra + número y tabla sr-only.
 
 export type { ConteoDia } from "@/lib/grafico-asistencia";
 
@@ -60,6 +61,24 @@ function EtiquetaPorcentaje({ x, y, width, value }: { x?: number | string; y?: n
   );
 }
 
+/** % junto al punto más bajo de la línea (lo que pide atención; no un número en cada punto). */
+function EtiquetaPunto({ x, y, value }: { x?: number | string; y?: number | string; value?: unknown }) {
+  if (!value) return null;
+  return (
+    // Debajo del punto: es el más bajo, así que ahí no hay línea.
+    <text x={Number(x)} y={Number(y) + 20} textAnchor="middle" className="fill-foreground text-[11px] font-semibold tabular-nums">
+      {String(value)}
+    </text>
+  );
+}
+
+/** Piso del eje del % (múltiplo de 5, unos puntos debajo del menor): con eje desde 0 la línea se vería plana arriba. */
+function pisoPorcentaje(grupos: ConteoGrupo[]): number {
+  const valores = grupos.flatMap((g) => (g.porcentaje === null ? [] : [g.porcentaje]));
+  if (valores.length === 0) return 0;
+  return Math.max(0, Math.min(90, Math.floor((Math.min(...valores) - 5) / 5) * 5));
+}
+
 /** prefers-reduced-motion como estado de React (sin animación de barras si la persona la pidió). */
 function useMovimientoReducido(): boolean {
   return useSyncExternalStore(
@@ -103,7 +122,29 @@ export function GraficoAsistenciaDias({ datos, titulo, etiquetaFila = "Día" }: 
   const reducido = useMovimientoReducido();
   const { grupos, agrupacion } = agruparConteos(datos);
   const totales = SERIES.map((s) => ({ ...s, total: grupos.reduce((n, g) => n + g[s.clave], 0) }));
-  const nota = agrupacion === "semana" ? "Agrupado por semana." : agrupacion === "mes" ? "Agrupado por mes." : null;
+  const nota = agrupacion === "semana" ? "% de asistencia por semana." : agrupacion === "mes" ? "% de asistencia por mes." : null;
+  const linea = agrupacion !== "dia";
+  const porDesde = new Map(grupos.map((g) => [g.desde, g]));
+  // Línea: solo se rotula el punto más bajo, y solo si no es 100 %.
+  const minimo = grupos.reduce<number | null>((m, g, i) => (g.porcentaje !== null && (m === null || g.porcentaje < grupos[m].porcentaje!) ? i : m), null);
+  const datosLinea = grupos.map((g, i) => ({
+    ...g,
+    etiquetaMinimo: i === minimo && g.porcentaje !== null && g.porcentaje < 100 ? `${Math.round(g.porcentaje)} %` : undefined,
+  }));
+  const ejeX = {
+    dataKey: "desde",
+    tickLine: false,
+    axisLine: false,
+    tickMargin: 10,
+    // Por día («lun 26») cabe cada etiqueta; por semana o mes se dejan más separadas.
+    minTickGap: linea ? 18 : 2,
+    interval: "equidistantPreserveStart" as const,
+    // Por el valor (fecha), no por el índice: cuando el eje salta etiquetas (celular), el índice es el de la etiqueta y no el del dato.
+    tickFormatter: (desde: string) => {
+      const g = porDesde.get(desde);
+      return g ? etiquetaEje(g, agrupacion) : "";
+    },
+  };
   const fila = agrupacion === "dia" ? etiquetaFila : agrupacion === "semana" ? "Semana" : "Mes";
 
   return (
@@ -113,59 +154,94 @@ export function GraficoAsistenciaDias({ datos, titulo, etiquetaFila = "Día" }: 
         <ul className="flex flex-wrap gap-2" aria-hidden>
           {totales.map((s) => (
             <li key={s.clave} className="inline-flex items-center gap-2 rounded-pildora border bg-card py-1 pr-3 pl-2 text-cuerpo-sm">
-              <span className="size-3 rounded-[3px]" style={{ background: s.clave === "falta" ? MUESTRA_RAYADA : s.color }} />
+              {linea ? (
+                // En la línea no hay barras de colores: los totales llevan el ícono del estado.
+                <span className={cn("flex size-5 items-center justify-center rounded", s.clase)}>
+                  <s.Icono className="size-3.5" strokeWidth={2} aria-hidden />
+                </span>
+              ) : (
+                <span className="size-3 rounded-[3px]" style={{ background: s.clave === "falta" ? MUESTRA_RAYADA : s.color }} />
+              )}
               <span className="text-muted-foreground">{s.etiqueta}</span>
               <span className="font-semibold tabular-nums">{NUM.format(s.total)}</span>
             </li>
           ))}
         </ul>
-        {nota && <p className="text-cuerpo-sm text-muted-foreground">{nota}</p>}
+        {nota && (
+          <p className="inline-flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
+            <span className="relative h-0.5 w-5 rounded-full bg-primary" aria-hidden>
+              <span className="absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary" />
+            </span>
+            {nota}
+          </p>
+        )}
       </div>
       <ChartContainer config={config} className="aspect-auto h-64 w-full" aria-hidden>
-        <BarChart data={grupos} margin={{ left: 0, right: 4, top: 26 }} accessibilityLayer barCategoryGap={grupos.length > 15 ? "18%" : "30%"}>
-          <defs>
-            <pattern id={RAYADO} patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)">
-              <rect width="5" height="5" fill="var(--estado-falta)" />
-              <line x1="0" y1="0" x2="0" y2="5" stroke="var(--card)" strokeOpacity={0.6} strokeWidth="2" />
-            </pattern>
-          </defs>
-          <CartesianGrid vertical={false} strokeDasharray="3 4" strokeOpacity={0.6} />
-          <XAxis
-            dataKey="desde"
-            tickLine={false}
-            axisLine={false}
-            tickMargin={10}
-            // Por día («lun 26») cabe cada etiqueta; por semana o mes se dejan más separadas.
-            minTickGap={agrupacion === "dia" ? 2 : 18}
-            interval="equidistantPreserveStart"
-            tickFormatter={(_, i) => (grupos[i] ? etiquetaEje(grupos[i], agrupacion) : "")}
-          />
-          <YAxis tickLine={false} axisLine={false} width={36} allowDecimals={false} tickMargin={4} />
-          <ChartTooltip cursor={{ fill: "var(--muted)", fillOpacity: 0.6, radius: 6 }} content={<Tooltip agrupacion={agrupacion} />} />
-          {SERIES.map((s, i) => (
-            <Bar
-              key={s.clave}
-              dataKey={s.clave}
-              stackId="asistencia"
-              fill={s.clave === "falta" ? `url(#${RAYADO})` : s.color}
-              // 2 px del color de la tarjeta entre segmentos; esquinas redondeadas solo en el segmento de arriba de cada pila.
-              stroke="var(--card)"
+        {linea ? (
+          <AreaChart data={datosLinea} margin={{ left: 0, right: 16, top: 12, bottom: 4 }} accessibilityLayer>
+            <defs>
+              <linearGradient id="relleno-asistencia" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="var(--primary)" stopOpacity={0.22} />
+                <stop offset="100%" stopColor="var(--primary)" stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid vertical={false} strokeDasharray="3 4" strokeOpacity={0.6} />
+            <XAxis {...ejeX} padding={{ left: 12, right: 12 }} />
+            <YAxis tickLine={false} axisLine={false} width={52} tickMargin={4} domain={[pisoPorcentaje(grupos), 100]} allowDecimals={false} tickFormatter={(v: number) => `${v} %`} />
+            <ChartTooltip cursor={{ stroke: "var(--border)", strokeWidth: 1.5 }} content={<Tooltip agrupacion={agrupacion} />} />
+            <Area
+              type="monotone"
+              dataKey="porcentaje"
+              stroke="var(--primary)"
               strokeWidth={2}
-              shape={(props: BarShapeProps) => (
-                <Rectangle {...props} radius={segmentoSuperior(props.payload as ConteoGrupo) === s.clave ? [6, 6, 0, 0] : 0} />
-              )}
-              maxBarSize={48}
+              fill="url(#relleno-asistencia)"
+              connectNulls
+              dot={{ r: 4, fill: "var(--primary)", stroke: "var(--card)", strokeWidth: 2 }}
+              activeDot={{ r: 6, fill: "var(--primary)", stroke: "var(--card)", strokeWidth: 2 }}
               isAnimationActive={!reducido}
-              animationDuration={500}
+              animationDuration={600}
               animationEasing="ease-out"
             >
-              {/* % solo sobre las barras con faltas: lo que pide atención (etiquetas selectivas, no un número en cada barra). */}
-              {i === SERIES.length - 1 && grupos.length <= 23 && (
-                <LabelList dataKey="etiquetaFalta" content={EtiquetaPorcentaje} />
-              )}
-            </Bar>
-          ))}
-        </BarChart>
+              <LabelList dataKey="etiquetaMinimo" content={EtiquetaPunto} />
+            </Area>
+          </AreaChart>
+        ) : (
+          <BarChart data={grupos} margin={{ left: 0, right: 4, top: 26 }} accessibilityLayer barCategoryGap={grupos.length > 15 ? "18%" : "30%"}>
+            <defs>
+              <pattern id={RAYADO} patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)">
+                <rect width="5" height="5" fill="var(--estado-falta)" />
+                <line x1="0" y1="0" x2="0" y2="5" stroke="var(--card)" strokeOpacity={0.6} strokeWidth="2" />
+              </pattern>
+            </defs>
+            <CartesianGrid vertical={false} strokeDasharray="3 4" strokeOpacity={0.6} />
+            <XAxis {...ejeX} />
+            <YAxis tickLine={false} axisLine={false} width={36} allowDecimals={false} tickMargin={4} />
+            <ChartTooltip cursor={{ fill: "var(--muted)", fillOpacity: 0.6, radius: 6 }} content={<Tooltip agrupacion={agrupacion} />} />
+            {SERIES.map((s, i) => (
+              <Bar
+                key={s.clave}
+                dataKey={s.clave}
+                stackId="asistencia"
+                fill={s.clave === "falta" ? `url(#${RAYADO})` : s.color}
+                // 2 px del color de la tarjeta entre segmentos; esquinas redondeadas solo en el segmento de arriba de cada pila.
+                stroke="var(--card)"
+                strokeWidth={2}
+                shape={(props: BarShapeProps) => (
+                  <Rectangle {...props} radius={segmentoSuperior(props.payload as ConteoGrupo) === s.clave ? [6, 6, 0, 0] : 0} />
+                )}
+                maxBarSize={48}
+                isAnimationActive={!reducido}
+                animationDuration={500}
+                animationEasing="ease-out"
+              >
+                {/* % solo sobre las barras con faltas: lo que pide atención (etiquetas selectivas, no un número en cada barra). */}
+                {i === SERIES.length - 1 && (
+                  <LabelList dataKey="etiquetaFalta" content={EtiquetaPorcentaje} />
+                )}
+              </Bar>
+            ))}
+          </BarChart>
+        )}
       </ChartContainer>
       <table className="sr-only">
         <caption>{titulo}{nota ? ` (${nota.toLowerCase()})` : ""}</caption>
