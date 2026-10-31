@@ -72,6 +72,7 @@ async function main() {
   // Nudito+: primero el tutor (conversaciones de Lucas), luego licencias, sitios y configuración (specs/28–29).
   await paso("Nudito+ (tutor)", () => sembrarNuditoPlusTutor(prisma, {}));
   await paso("Nudito+ (licencias)", () => sembrarNuditoPlus(prisma, { superadminId }));
+  await paso("horario", async () => (await import("./seed-horario")).sembrarHorario(prisma)); // Horario semanal por salón (specs/34), al final: usa los salones y cursos ya creados.
 
   console.log(`Seed listo en ${((Date.now() - t0) / 1000).toFixed(1)} s. Contraseña de todas las cuentas: demo123`);
   console.log("  direccion@nuevohorizonte.demo · lucia.garcia@nuevohorizonte.demo · rosa.quispe@gmail.com · admin@khipuescolar.demo");

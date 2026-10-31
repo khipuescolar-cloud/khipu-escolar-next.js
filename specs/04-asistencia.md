@@ -68,7 +68,7 @@ hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 ```
 
 ## Rutas y UI
-- `/asistencia` (profesor): elegir lista; con `?salon&ambito`, pasar lista (`ListaAsistencia.tsx`, cliente). Dirección: sin parámetros → redirige a `/asistencia/reportes`; con `?salon&ambito&fecha` → modo «corregir». Lista de curso de un nivel apagado → estado vacío «No se puede abrir esta lista» con el mensaje.
+- `/asistencia` (profesor): elegir lista (con el módulo Horario, specs/34: las listas de curso de hoy en orden de hora con «Hoy 08:00–08:45» y la insignia «Ahora» en la que está en clase; salones ordenados por su primera clase de hoy); con `?salon&ambito`, pasar lista (`ListaAsistencia.tsx`, cliente). Dirección: sin parámetros → redirige a `/asistencia/reportes`; con `?salon&ambito&fecha` → modo «corregir». Lista de curso de un nivel apagado → estado vacío «No se puede abrir esta lista» con el mensaje.
 - `/configuracion` (dirección): tarjeta «Asistencia por curso» con una casilla por nivel (y cuántos salones tiene) → `guardarAsistenciaPorCursoAction`.
 - `/asistencia` (apoderado): calendario mensual + lista del mes (`?mes=AAAA-MM`, «Mes anterior» / «Mes siguiente»; no pasa del mes actual ni retrocede más de 24 meses) + preferencias de aviso (`#avisos`).
 - `/asistencia/justificar/[asistenciaId]` (apoderado): formulario de justificación con sesión.

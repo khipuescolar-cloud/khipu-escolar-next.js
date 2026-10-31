@@ -31,6 +31,7 @@ los nombres y datos salen iguales en cada corrida.
 | Documentos | `seed-documentos.ts` | Carpetas y 7 PDF (specs/31). |
 | Reuniones | `seed-reuniones.ts` | Pasada con acta, próximas con respuestas mixtas (Rosa sin responder), individual y asamblea (specs/32). |
 | Nudito+ | `seed-nudito-plus-tutor.ts`, `seed-nudito-plus.ts` | Lucas (5.° A, cortesía, conversaciones), Mateo (pago verificado, alerta y resumen), Valentina (prueba que vence en 2 días), pago Yape pendiente de la familia de Gael (5.° A); configuración y lista blanca (specs/28–29). |
+| Horario | `seed-horario.ts` | Horas sugeridas por nivel y el horario semanal de cada salón con sus cursos, sin cruces de profesores (specs/34). |
 
 `prisma/seed.ts` solo orquesta: borra, crea el super administrador `admin@khipuescolar.demo` y llama a los módulos en orden.
 Un módulo nuevo se agrega con **una línea al final** de `main()`.

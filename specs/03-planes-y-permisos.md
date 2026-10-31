@@ -1,11 +1,11 @@
 # 03 — Planes y permisos
 
-> Estado: implementado · Plan: todos · Última actualización: 2026-10-31 (Claude Code)
+> Estado: implementado · Plan: todos · Última actualización: 2026-10-30 (Claude Code: horario)
 
 ## Planes
 | Plan | Clave | Funciones |
 |---|---|---|
-| Khipu Base | `base` | asistencia, avisos, portería, justificaciones, mensajes, comunicados, gestión y soporte (mesa de ayuda) |
+| Khipu Base | `base` | asistencia, avisos, portería, justificaciones, mensajes, comunicados, gestión, horario (specs/34) y soporte (mesa de ayuda) |
 | Khipu Pro | `pro` | Khipu Base + notas, libreta, tareas, agenda; en construcción: `documentos` (specs/31), `reuniones` (specs/32) y `tablero` (specs/33), ya sembrados en `plan_modulos` para `pro` (migración `20261031130000_pro_completo_nudito_plus`) pero aún no en `FEATURES` |
 
 Decisión del 2026-10-30: solo hay **dos planes institucionales** y se venden completos (no se venden módulos sueltos).

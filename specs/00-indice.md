@@ -39,4 +39,5 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 31 | [Biblioteca de documentos](31-documentos.md) | Khipu Pro | implementado |
 | 32 | [Reuniones (convocatoria, confirmación y acta)](32-reuniones.md) | Khipu Pro | implementado |
 | 33 | [Tablero de dirección](33-tablero-direccion.md) | Khipu Pro | implementada |
+| 34 | [Horario semanal por salón («Mi horario», horas del día, sin cruces de profesores)](34-horario.md) | Khipu Base y Pro | implementado |
 | 35 | [Datos demo (un colegio piloto) y datos de prueba](35-datos-demo-y-pruebas.md) | Interno (desarrollo) | implementado |
