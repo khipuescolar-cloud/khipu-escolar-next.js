@@ -6,6 +6,7 @@ import { primerNombre } from "@/lib/nombres";
 import { auditar } from "../auditoria";
 import type { TenantContext } from "../tenant";
 import { destinatariosDeAlumno, encolarParaDestinatario, tieneCanalAviso, type Destinatario } from "./encolar";
+import { conEnvio } from "./envios";
 
 // Aviso «tarea nueva» a las familias del salón (specs/12). Solo si el profesor marcó «Avisar a las familias».
 // Una fila por familia y canal (consentimiento y preferencias vía destinatariosDeAlumno), `referenciaId = tareaId`.
@@ -62,15 +63,18 @@ export async function avisarTareaNueva(ctx: TenantContext, tareaId: string, entr
     fechaEntrega: fechaLima(tarea.fechaEntrega),
     url: urlColegio(ctx.tenant.slug, "/tareas"),
   };
-  for (const { destinatario, hijos } of porFamilia.values()) {
-    await encolarParaDestinatario(ctx.db, destinatario, {
-      tenantId: ctx.tenant.id,
-      tipo: "tarea",
-      plantilla: "tarea_nueva",
-      referenciaId: tarea.id,
-      payload: { ...base, alumno: unirNombres(hijos) },
-    });
-  }
+  const envio = { tenantId: ctx.tenant.id, tipo: "tarea" as const, titulo: `Tarea: ${tarea.titulo} · ${tarea.curso.nombre}`, creadoPorId: ctx.membership.id };
+  await conEnvio(ctx.db, envio, async () => {
+    for (const { destinatario, hijos } of porFamilia.values()) {
+      await encolarParaDestinatario(ctx.db, destinatario, {
+        tenantId: ctx.tenant.id,
+        tipo: "tarea",
+        plantilla: "tarea_nueva",
+        referenciaId: tarea.id,
+        payload: { ...base, alumno: unirNombres(hijos) },
+      });
+    }
+  });
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "enviar", entidad: "tarea", entidadId: tarea.id,
     detalle: { aviso: "tarea_nueva", familias: porFamilia.size },

@@ -4,12 +4,20 @@ import { fechaLima, formatoHora } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
 import type { TenantContext } from "../tenant";
 import { encolarParaDestinatario, tieneCanalAviso, type Destinatario } from "./encolar";
+import { conEnvio } from "./envios";
 
 // Avisos de reuniones (specs/32): convocatoria, recordatorio, cancelación y acta publicada.
 // Una fila por familia y canal, aunque la familia tenga varias filas de invitado (una por hijo).
 // Solo familias con consentimiento vigente y según sus preferencias (igual que el resto de avisos a familias).
 
 export type PlantillaReunion = "reunion_convocada" | "reunion_recordatorio" | "reunion_cancelada" | "reunion_acta";
+
+const QUE_REUNION: Record<PlantillaReunion, string> = {
+  reunion_convocada: "convocatoria",
+  reunion_recordatorio: "recordatorio",
+  reunion_cancelada: "cancelada",
+  reunion_acta: "acta",
+};
 
 type ReunionParaAviso = { id: string; titulo: string; inicio: Date; lugar: string | null; enlace: string | null };
 
@@ -42,6 +50,8 @@ export async function avisarReunion(
     ctx.db.alumno.findMany({ where: { id: { in: alumnoIds } }, select: { id: true, nombres: true } }),
   ]);
   const nombreAlumno = new Map(alumnos.map((a) => [a.id, primerNombre(a.nombres)]));
+  const hijosIds = (membershipId: string) =>
+    [...new Set(filas.filter((f) => f.membershipId === membershipId && f.alumnoId).map((f) => f.alumnoId!))].sort().join(",");
   const base = {
     colegio: ctx.tenant.nombre,
     titulo: reunion.titulo,
@@ -52,28 +62,33 @@ export async function avisarReunion(
     url: urlColegio(ctx.tenant.slug, `/reuniones/${reunion.id}`),
   };
   let familias = 0;
-  for (const a of apoderados) {
-    const pref = a.preferenciaAviso ?? { correo: true, push: true };
-    const destinatario: Destinatario = {
-      apoderadoId: a.id,
-      email: a.user.email,
-      correo: pref.correo,
-      pushEndpoints: pref.push ? a.user.pushSuscripciones.map((s) => s.endpoint) : [],
-    };
-    if (!tieneCanalAviso(destinatario)) continue;
-    const hijos = filas
-      .filter((f) => f.membershipId === a.id && f.alumnoId)
-      .map((f) => nombreAlumno.get(f.alumnoId!))
-      .filter((n): n is string => !!n);
-    const nombres = unirNombres([...new Set(hijos)]);
-    await encolarParaDestinatario(ctx.db, destinatario, {
-      tenantId: ctx.tenant.id,
-      tipo: "reunion",
-      plantilla,
-      referenciaId: reunion.id,
-      payload: { ...base, ...(nombres ? { alumno: nombres } : {}) },
-    });
-    familias++;
-  }
+  const titulo = `Reunión: ${reunion.titulo} (${QUE_REUNION[plantilla]})`;
+  await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "reunion", titulo, creadoPorId: ctx.membership?.id ?? null }, async () => {
+    for (const a of apoderados) {
+      const pref = a.preferenciaAviso ?? { correo: true, push: true };
+      const destinatario: Destinatario = {
+        apoderadoId: a.id,
+        email: a.user.email,
+        correo: pref.correo,
+        pushEndpoints: pref.push ? a.user.pushSuscripciones.map((s) => s.endpoint) : [],
+      };
+      if (!tieneCanalAviso(destinatario)) continue;
+      const hijos = filas
+        .filter((f) => f.membershipId === a.id && f.alumnoId)
+        .map((f) => nombreAlumno.get(f.alumnoId!))
+        .filter((n): n is string => !!n);
+      const nombres = unirNombres([...new Set(hijos)]);
+      await encolarParaDestinatario(ctx.db, destinatario, {
+        tenantId: ctx.tenant.id,
+        tipo: "reunion",
+        plantilla,
+        referenciaId: reunion.id,
+        // Una familia = sus hijos invitados: papá y mamá de Juan son una sola familia (reunión individual).
+        unidad: hijosIds(a.id) || a.id,
+        payload: { ...base, ...(nombres ? { alumno: nombres } : {}) },
+      });
+      familias++;
+    }
+  });
   return familias;
 }

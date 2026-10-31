@@ -1,6 +1,7 @@
 // Comunicación del día a día en Nuevo Horizonte: tareas (vencidas, de esta semana y próximas), agenda, comunicados
 // (todo el colegio, por nivel, por grado y por salón, con sus avisos), chats familia ↔ profesor (algunos sin leer), textos del colegio
 // y conversaciones con la mesa de ayuda de Khipu. Fechas relativas a hoy (Lima), en días hábiles.
+import { randomUUID } from "node:crypto";
 import type { Prisma, PrismaClient } from "../src/generated/prisma/client";
 import type { EstadoAviso, Nivel } from "../src/generated/prisma/enums";
 import { feriadosNacionalesConNombre } from "../src/lib/dias-habiles";
@@ -114,10 +115,17 @@ export async function sembrarComunicacion(prisma: PrismaClient) {
     for (const x of destino.flatMap((y) => y.alumnos).flatMap((a) => a.apoderados)) {
       if (x.consentimiento && !x.consentimiento.revocadoAt && x.recibeAvisos) familias.set(x.apoderadoId, x.apoderado.user.email);
     }
+    // Cada comunicado es un envío (specs/06): masivo si llegó a más de una familia.
+    const envioId = randomUUID();
+    if (familias.size > 0) {
+      await prisma.envioAviso.create({
+        data: { id: envioId, tenantId, tipo: "comunicado", titulo: `Comunicado: ${c.titulo}`, creadoPorId: c.autorId, familias: familias.size, masivo: familias.size > 1, createdAt: publicadoAt },
+      });
+    }
     for (const [apoderadoId, destinatario] of familias) {
       const estado = estadoAviso();
       avisos.push({
-        tenantId, tipo: "comunicado", canal: "correo", apoderadoId, destinatario, plantilla: "comunicado", asunto: c.titulo,
+        tenantId, tipo: "comunicado", canal: "correo", apoderadoId, destinatario, plantilla: "comunicado", asunto: c.titulo, envioId,
         payload: { colegio: NOMBRE_COLEGIO, titulo: c.titulo }, referenciaId: creado.id, estado, intentos: 1, programadoPara: publicadoAt, createdAt: publicadoAt,
         enviadoAt: new Date(publicadoAt.getTime() + 60_000), entregadoAt: estado === "entregado" || estado === "abierto" ? new Date(publicadoAt.getTime() + 90_000) : null,
         abiertoAt: estado === "abierto" ? new Date(publicadoAt.getTime() + azar.entero(10, 600) * 60_000) : null,

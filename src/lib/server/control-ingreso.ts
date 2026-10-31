@@ -2,13 +2,14 @@ import "server-only";
 import type { Tenant } from "@/generated/prisma/client";
 import { faseControlIngreso, saludoFamilia } from "@/lib/control-ingreso";
 import { esDiaHabil } from "@/lib/dias-habiles";
-import { fechaDb, momentoEnZona } from "@/lib/fechas";
+import { fechaDb, hora12, momentoEnZona } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
 import { AMBITO_DIA } from "./asistencia";
 import { auditarVarios } from "./auditoria";
 import { db, dbTenant, type DbTenant } from "./db";
 import { modulosDelColegio } from "./modulos";
 import { destinatariosPorAlumno, encolarAvisosAsistencia, encolarParaDestinatario, tieneCanalAviso } from "./notificaciones/encolar";
+import { conEnvio } from "./notificaciones/envios";
 import { feriadosAplicables } from "./plataforma-configuracion";
 import { whereSalonActivo } from "./salones-activos";
 
@@ -96,22 +97,26 @@ async function alumnosSinIngreso(tdb: DbTenant, fecha: Date) {
 async function avisarNoLlega(tdb: DbTenant, tenant: TenantControl, alumnos: { id: string; nombres: string }[], hora: string): Promise<number> {
   const destinatarios = await destinatariosPorAlumno(tdb, alumnos.map((a) => a.id));
   let familias = 0;
-  for (const a of alumnos) {
-    for (const d of destinatarios.get(a.id) ?? []) {
-      if (!tieneCanalAviso(d)) continue;
-      const filas = await encolarParaDestinatario(tdb, d, {
-        tenantId: tenant.id,
-        tipo: "asistencia",
-        plantilla: "asistencia_no_llega",
-        referenciaId: a.id,
-        payload: {
-          colegio: tenant.nombre, saludo: saludoFamilia(d.nombre, hora), alumno: primerNombre(a.nombres),
-          horaTardanza: tenant.horaLimiteTardanza, horaFalta: tenant.horaLimiteFalta,
-        },
-      });
-      if (filas > 0) familias++;
+  const envio = { tenantId: tenant.id, tipo: "asistencia" as const, titulo: `Aún no llega (${hora12(tenant.horaLimiteTardanza)})` };
+  await conEnvio(tdb, envio, async () => {
+    for (const a of alumnos) {
+      for (const d of destinatarios.get(a.id) ?? []) {
+        if (!tieneCanalAviso(d)) continue;
+        const filas = await encolarParaDestinatario(tdb, d, {
+          tenantId: tenant.id,
+          tipo: "asistencia",
+          plantilla: "asistencia_no_llega",
+          referenciaId: a.id,
+          unidad: a.id,
+          payload: {
+            colegio: tenant.nombre, saludo: saludoFamilia(d.nombre, hora), alumno: primerNombre(a.nombres),
+            horaTardanza: tenant.horaLimiteTardanza, horaFalta: tenant.horaLimiteFalta,
+          },
+        });
+        if (filas > 0) familias++;
+      }
     }
-  }
+  });
   return familias;
 }
 
@@ -136,16 +141,19 @@ async function ponerFaltas(tdb: DbTenant, tenant: TenantControl, alumnos: { id: 
   })));
   const nombres = new Map(alumnos.map((a) => [a.id, primerNombre(a.nombres)]));
   const destinatarios = await destinatariosPorAlumno(tdb, creadas.map((c) => c.alumnoId));
-  for (const asistencia of creadas) {
-    await encolarAvisosAsistencia(tdb, {
-      tenant,
-      asistencia,
-      alumnoNombre: nombres.get(asistencia.alumnoId)!,
-      momento: "hoy",
-      horaLimiteFalta: tenant.horaLimiteFalta,
-      horaAhora: hora,
-      destinatarios: destinatarios.get(asistencia.alumnoId) ?? [],
-    });
-  }
+  const envio = { tenantId: tenant.id, tipo: "asistencia" as const, titulo: `Faltas del día (${hora12(tenant.horaLimiteFalta)})` };
+  await conEnvio(tdb, envio, async () => {
+    for (const asistencia of creadas) {
+      await encolarAvisosAsistencia(tdb, {
+        tenant,
+        asistencia,
+        alumnoNombre: nombres.get(asistencia.alumnoId)!,
+        momento: "hoy",
+        horaLimiteFalta: tenant.horaLimiteFalta,
+        horaAhora: hora,
+        destinatarios: destinatarios.get(asistencia.alumnoId) ?? [],
+      });
+    }
+  });
   return creadas.length;
 }

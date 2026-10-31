@@ -14,6 +14,7 @@ import { auditar } from "./auditoria";
 import { guardarDesempenosEvaluacion, validarDesempenosEvaluacion } from "./cneb";
 import { cursosDelDocente } from "./cursos";
 import { destinatariosDeAlumno, encolarParaDestinatario, tieneCanalAviso, type Destinatario } from "./notificaciones/encolar";
+import { conEnvio } from "./notificaciones/envios";
 import { requireFeature } from "./plan";
 import { alumnoIdsVisibles, requireAlumnoVisible, requireCursoDelProfesor, requireRol, type TenantContext } from "./tenant";
 
@@ -206,15 +207,18 @@ export async function publicarLibreta(ctx: TenantContext, periodoId: string, opc
       porFamilia.set(d.apoderadoId, actual);
     }
   }
-  for (const { destinatario, hijos } of porFamilia.values()) {
-    await encolarParaDestinatario(ctx.db, destinatario, {
-      tenantId: ctx.tenant.id,
-      tipo: "libreta",
-      plantilla: "libreta_publicada",
-      referenciaId: periodoId,
-      payload: { colegio: ctx.tenant.nombre, alumno: unirNombres(hijos), periodo: `${periodo.nombre} ${periodo.anio}`, url: urlColegio(ctx.tenant.slug, "/libreta") },
-    });
-  }
+  const tituloEnvio = `Libreta: ${periodo.nombre} ${periodo.anio}`;
+  await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "libreta", titulo: tituloEnvio, creadoPorId: ctx.membership.id }, async () => {
+    for (const { destinatario, hijos } of porFamilia.values()) {
+      await encolarParaDestinatario(ctx.db, destinatario, {
+        tenantId: ctx.tenant.id,
+        tipo: "libreta",
+        plantilla: "libreta_publicada",
+        referenciaId: periodoId,
+        payload: { colegio: ctx.tenant.nombre, alumno: unirNombres(hijos), periodo: `${periodo.nombre} ${periodo.anio}`, url: urlColegio(ctx.tenant.slug, "/libreta") },
+      });
+    }
+  });
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "enviar", entidad: "libreta_publicada", entidadId: periodoId,
     detalle: { familias: porFamilia.size, reenvio: Boolean(opciones.reenviar && estado.publicadaAt) },

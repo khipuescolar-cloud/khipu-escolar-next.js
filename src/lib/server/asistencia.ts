@@ -15,6 +15,7 @@ import { ErrorDeNegocio } from "./contexto-accion";
 import {
   destinatariosPorAlumno, encolarAvisosAsistencia, familiasConAvisoPorAlumno, type AsistenciaParaAviso, type Destinatario,
 } from "./notificaciones/encolar";
+import { conEnvio } from "./notificaciones/envios";
 import { requireFeature } from "./plan";
 import { whereSalonActivo } from "./salones-activos";
 import { esVistaFamilia } from "@/lib/roles";
@@ -279,19 +280,23 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
           select: { alumnoId: true, estado: true, hora: true },
         })).map((i) => [i.alumnoId, i]),
   );
-  for (const { asistencia, anterior } of porAvisar) {
-    const ingreso = ingresos.get(asistencia.alumnoId) ?? null;
-    if (!seAvisaCambio({ esCurso: !!curso, estado: asistencia.estado, anterior, ingreso })) continue;
-    familiasAvisadas += await encolarAvisosAsistencia(ctx.db, {
-      tenant: ctx.tenant,
-      asistencia,
-      alumnoNombre: nombres.get(asistencia.alumnoId)!,
-      momento: curso ? `a ${curso.nombre}` : "a la 1.ª hora",
-      ...(curso ? { curso: curso.nombre, ...(ingreso && ingresoAlColegio(ingreso) ? { ingreso: ingreso.hora } : {}) } : {}),
-      urlMensajes: urlColegio(ctx.tenant.slug, "/mensajes"),
-      destinatarios: destinatarios.get(asistencia.alumnoId) ?? [],
-    });
-  }
+  // Cerrar la lista es un envío (specs/06): masivo si avisa a más de una familia.
+  const titulo = curso ? `${curso.nombre} · ${salon.nombre}` : `Lista del día · ${salon.nombre}`;
+  await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "asistencia", titulo, creadoPorId: ctx.membership.id }, async () => {
+    for (const { asistencia, anterior } of porAvisar) {
+      const ingreso = ingresos.get(asistencia.alumnoId) ?? null;
+      if (!seAvisaCambio({ esCurso: !!curso, estado: asistencia.estado, anterior, ingreso })) continue;
+      familiasAvisadas += await encolarAvisosAsistencia(ctx.db, {
+        tenant: ctx.tenant,
+        asistencia,
+        alumnoNombre: nombres.get(asistencia.alumnoId)!,
+        momento: curso ? `a ${curso.nombre}` : "a la 1.ª hora",
+        ...(curso ? { curso: curso.nombre, ...(ingreso && ingresoAlColegio(ingreso) ? { ingreso: ingreso.hora } : {}) } : {}),
+        urlMensajes: urlColegio(ctx.tenant.slug, "/mensajes"),
+        destinatarios: destinatarios.get(asistencia.alumnoId) ?? [],
+      });
+    }
+  });
   return { guardados: datos.registros.length, cambios, familiasAvisadas, omitidos };
 }
 

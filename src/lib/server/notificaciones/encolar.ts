@@ -8,6 +8,7 @@ import type { DbTenant } from "../db";
 import { feriadosAplicables } from "../plataforma-configuracion";
 import { saludoFamilia } from "@/lib/control-ingreso";
 import { renderizarPlantilla, type NombrePlantilla, type PayloadDe } from "../email/plantillas";
+import { envioParaAviso } from "./envios";
 import { hashToken, tokenDerivado } from "../tokens";
 
 // Encolado de avisos (specs/06). Solo se encola para apoderados con `recibeAvisos`,
@@ -119,9 +120,12 @@ export async function encolarAviso<N extends NombrePlantilla>(
     /** Conversación, tarea, apoderado… (para agrupar y limitar avisos). */
     referenciaId?: string | null;
     programadoPara?: Date;
+    /** Familia avisada, para contar el envío en curso (`conEnvio`). Por defecto, el apoderado o el destinatario. */
+    unidad?: string | null;
   },
 ): Promise<string> {
   const { asunto } = renderizarPlantilla(datos.plantilla, datos.payload);
+  const envioId = await envioParaAviso(datos.unidad ?? datos.apoderadoId ?? datos.destinatario);
   const aviso = await tdb.aviso.create({
     data: {
       tenantId: datos.tenantId,
@@ -134,6 +138,7 @@ export async function encolarAviso<N extends NombrePlantilla>(
       apoderadoId: datos.apoderadoId ?? null,
       asistenciaId: datos.asistenciaId ?? null,
       referenciaId: datos.referenciaId ?? null,
+      envioId,
       programadoPara: datos.programadoPara ?? new Date(),
     },
     select: { id: true },
@@ -145,7 +150,11 @@ export async function encolarAviso<N extends NombrePlantilla>(
 export async function encolarParaDestinatario<N extends NombrePlantilla>(
   tdb: DbTenant,
   destinatario: Destinatario,
-  datos: { tenantId: string; tipo: TipoAviso; plantilla: N; payload: PayloadDe<N>; asistenciaId?: string | null; referenciaId?: string | null },
+  datos: {
+    tenantId: string; tipo: TipoAviso; plantilla: N; payload: PayloadDe<N>; asistenciaId?: string | null; referenciaId?: string | null;
+    /** Familia avisada en el envío en curso (p. ej. el alumno); por defecto, el apoderado. */
+    unidad?: string | null;
+  },
 ): Promise<number> {
   let filas = 0;
   if (destinatario.correo) {
@@ -228,7 +237,7 @@ export async function encolarAvisosAsistencia(
   let familias = 0;
   for (const d of destinatarios) {
     if (!tieneCanalAviso(d)) continue;
-    const base = { tenantId: tenant.id, tipo: "asistencia" as const, asistenciaId: asistencia.id };
+    const base = { tenantId: tenant.id, tipo: "asistencia" as const, asistenciaId: asistencia.id, unidad: asistencia.alumnoId };
     const colegio = tenant.nombre;
     const saludo = saludoFamilia(d.nombre, datos.horaAhora ?? asistencia.hora);
     let filas = 0;

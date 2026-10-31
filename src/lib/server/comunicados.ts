@@ -11,6 +11,7 @@ import { adjuntoVista, adjuntosDe, borrarDelProveedor, contarRestantes, guardarA
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
+import { conEnvio } from "./notificaciones/envios";
 import { salonEsActivo, whereSalonActivo } from "./salones-activos";
 import { salonIdsVisibles, type TenantContext } from "./tenant";
 
@@ -163,15 +164,17 @@ export async function publicarComunicado(
   });
   const familias = [...new Set(vinculos.map((v) => v.apoderadoId))];
   let avisados = 0;
-  for (const apoderadoId of familias) {
-    const ok = await encolarAvisoFamilia(ctx, {
-      plantilla: "comunicado",
-      apoderadoId,
-      referenciaId: c.id,
-      payload: { colegio: ctx.tenant.nombre, titulo: datos.titulo, url: urlComunicado(ctx.tenant.slug, c.id), ...(validados.length ? { adjuntos: validados.length } : {}) },
-    });
-    if (ok) avisados++;
-  }
+  await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "comunicado", titulo: `Comunicado: ${datos.titulo}`, creadoPorId: ctx.membership.id }, async () => {
+    for (const apoderadoId of familias) {
+      const ok = await encolarAvisoFamilia(ctx, {
+        plantilla: "comunicado",
+        apoderadoId,
+        referenciaId: c.id,
+        payload: { colegio: ctx.tenant.nombre, titulo: datos.titulo, url: urlComunicado(ctx.tenant.slug, c.id), ...(validados.length ? { adjuntos: validados.length } : {}) },
+      });
+      if (ok) avisados++;
+    }
+  });
   return { id: c.id, avisados };
 }
 

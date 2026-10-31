@@ -4,6 +4,7 @@ import { carpetaVisible, type CarpetaPlana } from "@/lib/documentos";
 import { auditar } from "../auditoria";
 import type { TenantContext } from "../tenant";
 import { destinatariosDeAlumno, encolarParaDestinatario, tieneCanalAviso, type Destinatario } from "./encolar";
+import { conEnvio } from "./envios";
 
 // Aviso «documento nuevo» a las familias que pueden verlo (specs/31). Solo si quien lo subió marcó «Avisar a las familias».
 // Una fila por familia y canal (consentimiento y preferencias vía destinatariosDeAlumno), `referenciaId = documentoId`. Idempotente.
@@ -30,9 +31,11 @@ export async function avisarDocumentoNuevo(ctx: TenantContext, documentoId: stri
   }
   const carpeta = doc.carpetaId ? carpetas.get(doc.carpetaId)?.nombre : undefined;
   const payload = { colegio: ctx.tenant.nombre, titulo: doc.titulo, ...(carpeta ? { carpeta } : {}), url: urlColegio(ctx.tenant.slug, doc.carpetaId ? `/documentos?carpeta=${doc.carpetaId}` : "/documentos") };
-  for (const d of familias.values()) {
-    await encolarParaDestinatario(ctx.db, d, { tenantId: ctx.tenant.id, tipo: "documento", plantilla: "documento_nuevo", referenciaId: doc.id, payload });
-  }
+  await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "documento", titulo: `Documento: ${doc.titulo}`, creadoPorId: ctx.membership.id }, async () => {
+    for (const d of familias.values()) {
+      await encolarParaDestinatario(ctx.db, d, { tenantId: ctx.tenant.id, tipo: "documento", plantilla: "documento_nuevo", referenciaId: doc.id, payload });
+    }
+  });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "enviar", entidad: "documento", entidadId: doc.id, detalle: { aviso: "documento_nuevo", familias: familias.size } });
   return familias.size;
 }

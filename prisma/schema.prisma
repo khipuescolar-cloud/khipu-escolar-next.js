@@ -206,6 +206,7 @@ model Tenant {
   auditoria             Auditoria[]
   asistencias           Asistencia[]
   controlesIngreso      ControlIngresoDia[]
+  enviosAviso           EnvioAviso[]
   avisos                Aviso[]
   justificacionTokens   JustificacionToken[]
   justificaciones       Justificacion[]
@@ -300,6 +301,7 @@ model Membership {
   hijos                    ApoderadoAlumno[]
   consentimientos          Consentimiento[]
   asistenciasRegistradas   Asistencia[]         @relation("RegistradoPor")
+  enviosCreados            EnvioAviso[]         @relation("EnviosCreados")
   avisos                   Aviso[]
   justificacionTokens      JustificacionToken[]
   justificaciones          Justificacion[]      @relation("JustificacionApoderado")
@@ -540,6 +542,31 @@ model ControlIngresoDia {
   @@map("control_ingreso_dia")
 }
 
+/// Un envío = una acción que avisa a familias (cerrar una lista, publicar un comunicado, el «aún no llega» de las 8:00…).
+/// Agrupa sus filas de `avisos` para verlas juntas en /avisos (specs/06). `masivo` = llegó a más de una familia
+/// (contadas por alumno en asistencia y reuniones, por apoderado en el resto). Escaneos de portería, chat,
+/// justificaciones e invitaciones no crean envío: son avisos individuales.
+model EnvioAviso {
+  id          String    @id @default(uuid()) @db.Uuid
+  tenantId    String    @map("tenant_id") @db.Uuid
+  tipo        TipoAviso
+  /// «Lista del día · 3.° B», «Comunicado: Día del juego», «Aún no llega (8:00 a. m.)»…
+  titulo      String
+  /// Membresía que lo originó; null si lo envió Khipu solo (control de ingreso, recordatorios).
+  creadoPorId String?   @map("creado_por") @db.Uuid
+  /// Familias distintas a las que llegó (cuántas «unidades» se avisaron).
+  familias    Int       @default(0)
+  masivo      Boolean   @default(false)
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant    Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  creadoPor Membership? @relation("EnviosCreados", fields: [creadoPorId], references: [id], onDelete: SetNull)
+  avisos    Aviso[]
+
+  @@index([tenantId, masivo, createdAt])
+  @@map("envios_aviso")
+}
+
 /// Cola y registro de avisos (correo o push). El worker respeta EMAIL_DAILY_LIMIT.
 model Aviso {
   id                String      @id @default(uuid()) @db.Uuid
@@ -553,6 +580,7 @@ model Aviso {
   asunto            String
   payload           Json        @default("{}")
   referenciaId      String?     @map("referencia_id") // conversación, tarea, etc. (para agrupar y limitar avisos)
+  envioId           String?     @map("envio_id") @db.Uuid // acción que lo originó (null = aviso individual sin envío)
   providerMessageId String?     @unique @map("provider_message_id")
   estado            EstadoAviso @default(pendiente)
   intentos          Int         @default(0)
@@ -566,6 +594,7 @@ model Aviso {
   tenant     Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   asistencia Asistencia? @relation(fields: [asistenciaId], references: [id], onDelete: SetNull)
   apoderado  Membership? @relation(fields: [apoderadoId], references: [id], onDelete: SetNull)
+  envio      EnvioAviso? @relation(fields: [envioId], references: [id], onDelete: SetNull)
 
   @@index([estado, programadoPara])
   @@index([tenantId, createdAt])
@@ -573,6 +602,7 @@ model Aviso {
   @@index([asistenciaId])
   @@index([apoderadoId])
   @@index([canal, enviadoAt])
+  @@index([envioId])
   @@map("avisos")
 }
 

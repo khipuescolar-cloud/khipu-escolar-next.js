@@ -159,13 +159,29 @@ export async function sembrarAsistencia(prisma: PrismaClient) {
   const estadoAviso = (): EstadoAviso => { const r = azar.num(); return r < 0.5 ? "abierto" : r < 0.78 ? "entregado" : r < 0.93 ? "enviado" : r < 0.97 ? "rebotado" : "error"; };
   const avisos: Prisma.AvisoCreateManyInput[] = [];
   const ultimos3 = new Set(dias.slice(-3));
-  const aviso = (r: Registro, plantilla: string, asunto: string, payload: Record<string, string>, horaEnvio: string) => {
+  // Envíos (specs/06): cada lista cerrada (del día o de un curso) agrupa sus avisos; el escaneo de portería es individual.
+  const envios = new Map<string, Prisma.EnvioAvisoCreateManyInput & { id: string; alumnos: Set<string> }>();
+  const envioDe = (r: Registro, titulo: string, createdAt: Date): string | null => {
+    if (r.origen === "porteria") return null;
+    const clave = `${(r.fecha as Date).toISOString().slice(0, 10)}|${r.ambito}|${alumnos.get(r.alumnoId)!.salon.id}`;
+    let e = envios.get(clave);
+    if (!e) {
+      e = { id: randomUUID(), tenantId, tipo: "asistencia", titulo, creadoPorId: r.registradoPorId ?? null, createdAt, alumnos: new Set() };
+      envios.set(clave, e);
+    }
+    e.alumnos.add(r.alumnoId);
+    return e.id;
+  };
+  const aviso = (r: Registro, plantilla: string, asunto: string, payload: Record<string, string>, horaEnvio: string, curso?: string) => {
     const f = (r.fecha as Date).toISOString().slice(0, 10);
-    for (const fam of vigentes(r.alumnoId)) {
+    const salonNombre = alumnos.get(r.alumnoId)!.salon.nombre;
+    const familias = vigentes(r.alumnoId);
+    const envioId = familias.length ? envioDe(r, curso ? `${curso} · ${salonNombre}` : `Lista del día · ${salonNombre}`, instante(f, horaEnvio)) : null;
+    for (const fam of familias) {
       const estado = estadoAviso();
       const enviado = instante(f, horaEnvio);
       avisos.push({
-        tenantId, tipo: "asistencia", canal: "correo", asistenciaId: r.id, apoderadoId: fam.apoderadoId, destinatario: fam.apoderado.user.email,
+        tenantId, tipo: "asistencia", canal: "correo", asistenciaId: r.id, apoderadoId: fam.apoderadoId, destinatario: fam.apoderado.user.email, envioId,
         plantilla, asunto, payload: { colegio: NOMBRE_COLEGIO, ...payload }, estado, intentos: estado === "error" ? 3 : 1,
         error: estado === "error" ? "No se pudo entregar el mensaje." : null, programadoPara: enviado, createdAt: enviado,
         enviadoAt: estado === "error" ? null : new Date(enviado.getTime() + 60_000),
@@ -186,7 +202,10 @@ export async function sembrarAsistencia(prisma: PrismaClient) {
   }
   for (const { registro, curso, ingreso } of faltasCurso) {
     const a = alumnos.get(registro.alumnoId)!;
-    aviso(registro, "asistencia_falta", `${a.nombres} no llegó a ${curso}`, { alumno: a.nombres, momento: `a ${curso}`, curso, ingreso, horaClase: registro.hora }, registro.hora);
+    aviso(registro, "asistencia_falta", `${a.nombres} no llegó a ${curso}`, { alumno: a.nombres, momento: `a ${curso}`, curso, ingreso, horaClase: registro.hora }, registro.hora, curso);
   }
+  await prisma.envioAviso.createMany({
+    data: [...envios.values()].map(({ alumnos: avisados, ...e }) => ({ ...e, familias: avisados.size, masivo: avisados.size > 1 })),
+  });
   for (let i = 0; i < avisos.length; i += 5000) await prisma.aviso.createMany({ data: avisos.slice(i, i + 5000) });
 }
