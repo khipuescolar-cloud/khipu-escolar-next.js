@@ -1,8 +1,15 @@
 import { strFromU8 } from "fflate";
 import { expect, test, type Page } from "@playwright/test";
+import { sql } from "./ayudantes/colegio-temporal";
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const colegio = (slug: string, ruta: string) => `http://${slug}.lvh.me:${PUERTO}${ruta}`;
+const INICIO = new Date();
+
+// Las tareas se borran desde la UI; sus avisos a las familias quedan en la tabla: se limpian aquí.
+test.afterAll(async () => {
+  await sql("delete from avisos where plantilla = 'tarea_nueva' and created_at >= $1", [INICIO]);
+});
 
 async function entrar(page: Page, correo: string, slug: string) {
   await page.goto("/login");

@@ -22,12 +22,14 @@ test("la familia ve el calendario del mes de su hijo y navega al mes anterior", 
   await page.waitForURL(`${COLEGIO}/inicio`);
   await page.goto(`${COLEGIO}/asistencia`);
   const main = page.getByRole("main");
-  await expect(main.getByRole("table").first()).toBeVisible();
-  await expect(main.getByRole("list", { name: "Leyenda" })).toBeVisible();
-  await main.getByRole("link", { name: "Mes anterior" }).click();
+  // Rosa tiene dos hijos (un calendario por hijo): el de Mateo.
+  const mateo = main.getByRole("region", { name: /Mateo Quispe Huamán/ });
+  await expect(mateo.getByRole("table")).toBeVisible();
+  await expect(mateo.getByRole("list", { name: "Leyenda" })).toBeVisible();
+  await main.getByRole("link", { name: "Mes anterior" }).first().click();
   await expect(page).toHaveURL(/asistencia\?mes=\d{4}-\d{2}/);
-  await expect(main.getByRole("table").first()).toBeVisible();
-  await expect(main.getByRole("link", { name: "Mes siguiente" })).toBeVisible();
+  await expect(mateo.getByRole("table")).toBeVisible();
+  await expect(main.getByRole("link", { name: "Mes siguiente" }).first()).toBeVisible();
 });
 
 test("dirección ve los avisos de hoy en el inicio y descarga el PDF de carnets", async ({ page }) => {

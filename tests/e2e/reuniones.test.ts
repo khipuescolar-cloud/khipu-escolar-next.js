@@ -30,6 +30,7 @@ test.afterAll(async () => {
 
 test("Lucía convoca a 3.° B, Rosa confirma, Lucía ve la confirmación y publica el acta, Rosa la lee", async ({ page, context }) => {
   const titulo = `Reunión e2e ${Date.now()}`;
+  const inicio = new Date();
   const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
 
   try {
@@ -86,6 +87,7 @@ test("Lucía convoca a 3.° B, Rosa confirma, Lucía ve la confirmación y publi
     await expect(page.getByRole("heading", { name: "Acta" })).toBeVisible();
     await expect(page.getByText("Se acordó revisar las tareas cada viernes.")).toBeVisible();
   } finally {
+    await bd.query("delete from avisos where plantilla like 'reunion%' and created_at >= $1", [inicio]);
     await bd.query("delete from reuniones where titulo = $1", [titulo]);
   }
 });

@@ -62,8 +62,11 @@ test("dirección crea la cuenta del alumno; el alumno entra con su DNI, cambia l
   await page.waitForURL(`${COLEGIO}/inicio`);
   // Filtrado por su salón: la lista completa del colegio es larga.
   await page.goto(`${COLEGIO}/gestion/alumnos?salon=${ids.salon}`);
-  await page.getByRole("button", { name: `Acciones para ${nombre}` }).click();
-  await page.getByRole("menuitem", { name: "Crear cuenta del alumno" }).click();
+  // Si el menú no abrió al primer clic (página aún hidratándose), se reintenta.
+  await expect(async () => {
+    await page.getByRole("button", { name: `Acciones para ${nombre}` }).click();
+    await page.getByRole("menuitem", { name: "Crear cuenta del alumno" }).click({ timeout: 3_000 });
+  }).toPass({ timeout: 30_000 });
   await page.getByLabel("Correo del alumno").fill(ALUMNO.email);
   await page.getByLabel("Número de documento").fill(ALUMNO.dni);
   await page.getByRole("button", { name: "Crear cuenta" }).click();
