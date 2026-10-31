@@ -15,8 +15,9 @@ const uno = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
 /** Notas de los hijos por curso y competencia. Sin promedios del salón, rankings ni comparaciones. */
 export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) {
-  const [hijos, periodos] = await Promise.all([alumnosVisibles(ctx), listarPeriodos(ctx)]);
+  const [hijos, todos] = await Promise.all([alumnosVisibles(ctx), listarPeriodos(ctx)]);
   const hijo = hijos.find((h) => h.id === uno(sp.alumno)) ?? hijos[0];
+  const periodos = hijo ? todos.filter((p) => p.niveles.includes(hijo.salon.nivel)) : todos;
   const periodo = periodos.find((p) => p.id === uno(sp.periodo)) ?? periodoEnCurso(periodos);
 
   if (!hijo || !periodo) {

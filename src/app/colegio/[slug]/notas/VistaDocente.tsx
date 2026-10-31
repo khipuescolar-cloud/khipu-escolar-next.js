@@ -37,8 +37,10 @@ const SECCIONES = [
 ] as const;
 
 export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug: string; sp: SP }) {
-  const [cursos, periodos] = await Promise.all([cursosDelDocente(ctx), listarPeriodos(ctx)]);
+  const [cursos, todos] = await Promise.all([cursosDelDocente(ctx), listarPeriodos(ctx)]);
   const curso = cursos.find((c) => c.id === uno(sp.curso)) ?? cursos[0];
+  // Cada nivel tiene su organización del año (bimestres, trimestres o semestres): solo los periodos del nivel del curso.
+  const periodos = curso ? todos.filter((p) => p.niveles.includes(curso.salon.nivel)) : todos;
   const periodo = periodos.find((p) => p.id === uno(sp.periodo)) ?? periodoEnCurso(periodos);
   const seccion = SECCIONES.find((s) => s.id === uno(sp.seccion))?.id ?? "notas";
   const esDireccion = ctx.rol === "direccion";

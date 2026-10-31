@@ -6,8 +6,7 @@ import {
   cerrarCursoPeriodo, guardarComentarioNota, importarNotas, previsualizarImportacionNotas, publicarLibreta, reabrirCursoPeriodo,
   type VistaPreviaImportacion,
   cambiarEstadoPeriodo, crearCompetencia, crearEvaluacion, crearPeriodo, editarEvaluacion, eliminarCompetencia,
-  eliminarEvaluacion, guardarCalificacionPeriodo, guardarNota,
-} from "@/lib/server/notas";
+  eliminarEvaluacion, guardarCalificacionPeriodo, guardarNota, actualizarPeriodo, organizarNivel } from "@/lib/server/notas";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 
@@ -77,8 +76,20 @@ export async function guardarCalificacionAction(slug: string, _previo: Resultado
 export async function crearPeriodoAction(slug: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
   const r = await crearPeriodo(await contexto(slug), {
     anio: texto(f, "anio"), tipo: texto(f, "tipo"), numero: texto(f, "numero"), nombre: texto(f, "nombre"),
-    inicio: texto(f, "inicio"), fin: texto(f, "fin"),
+    inicio: texto(f, "inicio"), fin: texto(f, "fin"), niveles: f.getAll("niveles").map(String),
   });
+  if (r.ok) refrescar();
+  return r;
+}
+
+export async function organizarNivelAction(slug: string, nivel: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
+  const r = await organizarNivel(await contexto(slug), { anio: texto(f, "anio"), nivel, tipo: texto(f, "tipo") });
+  if (r.ok) refrescar();
+  return r;
+}
+
+export async function actualizarPeriodoAction(slug: string, periodoId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
+  const r = await actualizarPeriodo(await contexto(slug), periodoId, { nombre: texto(f, "nombre"), inicio: texto(f, "inicio"), fin: texto(f, "fin") });
   if (r.ok) refrescar();
   return r;
 }

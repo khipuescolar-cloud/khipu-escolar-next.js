@@ -9,6 +9,8 @@ import { analizarNotasCsv, exportarNotasCsv, MAX_BYTES_CSV_NOTAS, type Resultado
 import { puedePublicarLibreta } from "@/lib/libreta-publicacion";
 import { urlColegio } from "@/lib/dominio";
 import { primerNombre } from "@/lib/nombres";
+import { CANTIDAD_PERIODOS, NOMBRE_TIPO, TIPOS_PERIODO, TODOS_LOS_NIVELES, nivelesConOtroTipo, periodosSugeridos } from "@/lib/periodos-academicos";
+import type { Nivel } from "@/generated/prisma/enums";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
 import { guardarDesempenosEvaluacion, validarDesempenosEvaluacion } from "./cneb";
@@ -31,9 +33,18 @@ function escalaDe(ctx: TenantContext): Escala {
 
 // ───────────── Periodos ─────────────
 
-export async function listarPeriodos(ctx: TenantContext) {
+/** Periodos del colegio; con `nivel`, solo los de ese nivel (cada nivel tiene su propia organización del año). */
+export async function listarPeriodos(ctx: TenantContext, nivel?: Nivel) {
   requireFeature(ctx, "notas");
-  return ctx.db.periodo.findMany({ orderBy: [{ anio: "desc" }, { numero: "asc" }] });
+  return ctx.db.periodo.findMany({ where: nivel ? { niveles: { has: nivel } } : {}, orderBy: [{ anio: "desc" }, { tipo: "asc" }, { numero: "asc" }] });
+}
+
+const MENSAJE_OTRO_NIVEL = "Este periodo no es del nivel de este curso.";
+
+/** Nivel del salón de un curso. */
+async function nivelDelCurso(ctx: TenantContext, cursoId: string): Promise<Nivel | null> {
+  const c = await ctx.db.curso.findFirst({ where: { id: cursoId }, select: { salon: { select: { nivel: true } } } });
+  return c?.salon.nivel ?? null;
 }
 
 /** Periodo en curso: el abierto más reciente; si todos están cerrados, el último. */
@@ -51,7 +62,8 @@ export function periodoParaLibreta<P extends { cerrado: boolean; anio: number; n
 const esquemaPeriodo = z
   .object({
     anio: z.coerce.number().int().min(2000).max(2100),
-    tipo: z.enum(["bimestre", "trimestre", "semestre"]),
+    tipo: z.enum(TIPOS_PERIODO),
+    niveles: z.array(z.enum(TODOS_LOS_NIVELES as [Nivel, ...Nivel[]])).min(1, "Elige al menos un nivel.").default(TODOS_LOS_NIVELES),
     numero: z.coerce.number().int().min(1).max(6),
     nombre: z.string().trim().min(2, "Escribe el nombre del periodo.").max(60),
     inicio: z.iso.date("Elige la fecha de inicio."),
@@ -66,6 +78,9 @@ export async function crearPeriodo(ctx: TenantContext, entrada: unknown): Promis
   if (!d.success) return fallo(d.error.issues[0].message);
   const existe = await ctx.db.periodo.findFirst({ where: { anio: d.data.anio, tipo: d.data.tipo, numero: d.data.numero } });
   if (existe) return fallo("Ya existe un periodo con ese año, tipo y número.");
+  const delAnio = await ctx.db.periodo.findMany({ where: { anio: d.data.anio }, select: { tipo: true, niveles: true } });
+  const choque = nivelesConOtroTipo(delAnio, d.data.tipo, d.data.niveles);
+  if (choque.length) return fallo(`${nombresNiveles(choque)} ya ${choque.length === 1 ? "trabaja" : "trabajan"} con otro tipo de periodo en ${d.data.anio}. Cámbialo en «Organización del año».`);
   const p = await ctx.db.periodo.create({
     data: { tenantId: ctx.tenant.id, ...d.data, inicio: fechaDate(d.data.inicio), fin: fechaDate(d.data.fin) },
   });
@@ -80,6 +95,89 @@ export async function cambiarEstadoPeriodo(ctx: TenantContext, periodoId: string
   if (r.count === 0) return fallo("No encontramos ese periodo.");
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "periodo", entidadId: periodoId, detalle: { cerrado } });
   return ok(cerrado ? "Periodo cerrado." : "Periodo abierto.");
+}
+
+const NOMBRE_NIVEL_PERIODO: Record<Nivel, string> = { inicial: "Inicial", primaria: "Primaria", secundaria: "Secundaria", academia: "Academia" };
+const nombresNiveles = (ns: readonly Nivel[]) => ns.map((n) => NOMBRE_NIVEL_PERIODO[n]).join(", ").replace(/, ([^,]*)$/, " y $1");
+
+/** ¿Hay notas, calificaciones o cierres de cursos del nivel en esos periodos? (no se cambia la organización con notas puestas) */
+async function hayNotasDelNivel(ctx: TenantContext, periodoIds: string[], nivel: Nivel): Promise<boolean> {
+  if (periodoIds.length === 0) return false;
+  const delNivel = { curso: { salon: { nivel } } };
+  const [evaluaciones, califs, cierres] = await Promise.all([
+    ctx.db.evaluacion.count({ where: { periodoId: { in: periodoIds }, ...delNivel } }),
+    ctx.db.calificacionPeriodo.count({ where: { periodoId: { in: periodoIds }, alumno: { salon: { nivel } } } }),
+    ctx.db.cierreCurso.count({ where: { periodoId: { in: periodoIds }, ...delNivel } }),
+  ]);
+  return evaluaciones + califs + cierres > 0;
+}
+
+const esquemaOrganizacion = z.object({
+  anio: z.coerce.number().int().min(2000).max(2100),
+  nivel: z.enum(TODOS_LOS_NIVELES as [Nivel, ...Nivel[]], "Elige el nivel."),
+  tipo: z.enum(TIPOS_PERIODO, "Elige bimestres, trimestres o semestres."),
+});
+
+/**
+ * Organización del año de un nivel (specs/11): pasa el nivel a bimestres, trimestres o semestres. Si otro nivel ya usa
+ * ese tipo, el nivel se suma a sus periodos (mismas fechas); si no, se crean con las fechas sugeridas. Deja los periodos
+ * del tipo anterior (y borra los que quedan sin niveles), salvo que el nivel ya tenga notas en ellos.
+ */
+export async function organizarNivel(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
+  requireFeature(ctx, "notas");
+  requireRol(ctx, ["direccion"]);
+  const d = esquemaOrganizacion.safeParse(entrada);
+  if (!d.success) return fallo(d.error.issues[0].message);
+  const { anio, nivel, tipo } = d.data;
+  const delAnio = await ctx.db.periodo.findMany({ where: { anio }, select: { id: true, tipo: true, numero: true, niveles: true } });
+  const anteriores = delAnio.filter((p) => p.niveles.includes(nivel) && p.tipo !== tipo);
+  if (delAnio.some((p) => p.niveles.includes(nivel) && p.tipo === tipo) && anteriores.length === 0) {
+    return fallo(`${NOMBRE_NIVEL_PERIODO[nivel]} ya trabaja por ${NOMBRE_TIPO[tipo].plural.toLowerCase()} en ${anio}.`);
+  }
+  if (await hayNotasDelNivel(ctx, anteriores.map((p) => p.id), nivel)) {
+    return fallo(`${NOMBRE_NIVEL_PERIODO[nivel]} ya tiene notas registradas en sus periodos de ${anio}. No se puede cambiar su organización.`);
+  }
+
+  const operaciones = [];
+  for (const p of anteriores) {
+    const quedan = p.niveles.filter((n) => n !== nivel);
+    operaciones.push(quedan.length ? ctx.db.periodo.updateMany({ where: { id: p.id }, data: { niveles: quedan } }) : ctx.db.periodo.deleteMany({ where: { id: p.id } }));
+  }
+  for (const s of periodosSugeridos(anio, tipo)) {
+    const existente = delAnio.find((p) => p.tipo === tipo && p.numero === s.numero);
+    if (existente) {
+      if (!existente.niveles.includes(nivel)) operaciones.push(ctx.db.periodo.updateMany({ where: { id: existente.id }, data: { niveles: [...existente.niveles, nivel] } }));
+    } else {
+      operaciones.push(ctx.db.periodo.create({ data: { tenantId: ctx.tenant.id, anio, tipo, numero: s.numero, nombre: s.nombre, inicio: fechaDate(s.inicio), fin: fechaDate(s.fin), niveles: [nivel] } }));
+    }
+  }
+  await ctx.db.$transaction(operaciones);
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "periodo", detalle: { anio, nivel, tipo } });
+  const compartidos = delAnio.some((p) => p.tipo === tipo && !p.niveles.includes(nivel));
+  return ok(
+    `${NOMBRE_NIVEL_PERIODO[nivel]} trabajará por ${NOMBRE_TIPO[tipo].plural.toLowerCase()} en ${anio} (${CANTIDAD_PERIODOS[tipo]} periodos). ` +
+      (compartidos ? "Usa las mismas fechas que los otros niveles con ese tipo." : "Revisa las fechas sugeridas y ajústalas si hace falta."),
+  );
+}
+
+const esquemaFechas = z
+  .object({
+    nombre: z.string().trim().min(2, "Escribe el nombre del periodo.").max(60),
+    inicio: z.iso.date("Elige la fecha de inicio."),
+    fin: z.iso.date("Elige la fecha de fin."),
+  })
+  .refine((d) => d.fin >= d.inicio, { message: "La fecha de fin debe ser posterior al inicio.", path: ["fin"] });
+
+/** Cambia el nombre y las fechas de un periodo (vale para todos los niveles que lo usan). */
+export async function actualizarPeriodo(ctx: TenantContext, periodoId: string, entrada: unknown): Promise<Resultado> {
+  requireFeature(ctx, "notas");
+  requireRol(ctx, ["direccion"]);
+  const d = esquemaFechas.safeParse(entrada);
+  if (!d.success) return fallo(d.error.issues[0].message);
+  const r = await ctx.db.periodo.updateMany({ where: { id: periodoId }, data: { nombre: d.data.nombre, inicio: fechaDate(d.data.inicio), fin: fechaDate(d.data.fin) } });
+  if (r.count === 0) return fallo("No encontramos ese periodo.");
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "periodo", entidadId: periodoId, detalle: d.data });
+  return ok("Guardamos las fechas del periodo.");
 }
 
 // ───────────── Acceso a cursos y periodos ─────────────
@@ -107,6 +205,10 @@ async function cursoLectura(ctx: TenantContext, cursoId: string) {
 async function periodoAbierto(ctx: TenantContext, periodoId: string, cursoId?: string) {
   const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
   if (!periodo) return { error: "No encontramos ese periodo." as const };
+  if (cursoId) {
+    const nivel = await nivelDelCurso(ctx, cursoId);
+    if (!nivel || !periodo.niveles.includes(nivel)) return { error: MENSAJE_OTRO_NIVEL };
+  }
   if (periodo.cerrado) return { error: MENSAJE_CERRADO };
   if (cursoId && (await ctx.db.cierreCurso.count({ where: { periodoId, cursoId } })) > 0) return { error: MENSAJE_CURSO_CERRADO };
   return { periodo };
@@ -119,6 +221,8 @@ export async function cerrarCursoPeriodo(ctx: TenantContext, cursoId: string, pe
   await cursoLectura(ctx, cursoId); // profesor del curso o dirección
   const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
   if (!periodo) return fallo("No encontramos ese periodo.");
+  const nivel = await nivelDelCurso(ctx, cursoId);
+  if (!nivel || !periodo.niveles.includes(nivel)) return fallo(MENSAJE_OTRO_NIVEL);
   if (periodo.cerrado) return fallo(MENSAJE_CERRADO);
   if ((await ctx.db.cierreCurso.count({ where: { periodoId, cursoId } })) > 0) return fallo("Las notas de este curso ya estaban cerradas.");
   try {
@@ -156,12 +260,13 @@ export async function cierreDeCurso(ctx: TenantContext, cursoId: string, periodo
 export async function estadoPublicacionLibreta(ctx: TenantContext, periodoId: string) {
   requireFeature(ctx, "libreta");
   requireRol(ctx, ["direccion"]);
-  const [periodo, cursos, cierres] = await Promise.all([
-    ctx.db.periodo.findFirst({ where: { id: periodoId } }),
-    ctx.db.curso.findMany({ where: { salon: { archivadoAt: null } }, select: { id: true } }),
+  const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
+  if (!periodo) forbidden();
+  // Solo cuentan los cursos de los niveles que trabajan con este periodo.
+  const [cursos, cierres] = await Promise.all([
+    ctx.db.curso.findMany({ where: { salon: { archivadoAt: null, nivel: { in: periodo.niveles } } }, select: { id: true } }),
     ctx.db.cierreCurso.findMany({ where: { periodoId }, select: { cursoId: true } }),
   ]);
-  if (!periodo) forbidden();
   const ids = new Set(cursos.map((c) => c.id));
   const cerrados = cierres.filter((c) => ids.has(c.cursoId)).length;
   return {
@@ -194,7 +299,7 @@ export async function publicarLibreta(ctx: TenantContext, periodoId: string, opc
   }
 
   const alumnos = await ctx.db.alumno.findMany({
-    where: { estado: "activo", salon: { archivadoAt: null, cursos: { some: {} } } },
+    where: { estado: "activo", salon: { archivadoAt: null, nivel: { in: periodo.niveles }, cursos: { some: {} } } },
     select: { id: true, nombres: true },
     orderBy: { nombres: "asc" },
   });
@@ -349,6 +454,8 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
   const curso = await cursoLectura(ctx, cursoId);
   const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
   if (!periodo) forbidden();
+  const nivelCurso = await nivelDelCurso(ctx, cursoId);
+  if (!nivelCurso || !periodo.niveles.includes(nivelCurso)) forbidden();
   const [salon, alumnos, competencias, evaluaciones] = await Promise.all([
     ctx.db.salon.findFirst({ where: { id: curso.salonId } }),
     ctx.db.alumno.findMany({
@@ -494,6 +601,8 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
   const curso = await cursoLectura(ctx, cursoId);
   const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
   if (!periodo) forbidden();
+  const nivelCurso = await nivelDelCurso(ctx, cursoId);
+  if (!nivelCurso || !periodo.niveles.includes(nivelCurso)) forbidden();
   const escala = escalaDe(ctx);
   const [alumnos, competencias, guardadas, notas, cierre, vinculos] = await Promise.all([
     ctx.db.alumno.findMany({
@@ -592,9 +701,9 @@ export type NotasDeAlumno = Awaited<ReturnType<typeof notasDeAlumno>>;
 export async function notasDeAlumno(ctx: TenantContext, alumnoId: string, periodoId: string) {
   requireFeature(ctx, "notas");
   await requireAlumnoVisible(ctx, alumnoId);
-  const alumno = await ctx.db.alumno.findFirst({ where: { id: alumnoId }, include: { salon: { select: { nombre: true } } } });
+  const alumno = await ctx.db.alumno.findFirst({ where: { id: alumnoId }, include: { salon: { select: { nombre: true, nivel: true } } } });
   const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
-  if (!alumno || !periodo) forbidden();
+  if (!alumno || !periodo || !periodo.niveles.includes(alumno.salon.nivel)) forbidden();
   const cursos = await ctx.db.curso.findMany({ where: { salonId: alumno.salonId }, orderBy: { nombre: "asc" } });
   const cursoIds = cursos.map((c) => c.id);
   const [competencias, evaluaciones, califs] = await Promise.all([
@@ -640,7 +749,7 @@ export async function alumnosVisibles(ctx: TenantContext) {
   const ids = await alumnoIdsVisibles(ctx);
   return ctx.db.alumno.findMany({
     where: { id: { in: ids }, estado: "activo" },
-    select: { id: true, nombres: true, apellidos: true, salon: { select: { nombre: true } } },
+    select: { id: true, nombres: true, apellidos: true, salon: { select: { nombre: true, nivel: true } } },
     orderBy: [{ salon: { nombre: "asc" } }, { apellidos: "asc" }, { nombres: "asc" }],
   });
 }

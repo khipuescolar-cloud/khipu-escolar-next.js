@@ -31,7 +31,16 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
    - *Importar y exportar*: «Descargar CSV» de la rejilla e importación con vista previa (ver «Importar y exportar»).
    - Encima de las pestañas, tarjeta **Cierre de notas del curso** con estado ícono + palabra (Abierto / Cerrado / Periodo cerrado) y botón «Cerrar notas del curso» (profesor o dirección, con `BotonConfirmar`); dirección ve «Reabrir notas del curso» si está cerrado.
    - Cada celda de la rejilla tiene un botón de **observación** (ícono de mensaje) que abre un `Dialog` con textarea (máx. 500 caracteres).
-2. **Dirección** → `/notas` (solo lectura) y `/notas/periodos`: crear periodos, cerrar y reabrir, y **publicar la libreta** (ver más abajo). Cada periodo muestra «N de M cursos cerrados».
+2. **Dirección** → `/notas` (solo lectura) y `/notas/periodos` (selector de año: el anterior, el actual y el siguiente):
+   - **Organización del año** (una tarjeta por nivel con salones): «Elegir organización» / «Cambiar» → Bimestres (4),
+     Trimestres (3) o Semestres (2). Cada nivel es independiente (p. ej. primaria por trimestres y secundaria por
+     bimestres). Si otro nivel ya usa ese tipo, el nivel se suma a sus periodos (mismas fechas); si no, Khipu los crea con
+     fechas sugeridas (año escolar del segundo lunes de marzo al tercer viernes de diciembre, partido en partes iguales).
+     Al cambiar de tipo, el nivel deja los periodos anteriores (los que quedan sin niveles se borran); no se puede si el
+     nivel ya tiene evaluaciones, calificaciones o cierres en ellos.
+   - Lista de periodos del año con sus niveles, «Fechas» (nombre, inicio y fin; valen para todos sus niveles), cerrar y
+     reabrir, y **publicar la libreta** (ver más abajo). Cada periodo muestra «N de M cursos cerrados» (solo cursos de sus
+     niveles). «Nuevo periodo» pide también los niveles que lo usan.
 3. **Apoderado** → `/notas`: por hijo y periodo, cursos → competencias (calificación + conclusión) y evaluaciones con su nota y, si existe, la «Observación» del profesor.
 4. **Libreta** → `/libreta`: por alumno y periodo publicado; botón «Descargar PDF». Bajo cada competencia: «Capacidades: …» y el desplegable «Desempeños evaluados (N)» (specs/30). La libreta PDF no lista evaluaciones, así que las observaciones por nota solo se ven en `/notas`.
 
@@ -39,6 +48,12 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
 - Sugerencia: vigesimal = promedio ponderado por `peso` redondeado al entero (`sugerirVigesimal`); literal = el valor más frecuente y, si empatan, el de la nota más reciente (`sugerirLiteral`). Solo cuentan evaluaciones con competencia.
 - Periodo cerrado = nada se crea, edita ni borra (notas, evaluaciones, calificaciones). Lo valida el servidor, no solo la UI.
 - **Cierre por curso** (`cierres_curso`, único por periodo + curso): con el curso cerrado en un periodo, el servidor rechaza crear/editar/borrar evaluaciones, guardar notas, observaciones, calificaciones del periodo e importaciones de **ese curso en ese periodo** (otros cursos o periodos no se afectan). Cierra el profesor del curso o dirección, solo con el periodo abierto; reabre solo dirección. El cierre general del periodo sigue existiendo y manda sobre el de curso. Ambos se auditan (`cierre_curso`).
+- **Periodos por nivel** (`periodos.niveles`): un nivel usa un solo tipo de periodo por año. Profesor, familia y alumno
+  solo ven los periodos del nivel del curso o del alumno (`/notas`, `/libreta`, Nudito+). El servidor rechaza evaluaciones,
+  notas, calificaciones y cierres de un curso en un periodo de otro nivel («Este periodo no es del nivel de este
+  curso.») y la grilla, la libreta y las notas de la familia dan 403. La libreta se publica solo a familias de alumnos de
+  sus niveles. Lógica pura en `src/lib/periodos-academicos.ts` (`periodosSugeridos`, `organizacionDelAnio`,
+  `nivelesConOtroTipo`).
 - **Publicar libreta**: solo dirección; requiere el **periodo cerrado o todos los cursos** (de salones no archivados) **con cierre** y al menos un curso. Marca `periodos.libreta_publicada_at` (reclamo atómico) y encola el aviso `libreta_publicada` (tipo `libreta`) a los apoderados con consentimiento y avisos activos de alumnos activos (correo y push según sus preferencias; una fila por familia y canal, con los nombres de los hijos juntos; spec 06). **Idempotente**: si ya se publicó, «Publicar» se rechaza; «Reenviar aviso» repite el envío sin cambiar la fecha.
 - **Quién ve la libreta**: profesor y dirección, siempre. Las familias, solo un periodo publicado **o** uno antiguo ya cerrado: `libretaVisibleParaFamilia` (`src/lib/libreta-publicacion.ts`) considera entregados los periodos cerrados que terminaron antes de `CORTE_LIBRETA_PUBLICADA` (2026-10-27), para no esconder libretas de antes de esta función. Un periodo abierto o cerrado nuevo sin publicar da 403 a la familia (página, PDF y datos) y no aparece en el selector; en `/notas` el botón «Ver libreta» tampoco se muestra.
 - **Observaciones** (`notas.comentario`): máx. 500 caracteres; la nota debe existir (sin nota no hay observación y borrar la nota la elimina); vacío borra el comentario. Las ve la familia en `/notas`.
@@ -48,7 +63,7 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
 - Periodo por defecto: en `/notas` el abierto más reciente; en `/libreta` el último cerrado.
 
 ## Modelo de datos
-`periodos`, `competencias` (por curso), `evaluaciones` (curso, periodo, competencia opcional, `peso` Decimal(5,2)), `notas` (única por evaluación+alumno), `calificaciones_periodo` (única por alumno+competencia+periodo, con `conclusion`), `asistencias` (resumen), `tenants.escala_calificacion`. Capacidades y desempeños del CNEB (`capacidades`, `desempenos`, `evaluacion_desempenos`) y `salones.grado`: ver `specs/30`.
+`periodos` (con `niveles Nivel[]`, por defecto todos; migración `20261107100000_periodos_por_nivel`), `competencias` (por curso), `evaluaciones` (curso, periodo, competencia opcional, `peso` Decimal(5,2)), `notas` (única por evaluación+alumno), `calificaciones_periodo` (única por alumno+competencia+periodo, con `conclusion`), `asistencias` (resumen), `tenants.escala_calificacion`. Capacidades y desempeños del CNEB (`capacidades`, `desempenos`, `evaluacion_desempenos`) y `salones.grado`: ver `specs/30`.
 
 ## Importar y exportar (CSV)
 - Lógica pura en `src/lib/notas-csv.ts` (`exportarNotasCsv`, `analizarNotasCsv`). Exportar: `GET /api/notas/exportar?curso=&periodo=` (profesor del curso o dirección; auditado «exportar») → UTF-8 **con BOM**, separador **`;`** (Excel en español), una fila por alumno: `Código;Alumno;<título evaluación>…`, «Apellidos, Nombres», decimales con coma, celdas sin nota vacías. Evita inyección de fórmulas (`'` delante de `= + - @`).
@@ -57,7 +72,8 @@ Que el profesor registre evaluaciones y notas por competencia, confirme la calif
 ## Contratos de `src/lib/server`
 ```ts
 // notas.ts — todas llaman requireFeature(ctx, "notas"); escrituras: rol profesor + requireCursoDelProfesor + periodo abierto
-listarPeriodos(ctx); periodoEnCurso(periodos); periodoParaLibreta(periodos)
+listarPeriodos(ctx, nivel?); periodoEnCurso(periodos); periodoParaLibreta(periodos)
+organizarNivel(ctx, { anio, nivel, tipo }); actualizarPeriodo(ctx, periodoId, { nombre, inicio, fin })   // solo dirección
 cerrarCursoPeriodo(ctx, cursoId, periodoId); reabrirCursoPeriodo(ctx, cursoId, periodoId)   // profesor del curso o dirección / solo dirección
 cierreDeCurso(ctx, cursoId, periodoId)
 estadoPublicacionLibreta(ctx, periodoId); publicarLibreta(ctx, periodoId, { reenviar? })     // solo dirección
@@ -102,9 +118,11 @@ cursosDelDocente(ctx)
 ## Pruebas
 - unit: `tests/unit/calificaciones.test.ts` (escalas, etiquetas, aprobado, sugeridas), `tests/unit/fechas.test.ts`, `tests/unit/notas-csv.test.ts` (exportar/importar, visibilidad y publicación de la libreta), `tests/unit/imagen-png.test.ts` (WEBP/SVG → PNG y caché), `tests/unit/plantillas-avisos.test.ts` (`libreta_publicada`), `tests/unit/titulo-tutor-libreta.test.ts` (Tutora/Tutor/Tutor(a)); integración `tests/integracion/soporte-seguridad.test.ts` (`datosLibreta` devuelve el título según el género).
 - integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (apoderado no ve a otros alumnos ni sus notas, periodo cerrado no se edita, profesor ajeno y dirección no escriben, conclusión en B/C, libreta con asistencia y auditoría, Khipu Base → 403; cierre por curso y reabrir, observaciones, importar/exportar, publicar libreta con avisos, idempotencia y visibilidad familiar).
+- Periodos por nivel: unit `tests/unit/periodos-academicos.test.ts` (nombres, año escolar sugerido, periodos seguidos, un tipo por nivel); integración `tests/integracion/periodos-por-nivel.test.ts` (primaria por trimestres y secundaria por bimestres aislados, niveles que comparten tipo, notas y cierre rechazados en periodo de otro nivel, no se cambia con notas, sí sin notas, periodo manual sin mezclar tipos, solo dirección).
 - e2e: `tests/e2e/notas-libreta.test.ts` (profesor de una academia vigesimal temporal ingresa nota de 0 a 20; apoderada descarga el PDF; colegio Khipu Base temporal 403; observación por nota; cerrar/reabrir curso; exportar CSV; publicar libreta y reenviar aviso, con limpieza de datos). Capacidades y desempeños: `tests/unit/cneb-catalogo.test.ts`, `tests/integracion/cneb-desempenos.test.ts`, `tests/e2e/cneb-desempenos.test.ts` (specs/30). El envío real del correo (Mailpit) no se prueba en e2e: el worker corre por cron, y el aviso queda verificado en la tabla `avisos`.
 
 ## Pendientes
+- Definir con los profesores del piloto el flujo de evaluación (registros, capacidades y competencias por periodo).
 - (Decisión cerrada) `CORTE_LIBRETA_PUBLICADA` se queda como constante: `periodos` no guarda la fecha de cierre y no se cambia el esquema. Los periodos cerrados antes del corte siguen visibles para las familias; los nuevos requieren publicar la libreta.
 
 ## PDF de la libreta y marca

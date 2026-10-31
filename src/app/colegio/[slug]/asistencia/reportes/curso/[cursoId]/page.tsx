@@ -45,7 +45,9 @@ export default async function HistorialCursoPage({ params, searchParams }: PageP
     if (!(e instanceof ZodError)) throw e;
     error = e.issues[0]?.message ?? "Revisa las fechas.";
   }
-  const periodos = await ctx.db.periodo.findMany({ where: { anio: Number(hoy.slice(0, 4)) }, select: { nombre: true, inicio: true, fin: true } });
+  // El atajo del periodo en curso usa la organización del nivel del curso (bimestres, trimestres o semestres).
+  const nivel = (await ctx.db.curso.findFirst({ where: { id: cursoId }, select: { salon: { select: { nivel: true } } } }))?.salon.nivel;
+  const periodos = await ctx.db.periodo.findMany({ where: { anio: Number(hoy.slice(0, 4)), ...(nivel ? { niveles: { has: nivel } } : {}) }, select: { nombre: true, inicio: true, fin: true } });
   const periodo = periodos.map((p) => ({ nombre: p.nombre, inicio: isoDeFechaDb(p.inicio), fin: isoDeFechaDb(p.fin) })).find((p) => p.inicio <= hoy && hoy <= p.fin);
   const atajos = [{ texto: "Últimos 7 días", desde: restarDias(hoy, 6), hasta: hoy }, ...atajosDeFecha(hoy, periodo)];
   const ruta = `/asistencia/reportes/curso/${cursoId}`;

@@ -807,6 +807,9 @@ model Periodo {
   inicio             DateTime    @db.Date
   fin                DateTime    @db.Date
   cerrado            Boolean     @default(false)
+  /// Niveles que trabajan con este periodo (specs/11): cada nivel elige bimestres, trimestres o semestres en el año;
+  /// los niveles con el mismo tipo comparten las fechas.
+  niveles            Nivel[]     @default([inicial, primaria, secundaria, academia])
   /// Cuándo se avisó a las familias que la libreta del periodo está lista.
   libretaPublicadaAt DateTime?   @map("libreta_publicada_at") @db.Timestamptz
 

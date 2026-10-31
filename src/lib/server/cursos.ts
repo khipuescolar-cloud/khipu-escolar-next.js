@@ -11,7 +11,7 @@ export async function cursosDelDocente(ctx: TenantContext) {
       : { OR: [{ profesorId: ctx.membership.id }, { salon: { tutorId: ctx.membership.id } }] };
   return ctx.db.curso.findMany({
     where: { AND: [where, { salon: whereSalonActivo }] },
-    include: { salon: { select: { id: true, nombre: true } } },
+    include: { salon: { select: { id: true, nombre: true, nivel: true } } },
     orderBy: [{ salon: { nombre: "asc" } }, { nombre: "asc" }],
   });
 }

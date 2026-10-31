@@ -22,7 +22,7 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
     ctx.db.alumno.findFirst({ where: { id: alumnoId }, include: { salon: { include: { tutor: { include: { user: true } } } } } }),
     ctx.db.periodo.findFirst({ where: { id: periodoId } }),
   ]);
-  if (!alumno || !periodo) forbidden();
+  if (!alumno || !periodo || !periodo.niveles.includes(alumno.salon.nivel)) forbidden();
   // Las familias y el propio alumno solo ven periodos publicados (o antiguos ya cerrados); profesores y dirección ven todos.
   if (esVistaFamilia(ctx.rol) && !libretaVisibleParaFamilia(periodo)) forbidden();
 

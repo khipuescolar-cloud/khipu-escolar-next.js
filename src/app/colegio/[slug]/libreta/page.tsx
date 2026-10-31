@@ -35,9 +35,10 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
   const pedido = uno(sp.alumno);
   if (pedido) await requireAlumnoVisible(ctx, pedido);
   const [alumnos, todos] = await Promise.all([alumnosVisibles(ctx), listarPeriodos(ctx)]);
-  // Las familias (y el propio alumno) solo ven los periodos que el colegio publicó.
-  const periodos = familia ? todos.filter(libretaVisibleParaFamilia) : todos;
   const alumno = alumnos.find((a) => a.id === pedido) ?? alumnos[0];
+  // Solo los periodos del nivel del alumno; las familias (y el propio alumno), solo los que el colegio publicó.
+  const delNivel = alumno ? todos.filter((p) => p.niveles.includes(alumno.salon.nivel)) : todos;
+  const periodos = familia ? delNivel.filter(libretaVisibleParaFamilia) : delNivel;
   const periodo = periodos.find((p) => p.id === uno(sp.periodo)) ?? periodoParaLibreta(periodos);
 
   const titulo = "Libreta";

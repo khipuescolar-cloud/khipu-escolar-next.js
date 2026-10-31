@@ -30,7 +30,7 @@ export async function datosDelAlumno(cliente: DbTenant, alumnoId: string, ahora:
       orderBy: { nombre: "asc" },
       select: { id: true, nombre: true, competencias: { orderBy: { orden: "asc" }, select: { id: true, nombre: true } } },
     }),
-    cliente.periodo.findFirst({ where: { inicio: { lte: fechaDb(hoy) }, fin: { gte: fechaDb(hoy) } }, select: { id: true, nombre: true } }),
+    cliente.periodo.findFirst({ where: { inicio: { lte: fechaDb(hoy) }, fin: { gte: fechaDb(hoy) }, niveles: { has: salon.nivel } }, select: { id: true, nombre: true } }),
     sitiosPermitidosConNombre(),
   ]);
   const cursoIds = cursos.map((c) => c.id);
