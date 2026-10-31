@@ -214,7 +214,7 @@ export async function eliminarCursoAction(formData: FormData) {
 export async function crearAlumnoAction(formData: FormData) {
   const ctx = await gestionarAlumnosFamilias();
   await ejecutarYVolver("/gestion/alumnos", async () => {
-    await crearAlumno(ctx, { nombres: texto(formData, "nombres"), apellidos: texto(formData, "apellidos"), codigo: texto(formData, "codigo"), salonId: texto(formData, "salonId") });
+    await crearAlumno(ctx, { nombres: texto(formData, "nombres"), apellidos: texto(formData, "apellidos"), codigo: texto(formData, "codigo"), numeroDocumento: texto(formData, "numeroDocumento"), salonId: texto(formData, "salonId") });
     return "Alumno creado.";
   });
 }
@@ -222,7 +222,7 @@ export async function crearAlumnoAction(formData: FormData) {
 export async function editarAlumnoAction(formData: FormData) {
   const ctx = await gestionarAlumnosFamilias();
   await ejecutarYVolver("/gestion/alumnos", async () => {
-    await editarAlumno(ctx, texto(formData, "id"), { nombres: texto(formData, "nombres"), apellidos: texto(formData, "apellidos"), codigo: texto(formData, "codigo"), salonId: texto(formData, "salonId") });
+    await editarAlumno(ctx, texto(formData, "id"), { nombres: texto(formData, "nombres"), apellidos: texto(formData, "apellidos"), codigo: texto(formData, "codigo"), numeroDocumento: texto(formData, "numeroDocumento"), salonId: texto(formData, "salonId") });
     return "Alumno actualizado.";
   });
 }
@@ -241,7 +241,7 @@ export async function importarAlumnosAction(formData: FormData) {
   const archivo = formData.get("archivo");
   await ejecutarYVolver("/gestion/alumnos", async () => {
     if (!(archivo instanceof File) || archivo.size === 0) throw new ErrorDeNegocio("Elige un archivo CSV.");
-    if (archivo.size > 1_000_000) throw new ErrorDeNegocio("El archivo es demasiado grande (máximo 1 MB).");
+    if (archivo.size > 2_000_000) throw new ErrorDeNegocio("El archivo es demasiado grande (máximo 2 MB).");
     const r = await importarAlumnosCsv(ctx, await archivo.text());
     if (r.ok) return `Se importaron ${r.creados} alumnos.`;
     const detalle = r.errores.slice(0, 10).map((e) => `línea ${e.linea}: ${e.mensaje}`).join(" · ");

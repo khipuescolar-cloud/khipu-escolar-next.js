@@ -41,3 +41,4 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 33 | [Tablero de dirección](33-tablero-direccion.md) | Khipu Pro | implementada |
 | 34 | [Horario semanal por salón («Mi horario», horas del día, sin cruces de profesores)](34-horario.md) | Khipu Base y Pro | implementado |
 | 35 | [Datos demo (un colegio piloto) y datos de prueba](35-datos-demo-y-pruebas.md) | Interno (desarrollo) | implementado |
+| 36 | [Carga masiva: salones y cursos, y familias (CSV/Excel)](36-carga-masiva.md) | Khipu Base (gestión) | implementado |

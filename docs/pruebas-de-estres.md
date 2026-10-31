@@ -127,6 +127,18 @@ Sin cambio (no se tocó este camino). La BD no pesa: todas las consultas SQL de 
 - **Auditoría**: cada vista y cada alumno de cada lista escribe una fila (≈5 000–10 000 por día en un colegio así). Sin problema hoy; necesitará retención o particionado.
 - Quedan ~55 FK sin índice en tablas pequeñas (`reuniones`, `documentos`, `tareas`…); no se agregaron sin evidencia.
 
+## Carga masiva del colegio (2026-10-30, specs/36)
+
+Medido en local con `tests/integracion/carga-masiva.test.ts` («rendimiento»): 40 salones con 80 cursos, 1 000 alumnos y un archivo de **2 000 filas de familias** (~1 330 apoderados, un tercio con dos hijos).
+
+| Paso | Tiempo |
+|---|---|
+| Importar las 2 000 filas (cuentas con Auth simulado: mide la BD) | ~4,0 s |
+| Vista previa del mismo archivo ya cargado (nada que hacer) | ~0,25 s |
+| Crear cuentas en GoTrue local, 6 a la vez | ~48 cuentas/s → ~30 s para 1 330 familias nuevas |
+
+Sin N+1: búsquedas `in` por lotes de 1 000 (debajo del límite de 32 767 parámetros), `createMany` para salones, cursos, membresías, vínculos y avisos, auditoría en un `INSERT` por lote. Las bienvenidas solo se encolan; salen por la cola al ritmo de `EMAIL_RATE_PER_SECOND` (~1 330 a 14/s ≈ 95 s). La página declara `maxDuration = 300`.
+
 ## Recomendaciones para producción
 
 1. **Correo (SES)**: salir del sandbox (200/día, 1/s) y usar la cuota aprobada: `EMAIL_RATE_PER_SECOND=14` (o la cuota real), `EMAIL_DAILY_LIMIT` = cuota diaria. Nodemailer abre **una conexión SMTP por correo** (1 517 conexiones en la prueba); con SES por TLS conviene `pool: true` en `notificaciones/email.ts` (ahorra el handshake por correo). **Hecho (2026-10-30):** con `SMTP_USER` el transporte es un pool (`pool: true`, 3 conexiones, 100 correos por conexión; `SMTP_POOL`/`SMTP_MAX_CONNECTIONS`/`SMTP_MAX_MESSAGES`), Mailpit local sigue sin pool. Valores de SES en `docs/despliegue.md` §4.

@@ -378,6 +378,8 @@ model Alumno {
   nombres       String
   apellidos     String
   codigo        String?
+  /// DNI (u otro documento) del alumno, opcional: enlaza a las familias en la carga masiva (specs/36).
+  numeroDocumento String?    @map("numero_documento")
   estado        EstadoAlumno @default(activo)
   fotoArchivoId String?      @map("foto_archivo_id") @db.Uuid
   /// Membresía con rol `alumno` (cuenta propia del estudiante), si tiene.
@@ -403,6 +405,7 @@ model Alumno {
   resumenesNudito       ResumenNudito[]
 
   @@index([tenantId, salonId])
+  @@index([tenantId, numeroDocumento])
   @@map("alumnos")
 }
 

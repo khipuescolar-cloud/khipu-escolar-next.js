@@ -7,6 +7,7 @@ import { leerCsvAlumnos, type ErrorFila } from "@/lib/importar-alumnos";
 import { adjuntosDeCurso, adjuntosDeSalon, borrarDelProveedor } from "./adjuntos";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
+import { encolarBienvenida } from "./cuentas";
 import { db } from "./db";
 import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
 import { requireFeature } from "./plan";
@@ -99,9 +100,18 @@ export async function reenviarInvitacion(ctx: TenantContext, membershipId: strin
   exigirAlumnosFamilias(ctx);
   const m = await ctx.db.membership.findFirst({
     where: { id: membershipId, rol: { in: ctx.rol === "direccion" ? ["profesor", "apoderado"] : ["apoderado"] }, estado: "invitada" },
-    select: { id: true, rol: true, user: { select: { email: true, nombres: true, apellidos: true } } },
+    select: { id: true, rol: true, user: { select: { email: true, nombres: true, apellidos: true, genero: true, tipoDocumento: true, debeCambiarPassword: true } } },
   });
   if (!m) throw new ErrorDeNegocio("Esa persona no tiene una invitación pendiente.");
+  // Familias de la carga masiva (specs/36): su cuenta ya existe con el documento como contraseña inicial → se reenvía la bienvenida.
+  if (m.rol === "apoderado" && m.user.debeCambiarPassword && m.user.tipoDocumento) {
+    await encolarBienvenida(ctx.db, {
+      tenant: { id: ctx.tenant.id, slug: ctx.tenant.slug, nombre: ctx.tenant.nombre },
+      email: m.user.email, nombre: m.user.nombres, rol: "apoderado", genero: m.user.genero, tipoDocumento: m.user.tipoDocumento, cuentaNueva: true,
+    });
+    await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: m.id, detalle: { reenvio: "bienvenida" } });
+    return;
+  }
   const redirectTo = urlRaiz("/auth/callback?next=/restablecer");
   const admin = supabaseAdmin();
   const { error } = await admin.auth.admin.inviteUserByEmail(m.user.email, { redirectTo, data: { nombres: m.user.nombres, apellidos: m.user.apellidos } });
@@ -286,8 +296,23 @@ const esquemaAlumno = z.object({
   nombres: texto(80, "Escribe los nombres."),
   apellidos: texto(120, "Escribe los apellidos."),
   codigo: textoOpcional(40),
+  /** DNI u otro documento del alumno (opcional; specs/36): 8 dígitos o de 8 a 12 letras y números. */
+  numeroDocumento: z
+    .string()
+    .trim()
+    .transform((v) => v.replace(/[\s.-]/g, "").toUpperCase())
+    .refine((v) => v === "" || /^[A-Z0-9]{8,12}$/.test(v), "El documento del alumno debe tener 8 dígitos (DNI) o de 8 a 12 letras y números.")
+    .transform((v) => v || null)
+    .optional()
+    .transform((v) => v ?? null),
   salonId: z.uuid("Elige un salón."),
 });
+
+async function exigirDocumentoLibre(ctx: TenantContext, numeroDocumento: string | null, exceptoId?: string): Promise<void> {
+  if (!numeroDocumento) return;
+  const otro = await ctx.db.alumno.count({ where: { numeroDocumento, ...(exceptoId ? { id: { not: exceptoId } } : {}) } });
+  if (otro > 0) throw new ErrorDeNegocio("Ese documento ya lo tiene otro alumno.");
+}
 
 async function exigirCodigoLibre(ctx: TenantContext, codigo: string | null, exceptoId?: string): Promise<void> {
   if (!codigo) return;
@@ -300,6 +325,7 @@ export async function crearAlumno(ctx: TenantContext, entrada: z.input<typeof es
   const d = validar(esquemaAlumno, entrada);
   if (!(await salonEsActivo(ctx, d.salonId))) throw new ErrorDeNegocio("No se encontró el salón o está archivado.");
   await exigirCodigoLibre(ctx, d.codigo);
+  await exigirDocumentoLibre(ctx, d.numeroDocumento);
   const a = await ctx.db.alumno.create({ data: { tenantId: ctx.tenant.id, ...d } });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "alumno", entidadId: a.id });
   return a.id;
@@ -313,7 +339,10 @@ export async function editarAlumno(ctx: TenantContext, id: string, entrada: z.in
   if (actual?.salonId !== d.salonId && !(await salonEsActivo(ctx, d.salonId))) throw new ErrorDeNegocio("No se encontró el salón o está archivado.");
   if (actual?.salonId === d.salonId && (await ctx.db.salon.count({ where: { id: d.salonId } })) === 0) throw new ErrorDeNegocio("No se encontró el salón.");
   await exigirCodigoLibre(ctx, d.codigo, id);
-  const r = await ctx.db.alumno.updateMany({ where: { id }, data: d });
+  await exigirDocumentoLibre(ctx, d.numeroDocumento, id);
+  // Sin el campo (llamadas antiguas) el documento se conserva.
+  const { numeroDocumento, ...resto } = d;
+  const r = await ctx.db.alumno.updateMany({ where: { id }, data: entrada.numeroDocumento === undefined ? resto : { ...resto, numeroDocumento } });
   if (r.count === 0) throw new ErrorDeNegocio("No se encontró al alumno.");
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "alumno", entidadId: id });
 }
@@ -329,7 +358,7 @@ export async function cambiarEstadoAlumno(ctx: TenantContext, id: string, estado
 export type ResultadoImportacion = { ok: boolean; creados: number; errores: ErrorFila[] };
 
 /**
- * Importa alumnos desde un CSV (nombres, apellidos, codigo, salon). Todo o nada: si alguna fila es inválida
+ * Importa alumnos desde un CSV (nombres, apellidos, codigo, salon y, opcional, documento). Todo o nada: si alguna fila es inválida
  * (salón desconocido, código repetido…) no se crea ninguno y se devuelve la lista de errores por línea.
  */
 export async function importarAlumnosCsv(ctx: TenantContext, csv: string): Promise<ResultadoImportacion> {
@@ -337,20 +366,23 @@ export async function importarAlumnosCsv(ctx: TenantContext, csv: string): Promi
   const { filas, errores } = leerCsvAlumnos(csv);
   const salones = await ctx.db.salon.findMany({ where: whereSalonActivo, select: { id: true, nombre: true } });
   const porNombre = new Map(salones.map((s) => [s.nombre.trim().toLowerCase(), s.id]));
-  const codigosExistentes = new Set((await ctx.db.alumno.findMany({ where: { codigo: { not: null } }, select: { codigo: true } })).map((a) => a.codigo));
+  const existentes = await ctx.db.alumno.findMany({ where: { OR: [{ codigo: { not: null } }, { numeroDocumento: { not: null } }] }, select: { codigo: true, numeroDocumento: true } });
+  const codigosExistentes = new Set(existentes.map((a) => a.codigo).filter(Boolean));
+  const documentosExistentes = new Set(existentes.map((a) => a.numeroDocumento).filter(Boolean));
 
   const validas: { fila: (typeof filas)[number]; salonId: string }[] = [];
   for (const fila of filas) {
     const salonId = porNombre.get(fila.salon.toLowerCase());
     if (!salonId) errores.push({ linea: fila.linea, mensaje: `No existe el salón «${fila.salon}».` });
     else if (fila.codigo && codigosExistentes.has(fila.codigo)) errores.push({ linea: fila.linea, mensaje: `El código ${fila.codigo} ya lo tiene otro alumno.` });
+    else if (fila.documento && documentosExistentes.has(fila.documento)) errores.push({ linea: fila.linea, mensaje: "Ese documento ya lo tiene otro alumno." });
     else validas.push({ fila, salonId });
   }
   if (errores.length > 0 || validas.length === 0) {
     return { ok: false, creados: 0, errores: errores.sort((a, b) => a.linea - b.linea) };
   }
   await ctx.db.alumno.createMany({
-    data: validas.map(({ fila, salonId }) => ({ tenantId: ctx.tenant.id, salonId, nombres: fila.nombres, apellidos: fila.apellidos, codigo: fila.codigo })),
+    data: validas.map(({ fila, salonId }) => ({ tenantId: ctx.tenant.id, salonId, nombres: fila.nombres, apellidos: fila.apellidos, codigo: fila.codigo, numeroDocumento: fila.documento })),
   });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "alumno", detalle: { importados: validas.length } });
   return { ok: true, creados: validas.length, errores: [] };

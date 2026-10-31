@@ -1,6 +1,6 @@
 # 17 — CRM del colegio: profesores, personal y grados
 
-> Estado: implementado · Última actualización: 2026-10-27 (Claude Code, rama `feat/crm-personal`) · Plan: Khipu Base (gestión)
+> Estado: implementado · Última actualización: 2026-10-30 (Claude Code, rama `feat/carga-masiva`: carga masiva de salones, cursos y familias) · 2026-10-27 (Claude Code, rama `feat/crm-personal`) · Plan: Khipu Base (gestión)
 
 ## Objetivo
 Que la dirección administre a su gente desde el sistema: profesores, personal administrativo y grados/salones, con sus datos personales y correos.
@@ -20,7 +20,7 @@ Que la dirección administre a su gente desde el sistema: profesores, personal a
   - ficha con los datos personales editables, cursos y tutorías asignados, y la historia de cambios (auditoría);
   - acciones: desactivar o reactivar y reenviar la bienvenida.
 - **Personal:** lo mismo para `administrativo` y `porteria`, con su cargo.
-- **Grados y salones:** vista por nivel → grado → sección, con tutor, cantidad de alumnos y cursos. Se pueden crear, editar y archivar.
+- **Grados y salones:** vista por nivel → grado → sección, con tutor, cantidad de alumnos y cursos. Se pueden crear, editar y archivar, o cargar en bloque desde un CSV/Excel con su tutor y sus cursos (`specs/36-carga-masiva.md`).
 - **Importación CSV** de profesores y personal (opcional): todo o nada, con errores por línea.
 
 ## Reglas
@@ -30,7 +30,7 @@ Que la dirección administre a su gente desde el sistema: profesores, personal a
 
 ## Roles y permisos
 - `/gestion/**` es **solo dirección** (`exigirGestion`), salvo **Alumnos** y **Familias** (`exigirAlumnosFamilias`: dirección + `administrativo`). Profesor y portería reciben 403; el administrativo recibe 403 en profesores, personal, salones, carnets y configuración, también en las funciones de `src/lib/server/personal.ts`.
-- **Permisos del `administrativo`** (ver `specs/03-planes-y-permisos.md`): Comunicados (crear y editar, para todo el colegio o un salón activo), Agenda (ver y crear eventos **de todo el colegio**; edita o borra solo los suyos), Gestión → Alumnos y Familias (alta, edición, retirar, importar CSV, invitar, reenviar invitación, vincular, activar/desactivar cuentas de familias), Avisos enviados (solo lectura). **Sin Mensajes** (el chat es familia ↔ profesor). Su `/gestion` solo muestra Alumnos y Familias; no ve documentos de las familias (la búsqueda por documento es solo de dirección).
+- **Permisos del `administrativo`** (ver `specs/03-planes-y-permisos.md`): Comunicados (crear y editar, para todo el colegio o un salón activo), Agenda (ver y crear eventos **de todo el colegio**; edita o borra solo los suyos), Gestión → Alumnos y Familias (alta, edición, retirar, importar CSV, carga masiva de familias, invitar, reenviar invitación, vincular, activar/desactivar cuentas de familias), Avisos enviados (solo lectura). **Sin Mensajes** (el chat es familia ↔ profesor). Su `/gestion` solo muestra Alumnos y Familias; no ve documentos de las familias (la búsqueda por documento es solo de dirección).
 
 ## Flujos implementados
 - **Alta** (`altaPersonal`): zod (`esquemaPersona`) → `crearCuentaConDocumento` (contraseña inicial = documento, cambio obligatorio) → membresía `activa` con `cargo` → `encolarBienvenida` (sin el número) → la acción de servidor dispara `procesarCola()` con `after()`. Correo ya existente en Khipu: solo membresía; la bienvenida dice que use su contraseña de siempre. Mismo rol ya registrado: error claro (si está inactiva, se indica reactivarla).
@@ -38,7 +38,8 @@ Que la dirección administre a su gente desde el sistema: profesores, personal a
 - **Ficha** (`/gestion/profesores/[id]`, `/gestion/personal/[id]`): datos personales y cargo editables (el correo es el usuario y no se edita), cursos y tutorías asignados, historial (`auditoria` de la membresía: vio, creó, editó con el **nombre** de los campos cambiados, nunca los valores), desactivar/reactivar (`cambiarEstadoMembresia`; nunca se borra; al desactivar un profesor se liberan tutorías y cursos) y **Reenviar bienvenida** (`reenviarBienvenida`; dice «contraseña inicial» solo si aún no la cambió). Abrir la ficha queda en la auditoría. Para invitaciones antiguas (`invitada`) se conserva «Reenviar invitación».
 - **Grados y salones** (`/gestion/salones`): vista nivel → grado → sección con tutor, alumnos activos y cursos; crear, editar y cursos igual que antes. **Archivar salón** (`Salon.archivadoAt`; `archivarSalon`/`reactivarSalon`, con `BotonConfirmar`): el salón deja de salir al pasar lista y en los selectores (comunicados, tareas/notas vía `cursosDelDocente`, agenda, carnets, alumnos nuevos e importación CSV) y no admite alumnos nuevos ni comunicados o eventos propios; conserva alumnos, asistencia y notas, y las vistas históricas (libreta, asistencia de la familia) lo siguen mostrando. «Ver archivados» (`?archivados=1`) lista solo los archivados para reactivarlos. «Quitar salón vacío» aparece solo si no tiene alumnos ni cursos. Helper: `src/lib/server/salones-activos.ts` (`whereSalonActivo`, `salonesActivos`, `salonEsActivo`).
 - **Importación CSV** (`importarPersonalCsv`, parser puro en `src/lib/importar-personal.ts`): columnas `nombres, apellidos, documento, correo` (obligatorias) más `tipo_documento, telefono, genero, fecha_nacimiento, direccion, cargo` (y `rol` = administrativo o porteria en el CSV de personal). Todo o nada: valida cada línea (datos, correos y documentos repetidos, rol ya registrado) y devuelve errores por línea; máx. 200 filas y 1 MB.
-- **Navegación** de `/gestion`: Profesores, Personal, Grados y salones, Alumnos, Familias y Carnets. Apoderados mantienen la invitación por correo personal (`invitarUsuario` ahora solo admite `apoderado`).
+- **Carga masiva** (`/gestion/carga-masiva`, spec 36): salones y cursos con tutor y profesor por DNI o correo (solo dirección; los profesores no encontrados se informan como avisos) y familias (dirección y administrativo). Vista previa, confirmación y re-subida sin duplicar.
+- **Navegación** de `/gestion`: Profesores, Personal, Grados y salones, Alumnos, Familias, Carnets y Carga masiva (el administrativo ve Alumnos, Familias y Carga masiva, esta última solo con familias). Apoderados mantienen la invitación por correo personal (`invitarUsuario` ahora solo admite `apoderado`).
 
 ## Cuenta propia del alumno (`/gestion/alumnos`)
 - Dirección y administrativo (`exigirAlumnosFamilias`), desde las acciones de cada alumno activo: **Crear cuenta del alumno** (correo del alumno + tipo y número de documento). Columna «Cuenta del alumno»: Sin cuenta · Cuenta activa · Cuenta desactivada (ícono + palabra).

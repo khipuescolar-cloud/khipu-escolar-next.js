@@ -39,7 +39,7 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
         variante="outline"
         boton={<><FileUp strokeWidth={2} aria-hidden /> Importar CSV</>}
         titulo="Importar desde un archivo CSV"
-        descripcion={<>Columnas: <code>nombres, apellidos, codigo, salon</code>. El salón debe existir con el mismo nombre. Si alguna fila falla, no se importa ninguna.</>}
+        descripcion={<>Columnas: <code>nombres, apellidos, codigo, salon</code> y, opcional, <code>documento</code> (DNI del alumno, para enlazar a las familias en la carga masiva). El salón debe existir con el mismo nombre. Hasta 1 500 alumnos por archivo. Si alguna fila falla, no se importa ninguna.</>}
       >
         <form action={importarAlumnosAction} className="flex flex-col gap-4">
           <CampoArchivoCsv />
@@ -51,6 +51,7 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
           <Campo etiqueta="Nombres" name="nombres" required />
           <Campo etiqueta="Apellidos" name="apellidos" required />
           <Campo etiqueta="Código (opcional)" name="codigo" />
+          <Campo etiqueta="DNI del alumno (opcional)" name="numeroDocumento" inputMode="text" autoComplete="off" />
           <Selector etiqueta="Salón" name="salonId" required>{opcionesSalon}</Selector>
           <Boton type="submit" className="justify-self-start sm:col-span-2">Agregar alumno</Boton>
         </form>
@@ -128,6 +129,7 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
                                 <Campo etiqueta="Nombres" name="nombres" defaultValue={a.nombres} required />
                                 <Campo etiqueta="Apellidos" name="apellidos" defaultValue={a.apellidos} required />
                                 <Campo etiqueta="Código" name="codigo" defaultValue={a.codigo ?? ""} />
+                                <Campo etiqueta="DNI del alumno" name="numeroDocumento" defaultValue={a.numeroDocumento ?? ""} autoComplete="off" />
                                 <Selector etiqueta="Salón" name="salonId" defaultValue={a.salonId}>
                                   {opcionesSalon}
                                   {!salones.some((s) => s.id === a.salonId) && <option value={a.salonId}>{a.salon.nombre} (archivado)</option>}

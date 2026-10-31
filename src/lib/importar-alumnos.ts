@@ -1,10 +1,11 @@
-// Lectura y validación del CSV de alumnos (nombres, apellidos, codigo, salon). Pura y sin acceso a datos.
+// Lectura y validación del CSV de alumnos (nombres, apellidos, codigo, salon y, opcional, documento). Pura y sin acceso a datos.
 
-export type FilaAlumno = { linea: number; nombres: string; apellidos: string; codigo: string | null; salon: string };
+export type FilaAlumno = { linea: number; nombres: string; apellidos: string; codigo: string | null; salon: string; documento: string | null };
 export type ErrorFila = { linea: number; mensaje: string };
 export type ResultadoCsv = { filas: FilaAlumno[]; errores: ErrorFila[] };
 
-export const MAX_FILAS_CSV = 500;
+/** Un colegio de ~1 000 alumnos cabe en un solo archivo (specs/36). */
+export const MAX_FILAS_CSV = 1500;
 const COLUMNAS = ["nombres", "apellidos", "codigo", "salon"] as const;
 
 /** Divide una línea CSV respetando comillas dobles. Acepta «,» o «;» como separador. */
@@ -49,7 +50,9 @@ export function leerCsvAlumnos(texto: string): ResultadoCsv {
     return { filas, errores: [{ linea: primera + 1, mensaje: `Faltan las columnas: ${faltantes.join(", ")}. Usa: nombres, apellidos, codigo, salon.` }] };
   }
 
+  const colDocumento = ["documento", "dni", "numero_documento"].map((c) => encabezado.indexOf(c)).find((i) => i !== -1) ?? -1;
   const codigos = new Map<string, number>();
+  const documentos = new Map<string, number>();
   for (let i = primera + 1; i < lineas.length; i++) {
     if (lineas[i].trim() === "") continue;
     const linea = i + 1;
@@ -62,14 +65,20 @@ export function leerCsvAlumnos(texto: string): ResultadoCsv {
     const apellidos = celdas[indice.apellidos] ?? "";
     const codigo = (celdas[indice.codigo] ?? "") || null;
     const salon = celdas[indice.salon] ?? "";
+    const docCrudo = (colDocumento === -1 ? "" : (celdas[colDocumento] ?? "")).replace(/[\s.-]/g, "").toUpperCase();
+    // Excel quita los ceros de la izquierda del DNI: se completan a 8 dígitos.
+    const documento = /^\d{5,7}$/.test(docCrudo) ? docCrudo.padStart(8, "0") : docCrudo || null;
     if (!nombres) errores.push({ linea, mensaje: "Falta el nombre." });
     else if (!apellidos) errores.push({ linea, mensaje: "Faltan los apellidos." });
     else if (!salon) errores.push({ linea, mensaje: "Falta el salón." });
     else if (nombres.length > 80 || apellidos.length > 120 || (codigo && codigo.length > 40)) errores.push({ linea, mensaje: "Algún dato es demasiado largo." });
     else if (codigo && codigos.has(codigo)) errores.push({ linea, mensaje: `El código ${codigo} se repite (también en la línea ${codigos.get(codigo)}).` });
+    else if (documento && !/^[A-Z0-9]{8,12}$/.test(documento)) errores.push({ linea, mensaje: "El documento del alumno debe tener 8 dígitos (DNI) o de 8 a 12 letras y números." });
+    else if (documento && documentos.has(documento)) errores.push({ linea, mensaje: `El documento se repite (también en la línea ${documentos.get(documento)}).` });
     else {
       if (codigo) codigos.set(codigo, linea);
-      filas.push({ linea, nombres, apellidos, codigo, salon });
+      if (documento) documentos.set(documento, linea);
+      filas.push({ linea, nombres, apellidos, codigo, salon, documento });
     }
   }
   return { filas, errores };

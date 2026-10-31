@@ -1,4 +1,4 @@
-import { CheckCircle2, Clock, HeartHandshake, Info, Search, UserPlus, XCircle } from "lucide-react";
+import { CheckCircle2, Clock, FileUp, HeartHandshake, Info, Search, UserPlus, XCircle } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
@@ -11,6 +11,7 @@ import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { Tarjeta } from "@/components/ui/Tarjeta";
+import { buttonVariants } from "@/components/ui/button";
 import { FAMILIAS_POR_PAGINA, listarAlumnos, listarApoderados } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cambiarEstadoMembresiaAction, desvincularApoderadoAction, editarApoderadoAction, invitarApoderadoAction, reenviarInvitacionAction, vincularApoderadoAction } from "../actions";
@@ -48,6 +49,8 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
           titulo="Familias"
           descripcion="Apoderados, sus alumnos y el consentimiento para recibir avisos."
           acciones={
+            <>
+            <Link href="/gestion/carga-masiva?tipo=familias" className={buttonVariants({ variant: "outline" })}><FileUp strokeWidth={2} aria-hidden /> Cargar desde archivo</Link>
             <PanelFormulario
               boton={<><UserPlus strokeWidth={2} aria-hidden /> Invitar apoderado</>}
               titulo="Invitar a un apoderado"
@@ -62,6 +65,7 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
                 <Boton type="submit" className="justify-self-start sm:col-span-2">Enviar invitación</Boton>
               </form>
             </PanelFormulario>
+            </>
           }
         />
         <Flash ok={ok} error={error} />

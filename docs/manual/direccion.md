@@ -91,12 +91,15 @@ enviarle correos. Llama a la familia, corrige su dato con secretaría y pídele 
 ### Grados, salones y cursos
 1. Gestión → «Grados y salones» → «Crear salón»: nombre (por ejemplo «3.° B»), nivel, grado, sección, año y tutor(a).
 2. En el salón, «Editar salón y cursos» → «Nuevo curso» con su profesor(a).
-3. Al terminar el año o si un salón se cierra: «Archivar salón» (deja de salir al pasar lista; conserva su historia).
+3. Muchos salones a la vez: «Cargar desde archivo» (Gestión → «Carga masiva» → «Salones y cursos»): plantilla Excel o
+   CSV, vista previa, «Confirmar y cargar». Tutor y profesores por DNI o correo. Ver
+   [implementacion.md](implementacion.md#5-grados-salones-y-cursos).
+4. Al terminar el año o si un salón se cierra: «Archivar salón» (deja de salir al pasar lista; conserva su historia).
    «Ver archivados» para reactivarlo. «Quitar salón vacío» solo aparece si no tiene alumnos ni cursos.
 
 ### Alumnos y familias
 Igual que secretaría: ver [administrativo.md](administrativo.md) (agregar, importar CSV, retirar, invitar apoderados,
-vincular hermanos, crear la cuenta del alumno). Solo dirección puede buscar familias por número de documento.
+cargar familias desde un archivo, vincular hermanos, crear la cuenta del alumno). Solo dirección puede buscar familias por número de documento.
 
 ### Carnets QR
 1. Gestión → «Carnets» → en cada salón, «Generar carnets» (crea uno para cada alumno que no tenga).
