@@ -1,4 +1,4 @@
-import { Ban, Bell, CheckCircle2, Clock, Hourglass, Mail, MailOpen, MailX, Megaphone, Send, TrendingUp, UserRound } from "lucide-react";
+import { Ban, Bell, Hourglass, Mail, MailOpen, MailX, Megaphone, Send, UserRound } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Boton } from "@/components/ui/Boton";
@@ -58,7 +58,6 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
   const tipo = TIPOS.find((t) => t === uno(sp.tipo));
   const q = uno(sp.q)?.trim() || undefined;
   const { avisos, envios, hoy, semana } = await panelAvisos(ctx, { vista, estado, tipo, q });
-  const cumple = semana.porcentaje !== null && semana.porcentaje >= semana.meta;
   const filtrado = Boolean(estado || tipo || q);
   const masivos = vista === "masivos";
   const base = masivos ? "/avisos" : "/avisos?vista=individuales";
@@ -128,25 +127,6 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
           </div>
         )}
       </section>
-
-      <Card>
-        <CardContent className="flex flex-wrap items-center gap-4">
-          <span className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-            <TrendingUp className="size-6" strokeWidth={2} aria-hidden />
-          </span>
-          <div>
-            <p className="text-sm text-muted-foreground">Apertura de la semana (últimos 7 días)</p>
-            <p className="text-titulo-1">{semana.porcentaje === null ? "Sin envíos" : `${semana.porcentaje} %`}</p>
-            <p className="text-sm text-muted-foreground">{NUM.format(semana.abiertos)} abiertos de {NUM.format(semana.enviados)} enviados · meta {semana.meta} %</p>
-          </div>
-          {semana.porcentaje !== null && (
-            <span className={`inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 text-etiqueta ${cumple ? "bg-llego-fondo text-llego" : "bg-tarde-fondo text-tarde"}`}>
-              {cumple ? <CheckCircle2 className="size-3.5" strokeWidth={2} aria-hidden /> : <Clock className="size-3.5" strokeWidth={2} aria-hidden />}
-              {cumple ? "Meta alcanzada" : "Por debajo de la meta"}
-            </span>
-          )}
-        </CardContent>
-      </Card>
 
       <form method="get" className="grid gap-3 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end">
         {!masivos && <input type="hidden" name="vista" value="individuales" />}
