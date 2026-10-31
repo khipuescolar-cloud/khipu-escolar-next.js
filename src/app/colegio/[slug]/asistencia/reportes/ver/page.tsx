@@ -93,7 +93,7 @@ export default async function VerReporteAsistenciaPage({ params, searchParams }:
           ) : (
             <>
               <Totales resumen={reporte.tipo === "alumno" ? reporte.resumen : reporte.total} titulo={tituloDe(reporte)} contexto={contextoDe(reporte)} />
-              <CalendarioReporte reporte={reporte} veTodo={veTodo} puedeCorregir={puedeCorregir} />
+              <CalendarioReporte reporte={reporte} hoy={hoy} veTodo={veTodo} puedeCorregir={puedeCorregir} />
             </>
           )}
           <p className="text-sm text-muted-foreground">
