@@ -170,6 +170,7 @@ async function PasarLista({ ctx, slug, salonId, ambito, fecha }: { ctx: TenantCo
           horaActual={lista.hoy.hora}
           previas={previas}
           esCurso={esCurso}
+          exigeIngreso={esCurso && !corregir && ctx.tenant.controlIngresoAutomatico}
           corregir={corregir ? { fecha: lista.hoy.isoFecha, avisa: lista.esHoy } : null}
         />
       )}

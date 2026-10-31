@@ -44,6 +44,7 @@ export function ListaAsistencia({
   horaActual,
   previas,
   esCurso = false,
+  exigeIngreso = false,
   corregir = null,
 }: {
   slug: string;
@@ -54,12 +55,20 @@ export function ListaAsistencia({
   /** null: ese estado no se avisa (llegada en un curso, o corrección de un día pasado). */
   previas: Record<Estado, { asunto: string; html: string } | null>;
   esCurso?: boolean;
+  /** Control de ingreso (specs/05): en la lista de un curso, quien no ingresó al colegio hoy solo puede quedar con falta. */
+  exigeIngreso?: boolean;
   corregir?: ModoCorregir | null;
 }) {
+  const bloqueado = (a: AlumnoLista) => exigeIngreso && !ingresoAlColegio(a.ingreso);
   const router = useRouter();
   // Al pasar lista, «Llegó» por defecto. Al corregir, solo lo ya registrado: un alumno sin registro queda sin marcar.
   const [marcas, setMarcas] = useState<Record<string, { estado: Estado | null; nota: string }>>(() =>
-    Object.fromEntries(alumnos.map((a) => [a.id, { estado: a.registro?.estado ?? (corregir ? null : "llego"), nota: a.registro?.nota ?? "" }])),
+    Object.fromEntries(
+      alumnos.map((a) => [
+        a.id,
+        { estado: bloqueado(a) ? "falta" : (a.registro?.estado ?? (corregir ? null : "llego")), nota: a.registro?.nota ?? "" },
+      ]),
+    ),
   );
   const [previaDe, setPreviaDe] = useState(alumnos[0]?.id ?? "");
   const [resultado, setResultado] = useState<EstadoGuardarLista | null>(null);
@@ -188,7 +197,8 @@ export function ListaAsistencia({
             type="button"
             variant="outline"
             onClick={() => {
-              setMarcas((m) => Object.fromEntries(Object.entries(m).map(([k, v]) => [k, { ...v, estado: "llego" as Estado }])));
+              const sinIngreso = new Set(alumnos.filter(bloqueado).map((a) => a.id));
+              setMarcas((m) => Object.fromEntries(Object.entries(m).map(([k, v]) => [k, { ...v, estado: (sinIngreso.has(k) ? "falta" : "llego") as Estado }])));
               setResultado(null);
             }}
           >
@@ -211,6 +221,7 @@ export function ListaAsistencia({
         <ul className="flex flex-col gap-3">
           {alumnos.map((a) => {
             const marca = marcas[a.id];
+            const sinIngreso = bloqueado(a);
             return (
               <li key={a.id}>
                 <Card size="sm">
@@ -232,18 +243,30 @@ export function ListaAsistencia({
                         )}
                       </span>
                     </div>
-                    <div role="group" aria-label={`Asistencia de ${a.nombres}`} className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                    {sinIngreso && (
+                      <p id={`sin-ingreso-${a.id}`} className="text-cuerpo-sm text-muted-foreground">
+                        No pasó por portería hoy, así que queda con falta. Si ya llegó, pide a portería que registre su ingreso.
+                      </p>
+                    )}
+                    <div
+                      role="group"
+                      aria-label={`Asistencia de ${a.nombres}`}
+                      aria-describedby={sinIngreso ? `sin-ingreso-${a.id}` : undefined}
+                      className="grid grid-cols-2 gap-2 sm:grid-cols-4"
+                    >
                       {ORDEN.map((estado) => {
                         const { palabra, Icono, clase } = ESTADOS_ASISTENCIA[estado];
                         const activo = marca.estado === estado;
+                        const deshabilitado = sinIngreso && estado !== "falta";
                         return (
                           <button
                             key={estado}
                             type="button"
                             aria-pressed={activo}
+                            disabled={deshabilitado}
                             onClick={() => marcar(a.id, estado)}
-                            className={`flex min-h-12 items-center justify-center gap-2 rounded-md border-2 px-3 py-2.5 text-cuerpo font-semibold transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 ${
-                              activo ? `${clase} border-current` : "border-input bg-card text-muted-foreground hover:bg-accent hover:text-foreground"
+                            className={`flex min-h-12 items-center justify-center gap-2 rounded-md border-2 px-3 py-2.5 text-cuerpo font-semibold transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-40 ${
+                              activo ? `${clase} border-current` : "border-input bg-card text-muted-foreground hover:bg-accent hover:text-foreground disabled:hover:bg-card disabled:hover:text-muted-foreground"
                             }`}
                           >
                             <Icono className="size-5 shrink-0" strokeWidth={2} aria-hidden />

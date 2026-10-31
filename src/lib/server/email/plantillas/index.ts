@@ -11,6 +11,8 @@ const hhmm = z.string().regex(/^\d{2}:\d{2}$/);
 const fechaIso = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 const url = z.string().min(1);
 const comun = { colegio: z.string().min(1), urlPreferencias: url.optional(), logoColegioUrl: url.optional() };
+/** Avisos de asistencia: «Buenos días, Rosa.» (nombre del apoderado y momento del día, armado al encolar). */
+const saludo = { saludo: z.string().max(80).optional() };
 
 const reunionBase = {
   titulo: z.string().min(1),
@@ -24,9 +26,12 @@ const reunionBase = {
 };
 
 const ESQUEMAS = {
-  asistencia_llego: z.object({ ...comun, alumno: z.string().min(1), hora: hhmm }),
+  asistencia_llego: z.object({ ...comun, ...saludo, alumno: z.string().min(1), hora: hhmm }),
+  /** Control de ingreso (specs/05): a la hora de tardanza el alumno aún no registra ingreso al colegio. */
+  asistencia_no_llega: z.object({ ...comun, ...saludo, alumno: z.string().min(1), horaTardanza: hhmm, horaFalta: hhmm }),
   asistencia_tarde: z.object({
     ...comun,
+    ...saludo,
     alumno: z.string().min(1),
     hora: hhmm,
     /** Lista de un curso (specs/04): «llegó tarde a Matemática (10:12 a. m.)». Sin curso, es la llegada al colegio. */
@@ -34,6 +39,9 @@ const ESQUEMAS = {
   }),
   asistencia_falta: z.object({
     ...comun,
+    ...saludo,
+    /** Falta puesta por el control de ingreso: no ingresó al colegio hasta esta hora (specs/05). */
+    horaLimite: hhmm.optional(),
     alumno: z.string().min(1),
     /** «a la 1.ª hora» (asistencia del día) o «a Matemática». */
     momento: z.string().default("a la 1.ª hora"),
@@ -49,6 +57,7 @@ const ESQUEMAS = {
   }),
   asistencia_problema: z.object({
     ...comun,
+    ...saludo,
     alumno: z.string().min(1),
     hora: hhmm,
     nota: z.string().max(500).optional(),
@@ -152,7 +161,23 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       logoColegioUrl: p.logoColegioUrl,
       asunto: `${p.alumno} llegó al colegio`,
       insignia: "llego",
+      saludo: p.saludo,
       parrafos: [`${p.alumno} llegó al colegio a las ${hora12(p.hora)}`],
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  asistencia_no_llega: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `${p.alumno} aún no llega al colegio`,
+      insignia: "tarde",
+      palabraInsignia: "Aún no llega",
+      saludo: p.saludo,
+      parrafos: [
+        `${p.alumno} aún no se presenta en el colegio. La hora de ingreso fue a las ${hora12(p.horaTardanza)}.`,
+        `Si llega antes de las ${hora12(p.horaFalta)}, te avisaremos a qué hora ingresó y tendrá tardanza. Si no llega, tendrá falta hoy y podrás justificarla.`,
+      ],
       urlPreferencias: p.urlPreferencias,
     }),
 
@@ -162,11 +187,13 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       logoColegioUrl: p.logoColegioUrl,
       asunto: p.curso ? `${p.alumno} llegó tarde a ${p.curso}` : `${p.alumno} llegó tarde hoy`,
       insignia: "tarde",
-      parrafos: [
-        p.curso
-          ? `${p.alumno} llegó tarde a ${p.curso} (${hora12(p.hora)}). Si tienes dudas, escríbele a su tutora.`
-          : `${p.alumno} llegó tarde hoy (${hora12(p.hora)}). Si tienes dudas, escríbele a su tutora.`,
-      ],
+      saludo: p.saludo,
+      parrafos: p.curso
+        ? [`${p.alumno} llegó tarde a ${p.curso} (${hora12(p.hora)}). Si tienes dudas, escríbele a su tutora.`]
+        : [
+            `${p.alumno} acaba de ingresar al colegio a las ${hora12(p.hora)}, así que hoy tiene tardanza.`,
+            "Si tienes dudas, escríbele a su tutora.",
+          ],
       urlPreferencias: p.urlPreferencias,
     }),
 
@@ -176,8 +203,13 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       logoColegioUrl: p.logoColegioUrl,
       asunto: p.curso && p.ingreso ? `${p.alumno} no estuvo en ${p.curso}` : `${p.alumno} no llegó hoy`,
       insignia: "falta",
-      parrafos:
-        p.curso && p.ingreso
+      saludo: p.saludo,
+      parrafos: p.horaLimite
+        ? [
+            `${p.alumno} no se presentó en el colegio hasta las ${hora12(p.horaLimite)}, así que hoy tiene falta.`,
+            "Por favor, justifícala con el botón de abajo. Si llega más tarde, el colegio registrará su ingreso.",
+          ]
+        : p.curso && p.ingreso
           ? [
               `${p.alumno} ingresó al colegio a las ${hora12(p.ingreso)}, pero no estuvo en ${p.curso}${p.horaClase ? ` (${hora12(p.horaClase)})` : ""}.`,
               "Si ya lo sabías, puedes justificar la falta. Si tienes dudas, escríbele a su tutora.",
@@ -193,6 +225,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       logoColegioUrl: p.logoColegioUrl,
       asunto: `Aviso del colegio sobre ${p.alumno}`,
       insignia: "problema",
+      saludo: p.saludo,
       parrafos: [
         `Hoy, a las ${hora12(p.hora)}, el colegio registró una situación con ${p.alumno} que necesita tu atención.`,
         ...(p.nota ? [`Detalle: ${p.nota}`] : []),

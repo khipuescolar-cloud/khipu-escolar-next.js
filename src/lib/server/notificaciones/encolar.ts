@@ -6,6 +6,7 @@ import { isoDeFechaDb, sumarDias } from "@/lib/fechas";
 import { expiracionJustificacion } from "@/lib/plazo-justificacion";
 import type { DbTenant } from "../db";
 import { feriadosAplicables } from "../plataforma-configuracion";
+import { saludoFamilia } from "@/lib/control-ingreso";
 import { renderizarPlantilla, type NombrePlantilla, type PayloadDe } from "../email/plantillas";
 import { hashToken, tokenDerivado } from "../tokens";
 
@@ -17,6 +18,8 @@ import { hashToken, tokenDerivado } from "../tokens";
 
 export type Destinatario = {
   apoderadoId: string;
+  /** Nombres del apoderado (para el saludo de los avisos de asistencia). */
+  nombre?: string;
   email: string;
   correo: boolean;
   pushEndpoints: string[];
@@ -48,7 +51,7 @@ export async function destinatariosPorAlumno(tdb: DbTenant, alumnoIds: string[])
       apoderado: {
         select: {
           preferenciaAviso: { select: { correo: true, push: true } },
-          user: { select: { email: true, pushSuscripciones: { select: { endpoint: true } } } },
+          user: { select: { email: true, nombres: true, pushSuscripciones: { select: { endpoint: true } } } },
         },
       },
     },
@@ -58,6 +61,7 @@ export async function destinatariosPorAlumno(tdb: DbTenant, alumnoIds: string[])
     const lista = mapa.get(v.alumnoId) ?? [];
     lista.push({
       apoderadoId: v.apoderadoId,
+      nombre: v.apoderado.user.nombres,
       email: v.apoderado.user.email,
       correo: pref.correo,
       pushEndpoints: pref.push ? v.apoderado.user.pushSuscripciones.map((s) => s.endpoint) : [],
@@ -213,6 +217,10 @@ export async function encolarAvisosAsistencia(
     urlMensajes?: string;
     /** Destinatarios ya cargados (p. ej. con `destinatariosPorAlumno` para toda la lista); si no, se consultan. */
     destinatarios?: Destinatario[];
+    /** Falta puesta por el control de ingreso (specs/05): «no se presentó hasta las 9:00». */
+    horaLimiteFalta?: string;
+    /** Hora del colegio al encolar (HH:mm), para «Buenos días» o «Buenas tardes». Por defecto, la del registro. */
+    horaAhora?: string;
   },
 ): Promise<number> {
   const { tenant, asistencia, alumnoNombre } = datos;
@@ -222,17 +230,18 @@ export async function encolarAvisosAsistencia(
     if (!tieneCanalAviso(d)) continue;
     const base = { tenantId: tenant.id, tipo: "asistencia" as const, asistenciaId: asistencia.id };
     const colegio = tenant.nombre;
+    const saludo = saludoFamilia(d.nombre, datos.horaAhora ?? asistencia.hora);
     let filas = 0;
     switch (asistencia.estado) {
       case "llego":
         filas = await encolarParaDestinatario(tdb, d, {
-          ...base, plantilla: "asistencia_llego", payload: { colegio, alumno: alumnoNombre, hora: asistencia.hora },
+          ...base, plantilla: "asistencia_llego", payload: { colegio, saludo, alumno: alumnoNombre, hora: asistencia.hora },
         });
         break;
       case "tarde":
         filas = await encolarParaDestinatario(tdb, d, {
           ...base, plantilla: "asistencia_tarde",
-          payload: { colegio, alumno: alumnoNombre, hora: asistencia.hora, ...(datos.curso ? { curso: datos.curso } : {}) },
+          payload: { colegio, saludo, alumno: alumnoNombre, hora: asistencia.hora, ...(datos.curso ? { curso: datos.curso } : {}) },
         });
         break;
       case "falta": {
@@ -244,7 +253,8 @@ export async function encolarAvisosAsistencia(
           ...base,
           plantilla: "asistencia_falta",
           payload: {
-            colegio, alumno: alumnoNombre, momento: datos.momento, justificacionTokenId: id,
+            colegio, saludo, alumno: alumnoNombre, momento: datos.momento, justificacionTokenId: id,
+            ...(datos.horaLimiteFalta ? { horaLimite: datos.horaLimiteFalta } : {}),
             ...(datos.curso && datos.ingreso ? { curso: datos.curso, ingreso: datos.ingreso, horaClase: asistencia.hora } : {}),
           },
         });
@@ -255,7 +265,7 @@ export async function encolarAvisosAsistencia(
           ...base,
           plantilla: "asistencia_problema",
           payload: {
-            colegio, alumno: alumnoNombre, hora: asistencia.hora,
+            colegio, saludo, alumno: alumnoNombre, hora: asistencia.hora,
             ...(asistencia.nota ? { nota: asistencia.nota } : {}),
             ...(datos.urlMensajes ? { urlMensajes: datos.urlMensajes } : {}),
           },

@@ -10,6 +10,8 @@ export async function guardarConfiguracionAction(formData: FormData) {
   await ejecutarYVolver("/configuracion", async () => {
     await actualizarConfiguracion(ctx, {
       horaLimiteTardanza: texto(formData, "horaLimiteTardanza"),
+      horaLimiteFalta: texto(formData, "horaLimiteFalta") || undefined,
+      controlIngresoAutomatico: formData.get("controlIngresoAutomatico") === "on",
       plazoJustificacionDiasHabiles: texto(formData, "plazoJustificacionDiasHabiles") || undefined,
       escalaCalificacion: texto(formData, "escalaCalificacion") as "literal",
       emailDomains: texto(formData, "emailDomains"),

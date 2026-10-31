@@ -27,7 +27,17 @@ Verificar la llegada del alumno en la puerta escaneando su carnet, sin depender 
 - La misma lectura repetida en < 2,5 s se ignora en el cliente.
 - Auditoría: creación/anulación de carnets, impresión, lecturas rechazadas y cada registro.
 
+## Control de ingreso automático (2026-11-06)
+Opcional por colegio: Configuración → «Control de ingreso automático por portería» (`tenants.control_ingreso_automatico`, por defecto apagado; requiere el módulo Portería). Horas: `horaLimiteTardanza` (08:00) y `horaLimiteFalta` (09:00, debe ser posterior). Lo corre `procesarControlIngreso()` (`src/lib/server/control-ingreso.ts`) desde `/api/cron/avisos`, antes de procesar la cola; el cron debe correr cada 1–5 min (docs/despliegue.md §3; en local `pnpm cron:local`).
+1. **Desde la hora de tardanza**: a las familias (con consentimiento y canal) de cada alumno activo, de salón activo, **sin ningún registro del día**, aviso `asistencia_no_llega`: «Buenos días, Rosa. Mateo aún no se presenta en el colegio. La hora de ingreso fue a las 8:00 a. m. Si llega antes de las 9:00 a. m., te avisaremos a qué hora ingresó y tendrá tardanza. Si no llega, tendrá falta hoy y podrás justificarla.»
+2. **Si llega tarde**: el escaneo registra «tarde» y avisa `asistencia_tarde`: «Mateo acaba de ingresar al colegio a las 8:30 a. m., así que hoy tiene tardanza.»
+3. **Desde la hora límite de falta**: a quien siga sin registro del día se le crea la falta (`ambito = "dia"`, `origen = automatico`, `registradoPorId = null`, `hora = horaLimiteFalta`, auditada con actor nulo) y se avisa `asistencia_falta` con `horaLimite`: «Mateo no se presentó en el colegio hasta las 9:00 a. m., así que hoy tiene falta. Por favor, justifícala con el botón de abajo…» con enlace «Justificar falta». Si llega después, el escaneo corrige la falta a «tarde», avisa la tardanza y el enlace de justificar deja de servir (la asistencia ya no es falta).
+4. **Listas de curso** (spec 04): con el control activo, un alumno sin ingreso al colegio (portería o lista del día con «Llegó»/«Tarde») solo puede quedar con «No llegó»: la tarjeta lo dice y los demás botones se desactivan; `guardarLista` rechaza otro estado («Mateo no registra ingreso al colegio hoy: solo puede quedar con falta. Si ya llegó, pide a portería que registre su ingreso.»). No aplica a listas guardadas sin conexión ni a correcciones de dirección. Esa falta a clase no se avisa (la familia ya recibe el aviso del día).
+
+Reglas: cada paso corre **una vez** por colegio y día (`control_ingreso_dia`: `avisoNoLlegaAt`, `faltasAt`, con reserva atómica); si el cron no corrió entre ambas horas, se salta directo a la falta. Solo días hábiles (lunes a viernes sin feriados aplicables) y colegios `activo` o `piloto`. **Salvaguarda**: si a esa hora nadie registró ingreso en todo el colegio (portería no abrió, día sin clases), no se hace nada. Los alumnos con un registro del día de la lista del tutor (incluida «Falta» o «Aviso») no reciben estos avisos. Los avisos de asistencia a la familia ahora empiezan con un saludo según la hora («Buenos días, Rosa.», `saludoFamilia` de `src/lib/control-ingreso.ts`); el push no lo lleva.
+
 ## Modelo de datos
+- `tenants.control_ingreso_automatico`, `tenants.hora_limite_falta`; `control_ingreso_dia` (`tenantId`, `fecha` únicos; migración `20261106090000_control_ingreso_automatico`, que también agrega `OrigenAsistencia.automatico` y hace opcional `asistencias.registrado_por`).
 - `carnets_qr`: `alumnoId`, `tokenHash` (único), `activo`, `revocadoAt`.
 - `asistencias` (spec 04), `alumnos.fotoArchivoId` (foto opcional, URL temporal de spec 14).
 
@@ -76,6 +86,10 @@ buscarAlumnosPorteria(ctx, texto)              // 2..60 caracteres, máx. 10
 - integración (`tests/integracion/porteria-qr.test.ts`): solo hash guardado y reimpresión, QR de otro colegio rechazado, tarde desde la hora límite, sin duplicados, regenerar invalida el QR anterior, permisos por rol.
 - unit: `tests/unit/registro-offline.test.ts`, `tests/unit/carnets-pdf.test.ts` (A4 con 8 por hoja, CR80). integración: `tests/integracion/dia-a-dia-offline-plazo.test.ts` (escaneo offline con hora real).
 - e2e: búsqueda manual en `/porteria` y `/q/<token>` sin datos; `tests/e2e/dia-a-dia-offline-calendario.test.ts` (indicador sin conexión en portería, descarga del PDF).
+
+## Pruebas del control de ingreso
+- unit `tests/unit/control-ingreso.test.ts` (fases, horas válidas, saludo) y `tests/unit/plantillas-avisos.test.ts` (aún no llega, tardanza de portería, falta automática).
+- integración `tests/integracion/control-ingreso.test.ts`: nada antes de la hora, nada si nadie ingresó, «aún no llega» una sola vez con saludo, bloqueo en la lista de curso, falta automática una sola vez (origen, sin autor, aviso con `horaLimite` y token), llegada posterior → tardanza, fines de semana no corre.
 
 ## Pendientes
 - No hay e2e del escaneo offline (la cámara no se puede simular en Playwright); está cubierto por unit e integración.

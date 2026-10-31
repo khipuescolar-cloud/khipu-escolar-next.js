@@ -78,6 +78,7 @@ enum EstadoAsistencia {
 enum OrigenAsistencia {
   lista
   porteria
+  automatico // falta del día que pone el control de ingreso (specs/05)
 }
 
 enum TipoAviso {
@@ -178,6 +179,11 @@ model Tenant {
   logoArchivoId                 String?            @map("logo_archivo_id") @db.Uuid
   horaEnvioAvisos               String             @default("09:00") @map("hora_envio_avisos") // HH:mm, resumen de llegadas
   horaLimiteTardanza            String             @default("08:00") @map("hora_limite_tardanza") // HH:mm, desde esta hora la llegada es «tarde»
+  /// Control de ingreso automático (specs/05): a `horaLimiteTardanza` avisa «aún no llega» a las familias de quienes no
+  /// registran ingreso; a `horaLimiteFalta` les pone falta del día con enlace para justificar. Además, en las listas de curso
+  /// un alumno sin ingreso al colegio solo puede quedar con falta.
+  controlIngresoAutomatico      Boolean            @default(false) @map("control_ingreso_automatico")
+  horaLimiteFalta               String             @default("09:00") @map("hora_limite_falta") // HH:mm, desde esta hora sin ingreso = falta
   zonaHoraria                   String             @default("America/Lima") @map("zona_horaria")
   modoAvisos                    ModoAvisos         @default(todos) @map("modo_avisos")
   escalaCalificacion            EscalaCalificacion @default(literal) @map("escala_calificacion")
@@ -199,6 +205,7 @@ model Tenant {
   consentimientos       Consentimiento[]
   auditoria             Auditoria[]
   asistencias           Asistencia[]
+  controlesIngreso      ControlIngresoDia[]
   avisos                Aviso[]
   justificacionTokens   JustificacionToken[]
   justificaciones       Justificacion[]
@@ -334,8 +341,8 @@ model Salon {
   /// Salón de un año cerrado: deja de listarse para pasar lista, pero conserva su historial.
   archivadoAt DateTime? @map("archivado_at") @db.Timestamptz
 
-  tenant      Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  tutor       Membership?    @relation("TutorSalon", fields: [tutorId], references: [id], onDelete: SetNull)
+  tenant      Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tutor       Membership?     @relation("TutorSalon", fields: [tutorId], references: [id], onDelete: SetNull)
   cursos      Curso[]
   alumnos     Alumno[]
   comunicados Comunicado[]
@@ -355,9 +362,9 @@ model Curso {
   nombre     String // "Matemática"
   profesorId String? @map("profesor_id") @db.Uuid
 
-  tenant       Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  salon        Salon         @relation(fields: [salonId], references: [id], onDelete: Cascade)
-  profesor     Membership?   @relation("ProfesorCurso", fields: [profesorId], references: [id], onDelete: SetNull)
+  tenant       Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  salon        Salon           @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  profesor     Membership?     @relation("ProfesorCurso", fields: [profesorId], references: [id], onDelete: SetNull)
   asistencias  Asistencia[]
   competencias Competencia[]
   evaluaciones Evaluacion[]
@@ -372,19 +379,19 @@ model Curso {
 
 /// El menor NO necesita cuenta propia (se usa desde el grado que fije el colegio).
 model Alumno {
-  id            String       @id @default(uuid()) @db.Uuid
-  tenantId      String       @map("tenant_id") @db.Uuid
-  salonId       String       @map("salon_id") @db.Uuid
-  nombres       String
-  apellidos     String
-  codigo        String?
+  id              String       @id @default(uuid()) @db.Uuid
+  tenantId        String       @map("tenant_id") @db.Uuid
+  salonId         String       @map("salon_id") @db.Uuid
+  nombres         String
+  apellidos       String
+  codigo          String?
   /// DNI (u otro documento) del alumno, opcional: enlaza a las familias en la carga masiva (specs/36).
-  numeroDocumento String?    @map("numero_documento")
-  estado        EstadoAlumno @default(activo)
-  fotoArchivoId String?      @map("foto_archivo_id") @db.Uuid
+  numeroDocumento String?      @map("numero_documento")
+  estado          EstadoAlumno @default(activo)
+  fotoArchivoId   String?      @map("foto_archivo_id") @db.Uuid
   /// Membresía con rol `alumno` (cuenta propia del estudiante), si tiene.
-  cuentaId      String?      @unique @map("cuenta_id") @db.Uuid
-  createdAt     DateTime     @default(now()) @map("created_at") @db.Timestamptz
+  cuentaId        String?      @unique @map("cuenta_id") @db.Uuid
+  createdAt       DateTime     @default(now()) @map("created_at") @db.Timestamptz
 
   tenant                Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   cuenta                Membership?           @relation("CuentaAlumno", fields: [cuentaId], references: [id], onDelete: SetNull)
@@ -496,14 +503,14 @@ model Asistencia {
   estado          EstadoAsistencia
   nota            String?
   origen          OrigenAsistencia @default(lista)
-  registradoPorId String           @map("registrado_por") @db.Uuid
+  registradoPorId String?          @map("registrado_por") @db.Uuid // null = la puso el control de ingreso automático
   createdAt       DateTime         @default(now()) @map("created_at") @db.Timestamptz
   updatedAt       DateTime         @updatedAt @map("updated_at") @db.Timestamptz
 
   tenant          Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   alumno          Alumno               @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
   curso           Curso?               @relation(fields: [cursoId], references: [id], onDelete: SetNull)
-  registradoPor   Membership           @relation("RegistradoPor", fields: [registradoPorId], references: [id], onDelete: NoAction)
+  registradoPor   Membership?          @relation("RegistradoPor", fields: [registradoPorId], references: [id], onDelete: NoAction)
   avisos          Aviso[]
   tokens          JustificacionToken[]
   justificaciones Justificacion[]
@@ -514,6 +521,23 @@ model Asistencia {
   @@index([cursoId])
   @@index([registradoPorId])
   @@map("asistencias")
+}
+
+/// Control de ingreso automático (specs/05): marca qué pasos ya corrieron cada día por colegio, para que el cron
+/// avise «aún no llega» y ponga las faltas una sola vez aunque corra cada minuto o haya dos workers a la vez.
+model ControlIngresoDia {
+  id              String    @id @default(uuid()) @db.Uuid
+  tenantId        String    @map("tenant_id") @db.Uuid
+  fecha           DateTime  @db.Date
+  avisoNoLlegaAt  DateTime? @map("aviso_no_llega_at") @db.Timestamptz
+  faltasAt        DateTime? @map("faltas_at") @db.Timestamptz
+  avisadosNoLlega Int       @default(0) @map("avisados_no_llega")
+  faltas          Int       @default(0)
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, fecha])
+  @@map("control_ingreso_dia")
 }
 
 /// Cola y registro de avisos (correo o push). El worker respeta EMAIL_DAILY_LIMIT.

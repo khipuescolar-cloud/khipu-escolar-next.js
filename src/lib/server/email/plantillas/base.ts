@@ -45,6 +45,8 @@ export type Contenido = {
   insignia?: EstadoInsignia;
   /** Palabra de la insignia si se quiere otra (p. ej. «Aceptada»). */
   palabraInsignia?: string;
+  /** «Buenos días, Rosa.»: primera línea del correo (no va en el push). */
+  saludo?: string;
   /** Una idea por párrafo. */
   parrafos: string[];
   boton?: { texto: string; url: string };
@@ -60,7 +62,7 @@ export function armarMensaje(c: Contenido): Mensaje {
   const insigniaHtml = ins
     ? `<p style="margin:0 0 16px"><span style="display:inline-block;padding:4px 12px;border-radius:999px;background:${ins.fondo};color:${ins.color};font-family:${FUENTE};font-weight:600;font-size:14px;line-height:20px"><span aria-hidden="true">${ins.simbolo}</span> ${escaparHtml(palabra ?? "")}</span></p>`
     : "";
-  const parrafosHtml = c.parrafos
+  const parrafosHtml = [...(c.saludo ? [c.saludo] : []), ...c.parrafos]
     .map((p) => `<p style="margin:0 0 12px;font-family:${FUENTE};font-size:16px;line-height:24px;color:#1B1F2A">${escaparHtml(p)}</p>`)
     .join("");
   const botonHtml = c.boton
@@ -104,6 +106,7 @@ ${insigniaHtml}${parrafosHtml}${botonHtml}${noditoHtml}
     c.colegio,
     "",
     ...(ins ? [`[${palabra}]`, ""] : []),
+    ...(c.saludo ? [c.saludo] : []),
     ...c.parrafos,
     ...(c.boton ? ["", `${c.boton.texto}: ${c.boton.url}`] : []),
     "",

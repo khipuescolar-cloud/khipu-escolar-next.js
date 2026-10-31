@@ -195,6 +195,26 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
   const nombres = new Map(alumnos.map((a) => [a.id, primerNombre(a.nombres)]));
   if (nombres.size !== new Set(datos.registros.map((r) => r.alumnoId)).size) forbidden();
 
+  // Control de ingreso (specs/05): en una lista de curso, quien no ingresó al colegio hoy solo puede quedar con falta.
+  // No aplica a listas guardadas sin conexión (portería pudo registrar la llegada también sin conexión) ni a correcciones.
+  if (curso && ctx.tenant.controlIngresoAutomatico && !correccion && !sinConexion) {
+    const presentes = datos.registros.filter((r) => r.estado !== "falta").map((r) => r.alumnoId);
+    if (presentes.length > 0) {
+      const ingresos = await ctx.db.asistencia.findMany({
+        where: { alumnoId: { in: presentes }, fecha, ambito: AMBITO_DIA },
+        select: { alumnoId: true, estado: true },
+      });
+      const conIngreso = new Set(ingresos.filter((i) => ingresoAlColegio(i)).map((i) => i.alumnoId));
+      const sinIngreso = presentes.filter((id) => !conIngreso.has(id));
+      if (sinIngreso.length > 0) {
+        const lista = sinIngreso.map((id) => nombres.get(id)).join(", ");
+        throw new ErrorDeNegocio(
+          `${lista} no ${sinIngreso.length === 1 ? "registra" : "registran"} ingreso al colegio hoy: solo puede${sinIngreso.length === 1 ? "" : "n"} quedar con falta. Si ya llegó, pide a portería que registre su ingreso.`,
+        );
+      }
+    }
+  }
+
   // Lo que se necesita de toda la lista se carga de una vez (antes eran ~10 consultas en serie por alumno:
   // ~250 idas y vueltas a la BD por salón, que en producción se multiplican por la latencia Vercel → Supabase).
   const ids = datos.registros.map((r) => r.alumnoId);

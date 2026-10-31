@@ -66,8 +66,22 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
           <Seccion icono={Bell} titulo="Avisos a las familias" descripcion="Al cerrar la lista, cada familia recibe el aviso de llegada, tardanza, falta o problema de su hijo.">
             <div className="grid gap-4 sm:grid-cols-2">
               <Campo etiqueta="Hora límite de tardanza" name="horaLimiteTardanza" type="time" defaultValue={t.horaLimiteTardanza} required ayuda="Desde esta hora, la llegada cuenta como tarde." />
+              <Campo etiqueta="Hora límite de falta" name="horaLimiteFalta" type="time" defaultValue={t.horaLimiteFalta} required ayuda="Con el control de ingreso, quien no llegó hasta esta hora queda con falta del día." />
               <Campo etiqueta="Plazo para justificar faltas (días hábiles)" name="plazoJustificacionDiasHabiles" type="number" min={PLAZO_JUSTIFICACION_MIN_DIAS} max={PLAZO_JUSTIFICACION_MAX_DIAS} step={1} defaultValue={t.plazoJustificacionDiasHabiles} required ayuda={`De ${PLAZO_JUSTIFICACION_MIN_DIAS} a ${PLAZO_JUSTIFICACION_MAX_DIAS} días hábiles (lunes a viernes, sin feriados) desde el día de la falta. Por defecto, ${PLAZO_JUSTIFICACION_DEFECTO_DIAS}.`} />
             </div>
+            {ctx.modulos.has("porteria") ? (
+              <label className="flex items-start gap-3 rounded-lg border px-3 py-3 text-cuerpo">
+                <input type="checkbox" name="controlIngresoAutomatico" defaultChecked={t.controlIngresoAutomatico} className="mt-1 size-4 shrink-0 accent-[var(--primary)]" />
+                <span className="flex flex-col gap-1">
+                  <span className="font-medium">Control de ingreso automático por portería</span>
+                  <span className="text-cuerpo-sm text-muted-foreground">
+                    A la hora de tardanza, Khipu avisa «aún no llega» a las familias de quienes no pasaron por portería. A la hora límite de falta, les pone falta del día y les pide justificarla. Si llegan después, al escanear el carnet la falta pasa a tardanza. Además, en las listas de curso, un alumno sin ingreso al colegio solo puede quedar con falta. Solo corre de lunes a viernes sin feriados, y no corre si ese día nadie pasó por portería.
+                  </span>
+                </span>
+              </label>
+            ) : (
+              <p className="text-cuerpo-sm text-muted-foreground">El control de ingreso automático necesita el módulo Portería.</p>
+            )}
           </Seccion>
 
           <div className="border-t pt-8">

@@ -34,6 +34,7 @@ pnpm dev                     # http://lvh.me:3000  ·  colegios: http://<slug>.l
 pnpm dev:nube                # misma app con los servicios REALES de .env.nube (Supabase cloud, Cloudinary, Gmail) → http://lvh.me:3100 · panel http://admin.lvh.me:3100
 pnpm lint && pnpm typecheck && pnpm test   # checks rápidos (tests de integración usan la BD local)
 pnpm e2e                     # Playwright (requiere BD con seed)
+pnpm cron:local              # llama a /api/cron/avisos cada minuto (avisos y control de ingreso, specs/05) mientras corre `pnpm dev`
 pnpm khipu:crear-superadmin --email x --nombres … --apellidos … [--documento …]   # super administrador (specs/16)
 # Despliegue a producción: docs/despliegue.md
 pnpm db:migrate              # nueva migración tras cambiar prisma/schema.prisma

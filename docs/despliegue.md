@@ -63,7 +63,7 @@ Con el plan **Pro** de Vercel puedes volver a `* * * * *` y `*/5 * * * *` en `ve
 
 ### En producción: `/api/cron/avisos` cada 1–5 minutos (obligatorio)
 
-La prueba de estrés (`docs/pruebas-de-estres.md`) mostró que un llamado a `procesarCola` envía como máximo `PRESUPUESTO_MS` (240 s) × `EMAIL_RATE_PER_SECOND`; lo que sobra, los reintentos y lo diferido por el tope diario esperan al siguiente disparo. Con el cron diario de Hobby eso puede ser **un día**. Antes del piloto con familias reales, el cron de avisos debe correr **cada 1–5 min** con una de estas opciones:
+La prueba de estrés (`docs/pruebas-de-estres.md`) mostró que un llamado a `procesarCola` envía como máximo `PRESUPUESTO_MS` (240 s) × `EMAIL_RATE_PER_SECOND`; lo que sobra, los reintentos y lo diferido por el tope diario esperan al siguiente disparo. Con el cron diario de Hobby eso puede ser **un día**. Además, el **control de ingreso automático** (specs/05: «aún no llega» a las 8:00 y falta a las 9:00) lo dispara este mismo cron: con un cron diario esos avisos no salen a tiempo. Antes del piloto con familias reales, el cron de avisos debe correr **cada 1–5 min** con una de estas opciones:
 
 **A. Vercel Pro** (cambia solo la línea de avisos en `vercel.json`; **no lo hagas en Hobby**: Vercel rechaza el despliegue si un cron corre más de una vez al día):
 

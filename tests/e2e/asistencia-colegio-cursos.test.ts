@@ -82,10 +82,17 @@ test("dirección activa y desactiva la asistencia por curso por nivel y la profe
   await expect(profe.getByRole("link", { name: "Matemática · 3.° B" })).toBeVisible();
   await profe.getByRole("link", { name: "Matemática · 3.° B" }).click();
   await expect(profe.getByText(/Ingresó \d|Sin ingreso al colegio/).first()).toBeVisible();
-  // En un curso, «Llegó» no se avisa; Mateo falta a la clase.
+  // En un curso, «Llegó» no se avisa; Mateo falta a la clase. Con el control de ingreso (specs/05) activo en el colegio
+  // demo, si Mateo no pasó por portería hoy solo puede quedar con falta: «Llegó» está desactivado.
   const mateo = profe.getByRole("group", { name: "Asistencia de Mateo" });
-  await mateo.getByRole("button", { name: "Llegó", exact: true }).click();
-  await expect(profe.getByText(/En las listas de curso no se avisa la llegada/).first()).toBeVisible();
+  const llego = mateo.getByRole("button", { name: "Llegó", exact: true });
+  if (await llego.isEnabled()) {
+    await llego.click();
+    await expect(profe.getByText(/En las listas de curso no se avisa la llegada/).first()).toBeVisible();
+  } else {
+    await expect(mateo.getByRole("button", { name: "No llegó" })).toHaveAttribute("aria-pressed", "true");
+    await expect(profe.getByText(/No pasó por portería hoy, así que queda con falta/).first()).toBeVisible();
+  }
   await mateo.getByRole("button", { name: "No llegó" }).click();
   await profe.getByRole("button", { name: "Guardar y avisar a los padres" }).first().click();
   await expect(profe.getByText(/Lista guardada\. Se avisó a \d+ familias?\./)).toBeVisible();

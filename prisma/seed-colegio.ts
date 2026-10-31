@@ -253,6 +253,7 @@ export async function sembrarColegio(prisma: PrismaClient) {
     data: {
       slug: SLUG_COLEGIO, nombre: NOMBRE_COLEGIO, ciudad: "Lima", eslogan: "Aprendemos juntos, crecemos juntos", plan: "pro", escalaCalificacion: "literal",
       emailDomains: [DOMINIO_COLEGIO], estado: "piloto", asistenciaPorCursoNiveles: ["primaria", "secundaria"], gradoMinimoCuentaAlumno: 5,
+      controlIngresoAutomatico: true, horaLimiteFalta: "09:00",
     },
   });
   const tenantId = tenant.id;

@@ -2,6 +2,7 @@ import { timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
 import { registrarEjecucionCron } from "@/lib/server/plataforma-monitoreo";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
+import { procesarControlIngreso } from "@/lib/server/control-ingreso";
 import { cerrarResueltosInactivos } from "@/lib/server/soporte";
 import { procesarVencimientosNudito } from "@/lib/server/nudito-plus/licencias";
 
@@ -24,7 +25,9 @@ async function manejar(request: Request) {
     const soporteCerradas = await cerrarResueltosInactivos();
     // Nudito+ (specs/28): licencias vencidas y recordatorio «vence en 3 días» (se encolan antes de procesar la cola).
     const nuditoPlus = await procesarVencimientosNudito();
-    const resumen = { ...(await procesarCola()), soporteCerradas, nuditoPlus };
+    // Control de ingreso (specs/05): «aún no llega» y faltas automáticas; se encolan antes de procesar la cola.
+    const controlIngreso = await procesarControlIngreso();
+    const resumen = { ...(await procesarCola()), soporteCerradas, nuditoPlus, controlIngreso };
     await registrarEjecucionCron("avisos", "ok", Date.now() - inicio);
     return NextResponse.json(resumen);
   } catch (error) {

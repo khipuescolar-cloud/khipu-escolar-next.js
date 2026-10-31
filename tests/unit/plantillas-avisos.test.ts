@@ -13,10 +13,29 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(m.texto).toContain("[Llegó]");
   });
 
-  it("tarde: texto con la hora entre paréntesis e invitación a escribir a la tutora", () => {
-    const m = renderizarPlantilla("asistencia_tarde", { colegio, alumno: "Lucía", hora: "08:15" });
-    expect(m.texto).toContain("Lucía llegó tarde hoy (8:15 a. m.). Si tienes dudas, escríbele a su tutora.");
+  it("tarde (portería): «acaba de ingresar … así que hoy tiene tardanza» e invitación a escribir a la tutora", () => {
+    const m = renderizarPlantilla("asistencia_tarde", { colegio, alumno: "Lucía", hora: "08:30", saludo: "Buenos días, Rosa." });
+    expect(m.texto).toContain("Buenos días, Rosa.\nLucía acaba de ingresar al colegio a las 8:30 a. m., así que hoy tiene tardanza.");
+    expect(m.texto).toContain("Si tienes dudas, escríbele a su tutora.");
     expect(m.texto).toContain("[Tarde]");
+    expect(m.push.cuerpo).toBe("Lucía acaba de ingresar al colegio a las 8:30 a. m., así que hoy tiene tardanza.");
+  });
+
+  it("aún no llega (control de ingreso): hora de ingreso y qué pasará después", () => {
+    const m = renderizarPlantilla("asistencia_no_llega", { colegio, alumno: "Mateo", horaTardanza: "08:00", horaFalta: "09:00", saludo: "Buenos días, Rosa." });
+    expect(m.asunto).toBe("Mateo aún no llega al colegio");
+    expect(m.texto).toContain("[Aún no llega]");
+    expect(m.texto).toContain("Mateo aún no se presenta en el colegio. La hora de ingreso fue a las 8:00 a. m.");
+    expect(m.texto).toContain("Si llega antes de las 9:00 a. m., te avisaremos a qué hora ingresó y tendrá tardanza.");
+    expect(m.texto).not.toMatch(EMOJI);
+  });
+
+  it("falta automática: no se presentó hasta la hora límite y pide justificar", () => {
+    const m = renderizarPlantilla("asistencia_falta", { colegio, alumno: "Mateo", horaLimite: "09:00", urlJustificar: "http://j" });
+    expect(m.asunto).toBe("Mateo no llegó hoy");
+    expect(m.texto).toContain("Mateo no se presentó en el colegio hasta las 9:00 a. m., así que hoy tiene falta.");
+    expect(m.texto).toContain("Por favor, justifícala con el botón de abajo.");
+    expect(m.texto).toContain("Justificar falta: http://j");
   });
 
   it("falta: texto exacto y botón «Justificar falta» con el enlace del token", () => {
@@ -115,6 +134,7 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
   it("renderiza todas las plantillas del contrato con su payload mínimo", () => {
     const payloads: Record<string, unknown> = {
       asistencia_llego: { colegio, alumno: "Mateo", hora: "07:52" },
+      asistencia_no_llega: { colegio, alumno: "Mateo", horaTardanza: "08:00", horaFalta: "09:00" },
       asistencia_tarde: { colegio, alumno: "Mateo", hora: "08:15" },
       asistencia_falta: { colegio, alumno: "Mateo" },
       asistencia_problema: { colegio, alumno: "Mateo", hora: "09:00" },

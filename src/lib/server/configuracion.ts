@@ -3,6 +3,7 @@ import { z } from "zod";
 import type { Prisma } from "@/generated/prisma/client";
 import type { Nivel } from "@/generated/prisma/enums";
 import { NIVELES } from "@/lib/asistencia-por-curso";
+import { horasControlValidas } from "@/lib/control-ingreso";
 import { PLAZO_JUSTIFICACION_MAX_DIAS, PLAZO_JUSTIFICACION_MIN_DIAS } from "@/lib/plazo-justificacion";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
@@ -23,6 +24,9 @@ const rangoPlazo = `El plazo para justificar va de ${PLAZO_JUSTIFICACION_MIN_DIA
 
 const esquema = z.strictObject({
   horaLimiteTardanza: hora,
+  /** Control de ingreso automático (specs/05). */
+  horaLimiteFalta: hora.optional(),
+  controlIngresoAutomatico: z.boolean().optional(),
   plazoJustificacionDiasHabiles: z.coerce
     .number("El plazo para justificar debe ser un número de días hábiles.")
     .int("El plazo para justificar debe ser un número entero de días hábiles.")
@@ -48,6 +52,12 @@ export async function actualizarConfiguracion(ctx: TenantContext, entrada: z.inp
   const r = esquema.safeParse(entrada);
   if (!r.success) throw new ErrorDeNegocio(r.error.issues[0].message);
   const d = r.data;
+  if (!horasControlValidas(d.horaLimiteTardanza, d.horaLimiteFalta ?? ctx.tenant.horaLimiteFalta)) {
+    throw new ErrorDeNegocio("La hora límite de falta debe ser posterior a la hora de tardanza.");
+  }
+  if (d.controlIngresoAutomatico && !ctx.modulos.has("porteria")) {
+    throw new ErrorDeNegocio("El control de ingreso automático necesita el módulo Portería.");
+  }
   if (d.emailDomains.length > 0) {
     const ocupado = await db.tenant.findFirst({ where: { id: { not: ctx.tenant.id }, emailDomains: { hasSome: d.emailDomains } }, select: { id: true } });
     if (ocupado) throw new ErrorDeNegocio("Alguno de esos dominios ya lo usa otro colegio.");
