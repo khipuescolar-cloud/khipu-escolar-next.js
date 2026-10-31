@@ -11,10 +11,11 @@ const SECCIONES = [
   { href: "/gestion/alumnos", texto: "Alumnos" },
   { href: "/gestion/apoderados", texto: "Familias" },
   { href: "/gestion/carnets", texto: "Carnets" },
+  { href: "/gestion/carga-masiva", texto: "Carga masiva" },
 ];
 
 /** El personal administrativo solo gestiona alumnos y familias. */
-const SECCIONES_ADMINISTRATIVO = SECCIONES.filter((s) => s.href === "/gestion/alumnos" || s.href === "/gestion/apoderados");
+const SECCIONES_ADMINISTRATIVO = SECCIONES.filter((s) => ["/gestion/alumnos", "/gestion/apoderados", "/gestion/carga-masiva"].includes(s.href));
 
 /** Pestañas de las secciones de gestión. En el hub (`/gestion`) no se muestran: ahí están las tarjetas. */
 export function NavGestion({ soloAlumnosFamilias = false }: { soloAlumnosFamilias?: boolean }) {

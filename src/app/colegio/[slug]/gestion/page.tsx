@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpen, BriefcaseBusiness, GraduationCap, HeartHandshake, IdCard, School } from "lucide-react";
+import { ArrowRight, BookOpen, BriefcaseBusiness, FileUp, GraduationCap, HeartHandshake, IdCard, School } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -27,8 +27,9 @@ export default async function GestionPage({ params }: PageProps<"/colegio/[slug]
     { href: "/gestion/alumnos", titulo: "Alumnos", detalle: `${alumnos} activos`, Icono: BookOpen },
     { href: "/gestion/apoderados", titulo: "Familias", detalle: `${familias} cuentas`, Icono: HeartHandshake },
     { href: "/gestion/carnets", titulo: "Carnets", detalle: "Carnets QR por salón", Icono: IdCard },
+    { href: "/gestion/carga-masiva", titulo: "Carga masiva", detalle: esDireccion ? "Salones, cursos y familias desde un CSV o Excel" : "Familias desde un CSV o Excel", Icono: FileUp },
   ];
-  const tarjetas = esDireccion ? todas : todas.filter((t) => t.href === "/gestion/alumnos" || t.href === "/gestion/apoderados");
+  const tarjetas = esDireccion ? todas : todas.filter((t) => ["/gestion/alumnos", "/gestion/apoderados", "/gestion/carga-masiva"].includes(t.href));
   return (
     <div>
       <EncabezadoPagina titulo="Gestión" descripcion={esDireccion ? "Personas, salones y carnets del colegio en un solo lugar." : "Alumnos y familias del colegio."} />

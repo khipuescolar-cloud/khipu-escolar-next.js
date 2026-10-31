@@ -13,9 +13,9 @@ Practica en local con `admin@khipuescolar.demo` (panel `http://admin.lvh.me:3000
 2. Crear el colegio en el panel (plan, estado, administrador principal, responsables, suscripción).
 3. Configurar el colegio (como dirección).
 4. Cargar profesores y personal.
-5. Crear grados, salones y cursos.
+5. Cargar grados, salones y cursos (carga masiva).
 6. Importar alumnos.
-7. Invitar a las familias.
+7. Cargar a las familias (carga masiva).
 8. Generar e imprimir carnets.
 9. Horarios, periodos y CNEB (Pro).
 10. Cuentas de alumno (después de que las familias autoricen).
@@ -29,17 +29,19 @@ Practica en local con `admin@khipuescolar.demo` (panel `http://admin.lvh.me:3000
 | Nombre, logo (PNG/JPG/WEBP ≤ 1 MB), eslogan, ciudad, dominio de correo del colegio (si tiene) | Crear el colegio. |
 | Administrador principal: correo, nombres, apellidos, DNI, teléfono, cargo | Su cuenta de dirección. |
 | Profesores y personal: nombres, apellidos, DNI, correo, teléfono, género, cargo | CSV de profesores y de personal. |
-| Salones: nombre exacto (por ejemplo «3.° B», «1.° A Sec.»), nivel, grado, sección, tutor(a) | Grados y salones. |
-| Cursos de cada salón con su profesor(a) | Cursos. |
-| Alumnos: nombres, apellidos, código, salón | CSV de alumnos. |
-| Familias: nombres, apellidos, correo personal, parentesco, alumno(s) | Invitaciones. |
+| Salones: nivel, grado, sección, tutor(a) (DNI o correo) | Plantilla «Salones y cursos» de la carga masiva. |
+| Cursos de cada salón con su profesor(a) (DNI o correo) | Misma plantilla (un curso por fila, o un curso por columna). |
+| Alumnos: nombres, apellidos, código, salón y, si lo tienen, DNI | CSV de alumnos. |
+| Familias: código o DNI del alumno, DNI, nombres, apellidos, correo personal, celular (opcional) y parentesco del apoderado | Plantilla «Familias» de la carga masiva. |
 | Hora de entrada (hora límite de tardanza), plazo para justificar del reglamento | Configuración. |
 | Niveles con asistencia por curso | Configuración. |
 | Grado de primaria desde el que los alumnos tienen cuenta propia | Configuración. |
 | Periodos (bimestres/trimestres, fechas), escala (literal o vigesimal) | Notas. |
 | Horas de clase por nivel y horario de cada salón | Horarios. |
 
-Los nombres de salón deben ser idénticos en todos los archivos: el CSV de alumnos busca el salón por su nombre.
+Los nombres de salón deben ser idénticos en todos los archivos: el CSV de alumnos busca el salón por su nombre. Si la carga
+masiva crea los salones, el nombre es el que muestra su vista previa («3 años A», «3.° B», «1.° A Sec.») o el de la columna
+`nombre` si la llenas. Las plantillas se descargan en Gestión → «Carga masiva» (Excel con hoja de instrucciones, o CSV).
 
 ## 2. Crear el colegio (panel de la plataforma)
 
@@ -86,28 +88,47 @@ necesita cargar por su cuenta, se agrega como responsable con acceso de direcci�
 
 ## 5. Grados, salones y cursos
 
-No hay importación por archivo: se crean uno por uno (para ~35 salones, calcula una sesión de trabajo).
-1. Gestión → «Grados y salones» → «Crear salón»: nombre, nivel, grado, sección, año y tutor(a).
-2. «Editar salón y cursos» → «Nuevo curso» con su profesor(a), para cada curso.
-3. Revisa que **cada salón tenga grado**: lo necesitan los desempeños del CNEB y la regla de cuenta propia.
+Primero deben estar los profesores (paso 4): el tutor y el profesor de cada curso se buscan por su DNI o correo.
+1. Gestión → «Carga masiva» → «Salones y cursos» (o «Cargar desde archivo» en «Grados y salones»). Descarga la
+   «Plantilla Excel» o la «Plantilla CSV» (solo dirección).
+2. Llena una fila por curso: `nivel, grado, seccion, nombre (opcional), anio (opcional), tutor, curso, profesor`. También
+   se acepta una fila por salón con una columna por curso (celda = DNI o correo del profesor, o «x» si aún no tiene).
+3. Sube el archivo y revisa la **vista previa**: salones y cursos nuevos, tutores y profesores asignados, errores por línea
+   (esas filas no se cargan) y avisos (por ejemplo «No encontramos al profesor…»: el curso se crea sin profesor).
+4. «Confirmar y cargar». Puedes corregir y volver a subir el archivo completo: no se duplica nada; se actualizan el tutor
+   y el profesor de cada curso. Nunca se borran salones ni cursos.
+5. Para un salón suelto: «Grados y salones» → «Crear salón» y «Nuevo curso».
+6. Revisa que **cada salón tenga grado** (la carga masiva lo exige): lo necesitan los desempeños del CNEB y la regla de
+   cuenta propia.
 
 ## 6. Alumnos
 
-1. Gestión → «Alumnos» → «Importar CSV» con `nombres, apellidos, codigo, salon`.
-2. Máximo **500 filas** y 1 MB por archivo: para ~1 000 alumnos, divide en archivos por nivel.
-3. Todo o nada, con errores por línea («No existe el salón «…»»: revisa el nombre exacto). El código no se puede repetir.
+1. Gestión → «Alumnos» → «Importar CSV» con `nombres, apellidos, codigo, salon` y, opcional, `documento` (DNI del
+   alumno). El código o el DNI es lo que usa la carga de familias para encontrar al alumno: llena al menos uno.
+2. Máximo **1 500 filas** y 2 MB por archivo: un colegio de ~1 000 alumnos entra en un solo archivo.
+3. Todo o nada, con errores por línea («No existe el salón «…»»: revisa el nombre exacto). El código y el DNI no se
+   pueden repetir.
 
 ## 7. Familias
 
-1. Gestión → «Familias» → «Invitar apoderado»: nombres, apellidos, «Correo personal», «Parentesco» y alumno →
-   «Enviar invitación».
-2. Hermanos: una sola invitación y luego «Vincular otro alumno».
-3. **No hay importación masiva de familias**: se invitan una por una. Repartir el trabajo entre secretaría y tutores en
-   la semana 1–2, o invitar en la reunión de padres (día 11 del plan de capacitación).
-4. Seguimiento en la misma lista: «Invitación pendiente», «Consentimiento pendiente», «Consentimiento aceptado» o
-   «Consentimiento retirado». Busca y pagina de 20 en 20.
+1. Gestión → «Carga masiva» → «Familias» (o «Cargar desde archivo» en «Familias»). Dirección y secretaría
+   (administrativo) pueden hacerlo. Descarga la plantilla.
+2. Una fila por apoderado y por hijo: `alumno_codigo` o `alumno_dni`, `apoderado_dni`, `tipo_documento` (opcional: dni,
+   ce o pasaporte), `nombres`, `apellidos`, `correo`, `celular` (opcional) y `parentesco`. **Hermanos:** repite al
+   apoderado (mismo correo y DNI) en una fila por hijo; se crea una sola cuenta. Hasta 3 000 filas y 3 MB por archivo.
+3. En Excel, deja el DNI como Texto; si se pierden los ceros de la izquierda, Khipu los completa y te avisa.
+4. Revisa la vista previa (familias nuevas, familias que ya tenían cuenta en Khipu, hermanos, vínculos nuevos y errores por
+   línea, por ejemplo «No encontramos al alumno con código…») y «Confirmar y cargar».
+5. Cada familia nueva recibe un correo de **bienvenida**: usuario = su correo, contraseña inicial = su documento (no va en
+   el correo; al entrar se le pide cambiarla). Si ya tenía cuenta en Khipu, entra con su contraseña de siempre. Los
+   correos salen por la cola de avisos, poco a poco (con SES a 14/s, ~1 300 bienvenidas tardan ~2 min; con el tope
+   diario de Gmail no alcanzan: ver la revisión final).
+6. Volver a subir el archivo corregido no duplica cuentas ni vínculos ni reenvía la bienvenida (solo actualiza el
+   parentesco). Para una sola familia: «Invitar apoderado» y «Vincular otro alumno».
+7. Seguimiento en la misma lista: «Invitación pendiente» (aún no entra; «Reenviar invitación» vuelve a mandar la
+   bienvenida), «Consentimiento pendiente», «Consentimiento aceptado» o «Consentimiento retirado». Busca y pagina de 20 en 20.
 
-**Consentimientos:** la familia acepta la autorización al entrar por primera vez («Acepto»). Sin ella no recibe avisos y
+**Consentimientos:** la carga masiva **no** da el consentimiento por la familia. La familia acepta la autorización al entrar por primera vez («Acepto»). Sin ella no recibe avisos y
 no se puede crear la cuenta propia de su hijo. Puede retirarla y volver a darla en «Mi perfil». El texto legal definitivo
 está pendiente de revisión con un abogado.
 
@@ -156,7 +177,8 @@ Las familias reciben un recordatorio 3 días antes de vencer. Nadie del equipo n
 - [ ] Todos los profesores y el personal entraron y cambiaron su contraseña (ficha: «Ya cambió su contraseña inicial.»).
 - [ ] Cada salón tiene tutor, grado y cursos con profesor.
 - [ ] Alumnos importados y carnets entregados.
-- [ ] Familias invitadas; lista de «Invitación pendiente» y «Consentimiento pendiente» entregada a los tutores.
+- [ ] Familias cargadas (carga masiva sin filas pendientes de corregir); lista de «Invitación pendiente» y
+      «Consentimiento pendiente» entregada a los tutores.
 - [ ] Hora límite de tardanza, plazo, asistencia por curso y grado mínimo confirmados con dirección.
 - [ ] Periodos creados, horario cargado, CNEB importado donde aplica.
 - [ ] Equipo de portería probado con la cámara (https) y conexión de respaldo.

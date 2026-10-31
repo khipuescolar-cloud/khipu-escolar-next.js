@@ -1,4 +1,4 @@
-import { Archive, Plus, School } from "lucide-react";
+import { Archive, FileUp, Plus, School } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
@@ -10,6 +10,7 @@ import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
+import { buttonVariants } from "@/components/ui/button";
 import { listarProfesores, listarSalones } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { AccionesFila } from "../_componentes/AccionesFila";
@@ -60,6 +61,8 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
           titulo="Grados y salones"
           descripcion="Salones por nivel y grado, con su tutor(a) y sus cursos."
           acciones={
+            <>
+            <Link href="/gestion/carga-masiva?tipo=salones" className={buttonVariants({ variant: "outline" })}><FileUp strokeWidth={2} aria-hidden /> Cargar desde archivo</Link>
             <PanelFormulario boton={<><Plus strokeWidth={2} aria-hidden /> Crear salón</>} titulo="Crear un salón" descripcion="Después podrás agregarle cursos y asignar a cada profesor.">
               <form action={crearSalonAction} className="grid gap-4 sm:grid-cols-2">
                 <Campo etiqueta="Nombre" name="nombre" placeholder="3.° B" required />
@@ -73,6 +76,7 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
                 <Boton type="submit" className="justify-self-start sm:col-span-2">Crear salón</Boton>
               </form>
             </PanelFormulario>
+            </>
           }
         />
         <Flash ok={ok} error={error} />

@@ -5,6 +5,7 @@ import { urlColegio } from "@/lib/dominio";
 import { nombreRol } from "@/lib/roles";
 import type { DbTenant } from "./db";
 import { db } from "./db";
+import type { PayloadDe } from "./email/plantillas";
 import { encolarAviso } from "./notificaciones/encolar";
 import { supabaseAdmin } from "./supabase";
 
@@ -127,38 +128,42 @@ export async function revertirCamposCompletados(cuenta: CuentaCreada, entrada: D
   if (Object.keys(datos).length) await db.profile.update({ where: { id: cuenta.userId }, data: datos });
 }
 
-/** Encola el correo de bienvenida con el usuario y la indicación de la contraseña (sin el número). */
-export async function encolarBienvenida(
-  tdb: DbTenant,
-  datos: {
-    tenant: { id: string; slug: string; nombre: string };
-    email: string;
-    nombre: string;
-    rol: Rol;
-    genero?: Genero | null;
-    tipoDocumento: TipoIdentificacion;
-    cuentaNueva: boolean;
-    /** Correo de «Restablecimos tu contraseña» en vez de la bienvenida. */
-    restablecida?: boolean;
-  },
-): Promise<string> {
+export type DatosBienvenida = {
+  tenant: { id: string; slug: string; nombre: string };
+  email: string;
+  nombre: string;
+  rol: Rol;
+  genero?: Genero | null;
+  tipoDocumento: TipoIdentificacion;
+  cuentaNueva: boolean;
+  /** Correo de «Restablecimos tu contraseña» en vez de la bienvenida. */
+  restablecida?: boolean;
+};
+
+/** Payload de la plantilla `bienvenida` (sin el número de documento). También lo usa la carga masiva de familias. */
+export function payloadBienvenida(datos: DatosBienvenida): PayloadDe<"bienvenida"> {
   const url = urlColegio(datos.tenant.slug, "/inicio");
+  return {
+    colegio: datos.tenant.nombre,
+    nombre: datos.nombre,
+    rol: nombreRol(datos.rol, datos.genero ?? null),
+    email: datos.email,
+    documento: datos.tipoDocumento === "dni" ? "DNI" : datos.tipoDocumento === "ce" ? "carné de extranjería" : "pasaporte",
+    cuentaNueva: datos.cuentaNueva,
+    ...(datos.restablecida ? { restablecida: true } : {}),
+    url,
+    dominio: url.replace(/^https?:\/\//, "").replace(/\/inicio$/, ""),
+  };
+}
+
+/** Encola el correo de bienvenida con el usuario y la indicación de la contraseña (sin el número). */
+export async function encolarBienvenida(tdb: DbTenant, datos: DatosBienvenida): Promise<string> {
   return encolarAviso(tdb, {
     tenantId: datos.tenant.id,
     tipo: "invitacion",
     canal: "correo",
     destinatario: datos.email,
     plantilla: "bienvenida",
-    payload: {
-      colegio: datos.tenant.nombre,
-      nombre: datos.nombre,
-      rol: nombreRol(datos.rol, datos.genero ?? null),
-      email: datos.email,
-      documento: datos.tipoDocumento === "dni" ? "DNI" : datos.tipoDocumento === "ce" ? "carné de extranjería" : "pasaporte",
-      cuentaNueva: datos.cuentaNueva,
-      ...(datos.restablecida ? { restablecida: true } : {}),
-      url,
-      dominio: url.replace(/^https?:\/\//, "").replace(/\/inicio$/, ""),
-    },
+    payload: payloadBienvenida(datos),
   });
 }

@@ -49,9 +49,9 @@ a las notas o al chat.
 ### Agregar un alumno
 1. Alumnos y familias → «Alumnos» → «Agregar alumno».
 2. Nombres, apellidos, código (opcional) y salón → guardar.
-3. Muchos alumnos a la vez: «Importar CSV» con las columnas `nombres, apellidos, codigo, salon`. El salón debe existir con
-   el mismo nombre (por ejemplo `3.° B`). Si una fila falla, **no se importa ninguna**: Khipu te dice qué línea corregir.
-   Máximo 500 filas por archivo.
+3. Muchos alumnos a la vez: «Importar CSV» con las columnas `nombres, apellidos, codigo, salon` (y, si lo tienes,
+   `documento` con el DNI del alumno). El salón debe existir con el mismo nombre (por ejemplo `3.° B`). Si una fila falla,
+   **no se importa ninguna**: Khipu te dice qué línea corregir. Máximo 1 500 filas por archivo.
 
 ### Retirar o reactivar a un alumno
 Fila del alumno → acciones → «Retirar del colegio» (deja de salir en las listas; conserva su historia) o «Reactivar».
@@ -63,6 +63,14 @@ Fila del alumno → acciones → «Retirar del colegio» (deja de salir en las l
 4. **Hermanos**: no invites dos veces. En la familia, «Vincular otro alumno» y elige al hermano.
 5. «Quitar» en un hijo quita ese vínculo. «Desactivar cuenta» impide que la familia entre y reciba avisos (se puede
    «Reactivar cuenta»).
+
+### Cargar muchas familias a la vez
+1. Alumnos y familias → «Familias» → «Cargar desde archivo» (o Gestión → «Carga masiva»).
+2. Descarga la «Plantilla Excel» y llena una fila por apoderado y por hijo: código o DNI del alumno, DNI, nombres,
+   apellidos, correo personal, celular (opcional) y parentesco. Hermanos: repite al apoderado en una fila por hijo.
+3. Sube el archivo y revisa la vista previa: las filas con errores no se cargan (te dice la línea y el motivo).
+4. «Confirmar y cargar». Cada familia nueva recibe su bienvenida: entra con su correo y su DNI como contraseña inicial.
+5. Si corriges el archivo, vuelve a subirlo completo: no se duplica nada ni se reenvía la bienvenida.
 
 ### Crear la cuenta propia de un alumno
 Solo desde el grado que fijó dirección (por defecto 5.° de primaria) y en secundaria.
