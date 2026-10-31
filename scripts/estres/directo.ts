@@ -8,7 +8,7 @@ import { appendFileSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { guardarLista } from "../../src/lib/server/asistencia";
 import { db } from "../../src/lib/server/db";
-import { EmailChannel } from "../../src/lib/server/notificaciones/email";
+import { EmailChannel, cerrarTransporteCorreo } from "../../src/lib/server/notificaciones/email";
 import { procesarCola } from "../../src/lib/server/notificaciones/cola";
 import type { NotificationChannel } from "../../src/lib/server/notificaciones/tipos";
 import { resolverContextoColegio } from "../../src/lib/server/tenant";
@@ -70,6 +70,7 @@ async function cola() {
   const nada = async () => {};
   // Solo una parte de la cola en cada variante, para que alcance para todas.
   await correr("B1 procesarCola canal falso (BD + plantilla), 400 avisos", 400, { canales: { correo: falso }, limites: sinLimite, esperar: nada, presupuestoMs: 1 });
+  // Con SMTP_POOL=true se mide el transporte con pool (conexiones reutilizadas) contra el SMTP nulo.
   await correr("B2 procesarCola SMTP nulo sin pausa, 400 avisos", 400, { canales: { correo: new EmailChannel() }, limites: sinLimite, esperar: nada, presupuestoMs: 1 });
   await correr("B3 procesarCola ritmo SES 14/s, 420 avisos", 420, { canales: { correo: new EmailChannel() }, limites: { limiteDiario: 1_000_000, porSegundo: 14 }, presupuestoMs: 1 });
   const enviados24h = await db.aviso.count({ where: { canal: "correo", enviadoAt: { gte: new Date(Date.now() - 86_400_000) } } });
@@ -90,4 +91,7 @@ tarea()
     console.error(e);
     process.exitCode = 1;
   })
-  .finally(() => db.$disconnect());
+  .finally(async () => {
+    cerrarTransporteCorreo(); // pool SMTP (SMTP_POOL=true): sin cerrar, el proceso no termina
+    await db.$disconnect();
+  });

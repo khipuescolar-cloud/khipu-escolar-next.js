@@ -1,6 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { guardarLista } from "@/lib/server/asistencia";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
+import { cerrarTransporteCorreo } from "@/lib/server/notificaciones/email";
 import { encolarAviso } from "@/lib/server/notificaciones/encolar";
 import { procesarEventoSes } from "@/lib/server/notificaciones/ses";
 import type { NotificationChannel } from "@/lib/server/notificaciones/tipos";
@@ -14,6 +15,7 @@ describe("cola de avisos → Mailpit", () => {
     c = await crearColegioPrueba();
   });
   afterAll(async () => {
+    cerrarTransporteCorreo(); // el transporte es de módulo (pool con SES/Gmail): no dejar conexiones abiertas
     await c?.limpiar();
   });
 

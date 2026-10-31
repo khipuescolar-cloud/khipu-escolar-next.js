@@ -64,7 +64,7 @@ describe("adjuntos de comunicados y tareas", () => {
     expect(await c.db.comunicado.count({ where: { titulo: "Reunión" } })).toBe(0);
   });
 
-  it("comunicado de un salón: lo descargan autor, dirección, familias y profesores del salón; no otro salón ni portería", async () => {
+  it("comunicado de un salón: lo descargan autor, dirección, administrativo, familias y profesores del salón; no otro salón ni portería", async () => {
     const dir = c.ctxDe("direccion");
     const { id } = await publicarComunicado(dir, { titulo: "Paseo 3.° B", cuerpo: "Salida al museo", salonId: c.salon.id }, [pdf(), docx(), xlsx()]);
     const adjuntos = (await listarComunicados(dir)).find((x) => x.id === id)!.adjuntos;
@@ -72,13 +72,13 @@ describe("adjuntos de comunicados y tareas", () => {
     const archivo = await c.db.archivo.findFirstOrThrow({ where: { comunicadoId: id, nombre: "circular.pdf" } });
     expect(archivo).toMatchObject({ privado: true, mimeType: "application/pdf", subidoPorId: dir.user.id });
 
-    for (const quien of [dir, c.ctxDe("madre"), c.ctxDe("tutora")]) {
+    // El administrativo ve todos los comunicados en la lista (como dirección), así que también descarga sus adjuntos.
+    for (const quien of [dir, c.ctxDe("madre"), c.ctxDe("tutora"), administrativo]) {
       expect((await requireArchivoVisible(quien, archivo.id)).id).toBe(archivo.id);
     }
-    // Apoderado de otro salón, profesor de otro salón, personal administrativo y portería: 403.
+    // Apoderado de otro salón, profesor de otro salón y portería: 403.
     await esperarProhibido(requireArchivoVisible(otraFamilia, archivo.id));
     await esperarProhibido(requireArchivoVisible(c.ctxDe("otroProfesor"), archivo.id));
-    await esperarProhibido(requireArchivoVisible(administrativo, archivo.id));
     await esperarProhibido(requireArchivoVisible(c.ctxDe("porteria"), archivo.id));
   });
 

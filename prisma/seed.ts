@@ -12,6 +12,7 @@ import { sembrarCneb } from "./seed-cneb";
 import { sembrarColegio } from "./seed-colegio";
 import { sembrarComunicacion } from "./seed-comunicacion";
 import { sembrarDocumentos } from "./seed-documentos";
+import { sembrarHorario } from "./seed-horario";
 import { sembrarNotas } from "./seed-notas";
 import { sembrarNuditoPlus } from "./seed-nudito-plus";
 import { sembrarNuditoPlusTutor } from "./seed-nudito-plus-tutor";
@@ -65,6 +66,8 @@ async function main() {
   await paso("responsable y suscripción", responsableYSuscripcion);
   await paso("competencias del CNEB", () => sembrarCneb(prisma));
   await paso("notas", () => sembrarNotas(prisma));
+  // Horario semanal por salón (specs/34): antes de la asistencia, porque las listas de curso siguen sus bloques.
+  await paso("horario", () => sembrarHorario(prisma));
   await paso("asistencia, justificaciones y avisos", () => sembrarAsistencia(prisma));
   await paso("tareas, agenda, comunicados, mensajes y soporte", () => sembrarComunicacion(prisma));
   await paso("documentos", () => sembrarDocumentos(prisma, {}));
@@ -72,7 +75,6 @@ async function main() {
   // Nudito+: primero el tutor (conversaciones de Lucas), luego licencias, sitios y configuración (specs/28–29).
   await paso("Nudito+ (tutor)", () => sembrarNuditoPlusTutor(prisma, {}));
   await paso("Nudito+ (licencias)", () => sembrarNuditoPlus(prisma, { superadminId }));
-  await paso("horario", async () => (await import("./seed-horario")).sembrarHorario(prisma)); // Horario semanal por salón (specs/34), al final: usa los salones y cursos ya creados.
 
   console.log(`Seed listo en ${((Date.now() - t0) / 1000).toFixed(1)} s. Contraseña de todas las cuentas: demo123`);
   console.log("  direccion@nuevohorizonte.demo · lucia.garcia@nuevohorizonte.demo · rosa.quispe@gmail.com · admin@khipuescolar.demo");

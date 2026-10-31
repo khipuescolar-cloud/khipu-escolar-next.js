@@ -670,7 +670,10 @@ model Comunicado {
   id          String   @id @default(uuid()) @db.Uuid
   tenantId    String   @map("tenant_id") @db.Uuid
   autorId     String   @map("autor_id") @db.Uuid
-  salonId     String?  @map("salon_id") @db.Uuid // null = todo el colegio
+  /// Destino (specs/09): `salonId` = un salón; si no, `niveles` (+ `grado` si es un solo grado de ese nivel); todo vacío = todo el colegio.
+  salonId     String?  @map("salon_id") @db.Uuid
+  niveles     Nivel[]  @default([])
+  grado       Int?
   titulo      String
   cuerpo      String
   publicadoAt DateTime @default(now()) @map("publicado_at") @db.Timestamptz

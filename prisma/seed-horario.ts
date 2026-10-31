@@ -5,7 +5,7 @@
 // tienen horario ni niveles que ya tienen horas.
 import type { PrismaClient } from "../src/generated/prisma/client";
 import type { Nivel } from "../src/generated/prisma/enums";
-import { DIAS, PERIODOS_SUGERIDOS, buscarCruce, ordenarPorHora, type OcupacionProfesor } from "../src/lib/horario";
+import { DIAS, PERIODOS_SUGERIDOS, buscarCruce, diaDeSemana, ordenarPorHora, type OcupacionProfesor } from "../src/lib/horario";
 
 const ORDEN_NIVEL: Record<Nivel, number> = { inicial: 0, primaria: 1, secundaria: 2, academia: 3 };
 /** Como máximo dos horas del mismo curso por día. */
@@ -59,6 +59,25 @@ export function planificarHorario(salones: SalonPlan[], ocupados: OcupacionProfe
     }
   });
   return bloques;
+}
+
+/** Bloque con curso (para la asistencia demo por curso). */
+export type BloqueCurso = { salonId: string; dia: number; cursoId: string | null; horaInicio: string };
+
+/**
+ * Clases que tuvo un salón en una fecha según su horario (specs/34): un registro por curso (aunque tenga dos horas ese día),
+ * con la hora de inicio de su primer periodo, ordenadas por hora. Fines de semana o salones sin horario: ninguna.
+ * La usa `seed-asistencia.ts` para que la asistencia por curso siga al horario.
+ */
+export function clasesDelDia(bloques: BloqueCurso[], salonId: string, isoFecha: string): { cursoId: string; hora: string }[] {
+  const dia = diaDeSemana(isoFecha);
+  const primera = new Map<string, string>();
+  for (const b of bloques) {
+    if (b.salonId !== salonId || b.dia !== dia || !b.cursoId) continue;
+    const previa = primera.get(b.cursoId);
+    if (!previa || b.horaInicio < previa) primera.set(b.cursoId, b.horaInicio);
+  }
+  return [...primera].map(([cursoId, hora]) => ({ cursoId, hora })).sort((a, b) => a.hora.localeCompare(b.hora) || a.cursoId.localeCompare(b.cursoId));
 }
 
 /** Todos los colegios, o solo `tenantIds` (las pruebas lo usan con su colegio de prueba). */
