@@ -36,8 +36,12 @@ action y cada función de `src/lib/server/horario.ts`.
 4. **Carga de profesores** (`/horario?vista=profesores`): por profesor, horas por semana, bloques, salones y cruces
    («Sin cruces» ✓ o «N cruces» ⚠). «Ver semana» abre `/horario?profesor=<id>` con su semana y los cruces marcados.
 5. **Mi horario** (profesor): tarjeta «Ahora: Matemática · 3.° B hasta las 10:30» / «Después: … a las 10:30», y la
-   semana por días. Cada bloque de curso enlaza a «Pasar lista» (solo hoy, si el colegio tiene asistencia y asistencia por
-   curso en ese nivel), «Tareas» y «Notas» del curso (si el plan los incluye).
+   semana en vista de calendario (estilo Google Calendar): columnas de lunes a viernes con su fecha (la semana actual; el
+   fin de semana, la siguiente), horas a la izquierda, cada bloque ubicado y medido según su hora, con el color de su
+   curso (el mismo curso, el mismo color en todos los salones; «Tutoría» en gris) y una línea con la hora actual en el día
+   de hoy. Los bloques que se cruzan se reparten el ancho. Al tocar un bloque se abre su detalle (salón, aula, duración,
+   cruce) con «Pasar lista» (solo hoy, si el colegio tiene asistencia y asistencia por curso en ese nivel), «Tareas» y
+   «Notas» del curso (si el plan los incluye).
 6. **Horario** (familia) / **Mi horario** (alumno): píldoras por hijo si hay varios; tarjeta «Ahora / Después» y la
    cuadrícula del salón en solo lectura.
 7. **Inicio**: tarjeta «Hoy» para profesor, alumno y familia con los bloques del día, el de ahora marcado y el enlace al
@@ -99,11 +103,12 @@ Puros en `src/lib/horario.ts`: `seSolapan`, `buscarCruce`, `crucesDe`, `mensajeC
   (`EditorHoras`, `Sheet`), «Copiar de otro salón» (`DialogoAccion`), «Carga de profesores». Menú: grupo «Colegio»,
   «Horarios».
 - `/horario?vista=profesores`, `/horario?profesor=<id>` (dirección).
-- `/horario` (profesor, «Mi horario», grupo «Día a día»): `AhoraDespues` + `SemanaPorDias`.
+- `/horario` (profesor, «Mi horario», grupo «Día a día»): `AhoraDespues` + `CalendarioSemana` (lógica pura en `src/lib/horario-calendario.ts`).
 - `/horario?alumno=<id>` (familia, «Horario»; alumno, «Mi horario»; grupo «Día a día»): `AhoraDespues` + `TablaHorario`.
 - Inicio: `TarjetaHoy` (`inicio/TarjetaHoy.tsx`).
 - Responsive: desde `md` la cuadrícula es una tabla (`caption`, `th scope`); en el celular, pestañas Lun–Vie (Base UI
-  `Tabs`, teclado con flechas) con hoy elegido. La semana del profesor usa columnas desde `lg`. Hoy: insignia «Hoy»
+  `Tabs`, teclado con flechas) con hoy elegido. La semana del profesor es una cuadrícula de 5 días desde `lg`; en
+  pantallas chicas, pestañas con día y fecha (hoy en círculo) y la cuadrícula de un día. Hoy: insignia «Hoy»
   (ícono + palabra); bloque en curso: insignia «Ahora» y borde. Foco visible global; animaciones con `motion-reduce`.
 
 ## Textos y UX
@@ -128,7 +133,8 @@ los cursos del salón (máximo 2 horas del mismo curso por día) sin cruzar nunc
 también entre niveles). Si ningún curso cabe, el casillero queda vacío. Idempotente.
 
 ## Pruebas
-- unit: `tests/unit/horario.test.ts` (cruces y bordes, distintas horas por nivel, reemplazo del mismo casillero, pares de
+- unit: `tests/unit/horario-calendario.test.ts` (horas visibles, carriles de bloques cruzados, color por curso, semana
+  mostrada); `tests/unit/horario.test.ts` (cruces y bordes, distintas horas por nivel, reemplazo del mismo casillero, pares de
   cruces, ahora/después y recreo, días, horas sugeridas válidas, validación de horas, `planificarHorario` determinista y
   sin cruces).
 - integración: `tests/integracion/horario.test.ts` (módulo en Base y Pro, horas sugeridas una vez, validación, quitar una

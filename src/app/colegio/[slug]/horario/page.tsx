@@ -7,7 +7,7 @@ import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
 import { AhoraDespues } from "@/components/horario/AhoraDespues";
 import { BotonSugeridas } from "@/components/horario/BotonSugeridas";
 import { EditorHoras } from "@/components/horario/EditorHoras";
-import { SemanaPorDias, type AccionBloque, type BloqueConAcciones } from "@/components/horario/SemanaPorDias";
+import { CalendarioSemana, type AccionBloque, type BloqueConAcciones } from "@/components/horario/CalendarioSemana";
 import { TablaHorario } from "@/components/horario/TablaHorario";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -192,7 +192,7 @@ async function CargaProfesores({ ctx }: { ctx: TenantContext }) {
 
 async function SemanaProfesor({ ctx, profesorId }: { ctx: TenantContext; profesorId?: string }) {
   const { profesor, bloques, cruces } = await horarioDelProfesor(ctx, profesorId);
-  const { dia, hora } = ahoraDelColegio(ctx);
+  const { dia, hora, isoFecha } = ahoraDelColegio(ctx);
   const esPropio = ctx.rol === "profesor";
   const { ahora, despues } = bloqueAhora(bloques, dia, hora);
   const enCruce = new Set(cruces.flatMap(([a, b]) => [a.id, b.id]));
@@ -233,7 +233,7 @@ async function SemanaProfesor({ ctx, profesorId }: { ctx: TenantContext; profeso
               <AhoraDespues ahora={ahora} despues={despues} hayClasesHoy={bloques.some((b) => b.dia === dia)} conSalon />
             </Card>
           )}
-          <SemanaPorDias bloques={conAcciones} diaHoy={dia} ahoraId={ahora?.id ?? null} />
+          <CalendarioSemana bloques={conAcciones} hoyIso={isoFecha} diaHoy={dia} horaAhora={hora} ahoraId={ahora?.id ?? null} />
         </>
       )}
     </div>
