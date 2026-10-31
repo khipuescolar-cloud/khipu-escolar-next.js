@@ -18,6 +18,8 @@ export const FEATURES = {
   mensajes: "base",
   comunicados: "base",
   gestion: "base",
+  /** Horario semanal por salón: horas del día por nivel, cursos por casillero, «Mi horario» (specs/34). */
+  horario: "base",
   notas: "pro",
   libreta: "pro",
   tareas: "pro",

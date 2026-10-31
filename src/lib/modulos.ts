@@ -36,6 +36,7 @@ export const INFO_MODULO: Record<Feature, { nombre: string; descripcion: string;
   mensajes: { nombre: "Mensajes", descripcion: "Chat entre la familia y el profesor, sin compartir teléfonos.", icono: "MessagesSquare" },
   comunicados: { nombre: "Comunicados", descripcion: "Anuncios del colegio y de cada salón.", icono: "Megaphone" },
   gestion: { nombre: "Gestión del colegio", descripcion: "Profesores, personal, salones, alumnos, familias y configuración. Esencial.", icono: "Users" },
+  horario: { nombre: "Horario", descripcion: "Horario semanal de cada salón, horas del día por nivel y «Mi horario» del profesor, el alumno y la familia.", icono: "CalendarClock" },
   notas: { nombre: "Notas", descripcion: "Evaluaciones y calificaciones por competencia.", icono: "GraduationCap" },
   libreta: { nombre: "Libreta", descripcion: "Libreta de notas por periodo, en pantalla y en PDF.", icono: "BookOpen" },
   tareas: { nombre: "Tareas", descripcion: "Tareas con fecha de entrega y adjuntos.", icono: "ListTodo" },
