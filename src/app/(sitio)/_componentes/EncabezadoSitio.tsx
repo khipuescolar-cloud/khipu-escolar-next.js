@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { Logo } from "@/components/marca/Logo";
+import { LogoKhipu } from "@/components/marca/LogoKhipu";
 import { cn } from "@/lib/utils";
 import { MenuMovil } from "./MenuMovil";
 
@@ -17,7 +17,7 @@ export function EncabezadoSitio() {
     <header className="sticky top-0 z-40 border-b border-arena bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-[72px]">
         <Link href="/" className="flex shrink-0 items-center rounded-md" aria-label="Khipu Escolar, inicio">
-          <Logo variante="escolar" alto={44} />
+          <LogoKhipu alto={56} />
         </Link>
         <nav aria-label="Secciones" className="hidden items-center gap-1 lg:flex">
           {ANCLAS.map((a) => (

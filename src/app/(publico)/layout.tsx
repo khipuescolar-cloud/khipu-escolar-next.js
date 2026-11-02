@@ -1,6 +1,6 @@
 import { BellRing, MessageCircle, ShieldCheck } from "lucide-react";
 import { CuerdasKhipu } from "@/components/marca/CuerdasKhipu";
-import { Logo } from "@/components/marca/Logo";
+import { LogoKhipu } from "@/components/marca/LogoKhipu";
 
 const PUNTOS = [
   { Icono: BellRing, titulo: "Asistencia al momento", texto: "La familia sabe el mismo día si su hijo llegó." },
@@ -17,7 +17,7 @@ export default function LayoutPublico({ children }: LayoutProps<"/">) {
     <div className="flex min-h-dvh flex-1 flex-col bg-background lg:flex-row" style={{ colorScheme: "light" }}>
       <aside className="relative hidden w-1/2 max-w-[720px] flex-col overflow-hidden bg-indigo text-white lg:flex">
         <div className="relative z-10 flex flex-1 flex-col gap-10 px-12 pt-12 xl:px-16">
-          <Logo tono="blanco" alto={40} />
+          <LogoKhipu tono="blanco" alto={72} />
           <div className="flex max-w-md flex-col gap-5">
             <p className="text-sobretitulo text-white/70 uppercase">Para colegios del Perú</p>
             <p className="font-heading text-titulo-xl text-balance">Cada día de tu hijo, bien anudado.</p>
@@ -45,7 +45,7 @@ export default function LayoutPublico({ children }: LayoutProps<"/">) {
 
       <main className="flex flex-1 flex-col px-4 sm:px-6">
         <div className="flex justify-center pt-10 lg:hidden">
-          <Logo variante="escolar" alto={60} />
+          <LogoKhipu alto={80} />
         </div>
         <div className="flex flex-1 items-center justify-center py-10">
           <div className="w-full max-w-[440px]">{children}</div>

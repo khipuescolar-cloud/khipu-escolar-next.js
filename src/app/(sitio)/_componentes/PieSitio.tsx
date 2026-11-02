@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HiloKhipu } from "@/components/marca/HiloKhipu";
-import { Logo } from "@/components/marca/Logo";
+import { LogoKhipu } from "@/components/marca/LogoKhipu";
 import { cn } from "@/lib/utils";
 
 // Pie de la landing (specs/25): cierre con el lema, columnas de enlaces y la cuerda del khipu arriba.
@@ -33,7 +33,7 @@ export function PieSitio({ contacto }: { contacto: string }) {
 
         <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
-            <Logo variante="horizontal" tono="blanco" alto={40} />
+            <LogoKhipu tono="blanco" alto={64} />
             <p className="max-w-xs text-cuerpo-sm text-pretty text-white/65">
               Asistencia con aviso al momento, chat familia–tutor, comunicados, notas y Nudito, el asistente.
             </p>
