@@ -1,4 +1,4 @@
-import { Info } from "lucide-react";
+import { Info, Lock, School, Users } from "lucide-react";
 import type { Metadata } from "next";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { LoginForm } from "./LoginForm";
@@ -10,9 +10,22 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
   return (
     <div className="flex flex-col gap-4">
       <Tarjeta className="p-6 sm:p-8">
-        <p className="sobretitulo mb-2">Ingresa a tu colegio</p>
+        <p className="sobretitulo mb-2">Bienvenido de vuelta</p>
         <h1 className="font-heading text-titulo-1">Entrar</h1>
-        <p className="mt-2 mb-7 text-cuerpo text-muted-foreground">Usa el correo de tu colegio. Si eres familia, usa tu correo personal.</p>
+        <ul className="mt-3 mb-7 flex flex-col gap-3 text-cuerpo text-muted-foreground">
+          <li className="flex items-start gap-3">
+            <School className="mt-0.5 size-5 shrink-0 text-indigo" strokeWidth={2} aria-hidden />
+            <span>
+              <span className="font-semibold text-foreground">Dirección y profesores:</span> el correo de tu colegio.
+            </span>
+          </li>
+          <li className="flex items-start gap-3">
+            <Users className="mt-0.5 size-5 shrink-0 text-indigo" strokeWidth={2} aria-hidden />
+            <span>
+              <span className="font-semibold text-foreground">Familias:</span> tu correo personal.
+            </span>
+          </li>
+        </ul>
         <LoginForm emailInicial={typeof email === "string" ? email : undefined} />
       </Tarjeta>
       <div className="flex items-start gap-3 rounded-lg bg-superficie-2 px-4 py-3 text-cuerpo-sm text-muted-foreground">
@@ -22,6 +35,10 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
           encuentras, revisa la carpeta de spam o escríbele a tu colegio.
         </p>
       </div>
+      <p className="flex items-center justify-center gap-2 text-cuerpo-sm text-muted-foreground">
+        <Lock className="size-4 shrink-0" strokeWidth={2} aria-hidden />
+        Tus datos se cuidan según la Ley 29733.
+      </p>
     </div>
   );
 }

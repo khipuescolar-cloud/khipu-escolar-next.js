@@ -10,6 +10,7 @@ import {
   GraduationCap,
   LifeBuoy,
   ListTodo,
+  Lock,
   Megaphone,
   MonitorPlay,
   MessagesSquare,
@@ -188,22 +189,34 @@ const PROBLEMAS: { tono: Tono; titulo: string; texto: string }[] = [
 
 const PREGUNTAS: { Icono: LucideIcon; tono: Tono; p: string; r: string }[] = [
   {
-    Icono: Download,
+    Icono: FileText,
     tono: "indigo",
-    p: "¿Necesitan instalar algo?",
-    r: "No. Khipu Escolar funciona en el navegador del celular o de la computadora. Si lo prefieren, se instala como app desde la página «Instalar la app», sin pasar por tiendas.",
+    p: "¿Cuánto cuesta?",
+    r: "Depende del plan y del tamaño del colegio, por eso lo vemos juntos en la demo. Los colegios fundadores del programa piloto 2026 tienen 8 semanas sin costo y precio de colegio fundador en 2027.",
+  },
+  {
+    Icono: Send,
+    tono: "indigo",
+    p: "¿Y si las familias no leen el correo?",
+    r: "Los avisos llegan por correo y también como notificación en el celular de la familia, y quedan guardados en su cuenta. Dirección puede ver qué avisos llegaron.",
+  },
+  {
+    Icono: MessagesSquare,
+    tono: "indigo",
+    p: "¿Tenemos que dejar los grupos de WhatsApp?",
+    r: "Khipu reúne asistencia, comunicados y el chat con el tutor en un solo lugar, así los profesores no tienen que dar su número personal. Si el colegio lo activa, también puede avisar por WhatsApp y SMS.",
+  },
+  {
+    Icono: Users,
+    tono: "indigo",
+    p: "¿Y si a los profesores les cuesta?",
+    r: "Pasar lista toma menos de un minuto desde el celular, con botones grandes y textos claros. Además, todos los planes incluyen la mesa de ayuda con el equipo Khipu.",
   },
   {
     Icono: Clock,
     tono: "indigo",
     p: "¿Cuánto tarda empezar?",
     r: "Pocos días. Nosotros creamos el colegio y la cuenta de dirección, y le ayudamos a cargar a profesores y alumnos desde su lista en Excel. Las familias reciben su invitación por correo. En la demo coordinamos las fechas.",
-  },
-  {
-    Icono: Smartphone,
-    tono: "indigo",
-    p: "¿Funciona en celulares baratos?",
-    r: "Sí, está pensado primero para el celular: botones grandes, pantallas livianas y textos claros. Basta un navegador actualizado, como Chrome o Safari.",
   },
   {
     Icono: WifiOff,
@@ -223,6 +236,12 @@ const PREGUNTAS: { Icono: LucideIcon; tono: Tono; p: string; r: string }[] = [
     p: "¿Puedo probarlo?",
     r: "Sí. Solicite una demo con el formulario de abajo: le mostramos Khipu Escolar con un colegio de ejemplo y conversamos sobre el programa piloto 2026.",
   },
+  {
+    Icono: Download,
+    tono: "indigo",
+    p: "¿Necesitan instalar algo?",
+    r: "No. Khipu Escolar funciona en el navegador del celular o de la computadora; basta un navegador actualizado, como Chrome o Safari. Si lo prefieren, se instala como app desde la página «Instalar la app», sin pasar por tiendas.",
+  },
 ];
 
 // Clases literales (Tailwind no ve las armadas): borde del tono en la pregunta abierta.
@@ -234,6 +253,12 @@ const PREGUNTA_ABIERTA: Record<Tono, string> = {
   maiz: "data-open:border-maiz",
 };
 const TONO_PLAN: Record<string, Tono> = { basico: "turquesa", fase2: "cielo", promax: "maiz" };
+// Frase «ideal para» por plan (rediseño Jafet 2026-11-02): solo texto de marketing; precios y módulos siguen viniendo de la BD.
+const IDEAL_PARA: Record<string, string> = {
+  basico: "Para empezar: que las familias sepan al instante si su hijo llegó.",
+  fase2: "Para ir más lejos: las familias ven las notas de sus hijos.",
+  promax: "Para atender mejor: Nudito responde a las familias.",
+};
 
 // Mosaico «Un día con Khipu» (rediseño Jafet 2026-10-30): fotos referenciales en public/landing/fotos.
 // Clases literales por foto: posición en la grilla (4 columnas en lg) y proporción en pantallas chicas.
@@ -427,22 +452,35 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
           {GRUPOS.map((g, i) => (
             <article key={g.id} id={g.id} aria-labelledby={`grupo-${g.id}`} className="grid scroll-mt-24 items-center gap-10 lg:grid-cols-2 lg:gap-14">
               <div className={cn("flex flex-col gap-6", i % 2 === 1 && "lg:order-2")}>
+                <span className="flex w-fit items-center gap-2 rounded-pildora border border-arena bg-superficie px-3 py-1 text-etiqueta tracking-wider text-foreground uppercase">
+                  <span className={cn("size-2.5 rounded-full", TONOS[g.tono].nudo)} aria-hidden />
+                  {g.nombre}
+                  <span className="font-normal text-muted-foreground normal-case">
+                    · {i + 1} de {GRUPOS.length}
+                  </span>
+                </span>
                 <h3 id={`grupo-${g.id}`} className="font-heading text-titulo-1 text-balance">
                   {g.titulo}
                 </h3>
                 <ul className="flex flex-col gap-5">
-                  {g.funciones.map((f) => (
-                    <li key={f.titulo} className="flex items-start gap-4">
+                  {g.funciones.map((f, n) => (
+                    <li key={f.titulo} className={cn("flex items-start gap-4", n === 0 && "rounded-md border border-arena bg-superficie-2 p-4")}>
                       <Icono Icono={f.Icono} tono={g.tono} />
                       <div className="flex flex-col gap-1">
-                        <h4 className="text-cuerpo font-semibold">{f.titulo}</h4>
+                        <h4 className={cn("text-cuerpo font-semibold", n === 0 && "font-heading text-lg")}>{f.titulo}</h4>
                         <p className="text-cuerpo-sm text-pretty text-muted-foreground">{f.texto}</p>
                       </div>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className={cn("rounded-lg p-5 sm:p-10", TONOS[g.tono].suave, i % 2 === 1 && "lg:order-1")}>{g.captura}</div>
+              <div className={cn("relative isolate overflow-hidden rounded-lg border border-arena p-5 sm:p-10", TONOS[g.tono].suave, i % 2 === 1 && "lg:order-1")}>
+                <span
+                  className="pointer-events-none absolute inset-0 -z-10 bg-[url(/landing/textura-khipu.svg)] bg-[length:144px_180px] opacity-[0.06] [mask-image:linear-gradient(to_bottom_left,black,transparent_60%)]"
+                  aria-hidden
+                />
+                {g.captura}
+              </div>
             </article>
           ))}
         </div>
@@ -489,6 +527,12 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
         <div className="relative z-10 mx-auto max-w-6xl px-4 pt-16 pb-14 sm:px-6 sm:pt-24">
           <Encabezado id="titulo-como" titulo="De la firma al primer aviso, en cuatro pasos" claro />
           <PasosKhipu className="mt-14" />
+          <div className="mt-12 flex flex-col items-center gap-5 text-center">
+            <p className="font-heading text-titulo-2 text-balance">Su colegio puede estar funcionando en pocos días.</p>
+            <a href="#demo" className={cn(buttonVariants({ size: "lg" }), "h-12 px-6 active:not-aria-[haspopup]:translate-y-0 active:scale-[0.96]", BOTON_MAIZ)}>
+              Quiero verlo en mi colegio
+            </a>
+          </div>
         </div>
         <CuerdasKhipu className="h-40 w-full sm:h-52" />
       </section>
@@ -528,6 +572,15 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
                     <h3 className="font-heading text-titulo-2">{p.nombre}</h3>
                     {destacado && <span className="rounded-pildora bg-maiz px-3 py-1 text-etiqueta text-sobre-maiz">El más completo</span>}
                   </div>
+                  {destacado && (
+                    <p className="flex w-fit items-center gap-2 rounded-pildora bg-cochinilla py-1 pr-3 pl-1 font-nudito text-sm text-white">
+                      <span className="flex size-7 items-center justify-center rounded-full bg-white">
+                        <img src="/marca/nudito.svg" alt="" width={24} height={24} className="size-6" />
+                      </span>
+                      Con Nudito, el asistente
+                    </p>
+                  )}
+                  {IDEAL_PARA[p.plan] && <p className={cn("text-cuerpo-sm font-semibold", destacado ? "text-white" : "text-foreground")}>{IDEAL_PARA[p.plan]}</p>}
                   {p.descripcion && <p className={cn("text-cuerpo-sm", destacado ? "text-white/80" : "text-muted-foreground")}>{p.descripcion}</p>}
                 </div>
                 <div className={cn("flex flex-col gap-1 border-y py-4", destacado ? "border-white/15" : "border-arena")}>
@@ -559,6 +612,13 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
             );
           })}
         </ul>
+        <p className="mt-10 text-center text-cuerpo text-pretty text-muted-foreground">
+          ¿No sabe cuál elegir? Cuéntenos cuántos alumnos tiene y lo vemos juntos{" "}
+          <a href="#demo" className="font-semibold text-indigo underline underline-offset-4 hover:text-indigo/80">
+            en la demostración
+          </a>
+          .
+        </p>
       </Seccion>
 
       {/* ───────── Programa piloto (maíz) ───────── */}
@@ -589,34 +649,34 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
       </section>
 
       {/* ───────── Preguntas frecuentes (índigo cielo suave; Nudito invita a preguntar) ───────── */}
-      <Seccion id="preguntas" etiqueta="titulo-preguntas" className="bg-indigo-cielo/10">
+      <Seccion id="preguntas" etiqueta="titulo-preguntas" className="bg-superficie-2">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.45fr] lg:gap-14">
           <div className="flex flex-col gap-8 lg:sticky lg:top-28 lg:self-start">
             <Encabezado id="titulo-preguntas" titulo="Respuestas rápidas" texto="Lo que más nos preguntan los colegios antes de empezar." />
             <div className="flex items-end gap-3">
               <img src="/marca/nudito.svg" alt="" width={80} height={80} loading="lazy" className="size-20 shrink-0" />
               <p className="relative rounded-lg rounded-bl-sm bg-cochinilla px-4 py-3 font-nudito text-voz-nudito text-pretty text-white">
-                ¿No encuentras tu pregunta? Déjala en el formulario y una persona del equipo te responde.
+                ¿No encuentra su pregunta? Déjela en el formulario y una persona del equipo le responde.
               </p>
             </div>
             <a href="#demo" className={cn(buttonVariants({ size: "lg" }), "h-12 w-fit bg-indigo px-6 text-white hover:bg-indigo/90 active:not-aria-[haspopup]:translate-y-0 active:scale-[0.96]")}>
               <MessagesSquare strokeWidth={2} aria-hidden /> Hacer otra pregunta
             </a>
           </div>
-          <Accordion className="flex flex-col gap-3">
+          <Accordion className="flex flex-col gap-4">
             {PREGUNTAS.map((q) => (
               <AccordionItem
                 key={q.p}
                 value={q.p}
-                className={cn("rounded-lg border-2 border-transparent bg-superficie px-4 transition-[border-color,box-shadow] duration-200 not-last:border-b-2 hover:shadow-sombra-1 data-open:shadow-sombra-1 sm:px-5", PREGUNTA_ABIERTA[q.tono])}
+                className={cn("rounded-lg border-2 border-arena bg-superficie px-4 transition-[border-color,box-shadow] duration-200 not-last:border-b-2 hover:shadow-sombra-1 data-open:shadow-sombra-1 sm:px-5", PREGUNTA_ABIERTA[q.tono])}
               >
                 <AccordionTrigger className="min-h-16 items-center gap-4 py-3 text-cuerpo font-semibold hover:no-underline">
                   <span className="flex items-center gap-4">
-                    <Icono Icono={q.Icono} tono={q.tono} />
+                    <q.Icono className="size-5 shrink-0 text-indigo" strokeWidth={2} aria-hidden />
                     {q.p}
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="pb-5 pl-15 text-cuerpo text-pretty text-muted-foreground">{q.r}</AccordionContent>
+                <AccordionContent className="pb-5 pl-9 text-cuerpo text-pretty text-muted-foreground">{q.r}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
@@ -633,16 +693,22 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
               titulo="Solicite una demo"
               texto="Déjenos sus datos y le mostramos Khipu Escolar con un colegio de ejemplo, en una videollamada o en su colegio."
             />
-            <ul className="flex flex-col gap-3 text-cuerpo">
+            <ol className="relative ml-2 flex flex-col gap-6 border-l-2 border-white/25 pl-8 text-cuerpo">
               {["Le respondemos en menos de 1 día hábil.", "Vemos juntos el plan que le conviene.", "Sin compromiso."].map((t) => (
-                <li key={t} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-maiz text-sobre-maiz">
-                    <Check className="size-4" strokeWidth={2.5} aria-hidden />
-                  </span>
+                <li key={t} className="relative">
+                  <span className="absolute top-1 -left-[41px] size-4 rounded-full bg-maiz ring-4 ring-indigo" aria-hidden />
                   {t}
                 </li>
               ))}
-            </ul>
+            </ol>
+            <p className="flex items-start gap-3 rounded-lg border border-maiz/60 bg-white/10 p-4 text-cuerpo-sm text-white">
+              <School className="mt-0.5 size-5 shrink-0 text-maiz" strokeWidth={2} aria-hidden />
+              Colegios fundadores del programa piloto 2026: 8 semanas sin costo y precio de colegio fundador en 2027.
+            </p>
+            <p className="flex items-center gap-3 text-cuerpo-sm text-white/85">
+              <MessagesSquare className="size-5 shrink-0 text-maiz" strokeWidth={2} aria-hidden />
+              Le responde una persona del equipo, no un robot.
+            </p>
             <div className="hidden items-center gap-3 rounded-lg bg-white/10 p-4 lg:flex">
               <CalendarDays className="size-5 shrink-0 text-maiz" strokeWidth={2} aria-hidden />
               <p className="text-cuerpo-sm text-white/85">Los colegios eligen su sistema para el próximo año entre noviembre y febrero.</p>
@@ -650,6 +716,10 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
           </div>
           <div className="rounded-lg border border-arena bg-superficie p-5 text-foreground sm:p-8">
             <FormularioDemo key={planInicial ?? "ninguno"} planes={planes.map((p) => ({ plan: p.plan, nombre: p.nombre }))} planInicial={planInicial} />
+            <p className="mt-5 flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
+              <Lock className="size-4 shrink-0" strokeWidth={2} aria-hidden />
+              Usamos sus datos solo para responder esta solicitud.
+            </p>
           </div>
         </div>
       </Seccion>
