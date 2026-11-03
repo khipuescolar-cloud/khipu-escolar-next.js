@@ -142,6 +142,11 @@ const ESQUEMAS = {
       .max(40),
     url,
   }),
+  /**
+   * Push de la bandeja interna (specs/38): título y cuerpo ya armados SIN notas (se ven en la pantalla bloqueada).
+   * `tag` agrupa en el dispositivo las notificaciones del mismo alumno.
+   */
+  notificacion_academica: z.object({ ...comun, titulo: z.string().min(1).max(80), cuerpo: z.string().min(1).max(200), url, tag: z.string().max(80).optional() }),
   /** Calificación publicada que cambió (specs/37). Sin valores en el correo: el detalle está en Khipu. */
   nota_corregida: z.object({
     ...comun,
@@ -535,6 +540,18 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       ],
       boton: { texto: "Ver en Khipu", url: p.url },
       urlPreferencias: p.urlPreferencias,
+    }),
+
+  notificacion_academica: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: p.titulo,
+      insignia: "info",
+      palabraInsignia: "Notas",
+      parrafos: [p.cuerpo],
+      boton: { texto: "Ver en Khipu", url: p.url },
+      push: { cuerpo: p.cuerpo, url: p.url, tag: p.tag },
     }),
 
   nota_corregida: (p) =>

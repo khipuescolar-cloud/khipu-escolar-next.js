@@ -6,7 +6,7 @@ import { procesarControlIngreso } from "@/lib/server/control-ingreso";
 import { cerrarResueltosInactivos } from "@/lib/server/soporte";
 import { procesarVencimientosNudito } from "@/lib/server/nudito-plus/licencias";
 import { procesarVencimientosNsp } from "@/lib/server/nsp";
-import { procesarResumenAcademico } from "@/lib/server/resumen-academico";
+import { procesarEventosAcademicos } from "@/lib/server/eventos-academicos";
 
 // Worker de avisos (specs/06). Lo llama el cron con «Authorization: Bearer <CRON_SECRET>».
 export const maxDuration = 300;
@@ -29,10 +29,12 @@ async function manejar(request: Request) {
     const nuditoPlus = await procesarVencimientosNudito();
     // Control de ingreso (specs/05): «aún no llega» y faltas automáticas; se encolan antes de procesar la cola.
     const controlIngreso = await procesarControlIngreso();
-    // NSP (specs/37): consecuencia por vencimiento del plazo de justificación (idempotente) y resumen académico diario.
+    // NSP (specs/37): consecuencia por vencimiento del plazo de justificación (idempotente).
     const vencimientosNsp = await procesarVencimientosNsp();
-    const resumenAcademico = await procesarResumenAcademico();
-    const resumen = { ...(await procesarCola()), soporteCerradas, nuditoPlus, controlIngreso, vencimientosNsp, resumenAcademico };
+    // Notificaciones académicas (specs/38): eventos del outbox que el after() de la acción no alcanzó a procesar.
+    // El resumen académico diario se retiró el 2026-11-03 (se reemplazó por estas notificaciones por evento).
+    const eventosAcademicos = await procesarEventosAcademicos();
+    const resumen = { ...(await procesarCola()), soporteCerradas, nuditoPlus, controlIngreso, vencimientosNsp, eventosAcademicos };
     await registrarEjecucionCron("avisos", "ok", Date.now() - inicio);
     return NextResponse.json(resumen);
   } catch (error) {

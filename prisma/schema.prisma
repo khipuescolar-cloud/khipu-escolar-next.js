@@ -343,6 +343,8 @@ model Tenant {
   libretasEmitidas      LibretaEmitida[]
   rectificaciones       RectificacionLibreta[]
   resumenesAcademicos   ResumenAcademicoDia[]
+  eventosAcademicos     EventoAcademico[]
+  notificaciones        Notificacion[]
 
   @@map("tenants")
 }
@@ -425,6 +427,7 @@ model Membership {
   libretasEmitidas         LibretaEmitida[]
   rectificacionesPedidas   RectificacionLibreta[] @relation("RectificacionSolicitada")
   rectificacionesResueltas RectificacionLibreta[] @relation("RectificacionResuelta")
+  notificaciones           Notificacion[]
 
   @@unique([tenantId, userId, rol])
   @@index([userId])
@@ -524,6 +527,7 @@ model Alumno {
   incidencias           Incidencia[]
   libretasEmitidas      LibretaEmitida[]
   rectificaciones       RectificacionLibreta[]
+  notificaciones        Notificacion[]
 
   @@index([tenantId, salonId])
   @@index([tenantId, numeroDocumento])
@@ -697,6 +701,8 @@ model Aviso {
   asunto            String
   payload           Json        @default("{}")
   referenciaId      String?     @map("referencia_id") // conversación, tarea, etc. (para agrupar y limitar avisos)
+  /// Push de una notificación de la bandeja interna (specs/38). Único con el destinatario: no se duplica.
+  notificacionId    String?     @map("notificacion_id") @db.Uuid
   envioId           String?     @map("envio_id") @db.Uuid // acción que lo originó (null = aviso individual sin envío)
   providerMessageId String?     @unique @map("provider_message_id")
   estado            EstadoAviso @default(pendiente)
@@ -708,11 +714,13 @@ model Aviso {
   abiertoAt         DateTime?   @map("abierto_at") @db.Timestamptz
   createdAt         DateTime    @default(now()) @map("created_at") @db.Timestamptz
 
-  tenant     Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  asistencia Asistencia? @relation(fields: [asistenciaId], references: [id], onDelete: SetNull)
-  apoderado  Membership? @relation(fields: [apoderadoId], references: [id], onDelete: SetNull)
-  envio      EnvioAviso? @relation(fields: [envioId], references: [id], onDelete: SetNull)
+  tenant       Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  asistencia   Asistencia?   @relation(fields: [asistenciaId], references: [id], onDelete: SetNull)
+  apoderado    Membership?   @relation(fields: [apoderadoId], references: [id], onDelete: SetNull)
+  envio        EnvioAviso?   @relation(fields: [envioId], references: [id], onDelete: SetNull)
+  notificacion Notificacion? @relation(fields: [notificacionId], references: [id], onDelete: SetNull)
 
+  @@unique([notificacionId, destinatario])
   @@index([estado, programadoPara])
   @@index([tenantId, createdAt])
   // Índices de rendimiento (docs/pruebas-de-estres.md, migración 20261101090000_indices_rendimiento).
@@ -880,11 +888,13 @@ model PushSuscripcion {
 }
 
 model PreferenciaAviso {
-  id          String  @id @default(uuid()) @db.Uuid
-  tenantId    String  @map("tenant_id") @db.Uuid
-  apoderadoId String  @unique @map("apoderado_id") @db.Uuid
-  correo      Boolean @default(true)
-  push        Boolean @default(true)
+  id            String  @id @default(uuid()) @db.Uuid
+  tenantId      String  @map("tenant_id") @db.Uuid
+  apoderadoId   String  @unique @map("apoderado_id") @db.Uuid
+  correo        Boolean @default(true)
+  push          Boolean @default(true)
+  /// Push de resultados publicados (specs/38). La bandeja interna de Khipu siempre los muestra.
+  pushAcademico Boolean @default(true) @map("push_academico")
 
   tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   apoderado Membership @relation(fields: [apoderadoId], references: [id], onDelete: Cascade)
@@ -1003,6 +1013,8 @@ model Nota {
   valorLiteral      CalificacionLiteral? @map("valor_literal")
   valorNumerico     Decimal?             @map("valor_numerico") @db.Decimal(4, 2)
   comentario        String?
+  /// Observación solo para el profesor: la familia no la ve (specs/38).
+  comentarioPrivado Boolean              @default(false) @map("comentario_privado")
   /// Null = la creó Khipu (NSP por asistencia o consecuencia por vencimiento).
   registradoPorId   String?              @map("registrado_por") @db.Uuid
   updatedAt         DateTime             @updatedAt @map("updated_at") @db.Timestamptz
@@ -2303,4 +2315,76 @@ model ResumenAcademicoDia {
 
   @@unique([tenantId, fecha])
   @@map("resumenes_academicos")
+}
+
+// ───────────── Notificaciones académicas por eventos (specs/38) ─────────────
+
+enum TipoEventoAcademico {
+  resultados_publicados
+  nota_corregida
+}
+
+enum EstadoEventoAcademico {
+  pendiente
+  procesando
+  procesado
+  error
+}
+
+/// Outbox transaccional: se crea en la MISMA transacción que publica (o corrige) resultados. Un worker asíncrono lo
+/// convierte en notificaciones internas y push; si el push falla, el evento y la bandeja quedan. Publicar no depende
+/// del servicio de notificaciones. Una publicación = un evento (índice único parcial por grupo).
+model EventoAcademico {
+  id             String                @id @default(uuid()) @db.Uuid
+  tenantId       String                @map("tenant_id") @db.Uuid
+  tipo           TipoEventoAcademico
+  /// `evaluaciones.grupo_id` (todas las columnas de la actividad).
+  grupoId        String                @map("grupo_id") @db.Uuid
+  /// Solo en correcciones: el alumno afectado.
+  alumnoId       String?               @map("alumno_id") @db.Uuid
+  creadoPorId    String?               @map("creado_por") @db.Uuid
+  estado         EstadoEventoAcademico @default(pendiente)
+  intentos       Int                   @default(0)
+  error          String?
+  reservadoAt    DateTime?             @map("reservado_at") @db.Timestamptz
+  procesadoAt    DateTime?             @map("procesado_at") @db.Timestamptz
+  createdAt      DateTime              @default(now()) @map("created_at") @db.Timestamptz
+  /// Conteos al procesar: alumnos afectados, notificaciones internas creadas y push encolados.
+  alumnos        Int                   @default(0)
+  notificaciones Int                   @default(0)
+  push           Int                   @default(0)
+
+  tenant                Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  notificacionesCreadas Notificacion[]
+
+  @@index([estado, createdAt])
+  @@index([tenantId, createdAt])
+  @@map("eventos_academicos")
+}
+
+/// Bandeja interna de Khipu (specs/38): una por evento, apoderado y alumno. Siempre visible en Khipu aunque el push no
+/// llegue. El texto no lleva notas (puede verse en la pantalla bloqueada).
+model Notificacion {
+  id           String    @id @default(uuid()) @db.Uuid
+  tenantId     String    @map("tenant_id") @db.Uuid
+  membershipId String    @map("membership_id") @db.Uuid
+  alumnoId     String    @map("alumno_id") @db.Uuid
+  eventoId     String    @map("evento_id") @db.Uuid
+  titulo       String
+  cuerpo       String
+  /// Ruta dentro del colegio («/notas?alumno=…#ev-…»).
+  url          String
+  leidaAt      DateTime? @map("leida_at") @db.Timestamptz
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant     Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  membership Membership      @relation(fields: [membershipId], references: [id], onDelete: Cascade)
+  alumno     Alumno          @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  evento     EventoAcademico @relation(fields: [eventoId], references: [id], onDelete: Cascade)
+  avisos     Aviso[]
+
+  @@unique([eventoId, membershipId, alumnoId])
+  @@index([membershipId, leidaAt, createdAt])
+  @@index([tenantId])
+  @@map("notificaciones")
 }

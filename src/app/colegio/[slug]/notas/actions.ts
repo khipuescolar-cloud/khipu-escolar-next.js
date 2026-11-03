@@ -1,6 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { after } from "next/server";
+import { procesarEventosYPush } from "@/lib/server/eventos-academicos";
 import type { Resultado } from "@/lib/resultado";
 import {
   cerrarCursoPeriodo, guardarComentarioNota, importarNotas, previsualizarImportacionNotas, publicarLibreta, reabrirCursoPeriodo,
@@ -28,7 +30,22 @@ export async function guardarNotaAction(
   slug: string, evaluacionId: string, alumnoId: string, valor: string,
   extra: { motivo?: string; tipo?: string; fechaRecuperacion?: string } = {},
 ): Promise<Resultado> {
-  return guardarNota(await contexto(slug), { evaluacionId, alumnoId, valor, ...extra });
+  const ctx = await contexto(slug);
+  const r = await guardarNota(ctx, { evaluacionId, alumnoId, valor, ...extra });
+  // Con motivo = nota publicada (o NSP) corregida: puede haber un evento de corrección para la familia (specs/38).
+  if (r.ok && extra.motivo) notificarDespues(ctx.tenant.id);
+  return r;
+}
+
+/** Procesa el outbox académico y envía el push después de responder (no bloquea al profesor; specs/38). */
+function notificarDespues(tenantId: string) {
+  after(async () => {
+    try {
+      await procesarEventosYPush(tenantId);
+    } catch (error) {
+      console.error("[eventos-academicos] error al notificar", error);
+    }
+  });
 }
 
 /** El profesor autoriza o no la recuperación de una actividad con NSP justificado (specs/37). */
@@ -125,8 +142,8 @@ export async function reabrirCursoAction(slug: string, cursoId: string, periodoI
   return r;
 }
 
-export async function guardarComentarioNotaAction(slug: string, evaluacionId: string, alumnoId: string, comentario: string): Promise<Resultado> {
-  return guardarComentarioNota(await contexto(slug), { evaluacionId, alumnoId, comentario });
+export async function guardarComentarioNotaAction(slug: string, evaluacionId: string, alumnoId: string, comentario: string, privado = false): Promise<Resultado> {
+  return guardarComentarioNota(await contexto(slug), { evaluacionId, alumnoId, comentario, privado });
 }
 
 export async function previsualizarImportacionAction(slug: string, cursoId: string, periodoId: string, texto: string): Promise<VistaPreviaImportacion> {
@@ -163,8 +180,12 @@ export async function compartirInformeAction(slug: string, cursoId: string, peri
 }
 
 export async function publicarEvaluacionAction(slug: string, grupoId: string): Promise<Resultado> {
-  const r = await publicarEvaluacion(await contexto(slug), grupoId);
-  if (r.ok) refrescar();
+  const ctx = await contexto(slug);
+  const r = await publicarEvaluacion(ctx, grupoId);
+  if (r.ok) {
+    refrescar();
+    notificarDespues(ctx.tenant.id);
+  }
   return r;
 }
 

@@ -257,7 +257,7 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
       ))}
 
       {preferencias && (
-        <PreferenciasAvisos slug={slug} correo={preferencias.correo} push={preferencias.push} vapidPublica={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? ""} />
+        <PreferenciasAvisos slug={slug} correo={preferencias.correo} push={preferencias.push} pushAcademico={preferencias.pushAcademico} vapidPublica={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? ""} />
       )}
     </div>
   );

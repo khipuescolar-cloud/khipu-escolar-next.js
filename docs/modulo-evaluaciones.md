@@ -72,8 +72,8 @@ Flujo del ejemplo (examen de Comunicación del 22 de noviembre):
 2. El examen aparece en la agenda del salón y en «Mi horario» como evento del día, sin hora.
 3. El profesor registra resultados: notas por competencia en el registro auxiliar y, si quiere, puntajes por criterio.
    Todo queda en borrador.
-4. «Publicar resultados»: la familia ve las notas y las recibe en el **resumen académico diario** (`resumen_academico`, a la
-   hora del colegio; specs/37). Publicar otra vez se rechaza.
+4. «Publicar resultados»: la familia ve las notas y recibe una **notificación en Khipu y un Web Push** (outbox por evento,
+   specs/38; sin correo por cada nota: el resumen diario se retiró el 2026-11-03). Publicar otra vez se rechaza.
 5. Cada cambio posterior exige tipo y motivo, queda en `historial_notas` (inmutable) y avisa a esa familia (`nota_corregida`).
    Quien faltó ese día tiene **NSP** (lo pone la asistencia); quien asistió y no entregó, **NE**. Ninguno es un número.
 6. Al final del periodo, el profesor confirma la calificación por competencia con su conclusión, el tutor escribe su
@@ -135,7 +135,7 @@ specs/33) es una exportación genérica de las calificaciones confirmadas; no se
 ## 10. Decisiones tomadas en esta etapa (2026-11-03)
 - Flujo definitivo de asistencia ↔ registro auxiliar (specs/37): NSP automático, plazo de 15 días calendario, consecuencia
   configurable (sin configuración no se aplica nada), recuperación en la actividad original, «No entregó» (NE) para quien
-  asistió y no entregó, resumen académico diario en lugar del aviso inmediato, libreta emitida con rectificaciones.
+  asistió y no entregó, libreta emitida con rectificaciones. El resumen académico diario se reemplazó (mismo día) por notificaciones por evento (specs/38).
 - Sin sugerencia de calificación por defecto; las fórmulas quedan como opciones provisionales.
 - El consolidado de dirección muestra solo las calificaciones confirmadas, sin «Promedio» del alumno.
 - Programar y publicar, historial de notas, comentario del tutor y criterios de instrumentos: implementados.

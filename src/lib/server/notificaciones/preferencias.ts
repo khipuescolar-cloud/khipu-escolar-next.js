@@ -27,15 +27,17 @@ export async function destinoPersonal(tdb: DbTenant, membershipId: string, roles
 
 export async function obtenerPreferencias(ctx: TenantContext) {
   const pref = await ctx.db.preferenciaAviso.findUnique({ where: { apoderadoId: ctx.membership.id } });
-  return { correo: pref?.correo ?? true, push: pref?.push ?? true };
+  return { correo: pref?.correo ?? true, push: pref?.push ?? true, pushAcademico: pref?.pushAcademico ?? true };
 }
 
-export async function guardarPreferencias(ctx: TenantContext, datos: { correo: boolean; push: boolean }) {
-  const { correo, push } = z.object({ correo: z.boolean(), push: z.boolean() }).parse(datos);
+/** `pushAcademico` (specs/38): push de resultados publicados; si no viene, se conserva el valor actual. */
+export async function guardarPreferencias(ctx: TenantContext, datos: { correo: boolean; push: boolean; pushAcademico?: boolean }) {
+  const { correo, push, pushAcademico } = z.object({ correo: z.boolean(), push: z.boolean(), pushAcademico: z.boolean().optional() }).parse(datos);
+  const academico = pushAcademico === undefined ? {} : { pushAcademico };
   await ctx.db.preferenciaAviso.upsert({
     where: { apoderadoId: ctx.membership.id },
-    update: { correo, push },
-    create: { tenantId: ctx.tenant.id, apoderadoId: ctx.membership.id, correo, push },
+    update: { correo, push, ...academico },
+    create: { tenantId: ctx.tenant.id, apoderadoId: ctx.membership.id, correo, push, ...academico },
   });
 }
 

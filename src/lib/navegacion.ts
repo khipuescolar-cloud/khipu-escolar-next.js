@@ -5,7 +5,7 @@ import type { Feature } from "@/lib/planes";
 export type IconoMosaico =
   | "ClipboardCheck" | "ScanLine" | "MailCheck" | "FileText" | "MessagesSquare" | "Megaphone"
   | "Users" | "Settings" | "LifeBuoy" | "GraduationCap" | "BookOpen" | "ListTodo" | "CalendarDays" | "Sparkles" | "School" | "BarChart3"
-  | "FolderOpen" | "CalendarClock" | "TriangleAlert";
+  | "FolderOpen" | "CalendarClock" | "TriangleAlert" | "Bell";
 
 /** Grupo de la barra lateral. */
 export type GrupoNav = "dia" | "comunicacion" | "academico" | "colegio";
@@ -26,7 +26,7 @@ export type Mosaico = {
   feature: Feature;
   roles: Rol[];
   /** Contador que se muestra sobre el mosaico (hoy: mensajes sin leer). */
-  contador?: "mensajes";
+  contador?: "mensajes" | "notificaciones";
 };
 
 export const MOSAICOS: Mosaico[] = [
@@ -46,6 +46,7 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/mensajes", grupo: "comunicacion", titulo: "Mensajes", descripcion: "Chat entre familia y profesor, sin teléfonos.", icono: "MessagesSquare", feature: "mensajes", roles: ["profesor", "apoderado", "direccion"], contador: "mensajes" },
   { href: "/comunicados", grupo: "comunicacion", titulo: "Comunicados", descripcion: "Anuncios del colegio.", icono: "Megaphone", feature: "comunicados", roles: ["direccion", "profesor", "apoderado", "administrativo", "alumno"] },
   { href: "/documentos", grupo: "comunicacion", titulo: "Documentos", descripcion: "Reglamento, calendario y documentos del colegio.", icono: "FolderOpen", feature: "documentos", roles: ["direccion", "administrativo", "profesor", "apoderado", "alumno"] },
+  { href: "/notificaciones", grupo: "academico", titulo: "Notificaciones", descripcion: "Notas publicadas y cambios de tus hijos.", icono: "Bell", feature: "notas", roles: ["apoderado"], contador: "notificaciones" },
   { href: "/notas", grupo: "academico", titulo: "Notas", descripcion: "Evaluaciones y calificaciones por competencia.", icono: "GraduationCap", feature: "notas", roles: ["profesor", "direccion", "apoderado", "alumno"] },
   { href: "/libreta", grupo: "academico", titulo: "Libreta", descripcion: "Libreta de notas por periodo.", icono: "BookOpen", feature: "libreta", roles: ["direccion", "apoderado", "profesor", "alumno"] },
   { href: "/tareas", grupo: "academico", titulo: "Tareas", descripcion: "Tareas y fechas de entrega.", icono: "ListTodo", feature: "tareas", roles: ["profesor", "direccion", "apoderado", "alumno"] },

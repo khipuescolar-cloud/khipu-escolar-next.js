@@ -29,7 +29,7 @@ describe("preferencias de aviso del personal y comunicados con push", () => {
   it("el profesor recibe correo y push por defecto y respeta lo que elija en su perfil", async () => {
     const tutora = c.ctxDe("tutora");
     const madre = c.ctxDe("madre");
-    expect(await obtenerPreferencias(tutora)).toEqual({ correo: true, push: true });
+    expect(await obtenerPreferencias(tutora)).toMatchObject({ correo: true, push: true });
     const endpoint = await suscribir(c.miembros.tutora.user.id, "tutora");
     const convId = await abrirConversacion(madre, { alumnoId: c.alumnos.mateo.id, contraparteId: c.miembros.tutora.membership.id });
     const alProfesor = () => c.db.aviso.findMany({ where: { plantilla: "mensaje_nuevo", apoderadoId: null }, orderBy: { canal: "asc" } });
@@ -54,7 +54,7 @@ describe("preferencias de aviso del personal y comunicados con push", () => {
     expect((await enviarMensaje(madre, { conversacionId: convId, cuerpo: "Nada" })).avisos).toBe(0);
     expect(await alProfesor()).toHaveLength(0);
     // La preferencia es por membresía: la de otro profesor no cambia.
-    expect(await obtenerPreferencias(c.ctxDe("otroProfesor"))).toEqual({ correo: true, push: true });
+    expect(await obtenerPreferencias(c.ctxDe("otroProfesor"))).toMatchObject({ correo: true, push: true });
   });
 
   it("la alerta de rebote a dirección respeta sus preferencias (correo y push)", async () => {

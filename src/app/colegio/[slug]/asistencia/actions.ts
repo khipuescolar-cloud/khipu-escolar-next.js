@@ -69,6 +69,7 @@ export async function guardarPreferenciasAction(slug: string, _prev: EstadoFormu
   await guardarPreferencias(ctx, {
     correo: formData.get("correo") === "on",
     push: formData.get("push") === "on",
+    pushAcademico: formData.get("pushAcademico") === "on",
     // Solo si el colegio activó el canal (si no, la casilla no existe y se conserva lo guardado).
   });
   return { ok: true };

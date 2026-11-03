@@ -42,7 +42,7 @@ type Props = {
   alumnos: { id: string; nombres: string; apellidos: string }[];
   competencias: { id: string; nombre: string }[];
   evaluaciones: Evaluacion[];
-  notas: { evaluacionId: string; alumnoId: string; valorLiteral: Literal | null; valorNumerico: number | null; comentario?: string | null; marca?: Marca | null }[];
+  notas: { evaluacionId: string; alumnoId: string; valorLiteral: Literal | null; valorNumerico: number | null; comentario?: string | null; comentarioPrivado?: boolean; marca?: Marca | null }[];
   /** Estado de cada NSP por `evaluacionId:alumnoId` (specs/37). */
   estadosNsp?: Record<string, EstadoNspCelda>;
   /** Celdas con calificación de un alumno que, según la asistencia, faltó (no se pisan: el profesor revisa). */
@@ -246,7 +246,8 @@ export function GrillaNotas({ slug, escala, calculo, editable, alumnos, competen
                             )}
                             <ComentarioNota
                               slug={slug} evaluacionId={e.id} alumnoId={a.id} alumno={`${a.nombres} ${a.apellidos}`} evaluacion={e.titulo}
-                              comentario={comentarios[clave] ?? ""} hayNota={valor !== ""} editable={editable}
+                              comentario={comentarios[clave] ?? ""} privado={notas.find((n) => n.evaluacionId === e.id && n.alumnoId === a.id)?.comentarioPrivado ?? false}
+                              hayNota={valor !== ""} editable={editable}
                               alGuardar={(c) => setComentarios((m) => ({ ...m, [clave]: c }))}
                             />
                           </div>

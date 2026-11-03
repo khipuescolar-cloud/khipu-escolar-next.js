@@ -128,7 +128,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
       {ctx.modulos.has("notas") && (
         <Tarjeta>
           <form action={guardarReglasAcademicasAction} className="flex flex-col gap-4">
-            <Seccion icono={Scale} titulo="Reglas académicas" descripcion="NSP (No se presentó), vencimiento del plazo para justificar y resumen diario a las familias.">
+            <Seccion icono={Scale} titulo="Reglas académicas" descripcion="NSP (No se presentó) y vencimiento del plazo para justificar.">
               {nspSinConsecuencia > 0 && (
                 <Alerta tipo="aviso">
                   Hay {nspSinConsecuencia} {nspSinConsecuencia === 1 ? "NSP con el plazo para justificar vencido" : "NSP con el plazo para justificar vencido"} esperando que configures la consecuencia. Khipu no pone ningún valor sin tu configuración.
@@ -146,7 +146,6 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
                     defaultValue={t.consecuenciaVencimientoNumerica?.toString() ?? ""} ayuda="Una nota de 0 a 20. Vacío: sin configurar (el NSP se mantiene)."
                   />
                 )}
-                <Campo etiqueta="Hora del resumen académico diario" name="horaResumenAcademico" type="time" defaultValue={t.horaResumenAcademico} required ayuda="Cada familia recibe un resumen por hijo con lo publicado ese día." />
               </div>
               <p className="text-cuerpo-sm text-muted-foreground">
                 Si una falta no se justifica dentro del plazo, Khipu pone este valor en las actividades con NSP de ese día y lo registra en el historial. Una justificación pendiente detiene la consecuencia hasta que el tutor la revise.

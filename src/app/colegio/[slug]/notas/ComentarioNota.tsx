@@ -21,6 +21,8 @@ type Props = {
   alumno: string;
   evaluacion: string;
   comentario: string;
+  /** La observación es solo para el profesor (la familia no la ve). */
+  privado?: boolean;
   /** Hay nota en la celda (sin nota no se puede comentar). */
   hayNota: boolean;
   editable: boolean;
@@ -28,9 +30,10 @@ type Props = {
 };
 
 /** Botón por celda que abre un diálogo con la observación de la nota (máx. 500 caracteres). */
-export function ComentarioNota({ slug, evaluacionId, alumnoId, alumno, evaluacion, comentario, hayNota, editable, alGuardar }: Props) {
+export function ComentarioNota({ slug, evaluacionId, alumnoId, alumno, evaluacion, comentario, privado = false, hayNota, editable, alGuardar }: Props) {
   const [abierto, setAbierto] = useState(false);
   const [texto, setTexto] = useState(comentario);
+  const [soloYo, setSoloYo] = useState(privado);
   const [error, setError] = useState<string | null>(null);
   const [pendiente, iniciar] = useTransition();
   const tiene = comentario !== "";
@@ -39,7 +42,7 @@ export function ComentarioNota({ slug, evaluacionId, alumnoId, alumno, evaluacio
   const guardar = () =>
     iniciar(async () => {
       setError(null);
-      const r = await guardarComentarioNotaAction(slug, evaluacionId, alumnoId, texto);
+      const r = await guardarComentarioNotaAction(slug, evaluacionId, alumnoId, texto, soloYo);
       if (!r.ok) return setError(r.error);
       alGuardar(texto.trim());
       if (r.mensaje) toast.success(r.mensaje);
@@ -55,6 +58,7 @@ export function ComentarioNota({ slug, evaluacionId, alumnoId, alumno, evaluacio
         setAbierto(v);
         if (v) {
           setTexto(comentario);
+          setSoloYo(privado);
           setError(null);
         }
       }}
@@ -70,7 +74,7 @@ export function ComentarioNota({ slug, evaluacionId, alumnoId, alumno, evaluacio
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Observación de la nota</DialogTitle>
-          <DialogDescription>{alumno} · {evaluacion}. La familia la verá junto a la nota.</DialogDescription>
+          <DialogDescription>{alumno} · {evaluacion}. {soloYo ? "Solo la verás tú." : "La familia la verá junto a la nota publicada."}</DialogDescription>
         </DialogHeader>
         {editable ? (
           <Textarea
@@ -84,6 +88,12 @@ export function ComentarioNota({ slug, evaluacionId, alumnoId, alumno, evaluacio
           <p className="whitespace-pre-wrap text-sm">{comentario}</p>
         )}
         {editable && <p className="text-cuerpo-sm text-muted-foreground">{texto.length}/{MAX_COMENTARIO} caracteres</p>}
+        {editable && (
+          <label className="flex items-center gap-2 text-sm">
+            <input type="checkbox" checked={soloYo} onChange={(e) => setSoloYo(e.target.checked)} className="size-4 accent-primary" />
+            Observación interna: la familia no la ve
+          </label>
+        )}
         {error && <Alerta tipo="error">{error}</Alerta>}
         <DialogFooter>
           <DialogClose className={buttonVariants({ variant: "outline" })} disabled={pendiente}>{editable ? "Cancelar" : "Cerrar"}</DialogClose>

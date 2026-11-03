@@ -53,7 +53,6 @@ export async function guardarReglasAcademicasAction(formData: FormData) {
   await ejecutarYVolver("/configuracion", async () => {
     await actualizarReglasAcademicas(ctx, {
       consecuenciaVencimiento: texto(formData, "consecuenciaVencimiento"),
-      horaResumenAcademico: texto(formData, "horaResumenAcademico"),
     });
     return "Reglas académicas guardadas.";
   });

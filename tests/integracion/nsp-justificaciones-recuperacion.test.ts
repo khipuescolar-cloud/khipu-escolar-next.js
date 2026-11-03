@@ -12,7 +12,6 @@ import { datosLibreta } from "@/lib/server/libreta";
 import { emitirLibretas, resolverRectificacion, solicitarRectificacion } from "@/lib/server/libreta-emision";
 import { crearEvaluacion, decidirRecuperacion, guardarCalificacionPeriodo, guardarNota, historialEvaluacion, publicarEvaluacion } from "@/lib/server/notas";
 import { aplicarVencimientos, nspVencidosSinConsecuencia } from "@/lib/server/nsp";
-import { resumenDelDia } from "@/lib/server/resumen-academico";
 import type { TenantContext } from "@/lib/server/tenant";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
@@ -315,22 +314,5 @@ describe("libreta emitida y rectificación", () => {
     expect(versiones.map((v) => v.version)).toEqual([1, 2]);
     expect(JSON.stringify(versiones[0].datos)).toContain('"valorLiteral":"A"'); // la versión 1 quedó intacta
     await expect(db.libretaEmitida.update({ where: { id: versiones[0].id }, data: { datos: {} } })).rejects.toThrow(/inmutable/);
-  });
-});
-
-describe("resumen académico diario", () => {
-  it("un resumen por alumno con lo publicado ese día, una sola vez", async () => {
-    const tenant = (await ctxFresco("direccion")).tenant;
-    const e = await c.db.evaluacion.findFirstOrThrow({ where: { titulo: "Fracciones" } });
-    const { ventanaResumen } = await import("@/lib/server/resumen-academico");
-    const fecha = sumarDias(hoy, 1);
-    const { desde } = ventanaResumen(fecha, tenant.horaResumenAcademico, tenant.zonaHoraria);
-    await c.db.evaluacion.updateMany({ where: { id: e.id }, data: { publicadaAt: new Date(desde.getTime() + 60_000) } });
-    const n = await resumenDelDia(c.db, tenant, fecha);
-    expect(n).toBe(1); // solo Mateo tiene familia con avisos
-    expect(await resumenDelDia(c.db, tenant, fecha)).toBeNull(); // ya se hizo
-    const avisos = await db.aviso.findMany({ where: { tenantId: c.tenant.id, plantilla: "resumen_academico" } });
-    expect(avisos.length).toBeGreaterThan(0);
-    expect(new Set(avisos.map((a) => `${a.apoderadoId}|${a.canal}`)).size).toBe(avisos.length);
   });
 });

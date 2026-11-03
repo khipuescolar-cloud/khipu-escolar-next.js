@@ -60,12 +60,12 @@ describe("programar y publicar evaluaciones", () => {
     expect(ev[0]).toMatchObject({ titulo: "Evaluación: Examen trimestral", sinHora: true, descripcion: "Comprensión lectora y producción de textos." });
   });
 
-  it("publicar muestra las notas a la familia sin aviso inmediato (va al resumen diario); solo el profesor del curso publica", async () => {
+  it("publicar muestra las notas a la familia sin correo (notificación por evento, specs/38); solo el profesor del curso publica", async () => {
     await esperarProhibido(publicarEvaluacion(c.ctxDe("otroProfesor"), grupoId));
     await esperarProhibido(publicarEvaluacion(c.ctxDe("direccion"), grupoId));
     const tutora = c.ctxDe("tutora");
-    expect(await publicarEvaluacion(tutora, grupoId)).toEqual({ ok: true, mensaje: "Resultados publicados. Las familias los recibirán en el resumen académico de hoy (6:00 p. m.)." });
-    expect(await publicarEvaluacion(tutora, grupoId)).toEqual({ ok: false, error: "Los resultados ya se publicaron. Las familias los reciben en el resumen académico del día." });
+    expect(await publicarEvaluacion(tutora, grupoId)).toEqual({ ok: true, mensaje: "Resultados publicados. Las familias ya pueden verlos y reciben una notificación en Khipu." });
+    expect(await publicarEvaluacion(tutora, grupoId)).toEqual({ ok: false, error: "Los resultados ya se publicaron." });
     expect(await avisos("resultados_publicados", grupoId)).toHaveLength(0);
 
     const familia = await notasDeAlumno(c.ctxDe("madre"), c.alumnos.mateo.id, periodoId);

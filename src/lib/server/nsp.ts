@@ -8,6 +8,7 @@ import { primerNombre } from "@/lib/nombres";
 import { expiracionJustificacion, normalizarPlazoDias } from "@/lib/plazo-justificacion";
 import { auditar } from "./auditoria";
 import { db, dbTenant, type DbTenant } from "./db";
+import { registrarEventoCorreccion } from "./eventos-academicos";
 import { destinatariosDeAlumno, encolarAviso, encolarParaDestinatario, tieneCanalAviso } from "./notificaciones/encolar";
 
 // NSP, plazo de justificación, consecuencia por vencimiento y recuperación académica (specs/37).
@@ -206,7 +207,7 @@ export async function aplicarVencimientos(
     select: {
       id: true, alumnoId: true, evaluacionId: true,
       alumno: { select: { nombres: true } },
-      evaluacion: { select: { fecha: true, estado: true, titulo: true, curso: { select: { nombre: true } } } },
+      evaluacion: { select: { fecha: true, estado: true, titulo: true, grupoId: true, curso: { select: { nombre: true } } } },
     },
     take: 2000,
   });
@@ -242,6 +243,7 @@ export async function aplicarVencimientos(
           cambiadoPorId: null, publicada, justificacionId: j?.id ?? null,
         }),
       });
+      if (publicada) await registrarEventoCorreccion(tx, { tenantId: tenant.id, grupoId: n.evaluacion.grupoId, alumnoId: n.alumnoId, creadoPorId: null });
       return true;
     });
     if (!aplicada) continue;

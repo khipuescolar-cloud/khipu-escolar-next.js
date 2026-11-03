@@ -1,6 +1,7 @@
 import { BookOpenCheck, ClipboardList, GraduationCap, MessageSquareText, Sprout } from "lucide-react";
 import Link from "next/link";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
+import { NOMBRE_INSTRUMENTO } from "@/lib/calificaciones";
 import { Calificacion } from "@/components/Calificacion";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -65,6 +66,7 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
           <Card key={curso.id}>
             <CardHeader>
               <h2 className="font-titulo text-cuerpo font-semibold flex items-center gap-2"><GraduationCap className="size-5 text-primary" strokeWidth={2} aria-hidden />{curso.nombre}</h2>
+              {curso.profesor && <p className="text-cuerpo-sm text-muted-foreground">Profesor(a): {curso.profesor}</p>}
             </CardHeader>
             <CardContent className="flex flex-col gap-4">
               {curso.competencias.length > 0 && (
@@ -90,13 +92,17 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
               )}
               {curso.evaluaciones.length > 0 && (
                 <div>
-                  <h3 className="sobretitulo mb-2">Evaluaciones</h3>
+                  <h3 className="sobretitulo mb-2">Registro auxiliar publicado</h3>
+                  <p className="mb-2 text-cuerpo-sm text-muted-foreground">Actividades que el profesor ya publicó. No son la calificación oficial de la libreta.</p>
                   {curso.evaluaciones.some((e) => e.valor.marca) && <p className="mb-2 text-cuerpo-sm text-muted-foreground">NSP: No se presentó · NE: No entregó.</p>}
                   <ul className="flex flex-col gap-2">
                     {curso.evaluaciones.map((e) => (
-                      <li key={e.id} className="flex flex-col gap-1 text-sm">
+                      <li key={e.id} id={`ev-${e.grupoId}`} className="flex scroll-mt-24 flex-col gap-1 text-sm target:rounded-md target:bg-accent/60 target:p-2">
                         <div className="flex flex-wrap items-center justify-between gap-2">
-                          <span>{e.titulo}<span className="text-muted-foreground"> · {e.fecha}{e.competencia ? ` · ${e.competencia}` : ""}</span></span>
+                          <span>
+                            {e.titulo}
+                            <span className="text-muted-foreground"> · {e.fecha.slice(8, 10)}/{e.fecha.slice(5, 7)}{e.instrumento ? ` · ${NOMBRE_INSTRUMENTO[e.instrumento]}` : ""}{e.competencia ? ` · ${e.competencia}` : ""}</span>
+                          </span>
                           <Calificacion valor={e.valor} />
                         </div>
                         {e.fechaRecuperacion && <p className="text-cuerpo-sm text-muted-foreground">Recuperación rendida el {e.fechaRecuperacion.slice(8, 10)}/{e.fechaRecuperacion.slice(5, 7)}.</p>}

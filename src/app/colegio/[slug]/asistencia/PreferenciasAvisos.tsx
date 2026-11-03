@@ -20,7 +20,7 @@ function claveABytes(base64: string): Uint8Array<ArrayBuffer> {
 type EstadoPush = "cargando" | "no-soportado" | "bloqueado" | "activo" | "inactivo";
 
 /** Preferencias de aviso (correo / push) y activación de notificaciones en este dispositivo. */
-export function PreferenciasAvisos({ slug, correo, push, vapidPublica }: { slug: string; correo: boolean; push: boolean; vapidPublica: string }) {
+export function PreferenciasAvisos({ slug, correo, push, pushAcademico = true, vapidPublica }: { slug: string; correo: boolean; push: boolean; pushAcademico?: boolean; vapidPublica: string }) {
   const [estado, accion, guardando] = useActionState<EstadoFormulario, FormData>(guardarPreferenciasAction.bind(null, slug), {});
   const [estadoPush, setEstadoPush] = useState<EstadoPush>("cargando");
   const [mensajePush, setMensajePush] = useState<string | null>(null);
@@ -92,6 +92,10 @@ export function PreferenciasAvisos({ slug, correo, push, vapidPublica }: { slug:
           <label className={fila}>
             <input type="checkbox" name="push" defaultChecked={push} className={casilla} /> Recibir notificaciones en el celular o la computadora
           </label>
+          <label className={fila}>
+            <input type="checkbox" name="pushAcademico" defaultChecked={pushAcademico} className={casilla} /> Notificarme en el celular cuando publiquen notas
+          </label>
+          <p className="text-cuerpo-sm text-muted-foreground">Las notas nuevas siempre quedan en «Notificaciones» dentro de Khipu; nunca te llegan por correo.</p>
           <div>
             <Boton type="submit" variante="secundario" disabled={guardando}>
               {guardando ? <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden /> : <Save className="size-4" strokeWidth={2} aria-hidden />} Guardar

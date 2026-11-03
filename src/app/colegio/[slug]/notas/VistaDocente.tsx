@@ -14,7 +14,7 @@ import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { ETIQUETA_LITERAL, INSTRUMENTOS, LITERALES, NOMBRE_INSTRUMENTO, formatearNumero, textoCalculo, type Instrumento } from "@/lib/calificaciones";
-import { fechaLima, formatoHora, hora12 } from "@/lib/fechas";
+import { fechaLima, formatoHora } from "@/lib/fechas";
 import { Textarea } from "@/components/ui/textarea";
 import { desempenosParaEvaluar } from "@/lib/server/cneb";
 import {
@@ -329,7 +329,7 @@ async function ListaEvaluaciones({
                       <BotonConfirmar
                         etiqueta={<><Send strokeWidth={2} aria-hidden />Publicar resultados<span className="sr-only"> de {e.titulo}</span></>}
                         titulo={`¿Publicar los resultados de «${e.titulo}»?`}
-                        descripcion={`Las familias verán las notas y las recibirán en el resumen académico de hoy (${hora12(g.horaResumen)}). Después, cada cambio pedirá un motivo y se avisará a esa familia.`}
+                        descripcion="Las familias verán las notas y recibirán una notificación en Khipu (y en su celular si activaron las notificaciones). Después, cada cambio pedirá un motivo y se avisará a esa familia."
                         confirmar="Publicar resultados"
                         accion={publicarEvaluacionAction.bind(null, slug, e.grupoId)}
                       />

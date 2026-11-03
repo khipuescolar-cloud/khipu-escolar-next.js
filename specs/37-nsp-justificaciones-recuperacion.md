@@ -161,7 +161,9 @@ Reglas comunes:
 - Intercambiar notas de dos alumnos son dos cambios con su motivo y dos avisos específicos.
 - La importación CSV no toca notas publicadas, NSP ni consecuencias: las cuenta y pide corregirlas una por una.
 
-### 9. Resumen académico diario (`src/lib/server/resumen-academico.ts`)
+### 9. Resumen académico diario — RETIRADO (2026-11-03, specs/38)
+> Reemplazado por notificaciones por evento (bandeja interna y Web Push al publicar). El texto siguiente queda como historial; el código se eliminó y la tabla `resumenes_academicos` se conserva sin uso.
+
 - «Publicar resultados» ya no avisa al instante.
 - Cada día, a `tenants.hora_resumen_academico` (18:00 por defecto, en Configuración), cada familia recibe **un resumen por alumno** (`resumen_academico`). Incluye:
   - las actividades publicadas en la ventana [hora de ayer, hora de hoy);

@@ -50,6 +50,12 @@ test.beforeAll(async () => {
   ids.ausente = (await sql<{ id: string }>(`insert into alumnos (id, tenant_id, salon_id, nombres, apellidos) values (gen_random_uuid(), $1, $2, 'Beto', $3) returning id`, [ids.tenant, ids.salon, `Ausente ${sufijo}`]))[0].id;
   const hoy = new Date().toLocaleDateString("en-CA", { timeZone: "America/Lima" });
   await sql(`insert into asistencias (id, tenant_id, alumno_id, ambito, fecha, hora, estado, origen, updated_at) values (gen_random_uuid(), $1, $2, 'dia', $3, '09:00', 'falta', 'automatico', now())`, [ids.tenant, ids.ausente, hoy]);
+  // Rosa (apoderada del seed) queda vinculada a Ana solo durante la prueba: recibe la notificación al publicar (specs/38).
+  const [rosa] = await sql<{ id: string }>(
+    `select m.id from memberships m join profiles p on p.id = m.user_id where m.tenant_id = $1 and m.rol = 'apoderado' and p.email = 'rosa.quispe@gmail.com'`,
+    [ids.tenant],
+  );
+  await sql(`insert into apoderados_alumnos (id, tenant_id, apoderado_id, alumno_id) values (gen_random_uuid(), $1, $2, $3)`, [ids.tenant, rosa.id, ids.alumno]);
   for (const [orden, nombre] of [[1, "Lee diversos tipos de textos"], [2, "Escribe diversos tipos de textos"]] as const) {
     await sql(`insert into competencias (id, tenant_id, curso_id, nombre, orden) values (gen_random_uuid(), $1, $2, $3, $4)`, [ids.tenant, ids.curso, nombre, orden]);
   }
@@ -59,6 +65,7 @@ test.afterAll(async () => {
   if (!ids.salon) return;
   await sql(`delete from avisos where plantilla = 'informe_progreso' and referencia_id = $1`, [ids.curso]);
   await sql(`delete from avisos where referencia_id in (select grupo_id::text from evaluaciones where curso_id = $1)`, [ids.curso]);
+  await sql(`delete from eventos_academicos where grupo_id in (select grupo_id from evaluaciones where curso_id = $1)`, [ids.curso]);
   await sql(`delete from evaluaciones where curso_id = $1`, [ids.curso]);
   await sql(`delete from envios_informe_progreso where curso_id = $1`, [ids.curso]);
   await sql(`delete from informes_progreso where alumno_id = $1`, [ids.alumno]);
@@ -115,6 +122,19 @@ test("programa una prueba de dos competencias, pone notas en borrador y publica 
   await dialogoMotivo.getByLabel("Motivo").fill("Error al digitar");
   await dialogoMotivo.getByRole("button", { name: "Guardar cambio" }).click();
   await expect(page.getByText("Cambio guardado con su motivo.")).toBeVisible();
+});
+
+test("la apoderada recibe la notificación en Khipu y llega a la actividad publicada (specs/38)", async ({ page }) => {
+  await entrar(page, "rosa.quispe@gmail.com");
+  // El worker corre en after() de la publicación: se espera a que aparezca.
+  await expect(async () => {
+    await page.goto(colegio("/notificaciones"));
+    await expect(page.getByText(/Hay un resultado nuevo de Ana en Comunicación/).first()).toBeVisible({ timeout: 1000 });
+  }).toPass({ timeout: 20_000 });
+  await page.getByText(/Hay un resultado nuevo de Ana en Comunicación/).first().click();
+  await page.waitForURL(/\/notas\?alumno=/);
+  await expect(page.getByRole("heading", { name: "Registro auxiliar publicado" }).first()).toBeVisible();
+  await expect(page.getByText("Prueba escrita 1").first()).toBeVisible();
 });
 
 test("la profesora escribe y comparte el informe de progreso", async ({ page }) => {

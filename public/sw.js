@@ -109,6 +109,8 @@ self.addEventListener("push", (event) => {
       icon: "/marca/icono-192.png",
       badge: "/marca/favicon-32.png",
       lang: "es-PE",
+      // Agrupa en el dispositivo las notificaciones del mismo tema (p. ej. notas de un alumno, specs/38).
+      ...(datos.tag ? { tag: datos.tag, renotify: true } : {}),
       data: { url: datos.url || "/" },
     }),
   );

@@ -155,6 +155,7 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       evaluacion_programada: { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", fecha: "2026-11-22", url: "http://n" },
       resultados_publicados: { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", url: "http://n" },
       resumen_academico: { colegio, alumno: "Mateo", fecha: "2026-11-05", actividades: [{ curso: "Matemática", titulo: "Multiplicación", valor: "NSP" }, { curso: "Comunicación", titulo: "Lectura", valor: "A", observacion: true }], url: "http://n" },
+      notificacion_academica: { colegio, titulo: "Nuevo resultado publicado", cuerpo: "Hay un resultado nuevo de Mateo en Matemática: «Fracciones».", url: "http://n", tag: "notas-1" },
       nota_corregida: { colegio, alumno: "Mateo", curso: "Matemática", titulo: "Multiplicación", motivo: "correccion_digitacion", url: "http://n" },
       recuperacion_registrada: { colegio, alumno: "Mateo", curso: "Matemática", titulo: "Multiplicación", url: "http://n" },
       justificacion_aprobada_docente: { colegio, alumno: "Juan Pérez", fecha: "2026-11-05", curso: "Matemática", actividades: ["Examen de multiplicación"], url: "http://n" },
@@ -172,6 +173,11 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     }
     expect(renderizarPlantilla("mensaje_nuevo", payloads.mensaje_nuevo).texto).toContain("Lucía García te escribió sobre Mateo.");
     expect(renderizarPlantilla("justificacion_revisada", payloads.justificacion_revisada).texto).toContain("del 26/10/2026");
+  });
+
+  it("el push académico lleva el texto armado y agrupa por alumno (specs/38)", () => {
+    const m = renderizarPlantilla("notificacion_academica", { colegio, titulo: "Nuevo resultado publicado", cuerpo: "Hay un resultado nuevo de Mateo en Matemática.", url: "http://n/notificaciones/1/abrir", tag: "notas-1" });
+    expect(m.push).toEqual({ titulo: "Nuevo resultado publicado", cuerpo: "Hay un resultado nuevo de Mateo en Matemática.", url: "http://n/notificaciones/1/abrir", tag: "notas-1" });
   });
 
   it("los avisos de NSP y correcciones no llevan la nota ni el diagnóstico (specs/37)", () => {

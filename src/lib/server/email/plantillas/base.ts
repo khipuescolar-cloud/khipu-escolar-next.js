@@ -8,7 +8,7 @@ export type Mensaje = {
   html: string;
   texto: string;
   /** Versión corta para notificaciones push. */
-  push: { titulo: string; cuerpo: string; url?: string };
+  push: { titulo: string; cuerpo: string; url?: string; tag?: string };
 };
 
 export type EstadoInsignia = "llego" | "tarde" | "falta" | "problema" | "info";
@@ -52,7 +52,7 @@ export type Contenido = {
   boton?: { texto: string; url: string };
   /** Enlace para ajustar las preferencias de aviso (se agrega al pie). */
   urlPreferencias?: string;
-  push?: { cuerpo?: string; url?: string };
+  push?: { cuerpo?: string; url?: string; tag?: string };
 };
 
 export function armarMensaje(c: Contenido): Mensaje {
@@ -120,6 +120,6 @@ ${insigniaHtml}${parrafosHtml}${botonHtml}${noditoHtml}
     asunto: c.asunto,
     html,
     texto,
-    push: { titulo: c.asunto, cuerpo: c.push?.cuerpo ?? c.parrafos[0] ?? "", url: c.push?.url ?? c.boton?.url },
+    push: { titulo: c.asunto, cuerpo: c.push?.cuerpo ?? c.parrafos[0] ?? "", url: c.push?.url ?? c.boton?.url, ...(c.push?.tag ? { tag: c.push.tag } : {}) },
   };
 }

@@ -18,6 +18,7 @@ import { formatoHora } from "@/lib/fechas";
 import { AnunciosPlataforma } from "@/components/AnunciosPlataforma";
 import { anunciosVigentes } from "@/lib/server/plataforma-anuncios";
 import { respuestasNuevasSoporte } from "@/lib/server/soporte";
+import { contarNotificacionesSinLeer } from "@/lib/server/notificaciones/bandeja";
 import { cambiarRolAction, salirAction } from "./actions";
 
 const ORDEN_GRUPOS: GrupoNav[] = ["dia", "comunicacion", "academico", "colegio"];
@@ -39,9 +40,11 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
   ]);
   // Mesa de ayuda (specs/23): respuestas nuevas del equipo Khipu como contador de «Soporte Khipu» en el menú.
   const tieneSoporte = mosaicos.some((m) => m.feature === "soporte" && m.acceso.estado === "activo");
-  const [anuncios, respuestasSoporte] = await Promise.all([
+  const tieneBandeja = mosaicos.some((m) => m.contador === "notificaciones" && m.acceso.estado === "activo");
+  const [anuncios, respuestasSoporte, notificacionesSinLeer] = await Promise.all([
     anunciosVigentes(ctx),
     tieneSoporte ? respuestasNuevasSoporte(ctx) : Promise.resolve(0),
+    tieneBandeja ? contarNotificacionesSinLeer(ctx) : Promise.resolve(0),
   ]);
 
   const grupos: GrupoNavResuelto[] = [
@@ -55,7 +58,9 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
           titulo: m.titulo,
           icono: m.icono,
           bloqueadoPlan: m.acceso.estado === "bloqueado" ? m.acceso.planMinimo : undefined,
-          contador: m.contador === "mensajes" ? sinLeer : m.feature === "soporte" && respuestasSoporte > 0 ? respuestasSoporte : undefined,
+          contador: m.contador === "mensajes" ? sinLeer
+            : m.contador === "notificaciones" ? (notificacionesSinLeer > 0 ? notificacionesSinLeer : undefined)
+            : m.feature === "soporte" && respuestasSoporte > 0 ? respuestasSoporte : undefined,
         })),
     })).filter((g) => g.items.length > 0),
   ];

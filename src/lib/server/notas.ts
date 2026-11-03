@@ -9,7 +9,7 @@ import {
 import { analizarNotasCsv, exportarNotasCsv, MAX_BYTES_CSV_NOTAS, type ResultadoNotasCsv } from "@/lib/notas-csv";
 import { puedePublicarLibreta } from "@/lib/libreta-publicacion";
 import { urlColegio } from "@/lib/dominio";
-import { fechaDb, hora12 } from "@/lib/fechas";
+import { fechaDb } from "@/lib/fechas";
 import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-justificacion";
 import { primerNombre } from "@/lib/nombres";
 import { CANTIDAD_PERIODOS, NOMBRE_TIPO, TIPOS_PERIODO, TODOS_LOS_NIVELES, nivelesConOtroTipo, periodosSugeridos } from "@/lib/periodos-academicos";
@@ -20,6 +20,7 @@ import { guardarDesempenosEvaluacion, validarDesempenosEvaluacion } from "./cneb
 import { cursosDelDocente } from "./cursos";
 import { destinatariosDeAlumno, encolarParaDestinatario, tieneCanalAviso, type Destinatario } from "./notificaciones/encolar";
 import { conEnvio } from "./notificaciones/envios";
+import { registrarEventoCorreccion, registrarEventoPublicacion } from "./eventos-academicos";
 import { avisarCambioNota, datosHistorial, sincronizarNsp, textoDeNota } from "./nsp";
 import { emitirLibretas } from "./libreta-emision";
 import { requireFeature } from "./plan";
@@ -511,13 +512,19 @@ export async function publicarEvaluacion(ctx: TenantContext, grupoId: string): P
   if (!nivel || !periodo?.niveles.includes(nivel)) return fallo(MENSAJE_OTRO_NIVEL);
   const conNota = await ctx.db.nota.count({ where: { evaluacionId: { in: filas.map((f) => f.id) } } });
   if (conNota === 0) return fallo("Pon al menos una nota antes de publicar los resultados.");
-  const mensajeYa = "Los resultados ya se publicaron. Las familias los reciben en el resumen académico del día.";
+  const mensajeYa = "Los resultados ya se publicaron.";
   if (filas.every((f) => f.estado === "publicada")) return fallo(mensajeYa);
-  // Reclamo atómico: si dos clics llegan a la vez, solo uno publica.
-  const r = await ctx.db.evaluacion.updateMany({ where: { grupoId, estado: "programada" }, data: { estado: "publicada", publicadaAt: new Date() } });
-  if (r.count === 0) return fallo(mensajeYa);
+  // Reclamo atómico + outbox (specs/38): publicar y registrar el evento van en la MISMA transacción. Si dos clics llegan
+  // a la vez, solo uno publica; las notificaciones las crea un worker aparte y la publicación no depende de él.
+  const publicada = await ctx.db.$transaction(async (tx) => {
+    const r = await tx.evaluacion.updateMany({ where: { grupoId, estado: "programada" }, data: { estado: "publicada", publicadaAt: new Date() } });
+    if (r.count === 0) return false;
+    await registrarEventoPublicacion(tx, { tenantId: ctx.tenant.id, grupoId, creadoPorId: ctx.membership.id });
+    return true;
+  });
+  if (!publicada) return fallo(mensajeYa);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "evaluacion_publicada", entidadId: grupoId });
-  return ok(`Resultados publicados. Las familias los recibirán en el resumen académico de hoy (${hora12(ctx.tenant.horaResumenAcademico)}).`);
+  return ok("Resultados publicados. Las familias ya pueden verlos y reciben una notificación en Khipu.");
 }
 
 /** Cambios de las notas de una evaluación (todas sus columnas), del más reciente al más antiguo. Profesor o dirección. */
@@ -633,11 +640,10 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
     })),
     notas: notas.map((n) => ({
       evaluacionId: n.evaluacionId, alumnoId: n.alumnoId, valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico), comentario: n.comentario,
-      marca: n.marca as Marca | null,
+      comentarioPrivado: n.comentarioPrivado, marca: n.marca as Marca | null,
     })),
     /** Estado de cada NSP y conflictos con la asistencia (specs/37), por `evaluacionId:alumnoId`. */
     estadosNsp: await estadosNspDeGrilla(ctx, evaluaciones, notas, alumnos.map((a) => a.id)),
-    horaResumen: ctx.tenant.horaResumenAcademico,
     cursoCerrado: cierre !== null,
     editable: ctx.rol === "profesor" && !periodo.cerrado && cierre === null,
     escala: escalaDe(ctx),
@@ -757,6 +763,8 @@ export async function guardarNota(ctx: TenantContext, entrada: unknown): Promise
         cambiadoPorId: ctx.membership.id, publicada, justificacionId: antes?.justificacionId ?? null,
       }),
     });
+    // Publicada: evento de corrección en la misma transacción (bandeja + push; el correo sale aparte, specs/38).
+    if (publicada) await registrarEventoCorreccion(tx, { tenantId: ctx.tenant.id, grupoId: evaluacion.grupoId, alumnoId: alumno.id, creadoPorId: ctx.membership.id });
   });
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "nota", entidadId: evaluacion.id,
@@ -877,10 +885,14 @@ async function estadosNspDeGrilla(
 }
 
 /** Observación de una nota (máx. 500 caracteres). La nota debe existir; vacío borra el comentario. */
-export async function guardarComentarioNota(ctx: TenantContext, entrada: { evaluacionId: string; alumnoId: string; comentario: string }): Promise<Resultado> {
+export async function guardarComentarioNota(ctx: TenantContext, entrada: { evaluacionId: string; alumnoId: string; comentario: string; privado?: boolean }): Promise<Resultado> {
   requireFeature(ctx, "notas");
   const d = z
-    .object({ evaluacionId: z.uuid(), alumnoId: z.uuid(), comentario: z.string().trim().max(500, "La observación es muy larga (máximo 500 caracteres).") })
+    .object({
+      evaluacionId: z.uuid(), alumnoId: z.uuid(), comentario: z.string().trim().max(500, "La observación es muy larga (máximo 500 caracteres)."),
+      /** Observación interna del profesor: la familia no la ve (specs/38). */
+      privado: z.boolean().optional(),
+    })
     .safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
   const evaluacion = await ctx.db.evaluacion.findFirst({ where: { id: d.data.evaluacionId } });
@@ -890,11 +902,11 @@ export async function guardarComentarioNota(ctx: TenantContext, entrada: { evalu
   if (p.error) return fallo(p.error);
   const r = await ctx.db.nota.updateMany({
     where: { evaluacionId: evaluacion.id, alumnoId: d.data.alumnoId },
-    data: { comentario: d.data.comentario || null, registradoPorId: ctx.membership.id },
+    data: { comentario: d.data.comentario || null, comentarioPrivado: d.data.privado ?? false, registradoPorId: ctx.membership.id },
   });
   if (r.count === 0) return fallo("Primero pon la nota; después puedes agregar una observación.");
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "nota", entidadId: evaluacion.id, detalle: { alumnoId: d.data.alumnoId, comentario: true } });
-  return ok(d.data.comentario ? "Observación guardada." : "Observación borrada.");
+  return ok(!d.data.comentario ? "Observación borrada." : d.data.privado ? "Observación guardada (solo para ti)." : "Observación guardada.");
 }
 
 // ───────────── Importar y exportar notas (CSV) ─────────────
@@ -1219,7 +1231,10 @@ export async function notasDeAlumno(ctx: TenantContext, alumnoId: string, period
   const alumno = await ctx.db.alumno.findFirst({ where: { id: alumnoId }, include: { salon: { select: { nombre: true, nivel: true } } } });
   const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
   if (!alumno || !periodo || !periodo.niveles.includes(alumno.salon.nivel)) forbidden();
-  const cursos = await ctx.db.curso.findMany({ where: { salonId: alumno.salonId }, orderBy: { nombre: "asc" } });
+  const cursos = await ctx.db.curso.findMany({
+    where: { salonId: alumno.salonId }, orderBy: { nombre: "asc" },
+    include: { profesor: { select: { user: { select: { nombres: true, apellidos: true } } } } },
+  });
   const cursoIds = cursos.map((c) => c.id);
   const [competencias, evaluaciones, califs, informes] = await Promise.all([
     ctx.db.competencia.findMany({ where: { cursoId: { in: cursoIds } }, orderBy: [{ orden: "asc" }, { nombre: "asc" }] }),
@@ -1243,6 +1258,8 @@ export async function notasDeAlumno(ctx: TenantContext, alumnoId: string, period
     cursos: cursos.map((curso) => ({
       id: curso.id,
       nombre: curso.nombre,
+      /** Profesor del curso (registro auxiliar publicado, specs/38). */
+      profesor: curso.profesor ? `${curso.profesor.user.nombres} ${curso.profesor.user.apellidos}`.trim() : null,
       competencias: competencias
         .filter((c) => c.cursoId === curso.id)
         .map((c) => {
@@ -1258,9 +1275,11 @@ export async function notasDeAlumno(ctx: TenantContext, alumnoId: string, period
       evaluaciones: evaluaciones
         .filter((e) => e.cursoId === curso.id)
         .map((e) => ({
-          id: e.id, titulo: e.titulo, fecha: e.fecha.toISOString().slice(0, 10), competencia: competencias.find((c) => c.id === e.competenciaId)?.nombre ?? null,
+          id: e.id, grupoId: e.grupoId, titulo: e.titulo, fecha: e.fecha.toISOString().slice(0, 10), competencia: competencias.find((c) => c.id === e.competenciaId)?.nombre ?? null,
+          instrumento: e.instrumento as Instrumento | null,
           valor: { valorLiteral: e.notas[0].valorLiteral as Literal | null, valorNumerico: num(e.notas[0].valorNumerico), marca: e.notas[0].marca as Marca | null } as ValorNota,
-          comentario: e.notas[0].comentario,
+          // Las observaciones privadas del profesor nunca salen del servidor hacia la familia (specs/38).
+          comentario: e.notas[0].comentarioPrivado ? null : e.notas[0].comentario,
           /** Consecuencia por vencimiento del plazo de justificación o recuperación registrada (specs/37). */
           vencida: e.notas[0].vencidaAt !== null,
           fechaRecuperacion: e.notas[0].fechaRecuperacion ? e.notas[0].fechaRecuperacion.toISOString().slice(0, 10) : null,

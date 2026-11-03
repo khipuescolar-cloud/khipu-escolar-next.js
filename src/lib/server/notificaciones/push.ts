@@ -24,6 +24,7 @@ export class PushChannel implements NotificationChannel {
       titulo: `${remitente}: ${mensaje.push.titulo}`,
       cuerpo: mensaje.push.cuerpo,
       url: mensaje.push.url ?? "/",
+      ...(mensaje.push.tag ? { tag: mensaje.push.tag } : {}),
     });
     try {
       await webpush.sendNotification(
