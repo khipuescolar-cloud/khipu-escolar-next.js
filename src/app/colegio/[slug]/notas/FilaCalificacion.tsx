@@ -14,6 +14,7 @@ import {
   ETIQUETA_LITERAL, LITERALES, formatearNumero, requiereConclusion, textoValor, type Escala, type Literal, type ValorCalificacion,
 } from "@/lib/calificaciones";
 import { guardarCalificacionAction } from "./actions";
+import { ListaNotas, type NotaDelPeriodo } from "./ListaNotas";
 
 type Guardado = { valorLiteral: Literal | null; valorNumerico: number | null; conclusion: string | null };
 
@@ -22,7 +23,7 @@ const comoTexto = (v: { valorLiteral: Literal | null; valorNumerico: number | nu
 
 /** Calificación de una competencia para un alumno: sugerida, valor y conclusión descriptiva. */
 export function FilaCalificacion({
-  slug, escala, editable, alumno, competenciaId, periodoId, guardado, sugerido, cantidadNotas, desempenos = [],
+  slug, escala, editable, alumno, competenciaId, periodoId, guardado, sugerido, notas, desempenos = [],
 }: {
   slug: string;
   escala: Escala;
@@ -31,13 +32,14 @@ export function FilaCalificacion({
   competenciaId: string;
   periodoId: string;
   guardado: Guardado | null;
+  /** Sugerencia provisional; null si el colegio no usa sugerencia (por defecto) o no hay notas. */
   sugerido: ValorCalificacion | null;
-  cantidadNotas: number;
+  notas: NotaDelPeriodo[];
   /** Desempeños del CNEB que midieron sus notas en esta competencia (specs/30). */
   desempenos?: { id: string; descripcion: string; codigo: string | null }[];
 }) {
   const [estado, enviar, pendiente] = useActionState(guardarCalificacionAction.bind(null, slug), null);
-  const [valor, setValor] = useState(comoTexto(guardado ?? sugerido));
+  const [valor, setValor] = useState(comoTexto(guardado));
   const [conclusion, setConclusion] = useState(guardado?.conclusion ?? "");
   useEffect(() => {
     if (estado?.ok && estado.mensaje) toast.success(estado.mensaje);
@@ -55,9 +57,8 @@ export function FilaCalificacion({
             <span className="inline-flex items-center gap-1.5 rounded-pildora bg-muted px-2.5 py-1 text-etiqueta text-muted-foreground"><CircleDashed className="size-3.5" strokeWidth={2} aria-hidden />Sin confirmar</span>
           )}
         </div>
-        <p className="text-cuerpo-sm text-muted-foreground">
-          {sugerido ? <>Sugerida: <strong className="text-foreground">{textoValor(sugerido)}</strong> según {cantidadNotas} {cantidadNotas === 1 ? "nota" : "notas"}.</> : "Sin notas para sugerir una calificación."}
-        </p>
+        <ListaNotas notas={notas} />
+        {sugerido && <p className="text-cuerpo-sm text-muted-foreground">Sugerencia provisional del colegio: <strong className="text-foreground">{textoValor(sugerido)}</strong></p>}
         {desempenos.length > 0 ? (
           <details className="text-cuerpo-sm">
             <summary className="cursor-pointer font-medium text-primary">Desempeños evaluados ({desempenos.length})</summary>
@@ -66,7 +67,7 @@ export function FilaCalificacion({
             </ul>
           </details>
         ) : (
-          cantidadNotas > 0 && <p className="text-cuerpo-sm text-muted-foreground">Sus evaluaciones no tienen desempeños marcados.</p>
+          notas.length > 0 && <p className="text-cuerpo-sm text-muted-foreground">Sus evaluaciones no tienen desempeños marcados.</p>
         )}
 
         {!editable ? (
@@ -93,7 +94,7 @@ export function FilaCalificacion({
               </label>
               {sugerido && (
                 <Boton type="button" variante="secundario" onClick={() => setValor(comoTexto(sugerido))}>
-                  <Wand2 className="size-4" strokeWidth={2} aria-hidden />Usar la sugerida
+                  <Wand2 className="size-4" strokeWidth={2} aria-hidden />Usar la sugerencia
                 </Boton>
               )}
             </div>

@@ -18,6 +18,7 @@ import { alumnosVisibles, listarPeriodos, periodoParaLibreta } from "@/lib/serve
 import { requireFeature } from "@/lib/server/plan";
 import { esVistaFamilia } from "@/lib/roles";
 import { requireAlumnoVisible, requireTenantContext } from "@/lib/server/tenant";
+import { ComentarioTutor } from "./ComentarioTutor";
 
 export const metadata: Metadata = { title: "Libreta" };
 
@@ -122,6 +123,20 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
               </ul>
             </section>
           ))}
+
+          {(datos.comentarioTutor || datos.puedeComentar) && (
+            <>
+              <Separator />
+              <section className="flex flex-col gap-2">
+                <h2 className="text-titulo-2">Comentario de tutoría</h2>
+                {datos.puedeComentar ? (
+                  <ComentarioTutor slug={slug} alumnoId={alumno.id} periodoId={periodo.id} texto={datos.comentarioTutor ?? ""} />
+                ) : (
+                  <p className="text-sm">{datos.comentarioTutor}</p>
+                )}
+              </section>
+            </>
+          )}
 
           <Separator />
           <section className="flex flex-col gap-1">

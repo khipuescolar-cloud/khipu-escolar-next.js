@@ -7,8 +7,8 @@ import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { textoValor, type ValorCalificacion } from "@/lib/calificaciones";
 import { guardarInformeAction } from "./actions";
+import { ListaNotas, type NotaDelPeriodo } from "./ListaNotas";
 
 type Informe = { logros: string; mejorar: string; recomendaciones: string };
 
@@ -20,7 +20,7 @@ const PARTES = [
 
 /** Informe de progreso de un alumno en una competencia (mitad del periodo, specs/11). */
 export function FilaInforme({
-  slug, editable, alumno, competenciaId, periodoId, informe, sugerido, cantidadNotas,
+  slug, editable, alumno, competenciaId, periodoId, informe, notas,
 }: {
   slug: string;
   editable: boolean;
@@ -28,8 +28,7 @@ export function FilaInforme({
   competenciaId: string;
   periodoId: string;
   informe: Informe | null;
-  sugerido: ValorCalificacion | null;
-  cantidadNotas: number;
+  notas: NotaDelPeriodo[];
 }) {
   const [textos, setTextos] = useState<Informe>(informe ?? { logros: "", mejorar: "", recomendaciones: "" });
   const [guardado, setGuardado] = useState(informe !== null);
@@ -57,9 +56,7 @@ export function FilaInforme({
             <span className="inline-flex items-center gap-1.5 rounded-pildora bg-muted px-2.5 py-1 text-etiqueta text-muted-foreground"><CircleDashed className="size-3.5" strokeWidth={2} aria-hidden />Sin escribir</span>
           )}
         </div>
-        <p className="text-cuerpo-sm text-muted-foreground">
-          {sugerido ? <>Va en <strong className="text-foreground">{textoValor(sugerido)}</strong> según {cantidadNotas} {cantidadNotas === 1 ? "nota" : "notas"} hasta hoy.</> : "Aún no tiene notas en esta competencia."}
-        </p>
+        <ListaNotas notas={notas} />
         {!editable ? (
           informe ? (
             <dl className="flex flex-col gap-2 text-sm">

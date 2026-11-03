@@ -1,8 +1,9 @@
 import "server-only";
+import { randomUUID } from "node:crypto";
 import { forbidden } from "next/navigation";
 import { z } from "zod";
 import {
-  INSTRUMENTOS, interpretarValor, requiereConclusion, sugerirCalificacion,
+  INSTRUMENTOS, interpretarValor, requiereConclusion, sugerirCalificacion, textoValor,
   type Escala, type Instrumento, type Literal, type ValorCalificacion,
 } from "@/lib/calificaciones";
 import { analizarNotasCsv, exportarNotasCsv, MAX_BYTES_CSV_NOTAS, type ResultadoNotasCsv } from "@/lib/notas-csv";
@@ -183,7 +184,7 @@ export async function actualizarPeriodo(ctx: TenantContext, periodoId: string, e
 // ───────────── Acceso a cursos y periodos ─────────────
 
 /** Curso gestionable por el profesor (escritura). Dirección solo lee. */
-async function cursoEscritura(ctx: TenantContext, cursoId: string) {
+export async function cursoEscritura(ctx: TenantContext, cursoId: string) {
   requireFeature(ctx, "notas");
   requireRol(ctx, ["profesor"]);
   await requireCursoDelProfesor(ctx, cursoId);
@@ -192,7 +193,7 @@ async function cursoEscritura(ctx: TenantContext, cursoId: string) {
   return curso;
 }
 
-async function cursoLectura(ctx: TenantContext, cursoId: string) {
+export async function cursoLectura(ctx: TenantContext, cursoId: string) {
   requireFeature(ctx, "notas");
   requireRol(ctx, ["profesor", "direccion"]);
   await requireCursoDelProfesor(ctx, cursoId);
@@ -202,7 +203,7 @@ async function cursoLectura(ctx: TenantContext, cursoId: string) {
 }
 
 /** Periodo abierto y, si se indica el curso, curso sin cierre en ese periodo. Lo valida el servidor en toda escritura. */
-async function periodoAbierto(ctx: TenantContext, periodoId: string, cursoId?: string) {
+export async function periodoAbierto(ctx: TenantContext, periodoId: string, cursoId?: string) {
   const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });
   if (!periodo) return { error: "No encontramos ese periodo." as const };
   if (cursoId) {
@@ -379,6 +380,7 @@ const esquemaEvaluacion = z.object({
   fecha: z.iso.date("Elige la fecha."),
   peso: z.coerce.number("El peso debe ser un número.").min(0.01, "El peso debe ser mayor que 0.").max(100, "El peso es demasiado alto."),
   instrumento: z.enum(INSTRUMENTOS, "Ese instrumento no existe.").optional().or(z.literal("").transform(() => undefined)),
+  descripcion: z.string().trim().max(500, "La descripción es muy larga (máximo 500 caracteres).").optional(),
   /** Desempeños del CNEB que mide (specs/30): de la competencia elegida y del grado del salón. */
   desempenoIds: z.array(z.uuid("Algún desempeño no es válido.")).max(30, "Marca como máximo 30 desempeños por evaluación.").optional(),
 });
@@ -386,6 +388,8 @@ const esquemaEvaluacion = z.object({
 const esquemaNuevaEvaluacion = esquemaEvaluacion.extend({
   /** Una prueba puede medir varias competencias: se crea una columna (evaluación) por competencia con el mismo título. */
   competenciaIds: z.array(z.uuid("Alguna competencia no es válida.")).max(12, "Elige como máximo 12 competencias.").optional(),
+  /** Avisar a las familias del salón que la evaluación está programada (aviso `evaluacion_programada`). */
+  avisar: z.boolean().optional(),
 });
 
 export async function crearEvaluacion(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
@@ -411,18 +415,136 @@ export async function crearEvaluacion(ctx: TenantContext, entrada: unknown): Pro
     const error = await validarDesempenosEvaluacion(ctx, d.data.cursoId, c, porCompetencia(c));
     if (error) return fallo(error);
   }
+  // Una evaluación nueva nace «programada»: sus notas son borrador hasta que el profesor publica los resultados.
+  const grupoId = randomUUID();
   const base = {
-    tenantId: ctx.tenant.id, cursoId: d.data.cursoId, periodoId: d.data.periodoId, titulo: d.data.titulo,
+    tenantId: ctx.tenant.id, cursoId: d.data.cursoId, periodoId: d.data.periodoId, titulo: d.data.titulo, grupoId,
     fecha: fechaDate(d.data.fecha), peso: d.data.peso, instrumento: d.data.instrumento ?? null,
+    descripcion: d.data.descripcion || null, estado: "programada" as const,
   };
   const destinos = competenciaIds.length > 0 ? competenciaIds : [null];
   for (const competenciaId of destinos) {
     const e = await ctx.db.evaluacion.create({ data: { ...base, competenciaId } });
     const marcados = porCompetencia(competenciaId);
     if (marcados.length) await guardarDesempenosEvaluacion(ctx.db, ctx.tenant.id, e.id, marcados);
-    await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "evaluacion", entidadId: e.id });
+    await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "evaluacion", entidadId: e.id, detalle: { grupoId } });
   }
-  return ok(destinos.length > 1 ? `Evaluación creada: una columna por cada una de sus ${destinos.length} competencias.` : "Evaluación creada.");
+  const columnas = destinos.length > 1 ? `: una columna por cada una de sus ${destinos.length} competencias` : "";
+  if (!d.data.avisar) return ok(`Evaluación creada${columnas}.`);
+  const familias = await avisarFamilias(ctx, {
+    cursoId: d.data.cursoId, grupoId, plantilla: "evaluacion_programada", titulo: `Evaluación programada: ${d.data.titulo}`,
+    payload: { titulo: d.data.titulo, fecha: d.data.fecha, descripcion: d.data.descripcion || undefined },
+  });
+  return ok(`Evaluación creada${columnas}. ${textoFamilias(familias)}`);
+}
+
+const textoFamilias = (n: number) => (n === 0 ? "Ninguna familia tiene avisos activos." : `Avisamos a ${n} ${n === 1 ? "familia" : "familias"}.`);
+
+/**
+ * Aviso académico de una evaluación a las familias: una fila por familia y canal con los nombres de sus hijos juntos
+ * (`referenciaId = grupoId`). Con `alumnoIds`, solo a las familias de esos alumnos; si no, a las de los alumnos activos
+ * del salón del curso. Devuelve cuántas familias tienen un canal activo.
+ */
+async function avisarFamilias(
+  ctx: TenantContext,
+  a: {
+    cursoId: string; grupoId: string; plantilla: "evaluacion_programada" | "resultados_publicados"; titulo: string; alumnoIds?: string[];
+    payload: { titulo: string; fecha?: string; descripcion?: string };
+  },
+): Promise<number> {
+  const curso = await ctx.db.curso.findFirst({ where: { id: a.cursoId }, select: { nombre: true, salonId: true } });
+  if (!curso) return 0;
+  const alumnos = await ctx.db.alumno.findMany({
+    where: { salonId: curso.salonId, estado: "activo", ...(a.alumnoIds ? { id: { in: a.alumnoIds } } : {}) },
+    select: { id: true, nombres: true },
+    orderBy: { nombres: "asc" },
+  });
+  const porFamilia = new Map<string, { destinatario: Destinatario; hijos: string[] }>();
+  for (const al of alumnos) {
+    for (const dest of await destinatariosDeAlumno(ctx.db, al.id)) {
+      if (!tieneCanalAviso(dest)) continue;
+      const actual = porFamilia.get(dest.apoderadoId) ?? { destinatario: dest, hijos: [] };
+      actual.hijos.push(primerNombre(al.nombres));
+      porFamilia.set(dest.apoderadoId, actual);
+    }
+  }
+  await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "libreta", titulo: a.titulo, creadoPorId: ctx.membership.id }, async () => {
+    for (const { destinatario, hijos } of porFamilia.values()) {
+      await encolarParaDestinatario(ctx.db, destinatario, {
+        tenantId: ctx.tenant.id,
+        tipo: "libreta",
+        plantilla: a.plantilla,
+        referenciaId: a.grupoId,
+        payload: { colegio: ctx.tenant.nombre, alumno: unirNombres(hijos), curso: curso.nombre, ...a.payload, url: urlColegio(ctx.tenant.slug, "/notas") },
+      });
+    }
+  });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "enviar", entidad: a.plantilla, entidadId: a.grupoId, detalle: { familias: porFamilia.size } });
+  return porFamilia.size;
+}
+
+/**
+ * El profesor del curso publica los resultados de una evaluación (todas sus columnas): desde ahí la familia ve las notas
+ * y recibe un aviso (solo las familias de alumnos con nota). Una vez publicada, «Reenviar aviso» repite el envío. Se
+ * puede publicar aunque el curso o el periodo estén cerrados: publicar no cambia notas.
+ */
+export async function publicarEvaluacion(ctx: TenantContext, grupoId: string, opciones: { reenviar?: boolean } = {}): Promise<Resultado> {
+  requireFeature(ctx, "notas");
+  const filas = await ctx.db.evaluacion.findMany({ where: { grupoId }, select: { id: true, cursoId: true, periodoId: true, titulo: true, estado: true } });
+  if (filas.length === 0) return fallo("No encontramos esa evaluación.");
+  const { cursoId, titulo } = filas[0];
+  await cursoEscritura(ctx, cursoId);
+  const nivel = await nivelDelCurso(ctx, cursoId);
+  const periodo = await ctx.db.periodo.findFirst({ where: { id: filas[0].periodoId }, select: { niveles: true } });
+  if (!nivel || !periodo?.niveles.includes(nivel)) return fallo(MENSAJE_OTRO_NIVEL);
+  const conNota = [...new Set((await ctx.db.nota.findMany({ where: { evaluacionId: { in: filas.map((f) => f.id) } }, select: { alumnoId: true } })).map((n) => n.alumnoId))];
+  if (conNota.length === 0) return fallo("Pon al menos una nota antes de publicar los resultados.");
+  const yaPublicada = filas.every((f) => f.estado === "publicada");
+  if (yaPublicada && !opciones.reenviar) return fallo("Los resultados ya se publicaron. Usa «Reenviar aviso» si quieres avisar otra vez.");
+  if (!yaPublicada) {
+    // Reclamo atómico: si dos clics llegan a la vez, solo uno publica y avisa.
+    const r = await ctx.db.evaluacion.updateMany({ where: { grupoId, estado: "programada" }, data: { estado: "publicada", publicadaAt: new Date() } });
+    if (r.count === 0 && !opciones.reenviar) return fallo("Los resultados ya se publicaron.");
+  }
+  const familias = await avisarFamilias(ctx, {
+    cursoId, grupoId, plantilla: "resultados_publicados", titulo: `Resultados: ${titulo}`, alumnoIds: conNota, payload: { titulo },
+  });
+  return ok(`${yaPublicada ? "Aviso reenviado." : "Resultados publicados."} ${textoFamilias(familias)}`);
+}
+
+/** Cambios de las notas de una evaluación (todas sus columnas), del más reciente al más antiguo. Profesor o dirección. */
+export async function historialEvaluacion(ctx: TenantContext, grupoId: string) {
+  const filas = await ctx.db.evaluacion.findMany({ where: { grupoId }, select: { id: true, cursoId: true, competencia: { select: { nombre: true } } } });
+  if (filas.length === 0) forbidden();
+  await cursoLectura(ctx, filas[0].cursoId);
+  const cambios = await ctx.db.historialNota.findMany({
+    where: { evaluacionId: { in: filas.map((f) => f.id) } },
+    orderBy: { cambiadoAt: "desc" },
+    take: 200,
+    include: {
+      alumno: { select: { nombres: true, apellidos: true } },
+      cambiadoPor: { select: { user: { select: { nombres: true, apellidos: true } } } },
+    },
+  });
+  return cambios.map((c) => ({
+    id: c.id, cambiadoAt: c.cambiadoAt, alumno: `${c.alumno.apellidos}, ${c.alumno.nombres}`,
+    competencia: filas.length > 1 ? (filas.find((f) => f.id === c.evaluacionId)?.competencia?.nombre ?? null) : null,
+    anterior: c.valorAnterior, nuevo: c.valorNuevo, por: `${c.cambiadoPor.user.nombres} ${c.cambiadoPor.user.apellidos}`.trim(),
+  }));
+}
+
+/** Registra un cambio de nota en el historial (solo si el valor cambió). */
+async function registrarCambioNota(
+  ctx: TenantContext, evaluacionId: string, alumnoId: string,
+  antes: { valorLiteral: string | null; valorNumerico: { toString(): string } | null } | null, despues: ValorCalificacion | null,
+) {
+  const texto = (v: { valorLiteral: string | null; valorNumerico: number | null } | null) => (v ? textoValor(v as ValorCalificacion) : null);
+  const anterior = antes ? texto({ valorLiteral: antes.valorLiteral, valorNumerico: num(antes.valorNumerico) }) : null;
+  const nuevo = texto(despues);
+  if (anterior === nuevo) return;
+  await ctx.db.historialNota.create({
+    data: { tenantId: ctx.tenant.id, evaluacionId, alumnoId, valorAnterior: anterior, valorNuevo: nuevo, cambiadoPorId: ctx.membership.id },
+  });
 }
 
 export async function editarEvaluacion(ctx: TenantContext, evaluacionId: string, entrada: unknown): Promise<Resultado> {
@@ -445,13 +567,15 @@ export async function editarEvaluacion(ctx: TenantContext, evaluacionId: string,
     : []);
   const errorDesempenos = await validarDesempenosEvaluacion(ctx, actual.cursoId, d.data.competenciaId ?? null, desempenoIds);
   if (errorDesempenos) return fallo(errorDesempenos);
+  // Título, fecha, instrumento y descripción son de toda la evaluación (todas sus columnas); competencia y peso, de la columna.
   await ctx.db.evaluacion.updateMany({
-    where: { id: evaluacionId },
+    where: { grupoId: actual.grupoId },
     data: {
-      competenciaId: d.data.competenciaId ?? null, titulo: d.data.titulo, fecha: fechaDate(d.data.fecha), peso: d.data.peso,
-      instrumento: d.data.instrumento ?? null,
+      titulo: d.data.titulo, fecha: fechaDate(d.data.fecha), instrumento: d.data.instrumento ?? null,
+      ...(d.data.descripcion !== undefined ? { descripcion: d.data.descripcion || null } : {}),
     },
   });
+  await ctx.db.evaluacion.updateMany({ where: { id: evaluacionId }, data: { competenciaId: d.data.competenciaId ?? null, peso: d.data.peso } });
   await guardarDesempenosEvaluacion(ctx.db, ctx.tenant.id, evaluacionId, desempenoIds);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "evaluacion", entidadId: evaluacionId });
   return ok("Evaluación actualizada.");
@@ -501,6 +625,7 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
     evaluaciones: evaluaciones.map((e) => ({
       id: e.id, titulo: e.titulo, fecha: e.fecha.toISOString().slice(0, 10), peso: Number(e.peso), competenciaId: e.competenciaId,
       instrumento: e.instrumento as Instrumento | null,
+      grupoId: e.grupoId, descripcion: e.descripcion, estado: e.estado, publicadaAt: e.publicadaAt,
       columna: nombreColumna(e, evaluaciones, competencias),
       desempenoIds: e.desempenos.map((x) => x.desempenoId),
     })),
@@ -510,7 +635,7 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
     cursoCerrado: cierre !== null,
     editable: ctx.rol === "profesor" && !periodo.cerrado && cierre === null,
     escala: escalaDe(ctx),
-    calculo: ctx.tenant.calculoLiteral,
+    calculo: ctx.tenant.sugerenciaPeriodo,
   };
 }
 
@@ -544,6 +669,8 @@ export async function guardarNota(ctx: TenantContext, entrada: { evaluacionId: s
   const v = interpretarValor(escalaDe(ctx), d.data.valor);
   if (!v.ok) return fallo(v.error);
   const clave = { evaluacionId_alumnoId: { evaluacionId: evaluacion.id, alumnoId: alumno.id } };
+  const antes = await ctx.db.nota.findFirst({ where: { evaluacionId: evaluacion.id, alumnoId: alumno.id }, select: { valorLiteral: true, valorNumerico: true } });
+  await registrarCambioNota(ctx, evaluacion.id, alumno.id, antes, v.valor);
   if (v.valor === null) {
     await ctx.db.nota.deleteMany({ where: { evaluacionId: evaluacion.id, alumnoId: alumno.id } });
   } else {
@@ -624,6 +751,8 @@ export async function importarNotas(ctx: TenantContext, cursoId: string, periodo
   const vista = await previsualizarImportacionNotas(ctx, cursoId, periodoId, texto);
   if (vista.cambios.length === 0) return fallo(vista.errores[0]?.mensaje ?? "No hay notas para importar.");
   for (const c of vista.cambios) {
+    const antes = await ctx.db.nota.findFirst({ where: { evaluacionId: c.evaluacionId, alumnoId: c.alumnoId }, select: { valorLiteral: true, valorNumerico: true } });
+    await registrarCambioNota(ctx, c.evaluacionId, c.alumnoId, antes, c.valor);
     await ctx.db.nota.upsert({
       where: { evaluacionId_alumnoId: { evaluacionId: c.evaluacionId, alumnoId: c.alumnoId } },
       create: { tenantId: ctx.tenant.id, evaluacionId: c.evaluacionId, alumnoId: c.alumnoId, ...c.valor, registradoPorId: ctx.membership.id },
@@ -654,7 +783,8 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
     ctx.db.calificacionPeriodo.findMany({ where: { periodoId, competencia: { cursoId } } }),
     ctx.db.nota.findMany({
       where: { evaluacion: { cursoId, periodoId, competenciaId: { not: null } } },
-      include: { evaluacion: { select: { competenciaId: true, peso: true, fecha: true } } },
+      include: { evaluacion: { select: { competenciaId: true, peso: true, fecha: true, titulo: true } } },
+      orderBy: [{ evaluacion: { fecha: "asc" } }],
     }),
     ctx.db.cierreCurso.findFirst({ where: { cursoId, periodoId }, select: { id: true } }),
     ctx.db.evaluacionDesempeno.findMany({
@@ -679,18 +809,23 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
         delAlumno.map((n) => ({
           valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico), peso: Number(n.evaluacion.peso), fecha: n.evaluacion.fecha,
         })),
-        ctx.tenant.calculoLiteral,
+        ctx.tenant.sugerenciaPeriodo,
       );
       return {
         alumno: a,
         guardado: g ? { valorLiteral: g.valorLiteral as Literal | null, valorNumerico: num(g.valorNumerico), conclusion: g.conclusion } : null,
         sugerido,
         cantidadNotas: delAlumno.length,
+        /** Las notas del periodo en esta competencia, para que el profesor decida la calificación. */
+        notas: delAlumno.map((n) => ({
+          titulo: n.evaluacion.titulo, fecha: n.evaluacion.fecha.toISOString().slice(0, 10),
+          valor: { valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico) } as ValorCalificacion,
+        })),
         desempenos: [...evaluados.values()].sort((x, y) => x.orden - y.orden).map(({ id, descripcion, codigo }) => ({ id, descripcion, codigo })),
       };
     }),
   }));
-  return { curso, periodo, filas, escala, calculo: ctx.tenant.calculoLiteral, editable: ctx.rol === "profesor" && !periodo.cerrado && cierre === null };
+  return { curso, periodo, filas, escala, calculo: ctx.tenant.sugerenciaPeriodo, editable: ctx.rol === "profesor" && !periodo.cerrado && cierre === null };
 }
 
 const esquemaCalificacion = z.object({
@@ -765,7 +900,7 @@ export async function informesProgreso(ctx: TenantContext, cursoId: string, peri
       alumnos: f.alumnos.map((a) => {
         const i = informes.find((x) => x.alumnoId === a.alumno.id && x.competenciaId === f.competencia.id);
         return {
-          alumno: a.alumno, sugerido: a.sugerido, cantidadNotas: a.cantidadNotas,
+          alumno: a.alumno, sugerido: a.sugerido, cantidadNotas: a.cantidadNotas, notas: a.notas,
           informe: i ? { logros: i.logros ?? "", mejorar: i.mejorar ?? "", recomendaciones: i.recomendaciones ?? "" } : null,
         };
       }),
@@ -874,7 +1009,8 @@ export async function notasDeAlumno(ctx: TenantContext, alumnoId: string, period
   const [competencias, evaluaciones, califs, informes] = await Promise.all([
     ctx.db.competencia.findMany({ where: { cursoId: { in: cursoIds } }, orderBy: [{ orden: "asc" }, { nombre: "asc" }] }),
     ctx.db.evaluacion.findMany({
-      where: { cursoId: { in: cursoIds }, periodoId, notas: { some: { alumnoId } } },
+      // La familia y el alumno solo ven los resultados publicados; las notas de evaluaciones programadas son borrador.
+      where: { cursoId: { in: cursoIds }, periodoId, estado: "publicada", notas: { some: { alumnoId } } },
       include: { notas: { where: { alumnoId } } },
       orderBy: { fecha: "asc" },
     }),

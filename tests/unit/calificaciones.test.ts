@@ -61,8 +61,8 @@ describe("calificación sugerida", () => {
       { valorLiteral: null, valorNumerico: 15, peso: 1, fecha: "2026-10-01" },
       { valorLiteral: null, valorNumerico: 17, peso: 1, fecha: "2026-10-02" },
     ];
-    expect(sugerirCalificacion("vigesimal", notas)).toEqual({ valorLiteral: null, valorNumerico: 16 });
-    expect(sugerirCalificacion("literal", notas)).toBeNull();
+    expect(sugerirCalificacion("vigesimal", notas, "promedio")).toEqual({ valorLiteral: null, valorNumerico: 16 });
+    expect(sugerirCalificacion("literal", notas, "promedio")).toBeNull();
   });
 
   it("literal por promedio: AD = 4 … C = 1 con pesos; x,5 sube", () => {
@@ -75,10 +75,12 @@ describe("calificación sugerida", () => {
     expect(promedioLiteral([])).toBeNull();
   });
 
-  it("el colegio elige promedio (por defecto) o la más frecuente", () => {
+  it("sin sugerencia (por defecto) no calcula nada; promedio y más frecuente son provisionales", () => {
     const l = (valorLiteral: "AD" | "A" | "B" | "C", fecha: string) => ({ valorLiteral, valorNumerico: null, peso: 1, fecha });
     const notas = [l("C", "2026-10-01"), l("C", "2026-10-02"), l("AD", "2026-10-03"), l("AD", "2026-10-04"), l("AD", "2026-10-05")];
-    expect(sugerirCalificacion("literal", notas)).toEqual({ valorLiteral: "A", valorNumerico: null }); // (1+1+4+4+4)/5 = 2,8
+    expect(sugerirCalificacion("literal", notas, "ninguna")).toBeNull();
+    expect(sugerirCalificacion("vigesimal", [{ valorLiteral: null, valorNumerico: 15, peso: 1, fecha: "2026-10-01" }], "ninguna")).toBeNull();
+    expect(sugerirCalificacion("literal", notas, "promedio")).toEqual({ valorLiteral: "A", valorNumerico: null }); // (1+1+4+4+4)/5 = 2,8
     expect(sugerirCalificacion("literal", notas, "frecuente")).toEqual({ valorLiteral: "AD", valorNumerico: null });
   });
 });

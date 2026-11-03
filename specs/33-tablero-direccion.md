@@ -30,7 +30,7 @@ Colegio con plan Base: 403 en páginas y en las rutas de descarga; el inicio mue
 - **Alumno en riesgo**: C (vigesimal: <11) en 2 o más competencias.
 - **Avance de registro**: notas registradas / (evaluaciones del periodo × alumnos activos del salón), tope 100 %; por curso y por profesor; «Cerrado» si hay `cierres_curso`.
 - Tareas publicadas por curso (por `createdAt` dentro del rango); justificaciones pendientes (todas); avisos del rango (excluye soporte): enviados, abiertos, con error (error/rebotado/queja), pendientes; reuniones programadas futuras (lectura de `reuniones`, sin depender de su módulo).
-- **Consolidado**: columnas = competencias agrupadas por curso; celda = calificación del periodo, o la sugerida por las notas (`sugerirCalificacion`) si el profesor no cerró; columna «Competencias en riesgo», «Promedio» en vigesimal y fila «% logro esperado». Celda vacía = sin nota.
+- **Consolidado**: columnas = competencias agrupadas por curso; celda = **solo la calificación del periodo confirmada por el profesor** (sin sugeridas ni cálculos, specs/11; desde 2026-11-03); columna «Competencias en riesgo» y fila «% logro esperado» (umbrales aún no validados con docentes). Sin «Promedio» del alumno: equivaldría a una nota única del curso, no confirmada. Celda vacía = sin calificación confirmada. Es una exportación genérica, **no** un formato SIAGIE.
 - `requireFeature(ctx, "tablero")` + `requireRol(["direccion"])` en páginas y rutas. Cada vista y descarga se audita (`tablero`, `consolidado_notas`).
 - Nunca muestra datos de Nudito+ ni conversaciones.
 

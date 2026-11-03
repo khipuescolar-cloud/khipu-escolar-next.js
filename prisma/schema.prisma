@@ -56,11 +56,27 @@ enum EscalaCalificacion {
   vigesimal
 }
 
-/// Cómo se sugiere la calificación literal del periodo (specs/11): promedio de las notas (AD=4 … C=1, con pesos) o la
-/// más frecuente. En vigesimal siempre es el promedio con pesos.
-enum CalculoLiteral {
+/// Si Khipu sugiere la calificación del periodo y cómo (specs/11). Por defecto `ninguna`: el profesor la pone mirando sus
+/// notas. `promedio` y `frecuente` son reglas PROVISIONALES (no validadas con docentes) que dirección puede activar.
+enum SugerenciaPeriodo {
+  ninguna
   promedio
   frecuente
+
+  @@map("CalculoLiteral")
+}
+
+/// Estado de una evaluación (specs/11): `programada` = registrada o anunciada; sus notas son borrador y la familia no las ve.
+/// `publicada` = resultados visibles para la familia. El cierre del curso o del periodo la deja «cerrada».
+enum EstadoEvaluacion {
+  programada
+  publicada
+}
+
+/// Escala de un criterio de un instrumento (rúbrica o lista de cotejo).
+enum EscalaCriterio {
+  puntaje
+  cumple
 }
 
 /// Instrumento con que se recoge la evidencia de una evaluación (specs/11).
@@ -203,7 +219,7 @@ model Tenant {
   zonaHoraria                   String             @default("America/Lima") @map("zona_horaria")
   modoAvisos                    ModoAvisos         @default(todos) @map("modo_avisos")
   escalaCalificacion            EscalaCalificacion @default(literal) @map("escala_calificacion")
-  calculoLiteral                CalculoLiteral     @default(promedio) @map("calculo_literal")
+  sugerenciaPeriodo             SugerenciaPeriodo  @default(ninguna) @map("calculo_literal")
   /// Plazo del reglamento para justificar una falta, en días hábiles (lunes a viernes sin feriados nacionales del Perú) desde el día de la falta.
   plazoJustificacionDiasHabiles Int                @default(15) @map("plazo_justificacion_dias_habiles")
   /// Grado de primaria (1–6) desde el que un alumno puede tener cuenta propia. Secundaria siempre; inicial nunca (specs/10).
@@ -248,6 +264,10 @@ model Tenant {
   cierresCurso          CierreCurso[]
   informesProgreso      InformeProgreso[]
   enviosInformeProgreso EnvioInformeProgreso[]
+  historialNotas        HistorialNota[]
+  comentariosTutor      ComentarioTutor[]
+  criteriosEvaluacion   CriterioEvaluacion[]
+  resultadosCriterio    ResultadoCriterio[]
   modulosAjustados      TenantModulo[]
   contactos             ContactoColegio[]
   suscripcion           Suscripcion?
@@ -340,6 +360,9 @@ model Membership {
   cierresCurso             CierreCurso[]
   informesProgreso         InformeProgreso[]
   enviosInformeProgreso    EnvioInformeProgreso[]
+  historialNotas           HistorialNota[]
+  comentariosTutor         ComentarioTutor[]
+  resultadosCriterio       ResultadoCriterio[]
   carpetasCreadas          CarpetaDocumento[]
   documentosPublicados     Documento[]
   reunionesConvocadas      Reunion[]
@@ -431,6 +454,9 @@ model Alumno {
   notas                 Nota[]
   calificacionesPeriodo CalificacionPeriodo[]
   informesProgreso      InformeProgreso[]
+  historialNotas        HistorialNota[]
+  comentariosTutor      ComentarioTutor[]
+  resultadosCriterio    ResultadoCriterio[]
   nuditoConversaciones  NuditoConversacion[]
   invitacionesReunion   ReunionInvitado[]
   licenciasNudito       LicenciaNudito[]
@@ -842,6 +868,7 @@ model Periodo {
   cierresCurso          CierreCurso[]
   informesProgreso      InformeProgreso[]
   enviosInformeProgreso EnvioInformeProgreso[]
+  comentariosTutor      ComentarioTutor[]
 
   @@unique([tenantId, anio, tipo, numero])
   @@map("periodos")
@@ -878,6 +905,12 @@ model Evaluacion {
   fecha         DateTime               @db.Date
   peso          Decimal                @default(1) @db.Decimal(5, 2)
   instrumento   InstrumentoEvaluacion?
+  /// Une las columnas de una misma evaluación que mide varias competencias (una fila por competencia).
+  grupoId       String                 @default(dbgenerated("gen_random_uuid()")) @map("grupo_id") @db.Uuid
+  descripcion   String?
+  /// Por defecto `publicada` (datos anteriores, cargas y seeds); `crearEvaluacion` crea las nuevas como `programada`.
+  estado        EstadoEvaluacion       @default(publicada)
+  publicadaAt   DateTime?              @map("publicada_at") @db.Timestamptz
 
   tenant      Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   curso       Curso                 @relation(fields: [cursoId], references: [id], onDelete: Cascade)
@@ -885,8 +918,11 @@ model Evaluacion {
   competencia Competencia?          @relation(fields: [competenciaId], references: [id], onDelete: SetNull)
   notas       Nota[]
   desempenos  EvaluacionDesempeno[]
+  historial   HistorialNota[]
+  criterios   CriterioEvaluacion[]
 
   @@index([tenantId, cursoId, periodoId])
+  @@index([grupoId])
   @@map("evaluaciones")
 }
 
@@ -959,6 +995,92 @@ model InformeProgreso {
   @@index([tenantId])
   @@index([periodoId, competenciaId])
   @@map("informes_progreso")
+}
+
+/// Cada cambio de una nota (specs/11): valor anterior y nuevo (texto: «A», «14,5»; null = sin nota), quién y cuándo.
+model HistorialNota {
+  id            String   @id @default(uuid()) @db.Uuid
+  tenantId      String   @map("tenant_id") @db.Uuid
+  evaluacionId  String   @map("evaluacion_id") @db.Uuid
+  alumnoId      String   @map("alumno_id") @db.Uuid
+  valorAnterior String?  @map("valor_anterior")
+  valorNuevo    String?  @map("valor_nuevo")
+  cambiadoPorId String   @map("cambiado_por") @db.Uuid
+  cambiadoAt    DateTime @default(now()) @map("cambiado_at") @db.Timestamptz
+
+  tenant      Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  evaluacion  Evaluacion @relation(fields: [evaluacionId], references: [id], onDelete: Cascade)
+  alumno      Alumno     @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  cambiadoPor Membership @relation(fields: [cambiadoPorId], references: [id], onDelete: NoAction)
+
+  @@index([tenantId])
+  @@index([evaluacionId, cambiadoAt])
+  @@map("historial_notas")
+}
+
+/// Comentario general del tutor del salón para un alumno en un periodo; va en la libreta (specs/11). Opcional.
+model ComentarioTutor {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String   @map("tenant_id") @db.Uuid
+  alumnoId  String   @map("alumno_id") @db.Uuid
+  periodoId String   @map("periodo_id") @db.Uuid
+  texto     String
+  autorId   String   @map("autor_id") @db.Uuid
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant  Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno  Alumno     @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  periodo Periodo    @relation(fields: [periodoId], references: [id], onDelete: Cascade)
+  autor   Membership @relation(fields: [autorId], references: [id], onDelete: NoAction)
+
+  @@unique([alumnoId, periodoId])
+  @@index([tenantId])
+  @@map("comentarios_tutor")
+}
+
+/// Criterio del instrumento de una evaluación (rúbrica o lista de cotejo, specs/11). Pertenece a la columna de su
+/// competencia y, opcionalmente, a un desempeño. `puntaje`: de 0 a `puntajeMaximo`; `cumple`: sí o no. Los resultados se
+/// guardan tal cual: Khipu no los convierte en AD/A/B/C ni en nota (la pone el profesor).
+model CriterioEvaluacion {
+  id            String         @id @default(uuid()) @db.Uuid
+  tenantId      String         @map("tenant_id") @db.Uuid
+  evaluacionId  String         @map("evaluacion_id") @db.Uuid
+  desempenoId   String?        @map("desempeno_id") @db.Uuid
+  descripcion   String
+  escala        EscalaCriterio @default(puntaje)
+  puntajeMaximo Int?           @map("puntaje_maximo")
+  orden         Int            @default(0)
+
+  tenant     Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  evaluacion Evaluacion          @relation(fields: [evaluacionId], references: [id], onDelete: Cascade)
+  desempeno  Desempeno?          @relation(fields: [desempenoId], references: [id], onDelete: SetNull)
+  resultados ResultadoCriterio[]
+
+  @@index([tenantId])
+  @@index([evaluacionId])
+  @@map("criterios_evaluacion")
+}
+
+/// Resultado de un alumno en un criterio: `puntaje` (escala puntaje) o `cumple` (lista de cotejo).
+model ResultadoCriterio {
+  id              String   @id @default(uuid()) @db.Uuid
+  tenantId        String   @map("tenant_id") @db.Uuid
+  criterioId      String   @map("criterio_id") @db.Uuid
+  alumnoId        String   @map("alumno_id") @db.Uuid
+  puntaje         Decimal? @db.Decimal(5, 2)
+  cumple          Boolean?
+  registradoPorId String   @map("registrado_por") @db.Uuid
+  updatedAt       DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant        Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  criterio      CriterioEvaluacion @relation(fields: [criterioId], references: [id], onDelete: Cascade)
+  alumno        Alumno             @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  registradoPor Membership         @relation(fields: [registradoPorId], references: [id], onDelete: NoAction)
+
+  @@unique([criterioId, alumnoId])
+  @@index([tenantId])
+  @@index([alumnoId])
+  @@map("resultados_criterio")
 }
 
 /// Cuándo el profesor compartió con las familias el informe de progreso de un curso en un periodo.
@@ -1541,6 +1663,7 @@ model Desempeno {
   competencia  Competencia           @relation(fields: [competenciaId], references: [id], onDelete: Cascade)
   capacidad    Capacidad?            @relation(fields: [capacidadId], references: [id], onDelete: SetNull)
   evaluaciones EvaluacionDesempeno[]
+  criterios    CriterioEvaluacion[]
 
   @@index([tenantId, competenciaId, nivel, grado])
   @@index([capacidadId])

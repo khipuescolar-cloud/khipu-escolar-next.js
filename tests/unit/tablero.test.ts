@@ -101,7 +101,7 @@ describe("zona horaria", () => {
 
 describe("consolidado de notas", () => {
   const base: Consolidado = {
-    colegio: "Colegio Demo", salon: { id: "s", nombre: "3.° B" }, periodo: { id: "p", nombre: "I Bimestre" }, escala: "literal", sugeridas: 0,
+    colegio: "Colegio Demo", salon: { id: "s", nombre: "3.° B" }, periodo: { id: "p", nombre: "I Bimestre" }, escala: "literal",
     columnas: [
       { cursoId: "m", curso: "Matemática", competenciaId: "c1", competencia: "Resuelve problemas de cantidad" },
       { cursoId: "m", curso: "Matemática", competenciaId: "c2", competencia: "Resuelve problemas de forma" },
@@ -120,15 +120,15 @@ describe("consolidado de notas", () => {
     expect(t.pie).toEqual(["% logro esperado", 50, 50, 0, null]);
     expect(t.archivo).toBe("consolidado-notas-3-b-i-bimestre");
   });
-  it("vigesimal: agrega promedio y marca riesgo con menos de 11", () => {
+  it("vigesimal: sin promedio del alumno (no es una nota validada) y riesgo con menos de 11", () => {
     const v: Consolidado = {
       ...base, escala: "vigesimal", columnas: base.columnas.slice(0, 2),
       filas: [{ alumnoId: "1", nombre: "Quispe, Mateo", valores: [{ valorLiteral: null, valorNumerico: 9 }, { valorLiteral: null, valorNumerico: 10 }] }],
     };
-    expect(resumenAlumno(v.filas[0].valores)).toEqual({ enRiesgo: 2, promedio: 9.5 });
+    expect(resumenAlumno(v.filas[0].valores)).toEqual({ enRiesgo: 2 });
     const t = tablaDeConsolidado(v);
-    expect(t.columnas).toContain("Promedio");
-    expect(t.filas[0]).toEqual(["Quispe, Mateo", 9, 10, 9.5, 2]);
+    expect(t.columnas).not.toContain("Promedio");
+    expect(t.filas[0]).toEqual(["Quispe, Mateo", 9, 10, 2]);
     expect(logroDeColumna(v.filas.map((f) => f.valores[0]))).toBe(0);
   });
 });

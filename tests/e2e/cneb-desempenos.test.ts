@@ -89,7 +89,7 @@ test("la profesora marca desempeños al crear una evaluación", async ({ page })
   await page.getByRole("checkbox", { name: /MAT-C23-P3-04/ }).check();
   await page.getByRole("button", { name: "Crear evaluación" }).click();
   await expect(page.getByText("Evaluación creada.")).toBeVisible();
-  await expect(page.getByText(/peso 1 · 2 desempeños/)).toBeVisible();
+  await expect(page.getByText(/· 2 desempeños/)).toBeVisible();
 
   const vinculos = await sql<{ codigo: string }>(
     `select d.codigo from evaluacion_desempenos ed join desempenos d on d.id = ed.desempeno_id join evaluaciones e on e.id = ed.evaluacion_id where e.curso_id = $1 order by d.codigo`,

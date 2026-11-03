@@ -116,6 +116,18 @@ const ESQUEMAS = {
     periodo: z.string().min(1),
     url,
   }),
+  /** Evaluación programada por el profesor (specs/11). `fecha` AAAA-MM-DD. */
+  evaluacion_programada: z.object({
+    ...comun,
+    alumno: z.string().min(1).optional(),
+    curso: z.string().min(1),
+    titulo: z.string().min(1),
+    fecha: fechaIso,
+    descripcion: z.string().min(1).optional(),
+    url,
+  }),
+  /** Resultados de una evaluación publicados por el profesor (specs/11). */
+  resultados_publicados: z.object({ ...comun, alumno: z.string().min(1).optional(), curso: z.string().min(1), titulo: z.string().min(1), url }),
   /** Informe de progreso a mitad del periodo de un curso (specs/11). */
   informe_progreso: z.object({
     ...comun,
@@ -435,6 +447,33 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       nudito: true,
       parrafos: [`${p.alumno ? `La libreta de ${p.alumno}` : "La libreta"} de ${p.periodo} ya está disponible.`, "Puedes verla y descargarla en PDF."],
       boton: { texto: "Ver libreta", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  evaluacion_programada: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `Evaluación de ${p.curso}: ${p.titulo} el ${fechaCorta(p.fecha)}`,
+      insignia: "info",
+      palabraInsignia: "Evaluación",
+      parrafos: [
+        `${p.alumno ? `${p.alumno} tendrá` : "Habrá"} la evaluación «${p.titulo}» de ${p.curso} el ${fechaCorta(p.fecha)}.`,
+        ...(p.descripcion ? [p.descripcion] : []),
+      ],
+      boton: { texto: "Ver notas", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  resultados_publicados: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `Resultados de ${p.curso}: ${p.titulo}`,
+      insignia: "info",
+      palabraInsignia: "Resultados",
+      parrafos: [`Ya están los resultados de «${p.titulo}» de ${p.curso}${p.alumno ? ` para ${p.alumno}` : ""}.`],
+      boton: { texto: "Ver resultados", url: p.url },
       urlPreferencias: p.urlPreferencias,
     }),
 

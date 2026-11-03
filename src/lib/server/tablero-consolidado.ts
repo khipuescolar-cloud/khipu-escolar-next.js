@@ -1,7 +1,7 @@
 import "server-only";
 import { notFound } from "next/navigation";
 import { z } from "zod";
-import { sugerirCalificacion, type Escala } from "@/lib/calificaciones";
+import type { Escala } from "@/lib/calificaciones";
 import type { Consolidado, Valor } from "@/lib/tablero-consolidado";
 import { auditar } from "./auditoria";
 import { requireTablero } from "./tablero";
@@ -34,21 +34,12 @@ export async function consolidadoNotas(ctx: TenantContext, datos: unknown, como:
   competencias.sort((a, b) => a.curso.nombre.localeCompare(b.curso.nombre, "es") || a.orden - b.orden || a.nombre.localeCompare(b.nombre, "es"));
   const alumnoIds = alumnos.map((a) => a.id);
 
-  const [calificaciones, notas] = await Promise.all([
-    ctx.db.calificacionPeriodo.findMany({ where: { periodoId, alumnoId: { in: alumnoIds }, competencia: { curso: { salonId } } }, select: { alumnoId: true, competenciaId: true, valorLiteral: true, valorNumerico: true } }),
-    ctx.db.nota.findMany({
-      where: { alumnoId: { in: alumnoIds }, evaluacion: { periodoId, competenciaId: { not: null }, curso: { salonId } } },
-      select: { alumnoId: true, valorLiteral: true, valorNumerico: true, evaluacion: { select: { competenciaId: true, peso: true, fecha: true } } },
-    }),
-  ]);
+  // Solo calificaciones del periodo confirmadas por el profesor: Khipu no calcula ni sugiere notas aquí (specs/11).
+  const calificaciones = await ctx.db.calificacionPeriodo.findMany({
+    where: { periodoId, alumnoId: { in: alumnoIds }, competencia: { curso: { salonId } } },
+    select: { alumnoId: true, competenciaId: true, valorLiteral: true, valorNumerico: true },
+  });
   const oficial = new Map(calificaciones.map((c) => [`${c.alumnoId}|${c.competenciaId}`, c]));
-  const notasPorCelda = new Map<string, { valorLiteral: Valor["valorLiteral"]; valorNumerico: number | null; peso: number; fecha: Date }[]>();
-  for (const n of notas) {
-    const clave = `${n.alumnoId}|${n.evaluacion.competenciaId}`;
-    notasPorCelda.set(clave, [...(notasPorCelda.get(clave) ?? []), { valorLiteral: n.valorLiteral, valorNumerico: n.valorNumerico === null ? null : Number(n.valorNumerico), peso: Number(n.evaluacion.peso), fecha: n.evaluacion.fecha }]);
-  }
-
-  let sugeridas = 0;
   const filas = alumnos.map((a) => ({
     alumnoId: a.id,
     nombre: `${a.apellidos}, ${a.nombres}`,
@@ -56,9 +47,7 @@ export async function consolidadoNotas(ctx: TenantContext, datos: unknown, como:
       const clave = `${a.id}|${comp.id}`;
       const o = oficial.get(clave);
       if (o && (o.valorLiteral || o.valorNumerico !== null)) return { valorLiteral: o.valorLiteral, valorNumerico: o.valorNumerico === null ? null : Number(o.valorNumerico) };
-      const s = sugerirCalificacion(escala, notasPorCelda.get(clave) ?? [], ctx.tenant.calculoLiteral);
-      if (s) sugeridas++;
-      return s;
+      return null;
     }),
   }));
 
@@ -67,7 +56,7 @@ export async function consolidadoNotas(ctx: TenantContext, datos: unknown, como:
     detalle: como.accion === "exportar" ? { periodoId, formato: como.formato } : { periodoId },
   });
   return {
-    colegio: ctx.tenant.nombre, salon, periodo, escala, sugeridas, filas,
+    colegio: ctx.tenant.nombre, salon, periodo, escala, filas,
     columnas: competencias.map((c) => ({ cursoId: c.curso.id, curso: c.curso.nombre, competenciaId: c.id, competencia: c.nombre })),
   };
 }

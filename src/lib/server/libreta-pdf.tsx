@@ -83,6 +83,13 @@ export function LibretaPdf({ datos, logo, isotipo }: { datos: DatosLibreta; logo
           </View>
         ))}
 
+        {datos.comentarioTutor && (
+          <>
+            <Text style={estilos.seccion}>Comentario de tutoría</Text>
+            <Text>{datos.comentarioTutor}</Text>
+          </>
+        )}
+
         <Text style={estilos.seccion}>Asistencia del periodo</Text>
         <Text>
           Días registrados: {a.total} · Llegó: {a.llego} · Tarde: {a.tarde} · No llegó: {a.falta}

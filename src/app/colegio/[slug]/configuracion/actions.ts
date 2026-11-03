@@ -14,7 +14,7 @@ export async function guardarConfiguracionAction(formData: FormData) {
       controlIngresoAutomatico: formData.get("controlIngresoAutomatico") === "on",
       plazoJustificacionDiasHabiles: texto(formData, "plazoJustificacionDiasHabiles") || undefined,
       escalaCalificacion: texto(formData, "escalaCalificacion") as "literal",
-      calculoLiteral: (texto(formData, "calculoLiteral") || undefined) as "promedio" | undefined,
+      sugerenciaPeriodo: (texto(formData, "sugerenciaPeriodo") || undefined) as "ninguna" | undefined,
       emailDomains: texto(formData, "emailDomains"),
       gradoMinimoCuentaAlumno: texto(formData, "gradoMinimoCuentaAlumno") || undefined,
     });

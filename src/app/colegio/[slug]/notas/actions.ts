@@ -7,7 +7,8 @@ import {
   type VistaPreviaImportacion,
   cambiarEstadoPeriodo, crearCompetencia, crearEvaluacion, crearPeriodo, editarEvaluacion, eliminarCompetencia,
   eliminarEvaluacion, guardarCalificacionPeriodo, guardarNota, actualizarPeriodo, organizarNivel,
-  compartirInformeProgreso, guardarInformeProgreso } from "@/lib/server/notas";
+  compartirInformeProgreso, guardarInformeProgreso, publicarEvaluacion } from "@/lib/server/notas";
+import { crearCriterio, eliminarCriterio, guardarResultadoCriterio } from "@/lib/server/criterios";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 
@@ -31,7 +32,7 @@ export async function crearEvaluacionAction(slug: string, _previo: Resultado | n
   const r = await crearEvaluacion(await contexto(slug), {
     cursoId: texto(f, "cursoId"), periodoId: texto(f, "periodoId"), competenciaIds: f.getAll("competenciaIds").map(String),
     titulo: texto(f, "titulo"), fecha: texto(f, "fecha"), peso: texto(f, "peso"), instrumento: texto(f, "instrumento"),
-    desempenoIds: desempenos(f),
+    descripcion: texto(f, "descripcion"), avisar: f.get("avisar") === "on", desempenoIds: desempenos(f),
   });
   if (r.ok) refrescar();
   return r;
@@ -40,7 +41,7 @@ export async function crearEvaluacionAction(slug: string, _previo: Resultado | n
 export async function editarEvaluacionAction(slug: string, evaluacionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
   const r = await editarEvaluacion(await contexto(slug), evaluacionId, {
     competenciaId: texto(f, "competenciaId"), titulo: texto(f, "titulo"), fecha: texto(f, "fecha"), peso: texto(f, "peso"),
-    instrumento: texto(f, "instrumento"), desempenoIds: desempenos(f),
+    instrumento: texto(f, "instrumento"), descripcion: f.has("descripcion") ? texto(f, "descripcion") : undefined, desempenoIds: desempenos(f),
   });
   if (r.ok) refrescar();
   return r;
@@ -149,4 +150,30 @@ export async function compartirInformeAction(slug: string, cursoId: string, peri
   const r = await compartirInformeProgreso(await contexto(slug), cursoId, periodoId, { reenviar });
   if (r.ok) refrescar();
   return r;
+}
+
+export async function publicarEvaluacionAction(slug: string, grupoId: string, reenviar: boolean): Promise<Resultado> {
+  const r = await publicarEvaluacion(await contexto(slug), grupoId, { reenviar });
+  if (r.ok) refrescar();
+  return r;
+}
+
+export async function crearCriterioAction(slug: string, evaluacionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
+  const r = await crearCriterio(await contexto(slug), {
+    evaluacionId, descripcion: texto(f, "descripcion"), escala: texto(f, "escala"),
+    puntajeMaximo: texto(f, "escala") === "puntaje" ? texto(f, "puntajeMaximo") : undefined, desempenoId: texto(f, "desempenoId"),
+  });
+  if (r.ok) refrescar();
+  return r;
+}
+
+export async function eliminarCriterioAction(slug: string, criterioId: string): Promise<Resultado> {
+  const r = await eliminarCriterio(await contexto(slug), criterioId);
+  if (r.ok) refrescar();
+  return r;
+}
+
+/** Guardado rápido de un resultado de criterio (sin refrescar la página). */
+export async function guardarResultadoCriterioAction(slug: string, criterioId: string, alumnoId: string, valor: string): Promise<Resultado> {
+  return guardarResultadoCriterio(await contexto(slug), { criterioId, alumnoId, valor });
 }

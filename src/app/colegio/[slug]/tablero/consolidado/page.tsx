@@ -90,7 +90,6 @@ export default async function ConsolidadoPage({ params, searchParams }: PageProp
                     <TableRow>
                       <TableHead rowSpan={2}>Alumno</TableHead>
                       {tabla.grupos.map((g) => <TableHead key={g.texto} colSpan={g.columnas} className="text-center">{g.texto}</TableHead>)}
-                      {tabla.columnas.length - 1 - consolidado.columnas.length > 0 && <TableHead rowSpan={2} className="text-center">Promedio</TableHead>}
                       <TableHead rowSpan={2} className="text-center">En riesgo</TableHead>
                     </TableRow>
                     <TableRow>

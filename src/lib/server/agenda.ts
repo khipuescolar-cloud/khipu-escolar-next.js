@@ -1,7 +1,7 @@
 import "server-only";
 import { z } from "zod";
 import type { AdjuntoVista } from "@/lib/adjuntos";
-import { instanteLima } from "@/lib/fechas";
+import { fechaLima, instanteLima } from "@/lib/fechas";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { adjuntoVista } from "./adjuntos";
 import { puedeVerTarea } from "./archivos";
@@ -28,6 +28,8 @@ export type ItemAgenda = {
   adjuntos: AdjuntoVista[];
   /** Ruta dentro del colegio con más detalle (reuniones: `/reuniones/<id>`). */
   href?: string;
+  /** Sin hora (evaluaciones: solo tienen fecha). */
+  sinHora?: boolean;
 };
 
 /** Eventos y entregas de tareas visibles para el usuario entre dos instantes (`hasta` excluido). */
@@ -39,7 +41,11 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
   // Reuniones (specs/32): se muestran desde su propia tabla, sin duplicarlas como EventoAgenda. Solo las que el
   // usuario puede ver (dirección: todas; profesor: las que convocó; familia: donde la invitan) y no canceladas.
   const verReuniones = tieneFeature(ctx, "reuniones") && ["direccion", "profesor", "apoderado"].includes(ctx.rol);
-  const [eventos, tareas, reuniones] = await Promise.all([
+  // Evaluaciones de Notas (specs/11): una por evaluación aunque tenga varias columnas (competencias). Solo tienen fecha.
+  const verEvaluaciones = tieneFeature(ctx, "notas");
+  const diaDesde = new Date(`${fechaLima(desde)}T00:00:00.000Z`);
+  const diaHasta = new Date(`${fechaLima(new Date(hasta.getTime() - 1))}T00:00:00.000Z`);
+  const [eventos, tareas, reuniones, evaluaciones] = await Promise.all([
     ctx.db.eventoAgenda.findMany({
       where: { inicio: rango, OR: [{ salonId: null }, { salonId: { in: salonIds } }] },
       include: { salon: { select: { nombre: true } } },
@@ -61,6 +67,13 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
           include: { salon: { select: { nombre: true } } },
         })
       : Promise.resolve([]),
+    verEvaluaciones
+      ? ctx.db.evaluacion.findMany({
+          where: { fecha: { gte: diaDesde, lte: diaHasta }, curso: { salonId: { in: salonIds } } },
+          distinct: ["grupoId"],
+          select: { grupoId: true, titulo: true, descripcion: true, fecha: true, curso: { select: { nombre: true, salon: { select: { nombre: true } } } } },
+        })
+      : Promise.resolve([]),
   ]);
   const items: ItemAgenda[] = [
     ...reuniones.map((r) => ({
@@ -74,6 +87,13 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
       eliminable: ctx.rol === "direccion" || ((ctx.rol === "profesor" || ctx.rol === "administrativo") && e.creadoPorId === ctx.membership.id),
       adjuntos: [],
     })),
+    ...evaluaciones
+      .map((e) => ({
+        id: e.grupoId, tipo: "examen" as const, titulo: `Evaluación: ${e.titulo}`, descripcion: e.descripcion,
+        inicio: instanteLima(e.fecha.toISOString().slice(0, 10), "00:00"), fin: null,
+        ambito: `${e.curso.nombre} · ${e.curso.salon.nombre}`, eliminable: false, adjuntos: [], href: "/notas", sinHora: true,
+      }))
+      .filter((e) => e.inicio >= desde && e.inicio < hasta),
     ...(await Promise.all(tareas.map(async (t) => ({
       id: t.id, tipo: "entrega" as const, titulo: `Entrega: ${t.titulo}`, descripcion: t.descripcion, inicio: t.fechaEntrega, fin: null,
       ambito: `${t.curso.nombre} · ${t.curso.salon.nombre}`, eliminable: false,

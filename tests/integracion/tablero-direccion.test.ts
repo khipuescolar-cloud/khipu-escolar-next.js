@@ -127,9 +127,9 @@ describe("tablero de dirección", () => {
     const k = await consolidadoNotas(dir, { salonId: c.salon.id, periodoId });
     expect(k.columnas.map((x) => x.competencia)).toEqual(["Resuelve problemas de cantidad", "Resuelve problemas de forma", "Resuelve problemas de datos"]);
     expect(k.filas.map((f) => f.nombre)).toEqual(["Quispe, Mateo", "Ríos, Valentina"]);
-    expect(k.filas[1].valores.map((v) => v?.valorLiteral)).toEqual(["AD", "A", "B"]); // la 3.ª sale de la nota (sugerida)
+    // Solo calificaciones confirmadas: la 3.ª competencia de Valentina tiene notas pero no calificación del periodo.
+    expect(k.filas[1].valores.map((v) => v?.valorLiteral ?? null)).toEqual(["AD", "A", null]);
     expect(k.filas[0].valores[2]).toBeNull();
-    expect(k.sugeridas).toBe(1);
 
     const libro = new ExcelJS.Workbook();
     await libro.xlsx.load((await consolidadoAExcel(k)) as unknown as ArrayBuffer);

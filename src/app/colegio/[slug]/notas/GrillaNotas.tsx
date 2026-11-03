@@ -1,12 +1,12 @@
 "use client";
 
-import { AlertTriangle, CheckCircle2, ClipboardList, Loader2 } from "lucide-react";
+import { AlertTriangle, CheckCircle2, ClipboardList, EyeOff, Loader2 } from "lucide-react";
 import { Fragment, useState } from "react";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { CLASE_CAMPO } from "@/components/ui/Selector";
 import {
   LITERALES, ETIQUETA_LITERAL, NOMBRE_INSTRUMENTO, formatearNumero, interpretarValor, sugerirCalificacion, textoValor,
-  type CalculoLiteral, type Escala, type Instrumento, type Literal,
+  type SugerenciaPeriodo, type Escala, type Instrumento, type Literal,
 } from "@/lib/calificaciones";
 import { cn } from "@/lib/utils";
 import { guardarNotaAction } from "./actions";
@@ -14,12 +14,15 @@ import { ComentarioNota } from "./ComentarioNota";
 
 type Estado = { fase: "guardando" } | { fase: "guardado" } | { fase: "error"; mensaje: string };
 
-type Evaluacion = { id: string; titulo: string; fecha: string; peso: number; competenciaId: string | null; instrumento: Instrumento | null };
+type Evaluacion = {
+  id: string; titulo: string; fecha: string; peso: number; competenciaId: string | null; instrumento: Instrumento | null;
+  estado: "programada" | "publicada";
+};
 
 type Props = {
   slug: string;
   escala: Escala;
-  calculo: CalculoLiteral;
+  calculo: SugerenciaPeriodo;
   editable: boolean;
   alumnos: { id: string; nombres: string; apellidos: string }[];
   competencias: { id: string; nombre: string }[];
@@ -40,8 +43,8 @@ function agrupar(competencias: Props["competencias"], evaluaciones: Evaluacion[]
 }
 
 /**
- * Registro auxiliar: alumnos × evaluaciones, agrupadas por competencia, con el promedio de cada competencia que se
- * recalcula al poner notas (la misma regla que la calificación sugerida del periodo). Cada celda se guarda sola al
+ * Registro auxiliar: alumnos × evaluaciones, agrupadas por competencia. Solo si el colegio activó una regla provisional
+ * de sugerencia, cada competencia termina en una columna «Promedio · provisional» que se recalcula al poner notas. Cada celda se guarda sola al
  * cambiar (literal) o al salir del campo (0–20). Se desplaza dentro de su tarjeta y la columna del alumno queda fija.
  * Celdas de 40 px (specs/18 §8).
  */
@@ -63,6 +66,7 @@ export function GrillaNotas({ slug, escala, calculo, editable, alumnos, competen
   }
 
   const grupos = agrupar(competencias, evaluaciones);
+  const conPromedio = calculo !== "ninguna";
   /** Promedio en vivo de la competencia con lo que hay en la rejilla (misma regla que la calificación sugerida). */
   function promedio(lista: Evaluacion[], alumnoId: string) {
     const items = lista.flatMap((e) => {
@@ -90,7 +94,7 @@ export function GrillaNotas({ slug, escala, calculo, editable, alumnos, competen
             <th scope="col" rowSpan={2} className="sticky left-0 z-10 min-w-44 border-r bg-muted px-3 py-2.5 align-bottom font-semibold">Alumno</th>
             {grupos.map((g) => (
               <th
-                key={g.id || "sueltas"} scope="colgroup" colSpan={g.evaluaciones.length + (g.id ? 1 : 0)}
+                key={g.id || "sueltas"} scope="colgroup" colSpan={g.evaluaciones.length + (g.id && conPromedio ? 1 : 0)}
                 className="max-w-80 border-b border-l px-3 pt-2.5 pb-1.5 text-cuerpo-sm font-semibold text-foreground"
               >
                 <span className="line-clamp-2">{g.nombre}</span>
@@ -103,15 +107,20 @@ export function GrillaNotas({ slug, escala, calculo, editable, alumnos, competen
                 {g.evaluaciones.map((e, i) => (
                   <th key={e.id} scope="col" className={cn("min-w-32 px-3 py-2 align-bottom font-semibold", i === 0 && "border-l")}>
                     <span className="block">{e.titulo}</span>
+                    {e.estado === "programada" && (
+                      <span className="inline-flex items-center gap-1 text-cuerpo-sm font-normal text-muted-foreground">
+                        <EyeOff className="size-3" strokeWidth={2} aria-hidden />Borrador
+                      </span>
+                    )}
                     <span className="block text-cuerpo-sm font-normal text-muted-foreground">
-                      {e.instrumento && <>{NOMBRE_INSTRUMENTO[e.instrumento]} · </>}{e.fecha.slice(8, 10)}/{e.fecha.slice(5, 7)} · peso {formatearNumero(e.peso)}
+                      {e.instrumento && <>{NOMBRE_INSTRUMENTO[e.instrumento]} · </>}{e.fecha.slice(8, 10)}/{e.fecha.slice(5, 7)}{conPromedio && ` · peso ${formatearNumero(e.peso)}`}
                     </span>
                   </th>
                 ))}
-                {g.id && (
+                {g.id && conPromedio && (
                   <th scope="col" className="min-w-24 bg-secondary/60 px-3 py-2 align-bottom font-semibold">
                     <span className="block">Promedio</span>
-                    <span className="block text-cuerpo-sm font-normal text-muted-foreground">sugerido</span>
+                    <span className="block text-cuerpo-sm font-normal text-muted-foreground">provisional</span>
                   </th>
                 )}
               </Fragment>
@@ -179,7 +188,7 @@ export function GrillaNotas({ slug, escala, calculo, editable, alumnos, competen
                   </td>
                 );
               })}
-              {g.id && <CeldaPromedio valor={promedio(g.evaluaciones, a.id)} alumno={a.nombres} competencia={g.nombre} />}
+              {g.id && conPromedio && <CeldaPromedio valor={promedio(g.evaluaciones, a.id)} alumno={a.nombres} competencia={g.nombre} />}
                 </Fragment>
               ))}
             </tr>

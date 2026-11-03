@@ -152,6 +152,8 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       reunion_acta: { colegio, titulo: "Reunión de padres", fecha: "2026-11-05", hora: "18:00", url: "http://r" },
       libreta_publicada: { colegio, alumno: "Mateo", periodo: "III Bimestre 2026", url: "http://l" },
       informe_progreso: { colegio, alumno: "Mateo", curso: "Matemática", periodo: "I Trimestre 2027", url: "http://n" },
+      evaluacion_programada: { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", fecha: "2026-11-22", url: "http://n" },
+      resultados_publicados: { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", url: "http://n" },
       alerta_rebote: { colegio, apoderado: "Rosa Quispe", alumnos: ["Mateo"], motivo: "su correo rebotó", url: "http://a" },
       soporte_inicio: { colegio, hasta: "15:30", motivo: "Revisar la asistencia", url: "http://s" },
       soporte_respuesta: { colegio, asunto: "No llegan los correos", url: "http://s/soporte/1" },
@@ -207,6 +209,16 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(m.asunto).toBe("Informe de progreso de Matemática");
     expect(m.texto).toContain("El informe de progreso de Mateo en Matemática (I Trimestre 2027) ya está disponible.");
     expect(m.texto).toContain("Ver el informe: http://n");
+  });
+
+  it("evaluación programada y resultados publicados: curso, título y fecha, sin emojis", () => {
+    const p = { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", fecha: "2026-11-22", descripcion: "Traer diccionario.", url: "http://n" };
+    const m = renderizarPlantilla("evaluacion_programada", p);
+    expect(m.texto).toContain("Mateo tendrá la evaluación «Examen trimestral» de Comunicación el 22/11/2026.");
+    expect(m.texto).toContain("Traer diccionario.");
+    const r = renderizarPlantilla("resultados_publicados", { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", url: "http://n" });
+    expect(r.asunto).toBe("Resultados de Comunicación: Examen trimestral");
+    expect(r.texto).toContain("Ver resultados: http://n");
   });
 
   it("alerta de rebote a dirección: nombra a la familia, el motivo y no lleva emojis", () => {

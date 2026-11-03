@@ -54,6 +54,7 @@ test.beforeAll(async () => {
 test.afterAll(async () => {
   if (!ids.salon) return;
   await sql(`delete from avisos where plantilla = 'informe_progreso' and referencia_id = $1`, [ids.curso]);
+  await sql(`delete from avisos where referencia_id in (select grupo_id::text from evaluaciones where curso_id = $1)`, [ids.curso]);
   await sql(`delete from evaluaciones where curso_id = $1`, [ids.curso]);
   await sql(`delete from envios_informe_progreso where curso_id = $1`, [ids.curso]);
   await sql(`delete from informes_progreso where alumno_id = $1`, [ids.alumno]);
@@ -61,7 +62,7 @@ test.afterAll(async () => {
   await sql(`delete from salones where id = $1`, [ids.salon]);
 });
 
-test("una prueba de dos competencias da una nota por competencia y el promedio se ve al momento", async ({ page }) => {
+test("programa una prueba de dos competencias, pone notas en borrador y publica los resultados", async ({ page }) => {
   await entrar(page, "lucia.garcia@nuevohorizonte.demo");
   await page.goto(colegio(`/notas?curso=${ids.curso}&periodo=${ids.periodo}`));
   await expect(page.getByRole("link", { name: "Registro auxiliar" })).toBeVisible();
@@ -70,27 +71,40 @@ test("una prueba de dos competencias da una nota por competencia y el promedio s
   const dialogo = page.getByRole("dialog");
   await dialogo.getByLabel("Título").fill("Prueba escrita 1");
   await dialogo.getByLabel("Instrumento").selectOption("prueba_escrita");
+  await dialogo.getByLabel(/Descripción/).fill("Comprensión lectora y producción de textos.");
+  await expect(dialogo.getByRole("checkbox", { name: /Avisar a las familias/ })).toBeChecked();
   await dialogo.getByRole("checkbox", { name: "Lee diversos tipos de textos" }).check();
   await dialogo.getByRole("checkbox", { name: "Escribe diversos tipos de textos" }).check();
   await expect(dialogo.getByText("2 columnas, una nota por competencia")).toBeVisible();
   await dialogo.getByRole("button", { name: "Crear evaluación" }).click();
-  await expect(page.getByText("Evaluación creada: una columna por cada una de sus 2 competencias.")).toBeVisible();
+  await expect(page.getByText(/^Evaluación creada: una columna por cada una de sus 2 competencias\./)).toBeVisible();
 
   const tabla = page.getByRole("table");
   await expect(tabla.getByRole("columnheader", { name: "Lee diversos tipos de textos" })).toBeVisible();
   await expect(tabla.getByRole("columnheader", { name: "Escribe diversos tipos de textos" })).toBeVisible();
   await expect(tabla.getByText(/Prueba escrita ·/).first()).toBeVisible();
+  await expect(tabla.getByText("Borrador").first()).toBeVisible();
+  // Sin sugerencia (por defecto) no hay columna de promedio.
+  await expect(tabla.getByRole("columnheader", { name: /Promedio/ })).toHaveCount(0);
 
   await page.getByRole("combobox", { name: "Nota de Ana en Prueba escrita 1" }).first().selectOption("A");
-  await expect(page.getByLabel("Promedio de Ana en Lee diversos tipos de textos: A, Logro esperado")).toBeVisible();
   await expect(page.getByRole("status").filter({ hasText: "Guardado" })).toBeVisible();
+
+  await page.reload();
+  await expect(page.getByText("Programada · borrador")).toBeVisible();
+  await page.getByRole("button", { name: "Publicar resultados de Prueba escrita 1" }).click();
+  await page.getByRole("alertdialog").getByRole("button", { name: "Publicar resultados" }).click();
+  await expect(page.getByText(/^Resultados publicados\./)).toBeVisible();
+  await expect(page.getByText("Publicada", { exact: true })).toBeVisible();
+  await page.getByText(/Historial de cambios \(1\)/).click();
+  await expect(page.getByText(/sin nota → A/)).toBeVisible();
 });
 
 test("la profesora escribe y comparte el informe de progreso", async ({ page }) => {
   await entrar(page, "lucia.garcia@nuevohorizonte.demo");
   await page.goto(colegio(`/notas?curso=${ids.curso}&periodo=${ids.periodo}&seccion=informe`));
   await expect(page.getByText("Aún no compartido")).toBeVisible();
-  await expect(page.getByText(/Va en A según 1 nota/)).toBeVisible();
+  await expect(page.getByText("Notas del periodo (1)")).toBeVisible();
   await page.getByLabel(/Qué ha logrado/).fill("Identifica la idea principal del texto.");
   await page.getByLabel(/Qué recomendamos reforzar/).fill("Leer 15 minutos cada día.");
   await page.getByRole("button", { name: "Guardar informe" }).click();

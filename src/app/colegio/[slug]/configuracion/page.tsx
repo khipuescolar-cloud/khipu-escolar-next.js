@@ -96,11 +96,14 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
                 <option value="literal">Literal (AD, A, B, C)</option>
                 <option value="vigesimal">Vigesimal (0 a 20)</option>
               </Selector>
-              <Selector etiqueta="Calificación sugerida del periodo (escala literal)" name="calculoLiteral" defaultValue={t.calculoLiteral}>
-                <option value="promedio">Promedio de las notas (AD = 4, A = 3, B = 2, C = 1)</option>
-                <option value="frecuente">La nota más frecuente</option>
+              <Selector etiqueta="Sugerencia de la calificación del periodo" name="sugerenciaPeriodo" defaultValue={t.sugerenciaPeriodo}>
+                <option value="ninguna">Sin sugerencia: el profesor la pone mirando sus notas</option>
+                <option value="promedio">Provisional: promedio de las notas (literal: AD = 4, A = 3, B = 2, C = 1)</option>
+                <option value="frecuente">Provisional: la nota más frecuente (vigesimal: promedio)</option>
               </Selector>
-              <p className="text-cuerpo-sm text-muted-foreground">El profesor siempre la confirma o la cambia. En la escala vigesimal se usa el promedio con pesos.</p>
+              <p className="text-cuerpo-sm text-muted-foreground">
+                Las reglas provisionales aún no están validadas con docentes. Con cualquiera, el profesor confirma o cambia la calificación.
+              </p>
             </Seccion>
           </div>
 

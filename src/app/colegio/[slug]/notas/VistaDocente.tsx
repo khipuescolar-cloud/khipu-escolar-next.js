@@ -1,4 +1,6 @@
-import { BookMarked, CalendarDays, CheckCircle2, Download, GraduationCap, Info, Lock, Pencil, Plus, Send, Target } from "lucide-react";
+import {
+  BookMarked, CalendarDays, CheckCircle2, Download, Eye, EyeOff, GraduationCap, History, Info, ListChecks, Lock, Pencil, Plus, Send, Target,
+} from "lucide-react";
 import Link from "next/link";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
@@ -12,15 +14,16 @@ import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { ETIQUETA_LITERAL, INSTRUMENTOS, LITERALES, NOMBRE_INSTRUMENTO, formatearNumero, textoCalculo, type Instrumento } from "@/lib/calificaciones";
-import { fechaLima } from "@/lib/fechas";
+import { fechaLima, formatoHora } from "@/lib/fechas";
+import { Textarea } from "@/components/ui/textarea";
 import { desempenosParaEvaluar } from "@/lib/server/cneb";
 import {
-  calificacionesPeriodo, cierreDeCurso, cursosDelDocente, grillaNotas, informesProgreso, listarPeriodos, periodoEnCurso,
+  calificacionesPeriodo, cierreDeCurso, cursosDelDocente, grillaNotas, historialEvaluacion, informesProgreso, listarPeriodos, periodoEnCurso,
 } from "@/lib/server/notas";
 import type { TenantContext } from "@/lib/server/tenant";
 import {
   cerrarCursoAction, compartirInformeAction, crearCompetenciaAction, crearEvaluacionAction, reabrirCursoAction, editarEvaluacionAction,
-  eliminarCompetenciaAction, eliminarEvaluacionAction,
+  eliminarCompetenciaAction, eliminarEvaluacionAction, publicarEvaluacionAction,
 } from "./actions";
 import { CompetenciaYDesempenos } from "./CompetenciaYDesempenos";
 import { CompetenciasYDesempenos } from "./CompetenciasYDesempenos";
@@ -216,8 +219,8 @@ async function BotonNuevaEvaluacion({ slug, ctx, cursoId, periodoId }: { slug: s
   return (
     <DialogoAccion
       disparador={<><Plus strokeWidth={2} aria-hidden />Nueva evaluación</>}
-      titulo="Nueva evaluación"
-      descripcion="Aparecerá en el registro auxiliar con una columna por cada competencia que evalúe."
+      titulo="Programar evaluación"
+      descripcion="Prográmala con su fecha. Aparecerá en el registro auxiliar con una columna por cada competencia que evalúe."
       etiqueta="Crear evaluación"
       accion={crearEvaluacionAction.bind(null, slug)}
     >
@@ -225,9 +228,17 @@ async function BotonNuevaEvaluacion({ slug, ctx, cursoId, periodoId }: { slug: s
       <input type="hidden" name="periodoId" value={periodoId} />
       <Campo etiqueta="Título" name="titulo" required maxLength={120} placeholder="Prueba escrita 1" />
       <SelectorInstrumento />
-      <CompetenciasYDesempenos competencias={g.competencias} porCompetencia={opciones.porCompetencia} textoGrado={opciones.textoGrado} />
       <Campo etiqueta="Fecha" name="fecha" type="date" required defaultValue={fechaLima(new Date())} />
-      <Campo etiqueta="Peso" name="peso" type="number" min={0.01} step={0.01} defaultValue={1} required ayuda="Cuánto cuenta en el promedio." />
+      <CampoPeso usaPeso={g.calculo !== "ninguna"} />
+      <CampoDescripcion />
+      <label className="flex cursor-pointer items-start gap-2.5 text-sm sm:col-span-2">
+        <input type="checkbox" name="avisar" defaultChecked className="mt-0.5 size-4 shrink-0 accent-primary" />
+        <span>
+          <span className="font-medium">Avisar a las familias que está programada</span>
+          <span className="block text-muted-foreground">Las notas quedan en borrador hasta que publiques los resultados.</span>
+        </span>
+      </label>
+      <CompetenciasYDesempenos competencias={g.competencias} porCompetencia={opciones.porCompetencia} textoGrado={opciones.textoGrado} />
     </DialogoAccion>
   );
 }
@@ -245,64 +256,169 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
         </p>
       )}
       <p className="max-w-prose text-cuerpo-sm text-muted-foreground">
-        Las evaluaciones van agrupadas por competencia. El promedio de cada competencia se calcula al momento con{" "}
-        {textoCalculo(g.escala, g.calculo)}; es la calificación que se sugiere al cerrar el periodo.
+        Las evaluaciones van agrupadas por competencia.{" "}
+        {textoCalculo(g.escala, g.calculo)
+          ? <>El promedio provisional de cada competencia se calcula al momento con {textoCalculo(g.escala, g.calculo)}.</>
+          : <>La calificación de cada competencia en el periodo la pones tú en «Calificación del periodo».</>}
       </p>
       <GrillaNotas
         slug={slug} escala={g.escala} calculo={g.calculo} editable={g.editable} alumnos={g.alumnos}
         competencias={g.competencias} evaluaciones={g.evaluaciones} notas={g.notas}
       />
 
-      {puedeEditar && g.evaluaciones.length > 0 && (
-        <Card>
-          <CardHeader>
-            <h2 className="font-titulo text-cuerpo font-semibold">Editar evaluaciones</h2>
-            <CardDescription>Cambia el título, el instrumento, la competencia, la fecha o el peso. Al eliminar una evaluación también se borran sus notas.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ul className="divide-y">
-              {g.evaluaciones.map((e) => (
-                <li key={e.id} className="flex flex-wrap items-center justify-between gap-3 py-3 first:pt-0 last:pb-0">
-                  <div className="min-w-0">
-                    <p className="font-medium">{e.columna}</p>
-                    <p className="text-cuerpo-sm text-muted-foreground">
-                      {e.instrumento && `${NOMBRE_INSTRUMENTO[e.instrumento]} · `}{e.fecha} · peso {formatearNumero(e.peso)}
-                      {e.desempenoIds.length > 0 && ` · ${e.desempenoIds.length} ${e.desempenoIds.length === 1 ? "desempeño" : "desempeños"}`}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <DialogoAccion
-                      disparador={<><Pencil strokeWidth={2} aria-hidden />Editar<span className="sr-only"> {e.titulo}</span></>}
-                      variante="outline"
-                      titulo={`Editar ${e.titulo}`}
-                      etiqueta="Guardar cambios"
-                      accion={editarEvaluacionAction.bind(null, slug, e.id)}
-                    >
-                      <Campo etiqueta="Título" name="titulo" required defaultValue={e.titulo} />
-                      <SelectorInstrumento defecto={e.instrumento} />
-                      <CompetenciaYDesempenos
-                        competencias={g.competencias} porCompetencia={opciones.porCompetencia} textoGrado={opciones.textoGrado}
-                        defecto={e.competenciaId} marcados={e.desempenoIds}
-                      />
-                      <Campo etiqueta="Fecha" name="fecha" type="date" required defaultValue={e.fecha} />
-                      <Campo etiqueta="Peso" name="peso" type="number" min={0.01} step={0.01} required defaultValue={e.peso} />
-                    </DialogoAccion>
-                    <BotonConfirmar
-                      etiqueta="Eliminar evaluación" variante="ghost" peligro
-                      titulo={`¿Eliminar «${e.titulo}»?`}
-                      descripcion="Se borran también las notas que ya pusiste en esta evaluación. No se puede deshacer."
-                      confirmar="Eliminar evaluación"
-                      accion={eliminarEvaluacionAction.bind(null, slug, e.id)}
-                    />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
+      {g.evaluaciones.length > 0 && (
+        <ListaEvaluaciones ctx={ctx} slug={slug} g={g} puedeEditar={puedeEditar} opciones={opciones} />
       )}
     </div>
   );
+}
+
+/**
+ * Evaluaciones del periodo agrupadas (una evaluación puede tener varias columnas, una por competencia): estado
+ * (Programada = borrador / Publicada), «Publicar resultados» o «Reenviar aviso», historial de cambios y, por columna,
+ * editar y eliminar.
+ */
+async function ListaEvaluaciones({
+  ctx, slug, g, puedeEditar, opciones,
+}: {
+  ctx: TenantContext; slug: string; g: Awaited<ReturnType<typeof grillaNotas>>; puedeEditar: boolean;
+  opciones: Awaited<ReturnType<typeof desempenosParaEvaluar>>;
+}) {
+  const grupos = [...new Set(g.evaluaciones.map((e) => e.grupoId))].map((grupoId) => g.evaluaciones.filter((e) => e.grupoId === grupoId));
+  const historiales = await Promise.all(grupos.map((cols) => historialEvaluacion(ctx, cols[0].grupoId)));
+  const conNota = new Set(g.notas.map((n) => n.evaluacionId));
+  const usaPeso = g.calculo !== "ninguna";
+  return (
+    <Card>
+      <CardHeader>
+        <h2 className="font-titulo text-cuerpo font-semibold">Evaluaciones del periodo</h2>
+        <CardDescription>
+          Las notas de una evaluación programada son un borrador: la familia las ve cuando publicas los resultados.
+          {puedeEditar && " Al eliminar una columna también se borran sus notas."}
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ul className="divide-y">
+          {grupos.map((cols, i) => {
+            const e = cols[0];
+            const publicada = cols.every((c) => c.estado === "publicada");
+            const hayNotas = cols.some((c) => conNota.has(c.id));
+            const historial = historiales[i];
+            return (
+              <li key={e.grupoId} className="flex flex-col gap-3 py-4 first:pt-0 last:pb-0">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="flex flex-wrap items-center gap-2 font-medium">
+                      {e.titulo}
+                      {publicada ? (
+                        <span className="inline-flex items-center gap-1 rounded-pildora bg-llego-fondo px-2 py-0.5 text-etiqueta text-llego"><Eye className="size-3.5" strokeWidth={2} aria-hidden />Publicada</span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 rounded-pildora bg-muted px-2 py-0.5 text-etiqueta text-muted-foreground"><EyeOff className="size-3.5" strokeWidth={2} aria-hidden />Programada · borrador</span>
+                      )}
+                    </p>
+                    <p className="text-cuerpo-sm text-muted-foreground">
+                      {e.instrumento && `${NOMBRE_INSTRUMENTO[e.instrumento]} · `}{e.fecha}
+                      {publicada && e.publicadaAt && ` · publicada el ${fechaLima(e.publicadaAt)}`}
+                    </p>
+                    {e.descripcion && <p className="mt-1 max-w-prose text-cuerpo-sm">{e.descripcion}</p>}
+                  </div>
+                  {ctx.rol === "profesor" && hayNotas && (
+                      <BotonConfirmar
+                        etiqueta={<><Send strokeWidth={2} aria-hidden />{publicada ? "Reenviar aviso" : "Publicar resultados"}<span className="sr-only"> de {e.titulo}</span></>}
+                        variante={publicada ? "outline" : "default"}
+                        titulo={publicada ? `¿Avisar otra vez los resultados de «${e.titulo}»?` : `¿Publicar los resultados de «${e.titulo}»?`}
+                        descripcion={
+                          publicada
+                            ? "Las familias de los alumnos con nota recibirán el aviso de nuevo."
+                            : "Las familias verán las notas de esta evaluación y recibirán un aviso. Si cambias una nota después, verán el cambio."
+                        }
+                        confirmar={publicada ? "Reenviar aviso" : "Publicar resultados"}
+                        accion={publicarEvaluacionAction.bind(null, slug, e.grupoId, publicada)}
+                      />
+                  )}
+                </div>
+                <ul className="flex flex-col gap-2">
+                  {cols.map((c) => (
+                    <li key={c.id} className="flex flex-wrap items-center justify-between gap-2 rounded-md bg-muted/50 px-3 py-2">
+                      <p className="min-w-0 text-cuerpo-sm">
+                        <span className="font-medium">{g.competencias.find((x) => x.id === c.competenciaId)?.nombre ?? "Sin competencia"}</span>
+                        <span className="text-muted-foreground">
+                          {usaPeso && ` · peso ${formatearNumero(c.peso)}`}
+                          {c.desempenoIds.length > 0 && ` · ${c.desempenoIds.length} ${c.desempenoIds.length === 1 ? "desempeño" : "desempeños"}`}
+                        </span>
+                      </p>
+                      {puedeEditar && (
+                        <div className="flex items-center gap-1">
+                          <DialogoAccion
+                            disparador={<><Pencil strokeWidth={2} aria-hidden />Editar<span className="sr-only"> {c.columna}</span></>}
+                            variante="outline"
+                            titulo={`Editar ${c.columna}`}
+                            descripcion={cols.length > 1 ? "Título, fecha, instrumento y descripción cambian en todas las columnas de esta evaluación." : undefined}
+                            etiqueta="Guardar cambios"
+                            accion={editarEvaluacionAction.bind(null, slug, c.id)}
+                          >
+                            <Campo etiqueta="Título" name="titulo" required defaultValue={c.titulo} />
+                            <SelectorInstrumento defecto={c.instrumento} />
+                            <CampoDescripcion defecto={c.descripcion} />
+                            <CompetenciaYDesempenos
+                              competencias={g.competencias} porCompetencia={opciones.porCompetencia} textoGrado={opciones.textoGrado}
+                              defecto={c.competenciaId} marcados={c.desempenoIds}
+                            />
+                            <Campo etiqueta="Fecha" name="fecha" type="date" required defaultValue={c.fecha} />
+                            <CampoPeso usaPeso={usaPeso} defecto={c.peso} />
+                          </DialogoAccion>
+                          <Link href={`/notas/criterios?evaluacion=${c.id}`} className={buttonVariants({ variant: "ghost" })}>
+                            <ListChecks strokeWidth={2} aria-hidden />Criterios<span className="sr-only"> de {c.columna}</span>
+                          </Link>
+                          <BotonConfirmar
+                            etiqueta="Eliminar" variante="ghost" peligro
+                            titulo={`¿Eliminar «${c.columna}»?`}
+                            descripcion="Se borran también las notas de esta columna. No se puede deshacer."
+                            confirmar="Eliminar columna"
+                            accion={eliminarEvaluacionAction.bind(null, slug, c.id)}
+                          />
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                {historial.length > 0 && (
+                  <details className="text-cuerpo-sm">
+                    <summary className="cursor-pointer font-medium text-primary">
+                      <History className="mr-1 inline size-3.5 align-[-2px]" strokeWidth={2} aria-hidden />Historial de cambios ({historial.length})
+                    </summary>
+                    <ul className="mt-2 flex max-h-64 flex-col gap-1 overflow-y-auto">
+                      {historial.map((h) => (
+                        <li key={h.id} className="text-muted-foreground">
+                          <span className="tabular-nums">{fechaLima(h.cambiadoAt)} {formatoHora(h.cambiadoAt)}</span> · {h.alumno}
+                          {h.competencia && ` · ${h.competencia}`}: <strong className="text-foreground">{h.anterior ?? "sin nota"} → {h.nuevo ?? "sin nota"}</strong> · {h.por}
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </CardContent>
+    </Card>
+  );
+}
+
+function CampoDescripcion({ defecto }: { defecto?: string | null }) {
+  return (
+    <label className="flex flex-col gap-1.5 text-sm sm:col-span-2">
+      <span className="font-medium">Descripción <span className="font-normal text-muted-foreground">(opcional: temas, qué traer)</span></span>
+      <Textarea name="descripcion" rows={2} maxLength={500} defaultValue={defecto ?? ""} />
+    </label>
+  );
+}
+
+/** El peso solo sirve a la sugerencia provisional del colegio; sin sugerencia queda oculto (vale 1). */
+function CampoPeso({ usaPeso, defecto = 1 }: { usaPeso: boolean; defecto?: number }) {
+  if (!usaPeso) return <input type="hidden" name="peso" value={defecto} />;
+  return <Campo etiqueta="Peso" name="peso" type="number" min={0.01} step={0.01} required defaultValue={defecto} ayuda="Solo lo usa la sugerencia provisional del colegio." />;
 }
 
 function SelectorInstrumento({ defecto }: { defecto?: Instrumento | null }) {
@@ -373,7 +489,7 @@ async function SeccionInforme({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
           <li key={`${fila.competencia.id}:${a.alumno.id}`}>
             <FilaInforme
               slug={slug} editable={inf.editable} alumno={a.alumno} competenciaId={fila.competencia.id} periodoId={periodoId}
-              informe={a.informe} sugerido={a.sugerido} cantidadNotas={a.cantidadNotas}
+              informe={a.informe} notas={a.notas}
             />
           </li>
         ))}
@@ -397,8 +513,9 @@ async function SeccionPeriodo({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
   return (
     <div className="flex flex-col gap-4">
       <p className="max-w-prose text-cuerpo-sm text-muted-foreground">
-        La calificación sugerida sale de las notas del periodo ({textoCalculo(c.escala, c.calculo)}).
-        Tú la confirmas o la cambias.
+        {textoCalculo(c.escala, c.calculo)
+          ? <>Khipu sugiere una calificación provisional ({textoCalculo(c.escala, c.calculo)}). Tú la confirmas o la cambias.</>
+          : <>Mira las notas del periodo de cada alumno y pon la calificación de la competencia.</>}
         {c.escala === "literal" && " En B y C la conclusión descriptiva es obligatoria."}
       </p>
       <NavegacionPildoras
@@ -415,7 +532,7 @@ async function SeccionPeriodo({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
             <FilaCalificacion
               slug={slug} escala={c.escala} editable={c.editable}
               alumno={a.alumno} competenciaId={fila.competencia.id} periodoId={periodoId}
-              guardado={a.guardado} sugerido={a.sugerido} cantidadNotas={a.cantidadNotas} desempenos={a.desempenos}
+              guardado={a.guardado} sugerido={a.sugerido} notas={a.notas} desempenos={a.desempenos}
             />
           </li>
         ))}

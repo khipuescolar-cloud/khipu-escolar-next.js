@@ -3,10 +3,13 @@
 export const LITERALES = ["AD", "A", "B", "C"] as const;
 export type Literal = (typeof LITERALES)[number];
 export type Escala = "literal" | "vigesimal";
-/** Cómo se sugiere la calificación literal del periodo: promedio (con pesos) o la más frecuente. */
-export type CalculoLiteral = "promedio" | "frecuente";
+/**
+ * Si Khipu sugiere la calificación del periodo y cómo (specs/11). Por defecto «ninguna»: el profesor la pone mirando sus
+ * notas. «promedio» y «frecuente» son reglas PROVISIONALES, no validadas con docentes; dirección puede activarlas.
+ */
+export type SugerenciaPeriodo = "ninguna" | "promedio" | "frecuente";
 
-/** Valor de cada literal para promediar: AD = 4, A = 3, B = 2, C = 1. */
+/** Valor de cada literal para la regla provisional «promedio»: AD = 4, A = 3, B = 2, C = 1 (no validado). */
 export const PUNTOS_LITERAL: Record<Literal, number> = { AD: 4, A: 3, B: 2, C: 1 };
 
 export const INSTRUMENTOS = ["prueba_escrita", "lista_cotejo", "rubrica", "ficha_observacion", "otro"] as const;
@@ -134,8 +137,9 @@ export type NotaParaSugerir = {
   fecha: Date | string;
 };
 
-/** Valor sugerido para una competencia según la escala (y, en literal, el cálculo) del colegio. */
-export function sugerirCalificacion(escala: Escala, notas: NotaParaSugerir[], calculo: CalculoLiteral = "promedio"): ValorCalificacion | null {
+/** Valor sugerido para una competencia según la escala y la regla del colegio; con «ninguna», nunca sugiere. */
+export function sugerirCalificacion(escala: Escala, notas: NotaParaSugerir[], calculo: SugerenciaPeriodo): ValorCalificacion | null {
+  if (calculo === "ninguna") return null;
   if (escala === "vigesimal") {
     const v = sugerirVigesimal(
       notas.filter((n) => n.valorNumerico !== null).map((n) => ({ valor: n.valorNumerico as number, peso: n.peso })),
@@ -149,8 +153,9 @@ export function sugerirCalificacion(escala: Escala, notas: NotaParaSugerir[], ca
   return l === null ? null : { valorLiteral: l, valorNumerico: null };
 }
 
-/** Cómo se explica la sugerencia al profesor. */
-export function textoCalculo(escala: Escala, calculo: CalculoLiteral): string {
+/** Cómo se explica la sugerencia (provisional) al profesor; null si el colegio no usa sugerencia. */
+export function textoCalculo(escala: Escala, calculo: SugerenciaPeriodo): string | null {
+  if (calculo === "ninguna") return null;
   if (escala === "vigesimal") return "el promedio con pesos, redondeado";
   return calculo === "promedio"
     ? "el promedio con pesos (AD = 4, A = 3, B = 2, C = 1), redondeado; 2,5 sube a A"

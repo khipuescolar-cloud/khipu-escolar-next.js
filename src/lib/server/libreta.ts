@@ -1,9 +1,11 @@
 import "server-only";
 import { forbidden } from "next/navigation";
+import { z } from "zod";
 import type { Literal, ValorCalificacion } from "@/lib/calificaciones";
 import { fechaDeColumnaDate } from "@/lib/fechas";
 import { libretaVisibleParaFamilia } from "@/lib/libreta-publicacion";
 import { esVistaFamilia, tituloProfesor } from "@/lib/roles";
+import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
 import { requireFeature } from "./plan";
 import { requireAlumnoVisible, type TenantContext } from "./tenant";
@@ -28,7 +30,7 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
 
   const cursos = await ctx.db.curso.findMany({ where: { salonId: alumno.salonId }, orderBy: { nombre: "asc" } });
   const cursoIds = cursos.map((c) => c.id);
-  const [competencias, califs, asistencias, evaluados] = await Promise.all([
+  const [competencias, califs, asistencias, evaluados, comentarioTutor] = await Promise.all([
     ctx.db.competencia.findMany({
       where: { cursoId: { in: cursoIds } },
       orderBy: [{ orden: "asc" }, { nombre: "asc" }],
@@ -42,6 +44,7 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
       select: { competenciaId: true, descripcion: true },
       orderBy: [{ orden: "asc" }, { descripcion: "asc" }],
     }),
+    ctx.db.comentarioTutor.findFirst({ where: { alumnoId, periodoId }, select: { texto: true } }),
   ]);
 
   // Asistencia: una fila por día. Si hay asistencia del día (portería/tutor) manda; si no, la del curso.
@@ -85,5 +88,43 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
         }),
     })),
     asistencia,
+    /** Comentario general del tutor del salón en el periodo (opcional). */
+    comentarioTutor: comentarioTutor?.texto ?? null,
+    /** El usuario es el tutor del salón y el periodo sigue abierto: puede escribir el comentario. */
+    puedeComentar: ctx.rol === "profesor" && alumno.salon.tutorId === ctx.membership.id && !periodo.cerrado,
   };
+}
+
+const esquemaComentario = z.object({
+  alumnoId: z.uuid(),
+  periodoId: z.uuid(),
+  texto: z.string().trim().max(1000, "El comentario es muy largo (máximo 1000 caracteres)."),
+});
+
+/**
+ * Comentario general del tutor para la libreta (specs/11). Solo el tutor del salón del alumno, con el periodo abierto y
+ * del nivel del alumno. Vacío lo borra. Es opcional: su obligatoriedad no está validada.
+ */
+export async function guardarComentarioTutor(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
+  requireFeature(ctx, "libreta");
+  const d = esquemaComentario.safeParse(entrada);
+  if (!d.success) return fallo(d.error.issues[0].message);
+  if (ctx.rol !== "profesor") forbidden();
+  const alumno = await ctx.db.alumno.findFirst({ where: { id: d.data.alumnoId, estado: "activo" }, include: { salon: { select: { tutorId: true, nivel: true } } } });
+  if (!alumno || alumno.salon.tutorId !== ctx.membership.id) forbidden();
+  const periodo = await ctx.db.periodo.findFirst({ where: { id: d.data.periodoId } });
+  if (!periodo || !periodo.niveles.includes(alumno.salon.nivel)) return fallo("Este periodo no es del nivel de este alumno.");
+  if (periodo.cerrado) return fallo("Este periodo está cerrado. El comentario ya no se puede cambiar.");
+  const clave = { alumnoId: alumno.id, periodoId: periodo.id };
+  if (d.data.texto === "") {
+    await ctx.db.comentarioTutor.deleteMany({ where: clave });
+  } else {
+    await ctx.db.comentarioTutor.upsert({
+      where: { alumnoId_periodoId: clave },
+      create: { tenantId: ctx.tenant.id, ...clave, texto: d.data.texto, autorId: ctx.membership.id },
+      update: { texto: d.data.texto, autorId: ctx.membership.id },
+    });
+  }
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "comentario_tutor", entidadId: alumno.id, detalle: { periodoId: periodo.id } });
+  return ok(d.data.texto === "" ? "Comentario borrado." : "Comentario guardado.");
 }

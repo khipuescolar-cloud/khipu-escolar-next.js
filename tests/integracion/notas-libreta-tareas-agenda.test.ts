@@ -147,10 +147,12 @@ describe("notas: escritura del profesor", () => {
     await expect(guardarNota(direccion, { evaluacionId: ids.evA, alumnoId: ids.a1, valor: "10" })).rejects.toMatchObject(PROHIBIDO);
   });
 
-  it("sugiere el promedio ponderado y guarda la calificación confirmada", async () => {
+  it("sin sugerencia por defecto; con la regla provisional, promedio ponderado; guarda la calificación confirmada", async () => {
     await guardarNota(profe, { evaluacionId: ids.evB, alumnoId: ids.a1, valor: "19" });
     const c = await calificacionesPeriodo(profe, ids.curso, ids.abierto);
-    const fila = c.filas[0].alumnos.find((a) => a.alumno.id === ids.a1)!;
+    expect(c.filas[0].alumnos.find((a) => a.alumno.id === ids.a1)!.sugerido).toBeNull();
+    const conRegla = { ...profe, tenant: { ...profe.tenant, sugerenciaPeriodo: "promedio" as const } };
+    const fila = (await calificacionesPeriodo(conRegla, ids.curso, ids.abierto)).filas[0].alumnos.find((a) => a.alumno.id === ids.a1)!;
     expect(fila.sugerido?.valorNumerico).toBe(18); // (15·1 + 19·3) / 4 = 18
     expect((await guardarCalificacionPeriodo(profe, { alumnoId: ids.a1, competenciaId: ids.comp, periodoId: ids.abierto, valor: "18", conclusion: "" })).ok).toBe(true);
   });

@@ -44,7 +44,7 @@ describe("flujo de evaluación", () => {
     expect(csv).toContain("Prueba escrita 1 · Lee diversos tipos de textos");
   });
 
-  it("la calificación sugerida es el promedio (A y B → A) por defecto", async () => {
+  it("por defecto Khipu no sugiere la calificación: muestra las notas; promedio y más frecuente son opcionales", async () => {
     const ctx = c.ctxDe("tutora");
     const ok = (r: unknown) => expect(r).toMatchObject({ ok: true });
     ok(await crearEvaluacion(ctx, { cursoId: c.cursoTutora.id, periodoId, competenciaIds: [lee.id], titulo: "Lista de cotejo", fecha: "2027-04-20", peso: "1", instrumento: "lista_cotejo" }));
@@ -52,13 +52,18 @@ describe("flujo de evaluación", () => {
     const deLee = g.evaluaciones.filter((e) => e.competenciaId === lee.id);
     ok(await guardarNota(ctx, { evaluacionId: deLee[0].id, alumnoId: c.alumnos.mateo.id, valor: "A" }));
     ok(await guardarNota(ctx, { evaluacionId: deLee[1].id, alumnoId: c.alumnos.mateo.id, valor: "B" }));
+    const deMateo = (cal: Awaited<ReturnType<typeof calificacionesPeriodo>>) =>
+      cal.filas.find((f) => f.competencia.id === lee.id)!.alumnos.find((a) => a.alumno.id === c.alumnos.mateo.id)!;
     const cal = await calificacionesPeriodo(ctx, c.cursoTutora.id, periodoId);
-    expect(cal.calculo).toBe("promedio");
-    const mateo = cal.filas.find((f) => f.competencia.id === lee.id)!.alumnos.find((a) => a.alumno.id === c.alumnos.mateo.id)!;
-    expect(mateo.sugerido).toEqual({ valorLiteral: "A", valorNumerico: null });
+    expect(cal.calculo).toBe("ninguna");
+    expect(deMateo(cal).sugerido).toBeNull();
+    expect(deMateo(cal).notas.map((n) => n.valor.valorLiteral)).toEqual(["A", "B"]);
 
-    await db.tenant.update({ where: { id: c.tenant.id }, data: { calculoLiteral: "frecuente" } });
-    const ctxFrecuente = { ...ctx, tenant: { ...ctx.tenant, calculoLiteral: "frecuente" as const } };
+    const ctxPromedio = { ...ctx, tenant: { ...ctx.tenant, sugerenciaPeriodo: "promedio" as const } };
+    expect(deMateo(await calificacionesPeriodo(ctxPromedio, c.cursoTutora.id, periodoId)).sugerido).toEqual({ valorLiteral: "A", valorNumerico: null });
+
+    await db.tenant.update({ where: { id: c.tenant.id }, data: { sugerenciaPeriodo: "frecuente" } });
+    const ctxFrecuente = { ...ctx, tenant: { ...ctx.tenant, sugerenciaPeriodo: "frecuente" as const } };
     const fr = await calificacionesPeriodo(ctxFrecuente, c.cursoTutora.id, periodoId);
     expect(fr.filas.find((f) => f.competencia.id === lee.id)!.alumnos.find((a) => a.alumno.id === c.alumnos.mateo.id)!.sugerido)
       .toEqual({ valorLiteral: "B", valorNumerico: null }); // empate: la más reciente

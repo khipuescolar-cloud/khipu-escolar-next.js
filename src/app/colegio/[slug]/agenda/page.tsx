@@ -145,7 +145,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
                                 <Icono className="size-3.5" strokeWidth={2} aria-hidden />{palabra}
                               </span>
                               <p className="font-medium">{it.titulo}</p>
-                              <p className="text-muted-foreground">{it.tipo === "entrega" ? "" : `${formatoHora(it.inicio)} · `}{it.ambito}</p>
+                              <p className="text-muted-foreground">{it.tipo === "entrega" || it.sinHora ? "" : `${formatoHora(it.inicio)} · `}{it.ambito}</p>
                               {it.descripcion && <p className="text-muted-foreground">{it.descripcion}</p>}
                               {it.href && <Link href={it.href} className="w-fit font-medium text-indigo-cielo underline-offset-2 hover:underline">Ver reunión y responder</Link>}
                               {it.adjuntos.length > 0 && <ListaAdjuntos adjuntos={it.adjuntos} />}

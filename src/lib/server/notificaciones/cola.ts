@@ -32,7 +32,7 @@ const ACTIVO_SEGUNDOS = 120;
 /** Plantillas dirigidas a familias: llevan enlace para ajustar avisos (solo si la fila es de un apoderado). */
 const PLANTILLAS_FAMILIA = new Set([
   "asistencia_llego", "asistencia_no_llega", "asistencia_tarde", "asistencia_falta", "asistencia_problema",
-  "mensaje_nuevo", "comunicado", "justificacion_revisada", "tarea_nueva", "libreta_publicada", "informe_progreso", "documento_nuevo",
+  "mensaje_nuevo", "comunicado", "justificacion_revisada", "tarea_nueva", "libreta_publicada", "informe_progreso", "evaluacion_programada", "resultados_publicados", "documento_nuevo",
   "reunion_convocada", "reunion_recordatorio", "reunion_cancelada", "reunion_acta",
 ]);
 

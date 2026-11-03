@@ -13,9 +13,8 @@ export type Consolidado = {
   periodo: { id: string; nombre: string };
   escala: Escala;
   columnas: ColumnaConsolidado[];
+  /** Solo calificaciones del periodo confirmadas por el profesor (sin sugeridas ni promedios). */
   filas: FilaConsolidado[];
-  /** Celdas sin calificación del profesor que muestran la sugerida por las notas registradas. */
-  sugeridas: number;
 };
 
 export type CeldaTabla = string | number | null;
@@ -36,14 +35,12 @@ export type TablaConsolidado = {
 
 const valorTexto = (v: Valor | null): CeldaTabla => (v === null ? null : v.valorLiteral ?? (v.valorNumerico === null ? null : v.valorNumerico));
 
-/** Resumen por alumno: competencias en riesgo y, en vigesimal, promedio de sus notas. */
-export function resumenAlumno(valores: readonly (Valor | null)[]): { enRiesgo: number; promedio: number | null } {
-  const conNota = valores.filter((v): v is Valor => v !== null);
-  const numericos = conNota.flatMap((v) => (v.valorNumerico === null ? [] : [v.valorNumerico]));
-  return {
-    enRiesgo: conNota.filter((v) => esRiesgo(nivelDeValor(v))).length,
-    promedio: numericos.length === 0 ? null : Math.round((numericos.reduce((s, n) => s + n, 0) / numericos.length) * 10) / 10,
-  };
+/**
+ * Resumen por alumno: competencias en riesgo. No hay promedio del alumno: sumar competencias equivaldría a una nota
+ * única del curso, que no está validada (specs/11).
+ */
+export function resumenAlumno(valores: readonly (Valor | null)[]): { enRiesgo: number } {
+  return { enRiesgo: valores.filter((v): v is Valor => v !== null).filter((v) => esRiesgo(nivelDeValor(v))).length };
 }
 
 /** % de logro esperado (AD/A o ≥14) de una columna. */
@@ -67,18 +64,17 @@ export function tablaDeConsolidado(c: Consolidado): TablaConsolidado {
   const leyenda = c.columnas.map((col, i) => ({ codigo: `C${i + 1}`, curso: col.curso, competencia: col.competencia }));
   const filas = c.filas.map<CeldaTabla[]>((f) => {
     const r = resumenAlumno(f.valores);
-    return [f.nombre, ...f.valores.map(valorTexto), ...(vigesimal ? [r.promedio] : []), r.enRiesgo];
+    return [f.nombre, ...f.valores.map(valorTexto), r.enRiesgo];
   });
-  const pie: CeldaTabla[] = ["% logro esperado", ...c.columnas.map((_, i) => logroDeColumna(c.filas.map((f) => f.valores[i]))), ...(vigesimal ? [null] : []), null];
+  const pie: CeldaTabla[] = ["% logro esperado", ...c.columnas.map((_, i) => logroDeColumna(c.filas.map((f) => f.valores[i]))), null];
   return {
     titulo: `Consolidado de notas · ${c.salon.nombre} · ${c.periodo.nombre}`,
     subtitulo: `${c.colegio} · ${c.filas.length} alumnos · escala ${vigesimal ? "vigesimal (0–20)" : "literal (AD, A, B, C)"}`,
     nota: `Logro esperado: ${vigesimal ? "14 o más" : "AD o A"}. En riesgo: ${vigesimal ? "menos de 11" : "C"}.`
-      + (c.sugeridas > 0 ? ` ${c.sugeridas} celda(s) sin calificación del profesor muestran la sugerida por las notas registradas.` : "")
-      + " Una celda vacía significa que aún no hay nota.",
+      + " Solo se muestran las calificaciones que el profesor confirmó; una celda vacía significa que aún no hay calificación.",
     archivo: nombreArchivoReporte(["consolidado-notas", c.salon.nombre, c.periodo.nombre]),
     grupos,
-    columnas: ["Alumno", ...c.columnas.map((col) => col.competencia), ...(vigesimal ? ["Promedio"] : []), "Competencias en riesgo"],
+    columnas: ["Alumno", ...c.columnas.map((col) => col.competencia), "Competencias en riesgo"],
     leyenda,
     filas,
     pie,
