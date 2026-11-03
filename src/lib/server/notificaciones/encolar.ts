@@ -2,10 +2,9 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import type { Prisma } from "@/generated/prisma/client";
 import type { CanalAviso, EstadoAsistencia, TipoAviso } from "@/generated/prisma/enums";
-import { isoDeFechaDb, sumarDias } from "@/lib/fechas";
+import { isoDeFechaDb } from "@/lib/fechas";
 import { expiracionJustificacion } from "@/lib/plazo-justificacion";
 import type { DbTenant } from "../db";
-import { feriadosAplicables } from "../plataforma-configuracion";
 import { saludoFamilia } from "@/lib/control-ingreso";
 import { renderizarPlantilla, type NombrePlantilla, type PayloadDe } from "../email/plantillas";
 import { envioParaAviso } from "./envios";
@@ -15,7 +14,7 @@ import { hashToken, tokenDerivado } from "../tokens";
 // consentimiento vigente (no revocado) y según `preferencias_aviso` (correo y/o push).
 
 // El enlace «Justificar falta» vence al fin del día (hora del colegio) del n-ésimo día hábil posterior a la falta,
-// con n = `Tenant.plazoJustificacionDiasHabiles` (15 por defecto; specs/07). Se cuenta desde la falta, no desde el envío.
+// con n = `Tenant.plazoJustificacionDias` (15 días calendario por defecto; specs/07). Se cuenta desde la falta, no desde el envío.
 
 export type Destinatario = {
   apoderadoId: string;
@@ -181,7 +180,6 @@ export async function crearTokenJustificacion(
 ): Promise<{ id: string; token: string }> {
   const id = randomUUID();
   const token = tokenDerivado("justificar", id);
-  const feriados = await feriadosAplicables(datos.tenantId, datos.fechaFalta, sumarDias(datos.fechaFalta, 90));
   await tdb.justificacionToken.create({
     data: {
       id,
@@ -189,7 +187,7 @@ export async function crearTokenJustificacion(
       asistenciaId: datos.asistenciaId,
       apoderadoId: datos.apoderadoId,
       tokenHash: hashToken(token),
-      expiraAt: expiracionJustificacion(datos.fechaFalta, datos.plazoDias, datos.zonaHoraria, feriados),
+      expiraAt: expiracionJustificacion(datos.fechaFalta, datos.plazoDias, datos.zonaHoraria),
     },
   });
   return { id, token };
@@ -214,7 +212,7 @@ export type AsistenciaParaAviso = {
 export async function encolarAvisosAsistencia(
   tdb: DbTenant,
   datos: {
-    tenant: { id: string; nombre: string; plazoJustificacionDiasHabiles?: number; zonaHoraria?: string };
+    tenant: { id: string; nombre: string; plazoJustificacionDias?: number; zonaHoraria?: string };
     asistencia: AsistenciaParaAviso;
     alumnoNombre: string;
     /** «a la 1.ª hora» o «a Matemática» (texto del aviso de falta). */
@@ -256,7 +254,7 @@ export async function encolarAvisosAsistencia(
       case "falta": {
         const { id } = await crearTokenJustificacion(tdb, {
           tenantId: tenant.id, asistenciaId: asistencia.id, apoderadoId: d.apoderadoId,
-          fechaFalta: isoDeFechaDb(asistencia.fecha), plazoDias: tenant.plazoJustificacionDiasHabiles, zonaHoraria: tenant.zonaHoraria,
+          fechaFalta: isoDeFechaDb(asistencia.fecha), plazoDias: tenant.plazoJustificacionDias, zonaHoraria: tenant.zonaHoraria,
         });
         filas = await encolarParaDestinatario(tdb, d, {
           ...base,

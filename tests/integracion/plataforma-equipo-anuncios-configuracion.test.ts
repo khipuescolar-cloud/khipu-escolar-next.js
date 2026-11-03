@@ -132,14 +132,14 @@ describe("feriados extra", () => {
     expect(lista.some((f) => f.nombre === `Propio ${sufijo}` && f.colegio)).toBe(true);
   });
 
-  it("un feriado extra corre el vencimiento de la justificación y quitarlo lo revierte", async () => {
+  it("un feriado extra no corre el vencimiento de la justificación (plazo en días calendario) y se puede quitar", async () => {
     const t = await colegio("Tacna");
     const sin = expiracionJustificacion("2026-11-02", 5);
     const f = await agregarFeriado(admin, { fecha: "2026-11-04", nombre: `Corre ${sufijo}`, alcance: "colegio", tenantId: t.id }).then(async () =>
       db.feriadoExtra.findFirstOrThrow({ where: { nombre: `Corre ${sufijo}` } }),
     );
-    const con = expiracionJustificacion("2026-11-02", 5, "America/Lima", await feriadosAplicables(t.id, "2026-11-02", "2026-12-31"));
-    expect(con.getTime() - sin.getTime()).toBe(86_400_000);
+    expect(await feriadosAplicables(t.id, "2026-11-02", "2026-12-31")).toEqual(["2026-11-04"]);
+    expect(expiracionJustificacion("2026-11-02", 5).getTime()).toBe(sin.getTime());
     await quitarFeriado(admin, f.id);
     expect(await feriadosAplicables(t.id, "2026-11-02", "2026-12-31")).toEqual([]);
   });

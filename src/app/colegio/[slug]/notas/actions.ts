@@ -7,7 +7,7 @@ import {
   type VistaPreviaImportacion,
   cambiarEstadoPeriodo, crearCompetencia, crearEvaluacion, crearPeriodo, editarEvaluacion, eliminarCompetencia,
   eliminarEvaluacion, guardarCalificacionPeriodo, guardarNota, actualizarPeriodo, organizarNivel,
-  compartirInformeProgreso, guardarInformeProgreso, publicarEvaluacion } from "@/lib/server/notas";
+  compartirInformeProgreso, guardarInformeProgreso, publicarEvaluacion, decidirRecuperacion } from "@/lib/server/notas";
 import { crearCriterio, eliminarCriterio, guardarResultadoCriterio } from "@/lib/server/criterios";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -24,8 +24,18 @@ async function contexto(slug: string) {
 }
 
 /** Guardado rápido de una celda de la grilla (sin refrescar la página). */
-export async function guardarNotaAction(slug: string, evaluacionId: string, alumnoId: string, valor: string): Promise<Resultado> {
-  return guardarNota(await contexto(slug), { evaluacionId, alumnoId, valor });
+export async function guardarNotaAction(
+  slug: string, evaluacionId: string, alumnoId: string, valor: string,
+  extra: { motivo?: string; tipo?: string; fechaRecuperacion?: string } = {},
+): Promise<Resultado> {
+  return guardarNota(await contexto(slug), { evaluacionId, alumnoId, valor, ...extra });
+}
+
+/** El profesor autoriza o no la recuperación de una actividad con NSP justificado (specs/37). */
+export async function decidirRecuperacionAction(slug: string, evaluacionId: string, alumnoId: string, decision: "autorizada" | "denegada"): Promise<Resultado> {
+  const r = await decidirRecuperacion(await contexto(slug), { evaluacionId, alumnoId, decision });
+  if (r.ok) refrescar();
+  return r;
 }
 
 export async function crearEvaluacionAction(slug: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
@@ -152,8 +162,8 @@ export async function compartirInformeAction(slug: string, cursoId: string, peri
   return r;
 }
 
-export async function publicarEvaluacionAction(slug: string, grupoId: string, reenviar: boolean): Promise<Resultado> {
-  const r = await publicarEvaluacion(await contexto(slug), grupoId, { reenviar });
+export async function publicarEvaluacionAction(slug: string, grupoId: string): Promise<Resultado> {
+  const r = await publicarEvaluacion(await contexto(slug), grupoId);
   if (r.ok) refrescar();
   return r;
 }

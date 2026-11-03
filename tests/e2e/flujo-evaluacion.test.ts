@@ -9,7 +9,7 @@ import { Client } from "pg";
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const colegio = (ruta: string) => `http://nuevohorizonte.lvh.me:${PUERTO}${ruta}`;
 const sufijo = randomUUID().slice(0, 6);
-const ids = { tenant: "", salon: "", curso: "", alumno: "", periodo: "" };
+const ids = { tenant: "", salon: "", curso: "", alumno: "", ausente: "", periodo: "" };
 
 async function sql<T = Record<string, unknown>>(consulta: string, params: unknown[] = []): Promise<T[]> {
   const cliente = new Client({ connectionString: process.env.DATABASE_URL });
@@ -46,6 +46,10 @@ test.beforeAll(async () => {
   ids.salon = (await sql<{ id: string }>(`insert into salones (id, tenant_id, nombre, nivel, anio) values (gen_random_uuid(), $1, $2, 'primaria', 2026) returning id`, [ids.tenant, `E2E Evaluación ${sufijo}`]))[0].id;
   ids.curso = (await sql<{ id: string }>(`insert into cursos (id, tenant_id, salon_id, nombre, profesor_id) values (gen_random_uuid(), $1, $2, 'Comunicación', $3) returning id`, [ids.tenant, ids.salon, lucia.id]))[0].id;
   ids.alumno = (await sql<{ id: string }>(`insert into alumnos (id, tenant_id, salon_id, nombres, apellidos) values (gen_random_uuid(), $1, $2, 'Ana', $3) returning id`, [ids.tenant, ids.salon, `Prueba ${sufijo}`]))[0].id;
+  // Beto faltó hoy (falta del día): al crear la evaluación de hoy queda con NSP (specs/37).
+  ids.ausente = (await sql<{ id: string }>(`insert into alumnos (id, tenant_id, salon_id, nombres, apellidos) values (gen_random_uuid(), $1, $2, 'Beto', $3) returning id`, [ids.tenant, ids.salon, `Ausente ${sufijo}`]))[0].id;
+  const hoy = new Date().toLocaleDateString("en-CA", { timeZone: "America/Lima" });
+  await sql(`insert into asistencias (id, tenant_id, alumno_id, ambito, fecha, hora, estado, origen, updated_at) values (gen_random_uuid(), $1, $2, 'dia', $3, '09:00', 'falta', 'automatico', now())`, [ids.tenant, ids.ausente, hoy]);
   for (const [orden, nombre] of [[1, "Lee diversos tipos de textos"], [2, "Escribe diversos tipos de textos"]] as const) {
     await sql(`insert into competencias (id, tenant_id, curso_id, nombre, orden) values (gen_random_uuid(), $1, $2, $3, $4)`, [ids.tenant, ids.curso, nombre, orden]);
   }
@@ -58,7 +62,7 @@ test.afterAll(async () => {
   await sql(`delete from evaluaciones where curso_id = $1`, [ids.curso]);
   await sql(`delete from envios_informe_progreso where curso_id = $1`, [ids.curso]);
   await sql(`delete from informes_progreso where alumno_id = $1`, [ids.alumno]);
-  await sql(`delete from alumnos where id = $1`, [ids.alumno]);
+  await sql(`delete from alumnos where id = any($1::uuid[])`, [[ids.alumno, ids.ausente].filter(Boolean)]);
   await sql(`delete from salones where id = $1`, [ids.salon]);
 });
 
@@ -77,13 +81,17 @@ test("programa una prueba de dos competencias, pone notas en borrador y publica 
   await dialogo.getByRole("checkbox", { name: "Escribe diversos tipos de textos" }).check();
   await expect(dialogo.getByText("2 columnas, una nota por competencia")).toBeVisible();
   await dialogo.getByRole("button", { name: "Crear evaluación" }).click();
-  await expect(page.getByText(/^Evaluación creada: una columna por cada una de sus 2 competencias\./)).toBeVisible();
+  await expect(page.getByText(/^Evaluación creada: una columna por cada una de sus 2 competencias\..*1 alumno quedó con NSP por inasistencia\./)).toBeVisible();
 
   const tabla = page.getByRole("table");
   await expect(tabla.getByRole("columnheader", { name: "Lee diversos tipos de textos" })).toBeVisible();
   await expect(tabla.getByRole("columnheader", { name: "Escribe diversos tipos de textos" })).toBeVisible();
   await expect(tabla.getByText(/Prueba escrita ·/).first()).toBeVisible();
   await expect(tabla.getByText("Borrador").first()).toBeVisible();
+  // Beto faltó: NSP en sus dos columnas, con la leyenda y el plazo para justificar.
+  await expect(page.getByText("No se presentó (faltó; lo pone la asistencia)")).toBeVisible();
+  await expect(page.getByRole("combobox", { name: "Nota de Beto en Prueba escrita 1" }).first()).toHaveValue("NSP");
+  await expect(tabla.getByText(/Sin justificar · hasta/).first()).toBeVisible();
   // Sin sugerencia (por defecto) no hay columna de promedio.
   await expect(tabla.getByRole("columnheader", { name: /Promedio/ })).toHaveCount(0);
 
@@ -96,18 +104,27 @@ test("programa una prueba de dos competencias, pone notas en borrador y publica 
   await page.getByRole("alertdialog").getByRole("button", { name: "Publicar resultados" }).click();
   await expect(page.getByText(/^Resultados publicados\./)).toBeVisible();
   await expect(page.getByText("Publicada", { exact: true })).toBeVisible();
-  await page.getByText(/Historial de cambios \(1\)/).click();
+  await page.getByText(/Historial de cambios \(3\)/).click();
   await expect(page.getByText(/sin nota → A/)).toBeVisible();
+  await expect(page.getByText(/sin nota → NSP/).first()).toBeVisible();
+
+  // Publicada: cambiar una nota pide el motivo.
+  await page.getByRole("combobox", { name: "Nota de Ana en Prueba escrita 1" }).first().selectOption("B");
+  const dialogoMotivo = page.getByRole("dialog", { name: "Motivo del cambio" });
+  await expect(dialogoMotivo).toBeVisible();
+  await dialogoMotivo.getByLabel("Motivo").fill("Error al digitar");
+  await dialogoMotivo.getByRole("button", { name: "Guardar cambio" }).click();
+  await expect(page.getByText("Cambio guardado con su motivo.")).toBeVisible();
 });
 
 test("la profesora escribe y comparte el informe de progreso", async ({ page }) => {
   await entrar(page, "lucia.garcia@nuevohorizonte.demo");
   await page.goto(colegio(`/notas?curso=${ids.curso}&periodo=${ids.periodo}&seccion=informe`));
   await expect(page.getByText("Aún no compartido")).toBeVisible();
-  await expect(page.getByText("Notas del periodo (1)")).toBeVisible();
-  await page.getByLabel(/Qué ha logrado/).fill("Identifica la idea principal del texto.");
-  await page.getByLabel(/Qué recomendamos reforzar/).fill("Leer 15 minutos cada día.");
-  await page.getByRole("button", { name: "Guardar informe" }).click();
+  await expect(page.getByText("Notas del periodo (1)").first()).toBeVisible(); // Ana (A) y Beto (NSP)
+  await page.getByLabel(/Qué ha logrado/).first().fill("Identifica la idea principal del texto.");
+  await page.getByLabel(/Qué recomendamos reforzar/).first().fill("Leer 15 minutos cada día.");
+  await page.getByRole("button", { name: "Guardar informe" }).first().click();
   await expect(page.getByText("Informe guardado.")).toBeVisible();
 
   await page.reload();
@@ -116,4 +133,20 @@ test("la profesora escribe y comparte el informe de progreso", async ({ page }) 
   await expect(page.getByText("Compartido con las familias")).toBeVisible();
   const [envio] = await sql(`select 1 from envios_informe_progreso where curso_id = $1`, [ids.curso]);
   expect(envio).toBeTruthy();
+});
+
+test("la profesora registra una incidencia con retiro anticipado y las clases que se perdió (specs/37)", async ({ page }) => {
+  await entrar(page, "lucia.garcia@nuevohorizonte.demo");
+  await page.goto(colegio("/incidencias"));
+  await expect(page.getByRole("heading", { name: "Incidencias" })).toBeVisible();
+  await page.getByLabel("Alumno").selectOption({ label: `Prueba ${sufijo}, Ana · E2E Evaluación ${sufijo}` });
+  await page.getByLabel("Hora", { exact: true }).fill("10:15");
+  await page.getByRole("button", { name: "Continuar" }).click();
+  await page.getByLabel("Qué pasó").fill("Se golpeó la rodilla en el patio.");
+  await page.getByLabel("Se retiró antes del colegio").check();
+  await page.getByLabel("Hora del retiro").fill("10:30");
+  await page.getByRole("checkbox", { name: /Comunicación/ }).check();
+  await page.getByRole("button", { name: "Registrar incidencia" }).click();
+  await expect(page.getByText(/Incidencia registrada\. Registramos la inasistencia en 1 clase/)).toBeVisible();
+  await expect(page.getByText("Clases perdidas: Comunicación")).toBeVisible();
 });

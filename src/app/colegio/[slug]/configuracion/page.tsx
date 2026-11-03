@@ -1,4 +1,7 @@
-import { Bell, BookOpenCheck, Contact, Download, Globe, GraduationCap, ImageIcon, ScrollText, UserRound } from "lucide-react";
+import { Alerta } from "@/components/ui/Alerta";
+import { ETIQUETA_LITERAL, LITERALES } from "@/lib/calificaciones";
+import { nspVencidosSinConsecuencia } from "@/lib/server/nsp";
+import { Bell, BookOpenCheck, Contact, Download, Globe, GraduationCap, ImageIcon, Scale, ScrollText, UserRound } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -16,7 +19,7 @@ import { urlLogoColegio } from "@/lib/server/logo";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { NOMBRE_NIVEL, nivelesConfigurables } from "@/lib/asistencia-por-curso";
-import { guardarAsistenciaPorCursoAction, guardarConfiguracionAction, quitarLogoAction, subirLogoAction } from "./actions";
+import { guardarAsistenciaPorCursoAction, guardarConfiguracionAction, guardarReglasAcademicasAction, quitarLogoAction, subirLogoAction } from "./actions";
 
 export const metadata: Metadata = { title: "Configuración" };
 
@@ -48,6 +51,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
     responsablesAnteKhipu(t.id),
     ctx.db.salon.groupBy({ by: ["nivel"], where: { archivadoAt: null }, _count: { _all: true } }),
   ]);
+  const nspSinConsecuencia = ctx.modulos.has("notas") ? await nspVencidosSinConsecuencia(ctx.db, t) : 0;
   const salonesPorNivel = new Map(nivelesConSalones.map((n) => [n.nivel, n._count._all]));
 
   return (
@@ -67,7 +71,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             <div className="grid gap-4 sm:grid-cols-2">
               <Campo etiqueta="Hora límite de tardanza" name="horaLimiteTardanza" type="time" defaultValue={t.horaLimiteTardanza} required ayuda="Solo para salones sin plantilla de horario: en los demás, la tardanza cuenta desde la entrada de su plantilla." />
               <Campo etiqueta="Hora límite de falta" name="horaLimiteFalta" type="time" defaultValue={t.horaLimiteFalta} required ayuda="Solo para salones sin plantilla de horario (cada plantilla tiene la suya). Con el control de ingreso, quien no llegó hasta esta hora queda con falta del día." />
-              <Campo etiqueta="Plazo para justificar faltas (días hábiles)" name="plazoJustificacionDiasHabiles" type="number" min={PLAZO_JUSTIFICACION_MIN_DIAS} max={PLAZO_JUSTIFICACION_MAX_DIAS} step={1} defaultValue={t.plazoJustificacionDiasHabiles} required ayuda={`De ${PLAZO_JUSTIFICACION_MIN_DIAS} a ${PLAZO_JUSTIFICACION_MAX_DIAS} días hábiles (lunes a viernes, sin feriados) desde el día de la falta. Por defecto, ${PLAZO_JUSTIFICACION_DEFECTO_DIAS}.`} />
+              <Campo etiqueta="Plazo para justificar faltas (días calendario)" name="plazoJustificacionDias" type="number" min={PLAZO_JUSTIFICACION_MIN_DIAS} max={PLAZO_JUSTIFICACION_MAX_DIAS} step={1} defaultValue={t.plazoJustificacionDias} required ayuda={`De ${PLAZO_JUSTIFICACION_MIN_DIAS} a ${PLAZO_JUSTIFICACION_MAX_DIAS} días calendario. El día de la falta es el día 0; el último día vence a las 11:59 p. m. Por defecto, ${PLAZO_JUSTIFICACION_DEFECTO_DIAS}.`} />
             </div>
             {ctx.modulos.has("porteria") ? (
               <label className="flex items-start gap-3 rounded-lg border px-3 py-3 text-cuerpo">
@@ -120,6 +124,38 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
           <Boton type="submit" className="self-start">Guardar</Boton>
         </form>
       </Tarjeta>
+
+      {ctx.modulos.has("notas") && (
+        <Tarjeta>
+          <form action={guardarReglasAcademicasAction} className="flex flex-col gap-4">
+            <Seccion icono={Scale} titulo="Reglas académicas" descripcion="NSP (No se presentó), vencimiento del plazo para justificar y resumen diario a las familias.">
+              {nspSinConsecuencia > 0 && (
+                <Alerta tipo="aviso">
+                  Hay {nspSinConsecuencia} {nspSinConsecuencia === 1 ? "NSP con el plazo para justificar vencido" : "NSP con el plazo para justificar vencido"} esperando que configures la consecuencia. Khipu no pone ningún valor sin tu configuración.
+                </Alerta>
+              )}
+              <div className="grid gap-4 sm:grid-cols-2">
+                {t.escalaCalificacion === "literal" ? (
+                  <Selector etiqueta="Consecuencia al vencer el plazo sin justificar" name="consecuenciaVencimiento" defaultValue={t.consecuenciaVencimientoLiteral ?? ""}>
+                    <option value="">Sin configurar: el NSP se mantiene</option>
+                    {LITERALES.map((l) => <option key={l} value={l}>{l} · {ETIQUETA_LITERAL[l]}</option>)}
+                  </Selector>
+                ) : (
+                  <Campo
+                    etiqueta="Consecuencia al vencer el plazo sin justificar" name="consecuenciaVencimiento" inputMode="decimal"
+                    defaultValue={t.consecuenciaVencimientoNumerica?.toString() ?? ""} ayuda="Una nota de 0 a 20. Vacío: sin configurar (el NSP se mantiene)."
+                  />
+                )}
+                <Campo etiqueta="Hora del resumen académico diario" name="horaResumenAcademico" type="time" defaultValue={t.horaResumenAcademico} required ayuda="Cada familia recibe un resumen por hijo con lo publicado ese día." />
+              </div>
+              <p className="text-cuerpo-sm text-muted-foreground">
+                Si una falta no se justifica dentro del plazo, Khipu pone este valor en las actividades con NSP de ese día y lo registra en el historial. Una justificación pendiente detiene la consecuencia hasta que el tutor la revise.
+              </p>
+            </Seccion>
+            <Boton type="submit" className="self-start">Guardar reglas académicas</Boton>
+          </form>
+        </Tarjeta>
+      )}
 
       <Tarjeta>
         <Seccion

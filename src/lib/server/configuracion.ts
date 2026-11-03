@@ -9,7 +9,8 @@ import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { db } from "./db";
 import { exigirGestion } from "./gestion";
-import type { TenantContext } from "./tenant";
+import { requireRol, type TenantContext } from "./tenant";
+import { interpretarValor } from "@/lib/calificaciones";
 
 // Configuración del colegio (specs/10-panel-direccion-gestion.md).
 // Ya no se configuran `modoAvisos` ni `horaEnvioAvisos`: todas las llegadas se avisan al cerrar la lista
@@ -20,16 +21,16 @@ const dominio = z.string().regex(/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z
 
 const rangoGrado = "El grado mínimo para la cuenta propia del alumno va de 1.° a 6.° de primaria.";
 
-const rangoPlazo = `El plazo para justificar va de ${PLAZO_JUSTIFICACION_MIN_DIAS} a ${PLAZO_JUSTIFICACION_MAX_DIAS} días hábiles.`;
+const rangoPlazo = `El plazo para justificar va de ${PLAZO_JUSTIFICACION_MIN_DIAS} a ${PLAZO_JUSTIFICACION_MAX_DIAS} días calendario.`;
 
 const esquema = z.strictObject({
   horaLimiteTardanza: hora,
   /** Control de ingreso automático (specs/05). */
   horaLimiteFalta: hora.optional(),
   controlIngresoAutomatico: z.boolean().optional(),
-  plazoJustificacionDiasHabiles: z.coerce
-    .number("El plazo para justificar debe ser un número de días hábiles.")
-    .int("El plazo para justificar debe ser un número entero de días hábiles.")
+  plazoJustificacionDias: z.coerce
+    .number("El plazo para justificar debe ser un número de días calendario.")
+    .int("El plazo para justificar debe ser un número entero de días calendario.")
     .min(PLAZO_JUSTIFICACION_MIN_DIAS, rangoPlazo)
     .max(PLAZO_JUSTIFICACION_MAX_DIAS, rangoPlazo)
     .optional(),
@@ -86,4 +87,37 @@ export async function actualizarAsistenciaPorCurso(ctx: TenantContext, niveles: 
     detalle: { asistenciaPorCursoNiveles: { antes, ahora } },
   });
   return ahora;
+}
+
+const esquemaReglas = z.strictObject({
+  /** Valor que Khipu pone al vencer el plazo sin justificación: «AD/A/B/C» o «0–20» según la escala; vacío = sin configurar. */
+  consecuenciaVencimiento: z.string().trim().max(10),
+  /** HH:mm del resumen académico diario a las familias. */
+  horaResumenAcademico: hora,
+});
+
+/**
+ * Reglas académicas del colegio (specs/37). Solo dirección. La consecuencia por vencimiento es opcional: sin ella Khipu no
+ * inventa un valor (los NSP vencidos quedan como alerta). Audita antes y después.
+ */
+export async function actualizarReglasAcademicas(ctx: TenantContext, entrada: unknown): Promise<void> {
+  requireRol(ctx, ["direccion"]);
+  const r = esquemaReglas.safeParse(entrada);
+  if (!r.success) throw new ErrorDeNegocio(r.error.issues[0].message);
+  let literal: "AD" | "A" | "B" | "C" | null = null;
+  let numerica: number | null = null;
+  if (r.data.consecuenciaVencimiento !== "") {
+    const v = interpretarValor(ctx.tenant.escalaCalificacion, r.data.consecuenciaVencimiento);
+    if (!v.ok || !v.valor) throw new ErrorDeNegocio(ctx.tenant.escalaCalificacion === "literal" ? "La consecuencia debe ser AD, A, B o C." : "La consecuencia debe ser una nota de 0 a 20.");
+    literal = v.valor.valorLiteral;
+    numerica = v.valor.valorNumerico;
+  }
+  const antes = {
+    consecuenciaVencimientoLiteral: ctx.tenant.consecuenciaVencimientoLiteral,
+    consecuenciaVencimientoNumerica: ctx.tenant.consecuenciaVencimientoNumerica?.toString() ?? null,
+    horaResumenAcademico: ctx.tenant.horaResumenAcademico,
+  };
+  const ahora = { consecuenciaVencimientoLiteral: literal, consecuenciaVencimientoNumerica: numerica, horaResumenAcademico: r.data.horaResumenAcademico };
+  await db.tenant.update({ where: { id: ctx.tenant.id }, data: ahora });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "reglas_academicas", detalle: { antes, ahora } as unknown as Prisma.InputJsonValue });
 }

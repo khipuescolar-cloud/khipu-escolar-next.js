@@ -48,10 +48,43 @@ export function etiquetaVigesimal(nota: number, minimo = APROBADO_VIGESIMAL): st
 }
 
 /** Texto corto de un valor (AD, A, B, C o el número). */
-export function textoValor(valor: ValorCalificacion): string {
+/**
+ * Estado académico de una nota sin calificación (specs/37). NSP = «No se presentó» (faltó a la clase, lo pone la
+ * asistencia). NE = «No entregó» (asistió pero no entregó; lo marca el profesor). No son números ni entran en cálculos.
+ */
+export const MARCAS = ["nsp", "no_entrego"] as const;
+export type Marca = (typeof MARCAS)[number];
+export const SIGLA_MARCA: Record<Marca, string> = { nsp: "NSP", no_entrego: "NE" };
+export const NOMBRE_MARCA: Record<Marca, string> = { nsp: "No se presentó", no_entrego: "No entregó" };
+
+/** Valor de una nota con su marca opcional (NSP / NE). */
+export type ValorNota = ValorCalificacion & { marca?: Marca | null };
+
+/** ¿La nota tiene una calificación (y no solo una marca)? Solo esas entran en cálculos. */
+export function tieneValor(v: ValorCalificacion): boolean {
+  return v.valorLiteral !== null || v.valorNumerico !== null;
+}
+
+export function textoValor(valor: ValorNota): string {
   if (valor.valorLiteral) return valor.valorLiteral;
   if (valor.valorNumerico !== null) return formatearNumero(valor.valorNumerico);
+  if (valor.marca) return SIGLA_MARCA[valor.marca];
   return "—";
+}
+
+/**
+ * Lo que escribe el profesor en una celda: una calificación de la escala, «NE» (No entregó) o vacío (borrar).
+ * «NSP» no se escribe: lo pone la asistencia.
+ */
+export function interpretarEntradaNota(
+  escala: Escala,
+  texto: string,
+): { ok: true; valor: ValorCalificacion | null; marca: Marca | null } | { ok: false; error: string } {
+  const t = texto.trim().toUpperCase();
+  if (t === "NE") return { ok: true, valor: null, marca: "no_entrego" };
+  if (t === "NSP") return { ok: false, error: "El NSP lo pone Khipu según la asistencia. Si el alumno faltó, corrige la asistencia." };
+  const v = interpretarValor(escala, texto);
+  return v.ok ? { ok: true, valor: v.valor, marca: null } : v;
 }
 
 /** Texto con significado: «AD · Logro destacado» o «14 · Aprobado». */

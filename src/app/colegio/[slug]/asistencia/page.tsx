@@ -239,11 +239,11 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
                           <Link href={`/asistencia/justificar/${r.id}`} className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
                             <FileText aria-hidden strokeWidth={2} /> Justificar falta
                           </Link>
-                          <span className="text-cuerpo-sm text-muted-foreground">{r.justificarHasta ? textoUltimoDiaJustificacion(r.justificarHasta) : textoPlazoJustificacion(r.fecha, ctx.tenant.plazoJustificacionDiasHabiles)}</span>
+                          <span className="text-cuerpo-sm text-muted-foreground">{r.justificarHasta ? textoUltimoDiaJustificacion(r.justificarHasta) : textoPlazoJustificacion(r.fecha, ctx.tenant.plazoJustificacionDias)}</span>
                         </span>
                       )}
                       {!esAlumno && r.plazoVencido && (
-                        <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground" title={mensajePlazoVencido(ctx.tenant.plazoJustificacionDiasHabiles)}>
+                        <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground" title={mensajePlazoVencido(ctx.tenant.plazoJustificacionDias)}>
                           <CalendarX className="size-3.5" strokeWidth={2} aria-hidden /> Plazo vencido
                         </span>
                       )}

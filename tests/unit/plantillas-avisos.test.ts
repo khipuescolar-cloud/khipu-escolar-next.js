@@ -154,6 +154,11 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       informe_progreso: { colegio, alumno: "Mateo", curso: "Matemática", periodo: "I Trimestre 2027", url: "http://n" },
       evaluacion_programada: { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", fecha: "2026-11-22", url: "http://n" },
       resultados_publicados: { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", url: "http://n" },
+      resumen_academico: { colegio, alumno: "Mateo", fecha: "2026-11-05", actividades: [{ curso: "Matemática", titulo: "Multiplicación", valor: "NSP" }, { curso: "Comunicación", titulo: "Lectura", valor: "A", observacion: true }], url: "http://n" },
+      nota_corregida: { colegio, alumno: "Mateo", curso: "Matemática", titulo: "Multiplicación", motivo: "correccion_digitacion", url: "http://n" },
+      recuperacion_registrada: { colegio, alumno: "Mateo", curso: "Matemática", titulo: "Multiplicación", url: "http://n" },
+      justificacion_aprobada_docente: { colegio, alumno: "Juan Pérez", fecha: "2026-11-05", curso: "Matemática", actividades: ["Examen de multiplicación"], url: "http://n" },
+      incidencia_docente: { colegio, alumno: "Juan Pérez", fecha: "2026-11-05", hora: "10:30", curso: "Matemática", url: "http://n" },
       alerta_rebote: { colegio, apoderado: "Rosa Quispe", alumnos: ["Mateo"], motivo: "su correo rebotó", url: "http://a" },
       soporte_inicio: { colegio, hasta: "15:30", motivo: "Revisar la asistencia", url: "http://s" },
       soporte_respuesta: { colegio, asunto: "No llegan los correos", url: "http://s/soporte/1" },
@@ -167,6 +172,17 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     }
     expect(renderizarPlantilla("mensaje_nuevo", payloads.mensaje_nuevo).texto).toContain("Lucía García te escribió sobre Mateo.");
     expect(renderizarPlantilla("justificacion_revisada", payloads.justificacion_revisada).texto).toContain("del 26/10/2026");
+  });
+
+  it("los avisos de NSP y correcciones no llevan la nota ni el diagnóstico (specs/37)", () => {
+    const docente = renderizarPlantilla("justificacion_aprobada_docente", { colegio, alumno: "Juan Pérez", fecha: "2026-11-05", curso: "Matemática", actividades: ["Examen de multiplicación"], url: "http://n" });
+    expect(docente.texto).toContain("fue justificada por su apoderado y aprobada por el tutor");
+    expect(docente.texto).toContain("La justificación no implica la obligación de realizar una nueva evaluación.");
+    const corregida = renderizarPlantilla("nota_corregida", { colegio, alumno: "Mateo", curso: "Matemática", titulo: "Multiplicación", motivo: "consecuencia_vencimiento", url: "http://n" });
+    expect(corregida.texto).toContain("venció el plazo para justificar");
+    const resumen = renderizarPlantilla("resumen_academico", { colegio, alumno: "Mateo", fecha: "2026-11-05", actividades: [{ curso: "Matemática", titulo: "Multiplicación", valor: "NSP" }], url: "http://n" });
+    expect(resumen.texto).toContain("Matemática · Multiplicación: NSP");
+    expect(resumen.texto).toContain("NSP: No se presentó.");
   });
 
   it("bienvenida restablecida: avisa del restablecimiento y no repite la bienvenida ni el número", () => {

@@ -3,12 +3,14 @@ import { randomUUID } from "node:crypto";
 import { forbidden } from "next/navigation";
 import { z } from "zod";
 import {
-  INSTRUMENTOS, interpretarValor, requiereConclusion, sugerirCalificacion, textoValor,
-  type Escala, type Instrumento, type Literal, type ValorCalificacion,
+  INSTRUMENTOS, interpretarEntradaNota, interpretarValor, requiereConclusion, sugerirCalificacion, textoValor,
+  type Escala, type Instrumento, type Literal, type Marca, type ValorCalificacion, type ValorNota,
 } from "@/lib/calificaciones";
 import { analizarNotasCsv, exportarNotasCsv, MAX_BYTES_CSV_NOTAS, type ResultadoNotasCsv } from "@/lib/notas-csv";
 import { puedePublicarLibreta } from "@/lib/libreta-publicacion";
 import { urlColegio } from "@/lib/dominio";
+import { fechaDb, hora12 } from "@/lib/fechas";
+import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-justificacion";
 import { primerNombre } from "@/lib/nombres";
 import { CANTIDAD_PERIODOS, NOMBRE_TIPO, TIPOS_PERIODO, TODOS_LOS_NIVELES, nivelesConOtroTipo, periodosSugeridos } from "@/lib/periodos-academicos";
 import type { Nivel } from "@/generated/prisma/enums";
@@ -18,6 +20,8 @@ import { guardarDesempenosEvaluacion, validarDesempenosEvaluacion } from "./cneb
 import { cursosDelDocente } from "./cursos";
 import { destinatariosDeAlumno, encolarParaDestinatario, tieneCanalAviso, type Destinatario } from "./notificaciones/encolar";
 import { conEnvio } from "./notificaciones/envios";
+import { avisarCambioNota, datosHistorial, sincronizarNsp, textoDeNota } from "./nsp";
+import { emitirLibretas } from "./libreta-emision";
 import { requireFeature } from "./plan";
 import { alumnoIdsVisibles, requireAlumnoVisible, requireCursoDelProfesor, requireRol, type TenantContext } from "./tenant";
 
@@ -298,6 +302,8 @@ export async function publicarLibreta(ctx: TenantContext, periodoId: string, opc
     const r = await ctx.db.periodo.updateMany({ where: { id: periodoId, libretaPublicadaAt: null }, data: { libretaPublicadaAt: new Date() } });
     if (r.count === 0 && !opciones.reenviar) return fallo("La libreta de este periodo ya se publicó.");
   }
+  // Emisión (specs/37): versión 1 congelada de la libreta de cada alumno. Idempotente (no duplica si ya existe).
+  await emitirLibretas(ctx, periodoId);
 
   const alumnos = await ctx.db.alumno.findMany({
     where: { estado: "activo", salon: { archivadoAt: null, nivel: { in: periodo.niveles }, cursos: { some: {} } } },
@@ -423,19 +429,25 @@ export async function crearEvaluacion(ctx: TenantContext, entrada: unknown): Pro
     descripcion: d.data.descripcion || null, estado: "programada" as const,
   };
   const destinos = competenciaIds.length > 0 ? competenciaIds : [null];
+  const creadas: string[] = [];
   for (const competenciaId of destinos) {
     const e = await ctx.db.evaluacion.create({ data: { ...base, competenciaId } });
+    creadas.push(e.id);
     const marcados = porCompetencia(competenciaId);
     if (marcados.length) await guardarDesempenosEvaluacion(ctx.db, ctx.tenant.id, e.id, marcados);
     await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "evaluacion", entidadId: e.id, detalle: { grupoId } });
   }
+  // NSP automático (specs/37): quien faltó a la clase ese día queda con «No se presentó».
+  const nsp = await sincronizarNsp(ctx.db, ctx.tenant, { evaluacionIds: creadas });
   const columnas = destinos.length > 1 ? `: una columna por cada una de sus ${destinos.length} competencias` : "";
-  if (!d.data.avisar) return ok(`Evaluación creada${columnas}.`);
+  const conNsp = nsp.alumnosConNsp.length;
+  const textoNsp = conNsp > 0 ? ` ${conNsp === 1 ? "1 alumno quedó" : `${conNsp} alumnos quedaron`} con NSP por inasistencia.` : "";
+  if (!d.data.avisar) return ok(`Evaluación creada${columnas}.${textoNsp}`);
   const familias = await avisarFamilias(ctx, {
     cursoId: d.data.cursoId, grupoId, plantilla: "evaluacion_programada", titulo: `Evaluación programada: ${d.data.titulo}`,
     payload: { titulo: d.data.titulo, fecha: d.data.fecha, descripcion: d.data.descripcion || undefined },
   });
-  return ok(`Evaluación creada${columnas}. ${textoFamilias(familias)}`);
+  return ok(`Evaluación creada${columnas}. ${textoFamilias(familias)}${textoNsp}`);
 }
 
 const textoFamilias = (n: number) => (n === 0 ? "Ninguna familia tiene avisos activos." : `Avisamos a ${n} ${n === 1 ? "familia" : "familias"}.`);
@@ -448,8 +460,8 @@ const textoFamilias = (n: number) => (n === 0 ? "Ninguna familia tiene avisos ac
 async function avisarFamilias(
   ctx: TenantContext,
   a: {
-    cursoId: string; grupoId: string; plantilla: "evaluacion_programada" | "resultados_publicados"; titulo: string; alumnoIds?: string[];
-    payload: { titulo: string; fecha?: string; descripcion?: string };
+    cursoId: string; grupoId: string; plantilla: "evaluacion_programada"; titulo: string; alumnoIds?: string[];
+    payload: { titulo: string; fecha: string; descripcion?: string };
   },
 ): Promise<number> {
   const curso = await ctx.db.curso.findFirst({ where: { id: a.cursoId }, select: { nombre: true, salonId: true } });
@@ -484,32 +496,28 @@ async function avisarFamilias(
 }
 
 /**
- * El profesor del curso publica los resultados de una evaluación (todas sus columnas): desde ahí la familia ve las notas
- * y recibe un aviso (solo las familias de alumnos con nota). Una vez publicada, «Reenviar aviso» repite el envío. Se
- * puede publicar aunque el curso o el periodo estén cerrados: publicar no cambia notas.
+ * El profesor del curso publica los resultados de una evaluación (todas sus columnas): desde ahí la familia ve las notas.
+ * No se avisa al instante: lo publicado entra en el resumen académico diario de cada alumno, a la hora que configuró el
+ * colegio (specs/37). Publicar dos veces se rechaza. Se puede publicar con el curso o el periodo cerrados.
  */
-export async function publicarEvaluacion(ctx: TenantContext, grupoId: string, opciones: { reenviar?: boolean } = {}): Promise<Resultado> {
+export async function publicarEvaluacion(ctx: TenantContext, grupoId: string): Promise<Resultado> {
   requireFeature(ctx, "notas");
   const filas = await ctx.db.evaluacion.findMany({ where: { grupoId }, select: { id: true, cursoId: true, periodoId: true, titulo: true, estado: true } });
   if (filas.length === 0) return fallo("No encontramos esa evaluación.");
-  const { cursoId, titulo } = filas[0];
+  const { cursoId } = filas[0];
   await cursoEscritura(ctx, cursoId);
   const nivel = await nivelDelCurso(ctx, cursoId);
   const periodo = await ctx.db.periodo.findFirst({ where: { id: filas[0].periodoId }, select: { niveles: true } });
   if (!nivel || !periodo?.niveles.includes(nivel)) return fallo(MENSAJE_OTRO_NIVEL);
-  const conNota = [...new Set((await ctx.db.nota.findMany({ where: { evaluacionId: { in: filas.map((f) => f.id) } }, select: { alumnoId: true } })).map((n) => n.alumnoId))];
-  if (conNota.length === 0) return fallo("Pon al menos una nota antes de publicar los resultados.");
-  const yaPublicada = filas.every((f) => f.estado === "publicada");
-  if (yaPublicada && !opciones.reenviar) return fallo("Los resultados ya se publicaron. Usa «Reenviar aviso» si quieres avisar otra vez.");
-  if (!yaPublicada) {
-    // Reclamo atómico: si dos clics llegan a la vez, solo uno publica y avisa.
-    const r = await ctx.db.evaluacion.updateMany({ where: { grupoId, estado: "programada" }, data: { estado: "publicada", publicadaAt: new Date() } });
-    if (r.count === 0 && !opciones.reenviar) return fallo("Los resultados ya se publicaron.");
-  }
-  const familias = await avisarFamilias(ctx, {
-    cursoId, grupoId, plantilla: "resultados_publicados", titulo: `Resultados: ${titulo}`, alumnoIds: conNota, payload: { titulo },
-  });
-  return ok(`${yaPublicada ? "Aviso reenviado." : "Resultados publicados."} ${textoFamilias(familias)}`);
+  const conNota = await ctx.db.nota.count({ where: { evaluacionId: { in: filas.map((f) => f.id) } } });
+  if (conNota === 0) return fallo("Pon al menos una nota antes de publicar los resultados.");
+  const mensajeYa = "Los resultados ya se publicaron. Las familias los reciben en el resumen académico del día.";
+  if (filas.every((f) => f.estado === "publicada")) return fallo(mensajeYa);
+  // Reclamo atómico: si dos clics llegan a la vez, solo uno publica.
+  const r = await ctx.db.evaluacion.updateMany({ where: { grupoId, estado: "programada" }, data: { estado: "publicada", publicadaAt: new Date() } });
+  if (r.count === 0) return fallo(mensajeYa);
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "evaluacion_publicada", entidadId: grupoId });
+  return ok(`Resultados publicados. Las familias los recibirán en el resumen académico de hoy (${hora12(ctx.tenant.horaResumenAcademico)}).`);
 }
 
 /** Cambios de las notas de una evaluación (todas sus columnas), del más reciente al más antiguo. Profesor o dirección. */
@@ -529,22 +537,11 @@ export async function historialEvaluacion(ctx: TenantContext, grupoId: string) {
   return cambios.map((c) => ({
     id: c.id, cambiadoAt: c.cambiadoAt, alumno: `${c.alumno.apellidos}, ${c.alumno.nombres}`,
     competencia: filas.length > 1 ? (filas.find((f) => f.id === c.evaluacionId)?.competencia?.nombre ?? null) : null,
-    anterior: c.valorAnterior, nuevo: c.valorNuevo, por: `${c.cambiadoPor.user.nombres} ${c.cambiadoPor.user.apellidos}`.trim(),
+    anterior: c.valorAnterior, nuevo: c.valorNuevo,
+    /** «Khipu» cuando lo hizo el sistema (NSP por asistencia, consecuencia por vencimiento). */
+    por: c.cambiadoPor ? `${c.cambiadoPor.user.nombres} ${c.cambiadoPor.user.apellidos}`.trim() : "Khipu",
+    tipo: c.tipo, campo: c.campo, motivo: c.motivo, publicada: c.publicada, justificacionId: c.justificacionId,
   }));
-}
-
-/** Registra un cambio de nota en el historial (solo si el valor cambió). */
-async function registrarCambioNota(
-  ctx: TenantContext, evaluacionId: string, alumnoId: string,
-  antes: { valorLiteral: string | null; valorNumerico: { toString(): string } | null } | null, despues: ValorCalificacion | null,
-) {
-  const texto = (v: { valorLiteral: string | null; valorNumerico: number | null } | null) => (v ? textoValor(v as ValorCalificacion) : null);
-  const anterior = antes ? texto({ valorLiteral: antes.valorLiteral, valorNumerico: num(antes.valorNumerico) }) : null;
-  const nuevo = texto(despues);
-  if (anterior === nuevo) return;
-  await ctx.db.historialNota.create({
-    data: { tenantId: ctx.tenant.id, evaluacionId, alumnoId, valorAnterior: anterior, valorNuevo: nuevo, cambiadoPorId: ctx.membership.id },
-  });
 }
 
 export async function editarEvaluacion(ctx: TenantContext, evaluacionId: string, entrada: unknown): Promise<Resultado> {
@@ -577,6 +574,11 @@ export async function editarEvaluacion(ctx: TenantContext, evaluacionId: string,
   });
   await ctx.db.evaluacion.updateMany({ where: { id: evaluacionId }, data: { competenciaId: d.data.competenciaId ?? null, peso: d.data.peso } });
   await guardarDesempenosEvaluacion(ctx.db, ctx.tenant.id, evaluacionId, desempenoIds);
+  if (d.data.fecha !== actual.fecha.toISOString().slice(0, 10)) {
+    // Cambió la fecha: el NSP se recalcula con la asistencia del nuevo día (specs/37).
+    const grupo = await ctx.db.evaluacion.findMany({ where: { grupoId: actual.grupoId }, select: { id: true } });
+    await sincronizarNsp(ctx.db, ctx.tenant, { evaluacionIds: grupo.map((g) => g.id) });
+  }
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "evaluacion", entidadId: evaluacionId });
   return ok("Evaluación actualizada.");
 }
@@ -631,7 +633,11 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
     })),
     notas: notas.map((n) => ({
       evaluacionId: n.evaluacionId, alumnoId: n.alumnoId, valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico), comentario: n.comentario,
+      marca: n.marca as Marca | null,
     })),
+    /** Estado de cada NSP y conflictos con la asistencia (specs/37), por `evaluacionId:alumnoId`. */
+    estadosNsp: await estadosNspDeGrilla(ctx, evaluaciones, notas, alumnos.map((a) => a.id)),
+    horaResumen: ctx.tenant.horaResumenAcademico,
     cursoCerrado: cierre !== null,
     editable: ctx.rol === "profesor" && !periodo.cerrado && cierre === null,
     escala: escalaDe(ctx),
@@ -653,12 +659,39 @@ function nombreColumna(
   return `${e.titulo} · ${competencias.find((c) => c.id === e.competenciaId)?.nombre ?? "Sin competencia"}`;
 }
 
-/** Guarda (o borra, si `valor` viene vacío) la nota de un alumno en una evaluación. */
-export async function guardarNota(ctx: TenantContext, entrada: { evaluacionId: string; alumnoId: string; valor: string }): Promise<Resultado> {
+const TIPOS_CORRECCION = ["correccion_digitacion", "cambio_asistencia", "otra"] as const;
+export type TipoCorreccion = (typeof TIPOS_CORRECCION)[number];
+export const NOMBRE_TIPO_CORRECCION: Record<TipoCorreccion, string> = {
+  correccion_digitacion: "Corrección por error de digitación",
+  cambio_asistencia: "Cambio asociado a asistencia",
+  otra: "Otra modificación autorizada",
+};
+
+const esquemaNota = z.object({
+  evaluacionId: z.uuid(),
+  alumnoId: z.uuid(),
+  valor: z.string().max(10),
+  /** Obligatorio para cambiar una nota publicada, un NSP o una consecuencia por vencimiento (specs/37). */
+  motivo: z.string().trim().max(300, "El motivo es muy largo (máximo 300 caracteres).").optional(),
+  tipo: z.enum(TIPOS_CORRECCION).optional(),
+  /** Recuperación: día en que el alumno rindió la actividad (por defecto, hoy). */
+  fechaRecuperacion: z.iso.date().optional(),
+});
+
+/**
+ * Guarda (o borra, si `valor` viene vacío) la nota de un alumno en una evaluación. «NE» = No entregó. Reglas (specs/37):
+ * - En borrador se corrige libremente (historial tipo `registro`).
+ * - Publicada: exige motivo y tipo; la familia recibe un aviso específico.
+ * - NSP: solo se reemplaza si el profesor autorizó la recuperación (tipo `recuperacion`, guarda la fecha de recuperación
+ *   y la justificación) o, si la asistencia estaba mal, con motivo. Borrar un NSP no se permite: lo quita la asistencia.
+ * - Consecuencia por vencimiento: se cambia solo con motivo.
+ * La nota y su historial se guardan en una sola transacción.
+ */
+export async function guardarNota(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
   requireFeature(ctx, "notas");
-  const d = z.object({ evaluacionId: z.uuid(), alumnoId: z.uuid(), valor: z.string().max(10) }).safeParse(entrada);
-  if (!d.success) return fallo("Los datos no son válidos.");
-  const evaluacion = await ctx.db.evaluacion.findFirst({ where: { id: d.data.evaluacionId } });
+  const d = esquemaNota.safeParse(entrada);
+  if (!d.success) return fallo(d.error.issues[0].message);
+  const evaluacion = await ctx.db.evaluacion.findFirst({ where: { id: d.data.evaluacionId }, include: { curso: { select: { nombre: true } } } });
   if (!evaluacion) return fallo("No encontramos esa evaluación.");
   const curso = await cursoEscritura(ctx, evaluacion.cursoId);
   const p = await periodoAbierto(ctx, evaluacion.periodoId, evaluacion.cursoId);
@@ -666,22 +699,181 @@ export async function guardarNota(ctx: TenantContext, entrada: { evaluacionId: s
   const alumno = await ctx.db.alumno.findFirst({ where: { id: d.data.alumnoId, salonId: curso.salonId } });
   if (!alumno) return fallo("Ese alumno no está en este curso.");
 
-  const v = interpretarValor(escalaDe(ctx), d.data.valor);
+  const v = interpretarEntradaNota(escalaDe(ctx), d.data.valor);
   if (!v.ok) return fallo(v.error);
-  const clave = { evaluacionId_alumnoId: { evaluacionId: evaluacion.id, alumnoId: alumno.id } };
-  const antes = await ctx.db.nota.findFirst({ where: { evaluacionId: evaluacion.id, alumnoId: alumno.id }, select: { valorLiteral: true, valorNumerico: true } });
-  await registrarCambioNota(ctx, evaluacion.id, alumno.id, antes, v.valor);
-  if (v.valor === null) {
-    await ctx.db.nota.deleteMany({ where: { evaluacionId: evaluacion.id, alumnoId: alumno.id } });
-  } else {
-    await ctx.db.nota.upsert({
-      where: clave,
-      create: { tenantId: ctx.tenant.id, evaluacionId: evaluacion.id, alumnoId: alumno.id, ...v.valor, registradoPorId: ctx.membership.id },
-      update: { ...v.valor, registradoPorId: ctx.membership.id },
+  const antes = await ctx.db.nota.findFirst({ where: { evaluacionId: evaluacion.id, alumnoId: alumno.id } });
+  const anterior = textoDeNota(antes);
+  const nuevo = v.valor ? textoValor(v.valor) : v.marca ? textoValor({ valorLiteral: null, valorNumerico: null, marca: v.marca }) : null;
+  if (anterior === nuevo) return ok();
+
+  const publicada = evaluacion.estado === "publicada";
+  const esNsp = antes?.marca === "nsp" && antes.valorLiteral === null && antes.valorNumerico === null;
+  const esVencida = antes?.vencidaAt != null;
+  const recuperacion = esNsp && antes?.recuperacion === "autorizada" && v.valor !== null;
+  const motivo = d.data.motivo || null;
+  let tipo: "registro" | "recuperacion" | TipoCorreccion = "registro";
+  if (recuperacion) {
+    tipo = "recuperacion";
+  } else if (esNsp || esVencida || publicada) {
+    if (esNsp && v.valor === null && v.marca === null) return fallo("El NSP lo quita la asistencia: si el alumno sí estuvo, corrige la asistencia de ese día.");
+    if (esNsp && antes?.recuperacion === "denegada" && !motivo) return fallo("No autorizaste la recuperación de este alumno. Para cambiar el NSP, escribe el motivo.");
+    if (!motivo || !d.data.tipo) {
+      return fallo(
+        esNsp
+          ? "Este alumno tiene NSP porque faltó. Para poner una nota, el tutor debe aprobar su justificación y tú autorizar la recuperación; si la asistencia estaba mal, indica el tipo y el motivo del cambio."
+          : esVencida
+            ? "Esta nota la puso Khipu porque venció el plazo para justificar. Para cambiarla, indica el tipo y el motivo."
+            : "Estos resultados ya se publicaron: indica el tipo y el motivo del cambio.",
+      );
+    }
+    tipo = d.data.tipo;
+  }
+  const hoy = momentoHoy(ctx);
+  const fechaRecuperacion = recuperacion ? (d.data.fechaRecuperacion ?? hoy) : null;
+  if (fechaRecuperacion && fechaRecuperacion > hoy) return fallo("La fecha de recuperación no puede ser futura.");
+  const motivoFinal = recuperacion ? (motivo ?? "Recuperación autorizada tras justificación aprobada.") : motivo;
+
+  const datosValor = {
+    valorLiteral: (v.valor?.valorLiteral ?? null) as Literal | null,
+    valorNumerico: v.valor?.valorNumerico ?? null,
+    marca: v.marca,
+    vencidaAt: null,
+    ...(fechaRecuperacion ? { fechaRecuperacion: fechaDb(fechaRecuperacion) } : {}),
+    registradoPorId: ctx.membership.id,
+  };
+  await ctx.db.$transaction(async (tx) => {
+    if (v.valor === null && v.marca === null) {
+      await tx.nota.deleteMany({ where: { evaluacionId: evaluacion.id, alumnoId: alumno.id } });
+    } else {
+      await tx.nota.upsert({
+        where: { evaluacionId_alumnoId: { evaluacionId: evaluacion.id, alumnoId: alumno.id } },
+        create: { tenantId: ctx.tenant.id, evaluacionId: evaluacion.id, alumnoId: alumno.id, ...datosValor },
+        update: datosValor,
+      });
+    }
+    await tx.historialNota.create({
+      data: datosHistorial({
+        tenantId: ctx.tenant.id, evaluacionId: evaluacion.id, alumnoId: alumno.id, anterior, nuevo, tipo, motivo: motivoFinal,
+        cambiadoPorId: ctx.membership.id, publicada, justificacionId: antes?.justificacionId ?? null,
+      }),
+    });
+  });
+  await auditar({
+    tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "nota", entidadId: evaluacion.id,
+    detalle: { alumnoId: alumno.id, tipo, ...(motivoFinal ? { motivo: motivoFinal } : {}) },
+  });
+  if (publicada) {
+    await avisarCambioNota(ctx.db, ctx.tenant, {
+      alumnoId: alumno.id, alumno: primerNombre(alumno.nombres), curso: evaluacion.curso.nombre, titulo: evaluacion.titulo,
+      evaluacionId: evaluacion.id, motivo: tipo === "registro" ? "otra" : tipo,
     });
   }
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "nota", entidadId: evaluacion.id, detalle: { alumnoId: alumno.id } });
   return ok();
+}
+
+/** Fecha de hoy en el colegio (AAAA-MM-DD). */
+function momentoHoy(ctx: TenantContext): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: ctx.tenant.zonaHoraria, year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+}
+
+/**
+ * El profesor del curso decide si autoriza la recuperación de una actividad con NSP justificado (specs/37). Solo una vez;
+ * se registra en el historial. Autorizar habilita poner la nota en la actividad original; no autorizar deja el NSP.
+ */
+export async function decidirRecuperacion(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
+  requireFeature(ctx, "notas");
+  const d = z.object({
+    evaluacionId: z.uuid(), alumnoId: z.uuid(), decision: z.enum(["autorizada", "denegada"]),
+    motivo: z.string().trim().max(300, "El motivo es muy largo (máximo 300 caracteres).").optional(),
+  }).safeParse(entrada);
+  if (!d.success) return fallo(d.error.issues[0].message);
+  const evaluacion = await ctx.db.evaluacion.findFirst({ where: { id: d.data.evaluacionId } });
+  if (!evaluacion) return fallo("No encontramos esa evaluación.");
+  await cursoEscritura(ctx, evaluacion.cursoId);
+  const p = await periodoAbierto(ctx, evaluacion.periodoId, evaluacion.cursoId);
+  if (p.error) return fallo(p.error);
+  const nota = await ctx.db.nota.findFirst({ where: { evaluacionId: evaluacion.id, alumnoId: d.data.alumnoId } });
+  if (!nota || nota.marca !== "nsp" || nota.valorLiteral !== null || nota.valorNumerico !== null) return fallo("Esta actividad no tiene un NSP pendiente.");
+  if (!nota.justificacionId) return fallo("La recuperación se decide cuando el tutor aprueba la justificación de la falta.");
+  if (nota.recuperacion) return fallo("Ya registraste tu decisión sobre esta recuperación.");
+  const texto = d.data.decision === "autorizada" ? "Autorizada" : "No autorizada";
+  const hecho = await ctx.db.$transaction(async (tx) => {
+    const r = await tx.nota.updateMany({
+      where: { id: nota.id, recuperacion: null },
+      data: { recuperacion: d.data.decision, recuperacionPorId: ctx.membership.id, recuperacionAt: new Date() },
+    });
+    if (r.count !== 1) return false;
+    await tx.historialNota.create({
+      data: datosHistorial({
+        tenantId: ctx.tenant.id, evaluacionId: evaluacion.id, alumnoId: nota.alumnoId, anterior: null, nuevo: texto, campo: "recuperacion",
+        tipo: "decision_recuperacion", motivo: d.data.motivo || null, cambiadoPorId: ctx.membership.id,
+        publicada: evaluacion.estado === "publicada", justificacionId: nota.justificacionId,
+      }),
+    });
+    return true;
+  });
+  if (!hecho) return fallo("Ya registraste tu decisión sobre esta recuperación.");
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "recuperacion", entidadId: evaluacion.id, detalle: { alumnoId: nota.alumnoId, decision: d.data.decision } });
+  return ok(d.data.decision === "autorizada" ? "Recuperación autorizada. Ya puedes poner la nota en esta actividad." : "Decisión registrada: el NSP se mantiene.");
+}
+
+export type EstadoNspCelda = {
+  /** Estado de la justificación de la falta de ese día. */
+  justificacion: "sin_solicitud" | "pendiente" | "aceptada" | "rechazada";
+  /** Último día para justificar (AAAA-MM-DD). */
+  venceEl: string;
+  plazoVencido: boolean;
+  recuperacion: "autorizada" | "denegada" | null;
+  fechaRecuperacion: string | null;
+  /** La falta viene de una incidencia o retiro anticipado. */
+  incidencia: boolean;
+  vencida: boolean;
+};
+
+/** Estado de cada NSP de la rejilla y conflictos (alumno con calificación pero ausente según la asistencia). */
+async function estadosNspDeGrilla(
+  ctx: TenantContext,
+  evaluaciones: { id: string; cursoId: string; fecha: Date }[],
+  notas: { evaluacionId: string; alumnoId: string; marca: string | null; vencidaAt: Date | null; recuperacion: string | null; fechaRecuperacion: Date | null; justificacionId: string | null; valorLiteral: string | null; valorNumerico: unknown }[],
+  alumnoIds: string[],
+): Promise<{ nsp: Record<string, EstadoNspCelda>; conflictos: string[] }> {
+  const fechas = [...new Set(evaluaciones.map((e) => e.fecha.getTime()))].map((t) => new Date(t));
+  if (fechas.length === 0 || alumnoIds.length === 0) return { nsp: {}, conflictos: [] };
+  const asistencias = await ctx.db.asistencia.findMany({
+    where: { alumnoId: { in: alumnoIds }, fecha: { in: fechas } },
+    select: {
+      alumnoId: true, fecha: true, ambito: true, estado: true, origen: true,
+      justificaciones: { select: { estado: true }, orderBy: { createdAt: "desc" } },
+    },
+  });
+  const ahora = new Date();
+  const nsp: Record<string, EstadoNspCelda> = {};
+  const conflictos: string[] = [];
+  for (const e of evaluaciones) {
+    const delDia = asistencias.filter((a) => a.fecha.getTime() === e.fecha.getTime());
+    for (const alumnoId of alumnoIds) {
+      const propias = delDia.filter((a) => a.alumnoId === alumnoId);
+      const clase = propias.find((a) => a.ambito === e.cursoId);
+      const ausente = clase ? clase.estado === "falta" : propias.find((a) => a.ambito === "dia")?.estado === "falta";
+      const n = notas.find((x) => x.evaluacionId === e.id && x.alumnoId === alumnoId);
+      const clave = `${e.id}:${alumnoId}`;
+      if (n?.marca === "nsp") {
+        const estados = propias.flatMap((a) => a.justificaciones.map((j) => j.estado));
+        const justificacion = estados.includes("aceptada") ? "aceptada" : estados.includes("pendiente") ? "pendiente" : estados.includes("rechazada") ? "rechazada" : "sin_solicitud";
+        const fecha = e.fecha.toISOString().slice(0, 10);
+        nsp[clave] = {
+          justificacion, venceEl: ultimoDiaJustificacion(fecha, ctx.tenant.plazoJustificacionDias),
+          plazoVencido: expiracionJustificacion(fecha, ctx.tenant.plazoJustificacionDias, ctx.tenant.zonaHoraria) < ahora,
+          recuperacion: n.recuperacion as EstadoNspCelda["recuperacion"],
+          fechaRecuperacion: n.fechaRecuperacion ? n.fechaRecuperacion.toISOString().slice(0, 10) : null,
+          incidencia: clase?.origen === "incidencia", vencida: n.vencidaAt !== null,
+        };
+      } else if (ausente && n && (n.valorLiteral !== null || n.valorNumerico !== null)) {
+        conflictos.push(clave);
+      }
+    }
+  }
+  return { nsp, conflictos };
 }
 
 /** Observación de una nota (máx. 500 caracteres). La nota debe existir; vacío borra el comentario. */
@@ -750,18 +942,38 @@ export async function importarNotas(ctx: TenantContext, cursoId: string, periodo
   if (p.error) return fallo(p.error);
   const vista = await previsualizarImportacionNotas(ctx, cursoId, periodoId, texto);
   if (vista.cambios.length === 0) return fallo(vista.errores[0]?.mensaje ?? "No hay notas para importar.");
+  // Las notas publicadas, los NSP y las consecuencias por vencimiento no se importan: se corrigen una por una, con motivo
+  // (specs/37).
+  const publicadas = new Set((await ctx.db.evaluacion.findMany({ where: { cursoId, periodoId, estado: "publicada" }, select: { id: true } })).map((e) => e.id));
+  let protegidas = 0;
+  let importadas = 0;
   for (const c of vista.cambios) {
-    const antes = await ctx.db.nota.findFirst({ where: { evaluacionId: c.evaluacionId, alumnoId: c.alumnoId }, select: { valorLiteral: true, valorNumerico: true } });
-    await registrarCambioNota(ctx, c.evaluacionId, c.alumnoId, antes, c.valor);
-    await ctx.db.nota.upsert({
-      where: { evaluacionId_alumnoId: { evaluacionId: c.evaluacionId, alumnoId: c.alumnoId } },
-      create: { tenantId: ctx.tenant.id, evaluacionId: c.evaluacionId, alumnoId: c.alumnoId, ...c.valor, registradoPorId: ctx.membership.id },
-      update: { ...c.valor, registradoPorId: ctx.membership.id },
+    const antes = await ctx.db.nota.findFirst({ where: { evaluacionId: c.evaluacionId, alumnoId: c.alumnoId } });
+    if (publicadas.has(c.evaluacionId) || antes?.marca || antes?.vencidaAt) {
+      if (textoDeNota(antes) !== textoValor(c.valor)) protegidas += 1;
+      continue;
+    }
+    const anterior = textoDeNota(antes);
+    if (anterior === textoValor(c.valor)) continue;
+    await ctx.db.$transaction(async (tx) => {
+      await tx.nota.upsert({
+        where: { evaluacionId_alumnoId: { evaluacionId: c.evaluacionId, alumnoId: c.alumnoId } },
+        create: { tenantId: ctx.tenant.id, evaluacionId: c.evaluacionId, alumnoId: c.alumnoId, ...c.valor, registradoPorId: ctx.membership.id },
+        update: { ...c.valor, registradoPorId: ctx.membership.id },
+      });
+      await tx.historialNota.create({
+        data: datosHistorial({
+          tenantId: ctx.tenant.id, evaluacionId: c.evaluacionId, alumnoId: c.alumnoId, anterior, nuevo: textoValor(c.valor),
+          tipo: "registro", motivo: "Importación de notas", cambiadoPorId: ctx.membership.id, publicada: false,
+        }),
+      });
     });
+    importadas += 1;
   }
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "notas_curso", entidadId: curso.id, detalle: { periodoId, importadas: vista.cambios.length, errores: vista.errores.length } });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "notas_curso", entidadId: curso.id, detalle: { periodoId, importadas, protegidas, errores: vista.errores.length } });
   const omitidas = vista.errores.length > 0 ? ` ${vista.errores.length} ${vista.errores.length === 1 ? "celda no se importó" : "celdas no se importaron"}.` : "";
-  return ok(`Se importaron ${vista.cambios.length} ${vista.cambios.length === 1 ? "nota" : "notas"}.${omitidas}`);
+  const textoProtegidas = protegidas > 0 ? ` ${protegidas} ${protegidas === 1 ? "nota no se cambió porque está publicada o tiene NSP" : "notas no se cambiaron porque están publicadas o tienen NSP"}: corrígelas una por una con su motivo.` : "";
+  return ok(`Se importaron ${importadas} ${importadas === 1 ? "nota" : "notas"}.${omitidas}${textoProtegidas}`);
 }
 
 // ───────────── Calificaciones del periodo (lo que va a la libreta) ─────────────
@@ -801,12 +1013,13 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
       const g = guardadas.find((x) => x.alumnoId === a.id && x.competenciaId === c.id);
       const delAlumno = notas.filter((n) => n.alumnoId === a.id && n.evaluacion.competenciaId === c.id);
       const evaluados = new Map<string, { id: string; descripcion: string; codigo: string | null; orden: number }>();
-      for (const n of delAlumno) {
+      for (const n of delAlumno.filter((x) => x.valorLiteral !== null || x.valorNumerico !== null)) {
         for (const d of desempenosPorEvaluacion.get(n.evaluacionId) ?? []) if (d.competenciaId === c.id) evaluados.set(d.id, d);
       }
       const sugerido = sugerirCalificacion(
         escala,
-        delAlumno.map((n) => ({
+        // NSP y «No entregó» sin valor no son números: no entran en ningún cálculo (specs/37).
+        delAlumno.filter((n) => n.valorLiteral !== null || n.valorNumerico !== null).map((n) => ({
           valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico), peso: Number(n.evaluacion.peso), fecha: n.evaluacion.fecha,
         })),
         ctx.tenant.sugerenciaPeriodo,
@@ -819,7 +1032,7 @@ export async function calificacionesPeriodo(ctx: TenantContext, cursoId: string,
         /** Las notas del periodo en esta competencia, para que el profesor decida la calificación. */
         notas: delAlumno.map((n) => ({
           titulo: n.evaluacion.titulo, fecha: n.evaluacion.fecha.toISOString().slice(0, 10),
-          valor: { valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico) } as ValorCalificacion,
+          valor: { valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico), marca: n.marca as Marca | null } as ValorNota,
         })),
         desempenos: [...evaluados.values()].sort((x, y) => x.orden - y.orden).map(({ id, descripcion, codigo }) => ({ id, descripcion, codigo })),
       };
@@ -848,6 +1061,8 @@ export async function guardarCalificacionPeriodo(ctx: TenantContext, entrada: un
   const alumno = await ctx.db.alumno.findFirst({ where: { id: d.data.alumnoId, salonId: curso.salonId } });
   if (!alumno) return fallo("Ese alumno no está en este curso.");
 
+  const emitida = await ctx.db.libretaEmitida.count({ where: { alumnoId: alumno.id, periodoId: d.data.periodoId } });
+  if (emitida > 0) return fallo("La libreta de este periodo ya se emitió. Para corregirla, pide una rectificación desde la libreta del alumno.");
   const v = interpretarValor(escalaDe(ctx), d.data.valor);
   if (!v.ok) return fallo(v.error);
   if (v.valor === null) {
@@ -1044,8 +1259,11 @@ export async function notasDeAlumno(ctx: TenantContext, alumnoId: string, period
         .filter((e) => e.cursoId === curso.id)
         .map((e) => ({
           id: e.id, titulo: e.titulo, fecha: e.fecha.toISOString().slice(0, 10), competencia: competencias.find((c) => c.id === e.competenciaId)?.nombre ?? null,
-          valor: { valorLiteral: e.notas[0].valorLiteral as Literal | null, valorNumerico: num(e.notas[0].valorNumerico) } as ValorCalificacion,
+          valor: { valorLiteral: e.notas[0].valorLiteral as Literal | null, valorNumerico: num(e.notas[0].valorNumerico), marca: e.notas[0].marca as Marca | null } as ValorNota,
           comentario: e.notas[0].comentario,
+          /** Consecuencia por vencimiento del plazo de justificación o recuperación registrada (specs/37). */
+          vencida: e.notas[0].vencidaAt !== null,
+          fechaRecuperacion: e.notas[0].fechaRecuperacion ? e.notas[0].fechaRecuperacion.toISOString().slice(0, 10) : null,
         })),
     })),
   };

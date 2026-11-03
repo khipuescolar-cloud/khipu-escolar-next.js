@@ -1,7 +1,7 @@
 "use server";
 
 import { ejecutarYVolver, texto } from "@/lib/server/accion-formulario";
-import { actualizarAsistenciaPorCurso, actualizarConfiguracion } from "@/lib/server/configuracion";
+import { actualizarAsistenciaPorCurso, actualizarConfiguracion, actualizarReglasAcademicas } from "@/lib/server/configuracion";
 import { ErrorDeNegocio, contextoDeAccion } from "@/lib/server/contexto-accion";
 import { quitarLogoColegio, subirLogoColegio } from "@/lib/server/logo";
 
@@ -12,7 +12,7 @@ export async function guardarConfiguracionAction(formData: FormData) {
       horaLimiteTardanza: texto(formData, "horaLimiteTardanza"),
       horaLimiteFalta: texto(formData, "horaLimiteFalta") || undefined,
       controlIngresoAutomatico: formData.get("controlIngresoAutomatico") === "on",
-      plazoJustificacionDiasHabiles: texto(formData, "plazoJustificacionDiasHabiles") || undefined,
+      plazoJustificacionDias: texto(formData, "plazoJustificacionDias") || undefined,
       escalaCalificacion: texto(formData, "escalaCalificacion") as "literal",
       sugerenciaPeriodo: (texto(formData, "sugerenciaPeriodo") || undefined) as "ninguna" | undefined,
       emailDomains: texto(formData, "emailDomains"),
@@ -45,5 +45,16 @@ export async function guardarAsistenciaPorCursoAction(formData: FormData) {
   await ejecutarYVolver("/configuracion", async () => {
     const niveles = await actualizarAsistenciaPorCurso(ctx, formData.getAll("niveles").map(String));
     return niveles.length === 0 ? "Asistencia por curso desactivada: solo se toma la asistencia al colegio." : "Asistencia por curso guardada.";
+  });
+}
+
+export async function guardarReglasAcademicasAction(formData: FormData) {
+  const ctx = await contextoDeAccion(["direccion"]);
+  await ejecutarYVolver("/configuracion", async () => {
+    await actualizarReglasAcademicas(ctx, {
+      consecuenciaVencimiento: texto(formData, "consecuenciaVencimiento"),
+      horaResumenAcademico: texto(formData, "horaResumenAcademico"),
+    });
+    return "Reglas académicas guardadas.";
   });
 }

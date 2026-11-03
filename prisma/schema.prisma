@@ -111,6 +111,7 @@ enum OrigenAsistencia {
   lista
   porteria
   automatico // falta del día que pone el control de ingreso (specs/05)
+  incidencia // falta a clase por una incidencia o retiro anticipado (specs/37)
 }
 
 enum TipoAviso {
@@ -151,6 +152,42 @@ enum Genero {
   femenino
   masculino
   no_especifica
+}
+
+/// Estado académico de una nota sin calificación (specs/37). NSP = «No se presentó» (faltó a la clase, lo pone la
+/// asistencia); no_entrego = asistió pero no entregó (lo marca el profesor). Nunca se guarda como 0 ni entra en cálculos.
+enum MarcaNota {
+  nsp
+  no_entrego
+}
+
+/// Decisión del profesor sobre la recuperación de una actividad con NSP justificado (specs/37).
+enum EstadoRecuperacion {
+  autorizada
+  denegada
+}
+
+/// Tipo de cambio en el historial de una nota (specs/37).
+enum TipoCambioNota {
+  registro // cambio en borrador (antes de publicar)
+  correccion_digitacion
+  recuperacion
+  cambio_asistencia
+  consecuencia_vencimiento
+  otra
+  decision_recuperacion
+}
+
+enum TipoIncidencia {
+  accidente
+  salud
+  otro
+}
+
+enum EstadoRectificacion {
+  pendiente
+  aprobada
+  rechazada
 }
 
 enum EstadoJustificacion {
@@ -201,34 +238,41 @@ enum AutorNudito {
 // ───────────────────────────── Núcleo ─────────────────────────────
 
 model Tenant {
-  id                            String             @id @default(uuid()) @db.Uuid
-  slug                          String             @unique
-  nombre                        String
-  ciudad                        String?
-  eslogan                       String?
-  plan                          Plan               @default(base)
-  emailDomains                  String[]           @default([]) @map("email_domains")
-  logoArchivoId                 String?            @map("logo_archivo_id") @db.Uuid
-  horaEnvioAvisos               String             @default("09:00") @map("hora_envio_avisos") // HH:mm, resumen de llegadas
-  horaLimiteTardanza            String             @default("08:00") @map("hora_limite_tardanza") // HH:mm, desde esta hora la llegada es «tarde»
+  id                              String               @id @default(uuid()) @db.Uuid
+  slug                            String               @unique
+  nombre                          String
+  ciudad                          String?
+  eslogan                         String?
+  plan                            Plan                 @default(base)
+  emailDomains                    String[]             @default([]) @map("email_domains")
+  logoArchivoId                   String?              @map("logo_archivo_id") @db.Uuid
+  horaEnvioAvisos                 String               @default("09:00") @map("hora_envio_avisos") // HH:mm, resumen de llegadas
+  horaLimiteTardanza              String               @default("08:00") @map("hora_limite_tardanza") // HH:mm, desde esta hora la llegada es «tarde»
   /// Control de ingreso automático (specs/05): a `horaLimiteTardanza` avisa «aún no llega» a las familias de quienes no
   /// registran ingreso; a `horaLimiteFalta` les pone falta del día con enlace para justificar. Además, en las listas de curso
   /// un alumno sin ingreso al colegio solo puede quedar con falta.
-  controlIngresoAutomatico      Boolean            @default(false) @map("control_ingreso_automatico")
-  horaLimiteFalta               String             @default("09:00") @map("hora_limite_falta") // HH:mm, desde esta hora sin ingreso = falta
-  zonaHoraria                   String             @default("America/Lima") @map("zona_horaria")
-  modoAvisos                    ModoAvisos         @default(todos) @map("modo_avisos")
-  escalaCalificacion            EscalaCalificacion @default(literal) @map("escala_calificacion")
-  sugerenciaPeriodo             SugerenciaPeriodo  @default(ninguna) @map("calculo_literal")
-  /// Plazo del reglamento para justificar una falta, en días hábiles (lunes a viernes sin feriados nacionales del Perú) desde el día de la falta.
-  plazoJustificacionDiasHabiles Int                @default(15) @map("plazo_justificacion_dias_habiles")
+  controlIngresoAutomatico        Boolean              @default(false) @map("control_ingreso_automatico")
+  horaLimiteFalta                 String               @default("09:00") @map("hora_limite_falta") // HH:mm, desde esta hora sin ingreso = falta
+  zonaHoraria                     String               @default("America/Lima") @map("zona_horaria")
+  modoAvisos                      ModoAvisos           @default(todos) @map("modo_avisos")
+  escalaCalificacion              EscalaCalificacion   @default(literal) @map("escala_calificacion")
+  sugerenciaPeriodo               SugerenciaPeriodo    @default(ninguna) @map("calculo_literal")
+  /// Plazo para justificar una falta, en días CALENDARIO desde el día de la falta (día 0); vence a las 23:59:59 del último
+  /// día en la zona del colegio (specs/07, specs/37).
+  plazoJustificacionDias          Int                  @default(15) @map("plazo_justificacion_dias")
+  /// Consecuencia configurada cuando vence el plazo sin justificación (specs/37). Según la escala del colegio: literal o
+  /// numérica. Ambas null = sin configurar (Khipu no inventa un valor: alerta a dirección).
+  consecuenciaVencimientoLiteral  CalificacionLiteral? @map("consecuencia_vencimiento_literal")
+  consecuenciaVencimientoNumerica Decimal?             @map("consecuencia_vencimiento_numerica") @db.Decimal(4, 2)
+  /// HH:mm. Hora del resumen académico diario a las familias (specs/37).
+  horaResumenAcademico            String               @default("18:00") @map("hora_resumen_academico")
   /// Grado de primaria (1–6) desde el que un alumno puede tener cuenta propia. Secundaria siempre; inicial nunca (specs/10).
-  gradoMinimoCuentaAlumno       Int                @default(5) @map("grado_minimo_cuenta_alumno")
+  gradoMinimoCuentaAlumno         Int                  @default(5) @map("grado_minimo_cuenta_alumno")
   /// Niveles con asistencia por curso (specs/04): los profesores pasan lista de sus cursos solo en salones de estos niveles.
   /// La asistencia al colegio (`ambito = "dia"`: portería o lista del tutor) no depende de esto.
-  asistenciaPorCursoNiveles     Nivel[]            @default([]) @map("asistencia_por_curso_niveles")
-  estado                        EstadoTenant       @default(activo)
-  createdAt                     DateTime           @default(now()) @map("created_at") @db.Timestamptz
+  asistenciaPorCursoNiveles       Nivel[]              @default([]) @map("asistencia_por_curso_niveles")
+  estado                          EstadoTenant         @default(activo)
+  createdAt                       DateTime             @default(now()) @map("created_at") @db.Timestamptz
 
   memberships           Membership[]
   salones               Salon[]
@@ -293,6 +337,12 @@ model Tenant {
   horarioPeriodos       HorarioPeriodo[]
   plantillasHorario     PlantillaHorario[]
   bloquesHorario        BloqueHorario[]
+  // NSP, justificaciones, incidencias, libretas emitidas y resumen académico (specs/37)
+  incidencias           Incidencia[]
+  incidenciaCursos      IncidenciaCurso[]
+  libretasEmitidas      LibretaEmitida[]
+  rectificaciones       RectificacionLibreta[]
+  resumenesAcademicos   ResumenAcademicoDia[]
 
   @@map("tenants")
 }
@@ -370,6 +420,11 @@ model Membership {
   pagosNudito              PagoNudito[]
   consentimientosIa        ConsentimientoIa[]
   bloquesHorarioACargo     BloqueHorario[]
+  recuperacionesDecididas  Nota[]                 @relation("RecuperacionDecidida")
+  incidenciasRegistradas   Incidencia[]
+  libretasEmitidas         LibretaEmitida[]
+  rectificacionesPedidas   RectificacionLibreta[] @relation("RectificacionSolicitada")
+  rectificacionesResueltas RectificacionLibreta[] @relation("RectificacionResuelta")
 
   @@unique([tenantId, userId, rol])
   @@index([userId])
@@ -422,6 +477,7 @@ model Curso {
   cierres               CierreCurso[]
   enviosInformeProgreso EnvioInformeProgreso[]
   bloques               BloqueHorario[]
+  incidencias           IncidenciaCurso[]
 
   @@index([tenantId])
   @@index([profesorId])
@@ -444,9 +500,9 @@ model Alumno {
   cuentaId        String?      @unique @map("cuenta_id") @db.Uuid
   createdAt       DateTime     @default(now()) @map("created_at") @db.Timestamptz
 
-  tenant                Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  cuenta                Membership?           @relation("CuentaAlumno", fields: [cuentaId], references: [id], onDelete: SetNull)
-  salon                 Salon                 @relation(fields: [salonId], references: [id], onDelete: NoAction)
+  tenant                Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  cuenta                Membership?            @relation("CuentaAlumno", fields: [cuentaId], references: [id], onDelete: SetNull)
+  salon                 Salon                  @relation(fields: [salonId], references: [id], onDelete: NoAction)
   apoderados            ApoderadoAlumno[]
   asistencias           Asistencia[]
   conversaciones        Conversacion[]
@@ -465,6 +521,9 @@ model Alumno {
   usosNudito            UsoNudito[]
   alertasNudito         AlertaNudito[]
   resumenesNudito       ResumenNudito[]
+  incidencias           Incidencia[]
+  libretasEmitidas      LibretaEmitida[]
+  rectificaciones       RectificacionLibreta[]
 
   @@index([tenantId, salonId])
   @@index([tenantId, numeroDocumento])
@@ -559,6 +618,8 @@ model Asistencia {
   nota            String?
   origen          OrigenAsistencia @default(lista)
   registradoPorId String?          @map("registrado_por") @db.Uuid // null = la puso el control de ingreso automático
+  /// Falta a clase creada por una incidencia o retiro anticipado (specs/37).
+  incidenciaId    String?          @map("incidencia_id") @db.Uuid
   createdAt       DateTime         @default(now()) @map("created_at") @db.Timestamptz
   updatedAt       DateTime         @updatedAt @map("updated_at") @db.Timestamptz
 
@@ -566,6 +627,7 @@ model Asistencia {
   alumno          Alumno               @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
   curso           Curso?               @relation(fields: [cursoId], references: [id], onDelete: SetNull)
   registradoPor   Membership?          @relation("RegistradoPor", fields: [registradoPorId], references: [id], onDelete: NoAction)
+  incidencia      Incidencia?          @relation(fields: [incidenciaId], references: [id], onDelete: SetNull)
   avisos          Aviso[]
   tokens          JustificacionToken[]
   justificaciones Justificacion[]
@@ -693,11 +755,14 @@ model Justificacion {
   revisadoAt         DateTime?           @map("revisado_at") @db.Timestamptz
   createdAt          DateTime            @default(now()) @map("created_at") @db.Timestamptz
 
-  tenant      Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  asistencia  Asistencia  @relation(fields: [asistenciaId], references: [id], onDelete: Cascade)
-  apoderado   Membership  @relation("JustificacionApoderado", fields: [apoderadoId], references: [id], onDelete: Cascade)
-  revisadoPor Membership? @relation("JustificacionRevisor", fields: [revisadoPorId], references: [id], onDelete: SetNull)
-  adjunto     Archivo?    @relation(fields: [adjuntoArchivoId], references: [id], onDelete: SetNull)
+  tenant      Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  asistencia  Asistencia      @relation(fields: [asistenciaId], references: [id], onDelete: Cascade)
+  apoderado   Membership      @relation("JustificacionApoderado", fields: [apoderadoId], references: [id], onDelete: Cascade)
+  revisadoPor Membership?     @relation("JustificacionRevisor", fields: [revisadoPorId], references: [id], onDelete: SetNull)
+  adjunto     Archivo?        @relation(fields: [adjuntoArchivoId], references: [id], onDelete: SetNull)
+  /// NSP de esa fecha que esta justificación aprobada cubre (specs/37).
+  notas       Nota[]
+  historial   HistorialNota[]
 
   @@index([tenantId, estado])
   // Índices de rendimiento (docs/pruebas-de-estres.md, migración 20261101090000_indices_rendimiento).
@@ -869,6 +934,8 @@ model Periodo {
   informesProgreso      InformeProgreso[]
   enviosInformeProgreso EnvioInformeProgreso[]
   comentariosTutor      ComentarioTutor[]
+  libretasEmitidas      LibretaEmitida[]
+  rectificaciones       RectificacionLibreta[]
 
   @@unique([tenantId, anio, tipo, numero])
   @@map("periodos")
@@ -883,13 +950,14 @@ model Competencia {
   descripcion String?
   orden       Int     @default(0)
 
-  tenant                Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  curso                 Curso                 @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  tenant                Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  curso                 Curso                  @relation(fields: [cursoId], references: [id], onDelete: Cascade)
   evaluaciones          Evaluacion[]
   calificacionesPeriodo CalificacionPeriodo[]
   capacidades           Capacidad[]
   desempenos            Desempeno[]
   informesProgreso      InformeProgreso[]
+  rectificaciones       RectificacionLibreta[]
 
   @@index([tenantId, cursoId])
   @@map("competencias")
@@ -928,25 +996,40 @@ model Evaluacion {
 
 /// Nota de una evaluación. Literal (AD/A/B/C) o vigesimal (0–20) según la escala del colegio.
 model Nota {
-  id              String               @id @default(uuid()) @db.Uuid
-  tenantId        String               @map("tenant_id") @db.Uuid
-  evaluacionId    String               @map("evaluacion_id") @db.Uuid
-  alumnoId        String               @map("alumno_id") @db.Uuid
-  valorLiteral    CalificacionLiteral? @map("valor_literal")
-  valorNumerico   Decimal?             @map("valor_numerico") @db.Decimal(4, 2)
-  comentario      String?
-  registradoPorId String               @map("registrado_por") @db.Uuid
-  updatedAt       DateTime             @updatedAt @map("updated_at") @db.Timestamptz
+  id                String               @id @default(uuid()) @db.Uuid
+  tenantId          String               @map("tenant_id") @db.Uuid
+  evaluacionId      String               @map("evaluacion_id") @db.Uuid
+  alumnoId          String               @map("alumno_id") @db.Uuid
+  valorLiteral      CalificacionLiteral? @map("valor_literal")
+  valorNumerico     Decimal?             @map("valor_numerico") @db.Decimal(4, 2)
+  comentario        String?
+  /// Null = la creó Khipu (NSP por asistencia o consecuencia por vencimiento).
+  registradoPorId   String?              @map("registrado_por") @db.Uuid
+  updatedAt         DateTime             @updatedAt @map("updated_at") @db.Timestamptz
+  /// NSP (faltó) o «No entregó» (asistió pero no entregó). Sin valor = estado académico, no una calificación (specs/37).
+  marca             MarcaNota?
+  /// Cuándo Khipu aplicó la consecuencia por vencimiento del plazo (el valor queda en valorLiteral/valorNumerico).
+  vencidaAt         DateTime?            @map("vencida_at") @db.Timestamptz
+  /// Justificación aprobada que cubre este NSP.
+  justificacionId   String?              @map("justificacion_id") @db.Uuid
+  recuperacion      EstadoRecuperacion?
+  recuperacionPorId String?              @map("recuperacion_por") @db.Uuid
+  recuperacionAt    DateTime?            @map("recuperacion_at") @db.Timestamptz
+  /// Día en que el alumno rindió la recuperación (la fecha original de la actividad no cambia).
+  fechaRecuperacion DateTime?            @map("fecha_recuperacion") @db.Date
 
-  tenant        Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  evaluacion    Evaluacion @relation(fields: [evaluacionId], references: [id], onDelete: Cascade)
-  alumno        Alumno     @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
-  registradoPor Membership @relation(fields: [registradoPorId], references: [id], onDelete: NoAction)
+  tenant          Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  evaluacion      Evaluacion     @relation(fields: [evaluacionId], references: [id], onDelete: Cascade)
+  alumno          Alumno         @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  registradoPor   Membership?    @relation(fields: [registradoPorId], references: [id], onDelete: NoAction)
+  justificacion   Justificacion? @relation(fields: [justificacionId], references: [id], onDelete: SetNull)
+  recuperacionPor Membership?    @relation("RecuperacionDecidida", fields: [recuperacionPorId], references: [id], onDelete: SetNull)
 
   @@unique([evaluacionId, alumnoId])
   // Índices de rendimiento (docs/pruebas-de-estres.md, migración 20261101090000_indices_rendimiento).
   @@index([alumnoId])
   @@index([registradoPorId])
+  @@index([tenantId, marca])
   @@map("notas")
 }
 
@@ -997,21 +1080,30 @@ model InformeProgreso {
   @@map("informes_progreso")
 }
 
-/// Cada cambio de una nota (specs/11): valor anterior y nuevo (texto: «A», «14,5»; null = sin nota), quién y cuándo.
+/// Cada cambio de una nota (specs/11, specs/37; inmutable: un trigger impide UPDATE): valor anterior y nuevo (texto: «A», «14,5»; null = sin nota), quién y cuándo.
 model HistorialNota {
-  id            String   @id @default(uuid()) @db.Uuid
-  tenantId      String   @map("tenant_id") @db.Uuid
-  evaluacionId  String   @map("evaluacion_id") @db.Uuid
-  alumnoId      String   @map("alumno_id") @db.Uuid
-  valorAnterior String?  @map("valor_anterior")
-  valorNuevo    String?  @map("valor_nuevo")
-  cambiadoPorId String   @map("cambiado_por") @db.Uuid
-  cambiadoAt    DateTime @default(now()) @map("cambiado_at") @db.Timestamptz
+  id              String         @id @default(uuid()) @db.Uuid
+  tenantId        String         @map("tenant_id") @db.Uuid
+  evaluacionId    String         @map("evaluacion_id") @db.Uuid
+  alumnoId        String         @map("alumno_id") @db.Uuid
+  valorAnterior   String?        @map("valor_anterior")
+  valorNuevo      String?        @map("valor_nuevo")
+  /// Null = Khipu (sistema): NSP por asistencia, consecuencia por vencimiento.
+  cambiadoPorId   String?        @map("cambiado_por") @db.Uuid
+  cambiadoAt      DateTime       @default(now()) @map("cambiado_at") @db.Timestamptz
+  tipo            TipoCambioNota @default(registro)
+  /// «valor» (la nota) o «recuperacion» (decisión del profesor).
+  campo           String         @default("valor")
+  motivo          String?
+  justificacionId String?        @map("justificacion_id") @db.Uuid
+  /// La evaluación ya estaba publicada cuando se hizo el cambio.
+  publicada       Boolean        @default(false)
 
-  tenant      Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  evaluacion  Evaluacion @relation(fields: [evaluacionId], references: [id], onDelete: Cascade)
-  alumno      Alumno     @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
-  cambiadoPor Membership @relation(fields: [cambiadoPorId], references: [id], onDelete: NoAction)
+  tenant        Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  evaluacion    Evaluacion     @relation(fields: [evaluacionId], references: [id], onDelete: Cascade)
+  alumno        Alumno         @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  cambiadoPor   Membership?    @relation(fields: [cambiadoPorId], references: [id], onDelete: NoAction)
+  justificacion Justificacion? @relation(fields: [justificacionId], references: [id], onDelete: SetNull)
 
   @@index([tenantId])
   @@index([evaluacionId, cambiadoAt])
@@ -2090,4 +2182,125 @@ model BloqueHorario {
   @@index([tenantId, profesorId])
   @@index([periodoId])
   @@map("bloques_horario")
+}
+
+// ───────────── NSP, incidencias, libretas emitidas y resumen académico (specs/37) ─────────────
+
+/// Incidencia de un alumno durante la jornada (accidente, malestar…), con retiro anticipado opcional. La descripción es
+/// sensible: solo la ven dirección, el tutor del salón y quien la registró. Los cursos afectados reciben una falta a clase.
+model Incidencia {
+  id              String         @id @default(uuid()) @db.Uuid
+  tenantId        String         @map("tenant_id") @db.Uuid
+  alumnoId        String         @map("alumno_id") @db.Uuid
+  fecha           DateTime       @db.Date
+  /// HH:mm de la incidencia (hora del colegio).
+  hora            String
+  tipo            TipoIncidencia
+  descripcion     String
+  retiro          Boolean        @default(false)
+  horaRetiro      String?        @map("hora_retiro")
+  registradoPorId String         @map("registrado_por") @db.Uuid
+  createdAt       DateTime       @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant        Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno        Alumno            @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  registradoPor Membership        @relation(fields: [registradoPorId], references: [id], onDelete: NoAction)
+  cursos        IncidenciaCurso[]
+  asistencias   Asistencia[]
+
+  @@index([tenantId, fecha])
+  @@index([alumnoId, fecha])
+  @@map("incidencias")
+}
+
+/// Clase afectada por una incidencia (el alumno no estuvo).
+model IncidenciaCurso {
+  id           String @id @default(uuid()) @db.Uuid
+  tenantId     String @map("tenant_id") @db.Uuid
+  incidenciaId String @map("incidencia_id") @db.Uuid
+  cursoId      String @map("curso_id") @db.Uuid
+
+  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  incidencia Incidencia @relation(fields: [incidenciaId], references: [id], onDelete: Cascade)
+  curso      Curso      @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+
+  @@unique([incidenciaId, cursoId])
+  @@index([tenantId])
+  @@index([cursoId])
+  @@map("incidencia_cursos")
+}
+
+/// Versión emitida (congelada) de la libreta de un alumno en un periodo. La versión 1 se crea al publicar la libreta; las
+/// siguientes, solo al aprobar una rectificación. Ninguna se modifica después.
+model LibretaEmitida {
+  id              String   @id @default(uuid()) @db.Uuid
+  tenantId        String   @map("tenant_id") @db.Uuid
+  alumnoId        String   @map("alumno_id") @db.Uuid
+  periodoId       String   @map("periodo_id") @db.Uuid
+  version         Int
+  datos           Json
+  emitidaPorId    String   @map("emitida_por") @db.Uuid
+  emitidaAt       DateTime @default(now()) @map("emitida_at") @db.Timestamptz
+  rectificacionId String?  @unique @map("rectificacion_id") @db.Uuid
+
+  tenant        Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno        Alumno                @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  periodo       Periodo               @relation(fields: [periodoId], references: [id], onDelete: Cascade)
+  emitidaPor    Membership            @relation(fields: [emitidaPorId], references: [id], onDelete: NoAction)
+  rectificacion RectificacionLibreta? @relation(fields: [rectificacionId], references: [id], onDelete: SetNull)
+
+  @@unique([alumnoId, periodoId, version])
+  @@index([tenantId, periodoId])
+  @@map("libretas_emitidas")
+}
+
+/// Solicitud formal para corregir una calificación de una libreta ya emitida. Dirección la aprueba o rechaza.
+model RectificacionLibreta {
+  id                   String               @id @default(uuid()) @db.Uuid
+  tenantId             String               @map("tenant_id") @db.Uuid
+  alumnoId             String               @map("alumno_id") @db.Uuid
+  periodoId            String               @map("periodo_id") @db.Uuid
+  competenciaId        String               @map("competencia_id") @db.Uuid
+  /// Texto de la calificación emitida («B», «12»; null = sin calificación).
+  valorAnterior        String?              @map("valor_anterior")
+  valorLiteral         CalificacionLiteral? @map("valor_literal")
+  valorNumerico        Decimal?             @map("valor_numerico") @db.Decimal(4, 2)
+  conclusion           String?
+  motivo               String
+  evidencia            String?
+  estado               EstadoRectificacion  @default(pendiente)
+  solicitadaPorId      String               @map("solicitada_por") @db.Uuid
+  solicitadaAt         DateTime             @default(now()) @map("solicitada_at") @db.Timestamptz
+  resueltaPorId        String?              @map("resuelta_por") @db.Uuid
+  resueltaAt           DateTime?            @map("resuelta_at") @db.Timestamptz
+  comentarioResolucion String?              @map("comentario_resolucion")
+
+  tenant        Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno        Alumno          @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  periodo       Periodo         @relation(fields: [periodoId], references: [id], onDelete: Cascade)
+  competencia   Competencia     @relation(fields: [competenciaId], references: [id], onDelete: Cascade)
+  solicitadaPor Membership      @relation("RectificacionSolicitada", fields: [solicitadaPorId], references: [id], onDelete: NoAction)
+  resueltaPor   Membership?     @relation("RectificacionResuelta", fields: [resueltaPorId], references: [id], onDelete: SetNull)
+  libreta       LibretaEmitida?
+
+  @@index([tenantId, estado])
+  @@index([alumnoId, periodoId])
+  @@map("rectificaciones_libreta")
+}
+
+/// Resumen académico diario (specs/37): una fila por colegio y día marca que ya se encoló, para enviarlo una sola vez
+/// aunque el cron corra varias veces o haya dos workers. Cubre lo publicado en [desde, hasta).
+model ResumenAcademicoDia {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String   @map("tenant_id") @db.Uuid
+  fecha     DateTime @db.Date
+  desde     DateTime @db.Timestamptz
+  hasta     DateTime @db.Timestamptz
+  alumnos   Int      @default(0)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, fecha])
+  @@map("resumenes_academicos")
 }

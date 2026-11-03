@@ -20,13 +20,49 @@ export type DatosLibreta = Awaited<ReturnType<typeof datosLibreta>>;
 export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodoId: string, accion: "ver" | "exportar" = "ver") {
   requireFeature(ctx, "libreta");
   await requireAlumnoVisible(ctx, alumnoId);
-  const [alumno, periodo] = await Promise.all([
-    ctx.db.alumno.findFirst({ where: { id: alumnoId }, include: { salon: { include: { tutor: { include: { user: true } } } } } }),
+  const [alumno, periodo, emitida] = await Promise.all([
+    ctx.db.alumno.findFirst({ where: { id: alumnoId }, include: { salon: { select: { nivel: true, tutorId: true } } } }),
     ctx.db.periodo.findFirst({ where: { id: periodoId } }),
+    // La versión emitida vigente (la más reciente) manda sobre los datos en vivo (specs/37).
+    ctx.db.libretaEmitida.findFirst({
+      where: { alumnoId, periodoId }, orderBy: { version: "desc" },
+      select: { version: true, datos: true, emitidaAt: true, emitidaPor: { select: { user: { select: { nombres: true, apellidos: true } } } } },
+    }),
   ]);
   if (!alumno || !periodo || !periodo.niveles.includes(alumno.salon.nivel)) forbidden();
   // Las familias y el propio alumno solo ven periodos publicados (o antiguos ya cerrados); profesores y dirección ven todos.
   if (esVistaFamilia(ctx.rol) && !libretaVisibleParaFamilia(periodo)) forbidden();
+  await auditar({
+    tenantId: ctx.tenant.id, actorId: ctx.user.id, accion, entidad: "libreta", entidadId: alumnoId, detalle: { periodoId, ...(emitida ? { version: emitida.version } : {}) },
+  });
+  if (emitida) {
+    return {
+      ...(emitida.datos as unknown as LibretaConstruida),
+      emision: {
+        version: emitida.version, emitidaAt: emitida.emitidaAt,
+        por: `${emitida.emitidaPor.user.nombres} ${emitida.emitidaPor.user.apellidos}`.trim(),
+      },
+      // Emitida: el comentario del tutor ya no se edita (se corrige por rectificación).
+      puedeComentar: false,
+    };
+  }
+  return {
+    ...(await construirLibreta(ctx, alumnoId, periodoId)),
+    emision: null,
+    /** El usuario es el tutor del salón y el periodo sigue abierto: puede escribir el comentario. */
+    puedeComentar: ctx.rol === "profesor" && alumno.salon.tutorId === ctx.membership.id && !periodo.cerrado,
+  };
+}
+
+export type LibretaConstruida = Awaited<ReturnType<typeof construirLibreta>>;
+
+/** Datos en vivo de la libreta (sin validar alcance ni auditar): base de la vista y de la versión emitida. */
+export async function construirLibreta(ctx: TenantContext, alumnoId: string, periodoId: string) {
+  const [alumno, periodo] = await Promise.all([
+    ctx.db.alumno.findFirst({ where: { id: alumnoId }, include: { salon: { include: { tutor: { include: { user: true } } } } } }),
+    ctx.db.periodo.findFirst({ where: { id: periodoId } }),
+  ]);
+  if (!alumno || !periodo) forbidden();
 
   const cursos = await ctx.db.curso.findMany({ where: { salonId: alumno.salonId }, orderBy: { nombre: "asc" } });
   const cursoIds = cursos.map((c) => c.id);
@@ -40,7 +76,8 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
     ctx.db.asistencia.findMany({ where: { alumnoId, fecha: { gte: periodo.inicio, lte: periodo.fin } } }),
     // Desempeños del CNEB (specs/30) que midieron las evaluaciones del periodo en las que el alumno tiene nota.
     ctx.db.desempeno.findMany({
-      where: { evaluaciones: { some: { evaluacion: { periodoId, cursoId: { in: cursoIds }, notas: { some: { alumnoId } } } } } },
+      // Solo notas con calificación: un NSP o «No entregó» no cuenta como desempeño evaluado.
+      where: { evaluaciones: { some: { evaluacion: { periodoId, cursoId: { in: cursoIds }, notas: { some: { alumnoId, OR: [{ valorLiteral: { not: null } }, { valorNumerico: { not: null } }] } } } } } },
       select: { competenciaId: true, descripcion: true },
       orderBy: [{ orden: "asc" }, { descripcion: "asc" }],
     }),
@@ -57,10 +94,6 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
   const asistencia = { llego: 0, tarde: 0, falta: 0, problema: 0, total: porDia.size };
   for (const a of porDia.values()) asistencia[a.estado] += 1;
 
-  await auditar({
-    tenantId: ctx.tenant.id, actorId: ctx.user.id, accion, entidad: "libreta", entidadId: alumnoId, detalle: { periodoId },
-  });
-
   return {
     colegio: { nombre: ctx.tenant.nombre, ciudad: ctx.tenant.ciudad },
     escala: ctx.tenant.escalaCalificacion,
@@ -71,12 +104,14 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
     },
     periodo: { id: periodo.id, nombre: periodo.nombre, anio: periodo.anio, cerrado: periodo.cerrado },
     cursos: cursos.map((curso) => ({
+      id: curso.id,
       nombre: curso.nombre,
       competencias: competencias
         .filter((c) => c.cursoId === curso.id)
         .map((c) => {
           const g = califs.find((x) => x.competenciaId === c.id);
           return {
+            id: c.id,
             nombre: c.nombre,
             calificacion: g
               ? ({ valorLiteral: g.valorLiteral as Literal | null, valorNumerico: g.valorNumerico === null ? null : Number(g.valorNumerico.toString()) } as ValorCalificacion)
@@ -90,8 +125,6 @@ export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodo
     asistencia,
     /** Comentario general del tutor del salón en el periodo (opcional). */
     comentarioTutor: comentarioTutor?.texto ?? null,
-    /** El usuario es el tutor del salón y el periodo sigue abierto: puede escribir el comentario. */
-    puedeComentar: ctx.rol === "profesor" && alumno.salon.tutorId === ctx.membership.id && !periodo.cerrado,
   };
 }
 

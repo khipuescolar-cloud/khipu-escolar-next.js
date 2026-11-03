@@ -14,7 +14,7 @@ import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { ETIQUETA_LITERAL, INSTRUMENTOS, LITERALES, NOMBRE_INSTRUMENTO, formatearNumero, textoCalculo, type Instrumento } from "@/lib/calificaciones";
-import { fechaLima, formatoHora } from "@/lib/fechas";
+import { fechaLima, formatoHora, hora12 } from "@/lib/fechas";
 import { Textarea } from "@/components/ui/textarea";
 import { desempenosParaEvaluar } from "@/lib/server/cneb";
 import {
@@ -262,8 +262,11 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
           : <>La calificación de cada competencia en el periodo la pones tú en «Calificación del periodo».</>}
       </p>
       <GrillaNotas
+        // Se remonta cuando cambian las columnas o las notas (p. ej. NSP puestos al crear una evaluación).
+        key={`${g.evaluaciones.map((e) => e.id).join(",")}|${g.notas.length}`}
         slug={slug} escala={g.escala} calculo={g.calculo} editable={g.editable} alumnos={g.alumnos}
         competencias={g.competencias} evaluaciones={g.evaluaciones} notas={g.notas}
+        estadosNsp={g.estadosNsp.nsp} conflictos={g.estadosNsp.conflictos}
       />
 
       {g.evaluaciones.length > 0 && (
@@ -275,7 +278,7 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
 
 /**
  * Evaluaciones del periodo agrupadas (una evaluación puede tener varias columnas, una por competencia): estado
- * (Programada = borrador / Publicada), «Publicar resultados» o «Reenviar aviso», historial de cambios y, por columna,
+ * (Programada = borrador / Publicada), «Publicar resultados» (entra en el resumen académico del día), historial y, por columna,
  * editar y eliminar.
  */
 async function ListaEvaluaciones({
@@ -322,18 +325,13 @@ async function ListaEvaluaciones({
                     </p>
                     {e.descripcion && <p className="mt-1 max-w-prose text-cuerpo-sm">{e.descripcion}</p>}
                   </div>
-                  {ctx.rol === "profesor" && hayNotas && (
+                  {ctx.rol === "profesor" && hayNotas && !publicada && (
                       <BotonConfirmar
-                        etiqueta={<><Send strokeWidth={2} aria-hidden />{publicada ? "Reenviar aviso" : "Publicar resultados"}<span className="sr-only"> de {e.titulo}</span></>}
-                        variante={publicada ? "outline" : "default"}
-                        titulo={publicada ? `¿Avisar otra vez los resultados de «${e.titulo}»?` : `¿Publicar los resultados de «${e.titulo}»?`}
-                        descripcion={
-                          publicada
-                            ? "Las familias de los alumnos con nota recibirán el aviso de nuevo."
-                            : "Las familias verán las notas de esta evaluación y recibirán un aviso. Si cambias una nota después, verán el cambio."
-                        }
-                        confirmar={publicada ? "Reenviar aviso" : "Publicar resultados"}
-                        accion={publicarEvaluacionAction.bind(null, slug, e.grupoId, publicada)}
+                        etiqueta={<><Send strokeWidth={2} aria-hidden />Publicar resultados<span className="sr-only"> de {e.titulo}</span></>}
+                        titulo={`¿Publicar los resultados de «${e.titulo}»?`}
+                        descripcion={`Las familias verán las notas y las recibirán en el resumen académico de hoy (${hora12(g.horaResumen)}). Después, cada cambio pedirá un motivo y se avisará a esa familia.`}
+                        confirmar="Publicar resultados"
+                        accion={publicarEvaluacionAction.bind(null, slug, e.grupoId)}
                       />
                   )}
                 </div>
@@ -391,7 +389,13 @@ async function ListaEvaluaciones({
                       {historial.map((h) => (
                         <li key={h.id} className="text-muted-foreground">
                           <span className="tabular-nums">{fechaLima(h.cambiadoAt)} {formatoHora(h.cambiadoAt)}</span> · {h.alumno}
-                          {h.competencia && ` · ${h.competencia}`}: <strong className="text-foreground">{h.anterior ?? "sin nota"} → {h.nuevo ?? "sin nota"}</strong> · {h.por}
+                          {h.competencia && ` · ${h.competencia}`}:{" "}
+                          {h.campo === "recuperacion"
+                            ? <strong className="text-foreground">Recuperación {h.nuevo?.toLowerCase()}</strong>
+                            : <strong className="text-foreground">{h.anterior ?? "sin nota"} → {h.nuevo ?? "sin nota"}</strong>}
+                          {" "}· {h.por}
+                          {h.tipo !== "registro" && <> · {NOMBRE_TIPO_CAMBIO[h.tipo]}</>}
+                          {h.motivo && <> · «{h.motivo}»</>}
                         </li>
                       ))}
                     </ul>
@@ -405,6 +409,16 @@ async function ListaEvaluaciones({
     </Card>
   );
 }
+
+const NOMBRE_TIPO_CAMBIO: Record<string, string> = {
+  registro: "Borrador",
+  correccion_digitacion: "Corrección por error de digitación",
+  recuperacion: "Recuperación autorizada",
+  cambio_asistencia: "Cambio asociado a asistencia",
+  consecuencia_vencimiento: "Consecuencia por vencimiento",
+  otra: "Otra modificación autorizada",
+  decision_recuperacion: "Decisión de recuperación",
+};
 
 function CampoDescripcion({ defecto }: { defecto?: string | null }) {
   return (

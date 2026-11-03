@@ -1,5 +1,6 @@
 import "server-only";
 import type { Tenant } from "@/generated/prisma/client";
+import { sincronizarNsp } from "./nsp";
 import { faseControlIngreso, saludoFamilia } from "@/lib/control-ingreso";
 import { esDiaHabil } from "@/lib/dias-habiles";
 import { fechaDb, hora12, momentoEnZona } from "@/lib/fechas";
@@ -23,7 +24,7 @@ import { whereSalonActivo } from "./salones-activos";
 // registrado ingreso en todo el colegio (portería no abrió, día sin clases), no se hace nada: sería avisar a todas las
 // familias por error. Un alumno que llega después de la falta la corrige al escanear (pasa a «tarde» y se avisa).
 
-type TenantControl = Pick<Tenant, "id" | "nombre" | "slug" | "plan" | "zonaHoraria" | "horaLimiteTardanza" | "horaLimiteFalta" | "plazoJustificacionDiasHabiles">;
+type TenantControl = Pick<Tenant, "id" | "nombre" | "slug" | "plan" | "zonaHoraria" | "horaLimiteTardanza" | "horaLimiteFalta" | "plazoJustificacionDias" | "escalaCalificacion" | "consecuenciaVencimientoLiteral" | "consecuenciaVencimientoNumerica">;
 
 export type ResumenControlIngreso = { colegios: number; avisosNoLlega: number; faltas: number };
 
@@ -31,7 +32,7 @@ export async function procesarControlIngreso(ahora = new Date()): Promise<Resume
   const resumen: ResumenControlIngreso = { colegios: 0, avisosNoLlega: 0, faltas: 0 };
   const colegios = await db.tenant.findMany({
     where: { controlIngresoAutomatico: true, estado: { in: ["activo", "piloto"] } },
-    select: { id: true, nombre: true, slug: true, plan: true, zonaHoraria: true, horaLimiteTardanza: true, horaLimiteFalta: true, plazoJustificacionDiasHabiles: true },
+    select: { id: true, nombre: true, slug: true, plan: true, zonaHoraria: true, horaLimiteTardanza: true, horaLimiteFalta: true, plazoJustificacionDias: true, escalaCalificacion: true, consecuenciaVencimientoLiteral: true, consecuenciaVencimientoNumerica: true },
   });
   for (const tenant of colegios) {
     try {
@@ -159,6 +160,8 @@ async function ponerFaltas(tdb: DbTenant, tenant: TenantControl, g: Grupo, alumn
     tenantId: tenant.id, actorId: null, accion: "crear" as const, entidad: "asistencia", entidadId: c.id,
     detalle: { alumnoId: c.alumnoId, ambito: AMBITO_DIA, origen: "automatico", ahora: "falta" },
   })));
+  // NSP en las actividades de hoy de quienes no llegaron (specs/37).
+  await sincronizarNsp(tdb, tenant, { fecha, alumnoIds: creadas.map((c) => c.alumnoId) });
   const nombres = new Map(alumnos.map((a) => [a.id, primerNombre(a.nombres)]));
   const destinatarios = await destinatariosPorAlumno(tdb, creadas.map((c) => c.alumnoId));
   const envio = { tenantId: tenant.id, tipo: "asistencia" as const, titulo: `Faltas del día (${hora12(g.falta)})` };

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { anuncioAplica, estadoAnuncio, instanteDeLima, localDeLima } from "@/lib/anuncios-plataforma";
 import { esDiaHabil, feriadosNacionalesConNombre, sumarDiasHabiles } from "@/lib/dias-habiles";
 import { esHorarioEscolar, horarioDesdeConfig } from "@/lib/nudito/estado";
-import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-justificacion";
+import { ultimoDiaJustificacion } from "@/lib/plazo-justificacion";
 import { motivoNoDesactivar } from "@/lib/server/plataforma-equipo";
 
 describe("anuncioAplica", () => {
@@ -39,13 +39,10 @@ describe("feriados", () => {
     expect(f.find((x) => x.fecha === "2026-07-28")?.nombre).toBe("Fiestas Patrias");
     expect(f.some((x) => x.nombre === "Jueves Santo")).toBe(true);
   });
-  it("un feriado extra corre el vencimiento un día hábil", () => {
-    // Falta el lunes 2026-11-02 (sin feriados nacionales cerca): 5 días hábiles → lunes 9.
-    expect(ultimoDiaJustificacion("2026-11-02", 5)).toBe("2026-11-09");
-    expect(ultimoDiaJustificacion("2026-11-02", 5, ["2026-11-04"])).toBe("2026-11-10");
+  it("un feriado extra solo afecta los días hábiles, no el plazo de justificación (días calendario)", () => {
     expect(esDiaHabil("2026-11-04", ["2026-11-04"])).toBe(false);
     expect(sumarDiasHabiles("2026-11-02", 1, ["2026-11-03"])).toBe("2026-11-04");
-    expect(expiracionJustificacion("2026-11-02", 5, "America/Lima", ["2026-11-04"]).getTime()).toBeGreaterThan(expiracionJustificacion("2026-11-02", 5).getTime());
+    expect(ultimoDiaJustificacion("2026-11-02", 5)).toBe("2026-11-07");
   });
 });
 

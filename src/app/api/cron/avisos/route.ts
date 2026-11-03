@@ -5,6 +5,8 @@ import { procesarCola } from "@/lib/server/notificaciones/cola";
 import { procesarControlIngreso } from "@/lib/server/control-ingreso";
 import { cerrarResueltosInactivos } from "@/lib/server/soporte";
 import { procesarVencimientosNudito } from "@/lib/server/nudito-plus/licencias";
+import { procesarVencimientosNsp } from "@/lib/server/nsp";
+import { procesarResumenAcademico } from "@/lib/server/resumen-academico";
 
 // Worker de avisos (specs/06). Lo llama el cron con «Authorization: Bearer <CRON_SECRET>».
 export const maxDuration = 300;
@@ -27,7 +29,10 @@ async function manejar(request: Request) {
     const nuditoPlus = await procesarVencimientosNudito();
     // Control de ingreso (specs/05): «aún no llega» y faltas automáticas; se encolan antes de procesar la cola.
     const controlIngreso = await procesarControlIngreso();
-    const resumen = { ...(await procesarCola()), soporteCerradas, nuditoPlus, controlIngreso };
+    // NSP (specs/37): consecuencia por vencimiento del plazo de justificación (idempotente) y resumen académico diario.
+    const vencimientosNsp = await procesarVencimientosNsp();
+    const resumenAcademico = await procesarResumenAcademico();
+    const resumen = { ...(await procesarCola()), soporteCerradas, nuditoPlus, controlIngreso, vencimientosNsp, resumenAcademico };
     await registrarEjecucionCron("avisos", "ok", Date.now() - inicio);
     return NextResponse.json(resumen);
   } catch (error) {

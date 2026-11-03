@@ -1,12 +1,10 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
-/** Otras pruebas agregan feriados extra globales por un instante (configuración de la plataforma) y corren en paralelo:
- *  un feriado solo puede alargar el plazo, así que se verifica que caiga entre n y n + 2 días hábiles. */
+/** El plazo es en días calendario (specs/37): los feriados no lo mueven. */
 function esperarVenceEntre(expira: Date, hoy: string, dias: number) {
-  expect(expira.getTime()).toBeGreaterThanOrEqual(venceJustificacion(hoy, dias).getTime());
-  expect(expira.getTime()).toBeLessThanOrEqual(venceJustificacion(hoy, dias + 2).getTime());
+  expect(expira.getTime()).toBe(expiracionJustificacion(hoy, dias).getTime());
 }
-import { venceJustificacion } from "@/lib/dias-habiles";
+import { expiracionJustificacion } from "@/lib/plazo-justificacion";
 import { fechaDb, momentoEnZona } from "@/lib/fechas";
 import { guardarLista } from "@/lib/server/asistencia";
 import { actualizarConfiguracion } from "@/lib/server/configuracion";
@@ -25,20 +23,20 @@ describe("día a día: plazo de justificación, registros sin conexión y avisos
 
   const falta = (alumnoId: string, extra: object = {}) => ({ salonId: c.salon.id, ambito: "dia", registros: [{ alumnoId, estado: "falta" as const }], ...extra });
 
-  it("el enlace de justificar vence a los 15 días hábiles de la falta por defecto", async () => {
+  it("el enlace de justificar vence a los 15 días calendario de la falta por defecto", async () => {
     await guardarLista(c.ctxDe("tutora"), falta(c.alumnos.mateo.id));
     const token = await c.db.justificacionToken.findFirstOrThrow();
     const hoy = momentoEnZona(new Date(), c.tenant.zonaHoraria).isoFecha;
-    expect(c.tenant.plazoJustificacionDiasHabiles).toBe(15);
+    expect(c.tenant.plazoJustificacionDias).toBe(15);
     esperarVenceEntre(token.expiraAt, hoy, 15);
   });
 
-  it("el plazo lo configura dirección (1 a 30 días hábiles) y el enlace nuevo lo respeta", async () => {
-    await expect(actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDiasHabiles: 0 })).rejects.toThrow(/1 a 30 días hábiles/);
-    await expect(actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDiasHabiles: 31 })).rejects.toThrow(/1 a 30 días hábiles/);
-    await actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDiasHabiles: 5 });
+  it("el plazo lo configura dirección (1 a 30 días calendario) y el enlace nuevo lo respeta", async () => {
+    await expect(actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDias: 0 })).rejects.toThrow(/1 a 30 días calendario/);
+    await expect(actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDias: 31 })).rejects.toThrow(/1 a 30 días calendario/);
+    await actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDias: 5 });
     const tenant = await c.db.tenant.findUniqueOrThrow({ where: { id: c.tenant.id } });
-    expect(tenant.plazoJustificacionDiasHabiles).toBe(5);
+    expect(tenant.plazoJustificacionDias).toBe(5);
 
     const ctx = { ...c.ctxDe("tutora"), tenant };
     // La falta a clase solo se avisa (con su enlace) si el alumno ingresó al colegio ese día (specs/04).
@@ -47,7 +45,7 @@ describe("día a día: plazo de justificación, registros sin conexión y avisos
     const tokens = await c.db.justificacionToken.findMany({ orderBy: { expiraAt: "asc" } }); // el de 5 días vence antes
     const hoy = momentoEnZona(new Date(), c.tenant.zonaHoraria).isoFecha;
     esperarVenceEntre(tokens[0].expiraAt, hoy, 5);
-    await actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDiasHabiles: 15 });
+    await actualizarConfiguracion(c.ctxDe("direccion"), { ...datosConfig(c), plazoJustificacionDias: 15 });
   });
 
   it("dirección fija desde qué grado de primaria el alumno tiene cuenta propia (1.° a 6.°)", async () => {

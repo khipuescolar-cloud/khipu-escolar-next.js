@@ -1,4 +1,5 @@
 import "server-only";
+import { sincronizarNsp } from "./nsp";
 import { forbidden, notFound } from "next/navigation";
 import { randomUUID } from "node:crypto";
 import QRCode from "qrcode";
@@ -212,6 +213,8 @@ async function registrarLlegada(ctx: TenantContext, alumnoId: string, ahora: Dat
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: anterior ? "editar" : "crear", entidad: "asistencia", entidadId: asistencia.id,
     detalle: { alumnoId, ambito: AMBITO_DIA, origen: "porteria", antes: anterior?.estado ?? null, ahora: estado },
   });
+  // Tenía falta (control de ingreso) y llegó: se quitan los NSP de las actividades de hoy (specs/37).
+  if (anterior?.estado === "falta") await sincronizarNsp(ctx.db, ctx.tenant, { fecha, alumnoIds: [alumnoId] });
   // Portería escribe la asistencia al colegio: la llegada se avisa aquí (las listas de curso nunca avisan la llegada, specs/04).
   // Si ya había llegada hoy, se respondió «Ya registrado» arriba, así que el aviso sale una sola vez.
   await encolarAvisosAsistencia(ctx.db, {

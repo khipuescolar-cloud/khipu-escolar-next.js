@@ -66,7 +66,8 @@ beforeAll(async () => {
   const comp = await db.competencia.create({ data: { tenantId, cursoId: curso.id, nombre: "Resuelve problemas" } });
   ids.comp = comp.id;
   const evA = await db.evaluacion.create({ data: { tenantId, cursoId: curso.id, periodoId: abierto.id, competenciaId: comp.id, titulo: "Práctica 1", fecha: new Date("2026-10-10"), peso: 1 } });
-  const evB = await db.evaluacion.create({ data: { tenantId, cursoId: curso.id, periodoId: abierto.id, competenciaId: comp.id, titulo: "Examen", fecha: new Date("2026-10-20"), peso: 3 } });
+  // Borrador: en una publicada cada cambio exige motivo (specs/37).
+  const evB = await db.evaluacion.create({ data: { tenantId, cursoId: curso.id, periodoId: abierto.id, competenciaId: comp.id, titulo: "Examen", fecha: new Date("2026-10-20"), peso: 3, estado: "programada" } });
   const evC = await db.evaluacion.create({ data: { tenantId, cursoId: curso.id, periodoId: cerrado.id, titulo: "Antiguo", fecha: new Date("2026-09-01"), peso: 1 } });
   ids.evA = evA.id;
   ids.evB = evB.id;
@@ -185,7 +186,7 @@ describe("libreta", () => {
 
 describe("cierre por curso", () => {
   it("con el curso cerrado no se editan notas ni evaluaciones; reabrir lo permite", async () => {
-    expect((await guardarNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, valor: "16" })).ok).toBe(true);
+    expect((await guardarNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, valor: "16", motivo: "Corrección", tipo: "correccion_digitacion" })).ok).toBe(true);
     // Solo el profesor del curso o dirección cierran.
     await expect(cerrarCursoPeriodo(profeAjeno, ids.curso, ids.abierto)).rejects.toMatchObject(PROHIBIDO);
     await expect(cerrarCursoPeriodo(madreA, ids.curso, ids.abierto)).rejects.toMatchObject(PROHIBIDO);
@@ -205,7 +206,7 @@ describe("cierre por curso", () => {
     // Otro periodo del mismo curso no se ve afectado por el cierre.
     await expect(reabrirCursoPeriodo(profe, ids.curso, ids.abierto)).rejects.toMatchObject(PROHIBIDO); // solo dirección
     expect((await reabrirCursoPeriodo(direccion, ids.curso, ids.abierto)).ok).toBe(true);
-    expect((await guardarNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, valor: "15" })).ok).toBe(true);
+    expect((await guardarNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, valor: "15", motivo: "Corrección", tipo: "correccion_digitacion" })).ok).toBe(true);
     expect((await grillaNotas(profe, ids.curso, ids.abierto)).editable).toBe(true);
   });
 

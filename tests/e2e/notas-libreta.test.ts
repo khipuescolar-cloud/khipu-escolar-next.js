@@ -32,20 +32,27 @@ test("profesor de la academia (vigesimal) registra una nota de 0 a 20", async ({
   await entrar(page, academia.correos.profesor, academia.slug);
   await page.goto(colegio(academia.slug, "/notas"));
   await expect(page.getByRole("heading", { name: "Notas" })).toBeVisible();
+  // «Simulacro 1» ya está publicado: cada cambio pide el motivo (specs/37).
   const celda = page.getByLabel("Nota de Franco en Simulacro 1");
-  await celda.fill("13");
-  await celda.blur();
-  await expect(page.getByText("Guardado").first()).toBeVisible();
+  const conMotivo = async (valor: string) => {
+    await celda.fill(valor);
+    await celda.blur();
+    const dialogo = page.getByRole("dialog", { name: "Motivo del cambio" });
+    await dialogo.getByLabel("Motivo").fill("Corrección de prueba");
+    await dialogo.getByRole("button", { name: "Guardar cambio" }).click();
+    return dialogo;
+  };
+  await conMotivo("13");
+  await expect(page.getByText("Cambio guardado con su motivo.")).toBeVisible();
   await page.reload();
   await expect(page.getByLabel("Nota de Franco en Simulacro 1")).toHaveValue("13");
   // Una nota fuera de rango se rechaza con un mensaje claro.
-  await page.getByLabel("Nota de Franco en Simulacro 1").fill("25");
-  await page.getByLabel("Nota de Franco en Simulacro 1").blur();
-  await expect(page.getByText("Escribe una nota entre 0 y 20.")).toBeVisible();
+  const dialogo = await conMotivo("25");
+  await expect(dialogo.getByText("Escribe una nota entre 0 y 20.")).toBeVisible();
+  await dialogo.getByRole("button", { name: "Cancelar" }).click();
   // Restaura el valor original (9).
-  await page.getByLabel("Nota de Franco en Simulacro 1").fill("9");
-  await page.getByLabel("Nota de Franco en Simulacro 1").blur();
-  await expect(page.getByText("Guardado").first()).toBeVisible();
+  await conMotivo("9");
+  await expect(page.getByText("Cambio guardado con su motivo.").first()).toBeVisible();
 });
 
 test("apoderada descarga la libreta en PDF de su hijo", async ({ page }) => {

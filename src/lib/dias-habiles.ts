@@ -131,9 +131,15 @@ export function finDelDia(fechaIso: string, zona = "America/Lima"): Date {
 }
 
 /**
- * Hasta cuándo se puede justificar una falta: fin del día (hora local) del n-ésimo día hábil
- * posterior al día de la falta. Por defecto, 15 días hábiles (`Tenant.plazoJustificacionDiasHabiles`).
+ * Fin del día (hora local) del n-ésimo día hábil posterior a una fecha. Ya NO es el plazo de justificación, que se cuenta
+ * en días calendario (`@/lib/plazo-justificacion`, specs/37).
  */
 export function venceJustificacion(fechaFaltaIso: string, dias: number, zona = "America/Lima", feriadosExtra: readonly string[] = []): Date {
   return finDelDia(sumarDiasHabiles(fechaFaltaIso, dias, feriadosExtra), zona);
+}
+
+/** Instante de la hora `hhmm` del día `fechaIso` en la zona indicada (p. ej. la hora del resumen académico). */
+export function instanteEnZona(fechaIso: string, hhmm: string, zona = "America/Lima"): Date {
+  const comoUtc = Date.parse(`${fechaIso}T${hhmm}:00.000Z`);
+  return new Date(comoUtc - desfaseZonaMs(new Date(comoUtc), zona));
 }

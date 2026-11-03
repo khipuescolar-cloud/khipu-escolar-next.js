@@ -3,12 +3,12 @@ import { forbidden, notFound } from "next/navigation";
 import { z } from "zod";
 import type { EstadoJustificacion } from "@/generated/prisma/enums";
 import { urlColegio } from "@/lib/dominio";
-import { esFechaReal, fechaDb, isoDeFechaDb, sumarDias } from "@/lib/fechas";
+import { esFechaReal, fechaDb, isoDeFechaDb } from "@/lib/fechas";
 import { expiracionJustificacion, mensajePlazoVencido, normalizarPlazoDias, textoPlazoJustificacion } from "@/lib/plazo-justificacion";
 import { primerNombre } from "@/lib/nombres";
 import { auditar } from "./auditoria";
 import { db, dbTenant, type DbTenant } from "./db";
-import { feriadosAplicables } from "./plataforma-configuracion";
+import { alAprobarJustificacion, aplicarVencimientos } from "./nsp";
 import { destinatariosDeAlumno, encolarAviso, encolarParaDestinatario } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
 import { guardarArchivo, urlArchivo } from "./storage";
@@ -39,7 +39,7 @@ export type DatosTokenJustificar = {
 export type ConsultaToken =
   | { ok: true; datos: DatosTokenJustificar }
   | { ok: false; motivo: "invalido" }
-  /** `plazoDias`: días hábiles del reglamento del colegio, para el mensaje. */
+  /** `plazoDias`: días calendario del plazo del colegio, para el mensaje. */
   | { ok: false; motivo: "vencido"; plazoDias: number };
 
 /** Como `buscarTokenJustificacion`, pero distingue un enlace vencido (plazo del reglamento) de uno inválido o usado. */
@@ -52,7 +52,7 @@ export async function consultarTokenJustificacion(
     where: { tokenHash: hashToken(token) },
     select: {
       id: true, tenantId: true, asistenciaId: true, apoderadoId: true, expiraAt: true, usadoAt: true,
-      tenant: { select: { id: true, nombre: true, slug: true, estado: true, plazoJustificacionDiasHabiles: true } },
+      tenant: { select: { id: true, nombre: true, slug: true, estado: true, plazoJustificacionDias: true } },
       asistencia: { select: { fecha: true, estado: true, alumno: { select: { nombres: true } } } },
     },
   });
@@ -60,7 +60,7 @@ export async function consultarTokenJustificacion(
   if (!fila || fila.usadoAt) return { ok: false, motivo: "invalido" };
   if (opciones.tenantId && fila.tenantId !== opciones.tenantId) return { ok: false, motivo: "invalido" };
   if (fila.tenant.estado === "suspendido" || fila.asistencia.estado !== "falta") return { ok: false, motivo: "invalido" };
-  if (fila.expiraAt <= ahora) return { ok: false, motivo: "vencido", plazoDias: normalizarPlazoDias(fila.tenant.plazoJustificacionDiasHabiles) };
+  if (fila.expiraAt <= ahora) return { ok: false, motivo: "vencido", plazoDias: normalizarPlazoDias(fila.tenant.plazoJustificacionDias) };
   return {
     ok: true,
     datos: {
@@ -90,6 +90,14 @@ async function crearJustificacion(
   tdb: DbTenant,
   datos: { tenant: { id: string; nombre: string; slug: string }; asistenciaId: string; apoderadoId: string; actorId: string | null; motivo: string; archivo: Buffer | null },
 ): Promise<ResultadoJustificar> {
+  // Una sola solicitud por fecha (specs/37): si otra falta del mismo día ya tiene una justificación pendiente o
+  // aceptada, esa cubre también esta (falta del día y faltas a clase de varios cursos).
+  const falta = await tdb.asistencia.findFirst({ where: { id: datos.asistenciaId }, select: { alumnoId: true, fecha: true } });
+  if (!falta) return { ok: false, error: "No encontramos esa falta." };
+  const vigente = await tdb.justificacion.count({
+    where: { estado: { in: ["pendiente", "aceptada"] }, asistencia: { alumnoId: falta.alumnoId, fecha: falta.fecha } },
+  });
+  if (vigente > 0) return { ok: false, error: "Esta fecha ya tiene una justificación." };
   let adjuntoArchivoId: string | null = null;
   if (datos.archivo) {
     const subido = await guardarArchivo(tdb, datos.archivo, { tenantId: datos.tenant.id, carpeta: "justificaciones", privado: true, subidoPorId: datos.actorId });
@@ -167,7 +175,7 @@ export async function justificarConToken(
 
 /**
  * Falta del hijo que el apoderado con sesión puede justificar, o 404/403. `disponible`: es falta sin justificación
- * vigente; `plazoVencido`: pasaron los días hábiles del reglamento desde la falta (specs/07).
+ * vigente para esa fecha; `plazoVencido`: pasaron los días calendario del plazo desde la falta (specs/07, specs/37).
  */
 export async function faltaParaJustificar(ctx: TenantContext, asistenciaId: string, ahora = new Date()) {
   requireFeature(ctx, "justificaciones");
@@ -176,23 +184,24 @@ export async function faltaParaJustificar(ctx: TenantContext, asistenciaId: stri
     where: { id: asistenciaId },
     select: {
       id: true, alumnoId: true, fecha: true, estado: true, alumno: { select: { nombres: true } },
-      justificaciones: { orderBy: { createdAt: "desc" }, take: 1, select: { estado: true } },
     },
   });
   if (!asistencia) notFound();
   await requireAlumnoVisible(ctx, asistencia.alumnoId);
-  const ultima = asistencia.justificaciones[0]?.estado;
-  const disponible = asistencia.estado === "falta" && (!ultima || ultima === "rechazada");
+  // La justificación vale por fecha: cualquier falta del mismo día con una pendiente o aceptada la cubre (specs/37).
+  const vigente = await ctx.db.justificacion.count({
+    where: { estado: { in: ["pendiente", "aceptada"] }, asistencia: { alumnoId: asistencia.alumnoId, fecha: asistencia.fecha } },
+  });
+  const disponible = asistencia.estado === "falta" && vigente === 0;
   const fecha = isoDeFechaDb(asistencia.fecha);
-  const dias = ctx.tenant.plazoJustificacionDiasHabiles;
-  const feriados = await feriadosAplicables(ctx.tenant.id, fecha, sumarDias(fecha, 90));
-  const vence = expiracionJustificacion(fecha, dias, ctx.tenant.zonaHoraria, feriados);
+  const dias = ctx.tenant.plazoJustificacionDias;
+  const vence = expiracionJustificacion(fecha, dias, ctx.tenant.zonaHoraria);
   return {
     id: asistencia.id, alumno: primerNombre(asistencia.alumno.nombres), fecha, disponible,
     plazoVencido: vence <= ahora,
     venceAt: vence,
     /** «Puedes justificar hasta el vie 14 nov» */
-    textoPlazo: textoPlazoJustificacion(fecha, dias, feriados),
+    textoPlazo: textoPlazoJustificacion(fecha, dias),
     mensajeVencido: mensajePlazoVencido(dias),
   };
 }
@@ -385,6 +394,10 @@ export async function revisarJustificacion(ctx: TenantContext, entrada: unknown)
     data: { estado: datos.decision, revisadoPorId: ctx.membership.id, revisadoAt: new Date(), comentarioRevision: datos.comentario || null },
   });
   if (actualizada.count === 0) return;
+  // Aprobada: vincula los NSP de esa fecha y avisa a los profesores de esas actividades (no cambia notas).
+  // Rechazada: si el plazo ya venció, se aplica de inmediato la consecuencia configurada (specs/37).
+  if (datos.decision === "aceptada") await alAprobarJustificacion(ctx.db, ctx.tenant, j.id);
+  else await aplicarVencimientos(ctx.db, ctx.tenant, { alumnoId: j.asistencia.alumnoId });
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "justificacion", entidadId: j.id,
     detalle: { estado: datos.decision, comentario: datos.comentario ?? null },

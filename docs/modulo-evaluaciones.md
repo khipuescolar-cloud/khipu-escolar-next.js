@@ -3,6 +3,7 @@
 > Última actualización: 2026-11-03. Fuente: dos entrevistas con una docente (2026-10-31 y 2026-11-02) y el código del repositorio.
 > Reglas de negocio vigentes y contratos: `specs/11-notas-y-libreta.md` (manda sobre este documento si difieren).
 > Capacidades y desempeños CNEB: `specs/30`. Consolidado de dirección: `specs/33`. Avisos: `specs/06`.
+> NSP, justificaciones, recuperación, incidencias, correcciones auditadas, resumen diario y libretas emitidas: `specs/37`.
 
 ## 1. Principio
 
@@ -29,6 +30,10 @@ hasta que se valide con docentes del piloto.
 | H4 | Nota única del curso (promedio de competencias) | **No confirmada** | No existe: se quitó el «Promedio» del consolidado |
 | H5 | Obligatoriedad del informe de progreso y del comentario del tutor | **Sin confirmar** | Ambos opcionales |
 | H6 | Conclusión descriptiva obligatoria en B y C | Basada en la norma del MINEDU; **confirmar** | Se exige en B y C |
+| C10 | Plazo para justificar: 15 días calendario (día 0 = falta; vence 23:59:59 del día 15, hora del colegio) | Confirmada (product owner, 2026-11-03) | `tenants.plazo_justificacion_dias` (specs/37) |
+| C11 | Al vencer el plazo sin justificación se aplica la consecuencia que configure el colegio (no universal) | Confirmada (product owner) | `tenants.consecuencia_vencimiento_*`; sin configurar = alerta |
+| C12 | La recuperación se registra en la actividad original, con fecha de recuperación e historial | Confirmada (product owner) | `notas.recuperacion`, `fecha_recuperacion`, `historial_notas.tipo = recuperacion` |
+| H8 | Qué pasa si el profesor no autoriza la recuperación | Decisión provisional: queda NSP sin nota ni consecuencia | Validar con docentes |
 | H7 | Umbrales del tablero («logro esperado» AD/A o ≥ 14; «en riesgo» C o < 11) | **No validados** | Siguen en el tablero de dirección como indicador, no como nota |
 
 ## 3. Entidades y relaciones
@@ -67,11 +72,13 @@ Flujo del ejemplo (examen de Comunicación del 22 de noviembre):
 2. El examen aparece en la agenda del salón y en «Mi horario» como evento del día, sin hora.
 3. El profesor registra resultados: notas por competencia en el registro auxiliar y, si quiere, puntajes por criterio.
    Todo queda en borrador.
-4. «Publicar resultados» → `resultados_publicados`, solo a las familias de alumnos con nota. Publicar otra vez se rechaza;
-   «Reenviar aviso» lo repite a propósito.
-5. Las notas quedan como historial; cada cambio posterior se registra en `historial_notas` y la familia ve el valor vigente.
+4. «Publicar resultados»: la familia ve las notas y las recibe en el **resumen académico diario** (`resumen_academico`, a la
+   hora del colegio; specs/37). Publicar otra vez se rechaza.
+5. Cada cambio posterior exige tipo y motivo, queda en `historial_notas` (inmutable) y avisa a esa familia (`nota_corregida`).
+   Quien faltó ese día tiene **NSP** (lo pone la asistencia); quien asistió y no entregó, **NE**. Ninguno es un número.
 6. Al final del periodo, el profesor confirma la calificación por competencia con su conclusión, el tutor escribe su
-   comentario, se cierran los cursos y dirección publica la libreta (`libreta_publicada`).
+   comentario, se cierran los cursos y dirección publica la libreta (`libreta_publicada`). Publicar **emite** una versión
+   congelada; después solo cambia por rectificación aprobada por dirección (versión nueva; specs/37).
 
 ## 5. Instrumentos con criterios
 
@@ -126,6 +133,9 @@ specs/33) es una exportación genérica de las calificaciones confirmadas; no se
 4. ¿Qué datos de los estudiantes maneja en el SIAGIE que Khipu no tiene?
 
 ## 10. Decisiones tomadas en esta etapa (2026-11-03)
+- Flujo definitivo de asistencia ↔ registro auxiliar (specs/37): NSP automático, plazo de 15 días calendario, consecuencia
+  configurable (sin configuración no se aplica nada), recuperación en la actividad original, «No entregó» (NE) para quien
+  asistió y no entregó, resumen académico diario en lugar del aviso inmediato, libreta emitida con rectificaciones.
 - Sin sugerencia de calificación por defecto; las fórmulas quedan como opciones provisionales.
 - El consolidado de dirección muestra solo las calificaciones confirmadas, sin «Promedio» del alumno.
 - Programar y publicar, historial de notas, comentario del tutor y criterios de instrumentos: implementados.

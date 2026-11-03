@@ -4,11 +4,11 @@ import { z } from "zod";
 import type { EstadoAsistencia, EstadoJustificacion } from "@/generated/prisma/enums";
 import { claveMes, mesPedido, rangoDelMes } from "@/lib/calendario-asistencia";
 import { urlColegio } from "@/lib/dominio";
-import { esFechaReal, fechaDb, isoDeFechaDb, momentoEnZona, sumarDias } from "@/lib/fechas";
+import { esFechaReal, fechaDb, isoDeFechaDb, momentoEnZona } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
 import { instanteDeRegistro } from "@/lib/registro-offline";
 import { auditar, auditarVarios } from "./auditoria";
-import { feriadosAplicables } from "./plataforma-configuracion";
+import { sincronizarNsp } from "./nsp";
 import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-justificacion";
 import { asistenciaPorCursoActiva, ingresoAlColegio, mensajeCursoDesactivado, seAvisaCambio } from "@/lib/asistencia-por-curso";
 import { ErrorDeNegocio } from "./contexto-accion";
@@ -231,6 +231,7 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
   const porAvisar: { asistencia: AsistenciaParaAviso; anterior: EstadoAsistencia | null }[] = [];
 
   let cambios = 0;
+  const cambiados: string[] = [];
   let omitidos = 0;
   let familiasAvisadas = 0;
   for (const r of datos.registros) {
@@ -255,6 +256,7 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
       select: { id: true, alumnoId: true, fecha: true, estado: true, hora: true, nota: true },
     });
     cambios++;
+    cambiados.push(r.alumnoId);
     auditorias.push({
       tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: anterior ? "editar" : "crear", entidad: "asistencia",
       entidadId: asistencia.id,
@@ -268,6 +270,8 @@ export async function guardarLista(ctx: TenantContext, entrada: unknown, ahora =
     porAvisar.push({ asistencia, anterior: anterior?.estado ?? null });
   }
   await auditarVarios(auditorias);
+  // NSP (specs/37): las actividades de ese día se ajustan a la asistencia nueva (pone o quita NSP, con historial).
+  if (cambiados.length > 0) await sincronizarNsp(ctx.db, ctx.tenant, { fecha, alumnoIds: cambiados });
 
   // Lista de curso: ingreso al colegio de ese día de los alumnos con falta, consultado DESPUÉS de guardar
   // (si portería o la lista del día registraron el ingreso mientras tanto, cuenta).
@@ -312,7 +316,7 @@ export type RegistroHistorial = {
   puedeJustificar: boolean;
   /** Último día para justificar (AAAA-MM-DD), solo en faltas. */
   justificarHasta: string | null;
-  /** Falta sin justificar cuyo plazo (días hábiles) ya venció. */
+  /** Falta sin justificar cuyo plazo (días calendario) ya venció. */
   plazoVencido: boolean;
 };
 
@@ -340,9 +344,8 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
     },
   });
   const ahora = new Date();
-  const plazo = ctx.tenant.plazoJustificacionDiasHabiles;
+  const plazo = ctx.tenant.plazoJustificacionDias;
   const zona = ctx.tenant.zonaHoraria;
-  const feriados = await feriadosAplicables(ctx.tenant.id, desde, sumarDias(hasta, 90));
   await Promise.all(
     hijos.map((h) =>
       auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "asistencia", entidadId: h.id, detalle: { mes: claveMes(anio, numeroMes) } }),
@@ -358,11 +361,12 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
       apellidos: h.apellidos,
       salon: h.salon.nombre,
       registros: h.asistencias.map<RegistroHistorial>((a) => {
-        const justificacion = a.justificaciones[0]?.estado ?? null;
+        // Una sola justificación por fecha (specs/37): la de cualquier falta del día cubre las demás de esa fecha.
+        const justificacion = estadoJustificacionDelDia(h.asistencias, a);
         const fecha = isoDeFechaDb(a.fecha);
         const esFalta = a.estado === "falta";
         const pendiente = esFalta && (justificacion === null || justificacion === "rechazada");
-        const plazoVencido = pendiente && expiracionJustificacion(fecha, plazo, zona, feriados) <= ahora;
+        const plazoVencido = pendiente && expiracionJustificacion(fecha, plazo, zona) <= ahora;
         return {
           id: a.id,
           fecha,
@@ -372,12 +376,28 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
           esDia: a.ambito === AMBITO_DIA,
           justificacion,
           // Solo el apoderado justifica faltas; el alumno ve su asistencia en solo lectura.
-          // Solo dentro del plazo del reglamento (días hábiles desde la falta; specs/07).
+          // Solo dentro del plazo (días calendario desde la falta; specs/07).
           puedeJustificar: ctx.rol === "apoderado" && pendiente && !plazoVencido,
-          justificarHasta: esFalta ? ultimoDiaJustificacion(fecha, plazo, feriados) : null,
+          justificarHasta: esFalta ? ultimoDiaJustificacion(fecha, plazo) : null,
           plazoVencido,
         };
       }),
     })),
   };
+}
+
+type ConJustificacion = { id: string; fecha: Date; estado: string; justificaciones: { estado: "pendiente" | "aceptada" | "rechazada" }[] };
+
+/**
+ * Estado de justificación que vale para una falta: el suyo o, si otra falta del mismo día ya tiene una justificación
+ * pendiente o aceptada, ese (una solicitud por fecha cubre la falta del día y las faltas a clase; specs/37).
+ */
+function estadoJustificacionDelDia(todas: ConJustificacion[], a: ConJustificacion): "pendiente" | "aceptada" | "rechazada" | null {
+  const propia = a.justificaciones[0]?.estado ?? null;
+  if (propia === "pendiente" || propia === "aceptada") return propia;
+  const dia = a.fecha.getTime();
+  const otras = todas.filter((x) => x.id !== a.id && x.fecha.getTime() === dia).map((x) => x.justificaciones[0]?.estado);
+  if (otras.includes("aceptada")) return "aceptada";
+  if (otras.includes("pendiente")) return "pendiente";
+  return propia;
 }

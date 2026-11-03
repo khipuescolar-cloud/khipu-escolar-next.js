@@ -91,6 +91,7 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
               {curso.evaluaciones.length > 0 && (
                 <div>
                   <h3 className="sobretitulo mb-2">Evaluaciones</h3>
+                  {curso.evaluaciones.some((e) => e.valor.marca) && <p className="mb-2 text-cuerpo-sm text-muted-foreground">NSP: No se presentó · NE: No entregó.</p>}
                   <ul className="flex flex-col gap-2">
                     {curso.evaluaciones.map((e) => (
                       <li key={e.id} className="flex flex-col gap-1 text-sm">
@@ -98,6 +99,8 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
                           <span>{e.titulo}<span className="text-muted-foreground"> · {e.fecha}{e.competencia ? ` · ${e.competencia}` : ""}</span></span>
                           <Calificacion valor={e.valor} />
                         </div>
+                        {e.fechaRecuperacion && <p className="text-cuerpo-sm text-muted-foreground">Recuperación rendida el {e.fechaRecuperacion.slice(8, 10)}/{e.fechaRecuperacion.slice(5, 7)}.</p>}
+                        {e.vencida && <p className="text-cuerpo-sm text-muted-foreground">Venció el plazo para justificar la falta: se aplicó la regla del colegio.</p>}
                         {e.comentario && <p className="flex items-start gap-1.5 text-muted-foreground"><MessageSquareText className="mt-0.5 size-3.5 shrink-0" strokeWidth={2} aria-hidden /><span><span className="font-medium">Observación:</span> {e.comentario}</span></p>}
                       </li>
                     ))}

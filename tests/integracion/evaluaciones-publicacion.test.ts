@@ -60,16 +60,13 @@ describe("programar y publicar evaluaciones", () => {
     expect(ev[0]).toMatchObject({ titulo: "Evaluación: Examen trimestral", sinHora: true, descripcion: "Comprensión lectora y producción de textos." });
   });
 
-  it("publicar muestra las notas a la familia y avisa sin duplicar; solo el profesor del curso publica", async () => {
+  it("publicar muestra las notas a la familia sin aviso inmediato (va al resumen diario); solo el profesor del curso publica", async () => {
     await esperarProhibido(publicarEvaluacion(c.ctxDe("otroProfesor"), grupoId));
     await esperarProhibido(publicarEvaluacion(c.ctxDe("direccion"), grupoId));
     const tutora = c.ctxDe("tutora");
-    expect(await publicarEvaluacion(tutora, grupoId)).toEqual({ ok: true, mensaje: "Resultados publicados. Avisamos a 1 familia." });
-    expect(await publicarEvaluacion(tutora, grupoId)).toEqual({ ok: false, error: "Los resultados ya se publicaron. Usa «Reenviar aviso» si quieres avisar otra vez." });
-    const primera = (await avisos("resultados_publicados", grupoId)).length;
-    expect(primera).toBeGreaterThan(0);
-    expect(await publicarEvaluacion(tutora, grupoId, { reenviar: true })).toMatchObject({ ok: true, mensaje: expect.stringContaining("Aviso reenviado.") });
-    expect((await avisos("resultados_publicados", grupoId)).length).toBe(primera * 2);
+    expect(await publicarEvaluacion(tutora, grupoId)).toEqual({ ok: true, mensaje: "Resultados publicados. Las familias los recibirán en el resumen académico de hoy (6:00 p. m.)." });
+    expect(await publicarEvaluacion(tutora, grupoId)).toEqual({ ok: false, error: "Los resultados ya se publicaron. Las familias los reciben en el resumen académico del día." });
+    expect(await avisos("resultados_publicados", grupoId)).toHaveLength(0);
 
     const familia = await notasDeAlumno(c.ctxDe("madre"), c.alumnos.mateo.id, periodoId);
     expect(familia.cursos.flatMap((x) => x.evaluaciones).map((e) => e.valor.valorLiteral)).toEqual(["B", "B"]);
@@ -88,9 +85,11 @@ describe("programar y publicar evaluaciones", () => {
   it("el historial guarda cada cambio de nota con el valor anterior y quién lo hizo", async () => {
     const tutora = c.ctxDe("tutora");
     const col = columnas.find((x) => x.competenciaId === lee.id)!;
-    await guardarNota(tutora, { evaluacionId: col.id, alumnoId: c.alumnos.mateo.id, valor: "A" });
-    await guardarNota(tutora, { evaluacionId: col.id, alumnoId: c.alumnos.mateo.id, valor: "A" }); // sin cambio: no se registra
-    await guardarNota(tutora, { evaluacionId: col.id, alumnoId: c.alumnos.mateo.id, valor: "" });
+    const corr = { motivo: "Error al digitar", tipo: "correccion_digitacion" as const };
+    expect(await guardarNota(tutora, { evaluacionId: col.id, alumnoId: c.alumnos.mateo.id, valor: "A" })).toMatchObject({ ok: false }); // publicada: pide motivo
+    await guardarNota(tutora, { evaluacionId: col.id, alumnoId: c.alumnos.mateo.id, valor: "A", ...corr });
+    await guardarNota(tutora, { evaluacionId: col.id, alumnoId: c.alumnos.mateo.id, valor: "A", ...corr }); // sin cambio: no se registra
+    await guardarNota(tutora, { evaluacionId: col.id, alumnoId: c.alumnos.mateo.id, valor: "", ...corr });
     const h = await historialEvaluacion(c.ctxDe("direccion"), grupoId);
     const deLee = h.filter((x) => x.competencia === "Lee").map((x) => [x.anterior, x.nuevo]);
     expect(deLee).toEqual([["A", null], ["B", "A"], [null, "B"]]);
