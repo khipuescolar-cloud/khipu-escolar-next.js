@@ -1,33 +1,38 @@
-import { BookOpenCheck, CalendarDays, ChevronLeft, ChevronRight, Download, Flag, ListTodo, Pencil, PartyPopper, Plus, Users } from "lucide-react";
+import { CalendarDays, CalendarRange, ChevronLeft, ChevronRight, Download, Grid3x3, List, Pencil, Plus, Rows3 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { forbidden } from "next/navigation";
-import { ListaAdjuntos } from "@/components/adjuntos/ListaAdjuntos";
+import type { ReactNode } from "react";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
+import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
+import { ListaAdjuntos } from "@/components/adjuntos/ListaAdjuntos";
+import { GrillaTiempo } from "@/components/calendario/GrillaTiempo";
+import { estiloDe } from "@/components/calendario/estilos";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Alerta } from "@/components/ui/Alerta";
 import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { cuadriculaMes, diasDeSemana, esFechaIso, fechaLima, formatoDia, formatoHora, inicioDiaLima, lunesDeSemana, sumarDias } from "@/lib/fechas";
-import { itemsDeAgenda, salonesParaEventos, type ItemAgenda } from "@/lib/server/agenda";
+import {
+  FILTROS, NOMBRE_DIA_SEMANA_CORTO, NOMBRE_FILTRO, NOMBRE_VISTA, VISTAS, itemCalendarioDe, leerEstadoAgenda, porFecha, rangoDeVista, resumenCelda, urlAgenda,
+  type FiltroAgenda, type ItemCalendario, type VistaAgenda,
+} from "@/lib/agenda-calendario";
+import { instanteEnZona } from "@/lib/dias-habiles";
+import { fechaLima, formatoDia, formatoHora, sumarDias } from "@/lib/fechas";
+import { minutos } from "@/lib/horario";
+import { itemsDeAgenda, salonesParaEventos, salonesParaFiltro, type ItemAgenda } from "@/lib/server/agenda";
+import { ahoraDelColegio } from "@/lib/server/horario";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
+import { cn } from "@/lib/utils";
 import { actualizarEventoAction, crearEventoAction, eliminarEventoAction } from "./actions";
 
 export const metadata: Metadata = { title: "Agenda" };
 
-const TIPOS = {
-  evento: { palabra: "Evento", Icono: CalendarDays, clase: "bg-muted text-foreground" },
-  reunion: { palabra: "Reunión", Icono: Users, clase: "bg-accent text-accent-foreground" },
-  examen: { palabra: "Examen", Icono: BookOpenCheck, clase: "bg-falta-fondo text-falta" },
-  feriado: { palabra: "Feriado", Icono: Flag, clase: "bg-problema-fondo text-problema" },
-  actividad: { palabra: "Actividad", Icono: PartyPopper, clase: "bg-llego-fondo text-llego" },
-  entrega: { palabra: "Entrega de tarea", Icono: ListTodo, clase: "bg-tarde-fondo text-tarde" },
-} as const;
+const ICONO_VISTA: Record<VistaAgenda, typeof CalendarDays> = { dia: Rows3, semana: CalendarRange, mes: Grid3x3, lista: List };
 
 function OpcionesTipo() {
   return (
@@ -38,8 +43,10 @@ function OpcionesTipo() {
   );
 }
 
-const NOMBRES_DIA = ["L", "M", "M", "J", "V", "S", "D"];
-
+/**
+ * Calendario institucional (specs/12, plan Pro): vistas Día, Semana, Mes y Lista; filtros por tipo y por salón; el
+ * profesor ve sus clases (proyectadas desde su horario) junto con sus reuniones. Todo el estado va en la URL.
+ */
 export default async function AgendaPage({ params, searchParams }: PageProps<"/colegio/[slug]/agenda">) {
   const { slug } = await params;
   const sp = await searchParams;
@@ -47,36 +54,57 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
   requireFeature(ctx, "agenda");
   if (!["apoderado", "alumno", "profesor", "direccion", "administrativo"].includes(ctx.rol)) forbidden();
 
-  const hoy = fechaLima(new Date());
-  const f = Array.isArray(sp.fecha) ? sp.fecha[0] : sp.fecha;
-  const fecha = esFechaIso(f) ? f : hoy;
-  const lunes = lunesDeSemana(fecha);
-  const [anio, mes] = fecha.split("-").map(Number);
-  const semanas = cuadriculaMes(anio, mes);
+  const zona = ctx.tenant.zonaHoraria;
+  const { isoFecha: hoy, hora } = ahoraDelColegio(ctx);
+  const estado = leerEstadoAgenda(sp, hoy);
+  const verPersonal = ctx.rol === "direccion" || ctx.rol === "administrativo";
+  const filtros = FILTROS.filter((f) => f !== "personal" || verPersonal);
+  const filtro: FiltroAgenda = filtros.includes(estado.filtro) ? estado.filtro : "todo";
+  const { vista, fecha } = estado;
+  const salonesFiltro = await salonesParaFiltro(ctx);
+  const salon = salonesFiltro.some((s) => s.id === estado.salon) ? estado.salon : undefined;
+  const { dias, anterior, siguiente } = rangoDeVista(vista, fecha);
 
-  // Una sola consulta cubre la semana y el mes mostrados.
-  const desde = inicioDiaLima(semanas[0][0] < lunes ? semanas[0][0] : lunes);
-  const ultimo = semanas[semanas.length - 1][6];
-  const hasta = inicioDiaLima(sumarDias(ultimo > sumarDias(lunes, 6) ? ultimo : sumarDias(lunes, 6), 1));
-  const items = await itemsDeAgenda(ctx, desde, hasta);
-  const porDia = new Map<string, ItemAgenda[]>();
-  for (const it of items) {
-    const d = fechaLima(it.inicio);
-    porDia.set(d, [...(porDia.get(d) ?? []), it]);
-  }
+  const items = await itemsDeAgenda(ctx, {
+    desde: instanteEnZona(dias[0], "00:00", zona),
+    hasta: instanteEnZona(sumarDias(dias[dias.length - 1], 1), "00:00", zona),
+    filtros: { filtro, salonId: salon },
+    incluirClases: true,
+  });
+  const cal = items.map((i) => itemCalendarioDe(i, zona));
+  const porId = new Map(items.map((i) => [i.id, i]));
   const soloLectura = ctx.rol === "apoderado" || ctx.rol === "alumno";
   const salones = soloLectura ? [] : await salonesParaEventos(ctx);
-  const mesAnterior = `${mes === 1 ? anio - 1 : anio}-${String(mes === 1 ? 12 : mes - 1).padStart(2, "0")}-01`;
-  const mesSiguiente = `${mes === 12 ? anio + 1 : anio}-${String(mes === 12 ? 1 : mes + 1).padStart(2, "0")}-01`;
-  const nombreMes = formatoDia(`${anio}-${String(mes).padStart(2, "0")}-15`, { month: "long", year: "numeric" });
   const puedeCrear = !soloLectura && !(salones.length === 0 && ctx.rol === "profesor");
-  const enlaceNav = "inline-flex min-h-10 items-center gap-1 rounded-md px-3 text-sm font-medium text-indigo-cielo transition-colors hover:bg-accent";
+  const url = (cambios: Partial<{ vista: VistaAgenda; fecha: string; filtro: FiltroAgenda; salon: string | undefined }>) =>
+    urlAgenda({ vista, fecha, filtro, salon, ...cambios });
+
+  // Popover de la grilla: adjuntos y, si el usuario puede editarlo, un enlace a la lista de ese día (los diálogos de
+  // edición viven en la vista Lista, fuera del popover).
+  const detalles: Record<string, ReactNode> = {};
+  for (const it of items) {
+    if (it.adjuntos.length === 0 && !it.eliminable) continue;
+    detalles[it.id] = (
+      <div className="flex flex-col gap-2">
+        {it.adjuntos.length > 0 && <ListaAdjuntos adjuntos={it.adjuntos} />}
+        {it.eliminable && (
+          <Link href={url({ vista: "lista", fecha: fechaLima(it.inicio) })} className="inline-flex w-fit items-center gap-1.5 text-cuerpo-sm font-medium text-indigo-cielo underline-offset-2 hover:underline">
+            <Pencil className="size-4" strokeWidth={2} aria-hidden />Editar o eliminar
+          </Link>
+        )}
+      </div>
+    );
+  }
+  const ahoraId = cal.find((c) => c.tipo === "clase" && c.fecha === hoy && minutos(c.horaInicio) <= minutos(hora) && minutos(hora) < minutos(c.horaFin))?.id ?? null;
+  // Semana: sábado y domingo solo si tienen algo.
+  const diasGrilla = vista === "semana" ? dias.filter((d, i) => i < 5 || cal.some((c) => c.fecha === d)) : dias;
+  const etiquetaNav = { dia: "Día", semana: "Semana", mes: "Mes", lista: "Periodo" }[vista];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-4">
       <EncabezadoPagina
         titulo="Agenda"
-        descripcion="Eventos del colegio, exámenes y fechas de entrega de tareas."
+        descripcion={ctx.rol === "profesor" ? "Tus clases, reuniones, evaluaciones, entregas y actividades del colegio." : "Eventos del colegio, reuniones, evaluaciones y fechas de entrega de tareas."}
         acciones={
           <>
             <a href="/api/agenda.ics" className={buttonVariants({ variant: "outline" })}>
@@ -108,130 +136,225 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
         }
       />
       {ctx.rol === "profesor" && salones.length === 0 && (
-        <div className="mb-4"><Alerta tipo="info">Todavía no tienes salones asignados, por eso no puedes crear eventos.</Alerta></div>
+        <Alerta tipo="info">Todavía no tienes salones asignados, por eso no puedes crear eventos.</Alerta>
       )}
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_20rem]">
-        <section aria-labelledby="semana" className="flex flex-col gap-3">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 id="semana" className="text-titulo-2">
-              Semana del {formatoDia(lunes, { day: "numeric", month: "long" })}
-            </h2>
-            <div className="flex items-center gap-1">
-              <Link href={`/agenda?fecha=${sumarDias(lunes, -7)}`} className={enlaceNav}><ChevronLeft className="size-4" strokeWidth={2} aria-hidden />Anterior</Link>
-              <Link href="/agenda" className={enlaceNav}>Hoy</Link>
-              <Link href={`/agenda?fecha=${sumarDias(lunes, 7)}`} className={enlaceNav}>Siguiente<ChevronRight className="size-4" strokeWidth={2} aria-hidden /></Link>
-            </div>
-          </div>
-          <ul className="flex flex-col gap-3">
-            {diasDeSemana(lunes).map((dia) => {
-              const delDia = porDia.get(dia) ?? [];
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <nav aria-label="Vista del calendario" className="inline-flex w-fit rounded-lg border bg-card p-1">
+            {VISTAS.map((v) => {
+              const Icono = ICONO_VISTA[v];
               return (
-                <li key={dia} className={`rounded-lg border bg-card p-4 ${dia === hoy ? "border-primary ring-1 ring-primary" : ""}`}>
-                  <h3 className="flex items-center gap-2 font-titulo text-cuerpo font-semibold first-letter:uppercase">
-                    {formatoDia(dia)}
-                    {dia === hoy && <span className="rounded-pildora bg-primary px-2 py-0.5 text-etiqueta text-primary-foreground">Hoy</span>}
-                  </h3>
-                  {delDia.length === 0 ? (
-                    <p className="mt-1 text-cuerpo-sm text-muted-foreground">Sin eventos.</p>
-                  ) : (
-                    <ul className="mt-3 flex flex-col gap-3">
-                      {delDia.map((it) => {
-                        const { palabra, Icono, clase } = TIPOS[it.tipo];
+                <Link
+                  key={v}
+                  href={url({ vista: v })}
+                  aria-current={v === vista ? "page" : undefined}
+                  className={cn(
+                    "inline-flex min-h-10 items-center gap-1.5 rounded-md px-3 text-sm font-medium transition-colors",
+                    v === vista ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-accent",
+                  )}
+                >
+                  <Icono className="size-4" strokeWidth={2} aria-hidden />{NOMBRE_VISTA[v]}
+                </Link>
+              );
+            })}
+          </nav>
+          <form action="/agenda" method="get" className="flex items-end gap-2">
+            <input type="hidden" name="vista" value={vista} />
+            <input type="hidden" name="fecha" value={fecha} />
+            {filtro !== "todo" && <input type="hidden" name="filtro" value={filtro} />}
+            <label className="flex flex-col gap-1 text-sm">
+              <span className="font-medium">Curso o sección</span>
+              <select name="salon" defaultValue={salon ?? ""} className="min-h-10 rounded-md border bg-card px-3 text-sm">
+                <option value="">Todos mis salones</option>
+                {salonesFiltro.map((s) => <option key={s.id} value={s.id}>{s.nombre}</option>)}
+              </select>
+            </label>
+            <button type="submit" className={buttonVariants({ variant: "outline" })}>Ver</button>
+          </form>
+        </div>
+        <NavegacionPildoras
+          etiqueta="Filtrar por tipo"
+          items={filtros.map((f) => ({ href: url({ filtro: f }), texto: NOMBRE_FILTRO[f], activo: f === filtro }))}
+        />
+      </div>
+
+      <section aria-labelledby="titulo-periodo" className="overflow-hidden rounded-lg border bg-card">
+        <header className="flex flex-wrap items-center justify-between gap-2 border-b px-4 py-3">
+          <h2 id="titulo-periodo" className="font-heading text-lg font-semibold first-letter:uppercase">{tituloPeriodo(vista, fecha, dias)}</h2>
+          <div className="flex items-center gap-1">
+            <Link href={url({ fecha: anterior })} aria-label={`${etiquetaNav} anterior`} className={enlaceNav}><ChevronLeft className="size-4" strokeWidth={2} aria-hidden />Anterior</Link>
+            <Link href={url({ fecha: hoy })} className={enlaceNav}>Hoy</Link>
+            <Link href={url({ fecha: siguiente })} aria-label={`${etiquetaNav} siguiente`} className={enlaceNav}>Siguiente<ChevronRight className="size-4" strokeWidth={2} aria-hidden /></Link>
+          </div>
+        </header>
+        {vista === "dia" || vista === "semana" ? (
+          <GrillaTiempo dias={diasGrilla} items={cal} hoyIso={hoy} horaAhora={hora} ahoraId={ahoraId} detalles={detalles} textoVacio="Sin actividades" />
+        ) : vista === "mes" ? (
+          <VistaMes dias={dias} fecha={fecha} hoy={hoy} items={cal} url={url} />
+        ) : (
+          <VistaLista items={cal} porId={porId} slug={slug} />
+        )}
+      </section>
+      <Leyenda />
+    </div>
+  );
+}
+
+const enlaceNav = "inline-flex min-h-10 items-center gap-1 rounded-md px-3 text-sm font-medium text-indigo-cielo transition-colors hover:bg-accent";
+
+function tituloPeriodo(vista: VistaAgenda, fecha: string, dias: string[]): string {
+  if (vista === "dia") return formatoDia(fecha);
+  if (vista === "semana") {
+    const [a, b] = [dias[0], dias[6]];
+    return a.slice(0, 7) === b.slice(0, 7)
+      ? `Semana del ${Number(a.slice(8))} al ${formatoDia(b, { day: "numeric", month: "long" })}`
+      : `Semana del ${formatoDia(a, { day: "numeric", month: "short" })} al ${formatoDia(b, { day: "numeric", month: "short" })}`;
+  }
+  if (vista === "mes") return formatoDia(`${fecha.slice(0, 7)}-15`, { month: "long", year: "numeric" });
+  return `Próximos 30 días desde el ${formatoDia(fecha, { day: "numeric", month: "long" })}`;
+}
+
+function Insignia({ it }: { it: Pick<ItemCalendario, "tipo" | "subtipo"> }) {
+  const { palabra, Icono, tinta, borde } = estiloDe(it);
+  return (
+    <span className={cn("inline-flex w-fit shrink-0 items-center gap-1.5 rounded-pildora border border-dashed bg-card px-2.5 py-1 text-etiqueta", borde)}>
+      <Icono className={cn("size-3.5", tinta)} strokeWidth={2} aria-hidden />{palabra}
+    </span>
+  );
+}
+
+/** Mes en cuadrícula: hasta 3 ítems por día y «N más»; el día lleva a la vista Día. */
+function VistaMes({ dias, fecha, hoy, items, url }: {
+  dias: string[]; fecha: string; hoy: string; items: ItemCalendario[];
+  url: (c: { vista: VistaAgenda; fecha: string }) => string;
+}) {
+  const mes = fecha.slice(0, 7);
+  const delDia = porFecha(items);
+  const semanas = Array.from({ length: dias.length / 7 }, (_, i) => dias.slice(i * 7, i * 7 + 7));
+  return (
+    <table className="w-full table-fixed border-collapse text-sm">
+      <thead>
+        <tr>
+          {[1, 2, 3, 4, 5, 6, 7].map((d) => (
+            <th key={d} scope="col" className="border-b py-2 text-etiqueta font-medium tracking-wide text-muted-foreground uppercase">{NOMBRE_DIA_SEMANA_CORTO[d]}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {semanas.map((sem) => (
+          <tr key={sem[0]}>
+            {sem.map((d) => {
+              const lista = delDia.get(d) ?? [];
+              const { visibles, mas } = resumenCelda(lista);
+              const esHoy = d === hoy;
+              return (
+                <td key={d} className={cn("h-24 border-t border-l p-1 align-top first:border-l-0 lg:h-28", d.slice(0, 7) !== mes && "bg-muted/30", esHoy && "bg-primary/[0.04]")}>
+                  <Link
+                    href={url({ vista: "dia", fecha: d })}
+                    aria-label={`${formatoDia(d)}${lista.length ? `, ${lista.length} ${lista.length === 1 ? "actividad" : "actividades"}` : ""}`}
+                    aria-current={esHoy ? "date" : undefined}
+                    className="flex h-full flex-col gap-0.5 rounded-md p-0.5 transition-colors hover:bg-accent/60"
+                  >
+                    <span className={cn("inline-flex size-7 items-center justify-center rounded-full text-cuerpo-sm font-semibold tabular-nums", esHoy ? "bg-primary text-primary-foreground" : d.slice(0, 7) !== mes && "text-muted-foreground")}>
+                      {Number(d.slice(8))}
+                    </span>
+                    {/* En el celular, puntos; desde tablet, hasta 3 ítems y «N más». */}
+                    {lista.length > 0 && <span aria-hidden className="text-[10px] leading-none sm:hidden">{"•".repeat(Math.min(lista.length, 3))}</span>}
+                    <ul aria-hidden className="hidden flex-col gap-0.5 sm:flex">
+                      {visibles.map((it) => {
+                        const { Icono, tinta } = estiloDe(it);
                         return (
-                          <li key={`${it.tipo}-${it.id}`} className="flex flex-wrap items-start justify-between gap-2 rounded-lg border bg-background p-3 text-sm">
-                            <div className="flex min-w-0 flex-col gap-1.5">
-                              <span className={`inline-flex w-fit shrink-0 items-center gap-1.5 rounded-pildora px-2.5 py-1 text-etiqueta ${clase}`}>
-                                <Icono className="size-3.5" strokeWidth={2} aria-hidden />{palabra}
-                              </span>
-                              <p className="font-medium">{it.titulo}</p>
-                              <p className="text-muted-foreground">{it.tipo === "entrega" || it.sinHora ? "" : `${formatoHora(it.inicio)} · `}{it.ambito}</p>
-                              {it.descripcion && <p className="text-muted-foreground">{it.descripcion}</p>}
-                              {it.href && <Link href={it.href} className="w-fit font-medium text-indigo-cielo underline-offset-2 hover:underline">Ver reunión y responder</Link>}
-                              {it.adjuntos.length > 0 && <ListaAdjuntos adjuntos={it.adjuntos} />}
-                            </div>
-                            {it.eliminable && (
-                              <div className="flex items-center gap-1">
-                                <DialogoAccion
-                                  disparador={<><Pencil strokeWidth={2} aria-hidden />Editar evento</>}
-                                  variante="outline" tamano="sm"
-                                  titulo="Editar evento"
-                                  etiqueta="Guardar cambios"
-                                  accion={actualizarEventoAction.bind(null, slug, it.id)}
-                                >
-                                  <div className="sm:col-span-2"><Campo etiqueta="Nombre del evento" id={`titulo-${it.id}`} name="titulo" required maxLength={150} defaultValue={it.titulo} /></div>
-                                  <Selector etiqueta="Tipo" name="tipo" defaultValue={it.tipo}><OpcionesTipo /></Selector>
-                                  <Campo etiqueta="Día" id={`fecha-${it.id}`} name="fecha" type="date" required defaultValue={fechaLima(it.inicio)} />
-                                  <Campo etiqueta="Hora de inicio" id={`hora-${it.id}`} name="hora" type="time" defaultValue={formatoHora(it.inicio)} />
-                                  <label className="flex flex-col gap-1.5 text-sm sm:col-span-2">
-                                    <span className="font-medium">Descripción (opcional)</span>
-                                    <Textarea name="descripcion" rows={3} maxLength={1000} defaultValue={it.descripcion ?? ""} />
-                                  </label>
-                                </DialogoAccion>
-                                <BotonConfirmar
-                                  etiqueta="Eliminar" variante="ghost" tamano="sm" peligro
-                                  titulo="¿Eliminar este evento?"
-                                  descripcion="Las familias dejarán de verlo en la agenda. No se puede deshacer."
-                                  confirmar="Eliminar evento"
-                                  accion={eliminarEventoAction.bind(null, slug, it.id)}
-                                />
-                              </div>
-                            )}
+                          <li key={it.id} className="flex min-w-0 items-center gap-1 text-etiqueta leading-tight">
+                            <Icono className={cn("size-3 shrink-0", tinta)} strokeWidth={2} />
+                            {!it.todoElDia && <span className="shrink-0 text-muted-foreground tabular-nums">{it.horaInicio}</span>}
+                            <span className={cn("truncate", it.cancelado && "line-through")}>{it.titulo}</span>
                           </li>
                         );
                       })}
+                      {mas > 0 && <li className="text-etiqueta font-medium text-indigo-cielo">{mas} más</li>}
                     </ul>
+                  </Link>
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+/** Próximos 30 días agrupados por día, con editar y eliminar para quien creó el evento. */
+function VistaLista({ items, porId, slug }: { items: ItemCalendario[]; porId: Map<string, ItemAgenda>; slug: string }) {
+  const grupos = [...porFecha(items).entries()];
+  if (grupos.length === 0) {
+    return <div className="p-4"><EstadoVacio icono={CalendarDays} titulo="Nada programado" descripcion="No hay actividades en estos 30 días con el filtro elegido." /></div>;
+  }
+  return (
+    <ul className="flex flex-col divide-y">
+      {grupos.map(([dia, delDia]) => (
+        <li key={dia} className="p-4">
+          <h3 className="font-titulo text-cuerpo font-semibold first-letter:uppercase">{formatoDia(dia)}</h3>
+          <ul className="mt-3 flex flex-col gap-3">
+            {delDia.map((c) => {
+              const it = porId.get(c.id);
+              if (!it) return null;
+              return (
+                <li key={`${c.tipo}-${c.id}`} className="flex flex-wrap items-start justify-between gap-2 rounded-lg border bg-background p-3 text-sm">
+                  <div className="flex min-w-0 flex-col gap-1.5">
+                    <Insignia it={c} />
+                    <p className={cn("font-medium", c.cancelado && "line-through")}>{c.titulo}</p>
+                    <p className="text-muted-foreground">{c.todoElDia ? "" : `${c.horaInicio} – ${c.horaFin} · `}{c.ambito}{c.lugar && c.tipo !== "clase" ? ` · ${c.lugar}` : ""}</p>
+                    {c.descripcion && <p className="text-muted-foreground">{c.descripcion}</p>}
+                    {c.href && c.tipo === "reunion" && <Link href={c.href} className="w-fit font-medium text-indigo-cielo underline-offset-2 hover:underline">Ver reunión y responder</Link>}
+                    {it.adjuntos.length > 0 && <ListaAdjuntos adjuntos={it.adjuntos} />}
+                  </div>
+                  {it.eliminable && (
+                    <div className="flex items-center gap-1">
+                      <DialogoAccion
+                        disparador={<><Pencil strokeWidth={2} aria-hidden />Editar evento</>}
+                        variante="outline" tamano="sm"
+                        titulo="Editar evento"
+                        etiqueta="Guardar cambios"
+                        accion={actualizarEventoAction.bind(null, slug, it.id)}
+                      >
+                        <div className="sm:col-span-2"><Campo etiqueta="Nombre del evento" id={`titulo-${it.id}`} name="titulo" required maxLength={150} defaultValue={it.titulo} /></div>
+                        <Selector etiqueta="Tipo" name="tipo" defaultValue={it.tipo}><OpcionesTipo /></Selector>
+                        <Campo etiqueta="Día" id={`fecha-${it.id}`} name="fecha" type="date" required defaultValue={fechaLima(it.inicio)} />
+                        <Campo etiqueta="Hora de inicio" id={`hora-${it.id}`} name="hora" type="time" defaultValue={formatoHora(it.inicio)} />
+                        <label className="flex flex-col gap-1.5 text-sm sm:col-span-2">
+                          <span className="font-medium">Descripción (opcional)</span>
+                          <Textarea name="descripcion" rows={3} maxLength={1000} defaultValue={it.descripcion ?? ""} />
+                        </label>
+                      </DialogoAccion>
+                      <BotonConfirmar
+                        etiqueta="Eliminar" variante="ghost" tamano="sm" peligro
+                        titulo="¿Eliminar este evento?"
+                        descripcion="Las familias dejarán de verlo en la agenda. No se puede deshacer."
+                        confirmar="Eliminar evento"
+                        accion={eliminarEventoAction.bind(null, slug, it.id)}
+                      />
+                    </div>
                   )}
                 </li>
               );
             })}
           </ul>
-        </section>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
-        <aside className="flex flex-col gap-5">
-          <Card>
-            <CardContent>
-              <div className="mb-2 flex items-center justify-between">
-                <h2 className="font-titulo text-cuerpo font-semibold first-letter:uppercase">{nombreMes}</h2>
-                <div className="flex">
-                  <Link href={`/agenda?fecha=${mesAnterior}`} aria-label="Mes anterior" className="inline-flex size-10 items-center justify-center rounded-md hover:bg-accent"><ChevronLeft className="size-4" strokeWidth={2} aria-hidden /></Link>
-                  <Link href={`/agenda?fecha=${mesSiguiente}`} aria-label="Mes siguiente" className="inline-flex size-10 items-center justify-center rounded-md hover:bg-accent"><ChevronRight className="size-4" strokeWidth={2} aria-hidden /></Link>
-                </div>
-              </div>
-              <table className="w-full text-center text-sm">
-                <thead>
-                  <tr>{NOMBRES_DIA.map((n, i) => <th key={i} scope="col" className="py-1 text-xs font-medium text-muted-foreground">{n}</th>)}</tr>
-                </thead>
-                <tbody>
-                  {semanas.map((sem) => (
-                    <tr key={sem[0]}>
-                      {sem.map((d) => {
-                        const cantidad = porDia.get(d)?.length ?? 0;
-                        const delMes = Number(d.slice(5, 7)) === mes;
-                        const enSemana = lunes <= d && d <= sumarDias(lunes, 6);
-                        return (
-                          <td key={d} className="p-0.5">
-                            <Link
-                              href={`/agenda?fecha=${d}`}
-                              aria-label={`${formatoDia(d, { day: "numeric", month: "long" })}${cantidad ? `, ${cantidad} ${cantidad === 1 ? "evento" : "eventos"}` : ""}`}
-                              aria-current={d === hoy ? "date" : undefined}
-                              className={`flex h-10 flex-col items-center justify-center rounded-md transition-colors ${d === hoy ? "bg-primary text-primary-foreground" : delMes ? "hover:bg-accent" : "text-muted-foreground opacity-60 hover:bg-accent"} ${enSemana && d !== hoy ? "bg-muted font-semibold" : ""}`}
-                            >
-                              <span>{Number(d.slice(8))}</span>
-                              {cantidad > 0 && <span aria-hidden className="text-[10px] leading-none">{"•".repeat(Math.min(cantidad, 3))}</span>}
-                            </Link>
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <p className="mt-2 text-cuerpo-sm text-muted-foreground">Los puntos marcan días con eventos o entregas.</p>
-            </CardContent>
-          </Card>
-        </aside>
-      </div>
-    </div>
+/** Qué significa cada ícono (palabra + ícono, no solo color). */
+function Leyenda() {
+  const tipos: Pick<ItemCalendario, "tipo" | "subtipo">[] = [
+    { tipo: "clase" }, { tipo: "reunion" }, { tipo: "evaluacion" }, { tipo: "entrega" }, { tipo: "evento", subtipo: "actividad" }, { tipo: "evento", subtipo: "feriado" },
+  ];
+  return (
+    <ul aria-label="Tipos de la agenda" className="flex flex-wrap gap-2">
+      {tipos.map((t) => <li key={`${t.tipo}-${t.subtipo ?? ""}`}><Insignia it={t} /></li>)}
+    </ul>
   );
 }

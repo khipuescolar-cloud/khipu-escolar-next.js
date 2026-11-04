@@ -1,6 +1,6 @@
 # 34 — Horario
 
-> Estado: implementado · Plan: Khipu Base y Khipu Pro · Última actualización: 2026-10-30 (Claude Code)
+> Estado: implementado · Plan: Khipu Base y Khipu Pro · Última actualización: 2026-11-03 (rama `pro-calendario`: `CalendarioSemana` usa la grilla compartida `GrillaTiempo`; antes: 2026-10-30, Claude Code)
 
 ## Objetivo
 Que cada salón tenga su horario semanal (lunes a viernes) y que cada persona sepa qué clase tiene ahora y cuál sigue:
@@ -149,7 +149,7 @@ Puros en `src/lib/plantillas-horario.ts`: `generarPeriodos`, `validarPlantilla`,
   plantilla» (`DialogoAccion`), «Horas del día» (`EditorHoras`, `Sheet`), «Copiar de otro salón» (`DialogoAccion`), «Carga de profesores». Menú: grupo «Colegio»,
   «Horarios».
 - `/horario?vista=profesores`, `/horario?profesor=<id>` (dirección).
-- `/horario` (profesor, «Mi horario», grupo «Día a día»): `AhoraDespues` + `CalendarioSemana` (lógica pura en `src/lib/horario-calendario.ts`; reuniones y eventos con `agendaDeLaSemana` en `src/lib/server/horario.ts`).
+- `/horario` (profesor, «Mi horario», grupo «Día a día»): `AhoraDespues` + `CalendarioSemana` (lógica pura en `src/lib/horario-calendario.ts`; reuniones y eventos con `agendaDeLaSemana` en `src/lib/server/horario.ts`). `CalendarioSemana` conserva sus props, su barra (mes, semana, «Ahora / Después») y su leyenda, y dibuja la cuadrícula con `GrillaTiempo` (`src/components/calendario/GrillaTiempo.tsx`), la misma de la agenda (specs/12): convierte bloques y eventos a `ItemCalendario` (`itemsDeLaSemana`) con la fecha de cada día; mismos colores por curso, carriles, fila «Todo el día», jornada (entrada, salida, recreos), línea de ahora y popovers. `agendaDeLaSemana` descarta las clases de la agenda (`tipo: "clase"`) porque «Mi horario» ya dibuja los bloques.
 - `/horario?alumno=<id>` (familia, «Horario»; alumno, «Mi horario»; grupo «Día a día»): `AhoraDespues` + `TablaHorario`.
 - Inicio: `TarjetaHoy` (`inicio/TarjetaHoy.tsx`).
 - Responsive: desde `md` la cuadrícula es una tabla (`caption`, `th scope`); en el celular, pestañas Lun–Vie (Base UI
