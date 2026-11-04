@@ -39,7 +39,7 @@ test("Lucía convoca a 3.° B, Rosa confirma, Lucía ve la confirmación y publi
     await page.goto(colegio("nuevohorizonte", "/reuniones/nueva"));
     await page.getByLabel("Tipo de reunión").selectOption("tutoria");
     await page.getByLabel("Familias").selectOption("salon");
-    await page.getByLabel("Salón").selectOption({ label: "3.° B" });
+    await page.getByRole("combobox", { name: /^Salón/ }).selectOption({ label: "3.° B" });
     await page.getByRole("button", { name: "Siguiente" }).click();
     await page.getByLabel("Fecha", { exact: true }).fill(manana);
     await page.getByLabel("Hora preferida").fill("18:00");

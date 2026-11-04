@@ -28,6 +28,7 @@ test.afterAll(async () => {
 });
 
 test("dirección arma una reunión con Lucía y Pedro viendo su disponibilidad; Rosa solicita y Lucía confirma", async ({ page }) => {
+  test.setTimeout(180_000); // flujo con 3 cuentas y rutas que se compilan en dev la primera vez
   const sello = Date.now();
   const titulo = `Coordinación e2e ${sello}`;
   const motivo = `Solicitud e2e ${sello}`;
@@ -68,8 +69,11 @@ test("dirección arma una reunión con Lucía y Pedro viendo su disponibilidad; 
     await entrar(page, "lucia.garcia@nuevohorizonte.demo");
     await page.goto(colegio("/reuniones"));
     await page.getByRole("link", { name: titulo }).click();
+    await page.waitForURL(/\/reuniones\/[0-9a-f-]{36}$/);
+    await expect(page.getByRole("heading", { name: titulo })).toBeVisible();
     await page.getByRole("button", { name: "Aceptar", exact: true }).click();
-    await expect(page.getByText("Listo, confirmamos que asistirás.")).toBeVisible();
+    // La sección «Tu respuesta» se vuelve a renderizar con el estado guardado (el toast puede no alcanzar a verse).
+    await expect(page.getByText("Aceptada", { exact: false }).first()).toBeVisible();
 
     // 4. Rosa solicita una reunión a Lucía (tutora de Mateo).
     await entrar(page, "rosa.quispe@gmail.com");
@@ -78,8 +82,9 @@ test("dirección arma una reunión con Lucía y Pedro viendo su disponibilidad; 
     await page.getByLabel("¿Sobre quién?").selectOption(await valor("¿Sobre quién?", "Mateo"));
     await page.getByLabel("¿Con quién?").selectOption(await valor("¿Con quién?", "Lucía"));
     await page.getByLabel("Motivo").fill(motivo);
+    await expect(page.getByText("Buscando horarios…")).toHaveCount(0); // espera a que carguen las franjas ofrecidas
     const franjas = page.locator("input[name=franja]");
-    if (await franjas.count()) await page.locator("label", { has: franjas.first() }).click();
+    if (await franjas.count()) await page.locator("label:has(input[name=franja])").first().click();
     else {
       await page.getByLabel("Fecha", { exact: true }).fill(martes);
       await page.getByLabel("Hora", { exact: true }).fill("15:30");
@@ -94,7 +99,8 @@ test("dirección arma una reunión con Lucía y Pedro viendo su disponibilidad; 
     await page.goto(url.replace(/^https?:\/\/[^/]+/, colegio("")));
     await page.getByRole("button", { name: "Confirmar solicitud" }).click();
     await page.getByRole("button", { name: "Confirmar", exact: true }).click();
-    await expect(page.getByText("Solicitud confirmada. Avisamos a la familia.")).toBeVisible();
+    await expect(page.getByRole("button", { name: "Confirmar solicitud" })).toHaveCount(0);
+    await expect(page.getByText("Confirmada", { exact: false }).first()).toBeVisible();
   } finally {
     await bd.query("delete from avisos where plantilla like 'reunion%' and created_at >= $1", [inicio]);
     await bd.query("delete from notificaciones where tipo = 'reunion' and created_at >= $1", [inicio]);
@@ -104,6 +110,9 @@ test("dirección arma una reunión con Lucía y Pedro viendo su disponibilidad; 
 
 test("una familia no puede consultar la disponibilidad del personal", async ({ page }) => {
   await entrar(page, "rosa.quispe@gmail.com");
-  const res = await page.goto(colegio("/reuniones/nueva"));
-  expect(res?.status()).toBe(403);
+  // /reuniones tiene loading.tsx: la respuesta ya empezó a transmitirse (200) cuando la página llama a forbidden(), así
+  // que se comprueba la pantalla de acceso denegado y que no se muestra el asistente.
+  await page.goto(colegio("/reuniones/nueva"));
+  await expect(page.getByRole("heading", { name: "No tienes acceso a esta sección" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Nueva reunión" })).toHaveCount(0);
 });

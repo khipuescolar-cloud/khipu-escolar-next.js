@@ -95,7 +95,8 @@ export function AsistenteReunion({ opciones, fechaInicial, consultar, confirmar 
         return;
       }
       setDatos(r);
-      setPaso(2);
+      // Si el usuario ya avanzó a los detalles mientras se recalculaba, no lo devolvemos a la cuadrícula.
+      setPaso((p) => (p === 3 ? p : 2));
     });
   }
 
@@ -263,7 +264,7 @@ export function AsistenteReunion({ opciones, fechaInicial, consultar, confirmar 
               {pendiente ? <Loader2 className="animate-spin" strokeWidth={2} aria-hidden /> : <Search strokeWidth={2} aria-hidden />}Ver disponibilidad
             </button>
           )}
-          {paso === 2 && <button type="button" onClick={() => setPaso(3)} className={buttonVariants()}>Usar {hora} y seguir<ArrowRight strokeWidth={2} aria-hidden /></button>}
+          {paso === 2 && <button type="button" disabled={pendiente} onClick={() => setPaso(3)} className={buttonVariants()}>Usar {hora} y seguir<ArrowRight strokeWidth={2} aria-hidden /></button>}
           {paso === 0 && elegidos.size > 0 && (
             <button type="button" onClick={() => setElegidos(new Map())} className={buttonVariants({ variant: "ghost" })}><UserMinus strokeWidth={2} aria-hidden />Quitar a todos</button>
           )}
