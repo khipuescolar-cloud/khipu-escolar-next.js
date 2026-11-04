@@ -175,7 +175,7 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(renderizarPlantilla("mensaje_nuevo", payloads.mensaje_nuevo).texto).toContain("Lucía García te escribió sobre Mateo.");
     expect(renderizarPlantilla("justificacion_revisada", payloads.justificacion_revisada).texto).toContain("del 26/10/2026");
     // specs/40: invitación con asunto fijo, duración, organizador y modalidad.
-    const invitacion = renderizarPlantilla("reunion_convocada", { ...payloads.reunion_convocada, duracion: 45, organizador: "Carmen Torres", modalidad: "Virtual", enlace: "https://meet.example/x" });
+    const invitacion = renderizarPlantilla("reunion_convocada", { colegio, titulo: "Reunión de padres", fecha: "2026-11-05", hora: "18:00", url: "http://r", duracion: 45, organizador: "Carmen Torres", modalidad: "Virtual", enlace: "https://meet.example/x" });
     expect(invitacion.asunto).toBe("Khipu — Invitación a reunión");
     expect(invitacion.texto).toContain("(45 min)");
     expect(invitacion.texto).toContain("Organiza: Carmen Torres.");
