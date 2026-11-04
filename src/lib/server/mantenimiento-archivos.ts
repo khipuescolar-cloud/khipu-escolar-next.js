@@ -14,7 +14,7 @@ export const HORAS_GRACIA_HUERFANOS = 24;
 
 /**
  * Archivos sin referencia: no son logo de un colegio, ni foto de alumno, ni adjunto de justificación, comunicado,
- * tarea o exportación, y tienen más de 24 h.
+ * tarea, documento, mensaje de la mesa de ayuda o exportación, y tienen más de 24 h.
  */
 export async function encontrarArchivosHuerfanos(prisma: PrismaClient, ahora = new Date()): Promise<Archivo[]> {
   const limite = new Date(ahora.getTime() - HORAS_GRACIA_HUERFANOS * 3_600_000);
@@ -30,6 +30,7 @@ export async function encontrarArchivosHuerfanos(prisma: PrismaClient, ahora = n
       comunicadoId: null,
       tareaId: null,
       documentoId: null,
+      mensajeSoporteId: null,
       justificaciones: { none: {} },
       exportaciones: { none: {} },
     },

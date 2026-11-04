@@ -10,11 +10,11 @@ import { requireTenantContext } from "@/lib/server/tenant";
 
 export const runtime = "nodejs";
 
-/** GET /api/carnets/<salonId>?formato=a4|cr80 → PDF de los carnets del salón (A4 con 8 por hoja, o CR80). Solo dirección; auditado. */
+/** GET /api/carnets/<salonId>?formato=a4|cr80 → PDF de los carnets del salón (A4 con 8 por hoja, o CR80). Solo dirección (nunca en modo soporte: lleva fotos y QR de menores); auditado. */
 export async function GET(request: Request, { params }: RouteContext<"/colegio/[slug]/api/carnets/[salonId]">) {
   const { slug, salonId } = await params;
   const ctx = await requireTenantContext(slug);
-  if (ctx.rol !== "direccion") forbidden();
+  if (ctx.rol !== "direccion" || ctx.soporte) forbidden();
   if (!z.uuid().safeParse(salonId).success) return new Response("Salón no válido.", { status: 400 });
   const formato = parseFormatoCarnets(new URL(request.url).searchParams.get("formato"));
 

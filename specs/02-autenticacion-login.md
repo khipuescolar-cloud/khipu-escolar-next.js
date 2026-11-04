@@ -1,6 +1,6 @@
 # 02 — Autenticación y login
 
-> Estado: implementado · Plan: todos · Última actualización: 2026-10-27 (Claude Code · último ingreso en todos los caminos)
+> Estado: implementado · Plan: todos · Última actualización: 2026-11-03 (Claude Code, rama `pre-seguridad`: correcciones de seguridad; antes: Claude Code · último ingreso en todos los caminos)
 
 ## Objetivo
 Entrar con correo y contraseña, y llegar al colegio correcto sin preguntar nada de más.
@@ -17,6 +17,7 @@ Entrar con correo y contraseña, y llegar al colegio correcto sin preguntar nada
    - Los ingresos que no pasan por `iniciarSesion` también cuentan: `registrarIngreso(usuario, ip)` (`auth.ts`) se llama en `/auth/callback` (al canjear el código del enlace de invitación o recuperación), en `/restablecer` y en `/cambiar-password`. Guarda la fila exitosa con `user_id` y actualiza `ultimo_ingreso_at`, pero no duplica si ese usuario ya tuvo un ingreso en los últimos 5 minutos (`VENTANA_INGRESO_MINUTOS`: callback → restablecer, o login → cambiar contraseña, es un solo ingreso). La IP sale de `ipDeCabeceras` (igual que el login).
 2. **Límite de intentos:** 5 fallos por correo o 20 por IP en 15 minutos → «Hubo demasiados intentos. Espera 15 minutos o recupera tu contraseña.» (tabla `login_intentos`). Además aplican los *rate limits* de Supabase Auth.
 3. **Recuperar contraseña:** `/recuperar` → `resetPasswordForEmail` (la respuesta es siempre la misma) → el correo lleva a `/auth/callback?next=/restablecer` → `/restablecer` guarda la nueva contraseña (mínimo 8 caracteres).
+   - **Redirección segura:** `?next=` de `/auth/callback` y `siguiente` de `/cambiar-password` pasan por `destinoSeguro` (`src/lib/destino-seguro.ts`): solo rutas relativas con una sola `/` inicial, sin `\` ni `//` ni caracteres de control, y que con `new URL` queden en el mismo origen (`/\evil.example` se rechaza). `/cambiar-password` además acepta URLs absolutas http(s) de `APP_BASE_DOMAIN` o sus subdominios (panel de plataforma). Test: `tests/unit/destino-seguro.test.ts`.
 4. **Invitación → activa:** gestión crea las membresías en estado `invitada`. En el primer ingreso (`iniciarSesion`, tras validar la contraseña) o al fijar la contraseña desde el enlace de invitación (`/restablecer`), `activarInvitaciones(userId)` pasa todas las `invitada` del usuario a `activa`; así entra aunque su única membresía fuera `invitada`. Una cuenta `inactiva` sigue sin entrar.
 5. **Salir:** `salirAction` en el encabezado del colegio.
 6. **Cambiar de rol** (si tiene varios en el mismo colegio): cookie `khipu_rol`.

@@ -86,7 +86,7 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
               {f.otrosColegios > 0 && (
                 <p role="note" className="flex items-start gap-2 rounded-lg border border-tarde/40 bg-tarde-fondo p-3 text-sm text-tarde sm:col-span-2">
                   <Info className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
-                  Estos datos también se ven en los otros colegios de esta persona. El cambio queda en la auditoría de cada colegio.
+                  Esta persona también usa su cuenta en otro colegio: desde aquí solo puedes cambiar su cargo. Sus datos personales los actualiza ella o soporte.
                 </p>
               )}
               <p className="text-cuerpo-sm text-muted-foreground sm:col-span-2">Correo (usuario): <strong className="text-foreground">{u.email}</strong></p>
@@ -101,12 +101,12 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
                 descripcion: `Enviaremos de nuevo el correo de bienvenida a ${u.email}.`, confirmar: "Reenviar bienvenida",
                 accion: reenviarBienvenidaAction, campos: { id: f.id, volver },
               },
-              ...(u.numeroDocumento
+              ...(u.numeroDocumento && f.estado === "activa" && f.otrosColegios === 0
                 ? [
                     {
                       tipo: "confirmar" as const, texto: "Restablecer contraseña al documento", icono: "reactivar" as const, peligro: true,
                       titulo: "¿Restablecer la contraseña al documento?",
-                      descripcion: `La contraseña de ${u.nombres} volverá a ser su número de documento actual y tendrá que cambiarla al entrar. Úsalo si corregiste el documento y la contraseña inicial quedó con el número anterior. No se muestra la contraseña.${f.otrosColegios > 0 ? " Su cuenta es la misma en los otros colegios donde está." : ""}`,
+                      descripcion: `La contraseña de ${u.nombres} volverá a ser su número de documento actual y tendrá que cambiarla al entrar. Úsalo si corregiste el documento y la contraseña inicial quedó con el número anterior. No se muestra la contraseña.`,
                       confirmar: "Restablecer contraseña", accion: restablecerPasswordAction, campos: { id: f.id, volver },
                     },
                     {

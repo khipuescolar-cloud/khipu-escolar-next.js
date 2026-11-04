@@ -76,6 +76,8 @@ describe("alta de profesor con datos personales", () => {
     const r = await altaPersonal(ctxs.dirotro, { ...base, rol: "profesor", email: correo("nuevo"), nombres: "Nora", apellidos: "Nueva", numeroDocumento: "99999999" });
     expect(r.cuentaNueva).toBe(false);
     expect((await db.profile.findUniqueOrThrow({ where: { id: r.userId } })).numeroDocumento).toBe("70123456");
+    // La cuenta ya es de otro colegio: la membresía queda «invitada» hasta que la persona entre con su contraseña.
+    expect((await db.membership.findUniqueOrThrow({ where: { id: r.membershipId } })).estado).toBe("invitada");
     const aviso = await db.aviso.findFirstOrThrow({ where: { tenantId: otroTenant.id, plantilla: "bienvenida" } });
     expect(aviso.payload).toMatchObject({ cuentaNueva: false });
     // Su contraseña sigue siendo la original (no el 99999999).
@@ -104,6 +106,10 @@ describe("alta de profesor con datos personales", () => {
   it("la ficha muestra el documento a dirección, se edita y deja historia sin valores sensibles", async () => {
     const ficha = await obtenerFicha(ctxs.dir, membershipId, ["profesor"]);
     expect(ficha?.user.numeroDocumento).toBe("70123456");
+    // Mientras está también en el otro colegio no se editan sus datos personales.
+    const datos = { nombres: "Nora", apellidos: "Nueva Díaz", telefono: "911222333", genero: "femenino" as const, fechaNacimiento: "1990-05-17", direccion: "Jr. Cusco 45", cargo: "Tutora", tipoDocumento: "dni" as const, numeroDocumento: "70123456" };
+    await expect(editarFicha(ctxs.dir, membershipId, ["profesor"], datos)).rejects.toThrow("otro colegio");
+    await db.membership.deleteMany({ where: { tenantId: otroTenant.id, userId: ficha!.user.id } });
     await editarFicha(ctxs.dir, membershipId, ["profesor"], {
       nombres: "Nora", apellidos: "Nueva Díaz", telefono: "911222333", genero: "femenino", fechaNacimiento: "1990-05-17",
       direccion: "Jr. Cusco 45", cargo: "Tutora", tipoDocumento: "dni", numeroDocumento: "70123456",

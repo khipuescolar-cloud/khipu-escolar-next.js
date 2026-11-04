@@ -1,5 +1,5 @@
 import { createSign, generateKeyPairSync } from "node:crypto";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { textoAFirmar, urlDeAwsValida, verificarFirmaSns, type MensajeSns } from "@/lib/server/notificaciones/ses";
 
 const { privateKey, publicKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
@@ -20,6 +20,10 @@ const base = {
   SignatureVersion: "2",
   SigningCertURL: CERT_URL,
 };
+
+afterEach(() => {
+  vi.unstubAllEnvs();
+});
 
 describe("webhook SES: firma SNS", () => {
   it("solo acepta certificados de sns.<región>.amazonaws.com por https", () => {
@@ -42,6 +46,18 @@ describe("webhook SES: firma SNS", () => {
     expect(await verificarFirmaSns({ ...m, Message: JSON.stringify({ eventType: "Open" }) }, obtener)).toBe(false);
     expect(await verificarFirmaSns({ ...m, SigningCertURL: "https://evil.com/c.pem" }, obtener)).toBe(false);
     expect(await verificarFirmaSns({ ...m, SignatureVersion: "3" }, obtener)).toBe(false);
+  });
+
+  it("en producción exige SES_SNS_TOPIC_ARN y que el tema coincida", async () => {
+    const obtener = async () => pem;
+    const m = firmado(base);
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("SES_SNS_TOPIC_ARN", "");
+    expect(await verificarFirmaSns(m, obtener)).toBe(false);
+    vi.stubEnv("SES_SNS_TOPIC_ARN", "arn:aws:sns:us-east-1:999:otro-tema");
+    expect(await verificarFirmaSns(m, obtener)).toBe(false);
+    vi.stubEnv("SES_SNS_TOPIC_ARN", base.TopicArn);
+    expect(await verificarFirmaSns(m, obtener)).toBe(true);
   });
 
   it("firma la confirmación de suscripción con SubscribeURL y Token", () => {

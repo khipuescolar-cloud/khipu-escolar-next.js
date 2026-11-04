@@ -68,6 +68,8 @@ export async function verificarFirmaSns(
   const algoritmo = m.SignatureVersion === "1" ? "RSA-SHA1" : m.SignatureVersion === "2" ? "RSA-SHA256" : null;
   if (!algoritmo) return false;
   const temaEsperado = process.env.SES_SNS_TOPIC_ARN;
+  // En producción el tema es obligatorio: sin él, cualquier tema SNS firmado por AWS (de otra cuenta) pasaría.
+  if (!temaEsperado && process.env.NODE_ENV === "production") return false;
   if (temaEsperado && m.TopicArn !== temaEsperado) return false;
   try {
     const pem = await obtenerCertificado(m.SigningCertURL);

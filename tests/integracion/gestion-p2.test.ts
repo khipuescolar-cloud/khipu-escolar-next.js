@@ -185,23 +185,19 @@ describe("datos globales del perfil y reinicio de contraseña", () => {
   let membershipId = "";
   let userId = "";
 
-  it("avisa y audita en ambos colegios al editar datos de alguien con membresías en otro colegio", async () => {
+  it("una persona solo de este colegio: se corrigen sus datos sin auditoría global", async () => {
     const r = await altaPersonal(ctxs.dir, { rol: "administrativo", email: correo("multi"), nombres: "Multi", apellidos: "Colegio", tipoDocumento: "dni", numeroDocumento: "11111111" });
     authCreados.push(r.userId);
     membershipId = r.membershipId;
     userId = r.userId;
+    expect((await db.membership.findUniqueOrThrow({ where: { id: membershipId } })).estado).toBe("activa");
     expect((await obtenerFicha(ctxs.dir, membershipId, ["administrativo"]))?.otrosColegios).toBe(0);
-    await db.membership.create({ data: { tenantId: otro.id, userId, rol: "profesor" } });
-    expect((await obtenerFicha(ctxs.dir, membershipId, ["administrativo"]))?.otrosColegios).toBe(1);
 
     await editarFicha(ctxs.dir, membershipId, ["administrativo"], {
       nombres: "Multi", apellidos: "Colegio", telefono: "987654321", genero: null, fechaNacimiento: "", direccion: "", cargo: "", tipoDocumento: "dni", numeroDocumento: "22222222",
     });
-    const aqui = await db.auditoria.findFirstOrThrow({ where: { tenantId: tenant.id, entidad: "perfil_global", entidadId: userId } });
-    const alla = await db.auditoria.findFirstOrThrow({ where: { tenantId: otro.id, entidad: "perfil_global", entidadId: userId } });
-    expect(aqui.detalle).toMatchObject({ campos: expect.arrayContaining(["telefono", "numeroDocumento"]), otrosColegios: 1 });
-    expect(JSON.stringify([aqui.detalle, alla.detalle])).not.toContain("22222222");
-    expect(alla.detalle).toMatchObject({ campos: expect.arrayContaining(["telefono"]) });
+    expect((await db.profile.findUniqueOrThrow({ where: { id: userId } })).numeroDocumento).toBe("22222222");
+    expect(await db.auditoria.count({ where: { entidad: "perfil_global", entidadId: userId } })).toBe(0);
   });
 
   it("corregir el documento no cambia la contraseña; restablecer la deja en el documento nuevo", async () => {
@@ -210,8 +206,7 @@ describe("datos globales del perfil y reinicio de contraseña", () => {
     expect((await supabaseAdmin().auth.signInWithPassword({ email: correo("multi"), password: "22222222" })).error).not.toBeNull();
     await db.profile.update({ where: { id: userId }, data: { debeCambiarPassword: false } });
 
-    const r = await restablecerPasswordAlDocumento(ctxs.dir, membershipId, { avisar: true });
-    expect(r.otrosColegios).toBe(1);
+    await restablecerPasswordAlDocumento(ctxs.dir, membershipId, { avisar: true });
     expect((await supabaseAdmin().auth.signInWithPassword({ email: correo("multi"), password: "22222222" })).error).toBeNull();
     expect((await supabaseAdmin().auth.signInWithPassword({ email: correo("multi"), password: "11111111" })).error).not.toBeNull();
     expect((await db.profile.findUniqueOrThrow({ where: { id: userId } })).debeCambiarPassword).toBe(true);
@@ -230,5 +225,47 @@ describe("datos globales del perfil y reinicio de contraseña", () => {
   it("sin documento válido no restablece", async () => {
     await db.profile.update({ where: { id: userId }, data: { numeroDocumento: null } });
     await expect(restablecerPasswordAlDocumento(ctxs.dir, membershipId)).rejects.toThrow("documento válido");
+  });
+});
+
+describe("cuentas compartidas con otro colegio o con el equipo Khipu (toma de cuentas)", () => {
+  const ficha = (cambios: Partial<Parameters<typeof editarFicha>[3]> = {}) => ({
+    nombres: "dirotro", apellidos: "Prueba", telefono: "", genero: null, fechaNacimiento: "", direccion: "", cargo: "", tipoDocumento: "dni" as const, numeroDocumento: "33333333", ...cambios,
+  });
+
+  it("dar de alta a alguien de otro colegio no toca su perfil y deja la membresía invitada", async () => {
+    const ajeno = ctxs.dirotro.user;
+    const r = await altaPersonal(ctxs.dir, { rol: "profesor", email: ajeno.email, nombres: "Impostor", apellidos: "Falso", tipoDocumento: "dni", numeroDocumento: "33333333", telefono: "900000000" });
+    expect(r.cuentaNueva).toBe(false);
+    const perfil = await db.profile.findUniqueOrThrow({ where: { id: ajeno.id } });
+    expect(perfil).toMatchObject({ nombres: "dirotro", apellidos: "Prueba", numeroDocumento: null, telefono: null });
+    expect((await db.membership.findUniqueOrThrow({ where: { id: r.membershipId } })).estado).toBe("invitada");
+
+    // Ni siquiera con la membresía activa: no se edita el documento ni se fija la contraseña.
+    await expect(restablecerPasswordAlDocumento(ctxs.dir, r.membershipId)).rejects.toThrow("activo");
+    await db.membership.update({ where: { id: r.membershipId }, data: { estado: "activa" } });
+    await expect(editarFicha(ctxs.dir, r.membershipId, ["profesor"], ficha())).rejects.toThrow("otro colegio");
+    await expect(restablecerPasswordAlDocumento(ctxs.dir, r.membershipId)).rejects.toThrow("otro colegio");
+    expect((await db.profile.findUniqueOrThrow({ where: { id: ajeno.id } })).numeroDocumento).toBeNull();
+
+    // Una familia que también está en otro colegio: no se le cambian nombres ni teléfono; guardar sin cambios sí se puede.
+    const comoFamilia = await db.membership.create({ data: { tenantId: tenant.id, userId: ajeno.id, rol: "apoderado" } });
+    await expect(editarDatosApoderado(ctxs.dir, comoFamilia.id, { nombres: "Otro", apellidos: "Nombre", telefono: "" })).rejects.toThrow("otro colegio");
+    await editarDatosApoderado(ctxs.dir, comoFamilia.id, { nombres: "dirotro", apellidos: "Prueba", telefono: "" });
+    expect((await db.profile.findUniqueOrThrow({ where: { id: ajeno.id } })).nombres).toBe("dirotro");
+  });
+
+  it("un super administrador con membresía en el colegio tampoco se puede tomar", async () => {
+    const id = randomUUID();
+    perfiles.push(id);
+    await db.profile.create({ data: { id, email: correo("superadmin"), nombres: "Super", apellidos: "Admin", tipoDocumento: "dni", numeroDocumento: "44444444" } });
+    await db.adminPlataforma.create({ data: { userId: id } });
+    const m = await db.membership.create({ data: { tenantId: tenant.id, userId: id, rol: "profesor" } });
+    await expect(restablecerPasswordAlDocumento(ctxs.dir, m.id)).rejects.toThrow("equipo de Khipu");
+    await expect(editarFicha(ctxs.dir, m.id, ["profesor"], ficha({ nombres: "Super", apellidos: "Admin", numeroDocumento: "55555555" }))).rejects.toThrow("equipo de Khipu");
+    // Cambiar solo el cargo sí se permite.
+    await editarFicha(ctxs.dir, m.id, ["profesor"], ficha({ nombres: "Super", apellidos: "Admin", numeroDocumento: "44444444", cargo: "Docente" }));
+    expect((await db.membership.findUniqueOrThrow({ where: { id: m.id } })).cargo).toBe("Docente");
+    expect((await db.profile.findUniqueOrThrow({ where: { id } })).numeroDocumento).toBe("44444444");
   });
 });
