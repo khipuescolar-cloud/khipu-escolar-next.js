@@ -111,9 +111,32 @@ describe("disponibilidad y confirmación", () => {
     // La propia clase sí se ve con detalle.
     const propia = d.personas.find((p) => p.propia)!;
     expect(propia.celdas[d.celdas.findIndex((c) => c.hora === "10:00")].etiqueta).toContain("Matemática");
+    // Tramos continuos del calendario: los mismos textos según privacidad.
+    expect(filaLuis.bloques).toContainEqual({ fecha: MARTES, desde: "11:00", hasta: "11:30", etiqueta: "Ocupado", esClase: false });
+    expect(propia.bloques.find((b) => b.fecha === MARTES && b.desde === "10:00")).toMatchObject({ hasta: "11:00", esClase: true });
+    expect(propia.bloques.find((b) => b.desde === "10:00")?.etiqueta).toContain("Matemática");
     // Y Luis, invitado, sí ve el título de su reunión.
     expect((await detalleReunion(luis(), reunionLuis))?.titulo).toBe("Plan lector (privado)");
     expect(await detalleReunion(lucia(), reunionLuis)).toBeNull();
+  });
+
+  it("calendario semanal: días con lectivo, jornada, hoy y alternativas que no se cruzan (máx. 2 por día)", async () => {
+    const lunes = sumarDias(MARTES, -1);
+    const d = (await consultarDisponibilidad(dir(), {
+      requeridos: [pro.miembros.tutora.membership.id, pro.miembros.otroProfesor.membership.id], fecha: lunes, hora: "10:00", duracion: 30, dias: 7, separar: true,
+    })) as Disponibilidad;
+    expect(d.dias.map((x) => x.fecha)).toEqual(Array.from({ length: 7 }, (_, i) => sumarDias(lunes, i)));
+    expect(d.dias.slice(5).every((x) => !x.lectivo)).toBe(true); // sábado y domingo
+    expect(d.jornada).toEqual({ desde: "07:30", hasta: "16:30" });
+    expect(d.hoy.fecha).toBe(fechaLima(new Date()));
+    const a = [...d.alternativas].sort((x, y) => x.inicio.localeCompare(y.inicio));
+    for (let i = 1; i < a.length; i++) expect(a[i].inicio >= a[i - 1].fin).toBe(true);
+    const porDia = new Map<string, number>();
+    for (const x of a) porDia.set(x.fecha, (porDia.get(x.fecha) ?? 0) + 1);
+    expect(Math.max(...porDia.values())).toBeLessThanOrEqual(2);
+    // Lucía tiene clase el martes de 10:00 a 11:00 en su fila del calendario («Clase» para dirección).
+    const filaLucia = d.personas.find((p) => p.membershipId === pro.miembros.tutora.membership.id)!;
+    expect(filaLucia.bloques).toContainEqual({ fecha: MARTES, desde: "10:00", hasta: "11:00", etiqueta: "Clase", esClase: true });
   });
 
   it("las familias no consultan la ocupación del personal y otro colegio no ve a nadie", async () => {

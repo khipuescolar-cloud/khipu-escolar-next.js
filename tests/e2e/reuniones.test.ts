@@ -42,9 +42,8 @@ test("Lucía convoca a 3.° B, Rosa confirma, Lucía ve la confirmación y publi
     await page.getByRole("combobox", { name: /^Salón/ }).selectOption({ label: "3.° B" });
     await page.getByRole("button", { name: "Siguiente" }).click();
     await page.getByLabel("Fecha", { exact: true }).fill(manana);
-    await page.getByLabel("Hora preferida").fill("18:00");
-    await page.getByRole("button", { name: "Ver disponibilidad" }).click();
-    await page.getByRole("button", { name: /Usar 18:00 y seguir/ }).click();
+    await page.getByLabel("Hora de inicio").fill("18:00");
+    await page.getByRole("button", { name: /Usar .*18:00–18:30 y seguir/ }).click();
     await page.getByLabel("Título", { exact: true }).fill(titulo);
     await page.getByLabel("Lugar", { exact: true }).fill("Aula 3.° B");
     await page.getByLabel(/Programar igual fuera de la jornada/).check();

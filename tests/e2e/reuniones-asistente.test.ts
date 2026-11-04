@@ -35,7 +35,7 @@ test("dirección arma una reunión con Lucía y Pedro viendo su disponibilidad; 
   const inicio = new Date();
   const martes = martesProximo();
   try {
-    // 1. Dirección: tipo, participantes, fecha y cuadrícula.
+    // 1. Dirección: tipo, participantes y horario en el calendario.
     await entrar(page, "direccion@nuevohorizonte.demo");
     await page.goto(colegio("/reuniones/nueva"));
     await page.getByLabel("Tipo de reunión").selectOption("direccion");
@@ -46,14 +46,28 @@ test("dirección arma una reunión con Lucía y Pedro viendo su disponibilidad; 
     await expect(page.getByRole("list", { name: "Participantes elegidos" }).getByRole("listitem")).toHaveCount(2);
     await page.getByLabel("Familias").selectOption("ninguno");
     await page.getByRole("button", { name: "Siguiente" }).click();
+    // Paso «Horario»: calendario de la semana con la agenda de cada participante y horarios sugeridos.
+    await page.getByText("45 min", { exact: true }).click();
     await page.getByLabel("Fecha", { exact: true }).fill(martes);
-    await page.getByLabel("Duración").selectOption("45");
-    await page.getByLabel("Hora preferida").fill("10:00");
-    await page.getByRole("button", { name: "Ver disponibilidad" }).click();
-    await expect(page.getByRole("heading", { name: "Franjas libres para todos los requeridos" })).toBeVisible();
-    // Nunca se ven títulos ni motivos ajenos: solo «Ocupado» o «Clase».
-    const alternativa = page.getByRole("region", { name: "Franjas libres para todos los requeridos" }).getByRole("button").first();
-    await alternativa.click();
+    await expect(page.getByRole("heading", { name: "Horarios sugeridos" })).toBeVisible();
+    const leyenda = page.getByRole("list", { name: "Participantes" });
+    await expect(leyenda.getByText("Lucía", { exact: false })).toBeVisible();
+    await expect(leyenda.getByText("Pedro", { exact: false })).toBeVisible();
+    // El bloque «Nueva reunión» se mueve con el teclado (15 min por flecha).
+    const bloque = page.getByTestId("bloque-nueva-reunion");
+    await expect(bloque).toBeVisible();
+    const antes = await page.getByLabel("Hora de inicio").inputValue();
+    await bloque.focus();
+    await page.keyboard.press("ArrowDown");
+    const [h, m] = antes.split(":").map(Number);
+    const despues = h * 60 + m + 15;
+    await expect(page.getByLabel("Hora de inicio")).toHaveValue(`${String(Math.floor(despues / 60)).padStart(2, "0")}:${String(despues % 60).padStart(2, "0")}`);
+    // Vista «Por persona»: una fila por participante y la fila «Todos».
+    await page.getByRole("button", { name: "Por persona" }).click();
+    await expect(page.getByText("Requeridos libres")).toBeVisible();
+    await page.getByRole("button", { name: "Calendario" }).click();
+    // Elige un horario sugerido (todos libres) y sigue.
+    await page.getByRole("region", { name: "Horarios sugeridos" }).getByRole("button").first().click();
     await page.getByRole("button", { name: /Usar .* y seguir/ }).click();
 
     // 2. Detalles y confirmación (el servidor revalida).

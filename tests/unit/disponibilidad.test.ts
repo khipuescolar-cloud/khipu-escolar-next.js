@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { instanteEnZona } from "@/lib/dias-habiles";
+import { analizar, encajar, libresParaTodos, rangoVisible, semanaDe, textoChoques, type DatosHorario } from "@/lib/asistente-horario";
 import {
-  calcularDisponibilidad, celdasDelDia, contiene, estadoCelda, etiquetaParaTercero, fechasEntre, franjas, fusionar, intersectar, intersectarVarios,
+  bloquesPorDia, calcularDisponibilidad, celdasDelDia, contiene, estadoCelda, etiquetaParaTercero, fechasEntre, franjas, fusionar, intersectar, intersectarVarios,
   rangosNoLectivos, restar, ventanasLaborales, type Rango,
 } from "@/lib/disponibilidad";
 
@@ -116,6 +117,87 @@ describe("calcularDisponibilidad", () => {
     });
     expect(res.preferidaLibre).toBe(false);
     expect(res.alternativas.every((a) => a.inicio >= t("12:00"))).toBe(true);
+  });
+});
+
+describe("alternativas distintas (calendario del asistente)", () => {
+  const MIERCOLES = "2026-11-18";
+  const dia = (inicio: number) => new Date(inicio - 5 * 3_600_000).toISOString().slice(0, 10);
+
+  it("no se cruzan entre sí y reparten primero una por día", () => {
+    const res = calcularDisponibilidad({
+      personas: [{ id: "ana", requerido: true, ocupado: [] }],
+      ventana: [r("08:00", "12:00"), r("08:00", "12:00", MIERCOLES)], duracionMin: 30, preferida: r("10:00", "10:30"),
+      maxAlternativas: 3, distintas: { claveDia: dia, maxPorDia: 2 },
+    });
+    const a = res.alternativas;
+    expect(a).toHaveLength(3);
+    for (let i = 1; i < a.length; i++) expect(a[i].inicio).toBeGreaterThanOrEqual(a[i - 1].fin);
+    expect(new Set(a.map((x) => dia(x.inicio)))).toEqual(new Set([FECHA, MIERCOLES]));
+    expect(a.filter((x) => dia(x.inicio) === FECHA)).toHaveLength(2);
+  });
+});
+
+describe("bloquesPorDia", () => {
+  it("recorta por día, une tramos seguidos con la misma etiqueta y no une etiquetas distintas", () => {
+    const b = bloquesPorDia([
+      { ...r("08:00", "09:00"), etiqueta: "Ocupado", esClase: false },
+      { ...r("09:00", "09:30"), etiqueta: "Ocupado", esClase: false },
+      { ...r("10:00", "11:00"), etiqueta: "Clase", esClase: true },
+      { inicio: t("22:00"), fin: t("02:00", "2026-11-18"), etiqueta: "Ocupado", esClase: false },
+    ], [FECHA, "2026-11-18"], Z);
+    expect(b).toEqual([
+      { fecha: FECHA, desde: "08:00", hasta: "09:30", etiqueta: "Ocupado", esClase: false },
+      { fecha: FECHA, desde: "10:00", hasta: "11:00", etiqueta: "Clase", esClase: true },
+      { fecha: FECHA, desde: "22:00", hasta: "24:00", etiqueta: "Ocupado", esClase: false },
+      { fecha: "2026-11-18", desde: "00:00", hasta: "02:00", etiqueta: "Ocupado", esClase: false },
+    ]);
+  });
+});
+
+describe("paso Horario del asistente (asistente-horario)", () => {
+  const datos: DatosHorario = {
+    dias: [{ fecha: FECHA, lectivo: true }, { fecha: "2026-11-21", lectivo: false }],
+    jornada: { desde: "07:30", hasta: "16:30" },
+    hoy: { fecha: "2026-11-16", hora: "09:00" },
+    personas: [
+      { membershipId: "yo", nombre: "Carmen Torres", requerido: true, propia: true, bloques: [] },
+      { membershipId: "rocio", nombre: "Rocío Pérez", requerido: true, propia: false, bloques: [{ fecha: FECHA, desde: "10:00", hasta: "11:00", etiqueta: "Clase", esClase: true }] },
+      { membershipId: "pedro", nombre: "Pedro Salas", requerido: false, propia: false, bloques: [{ fecha: FECHA, desde: "12:00", hasta: "13:00", etiqueta: "Ocupado", esClase: false }] },
+    ],
+  };
+
+  it("detecta el choque con un requerido (con su etiqueta según privacidad) y si solo son clases", () => {
+    const a = analizar(datos, { fecha: FECHA, inicio: 10 * 60 + 30 }, 30);
+    expect(a.choquesRequeridos.map((c) => c.nombre)).toEqual(["Rocío Pérez"]);
+    expect(a.soloClases).toBe(true);
+    expect(textoChoques(a.choquesRequeridos)).toBe("Choca con: Rocío (Clase)");
+    // Tocarse en el borde no es choque.
+    expect(analizar(datos, { fecha: FECHA, inicio: 11 * 60 }, 30).choques).toEqual([]);
+  });
+
+  it("opcional ocupado, fuera de jornada, no lectivo y franja pasada", () => {
+    const opc = analizar(datos, { fecha: FECHA, inicio: 12 * 60 }, 30);
+    expect(opc.choquesRequeridos).toEqual([]);
+    expect(opc.choques.map((c) => c.nombre)).toEqual(["Pedro Salas"]);
+    expect(analizar(datos, { fecha: FECHA, inicio: 16 * 60 + 15 }, 30).fueraDeHorario).toBe(true);
+    const sabado = analizar(datos, { fecha: "2026-11-21", inicio: 10 * 60 }, 30);
+    expect(sabado.noLectivo && sabado.fueraDeHorario).toBe(true);
+    expect(analizar({ ...datos, hoy: { fecha: FECHA, hora: "11:00" } }, { fecha: FECHA, inicio: 10 * 60 }, 30).pasada).toBe(true);
+  });
+
+  it("libres para todos los requeridos (ignora a los opcionales) y encaje de 15 min", () => {
+    expect(libresParaTodos(datos, FECHA)).toEqual([{ desde: 450, hasta: 600 }, { desde: 660, hasta: 990 }]);
+    expect(libresParaTodos(datos, "2026-11-21")).toEqual([]);
+    expect(encajar(10 * 60 + 7, 30, { desde: 420, hasta: 1080 })).toBe(10 * 60);
+    expect(encajar(17 * 60 + 50, 30, { desde: 420, hasta: 1080 })).toBe(17 * 60 + 30);
+  });
+
+  it("semana y horas visibles", () => {
+    expect(semanaDe("2026-11-19")).toBe("2026-11-16");
+    expect(semanaDe("2026-11-21")).toBe("2026-11-23"); // sábado → lunes siguiente
+    expect(rangoVisible({ desde: "07:30", hasta: "16:30" })).toEqual({ desde: 420, hasta: 1080 });
+    expect(rangoVisible({ desde: "07:30", hasta: "16:30" }, { desde: 18 * 60, hasta: 18 * 60 + 30 })).toEqual({ desde: 420, hasta: 1140 });
   });
 });
 

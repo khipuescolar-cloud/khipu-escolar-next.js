@@ -33,7 +33,7 @@ function escala({ inicio, fin }: { inicio: number; fin: number }) {
   return { inicio, fin, alto: (fin - inicio) * PX_MIN, y: (min: number) => (min - inicio) * PX_MIN };
 }
 
-const etiquetaHora = (min: number) => `${Math.floor(min / 60)}:${String(min % 60).padStart(2, "0")}`;
+export const etiquetaHora = (min: number) => `${Math.floor(min / 60)}:${String(min % 60).padStart(2, "0")}`;
 export const duracion = (min: number) => (min % 60 === 0 ? `${min / 60} h` : min > 60 ? `${Math.floor(min / 60)} h ${min % 60} min` : `${min} min`);
 const nombreDia = (fecha: string) => NOMBRE_DIA_SEMANA[diaDeSemana(fecha)];
 
@@ -128,7 +128,7 @@ export function GrillaTiempo({ dias, items, hoyIso, horaAhora, ahoraId = null, j
   );
 }
 
-function NumeroDia({ fecha, hoy, chico }: { fecha: string; hoy: boolean; chico?: boolean }) {
+export function NumeroDia({ fecha, hoy, chico }: { fecha: string; hoy: boolean; chico?: boolean }) {
   return (
     <span
       aria-hidden

@@ -19,19 +19,21 @@ export default async function NuevaReunionPage({ params }: PageProps<"/colegio/[
   requireFeature(ctx, "reuniones");
   if (!esPersonal(ctx.rol)) forbidden();
   const opciones = await opcionesParaConvocar(ctx);
-  const manana = sumarDias(momentoEnZona(new Date(), ctx.tenant.zonaHoraria).isoFecha, 1);
+  const hoy = momentoEnZona(new Date(), ctx.tenant.zonaHoraria).isoFecha;
+  const manana = sumarDias(hoy, 1);
   return (
-    <div className="flex max-w-5xl flex-col gap-6">
+    <div className="flex max-w-6xl flex-col gap-6">
       <Link href="/reuniones" className="inline-flex w-fit items-center gap-1 text-sm font-medium text-indigo-cielo hover:underline">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Reuniones
       </Link>
       <EncabezadoPagina
         titulo="Nueva reunión"
-        descripcion={`Elige a los participantes y mira cuándo están libres (jornada ${opciones.horaInicioLaboral}–${opciones.horaFinLaboral}). Solo ves «Ocupado» en la agenda de otras personas.`}
+        descripcion={`Elige a los participantes y busca en el calendario una hora en que todos estén libres (jornada ${opciones.horaInicioLaboral}–${opciones.horaFinLaboral}). De otras personas solo ves «Ocupado».`}
       />
       <AsistenteReunion
         opciones={opciones}
         fechaInicial={manana}
+        hoy={hoy}
         consultar={disponibilidadAction.bind(null, slug)}
         confirmar={confirmarReunionAction.bind(null, slug)}
       />

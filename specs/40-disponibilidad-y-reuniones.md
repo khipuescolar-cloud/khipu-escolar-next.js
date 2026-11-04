@@ -1,6 +1,6 @@
 # 40 — Disponibilidad del personal y reuniones institucionales
 
-> Estado: implementado (backend completo; UI del asistente, invitaciones, solicitudes, disponibilidad y acuerdos) · Plan: Khipu Pro (módulo `reuniones`) · Última actualización: 2026-11-03 (Claude Code, rama `pro-reuniones`)
+> Estado: implementado (backend completo; UI del asistente, invitaciones, solicitudes, disponibilidad y acuerdos) · Plan: Khipu Pro (módulo `reuniones`) · Última actualización: 2026-11-04 (Claude Code: paso «Horario» del asistente como calendario)
 
 Amplía `specs/32-reuniones.md` (que sigue vigente para recordatorio, asistencia y acta).
 
@@ -23,7 +23,7 @@ Tipos (`TipoReunion`): `docente_apoderado`, `tutoria`, `coordinacion`, `direccio
 Familias: obligatorias en `docente_apoderado`/`tutoria`, prohibidas en `coordinacion`, opcionales en el resto.
 
 ## Flujos
-1. **Asistente** (`/reuniones/nueva`, personal): (1) tipo y participantes (buscador de personal requerido u opcional; familias: alumno, salón o todo el colegio); (2) fecha, duración (15/30/45/60/90) y hora preferida; (3) cuadrícula de disponibilidad por persona (`GrillaDisponibilidad`, en móvil lista por persona) con la franja elegida, conflictos y 3–5 alternativas; las familias aparecen como «Pendiente de confirmar» (no tienen calendario ni reserva); (4) detalles: título, motivo, modalidad (presencial/virtual/mixta), lugar o enlace externo (sin videollamadas propias), observaciones; confirmar.
+1. **Asistente** (`/reuniones/nueva`, personal), 3 pasos: (1) tipo y participantes (buscador de personal requerido u opcional; familias: alumno, salón o todo el colegio); (2) **Horario** (`PasoHorario`), al estilo del calendario + asistente de programación de Teams con la identidad de Khipu: duración (15/30/45/60/90, control segmentado) y la fecha se navega en el calendario (‹ Hoy ›, semana laboral o día); ver «Paso Horario» abajo; (3) detalles: título, motivo, modalidad (presencial/virtual/mixta), lugar o enlace externo (sin videollamadas propias), observaciones, casilla «Programar igual fuera de la jornada…» si aplica y motivo para forzar una clase; confirmar. Si al confirmar la franja se ocupó, vuelve al paso Horario (recalculado) con el aviso.
 2. **Confirmar** (`convocarReunion`): el backend **revalida siempre** (ver Reglas). Si la franja se ocupó: «Esa franja se acaba de ocupar. Elige otra.» con alternativas nuevas.
 3. **Invitaciones**: cada invitado (personal o familia) acepta / rechaza / propone otra hora (con nota) hasta el inicio. El organizador ve las respuestas (bandeja + push, sin correo).
 4. **Reprogramar** (`reprogramarReunion`): revalida, desactiva las reservas viejas, crea nuevas, guarda `reprogramada_at`, deja todas las respuestas en «pendiente» y avisa (correo).
@@ -61,7 +61,9 @@ Migración `20261113090100_reuniones_disponibilidad` (a mano, aditiva, sin borra
 ```ts
 // disponibilidad.ts
 leerAgendas(tdb, tenant, membershipIds, desde, hasta, { excluirReunionId? }): Agendas   // también dentro de la transacción
-consultarDisponibilidad(ctx, { requeridos, opcionales, fecha, hora, duracion, dias?, excluirReunionId? }): Disponibilidad | { error }  // solo personal
+consultarDisponibilidad(ctx, { requeridos, opcionales, fecha, hora, duracion, dias?, excluirReunionId?, separar? }): Disponibilidad | { error }  // solo personal
+//   Disponibilidad += dias: { fecha, lectivo }[], jornada: { desde, hasta }, hoy: { fecha, hora } y, por persona, bloques: { fecha, desde, hasta ("24:00" = medianoche), etiqueta, esClase }[]
+//   (tramos por día en la zona del colegio, unidos si son seguidos con la misma etiqueta; etiqueta según privacidad). `separar: true` → alternativas que no se cruzan, primero una por día y hasta 2 por día.
 franjasDeAtencion(tdb, tenant, docenteId, desde, duracion = 30): FranjaVista[]
 // reuniones.ts
 convocarReunion(ctx, { titulo, tipo?, modalidad?, motivo?, observaciones?, fecha, hora, duracion? | horaFin?, lugar?, enlace?, alcance: colegio|salon|individual|ninguno, salonId?, alumnoId?, requeridos?, opcionales?, fueraDeHorario?, forzarClase?, motivoForzar? }): Resultado & { id?, alternativas? }
@@ -82,12 +84,20 @@ ocupacionPropia(ctx, desde: Date, hasta: Date): { id, inicio, fin, tipo: "bloque
 notificarReunion(ctx, { evento: invitacion|reprogramada|cancelada|solicitada, reunion, destinatarios, version?, solicitante? }): ResumenEntrega
 avisarSinCorreo(ctx, { membershipId, reunionId, titulo, texto, clave }): ResumenEntrega
 // src/lib/reuniones.ts (puro): TIPOS_POR_ROL, puedeConvocar, familiasDelTipo, tipoPorAlcance, motivoAntiabuso, TEXTO_TIPO, TEXTO_MODALIDAD
-// src/lib/disponibilidad.ts (puro): fusionar, restar, intersectar, intersectarVarios, franjas, ventanasLaborales, rangosNoLectivos, estadoCelda, calcularDisponibilidad, celdasDelDia, etiquetaParaTercero
+// src/lib/disponibilidad.ts (puro): fusionar, restar, intersectar, intersectarVarios, franjas, ventanasLaborales, rangosNoLectivos, estadoCelda, calcularDisponibilidad (opción `distintas`), celdasDelDia, etiquetaParaTercero, bloquesPorDia
+// src/lib/asistente-horario.ts (puro, cliente): semanaDe, columnasSemana, rangoVisible, libresParaTodos, analizar, opcionalesOcupados, encajar, textoChoques
 ```
 
 ## Rutas y UI
 - `/reuniones` («Nueva reunión» para personal; «Solicitar reunión» para familias si el colegio lo permite; «Mi disponibilidad»; «Acuerdos»).
-- `/reuniones/nueva` (asistente en 4 pasos, `src/components/reuniones/AsistenteReunion.tsx` + `GrillaDisponibilidad.tsx`; en móvil la cuadrícula se muestra como lista por persona con sus franjas ocupadas/libres).
+- `/reuniones/nueva` (asistente en 3 pasos, `src/components/reuniones/AsistenteReunion.tsx` + `PasoHorario.tsx`, `CalendarioHorario.tsx`, `LineaPersonas.tsx`, `paleta-personas.ts`; cálculos puros del paso en `src/lib/asistente-horario.ts`).
+
+### Paso «Horario» (calendario de disponibilidad)
+- Consulta `consultarDisponibilidad` con `fecha = lunes`, `dias: 7`, `separar: true` al entrar, al cambiar de semana, de duración o de participantes (el paso guarda la respuesta por clave; nunca un spinner global: esqueleto de la grilla y de las sugerencias, y la grilla anterior atenuada si es la misma semana). Si no hay selección, toma el primer horario sugerido.
+- **Vista «Calendario»** (por defecto; Semana | Día en escritorio, Día con pestañas de lunes a viernes en móvil ≤ 640 px): eje de horas como la agenda (`GrillaTiempo` exporta `NumeroDia` y `etiquetaHora`), de 07:00 a 18:00 como mínimo (jornada con margen; se amplía si la selección queda fuera). Un carril por participante con lo ocupado como barras redondeadas del color asignado (`PALETA_PERSONAS`: turquesa, cochinilla, maíz, índigo cielo, pizarra; texto en tinta; leyenda con iniciales + nombre + Requerido/Opcional; familias «Pendiente de confirmar»). La etiqueta de cada barra es la que ya decide el servidor (de terceros «Ocupado» o «Clase»). Fuera de la jornada sombreado, días no lectivos con trama y «No lectivo», pasado atenuado, línea «ahora», franjas libres para todos los requeridos en verde tenue. Al pasar el puntero, bloque fantasma con la duración (encaje de 15 min); clic = coloca la «Nueva reunión» (índigo; rojo con ícono + «Choca con: Rocío (Clase)» si choca con un requerido; ámbar si solo hay opcional ocupado o fuera de jornada / no lectivo). El bloque se arrastra o se mueve con ↑/↓ (15 min) y ←/→ (día hábil); Enter sigue.
+- **Vista «Por persona»** (Calendario | Por persona): regla horaria horizontal (se desplaza dentro de su contenedor), fila «Todos» con las coincidencias, una fila por participante (avatar de iniciales, nombre, Requerido/Opcional) con barras continuas y fila de familias sin barras; la reunión propuesta es una banda vertical translúcida que cruza todas las filas (arrastre, clic o ←/→ 15 min, ↑/↓ día, Enter).
+- **Panel lateral** (debajo en móvil): «Horarios sugeridos» = alternativas del servidor como tarjetas (día, hora, «Todos libres» o «Libre salvo opcional X», calculado en el navegador con los tramos); vacías → «No hay franjas comunes esta semana» + «Ver la semana siguiente». «Tu selección»: campos Fecha y Hora de inicio (alternativa accesible al calendario), estado con ícono + palabra, casilla para programar sobre la clase (solo dirección/administrativo y solo si todos los choques con requeridos son clases) y el botón «Usar jue 5 nov · 10:15–10:45 y seguir», deshabilitado mientras se recalcula, si la franja ya pasó o si choca con un requerido sin esa casilla.
+- Los choques se evalúan en el navegador con los tramos recibidos (`analizar`); **el servidor revalida siempre al confirmar** (sin cambios).
 - `/reuniones/[id]`: además de specs/32, responder con «Aceptar / Rechazar / Proponer otra hora», reprogramar, cancelar con motivo, confirmar o rechazar solicitudes, acuerdos e historial (solo quien gestiona).
 - `/reuniones/solicitar`, `/reuniones/disponibilidad`, `/reuniones/acuerdos`.
 - Navegación: el mosaico «Reuniones» ahora incluye al rol administrativo.
@@ -100,9 +110,10 @@ avisarSinCorreo(ctx, { membershipId, reunionId, titulo, texto, clave }): Resumen
 - Ids ajenos, de otro colegio o inexistentes: 404 en páginas, 403 en acciones.
 
 ## Pruebas
-- Unit: `tests/unit/disponibilidad.test.ts` (fusión, resta, intersección, franjas de 15 min, bordes `[)`, no lectivo, fuera de horario, alternativas, privacidad), `tests/unit/reuniones.test.ts` (matriz y antiabuso).
+- Unit: `tests/unit/disponibilidad.test.ts` (fusión, resta, intersección, franjas de 15 min, bordes `[)`, no lectivo, fuera de horario, alternativas, alternativas distintas, `bloquesPorDia`, análisis del paso Horario: choques con requeridos/opcionales, fuera de jornada, no lectivo, pasado, libres para todos, encaje y semana, privacidad), `tests/unit/reuniones.test.ts` (matriz y antiabuso).
 - Integración: `tests/integracion/reuniones-disponibilidad.test.ts` (clase de Lucía 10:00–11:00 bloquea, reunión de Luis 11:00–11:30 bloquea, coincidencias de 3 docentes para 45 min, privacidad, familias sin consulta, otro colegio, revalidación con alternativas, forzar clase con motivo, fuera de horario, concurrencia con `Promise.all` → una sola reserva, restricción de exclusión, profesor invitado ve la reunión, reprogramar y cancelar liberan reservas, correos solo en invitación/reprogramación/cancelación contando filas `avisos` canal correo, reintento sin duplicados, acuerdos, ocupación propia, solicitudes con antiabuso, hijo ajeno y docente no permitido, horario de atención); `tests/integracion/reuniones.test.ts` ajustado (franjas distintas, cancelar con motivo).
-- e2e: `tests/e2e/reuniones-asistente.test.ts` (dirección arma una reunión con Lucía y Pedro en el asistente; Rosa solicita a Lucía; Lucía la confirma).
+- Integración: además, calendario semanal (`dias`, `jornada`, `hoy`, alternativas `separar` sin cruces y ≤ 2 por día, `bloques` con «Clase»/«Ocupado» y detalle solo propio).
+- e2e: `tests/e2e/reuniones-asistente.test.ts` (dirección arma una reunión con Lucía y Pedro en el calendario: duración, fecha, leyenda, mover el bloque con el teclado, vista «Por persona», horario sugerido; Rosa solicita a Lucía; Lucía la confirma); `tests/e2e/reuniones.test.ts` (Lucía fija 18:00 con los campos Fecha/Hora de inicio y confirma fuera de jornada).
 
 ## Pendientes
 - Subir adjuntos desde el asistente (`archivos.reunion_id` y `CamposAdjuntos` ya disponibles).
@@ -110,3 +121,4 @@ avisarSinCorreo(ctx, { membershipId, reunionId, titulo, texto, clave }): Resumen
 - Familia que cancela su propia solicitud; aceptar con un clic la hora propuesta por un invitado.
 - Recordatorio automático el día anterior (specs/32).
 - Horas laborales por persona (hoy son las del colegio para todo el personal).
+- Paso Horario: arrastrar el bloque en móvil con gesto largo (hoy se coloca con un toque y se ajusta con los campos o las flechas); duración libre arrastrando el borde del bloque.

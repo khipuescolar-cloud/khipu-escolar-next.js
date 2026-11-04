@@ -4,8 +4,8 @@ import { z } from "zod";
 import type { Prisma } from "@/generated/prisma/client";
 import { instanteEnZona } from "@/lib/dias-habiles";
 import {
-  DURACIONES, MAX_DIAS_RANGO, MINUTO, calcularDisponibilidad, celdasDelDia, estadoCelda, etiquetaParaTercero, fechasEntre, rangosNoLectivos,
-  seCruzan, ventanasLaborales, type EstadoCelda, type MotivoOcupado, type Ocupacion, type Rango,
+  DURACIONES, MAX_DIAS_RANGO, MINUTO, bloquesPorDia, calcularDisponibilidad, celdasDelDia, esLectivo, estadoCelda, etiquetaParaTercero, fechasEntre, rangosNoLectivos,
+  seCruzan, ventanasLaborales, type BloqueDia, type EstadoCelda, type MotivoOcupado, type Ocupacion, type Rango,
 } from "@/lib/disponibilidad";
 import { momentoEnZona, sumarDias } from "@/lib/fechas";
 import { diaDeSemana, esHora } from "@/lib/horario";
@@ -118,10 +118,16 @@ const esquemaConsulta = z.object({
   /** Días hacia adelante para buscar alternativas (1–14). */
   dias: z.coerce.number().int().min(1).max(MAX_DIAS_RANGO).default(7),
   excluirReunionId: z.uuid().optional(),
+  /** Calendario del asistente: alternativas que no se cruzan entre sí, máximo 2 por día. */
+  separar: z.boolean().default(false),
 });
 
 export type CeldaPersona = { estado: EstadoCelda; etiqueta: string | null };
-export type FilaGrilla = { membershipId: string; nombre: string; rol: string; requerido: boolean; propia: boolean; celdas: CeldaPersona[] };
+export type FilaGrilla = {
+  membershipId: string; nombre: string; rol: string; requerido: boolean; propia: boolean; celdas: CeldaPersona[];
+  /** Tramos ocupados de cada día del rango (privacidad: de terceros solo «Ocupado» o «Clase»). */
+  bloques: BloqueDia[];
+};
 export type FranjaVista = { inicio: string; fin: string; fecha: string; hora: string; horaFin: string; opcionalesLibres: number };
 
 export type Disponibilidad = {
@@ -133,6 +139,12 @@ export type Disponibilidad = {
   /** Franja elegida y quiénes la tienen ocupada (con etiqueta según privacidad). */
   preferida: FranjaVista & { libre: boolean; conflictos: { nombre: string; etiqueta: string; esClase: boolean }[]; fueraDeHorario: boolean };
   alternativas: FranjaVista[];
+  /** Días consultados (`fecha` … `fecha + dias − 1`) y si son lectivos. */
+  dias: { fecha: string; lectivo: boolean }[];
+  /** Jornada laboral del colegio (igual para todo el personal). */
+  jornada: { desde: string; hasta: string };
+  /** Fecha y hora actuales en la zona del colegio (línea «ahora» y franjas pasadas). */
+  hoy: { fecha: string; hora: string };
 };
 
 const nombreDe = (u: { nombres: string; apellidos: string | null }) => `${u.nombres} ${u.apellidos ?? ""}`.trim();
@@ -161,7 +173,8 @@ export function etiquetaOcupacion(o: OcupacionDetallada, propia: boolean, veClas
 }
 
 /**
- * Cuadrícula del día elegido por persona y alternativas en los próximos `dias` días. Solo personal (las familias no
+ * Cuadrícula del día elegido por persona, tramos ocupados por día (calendario del asistente) y alternativas en los
+ * próximos `dias` días. Solo personal (las familias no
  * tienen calendario: aparecen «Pendiente de confirmar» en la UI). Quien consulta siempre es requerido.
  */
 export async function consultarDisponibilidad(ctx: TenantContext, entrada: unknown, ahora = new Date()): Promise<Disponibilidad | { error: string }> {
@@ -182,6 +195,7 @@ export async function consultarDisponibilidad(ctx: TenantContext, entrada: unkno
   const calculo = calcularDisponibilidad({
     personas: personas.map((id) => ({ id, requerido: requeridosIds.includes(id), ocupado: agendas.ocupacion.get(id) ?? [] })),
     ventana: agendas.ventana, duracionMin: d.data.duracion, preferida, noAntesDe: ahora.getTime(),
+    distintas: d.data.separar ? { claveDia: (t) => momentoEnZona(new Date(t), zona).isoFecha, maxPorDia: 2 } : undefined,
   });
   const veClases = ctx.rol === "direccion" || ctx.rol === "administrativo";
   const celdas = celdasDelDia(d.data.fecha, { horaInicio: ctx.tenant.horaInicioLaboral, horaFin: ctx.tenant.horaFinLaboral, zona });
@@ -196,6 +210,7 @@ export async function consultarDisponibilidad(ctx: TenantContext, entrada: unkno
         const o = estado === "ocupado" ? ocupado.find((x) => seCruzan(x, c)) : undefined;
         return { estado, etiqueta: o ? etiquetaOcupacion(o, propia, veClases) : null };
       }),
+      bloques: bloquesPorDia(ocupado.map((o) => ({ inicio: o.inicio, fin: o.fin, etiqueta: etiquetaOcupacion(o, propia, veClases), esClase: o.motivo === "clase" })), agendas.fechas, zona),
     };
   });
   const conflictos = personas.flatMap((id) => {
@@ -209,6 +224,9 @@ export async function consultarDisponibilidad(ctx: TenantContext, entrada: unkno
     personas: filas,
     preferida: { ...vistaFranja(preferida, zona), libre: calculo.preferidaLibre, conflictos, fueraDeHorario },
     alternativas: calculo.alternativas.map((a) => vistaFranja(a, zona, a.opcionalesLibres)),
+    dias: agendas.fechas.map((f) => ({ fecha: f, lectivo: esLectivo(f, agendas.noLectivos) })),
+    jornada: { desde: ctx.tenant.horaInicioLaboral, hasta: ctx.tenant.horaFinLaboral },
+    hoy: { fecha: momentoEnZona(ahora, zona).isoFecha, hora: momentoEnZona(ahora, zona).hora },
   };
 }
 

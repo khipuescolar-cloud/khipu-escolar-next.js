@@ -2,6 +2,7 @@
 // Todos los rangos son instantes en milisegundos y semiabiertos [inicio, fin): tocarse en el borde no es cruce
 // (una reunión 10:00–11:00 y otra 11:00–11:30 no chocan).
 import { esDiaHabil, instanteEnZona } from "./dias-habiles";
+import { momentoEnZona } from "./fechas";
 
 export type Rango = { inicio: number; fin: number };
 
@@ -157,6 +158,11 @@ export function calcularDisponibilidad(d: {
   noAntesDe?: number;
   maxAlternativas?: number;
   pasoMin?: number;
+  /**
+   * Alternativas «distintas» (calendario del asistente): no se cruzan entre sí, primero una por día y luego hasta `maxPorDia` por día
+   * (`claveDia` da el día de un instante en la zona del colegio). Sin esta opción, son las más cercanas cada 15 min.
+   */
+  distintas?: { claveDia: (inicio: number) => string; maxPorDia: number };
 }): ResultadoDisponibilidad {
   const libres = new Map<string, Rango[]>();
   for (const p of d.personas) libres.set(p.id, restar(d.ventana, p.ocupado));
@@ -165,12 +171,30 @@ export function calcularDisponibilidad(d: {
   const opcionales = d.personas.filter((p) => !p.requerido).map((p) => libres.get(p.id)!);
   const noAntes = d.noAntesDe ?? -Infinity;
   const candidatas = franjas(coincidencias, d.duracionMin, d.pasoMin).filter((f) => f.inicio >= noAntes);
-  const alternativas = candidatas
+  const max = d.maxAlternativas ?? 5;
+  const ordenadas = candidatas
     .filter((f) => f.inicio !== d.preferida.inicio)
     .map((f) => ({ ...f, opcionalesLibres: opcionales.filter((l) => contiene(l, f)).length }))
-    .sort((a, b) => Math.abs(a.inicio - d.preferida.inicio) - Math.abs(b.inicio - d.preferida.inicio) || b.opcionalesLibres - a.opcionalesLibres || a.inicio - b.inicio)
-    .slice(0, d.maxAlternativas ?? 5)
-    .sort((a, b) => a.inicio - b.inicio);
+    .sort((a, b) => Math.abs(a.inicio - d.preferida.inicio) - Math.abs(b.inicio - d.preferida.inicio) || b.opcionalesLibres - a.opcionalesLibres || a.inicio - b.inicio);
+  let elegidas: Alternativa[];
+  if (d.distintas) {
+    const { claveDia, maxPorDia } = d.distintas;
+    const porDia = new Map<string, number>();
+    elegidas = [];
+    // Primero una por día (repartidas en la semana); si faltan, se completa hasta `maxPorDia` por día.
+    for (let tope = 1; tope <= maxPorDia; tope++) {
+      for (const f of ordenadas) {
+        if (elegidas.length >= max) break;
+        const dia = claveDia(f.inicio);
+        if ((porDia.get(dia) ?? 0) >= tope || elegidas.some((e) => seCruzan(e, f))) continue;
+        porDia.set(dia, (porDia.get(dia) ?? 0) + 1);
+        elegidas.push(f);
+      }
+    }
+  } else {
+    elegidas = ordenadas.slice(0, max);
+  }
+  const alternativas = elegidas.sort((a, b) => a.inicio - b.inicio);
   return { libres, coincidencias, preferidaLibre: contiene(coincidencias, d.preferida) && d.preferida.inicio >= noAntes, alternativas };
 }
 
@@ -189,4 +213,35 @@ export function celdasDelDia(fecha: string, d: { horaInicio: string; horaFin: st
 /** Texto que ve un tercero sobre la ocupación de otra persona (privacidad, specs/40). */
 export function etiquetaParaTercero(motivo: MotivoOcupado, veClases: boolean): string {
   return motivo === "clase" && veClases ? "Clase" : "Ocupado";
+}
+
+/** Ocupación de una persona tal como la ve quien consulta (etiqueta ya filtrada por privacidad). */
+export type OcupacionVista = Rango & { etiqueta: string; esClase: boolean };
+/** Tramo ocupado de un día, en hora del colegio («24:00» = medianoche del día siguiente). */
+export type BloqueDia = { fecha: string; desde: string; hasta: string; etiqueta: string; esClase: boolean };
+
+/**
+ * Tramos ocupados por día para el calendario del asistente: recorta cada ocupación a los días de `fechas` (en `zona`) y
+ * une los tramos seguidos o cruzados con la misma etiqueta (para un tercero, varias reuniones seguidas se ven como un
+ * solo «Ocupado»).
+ */
+export function bloquesPorDia(ocupado: readonly OcupacionVista[], fechas: readonly string[], zona: string): BloqueDia[] {
+  const salida: BloqueDia[] = [];
+  for (const f of fechas) {
+    const ini = instanteEnZona(f, "00:00", zona).getTime();
+    const fin = instanteEnZona(sumarUnDia(f), "00:00", zona).getTime();
+    const delDia = ocupado
+      .map((o) => ({ ...o, inicio: Math.max(o.inicio, ini), fin: Math.min(o.fin, fin) }))
+      .filter((o) => o.fin > o.inicio)
+      .sort((a, b) => a.inicio - b.inicio || a.fin - b.fin);
+    const unidos: OcupacionVista[] = [];
+    for (const o of delDia) {
+      const previo = [...unidos].reverse().find((u) => u.etiqueta === o.etiqueta);
+      if (previo && o.inicio <= previo.fin) previo.fin = Math.max(previo.fin, o.fin);
+      else unidos.push({ ...o });
+    }
+    const hora = (t: number) => (t >= fin ? "24:00" : momentoEnZona(new Date(t), zona).hora);
+    for (const u of unidos) salida.push({ fecha: f, desde: hora(u.inicio), hasta: hora(u.fin), etiqueta: u.etiqueta, esClase: u.esClase });
+  }
+  return salida;
 }

@@ -11,11 +11,11 @@ import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Textarea } from "@/components/ui/textarea";
-import { DURACIONES } from "@/lib/disponibilidad";
+import { horaTexto, type Analisis, type Seleccion } from "@/lib/asistente-horario";
 import { TEXTO_MODALIDAD, TEXTO_TIPO, familiasDelTipo } from "@/lib/reuniones";
-import type { Disponibilidad, FranjaVista } from "@/lib/server/disponibilidad";
+import type { Disponibilidad } from "@/lib/server/disponibilidad";
 import type { ResultadoReserva } from "@/lib/server/reuniones";
-import { GrillaDisponibilidad } from "./GrillaDisponibilidad";
+import { PasoHorario, fechaCorta } from "./PasoHorario";
 
 type Persona = { id: string; nombre: string; rol: string; cargo: string | null };
 type Opciones = {
@@ -30,15 +30,16 @@ type Opciones = {
 type Props = {
   opciones: Opciones;
   fechaInicial: string;
+  hoy: string;
   consultar: (entrada: unknown) => Promise<Disponibilidad | { error: string }>;
   confirmar: (entrada: unknown) => Promise<ResultadoReserva>;
 };
 
 const ROL: Record<string, string> = { direccion: "Dirección", profesor: "Docente", administrativo: "Administrativo" };
-const PASOS = ["Tipo y participantes", "Fecha y duración", "Disponibilidad", "Detalles"];
+const PASOS = ["Tipo y participantes", "Horario", "Detalles"];
 
-/** Asistente de 4 pasos para programar una reunión con disponibilidad del personal (specs/40). */
-export function AsistenteReunion({ opciones, fechaInicial, consultar, confirmar }: Props) {
+/** Asistente de 3 pasos para programar una reunión con la disponibilidad del personal en un calendario (specs/40). */
+export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confirmar }: Props) {
   const router = useRouter();
   const [paso, setPaso] = useState(0);
   const [pendiente, iniciar] = useTransition();
@@ -51,10 +52,9 @@ export function AsistenteReunion({ opciones, fechaInicial, consultar, confirmar 
   const [salonId, setSalonId] = useState(opciones.salones[0]?.id ?? "");
   const [alumnoId, setAlumnoId] = useState(opciones.alumnos[0]?.id ?? "");
 
-  const [fecha, setFecha] = useState(fechaInicial);
-  const [hora, setHora] = useState("10:00");
+  const [seleccion, setSeleccion] = useState<Seleccion | null>(null);
   const [duracion, setDuracion] = useState(30);
-  const [datos, setDatos] = useState<Disponibilidad | null>(null);
+  const [analisis, setAnalisis] = useState<Analisis | null>(null);
   const [fueraDeHorario, setFueraDeHorario] = useState(false);
   const [forzarClase, setForzarClase] = useState(false);
 
@@ -86,24 +86,15 @@ export function AsistenteReunion({ opciones, fechaInicial, consultar, confirmar 
     setElegidos(m);
   }
 
-  function buscarDisponibilidad(f = fecha, h = hora) {
-    setError(null);
-    iniciar(async () => {
-      const r = await consultar({ requeridos: ids("requerido"), opcionales: ids("opcional"), fecha: f, hora: h, duracion, dias: 7 });
-      if ("error" in r) {
-        setError(r.error);
-        return;
-      }
-      setDatos(r);
-      // Si el usuario ya avanzó a los detalles mientras se recalculaba, no lo devolvemos a la cuadrícula.
-      setPaso((p) => (p === 3 ? p : 2));
-    });
-  }
+  const fecha = seleccion?.fecha ?? "";
+  const hora = seleccion ? horaTexto(seleccion.inicio) : "";
 
-  function elegirFranja(franja: FranjaVista) {
-    setFecha(franja.fecha);
-    setHora(franja.hora);
-    buscarDisponibilidad(franja.fecha, franja.hora);
+  function seguirConHorario(a: Analisis) {
+    setAnalisis(a);
+    if (!a.fueraDeHorario) setFueraDeHorario(false);
+    if (!a.soloClases) setForzarClase(false);
+    setError(null);
+    setPaso(2);
   }
 
   function enviar(form: FormData) {
@@ -121,7 +112,8 @@ export function AsistenteReunion({ opciones, fechaInicial, consultar, confirmar 
         return;
       }
       setError(r.error);
-      if (r.alternativas && datos) setDatos({ ...datos, alternativas: r.alternativas, preferida: { ...datos.preferida, libre: false } });
+      // La franja se ocupó: vuelve al calendario, que se recalcula con la agenda nueva.
+      if (r.alternativas) setPaso(1);
     });
   }
 
@@ -197,26 +189,29 @@ export function AsistenteReunion({ opciones, fechaInicial, consultar, confirmar 
       )}
 
       {paso === 1 && (
-        <Tarjeta className="grid gap-4 sm:grid-cols-3">
-          <Campo etiqueta="Fecha" type="date" value={fecha} onChange={(e) => setFecha(e.target.value)} required />
-          <Selector etiqueta="Duración" value={duracion} onChange={(e) => setDuracion(Number(e.target.value))}>
-            {DURACIONES.map((d) => <option key={d} value={d}>{d} minutos</option>)}
-          </Selector>
-          <Campo etiqueta="Hora preferida" type="time" step={900} value={hora} onChange={(e) => setHora(e.target.value)} required />
-        </Tarjeta>
+        <PasoHorario
+          consultar={consultar}
+          requeridos={ids("requerido")}
+          opcionales={ids("opcional")}
+          familias={familias}
+          fechaInicial={fechaInicial}
+          hoy={hoy}
+          puedeForzarClase={opciones.puedeForzarClase}
+          seleccion={seleccion}
+          onSeleccion={setSeleccion}
+          duracion={duracion}
+          onDuracion={setDuracion}
+          forzarClase={forzarClase}
+          onForzarClase={setForzarClase}
+          onSeguir={seguirConHorario}
+        />
       )}
 
-      {paso === 2 && datos && (
-        <Tarjeta>
-          <GrillaDisponibilidad datos={datos} familias={familias} onElegir={elegirFranja} />
-        </Tarjeta>
-      )}
-
-      {paso === 3 && (
+      {paso === 2 && (
         <form action={enviar} className="flex flex-col gap-4">
           <Tarjeta className="grid gap-4 sm:grid-cols-2">
             <p className="text-cuerpo-sm text-muted-foreground sm:col-span-2">
-              {TEXTO_TIPO[tipo]} · {fecha} · {hora} · {duracion} minutos
+              {TEXTO_TIPO[tipo]} · <span className="first-letter:uppercase">{fecha && fechaCorta(fecha)}</span> · <span className="tabular-nums">{hora}–{seleccion ? horaTexto(seleccion.inicio + duracion) : ""}</span> · {duracion} minutos
             </p>
             <div className="sm:col-span-2"><Campo etiqueta="Título" name="titulo" required minLength={3} maxLength={150} placeholder="Reunión de coordinación" /></div>
             <div className="sm:col-span-2">
@@ -230,24 +225,18 @@ export function AsistenteReunion({ opciones, fechaInicial, consultar, confirmar 
             <div className="sm:col-span-2">
               <label className="flex flex-col gap-1.5 text-sm"><span className="font-medium">Observaciones (opcional)</span><Textarea name="observaciones" rows={2} maxLength={1000} /></label>
             </div>
-            {datos?.preferida.fueraDeHorario && (
+            {analisis?.fueraDeHorario && (
               <label className="flex items-start gap-2 text-cuerpo-sm sm:col-span-2">
                 <input type="checkbox" checked={fueraDeHorario} onChange={(e) => setFueraDeHorario(e.target.checked)} className="mt-1 size-4" />
                 Programar igual fuera de la jornada laboral o en día no lectivo.
               </label>
             )}
-            {opciones.puedeForzarClase && datos?.preferida.conflictos.some((c) => c.esClase) && (
-              <>
-                <label className="flex items-start gap-2 text-cuerpo-sm sm:col-span-2">
-                  <input type="checkbox" checked={forzarClase} onChange={(e) => setForzarClase(e.target.checked)} className="mt-1 size-4" />
-                  Programar sobre una clase (queda registrado con el motivo).
-                </label>
-                {forzarClase && <div className="sm:col-span-2"><Campo etiqueta="Motivo para usar la hora de clase" name="motivoForzar" required maxLength={300} /></div>}
-              </>
+            {opciones.puedeForzarClase && analisis?.soloClases && forzarClase && (
+              <div className="sm:col-span-2"><Campo etiqueta="Motivo para usar la hora de clase" name="motivoForzar" required maxLength={300} ayuda="Programas sobre una clase: queda registrado con este motivo." /></div>
             )}
           </Tarjeta>
           <div className="flex flex-wrap gap-2">
-            <button type="button" onClick={() => setPaso(2)} className={buttonVariants({ variant: "outline" })}><ArrowLeft strokeWidth={2} aria-hidden />Volver</button>
+            <button type="button" onClick={() => setPaso(1)} className={buttonVariants({ variant: "outline" })}><ArrowLeft strokeWidth={2} aria-hidden />Volver</button>
             <button type="submit" disabled={pendiente} className={buttonVariants()}>
               {pendiente ? <Loader2 className="animate-spin" strokeWidth={2} aria-hidden /> : <CalendarCheck strokeWidth={2} aria-hidden />}Confirmar reunión
             </button>
@@ -255,16 +244,10 @@ export function AsistenteReunion({ opciones, fechaInicial, consultar, confirmar 
         </form>
       )}
 
-      {paso < 3 && (
+      {paso < 2 && (
         <div className="flex flex-wrap gap-2">
           {paso > 0 && <button type="button" onClick={() => setPaso(paso - 1)} className={buttonVariants({ variant: "outline" })}><ArrowLeft strokeWidth={2} aria-hidden />Volver</button>}
           {paso === 0 && <button type="button" disabled={!puedeSeguir} onClick={() => setPaso(1)} className={buttonVariants()}>Siguiente<ArrowRight strokeWidth={2} aria-hidden /></button>}
-          {paso === 1 && (
-            <button type="button" disabled={pendiente} onClick={() => buscarDisponibilidad()} className={buttonVariants()}>
-              {pendiente ? <Loader2 className="animate-spin" strokeWidth={2} aria-hidden /> : <Search strokeWidth={2} aria-hidden />}Ver disponibilidad
-            </button>
-          )}
-          {paso === 2 && <button type="button" disabled={pendiente} onClick={() => setPaso(3)} className={buttonVariants()}>Usar {hora} y seguir<ArrowRight strokeWidth={2} aria-hidden /></button>}
           {paso === 0 && elegidos.size > 0 && (
             <button type="button" onClick={() => setElegidos(new Map())} className={buttonVariants({ variant: "ghost" })}><UserMinus strokeWidth={2} aria-hidden />Quitar a todos</button>
           )}
