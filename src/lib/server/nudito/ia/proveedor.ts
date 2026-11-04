@@ -1,28 +1,42 @@
 import "server-only";
-import type { ConsumoIA, OperacionIa, ProveedorTutorIA } from "@/lib/nudito/contratos";
-import { pendiente } from "@/lib/nudito/pendiente";
-import type { DbTenant } from "../../db";
+import type { ProveedorTutorIA } from "@/lib/nudito/contratos";
+import { configProveedor, type ConfigProveedor } from "../../nudito-plus/proveedor";
+import { proveedorClaude } from "./claude";
+import { proveedorGemini } from "./gemini";
+import { proveedorOpenAI } from "./openai";
+import { ProveedorTutorSimulado, type OpcionesSimulado } from "./simulado";
 
-// Responsable: C (specs/41). Proveedor de IA del tutor, intercambiable (Claude/GPT/Gemini) detrás de `ProveedorTutorIA`.
+// Proveedor de IA del tutor, intercambiable (Claude/GPT/Gemini) detrás de `ProveedorTutorIA` (specs/41).
 // HOY SOLO EXISTE EL SIMULADO: no hay credenciales. Un adaptador real se registra únicamente si su variable de entorno
-// existe; si no, se usa el simulado. Configuración: ConfigPlataforma «nudito_plus:proveedor» (src/lib/server/nudito-plus/proveedor.ts).
+// existe (ANTHROPIC_API_KEY, OPENAI_API_KEY, GEMINI_API_KEY) Y la configuración de plataforma «nudito_plus:proveedor»
+// lo elige por nombre («claude», «openai», «gemini»). En cualquier otro caso → simulado.
 
 export type { ProveedorIA, MensajeIA, RespuestaIA } from "../../nudito-plus/proveedor";
+export { registrarConsumo } from "./consumo";
+
+const REALES: Record<string, (modelo: string | null) => ProveedorTutorIA | null> = {
+  claude: proveedorClaude,
+  openai: proveedorOpenAI,
+  gemini: proveedorGemini,
+};
+
+let paraPruebas: ProveedorTutorIA | null = null;
+
+/** Solo pruebas: fija el proveedor que devuelve `obtenerProveedorTutor` (null = volver al normal). */
+export function fijarProveedorTutorParaPruebas(p: ProveedorTutorIA | null): void {
+  if (process.env.NODE_ENV !== "test") throw new Error("Solo en pruebas");
+  paraPruebas = p;
+}
 
 /** Proveedor según la configuración de plataforma; nombre desconocido o sin credenciales → simulado. */
-export async function obtenerProveedorTutor(): Promise<ProveedorTutorIA> {
-  return pendiente("C", "obtenerProveedorTutor");
+export async function obtenerProveedorTutor(config?: ConfigProveedor): Promise<ProveedorTutorIA> {
+  if (paraPruebas) return paraPruebas;
+  const { nombre, modelo } = config ?? (await configProveedor());
+  const real = REALES[nombre]?.(modelo) ?? null;
+  return real ?? proveedorSimulado();
 }
 
 /** Proveedor simulado, local y determinista (sin red ni claves). */
-export function proveedorSimulado(): ProveedorTutorIA {
-  return pendiente("C", "proveedorSimulado");
-}
-
-/** Registra una llamada en `nudito_consumos_ia` y suma el total del mes en `UsoNudito`. */
-export async function registrarConsumo(
-  db: DbTenant,
-  datos: { tenantId: string; alumnoId: string; sesionId: string | null; operacion: OperacionIa; consumo: ConsumoIA; ok: boolean; error?: string },
-): Promise<void> {
-  return pendiente("C", "registrarConsumo", db, datos);
+export function proveedorSimulado(opciones?: OpcionesSimulado): ProveedorTutorIA {
+  return new ProveedorTutorSimulado(opciones);
 }
