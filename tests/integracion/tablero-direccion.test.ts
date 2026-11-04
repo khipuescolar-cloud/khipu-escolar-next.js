@@ -51,7 +51,7 @@ describe("tablero de dirección", () => {
     await calif(valentina.id, comps[1].id, "A");
     await db.tarea.create({ data: { tenantId: c.tenant.id, cursoId: c.cursoTutora.id, titulo: "Fichas", fechaEntrega: new Date("2026-03-10T13:00:00Z"), creadoPorId: quien, createdAt: new Date("2026-03-04T15:00:00Z") } });
     await db.tarea.create({ data: { tenantId: c.tenant.id, cursoId: c.cursoTutora.id, titulo: "Fuera del periodo", fechaEntrega: new Date("2026-05-10T13:00:00Z"), creadoPorId: quien, createdAt: new Date("2026-05-04T15:00:00Z") } });
-    await db.reunion.create({ data: { tenantId: c.tenant.id, titulo: "Reunión de padres", inicio: new Date(Date.now() + 5 * 86_400_000), alcance: "colegio", convocadaPorId: c.miembros.direccion.membership.id } });
+    await db.reunion.create({ data: { tenantId: c.tenant.id, titulo: "Reunión de padres", inicio: new Date(Date.now() + 5 * 86_400_000), fin: new Date(Date.now() + 5 * 86_400_000 + 3_600_000), alcance: "colegio", convocadaPorId: c.miembros.direccion.membership.id, organizadorId: c.miembros.direccion.membership.id } });
 
     // Datos del otro colegio con otros números: no deben filtrarse.
     await registrar(otro, otro.alumnos.mateo.id, "2026-03-02", "falta");

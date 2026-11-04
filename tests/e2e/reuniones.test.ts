@@ -34,18 +34,23 @@ test("Lucía convoca a 3.° B, Rosa confirma, Lucía ve la confirmación y publi
   const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
 
   try {
-    // 1. Lucía convoca.
+    // 1. Lucía convoca a 3.° B con el asistente (specs/40): tutoría, 18:00 (fuera de la jornada, lo confirma).
     await entrarProfesora(page);
-    await page.goto(colegio("nuevohorizonte", "/reuniones"));
-    await page.getByRole("button", { name: "Convocar reunión" }).click();
-    await page.getByLabel("Título", { exact: true }).fill(titulo);
-    await page.getByLabel("¿A quién convocas?").selectOption("salon");
-    await page.locator("select[name=salonId]").selectOption({ label: "3.° B" });
+    await page.goto(colegio("nuevohorizonte", "/reuniones/nueva"));
+    await page.getByLabel("Tipo de reunión").selectOption("tutoria");
+    await page.getByLabel("Familias").selectOption("salon");
+    await page.getByLabel("Salón").selectOption({ label: "3.° B" });
+    await page.getByRole("button", { name: "Siguiente" }).click();
     await page.getByLabel("Fecha", { exact: true }).fill(manana);
+    await page.getByLabel("Hora preferida").fill("18:00");
+    await page.getByRole("button", { name: "Ver disponibilidad" }).click();
+    await page.getByRole("button", { name: /Usar 18:00 y seguir/ }).click();
+    await page.getByLabel("Título", { exact: true }).fill(titulo);
     await page.getByLabel("Lugar", { exact: true }).fill("Aula 3.° B");
-    await page.getByRole("button", { name: "Convocar", exact: true }).click();
-    await expect(page.getByText(/Reunión convocada/)).toBeVisible();
-    await expect(page.getByRole("link", { name: titulo })).toBeVisible();
+    await page.getByLabel(/Programar igual fuera de la jornada/).check();
+    await page.getByRole("button", { name: "Confirmar reunión" }).click();
+    await page.waitForURL(/\/reuniones\/[0-9a-f-]{36}$/);
+    await expect(page.getByRole("heading", { name: titulo })).toBeVisible();
 
     // 2. Rosa confirma.
     await context.clearCookies();
@@ -53,8 +58,8 @@ test("Lucía convoca a 3.° B, Rosa confirma, Lucía ve la confirmación y publi
     await page.goto(colegio("nuevohorizonte", "/reuniones"));
     const tarjeta = page.locator("li", { hasText: titulo });
     await expect(tarjeta.getByText("Sin respuesta").first()).toBeVisible();
-    await tarjeta.getByLabel("Comentario (opcional)").fill("Ahí estaré.");
-    await tarjeta.getByRole("button", { name: "Asistiré", exact: true }).click();
+    await tarjeta.getByLabel("Nota (opcional)").fill("Ahí estaré.");
+    await tarjeta.getByRole("button", { name: "Aceptar", exact: true }).click();
     await expect(page.getByText("Listo, confirmamos que asistirás.")).toBeVisible();
 
     // 3. Lucía ve la confirmación.
@@ -63,7 +68,7 @@ test("Lucía convoca a 3.° B, Rosa confirma, Lucía ve la confirmación y publi
     await page.goto(colegio("nuevohorizonte", "/reuniones"));
     await page.getByRole("link", { name: titulo }).click();
     await expect(page.getByRole("heading", { name: "Confirmaciones" })).toBeVisible();
-    const asistiran = page.locator("section[aria-labelledby=confirmaciones] > div > div", { hasText: "Asistirán" }).first();
+    const asistiran = page.locator("section[aria-labelledby=confirmaciones] > div > div", { hasText: "Aceptaron" }).first();
     await expect(asistiran.getByText("Rosa Quispe Mamani")).toBeVisible();
     await expect(asistiran.getByText("«Ahí estaré.»")).toBeVisible();
 
@@ -88,6 +93,7 @@ test("Lucía convoca a 3.° B, Rosa confirma, Lucía ve la confirmación y publi
     await expect(page.getByText("Se acordó revisar las tareas cada viernes.")).toBeVisible();
   } finally {
     await bd.query("delete from avisos where plantilla like 'reunion%' and created_at >= $1", [inicio]);
+    await bd.query("delete from notificaciones where tipo = 'reunion' and created_at >= $1", [inicio]);
     await bd.query("delete from reuniones where titulo = $1", [titulo]);
   }
 });

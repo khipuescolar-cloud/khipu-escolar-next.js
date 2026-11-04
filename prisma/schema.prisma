@@ -254,6 +254,11 @@ model Tenant {
   controlIngresoAutomatico        Boolean              @default(false) @map("control_ingreso_automatico")
   horaLimiteFalta                 String               @default("09:00") @map("hora_limite_falta") // HH:mm, desde esta hora sin ingreso = falta
   zonaHoraria                     String               @default("America/Lima") @map("zona_horaria")
+  /// HH:mm. Horas laborales del personal: ventana para buscar disponibilidad de reuniones (specs/40).
+  horaInicioLaboral               String               @default("07:30") @map("hora_inicio_laboral")
+  horaFinLaboral                  String               @default("16:30") @map("hora_fin_laboral")
+  /// Las familias pueden solicitar reuniones al tutor y a los profesores del salón de su hijo (specs/40).
+  familiasSolicitanReuniones      Boolean              @default(true) @map("familias_solicitan_reuniones")
   modoAvisos                      ModoAvisos           @default(todos) @map("modo_avisos")
   escalaCalificacion              EscalaCalificacion   @default(literal) @map("escala_calificacion")
   sugerenciaPeriodo               SugerenciaPeriodo    @default(ninguna) @map("calculo_literal")
@@ -337,6 +342,11 @@ model Tenant {
   documentos            Documento[]
   reuniones             Reunion[]
   reunionInvitados      ReunionInvitado[]
+  reunionCambios        ReunionCambio[]
+  reunionAcuerdos       ReunionAcuerdo[]
+  reservasAgenda        ReservaAgenda[]
+  bloqueosAgenda        BloqueoAgenda[]
+  horariosAtencion      HorarioAtencion[]
   licenciasNudito       LicenciaNudito[]
   pagosNudito           PagoNudito[]
   consentimientosIa     ConsentimientoIa[]
@@ -433,8 +443,15 @@ model Membership {
   resultadosCriterio       ResultadoCriterio[]
   carpetasCreadas          CarpetaDocumento[]
   documentosPublicados     Documento[]
-  reunionesConvocadas      Reunion[]
+  reunionesConvocadas      Reunion[]              @relation("ReunionConvocante")
+  reunionesOrganizadas     Reunion[]              @relation("ReunionOrganizador")
   invitacionesReunion      ReunionInvitado[]
+  cambiosReunion           ReunionCambio[]        @relation("ReunionCambioActor")
+  acuerdosReunion          ReunionAcuerdo[]       @relation("AcuerdoResponsable")
+  reservasAgenda           ReservaAgenda[]
+  bloqueosAgenda           BloqueoAgenda[]        @relation("BloqueoDe")
+  bloqueosRegistrados      BloqueoAgenda[]        @relation("BloqueoRegistradoPor")
+  horariosAtencion         HorarioAtencion[]
   pagosNudito              PagoNudito[]
   consentimientosIa        ConsentimientoIa[]
   bloquesHorarioACargo     BloqueHorario[]
@@ -825,6 +842,8 @@ model Archivo {
   documentoId      String?          @map("documento_id") @db.Uuid
   /// Archivo de una entrega de tarea (specs/39).
   entregaId        String?          @map("entrega_id") @db.Uuid
+  /// Adjunto de una reunión (specs/40).
+  reunionId        String?          @map("reunion_id") @db.Uuid
   nombre           String?
   createdAt        DateTime         @default(now()) @map("created_at") @db.Timestamptz
 
@@ -836,12 +855,14 @@ model Archivo {
   mensajeSoporte  MensajeSoporte?      @relation(fields: [mensajeSoporteId], references: [id], onDelete: Cascade)
   documento       Documento?           @relation(fields: [documentoId], references: [id], onDelete: Cascade)
   entrega         TareaEntrega?        @relation(fields: [entregaId], references: [id], onDelete: Cascade)
+  reunion         Reunion?             @relation(fields: [reunionId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
   @@index([comunicadoId])
   @@index([tareaId])
   @@index([documentoId])
   @@index([entregaId])
+  @@index([reunionId])
   @@map("archivos")
 }
 
@@ -2065,43 +2086,102 @@ enum AlcanceReunion {
 }
 
 enum EstadoReunion {
-  programada
+  por_confirmar // solicitud de una familia (o propuesta) aún sin confirmar por el docente (specs/40)
+  programada // confirmada
   realizada
   cancelada
 }
 
+/// Tipo de reunión (specs/40): define quién la convoca y a quién invita (`src/lib/reuniones.ts`).
+enum TipoReunion {
+  docente_apoderado
+  tutoria
+  coordinacion
+  direccion
+  administrativa
+  institucional
+}
+
+enum ModalidadReunion {
+  presencial
+  virtual
+  mixta
+}
+
+enum RolInvitadoReunion {
+  organizador
+  requerido
+  opcional
+}
+
+enum TipoCambioReunion {
+  creada
+  reprogramada
+  cancelada
+  participantes
+  respuesta
+  realizada
+  acta
+}
+
+enum EstadoAcuerdo {
+  pendiente
+  cumplido
+}
+
+enum TipoBloqueoAgenda {
+  bloqueo // el propio personal reserva un tiempo (motivo privado)
+  ausencia // dirección o administrativo registran la ausencia de alguien del personal
+}
+
 enum RespuestaReunion {
   pendiente
-  asistire
-  no_asistire
+  asistire // «Aceptada»
+  no_asistire // «Rechazada»
+  propone_otra // propone otra hora (propuesta_inicio/fin)
 }
 
 /// Reunión convocada por el colegio, con confirmación de asistencia y acta (specs/32).
 model Reunion {
-  id              String         @id @default(uuid()) @db.Uuid
-  tenantId        String         @map("tenant_id") @db.Uuid
-  titulo          String
-  descripcion     String?
-  inicio          DateTime       @db.Timestamptz
-  fin             DateTime?      @db.Timestamptz
+  id                String           @id @default(uuid()) @db.Uuid
+  tenantId          String           @map("tenant_id") @db.Uuid
+  titulo            String
+  descripcion       String?
+  inicio            DateTime         @db.Timestamptz
+  fin               DateTime         @db.Timestamptz
   /// Lugar físico («Aula 3.° B»), enlace de videollamada, o ambos.
-  lugar           String?
-  enlace          String?
-  alcance         AlcanceReunion
+  lugar             String?
+  enlace            String?
+  alcance           AlcanceReunion
   /// Obligatorio cuando alcance = salon; opcional en individual (salón del alumno).
-  salonId         String?        @map("salon_id") @db.Uuid
-  convocadaPorId  String         @map("convocada_por") @db.Uuid
-  estado          EstadoReunion  @default(programada)
+  salonId           String?          @map("salon_id") @db.Uuid
+  convocadaPorId    String           @map("convocada_por") @db.Uuid
+  /// Quien organiza y gestiona (docente que recibe una solicitud de familia; si no, quien convoca).
+  organizadorId     String           @map("organizador_id") @db.Uuid
+  tipo              TipoReunion      @default(institucional)
+  motivo            String?
+  modalidad         ModalidadReunion @default(presencial)
+  observaciones     String?
+  reprogramadaAt    DateTime?        @map("reprogramada_at") @db.Timestamptz
+  canceladaPorId    String?          @map("cancelada_por") @db.Uuid
+  canceladaAt       DateTime?        @map("cancelada_at") @db.Timestamptz
+  motivoCancelacion String?          @map("motivo_cancelacion")
+  estado            EstadoReunion    @default(programada)
   /// Acta en texto (Markdown simple). Las familias la ven solo desde `actaPublicadaAt`.
-  acta            String?
-  actaPublicadaAt DateTime?      @map("acta_publicada_at") @db.Timestamptz
-  createdAt       DateTime       @default(now()) @map("created_at") @db.Timestamptz
-  updatedAt       DateTime       @updatedAt @map("updated_at") @db.Timestamptz
+  acta              String?
+  actaPublicadaAt   DateTime?        @map("acta_publicada_at") @db.Timestamptz
+  createdAt         DateTime         @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt         DateTime         @updatedAt @map("updated_at") @db.Timestamptz
 
   tenant       Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   salon        Salon?            @relation(fields: [salonId], references: [id], onDelete: Cascade)
-  convocadaPor Membership        @relation(fields: [convocadaPorId], references: [id], onDelete: NoAction)
+  convocadaPor Membership        @relation("ReunionConvocante", fields: [convocadaPorId], references: [id], onDelete: NoAction)
+  organizador  Membership        @relation("ReunionOrganizador", fields: [organizadorId], references: [id], onDelete: NoAction)
   invitados    ReunionInvitado[]
+  cambios      ReunionCambio[]
+  acuerdos     ReunionAcuerdo[]
+  reservas     ReservaAgenda[]
+  archivos     Archivo[]
 
   @@index([tenantId, inicio])
   @@index([tenantId, salonId])
@@ -2111,18 +2191,23 @@ model Reunion {
 /// Invitación a una reunión: una fila por persona (y por alumno, si el apoderado viene por un hijo concreto).
 /// Único (reunión, membresía, alumno) con NULLS NOT DISTINCT (ver migración).
 model ReunionInvitado {
-  id           String           @id @default(uuid()) @db.Uuid
-  tenantId     String           @map("tenant_id") @db.Uuid
-  reunionId    String           @map("reunion_id") @db.Uuid
-  membershipId String           @map("membership_id") @db.Uuid
+  id              String             @id @default(uuid()) @db.Uuid
+  tenantId        String             @map("tenant_id") @db.Uuid
+  reunionId       String             @map("reunion_id") @db.Uuid
+  membershipId    String             @map("membership_id") @db.Uuid
   /// Alumno por el que se cita al apoderado (null para personal o invitaciones generales).
-  alumnoId     String?          @map("alumno_id") @db.Uuid
-  respuesta    RespuestaReunion @default(pendiente)
-  respondidaAt DateTime?        @map("respondida_at") @db.Timestamptz
+  alumnoId        String?            @map("alumno_id") @db.Uuid
+  respuesta       RespuestaReunion   @default(pendiente)
+  respondidaAt    DateTime?          @map("respondida_at") @db.Timestamptz
   /// Motivo opcional al responder «no asistiré».
-  comentario   String?
+  comentario      String?
   /// Asistencia real, marcada al cerrar la reunión (null = sin marcar).
-  asistio      Boolean?
+  asistio         Boolean?
+  rol             RolInvitadoReunion @default(requerido)
+  invitadoAt      DateTime           @default(now()) @map("invitado_at") @db.Timestamptz
+  /// Hora propuesta cuando `respuesta = propone_otra`.
+  propuestaInicio DateTime?          @map("propuesta_inicio") @db.Timestamptz
+  propuestaFin    DateTime?          @map("propuesta_fin") @db.Timestamptz
 
   tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   reunion    Reunion    @relation(fields: [reunionId], references: [id], onDelete: Cascade)
@@ -2132,6 +2217,105 @@ model ReunionInvitado {
   @@unique([reunionId, membershipId, alumnoId])
   @@index([tenantId, membershipId])
   @@map("reunion_invitados")
+}
+
+/// Historial inmutable de una reunión (specs/40): creación, reprogramación, cancelación, respuestas, acta…
+model ReunionCambio {
+  id        String            @id @default(uuid()) @db.Uuid
+  tenantId  String            @map("tenant_id") @db.Uuid
+  reunionId String            @map("reunion_id") @db.Uuid
+  tipo      TipoCambioReunion
+  antes     Json?
+  despues   Json?
+  actorId   String?           @map("actor_id") @db.Uuid
+  motivo    String?
+  createdAt DateTime          @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant  Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  reunion Reunion     @relation(fields: [reunionId], references: [id], onDelete: Cascade)
+  actor   Membership? @relation("ReunionCambioActor", fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, reunionId])
+  @@map("reunion_cambios")
+}
+
+/// Acuerdo del acta con responsable, fecha de compromiso y seguimiento (specs/40).
+model ReunionAcuerdo {
+  id              String        @id @default(uuid()) @db.Uuid
+  tenantId        String        @map("tenant_id") @db.Uuid
+  reunionId       String        @map("reunion_id") @db.Uuid
+  texto           String
+  responsableId   String?       @map("responsable_id") @db.Uuid
+  fechaCompromiso DateTime?     @map("fecha_compromiso") @db.Date
+  estado          EstadoAcuerdo @default(pendiente)
+  cumplidoAt      DateTime?     @map("cumplido_at") @db.Timestamptz
+  createdAt       DateTime      @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant      Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  reunion     Reunion     @relation(fields: [reunionId], references: [id], onDelete: Cascade)
+  responsable Membership? @relation("AcuerdoResponsable", fields: [responsableId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, reunionId])
+  @@index([tenantId, responsableId, estado])
+  @@map("reunion_acuerdos")
+}
+
+/// Tiempo reservado en la agenda de una persona del personal (specs/40). Sin solapes entre reservas activas de la misma
+/// persona: restricción de exclusión GiST `reservas_agenda_sin_solape` (solo en la migración, como otros índices parciales).
+model ReservaAgenda {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @map("tenant_id") @db.Uuid
+  membershipId String   @map("membership_id") @db.Uuid
+  reunionId    String?  @map("reunion_id") @db.Uuid
+  inicio       DateTime @db.Timestamptz
+  fin          DateTime @db.Timestamptz
+  activa       Boolean  @default(true)
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  membership Membership @relation(fields: [membershipId], references: [id], onDelete: Cascade)
+  reunion    Reunion?   @relation(fields: [reunionId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, membershipId, inicio])
+  @@index([reunionId])
+  @@map("reservas_agenda")
+}
+
+/// Bloqueo propio (motivo privado) o ausencia registrada por dirección/administrativo (specs/40).
+model BloqueoAgenda {
+  id              String            @id @default(uuid()) @db.Uuid
+  tenantId        String            @map("tenant_id") @db.Uuid
+  membershipId    String            @map("membership_id") @db.Uuid
+  inicio          DateTime          @db.Timestamptz
+  fin             DateTime          @db.Timestamptz
+  tipo            TipoBloqueoAgenda @default(bloqueo)
+  /// Privado: solo lo ven la persona y quien lo registró.
+  motivo          String?
+  registradoPorId String            @map("registrado_por") @db.Uuid
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant        Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  membership    Membership @relation("BloqueoDe", fields: [membershipId], references: [id], onDelete: Cascade)
+  registradoPor Membership @relation("BloqueoRegistradoPor", fields: [registradoPorId], references: [id], onDelete: NoAction)
+
+  @@index([tenantId, membershipId, inicio])
+  @@map("bloqueos_agenda")
+}
+
+/// Horario de atención a familias de una persona del personal (specs/40): día 1 = lunes … 7 = domingo.
+model HorarioAtencion {
+  id           String @id @default(uuid()) @db.Uuid
+  tenantId     String @map("tenant_id") @db.Uuid
+  membershipId String @map("membership_id") @db.Uuid
+  dia          Int
+  horaDesde    String @map("hora_desde")
+  horaHasta    String @map("hora_hasta")
+
+  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  membership Membership @relation(fields: [membershipId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, membershipId])
+  @@map("horarios_atencion")
 }
 
 // ─── Nudito+ (2026-10-31): tutor IA por alumno, pagado por la familia (specs/28–29) ───
@@ -2580,6 +2764,7 @@ enum TipoNotificacion {
   comunicado
   justificacion // al profesor: justificación aprobada con actividades de su curso
   incidencia // al profesor: el alumno no estará en su clase
+  reunion // invitación, reprogramación, cancelación, respuesta o solicitud de reunión (specs/40)
 }
 
 enum EstadoEventoAcademico {

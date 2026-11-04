@@ -142,6 +142,8 @@ El resumen académico diario se retiró el 2026-11-03 (§1). Se quitaron del có
 y quite del `schema.prisma` el modelo `ResumenAcademico`, su relación en `Tenant` y el campo `horaResumenAcademico`, seguido de `pnpm db:generate`.
 
 ## Reglas de negocio
+
+- **Reuniones (specs/40)**: `notificarReunion` y `avisarSinCorreo` crean notificaciones `tipo = reunion` (url `/reuniones/<id>`) para personal y familias; correo solo en invitación, reprogramación y cancelación.
 - Sin notificación mientras el docente edita: solo publicar o corregir una nota **publicada** crea eventos.
 - Un evento por publicación; una notificación por evento, apoderado y alumno; un push por notificación y dispositivo.
 - La bandeja persiste aunque falle el push. El push fallido se reintenta (1, 5 y 15 min) y después queda `error` u `omitido`.
@@ -175,7 +177,7 @@ Migración `20261111090000_notificaciones_por_eventos`, aditiva:
 
 **Migración `20261112090100_bandeja_general`** (a mano, aditiva, sin borrar datos):
 - `notificaciones.alumno_id` y `notificaciones.evento_id` pasan a **opcionales**;
-- `notificaciones.tipo` (enum `TipoNotificacion`: `calificacion`, `tarea`, `evaluacion_programada`, `mensaje`, `comunicado`, `justificacion`, `incidencia`); backfill `calificacion` en las existentes;
+- `notificaciones.tipo` (enum `TipoNotificacion`: `calificacion`, `tarea`, `evaluacion_programada`, `mensaje`, `comunicado`, `justificacion`, `incidencia`; `reunion` desde la migración `20261113090100_reuniones_disponibilidad`, specs/40); backfill `calificacion` en las existentes;
 - `notificaciones.clave` (texto, opcional) con único `(tenant_id, membership_id, clave)`; se mantiene el único `(evento_id, membership_id, alumno_id)` de las calificaciones;
 - `comunicados.importante` (boolean, default `false`).
 

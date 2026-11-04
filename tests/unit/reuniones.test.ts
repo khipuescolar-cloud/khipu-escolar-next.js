@@ -51,6 +51,23 @@ describe("resumirRespuestas", () => {
         { membershipId: "c", respuesta: "pendiente" },
         { membershipId: "d", respuesta: "pendiente" },
       ]),
-    ).toEqual({ asistire: 1, no_asistire: 1, pendiente: 2 });
+    ).toEqual({ asistire: 1, no_asistire: 1, pendiente: 2, propone_otra: 0 });
+  });
+});
+
+describe("matriz de quién convoca (specs/40)", () => {
+  it("dirección todo; administrativo administrativas e institucionales; profesor con familias, tutoría y coordinación; familia nada", async () => {
+    const { puedeConvocar, familiasDelTipo, motivoAntiabuso } = await import("@/lib/reuniones");
+    expect(puedeConvocar("direccion", "coordinacion")).toBe(true);
+    expect(puedeConvocar("administrativo", "institucional")).toBe(true);
+    expect(puedeConvocar("administrativo", "tutoria")).toBe(false);
+    expect(puedeConvocar("profesor", "tutoria")).toBe(true);
+    expect(puedeConvocar("profesor", "direccion")).toBe(false);
+    expect(puedeConvocar("apoderado", "docente_apoderado")).toBe(false);
+    expect(familiasDelTipo("coordinacion")).toBe("prohibidas");
+    expect(familiasDelTipo("docente_apoderado")).toBe("obligatorias");
+    expect(motivoAntiabuso(2, 0)).toMatch(/2 solicitudes/);
+    expect(motivoAntiabuso(0, 5)).toMatch(/5 solicitudes/);
+    expect(motivoAntiabuso(1, 4)).toBeNull();
   });
 });

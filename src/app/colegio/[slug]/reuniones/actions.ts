@@ -3,10 +3,12 @@
 import { revalidatePath } from "next/cache";
 import { after } from "next/server";
 import type { Resultado } from "@/lib/resultado";
+import { consultarDisponibilidad, type Disponibilidad, type FranjaVista } from "@/lib/server/disponibilidad";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
 import { requireFeature } from "@/lib/server/plan";
 import {
-  cancelarReunion, convocarReunion, guardarActa, marcarAsistencia, marcarRealizada, recordarPendientes, responderInvitacion,
+  agregarAcuerdo, cancelarReunion, convocarReunion, crearBloqueo, franjasParaSolicitud, guardarActa, guardarHorarioAtencion, marcarAcuerdo,
+  marcarAsistencia, marcarRealizada, quitarBloqueo, recordarPendientes, reprogramarReunion, responderInvitacion, solicitarReunion, type ResultadoReserva,
 } from "@/lib/server/reuniones";
 import { requireTenantContext, type TenantContext } from "@/lib/server/tenant";
 
@@ -34,13 +36,15 @@ function enviarAvisos(ctx: TenantContext) {
   });
 }
 
-export async function convocarReunionAction(slug: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
+/** Asistente (specs/40): disponibilidad por persona y alternativas. */
+export async function disponibilidadAction(slug: string, entrada: unknown): Promise<Disponibilidad | { error: string }> {
+  return consultarDisponibilidad(await contexto(slug), entrada);
+}
+
+/** Asistente: confirma la reunión (el servidor revalida la franja). */
+export async function confirmarReunionAction(slug: string, entrada: unknown): Promise<ResultadoReserva> {
   const ctx = await contexto(slug);
-  const r = await convocarReunion(ctx, {
-    titulo: texto(f, "titulo"), descripcion: texto(f, "descripcion"), fecha: texto(f, "fecha"), hora: texto(f, "hora"),
-    horaFin: texto(f, "horaFin"), lugar: texto(f, "lugar"), enlace: texto(f, "enlace"), alcance: texto(f, "alcance"),
-    salonId: texto(f, "salonId"), alumnoId: texto(f, "alumnoId"),
-  });
+  const r = await convocarReunion(ctx, entrada);
   if (r.ok) {
     refrescar();
     enviarAvisos(ctx);
@@ -48,8 +52,72 @@ export async function convocarReunionAction(slug: string, _previo: Resultado | n
   return r;
 }
 
+export async function reprogramarAction(slug: string, reunionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
+  const ctx = await contexto(slug);
+  const r = await reprogramarReunion(ctx, reunionId, {
+    fecha: texto(f, "fecha"), hora: texto(f, "hora"), duracion: texto(f, "duracion"), motivo: texto(f, "motivo"),
+    fueraDeHorario: f.get("fueraDeHorario") === "on", forzarClase: f.get("forzarClase") === "on", motivoForzar: texto(f, "motivoForzar"),
+  });
+  if (r.ok) {
+    refrescar();
+    enviarAvisos(ctx);
+    return r;
+  }
+  const alternativas = r.alternativas?.length ? ` Libres: ${r.alternativas.map((a) => `${a.fecha.slice(8)}/${a.fecha.slice(5, 7)} ${a.hora}`).join(", ")}.` : "";
+  return { ok: false, error: `${r.error}${alternativas}` };
+}
+
+export async function solicitarAction(slug: string, entrada: unknown): Promise<Resultado & { id?: string }> {
+  const ctx = await contexto(slug);
+  const r = await solicitarReunion(ctx, entrada);
+  if (r.ok) {
+    refrescar();
+    enviarAvisos(ctx);
+  }
+  return r;
+}
+
+export async function franjasSolicitudAction(slug: string, alumnoId: string, docenteId: string): Promise<FranjaVista[] | null> {
+  return franjasParaSolicitud(await contexto(slug), alumnoId, docenteId);
+}
+
+export async function acuerdoAction(slug: string, reunionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
+  const r = await agregarAcuerdo(await contexto(slug), reunionId, { texto: texto(f, "texto"), responsableId: texto(f, "responsableId"), fechaCompromiso: texto(f, "fechaCompromiso") });
+  if (r.ok) refrescar();
+  return r;
+}
+
+export async function marcarAcuerdoAction(slug: string, acuerdoId: string, cumplido: boolean): Promise<Resultado> {
+  const r = await marcarAcuerdo(await contexto(slug), acuerdoId, cumplido);
+  if (r.ok) refrescar();
+  return r;
+}
+
+export async function horarioAtencionAction(slug: string, franjas: unknown): Promise<Resultado> {
+  const r = await guardarHorarioAtencion(await contexto(slug), franjas);
+  if (r.ok) refrescar();
+  return r;
+}
+
+export async function bloqueoAction(slug: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
+  const r = await crearBloqueo(await contexto(slug), {
+    fecha: texto(f, "fecha"), fechaFin: texto(f, "fechaFin"), horaDesde: texto(f, "horaDesde"), horaHasta: texto(f, "horaHasta"),
+    motivo: texto(f, "motivo"), tipo: texto(f, "tipo") || "bloqueo", membershipId: texto(f, "membershipId"),
+  });
+  if (r.ok) refrescar();
+  return r;
+}
+
+export async function quitarBloqueoAction(slug: string, bloqueoId: string): Promise<Resultado> {
+  const r = await quitarBloqueo(await contexto(slug), bloqueoId);
+  if (r.ok) refrescar();
+  return r;
+}
+
 export async function responderAction(slug: string, reunionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
-  const r = await responderInvitacion(await contexto(slug), reunionId, { respuesta: texto(f, "respuesta"), comentario: texto(f, "comentario") });
+  const r = await responderInvitacion(await contexto(slug), reunionId, {
+    respuesta: texto(f, "respuesta"), comentario: texto(f, "comentario"), fechaPropuesta: texto(f, "fechaPropuesta"), horaPropuesta: texto(f, "horaPropuesta"),
+  });
   if (r.ok) refrescar();
   return r;
 }
@@ -64,9 +132,9 @@ export async function recordarAction(slug: string, reunionId: string): Promise<R
   return r;
 }
 
-export async function cancelarAction(slug: string, reunionId: string): Promise<Resultado> {
+export async function cancelarAction(slug: string, reunionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
   const ctx = await contexto(slug);
-  const r = await cancelarReunion(ctx, reunionId);
+  const r = await cancelarReunion(ctx, reunionId, { motivo: texto(f, "motivo") });
   if (r.ok) {
     refrescar();
     enviarAvisos(ctx);

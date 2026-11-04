@@ -1,4 +1,4 @@
-// Datos demo de reuniones de padres (specs/32) en Nuevo Horizonte. Ficticios. Se llama desde prisma/seed.ts (al final).
+// Datos demo de reuniones de padres (specs/32 y 40) en Nuevo Horizonte. Ficticios. Se llama desde prisma/seed.ts (al final).
 // Idempotente: busca todo por slug/correo, reutiliza los perfiles que ya existan (el seed borra y recrea los colegios,
 // no los perfiles) y no duplica reuniones del mismo título.
 import { randomUUID } from "node:crypto";
@@ -47,7 +47,15 @@ export async function sembrarReuniones(prisma: PrismaClient, ids: Record<string,
     invitados: { membershipId: string; alumnoId?: string; respuesta?: "pendiente" | "asistire" | "no_asistire"; comentario?: string; asistio?: boolean }[],
   ) {
     if (await prisma.reunion.findFirst({ where: { tenantId, titulo: datos.titulo } })) return;
-    const r = await prisma.reunion.create({ data: { tenantId, ...datos, salonId: datos.salonId ?? null } });
+    const fin = datos.fin ?? new Date(datos.inicio.getTime() + 60 * 60_000);
+    const tipo = datos.alcance === "colegio" ? "institucional" : datos.alcance === "salon" ? "tutoria" : "docente_apoderado";
+    const r = await prisma.reunion.create({
+      data: { tenantId, ...datos, fin, tipo, salonId: datos.salonId ?? null, organizadorId: datos.convocadaPorId },
+    });
+    // specs/40: las reuniones confirmadas futuras reservan la agenda de quien organiza (no se cruzan entre sí).
+    if ((datos.estado ?? "programada") === "programada" && datos.inicio.getTime() > Date.now()) {
+      await prisma.reservaAgenda.create({ data: { tenantId, membershipId: datos.convocadaPorId, reunionId: r.id, inicio: datos.inicio, fin } });
+    }
     for (const i of invitados) {
       await prisma.reunionInvitado.create({
         data: {
@@ -57,6 +65,13 @@ export async function sembrarReuniones(prisma: PrismaClient, ids: Record<string,
         },
       });
     }
+  }
+
+  // Horario de atención de Lucía a familias (specs/40): martes y jueves de 13:30 a 15:00.
+  if ((await prisma.horarioAtencion.count({ where: { tenantId, membershipId: lucia.id } })) === 0) {
+    await prisma.horarioAtencion.createMany({
+      data: [2, 4].map((dia) => ({ tenantId, membershipId: lucia.id, dia, horaDesde: "13:30", horaHasta: "15:00" })),
+    });
   }
 
   // 1. Pasada, con asistencia y acta publicada.
