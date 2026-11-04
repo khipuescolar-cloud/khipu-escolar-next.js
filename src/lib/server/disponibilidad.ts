@@ -4,7 +4,7 @@ import { z } from "zod";
 import type { Prisma } from "@/generated/prisma/client";
 import { instanteEnZona } from "@/lib/dias-habiles";
 import {
-  DURACIONES, MAX_DIAS_RANGO, MINUTO, bloquesPorDia, calcularDisponibilidad, celdasDelDia, esLectivo, estadoCelda, etiquetaParaTercero, fechasEntre, rangosNoLectivos,
+  MAX_DIAS_RANGO, esDuracionValida, MINUTO, bloquesPorDia, calcularDisponibilidad, celdasDelDia, esLectivo, estadoCelda, etiquetaParaTercero, fechasEntre, rangosNoLectivos,
   seCruzan, ventanasLaborales, type BloqueDia, type EstadoCelda, type MotivoOcupado, type Ocupacion, type Rango,
 } from "@/lib/disponibilidad";
 import { momentoEnZona, sumarDias } from "@/lib/fechas";
@@ -114,12 +114,15 @@ const esquemaConsulta = z.object({
   opcionales: z.array(z.uuid()).max(30).default([]),
   fecha: z.iso.date("Elige la fecha."),
   hora: z.string().refine(esHora, "Elige una hora válida."),
-  duracion: z.coerce.number().refine((n) => (DURACIONES as readonly number[]).includes(n), "Elige una duración válida."),
+  /** Minutos (5–240): las opciones rápidas o «Otra». */
+  duracion: z.coerce.number().refine(esDuracionValida, "Elige una duración de 5 a 240 minutos."),
   /** Días hacia adelante para buscar alternativas (1–14). */
   dias: z.coerce.number().int().min(1).max(MAX_DIAS_RANGO).default(7),
   excluirReunionId: z.uuid().optional(),
   /** Calendario del asistente: alternativas que no se cruzan entre sí, máximo 2 por día. */
   separar: z.boolean().default(false),
+  /** `false` = solo la agenda (el calendario); las sugerencias se piden aparte, al abrir «Horarios sugeridos». */
+  alternativas: z.boolean().default(true),
 });
 
 export type CeldaPersona = { estado: EstadoCelda; etiqueta: string | null };
@@ -195,6 +198,7 @@ export async function consultarDisponibilidad(ctx: TenantContext, entrada: unkno
   const calculo = calcularDisponibilidad({
     personas: personas.map((id) => ({ id, requerido: requeridosIds.includes(id), ocupado: agendas.ocupacion.get(id) ?? [] })),
     ventana: agendas.ventana, duracionMin: d.data.duracion, preferida, noAntesDe: ahora.getTime(),
+    maxAlternativas: d.data.alternativas ? 5 : 0,
     distintas: d.data.separar ? { claveDia: (t) => momentoEnZona(new Date(t), zona).isoFecha, maxPorDia: 2 } : undefined,
   });
   const veClases = ctx.rol === "direccion" || ctx.rol === "administrativo";

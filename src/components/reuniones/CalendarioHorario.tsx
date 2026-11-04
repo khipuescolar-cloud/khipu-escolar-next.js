@@ -6,7 +6,7 @@ import { NumeroDia, etiquetaHora } from "@/components/calendario/GrillaTiempo";
 import { Skeleton } from "@/components/ui/skeleton";
 import { NOMBRE_DIA_SEMANA, NOMBRE_DIA_SEMANA_CORTO } from "@/lib/agenda-calendario";
 import {
-  ENCAJE_MIN, encajar, horaTexto, libresParaTodos, nombreCorto, textoChoques, tramoDe,
+  ENCAJE_MIN, encajar, horaTexto, limitar, siguienteMarca, libresParaTodos, nombreCorto, textoChoques, tramoDe,
   type Analisis, type DatosHorario, type Seleccion, type Tramo,
 } from "@/lib/asistente-horario";
 import { diaDeSemana, minutos } from "@/lib/horario";
@@ -62,7 +62,7 @@ export function teclasBloque(e: KeyboardEvent, p: Pick<PropsVistaHorario, "selec
   const diaMenos = eje === "vertical" ? "ArrowLeft" : "ArrowUp";
   if (e.key === mas || e.key === menos) {
     e.preventDefault();
-    p.onElegir({ fecha: s.fecha, inicio: encajar(s.inicio + (e.key === mas ? ENCAJE_MIN : -ENCAJE_MIN), p.duracion, p.rango) });
+    p.onElegir({ fecha: s.fecha, inicio: limitar(siguienteMarca(s.inicio, e.key === mas ? 1 : -1), p.duracion, p.rango) });
   } else if (e.key === diaMas || e.key === diaMenos) {
     e.preventDefault();
     p.moverDia(e.key === diaMas ? 1 : -1);

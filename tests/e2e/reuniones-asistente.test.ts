@@ -44,12 +44,21 @@ test("dirección arma una reunión con Lucía y Pedro viendo su disponibilidad; 
       await page.getByRole("button", { name: "Requerido" }).first().click();
     }
     await expect(page.getByRole("list", { name: "Participantes elegidos" }).getByRole("listitem")).toHaveCount(2);
-    await page.getByLabel("Familias").selectOption("ninguno");
+    // Familias de alumnos elegidos: Mateo y Sofía (ambos hijos de Rosa: un solo aviso para ella).
+    await page.getByLabel("Familias").selectOption("elegidos");
+    await expect(page.getByRole("button", { name: "Siguiente" })).toBeDisabled();
+    for (const nombre of ["Mateo", "Sofía"]) {
+      await page.getByLabel("Alumnos", { exact: true }).fill(nombre);
+      await page.getByRole("list", { name: "Resultados de alumnos" }).getByRole("button", { name: /Agregar/ }).first().click();
+    }
+    await expect(page.getByRole("list", { name: "Alumnos elegidos" }).getByRole("listitem")).toHaveCount(2);
+    await expect(page.getByText("2 alumnos elegidos", { exact: false })).toBeVisible();
+    await expect(page.getByRole("navigation", { name: "Progreso" })).toContainText("Paso 1 de 3");
     await page.getByRole("button", { name: "Siguiente" }).click();
+    await expect(page.locator("[aria-current=step]")).toContainText("Horario");
     // Paso «Horario»: calendario de la semana con la agenda de cada participante y horarios sugeridos.
-    await page.getByText("45 min", { exact: true }).click();
+    await page.locator("label", { hasText: /^45/ }).click();
     await page.getByLabel("Fecha", { exact: true }).fill(martes);
-    await expect(page.getByRole("heading", { name: "Horarios sugeridos" })).toBeVisible();
     const leyenda = page.getByRole("list", { name: "Participantes" });
     await expect(leyenda.getByText("Lucía", { exact: false })).toBeVisible();
     await expect(leyenda.getByText("Pedro", { exact: false })).toBeVisible();
@@ -66,8 +75,12 @@ test("dirección arma una reunión con Lucía y Pedro viendo su disponibilidad; 
     await page.getByRole("button", { name: "Por persona" }).click();
     await expect(page.getByText("Requeridos libres")).toBeVisible();
     await page.getByRole("button", { name: "Calendario" }).click();
-    // Elige un horario sugerido (todos libres) y sigue.
-    await page.getByRole("region", { name: "Horarios sugeridos" }).getByRole("button").first().click();
+    // Horarios sugeridos: se calculan al abrir el modal; elegir uno lo cierra y coloca el bloque.
+    await page.getByRole("button", { name: "Horarios sugeridos" }).click();
+    const modal = page.getByRole("dialog", { name: "Horarios sugeridos" });
+    await modal.getByRole("region", { name: "Horarios sugeridos" }).getByRole("button", { pressed: false }).first().click();
+    await expect(modal).toHaveCount(0);
+    await expect(page.getByRole("status").filter({ hasText: "Todos libres" })).toBeVisible();
     await page.getByRole("button", { name: /Usar .* y seguir/ }).click();
 
     // 2. Detalles y confirmación (el servidor revalida).
@@ -78,6 +91,7 @@ test("dirección arma una reunión con Lucía y Pedro viendo su disponibilidad; 
     await page.waitForURL(/\/reuniones\/[0-9a-f-]{36}$/);
     await expect(page.getByRole("heading", { name: titulo })).toBeVisible();
     await expect(page.getByText("Lucía", { exact: false }).first()).toBeVisible();
+    expect(Number((await bd.query("select count(*) from reunion_invitados i join reuniones r on r.id = i.reunion_id where r.titulo = $1 and i.alumno_id is not null", [titulo])).rows[0].count)).toBeGreaterThanOrEqual(2);
 
     // 3. Lucía (invitada) la ve y la acepta.
     await entrar(page, "lucia.garcia@nuevohorizonte.demo");

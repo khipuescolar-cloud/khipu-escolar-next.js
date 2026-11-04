@@ -4,7 +4,7 @@ import { z } from "zod";
 import type { Prisma } from "@/generated/prisma/client";
 import type { EstadoReunion, ModalidadReunion, RespuestaReunion, RolInvitadoReunion, TipoReunion } from "@/generated/prisma/enums";
 import { instanteEnZona } from "@/lib/dias-habiles";
-import { DURACIONES, MINUTO, calcularDisponibilidad, seCruzan } from "@/lib/disponibilidad";
+import { MINUTO, calcularDisponibilidad, esDuracionValida, seCruzan } from "@/lib/disponibilidad";
 import { fechaDb, momentoEnZona, sumarDias } from "@/lib/fechas";
 import { esHora } from "@/lib/horario";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
@@ -142,7 +142,9 @@ const opcional = (max: number) => z.string().trim().max(max).optional().or(z.lit
 const uuidOpcional = z.uuid().optional().or(z.literal("").transform(() => undefined));
 const casilla = z.preprocess((v) => v === true || v === "on" || v === "true", z.boolean()).default(false);
 const listaIds = z.preprocess((v) => (typeof v === "string" ? (v ? v.split(",") : []) : v), z.array(z.uuid()).max(30)).default([]);
-const duracionValida = z.coerce.number().refine((n) => (DURACIONES as readonly number[]).includes(n), "Elige una duración válida.");
+const duracionValida = z.coerce.number().refine(esDuracionValida, "Elige una duración de 5 a 240 minutos.");
+/** Máximo de alumnos elegidos uno por uno («Familias de alumnos elegidos»). */
+export const MAX_ALUMNOS_ELEGIDOS = 30;
 
 const esquemaConvocatoria = z.object({
   titulo: z.string().trim().min(3, "Escribe el título de la reunión.").max(150),
@@ -157,10 +159,13 @@ const esquemaConvocatoria = z.object({
   duracion: duracionValida.optional().or(z.literal("").transform(() => undefined)),
   lugar: opcional(200),
   enlace: z.url({ protocol: /^https?$/, error: "El enlace debe empezar con https://." }).max(500).optional().or(z.literal("").transform(() => undefined)),
-  /** Familias: todo el colegio, un salón, la familia de un alumno o ninguna. */
+  /** Familias: todo el colegio, un salón, las familias de alumnos elegidos (`individual`) o ninguna. */
   alcance: z.enum(["colegio", "salon", "individual", "ninguno"], "Elige a quién convocas.").default("ninguno"),
   salonId: uuidOpcional,
+  /** `individual` con un solo alumno (compatibilidad). */
   alumnoId: uuidOpcional,
+  /** `individual` con varios alumnos: se invita a los apoderados de cada uno. */
+  alumnoIds: z.preprocess((v) => (typeof v === "string" ? (v ? v.split(",") : []) : v), z.array(z.uuid()).max(MAX_ALUMNOS_ELEGIDOS, `Elige como máximo ${MAX_ALUMNOS_ELEGIDOS} alumnos.`)).default([]),
   requeridos: listaIds,
   opcionales: listaIds,
   fueraDeHorario: casilla,
@@ -192,7 +197,7 @@ export async function convocarReunion(ctx: TenantContext, entrada: unknown, ahor
 
   // Familias según el alcance (mismo control que antes).
   let salonId: string | null = null;
-  let alumnoId: string | null = null;
+  let alumnoIds: string[] = [];
   const veTodo = ctx.rol === "direccion" || ctx.rol === "administrativo";
   if (alcance === "colegio") {
     if (!veTodo) return fallo("Solo dirección convoca a todo el colegio.");
@@ -202,12 +207,19 @@ export async function convocarReunion(ctx: TenantContext, entrada: unknown, ahor
     if (!(await salonEsActivo(ctx, d.data.salonId))) return fallo("No encontramos ese salón.");
     salonId = d.data.salonId;
   } else if (alcance === "individual") {
-    if (!d.data.alumnoId) return fallo("Elige al alumno cuya familia convocas.");
-    if (!veTodo && !(await alumnoIdsVisibles(ctx)).includes(d.data.alumnoId)) return fallo("Solo puedes convocar a familias de tus alumnos.");
-    const alumno = await ctx.db.alumno.findFirst({ where: { id: d.data.alumnoId, estado: "activo" }, select: { id: true, salonId: true } });
-    if (!alumno) return fallo("No encontramos a ese alumno.");
-    alumnoId = alumno.id;
-    salonId = alumno.salonId;
+    const pedidos = [...new Set([...d.data.alumnoIds, ...(d.data.alumnoId ? [d.data.alumnoId] : [])])];
+    if (pedidos.length === 0) return fallo("Elige al alumno cuya familia convocas.");
+    if (pedidos.length > MAX_ALUMNOS_ELEGIDOS) return fallo(`Elige como máximo ${MAX_ALUMNOS_ELEGIDOS} alumnos.`);
+    if (!veTodo) {
+      const visibles = new Set(await alumnoIdsVisibles(ctx));
+      if (pedidos.some((id) => !visibles.has(id))) return fallo("Solo puedes convocar a familias de tus alumnos.");
+    }
+    const alumnos = await ctx.db.alumno.findMany({ where: { id: { in: pedidos }, estado: "activo" }, select: { id: true, salonId: true } });
+    if (alumnos.length !== pedidos.length) return fallo(pedidos.length === 1 ? "No encontramos a ese alumno." : "No encontramos a uno de los alumnos elegidos.");
+    alumnoIds = alumnos.map((a) => a.id);
+    // Un solo salón: la reunión queda en ese salón (tutoría, agenda); de varios salones, sin salón.
+    const salones = new Set(alumnos.map((a) => a.salonId));
+    salonId = salones.size === 1 ? alumnos[0].salonId : null;
   }
 
   const tipo: TipoReunion = d.data.tipo ?? (alcance === "ninguno" ? (ctx.rol === "profesor" ? "coordinacion" : ctx.rol === "administrativo" ? "administrativa" : "direccion") : tipoPorAlcance(alcance, await esTutorDe(ctx, salonId)));
@@ -228,7 +240,7 @@ export async function convocarReunion(ctx: TenantContext, entrada: unknown, ahor
   const vinculos = alcance === "ninguno" ? [] : await ctx.db.apoderadoAlumno.findMany({
     where: {
       apoderado: { estado: "activa", rol: "apoderado" },
-      alumno: alcance === "salon" ? { salonId: salonId!, estado: "activo" } : alcance === "individual" ? { id: alumnoId!, estado: "activo" } : { estado: "activo" },
+      alumno: alcance === "salon" ? { salonId: salonId!, estado: "activo" } : alcance === "individual" ? { id: { in: alumnoIds }, estado: "activo" } : { estado: "activo" },
     },
     select: { apoderadoId: true, alumnoId: true },
   });

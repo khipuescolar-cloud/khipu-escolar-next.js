@@ -300,3 +300,75 @@ describe("solicitudes de familias", () => {
     expect(JSON.stringify(franjas)).not.toContain("Matemática");
   });
 });
+
+describe("familias de alumnos elegidos y horas al minuto", () => {
+  let julia: { perfil: string; membershipId: string } | null = null;
+  const MIERCOLES = () => sumarDias(MARTES, 1);
+
+  afterAll(async () => {
+    const { db } = await import("@/lib/server/db");
+    if (julia) await db.profile.deleteMany({ where: { id: julia.perfil } });
+  });
+
+  it("3 alumnos elegidos: invita a los apoderados de cada uno (una fila por apoderado y alumno, un aviso por apoderado)", async () => {
+    const { db } = await import("@/lib/server/db");
+    // Julia es apoderada de Valentina y de Thiago (dos hijos elegidos).
+    const id = crypto.randomUUID();
+    await db.profile.create({ data: { id, email: `julia-${id.slice(0, 8)}@test-basico.local`, nombres: "Julia", apellidos: "Prueba" } });
+    const m = await db.membership.create({ data: { tenantId: pro.tenant.id, userId: id, rol: "apoderado" } });
+    julia = { perfil: id, membershipId: m.id };
+    for (const alumnoId of [pro.alumnos.valentina.id, pro.alumnos.thiago.id]) {
+      await db.apoderadoAlumno.create({ data: { tenantId: pro.tenant.id, apoderadoId: m.id, alumnoId } });
+    }
+    const { mateo, valentina, thiago } = pro.alumnos;
+    const r = await convocarReunion(dir(), base({
+      titulo: "Familias elegidas", tipo: "direccion", fecha: MIERCOLES(), hora: "09:00", alcance: "individual", fueraDeHorario: true,
+      alumnoIds: [mateo.id, valentina.id, thiago.id],
+    }));
+    expect(r.ok).toBe(true);
+    const reunionId = (r as { id: string }).id;
+    const invitados = await pro.db.reunionInvitado.findMany({ where: { reunionId }, select: { membershipId: true, alumnoId: true } });
+    const pares = invitados.map((i) => `${i.membershipId}|${i.alumnoId}`).sort();
+    expect(pares).toEqual([
+      `${pro.miembros.madre.membership.id}|${mateo.id}`,
+      `${pro.miembros.padreSinConsentimiento.membership.id}|${valentina.id}`,
+      `${m.id}|${valentina.id}`,
+      `${m.id}|${thiago.id}`,
+    ].sort());
+    // Alumnos de dos salones: la reunión queda sin salón; Julia recibe un solo aviso por sus dos hijos.
+    expect((await pro.db.reunion.findFirstOrThrow({ where: { id: reunionId } })).salonId).toBeNull();
+    expect(await pro.db.notificacion.count({ where: { membershipId: m.id, url: `/reuniones/${reunionId}` } })).toBe(1);
+  });
+
+  it("rechaza alumnos que no puede convocar o de otro colegio", async () => {
+    // Lucía solo convoca a familias de sus alumnos (3.° B): Thiago es de 5.° A.
+    const ajeno = await convocarReunion(lucia(), base({
+      tipo: "docente_apoderado", fecha: MIERCOLES(), hora: "09:30", alcance: "individual", fueraDeHorario: true, alumnoIds: [pro.alumnos.mateo.id, pro.alumnos.thiago.id],
+    }));
+    expect(ajeno).toMatchObject({ ok: false, error: "Solo puedes convocar a familias de tus alumnos." });
+    const otroColegio = await convocarReunion(dir(), base({
+      tipo: "direccion", fecha: MIERCOLES(), hora: "10:30", alcance: "individual", fueraDeHorario: true, alumnoIds: [pro.alumnos.mateo.id, otro.alumnos.mateo.id],
+    }));
+    expect(otroColegio).toMatchObject({ ok: false, error: "No encontramos a uno de los alumnos elegidos." });
+    const demasiados = await convocarReunion(dir(), base({
+      tipo: "direccion", fecha: MIERCOLES(), hora: "10:30", alcance: "individual", fueraDeHorario: true, alumnoIds: Array.from({ length: 31 }, () => crypto.randomUUID()),
+    }));
+    expect(demasiados.ok).toBe(false);
+  });
+
+  it("acepta cualquier minuto y duraciones libres: 11:38 por 25 minutos", async () => {
+    const d = (await consultarDisponibilidad(dir(), { requeridos: [eva.membershipId], fecha: MIERCOLES(), hora: "11:38", duracion: 25, dias: 1, alternativas: false })) as Disponibilidad;
+    expect(d.preferida).toMatchObject({ hora: "11:38", horaFin: "12:03" });
+    expect(d.alternativas).toEqual([]); // el calendario no calcula sugerencias
+    expect((await consultarDisponibilidad(dir(), { fecha: MIERCOLES(), hora: "11:38", duracion: 241 })) as { error: string }).toHaveProperty("error");
+    const r = await convocarReunion(dir(), base({ titulo: "Al minuto", tipo: "direccion", fecha: MIERCOLES(), hora: "11:38", duracion: 25, requeridos: [eva.membershipId], fueraDeHorario: true }));
+    expect(r.ok).toBe(true);
+    const reunion = await pro.db.reunion.findFirstOrThrow({ where: { id: (r as { id: string }).id } });
+    expect((reunion.fin.getTime() - reunion.inicio.getTime()) / 60_000).toBe(25);
+    expect(await pro.db.reservaAgenda.count({ where: { reunionId: reunion.id, activa: true } })).toBe(2);
+    // Eva ya no está libre de 11:50 a 12:00 (se cruza), pero sí desde 12:03.
+    expect((await consultarDisponibilidad(dir(), { requeridos: [eva.membershipId], fecha: MIERCOLES(), hora: "11:50", duracion: 10, dias: 1 }) as Disponibilidad).preferida.libre).toBe(false);
+    const despues = (await consultarDisponibilidad(dir(), { requeridos: [eva.membershipId], fecha: MIERCOLES(), hora: "12:03", duracion: 10, dias: 1 })) as Disponibilidad;
+    expect(despues.preferida.conflictos).toEqual([]);
+  });
+});

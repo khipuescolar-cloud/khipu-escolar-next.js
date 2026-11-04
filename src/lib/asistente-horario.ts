@@ -119,6 +119,33 @@ export function encajar(min: number, duracion: number, rango: Tramo): number {
   return Math.min(Math.max(m, rango.desde), rango.hasta - duracion);
 }
 
+/** Mantiene el bloque dentro de [desde, hasta − duración] sin redondear (la hora escrita a mano vale al minuto). */
+export function limitar(min: number, duracion: number, rango: Tramo): number {
+  return Math.min(Math.max(Math.round(min), rango.desde), rango.hasta - duracion);
+}
+
+/** Siguiente (o anterior) marca de 15 min desde `min`: 11:38 → 11:45 hacia adelante, 11:30 hacia atrás. */
+export function siguienteMarca(min: number, sentido: 1 | -1): number {
+  return sentido === 1 ? Math.floor(min / ENCAJE_MIN) * ENCAJE_MIN + ENCAJE_MIN : Math.ceil(min / ENCAJE_MIN) * ENCAJE_MIN - ENCAJE_MIN;
+}
+
+/**
+ * Primer hueco libre para todos los requeridos de `duracion` minutos, desde `desdeFecha` (y no antes de ahora), con
+ * inicio en una marca de 15 min. Es la selección inicial del calendario (las sugerencias del servidor se piden aparte).
+ */
+export function primerHueco(datos: DatosHorario, desdeFecha: string, duracion: number): Seleccion | null {
+  const ahora = minutos(datos.hoy.hora);
+  for (const d of datos.dias) {
+    if (!d.lectivo || d.fecha < desdeFecha || d.fecha < datos.hoy.fecha) continue;
+    for (const t of libresParaTodos(datos, d.fecha)) {
+      const base = d.fecha === datos.hoy.fecha ? Math.max(t.desde, ahora) : t.desde;
+      const inicio = Math.ceil(base / ENCAJE_MIN) * ENCAJE_MIN;
+      if (inicio + duracion <= t.hasta) return { fecha: d.fecha, inicio };
+    }
+  }
+  return null;
+}
+
 /** Primer nombre («Rocío Pérez Díaz» → «Rocío»); «Tú» para la propia persona. */
 export const nombreCorto = (p: { nombre: string; propia: boolean }) => (p.propia ? "Tú" : p.nombre.split(" ")[0]);
 

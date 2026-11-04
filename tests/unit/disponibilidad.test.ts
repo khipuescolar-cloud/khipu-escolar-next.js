@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { instanteEnZona } from "@/lib/dias-habiles";
-import { analizar, encajar, libresParaTodos, rangoVisible, semanaDe, textoChoques, type DatosHorario } from "@/lib/asistente-horario";
+import { analizar, encajar, libresParaTodos, limitar, primerHueco, rangoVisible, semanaDe, siguienteMarca, textoChoques, type DatosHorario } from "@/lib/asistente-horario";
 import {
   bloquesPorDia, calcularDisponibilidad, celdasDelDia, contiene, estadoCelda, etiquetaParaTercero, fechasEntre, franjas, fusionar, intersectar, intersectarVarios,
   rangosNoLectivos, restar, ventanasLaborales, type Rango,
@@ -191,6 +191,25 @@ describe("paso Horario del asistente (asistente-horario)", () => {
     expect(libresParaTodos(datos, "2026-11-21")).toEqual([]);
     expect(encajar(10 * 60 + 7, 30, { desde: 420, hasta: 1080 })).toBe(10 * 60);
     expect(encajar(17 * 60 + 50, 30, { desde: 420, hasta: 1080 })).toBe(17 * 60 + 30);
+  });
+
+  it("hora al minuto (11:38 por 25 min): choques exactos, sin redondear, y flechas a la marca de 15 min siguiente", () => {
+    // Rocío tiene clase de 10:00 a 11:00 y Pedro (opcional) de 12:00 a 13:00: 11:38–12:03 roza solo a Pedro.
+    const a = analizar(datos, { fecha: FECHA, inicio: 11 * 60 + 38 }, 25);
+    expect(a.choquesRequeridos).toEqual([]);
+    expect(a.choques.map((c) => c.nombre)).toEqual(["Pedro Salas"]);
+    expect(analizar(datos, { fecha: FECHA, inicio: 11 * 60 + 35 }, 25).choques).toEqual([]); // 11:35–12:00 se toca, no se cruza
+    expect(limitar(11 * 60 + 38, 25, { desde: 0, hasta: 1440 })).toBe(11 * 60 + 38);
+    expect(limitar(23 * 60 + 50, 25, { desde: 0, hasta: 1440 })).toBe(1440 - 25);
+    expect(siguienteMarca(11 * 60 + 38, 1)).toBe(11 * 60 + 45);
+    expect(siguienteMarca(11 * 60 + 38, -1)).toBe(11 * 60 + 30);
+    expect(siguienteMarca(11 * 60 + 30, 1)).toBe(11 * 60 + 45);
+  });
+
+  it("primer hueco libre para todos (selección inicial), desde la fecha pedida y no antes de ahora", () => {
+    expect(primerHueco(datos, FECHA, 30)).toEqual({ fecha: FECHA, inicio: 7 * 60 + 30 });
+    expect(primerHueco({ ...datos, hoy: { fecha: FECHA, hora: "09:40" } }, FECHA, 30)).toEqual({ fecha: FECHA, inicio: 11 * 60 });
+    expect(primerHueco(datos, "2026-11-21", 30)).toBeNull(); // solo queda el sábado, no lectivo
   });
 
   it("semana y horas visibles", () => {

@@ -12,6 +12,10 @@ export type EstadoCelda = "libre" | "ocupado" | "fuera_de_horario" | "no_lectivo
 
 export const MINUTO = 60_000;
 export const DURACIONES = [15, 30, 45, 60, 90] as const;
+/** Duración libre («Otra») del asistente, en minutos. */
+export const DURACION_MIN = 5;
+export const DURACION_MAX = 240;
+export const esDuracionValida = (n: number) => Number.isInteger(n) && n >= DURACION_MIN && n <= DURACION_MAX;
 export const PASO_MINUTOS = 15;
 export const MAX_DIAS_RANGO = 14;
 
