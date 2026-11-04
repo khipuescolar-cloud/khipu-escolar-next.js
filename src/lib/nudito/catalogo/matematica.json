@@ -1,0 +1,2236 @@
+[
+  {
+    "clave": "mat.p1.suma-hasta-20",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P1-01",
+    "nombre": "Suma hasta 20",
+    "descripcionCorta": "Juntar y agregar cantidades hasta 20.",
+    "palabrasClave": [
+      "suma",
+      "sumar",
+      "sumas",
+      "agregar",
+      "juntar",
+      "adicion"
+    ],
+    "sinonimos": [
+      "mas",
+      "cuanto hay en total"
+    ],
+    "prerrequisitos": [],
+    "dificultad": {
+      "min": 1,
+      "max": 3
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Sumar es juntar o agregar cosas para saber cuántas hay en total. Puedes contar con tus dedos o con chapitas.",
+      "ejemplo": "Tienes 8 canicas y tu amiga te regala 5. Cuentas desde 8: 9, 10, 11, 12, 13. Ahora tienes 13 canicas.",
+      "errorFrecuente": "Volver a contar desde 1 en vez de seguir contando desde el número más grande."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.resta-hasta-20",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P1-01",
+    "nombre": "Resta hasta 20",
+    "descripcionCorta": "Quitar y separar cantidades hasta 20.",
+    "palabrasClave": [
+      "resta",
+      "restar",
+      "restas",
+      "quitar",
+      "sustraccion"
+    ],
+    "sinonimos": [
+      "menos",
+      "cuanto queda"
+    ],
+    "prerrequisitos": [
+      "mat.p1.suma-hasta-20"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 3
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Restar es quitar una parte para saber cuántas cosas quedan. El número que quitas nunca puede ser mayor que el que tienes.",
+      "ejemplo": "Tienes 15 caramelos y te comes 4. Retrocedes 4 desde 15: 14, 13, 12, 11. Te quedan 11 caramelos.",
+      "errorFrecuente": "Contar el número de partida al retroceder (decir 15, 14, 13, 12 y responder 12)."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.decena",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P1-02",
+    "nombre": "La decena",
+    "descripcionCorta": "Formar grupos de diez unidades y contar con decenas.",
+    "palabrasClave": [
+      "decena",
+      "decenas",
+      "unidades",
+      "grupo de diez"
+    ],
+    "prerrequisitos": [],
+    "dificultad": {
+      "min": 1,
+      "max": 2
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Una decena es un grupo de 10 unidades. Con decenas es más fácil contar muchas cosas.",
+      "ejemplo": "14 palitos son 1 decena (un atado de 10) y 4 unidades sueltas.",
+      "errorFrecuente": "Confundir 14 con 41: la decena va a la izquierda y las unidades a la derecha."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.igualdades",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P1-01",
+    "nombre": "Igualdades: dos grupos iguales",
+    "descripcionCorta": "Igualar dos grupos de hasta diez objetos agregando o quitando.",
+    "palabrasClave": [
+      "igualdad",
+      "igualdades",
+      "igualar",
+      "balanza",
+      "equilibrio",
+      "lo mismo"
+    ],
+    "sinonimos": [
+      "igual que"
+    ],
+    "prerrequisitos": [
+      "mat.p1.suma-hasta-20"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 2
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.ecuaciones"
+    },
+    "repaso": {
+      "idea": "Una igualdad es como una balanza en equilibrio: los dos lados tienen la misma cantidad.",
+      "ejemplo": "Un lado tiene 3 + 2 y el otro tiene 5. Los dos lados valen 5, entonces 3 + 2 = 5.",
+      "errorFrecuente": "Pensar que el signo = significa «escribe la respuesta» y no «vale lo mismo»."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.patrones-repeticion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P1-02",
+    "nombre": "Patrones de repetición",
+    "descripcionCorta": "Descubrir qué se repite en una secuencia y continuarla.",
+    "palabrasClave": [
+      "patron",
+      "patrones",
+      "secuencia",
+      "repeticion",
+      "que sigue"
+    ],
+    "sinonimos": [
+      "serie"
+    ],
+    "prerrequisitos": [],
+    "dificultad": {
+      "min": 1,
+      "max": 2
+    },
+    "tipos": [
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.patrones"
+    },
+    "repaso": {
+      "idea": "Un patrón es algo que se repite siempre en el mismo orden. Si encuentras la parte que se repite, sabes qué sigue.",
+      "ejemplo": "rojo, azul, rojo, azul, rojo... La parte que se repite es «rojo, azul», así que sigue azul.",
+      "errorFrecuente": "Mirar solo el último elemento y no toda la parte que se repite."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p2.suma-resta-hasta-100",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P2-01",
+    "nombre": "Suma y resta hasta 100",
+    "descripcionCorta": "Resolver problemas de agregar, quitar, avanzar y retroceder con números hasta 100.",
+    "palabrasClave": [
+      "suma hasta 100",
+      "resta hasta 100",
+      "sumar y restar",
+      "avanzar",
+      "retroceder"
+    ],
+    "sinonimos": [
+      "suma",
+      "resta"
+    ],
+    "prerrequisitos": [
+      "mat.p1.suma-hasta-20",
+      "mat.p1.resta-hasta-20"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 3
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Para sumar o restar números grandes, primero trabajas con las unidades y luego con las decenas.",
+      "ejemplo": "34 + 25: unidades 4 + 5 = 9, decenas 3 + 2 = 5. El resultado es 59.",
+      "errorFrecuente": "Sumar decenas con unidades, por ejemplo 34 + 25 = 84 juntando el 3 con el 5."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p2.valor-posicional",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P2-02",
+    "nombre": "Valor posicional: decenas y unidades",
+    "descripcionCorta": "Reconocer cuánto vale una cifra según su lugar en números de dos cifras.",
+    "palabrasClave": [
+      "valor posicional",
+      "posicion",
+      "decenas y unidades",
+      "cifra",
+      "descomponer"
+    ],
+    "sinonimos": [
+      "tablero de valor posicional"
+    ],
+    "prerrequisitos": [
+      "mat.p1.decena"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 3
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Una cifra vale distinto según dónde está. En 52, el 5 está en las decenas y vale 50; el 2 vale 2.",
+      "ejemplo": "47 = 4 decenas y 7 unidades. Eso es lo mismo que 40 + 7.",
+      "errorFrecuente": "Decir que en 47 el 4 vale 4, cuando en realidad vale 40."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p2.igualdades-equilibrio",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P2-01",
+    "nombre": "Igualdades: mantener el equilibrio",
+    "descripcionCorta": "Encontrar el número que falta para que los dos lados sean iguales.",
+    "palabrasClave": [
+      "igualdad",
+      "equilibrio",
+      "balanza",
+      "numero que falta",
+      "completar igualdad"
+    ],
+    "sinonimos": [
+      "igualdades"
+    ],
+    "prerrequisitos": [
+      "mat.p1.igualdades"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 3
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.ecuaciones"
+    },
+    "repaso": {
+      "idea": "Si los dos lados de una balanza deben pesar igual, busca cuánto le falta al lado más liviano.",
+      "ejemplo": "8 + ? = 12. Del 8 al 12 faltan 4, entonces ? = 4.",
+      "errorFrecuente": "Sumar los números que ves (8 + 12 = 20) en vez de buscar el que falta."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p2.patrones-aditivos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P2-02",
+    "nombre": "Patrones con números que crecen",
+    "descripcionCorta": "Continuar secuencias que aumentan de 2 en 2, de 5 en 5 o de 10 en 10.",
+    "palabrasClave": [
+      "patron numerico",
+      "de 2 en 2",
+      "de 5 en 5",
+      "de 10 en 10",
+      "secuencia numerica"
+    ],
+    "sinonimos": [
+      "patrones",
+      "serie numerica"
+    ],
+    "prerrequisitos": [
+      "mat.p1.patrones-repeticion"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 3
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.patrones"
+    },
+    "repaso": {
+      "idea": "En algunos patrones los números crecen siempre la misma cantidad. Mira cuánto aumenta de uno a otro.",
+      "ejemplo": "5, 10, 15, 20... Cada número aumenta 5. El siguiente es 25.",
+      "errorFrecuente": "Fijarse solo en los dos primeros números sin comprobar con los demás."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p2.medir-longitudes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "desempenoCodigo": "MAT-C26-P2-04",
+    "nombre": "Medir longitudes",
+    "descripcionCorta": "Medir cuántas veces entra una unidad en el largo de un objeto.",
+    "palabrasClave": [
+      "medir",
+      "medida",
+      "longitud",
+      "largo",
+      "cuantas veces cabe"
+    ],
+    "sinonimos": [
+      "medicion"
+    ],
+    "prerrequisitos": [],
+    "dificultad": {
+      "min": 1,
+      "max": 2
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.geometria"
+    },
+    "repaso": {
+      "idea": "Medir es ver cuántas veces cabe una unidad (un clip, un paso, un centímetro) a lo largo de algo.",
+      "ejemplo": "Si un lápiz mide lo mismo que 6 clips puestos uno detrás de otro, el lápiz mide 6 clips.",
+      "errorFrecuente": "Dejar espacios o encimar las unidades al medir."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.suma-resta-hasta-1000",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P3-01",
+    "nombre": "Suma y resta hasta 1000",
+    "descripcionCorta": "Resolver problemas de agregar, quitar, comparar e igualar con números hasta 1000.",
+    "palabrasClave": [
+      "suma con canje",
+      "resta con canje",
+      "llevar",
+      "prestar",
+      "centenas"
+    ],
+    "sinonimos": [
+      "suma",
+      "resta",
+      "canje"
+    ],
+    "prerrequisitos": [
+      "mat.p2.suma-resta-hasta-100",
+      "mat.p2.valor-posicional"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Cuando una columna suma 10 o más, «llevas» una decena a la columna de la izquierda. En la resta, si no alcanza, «canjeas» una decena por 10 unidades.",
+      "ejemplo": "258 + 136: 8 + 6 = 14, escribes 4 y llevas 1. 5 + 3 + 1 = 9. 2 + 1 = 3. Resultado: 394.",
+      "errorFrecuente": "Olvidar sumar lo que se lleva a la siguiente columna."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.multiplicacion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P3-03",
+    "nombre": "La multiplicación",
+    "descripcionCorta": "Multiplicar como suma de grupos iguales y usar las tablas.",
+    "palabrasClave": [
+      "multiplicacion",
+      "multiplicar",
+      "tablas de multiplicar",
+      "veces",
+      "grupos iguales",
+      "por"
+    ],
+    "sinonimos": [
+      "producto",
+      "tabla del"
+    ],
+    "prerrequisitos": [
+      "mat.p2.suma-resta-hasta-100"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Multiplicar es sumar varias veces el mismo número. 4 × 3 significa 4 grupos de 3.",
+      "ejemplo": "En 4 platos hay 3 panes en cada uno: 3 + 3 + 3 + 3 = 12, o sea 4 × 3 = 12.",
+      "errorFrecuente": "Sumar los números (4 + 3 = 7) en lugar de multiplicarlos."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.division",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P3-03",
+    "nombre": "La división: repartir en partes iguales",
+    "descripcionCorta": "Repartir y agrupar cantidades en partes iguales.",
+    "palabrasClave": [
+      "division",
+      "dividir",
+      "repartir",
+      "reparto",
+      "partes iguales"
+    ],
+    "sinonimos": [
+      "cociente",
+      "entre"
+    ],
+    "prerrequisitos": [
+      "mat.p3.multiplicacion"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Dividir es repartir en partes iguales. La multiplicación te ayuda: 12 ÷ 3 es buscar qué número por 3 da 12.",
+      "ejemplo": "12 galletas entre 3 amigos: 3 × 4 = 12, entonces a cada uno le tocan 4 galletas.",
+      "errorFrecuente": "Repartir sin que todas las partes tengan la misma cantidad."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.fracciones-parte-todo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P3-01",
+    "nombre": "Fracciones: parte de un todo",
+    "descripcionCorta": "Reconocer mitades, tercios y cuartos de una unidad o colección.",
+    "palabrasClave": [
+      "fraccion",
+      "fracciones",
+      "mitad",
+      "tercio",
+      "cuarto",
+      "parte de un todo"
+    ],
+    "sinonimos": [
+      "medio",
+      "numerador",
+      "denominador"
+    ],
+    "prerrequisitos": [
+      "mat.p3.division"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 3
+    },
+    "tipos": [
+      "fraccion",
+      "opcion_multiple",
+      "numerico"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.fracciones"
+    },
+    "repaso": {
+      "idea": "Una fracción dice en cuántas partes iguales partes algo (denominador, abajo) y cuántas tomas (numerador, arriba).",
+      "ejemplo": "Partes una pizza en 4 partes iguales y comes 1: comiste 1/4 de la pizza.",
+      "errorFrecuente": "Usar partes de distinto tamaño: las partes deben ser iguales para que sea una fracción."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.igualdades-valor-desconocido",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P3-01",
+    "nombre": "Igualdades con un valor desconocido",
+    "descripcionCorta": "Hallar el número que falta en igualdades con sumas y restas.",
+    "palabrasClave": [
+      "igualdad",
+      "valor desconocido",
+      "numero escondido",
+      "cuadradito",
+      "balanza"
+    ],
+    "sinonimos": [
+      "igualdades",
+      "numero que falta"
+    ],
+    "prerrequisitos": [
+      "mat.p2.igualdades-equilibrio"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 3
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.ecuaciones"
+    },
+    "repaso": {
+      "idea": "Si un número está escondido, usa la operación contraria para encontrarlo: si se sumó, restas.",
+      "ejemplo": "□ + 15 = 40. Haces 40 − 15 = 25. El número escondido es 25.",
+      "errorFrecuente": "Sumar 40 + 15 en lugar de restar."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.patrones-numericos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P3-02",
+    "nombre": "Patrones de repetición y numéricos",
+    "descripcionCorta": "Encontrar la regla de una secuencia de figuras o números y continuarla.",
+    "palabrasClave": [
+      "patron",
+      "patrones",
+      "regla",
+      "secuencia",
+      "termino que sigue"
+    ],
+    "sinonimos": [
+      "serie"
+    ],
+    "prerrequisitos": [
+      "mat.p2.patrones-aditivos"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 3
+    },
+    "tipos": [
+      "opcion_multiple",
+      "numerico"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.patrones"
+    },
+    "repaso": {
+      "idea": "Para continuar un patrón, busca la regla: qué se repite o cuánto aumenta o disminuye cada vez.",
+      "ejemplo": "3, 7, 11, 15... Cada número aumenta 4. Siguen 19 y 23.",
+      "errorFrecuente": "Cambiar la regla a mitad de la secuencia."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.perimetro-inicial",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 26,
+    "desempenoCodigo": "MAT-C26-P3-04",
+    "nombre": "Medir el contorno: perímetro",
+    "descripcionCorta": "Medir el borde de figuras con centímetros y metros.",
+    "palabrasClave": [
+      "perimetro",
+      "contorno",
+      "borde",
+      "centimetro",
+      "metro"
+    ],
+    "sinonimos": [
+      "cm",
+      "regla"
+    ],
+    "prerrequisitos": [
+      "mat.p2.medir-longitudes"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 3
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.geometria"
+    },
+    "repaso": {
+      "idea": "El perímetro es la medida de todo el borde de una figura. Sumas lo que mide cada lado.",
+      "ejemplo": "Un rectángulo de 5 cm y 3 cm: 5 + 3 + 5 + 3 = 16 cm de perímetro.",
+      "errorFrecuente": "Sumar solo dos lados y olvidar los otros dos."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.multiplicacion-varias-cifras",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P4-04",
+    "nombre": "Multiplicación por una y dos cifras",
+    "descripcionCorta": "Multiplicar números de varias cifras usando descomposición y el algoritmo.",
+    "palabrasClave": [
+      "multiplicacion de dos cifras",
+      "multiplicar por dos cifras",
+      "algoritmo de la multiplicacion",
+      "producto"
+    ],
+    "sinonimos": [
+      "multiplicacion",
+      "multiplicar"
+    ],
+    "prerrequisitos": [
+      "mat.p3.multiplicacion",
+      "mat.p3.suma-resta-hasta-1000"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Para multiplicar números grandes puedes descomponer: multiplicas por las decenas y por las unidades, y luego sumas.",
+      "ejemplo": "23 × 4: primero 20 × 4 = 80, luego 3 × 4 = 12. Sumas 80 + 12 = 92.",
+      "errorFrecuente": "Olvidar la decena que se lleva al multiplicar."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.division-una-cifra",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P4-01",
+    "nombre": "División entre una cifra",
+    "descripcionCorta": "Dividir números de dos y tres cifras entre una cifra, con o sin residuo.",
+    "palabrasClave": [
+      "division",
+      "dividir",
+      "residuo",
+      "cociente",
+      "division exacta",
+      "division inexacta"
+    ],
+    "sinonimos": [
+      "repartir",
+      "entre"
+    ],
+    "prerrequisitos": [
+      "mat.p3.division"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "En la división hay dividendo, divisor, cociente y residuo. El residuo siempre es menor que el divisor.",
+      "ejemplo": "47 ÷ 5 = 9 y sobran 2, porque 5 × 9 = 45 y 47 − 45 = 2.",
+      "errorFrecuente": "Dejar un residuo mayor que el divisor: eso significa que podías repartir más."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.fraccion-de-cantidad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P4-02",
+    "nombre": "Fracción de una cantidad",
+    "descripcionCorta": "Calcular la mitad, la tercera parte o los 3/4 de una colección.",
+    "palabrasClave": [
+      "fraccion de una cantidad",
+      "parte de una coleccion",
+      "la mitad de",
+      "tercera parte",
+      "cuarta parte"
+    ],
+    "sinonimos": [
+      "fracciones"
+    ],
+    "prerrequisitos": [
+      "mat.p3.fracciones-parte-todo"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 4
+    },
+    "tipos": [
+      "fraccion",
+      "opcion_multiple",
+      "numerico"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.fracciones"
+    },
+    "repaso": {
+      "idea": "Para hallar una fracción de una cantidad, divides entre el denominador y multiplicas por el numerador.",
+      "ejemplo": "3/4 de 20 caramelos: 20 ÷ 4 = 5; 5 × 3 = 15 caramelos.",
+      "errorFrecuente": "Multiplicar por el denominador en vez de dividir."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.fracciones-equivalentes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P4-07",
+    "nombre": "Fracciones equivalentes",
+    "descripcionCorta": "Reconocer fracciones que representan la misma parte de un todo.",
+    "palabrasClave": [
+      "fraccion equivalente",
+      "fracciones equivalentes",
+      "misma fraccion",
+      "amplificar",
+      "simplificar"
+    ],
+    "sinonimos": [
+      "equivalencia de fracciones"
+    ],
+    "prerrequisitos": [
+      "mat.p3.fracciones-parte-todo"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 4
+    },
+    "tipos": [
+      "fraccion",
+      "opcion_multiple",
+      "numerico"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.fracciones"
+    },
+    "repaso": {
+      "idea": "Dos fracciones son equivalentes si representan la misma parte. Las obtienes multiplicando o dividiendo arriba y abajo por el mismo número.",
+      "ejemplo": "1/2 = 2/4 = 3/6: media torta es lo mismo que 2 de 4 pedazos.",
+      "errorFrecuente": "Multiplicar solo el numerador o solo el denominador."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.igualdades-dos-equivalencias",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P4-01",
+    "nombre": "Igualdades con multiplicación y división",
+    "descripcionCorta": "Hallar valores desconocidos en igualdades que usan las cuatro operaciones.",
+    "palabrasClave": [
+      "igualdad",
+      "valor desconocido",
+      "equivalencia",
+      "balanza",
+      "operacion inversa"
+    ],
+    "sinonimos": [
+      "igualdades",
+      "numero que falta"
+    ],
+    "prerrequisitos": [
+      "mat.p3.igualdades-valor-desconocido",
+      "mat.p3.multiplicacion"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.ecuaciones"
+    },
+    "repaso": {
+      "idea": "La multiplicación y la división son operaciones contrarias. Si el número escondido se multiplicó, divides para hallarlo.",
+      "ejemplo": "□ × 6 = 42. Haces 42 ÷ 6 = 7. Compruebas: 7 × 6 = 42.",
+      "errorFrecuente": "No comprobar el resultado reemplazándolo en la igualdad."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.patrones-aditivos-multiplicativos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P4-02",
+    "nombre": "Patrones que suman o multiplican",
+    "descripcionCorta": "Descubrir si una secuencia crece sumando o multiplicando y continuarla.",
+    "palabrasClave": [
+      "patron",
+      "patron multiplicativo",
+      "patron aditivo",
+      "doble",
+      "triple",
+      "regla de formacion"
+    ],
+    "sinonimos": [
+      "patrones",
+      "secuencia"
+    ],
+    "prerrequisitos": [
+      "mat.p3.patrones-numericos"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.patrones"
+    },
+    "repaso": {
+      "idea": "Algunos patrones suman siempre lo mismo; otros multiplican. Compara cada número con el anterior.",
+      "ejemplo": "2, 4, 8, 16... Cada número es el doble del anterior. Sigue 32.",
+      "errorFrecuente": "Creer que siempre se suma: de 2 a 4 se suma 2, pero de 4 a 8 se suma 4; la regla es multiplicar por 2."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.perimetro-poligonos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "desempenoCodigo": "MAT-C26-P4-04",
+    "nombre": "Perímetro de polígonos",
+    "descripcionCorta": "Calcular el perímetro de cuadrados, rectángulos y triángulos.",
+    "palabrasClave": [
+      "perimetro",
+      "poligono",
+      "cuadrado",
+      "rectangulo",
+      "triangulo",
+      "contorno"
+    ],
+    "sinonimos": [
+      "borde"
+    ],
+    "prerrequisitos": [
+      "mat.p3.perimetro-inicial"
+    ],
+    "dificultad": {
+      "min": 1,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.geometria"
+    },
+    "repaso": {
+      "idea": "El perímetro es la suma de todos los lados. En un cuadrado los 4 lados miden igual: 4 × lado.",
+      "ejemplo": "Un cuadrado de 6 cm de lado: 4 × 6 = 24 cm.",
+      "errorFrecuente": "Confundir perímetro (el borde) con área (lo de adentro)."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.numeros-decimales",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P5-03",
+    "nombre": "Números decimales",
+    "descripcionCorta": "Leer, comparar, sumar y restar decimales hasta el centésimo.",
+    "palabrasClave": [
+      "decimal",
+      "decimales",
+      "decimos",
+      "centesimos",
+      "coma decimal",
+      "punto decimal"
+    ],
+    "sinonimos": [
+      "decimos y centesimos"
+    ],
+    "prerrequisitos": [
+      "mat.p4.division-una-cifra",
+      "mat.p4.fracciones-equivalentes"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Los decimales sirven para partes más pequeñas que la unidad. 0,1 es un décimo y 0,01 es un centésimo.",
+      "ejemplo": "S/ 3,50 + S/ 2,25: alineas las comas y sumas: 5,75 soles.",
+      "errorFrecuente": "No alinear la coma al sumar o creer que 0,5 es menor que 0,25 porque 5 es menor que 25."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.suma-resta-fracciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P5-02",
+    "nombre": "Suma y resta de fracciones",
+    "descripcionCorta": "Sumar y restar fracciones de igual y distinto denominador.",
+    "palabrasClave": [
+      "suma de fracciones",
+      "resta de fracciones",
+      "sumar fracciones",
+      "restar fracciones",
+      "mismo denominador",
+      "denominador comun"
+    ],
+    "sinonimos": [
+      "fracciones",
+      "operaciones con fracciones"
+    ],
+    "prerrequisitos": [
+      "mat.p4.fracciones-equivalentes"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "fraccion",
+      "opcion_multiple",
+      "numerico"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.fracciones"
+    },
+    "repaso": {
+      "idea": "Si los denominadores son iguales, sumas o restas los numeradores. Si son distintos, primero busca fracciones equivalentes con el mismo denominador.",
+      "ejemplo": "1/2 + 1/4: cambias 1/2 por su equivalente 2/4. Luego 2/4 + 1/4 = 3/4.",
+      "errorFrecuente": "Sumar numeradores y denominadores: 1/2 + 1/4 no es 2/6."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.operaciones-combinadas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P5-04",
+    "nombre": "Operaciones combinadas",
+    "descripcionCorta": "Resolver expresiones con varias operaciones respetando el orden.",
+    "palabrasClave": [
+      "operaciones combinadas",
+      "jerarquia de operaciones",
+      "orden de las operaciones",
+      "parentesis"
+    ],
+    "sinonimos": [
+      "jerarquia"
+    ],
+    "prerrequisitos": [
+      "mat.p4.multiplicacion-varias-cifras",
+      "mat.p4.division-una-cifra"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Primero resuelves lo que está entre paréntesis, luego multiplicaciones y divisiones, y al final sumas y restas.",
+      "ejemplo": "5 + 3 × 4 = 5 + 12 = 17. En cambio, (5 + 3) × 4 = 8 × 4 = 32.",
+      "errorFrecuente": "Resolver de izquierda a derecha sin respetar el orden: 5 + 3 × 4 no es 32."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.ecuaciones-simples",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P5-01",
+    "nombre": "Ecuaciones simples (x + a = b)",
+    "descripcionCorta": "Hallar el valor desconocido en ecuaciones sencillas con números naturales.",
+    "palabrasClave": [
+      "ecuacion simple",
+      "valor de x",
+      "incognita",
+      "x + a = b",
+      "igualdad"
+    ],
+    "sinonimos": [
+      "ecuaciones",
+      "hallar x"
+    ],
+    "prerrequisitos": [
+      "mat.p4.igualdades-dos-equivalencias"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.ecuaciones"
+    },
+    "repaso": {
+      "idea": "Una ecuación es una igualdad con un número desconocido, que suele llamarse x. Usa la operación contraria para dejar sola a la x.",
+      "ejemplo": "x + 18 = 45. Restas 18 a los dos lados: x = 27.",
+      "errorFrecuente": "Hacer la operación solo en un lado de la igualdad."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.proporcionalidad-tablas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P5-01",
+    "nombre": "Tablas de proporcionalidad",
+    "descripcionCorta": "Completar tablas donde dos cantidades aumentan al mismo ritmo.",
+    "palabrasClave": [
+      "proporcionalidad",
+      "tabla de proporcionalidad",
+      "doble",
+      "triple",
+      "magnitudes"
+    ],
+    "sinonimos": [
+      "proporcional"
+    ],
+    "prerrequisitos": [
+      "mat.p4.multiplicacion-varias-cifras"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.proporcionalidad"
+    },
+    "repaso": {
+      "idea": "Dos cantidades son proporcionales si cuando una se duplica, la otra también se duplica.",
+      "ejemplo": "1 cuaderno cuesta S/ 4; 2 cuestan S/ 8; 5 cuestan S/ 20. Siempre multiplicas por 4.",
+      "errorFrecuente": "Sumar en vez de multiplicar: si 1 cuesta 4, 3 no cuestan 6 sino 12."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.patrones-regla-formacion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P5-03",
+    "nombre": "Regla de formación de un patrón",
+    "descripcionCorta": "Escribir la regla de una secuencia y hallar términos que no están a la vista.",
+    "palabrasClave": [
+      "regla de formacion",
+      "patron",
+      "termino",
+      "secuencia",
+      "posicion"
+    ],
+    "sinonimos": [
+      "patrones"
+    ],
+    "prerrequisitos": [
+      "mat.p4.patrones-aditivos-multiplicativos"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.patrones"
+    },
+    "repaso": {
+      "idea": "Si sabes la regla del patrón, puedes hallar cualquier término sin dibujarlos todos.",
+      "ejemplo": "4, 7, 10, 13... la regla es «sumar 3». El término 6 es 13 + 3 + 3 = 19.",
+      "errorFrecuente": "Contar mal la posición del término que te piden."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.area-rectangulos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "desempenoCodigo": "MAT-C26-P5-05",
+    "nombre": "Área de cuadrados y rectángulos",
+    "descripcionCorta": "Medir la superficie con cuadraditos y con la fórmula base × altura.",
+    "palabrasClave": [
+      "area",
+      "superficie",
+      "rectangulo",
+      "cuadrado",
+      "base por altura",
+      "centimetros cuadrados"
+    ],
+    "sinonimos": [
+      "m2",
+      "cm2"
+    ],
+    "prerrequisitos": [
+      "mat.p4.perimetro-poligonos",
+      "mat.p4.multiplicacion-varias-cifras"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.geometria"
+    },
+    "repaso": {
+      "idea": "El área es cuánto espacio ocupa una figura por dentro. En un rectángulo multiplicas base por altura y el resultado va en unidades cuadradas.",
+      "ejemplo": "Un rectángulo de 6 cm por 4 cm tiene 6 × 4 = 24 cm² de área.",
+      "errorFrecuente": "Sumar los lados (eso es perímetro) cuando te piden área."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.porcentajes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P6-03",
+    "nombre": "Porcentajes",
+    "descripcionCorta": "Entender el porcentaje como parte de 100 y calcular porcentajes sencillos.",
+    "palabrasClave": [
+      "porcentaje",
+      "porcentajes",
+      "por ciento",
+      "tanto por ciento",
+      "descuento"
+    ],
+    "prerrequisitos": [
+      "mat.p5.numeros-decimales",
+      "mat.p4.fraccion-de-cantidad"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 4
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.porcentajes"
+    },
+    "repaso": {
+      "idea": "El porcentaje es una parte de 100. 25 % significa 25 de cada 100, lo mismo que 1/4.",
+      "ejemplo": "El 10 % de 80 soles: 80 ÷ 10 = 8 soles. El 50 % es la mitad: 40 soles.",
+      "errorFrecuente": "Pensar que el 50 % de un número es 50."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.multiplicacion-fracciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P6-02",
+    "nombre": "Multiplicación de fracciones",
+    "descripcionCorta": "Multiplicar fracciones entre sí y por números naturales.",
+    "palabrasClave": [
+      "multiplicacion de fracciones",
+      "multiplicar fracciones",
+      "fraccion por natural",
+      "producto de fracciones"
+    ],
+    "sinonimos": [
+      "fracciones"
+    ],
+    "prerrequisitos": [
+      "mat.p5.suma-resta-fracciones"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "fraccion",
+      "opcion_multiple",
+      "numerico"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.fracciones"
+    },
+    "repaso": {
+      "idea": "Para multiplicar fracciones, multiplicas numerador por numerador y denominador por denominador.",
+      "ejemplo": "2/3 × 3/4: arriba 2 × 3 = 6, abajo 3 × 4 = 12. Resultado 6/12, que simplificado es 1/2.",
+      "errorFrecuente": "Buscar denominador común como en la suma: en la multiplicación no hace falta."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.operaciones-decimales",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-P6-04",
+    "nombre": "Multiplicación y división con decimales",
+    "descripcionCorta": "Multiplicar y dividir decimales hasta el centésimo en problemas de compras.",
+    "palabrasClave": [
+      "multiplicar decimales",
+      "dividir decimales",
+      "decimales",
+      "centesimos",
+      "por 10 por 100"
+    ],
+    "sinonimos": [
+      "operaciones con decimales"
+    ],
+    "prerrequisitos": [
+      "mat.p5.numeros-decimales"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Al multiplicar decimales, multiplicas como si no hubiera coma y luego pones tantas cifras decimales como tengan los dos factores juntos.",
+      "ejemplo": "1,5 × 3 = 4,5. Y 2,4 × 10 = 24: al multiplicar por 10 la coma se mueve un lugar a la derecha.",
+      "errorFrecuente": "Colocar mal la coma en el resultado."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.proporcionalidad-directa",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P6-01",
+    "nombre": "Proporcionalidad directa y regla de tres",
+    "descripcionCorta": "Resolver problemas de magnitudes directamente proporcionales.",
+    "palabrasClave": [
+      "proporcionalidad directa",
+      "regla de tres",
+      "magnitudes proporcionales",
+      "valor unitario"
+    ],
+    "sinonimos": [
+      "proporcionalidad"
+    ],
+    "prerrequisitos": [
+      "mat.p5.proporcionalidad-tablas"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.proporcionalidad"
+    },
+    "repaso": {
+      "idea": "En la proporcionalidad directa, si una cantidad se multiplica por un número, la otra también. Calcula primero cuánto vale 1.",
+      "ejemplo": "3 kg de arroz cuestan S/ 12. 1 kg cuesta 12 ÷ 3 = 4 soles; 5 kg cuestan 5 × 4 = 20 soles.",
+      "errorFrecuente": "Usar regla de tres cuando las magnitudes no son proporcionales."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.ecuaciones-cuatro-operaciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P6-01",
+    "nombre": "Ecuaciones con las cuatro operaciones",
+    "descripcionCorta": "Resolver ecuaciones sencillas como 3x + 5 = 20.",
+    "palabrasClave": [
+      "ecuacion",
+      "ecuaciones",
+      "incognita",
+      "despejar",
+      "3x",
+      "valor de x"
+    ],
+    "sinonimos": [
+      "hallar x"
+    ],
+    "prerrequisitos": [
+      "mat.p5.ecuaciones-simples",
+      "mat.p5.operaciones-combinadas"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.ecuaciones"
+    },
+    "repaso": {
+      "idea": "Para despejar la x, deshaces las operaciones en orden contrario: primero la suma o resta, después la multiplicación o división.",
+      "ejemplo": "3x + 5 = 20 → restas 5: 3x = 15 → divides entre 3: x = 5.",
+      "errorFrecuente": "Dividir antes de quitar el número que se suma."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.patrones-termino-general",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-P6-03",
+    "nombre": "Término general de un patrón",
+    "descripcionCorta": "Expresar con una regla cualquier término de una secuencia.",
+    "palabrasClave": [
+      "termino general",
+      "patron",
+      "regla general",
+      "secuencia",
+      "termino n"
+    ],
+    "sinonimos": [
+      "patrones"
+    ],
+    "prerrequisitos": [
+      "mat.p5.patrones-regla-formacion"
+    ],
+    "dificultad": {
+      "min": 3,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.patrones"
+    },
+    "repaso": {
+      "idea": "El término general es una regla que te dice el valor de cualquier término según su posición.",
+      "ejemplo": "5, 10, 15, 20... el término de la posición n es 5 × n. El término 12 es 60.",
+      "errorFrecuente": "Confundir la posición del término con su valor."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.area-triangulos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "desempenoCodigo": "MAT-C26-P6-05",
+    "nombre": "Área de triángulos y figuras",
+    "descripcionCorta": "Calcular el área de triángulos y de figuras formadas por rectángulos.",
+    "palabrasClave": [
+      "area del triangulo",
+      "base por altura entre dos",
+      "area",
+      "figuras compuestas",
+      "superficie"
+    ],
+    "sinonimos": [
+      "triangulo"
+    ],
+    "prerrequisitos": [
+      "mat.p5.area-rectangulos"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.geometria"
+    },
+    "repaso": {
+      "idea": "Un triángulo es la mitad de un rectángulo con la misma base y altura: su área es base × altura ÷ 2.",
+      "ejemplo": "Triángulo de base 8 cm y altura 5 cm: 8 × 5 ÷ 2 = 20 cm².",
+      "errorFrecuente": "Olvidar dividir entre 2."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.numeros-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-S1-04",
+    "nombre": "Números enteros",
+    "descripcionCorta": "Entender los números positivos y negativos y operar con ellos.",
+    "palabrasClave": [
+      "numeros enteros",
+      "enteros",
+      "negativos",
+      "positivos",
+      "ley de signos",
+      "recta numerica"
+    ],
+    "sinonimos": [
+      "signos"
+    ],
+    "prerrequisitos": [
+      "mat.p6.operaciones-decimales"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Los números enteros incluyen negativos para hablar de deudas, temperaturas bajo cero o pisos de sótano.",
+      "ejemplo": "Tenías S/ 5 y gastas S/ 8: 5 − 8 = −3, debes 3 soles. Y (−3) × (−2) = 6: menos por menos es más.",
+      "errorFrecuente": "Pensar que −8 es mayor que −3. En la recta, −8 está más a la izquierda, entonces es menor."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.potencias",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-S1-05",
+    "nombre": "Potencias y sus propiedades",
+    "descripcionCorta": "Calcular potencias de base entera y usar sus propiedades.",
+    "palabrasClave": [
+      "potencia",
+      "potencias",
+      "exponente",
+      "base",
+      "al cuadrado",
+      "al cubo"
+    ],
+    "sinonimos": [
+      "potenciacion"
+    ],
+    "prerrequisitos": [
+      "mat.s1.numeros-enteros"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "Una potencia es una multiplicación repetida: el exponente dice cuántas veces se multiplica la base.",
+      "ejemplo": "2⁵ = 2 × 2 × 2 × 2 × 2 = 32. Y 3² × 3³ = 3⁵ porque los exponentes se suman.",
+      "errorFrecuente": "Multiplicar la base por el exponente: 2⁵ no es 10."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.fracciones-decimales-porcentajes",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-S1-08",
+    "nombre": "Fracciones, decimales y porcentajes",
+    "descripcionCorta": "Pasar de fracción a decimal y a porcentaje, y calcular aumentos y descuentos.",
+    "palabrasClave": [
+      "equivalencias",
+      "fraccion a decimal",
+      "decimal a porcentaje",
+      "aumento porcentual",
+      "descuento porcentual",
+      "porcentaje"
+    ],
+    "sinonimos": [
+      "porcentajes",
+      "descuentos"
+    ],
+    "prerrequisitos": [
+      "mat.p6.porcentajes"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.porcentajes"
+    },
+    "repaso": {
+      "idea": "Una misma cantidad puede escribirse como fracción, decimal o porcentaje: 3/4 = 0,75 = 75 %.",
+      "ejemplo": "Un polo de S/ 40 con 20 % de descuento: 20 % de 40 = 8; pagas 40 − 8 = 32 soles.",
+      "errorFrecuente": "Restar el porcentaje directamente al precio (40 − 20) sin calcularlo."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.ecuaciones-lineales",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-S1-04",
+    "nombre": "Ecuaciones de primer grado",
+    "descripcionCorta": "Resolver ecuaciones lineales con una incógnita.",
+    "palabrasClave": [
+      "ecuacion",
+      "ecuaciones",
+      "despejar",
+      "incognita",
+      "primer grado",
+      "ecuacion lineal"
+    ],
+    "sinonimos": [
+      "ecuaciones lineales"
+    ],
+    "prerrequisitos": [
+      "mat.p6.ecuaciones-cuatro-operaciones",
+      "mat.s1.numeros-enteros"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.ecuaciones"
+    },
+    "repaso": {
+      "idea": "Una ecuación es como una balanza: lo que haces en un lado lo haces en el otro para dejar sola a la incógnita.",
+      "ejemplo": "2x + 3 = 11 → restas 3: 2x = 8 → divides entre 2: x = 4.",
+      "errorFrecuente": "Cambiar un término de lado sin cambiarle el signo."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.progresiones-aritmeticas",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-S1-03",
+    "nombre": "Progresiones aritméticas",
+    "descripcionCorta": "Hallar la razón y cualquier término de una progresión aritmética.",
+    "palabrasClave": [
+      "progresion aritmetica",
+      "progresiones",
+      "razon",
+      "termino enesimo",
+      "sucesion"
+    ],
+    "sinonimos": [
+      "sucesiones"
+    ],
+    "prerrequisitos": [
+      "mat.p6.patrones-termino-general"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.patrones"
+    },
+    "repaso": {
+      "idea": "En una progresión aritmética cada término se obtiene sumando siempre la misma cantidad, llamada razón.",
+      "ejemplo": "3, 7, 11, 15... la razón es 4. El término 10 es 3 + 9 × 4 = 39.",
+      "errorFrecuente": "Multiplicar la razón por la posición sin restar 1: el término n es primero + (n − 1) × razón."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.perimetro-area-poligonos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "desempenoCodigo": "MAT-C26-S1-06",
+    "nombre": "Perímetro y área de polígonos",
+    "descripcionCorta": "Calcular perímetros y áreas de cuadriláteros, triángulos y figuras compuestas.",
+    "palabrasClave": [
+      "perimetro",
+      "area",
+      "cuadrilateros",
+      "trapecio",
+      "rombo",
+      "paralelogramo"
+    ],
+    "sinonimos": [
+      "areas"
+    ],
+    "prerrequisitos": [
+      "mat.p6.area-triangulos"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.geometria"
+    },
+    "repaso": {
+      "idea": "Cada figura tiene su fórmula de área, pero muchas salen del rectángulo: el paralelogramo es base × altura y el trapecio es (B + b) × h ÷ 2.",
+      "ejemplo": "Trapecio de bases 10 y 6 cm y altura 4 cm: (10 + 6) × 4 ÷ 2 = 32 cm².",
+      "errorFrecuente": "Usar un lado inclinado como si fuera la altura."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s2.numeros-racionales",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 2,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-S2-04",
+    "nombre": "Operaciones con números racionales",
+    "descripcionCorta": "Sumar, restar, multiplicar y dividir fracciones con signo.",
+    "palabrasClave": [
+      "numeros racionales",
+      "racionales",
+      "fracciones negativas",
+      "division de fracciones",
+      "operaciones con fracciones"
+    ],
+    "sinonimos": [
+      "fracciones"
+    ],
+    "prerrequisitos": [
+      "mat.p6.multiplicacion-fracciones",
+      "mat.s1.numeros-enteros"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "fraccion",
+      "opcion_multiple",
+      "numerico"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.fracciones"
+    },
+    "repaso": {
+      "idea": "Los racionales son fracciones con signo. Para dividir fracciones multiplicas por la inversa de la segunda.",
+      "ejemplo": "(−2/3) ÷ (4/5) = (−2/3) × (5/4) = −10/12 = −5/6.",
+      "errorFrecuente": "Olvidar la ley de signos o invertir la primera fracción en lugar de la segunda."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s2.potencias-raices",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 2,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-S2-10",
+    "nombre": "Potencias y raíces",
+    "descripcionCorta": "Usar propiedades de la potenciación y la radicación.",
+    "palabrasClave": [
+      "raiz cuadrada",
+      "radicacion",
+      "potencias",
+      "raices",
+      "exponente negativo",
+      "raiz cubica"
+    ],
+    "sinonimos": [
+      "raiz"
+    ],
+    "prerrequisitos": [
+      "mat.s1.potencias"
+    ],
+    "dificultad": {
+      "min": 2,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.operaciones"
+    },
+    "repaso": {
+      "idea": "La raíz es la operación contraria a la potencia: la raíz cuadrada de 49 es 7 porque 7² = 49.",
+      "ejemplo": "La raíz de 16 × 9 es igual a la raíz de 16 por la raíz de 9: 4 × 3 = 12.",
+      "errorFrecuente": "Creer que √(9 + 16) = √9 + √16: en realidad √25 = 5, no 7."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s2.aumentos-descuentos-sucesivos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 2,
+    "competenciaCneb": 23,
+    "desempenoCodigo": "MAT-C23-S2-05",
+    "nombre": "Aumentos y descuentos sucesivos",
+    "descripcionCorta": "Calcular descuentos o aumentos porcentuales aplicados uno después de otro y el IGV.",
+    "palabrasClave": [
+      "descuentos sucesivos",
+      "aumentos sucesivos",
+      "igv",
+      "porcentaje",
+      "precio final"
+    ],
+    "sinonimos": [
+      "porcentajes"
+    ],
+    "prerrequisitos": [
+      "mat.s1.fracciones-decimales-porcentajes"
+    ],
+    "dificultad": {
+      "min": 3,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.porcentajes"
+    },
+    "repaso": {
+      "idea": "Un descuento sucesivo se aplica sobre el precio que ya bajó, no sobre el original.",
+      "ejemplo": "S/ 100 con 20 % y luego 10 %: 100 → 80 → 72. El descuento total es 28 %, no 30 %.",
+      "errorFrecuente": "Sumar los porcentajes (20 % + 10 % = 30 %)."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s2.ecuaciones-inecuaciones",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 2,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-S2-04",
+    "nombre": "Ecuaciones e inecuaciones lineales",
+    "descripcionCorta": "Resolver ecuaciones con fracciones e inecuaciones de primer grado.",
+    "palabrasClave": [
+      "inecuacion",
+      "inecuaciones",
+      "desigualdad",
+      "ecuaciones con fracciones",
+      "conjunto solucion"
+    ],
+    "sinonimos": [
+      "desigualdades"
+    ],
+    "prerrequisitos": [
+      "mat.s1.ecuaciones-lineales"
+    ],
+    "dificultad": {
+      "min": 3,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.ecuaciones"
+    },
+    "repaso": {
+      "idea": "Una inecuación se resuelve como una ecuación, pero si multiplicas o divides por un número negativo, el signo de desigualdad se voltea.",
+      "ejemplo": "−2x > 6 → divides entre −2 y volteas: x < −3.",
+      "errorFrecuente": "No voltear el signo al dividir entre un número negativo."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s2.suma-progresion-aritmetica",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 2,
+    "competenciaCneb": 24,
+    "desempenoCodigo": "MAT-C24-S2-03",
+    "nombre": "Suma de términos de una progresión aritmética",
+    "descripcionCorta": "Calcular la suma de los primeros términos de una progresión aritmética.",
+    "palabrasClave": [
+      "suma de terminos",
+      "progresion aritmetica",
+      "serie aritmetica",
+      "suma de gauss"
+    ],
+    "sinonimos": [
+      "progresiones"
+    ],
+    "prerrequisitos": [
+      "mat.s1.progresiones-aritmeticas"
+    ],
+    "dificultad": {
+      "min": 3,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.patrones"
+    },
+    "repaso": {
+      "idea": "Para sumar los términos de una progresión aritmética: (primero + último) × cantidad de términos ÷ 2.",
+      "ejemplo": "1 + 2 + ... + 100 = (1 + 100) × 100 ÷ 2 = 5050.",
+      "errorFrecuente": "Olvidar dividir entre 2 o contar mal cuántos términos hay."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s2.area-figuras-compuestas",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "desempenoCodigo": "MAT-C26-S2-06",
+    "nombre": "Área de figuras compuestas y del círculo",
+    "descripcionCorta": "Calcular áreas de círculos y de figuras formadas por varias partes.",
+    "palabrasClave": [
+      "area del circulo",
+      "circulo",
+      "pi",
+      "figuras compuestas",
+      "longitud de la circunferencia",
+      "area"
+    ],
+    "sinonimos": [
+      "circunferencia"
+    ],
+    "prerrequisitos": [
+      "mat.s1.perimetro-area-poligonos"
+    ],
+    "dificultad": {
+      "min": 3,
+      "max": 5
+    },
+    "tipos": [
+      "numerico",
+      "opcion_multiple"
+    ],
+    "fuente": {
+      "tipo": "generador",
+      "generadorId": "mat.geometria"
+    },
+    "repaso": {
+      "idea": "Divide una figura complicada en partes conocidas, calcula cada área y súmalas. El área del círculo es π × radio².",
+      "ejemplo": "Un círculo de radio 3 cm: π × 3² ≈ 3,14 × 9 ≈ 28,26 cm².",
+      "errorFrecuente": "Usar el diámetro en lugar del radio en la fórmula."
+    },
+    "recursos": [],
+    "origen": "cneb",
+    "version": 1,
+    "revisado": null
+  }
+]
