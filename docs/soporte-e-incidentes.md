@@ -40,7 +40,7 @@ Rutina mínima propuesta mientras no haya alertas automáticas: revisar `/monito
 | **S3 · Media** | Una función falla para una persona o un caso, o hay alternativa | Un docente no ve uno de sus cursos · un reporte PDF o Excel sale con un error · una libreta se genera con formato incorrecto · un apoderado no recibe push en su celular · la carga masiva rechaza un archivo válido | B |
 | **S4 · Baja** | Duda, consulta, pedido de capacitación o mejora | «¿Cómo registro una justificación?» · «¿Cómo cambio el horario de un salón?» · pedido de una nueva columna en un reporte · error de texto | B |
 
-Mapeo con la mesa de ayuda actual: prioridad «Urgente» ≈ S1, «Alta» ≈ S2, «Media» ≈ S3, «Baja» ≈ S4. La prioridad que elige el colegio es una sugerencia: el equipo la corrige al clasificar (el cambio queda como mensaje de sistema y en la auditoría `mesa_prioridad`).
+Mapeo con la mesa de ayuda actual: prioridad «Urgente» ≈ S1, «Alta» ≈ S2, «Normal» ≈ S3, «Baja» ≈ S4. La prioridad que elige el colegio es una sugerencia: el equipo la corrige al clasificar (el cambio queda como mensaje de sistema y en la auditoría `mesa_prioridad`).
 
 ## 4. Escalar
 
