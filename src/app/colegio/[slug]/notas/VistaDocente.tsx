@@ -15,6 +15,7 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { ETIQUETA_LITERAL, INSTRUMENTOS, LITERALES, NOMBRE_INSTRUMENTO, formatearNumero, textoCalculo, type Instrumento } from "@/lib/calificaciones";
 import { fechaLima, formatoHora } from "@/lib/fechas";
+import { MENSAJE_EVALUACION_NO_ELIMINABLE } from "@/lib/integridad-notas";
 import { Textarea } from "@/components/ui/textarea";
 import { desempenosParaEvaluar } from "@/lib/server/cneb";
 import {
@@ -297,7 +298,7 @@ async function ListaEvaluaciones({
         <h2 className="font-titulo text-cuerpo font-semibold">Evaluaciones del periodo</h2>
         <CardDescription>
           Las notas de una evaluación programada son un borrador: la familia las ve cuando publicas los resultados.
-          {puedeEditar && " Al eliminar una columna también se borran sus notas."}
+          {puedeEditar && " Solo se eliminan las columnas que nunca se publicaron y no tienen NSP, consecuencia ni recuperación; al eliminarlas se borran sus notas de borrador."}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -368,13 +369,21 @@ async function ListaEvaluaciones({
                           <Link href={`/notas/criterios?evaluacion=${c.id}`} className={buttonVariants({ variant: "ghost" })}>
                             <ListChecks strokeWidth={2} aria-hidden />Criterios<span className="sr-only"> de {c.columna}</span>
                           </Link>
-                          <BotonConfirmar
-                            etiqueta="Eliminar" variante="ghost" peligro
-                            titulo={`¿Eliminar «${c.columna}»?`}
-                            descripcion="Se borran también las notas de esta columna. No se puede deshacer."
-                            confirmar="Eliminar columna"
-                            accion={eliminarEvaluacionAction.bind(null, slug, c.id)}
-                          />
+                          {c.eliminable ? (
+                            <BotonConfirmar
+                              etiqueta="Eliminar" variante="ghost" peligro
+                              titulo={`¿Eliminar «${c.columna}»?`}
+                              descripcion="Se borran también las notas de borrador de esta columna y su historial (queda registrado en la auditoría). No se puede deshacer."
+                              confirmar="Eliminar columna"
+                              accion={eliminarEvaluacionAction.bind(null, slug, c.id)}
+                            />
+                          ) : (
+                            // Integridad (specs/11): publicada alguna vez o con NSP, consecuencia o recuperación → no se borra.
+                            <span className="inline-flex items-center gap-1 px-2 text-etiqueta text-muted-foreground" title={MENSAJE_EVALUACION_NO_ELIMINABLE}>
+                              <Lock className="size-3.5" strokeWidth={2} aria-hidden />No se puede eliminar
+                              <span className="sr-only">: {MENSAJE_EVALUACION_NO_ELIMINABLE}</span>
+                            </span>
+                          )}
                         </div>
                       )}
                     </li>

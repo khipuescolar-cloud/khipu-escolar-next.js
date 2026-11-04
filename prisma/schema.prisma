@@ -1112,7 +1112,8 @@ model HistorialNota {
   publicada       Boolean        @default(false)
 
   tenant        Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  evaluacion    Evaluacion     @relation(fields: [evaluacionId], references: [id], onDelete: Cascade)
+  /// Restrict (migración 20261112090300): una evaluación con historial no se borra.
+  evaluacion    Evaluacion     @relation(fields: [evaluacionId], references: [id], onDelete: Restrict)
   alumno        Alumno         @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
   cambiadoPor   Membership?    @relation(fields: [cambiadoPorId], references: [id], onDelete: NoAction)
   justificacion Justificacion? @relation(fields: [justificacionId], references: [id], onDelete: SetNull)
@@ -2256,8 +2257,9 @@ model LibretaEmitida {
   rectificacionId String?  @unique @map("rectificacion_id") @db.Uuid
 
   tenant        Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  alumno        Alumno                @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
-  periodo       Periodo               @relation(fields: [periodoId], references: [id], onDelete: Cascade)
+  /// Restrict + trigger sin DELETE (migración 20261112090300): solo se borra con el colegio completo.
+  alumno        Alumno                @relation(fields: [alumnoId], references: [id], onDelete: Restrict)
+  periodo       Periodo               @relation(fields: [periodoId], references: [id], onDelete: Restrict)
   emitidaPor    Membership            @relation(fields: [emitidaPorId], references: [id], onDelete: NoAction)
   rectificacion RectificacionLibreta? @relation(fields: [rectificacionId], references: [id], onDelete: SetNull)
 

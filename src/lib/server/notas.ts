@@ -14,6 +14,7 @@ import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-jus
 import { primerNombre } from "@/lib/nombres";
 import { CANTIDAD_PERIODOS, NOMBRE_TIPO, TIPOS_PERIODO, TODOS_LOS_NIVELES, nivelesConOtroTipo, periodosSugeridos } from "@/lib/periodos-academicos";
 import type { Nivel } from "@/generated/prisma/enums";
+import { evaluacionEliminable, MENSAJE_EVALUACION_NO_ELIMINABLE, MENSAJE_MOTIVO_CORTO, motivoSuficiente, TIPOS_HISTORIAL_BLOQUEANTES } from "@/lib/integridad-notas";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
 import { guardarDesempenosEvaluacion, validarDesempenosEvaluacion } from "./cneb";
@@ -31,6 +32,9 @@ export { cursosDelDocente };
 const num = (d: { toString(): string } | null | undefined): number | null => (d === null || d === undefined ? null : Number(d.toString()));
 const fechaDate = (iso: string) => new Date(`${iso}T00:00:00.000Z`);
 const MENSAJE_CERRADO = "Este periodo está cerrado. Las notas ya no se pueden cambiar.";
+/** Historial que indica que la actividad se publicó o tuvo correcciones, NSP con consecuencia o recuperación. */
+const HISTORIAL_BLOQUEANTE = { OR: [{ publicada: true }, { tipo: { in: [...TIPOS_HISTORIAL_BLOQUEANTES] } }] };
+const MENSAJE_SOLO_PROFESOR_RECUPERACION = "La recuperación la decide y la registra el profesor del curso, no el tutor del salón.";
 const MENSAJE_CURSO_CERRADO = "Las notas de este curso ya están cerradas en este periodo. Dirección puede reabrirlas.";
 
 function escalaDe(ctx: TenantContext): Escala {
@@ -110,12 +114,14 @@ const nombresNiveles = (ns: readonly Nivel[]) => ns.map((n) => NOMBRE_NIVEL_PERI
 async function hayNotasDelNivel(ctx: TenantContext, periodoIds: string[], nivel: Nivel): Promise<boolean> {
   if (periodoIds.length === 0) return false;
   const delNivel = { curso: { salon: { nivel } } };
-  const [evaluaciones, califs, cierres] = await Promise.all([
+  const [evaluaciones, califs, cierres, emitidas] = await Promise.all([
     ctx.db.evaluacion.count({ where: { periodoId: { in: periodoIds }, ...delNivel } }),
     ctx.db.calificacionPeriodo.count({ where: { periodoId: { in: periodoIds }, alumno: { salon: { nivel } } } }),
     ctx.db.cierreCurso.count({ where: { periodoId: { in: periodoIds }, ...delNivel } }),
+    // Las libretas emitidas no se borran (FK RESTRICT, specs/37): un periodo con libretas emitidas se conserva.
+    ctx.db.libretaEmitida.count({ where: { periodoId: { in: periodoIds }, alumno: { salon: { nivel } } } }),
   ]);
-  return evaluaciones + califs + cierres > 0;
+  return evaluaciones + califs + cierres + emitidas > 0;
 }
 
 const esquemaOrganizacion = z.object({
@@ -298,13 +304,20 @@ export async function publicarLibreta(ctx: TenantContext, periodoId: string, opc
   if (!periodo) return fallo("No encontramos ese periodo.");
   if (estado.publicadaAt && !opciones.reenviar) return fallo("La libreta de este periodo ya se publicó. Usa «Reenviar aviso» si quieres avisar otra vez.");
   if (!estado.puedePublicar) return fallo("Para publicar, cierra el periodo o cierra las notas de todos los cursos.");
+  // Emisión (specs/37): versión 1 congelada de la libreta de cada alumno, ANTES de marcar el periodo como publicado.
+  // Idempotente (solo emite a los alumnos que aún no la tienen): si falla a medias, el periodo sigue sin publicar y el
+  // siguiente intento completa las que faltan. Un reenvío también completa las faltantes.
+  try {
+    await emitirLibretas(ctx, periodoId);
+  } catch (error) {
+    console.error("[libreta] emisión incompleta del periodo", periodoId, error);
+    return fallo("No pudimos emitir todas las libretas. Vuelve a intentarlo: las que ya se emitieron se conservan y completaremos las que faltan.");
+  }
   if (!estado.publicadaAt) {
     // Reclama la publicación de forma atómica: si dos personas hacen clic a la vez, solo una encola.
     const r = await ctx.db.periodo.updateMany({ where: { id: periodoId, libretaPublicadaAt: null }, data: { libretaPublicadaAt: new Date() } });
     if (r.count === 0 && !opciones.reenviar) return fallo("La libreta de este periodo ya se publicó.");
   }
-  // Emisión (specs/37): versión 1 congelada de la libreta de cada alumno. Idempotente (no duplica si ya existe).
-  await emitirLibretas(ctx, periodoId);
 
   const alumnos = await ctx.db.alumno.findMany({
     where: { estado: "activo", salon: { archivadoAt: null, nivel: { in: periodo.niveles }, cursos: { some: {} } } },
@@ -597,8 +610,42 @@ export async function eliminarEvaluacion(ctx: TenantContext, evaluacionId: strin
   await cursoEscritura(ctx, actual.cursoId);
   const p = await periodoAbierto(ctx, actual.periodoId, actual.cursoId);
   if (p.error) return fallo(p.error);
-  await ctx.db.evaluacion.deleteMany({ where: { id: evaluacionId } });
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "evaluacion", entidadId: evaluacionId });
+  // Integridad (specs/11, specs/37): se elimina solo si NUNCA se publicó y no tiene NSP, consecuencia ni recuperación,
+  // aunque tenga notas e historial de borrador. El borrado queda auditado con lo que se eliminó.
+  const [bloqueante, eventos, marcadas, historial, curso] = await Promise.all([
+    ctx.db.historialNota.count({ where: { evaluacionId, ...HISTORIAL_BLOQUEANTE } }),
+    ctx.db.eventoAcademico.count({ where: { grupoId: actual.grupoId } }),
+    ctx.db.nota.findMany({ where: { evaluacionId }, select: { marca: true, vencidaAt: true, recuperacion: true } }),
+    ctx.db.historialNota.count({ where: { evaluacionId } }),
+    ctx.db.curso.findFirst({ where: { id: actual.cursoId }, select: { nombre: true } }),
+  ]);
+  const eliminable = evaluacionEliminable({
+    estado: actual.estado, publicadaAt: actual.publicadaAt, historialBloqueante: bloqueante > 0, eventosDelGrupo: eventos > 0, notas: marcadas,
+  });
+  if (!eliminable) return fallo(MENSAJE_EVALUACION_NO_ELIMINABLE);
+  const borrada = await ctx.db.$transaction(async (tx) => {
+    // Revalida dentro de la transacción (publicación o corrección simultánea).
+    const [bloq, nsp] = await Promise.all([
+      tx.historialNota.count({ where: { evaluacionId, ...HISTORIAL_BLOQUEANTE } }),
+      tx.nota.count({ where: { evaluacionId, OR: [{ marca: "nsp" }, { vencidaAt: { not: null } }, { recuperacion: { not: null } }] } }),
+    ]);
+    if (bloq + nsp > 0) return false;
+    await tx.auditoria.create({
+      data: {
+        tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "evaluacion", entidadId: evaluacionId,
+        detalle: { titulo: actual.titulo, curso: curso?.nombre ?? null, cursoId: actual.cursoId, fecha: actual.fecha.toISOString().slice(0, 10), notas: marcadas.length, historial },
+      },
+    });
+    await tx.historialNota.deleteMany({ where: { evaluacionId } });
+    // Condicionada a no publicada; la FK RESTRICT de historial_notas sigue como defensa para todo lo demás.
+    const r = await tx.evaluacion.deleteMany({ where: { id: evaluacionId, estado: { not: "publicada" }, publicadaAt: null } });
+    if (r.count !== 1) throw new Error("evaluacion_no_eliminable");
+    return true;
+  }).catch((error: unknown) => {
+    if (String(error).includes("evaluacion_no_eliminable") || (error as { code?: string }).code === "P2003") return false;
+    throw error;
+  });
+  if (!borrada) return fallo(MENSAJE_EVALUACION_NO_ELIMINABLE);
   return ok("Evaluación eliminada.");
 }
 
@@ -624,10 +671,14 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
       where: { cursoId, periodoId }, orderBy: [{ fecha: "asc" }, { titulo: "asc" }], include: { desempenos: { select: { desempenoId: true } } },
     }),
   ]);
-  const [notas, cierre] = await Promise.all([
+  const [notas, cierre, conHistorial, conEventos] = await Promise.all([
     ctx.db.nota.findMany({ where: { evaluacionId: { in: evaluaciones.map((e) => e.id) } } }),
     ctx.db.cierreCurso.findFirst({ where: { cursoId, periodoId }, select: { id: true } }),
+    ctx.db.historialNota.groupBy({ by: ["evaluacionId"], where: { evaluacionId: { in: evaluaciones.map((e) => e.id) }, ...HISTORIAL_BLOQUEANTE } }),
+    ctx.db.eventoAcademico.groupBy({ by: ["grupoId"], where: { grupoId: { in: [...new Set(evaluaciones.map((e) => e.grupoId))] } } }),
   ]);
+  const idsConHistorial = new Set(conHistorial.map((h) => h.evaluacionId));
+  const gruposConEventos = new Set(conEventos.map((x) => x.grupoId));
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "notas_curso", entidadId: cursoId, detalle: { periodoId } });
   return {
     curso, salon, periodo, alumnos, competencias,
@@ -637,6 +688,11 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
       grupoId: e.grupoId, descripcion: e.descripcion, estado: e.estado, publicadaAt: e.publicadaAt,
       columna: nombreColumna(e, evaluaciones, competencias),
       desempenoIds: e.desempenos.map((x) => x.desempenoId),
+      /** Se puede eliminar: nunca publicada y sin NSP, consecuencia ni recuperación (aunque tenga notas de borrador). */
+      eliminable: evaluacionEliminable({
+        estado: e.estado, publicadaAt: e.publicadaAt, historialBloqueante: idsConHistorial.has(e.id), eventosDelGrupo: gruposConEventos.has(e.grupoId),
+        notas: notas.filter((n) => n.evaluacionId === e.id),
+      }),
     })),
     notas: notas.map((n) => ({
       evaluacionId: n.evaluacionId, alumnoId: n.alumnoId, valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico), comentario: n.comentario,
@@ -719,6 +775,8 @@ export async function guardarNota(ctx: TenantContext, entrada: unknown): Promise
   const motivo = d.data.motivo || null;
   let tipo: "registro" | "recuperacion" | TipoCorreccion = "registro";
   if (recuperacion) {
+    // La recuperación la registra solo el profesor del curso, no el tutor del salón (specs/37).
+    if (curso.profesorId !== ctx.membership.id) return fallo(MENSAJE_SOLO_PROFESOR_RECUPERACION);
     tipo = "recuperacion";
   } else if (esNsp || esVencida || publicada) {
     if (esNsp && v.valor === null && v.marca === null) return fallo("El NSP lo quita la asistencia: si el alumno sí estuvo, corrige la asistencia de ese día.");
@@ -732,6 +790,8 @@ export async function guardarNota(ctx: TenantContext, entrada: unknown): Promise
             : "Estos resultados ya se publicaron: indica el tipo y el motivo del cambio.",
       );
     }
+    // Corrección auditada: el motivo debe explicar algo (specs/37).
+    if (!motivoSuficiente(motivo)) return fallo(MENSAJE_MOTIVO_CORTO);
     tipo = d.data.tipo;
   }
   const hoy = momentoHoy(ctx);
@@ -797,7 +857,9 @@ export async function decidirRecuperacion(ctx: TenantContext, entrada: unknown):
   if (!d.success) return fallo(d.error.issues[0].message);
   const evaluacion = await ctx.db.evaluacion.findFirst({ where: { id: d.data.evaluacionId } });
   if (!evaluacion) return fallo("No encontramos esa evaluación.");
-  await cursoEscritura(ctx, evaluacion.cursoId);
+  const curso = await cursoEscritura(ctx, evaluacion.cursoId);
+  // Solo el profesor del curso decide: el tutor del salón no decide recuperaciones de cursos de otros docentes (specs/37).
+  if (curso.profesorId !== ctx.membership.id) return fallo(MENSAJE_SOLO_PROFESOR_RECUPERACION);
   const p = await periodoAbierto(ctx, evaluacion.periodoId, evaluacion.cursoId);
   if (p.error) return fallo(p.error);
   const nota = await ctx.db.nota.findFirst({ where: { evaluacionId: evaluacion.id, alumnoId: d.data.alumnoId } });
