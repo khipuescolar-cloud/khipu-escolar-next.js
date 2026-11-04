@@ -14,7 +14,7 @@ import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-jus
 import { primerNombre } from "@/lib/nombres";
 import { CANTIDAD_PERIODOS, NOMBRE_TIPO, TIPOS_PERIODO, TODOS_LOS_NIVELES, nivelesConOtroTipo, periodosSugeridos } from "@/lib/periodos-academicos";
 import type { Nivel } from "@/generated/prisma/enums";
-import { evaluacionEliminable, MENSAJE_EVALUACION_NO_ELIMINABLE, MENSAJE_MOTIVO_CORTO, motivoSuficiente } from "@/lib/integridad-notas";
+import { evaluacionEliminable, MENSAJE_EVALUACION_NO_ELIMINABLE, MENSAJE_MOTIVO_CORTO, motivoSuficiente, TIPOS_HISTORIAL_BLOQUEANTES } from "@/lib/integridad-notas";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
 import { guardarDesempenosEvaluacion, validarDesempenosEvaluacion } from "./cneb";
@@ -32,6 +32,8 @@ export { cursosDelDocente };
 const num = (d: { toString(): string } | null | undefined): number | null => (d === null || d === undefined ? null : Number(d.toString()));
 const fechaDate = (iso: string) => new Date(`${iso}T00:00:00.000Z`);
 const MENSAJE_CERRADO = "Este periodo está cerrado. Las notas ya no se pueden cambiar.";
+/** Historial que indica que la actividad se publicó o tuvo correcciones, NSP con consecuencia o recuperación. */
+const HISTORIAL_BLOQUEANTE = { OR: [{ publicada: true }, { tipo: { in: [...TIPOS_HISTORIAL_BLOQUEANTES] } }] };
 const MENSAJE_SOLO_PROFESOR_RECUPERACION = "La recuperación la decide y la registra el profesor del curso, no el tutor del salón.";
 const MENSAJE_CURSO_CERRADO = "Las notas de este curso ya están cerradas en este periodo. Dirección puede reabrirlas.";
 
@@ -608,21 +610,42 @@ export async function eliminarEvaluacion(ctx: TenantContext, evaluacionId: strin
   await cursoEscritura(ctx, actual.cursoId);
   const p = await periodoAbierto(ctx, actual.periodoId, actual.cursoId);
   if (p.error) return fallo(p.error);
-  // Integridad (specs/11, specs/37): una actividad publicada o con historial, NSP, consecuencia o recuperación no se borra.
-  const [historial, marcadas] = await Promise.all([
-    ctx.db.historialNota.count({ where: { evaluacionId } }),
+  // Integridad (specs/11, specs/37): se elimina solo si NUNCA se publicó y no tiene NSP, consecuencia ni recuperación,
+  // aunque tenga notas e historial de borrador. El borrado queda auditado con lo que se eliminó.
+  const [bloqueante, eventos, marcadas, historial, curso] = await Promise.all([
+    ctx.db.historialNota.count({ where: { evaluacionId, ...HISTORIAL_BLOQUEANTE } }),
+    ctx.db.eventoAcademico.count({ where: { grupoId: actual.grupoId } }),
     ctx.db.nota.findMany({ where: { evaluacionId }, select: { marca: true, vencidaAt: true, recuperacion: true } }),
+    ctx.db.historialNota.count({ where: { evaluacionId } }),
+    ctx.db.curso.findFirst({ where: { id: actual.cursoId }, select: { nombre: true } }),
   ]);
-  if (!evaluacionEliminable({ estado: actual.estado, tieneHistorial: historial > 0, notas: marcadas })) return fallo(MENSAJE_EVALUACION_NO_ELIMINABLE);
-  try {
-    // Condicionada al borrador; la FK RESTRICT de historial_notas cubre el historial creado entre la verificación y el borrado.
-    const r = await ctx.db.evaluacion.deleteMany({ where: { id: evaluacionId, estado: { not: "publicada" } } });
-    if (r.count === 0) return fallo(MENSAJE_EVALUACION_NO_ELIMINABLE);
-  } catch (error) {
-    if ((error as { code?: string }).code === "P2003" || String(error).includes("historial_notas_evaluacion_id_fkey")) return fallo(MENSAJE_EVALUACION_NO_ELIMINABLE);
+  const eliminable = evaluacionEliminable({
+    estado: actual.estado, publicadaAt: actual.publicadaAt, historialBloqueante: bloqueante > 0, eventosDelGrupo: eventos > 0, notas: marcadas,
+  });
+  if (!eliminable) return fallo(MENSAJE_EVALUACION_NO_ELIMINABLE);
+  const borrada = await ctx.db.$transaction(async (tx) => {
+    // Revalida dentro de la transacción (publicación o corrección simultánea).
+    const [bloq, nsp] = await Promise.all([
+      tx.historialNota.count({ where: { evaluacionId, ...HISTORIAL_BLOQUEANTE } }),
+      tx.nota.count({ where: { evaluacionId, OR: [{ marca: "nsp" }, { vencidaAt: { not: null } }, { recuperacion: { not: null } }] } }),
+    ]);
+    if (bloq + nsp > 0) return false;
+    await tx.auditoria.create({
+      data: {
+        tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "evaluacion", entidadId: evaluacionId,
+        detalle: { titulo: actual.titulo, curso: curso?.nombre ?? null, cursoId: actual.cursoId, fecha: actual.fecha.toISOString().slice(0, 10), notas: marcadas.length, historial },
+      },
+    });
+    await tx.historialNota.deleteMany({ where: { evaluacionId } });
+    // Condicionada a no publicada; la FK RESTRICT de historial_notas sigue como defensa para todo lo demás.
+    const r = await tx.evaluacion.deleteMany({ where: { id: evaluacionId, estado: { not: "publicada" }, publicadaAt: null } });
+    if (r.count !== 1) throw new Error("evaluacion_no_eliminable");
+    return true;
+  }).catch((error: unknown) => {
+    if (String(error).includes("evaluacion_no_eliminable") || (error as { code?: string }).code === "P2003") return false;
     throw error;
-  }
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "evaluacion", entidadId: evaluacionId });
+  });
+  if (!borrada) return fallo(MENSAJE_EVALUACION_NO_ELIMINABLE);
   return ok("Evaluación eliminada.");
 }
 
@@ -648,12 +671,14 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
       where: { cursoId, periodoId }, orderBy: [{ fecha: "asc" }, { titulo: "asc" }], include: { desempenos: { select: { desempenoId: true } } },
     }),
   ]);
-  const [notas, cierre, conHistorial] = await Promise.all([
+  const [notas, cierre, conHistorial, conEventos] = await Promise.all([
     ctx.db.nota.findMany({ where: { evaluacionId: { in: evaluaciones.map((e) => e.id) } } }),
     ctx.db.cierreCurso.findFirst({ where: { cursoId, periodoId }, select: { id: true } }),
-    ctx.db.historialNota.groupBy({ by: ["evaluacionId"], where: { evaluacionId: { in: evaluaciones.map((e) => e.id) } } }),
+    ctx.db.historialNota.groupBy({ by: ["evaluacionId"], where: { evaluacionId: { in: evaluaciones.map((e) => e.id) }, ...HISTORIAL_BLOQUEANTE } }),
+    ctx.db.eventoAcademico.groupBy({ by: ["grupoId"], where: { grupoId: { in: [...new Set(evaluaciones.map((e) => e.grupoId))] } } }),
   ]);
   const idsConHistorial = new Set(conHistorial.map((h) => h.evaluacionId));
+  const gruposConEventos = new Set(conEventos.map((x) => x.grupoId));
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "notas_curso", entidadId: cursoId, detalle: { periodoId } });
   return {
     curso, salon, periodo, alumnos, competencias,
@@ -663,8 +688,11 @@ export async function grillaNotas(ctx: TenantContext, cursoId: string, periodoId
       grupoId: e.grupoId, descripcion: e.descripcion, estado: e.estado, publicadaAt: e.publicadaAt,
       columna: nombreColumna(e, evaluaciones, competencias),
       desempenoIds: e.desempenos.map((x) => x.desempenoId),
-      /** Se puede eliminar: borrador sin historial, NSP, consecuencia ni recuperación. */
-      eliminable: evaluacionEliminable({ estado: e.estado, tieneHistorial: idsConHistorial.has(e.id), notas: notas.filter((n) => n.evaluacionId === e.id) }),
+      /** Se puede eliminar: nunca publicada y sin NSP, consecuencia ni recuperación (aunque tenga notas de borrador). */
+      eliminable: evaluacionEliminable({
+        estado: e.estado, publicadaAt: e.publicadaAt, historialBloqueante: idsConHistorial.has(e.id), eventosDelGrupo: gruposConEventos.has(e.grupoId),
+        notas: notas.filter((n) => n.evaluacionId === e.id),
+      }),
     })),
     notas: notas.map((n) => ({
       evaluacionId: n.evaluacionId, alumnoId: n.alumnoId, valorLiteral: n.valorLiteral as Literal | null, valorNumerico: num(n.valorNumerico), comentario: n.comentario,

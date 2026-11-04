@@ -69,16 +69,20 @@ async function evaluacion(ctx: TenantContext, cursoId: string, competenciaId: st
 }
 
 describe("borrado de evaluaciones", () => {
-  it("el borrador sin historial se elimina; publicada, con historial o con NSP no", async () => {
+  it("nunca publicada se elimina aunque tenga notas de borrador (auditado); publicada alguna vez o con NSP no", async () => {
     const tutora = c.ctxDe("tutora");
     const vacia = await evaluacion(tutora, c.cursoTutora.id, compMat, "Borrador vacío");
     const conNota = await evaluacion(tutora, c.cursoTutora.id, compMat, "Con nota");
     expect(await guardarNota(tutora, { evaluacionId: conNota.id, alumnoId: c.alumnos.mateo.id, valor: "A" })).toEqual({ ok: true });
-    // Publicada sin historial (cargada antes de esta función): tampoco.
-    const publicada = await c.db.evaluacion.create({
-      data: { tenantId: c.tenant.id, cursoId: c.cursoTutora.id, periodoId, competenciaId: compMat, titulo: "Publicada", fecha: fechaDb(hoy), estado: "publicada", publicadaAt: new Date() },
+    expect(await guardarNota(tutora, { evaluacionId: conNota.id, alumnoId: c.alumnos.mateo.id, valor: "B" })).toEqual({ ok: true });
+    // Publicada y luego con notas: se publicó alguna vez.
+    const publicada = await evaluacion(tutora, c.cursoTutora.id, compMat, "Publicada");
+    expect(await guardarNota(tutora, { evaluacionId: publicada.id, alumnoId: c.alumnos.mateo.id, valor: "A" })).toEqual({ ok: true });
+    expect(await publicarEvaluacion(tutora, publicada.grupoId)).toMatchObject({ ok: true });
+    // Rastro de publicación aunque el estado diga programada (dato raro): publicada_at.
+    const conRastro = await c.db.evaluacion.create({
+      data: { tenantId: c.tenant.id, cursoId: c.cursoTutora.id, periodoId, competenciaId: compMat, titulo: "Con rastro", fecha: fechaDb(hoy), estado: "programada", publicadaAt: new Date() },
     });
-    // NSP sin historial (dato raro): tampoco.
     const conNsp = await c.db.evaluacion.create({
       data: { tenantId: c.tenant.id, cursoId: c.cursoTutora.id, periodoId, competenciaId: compMat, titulo: "Con NSP", fecha: fechaDb(hoy), estado: "programada" },
     });
@@ -86,20 +90,25 @@ describe("borrado de evaluaciones", () => {
 
     const g = await grillaNotas(tutora, c.cursoTutora.id, periodoId);
     const eliminable = Object.fromEntries(g.evaluaciones.map((e) => [e.titulo, e.eliminable]));
-    expect(eliminable).toEqual({ "Borrador vacío": true, "Con nota": false, Publicada: false, "Con NSP": false });
+    expect(eliminable).toEqual({ "Borrador vacío": true, "Con nota": true, Publicada: false, "Con rastro": false, "Con NSP": false });
 
-    for (const e of [conNota, publicada, conNsp]) {
+    for (const e of [publicada, conRastro, conNsp]) {
       expect(await eliminarEvaluacion(tutora, e.id)).toEqual({ ok: false, error: MENSAJE_EVALUACION_NO_ELIMINABLE });
     }
-    expect(await c.db.historialNota.count({ where: { evaluacionId: conNota.id } })).toBe(1);
+    expect(await c.db.historialNota.count({ where: { evaluacionId: publicada.id } })).toBeGreaterThan(0);
+
     expect(await eliminarEvaluacion(tutora, vacia.id)).toMatchObject({ ok: true });
-    expect(await c.db.evaluacion.count({ where: { id: vacia.id } })).toBe(0);
+    expect(await eliminarEvaluacion(tutora, conNota.id)).toMatchObject({ ok: true });
+    expect(await c.db.evaluacion.count({ where: { id: { in: [vacia.id, conNota.id] } } })).toBe(0);
+    expect(await c.db.historialNota.count({ where: { evaluacionId: conNota.id } })).toBe(0);
+    const registro = await db.auditoria.findFirstOrThrow({ where: { tenantId: c.tenant.id, accion: "borrar", entidad: "evaluacion", entidadId: conNota.id } });
+    expect(registro.detalle).toMatchObject({ titulo: "Con nota", curso: "Matemática", notas: 1, historial: 2 });
   });
 
-  it("defensa en la BD: una evaluación con historial no se borra (FK RESTRICT)", async () => {
-    const e = await c.db.evaluacion.findFirstOrThrow({ where: { titulo: "Con nota" } });
+  it("defensa en la BD: una evaluación con historial no se borra directamente (FK RESTRICT)", async () => {
+    const e = await c.db.evaluacion.findFirstOrThrow({ where: { titulo: "Publicada" } });
     await expect(db.evaluacion.delete({ where: { id: e.id } })).rejects.toThrow();
-    expect(await c.db.historialNota.count({ where: { evaluacionId: e.id } })).toBe(1);
+    expect(await c.db.historialNota.count({ where: { evaluacionId: e.id } })).toBeGreaterThan(0);
   });
 });
 

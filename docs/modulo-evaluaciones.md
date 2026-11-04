@@ -95,7 +95,7 @@ Flujo del ejemplo (examen de Comunicación del 22 de noviembre):
 
 | Rol | Puede |
 |---|---|
-| Profesor del curso | Crear, editar y eliminar evaluaciones (eliminar: solo borradores sin historial, NSP, consecuencia ni recuperación) y criterios; autorizar y registrar recuperaciones (solo él, no el tutor); poner notas y resultados; publicar y reenviar; informe de progreso; confirmar calificaciones; cerrar el curso |
+| Profesor del curso | Crear, editar y eliminar evaluaciones (eliminar: solo si nunca se publicó y no tiene NSP, consecuencia ni recuperación; queda auditado) y criterios; autorizar y registrar recuperaciones (solo él, no el tutor); poner notas y resultados; publicar y reenviar; informe de progreso; confirmar calificaciones; cerrar el curso |
 | Tutor del salón | Lo anterior en sus cursos y, además, el comentario de tutoría de sus alumnos (periodo abierto) |
 | Dirección | Ver todo (registro, historial, criterios, consolidado), cerrar y reabrir cursos y periodos, publicar la libreta, elegir la sugerencia provisional. No edita notas |
 | Apoderado / alumno | Solo sus hijos o a sí mismo: notas **publicadas**, informes compartidos y la libreta publicada. Nunca promedios del salón ni comparaciones |

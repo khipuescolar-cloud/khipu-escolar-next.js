@@ -298,7 +298,7 @@ async function ListaEvaluaciones({
         <h2 className="font-titulo text-cuerpo font-semibold">Evaluaciones del periodo</h2>
         <CardDescription>
           Las notas de una evaluación programada son un borrador: la familia las ve cuando publicas los resultados.
-          {puedeEditar && " Solo se eliminan las columnas en borrador sin notas ni historial; las publicadas o con historial se conservan para la auditoría."}
+          {puedeEditar && " Solo se eliminan las columnas que nunca se publicaron y no tienen NSP, consecuencia ni recuperación; al eliminarlas se borran sus notas de borrador."}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -373,12 +373,12 @@ async function ListaEvaluaciones({
                             <BotonConfirmar
                               etiqueta="Eliminar" variante="ghost" peligro
                               titulo={`¿Eliminar «${c.columna}»?`}
-                              descripcion="Se borran también las notas de esta columna. No se puede deshacer."
+                              descripcion="Se borran también las notas de borrador de esta columna y su historial (queda registrado en la auditoría). No se puede deshacer."
                               confirmar="Eliminar columna"
                               accion={eliminarEvaluacionAction.bind(null, slug, c.id)}
                             />
                           ) : (
-                            // Integridad (specs/11): publicada o con historial, NSP, consecuencia o recuperación → no se borra.
+                            // Integridad (specs/11): publicada alguna vez o con NSP, consecuencia o recuperación → no se borra.
                             <span className="inline-flex items-center gap-1 px-2 text-etiqueta text-muted-foreground" title={MENSAJE_EVALUACION_NO_ELIMINABLE}>
                               <Lock className="size-3.5" strokeWidth={2} aria-hidden />No se puede eliminar
                               <span className="sr-only">: {MENSAJE_EVALUACION_NO_ELIMINABLE}</span>
