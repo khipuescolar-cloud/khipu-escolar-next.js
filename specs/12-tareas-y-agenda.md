@@ -1,6 +1,6 @@
 # 12 — Tareas y agenda
 
-> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-11-03 (rama `pre-notificaciones`: bandeja general y canales, specs/38; antes: Claude Code: tabla de roles con administrativo y alumno)
+> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-11-03 (rama `pro-calendario`: calendario institucional con vistas Día/Semana/Mes/Lista, clases del profesor y filtros; antes: `pre-notificaciones`, bandeja general y canales, specs/38)
 
 ## Objetivo
 Que los profesores publiquen tareas por curso y eventos por salón, que dirección publique eventos del colegio y que las familias vean todo ordenado por fecha, sin llamadas ni grupos de mensajería.
@@ -18,7 +18,7 @@ Que los profesores publiquen tareas por curso y eventos por salón, que direcci�
 ## Flujos
 1. Profesor → `/tareas`: formulario (curso, fecha de entrega, título, descripción opcional, casilla **«Avisar a las familias»**, desmarcada por defecto) y lista de sus tareas (próximas y de la última semana) con «Eliminar».
 2. Apoderado → `/tareas`: por hijo, tareas pendientes en «Para mañana», «Esta semana» y «Más adelante».
-3. `/agenda`: lista de la semana (lunes a domingo) con navegación anterior/siguiente/hoy, mini calendario mensual con puntos en los días con algo, y formulario «Nuevo evento» (dirección y profesor). `?fecha=AAAA-MM-DD` fija semana y mes. Las tareas aparecen como «Entrega de tarea».
+3. `/agenda`: calendario institucional (ver «Calendario») con vistas Día, Semana, Mes y Lista, filtros por tipo y por salón, y formulario «Nuevo evento» (dirección, profesor y administrativo). Las tareas aparecen como «Entrega de tarea».
 
 ## Reglas de negocio
 - Todas las fechas se calculan en **America/Lima** (`src/lib/fechas.ts`). La tarea vence a las 8:00 a. m. del día elegido; el evento sin hora se guarda a las 8:00.
@@ -40,7 +40,10 @@ eliminarTarea(ctx, tareaId): Resultado
 cursosParaTareas(ctx); tareasDelDocente(ctx)
 tareasDeFamilia(ctx, ahora?)  // [{ alumno, grupos: { manana, semana, despues } }]
 // agenda.ts — requireFeature(ctx, "agenda")
-itemsDeAgenda(ctx, desde, hasta): ItemAgenda[]   // eventos + entregas, según alcance (salonIdsVisibles)
+itemsDeAgenda(ctx, desde, hasta): ItemAgenda[]   // forma posicional (el .ics y «Mi horario»): sin clases, filtro «todo»
+itemsDeAgenda(ctx, { desde, hasta, filtros?: { filtro?, salonId? }, incluirClases? }): ItemAgenda[]
+// ItemAgenda: tipo (evento|reunion|examen|feriado|actividad|entrega|clase), categoria (clase|mi-reunion|personal|academico|institucional|salon), salonId, estado?
+salonesParaFiltro(ctx)   // salones visibles y no archivados para «Curso o sección»
 salonesParaEventos(ctx)
 crearEvento(ctx, { titulo, descripcion?, tipo, fecha, hora?, salonId? }): Resultado
 eliminarEvento(ctx, eventoId): Resultado
@@ -51,14 +54,27 @@ eliminarEvento(ctx, eventoId): Resultado
 
 ## Textos y UX
 
-- **Diseño (spec 18):** «Nueva tarea» y «Nuevo evento» están en el encabezado y abren un `Dialog`; editar tarea/evento también es un `Dialog`; eliminar pide confirmación (`BotonConfirmar`, botón «Eliminar tarea»/«Eliminar evento»). Tareas como tarjetas con insignia de fecha (ícono + palabra); agenda por día con insignia de tipo y mini calendario con celdas de 40 px.
-- Tipos con ícono + palabra: Evento, Reunión, Examen, Feriado, Actividad, Entrega de tarea.
+- **Diseño (spec 18):** «Nueva tarea» y «Nuevo evento» están en el encabezado y abren un `Dialog`; editar tarea/evento también es un `Dialog` (en la vista Lista); eliminar pide confirmación (`BotonConfirmar`, botón «Eliminar tarea»/«Eliminar evento»). Tareas como tarjetas con insignia de fecha (ícono + palabra); agenda como calendario (ver «Calendario»).
+- Tipos con ícono + palabra: Clase, Reunión, Evaluación, Entrega de tarea, Evento, Examen, Feriado, Actividad (estilos en `src/components/calendario/estilos.ts`).
 - Familias: «Lo que tus hijos tienen que entregar.» / «No tiene tareas pendientes.»
 - Casilla: «Avisar a las familias» · «Las familias la ven en sus notificaciones de Khipu y en el celular (sin correo).»
 - Aviso: asunto «Nueva tarea de Matemática» · «Mateo tiene una tarea nueva de Matemática: «Fichas de fracciones».» · «Se entrega el 30/10/2026.» + **Ver tareas**.
 
 ## Reuniones en la agenda
-`itemsDeAgenda` también devuelve las reuniones de padres visibles para el usuario (módulo `reuniones`, `specs/32`) como ítems `tipo: "reunion"` con enlace a `/reuniones/<id>`; no son `EventoAgenda`. El `.ics` las incluye.
+`itemsDeAgenda` también devuelve las reuniones visibles para el usuario (módulo `reuniones`, `specs/32`) como ítems `tipo: "reunion"`; no son `EventoAgenda`. El `.ics` las incluye. La consulta vive en una sola función local (`reunionesDeAgenda`), para cambiarla luego por `reunionesParaCalendario` de `reuniones.ts`.
+- **Mis reuniones** (`categoria: "mi-reunion"`): las que el usuario convocó **o donde está invitado** (`reunion_invitados`); la familia, solo donde la invitan. Un profesor invitado ahora las ve en la agenda (antes solo las que convocaba).
+- **Reuniones del personal** (`categoria: "personal"`, filtro solo para dirección y administrativo): todas las del colegio. El administrativo ve las individuales ajenas como «Reunión individual», sin título, descripción ni enlace.
+- En «Todo», dirección ve todas (como antes); el resto, solo las suyas. Las canceladas no se muestran; otros estados se muestran tal cual (`estado` en el ítem; si llegara «cancelada» se dibuja tachada).
+- Enlace a `/reuniones/<id>` solo si esa página se la mostrará: dirección, quien convocó y la familia invitada (un profesor invitado no tiene enlace).
+
+## Calendario (plan Pro)
+- **Estado en la URL:** `/agenda?vista=dia|semana|mes|lista&fecha=AAAA-MM-DD&filtro=todo|mis-reuniones|personal|academico|institucional&salon=<uuid>`. Valores inválidos vuelven al defecto (semana, hoy en la zona del colegio, todo, sin salón). Lógica pura en `src/lib/agenda-calendario.ts` (`leerEstadoAgenda`, `urlAgenda`, `rangoDeVista`).
+- **Vistas:** Día y Semana usan la grilla de tiempo compartida (`src/components/calendario/GrillaTiempo.tsx`, la misma de «Mi horario», specs/34): escala por minuto, carriles para los cruces, fila «Todo el día» (feriados, evaluaciones, entregas y eventos sin hora), línea de la hora actual y detalle en un popover (con adjuntos y «Editar o eliminar», que lleva a la Lista de ese día). La semana muestra sábado y domingo solo si tienen algo. En el celular la semana se ve un día a la vez con pestañas. **Mes:** cuadrícula lunes–domingo (`cuadriculaMes`) con hasta 3 ítems por día y «N más» (en el celular, puntos); tocar el día abre la vista Día. **Lista:** próximos 30 días desde la fecha, agrupados por día, con editar/eliminar evento. Navegación anterior/hoy/siguiente según la vista («Semana siguiente», «Mes siguiente»…).
+- **Filtros:** Todo · Mis reuniones · Reuniones del personal (dirección y administrativo) · Eventos académicos (evaluaciones y entregas de tareas) · Actividades institucionales (EventoAgenda sin salón) · y aparte **Curso o sección** (selector con los salones de `salonIdsVisibles`; un salón ajeno no devuelve nada; con salón solo se ve lo de ese salón). Los EventoAgenda de un salón salen en «Todo» y con su salón.
+- **Clases del profesor** (`incluirClases`, solo rol profesor con el módulo `horario`, filtro «Todo» o por salón): cada bloque de su horario (`wherePorProfesor`) se proyecta a cada fecha del rango que cae en su día de la semana (`proyectarClases`), con sus horas «HH:mm» llevadas a instantes en `tenant.zonaHoraria`. Sin clases en feriados nacionales (`feriadosNacionales`), en los extra de la plataforma (`feriadosAplicables`: país, región o colegio) ni en días con un EventoAgenda «Feriado» de todo el colegio. Id de la clase: `<bloqueId>:<fecha>`. Rango máximo con clases: **42 días** (una cuadrícula de mes); más, error. Familia y alumno no ven clases en la agenda (su horario está en `/horario`).
+- **Rendimiento:** una consulta por fuente (eventos, entregas, reuniones, evaluaciones, bloques; feriados de plataforma con caché), solo las fuentes que pide el filtro. La página es componente de servidor; solo la grilla (popover, pestañas, hora que avanza) es cliente.
+- **Entregas de tareas:** la consulta vive en una sola función local (`entregasDeTareas`) y descarta las tareas sin fecha de entrega, para integrar `tareasVisiblesParaAgenda` de `tareas.ts`.
+- **Accesibilidad:** vistas y filtros son enlaces con `aria-current`; cada columna del día es una `section` con su nombre y fecha; cada ítem es un botón con «Tipo: título, horario»; tipos con ícono + palabra (Clase, Reunión, Evaluación, Entrega de tarea, Evento, Actividad, Feriado, Examen) y leyenda bajo el calendario.
 
 ## Exportación .ics
 `GET /api/agenda.ics` (sesión + `requireFeature(ctx, "agenda")`, `no-store`): calendario iCalendar (RFC 5545) con los eventos y las fechas de entrega visibles para el usuario (apoderado: salones de sus hijos; profesor: sus salones; dirección: todos), de hace 30 días a 1 año. Constructor puro en `src/lib/ics.ts`: CRLF, plegado a 75 octetos, escape de `\ ; ,` y saltos de línea, `DTSTAMP`, `UID` = `<id>@khipuescolar`. Eventos con hora en UTC (1 h de duración); entregas de tarea como evento de día completo (día de Lima). Enlace «Descargar calendario (.ics)» en `/agenda`. Es una descarga puntual, no una suscripción.
@@ -76,9 +92,15 @@ eliminarEvento(ctx, eventoId): Resultado
 ## Pruebas
 - unit: `tests/unit/fechas.test.ts` (zona Lima, agrupación, semanas y cuadrícula del mes).
 - unit: `tests/unit/ics.test.ts` (escape, plegado a 75 octetos, CRLF, fechas).
+- unit: `tests/unit/agenda-calendario.test.ts` (proyección de clases: zona horaria, día de la semana, feriados, borde de mes; vistas y URL; conversión a ítems; celdas del mes).
+- integración: `tests/integracion/agenda-calendario.test.ts` (profesor ve sus clases y sus reuniones convocadas e invitado; filtros por tipo y salón; «Personal» de dirección y administrativo sin detalle de individuales ajenas; familia solo lo de su hijo; otro colegio nada; feriado sin clases; rango máximo).
 - integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (tareas por curso y agrupación, alcance de eventos por salón, permisos de creación, Khipu Base → 403); `tests/integracion/avisos-pendientes.test.ts` (aviso de tarea solo con la casilla y solo a familias con consentimiento); `tests/integracion/extras-edicion-ics-zip.test.ts` (editar tarea/evento: permisos, auditoría, aislamiento entre colegios; alcance de la agenda por rol).
 - integración: `tests/integracion/adjuntos-comunicados-tareas.test.ts` (adjuntos de tareas: acceso y borrado).
+- e2e: `tests/e2e/agenda-calendario.test.ts` (cambiar de vista, navegar, filtrar por tipo y salón; filtro del personal por rol).
 - e2e: `tests/e2e/tareas-agenda.test.ts` (profesora crea tarea con «Avisar a las familias», la familia la recibe en su bandeja (el e2e anterior buscaba el correo en Mailpit: revisar, pendiente) y la ve en «Para mañana»; agenda; periodos de dirección; edita su tarea y descarga el .ics).
 
 ## Pendientes
+- Integrar `reunionesParaCalendario` / `ocupacionPropia` (agente de reuniones) en `reunionesDeAgenda` y `tareasVisiblesParaAgenda` (agente de tareas) en `entregasDeTareas`; el tipo `bloqueo` de `ItemCalendario` queda listo para la ocupación propia.
+- Familia y alumno: mostrar en la agenda el horario del salón del hijo (opcional).
+- Vista por defecto según el dispositivo (hoy: Semana; en el celular la semana ya se ve día a día con pestañas).
 - (Resuelto) Adjuntos en la agenda: ver «Adjuntos».

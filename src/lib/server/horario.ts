@@ -85,14 +85,14 @@ function aVista(b: FilaBloque): BloqueVista {
 }
 
 // Inferir el tipo desde el cliente extendido con un select anidado hace que TypeScript se pierda (ver salones-activos.ts).
-async function buscarBloques(ctx: TenantContext, where: Prisma.BloqueHorarioWhereInput): Promise<BloqueVista[]> {
+export async function buscarBloques(ctx: TenantContext, where: Prisma.BloqueHorarioWhereInput): Promise<BloqueVista[]> {
   const consulta: Prisma.BloqueHorarioFindManyArgs = { where, select: SELECT_BLOQUE };
   const filas = (await ctx.db.bloqueHorario.findMany(consulta)) as unknown as FilaBloque[];
   return filas.map(aVista).sort((a, b) => a.dia - b.dia || minutos(a.horaInicio) - minutos(b.horaInicio) || a.salonNombre.localeCompare(b.salonNombre));
 }
 
 /** Bloques donde está el profesor: los de sus cursos y los bloques sin curso a su cargo (solo salones no archivados). */
-function wherePorProfesor(profesorId: string): Prisma.BloqueHorarioWhereInput {
+export function wherePorProfesor(profesorId: string): Prisma.BloqueHorarioWhereInput {
   return { salon: whereSalonActivo, OR: [{ curso: { profesorId } }, { cursoId: null, profesorId }] };
 }
 
@@ -463,7 +463,7 @@ export async function agendaDeLaSemana(ctx: TenantContext, hoyIso: string): Prom
   const fechas = fechasDeLaSemana(hoyIso);
   const items = await itemsDeAgenda(ctx, instanteLima(fechas[1], "00:00"), instanteLima(sumarDias(fechas[5], 1), "00:00"));
   return items.flatMap((i) => {
-    if (i.tipo === "entrega") return [];
+    if (i.tipo === "entrega" || i.tipo === "clase") return [];
     const e = eventoDeSemana({ ...i, tipo: i.tipo }, ctx.tenant.zonaHoraria);
     return e ? [e] : [];
   });

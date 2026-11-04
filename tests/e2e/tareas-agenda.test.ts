@@ -55,11 +55,11 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada y en sus no
   await expect(page.getByText(titulo)).toHaveCount(0);
 });
 
-test("la agenda muestra la semana, el mini calendario y las entregas", async ({ page }) => {
+test("la agenda muestra la semana, la navegación y el botón de nuevo evento", async ({ page }) => {
   await entrar(page, "lucia.garcia@nuevohorizonte.demo", "nuevohorizonte");
   await page.goto(colegio("nuevohorizonte", "/agenda"));
   await expect(page.getByRole("heading", { name: /Semana del/ })).toBeVisible();
-  await expect(page.getByRole("link", { name: /Mes siguiente/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Semana siguiente" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Nuevo evento" })).toBeVisible();
 });
 
