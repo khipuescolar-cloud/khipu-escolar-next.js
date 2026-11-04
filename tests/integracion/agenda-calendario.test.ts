@@ -4,6 +4,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { instanteEnZona } from "@/lib/dias-habiles";
 import { itemsDeAgenda, type ItemAgenda, type OpcionesAgenda } from "@/lib/server/agenda";
 import { db } from "@/lib/server/db";
+import { asignarTareasSinDestinos } from "../../prisma/seed-tareas-destinos";
 import { asignarBloque, crearPlantillaSugerida, periodosDeLaPlantilla } from "@/lib/server/horario";
 import type { TenantContext } from "@/lib/server/tenant";
 import { crearColegioPrueba, type ColegioPrueba } from "./ayudantes/colegio-prueba";
@@ -50,6 +51,8 @@ beforeAll(async () => {
   ids.actividad = (await db.eventoAgenda.create({ data: { tenantId: t, titulo: "Feria de ciencias", tipo: "actividad", inicio: lima("2027-03-05", "10:00"), creadoPorId: m.direccion.membership.id } })).id;
   ids.eventoOtroSalon = (await db.eventoAgenda.create({ data: { tenantId: t, salonId: pro.otroSalon.id, titulo: "Paseo 5.° A", inicio: lima("2027-03-05", "09:00"), creadoPorId: m.otroProfesor.membership.id } })).id;
   ids.tarea = (await db.tarea.create({ data: { tenantId: t, cursoId: pro.cursoTutora.id, titulo: "Fracciones", fechaEntrega: lima("2027-03-02", "23:59"), creadoPorId: m.tutora.membership.id } })).id;
+  // Tareas con destinatarios (specs/39): la sección «Todos» y sus asignaciones, como en el seed.
+  await asignarTareasSinDestinos(db, t);
   // Feriado del colegio el lunes 8 de marzo.
   await db.eventoAgenda.create({ data: { tenantId: t, titulo: "Aniversario", tipo: "feriado", inicio: lima("2027-03-08", "00:00"), creadoPorId: m.direccion.membership.id } });
 
