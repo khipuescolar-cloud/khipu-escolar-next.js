@@ -1,5 +1,8 @@
 # 28 — Licencias de Nudito+ (venta por alumno, pago con Yape)
 
+> **OBSOLETO (inerte) desde 2026-11-14 — ver `specs/44-nudito-seguimiento-y-gobierno.md`.** Nudito es el tutor de Khipu Pro
+> (specs/41) y lo enciende cada colegio; no hay licencias por familia ni pagos con Yape. Las tablas y datos se conservan.
+
 > Estado: en pausa — desactivado (implementación conservada; el modelo familia/Yape se descartó; producto futuro contratado por el colegio; ver docs/nudito-plus-viabilidad.md) · Plan: — (módulo fijo `nudito_plus`, apagado) · Última actualización: 2026-11-03 (Claude Code)
 
 > **Estado comercial (2026-11-03): en pausa — desactivado.** El modelo familia/Yape se descartó; si vuelve, será un

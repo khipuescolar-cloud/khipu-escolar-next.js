@@ -1,5 +1,8 @@
 # 29 — Nudito+ (tutor IA por alumno)
 
+> **REEMPLAZADO por `specs/41-nudito-tutor.md` (2026-11-14).** Se reutilizan el proveedor intercambiable, los filtros de
+> seguridad, los topes, el consentimiento y el modo hijo; la licencia por alumno queda inerte (specs/44).
+
 > Estado: en pausa — desactivado (implementación conservada; el modelo familia/Yape se descartó; producto futuro contratado por el colegio; ver docs/nudito-plus-viabilidad.md) · Plan: — (módulo fijo `nudito_plus`, apagado) · Última actualización: 2026-11-03 (Claude Code)
 
 > **Estado comercial (2026-11-03): en pausa — desactivado.** El modelo familia/Yape se descartó; si vuelve, será un
