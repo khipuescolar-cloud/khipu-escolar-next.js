@@ -13,8 +13,15 @@ let base: ColegioPrueba;
 let thiagoMadreId: string;
 
 const manana = () => sumarDias(fechaLima(new Date()), 1);
+// Cada convocatoria en su propia franja de 15 min desde las 17:00 (fuera del horario laboral): las reservas de agenda
+// del personal no se pueden cruzar (specs/40).
+let franja = 0;
+const siguienteHora = () => {
+  const m = 17 * 60 + 15 * franja++;
+  return `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`;
+};
 const datos = (extra: Record<string, unknown> = {}) => ({
-  titulo: "Reunión de prueba", fecha: manana(), hora: "18:00", lugar: "Aula 3.° B", alcance: "salon", ...extra,
+  titulo: "Reunión de prueba", fecha: manana(), hora: siguienteHora(), duracion: 15, lugar: "Aula 3.° B", alcance: "salon", fueraDeHorario: true, ...extra,
 });
 
 beforeAll(async () => {
@@ -82,7 +89,7 @@ describe("convocar reuniones", () => {
     const dir = pro.ctxDe("direccion");
     expect((await convocarReunion(dir, datos({ salonId: pro.salon.id, fecha: "2020-01-01" }))).ok).toBe(false);
     expect((await convocarReunion(dir, datos({ salonId: pro.salon.id, lugar: "" }))).ok).toBe(false);
-    expect((await convocarReunion(dir, datos({ salonId: pro.salon.id, horaFin: "17:00" }))).ok).toBe(false);
+    expect((await convocarReunion(dir, datos({ salonId: pro.salon.id, hora: "18:00", horaFin: "17:00" }))).ok).toBe(false);
     const vacio = await convocarReunion(otro.ctxDe("direccion"), datos({ salonId: otro.salon.id }));
     expect(vacio.ok).toBe(true); // el salón de `otro` sí tiene a Rosa
     // Un salón sin apoderados no se puede convocar.
@@ -207,9 +214,11 @@ describe("recordatorio, asistencia, acta y cancelación", () => {
   it("cancelar avisa a los invitados, bloquea respuestas y se audita; dirección también puede", async () => {
     const r = await convocarReunion(pro.ctxDe("tutora"), datos({ titulo: "Se cancela", salonId: pro.salon.id }));
     const id = (r as { id: string }).id;
-    await esperarProhibido(cancelarReunion(pro.ctxDe("otroProfesor"), id));
-    expect((await cancelarReunion(pro.ctxDe("direccion"), id)).ok).toBe(true);
-    expect((await cancelarReunion(pro.ctxDe("direccion"), id)).ok).toBe(false);
+    const motivo = { motivo: "Cambio de planes" };
+    await esperarProhibido(cancelarReunion(pro.ctxDe("otroProfesor"), id, motivo));
+    expect((await cancelarReunion(pro.ctxDe("direccion"), id, {})).ok).toBe(false); // sin motivo
+    expect((await cancelarReunion(pro.ctxDe("direccion"), id, motivo)).ok).toBe(true);
+    expect((await cancelarReunion(pro.ctxDe("direccion"), id, motivo)).ok).toBe(false);
     expect(await pro.db.aviso.count({ where: { referenciaId: id, plantilla: "reunion_cancelada" } })).toBeGreaterThan(0);
     expect((await responderInvitacion(pro.ctxDe("madre"), id, { respuesta: "asistire" })).ok).toBe(false);
     const { db } = await import("@/lib/server/db");

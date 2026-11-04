@@ -5,7 +5,7 @@
 ## Objetivo
 Avisar a la familia por correo y push cada vez que se registra la asistencia (y en justificaciones, correcciones de notas, comunicados importantes, libretas e invitaciones), notificar dentro de Khipu (bandeja `/notificaciones`, specs/38) y por push lo habitual (calificación nueva, tarea, evaluación programada, mensaje, comunicado), avisar al personal cuando le toca actuar (mensajes de familias, justificaciones, incidencias, correos desactivados) y no pasarse de los límites del proveedor.
 
-**Estrategia de canales (2026-11-03):** bandeja interna + push para lo habitual; **correo solo para lo importante**: alertas de asistencia, justificaciones, correcciones de notas, comunicados marcados «Importante» y documentos académicos relevantes (libretas). Sin cambios por ahora (decisión pendiente): `asistencia_llego` (llegada diaria por correo), `reunion_recordatorio`, `documento_nuevo` e `informe_progreso` siguen por correo y push.
+**Estrategia de canales (2026-11-03):** bandeja interna + push para lo habitual; **correo solo para lo importante**: alertas de asistencia, justificaciones, correcciones de notas, comunicados marcados «Importante» y documentos académicos relevantes (libretas). Reuniones (specs/40): correo solo en invitación (`reunion_convocada`, asunto «Khipu — Invitación a reunión»), reprogramación (`reunion_reprogramada`), cancelación (`reunion_cancelada`) y solicitud de una familia al docente (`reunion_solicitada`); respuestas y acuerdos solo bandeja + push (`reunion_respuesta`). Sin cambios por ahora (decisión pendiente): `asistencia_llego` (llegada diaria por correo), `reunion_recordatorio`, `documento_nuevo` e `informe_progreso` siguen por correo y push.
 
 ## Roles y permisos
 | Rol | Puede | No puede |
@@ -75,6 +75,8 @@ Insertar en `avisos`: `tenantId`, `tipo`, `canal` (`correo` → `destinatario` =
 | `nudito_plus` | nudito | familia | `nudito-pago:<pagoId>` o `nudito-vence:<licenciaId>:<hasta>` | `{ colegio, alumno, titulo, parrafos: string[1..4], url }` → licencia activada, pago no confirmado o «vence el dd/mm/aaaa»; firmado por el equipo Khipu, botón «Ver Nudito+» (specs/28) |
 
 `justificacion_*` también guardan `asistenciaId`.
+
+- **Reuniones (specs/40)**: `reunion_convocada`, `reunion_recordatorio`, `reunion_cancelada`, `reunion_acta` y `reunion_reprogramada` aceptan además `duracion` (min), `organizador` y `modalidad` opcionales; `reunion_solicitada` = las mismas + `solicitante`; `reunion_respuesta` = `{ colegio, titulo, texto, url }` (solo push/bandeja). `reunion_reprogramada` está en `PLANTILLAS_FAMILIA`.
 
 ## Modelo de datos
 - `avisos` (cola y registro; `estado` incluye `enviando`; `referenciaId`), `preferencias_aviso`, `push_suscripciones` (global por usuario, `endpoint` único), `apoderados_alumnos.recibeAvisos`, `consentimientos.revocadoAt`, `justificacion_tokens`.

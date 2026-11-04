@@ -92,7 +92,7 @@ async function buscarBloques(ctx: TenantContext, where: Prisma.BloqueHorarioWher
 }
 
 /** Bloques donde está el profesor: los de sus cursos y los bloques sin curso a su cargo (solo salones no archivados). */
-function wherePorProfesor(profesorId: string): Prisma.BloqueHorarioWhereInput {
+export function wherePorProfesor(profesorId: string): Prisma.BloqueHorarioWhereInput {
   return { salon: whereSalonActivo, OR: [{ curso: { profesorId } }, { cursoId: null, profesorId }] };
 }
 

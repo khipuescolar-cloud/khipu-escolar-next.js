@@ -1,6 +1,8 @@
 # 32 — Reuniones (convocatoria, confirmación y acta)
 
-> Estado: implementado · Plan: Khipu Pro (módulo `reuniones`) · Última actualización: 2026-10-31 (Claude Code, rama `feat/reuniones`)
+> Estado: implementado · Plan: Khipu Pro (módulo `reuniones`) · Última actualización: 2026-11-03 (Claude Code, rama `pro-reuniones`: tipos, personal invitado, disponibilidad, reprogramar, cancelar con motivo, solicitudes y acuerdos → **specs/40**) · 2026-10-31 (rama `feat/reuniones`)
+
+> **Ampliado por `specs/40-disponibilidad-y-reuniones.md`.** Donde esta spec y la 40 difieran (convocar, ver, cancelar, avisos de convocatoria y cancelación, permisos del profesor y del administrativo), manda la 40. Lo de recordatorio, asistencia y acta sigue aquí.
 
 ## Objetivo
 Convocar reuniones (de aula, de colegio o individuales con una familia), saber quién confirma, marcar la asistencia real
@@ -83,4 +85,4 @@ generarInvitados(alcance, vinculos), puedeResponderReunion(reunion, ahora), resu
 - Seed: `prisma/seed-reuniones.ts` (Nuevo Horizonte: reunión pasada con asistencia y acta, próxima de 3.° B con respuestas mixtas y Rosa sin responder, individual con Rosa y asamblea de todo el colegio).
 
 ## Pendientes
-- Recordatorio automático el día anterior; exportar acta a PDF; reprogramar una reunión (hoy se cancela y se crea otra); invitar también a personal.
+- Recordatorio automático el día anterior; exportar acta a PDF. (Reprogramar e invitar personal: hechos en specs/40.)

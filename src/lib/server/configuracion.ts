@@ -118,3 +118,22 @@ export async function actualizarReglasAcademicas(ctx: TenantContext, entrada: un
   await db.tenant.update({ where: { id: ctx.tenant.id }, data: ahora });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "reglas_academicas", detalle: { antes, ahora } as unknown as Prisma.InputJsonValue });
 }
+
+const esquemaReuniones = z.object({
+  horaInicioLaboral: hora,
+  horaFinLaboral: hora,
+  familiasSolicitanReuniones: z.boolean(),
+}).refine((d) => d.horaInicioLaboral < d.horaFinLaboral, { message: "El inicio de la jornada debe ser antes que el fin." });
+
+/**
+ * Horas laborales del personal (ventana del asistente de disponibilidad) y si las familias pueden solicitar reuniones
+ * (specs/40). Solo dirección. Audita antes y después.
+ */
+export async function actualizarAjustesReuniones(ctx: TenantContext, entrada: unknown): Promise<void> {
+  requireRol(ctx, ["direccion"]);
+  const r = esquemaReuniones.safeParse(entrada);
+  if (!r.success) throw new ErrorDeNegocio(r.error.issues[0].message);
+  const antes = { horaInicioLaboral: ctx.tenant.horaInicioLaboral, horaFinLaboral: ctx.tenant.horaFinLaboral, familiasSolicitanReuniones: ctx.tenant.familiasSolicitanReuniones };
+  await db.tenant.update({ where: { id: ctx.tenant.id }, data: r.data });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "configuracion", detalle: { reuniones: { antes, ahora: r.data } } });
+}

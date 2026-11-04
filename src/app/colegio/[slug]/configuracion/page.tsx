@@ -1,7 +1,7 @@
 import { Alerta } from "@/components/ui/Alerta";
 import { ETIQUETA_LITERAL, LITERALES } from "@/lib/calificaciones";
 import { nspVencidosSinConsecuencia } from "@/lib/server/nsp";
-import { Bell, BookOpenCheck, Contact, Download, Globe, GraduationCap, ImageIcon, Scale, ScrollText, UserRound } from "lucide-react";
+import { Bell, BookOpenCheck, CalendarClock, Contact, Download, Globe, GraduationCap, ImageIcon, Scale, ScrollText, UserRound } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -19,7 +19,7 @@ import { urlLogoColegio } from "@/lib/server/logo";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { NOMBRE_NIVEL, nivelesConfigurables } from "@/lib/asistencia-por-curso";
-import { guardarAsistenciaPorCursoAction, guardarConfiguracionAction, guardarReglasAcademicasAction, quitarLogoAction, subirLogoAction } from "./actions";
+import { guardarAjustesReunionesAction, guardarAsistenciaPorCursoAction, guardarConfiguracionAction, guardarReglasAcademicasAction, quitarLogoAction, subirLogoAction } from "./actions";
 
 export const metadata: Metadata = { title: "Configuración" };
 
@@ -124,6 +124,24 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
           <Boton type="submit" className="self-start">Guardar</Boton>
         </form>
       </Tarjeta>
+
+      {ctx.modulos.has("reuniones") && (
+        <Tarjeta>
+          <form action={guardarAjustesReunionesAction} className="flex flex-col gap-4">
+            <Seccion icono={CalendarClock} titulo="Reuniones" descripcion="Jornada del personal para buscar horarios libres y solicitudes de las familias.">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Campo etiqueta="Inicio de la jornada" name="horaInicioLaboral" type="time" required defaultValue={t.horaInicioLaboral} />
+                <Campo etiqueta="Fin de la jornada" name="horaFinLaboral" type="time" required defaultValue={t.horaFinLaboral} />
+              </div>
+              <label className="flex items-start gap-2 text-cuerpo">
+                <input type="checkbox" name="familiasSolicitanReuniones" defaultChecked={t.familiasSolicitanReuniones} className="mt-1 size-4" />
+                <span>Las familias pueden solicitar reuniones al tutor y a los profesores del salón de su hijo.</span>
+              </label>
+            </Seccion>
+            <Boton type="submit" className="self-start">Guardar ajustes de reuniones</Boton>
+          </form>
+        </Tarjeta>
+      )}
 
       {ctx.modulos.has("notas") && (
         <Tarjeta>

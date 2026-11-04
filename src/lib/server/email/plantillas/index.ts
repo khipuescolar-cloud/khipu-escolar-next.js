@@ -22,8 +22,23 @@ const reunionBase = {
   enlace: z.string().optional(),
   /** Hijo(s) por los que se cita; si falta, el texto no los nombra. */
   alumno: z.string().min(1).optional(),
+  /** specs/40: duración en minutos, organizador y modalidad (opcionales: las filas antiguas no los traen). */
+  duracion: z.number().int().positive().optional(),
+  organizador: z.string().min(1).optional(),
+  modalidad: z.string().min(1).optional(),
   url,
 };
+
+/** «Es el lunes 17 de noviembre a las 10:00 a. m. (45 min). Organiza: … Modalidad: … Lugar: … Enlace: …» */
+function detalleReunion(p: { fecha: string; hora: string; duracion?: number; organizador?: string; modalidad?: string; lugar?: string; enlace?: string }): string {
+  return [
+    `Es el ${fechaCorta(p.fecha)} a las ${hora12(p.hora)}${p.duracion ? ` (${p.duracion} min)` : ""}.`,
+    p.organizador ? ` Organiza: ${p.organizador}.` : "",
+    p.modalidad ? ` Modalidad: ${p.modalidad}.` : "",
+    p.lugar ? ` Lugar: ${p.lugar}.` : "",
+    p.enlace ? ` Enlace: ${p.enlace}` : "",
+  ].join("");
+}
 
 const ESQUEMAS = {
   asistencia_llego: z.object({ ...comun, ...saludo, alumno: z.string().min(1), hora: hhmm }),
@@ -108,6 +123,11 @@ const ESQUEMAS = {
   reunion_recordatorio: z.object({ ...comun, ...reunionBase }),
   reunion_cancelada: z.object({ ...comun, ...reunionBase }),
   reunion_acta: z.object({ ...comun, ...reunionBase }),
+  reunion_reprogramada: z.object({ ...comun, ...reunionBase }),
+  /** Una familia pide una reunión al docente (al docente). */
+  reunion_solicitada: z.object({ ...comun, ...reunionBase, solicitante: z.string().min(1) }),
+  /** Respuesta de un participante o acuerdo asignado (solo bandeja y push al organizador o responsable). */
+  reunion_respuesta: z.object({ colegio: z.string().min(1), titulo: z.string().min(1), texto: z.string().min(1), url }),
   libreta_publicada: z.object({
     ...comun,
     /** Nombre(s) de los hijos de esa familia; si falta, el texto no nombra al alumno. */
@@ -414,12 +434,12 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
     armarMensaje({
       colegio: p.colegio,
       logoColegioUrl: p.logoColegioUrl,
-      asunto: `Reunión: ${p.titulo}`,
+      asunto: "Khipu — Invitación a reunión",
       insignia: "info",
       palabraInsignia: "Reunión",
       parrafos: [
         `${p.colegio} te invita a la reunión «${p.titulo}»${p.alumno ? ` (por ${p.alumno})` : ""}.`,
-        `Es el ${fechaCorta(p.fecha)} a las ${hora12(p.hora)}.${p.lugar ? ` Lugar: ${p.lugar}.` : ""}${p.enlace ? ` Enlace: ${p.enlace}` : ""}`,
+        detalleReunion(p),
         "Cuéntanos si podrás asistir.",
       ],
       boton: { texto: "Responder", url: p.url },
@@ -455,6 +475,40 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       ],
       boton: { texto: "Ver reuniones", url: p.url },
       urlPreferencias: p.urlPreferencias,
+    }),
+
+  reunion_reprogramada: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `Reunión reprogramada: ${p.titulo}`,
+      insignia: "info",
+      palabraInsignia: "Reprogramada",
+      parrafos: [`La reunión «${p.titulo}»${p.alumno ? ` (por ${p.alumno})` : ""} cambió de fecha u hora.`, detalleReunion(p), "Cuéntanos si podrás asistir en el nuevo horario."],
+      boton: { texto: "Responder", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  reunion_solicitada: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `Solicitud de reunión: ${p.titulo}`,
+      insignia: "info",
+      palabraInsignia: "Solicitud",
+      parrafos: [`${p.solicitante} pide una reunión contigo${p.alumno ? ` sobre ${p.alumno}` : ""}.`, detalleReunion(p), "Confírmala, propón otra hora o recházala en Khipu."],
+      boton: { texto: "Ver solicitud", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  reunion_respuesta: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      asunto: p.titulo,
+      insignia: "info",
+      palabraInsignia: "Reunión",
+      parrafos: [p.texto],
+      boton: { texto: "Ver reunión", url: p.url },
     }),
 
   reunion_acta: (p) =>

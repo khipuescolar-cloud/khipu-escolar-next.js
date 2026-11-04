@@ -1,0 +1,112 @@
+# 40 — Disponibilidad del personal y reuniones institucionales
+
+> Estado: implementado (backend completo; UI del asistente, invitaciones, solicitudes, disponibilidad y acuerdos) · Plan: Khipu Pro (módulo `reuniones`) · Última actualización: 2026-11-03 (Claude Code, rama `pro-reuniones`)
+
+Amplía `specs/32-reuniones.md` (que sigue vigente para recordatorio, asistencia y acta).
+
+## Objetivo
+Programar reuniones institucionales como el asistente de programación de Microsoft Teams: ver la disponibilidad del
+personal (clases, reuniones, bloqueos, ausencias, horas laborales y días no lectivos), elegir una franja libre común y
+confirmarla sin choques aunque dos personas confirmen a la vez. Las familias son invitadas o solicitan reuniones.
+
+## Roles y permisos
+| Rol | Convoca (matriz `TIPOS_POR_ROL`, `src/lib/reuniones.ts`) | Ve | Disponibilidad |
+|---|---|---|---|
+| Dirección | Cualquier tipo; familias de todo el colegio, un salón o un alumno | Todas las reuniones | Consulta a todo el personal; ve «Clase» de terceros; puede **forzar sobre una clase** con motivo; registra ausencias |
+| Administrativo | `administrativa`, `institucional` | Las que organiza, convocó o donde está invitado | Igual que dirección (ve «Clase», fuerza sobre clase, registra ausencias) |
+| Profesor | `docente_apoderado` (familias de sus alumnos o salones), `tutoria` (solo como tutor del salón), `coordinacion` (solo personal) | Las que organiza, convocó o donde está invitado | Consulta personal; de terceros solo «Ocupado» |
+| Apoderado | Solo **solicita** (`/reuniones/solicitar`) | Donde está invitado (incluye sus solicitudes) | Nunca consulta ocupación del personal; solo ve franjas ofrecidas |
+| Portería, alumno | — (403) | — | — |
+| Colegio Khipu Base | 403 (`requireFeature("reuniones")`) | | |
+
+Tipos (`TipoReunion`): `docente_apoderado`, `tutoria`, `coordinacion`, `direccion`, `administrativa`, `institucional`.
+Familias: obligatorias en `docente_apoderado`/`tutoria`, prohibidas en `coordinacion`, opcionales en el resto.
+
+## Flujos
+1. **Asistente** (`/reuniones/nueva`, personal): (1) tipo y participantes (buscador de personal requerido u opcional; familias: alumno, salón o todo el colegio); (2) fecha, duración (15/30/45/60/90) y hora preferida; (3) cuadrícula de disponibilidad por persona (`GrillaDisponibilidad`, en móvil lista por persona) con la franja elegida, conflictos y 3–5 alternativas; las familias aparecen como «Pendiente de confirmar» (no tienen calendario ni reserva); (4) detalles: título, motivo, modalidad (presencial/virtual/mixta), lugar o enlace externo (sin videollamadas propias), observaciones; confirmar.
+2. **Confirmar** (`convocarReunion`): el backend **revalida siempre** (ver Reglas). Si la franja se ocupó: «Esa franja se acaba de ocupar. Elige otra.» con alternativas nuevas.
+3. **Invitaciones**: cada invitado (personal o familia) acepta / rechaza / propone otra hora (con nota) hasta el inicio. El organizador ve las respuestas (bandeja + push, sin correo).
+4. **Reprogramar** (`reprogramarReunion`): revalida, desactiva las reservas viejas, crea nuevas, guarda `reprogramada_at`, deja todas las respuestas en «pendiente» y avisa (correo).
+5. **Cancelar** con motivo (`cancelarReunion(ctx, id, { motivo })`): desactiva reservas, guarda `cancelada_por/at/motivo_cancelacion`, avisa (correo). Sobre una solicitud «por confirmar» = **rechazar** (aviso sin correo a la familia).
+6. **Solicitud de familia** (`/reuniones/solicitar`, ajuste del colegio «Las familias pueden solicitar reuniones», activado por defecto): elige hijo (solo los suyos), docente permitido (tutor y profesores con curso en el salón del hijo) y franja. Si el docente configuró horario de atención, solo puede elegir franjas ofrecidas (= horario de atención ∩ libre, 30 min, 14 días); si no, propone fecha y hora. Queda `por_confirmar`, sin reservas. Antiabuso: máx. 2 abiertas por familia y docente, 5 por semana por familia. El docente confirma (misma u otra hora: `reprogramarReunion`, revalida y reserva) o rechaza (`cancelarReunion`).
+7. **Mi disponibilidad** (`/reuniones/disponibilidad`, personal): horario de atención a familias (día, desde, hasta), bloqueos propios (motivo privado); dirección y administrativo registran ausencias de cualquiera del personal.
+8. **Actas y acuerdos**: asistencia (`asistio`), acta y estado realizada como en specs/32; además **acuerdos** con responsable (organizador o participante), fecha de compromiso y seguimiento (marcar cumplido / reabrir; quien gestiona o el responsable). `/reuniones/acuerdos`: acuerdos pendientes (dirección todos; el resto, los suyos o de reuniones que organiza).
+
+## Reglas de negocio
+- **Disponibilidad** (`src/lib/disponibilidad.ts`, puro; `src/lib/server/disponibilidad.ts`): rangos en ms semiabiertos `[inicio, fin)` (tocarse no es cruce). Fuentes por membresía en un rango de máx. **14 días**: clases proyectadas por fecha desde `BloqueHorario` (`wherePorProfesor`, día de semana → `HorarioPeriodo` HH:mm → instante en `tenant.zonaHoraria`), reservas activas, bloqueos y ausencias, fuera de horas laborales (`tenants.hora_inicio_laboral`/`hora_fin_laboral`, 07:30–16:30 por defecto) y días no lectivos (fines de semana, feriados nacionales, `feriadosAplicables` y `EventoAgenda tipo=feriado` sin salón). Algoritmo: ventana laboral (igual para todo el personal) − ocupado fusionado = libre; coincidencias = intersección de requeridos (quien organiza siempre es requerido); franjas de la duración pedida con paso de 15 min; alternativas = 5 franjas más cercanas a la preferida (desempate: más opcionales libres), nunca en el pasado. Cuadrícula del día: celdas de 30 min de 07:00 a 18:00 (o más si la jornada lo exige) con `libre | ocupado | fuera_de_horario | no_lectivo`.
+- **Privacidad**: de terceros solo «Ocupado» («Clase» únicamente para dirección y administrativo); nunca el título ni el motivo de reuniones, bloqueos o ausencias ajenas. La propia agenda se ve con detalle. Las franjas ofrecidas a familias no revelan qué ocupa al docente.
+- **Confirmar / reprogramar / confirmar solicitud**: `ctx.db.$transaction` interactiva (maxWait 10 s, timeout 20 s): `pg_advisory_xact_lock(hashtextextended(tenant||':'||membership, 0))` por cada persona del personal **en orden de id**; relee clases, reservas, bloqueos y no lectivos dentro de la transacción; inserta reunión + invitados + reservas + `ReunionCambio`. Requerido con reunión, bloqueo o ausencia → «Esa franja se acaba de ocupar. Elige otra.»; con clase → error, salvo dirección/administrativo con `forzarClase` y `motivoForzar` (queda en `reunion_cambios.motivo` y `despues.clasesForzadas`; nunca se fuerza sobre otra reunión). Fuera de horario o día no lectivo exige `fueraDeHorario: true` (casilla en el asistente). Opcionales ocupados quedan invitados sin reserva. Última barrera: restricción de exclusión `reservas_agenda_sin_solape`; el error `23P01` se traduce al mismo mensaje con alternativas.
+- Reuniones nuevas: sin fila de invitado para quien organiza (organiza = `organizador_id`, con reserva). Personal invitado: filas con `alumno_id = null` y `rol` requerido/opcional. Familias: como specs/32 (`generarInvitados`).
+- Visibilidad (`dondeVisible`): dirección todas; personal las que organiza, convocó o donde está invitado; familia donde está invitada. Gestiona (`dondeGestiona`): dirección o quien organiza.
+- Respuestas: `asistire` = **Aceptada**, `no_asistire` = **Rechazada**, `propone_otra` = **Propone otra hora** (`propuesta_inicio/fin`). Estado `programada` = **Confirmada**; `por_confirmar` = solicitud.
+- Todas las horas nuevas usan `tenant.zonaHoraria` (`instanteEnZona`, `momentoEnZona`).
+
+## Avisos (specs/06 y 38)
+`notificarReunion` (`notificaciones/avisos-reuniones.ts`) usa `entregarNotificaciones` con `TipoNotificacion.reunion` y `TipoAviso.reunion` → bandeja + push + **correo** solo en: invitación (`reunion_convocada`, asunto «Khipu — Invitación a reunión»; también al confirmar una solicitud), reprogramación (`reunion_reprogramada`), cancelación (`reunion_cancelada`) y solicitud de familia al docente (`reunion_solicitada`). Contenido: colegio, título, fecha y hora en la zona del colegio, duración, organizador, modalidad, lugar/enlace, botón a Khipu. Familias: canales solo con consentimiento vigente y según preferencias; personal: según sus preferencias. Nunca a quien hace la acción. Claves idempotentes: `reunion:<id>:invitacion`, `reunion:<id>:reprogramada:<ms>`, `reunion:<id>:cancelada`, `reunion:<id>:solicitada`. Respuestas, rechazo de solicitud y acuerdos: `avisarSinCorreo` (plantilla `reunion_respuesta`, solo bandeja + push; claves `reunion:<id>:respuesta:<membresía>:<ms>`, `reunion:<id>:rechazada`, `reunion-acuerdo:<id>`). El recordatorio y el acta siguen con `avisarReunion` (specs/32).
+
+## Modelo de datos
+Migración `20261113090100_reuniones_disponibilidad` (a mano, aditiva, sin borrar datos; RLS cerrado en tablas nuevas):
+- `reuniones`: + `tipo` (backfill: colegio→institucional, salón→tutoria, individual→docente_apoderado), `motivo`, `modalidad`, `organizador_id` (backfill = `convocada_por`), `reprogramada_at`, `cancelada_por`, `cancelada_at` (backfill `updated_at` en canceladas), `motivo_cancelacion`, `observaciones`; `fin` pasa a NOT NULL (backfill `inicio + 60 min`). `EstadoReunion` += `por_confirmar`.
+- `reunion_invitados`: + `rol` (`organizador | requerido | opcional`, default requerido), `invitado_at`, `propuesta_inicio/fin`. `RespuestaReunion` += `propone_otra`.
+- `reunion_cambios` (historial inmutable: tipo `creada | reprogramada | cancelada | participantes | respuesta | realizada | acta`, `antes/despues` jsonb, `actor_id`, `motivo`).
+- `reunion_acuerdos` (`texto`, `responsable_id?`, `fecha_compromiso?` date, `estado pendiente|cumplido`, `cumplido_at`).
+- `reservas_agenda` (`membership_id`, `reunion_id?`, `inicio`, `fin`, `activa`) con `CHECK (fin > inicio)` y `EXCLUDE USING gist (tenant_id WITH =, membership_id WITH =, tstzrange(inicio, fin, '[)') WITH &&) WHERE (activa)` (no declarada en `schema.prisma`; `prisma migrate diff` no la pierde). `btree_gist` se crea `WITH SCHEMA extensions` si ese esquema existe (Supabase) y en el esquema por defecto si no (probado en BD limpia).
+- `bloqueos_agenda` (`membership_id`, `inicio`, `fin`, `tipo bloqueo|ausencia`, `motivo` privado, `registrado_por`).
+- `horarios_atencion` (`membership_id`, `dia` 1–7, `hora_desde`, `hora_hasta`, CHECKs).
+- `tenants`: `hora_inicio_laboral` ('07:30'), `hora_fin_laboral` ('16:30'), `familias_solicitan_reuniones` (true). Configurables por dirección en `/configuracion` (tarjeta «Reuniones», `actualizarAjustesReuniones`).
+- `archivos.reunion_id` (FK, adjuntos opcionales; la subida desde el asistente queda pendiente).
+- `TipoNotificacion` += `reunion`.
+
+## Contratos de `src/lib/server`
+```ts
+// disponibilidad.ts
+leerAgendas(tdb, tenant, membershipIds, desde, hasta, { excluirReunionId? }): Agendas   // también dentro de la transacción
+consultarDisponibilidad(ctx, { requeridos, opcionales, fecha, hora, duracion, dias?, excluirReunionId? }): Disponibilidad | { error }  // solo personal
+franjasDeAtencion(tdb, tenant, docenteId, desde, duracion = 30): FranjaVista[]
+// reuniones.ts
+convocarReunion(ctx, { titulo, tipo?, modalidad?, motivo?, observaciones?, fecha, hora, duracion? | horaFin?, lugar?, enlace?, alcance: colegio|salon|individual|ninguno, salonId?, alumnoId?, requeridos?, opcionales?, fueraDeHorario?, forzarClase?, motivoForzar? }): Resultado & { id?, alternativas? }
+opcionesParaConvocar(ctx)  // tipos permitidos, personal, salones, alumnos, horas laborales
+responderInvitacion(ctx, id, { respuesta: asistire|no_asistire|propone_otra, comentario?, fechaPropuesta?, horaPropuesta? })
+reprogramarReunion(ctx, id, { fecha, hora, duracion, motivo?, fueraDeHorario?, forzarClase?, motivoForzar? })   // también confirma solicitudes
+cancelarReunion(ctx, id, { motivo })
+agregarAcuerdo(ctx, id, { texto, responsableId?, fechaCompromiso? }) · marcarAcuerdo(ctx, acuerdoId, cumplido) · acuerdosPendientes(ctx)
+opcionesSolicitud(ctx) · franjasParaSolicitud(ctx, alumnoId, docenteId) · solicitarReunion(ctx, { alumnoId, docenteId, fecha, hora, motivo })
+miDisponibilidad(ctx) · guardarHorarioAtencion(ctx, franjas[]) · crearBloqueo(ctx, { fecha, fechaFin?, horaDesde, horaHasta, motivo?, tipo?, membershipId? }) · quitarBloqueo(ctx, id)
+// Para la agenda / CalendarioSemana (los consume el módulo de agenda; no hay que tocar este módulo):
+reunionesParaCalendario(ctx, desde: Date, hasta: Date): ReunionCalendario[]
+//   { id, titulo, inicio, fin, estado, tipo, modalidad, lugar, enlace, rol: "organizador" | "invitado", href: "/reuniones/<id>" }
+//   reuniones NO canceladas donde el usuario organiza o está invitado y que se cruzan con [desde, hasta); sin acta ni datos de otros.
+ocupacionPropia(ctx, desde: Date, hasta: Date): { id, inicio, fin, tipo: "bloqueo" | "ausencia", motivo }[]
+//   bloqueos y ausencias del propio usuario (personal; [] para familias).
+// notificaciones/avisos-reuniones.ts
+notificarReunion(ctx, { evento: invitacion|reprogramada|cancelada|solicitada, reunion, destinatarios, version?, solicitante? }): ResumenEntrega
+avisarSinCorreo(ctx, { membershipId, reunionId, titulo, texto, clave }): ResumenEntrega
+// src/lib/reuniones.ts (puro): TIPOS_POR_ROL, puedeConvocar, familiasDelTipo, tipoPorAlcance, motivoAntiabuso, TEXTO_TIPO, TEXTO_MODALIDAD
+// src/lib/disponibilidad.ts (puro): fusionar, restar, intersectar, intersectarVarios, franjas, ventanasLaborales, rangosNoLectivos, estadoCelda, calcularDisponibilidad, celdasDelDia, etiquetaParaTercero
+```
+
+## Rutas y UI
+- `/reuniones` («Nueva reunión» para personal; «Solicitar reunión» para familias si el colegio lo permite; «Mi disponibilidad»; «Acuerdos»).
+- `/reuniones/nueva` (asistente en 4 pasos, `src/components/reuniones/AsistenteReunion.tsx` + `GrillaDisponibilidad.tsx`; en móvil la cuadrícula se muestra como lista por persona con sus franjas ocupadas/libres).
+- `/reuniones/[id]`: además de specs/32, responder con «Aceptar / Rechazar / Proponer otra hora», reprogramar, cancelar con motivo, confirmar o rechazar solicitudes, acuerdos e historial (solo quien gestiona).
+- `/reuniones/solicitar`, `/reuniones/disponibilidad`, `/reuniones/acuerdos`.
+- Navegación: el mosaico «Reuniones» ahora incluye al rol administrativo.
+
+## Errores y casos borde
+- Franja ocupada al confirmar o reprogramar: «Esa franja se acaba de ocupar. Elige otra.» + alternativas.
+- Clase de un requerido: profesor → «X está ocupado a esa hora»; dirección/administrativo → «X tiene clase a esa hora…» (pueden forzar con motivo).
+- Fuera de horario / no lectivo sin confirmarlo: mensaje para elegir otra franja o confirmar.
+- Solicitudes: hijo ajeno o docente no permitido → 403; franja fuera de las ofrecidas → error; antiabuso → «Ya tienes 2 solicitudes abiertas…» / «…máximo de 5 solicitudes por semana».
+- Ids ajenos, de otro colegio o inexistentes: 404 en páginas, 403 en acciones.
+
+## Pruebas
+- Unit: `tests/unit/disponibilidad.test.ts` (fusión, resta, intersección, franjas de 15 min, bordes `[)`, no lectivo, fuera de horario, alternativas, privacidad), `tests/unit/reuniones.test.ts` (matriz y antiabuso).
+- Integración: `tests/integracion/reuniones-disponibilidad.test.ts` (clase de Lucía 10:00–11:00 bloquea, reunión de Luis 11:00–11:30 bloquea, coincidencias de 3 docentes para 45 min, privacidad, familias sin consulta, otro colegio, revalidación con alternativas, forzar clase con motivo, fuera de horario, concurrencia con `Promise.all` → una sola reserva, restricción de exclusión, profesor invitado ve la reunión, reprogramar y cancelar liberan reservas, correos solo en invitación/reprogramación/cancelación contando filas `avisos` canal correo, reintento sin duplicados, acuerdos, ocupación propia, solicitudes con antiabuso, hijo ajeno y docente no permitido, horario de atención); `tests/integracion/reuniones.test.ts` ajustado (franjas distintas, cancelar con motivo).
+- e2e: `tests/e2e/reuniones-asistente.test.ts` (dirección arma una reunión con Lucía y Pedro en el asistente; Rosa solicita a Lucía; Lucía la confirma).
+
+## Pendientes
+- Subir adjuntos desde el asistente (`archivos.reunion_id` y `CamposAdjuntos` ya disponibles).
+- Editar participantes de una reunión confirmada (tipo de cambio `participantes` reservado).
+- Familia que cancela su propia solicitud; aceptar con un clic la hora propuesta por un invitado.
+- Recordatorio automático el día anterior (specs/32).
+- Horas laborales por persona (hoy son las del colegio para todo el personal).

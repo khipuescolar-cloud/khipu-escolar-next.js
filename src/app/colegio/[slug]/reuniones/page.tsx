@@ -1,20 +1,19 @@
-import { CalendarPlus, CalendarX, MapPin, Plus, Video } from "lucide-react";
+import { CalendarClock, CalendarPlus, CalendarX, ListChecks, MapPin, MessageSquarePlus, Plus, Video } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { forbidden } from "next/navigation";
-import { DialogoAccion } from "@/components/academico/DialogoAccion";
-import { CamposConvocatoria } from "@/components/reuniones/CamposConvocatoria";
 import { FormularioRespuesta } from "@/components/reuniones/FormularioRespuesta";
 import { InsigniaEstado, InsigniaRespuesta } from "@/components/reuniones/Insignias";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Tarjeta } from "@/components/ui/Tarjeta";
-import { fechaLima, formatoDia, formatoHora } from "@/lib/fechas";
-import { puedeResponderReunion } from "@/lib/reuniones";
-import { listarReuniones, opcionesParaConvocar, type ReunionVista } from "@/lib/server/reuniones";
+import { buttonVariants } from "@/components/ui/button";
+import { formatoDia, formatoHora } from "@/lib/fechas";
+import { TEXTO_MODALIDAD, TEXTO_TIPO, esPersonal, puedeResponderReunion } from "@/lib/reuniones";
+import { listarReuniones, type ReunionVista } from "@/lib/server/reuniones";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { convocarReunionAction, responderAction } from "./actions";
+import { responderAction } from "./actions";
 
 export const metadata: Metadata = { title: "Reuniones" };
 
@@ -32,12 +31,12 @@ function TarjetaReunion({ r, slug, ahora }: { r: ReunionVista; slug: string; aho
             <Link href={`/reuniones/${r.id}`} className="hover:underline">{r.titulo}</Link>
           </h3>
           <p className="text-cuerpo-sm text-muted-foreground first-letter:uppercase">
-            {formatoDia(r.inicio, { weekday: "long", day: "numeric", month: "long" })} · {formatoHora(r.inicio)}{r.fin ? ` a ${formatoHora(r.fin)}` : ""} · {r.ambito}
+            {formatoDia(r.inicio, { weekday: "long", day: "numeric", month: "long" })} · {formatoHora(r.inicio)} a {formatoHora(r.fin)} · {TEXTO_TIPO[r.tipo]} · {TEXTO_MODALIDAD[r.modalidad]} · {r.ambito}
           </p>
           {(r.lugar || r.enlace) && (
             <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-cuerpo-sm text-muted-foreground">
               {r.lugar && <span className="inline-flex items-center gap-1"><MapPin className="size-3.5" strokeWidth={2} aria-hidden />{r.lugar}</span>}
-              {r.enlace && <span className="inline-flex items-center gap-1"><Video className="size-3.5" strokeWidth={2} aria-hidden />Videollamada</span>}
+              {r.enlace && <span className="inline-flex items-center gap-1"><Video className="size-3.5" strokeWidth={2} aria-hidden />Enlace externo</span>}
             </p>
           )}
           {r.mia && r.mia.alumnos.length > 0 && <p className="text-cuerpo-sm text-muted-foreground">Por: {r.mia.alumnos.join(", ")}</p>}
@@ -46,7 +45,7 @@ function TarjetaReunion({ r, slug, ahora }: { r: ReunionVista; slug: string; aho
       </div>
       {r.resumen && r.estado !== "cancelada" && (
         <p className="text-cuerpo-sm text-muted-foreground">
-          {r.resumen.asistire} asistirán · {r.resumen.no_asistire} no asistirán · {r.resumen.pendiente} sin respuesta
+          {r.resumen.asistire} aceptaron · {r.resumen.no_asistire} rechazaron · {r.resumen.propone_otra} proponen otra hora · {r.resumen.pendiente} sin respuesta
         </p>
       )}
       {puedeResponder && r.mia && <FormularioRespuesta id={r.id} accion={responderAction.bind(null, slug, r.id)} actual={r.mia.respuesta} comentario={r.mia.comentario} />}
@@ -70,41 +69,42 @@ export default async function ReunionesPage({ params }: PageProps<"/colegio/[slu
   const { slug } = await params;
   const ctx = await requireTenantContext(slug);
   requireFeature(ctx, "reuniones");
-  if (!["direccion", "profesor", "apoderado"].includes(ctx.rol)) forbidden();
+  if (!["direccion", "profesor", "administrativo", "apoderado"].includes(ctx.rol)) forbidden();
 
   const ahora = new Date();
-  const puedeConvocar = ctx.rol === "direccion" || ctx.rol === "profesor";
-  const [reuniones, opciones] = await Promise.all([listarReuniones(ctx), puedeConvocar ? opcionesParaConvocar(ctx) : null]);
+  const personal = esPersonal(ctx.rol);
+  const reuniones = await listarReuniones(ctx);
+  const porConfirmar = reuniones.filter((r) => r.estado === "por_confirmar").sort((a, b) => a.inicio.getTime() - b.inicio.getTime());
   const proximas = reuniones.filter((r) => r.estado === "programada" && r.inicio >= ahora).sort((a, b) => a.inicio.getTime() - b.inicio.getTime());
   const porCerrar = reuniones.filter((r) => r.gestiona && r.estado === "programada" && r.inicio < ahora);
-  const anteriores = reuniones.filter((r) => !proximas.includes(r) && !porCerrar.includes(r));
-  const sinOpciones = !!opciones && !opciones.puedeColegio && opciones.salones.length === 0;
+  const anteriores = reuniones.filter((r) => !proximas.includes(r) && !porCerrar.includes(r) && !porConfirmar.includes(r));
+  const enlace = buttonVariants({ variant: "outline" });
 
   return (
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
         titulo="Reuniones"
-        descripcion={puedeConvocar ? "Convoca reuniones, mira quién confirma y publica el acta." : "Las reuniones a las que te invita el colegio. Cuéntanos si podrás asistir."}
-        acciones={opciones && !sinOpciones && (
-          <DialogoAccion
-            disparador={<><Plus strokeWidth={2} aria-hidden />Convocar reunión</>}
-            titulo="Convocar reunión"
-            descripcion="Las familias invitadas reciben un aviso por correo o en el celular para responder."
-            etiqueta="Convocar"
-            accion={convocarReunionAction.bind(null, slug)}
-          >
-            <CamposConvocatoria salones={opciones.salones} alumnos={opciones.alumnos} puedeColegio={opciones.puedeColegio} fechaInicial={fechaLima(new Date(ahora.getTime() + 7 * 86_400_000))} />
-          </DialogoAccion>
-        )}
+        descripcion={personal ? "Programa reuniones viendo la disponibilidad del personal, mira quién confirma y registra el acta." : "Las reuniones a las que te invita el colegio. Cuéntanos si podrás asistir."}
+        acciones={
+          <div className="flex flex-wrap gap-2">
+            {personal && <Link href="/reuniones/disponibilidad" className={enlace}><CalendarClock strokeWidth={2} aria-hidden />Mi disponibilidad</Link>}
+            <Link href="/reuniones/acuerdos" className={enlace}><ListChecks strokeWidth={2} aria-hidden />Acuerdos</Link>
+            {personal && <Link href="/reuniones/nueva" className={buttonVariants()}><Plus strokeWidth={2} aria-hidden />Nueva reunión</Link>}
+            {ctx.rol === "apoderado" && ctx.tenant.familiasSolicitanReuniones && (
+              <Link href="/reuniones/solicitar" className={buttonVariants()}><MessageSquarePlus strokeWidth={2} aria-hidden />Solicitar reunión</Link>
+            )}
+          </div>
+        }
       />
       {reuniones.length === 0 ? (
         <EstadoVacio
-          icono={puedeConvocar ? CalendarPlus : CalendarX}
-          titulo={puedeConvocar ? "Todavía no convocaste reuniones" : "No tienes reuniones por ahora"}
-          descripcion={puedeConvocar ? "Cuando convoques una, aquí verás las confirmaciones." : "Cuando el colegio te invite a una, la verás aquí."}
+          icono={personal ? CalendarPlus : CalendarX}
+          titulo={personal ? "Todavía no tienes reuniones" : "No tienes reuniones por ahora"}
+          descripcion={personal ? "Cuando programes una o te inviten, aquí verás las confirmaciones." : "Cuando el colegio te invite a una, la verás aquí."}
         />
       ) : (
         <>
+          <Grupo titulo={personal ? "Solicitudes por confirmar" : "Solicitudes enviadas"} reuniones={porConfirmar} slug={slug} ahora={ahora} />
           <Grupo titulo="Próximas" reuniones={proximas} slug={slug} ahora={ahora} />
           <Grupo titulo="Por cerrar" reuniones={porCerrar} slug={slug} ahora={ahora} />
           <Grupo titulo="Anteriores" reuniones={anteriores} slug={slug} ahora={ahora} />

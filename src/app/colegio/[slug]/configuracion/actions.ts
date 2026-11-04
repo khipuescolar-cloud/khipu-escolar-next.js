@@ -1,7 +1,7 @@
 "use server";
 
 import { ejecutarYVolver, texto } from "@/lib/server/accion-formulario";
-import { actualizarAsistenciaPorCurso, actualizarConfiguracion, actualizarReglasAcademicas } from "@/lib/server/configuracion";
+import { actualizarAjustesReuniones, actualizarAsistenciaPorCurso, actualizarConfiguracion, actualizarReglasAcademicas } from "@/lib/server/configuracion";
 import { ErrorDeNegocio, contextoDeAccion } from "@/lib/server/contexto-accion";
 import { quitarLogoColegio, subirLogoColegio } from "@/lib/server/logo";
 
@@ -55,5 +55,17 @@ export async function guardarReglasAcademicasAction(formData: FormData) {
       consecuenciaVencimiento: texto(formData, "consecuenciaVencimiento"),
     });
     return "Reglas académicas guardadas.";
+  });
+}
+
+export async function guardarAjustesReunionesAction(formData: FormData) {
+  const ctx = await contextoDeAccion(["direccion"]);
+  await ejecutarYVolver("/configuracion", async () => {
+    await actualizarAjustesReuniones(ctx, {
+      horaInicioLaboral: texto(formData, "horaInicioLaboral"),
+      horaFinLaboral: texto(formData, "horaFinLaboral"),
+      familiasSolicitanReuniones: formData.get("familiasSolicitanReuniones") === "on",
+    });
+    return "Ajustes de reuniones guardados.";
   });
 }
