@@ -13,13 +13,9 @@ export function evaluarOpcion(ej: EjercicioConSolucion, envio: EnvioRespuesta): 
   if (!opcion) return evaluacion("incorrecto", 0, "Esa opción no está entre las alternativas. Elige una de las que aparecen.", "opcion_no_valida");
   if (elegida === sol.correcta) return evaluacion("correcto", 1, conExplicacion(`¡Bien! «${opcion.texto}» es la respuesta correcta.`, ej));
   const codigo = sol.distractores[elegida] ?? "opcion_incorrecta";
-  const correcta = ej.publico.opciones.find((o) => o.id === sol.correcta)!;
-  return evaluacion(
-    "incorrecto",
-    0,
-    `Elegiste «${opcion.texto}». ${describirError(codigo)} La respuesta es «${correcta.texto}». ${ej.explicacion}`,
-    codigo,
-  );
+  // No revela la opción correcta: el alumno puede reintentar. La explicación (que sí la contiene) la agrega la sesión
+  // solo al acertar o al agotar los intentos (sesiones.ts).
+  return evaluacion("incorrecto", 0, conExplicacion(`Elegiste «${opcion.texto}». ${describirError(codigo)} Revisa el procedimiento y vuelve a intentarlo.`, ej), codigo);
 }
 
 export const evaluadorOpcion: Evaluador = { tipos: ["opcion_multiple"], evaluar: evaluarOpcion };
