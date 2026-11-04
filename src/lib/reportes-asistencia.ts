@@ -15,6 +15,8 @@ export type RegistroDia = {
   hora: string; // HH:mm
   estado: EstadoRegistro;
   justificacion?: EstadoJustificacionReporte | null;
+  /** Hora de salida registrada en portería (solo el ingreso al colegio). */
+  horaSalida?: string | null;
 };
 
 /** Fecha real AAAA-MM-DD (rechaza 2026-02-31). */
@@ -58,15 +60,24 @@ export type ResumenAlumno = {
   faltasEnRevision: number;
   /** Faltas sin justificación o con la justificación rechazada. */
   faltasInjustificadas: number;
+  /** Días hábiles cubiertos por un permiso de asistencia de día completo en los que no estuvo (falta o sin registro). */
+  conPermiso: number;
   /** (llegó + tarde) / días con registro × 100, con un decimal; null si no hay días con registro. */
   porcentaje: number | null;
 };
 
-export type DetalleDia = { fecha: string; estado: EstadoRegistro | null; hora: string | null; justificada: boolean; enRevision: boolean };
+export type DetalleDia = {
+  fecha: string; estado: EstadoRegistro | null; hora: string | null; justificada: boolean; enRevision: boolean;
+  /** Hora de salida registrada en portería, si la hay. */
+  horaSalida?: string | null;
+  /** Día cubierto por un permiso de asistencia de día completo (specs/04). */
+  conPermiso?: boolean;
+};
 
 /** Texto de la justificación de una falta en el detalle por día. */
-export function textoJustificacion(d: Pick<DetalleDia, "estado" | "justificada" | "enRevision">): string {
+export function textoJustificacion(d: Pick<DetalleDia, "estado" | "justificada" | "enRevision" | "conPermiso">): string {
   if (d.estado !== "falta") return "";
+  if (d.conPermiso && !d.enRevision) return "Con permiso";
   return d.justificada ? "Justificada" : d.enRevision ? "En revisión" : "Sin justificar";
 }
 
@@ -80,29 +91,36 @@ export function porcentajeAsistencia(presentes: number, base: number): number | 
  * Resumen de un alumno. `diasHabiles` son los días hábiles ya recortados (hasta hoy en la zona del colegio).
  * Solo cuenta la **asistencia al colegio** (`ambito = "dia"`: portería o lista del día); los registros de curso se ven en
  * «Asistencia por curso» (specs/27). Los registros en fines de semana, feriados o fuera del rango no cuentan.
- * Falta justificada = justificación aceptada; en revisión = pendiente; sin justificar = sin justificación o rechazada.
+ * Falta justificada = justificación aceptada o falta cubierta por un permiso de asistencia de día completo (specs/04);
+ * en revisión = pendiente; sin justificar = sin justificación o rechazada. `diasConPermiso`: fechas con permiso de día completo.
  */
-export function resumirAlumno(diasHabiles: readonly string[], registros: readonly RegistroDia[]): { resumen: ResumenAlumno; detalle: DetalleDia[] } {
+export function resumirAlumno(
+  diasHabiles: readonly string[], registros: readonly RegistroDia[], diasConPermiso: ReadonlySet<string> = new Set(),
+): { resumen: ResumenAlumno; detalle: DetalleDia[] } {
   const porFecha = new Map<string, RegistroDia[]>();
   for (const r of registros) if (r.ambito === "dia") porFecha.set(r.fecha, [...(porFecha.get(r.fecha) ?? []), r]);
   const resumen: ResumenAlumno = {
     diasHabiles: diasHabiles.length, diasConRegistro: 0, diasSinRegistro: 0,
-    llego: 0, tarde: 0, falta: 0, problema: 0, faltasJustificadas: 0, faltasEnRevision: 0, faltasInjustificadas: 0, porcentaje: null,
+    llego: 0, tarde: 0, falta: 0, problema: 0, faltasJustificadas: 0, faltasEnRevision: 0, faltasInjustificadas: 0, conPermiso: 0, porcentaje: null,
   };
   const detalle: DetalleDia[] = [];
   for (const fecha of diasHabiles) {
     const r = elegirRegistroDelDia(porFecha.get(fecha) ?? []);
+    const permiso = diasConPermiso.has(fecha);
     if (!r) {
       resumen.diasSinRegistro++;
-      detalle.push({ fecha, estado: null, hora: null, justificada: false, enRevision: false });
+      if (permiso) resumen.conPermiso++;
+      detalle.push({ fecha, estado: null, hora: null, justificada: false, enRevision: false, horaSalida: null, conPermiso: permiso });
       continue;
     }
     resumen.diasConRegistro++;
     resumen[r.estado]++;
-    const justificada = r.estado === "falta" && r.justificacion === "aceptada";
-    const enRevision = r.estado === "falta" && r.justificacion === "pendiente";
+    const conPermiso = permiso && r.estado === "falta";
+    const enRevision = r.estado === "falta" && r.justificacion === "pendiente" && !conPermiso;
+    const justificada = r.estado === "falta" && (r.justificacion === "aceptada" || conPermiso);
+    if (conPermiso) resumen.conPermiso++;
     if (r.estado === "falta") resumen[justificada ? "faltasJustificadas" : enRevision ? "faltasEnRevision" : "faltasInjustificadas"]++;
-    detalle.push({ fecha, estado: r.estado, hora: r.hora, justificada, enRevision });
+    detalle.push({ fecha, estado: r.estado, hora: r.hora, justificada, enRevision, horaSalida: r.horaSalida ?? null, conPermiso });
   }
   resumen.porcentaje = porcentajeAsistencia(resumen.llego + resumen.tarde, resumen.diasConRegistro);
   return { resumen, detalle };
@@ -142,12 +160,13 @@ export function agregarPorDia(detalles: readonly (readonly DetalleDia[])[]): Dia
 export function sumarResumenes(resumenes: readonly ResumenAlumno[]): ResumenAlumno {
   const t: ResumenAlumno = {
     diasHabiles: 0, diasConRegistro: 0, diasSinRegistro: 0,
-    llego: 0, tarde: 0, falta: 0, problema: 0, faltasJustificadas: 0, faltasEnRevision: 0, faltasInjustificadas: 0, porcentaje: null,
+    llego: 0, tarde: 0, falta: 0, problema: 0, faltasJustificadas: 0, faltasEnRevision: 0, faltasInjustificadas: 0, conPermiso: 0, porcentaje: null,
   };
   for (const r of resumenes) {
     t.diasHabiles += r.diasHabiles; t.diasConRegistro += r.diasConRegistro; t.diasSinRegistro += r.diasSinRegistro;
     t.llego += r.llego; t.tarde += r.tarde; t.falta += r.falta; t.problema += r.problema;
     t.faltasJustificadas += r.faltasJustificadas; t.faltasEnRevision += r.faltasEnRevision; t.faltasInjustificadas += r.faltasInjustificadas;
+    t.conPermiso += r.conPermiso ?? 0;
   }
   t.porcentaje = porcentajeAsistencia(t.llego + t.tarde, t.diasConRegistro);
   return t;
@@ -170,15 +189,37 @@ export function rangoAnio(hoy: string): Rango {
   return { desde: `${hoy.slice(0, 4)}-01-01`, hasta: hoy };
 }
 
-export type FiltrosReporte = { salonId?: string; alumnoId?: string; desde: string; hasta: string };
+export type NivelReporte = "inicial" | "primaria" | "secundaria" | "academia";
+/** Grado de un nivel (todas sus secciones): en la URL va como `grado=primaria-3`. */
+export type GradoReporte = { nivel: NivelReporte; grado: number };
+
+export type FiltrosReporte = { salonId?: string; alumnoId?: string; grado?: GradoReporte; desde: string; hasta: string };
+
+const NOMBRE_NIVEL_REPORTE: Record<NivelReporte, string> = { inicial: "inicial", primaria: "primaria", secundaria: "secundaria", academia: "academia" };
+
+/** «primaria-3» → { nivel, grado }. Lanza ZodError si no es válido. */
+export const gradoSchema = z
+  .string()
+  .regex(/^(inicial|primaria|secundaria|academia)-([1-9]|1[0-2])$/, "Grado no válido.")
+  .transform((v): GradoReporte => {
+    const [nivel, grado] = v.split("-");
+    return { nivel: nivel as NivelReporte, grado: Number(grado) };
+  });
+
+export const claveGrado = (g: GradoReporte) => `${g.nivel}-${g.grado}`;
+
+/** «3.° grado de primaria» · en inicial, «Inicial de 4 años». */
+export function nombreGrado(g: GradoReporte): string {
+  return g.nivel === "inicial" ? `Inicial de ${g.grado} años` : `${g.grado}.° grado de ${NOMBRE_NIVEL_REPORTE[g.nivel]}`;
+}
 
 /** Lee los filtros de la URL (página y exportaciones). Sin fechas: del 1.º del mes a hoy. Lanza ZodError si algo no es válido. */
 export function filtrosDeBusqueda(get: (clave: string) => string | null | undefined, hoy: string): FiltrosReporte {
   const vacio = (v: string | null | undefined) => (v && v.trim() !== "" ? v.trim() : undefined);
   const base = rangoEsteMes(hoy);
   const filtros = z
-    .object({ salonId: z.uuid().optional(), alumnoId: z.uuid().optional() })
-    .parse({ salonId: vacio(get("salon")), alumnoId: vacio(get("alumno")) });
+    .object({ salonId: z.uuid().optional(), alumnoId: z.uuid().optional(), grado: gradoSchema.optional() })
+    .parse({ salonId: vacio(get("salon")), alumnoId: vacio(get("alumno")), grado: vacio(get("grado")) });
   const rango = rangoSchema.parse({ desde: vacio(get("desde")) ?? base.desde, hasta: vacio(get("hasta")) ?? base.hasta });
-  return { ...filtros, ...rango };
+  return { salonId: filtros.salonId, alumnoId: filtros.alumnoId, ...(filtros.grado ? { grado: filtros.grado } : {}), ...rango };
 }

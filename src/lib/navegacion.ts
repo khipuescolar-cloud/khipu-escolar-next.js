@@ -5,7 +5,7 @@ import type { Feature } from "@/lib/planes";
 export type IconoMosaico =
   | "ClipboardCheck" | "ScanLine" | "MailCheck" | "FileText" | "MessagesSquare" | "Megaphone"
   | "Users" | "Settings" | "LifeBuoy" | "GraduationCap" | "BookOpen" | "ListTodo" | "CalendarDays" | "Sparkles" | "School" | "BarChart3"
-  | "FolderOpen" | "CalendarClock" | "TriangleAlert" | "Bell";
+  | "FolderOpen" | "CalendarClock" | "TriangleAlert" | "Bell" | "CalendarCheck";
 
 /** Grupo de la barra lateral. */
 export type GrupoNav = "dia" | "comunicacion" | "academico" | "colegio";
@@ -41,6 +41,7 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/horario", grupo: "dia", titulo: "Horario", descripcion: "Las clases de la semana de tus hijos.", icono: "CalendarClock", feature: "horario", roles: ["apoderado"] },
   { href: "/porteria", grupo: "dia", titulo: "Portería", descripcion: "Escanea el carnet QR en la entrada.", icono: "ScanLine", feature: "porteria", roles: ["porteria", "direccion"] },
   { href: "/avisos", grupo: "dia", titulo: "Avisos enviados", descripcion: "Correos y notificaciones a las familias.", icono: "MailCheck", feature: "avisos", roles: ["direccion", "administrativo"] },
+  { href: "/permisos", grupo: "dia", titulo: "Permisos", descripcion: "Permisos de asistencia: días u horas que el colegio autoriza.", icono: "CalendarCheck", feature: "asistencia", roles: ["direccion", "profesor", "administrativo"] },
   { href: "/incidencias", grupo: "dia", titulo: "Incidencias", descripcion: "Accidentes y retiros anticipados: las clases que se perdió el alumno.", icono: "TriangleAlert", feature: "asistencia", roles: ["direccion", "profesor", "administrativo"] },
   { href: "/justificaciones", grupo: "dia", titulo: "Justificaciones", descripcion: "Faltas justificadas por las familias.", icono: "FileText", feature: "justificaciones", roles: ["profesor", "direccion", "apoderado"] },
   { href: "/mensajes", grupo: "comunicacion", titulo: "Mensajes", descripcion: "Chat entre familia y profesor, sin teléfonos.", icono: "MessagesSquare", feature: "mensajes", roles: ["profesor", "apoderado", "direccion"], contador: "mensajes" },

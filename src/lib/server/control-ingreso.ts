@@ -106,10 +106,17 @@ async function pasoDelGrupo(tdb: DbTenant, tenant: TenantControl, g: Grupo, fase
   return { avisosNoLlega: 0, faltas };
 }
 
-/** Alumnos activos de los salones activos del grupo sin ningún registro de asistencia del día (ni llegada, ni falta, ni problema). */
+/**
+ * Alumnos activos de los salones activos del grupo sin ningún registro de asistencia del día (ni llegada, ni falta, ni
+ * problema). Quien tiene un permiso de asistencia de día completo vigente ese día no cuenta (specs/04): no recibe
+ * «aún no llega» ni falta automática.
+ */
 async function alumnosSinIngreso(tdb: DbTenant, fecha: Date, plantillaId: string | null) {
   return tdb.alumno.findMany({
-    where: { estado: "activo", salon: { ...whereSalonActivo, plantillaId }, asistencias: { none: { fecha, ambito: AMBITO_DIA } } },
+    where: {
+      estado: "activo", salon: { ...whereSalonActivo, plantillaId }, asistencias: { none: { fecha, ambito: AMBITO_DIA } },
+      permisosAsistencia: { none: { anuladoAt: null, todoElDia: true, desde: { lte: fecha }, hasta: { gte: fecha } } },
+    },
     select: { id: true, nombres: true },
   });
 }

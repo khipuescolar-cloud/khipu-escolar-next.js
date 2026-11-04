@@ -139,6 +139,8 @@ export type ResultadoPorteria =
   | {
       ok: true;
       tipo: "registrado" | "ya-registrado";
+      /** Llegada (por defecto) o salida del colegio (specs/05). */
+      movimiento?: "llegada" | "salida";
       alumno: { id: string; nombre: string; salon: string; fotoUrl: string | null };
       estado: EstadoAsistencia;
       hora: string;
@@ -166,6 +168,74 @@ export async function registrarLlegadaPorQr(
   return registrarLlegada(ctx, carnet.alumnoId, ahora);
 }
 
+/** Lee el QR en modo «Salida»: misma validación que la llegada; registra la hora de salida del día sin duplicar. */
+export async function registrarSalidaPorQr(
+  ctx: TenantContext, textoLeido: string, ahora = new Date(), leidoAt?: string | null,
+): Promise<ResultadoPorteria> {
+  requirePorteria(ctx);
+  ahora = instanteDeRegistro(leidoAt, ahora);
+  const token = tokenDesdeQr(z.string().max(500).parse(textoLeido));
+  if (!token) return { ok: false, mensaje: MENSAJE_CARNET_INVALIDO };
+  const carnet = await ctx.db.carnetQr.findUnique({ where: { tokenHash: hashToken(token) }, select: { alumnoId: true, activo: true } });
+  if (!carnet || !carnet.activo) {
+    await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "carnet_qr", detalle: { rechazado: true, salida: true } });
+    return { ok: false, mensaje: MENSAJE_CARNET_INVALIDO };
+  }
+  return registrarSalida(ctx, carnet.alumnoId, ahora);
+}
+
+/** Salida manual (sin carnet). */
+export async function registrarSalidaManual(ctx: TenantContext, alumnoId: string, ahora = new Date()): Promise<ResultadoPorteria> {
+  requirePorteria(ctx);
+  const alumno = await alumnoDelColegio(ctx, alumnoId);
+  return registrarSalida(ctx, alumno.id, ahora);
+}
+
+export const MENSAJE_SIN_INGRESO = "No tiene ingreso registrado hoy. Registra primero su llegada.";
+
+/**
+ * Salida del colegio: se guarda en la fila de la asistencia del día (`hora_salida`, `salida_registrada_por`).
+ * Idempotente: la segunda lectura responde «Salida ya registrada» (update condicionado a `hora_salida IS NULL`).
+ * Sin ingreso de hoy (o con falta) no se registra. No avisa a la familia.
+ */
+async function registrarSalida(ctx: TenantContext, alumnoId: string, ahora: Date): Promise<ResultadoPorteria> {
+  const hoy = hoyDelColegio(ctx, ahora);
+  const fecha = fechaDb(hoy.isoFecha);
+  const alumno = await ctx.db.alumno.findUnique({
+    where: { id: alumnoId },
+    select: { id: true, nombres: true, apellidos: true, estado: true, fotoArchivoId: true, salon: { select: { nombre: true } } },
+  });
+  if (!alumno || alumno.estado !== "activo") return { ok: false, mensaje: MENSAJE_CARNET_INVALIDO };
+  const datosAlumno = await datosDelAlumno(ctx, alumno);
+  const dia = await ctx.db.asistencia.findUnique({
+    where: { alumnoId_fecha_ambito: { alumnoId, fecha, ambito: AMBITO_DIA } },
+    select: { id: true, estado: true, horaSalida: true },
+  });
+  if (!dia || dia.estado === "falta") return { ok: false, mensaje: MENSAJE_SIN_INGRESO };
+  if (dia.horaSalida) {
+    return { ok: true, tipo: "ya-registrado", movimiento: "salida", alumno: datosAlumno, estado: dia.estado, hora: dia.horaSalida, mensaje: `Salida ya registrada ${hora12(dia.horaSalida)}` };
+  }
+  const r = await ctx.db.asistencia.updateMany({
+    where: { id: dia.id, horaSalida: null },
+    data: { horaSalida: hoy.hora, salidaRegistradaPorId: ctx.membership.id },
+  });
+  if (r.count === 0) {
+    const ya = await ctx.db.asistencia.findUnique({ where: { id: dia.id }, select: { horaSalida: true } });
+    const hora = ya?.horaSalida ?? hoy.hora;
+    return { ok: true, tipo: "ya-registrado", movimiento: "salida", alumno: datosAlumno, estado: dia.estado, hora, mensaje: `Salida ya registrada ${hora12(hora)}` };
+  }
+  await auditar({
+    tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "asistencia", entidadId: dia.id,
+    detalle: { alumnoId, ambito: AMBITO_DIA, origen: "porteria", salida: hoy.hora },
+  });
+  return { ok: true, tipo: "registrado", movimiento: "salida", alumno: datosAlumno, estado: dia.estado, hora: hoy.hora, mensaje: `Salida · ${hora12(hoy.hora)}` };
+}
+
+async function datosDelAlumno(ctx: TenantContext, alumno: { id: string; nombres: string; apellidos: string; fotoArchivoId: string | null; salon: { nombre: string } }) {
+  const foto = alumno.fotoArchivoId ? await ctx.db.archivo.findUnique({ where: { id: alumno.fotoArchivoId } }) : null;
+  return { id: alumno.id, nombre: `${alumno.nombres} ${alumno.apellidos}`, salon: alumno.salon.nombre, fotoUrl: foto ? await urlArchivo(foto) : null };
+}
+
 /** Respaldo manual (sin carnet): mismo registro que el QR. */
 export async function registrarLlegadaManual(ctx: TenantContext, alumnoId: string, ahora = new Date()): Promise<ResultadoPorteria> {
   requirePorteria(ctx);
@@ -181,13 +251,7 @@ async function registrarLlegada(ctx: TenantContext, alumnoId: string, ahora: Dat
     select: { id: true, nombres: true, apellidos: true, estado: true, fotoArchivoId: true, salon: { select: { nombre: true, plantilla: { select: { horaEntrada: true, horaLimiteFalta: true } } } } },
   });
   if (!alumno || alumno.estado !== "activo") return { ok: false, mensaje: MENSAJE_CARNET_INVALIDO };
-  const foto = alumno.fotoArchivoId ? await ctx.db.archivo.findUnique({ where: { id: alumno.fotoArchivoId } }) : null;
-  const datosAlumno = {
-    id: alumno.id,
-    nombre: `${alumno.nombres} ${alumno.apellidos}`,
-    salon: alumno.salon.nombre,
-    fotoUrl: foto ? await urlArchivo(foto) : null,
-  };
+  const datosAlumno = await datosDelAlumno(ctx, alumno);
 
   const anterior = await ctx.db.asistencia.findUnique({
     where: { alumnoId_fecha_ambito: { alumnoId, fecha, ambito: AMBITO_DIA } },
@@ -195,7 +259,7 @@ async function registrarLlegada(ctx: TenantContext, alumnoId: string, ahora: Dat
   });
   // Ya tenía la llegada (o un problema) registrada hoy: no se duplica. Si figuraba «falta», se corrige.
   if (anterior && anterior.estado !== "falta") {
-    return { ok: true, tipo: "ya-registrado", alumno: datosAlumno, estado: anterior.estado, hora: anterior.hora, mensaje: `Ya registrado ${hora12(anterior.hora)}` };
+    return { ok: true, tipo: "ya-registrado", movimiento: "llegada", alumno: datosAlumno, estado: anterior.estado, hora: anterior.hora, mensaje: `Ya registrado ${hora12(anterior.hora)}` };
   }
 
   // La tardanza cuenta desde la entrada de la plantilla de horario del salón (specs/34); sin plantilla, la de Configuración.
@@ -225,7 +289,7 @@ async function registrarLlegada(ctx: TenantContext, alumnoId: string, ahora: Dat
     urlMensajes: urlColegio(ctx.tenant.slug, "/mensajes"),
   });
   return {
-    ok: true, tipo: "registrado", alumno: datosAlumno, estado, hora: hoy.hora,
+    ok: true, tipo: "registrado", movimiento: "llegada", alumno: datosAlumno, estado, hora: hoy.hora,
     mensaje: estado === "tarde" ? `Tarde · ${hora12(hoy.hora)}` : `Llegó · ${hora12(hoy.hora)}`,
   };
 }

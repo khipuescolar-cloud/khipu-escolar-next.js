@@ -12,6 +12,8 @@ import { cn } from "@/lib/utils";
 
 type Opciones = {
   salones: { id: string; nombre: string }[];
+  /** Grados (todas sus secciones); `clave` = «primaria-3». */
+  grados?: { clave: string; nombre: string }[];
   alumnos: { id: string; nombres: string; apellidos: string; salonId: string }[];
 };
 type Atajo = { texto: string; desde: string; hasta: string };
@@ -24,7 +26,7 @@ export function FiltroReporte({
   opciones, inicial, atajos, hoy, activos, vista,
 }: {
   opciones: Opciones;
-  inicial: { salonId?: string; alumnoId?: string; desde: string; hasta: string };
+  inicial: { salonId?: string; alumnoId?: string; grado?: { nivel: string; grado: number }; desde: string; hasta: string };
   atajos: Atajo[];
   hoy: string;
   activos: number;
@@ -35,6 +37,8 @@ export function FiltroReporte({
   const [abierto, setAbierto] = useState(false);
   const [salonId, setSalonId] = useState(inicial.salonId ?? "");
   const [alumnoId, setAlumnoId] = useState(inicial.alumnoId ?? "");
+  const [grado, setGrado] = useState(inicial.grado ? `${inicial.grado.nivel}-${inicial.grado.grado}` : "");
+  const grados = opciones.grados ?? [];
   const [desde, setDesde] = useState(inicial.desde);
   const [hasta, setHasta] = useState(inicial.hasta);
   const [busqueda, setBusqueda] = useState("");
@@ -50,6 +54,7 @@ export function FiltroReporte({
     const q = new URLSearchParams();
     if (salonId) q.set("salon", salonId);
     if (salonId && alumnoId) q.set("alumno", alumnoId);
+    if (!salonId && grado) q.set("grado", grado);
     q.set("desde", desde);
     q.set("hasta", hasta);
     if (vista) q.set("vista", vista);
@@ -66,7 +71,7 @@ export function FiltroReporte({
       <SheetContent className="data-[side=right]:w-full data-[side=right]:sm:max-w-md">
         <SheetHeader className="border-b pr-12">
           <SheetTitle className="text-titulo-2">Filtrar reporte</SheetTitle>
-          <SheetDescription>Elige un salón, un alumno de ese salón y las fechas que quieres ver.</SheetDescription>
+          <SheetDescription>Elige un grado (todas sus secciones) o un salón y, dentro del salón, un alumno; luego las fechas.</SheetDescription>
         </SheetHeader>
         <form
           id="filtro-reporte"
@@ -76,11 +81,28 @@ export function FiltroReporte({
             verReporte();
           }}
         >
+          {grados.length > 0 && (
+            <Selector
+              etiqueta="Grado"
+              value={grado}
+              onChange={(e) => {
+                setGrado(e.target.value);
+                if (e.target.value) {
+                  setSalonId("");
+                  setAlumnoId("");
+                }
+              }}
+            >
+              <option value="">Todos los grados</option>
+              {grados.map((g) => <option key={g.clave} value={g.clave}>{g.nombre}</option>)}
+            </Selector>
+          )}
           <Selector
             etiqueta="Salón"
             value={salonId}
             onChange={(e) => {
               setSalonId(e.target.value);
+              if (e.target.value) setGrado("");
               setAlumnoId("");
               setBusqueda("");
             }}

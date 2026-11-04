@@ -4,10 +4,10 @@ import { z } from "zod";
 import { Prisma } from "@/generated/prisma/client";
 import type { EstadoJustificacion } from "@/generated/prisma/enums";
 import { asistenciaPorCursoActiva } from "@/lib/asistencia-por-curso";
-import { fechaDb, isoDeFechaDb, restarDias } from "@/lib/fechas";
+import { fechaDb, isoDeFechaDb, restarDias, sumarDias } from "@/lib/fechas";
 import {
-  agregarPorDia, diasHabilesDelRango, rangoSchema, resumirAlumno, sumarResumenes,
-  type DetalleDia, type DiaAgregado, type FiltrosReporte, type RegistroDia, type ResumenAlumno,
+  agregarPorDia, claveGrado, diasHabilesDelRango, gradoSchema, nombreGrado, rangoSchema, resumirAlumno, sumarResumenes,
+  type DetalleDia, type DiaAgregado, type FiltrosReporte, type GradoReporte, type RegistroDia, type ResumenAlumno,
 } from "@/lib/reportes-asistencia";
 import { resumirCurso, type ConteoClase, type FilaCurso, type ResumenCurso } from "@/lib/reportes-curso";
 import { esVistaFamilia } from "@/lib/roles";
@@ -22,7 +22,7 @@ import { requireAlumnoVisible, salonIdsVisibles, type TenantContext } from "./te
 // Asistencia al colegio (solo `ambito = "dia"`): porcentaje = (llegó + tarde) / días hábiles con registro.
 // Asistencia por curso: faltas y tardanzas a clase por salón y curso, aparte. Las reglas puras viven en src/lib/reportes-asistencia.ts.
 
-export type AccionReporte = { accion: "ver" } | { accion: "exportar"; formato: "excel" | "pdf" };
+export type AccionReporte = { accion: "ver" } | { accion: "exportar"; formato: "excel" | "pdf" | "csv" };
 
 const entradaSalon = z.object({ salonId: z.uuid() }).and(rangoSchema);
 const entradaAlumno = z.object({ alumnoId: z.uuid() }).and(rangoSchema);
@@ -73,6 +73,8 @@ export type FilaCursoReporte = {
 export type ReporteColegio = {
   tipo: "colegio";
   colegio: string;
+  /** Reporte por grado (todas sus secciones); null = todo el colegio (o los salones del profesor). */
+  grado?: (GradoReporte & { nombre: string }) | null;
   desde: string;
   hasta: string;
   hastaEfectivo: string;
@@ -126,15 +128,38 @@ async function registrosPorAlumno(ctx: TenantContext, alumnoIds: string[], desde
   // pasara cada id de asistencia como parámetro y el reporte del colegio (≈1 000 alumnos × 2 meses = 80 000 filas)
   // superaba el tope de 32 767 parámetros de Postgres (P2029). Ver docs/pruebas-de-estres.md.
   const [filas, justificaciones] = await Promise.all([
-    ctx.db.asistencia.findMany({ where: enRango, select: { id: true, alumnoId: true, fecha: true, ambito: true, hora: true, estado: true } }),
+    ctx.db.asistencia.findMany({ where: enRango, select: { id: true, alumnoId: true, fecha: true, ambito: true, hora: true, horaSalida: true, estado: true } }),
     ctx.db.justificacion.findMany({ where: { asistencia: enRango }, orderBy: { createdAt: "asc" }, select: { asistenciaId: true, estado: true } }),
   ]);
   // Orden ascendente: la última escritura en el mapa es la justificación más reciente de cada registro.
   const justificacionDe = new Map(justificaciones.map((j) => [j.asistenciaId, j.estado]));
   for (const f of filas) {
     const lista = mapa.get(f.alumnoId) ?? [];
-    lista.push({ fecha: isoDeFechaDb(f.fecha), ambito: f.ambito, hora: f.hora, estado: f.estado, justificacion: justificacionDe.get(f.id) ?? null });
+    lista.push({ fecha: isoDeFechaDb(f.fecha), ambito: f.ambito, hora: f.hora, horaSalida: f.horaSalida, estado: f.estado, justificacion: justificacionDe.get(f.id) ?? null });
     mapa.set(f.alumnoId, lista);
+  }
+  return mapa;
+}
+
+/**
+ * Días con permiso de asistencia de día completo (vigente) por alumno en el rango (specs/04). Se consultan los permisos
+ * del colegio que tocan el rango (pocos) y se filtran en memoria: sin pasar los ids de alumnos como parámetros.
+ */
+async function diasConPermisoPorAlumno(ctx: TenantContext, alumnoIds: string[], desde: string, hasta: string): Promise<Map<string, Set<string>>> {
+  const mapa = new Map<string, Set<string>>();
+  if (alumnoIds.length === 0 || desde > hasta) return mapa;
+  const ids = new Set(alumnoIds);
+  const permisos = await ctx.db.permisoAsistencia.findMany({
+    where: { anuladoAt: null, todoElDia: true, desde: { lte: fechaDb(hasta) }, hasta: { gte: fechaDb(desde) } },
+    select: { alumnoId: true, desde: true, hasta: true },
+  });
+  for (const p of permisos) {
+    if (!ids.has(p.alumnoId)) continue;
+    const dias = mapa.get(p.alumnoId) ?? new Set<string>();
+    const inicio = isoDeFechaDb(p.desde) < desde ? desde : isoDeFechaDb(p.desde);
+    const fin = isoDeFechaDb(p.hasta) > hasta ? hasta : isoDeFechaDb(p.hasta);
+    for (let f = inicio; f <= fin; f = sumarDias(f, 1)) dias.add(f);
+    mapa.set(p.alumnoId, dias);
   }
   return mapa;
 }
@@ -164,8 +189,11 @@ export async function reporteSalon(ctx: TenantContext, entrada: unknown, como: A
     }),
     diasHabiles(ctx, desde, hastaEfectivo),
   ]);
-  const registros = await registrosPorAlumno(ctx, alumnos.map((a) => a.id), desde, hastaEfectivo);
-  const resumidos = alumnos.map((a) => ({ a, ...resumirAlumno(dias, registros.get(a.id) ?? []) }));
+  const [registros, permisos] = await Promise.all([
+    registrosPorAlumno(ctx, alumnos.map((a) => a.id), desde, hastaEfectivo),
+    diasConPermisoPorAlumno(ctx, alumnos.map((a) => a.id), desde, hastaEfectivo),
+  ]);
+  const resumidos = alumnos.map((a) => ({ a, ...resumirAlumno(dias, registros.get(a.id) ?? [], permisos.get(a.id)) }));
   const filas = resumidos.map<FilaAlumnoReporte>(({ a, resumen }) => ({ alumnoId: a.id, nombres: a.nombres, apellidos: a.apellidos, codigo: a.codigo, resumen }));
   await auditarReporte(ctx, salon.id, { tipo: "salon", desde, hasta }, como);
   return {
@@ -187,8 +215,11 @@ export async function reporteAlumno(ctx: TenantContext, entrada: unknown, como: 
   if (!alumno) notFound();
   const hastaEfectivo = hastaEfectivoDe(ctx, hasta);
   const dias = await diasHabiles(ctx, desde, hastaEfectivo);
-  const registros = await registrosPorAlumno(ctx, [alumnoId], desde, hastaEfectivo);
-  const { resumen, detalle } = resumirAlumno(dias, registros.get(alumnoId) ?? []);
+  const [registros, permisos] = await Promise.all([
+    registrosPorAlumno(ctx, [alumnoId], desde, hastaEfectivo),
+    diasConPermisoPorAlumno(ctx, [alumnoId], desde, hastaEfectivo),
+  ]);
+  const { resumen, detalle } = resumirAlumno(dias, registros.get(alumnoId) ?? [], permisos.get(alumnoId));
   await auditarReporte(ctx, alumnoId, { tipo: "alumno", desde, hasta }, como);
   return {
     tipo: "alumno", colegio: ctx.tenant.nombre,
@@ -202,28 +233,57 @@ export async function resumenColegio(ctx: TenantContext, entrada: unknown, como:
   requireFeature(ctx, "asistencia");
   const { desde, hasta } = rangoSchema.parse(entrada);
   const alcance = await alcanceDeSalones(ctx);
+  const r = await resumenDeSalones(ctx, alcance, null, desde, hasta);
+  await auditarReporte(ctx, ctx.tenant.id, { tipo: "colegio", desde, hasta }, como);
+  return r;
+}
+
+const entradaGrado = z.object({ grado: z.union([gradoSchema, z.object({ nivel: z.enum(["inicial", "primaria", "secundaria", "academia"]), grado: z.number().int().min(1).max(12) })]) }).and(rangoSchema);
+
+/**
+ * Reporte por grado (nivel + grado): una fila por sección (salón activo de ese grado) y el total del grado.
+ * Dirección y administrativo: todas las secciones. Profesor: solo sus salones de ese grado (403 si no tiene ninguno).
+ * Familias y portería: 403.
+ */
+export async function reporteGrado(ctx: TenantContext, entrada: unknown, como: AccionReporte = { accion: "ver" }): Promise<ReporteColegio> {
+  requireFeature(ctx, "asistencia");
+  const { grado, desde, hasta } = entradaGrado.parse(entrada);
+  const alcance = await alcanceDeSalones(ctx);
+  if (alcance) {
+    const propios = await ctx.db.salon.count({ where: { ...whereSalonActivo, id: { in: alcance }, nivel: grado.nivel, grado: grado.grado } });
+    if (propios === 0) forbidden();
+  }
+  const r = await resumenDeSalones(ctx, alcance, grado, desde, hasta);
+  await auditarReporte(ctx, ctx.tenant.id, { tipo: "grado", grado: claveGrado(grado), desde, hasta }, como);
+  return r;
+}
+
+/** Resumen por salón de los salones activos del alcance (null = todos), opcionalmente de un solo grado. */
+async function resumenDeSalones(ctx: TenantContext, alcance: string[] | null, grado: GradoReporte | null, desde: string, hasta: string): Promise<ReporteColegio> {
   const hastaEfectivo = hastaEfectivoDe(ctx, hasta);
   const [salones, dias] = await Promise.all([
     ctx.db.salon.findMany({
-      where: { ...whereSalonActivo, ...(alcance ? { id: { in: alcance } } : {}) },
+      where: { ...whereSalonActivo, ...(alcance ? { id: { in: alcance } } : {}), ...(grado ? { nivel: grado.nivel, grado: grado.grado } : {}) },
       orderBy: { nombre: "asc" },
       select: { id: true, nombre: true, alumnos: { where: { estado: "activo" }, select: { id: true } } },
     }),
     diasHabiles(ctx, desde, hastaEfectivo),
   ]);
-  const [registros, cursos] = await Promise.all([
-    registrosPorAlumno(ctx, salones.flatMap((s) => s.alumnos.map((a) => a.id)), desde, hastaEfectivo),
-    ctx.tenant.asistenciaPorCursoNiveles.length > 0 ? asistenciaPorCurso(ctx, alcance, desde, hastaEfectivo) : Promise.resolve(null),
+  const alumnoIds = salones.flatMap((s) => s.alumnos.map((a) => a.id));
+  const alcanceCursos = grado ? salones.map((s) => s.id) : alcance;
+  const [registros, permisos, cursos] = await Promise.all([
+    registrosPorAlumno(ctx, alumnoIds, desde, hastaEfectivo),
+    diasConPermisoPorAlumno(ctx, alumnoIds, desde, hastaEfectivo),
+    ctx.tenant.asistenciaPorCursoNiveles.length > 0 ? asistenciaPorCurso(ctx, alcanceCursos, desde, hastaEfectivo) : Promise.resolve(null),
   ]);
   const detalles: DetalleDia[][] = [];
   const filas = salones.map<FilaSalonReporte>((s) => {
-    const resumidos = s.alumnos.map((a) => resumirAlumno(dias, registros.get(a.id) ?? []));
+    const resumidos = s.alumnos.map((a) => resumirAlumno(dias, registros.get(a.id) ?? [], permisos.get(a.id)));
     for (const r of resumidos) detalles.push(r.detalle);
     return { salonId: s.id, salon: s.nombre, alumnos: s.alumnos.length, resumen: sumarResumenes(resumidos.map((r) => r.resumen)) };
   });
-  await auditarReporte(ctx, ctx.tenant.id, { tipo: "colegio", desde, hasta }, como);
   return {
-    tipo: "colegio", colegio: ctx.tenant.nombre, desde, hasta, hastaEfectivo, filas,
+    tipo: "colegio", colegio: ctx.tenant.nombre, grado: grado ? { ...grado, nombre: nombreGrado(grado) } : null, desde, hasta, hastaEfectivo, filas,
     total: sumarResumenes(filas.map((f) => f.resumen)), porDia: agregarPorDia(detalles), cursos,
   };
 }
@@ -318,15 +378,18 @@ export async function detalleCurso(ctx: TenantContext, entrada: unknown): Promis
   };
 }
 
-/** Reporte según los filtros: alumno → detalle; salón → tabla de alumnos; nada → resumen por salón. */
+/** Reporte según los filtros: alumno → detalle; salón → tabla de alumnos; grado → sus secciones; nada → resumen por salón. */
 export async function reporteSegunFiltros(ctx: TenantContext, filtros: FiltrosReporte, como: AccionReporte = { accion: "ver" }): Promise<ReporteAsistencia> {
   if (filtros.alumnoId) return reporteAlumno(ctx, filtros, como);
   if (filtros.salonId) return reporteSalon(ctx, filtros, como);
+  if (filtros.grado) return reporteGrado(ctx, filtros, como);
   return resumenColegio(ctx, filtros, como);
 }
 
 export type OpcionesReporte = {
   salones: { id: string; nombre: string }[];
+  /** Grados (nivel + grado) de los salones visibles: `clave` = «primaria-3». */
+  grados: { clave: string; nombre: string }[];
   alumnos: { id: string; nombres: string; apellidos: string; salonId: string }[];
   periodos: { nombre: string; inicio: string; fin: string }[];
 };
@@ -338,7 +401,7 @@ export async function opcionesDeReporte(ctx: TenantContext): Promise<OpcionesRep
   if (!familia && !veTodo(ctx) && ctx.rol !== "profesor") forbidden();
   const alcance = familia ? [] : await alcanceDeSalones(ctx);
   const [salones, alumnos, periodos] = await Promise.all([
-    familia ? Promise.resolve([]) : ctx.db.salon.findMany({ where: { ...whereSalonActivo, ...(alcance ? { id: { in: alcance } } : {}) }, orderBy: { nombre: "asc" }, select: { id: true, nombre: true } }),
+    familia ? Promise.resolve([]) : ctx.db.salon.findMany({ where: { ...whereSalonActivo, ...(alcance ? { id: { in: alcance } } : {}) }, orderBy: { nombre: "asc" }, select: { id: true, nombre: true, nivel: true, grado: true } }),
     ctx.db.alumno.findMany({
       where: familia
         ? { estado: "activo", OR: [{ cuentaId: ctx.membership.id }, { apoderados: { some: { apoderadoId: ctx.membership.id } } }] }
@@ -348,7 +411,15 @@ export async function opcionesDeReporte(ctx: TenantContext): Promise<OpcionesRep
     }),
     ctx.db.periodo.findMany({ where: { anio: Number(hoyDelColegio(ctx).isoFecha.slice(0, 4)) }, orderBy: { inicio: "asc" }, select: { nombre: true, inicio: true, fin: true } }),
   ]);
-  return { salones, alumnos, periodos: periodos.map((p) => ({ nombre: p.nombre, inicio: isoDeFechaDb(p.inicio), fin: isoDeFechaDb(p.fin) })) };
+  const ORDEN = ["inicial", "primaria", "secundaria", "academia"];
+  const grados = new Map<string, GradoReporte>();
+  for (const s of salones) if (s.grado !== null) grados.set(claveGrado({ nivel: s.nivel, grado: s.grado }), { nivel: s.nivel, grado: s.grado });
+  return {
+    salones: salones.map((s) => ({ id: s.id, nombre: s.nombre })),
+    grados: [...grados.values()]
+      .sort((a, b) => ORDEN.indexOf(a.nivel) - ORDEN.indexOf(b.nivel) || a.grado - b.grado)
+      .map((g) => ({ clave: claveGrado(g), nombre: nombreGrado(g) })),
+    alumnos, periodos: periodos.map((p) => ({ nombre: p.nombre, inicio: isoDeFechaDb(p.inicio), fin: isoDeFechaDb(p.fin) })) };
 }
 
 // ───────────── Profesor: su salón de tutoría y el historial de sus cursos (specs/27) ─────────────

@@ -1,4 +1,4 @@
-import { ArrowLeft, CalendarDays, FileSpreadsheet, FileText, Table2 } from "lucide-react";
+import { ArrowLeft, CalendarDays, FileDown, FileSpreadsheet, FileText, Table2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -11,12 +11,12 @@ import { filtrosDeBusqueda, rangoEsteMes, type FiltrosReporte } from "@/lib/repo
 import { esVistaFamilia } from "@/lib/roles";
 import { hoyDelColegio } from "@/lib/server/asistencia";
 import { requireFeature } from "@/lib/server/plan";
-import { opcionesDeReporte, reporteSegunFiltros, type ReporteAsistencia } from "@/lib/server/reportes-asistencia";
+import { opcionesDeReporte, reporteSegunFiltros } from "@/lib/server/reportes-asistencia";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cn } from "@/lib/utils";
 import { CalendarioReporte } from "../CalendarioReporte";
 import { FiltroReporte } from "../FiltroReporte";
-import { AsistenciaPorCurso, atajosDeFecha, Contenido, contextoDe, enlace, Totales } from "../vistas";
+import { AsistenciaPorCurso, atajosDeFecha, Contenido, contextoDe, enlace, tituloDe, Totales } from "../vistas";
 
 export const metadata: Metadata = { title: "Reporte de asistencia" };
 
@@ -48,7 +48,7 @@ export default async function VerReporteAsistenciaPage({ params, searchParams }:
   }
   const reporte = filtros ? await reporteSegunFiltros(ctx, filtros) : null;
   const base = filtros ?? { desde: rangoEsteMes(hoy).desde, hasta: hoy };
-  const activos = [uno("salon"), uno("alumno"), uno("desde") || uno("hasta")].filter(Boolean).length;
+  const activos = [uno("salon") || uno("grado"), uno("alumno"), uno("desde") || uno("hasta")].filter(Boolean).length;
 
   return (
     <div className="flex flex-col gap-6">
@@ -71,6 +71,9 @@ export default async function VerReporteAsistenciaPage({ params, searchParams }:
                 </a>
                 <a href={enlace(filtros, {}, "/api/reportes-asistencia/pdf")} className={buttonVariants({ variant: "outline" })}>
                   <FileText className="size-4" strokeWidth={2} aria-hidden /> Descargar PDF
+                </a>
+                <a href={enlace(filtros, {}, "/api/reportes-asistencia/csv")} className={buttonVariants({ variant: "outline" })}>
+                  <FileDown className="size-4" strokeWidth={2} aria-hidden /> Descargar CSV
                 </a>
               </div>
             )}
@@ -103,12 +106,6 @@ export default async function VerReporteAsistenciaPage({ params, searchParams }:
       )}
     </div>
   );
-}
-
-function tituloDe(r: ReporteAsistencia): string {
-  if (r.tipo === "alumno") return `${r.alumno.apellidos}, ${r.alumno.nombres}`;
-  if (r.tipo === "salon") return `Salón ${r.salon.nombre}`;
-  return "Todo el colegio";
 }
 
 /** Tabla o calendario: dos enlaces con el mismo filtro (control segmentado). */

@@ -16,15 +16,15 @@ export type SeccionReporte = {
 export type TablaReporte = { titulo: string; subtitulo: string; nota: string; secciones: SeccionReporte[]; archivo: string };
 
 export const NOTA_PORCENTAJE =
-  "Asistencia al colegio (portería o lista del día; las listas de curso no cuentan). % de asistencia = (llegó + tarde) ÷ días hábiles con registro. Días hábiles: lunes a viernes sin feriados. Una falta cuenta como justificada cuando su justificación fue aceptada; en revisión, si la familia la envió y aún no se revisa.";
+  "Asistencia al colegio (portería o lista del día; las listas de curso no cuentan). % de asistencia = (llegó + tarde) ÷ días hábiles con registro. Días hábiles: lunes a viernes sin feriados. Una falta cuenta como justificada cuando su justificación fue aceptada o la cubre un permiso del colegio; en revisión, si la familia la envió y aún no se revisa. «Con permiso»: días con permiso de asistencia de día completo en que el alumno no asistió.";
 
 export const ETIQUETA_ESTADO = { llego: "Llegó", tarde: "Tarde", falta: "No llegó", problema: "Aviso" } as const;
 
-const COLUMNAS_RESUMEN = ["Días con registro", "Llegó", "Tarde", "No llegó", "Aviso", "Faltas justificadas", "Faltas en revisión", "Faltas sin justificar", "Sin registro", "% asistencia"];
+const COLUMNAS_RESUMEN = ["Días con registro", "Llegó", "Tarde", "No llegó", "Aviso", "Faltas justificadas", "Faltas en revisión", "Faltas sin justificar", "Con permiso", "Sin registro", "% asistencia"];
 const PCT = [COLUMNAS_RESUMEN.length - 1];
 
 export function celdasResumen(r: ResumenAlumno): Celda[] {
-  return [r.diasConRegistro, r.llego, r.tarde, r.falta, r.problema, r.faltasJustificadas, r.faltasEnRevision, r.faltasInjustificadas, r.diasSinRegistro, r.porcentaje];
+  return [r.diasConRegistro, r.llego, r.tarde, r.falta, r.problema, r.faltasJustificadas, r.faltasEnRevision, r.faltasInjustificadas, r.conPermiso ?? 0, r.diasSinRegistro, r.porcentaje];
 }
 
 /** Clases por bloque de la matriz del curso: más columnas no caben en un PDF A4 horizontal. */
@@ -97,24 +97,27 @@ export function tablaDeReporte(r: ReporteAsistencia | ReporteCurso): TablaReport
         { titulo: "Resumen", columnas: COLUMNAS_RESUMEN, filas: [celdasResumen(r.resumen)], columnasPorcentaje: PCT },
         {
           titulo: "Detalle por día",
-          columnas: ["Fecha", "Estado", "Hora", "Justificación"],
-          filas: r.detalle.map((d) => [fechaCorta(d.fecha), d.estado ? ETIQUETA_ESTADO[d.estado] : "Sin registro", d.hora ?? "", textoJustificacion(d)]),
+          columnas: ["Fecha", "Estado", "Hora", "Salida", "Justificación"],
+          filas: r.detalle.map((d) => [
+            fechaCorta(d.fecha), d.estado ? ETIQUETA_ESTADO[d.estado] : d.conPermiso ? "Con permiso" : "Sin registro", d.hora ?? "", d.horaSalida ?? "", textoJustificacion(d),
+          ]),
           columnasPorcentaje: [],
         },
       ],
     };
   }
+  const grado = r.grado ?? null;
   return {
-    titulo: `Asistencia · ${r.colegio}`,
+    titulo: grado ? `Asistencia · ${grado.nombre}` : `Asistencia · ${r.colegio}`,
     subtitulo: rango(r),
     nota,
-    archivo: nombreArchivoReporte(["asistencia", "colegio", r.desde, r.hasta]),
+    archivo: nombreArchivoReporte(["asistencia", grado ? `${grado.nivel}-${grado.grado}` : "colegio", r.desde, r.hasta]),
     secciones: [
       {
-        titulo: "Asistencia al colegio por salón",
+        titulo: grado ? "Asistencia al colegio por sección" : "Asistencia al colegio por salón",
         columnas: ["Salón", "Alumnos", ...COLUMNAS_RESUMEN],
         filas: r.filas.map((f) => [f.salon, f.alumnos, ...celdasResumen(f.resumen)]),
-        total: ["Total del colegio", r.filas.reduce((s, f) => s + f.alumnos, 0), ...celdasResumen(r.total)],
+        total: [grado ? "Total del grado" : "Total del colegio", r.filas.reduce((s, f) => s + f.alumnos, 0), ...celdasResumen(r.total)],
         columnasPorcentaje: [PCT[0] + 2],
       },
       ...(r.cursos
@@ -138,4 +141,19 @@ export function tablaDeReporte(r: ReporteAsistencia | ReporteCurso): TablaReport
 export function textoCelda(c: Celda, esPorcentaje: boolean): string {
   if (esPorcentaje) return textoPorcentaje(typeof c === "number" ? c : null);
   return c === null ? "" : String(c);
+}
+
+/**
+ * CSV del reporte (mismas tablas que Excel y PDF): cabecera con el colegio, el título y el rango, y luego cada sección
+ * con su título, columnas, filas y total. Los porcentajes van con un decimal («77,8 %») o «Sin datos».
+ */
+export function filasCsvDeTabla(colegio: string, tabla: TablaReporte): { encabezados: string[]; filas: Celda[][] } {
+  const filas: Celda[][] = [[tabla.titulo], [tabla.subtitulo], [tabla.nota]];
+  for (const s of tabla.secciones) {
+    filas.push([], [s.titulo], s.columnas);
+    const celdas = (f: Celda[]) => f.map((c, i) => (s.columnasPorcentaje.includes(i) ? textoCelda(c, true) : c));
+    for (const f of s.filas) filas.push(celdas(f));
+    if (s.total) filas.push(celdas(s.total));
+  }
+  return { encabezados: [colegio], filas };
 }

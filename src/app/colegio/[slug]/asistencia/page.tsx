@@ -1,4 +1,4 @@
-import { ArrowLeft, BarChart3, CalendarCheck, CalendarX, ChevronRight, ClipboardCheck, FileText, MessageSquarePlus, Users } from "lucide-react";
+import { ArrowLeft, BarChart3, CalendarCheck, CalendarX, ChevronRight, ClipboardCheck, FileText, LogOut, MessageSquarePlus, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -228,6 +228,16 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
                     </div>
                     <div className="flex flex-wrap items-center gap-2">
                       <EstadoAsistencia estado={r.estado} hora={r.estado === "falta" ? undefined : hora12(r.hora)} />
+                      {r.horaSalida && (
+                        <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground">
+                          <LogOut className="size-3.5" strokeWidth={2} aria-hidden /> Salió {hora12(r.horaSalida)}
+                        </span>
+                      )}
+                      {r.conPermiso && (
+                        <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground">
+                          <CalendarCheck className="size-3.5" strokeWidth={2} aria-hidden /> Con permiso del colegio
+                        </span>
+                      )}
                       {r.justificacion && r.justificacion !== "rechazada" && (
                         <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground">
                           <FileText className="size-3.5" strokeWidth={2} aria-hidden />

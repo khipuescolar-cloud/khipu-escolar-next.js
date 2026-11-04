@@ -339,6 +339,7 @@ model Tenant {
   bloquesHorario        BloqueHorario[]
   // NSP, justificaciones, incidencias, libretas emitidas y resumen académico (specs/37)
   incidencias           Incidencia[]
+  permisosAsistencia    PermisoAsistencia[]
   incidenciaCursos      IncidenciaCurso[]
   libretasEmitidas      LibretaEmitida[]
   rectificaciones       RectificacionLibreta[]
@@ -424,6 +425,10 @@ model Membership {
   bloquesHorarioACargo     BloqueHorario[]
   recuperacionesDecididas  Nota[]                 @relation("RecuperacionDecidida")
   incidenciasRegistradas   Incidencia[]
+  // Permisos de asistencia y salida en portería (specs/04, 05)
+  permisosRegistrados      PermisoAsistencia[]    @relation("PermisoRegistradoPor")
+  permisosAnulados         PermisoAsistencia[]    @relation("PermisoAnuladoPor")
+  salidasRegistradas       Asistencia[]           @relation("SalidaRegistradaPor")
   libretasEmitidas         LibretaEmitida[]
   rectificacionesPedidas   RectificacionLibreta[] @relation("RectificacionSolicitada")
   rectificacionesResueltas RectificacionLibreta[] @relation("RectificacionResuelta")
@@ -525,6 +530,7 @@ model Alumno {
   alertasNudito         AlertaNudito[]
   resumenesNudito       ResumenNudito[]
   incidencias           Incidencia[]
+  permisosAsistencia    PermisoAsistencia[]
   libretasEmitidas      LibretaEmitida[]
   rectificaciones       RectificacionLibreta[]
   notificaciones        Notificacion[]
@@ -611,30 +617,34 @@ model LoginIntento {
 // ───────────────────────── Khipu Base ─────────────────────────
 
 model Asistencia {
-  id              String           @id @default(uuid()) @db.Uuid
-  tenantId        String           @map("tenant_id") @db.Uuid
-  alumnoId        String           @map("alumno_id") @db.Uuid
-  cursoId         String?          @map("curso_id") @db.Uuid // null = asistencia del día (portería / tutor)
-  ambito          String // = cursoId, o "dia" para la asistencia del día; hace única la fila
-  fecha           DateTime         @db.Date
-  hora            String // HH:mm, hora local del colegio
-  estado          EstadoAsistencia
-  nota            String?
-  origen          OrigenAsistencia @default(lista)
-  registradoPorId String?          @map("registrado_por") @db.Uuid // null = la puso el control de ingreso automático
+  id                    String           @id @default(uuid()) @db.Uuid
+  tenantId              String           @map("tenant_id") @db.Uuid
+  alumnoId              String           @map("alumno_id") @db.Uuid
+  cursoId               String?          @map("curso_id") @db.Uuid // null = asistencia del día (portería / tutor)
+  ambito                String // = cursoId, o "dia" para la asistencia del día; hace única la fila
+  fecha                 DateTime         @db.Date
+  hora                  String // HH:mm, hora local del colegio
+  estado                EstadoAsistencia
+  nota                  String?
+  origen                OrigenAsistencia @default(lista)
+  registradoPorId       String?          @map("registrado_por") @db.Uuid // null = la puso el control de ingreso automático
   /// Falta a clase creada por una incidencia o retiro anticipado (specs/37).
-  incidenciaId    String?          @map("incidencia_id") @db.Uuid
-  createdAt       DateTime         @default(now()) @map("created_at") @db.Timestamptz
-  updatedAt       DateTime         @updatedAt @map("updated_at") @db.Timestamptz
+  incidenciaId          String?          @map("incidencia_id") @db.Uuid
+  /// Salida del colegio registrada en portería (solo `ambito = "dia"`; HH:mm, hora local; specs/05).
+  horaSalida            String?          @map("hora_salida")
+  salidaRegistradaPorId String?          @map("salida_registrada_por") @db.Uuid
+  createdAt             DateTime         @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt             DateTime         @updatedAt @map("updated_at") @db.Timestamptz
 
-  tenant          Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  alumno          Alumno               @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
-  curso           Curso?               @relation(fields: [cursoId], references: [id], onDelete: SetNull)
-  registradoPor   Membership?          @relation("RegistradoPor", fields: [registradoPorId], references: [id], onDelete: NoAction)
-  incidencia      Incidencia?          @relation(fields: [incidenciaId], references: [id], onDelete: SetNull)
-  avisos          Aviso[]
-  tokens          JustificacionToken[]
-  justificaciones Justificacion[]
+  tenant              Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno              Alumno               @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  curso               Curso?               @relation(fields: [cursoId], references: [id], onDelete: SetNull)
+  registradoPor       Membership?          @relation("RegistradoPor", fields: [registradoPorId], references: [id], onDelete: NoAction)
+  incidencia          Incidencia?          @relation(fields: [incidenciaId], references: [id], onDelete: SetNull)
+  salidaRegistradaPor Membership?          @relation("SalidaRegistradaPor", fields: [salidaRegistradaPorId], references: [id], onDelete: NoAction)
+  avisos              Aviso[]
+  tokens              JustificacionToken[]
+  justificaciones     Justificacion[]
 
   @@unique([alumnoId, fecha, ambito])
   @@index([tenantId, fecha])
@@ -2224,6 +2234,36 @@ model Incidencia {
   @@index([tenantId, fecha])
   @@index([alumnoId, fecha])
   @@map("incidencias")
+}
+
+/// Permiso de asistencia (specs/04): el colegio autoriza que el alumno no asista (todo el día) o falte unas horas entre
+/// dos fechas. Un permiso vigente evita la falta automática del control de ingreso (día completo) y el NSP de las
+/// faltas que cubre (specs/37). No se borra: se anula con motivo.
+model PermisoAsistencia {
+  id              String    @id @default(uuid()) @db.Uuid
+  tenantId        String    @map("tenant_id") @db.Uuid
+  alumnoId        String    @map("alumno_id") @db.Uuid
+  desde           DateTime  @db.Date
+  hasta           DateTime  @db.Date
+  /// true = todo el día; false = solo entre horaDesde y horaHasta (HH:mm) de cada día del rango.
+  todoElDia       Boolean   @default(true) @map("todo_el_dia")
+  horaDesde       String?   @map("hora_desde")
+  horaHasta       String?   @map("hora_hasta")
+  motivo          String
+  registradoPorId String    @map("registrado_por") @db.Uuid
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  anuladoAt       DateTime? @map("anulado_at") @db.Timestamptz
+  anuladoPorId    String?   @map("anulado_por") @db.Uuid
+  motivoAnulacion String?   @map("motivo_anulacion")
+
+  tenant        Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  alumno        Alumno      @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  registradoPor Membership  @relation("PermisoRegistradoPor", fields: [registradoPorId], references: [id], onDelete: NoAction)
+  anuladoPor    Membership? @relation("PermisoAnuladoPor", fields: [anuladoPorId], references: [id], onDelete: NoAction)
+
+  @@index([tenantId, desde])
+  @@index([alumnoId, desde, hasta])
+  @@map("permisos_asistencia")
 }
 
 /// Clase afectada por una incidencia (el alumno no estuvo).

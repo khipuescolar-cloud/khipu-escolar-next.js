@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Info, Loader2, Mail, Send } from "lucide-react";
+import { CalendarCheck, Check, Info, Loader2, Mail, Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
 import { EstadoAsistencia, ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
@@ -14,6 +14,7 @@ import { NativeSelect } from "@/components/ui/native-select";
 import { VistaPreviaAviso } from "@/components/VistaPreviaAviso";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { hora12 } from "@/lib/fechas";
+import { textoHorasPermiso } from "@/lib/permisos-asistencia";
 import { esErrorDeRed } from "@/lib/registro-offline";
 import { ingresoAlColegio } from "@/lib/asistencia-por-curso";
 import { notasResumenAvisos, resumenAvisosLista, textoResumenAvisos } from "@/lib/resumen-avisos-lista";
@@ -31,6 +32,8 @@ export type AlumnoLista = {
   familiasConAviso: number;
   /** Solo listas de curso: ingreso al colegio de ese día (portería o lista del día). */
   ingreso: { estado: Estado; hora: string } | null;
+  /** Permiso de asistencia vigente ese día (specs/04). */
+  permiso?: { todoElDia: boolean; horaDesde: string | null; horaHasta: string | null } | null;
 };
 
 /** Dirección corrige una lista (desde los reportes): solo se envían los alumnos que cambió. */
@@ -231,6 +234,11 @@ export function ListaAsistencia({
                         {a.apellidos}, {a.nombres}
                       </p>
                       <span className="flex flex-wrap items-center gap-2">
+                        {a.permiso && (
+                          <span className="inline-flex items-center gap-1 rounded-pildora bg-muted px-2 py-0.5 text-etiqueta">
+                            <CalendarCheck className="size-3.5" strokeWidth={2} aria-hidden /> Con permiso · {textoHorasPermiso(a.permiso, hora12)}
+                          </span>
+                        )}
                         {esCurso && (
                           <span className="text-cuerpo-sm text-muted-foreground">
                             {ingresoAlColegio(a.ingreso) ? `Ingresó ${hora12(a.ingreso!.hora)}` : "Sin ingreso al colegio"}

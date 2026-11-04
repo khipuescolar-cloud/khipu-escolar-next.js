@@ -5,6 +5,7 @@ import { textoValor, type Escala, type ValorCalificacion } from "@/lib/calificac
 import { urlColegio } from "@/lib/dominio";
 import { fechaDb, isoDeFechaDb, momentoEnZona, sumarDias } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
+import { cubreDiaCompleto, cubreHora } from "@/lib/permisos-asistencia";
 import { expiracionJustificacion, normalizarPlazoDias } from "@/lib/plazo-justificacion";
 import { auditar } from "./auditoria";
 import { db, dbTenant, type DbTenant } from "./db";
@@ -48,24 +49,53 @@ export function textoDeNota(n: { valorLiteral: string | null; valorNumerico: { t
  * ¿Faltó cada alumno a la clase de `cursoId` el día `fecha`? Manda el registro de la clase (si el profesor pasó lista
  * del curso: «No llegó» = ausente, cualquier otro = presente); sin registro de la clase, la falta del día (no vino al
  * colegio). Entrar al colegio no prueba presencia en todas las clases: una incidencia crea faltas a clase.
+ * Una falta cubierta por un permiso de asistencia vigente (specs/04) no cuenta: los permisos autorizados no se
+ * convierten en NSP. El de día completo cubre la falta del día y las faltas a clase; uno por horas, solo las faltas a
+ * clase registradas dentro de esas horas. Las faltas por incidencia no las cubre un permiso (retiro: pendiente, specs/37).
  */
 export async function ausenciasEnCurso(tdb: DbTenant, cursoId: string, fecha: Date, alumnoIds: string[]): Promise<Map<string, MotivoAusencia>> {
-  if (alumnoIds.length === 0) return new Map();
-  const registros = await tdb.asistencia.findMany({
-    where: { alumnoId: { in: alumnoIds }, fecha, ambito: { in: [cursoId, "dia"] } },
-    select: { alumnoId: true, ambito: true, estado: true, origen: true },
-  });
+  return (await ausenciasYPermisos(tdb, cursoId, fecha, alumnoIds)).ausencias;
+}
+
+/** Como `ausenciasEnCurso`, y además los alumnos cuya falta quedó cubierta por un permiso (para el texto del historial). */
+async function ausenciasYPermisos(tdb: DbTenant, cursoId: string, fecha: Date, alumnoIds: string[]) {
   const ausencias = new Map<string, MotivoAusencia>();
+  const conPermiso = new Set<string>();
+  if (alumnoIds.length === 0) return { ausencias, conPermiso };
+  const [registros, permisos] = await Promise.all([
+    tdb.asistencia.findMany({
+      where: { alumnoId: { in: alumnoIds }, fecha, ambito: { in: [cursoId, "dia"] } },
+      select: { alumnoId: true, ambito: true, estado: true, origen: true, hora: true },
+    }),
+    tdb.permisoAsistencia.findMany({
+      where: { alumnoId: { in: alumnoIds }, anuladoAt: null, desde: { lte: fecha }, hasta: { gte: fecha } },
+      select: { alumnoId: true, todoElDia: true, horaDesde: true, horaHasta: true },
+    }),
+  ]);
+  const iso = isoDeFechaDb(fecha);
+  const cubre = (alumnoId: string, hora: string | null) =>
+    permisos.some((p) => p.alumnoId === alumnoId && (hora === null ? cubreDiaCompleto({ ...p, desde: iso, hasta: iso }, iso) : cubreHora({ ...p, desde: iso, hasta: iso }, iso, hora)));
   for (const alumnoId of alumnoIds) {
     const propios = registros.filter((r) => r.alumnoId === alumnoId);
     const clase = propios.find((r) => r.ambito === cursoId);
+    let motivo: MotivoAusencia | null = null;
+    let hora: string | null = null;
     if (clase) {
-      if (clase.estado === "falta") ausencias.set(alumnoId, clase.origen === "incidencia" ? "incidencia" : "falta_clase");
+      if (clase.estado === "falta") {
+        motivo = clase.origen === "incidencia" ? "incidencia" : "falta_clase";
+        hora = clase.hora;
+      }
+    } else if (propios.find((r) => r.ambito === "dia")?.estado === "falta") {
+      motivo = "falta_dia";
+    }
+    if (!motivo) continue;
+    if (motivo !== "incidencia" && cubre(alumnoId, hora)) {
+      conPermiso.add(alumnoId);
       continue;
     }
-    if (propios.find((r) => r.ambito === "dia")?.estado === "falta") ausencias.set(alumnoId, "falta_dia");
+    ausencias.set(alumnoId, motivo);
   }
-  return ausencias;
+  return { ausencias, conPermiso };
 }
 
 type CambioHistorial = {
@@ -85,7 +115,7 @@ export type ResumenSincronizacion = { creados: number; quitados: number; notaIds
  * Pone o quita los NSP de las actividades indicadas según la asistencia. Idempotente: correrlo dos veces no cambia nada.
  * Filtros: `evaluacionIds` (al crear o mover una actividad) o `fecha` + `alumnoIds` (al cambiar la asistencia).
  * - Ausente y sin nota → NSP (historial tipo `cambio_asistencia`, actor Khipu).
- * - Presente y con un NSP sin valor → se quita (la asistencia se corrigió).
+ * - Presente (o falta cubierta por un permiso, specs/04) y con un NSP sin valor → se quita (la asistencia se corrigió).
  * - Ausente con calificación, o NSP con consecuencia aplicada → no se toca (el profesor ve el conflicto).
  * Después aplica el vencimiento a los NSP nuevos cuyo plazo ya pasó (actividad registrada tarde).
  */
@@ -113,8 +143,8 @@ export async function sincronizarNsp(
   for (const e of evaluaciones) {
     const alumnoIds = (activosDeSalones ?? salonesDeAlumnos!).filter((a) => a.salonId === e.curso.salonId).map((a) => a.id);
     if (alumnoIds.length === 0) continue;
-    const [ausencias, notas] = await Promise.all([
-      ausenciasEnCurso(tdb, e.cursoId, e.fecha, alumnoIds),
+    const [{ ausencias, conPermiso }, notas] = await Promise.all([
+      ausenciasYPermisos(tdb, e.cursoId, e.fecha, alumnoIds),
       tdb.nota.findMany({ where: { evaluacionId: e.id, alumnoId: { in: alumnoIds } } }),
     ]);
     const publicada = e.estado === "publicada";
@@ -148,7 +178,10 @@ export async function sincronizarNsp(
             await tx.historialNota.create({
               data: datosHistorial({
                 tenantId: tenant.id, evaluacionId: e.id, alumnoId, anterior: "NSP", nuevo: null, tipo: "cambio_asistencia",
-                motivo: "Se corrigió la asistencia: el alumno estuvo en la clase.", cambiadoPorId: null, publicada,
+                motivo: conPermiso.has(alumnoId)
+                  ? "La falta está cubierta por un permiso de asistencia autorizado."
+                  : "Se corrigió la asistencia: el alumno estuvo en la clase.",
+                cambiadoPorId: null, publicada,
                 justificacionId: nota.justificacionId,
               }),
             });
