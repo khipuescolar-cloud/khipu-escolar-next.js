@@ -8,6 +8,7 @@ import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Textarea } from "@/components/ui/textarea";
+import { licenciasFamiliaresNudito } from "@/lib/planes";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import { configNuditoPlus, listarSitios } from "@/lib/server/plataforma-nudito-plus";
 import { BotonAccion } from "../../_componentes/BotonAccion";
@@ -27,12 +28,12 @@ export default async function ConfiguracionNudito({ searchParams }: PageProps<"/
 
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina titulo="Nudito+" descripcion="Lo que ve la familia al pagar y autorizar, los topes por alumno y los sitios que Nudito+ puede recomendar." />
+      <EncabezadoPagina titulo="Nudito+" descripcion="El texto de autorización para las familias, los topes por alumno y los sitios que Nudito puede recomendar." />
       <Pestanas actual="/nudito-plus/configuracion" />
       <Flash ok={sp.ok} error={sp.error} />
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Tarjeta>
+        {licenciasFamiliaresNudito() && <Tarjeta>
           <form action={guardarPrecioYapeAction} className="flex flex-col gap-4">
             <h2 className="text-lg font-semibold">Precio y Yape</h2>
             <Campo etiqueta="Precio mensual por alumno (S/)" name="montoMensual" type="number" min="0.01" max="1000" step="0.01" required defaultValue={config.precio.montoMensual} />
@@ -40,7 +41,7 @@ export default async function ConfiguracionNudito({ searchParams }: PageProps<"/
             <Campo etiqueta="Titular" name="titular" required defaultValue={config.yape?.titular ?? ""} ayuda="Nombre que la familia ve en Yape al pagar." />
             <Boton type="submit" className="w-fit">Guardar</Boton>
           </form>
-        </Tarjeta>
+        </Tarjeta>}
 
         <Tarjeta>
           <form action={guardarLimitesAction} className="flex flex-col gap-4">

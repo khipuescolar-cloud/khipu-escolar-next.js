@@ -10,7 +10,7 @@ import { requireTenantContext } from "@/lib/server/tenant";
 import { aceptarConsentimientoIaAction } from "../../actions";
 import { BotonEnvio } from "../../BotonEnvio";
 
-export const metadata: Metadata = { title: "Autorización de Nudito+" };
+export const metadata: Metadata = { title: "Autorización de Nudito" };
 
 /** Consentimiento del apoderado para que su hijo menor use el tutor con IA (Ley 29733, specs/28). */
 export default async function ConsentimientoNudito({ params }: PageProps<"/colegio/[slug]/nudito-plus/[alumnoId]/consentimiento">) {
@@ -23,14 +23,14 @@ export default async function ConsentimientoNudito({ params }: PageProps<"/coleg
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-col gap-4">
       <Link href={`/nudito-plus/${alumno.id}`} className="enlace inline-flex w-fit items-center gap-1 text-cuerpo-sm">
-        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Nudito+ de {nombre}
+        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Nudito de {nombre}
       </Link>
       <Tarjeta className="flex flex-col gap-4 p-6">
         <div className="flex items-center gap-3">
           <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-superficie-2 text-primary">
             <ShieldCheck className="size-6" strokeWidth={2} aria-hidden />
           </span>
-          <h1 className="text-titulo-2 text-balance sm:text-titulo-1">Autorización para que {nombre} use Nudito+</h1>
+          <h1 className="text-titulo-2 text-balance sm:text-titulo-1">Autorización para que {nombre} use Nudito</h1>
         </div>
         {parrafos(texto.texto).map((p) => (
           <p key={p} className="max-w-prose leading-relaxed">{p}</p>

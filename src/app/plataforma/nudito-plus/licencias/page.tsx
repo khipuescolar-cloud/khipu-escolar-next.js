@@ -10,6 +10,7 @@ import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { fechaCorta, fechaLima } from "@/lib/fechas";
 import { diasParaVencer, NOMBRE_ESTADO_LICENCIA, NOMBRE_ORIGEN } from "@/lib/nudito-plus";
+import { licenciasFamiliaresNudito } from "@/lib/planes";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import { colegiosConLicencias, esquemaFiltroLicencias, listarLicencias, type FilaLicencia } from "@/lib/server/plataforma-nudito-plus";
 import { cancelarLicenciaAction, extenderLicenciaAction } from "../actions";
@@ -45,15 +46,16 @@ export default async function LicenciasNudito({ searchParams }: PageProps<"/plat
   const filtro = esquemaFiltroLicencias.parse({ colegio: sp.colegio || undefined, estado: sp.estado || undefined, vence: sp.vence || undefined });
   const hoy = fechaLima(new Date());
   const [licencias, colegios] = await Promise.all([listarLicencias(admin, filtro, hoy), colegiosConLicencias(admin)]);
+  const conAcciones = licenciasFamiliaresNudito();
   const hayFiltro = !!(filtro.colegio || filtro.estado || filtro.vence);
 
   return (
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
-        titulo="Nudito+"
-        descripcion="Licencias por alumno. Las de pago se crean al verificar un Yape; aquí puedes dar cortesías o pruebas, extender y cancelar."
+        titulo="Licencias (histórico)"
+        descripcion={conAcciones ? "Licencias por alumno. Las de pago se crean al verificar un Yape; aquí puedes dar cortesías o pruebas, extender y cancelar." : "Licencias familiares de Nudito+ (ya no se usan: Nudito es parte de Khipu Pro). Solo consulta."}
         acciones={
-          <Link href="/nudito-plus/licencias/nueva" className={buttonVariants()}>
+          conAcciones && <Link href="/nudito-plus/licencias/nueva" className={buttonVariants()}>
             <Plus strokeWidth={2} aria-hidden /> Cortesía o prueba
           </Link>
         }
@@ -125,7 +127,7 @@ export default async function LicenciasNudito({ searchParams }: PageProps<"/plat
                     )}
                   </TableCell>
                   <TableCell className="pr-4">
-                    {l.estado !== "cancelada" && (
+                    {conAcciones && l.estado !== "cancelada" && (
                       <div className="flex flex-wrap gap-2">
                         <DialogoAccion
                           etiqueta={<><CalendarPlus strokeWidth={2} aria-hidden /> Extender</>}

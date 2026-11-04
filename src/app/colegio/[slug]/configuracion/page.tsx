@@ -1,7 +1,7 @@
 import { Alerta } from "@/components/ui/Alerta";
 import { ETIQUETA_LITERAL, LITERALES } from "@/lib/calificaciones";
 import { nspVencidosSinConsecuencia } from "@/lib/server/nsp";
-import { Bell, BookOpenCheck, CalendarClock, Contact, Download, Globe, GraduationCap, ImageIcon, Scale, ScrollText, UserRound } from "lucide-react";
+import { Bell, BookOpenCheck, CalendarClock, Contact, Download, Globe, GraduationCap, ImageIcon, Scale, ScrollText, Sparkles, UserRound } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -222,6 +222,16 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
           </form>
         </Seccion>
       </Tarjeta>
+
+      {ctx.tenant.plan === "pro" && (
+        <Tarjeta>
+          <Seccion icono={Sparkles} titulo="Nudito, tutor de práctica" descripcion="Enciende Nudito, elige grados y cursos, fotos, límites y por cuánto tiempo se guarda la práctica.">
+            <Link href="/configuracion/nudito" className={buttonVariants({ variant: "outline" })}>
+              <Sparkles strokeWidth={2} aria-hidden /> Configurar Nudito
+            </Link>
+          </Seccion>
+        </Tarjeta>
+      )}
 
       <Tarjeta>
         <Seccion icono={ScrollText} titulo="Privacidad y datos" descripcion="Transparencia sobre quién vio o cambió datos, y una copia de todo lo tuyo.">

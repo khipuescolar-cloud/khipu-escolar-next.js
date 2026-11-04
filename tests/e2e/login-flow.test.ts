@@ -36,8 +36,7 @@ test("apoderada con hijos en dos colegios elige a cuál entrar", async ({ page }
   await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
   await page.waitForURL(`http://nuevohorizonte.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
   await expect(page.getByRole("main").getByText("Tareas", { exact: true })).toBeVisible();
-  // Ni el Nudito retirado ni Nudito+ (desactivado, NUDITO_PLUS_DISPONIBLE; specs/28) aparecen, aunque el colegio sea Pro.
-  await expect(page.getByRole("main").getByText("Nudito", { exact: true })).toHaveCount(0);
+  // Nudito es el tutor de Khipu Pro (specs/44): la familia lo ve como «Nudito» (sin el antiguo «Nudito+» de pago).
   await expect(page.getByRole("main").getByRole("link", { name: /^Nudito\+/ })).toHaveCount(0);
 });
 

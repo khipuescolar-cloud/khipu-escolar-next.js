@@ -23,7 +23,7 @@ describe("armarPlanesPublicos (landing)", () => {
     // soporte y avisos no se listan como función del plan
     expect(planes[0].nuevos.map((m) => m.clave)).toEqual(["asistencia", "mensajes", "gestion"]);
     expect(planes[1].incluyeA).toBe("Khipu Base");
-    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["notas", "tareas"]);
+    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["notas", "tareas", "nudito_plus"]);
   });
 
   it("oculta los planes inactivos y no dice «todo lo de» si el plan no contiene al anterior", () => {
@@ -33,7 +33,7 @@ describe("armarPlanesPublicos (landing)", () => {
       fila({ plan: "pro", nombre: "Khipu Pro", orden: 2, modulos: ["asistencia", "notas"] }),
     ]);
     expect(planes[1].incluyeA).toBeNull();
-    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["asistencia", "gestion", "notas"]);
+    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["asistencia", "gestion", "notas", "nudito_plus"]);
   });
 
   const conMontos = () => [fila({ plan: "base", orden: 1, precioPorAlumno: 4, precioMinimoMensual: 300 }), fila({ plan: "pro", orden: 2, precioPorAlumno: 0 })];
@@ -61,10 +61,10 @@ describe("armarPlanesPublicos (landing)", () => {
     const planes = armarPlanesPublicos(catalogoDeCodigo());
     expect(planes.map((p) => p.nombre)).toEqual(["Khipu Base", "Khipu Pro"]);
     expect(planes[1].incluyeA).toBe("Khipu Base");
-    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["notas", "libreta", "tareas", "agenda", "tablero", "documentos", "reuniones"]);
+    expect(planes[1].nuevos.map((m) => m.clave)).toEqual(["notas", "libreta", "tareas", "agenda", "tablero", "documentos", "reuniones", "nudito_plus"]);
   });
 
-  it("nombra los módulos con su nombre público: Base = gestión, asistencia y comunicación; Pro suma lo académico; sin Nudito+", () => {
+  it("nombra los módulos con su nombre público: Base = gestión, asistencia y comunicación; Pro suma lo académico y Nudito (sin precio aparte)", () => {
     const [base, pro] = armarPlanesPublicos(catalogoDeCodigo());
     expect(base.modulos.map((m) => m.clave)).toEqual(["asistencia", "porteria", "justificaciones", "mensajes", "comunicados", "gestion", "horario"]);
     expect(base.modulos.map((m) => m.nombre)).toEqual(
@@ -84,7 +84,9 @@ describe("armarPlanesPublicos (landing)", () => {
         "Reuniones con confirmación y acta",
       ]),
     );
-    expect(pro.modulos.map((m) => m.nombre).join(" ")).not.toMatch(/Nudito/);
-    expect(pro.modulos.map((m) => m.clave)).not.toContain("nudito_plus");
+    // Nudito es el tutor de práctica incluido en Khipu Pro (specs/44): figura sin precio ni pago de familias.
+    expect(pro.modulos.map((m) => m.nombre)).toContain("Nudito, tutor de práctica");
+    expect(pro.modulos.map((m) => m.nombre).join(" ")).not.toMatch(/Nudito\+|Yape|familia paga/i);
+    expect(base.modulos.map((m) => m.clave)).not.toContain("nudito_plus");
   });
 });

@@ -1,6 +1,8 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { licenciasFamiliaresNudito } from "@/lib/planes";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
@@ -19,6 +21,7 @@ export const metadata: Metadata = { title: "Licencia de cortesía o prueba" };
 /** Licencia sin pago (cortesía o prueba): 1) colegio Khipu Pro, 2) alumno, fecha final y motivo. */
 export default async function NuevaLicencia({ searchParams }: PageProps<"/plataforma/nudito-plus/licencias/nueva">) {
   const admin = await requireAdminPlataforma();
+  if (!licenciasFamiliaresNudito()) notFound();
   const sp = await searchParams;
   const colegios = await colegiosPro(admin);
   const colegio = typeof sp.colegio === "string" ? colegios.find((c) => c.id === sp.colegio) : undefined;

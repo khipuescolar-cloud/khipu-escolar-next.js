@@ -25,8 +25,18 @@ export const TABLAS_SECRETAS = ["JustificacionToken", "CarnetQr"] as const;
  * (conversaciones, mensajes, alertas, resúmenes y uso). Licencias, pagos y consentimientos sí se exportan.
  */
 export const TABLAS_NUDITO_PLUS_PRIVADAS = ["NuditoConversacion", "NuditoMensaje", "AlertaNudito", "ResumenNudito", "UsoNudito"] as const;
-/** Modelos que no se exportan: secretos y actividad privada de Nudito+. */
-export const TABLAS_OMITIDAS = [...TABLAS_SECRETAS, ...TABLAS_NUDITO_PLUS_PRIVADAS] as const;
+/**
+ * Nudito, tutor de Khipu Pro (specs/44): el detalle de la práctica (sesiones, ejercicios con su solución, respuestas del
+ * alumno y consumos de IA) es efímero y se purga por retención; no se exporta. SÍ se exportan los agregados formativos
+ * (`nudito_dominios`, `nudito_dominio_eventos`), la configuración (`nudito_config_colegio`) y los temas del colegio. Las
+ * fotos de Nudito (`archivos.nudito_sesion_id`) tampoco salen (ver `FILTRO_EXPORTACION`).
+ */
+export const TABLAS_NUDITO_PRACTICA = ["NuditoSesion", "NuditoEjercicio", "NuditoIntento", "NuditoConsumoIa"] as const;
+/** Modelos que no se exportan: secretos, actividad privada de Nudito+ y el detalle de práctica de Nudito. */
+export const TABLAS_OMITIDAS = [...TABLAS_SECRETAS, ...TABLAS_NUDITO_PLUS_PRIVADAS, ...TABLAS_NUDITO_PRACTICA] as const;
+
+/** Filas que no se exportan dentro de una tabla exportada (por delegado). Fotos privadas de la práctica de Nudito. */
+export const FILTRO_EXPORTACION: Readonly<Record<string, object>> = { archivo: { nuditoSesionId: null } };
 
 /** Delegado de Prisma (`alumno`) de un modelo (`Alumno`). */
 const delegado = (modelo: string) => modelo.charAt(0).toLowerCase() + modelo.slice(1);
@@ -43,7 +53,7 @@ export function tablasExportadas(): string[] {
 async function recolectar(ctx: TenantContext) {
   const nombres = tablasExportadas();
   const filas = await Promise.all(
-    nombres.map((n) => (ctx.db as unknown as Record<string, { findMany: () => Promise<unknown[]> }>)[n].findMany()),
+    nombres.map((n) => (ctx.db as unknown as Record<string, { findMany: (a?: object) => Promise<unknown[]> }>)[n].findMany(FILTRO_EXPORTACION[n] ? { where: FILTRO_EXPORTACION[n] } : undefined)),
   );
   const tablas = Object.fromEntries(nombres.map((n, i) => [n, filas[i]])) as Record<string, unknown[]>;
   const userIds = [...new Set((tablas.membership as { userId: string }[]).map((m) => m.userId))];
@@ -84,6 +94,7 @@ export async function* filasPorLotes(ctx: TenantContext, nombre: string, tamano 
   let cursor: unknown;
   for (;;) {
     const lote = await delegadoDb.findMany({
+      ...(FILTRO_EXPORTACION[nombre] ? { where: FILTRO_EXPORTACION[nombre] } : {}),
       take: tamano,
       orderBy: { id: "asc" },
       ...(cursor === undefined ? {} : { cursor: { id: cursor }, skip: 1 }),
@@ -455,6 +466,7 @@ function readme(ctx: TenantContext, fecha: string, tablas: string[], incluidos: 
     "- Fechas en formato ISO 8601 (UTC). Los números grandes (auditoría) van como texto.",
     `- Por seguridad no se exportan los hashes de tokens de justificación ni de carnets QR (${TABLAS_SECRETAS.join(", ")}).`,
     `- Tampoco se exporta la actividad de los alumnos con el tutor Nudito+ (${TABLAS_NUDITO_PLUS_PRIVADAS.join(", ")}): es privada de cada familia.`,
+    `- De Nudito (tutor de práctica) se exporta el progreso formativo (dominios y sus eventos), la configuración y los temas del colegio; no el detalle de cada práctica (${TABLAS_NUDITO_PRACTICA.join(", ")}) ni las fotos de ejercicios, que se borran al vencer la retención.`,
     "- Este paquete contiene datos personales de menores y familias: guárdalo con cuidado (Ley 29733).",
     "",
   ].filter((l, i, a) => l !== "" || a[i - 1] !== "").join("\r\n");

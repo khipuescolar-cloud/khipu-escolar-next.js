@@ -3,6 +3,7 @@ import { forbidden, notFound } from "next/navigation";
 import { z } from "zod";
 import { esFechaIso, fechaDb, fechaLima, isoDeFechaDb, sumarDias } from "@/lib/fechas";
 import { estadoParaFamilia, MESES_MAXIMOS, mesDe, type EstadoFamilia } from "@/lib/nudito-plus";
+import { licenciasFamiliaresNudito } from "@/lib/planes";
 import { auditar } from "../auditoria";
 import { ErrorDeNegocio } from "../contexto-accion";
 import { db } from "../db";
@@ -116,8 +117,14 @@ function temasDe(valor: unknown): { area: string; tema: string; mensajes: number
   return r.success ? r.data : [];
 }
 
-/** Datos para la pantalla «Activar Nudito+». */
+/** Licencias familiares inertes (`NUDITO_LICENCIAS_FAMILIARES = false`, specs/28): «Activar» y pagos → 404. */
+export function requireLicenciasFamiliares(): void {
+  if (!licenciasFamiliaresNudito()) notFound();
+}
+
+/** Datos para la pantalla «Activar Nudito+» (histórico: 404 con las licencias familiares apagadas). */
 export async function datosParaActivar(ctx: TenantContext, alumnoId: string) {
+  requireLicenciasFamiliares();
   const alumno = await requireHijo(ctx, alumnoId);
   const [precio, yape] = await Promise.all([precioNudito(), datosYape()]);
   return { alumno: { id: alumno.id, nombres: alumno.nombres, activo: alumno.estado === "activo" }, precio, yape, hoy: fechaLima(new Date()) };
@@ -133,6 +140,7 @@ export type EntradaReportePago = z.input<typeof esquemaReportePago>;
 
 /** La familia reporta un pago hecho por Yape: queda `pendiente` hasta que el equipo Khipu lo verifique. */
 export async function reportarPago(ctx: TenantContext, alumnoId: string, entrada: EntradaReportePago, hoy: string = fechaLima(new Date())): Promise<string> {
+  requireLicenciasFamiliares();
   const alumno = await requireHijo(ctx, alumnoId);
   if (alumno.estado !== "activo") throw new ErrorDeNegocio("Este alumno ya no está activo en el colegio.");
   const r = esquemaReportePago.safeParse(entrada);
@@ -193,4 +201,62 @@ export async function marcarAlertaVista(ctx: TenantContext, alertaId: string): P
   if (!alerta) notFound();
   await requireAlumnoVisible(ctx, alerta.alumnoId);
   if (!alerta.vistaAt) await ctx.db.alertaNudito.update({ where: { id: alerta.id }, data: { vistaAt: new Date() } });
+}
+
+// ───────────── Nudito, tutor de Khipu Pro: vista de la familia (specs/44) ─────────────
+
+export type HijoNudito = {
+  id: string;
+  nombres: string;
+  apellidos: string;
+  salon: string;
+  activo: boolean;
+  consentimiento: { vigente: boolean; mio: boolean };
+  /** El hijo tiene cuenta propia activa: usa Nudito con ella (sin modo hijo). */
+  cuentaPropia: boolean;
+  dominados: number;
+  reforzar: number;
+  practicando: number;
+};
+
+/** Hijos del apoderado con su autorización y un resumen agregado de su progreso (groupBy, sin N+1). */
+export async function hijosParaNudito(ctx: TenantContext): Promise<HijoNudito[]> {
+  requireFamiliaNuditoPlus(ctx);
+  const vinculos = await ctx.db.apoderadoAlumno.findMany({
+    where: { apoderadoId: ctx.membership.id },
+    select: { alumno: { select: { id: true, nombres: true, apellidos: true, estado: true, cuentaId: true, salon: { select: { nombre: true } } } } },
+    orderBy: { alumno: { nombres: "asc" } },
+  });
+  const ids = vinculos.map((v) => v.alumno.id);
+  const cuentas = vinculos.map((v) => v.alumno.cuentaId).filter((c): c is string => !!c);
+  const { version } = await consentimientoActual();
+  const [consentimientos, conteos, activas] = await Promise.all([
+    ctx.db.consentimientoIa.findMany({
+      where: { alumnoId: { in: ids }, revocadoAt: null, versionTexto: version, apoderado: { estado: "activa" } },
+      select: { alumnoId: true, apoderadoId: true },
+    }),
+    ctx.db.nuditoDominio.groupBy({ by: ["alumnoId", "estado"], where: { alumnoId: { in: ids } }, _count: { _all: true } }),
+    cuentas.length ? ctx.db.membership.findMany({ where: { id: { in: cuentas }, estado: "activa" }, select: { id: true } }) : Promise.resolve([]),
+  ]);
+  const cuentasActivas = new Set(activas.map((m) => m.id));
+  const n = (alumnoId: string, estados: string[]) => conteos.filter((c) => c.alumnoId === alumnoId && estados.includes(c.estado)).reduce((s, c) => s + c._count._all, 0);
+  return vinculos.map(({ alumno: a }) => {
+    const cs = consentimientos.filter((c) => c.alumnoId === a.id);
+    return {
+      id: a.id, nombres: a.nombres, apellidos: a.apellidos, salon: a.salon.nombre, activo: a.estado === "activo",
+      consentimiento: { vigente: cs.length > 0, mio: cs.some((c) => c.apoderadoId === ctx.membership.id) },
+      cuentaPropia: !!a.cuentaId && cuentasActivas.has(a.cuentaId),
+      dominados: n(a.id, ["dominado"]), reforzar: n(a.id, ["reforzar"]), practicando: n(a.id, ["en_progreso", "en_comprobacion"]),
+    };
+  });
+}
+
+/** Autorización vigente de un hijo (para la pantalla de progreso). */
+export async function autorizacionDeHijo(ctx: TenantContext, alumnoId: string) {
+  const alumno = await requireHijo(ctx, alumnoId);
+  const c = await consentimientoVigente(ctx.db, ctx.tenant.id, alumnoId);
+  return {
+    alumno: { id: alumno.id, nombres: alumno.nombres, apellidos: alumno.apellidos, salon: alumno.salon.nombre, activo: alumno.estado === "activo" },
+    consentimiento: c ? { version: c.versionTexto, aceptadoAt: c.aceptadoAt, mio: c.apoderadoId === ctx.membership.id } : null,
+  };
 }

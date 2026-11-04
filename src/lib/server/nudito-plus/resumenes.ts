@@ -104,3 +104,67 @@ export async function generarResumenesSemanales(ahora: Date = new Date()): Promi
   }
   return { semana, alumnos: conversaciones.length, creados };
 }
+
+// ───────────── Resumen semanal de la práctica con el tutor (specs/44) ─────────────
+
+/** Puro: texto en positivo a partir de la práctica de la semana (sesiones, temas, dominios logrados y a reforzar). */
+export function textoResumenPractica(nombre: string, sesiones: number, temas: string[], dominados: string[], reforzar: string[]): string {
+  const veces = sesiones === 1 ? "1 sesión" : `${sesiones} sesiones`;
+  const partes = [`Esta semana ${nombre} practicó con Nudito en ${veces}.`];
+  if (temas.length > 0) partes.push(`Temas: ${temas.slice(0, 5).join(", ")}.`);
+  if (dominados.length > 0) partes.push(`¡Logró dominar: ${dominados.slice(0, 5).join(", ")}!`);
+  if (reforzar.length > 0) partes.push(`Para seguir practicando: ${reforzar.slice(0, 5).join(", ")}.`);
+  partes.push("Es práctica formativa, no es nota. Pregúntale qué aprendió: le encantará contártelo.");
+  return partes.join(" ");
+}
+
+/**
+ * Resumen semanal de la práctica de un alumno armado con sesiones y eventos de dominio (nunca con texto de conversaciones).
+ * null si no practicó esa semana o si ya había resumen de esa semana.
+ */
+export async function generarResumenPractica(tenantId: string, alumnoId: string, semana: Semana, nombreTema: (clave: string) => string = (c) => c): Promise<{ id: string } | null> {
+  const desde = fechaDb(semana.desde);
+  const hasta = fechaDb(semana.hasta);
+  if (await db.resumenNudito.findFirst({ where: { tenantId, alumnoId, desde, hasta }, select: { id: true } })) return null;
+  const rango = { gte: inicioDiaLima(semana.desde), lt: inicioDiaLima(sumarDias(semana.hasta, 1)) };
+  const [sesiones, eventos, alumno] = await Promise.all([
+    db.nuditoSesion.findMany({ where: { tenantId, alumnoId, iniciadaAt: rango }, select: { temaClave: true, area: true } }),
+    db.nuditoDominioEvento.findMany({ where: { tenantId, alumnoId, tipo: "estado", createdAt: rango, aEstado: { in: ["dominado", "reforzar"] } }, select: { temaClave: true, aEstado: true } }),
+    db.alumno.findFirst({ where: { id: alumnoId, tenantId }, select: { nombres: true } }),
+  ]);
+  if (sesiones.length === 0 || !alumno) return null;
+  const conteo = new Map<string, TemaResumen>();
+  for (const s of sesiones) {
+    if (!s.temaClave) continue;
+    const fila = conteo.get(s.temaClave) ?? { area: s.area ?? "", tema: nombreTema(s.temaClave), mensajes: 0 };
+    fila.mensajes += 1;
+    conteo.set(s.temaClave, fila);
+  }
+  const temas = [...conteo.values()].sort((a, b) => b.mensajes - a.mensajes);
+  const unicos = (estado: string) => [...new Set(eventos.filter((e) => e.aEstado === estado).map((e) => nombreTema(e.temaClave)))];
+  const nombre = alumno.nombres.split(" ")[0] ?? alumno.nombres;
+  return db.resumenNudito.create({
+    data: {
+      tenantId, alumnoId, desde, hasta,
+      texto: textoResumenPractica(nombre, sesiones.length, temas.map((t) => t.tema), unicos("dominado"), unicos("reforzar")),
+      temas: temas as unknown as Prisma.InputJsonValue,
+    },
+    select: { id: true },
+  });
+}
+
+/** Cron semanal: resúmenes de práctica de los alumnos con sesiones la semana pasada (colegios Pro). */
+export async function generarResumenesPractica(ahora: Date = new Date(), nombreTema?: (clave: string) => string): Promise<{ alumnos: number; creados: number }> {
+  const semana = semanaAnterior(ahora);
+  const rango = { gte: inicioDiaLima(semana.desde), lt: inicioDiaLima(sumarDias(semana.hasta, 1)) };
+  const filas = await db.nuditoSesion.findMany({ where: { iniciadaAt: rango, tenant: { plan: "pro" } }, distinct: ["alumnoId"], select: { tenantId: true, alumnoId: true } });
+  let creados = 0;
+  for (const f of filas) {
+    try {
+      if (await generarResumenPractica(f.tenantId, f.alumnoId, semana, nombreTema)) creados += 1;
+    } catch (error) {
+      console.error("[nudito] no se pudo generar un resumen de práctica", error);
+    }
+  }
+  return { alumnos: filas.length, creados };
+}

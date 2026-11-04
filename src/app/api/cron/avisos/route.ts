@@ -5,7 +5,7 @@ import { procesarCola } from "@/lib/server/notificaciones/cola";
 import { procesarControlIngreso } from "@/lib/server/control-ingreso";
 import { cerrarResueltosInactivos } from "@/lib/server/soporte";
 import { procesarVencimientosNudito } from "@/lib/server/nudito-plus/licencias";
-import { nuditoPlusDisponible } from "@/lib/planes";
+import { licenciasFamiliaresNudito } from "@/lib/planes";
 import { procesarVencimientosNsp } from "@/lib/server/nsp";
 import { procesarEventosAcademicos } from "@/lib/server/eventos-academicos";
 import { procesarTareasProgramadas } from "@/lib/server/notificaciones/avisos-tareas";
@@ -27,9 +27,9 @@ async function manejar(request: Request) {
   try {
     // Mesa de ayuda (specs/23): las resueltas sin actividad hace 7 días pasan a cerradas.
     const soporteCerradas = await cerrarResueltosInactivos();
-    // Nudito+ (specs/28): licencias vencidas y recordatorio «vence en 3 días» (se encolan antes de procesar la cola).
-    // Con Nudito+ apagado (NUDITO_PLUS_DISPONIBLE, lib/planes.ts) no se procesa nada.
-    const nuditoPlus = nuditoPlusDisponible() ? await procesarVencimientosNudito() : { desactivado: true };
+    // Licencias familiares de Nudito+ (specs/28): INERTES (NUDITO_LICENCIAS_FAMILIARES = false, lib/planes.ts). No se
+    // marcan vencidas ni se envían recordatorios de renovación; las filas se conservan como histórico.
+    const nuditoPlus = licenciasFamiliaresNudito() ? await procesarVencimientosNudito() : { desactivado: true };
     // Control de ingreso (specs/05): «aún no llega» y faltas automáticas; se encolan antes de procesar la cola.
     const controlIngreso = await procesarControlIngreso();
     // NSP (specs/37): consecuencia por vencimiento del plazo de justificación (idempotente).

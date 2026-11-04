@@ -1,22 +1,22 @@
 # 03 — Planes y permisos
 
-> Estado: implementado · Plan: todos · Última actualización: 2026-11-03 (Claude Code: bandeja general en Base, specs/38; Nudito+ apagado por interruptor; modelo comercial B2B sin precios publicados)
+> Estado: implementado · Plan: todos · Última actualización: 2026-11-14 (Claude Code, Dev D: Nudito, tutor de práctica, incluido en Khipu Pro; licencias familiares inertes)
 
 ## Planes
 | Plan | Clave | Funciones |
 |---|---|---|
 | Khipu Base | `base` | asistencia, avisos, portería, justificaciones, mensajes, comunicados, gestión, horario (specs/34) y soporte (mesa de ayuda) |
-| Khipu Pro | `pro` | Khipu Base + notas, libreta, tareas, agenda, `documentos` (specs/31), `reuniones` (specs/32) y `tablero` (specs/33): implementados, en `FEATURES` (`src/lib/planes.ts`) y en `plan_modulos` para `pro` (migración `20261031130000_pro_completo_nudito_plus`) |
+| Khipu Pro | `pro` | Khipu Base + notas, libreta, tareas, agenda, `documentos` (specs/31), `reuniones` (specs/32), `tablero` (specs/33) y **Nudito, tutor de práctica** (clave `nudito_plus`, specs/41–44): implementados, en `FEATURES` (`src/lib/planes.ts`) y en `plan_modulos` para `pro` (migración `20261031130000_pro_completo_nudito_plus`) |
 
 Decisión del 2026-10-30: solo hay **dos planes institucionales** y se venden completos (no se venden módulos sueltos).
 El mecanismo interno de ajustes por colegio (`tenant_modulos`) se mantiene para pilotos y casos puntuales del equipo.
 Las claves anteriores se migraron en `20261031100000_planes_base_pro`: `basico` → `base`, `fase2` → `pro` y `promax` → `pro`.
-El asistente Nudito para familias se retiró (ver `specs/13`). **Nudito+** (`specs/28`, `specs/29`) está **en pausa —
-desactivado** desde el 2026-11-03: el modelo de licencia que paga la familia por Yape se descartó; si vuelve, será un
-producto futuro que contrata el colegio. El interruptor `NUDITO_PLUS_DISPONIBLE = false` (`src/lib/planes.ts`, leído con
-`nuditoPlusDisponible()`) hace que `nudito_plus` no quede activo en ningún colegio, ni siquiera en Khipu Pro: no sale en el
-menú y `requireFeature(ctx, "nudito_plus")` responde 403. Solo en tests (vitest, `NODE_ENV=test`) se puede forzar con
-`KHIPU_TEST_NUDITO_PLUS=1`; en desarrollo y producción ninguna variable lo enciende.
+El asistente Nudito para familias se retiró (ver `specs/13`). Desde el 2026-11-14 **Nudito es el tutor de práctica de
+Khipu Pro** (specs/41–44), no un producto aparte: `NUDITO_TUTOR_DISPONIBLE = true` (`src/lib/planes.ts`; el nombre antiguo
+`NUDITO_PLUS_DISPONIBLE` y `nuditoPlusDisponible()` apuntan a él) deja el módulo fijo `nudito_plus` activo en todo colegio
+Pro, y cada colegio lo enciende en `/configuracion/nudito` (`nudito_config_colegio.activo`, sin fila = apagado). Las
+licencias familiares con Yape (`specs/28`) quedan **inertes** con `NUDITO_LICENCIAS_FAMILIARES = false` (solo en tests se
+pueden forzar con `KHIPU_TEST_NUDITO_LICENCIAS=1`, `licenciasFamiliaresNudito()`). No hay precio aparte ni cobro a familias.
 
 **Modelo comercial (2026-11-03):** SaaS B2B, paga el colegio; solo Khipu Base y Khipu Pro. No hay precios aprobados: no
 se publican tarifas (la landing usa `PUBLICAR_PRECIOS = false`, `specs/25`). Piloto con 1–2 colegios, 6 a 8 semanas,
@@ -39,7 +39,7 @@ puede tener módulos extra o quitados (`tenant_modulos`) y cada rol puede tener 
 - **Código HTTP de una página denegada:** las rutas con `loading.tsx` (pantallas de carga) empiezan a transmitir antes de que corra el chequeo, así que una página denegada puede responder **200** mostrando la página 403 («No tienes acceso a esta sección») sin ningún dato del módulo. Las rutas de API y las server actions sí devuelven 403. En e2e se usa `tests/e2e/sin-acceso.ts` (`esperarSinAcceso`).
 
 ## Pruebas
-- unit: `tests/unit/planes.test.ts` (solo `base` y `pro`, sin `nudito`), `tests/unit/modulos.test.ts`, `tests/unit/nombres-planes.test.ts`, `tests/unit/nudito-plus-interruptor.test.ts` (con el interruptor apagado un colegio Pro no tiene `nudito_plus`; la variable de tests no vale fuera de `NODE_ENV=test`).
+- unit: `tests/unit/planes.test.ts` (solo `base` y `pro`, sin `nudito`), `tests/unit/modulos.test.ts`, `tests/unit/nombres-planes.test.ts`, `tests/unit/nudito-plus-interruptor.test.ts` (un colegio Pro tiene `nudito_plus`, Base nunca; las licencias familiares están apagadas y su variable de tests no vale fuera de `NODE_ENV=test`).
 - integración: `tests/integracion/planes-modulos-roles.test.ts` (módulos desde la BD, specs/19).
 - integración: `tests/integracion/rol-alumno.test.ts` (alcance del alumno: no ve notas, asistencia ni libreta de compañeros; ve sus tareas; sin mensajes ni gestión) · e2e: `tests/e2e/rol-alumno.test.ts`.
 - e2e: candado «Plan Khipu Pro» en un colegio Khipu Base temporal (lo crea y borra cada e2e, specs/35; `login-flow.test.ts`, `planes-modulos.test.ts`) y acceso directo a `/notas` en Khipu Base → página 403 (`notas-libreta.test.ts`).
