@@ -108,12 +108,13 @@ describe("contratos de Nudito", () => {
     expect(esquemaConfigNudito.safeParse({ ...config, retencionDias: 5 }).success).toBe(false);
   });
 
-  it("los esqueletos del paso 0 lanzan «pendiente»", () => {
-    expect(() => evaluarDominio(
+  it("la política de dominio de B ya no es un esqueleto: la primera evidencia inicia el tema", () => {
+    const decision = evaluarDominio(
       { estado: "no_iniciado", dificultad: 1, evidencia: [], sesionesDistintas: 0, politicaVersion: "v1" },
       { resultado: "correcto", dificultad: 1, pistas: 0, sesionId: "s", comprobacion: false, at: "2026-11-14T12:00:00Z" },
       POLITICA_DOMINIO_POR_DEFECTO,
-    )).toThrow("pendiente");
+    );
+    expect(decision.nuevo.estado).toBe("en_progreso");
   });
 
   it("contratos.ts es puro: sin Prisma, BD ni server-only", () => {
