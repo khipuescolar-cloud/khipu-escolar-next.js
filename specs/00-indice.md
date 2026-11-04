@@ -18,7 +18,7 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 10 | [Panel de dirección y gestión](10-panel-direccion-gestion.md) | Khipu Base | implementado |
 | 11 | [Notas y libreta](11-notas-y-libreta.md) | Khipu Pro | implementado |
 | 12 | [Tareas y agenda](12-tareas-y-agenda.md) | Khipu Pro | implementado |
-| 13 | [Nudito (retirado)](13-nudito.md) | — | retirado 2026-10-31: reemplazado por Nudito+ (specs/28–29) |
+| 13 | [Nudito (asistente para familias, retirado)](13-nudito.md) | — | retirado 2026-10-31; Nudito vuelve como tutor de Khipu Pro (specs/41) |
 | 14 | [Archivos (Cloudinary → S3)](14-archivos-cloudinary.md) | Todos | implementado |
 | 15 | [Privacidad, auditoría y exportación](15-privacidad-auditoria-exportacion.md) | Todos | implementado |
 | 16 | [Plataforma: super administrador](16-plataforma-superadmin.md) | Interno | implementado |
@@ -33,8 +33,8 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 25 | [Landing pública (sitio de Khipu Escolar)](25-landing-publica.md) | Público | implementado |
 | 26 | [Solicitudes de demo (panel de plataforma)](26-solicitudes-de-demo.md) | Interno | implementado |
 | 27 | [Reportes de asistencia (general del colegio, por curso, alumno, salón, fechas; Excel y PDF)](27-reportes-asistencia.md) | Base (asistencia) | implementado (integración y e2e pendientes de correr) |
-| 28 | [Licencias de Nudito+ (por alumno, pago con Yape)](28-licencias-nudito-plus.md) | Pro + licencia por alumno | implementado (proveedor de IA falso) |
-| 29 | [Nudito+ (tutor IA por alumno)](29-nudito-plus-tutor.md) | Pro + licencia por alumno | implementado (proveedor de IA falso) |
+| 28 | [Licencias de Nudito+ (por alumno, pago con Yape)](28-licencias-nudito-plus.md) | — | obsoleto (inerte), ver specs/44 |
+| 29 | [Nudito+ (tutor IA por alumno)](29-nudito-plus-tutor.md) | — | reemplazado por specs/41 |
 | 30 | [Capacidades y desempeños del CNEB](30-capacidades-desempenos.md) | Khipu Pro | implementado |
 | 31 | [Biblioteca de documentos](31-documentos.md) | Khipu Pro | implementado |
 | 32 | [Reuniones (convocatoria, confirmación y acta)](32-reuniones.md) | Khipu Pro | implementado |
@@ -45,4 +45,8 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 38 | [Notificaciones académicas por eventos (bandeja y Web Push)](38-notificaciones-academicas.md) | Khipu Pro | implementado |
 | 39 | [Tareas estilo Classroom: secciones, entregas, revisión y calificación](39-tareas.md) | Khipu Pro | implementado |
 | 40 | [Disponibilidad del personal y reuniones institucionales (asistente, reservas sin choques, solicitudes, acuerdos)](40-disponibilidad-y-reuniones.md) | Khipu Pro | implementado |
+| 41 | [Nudito, tutor educativo de Khipu Pro (visión general y sesiones)](41-nudito-tutor.md) | Khipu Pro | en desarrollo (paso 0: contratos) |
+| 42 | [Nudito: currículo, áreas de los cursos y validación de temas](42-nudito-curriculo.md) | Khipu Pro | borrador |
+| 43 | [Nudito: práctica, evaluación y dominio por habilidad](43-nudito-practica-y-dominio.md) | Khipu Pro | borrador |
+| 44 | [Nudito: seguimiento, gobierno institucional, privacidad y fin de las licencias familiares](44-nudito-seguimiento-y-gobierno.md) | Khipu Pro | borrador |
 | 37 | [NSP, justificaciones, recuperación, incidencias y libretas emitidas](37-nsp-justificaciones-recuperacion.md) | Khipu Base / Pro | implementado |

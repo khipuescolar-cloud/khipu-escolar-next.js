@@ -1,6 +1,9 @@
 # 13 — Nudito (asistente para familias)
 
-> Estado: retirado · Plan: — · Última actualización: 2026-11-03 (Claude Code: Nudito+ en pausa; restauración pendiente de decisión)
+> Estado: retirado · Plan: — · Última actualización: 2026-11-14 (Claude Code: Nudito vuelve como tutor de Khipu Pro)
+
+> **2026-11-14: Nudito vuelve como tutor educativo de Khipu Pro, ver `specs/41-nudito-tutor.md`.** Lo que sigue describe el
+> asistente para familias retirado; la ruta `/nudito` se reutilizará para el tutor (specs/41).
 
 **El asistente Nudito para familias fue retirado el 2026-10-31. Su restauración está pendiente de decisión.**
 Nudito+ (`specs/28`, `specs/29`), que iba a reemplazarlo, está en pausa y desactivado desde el 2026-11-03.
