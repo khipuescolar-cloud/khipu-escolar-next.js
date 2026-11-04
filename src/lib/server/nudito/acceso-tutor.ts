@@ -2,16 +2,15 @@ import "server-only";
 import { forbidden } from "next/navigation";
 import type { AccesoNudito, NivelNudito } from "@/lib/nudito/contratos";
 import { primerNombre } from "@/lib/nombres";
-import { consentimientoVigente } from "../nudito-plus/licencias";
+import { evaluarAccesoNuditoPlus, type MotivoSinAcceso } from "../nudito-plus/acceso";
 import { tieneFeature } from "../plan";
 import { alumnoDeLaCuenta, alumnoIdsVisibles, type TenantContext } from "../tenant";
 import { configEfectiva, type ConfigEfectiva } from "./integracion";
 
-// Acceso al tutor Nudito (specs/41). Lo usa la página `/nudito`, sus actions y `sesiones.ts`.
-// INTEGRAR: D adapta `nudito-plus/acceso.ts` (sin licencias); cuando exista, esta función puede delegar en él. Mientras
-// tanto aplica aquí las mismas reglas: plan Pro (`nudito_plus`, clave interna), nunca en modo soporte, config del colegio
-// activa, rol alumno con cuenta → su alumno; apoderado → hijo sin cuenta propia activa (modo hijo); consentimiento vigente;
-// nivel y grado del SALÓN (nunca del cliente).
+// Acceso al tutor Nudito (specs/41, specs/44). Lo usan la página `/nudito`, sus actions y las pruebas. Las reglas viven en
+// UN solo lugar, `nudito-plus/acceso.ts` (D): plan Pro, nunca modo soporte, config del colegio activa y no bloqueada,
+// nivel/grado/área habilitados, alumno con cuenta → su alumno, apoderado → hijo sin cuenta propia activa (modo hijo),
+// consentimiento de IA vigente (v2). Aquí solo se añade lo que necesita la UI: elegir hijo, nivel y grado del SALÓN.
 
 export type MotivoSinAccesoTutor = "plan" | "rol" | "apagado" | "cuenta_propia" | "modo_hijo" | "consentimiento" | "grado" | "elegir_hijo";
 
@@ -21,48 +20,48 @@ export type AccesoTutor =
   | { ok: true; acceso: AccesoNudito; alumno: AlumnoTutor; config: ConfigEfectiva["config"] }
   | { ok: false; motivo: MotivoSinAccesoTutor; hijos?: { id: string; nombre: string }[] };
 
-const SELECT = { id: true, nombres: true, apellidos: true, salonId: true, cuentaId: true, salon: { select: { nivel: true, grado: true } } } as const;
+const MOTIVO: Record<MotivoSinAcceso, MotivoSinAccesoTutor> = {
+  plan: "plan",
+  rol: "rol",
+  cuenta_propia: "cuenta_propia",
+  licencia: "plan",
+  colegio: "apagado",
+  grado: "grado",
+  modo_hijo: "modo_hijo",
+  consentimiento: "consentimiento",
+};
 
 export async function evaluarAccesoTutor(ctx: TenantContext, alumnoId?: string | null): Promise<AccesoTutor> {
   if (ctx.soporte || ctx.tenant.plan !== "pro" || !tieneFeature(ctx, "nudito_plus")) return { ok: false, motivo: "plan" };
   const { activo, config } = await configEfectiva(ctx);
   if (!activo) return { ok: false, motivo: "apagado" };
 
-  let modo: AccesoNudito["modo"];
-  let id: string | null = null;
+  let id: string;
   if (ctx.rol === "alumno") {
     const propio = await alumnoDeLaCuenta(ctx);
     if (!propio || (alumnoId && alumnoId !== propio.id)) return { ok: false, motivo: "rol" };
     id = propio.id;
-    modo = "alumno";
   } else if (ctx.rol === "apoderado") {
     if (!config.permitirModoHijo) return { ok: false, motivo: "modo_hijo" };
-    const visibles = await alumnoIdsVisibles(ctx);
     if (!alumnoId) {
+      const visibles = await alumnoIdsVisibles(ctx);
       const hijos = await ctx.db.alumno.findMany({ where: { id: { in: visibles }, estado: "activo" }, select: { id: true, nombres: true }, orderBy: { nombres: "asc" } });
       return { ok: false, motivo: "elegir_hijo", hijos: hijos.map((h) => ({ id: h.id, nombre: primerNombre(h.nombres) })) };
     }
-    if (!visibles.includes(alumnoId)) return { ok: false, motivo: "rol" };
     id = alumnoId;
-    modo = "hijo";
   } else {
     return { ok: false, motivo: "rol" };
   }
 
-  const a = await ctx.db.alumno.findFirst({ where: { id, estado: "activo" }, select: SELECT });
-  if (!a) return { ok: false, motivo: "rol" };
-  if (modo === "hijo" && a.cuentaId) {
-    const cuenta = await ctx.db.membership.findFirst({ where: { id: a.cuentaId, estado: "activa" }, select: { id: true } });
-    if (cuenta) return { ok: false, motivo: "cuenta_propia" };
-  }
-  const nivel = a.salon.nivel;
-  const grado = a.salon.grado;
-  if ((nivel !== "primaria" && nivel !== "secundaria") || !grado || !config.niveles.includes(nivel)) return { ok: false, motivo: "grado" };
-  if (nivel === "primaria" && grado < config.gradoMinimoPrimaria) return { ok: false, motivo: "grado" };
-  if (!(await consentimientoVigente(ctx.db, ctx.tenant.id, a.id))) return { ok: false, motivo: "consentimiento" };
+  const r = await evaluarAccesoNuditoPlus(ctx, id);
+  if (!r.ok) return { ok: false, motivo: MOTIVO[r.motivo] };
 
-  const alumno = { id: a.id, nombres: a.nombres, apellidos: a.apellidos, salonId: a.salonId };
-  return { ok: true, acceso: { alumno, modo }, alumno: { ...alumno, nivel, grado, primerNombre: primerNombre(a.nombres) }, config };
+  // Nivel y grado OFICIALES del salón (nunca del cliente). Nudito necesita un grado registrado para elegir temas.
+  const salon = await ctx.db.salon.findFirst({ where: { id: r.alumno.salonId }, select: { nivel: true, grado: true } });
+  if (!salon || (salon.nivel !== "primaria" && salon.nivel !== "secundaria") || !salon.grado) return { ok: false, motivo: "grado" };
+
+  const acceso: AccesoNudito = { alumno: r.alumno, modo: r.modo };
+  return { ok: true, acceso, alumno: { ...r.alumno, nivel: salon.nivel, grado: salon.grado, primerNombre: primerNombre(r.alumno.nombres) }, config };
 }
 
 /** Igual que `evaluarAccesoTutor`, pero corta con 403 (actions). */

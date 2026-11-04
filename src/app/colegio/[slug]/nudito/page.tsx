@@ -84,7 +84,7 @@ export default async function NuditoPage({ params, searchParams }: PageProps<"/c
         <Info className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
         {AVISO_IA}
       </p>
-      <ConversacionNudito alumnoId={r.acceso.modo === "hijo" ? r.acceso.alumno.id : null} nivel={r.alumno.nivel} inicial={inicial} />
+      <ConversacionNudito alumnoId={r.acceso.modo === "hijo" ? r.acceso.alumno.id : null} nivel={r.alumno.nivel} inicial={inicial} permitirFotos={r.config.permitirFotos} />
     </div>
   );
 }

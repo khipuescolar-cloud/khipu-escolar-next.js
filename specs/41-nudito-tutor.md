@@ -75,15 +75,33 @@ habilitados + consentimiento de IA vigente del apoderado (`consentimientoVigente
   revisada del nivel; `retroalimentarAbierta` = heurística con `confianza` 0,4 (por eso la escritura se corrige con la rúbrica
   simulada de B); `interpretarImagen` = `legible:false` (salvo `transcripcionFija` en pruebas); `responder` = tutor socrático de
   Nudito+.
-- Mientras A, B y D no fusionen, el catálogo, los ejercicios, los evaluadores, el dominio, la validación de «Otro tema», las
-  áreas de los cursos y la configuración usan **respaldos mínimos** (fixtures del paso 0) en `src/lib/server/nudito/integracion.ts`.
+- Catálogo, generadores, bancos, lecturas, evaluadores de ítems cerrados, política de dominio, validación de «Otro tema»,
+  áreas de los cursos, configuración, acceso, fotos y progreso son las implementaciones **reales** de A, B y D (sin respaldos
+  ni fixtures desde `src/`).
 
 ## Implementación de C (flujo real)
 - **Acceso** (`acceso-tutor.ts`, `evaluarAccesoTutor`): plan Pro + `nudito_plus` (clave interna) y nunca en modo soporte →
   config del colegio activa y no bloqueada → alumno con cuenta = su alumno (`modo alumno`); apoderado = hijo de
   `alumnoIdsVisibles` sin cuenta propia activa y `permitirModoHijo` (`modo hijo`; sin `?alumno=` → lista de hijos) → nivel y
-  grado del **salón** (primaria/secundaria, grado ≥ `gradoMinimoPrimaria`) → `consentimientoVigente`. D puede reemplazarlo
-  por su `acceso.ts` adaptado.
+  grado del **salón** (primaria/secundaria, grado ≥ `gradoMinimoPrimaria`) → `consentimientoVigente` (v2). Las reglas viven
+  en `nudito-plus/acceso.ts` (D, `evaluarAccesoNuditoPlus`); `acceso-tutor.ts` solo agrega la lista de hijos, el nivel y
+  grado del salón y la configuración (`configNudito`).
+- **Integración** (`integracion.ts`): delega en A (`cursosNuditoDelAlumno`, `catalogoDelColegio`, `validarTema`, catálogo
+  global), B (`ejercicioPara(tema, dificultad, semilla, { usados })`, `evaluar`, `evaluadorAbierto`, `politicaEfectiva`,
+  `evaluarDominio(actual, evidencia, politica, contexto)`) y D (`configNudito`). Reglas propias: la dificultad se acota a
+  `tema.dificultad` (al elegir tema, al generar y tras `evaluarDominio`; un sube/baja que el rango anula no se registra);
+  `usados` = `fuenteId` de los ejercicios de la sesión (banco y lecturas no repiten ítems mientras queden); `contexto` =
+  prerrequisitos del tema y cuáles domina el alumno (una consulta); al emitirse `desbloqueo_tema`, los temas globales del
+  área por encima del grado que lo tienen como prerrequisito quedan con `autorizado_por_evento_id`; un tema solo se practica
+  si existe en el catálogo real (global o del colegio): el tema sintético `xxx.s5.avanzado-…` de `validarTema` nunca.
+  Temas practicables: grado actual y anteriores (en secundaria, también los de primaria) + desbloqueados.
+- **Escritura**: `evaluadorAbierto().evaluar(ejercicio, envio, proveedor)`. Con el simulado → rúbrica simulada → `incierto`
+  (no cuenta para el dominio) con retro formativa por criterio; con un proveedor real, el texto va marcado como datos.
+- **Retro**: mientras el alumno puede reintentar, la retro no trae la explicación (los evaluadores de B la agregan; C la
+  quita); la explicación se muestra al acertar o al agotar los intentos.
+- **Fotos** (si `permitirFotos`): botón «Foto de mi cuaderno» en ejercicios numéricos, de fracción, texto corto y escritura;
+  `subirFotoAction` → `fotos.ts` de D; si se lee, rellena la respuesta para que el alumno la revise y envía
+  `fotoArchivoId`; si no (hoy siempre, simulado) → «No pude leer bien la foto. Escríbelo aquí o toma otra con más luz.»
 - **Sesión** (`sesiones.ts`): `iniciarSesion` reutiliza la sesión vacía (sin tema) para no crear una por recarga; marca
   `abandonada` la activa de más de 24 h y ofrece `reanudable` la de menos de 24 h; saludo con el primer nombre según la hora
   local del colegio; `sesionesPorDia` se controla al crear. `elegirCurso` solo acepta cursos del salón del alumno con área
@@ -129,7 +147,8 @@ RLS cerrado. Se reutilizan `NuditoConversacion`/`NuditoMensaje` (pregunta libre)
 // src/lib/server/nudito/sesiones.ts (C): iniciarSesion, elegirCurso, elegirTema, pedirRepaso, siguienteEjercicio,
 //   responder, pedirPista, preguntar, finalizar — (ctx, acceso, entrada); pedirRepaso acepta además { otraVez?, duda? }
 // src/lib/server/nudito/acceso-tutor.ts (C): evaluarAccesoTutor(ctx, alumnoId?), requireAccesoTutor(ctx, alumnoId?)
-// src/lib/server/nudito/integracion.ts (C): puntos de integración con A/B/D con respaldo («INTEGRAR»)
+// src/lib/server/nudito/integracion.ts (C): delega en A/B/D (sin respaldos); temaDelArea, temasPracticables, acotarDificultad,
+//   contextoDominio, temasQueDesbloquea
 // src/lib/server/nudito/ia/proveedor.ts (C): obtenerProveedorTutor(), proveedorSimulado(), registrarConsumo(db, datos)
 // src/lib/server/nudito/seguridad.ts (C): verificarLimites(ctx, acceso, operacion), comoDatosDelAlumno(texto),
 //   pistaRevelaRespuesta(pista, ejercicio)
@@ -145,7 +164,9 @@ RLS cerrado. Se reutilizan `NuditoConversacion`/`NuditoMensaje` (pregunta libre)
   (orquesta, `aria-live`, foco al cambiar de paso, «Tengo una pregunta») y `piezas.tsx`. Mascota con estados saludo,
   pensando, celebrando y reposo; animaciones con `motion-safe:`; Nunito solo en las burbujas de Nudito; primaria más visual,
   secundaria más sobria; móvil primero (sin desborde horizontal a 375 px).
-- `/nudito-plus/chat` → `redirect("/nudito")`. La navegación (`navegacion.ts`) la ajusta D.
+- `/nudito-plus/chat` → `redirect("/nudito")`; `/nudito-plus/hijo/[id]` → `redirect("/nudito?alumno=<id>")`. La navegación
+  (`navegacion.ts`) la ajusta D. `SelectorTema` muestra primero los temas del grado y los que ya practica; los de grados
+  anteriores van plegados («Repasar temas de grados anteriores (N)»).
 
 ## Textos y UX
 - Aviso: «Soy Nudito, un asistente con IA. Te ayudo a practicar; no reemplazo a tu profesor. Puedo equivocarme.»
@@ -159,16 +180,40 @@ RLS cerrado. Se reutilizan `NuditoConversacion`/`NuditoMensaje` (pregunta libre)
 ## Pruebas
 - unit: `tests/unit/nudito-contratos-fixtures.test.ts` (fixtures de `tests/fixtures/nudito/` cumplen los contratos; esqueletos
   lanzan «pendiente»; `contratos.ts` solo importa zod).
-- integración (C): `tests/integracion/nudito-sesiones.test.ts` (21: acceso por rol/plan/soporte/config/consentimiento; flujo
+- integración (C): `tests/integracion/nudito-sesiones.test.ts` (23, con el catálogo y los generadores reales: además, tema
+  demasiado avanzado/sintético nunca se practica; banco sin repetir ítems y dificultad dentro del rango; la retro no revela
+  la respuesta mientras se puede reintentar; acceso por rol/plan/soporte/config/consentimiento; flujo
   completo en las 3 áreas; solo sus cursos; grado del salón; la solución no sale; doble envío; reintentos y ejemplo resuelto;
   pistas; reanudación; IA caída y salida inválida → respaldo; pista que revela → descartada; inyección; tope del colegio y
   por minuto; sesiones por día; sesión ajena y otro colegio; conteos de notas/evaluaciones/libretas sin cambios).
-- unit (C): `nudito-ia-simulado.test.ts`, `nudito-seguridad.test.ts`. e2e (C): `tests/e2e/nudito-tutor.test.ts` (se salta
-  mientras `NUDITO_PLUS_DISPONIBLE = false`).
+- unit (C): `nudito-ia-simulado.test.ts`, `nudito-seguridad.test.ts`. e2e (C): `tests/e2e/nudito-tutor.test.ts` (10: las
+  tres áreas de punta a punta, «Otro tema» avanzado, escritura con rúbrica simulada, foto ilegible, móvil sin desborde,
+  redirecciones, modo hijo de Rosa con Mateo, seguimiento docente y progreso de la familia; `NUDITO_CAPTURAS=<carpeta>`
+  guarda capturas de escritorio 1280×800 y móvil 390×844).
 
 ## Pendientes
-- Implementar los esqueletos (A, B, D) e integrar: B → A → D → C → e2e conjunto. Al fusionar A y B, borrar los respaldos e
-  import de fixtures de `integracion.ts` (buscar «INTEGRAR»). D: `configNudito`, acceso adaptado, fotos, progreso.
 - Interpretación de fotos en los adaptadores de texto (hoy `interpretarImagen` lanza → respaldo «no se lee»).
 - Bitácora de conversación de cada desarrollador.
 - Elegir proveedor real (revisión legal de menores; specs/44).
+
+## Verificación (2026-11-04)
+Integración final de A, B, C y D en `dev`, con la BD local recién reconstruida (`pnpm db:reconstruir`).
+- **Comprobado de punta a punta** (e2e en `lvh.me:3060`, cuenta de Lucas, 5.° A): en Matemática («Números decimales»), Ciencia
+  y Tecnología («Célula animal y célula vegetal») y Comunicación («Idea principal y secundarias»): curso → tema → repaso →
+  ejercicio → respuesta incorrecta («Casi» / «¡Vas muy bien!», sin revelar la respuesta) → «Intentar otra vez» → pista 1 →
+  respuesta correcta → resultados (1/1, tema «Practicando») y fila en `nudito_dominios`. «Otro tema: derivadas» →
+  demasiado avanzado con alternativas de su grado, sin repaso ni práctica. Escritura («Escribo una carta») → «Lo revisamos
+  juntos» con retro formativa por criterio. Foto (con `permitirFotos` encendido temporalmente) → «No pude leer bien la foto…».
+  Modo hijo: Rosa practica con Mateo (3.° B, sin cuenta) y `/nudito-plus/hijo/<id>` redirige. Seguimiento de Pedro Salas
+  (tutor de 5.° A) y progreso de la familia Huamán muestran la práctica de Lucas. Móvil 390 px sin desborde.
+- **Real (determinista, sin IA)**: catálogo CNEB y temas del colegio, validación de temas, generadores de Matemática, banco
+  de Ciencia, lecturas y lengua de Comunicación, corrección de todos los ítems cerrados, política de dominio (subir/bajar
+  dificultad, comprobación, reforzar, desbloqueo), acceso, configuración, límites, consentimiento v2, progreso y retención.
+- **Simulado**: el proveedor de IA (no hay claves): «Explícame otra vez» = repaso revisado con otra entrada; pistas = las
+  revisadas; pregunta libre = tutor socrático local; rúbrica de escritura = heurística → siempre `incierto` (no cuenta para el
+  dominio); fotos = «no se lee, escríbelo». Todo consumo queda con `simulado = true` y costo 0.
+- **Corregido en esta ronda**: «Números decimales» generaba enteros («2 × 5»): nuevo subtipo `decimales` de `mat.operaciones`
+  (suma/resta con 1–2 decimales, problemas en soles, × 10/100/natural); la retro de un error incluía la explicación con la
+  respuesta; lista de temas de 30+ tarjetas en móvil (grados anteriores ahora plegados); conteo de palabras repetido en la
+  retro de escritura; radios encogidos en opciones largas.
+

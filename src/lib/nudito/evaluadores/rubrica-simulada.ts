@@ -106,7 +106,8 @@ export function evaluarRubricaSimulada(ej: EjercicioConSolucion, envio: EnvioRes
   const mejorar = criterios.filter((c) => c.nivel < 2).sort((a, b) => a.nivel - b.nivel)[0];
   const retro = [
     "Revisión automática orientativa (no es una nota).",
-    s.palabras < minPalabras ? `Tu texto tiene ${s.palabras} palabras; se piden al menos ${minPalabras}.` : "",
+    // Si lo que hay que mejorar ya es la extensión, no se repite el conteo de palabras.
+    s.palabras < minPalabras && mejorar?.id !== "adecuacion" ? `Tu texto tiene ${s.palabras} palabras; se piden al menos ${minPalabras}.` : "",
     fuertes.length ? `Lo que va bien: ${fuertes.map((f) => NOMBRES_CRITERIO[f] ?? f).join(", ")}.` : "",
     mejorar ? `Para mejorar: ${mejorar.comentario}` : enRango ? "¡Buen trabajo! Pide a tu profesor que lo lea." : "",
   ].filter(Boolean).join(" ");

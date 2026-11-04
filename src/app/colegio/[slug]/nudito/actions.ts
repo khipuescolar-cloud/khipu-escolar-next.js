@@ -4,6 +4,7 @@ import { z } from "zod";
 import { esquemaEnvioRespuesta, type SalidaApi } from "@/lib/nudito/contratos";
 import { contextoDeAccion, ErrorDeNegocio } from "@/lib/server/contexto-accion";
 import { requireAccesoTutor } from "@/lib/server/nudito/acceso-tutor";
+import { subirFoto } from "@/lib/server/nudito/fotos";
 import * as sesiones from "@/lib/server/nudito/sesiones";
 import { MAX_ENTRADA_NUDITO } from "@/lib/server/nudito/seguridad";
 import { requireFeature } from "@/lib/server/plan";
@@ -89,4 +90,23 @@ export async function finalizarAction(e: { alumnoId?: string | null; sesionId: s
   const p = z.object({ alumnoId, sesionId: uuid }).safeParse(e);
   if (!p.success) return invalido(p.error);
   return ejecutar(p.data.alumnoId, (ctx, a) => sesiones.finalizar(ctx, a.acceso, { sesionId: p.data.sesionId }));
+}
+
+/**
+ * Foto del cuaderno (specs/44, `fotos.ts` de D): solo si el colegio activó `permitirFotos`. Devuelve la transcripción
+ * para que el alumno la revise antes de enviar; si no se pudo leer (hoy siempre, con el proveedor simulado), el mensaje
+ * amable pide escribir la respuesta. Una foto ilegible nunca marca la respuesta como incorrecta.
+ */
+export async function subirFotoAction(formData: FormData): Promise<ResultadoNudito<{ archivoId: string; transcripcion: string }>> {
+  const archivo = formData.get("foto");
+  const p = z
+    .object({ alumnoId, sesionId: uuid, ejercicioId: uuid.optional() })
+    .safeParse({ alumnoId: formData.get("alumnoId") || null, sesionId: formData.get("sesionId"), ejercicioId: formData.get("ejercicioId") || undefined });
+  if (!p.success) return invalido(p.error);
+  if (!(archivo instanceof File) || archivo.size === 0) return { ok: false, error: "Elige una foto." };
+  const buffer = new Uint8Array(await archivo.arrayBuffer());
+  return ejecutar(p.data.alumnoId, async (ctx, a) => {
+    const r = await subirFoto(ctx, a.acceso, { sesionId: p.data.sesionId, ...(p.data.ejercicioId ? { ejercicioId: p.data.ejercicioId } : {}), archivo: { nombre: archivo.name, buffer } });
+    return { archivoId: r.archivoId, transcripcion: r.lectura.transcripcion };
+  });
 }

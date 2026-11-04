@@ -1,7 +1,7 @@
 "use client";
 
-import { useId, useState, type ReactNode } from "react";
-import { Check, X } from "lucide-react";
+import { useId, useRef, useState, type ReactNode } from "react";
+import { Camera, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { EjercicioPublico, Respuesta } from "@/lib/nudito/contratos";
 
@@ -18,18 +18,39 @@ function Opcion({ name, value, checked, disabled, onChange, children }: { name: 
     <label
       className={`flex min-h-11 cursor-pointer items-center gap-3 rounded-[var(--radio-md)] border px-3 py-2 transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring ${checked ? "border-indigo bg-indigo/10" : "border-border bg-superficie hover:bg-muted"} ${disabled ? "cursor-default opacity-70" : ""}`}
     >
-      <input type="radio" name={name} value={value} checked={checked} disabled={disabled} onChange={onChange} className="size-4 accent-[var(--indigo)]" />
+      <input type="radio" name={name} value={value} checked={checked} disabled={disabled} onChange={onChange} className="size-4 shrink-0 accent-[var(--indigo)]" />
       <span className="text-cuerpo">{children}</span>
     </label>
   );
 }
 
+/** Subida de foto del cuaderno (solo si el colegio activó las fotos). Devuelve la transcripción o un mensaje amable. */
+export type SubirFoto = (foto: File) => Promise<{ ok: true; archivoId: string; transcripcion: string } | { ok: false; error: string }>;
+
+const TIPOS_CON_FOTO = new Set<EjercicioPublico["tipo"]>(["numerico", "fraccion", "texto_corto", "escritura_rubrica"]);
+
 /**
  * Entrada por tipo de ejercicio. Arma una `Respuesta` del contrato y la envía. Mantiene lo escrito al reintentar
  * (el componente sigue montado mientras el ejercicio no cambie).
  */
-export function EntradaRespuesta({ ejercicio, deshabilitado, ocupado, onEnviar }: { ejercicio: EjercicioPublico; deshabilitado: boolean; ocupado: boolean; onEnviar: (r: Respuesta) => void }) {
+export function EntradaRespuesta({
+  ejercicio,
+  deshabilitado,
+  ocupado,
+  onEnviar,
+  subirFoto,
+}: {
+  ejercicio: EjercicioPublico;
+  deshabilitado: boolean;
+  ocupado: boolean;
+  onEnviar: (r: Respuesta, extra?: { fotoArchivoId?: string }) => void;
+  subirFoto?: SubirFoto;
+}) {
   const base = useId();
+  const inputFoto = useRef<HTMLInputElement>(null);
+  const [fotoId, setFotoId] = useState<string | undefined>(undefined);
+  const [fotoMensaje, setFotoMensaje] = useState<{ tono: "ok" | "aviso"; texto: string } | null>(null);
+  const [subiendo, setSubiendo] = useState(false);
   const [opcion, setOpcion] = useState("");
   const [numero, setNumero] = useState("");
   const [num, setNum] = useState("");
@@ -38,7 +59,35 @@ export function EntradaRespuesta({ ejercicio, deshabilitado, ocupado, onEnviar }
   const [lectura, setLectura] = useState<Record<string, string>>({});
   const [pares, setPares] = useState<Record<string, string>>({});
   const [vf, setVf] = useState<Record<string, boolean>>({});
-  const bloqueado = deshabilitado || ocupado;
+  const bloqueado = deshabilitado || ocupado || subiendo;
+
+  async function alElegirFoto(archivo: File | undefined) {
+    if (!archivo || !subirFoto) return;
+    setSubiendo(true);
+    setFotoMensaje(null);
+    try {
+      const r = await subirFoto(archivo);
+      if (!r.ok) {
+        setFotoId(undefined);
+        setFotoMensaje({ tono: "aviso", texto: r.error });
+        return;
+      }
+      setFotoId(r.archivoId);
+      const t = r.transcripcion.trim();
+      if (ejercicio.tipo === "numerico") setNumero(t.slice(0, 30));
+      else if (ejercicio.tipo === "fraccion") {
+        const [n = "", d = ""] = t.split("/").map((x) => x.trim());
+        setNum(n.slice(0, 12));
+        setDen(d.slice(0, 12));
+      } else setTexto(t.slice(0, ejercicio.tipo === "texto_corto" ? ejercicio.maxCaracteres : 3000));
+      setFotoMensaje({ tono: "ok", texto: "Leí tu foto. Revisa que esté bien antes de comprobar." });
+    } catch {
+      setFotoMensaje({ tono: "aviso", texto: "No se pudo leer la foto. Escríbelo aquí." });
+    } finally {
+      setSubiendo(false);
+      if (inputFoto.current) inputFoto.current.value = "";
+    }
+  }
 
   let respuesta: Respuesta | null = null;
   let cuerpo: ReactNode = null;
@@ -212,10 +261,24 @@ export function EntradaRespuesta({ ejercicio, deshabilitado, ocupado, onEnviar }
       className="flex flex-col gap-4"
       onSubmit={(e) => {
         e.preventDefault();
-        if (respuesta && !bloqueado) onEnviar(respuesta);
+        if (respuesta && !bloqueado) onEnviar(respuesta, fotoId ? { fotoArchivoId: fotoId } : undefined);
       }}
     >
       {cuerpo}
+      {subirFoto && !deshabilitado && TIPOS_CON_FOTO.has(ejercicio.tipo) && (
+        <div className="flex flex-col gap-2">
+          <input ref={inputFoto} type="file" accept="image/jpeg,image/png,image/webp" capture="environment" className="sr-only" tabIndex={-1} aria-hidden onChange={(e) => alElegirFoto(e.target.files?.[0])} data-testid="nudito-foto-input" />
+          <Button type="button" variant="outline" className="min-h-11 self-start" disabled={bloqueado} onClick={() => inputFoto.current?.click()}>
+            <Camera strokeWidth={2} aria-hidden />
+            {subiendo ? "Leyendo tu foto…" : "Foto de mi cuaderno"}
+          </Button>
+          {fotoMensaje && (
+            <p role="status" className={`rounded-[var(--radio-md)] px-3 py-2 text-cuerpo-sm ${fotoMensaje.tono === "ok" ? "bg-llego-fondo text-llego" : "bg-tarde-fondo text-tarde"}`}>
+              {fotoMensaje.texto}
+            </p>
+          )}
+        </div>
+      )}
       {!deshabilitado && (
         <Button type="submit" size="lg" className="min-h-11 self-start" disabled={!respuesta || ocupado}>
           <Check strokeWidth={2} aria-hidden />

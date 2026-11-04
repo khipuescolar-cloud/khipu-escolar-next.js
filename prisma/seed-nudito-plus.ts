@@ -4,8 +4,14 @@
 // pendiente de verificar para Gael Chávez (5.° A), y una licencia de prueba
 // que vence en 2 días (para ver el recordatorio y el filtro «vencen en 7 días»). Datos ficticios. Idempotente:
 // reemplaza los datos de Nudito+ de esos alumnos y hace upsert de la configuración y los sitios.
+//
+// Desde specs/44 las licencias familiares están INERTES (`NUDITO_LICENCIAS_FAMILIARES = false`): mandan el plan Pro y la
+// configuración del colegio. Con el interruptor apagado este seed NO crea licencias ni pagos (quedan como historia de
+// specs/28); sí siembra el consentimiento de IA vigente (versión actual, v2) de Mateo (modo hijo de Rosa) y de Lucas
+// (cuenta propia, consentimiento de Julia), los reportes de ejemplo y la configuración de plataforma.
 import type { PrismaClient } from "../src/generated/prisma/client";
 import { CLAVES_NUDITO_PLUS, CONSENTIMIENTO_POR_DEFECTO, LIMITES_POR_DEFECTO, periodoNuevo } from "../src/lib/nudito-plus";
+import { NUDITO_LICENCIAS_FAMILIARES } from "../src/lib/planes";
 
 const fechaDb = (iso: string) => new Date(`${iso}T00:00:00.000Z`);
 const hoyLima = () => new Intl.DateTimeFormat("en-CA", { timeZone: "America/Lima" }).format(new Date());
@@ -61,18 +67,20 @@ export async function sembrarNuditoPlus(prisma: PrismaClient, ids: { superadminI
 
   // 1) Mateo (Nuevo Horizonte): licencia de pago activa (1 mes desde hace 10 días), pago verificado, consentimiento y reportes.
   const desde = sumar(hoy, -10);
-  const licencia = await prisma.licenciaNudito.create({
-    data: {
-      tenantId: nh.id, alumnoId: nhHijo.alumno.id, estado: "activa", origen: "pago", desde: fechaDb(desde), hasta: fechaDb(periodoNuevo(desde, 1).hasta),
-      registradaPorId: superadminId, notas: `[${desde}] Pago verificado: 1 mes (00012345)`,
-    },
-  });
-  await prisma.pagoNudito.create({
-    data: {
-      tenantId: nh.id, alumnoId: nhHijo.alumno.id, licenciaId: licencia.id, apoderadoId: nhHijo.membershipId, monto: 20, meses: 1, metodo: "yape",
-      referencia: "00012345", fechaPago: fechaDb(desde), estado: "verificado", registradoPorId: superadminId, verificadoAt: new Date(Date.parse(`${desde}T15:00:00Z`)),
-    },
-  });
+  if (NUDITO_LICENCIAS_FAMILIARES) {
+    const licencia = await prisma.licenciaNudito.create({
+      data: {
+        tenantId: nh.id, alumnoId: nhHijo.alumno.id, estado: "activa", origen: "pago", desde: fechaDb(desde), hasta: fechaDb(periodoNuevo(desde, 1).hasta),
+        registradaPorId: superadminId, notas: `[${desde}] Pago verificado: 1 mes (00012345)`,
+      },
+    });
+    await prisma.pagoNudito.create({
+      data: {
+        tenantId: nh.id, alumnoId: nhHijo.alumno.id, licenciaId: licencia.id, apoderadoId: nhHijo.membershipId, monto: 20, meses: 1, metodo: "yape",
+        referencia: "00012345", fechaPago: fechaDb(desde), estado: "verificado", registradoPorId: superadminId, verificadoAt: new Date(Date.parse(`${desde}T15:00:00Z`)),
+      },
+    });
+  }
   await prisma.consentimientoIa.create({
     data: { tenantId: nh.id, apoderadoId: nhHijo.membershipId, alumnoId: nhHijo.alumno.id, versionTexto: CONSENTIMIENTO_POR_DEFECTO.version, aceptadoAt: new Date(Date.parse(`${desde}T16:00:00Z`)), ip: "127.0.0.1" },
   });
@@ -95,14 +103,14 @@ export async function sembrarNuditoPlus(prisma: PrismaClient, ids: { superadminI
   });
 
   // 2) Gael Chávez (5.° A): su familia reportó un Yape de 3 meses, pendiente de verificar en el panel (admin → Nudito+).
-  if (gael && gael.apoderados[0]) {
+  if (NUDITO_LICENCIAS_FAMILIARES && gael && gael.apoderados[0]) {
     await prisma.pagoNudito.create({
       data: { tenantId: nh.id, alumnoId: gael.id, apoderadoId: gael.apoderados[0].apoderadoId, monto: 60, meses: 3, metodo: "yape", referencia: "00067890", fechaPago: fechaDb(sumar(hoy, -1)), estado: "pendiente" },
     });
   }
 
   // 3) Valentina (Nuevo Horizonte): prueba de 14 días que vence en 2 días.
-  if (otro) {
+  if (NUDITO_LICENCIAS_FAMILIARES && otro) {
     await prisma.licenciaNudito.create({
       data: { tenantId: nh.id, alumnoId: otro.id, estado: "activa", origen: "prueba", desde: fechaDb(sumar(hoy, -11)), hasta: fechaDb(sumar(hoy, 2)), registradaPorId: superadminId, notas: `[${sumar(hoy, -11)}] Prueba: familia piloto` },
     });
@@ -113,9 +121,11 @@ export async function sembrarNuditoPlus(prisma: PrismaClient, ids: { superadminI
   if (lucas) {
     const julia = await prisma.membership.findFirst({ where: { tenantId: nh.id, rol: "apoderado", hijos: { some: { alumnoId: lucas.id } } } });
     const inicio = sumar(hoy, -3);
-    await prisma.licenciaNudito.create({
-      data: { tenantId: nh.id, alumnoId: lucas.id, estado: "activa", origen: "cortesia", desde: fechaDb(inicio), hasta: fechaDb(periodoNuevo(inicio, 3).hasta), registradaPorId: superadminId, notas: `[${inicio}] Cortesía: familia piloto (demo)` },
-    });
+    if (NUDITO_LICENCIAS_FAMILIARES) {
+      await prisma.licenciaNudito.create({
+        data: { tenantId: nh.id, alumnoId: lucas.id, estado: "activa", origen: "cortesia", desde: fechaDb(inicio), hasta: fechaDb(periodoNuevo(inicio, 3).hasta), registradaPorId: superadminId, notas: `[${inicio}] Cortesía: familia piloto (demo)` },
+      });
+    }
     if (julia) {
       await prisma.consentimientoIa.create({
         data: { tenantId: nh.id, apoderadoId: julia.id, alumnoId: lucas.id, versionTexto: CONSENTIMIENTO_POR_DEFECTO.version, aceptadoAt: new Date(Date.parse(`${inicio}T16:00:00Z`)), ip: "127.0.0.1" },

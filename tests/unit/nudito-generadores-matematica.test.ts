@@ -32,7 +32,7 @@ function valorOpcion(texto: string): number | null {
 
 /** Recalcula «Calcula: …» con + − × ÷ y paréntesis (sin eval). */
 function calcular(expr: string): number {
-  const tokens = expr.replace(/−/g, "-").match(/\d+|[-+×÷()]/g) ?? [];
+  const tokens = expr.replace(/−/g, "-").match(/\d+(?:,\d+)?|[-+×÷()]/g) ?? [];
   let i = 0;
   const factor = (): number => {
     const t = tokens[i++];
@@ -42,7 +42,7 @@ function calcular(expr: string): number {
       return v;
     }
     if (t === "-") return -factor();
-    return Number(t);
+    return Number(t.replace(",", "."));
   };
   const producto = (): number => {
     let v = factor();
@@ -161,7 +161,7 @@ describe("generadores de Matemática", () => {
       const d = ((s % 5) + 1) as Dificultad;
       const ej = op.generar(tema("mat.operaciones", nivel, grado, ["numerico"]), d, s);
       const m = /^Calcula: (.+)$/.exec(ej.publico.enunciado);
-      if (m && ej.solucion.tipo === "numerico") expect(calcular(m[1])).toBe(ej.solucion.valor);
+      if (m && ej.solucion.tipo === "numerico") expect(calcular(m[1])).toBeCloseTo(ej.solucion.valor, 9);
       const e = ec.generar(tema("mat.ecuaciones", "secundaria", 1 + (s % 5), ["numerico"]), d, s);
       const eq = /^Resuelve: (.+) = (.+)\. ¿/.exec(e.publico.enunciado)!;
       const x = e.solucion.tipo === "numerico" ? e.solucion.valor : Number.NaN;

@@ -74,12 +74,12 @@ La BD local tiene **un solo colegio**: I.E.P. Nuevo Horizonte (`http://nuevohori
 |---|---|
 | direccion@nuevohorizonte.demo | dirección (Carmen Torres Vega) |
 | lucia.garcia@nuevohorizonte.demo | profesora, tutora de 3.° B |
-| pedro.salas@nuevohorizonte.demo | profesor, tutor de 5.° A (y Ciencia y Tecnología en 3.° B, 5.° B y 6.° A) |
+| pedro.salas@nuevohorizonte.demo | profesor, tutor de 5.° A (y Ciencia y Tecnología en 3.° B, 5.° B y 6.° A); seguimiento de Nudito en `/nudito/seguimiento` |
 | porteria@nuevohorizonte.demo | portería |
 | secretaria@nuevohorizonte.demo | administrativo (secretaría) |
-| rosa.quispe@gmail.com | apoderada de Mateo (3.° B) y Sofía (1.° A Sec.) |
-| lucas.huaman@nuevohorizonte.demo | alumno 5.° A con Nudito+ activo (`/nudito-plus/chat`) |
-| familia.huaman@familia.demo | apoderada de Lucas (reportes de Nudito+ en `/nudito-plus`) |
+| rosa.quispe@gmail.com | apoderada de Mateo (3.° B) y Sofía (1.° A Sec.); modo hijo de Nudito con Mateo (`/nudito?alumno=<id>`) |
+| lucas.huaman@nuevohorizonte.demo | alumno 5.° A: practica con **Nudito** en `/nudito` (Matemática, Ciencia y Tecnología, Comunicación) |
+| familia.huaman@familia.demo | apoderada de Lucas (progreso de Nudito en `/nudito-plus`) |
 | admin@khipuescolar.demo | super administrador (equipo Khipu) · panel http://admin.lvh.me:3000 (specs/16) |
 
 Colegios Khipu Base o con escala vigesimal: los e2e los crean y borran (`tests/e2e/ayudantes/colegio-temporal.ts`); para probarlos a mano, créalos desde el panel.

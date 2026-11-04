@@ -6,7 +6,6 @@ import {
   esquemaEjercicioConSolucion,
   esquemaEjercicioPublico,
   esquemaEvaluacion,
-  esquemaEvaluacionRubrica,
   esquemaExplicacion,
   esquemaPista,
   type AccesoNudito,
@@ -34,16 +33,22 @@ import { claveCache, guardarCache, leerCache, registrarConsumo } from "./ia/cons
 import { conValidacion } from "./ia/esquemas";
 import { obtenerProveedorTutor } from "./ia/proveedor";
 import {
+  acotarDificultad,
   azar,
   catalogo,
   configEfectiva,
+  contextoDominio,
   cursosDelAlumno,
   ejercicioPara,
+  esTemaReal,
+  evaluarAbierto,
   evaluarCerrado,
   evaluarDominio,
   gradoAbsoluto,
   politicaDelColegio,
-  rubricaSimulada,
+  temaDelArea,
+  temasPracticables,
+  temasQueDesbloquea,
   validarTema,
 } from "./integracion";
 import { analizarPregunta, comoDatosDelAlumno, pistaRevelaRespuesta, RESPUESTA_INYECCION, RESPUESTA_NO_ACADEMICO, verificarLimites } from "./seguridad";
@@ -52,7 +57,7 @@ import { analizarPregunta, comoDatosDelAlumno, pistaRevelaRespuesta, RESPUESTA_I
 // Todo con `ctx.db` (aislamiento por colegio) y `acceso` ya validado (acceso-tutor.ts). `responder` guarda intento +
 // dominio + evento en UNA transacción; (ejercicio, número) único evita el doble envío. La solución nunca sale del servidor.
 // Nudito NO importa ni escribe notas, registro auxiliar, NSP, evaluaciones oficiales ni libretas.
-// Puntos de integración con A/B/D: `integracion.ts` (marcados «INTEGRAR»).
+// Integración con A (currículo), B (práctica y dominio) y D (gobierno): `integracion.ts`.
 
 /** Ejercicios por sesión. */
 export const EJERCICIOS_POR_SESION = 5;
@@ -85,7 +90,7 @@ async function sesionPropia(ctx: TenantContext, acceso: AccesoNudito, sesionId: 
 
 async function temaDeSesion(ctx: TenantContext, sesion: { area: string | null; temaClave: string | null }, nivel: NivelNudito): Promise<Tema> {
   if (!sesion.area || !sesion.temaClave) throw new ErrorDeNegocio("Primero elige un tema.");
-  const tema = (await catalogo(ctx.db, { area: sesion.area as AreaNudito, nivel })).find((t) => t.clave === sesion.temaClave);
+  const tema = await temaDelArea(ctx.db, sesion.area as AreaNudito, nivel, sesion.temaClave);
   if (!tema) throw new ErrorDeNegocio("Ese tema ya no está disponible. Elige otro.");
   return tema;
 }
@@ -145,7 +150,7 @@ export async function iniciarSesion(ctx: TenantContext, acceso: AccesoNudito, en
   let reanudable: { sesionId: string; tema: string } | undefined;
   if (anterior?.temaClave && anterior.area) {
     const { nivel } = await datosDelSalon(ctx, acceso);
-    const tema = (await catalogo(ctx.db, { area: anterior.area as AreaNudito, nivel })).find((t) => t.clave === anterior.temaClave);
+    const tema = await temaDelArea(ctx.db, anterior.area as AreaNudito, nivel, anterior.temaClave);
     if (tema) reanudable = { sesionId: anterior.id, tema: tema.nombre };
   }
 
@@ -176,19 +181,19 @@ export async function elegirCurso(ctx: TenantContext, acceso: AccesoNudito, entr
   const { nivel, grado } = await datosDelSalon(ctx, acceso);
   await ctx.db.nuditoSesion.update({ where: { id: sesion.id }, data: { cursoId: curso.cursoId, area: curso.area, temaClave: null, gradoTema: null, fase: "tema", ultimaActividadAt: new Date() } });
 
-  const temas = await catalogo(ctx.db, { area: curso.area, nivel });
   const desbloqueados = await desbloqueadosDe(ctx, acceso.alumno.id);
+  const visibles = await temasPracticables(ctx.db, { area: curso.area, nivel, grado, desbloqueados });
   const alumnoG = gradoAbsoluto(nivel, grado);
-  const visibles = temas.filter((t) => gradoAbsoluto(t.nivel, t.grado) <= alumnoG || desbloqueados.has(t.clave));
   const dominios = await dominiosDe(ctx, acceso.alumno.id, visibles.map((t) => t.clave));
   return {
     temas: visibles
       .map((t) => {
         const estado = (dominios.get(t.clave)?.estado ?? "no_iniciado") as EstadoDominio;
-        const recomendado = estado !== "dominado" && (t.grado === grado || estado === "reforzar");
-        return vistaTema(t, estado, recomendado);
+        const recomendado = estado !== "dominado" && (gradoAbsoluto(t.nivel, t.grado) === alumnoG || estado === "reforzar");
+        return { vista: vistaTema(t, estado, recomendado), recomendado, posicion: gradoAbsoluto(t.nivel, t.grado) };
       })
-      .sort((a, b) => Number(b.recomendado) - Number(a.recomendado) || b.grado - a.grado || a.nombre.localeCompare(b.nombre)),
+      .sort((a, b) => Number(b.recomendado) - Number(a.recomendado) || b.posicion - a.posicion || a.vista.nombre.localeCompare(b.vista.nombre))
+      .map((x) => x.vista),
   };
 }
 
@@ -202,7 +207,7 @@ export async function elegirTema(ctx: TenantContext, acceso: AccesoNudito, entra
 
   let validacion: SalidaApi<"elegirTema">;
   if ("temaClave" in entrada) {
-    const tema = temas.find((t) => t.clave === entrada.temaClave);
+    const tema = temas.find((t) => t.clave === entrada.temaClave) ?? (await temaDelArea(ctx.db, area, nivel, entrada.temaClave));
     if (!tema) return { tipo: "no_reconocido", sugerencias: temas.filter((t) => gradoAbsoluto(t.nivel, t.grado) <= gradoAbsoluto(nivel, grado)).slice(0, 3), mensaje: "No encontré ese tema. ¿Probamos con uno de estos?" };
     const g = gradoAbsoluto(tema.nivel, tema.grado);
     const a = gradoAbsoluto(nivel, grado);
@@ -219,13 +224,17 @@ export async function elegirTema(ctx: TenantContext, acceso: AccesoNudito, entra
       const mensaje = analisis.tipo === "inyeccion" ? RESPUESTA_INYECCION : analisis.tipo === "no_academico" ? RESPUESTA_NO_ACADEMICO : "Elijamos un tema de tu curso. ¿Cuál quieres practicar?";
       return { tipo: "fuera_de_area", mensaje };
     }
-    // INTEGRAR: A (validarTema). La IA nunca decide aquí.
+    // A (validarTema): determinista. La IA nunca decide aquí.
     validacion = validarTema({ texto: entrada.textoLibre, area, nivel, grado, temas, desbloqueados });
   }
 
   if (validacion.tipo === "permitido") {
+    // Nunca se practica un tema que no esté en el catálogo real (p. ej. el sintético «…avanzado-…» de `validarTema`).
+    if (!(await esTemaReal(ctx.db, validacion.tema, nivel))) {
+      return { tipo: "no_reconocido", sugerencias: temas.filter((t) => gradoAbsoluto(t.nivel, t.grado) <= gradoAbsoluto(nivel, grado)).slice(0, 3), mensaje: "No encontré ese tema. ¿Probamos con uno de estos?" };
+    }
     const dominio = (await dominiosDe(ctx, acceso.alumno.id, [validacion.tema.clave])).get(validacion.tema.clave);
-    const dificultad = Math.min(validacion.tema.dificultad.max, Math.max(validacion.tema.dificultad.min, dominio?.dificultad ?? validacion.tema.dificultad.min));
+    const dificultad = acotarDificultad(validacion.tema, dominio?.dificultad ?? validacion.tema.dificultad.min);
     await ctx.db.nuditoSesion.update({
       where: { id: sesion.id },
       data: { temaClave: validacion.tema.clave, gradoTema: validacion.tema.grado, dificultad, fase: "repaso", ultimaActividadAt: new Date() },
@@ -282,12 +291,13 @@ export async function siguienteEjercicio(ctx: TenantContext, acceso: AccesoNudit
 
   const dominio = await ctx.db.nuditoDominio.findUnique({ where: { alumnoId_temaClave: { alumnoId: acceso.alumno.id, temaClave: tema.clave } } });
   const comprobacion = dominio?.estado === "en_comprobacion";
-  const dificultad = Math.min(tema.dificultad.max, Math.max(tema.dificultad.min, dominio?.dificultad ?? sesion.dificultad)) as Dificultad;
+  const dificultad = acotarDificultad(tema, dominio?.dificultad ?? sesion.dificultad);
   const orden = hechos + 1;
   // Variedad: semilla por sesión + orden (determinista y distinta en cada ejercicio).
   const semilla = azar(sesion.semilla + orden * 7919).entero(0, 0x7fffffff);
-  // INTEGRAR: B (ejercicioPara: generador, banco o lecturas según la fuente del tema).
-  const ejercicio = esquemaEjercicioConSolucion.parse(ejercicioPara(tema, dificultad, semilla));
+  // B: generador, banco o lecturas según la fuente del tema; sin repetir ítems de esta sesión.
+  const usados = (await ctx.db.nuditoEjercicio.findMany({ where: { sesionId: sesion.id }, select: { fuenteId: true } })).map((e) => e.fuenteId);
+  const ejercicio = esquemaEjercicioConSolucion.parse(ejercicioPara(tema, dificultad, semilla, usados));
   const solucion: SolucionGuardada = { solucion: ejercicio.solucion, pistas: ejercicio.pistas, explicacion: ejercicio.explicacion };
   try {
     const fila = await ctx.db.nuditoEjercicio.create({
@@ -307,34 +317,20 @@ export async function siguienteEjercicio(ctx: TenantContext, acceso: AccesoNudit
 }
 
 async function evaluarEnvio(ctx: TenantContext, acceso: AccesoNudito, sesionId: string, ejercicio: EjercicioConSolucion, envio: Parameters<typeof evaluarCerrado>[1]): Promise<Evaluacion> {
-  if (ejercicio.publico.tipo !== "escritura_rubrica" || ejercicio.solucion.tipo !== "escritura_rubrica") {
-    // INTEGRAR: B (evaluadores de ítems cerrados). La IA nunca corrige ítems cerrados.
-    return evaluarCerrado(ejercicio, envio);
-  }
-  // Escritura: IA con rúbrica si hay cupo y responde con confianza; si no, rúbrica simulada (formativa).
-  // INTEGRAR: B (`evaluadorAbierto`) puede reemplazar este bloque.
-  const simulada = (): Evaluacion => rubricaSimulada(ejercicio, envio);
-  const texto = envio.respuesta.tipo === "texto" ? envio.respuesta.texto : "";
+  // B: ítems cerrados SOLO por código. La IA nunca corrige ítems cerrados.
+  if (ejercicio.publico.tipo !== "escritura_rubrica" || envio.respuesta.tipo !== "texto") return evaluarCerrado(ejercicio, envio);
+  // Escritura: `evaluadorAbierto` de B con el proveedor. Sin cupo → rúbrica simulada (síncrona). En ambos casos, si no
+  // hay certeza (simulado o confianza baja) el resultado es `incierto`: no cuenta para el dominio, pero la retro sirve.
   const limite = await verificarLimites(ctx, acceso, "retroalimentar_abierta", { sesionId });
-  if (!limite.ok || !texto) return simulada();
+  if (!limite.ok) return evaluarCerrado(ejercicio, envio);
   const ia = await proveedor();
-  const rubrica = ejercicio.solucion.rubrica;
-  const r = await conValidacion(
-    esquemaEvaluacionRubrica,
-    () => ia.retroalimentarAbierta({ consigna: ejercicio.publico.tipo === "escritura_rubrica" ? ejercicio.publico.consigna : "", texto: comoDatosDelAlumno(texto), rubrica }),
-    () => ({ criterios: [], retroGeneral: "", confianza: 0 }),
-    ia,
-  );
-  await registrarConsumo(ctx.db, { tenantId: ctx.tenant.id, alumnoId: acceso.alumno.id, sesionId, operacion: "retroalimentar_abierta", consumo: r.consumo, ok: !r.respaldo, ...(r.error ? { error: r.error } : {}) });
-  if (r.respaldo || r.datos.confianza < 0.6 || r.datos.criterios.length === 0) return simulada();
-  const puntaje = r.datos.criterios.reduce((n, c) => n + c.nivel, 0) / (3 * r.datos.criterios.length);
-  return {
-    resultado: puntaje >= 0.75 ? "correcto" : puntaje >= 0.4 ? "parcial" : "incorrecto",
-    puntaje: Math.round(puntaje * 1000) / 1000,
-    retro: r.datos.retroGeneral,
-    evaluadoPor: "rubrica_ia",
-    criterios: r.datos.criterios,
-  };
+  // Con un proveedor real, el texto del alumno va marcado como datos (anti-inyección); el simulado lo mide tal cual.
+  const paraIa = ia.simulado ? envio : { ...envio, respuesta: { tipo: "texto" as const, texto: comoDatosDelAlumno(envio.respuesta.texto) } };
+  const r = await evaluarAbierto(ejercicio, paraIa, ia);
+  if (!ia.simulado || r.consumo.tokensSalida > 0) {
+    await registrarConsumo(ctx.db, { tenantId: ctx.tenant.id, alumnoId: acceso.alumno.id, sesionId, operacion: "retroalimentar_abierta", consumo: r.consumo, ok: r.evaluacion.evaluadoPor === "rubrica_ia" });
+  }
+  return r.evaluacion;
 }
 
 export async function responder(ctx: TenantContext, acceso: AccesoNudito, entrada: EntradaApi<"responder">): Promise<SalidaApi<"responder">> {
@@ -363,6 +359,11 @@ export async function responder(ctx: TenantContext, acceso: AccesoNudito, entrad
   const { config } = await configEfectiva(ctx);
   const politica = politicaDelColegio(config);
   const ahora = new Date();
+  // Contexto de dominio (una consulta) y temas que se desbloquearían si este pasa a dominado.
+  const { nivel, grado } = await datosDelSalon(ctx, acceso);
+  const temaActual = fila.sesion.area ? await temaDelArea(ctx.db, fila.sesion.area as AreaNudito, nivel, fila.temaClave) : null;
+  const contexto = temaActual ? await contextoDominio(ctx.db, acceso.alumno.id, temaActual) : undefined;
+  const desbloqueables = temaActual ? temasQueDesbloquea(temaActual.area, temaActual.clave, nivel, grado) : [];
 
   let cambioDominio: { estado: EstadoDominio; motivo: string } | undefined;
   try {
@@ -389,8 +390,14 @@ export async function responder(ctx: TenantContext, acceso: AccesoNudito, entrad
         sesionesDistintas: actualFila?.sesionesDistintas ?? 0,
         politicaVersion: actualFila?.politicaVersion ?? politica.version,
       };
-      // INTEGRAR: B (evaluarDominio, puro).
-      const decision = evaluarDominio(actual, evidencia, politica);
+      // B (puro). El contexto (prerrequisitos del tema y cuáles domina el alumno) habilita `desbloqueo_tema`.
+      const bruta = evaluarDominio(actual, evidencia, politica, contexto);
+      // La dificultad se acota al rango del tema (specs/43 §4): un cambio que el rango anula no se registra.
+      const dificultadAcotada = temaActual ? acotarDificultad(temaActual, bruta.nuevo.dificultad) : bruta.nuevo.dificultad;
+      const decision = {
+        nuevo: { ...bruta.nuevo, dificultad: dificultadAcotada },
+        eventos: bruta.eventos.filter((e) => (e.tipo !== "dificultad_sube" && e.tipo !== "dificultad_baja") || dificultadAcotada !== actual.dificultad),
+      };
       const nuevo = decision.nuevo;
       const acierto = resultado === "correcto" || resultado === "parcial";
       const motivo = decision.eventos.at(-1)?.motivo ?? actualFila?.motivo ?? null;
@@ -410,13 +417,24 @@ export async function responder(ctx: TenantContext, acceso: AccesoNudito, entrad
         },
       });
       for (const ev of decision.eventos) {
-        await tx.nuditoDominioEvento.create({
+        const evento = await tx.nuditoDominioEvento.create({
           data: {
             tenantId: ctx.tenant.id, alumnoId: acceso.alumno.id, temaClave: fila.temaClave, tipo: ev.tipo, motivo: ev.motivo,
             deEstado: actual.estado, aEstado: nuevo.estado, deDificultad: actual.dificultad, aDificultad: nuevo.dificultad,
             evidencia: evidencia as unknown as Prisma.InputJsonValue, politica: politica as unknown as Prisma.InputJsonValue,
           },
+          select: { id: true },
         });
+        // Desbloqueo: los temas siguientes (que tienen este como prerrequisito) quedan autorizados por este evento.
+        if (ev.tipo === "desbloqueo_tema" && fila.sesion.area) {
+          for (const t of desbloqueables) {
+            await tx.nuditoDominio.upsert({
+              where: { alumnoId_temaClave: { alumnoId: acceso.alumno.id, temaClave: t.clave } },
+              create: { tenantId: ctx.tenant.id, alumnoId: acceso.alumno.id, temaClave: t.clave, area: t.area, gradoTema: t.grado, dificultad: t.dificultad.min, politicaVersion: politica.version, motivo: ev.motivo, autorizadoPorEventoId: evento.id },
+              update: { autorizadoPorEventoId: evento.id },
+            });
+          }
+        }
       }
       await tx.nuditoSesion.update({ where: { id: fila.sesionId }, data: { dificultad: nuevo.dificultad } });
       return nuevo.estado !== actual.estado ? { estado: nuevo.estado, motivo: decision.eventos.find((e) => e.tipo === "estado")?.motivo ?? motivo ?? "" } : undefined;
@@ -427,7 +445,9 @@ export async function responder(ctx: TenantContext, acceso: AccesoNudito, entrad
   }
 
   // Tras agotar los intentos: ejemplo resuelto (la explicación revisada) y uno equivalente a continuación.
-  let retro = evaluacion.retro;
+  // Mientras se pueda reintentar, la retro NO incluye la explicación (que trae la respuesta): los evaluadores de B la
+  // agregan siempre; aquí se quita y se añade solo al acertar o al agotar los intentos.
+  let retro = evaluacion.retro.replace(ejercicio.explicacion, "").replace(/\s+$/, "") || "Revisa tu respuesta con calma.";
   if (cierra && evaluacion.resultado !== "correcto" && evaluacion.resultado !== "incierto") retro = `${retro}\nMira cómo se resuelve: ${ejercicio.explicacion}\nAhora te doy uno parecido para que lo intentes.`;
   else if (evaluacion.resultado === "correcto") retro = `${retro}\n${ejercicio.explicacion}`;
   return { evaluacion: { ...evaluacion, retro: retro.slice(0, 1200) }, puedeReintentar: !cierra, ...(cambioDominio ? { cambioDominio } : {}) };
@@ -536,7 +556,7 @@ export async function finalizar(ctx: TenantContext, acceso: AccesoNudito, entrad
   let siguiente = "";
   if (sesion.temaClave && sesion.area) {
     const { nivel } = await datosDelSalon(ctx, acceso);
-    const tema = (await catalogo(ctx.db, { area: sesion.area as AreaNudito, nivel })).find((t) => t.clave === sesion.temaClave);
+    const tema = await temaDelArea(ctx.db, sesion.area as AreaNudito, nivel, sesion.temaClave);
     const dominio = await ctx.db.nuditoDominio.findUnique({ where: { alumnoId_temaClave: { alumnoId: acceso.alumno.id, temaClave: sesion.temaClave } }, select: { estado: true } });
     const estado = (dominio?.estado ?? "no_iniciado") as EstadoDominio;
     if (tema) {

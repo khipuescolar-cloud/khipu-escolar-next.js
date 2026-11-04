@@ -113,8 +113,8 @@ tiene al menos uno). Matemática: todos los temas del catálogo (primaria 1.°�
 
 ## Pendientes
 - **Revisión pedagógica humana** de todo el banco de Ciencia, lecturas, ítems de lengua y consignas (`revisadoPor: null`).
-- Subtemas de Matemática del catálogo sin subtipo propio (usan el más cercano): valor posicional, números decimales y operaciones
-  con decimales, potencias y raíces, multiplicación de fracciones, fracción de una cantidad, suma de una progresión,
+- Subtemas de Matemática del catálogo sin subtipo propio (usan el más cercano): valor posicional, potencias y raíces, multiplicación de fracciones, fracción de una cantidad, suma de una progresión,
   inecuaciones.
-- C: pasar `contexto` de prerrequisitos a `evaluarDominio`, acotar la dificultad a `tema.dificultad`, enviar `usados` a
-  `ejercicioPara` y guardar eventos con su motivo.
+- (Hecho por C, 2026-11-04) `contexto` de prerrequisitos a `evaluarDominio`, dificultad acotada a `tema.dificultad`, `usados` a
+  `ejercicioPara` y eventos con su motivo. Nuevo subtipo `decimales` de `mat.operaciones` (desde 4.° de primaria, clave
+  «decimal»: suma/resta con 1–2 decimales, problemas en soles, × 10/100/natural; `tests/unit/nudito-generador-decimales.test.ts`).

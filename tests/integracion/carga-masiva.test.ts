@@ -55,7 +55,7 @@ afterAll(async () => {
   await db.profile.deleteMany({ where: { id: { in: [...perfiles, ...creados.map((p) => p.id)] } } });
   for (const id of authCreados) await supabaseAdmin().auth.admin.deleteUser(id).catch(() => {});
   await db.$disconnect();
-});
+}, 60_000);
 
 describe("carga masiva de salones y cursos", () => {
   const archivo = () =>
@@ -266,7 +266,7 @@ describe("rendimiento: un colegio de 1 000 alumnos y 2 000 filas de familias", (
     const creados = await db.profile.findMany({ where: { email: { endsWith: `@mil-${sufijo}.demo` } }, select: { id: true } });
     await db.tenant.deleteMany({ where: { id: t.id } });
     await db.profile.deleteMany({ where: { id: { in: creados.map((p) => p.id) } } });
-  });
+  }, 60_000);
 
   it("carga 40 salones, 1 000 alumnos y 2 000 vínculos en segundos, sin duplicar al repetir", { timeout: 120_000 }, async () => {
     const anio = 2027;

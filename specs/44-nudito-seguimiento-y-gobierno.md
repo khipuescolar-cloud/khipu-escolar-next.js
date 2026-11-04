@@ -127,7 +127,7 @@ proveedor para menores, fotos de menores, quién accede a una conversación ante
 
 ## Pendientes
 - UI de asentimiento del alumno (14+); límites de sesiones/minutos/horario y tope de costo los aplica C al iniciar sesiones.
-- Los seeds (`prisma/seed-nudito-plus.ts`) siguen creando licencias y consentimientos v1 de demo: tras `pnpm db:reconstruir`
-  las familias demo deberán aceptar la v2; convendría sembrar `nudito_config_colegio` activo para Nuevo Horizonte.
 - Fotos huérfanas (sesión borrada en cascada por baja de un alumno → `nudito_sesion_id` null) no las alcanza la retención.
-- La página `/nudito-plus/hijo/[alumnoId]` y el chat `/nudito-plus/chat` (modo antiguo) quedan hasta que C los reemplace por `/nudito`.
+- (Hecho 2026-11-04) `/nudito-plus/hijo/[alumnoId]` → `/nudito?alumno=<id>` y `/nudito-plus/chat` → `/nudito`. Los seeds ya no
+  crean licencias ni pagos con `NUDITO_LICENCIAS_FAMILIARES = false`; siembran el consentimiento v2 de Mateo y de Lucas, y
+  `seed-nudito-tutor.ts` activa la configuración de Nuevo Horizonte y rellena las áreas de los cursos.

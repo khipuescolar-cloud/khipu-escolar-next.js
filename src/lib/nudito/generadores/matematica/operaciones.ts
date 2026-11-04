@@ -185,4 +185,81 @@ const combinadas: Subtipo = {
   },
 };
 
-export const generadorOperaciones = crearGenerador("mat.operaciones", 1, [suma, resta, multiplicacion, division, combinadas]);
+/** Redondea a centésimos (evita errores de coma flotante). */
+const c2 = (n: number) => Math.round(n * 100) / 100;
+
+/**
+ * Números y operaciones con decimales (desde 4.° de primaria): suma y resta con 1–2 decimales, problemas con soles
+ * (dificultad ≥ 3) y multiplicación por 10, 100 o un número natural (dificultad ≥ 4). Se trabaja en centésimos enteros.
+ */
+const decimales: Subtipo = {
+  nombre: "decimales",
+  desde: 4,
+  hasta: 8,
+  claves: ["decimal"],
+  crear(ctx): Problema {
+    const cifras = ctx.dificultad <= 2 ? 1 : 2;
+    const escala = cifras === 1 ? 10 : 100;
+    const tope = Math.max(20, Math.round(limiteNumerico(ctx.efectivo, ctx.dificultad) / 10));
+    // Siempre con parte decimal: un múltiplo exacto de la escala se corre una unidad.
+    const enDecimal = (n: number) => (n % escala === 0 ? n + 1 : n) / escala;
+    if (ctx.dificultad >= 4 && ctx.azar.entero(0, 1) === 1) {
+      const a = enDecimal(ctx.azar.entero(11, tope * escala));
+      const k = ctx.azar.elegir([10, 100, ctx.azar.entero(2, 9)]);
+      const r = c2(a * k);
+      return {
+        enunciado: `Calcula: ${fmt(a)} × ${k}`,
+        respuesta: num(r),
+        decimales: 2,
+        tolerancia: 0.001,
+        distractores: [
+          { valor: num(c2(a * k * 10)), codigo: "error_de_posicion_decimal" },
+          { valor: num(c2((a * k) / 10)), codigo: "error_de_posicion_decimal" },
+          { valor: num(c2(a + k)), codigo: "suma_en_vez_de_multiplicar" },
+        ],
+        pistas: [
+          k === 10 || k === 100 ? `Al multiplicar por ${k}, la coma se mueve a la derecha.` : "Multiplica como si no hubiera coma y al final ubícala.",
+          k === 10 || k === 100 ? `¿Cuántos ceros tiene ${k}? Mueve la coma esa cantidad de lugares.` : `Cuenta cuántas cifras decimales tiene ${fmt(a)}.`,
+          k === 10 || k === 100 ? `Mueve la coma de ${fmt(a)} ${k === 10 ? "un lugar" : "dos lugares"} a la derecha.` : `Calcula ${Math.round(a * escala)} × ${k} y separa ${cifras} cifra${cifras > 1 ? "s" : ""} decimal${cifras > 1 ? "es" : ""}.`,
+        ],
+        explicacion: k === 10 || k === 100
+          ? `Al multiplicar por ${k} la coma se mueve ${k === 10 ? "un lugar" : "dos lugares"} a la derecha: ${fmt(a)} × ${k} = ${fmt(r)}.`
+          : `Se multiplica sin la coma y luego se separan las cifras decimales que tenía ${fmt(a)}: ${fmt(a)} × ${k} = ${fmt(r)}.`,
+      };
+    }
+    const x = ctx.azar.entero(Math.ceil(escala * 1.1), tope * escala);
+    const y = ctx.azar.entero(Math.ceil(escala * 0.3), Math.max(Math.ceil(escala * 0.3) + 1, x - 1));
+    const a = enDecimal(x);
+    const b = Math.min(enDecimal(y), c2(a - 0.1));
+    const sumar = ctx.azar.entero(0, 1) === 0;
+    const r = c2(sumar ? a + b : a - b);
+    const quien = ctx.azar.elegir(NOMBRES);
+    const enunciado = ctx.dificultad >= 3
+      ? sumar
+        ? `${quien} compra un cuaderno de S/ ${fmt(a)} y un lápiz de S/ ${fmt(b)}. ¿Cuánto paga en total?`
+        : `${quien} tiene S/ ${fmt(a)} y gasta S/ ${fmt(b)} en la feria. ¿Cuánto dinero le queda?`
+      : `Calcula: ${fmt(a)} ${sumar ? "+" : "−"} ${fmt(b)}`;
+    // Error típico: no alinear la coma (sumar o restar las partes enteras y las decimales como números sueltos).
+    const sinAlinear = c2(sumar ? a + b / 10 : a - b / 10);
+    return {
+      enunciado,
+      respuesta: num(r),
+      ...(ctx.dificultad >= 3 ? { unidad: "soles" } : {}),
+      decimales: 2,
+      tolerancia: 0.001,
+      distractores: [
+        { valor: num(sinAlinear), codigo: "no_alinea_la_coma" },
+        { valor: num(c2(sumar ? Math.abs(a - b) : a + b)), codigo: sumar ? "resta_en_vez_de_sumar" : "suma_en_vez_de_restar" },
+        { valor: num(c2(r * 10)), codigo: "error_de_posicion_decimal" },
+      ],
+      pistas: [
+        sumar ? "Juntar cantidades es sumar." : "Lo que queda después de gastar se halla restando.",
+        "Escribe los números uno debajo del otro con las comas alineadas. Si te ayuda, completa con ceros.",
+        `${sumar ? "Suma" : "Resta"} ${fmt(a)} ${sumar ? "+" : "−"} ${fmt(b)} columna por columna y baja la coma en el mismo lugar.`,
+      ],
+      explicacion: `Se alinean las comas y se ${sumar ? "suma" : "resta"} columna por columna: ${fmt(a)} ${sumar ? "+" : "−"} ${fmt(b)} = ${fmt(r)}.`,
+    };
+  },
+};
+
+export const generadorOperaciones = crearGenerador("mat.operaciones", 1, [suma, resta, multiplicacion, division, combinadas, decimales]);

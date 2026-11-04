@@ -13,6 +13,7 @@ import {
   preguntarAction,
   responderAction,
   siguienteEjercicioAction,
+  subirFotoAction,
   type ResultadoNudito,
 } from "@/app/colegio/[slug]/nudito/actions";
 import type { CursoNuditoVista, Respuesta, ResultadosSesion, SalidaApi, TemaVista, ValidacionTema } from "@/lib/nudito/contratos";
@@ -37,7 +38,7 @@ type Mensaje = { autor: "alumno" | "nudito"; texto: string };
  * Flujo conversacional del tutor (specs/41): bienvenida → curso → tema → repaso → práctica → resultados.
  * Solo llama a las server actions; la solución y las pistas viven en el servidor.
  */
-export function ConversacionNudito({ alumnoId, nivel, inicial }: { alumnoId: string | null; nivel: NivelVista; inicial: SalidaApi<"iniciarSesion"> }) {
+export function ConversacionNudito({ alumnoId, nivel, inicial, permitirFotos = false }: { alumnoId: string | null; nivel: NivelVista; inicial: SalidaApi<"iniciarSesion">; permitirFotos?: boolean }) {
   const [paso, setPaso] = useState<Paso>("bienvenida");
   const [sesionId, setSesionId] = useState(inicial.sesionId);
   const [cursos, setCursos] = useState<CursoNuditoVista[]>(inicial.cursos);
@@ -148,11 +149,21 @@ export function ConversacionNudito({ alumnoId, nivel, inicial }: { alumnoId: str
     if (r) setRepaso(r);
   }
 
-  async function responder(respuesta: Respuesta) {
+  async function responder(respuesta: Respuesta, extra?: { fotoArchivoId?: string }) {
     if (!ejercicio) return;
     const tiempoMs = Math.min(3_600_000, Math.max(0, Date.now() - inicioEjercicio.current));
-    const r = await llamar(() => responderAction({ alumnoId, ejercicioId: ejercicio.ejercicioId, respuesta, tiempoMs }));
+    const r = await llamar(() => responderAction({ alumnoId, ejercicioId: ejercicio.ejercicioId, respuesta, tiempoMs, ...(extra?.fotoArchivoId ? { fotoArchivoId: extra.fotoArchivoId } : {}) }));
     if (r) setRetro(r);
+  }
+
+  async function subirFoto(foto: File) {
+    const datos = new FormData();
+    datos.set("foto", foto);
+    datos.set("sesionId", sesionId);
+    if (alumnoId) datos.set("alumnoId", alumnoId);
+    if (ejercicio) datos.set("ejercicioId", ejercicio.ejercicioId);
+    const r = await subirFotoAction(datos);
+    return r.ok ? { ok: true as const, ...r.datos } : r;
   }
 
   async function pista() {
@@ -235,7 +246,7 @@ export function ConversacionNudito({ alumnoId, nivel, inicial }: { alumnoId: str
 
       {paso === "practica" && ejercicio && (
         <TarjetaEjercicio ejercicio={ejercicio.ejercicio} numero={ejercicio.numero} total={ejercicio.total} comprobacion={ejercicio.comprobacion}>
-          <EntradaRespuesta key={ejercicio.ejercicioId} ejercicio={ejercicio.ejercicio} deshabilitado={respondido} ocupado={ocupado} onEnviar={responder} />
+          <EntradaRespuesta key={ejercicio.ejercicioId} ejercicio={ejercicio.ejercicio} deshabilitado={respondido} ocupado={ocupado} onEnviar={responder} subirFoto={permitirFotos ? subirFoto : undefined} />
           {pistas.map((p) => (
             <Pista key={p.nivel} nivel={p.nivel} texto={p.texto} quedan={p.quedan} />
           ))}
