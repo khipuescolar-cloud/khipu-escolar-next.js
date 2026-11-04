@@ -39,8 +39,13 @@ beforeAll(async () => {
 
   const t = pro.tenant.id;
   const m = pro.miembros;
-  const reunion = (convocadaPorId: string, extra: Record<string, unknown>) =>
-    db.reunion.create({ data: { tenantId: t, titulo: "Reunión", alcance: "salon", salonId: pro.salon.id, convocadaPorId, inicio: lima("2027-03-03", "18:00"), ...extra } });
+  // `fin` y `organizadorId` son obligatorios desde specs/40; por defecto la reunión dura 60 min.
+  const reunion = (convocadaPorId: string, extra: Record<string, unknown>) => {
+    const inicio = (extra.inicio as Date | undefined) ?? lima("2027-03-03", "18:00");
+    return db.reunion.create({
+      data: { tenantId: t, titulo: "Reunión", alcance: "salon", salonId: pro.salon.id, convocadaPorId, organizadorId: convocadaPorId, inicio, fin: new Date(inicio.getTime() + 3_600_000), ...extra },
+    });
+  };
   ids.propia = (await reunion(m.tutora.membership.id, { titulo: "Reunión de padres 3.° B" })).id;
   ids.invitada = (await reunion(m.otroProfesor.membership.id, { titulo: "Coordinación con la tutora", alcance: "individual", salonId: pro.otroSalon.id, inicio: lima("2027-03-04", "17:00") })).id;
   await db.reunionInvitado.create({ data: { tenantId: t, reunionId: ids.invitada, membershipId: m.tutora.membership.id } });
