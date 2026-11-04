@@ -1,4 +1,4 @@
-import { Clock, Megaphone, Trash2, Users } from "lucide-react";
+import { CircleAlert, Clock, Megaphone, Trash2, Users } from "lucide-react";
 import type { Metadata } from "next";
 import { ListaAdjuntos } from "@/components/adjuntos/ListaAdjuntos";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -62,6 +62,7 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <CardTitle className="text-titulo-2">{c.titulo}</CardTitle>
                     <Badge variant="secondary"><Users strokeWidth={2} aria-hidden /> <span className="sr-only">Para: </span>{c.audiencia}</Badge>
+                    {c.importante && <Badge variant="outline"><CircleAlert strokeWidth={2} aria-hidden /> Importante</Badge>}
                   </div>
                   <div className="flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
                     <Avatar size="sm">

@@ -132,7 +132,7 @@ async function procesarEvento(tdb: DbTenant, eventoId: string): Promise<{ alumno
       : `Hay un resultado nuevo de ${nombres.get(alumnoId)} en ${curso.nombre}: «${titulo}».`,
     url: `/notas?alumno=${alumnoId}&periodo=${periodoId}#ev-${evento.grupoId}`,
   });
-  const filas = vinculos.map((v) => ({ tenantId: evento.tenantId, membershipId: v.apoderadoId, alumnoId: v.alumnoId, eventoId: evento.id, ...texto(v.alumnoId) }));
+  const filas = vinculos.map((v) => ({ tenantId: evento.tenantId, membershipId: v.apoderadoId, alumnoId: v.alumnoId, eventoId: evento.id, tipo: "calificacion" as const, ...texto(v.alumnoId) }));
   for (const lote of trozos(filas, LOTE_FILAS)) await tdb.notificacion.createMany({ data: lote, skipDuplicates: true });
   const creadas = await tdb.notificacion.findMany({ where: { eventoId: evento.id }, select: { id: true, membershipId: true, alumnoId: true, titulo: true, cuerpo: true, url: true } });
 

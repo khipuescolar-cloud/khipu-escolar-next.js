@@ -22,10 +22,10 @@ export async function publicarComunicadoAction(formData: FormData) {
       salonId: textoONulo(formData, "salonId"),
     });
     if (!leida.ok) throw new ErrorDeNegocio(leida.error);
-    const r = await publicarComunicado(ctx, { titulo: texto(formData, "titulo"), cuerpo: texto(formData, "cuerpo"), audiencia: leida.audiencia }, await adjuntosDeFormData(formData));
+    const r = await publicarComunicado(ctx, { titulo: texto(formData, "titulo"), cuerpo: texto(formData, "cuerpo"), audiencia: leida.audiencia, importante: formData.get("importante") === "on" }, await adjuntosDeFormData(formData));
     revalidatePath("/comunicados");
-    // Envía el correo y el push ahora, sin esperar al cron (respeta el tope diario y la reserva atómica de la cola).
-    if (r.avisados > 0) {
+    // Envía el push (y el correo si es importante) ahora, sin esperar al cron (respeta el tope diario y la reserva atómica de la cola).
+    if (r.encolados > 0) {
       after(async () => {
         try {
           await procesarCola({ tenantId: ctx.tenant.id });

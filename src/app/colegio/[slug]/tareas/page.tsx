@@ -128,7 +128,7 @@ export default async function TareasPage({ params }: PageProps<"/colegio/[slug]/
                 <input type="checkbox" name="avisarFamilias" className="mt-0.5 size-4 accent-primary" />
                 <span>
                   <span className="font-medium">Avisar a las familias</span>
-                  <span className="block text-muted-foreground">Las familias reciben un aviso por correo o en el celular con esta tarea.</span>
+                  <span className="block text-muted-foreground">Las familias la ven en sus notificaciones de Khipu y en el celular (sin correo).</span>
                 </span>
               </label>
               <CamposAdjuntos id="adjuntos-nueva-tarea" />

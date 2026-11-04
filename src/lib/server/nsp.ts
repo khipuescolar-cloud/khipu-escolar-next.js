@@ -3,14 +3,16 @@ import type { Tenant } from "@/generated/prisma/client";
 import type { CalificacionLiteral, MarcaNota, TipoCambioNota } from "@/generated/prisma/enums";
 import { textoValor, type Escala, type ValorCalificacion } from "@/lib/calificaciones";
 import { urlColegio } from "@/lib/dominio";
-import { fechaDb, isoDeFechaDb, momentoEnZona, sumarDias } from "@/lib/fechas";
+import { fechaCorta, fechaDb, isoDeFechaDb, momentoEnZona, sumarDias } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
 import { cubreDiaCompleto, cubreHora } from "@/lib/permisos-asistencia";
 import { expiracionJustificacion, normalizarPlazoDias } from "@/lib/plazo-justificacion";
 import { auditar } from "./auditoria";
 import { db, dbTenant, type DbTenant } from "./db";
 import { registrarEventoCorreccion } from "./eventos-academicos";
-import { destinatariosDeAlumno, encolarAviso, encolarParaDestinatario, tieneCanalAviso } from "./notificaciones/encolar";
+import { destinatariosDeAlumno, encolarParaDestinatario } from "./notificaciones/encolar";
+import { entregarNotificaciones, type Entrega } from "./notificaciones/internas";
+import { destinosPersonal } from "./notificaciones/preferencias";
 
 // NSP, plazo de justificación, consecuencia por vencimiento y recuperación académica (specs/37).
 //
@@ -397,7 +399,7 @@ export async function alAprobarJustificacion(tdb: DbTenant, tenant: TenantNsp, j
       evaluacion: {
         select: {
           titulo: true, grupoId: true, cursoId: true, periodoId: true,
-          curso: { select: { nombre: true, profesor: { select: { estado: true, user: { select: { email: true } } } } } },
+          curso: { select: { nombre: true, profesorId: true } },
         },
       },
     },
@@ -405,25 +407,32 @@ export async function alAprobarJustificacion(tdb: DbTenant, tenant: TenantNsp, j
   // Un aviso por profesor (aunque tenga varios cursos o actividades afectadas ese día).
   const porDocente = new Map<string, { cursos: Set<string>; actividades: Set<string>; cursoId: string; periodoId: string }>();
   for (const { evaluacion: e } of afectadas) {
-    const p = e.curso.profesor;
-    if (!p || p.estado !== "activa") continue;
-    const actual = porDocente.get(p.user.email) ?? { cursos: new Set<string>(), actividades: new Set<string>(), cursoId: e.cursoId, periodoId: e.periodoId };
+    if (!e.curso.profesorId) continue;
+    const actual = porDocente.get(e.curso.profesorId) ?? { cursos: new Set<string>(), actividades: new Set<string>(), cursoId: e.cursoId, periodoId: e.periodoId };
     actual.cursos.add(e.curso.nombre);
     actual.actividades.add(`${e.curso.nombre}: ${e.titulo}`);
-    porDocente.set(p.user.email, actual);
+    porDocente.set(e.curso.profesorId, actual);
   }
+  // Canales según las preferencias de perfil de cada profesor (una consulta); bandeja siempre, push y correo si los aceptó.
+  const destinos = await destinosPersonal(tdb, [...porDocente.keys()], ["profesor", "direccion"]);
+  for (const id of porDocente.keys()) if (!destinos.has(id)) porDocente.delete(id);
   const unir = (n: string[]) => (n.length <= 1 ? (n[0] ?? "") : `${n.slice(0, -1).join(", ")} y ${n.at(-1)}`);
-  for (const [email, d] of porDocente) {
-    await encolarAviso(tdb, {
-      tenantId: tenant.id, tipo: "justificacion", canal: "correo", destinatario: email, plantilla: "justificacion_aprobada_docente",
-      referenciaId: j.id,
+  const alumno = `${j.asistencia.alumno.nombres} ${j.asistencia.alumno.apellidos}`.trim();
+  const entregas: Entrega<"justificacion_aprobada_docente">[] = [...porDocente].map(([membershipId, d]) => {
+    const destino = destinos.get(membershipId)!;
+    const ruta = `/notas?curso=${d.cursoId}&periodo=${d.periodoId}`;
+    return {
+      membershipId, alumnoId, titulo: `Falta justificada: ${alumno}`,
+      cuerpo: `La inasistencia de ${alumno} del ${fechaCorta(isoDeFechaDb(fecha))} fue aprobada por el colegio. Revisa ${unir([...d.cursos])}.`, url: ruta,
+      email: destino.correo ? destino.email : null, endpoints: destino.pushEndpoints, apoderadoId: null,
       payload: {
-        colegio: tenant.nombre, alumno: `${j.asistencia.alumno.nombres} ${j.asistencia.alumno.apellidos}`.trim(), fecha: isoDeFechaDb(fecha),
-        curso: unir([...d.cursos]), actividades: [...d.actividades].slice(0, 20),
-        url: urlColegio(tenant.slug, `/notas?curso=${d.cursoId}&periodo=${d.periodoId}`),
+        colegio: tenant.nombre, alumno, fecha: isoDeFechaDb(fecha), curso: unir([...d.cursos]), actividades: [...d.actividades].slice(0, 20), url: urlColegio(tenant.slug, ruta),
       },
-    });
-  }
+    };
+  });
+  await entregarNotificaciones(tdb, {
+    tenant, tipo: "justificacion", clave: `justificacion:${j.id}`, tipoAviso: "justificacion", plantilla: "justificacion_aprobada_docente", referenciaId: j.id, entregas,
+  });
   const docentes = porDocente.size;
   await auditar({ tenantId: tenant.id, actorId: null, accion: "enviar", entidad: "justificacion_docentes", entidadId: j.id, detalle: { actividades: afectadas.length, docentes } });
   return { actividades: afectadas.length, docentes };
@@ -431,7 +440,8 @@ export async function alAprobarJustificacion(tdb: DbTenant, tenant: TenantNsp, j
 
 /**
  * Aviso específico a las familias de un alumno cuya calificación PUBLICADA cambió (specs/37): corrección, recuperación
- * o consecuencia por vencimiento. Sin valores en el correo; el detalle está en Khipu. Una fila por familia y canal.
+ * o consecuencia por vencimiento. Sin valores en el correo; el detalle está en Khipu. Solo CORREO, una fila por familia:
+ * el push y la bandeja los pone el evento `nota_corregida` (specs/38), así cada dispositivo recibe un único push.
  */
 export async function avisarCambioNota(
   tdb: DbTenant, tenant: Pick<TenantNsp, "id" | "nombre" | "slug">,
@@ -439,12 +449,12 @@ export async function avisarCambioNota(
 ): Promise<number> {
   let familias = 0;
   for (const dest of await destinatariosDeAlumno(tdb, d.alumnoId)) {
-    if (!tieneCanalAviso(dest)) continue;
+    if (!dest.correo) continue;
     const comun = { colegio: tenant.nombre, alumno: d.alumno, curso: d.curso, titulo: d.titulo, url: urlColegio(tenant.slug, "/notas") };
     if (d.motivo === "recuperacion") {
-      await encolarParaDestinatario(tdb, dest, { tenantId: tenant.id, tipo: "libreta", plantilla: "recuperacion_registrada", referenciaId: d.evaluacionId, payload: comun });
+      await encolarParaDestinatario(tdb, dest, { tenantId: tenant.id, tipo: "libreta", plantilla: "recuperacion_registrada", referenciaId: d.evaluacionId, payload: comun }, { push: false });
     } else {
-      await encolarParaDestinatario(tdb, dest, { tenantId: tenant.id, tipo: "libreta", plantilla: "nota_corregida", referenciaId: d.evaluacionId, payload: { ...comun, motivo: d.motivo } });
+      await encolarParaDestinatario(tdb, dest, { tenantId: tenant.id, tipo: "libreta", plantilla: "nota_corregida", referenciaId: d.evaluacionId, payload: { ...comun, motivo: d.motivo } }, { push: false });
     }
     familias += 1;
   }

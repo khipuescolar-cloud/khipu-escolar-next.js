@@ -92,8 +92,6 @@ export async function actualizarAsistenciaPorCurso(ctx: TenantContext, niveles: 
 const esquemaReglas = z.strictObject({
   /** Valor que Khipu pone al vencer el plazo sin justificación: «AD/A/B/C» o «0–20» según la escala; vacío = sin configurar. */
   consecuenciaVencimiento: z.string().trim().max(10),
-  /** Sin uso desde specs/38 (el resumen académico diario se retiró); se acepta por compatibilidad. */
-  horaResumenAcademico: hora.optional(),
 });
 
 /**
@@ -115,12 +113,8 @@ export async function actualizarReglasAcademicas(ctx: TenantContext, entrada: un
   const antes = {
     consecuenciaVencimientoLiteral: ctx.tenant.consecuenciaVencimientoLiteral,
     consecuenciaVencimientoNumerica: ctx.tenant.consecuenciaVencimientoNumerica?.toString() ?? null,
-    horaResumenAcademico: ctx.tenant.horaResumenAcademico,
   };
-  const ahora = {
-    consecuenciaVencimientoLiteral: literal, consecuenciaVencimientoNumerica: numerica,
-    ...(r.data.horaResumenAcademico ? { horaResumenAcademico: r.data.horaResumenAcademico } : {}),
-  };
+  const ahora = { consecuenciaVencimientoLiteral: literal, consecuenciaVencimientoNumerica: numerica };
   await db.tenant.update({ where: { id: ctx.tenant.id }, data: ahora });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "reglas_academicas", detalle: { antes, ahora } as unknown as Prisma.InputJsonValue });
 }

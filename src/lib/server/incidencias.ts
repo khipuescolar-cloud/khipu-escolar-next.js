@@ -3,10 +3,11 @@ import { forbidden } from "next/navigation";
 import { z } from "zod";
 import type { TipoIncidencia } from "@/generated/prisma/enums";
 import { urlColegio } from "@/lib/dominio";
-import { fechaDb, isoDeFechaDb, momentoEnZona } from "@/lib/fechas";
+import { fechaCorta, fechaDb, isoDeFechaDb, momentoEnZona } from "@/lib/fechas";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
-import { encolarAviso } from "./notificaciones/encolar";
+import { entregarNotificaciones, type Entrega } from "./notificaciones/internas";
+import { destinosPersonal } from "./notificaciones/preferencias";
 import { sincronizarNsp } from "./nsp";
 import { requireFeature } from "./plan";
 import { requireRol, salonIdsVisibles, type TenantContext } from "./tenant";
@@ -79,7 +80,7 @@ export async function registrarIncidencia(ctx: TenantContext, entrada: unknown, 
   const alumno = await alumnoEnAlcance(ctx, d.data.alumnoId);
   const cursos = await ctx.db.curso.findMany({
     where: { id: { in: d.data.cursoIds }, salonId: alumno.salonId },
-    select: { id: true, nombre: true, profesorId: true, profesor: { select: { estado: true, user: { select: { email: true } } } } },
+    select: { id: true, nombre: true, profesorId: true },
   });
   if (cursos.length !== d.data.cursoIds.length) return fallo("Algún curso no es del salón del alumno.");
   const fecha = fechaDb(d.data.fecha);
@@ -111,16 +112,27 @@ export async function registrarIncidencia(ctx: TenantContext, entrada: unknown, 
     detalle: { alumnoId: alumno.id, fecha: d.data.fecha, retiro: d.data.retiro, cursos: cursos.length, faltas },
   });
   await sincronizarNsp(ctx.db, ctx.tenant, { fecha, alumnoIds: [alumno.id] }, ahora);
+  // Aviso a los profesores de esos cursos (no a quien la registró): bandeja siempre; push y correo según sus preferencias.
+  const alumnoNombre = `${alumno.nombres} ${alumno.apellidos}`.trim();
+  const profesores = [...new Set(cursos.map((c) => c.profesorId).filter((id): id is string => !!id && id !== ctx.membership.id))];
+  const destinos = await destinosPersonal(ctx.db, profesores, ["profesor", "direccion"]);
+  // Clave por incidencia y curso: un profesor con dos cursos afectados recibe una notificación por curso (pocos cursos por incidencia).
   let docentes = 0;
   for (const c of cursos) {
-    if (!c.profesor || c.profesor.estado !== "activa" || c.profesorId === ctx.membership.id) continue;
-    await encolarAviso(ctx.db, {
-      tenantId: ctx.tenant.id, tipo: "asistencia", canal: "correo", destinatario: c.profesor.user.email, plantilla: "incidencia_docente",
-      referenciaId: incidencia.id,
+    const destino = c.profesorId ? destinos.get(c.profesorId) : undefined;
+    if (!c.profesorId || !destino || c.profesorId === ctx.membership.id) continue;
+    const entrega: Entrega<"incidencia_docente"> = {
+      membershipId: c.profesorId, alumnoId: alumno.id, titulo: `${alumnoNombre} no estará en ${c.nombre}`,
+      cuerpo: `${alumnoNombre} tuvo una incidencia el ${fechaCorta(d.data.fecha)}: su inasistencia a tu clase quedó registrada.`, url: "/notas",
+      email: destino.correo ? destino.email : null, endpoints: destino.pushEndpoints, apoderadoId: null,
       payload: {
-        colegio: ctx.tenant.nombre, alumno: `${alumno.nombres} ${alumno.apellidos}`.trim(), fecha: d.data.fecha,
+        colegio: ctx.tenant.nombre, alumno: alumnoNombre, fecha: d.data.fecha,
         ...(d.data.retiro ? { hora: d.data.horaRetiro } : {}), curso: c.nombre, url: urlColegio(ctx.tenant.slug, "/notas"),
       },
+    };
+    await entregarNotificaciones(ctx.db, {
+      tenant: ctx.tenant, tipo: "incidencia", clave: `incidencia:${incidencia.id}:${c.id}`, tipoAviso: "asistencia", plantilla: "incidencia_docente",
+      referenciaId: incidencia.id, entregas: [entrega],
     });
     docentes += 1;
   }

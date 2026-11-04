@@ -25,6 +25,23 @@ export async function destinoPersonal(tdb: DbTenant, membershipId: string, roles
   return { email: m.user.email, correo: pref.correo, pushEndpoints: pref.push ? m.user.pushSuscripciones.map((s) => s.endpoint) : [] };
 }
 
+/** Como `destinoPersonal`, para varias membresías en una sola consulta (avisos a varios profesores). */
+export async function destinosPersonal(
+  tdb: DbTenant, membershipIds: string[], roles: ("profesor" | "direccion" | "administrativo")[],
+): Promise<Map<string, DestinoPersonal>> {
+  const mapa = new Map<string, DestinoPersonal>();
+  if (membershipIds.length === 0) return mapa;
+  const filas = await tdb.membership.findMany({
+    where: { id: { in: membershipIds }, rol: { in: roles }, estado: "activa" },
+    select: { id: true, preferenciaAviso: { select: { correo: true, push: true } }, user: { select: { email: true, pushSuscripciones: { select: { endpoint: true } } } } },
+  });
+  for (const m of filas) {
+    const pref = m.preferenciaAviso ?? { correo: true, push: true };
+    mapa.set(m.id, { email: m.user.email, correo: pref.correo, pushEndpoints: pref.push ? m.user.pushSuscripciones.map((s) => s.endpoint) : [] });
+  }
+  return mapa;
+}
+
 export async function obtenerPreferencias(ctx: TenantContext) {
   const pref = await ctx.db.preferenciaAviso.findUnique({ where: { apoderadoId: ctx.membership.id } });
   return { correo: pref?.correo ?? true, push: pref?.push ?? true, pushAcademico: pref?.pushAcademico ?? true };

@@ -1,6 +1,6 @@
 # 08 — Chat familia ↔ profesor
 
-> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-27 (Claude Code, rama `feat/avisos-pendientes`: aviso al profesor)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-11-03 (rama `pre-notificaciones`: bandeja general y canales, specs/38; antes: Claude Code, rama `feat/avisos-pendientes`: aviso al profesor)
 
 ## Objetivo
 Que la familia y el profesor se escriban sobre un alumno sin compartir teléfonos ni correos.
@@ -16,16 +16,16 @@ Que la familia y el profesor se escriban sobre un alumno sin compartir teléfono
 ## Flujos
 1. `/mensajes/nuevo` lista a quién puede escribir (con etiqueta «Lucía García · Tutora de 3.° B — sobre Mateo»; el título sigue `Profile.genero`: femenino → Tutora/Profesora, masculino → Tutor/Profesor, sin dato → Tutor(a)/Profesor(a)). «Escribir» abre o reutiliza la conversación `(alumno, profesor, apoderado)`. Admite `?alumno=<id>` (validado con `requireAlumnoVisible`: 403 si no es su hijo o su alumno): la vista de asistencia de la familia (spec 04) enlaza ahí. `/mensajes?alumno=<id>` redirige a `/mensajes/nuevo?alumno=<id>` (enlaces antiguos). El rol `alumno` no tiene chat (403).
 2. `/mensajes/[id]`: hilo. El cliente consulta cada 10 s la acción `refrescarHiloAction` (polling; sin Realtime). Al abrir o refrescar se marcan como leídos los mensajes de la otra parte.
-3. Al enviar se encola un aviso `mensaje_nuevo` a la otra parte con `avisarMensajeNuevo()` (`notificaciones/avisos-mensajes.ts`), `referenciaId = conversacionId`, máximo 1 por conversación y destinatario cada 15 min:
-   - escribe el profesor → a la familia, solo con consentimiento vigente y si acepta correos;
-   - escribe la familia → al profesor por correo y por cada suscripción push suya, según sus preferencias de `/perfil#avisos` (`preferencias_aviso` por membresía; sin fila, ambos; el personal no necesita consentimiento). La fila no lleva `apoderadoId`, así que el correo no incluye «Ajustar mis avisos».
+3. Al enviar, `avisarMensajeNuevo()` (`notificaciones/avisos-mensajes.ts`) notifica a la otra parte en su **bandeja** (`/notificaciones`, tipo `mensaje`, specs/38) y por **push** (plantilla `mensaje_nuevo`, `referenciaId = conversacionId`). **Sin correo** desde 2026-11-03 (el chat no es una comunicación importante). Máximo 1 notificación por conversación y destinatario cada 15 min (clave `mensaje:<conversación>:<ventana>`, sin duplicados al reintentar):
+   - escribe el profesor → a la familia: bandeja si la membresía está activa; push solo con consentimiento vigente y preferencia `push`;
+   - escribe la familia → al profesor: bandeja siempre; push por cada dispositivo suscrito según sus preferencias de `/perfil#avisos` (`destinoPersonal`; el personal no necesita consentimiento). La fila no lleva `apoderadoId`.
 
 ## Reglas de negocio
 - Mensaje de texto, 1 a 2000 caracteres (zod).
 - Nunca se serializa `email` ni `telefono` de la otra parte: las consultas solo seleccionan nombres y apellidos.
 - Solo cuentan profesores con membresía `activa`; alumnos `activo`.
 - Dirección no ve contador de no leídos y su polling está desactivado (para no llenar la auditoría).
-- Los avisos al profesor van a su correo de la cuenta y a sus dispositivos con push activado; además ve el contador en la bandeja.
+- Los avisos al profesor van a su bandeja de notificaciones y a sus dispositivos con push activado; además ve el contador de mensajes sin leer.
 
 ## Modelo de datos
 `conversaciones` (única por alumno+profesor+apoderado), `mensajes` (`cuerpo`, `leidoAt`), `avisos` (cola).
@@ -54,7 +54,7 @@ Etiquetas puras en `src/lib/mensajes.ts`.
 - Apoderado sin consentimiento aceptado → redirige a `/consentimiento`.
 
 ## Pruebas
-- unit: `tests/unit/mensajes-etiquetas.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts` (alcance, no leídos, sin correo/teléfono, dirección solo lectura, límite de avisos, consentimiento) y `tests/integracion/avisos-pendientes.test.ts` (aviso al profesor por correo + push, 1 cada 15 min) y `tests/integracion/preferencias-personal-y-comunicados-push.test.ts` (preferencias del profesor) · e2e: `tests/e2e/chat-familia-profesor.test.ts` (Rosa ↔ Lucía).
+- unit: `tests/unit/mensajes-etiquetas.test.ts` · integración: `tests/integracion/gestion-mensajes-privacidad.test.ts` (alcance, no leídos, sin correo/teléfono, dirección solo lectura, límite de avisos, consentimiento) y `tests/integracion/avisos-pendientes.test.ts` (aviso al profesor por bandeja + push sin correo, 1 cada 15 min) y `tests/integracion/preferencias-personal-y-comunicados-push.test.ts` (preferencias del profesor) · e2e: `tests/e2e/chat-familia-profesor.test.ts` (Rosa ↔ Lucía).
 
 ## Pendientes
 - Ninguno.

@@ -1,9 +1,9 @@
 # 09 — Comunicados
 
-> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-30 (Claude Code, rama `feat/comunicados-nivel`)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-11-03 (rama `pre-notificaciones`: bandeja general y canales, specs/38; antes: Claude Code, rama `feat/comunicados-nivel`)
 
 ## Objetivo
-Dirección, administrativos y profesores publican anuncios para todo el colegio, uno o más niveles, un grado (todas sus secciones) o un salón; las familias los leen y reciben un aviso por correo y push, con archivos adjuntos opcionales.
+Dirección, administrativos y profesores publican anuncios para todo el colegio, uno o más niveles, un grado (todas sus secciones) o un salón; las familias los leen y reciben una notificación en Khipu y por push (y por correo si se marcó «Importante»), con archivos adjuntos opcionales.
 
 ## Roles y permisos
 | Rol | Puede | No puede |
@@ -19,7 +19,7 @@ Dirección, administrativos y profesores publican anuncios para todo el colegio,
 1. `/comunicados`: formulario (para quién, título, mensaje, adjuntos) → «Publicar y avisar».
    - **Para quién** (dirección y administrativo): radios «Todo el colegio» · «Por nivel» (casillas de los niveles con salones activos; uno o varios) · «Un grado» (selector agrupado por nivel: «3.° grado de primaria», «Inicial de 4 años»; todas las secciones de ese grado) · «Un salón». El profesor solo ve el selector de sus salones.
 2. Destinatarios: familias de los alumnos **activos** del destino — todo el colegio; los salones del nivel o niveles; los salones de ese nivel y grado; o el salón. En nivel y grado solo cuentan los salones **no archivados**.
-3. Se encola un aviso `comunicado` por familia (una sola vez por apoderado aunque tenga varios hijos), solo con consentimiento vigente y `recibeAvisos`: una fila de **correo** (si la familia no lo apagó) y una de **push** por cada dispositivo suscrito (si no apagó el push), según `preferencias_aviso`. Después de responder, la acción llama a `procesarCola({ tenantId })` con `after()`: no espera al cron (tope diario y reserva atómica de la cola intactos). El resultado dice «Se avisó a N familias».
+3. Notificación en lote (specs/38, `entregarNotificaciones`): una fila en la **bandeja** (`/notificaciones`, tipo `comunicado`, clave `comunicado:<id>`) por familia con `recibeAvisos` y membresía activa (una sola por apoderado aunque tenga varios hijos) y por cada alumno con cuenta propia del destino; **push** por cada dispositivo suscrito (consentimiento vigente y preferencia `push`). **Correo solo si el comunicado es importante** (casilla «Importante: enviar también por correo», `comunicados.importante`), con consentimiento y preferencia `correo`. Consultas en lote: alumnos del destino, vínculos con consentimiento, preferencias y dispositivos, cuentas de alumnos y `createMany` (sin una consulta por familia). Si encoló algo, la acción llama a `procesarCola({ tenantId })` con `after()`: no espera al cron. El resultado dice «Se avisó a N familias» (familias con la notificación en su bandeja). La lista muestra la insignia «Importante».
 4. El autor edita o borra dentro de las primeras 24 h (auditado).
 
 ## Reglas de negocio
@@ -29,7 +29,7 @@ Dirección, administrativos y profesores publican anuncios para todo el colegio,
 - **Etiqueta** en la lista (`etiquetaAudiencia`): «Todo el colegio», «Primaria», «Inicial y primaria», «Inicial, primaria y secundaria», «3.° grado de primaria», «Inicial de 4 años» o el nombre del salón.
 - **Adjuntos** (`src/lib/server/adjuntos.ts`, spec 14): hasta 5 por comunicado, 10 MB cada uno; PDF, JPG, PNG, WEBP, DOCX y XLSX (tipo real por firma; DOCX/XLSX son ZIP y se distinguen por `word/document.xml` / `xl/workbook.xml`). Se suben como privados por `FileStorage` y se enlazan con `archivos.comunicado_id` (+ `nombre`). Se validan **antes** de crear el comunicado: si uno falla no se publica nada. Al editar (24 h) se pueden quitar y agregar (máx. 5 en total); al borrar el comunicado se borran sus archivos del proveedor y la BD.
 - **Descarga**: enlace estable `/archivos/<id>` (descarga como adjunto). Pasa por `requireArchivoVisible`: dirección y autor siempre; administrativos también; profesores, apoderados y alumnos solo si pueden ver el comunicado (todo el colegio, su salón, su nivel o su grado). Portería y familias/profesores de otro salón: 403.
-- **Enlace directo**: el correo y el push llevan a `/comunicados#comunicado-<id>` (`urlComunicado`). Se eligió un ancla estable y no una ruta `/comunicados/[id]` porque la lista ya muestra los comunicados completos; la tarjeta tiene ese `id` y se resalta con `:target`. La fila `avisos` guarda `referenciaId = comunicado`.
+- **Enlace directo**: el correo lleva a `/comunicados#comunicado-<id>` (`urlComunicado`); el push abre la notificación (`/notificaciones/<id>/abrir`: la marca leída) y de ahí el mismo ancla. Se eligió un ancla estable y no una ruta `/comunicados/[id]` porque la lista ya muestra los comunicados completos; la tarjeta tiene ese `id` y se resalta con `:target`. La fila `avisos` guarda `referenciaId = comunicado`.
 - Editar no vuelve a avisar.
 
 ## Modelo de datos
@@ -56,7 +56,7 @@ Adjunto no válido: «“x.txt” no se puede adjuntar. Solo aceptamos PDF, JPG,
 ## Pruebas
 - unit: `tests/unit/audiencia-comunicado.test.ts` (lectura del formulario, columnas, etiquetas) · integración: `tests/integracion/comunicados-por-nivel.test.ts` (destinatarios por nivel y grado: solo alumnos activos de salones activos, `recibeAvisos`; lectura por rol; permisos) · e2e: `tests/e2e/comunicados-por-nivel.test.ts` (dirección publica para un grado; la familia de ese grado lo ve con su etiqueta y la de otro nivel no).
 - integración: `tests/integracion/gestion-mensajes-privacidad.test.ts` (alcance, avisos por familia, 24 h) · e2e: recorrido de `/comunicados` en `tests/e2e/direccion-panel.test.ts` y `tests/e2e/comunicados-adjuntos.test.ts` (publicar con PDF, descarga de la familia, 403 a portería).
-- integración: `tests/integracion/adjuntos-comunicados-tareas.test.ts` (validación, acceso por rol y salón, editar/borrar) y `tests/integracion/preferencias-personal-y-comunicados-push.test.ts` (correo + push, preferencias, enlace directo) · unit: plantilla `comunicado` en `tests/unit/plantillas-avisos.test.ts`.
+- integración: `tests/integracion/adjuntos-comunicados-tareas.test.ts` (validación, acceso por rol y salón, editar/borrar) y `tests/integracion/preferencias-personal-y-comunicados-push.test.ts` (normal: bandeja + push sin correo; importante: también correo; preferencias, enlace directo) · `tests/integracion/bandeja-general.test.ts` y `comunicados-por-nivel.test.ts` (una notificación por familia, sin correo si no es importante) · unit: plantilla `comunicado` en `tests/unit/plantillas-avisos.test.ts`.
 
 ## Pendientes
 - Ninguno.

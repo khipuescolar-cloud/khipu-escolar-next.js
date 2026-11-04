@@ -164,12 +164,15 @@ describe("correcciones, actividades seguidas y seguridad", () => {
     await esperarProhibido(notasDeAlumno(c.ctxDe("madre"), c.alumnos.valentina.id, periodoId));
     const ajena = await c.db.notificacion.findFirstOrThrow({ where: { alumnoId: c.alumnos.valentina.id } });
     expect(await abrirNotificacion(c.ctxDe("madre"), ajena.id)).toBeNull();
-    expect((await listarNotificaciones(c.ctxDe("madre"))).filas.every((n) => n.alumno.nombres === "Mateo")).toBe(true);
+    expect((await listarNotificaciones(c.ctxDe("madre"))).filas.every((n) => n.alumno?.nombres === "Mateo")).toBe(true);
     // Apoderada de otro colegio: ni la bandeja ni el enlace directo.
     expect((await listarNotificaciones(otro.ctxDe("madre"))).total).toBe(0);
     expect(await abrirNotificacion(otro.ctxDe("madre"), ajena.id)).toBeNull();
     await esperarProhibido(notasDeAlumno(otro.ctxDe("madre"), c.alumnos.mateo.id, periodoId));
-    await esperarProhibido(listarNotificaciones(c.ctxDe("tutora")));
+    // El personal tiene su propia bandeja (specs/38), pero nunca ve las de una familia; portería no tiene bandeja.
+    expect((await listarNotificaciones(c.ctxDe("tutora"))).filas.some((n) => n.id === ajena.id)).toBe(false);
+    expect(await abrirNotificacion(c.ctxDe("tutora"), ajena.id)).toBeNull();
+    await esperarProhibido(listarNotificaciones(c.ctxDe("porteria")));
     // Abrir la propia la marca leída y devuelve la ruta de la actividad.
     const propia = (await notificacionesDe(c.miembros.madre.membership.id))[0];
     expect(await abrirNotificacion(c.ctxDe("madre"), propia.id)).toBe(propia.url);

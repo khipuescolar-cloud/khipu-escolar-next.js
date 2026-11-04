@@ -1,6 +1,6 @@
 # 03 — Planes y permisos
 
-> Estado: implementado · Plan: todos · Última actualización: 2026-11-03 (Claude Code: Nudito+ apagado por interruptor; modelo comercial B2B sin precios publicados)
+> Estado: implementado · Plan: todos · Última actualización: 2026-11-03 (Claude Code: bandeja general en Base, specs/38; Nudito+ apagado por interruptor; modelo comercial B2B sin precios publicados)
 
 ## Planes
 | Plan | Clave | Funciones |
@@ -21,7 +21,7 @@ menú y `requireFeature(ctx, "nudito_plus")` responde 403. Solo en tests (vitest
 **Modelo comercial (2026-11-03):** SaaS B2B, paga el colegio; solo Khipu Base y Khipu Pro. No hay precios aprobados: no
 se publican tarifas (la landing usa `PUBLICAR_PRECIOS = false`, `specs/25`). Piloto con 1–2 colegios, 6 a 8 semanas,
 gratis y sin cobro automático.
-Los avisos salen solo por correo y Web Push (WhatsApp y SMS se retiraron; ver `specs/06`).
+Los avisos salen solo por correo y Web Push (WhatsApp y SMS se retiraron; ver `specs/06`). Khipu Base incluye además las **notificaciones dentro de Khipu** (bandeja `/notificaciones`, módulo `avisos`, specs/38).
 
 **Fuente de verdad: la base de datos** (`planes_catalogo` + `plan_modulos`, editables en el panel de plataforma
 `/planes`; ver `specs/19-planes-modulos-y-roles.md`). La tabla de arriba es la configuración sembrada y el **respaldo en

@@ -1,16 +1,18 @@
 # 06 — Avisos y notificaciones
 
-> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-11-03 (Claude Code, rama `pre-seguridad`: correcciones de seguridad; antes: Claude Code; pool SMTP 2026-10-30, rama `feat/comunicados-nivel`)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-11-03 (Claude Code: bandeja general, correo solo para lo importante y correcciones de seguridad; antes: pool SMTP 2026-10-30)
 
 ## Objetivo
-Avisar a la familia por correo y push cada vez que se registra la asistencia (y en mensajes, comunicados, invitaciones, justificaciones y tareas), avisar al personal cuando le toca actuar (mensajes de familias, justificaciones recibidas, correos desactivados) y no pasarse de los límites del proveedor.
+Avisar a la familia por correo y push cada vez que se registra la asistencia (y en justificaciones, correcciones de notas, comunicados importantes, libretas e invitaciones), notificar dentro de Khipu (bandeja `/notificaciones`, specs/38) y por push lo habitual (calificación nueva, tarea, evaluación programada, mensaje, comunicado), avisar al personal cuando le toca actuar (mensajes de familias, justificaciones, incidencias, correos desactivados) y no pasarse de los límites del proveedor.
+
+**Estrategia de canales (2026-11-03):** bandeja interna + push para lo habitual; **correo solo para lo importante**: alertas de asistencia, justificaciones, correcciones de notas, comunicados marcados «Importante» y documentos académicos relevantes (libretas). Sin cambios por ahora (decisión pendiente): `asistencia_llego` (llegada diaria por correo), `reunion_recordatorio`, `documento_nuevo` e `informe_progreso` siguen por correo y push.
 
 ## Roles y permisos
 | Rol | Puede | No puede |
 |---|---|---|
 | Apoderado | Elegir correo y/o push (`/asistencia#avisos`), activar push en su dispositivo | Ver avisos de otras familias |
 | Dirección | Ver `/avisos`: enviados, apertura (meta 70 %), cola, rebotes, errores; recibir `alerta_rebote` y `soporte_inicio` | — |
-| Profesor | Recibir `mensaje_nuevo` (correo + push) cuando una familia le escribe y `justificacion_recibida` como tutor | — |
+| Profesor | Recibir `mensaje_nuevo` (bandeja + push, sin correo) cuando una familia le escribe, `justificacion_recibida` como tutor y `justificacion_aprobada_docente` / `incidencia_docente` (bandeja + push + correo según su perfil) | — |
 | Cron | `GET/POST /api/cron/avisos` con `Authorization: Bearer <CRON_SECRET>` | — |
 | SNS (AWS) | `POST /api/webhooks/ses` con firma SNS válida | — |
 
@@ -33,11 +35,13 @@ Avisar a la familia por correo y push cada vez que se registra la asistencia (y 
 - **Falta**: se crea un `justificacion_tokens` por familia; el payload guarda solo `justificacionTokenId` y el worker arma `urlJustificar` con el token derivado (HMAC con `APP_SECRET`). El token nunca se guarda en la BD.
 - Remitente: nombre = colegio (`tenant.nombre`), dirección = `EMAIL_FROM_ADDRESS`. Encabezados `List-Unsubscribe: <…/asistencia#avisos>` y `X-Khipu-Aviso: <avisoId>`.
 - SES: un estado nunca retrocede (abierto no vuelve a entregado). Rebote **permanente** o queja → `recibeAvisos = false` en todos los vínculos de ese apoderado en el colegio + auditoría + `alerta_rebote` (tipo `alerta_direccion`, correo) a cada miembro activo de dirección, `referenciaId = apoderadoId`, **máx. 1 por apoderado por día** (Lima). Esas filas no llevan `apoderadoId`, así un rebote del correo de dirección no genera otra alerta.
-- **Mensajes**: `mensaje_nuevo` con `referenciaId = conversacionId`; máx. 1 por conversación y destinatario cada 15 min (familia: por `apoderadoId`; profesor: filas sin `apoderadoId`). Al profesor: correo + push por cada suscripción, sin consentimiento.
-- **Tareas**: `tarea_nueva` solo si el profesor marca «Avisar a las familias»; familias del salón con consentimiento, `referenciaId = tareaId`, una vez por tarea.
-- **Evaluación programada**: `evaluacion_programada` al crear una evaluación con «Avisar a las familias» (spec 11); una fila por familia y canal, `referenciaId = grupoId`.
-- **Resultados publicados** (specs/38): ya **no** hay correo por calificación nueva ni resumen diario (retirado el 2026-11-03). Publicar crea un evento en `eventos_academicos` (outbox) y el worker crea la notificación de la bandeja interna y el push `notificacion_academica` (una fila por dispositivo, `notificacion_id`, `tag` por alumno, sin notas en el texto). Las plantillas `resumen_academico` y `resultados_publicados` quedan registradas, sin uso.
-- **Avisos específicos** (specs/37, inmediatos): `nota_corregida` (calificación publicada que cambió: corrección, asistencia, vencimiento u otra; sin valores) y `recuperacion_registrada` a la familia del alumno; `justificacion_aprobada_docente` (un correo por profesor con actividades ese día) e `incidencia_docente` (sin el detalle) a profesores.
+- **Bandeja + push, sin correo** (specs/38, `notificaciones/internas.ts`): `mensaje_nuevo`, `tarea_nueva`, `evaluacion_programada` y `comunicado` (si no es importante) crean una notificación por destinatario en `notificaciones` (clave de idempotencia única por colegio y membresía) y el push en la cola, ligado a la notificación (`notificacion_id`, único con el destinatario: un reintento no duplica). El push abre `/notificaciones/<id>/abrir`. La bandeja exige solo vínculo activo con `recibeAvisos` (familias) o membresía activa (personal); push exige consentimiento vigente y la preferencia `push`.
+- **Mensajes**: `referenciaId = conversacionId`; máx. 1 notificación por conversación y destinatario cada 15 min (se cuenta en la bandeja). Al profesor: push por cada suscripción según su perfil, sin consentimiento.
+- **Tareas**: solo si el profesor marca «Avisar a las familias»; familias del salón y alumnos con cuenta, `referenciaId = tareaId`, una vez por tarea (clave `tarea:<id>`).
+- **Evaluación programada**: al crear una evaluación con «Avisar a las familias» (spec 11); una notificación por familia y por alumno con cuenta, `referenciaId = grupoId` (clave `evaluacion:<grupoId>`).
+- **Comunicados** (spec 09): bandeja + push siempre; **correo solo si se marcó «Importante»** (`comunicados.importante`).
+- **Resultados publicados** (specs/38): no hay correo por calificación nueva ni resumen diario (retirado el 2026-11-03). Publicar crea un evento en `eventos_academicos` (outbox) y el worker crea la notificación de la bandeja interna y el push `notificacion_academica` (una fila por dispositivo, `notificacion_id`, `tag` por alumno, sin notas en el texto). Las plantillas `resumen_academico` y `resultados_publicados` se eliminaron del código (specs/38 «Retiro del resumen diario»).
+- **Avisos específicos** (specs/37, inmediatos): `nota_corregida` (calificación publicada que cambió: corrección, asistencia, vencimiento u otra; sin valores) y `recuperacion_registrada` a la familia del alumno, **solo por correo** (`avisarCambioNota`): el push y la bandeja los pone el evento `nota_corregida`, así cada dispositivo recibe un único push. A profesores: `justificacion_aprobada_docente` (uno por profesor con actividades ese día) e `incidencia_docente` (uno por curso, sin el detalle), con bandeja + push + correo según sus preferencias (`destinosPersonal`).
 - **Informe de progreso**: `informe_progreso` (tipo `libreta`) cuando el profesor usa «Compartir con las familias» en el informe de progreso de su curso (spec 11): una fila por familia y canal, solo para alumnos con informe, `referenciaId = cursoId`; «Reenviar aviso» lo repite.
 - **Libreta publicada**: `libreta_publicada` (tipo `libreta`) cuando dirección usa «Publicar libreta y avisar a las familias» (spec 11): una fila por familia y canal (no por hijo; los nombres de los hijos van juntos), `referenciaId = periodoId`. Solo se envía una vez por periodo; «Reenviar aviso» lo repite.
 - **Enlace de preferencias**: el worker agrega `urlPreferencias` (y `List-Unsubscribe`) solo a plantillas de familia **en filas con `apoderadoId`**; los avisos al personal no lo llevan.
@@ -51,22 +55,20 @@ Insertar en `avisos`: `tenantId`, `tipo`, `canal` (`correo` → `destinatario` =
 | `asistencia_tarde` | asistencia | familia | — | `{ colegio, alumno, hora, curso? }` — con `curso` (lista de un curso, spec 04): asunto «Mateo llegó tarde a Matemática», texto «Mateo llegó tarde a Matemática (10:12 a. m.).» |
 | `asistencia_falta` | asistencia | familia | — | `{ colegio, alumno, momento?: "a la 1.ª hora", justificacionTokenId? \| urlJustificar?, curso?, ingreso?: "HH:mm", horaClase?: "HH:mm" }` — con `curso` + `ingreso` (falta a clase de un alumno que ingresó al colegio, spec 04): asunto «Mateo no estuvo en Matemática», texto «Mateo ingresó al colegio a las 7:52 a. m., pero no estuvo en Matemática (10:00 a. m.).» |
 | `asistencia_problema` | asistencia | familia | — | `{ colegio, alumno, hora, nota?, urlMensajes? }` |
-| `mensaje_nuevo` | mensaje | familia o profesor | conversacionId | `{ colegio, remitente, alumno, url }` |
-| `comunicado` | comunicado | familia | — | `{ colegio, titulo, url }` |
+| `mensaje_nuevo` | mensaje | familia o profesor (solo push) | conversacionId | `{ colegio, remitente, alumno, url }` |
+| `comunicado` | comunicado | familia (push; correo solo si es importante) | comunicadoId | `{ colegio, titulo, url, adjuntos? }` |
 | `invitacion` | invitacion | persona invitada | — | `{ colegio, nombre, rol, url }` |
 | `justificacion_recibida` | justificacion | tutora (correo) | justificacionId | `{ colegio, alumno, fecha: "AAAA-MM-DD", url }` |
 | `justificacion_revisada` | justificacion | familia | justificacionId | `{ colegio, alumno, fecha: "AAAA-MM-DD", estado: "aceptada" \| "rechazada", comentario? }` |
-| `tarea_nueva` | tarea | familia | tareaId | `{ colegio, alumno?, curso, titulo, fechaEntrega: "AAAA-MM-DD", url }` |
+| `tarea_nueva` | tarea | familia (solo push) | tareaId | `{ colegio, alumno?, curso, titulo, fechaEntrega: "AAAA-MM-DD", url }` |
 | `documento_nuevo` | documento | familia | documentoId | `{ colegio, titulo, carpeta?, url }` (botón «Ver documentos» → `/documentos?carpeta=<id>`; solo con «Avisar a las familias», spec 31) |
 | `libreta_publicada` | libreta | familia | periodoId | `{ colegio, alumno?, periodo: "I Bimestre 2026", url }` (botón «Ver libreta» → `/libreta`) |
-| `evaluacion_programada` | libreta | familia | grupoId | `{ colegio, alumno?, curso, titulo, fecha, descripcion?, url }` (botón «Ver notas»; spec 11) |
-| `resultados_publicados` | libreta | familia | grupoId | `{ colegio, alumno?, curso, titulo, url }` (sin uso desde specs/37: reemplazado por `resumen_academico`) |
+| `evaluacion_programada` | libreta | familia (solo push) | grupoId | `{ colegio, alumno?, curso, titulo, fecha, descripcion?, url }` (botón «Ver notas»; spec 11) |
 | `notificacion_academica` | libreta | familia (solo push) | grupoId | `{ colegio, titulo, cuerpo, url, tag? }` (specs/38; el texto ya viene sin notas) |
-| `resumen_academico` (sin uso, specs/38) | libreta | familia | `resumen:<fecha>:<alumnoId>` | `{ colegio, alumno, fecha, actividades: [{ curso, titulo, valor, observacion? }] (1..40), url }` (specs/37) |
-| `nota_corregida` | libreta | familia | evaluacionId | `{ colegio, alumno, curso, titulo, motivo: correccion_digitacion \| cambio_asistencia \| consecuencia_vencimiento \| otra, url }` |
-| `recuperacion_registrada` | libreta | familia | evaluacionId | `{ colegio, alumno, curso, titulo, url }` |
-| `justificacion_aprobada_docente` | justificacion | profesor | justificacionId | `{ colegio, alumno, fecha, curso, actividades[], url }` |
-| `incidencia_docente` | asistencia | profesor | incidenciaId | `{ colegio, alumno, fecha, hora?, curso, url }` (sin diagnóstico) |
+| `nota_corregida` | libreta | familia (solo correo) | evaluacionId | `{ colegio, alumno, curso, titulo, motivo: correccion_digitacion \| cambio_asistencia \| consecuencia_vencimiento \| otra, url }` |
+| `recuperacion_registrada` | libreta | familia (solo correo) | evaluacionId | `{ colegio, alumno, curso, titulo, url }` |
+| `justificacion_aprobada_docente` | justificacion | profesor (correo y/o push según su perfil) | justificacionId | `{ colegio, alumno, fecha, curso, actividades[], url }` («aprobada por el colegio»; no obliga a una recuperación) |
+| `incidencia_docente` | asistencia | profesor (correo y/o push según su perfil) | incidenciaId | `{ colegio, alumno, fecha, hora?, curso, url }` (sin diagnóstico) |
 | `informe_progreso` | libreta | familia | cursoId | `{ colegio, alumno?, curso, periodo: "I Trimestre 2027", url }` (botón «Ver el informe» → `/notas`; spec 11) |
 | `alerta_rebote` | alerta_direccion | dirección (correo) | apoderadoId | `{ colegio, apoderado, alumnos: string[], motivo, url }` |
 | `soporte_inicio` | alerta_direccion | dirección (correo y/o push según su perfil) | accesoId | `{ colegio, hasta: "HH:mm", motivo, url }` → «El equipo de Khipu Escolar entró a tu colegio en modo soporte (solo lectura) hasta las HH:mm. Motivo: …», botón «Ver auditoría» (specs/16) |
@@ -90,21 +92,22 @@ interface NotificationChannel { canal: CanalAviso; enviar(e: EnvioAviso): Promis
 // notificaciones/encolar.ts
 destinatariosDeAlumno(tdb, alumnoId): Promise<Destinatario[]>
 encolarAviso(tdb, { tenantId, tipo, canal, destinatario, plantilla, payload, apoderadoId?, asistenciaId?, referenciaId?, programadoPara? }): Promise<string>
-encolarParaDestinatario(tdb, destinatario, { tenantId, tipo, plantilla, payload, asistenciaId?, referenciaId? }): Promise<number>
+encolarParaDestinatario(tdb, destinatario, { tenantId, tipo, plantilla, payload, asistenciaId?, referenciaId? }, canales?: { correo?: false; push?: false }): Promise<number>
 encolarAvisosAsistencia(tdb, { tenant, asistencia, alumnoNombre, momento, urlMensajes?, destinatarios? }): Promise<number /* familias */>
 destinatariosPorAlumno(tdb, alumnoIds): Promise<Map<alumnoId, Destinatario[]>>   // una consulta para toda la lista (pasar lista)
 crearTokenJustificacion(tdb, { tenantId, asistenciaId, apoderadoId }): Promise<{ id, token }>
 // notificaciones/cola.ts
-procesarCola({ ahora?, tenantId?, maxAvisos = 100 /* por lote */, presupuestoMs = PRESUPUESTO_MS, canales?, esperar?, limites? }): Promise<{ enviados, reintentos, errores, omitidos, diferidos, resumenes, recuperados }>
+procesarCola({ ahora?, tenantId?, maxAvisos = 100 /* por lote */, presupuestoMs = PRESUPUESTO_MS, canales?, esperar?, limites? }): Promise<{ enviados, reintentos, errores, omitidos, diferidos, recuperados }>
 ENVIANDO_MAX_MINUTOS = 10
-generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
-// notificaciones/limites.ts (puras): cupoDiario, pausaEntreCorreosMs, esperaReintentoMs, MAX_INTENTOS = 4, leerLimites, tocaResumen
+// notificaciones/limites.ts (puras): cupoDiario, pausaEntreCorreosMs, esperaReintentoMs, MAX_INTENTOS = 4, leerLimites
 // notificaciones/ses.ts: urlDeAwsValida, textoAFirmar, verificarFirmaSns, confirmarSuscripcion, procesarEventoSes
-// notificaciones/avisos-familia.ts: encolarAvisoFamilia(ctx, { plantilla: mensaje_nuevo (con conversacionId) | comunicado | invitacion, … })
+// notificaciones/avisos-familia.ts: encolarAvisoFamilia(ctx, { plantilla: "invitacion", destinatario, apoderadoId?, payload }) · VENTANA_MENSAJE_MINUTOS
+// notificaciones/internas.ts (specs/38): crearNotificaciones(tdb, { tenantId, tipo, clave, filas }) · entregarNotificaciones(tdb, { tenant, tipo, clave, tipoAviso, plantilla, referenciaId?, entregas })
+//   vinculosFamilias(tdb, alumnoIds) (una consulta: consentimiento, preferencias y dispositivos) · porFamilia · cuentasDeAlumnos · unirNombres
 // notificaciones/avisos-mensajes.ts: avisarMensajeNuevo(ctx, conversacion): number   // a la familia o al profesor según quién escribe
 // notificaciones/avisos-tareas.ts: avisarTareaNueva(ctx, tareaId, entrada): number, pideAvisarFamilias(entrada)
 // notificaciones/alertas-direccion.ts: alertarCorreoDesactivado(tenantId, apoderadoId, "rebote" | "queja", ahora?): number
-// notificaciones/preferencias.ts: obtenerPreferencias, guardarPreferencias, guardarSuscripcionPush, quitarSuscripcionPush, destinoPersonal(tdb, membershipId, roles)
+// notificaciones/preferencias.ts: obtenerPreferencias, guardarPreferencias, guardarSuscripcionPush, quitarSuscripcionPush, destinoPersonal(tdb, membershipId, roles), destinosPersonal(tdb, membershipIds, roles) (una consulta)
 //   `preferencias_aviso.apoderado_id` es en realidad un id de MEMBRESÍA: aplica a cualquier rol (apoderado, profesor, dirección, administrativo). Sin fila = correo y push activos.
 // email/plantillas/index.ts: renderizarPlantilla(nombre, payload): { asunto, html, texto, push }, NOMBRES_PLANTILLA
 // avisos.ts: panelAvisos(ctx) (dirección)
@@ -116,7 +119,7 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 - `/api/webhooks/ses` (POST): firma SNS v1 (SHA1) y v2 (SHA256) con `node:crypto`; certificado solo de `https://sns.<región>.amazonaws.com(.cn)/….pem`; si `SES_SNS_TOPIC_ARN` está definido, exige ese tema; en producción (`NODE_ENV=production`) sin `SES_SNS_TOPIC_ARN` se rechaza todo mensaje (test en `tests/unit/firma-sns.test.ts`).
 - `/perfil#avisos` (profesor, dirección, administrativo): las mismas casillas correo/push y «Activar notificaciones en este dispositivo» (`PreferenciasPersonal`, acciones en `perfil/actions.ts`). Se respetan en `mensaje_nuevo` al profesor (`avisarMensajeNuevo`) y en la alerta de correo desactivado a dirección (`alertarCorreoDesactivado`, que ahora también envía push a sus dispositivos). Si apaga ambos canales no se encola nada.
 - **Envío inmediato (`after()`)**: `enviarMensajeAction` (chat) y `/api/webhooks/ses` (alerta a dirección, vía `procesarEventoSes(evento, { alEncolarAlerta })`) llaman a `procesarCola({ tenantId })` tras responder, solo si se encoló algo. Es el mismo worker del cron: respeta el tope diario global y la reserva atómica `pendiente → enviando`.
-- Familias: `encolarAvisoFamilia` (mensaje y comunicado) ahora encola también **push** (una fila por dispositivo) según `preferencias_aviso`.
+- Familias: mensajes y comunicados van por bandeja + push en lote (`internas.ts`); `encolarAvisoFamilia` queda solo para invitaciones.
 - `/asistencia#avisos` (apoderado): casillas correo/push y «Activar notificaciones en este dispositivo» (registra `public/sw.js`, suscribe con VAPID y guarda vía server action).
 - Plantilla `asistencia_no_llega` y campos `saludo` (avisos de asistencia) y `horaLimite` (falta automática): ver spec 05, «Control de ingreso automático».
 - `/avisos` (dirección y administrativo), dos pestañas (2026-11-06):
@@ -155,7 +158,7 @@ La interfaz `NotificationChannel` se mantiene para correo y push.
 
 ## Pruebas
 - unit: `plantillas-avisos.test.ts` (textos exactos, botón de falta, sin emojis, todas las plantillas del contrato incl. `tarea_nueva`, `libreta_publicada`, `alerta_rebote` y `soporte_inicio`, payload inválido), `cola-limites.test.ts` (tope diario, ritmo, reintentos), `firma-sns.test.ts`.
-- integración: `cola-avisos.test.ts` (cola → Mailpit con remitente y enlace, tope diario → pendiente, reintentos → error, plantilla desconocida, eventos SES y rebote permanente, varios workers a la vez vacían toda la cola sin repetir filas, el worker activo toma lo que se encola mientras envía); `preferencias-personal-y-comunicados-push.test.ts` (preferencias del personal, alerta a dirección, comunicado con push y enlace directo); `avisos-pendientes.test.ts` (dos workers en paralelo no repiten filas, recuperación de `enviando` —con otro worker activo en el colegio el llamado se retira y la fila recuperada sale en el siguiente—, aviso al profesor correo + push y límite de 15 min, aviso de tarea, alerta de rebote/queja una vez por día)
+- integración: `cola-avisos.test.ts` (cola → Mailpit con remitente y enlace, tope diario → pendiente, reintentos → error, plantilla desconocida, eventos SES y rebote permanente, varios workers a la vez vacían toda la cola sin repetir filas, el worker activo toma lo que se encola mientras envía); `preferencias-personal-y-comunicados-push.test.ts` (preferencias del personal, alerta a dirección, comunicado normal sin correo e importante con correo, enlace directo); `bandeja-general.test.ts` (specs/38); `avisos-pendientes.test.ts` (dos workers en paralelo no repiten filas, recuperación de `enviando` —con otro worker activo en el colegio el llamado se retira y la fila recuperada sale en el siguiente—, aviso al profesor por bandeja + push sin correo y límite de 15 min, aviso de tarea (bandeja + push), alerta de rebote/queja una vez por día)
 
 ## Pendientes
 - Ninguno de canales: no se agregarán WhatsApp ni SMS.

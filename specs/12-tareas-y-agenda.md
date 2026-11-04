@@ -1,6 +1,6 @@
 # 12 — Tareas y agenda
 
-> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-10-30 (Claude Code: tabla de roles con administrativo y alumno)
+> Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-11-03 (rama `pre-notificaciones`: bandeja general y canales, specs/38; antes: Claude Code: tabla de roles con administrativo y alumno)
 
 ## Objetivo
 Que los profesores publiquen tareas por curso y eventos por salón, que dirección publique eventos del colegio y que las familias vean todo ordenado por fecha, sin llamadas ni grupos de mensajería.
@@ -24,7 +24,7 @@ Que los profesores publiquen tareas por curso y eventos por salón, que direcci�
 - Todas las fechas se calculan en **America/Lima** (`src/lib/fechas.ts`). La tarea vence a las 8:00 a. m. del día elegido; el evento sin hora se guarda a las 8:00.
 - Agrupación: hoy y mañana → «Para mañana»; de 2 a 7 días → «Esta semana»; más → «Más adelante». Las vencidas no aparecen a las familias; el profesor las ve hasta 7 días después.
 - No se crean tareas con fecha pasada.
-- **Aviso a familias** (solo si se marcó la casilla): `avisarTareaNueva()` (`notificaciones/avisos-tareas.ts`) encola `tarea_nueva` (tipo `tarea`, `referenciaId = tareaId`) a las familias de los alumnos activos del salón del curso, solo con consentimiento vigente y según sus preferencias (`destinatariosDeAlumno`). Una fila por familia y canal aunque tenga varios hijos en el salón (`alumno` = «Mateo» o «Mateo y Ana»). Idempotente: si la tarea ya tiene avisos, no vuelve a encolar. La action procesa la cola con `after()`. Se audita `enviar · tarea`.
+- **Aviso a familias** (solo si se marcó la casilla): `avisarTareaNueva()` (`notificaciones/avisos-tareas.ts`) crea una notificación en la **bandeja** (`/notificaciones`, tipo `tarea`, clave `tarea:<id>`) por familia de los alumnos activos del salón del curso y por cada alumno con cuenta propia, y encola el **push** `tarea_nueva` (tipo `tarea`, `referenciaId = tareaId`) a los dispositivos de las familias con consentimiento vigente y push activado. **Sin correo** desde 2026-11-03 (specs/38). Una notificación por familia aunque tenga varios hijos en el salón (`alumno` = «Mateo» o «Mateo y Ana»). En lote: alumnos, vínculos (consentimiento, preferencias y dispositivos) y cuentas en un número fijo de consultas, `createMany`. Idempotente: un reintento no duplica la notificación ni el push. La action procesa la cola con `after()`. Se audita `enviar · tarea`.
 - Alcance de eventos: sin salón = todo el colegio (lo ven todos); con salón = solo ese salón (profesores del salón, familias de sus alumnos, dirección).
 
 ## Modelo de datos
@@ -54,7 +54,7 @@ eliminarEvento(ctx, eventoId): Resultado
 - **Diseño (spec 18):** «Nueva tarea» y «Nuevo evento» están en el encabezado y abren un `Dialog`; editar tarea/evento también es un `Dialog`; eliminar pide confirmación (`BotonConfirmar`, botón «Eliminar tarea»/«Eliminar evento»). Tareas como tarjetas con insignia de fecha (ícono + palabra); agenda por día con insignia de tipo y mini calendario con celdas de 40 px.
 - Tipos con ícono + palabra: Evento, Reunión, Examen, Feriado, Actividad, Entrega de tarea.
 - Familias: «Lo que tus hijos tienen que entregar.» / «No tiene tareas pendientes.»
-- Casilla: «Avisar a las familias» · «Las familias reciben un aviso por correo o en el celular con esta tarea.»
+- Casilla: «Avisar a las familias» · «Las familias la ven en sus notificaciones de Khipu y en el celular (sin correo).»
 - Aviso: asunto «Nueva tarea de Matemática» · «Mateo tiene una tarea nueva de Matemática: «Fichas de fracciones».» · «Se entrega el 30/10/2026.» + **Ver tareas**.
 
 ## Reuniones en la agenda
@@ -78,7 +78,7 @@ eliminarEvento(ctx, eventoId): Resultado
 - unit: `tests/unit/ics.test.ts` (escape, plegado a 75 octetos, CRLF, fechas).
 - integración: `tests/integracion/notas-libreta-tareas-agenda.test.ts` (tareas por curso y agrupación, alcance de eventos por salón, permisos de creación, Khipu Base → 403); `tests/integracion/avisos-pendientes.test.ts` (aviso de tarea solo con la casilla y solo a familias con consentimiento); `tests/integracion/extras-edicion-ics-zip.test.ts` (editar tarea/evento: permisos, auditoría, aislamiento entre colegios; alcance de la agenda por rol).
 - integración: `tests/integracion/adjuntos-comunicados-tareas.test.ts` (adjuntos de tareas: acceso y borrado).
-- e2e: `tests/e2e/tareas-agenda.test.ts` (profesora crea tarea con «Avisar a las familias», el correo llega a Mailpit y la familia la ve en «Para mañana»; agenda; periodos de dirección; edita su tarea y descarga el .ics).
+- e2e: `tests/e2e/tareas-agenda.test.ts` (profesora crea tarea con «Avisar a las familias», la familia la recibe en su bandeja (el e2e anterior buscaba el correo en Mailpit: revisar, pendiente) y la ve en «Para mañana»; agenda; periodos de dirección; edita su tarea y descarga el .ics).
 
 ## Pendientes
 - (Resuelto) Adjuntos en la agenda: ver «Adjuntos».

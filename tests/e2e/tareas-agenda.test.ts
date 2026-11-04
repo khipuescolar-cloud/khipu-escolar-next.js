@@ -6,9 +6,10 @@ const PUERTO = process.env.E2E_PORT ?? "3000";
 const colegio = (slug: string, ruta: string) => `http://${slug}.lvh.me:${PUERTO}${ruta}`;
 const INICIO = new Date();
 
-// Las tareas se borran desde la UI; sus avisos a las familias quedan en la tabla: se limpian aquí.
+// Las tareas se borran desde la UI; sus avisos y notificaciones a las familias quedan en las tablas: se limpian aquí.
 test.afterAll(async () => {
   await sql("delete from avisos where plantilla = 'tarea_nueva' and created_at >= $1", [INICIO]);
+  await sql("delete from notificaciones where tipo = 'tarea' and created_at >= $1", [INICIO]);
 });
 
 async function entrar(page: Page, correo: string, slug: string) {
@@ -19,20 +20,7 @@ async function entrar(page: Page, correo: string, slug: string) {
   await page.waitForURL(colegio(slug, "/inicio"));
 }
 
-/** Espera un correo en Mailpit que contenga `texto` (para `to`). */
-async function esperarCorreo(to: string, texto: string, ms = 20_000) {
-  const fin = Date.now() + ms;
-  const query = encodeURIComponent(`to:"${to}" "${texto}"`);
-  while (Date.now() < fin) {
-    const res = await fetch(`http://127.0.0.1:54324/api/v1/search?query=${query}`);
-    const json = (await res.json()) as { messages: { Subject: string }[] };
-    if (json.messages.length > 0) return json.messages[0];
-    await new Promise((r) => setTimeout(r, 500));
-  }
-  return null;
-}
-
-test("profesora crea una tarea con aviso y la familia la ve agrupada", async ({ page, context }) => {
+test("profesora crea una tarea con aviso y la familia la ve agrupada y en sus notificaciones", async ({ page, context }) => {
   const titulo = `Tarea e2e ${Date.now()}`;
   await entrar(page, "lucia.garcia@nuevohorizonte.demo", "nuevohorizonte");
   await page.goto(colegio("nuevohorizonte", "/tareas"));
@@ -44,8 +32,6 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada", async ({ 
   await page.getByRole("button", { name: "Crear tarea" }).click();
   await expect(page.getByText("Tarea creada.")).toBeVisible();
   await expect(page.getByText(titulo)).toBeVisible();
-  const correo = await esperarCorreo("rosa.quispe@gmail.com", titulo);
-  expect(correo?.Subject).toMatch(/^Nueva tarea de /);
 
   await context.clearCookies();
   await page.goto("/login");
@@ -56,6 +42,9 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada", async ({ 
   await page.goto(colegio("nuevohorizonte", "/tareas"));
   await expect(page.getByRole("heading", { name: "Para mañana" })).toBeVisible();
   await expect(page.getByText(titulo)).toBeVisible();
+  // Sin correo (specs/38): la tarea llega a su bandeja de notificaciones.
+  await page.goto(colegio("nuevohorizonte", "/notificaciones"));
+  await expect(page.getByText(new RegExp(`tarea nueva de .*«${titulo}»`))).toBeVisible();
 
   // Limpieza: la profesora borra la tarea.
   await context.clearCookies();

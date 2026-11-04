@@ -86,7 +86,7 @@ describe("avisos pendientes del MVP", () => {
     await c.db.aviso.deleteMany({});
   });
 
-  it("avisa al profesor cuando la familia escribe (correo + push, máx. 1 cada 15 min) y la familia sigue con su límite", async () => {
+  it("avisa al profesor cuando la familia escribe (bandeja + push, sin correo; máx. 1 cada 15 min) y la familia sigue con su límite", async () => {
     const endpoint = `https://push.test-avisos2.local/${c.tenant.id}`;
     await db.pushSuscripcion.create({ data: { userId: c.miembros.tutora.user.id, endpoint, p256dh: "p".repeat(20), auth: "a".repeat(10) } });
     const madre = c.ctxDe("madre");
@@ -95,47 +95,48 @@ describe("avisos pendientes del MVP", () => {
     await enviarMensaje(madre, { conversacionId: convId, cuerpo: "Hola, Mateo llegará tarde." });
     await enviarMensaje(madre, { conversacionId: convId, cuerpo: "Gracias." });
     const alProfesor = await c.db.aviso.findMany({ where: { plantilla: "mensaje_nuevo", apoderadoId: null }, orderBy: { canal: "asc" } });
-    expect(alProfesor).toHaveLength(2);
-    expect(alProfesor.map((a) => [a.canal, a.destinatario])).toEqual([["correo", c.miembros.tutora.user.email], ["push", endpoint]]);
-    expect(alProfesor.every((a) => a.tipo === "mensaje" && a.referenciaId === convId)).toBe(true);
+    expect(alProfesor.map((a) => [a.canal, a.destinatario])).toEqual([["push", endpoint]]);
+    expect(alProfesor.every((a) => a.tipo === "mensaje" && a.referenciaId === convId && a.notificacionId)).toBe(true);
     expect(alProfesor[0].payload).toMatchObject({ remitente: "Rosa Prueba", alumno: "Mateo Quispe" });
+    expect(await c.db.notificacion.count({ where: { membershipId: c.miembros.tutora.membership.id, tipo: "mensaje" } })).toBe(1);
 
     await enviarMensaje(c.ctxDe("tutora"), { conversacionId: convId, cuerpo: "Gracias por avisar." });
     await enviarMensaje(c.ctxDe("tutora"), { conversacionId: convId, cuerpo: "Lo esperamos." });
-    const aFamilia = await c.db.aviso.findMany({ where: { plantilla: "mensaje_nuevo", apoderadoId: c.miembros.madre.membership.id } });
+    // La madre no tiene dispositivos: la notificación queda en su bandeja (una sola) y no hay correo.
+    expect(await c.db.aviso.count({ where: { plantilla: "mensaje_nuevo", apoderadoId: c.miembros.madre.membership.id } })).toBe(0);
+    const aFamilia = await c.db.notificacion.findMany({ where: { membershipId: c.miembros.madre.membership.id, tipo: "mensaje" } });
     expect(aFamilia).toHaveLength(1);
-    expect(aFamilia[0].referenciaId).toBe(convId);
+    expect(aFamilia[0]).toMatchObject({ url: `/mensajes/${convId}`, alumnoId: c.alumnos.mateo.id, cuerpo: "Lucia Prueba te escribió sobre Mateo Quispe." });
 
-    // El correo al profesor no lleva el enlace de preferencias de familia; el de la familia sí.
+    // El push al profesor abre la notificación de su bandeja.
     const enviados: EnvioAviso[] = [];
-    await procesarCola({
-      tenantId: c.tenant.id, limites: RAPIDO, esperar: sinEspera,
-      canales: { correo: canalFalso("correo", enviados), push: canalFalso("push", enviados) },
-    });
-    const correoProfesor = enviados.find((e) => e.destinatario === c.miembros.tutora.user.email)!;
-    expect(correoProfesor.mensaje.texto).toContain("Rosa Prueba te escribió sobre Mateo Quispe.");
-    expect(correoProfesor.mensaje.texto).not.toContain("Ajustar mis avisos");
-    expect(enviados.find((e) => e.destinatario === c.miembros.madre.user.email)!.mensaje.texto).toContain("Ajustar mis avisos");
+    await procesarCola({ tenantId: c.tenant.id, limites: RAPIDO, esperar: sinEspera, canales: { correo: canalFalso("correo", enviados), push: canalFalso("push", enviados) } });
+    expect(enviados).toHaveLength(1);
+    expect(enviados[0].mensaje.push.url).toMatch(/\/notificaciones\/[0-9a-f-]+\/abrir$/);
     await db.pushSuscripcion.deleteMany({ where: { endpoint } });
     await c.db.aviso.deleteMany({});
   });
 
-  it("avisa de una tarea nueva solo si el profesor lo pide, a las familias con consentimiento, una vez", async () => {
+  it("avisa de una tarea nueva solo si el profesor lo pide: bandeja por familia, push con consentimiento, sin correo, una vez", async () => {
     const fecha = sumarDias(fechaLima(new Date()), 3);
     const tutora = c.ctxDe("tutora");
     expect(await crearTarea(tutora, { cursoId: c.cursoTutora.id, titulo: "Sin aviso", fechaEntrega: fecha })).toMatchObject({ ok: true });
     expect(await c.db.aviso.count()).toBe(0);
+    expect(await c.db.notificacion.count({ where: { tipo: "tarea" } })).toBe(0);
 
+    const endpoint = `https://push.test-avisos2.local/madre-${c.tenant.id}`;
+    await db.pushSuscripcion.create({ data: { userId: c.miembros.madre.user.id, endpoint, p256dh: "p".repeat(20), auth: "a".repeat(10) } });
     expect(await crearTarea(tutora, { cursoId: c.cursoTutora.id, titulo: "Fichas de fracciones", fechaEntrega: fecha, avisarFamilias: true })).toMatchObject({ ok: true });
     const tarea = await c.db.tarea.findFirstOrThrow({ where: { titulo: "Fichas de fracciones" } });
     const avisos = await c.db.aviso.findMany({ where: { plantilla: "tarea_nueva" } });
-    // Solo la madre de Mateo: el padre de Valentina revocó su consentimiento.
+    // Solo push y solo a la madre de Mateo: el padre de Valentina revocó su consentimiento (lo ve en su bandeja).
     expect(avisos).toHaveLength(1);
-    expect(avisos[0]).toMatchObject({
-      tipo: "tarea", canal: "correo", destinatario: c.miembros.madre.user.email, apoderadoId: c.miembros.madre.membership.id, referenciaId: tarea.id,
-    });
+    expect(avisos[0]).toMatchObject({ tipo: "tarea", canal: "push", destinatario: endpoint, apoderadoId: c.miembros.madre.membership.id, referenciaId: tarea.id });
     expect(avisos[0].payload).toMatchObject({ alumno: "Mateo", curso: "Matemática", titulo: "Fichas de fracciones", fechaEntrega: fecha });
     expect(avisos[0].asunto).toBe("Nueva tarea de Matemática");
+    const notifs = await c.db.notificacion.findMany({ where: { tipo: "tarea", clave: `tarea:${tarea.id}` } });
+    expect(new Set(notifs.map((n) => n.membershipId))).toEqual(new Set([c.miembros.madre.membership.id, c.miembros.padreSinConsentimiento.membership.id]));
+    await db.pushSuscripcion.deleteMany({ where: { endpoint } });
     await c.db.aviso.deleteMany({});
   });
 

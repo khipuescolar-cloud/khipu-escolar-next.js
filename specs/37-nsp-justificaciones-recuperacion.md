@@ -96,7 +96,7 @@ Cómo actúa:
 
 ### 4. Aprobación del tutor
 - `alAprobarJustificacion` vincula **todos** los NSP de esa fecha (`notas.justificacion_id`), de todas las actividades y cursos.
-- Encola **un correo por profesor** afectado (`justificacion_aprobada_docente`), con las actividades de su curso y el texto: «… la justificación no implica la obligación de realizar una nueva evaluación».
+- Avisa **una vez por profesor** afectado (`justificacion_aprobada_docente`), con las actividades de su curso y el texto: «… la justificación no implica la obligación de realizar una nueva evaluación». Desde 2026-11-03 (specs/38): notificación en su bandeja (tipo `justificacion`, clave `justificacion:<id>`, sin duplicados al reintentar), push y correo **según sus preferencias de perfil** (`destinosPersonal`, una consulta para todos los profesores).
 - **No cambia ninguna nota** ni autoriza la recuperación.
 
 ### 5. Incidencias y retiros (`/incidencias`, `src/lib/server/incidencias.ts`)
@@ -109,7 +109,7 @@ Las registran dirección, administrativo o un profesor del salón.
 **Qué hace Khipu**
 - Cada clase marcada recibe una **falta a clase** (`origen = incidencia`, `incidencia_id`), solo si aún no tenía registro, y se ponen los NSP.
 - La familia puede justificarla como cualquier falta.
-- El profesor de cada curso recibe `incidencia_docente`, **sin la descripción** («no estará en Matemática»).
+- El profesor de cada curso recibe `incidencia_docente`, **sin la descripción** («no estará en Matemática»): bandeja (tipo `incidencia`, una por curso) + push y correo según sus preferencias (specs/38). Quien la registra no se avisa a sí mismo.
 - La descripción solo la ven dirección, el tutor del salón y quien la registró.
 - Una incidencia **no** aprueba la recuperación.
 
@@ -168,7 +168,7 @@ Reglas comunes:
 - La nota y su historial se guardan en una sola transacción.
 - El historial es **inmutable**: un trigger impide `UPDATE` y no hay endpoint para editarlo ni borrarlo. Desde `20261112090300_integridad_academica` tampoco se borra en cascada con su evaluación (FK `RESTRICT`).
 - **Eliminar una evaluación** (`eliminarEvaluacion`) se permite si **nunca se publicó** y no tiene NSP, consecuencia ni recuperación, aunque tenga notas e historial de borrador (actividad creada por error). «Se publicó alguna vez» = `estado = publicada`, `publicada_at` no nulo, historial con `publicada = true` o de tipo `correccion_digitacion`, `otra`, `recuperacion`, `consecuencia_vencimiento` o `decision_recuperacion`, o eventos en `eventos_academicos` del grupo. Si no: «Esta actividad ya tiene resultados publicados o historial; no se puede eliminar». Al eliminar, en una transacción: registro en `auditoria` (`borrar`/`evaluacion`, con título, curso, fecha, n.º de notas y de filas de historial), borrado explícito de sus filas de `historial_notas` y luego de la evaluación. La FK `RESTRICT` sigue como defensa para cualquier otro borrado. La UI muestra «No se puede eliminar» (candado + palabra) en lugar del botón.
-- Si la evaluación está publicada, se envía `nota_corregida` solo a la familia de ese alumno, sin valores en el correo.
+- Si la evaluación está publicada, se envía `nota_corregida` solo a la familia de ese alumno, sin valores en el correo. Va **solo por correo** (`avisarCambioNota`): el push y la bandeja salen del evento `nota_corregida` (specs/38), un único push por dispositivo.
 - Intercambiar notas de dos alumnos son dos cambios con su motivo y dos avisos específicos.
 - La importación CSV no toca notas publicadas, NSP ni consecuencias: las cuenta y pide corregirlas una por una.
 
@@ -250,13 +250,11 @@ grillaNotas(...).estadosNsp: { nsp: Record<"evaluacionId:alumnoId", EstadoNspCel
 // incidencias.ts
 registrarIncidencia(ctx, { alumnoId, fecha, hora, tipo, descripcion, retiro, horaRetiro?, cursoIds }, ahora?)
 cursosParaIncidencia(ctx, alumnoId, fecha, desde) · listarIncidencias(ctx) · alumnosParaIncidencia(ctx)
-// resumen-academico.ts
-ventanaResumen(fecha, hora, zona) · resumenDelDia(tdb, tenant, fecha): number | null · procesarResumenAcademico(ahora?)
 // libreta-emision.ts
 emitirLibretas(ctx, periodoId) · solicitarRectificacion(ctx, …) · resolverRectificacion(ctx, { id, decision, comentario? })
 listarRectificaciones(ctx, { alumnoId?, periodoId?, soloPendientes? })
 // configuracion.ts
-actualizarReglasAcademicas(ctx, { consecuenciaVencimiento: "" | literal | "0–20", horaResumenAcademico })  // solo dirección
+actualizarReglasAcademicas(ctx, { consecuenciaVencimiento: "" | literal | "0–20" })  // solo dirección (la hora del resumen se retiró, specs/38)
 // lib/plazo-justificacion.ts (puro)
 ultimoDiaJustificacion · expiracionJustificacion · dentroDelPlazo · textoPlazoJustificacion · mensajePlazoVencido
 ```
@@ -271,22 +269,22 @@ ultimoDiaJustificacion · expiracionJustificacion · dentroDelPlazo · textoPlaz
 - El diálogo «Motivo del cambio» o «Registrar recuperación».
 
 **Evaluaciones del periodo**
-- «Publicar resultados» explica que van en el resumen de hoy. No hay «Reenviar aviso».
+- «Publicar resultados» notifica a las familias en Khipu y por push (specs/38). No hay «Reenviar aviso».
 - El historial muestra el tipo, el motivo y «Khipu».
 
 **Otras pantallas**
 - `/incidencias` (dirección, profesor, administrativo): formulario en dos pasos y lista de recientes; el detalle es reservado.
-- `/configuracion` → **«Reglas académicas»** (dirección, con el módulo Notas): consecuencia por vencimiento, hora del resumen y alerta de NSP vencidos sin configuración. El plazo pasa a decir «(días calendario)».
+- `/configuracion` → **«Reglas académicas»** (dirección, con el módulo Notas): consecuencia por vencimiento y alerta de NSP vencidos sin configuración (la hora del resumen se quitó con el resumen diario). El plazo pasa a decir «(días calendario)».
 - `/libreta`:
   - «Versión N emitida el … por …»;
   - tarjeta «Rectificaciones» (profesor y dirección) con estados (ícono + palabra), «Pedir una rectificación» y, para dirección, «Aprobar» y «Rechazar» con confirmación.
 - `/notas` (familia): píldora «NSP · No se presentó» o «NE · No entregó» y la leyenda; «Recuperación rendida el …»; «Venció el plazo para justificar la falta: se aplicó la regla del colegio.»
 
 ## Textos y UX
-- **Docente:** «La inasistencia de Juan Pérez del 05/11/2026 fue justificada por su apoderado y aprobada por el tutor. … considera una recuperación académica … La justificación no implica la obligación de realizar una nueva evaluación.»
+- **Docente:** «La inasistencia de Juan Pérez del 05/11/2026 fue justificada por su apoderado y aprobada por el colegio. … considera una recuperación académica … La justificación no implica la obligación de realizar una nueva evaluación.»
 - **Correos a familias:**
   - Sin valores en `nota_corregida` ni en `recuperacion_registrada`: enlazan al portal.
-  - El resumen sí lista los valores visibles. Las observaciones se indican, no se copian.
+  - (El resumen diario, que listaba valores, se retiró: specs/38.)
 
 ## Errores y casos borde
 - «El NSP lo pone Khipu según la asistencia. Si el alumno faltó, corrige la asistencia.»

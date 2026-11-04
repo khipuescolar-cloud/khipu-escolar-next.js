@@ -1,6 +1,6 @@
 # 19 — Planes, módulos y roles (desde la base de datos)
 
-> Estado: implementado · Plan: todos (panel interno de plataforma) · Última actualización: 2026-11-03 (Claude Code: interruptor de Nudito+)
+> Estado: implementado · Plan: todos (panel interno de plataforma) · Última actualización: 2026-11-03 (Claude Code: interruptor de Nudito+ y bandeja general, specs/38)
 
 ## Objetivo
 Que el equipo Khipu configure desde el panel de plataforma, sin desplegar código: qué módulos incluye cada plan
@@ -118,9 +118,10 @@ Estados siempre con ícono + palabra: «Incluido» / «No incluido» / «Siempre
 - `NOMBRE_PLAN` queda solo como respaldo.
 
 ## Decisión: módulo `avisos`
-El módulo `avisos` es la pantalla de seguimiento «Avisos enviados». Quitarlo a un colegio **no detiene** los avisos
-automáticos de falta/tardanza a las familias: son parte de asistencia y se siguen enviando. (Texto en la descripción del
-módulo en `/planes`.)
+El módulo `avisos` («Avisos y notificaciones», Khipu Base) es la pantalla de seguimiento «Avisos enviados» y la bandeja
+**«Notificaciones dentro de Khipu»** (`/notificaciones`, specs/38) de familias, alumnos con cuenta, profesores, dirección y
+administrativos. Quitarlo a un colegio (o a un rol) oculta ambas pantallas, pero **no detiene** los avisos automáticos de
+falta/tardanza a las familias: son parte de asistencia y se siguen enviando. (Texto en la descripción del módulo en `/planes`.)
 
 ## Pendientes
 - Caché en memoria por proceso: con varias instancias, un cambio tarda hasta 30 s en verse en las demás.

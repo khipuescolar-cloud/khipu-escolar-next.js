@@ -106,26 +106,31 @@ describe("chat familia ↔ profesor", () => {
     expect(auditoria).toBe(1);
   });
 
-  it("valida el mensaje y encola un solo aviso cada 15 min por conversación, solo con consentimiento", async () => {
+  it("valida el mensaje y notifica una vez cada 15 min por conversación (bandeja + push, sin correo); push solo con consentimiento", async () => {
     await expect(enviarMensaje(ctxs.madre, { conversacionId: convId, cuerpo: "   " })).rejects.toThrow("Escribe un mensaje");
     await expect(enviarMensaje(ctxs.madre, { conversacionId: convId, cuerpo: "x".repeat(2001) })).rejects.toThrow("2000");
+    const endpoint = `https://push.test-gmp.local/${m.madre.id}`;
+    await db.pushSuscripcion.create({ data: { userId: ctxs.madre.user.id, endpoint, p256dh: "p".repeat(20), auth: "a".repeat(10) } });
 
     await enviarMensaje(ctxs.tutora, { conversacionId: convId, cuerpo: "Gracias por avisar." });
     await enviarMensaje(ctxs.tutora, { conversacionId: convId, cuerpo: "Lo esperamos." });
     const avisos = await db.aviso.findMany({ where: { tenantId: tenant.id, plantilla: "mensaje_nuevo", apoderadoId: m.madre.id } });
     expect(avisos).toHaveLength(1);
-    expect(avisos[0]).toMatchObject({
-      tipo: "mensaje", canal: "correo", estado: "pendiente", destinatario: ctxs.madre.user.email, apoderadoId: m.madre.id, referenciaId: convId,
-    });
+    expect(avisos[0]).toMatchObject({ tipo: "mensaje", canal: "push", estado: "pendiente", destinatario: endpoint, apoderadoId: m.madre.id, referenciaId: convId });
     expect(avisos[0].payload).toMatchObject({ colegio: "Colegio de Prueba", remitente: "Lucía Tutora", alumno: "Mateo Hijo Madre" });
+    expect(await db.notificacion.count({ where: { tenantId: tenant.id, membershipId: m.madre.id, tipo: "mensaje" } })).toBe(1);
 
+    // Sin consentimiento vigente: la notificación llega a la bandeja, pero sin push.
     await revocarConsentimiento(ctxs.madre);
     expect(await estadoConsentimiento(ctxs.madre)).toBe("revocado");
     await db.aviso.deleteMany({ where: { tenantId: tenant.id } });
+    await db.notificacion.deleteMany({ where: { tenantId: tenant.id } });
     await enviarMensaje(ctxs.tutora, { conversacionId: convId, cuerpo: "¿Sigues ahí?" });
     expect(await db.aviso.count({ where: { tenantId: tenant.id } })).toBe(0);
+    expect(await db.notificacion.count({ where: { tenantId: tenant.id, membershipId: m.madre.id, tipo: "mensaje" } })).toBe(1);
     await aceptarConsentimiento(ctxs.madre, null);
     expect(await estadoConsentimiento(ctxs.madre)).toBe("vigente");
+    await db.pushSuscripcion.deleteMany({ where: { endpoint } });
   });
 });
 
