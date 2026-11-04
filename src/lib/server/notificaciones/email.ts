@@ -42,13 +42,25 @@ export function cerrarTransporteCorreo(): void {
   transporte = null;
 }
 
+/**
+ * Remitente de los avisos (`EMAIL_FROM_ADDRESS`). El dominio definitivo no está confirmado: no hay respaldo con un
+ * dominio propio. En producción falta la variable → error claro (el aviso se reintenta cuando se configure); en local
+ * y tests se usa un remitente neutro que nunca existe (`.invalid`, RFC 2606).
+ */
+export function remitenteSistema(): string {
+  const desde = process.env.EMAIL_FROM_ADDRESS?.trim();
+  if (desde) return desde;
+  if (process.env.NODE_ENV === "production") throw new Error("Falta EMAIL_FROM_ADDRESS: configura el remitente de los avisos (docs/despliegue.md).");
+  return "avisos@example.invalid";
+}
+
 export class EmailChannel implements NotificationChannel {
   readonly canal = "correo" as const;
 
   constructor(private readonly transport: Transporter = (transporte ??= crearTransporte())) {}
 
   async enviar({ avisoId, destinatario, remitente, mensaje, urlPreferencias }: EnvioAviso): Promise<ResultadoEnvio> {
-    const desde = process.env.EMAIL_FROM_ADDRESS ?? "avisos@khipuescolar.pe";
+    const desde = remitenteSistema();
     const info = await this.transport.sendMail({
       from: { name: remitente, address: desde },
       to: destinatario,

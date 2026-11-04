@@ -21,8 +21,8 @@ Un solo sistema para muchos colegios (tenants), donde ningún colegio ve datos d
 1. **Subdominio:** `src/proxy.ts` lee el `Host`. `<slug>.<APP_BASE_DOMAIN>/x` → rewrite a `/colegio/<slug>/x`. `/` → `/inicio`. `/login` en un subdominio → login raíz.
 2. En el dominio raíz, `/colegio/<slug>/…` redirige al subdominio. La raíz `/` del dominio principal sirve la landing pública (specs/25); antes redirigía a `/login`.
 3. `/api/webhooks/*` y `/api/cron/*` son globales (no se reescriben).
-4. En desarrollo, `APP_BASE_DOMAIN=lvh.me:3000` (lvh.me y sus subdominios resuelven a 127.0.0.1). En producción, `khipuescolar.pe` (por confirmar).
-5. La sesión de Supabase usa cookies con `COOKIE_DOMAIN` (`.lvh.me` / `.khipuescolar.pe`) para valer en todos los subdominios.
+4. En desarrollo, `APP_BASE_DOMAIN=lvh.me:3000` (lvh.me y sus subdominios resuelven a 127.0.0.1). En producción, `<dominio>` (dominio por confirmar; no se inventa).
+5. La sesión de Supabase usa cookies con `COOKIE_DOMAIN` (`.lvh.me` / `.<dominio>`) para valer en todos los subdominios.
 
 ## Contexto por request
 ```ts

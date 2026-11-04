@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { InstalarAqui, PasosIOS, PasosMenuNavegador } from "@/components/app/InstalarApp";
 import { Tarjeta } from "@/components/ui/Tarjeta";
+import { baseDomain } from "@/lib/dominio";
 
 export const metadata: Metadata = {
   title: "Instalar la app",
@@ -60,7 +61,7 @@ export default function InstalarPage() {
       </section>
 
       <p className="rounded-lg bg-superficie-2 p-3 text-cuerpo-sm">
-        Instala la app desde la dirección de tu colegio (por ejemplo, <strong>tucolegio.khipuescolar.pe</strong>): cada colegio
+        Instala la app desde la dirección de tu colegio (por ejemplo, <strong>tucolegio.{baseDomain()}</strong>): cada colegio
         tiene su propia app. Si tienes hijos en dos colegios, instala una por cada uno.
       </p>
 

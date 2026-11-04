@@ -38,6 +38,23 @@ export const FEATURES = {
 
 export type Feature = keyof typeof FEATURES;
 
+/**
+ * Interruptor de Nudito+ (specs/28, specs/29). Nudito+ es un producto FUTURO que contrataría el colegio; el modelo de
+ * licencia familiar pagada con Yape está en pausa (se descartó). Apagado: `nudito_plus` no queda activo en ningún
+ * colegio (desaparece del menú y `requireFeature` responde 403) y los crons de Nudito+ no hacen nada.
+ * No se borra código, tablas ni datos: para reactivarlo basta cambiar esta constante (con decisión comercial).
+ */
+export const NUDITO_PLUS_DISPONIBLE = false;
+
+/**
+ * Nudito+ está disponible. Solo en tests (vitest, `NODE_ENV === "test"`) se puede forzar con
+ * `KHIPU_TEST_NUDITO_PLUS=1` para seguir validando su lógica; en desarrollo y producción manda la constante.
+ */
+export function nuditoPlusDisponible(): boolean {
+  if (NUDITO_PLUS_DISPONIBLE) return true;
+  return process.env.NODE_ENV === "test" && process.env.KHIPU_TEST_NUDITO_PLUS === "1";
+}
+
 export function planIncluye(plan: Plan, feature: Feature): boolean {
   return ORDEN_PLANES[plan] >= ORDEN_PLANES[FEATURES[feature]];
 }

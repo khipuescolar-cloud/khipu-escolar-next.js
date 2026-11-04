@@ -2,6 +2,12 @@ import "dotenv/config";
 import { randomUUID } from "node:crypto";
 import { Client } from "pg";
 import { expect, test, type Page } from "@playwright/test";
+import { NUDITO_PLUS_DISPONIBLE } from "../../src/lib/planes";
+
+// Nudito+ está desactivado (producto en estudio, NUDITO_PLUS_DISPONIBLE = false en src/lib/planes.ts): el servidor de
+// e2e no puede encenderlo (la variable de tests solo vale en vitest), así que estas pruebas se saltan hasta reactivarlo.
+// La lógica sigue cubierta por tests/integracion/nudito-plus-*.test.ts.
+test.skip(!NUDITO_PLUS_DISPONIBLE, "Nudito+ desactivado (NUDITO_PLUS_DISPONIBLE = false)");
 
 // Nudito+ · tutor (specs/29). Crea en Nuevo Horizonte su propio alumno con cuenta (5.° A), una familia con un hijo
 // sin cuenta (3.° B), licencias de prueba, consentimientos de IA y un sitio permitido; borra todo al terminar.

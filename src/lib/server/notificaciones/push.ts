@@ -5,11 +5,22 @@ import { EnvioPermanenteError, type EnvioAviso, type NotificationChannel, type R
 
 // Web Push con VAPID. El destinatario de la fila `avisos` es el endpoint de la suscripción.
 
+/**
+ * Contacto VAPID (`VAPID_SUBJECT`, `mailto:` o `https:`). Sin dominio definitivo confirmado no hay respaldo propio:
+ * en producción falta la variable → error claro; en local y tests, un contacto neutro (`.invalid`, RFC 2606).
+ */
+export function sujetoVapid(): string {
+  const sujeto = process.env.VAPID_SUBJECT?.trim();
+  if (sujeto) return sujeto;
+  if (process.env.NODE_ENV === "production") throw new Error("Falta VAPID_SUBJECT: configura el contacto de Web Push (docs/despliegue.md).");
+  return "mailto:soporte@example.invalid";
+}
+
 function configurar(): boolean {
   const publica = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
   const privada = process.env.VAPID_PRIVATE_KEY;
   if (!publica || !privada) return false;
-  webpush.setVapidDetails(process.env.VAPID_SUBJECT ?? "mailto:soporte@khipuescolar.pe", publica, privada);
+  webpush.setVapidDetails(sujetoVapid(), publica, privada);
   return true;
 }
 

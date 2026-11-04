@@ -1,5 +1,11 @@
 # Khipu Escolar: resumen del proyecto y especificaciones
 
+> **Documento histórico (22/10/2026).** Sus precios, planes (Básico, Fase 2, Pro Max), el asistente Nudito para
+> familias, el dominio y los proveedores que menciona **ya no están vigentes**. El modelo actual es SaaS B2B (paga el
+> colegio) con solo Khipu Base y Khipu Pro, sin tarifas publicadas, y Nudito+ está en pausa (desactivado). Fuente
+> vigente: `specs/03-planes-y-permisos.md`, `specs/25-landing-publica.md` y `docs/modelo-comercial.md`. No lo uses como
+> `AGENTS.md` ni como referencia comercial.
+
 > Documento de contexto para agentes de código (Codex, Claude Code) y para el equipo. Actualizado el 22/10/2026.
 > Junta lo conversado y decidido hasta hoy. Se marca qué está **DECIDIDO** y qué es **PROPUESTA** (pendiente de que Sebas lo apruebe).
 > Si lo usas con Codex, puedes copiarlo a la raíz del repositorio como `AGENTS.md`.

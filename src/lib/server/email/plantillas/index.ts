@@ -79,7 +79,7 @@ const ESQUEMAS = {
     /** true tras «Restablecer contraseña al documento»: el correo avisa del restablecimiento en vez de dar la bienvenida. */
     restablecida: z.boolean().optional(),
     url,
-    /** Dirección del colegio para mostrar, p. ej. «nuevohorizonte.khipuescolar.pe». */
+    /** Dirección del colegio para mostrar, p. ej. «nuevohorizonte.<APP_BASE_DOMAIN>». */
     dominio: z.string().min(1),
   }),
   justificacion_revisada: z.object({

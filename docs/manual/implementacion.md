@@ -19,7 +19,7 @@ Practica en local con `admin@khipuescolar.demo` (panel `http://admin.lvh.me:3000
 8. Generar e imprimir carnets.
 9. Horarios, periodos y CNEB (Pro).
 10. Cuentas de alumno (después de que las familias autoricen).
-11. Nudito+ (configuración y verificación de pagos).
+11. Nudito+ (desactivado: producto en estudio; no se configura ni se cobra).
 12. Revisión final y marcha blanca.
 
 ## 1. Datos que pedir al colegio
@@ -152,7 +152,9 @@ está pendiente de revisión con un abogado.
 Cuando las familias ya autorizaron: Gestión → «Alumnos» → acciones → «Crear cuenta del alumno» (correo del alumno, tipo y
 número de documento). Solo secundaria y primaria desde el grado mínimo configurado. Se hace uno por uno.
 
-## 11. Nudito+ (licencias por alumno con Yape)
+## 11. Nudito+ (desactivado)
+
+> **Nudito+ está desactivado (2026-11-03): producto en estudio.** No se ofrece a los colegios del piloto ni a las familias, no se verifican pagos por Yape (ese modelo se descartó) y los procesos automáticos no corren. El panel «Nudito+» sigue accesible solo para consulta interna. Lo que sigue es referencia histórica; **no lo apliques en una implementación**.
 
 Solo para colegios **Khipu Pro**. El proveedor de IA **aún no está elegido**: hoy responde un proveedor de prueba. Avisa a
 las familias del piloto (meta: 10 familias) que es una versión de prueba.

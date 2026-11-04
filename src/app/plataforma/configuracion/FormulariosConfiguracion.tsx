@@ -95,7 +95,7 @@ export function FormularioSoporte({
           name="correo"
           type="email"
           defaultValue={correo}
-          placeholder={correoEfectivo ?? "soporte@khipuescolar.pe"}
+          placeholder={correoEfectivo ?? "Correo del equipo de soporte"}
           ayuda={correo ? "Aquí llegan los avisos de conversaciones nuevas." : `Vacío: se usa el remitente del sistema${correoEfectivo ? ` (${correoEfectivo})` : ""}.`}
         />
         <Campo etiqueta="Horario de atención" name="horario" defaultValue={horario} ayuda="Lo ven los colegios al escribir a soporte." required />

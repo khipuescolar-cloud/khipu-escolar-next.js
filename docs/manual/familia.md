@@ -34,10 +34,9 @@ La próxima vez entras con tu correo y tu contraseña. Si la olvidas: «Recupera
 | | **Libreta** | La libreta del bimestre; descargarla en PDF. |
 | | **Tareas** | Lo que tus hijos tienen que entregar. |
 | | **Agenda** | Exámenes, actividades, feriados y entregas. |
-| | **Nudito+** | Tutor con inteligencia artificial para tu hijo (opcional, de pago). |
 
 Si tienes varios hijos, en cada pantalla eliges a cuál ver. Solo ves la información de tus hijos.
-Algunas opciones (Notas, Libreta, Tareas, Agenda, Documentos, Reuniones, Nudito+) dependen del plan de tu colegio.
+Algunas opciones (Notas, Libreta, Tareas, Agenda, Documentos, Reuniones) dependen del plan de tu colegio.
 
 ## Los avisos que recibes
 
@@ -98,9 +97,11 @@ Si fue rechazada, puedes justificarla otra vez dentro del plazo.
 - **«Mi perfil»** → «Privacidad»: puedes «Retirar mi autorización» (dejarás de recibir avisos) y «Volver a autorizar».
 - La tutora y el colegio no ven tu teléfono ni tu correo en los mensajes.
 
-## Nudito+ (opcional)
+## Nudito+ (desactivado)
+> **Nudito+ está desactivado (2026-11-03): producto en estudio.** No aparece en el menú de ningún colegio y no se vende a las familias (el pago por Yape se descartó). Esta sección queda como referencia histórica.
+
 Nudito+ es un tutor con inteligencia artificial que ayuda a tu hijo a practicar paso a paso, sin darle las respuestas.
-Se paga **por alumno** con **Yape**, por adelantado y sin renovación automática.
+~~Se paga por alumno con Yape, por adelantado y sin renovación automática.~~ *(modelo descartado)*
 
 1. **Nudito+** → en la tarjeta de tu hijo toca **«Activar Nudito+»**.
 2. Haz el Yape al número que aparece ahí (con el titular indicado) y guarda el número de operación.

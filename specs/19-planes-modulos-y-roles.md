@@ -1,6 +1,6 @@
 # 19 — Planes, módulos y roles (desde la base de datos)
 
-> Estado: implementado · Plan: todos (panel interno de plataforma) · Última actualización: 2026-10-28 (Claude Code)
+> Estado: implementado · Plan: todos (panel interno de plataforma) · Última actualización: 2026-11-03 (Claude Code: interruptor de Nudito+)
 
 ## Objetivo
 Que el equipo Khipu configure desde el panel de plataforma, sin desplegar código: qué módulos incluye cada plan
@@ -32,7 +32,11 @@ cada uno de los roles por defecto de todos los colegios. El bloqueo sigue siendo
   `FEATURES` (código) como respaldo. `TenantModulo.habilitado=true` agrega un extra (solo si el plan no lo trae);
   `false` lo quita (solo si el plan lo trae). Claves desconocidas se ignoran. `gestion` siempre está.
   Módulos **fijos por plan** (`MODULOS_FIJOS_POR_PLAN`, hoy solo `nudito_plus`, specs/29): los decide solo `FEATURES`
-  (código), nunca la BD ni los ajustes; no aparecen en el panel (`MODULOS` los excluye).
+  (código), nunca la BD ni los ajustes; no aparecen en el panel (`MODULOS` los excluye). Un módulo fijo puede estar
+  **apagado por completo**: `nudito_plus` solo entra en `modulosDeCodigo` y `resolverModulos` si `nuditoPlusDisponible()`
+  (`NUDITO_PLUS_DISPONIBLE`, hoy `false`, `src/lib/planes.ts`). Apagado, ningún colegio lo tiene aunque sea Khipu Pro
+  y aunque `plan_modulos` o `tenant_modulos` lo pidan: no sale en el menú (queda «oculto», no con candado) y
+  `requireFeature` da 403.
 - **Roles**: `ROLES_SOPORTADOS` = roles de `MOSAICOS` por módulo + usos fuera de la navegación (la familia usa
   `avisos` para sus preferencias y push). `RolModulo.habilitado=false` lo quita a ese rol en todos los colegios; sin
   fila = habilitado. Solo se guardan combinaciones soportadas.
@@ -96,6 +100,7 @@ Estados siempre con ícono + palabra: «Incluido» / «No incluido» / «Siempre
 - Si ningún plan incluye un módulo que el colegio no tiene, se oculta (no hay candado que ofrecer).
 
 ## Pruebas
+- unit: `tests/unit/nudito-plus-interruptor.test.ts` (Nudito+ apagado: un colegio Pro no tiene `nudito_plus`).
 - unit: `tests/unit/modulos.test.ts` (resolución, respaldo, roles soportados) y `tests/unit/nombres-planes.test.ts`
   (nombres con respaldo, inactivos fuera de `planesOfrecidos`).
 - integración: `tests/integracion/planes-modulos-roles.test.ts` (quitar de un plan → 403 en páginas/acciones; extra
