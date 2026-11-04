@@ -1,6 +1,6 @@
 # 03 — Planes y permisos
 
-> Estado: implementado · Plan: todos · Última actualización: 2026-10-30 (Claude Code: horario; documentos, reuniones y tablero ya implementados)
+> Estado: implementado · Plan: todos · Última actualización: 2026-11-03 (rama `pre-notificaciones`: bandeja general y canales, specs/38; antes: Claude Code: horario; documentos, reuniones y tablero ya implementados)
 
 ## Planes
 | Plan | Clave | Funciones |
@@ -13,7 +13,7 @@ El mecanismo interno de ajustes por colegio (`tenant_modulos`) se mantiene para 
 Las claves anteriores se migraron en `20261031100000_planes_base_pro`: `basico` → `base`, `fase2` → `pro` y `promax` → `pro`.
 El asistente Nudito para familias se retiró (ver `specs/13`); lo reemplazará **Nudito+**, una licencia opcional por alumno
 para colegios con Khipu Pro que paga la familia (en preparación, fuera de los planes: `specs/28`, `specs/29`).
-Los avisos salen solo por correo y Web Push (WhatsApp y SMS se retiraron; ver `specs/06`).
+Los avisos salen solo por correo y Web Push (WhatsApp y SMS se retiraron; ver `specs/06`). Khipu Base incluye además las **notificaciones dentro de Khipu** (bandeja `/notificaciones`, módulo `avisos`, specs/38).
 
 **Fuente de verdad: la base de datos** (`planes_catalogo` + `plan_modulos`, editables en el panel de plataforma
 `/planes`; ver `specs/19-planes-modulos-y-roles.md`). La tabla de arriba es la configuración sembrada y el **respaldo en

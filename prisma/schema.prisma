@@ -701,7 +701,7 @@ model Aviso {
   asunto            String
   payload           Json        @default("{}")
   referenciaId      String?     @map("referencia_id") // conversación, tarea, etc. (para agrupar y limitar avisos)
-  /// Push de una notificación de la bandeja interna (specs/38). Único con el destinatario: no se duplica.
+  /// Push (o correo) de una notificación de la bandeja interna (specs/38). Único con el destinatario: no se duplica.
   notificacionId    String?     @map("notificacion_id") @db.Uuid
   envioId           String?     @map("envio_id") @db.Uuid // acción que lo originó (null = aviso individual sin envío)
   providerMessageId String?     @unique @map("provider_message_id")
@@ -861,6 +861,8 @@ model Comunicado {
   grado       Int?
   titulo      String
   cuerpo      String
+  /// «Importante: enviar también por correo» (specs/09). Sin marcar: solo bandeja y push.
+  importante  Boolean  @default(false)
   publicadoAt DateTime @default(now()) @map("publicado_at") @db.Timestamptz
 
   tenant   Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
@@ -2324,6 +2326,17 @@ enum TipoEventoAcademico {
   nota_corregida
 }
 
+/// Qué originó una notificación de la bandeja interna (specs/38).
+enum TipoNotificacion {
+  calificacion // resultado publicado o corregido (evento académico)
+  tarea
+  evaluacion_programada
+  mensaje
+  comunicado
+  justificacion // al profesor: justificación aprobada con actividades de su curso
+  incidencia // al profesor: el alumno no estará en su clase
+}
+
 enum EstadoEventoAcademico {
   pendiente
   procesando
@@ -2365,25 +2378,31 @@ model EventoAcademico {
 /// Bandeja interna de Khipu (specs/38): una por evento, apoderado y alumno. Siempre visible en Khipu aunque el push no
 /// llegue. El texto no lleva notas (puede verse en la pantalla bloqueada).
 model Notificacion {
-  id           String    @id @default(uuid()) @db.Uuid
-  tenantId     String    @map("tenant_id") @db.Uuid
-  membershipId String    @map("membership_id") @db.Uuid
-  alumnoId     String    @map("alumno_id") @db.Uuid
-  eventoId     String    @map("evento_id") @db.Uuid
+  id           String           @id @default(uuid()) @db.Uuid
+  tenantId     String           @map("tenant_id") @db.Uuid
+  membershipId String           @map("membership_id") @db.Uuid
+  /// Alumno del que trata (si lo hay): la familia solo la ve mientras siga viendo a ese alumno.
+  alumnoId     String?          @map("alumno_id") @db.Uuid
+  /// Evento académico que la originó (solo `calificacion`).
+  eventoId     String?          @map("evento_id") @db.Uuid
+  tipo         TipoNotificacion
+  /// Idempotencia de los demás productores («tarea:<id>», «comunicado:<id>»…): única por colegio y membresía.
+  clave        String?
   titulo       String
   cuerpo       String
   /// Ruta dentro del colegio («/notas?alumno=…#ev-…»).
   url          String
-  leidaAt      DateTime? @map("leida_at") @db.Timestamptz
-  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  leidaAt      DateTime?        @map("leida_at") @db.Timestamptz
+  createdAt    DateTime         @default(now()) @map("created_at") @db.Timestamptz
 
-  tenant     Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  membership Membership      @relation(fields: [membershipId], references: [id], onDelete: Cascade)
-  alumno     Alumno          @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
-  evento     EventoAcademico @relation(fields: [eventoId], references: [id], onDelete: Cascade)
+  tenant     Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  membership Membership       @relation(fields: [membershipId], references: [id], onDelete: Cascade)
+  alumno     Alumno?          @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  evento     EventoAcademico? @relation(fields: [eventoId], references: [id], onDelete: Cascade)
   avisos     Aviso[]
 
   @@unique([eventoId, membershipId, alumnoId])
+  @@unique([tenantId, membershipId, clave])
   @@index([membershipId, leidaAt, createdAt])
   @@index([tenantId])
   @@map("notificaciones")

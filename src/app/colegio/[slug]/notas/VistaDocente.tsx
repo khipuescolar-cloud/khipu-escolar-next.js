@@ -278,7 +278,7 @@ async function SeccionNotas({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
 
 /**
  * Evaluaciones del periodo agrupadas (una evaluación puede tener varias columnas, una por competencia): estado
- * (Programada = borrador / Publicada), «Publicar resultados» (entra en el resumen académico del día), historial y, por columna,
+ * (Programada = borrador / Publicada), «Publicar resultados» (notifica a las familias en Khipu y por push, specs/38), historial y, por columna,
  * editar y eliminar.
  */
 async function ListaEvaluaciones({

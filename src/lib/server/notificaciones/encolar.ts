@@ -13,7 +13,7 @@ import { hashToken, tokenDerivado } from "../tokens";
 // Encolado de avisos (specs/06). Solo se encola para apoderados con `recibeAvisos`,
 // consentimiento vigente (no revocado) y según `preferencias_aviso` (correo y/o push).
 
-// El enlace «Justificar falta» vence al fin del día (hora del colegio) del n-ésimo día hábil posterior a la falta,
+// El enlace «Justificar falta» vence al fin del día (hora del colegio) del n-ésimo día calendario posterior a la falta,
 // con n = `Tenant.plazoJustificacionDias` (15 días calendario por defecto; specs/07). Se cuenta desde la falta, no desde el envío.
 
 export type Destinatario = {
@@ -145,7 +145,10 @@ export async function encolarAviso<N extends NombrePlantilla>(
   return aviso.id;
 }
 
-/** Encola el mismo aviso por cada canal activo del destinatario. Devuelve cuántas filas creó. */
+/**
+ * Encola el mismo aviso por cada canal activo del destinatario. `canales` restringe los canales que usa este aviso
+ * (p. ej. `{ push: false }`: solo correo, cuando el push ya lo pone la bandeja). Devuelve cuántas filas creó.
+ */
 export async function encolarParaDestinatario<N extends NombrePlantilla>(
   tdb: DbTenant,
   destinatario: Destinatario,
@@ -154,13 +157,14 @@ export async function encolarParaDestinatario<N extends NombrePlantilla>(
     /** Familia avisada en el envío en curso (p. ej. el alumno); por defecto, el apoderado. */
     unidad?: string | null;
   },
+  canales: { correo?: boolean; push?: boolean } = {},
 ): Promise<number> {
   let filas = 0;
-  if (destinatario.correo) {
+  if (destinatario.correo && canales.correo !== false) {
     await encolarAviso(tdb, { ...datos, canal: "correo", destinatario: destinatario.email, apoderadoId: destinatario.apoderadoId });
     filas++;
   }
-  for (const endpoint of destinatario.pushEndpoints) {
+  for (const endpoint of canales.push === false ? [] : destinatario.pushEndpoints) {
     await encolarAviso(tdb, { ...datos, canal: "push", destinatario: endpoint, apoderadoId: destinatario.apoderadoId });
     filas++;
   }

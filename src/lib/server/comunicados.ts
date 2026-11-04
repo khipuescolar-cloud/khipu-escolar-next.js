@@ -10,8 +10,8 @@ import type { Nivel } from "@/generated/prisma/enums";
 import { adjuntoVista, adjuntosDe, borrarDelProveedor, contarRestantes, guardarAdjuntos, quitarAdjuntos, validarAdjuntos, type EntradaAdjunto } from "./adjuntos";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
-import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
 import { conEnvio } from "./notificaciones/envios";
+import { cuentasDeAlumnos, entregarNotificaciones, porFamilia, vinculosFamilias, type Entrega } from "./notificaciones/internas";
 import { salonEsActivo, whereSalonActivo } from "./salones-activos";
 import { salonIdsVisibles, type TenantContext } from "./tenant";
 
@@ -35,6 +35,8 @@ export type ComunicadoVista = {
   salon: string | null;
   /** «Todo el colegio», «Primaria», «3.° grado de primaria» o el nombre del salón. */
   audiencia: string;
+  /** Marcado «Importante» al publicar: también se envió por correo. */
+  importante: boolean;
   autor: string;
   editable: boolean;
   adjuntos: AdjuntoVista[];
@@ -75,6 +77,7 @@ export async function listarComunicados(ctx: TenantContext): Promise<ComunicadoV
     publicadoAt: c.publicadoAt,
     salon: c.salon?.nombre ?? null,
     audiencia: etiquetaAudiencia({ salon: c.salon?.nombre ?? null, niveles: c.niveles, grado: c.grado }),
+    importante: c.importante,
     autor: `${c.autor.user.nombres} ${c.autor.user.apellidos}`.trim(),
     editable: c.autorId === ctx.membership.id && esEditable(c.publicadoAt),
     adjuntos: c.adjuntos.map(adjuntoVista),
@@ -132,15 +135,18 @@ export function urlComunicado(slug: string, id: string): string {
 
 /**
  * Dirección y administrativo publican para todo el colegio, uno o más niveles, un grado o un salón; el profesor solo para sus salones.
- * Encola un aviso por familia con consentimiento. `salonId` (sin `audiencia`) se mantiene por compatibilidad: null = todo el colegio.
+ * Notifica en lote (specs/09 y 38): una notificación en la bandeja por familia y por alumno con cuenta, push por dispositivo y,
+ * solo si es `importante`, también correo (consentimiento y preferencias). `salonId` (sin `audiencia`) se mantiene por
+ * compatibilidad: null = todo el colegio. `avisados` = familias que lo reciben en su bandeja; `encolados` = filas de push/correo.
  */
 export async function publicarComunicado(
   ctx: TenantContext,
-  entrada: { titulo: string; cuerpo: string; salonId?: string | null; audiencia?: AudienciaComunicado },
+  entrada: { titulo: string; cuerpo: string; salonId?: string | null; audiencia?: AudienciaComunicado; importante?: boolean },
   adjuntos: EntradaAdjunto[] = [],
-): Promise<{ id: string; avisados: number }> {
+): Promise<{ id: string; avisados: number; encolados: number }> {
   if (!esGeneral(ctx.rol) && ctx.rol !== "profesor") forbidden();
   const datos = validar(entrada);
+  const importante = entrada.importante === true;
   const audiencia: AudienciaComunicado = entrada.audiencia ?? (entrada.salonId ? { tipo: "salon", salonId: entrada.salonId } : { tipo: "colegio" });
   if (audiencia.tipo === "salon" && !z.uuid().safeParse(audiencia.salonId).success) throw new ErrorDeNegocio("Elige un salón.");
   await validarAudiencia(ctx, audiencia);
@@ -148,7 +154,7 @@ export async function publicarComunicado(
 
   const validados = validarAdjuntos(adjuntos);
   const c = await ctx.db.comunicado.create({
-    data: { tenantId: ctx.tenant.id, autorId: ctx.membership.id, ...columnas, titulo: datos.titulo, cuerpo: datos.cuerpo },
+    data: { tenantId: ctx.tenant.id, autorId: ctx.membership.id, ...columnas, titulo: datos.titulo, cuerpo: datos.cuerpo, importante },
   });
   try {
     await guardarAdjuntos(ctx, { comunicadoId: c.id }, validados);
@@ -156,26 +162,23 @@ export async function publicarComunicado(
     await ctx.db.comunicado.delete({ where: { id: c.id } });
     throw e;
   }
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "comunicado", entidadId: c.id, detalle: { adjuntos: validados.length, destino: audiencia.tipo } });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "comunicado", entidadId: c.id, detalle: { adjuntos: validados.length, destino: audiencia.tipo, importante } });
 
-  const vinculos = await ctx.db.apoderadoAlumno.findMany({
-    where: { recibeAvisos: true, alumno: whereAlumnosDeAudiencia(audiencia) },
-    select: { apoderadoId: true },
-  });
-  const familias = [...new Set(vinculos.map((v) => v.apoderadoId))];
-  let avisados = 0;
-  await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "comunicado", titulo: `Comunicado: ${datos.titulo}`, creadoPorId: ctx.membership.id }, async () => {
-    for (const apoderadoId of familias) {
-      const ok = await encolarAvisoFamilia(ctx, {
-        plantilla: "comunicado",
-        apoderadoId,
-        referenciaId: c.id,
-        payload: { colegio: ctx.tenant.nombre, titulo: datos.titulo, url: urlComunicado(ctx.tenant.slug, c.id), ...(validados.length ? { adjuntos: validados.length } : {}) },
-      });
-      if (ok) avisados++;
-    }
-  });
-  return { id: c.id, avisados };
+  // Lote: alumnos de la audiencia, vínculos (consentimiento, preferencias y dispositivos) y cuentas de alumnos.
+  const alumnoIds = (await ctx.db.alumno.findMany({ where: whereAlumnosDeAudiencia(audiencia), select: { id: true }, orderBy: { nombres: "asc" } })).map((a) => a.id);
+  const [vinculos, cuentas] = await Promise.all([vinculosFamilias(ctx.db, alumnoIds), cuentasDeAlumnos(ctx.db, alumnoIds)]);
+  const familias = porFamilia(vinculos, alumnoIds);
+  const payload = { colegio: ctx.tenant.nombre, titulo: datos.titulo, url: urlComunicado(ctx.tenant.slug, c.id), ...(validados.length ? { adjuntos: validados.length } : {}) };
+  const texto = { titulo: importante ? `Comunicado importante: ${datos.titulo}` : `Comunicado: ${datos.titulo}`, cuerpo: `${ctx.tenant.nombre} publicó un comunicado: «${datos.titulo}».`, url: `/comunicados#comunicado-${c.id}` };
+  const entregas: Entrega<"comunicado">[] = [...familias.values()].map(({ vinculo }) => ({
+    membershipId: vinculo.apoderadoId, alumnoId: null, ...texto,
+    email: importante && vinculo.correo ? vinculo.email : null, endpoints: vinculo.endpoints, apoderadoId: vinculo.apoderadoId, payload,
+  }));
+  for (const cuenta of cuentas) entregas.push({ membershipId: cuenta.membershipId, alumnoId: cuenta.alumnoId, ...texto, email: null, endpoints: [], apoderadoId: null, payload });
+  const r = await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "comunicado", titulo: `Comunicado: ${datos.titulo}`, creadoPorId: ctx.membership.id }, () =>
+    entregarNotificaciones(ctx.db, { tenant: ctx.tenant, tipo: "comunicado", clave: `comunicado:${c.id}`, tipoAviso: "comunicado", plantilla: "comunicado", referenciaId: c.id, entregas }),
+  );
+  return { id: c.id, avisados: familias.size, encolados: r.avisos };
 }
 
 async function cargarEditable(ctx: TenantContext, id: string) {

@@ -126,22 +126,6 @@ const ESQUEMAS = {
     descripcion: z.string().min(1).optional(),
     url,
   }),
-  /** Resultados de una evaluación publicados por el profesor (specs/11). */
-  resultados_publicados: z.object({ ...comun, alumno: z.string().min(1).optional(), curso: z.string().min(1), titulo: z.string().min(1), url }),
-  /**
-   * Resumen académico diario de un alumno (specs/37): lo publicado ese día. `valor` es el texto visible («A», «14»,
-   * «NSP»); las observaciones no viajan en el correo (solo se indica que hay una), se leen en Khipu.
-   */
-  resumen_academico: z.object({
-    ...comun,
-    alumno: z.string().min(1),
-    fecha: fechaIso,
-    actividades: z
-      .array(z.object({ curso: z.string().min(1), titulo: z.string().min(1), valor: z.string().min(1).max(20), observacion: z.boolean().optional() }))
-      .min(1)
-      .max(40),
-    url,
-  }),
   /**
    * Push de la bandeja interna (specs/38): título y cuerpo ya armados SIN notas (se ven en la pantalla bloqueada).
    * `tag` agrupa en el dispositivo las notificaciones del mismo alumno.
@@ -158,7 +142,7 @@ const ESQUEMAS = {
   }),
   /** Recuperación académica registrada en la actividad original (specs/37). */
   recuperacion_registrada: z.object({ ...comun, alumno: z.string().min(1), curso: z.string().min(1), titulo: z.string().min(1), url }),
-  /** Al profesor: el tutor aprobó la justificación de una falta con actividades de su curso (specs/37). */
+  /** Al profesor: el colegio aprobó la justificación de una falta con actividades de su curso (specs/37). */
   justificacion_aprobada_docente: z.object({
     ...comun,
     alumno: z.string().min(1),
@@ -513,35 +497,6 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       urlPreferencias: p.urlPreferencias,
     }),
 
-  resultados_publicados: (p) =>
-    armarMensaje({
-      colegio: p.colegio,
-      logoColegioUrl: p.logoColegioUrl,
-      asunto: `Resultados de ${p.curso}: ${p.titulo}`,
-      insignia: "info",
-      palabraInsignia: "Resultados",
-      parrafos: [`Ya están los resultados de «${p.titulo}» de ${p.curso}${p.alumno ? ` para ${p.alumno}` : ""}.`],
-      boton: { texto: "Ver resultados", url: p.url },
-      urlPreferencias: p.urlPreferencias,
-    }),
-
-  resumen_academico: (p) =>
-    armarMensaje({
-      colegio: p.colegio,
-      logoColegioUrl: p.logoColegioUrl,
-      asunto: `Resumen académico de ${p.alumno} · ${fechaCorta(p.fecha)}`,
-      insignia: "info",
-      palabraInsignia: "Resumen del día",
-      parrafos: [
-        `Esto se publicó hoy para ${p.alumno}:`,
-        ...p.actividades.map((a) => `${a.curso} · ${a.titulo}: ${a.valor}${a.observacion ? " (con observación del profesor)" : ""}`),
-        ...(p.actividades.some((a) => a.valor === "NSP") ? ["NSP: No se presentó."] : []),
-        ...(p.actividades.some((a) => a.valor === "NE") ? ["NE: No entregó."] : []),
-      ],
-      boton: { texto: "Ver en Khipu", url: p.url },
-      urlPreferencias: p.urlPreferencias,
-    }),
-
   notificacion_academica: (p) =>
     armarMensaje({
       colegio: p.colegio,
@@ -594,7 +549,7 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       insignia: "info",
       palabraInsignia: "Justificación",
       parrafos: [
-        `La inasistencia de ${p.alumno} del ${fechaCorta(p.fecha)} fue justificada por su apoderado y aprobada por el tutor.`,
+        `La inasistencia de ${p.alumno} del ${fechaCorta(p.fecha)} fue justificada por su apoderado y aprobada por el colegio.`,
         `En ${p.curso} ese día tenía: ${p.actividades.join(", ")}.`,
         "Revisa esas actividades y, si corresponde según las normas y criterios del curso, considera una recuperación académica.",
         "La justificación no implica la obligación de realizar una nueva evaluación.",

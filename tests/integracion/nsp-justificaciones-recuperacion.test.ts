@@ -1,5 +1,5 @@
 // NSP, justificaciones (15 días calendario), consecuencia por vencimiento, recuperación en la actividad original,
-// incidencias, correcciones auditadas, libretas emitidas y resumen académico diario (specs/37). Casos 1–17 del pedido.
+// incidencias, correcciones auditadas y libretas emitidas (specs/37; el resumen diario se retiró, specs/38). Casos 1–17 del pedido.
 // Requiere la BD local.
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { db } from "@/lib/server/db";
@@ -11,7 +11,7 @@ import { justificarConSesion, revisarJustificacion } from "@/lib/server/justific
 import { datosLibreta } from "@/lib/server/libreta";
 import { emitirLibretas, resolverRectificacion, solicitarRectificacion } from "@/lib/server/libreta-emision";
 import { crearEvaluacion, decidirRecuperacion, guardarCalificacionPeriodo, guardarNota, historialEvaluacion, publicarEvaluacion } from "@/lib/server/notas";
-import { aplicarVencimientos, nspVencidosSinConsecuencia } from "@/lib/server/nsp";
+import { alAprobarJustificacion, aplicarVencimientos, nspVencidosSinConsecuencia } from "@/lib/server/nsp";
 import type { TenantContext } from "@/lib/server/tenant";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
@@ -115,6 +115,10 @@ describe("NSP por asistencia", () => {
     const avisos = await db.aviso.findMany({ where: { tenantId: c.tenant.id, plantilla: "incidencia_docente" } });
     expect(avisos).toHaveLength(1);
     expect(JSON.stringify(avisos[0].payload)).not.toContain("golpeó");
+    // También en la bandeja del profesor afectado (specs/38), sin el detalle de la incidencia.
+    const notifs = await c.db.notificacion.findMany({ where: { tipo: "incidencia" } });
+    expect(notifs.map((n) => n.membershipId)).toEqual([c.miembros.otroProfesor.membership.id]);
+    expect(notifs[0].cuerpo).not.toContain("golpeó");
     expect((await listarIncidencias(c.ctxDe("otroProfesor")))[0].descripcion).toBeNull();
     expect((await listarIncidencias(c.ctxDe("tutora")))[0].descripcion).toBe("Se golpeó en Educación Física.");
     await esperarProhibido(registrarIncidencia(c.ctxDe("madre"), {}));
@@ -133,8 +137,8 @@ describe("plazo de justificación y consecuencia por vencimiento", () => {
   });
 
   it("casos 9 y 10: vencido sin justificación → la consecuencia configurada, una sola vez aunque corran dos procesos a la vez", async () => {
-    await esperarProhibido(actualizarReglasAcademicas(c.ctxDe("tutora"), { consecuenciaVencimiento: "C", horaResumenAcademico: "18:00" }));
-    await actualizarReglasAcademicas(c.ctxDe("direccion"), { consecuenciaVencimiento: "C", horaResumenAcademico: "18:00" });
+    await esperarProhibido(actualizarReglasAcademicas(c.ctxDe("tutora"), { consecuenciaVencimiento: "C" }));
+    await actualizarReglasAcademicas(c.ctxDe("direccion"), { consecuenciaVencimiento: "C" });
     const tenant = (await ctxFresco("direccion")).tenant;
     const despues = new Date(expiracionJustificacion(F.caso1, 15).getTime() + 1000);
     const e = await c.db.evaluacion.findFirstOrThrow({ where: { titulo: "Examen de multiplicación" } });
@@ -192,6 +196,13 @@ describe("aprobación del tutor y recuperación en la actividad original", () =>
     expect(await nota(e.id, c.alumnos.mateo.id)).toMatchObject({ marca: "nsp", valorLiteral: null, justificacionId: j.id, recuperacion: null });
     const avisos = await db.aviso.findMany({ where: { tenantId: c.tenant.id, plantilla: "justificacion_aprobada_docente", referenciaId: j.id } });
     expect(avisos.map((a) => a.destinatario)).toEqual([c.miembros.tutora.user.email]);
+    // Bandeja del profesor (specs/38) y reintento sin duplicados (clave por justificación, correo único por notificación).
+    const bandeja = () => c.db.notificacion.findMany({ where: { tipo: "justificacion", clave: `justificacion:${j.id}` } });
+    expect((await bandeja()).map((n) => n.membershipId)).toEqual([c.miembros.tutora.membership.id]);
+    expect((await bandeja())[0].cuerpo).toContain("aprobada por el colegio");
+    await alAprobarJustificacion(c.db, (await ctxFresco("tutora")).tenant, j.id);
+    expect(await bandeja()).toHaveLength(1);
+    expect(await db.aviso.count({ where: { tenantId: c.tenant.id, plantilla: "justificacion_aprobada_docente", referenciaId: j.id } })).toBe(1);
   });
 
   it("caso 8: el profesor autoriza → la nueva nota queda en la actividad original y el historial conserva el NSP", async () => {

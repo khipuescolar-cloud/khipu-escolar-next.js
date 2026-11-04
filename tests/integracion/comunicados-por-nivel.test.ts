@@ -58,26 +58,29 @@ describe("comunicados por nivel y por grado", () => {
     await db.profile.deleteMany({ where: { id: { in: perfiles } } });
   });
 
+  /** Familias que reciben el comunicado en su bandeja (specs/38): una notificación por familia, sin consentimiento también. */
   const destinatarios = async (comunicadoId: string) => {
-    const avisos = await c.db.aviso.findMany({ where: { referenciaId: comunicadoId }, select: { apoderadoId: true } });
-    const nombres = await db.membership.findMany({ where: { id: { in: avisos.map((a) => a.apoderadoId!) } }, select: { user: { select: { nombres: true } } } });
+    const notifs = await c.db.notificacion.findMany({ where: { tipo: "comunicado", clave: `comunicado:${comunicadoId}` }, select: { membershipId: true } });
+    const nombres = await db.membership.findMany({ where: { id: { in: notifs.map((n) => n.membershipId) } }, select: { user: { select: { nombres: true } } } });
     return nombres.map((n) => n.user.nombres).sort();
   };
 
   it("por nivel avisa a las familias de los alumnos activos de salones activos de ese nivel", async () => {
     const r = await publicarComunicado(ctxs.direccion, { titulo: "Primaria", cuerpo: "Para primaria.", audiencia: { tipo: "niveles", niveles: ["primaria"] } });
-    // Madre (3.° B), 3.° A y 5.° A. No: sin avisos, retirado, salón archivado, secundaria, sin consentimiento.
-    expect(await destinatarios(r.id)).toEqual(["Rosa", "cincoA", "tresA"].sort());
-    expect(r.avisados).toBe(3);
+    // Madre y padre sin consentimiento (3.° B; lo ve en Khipu, sin push ni correo), 3.° A y 5.° A. No: sin avisos, retirado,
+    // salón archivado, secundaria.
+    expect(await destinatarios(r.id)).toEqual(["Martin", "Rosa", "cincoA", "tresA"].sort());
+    expect(r.avisados).toBe(4);
+    expect(await c.db.aviso.count({ where: { referenciaId: r.id, canal: "correo" } })).toBe(0); // no es importante
     const fila = await c.db.comunicado.findUniqueOrThrow({ where: { id: r.id } });
     expect([fila.salonId, fila.niveles, fila.grado]).toEqual([null, ["primaria"], null]);
   });
 
   it("varios niveles y un grado (todas sus secciones)", async () => {
     const dos = await publicarComunicado(ctxs.secretaria, { titulo: "Prim y Sec", cuerpo: "x", audiencia: { tipo: "niveles", niveles: ["secundaria", "primaria"] } });
-    expect(await destinatarios(dos.id)).toEqual(["Rosa", "cincoA", "secundaria", "tresA"].sort());
+    expect(await destinatarios(dos.id)).toEqual(["Martin", "Rosa", "cincoA", "secundaria", "tresA"].sort());
     const grado = await publicarComunicado(ctxs.direccion, { titulo: "Tercero", cuerpo: "Paseo de 3.°", audiencia: { tipo: "grado", nivel: "primaria", grado: 3 } });
-    expect(await destinatarios(grado.id)).toEqual(["Rosa", "tresA"].sort());
+    expect(await destinatarios(grado.id)).toEqual(["Martin", "Rosa", "tresA"].sort());
   });
 
   it("cada rol ve los de su nivel y su grado, con la etiqueta del destino", async () => {
@@ -108,6 +111,6 @@ describe("comunicados por nivel y por grado", () => {
     await expect(publicarComunicado(ctxs.madre, { titulo: "x", cuerpo: "y", audiencia: { tipo: "colegio" } })).rejects.toThrow();
     // Compatibilidad: salonId sigue funcionando.
     const r = await publicarComunicado(ctxs.tutora, { titulo: "Solo 3.° B", cuerpo: "y", salonId: c.salon.id });
-    expect(await destinatarios(r.id)).toEqual(["Rosa"]);
+    expect(await destinatarios(r.id)).toEqual(["Martin", "Rosa"]);
   });
 });

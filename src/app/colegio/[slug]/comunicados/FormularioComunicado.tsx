@@ -109,7 +109,7 @@ export function DialogoPublicar({ salones, esDireccion }: { salones: Salon[]; es
       <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="text-titulo-2">Publicar un comunicado</DialogTitle>
-          <DialogDescription>Las familias recibirán el aviso en cuanto lo publiques.</DialogDescription>
+          <DialogDescription>Las familias lo verán en sus notificaciones de Khipu y en el celular en cuanto lo publiques.</DialogDescription>
         </DialogHeader>
         <form
           action={(datos) => iniciar(async () => { await publicarComunicadoAction(datos); })}
@@ -122,6 +122,13 @@ export function DialogoPublicar({ salones, esDireccion }: { salones: Salon[]; es
             <textarea name="cuerpo" rows={5} maxLength={5000} required className={CLASE_CAMPO} />
           </label>
           <CamposAdjuntos id="adjuntos-nuevo-comunicado" />
+          <label className="flex items-start gap-3 rounded-lg border bg-muted/50 p-3 text-sm">
+            <input type="checkbox" name="importante" className="mt-0.5 size-4 accent-primary" />
+            <span>
+              <span className="font-medium">Importante: enviar también por correo</span>
+              <span className="block text-muted-foreground">Úsalo solo para lo que las familias no deben perderse.</span>
+            </span>
+          </label>
           <DialogFooter>
             <Boton type="submit" disabled={pendiente}>
               {pendiente && <Loader2 className="animate-spin" strokeWidth={2} aria-hidden />} Publicar y avisar

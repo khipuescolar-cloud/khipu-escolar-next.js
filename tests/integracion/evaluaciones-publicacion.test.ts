@@ -36,17 +36,18 @@ describe("programar y publicar evaluaciones", () => {
       cursoId: c.cursoTutora.id, periodoId, competenciaIds: [lee.id, escribe.id], titulo: "Examen trimestral", fecha: "2026-11-22",
       peso: "1", descripcion: "Comprensión lectora y producción de textos.", avisar: true,
     });
-    expect(r).toEqual({ ok: true, mensaje: "Evaluación creada: una columna por cada una de sus 2 competencias. Avisamos a 1 familia." });
+    expect(r).toEqual({ ok: true, mensaje: "Evaluación creada: una columna por cada una de sus 2 competencias. Avisamos a 2 familias." });
     const g = await grillaNotas(tutora, c.cursoTutora.id, periodoId);
     columnas = g.evaluaciones;
     grupoId = g.evaluaciones[0].grupoId;
     expect(new Set(g.evaluaciones.map((e) => e.grupoId)).size).toBe(1);
     expect(g.evaluaciones.every((e) => e.estado === "programada" && e.descripcion === "Comprensión lectora y producción de textos.")).toBe(true);
-    // Una sola evaluación con dos columnas = un aviso por familia y canal (solo la madre tiene consentimiento vigente).
-    const programada = await avisos("evaluacion_programada", grupoId);
-    expect(programada.length).toBeGreaterThan(0);
-    expect(new Set(programada.map((a) => `${a.apoderadoId}|${a.canal}`)).size).toBe(programada.length);
-    expect(programada.every((a) => a.apoderadoId === c.miembros.madre.membership.id)).toBe(true);
+    // Una sola evaluación con dos columnas = una notificación por familia en la bandeja (specs/38), sin correo. La familia
+    // sin consentimiento vigente la ve en Khipu (sin push); nadie tiene dispositivos, así que no hay filas en la cola.
+    const notifs = await c.db.notificacion.findMany({ where: { tipo: "evaluacion_programada", clave: `evaluacion:${grupoId}` } });
+    expect(new Set(notifs.map((n) => n.membershipId))).toEqual(new Set([c.miembros.madre.membership.id, c.miembros.padreSinConsentimiento.membership.id]));
+    expect(notifs).toHaveLength(2);
+    expect(await avisos("evaluacion_programada", grupoId)).toHaveLength(0);
 
     for (const col of columnas) expect(await guardarNota(tutora, { evaluacionId: col.id, alumnoId: c.alumnos.mateo.id, valor: "B" })).toMatchObject({ ok: true });
     const familia = await notasDeAlumno(c.ctxDe("madre"), c.alumnos.mateo.id, periodoId);
@@ -79,6 +80,7 @@ describe("programar y publicar evaluaciones", () => {
     const g = await grillaNotas(tutora, c.cursoTutora.id, periodoId);
     const otra = g.evaluaciones.find((e) => e.titulo === "Lista diaria")!;
     expect(await avisos("evaluacion_programada", otra.grupoId)).toHaveLength(0);
+    expect(await c.db.notificacion.count({ where: { clave: `evaluacion:${otra.grupoId}` } })).toBe(0);
     expect(await publicarEvaluacion(tutora, otra.grupoId)).toEqual({ ok: false, error: "Pon al menos una nota antes de publicar los resultados." });
   });
 

@@ -153,8 +153,6 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       libreta_publicada: { colegio, alumno: "Mateo", periodo: "III Bimestre 2026", url: "http://l" },
       informe_progreso: { colegio, alumno: "Mateo", curso: "Matemática", periodo: "I Trimestre 2027", url: "http://n" },
       evaluacion_programada: { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", fecha: "2026-11-22", url: "http://n" },
-      resultados_publicados: { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", url: "http://n" },
-      resumen_academico: { colegio, alumno: "Mateo", fecha: "2026-11-05", actividades: [{ curso: "Matemática", titulo: "Multiplicación", valor: "NSP" }, { curso: "Comunicación", titulo: "Lectura", valor: "A", observacion: true }], url: "http://n" },
       notificacion_academica: { colegio, titulo: "Nuevo resultado publicado", cuerpo: "Hay un resultado nuevo de Mateo en Matemática: «Fracciones».", url: "http://n", tag: "notas-1" },
       nota_corregida: { colegio, alumno: "Mateo", curso: "Matemática", titulo: "Multiplicación", motivo: "correccion_digitacion", url: "http://n" },
       recuperacion_registrada: { colegio, alumno: "Mateo", curso: "Matemática", titulo: "Multiplicación", url: "http://n" },
@@ -182,13 +180,14 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
 
   it("los avisos de NSP y correcciones no llevan la nota ni el diagnóstico (specs/37)", () => {
     const docente = renderizarPlantilla("justificacion_aprobada_docente", { colegio, alumno: "Juan Pérez", fecha: "2026-11-05", curso: "Matemática", actividades: ["Examen de multiplicación"], url: "http://n" });
-    expect(docente.texto).toContain("fue justificada por su apoderado y aprobada por el tutor");
+    expect(docente.texto).toContain("fue justificada por su apoderado y aprobada por el colegio");
+    expect(docente.texto).not.toContain("tutor");
     expect(docente.texto).toContain("La justificación no implica la obligación de realizar una nueva evaluación.");
     const corregida = renderizarPlantilla("nota_corregida", { colegio, alumno: "Mateo", curso: "Matemática", titulo: "Multiplicación", motivo: "consecuencia_vencimiento", url: "http://n" });
     expect(corregida.texto).toContain("venció el plazo para justificar");
-    const resumen = renderizarPlantilla("resumen_academico", { colegio, alumno: "Mateo", fecha: "2026-11-05", actividades: [{ curso: "Matemática", titulo: "Multiplicación", valor: "NSP" }], url: "http://n" });
-    expect(resumen.texto).toContain("Matemática · Multiplicación: NSP");
-    expect(resumen.texto).toContain("NSP: No se presentó.");
+    // El resumen académico diario se retiró (specs/38): sus plantillas ya no existen.
+    expect(() => renderizarPlantilla("resumen_academico", { colegio })).toThrow(PlantillaInvalidaError);
+    expect(() => renderizarPlantilla("resultados_publicados", { colegio })).toThrow(PlantillaInvalidaError);
   });
 
   it("bienvenida restablecida: avisa del restablecimiento y no repite la bienvenida ni el número", () => {
@@ -233,14 +232,11 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     expect(m.texto).toContain("Ver el informe: http://n");
   });
 
-  it("evaluación programada y resultados publicados: curso, título y fecha, sin emojis", () => {
+  it("evaluación programada: curso, título y fecha, sin emojis", () => {
     const p = { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", fecha: "2026-11-22", descripcion: "Traer diccionario.", url: "http://n" };
     const m = renderizarPlantilla("evaluacion_programada", p);
     expect(m.texto).toContain("Mateo tendrá la evaluación «Examen trimestral» de Comunicación el 22/11/2026.");
     expect(m.texto).toContain("Traer diccionario.");
-    const r = renderizarPlantilla("resultados_publicados", { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", url: "http://n" });
-    expect(r.asunto).toBe("Resultados de Comunicación: Examen trimestral");
-    expect(r.texto).toContain("Ver resultados: http://n");
   });
 
   it("alerta de rebote a dirección: nombra a la familia, el motivo y no lleva emojis", () => {

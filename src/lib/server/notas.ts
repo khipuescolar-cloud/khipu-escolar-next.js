@@ -9,7 +9,7 @@ import {
 import { analizarNotasCsv, exportarNotasCsv, MAX_BYTES_CSV_NOTAS, type ResultadoNotasCsv } from "@/lib/notas-csv";
 import { puedePublicarLibreta } from "@/lib/libreta-publicacion";
 import { urlColegio } from "@/lib/dominio";
-import { fechaDb } from "@/lib/fechas";
+import { fechaCorta, fechaDb } from "@/lib/fechas";
 import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-justificacion";
 import { primerNombre } from "@/lib/nombres";
 import { CANTIDAD_PERIODOS, NOMBRE_TIPO, TIPOS_PERIODO, TODOS_LOS_NIVELES, nivelesConOtroTipo, periodosSugeridos } from "@/lib/periodos-academicos";
@@ -20,6 +20,7 @@ import { guardarDesempenosEvaluacion, validarDesempenosEvaluacion } from "./cneb
 import { cursosDelDocente } from "./cursos";
 import { destinatariosDeAlumno, encolarParaDestinatario, tieneCanalAviso, type Destinatario } from "./notificaciones/encolar";
 import { conEnvio } from "./notificaciones/envios";
+import { cuentasDeAlumnos, entregarNotificaciones, porFamilia, vinculosFamilias, type Entrega } from "./notificaciones/internas";
 import { registrarEventoCorreccion, registrarEventoPublicacion } from "./eventos-academicos";
 import { avisarCambioNota, datosHistorial, sincronizarNsp, textoDeNota } from "./nsp";
 import { emitirLibretas } from "./libreta-emision";
@@ -454,9 +455,10 @@ export async function crearEvaluacion(ctx: TenantContext, entrada: unknown): Pro
 const textoFamilias = (n: number) => (n === 0 ? "Ninguna familia tiene avisos activos." : `Avisamos a ${n} ${n === 1 ? "familia" : "familias"}.`);
 
 /**
- * Aviso académico de una evaluación a las familias: una fila por familia y canal con los nombres de sus hijos juntos
- * (`referenciaId = grupoId`). Con `alumnoIds`, solo a las familias de esos alumnos; si no, a las de los alumnos activos
- * del salón del curso. Devuelve cuántas familias tienen un canal activo.
+ * Aviso de una evaluación programada (specs/11 y 38): bandeja + push, sin correo. Una notificación por familia con los
+ * nombres de sus hijos juntos y una por alumno con cuenta propia (clave `evaluacion:<grupoId>`, `referenciaId = grupoId`).
+ * Con `alumnoIds`, solo a esos alumnos; si no, a los alumnos activos del salón del curso. Consultas en lote (sin una por
+ * alumno). Devuelve cuántas familias la reciben en su bandeja.
  */
 async function avisarFamilias(
   ctx: TenantContext,
@@ -472,34 +474,33 @@ async function avisarFamilias(
     select: { id: true, nombres: true },
     orderBy: { nombres: "asc" },
   });
-  const porFamilia = new Map<string, { destinatario: Destinatario; hijos: string[] }>();
-  for (const al of alumnos) {
-    for (const dest of await destinatariosDeAlumno(ctx.db, al.id)) {
-      if (!tieneCanalAviso(dest)) continue;
-      const actual = porFamilia.get(dest.apoderadoId) ?? { destinatario: dest, hijos: [] };
-      actual.hijos.push(primerNombre(al.nombres));
-      porFamilia.set(dest.apoderadoId, actual);
-    }
-  }
-  await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "libreta", titulo: a.titulo, creadoPorId: ctx.membership.id }, async () => {
-    for (const { destinatario, hijos } of porFamilia.values()) {
-      await encolarParaDestinatario(ctx.db, destinatario, {
-        tenantId: ctx.tenant.id,
-        tipo: "libreta",
-        plantilla: a.plantilla,
-        referenciaId: a.grupoId,
-        payload: { colegio: ctx.tenant.nombre, alumno: unirNombres(hijos), curso: curso.nombre, ...a.payload, url: urlColegio(ctx.tenant.slug, "/notas") },
-      });
-    }
+  const ids = alumnos.map((al) => al.id);
+  const nombres = new Map(alumnos.map((al) => [al.id, primerNombre(al.nombres)]));
+  const [vinculos, cuentas] = await Promise.all([vinculosFamilias(ctx.db, ids), cuentasDeAlumnos(ctx.db, ids)]);
+  const familias = porFamilia(vinculos, ids);
+  const payload = { colegio: ctx.tenant.nombre, curso: curso.nombre, ...a.payload, url: urlColegio(ctx.tenant.slug, "/notas") };
+  const texto = (quien: string | null) => ({
+    titulo: `Evaluación programada: ${curso.nombre}`,
+    cuerpo: `${quien ? `${quien} tendrá` : "Tendrás"} la evaluación «${a.payload.titulo}» de ${curso.nombre} el ${fechaCorta(a.payload.fecha)}.`,
+    url: "/notas",
   });
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "enviar", entidad: a.plantilla, entidadId: a.grupoId, detalle: { familias: porFamilia.size } });
-  return porFamilia.size;
+  const entregas: Entrega<"evaluacion_programada">[] = [...familias.values()].map(({ vinculo, alumnoIds }) => {
+    const hijos = unirNombres(alumnoIds.map((id) => nombres.get(id) ?? ""));
+    return { membershipId: vinculo.apoderadoId, alumnoId: alumnoIds[0], ...texto(hijos), email: null, endpoints: vinculo.endpoints, apoderadoId: vinculo.apoderadoId, payload: { ...payload, alumno: hijos } };
+  });
+  for (const c of cuentas) entregas.push({ membershipId: c.membershipId, alumnoId: c.alumnoId, ...texto(null), email: null, endpoints: [], apoderadoId: null, payload });
+  await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "libreta", titulo: a.titulo, creadoPorId: ctx.membership.id }, () =>
+    entregarNotificaciones(ctx.db, {
+      tenant: ctx.tenant, tipo: "evaluacion_programada", clave: `evaluacion:${a.grupoId}`, tipoAviso: "libreta", plantilla: a.plantilla, referenciaId: a.grupoId, entregas,
+    }),
+  );
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "enviar", entidad: a.plantilla, entidadId: a.grupoId, detalle: { familias: familias.size, alumnos: cuentas.length } });
+  return familias.size;
 }
 
 /**
  * El profesor del curso publica los resultados de una evaluación (todas sus columnas): desde ahí la familia ve las notas.
- * No se avisa al instante: lo publicado entra en el resumen académico diario de cada alumno, a la hora que configuró el
- * colegio (specs/37). Publicar dos veces se rechaza. Se puede publicar con el curso o el periodo cerrados.
+ * La publicación crea un evento académico (outbox, specs/38): el worker notifica a las familias en la bandeja y por push. Publicar dos veces se rechaza. Se puede publicar con el curso o el periodo cerrados.
  */
 export async function publicarEvaluacion(ctx: TenantContext, grupoId: string): Promise<Resultado> {
   requireFeature(ctx, "notas");

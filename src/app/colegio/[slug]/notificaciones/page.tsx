@@ -6,7 +6,7 @@ import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Boton } from "@/components/ui/Boton";
 import { Card, CardContent } from "@/components/ui/card";
 import { fechaLima, formatoHora } from "@/lib/fechas";
-import { listarNotificaciones } from "@/lib/server/notificaciones/bandeja";
+import { listarNotificaciones, ROLES_BANDEJA } from "@/lib/server/notificaciones/bandeja";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cn } from "@/lib/utils";
 import { marcarTodasLeidasAction } from "./actions";
@@ -14,19 +14,20 @@ import { marcarTodasLeidasAction } from "./actions";
 export const metadata: Metadata = { title: "Notificaciones" };
 
 /**
- * Bandeja interna (specs/38): resultados publicados y cambios de notas de los hijos. Siempre está aquí, llegue o no el
- * push al celular. Al abrir una se marca leída y lleva a la actividad.
+ * Bandeja interna (specs/38): notas publicadas, tareas, evaluaciones programadas, mensajes, comunicados y, para el
+ * profesor, justificaciones e incidencias de sus clases. Siempre está aquí, llegue o no el push al celular. Al abrir una
+ * se marca leída y lleva a lo que avisa.
  */
 export default async function NotificacionesPage({ params, searchParams }: PageProps<"/colegio/[slug]/notificaciones">) {
   const { slug } = await params;
   const sp = await searchParams;
-  const ctx = await requireTenantContext(slug, ["apoderado"]);
+  const ctx = await requireTenantContext(slug, ROLES_BANDEJA);
   const datos = await listarNotificaciones(ctx, { pagina: Array.isArray(sp.pagina) ? sp.pagina[0] : sp.pagina });
   return (
     <div className="flex max-w-3xl flex-col gap-5">
       <EncabezadoPagina
         titulo="Notificaciones"
-        descripcion="Las notas que publican los profesores y los cambios en ellas."
+        descripcion={ctx.rol === "apoderado" || ctx.rol === "alumno" ? "Notas, tareas, evaluaciones, mensajes y comunicados del colegio." : "Mensajes de las familias y avisos del colegio sobre tus clases."}
         acciones={
           datos.sinLeer > 0 ? (
             <form action={marcarTodasLeidasAction.bind(null, slug)}>
@@ -36,7 +37,7 @@ export default async function NotificacionesPage({ params, searchParams }: PageP
         }
       />
       {datos.filas.length === 0 ? (
-        <EstadoVacio icono={Bell} titulo="No tienes notificaciones" descripcion="Cuando un profesor publique notas de tus hijos, aparecerán aquí." />
+        <EstadoVacio icono={Bell} titulo="No tienes notificaciones" descripcion="Cuando haya algo nuevo para ti en Khipu, aparecerá aquí." />
       ) : (
         <ul className="flex flex-col gap-2">
           {datos.filas.map((n) => (
