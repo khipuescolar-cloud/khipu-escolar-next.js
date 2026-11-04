@@ -1,6 +1,7 @@
 // Rol alumno (cuenta propia del estudiante): alcance solo de sí mismo. Requiere la BD local y Supabase Auth.
 // Crea su propio colegio `test-alumno-*` (Khipu Pro) y lo borra al terminar.
 import { randomUUID } from "node:crypto";
+import { asignarTareasSinDestinos } from "../../prisma/seed-tareas-destinos";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { historialDeHijos } from "@/lib/server/asistencia";
 import { db } from "@/lib/server/db";
@@ -31,6 +32,8 @@ beforeAll(async () => {
       { tenantId: c.tenant.id, cursoId: c.cursoAjeno.id, titulo: "Tarea de otro salón", fechaEntrega: manana, creadoPorId: c.miembros.otroProfesor.membership.id },
     ],
   });
+  // Secciones «Todos» y asignaciones como en la migración (specs/39).
+  await asignarTareasSinDestinos(db, c.tenant.id);
   const p = await db.periodo.create({ data: { tenantId: c.tenant.id, anio: 2026, tipo: "bimestre", numero: 1, nombre: "I Bimestre", inicio: new Date("2026-03-01"), fin: new Date("2026-05-15") } });
   periodoId = p.id;
 });

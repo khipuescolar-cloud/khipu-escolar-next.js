@@ -1,5 +1,6 @@
 // Nudito+ · tutor (specs/29). Requiere la BD local. Crea sus propios colegios `test-nudito-*` y los borra al terminar.
 import { randomUUID } from "node:crypto";
+import { asignarTareasSinDestinos } from "../../prisma/seed-tareas-destinos";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import type { Membership, Profile } from "@/generated/prisma/client";
 import { accesoModulosDeCodigo } from "@/lib/modulos";
@@ -57,6 +58,8 @@ beforeAll(async () => {
       { tenantId: c.tenant.id, cursoId: c.cursoTutora.id, titulo: "TAREA_DE_OTRO_SALON", fechaEntrega: manana, creadoPorId: c.miembros.tutora.membership.id },
     ],
   });
+  // Secciones «Todos» y asignaciones como en la migración (specs/39).
+  await asignarTareasSinDestinos(db, c.tenant.id);
 });
 
 afterAll(async () => {
