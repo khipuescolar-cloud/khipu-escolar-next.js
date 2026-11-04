@@ -1,6 +1,6 @@
 # 37 — NSP, justificaciones, recuperación, incidencias y libretas emitidas
 
-> Estado: implementado · Plan: Khipu Base (incidencias, plazo) y Khipu Pro (notas, libreta) · Última actualización: 2026-11-03 (Claude Code, rama `dev`)
+> Estado: implementado · Plan: Khipu Base (incidencias, plazo) y Khipu Pro (notas, libreta) · Última actualización: 2026-11-03 (Claude Code, rama `pre-academico`: integridad académica — borrado de evaluaciones, recuperación solo del profesor del curso, motivo mínimo, libretas emitidas imborrables, cron por lotes)
 
 ## Objetivo
 Conectar la asistencia con el registro auxiliar:
@@ -44,7 +44,7 @@ El registro auxiliar **no** calcula la calificación oficial.
 | Rol | Puede | No puede |
 |---|---|---|
 | Apoderado | Justificar faltas de sus hijos (una solicitud por fecha); ver estados y notas publicadas | Ver alumnos ajenos; justificar fuera de plazo |
-| Tutor del salón (o dirección) | Aprobar o rechazar justificaciones; ver el detalle de las incidencias de su salón | Decidir la recuperación de cursos ajenos |
+| Tutor del salón (o dirección) | Aprobar o rechazar justificaciones; ver el detalle de las incidencias de su salón | Decidir o registrar la recuperación de cursos ajenos (el servidor exige `cursos.profesor_id` = quien decide; dirección tampoco, porque no edita notas) |
 | Profesor del curso | Ver NSP, autorizar o no la recuperación, registrarla, corregir con motivo; registrar incidencias de sus salones; pedir rectificaciones de sus cursos | Editar notas de otros cursos o colegios; escribir «NSP» a mano |
 | Dirección | Configurar la consecuencia, la hora del resumen y el plazo; aprobar o rechazar rectificaciones; registrar y ver incidencias | Editar notas del registro auxiliar |
 | Administrativo | Registrar incidencias | Ver diagnósticos de salones ajenos (solo ve el detalle de las que registró) |
@@ -134,11 +134,17 @@ Si el colegio no configuró la consecuencia, el NSP queda igual y se cuenta como
 
 La misma regla vale para una **actividad registrada tarde**: `sincronizarNsp` llama a `aplicarVencimientos` con los NSP recién creados.
 
+**Volumen (cron):** `aplicarVencimientos` y `nspVencidosSinConsecuencia` filtran en SQL los NSP cuya actividad es de
+fecha ≤ hoy − plazo (calendario del colegio, `America/Lima` por defecto), ordenan por id y procesan **lotes de 500 con
+cursor** hasta agotarlos (antes: hasta 2000 sin filtro ni orden). La justificación de cada lote se carga en **una**
+consulta (no una por nota) y en memoria se confirma el vencimiento exacto (fin del último día). `sincronizarNsp` por
+evaluación carga los alumnos activos de todos los salones en una sola consulta.
+
 Un fallo en un colegio se registra y no detiene a los demás. Todo es idempotente, así que el próximo cron reintenta.
 
 ### 7. Recuperación en la actividad original
 1. En la rejilla, el NSP muestra su estado: «Sin justificar · hasta 20/11», «Justificación en revisión», «Justificación rechazada» o «Falta justificada».
-2. Con la falta justificada, el profesor del curso ve **«Autorizar recuperación»** y **«No autorizar»** (`decidirRecuperacion`, una sola vez; historial `decision_recuperacion`).
+2. Con la falta justificada, el profesor del curso ve **«Autorizar recuperación»** y **«No autorizar»** (`decidirRecuperacion`, una sola vez; historial `decision_recuperacion`). Solo el **profesor del curso** (`cursos.profesor_id`) decide y registra la recuperación: el tutor del salón que no dicta el curso recibe «La recuperación la decide y la registra el profesor del curso, no el tutor del salón.» (`requireCursoDelProfesor` sigue aceptando al tutor para lo demás).
 3. **Autorizada:** el profesor elige la nota y un diálogo pide la **fecha en que la rindió** (hoy por defecto, nunca futura).
    - Se guarda en la misma nota: valor nuevo, `marca = null`, `fecha_recuperacion` y `recuperacion = autorizada`.
    - El historial registra `recuperacion` NSP → 18, con motivo «Recuperación autorizada tras justificación aprobada.», la justificación y quién lo hizo.
@@ -148,7 +154,7 @@ Un fallo en un colegio se registra y no detiene a los demás. Todo es idempotent
 ### 8. Correcciones auditadas (`guardarNota`)
 Qué exige cada caso:
 - **En borrador:** el profesor corrige libremente. El historial registra `registro`.
-- **Evaluación publicada, un NSP o una consecuencia por vencimiento:** exige **tipo y motivo**. La rejilla abre «Motivo del cambio». Los tipos:
+- **Evaluación publicada, un NSP o una consecuencia por vencimiento:** exige **tipo y motivo** (mínimo **5 caracteres que no sean espacios**; si no: «Explica el motivo del cambio (mínimo 5 caracteres).»). La rejilla abre «Motivo del cambio». Los tipos:
   - corrección por error de digitación;
   - cambio asociado a asistencia;
   - otra modificación autorizada.
@@ -156,7 +162,8 @@ Qué exige cada caso:
 
 Reglas comunes:
 - La nota y su historial se guardan en una sola transacción.
-- El historial es **inmutable**: un trigger impide `UPDATE` y no hay endpoint para editarlo ni borrarlo.
+- El historial es **inmutable**: un trigger impide `UPDATE` y no hay endpoint para editarlo ni borrarlo. Desde `20261112090300_integridad_academica` tampoco se borra en cascada con su evaluación (FK `RESTRICT`).
+- **Eliminar una evaluación** (`eliminarEvaluacion`) solo se permite en borrador y sin historial, NSP, consecuencia ni recuperación; si no: «Esta actividad ya tiene resultados publicados o historial; no se puede eliminar». Como cada nota registrada deja historial, en la práctica solo se borran las actividades sin notas. La UI muestra «No se puede eliminar» (candado + palabra) en lugar del botón.
 - Si la evaluación está publicada, se envía `nota_corregida` solo a la familia de ese alumno, sin valores en el correo.
 - Intercambiar notas de dos alumnos son dos cambios con su motivo y dos avisos específicos.
 - La importación CSV no toca notas publicadas, NSP ni consecuencias: las cuenta y pide corregirlas una por una.
@@ -180,6 +187,7 @@ Reglas comunes:
 
 **Emisión**
 - `publicarLibreta` emite la **versión 1** de cada alumno: una copia congelada en `libretas_emitidas.datos`, con quién y cuándo. Es idempotente.
+- La emisión ocurre **antes** de marcar `libreta_publicada_at`: si falla a medias, el periodo queda sin publicar («No pudimos emitir todas las libretas. Vuelve a intentarlo…») y el siguiente intento (o «Reenviar aviso») emite solo las que faltan, sin duplicar.
 - Desde ahí, `datosLibreta` y el PDF muestran la versión vigente, no los datos en vivo. Un cambio en el registro auxiliar o en `calificaciones_periodo` no la toca.
 - `guardarCalificacionPeriodo` se rechaza: «La libreta de este periodo ya se emitió. Para corregirla, pide una rectificación…».
 
@@ -193,6 +201,7 @@ Reglas comunes:
 
 **Garantías**
 - La versión anterior queda intacta; un trigger impide editar `datos` y `version`.
+- Ninguna versión se **borra**: un trigger impide `DELETE` en `libretas_emitidas` y las FK a `alumnos` y `periodos` son `RESTRICT` (migración `20261112090300_integridad_academica`). Única excepción: borrar el colegio completo (cascada desde `tenants`: `scripts/borrar-colegio.ts`, compensación de `crearColegio`, `pnpm db:reconstruir`, tests); el trigger lo permite porque la fila del colegio ya no existe cuando la cascada llega. `organizarNivel` no borra periodos con libretas emitidas.
 - Nada se traslada al periodo siguiente.
 
 ## Modelo de datos
@@ -214,6 +223,10 @@ Reglas comunes:
   - `resumenes_academicos` (única por colegio + día).
 
 `20261110090100_nota_sin_valor_con_marca` reemplaza `notas_un_valor`: como máximo un valor, y sin valor solo con marca.
+
+`20261112090300_integridad_academica` (a mano): `historial_notas.evaluacion_id` → `RESTRICT` (antes `CASCADE`);
+`libretas_emitidas.alumno_id` y `periodo_id` → `RESTRICT`; trigger `libretas_emitidas_sin_delete` (permite solo la
+cascada del borrado del colegio). Postgres resuelve `RESTRICT` dentro de la cascada múltiple desde `tenants`.
 
 ## Contratos de `src/lib/server`
 ```ts
@@ -279,6 +292,7 @@ ultimoDiaJustificacion · expiracionJustificacion · dentroDelPlazo · textoPlaz
 - **Datos anteriores:** no se recalculan los NSP de actividades y faltas que ya existían, para no alterar notas ya publicadas. Se aplican desde que cambia la asistencia o se crea o mueve una actividad.
 
 ## Pruebas
+- **integridad:** `tests/integracion/integridad-academica.test.ts` (borrador vacío se elimina; con nota, publicada o con NSP no, y `eliminable` en la rejilla; FK RESTRICT del historial; tutor sin el curso no decide ni registra recuperación; motivo < 5 caracteres rechazado; fallo simulado a mitad de la emisión no publica y el reintento completa sin duplicar; DELETE y cascadas de alumno/periodo bloqueadas; borrar el colegio completo sigue funcionando; >2000 NSP vigentes no vencidos + 3 vencidos → se aplican los 3 con 1 consulta de notas y 1 de justificaciones; lotes con cursor 500+500+200; `sincronizarNsp` con una consulta de alumnos) y unit `tests/unit/integridad-notas.test.ts`.
 - **integración:** `tests/integracion/nsp-justificaciones-recuperacion.test.ts` cubre los casos 1–17:
   - NSP, NE y corrección de asistencia sin pisar notas;
   - incidencia (12) con el detalle reservado;
@@ -310,3 +324,5 @@ ultimoDiaJustificacion · expiracionJustificacion · dentroDelPlazo · textoPlaz
 - **Incidencias:** no hay edición ni anulación; un error se corrige en la asistencia de la clase.
 - **Plazo:** sigue configurable de 1 a 30 días (15 por defecto). ¿Se fija en 15?
 - **Rectificación:** no tiene adjuntos (la evidencia es texto) y la aprueba cualquier usuario de dirección.
+- **Rectificaciones — diferencia con el requisito original (pendiente de validación, sin cambios de código):** el requisito separaba la **autorización** de la rectificación y la **emisión** de la nueva versión; hoy la aprobación de dirección crea y publica la v2 al instante. La v1 sigue guardada pero no es visible en la UI. Quien pide la rectificación (si es de dirección) puede aprobarla él mismo. La evidencia es opcional.
+- **Borrado de evaluaciones:** una actividad en borrador con notas ya digitadas (historial `registro`) tampoco se puede eliminar. ¿Se acepta o se prefiere permitirlo mientras no esté publicada?

@@ -74,11 +74,13 @@ Flujo del ejemplo (examen de Comunicación del 22 de noviembre):
    Todo queda en borrador.
 4. «Publicar resultados»: la familia ve las notas y recibe una **notificación en Khipu y un Web Push** (outbox por evento,
    specs/38; sin correo por cada nota: el resumen diario se retiró el 2026-11-03). Publicar otra vez se rechaza.
-5. Cada cambio posterior exige tipo y motivo, queda en `historial_notas` (inmutable) y avisa a esa familia (`nota_corregida`).
+5. Cada cambio posterior exige tipo y motivo (mínimo 5 caracteres no vacíos), queda en `historial_notas` (inmutable) y avisa a esa familia (`nota_corregida`).
    Quien faltó ese día tiene **NSP** (lo pone la asistencia); quien asistió y no entregó, **NE**. Ninguno es un número.
 6. Al final del periodo, el profesor confirma la calificación por competencia con su conclusión, el tutor escribe su
    comentario, se cierran los cursos y dirección publica la libreta (`libreta_publicada`). Publicar **emite** una versión
    congelada; después solo cambia por rectificación aprobada por dirección (versión nueva; specs/37).
+   La emisión ocurre antes de marcar el periodo como publicado (un fallo a medias se reintenta sin duplicar) y las
+   versiones emitidas no se borran (trigger y FK `RESTRICT`, salvo al borrar el colegio completo).
 
 ## 5. Instrumentos con criterios
 
@@ -93,7 +95,7 @@ Flujo del ejemplo (examen de Comunicación del 22 de noviembre):
 
 | Rol | Puede |
 |---|---|
-| Profesor del curso | Crear, editar y eliminar evaluaciones y criterios; poner notas y resultados; publicar y reenviar; informe de progreso; confirmar calificaciones; cerrar el curso |
+| Profesor del curso | Crear, editar y eliminar evaluaciones (eliminar: solo borradores sin historial, NSP, consecuencia ni recuperación) y criterios; autorizar y registrar recuperaciones (solo él, no el tutor); poner notas y resultados; publicar y reenviar; informe de progreso; confirmar calificaciones; cerrar el curso |
 | Tutor del salón | Lo anterior en sus cursos y, además, el comentario de tutoría de sus alumnos (periodo abierto) |
 | Dirección | Ver todo (registro, historial, criterios, consolidado), cerrar y reabrir cursos y periodos, publicar la libreta, elegir la sugerencia provisional. No edita notas |
 | Apoderado / alumno | Solo sus hijos o a sí mismo: notas **publicadas**, informes compartidos y la libreta publicada. Nunca promedios del salón ni comparaciones |

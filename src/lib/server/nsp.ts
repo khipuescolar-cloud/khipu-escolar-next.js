@@ -3,7 +3,7 @@ import type { Tenant } from "@/generated/prisma/client";
 import type { CalificacionLiteral, MarcaNota, TipoCambioNota } from "@/generated/prisma/enums";
 import { textoValor, type Escala, type ValorCalificacion } from "@/lib/calificaciones";
 import { urlColegio } from "@/lib/dominio";
-import { isoDeFechaDb } from "@/lib/fechas";
+import { fechaDb, isoDeFechaDb, momentoEnZona, sumarDias } from "@/lib/fechas";
 import { primerNombre } from "@/lib/nombres";
 import { expiracionJustificacion, normalizarPlazoDias } from "@/lib/plazo-justificacion";
 import { auditar } from "./auditoria";
@@ -106,10 +106,12 @@ export async function sincronizarNsp(
     select: { id: true, cursoId: true, fecha: true, estado: true, curso: { select: { salonId: true } } },
   });
   const resumen: ResumenSincronizacion = { creados: 0, quitados: 0, notaIds: [], alumnosConNsp: [] };
+  // Por evaluación: los alumnos activos de todos los salones involucrados en una sola consulta.
+  const activosDeSalones = porEvaluacion
+    ? await tdb.alumno.findMany({ where: { salonId: { in: [...new Set(evaluaciones.map((e) => e.curso.salonId))] }, estado: "activo" }, select: { id: true, salonId: true } })
+    : null;
   for (const e of evaluaciones) {
-    const alumnoIds = porEvaluacion
-      ? (await tdb.alumno.findMany({ where: { salonId: e.curso.salonId, estado: "activo" }, select: { id: true } })).map((a) => a.id)
-      : salonesDeAlumnos!.filter((a) => a.salonId === e.curso.salonId).map((a) => a.id);
+    const alumnoIds = (activosDeSalones ?? salonesDeAlumnos!).filter((a) => a.salonId === e.curso.salonId).map((a) => a.id);
     if (alumnoIds.length === 0) continue;
     const [ausencias, notas] = await Promise.all([
       ausenciasEnCurso(tdb, e.cursoId, e.fecha, alumnoIds),
@@ -183,7 +185,63 @@ export async function justificacionDelDia(tdb: DbTenant, alumnoId: string, fecha
     orderBy: { createdAt: "desc" },
     select: { id: true, estado: true, createdAt: true, revisadoAt: true },
   });
+  return elegirJustificacion(js);
+}
+
+/** De las justificaciones de un día (más reciente primero): la aceptada, si no la pendiente, si no la última. */
+function elegirJustificacion<J extends { estado: string }>(js: J[]): J | null {
   return js.find((j) => j.estado === "aceptada") ?? js.find((j) => j.estado === "pendiente") ?? js[0] ?? null;
+}
+
+/** Tamaño del lote del cron de vencimientos. */
+export const LOTE_VENCIMIENTOS = 500;
+
+type FiltroVencimientos = { notaIds?: string[]; alumnoId?: string };
+
+/**
+ * NSP vigentes (sin valor, sin consecuencia y sin justificación vinculada) cuyo plazo ya venció, por lotes con cursor
+ * hasta agotarlos. En SQL se filtra por fecha de la actividad ≤ hoy − plazo (calendario del colegio) y se ordena por id;
+ * en memoria se confirma el vencimiento exacto (fin del último día en la zona del colegio). Las justificaciones del lote
+ * se cargan en una sola consulta (no una por nota).
+ */
+async function* nspVencidosPorLotes(tdb: DbTenant, tenant: TenantNsp, filtro: FiltroVencimientos, ahora: Date, lote = LOTE_VENCIMIENTOS) {
+  const plazo = normalizarPlazoDias(tenant.plazoJustificacionDias);
+  const hoy = momentoEnZona(ahora, tenant.zonaHoraria).isoFecha;
+  const fechaLimite = fechaDb(sumarDias(hoy, -plazo));
+  let despuesDe: string | undefined;
+  for (;;) {
+    const notas = await tdb.nota.findMany({
+      where: {
+        marca: "nsp", valorLiteral: null, valorNumerico: null, vencidaAt: null, justificacionId: null,
+        evaluacion: { fecha: { lte: fechaLimite } },
+        ...(filtro.notaIds ? { id: { in: filtro.notaIds } } : {}),
+        ...(filtro.alumnoId ? { alumnoId: filtro.alumnoId } : {}),
+        ...(despuesDe ? { AND: [{ id: { gt: despuesDe } }] } : {}),
+      },
+      select: {
+        id: true, alumnoId: true, evaluacionId: true,
+        alumno: { select: { nombres: true } },
+        evaluacion: { select: { fecha: true, estado: true, titulo: true, grupoId: true, curso: { select: { nombre: true } } } },
+      },
+      orderBy: { id: "asc" },
+      take: lote,
+    });
+    if (notas.length === 0) return;
+    despuesDe = notas[notas.length - 1].id;
+    const vencidas = notas.filter((n) => expiracionJustificacion(isoDeFechaDb(n.evaluacion.fecha), plazo, tenant.zonaHoraria) < ahora);
+    const justificaciones = vencidas.length === 0 ? [] : await tdb.justificacion.findMany({
+      where: { asistencia: { alumnoId: { in: [...new Set(vencidas.map((n) => n.alumnoId))] }, fecha: { in: [...new Set(vencidas.map((n) => n.evaluacion.fecha.getTime()))].map((t) => new Date(t)) } } },
+      orderBy: { createdAt: "desc" },
+      select: { id: true, estado: true, createdAt: true, revisadoAt: true, asistencia: { select: { alumnoId: true, fecha: true } } },
+    });
+    const porDia = new Map<string, typeof justificaciones>();
+    for (const j of justificaciones) {
+      const clave = `${j.asistencia.alumnoId}|${j.asistencia.fecha.getTime()}`;
+      porDia.set(clave, [...(porDia.get(clave) ?? []), j]);
+    }
+    yield vencidas.map((n) => ({ nota: n, justificacion: elegirJustificacion(porDia.get(`${n.alumnoId}|${n.evaluacion.fecha.getTime()}`) ?? []) }));
+    if (notas.length < lote) return;
+  }
 }
 
 export type ResumenVencimientos = { aplicadas: number; sinConfigurar: number; vinculadas: number };
@@ -195,68 +253,54 @@ export type ResumenVencimientos = { aplicadas: number; sinConfigurar: number; vi
  * Una justificación pendiente detiene la consecuencia aunque el tutor la revise después del plazo.
  */
 export async function aplicarVencimientos(
-  tdb: DbTenant, tenant: TenantNsp, filtro: { notaIds?: string[]; alumnoId?: string } = {}, ahora = new Date(),
+  tdb: DbTenant, tenant: TenantNsp, filtro: FiltroVencimientos = {}, ahora = new Date(),
 ): Promise<ResumenVencimientos> {
   const resumen: ResumenVencimientos = { aplicadas: 0, sinConfigurar: 0, vinculadas: 0 };
-  const candidatas = await tdb.nota.findMany({
-    where: {
-      marca: "nsp", valorLiteral: null, valorNumerico: null, vencidaAt: null, justificacionId: null,
-      ...(filtro.notaIds ? { id: { in: filtro.notaIds } } : {}),
-      ...(filtro.alumnoId ? { alumnoId: filtro.alumnoId } : {}),
-    },
-    select: {
-      id: true, alumnoId: true, evaluacionId: true,
-      alumno: { select: { nombres: true } },
-      evaluacion: { select: { fecha: true, estado: true, titulo: true, grupoId: true, curso: { select: { nombre: true } } } },
-    },
-    take: 2000,
-  });
   const plazo = normalizarPlazoDias(tenant.plazoJustificacionDias);
   const consecuencia = consecuenciaDelColegio(tenant);
-  for (const n of candidatas) {
-    const fecha = isoDeFechaDb(n.evaluacion.fecha);
-    if (expiracionJustificacion(fecha, plazo, tenant.zonaHoraria) >= ahora) continue;
-    const j = await justificacionDelDia(tdb, n.alumnoId, n.evaluacion.fecha);
-    if (j?.estado === "pendiente") continue;
-    if (j?.estado === "aceptada") {
-      // Aprobada antes de que existiera el NSP (actividad registrada tarde): se vincula, no hay consecuencia.
-      const r = await tdb.nota.updateMany({ where: { id: n.id, justificacionId: null }, data: { justificacionId: j.id } });
-      resumen.vinculadas += r.count;
-      continue;
-    }
-    if (!consecuencia) {
-      resumen.sinConfigurar += 1;
-      continue;
-    }
-    const publicada = n.evaluacion.estado === "publicada";
-    const nuevo = textoValor(consecuencia);
-    const aplicada = await tdb.$transaction(async (tx) => {
-      const r = await tx.nota.updateMany({
-        where: { id: n.id, marca: "nsp", valorLiteral: null, valorNumerico: null, vencidaAt: null, justificacionId: null },
-        data: { valorLiteral: consecuencia.valorLiteral as CalificacionLiteral | null, valorNumerico: consecuencia.valorNumerico, vencidaAt: ahora },
+  for await (const lote of nspVencidosPorLotes(tdb, tenant, filtro, ahora)) {
+    for (const { nota: n, justificacion: j } of lote) {
+      if (j?.estado === "pendiente") continue;
+      if (j?.estado === "aceptada") {
+        // Aprobada antes de que existiera el NSP (actividad registrada tarde): se vincula, no hay consecuencia.
+        const r = await tdb.nota.updateMany({ where: { id: n.id, justificacionId: null }, data: { justificacionId: j.id } });
+        resumen.vinculadas += r.count;
+        continue;
+      }
+      if (!consecuencia) {
+        resumen.sinConfigurar += 1;
+        continue;
+      }
+      const publicada = n.evaluacion.estado === "publicada";
+      const nuevo = textoValor(consecuencia);
+      const aplicada = await tdb.$transaction(async (tx) => {
+        const r = await tx.nota.updateMany({
+          where: { id: n.id, marca: "nsp", valorLiteral: null, valorNumerico: null, vencidaAt: null, justificacionId: null },
+          data: { valorLiteral: consecuencia.valorLiteral as CalificacionLiteral | null, valorNumerico: consecuencia.valorNumerico, vencidaAt: ahora },
+        });
+        if (r.count !== 1) return false;
+        await tx.historialNota.create({
+          data: datosHistorial({
+            tenantId: tenant.id, evaluacionId: n.evaluacionId, alumnoId: n.alumnoId, anterior: "NSP", nuevo, tipo: "consecuencia_vencimiento",
+            motivo: `Venció el plazo de ${plazo} días calendario sin justificación${j?.estado === "rechazada" ? " aprobada (la presentada fue rechazada)" : ""}. Política del colegio: ${nuevo}.`,
+            cambiadoPorId: null, publicada, justificacionId: j?.id ?? null,
+          }),
+        });
+        if (publicada) await registrarEventoCorreccion(tx, { tenantId: tenant.id, grupoId: n.evaluacion.grupoId, alumnoId: n.alumnoId, creadoPorId: null });
+        return true;
       });
-      if (r.count !== 1) return false;
-      await tx.historialNota.create({
-        data: datosHistorial({
-          tenantId: tenant.id, evaluacionId: n.evaluacionId, alumnoId: n.alumnoId, anterior: "NSP", nuevo, tipo: "consecuencia_vencimiento",
-          motivo: `Venció el plazo de ${plazo} días calendario sin justificación${j?.estado === "rechazada" ? " aprobada (la presentada fue rechazada)" : ""}. Política del colegio: ${nuevo}.`,
-          cambiadoPorId: null, publicada, justificacionId: j?.id ?? null,
-        }),
+      if (!aplicada) continue;
+      resumen.aplicadas += 1;
+      await auditar({
+        tenantId: tenant.id, actorId: null, accion: "editar", entidad: "nota", entidadId: n.evaluacionId,
+        detalle: { alumnoId: n.alumnoId, consecuenciaVencimiento: nuevo, plazoDias: plazo },
       });
-      if (publicada) await registrarEventoCorreccion(tx, { tenantId: tenant.id, grupoId: n.evaluacion.grupoId, alumnoId: n.alumnoId, creadoPorId: null });
-      return true;
-    });
-    if (!aplicada) continue;
-    resumen.aplicadas += 1;
-    await auditar({
-      tenantId: tenant.id, actorId: null, accion: "editar", entidad: "nota", entidadId: n.evaluacionId,
-      detalle: { alumnoId: n.alumnoId, consecuenciaVencimiento: nuevo, plazoDias: plazo },
-    });
-    if (publicada) {
-      await avisarCambioNota(tdb, tenant, {
-        alumnoId: n.alumnoId, alumno: primerNombre(n.alumno.nombres), curso: n.evaluacion.curso.nombre, titulo: n.evaluacion.titulo,
-        evaluacionId: n.evaluacionId, motivo: "consecuencia_vencimiento",
-      });
+      if (publicada) {
+        await avisarCambioNota(tdb, tenant, {
+          alumnoId: n.alumnoId, alumno: primerNombre(n.alumno.nombres), curso: n.evaluacion.curso.nombre, titulo: n.evaluacion.titulo,
+          evaluacionId: n.evaluacionId, motivo: "consecuencia_vencimiento",
+        });
+      }
     }
   }
   return resumen;
@@ -292,16 +336,9 @@ export async function procesarVencimientosNsp(ahora = new Date()): Promise<Resum
 /** NSP con plazo vencido que esperan la configuración de la consecuencia (alerta de dirección). */
 export async function nspVencidosSinConsecuencia(tdb: DbTenant, tenant: TenantNsp, ahora = new Date()): Promise<number> {
   if (consecuenciaDelColegio(tenant)) return 0;
-  const notas = await tdb.nota.findMany({
-    where: { marca: "nsp", valorLiteral: null, valorNumerico: null, vencidaAt: null, justificacionId: null },
-    select: { alumnoId: true, evaluacion: { select: { fecha: true } } },
-    take: 2000,
-  });
   let n = 0;
-  for (const x of notas) {
-    if (expiracionJustificacion(isoDeFechaDb(x.evaluacion.fecha), tenant.plazoJustificacionDias, tenant.zonaHoraria) >= ahora) continue;
-    const j = await justificacionDelDia(tdb, x.alumnoId, x.evaluacion.fecha);
-    if (j?.estado !== "pendiente" && j?.estado !== "aceptada") n += 1;
+  for await (const lote of nspVencidosPorLotes(tdb, tenant, {}, ahora)) {
+    n += lote.filter(({ justificacion: j }) => j?.estado !== "pendiente" && j?.estado !== "aceptada").length;
   }
   return n;
 }
