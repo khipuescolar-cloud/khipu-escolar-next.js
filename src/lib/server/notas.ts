@@ -413,7 +413,11 @@ const esquemaNuevaEvaluacion = esquemaEvaluacion.extend({
   avisar: z.boolean().optional(),
 });
 
-export async function crearEvaluacion(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
+/**
+ * Crea una evaluación (una columna por competencia). Con `opciones.tareaId` (tarea calificable, specs/39) queda ligada a
+ * la tarea, no genera NSP (specs/37) y no avisa «evaluación programada» (la tarea ya avisó).
+ */
+export async function crearEvaluacion(ctx: TenantContext, entrada: unknown, opciones: { tareaId?: string } = {}): Promise<Resultado> {
   const d = esquemaNuevaEvaluacion.safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
   await cursoEscritura(ctx, d.data.cursoId);
@@ -441,7 +445,7 @@ export async function crearEvaluacion(ctx: TenantContext, entrada: unknown): Pro
   const base = {
     tenantId: ctx.tenant.id, cursoId: d.data.cursoId, periodoId: d.data.periodoId, titulo: d.data.titulo, grupoId,
     fecha: fechaDate(d.data.fecha), peso: d.data.peso, instrumento: d.data.instrumento ?? null,
-    descripcion: d.data.descripcion || null, estado: "programada" as const,
+    descripcion: d.data.descripcion || null, estado: "programada" as const, tareaId: opciones.tareaId ?? null,
   };
   const destinos = competenciaIds.length > 0 ? competenciaIds : [null];
   const creadas: string[] = [];
@@ -452,6 +456,7 @@ export async function crearEvaluacion(ctx: TenantContext, entrada: unknown): Pro
     if (marcados.length) await guardarDesempenosEvaluacion(ctx.db, ctx.tenant.id, e.id, marcados);
     await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "evaluacion", entidadId: e.id, detalle: { grupoId } });
   }
+  if (opciones.tareaId) return ok("Evaluación creada.");
   // NSP automático (specs/37): quien faltó a la clase ese día queda con «No se presentó».
   const nsp = await sincronizarNsp(ctx.db, ctx.tenant, { evaluacionIds: creadas });
   const columnas = destinos.length > 1 ? `: una columna por cada una de sus ${destinos.length} competencias` : "";
@@ -764,6 +769,12 @@ export async function guardarNota(ctx: TenantContext, entrada: unknown): Promise
 
   const v = interpretarEntradaNota(escalaDe(ctx), d.data.valor);
   if (!v.ok) return fallo(v.error);
+  // Evaluación de una tarea (specs/39): solo a quienes la tienen asignada y nunca NSP («NE» lo marca el docente).
+  if (evaluacion.tareaId) {
+    if (v.marca === "nsp") return fallo("Una tarea no lleva NSP: si no la entregó, marca «NE».");
+    const asignada = await ctx.db.tareaAsignacion.count({ where: { tareaId: evaluacion.tareaId, alumnoId: alumno.id, retiradaAt: null } });
+    if (asignada === 0) return fallo("Este alumno no tiene asignada la tarea: no lleva nota en esta columna.");
+  }
   const antes = await ctx.db.nota.findFirst({ where: { evaluacionId: evaluacion.id, alumnoId: alumno.id } });
   const anterior = textoDeNota(antes);
   const nuevo = v.valor ? textoValor(v.valor) : v.marca ? textoValor({ valorLiteral: null, valorNumerico: null, marca: v.marca }) : null;

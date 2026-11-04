@@ -5,12 +5,12 @@ import { MAX_DIAS_RANGO, diasNoLectivos, fechasEntre, proyectarClases, type Filt
 import { fechaLima, instanteLima, momentoEnZona } from "@/lib/fechas";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { adjuntoVista } from "./adjuntos";
-import { puedeVerTarea } from "./archivos";
 import { auditar } from "./auditoria";
 import { buscarBloques, wherePorProfesor } from "./horario";
 import { feriadosAplicables } from "./plataforma-configuracion";
 import { requireFeature, tieneFeature } from "./plan";
 import { salonEsActivo, whereSalonActivo } from "./salones-activos";
+import { tareasVisiblesParaAgenda } from "./tareas";
 import { requireRol, salonIdsVisibles, type TenantContext } from "./tenant";
 
 export type CategoriaAgenda = "clase" | "mi-reunion" | "personal" | "academico" | "institucional" | "salon";
@@ -201,23 +201,18 @@ async function evaluacionesDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
  * tienen fecha de entrega.
  */
 async function entregasDeTareas(ctx: TenantContext, rango: { gte: Date; lt: Date }, salonIds: string[]): Promise<ItemAgenda[]> {
-  const tareas = await ctx.db.tarea.findMany({
-    where: { fechaEntrega: rango, curso: { salonId: { in: salonIds } } },
-    include: {
-      adjuntos: { orderBy: { createdAt: "asc" } },
-      curso: { select: { nombre: true, salonId: true, salon: { select: { nombre: true } } } },
-    },
-  });
-  return Promise.all(
-    tareas
-      .filter((t) => t.fechaEntrega != null)
-      .map(async (t) => ({
-        id: t.id, tipo: "entrega" as const, categoria: "academico" as const, salonId: t.curso.salonId, titulo: `Entrega: ${t.titulo}`, descripcion: t.descripcion,
-        inicio: t.fechaEntrega as Date, fin: null,
-        ambito: `${t.curso.nombre} · ${t.curso.salon.nombre}`, eliminable: false,
-        adjuntos: t.adjuntos.length > 0 && (await puedeVerTarea(ctx, t)) ? t.adjuntos.map(adjuntoVista) : [],
-      })),
-  );
+  // Tareas (specs/39): la visibilidad vive en el módulo de tareas (asignaciones vigentes; sin fecha → no aparece).
+  const permitidos = new Set(salonIds);
+  const tareas = await tareasVisiblesParaAgenda(ctx, rango.gte, rango.lt);
+  const familia = ctx.rol === "apoderado" || ctx.rol === "alumno";
+  return tareas
+    .filter((t) => familia || permitidos.has(t.salonId))
+    .map((t) => ({
+      id: t.id, tipo: "entrega" as const, categoria: "academico" as const, salonId: t.salonId, titulo: `Entrega: ${t.titulo}`, descripcion: t.descripcion,
+      inicio: t.inicio, fin: null,
+      ambito: `${t.curso} · ${t.salon}`, eliminable: false, adjuntos: t.adjuntos,
+      href: familia ? `/tareas/${t.id.split(":")[0]}` : "/tareas",
+    }));
 }
 
 /** Salones del filtro «Curso/sección» del calendario: los visibles para el usuario y no archivados. */

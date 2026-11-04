@@ -54,8 +54,13 @@ export async function datosDelAlumno(cliente: DbTenant, alumnoId: string, ahora:
       : [];
   const desempenos = delPeriodo.length > 0 ? delPeriodo : delGrado;
 
+  // Solo las tareas asignadas al alumno (specs/39), publicadas y visibles, pendientes de entregar.
   const tareas = await cliente.tarea.findMany({
-    where: { cursoId: { in: cursoIds }, fechaEntrega: { gte: ahora, lte: new Date(ahora.getTime() + DIAS_TAREAS * 86_400_000) } },
+    where: {
+      estado: "publicada", OR: [{ publicarEn: null }, { publicarEn: { lte: ahora } }],
+      asignaciones: { some: { alumnoId, retiradaAt: null, estado: { in: ["asignada", "en_proceso", "devuelta"] } } },
+      fechaEntrega: { gte: ahora, lte: new Date(ahora.getTime() + DIAS_TAREAS * 86_400_000) },
+    },
     orderBy: { fechaEntrega: "asc" },
     take: MAX_TAREAS,
     select: { titulo: true, fechaEntrega: true, curso: { select: { nombre: true } } },
@@ -71,7 +76,7 @@ export async function datosDelAlumno(cliente: DbTenant, alumnoId: string, ahora:
     nombre: alumno.nombres.split(" ")[0] ?? alumno.nombres,
     grado: salon.grado ? `${salon.grado}.° de ${NIVEL_LEGIBLE[salon.nivel]}` : `${salon.nombre} (${NIVEL_LEGIBLE[salon.nivel]})`,
     cursos: cursosNudito,
-    tareas: tareas.map((t) => ({ curso: t.curso.nombre, titulo: t.titulo, entrega: formatoDia(t.fechaEntrega) })),
+    tareas: tareas.map((t) => ({ curso: t.curso.nombre, titulo: t.titulo, entrega: formatoDia(t.fechaEntrega!) })),
     periodo: periodo?.nombre ?? null,
     sitios,
   };

@@ -6,6 +6,7 @@ import { whereComunicadosVisibles } from "./comunicados";
 import { puedeVerDocumento } from "./documentos";
 import { requireFeature } from "./plan";
 import { puedeVerAdjuntoSoporte } from "./soporte";
+import { whereTareaVisible } from "./tareas/comun";
 import { alumnoIdsVisibles, salonIdsVisibles, type TenantContext } from "./tenant";
 
 // Quién puede ver un archivo privado del colegio (specs/14). Se usa en /archivos/<id>.
@@ -39,14 +40,30 @@ export async function requireArchivoVisible(ctx: TenantContext, archivoId: strin
     forbidden();
   }
 
-  // Adjunto de una tarea: dirección, quien la creó, profesores del curso/salón y familias de ese salón.
+  // Material de una tarea (specs/39): dirección, autor, profesores de los salones de sus secciones y familias/alumnos con
+  // asignación vigente en la tarea visible.
   if (archivo.tareaId) {
-    const t = await ctx.db.tarea.findFirst({
-      where: { id: archivo.tareaId },
-      select: { creadoPorId: true, curso: { select: { salonId: true } } },
-    });
-    if (t && (await puedeVerTarea(ctx, t))) return archivo;
+    if (await puedeVerTarea(ctx, archivo.tareaId)) return archivo;
     forbidden();
+  }
+
+  // Archivo de una ENTREGA (specs/39): solo el alumno, sus apoderados, el profesor del curso de la sección (o el autor) y
+  // dirección. No otros profesores del salón ni el modo soporte. Cada descarga se audita.
+  if (archivo.entregaId) {
+    if (ctx.soporte) forbidden();
+    const e = await ctx.db.tareaEntrega.findFirst({
+      where: { id: archivo.entregaId },
+      select: { asignacion: { select: { alumnoId: true, tarea: { select: { id: true, creadoPorId: true } }, tareaCurso: { select: { curso: { select: { profesorId: true } } } } } } },
+    });
+    if (!e) forbidden();
+    const a = e.asignacion;
+    const permitido =
+      ctx.rol === "direccion" ||
+      (ctx.rol === "profesor" && (a.tareaCurso.curso.profesorId === ctx.membership.id || a.tarea.creadoPorId === ctx.membership.id)) ||
+      ((ctx.rol === "alumno" || ctx.rol === "apoderado") && (await alumnoIdsVisibles(ctx)).includes(a.alumnoId));
+    if (!permitido) forbidden();
+    await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "tarea_entrega_archivo", entidadId: archivo.id, detalle: { descarga: true, tareaId: a.tarea.id, alumnoId: a.alumnoId } });
+    return archivo;
   }
 
   // Documento de la biblioteca (specs/31): lo ve quien cumple la regla de visibilidad por rol, carpeta y salón. Cada descarga se audita.
@@ -75,9 +92,21 @@ export async function puedeVerComunicado(ctx: TenantContext, comunicadoId: strin
   return (await ctx.db.comunicado.count({ where: { AND: [{ id: comunicadoId }, await whereComunicadosVisibles(ctx)] } })) > 0;
 }
 
-/** Tareas: dirección y creador siempre; profesores y apoderados solo de sus salones. */
-export async function puedeVerTarea(ctx: TenantContext, t: { creadoPorId: string; curso: { salonId: string } }): Promise<boolean> {
+/**
+ * Materiales de una tarea (specs/39): dirección y autor siempre; profesores de los salones de sus secciones; familias y
+ * alumnos solo si tienen una asignación vigente (no retirada) en la tarea ya publicada y visible.
+ */
+export async function puedeVerTarea(ctx: TenantContext, tareaId: string): Promise<boolean> {
+  const t = await ctx.db.tarea.findFirst({ where: { id: tareaId }, select: { creadoPorId: true, cursos: { select: { curso: { select: { salonId: true } } } } } });
+  if (!t) return false;
   if (ctx.rol === "direccion" || t.creadoPorId === ctx.membership.id) return true;
-  if (ctx.rol !== "profesor" && ctx.rol !== "apoderado" && ctx.rol !== "alumno") return false;
-  return (await salonIdsVisibles(ctx)).includes(t.curso.salonId);
+  if (ctx.rol === "profesor") {
+    const salones = await salonIdsVisibles(ctx);
+    return t.cursos.some((s) => salones.includes(s.curso.salonId));
+  }
+  if (ctx.rol !== "apoderado" && ctx.rol !== "alumno") return false;
+  const n = await ctx.db.tareaAsignacion.count({
+    where: { tareaId, alumnoId: { in: await alumnoIdsVisibles(ctx) }, retiradaAt: null, tarea: whereTareaVisible(new Date()) },
+  });
+  return n > 0;
 }

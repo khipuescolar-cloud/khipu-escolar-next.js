@@ -247,3 +247,7 @@ notasDeAlumno(...).cursos[i]: { profesor, evaluaciones: [{ grupoId, instrumento,
 - **`e2e`:** `tareas-agenda` se adaptó (bandeja en vez de correo) pero no se corrió en esta rama.
 - **Canales pendientes de decidir:** ver §7 (llegada diaria, recordatorio de reunión, documento nuevo, informe de progreso).
 - **Retención:** no hay purga de notificaciones antiguas.
+
+## Tareas (specs/39)
+- Bandeja + push, sin correo, a los asignados (apoderado y alumno con cuenta): `tarea:<id>` (publicada; programadas vía cron con `avisada_at`), `tarea-plazo:<cambioId>`, `tarea-devuelta:<asignacionId>:<ms>`. Plantilla nueva `tarea_actualizada`; `tarea_nueva.fechaEntrega` es opcional.
+- Sin recordatorio de vencimiento (pendiente: cron diario en Hobby).

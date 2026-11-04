@@ -268,6 +268,10 @@ model Tenant {
   horaResumenAcademico            String               @default("18:00") @map("hora_resumen_academico")
   /// Grado de primaria (1–6) desde el que un alumno puede tener cuenta propia. Secundaria siempre; inicial nunca (specs/10).
   gradoMinimoCuentaAlumno         Int                  @default(5) @map("grado_minimo_cuenta_alumno")
+  /// Tareas (specs/39): máximo de archivos y MB por archivo en materiales y entregas. Techo duro en código: 5 y 10
+  /// (5 × 10 MB cabe en el `bodySizeLimit` de 55 MB de las server actions).
+  tareasMaxArchivos               Int                  @default(5) @map("tareas_max_archivos")
+  tareasMaxMb                     Int                  @default(10) @map("tareas_max_mb")
   /// Niveles con asistencia por curso (specs/04): los profesores pasan lista de sus cursos solo en salones de estos niveles.
   /// La asistencia al colegio (`ambito = "dia"`: portería o lista del tutor) no depende de esto.
   asistenciaPorCursoNiveles       Nivel[]              @default([]) @map("asistencia_por_curso_niveles")
@@ -299,6 +303,12 @@ model Tenant {
   notas                 Nota[]
   calificacionesPeriodo CalificacionPeriodo[]
   tareas                Tarea[]
+  tareaCursos           TareaCurso[]
+  tareaAsignaciones     TareaAsignacion[]
+  tareaEntregas         TareaEntrega[]
+  tareaComentarios      TareaComentario[]
+  tareaEnlaces          TareaEnlace[]
+  tareaCambiosPlazo     TareaCambioPlazo[]
   eventosAgenda         EventoAgenda[]
   documentosColegio     DocumentoColegio[]
   nuditoConversaciones  NuditoConversacion[]
@@ -406,6 +416,11 @@ model Membership {
   preferenciaAviso         PreferenciaAviso?
   notasRegistradas         Nota[]
   tareasCreadas            Tarea[]
+  tareasEntregadasPor      TareaAsignacion[]      @relation("TareaEntregadaPor")
+  tareaEntregasEnviadas    TareaEntrega[]         @relation("TareaEntregaEnviadaPor")
+  tareaComentarios         TareaComentario[]      @relation("TareaComentarioAutor")
+  tareaComentariosOcultos  TareaComentario[]      @relation("TareaComentarioOculto")
+  tareaCambiosPlazo        TareaCambioPlazo[]     @relation("TareaCambioPlazoAutor")
   eventosCreados           EventoAgenda[]
   nuditoConversaciones     NuditoConversacion[]
   ticketsSoporte           TicketSoporte[]        @relation("TicketsCreados")
@@ -482,6 +497,7 @@ model Curso {
   competencias          Competencia[]
   evaluaciones          Evaluacion[]
   tareas                Tarea[]
+  tareaCursos           TareaCurso[]
   cierres               CierreCurso[]
   enviosInformeProgreso EnvioInformeProgreso[]
   bloques               BloqueHorario[]
@@ -534,6 +550,7 @@ model Alumno {
   libretasEmitidas      LibretaEmitida[]
   rectificaciones       RectificacionLibreta[]
   notificaciones        Notificacion[]
+  tareaAsignaciones     TareaAsignacion[]
 
   @@index([tenantId, salonId])
   @@index([tenantId, numeroDocumento])
@@ -806,6 +823,8 @@ model Archivo {
   mensajeSoporteId String?          @map("mensaje_soporte_id") @db.Uuid
   /// Archivo de un documento de la biblioteca (specs/31). Un documento tiene un archivo vigente (el más reciente).
   documentoId      String?          @map("documento_id") @db.Uuid
+  /// Archivo de una entrega de tarea (specs/39).
+  entregaId        String?          @map("entrega_id") @db.Uuid
   nombre           String?
   createdAt        DateTime         @default(now()) @map("created_at") @db.Timestamptz
 
@@ -816,11 +835,13 @@ model Archivo {
   exportaciones   ExportacionColegio[]
   mensajeSoporte  MensajeSoporte?      @relation(fields: [mensajeSoporteId], references: [id], onDelete: Cascade)
   documento       Documento?           @relation(fields: [documentoId], references: [id], onDelete: Cascade)
+  entrega         TareaEntrega?        @relation(fields: [entregaId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
   @@index([comunicadoId])
   @@index([tareaId])
   @@index([documentoId])
+  @@index([entregaId])
   @@map("archivos")
 }
 
@@ -980,6 +1001,7 @@ model Competencia {
   desempenos            Desempeno[]
   informesProgreso      InformeProgreso[]
   rectificaciones       RectificacionLibreta[]
+  tareas                Tarea[]
 
   @@index([tenantId, cursoId])
   @@map("competencias")
@@ -1001,9 +1023,12 @@ model Evaluacion {
   /// Por defecto `publicada` (datos anteriores, cargas y seeds); `crearEvaluacion` crea las nuevas como `programada`.
   estado        EstadoEvaluacion       @default(publicada)
   publicadaAt   DateTime?              @map("publicada_at") @db.Timestamptz
+  /// Evaluación creada desde una tarea calificable (specs/39): nunca genera NSP (specs/37).
+  tareaId       String?                @map("tarea_id") @db.Uuid
 
   tenant      Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   curso       Curso                 @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  tarea       Tarea?                @relation(fields: [tareaId], references: [id], onDelete: SetNull)
   periodo     Periodo               @relation(fields: [periodoId], references: [id], onDelete: Cascade)
   competencia Competencia?          @relation(fields: [competenciaId], references: [id], onDelete: SetNull)
   notas       Nota[]
@@ -1013,6 +1038,7 @@ model Evaluacion {
 
   @@index([tenantId, cursoId, periodoId])
   @@index([grupoId])
+  @@index([tareaId])
   @@map("evaluaciones")
 }
 
@@ -1220,22 +1246,199 @@ model EnvioInformeProgreso {
 }
 
 model Tarea {
-  id           String   @id @default(uuid()) @db.Uuid
-  tenantId     String   @map("tenant_id") @db.Uuid
-  cursoId      String   @map("curso_id") @db.Uuid
-  titulo       String
-  descripcion  String?
-  fechaEntrega DateTime @map("fecha_entrega") @db.Timestamptz
-  creadoPorId  String   @map("creado_por") @db.Uuid
-  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz
+  id                   String      @id @default(uuid()) @db.Uuid
+  tenantId             String      @map("tenant_id") @db.Uuid
+  /// Curso de origen (el docente la crea desde aquí). Las secciones destino están en `tarea_cursos` (specs/39).
+  cursoId              String      @map("curso_id") @db.Uuid
+  titulo               String
+  descripcion          String?
+  /// Fecha límite general (null = sin fecha: nunca vence). Sin hora (`conHora = false`) vence al final de ese día en la zona del colegio.
+  fechaEntrega         DateTime?   @map("fecha_entrega") @db.Timestamptz
+  conHora              Boolean     @default(false) @map("con_hora")
+  estado               EstadoTarea @default(publicada)
+  /// Publicación programada: la tarea solo es visible desde este instante.
+  publicarEn           DateTime?   @map("publicar_en") @db.Timestamptz
+  publicadaAt          DateTime?   @map("publicada_at") @db.Timestamptz
+  /// Aviso «tarea publicada» ya enviado (el cron envía el de las programadas cuando llega su hora).
+  avisadaAt            DateTime?   @map("avisada_at") @db.Timestamptz
+  permiteTardias       Boolean     @default(true) @map("permite_tardias")
+  cerradaAt            DateTime?   @map("cerrada_at") @db.Timestamptz
+  comentariosGenerales Boolean     @default(false) @map("comentarios_generales")
+  calificable          Boolean     @default(false)
+  indicacionesEntrega  String?     @map("indicaciones_entrega")
+  competenciaId        String?     @map("competencia_id") @db.Uuid
+  creadoPorId          String      @map("creado_por") @db.Uuid
+  createdAt            DateTime    @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt            DateTime    @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
 
-  tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  curso     Curso      @relation(fields: [cursoId], references: [id], onDelete: Cascade)
-  creadoPor Membership @relation(fields: [creadoPorId], references: [id], onDelete: NoAction)
-  adjuntos  Archivo[]
+  tenant       Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  curso        Curso              @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  creadoPor    Membership         @relation(fields: [creadoPorId], references: [id], onDelete: NoAction)
+  competencia  Competencia?       @relation(fields: [competenciaId], references: [id], onDelete: SetNull)
+  adjuntos     Archivo[]
+  cursos       TareaCurso[]
+  asignaciones TareaAsignacion[]
+  comentarios  TareaComentario[]
+  enlaces      TareaEnlace[]
+  cambiosPlazo TareaCambioPlazo[]
+  evaluaciones Evaluacion[]
 
   @@index([tenantId, fechaEntrega])
+  @@index([tenantId, estado])
   @@map("tareas")
+}
+
+/// Sección destino de una tarea (specs/39): un curso «gemelo» del docente en otro salón. `todos` = todo el salón
+/// (incluye alumnos que llegan después); si no, solo los alumnos elegidos en `tarea_asignaciones`.
+model TareaCurso {
+  id                String    @id @default(uuid()) @db.Uuid
+  tenantId          String    @map("tenant_id") @db.Uuid
+  tareaId           String    @map("tarea_id") @db.Uuid
+  cursoId           String    @map("curso_id") @db.Uuid
+  todos             Boolean   @default(true)
+  /// Fecha límite propia de la sección (null = la de la tarea).
+  fechaEntrega      DateTime? @map("fecha_entrega") @db.Timestamptz
+  /// Evaluación (columna del registro) ligada si la tarea es calificable (specs/11).
+  evaluacionGrupoId String?   @map("evaluacion_grupo_id") @db.Uuid
+  createdAt         DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant       Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tarea        Tarea              @relation(fields: [tareaId], references: [id], onDelete: Cascade)
+  curso        Curso              @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  asignaciones TareaAsignacion[]
+  cambiosPlazo TareaCambioPlazo[]
+
+  @@unique([tareaId, cursoId])
+  @@index([tenantId, cursoId])
+  @@map("tarea_cursos")
+}
+
+/// Destinatario individual de una tarea con su estado de entrega (separado del estado de la tarea).
+model TareaAsignacion {
+  id             String             @id @default(uuid()) @db.Uuid
+  tenantId       String             @map("tenant_id") @db.Uuid
+  tareaId        String             @map("tarea_id") @db.Uuid
+  tareaCursoId   String             @map("tarea_curso_id") @db.Uuid
+  alumnoId       String             @map("alumno_id") @db.Uuid
+  estado         EstadoEntregaTarea @default(asignada)
+  tarde          Boolean            @default(false)
+  entregadaAt    DateTime?          @map("entregada_at") @db.Timestamptz
+  devueltaAt     DateTime?          @map("devuelta_at") @db.Timestamptz
+  revisadaAt     DateTime?          @map("revisada_at") @db.Timestamptz
+  /// Destinatario quitado: deja de verla, pero se conservan sus entregas.
+  retiradaAt     DateTime?          @map("retirada_at") @db.Timestamptz
+  entregadaPorId String?            @map("entregada_por_id") @db.Uuid
+  enFisico       Boolean            @default(false) @map("en_fisico")
+  createdAt      DateTime           @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt      DateTime           @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant       Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tarea        Tarea             @relation(fields: [tareaId], references: [id], onDelete: Cascade)
+  tareaCurso   TareaCurso        @relation(fields: [tareaCursoId], references: [id], onDelete: Cascade)
+  alumno       Alumno            @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  entregadaPor Membership?       @relation("TareaEntregadaPor", fields: [entregadaPorId], references: [id], onDelete: SetNull)
+  entregas     TareaEntrega[]
+  comentarios  TareaComentario[]
+
+  @@unique([tareaId, alumnoId])
+  @@index([tenantId, alumnoId])
+  @@index([tareaCursoId])
+  @@map("tarea_asignaciones")
+}
+
+/// Intento de entrega (reentrega tras devolución = nuevo número). La hora real de envío nunca se recalcula.
+model TareaEntrega {
+  id           String    @id @default(uuid()) @db.Uuid
+  tenantId     String    @map("tenant_id") @db.Uuid
+  asignacionId String    @map("asignacion_id") @db.Uuid
+  numero       Int
+  texto        String?
+  borrador     Boolean   @default(true)
+  enviadaAt    DateTime? @map("enviada_at") @db.Timestamptz
+  tarde        Boolean   @default(false)
+  enviadaPorId String?   @map("enviada_por_id") @db.Uuid
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant     Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  asignacion TareaAsignacion @relation(fields: [asignacionId], references: [id], onDelete: Cascade)
+  enviadaPor Membership?     @relation("TareaEntregaEnviadaPor", fields: [enviadaPorId], references: [id], onDelete: SetNull)
+  archivos   Archivo[]
+
+  @@unique([asignacionId, numero])
+  @@map("tarea_entregas")
+}
+
+/// Comentario de una tarea: `asignacionId` null = general (si la tarea lo permite); con valor = privado docente ↔ alumno/familia.
+model TareaComentario {
+  id           String    @id @default(uuid()) @db.Uuid
+  tenantId     String    @map("tenant_id") @db.Uuid
+  tareaId      String    @map("tarea_id") @db.Uuid
+  asignacionId String?   @map("asignacion_id") @db.Uuid
+  autorId      String    @map("autor_id") @db.Uuid
+  texto        String
+  ocultoAt     DateTime? @map("oculto_at") @db.Timestamptz
+  ocultoPorId  String?   @map("oculto_por") @db.Uuid
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant     Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tarea      Tarea            @relation(fields: [tareaId], references: [id], onDelete: Cascade)
+  asignacion TareaAsignacion? @relation(fields: [asignacionId], references: [id], onDelete: Cascade)
+  autor      Membership       @relation("TareaComentarioAutor", fields: [autorId], references: [id], onDelete: NoAction)
+  ocultoPor  Membership?      @relation("TareaComentarioOculto", fields: [ocultoPorId], references: [id], onDelete: SetNull)
+
+  @@index([tareaId, asignacionId])
+  @@map("tarea_comentarios")
+}
+
+model TareaEnlace {
+  id       String  @id @default(uuid()) @db.Uuid
+  tenantId String  @map("tenant_id") @db.Uuid
+  tareaId  String  @map("tarea_id") @db.Uuid
+  url      String
+  titulo   String?
+  orden    Int     @default(0)
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tarea  Tarea  @relation(fields: [tareaId], references: [id], onDelete: Cascade)
+
+  @@index([tareaId])
+  @@map("tarea_enlaces")
+}
+
+/// Historial inmutable de cambios de plazo (general o de una sección).
+model TareaCambioPlazo {
+  id            String    @id @default(uuid()) @db.Uuid
+  tenantId      String    @map("tenant_id") @db.Uuid
+  tareaId       String    @map("tarea_id") @db.Uuid
+  tareaCursoId  String?   @map("tarea_curso_id") @db.Uuid
+  anterior      DateTime? @db.Timestamptz
+  nuevo         DateTime? @db.Timestamptz
+  motivo        String?
+  cambiadoPorId String    @map("cambiado_por") @db.Uuid
+  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant      Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tarea       Tarea       @relation(fields: [tareaId], references: [id], onDelete: Cascade)
+  tareaCurso  TareaCurso? @relation(fields: [tareaCursoId], references: [id], onDelete: Cascade)
+  cambiadoPor Membership  @relation("TareaCambioPlazoAutor", fields: [cambiadoPorId], references: [id], onDelete: NoAction)
+
+  @@index([tareaId])
+  @@map("tarea_cambios_plazo")
+}
+
+enum EstadoTarea {
+  borrador
+  publicada
+  cerrada
+  archivada
+}
+
+enum EstadoEntregaTarea {
+  asignada
+  en_proceso
+  entregada
+  devuelta
+  revisada
 }
 
 model EventoAgenda {

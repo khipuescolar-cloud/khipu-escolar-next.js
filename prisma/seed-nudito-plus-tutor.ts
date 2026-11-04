@@ -6,6 +6,7 @@
 // NO crea la lista blanca de sitios, licencias ni consentimientos de IA: los siembra `prisma/seed-nudito-plus.ts`
 // (specs/28), que corre DESPUÉS de este y da a Lucas una licencia activa con el consentimiento de Julia.
 import { createClient } from "@supabase/supabase-js";
+import { asignarTareasSinDestinos } from "./seed-tareas-destinos";
 import type { PrismaClient } from "../src/generated/prisma/client";
 
 const PASSWORD = "demo123";
@@ -79,6 +80,7 @@ export async function sembrarNuditoPlusTutor(prisma: PrismaClient, _ids: Record<
     await prisma.tarea.create({
       data: { tenantId: nh.id, cursoId: mate5.id, titulo: "Problemas de fracciones equivalentes", fechaEntrega: new Date(Date.now() + 3 * 86_400_000), creadoPorId: mate5.profesorId },
     });
+    await asignarTareasSinDestinos(prisma, nh.id);
   }
 
   // Dos conversaciones pasadas de Lucas (modo alumno). Metadatos «área|tema|estado» para los resúmenes.

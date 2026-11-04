@@ -2,6 +2,10 @@
 
 > Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-11-03 (rama `pro-calendario`: calendario institucional con vistas Día/Semana/Mes/Lista, clases del profesor y filtros; antes: `pre-notificaciones`, bandeja general y canales, specs/38)
 
+> **2026-11-03:** las tareas pasan a ser estilo Classroom (secciones, destinatarios, entregas, revisión, calificación).
+> Lo de tareas de esta spec queda como historia; la regla vigente está en **specs/39-tareas.md**. La agenda muestra las
+> entregas con `tareasVisiblesParaAgenda` (solo tareas publicadas y visibles con asignación; sin fecha → no aparece).
+
 ## Objetivo
 Que los profesores publiquen tareas por curso y eventos por salón, que dirección publique eventos del colegio y que las familias vean todo ordenado por fecha, sin llamadas ni grupos de mensajería.
 

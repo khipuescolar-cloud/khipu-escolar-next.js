@@ -145,6 +145,7 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       justificacion_revisada: { colegio, alumno: "Mateo", fecha: "2026-10-26", estado: "aceptada" },
       justificacion_recibida: { colegio, alumno: "Mateo", fecha: "2026-10-26", url: "http://j" },
       tarea_nueva: { colegio, curso: "Matemática", titulo: "Fichas de fracciones", fechaEntrega: "2026-10-30", url: "http://t" },
+      tarea_actualizada: { colegio, curso: "Matemática", titulo: "Fichas de fracciones", mensaje: "El profesor devolvió la entrega para corregir.", url: "http://t" },
       documento_nuevo: { colegio, titulo: "Reglamento interno 2026", carpeta: "Reglamento y normas", url: "http://d" },
       reunion_convocada: { colegio, titulo: "Reunión de padres", fecha: "2026-11-05", hora: "18:00", lugar: "Aula 3.° B", url: "http://r" },
       reunion_recordatorio: { colegio, titulo: "Reunión de padres", fecha: "2026-11-05", hora: "18:00", alumno: "Mateo", url: "http://r" },
