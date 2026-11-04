@@ -1,6 +1,6 @@
 # 14 — Archivos (Cloudinary hoy, S3 después)
 
-> Estado: implementado · Plan: todos · Última actualización: 2026-10-27 (Claude Code, rama `feat/p2-comunicacion`)
+> Estado: implementado · Plan: todos · Última actualización: 2026-11-03 (Claude Code, rama `pre-seguridad`: correcciones de seguridad; antes: Claude Code, rama `feat/p2-comunicacion`)
 
 ## Objetivo
 Guardar adjuntos y fotos de menores de forma privada, con un proveedor intercambiable.
@@ -25,7 +25,7 @@ Guardar adjuntos y fotos de menores de forma privada, con un proveedor intercamb
 - `CloudinaryStorage`: subida firmada desde el servidor (`upload_stream`), carpeta `khipu/<tenantId>/<carpeta>`, `type: "authenticated"` si es privado; URL temporal con `private_download_url(…, { expires_at: ahora + 5 min })`; públicos (logo) con `secure_url`.
 - Server actions aceptan hasta 55 MB (`experimental.serverActions.bodySizeLimit` y `proxyClientMaxBodySize` en `next.config.ts`): 5 adjuntos de 10 MB + margen del multipart (el proxy bufferiza el cuerpo y su tope por defecto es 10 MB).
 - **Adjuntos de comunicados y tareas** (`src/lib/server/adjuntos.ts`): PDF, JPG, PNG, WEBP, DOCX y XLSX; máx. 10 MB por archivo y 5 por elemento (los límites de 5 MB de `validacion.ts` siguen para justificaciones, fotos y logo). DOCX/XLSX se detectan por firma ZIP + entrada interna. Suben con `storage().subir(…, privado: true)` y se registran con `comunicadoId`/`tareaId` y `nombre` (limpio, sin rutas). Si falla algo se deshace lo subido. `borrarAdjuntosDe`/`quitarAdjuntos` borran del proveedor y de la BD.
-- **Documentos de la biblioteca** (spec 31): mismos tipos y límites que los adjuntos (`guardarAdjuntos` con destino `{ documentoId }`, carpeta `documentos`), un solo archivo vigente por documento. `/archivos/<id>` los trata como adjuntos (sin firma, `attachment`) tras `requireFeature("documentos")` + `puedeVerDocumento`, y audita cada descarga. No son huérfanos para `limpiar-archivos.ts`.
+- **Documentos de la biblioteca** (spec 31): mismos tipos y límites que los adjuntos (`guardarAdjuntos` con destino `{ documentoId }`, carpeta `documentos`), un solo archivo vigente por documento. `/archivos/<id>` los trata como adjuntos (sin firma, `attachment`) tras `requireFeature("documentos")` + `puedeVerDocumento`, y audita cada descarga. No son huérfanos para `limpiar-archivos.ts` (tampoco los adjuntos de la mesa de ayuda, `mensajeSoporteId`).
 - **Descarga de adjuntos** (`/archivos/<id>` sin firma): exige sesión y `requireArchivoVisible`, que ahora cubre `comunicadoId` (`puedeVerComunicado`) y `tareaId` (`puedeVerTarea`). Local: se sirve con `Content-Disposition: attachment`; Cloudinary: redirección 307 a una URL temporal (5 min) generada solo tras pasar el control. Los demás archivos locales siguen exigiendo firma.
 
 ## Modelo de datos

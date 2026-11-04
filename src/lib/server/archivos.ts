@@ -21,6 +21,8 @@ export async function requireArchivoVisible(ctx: TenantContext, archivoId: strin
     select: { apoderadoId: true, asistencia: { select: { alumno: { select: { salon: { select: { tutorId: true } } } } } } },
   });
   if (justificacion) {
+    // Modo soporte (specs/16): los adjuntos de justificaciones (certificados médicos, datos de menores) no se ven.
+    if (ctx.soporte) forbidden();
     if (
       ctx.rol === "direccion" ||
       (ctx.rol === "profesor" && justificacion.asistencia.alumno.salon.tutorId === ctx.membership.id) ||
@@ -61,9 +63,9 @@ export async function requireArchivoVisible(ctx: TenantContext, archivoId: strin
     forbidden();
   }
 
-  // Foto de un alumno: quien puede ver al alumno.
+  // Foto de un alumno: quien puede ver al alumno. Nunca en modo soporte (specs/16).
   const alumno = await ctx.db.alumno.findFirst({ where: { fotoArchivoId: archivo.id }, select: { id: true } });
-  if (alumno && (await alumnoIdsVisibles(ctx)).includes(alumno.id)) return archivo;
+  if (alumno && !ctx.soporte && (await alumnoIdsVisibles(ctx)).includes(alumno.id)) return archivo;
   forbidden();
 }
 

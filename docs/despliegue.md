@@ -131,7 +131,7 @@ Autenticación: con `CRON_SECRET` definido en Vercel, Vercel envía `Authorizati
 
    `EMAIL_RATE_PER_SECOND` es **por colegio** (un worker por colegio): con varios colegios enviando a la vez, súmalos o baja el valor para no pasar la tasa de la cuenta (SES responde *Throttling* y el aviso se reintenta). `EMAIL_DAILY_LIMIT` es global (ventana de 24 h).
    Con usuario SMTP el transporte usa **pool** (`pool: true`, 3 conexiones, 100 correos por conexión): no paga un handshake TLS + AUTH por correo. Se puede ajustar con `SMTP_POOL`, `SMTP_MAX_CONNECTIONS` y `SMTP_MAX_MESSAGES` (specs/06).
-3. Configura un tópico SNS para eventos (entregado/rebote/apertura) y pon su ARN en `SES_SNS_TOPIC_ARN`.
+3. Configura un tópico SNS para eventos (entregado/rebote/apertura) y pon su ARN en `SES_SNS_TOPIC_ARN` (obligatorio en producción: sin él el webhook rechaza todos los eventos).
 4. Usa el mismo SMTP en *Supabase Auth → SMTP Settings*.
 
 ## 5. Almacenamiento de archivos

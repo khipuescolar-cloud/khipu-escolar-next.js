@@ -1,6 +1,6 @@
 # 06 — Avisos y notificaciones
 
-> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-31 (Claude Code; pool SMTP 2026-10-30, rama `feat/comunicados-nivel`)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-11-03 (Claude Code, rama `pre-seguridad`: correcciones de seguridad; antes: Claude Code; pool SMTP 2026-10-30, rama `feat/comunicados-nivel`)
 
 ## Objetivo
 Avisar a la familia por correo y push cada vez que se registra la asistencia (y en mensajes, comunicados, invitaciones, justificaciones y tareas), avisar al personal cuando le toca actuar (mensajes de familias, justificaciones recibidas, correos desactivados) y no pasarse de los límites del proveedor.
@@ -113,7 +113,7 @@ generarResumenesLlegadas({ ahora, tenantId? }): Promise<number>
 
 ## Rutas y UI
 - `/api/cron/avisos` (GET/POST, bearer `CRON_SECRET`, comparación en tiempo constante; sin `CRON_SECRET` siempre 401).
-- `/api/webhooks/ses` (POST): firma SNS v1 (SHA1) y v2 (SHA256) con `node:crypto`; certificado solo de `https://sns.<región>.amazonaws.com(.cn)/….pem`; si `SES_SNS_TOPIC_ARN` está definido, exige ese tema.
+- `/api/webhooks/ses` (POST): firma SNS v1 (SHA1) y v2 (SHA256) con `node:crypto`; certificado solo de `https://sns.<región>.amazonaws.com(.cn)/….pem`; si `SES_SNS_TOPIC_ARN` está definido, exige ese tema; en producción (`NODE_ENV=production`) sin `SES_SNS_TOPIC_ARN` se rechaza todo mensaje (test en `tests/unit/firma-sns.test.ts`).
 - `/perfil#avisos` (profesor, dirección, administrativo): las mismas casillas correo/push y «Activar notificaciones en este dispositivo» (`PreferenciasPersonal`, acciones en `perfil/actions.ts`). Se respetan en `mensaje_nuevo` al profesor (`avisarMensajeNuevo`) y en la alerta de correo desactivado a dirección (`alertarCorreoDesactivado`, que ahora también envía push a sus dispositivos). Si apaga ambos canales no se encola nada.
 - **Envío inmediato (`after()`)**: `enviarMensajeAction` (chat) y `/api/webhooks/ses` (alerta a dirección, vía `procesarEventoSes(evento, { alEncolarAlerta })`) llaman a `procesarCola({ tenantId })` tras responder, solo si se encoló algo. Es el mismo worker del cron: respeta el tope diario global y la reserva atómica `pendiente → enviando`.
 - Familias: `encolarAvisoFamilia` (mensaje y comunicado) ahora encola también **push** (una fila por dispositivo) según `preferencias_aviso`.

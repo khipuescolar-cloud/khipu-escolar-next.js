@@ -163,10 +163,13 @@ describe("mantenimiento de archivos", () => {
     await db.alumno.update({ where: { id: c.alumnos.mateo.id }, data: { fotoArchivoId: foto.id } });
     const tarea = await db.tarea.create({ data: { tenantId: c.tenant.id, cursoId: c.cursoTutora.id, titulo: "T", fechaEntrega: new Date(), creadoPorId: c.miembros.tutora.membership.id } });
     const adjuntoTarea = await archivo({ tareaId: tarea.id });
+    const ticket = await db.ticketSoporte.create({ data: { tenantId: c.tenant.id, asunto: "Captura", creadoPorId: c.miembros.direccion.membership.id } });
+    const mensaje = await db.mensajeSoporte.create({ data: { tenantId: c.tenant.id, ticketId: ticket.id, autor: "colegio", cuerpo: "Adjunto captura" } });
+    const adjuntoSoporte = await archivo({ mensajeSoporteId: mensaje.id });
 
     const ids = (await encontrarArchivosHuerfanos(db)).map((a) => a.id);
     expect(ids).toContain(huerfano.id);
-    for (const a of [reciente, logo, foto, adjuntoTarea]) expect(ids).not.toContain(a.id);
+    for (const a of [reciente, logo, foto, adjuntoTarea, adjuntoSoporte]) expect(ids).not.toContain(a.id);
 
     // Simulacro: no borra. Confirmado: borra del almacenamiento y de la BD solo los de este colegio de prueba que sean huérfanos.
     const propios = (await encontrarArchivosHuerfanos(db)).filter((a) => a.tenantId === c.tenant.id);
@@ -181,7 +184,7 @@ describe("mantenimiento de archivos", () => {
     expect(real.borrados).toBeGreaterThanOrEqual(propios.length);
     expect(await db.archivo.count({ where: { id: huerfano.id } })).toBe(0);
     await expect(leerArchivo(huerfano)).rejects.toThrow();
-    for (const a of [reciente, logo, foto, adjuntoTarea]) expect(await db.archivo.count({ where: { id: a.id } })).toBe(1);
+    for (const a of [reciente, logo, foto, adjuntoTarea, adjuntoSoporte]) expect(await db.archivo.count({ where: { id: a.id } })).toBe(1);
   });
 
   it("migrar copia al destino, actualiza proveedor/publicId/url y borra el original; el simulacro no toca nada", async () => {

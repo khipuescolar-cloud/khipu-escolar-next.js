@@ -1,6 +1,6 @@
 # 15 — Privacidad, auditoría y exportación (Ley 29733)
 
-> Estado: implementado (el texto legal sigue pendiente) · Plan: todos · Última actualización: 2026-10-27 (Claude Code, rama `feat/p2-exportacion`)
+> Estado: implementado (el texto legal sigue pendiente) · Plan: todos · Última actualización: 2026-11-03 (Claude Code, rama `pre-seguridad`: correcciones de seguridad; antes: Claude Code, rama `feat/p2-exportacion`)
 
 ## Objetivo
 Cumplir lo mínimo de la Ley 29733 en el MVP: consentimiento, trazabilidad, garantía de salida y borrado.
@@ -21,6 +21,8 @@ Cumplir lo mínimo de la Ley 29733 en el MVP: consentimiento, trazabilidad, gara
 ## Reglas de negocio
 - Minimización: el alumno solo tiene cuenta si dirección o el administrativo la crean, y **solo con el consentimiento vigente de al menos un apoderado vinculado** (menores de edad; `specs/17`). Esa cuenta ve únicamente sus propios datos, sin chat. El chat nunca expone teléfono ni correo de la otra parte.
 - Los datos demo son ficticios.
+- **Cabeceras de seguridad** (`next.config.ts`, `CABECERAS_SEGURIDAD`, todas las rutas): `Strict-Transport-Security: max-age=31536000; includeSubDomains` (ignorada en http local), `X-Frame-Options: DENY` + `Content-Security-Policy: frame-ancestors 'none'` (solo anti-clickjacking; no hay CSP completa para no romper los scripts de Next; la vista previa de avisos usa `iframe srcDoc`, que no se afecta), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin` y `Permissions-Policy: camera=(self), microphone=(), geolocation=(), payment=(), usb=()` (la cámara la usa el escáner QR de portería). Test: `tests/unit/cabeceras-seguridad.test.ts`.
+- **Modo soporte** (specs/16): además de chats, notas y libreta, no se ven los adjuntos de justificaciones ni las fotos de alumnos (`requireArchivoVisible` → 403) ni los carnets PDF (`/api/carnets/<salonId>` → 403).
 
 ## Modelo de datos
 `consentimientos`, `apoderados_alumnos.consentimientoId`, `auditoria`.
@@ -42,6 +44,7 @@ Exportar o ver auditoría sin ser dirección → 403. Una tabla nueva de colegio
 Los avisos salen solo por correo y Web Push (WhatsApp y SMS se retiraron el 2026-10-31; `specs/06`). El celular de `profiles.telefono` ya no se usa para avisos. La exportación del colegio incluye las preferencias (`preferencias_aviso.correo/push`) y los avisos con su canal.
 
 ## Pendientes
+- **Propuestas de la auditoría de seguridad 2026-11-03 (no implementadas):** cambio obligatorio de la contraseña inicial = DNI con otra política, MFA para dirección y plataforma, purgas periódicas de datos (auditoría, login_intentos, avisos), limitar en plataforma el reinicio de contraseña de otros super administradores, y CSP completa con nonces.
 - **Con un abogado:** texto del consentimiento, política de privacidad, contrato e inscripción del banco de datos.
 - (Resuelto) El cron corre una vez al día en `vercel.json` (Vercel Hobby); las exportaciones se procesan al momento con `after()`. Para un respaldo más frecuente: disparador externo o Vercel Pro (`docs/despliegue.md` §3).
 - **Externo:** consentimiento para fotos (no hay subida de fotos todavía).

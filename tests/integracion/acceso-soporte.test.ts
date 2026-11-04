@@ -6,6 +6,7 @@ import type { Profile } from "@/generated/prisma/client";
 import { registrarIntentoLogin } from "@/lib/server/auth";
 import { crearCuentaConDocumento, revertirCamposCompletados } from "@/lib/server/cuentas";
 import { db, ErrorSoloLectura } from "@/lib/server/db";
+import { requireArchivoVisible } from "@/lib/server/archivos";
 import { requireFeature, tieneFeature } from "@/lib/server/plan";
 import {
   accesoSoporteActual, detalleColegio, iniciarAccesoSoporte, metricasPlataforma, reporteColegios, terminarAccesoSoporte,
@@ -93,6 +94,28 @@ describe("acceso de soporte vigente", () => {
     expect(() => requireFeature(ctx, "asistencia")).not.toThrow();
     // Dirección normal sí los tiene (plan Khipu Pro).
     expect(tieneFeature(colegio.ctxDe("direccion"), "mensajes")).toBe(true);
+  });
+
+  it("no ve adjuntos de justificaciones, fotos de alumnos ni carnets", async () => {
+    const ctx = await resolverContextoColegio(superadmin, colegio.tenant.slug);
+    const { mateo } = colegio.alumnos;
+    const archivo = (extra: object = {}) =>
+      db.archivo.create({ data: { tenantId: colegio.tenant.id, proveedor: "local", publicId: `khipu/${colegio.tenant.id}/soporte/${randomUUID()}`, mimeType: "image/png", bytes: 10, ...extra } });
+    const foto = await archivo();
+    await db.alumno.update({ where: { id: mateo.id }, data: { fotoArchivoId: foto.id } });
+    const adjunto = await archivo();
+    const asistencia = await db.asistencia.create({ data: { tenantId: colegio.tenant.id, alumnoId: mateo.id, ambito: "dia", fecha: new Date("2026-03-10T00:00:00Z"), hora: "08:00", estado: "falta" } });
+    await db.justificacion.create({ data: { tenantId: colegio.tenant.id, asistenciaId: asistencia.id, apoderadoId: colegio.miembros.madre.membership.id, motivo: "Médico", adjuntoArchivoId: adjunto.id } });
+
+    await esperarProhibido(requireArchivoVisible(ctx, foto.id));
+    await esperarProhibido(requireArchivoVisible(ctx, adjunto.id));
+    // La dirección del colegio sí los ve.
+    expect((await requireArchivoVisible(colegio.ctxDe("direccion"), foto.id)).id).toBe(foto.id);
+    expect((await requireArchivoVisible(colegio.ctxDe("direccion"), adjunto.id)).id).toBe(adjunto.id);
+
+    sesion.userId = superadmin.id;
+    const { GET } = await import("@/app/colegio/[slug]/api/carnets/[salonId]/route");
+    await esperarProhibido(GET(new Request("http://x.lvh.me/api/carnets"), { params: Promise.resolve({ slug: colegio.tenant.slug, salonId: colegio.salon.id }) }));
   });
 
   it("requireTenantContext registra cada request en la auditoría del colegio (soporte_ver)", async () => {
