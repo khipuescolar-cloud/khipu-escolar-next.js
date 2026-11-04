@@ -1,0 +1,791 @@
+[
+  {
+    "id": "p5-celula-01",
+    "temaClave": "cyt.p5.celula-animal-vegetal",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 2,
+    "categoria": "concepto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué es la célula?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La unidad más pequeña que forma a todos los seres vivos."
+          },
+          {
+            "id": "b",
+            "texto": "Un órgano del cuerpo humano."
+          },
+          {
+            "id": "c",
+            "texto": "Un tipo de alimento que comen las plantas."
+          },
+          {
+            "id": "d",
+            "texto": "Una parte que solo tienen los animales."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "a",
+        "distractores": {
+          "b": "confunde_celula_con_organo",
+          "c": "confunde_celula_con_nutriente",
+          "d": "cree_que_plantas_no_tienen_celulas"
+        }
+      },
+      "pistas": [
+        "Todos los seres vivos están formados por ellas.",
+        "Son tan pequeñas que necesitamos un microscopio para verlas.",
+        "Es la parte más pequeña con vida de un ser vivo."
+      ],
+      "explicacion": "La célula es la unidad básica de los seres vivos: plantas, animales, hongos y bacterias están formados por una o muchas células."
+    }
+  },
+  {
+    "id": "p5-celula-02",
+    "temaClave": "cyt.p5.celula-animal-vegetal",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 3,
+    "categoria": "verdadero_falso",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "verdadero_falso",
+        "enunciado": "Marca si cada afirmación sobre la célula animal y vegetal es verdadera o falsa.",
+        "afirmaciones": [
+          {
+            "id": "a1",
+            "texto": "La célula vegetal tiene pared celular y la célula animal no."
+          },
+          {
+            "id": "a2",
+            "texto": "Las células animales tienen cloroplastos para hacer fotosíntesis."
+          },
+          {
+            "id": "a3",
+            "texto": "Tanto la célula animal como la vegetal tienen membrana celular y núcleo."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "verdadero_falso",
+        "valores": {
+          "a1": true,
+          "a2": false,
+          "a3": true
+        },
+        "justificacion": {
+          "a1": "La pared celular da rigidez a las células de las plantas; las animales no la tienen.",
+          "a2": "Los cloroplastos están en las células vegetales; los animales no hacen fotosíntesis.",
+          "a3": "Ambas tienen membrana, citoplasma y núcleo."
+        }
+      },
+      "pistas": [
+        "Piensa en qué hace la planta que el animal no hace.",
+        "Las plantas son más rígidas: algo extra rodea sus células.",
+        "Pared celular y cloroplastos: solo en vegetales."
+      ],
+      "explicacion": "Las dos células tienen membrana, citoplasma y núcleo. La célula vegetal además tiene pared celular y cloroplastos, que le permiten hacer fotosíntesis."
+    }
+  },
+  {
+    "id": "p5-reproduccion-01",
+    "temaClave": "cyt.p5.reproduccion-seres-vivos",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 2,
+    "categoria": "concepto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "En la chacra, el abuelo siembra trozos de papa con «ojos» y de cada uno nace una planta nueva. ¿Qué tipo de reproducción es?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Asexual, porque la planta nueva sale de una parte de una sola planta."
+          },
+          {
+            "id": "b",
+            "texto": "Sexual, porque necesita dos plantas."
+          },
+          {
+            "id": "c",
+            "texto": "Sexual, porque nace de una semilla de la flor."
+          },
+          {
+            "id": "d",
+            "texto": "No es reproducción."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "a",
+        "distractores": {
+          "b": "confunde_asexual_con_sexual",
+          "c": "confunde_tuberculo_con_semilla",
+          "d": "desconoce_reproduccion_vegetativa"
+        }
+      },
+      "pistas": [
+        "Piensa cuántas plantas participan.",
+        "El «ojo» de la papa es una yema del tallo, no una semilla.",
+        "Sin flores ni semillas, la reproducción es asexual."
+      ],
+      "explicacion": "Sembrar trozos de papa es reproducción asexual: la planta nueva se forma de una parte de una sola planta y es igual a ella."
+    }
+  },
+  {
+    "id": "p5-reproduccion-02",
+    "temaClave": "cyt.p5.reproduccion-seres-vivos",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 3,
+    "categoria": "relacionar",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "relacionar",
+        "enunciado": "Relaciona cada caso con su forma de reproducción.",
+        "izquierda": [
+          {
+            "id": "i1",
+            "texto": "Una gallina pone un huevo fecundado"
+          },
+          {
+            "id": "i2",
+            "texto": "Una planta de fresa forma estolones"
+          },
+          {
+            "id": "i3",
+            "texto": "Una bacteria se divide en dos"
+          },
+          {
+            "id": "i4",
+            "texto": "Una planta de maíz forma semillas tras la polinización"
+          }
+        ],
+        "derecha": [
+          {
+            "id": "d1",
+            "texto": "Asexual por bipartición"
+          },
+          {
+            "id": "d2",
+            "texto": "Asexual por estolones"
+          },
+          {
+            "id": "d3",
+            "texto": "Sexual en plantas con flor"
+          },
+          {
+            "id": "d4",
+            "texto": "Sexual en animales ovíparos"
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "relacionar",
+        "pares": {
+          "i1": "d4",
+          "i2": "d2",
+          "i3": "d1",
+          "i4": "d3"
+        }
+      },
+      "pistas": [
+        "La reproducción sexual necesita dos células de padres distintos.",
+        "La polinización ocurre en las flores.",
+        "Gallina y maíz: sexual; fresa y bacteria: asexual."
+      ],
+      "explicacion": "En la reproducción sexual se unen células de dos progenitores (gallina, maíz). En la asexual, un solo ser vivo da origen a otro (estolones de la fresa, bipartición de la bacteria)."
+    }
+  },
+  {
+    "id": "p5-particulas-01",
+    "temaClave": "cyt.p5.materia-particulas",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 2,
+    "categoria": "concepto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "Echas una cucharadita de azúcar en un vaso con agua y mueves. Ya no ves el azúcar, pero el agua está dulce. ¿Qué pasó?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El azúcar se separó en partículas muy pequeñas que se mezclaron con el agua."
+          },
+          {
+            "id": "b",
+            "texto": "El azúcar desapareció."
+          },
+          {
+            "id": "c",
+            "texto": "El azúcar se convirtió en agua."
+          },
+          {
+            "id": "d",
+            "texto": "El azúcar se fue al aire."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "a",
+        "distractores": {
+          "b": "cree_que_la_materia_desaparece",
+          "c": "confunde_disolucion_con_transformacion",
+          "d": "confunde_disolucion_con_evaporacion"
+        }
+      },
+      "pistas": [
+        "Si el agua está dulce, el azúcar sigue ahí.",
+        "Toda la materia está formada por partículas muy pequeñas.",
+        "Son tan pequeñas que no las vemos."
+      ],
+      "explicacion": "El azúcar no desaparece: sus partículas se separan y se reparten entre las partículas del agua. Son tan pequeñas que no las vemos, pero sentimos el sabor dulce."
+    }
+  },
+  {
+    "id": "p5-particulas-02",
+    "temaClave": "cyt.p5.materia-particulas",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 3,
+    "categoria": "verdadero_falso",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "verdadero_falso",
+        "enunciado": "Marca si cada afirmación sobre la materia es verdadera o falsa.",
+        "afirmaciones": [
+          {
+            "id": "a1",
+            "texto": "El aire es materia porque ocupa espacio y tiene masa."
+          },
+          {
+            "id": "a2",
+            "texto": "Las partículas de la materia se pueden ver a simple vista."
+          },
+          {
+            "id": "a3",
+            "texto": "Una piedra y el agua están formadas por partículas."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "verdadero_falso",
+        "valores": {
+          "a1": true,
+          "a2": false,
+          "a3": true
+        },
+        "justificacion": {
+          "a1": "Un globo inflado ocupa espacio por el aire de adentro.",
+          "a2": "Son muchísimo más pequeñas que lo que podemos ver.",
+          "a3": "Toda la materia, sólida, líquida o gaseosa, está formada por partículas."
+        }
+      },
+      "pistas": [
+        "Piensa en un globo inflado.",
+        "Ni siquiera con una lupa vemos las partículas.",
+        "Todo lo que ocupa espacio y tiene masa está formado por partículas."
+      ],
+      "explicacion": "La materia es todo lo que ocupa espacio y tiene masa, incluido el aire. Está formada por partículas tan pequeñas que no se ven a simple vista."
+    }
+  },
+  {
+    "id": "p5-ecosistemas-01",
+    "temaClave": "cyt.p5.ecosistemas",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 2,
+    "categoria": "relacionar",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "relacionar",
+        "enunciado": "Relaciona cada ecosistema del Perú con un ser vivo que habita en él.",
+        "izquierda": [
+          {
+            "id": "i1",
+            "texto": "Mar peruano"
+          },
+          {
+            "id": "i2",
+            "texto": "Puna"
+          },
+          {
+            "id": "i3",
+            "texto": "Lago Titicaca"
+          },
+          {
+            "id": "i4",
+            "texto": "Selva amazónica"
+          }
+        ],
+        "derecha": [
+          {
+            "id": "d1",
+            "texto": "Vicuña"
+          },
+          {
+            "id": "d2",
+            "texto": "Otorongo (jaguar)"
+          },
+          {
+            "id": "d3",
+            "texto": "Anchoveta"
+          },
+          {
+            "id": "d4",
+            "texto": "Totora"
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "relacionar",
+        "pares": {
+          "i1": "d3",
+          "i2": "d1",
+          "i3": "d4",
+          "i4": "d2"
+        }
+      },
+      "pistas": [
+        "Piensa en cuál vive en el agua salada.",
+        "La puna es alta y fría: allí vive un camélido de lana fina.",
+        "La totora es una planta acuática con la que los uros hacen sus islas."
+      ],
+      "explicacion": "La anchoveta vive en el mar peruano, la vicuña en la puna, la totora crece en el lago Titicaca y el otorongo habita en la selva amazónica."
+    }
+  },
+  {
+    "id": "p5-ecosistemas-02",
+    "temaClave": "cyt.p5.ecosistemas",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 2,
+    "categoria": "causa_efecto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "Si se tala gran parte de un bosque en la selva, ¿qué efecto es más probable en los animales que viven allí?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No les afecta, porque los animales no necesitan árboles."
+          },
+          {
+            "id": "b",
+            "texto": "Pierden su refugio y su alimento, y muchos tienen que irse o pueden morir."
+          },
+          {
+            "id": "c",
+            "texto": "Se vuelven más fuertes al tener más espacio."
+          },
+          {
+            "id": "d",
+            "texto": "Aumentan porque hay más luz."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "b",
+        "distractores": {
+          "a": "no_reconoce_interdependencia",
+          "c": "cree_que_espacio_vacio_beneficia",
+          "d": "confunde_beneficio_de_plantas_con_animales"
+        }
+      },
+      "pistas": [
+        "Piensa dónde viven y duermen los monos y las aves.",
+        "Los árboles también dan frutos y hojas que comen muchos animales.",
+        "Sin árboles faltan hogar y comida."
+      ],
+      "explicacion": "En un ecosistema los seres vivos dependen unos de otros. Al talar el bosque, los animales pierden su refugio y su alimento, por eso disminuyen o deben buscar otro lugar."
+    }
+  },
+  {
+    "id": "p5-ecosistemas-03",
+    "temaClave": "cyt.p5.ecosistemas",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 3,
+    "categoria": "verdadero_falso",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "verdadero_falso",
+        "enunciado": "En la laguna de Paca, en Junín, hay totora, ranas, peces, agua, piedras y luz del sol. Marca si cada afirmación es verdadera o falsa.",
+        "afirmaciones": [
+          {
+            "id": "a1",
+            "texto": "La totora, las ranas y los peces son factores bióticos."
+          },
+          {
+            "id": "a2",
+            "texto": "El agua y la luz del sol son factores abióticos."
+          },
+          {
+            "id": "a3",
+            "texto": "Las piedras no influyen en nada en el ecosistema."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "verdadero_falso",
+        "valores": {
+          "a1": true,
+          "a2": true,
+          "a3": false
+        },
+        "justificacion": {
+          "a1": "Son seres vivos del ecosistema.",
+          "a2": "No son seres vivos, pero los seres vivos los necesitan.",
+          "a3": "Los factores abióticos, como el suelo y las piedras, sirven de refugio y forman el fondo de la laguna."
+        }
+      },
+      "pistas": [
+        "Biótico viene de «bio», que significa vida.",
+        "Separa lo que está vivo de lo que no.",
+        "Los elementos no vivos también se relacionan con los seres vivos."
+      ],
+      "explicacion": "Un ecosistema tiene factores bióticos (seres vivos como totora, ranas y peces) y abióticos (agua, luz, piedras, suelo), que se relacionan entre sí."
+    }
+  },
+  {
+    "id": "p5-superficie-01",
+    "temaClave": "cyt.p5.estructura-externa-tierra",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 2,
+    "categoria": "causa_efecto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "En temporada de lluvias, en algunas quebradas de la sierra bajan huaicos. ¿Cómo cambian la superficie de la Tierra?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Arrastran lodo y piedras y cambian la forma del terreno."
+          },
+          {
+            "id": "b",
+            "texto": "No cambian nada en el terreno."
+          },
+          {
+            "id": "c",
+            "texto": "Hacen crecer las montañas en un día."
+          },
+          {
+            "id": "d",
+            "texto": "Convierten las piedras en agua."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "a",
+        "distractores": {
+          "b": "cree_que_la_superficie_no_cambia",
+          "c": "exagera_rapidez_de_formacion_de_montanas",
+          "d": "confunde_cambio_fisico"
+        }
+      },
+      "pistas": [
+        "Un huaico es una corriente de agua con lodo y piedras.",
+        "Piensa adónde llevan el lodo y las piedras.",
+        "El agua arrastra material de un lugar a otro."
+      ],
+      "explicacion": "Los huaicos arrastran lodo y piedras quebrada abajo: quitan material de un lugar y lo depositan en otro. Así cambian la forma de la superficie terrestre."
+    }
+  },
+  {
+    "id": "p5-superficie-02",
+    "temaClave": "cyt.p5.estructura-externa-tierra",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 3,
+    "categoria": "verdadero_falso",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "verdadero_falso",
+        "enunciado": "Marca si cada afirmación sobre los cambios de la superficie terrestre es verdadera o falsa.",
+        "afirmaciones": [
+          {
+            "id": "a1",
+            "texto": "El agua de los ríos desgasta las rocas y forma valles con el paso de muchos años."
+          },
+          {
+            "id": "a2",
+            "texto": "El viento puede mover la arena y formar dunas en el desierto de Ica."
+          },
+          {
+            "id": "a3",
+            "texto": "La superficie de la Tierra siempre ha sido igual y nunca cambia."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "verdadero_falso",
+        "valores": {
+          "a1": true,
+          "a2": true,
+          "a3": false
+        },
+        "justificacion": {
+          "a1": "Es la erosión del agua.",
+          "a2": "El viento transporta y deposita arena.",
+          "a3": "Cambia por el agua, el viento, los sismos y los volcanes."
+        }
+      },
+      "pistas": [
+        "Piensa en lo que el agua y el viento llevan de un lugar a otro.",
+        "Algunos cambios son muy lentos y otros rápidos.",
+        "La superficie de la Tierra es dinámica."
+      ],
+      "explicacion": "La superficie terrestre cambia constantemente: el agua y el viento desgastan y transportan materiales (erosión) y forman valles y dunas."
+    }
+  },
+  {
+    "id": "p5-tecnologia-01",
+    "temaClave": "cyt.p5.ciencia-y-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 2,
+    "categoria": "concepto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 22 (diseña soluciones tecnológicas); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "Antes, para alumbrarse se usaban velas. Hoy usamos focos LED. ¿Qué permitió este cambio?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los avances científicos sobre la electricidad y la luz."
+          },
+          {
+            "id": "b",
+            "texto": "La suerte."
+          },
+          {
+            "id": "c",
+            "texto": "Que las velas se acabaron en el mundo."
+          },
+          {
+            "id": "d",
+            "texto": "Que las personas dejaron de necesitar luz."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "a",
+        "distractores": {
+          "b": "no_relaciona_ciencia_con_tecnologia",
+          "c": "atribuye_causa_irrelevante",
+          "d": "atribuye_causa_irrelevante"
+        }
+      },
+      "pistas": [
+        "Los objetos tecnológicos mejoran con el tiempo.",
+        "Piensa qué tuvieron que estudiar las personas para inventar el foco.",
+        "El conocimiento científico se usa para crear tecnología."
+      ],
+      "explicacion": "Gracias a lo que la ciencia descubrió sobre la electricidad y la luz, se crearon focos cada vez mejores, como los LED, que gastan poca energía."
+    }
+  },
+  {
+    "id": "p5-tecnologia-02",
+    "temaClave": "cyt.p5.ciencia-y-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 3,
+    "categoria": "relacionar",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 22 (diseña soluciones tecnológicas); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "relacionar",
+        "enunciado": "Relaciona cada conocimiento científico con el objeto tecnológico que permitió mejorar.",
+        "izquierda": [
+          {
+            "id": "i1",
+            "texto": "Las lentes desvían la luz"
+          },
+          {
+            "id": "i2",
+            "texto": "Las plantas necesitan agua en la raíz"
+          },
+          {
+            "id": "i3",
+            "texto": "Los microbios causan enfermedades"
+          },
+          {
+            "id": "i4",
+            "texto": "El sol produce energía luminosa"
+          }
+        ],
+        "derecha": [
+          {
+            "id": "d1",
+            "texto": "Riego por goteo"
+          },
+          {
+            "id": "d2",
+            "texto": "Panel solar"
+          },
+          {
+            "id": "d3",
+            "texto": "Lentes y microscopio"
+          },
+          {
+            "id": "d4",
+            "texto": "Vacunas"
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "relacionar",
+        "pares": {
+          "i1": "d3",
+          "i2": "d1",
+          "i3": "d4",
+          "i4": "d2"
+        }
+      },
+      "pistas": [
+        "Piensa para qué sirve cada objeto.",
+        "El riego por goteo lleva agua justo a la raíz.",
+        "Lentes: microscopio; raíz: riego; microbios: vacunas; sol: panel solar."
+      ],
+      "explicacion": "La tecnología avanza con la ciencia: conocer cómo se desvía la luz permitió los microscopios; saber que las plantas toman agua por la raíz, el riego por goteo; conocer los microbios, las vacunas; y la energía del sol, los paneles solares."
+    }
+  },
+  {
+    "id": "p5-fuerza-02",
+    "temaClave": "cyt.p5.variables-experimento",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 3,
+    "categoria": "hipotesis",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 20 (indaga mediante métodos científicos); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis quiere saber si el tipo de piso influye en la distancia que recorre un carrito de juguete al bajar por una rampa. ¿Cómo debe hacer su experimento?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cambiar el piso y también la altura de la rampa en cada prueba."
+          },
+          {
+            "id": "b",
+            "texto": "Usar el mismo carrito y la misma rampa a la misma altura, y cambiar solo el tipo de piso."
+          },
+          {
+            "id": "c",
+            "texto": "Probar solo en un tipo de piso varias veces."
+          },
+          {
+            "id": "d",
+            "texto": "Usar un carrito distinto en cada piso."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "b",
+        "distractores": {
+          "a": "cambia_mas_de_una_variable",
+          "c": "no_cambia_la_variable_estudiada",
+          "d": "no_controla_variables"
+        }
+      },
+      "pistas": [
+        "En un experimento justo se cambia solo una cosa.",
+        "¿Qué es lo que Luis quiere estudiar?",
+        "Todo debe ser igual excepto el tipo de piso."
+      ],
+      "explicacion": "Para una prueba justa se cambia solo la variable que se estudia (el tipo de piso) y se mantiene igual todo lo demás (carrito, rampa, altura). Así cualquier diferencia se debe al piso."
+    }
+  },
+  {
+    "id": "p5-fuerza-03",
+    "temaClave": "cyt.p5.variables-experimento",
+    "nivel": "primaria",
+    "grado": 5,
+    "dificultad": 4,
+    "categoria": "datos",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 20 (indaga mediante métodos científicos); texto escolar MINEDU 5.° primaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis soltó el mismo carrito desde la misma rampa y midió la distancia recorrida: piso de cerámica: 180 cm; piso de madera: 150 cm; alfombra: 60 cm. ¿En qué superficie hay más rozamiento?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cerámica"
+          },
+          {
+            "id": "b",
+            "texto": "Madera"
+          },
+          {
+            "id": "c",
+            "texto": "Alfombra"
+          },
+          {
+            "id": "d",
+            "texto": "En todas hay el mismo rozamiento"
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "c",
+        "distractores": {
+          "a": "invierte_relacion_distancia_rozamiento",
+          "b": "elige_valor_intermedio",
+          "d": "no_interpreta_los_datos"
+        }
+      },
+      "pistas": [
+        "El rozamiento es una fuerza que frena el movimiento.",
+        "Si algo frena más al carrito, ¿recorrerá más o menos distancia?",
+        "Busca la menor distancia."
+      ],
+      "explicacion": "El rozamiento se opone al movimiento. Donde el carrito recorrió menos distancia (alfombra, 60 cm) hubo más rozamiento, porque lo frenó más."
+    }
+  }
+]

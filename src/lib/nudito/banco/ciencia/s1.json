@@ -1,0 +1,693 @@
+[
+  {
+    "id": "s1-materia-01",
+    "temaClave": "cyt.s1.cambios-fisicos-quimicos",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 2,
+    "categoria": "concepto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas es una propiedad general de la materia, es decir, que tiene toda la materia?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El color"
+          },
+          {
+            "id": "b",
+            "texto": "La masa"
+          },
+          {
+            "id": "c",
+            "texto": "La dureza"
+          },
+          {
+            "id": "d",
+            "texto": "El olor"
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "b",
+        "distractores": {
+          "a": "confunde_propiedad_general_con_especifica",
+          "c": "confunde_propiedad_general_con_especifica",
+          "d": "confunde_propiedad_general_con_especifica"
+        }
+      },
+      "pistas": [
+        "Las propiedades generales no sirven para distinguir una sustancia de otra.",
+        "El aire no tiene color ni olor, pero sigue siendo materia.",
+        "Toda la materia ocupa un lugar y tiene cantidad de materia."
+      ],
+      "explicacion": "La masa y el volumen son propiedades generales: toda la materia las tiene. El color, la dureza y el olor son propiedades específicas que ayudan a distinguir sustancias."
+    }
+  },
+  {
+    "id": "s1-materia-02",
+    "temaClave": "cyt.s1.cambios-fisicos-quimicos",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 3,
+    "categoria": "concepto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "Un bloque tiene una masa de 40 g y un volumen de 20 cm³. La densidad del agua es 1 g/cm³. ¿Cuál es la densidad del bloque y qué pasará al ponerlo en agua?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 g/cm³; se hunde"
+          },
+          {
+            "id": "b",
+            "texto": "2 g/cm³; flota"
+          },
+          {
+            "id": "c",
+            "texto": "800 g/cm³; se hunde"
+          },
+          {
+            "id": "d",
+            "texto": "0,5 g/cm³; flota"
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "a",
+        "distractores": {
+          "b": "no_compara_densidades_al_predecir",
+          "c": "multiplica_en_vez_de_dividir",
+          "d": "invierte_la_division_volumen_entre_masa"
+        }
+      },
+      "pistas": [
+        "La densidad relaciona masa y volumen.",
+        "Densidad = masa ÷ volumen.",
+        "Compara el resultado con la densidad del agua: si es mayor, el objeto se hunde."
+      ],
+      "explicacion": "Densidad = 40 g ÷ 20 cm³ = 2 g/cm³. Como es mayor que la densidad del agua (1 g/cm³), el bloque se hunde."
+    }
+  },
+  {
+    "id": "s1-cambios-01",
+    "temaClave": "cyt.s1.cambios-fisicos-quimicos",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 3,
+    "categoria": "verdadero_falso",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "verdadero_falso",
+        "enunciado": "Marca si cada afirmación sobre los cambios de la materia es verdadera o falsa.",
+        "afirmaciones": [
+          {
+            "id": "a1",
+            "texto": "En un cambio físico, la sustancia sigue siendo la misma."
+          },
+          {
+            "id": "a2",
+            "texto": "Disolver sal en agua es un cambio químico porque la sal desaparece."
+          },
+          {
+            "id": "a3",
+            "texto": "La formación de gas, el cambio de color o de olor pueden indicar un cambio químico."
+          },
+          {
+            "id": "a4",
+            "texto": "La oxidación de un clavo de hierro es un cambio físico."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "verdadero_falso",
+        "valores": {
+          "a1": true,
+          "a2": false,
+          "a3": true,
+          "a4": false
+        },
+        "justificacion": {
+          "a1": "Cambia su forma o estado, pero no su composición.",
+          "a2": "La sal no desaparece: sigue en el agua y se recupera al evaporarla. Es un cambio físico.",
+          "a3": "Son señales de que se formaron sustancias nuevas.",
+          "a4": "El óxido es una sustancia nueva; es un cambio químico."
+        }
+      },
+      "pistas": [
+        "Pregúntate si se formó una sustancia nueva en cada caso.",
+        "Si evaporas agua salada, ¿qué queda en el recipiente?",
+        "El óxido es distinto del hierro original."
+      ],
+      "explicacion": "En un cambio físico la sustancia no cambia (disolver, derretir, romper). En un cambio químico se forman sustancias nuevas, como el óxido; suele notarse por gas, color u olor nuevos."
+    }
+  },
+  {
+    "id": "s1-atomo-01",
+    "temaClave": "cyt.s1.modelo-atomico",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 2,
+    "categoria": "concepto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "Según el modelo atómico actual, ¿cómo está formado un átomo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un núcleo con protones y neutrones, y electrones que se mueven alrededor."
+          },
+          {
+            "id": "b",
+            "texto": "Una esfera maciza que no se puede dividir."
+          },
+          {
+            "id": "c",
+            "texto": "Solo electrones, sin núcleo."
+          },
+          {
+            "id": "d",
+            "texto": "Un núcleo con electrones y protones girando alrededor."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "a",
+        "distractores": {
+          "b": "usa_modelo_de_dalton_como_actual",
+          "c": "omite_el_nucleo",
+          "d": "confunde_ubicacion_de_particulas"
+        }
+      },
+      "pistas": [
+        "El átomo tiene una parte central muy pequeña.",
+        "En el centro hay partículas con carga positiva y sin carga.",
+        "Las partículas negativas están fuera del núcleo."
+      ],
+      "explicacion": "El átomo tiene un núcleo con protones (carga positiva) y neutrones (sin carga). Alrededor se mueven los electrones (carga negativa)."
+    }
+  },
+  {
+    "id": "s1-atomo-02",
+    "temaClave": "cyt.s1.modelo-atomico",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 3,
+    "categoria": "relacionar",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "relacionar",
+        "enunciado": "Relaciona cada científico con su modelo atómico.",
+        "izquierda": [
+          {
+            "id": "i1",
+            "texto": "Dalton"
+          },
+          {
+            "id": "i2",
+            "texto": "Thomson"
+          },
+          {
+            "id": "i3",
+            "texto": "Rutherford"
+          },
+          {
+            "id": "i4",
+            "texto": "Bohr"
+          }
+        ],
+        "derecha": [
+          {
+            "id": "d1",
+            "texto": "Núcleo pequeño y denso con carga positiva; el resto del átomo es casi vacío"
+          },
+          {
+            "id": "d2",
+            "texto": "Electrones en niveles de energía definidos alrededor del núcleo"
+          },
+          {
+            "id": "d3",
+            "texto": "Esfera indivisible y maciza"
+          },
+          {
+            "id": "d4",
+            "texto": "Esfera positiva con electrones incrustados, como un budín con pasas"
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "relacionar",
+        "pares": {
+          "i1": "d3",
+          "i2": "d4",
+          "i3": "d1",
+          "i4": "d2"
+        }
+      },
+      "pistas": [
+        "Los modelos cambiaron en orden: del más simple al más detallado.",
+        "Thomson descubrió el electrón; Rutherford, el núcleo.",
+        "Dalton: esfera; Thomson: budín; Rutherford: núcleo; Bohr: niveles."
+      ],
+      "explicacion": "El modelo del átomo cambió con nuevas evidencias: Dalton lo imaginó indivisible, Thomson incluyó electrones, Rutherford descubrió el núcleo y Bohr ubicó los electrones en niveles de energía."
+    }
+  },
+  {
+    "id": "s1-fuerzas-01",
+    "temaClave": "cyt.s1.movimiento-fuerzas",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 2,
+    "categoria": "concepto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas es una fuerza a distancia, que actúa sin que los cuerpos se toquen?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La atracción de un imán sobre un clip"
+          },
+          {
+            "id": "b",
+            "texto": "El empujón a un carrito"
+          },
+          {
+            "id": "c",
+            "texto": "El roce de los zapatos con el piso"
+          },
+          {
+            "id": "d",
+            "texto": "La fuerza de un pie al patear una pelota"
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "a",
+        "distractores": {
+          "b": "confunde_fuerza_de_contacto_con_distancia",
+          "c": "confunde_fuerza_de_contacto_con_distancia",
+          "d": "confunde_fuerza_de_contacto_con_distancia"
+        }
+      },
+      "pistas": [
+        "Busca el caso en que los cuerpos no se tocan.",
+        "Empujar, patear y rozar requieren contacto.",
+        "El magnetismo y la gravedad actúan a distancia."
+      ],
+      "explicacion": "La fuerza magnética actúa a distancia: el imán atrae el clip sin tocarlo. Empujar, patear y el rozamiento son fuerzas de contacto."
+    }
+  },
+  {
+    "id": "s1-fuerzas-02",
+    "temaClave": "cyt.s1.movimiento-fuerzas",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 3,
+    "categoria": "verdadero_falso",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "verdadero_falso",
+        "enunciado": "Marca si cada afirmación sobre las fuerzas y el movimiento es verdadera o falsa.",
+        "afirmaciones": [
+          {
+            "id": "a1",
+            "texto": "La gravedad hace que una pelota lanzada hacia arriba vuelva a caer."
+          },
+          {
+            "id": "a2",
+            "texto": "Un carrito que rueda sobre arena se detiene antes que sobre cerámica por la fuerza de rozamiento."
+          },
+          {
+            "id": "a3",
+            "texto": "Si un cuerpo se mueve, necesariamente hay una fuerza empujándolo todo el tiempo."
+          },
+          {
+            "id": "a4",
+            "texto": "Una fuerza puede cambiar la dirección del movimiento de un cuerpo."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "verdadero_falso",
+        "valores": {
+          "a1": true,
+          "a2": true,
+          "a3": false,
+          "a4": true
+        },
+        "justificacion": {
+          "a1": "La Tierra atrae a los cuerpos hacia su centro.",
+          "a2": "La arena produce más rozamiento.",
+          "a3": "Sin rozamiento, un cuerpo en movimiento seguiría moviéndose sin necesidad de empuje.",
+          "a4": "Por ejemplo, al desviar una pelota con la cabeza."
+        }
+      },
+      "pistas": [
+        "Piensa en la fuerza que frena las cosas que ruedan.",
+        "Un disco en el hielo avanza mucho sin que nadie lo empuje.",
+        "Las fuerzas cambian el movimiento: lo inician, frenan o desvían."
+      ],
+      "explicacion": "Las fuerzas cambian el movimiento: la gravedad atrae, el rozamiento frena y un golpe puede desviar. Un cuerpo no necesita una fuerza constante para seguir moviéndose."
+    }
+  },
+  {
+    "id": "s1-biomoleculas-01",
+    "temaClave": "cyt.s1.biomoleculas-celula",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 3,
+    "categoria": "relacionar",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "relacionar",
+        "enunciado": "Relaciona cada biomolécula con su función principal en la célula.",
+        "izquierda": [
+          {
+            "id": "i1",
+            "texto": "Carbohidratos (como la glucosa)"
+          },
+          {
+            "id": "i2",
+            "texto": "Lípidos"
+          },
+          {
+            "id": "i3",
+            "texto": "Proteínas"
+          },
+          {
+            "id": "i4",
+            "texto": "Ácidos nucleicos (ADN)"
+          }
+        ],
+        "derecha": [
+          {
+            "id": "d1",
+            "texto": "Forman la membrana celular y guardan energía de reserva"
+          },
+          {
+            "id": "d2",
+            "texto": "Guardan la información hereditaria"
+          },
+          {
+            "id": "d3",
+            "texto": "Dan energía rápida a la célula"
+          },
+          {
+            "id": "d4",
+            "texto": "Forman estructuras y aceleran reacciones como enzimas"
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "relacionar",
+        "pares": {
+          "i1": "d3",
+          "i2": "d1",
+          "i3": "d4",
+          "i4": "d2"
+        }
+      },
+      "pistas": [
+        "Piensa qué alimentos dan energía rápida: el arroz, la papa.",
+        "La membrana está formada sobre todo por lípidos.",
+        "Carbohidratos: energía; lípidos: membrana; proteínas: estructura y enzimas; ADN: herencia."
+      ],
+      "explicacion": "Las biomoléculas orgánicas cumplen funciones distintas: los carbohidratos dan energía, los lípidos forman membranas y la reservan, las proteínas forman estructuras y enzimas, y los ácidos nucleicos guardan la información hereditaria."
+    }
+  },
+  {
+    "id": "s1-celula-02",
+    "temaClave": "cyt.s1.biomoleculas-celula",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 4,
+    "categoria": "causa_efecto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "Se colocan rodajas de papa cruda en un vaso con agua muy salada. Después de una hora, están blandas y flexibles. ¿Cuál es la causa?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La sal se comió parte de la papa."
+          },
+          {
+            "id": "b",
+            "texto": "Las células de la papa perdieron agua por ósmosis hacia el agua salada."
+          },
+          {
+            "id": "c",
+            "texto": "Entró mucha agua a las células y se hincharon."
+          },
+          {
+            "id": "d",
+            "texto": "La sal cocinó la papa."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "b",
+        "distractores": {
+          "a": "explicacion_antropomorfica",
+          "c": "invierte_direccion_de_la_osmosis",
+          "d": "confunde_cambio_con_coccion"
+        }
+      },
+      "pistas": [
+        "Piensa en dónde hay más sal: dentro de las células o en el vaso.",
+        "El agua atraviesa la membrana hacia donde hay más sustancias disueltas.",
+        "Si una célula pierde agua, se pone flácida."
+      ],
+      "explicacion": "El agua es la biomolécula inorgánica más abundante de la célula. Por ósmosis, pasa a través de la membrana hacia el lado con más sal: las células de la papa pierden agua y la rodaja se vuelve blanda."
+    }
+  },
+  {
+    "id": "s1-redes-01",
+    "temaClave": "cyt.s1.redes-troficas",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 3,
+    "categoria": "datos",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "En una red trófica del mar peruano, el fitoplancton tiene 10 000 unidades de energía. La anchoveta lo come, y el lobo marino come anchovetas. Si en cada nivel pasa cerca del 10 % de la energía, ¿cuánta llega al lobo marino?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Unas 100 unidades"
+          },
+          {
+            "id": "b",
+            "texto": "Unas 1000 unidades"
+          },
+          {
+            "id": "c",
+            "texto": "Unas 10 000 unidades"
+          },
+          {
+            "id": "d",
+            "texto": "Unas 9000 unidades"
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "a",
+        "distractores": {
+          "b": "calcula_un_solo_nivel",
+          "c": "cree_que_la_energia_pasa_completa",
+          "d": "resta_en_lugar_de_calcular_porcentaje"
+        }
+      },
+      "pistas": [
+        "Calcula primero cuánta energía llega a la anchoveta.",
+        "El 10 % de 10 000 es 1000.",
+        "Repite el cálculo para el siguiente nivel."
+      ],
+      "explicacion": "Del fitoplancton (10 000) a la anchoveta pasa el 10 %: 1000. De la anchoveta al lobo marino, el 10 % de 1000: 100. La energía disminuye en cada nivel porque se usa y se pierde como calor."
+    }
+  },
+  {
+    "id": "s1-redes-02",
+    "temaClave": "cyt.s1.redes-troficas",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 2,
+    "categoria": "verdadero_falso",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "verdadero_falso",
+        "enunciado": "Marca si cada afirmación sobre las redes tróficas es verdadera o falsa.",
+        "afirmaciones": [
+          {
+            "id": "a1",
+            "texto": "Una red trófica está formada por varias cadenas alimenticias conectadas."
+          },
+          {
+            "id": "a2",
+            "texto": "Los descomponedores devuelven materia al suelo y al agua."
+          },
+          {
+            "id": "a3",
+            "texto": "La energía circula en ciclo y vuelve completa a los productores."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "verdadero_falso",
+        "valores": {
+          "a1": true,
+          "a2": true,
+          "a3": false
+        },
+        "justificacion": {
+          "a1": "Un ser vivo puede comer y ser comido por varias especies.",
+          "a2": "Descomponen restos y la materia vuelve a ser usada por los productores.",
+          "a3": "La energía fluye en un solo sentido y se pierde como calor; la materia sí se recicla."
+        }
+      },
+      "pistas": [
+        "Distingue entre lo que se recicla y lo que se pierde.",
+        "Piensa qué hacen los hongos y las bacterias con los restos.",
+        "La materia circula; la energía fluye."
+      ],
+      "explicacion": "En un ecosistema, la materia circula gracias a los descomponedores, pero la energía fluye en un solo sentido, desde el sol, y se pierde en cada nivel."
+    }
+  },
+  {
+    "id": "s1-evolucion-01",
+    "temaClave": "cyt.s1.evolucion-seleccion-natural",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 3,
+    "categoria": "causa_efecto",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "opcion_multiple",
+        "enunciado": "En una población de insectos se usa un insecticida. Algunos, por variación natural, resisten. Después de muchas generaciones, casi todos son resistentes. ¿Qué lo explica?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los resistentes sobrevivieron y tuvieron crías que heredaron la resistencia."
+          },
+          {
+            "id": "b",
+            "texto": "Cada insecto decidió volverse resistente."
+          },
+          {
+            "id": "c",
+            "texto": "El insecticida enseñó a los insectos a resistir."
+          },
+          {
+            "id": "d",
+            "texto": "Los insectos resistentes llegaron de otro planeta."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "opcion_multiple",
+        "correcta": "a",
+        "distractores": {
+          "b": "cree_que_la_evolucion_es_intencional",
+          "c": "cree_en_herencia_de_caracteres_adquiridos",
+          "d": "respuesta_fantasiosa"
+        }
+      },
+      "pistas": [
+        "Las diferencias ya existían antes del insecticida.",
+        "Piensa en quiénes sobreviven y se reproducen.",
+        "Las crías heredan las características de sus padres."
+      ],
+      "explicacion": "Es selección natural: en la población ya había variación. Los resistentes sobrevivieron y se reprodujeron más, y con las generaciones esa característica se volvió común."
+    }
+  },
+  {
+    "id": "s1-evolucion-02",
+    "temaClave": "cyt.s1.evolucion-seleccion-natural",
+    "nivel": "secundaria",
+    "grado": 1,
+    "dificultad": 4,
+    "categoria": "verdadero_falso",
+    "fuente": "CNEB Ciencia y Tecnología, competencia 21 (explica el mundo físico); texto escolar MINEDU 1.° secundaria",
+    "revisadoPor": null,
+    "ejercicio": {
+      "publico": {
+        "tipo": "verdadero_falso",
+        "enunciado": "Marca si cada afirmación sobre la evolución es verdadera o falsa.",
+        "afirmaciones": [
+          {
+            "id": "a1",
+            "texto": "Especies distintas, como la vicuña y la llama, pueden tener un ancestro común."
+          },
+          {
+            "id": "a2",
+            "texto": "Un individuo cambia sus genes durante su vida para adaptarse y así evoluciona."
+          },
+          {
+            "id": "a3",
+            "texto": "Los fósiles son evidencia de que las especies han cambiado con el tiempo."
+          },
+          {
+            "id": "a4",
+            "texto": "La selección natural favorece a los individuos mejor adaptados a su ambiente."
+          }
+        ]
+      },
+      "solucion": {
+        "tipo": "verdadero_falso",
+        "valores": {
+          "a1": true,
+          "a2": false,
+          "a3": true,
+          "a4": true
+        },
+        "justificacion": {
+          "a1": "Los camélidos sudamericanos comparten ancestros.",
+          "a2": "Evolucionan las poblaciones a lo largo de generaciones, no los individuos.",
+          "a3": "Muestran seres vivos del pasado distintos a los actuales.",
+          "a4": "Estos sobreviven y se reproducen más."
+        }
+      },
+      "pistas": [
+        "Distingue entre lo que le pasa a un individuo y a una población.",
+        "Piensa qué muestran los fósiles.",
+        "La evolución ocurre en muchas generaciones."
+      ],
+      "explicacion": "Las especies actuales se originaron de ancestros comunes. La selección natural actúa sobre la variación de una población a lo largo de generaciones, y los fósiles son evidencia de esos cambios."
+    }
+  }
+]
