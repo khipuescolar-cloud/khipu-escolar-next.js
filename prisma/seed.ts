@@ -16,6 +16,7 @@ import { sembrarHorario } from "./seed-horario";
 import { sembrarNotas } from "./seed-notas";
 import { sembrarNuditoPlus } from "./seed-nudito-plus";
 import { sembrarNuditoPlusTutor } from "./seed-nudito-plus-tutor";
+import { sembrarNuditoTutor } from "./seed-nudito-tutor";
 import { sembrarReuniones } from "./seed-reuniones";
 import { SLUG_COLEGIO, asegurarUsuariosAuth } from "./seed-utilidades";
 
@@ -75,6 +76,7 @@ async function main() {
   // Nudito+: primero el tutor (conversaciones de Lucas), luego licencias, sitios y configuración (specs/28–29).
   await paso("Nudito+ (tutor)", () => sembrarNuditoPlusTutor(prisma, {}));
   await paso("Nudito+ (licencias)", () => sembrarNuditoPlus(prisma, { superadminId }));
+  await paso("Nudito (tutor: áreas y temas)", () => sembrarNuditoTutor(prisma));
 
   console.log(`Seed listo en ${((Date.now() - t0) / 1000).toFixed(1)} s. Contraseña de todas las cuentas: demo123`);
   console.log("  direccion@nuevohorizonte.demo · lucia.garcia@nuevohorizonte.demo · rosa.quispe@gmail.com · admin@khipuescolar.demo");

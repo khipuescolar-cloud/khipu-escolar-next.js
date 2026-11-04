@@ -1,9 +1,12 @@
 import "server-only";
+import { z } from "zod";
 import type { Nivel } from "@/generated/prisma/enums";
-import type { CursoNuditoVista } from "@/lib/nudito/contratos";
-import { pendiente } from "@/lib/nudito/pendiente";
-import type { DbTenant } from "../db";
-import type { TenantContext } from "../tenant";
+import { areaPorClave, detectarArea } from "@/lib/cneb/catalogo";
+import { AREAS_NUDITO, esAreaNudito, type CursoNuditoVista } from "@/lib/nudito/contratos";
+import { auditar } from "../auditoria";
+import { ErrorDeNegocio } from "../contexto-accion";
+import { db as dbGlobal, type DbTenant } from "../db";
+import { requireAlumnoVisible, requireRol, type TenantContext } from "../tenant";
 
 // Responsable: A (specs/42). Área CNEB de cada curso (`cursos.area_cneb`). La migración rellenó por el prefijo de los
 // desempeños importados (MAT/COM/CYT); esto completa por nombre con `detectarArea` (src/lib/cneb/catalogo.ts), sin
@@ -11,20 +14,87 @@ import type { TenantContext } from "../tenant";
 
 /** Clave del área según el nombre y nivel del curso, o null. Puro (envuelve `detectarArea`). */
 export function areaDeCurso(nombre: string, nivel: Nivel): string | null {
-  return pendiente("A", "areaDeCurso", nombre, nivel);
+  return detectarArea(nombre, nivel)?.area ?? null;
 }
 
-/** Rellena las áreas que falten (idempotente). Sin `tenantId`: todos los colegios (script y seed). */
+/**
+ * Rellena las áreas que falten (idempotente): solo cursos sin área y no manuales. Sin `tenantId`: todos los colegios
+ * (script `pnpm nudito:areas` y seed). Una actualización por área detectada.
+ */
 export async function rellenarAreasCursos(tenantId?: string): Promise<{ revisados: number; actualizados: number }> {
-  return pendiente("A", "rellenarAreasCursos", tenantId);
+  const cursos = await dbGlobal.curso.findMany({
+    where: { ...(tenantId ? { tenantId } : {}), areaCneb: null, areaCnebManual: false },
+    select: { id: true, nombre: true, salon: { select: { nivel: true } } },
+  });
+  const porArea = new Map<string, string[]>();
+  for (const c of cursos) {
+    const area = areaDeCurso(c.nombre, c.salon.nivel);
+    if (area) porArea.set(area, [...(porArea.get(area) ?? []), c.id]);
+  }
+  let actualizados = 0;
+  for (const [area, ids] of porArea) {
+    const r = await dbGlobal.curso.updateMany({ where: { id: { in: ids }, areaCneb: null, areaCnebManual: false }, data: { areaCneb: area } });
+    actualizados += r.count;
+  }
+  return { revisados: cursos.length, actualizados };
 }
+
+/** Alias con el nombre del plan de trabajo de A: detecta y guarda las áreas de un colegio. */
+export const detectarYGuardarAreas = (tenantId: string) => rellenarAreasCursos(tenantId);
+
+const esquemaFijarArea = z.object({
+  cursoId: z.uuid(),
+  /** Clave de `CATALOGO_CNEB`; null vuelve al cálculo automático por nombre. */
+  area: z.string().nullable(),
+});
 
 /** Dirección fija el área a mano (`area_cneb_manual = true`); `area = null` vuelve al cálculo automático. Auditado. */
 export async function fijarAreaCurso(ctx: TenantContext, entrada: unknown): Promise<void> {
-  return pendiente("A", "fijarAreaCurso", ctx, entrada);
+  requireRol(ctx, ["direccion"]);
+  const r = esquemaFijarArea.safeParse(entrada);
+  if (!r.success) throw new ErrorDeNegocio("Revisa el área elegida.");
+  const { cursoId, area } = r.data;
+  if (area !== null && !areaPorClave(area)) throw new ErrorDeNegocio("El área no existe en el catálogo CNEB.");
+  const curso = await ctx.db.curso.findFirst({ where: { id: cursoId }, select: { nombre: true, areaCneb: true, areaCnebManual: true, salon: { select: { nivel: true } } } });
+  if (!curso) throw new ErrorDeNegocio("No se encontró el curso.");
+  // Sin cambios (p. ej. el formulario de Gestión reenvía el mismo valor): no se escribe ni se audita.
+  if (area === null ? !curso.areaCnebManual : curso.areaCnebManual && curso.areaCneb === area) return;
+  const data = area === null ? { areaCneb: areaDeCurso(curso.nombre, curso.salon.nivel), areaCnebManual: false } : { areaCneb: area, areaCnebManual: true };
+  await ctx.db.curso.updateMany({ where: { id: cursoId }, data });
+  await auditar({
+    tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "curso", entidadId: cursoId,
+    detalle: { campo: "area_cneb", antes: curso.areaCneb, despues: data.areaCneb, manual: data.areaCnebManual },
+  });
 }
 
-/** Cursos del salón del alumno con área de Nudito habilitada (una sola consulta). */
+/** Alias con el nombre del plan de trabajo de A. */
+export const asignarAreaCurso = fijarAreaCurso;
+
+/**
+ * Cursos del salón del alumno con área de Nudito habilitada (una sola consulta). Una entrada por área: si el salón
+ * tiene dos cursos de la misma área («Matemática» y «Razonamiento matemático»), gana el fijado a mano y luego el de
+ * nombre más corto.
+ */
 export async function cursosNuditoDelAlumno(db: DbTenant, alumnoId: string, areas: readonly string[]): Promise<CursoNuditoVista[]> {
-  return pendiente("A", "cursosNuditoDelAlumno", db, alumnoId, areas);
+  const habilitadas = areas.filter(esAreaNudito);
+  if (habilitadas.length === 0) return [];
+  const alumno = await db.alumno.findFirst({
+    where: { id: alumnoId },
+    select: { salon: { select: { cursos: { where: { areaCneb: { in: habilitadas } }, select: { id: true, nombre: true, areaCneb: true, areaCnebManual: true } } } } },
+  });
+  if (!alumno) return [];
+  const ordenados = [...alumno.salon.cursos].sort(
+    (a, b) => Number(b.areaCnebManual) - Number(a.areaCnebManual) || a.nombre.length - b.nombre.length || a.nombre.localeCompare(b.nombre, "es"),
+  );
+  const porArea = new Map<string, CursoNuditoVista>();
+  for (const c of ordenados) {
+    if (c.areaCneb && esAreaNudito(c.areaCneb) && !porArea.has(c.areaCneb)) porArea.set(c.areaCneb, { cursoId: c.id, nombre: c.nombre, area: c.areaCneb });
+  }
+  return AREAS_NUDITO.flatMap((a) => (porArea.has(a) ? [porArea.get(a)!] : []));
+}
+
+/** Igual que `cursosNuditoDelAlumno` con las 3 áreas, exigiendo que el alumno sea visible para quien pregunta. */
+export async function cursosNuditoDeAlumno(ctx: TenantContext, alumnoId: string, areas: readonly string[] = AREAS_NUDITO): Promise<CursoNuditoVista[]> {
+  await requireAlumnoVisible(ctx, alumnoId);
+  return cursosNuditoDelAlumno(ctx.db, alumnoId, areas);
 }

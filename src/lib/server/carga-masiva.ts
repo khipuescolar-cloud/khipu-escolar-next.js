@@ -12,6 +12,7 @@ import { payloadBienvenida } from "./cuentas";
 import { db } from "./db";
 import { renderizarPlantilla } from "./email/plantillas";
 import { exigirAlumnosFamilias, exigirGestion } from "./gestion";
+import { areaDeCurso } from "./nudito/areas-cursos";
 import { whereSalonActivo } from "./salones-activos";
 import { supabaseAdmin } from "./supabase";
 import type { TenantContext } from "./tenant";
@@ -215,7 +216,7 @@ export async function importarSalones(ctx: TenantContext, tabla: Tabla): Promise
     for (const id of ids) auditoria.push({ tenantId, actorId, accion: "editar", entidad: "salon", entidadId: id, detalle: { origen: "carga_masiva", campos: ["tutorId"] } });
   }
 
-  const cursos = planes.flatMap((p) => p.cursosNuevos.map((c) => ({ id: randomUUID(), tenantId, salonId: p.existenteId ?? idDe.get(p.archivo.clave)!, nombre: c.nombre, profesorId: c.profesorId })));
+  const cursos = planes.flatMap((p) => p.cursosNuevos.map((c) => ({ id: randomUUID(), tenantId, salonId: p.existenteId ?? idDe.get(p.archivo.clave)!, nombre: c.nombre, profesorId: c.profesorId, areaCneb: areaDeCurso(c.nombre, p.archivo.nivel as Nivel) })));
   for (const lote of enLotes(cursos, 1000)) await ctx.db.curso.createMany({ data: lote });
   for (const c of cursos) auditoria.push({ tenantId, actorId, accion: "crear", entidad: "curso", entidadId: c.id, detalle: { origen: "carga_masiva" } });
 

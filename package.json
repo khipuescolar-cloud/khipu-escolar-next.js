@@ -23,6 +23,7 @@
     "db:credenciales": "tsx scripts/datos-piloto/credenciales.ts --salida ../../credenciales-pruebas.md",
     "db:studio": "prisma studio",
     "khipu:borrar-colegio": "tsx --conditions=react-server scripts/borrar-colegio.ts",
+    "nudito:areas": "tsx --conditions=react-server scripts/nudito-backfill-areas.ts",
     "dev:nube": "node scripts/dev-nube.mjs",
     "khipu:crear-superadmin": "tsx --conditions=react-server scripts/crear-superadmin.ts",
     "postinstall": "prisma generate"

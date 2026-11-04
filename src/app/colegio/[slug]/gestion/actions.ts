@@ -9,6 +9,7 @@ import {
   editarSalon, eliminarCurso, eliminarSalon, importarAlumnosCsv, invitarApoderado, vincularApoderado,
 } from "@/lib/server/gestion";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
+import { fijarAreaCurso } from "@/lib/server/nudito/areas-cursos";
 import { altaPersonal, editarFicha, importarPersonalCsv, reenviarBienvenida, restablecerPasswordAlDocumento, type RolPersonal } from "@/lib/server/personal";
 
 const ROLES = ["direccion"] as const;
@@ -196,7 +197,10 @@ export async function crearCursoAction(formData: FormData) {
 export async function editarCursoAction(formData: FormData) {
   const ctx = await gestionar();
   await ejecutarYVolver("/gestion/salones", async () => {
-    await editarCurso(ctx, texto(formData, "id"), { nombre: texto(formData, "nombre"), profesorId: textoONulo(formData, "profesorId") });
+    const id = texto(formData, "id");
+    await editarCurso(ctx, id, { nombre: texto(formData, "nombre"), profesorId: textoONulo(formData, "profesorId") });
+    // Área CNEB (specs/42): vacío = automática por el nombre; un valor la fija a mano.
+    if (formData.has("areaCneb")) await fijarAreaCurso(ctx, { cursoId: id, area: textoONulo(formData, "areaCneb") });
     return "Curso actualizado.";
   });
 }

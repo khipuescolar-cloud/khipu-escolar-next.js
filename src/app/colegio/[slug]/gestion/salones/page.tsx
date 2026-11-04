@@ -11,6 +11,7 @@ import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { buttonVariants } from "@/components/ui/button";
+import { CATALOGO_CNEB, areaPorClave } from "@/lib/cneb/catalogo";
 import { listarProfesores, listarSalones } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { AccionesFila } from "../_componentes/AccionesFila";
@@ -51,6 +52,11 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
       ))}
     </>
   );
+
+  // Área CNEB del curso (specs/42): la usa Nudito para saber qué cursos son de Matemática, Comunicación o Ciencia.
+  const opcionesArea = CATALOGO_CNEB.map((a) => (
+    <option key={a.area} value={a.area}>{a.nombre}</option>
+  ));
 
   const grupos = agrupar(salones);
 
@@ -142,6 +148,10 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
                                             <input type="hidden" name="id" value={c.id} />
                                             <Campo etiqueta="Curso" name="nombre" defaultValue={c.nombre} required />
                                             <Selector etiqueta="Profesor(a)" name="profesorId" defaultValue={c.profesorId ?? ""}>{opcionesProfesor}</Selector>
+                                            <Selector etiqueta="Área CNEB" name="areaCneb" defaultValue={c.areaCnebManual ? (c.areaCneb ?? "") : ""}>
+                                              <option value="">Automática{!c.areaCnebManual && c.areaCneb ? ` (${areaPorClave(c.areaCneb)?.nombre ?? c.areaCneb})` : " (según el nombre)"}</option>
+                                              {opcionesArea}
+                                            </Selector>
                                             <Boton type="submit" variante="secundario">Guardar</Boton>
                                           </form>
                                           <BotonConfirmar

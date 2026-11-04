@@ -10,6 +10,7 @@ import { ErrorDeNegocio } from "./contexto-accion";
 import { encolarBienvenida } from "./cuentas";
 import { db } from "./db";
 import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
+import { areaDeCurso } from "./nudito/areas-cursos";
 import { requireFeature } from "./plan";
 import { supabaseAdmin } from "./supabase";
 import { salonEsActivo, whereSalonActivo } from "./salones-activos";
@@ -240,9 +241,10 @@ const esquemaCurso = z.object({
 export async function crearCurso(ctx: TenantContext, entrada: z.input<typeof esquemaCurso>): Promise<string> {
   exigirGestion(ctx);
   const d = validar(esquemaCurso, entrada);
-  if ((await ctx.db.salon.count({ where: { id: d.salonId } })) === 0) throw new ErrorDeNegocio("No se encontró el salón.");
+  const salon = await ctx.db.salon.findFirst({ where: { id: d.salonId }, select: { nivel: true } });
+  if (!salon) throw new ErrorDeNegocio("No se encontró el salón.");
   await exigirProfesorActivo(ctx, d.profesorId);
-  const c = await ctx.db.curso.create({ data: { tenantId: ctx.tenant.id, ...d } });
+  const c = await ctx.db.curso.create({ data: { tenantId: ctx.tenant.id, ...d, areaCneb: areaDeCurso(d.nombre, salon.nivel) } });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "curso", entidadId: c.id });
   return c.id;
 }
@@ -251,7 +253,11 @@ export async function editarCurso(ctx: TenantContext, id: string, entrada: { nom
   exigirGestion(ctx);
   const d = validar(esquemaCurso.omit({ salonId: true }), entrada);
   await exigirProfesorActivo(ctx, d.profesorId);
-  const r = await ctx.db.curso.updateMany({ where: { id }, data: d });
+  const actual = await ctx.db.curso.findFirst({ where: { id }, select: { areaCnebManual: true, salon: { select: { nivel: true } } } });
+  if (!actual) throw new ErrorDeNegocio("No se encontró el curso.");
+  // Área CNEB (specs/42): se recalcula por el nombre salvo que dirección la haya fijado a mano.
+  const area = actual.areaCnebManual ? {} : { areaCneb: areaDeCurso(d.nombre, actual.salon.nivel) };
+  const r = await ctx.db.curso.updateMany({ where: { id }, data: { ...d, ...area } });
   if (r.count === 0) throw new ErrorDeNegocio("No se encontró el curso.");
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "curso", entidadId: id });
 }
