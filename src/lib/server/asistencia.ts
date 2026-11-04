@@ -9,6 +9,7 @@ import { primerNombre } from "@/lib/nombres";
 import { instanteDeRegistro } from "@/lib/registro-offline";
 import { auditar, auditarVarios } from "./auditoria";
 import { sincronizarNsp } from "./nsp";
+import { coberturaDePermisos, permisosVigentes } from "./permisos-asistencia";
 import { expiracionJustificacion, ultimoDiaJustificacion } from "@/lib/plazo-justificacion";
 import { asistenciaPorCursoActiva, ingresoAlColegio, mensajeCursoDesactivado, seAvisaCambio } from "@/lib/asistencia-por-curso";
 import { ErrorDeNegocio } from "./contexto-accion";
@@ -116,7 +117,10 @@ export async function obtenerLista(ctx: TenantContext, salonId: string, ambito: 
       asistencias: { where: { fecha: fechaLista, ambito: curso ? { in: [ambito, AMBITO_DIA] } : ambito }, select: { ambito: true, estado: true, hora: true, nota: true, origen: true } },
     },
   });
-  const familias = await familiasConAvisoPorAlumno(ctx.db, alumnos.map((a) => a.id));
+  const [familias, permisos] = await Promise.all([
+    familiasConAvisoPorAlumno(ctx.db, alumnos.map((a) => a.id)),
+    permisosVigentes(ctx.db, alumnos.map((a) => a.id), fechaLista),
+  ]);
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "asistencia",
     detalle: { salonId: salon.id, ambito, fecha: dia.isoFecha },
@@ -138,6 +142,11 @@ export async function obtenerLista(ctx: TenantContext, salonId: string, ambito: 
         familiasConAviso: familias.get(a.id) ?? 0,
         /** Solo listas de curso: ingreso al colegio de ese día (portería o lista del día). */
         ingreso: ingreso ? { estado: ingreso.estado, hora: ingreso.hora } : null,
+        /** Permiso de asistencia vigente ese día (specs/04): se muestra «Con permiso» en la lista. */
+        permiso: (() => {
+          const p = permisos.find((x) => x.alumnoId === a.id);
+          return p ? { todoElDia: p.todoElDia, horaDesde: p.horaDesde, horaHasta: p.horaHasta } : null;
+        })(),
       };
     }),
   };
@@ -318,6 +327,10 @@ export type RegistroHistorial = {
   justificarHasta: string | null;
   /** Falta sin justificar cuyo plazo (días calendario) ya venció. */
   plazoVencido: boolean;
+  /** Hora de salida del colegio registrada en portería (solo el ingreso al colegio). */
+  horaSalida: string | null;
+  /** Falta cubierta por un permiso de asistencia del colegio (specs/04): no hace falta justificarla. */
+  conPermiso: boolean;
 };
 
 /** Asistencia de un mes (por defecto el actual) de cada hijo, para el calendario de la familia (solo lectura). */
@@ -337,13 +350,14 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
         where: { fecha: { gte: fechaDb(desde), lte: fechaDb(hasta) } },
         orderBy: [{ fecha: "desc" }, { hora: "asc" }],
         select: {
-          id: true, fecha: true, hora: true, estado: true, ambito: true, curso: { select: { nombre: true } },
+          id: true, fecha: true, hora: true, horaSalida: true, estado: true, ambito: true, curso: { select: { nombre: true } },
           justificaciones: { orderBy: { createdAt: "desc" }, take: 1, select: { estado: true } },
         },
       },
     },
   });
   const ahora = new Date();
+  const permisos = coberturaDePermisos(await permisosVigentes(ctx.db, hijos.map((h) => h.id), fechaDb(desde), fechaDb(hasta)));
   const plazo = ctx.tenant.plazoJustificacionDias;
   const zona = ctx.tenant.zonaHoraria;
   await Promise.all(
@@ -365,7 +379,8 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
         const justificacion = estadoJustificacionDelDia(h.asistencias, a);
         const fecha = isoDeFechaDb(a.fecha);
         const esFalta = a.estado === "falta";
-        const pendiente = esFalta && (justificacion === null || justificacion === "rechazada");
+        const conPermiso = esFalta && (a.ambito === AMBITO_DIA ? permisos.diaCompleto(h.id, fecha) : permisos.hora(h.id, fecha, a.hora));
+        const pendiente = esFalta && !conPermiso && (justificacion === null || justificacion === "rechazada");
         const plazoVencido = pendiente && expiracionJustificacion(fecha, plazo, zona) <= ahora;
         return {
           id: a.id,
@@ -380,6 +395,8 @@ export async function historialDeHijos(ctx: TenantContext, mes?: string) {
           puedeJustificar: ctx.rol === "apoderado" && pendiente && !plazoVencido,
           justificarHasta: esFalta ? ultimoDiaJustificacion(fecha, plazo) : null,
           plazoVencido,
+          horaSalida: a.ambito === AMBITO_DIA ? a.horaSalida : null,
+          conPermiso,
         };
       }),
     })),

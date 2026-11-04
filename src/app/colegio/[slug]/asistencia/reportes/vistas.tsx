@@ -1,4 +1,4 @@
-import { ArrowLeft, BarChart3, BookOpenCheck, FileSpreadsheet, FileText, PencilLine } from "lucide-react";
+import { ArrowLeft, BarChart3, BookOpenCheck, CalendarCheck, FileDown, FileSpreadsheet, FileText, LogOut, PencilLine } from "lucide-react";
 import Link from "next/link";
 import { EstadoAsistencia } from "@/components/EstadoAsistencia";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -6,7 +6,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { fechaCorta, fechaLarga } from "@/lib/fechas";
-import { rangoAnio, rangoEsteMes, textoJustificacion, textoPorcentaje, type FiltrosReporte, type ResumenAlumno } from "@/lib/reportes-asistencia";
+import { claveGrado, rangoAnio, rangoEsteMes, textoJustificacion, textoPorcentaje, type FiltrosReporte, type ResumenAlumno } from "@/lib/reportes-asistencia";
 import type { ReporteAsistencia, ReporteColegio } from "@/lib/server/reportes-asistencia";
 
 // Piezas del reporte de asistencia compartidas por la página general y la vista filtrada (`ver/`), specs/27.
@@ -14,6 +14,13 @@ import type { ReporteAsistencia, ReporteColegio } from "@/lib/server/reportes-as
 export const NUM = "text-right tabular-nums";
 
 export type Enlace = Partial<FiltrosReporte> & { cursoId?: string; dia?: string; vista?: string };
+
+/** Título del reporte: alumno, salón, grado o todo el colegio. */
+export function tituloDe(r: ReporteAsistencia): string {
+  if (r.tipo === "alumno") return `${r.alumno.apellidos}, ${r.alumno.nombres}`;
+  if (r.tipo === "salon") return `Salón ${r.salon.nombre}`;
+  return r.grado ? r.grado.nombre.charAt(0).toUpperCase() + r.grado.nombre.slice(1) : "Todo el colegio";
+}
 
 /** Ruta del reporte filtrado (vista propia con tabla o calendario, specs/27). */
 export const RUTA_VER = "/asistencia/reportes/ver";
@@ -23,6 +30,7 @@ export function enlace(base: Enlace, cambios: Enlace, ruta = RUTA_VER): string {
   const q = new URLSearchParams();
   if (f.salonId) q.set("salon", f.salonId);
   if (f.alumnoId) q.set("alumno", f.alumnoId);
+  if (f.grado && !f.salonId && !f.alumnoId) q.set("grado", claveGrado(f.grado));
   if (f.cursoId) q.set("curso", f.cursoId);
   if (f.desde) q.set("desde", f.desde);
   if (f.hasta) q.set("hasta", f.hasta);
@@ -61,6 +69,9 @@ export function ResultadoRango({ reporte, filtros, familia, puedeCorregir }: { r
               <a href={enlace(filtros, {}, "/api/reportes-asistencia/pdf")} className={buttonVariants({ variant: "outline" })}>
                 <FileText className="size-4" strokeWidth={2} aria-hidden /> Descargar PDF
               </a>
+              <a href={enlace(filtros, {}, "/api/reportes-asistencia/csv")} className={buttonVariants({ variant: "outline" })}>
+                <FileDown className="size-4" strokeWidth={2} aria-hidden /> Descargar CSV
+              </a>
             </div>
           </div>
           <Contenido reporte={reporte} filtros={filtros} familia={familia} puedeCorregir={puedeCorregir} />
@@ -81,8 +92,8 @@ export function Contenido({ reporte, filtros, familia, puedeCorregir }: { report
     : reporte.filas.map((f) => ({ clave: f.salonId, nombre: f.salon, href: enlace({ desde: filtros.desde, hasta: filtros.hasta }, { salonId: f.salonId }), resumen: f.resumen, extra: f.alumnos }));
   return (
     <>
-      {reporte.tipo === "colegio" && <h2 className="text-titulo-2">Asistencia al colegio en el rango</h2>}
-      <Totales resumen={total} titulo={reporte.tipo === "salon" ? `Salón ${reporte.salon.nombre}` : "Todo el colegio"} contexto={contextoDe(reporte)} />
+      {reporte.tipo === "colegio" && <h2 className="text-titulo-2">{reporte.grado ? "Asistencia al colegio por sección" : "Asistencia al colegio en el rango"}</h2>}
+      <Totales resumen={total} titulo={tituloDe(reporte)} contexto={contextoDe(reporte)} />
       {filas.length === 0 ? (
         <EstadoVacio icono={BarChart3} titulo="No hay alumnos para este reporte" descripcion="Cuando haya alumnos activos con asistencia, aparecerán aquí." />
       ) : (
@@ -123,6 +134,7 @@ export function CabecerasResumen() {
       <TableHead className={NUM}>Justificadas</TableHead>
       <TableHead className={NUM}>En revisión</TableHead>
       <TableHead className={NUM}>Sin justificar</TableHead>
+      <TableHead className={NUM}>Con permiso</TableHead>
       <TableHead className={NUM}>Sin registro</TableHead>
       <TableHead className={NUM}>% asistencia</TableHead>
     </>
@@ -139,6 +151,7 @@ export function CeldasResumen({ r }: { r: ResumenAlumno }) {
       <TableCell className={NUM}>{r.faltasJustificadas}</TableCell>
       <TableCell className={NUM}>{r.faltasEnRevision}</TableCell>
       <TableCell className={NUM}>{r.faltasInjustificadas}</TableCell>
+      <TableCell className={NUM}>{r.conPermiso}</TableCell>
       <TableCell className={NUM}>{r.diasSinRegistro}</TableCell>
       <TableCell className={`${NUM} font-semibold`}>{textoPorcentaje(r.porcentaje)}</TableCell>
     </>
@@ -172,7 +185,7 @@ export function Totales({ resumen, titulo, contexto = [] }: { resumen: ResumenAl
           <li className="flex items-center gap-1.5 text-sm"><EstadoAsistencia estado="problema" /> <strong className="tabular-nums">{resumen.problema}</strong></li>
         </ul>
         <p className="text-sm text-muted-foreground tabular-nums">
-          Faltas justificadas: <strong className="text-foreground">{resumen.faltasJustificadas}</strong> · en revisión: <strong className="text-foreground">{resumen.faltasEnRevision}</strong> · sin justificar: <strong className="text-foreground">{resumen.faltasInjustificadas}</strong> · días sin registro: <strong className="text-foreground">{resumen.diasSinRegistro}</strong>
+          Faltas justificadas: <strong className="text-foreground">{resumen.faltasJustificadas}</strong> · en revisión: <strong className="text-foreground">{resumen.faltasEnRevision}</strong> · sin justificar: <strong className="text-foreground">{resumen.faltasInjustificadas}</strong> · con permiso: <strong className="text-foreground">{resumen.conPermiso}</strong> · días sin registro: <strong className="text-foreground">{resumen.diasSinRegistro}</strong>
         </p>
       </CardContent>
     </Card>
@@ -196,6 +209,7 @@ export function DetalleAlumno({ reporte, filtros, familia, puedeCorregir }: { re
                 <TableHead>Día</TableHead>
                 <TableHead>Estado</TableHead>
                 <TableHead className={NUM}>Hora</TableHead>
+                <TableHead className={NUM}>Salida</TableHead>
                 <TableHead>Justificación</TableHead>
                 {puedeCorregir && <TableHead><span className="sr-only">Corregir</span></TableHead>}
               </TableRow>
@@ -204,8 +218,19 @@ export function DetalleAlumno({ reporte, filtros, familia, puedeCorregir }: { re
               {reporte.detalle.map((d) => (
                 <TableRow key={d.fecha}>
                   <TableCell className="capitalize">{fechaLarga(d.fecha)}</TableCell>
-                  <TableCell>{d.estado ? <EstadoAsistencia estado={d.estado} /> : <span className="text-muted-foreground">Sin registro</span>}</TableCell>
+                  <TableCell>
+                    {d.estado ? (
+                      <EstadoAsistencia estado={d.estado} />
+                    ) : d.conPermiso ? (
+                      <span className="inline-flex items-center gap-1 text-muted-foreground"><CalendarCheck className="size-4" strokeWidth={2} aria-hidden /> Con permiso</span>
+                    ) : (
+                      <span className="text-muted-foreground">Sin registro</span>
+                    )}
+                  </TableCell>
                   <TableCell className={NUM}>{d.hora ?? ""}</TableCell>
+                  <TableCell className={NUM}>
+                    {d.horaSalida && <span className="inline-flex items-center gap-1"><LogOut className="size-3.5" strokeWidth={2} aria-hidden /><span className="sr-only">Salió a las </span>{d.horaSalida}</span>}
+                  </TableCell>
                   <TableCell>{textoJustificacion(d)}</TableCell>
                   {puedeCorregir && (
                     <TableCell className="text-right">

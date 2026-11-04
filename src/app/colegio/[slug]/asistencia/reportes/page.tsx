@@ -42,9 +42,9 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
   const uno = (k: string) => (typeof sp[k] === "string" ? (sp[k] as string) : null);
   const familia = esVistaFamilia(ctx.rol);
   // El personal ve el resultado de un filtro en su propia vista (tabla o calendario); aquí queda el día y el resumen.
-  if (!familia && !uno("curso") && (uno("salon") || uno("alumno") || uno("desde") || uno("hasta"))) {
+  if (!familia && !uno("curso") && (uno("salon") || uno("alumno") || uno("grado") || uno("desde") || uno("hasta"))) {
     const q = new URLSearchParams();
-    for (const k of ["salon", "alumno", "desde", "hasta", "vista"]) if (uno(k)) q.set(k, uno(k)!);
+    for (const k of ["salon", "alumno", "grado", "desde", "hasta", "vista"]) if (uno(k)) q.set(k, uno(k)!);
     redirect(`${RUTA_VER}?${q.toString()}`);
   }
   // Profesor: su salón de tutoría (gráfico de los últimos 7 días) y sus cursos (specs/27).

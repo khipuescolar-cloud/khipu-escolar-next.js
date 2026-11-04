@@ -1,6 +1,6 @@
 # 04 — Asistencia (pasar lista)
 
-> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-10-30 (Claude Code, rama `feat/asistencia-colegio-cursos`: asistencia al colegio vs. asistencia por curso, asistencia por curso configurable por nivel, avisos de curso solo de faltas y tardanzas, dirección ya no pasa lista: ve y corrige desde los reportes)
+> Estado: implementado · Plan: Khipu Base · Última actualización: 2026-11-03 (Claude Code, rama `pre-asistencia`: permisos de asistencia, «Con permiso» al pasar lista, salida en el historial de la familia; antes, 2026-10-30, rama `feat/asistencia-colegio-cursos`: asistencia al colegio vs. asistencia por curso, asistencia por curso configurable por nivel, avisos de curso solo de faltas y tardanzas, dirección ya no pasa lista: ve y corrige desde los reportes)
 
 ## Objetivo
 El profesor pasa lista en menos de un minuto y las familias se enteran al instante.
@@ -15,7 +15,8 @@ El profesor pasa lista en menos de un minuto y las familias se enteran al instan
 | Profesor | Pasar lista (hoy) en los cursos que dicta; si es tutor, la «Asistencia del día» y los cursos de su salón. Las listas de curso solo en salones de niveles con asistencia por curso activa | Cursos o salones ajenos (403); listas de curso de un nivel apagado (error de negocio); otro día que no sea hoy (403) |
 | Dirección | **No pasa lista** (no tiene «Pasar lista» en el menú; `/asistencia` la lleva a `/asistencia/reportes`). Desde los reportes abre la lista de un salón (del día o de un curso) de cualquier fecha hasta hoy y **corrige** entradas; activa la asistencia por curso por nivel | Corregir días futuros; listas de curso de un nivel apagado |
 | Apoderado | Ver el calendario mensual de sus hijos y justificar faltas | Ver otros alumnos; pasar lista |
-| Portería | Registra llegadas desde `/porteria` (spec 05) | Entrar a `/asistencia` (403) |
+| Portería | Registra llegadas y salidas desde `/porteria` (spec 05) | Entrar a `/asistencia` o `/permisos` (403) |
+| Administrativo | Registrar y anular permisos de asistencia (`/permisos`) | Pasar lista |
 
 ## Flujos
 1. `/asistencia` (profesor) muestra las listas disponibles agrupadas por salón: «Asistencia del día · 3.° B» (`ambito = "dia"`, solo el tutor) y cada curso (`ambito = cursoId`, solo si el nivel del salón tiene asistencia por curso). Dirección es redirigida a `/asistencia/reportes` (el conteo del día del colegio vive allí, spec 27).
@@ -46,7 +47,24 @@ El profesor pasa lista en menos de un minuto y las familias se enteran al instan
 - Todos los alumnos enviados deben ser del salón y estar activos; si no, 403.
 - `auditar()` en cada creación y cambio (con estado antes/después) y al ver la lista o el historial.
 
+## Permisos de asistencia (2026-11-03)
+Regla aprobada: **las tardanzas y los permisos autorizados no se convierten automáticamente en NSP.**
+- **Qué es:** el colegio autoriza que un alumno no asista **todo el día** o falte **unas horas** (HH:mm desde–hasta), de una fecha a otra (máximo 60 días). Motivo obligatorio (3–500 caracteres).
+- **Quién:** registran y anulan dirección, administrativo y el **tutor del salón** del alumno. Los demás profesores ven en solo lectura los permisos de sus salones (`salonIdsVisibles`). Familias, alumnos y portería: 403. Todo se audita (`permiso_asistencia`: crear, editar con `anulado: true`, ver).
+- **No se borran:** «Anular permiso» pide motivo y guarda quién y cuándo (`anulado_at`, `anulado_por`, `motivo_anulacion`). Anular dos veces responde «Este permiso ya estaba anulado.»
+- **Efectos:**
+  - **Control de ingreso** (spec 05): con permiso de día completo vigente ese día, el alumno no recibe «aún no llega» ni falta automática (`alumnosSinIngreso` lo excluye).
+  - **NSP** (spec 37): una falta cubierta por un permiso vigente no genera NSP. El de día completo cubre la falta del día y las faltas a clase; uno por horas, solo las faltas a clase cuyo registro (`hora`) cae dentro de esas horas. Si el permiso se registra **después**, `sincronizarNsp` retira el NSP automático (historial «La falta está cubierta por un permiso de asistencia autorizado.», actor Khipu) en cada día del permiso con actividades, hasta hoy. Si se anula, el NSP vuelve si la falta sigue. Una calificación o una consecuencia ya aplicada no se tocan (misma regla que corregir la asistencia).
+  - **Pasar lista:** la tarjeta del alumno muestra «Con permiso · Todo el día» (o las horas). No cambia los botones ni los avisos.
+  - **Familia:** en su lista del mes, la falta cubierta dice «Con permiso del colegio» y no ofrece «Justificar falta» (no hace falta justificarla).
+  - **Reportes** (spec 27): columna «Con permiso»; la falta con permiso cuenta como justificada.
+- **No cubre** las faltas a clase por incidencia ni el retiro anticipado (decisión pendiente, spec 37).
+- **UI:** `/permisos` (barra lateral, grupo «Día a día», ícono `CalendarCheck`; junto a Incidencias): formulario (alumno, desde, hasta, todo el día o unas horas, motivo) y lista con «Vigente» / «Anulado» (ícono + palabra) y «Anular permiso» con motivo. `?alumno=<id>` preselecciona el alumno.
+- **Contratos** (`src/lib/server/permisos-asistencia.ts`): `registrarPermiso(ctx, { alumnoId, desde, hasta, todoElDia, horaDesde?, horaHasta?, motivo }, ahora?)`, `anularPermiso(ctx, { permisoId, motivo }, ahora?)`, `listarPermisos(ctx, { alumnoId? })`, `alumnosParaPermiso(ctx)`, `permisosVigentes(tdb, alumnoIds, desde, hasta?)`, `coberturaDePermisos(permisos)`. Puro: `src/lib/permisos-asistencia.ts` (`cubreDiaCompleto`, `cubreHora`, `permisoVigenteEn`, `textoHorasPermiso`).
+- **Límites conocidos:** un permiso por horas no cubre la falta del día (si el alumno no vino en todo el día, hace falta uno de día completo). Anular un permiso de un día pasado no crea la falta que el control de ingreso no puso. Hoy la familia no ve la lista de permisos (solo el efecto en su calendario).
+
 ## Modelo de datos
+- `permisos_asistencia` (migración `20261112090200_permisos_asistencia`): `alumno_id`, `desde`/`hasta` (date, CHECK desde ≤ hasta), `todo_el_dia`, `hora_desde`/`hora_hasta` (CHECK: obligatorias y ordenadas si no es todo el día), `motivo`, `registrado_por`, `created_at`, `anulado_at`/`anulado_por`/`motivo_anulacion`. RLS cerrado. La misma migración agrega `asistencias.hora_salida` y `salida_registrada_por` (spec 05).
 - `asistencias`: `alumnoId`, `cursoId` (null en el día), `ambito`, `fecha` (`@db.Date`), `hora` (HH:mm), `estado`, `nota`, `origen`, `registradoPorId`. Única `(alumnoId, fecha, ambito)`.
 - `tenants.asistencia_por_curso_niveles` (`Nivel[]`, `DEFAULT ARRAY[]`; migración aditiva `20261102090000_asistencia_por_curso_niveles`). Seed: Nuevo Horizonte (único colegio demo, specs/35) primaria y secundaria; los e2e crean colegios temporales sin asistencia por curso.
 - Lee `salones`, `cursos`, `alumnos`, `justificaciones`; escribe `avisos` y `justificacion_tokens` vía spec 06/07.
@@ -75,6 +93,8 @@ hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 - `/configuracion` (dirección): tarjeta «Asistencia por curso» con una casilla por nivel (y cuántos salones tiene) → `guardarAsistenciaPorCursoAction`.
 - `/asistencia` (apoderado): calendario mensual + lista del mes (`?mes=AAAA-MM`, «Mes anterior» / «Mes siguiente»; no pasa del mes actual ni retrocede más de 24 meses) + preferencias de aviso (`#avisos`).
 - `/asistencia/justificar/[asistenciaId]` (apoderado): formulario de justificación con sesión.
+- `/asistencia` (apoderado): cada ingreso al colegio con salida registrada muestra «Salió 1:10 p. m.» (`RegistroHistorial.horaSalida`); una falta con permiso, «Con permiso del colegio» (`conPermiso`).
+- `/permisos` (dirección, administrativo, profesor): ver «Permisos de asistencia».
 
 ## Textos y UX
 - Botón: «Guardar y avisar a los padres». Resultado: «Lista guardada. Se avisó a 1 familia.» / «… a N familias.»
@@ -111,6 +131,10 @@ hoyDelColegio(ctx, ahora?) : { isoFecha, hora }
 
 ## Reportes
 - Porcentaje de asistencia por alumno, salón y fechas, con descarga en Excel y PDF: ver [spec 27](27-reportes-asistencia.md) (`/asistencia/reportes`).
+
+## Pruebas de permisos
+- unit `tests/unit/permisos-asistencia.test.ts` (cobertura por día y por horas, anulado, resumen con permiso, grado, CSV).
+- integración `tests/integracion/permisos-salida-reportes.test.ts`: solo roles autorizados registran (tutor sí, otro profesor/portería/familia/otro colegio no), lectura del profesor, permiso de día completo sin «aún no llega» ni falta automática, falta con permiso sin NSP, permiso registrado después → NSP retirado con historial, anular (motivo, una sola vez) → NSP de vuelta, tardanza nunca NSP, permiso por horas.
 
 ## Pendientes
 - (Hecho) Vista de la familia: botón «Escribir a la tutora» por hijo → `/mensajes/nuevo?alumno=<id>` (spec 08).

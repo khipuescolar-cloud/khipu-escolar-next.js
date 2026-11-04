@@ -1,6 +1,6 @@
 # 37 — NSP, justificaciones, recuperación, incidencias y libretas emitidas
 
-> Estado: implementado · Plan: Khipu Base (incidencias, plazo) y Khipu Pro (notas, libreta) · Última actualización: 2026-11-03 (Claude Code, rama `dev`)
+> Estado: implementado · Plan: Khipu Base (incidencias, plazo) y Khipu Pro (notas, libreta) · Última actualización: 2026-11-03 (Claude Code, rama `pre-asistencia`: los permisos de asistencia no generan NSP; antes, rama `dev`)
 
 ## Objetivo
 Conectar la asistencia con el registro auxiliar:
@@ -59,6 +59,10 @@ Un alumno **faltó a la clase** de un curso en una fecha cuando se cumple, en es
 1. Tiene registro de esa clase (`ambito = cursoId`): «No llegó» cuenta como falta; cualquier otro estado, como presente.
 2. No tiene registro de la clase: cuenta la **falta del día** (no vino al colegio).
 3. Las incidencias crean faltas a clase con `origen = incidencia` (flujo 5).
+
+**Tardanzas y permisos (regla aprobada):** las tardanzas y los permisos autorizados no se convierten en NSP. «Tarde» cuenta como presente. Una falta cubierta por un **permiso de asistencia** vigente (specs/04) no es ausencia para el NSP: el de día completo cubre la falta del día y las faltas a clase; uno por horas, las faltas a clase registradas en esas horas. Las faltas por incidencia **no** las cubre un permiso.
+
+`sincronizarNsp` corre también al **registrar o anular un permiso** (en cada día del permiso con actividades, hasta hoy). Al registrarlo después de la falta, el NSP sin valor se quita con historial «La falta está cubierta por un permiso de asistencia autorizado.» (`cambio_asistencia`, Khipu); al anularlo, vuelve.
 
 `sincronizarNsp` corre en estos momentos:
 - al crear una actividad;
@@ -294,6 +298,7 @@ ultimoDiaJustificacion · expiracionJustificacion · dentroDelPlazo · textoPlaz
   - otro colegio (13);
   - libreta emitida y rectificación (14);
   - resumen diario único.
+- **Permisos:** `tests/integracion/permisos-salida-reportes.test.ts` (falta con permiso sin NSP, permiso posterior retira el NSP, anular lo devuelve, tardanza nunca NSP, permiso por horas).
 - **Actualizadas:** `evaluaciones-publicacion` (sin aviso inmediato; corrección con motivo), `notas-libreta-tareas-agenda`, `justificar-token`, `dia-a-dia-offline-plazo` y `plataforma-equipo-anuncios-configuracion` (los feriados no mueven el plazo).
 - **unit:** `plazo-justificacion` (días calendario, día 15 dentro y 16 fuera, zona horaria) y `plantillas-avisos` (plantillas nuevas, sin notas ni diagnósticos).
 - **e2e:**
@@ -308,5 +313,6 @@ ultimoDiaJustificacion · expiracionJustificacion · dentroDelPlazo · textoPlaz
 - **Recuperación no autorizada:** ¿el colegio aplica otra política? Hoy el NSP se mantiene sin nota.
 - **Notificación a docentes:** solo a los profesores con actividades ese día. ¿Avisar también a los de clases sin actividad?
 - **Incidencias:** no hay edición ni anulación; un error se corrige en la asistencia de la clase.
+- **Retiro anticipado vs. permiso (por decidir, product owner):** hoy un retiro registrado como incidencia sigue creando faltas a clase y NSP (`Incidencia.retiro`), aunque el alumno tenga un permiso por horas que cubra esas clases (las faltas por incidencia no las cubre un permiso). ¿Un retiro autorizado por la familia debe tratarse como permiso (sin NSP) o mantener el NSP para que el profesor decida la recuperación? No se cambió el comportamiento.
 - **Plazo:** sigue configurable de 1 a 30 días (15 por defecto). ¿Se fija en 15?
 - **Rectificación:** no tiene adjuntos (la evidencia es texto) y la aprueba cualquier usuario de dirección.

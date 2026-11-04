@@ -59,7 +59,7 @@ describe("porcentaje de asistencia", () => {
     ]);
     expect(resumen).toMatchObject({ diasHabiles: 5, diasConRegistro: 4, diasSinRegistro: 1, llego: 1, tarde: 1, falta: 2, problema: 0, faltasJustificadas: 1, faltasEnRevision: 0, faltasInjustificadas: 1 });
     expect(resumen.porcentaje).toBe(50);
-    expect(detalle.at(-1)).toEqual({ fecha: "2026-10-30", estado: null, hora: null, justificada: false, enRevision: false });
+    expect(detalle.at(-1)).toEqual({ fecha: "2026-10-30", estado: null, hora: null, justificada: false, enRevision: false, horaSalida: null, conPermiso: false });
   });
 
   it("separa las faltas justificadas, en revisión (justificación pendiente) y sin justificar", () => {

@@ -7,7 +7,7 @@ import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 
 /** Valida permisos y filtros (misma regla que la página) y devuelve el reporte; 403 si no tiene acceso, 400 si los filtros no son válidos. */
-export async function reporteParaExportar(request: Request, slug: string, formato: "excel" | "pdf"): Promise<{ reporte: ReporteAsistencia | ReporteCurso; ctx: Awaited<ReturnType<typeof requireTenantContext>> } | Response> {
+export async function reporteParaExportar(request: Request, slug: string, formato: "excel" | "pdf" | "csv"): Promise<{ reporte: ReporteAsistencia | ReporteCurso; ctx: Awaited<ReturnType<typeof requireTenantContext>> } | Response> {
   const ctx = await requireTenantContext(slug);
   requireFeature(ctx, "asistencia");
   const params = new URL(request.url).searchParams;
