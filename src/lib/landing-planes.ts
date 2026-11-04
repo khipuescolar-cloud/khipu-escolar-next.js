@@ -1,7 +1,7 @@
 // Planes que se muestran en la landing pública (specs/25-landing-publica.md). Puro: lo usa
 // src/lib/server/landing.ts con las filas de PlanCatalogo + PlanModulo y las pruebas unitarias.
 import type { Plan } from "@/generated/prisma/enums";
-import { INFO_MODULO, MODULOS, modulosDeCodigo, resolverModulos } from "@/lib/modulos";
+import { INFO_MODULO, modulosDeCodigo, resolverModulos } from "@/lib/modulos";
 import { NOMBRE_PLAN, ORDEN_PLANES, type Feature } from "@/lib/planes";
 
 /** Lo mínimo que la landing lee de cada fila del catálogo. */
@@ -46,9 +46,9 @@ export const DETALLE_SIN_PRECIO = "Implementación incluida. Cotización a medid
 /**
  * Módulos que la landing no lista como función del plan: la mesa de ayuda va en todos los planes y se
  * presenta aparte; «avisos» es la pantalla de seguimiento de dirección (los avisos van dentro de asistencia);
- * Nudito+ no está incluido en ningún plan ni se publica (producto futuro en estudio, desactivado; specs/28–29).
+ * Nudito (clave `nudito_plus`) sí se lista: es el tutor de práctica incluido en Khipu Pro (specs/44), sin precio aparte.
  */
-const OCULTOS: ReadonlySet<Feature> = new Set<Feature>(["soporte", "avisos", "nudito_plus"]);
+const OCULTOS: ReadonlySet<Feature> = new Set<Feature>(["soporte", "avisos"]);
 
 /** Nombre del módulo para la landing (más claro para quien no conoce el producto). */
 const NOMBRE_PUBLICO: Partial<Record<Feature, string>> = {
@@ -66,13 +66,15 @@ const NOMBRE_PUBLICO: Partial<Record<Feature, string>> = {
   tablero: "Tablero de dirección y reportes académicos",
   documentos: "Documentos del colegio",
   reuniones: "Reuniones con confirmación y acta",
+  nudito_plus: "Nudito, tutor de práctica",
 };
 
 const soles = new Intl.NumberFormat("es-PE", { style: "currency", currency: "PEN", minimumFractionDigits: 2 });
 
 function modulosPublicos(claves: Iterable<Feature>): ModuloPublico[] {
   const set = new Set(claves);
-  return MODULOS.filter((m) => set.has(m) && !OCULTOS.has(m)).map((clave) => ({ clave, nombre: NOMBRE_PUBLICO[clave] ?? INFO_MODULO[clave].nombre }));
+  // Todos los módulos (también los fijos por plan, como Nudito), en el orden del producto.
+  return (Object.keys(INFO_MODULO) as Feature[]).filter((m) => set.has(m) && !OCULTOS.has(m)).map((clave) => ({ clave, nombre: NOMBRE_PUBLICO[clave] ?? INFO_MODULO[clave].nombre }));
 }
 
 /** Filas por defecto (código) cuando el catálogo de la BD está vacío o no se puede leer. */

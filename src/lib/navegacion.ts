@@ -53,7 +53,9 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/notas", grupo: "academico", titulo: "Notas", descripcion: "Evaluaciones y calificaciones por competencia.", icono: "GraduationCap", feature: "notas", roles: ["profesor", "direccion", "apoderado", "alumno"] },
   { href: "/libreta", grupo: "academico", titulo: "Libreta", descripcion: "Libreta de notas por periodo.", icono: "BookOpen", feature: "libreta", roles: ["direccion", "apoderado", "profesor", "alumno"] },
   { href: "/tareas", grupo: "academico", titulo: "Tareas", descripcion: "Tareas y fechas de entrega.", icono: "ListTodo", feature: "tareas", roles: ["profesor", "direccion", "apoderado", "alumno"] },
-  { href: "/nudito-plus/chat", grupo: "academico", titulo: "Nudito+", descripcion: "Tu tutor con IA: practica paso a paso.", icono: "Sparkles", feature: "nudito_plus", roles: ["alumno"] },
+  // Nudito, tutor de práctica de Khipu Pro (specs/41, specs/44). Práctica formativa: nunca es nota.
+  { href: "/nudito", grupo: "academico", titulo: "Nudito", descripcion: "Tu tutor de práctica: repasa y practica los temas de tus cursos.", icono: "Sparkles", feature: "nudito_plus", roles: ["alumno"] },
+  { href: "/nudito/seguimiento", grupo: "academico", titulo: "Seguimiento de Nudito", descripcion: "Progreso de práctica de tus alumnos por curso y tema (no es nota).", icono: "Sparkles", feature: "nudito_plus", roles: ["profesor", "direccion"] },
   { href: "/agenda", grupo: "academico", titulo: "Agenda", descripcion: "Eventos, exámenes y reuniones.", icono: "CalendarDays", feature: "agenda", roles: ["profesor", "direccion", "apoderado", "administrativo", "alumno"] },
   { href: "/tablero", grupo: "colegio", titulo: "Tablero", descripcion: "Asistencia, notas y avisos del colegio; consolidado de notas en Excel y PDF.", icono: "BarChart3", feature: "tablero", roles: ["direccion"] },
   { href: "/reuniones", grupo: "comunicacion", titulo: "Reuniones", descripcion: "Convocatorias, disponibilidad, confirmaciones y actas.", icono: "Users", feature: "reuniones", roles: ["profesor", "direccion", "administrativo", "apoderado"] },
@@ -63,7 +65,7 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/gestion", grupo: "colegio", titulo: "Alumnos y familias", descripcion: "Altas, datos e invitaciones de alumnos y familias.", icono: "Users", feature: "gestion", roles: ["administrativo"] },
   { href: "/configuracion", grupo: "colegio", titulo: "Configuración", descripcion: "Avisos, logo, dominio y escala de notas.", icono: "Settings", feature: "gestion", roles: ["direccion"] },
   { href: "/soporte", grupo: "colegio", titulo: "Soporte Khipu", descripcion: "Escríbele al equipo de Khipu Escolar: dudas, problemas o sugerencias.", icono: "LifeBuoy", feature: "soporte", roles: ["direccion", "administrativo"] },
-  { href: "/nudito-plus", grupo: "academico", titulo: "Nudito+", descripcion: "Tutor con IA para tu hijo: licencia, autorización y reportes.", icono: "Sparkles", feature: "nudito_plus", roles: ["apoderado"] },
+  { href: "/nudito-plus", grupo: "academico", titulo: "Nudito", descripcion: "Tutor de práctica: el progreso de tus hijos, tu autorización y el modo hijo.", icono: "Sparkles", feature: "nudito_plus", roles: ["apoderado"] },
 ];
 
 export function mosaicosParaRol(rol: Rol): Mosaico[] {

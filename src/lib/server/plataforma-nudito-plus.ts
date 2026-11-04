@@ -6,6 +6,8 @@ import { esFechaIso, fechaCorta, fechaDb, fechaLima, isoDeFechaDb, sumarDias } f
 import {
   calcularActivacion, CLAVES_NUDITO_PLUS, extenderHasta, formatoMonto, leerLimites, MESES_MAXIMOS, normalizarDominio, textoMeses,
 } from "@/lib/nudito-plus";
+import { forbidden } from "next/navigation";
+import { licenciasFamiliaresNudito } from "@/lib/planes";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { db } from "./db";
 import { avisarFamiliaNudito, consentimientoActual, datosYape, limitesNudito, marcarLicenciasVencidas, precioNudito } from "./nudito-plus/licencias";
@@ -21,6 +23,11 @@ const uuid = (v: string) => {
   if (!z.uuid().safeParse(v).success) notFound();
   return v;
 };
+/** Licencias y pagos son HISTÓRICOS (specs/28, `NUDITO_LICENCIAS_FAMILIARES = false`): sin acciones → 403. */
+function requireLicenciasActivas(): void {
+  if (!licenciasFamiliaresNudito()) forbidden();
+}
+
 const motivo = z.string().trim().min(5, "Escribe el motivo (mínimo 5 letras).").max(300, "El motivo es demasiado largo.");
 const nombreDe = (p: { nombres: string; apellidos: string }) => `${p.nombres} ${p.apellidos}`.trim();
 const agregarNota = (previa: string | null, linea: string) => (previa ? `${previa}\n${linea}` : linea);
@@ -106,6 +113,7 @@ export async function resumenNuditoPlus(admin: AdminContext, hoy: string = fecha
  * audita y avisa a la familia. Solo colegios Khipu Pro.
  */
 export async function verificarPago(admin: AdminContext, pagoId: string, hoy: string = fechaLima(new Date())): Promise<{ licenciaId: string; hasta: string; extendida: boolean }> {
+  requireLicenciasActivas();
   uuid(pagoId);
   const pago = await db.pagoNudito.findUnique({ where: { id: pagoId }, include: { tenant: { select: { plan: true } }, alumno: { select: { estado: true } } } });
   if (!pago) notFound();
@@ -156,6 +164,7 @@ export async function verificarPago(admin: AdminContext, pagoId: string, hoy: st
 
 /** Rechaza un pago pendiente con un motivo que verá la familia que lo reportó. */
 export async function rechazarPago(admin: AdminContext, pagoId: string, motivoTexto: string): Promise<void> {
+  requireLicenciasActivas();
   uuid(pagoId);
   const m = validarEntrada(motivo, motivoTexto);
   const pago = await db.pagoNudito.findUnique({ where: { id: pagoId } });
@@ -251,6 +260,7 @@ export type EntradaLicenciaManual = z.input<typeof esquemaLicenciaManual>;
 
 /** Licencia de cortesía o prueba (sin pago), desde hoy hasta la fecha elegida (máximo un año). */
 export async function crearLicenciaManual(admin: AdminContext, entrada: EntradaLicenciaManual, hoy: string = fechaLima(new Date())): Promise<string> {
+  requireLicenciasActivas();
   const d = validarEntrada(esquemaLicenciaManual, entrada);
   if (d.hasta < hoy) throw new ErrorDeNegocio("La fecha final no puede ser anterior a hoy.");
   if (d.hasta > sumarDias(hoy, 366)) throw new ErrorDeNegocio("Máximo un año desde hoy.");
@@ -271,6 +281,7 @@ export async function crearLicenciaManual(admin: AdminContext, entrada: EntradaL
 }
 
 export async function cancelarLicencia(admin: AdminContext, licenciaId: string, motivoTexto: string, hoy: string = fechaLima(new Date())): Promise<void> {
+  requireLicenciasActivas();
   uuid(licenciaId);
   const m = validarEntrada(motivo, motivoTexto);
   const l = await db.licenciaNudito.findUnique({ where: { id: licenciaId } });
@@ -284,6 +295,7 @@ const esquemaExtender = z.object({ meses: z.coerce.number("Elige cuántos meses.
 
 /** Extiende N meses una licencia activa (o reactiva una vencida desde hoy). */
 export async function extenderLicencia(admin: AdminContext, licenciaId: string, entrada: z.input<typeof esquemaExtender>, hoy: string = fechaLima(new Date())): Promise<string> {
+  requireLicenciasActivas();
   uuid(licenciaId);
   const d = validarEntrada(esquemaExtender, entrada);
   const l = await db.licenciaNudito.findUnique({ where: { id: licenciaId }, include: { tenant: { select: { plan: true } } } });
@@ -325,6 +337,7 @@ const esquemaPrecioYape = z.object({
 });
 
 export async function guardarPrecioYape(admin: AdminContext, entrada: z.input<typeof esquemaPrecioYape>): Promise<void> {
+  requireLicenciasActivas();
   const d = validarEntrada(esquemaPrecioYape, entrada);
   const antes = await precioNudito();
   await guardarClave(CLAVES_NUDITO_PLUS.precio, { montoMensual: d.montoMensual, moneda: "PEN" });
@@ -412,4 +425,54 @@ export async function quitarSitio(admin: AdminContext, id: string): Promise<void
   if (!s) notFound();
   await db.sitioPermitido.delete({ where: { id } });
   await registrarPlataforma(admin.user.id, "nudito_sitio_quitar", null, { sitioId: id, dominio: s.dominio });
+}
+
+// ───────────── Nudito, tutor de Khipu Pro (specs/44): estado por colegio y bloqueo de plataforma ─────────────
+
+export type ColegioNudito = {
+  tenantId: string;
+  nombre: string;
+  plan: string;
+  /** Dirección lo encendió (`nudito_config_colegio.activo`). */
+  activo: boolean;
+  bloqueado: boolean;
+  /** Costo estimado de IA del mes (USD, `usos_nudito`) y sesiones iniciadas en el mes. Nunca conversaciones. */
+  costoMesUsd: number;
+  sesionesMes: number;
+};
+
+/** Colegios Pro (y los que tengan configuración) con su estado de Nudito y consumo agregado del mes. */
+export async function colegiosNudito(admin: AdminContext, ahora: Date = new Date()): Promise<ColegioNudito[]> {
+  void admin;
+  const mes = fechaLima(ahora).slice(0, 7);
+  const inicioMes = new Date(`${mes}-01T05:00:00Z`); // 00:00 de Lima (UTC-5)
+  const [tenants, configs, usos, sesiones] = await Promise.all([
+    db.tenant.findMany({ select: { id: true, nombre: true, plan: true }, orderBy: { nombre: "asc" } }),
+    db.nuditoConfigColegio.findMany({ select: { tenantId: true, activo: true, bloqueadoPlataforma: true } }),
+    db.usoNudito.groupBy({ by: ["tenantId"], where: { mes }, _sum: { costoEstimadoUsd: true } }),
+    db.nuditoSesion.groupBy({ by: ["tenantId"], where: { iniciadaAt: { gte: inicioMes } }, _count: { _all: true } }),
+  ]);
+  const mC = new Map(configs.map((c) => [c.tenantId, c]));
+  const mU = new Map(usos.map((u) => [u.tenantId, Number(u._sum.costoEstimadoUsd?.toString() ?? 0)]));
+  const mS = new Map(sesiones.map((s) => [s.tenantId, s._count._all]));
+  return tenants
+    .filter((t) => t.plan === "pro" || mC.has(t.id))
+    .map((t) => ({
+      tenantId: t.id, nombre: t.nombre, plan: t.plan, activo: mC.get(t.id)?.activo ?? false, bloqueado: mC.get(t.id)?.bloqueadoPlataforma ?? false,
+      costoMesUsd: mU.get(t.id) ?? 0, sesionesMes: mS.get(t.id) ?? 0,
+    }));
+}
+
+/** Bloquea o desbloquea Nudito en un colegio (incidente, abuso…). Manda sobre `activo`. Con motivo y auditoría de plataforma. */
+export async function bloquearNuditoColegio(admin: AdminContext, tenantId: string, bloquear: boolean, motivoTexto: string): Promise<void> {
+  uuid(tenantId);
+  const m = validarEntrada(z.object({ motivo }), { motivo: motivoTexto }).motivo;
+  const tenant = await db.tenant.findUnique({ where: { id: tenantId }, select: { id: true } });
+  if (!tenant) notFound();
+  await db.nuditoConfigColegio.upsert({
+    where: { tenantId },
+    update: { bloqueadoPlataforma: bloquear },
+    create: { tenantId, bloqueadoPlataforma: bloquear },
+  });
+  await registrarPlataforma(admin.user.id, bloquear ? "nudito_colegio_bloquear" : "nudito_colegio_desbloquear", tenantId, { motivo: m });
 }

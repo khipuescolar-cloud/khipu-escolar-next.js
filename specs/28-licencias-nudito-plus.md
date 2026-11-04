@@ -2,6 +2,18 @@
 
 > **OBSOLETO (inerte) desde 2026-11-14 — ver `specs/44-nudito-seguimiento-y-gobierno.md`.** Nudito es el tutor de Khipu Pro
 > (specs/41) y lo enciende cada colegio; no hay licencias por familia ni pagos con Yape. Las tablas y datos se conservan.
+>
+> **Cómo queda inerte** (`NUDITO_LICENCIAS_FAMILIARES = false`, `licenciasFamiliaresNudito()`, `src/lib/planes.ts`):
+> - Familia: `/nudito-plus/[alumnoId]/activar` y `reportarPago` → **404** (`requireLicenciasFamiliares`); `/nudito-plus` muestra el
+>   progreso de cada hijo, su autorización (texto **v2**) y el modo hijo, sin licencias ni pagos.
+> - Plataforma: `verificarPago`, `rechazarPago`, `crearLicenciaManual`, `extenderLicencia`, `cancelarLicencia` y
+>   `guardarPrecioYape` → **403**; `/plataforma/nudito-plus` muestra colegios (estado, consumo del mes y bloqueo) y las
+>   licencias y pagos solo como **«Histórico»** sin botones; «Cortesía o prueba» → 404; el formulario de precio y Yape se oculta.
+> - Cron: `/api/cron/avisos` ya no llama a `procesarVencimientosNudito` (sin vencimientos ni recordatorios de renovación).
+> - Acceso al tutor: `acceso.ts` ya no exige `licenciaVigente` (la firma se mantiene; el motivo `licencia` ya no se devuelve).
+> - Datos: `licencias_nudito`, `pagos_nudito` y `consentimientos_ia` se conservan y se siguen exportando.
+> - Pruebas: `tests/integracion/nudito-plus-licencias.test.ts` fuerza `KHIPU_TEST_NUDITO_LICENCIAS=1` (regresión de la lógica
+>   histórica) y su último bloque prueba el modo real (404/403). Los e2e de licencias y del chat antiguo se saltan.
 
 > Estado: en pausa — desactivado (implementación conservada; el modelo familia/Yape se descartó; producto futuro contratado por el colegio; ver docs/nudito-plus-viabilidad.md) · Plan: — (módulo fijo `nudito_plus`, apagado) · Última actualización: 2026-11-03 (Claude Code)
 

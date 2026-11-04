@@ -32,27 +32,43 @@ export const FEATURES = {
   reuniones: "pro",
   /** Chat con el equipo Khipu (mesa de ayuda, specs/23): en todos los planes. */
   soporte: "base",
-  /** Nudito+ (tutor IA por alumno, specs/29): solo Khipu Pro, fijo por plan (ver MODULOS_FIJOS_POR_PLAN). */
+  /**
+   * Nudito, tutor de práctica de Khipu Pro (specs/41–44). La clave interna sigue siendo `nudito_plus` para no romper
+   * datos (PlanModulo, RolModulo, auditoría); es fijo por plan (ver MODULOS_FIJOS_POR_PLAN).
+   */
   nudito_plus: "pro",
 } as const satisfies Record<string, Plan>;
 
 export type Feature = keyof typeof FEATURES;
 
 /**
- * Interruptor de Nudito+ (specs/28, specs/29). Nudito+ es un producto FUTURO que contrataría el colegio; el modelo de
- * licencia familiar pagada con Yape está en pausa (se descartó). Apagado: `nudito_plus` no queda activo en ningún
- * colegio (desaparece del menú y `requireFeature` responde 403) y los crons de Nudito+ no hacen nada.
- * No se borra código, tablas ni datos: para reactivarlo basta cambiar esta constante (con decisión comercial).
+ * Interruptor del tutor Nudito en Khipu Pro (specs/41, specs/44). Encendido: todo colegio Pro tiene el módulo
+ * `nudito_plus`; cada colegio lo activa en su configuración (`nudito_config_colegio.activo`, sin fila = apagado).
  */
-export const NUDITO_PLUS_DISPONIBLE = false;
+export const NUDITO_TUTOR_DISPONIBLE = true;
+
+/** @deprecated Nombre antiguo (Nudito+ como producto aparte, specs/28–29). Usa `NUDITO_TUTOR_DISPONIBLE`. */
+export const NUDITO_PLUS_DISPONIBLE = NUDITO_TUTOR_DISPONIBLE;
 
 /**
- * Nudito+ está disponible. Solo en tests (vitest, `NODE_ENV === "test"`) se puede forzar con
- * `KHIPU_TEST_NUDITO_PLUS=1` para seguir validando su lógica; en desarrollo y producción manda la constante.
+ * Licencias familiares de Nudito+ pagadas con Yape (specs/28): DESCARTADAS. Nudito es parte de Khipu Pro, sin cobro a
+ * familias. Apagado: «Activar», reportar pagos, verificar pagos y crear o extender licencias responden 404/403; el cron
+ * no procesa vencimientos; el panel de plataforma las muestra como «Histórico». Las tablas y sus filas se conservan.
  */
+export const NUDITO_LICENCIAS_FAMILIARES = false;
+
+/** El tutor Nudito está disponible en el producto (hoy siempre). */
 export function nuditoPlusDisponible(): boolean {
-  if (NUDITO_PLUS_DISPONIBLE) return true;
-  return process.env.NODE_ENV === "test" && process.env.KHIPU_TEST_NUDITO_PLUS === "1";
+  return NUDITO_TUTOR_DISPONIBLE;
+}
+
+/**
+ * Licencias familiares activas. Solo en tests (vitest, `NODE_ENV === "test"`) se pueden forzar con
+ * `KHIPU_TEST_NUDITO_LICENCIAS=1` para validar la lógica histórica (regresión del modo inerte).
+ */
+export function licenciasFamiliaresNudito(): boolean {
+  if (NUDITO_LICENCIAS_FAMILIARES) return true;
+  return process.env.NODE_ENV === "test" && process.env.KHIPU_TEST_NUDITO_LICENCIAS === "1";
 }
 
 export function planIncluye(plan: Plan, feature: Feature): boolean {

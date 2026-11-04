@@ -6,7 +6,7 @@ import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
 import { fechaCorta } from "@/lib/fechas";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import {
-  agregarSitio, cambiarActivoSitio, cancelarLicencia, crearLicenciaManual, editarSitio, extenderLicencia, guardarConsentimientoTexto,
+  agregarSitio, bloquearNuditoColegio, cambiarActivoSitio, cancelarLicencia, crearLicenciaManual, editarSitio, extenderLicencia, guardarConsentimientoTexto,
   guardarLimites, guardarPrecioYape, quitarSitio, rechazarPago, verificarPago,
 } from "@/lib/server/plataforma-nudito-plus";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
@@ -136,5 +136,14 @@ export async function quitarSitioAction(f: FormData): Promise<Resultado> {
   return conResultado(async () => {
     await quitarSitio(admin, texto(f, "id"));
     return "Sitio quitado de la lista.";
+  });
+}
+
+export async function bloquearNuditoColegioAction(_previo: EstadoFormulario, f: FormData): Promise<EstadoFormulario> {
+  const admin = await requireAdminPlataforma();
+  const bloquear = texto(f, "bloquear") === "true";
+  return conEstado(async () => {
+    await bloquearNuditoColegio(admin, texto(f, "tenantId"), bloquear, texto(f, "motivo"));
+    return bloquear ? "Nudito quedó bloqueado en ese colegio." : "Nudito quedó desbloqueado en ese colegio.";
   });
 }

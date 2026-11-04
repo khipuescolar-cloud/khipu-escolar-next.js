@@ -1,4 +1,4 @@
-import { ChevronRight, ShieldCheck, ShieldQuestion, Sparkles, Users } from "lucide-react";
+import { CheckCircle2, ChevronRight, Play, RefreshCw, ShieldCheck, ShieldQuestion, Sprout, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -6,67 +6,60 @@ import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
 import { Flash } from "@/components/ui/Flash";
 import { Tarjeta } from "@/components/ui/Tarjeta";
-import { formatoMonto } from "@/lib/nudito-plus";
-import { hijosConNudito } from "@/lib/server/nudito-plus/familia";
-import { precioNudito } from "@/lib/server/nudito-plus/licencias";
+import { AVISO_FORMATIVO } from "@/lib/nudito-seguimiento";
+import { configNudito } from "@/lib/server/nudito/config-colegio";
+import { hijosParaNudito } from "@/lib/server/nudito-plus/familia";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { EstadoLicencia } from "./EstadoLicencia";
 
-export const metadata: Metadata = { title: "Nudito+" };
+export const metadata: Metadata = { title: "Nudito" };
 
-/** Nudito+ para la familia (specs/28): estado de la licencia de cada hijo. */
-export default async function NuditoPlusPage({ params, searchParams }: PageProps<"/colegio/[slug]/nudito-plus">) {
+/** Nudito para la familia (specs/44): progreso de práctica de cada hijo, autorización y modo hijo. Sin conversaciones. */
+export default async function NuditoFamiliaPage({ params, searchParams }: PageProps<"/colegio/[slug]/nudito-plus">) {
   const { slug } = await params;
   const sp = await searchParams;
   const ctx = await requireTenantContext(slug, ["apoderado"]);
-  const [hijos, precio] = await Promise.all([hijosConNudito(ctx), precioNudito()]);
+  const [hijos, estado] = await Promise.all([hijosParaNudito(ctx), configNudito(ctx)]);
 
   return (
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
-        titulo="Nudito+"
-        descripcion={`Un tutor con inteligencia artificial que ayuda a tu hijo a repasar lo que aprende. Se activa por alumno: ${formatoMonto(precio.montoMensual, precio.moneda)} al mes, pagado por adelantado con Yape.`}
+        titulo="Nudito"
+        descripcion={`El tutor de práctica de tu colegio: ayuda a tu hijo a repasar y practicar los temas de sus cursos. ${AVISO_FORMATIVO}`}
       />
       <Flash ok={sp.ok} error={sp.error} />
+      {!estado.activo && <p className="text-cuerpo-sm text-muted-foreground">Tu colegio aún no activó Nudito. Puedes dejar tu autorización lista desde ahora.</p>}
 
       {hijos.length === 0 ? (
-        <EstadoVacio icono={Users} titulo="Aún no tienes hijos vinculados en este colegio." descripcion="Pide al colegio que te vincule con tu hijo para activar Nudito+." />
+        <EstadoVacio icono={Users} titulo="Aún no tienes hijos vinculados en este colegio." descripcion="Pide al colegio que te vincule con tu hijo." />
       ) : (
         <ul className="grid gap-4 md:grid-cols-2">
           {hijos.map((h) => (
             <li key={h.id}>
               <Tarjeta className="flex h-full flex-col gap-4">
-                <div className="flex items-start gap-3">
-                  <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-superficie-2 text-cochinilla">
-                    <Sparkles className="size-6" strokeWidth={2} aria-hidden />
-                  </span>
-                  <div className="min-w-0">
-                    <h2 className="font-heading text-lg font-semibold">{h.nombres} {h.apellidos}</h2>
-                    <p className="text-cuerpo-sm text-muted-foreground">{h.salon}</p>
-                  </div>
+                <div>
+                  <h2 className="font-heading text-lg font-semibold">{h.nombres} {h.apellidos}</h2>
+                  <p className="text-cuerpo-sm text-muted-foreground">{h.salon}</p>
                 </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <EstadoLicencia estado={h.estado} />
-                  {h.consentimiento.vigente ? (
-                    <span className="inline-flex items-center gap-1.5 text-cuerpo-sm text-muted-foreground">
-                      <ShieldCheck className="size-4 text-llego" strokeWidth={2} aria-hidden /> Autorización dada
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1.5 text-cuerpo-sm text-muted-foreground">
-                      <ShieldQuestion className="size-4" strokeWidth={2} aria-hidden /> Falta tu autorización
-                    </span>
-                  )}
-                </div>
-                {h.estado.tipo === "activa" && h.estado.pagoEnRevision && (
-                  <p className="text-cuerpo-sm text-muted-foreground">Tienes un pago en revisión: al confirmarlo, sumaremos los meses.</p>
+                <p className="flex flex-wrap gap-x-4 gap-y-1 text-cuerpo-sm">
+                  <span className="inline-flex items-center gap-1"><CheckCircle2 className="size-4 text-llego" strokeWidth={2} aria-hidden /> {h.dominados} dominados</span>
+                  <span className="inline-flex items-center gap-1"><Sprout className="size-4 text-indigo-cielo" strokeWidth={2} aria-hidden /> {h.practicando} practicando</span>
+                  <span className="inline-flex items-center gap-1"><RefreshCw className="size-4 text-cochinilla" strokeWidth={2} aria-hidden /> {h.reforzar} para reforzar</span>
+                </p>
+                {h.consentimiento.vigente ? (
+                  <span className="inline-flex items-center gap-1.5 text-cuerpo-sm text-muted-foreground"><ShieldCheck className="size-4 text-llego" strokeWidth={2} aria-hidden /> Autorización dada</span>
+                ) : (
+                  <span className="inline-flex items-center gap-1.5 text-cuerpo-sm text-muted-foreground"><ShieldQuestion className="size-4" strokeWidth={2} aria-hidden /> Falta tu autorización</span>
                 )}
                 <div className="mt-auto flex flex-wrap gap-2">
                   <Link href={`/nudito-plus/${h.id}`} className={buttonVariants({ variant: "outline" })}>
-                    Ver reportes <ChevronRight strokeWidth={2} aria-hidden />
+                    Ver progreso <ChevronRight strokeWidth={2} aria-hidden />
                   </Link>
-                  {h.activo && h.estado.tipo !== "revision" && (
-                    <Link href={`/nudito-plus/${h.id}/activar`} className={buttonVariants()}>
-                      {h.estado.tipo === "activa" ? "Renovar" : "Activar Nudito+"}
+                  {!h.consentimiento.vigente && h.activo && (
+                    <Link href={`/nudito-plus/${h.id}/consentimiento`} className={buttonVariants()}>Leer y autorizar</Link>
+                  )}
+                  {estado.activo && estado.config.permitirModoHijo && h.consentimiento.vigente && !h.cuentaPropia && h.activo && (
+                    <Link href={`/nudito?alumno=${h.id}`} className={buttonVariants()}>
+                      <Play strokeWidth={2} aria-hidden /> Usar en modo hijo
                     </Link>
                   )}
                 </div>
@@ -77,7 +70,7 @@ export default async function NuditoPlusPage({ params, searchParams }: PageProps
       )}
 
       <p className="max-w-prose text-cuerpo-sm text-muted-foreground">
-        Tú ves reportes, alertas y resúmenes del avance de tu hijo, nunca sus conversaciones. El colegio tampoco las ve.
+        Tú y sus profesores ven el progreso de práctica, nunca sus conversaciones con Nudito.
       </p>
     </div>
   );

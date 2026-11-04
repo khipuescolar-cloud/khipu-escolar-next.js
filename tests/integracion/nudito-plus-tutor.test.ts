@@ -1,7 +1,7 @@
 // Nudito+ · tutor (specs/29). Requiere la BD local. Crea sus propios colegios `test-nudito-*` y los borra al terminar.
 import { randomUUID } from "node:crypto";
 import { asignarTareasSinDestinos } from "../../prisma/seed-tareas-destinos";
-import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { Membership, Profile } from "@/generated/prisma/client";
 import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant } from "@/lib/server/db";
@@ -19,9 +19,8 @@ import type { TenantContext } from "@/lib/server/tenant";
 import { fechaLima, sumarDias } from "@/lib/fechas";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
-// Nudito+ está apagado en el producto (NUDITO_PLUS_DISPONIBLE = false): solo en tests se fuerza para seguir validando su lógica.
-vi.stubEnv("KHIPU_TEST_NUDITO_PLUS", "1");
-afterAll(() => vi.unstubAllEnvs());
+// Nudito es el tutor de Khipu Pro (specs/44): el acceso ya no exige licencia familiar sino Nudito activo en el colegio
+// (`nudito_config_colegio`) y el consentimiento vigente.
 
 let c: ColegioPrueba;
 let base: ColegioPrueba;
@@ -34,9 +33,9 @@ function ctxAlumno(): TenantContext {
   return { tenant: c.tenant, user: cuentaThiago.user, membership: cuentaThiago.membership, rol: "alumno", roles: ["alumno"], db: dbTenant(c.tenant.id), ...accesoModulosDeCodigo("pro") };
 }
 
+/** Antes «darLicencia»: enciende Nudito en el colegio y, si se pide, registra el consentimiento del apoderado. */
 async function darLicencia(alumnoId: string, conConsentimiento = true) {
-  const hoy = fechaLima(new Date());
-  await db.licenciaNudito.create({ data: { tenantId: c.tenant.id, alumnoId, origen: "prueba", desde: new Date(`${sumarDias(hoy, -1)}T00:00:00Z`), hasta: new Date(`${sumarDias(hoy, 29)}T00:00:00Z`), registradaPorId: ADMIN } });
+  await db.nuditoConfigColegio.upsert({ where: { tenantId: c.tenant.id }, update: { activo: true }, create: { tenantId: c.tenant.id, activo: true } });
   if (conConsentimiento) await db.consentimientoIa.create({ data: { tenantId: c.tenant.id, apoderadoId: c.miembros.madre.membership.id, alumnoId, versionTexto: (await consentimientoActual()).version } });
 }
 
@@ -71,9 +70,9 @@ afterAll(async () => {
 });
 
 describe("acceso", () => {
-  it("alumno sin licencia → 403 (y motivo «licencia» para la página amable); sin consentimiento → «consentimiento»", async () => {
+  it("colegio sin Nudito activo → 403 (motivo «colegio» para la página amable); sin consentimiento → «consentimiento»", async () => {
     await esperarProhibido(requireNuditoPlus(ctxAlumno(), c.alumnos.thiago.id));
-    expect(await evaluarAccesoNuditoPlus(ctxAlumno(), c.alumnos.thiago.id)).toMatchObject({ ok: false, motivo: "licencia" });
+    expect(await evaluarAccesoNuditoPlus(ctxAlumno(), c.alumnos.thiago.id)).toMatchObject({ ok: false, motivo: "colegio" });
     await darLicencia(c.alumnos.thiago.id, false);
     expect(await evaluarAccesoNuditoPlus(ctxAlumno(), c.alumnos.thiago.id)).toMatchObject({ ok: false, motivo: "consentimiento" });
     await db.consentimientoIa.create({ data: { tenantId: c.tenant.id, apoderadoId: c.miembros.madre.membership.id, alumnoId: c.alumnos.thiago.id, versionTexto: (await consentimientoActual()).version } });
@@ -93,7 +92,8 @@ describe("acceso", () => {
     expect(await evaluarAccesoNuditoPlus(c.ctxDe("madre"), c.alumnos.thiago.id)).toMatchObject({ ok: false, motivo: "cuenta_propia" });
   });
 
-  it("colegio Khipu Base → sin acceso aunque hubiera licencia", async () => {
+  it("colegio Khipu Base → sin acceso aunque hubiera licencia o configuración", async () => {
+    await db.nuditoConfigColegio.create({ data: { tenantId: base.tenant.id, activo: true } });
     await db.licenciaNudito.create({ data: { tenantId: base.tenant.id, alumnoId: base.alumnos.mateo.id, desde: new Date("2026-01-01"), hasta: new Date("2099-01-01"), registradaPorId: ADMIN } });
     expect(await evaluarAccesoNuditoPlus(base.ctxDe("madre"), base.alumnos.mateo.id)).toEqual({ ok: false, motivo: "plan" });
   });

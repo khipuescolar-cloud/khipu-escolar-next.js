@@ -19,8 +19,10 @@ import {
 } from "@/lib/server/plataforma-nudito-plus";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
-// Nudito+ está apagado en el producto (NUDITO_PLUS_DISPONIBLE = false): solo en tests se fuerza para seguir validando su lógica.
-vi.stubEnv("KHIPU_TEST_NUDITO_PLUS", "1");
+// REGRESIÓN DEL MODO INERTE (specs/28, specs/44): las licencias familiares están apagadas
+// (NUDITO_LICENCIAS_FAMILIARES = false). Aquí se fuerzan solo en tests para seguir validando su lógica histórica; el
+// comportamiento real con ellas apagadas (404/403) se prueba en el último bloque.
+vi.stubEnv("KHIPU_TEST_NUDITO_LICENCIAS", "1");
 afterAll(() => vi.unstubAllEnvs());
 
 const hoy = fechaLima(new Date());
@@ -207,5 +209,24 @@ describe("configuración, sitios y exportación", () => {
     const tablas = tablasExportadas();
     for (const t of ["nuditoMensaje", "nuditoConversacion", "alertaNudito", "resumenNudito", "usoNudito"]) expect(tablas).not.toContain(t);
     for (const t of ["licenciaNudito", "pagoNudito", "consentimientoIa"]) expect(tablas).toContain(t);
+  });
+});
+
+describe("licencias familiares apagadas (modo real)", () => {
+  it("reportar pagos y la pantalla «Activar» → 404; verificar, crear o extender licencias → 403", async () => {
+    vi.stubEnv("KHIPU_TEST_NUDITO_LICENCIAS", "");
+    try {
+      const noEncontrado = (p: Promise<unknown>) => expect(p).rejects.toSatisfy((e: unknown) => String((e as { digest?: string }).digest ?? e).includes("404"));
+      await noEncontrado(reportarPago(pro.ctxDe("madre"), pro.alumnos.mateo.id, pago(ref("off"))));
+      const { datosParaActivar } = await import("@/lib/server/nudito-plus/familia");
+      await noEncontrado(datosParaActivar(pro.ctxDe("madre"), pro.alumnos.mateo.id));
+      await esperarProhibido(crearLicenciaManual(admin, { tenantId: pro.tenant.id, alumnoId: pro.alumnos.thiago.id, origen: "prueba", hasta: sumarDias(hoy, 7), motivo: "Prueba apagada" }, hoy));
+      await esperarProhibido(verificarPago(admin, randomUUID()));
+      // Los datos históricos se conservan y se siguen pudiendo listar.
+      expect(await db.licenciaNudito.count({ where: { tenantId: pro.tenant.id } })).toBeGreaterThan(0);
+      expect((await listarLicencias(admin, { colegio: pro.tenant.id }, hoy)).length).toBeGreaterThan(0);
+    } finally {
+      vi.stubEnv("KHIPU_TEST_NUDITO_LICENCIAS", "1");
+    }
   });
 });

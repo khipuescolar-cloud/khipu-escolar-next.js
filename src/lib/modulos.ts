@@ -9,8 +9,8 @@ import { FEATURES, NOMBRE_PLAN, nuditoPlusDisponible, planIncluye, type Feature 
 /**
  * Módulos fijos por plan: los activa SOLO el plan del colegio según `FEATURES` (código), no el catálogo de la BD
  * ni los ajustes del panel. No se listan en el panel de planes, colegios ni roles.
- * Nudito+ (specs/29): solo en Khipu Pro, sin excepciones (además exige licencia por alumno, specs/28).
- * Hoy está APAGADO (`NUDITO_PLUS_DISPONIBLE`, lib/planes.ts): no queda activo en ningún colegio.
+ * Nudito, tutor de práctica (clave `nudito_plus`, specs/41–44): solo en Khipu Pro, sin excepciones. Cada colegio lo
+ * enciende en su configuración de Nudito (`nudito_config_colegio.activo`); sin licencias familiares (specs/28, inerte).
  */
 export const MODULOS_FIJOS_POR_PLAN: ReadonlySet<Feature> = new Set<Feature>(["nudito_plus"]);
 
@@ -46,7 +46,7 @@ export const INFO_MODULO: Record<Feature, { nombre: string; descripcion: string;
   documentos: { nombre: "Documentos", descripcion: "Biblioteca del colegio con carpetas y permisos por rol y salón: reglamento, calendario y comunicados oficiales.", icono: "FolderOpen" },
   reuniones: { nombre: "Reuniones", descripcion: "Convocar reuniones de padres, confirmar asistencia, marcar quién asistió y publicar el acta.", icono: "Users" },
   soporte: { nombre: "Soporte Khipu", descripcion: "Chat del colegio con el equipo de Khipu Escolar (mesa de ayuda): dudas, problemas y sugerencias.", icono: "LifeBuoy" },
-  nudito_plus: { nombre: "Nudito+", descripcion: "Tutor con IA por alumno (producto futuro que contrataría el colegio; en estudio, desactivado). Solo Khipu Pro (fijo por plan).", icono: "Sparkles" },
+  nudito_plus: { nombre: "Nudito, tutor de práctica", descripcion: "Tutor de práctica con IA: el alumno repasa y practica los temas de sus cursos; docentes y familias ven su progreso formativo (no es nota). Solo Khipu Pro (fijo por plan).", icono: "Sparkles" },
 };
 
 export const INFO_ROL: Record<Rol, { nombre: string; descripcion: string }> = {
@@ -106,7 +106,7 @@ export function modulosDeCodigo(plan: Plan): Set<Feature> {
   return new Set(TODAS_LAS_FEATURES.filter((m) => planIncluye(plan, m) && fijoDisponible(m)));
 }
 
-/** Módulos fijos que el código puede tener apagados por completo (hoy solo Nudito+, `NUDITO_PLUS_DISPONIBLE`). */
+/** Módulos fijos que el código puede tener apagados por completo (hoy solo Nudito, `NUDITO_TUTOR_DISPONIBLE`). */
 function fijoDisponible(m: Feature): boolean {
   return m !== "nudito_plus" || nuditoPlusDisponible();
 }

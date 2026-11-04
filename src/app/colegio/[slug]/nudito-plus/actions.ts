@@ -37,7 +37,7 @@ export async function revocarConsentimientoIaAction(f: FormData): Promise<never>
   const alumnoId = texto(f, "alumnoId");
   return ejecutarYVolver(`/nudito-plus/${encodeURIComponent(alumnoId)}`, async () => {
     await revocarConsentimientoIa(ctx, alumnoId);
-    return "Retiraste la autorización. Nudito+ queda en pausa hasta que vuelvas a aceptarla.";
+    return "Retiraste la autorización. Nudito queda en pausa hasta que vuelvas a aceptarla.";
   });
 }
 

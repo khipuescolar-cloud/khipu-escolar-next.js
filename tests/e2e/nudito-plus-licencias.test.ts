@@ -2,12 +2,11 @@ import "dotenv/config";
 import { randomInt } from "node:crypto";
 import { Client } from "pg";
 import { expect, test, type Page } from "@playwright/test";
-import { NUDITO_PLUS_DISPONIBLE } from "../../src/lib/planes";
+import { NUDITO_LICENCIAS_FAMILIARES } from "../../src/lib/planes";
 
-// Nudito+ está desactivado (producto en estudio, NUDITO_PLUS_DISPONIBLE = false en src/lib/planes.ts): el servidor de
-// e2e no puede encenderlo (la variable de tests solo vale en vitest), así que estas pruebas se saltan hasta reactivarlo.
-// La lógica sigue cubierta por tests/integracion/nudito-plus-*.test.ts.
-test.skip(!NUDITO_PLUS_DISPONIBLE, "Nudito+ desactivado (NUDITO_PLUS_DISPONIBLE = false)");
+// Flujo histórico de Nudito+ con licencia familiar (specs/28–29): se salta mientras las licencias familiares estén
+// apagadas; la lógica inerte sigue cubierta por tests/integracion/nudito-plus-*.test.ts.
+test.skip(!NUDITO_LICENCIAS_FAMILIARES, "licencias familiares inertes (NUDITO_LICENCIAS_FAMILIARES = false, specs/28)");
 
 // Nudito+ (specs/28): Rosa reporta un Yape para Mateo (Nuevo Horizonte) y acepta la autorización de IA; el super
 // administrador verifica el pago en admin.lvh.me; Rosa ve «Activa hasta …». Usa los datos demo y deja todo como estaba:

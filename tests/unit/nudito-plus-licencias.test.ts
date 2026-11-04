@@ -67,7 +67,9 @@ describe("Nudito+: configuración", () => {
     expect(leerPrecio({ montoMensual: 25 })).toEqual({ montoMensual: 25, moneda: "PEN" });
     expect(leerYape({})).toBeNull();
     expect(leerYape({ numero: "999 999 999", titular: "Khipu" })).toEqual({ numero: "999 999 999", titular: "Khipu" });
-    expect(leerConsentimiento(null).version).toBe("v1");
+    expect(leerConsentimiento(null).version).toBe("v2");
+    // La v1 (Nudito+ familiar) quedó retirada: aunque siga guardada, vale la v2 (specs/44).
+    expect(leerConsentimiento({ version: "v1", texto: "Texto antiguo de Nudito+ con licencia familiar." }).version).toBe("v2");
     expect(parrafos("Uno.\n\n  Dos.\n \nTres.")).toEqual(["Uno.", "Dos.", "Tres."]);
   });
 });

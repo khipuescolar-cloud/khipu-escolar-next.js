@@ -20,16 +20,28 @@ export type LimitesNudito = { mensajesPorMes: number; tokensPorMes: number; cost
 
 export const PRECIO_POR_DEFECTO: PrecioNudito = { montoMensual: 20, moneda: "PEN" };
 export const LIMITES_POR_DEFECTO: LimitesNudito = { mensajesPorMes: 300, tokensPorMes: 300_000, costoMaxUsdPorMes: 1.5 };
+/**
+ * Autorización de la familia para Nudito, tutor de práctica de Khipu Pro (specs/44). La v2 cambia la finalidad
+ * (tutoría del colegio; los docentes ven el progreso formativo; fotos opcionales): todas las familias aceptan de nuevo.
+ */
 export const CONSENTIMIENTO_POR_DEFECTO: ConsentimientoNudito = {
-  version: "v1",
+  version: "v2",
   texto: [
-    "Nudito+ es un tutor con inteligencia artificial que ayuda a tu hijo a repasar lo que aprende en el colegio, según su grado.",
-    "Tu hijo conversará con un sistema automático, no con una persona. Las respuestas pueden tener errores: anímalo a consultar sus dudas con su profesor.",
-    "Guardamos las conversaciones para dar el servicio y cuidar a tu hijo. Tú no las verás, pero sí recibirás reportes, alertas y resúmenes de su avance. El colegio tampoco las ve.",
-    "Nudito+ solo recomienda materiales de sitios educativos revisados por el equipo de Khipu Escolar.",
-    "Puedes retirar esta autorización cuando quieras desde esta misma pantalla; al hacerlo, tu hijo deja de usar Nudito+.",
+    "Nudito es el tutor de práctica de Khipu Escolar que usa tu colegio. Ayuda a tu hijo a repasar y practicar los temas de sus cursos, según su grado.",
+    "Para explicar, dar pistas y revisar respuestas abiertas, Nudito usa inteligencia artificial. Tu hijo practica con un sistema automático, no con una persona, y las respuestas pueden tener errores: anímalo a consultar sus dudas con su profesor.",
+    "Lo que tu hijo practica es formativo: no es nota y no cambia sus calificaciones ni su libreta.",
+    "Sus profesores y la dirección del colegio verán su progreso de práctica (temas practicados, aciertos, pistas usadas y temas a reforzar). Tú también lo verás. Nadie ve el texto de sus conversaciones con Nudito.",
+    "Si el colegio lo permite, tu hijo podrá subir fotos de sus ejercicios. Se guardan de forma privada, no deben mostrar rostros y se borran junto con el resto de la práctica cuando vence el plazo de conservación que fija el colegio.",
+    "Nudito solo recomienda materiales de sitios educativos revisados por el equipo de Khipu Escolar.",
+    "Puedes retirar esta autorización cuando quieras desde la sección Nudito; al hacerlo, tu hijo deja de usar Nudito.",
   ].join("\n\n"),
 };
+
+/**
+ * Versiones del texto que ya no valen (otra finalidad). Si la configuración de plataforma aún guarda una de ellas, se usa
+ * la versión por defecto: así ningún consentimiento antiguo habilita el tutor.
+ */
+export const VERSIONES_CONSENTIMIENTO_RETIRADAS: ReadonlySet<string> = new Set(["v1"]);
 export const MESES_MAXIMOS = 12;
 
 const numero = (min: number, max: number) => z.coerce.number().refine((n) => Number.isFinite(n) && n >= min && n <= max);
@@ -46,7 +58,7 @@ export function leerYape(valor: unknown): YapeNudito | null {
 
 export function leerConsentimiento(valor: unknown): ConsentimientoNudito {
   const r = z.object({ version: z.string().trim().min(1).max(40), texto: z.string().trim().min(20) }).safeParse(valor);
-  return r.success ? r.data : CONSENTIMIENTO_POR_DEFECTO;
+  return r.success && !VERSIONES_CONSENTIMIENTO_RETIRADAS.has(r.data.version) ? r.data : CONSENTIMIENTO_POR_DEFECTO;
 }
 
 export function leerLimites(valor: unknown): LimitesNudito {

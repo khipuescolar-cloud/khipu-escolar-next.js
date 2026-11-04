@@ -1,151 +1,113 @@
-import { AlertTriangle, CalendarClock, CheckCircle2, Hourglass, Inbox, Wallet, XCircle } from "lucide-react";
+import { Ban, CheckCircle2, History, Inbox, PauseCircle, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { fechaCorta, formatoDia } from "@/lib/fechas";
+import { fechaCorta } from "@/lib/fechas";
 import { formatoMonto, textoMeses } from "@/lib/nudito-plus";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
-import { pagosPendientes, resumenNuditoPlus } from "@/lib/server/plataforma-nudito-plus";
-import { rechazarPagoAction, verificarPagoAction } from "./actions";
+import { colegiosNudito, pagosPendientes, resumenNuditoPlus } from "@/lib/server/plataforma-nudito-plus";
+import { bloquearNuditoColegioAction } from "./actions";
 import { CampoMotivo } from "./CampoMotivo";
 import { DialogoAccion } from "./DialogoAccion";
 import { Pestanas } from "./Pestanas";
 
-export const metadata: Metadata = { title: "Nudito+" };
+export const metadata: Metadata = { title: "Nudito" };
 
-/** Nudito+ (specs/28): cola de pagos por verificar y resumen por colegio. Sin conversaciones de los alumnos. */
-export default async function NuditoPlusPlataforma() {
+const usd = (n: number) => `US$ ${n.toFixed(2)}`;
+
+/**
+ * Nudito en el panel (specs/44): estado por colegio, consumo agregado del mes y bloqueo de plataforma. Licencias y pagos
+ * de Yape (specs/28) solo como histórico, sin acciones. Nunca se ven conversaciones.
+ */
+export default async function NuditoPlataforma() {
   const admin = await requireAdminPlataforma();
-  const [pagos, { colegios, totales }] = await Promise.all([pagosPendientes(admin), resumenNuditoPlus(admin)]);
-
-  const tiles = [
-    { titulo: "Pagos por verificar", valor: String(totales.pendientes), nota: "Reportados por las familias", Icono: Hourglass },
-    { titulo: "Licencias vigentes", valor: String(totales.vigentes), nota: "Alumnos que pueden usarlo hoy", Icono: CheckCircle2 },
-    { titulo: "Vencen en 7 días", valor: String(totales.porVencer), nota: "Recordatorio a 3 días", Icono: CalendarClock },
-    { titulo: "Verificado este mes", valor: formatoMonto(totales.ingresosMes), nota: "Pagos de Yape confirmados", Icono: Wallet },
-  ];
+  const [colegios, pagos, historico] = await Promise.all([colegiosNudito(admin), pagosPendientes(admin), resumenNuditoPlus(admin)]);
 
   return (
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
-        titulo="Nudito+"
-        descripcion="Tutor con IA que compra cada familia (Yape, prepago). Verifica el abono en la app de Yape antes de activar. Aquí nunca se ven las conversaciones."
+        titulo="Nudito"
+        descripcion="Tutor de práctica incluido en Khipu Pro. Cada colegio lo activa desde su configuración. Aquí ves el consumo agregado y puedes bloquearlo; nunca las conversaciones."
       />
       <Pestanas actual="/nudito-plus" />
 
-      <section aria-labelledby="resumen-nudito" className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <h2 id="resumen-nudito" className="sr-only">Resumen</h2>
-        {tiles.map(({ titulo, valor, nota, Icono }) => (
-          <Tarjeta key={titulo} className="flex flex-col gap-1 p-4">
-            <p className="flex items-center gap-1.5 text-cuerpo-sm font-medium text-muted-foreground">
-              <Icono className="size-4 shrink-0" strokeWidth={2} aria-hidden /> {titulo}
-            </p>
-            <p className="font-heading text-titulo-2 tabular-nums">{valor}</p>
-            <p className="text-cuerpo-sm text-muted-foreground">{nota}</p>
-          </Tarjeta>
-        ))}
-      </section>
-
-      <section aria-labelledby="titulo-pendientes" className="flex flex-col gap-3">
-        <h2 id="titulo-pendientes" className="text-lg font-semibold">Pagos por verificar</h2>
-        {pagos.length === 0 ? (
-          <EstadoVacio icono={Inbox} titulo="No hay pagos por verificar." descripcion="Cuando una familia reporte un Yape, aparecerá aquí." />
-        ) : (
-          <ul className="flex flex-col gap-3" data-testid="pagos-pendientes">
-            {pagos.map((p) => {
-              const difiere = Math.abs(p.monto - p.esperado) >= 0.01;
-              return (
-                <li key={p.id}>
-                  <Tarjeta className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between" data-testid={`pago-${p.referencia ?? p.id}`}>
-                    <div className="grid min-w-0 gap-1">
-                      <p className="font-semibold">
-                        {p.alumno.nombre} <span className="font-normal text-muted-foreground">· {p.alumno.salon} · {p.colegio.nombre}</span>
-                      </p>
-                      <p className="text-cuerpo-sm">
-                        <span className="font-semibold tabular-nums">{formatoMonto(p.monto)}</span> por {textoMeses(p.meses)} · Yape del {fechaCorta(p.fechaPago)} · operación{" "}
-                        <span className="font-mono">{p.referencia ?? "—"}</span>
-                      </p>
-                      {difiere && (
-                        <p className="inline-flex items-center gap-1 text-cuerpo-sm font-semibold text-tarde">
-                          <AlertTriangle className="size-4" strokeWidth={2} aria-hidden /> Monto distinto: se esperaban {formatoMonto(p.esperado)}
-                        </p>
-                      )}
-                      {p.colegio.plan !== "pro" && (
-                        <p className="inline-flex items-center gap-1 text-cuerpo-sm font-semibold text-falta">
-                          <XCircle className="size-4" strokeWidth={2} aria-hidden /> El colegio ya no tiene Khipu Pro
-                        </p>
-                      )}
-                      <p className="text-cuerpo-sm text-muted-foreground">
-                        Reportó {p.apoderado ? `${p.apoderado.nombre} (${p.apoderado.email})` : "una familia"} el {formatoDia(p.reportadoAt, { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" })}
-                      </p>
-                    </div>
-                    <div className="flex shrink-0 flex-wrap gap-2">
-                      <BotonConfirmar
-                        etiqueta={<><CheckCircle2 strokeWidth={2} aria-hidden /> Verificar</>}
-                        titulo="¿Verificar este pago?"
-                        descripcion={`Confirma que recibiste ${formatoMonto(p.monto)} en Yape con la operación ${p.referencia ?? "—"}. Se activará o extenderá Nudito+ de ${p.alumno.nombre} por ${textoMeses(p.meses)} y avisaremos a la familia.`}
-                        confirmar="Verificar y activar"
-                        accion={verificarPagoAction}
-                        campos={{ pagoId: p.id }}
-                        variante="default"
-                        tamano="sm"
-                      />
-                      <DialogoAccion
-                        etiqueta={<><XCircle strokeWidth={2} aria-hidden /> Rechazar</>}
-                        titulo="Rechazar pago"
-                        descripcion="La familia que lo reportó verá el motivo y podrá volver a reportarlo."
-                        confirmar="Rechazar pago"
-                        accion={rechazarPagoAction}
-                        campos={{ pagoId: p.id }}
-                        peligro
-                      >
-                        <CampoMotivo id={`motivo-${p.id}`} ayuda="P. ej. «No encontramos esa operación en Yape»." />
-                      </DialogoAccion>
-                    </div>
-                  </Tarjeta>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-      </section>
-
       <section aria-labelledby="titulo-colegios" className="flex flex-col gap-3">
-        <h2 id="titulo-colegios" className="text-lg font-semibold">Por colegio</h2>
+        <h2 id="titulo-colegios" className="text-lg font-semibold">Colegios</h2>
         {colegios.length === 0 ? (
           <EstadoVacio icono={Inbox} titulo="Aún no hay colegios con Khipu Pro." />
         ) : (
           <Tarjeta className="overflow-x-auto p-0">
-            <Table className="min-w-[640px]">
+            <Table className="min-w-[720px]">
               <TableHeader>
                 <TableRow>
                   <TableHead className="sobretitulo pl-4">Colegio</TableHead>
-                  <TableHead className="sobretitulo text-right">Vigentes</TableHead>
-                  <TableHead className="sobretitulo text-right">Por verificar</TableHead>
-                  <TableHead className="sobretitulo text-right">Vencidas</TableHead>
-                  <TableHead className="sobretitulo pr-4 text-right">Cobrado (total)</TableHead>
+                  <TableHead className="sobretitulo">Estado</TableHead>
+                  <TableHead className="sobretitulo text-right">Sesiones del mes</TableHead>
+                  <TableHead className="sobretitulo text-right">Costo IA del mes</TableHead>
+                  <TableHead className="sobretitulo pr-4 text-right">Acción</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {colegios.map((c) => (
-                  <TableRow key={c.tenantId}>
-                    <TableCell className="pl-4">
-                      <Link href={`/nudito-plus/licencias?colegio=${c.tenantId}`} className="enlace font-semibold">{c.nombre}</Link>
-                      {c.plan !== "pro" && <span className="block text-cuerpo-sm text-muted-foreground">Ya no es Khipu Pro</span>}
+                  <TableRow key={c.tenantId} data-testid={`nudito-colegio-${c.tenantId}`}>
+                    <TableCell className="pl-4 font-semibold">
+                      {c.nombre}
+                      {c.plan !== "pro" && <span className="block text-cuerpo-sm font-normal text-muted-foreground">Ya no es Khipu Pro</span>}
                     </TableCell>
-                    <TableCell className="text-right tabular-nums">{c.vigentes}</TableCell>
-                    <TableCell className="text-right tabular-nums">{c.pendientes}</TableCell>
-                    <TableCell className="text-right tabular-nums">{c.vencidas}</TableCell>
-                    <TableCell className="pr-4 text-right tabular-nums">{formatoMonto(c.ingresos)}</TableCell>
+                    <TableCell>
+                      {c.bloqueado ? (
+                        <span className="inline-flex items-center gap-1 font-semibold text-falta"><Ban className="size-4" strokeWidth={2} aria-hidden /> Bloqueado</span>
+                      ) : c.activo ? (
+                        <span className="inline-flex items-center gap-1 font-semibold text-llego"><CheckCircle2 className="size-4" strokeWidth={2} aria-hidden /> Activo</span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 text-muted-foreground"><PauseCircle className="size-4" strokeWidth={2} aria-hidden /> Apagado por el colegio</span>
+                      )}
+                    </TableCell>
+                    <TableCell className="text-right tabular-nums">{c.sesionesMes}</TableCell>
+                    <TableCell className="text-right tabular-nums">{usd(c.costoMesUsd)}</TableCell>
+                    <TableCell className="pr-4 text-right">
+                      <DialogoAccion
+                        etiqueta={c.bloqueado ? <><ShieldCheck strokeWidth={2} aria-hidden /> Desbloquear</> : <><Ban strokeWidth={2} aria-hidden /> Bloquear</>}
+                        titulo={c.bloqueado ? `Desbloquear Nudito en ${c.nombre}` : `Bloquear Nudito en ${c.nombre}`}
+                        descripcion={c.bloqueado ? "El colegio vuelve a decidir si usa Nudito." : "Nadie del colegio podrá usar Nudito hasta que lo desbloquees. Queda en la auditoría de plataforma."}
+                        confirmar={c.bloqueado ? "Desbloquear" : "Bloquear"}
+                        accion={bloquearNuditoColegioAction}
+                        campos={{ tenantId: c.tenantId, bloquear: String(!c.bloqueado) }}
+                        peligro={!c.bloqueado}
+                      >
+                        <CampoMotivo id={`motivo-${c.tenantId}`} ayuda="P. ej. «Incidente de seguridad en revisión»." />
+                      </DialogoAccion>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </Tarjeta>
+        )}
+      </section>
+
+      <section aria-labelledby="titulo-historico" className="flex flex-col gap-3">
+        <h2 id="titulo-historico" className="inline-flex items-center gap-2 text-lg font-semibold">
+          <History className="size-5" strokeWidth={2} aria-hidden /> Histórico de licencias familiares
+        </h2>
+        <p className="text-cuerpo-sm text-muted-foreground">
+          Licencias vigentes: {historico.totales.vigentes} · Pagos sin revisar: {historico.totales.pendientes} · Cobrado este mes: {formatoMonto(historico.totales.ingresosMes)}.
+          Solo consulta: ya no se verifican pagos ni se activan licencias. <Link href="/nudito-plus/licencias" className="enlace">Ver licencias</Link>
+        </p>
+        {pagos.length > 0 && (
+          <ul className="flex flex-col gap-2" data-testid="pagos-historico">
+            {pagos.map((p) => (
+              <li key={p.id}>
+                <Tarjeta className="flex flex-col gap-1">
+                  <p className="font-semibold">{p.alumno.nombre} <span className="font-normal text-muted-foreground">· {p.colegio.nombre}</span></p>
+                  <p className="text-cuerpo-sm">{formatoMonto(p.monto)} por {textoMeses(p.meses)} · Yape del {fechaCorta(p.fechaPago)} · operación <span className="font-mono">{p.referencia ?? "—"}</span> · sin revisar</p>
+                </Tarjeta>
+              </li>
+            ))}
+          </ul>
         )}
       </section>
     </div>
