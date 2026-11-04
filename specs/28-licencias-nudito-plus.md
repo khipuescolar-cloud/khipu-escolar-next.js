@@ -1,6 +1,16 @@
 # 28 — Licencias de Nudito+ (venta por alumno, pago con Yape)
 
-> Estado: implementado (proveedor de IA falso) · Plan: Khipu Pro (complemento pagado por la familia, módulo fijo por plan `nudito_plus`) · Última actualización: 2026-10-30 (Claude Code)
+> Estado: en pausa — desactivado (implementación conservada; el modelo familia/Yape se descartó; producto futuro contratado por el colegio; ver docs/nudito-plus-viabilidad.md) · Plan: — (módulo fijo `nudito_plus`, apagado) · Última actualización: 2026-11-03 (Claude Code)
+
+> **Estado comercial (2026-11-03): en pausa — desactivado.** El modelo familia/Yape se descartó; si vuelve, será un
+> producto futuro contratado por el colegio (sin precio ni fecha). Ver `docs/nudito-plus-viabilidad.md`. El interruptor
+> `NUDITO_PLUS_DISPONIBLE = false` (`src/lib/planes.ts`, `nuditoPlusDisponible()`) deja `nudito_plus` inactivo en todos
+> los colegios (fuera del menú; `requireFeature` → 403), el cron `/api/cron/avisos` no llama a `procesarVencimientosNudito`
+> y `/api/cron/nudito-plus` responde `{ desactivado: true, creados: 0 }` sin trabajo (su entrada de `vercel.json` se
+> mantiene a propósito). El panel `/plataforma/nudito-plus` sigue accesible para uso interno con el aviso «Nudito+ está
+> desactivado: producto en estudio». No se borró código, tablas ni datos. Los tests de integración lo fuerzan con
+> `KHIPU_TEST_NUDITO_PLUS=1` (solo vale con `NODE_ENV=test`); los e2e de Nudito+ se saltan mientras esté apagado. Lo que
+> sigue describe la implementación existente.
 
 ## Objetivo
 Vender **Nudito+** (tutor IA, `specs/29`) **por alumno** a las familias de colegios con plan `pro`. La familia paga por
@@ -106,6 +116,7 @@ Acciones en `auditoria_plataforma`: `nudito_pago_verificar`, `nudito_pago_rechaz
 - Demo (`prisma/seed-nudito-plus.ts`, corre después de `seed-nudito-plus-tutor.ts`; fuente única de la configuración y la lista blanca): Mateo (hijo de Rosa en Nuevo Horizonte) con licencia de pago activa, consentimiento y reportes; pago Yape pendiente de la familia de Gael Chávez (5.° A); Valentina con prueba que vence en 2 días; Lucas Huamán (cuenta propia) con cortesía de 3 meses y consentimiento de su madre Julia (`familia.huaman@familia.demo`).
 
 ## Pendientes
+- Decidir si Nudito+ vuelve y con qué modelo (contratado por el colegio). Para reactivarlo: `NUDITO_PLUS_DISPONIBLE = true` y quitar el `test.skip` de los e2e.
 - Política de reembolso y prorrateo; boleta electrónica.
 - Compensación si el colegio baja de plan con licencias vigentes; licencias de alumnos retirados.
 - Qué ve dirección del colegio (por ahora, nada).

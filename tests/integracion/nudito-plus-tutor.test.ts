@@ -1,6 +1,6 @@
 // Nudito+ · tutor (specs/29). Requiere la BD local. Crea sus propios colegios `test-nudito-*` y los borra al terminar.
 import { randomUUID } from "node:crypto";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import type { Membership, Profile } from "@/generated/prisma/client";
 import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant } from "@/lib/server/db";
@@ -17,6 +17,10 @@ import { MENSAJE_TOPE, mesLima } from "@/lib/server/nudito-plus/uso";
 import type { TenantContext } from "@/lib/server/tenant";
 import { fechaLima, sumarDias } from "@/lib/fechas";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
+
+// Nudito+ está apagado en el producto (NUDITO_PLUS_DISPONIBLE = false): solo en tests se fuerza para seguir validando su lógica.
+vi.stubEnv("KHIPU_TEST_NUDITO_PLUS", "1");
+afterAll(() => vi.unstubAllEnvs());
 
 let c: ColegioPrueba;
 let base: ColegioPrueba;

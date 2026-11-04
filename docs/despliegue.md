@@ -1,5 +1,7 @@
 # Guía de despliegue (piloto)
 
+> **Dominio por confirmar.** `<dominio>` es el dominio definitivo de Khipu Escolar, que aún no está confirmado: no lo inventes ni lo reemplaces por uno supuesto. Sustitúyelo cuando se contrate.
+
 Paso a paso para publicar Khipu Escolar con Supabase cloud + Vercel. No pegues secretos en este archivo ni en el repositorio: se cargan solo en los paneles de cada servicio. Las variables están listadas en `.env.example`.
 
 Los pasos marcados **(externo)** requieren cuentas o decisiones del equipo (dominio, región, cuentas de pago).
@@ -17,8 +19,8 @@ Los pasos marcados **(externo)** requieren cuentas o decisiones del equipo (domi
 4. Datos demo: `pnpm db:seed` es **opcional y solo para una demo**. No lo corras en el ambiente real (crea usuarios con contraseña conocida).
 5. Claves: *Project Settings → API* → `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` y `SUPABASE_SERVICE_ROLE_KEY` (esta última solo en servidor, nunca `NEXT_PUBLIC_`).
 6. *Authentication → URL Configuration*:
-   - **Site URL**: `https://khipuescolar.pe` **(externo: dominio definitivo)**.
-   - **Redirect URLs**: `https://khipuescolar.pe/**` y el comodín de subdominios `https://*.khipuescolar.pe/**`.
+   - **Site URL**: `https://<dominio>` **(externo: dominio definitivo)**.
+   - **Redirect URLs**: `https://<dominio>/**` y el comodín de subdominios `https://*.<dominio>/**`.
 7. *Authentication → SMTP Settings*: configura un SMTP propio para los correos de Auth (invitación, recuperación). En el piloto puede ser la misma cuenta de Gmail de la sección 4; luego Amazon SES **(externo)**. Sin SMTP propio Supabase limita muy fuerte los envíos.
 
 ## 2. Vercel
@@ -30,17 +32,17 @@ Los pasos marcados **(externo)** requieren cuentas o decisiones del equipo (domi
    |---|---|
    | `DATABASE_URL` | cadena pooler 6543 |
    | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` | del paso 1.5 |
-   | `APP_BASE_DOMAIN` | `khipuescolar.pe` (sin protocolo ni puerto) |
+   | `APP_BASE_DOMAIN` | `<dominio>` (sin protocolo ni puerto) |
    | `APP_PROTOCOL` | `https` |
-   | `COOKIE_DOMAIN` | `.khipuescolar.pe` (con punto: comparte sesión entre subdominios) |
+   | `COOKIE_DOMAIN` | `.<dominio>` (con punto: comparte sesión entre subdominios) |
    | `APP_SECRET` | 32+ caracteres aleatorios (`openssl rand -base64 48`) |
    | `CRON_SECRET` | aleatorio largo (`openssl rand -hex 32`) |
    | `SMTP_*`, `EMAIL_*` | sección 4 |
    | `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT` | sección 6 |
    | `STORAGE_PROVIDER` y claves | secciones 5 y 5b |
 
-3. Dominios: agrega `khipuescolar.pe` y el **comodín `*.khipuescolar.pe`** (Vercel exige delegar los nameservers a Vercel para emitir certificados comodín) **(externo: dominio)**.
-4. Despliega. Cada colegio vive en `https://<slug>.khipuescolar.pe`.
+3. Dominios: agrega `<dominio>` y el **comodín `*.<dominio>`** (Vercel exige delegar los nameservers a Vercel para emitir certificados comodín) **(externo: dominio)**.
+4. Despliega. Cada colegio vive en `https://<slug>.<dominio>`.
 
 > **Cliente de Prisma en el build:** `pnpm build` corre `prisma generate && next build`. Vercel reutiliza la caché de dependencias y, si nada cambió, pnpm no ejecuta `postinstall`; como `src/generated/prisma` no está en git, sin este paso el build falla con «Can't resolve '@/generated/prisma/client'». `prisma generate` no necesita conexión a la base.
 
@@ -81,7 +83,7 @@ select cron.schedule(
   '*/2 * * * *',
   $$
   select net.http_get(
-    url := 'https://khipuescolar.pe/api/cron/avisos',
+    url := 'https://<dominio>/api/cron/avisos',
     headers := jsonb_build_object(
       'Authorization', 'Bearer ' || (select decrypted_secret from vault.decrypted_secrets where name = 'khipu_cron_secret')
     ),
@@ -122,7 +124,7 @@ Autenticación: con `CRON_SECRET` definido en Vercel, Vercel envía `Authorizati
 ### Migración a Amazon SES
 
 1. Verifica el dominio en SES (DKIM, SPF, DMARC) y pide salir del *sandbox* **(externo)**.
-2. Crea credenciales SMTP de SES y cambia: `SMTP_HOST=email-smtp.<región>.amazonaws.com`, `SMTP_PORT=465`, `SMTP_SECURE=true`, `SMTP_USER/SMTP_PASS` de SES, `EMAIL_FROM_ADDRESS=avisos@khipuescolar.pe`, y los límites según la cuota que muestre *SES → Account dashboard* **(externo)**:
+2. Crea credenciales SMTP de SES y cambia: `SMTP_HOST=email-smtp.<región>.amazonaws.com`, `SMTP_PORT=465`, `SMTP_SECURE=true`, `SMTP_USER/SMTP_PASS` de SES, `EMAIL_FROM_ADDRESS=avisos@<dominio>` (obligatorio: en producción, sin esta variable los correos fallan con un error claro y se reintentan; no hay remitente de respaldo), y los límites según la cuota que muestre *SES → Account dashboard* **(externo)**:
 
    | Cuenta SES | `EMAIL_RATE_PER_SECOND` | `EMAIL_DAILY_LIMIT` |
    |---|---|---|
@@ -157,7 +159,7 @@ CLOUDINARY_API_SECRET=<api secret>
 pnpm exec web-push generate-vapid-keys
 ```
 
-Pon la clave pública en `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, la privada en `VAPID_PRIVATE_KEY` y `VAPID_SUBJECT=mailto:soporte@khipuescolar.pe`. No cambies las claves luego: invalidarías las suscripciones existentes.
+Pon la clave pública en `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, la privada en `VAPID_PRIVATE_KEY` y `VAPID_SUBJECT=mailto:soporte@<dominio>` (obligatorio en producción: sin él, Web Push falla con un error claro; en local se usa `mailto:soporte@example.invalid`). No cambies las claves luego: invalidarías las suscripciones existentes.
 
 ## 6c. App instalable y tiendas (opcional)
 
@@ -176,7 +178,7 @@ El usuario recibe el correo de invitación/recuperación para definir su contras
 ## 8. Checklist de lanzamiento
 
 - [ ] Proyecto Supabase creado, `pnpm db:deploy` sin errores, **sin** seed demo.
-- [ ] Site URL y Redirect URLs (incluido `*.khipuescolar.pe`) configuradas; SMTP de Auth probado con una recuperación de contraseña.
+- [ ] Site URL y Redirect URLs (incluido `*.<dominio>`) configuradas; SMTP de Auth probado con una recuperación de contraseña.
 - [ ] Variables en Vercel completas; `APP_BASE_DOMAIN`, `APP_PROTOCOL=https`, `COOKIE_DOMAIN` correctos.
 - [ ] Dominio y comodín con certificado válido.
 - [ ] `CRON_SECRET` definido y crons visibles en Vercel (*Settings → Cron Jobs*); una invocación manual responde 200.

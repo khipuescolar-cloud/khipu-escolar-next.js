@@ -44,7 +44,6 @@ export function PieSitio({ contacto }: { contacto: string }) {
               ["/#como-funciona", "Cómo funciona"],
               ["/#roles", "Para cada rol"],
               ["/#planes", "Planes"],
-              ["/#nudito", "Nudito+"],
               ["/#seguridad", "Seguridad y privacidad"],
               ["/#preguntas", "Preguntas frecuentes"],
             ].map(([href, texto]) => (
@@ -85,7 +84,7 @@ export function PieSitio({ contacto }: { contacto: string }) {
             </li>
             <li>
               <Link href="/#demo" className={ENLACE}>
-                Programa piloto 2026
+                Programa piloto sin costo
               </Link>
             </li>
           </Columna>

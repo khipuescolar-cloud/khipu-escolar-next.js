@@ -10,10 +10,8 @@ import {
   Check,
   ClipboardCheck,
   Clock,
-  Compass,
   Database,
   Download,
-  Eye,
   FileCheck,
   FolderOpen,
   Gift,
@@ -21,7 +19,6 @@ import {
   Inbox,
   Layers,
   LifeBuoy,
-  Link2,
   ListTodo,
   Megaphone,
   Minus,
@@ -243,7 +240,13 @@ const PREGUNTAS: { Icono: LucideIcon; tono: Tono; p: string; r: string }[] = [
     Icono: Layers,
     tono: "maiz",
     p: "¿Puedo contratar solo algunos módulos?",
-    r: "No. Hay dos planes y se contratan completos: Khipu Base (asistencia, avisos, mensajes, comunicados, horario y gestión) y Khipu Pro (todo Khipu Base más notas, libreta, tareas, agenda, documentos, reuniones y el tablero de dirección).",
+    r: "No. Hay dos planes y se contratan completos: Khipu Base (gestión institucional; asistencia de ingreso, portería y por clase, con tardanzas y justificaciones; comunicados; mensajería; notificaciones y correos importantes; reportes de asistencia en PDF y Excel) y Khipu Pro (todo Khipu Base más evaluaciones por competencias, periodos, historial y auditoría de notas, recuperaciones, reportes académicos, libretas, tareas, agenda, documentos, reuniones y el tablero de dirección).",
+  },
+  {
+    Icono: Gift,
+    tono: "turquesa",
+    p: "¿Cuánto cuesta?",
+    r: "El precio es por alumno activo, según el rango de tamaño del colegio, y la implementación está incluida. Para más de 1.000 alumnos o varias sedes preparamos una cotización a medida. Pídala con el formulario de abajo.",
   },
   {
     Icono: BellRing,
@@ -279,16 +282,8 @@ const PREGUNTAS: { Icono: LucideIcon; tono: Tono; p: string; r: string }[] = [
     Icono: MonitorPlay,
     tono: "cielo",
     p: "¿Puedo probarlo?",
-    r: "Sí. Solicite una demo con el formulario de abajo: le mostramos Khipu Escolar con un colegio de ejemplo y puede probarlo gratis una semana con Khipu Pro. Los colegios del programa piloto empiezan con un mes de marcha blanca sin costo.",
+    r: "Sí. Solicite una demo con el formulario de abajo: le mostramos Khipu Escolar con un colegio de ejemplo. Los colegios elegidos entran a un programa piloto de 6 a 8 semanas sin costo; al terminar, el colegio decide si contrata. No hay cobro automático.",
   },
-];
-
-/** Nudito+ (specs/28–29): en piloto. Solo lo que hace hoy el tutor; sin nombrar al proveedor de IA. */
-const NUDITO_PLUS: { Icono: LucideIcon; titulo: string; texto: string }[] = [
-  { Icono: Compass, titulo: "Guía, no da respuestas", texto: "Acompaña paso a paso con preguntas. Si le piden la tarea resuelta, ayuda a pensarla." },
-  { Icono: GraduationCap, titulo: "Sigue el CNEB de su grado", texto: "Conoce los cursos, las competencias y los desempeños del grado del alumno." },
-  { Icono: Link2, titulo: "Materiales de sitios permitidos", texto: "Solo recomienda enlaces de una lista de sitios educativos aprobados." },
-  { Icono: Eye, titulo: "La familia ve reportes, no conversaciones", texto: "Recibe resúmenes y alertas. Las conversaciones del alumno son privadas: tampoco las leen el colegio ni el equipo Khipu." },
 ];
 
 /** Seguridad y privacidad: solo garantías que el código cumple hoy (specs/01, 15 y 16). */
@@ -346,8 +341,8 @@ function PastillaPro() {
 }
 
 /**
- * Tabla «Base vs Pro» armada con los mismos datos del catálogo que las tarjetas (specs/25), más las filas comunes a
- * todos los planes y Nudito+. Estado con ícono + palabra (Incluido / No incluido), nunca solo color.
+ * Tabla «Base vs Pro» armada con los mismos datos del catálogo que las tarjetas (specs/25), más las filas que no son
+ * un módulo propio (avisos, mesa de ayuda; periodos, historial y recuperaciones van con las notas). Estado con ícono + palabra (Incluido / No incluido), nunca solo color.
  */
 function ComparacionPlanes({ planes }: { planes: PlanPublico[] }) {
   if (planes.length < 2) return null;
@@ -359,13 +354,11 @@ function ComparacionPlanes({ planes }: { planes: PlanPublico[] }) {
         vistos.add(m.clave);
         filas.push({ clave: m.clave, nombre: m.nombre, en: (x) => <Celda si={x.modulos.some((y) => y.clave === m.clave)} /> });
       }
+  const conNotas = (x: PlanPublico) => x.modulos.some((y) => y.clave === "notas");
   filas.push(
+    { clave: "avisos", nombre: "Notificaciones en Khipu y push en el celular, y correos de los avisos importantes", en: () => <Celda si /> },
+    { clave: "notas-detalle", nombre: "Periodos académicos, historial y auditoría de notas, y recuperaciones", en: (x) => <Celda si={conNotas(x)} /> },
     { clave: "soporte", nombre: "Mesa de ayuda, app instalable y trabajo sin conexión", en: () => <Celda si /> },
-    {
-      clave: "nudito-plus",
-      nombre: "Nudito+ (lo contrata cada familia, en piloto)",
-      en: (x) => (x.plan === "pro" ? <span className="text-cuerpo-sm font-medium">Opcional</span> : <Celda si={false} />),
-    },
   );
   return (
     <div className="mx-auto mt-12 max-w-4xl">
@@ -587,7 +580,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
                   {p.descripcion && <p className={cn("text-cuerpo-sm", destacado ? "text-white/80" : "text-muted-foreground")}>{p.descripcion}</p>}
                 </div>
                 <div className={cn("flex flex-col gap-1 border-y py-4", destacado ? "border-white/15" : "border-arena")}>
-                  <p className="font-heading text-titulo-2 tabular-nums">{p.precio}</p>
+                  <p className="font-heading text-lg font-semibold text-balance">{p.precio}</p>
                   {p.minimo && <p className={cn("text-cuerpo-sm", destacado ? "text-white/80" : "text-muted-foreground")}>{p.minimo}</p>}
                 </div>
                 <div className="flex flex-1 flex-col gap-3">
@@ -617,8 +610,8 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
         </ul>
         <ul className="mx-auto mt-6 grid max-w-4xl gap-3 sm:grid-cols-2">
           {[
-            { Icono: Gift, texto: "Pruébelo gratis una semana con Khipu Pro." },
-            { Icono: School, texto: "Colegios del programa piloto: un mes de marcha blanca sin costo." },
+            { Icono: Gift, texto: "Programa piloto de 6 a 8 semanas sin costo; al terminar, el colegio decide si contrata." },
+            { Icono: School, texto: "Sin cobro automático: si al terminar el piloto el colegio no contrata, no paga nada." },
           ].map((o) => (
             <li key={o.texto} className="flex items-center gap-3 rounded-lg border border-arena bg-superficie p-4 text-cuerpo-sm font-medium">
               <o.Icono className="size-5 shrink-0 text-turquesa" strokeWidth={2} aria-hidden />
@@ -627,38 +620,6 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
           ))}
         </ul>
         <ComparacionPlanes planes={planes} />
-      </Seccion>
-
-      {/* ───────── Nudito+ (cochinilla): tutor con IA por alumno, en piloto ───────── */}
-      <Seccion id="nudito" etiqueta="titulo-nudito">
-        <div className="grid gap-8 rounded-lg bg-cochinilla p-6 text-white sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:gap-12">
-          <div className="flex flex-col items-start gap-5">
-            <div className="flex items-center gap-4">
-              <span className="flex size-20 shrink-0 items-center justify-center rounded-full bg-white sm:size-24">
-                <img src="/marca/nudito.svg" alt="Nudito, el personaje de Khipu Escolar: un nudo de cuerda que sonríe" width={72} height={72} loading="lazy" className="size-14 sm:size-18" />
-              </span>
-              <p className="w-fit rounded-pildora bg-maiz px-3 py-1 text-etiqueta text-sobre-maiz">Piloto · Próximamente para su colegio</p>
-            </div>
-            <h2 id="titulo-nudito" className="font-heading text-titulo-1 text-balance sm:text-[40px] sm:leading-[46px]">
-              Nudito+, un tutor con inteligencia artificial para cada alumno
-            </h2>
-            <p className="max-w-prose text-cuerpo text-pretty text-white/90 sm:text-lg">
-              El alumno conversa con Nudito+ cuando estudia o hace sus tareas, y la familia sigue su avance sin leer lo que conversa.
-            </p>
-            <p className="max-w-prose text-cuerpo-sm text-pretty text-white/85">
-              Lo contrata cada familia por alumno, con una licencia mensual que se paga por Yape. Solo está disponible en colegios con Khipu Pro y no forma parte de los planes: el colegio no paga nada por él.
-            </p>
-          </div>
-          <ul className="grid content-center gap-3 sm:grid-cols-2">
-            {NUDITO_PLUS.map((n) => (
-              <li key={n.titulo} className="flex flex-col gap-2 rounded-lg bg-white/10 p-4">
-                <n.Icono className="size-5 text-maiz" strokeWidth={2} aria-hidden />
-                <h3 className="text-cuerpo font-semibold">{n.titulo}</h3>
-                <p className="text-cuerpo-sm text-pretty text-white/85">{n.texto}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
       </Seccion>
 
       {/* ───────── Seguridad y privacidad (turquesa suave): lista a dos columnas con filetes ───────── */}
@@ -690,9 +651,9 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
             </span>
             <div className="flex flex-col gap-1">
               <h2 id="titulo-piloto" className="font-heading text-titulo-2 text-balance">
-                Programa piloto 2026: buscamos los primeros colegios
+                Programa piloto: buscamos los primeros colegios
               </h2>
-              <p className="text-cuerpo">Estamos eligiendo a los primeros colegios del Perú que usarán Khipu Escolar. ¿Quiere que el suyo sea uno de ellos?</p>
+              <p className="text-cuerpo">Buscamos 1 o 2 colegios para un programa piloto de 6 a 8 semanas sin costo; al terminar, el colegio decide si contrata. No hay cobro automático.</p>
             </div>
           </div>
           <a href="#demo" className={cn(buttonVariants({ size: "lg" }), "h-12 shrink-0 bg-indigo px-6 text-white hover:bg-indigo/90 active:not-aria-[haspopup]:translate-y-0 active:scale-[0.96]")}>

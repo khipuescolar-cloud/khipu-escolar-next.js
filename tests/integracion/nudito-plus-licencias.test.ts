@@ -1,7 +1,7 @@
 // Requiere la BD local. Crea colegios `test-nudito-*` (Pro y Base), un super administrador de prueba y un sitio
 // `*.test-nudito.pe`; borra todo al terminar. No cambia la configuración global de Nudito+.
 import { randomUUID } from "node:crypto";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import type { Profile } from "@/generated/prisma/client";
 import { fechaDb, fechaLima, isoDeFechaDb, sumarDias } from "@/lib/fechas";
 import { extenderHasta, periodoNuevo } from "@/lib/nudito-plus";
@@ -18,6 +18,10 @@ import {
   agregarSitio, cancelarLicencia, crearLicenciaManual, extenderLicencia, listarLicencias, pagosPendientes, quitarSitio, rechazarPago, verificarPago,
 } from "@/lib/server/plataforma-nudito-plus";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
+
+// Nudito+ está apagado en el producto (NUDITO_PLUS_DISPONIBLE = false): solo en tests se fuerza para seguir validando su lógica.
+vi.stubEnv("KHIPU_TEST_NUDITO_PLUS", "1");
+afterAll(() => vi.unstubAllEnvs());
 
 const hoy = fechaLima(new Date());
 const sufijo = randomUUID().slice(0, 8);

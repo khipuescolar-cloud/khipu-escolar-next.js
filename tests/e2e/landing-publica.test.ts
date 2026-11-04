@@ -27,35 +27,45 @@ test.afterAll(async () => {
   await consultar("delete from solicitudes_demo where correo like $1", [`${MARCA}%`]);
 });
 
-test("la raíz muestra la landing con sus secciones, los planes del catálogo, su comparación y Nudito+ en piloto", async ({ page }) => {
+test("la raíz muestra la landing con sus secciones, los planes del catálogo sin precios, su comparación y el piloto sin costo, sin Nudito+", async ({ page }) => {
   await page.goto(`${RAIZ}/`);
   await expect(page).toHaveURL(`${RAIZ}/`);
   await expect(page).toHaveTitle("Khipu Escolar · Cada día de tu hijo, bien anudado.");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Lo que pasa en el aula, le llega a la familia al toque.");
   await expect(page.locator("h1")).toHaveCount(1);
-  for (const id of ["funciones", "como-funciona", "roles", "planes", "nudito", "seguridad", "preguntas", "demo"]) {
+  for (const id of ["funciones", "como-funciona", "roles", "planes", "seguridad", "preguntas", "demo"]) {
     await expect(page.locator(`section#${id}`)).toHaveCount(1);
   }
-  await expect(page.getByText("Programa piloto 2026: buscamos los primeros colegios")).toBeVisible();
+  await expect(page.getByText("Programa piloto: buscamos los primeros colegios")).toBeVisible();
+  // Nudito+ está desactivado (producto en estudio): sin sección, sin anclas y sin pago familiar.
+  await expect(page.locator("section#nudito")).toHaveCount(0);
+  await expect(page.locator('a[href="/#nudito"]')).toHaveCount(0);
+  await expect(page.getByText(/Nudito\+|Yape/)).toHaveCount(0);
+  // Piloto de 6 a 8 semanas sin costo y sin cobro automático; ya no hay «una semana» ni «marcha blanca».
+  await expect(page.getByText(/una semana|marcha blanca/)).toHaveCount(0);
+  await expect(page.locator("section#planes").getByText("Programa piloto de 6 a 8 semanas sin costo; al terminar, el colegio decide si contrata.")).toBeVisible();
 
   const planes = await consultar<{ nombre: string }>("select nombre from planes_catalogo where activo order by orden");
   const tarjetas = page.getByTestId("planes-landing").locator("> li");
   await expect(tarjetas).toHaveCount(planes.length);
   for (const [i, p] of planes.entries()) await expect(tarjetas.nth(i).getByRole("heading", { level: 3 })).toHaveText(p.nombre);
+  // Sin tarifas publicadas (PUBLICAR_PRECIOS = false), aunque el catálogo tenga montos.
+  await expect(tarjetas.getByText("Precio por alumno activo, según rango de tamaño del colegio")).toHaveCount(planes.length);
+  await expect(page.getByTestId("planes-landing").getByText(/S\/\s?\d/)).toHaveCount(0);
 
   // Comparación Base vs Pro con los módulos del catálogo: horario en los dos, notas solo en Pro.
   const tabla = page.getByTestId("comparacion-planes");
   await expect(tabla.getByRole("columnheader")).toHaveText(["Función", ...planes.map((p) => p.nombre)]);
   await expect(tabla.getByRole("row", { name: /Horario semanal por salón/ }).getByText("Incluido")).toHaveCount(2);
-  const filaNotas = tabla.getByRole("row", { name: /Notas por competencias/ });
+  const filaNotas = tabla.getByRole("row", { name: /Evaluaciones por competencias/ });
   await expect(filaNotas.getByText("No incluido")).toHaveCount(1);
   await expect(filaNotas.getByText("Incluido", { exact: true })).toHaveCount(1);
 
-  // Nudito+ en piloto, por familia y solo con Khipu Pro; seguridad con garantías reales.
-  const nudito = page.locator("section#nudito");
-  await expect(nudito.getByText("Piloto · Próximamente para su colegio")).toBeVisible();
-  await expect(nudito.getByText(/licencia mensual que se paga por Yape/)).toBeVisible();
-  await expect(nudito.getByRole("heading", { name: "La familia ve reportes, no conversaciones" })).toBeVisible();
+  const filaDetalleNotas = tabla.getByRole("row", { name: /historial y auditoría de notas/ });
+  await expect(filaDetalleNotas.getByText("No incluido")).toHaveCount(1);
+  await expect(tabla.getByRole("row", { name: /push en el celular/ }).getByText("Incluido")).toHaveCount(2);
+
+  // Seguridad con garantías reales.
   await expect(page.locator("section#seguridad").getByRole("heading", { name: "Modo soporte transparente" })).toBeVisible();
   // Los avisos no salen por WhatsApp ni SMS.
   await expect(page.locator("main").getByText(/por WhatsApp|SMS/).filter({ hasNotText: "¿Los avisos llegan por WhatsApp?" })).toHaveCount(0);

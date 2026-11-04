@@ -1,11 +1,11 @@
 # Manual para alumnos
 
 Hola. Si tu colegio te dio una **cuenta propia**, con Khipu ves tu asistencia, tu horario, tus tareas, tus notas y los
-comunicados del colegio. Y si tu familia activa **Nudito+**, tienes un tutor que te ayuda a practicar.
+comunicados del colegio.
 
 Las cuentas propias son para secundaria y para primaria desde el grado que elige tu colegio (normalmente 5.° y 6.°).
 
-Para practicar: `lucas.huaman@nuevohorizonte.demo` (5.° A, con Nudito+) o `sofia.quispe@nuevohorizonte.demo`
+Para practicar: `lucas.huaman@nuevohorizonte.demo` (5.° A) o `sofia.quispe@nuevohorizonte.demo`
 (1.° A Sec.), contraseña `demo123`.
 
 ## Tu primer ingreso
@@ -26,7 +26,6 @@ Para practicar: `lucas.huaman@nuevohorizonte.demo` (5.° A, con Nudito+) o `sofi
 | Académico | **Notas** | Tus notas por curso y competencia. |
 | | **Libreta** | Tu libreta del bimestre (cuando el colegio la publica). |
 | | **Tareas** | Lo que tienes que entregar y cuándo. |
-| | **Nudito+** | Tu tutor con inteligencia artificial (si tu familia lo activó). |
 | | **Agenda** | Exámenes, actividades y entregas. |
 
 Solo ves **tus** datos. No tienes chat: si necesitas hablar con un profesor, hazlo en el colegio o pide a tu familia que le
@@ -38,7 +37,9 @@ escriba. Las faltas las justifica tu familia.
 - **Notas**: elige el periodo. Cada curso muestra tus competencias, tu calificación y las observaciones del profesor.
 - **Agenda**: mira la semana; las entregas aparecen como «Entrega de tarea».
 
-## Nudito+
+## Nudito+ (desactivado)
+> **Nudito+ está desactivado (2026-11-03): producto en estudio.** No aparece en el menú de ningún colegio. Esta sección queda como referencia histórica.
+
 Nudito es un asistente con inteligencia artificial. Te ayuda a aprender paso a paso; **no reemplaza a tu profesor** y
 **no te da la respuesta de la tarea**: te hace preguntas para que llegues tú.
 

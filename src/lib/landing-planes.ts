@@ -28,35 +28,42 @@ export type PlanPublico = {
   incluyeA: string | null;
   /** Módulos que agrega respecto del plan anterior (o todos, si no incluye a otro). */
   nuevos: ModuloPublico[];
-  /** Texto del precio en soles, o «Precio según tamaño del colegio» si el catálogo no tiene precio. */
+  /** Texto del precio: en soles solo si `PUBLICAR_PRECIOS`; si no (o sin precio en el catálogo), `SIN_PRECIO`. */
   precio: string;
-  /** Línea opcional con el mínimo mensual. */
+  /** Línea bajo el precio: el mínimo mensual (si se publican precios) o `DETALLE_SIN_PRECIO`. */
   minimo: string | null;
 };
 
-export const SIN_PRECIO = "Precio según tamaño del colegio";
+/**
+ * Publicar tarifas en la landing. Apagado: no hay precios aprobados (modelo comercial 2026-11-03), así que la
+ * landing muestra siempre el texto sin montos aunque el catálogo (`planes_catalogo`) tenga precios cargados.
+ */
+export const PUBLICAR_PRECIOS = false;
+
+export const SIN_PRECIO = "Precio por alumno activo, según rango de tamaño del colegio";
+export const DETALLE_SIN_PRECIO = "Implementación incluida. Cotización a medida para más de 1.000 alumnos o varias sedes.";
 
 /**
  * Módulos que la landing no lista como función del plan: la mesa de ayuda va en todos los planes y se
  * presenta aparte; «avisos» es la pantalla de seguimiento de dirección (los avisos van dentro de asistencia);
- * Nudito+ no está incluido en ningún plan: lo compra cada familia (specs/28).
+ * Nudito+ no está incluido en ningún plan ni se publica (producto futuro en estudio, desactivado; specs/28–29).
  */
 const OCULTOS: ReadonlySet<Feature> = new Set<Feature>(["soporte", "avisos", "nudito_plus"]);
 
 /** Nombre del módulo para la landing (más claro para quien no conoce el producto). */
 const NOMBRE_PUBLICO: Partial<Record<Feature, string>> = {
-  asistencia: "Asistencia al colegio y por curso, con aviso a la familia y reportes",
+  asistencia: "Asistencia de ingreso y por clase, con tardanzas, aviso a la familia y reportes en PDF y Excel",
   porteria: "Portería con carnet QR",
   justificaciones: "Justificación de faltas",
-  mensajes: "Chat familia–profesor",
+  mensajes: "Mensajería familia–profesor",
   comunicados: "Comunicados con adjuntos",
-  gestion: "Panel de dirección",
+  gestion: "Gestión institucional: personal, salones, alumnos y familias",
   horario: "Horario semanal por salón",
-  notas: "Notas por competencias (CNEB)",
-  libreta: "Libreta en PDF",
+  notas: "Evaluaciones por competencias, capacidades, desempeños y criterios (CNEB)",
+  libreta: "Libretas por periodo en PDF",
   tareas: "Tareas",
   agenda: "Agenda",
-  tablero: "Tablero de dirección",
+  tablero: "Tablero de dirección y reportes académicos",
   documentos: "Documentos del colegio",
   reuniones: "Reuniones con confirmación y acta",
 };
@@ -84,8 +91,17 @@ export function catalogoDeCodigo(): FilaCatalogoPublico[] {
     }));
 }
 
-/** Solo planes activos, por orden, con módulos legibles, «todo lo de X, más…» y precio en soles. */
-export function armarPlanesPublicos(filas: readonly FilaCatalogoPublico[]): PlanPublico[] {
+/** Precio público de un plan: sin montos mientras `PUBLICAR_PRECIOS` esté apagado (o si el catálogo no tiene precio). */
+function textoPrecio(f: FilaCatalogoPublico, publicar: boolean = PUBLICAR_PRECIOS): { precio: string; minimo: string | null } {
+  if (!publicar || f.precioPorAlumno === null || f.precioPorAlumno <= 0) return { precio: SIN_PRECIO, minimo: DETALLE_SIN_PRECIO };
+  return {
+    precio: `${soles.format(f.precioPorAlumno)} por alumno al mes`,
+    minimo: f.precioMinimoMensual !== null && f.precioMinimoMensual > 0 ? `Mínimo ${soles.format(f.precioMinimoMensual)} al mes` : null,
+  };
+}
+
+/** Solo planes activos, por orden, con módulos legibles, «todo lo de X, más…» y precio (sin montos si no se publican). */
+export function armarPlanesPublicos(filas: readonly FilaCatalogoPublico[], publicarPrecios: boolean = PUBLICAR_PRECIOS): PlanPublico[] {
   const activos = filas.filter((f) => f.activo).sort((a, b) => a.orden - b.orden);
   const resultado: PlanPublico[] = [];
   let anterior: { nombre: string; modulos: Set<Feature> } | null = null;
@@ -101,8 +117,7 @@ export function armarPlanesPublicos(filas: readonly FilaCatalogoPublico[]): Plan
       modulos: modulosPublicos(delPlan),
       incluyeA: incluyeAnterior && anterior ? anterior.nombre : null,
       nuevos: modulosPublicos(nuevos),
-      precio: f.precioPorAlumno !== null && f.precioPorAlumno > 0 ? `${soles.format(f.precioPorAlumno)} por alumno al mes` : SIN_PRECIO,
-      minimo: f.precioMinimoMensual !== null && f.precioMinimoMensual > 0 ? `Mínimo ${soles.format(f.precioMinimoMensual)} al mes` : null,
+      ...textoPrecio(f, publicarPrecios),
     });
     anterior = { nombre: f.nombre.trim() || NOMBRE_PLAN[f.plan], modulos: delPlan };
   }

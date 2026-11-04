@@ -7,7 +7,6 @@ import { MenuMovil } from "./MenuMovil";
 export const ANCLAS = [
   { href: "/#funciones", texto: "Funciones" },
   { href: "/#planes", texto: "Planes" },
-  { href: "/#nudito", texto: "Nudito+" },
   { href: "/#seguridad", texto: "Seguridad" },
   { href: "/#preguntas", texto: "Preguntas" },
 ];

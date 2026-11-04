@@ -1,6 +1,16 @@
 # 29 — Nudito+ (tutor IA por alumno)
 
-> Estado: implementado (proveedor de IA falso) · Plan: Khipu Pro + licencia por alumno (`specs/28`) · Última actualización: 2026-10-30 (Claude Code)
+> Estado: en pausa — desactivado (implementación conservada; el modelo familia/Yape se descartó; producto futuro contratado por el colegio; ver docs/nudito-plus-viabilidad.md) · Plan: — (módulo fijo `nudito_plus`, apagado) · Última actualización: 2026-11-03 (Claude Code)
+
+> **Estado comercial (2026-11-03): en pausa — desactivado.** El modelo familia/Yape se descartó; si vuelve, será un
+> producto futuro contratado por el colegio (sin precio ni fecha). Ver `docs/nudito-plus-viabilidad.md`. El interruptor
+> `NUDITO_PLUS_DISPONIBLE = false` (`src/lib/planes.ts`, `nuditoPlusDisponible()`) deja `nudito_plus` inactivo en todos
+> los colegios (fuera del menú; `requireFeature` → 403), el cron `/api/cron/avisos` no llama a `procesarVencimientosNudito`
+> y `/api/cron/nudito-plus` responde `{ desactivado: true, creados: 0 }` sin trabajo (su entrada de `vercel.json` se
+> mantiene a propósito). El panel `/plataforma/nudito-plus` sigue accesible para uso interno con el aviso «Nudito+ está
+> desactivado: producto en estudio». No se borró código, tablas ni datos. Los tests de integración lo fuerzan con
+> `KHIPU_TEST_NUDITO_PLUS=1` (solo vale con `NODE_ENV=test`); los e2e de Nudito+ se saltan mientras esté apagado. Lo que
+> sigue describe la implementación existente.
 
 ## Objetivo
 Tutor IA para el **alumno**, alineado al CNEB de su grado, que guía paso a paso (socrático) y recomienda materiales solo
@@ -99,6 +109,7 @@ Action: `enviarMensajeNuditoPlusAction({ alumnoId, conversacionId, texto })` en 
 - **Prueba manual** (tras `pnpm db:seed`): Lucas Huamán Soto (5.° A, `lucas.huaman@nuevohorizonte.demo` / `demo123`) ya tiene licencia de cortesía de 3 meses y el consentimiento de IA de su madre (`familia.huaman@familia.demo` / `demo123`), dos conversaciones pasadas y la lista blanca; Mateo (hijo de Rosa, sin cuenta) tiene licencia de pago activa y consentimiento. Lucas → `http://nuevohorizonte.lvh.me:3000/nudito-plus/chat`; Rosa (`rosa.quispe@gmail.com`) → `/nudito-plus` → Mateo → «Usar en modo hijo».
 
 ## Pendientes
+- Decidir si Nudito+ vuelve y con qué modelo (contratado por el colegio). Para reactivarlo: `NUDITO_PLUS_DISPONIBLE = true` y quitar el `test.skip` de los e2e.
 - Elegir proveedor de IA real (y su política de datos de menores); sus claves irán en variables de entorno.
 - Avisos a la familia (`TipoAviso.nudito`) por alertas y resúmenes nuevos; la UI de alertas/resúmenes es de specs/28.
 - Panel de plataforma para `SitioPermitido`, topes y proveedor (hoy por seed/SQL).

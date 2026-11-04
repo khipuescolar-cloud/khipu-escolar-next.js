@@ -6,7 +6,7 @@ import { env } from "@/lib/env";
 
 /**
  * Cliente de Supabase Auth ligado a las cookies del request.
- * Las cookies se emiten con COOKIE_DOMAIN (.lvh.me / .khipuescolar.pe) para que la sesión
+ * Las cookies se emiten con COOKIE_DOMAIN (.lvh.me / .<dominio>, dominio por confirmar) para que la sesión
  * sirva en el dominio raíz y en todos los subdominios de colegio.
  * Solo se usa para Auth: los datos se leen y escriben con Prisma.
  */

@@ -1,6 +1,6 @@
 # 20 — Responsables del colegio y suscripciones
 
-> Estado: implementado · Plan: Interno (plataforma) · Última actualización: 2026-10-28 (Claude subagente p4-colegio-comercial)
+> Estado: implementado · Plan: Interno (plataforma) · Última actualización: 2026-11-03 (Claude Code: política de impagos aprobada y advertencia al suspender)
 
 ## Objetivo
 El equipo Khipu necesita saber con quién habla en cada colegio (varios responsables, uno principal) y llevar a mano el contrato comercial: plan, ciclo, monto, renovación y pagos. No hay pasarela ni cobro automático.
@@ -27,6 +27,18 @@ El equipo Khipu necesita saber con quién habla en cada colegio (varios responsa
 - Renovación: `vencida` si la fecha < hoy (Lima); `por vencer` si faltan 0–30 días; vence hoy cuenta como por vencer. «Vencidas sin pago» y «renuevan en 30 días» solo cuentan suscripciones en prueba o activa.
 - Registrar un pago puede mover la próxima renovación al día siguiente del fin del periodo (si es posterior). Anular = borrar el registro; el detalle queda en la auditoría.
 - Alumnos activos reales (estado `activo`) vs. contratados: alerta si se pasa.
+
+## Política de impagos (aprobada 2026-11-03)
+- Cobro **manual**: el colegio paga por **transferencia** (no hay pasarela ni cobro automático; el piloto es gratis). Los
+  pagos se registran a mano en «Suscripción».
+- Ante un impago decide **siempre una persona** del equipo Khipu (revisión humana); nada se suspende de forma automática.
+- **Nunca se borran datos** del colegio por impago.
+- **No se cortan los avisos críticos** a las familias (asistencia, faltas, avisos importantes).
+- Pendiente de implementar: **recordatorios progresivos** de pago al responsable y un **modo restringido** (p. ej.
+  solo lectura para el personal) que mantenga los avisos críticos. Mientras no exista, la única medida es el estado
+  «Suspendido» (`specs/16`), que **sí** corta el acceso de todo el colegio, la portería y los avisos de asistencia: por eso
+  `CambiarEstado` (`src/app/plataforma/_componentes/CambiarEstado.tsx`) muestra una advertencia visible y en la
+  confirmación al elegir «Suspendido» (solo texto; la lógica no cambió). Úsese solo como último recurso.
 
 ## Modelo de datos
 `ContactoColegio` (tipo, principal, `membershipId`), `Suscripcion` (una por colegio), `PagoRegistro` (método en texto: transferencia, yape, plin, deposito, otro). Sin cambios de esquema.
@@ -62,3 +74,4 @@ Correo repetido, principal sin reemplazo, periodo invertido, monto ≤ 0, renova
 
 ## Pendientes
 - Recordatorios automáticos de renovación por correo; adjuntar comprobantes; multimoneda (hoy solo PEN).
+- Política de impagos: recordatorios progresivos y modo restringido que no corte los avisos críticos (ver arriba).

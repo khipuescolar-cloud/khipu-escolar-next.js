@@ -4,12 +4,13 @@
 // respaldo en código y los límites que el código impone (qué rol puede usar qué módulo).
 import type { Plan, Rol } from "@/generated/prisma/enums";
 import { MOSAICOS, type IconoMosaico } from "@/lib/navegacion";
-import { FEATURES, NOMBRE_PLAN, planIncluye, type Feature } from "@/lib/planes";
+import { FEATURES, NOMBRE_PLAN, nuditoPlusDisponible, planIncluye, type Feature } from "@/lib/planes";
 
 /**
  * Módulos fijos por plan: los activa SOLO el plan del colegio según `FEATURES` (código), no el catálogo de la BD
  * ni los ajustes del panel. No se listan en el panel de planes, colegios ni roles.
  * Nudito+ (specs/29): solo en Khipu Pro, sin excepciones (además exige licencia por alumno, specs/28).
+ * Hoy está APAGADO (`NUDITO_PLUS_DISPONIBLE`, lib/planes.ts): no queda activo en ningún colegio.
  */
 export const MODULOS_FIJOS_POR_PLAN: ReadonlySet<Feature> = new Set<Feature>(["nudito_plus"]);
 
@@ -45,7 +46,7 @@ export const INFO_MODULO: Record<Feature, { nombre: string; descripcion: string;
   documentos: { nombre: "Documentos", descripcion: "Biblioteca del colegio con carpetas y permisos por rol y salón: reglamento, calendario y comunicados oficiales.", icono: "FolderOpen" },
   reuniones: { nombre: "Reuniones", descripcion: "Convocar reuniones de padres, confirmar asistencia, marcar quién asistió y publicar el acta.", icono: "Users" },
   soporte: { nombre: "Soporte Khipu", descripcion: "Chat del colegio con el equipo de Khipu Escolar (mesa de ayuda): dudas, problemas y sugerencias.", icono: "LifeBuoy" },
-  nudito_plus: { nombre: "Nudito+", descripcion: "Tutor con IA por alumno que compra la familia (Yape): licencia, autorización y reportes. Solo Khipu Pro (fijo por plan).", icono: "Sparkles" },
+  nudito_plus: { nombre: "Nudito+", descripcion: "Tutor con IA por alumno (producto futuro que contrataría el colegio; en estudio, desactivado). Solo Khipu Pro (fijo por plan).", icono: "Sparkles" },
 };
 
 export const INFO_ROL: Record<Rol, { nombre: string; descripcion: string }> = {
@@ -102,7 +103,12 @@ export type ModulosResueltos = {
 
 /** Módulos de un plan según el código (respaldo cuando la BD no tiene filas para ese plan). */
 export function modulosDeCodigo(plan: Plan): Set<Feature> {
-  return new Set(TODAS_LAS_FEATURES.filter((m) => planIncluye(plan, m)));
+  return new Set(TODAS_LAS_FEATURES.filter((m) => planIncluye(plan, m) && fijoDisponible(m)));
+}
+
+/** Módulos fijos que el código puede tener apagados por completo (hoy solo Nudito+, `NUDITO_PLUS_DISPONIBLE`). */
+function fijoDisponible(m: Feature): boolean {
+  return m !== "nudito_plus" || nuditoPlusDisponible();
 }
 
 /**
@@ -114,7 +120,7 @@ export function resolverModulos(plan: Plan, modulosDelPlan: readonly string[] | 
   delPlan.add(MODULO_ESENCIAL);
   // Fijos por plan: los decide solo el código (FEATURES), nunca la BD ni los ajustes del colegio.
   for (const m of MODULOS_FIJOS_POR_PLAN) {
-    if (planIncluye(plan, m)) delPlan.add(m);
+    if (planIncluye(plan, m) && fijoDisponible(m)) delPlan.add(m);
     else delPlan.delete(m);
   }
   const activos = new Set(delPlan);

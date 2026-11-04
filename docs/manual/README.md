@@ -34,7 +34,7 @@ Los nombres entre «comillas» son los textos exactos de botones, menús y mensa
 ## Lo que todos deben saber
 
 ### Entrar
-- Cada colegio tiene su propia dirección web, por ejemplo `micolegio.khipuescolar.pe` (el equipo Khipu confirma la
+- Cada colegio tiene su propia dirección web, por ejemplo `micolegio.<dominio>` (dominio por confirmar; el equipo Khipu confirma la
   dirección definitiva antes del arranque).
 - Se entra con **correo y contraseña**. Si olvidaste la contraseña: «Recuperar contraseña» en la pantalla de ingreso;
   te llega un enlace al correo.
@@ -104,7 +104,7 @@ Los nombres entre «comillas» son los textos exactos de botones, menús y mensa
 | **Soporte Khipu** | Chat del colegio con el equipo Khipu (mesa de ayuda). |
 | **Modo soporte** | Cuando el equipo Khipu entra al colegio para ayudar: solo lectura, con motivo y hora de fin; dirección recibe un aviso. |
 | **Khipu Base / Khipu Pro** | Planes. Base: asistencia, portería, justificaciones, avisos, mensajes, comunicados, gestión, reportes de asistencia y horario. Pro: todo lo anterior más notas, CNEB, libreta, tareas, agenda, documentos, reuniones y tablero. |
-| **Nudito+** | Tutor con inteligencia artificial para el alumno. Licencia por alumno que paga la familia por Yape (solo colegios Pro). |
+| **Nudito+** | Tutor con inteligencia artificial para el alumno. **Desactivado (producto en estudio)**: no aparece en ningún colegio; el modelo de pago por la familia se descartó. |
 | **Modo hijo** | Nudito+ usado por un hijo que no tiene cuenta propia, desde la cuenta de su familia. |
 
 ## Cuentas de práctica (colegio demo Nuevo Horizonte)
@@ -121,8 +121,8 @@ practicar. Todas las cuentas usan la contraseña **`demo123`**.
 | pedro.salas@nuevohorizonte.demo | Profesor, tutor de 5.° A y profesor de Ciencia y Tecnología en 3.° B, 5.° B y 6.° A |
 | porteria@nuevohorizonte.demo | Portería |
 | rosa.quispe@gmail.com | Familia: mamá de Mateo (3.° B) y de Sofía (1.° A Sec.) |
-| familia.huaman@familia.demo | Familia: mamá de Lucas (5.° A, con Nudito+) |
-| lucas.huaman@nuevohorizonte.demo | Alumno de 5.° A con Nudito+ activo |
+| familia.huaman@familia.demo | Familia: mamá de Lucas (5.° A; sus datos de Nudito+ quedan, pero Nudito+ está desactivado) |
+| lucas.huaman@nuevohorizonte.demo | Alumno de 5.° A (Nudito+ desactivado: no lo ve) |
 | sofia.quispe@nuevohorizonte.demo | Alumna de 1.° A Sec. |
 | admin@khipuescolar.demo | Equipo Khipu (panel de la plataforma) |
 
@@ -164,7 +164,7 @@ checklist «Ya sé hacer esto» del rol. Grupos pequeños; cada profesor con su 
 | Día | Quién asiste | Objetivo | Práctica |
 |---|---|---|---|
 | 11 | Familias (en reunión de padres, 2 turnos de 1,5 h), con tutores de apoyo | Aceptar la invitación, crear contraseña, autorizar, instalar la app, activar avisos, ver asistencia, justificar, escribir a la tutora. | Las familias reales aceptan su invitación ese mismo día con ayuda del tutor. Guía: [familia.md](familia.md). |
-| 12 | Alumnos con cuenta (5.° y 6.° de primaria y secundaria, por salón), con su tutor | Entrar, cambiar contraseña, ver asistencia, horario, tareas, notas; Nudito+ (si su familia lo activa). | Con la cuenta de Lucas: Nudito+ en «Nudito+». Guía: [alumno.md](alumno.md). |
+| 12 | Alumnos con cuenta (5.° y 6.° de primaria y secundaria, por salón), con su tutor | Entrar, cambiar contraseña, ver asistencia, horario, tareas, notas (Nudito+ está desactivado). | Con la cuenta de Lucas. Guía: [alumno.md](alumno.md). |
 | 13 | Dirección, secretaría, equipo Khipu | Revisión final: carnets entregados, familias con «Invitación pendiente» o «Consentimiento pendiente», cuentas de alumno, configuración (hora límite, asistencia por curso por nivel, grado mínimo). | Lista de pendientes por salón para los tutores. |
 | 14 | Todos | **Marcha blanca**: primer día real, con el equipo Khipu presente. | Uso real. |
 | 15 | Dirección, coordinación, delegados de profesores | Revisión: problemas del primer día, preguntas frecuentes, cómo pedir ayuda («Soporte Khipu»). Firma de los checklists. | — |
