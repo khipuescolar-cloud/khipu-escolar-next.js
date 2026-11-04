@@ -30,8 +30,8 @@ test("docente crea multi-sección → apoderada entrega → docente devuelve →
   await page.goto(colegio("/tareas"));
   await page.getByRole("button", { name: "Nueva tarea" }).click();
   const dialogo = page.getByRole("dialog");
-  await dialogo.getByLabel("Curso").selectOption({ label: "Ciencia y Tecnología · 3.° B" });
-  await dialogo.getByLabel(/5\.° B/).check();
+  await dialogo.getByRole("combobox", { name: /^Curso/ }).selectOption({ label: "Ciencia y Tecnología · 3.° B" });
+  await dialogo.getByRole("checkbox", { name: /5\.° B/ }).check();
   await expect(dialogo.getByText(/\d+ estudiantes/)).toBeVisible();
   await dialogo.getByLabel("Título", { exact: true }).fill(titulo);
   await dialogo.getByLabel("Instrucciones (opcional)").fill("Dibuja el ciclo del agua y explícalo.");
@@ -49,7 +49,8 @@ test("docente crea multi-sección → apoderada entrega → docente devuelve →
   await expect(page.getByRole("heading", { name: titulo })).toBeVisible();
   await page.getByLabel("Respuesta (opcional)").fill("El agua se evapora, se condensa y llueve.");
   await page.getByRole("button", { name: "Entregar" }).click();
-  await expect(page.getByText("¡Entregada!")).toBeVisible();
+  // Al entregar, el formulario se reemplaza por el estado de la entrega (sin toast).
+  await expect(page.getByRole("button", { name: "Anular entrega" })).toBeVisible();
   await expect(page.getByText(/Intento 1/)).toBeVisible();
   const url = page.url();
 
@@ -60,7 +61,7 @@ test("docente crea multi-sección → apoderada entrega → docente devuelve →
   const fila = page.locator("li", { hasText: "El agua se evapora" });
   await fila.getByLabel("Observación (privada)").fill("Agrega la infiltración.");
   await fila.getByRole("button", { name: "Devolver para corregir" }).click();
-  await expect(page.getByText("Devuelta para corrección.")).toBeVisible();
+  await expect(page.locator("li", { hasText: "El agua se evapora" }).getByText(/Devuelta/).first()).toBeVisible();
 
   // 4. Rosa ve la observación y reentrega (intento 2).
   await entrar(page, "rosa.quispe@gmail.com");
