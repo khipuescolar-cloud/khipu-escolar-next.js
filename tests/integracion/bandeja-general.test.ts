@@ -11,7 +11,7 @@ import { avisarTareaNueva } from "@/lib/server/notificaciones/avisos-tareas";
 import { entregarNotificaciones } from "@/lib/server/notificaciones/internas";
 import { crearEvaluacion, guardarNota, publicarEvaluacion } from "@/lib/server/notas";
 import type { TenantContext } from "@/lib/server/tenant";
-import { crearTarea } from "@/lib/server/tareas";
+import { crearTarea, sincronizarAsignaciones } from "@/lib/server/tareas";
 import { fechaLima, sumarDias } from "@/lib/fechas";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
@@ -108,6 +108,9 @@ describe("productores en lote y sin duplicados", () => {
     const consultasTarea = async (cursoId: string) => {
       await c.db.tarea.create({ data: { tenantId: c.tenant.id, cursoId, titulo: `T-${cursoId}`, fechaEntrega: new Date(`${fecha}T12:00:00Z`), creadoPorId: c.miembros.tutora.membership.id } });
       const t = await c.db.tarea.findFirstOrThrow({ where: { titulo: `T-${cursoId}` } });
+      // Destinatarios = asignaciones (specs/39): una sección «Todos» con el salón completo.
+      await c.db.tareaCurso.create({ data: { tenantId: c.tenant.id, tareaId: t.id, cursoId, todos: true } });
+      await sincronizarAsignaciones(c.db, c.tenant.id, t.id);
       const medido = contarConsultas(c.ctxDe("tutora"));
       expect(await avisarTareaNueva(medido.ctx, t.id, { avisarFamilias: true })).toBeGreaterThan(0);
       return medido.consultas();

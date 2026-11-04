@@ -8,6 +8,7 @@ import { procesarVencimientosNudito } from "@/lib/server/nudito-plus/licencias";
 import { nuditoPlusDisponible } from "@/lib/planes";
 import { procesarVencimientosNsp } from "@/lib/server/nsp";
 import { procesarEventosAcademicos } from "@/lib/server/eventos-academicos";
+import { procesarTareasProgramadas } from "@/lib/server/notificaciones/avisos-tareas";
 
 // Worker de avisos (specs/06). Lo llama el cron con «Authorization: Bearer <CRON_SECRET>».
 export const maxDuration = 300;
@@ -36,7 +37,9 @@ async function manejar(request: Request) {
     // Notificaciones académicas (specs/38): eventos del outbox que el after() de la acción no alcanzó a procesar.
     // El resumen académico diario se retiró el 2026-11-03 (se reemplazó por estas notificaciones por evento).
     const eventosAcademicos = await procesarEventosAcademicos();
-    const resumen = { ...(await procesarCola()), soporteCerradas, nuditoPlus, controlIngreso, vencimientosNsp, eventosAcademicos };
+    // Tareas programadas (specs/39): aviso «tarea publicada» al llegar su `publicar_en` (consulta acotada, sin correo).
+    const tareasProgramadas = await procesarTareasProgramadas();
+    const resumen = { ...(await procesarCola()), soporteCerradas, nuditoPlus, controlIngreso, vencimientosNsp, eventosAcademicos, tareasProgramadas };
     await registrarEjecucionCron("avisos", "ok", Date.now() - inicio);
     return NextResponse.json(resumen);
   } catch (error) {

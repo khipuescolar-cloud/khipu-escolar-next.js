@@ -97,10 +97,12 @@ const ESQUEMAS = {
     alumno: z.string().min(1).optional(),
     curso: z.string().min(1),
     titulo: z.string().min(1),
-    /** AAAA-MM-DD (fecha de entrega en Lima). */
-    fechaEntrega: fechaIso,
+    /** AAAA-MM-DD (fecha de entrega en la zona del colegio). Sin fecha: la tarea no vence (specs/39). */
+    fechaEntrega: fechaIso.optional(),
     url,
   }),
+  /** Tarea: cambio de plazo o entrega devuelta para corrección (specs/39). Bandeja + push, sin correo. */
+  tarea_actualizada: z.object({ ...comun, alumno: z.string().min(1).optional(), curso: z.string().min(1), titulo: z.string().min(1), mensaje: z.string().min(1).max(300), url }),
   /** Documento nuevo en la biblioteca (specs/31). */
   documento_nuevo: z.object({ ...comun, titulo: z.string().min(1), carpeta: z.string().min(1).optional(), url }),
   /** Reuniones (specs/32). `fecha` AAAA-MM-DD y `hora` HH:mm en hora del colegio. */
@@ -392,9 +394,21 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       nudito: true,
       parrafos: [
         `${p.alumno ? `${p.alumno} tiene` : "Hay"} una tarea nueva de ${p.curso}: «${p.titulo}».`,
-        `Se entrega el ${fechaCorta(p.fechaEntrega)}.`,
+        p.fechaEntrega ? `Se entrega el ${fechaCorta(p.fechaEntrega)}.` : "No tiene fecha límite.",
       ],
       boton: { texto: "Ver tareas", url: p.url },
+      urlPreferencias: p.urlPreferencias,
+    }),
+
+  tarea_actualizada: (p) =>
+    armarMensaje({
+      colegio: p.colegio,
+      logoColegioUrl: p.logoColegioUrl,
+      asunto: `Tarea de ${p.curso}: ${p.titulo}`,
+      insignia: "info",
+      palabraInsignia: "Tarea",
+      parrafos: [p.mensaje],
+      boton: { texto: "Ver tarea", url: p.url },
       urlPreferencias: p.urlPreferencias,
     }),
 

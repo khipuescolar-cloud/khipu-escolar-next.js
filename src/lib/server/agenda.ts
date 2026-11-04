@@ -3,8 +3,7 @@ import { z } from "zod";
 import type { AdjuntoVista } from "@/lib/adjuntos";
 import { fechaLima, instanteLima } from "@/lib/fechas";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
-import { adjuntoVista } from "./adjuntos";
-import { puedeVerTarea } from "./archivos";
+import { tareasVisiblesParaAgenda } from "./tareas";
 import { auditar } from "./auditoria";
 import { requireFeature, tieneFeature } from "./plan";
 import { salonEsActivo, whereSalonActivo } from "./salones-activos";
@@ -50,13 +49,8 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
       where: { inicio: rango, OR: [{ salonId: null }, { salonId: { in: salonIds } }] },
       include: { salon: { select: { nombre: true } } },
     }),
-    ctx.db.tarea.findMany({
-      where: { fechaEntrega: rango, curso: { salonId: { in: salonIds } } },
-      include: {
-        adjuntos: { orderBy: { createdAt: "asc" } },
-        curso: { select: { nombre: true, salonId: true, salon: { select: { nombre: true } } } },
-      },
-    }),
+    // Tareas (specs/39): la consulta vive en el módulo de tareas (visibilidad por asignación, sin fecha → no aparece).
+    tareasVisiblesParaAgenda(ctx, desde, hasta),
     verReuniones
       ? ctx.db.reunion.findMany({
           where: {
@@ -94,11 +88,10 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
         ambito: `${e.curso.nombre} · ${e.curso.salon.nombre}`, eliminable: false, adjuntos: [], href: "/notas", sinHora: true,
       }))
       .filter((e) => e.inicio >= desde && e.inicio < hasta),
-    ...(await Promise.all(tareas.map(async (t) => ({
-      id: t.id, tipo: "entrega" as const, titulo: `Entrega: ${t.titulo}`, descripcion: t.descripcion, inicio: t.fechaEntrega, fin: null,
-      ambito: `${t.curso.nombre} · ${t.curso.salon.nombre}`, eliminable: false,
-      adjuntos: t.adjuntos.length > 0 && (await puedeVerTarea(ctx, t)) ? t.adjuntos.map(adjuntoVista) : [],
-    })))),
+    ...tareas.map((t) => ({
+      id: t.id, tipo: "entrega" as const, titulo: `Entrega: ${t.titulo}`, descripcion: t.descripcion, inicio: t.inicio, fin: null,
+      ambito: `${t.curso} · ${t.salon}`, eliminable: false, adjuntos: t.adjuntos, href: `/tareas/${t.id.split(":")[0]}`,
+    })),
   ];
   return items.sort((a, b) => a.inicio.getTime() - b.inicio.getTime());
 }

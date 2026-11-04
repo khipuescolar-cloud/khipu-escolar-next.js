@@ -132,9 +132,10 @@ export async function sincronizarNsp(
     ? null
     : await tdb.alumno.findMany({ where: { id: { in: filtro.alumnoIds } }, select: { id: true, salonId: true } });
   const evaluaciones = await tdb.evaluacion.findMany({
+    // Una evaluación ligada a una tarea (specs/39) nunca genera NSP: se entrega, no se rinde en clase.
     where: porEvaluacion
-      ? { id: { in: filtro.evaluacionIds } }
-      : { fecha: filtro.fecha, curso: { salonId: { in: [...new Set(salonesDeAlumnos!.map((a) => a.salonId))] } } },
+      ? { id: { in: filtro.evaluacionIds }, tareaId: null }
+      : { fecha: filtro.fecha, tareaId: null, curso: { salonId: { in: [...new Set(salonesDeAlumnos!.map((a) => a.salonId))] } } },
     select: { id: true, cursoId: true, fecha: true, estado: true, curso: { select: { salonId: true } } },
   });
   const resumen: ResumenSincronizacion = { creados: 0, quitados: 0, notaIds: [], alumnosConNsp: [] };

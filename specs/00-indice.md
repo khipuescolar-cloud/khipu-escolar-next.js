@@ -43,4 +43,5 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 35 | [Datos demo (un colegio piloto) y datos de prueba](35-datos-demo-y-pruebas.md) | Interno (desarrollo) | implementado |
 | 36 | [Carga masiva: salones y cursos, y familias (CSV/Excel)](36-carga-masiva.md) | Khipu Base (gestión) | implementado |
 | 38 | [Notificaciones académicas por eventos (bandeja y Web Push)](38-notificaciones-academicas.md) | Khipu Pro | implementado |
+| 39 | [Tareas estilo Classroom: secciones, entregas, revisión y calificación](39-tareas.md) | Khipu Pro | implementado |
 | 37 | [NSP, justificaciones, recuperación, incidencias y libretas emitidas](37-nsp-justificaciones-recuperacion.md) | Khipu Base / Pro | implementado |

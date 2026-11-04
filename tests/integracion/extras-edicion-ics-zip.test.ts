@@ -66,7 +66,7 @@ describe("editar tareas", () => {
     const despues = await db.tarea.findFirstOrThrow({ where: { id: t.id } });
     expect(despues.titulo).toBe("Fichas corregidas");
     expect(despues.descripcion).toBeNull();
-    expect(despues.fechaEntrega.toISOString()).toBe(new Date(`${pasado}T08:00:00-05:00`).toISOString());
+    expect(despues.fechaEntrega!.toISOString()).toBe(new Date(`${pasado}T08:00:00-05:00`).toISOString());
     expect(await db.auditoria.count({ where: { tenantId: tenant.id, entidad: "tarea", accion: "editar", entidadId: t.id } })).toBe(1);
 
     await expect(actualizarTarea(ctxs.otro, t.id, { titulo: "Hackeada", fechaEntrega: pasado })).rejects.toThrow();

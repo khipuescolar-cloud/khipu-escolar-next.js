@@ -157,3 +157,18 @@ export function fechaCorta(isoFecha: string): string {
   const [a, m, d] = isoFecha.split("-");
   return `${d}/${m}/${a}`;
 }
+
+/**
+ * Instante de una fecha «AAAA-MM-DD» y hora «HH:mm» en la zona horaria dada (inversa de `momentoEnZona`).
+ * Calcula el desfase de la zona para ese día (sirve también para zonas con horario de verano).
+ */
+export function instanteEnZona(isoFecha: string, hora = "00:00", zonaHoraria = ZONA_LIMA): Date {
+  const comoUtc = Date.parse(`${isoFecha}T${hora}:00Z`);
+  const desfase = (t: number) => {
+    const m = momentoEnZona(new Date(t), zonaHoraria);
+    return Date.parse(`${m.isoFecha}T${m.hora}:00Z`) - t;
+  };
+  const d1 = desfase(comoUtc);
+  const d2 = desfase(comoUtc - d1);
+  return new Date(comoUtc - d2);
+}

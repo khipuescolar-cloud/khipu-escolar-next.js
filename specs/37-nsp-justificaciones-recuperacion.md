@@ -329,3 +329,7 @@ ultimoDiaJustificacion · expiracionJustificacion · dentroDelPlazo · textoPlaz
 - **Plazo:** sigue configurable de 1 a 30 días (15 por defecto). ¿Se fija en 15?
 - **Rectificación:** no tiene adjuntos (la evidencia es texto) y la aprueba cualquier usuario de dirección.
 - **Rectificaciones — diferencia con el requisito original (pendiente de validación, sin cambios de código):** el requisito separaba la **autorización** de la rectificación y la **emisión** de la nueva versión; hoy la aprobación de dirección crea y publica la v2 al instante. La v1 sigue guardada pero no es visible en la UI. Quien pide la rectificación (si es de dirección) puede aprobarla él mismo. La evidencia es opcional.
+
+## Evaluaciones ligadas a tareas (specs/39)
+- Una evaluación con `tarea_id` (tarea calificable) **nunca** genera NSP: `sincronizarNsp` agrega `tareaId: null` al filtro de evaluaciones (por evaluación y por fecha) y `guardarNota` rechaza la marca NSP en ellas. Faltar el día del plazo no cambia nada.
+- «NE» en esas evaluaciones solo por la acción explícita del docente «Marcar NE a quienes no entregaron».

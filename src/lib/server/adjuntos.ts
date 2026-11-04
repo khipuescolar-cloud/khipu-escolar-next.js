@@ -12,27 +12,38 @@ import type { TenantContext } from "./tenant";
 
 export const MIME_DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 export const MIME_XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+export const MIME_PPTX = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
+export const MIME_ODT = "application/vnd.oasis.opendocument.text";
 
-export type MimeAdjunto = "application/pdf" | "image/jpeg" | "image/png" | "image/webp" | typeof MIME_DOCX | typeof MIME_XLSX;
+export type MimeAdjunto = "application/pdf" | "image/jpeg" | "image/png" | "image/webp" | typeof MIME_DOCX | typeof MIME_XLSX | typeof MIME_PPTX | typeof MIME_ODT;
+
+/** Tipos de comunicados y demás adjuntos (los de siempre). PPTX y ODT solo se aceptan en tareas (specs/39). */
+export const MIMES_BASICOS: ReadonlySet<MimeAdjunto> = new Set<MimeAdjunto>(["application/pdf", "image/jpeg", "image/png", "image/webp", MIME_DOCX, MIME_XLSX]);
 
 export type EntradaAdjunto = { nombre: string; buffer: Buffer };
 /** Comunicado, tarea, mensaje de la mesa de ayuda (specs/23) o documento de la biblioteca (specs/31). */
-export type DestinoAdjunto = { comunicadoId: string } | { tareaId: string } | { mensajeSoporteId: string } | { documentoId: string };
+export type DestinoAdjunto = { comunicadoId: string } | { tareaId: string } | { mensajeSoporteId: string } | { documentoId: string } | { entregaId: string };
 
-/** Detecta el tipo real por la firma. Los DOCX y XLSX son ZIP: se distinguen por sus entradas internas. */
+/**
+ * Detecta el tipo real por la firma. DOCX, XLSX y PPTX son ZIP: se distinguen por sus entradas internas; ODT, por su
+ * entrada `mimetype`. Los formatos antiguos de Office (DOC/PPT/XLS) comparten la misma firma OLE y no se aceptan.
+ */
 export function detectarMimeAdjunto(buffer: Uint8Array): MimeAdjunto | null {
   const base = detectarMime(buffer);
   if (base) return base;
   const esZip = buffer.length >= 4 && buffer[0] === 0x50 && buffer[1] === 0x4b && buffer[2] === 0x03 && buffer[3] === 0x04;
   if (!esZip) return null;
   const nombres = new Set<string>();
+  let contenido: Record<string, Uint8Array>;
   try {
-    unzipSync(buffer, { filter: (f) => (nombres.add(f.name), false) });
+    contenido = unzipSync(buffer, { filter: (f) => (nombres.add(f.name), f.name === "mimetype" && f.originalSize < 200) });
   } catch {
     return null;
   }
   if (nombres.has("word/document.xml")) return MIME_DOCX;
   if (nombres.has("xl/workbook.xml")) return MIME_XLSX;
+  if (nombres.has("ppt/presentation.xml")) return MIME_PPTX;
+  if (contenido.mimetype && new TextDecoder().decode(contenido.mimetype).trim() === MIME_ODT && nombres.has("content.xml")) return MIME_ODT;
   return null;
 }
 
@@ -44,17 +55,34 @@ export function limpiarNombre(nombre: string): string {
 
 export type AdjuntoValidado = EntradaAdjunto & { mimeType: MimeAdjunto };
 
+export type OpcionesAdjuntos = {
+  maxArchivos?: number;
+  maxBytes?: number;
+  /** Tipos aceptados (por defecto `MIMES_BASICOS`). */
+  tipos?: ReadonlySet<MimeAdjunto>;
+  tiposTexto?: string;
+  /** Exige que la extensión del nombre corresponda al tipo real (tareas, specs/39). */
+  exigirExtension?: (nombre: string, mime: string) => boolean;
+};
+
 /** Valida tipo, tamaño y cantidad (incluye los que el elemento ya tiene). Lanza ErrorDeNegocio con un mensaje claro. */
-export function validarAdjuntos(entradas: EntradaAdjunto[], yaTiene = 0): AdjuntoValidado[] {
-  if (yaTiene + entradas.length > MAX_ADJUNTOS) {
-    throw new ErrorDeNegocio(`Puedes adjuntar hasta ${MAX_ADJUNTOS} archivos.`);
+export function validarAdjuntos(entradas: EntradaAdjunto[], yaTiene = 0, opciones: OpcionesAdjuntos = {}): AdjuntoValidado[] {
+  const maxArchivos = opciones.maxArchivos ?? MAX_ADJUNTOS;
+  const maxBytes = opciones.maxBytes ?? MAX_BYTES_ADJUNTO;
+  const tipos = opciones.tipos ?? MIMES_BASICOS;
+  const tiposTexto = opciones.tiposTexto ?? TIPOS_ADJUNTO_TEXTO;
+  if (yaTiene + entradas.length > maxArchivos) {
+    throw new ErrorDeNegocio(`Puedes adjuntar hasta ${maxArchivos} archivos.`);
   }
   return entradas.map((e) => {
     const nombre = limpiarNombre(e.nombre);
     if (e.buffer.length === 0) throw new ErrorDeNegocio(`«${nombre}» está vacío.`);
-    if (e.buffer.length > MAX_BYTES_ADJUNTO) throw new ErrorDeNegocio(`«${nombre}» pesa más de 10 MB.`);
+    if (e.buffer.length > maxBytes) throw new ErrorDeNegocio(`«${nombre}» pesa más de ${Math.round(maxBytes / 1024 / 1024)} MB.`);
     const mimeType = detectarMimeAdjunto(e.buffer);
-    if (!mimeType) throw new ErrorDeNegocio(`«${nombre}» no se puede adjuntar. Solo aceptamos ${TIPOS_ADJUNTO_TEXTO}.`);
+    if (!mimeType || !tipos.has(mimeType)) throw new ErrorDeNegocio(`«${nombre}» no se puede adjuntar. Solo aceptamos ${tiposTexto}.`);
+    if (opciones.exigirExtension && !opciones.exigirExtension(nombre, mimeType)) {
+      throw new ErrorDeNegocio(`«${nombre}» no es lo que dice su extensión. Revisa el archivo y vuelve a intentarlo.`);
+    }
     return { nombre, buffer: e.buffer, mimeType };
   });
 }
@@ -81,7 +109,7 @@ export const adjuntoVista = (a: Pick<Archivo, "id" | "nombre" | "mimeType" | "by
 /** Sube los archivos ya validados como privados y los registra en el elemento. Si algo falla, deshace lo subido. */
 export async function guardarAdjuntos(ctx: TenantContext, destino: DestinoAdjunto, validados: AdjuntoValidado[]): Promise<Archivo[]> {
   const guardados: Archivo[] = [];
-  const carpeta = "comunicadoId" in destino ? "comunicados" : "tareaId" in destino ? "tareas" : "documentoId" in destino ? "documentos" : "soporte";
+  const carpeta = "comunicadoId" in destino ? "comunicados" : "tareaId" in destino || "entregaId" in destino ? "tareas" : "documentoId" in destino ? "documentos" : "soporte";
   try {
     for (const v of validados) {
       const subido = await storage().subir(v.buffer, { tenantId: ctx.tenant.id, carpeta, privado: true, mimeType: v.mimeType });
@@ -130,12 +158,14 @@ export async function adjuntosDe(ctx: TenantContext, destino: DestinoAdjunto): P
 
 /** Adjuntos de comunicados dirigidos al salón y de tareas de sus cursos: todo lo que se borra en cascada con el salón. */
 export async function adjuntosDeSalon(ctx: TenantContext, salonId: string): Promise<Archivo[]> {
-  return ctx.db.archivo.findMany({ where: { OR: [{ comunicado: { salonId } }, { tarea: { curso: { salonId } } }] } });
+  return ctx.db.archivo.findMany({
+    where: { OR: [{ comunicado: { salonId } }, { tarea: { curso: { salonId } } }, { entrega: { asignacion: { tarea: { curso: { salonId } } } } }] },
+  });
 }
 
 /** Adjuntos de las tareas de un curso (se borran en cascada con el curso). */
 export async function adjuntosDeCurso(ctx: TenantContext, cursoId: string): Promise<Archivo[]> {
-  return ctx.db.archivo.findMany({ where: { tarea: { cursoId } } });
+  return ctx.db.archivo.findMany({ where: { OR: [{ tarea: { cursoId } }, { entrega: { asignacion: { tarea: { cursoId } } } }] } });
 }
 
 /** Borra los adjuntos de un comunicado o tarea (fila y proveedor). Para borrar el elemento mismo usa `adjuntosDe` + `borrarDelProveedor`. */

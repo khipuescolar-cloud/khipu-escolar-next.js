@@ -2,6 +2,7 @@
 // (todo el colegio, por nivel, por grado y por salón, con sus avisos), chats familia ↔ profesor (algunos sin leer), textos del colegio
 // y conversaciones con la mesa de ayuda de Khipu. Fechas relativas a hoy (Lima), en días hábiles.
 import { randomUUID } from "node:crypto";
+import { asignarTareasSinDestinos } from "./seed-tareas-destinos";
 import type { Prisma, PrismaClient } from "../src/generated/prisma/client";
 import type { EstadoAviso, Nivel } from "../src/generated/prisma/enums";
 import { feriadosNacionalesConNombre } from "../src/lib/dias-habiles";
@@ -66,6 +67,7 @@ export async function sembrarComunicacion(prisma: PrismaClient) {
     }
   }
   await prisma.tarea.createMany({ data: tareas });
+  await asignarTareasSinDestinos(prisma, tenantId);
 
   // ───────── Agenda ─────────
   const anio = Number(hoy.slice(0, 4));
