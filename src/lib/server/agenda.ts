@@ -4,7 +4,6 @@ import type { AdjuntoVista } from "@/lib/adjuntos";
 import { MAX_DIAS_RANGO, diasNoLectivos, fechasEntre, proyectarClases, type FiltroAgenda } from "@/lib/agenda-calendario";
 import { fechaLima, instanteLima, momentoEnZona } from "@/lib/fechas";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
-import { adjuntoVista } from "./adjuntos";
 import { auditar } from "./auditoria";
 import { buscarBloques, wherePorProfesor } from "./horario";
 import { feriadosAplicables } from "./plataforma-configuracion";
