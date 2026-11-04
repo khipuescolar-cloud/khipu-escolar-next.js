@@ -103,7 +103,7 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
                     {a.otrosColegios && (
                       <p role="note" className="flex items-start gap-2 rounded-lg border border-tarde/40 bg-tarde-fondo p-3 text-sm text-tarde sm:col-span-2">
                         <Info className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
-                        Estos datos también se ven en los otros colegios de esta persona.
+                        Esta persona también usa su cuenta en otro colegio: sus datos los actualiza ella o soporte.
                       </p>
                     )}
                     <Boton type="submit" className="justify-self-start sm:col-span-2">Guardar datos</Boton>

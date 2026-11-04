@@ -103,10 +103,9 @@ export async function restablecerPasswordAction(formData: FormData) {
   const ctx = await gestionar();
   await ejecutarYVolver(volverA(formData, "/gestion/profesores"), async () => {
     const avisar = texto(formData, "avisar") === "1";
-    const { otrosColegios } = await restablecerPasswordAlDocumento(ctx, texto(formData, "id"), { avisar });
+    await restablecerPasswordAlDocumento(ctx, texto(formData, "id"), { avisar });
     if (avisar) procesarDespues(ctx.tenant.id);
-    const base = avisar ? "Contraseña restablecida al documento y bienvenida reenviada." : "Contraseña restablecida al documento. Tendrá que cambiarla al entrar.";
-    return otrosColegios > 0 ? `${base} La cuenta es la misma en los otros colegios de esta persona.` : base;
+    return avisar ? "Contraseña restablecida al documento y bienvenida reenviada." : "Contraseña restablecida al documento. Tendrá que cambiarla al entrar.";
   });
 }
 

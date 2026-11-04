@@ -8,7 +8,7 @@ import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { crearCuentaConDocumento, encolarBienvenida, ErrorCuenta, esquemaDocumento, esquemaPersona } from "./cuentas";
 import { db } from "./db";
-import { auditarCambioGlobal, exigirGestion, otrosColegiosDe } from "./gestion";
+import { auditarCambioGlobal, cuentaCompartida, exigirGestion, MENSAJE_CUENTA_COMPARTIDA, otrosColegiosDe } from "./gestion";
 import { supabaseAdmin } from "./supabase";
 import type { TenantContext } from "./tenant";
 
@@ -42,7 +42,9 @@ export type ResultadoAlta = { membershipId: string; userId: string; cuentaNueva:
 /**
  * Alta con datos personales: crea la cuenta (contraseña inicial = documento, cambio obligatorio), la membresía `activa`
  * con su cargo y encola la bienvenida (sin el número). Quien llama debe disparar `procesarCola()` (p. ej. con `after()`).
- * Si el correo ya tenía cuenta en Khipu solo se agrega la membresía.
+ * Si el correo ya tenía cuenta en Khipu solo se agrega la membresía. Si esa cuenta es compartida (membresías en otro colegio o
+ * equipo Khipu, `cuentaCompartida`) no se toca su perfil y la membresía queda «invitada»: pasa a «activa» cuando la persona
+ * entra con su contraseña de siempre (`activarInvitaciones`).
  */
 export async function altaPersonal(ctx: TenantContext, entrada: EntradaAlta): Promise<ResultadoAlta> {
   exigirGestion(ctx);
@@ -51,6 +53,7 @@ export async function altaPersonal(ctx: TenantContext, entrada: EntradaAlta): Pr
   const datos = validarPersona(esquemaPersona, entrada);
 
   const previo = await db.profile.findUnique({ where: { email: datos.email }, select: { id: true } });
+  const compartida = previo ? await cuentaCompartida(ctx, previo.id) : false;
   if (previo) {
     const m = await ctx.db.membership.findFirst({ where: { userId: previo.id, rol: entrada.rol } });
     if (m) {
@@ -58,9 +61,9 @@ export async function altaPersonal(ctx: TenantContext, entrada: EntradaAlta): Pr
     }
   }
 
-  const { userId, nueva } = await conCuenta(() => crearCuentaConDocumento(entrada));
+  const { userId, nueva } = await conCuenta(() => crearCuentaConDocumento(entrada, { completarExistente: !compartida }));
   const perfil = await db.profile.findUniqueOrThrow({ where: { id: userId }, select: { nombres: true, genero: true } });
-  const membership = await ctx.db.membership.create({ data: { tenantId: ctx.tenant.id, userId, rol: entrada.rol as Rol, estado: "activa", cargo } });
+  const membership = await ctx.db.membership.create({ data: { tenantId: ctx.tenant.id, userId, rol: entrada.rol as Rol, estado: compartida ? "invitada" : "activa", cargo } });
   await encolarBienvenida(ctx.db, {
     tenant: { id: ctx.tenant.id, slug: ctx.tenant.slug, nombre: ctx.tenant.nombre },
     email: datos.email,
@@ -70,7 +73,7 @@ export async function altaPersonal(ctx: TenantContext, entrada: EntradaAlta): Pr
     tipoDocumento: datos.tipoDocumento as TipoIdentificacion,
     cuentaNueva: nueva,
   });
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "membresia", entidadId: membership.id, detalle: { rol: entrada.rol, cuentaNueva: nueva } });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "membresia", entidadId: membership.id, detalle: { rol: entrada.rol, cuentaNueva: nueva, ...(compartida ? { cuentaCompartida: true } : {}) } });
   return { membershipId: membership.id, userId, cuentaNueva: nueva };
 }
 
@@ -192,7 +195,10 @@ const esquemaEdicion = z
 
 export type EntradaEdicion = z.input<typeof esquemaEdicion>;
 
-/** Edita los datos personales (el perfil es global: el cambio vale en todos los colegios de la persona) y el cargo. */
+/**
+ * Edita los datos personales (el perfil es global) y el cargo. Si la cuenta es compartida (`cuentaCompartida`: otro colegio o
+ * equipo Khipu) solo se puede cambiar el cargo: cualquier cambio del perfil se rechaza.
+ */
 export async function editarFicha(ctx: TenantContext, membershipId: string, roles: RolPersonal[], entrada: EntradaEdicion): Promise<void> {
   exigirGestion(ctx);
   const d = validarPersona(esquemaEdicion, entrada);
@@ -214,7 +220,8 @@ export async function editarFicha(ctx: TenantContext, membershipId: string, role
     const b = cambios[k] instanceof Date ? (cambios[k] as Date).toISOString() : cambios[k];
     return (a ?? null) !== (b ?? null);
   });
-  await db.profile.update({ where: { id: m.userId }, data: cambios });
+  if (modificados.length > 0 && (await cuentaCompartida(ctx, m.userId))) throw new ErrorDeNegocio(MENSAJE_CUENTA_COMPARTIDA);
+  if (modificados.length > 0) await db.profile.update({ where: { id: m.userId }, data: cambios });
   await ctx.db.membership.update({ where: { id: m.id }, data: { cargo: d.cargo } });
   // Solo se guardan los NOMBRES de los campos cambiados, nunca los valores (p. ej. el documento).
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: m.id, detalle: { campos: modificados } });
@@ -226,12 +233,15 @@ export async function editarFicha(ctx: TenantContext, membershipId: string, role
  * Restablece la contraseña de la cuenta al número de documento actual (para cuando se corrigió el documento y la
  * contraseña inicial quedó con el valor viejo) y obliga a cambiarla en el próximo ingreso. Solo dirección.
  * Nunca devuelve ni registra la contraseña. Con `avisar` encola el correo «Restablecimos tu contraseña» (variante de `bienvenida`, sin el número).
- * Si la persona tiene membresías en otros colegios, también se le reinicia allí (la cuenta es una sola): se advierte en la UI.
+ * Solo para cuentas de este colegio con membresía activa: si la cuenta es compartida (otro colegio o equipo Khipu) se rechaza,
+ * porque la contraseña es una sola y otro colegio no puede fijarla.
  */
-export async function restablecerPasswordAlDocumento(ctx: TenantContext, membershipId: string, opciones: { avisar?: boolean } = {}): Promise<{ otrosColegios: number }> {
+export async function restablecerPasswordAlDocumento(ctx: TenantContext, membershipId: string, opciones: { avisar?: boolean } = {}): Promise<void> {
   exigirGestion(ctx);
-  const m = await ctx.db.membership.findFirst({ where: { id: membershipId, rol: { in: ROLES_PERSONAL } }, select: { id: true, userId: true } });
+  const m = await ctx.db.membership.findFirst({ where: { id: membershipId, rol: { in: ROLES_PERSONAL } }, select: { id: true, userId: true, estado: true } });
   if (!m) throw new ErrorDeNegocio("No se encontró a esa persona.");
+  if (m.estado !== "activa") throw new ErrorDeNegocio("Solo se puede restablecer la contraseña de alguien activo en el colegio.");
+  if (await cuentaCompartida(ctx, m.userId)) throw new ErrorDeNegocio(MENSAJE_CUENTA_COMPARTIDA);
   const perfil = await db.profile.findUniqueOrThrow({ where: { id: m.userId }, select: { tipoDocumento: true, numeroDocumento: true } });
   const doc = esquemaDocumento.safeParse({ tipoDocumento: perfil.tipoDocumento ?? "dni", numeroDocumento: perfil.numeroDocumento ?? "" });
   if (!doc.success) throw new ErrorDeNegocio("Esta persona no tiene un documento válido. Corrígelo en «Editar datos» y vuelve a intentarlo.");
@@ -240,7 +250,6 @@ export async function restablecerPasswordAlDocumento(ctx: TenantContext, members
   await db.profile.update({ where: { id: m.userId }, data: { debeCambiarPassword: true } });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: m.id, detalle: { reinicioPassword: "documento", avisoEnviado: Boolean(opciones.avisar) } });
   if (opciones.avisar) await reenviarBienvenida(ctx, m.id, { restablecida: true });
-  return { otrosColegios: await otrosColegiosDe(ctx, m.userId) };
 }
 
 // ───────────── Importación CSV ─────────────

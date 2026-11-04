@@ -503,6 +503,21 @@ export async function otrosColegiosDe(ctx: TenantContext, userId: string): Promi
 }
 
 /**
+ * true si la cuenta NO es solo de este colegio: tiene membresías (de cualquier estado) en otro colegio o es del equipo Khipu
+ * (`AdminPlataforma`, activo o no). Sus datos del perfil global y su contraseña no se tocan desde la gestión de un colegio.
+ */
+export async function cuentaCompartida(ctx: TenantContext, userId: string): Promise<boolean> {
+  const [otros, admin] = await Promise.all([
+    db.membership.count({ where: { userId, tenantId: { not: ctx.tenant.id } } }),
+    db.adminPlataforma.count({ where: { userId } }),
+  ]);
+  return otros > 0 || admin > 0;
+}
+
+export const MENSAJE_CUENTA_COMPARTIDA =
+  "Esta persona también usa su cuenta de Khipu en otro colegio o en el equipo de Khipu: sus datos personales y su contraseña no se pueden cambiar desde aquí. Pídele que los actualice desde su perfil o escribe a soporte.";
+
+/**
  * Si se cambiaron datos globales de una persona con membresías en otros colegios, lo deja asentado en la auditoría
  * de este colegio y de cada uno de los otros (solo los NOMBRES de los campos, nunca los valores).
  */
@@ -523,7 +538,7 @@ const esquemaEdicionApoderado = z.object({
   telefono: textoOpcional(20),
 });
 
-/** Edita nombres, apellidos y teléfono de una familia. El perfil es global: si la persona está en otros colegios, queda auditado. */
+/** Edita nombres, apellidos y teléfono de una familia. El perfil es global: si la cuenta es compartida (`cuentaCompartida`) no se permite cambiarlos. */
 export async function editarDatosApoderado(ctx: TenantContext, membershipId: string, entrada: z.input<typeof esquemaEdicionApoderado>): Promise<{ otrosColegios: number }> {
   exigirAlumnosFamilias(ctx);
   const d = validar(esquemaEdicionApoderado, entrada);
@@ -531,6 +546,7 @@ export async function editarDatosApoderado(ctx: TenantContext, membershipId: str
   if (!m) throw new ErrorDeNegocio("No se encontró a esa familia.");
   const antes = await db.profile.findUniqueOrThrow({ where: { id: m.userId } });
   const modificados = (["nombres", "apellidos", "telefono"] as const).filter((k) => (antes[k] ?? null) !== (d[k] ?? null));
+  if (modificados.length > 0 && (await cuentaCompartida(ctx, m.userId))) throw new ErrorDeNegocio(MENSAJE_CUENTA_COMPARTIDA);
   await db.profile.update({ where: { id: m.userId }, data: d });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: m.id, detalle: { campos: modificados } });
   return { otrosColegios: await auditarCambioGlobal(ctx, m.userId, modificados) };

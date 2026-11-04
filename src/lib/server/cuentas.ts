@@ -57,8 +57,9 @@ export type CuentaCreada = { userId: string; nueva: boolean; camposCompletados: 
  * Crea (o reutiliza) el usuario global. Si el correo ya tenía cuenta, NO cambia su contraseña
  * (puede tener hijos o trabajar en otro colegio); solo completa datos personales vacíos y devuelve
  * cuáles llenó, para que una compensación pueda revertirlos (`revertirCamposCompletados`).
+ * Con `completarExistente: false` no toca el perfil existente (cuenta de otro colegio o del equipo Khipu, specs/17).
  */
-export async function crearCuentaConDocumento(entrada: DatosPersona): Promise<CuentaCreada> {
+export async function crearCuentaConDocumento(entrada: DatosPersona, opciones: { completarExistente?: boolean } = {}): Promise<CuentaCreada> {
   const r = esquemaPersona.safeParse(entrada);
   if (!r.success) throw new ErrorCuenta(r.error.issues[0].message);
   const d = r.data;
@@ -75,6 +76,7 @@ export async function crearCuentaConDocumento(entrada: DatosPersona): Promise<Cu
 
   const existente = await db.profile.findUnique({ where: { email: d.email } });
   if (existente) {
+    if (opciones.completarExistente === false) return { userId: existente.id, nueva: false, camposCompletados: [] };
     const completar = Object.fromEntries(
       Object.entries(datosPerfil).filter(([k, v]) => v !== null && (existente as Record<string, unknown>)[k] == null),
     );
