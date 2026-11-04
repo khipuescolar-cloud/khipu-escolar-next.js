@@ -107,7 +107,12 @@ publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_
 - `/tareas` (profesor/dirección): lista con estado, secciones y contadores; filtros por curso y estado; «Nueva tarea».
 - `/tareas` (familia/alumno): por hijo, pendientes agrupadas (Para mañana · Esta semana · Más adelante · Sin fecha) e
   historial, con curso, docente, fecha límite y estado de entrega (ícono + palabra).
-- `/tareas/[id]` (familia/alumno): detalle y entrega. `/tareas/[id]/revision` (docente/dirección).
+- `/tareas/[id]` (familia/alumno): detalle y entrega (`?alumno=` elige hijo). El personal es redirigido a la revisión.
+- `/tareas/[id]/revision` (docente/dirección): filtros por salón, estado y estudiante; acciones por fila.
+- Componentes: `CamposNuevaTarea` (secciones, destinatarios con búsqueda, contador, vista previa, publicación),
+  `insignias.tsx` (`FechaEntrega`, `EstadoEntrega`, `EstadoTarea`: ícono + palabra), `FormularioEnLinea`;
+  `CamposAdjuntos` acepta límites propios (`maxArchivos`, `maxMb`, `accept`, `tiposTexto`). Objetivos táctiles de 44 px.
+- La agenda enlaza la entrega a `/tareas/<id>` para familias y a `/tareas` para el personal.
 
 ## Errores y casos borde
 - Programada no visible antes de su hora; sin fecha nunca vence y no aparece en la agenda.

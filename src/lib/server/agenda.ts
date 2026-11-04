@@ -90,7 +90,7 @@ export async function itemsDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
       .filter((e) => e.inicio >= desde && e.inicio < hasta),
     ...tareas.map((t) => ({
       id: t.id, tipo: "entrega" as const, titulo: `Entrega: ${t.titulo}`, descripcion: t.descripcion, inicio: t.inicio, fin: null,
-      ambito: `${t.curso} · ${t.salon}`, eliminable: false, adjuntos: t.adjuntos, href: `/tareas/${t.id.split(":")[0]}`,
+      ambito: `${t.curso} · ${t.salon}`, eliminable: false, adjuntos: t.adjuntos, href: ctx.rol === "apoderado" || ctx.rol === "alumno" ? `/tareas/${t.id.split(":")[0]}` : "/tareas",
     })),
   ];
   return items.sort((a, b) => a.inicio.getTime() - b.inicio.getTime());

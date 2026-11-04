@@ -11,16 +11,24 @@ import { ACCEPT_ADJUNTOS, formatoTamano, MAX_ADJUNTOS, MAX_BYTES_ADJUNTO, TIPOS_
  * `quitarAdjuntos` (ids marcados). Muestra la lista de archivos elegidos y avisa si no cumplen los límites
  * (el servidor vuelve a validar).
  */
-export function CamposAdjuntos({ existentes = [], id = "adjuntos" }: { existentes?: AdjuntoVista[]; id?: string }) {
+export function CamposAdjuntos({
+  existentes = [], id = "adjuntos", maxArchivos = MAX_ADJUNTOS, maxMb = MAX_BYTES_ADJUNTO / 1024 / 1024, accept = ACCEPT_ADJUNTOS, tiposTexto = TIPOS_ADJUNTO_TEXTO,
+  etiqueta = "Adjuntar archivos (opcional)",
+}: {
+  existentes?: AdjuntoVista[]; id?: string;
+  /** Límites propios (tareas, specs/39: los del colegio). Por defecto, los de comunicados. */
+  maxArchivos?: number; maxMb?: number; accept?: string; tiposTexto?: string; etiqueta?: string;
+}) {
+  const maxBytes = maxMb * 1024 * 1024;
   const [elegidos, setElegidos] = useState<File[]>([]);
   const [quitar, setQuitar] = useState<string[]>([]);
   const entrada = useRef<HTMLInputElement>(null);
-  const disponibles = MAX_ADJUNTOS - (existentes.length - quitar.length);
+  const disponibles = maxArchivos - (existentes.length - quitar.length);
   const problema =
     elegidos.length > disponibles
-      ? `Solo puedes adjuntar ${MAX_ADJUNTOS} archivos en total.`
-      : elegidos.find((f) => f.size > MAX_BYTES_ADJUNTO)
-        ? `«${elegidos.find((f) => f.size > MAX_BYTES_ADJUNTO)!.name}» pesa más de 10 MB.`
+      ? `Solo puedes adjuntar ${maxArchivos} archivos en total.`
+      : elegidos.find((f) => f.size > maxBytes)
+        ? `«${elegidos.find((f) => f.size > maxBytes)!.name}» pesa más de ${maxMb} MB.`
         : null;
 
   function alElegir(lista: FileList | null) {
@@ -60,7 +68,7 @@ export function CamposAdjuntos({ existentes = [], id = "adjuntos" }: { existente
       )}
       <div className="flex flex-col gap-1.5 text-sm">
         <label htmlFor={id} className="flex items-center gap-1.5 font-medium">
-          <Paperclip className="size-4" strokeWidth={2} aria-hidden /> Adjuntar archivos (opcional)
+          <Paperclip className="size-4" strokeWidth={2} aria-hidden /> {etiqueta}
         </label>
         <input
           ref={entrada}
@@ -68,13 +76,13 @@ export function CamposAdjuntos({ existentes = [], id = "adjuntos" }: { existente
           type="file"
           name="adjuntos"
           multiple
-          accept={ACCEPT_ADJUNTOS}
+          accept={accept}
           onChange={(e) => alElegir(e.target.files)}
           aria-describedby={`${id}-ayuda`}
           className="min-h-10 text-sm file:mr-3 file:h-10 file:cursor-pointer file:rounded-md file:border file:border-input file:bg-card file:px-3 file:text-sm file:font-semibold"
         />
         <p id={`${id}-ayuda`} className="text-cuerpo-sm text-muted-foreground">
-          Hasta {MAX_ADJUNTOS} archivos de 10 MB: {TIPOS_ADJUNTO_TEXTO}.
+          Hasta {maxArchivos} archivos de {maxMb} MB: {tiposTexto}.
         </p>
       </div>
       {elegidos.length > 0 && (
