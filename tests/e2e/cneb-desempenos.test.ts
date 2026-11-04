@@ -47,6 +47,8 @@ test.beforeAll(async () => {
 
 test.afterAll(async () => {
   if (!ids.salon) return;
+  // historial_notas → evaluaciones es RESTRICT (specs/37): en la limpieza de datos de prueba se borra primero el historial.
+  await sql(`delete from historial_notas where evaluacion_id in (select id from evaluaciones where curso_id = $1)`, [ids.curso]);
   await sql(`delete from evaluaciones where curso_id = $1`, [ids.curso]);
   await sql(`delete from alumnos where id = $1`, [ids.alumno]);
   await sql(`delete from salones where id = $1`, [ids.salon]);
