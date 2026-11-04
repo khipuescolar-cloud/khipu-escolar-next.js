@@ -150,6 +150,9 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       reunion_recordatorio: { colegio, titulo: "Reunión de padres", fecha: "2026-11-05", hora: "18:00", alumno: "Mateo", url: "http://r" },
       reunion_cancelada: { colegio, titulo: "Reunión de padres", fecha: "2026-11-05", hora: "18:00", url: "http://r" },
       reunion_acta: { colegio, titulo: "Reunión de padres", fecha: "2026-11-05", hora: "18:00", url: "http://r" },
+      reunion_reprogramada: { colegio, titulo: "Coordinación", fecha: "2026-11-05", hora: "10:00", duracion: 45, organizador: "Carmen Torres", modalidad: "Presencial", url: "http://r" },
+      reunion_solicitada: { colegio, titulo: "Reunión sobre Mateo", fecha: "2026-11-05", hora: "14:00", solicitante: "Rosa Quispe", alumno: "Mateo", url: "http://r" },
+      reunion_respuesta: { colegio, titulo: "Respuesta: Coordinación", texto: "Eva aceptó la reunión.", url: "http://r" },
       libreta_publicada: { colegio, alumno: "Mateo", periodo: "III Bimestre 2026", url: "http://l" },
       informe_progreso: { colegio, alumno: "Mateo", curso: "Matemática", periodo: "I Trimestre 2027", url: "http://n" },
       evaluacion_programada: { colegio, alumno: "Mateo", curso: "Comunicación", titulo: "Examen trimestral", fecha: "2026-11-22", url: "http://n" },
@@ -171,6 +174,12 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
     }
     expect(renderizarPlantilla("mensaje_nuevo", payloads.mensaje_nuevo).texto).toContain("Lucía García te escribió sobre Mateo.");
     expect(renderizarPlantilla("justificacion_revisada", payloads.justificacion_revisada).texto).toContain("del 26/10/2026");
+    // specs/40: invitación con asunto fijo, duración, organizador y modalidad.
+    const invitacion = renderizarPlantilla("reunion_convocada", { ...payloads.reunion_convocada, duracion: 45, organizador: "Carmen Torres", modalidad: "Virtual", enlace: "https://meet.example/x" });
+    expect(invitacion.asunto).toBe("Khipu — Invitación a reunión");
+    expect(invitacion.texto).toContain("(45 min)");
+    expect(invitacion.texto).toContain("Organiza: Carmen Torres.");
+    expect(invitacion.texto).toContain("Modalidad: Virtual.");
   });
 
   it("el push académico lleva el texto armado y agrupa por alumno (specs/38)", () => {

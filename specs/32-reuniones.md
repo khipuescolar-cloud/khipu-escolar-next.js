@@ -72,7 +72,7 @@ generarInvitados(alcance, vinculos), puedeResponderReunion(reunion, ahora), resu
 ## Textos y UX
 - Estados con ícono + palabra: Programada, Realizada, Cancelada, Por cerrar; Asistiré, No asistiré, Sin respuesta. Tú a las familias.
 - Vacíos: «Todavía no convocaste reuniones» / «No tienes reuniones por ahora».
-- Avisos: asunto «Reunión: <título>», «Recordatorio: <título>», «Reunión cancelada: <título>», «Acta de la reunión: <título>».
+- Avisos: asunto «Khipu — Invitación a reunión» (convocatoria, specs/40), «Reunión reprogramada: <título>», «Recordatorio: <título>», «Reunión cancelada: <título>», «Acta de la reunión: <título>».
 
 ## Errores y casos borde
 - Reunión empezada, realizada o cancelada: no se puede responder (mensaje claro). Cancelada: alerta en el detalle y fuera de la agenda.
