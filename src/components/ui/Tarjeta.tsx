@@ -3,5 +3,5 @@ import { cn } from "@/lib/utils";
 
 /** Contenedor base (equivale a shadcn `Card` sin subcomponentes). */
 export function Tarjeta({ className = "", ...props }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("rounded-lg border bg-card p-4 text-card-foreground sm:p-5", className)} {...props} />;
+  return <div className={cn("rounded-xl border border-borde-sutil bg-card p-4 text-card-foreground sm:p-5", className)} {...props} />;
 }
