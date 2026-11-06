@@ -1,6 +1,7 @@
-import { ArrowLeft, Ban, Download, RefreshCw } from "lucide-react";
+import { Ban, Download, RefreshCw } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
+import { MigasSeccion } from "@/components/colegio/MigasSeccion";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Boton } from "@/components/ui/Boton";
 import { buttonVariants } from "@/components/ui/button";
@@ -20,31 +21,33 @@ export default async function ImprimirCarnetsPage({ params }: PageProps<"/colegi
   const sinCarnet = carnets.filter((c) => !c.qr).length;
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-wrap items-center justify-between gap-3 print:hidden">
-        <Link href="/gestion/carnets" className="inline-flex items-center gap-1.5 enlace">
-          <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Carnets
-        </Link>
-        <div className="flex flex-wrap gap-2">
-          {sinCarnet > 0 && (
-            <form action={generarCarnetsAction.bind(null, slug, salon.id)}>
-              <Boton type="submit" variante="secundario">Generar {sinCarnet} faltantes</Boton>
-            </form>
-          )}
-          {sinCarnet < carnets.length && (
+    <div className="flex flex-col gap-2">
+      <div className="print:hidden">
+        <EncabezadoPagina
+          titulo={`Carnets · ${salon.nombre}`}
+          migas={<MigasSeccion ruta={[{ href: "/gestion", texto: "Gestión" }, { href: "/gestion/carnets", texto: "Carnets" }]} actual={salon.nombre} />}
+          acciones={
             <>
-              <a href={`/api/carnets/${salon.id}?formato=a4`} className={buttonVariants({ variant: "outline" })}>
-                <Download strokeWidth={2} aria-hidden /> Descargar PDF (A4, 8 por hoja)
-              </a>
-              <a href={`/api/carnets/${salon.id}?formato=cr80`} className={buttonVariants({ variant: "outline" })}>
-                <Download strokeWidth={2} aria-hidden /> Descargar PDF (tamaño tarjeta)
-              </a>
+      {sinCarnet > 0 && (
+        <form action={generarCarnetsAction.bind(null, slug, salon.id)}>
+          <Boton type="submit" variante="secundario">Generar {sinCarnet} faltantes</Boton>
+        </form>
+      )}
+      {sinCarnet < carnets.length && (
+        <>
+          <a href={`/api/carnets/${salon.id}?formato=a4`} className={buttonVariants({ variant: "outline" })}>
+            <Download strokeWidth={2} aria-hidden /> Descargar PDF (A4, 8 por hoja)
+          </a>
+          <a href={`/api/carnets/${salon.id}?formato=cr80`} className={buttonVariants({ variant: "outline" })}>
+            <Download strokeWidth={2} aria-hidden /> Descargar PDF (tamaño tarjeta)
+          </a>
+        </>
+      )}
+      <BotonImprimir />
             </>
-          )}
-          <BotonImprimir />
-        </div>
+          }
+        />
       </div>
-      <h1 className="text-titulo-1 print:hidden">Carnets · {salon.nombre}</h1>
 
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 print:grid-cols-2 print:gap-2">
         {carnets

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { Logo } from "@/components/marca/Logo";
-import { Tarjeta } from "@/components/ui/Tarjeta";
+import { TarjetaPublica } from "../_componentes/TarjetaPublica";
 import { urlColegio } from "@/lib/dominio";
 import { db } from "@/lib/server/db";
 import { usuarioActual } from "@/lib/server/tenant";
@@ -23,7 +23,7 @@ export default async function EntrandoPage({ searchParams }: PageProps<"/entrand
 
   const url = urlColegio(tenant.slug);
   return (
-    <Tarjeta className="flex flex-col items-center gap-3 p-8 text-center" role="status" aria-live="polite">
+    <TarjetaPublica className="flex flex-col items-center gap-3 p-8 text-center" role="status" aria-live="polite">
       <span className="animate-pulse motion-reduce:animate-none"><Logo variante="isotipo" alto={56} /></span>
       <h1 className="font-heading text-titulo-2 text-balance">Entrando a {tenant.nombre}</h1>
       <p className="rounded-pildora bg-muted px-3 py-1 font-mono text-cuerpo-sm text-muted-foreground">{url.replace(/^https?:\/\//, "").replace(/\/inicio$/, "")}</p>
@@ -31,6 +31,6 @@ export default async function EntrandoPage({ searchParams }: PageProps<"/entrand
       <noscript>
         <a href={url} className="enlace">Continuar</a>
       </noscript>
-    </Tarjeta>
+    </TarjetaPublica>
   );
 }

@@ -9,12 +9,12 @@ import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { listarAlumnos, listarSalonesParaSelector } from "@/lib/server/gestion";
 import { estadoCuentasAlumnos, MOTIVO_SIN_CONSENTIMIENTO, type EstadoCuentaAlumno } from "@/lib/server/gestion-cuentas-alumno";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cambiarEstadoAlumnoAction, crearAlumnoAction, editarAlumnoAction, importarAlumnosAction } from "../actions";
 import { AccionesFila } from "../_componentes/AccionesFila";
+import { BarraFiltros, SUPERFICIE_LISTA } from "../_componentes/BarraFiltros";
 import { AvatarPersona } from "../_componentes/AvatarPersona";
 import { CampoArchivoCsv } from "../_componentes/CargaCsv";
 import { PanelFormulario } from "../_componentes/PanelFormulario";
@@ -62,32 +62,30 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <EncabezadoPagina titulo="Alumnos" descripcion="Alumnos matriculados, su salón y su estado." acciones={acciones} />
+        <EncabezadoPagina seccion="colegio" titulo="Alumnos" descripcion="Alumnos matriculados, su salón y su estado." acciones={acciones} />
         <Flash ok={ok} error={error} />
       </div>
 
-      <Tarjeta className="p-4">
-        <form method="get" className="flex flex-wrap items-end gap-3" role="search">
-          <Selector etiqueta="Filtrar por salón" name="salon" defaultValue={salonId ?? ""}>
-            <option value="">Todos</option>
-            {opcionesSalon}
-          </Selector>
-          <label className="flex min-h-10 items-center gap-2 text-sm">
-            <input type="checkbox" name="retirados" value="1" defaultChecked={verRetirados} className="size-5 accent-primary" /> Incluir retirados
-          </label>
-          <Boton type="submit" variante="secundario"><Search strokeWidth={2} aria-hidden /> Filtrar</Boton>
-          <Link href="/gestion/alumnos" className="inline-flex h-10 items-center px-2 enlace">Limpiar</Link>
-        </form>
-      </Tarjeta>
+      <BarraFiltros etiqueta="Filtros de alumnos">
+        <Selector etiqueta="Filtrar por salón" name="salon" defaultValue={salonId ?? ""}>
+          <option value="">Todos</option>
+          {opcionesSalon}
+        </Selector>
+        <label className="flex min-h-10 items-center gap-2 text-sm">
+          <input type="checkbox" name="retirados" value="1" defaultChecked={verRetirados} className="size-5 accent-primary" /> Incluir retirados
+        </label>
+        <Boton type="submit" variante="secundario"><Search strokeWidth={2} aria-hidden /> Filtrar</Boton>
+        <Link href="/gestion/alumnos" className="inline-flex min-h-10 items-center px-2 enlace">Limpiar</Link>
+      </BarraFiltros>
 
       {alumnos.length === 0 ? (
         <EstadoVacio icono={GraduationCap} titulo="No hay alumnos con ese filtro" descripcion="Prueba con otro salón o agrega a un alumno con el botón de arriba." />
       ) : (
-        <Tarjeta className="overflow-hidden p-0">
+        <div className={SUPERFICIE_LISTA}>
           <Table>
             <caption className="sr-only">Alumnos del colegio</caption>
             <TableHeader>
-              <TableRow className="bg-muted/50 hover:bg-muted/50">
+              <TableRow className="bg-superficie-2/60 hover:bg-superficie-2/60">
                 <TableHead className="h-11 px-4">Alumno</TableHead>
                 <TableHead className="hidden h-11 px-4 sm:table-cell">Código</TableHead>
                 <TableHead className="hidden h-11 px-4 sm:table-cell">Salón</TableHead>
@@ -158,9 +156,9 @@ export default async function AlumnosPage({ params, searchParams }: PageProps<"/
               })}
             </TableBody>
           </Table>
-        </Tarjeta>
+        </div>
       )}
-      <p className="text-cuerpo-sm text-muted-foreground">{alumnos.length} {alumnos.length === 1 ? "alumno" : "alumnos"}.</p>
+      <p className="text-cuerpo-sm text-muted-foreground tabular-nums">{alumnos.length} {alumnos.length === 1 ? "alumno" : "alumnos"}.</p>
     </div>
   );
 }
@@ -197,7 +195,7 @@ function accionesCuenta(alumnoId: string, nombre: string, estado?: EstadoCuentaA
       tipo: "panel", texto: "Crear cuenta del alumno", icono: "vincular", titulo: `Cuenta de ${nombre}`,
       contenido: (
         <div className="flex flex-col gap-2 text-sm" data-testid="cuenta-alumno-sin-consentimiento">
-          <p className="flex items-center gap-2 font-semibold text-falta"><ShieldAlert className="size-4 shrink-0" strokeWidth={2} aria-hidden /> Todavía no se puede crear</p>
+          <p className="flex items-center gap-2 font-semibold text-tarde"><ShieldAlert className="size-4 shrink-0" strokeWidth={2} aria-hidden /> Todavía no se puede crear</p>
           <p className="text-muted-foreground">{MOTIVO_SIN_CONSENTIMIENTO}</p>
         </div>
       ),

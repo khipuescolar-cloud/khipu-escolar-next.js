@@ -1,12 +1,16 @@
-import { ArrowRight, BookOpen, BriefcaseBusiness, FileUp, GraduationCap, HeartHandshake, IdCard, School } from "lucide-react";
+import { BookOpen, BriefcaseBusiness, ChevronRight, FileUp, GraduationCap, HeartHandshake, IdCard, School, type LucideIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TituloBloque } from "@/app/colegio/[slug]/inicio/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { exigirAlumnosFamilias } from "@/lib/server/gestion";
 import { whereSalonActivo } from "@/lib/server/salones-activos";
 import { requireTenantContext } from "@/lib/server/tenant";
+import { SUPERFICIE_LISTA } from "./_componentes/BarraFiltros";
 
 export const metadata: Metadata = { title: "Gestión" };
+
+type Entrada = { href: string; titulo: string; detalle: string; cifra?: number; unidad?: string; Icono: LucideIcon };
 
 export default async function GestionPage({ params }: PageProps<"/colegio/[slug]/gestion">) {
   const { slug } = await params;
@@ -20,38 +24,59 @@ export default async function GestionPage({ params }: PageProps<"/colegio/[slug]
     ctx.db.alumno.count({ where: { estado: "activo" } }),
     ctx.db.membership.count({ where: { rol: "apoderado", estado: "activa" } }),
   ]);
-  const todas = [
-    { href: "/gestion/profesores", titulo: "Profesores", detalle: `${profesores} activos · datos personales y correos`, Icono: GraduationCap },
-    { href: "/gestion/personal", titulo: "Personal", detalle: `${personal} activos · administrativos y portería`, Icono: BriefcaseBusiness },
-    { href: "/gestion/salones", titulo: "Grados y salones", detalle: `${salones} salones · tutores y cursos`, Icono: School },
-    { href: "/gestion/alumnos", titulo: "Alumnos", detalle: `${alumnos} activos`, Icono: BookOpen },
-    { href: "/gestion/apoderados", titulo: "Familias", detalle: `${familias} cuentas`, Icono: HeartHandshake },
-    { href: "/gestion/carnets", titulo: "Carnets", detalle: "Carnets QR por salón", Icono: IdCard },
+  const personas: Entrada[] = [
+    { href: "/gestion/profesores", titulo: "Profesores", detalle: "Datos personales, correos, cursos y tutoría", cifra: profesores, unidad: "activos", Icono: GraduationCap },
+    { href: "/gestion/personal", titulo: "Personal", detalle: "Administrativos y portería", cifra: personal, unidad: "activos", Icono: BriefcaseBusiness },
+    { href: "/gestion/alumnos", titulo: "Alumnos", detalle: "Matrícula, salón y cuenta propia del alumno", cifra: alumnos, unidad: "activos", Icono: BookOpen },
+    { href: "/gestion/apoderados", titulo: "Familias", detalle: "Apoderados, vínculos y consentimiento", cifra: familias, unidad: "cuentas", Icono: HeartHandshake },
+  ];
+  const organizacion: Entrada[] = [
+    { href: "/gestion/salones", titulo: "Grados y salones", detalle: "Tutores y cursos de cada salón", cifra: salones, unidad: "salones", Icono: School },
+    { href: "/gestion/carnets", titulo: "Carnets", detalle: "Carnets QR por salón, para portería", Icono: IdCard },
     { href: "/gestion/carga-masiva", titulo: "Carga masiva", detalle: esDireccion ? "Salones, cursos y familias desde un CSV o Excel" : "Familias desde un CSV o Excel", Icono: FileUp },
   ];
-  const tarjetas = esDireccion ? todas : todas.filter((t) => ["/gestion/alumnos", "/gestion/apoderados", "/gestion/carga-masiva"].includes(t.href));
+  const visibles = (lista: Entrada[]) => (esDireccion ? lista : lista.filter((t) => ["/gestion/alumnos", "/gestion/apoderados", "/gestion/carga-masiva"].includes(t.href)));
+  const bloques = [
+    { id: "gestion-personas", titulo: "Personas", lista: visibles(personas) },
+    { id: "gestion-organizacion", titulo: esDireccion ? "Salones y documentos" : "Cargas", lista: visibles(organizacion) },
+  ].filter((b) => b.lista.length > 0);
+
   return (
     <div>
-      <EncabezadoPagina titulo="Gestión" descripcion={esDireccion ? "Personas, salones y carnets del colegio en un solo lugar." : "Alumnos y familias del colegio."} />
-      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {tarjetas.map(({ href, titulo, detalle, Icono }) => (
-          <li key={href}>
-            <Link
-              href={href}
-              className="group flex h-full min-h-40 flex-col gap-3 rounded-lg border bg-card p-4 text-card-foreground transition-shadow hover:shadow-sombra-1 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
-            >
-              <span className="flex items-start justify-between">
-                <span className="flex size-11 items-center justify-center rounded-lg bg-accent text-primary">
-                  <Icono className="size-6" strokeWidth={2} aria-hidden />
-                </span>
-                <ArrowRight className="size-5 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary" strokeWidth={2} aria-hidden />
-              </span>
-              <span className="font-titulo text-titulo-2">{titulo}</span>
-              <span className="text-cuerpo-sm text-muted-foreground">{detalle}</span>
-            </Link>
-          </li>
+      <EncabezadoPagina
+        seccion="colegio"
+        titulo="Gestión"
+        descripcion={esDireccion ? "Personas, salones y carnets del colegio en un solo lugar." : "Alumnos y familias del colegio."}
+      />
+      <div className="flex flex-col gap-10">
+        {bloques.map((b) => (
+          <section key={b.id} aria-labelledby={b.id} className="flex flex-col gap-3">
+            <TituloBloque id={b.id}>{b.titulo}</TituloBloque>
+            <ul className={`${SUPERFICIE_LISTA} divide-y divide-borde-sutil`}>
+              {b.lista.map(({ href, titulo, detalle, cifra, unidad, Icono }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="group flex min-h-16 items-center gap-4 px-4 py-3 transition-colors duration-150 hover:bg-sec-suave/50 focus-visible:bg-sec-suave/50 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring"
+                  >
+                    <Icono className="size-5 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-semibold">{titulo}</span>
+                      <span className="block text-cuerpo-sm text-pretty text-muted-foreground">{detalle}</span>
+                    </span>
+                    {cifra !== undefined && (
+                      <span className="shrink-0 text-right text-cuerpo-sm text-muted-foreground">
+                        <span className="font-heading text-[18px] font-semibold text-foreground tabular-nums">{cifra}</span> {unidad}
+                      </span>
+                    )}
+                    <ChevronRight className="size-5 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-0.5 motion-reduce:transition-none" strokeWidth={2} aria-hidden />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

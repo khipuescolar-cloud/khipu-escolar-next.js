@@ -19,18 +19,15 @@ export default function LayoutPublico({ children }: LayoutProps<"/">) {
         <div className="relative z-10 flex flex-1 flex-col gap-10 px-12 pt-12 xl:px-16">
           <Logo tono="blanco" alto={40} />
           <div className="flex max-w-md flex-col gap-5">
-            <p className="text-sobretitulo text-white/70 uppercase">Para colegios del Perú</p>
             <p className="font-heading text-titulo-xl text-balance">Cada día de tu hijo, bien anudado.</p>
             <p className="text-cuerpo text-white/80">
               Lo importante del colegio llega a tiempo, claro y seguro: asistencia, mensajes y notas, en el momento en que pasan.
             </p>
           </div>
-          <ul className="flex max-w-md flex-col gap-5">
+          <ul className="flex max-w-md flex-col">
             {PUNTOS.map(({ Icono, titulo, texto }) => (
-              <li key={titulo} className="flex items-start gap-4">
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-white/10">
-                  <Icono className="size-5" strokeWidth={2} aria-hidden />
-                </span>
+              <li key={titulo} className="flex items-start gap-4 border-t border-white/15 py-4 first:border-t-0 first:pt-0">
+                <Icono className="mt-0.5 size-5 shrink-0 text-maiz" strokeWidth={2} aria-hidden />
                 <span className="flex flex-col">
                   <span className="text-cuerpo font-semibold">{titulo}</span>
                   <span className="text-cuerpo-sm text-white/75">{texto}</span>

@@ -84,7 +84,7 @@ export function CargaMasiva({ tipo }: { tipo: TipoCarga }) {
         <input
           ref={entrada} type="file" name="archivo" accept=".csv,.xlsx,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
           onChange={(e) => elegir(e.target.files?.[0])} disabled={pendiente}
-          className={cn(buttonVariants({ variant: "outline" }), "h-auto w-full cursor-pointer py-2 file:mr-3 file:font-medium sm:w-fit")}
+          className="min-h-12 w-full cursor-pointer rounded-[10px] border border-dashed border-input bg-superficie-2/50 p-2 text-sm file:mr-3 file:h-8 file:cursor-pointer file:rounded-md file:border file:border-input file:bg-card file:px-3 file:text-sm file:font-semibold sm:max-w-md"
         />
       </label>
       {pendiente && <p className="flex items-center gap-2 text-cuerpo-sm text-muted-foreground"><Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />{vista ? "Cargando… con muchas familias nuevas puede tardar uno o dos minutos." : "Revisando el archivo…"}</p>}
@@ -108,17 +108,17 @@ export function CargaMasiva({ tipo }: { tipo: TipoCarga }) {
           <ListaMensajes tipo="error" titulo={`${conErrores} ${conErrores === 1 ? "fila con errores" : "filas con errores"} (no se cargarán)`} mensajes={vista.errores} />
           <ListaMensajes tipo="aviso" titulo="Avisos (sí se cargan)" mensajes={vista.avisos} />
           {vista.filas.length > 0 && (
-            <div className="max-h-96 overflow-auto rounded-lg border">
+            <div className="max-h-96 overflow-auto rounded-[14px] border border-borde-sutil bg-card">
               <table className="w-full text-sm">
                 <caption className="sr-only">Lo que se hará con cada fila</caption>
-                <thead className="sticky top-0 bg-muted text-left">
+                <thead className="sticky top-0 bg-superficie-2 text-left">
                   <tr><th className="px-3 py-2">Línea</th><th className="px-3 py-2">Qué pasa</th><th className="px-3 py-2">{tipo === "salones" ? "Salón" : "Familia y alumno"}</th><th className="hidden px-3 py-2 sm:table-cell">Detalle</th></tr>
                 </thead>
                 <tbody>
                   {vista.filas.map((f) => {
                     const { texto, Icono, clase } = ACCION[f.accion];
                     return (
-                      <tr key={`${f.linea}-${f.texto}`} className="border-t align-top">
+                      <tr key={`${f.linea}-${f.texto}`} className="border-t border-borde-sutil align-top">
                         <td className="px-3 py-1.5 tabular-nums">{f.linea}</td>
                         <td className={cn("px-3 py-1.5 whitespace-nowrap", clase)}><span className="inline-flex items-center gap-1.5"><Icono className="size-4" strokeWidth={2} aria-hidden />{texto}</span></td>
                         <td className="px-3 py-1.5">{f.texto}<span className="block text-cuerpo-sm text-muted-foreground sm:hidden">{f.detalle}</span></td>
@@ -146,11 +146,11 @@ export function CargaMasiva({ tipo }: { tipo: TipoCarga }) {
 
 function Conteos({ conteos }: { conteos: VistaCarga["conteos"] }) {
   return (
-    <dl className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+    <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil lg:grid-cols-4">
       {conteos.map((c) => (
-        <div key={c.clave} className="rounded-lg border bg-card px-3 py-2" data-testid={`conteo-${c.clave}`}>
+        <div key={c.clave} className="bg-card px-4 py-3" data-testid={`conteo-${c.clave}`}>
           <dt className="text-cuerpo-sm text-muted-foreground">{c.etiqueta}</dt>
-          <dd className="font-titulo text-titulo-2 tabular-nums">{c.valor}</dd>
+          <dd className="font-heading text-titulo-2 font-semibold tabular-nums">{c.valor}</dd>
         </div>
       ))}
     </dl>

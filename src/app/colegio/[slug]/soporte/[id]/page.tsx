@@ -1,10 +1,9 @@
-import { Archive, ArrowLeft, CircleCheck, RotateCcw } from "lucide-react";
+import { Archive, CircleCheck, RotateCcw } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
+import { MigasSeccion } from "@/components/colegio/MigasSeccion";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Notificar } from "@/components/shell/Notificar";
 import { HiloSoporte } from "@/components/soporte/HiloSoporte";
-import { buttonVariants } from "@/components/ui/button";
 import { exigirSoporte, obtenerTicketColegio, ROLES_SOPORTE } from "@/lib/server/soporte";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { AVISO_DATOS_PERSONALES } from "@/lib/soporte";
@@ -64,9 +63,9 @@ export default async function TicketPage({ params, searchParams }: PageProps<"/c
   return (
     <div className="flex flex-col gap-3">
       <Notificar ok={okMsg} />
-      <Link href="/soporte" className={buttonVariants({ variant: "ghost", size: "sm", className: "self-start" })}>
-        <ArrowLeft strokeWidth={2} aria-hidden /> Soporte Khipu
-      </Link>
+      <nav aria-label="Ruta de navegación" className="text-cuerpo-sm text-muted-foreground">
+        <MigasSeccion ruta={[{ href: "/soporte", texto: "Soporte Khipu" }]} actual="Conversación" />
+      </nav>
       <HiloSoporte
         lado="colegio"
         inicial={vista}

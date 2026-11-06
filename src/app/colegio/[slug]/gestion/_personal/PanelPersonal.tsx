@@ -8,7 +8,6 @@ import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { CLASE_CAMPO, Selector } from "@/components/ui/Selector";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { encabezadoPersonal } from "@/lib/importar-personal";
 import { NOMBRE_ROL } from "@/lib/roles";
 import { listarSalones } from "@/lib/server/gestion";
@@ -16,6 +15,7 @@ import { listarPersonal, ROLES_NO_DOCENTES, type RolPersonal } from "@/lib/serve
 import type { TenantContext } from "@/lib/server/tenant";
 import { altaPersonalAction, altaProfesorAction, cambiarEstadoMembresiaAction, importarPersonalAction } from "../actions";
 import { AccionesFila } from "../_componentes/AccionesFila";
+import { BarraFiltros, SUPERFICIE_LISTA } from "../_componentes/BarraFiltros";
 import { AvatarPersona } from "../_componentes/AvatarPersona";
 import { InsigniaEstado } from "../_componentes/EstadoPersona";
 import { PanelFormulario } from "../_componentes/PanelFormulario";
@@ -85,7 +85,7 @@ export async function PanelPersonal({ ctx, ambito, searchParams }: { ctx: Tenant
           <input type="hidden" name="tipo" value={ambito} />
           <label className="flex flex-col gap-1.5 text-sm">
             <span className="font-medium">Archivo CSV</span>
-            <input type="file" name="archivo" accept=".csv,text/csv" required className="min-h-10 text-sm file:mr-3 file:h-10 file:rounded-md file:border file:border-input file:bg-card file:px-3 file:text-sm file:font-semibold" />
+            <input type="file" name="archivo" accept=".csv,text/csv" required className="min-h-11 rounded-[10px] border border-dashed border-input bg-superficie-2/50 p-1.5 text-sm file:mr-3 file:h-8 file:cursor-pointer file:rounded-md file:border file:border-input file:bg-card file:px-3 file:text-sm file:font-semibold" />
           </label>
           <Boton type="submit" className="self-start">Importar</Boton>
         </form>
@@ -116,6 +116,7 @@ export async function PanelPersonal({ ctx, ambito, searchParams }: { ctx: Tenant
     <div className="flex flex-col gap-6">
       <div>
         <EncabezadoPagina
+          seccion="colegio"
           titulo={titulo}
           descripcion={esProfesores ? "Docentes del colegio, sus cursos y su tutoría." : "Personal administrativo y de portería."}
           acciones={acciones}
@@ -123,8 +124,7 @@ export async function PanelPersonal({ ctx, ambito, searchParams }: { ctx: Tenant
         <Flash ok={searchParams.ok} error={searchParams.error} />
       </div>
 
-      <Tarjeta className="p-4">
-        <form method="get" className="flex flex-wrap items-end gap-3" role="search">
+      <BarraFiltros etiqueta={`Filtros de ${titulo.toLowerCase()}`}>
           <label className="flex min-w-56 flex-1 flex-col gap-1.5 text-sm">
             <span className="font-medium">Buscar</span>
             <span className="relative">
@@ -151,9 +151,8 @@ export async function PanelPersonal({ ctx, ambito, searchParams }: { ctx: Tenant
             </>
           )}
           <Boton type="submit" variante="secundario">Filtrar</Boton>
-          <Link href={base} className="inline-flex h-10 items-center px-2 enlace">Limpiar</Link>
-        </form>
-      </Tarjeta>
+          <Link href={base} className="inline-flex min-h-10 items-center px-2 enlace">Limpiar</Link>
+      </BarraFiltros>
 
       {personas.length === 0 ? (
         <EstadoVacio
@@ -162,11 +161,11 @@ export async function PanelPersonal({ ctx, ambito, searchParams }: { ctx: Tenant
           descripcion={hayFiltros ? "Prueba con otra búsqueda o limpia los filtros." : `Usa el botón «${esProfesores ? "Agregar profesor" : "Agregar personal"}» para registrar a la primera persona.`}
         />
       ) : (
-        <Tarjeta className="overflow-hidden p-0">
+        <div className={SUPERFICIE_LISTA}>
           <Table>
             <caption className="sr-only">{titulo} del colegio</caption>
             <TableHeader>
-              <TableRow className="bg-muted/50 hover:bg-muted/50">
+              <TableRow className="bg-superficie-2/60 hover:bg-superficie-2/60">
                 <TableHead className="h-11 px-4">Nombre</TableHead>
                 <TableHead className="h-11 px-4">Documento</TableHead>
                 <TableHead className="h-11 px-4">Teléfono</TableHead>
@@ -237,7 +236,7 @@ export async function PanelPersonal({ ctx, ambito, searchParams }: { ctx: Tenant
               })}
             </TableBody>
           </Table>
-        </Tarjeta>
+        </div>
       )}
       <p className="text-cuerpo-sm text-muted-foreground">
         {personas.length} {personas.length === 1 ? "persona" : "personas"}. El documento solo lo ve la dirección. Abrir una ficha o esta lista queda registrado en la auditoría.
