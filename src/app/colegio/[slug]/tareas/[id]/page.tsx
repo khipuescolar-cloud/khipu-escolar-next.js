@@ -45,7 +45,7 @@ export default async function TareaPage({ params, searchParams }: PageProps<"/co
   const quien = ctx.rol === "alumno" ? "tu" : `la de ${d.alumno.nombre.split(" ")[0]}`;
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <EncabezadoPagina titulo={t.titulo} descripcion={ctx.rol === "apoderado" ? `Tarea de ${d.alumno.nombre}` : undefined} />
       {hijos.length > 1 && (
         <nav aria-label="Elegir hijo" className="flex flex-wrap gap-2">

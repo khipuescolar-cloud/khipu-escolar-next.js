@@ -24,7 +24,7 @@ export default async function NotificacionesPage({ params, searchParams }: PageP
   const ctx = await requireTenantContext(slug, ROLES_BANDEJA);
   const datos = await listarNotificaciones(ctx, { pagina: Array.isArray(sp.pagina) ? sp.pagina[0] : sp.pagina });
   return (
-    <div className="flex max-w-3xl flex-col gap-5">
+    <div className="flex flex-col gap-5">
       <EncabezadoPagina
         titulo="Notificaciones"
         descripcion={ctx.rol === "apoderado" || ctx.rol === "alumno" ? "Notas, tareas, evaluaciones, mensajes y comunicados del colegio." : "Mensajes de las familias y avisos del colegio sobre tus clases."}

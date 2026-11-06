@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import {
   Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu,
-  SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarRail, useSidebar,
+  SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarRail, SidebarTrigger, useSidebar,
 } from "@/components/ui/sidebar";
 import { rutaActiva } from "@/lib/navegacion";
 import { ICONOS_NAV } from "./iconos";
@@ -23,7 +23,7 @@ export function BarraLateral({ cabecera, grupos, pie }: { cabecera: ReactNode; g
     <Sidebar
       collapsible="icon"
       aria-label="Navegación principal"
-      className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
+      className="h-svh!"
     >
       <SidebarHeader className="border-b border-sidebar-border">{cabecera}</SidebarHeader>
       <SidebarContent>
@@ -74,7 +74,10 @@ export function BarraLateral({ cabecera, grupos, pie }: { cabecera: ReactNode; g
           </SidebarGroup>
         ))}
       </SidebarContent>
-      <SidebarFooter className="border-t border-sidebar-border">{pie}</SidebarFooter>
+      <SidebarFooter className="border-t border-sidebar-border">
+        <SidebarTrigger className="hidden size-9 self-end text-sidebar-foreground focus-visible:ring-2 focus-visible:ring-sidebar-ring md:inline-flex group-data-[collapsible=icon]:self-center" aria-label="Colapsar o expandir el menú" />
+        {pie}
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );

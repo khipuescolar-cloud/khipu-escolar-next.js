@@ -28,7 +28,7 @@ export default async function ExportarPage({ params, searchParams }: PageProps<"
   const enCurso = filas.some((f) => f.estado === "pendiente" || f.estado === "procesando");
 
   return (
-    <div className="flex max-w-3xl flex-col gap-6">
+    <div className="flex flex-col gap-6">
       <Link href="/configuracion" className="inline-flex w-fit items-center gap-1.5 enlace">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Configuración
       </Link>

@@ -307,7 +307,7 @@ export function ListaAsistencia({
         </div>
       </div>
 
-      <aside className="flex flex-col gap-4 lg:sticky lg:top-20 lg:self-start">
+      <aside className="flex flex-col gap-4 lg:sticky lg:top-4 lg:self-start">
         <Card>
           <CardContent className="flex flex-col gap-3">
             <h2 className="text-titulo-2">Resumen</h2>

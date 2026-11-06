@@ -16,7 +16,7 @@ export default async function AcuerdosPage({ params }: PageProps<"/colegio/[slug
   requireFeature(ctx, "reuniones");
   const acuerdos = await acuerdosPendientes(ctx);
   return (
-    <div className="flex max-w-3xl flex-col gap-6">
+    <div className="flex flex-col gap-6">
       <Link href="/reuniones" className="inline-flex w-fit items-center gap-1 text-sm font-medium text-indigo-cielo hover:underline">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Reuniones
       </Link>

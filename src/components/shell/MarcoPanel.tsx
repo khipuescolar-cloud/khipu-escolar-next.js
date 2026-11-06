@@ -1,17 +1,17 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
-/** Estructura del panel: barra superior `indigo` a todo el ancho y, debajo, la barra lateral y el contenido. */
+/** Estructura compartida del panel: menú móvil, barra lateral y contenido fluido. */
 export function MarcoPanel({
   abierta,
-  barraSuperior,
+  barraMovil,
   barraLateral,
   avisoSuperior,
   children,
   flotante,
 }: {
   abierta: boolean;
-  barraSuperior: ReactNode;
+  barraMovil: ReactNode;
   barraLateral: ReactNode;
   /** Franja sobre el contenido (p. ej. el banner del modo soporte). */
   avisoSuperior?: ReactNode;
@@ -20,13 +20,14 @@ export function MarcoPanel({
   flotante?: ReactNode;
 }) {
   return (
-    <SidebarProvider defaultOpen={abierta} className="flex-col" style={{ "--header-height": "3.5rem" } as CSSProperties}>
-      {barraSuperior}
+    <SidebarProvider defaultOpen={abierta} className="flex-col">
+      <a href="#contenido-panel" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-foreground focus:ring-2 focus:ring-ring">Saltar al contenido</a>
+      {barraMovil}
       <div className="flex flex-1">
         {barraLateral}
-        <SidebarInset className="min-w-0">
+        <SidebarInset id="contenido-panel" tabIndex={-1} className="min-w-0">
           {avisoSuperior}
-          <div className="mx-auto w-full max-w-6xl min-w-0 flex-1 px-4 py-6 sm:px-6 lg:py-8">{children}</div>
+          <div className="w-full min-w-0 flex-1 p-4 md:p-8">{children}</div>
         </SidebarInset>
       </div>
       {flotante}

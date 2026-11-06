@@ -37,7 +37,7 @@ export default async function ConfiguracionNudito({ params, searchParams }: Page
   const { activo, motivo, config: c } = await configNudito(ctx);
 
   return (
-    <div className="flex max-w-3xl flex-col gap-6">
+    <div className="flex flex-col gap-6">
       <Link href="/configuracion" className="enlace inline-flex w-fit items-center gap-1 text-cuerpo-sm">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Configuración
       </Link>

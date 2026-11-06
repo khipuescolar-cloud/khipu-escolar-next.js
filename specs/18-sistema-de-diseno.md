@@ -29,7 +29,7 @@ El **manual de marca** entregado por marketing manda sobre esta spec: `docs/marc
 
 | Token | Claro | Oscuro | Uso |
 |---|---|---|---|
-| `indigo` | `#1E2A78` | `#2F3FA8` | Color de la marca y de la **barra superior** del panel; fondo del ícono de app. Texto `blanco` encima |
+| `indigo` | `#1E2A78` | `#2F3FA8` | Color de la marca; fondo del ícono de app. Texto `blanco` encima |
 | `indigo-cielo` | `#3A4BB5` | `#A9B5FF` | **Enlaces** (`.enlace`), gráficos y **anillo de foco** |
 | `cochinilla` | `#A8325E` | `#E8789F` | Nudito y destacados. **Nunca para errores** |
 | `turquesa` | `#0F7C7A` | `#4FC3BF` | Íconos de acento, etiquetas de curso, gráficos (`chart-1`) |
@@ -97,27 +97,25 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 | `nudito.svg` (+ `nudito@2x.png`) | Mascota de la marca (landing, correos de tareas y libretas; el asistente se retiró, `specs/13`) |
 | `patron-khipu.svg` | Fondo decorativo de portadas (login); nunca detrás de texto largo |
 
-- **Nombre:** «Khipu Escolar» en lo público; dentro del panel la barra superior dice solo «khipu». Nunca «Quipu», «Kipu» ni «KHIPU». Nada de monedas, tarjetas ni gráficos de pagos junto a la marca.
+- **Nombre:** «Khipu Escolar» en lo público; dentro del panel la marca aparece en la cabecera lateral y en la cabecera móvil compacta. Nunca «Quipu», «Kipu» ni «KHIPU». Nada de monedas, tarjetas ni gráficos de pagos junto a la marca.
 - **Tamaños mínimos:** logotipo horizontal 96 px de ancho; isotipo 24 px (por debajo, `favicon.svg`). Área de seguridad: media altura de la «k».
 - **Íconos:** Lucide de línea, trazo 2, puntas redondeadas, en `tinta` o `indigo`; el color de estado solo en íconos de asistencia. Sin íconos rellenos, 3D ni emojis en avisos serios.
 
 ## 7. Estructura de la app (shell)
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│ [≡]  khipu  (logotipo blanco)        BARRA SUPERIOR · indigo  [🔔•] │
-├────────────┬─────────────────────────────────────────────────┤
+┌────────────┬─────────────────────────────────────────────────┐
 │ [insignia] │ titulo-1 (EncabezadoPagina)          [Acción]    │
 │ Colegio    │                                                 │
-│ DÍA A DÍA  │  Tarjetas `superficie` con borde `arena`        │
-│ ▌Pasar lista (activo en acento)                              │
-│ ACADÉMICO  │                                                 │
+│ DÍA A DÍA  │ Tarjetas `superficie` con borde `arena`          │
+│ ▌Módulo    │                                                 │
+│ [≡]        │                                                 │
 │ [Avatar ▾] │                                                 │
 └────────────┴─────────────────────────────────────────────────┘
 ```
 
-- `MarcoPanel` (`src/components/shell/MarcoPanel.tsx`): barra superior a todo el ancho y debajo la barra lateral y el contenido (`--header-height` 3.5rem). Lo usan el colegio y la plataforma. El contenido lleva `min-w-0`: una tabla ancha se desplaza dentro de su tarjeta y nunca agranda la página.
-- **Barra superior** (`BarraSuperior.tsx`): fondo `indigo`, botón de menú, logotipo blanco (enlace al inicio), etiqueta opcional («Plataforma»). Sin campana (se quitó el 2026-10-30): los contadores van en el menú lateral y los avisos importantes (soporte activo) en una franja superior.
+- `MarcoPanel` (`src/components/shell/MarcoPanel.tsx`): barra lateral fija en escritorio y cabecera mínima de 48 px solo en móvil. El contenido ocupa el ancho completo; solo el texto corrido y los formularios cortos limitan su ancho. El padding es `p-4` en móvil y `p-8` desde `md`, sin centrado general. Las tablas anchas se desplazan dentro de sus tarjetas; `min-w-0` impide que agranden la página.
+- **Marca y menú:** la cabecera lateral muestra la insignia del colegio o el isotipo oficial de Khipu junto al nombre; en plataforma muestra el isotipo y «Khipu Escolar». El botón para colapsar o expandir vive al pie del lateral, visible también como ícono en el riel colapsado; conserva Ctrl/⌘+B. En móvil una cabecera clara y pegajosa contiene el botón «Abrir menú» de 44 × 44 px y el isotipo. Los avisos de soporte siguen en una franja visible sobre el contenido.
 - **La barra lateral lista solo módulos, nunca acciones.** Crear, importar, exportar o editar algo de un módulo (p. ej. «Nuevo colegio», «Agregar profesor») es un botón en el encabezado de la página del módulo (`EncabezadoPagina` → `acciones`), y la pantalla de esa acción lleva un enlace «← <Módulo>» para volver; el ítem del módulo sigue activo en sus subrutas.
 - **Barra lateral** (`BarraLateral.tsx`): `superficie` con borde `arena`; cabecera con la insignia y el nombre del colegio; grupos con `sobretitulo`; ítem activo relleno en `acento` con texto `sobre-acento`; funciones fuera del plan con candado. Colapsable a íconos (Ctrl/⌘+B) y **drawer** en móvil.
 - **Páginas públicas** (`(publico)/layout.tsx`): escritorio en dos mitades. Izquierda, portada `indigo`: logotipo blanco, sobretítulo «PARA COLEGIOS DEL PERÚ», lema en `titulo-xl`, la promesa de marca, tres puntos (ícono + título + frase) y las cuerdas de khipu (`CuerdasKhipu`, en los tonos claros de la paleta) colgando hasta el borde inferior, nunca detrás del texto. Derecha, el formulario (máx. 440 px) centrado y un pie «© Khipu Escolar · Perú». En móvil: `logotipo-escolar`, formulario y pie. Siempre en tema claro.

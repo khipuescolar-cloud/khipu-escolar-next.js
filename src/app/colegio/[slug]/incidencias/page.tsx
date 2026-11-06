@@ -37,7 +37,7 @@ export default async function IncidenciasPage({ params, searchParams }: PageProp
   const cursos = alumno ? await cursosParaIncidencia(ctx, alumno.id, fecha, hora) : [];
 
   return (
-    <div className="flex max-w-3xl flex-col gap-6">
+    <div className="flex flex-col gap-6">
       <div>
         <EncabezadoPagina titulo="Incidencias" descripcion="Si un alumno se accidenta, se siente mal o se retira antes, registra aquí las clases que se perdió." />
         <Flash ok={uno(sp.ok)} error={uno(sp.error)} />

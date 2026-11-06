@@ -38,7 +38,7 @@ export default async function NuditoPage({ params, searchParams }: PageProps<"/c
     if (r.motivo === "plan" || r.motivo === "rol") forbidden();
     if (r.motivo === "elegir_hijo") {
       return (
-        <div className="mx-auto flex w-full max-w-2xl flex-col">
+        <div className="flex w-full flex-col">
           <EncabezadoPagina titulo="Nudito" descripcion="Elige con quién vas a practicar." />
           {r.hijos && r.hijos.length > 0 ? (
             <ul className="flex flex-col gap-2">
@@ -60,7 +60,7 @@ export default async function NuditoPage({ params, searchParams }: PageProps<"/c
     }
     const info = SIN_ACCESO[r.motivo];
     return (
-      <div className="mx-auto flex w-full max-w-2xl flex-col">
+      <div className="flex w-full flex-col">
         <EncabezadoPagina titulo="Nudito" />
         <div className="flex flex-col items-center gap-3 rounded-[var(--radio-lg)] border border-border bg-superficie p-6 text-center shadow-sm">
           <NuditoMascota tamano={80} estado="reposo" />
@@ -80,7 +80,7 @@ export default async function NuditoPage({ params, searchParams }: PageProps<"/c
   return (
     <div className="flex flex-col">
       <EncabezadoPagina titulo="Nudito" descripcion={r.acceso.modo === "hijo" ? `Practicando con ${r.alumno.primerNombre}.` : "Tu tutor para practicar a tu ritmo."} />
-      <p className="mx-auto mb-4 flex w-full max-w-2xl items-start gap-2 rounded-[var(--radio-md)] bg-superficie-2 px-3 py-2 text-cuerpo-sm text-muted-foreground">
+      <p className="mb-4 flex w-full items-start gap-2 rounded-[var(--radio-md)] bg-superficie-2 px-3 py-2 text-cuerpo-sm text-muted-foreground">
         <Info className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
         {AVISO_IA}
       </p>
