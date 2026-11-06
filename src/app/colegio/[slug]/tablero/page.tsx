@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
+import { TituloBloque } from "@/components/academico/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { BarraDistribucion } from "@/components/tablero/BarraDistribucion";
 import { GraficoSemanal } from "@/components/tablero/GraficoSemanal";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { buttonVariants } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { fechaCorta } from "@/lib/fechas";
@@ -40,9 +40,10 @@ export default async function TableroPage({ params, searchParams }: PageProps<"/
   const vigesimal = t.escala === "vigesimal";
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-10">
       <EncabezadoPagina
         titulo="Tablero de dirección"
+        seccion="colegio"
         descripcion={`${t.colegio} · ${t.periodo.etiqueta}: del ${fechaCorta(t.periodo.desde)} al ${fechaCorta(t.hastaEfectivo)}`}
         acciones={
           <Link href="/tablero/consolidado" className={buttonVariants({ variant: "outline" })}>
@@ -52,7 +53,7 @@ export default async function TableroPage({ params, searchParams }: PageProps<"/
       />
       <NavegacionPildoras etiqueta="Periodo del tablero" items={opcionesPeriodo} />
 
-      <section aria-label="Resumen" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section aria-label="Resumen" className="grid gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil sm:grid-cols-2 lg:grid-cols-4">
         <Kpi icono={<ClipboardList className="size-5" strokeWidth={2} aria-hidden />} titulo="Asistencia" valor={textoPorcentaje(a.porcentaje)} detalle={`${a.registros.toLocaleString("es-PE")} registros en ${a.diasHabiles} días hábiles`} id="kpi-asistencia" />
         <Kpi icono={<AlertTriangle className="size-5" strokeWidth={2} aria-hidden />} titulo="Tardanzas y faltas" valor={`${a.tardanzas} · ${a.faltas}`} detalle="Tardanzas · faltas en el periodo" />
         <Kpi icono={<GraduationCap className="size-5" strokeWidth={2} aria-hidden />} titulo="Logro esperado" valor={textoPorcentaje(r.logroEsperado)} detalle={r.origen === "sin_datos" ? "Aún no hay notas en este periodo" : `${vigesimal ? "Notas de 14 o más" : "Calificaciones AD y A"} · ${t.periodo.referencia?.nombre}`} />
@@ -63,7 +64,7 @@ export default async function TableroPage({ params, searchParams }: PageProps<"/
         {a.semanas.length === 0 ? (
           <EstadoVacio icono={BarChart3} titulo="Aún no hay asistencia en este periodo" descripcion="Cuando los profesores pasen lista, verás aquí la evolución por semana." />
         ) : (
-          <div className="grid gap-4 lg:grid-cols-2">
+          <div className="grid gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil lg:grid-cols-2">
             <GraficoSemanal titulo="Asistencia por semana" descripcion="% de presentes (llegó + tarde) sobre los registros de la semana." testId="grafico-asistencia" unidad="%" dominio={[Math.max(0, Math.floor(Math.min(...a.semanas.map((s) => s.porcentaje)) / 5) * 5 - 5), 100]}
               datos={a.semanas.map((s) => ({ semana: s.semana, asistencia: s.porcentaje }))} series={[{ clave: "asistencia", etiqueta: "Asistencia", color: "var(--chart-1)" }]} />
             <GraficoSemanal titulo="Tardanzas y faltas por semana" descripcion="Cantidad de alumnos con tardanza o falta cada semana." testId="grafico-tardanzas"
@@ -90,7 +91,7 @@ export default async function TableroPage({ params, searchParams }: PageProps<"/
         </Tabla>
         <div className="flex flex-col gap-3" data-testid="ausentismo-cronico">
           <div className="flex flex-wrap items-end justify-between gap-3">
-            <h3 className="font-heading text-titulo-2">Ausentismo crónico</h3>
+            <TituloBloque nivel={3}>Ausentismo crónico</TituloBloque>
             <form method="get" className="flex flex-wrap items-end gap-2">
               <input type="hidden" name="p" value={t.periodo.clave} />
               <Campo etiqueta="Asistencia menor a (%)" name="umbral" type="number" min={UMBRAL_MINIMO} max={UMBRAL_MAXIMO} step={1} defaultValue={t.umbral} className="w-28" />
@@ -191,18 +192,18 @@ export default async function TableroPage({ params, searchParams }: PageProps<"/
       </Seccion>
 
       <Seccion titulo="Tareas, avisos y reuniones" id="otros">
-        <div className="grid gap-4 lg:grid-cols-3">
-          <Tarjeta className="flex flex-col gap-2">
-            <h3 className="font-heading text-titulo-2">Tareas publicadas</h3>
-            <p className="text-titulo-1 tabular-nums" data-testid="kpi-tareas">{tareas.total}</p>
+        <div className="grid gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil lg:grid-cols-3">
+          <div className="flex flex-col gap-2 bg-superficie p-4 sm:p-5">
+            <h3 className="font-heading text-[16px] leading-6 font-semibold">Tareas publicadas</h3>
+            <p className="font-heading text-[28px] leading-8 font-semibold tabular-nums" data-testid="kpi-tareas">{tareas.total}</p>
             {tareas.porCurso.length === 0 ? <p className="text-cuerpo-sm text-muted-foreground">Ninguna tarea publicada en este periodo.</p> : (
               <ul className="flex flex-col gap-1 text-cuerpo-sm">
                 {tareas.porCurso.slice(0, 8).map((c) => <li key={c.cursoId} className="flex justify-between gap-2"><span>{c.curso} · {c.salon}</span><strong className="tabular-nums">{c.tareas}</strong></li>)}
               </ul>
             )}
-          </Tarjeta>
-          <Tarjeta className="flex flex-col gap-2">
-            <h3 className="flex items-center gap-2 font-heading text-titulo-2"><MailCheck className="size-5" strokeWidth={2} aria-hidden /> Avisos a las familias</h3>
+          </div>
+          <div className="flex flex-col gap-2 bg-superficie p-4 sm:p-5">
+            <h3 className="flex items-center gap-2 font-heading text-[16px] leading-6 font-semibold"><MailCheck className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> Avisos a las familias</h3>
             <ul className="flex flex-col gap-1 text-cuerpo-sm" data-testid="resumen-avisos">
               <li className="flex justify-between"><span>Enviados</span><strong className="tabular-nums">{avisos.enviados}</strong></li>
               <li className="flex justify-between"><span>Abiertos</span><strong className="tabular-nums">{avisos.abiertos}</strong></li>
@@ -210,16 +211,16 @@ export default async function TableroPage({ params, searchParams }: PageProps<"/
               <li className="flex justify-between"><span>Pendientes de envío</span><strong className="tabular-nums">{avisos.pendientes}</strong></li>
             </ul>
             <Link href="/avisos" className="enlace text-cuerpo-sm">Ver avisos enviados</Link>
-          </Tarjeta>
-          <Tarjeta className="flex flex-col gap-2">
-            <h3 className="flex items-center gap-2 font-heading text-titulo-2"><CalendarClock className="size-5" strokeWidth={2} aria-hidden /> Próximas reuniones</h3>
-            <p className="text-titulo-1 tabular-nums">{reuniones.proximas}</p>
+          </div>
+          <div className="flex flex-col gap-2 bg-superficie p-4 sm:p-5">
+            <h3 className="flex items-center gap-2 font-heading text-[16px] leading-6 font-semibold"><CalendarClock className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> Próximas reuniones</h3>
+            <p className="font-heading text-[28px] leading-8 font-semibold tabular-nums">{reuniones.proximas}</p>
             {reuniones.siguientes.length === 0 ? <p className="text-cuerpo-sm text-muted-foreground">No hay reuniones programadas.</p> : (
               <ul className="flex flex-col gap-1 text-cuerpo-sm">
                 {reuniones.siguientes.map((x) => <li key={x.id}>{x.titulo} · {new Intl.DateTimeFormat("es-PE", { timeZone: ctx.tenant.zonaHoraria, day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }).format(x.inicio)}</li>)}
               </ul>
             )}
-          </Tarjeta>
+          </div>
         </div>
       </Seccion>
 
@@ -233,10 +234,7 @@ export default async function TableroPage({ params, searchParams }: PageProps<"/
 function Seccion({ titulo, id, nota, children }: { titulo: string; id: string; nota?: string; children: ReactNode }) {
   return (
     <section aria-labelledby={`sec-${id}`} className="flex flex-col gap-4">
-      <div>
-        <h2 id={`sec-${id}`} className="text-titulo-2 font-heading">{titulo}</h2>
-        {nota && <p className="text-cuerpo-sm text-muted-foreground">{nota}</p>}
-      </div>
+      <TituloBloque id={`sec-${id}`} descripcion={nota}>{titulo}</TituloBloque>
       {children}
     </section>
   );
@@ -244,20 +242,20 @@ function Seccion({ titulo, id, nota, children }: { titulo: string; id: string; n
 
 function Kpi({ icono, titulo, valor, detalle, id }: { icono: ReactNode; titulo: string; valor: string; detalle: ReactNode; id?: string }) {
   return (
-    <Tarjeta className="flex flex-col gap-1" data-testid={id}>
-      <span className="flex items-center gap-2 text-sm text-muted-foreground">{icono}{titulo}</span>
-      <span className="text-titulo-1 tabular-nums">{valor}</span>
+    <div className="flex flex-col gap-1 bg-superficie p-4 sm:p-5" data-testid={id}>
+      <span className="flex items-center gap-2 text-sm text-muted-foreground"><span className="text-sec-trazo">{icono}</span>{titulo}</span>
+      <span className="font-heading text-[28px] leading-9 font-semibold tabular-nums">{valor}</span>
       <span className="text-cuerpo-sm text-muted-foreground">{detalle}</span>
-    </Tarjeta>
+    </div>
   );
 }
 
 function Tabla({ titulo, vacio, children }: { titulo: string; vacio: boolean; children: ReactNode }) {
   if (vacio) return null;
   return (
-    <Tarjeta className="p-0 sm:p-0">
-      <h3 className="px-4 pt-4 font-heading text-titulo-2">{titulo}</h3>
+    <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
+      <h3 className="px-4 pt-4 pb-2 font-heading text-[16px] leading-6 font-semibold sm:px-5">{titulo}</h3>
       <Table>{children}</Table>
-    </Tarjeta>
+    </div>
   );
 }

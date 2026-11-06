@@ -8,7 +8,6 @@ import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { Selector } from "@/components/ui/Selector";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { hoyDelColegio } from "@/lib/server/asistencia";
 import { salonesActivos } from "@/lib/server/salones-activos";
@@ -47,6 +46,7 @@ export default async function ConsolidadoPage({ params, searchParams }: PageProp
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
         titulo="Consolidado de notas"
+        seccion="colegio"
         descripcion="Notas de todo un salón en un periodo: alumnos por competencia, con descarga en Excel y PDF."
         acciones={
           <Link href="/tablero" className={buttonVariants({ variant: "outline" })}>
@@ -54,7 +54,7 @@ export default async function ConsolidadoPage({ params, searchParams }: PageProp
           </Link>
         }
       />
-      <form method="get" className="grid gap-3 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end">
+      <form method="get" aria-label="Salón y periodo" className="grid gap-3 rounded-[14px] border border-borde-sutil bg-superficie p-4 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end">
         <Selector etiqueta="Salón" name="salon" defaultValue={uno("salon") ?? ""} required>
           <option value="" disabled>Elige un salón</option>
           {salones.map((s) => <option key={s.id} value={s.id}>{s.nombre}</option>)}
@@ -83,10 +83,9 @@ export default async function ConsolidadoPage({ params, searchParams }: PageProp
           {consolidado.columnas.length === 0 ? (
             <EstadoVacio icono={GraduationCap} titulo="Este salón aún no tiene competencias" descripcion="Los profesores las crean en Notas. Cuando existan, aparecerán aquí." />
           ) : (
-            <Card>
-              <CardContent className="p-0">
+            <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
                 <Table>
-                  <TableHeader>
+                  <TableHeader className="bg-sec-suave text-sec-tinta">
                     <TableRow>
                       <TableHead rowSpan={2}>Alumno</TableHead>
                       {tabla.grupos.map((g) => <TableHead key={g.texto} colSpan={g.columnas} className="text-center">{g.texto}</TableHead>)}
@@ -107,8 +106,7 @@ export default async function ConsolidadoPage({ params, searchParams }: PageProp
                     </TableRow>
                   </TableBody>
                 </Table>
-              </CardContent>
-            </Card>
+            </div>
           )}
           <p className="text-sm text-muted-foreground">{tabla.nota}</p>
         </>

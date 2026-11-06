@@ -1,12 +1,12 @@
 import { ArrowLeft, Ban, CheckCircle2, PauseCircle } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TituloBloque } from "@/components/academico/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { AREAS_NUDITO, NIVELES_NUDITO } from "@/lib/nudito/contratos";
 import { POLITICA_DOMINIO_POR_DEFECTO } from "@/lib/nudito/politica-dominio";
 import { AVISO_FORMATIVO, NOMBRE_AREA_NUDITO } from "@/lib/nudito-seguimiento";
@@ -41,10 +41,10 @@ export default async function ConfiguracionNudito({ params, searchParams }: Page
       <Link href="/configuracion" className="enlace inline-flex w-fit items-center gap-1 text-cuerpo-sm">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Configuración
       </Link>
-      <EncabezadoPagina titulo="Nudito, tutor de práctica" descripcion={`Decide si tus alumnos usan Nudito, en qué grados y cursos, y por cuánto tiempo se guarda su práctica. ${AVISO_FORMATIVO}`} />
+      <EncabezadoPagina titulo="Nudito, tutor de práctica" seccion="colegio" descripcion={`Decide si tus alumnos usan Nudito, en qué grados y cursos, y por cuánto tiempo se guarda su práctica. ${AVISO_FORMATIVO}`} />
       <Flash ok={sp.ok} error={sp.error} />
 
-      <p className="inline-flex items-center gap-2 font-semibold" data-testid="estado-nudito">
+      <p className="inline-flex items-center gap-2 text-sm font-semibold" data-testid="estado-nudito">
         {activo ? (
           <><CheckCircle2 className="size-5 text-llego" strokeWidth={2} aria-hidden /> Activo</>
         ) : motivo === "plataforma" ? (
@@ -55,15 +55,16 @@ export default async function ConfiguracionNudito({ params, searchParams }: Page
       </p>
       {motivo === "plataforma" && <Alerta tipo="aviso">El equipo de Khipu Escolar pausó Nudito en tu colegio. Escríbenos desde Soporte Khipu para saber más.</Alerta>}
 
-      <form action={guardarConfigNuditoAction} className="flex flex-col gap-6">
-        <Tarjeta className="flex flex-col gap-3">
-          <h2 className="text-lg font-semibold">Encendido</h2>
+      <form action={guardarConfigNuditoAction} className="flex max-w-3xl flex-col gap-4">
+        <div className="flex flex-col divide-y divide-borde-sutil rounded-[14px] border border-borde-sutil bg-superficie">
+        <section className="flex flex-col gap-3 p-5 sm:p-6">
+          <TituloBloque>Encendido</TituloBloque>
           <Casilla name="activo" defaultChecked={c.activo}>Nudito está activo en el colegio</Casilla>
           <p className="text-cuerpo-sm text-muted-foreground">Las familias deben autorizar el uso de Nudito para cada hijo antes de que empiece a practicar.</p>
-        </Tarjeta>
+        </section>
 
-        <Tarjeta className="flex flex-col gap-3">
-          <h2 className="text-lg font-semibold">Quiénes lo usan</h2>
+        <section className="flex flex-col gap-3 p-5 sm:p-6">
+          <TituloBloque>Quiénes lo usan</TituloBloque>
           <fieldset className="flex flex-col gap-1">
             <legend className="mb-1 text-sm font-medium">Cursos (áreas)</legend>
             {AREAS_NUDITO.map((a) => <Casilla key={a} name="areas" value={a} defaultChecked={c.areas.includes(a)}>{NOMBRE_AREA_NUDITO[a]}</Casilla>)}
@@ -75,10 +76,10 @@ export default async function ConfiguracionNudito({ params, searchParams }: Page
           <Campo etiqueta="Desde qué grado de primaria" name="gradoMinimoPrimaria" type="number" min={1} max={6} step={1} required defaultValue={c.gradoMinimoPrimaria} />
           <Casilla name="permitirModoHijo" defaultChecked={c.permitirModoHijo}>Modo hijo: la familia presta su cuenta a un hijo sin cuenta propia</Casilla>
           <Casilla name="permitirFotos" defaultChecked={c.permitirFotos}>Permitir fotos de ejercicios (privadas; se descartan si muestran una cara)</Casilla>
-        </Tarjeta>
+        </section>
 
-        <Tarjeta className="flex flex-col gap-3">
-          <h2 className="text-lg font-semibold">Límites</h2>
+        <section className="flex flex-col gap-3 p-5 sm:p-6">
+          <TituloBloque>Límites</TituloBloque>
           <div className="grid gap-3 sm:grid-cols-2">
             <Campo etiqueta="Sesiones por día y alumno" name="sesionesPorDia" type="number" min={1} max={50} step={1} required defaultValue={c.sesionesPorDia} />
             <Campo etiqueta="Minutos por día (opcional)" name="minutosPorDia" type="number" min={5} max={600} step={1} defaultValue={c.minutosPorDia ?? ""} ayuda="Vacío: sin límite de minutos." />
@@ -87,10 +88,10 @@ export default async function ConfiguracionNudito({ params, searchParams }: Page
             <Campo etiqueta="Tope de costo de IA al mes (USD, opcional)" name="topeCostoUsdMes" type="number" min={0} step={0.01} defaultValue={c.topeCostoUsdMes ?? ""} />
             <Campo etiqueta="Guardar la práctica por (días)" name="retencionDias" type="number" min={30} max={730} step={1} required defaultValue={c.retencionDias} ayuda="Entre 30 y 730. Después se borran ejercicios, respuestas, mensajes y fotos; el progreso por tema se conserva." />
           </div>
-        </Tarjeta>
+        </section>
 
-        <Tarjeta className="flex flex-col gap-3">
-          <h2 className="text-lg font-semibold">Política de dominio (avanzado)</h2>
+        <section className="flex flex-col gap-3 p-5 sm:p-6">
+          <TituloBloque>Política de dominio (avanzado)</TituloBloque>
           <p className="text-cuerpo-sm text-muted-foreground">
             Cuándo Nudito considera que un tema está dominado. Los valores por defecto ({POLITICA_DOMINIO_POR_DEFECTO.version}) son <strong>provisionales</strong> y se
             ajustarán con el piloto. Cambia solo si lo acordaste con el equipo de Khipu Escolar: escribe en JSON solo los valores que cambian.
@@ -101,10 +102,11 @@ export default async function ConfiguracionNudito({ params, searchParams }: Page
           </details>
           <label className="flex flex-col gap-1.5 text-sm">
             <span className="font-medium">Cambios (JSON, opcional)</span>
-            <textarea name="politicaDominio" rows={4} defaultValue={c.politicaDominio ? JSON.stringify(c.politicaDominio, null, 2) : ""} placeholder='{ "minIntentos": 8 }' className="rounded-md border border-input bg-card p-2 font-mono text-xs" />
+            <textarea name="politicaDominio" rows={4} defaultValue={c.politicaDominio ? JSON.stringify(c.politicaDominio, null, 2) : ""} placeholder='{ "minIntentos": 8 }' className="rounded-[10px] border border-input bg-card p-2 font-mono text-xs" />
           </label>
-        </Tarjeta>
+        </section>
 
+        </div>
         <Boton type="submit" className="w-fit">Guardar configuración</Boton>
       </form>
     </div>

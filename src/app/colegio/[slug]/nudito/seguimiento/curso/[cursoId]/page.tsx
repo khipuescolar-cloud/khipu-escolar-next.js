@@ -1,8 +1,8 @@
 import { ArrowLeft, CheckCircle2, RefreshCw, Sprout } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TituloBloque } from "@/components/academico/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { formatoDia } from "@/lib/fechas";
 import { AVISO_FORMATIVO, NOMBRE_AREA_NUDITO } from "@/lib/nudito-seguimiento";
@@ -23,30 +23,31 @@ export default async function SeguimientoCurso({ params }: PageProps<"/colegio/[
       <Link href="/nudito/seguimiento" className="enlace inline-flex w-fit items-center gap-1 text-cuerpo-sm">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Seguimiento de Nudito
       </Link>
-      <EncabezadoPagina titulo={`${curso.nombre} · ${curso.salon}`} descripcion={`${curso.area ? NOMBRE_AREA_NUDITO[curso.area] : "Sin área de Nudito"}. ${AVISO_FORMATIVO}`} />
+      <EncabezadoPagina titulo={`${curso.nombre} · ${curso.salon}`} seccion="academico" descripcion={`${curso.area ? NOMBRE_AREA_NUDITO[curso.area] : "Sin área de Nudito"}. ${AVISO_FORMATIVO}`} />
 
       {p.temasDificiles.length > 0 && (
-        <Tarjeta className="flex flex-col gap-2">
-          <h2 className="text-lg font-semibold">Temas para reforzar en clase</h2>
-          <ul className="flex flex-wrap gap-2">
+        <section aria-labelledby="temas-reforzar" className="flex flex-col gap-3">
+          <TituloBloque id="temas-reforzar">Temas para reforzar en clase</TituloBloque>
+          <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
             {p.temasDificiles.map((t) => (
-              <li key={t.clave} className="inline-flex items-center gap-1 rounded-pildora bg-superficie-2 px-3 py-1 text-cuerpo-sm">
-                <RefreshCw className="size-3.5" strokeWidth={2} aria-hidden /> {t.nombre} · {t.alumnos} {t.alumnos === 1 ? "alumno" : "alumnos"}
+              <li key={t.clave} className="flex items-center justify-between gap-3 px-4 py-2.5 text-cuerpo-sm sm:px-5">
+                <span className="inline-flex items-center gap-2 font-medium"><RefreshCw className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden />{t.nombre}</span>
+                <span className="tabular-nums text-muted-foreground">{t.alumnos} {t.alumnos === 1 ? "alumno" : "alumnos"}</span>
               </li>
             ))}
           </ul>
-        </Tarjeta>
+        </section>
       )}
 
-      <Tarjeta className="overflow-x-auto p-0">
+      <div className="overflow-x-auto rounded-[14px] border border-borde-sutil bg-superficie">
         <Table className="min-w-[640px]" data-testid="tabla-progreso-curso">
-          <TableHeader>
+          <TableHeader className="bg-sec-suave text-sec-tinta">
             <TableRow>
-              <TableHead className="sobretitulo pl-4">Alumno</TableHead>
-              <TableHead className="sobretitulo text-right"><span className="inline-flex items-center gap-1"><CheckCircle2 className="size-4" strokeWidth={2} aria-hidden /> Dominados</span></TableHead>
-              <TableHead className="sobretitulo text-right"><span className="inline-flex items-center gap-1"><Sprout className="size-4" strokeWidth={2} aria-hidden /> Practicando</span></TableHead>
-              <TableHead className="sobretitulo text-right"><span className="inline-flex items-center gap-1"><RefreshCw className="size-4" strokeWidth={2} aria-hidden /> Para reforzar</span></TableHead>
-              <TableHead className="sobretitulo pr-4">Última práctica</TableHead>
+              <TableHead className="pl-4">Alumno</TableHead>
+              <TableHead className="text-right"><span className="inline-flex items-center gap-1"><CheckCircle2 className="size-4" strokeWidth={2} aria-hidden /> Dominados</span></TableHead>
+              <TableHead className="text-right"><span className="inline-flex items-center gap-1"><Sprout className="size-4" strokeWidth={2} aria-hidden /> Practicando</span></TableHead>
+              <TableHead className="text-right"><span className="inline-flex items-center gap-1"><RefreshCw className="size-4" strokeWidth={2} aria-hidden /> Para reforzar</span></TableHead>
+              <TableHead className="pr-4">Última práctica</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -63,7 +64,7 @@ export default async function SeguimientoCurso({ params }: PageProps<"/colegio/[
             ))}
           </TableBody>
         </Table>
-      </Tarjeta>
+      </div>
     </div>
   );
 }

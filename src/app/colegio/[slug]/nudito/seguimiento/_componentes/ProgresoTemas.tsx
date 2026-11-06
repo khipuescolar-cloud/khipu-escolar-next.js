@@ -1,5 +1,5 @@
 import { CheckCircle2, Circle, Lightbulb, RefreshCw, Sprout } from "lucide-react";
-import { Tarjeta } from "@/components/ui/Tarjeta";
+import { TituloBloque } from "@/components/academico/TituloBloque";
 import { formatoDia } from "@/lib/fechas";
 import type { AreaNudito, EstadoDominio } from "@/lib/nudito/contratos";
 import { AVISO_FORMATIVO, NOMBRE_AREA_NUDITO, NOMBRE_ESTADO_DOMINIO } from "@/lib/nudito-seguimiento";
@@ -7,7 +7,7 @@ import type { TemaProgresoDetalle } from "@/lib/server/nudito/progreso";
 
 const ICONO_ESTADO: Record<EstadoDominio, { Icono: typeof Circle; clase: string }> = {
   no_iniciado: { Icono: Circle, clase: "text-muted-foreground" },
-  en_progreso: { Icono: Sprout, clase: "text-indigo-cielo" },
+  en_progreso: { Icono: Sprout, clase: "text-primary" },
   en_comprobacion: { Icono: Lightbulb, clase: "text-tarde" },
   dominado: { Icono: CheckCircle2, clase: "text-llego" },
   reforzar: { Icono: RefreshCw, clase: "text-cochinilla" },
@@ -36,12 +36,12 @@ export function ProgresoTemas({ areas, temas, vacio }: { areas: AreaNudito[]; te
         const delArea = temas.filter((t) => t.area === area);
         if (delArea.length === 0) return null;
         return (
-          <section key={area} className="flex flex-col gap-2" aria-labelledby={`area-${area}`}>
-            <h2 id={`area-${area}`} className="text-lg font-semibold">{NOMBRE_AREA_NUDITO[area]}</h2>
-            <ul className="grid gap-2 md:grid-cols-2">
+          <section key={area} className="flex flex-col gap-3" aria-labelledby={`area-${area}`}>
+            <TituloBloque id={`area-${area}`}>{NOMBRE_AREA_NUDITO[area]}</TituloBloque>
+            <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
               {delArea.map((t) => (
                 <li key={t.clave}>
-                  <Tarjeta className="flex h-full flex-col gap-1.5 p-4">
+                  <div className="flex flex-col gap-1.5 p-4 sm:px-5">
                     <div className="flex flex-wrap items-start justify-between gap-2">
                       <p className="font-semibold">{t.nombre}{t.subtema ? <span className="font-normal text-muted-foreground"> · {t.subtema}</span> : null}</p>
                       <EstadoTema estado={t.estado} />
@@ -52,7 +52,7 @@ export function ProgresoTemas({ areas, temas, vacio }: { areas: AreaNudito[]; te
                     </p>
                     {t.motivo && <p className="text-cuerpo-sm text-muted-foreground">{t.motivo}</p>}
                     {t.ultimaPractica && <p className="text-cuerpo-sm text-muted-foreground">Última práctica: {formatoDia(new Date(t.ultimaPractica), { day: "numeric", month: "long" })}</p>}
-                  </Tarjeta>
+                  </div>
                 </li>
               ))}
             </ul>

@@ -2,7 +2,6 @@
 
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 
 // Línea por semana para el tablero (specs/33). Mismos tokens y accesibilidad que `GraficoDiario` de la plataforma (specs/16):
 // colores --chart-1/--chart-2, 2.ª serie punteada y tabla sr-only con los mismos datos.
@@ -25,9 +24,9 @@ export function GraficoSemanal({
 }) {
   const config: ChartConfig = Object.fromEntries(series.map((s) => [s.clave, { label: s.etiqueta, color: s.color }]));
   return (
-    <Tarjeta className="flex min-w-0 flex-col gap-3 p-4" data-testid={testId}>
+    <div className="flex min-w-0 flex-col gap-3 bg-superficie p-4 sm:p-5" data-testid={testId}>
       <div>
-        <h3 className="font-heading text-titulo-2">{titulo}</h3>
+        <h3 className="font-heading text-[16px] leading-6 font-semibold">{titulo}</h3>
         {descripcion && <p className="text-cuerpo-sm text-muted-foreground">{descripcion}</p>}
       </div>
       <ChartContainer config={config} className="aspect-auto h-56 w-full" aria-hidden>
@@ -59,6 +58,6 @@ export function GraficoSemanal({
           ))}
         </tbody>
       </table>
-    </Tarjeta>
+    </div>
   );
 }

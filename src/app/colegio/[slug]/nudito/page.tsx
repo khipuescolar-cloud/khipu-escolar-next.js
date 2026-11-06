@@ -39,12 +39,12 @@ export default async function NuditoPage({ params, searchParams }: PageProps<"/c
     if (r.motivo === "elegir_hijo") {
       return (
         <div className="flex w-full flex-col">
-          <EncabezadoPagina titulo="Nudito" descripcion="Elige con quién vas a practicar." />
+          <EncabezadoPagina titulo="Nudito" seccion="academico" descripcion="Elige con quién vas a practicar." />
           {r.hijos && r.hijos.length > 0 ? (
             <ul className="flex flex-col gap-2">
               {r.hijos.map((h) => (
                 <li key={h.id}>
-                  <Link href={`/nudito?alumno=${h.id}`} className="flex min-h-14 items-center gap-3 rounded-[var(--radio-lg)] border border-border bg-superficie p-3 font-semibold shadow-sm outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring">
+                  <Link href={`/nudito?alumno=${h.id}`} className="flex min-h-14 items-center gap-3 rounded-[var(--radio-lg)] border border-borde-sutil bg-superficie p-3 font-semibold outline-none hover:bg-sec-suave focus-visible:ring-2 focus-visible:ring-ring">
                     <NuditoMascota tamano={32} variante="avatar" />
                     <span className="flex-1">{h.nombre}</span>
                     <ChevronRight className="size-5 text-muted-foreground" strokeWidth={2} aria-hidden />
@@ -61,8 +61,8 @@ export default async function NuditoPage({ params, searchParams }: PageProps<"/c
     const info = SIN_ACCESO[r.motivo];
     return (
       <div className="flex w-full flex-col">
-        <EncabezadoPagina titulo="Nudito" />
-        <div className="flex flex-col items-center gap-3 rounded-[var(--radio-lg)] border border-border bg-superficie p-6 text-center shadow-sm">
+        <EncabezadoPagina titulo="Nudito" seccion="academico" />
+        <div className="flex flex-col items-center gap-3 rounded-[var(--radio-lg)] border border-borde-sutil bg-superficie p-6 text-center">
           <NuditoMascota tamano={80} estado="reposo" />
           <h2 className="font-titulo text-titulo-2">{info.titulo}</h2>
           <p className="max-w-prose text-muted-foreground">{info.texto}</p>
@@ -79,7 +79,7 @@ export default async function NuditoPage({ params, searchParams }: PageProps<"/c
   const inicial = await iniciarSesion(ctx, r.acceso, { alumnoId: r.acceso.alumno.id });
   return (
     <div className="flex flex-col">
-      <EncabezadoPagina titulo="Nudito" descripcion={r.acceso.modo === "hijo" ? `Practicando con ${r.alumno.primerNombre}.` : "Tu tutor para practicar a tu ritmo."} />
+      <EncabezadoPagina titulo="Nudito" seccion="academico" descripcion={r.acceso.modo === "hijo" ? `Practicando con ${r.alumno.primerNombre}.` : "Tu tutor para practicar a tu ritmo."} />
       <p className="mb-4 flex w-full items-start gap-2 rounded-[var(--radio-md)] bg-superficie-2 px-3 py-2 text-cuerpo-sm text-muted-foreground">
         <Info className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
         {AVISO_IA}
