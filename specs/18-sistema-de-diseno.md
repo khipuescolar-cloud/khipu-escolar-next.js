@@ -6,6 +6,8 @@
 
 **Navegación:** se conservan los grupos, rutas y permisos de `src/lib/navegacion.ts`. La barra lateral distingue el ítem activo con fondo índigo suave y texto de alto contraste, separa los grupos por tipografía y mantiene el colegio arriba y la cuenta abajo. En móvil, la cabecera incluye el nombre Khipu Escolar y el menú conserva su zona táctil.
 
+**Inicio:** abre con horario disponible, mensajes por leer y, para dirección, una muestra de hasta cinco salones que requieren atención con acceso al reporte completo. Los módulos existentes se conservan como enlaces compactos por grupo. Nudito saluda sin comunicar incidencias ni errores.
+
 - **Estado:** implementado · alineado al manual de marca (2026-10-28)
 - **Plan:** todos
 - **Fuente de verdad del código:** `src/app/globals.css` (tokens), `src/components/ui/*` (shadcn/ui), `src/components/shell/*` (estructura)

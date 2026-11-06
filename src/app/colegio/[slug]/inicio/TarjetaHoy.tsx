@@ -14,7 +14,7 @@ export async function TarjetaHoy({ ctx }: { ctx: TenantContext }) {
   if (!hoy || hoy.grupos.every((g) => g.bloques.length === 0)) return null;
   const esProfesor = ctx.rol === "profesor";
   return (
-    <section aria-labelledby="titulo-hoy" className="flex flex-col gap-3 rounded-lg border border-arena bg-superficie p-4" data-testid="tarjeta-hoy">
+    <section aria-labelledby="titulo-hoy" className="flex w-full flex-col gap-3 rounded-xl border border-borde-sutil bg-superficie p-5" data-testid="tarjeta-hoy">
       <div className="flex items-center justify-between gap-2">
         <h2 id="titulo-hoy" className="inline-flex items-center gap-2 font-titulo text-cuerpo font-semibold">
           <CalendarClock className="size-5 text-primary" strokeWidth={2} aria-hidden />Hoy
@@ -29,7 +29,7 @@ export async function TarjetaHoy({ ctx }: { ctx: TenantContext }) {
             {g.etiqueta && <h3 className="text-cuerpo-sm font-semibold">{g.etiqueta}</h3>}
             <AhoraDespues ahora={g.ahora} despues={g.despues} hayClasesHoy={g.bloques.length > 0} conSalon={esProfesor} />
             {g.bloques.length > 0 && (
-              <ol className="flex flex-col divide-y rounded-md border">
+              <ol className="flex flex-col divide-y divide-borde-sutil">
                 {g.bloques.map((b) => (
                   <li key={b.id} className={cn("flex flex-wrap items-center gap-x-3 gap-y-1 px-3 py-2 text-cuerpo-sm", b.id === g.ahora?.id && "bg-primary/5")}>
                     <span className="w-24 text-muted-foreground tabular-nums">{rango(b)}</span>
