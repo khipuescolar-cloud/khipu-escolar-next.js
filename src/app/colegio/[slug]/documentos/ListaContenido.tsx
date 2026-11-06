@@ -86,7 +86,7 @@ export function ListaContenido({ items, modo, seleccion, onSeleccion, onAbrir, a
           </button>
           <div className="flex items-center gap-1 border-t border-borde-sutil py-1 pr-1 pl-3">
             <Checkbox aria-label={`Seleccionar ${item.nombre}`} checked={marcado} onCheckedChange={(v) => marcar(item.id, v === true)} />
-            <div className="min-w-0 flex-1 px-2"><p className="flex items-start gap-1.5 text-sm font-medium"><span className="line-clamp-2 break-words">{item.nombre}</span><Estrella item={item} /></p><p className="truncate text-xs tabular-nums text-muted-foreground">{tipoLegible(item)} · {fecha.format(item.modificado)}</p></div>
+            <div className="min-w-0 flex-1 px-2"><p className="flex items-start gap-1.5 text-sm font-medium"><span className="line-clamp-2 break-words">{item.nombre}</span><Estrella item={item} /></p><p className="truncate text-xs text-muted-foreground">{tipoLegible(item)}</p><p className="truncate text-xs tabular-nums text-muted-foreground">{fecha.format(item.modificado)}</p></div>
             <BotonOpciones item={item} acciones={acciones} alAbrirMovil={onMenuMovil} />
           </div>
         </MenuContextual>;

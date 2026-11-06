@@ -150,7 +150,7 @@ export function DialogoCompartir({ item, onCerrar, personas, salones, esProfesor
   const esBibliotecaCarpeta = item?.ambito === "biblioteca" && item.tipo === "carpeta";
 
   return <Dialog open={!!item} onOpenChange={(v) => { if (!v) onCerrar(); }}>
-    <DialogContent className="sm:max-w-xl" aria-describedby={undefined}>
+    <DialogContent className="grid-cols-[minmax(0,1fr)] sm:max-w-xl" aria-describedby={undefined}>
       <DialogHeader>
         <DialogTitle className="truncate">Compartir «{item?.nombre}»</DialogTitle>
         <DialogDescription>Elige quién puede ver o editar. El enlace no da acceso por sí solo.</DialogDescription>

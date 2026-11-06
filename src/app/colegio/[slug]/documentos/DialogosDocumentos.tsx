@@ -30,7 +30,7 @@ export function DialogoRenombrar({ item, onCerrar, onListo }: { item: Item | nul
     if (r.ok) { toast.success("Nombre actualizado."); onListo(); onCerrar(); } else setError(r.error);
   };
   return <Dialog open={!!item} onOpenChange={(v) => { if (!v) onCerrar(); }}>
-    <DialogContent>
+    <DialogContent className="grid-cols-[minmax(0,1fr)]">
       <form onSubmit={enviar} className="grid gap-4">
         <DialogHeader><DialogTitle>Renombrar</DialogTitle><DialogDescription>El nombre debe ser único en esta ubicación.</DialogDescription></DialogHeader>
         <label className="block space-y-1.5 text-sm font-medium">Nombre<Input ref={entrada} value={nombre} onChange={(e) => setNombre(e.target.value)} maxLength={item?.tipo === "carpeta" ? 80 : 150} required aria-invalid={!!error} /></label>
@@ -67,7 +67,7 @@ export function DialogoMover({ items, opciones, onCerrar, onListo }: { items: It
   };
   const opcion = (id: string | null, etiqueta: string, nivel: number, Icon: typeof Folder) => <li key={id ?? "raiz"}><button type="button" role="radio" aria-checked={destino === id} disabled={actual === id} onClick={() => setDestino(id)} style={{ paddingLeft: `${0.75 + nivel * 1.25}rem` }} className={cn("flex min-h-11 w-full items-center gap-2 rounded-md pr-3 text-left text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50", destino === id ? "bg-sec-suave font-semibold text-sec-tinta" : "hover:bg-accent")}><Icon className="size-4 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden /><span className="truncate">{etiqueta}</span>{actual === id && <span className="ml-auto text-xs text-muted-foreground">Ubicación actual</span>}</button></li>;
   return <Dialog open={items.length > 0} onOpenChange={(v) => { if (!v) onCerrar(); }}>
-    <DialogContent>
+    <DialogContent className="grid-cols-[minmax(0,1fr)]">
       <DialogHeader><DialogTitle>Mover {items.length === 1 ? `«${items[0].nombre}»` : `${items.length} elementos`}</DialogTitle><DialogDescription>Elige la carpeta de destino.</DialogDescription></DialogHeader>
       {ambitos.size > 1 ? <p role="alert" className="text-sm text-destructive">Elige elementos de una sola sección (Mi unidad o Biblioteca) para moverlos juntos.</p> : <ul role="radiogroup" aria-label="Carpeta de destino" className="max-h-[45dvh] space-y-0.5 overflow-y-auto rounded-lg border border-borde-sutil p-1">
         {opcion(null, ambito === "unidad" ? "Mi unidad" : "Biblioteca del colegio", 0, FolderOpen)}
@@ -85,7 +85,7 @@ export function VistaPrevia({ item, onCerrar }: { item: Item | null; onCerrar: (
   const pdf = a?.mimeType === "application/pdf";
   const imagen = a?.mimeType.startsWith("image/");
   return <Dialog open={!!item} onOpenChange={(v) => { if (!v) onCerrar(); }}>
-    <DialogContent className="sm:max-w-4xl" aria-describedby={undefined}>
+    <DialogContent className="grid-cols-[minmax(0,1fr)] sm:max-w-4xl" aria-describedby={undefined}>
       <DialogHeader><DialogTitle className="truncate">{item?.nombre}</DialogTitle><DialogDescription>{item && `${tipoLegible(item)}${item.tamano !== null ? ` · ${formatoTamano(item.tamano)}` : ""}`}</DialogDescription></DialogHeader>
       {item && a && (pdf ? <iframe title={`Vista previa de ${item.nombre}`} src={`/archivos/${a.id}?vista=1`} className="h-[62dvh] w-full rounded-lg border border-borde-sutil bg-background" />
         : imagen ? <Image unoptimized alt={item.nombre} src={`/archivos/${a.id}?vista=1`} width={1000} height={700} className="max-h-[62dvh] w-full rounded-lg border border-borde-sutil bg-superficie-2 object-contain" />

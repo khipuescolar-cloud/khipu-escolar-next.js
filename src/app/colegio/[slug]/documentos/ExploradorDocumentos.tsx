@@ -137,7 +137,7 @@ export function ExploradorDocumentos({ archivoInicial, contenido, vista, carpeta
           {contenido.ruta.map((r, i) => <span key={r.id} className="inline-flex min-w-0 items-center gap-0.5"><ChevronRight className="size-4 shrink-0 text-muted-foreground" aria-hidden /><Link href={`${rutaBase}&carpeta=${r.id}`} aria-current={i === contenido.ruta.length - 1 ? "page" : undefined} className={cn("inline-flex min-h-9 max-w-48 items-center truncate rounded-md px-2", i === contenido.ruta.length - 1 ? "font-medium text-foreground" : "text-primary hover:underline")}>{r.nombre}</Link></span>)}
         </nav>
         <div className="mb-4 flex flex-wrap items-center gap-2">
-          <form method="get" action="/documentos" role="search" className="relative min-w-0 flex-1 basis-56"><input type="hidden" name="vista" value={vista} />{carpetaId && <input type="hidden" name="carpeta" value={carpetaId} />}
+          <form method="get" action="/documentos" role="search" className="relative min-w-0 flex-1 basis-full sm:basis-56"><input type="hidden" name="vista" value={vista} />{carpetaId && <input type="hidden" name="carpeta" value={carpetaId} />}
             <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" strokeWidth={2} aria-hidden />
             <Input type="search" name="q" defaultValue={q} aria-label="Buscar por nombre" placeholder="Buscar por nombre" className="pl-9" />
           </form>
