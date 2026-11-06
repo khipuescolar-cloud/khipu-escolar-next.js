@@ -13,8 +13,8 @@ export function hoyEnZona(zona: string, ahora = new Date()): string {
 
 export type ResumenSalon = { salonId: string; salon: string; llego: number; tarde: number; falta: number; problema: number; sinRegistrar: number; total: number };
 
-export async function resumenAsistenciaHoy(ctx: TenantContext): Promise<ResumenSalon[]> {
-  const fecha = new Date(`${hoyEnZona(ctx.tenant.zonaHoraria)}T00:00:00.000Z`);
+export async function resumenAsistenciaHoy(ctx: TenantContext, ahora = new Date()): Promise<ResumenSalon[]> {
+  const fecha = new Date(`${hoyEnZona(ctx.tenant.zonaHoraria, ahora)}T00:00:00.000Z`);
   const [salones, asistencias] = await Promise.all([
     ctx.db.salon.findMany({ where: whereSalonActivo, orderBy: { nombre: "asc" }, select: { id: true, nombre: true, alumnos: { where: { estado: "activo" }, select: { id: true } } } }),
     ctx.db.asistencia.findMany({ where: { fecha, ambito: "dia" }, select: { alumnoId: true, ambito: true, estado: true, hora: true } }),
