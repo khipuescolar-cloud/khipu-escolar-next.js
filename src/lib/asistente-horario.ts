@@ -83,6 +83,9 @@ export type Analisis = {
   pasada: boolean;
 };
 
+/** Solo hace falta confirmar de nuevo si la franja tiene choques que aún no se aceptaron. */
+export const requiereConfirmarChoque = (analisis: Analisis, confirmado: boolean) => analisis.choques.length > 0 && !confirmado;
+
 /** Quién está ocupado en la franja elegida, y si cae fuera de la jornada, en día no lectivo o en el pasado. */
 export function analizar(datos: DatosHorario, sel: Seleccion, duracion: number): Analisis {
   const fin = sel.inicio + duracion;

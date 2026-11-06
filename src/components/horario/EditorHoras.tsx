@@ -57,7 +57,7 @@ export function EditorHoras({ plantillaNombre, periodos, accion }: { plantillaNo
           <SheetTitle>Horas del día · {plantillaNombre}</SheetTitle>
           <SheetDescription>Las comparten todos los salones con la plantilla «{plantillaNombre}». Si quitas una hora o la vuelves recreo, sus casilleros se vacían.</SheetDescription>
         </SheetHeader>
-        <form action={enviar} className="flex flex-col gap-3 px-4 pb-4">
+        <form action={enviar} className="flex flex-col gap-3 px-4">
           <input type="hidden" name="periodos" value={JSON.stringify(filas.map((f) => ({ id: f.id, nombre: f.nombre, horaInicio: f.horaInicio, horaFin: f.horaFin, tipo: f.tipo })))} />
           <ul className="flex flex-col gap-3">
             {filas.map((f, i) => (
@@ -99,7 +99,7 @@ export function EditorHoras({ plantillaNombre, periodos, accion }: { plantillaNo
             <Plus strokeWidth={2} aria-hidden />Agregar hora
           </button>
           {estado && !estado.ok && <Alerta tipo="error">{estado.error}</Alerta>}
-          <SheetFooter className="px-0">
+          <SheetFooter className="-mx-4">
             <button type="submit" disabled={pendiente} className={buttonVariants()}>
               {pendiente && <Loader2 className="animate-spin motion-reduce:animate-none" strokeWidth={2} aria-hidden />}Guardar horas
             </button>

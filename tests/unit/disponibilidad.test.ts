@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { instanteEnZona } from "@/lib/dias-habiles";
-import { analizar, encajar, libresParaTodos, limitar, primerHueco, rangoVisible, semanaDe, siguienteMarca, textoChoques, type DatosHorario } from "@/lib/asistente-horario";
+import { analizar, encajar, libresParaTodos, limitar, primerHueco, rangoVisible, requiereConfirmarChoque, semanaDe, siguienteMarca, textoChoques, type DatosHorario } from "@/lib/asistente-horario";
 import {
   bloquesPorDia, calcularDisponibilidad, celdasDelDia, contiene, estadoCelda, etiquetaParaTercero, fechasEntre, franjas, fusionar, intersectar, intersectarVarios,
   rangosNoLectivos, restar, ventanasLaborales, type Rango,
@@ -174,6 +174,16 @@ describe("paso Horario del asistente (asistente-horario)", () => {
     expect(textoChoques(a.choquesRequeridos)).toBe("Choca con: Rocío (Clase)");
     // Tocarse en el borde no es choque.
     expect(analizar(datos, { fecha: FECHA, inicio: 11 * 60 }, 30).choques).toEqual([]);
+  });
+
+  it("pide confirmación para choques requeridos u opcionales, salvo si ya se aceptaron", () => {
+    const clase = analizar(datos, { fecha: FECHA, inicio: 10 * 60 }, 30);
+    const opcional = analizar(datos, { fecha: FECHA, inicio: 12 * 60 }, 30);
+    const libre = analizar(datos, { fecha: FECHA, inicio: 11 * 60 }, 30);
+    expect(requiereConfirmarChoque(clase, false)).toBe(true);
+    expect(requiereConfirmarChoque(opcional, false)).toBe(true);
+    expect(requiereConfirmarChoque(clase, true)).toBe(false);
+    expect(requiereConfirmarChoque(libre, false)).toBe(false);
   });
 
   it("opcional ocupado, fuera de jornada, no lectivo y franja pasada", () => {
