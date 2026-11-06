@@ -1,12 +1,12 @@
 "use client";
 
-import { Lock } from "lucide-react";
+import { Lock, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import {
   Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu,
-  SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarRail, SidebarTrigger, useSidebar,
+  SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarRail, useSidebar,
 } from "@/components/ui/sidebar";
 import { rutaActiva } from "@/lib/navegacion";
 import { cn } from "@/lib/utils";
@@ -23,6 +23,27 @@ const BOTON =
   "data-active:bg-sec-suave data-active:font-semibold data-active:text-sec-tinta data-active:hover:bg-sec-suave data-active:hover:text-sec-tinta " +
   "group-data-[collapsible=icon]:pl-2!";
 
+/** Botón de colapsar: círculo discreto sobrepuesto al borde de la barra, a media altura de la cabecera (solo escritorio). */
+function BotonColapsar() {
+  const { state, toggleSidebar } = useSidebar();
+  const colapsada = state === "collapsed";
+  const Icono = colapsada ? PanelLeftOpen : PanelLeftClose;
+  return (
+    <button
+      type="button"
+      onClick={toggleSidebar}
+      aria-label={colapsada ? "Expandir menú" : "Contraer menú"}
+      aria-expanded={!colapsada}
+      aria-keyshortcuts="Control+B Meta+B"
+      title={colapsada ? "Expandir menú (Ctrl+B)" : "Contraer menú (Ctrl+B)"}
+      // Área táctil de 40 px (after) alrededor del círculo visible de 28 px.
+      className="group/colapsar absolute top-1/2 -right-3.5 z-30 group-data-[collapsible=icon]:-right-6 hidden size-7 -translate-y-1/2 items-center justify-center rounded-full border border-sidebar-border bg-superficie text-pizarra opacity-70 transition-[opacity,color,border-color,background-color,scale] duration-150 after:absolute after:-inset-1.5 after:content-[''] hover:border-pizarra/50 hover:bg-superficie hover:text-foreground hover:opacity-100 focus-visible:opacity-100 active:scale-95 motion-reduce:active:scale-100 md:flex"
+    >
+      <Icono className="size-4" strokeWidth={2} aria-hidden />
+    </button>
+  );
+}
+
 export function BarraLateral({ cabecera, grupos, pie }: { cabecera: ReactNode; grupos: GrupoNavResuelto[]; pie: ReactNode }) {
   const pathname = usePathname();
   const { isMobile, setOpenMobile } = useSidebar();
@@ -31,7 +52,10 @@ export function BarraLateral({ cabecera, grupos, pie }: { cabecera: ReactNode; g
 
   return (
     <Sidebar collapsible="icon" aria-label="Navegación principal" className="h-svh!">
-      <SidebarHeader className="border-b border-sidebar-border px-3 py-4">{cabecera}</SidebarHeader>
+      <SidebarHeader className="relative border-b border-sidebar-border px-3 py-4">
+        {cabecera}
+        <BotonColapsar />
+      </SidebarHeader>
       <SidebarContent className="gap-1 py-3">
         {grupos.map((grupo, i) => (
           <SidebarGroup key={grupo.titulo ?? i} data-seccion={grupo.seccion} className="py-1.5">
@@ -92,7 +116,6 @@ export function BarraLateral({ cabecera, grupos, pie }: { cabecera: ReactNode; g
         ))}
       </SidebarContent>
       <SidebarFooter className="border-t border-sidebar-border py-3">
-        <SidebarTrigger className="hidden size-9 self-end text-sidebar-foreground focus-visible:ring-2 focus-visible:ring-sidebar-ring md:inline-flex group-data-[collapsible=icon]:self-center" aria-label="Colapsar o expandir el menú" />
         {pie}
       </SidebarFooter>
       <SidebarRail />

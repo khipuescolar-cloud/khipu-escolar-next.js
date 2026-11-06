@@ -16,7 +16,7 @@ export function MenuMovil({ anclas }: { anclas: { href: string; texto: string }[
       <SheetTrigger render={<Button variant="ghost" size="icon" className="size-11 lg:hidden" aria-label="Abrir menú" />}>
         <Menu className="size-6" strokeWidth={2} aria-hidden />
       </SheetTrigger>
-      <SheetContent side="right" className="w-[86vw] max-w-sm gap-0 bg-background p-0">
+      <SheetContent side="right" movil="lado" className="w-[86vw] max-w-sm gap-0 bg-background p-0">
         <SheetHeader className="border-b border-arena px-5 py-4">
           <SheetTitle className="font-heading text-titulo-2">Menú</SheetTitle>
           <SheetDescription className="sr-only">Secciones de la página de Khipu Escolar</SheetDescription>
