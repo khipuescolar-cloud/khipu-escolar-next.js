@@ -1,14 +1,16 @@
 # 18 · Sistema de diseño (tema, colores, formas y estilos)
 
-> Dirección visual vigente de la fase 1: [`DESIGN.md`](../DESIGN.md). Este documento conserva las reglas de marca y funcionalidad; las decisiones de composición, densidad, superficies y anti patrones se detallan allí. El inicio usa resumen del día primero y accesos compactos por grupo. Los componentes base comparten tokens semánticos cálidos y la navegación activa usa fondo índigo tenue.
+> Dirección visual vigente: [`DESIGN.md`](../DESIGN.md) («un khipu del día»). Este documento conserva las reglas de marca y funcionalidad; composición, motivo, color por sección y anti patrones se detallan allí.
 
-**Componentes base:** botones y campos usan controles de al menos 44 px en su tamaño normal; tarjetas, tablas, diálogos, avisos y estados vacíos tienen superficies y divisores semánticos. `EncabezadoPagina` acepta migas y resumen opcionales. `NavegacionPildoras` usa una línea activa en lugar de una fila de píldoras rellenas. `EstadoVacio` acepta Nudito solo para situaciones benignas.
+**Color por sección:** cada grupo del menú (Día a día, Comunicación, Académico, Colegio) tiene una cuerda de marca (turquesa, cochinilla, maíz, índigo cielo) con cuatro tokens: `nudo`, `trazo`, `suave` y `tinta` (`--dia-*`, `--comunicacion-*`, `--academico-*`, `--colegio-*`). Un contenedor con `data-seccion` reasigna `--sec-*` (`bg-sec-suave`, `text-sec-tinta`, `text-sec-trazo`, `bg-sec-nudo`); `ZonaSeccion` lo pone según la ruta activa. Contraste AA verificado en DESIGN.md.
 
-**Navegación:** se conservan los grupos, rutas y permisos de `src/lib/navegacion.ts`. La barra lateral distingue el ítem activo con fondo índigo suave y texto de alto contraste, separa los grupos por tipografía y mantiene el colegio arriba y la cuenta abajo. En móvil, la cabecera incluye el nombre Khipu Escolar y el menú conserva su zona táctil.
+**Componentes base:** botones y campos usan controles de al menos 44 px en su tamaño normal; tarjetas, tablas, diálogos, avisos y estados vacíos tienen superficies y divisores semánticos. `EncabezadoPagina` acepta migas, resumen y `seccion` (migas «Inicio › Sección» con su nudo) y cierra siempre con la cuerda de la sección (`CuerdaSeccion`). `NavegacionPildoras` marca la pestaña activa con la línea y la tinta de la sección. `EstadoVacio` acepta Nudito solo para situaciones benignas; su ícono toma el trazo de la sección.
 
-**Inicio:** abre con horario disponible, mensajes por leer y, para dirección, una muestra de hasta cinco salones que requieren atención con acceso al reporte completo. Los módulos existentes se conservan como enlaces compactos por grupo. Nudito saluda sin comunicar incidencias ni errores.
+**Navegación:** se conservan los grupos, rutas y permisos de `src/lib/navegacion.ts`. La barra lateral va sobre `papel-menu`; cada grupo es una cuerda colgante con su nudo y rótulo en la tinta de la sección, íconos en el trazo de la sección, e ítem activo con nudo sobre la cuerda, fondo suave y texto en tinta de su sección. Contadores en píldora sólida. Los ítems bloqueados por plan muestran candado y el plan en su nombre accesible y tooltip. Colapsada: íconos con tooltip. En móvil, la cabecera incluye el nombre Khipu Escolar y el menú conserva su zona táctil.
 
-- **Estado:** implementado · alineado al manual de marca (2026-10-28)
+**Inicio (tablero «lo que te toca hoy»):** reemplaza el directorio de accesos (el menú ya navega). Franja de saludo con fecha y hora del colegio, frase con el número de pendientes, Nudito con frase benigna según la hora y cuerdas derivadas de `patron-khipu.svg`; dirección ve además su plan. Debajo, «Lo que te toca hoy»: un nudo por pendiente con su cantidad, su sección y su acción, calculado en `src/lib/server/inicio-tablero.ts` con el alcance de cada rol: profesor (listas de hoy sin pasar —la del día si es tutor y las de sus cursos con clase hoy—, justificaciones por revisar, mensajes sin leer, entregas por revisar, evaluaciones programadas con fecha cumplida, solicitudes de reunión por confirmar, invitaciones por responder, notificaciones); dirección (salones sin asistencia registrada, justificaciones, avisos no entregados, reuniones) más «Asistencia de hoy» del colegio con los salones que requieren atención; secretaría (avisos, permisos, incidencias); familia («Llegada de hoy» de cada hijo, invitaciones por responder, tareas de la semana, mensajes y notificaciones); alumno (tareas de la semana y «Practicar con Nudito» si su colegio tiene el tutor); portería («Abrir escáner» e ingresos, salidas y alumnos aún sin ingreso). Permisos vigentes e incidencias del día se muestran como informativos. A la derecha: horario de hoy, avisos de hoy, reuniones de los próximos 7 días y comunicados de la última semana. Sin pendientes, Nudito dice «Todo al día por ahora».
+
+- **Estado:** implementado · alineado al manual de marca (2026-10-28) · mundo khipu y tablero de inicio (2026-11-06)
 - **Plan:** todos
 - **Fuente de verdad del código:** `src/app/globals.css` (tokens), `src/components/ui/*` (shadcn/ui), `src/components/shell/*` (estructura)
 - **Herramientas:** shadcn/ui (estilo `base-nova`, primitivas Base UI), Tailwind CSS v4, `lucide-react`, `next-themes`, `sonner`. Dirección visual definida con la skill *ui-ux-pro-max* (estilo «Minimalism & Swiss»: limpio, funcional, alto contraste, cuadrícula).
@@ -49,12 +51,14 @@ El **manual de marca** entregado por marketing manda sobre esta spec: `docs/marc
 | Token | Claro | Oscuro | Uso |
 |---|---|---|---|
 | `fondo` (`background`) | `#FAF7F2` | `#12141C` | Página. Crema cálido, nunca blanco puro |
-| `superficie` (`card`, `sidebar`) | `#FFFFFF` | `#1A1D28` | Tarjetas, mosaicos, formularios, barra lateral |
+| `superficie` (`card`) | `#FFFFFF` | `#1A1D28` | Tablas, formularios y superficies que contienen una tarea |
+| `papel-menu` (`sidebar`) | `#F4EEE4` | `#161922` | Barra lateral (segunda capa neutra) |
+| `saludo-fondo` | `#FCF0D6` | `#2A2416` | Franja de saludo del inicio |
 | `superficie-2` (`muted`, `secondary`, `accent`) | `#F3F0EA` | `#222636` | Botón secundario, campos deshabilitados, hover de menús |
 | `tinta` (`foreground`) | `#1B1F2A` | `#ECEEF5` | Texto principal |
 | `pizarra` (`muted-foreground`) | `#5B6170` | `#A3A9BA` | Texto secundario, fechas, ayudas, sobretítulos |
 | `arena` (`border`) | `#E4E1DA` | `#2E3345` | Divisiones y bordes de tarjetas (no de controles) |
-| `acento` (`primary`) | `#1E2A78` | `#8C9BFF` | Botón principal y **estados activos** (ítem activo de la barra lateral) |
+| `acento` (`primary`) | `#1E2A78` | `#8C9BFF` | Botón principal y estados activos (el ítem activo del menú usa el color de su sección) |
 | `sobre-acento` | `#FFFFFF` | `#10132A` | Texto sobre `acento` |
 
 ### 3.3 Estados de asistencia (fijos, no cambian por colegio)
@@ -78,7 +82,7 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 | `text-cuerpo` | Inter | 16/24 · 400 | Texto de lectura (por defecto en `body`) |
 | `text-cuerpo-sm` | Inter | 14/20 · 400 | Secundario y descripciones de mosaicos, en `pizarra` |
 | `text-etiqueta` | Inter | 13/16 · 600 | Etiquetas de estado, chips, botones pequeños |
-| `sobretitulo` | Inter | 12/16 · 600 · 0.1em · MAYÚSCULAS · `pizarra` | Rótulos sobre grupos de mosaicos y de la barra lateral («MI DÍA») |
+| `sobretitulo` | Inter | 12/16 · 600 · 0.1em · MAYÚSCULAS · `pizarra` | Rótulos de tablas y metadatos; nunca como etiqueta sobre un título |
 | `text-voz-nudito` | Nunito | 15/22 · 700 | **Solo** burbujas de Nudito |
 
 - El texto de lectura **nunca baja de 14 px** (`text-xs` quedó en 13 px y solo se usa para etiquetas).
@@ -125,7 +129,7 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 - `MarcoPanel` (`src/components/shell/MarcoPanel.tsx`): barra lateral fija en escritorio y cabecera mínima de 48 px solo en móvil. El contenido ocupa el ancho completo; solo el texto corrido y los formularios cortos limitan su ancho. El padding es `p-4` en móvil y `p-8` desde `md`, sin centrado general. Las tablas anchas se desplazan dentro de sus tarjetas; `min-w-0` impide que agranden la página.
 - **Marca y menú:** la cabecera lateral muestra la insignia del colegio o el isotipo oficial de Khipu junto al nombre; en plataforma muestra el isotipo y «Khipu Escolar». El botón para colapsar o expandir vive al pie del lateral, visible también como ícono en el riel colapsado; conserva Ctrl/⌘+B. En móvil una cabecera clara y pegajosa contiene el botón «Abrir menú» de 44 × 44 px y el isotipo. Los avisos de soporte siguen en una franja visible sobre el contenido.
 - **La barra lateral lista solo módulos, nunca acciones.** Crear, importar, exportar o editar algo de un módulo (p. ej. «Nuevo colegio», «Agregar profesor») es un botón en el encabezado de la página del módulo (`EncabezadoPagina` → `acciones`), y la pantalla de esa acción lleva un enlace «← <Módulo>» para volver; el ítem del módulo sigue activo en sus subrutas.
-- **Barra lateral** (`BarraLateral.tsx`): `superficie` con borde `arena`; cabecera con la insignia y el nombre del colegio; grupos con `sobretitulo`; ítem activo relleno en `acento` con texto `sobre-acento`; funciones fuera del plan con candado. Colapsable a íconos (Ctrl/⌘+B) y **drawer** en móvil.
+- **Barra lateral** (`BarraLateral.tsx`): `papel-menu` con borde `borde-sutil`; cabecera con la insignia y el nombre del colegio; cada grupo es una cuerda de su sección (nudo + rótulo en su tinta, íconos en su trazo); ítem activo con nudo, fondo suave y tinta de su sección; funciones fuera del plan con candado. Colapsable a íconos (Ctrl/⌘+B) y **drawer** en móvil.
 - **Páginas públicas** (`(publico)/layout.tsx`): escritorio en dos mitades. Izquierda, portada `indigo`: logotipo blanco, sobretítulo «PARA COLEGIOS DEL PERÚ», lema en `titulo-xl`, la promesa de marca, tres puntos (ícono + título + frase) y las cuerdas de khipu (`CuerdasKhipu`, en los tonos claros de la paleta) colgando hasta el borde inferior, nunca detrás del texto. Derecha, el formulario (máx. 440 px) centrado y un pie «© Khipu Escolar · Perú». En móvil: `logotipo-escolar`, formulario y pie. Siempre en tema claro.
 - **Login:** tarjeta con sobretítulo «INGRESA A TU COLEGIO», `titulo-1` «Entrar», campos de 44 px, contraseña con botón «Mostrar lo escrito» (`CampoClave`), botón principal a todo el ancho y bloque de ayuda «¿Primera vez?».
 
