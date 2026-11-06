@@ -1,19 +1,20 @@
 import { Check, ChevronRight, Clock, HelpCircle, Mail, MailCheck, MailX, School, CircleAlert } from "lucide-react";
 import Link from "next/link";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
-import { Card, CardContent } from "@/components/ui/card";
 import { tieneFeature } from "@/lib/server/plan";
 import { resumenAsistenciaHoy, resumenAvisosHoy } from "@/lib/server/resumen-direccion";
 import type { TenantContext } from "@/lib/server/tenant";
 
 type Dato = { palabra: string; valor: number; Icono: typeof Clock; clase: string };
 
-/** Asistencia de hoy por salón para el inicio de dirección (specs/10): una tarjeta por salón con stat tiles. */
+/** Asistencia de hoy por salón para el inicio de dirección (specs/10): filas fáciles de comparar. */
 export async function ResumenDireccion({ ctx }: { ctx: TenantContext }) {
   const [salones, avisos] = await Promise.all([
     resumenAsistenciaHoy(ctx),
     tieneFeature(ctx, "avisos") ? resumenAvisosHoy(ctx) : Promise.resolve(null),
   ]);
+  const requierenAtencion = salones.filter((s) => s.falta > 0 || s.tarde > 0 || s.problema > 0 || s.sinRegistrar > 0);
+  const visibles = (requierenAtencion.length ? requierenAtencion : salones).slice(0, 5);
   return (
     <>
     <section aria-labelledby="resumen-hoy" className="flex flex-col gap-3">
@@ -21,8 +22,9 @@ export async function ResumenDireccion({ ctx }: { ctx: TenantContext }) {
       {salones.length === 0 ? (
         <EstadoVacio icono={School} titulo="Aún no hay salones creados" descripcion="Crea los grados y salones en Gestión para ver la asistencia del día." />
       ) : (
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {salones.map((s) => {
+        <div>
+        <ul className="divide-y divide-borde-sutil rounded-xl border border-borde-sutil bg-superficie px-4">
+          {visibles.map((s) => {
             const datos: Dato[] = [
               { palabra: "Llegaron", valor: s.llego, Icono: Check, clase: "bg-llego-fondo text-llego" },
               { palabra: "Tarde", valor: s.tarde, Icono: Clock, clase: "bg-tarde-fondo text-tarde" },
@@ -30,29 +32,27 @@ export async function ResumenDireccion({ ctx }: { ctx: TenantContext }) {
               { palabra: "Sin registrar", valor: s.sinRegistrar, Icono: HelpCircle, clase: "bg-muted text-muted-foreground" },
             ];
             return (
-              <li key={s.salonId}>
-                <Card className="h-full gap-3 shadow-none">
-                  <CardContent className="flex flex-col gap-3">
-                    <p className="text-cuerpo font-semibold">
+              <li key={s.salonId} className="flex flex-wrap items-center justify-between gap-3 py-3">
+                    <p className="min-w-40 text-cuerpo-sm font-semibold">
                       {s.salon} <span className="font-sans text-cuerpo-sm font-normal text-muted-foreground">· {s.total} alumnos</span>
                     </p>
-                    <ul className="grid grid-cols-2 gap-2">
+                    <ul className="flex flex-wrap gap-x-4 gap-y-2">
                       {datos.map(({ palabra, valor, Icono, clase }) => (
-                        <li key={palabra} className={`flex flex-col gap-0.5 rounded-lg px-3 py-2 ${clase}`}>
+                        <li key={palabra} className={`inline-flex items-center gap-1 rounded-md px-2 py-1 text-etiqueta ${clase}`}>
                           <span className="inline-flex items-center gap-1 text-etiqueta">
                             <Icono className="size-3.5 shrink-0" strokeWidth={2} aria-hidden /> {palabra}
                           </span>
-                          <span className="font-heading text-titulo-2 leading-none">{valor}</span>
+                          <strong className="tabular-nums">{valor}</strong>
                         </li>
                       ))}
                     </ul>
-                    {s.problema > 0 && <p className="text-etiqueta text-problema">Con aviso: {s.problema}</p>}
-                  </CardContent>
-                </Card>
+                    {s.problema > 0 && <p className="inline-flex items-center gap-1 text-etiqueta text-problema"><CircleAlert className="size-4" strokeWidth={2} aria-hidden />Con aviso: {s.problema}</p>}
               </li>
             );
           })}
         </ul>
+        {salones.length > visibles.length && <Link href="/asistencia/reportes" className="mt-2 inline-flex min-h-10 items-center gap-1 text-cuerpo-sm enlace">Ver todos los salones <ChevronRight className="size-4" strokeWidth={2} aria-hidden /></Link>}
+        </div>
       )}
     </section>
     {avisos && <AvisosDeHoy avisos={avisos} />}
