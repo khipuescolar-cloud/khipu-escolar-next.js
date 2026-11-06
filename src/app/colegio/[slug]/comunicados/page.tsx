@@ -6,8 +6,6 @@ import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Notificar } from "@/components/shell/Notificar";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { listarComunicados, salonesParaPublicar } from "@/lib/server/comunicados";
 import { requireConsentimiento } from "@/lib/server/consentimiento";
 import { requireFeature } from "@/lib/server/plan";
@@ -42,6 +40,7 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
       <Notificar ok={okTexto} error={errorTexto} />
       <EncabezadoPagina
         titulo="Comunicados"
+        seccion="comunicacion"
         descripcion={puedePublicar ? (ctx.rol === "profesor" ? "Publica avisos para tus salones." : "Publica avisos para todo el colegio, un nivel, un grado o un salón.") + " Las familias reciben el aviso al instante." : ctx.rol === "alumno" ? "Los avisos del colegio y de tu salón." : "Los avisos del colegio y de los profesores de tu hijo."}
         acciones={publicar}
       />
@@ -54,47 +53,45 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
           accion={publicar}
         />
       ) : (
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
           {comunicados.map((c) => (
-            <li key={c.id} id={`comunicado-${c.id}`} className="scroll-mt-20 target:[&>*]:ring-2 target:[&>*]:ring-primary/40">
-              <Card>
-                <CardHeader className="gap-3">
-                  <div className="flex flex-wrap items-start justify-between gap-2">
-                    <CardTitle className="text-titulo-2">{c.titulo}</CardTitle>
-                    <Badge variant="secondary"><Users strokeWidth={2} aria-hidden /> <span className="sr-only">Para: </span>{c.audiencia}</Badge>
-                    {c.importante && <Badge variant="outline"><CircleAlert strokeWidth={2} aria-hidden /> Importante</Badge>}
+            <li key={c.id} id={`comunicado-${c.id}`} className="scroll-mt-20 target:bg-sec-suave/50">
+              <article className="flex flex-col gap-3 px-4 py-5 sm:px-6">
+                <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
+                  <h2 className="min-w-0 font-heading text-[18px] leading-6 font-semibold text-balance">{c.titulo}</h2>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-cuerpo-sm">
+                    {c.importante && <span className="inline-flex items-center gap-1 font-semibold text-sec-tinta"><CircleAlert className="size-4" strokeWidth={2} aria-hidden /> Importante</span>}
+                    <span className="inline-flex items-center gap-1 text-muted-foreground"><Users className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> <span className="sr-only">Para: </span>{c.audiencia}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
-                    <Avatar size="sm">
-                      <AvatarFallback className="bg-maiz text-xs font-semibold text-indigo">{iniciales(c.autor)}</AvatarFallback>
-                    </Avatar>
-                    <span>{c.autor} · {fecha.format(c.publicadoAt)}</span>
+                </div>
+                <div className="flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
+                  <Avatar size="sm">
+                    <AvatarFallback className="bg-sec-suave text-xs font-semibold text-sec-tinta">{iniciales(c.autor)}</AvatarFallback>
+                  </Avatar>
+                  <span className="tabular-nums">{c.autor} · {fecha.format(c.publicadoAt)}</span>
+                </div>
+                <p className="max-w-prose whitespace-pre-wrap text-sm leading-relaxed">{c.cuerpo}</p>
+                <ListaAdjuntos adjuntos={c.adjuntos} />
+                {c.editable && (
+                  <div className="flex flex-wrap items-center gap-2 border-t border-borde-sutil pt-4">
+                    <span className="mr-auto flex items-center gap-1.5 text-cuerpo-sm text-muted-foreground">
+                      <Clock className="size-3.5" strokeWidth={2} aria-hidden /> Editable las primeras 24 h
+                    </span>
+                    <DialogoEditar id={c.id} titulo={c.titulo} cuerpo={c.cuerpo} adjuntos={c.adjuntos} />
+                    <BotonConfirmar
+                      etiqueta={<><Trash2 strokeWidth={2} aria-hidden /> Borrar</>}
+                      titulo="¿Borrar este comunicado?"
+                      descripcion="Las familias dejarán de verlo. Esta acción no se puede deshacer."
+                      confirmar="Borrar comunicado"
+                      accion={borrarComunicadoAction}
+                      campos={{ id: c.id }}
+                      peligro
+                      variante="outline"
+                      className="text-destructive"
+                    />
                   </div>
-                </CardHeader>
-                <CardContent className="flex flex-col gap-4">
-                  <p className="max-w-prose whitespace-pre-wrap text-sm leading-relaxed">{c.cuerpo}</p>
-                  <ListaAdjuntos adjuntos={c.adjuntos} />
-                  {c.editable && (
-                    <div className="flex flex-wrap items-center gap-2 border-t pt-4">
-                      <span className="mr-auto flex items-center gap-1.5 text-cuerpo-sm text-muted-foreground">
-                        <Clock className="size-3.5" strokeWidth={2} aria-hidden /> Editable las primeras 24 h
-                      </span>
-                      <DialogoEditar id={c.id} titulo={c.titulo} cuerpo={c.cuerpo} adjuntos={c.adjuntos} />
-                      <BotonConfirmar
-                        etiqueta={<><Trash2 strokeWidth={2} aria-hidden /> Borrar</>}
-                        titulo="¿Borrar este comunicado?"
-                        descripcion="Las familias dejarán de verlo. Esta acción no se puede deshacer."
-                        confirmar="Borrar comunicado"
-                        accion={borrarComunicadoAction}
-                        campos={{ id: c.id }}
-                        peligro
-                        variante="outline"
-                        className="text-destructive"
-                      />
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
+                )}
+              </article>
             </li>
           ))}
         </ul>
