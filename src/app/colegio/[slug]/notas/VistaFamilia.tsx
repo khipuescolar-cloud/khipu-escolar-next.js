@@ -24,7 +24,7 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
   if (!hijo || !periodo) {
     return (
       <div>
-        <EncabezadoPagina titulo="Notas" />
+        <EncabezadoPagina titulo="Notas" seccion="academico" />
         <EstadoVacio icono={ClipboardList} titulo="Aún no hay notas para mostrar" descripcion="Cuando el colegio registre las primeras notas, las verás aquí." />
       </div>
     );
@@ -36,6 +36,7 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
     <div className="flex flex-col gap-5">
       <EncabezadoPagina
         titulo="Notas"
+        seccion="academico"
         descripcion={ctx.rol === "alumno" ? "Así va tu avance en cada competencia." : "Así va el avance de tu hijo o hija en cada competencia."}
         acciones={
           !libretaVisibleParaFamilia(periodo) ? undefined : <Link href={`/libreta?alumno=${hijo.id}&periodo=${periodo.id}`} className={buttonVariants({ variant: "outline" })}>
