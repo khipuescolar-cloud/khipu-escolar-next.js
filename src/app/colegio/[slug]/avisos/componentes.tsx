@@ -1,7 +1,6 @@
 // Piezas compartidas de /avisos y del detalle de un envío (specs/06).
 import { CheckCircle2, Clock, MailX, type LucideIcon } from "lucide-react";
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import type { EstadoAviso, TipoAviso } from "@/generated/prisma/enums";
 
@@ -25,11 +24,20 @@ export const TIPOS = Object.keys(NOMBRE_TIPO) as TipoAviso[];
 
 type TonoIndicador = "neutro" | "bien" | "mal" | "atencion";
 const TONOS: Record<TonoIndicador, string> = {
-  neutro: "bg-primary/10 text-primary",
-  bien: "bg-llego-fondo text-llego",
-  mal: "bg-falta-fondo text-falta",
-  atencion: "bg-tarde-fondo text-tarde",
+  neutro: "text-sec-trazo",
+  bien: "text-llego",
+  mal: "text-falta",
+  atencion: "text-tarde",
 };
+
+/** Cifras hermanas en una sola superficie dividida por líneas finas (sin una tarjeta por cifra). */
+export function PanelIndicadores({ children, ...rest }: { children: React.ReactNode } & React.AriaAttributes) {
+  return (
+    <div {...rest} className="grid grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil lg:grid-cols-3">
+      {children}
+    </div>
+  );
+}
 
 export function Indicador({ icono: Icono, titulo, valor, detalle, tono = "neutro", enlace }: {
   icono: LucideIcon;
@@ -40,19 +48,15 @@ export function Indicador({ icono: Icono, titulo, valor, detalle, tono = "neutro
   enlace?: { href: string; texto: string };
 }) {
   return (
-    <Card size="sm" className="h-full">
-      <CardContent className="flex h-full flex-col gap-2">
-        <div className="flex items-center gap-2">
-          <span className={`flex size-8 shrink-0 items-center justify-center rounded-md ${TONOS[tono]}`}>
-            <Icono className="size-4" strokeWidth={2} aria-hidden />
-          </span>
-          <p className="text-sm font-medium text-muted-foreground">{titulo}</p>
-        </div>
-        <p className="text-titulo-1 tabular-nums">{valor}</p>
-        <p className="text-cuerpo-sm text-muted-foreground">{detalle}</p>
-        {enlace && <Link href={enlace.href} className="mt-auto text-cuerpo-sm enlace">{enlace.texto}</Link>}
-      </CardContent>
-    </Card>
+    <div className="flex flex-col gap-1 bg-superficie p-4">
+      <p className="flex items-center gap-2 text-cuerpo-sm font-medium text-muted-foreground">
+        <Icono className={`size-4 shrink-0 ${TONOS[tono]}`} strokeWidth={2} aria-hidden />
+        {titulo}
+      </p>
+      <p className="font-heading text-titulo-1 tabular-nums">{valor}</p>
+      <p className="text-cuerpo-sm text-muted-foreground">{detalle}</p>
+      {enlace && <Link href={enlace.href} className="mt-auto inline-flex min-h-8 items-center text-cuerpo-sm enlace">{enlace.texto}</Link>}
+    </div>
   );
 }
 
@@ -75,23 +79,21 @@ export type FilaAviso = { id: string; tipo: TipoAviso; destinatario: string; asu
 export function TablaAvisos({ avisos, conTipo = true }: { avisos: FilaAviso[]; conTipo?: boolean }) {
   return (
     <>
-      <ul className="flex flex-col gap-3 md:hidden">
+      <ul className="flex flex-col divide-y divide-borde-sutil border-y border-borde-sutil md:hidden">
         {avisos.map((a) => (
           <li key={a.id}>
-            <Card size="sm">
-              <CardContent className="flex flex-col gap-1.5 text-sm">
+            <div className="flex flex-col gap-1.5 py-3.5 text-cuerpo-sm">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <EstadoEnvio estado={a.estado} />
                   <span className="text-cuerpo-sm text-muted-foreground">{fecha.format(a.createdAt)}</span>
                 </div>
                 <p className="font-medium">{a.asunto}</p>
                 <p className="text-muted-foreground break-all">{a.destinatario}{conTipo && <> · {NOMBRE_TIPO[a.tipo]}</>}</p>
-              </CardContent>
-            </Card>
+            </div>
           </li>
         ))}
       </ul>
-      <Card className="hidden py-0 md:flex">
+      <div className="hidden overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie md:block">
         <Table>
           <TableHeader>
             <TableRow>
@@ -114,7 +116,7 @@ export function TablaAvisos({ avisos, conTipo = true }: { avisos: FilaAviso[]; c
             ))}
           </TableBody>
         </Table>
-      </Card>
+      </div>
     </>
   );
 }

@@ -6,14 +6,13 @@ import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
-import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { formatoDia } from "@/lib/fechas";
 import { panelAvisos, type VistaAvisos } from "@/lib/server/avisos-panel";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cn } from "@/lib/utils";
-import { ESTADOS, Indicador, NOMBRE_TIPO, TablaAvisos, TIPOS, fecha } from "./componentes";
+import { ESTADOS, Indicador, PanelIndicadores, NOMBRE_TIPO, TablaAvisos, TIPOS, fecha } from "./componentes";
 
 export const metadata: Metadata = { title: "Avisos enviados" };
 
@@ -26,7 +25,7 @@ function Pestanas({ vista }: { vista: VistaAvisos }) {
     { valor: "individuales" as const, texto: "Individuales", Icono: UserRound, href: "/avisos?vista=individuales" },
   ];
   return (
-    <nav aria-label="Tipos de envío" className="-mt-2 inline-flex w-fit rounded-md border bg-muted p-0.5">
+    <nav aria-label="Tipos de envío" className="-mt-2 inline-flex w-fit rounded-[10px] bg-superficie-2 p-1">
       {opciones.map(({ valor, texto, Icono, href }) => {
         const activa = vista === valor;
         return (
@@ -35,11 +34,11 @@ function Pestanas({ vista }: { vista: VistaAvisos }) {
             href={href}
             aria-current={activa ? "page" : undefined}
             className={cn(
-              "inline-flex min-h-10 items-center gap-1.5 rounded-[5px] px-4 text-sm font-medium transition-colors",
-              activa ? "bg-card text-foreground shadow-xs" : "text-muted-foreground hover:text-foreground",
+              "inline-flex min-h-11 items-center gap-1.5 rounded-md px-4 text-cuerpo-sm font-medium transition-colors duration-150 motion-reduce:transition-none",
+              activa ? "bg-sec-suave text-sec-tinta" : "text-muted-foreground hover:text-foreground",
             )}
           >
-            <Icono className="size-4" strokeWidth={2} aria-hidden /> {texto}
+            <Icono className={cn("size-4", activa && "text-sec-trazo")} strokeWidth={2} aria-hidden /> {texto}
           </Link>
         );
       })}
@@ -65,7 +64,7 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
 
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina titulo="Avisos enviados" descripcion="Correos y notificaciones que el colegio envió a las familias." />
+      <EncabezadoPagina titulo="Avisos enviados" seccion="dia" descripcion="Correos y notificaciones que el colegio envió a las familias." />
       <Pestanas vista={vista} />
       <p className="-mt-3 text-cuerpo-sm text-muted-foreground">
         {masivos
@@ -73,11 +72,12 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
           : "Avisos a una sola familia: llegadas por portería, una lista con un solo aviso, mensajes, justificaciones, reuniones con una familia e invitaciones."}
       </p>
 
-      <section aria-labelledby="avisos-hoy" className="flex flex-col gap-3">
-        <h2 id="avisos-hoy" className="text-titulo-2">
-          Hoy <span className="text-base font-normal text-muted-foreground">· {formatoDia(new Date())}</span>
+      <section aria-labelledby="avisos-hoy" data-seccion="dia" className="flex flex-col gap-3">
+        <h2 id="avisos-hoy" className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold">
+          <span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />
+          Hoy <span className="font-sans text-cuerpo-sm font-normal text-muted-foreground">· {formatoDia(new Date())}</span>
         </h2>
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
+        <PanelIndicadores>
           <Indicador icono={Mail} titulo="Correos enviados" valor={NUM.format(hoy.correosEnviados)} detalle={`de ${NUM.format(hoy.generados)} avisos generados hoy`} />
           <Indicador
             icono={MailOpen}
@@ -110,7 +110,7 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
             detalle="La familia no tiene correo o apagó ese aviso"
             enlace={hoy.omitidos > 0 ? { href: con("estado=omitido"), texto: "Ver cuáles" } : undefined}
           />
-        </div>
+        </PanelIndicadores>
         {hoy.porTipo.length > 0 && (
           <div className="flex flex-wrap items-center gap-2" aria-label="Avisos de hoy por tipo">
             <span className="text-cuerpo-sm text-muted-foreground">Por tipo:</span>
@@ -118,9 +118,9 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
               <Link
                 key={t.tipo}
                 href={con(`tipo=${t.tipo}`)}
-                className="inline-flex min-h-8 items-center gap-1.5 rounded-pildora bg-muted px-3 text-etiqueta hover:bg-muted/70 focus-visible:outline-2 focus-visible:outline-ring"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-pildora bg-superficie-2 px-3 text-etiqueta transition-colors duration-150 hover:bg-sec-suave hover:text-sec-tinta focus-visible:outline-2 focus-visible:outline-ring motion-reduce:transition-none"
               >
-                <Send className="size-3.5" strokeWidth={2} aria-hidden />
+                <Send className="size-3.5 text-sec-trazo" strokeWidth={2} aria-hidden />
                 {NOMBRE_TIPO[t.tipo]} <span className="tabular-nums font-semibold">{NUM.format(t.total)}</span>
               </Link>
             ))}
@@ -128,7 +128,7 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
         )}
       </section>
 
-      <form method="get" className="grid gap-3 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end">
+      <form method="get" className="grid gap-3 rounded-[14px] border border-borde-sutil bg-superficie p-4 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end">
         {!masivos && <input type="hidden" name="vista" value="individuales" />}
         <Selector etiqueta={masivos ? "Con avisos en estado" : "Estado"} name="estado" defaultValue={estado ?? ""}>
           <option value="">Todos</option>
@@ -140,7 +140,7 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
           {TIPOS.map((t) => <option key={t} value={t}>{NOMBRE_TIPO[t]}</option>)}
         </Selector>
         <Campo etiqueta={masivos ? "Título contiene" : "Correo contiene"} name="q" defaultValue={q ?? ""} />
-        <div className="flex items-center gap-3 sm:col-span-2">
+        <div className="flex items-center gap-3 sm:col-span-2 lg:col-span-1">
           <Boton type="submit" variante="secundario">Filtrar</Boton>
           <Link href={base} className="inline-flex min-h-10 items-center text-cuerpo-sm enlace">Limpiar</Link>
         </div>
@@ -156,11 +156,10 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
           />
         ) : (
           <>
-            <ul className="flex flex-col gap-3 md:hidden">
+            <ul className="flex flex-col divide-y divide-borde-sutil border-y border-borde-sutil md:hidden">
               {envios.map((e) => (
                 <li key={e.id}>
-                  <Card size="sm">
-                    <CardContent className="flex flex-col gap-2 text-sm">
+                  <div className="flex flex-col gap-2 py-3.5 text-cuerpo-sm">
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <span className="font-medium text-muted-foreground">{NOMBRE_TIPO[e.tipo]}</span>
                         <span className="text-cuerpo-sm text-muted-foreground">{fecha.format(e.createdAt)}</span>
@@ -168,12 +167,11 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
                       <Link href={`/avisos/envios/${e.id}`} className="text-cuerpo font-semibold enlace">{e.titulo}</Link>
                       <p className="text-muted-foreground">{e.autor}</p>
                       <ResumenEnvio e={e} />
-                    </CardContent>
-                  </Card>
+                  </div>
                 </li>
               ))}
             </ul>
-            <Card className="hidden py-0 md:flex">
+            <div className="hidden overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie md:block">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -206,7 +204,7 @@ export default async function AvisosPage({ params, searchParams }: PageProps<"/c
                   ))}
                 </TableBody>
               </Table>
-            </Card>
+            </div>
             <p className="text-cuerpo-sm text-muted-foreground">Se muestran los 50 envíos más recientes. Toca un envío para ver el detalle por familia.</p>
           </>
         )

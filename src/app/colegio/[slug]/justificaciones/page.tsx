@@ -8,7 +8,6 @@ import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { buttonVariants } from "@/components/ui/button";
 import { Campo } from "@/components/ui/Campo";
-import { Card, CardContent } from "@/components/ui/card";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { Selector } from "@/components/ui/Selector";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -52,6 +51,7 @@ export default async function JustificacionesPage({ params, searchParams }: Page
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
         titulo="Justificaciones"
+        seccion="dia"
         descripcion={vista === "revisar" ? "Faltas que las familias justificaron y esperan tu respuesta." : "Todas las justificaciones, con su estado y quién las revisó."}
       />
       <Pestanas vista={vista} pendientes={pendientes} />
@@ -67,7 +67,7 @@ function Pestanas({ vista, pendientes }: { vista: "revisar" | "historial"; pendi
     { valor: "historial" as const, texto: "Historial", Icono: History, href: `${RUTA}?vista=historial` },
   ];
   return (
-    <nav aria-label="Vistas de justificaciones" className="-mt-2 inline-flex w-fit rounded-md border bg-muted p-0.5">
+    <nav aria-label="Vistas de justificaciones" className="-mt-2 inline-flex w-fit rounded-[10px] bg-superficie-2 p-1">
       {opciones.map(({ valor, texto, Icono, href }) => {
         const activa = vista === valor;
         return (
@@ -76,11 +76,11 @@ function Pestanas({ vista, pendientes }: { vista: "revisar" | "historial"; pendi
             href={href}
             aria-current={activa ? "page" : undefined}
             className={cn(
-              "inline-flex min-h-10 items-center gap-1.5 rounded-[5px] px-4 text-sm font-medium transition-colors",
-              activa ? "bg-card text-foreground shadow-xs" : "text-muted-foreground hover:text-foreground",
+              "inline-flex min-h-11 items-center gap-1.5 rounded-md px-4 text-cuerpo-sm font-medium transition-colors duration-150 motion-reduce:transition-none",
+              activa ? "bg-sec-suave text-sec-tinta" : "text-muted-foreground hover:text-foreground",
             )}
           >
-            <Icono className="size-4" strokeWidth={2} aria-hidden /> {texto}
+            <Icono className={cn("size-4", activa && "text-sec-trazo")} strokeWidth={2} aria-hidden /> {texto}
             {valor === "revisar" && pendientes > 0 && (
               <span className="ml-0.5 rounded-pildora bg-tarde-fondo px-2 text-etiqueta text-tarde tabular-nums" aria-label={`${pendientes} pendientes`}>{pendientes}</span>
             )}
@@ -110,11 +110,10 @@ function Adjunto({ j, corto = false }: { j: JustificacionVista; corto?: boolean 
   );
 }
 
-/** Tarjeta de una justificación: datos, motivo, adjunto, revisión y, si está pendiente y la ve quien revisa, Aceptar/Rechazar. */
-function Tarjeta({ j, slug, revisa }: { j: JustificacionVista; slug?: string; revisa: boolean }) {
+/** Fila de una justificación: datos, motivo, adjunto, revisión y, si está pendiente y la ve quien revisa, Aceptar/Rechazar. */
+function FilaJustificacion({ j, slug, revisa }: { j: JustificacionVista; slug?: string; revisa: boolean }) {
   return (
-    <Card>
-      <CardContent className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 py-5">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <div>
             <p className="text-cuerpo font-semibold">
@@ -131,27 +130,26 @@ function Tarjeta({ j, slug, revisa }: { j: JustificacionVista; slug?: string; re
         <Adjunto j={j} />
         {j.revisadoPor && <p className="text-sm text-muted-foreground">Revisada por {j.revisadoPor}</p>}
         {j.comentarioRevision && (
-          <p className="rounded-md bg-muted px-3 py-2 text-sm">
+          <p className="rounded-md bg-superficie-2 px-3 py-2 text-cuerpo-sm">
             <span className="font-medium">Comentario del colegio:</span> {j.comentarioRevision}
           </p>
         )}
         {revisa && slug && j.estado === "pendiente" && (
           <RevisionJustificacion revisar={revisarJustificacionAction.bind(null, slug, j.id)} alumno={j.alumno} />
         )}
-      </CardContent>
-    </Card>
+    </div>
   );
 }
 
 function VistaFamilia({ lista }: { lista: JustificacionVista[] }) {
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina titulo="Justificaciones" descripcion="Las justificaciones que enviaste y su estado." />
+      <EncabezadoPagina titulo="Justificaciones" seccion="dia" descripcion="Las justificaciones que enviaste y su estado." />
       {lista.length === 0 ? (
         <EstadoVacio icono={FileText} titulo="Todavía no enviaste justificaciones" descripcion="Si tu hijo falta, podrás justificarlo desde el aviso o desde Asistencia." />
       ) : (
-        <ul className="-mt-2 flex flex-col gap-4">
-          {lista.map((j) => <li key={j.id}><Tarjeta j={j} revisa={false} /></li>)}
+        <ul className="-mt-2 flex flex-col divide-y divide-borde-sutil border-y border-borde-sutil">
+          {lista.map((j) => <li key={j.id}><FilaJustificacion j={j} revisa={false} /></li>)}
         </ul>
       )}
     </div>
@@ -175,8 +173,8 @@ function PorRevisar({ slug, lista }: { slug: string; lista: JustificacionVista[]
       <p className="text-cuerpo-sm text-muted-foreground">
         {lista.length} {lista.length === 1 ? "justificación espera" : "justificaciones esperan"} tu respuesta, de la más antigua a la más reciente.
       </p>
-      <ul className="flex flex-col gap-4">
-        {lista.map((j) => <li key={j.id}><Tarjeta j={j} slug={slug} revisa /></li>)}
+      <ul className="flex flex-col divide-y divide-borde-sutil border-y border-borde-sutil">
+        {lista.map((j) => <li key={j.id}><FilaJustificacion j={j} slug={slug} revisa /></li>)}
       </ul>
     </section>
   );
@@ -203,8 +201,7 @@ async function Historial({ ctx, uno }: { ctx: Parameters<typeof historialJustifi
 
   return (
     <section aria-label="Historial" className="flex flex-col gap-4">
-      <Card>
-        <CardContent>
+      <div className="rounded-[14px] border border-borde-sutil bg-superficie p-4">
           <form method="get" action={RUTA} className="grid gap-3 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)_minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)_auto] lg:items-end">
             <input type="hidden" name="vista" value="historial" />
             <Campo etiqueta="Alumno" name="q" type="search" placeholder="Nombre o apellido" defaultValue={uno("q")} maxLength={80} />
@@ -229,8 +226,7 @@ async function Historial({ ctx, uno }: { ctx: Parameters<typeof historialJustifi
               )}
             </div>
           </form>
-        </CardContent>
-      </Card>
+      </div>
 
       {error && <Alerta tipo="error">{error}</Alerta>}
       {resultado && resultado.total === 0 && (
@@ -246,8 +242,7 @@ async function Historial({ ctx, uno }: { ctx: Parameters<typeof historialJustifi
             {resultado.total} {resultado.total === 1 ? "justificación" : "justificaciones"}
             {resultado.paginas > 1 ? ` · página ${resultado.pagina} de ${resultado.paginas} (${POR_PAGINA_HISTORIAL} por página)` : ""}
           </p>
-          <Card>
-            <CardContent className="p-0">
+          <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -291,8 +286,7 @@ async function Historial({ ctx, uno }: { ctx: Parameters<typeof historialJustifi
                   ))}
                 </TableBody>
               </Table>
-            </CardContent>
-          </Card>
+          </div>
           {resultado.paginas > 1 && <Paginas pagina={resultado.pagina} paginas={resultado.paginas} href={href} />}
         </>
       )}
