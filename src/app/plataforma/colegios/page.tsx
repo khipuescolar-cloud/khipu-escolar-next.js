@@ -1,7 +1,7 @@
 import { Download, Filter, Plus, School, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
@@ -25,7 +25,7 @@ export default async function ReporteColegios({ searchParams }: PageProps<"/plat
 
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Colegios"
         descripcion="Todos los colegios de la plataforma. Asistencia, avisos y apertura de los últimos 7 días."
         acciones={

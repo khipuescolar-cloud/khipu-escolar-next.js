@@ -1,7 +1,7 @@
 import { CalendarClock, Download, FileText, Filter, FlaskConical, Receipt, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Boton } from "@/components/ui/Boton";
 import { buttonVariants } from "@/components/ui/button";
@@ -33,7 +33,7 @@ export default async function Suscripciones({ searchParams }: PageProps<"/plataf
 
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Suscripciones"
         descripcion="Plan, monto y renovación de cada colegio. Los pagos se registran a mano desde la ficha del colegio."
         acciones={
@@ -43,16 +43,16 @@ export default async function Suscripciones({ searchParams }: PageProps<"/plataf
         }
       />
 
-      <section aria-labelledby="resumen-suscripciones" className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <section aria-labelledby="resumen-suscripciones" className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border bg-border lg:grid-cols-4">
         <h2 id="resumen-suscripciones" className="sr-only">Resumen</h2>
         {tiles.map(({ titulo, valor, nota, Icono }) => (
-          <Tarjeta key={titulo} className="flex flex-col gap-1 p-4">
+          <div key={titulo} className="flex min-w-0 flex-col gap-1 bg-card p-4">
             <p className="flex items-center gap-1.5 text-cuerpo-sm font-medium text-muted-foreground">
-              <Icono className="size-4" strokeWidth={2} aria-hidden /> {titulo}
+              <Icono className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> {titulo}
             </p>
-            <p className="font-heading text-titulo-2 tabular-nums">{valor}</p>
+            <p className="font-heading text-titulo-2 font-semibold tabular-nums">{valor}</p>
             <p className="text-cuerpo-sm text-muted-foreground">{nota}</p>
-          </Tarjeta>
+          </div>
         ))}
       </section>
       {resumen.sinSuscripcion > 0 && (

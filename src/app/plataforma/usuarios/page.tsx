@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronRight, KeyRound, Search, ShieldCheck, UserSearch, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
@@ -25,7 +25,7 @@ export default async function Usuarios({ searchParams }: PageProps<"/plataforma/
 
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Usuarios"
         descripcion="Busca a cualquier persona por correo, nombre o documento para darle soporte. No se muestran alumnos, notas ni chats."
       />

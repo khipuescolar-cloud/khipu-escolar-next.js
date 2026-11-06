@@ -1,7 +1,7 @@
 import { ChevronRight, Download, Filter, History, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
@@ -26,7 +26,7 @@ export default async function Auditoria({ searchParams }: PageProps<"/plataforma
 
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Auditoría"
         descripcion="Todo lo que hizo el equipo Khipu en la plataforma. Del más reciente al más antiguo."
         acciones={

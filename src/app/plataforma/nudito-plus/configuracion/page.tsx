@@ -1,7 +1,7 @@
 import { Globe, PauseCircle, Pencil, PlayCircle, Trash2 } from "lucide-react";
 import type { Metadata } from "next";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
@@ -28,7 +28,7 @@ export default async function ConfiguracionNudito({ searchParams }: PageProps<"/
 
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina titulo="Nudito+" descripcion="El texto de autorización para las familias, los topes por alumno y los sitios que Nudito puede recomendar." />
+      <EncabezadoPlataforma titulo="Nudito+" descripcion="El texto de autorización para las familias, los topes por alumno y los sitios que Nudito puede recomendar." />
       <Pestanas actual="/nudito-plus/configuracion" />
       <Flash ok={sp.ok} error={sp.error} />
 

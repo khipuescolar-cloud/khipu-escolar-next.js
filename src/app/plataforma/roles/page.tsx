@@ -1,7 +1,8 @@
 import { RotateCcw } from "lucide-react";
 import type { Metadata } from "next";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
+import { TituloBloque } from "@/app/plataforma/_componentes/TituloBloque";
 import { ICONOS_NAV } from "@/components/shell/iconos";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -21,7 +22,7 @@ export default async function RolesPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Roles y permisos"
         descripcion="Los roles por defecto que tendrá cada colegio y qué módulos ve cada uno. Un cambio aquí rige para todos los colegios."
         acciones={
@@ -40,17 +41,16 @@ export default async function RolesPage() {
       />
 
       <section aria-labelledby="roles" className="flex flex-col gap-3">
-        <h2 id="roles" className="text-titulo-2">Roles de cada colegio</h2>
-        <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <TituloBloque id="roles">Roles de cada colegio</TituloBloque>
+        <ul className="divide-y overflow-hidden rounded-xl border bg-card">
           {ROLES.map((r) => {
             const visibles = MODULOS.filter((m) => matriz[r][m] === "habilitado" || matriz[r][m] === "esencial").length;
             return (
               <li key={r}>
-                <Tarjeta className="flex h-full flex-col gap-2">
-                  <h3 className="text-cuerpo font-semibold">{INFO_ROL[r].nombre}</h3>
-                  <p className="text-cuerpo-sm text-muted-foreground">{INFO_ROL[r].descripcion}</p>
-                  <p className="mt-auto text-cuerpo-sm">{visibles === 1 ? "1 módulo habilitado" : `${visibles} módulos habilitados`}</p>
-                </Tarjeta>
+                <div className="flex flex-col gap-1 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+                  <div><h3 className="font-semibold">{INFO_ROL[r].nombre}</h3><p className="text-cuerpo-sm text-muted-foreground">{INFO_ROL[r].descripcion}</p></div>
+                  <p className="shrink-0 text-cuerpo-sm tabular-nums">{visibles === 1 ? "1 módulo habilitado" : `${visibles} módulos habilitados`}</p>
+                </div>
               </li>
             );
           })}
@@ -59,7 +59,7 @@ export default async function RolesPage() {
 
       <section aria-labelledby="matriz-roles" className="flex flex-col gap-3">
         <div>
-          <h2 id="matriz-roles" className="text-titulo-2">Módulos por rol</h2>
+          <TituloBloque id="matriz-roles">Módulos por rol</TituloBloque>
           <p className="text-cuerpo-sm text-muted-foreground">
             «No disponible» significa que el módulo no tiene pantallas para ese rol (p. ej. el alumno no usa Mensajes). El plan de cada colegio sigue mandando: un rol solo ve los módulos que su colegio tiene.
           </p>
@@ -82,7 +82,7 @@ export default async function RolesPage() {
                   <TableRow key={m} data-testid={`rol-modulo-${m}`}>
                     <TableCell className="pl-4">
                       <span className="inline-flex items-center gap-2 font-semibold">
-                        <Icono className="size-4 text-primary" strokeWidth={2} aria-hidden /> {info.nombre}
+                        <Icono className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> {info.nombre}
                       </span>
                     </TableCell>
                     {ROLES.map((r) => (

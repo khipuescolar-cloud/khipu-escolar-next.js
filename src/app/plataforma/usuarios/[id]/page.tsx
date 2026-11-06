@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { nombreRol } from "@/lib/roles";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
@@ -25,7 +25,7 @@ export default async function FichaUsuario({ params }: PageProps<"/plataforma/us
   return (
     <div className="flex flex-col gap-6">
       <Link href="/usuarios" className="enlace inline-flex w-fit items-center gap-1 text-cuerpo-sm"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Usuarios</Link>
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo={nombre}
         descripcion={u.email}
         acciones={

@@ -1,7 +1,7 @@
 import { CheckCircle2, PauseCircle, UsersRound } from "lucide-react";
 import type { Metadata } from "next";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -18,7 +18,7 @@ export default async function EquipoKhipu() {
   const equipo = await listarEquipo(admin);
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Equipo Khipu"
         descripcion="Las personas con acceso de super administrador. Nunca ven chats, notas ni datos personales de alumnos."
         acciones={<DialogoAgregarMiembro accion={agregarMiembroAction} />}

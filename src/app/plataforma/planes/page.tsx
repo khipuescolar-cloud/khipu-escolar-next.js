@@ -1,6 +1,7 @@
 import { CheckCircle2, CircleOff, School } from "lucide-react";
 import type { Metadata } from "next";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
+import { TituloBloque } from "@/app/plataforma/_componentes/TituloBloque";
 import { ICONOS_NAV } from "@/components/shell/iconos";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -32,21 +33,20 @@ export default async function PlanesPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Planes y módulos"
         descripcion="Lo que ofrece cada plan. Los cambios rigen para todos los colegios del plan en menos de un minuto; los ajustes por colegio se hacen en su ficha."
       />
 
       <section aria-labelledby="planes" className="flex flex-col gap-3">
-        <h2 id="planes" className="text-titulo-2">Planes</h2>
-        <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <TituloBloque id="planes">Planes</TituloBloque>
+        <ul className="divide-y overflow-hidden rounded-xl border bg-card">
           {planes.map((p) => (
             <li key={p.plan}>
-              <Tarjeta className="flex h-full flex-col gap-3" data-testid={`plan-${p.plan}`}>
+              <div className="flex flex-col gap-3 p-4 sm:p-5" data-testid={`plan-${p.plan}`}>
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <p className="sobretitulo">{p.plan}</p>
-                    <h3 className="text-titulo-2">{p.nombre}</h3>
+                    <h3 className="font-heading text-lg font-semibold">{p.nombre}</h3>
                   </div>
                   {p.activo ? (
                     <span className="inline-flex items-center gap-1 rounded-pildora bg-llego-fondo px-2 py-0.5 text-etiqueta text-llego">
@@ -59,7 +59,7 @@ export default async function PlanesPage() {
                   )}
                 </div>
                 {p.descripcion && <p className="text-cuerpo-sm text-muted-foreground">{p.descripcion}</p>}
-                <dl className="grid grid-cols-2 gap-3 text-cuerpo-sm">
+                <dl className="grid grid-cols-2 gap-3 text-cuerpo-sm md:grid-cols-4">
                   <Dato titulo="Por alumno al mes" valor={p.precioPorAlumno === null ? "A convenir" : soles.format(p.precioPorAlumno)} />
                   <Dato titulo="Mínimo mensual" valor={p.precioMinimoMensual === null ? "—" : soles.format(p.precioMinimoMensual)} />
                   <Dato titulo="Tope de alumnos" valor={p.maxAlumnos === null ? "Sin tope" : entero.format(p.maxAlumnos)} />
@@ -78,7 +78,7 @@ export default async function PlanesPage() {
                     accion={editarPlanAction}
                   />
                 </div>
-              </Tarjeta>
+              </div>
             </li>
           ))}
         </ul>
@@ -86,7 +86,7 @@ export default async function PlanesPage() {
 
       <section aria-labelledby="matriz" className="flex flex-col gap-3">
         <div>
-          <h2 id="matriz" className="text-titulo-2">Módulos por plan</h2>
+          <TituloBloque id="matriz">Módulos por plan</TituloBloque>
           <p className="text-cuerpo-sm text-muted-foreground">
             Marca qué módulos incluye cada plan. Gestión es esencial y está en todos. Quitar un módulo que usan colegios pide confirmación.
           </p>
@@ -109,9 +109,7 @@ export default async function PlanesPage() {
                   <TableRow key={m} data-testid={`fila-modulo-${m}`}>
                     <TableCell className="max-w-80 pl-4 whitespace-normal">
                       <div className="flex items-start gap-3">
-                        <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-md bg-superficie-2 text-primary">
-                          <Icono className="size-4" strokeWidth={2} aria-hidden />
-                        </span>
+                        <Icono className="mt-0.5 size-4 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
                         <div className="min-w-0">
                           <p className="font-semibold">{info.nombre}</p>
                           <p className="text-cuerpo-sm text-muted-foreground">{info.descripcion}</p>

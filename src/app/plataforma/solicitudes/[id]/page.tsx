@@ -2,7 +2,7 @@ import { ArrowLeft, ExternalLink, School, Trash2, UserPlus } from "lucide-react"
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { buttonVariants } from "@/components/ui/button";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { NOMBRE_PLAN } from "@/lib/planes";
@@ -38,7 +38,7 @@ export default async function DetalleSolicitud({ params }: PageProps<"/plataform
       <Link href="/solicitudes" className="enlace mb-2 inline-flex min-h-10 items-center gap-1 self-start text-cuerpo-sm font-semibold">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Solicitudes de demo
       </Link>
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo={s.colegio}
         descripcion={<>Recibida el {fecha.format(s.createdAt)}. <InsigniaEstadoSolicitud estado={s.estado} className="ml-1 align-middle" /></>}
         acciones={

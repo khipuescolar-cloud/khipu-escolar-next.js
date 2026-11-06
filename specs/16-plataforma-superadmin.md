@@ -21,6 +21,7 @@ Que el equipo de Khipu cree colegios (tenants), los monitoree y gestione su cicl
 
 ## Flujos
 ### Vista principal (`/`)
+- La interfaz abre con «Requiere atención»: avisos retrasados, atascados o con error y rebotes/quejas, con acceso a monitoreo; enlaces a pagos y mesa de ayuda. Las cifras hermanas comparten una superficie dividida, y los colegios aparecen en filas con divisores. El encabezado usa la cuerda Colegio y la miga Inicio vuelve al panel del equipo Khipu.
 - KPIs globales:
   - colegios por estado y plan;
   - alumnos activos;

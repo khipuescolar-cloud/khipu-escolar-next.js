@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { licenciasFamiliaresNudito } from "@/lib/planes";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
@@ -33,7 +33,7 @@ export default async function NuevaLicencia({ searchParams }: PageProps<"/plataf
       <Link href="/nudito-plus/licencias" className="enlace inline-flex w-fit items-center gap-1 text-cuerpo-sm">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Licencias
       </Link>
-      <EncabezadoPagina titulo="Licencia de cortesía o prueba" descripcion="Sin pago. Solo para alumnos activos de colegios con Khipu Pro. El motivo queda en la auditoría." />
+      <EncabezadoPlataforma titulo="Licencia de cortesía o prueba" descripcion="Sin pago. Solo para alumnos activos de colegios con Khipu Pro. El motivo queda en la auditoría." />
       <Flash ok={sp.ok} error={sp.error} />
 
       <Tarjeta>

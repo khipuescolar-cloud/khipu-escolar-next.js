@@ -1,18 +1,17 @@
-import { AlertTriangle, ChevronRight, Inbox, MailOpen, Plus, School, Search, Send, UserCheck, Users } from "lucide-react";
+import { AlertTriangle, ChevronRight, Inbox, MailOpen, Plus, School, Search, Send, UserCheck, Users, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Boton } from "@/components/ui/Boton";
 import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import type { EstadoTenant, Plan } from "@/generated/prisma/enums";
 import { nombresDePlanes } from "@/lib/server/modulos";
 import { META_APERTURA, metricasPlataforma, reporteColegios, requireAdminPlataforma, serieDiariaPlataforma } from "@/lib/server/plataforma";
-import { cn } from "@/lib/utils";
 import { GraficoBarras, GraficoDiario } from "./_componentes/Graficos";
 import { StatTile, Semaforo } from "./_componentes/StatTile";
+import { TituloBloque } from "./_componentes/TituloBloque";
 import { EstadoColegio, NOMBRE_ESTADO, PlanColegio, porcentaje } from "./EstadoColegio";
 
 export const metadata: Metadata = { title: "Vista principal" };
@@ -35,9 +34,9 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
 
   return (
     <div className="flex flex-col gap-8">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Vista principal"
-        descripcion="Métricas agregadas de todos los colegios. Sin datos de alumnos, notas ni chats."
+        descripcion="Operación de los colegios y avisos que necesitan seguimiento."
         acciones={
           <Link href="/colegios/nuevo" className={buttonVariants({ variant: "default" })}>
             <Plus strokeWidth={2} aria-hidden /> Nuevo colegio
@@ -45,9 +44,27 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
         }
       />
 
-      <section aria-labelledby="kpis" className="-mt-2 flex flex-col gap-3">
-        <h2 id="kpis" className="sr-only">Indicadores</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section aria-labelledby="pendientes" className="flex flex-col gap-4">
+        <TituloBloque id="pendientes">Requiere atención</TituloBloque>
+        <div className="overflow-hidden rounded-xl border bg-card">
+          {m.cola.vencidos + m.cola.atascados + m.cola.errores7d + m.rebotes7d + m.quejas7d === 0 ? (
+            <p className="flex items-center gap-2 p-4 text-cuerpo-sm text-llego"><CheckCircle2 className="size-4" strokeWidth={2} aria-hidden /> Sin incidencias en avisos y correo.</p>
+          ) : (
+            <ul className="divide-y">
+              {(m.cola.vencidos + m.cola.atascados + m.cola.errores7d > 0) && <li><Link href="/monitoreo" className="flex min-h-12 items-center justify-between gap-3 p-4 hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"><span className="flex items-center gap-2 font-medium"><Inbox className="size-4 shrink-0 text-tarde" strokeWidth={2} aria-hidden /> {m.cola.vencidos} retrasados · {m.cola.atascados} atascados · {m.cola.errores7d} con error</span><ChevronRight className="size-4 shrink-0" aria-hidden /></Link></li>}
+              {(m.rebotes7d + m.quejas7d > 0) && <li><Link href="/monitoreo" className="flex min-h-12 items-center justify-between gap-3 p-4 hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"><span className="flex items-center gap-2 font-medium"><AlertTriangle className="size-4 shrink-0 text-tarde" strokeWidth={2} aria-hidden /> {m.rebotes7d} rebotes · {m.quejas7d} quejas de correo</span><ChevronRight className="size-4 shrink-0" aria-hidden /></Link></li>}
+            </ul>
+          )}
+        </div>
+        <div className="flex flex-wrap gap-x-5 gap-y-1 text-cuerpo-sm">
+          <Link href="/suscripciones" className="enlace min-h-11 inline-flex items-center gap-1">Revisar pagos <ChevronRight className="size-4" aria-hidden /></Link>
+          <Link href="/mesa-ayuda" className="enlace min-h-11 inline-flex items-center gap-1">Revisar mesa de ayuda <ChevronRight className="size-4" aria-hidden /></Link>
+        </div>
+      </section>
+
+      <section aria-labelledby="kpis" className="flex flex-col gap-3">
+        <TituloBloque id="kpis">Plataforma en cifras</TituloBloque>
+        <div className="grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2 lg:grid-cols-4 [&>*:last-child]:lg:col-span-2">
           <StatTile titulo="Colegios" valor={numero(m.colegios.total)} Icono={School}>
             <span className="block">
               {(Object.keys(m.colegios.porEstado) as EstadoTenant[]).map((e) => `${NOMBRE_ESTADO[e]}: ${m.colegios.porEstado[e]}`).join(" · ")}
@@ -75,7 +92,7 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
           </StatTile>
           <StatTile titulo="Cola de avisos" valor={numero(m.cola.pendientes)} Icono={Inbox}>
             <Semaforo
-              bien={m.cola.vencidos + m.cola.atascados === 0}
+              bien={m.cola.vencidos + m.cola.atascados + m.cola.errores7d === 0}
               texto={`${m.cola.vencidos} retrasados, ${m.cola.atascados} atascados, ${m.cola.errores7d} con error (7 días)`}
             />
           </StatTile>
@@ -83,7 +100,7 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
       </section>
 
       <section aria-labelledby="ultimos-30" className="flex flex-col gap-3">
-        <h2 id="ultimos-30" className="font-heading text-titulo-2">Últimos 30 días</h2>
+        <TituloBloque id="ultimos-30">Últimos 30 días</TituloBloque>
         <div className="grid gap-4 lg:grid-cols-2">
           <GraficoDiario
             titulo="Ingresos diarios"
@@ -110,7 +127,7 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
 
       <section aria-labelledby="lista-colegios" className="flex flex-col gap-4">
         <div className="flex flex-wrap items-end justify-between gap-3">
-          <h2 id="lista-colegios" className="font-heading text-titulo-2">Colegios</h2>
+          <TituloBloque id="lista-colegios">Colegios</TituloBloque>
           <form role="search" className="flex w-full items-center gap-2 sm:w-auto">
             <label htmlFor="q" className="sr-only">Buscar colegio</label>
             <Input id="q" name="q" defaultValue={busqueda} placeholder="Nombre, dirección o ciudad" className="sm:w-64" />
@@ -133,27 +150,23 @@ export default async function VistaPrincipal({ searchParams }: PageProps<"/plata
             }
           />
         ) : (
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="divide-y overflow-hidden rounded-xl border bg-card">
             {colegios.map((c) => (
               <li key={c.id}>
                 <Link
                   href={`/colegios/${c.id}`}
-                  className={cn("group block h-full rounded-lg focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none")}
+                  className="group flex min-h-16 flex-wrap items-center justify-between gap-x-5 gap-y-2 p-4 transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
                 >
-                  <Tarjeta className="flex h-full flex-col gap-3 transition-colors group-hover:border-primary/40">
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="min-w-0">
-                        <p className="truncate font-heading font-semibold">{c.nombre}</p>
-                        <p className="truncate font-mono text-cuerpo-sm text-muted-foreground">{c.slug}</p>
-                      </div>
-                      <ChevronRight className="size-5 shrink-0 text-muted-foreground" strokeWidth={2} aria-hidden />
+                    <div className="min-w-0">
+                      <p className="truncate font-heading font-semibold">{c.nombre}</p>
+                      <p className="truncate font-mono text-cuerpo-sm text-muted-foreground">{c.slug}</p>
                     </div>
-                    <div className="mt-auto flex flex-wrap items-center gap-2 text-cuerpo-sm">
+                    <div className="flex flex-wrap items-center gap-2 text-cuerpo-sm">
                       <EstadoColegio estado={c.estado} />
                       <PlanColegio plan={c.plan} nombre={nombres[c.plan]} />
-                      <span className="text-muted-foreground">{numero(c.alumnos)} alumnos</span>
+                      <span className="text-muted-foreground tabular-nums">{numero(c.alumnos)} alumnos</span>
+                      <ChevronRight className="size-4 shrink-0 text-muted-foreground" strokeWidth={2} aria-hidden />
                     </div>
-                  </Tarjeta>
                 </Link>
               </li>
             ))}

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { z } from "zod";
 import { EstadoExportacion } from "@/components/exportacion/EstadoExportacion";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Boton } from "@/components/ui/Boton";
 import { buttonVariants } from "@/components/ui/button";
@@ -36,7 +36,7 @@ export default async function ExportarColegioPage({ params, searchParams }: Page
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> {tenant.nombre}
       </Link>
       <div className="-mt-2">
-        <EncabezadoPagina titulo="Exportar datos del colegio" descripcion={`ZIP con todas las tablas y archivos de ${tenant.nombre}. Disponible ${EXPORTACION_VENCE_DIAS} días.`} />
+        <EncabezadoPlataforma titulo="Exportar datos del colegio" descripcion={`ZIP con todas las tablas y archivos de ${tenant.nombre}. Disponible ${EXPORTACION_VENCE_DIAS} días.`} />
         <Flash ok={ok} error={error} />
       </div>
       <Tarjeta className="flex flex-col gap-3">
