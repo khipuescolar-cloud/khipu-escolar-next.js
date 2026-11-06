@@ -31,7 +31,7 @@ export async function GET(request: NextRequest, ctx: RouteContext<"/colegio/[slu
       "Content-Type": archivo.mimeType,
       "Cache-Control": "private, no-store",
       "X-Content-Type-Options": "nosniff",
-      "Content-Disposition": esAdjunto ? `attachment; filename="${nombre}"; filename*=UTF-8''${encodeURIComponent(archivo.nombre ?? "archivo")}` : "inline",
+      "Content-Disposition": esAdjunto && !(archivo.documentoId && request.nextUrl.searchParams.get("vista") === "1" && (archivo.mimeType === "application/pdf" || archivo.mimeType.startsWith("image/"))) ? `attachment; filename="${nombre}"; filename*=UTF-8''${encodeURIComponent(archivo.nombre ?? "archivo")}` : "inline",
     },
   });
 }
