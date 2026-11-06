@@ -1,7 +1,7 @@
 import { Ban, CalendarPlus, CalendarX2, CheckCircle2, Filter, Gift, KeyRound, Plus, X } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Boton } from "@/components/ui/Boton";
 import { buttonVariants } from "@/components/ui/button";
@@ -51,7 +51,7 @@ export default async function LicenciasNudito({ searchParams }: PageProps<"/plat
 
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Licencias (histórico)"
         descripcion={conAcciones ? "Licencias por alumno. Las de pago se crean al verificar un Yape; aquí puedes dar cortesías o pruebas, extender y cancelar." : "Licencias familiares de Nudito+ (ya no se usan: Nudito es parte de Khipu Pro). Solo consulta."}
         acciones={

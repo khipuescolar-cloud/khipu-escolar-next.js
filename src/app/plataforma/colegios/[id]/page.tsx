@@ -1,7 +1,8 @@
 import { ArrowLeft, Download, ExternalLink, History, ImageIcon, LifeBuoy, Pencil, Settings2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
+import { TituloBloque } from "@/app/plataforma/_componentes/TituloBloque";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Notificar } from "@/components/shell/Notificar";
 import { Boton } from "@/components/ui/Boton";
@@ -102,7 +103,7 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
           )}
         </div>
         <div className="min-w-0 flex-1">
-          <EncabezadoPagina
+          <EncabezadoPlataforma
             titulo={t.nombre}
             descripcion={t.eslogan ? <span className="italic">{t.eslogan}</span> : undefined}
             acciones={
@@ -152,7 +153,7 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
       )}
 
       {fila && (
-        <section aria-labelledby="resumen" className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
+        <section aria-labelledby="resumen" className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-4 lg:grid-cols-7">
           <h2 id="resumen" className="sr-only">Resumen</h2>
           {[
             ["Alumnos", fila.alumnos],
@@ -163,16 +164,16 @@ export default async function DetalleColegio({ params, searchParams }: PageProps
             ["Apertura (7 d)", porcentaje(fila.avisos7d ? fila.abiertos7d / fila.avisos7d : null)],
             ["Último ingreso", fechaHora(fila.ultimoIngreso)],
           ].map(([titulo, valor]) => (
-            <Tarjeta key={titulo} className="flex flex-col gap-1 p-4">
+            <div key={titulo} className="flex min-w-0 flex-col gap-1 bg-card p-4">
               <p className="text-cuerpo-sm font-medium text-muted-foreground">{titulo}</p>
-              <p className="font-heading text-titulo-2">{valor}</p>
-            </Tarjeta>
+              <p className="font-heading text-titulo-2 tabular-nums break-words">{valor}</p>
+            </div>
           ))}
         </section>
       )}
 
       <section aria-labelledby="metricas" className="flex flex-col gap-3">
-        <h2 id="metricas" className="font-heading text-titulo-2">Últimos 30 días</h2>
+        <TituloBloque id="metricas">Últimos 30 días</TituloBloque>
         <div className="grid gap-4 lg:grid-cols-2">
           <GraficoDiario
             titulo="Ingresos diarios"

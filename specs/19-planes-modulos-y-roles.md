@@ -14,7 +14,7 @@ cada uno de los roles por defecto de todos los colegios. El bloqueo sigue siendo
 | Usuarios de colegio | Ven solo los módulos activos de su colegio y habilitados para su rol. | Ver nada de este panel. |
 
 ## Flujos
-1. **Planes y módulos** (`/planes`): tarjetas por plan (nombre comercial, descripción, precio por alumno, mínimo mensual,
+1. **Planes y módulos** (`/planes`): filas por plan (nombre comercial, descripción, precio por alumno, mínimo mensual,
    tope de alumnos, activo, colegios en piloto/activos que lo usan) con «Editar» en `Sheet`. Debajo, la matriz
    módulos × planes (ícono de `navegacion.ts` + descripción): cada casilla incluye o quita el módulo. Quitar un módulo
    de un plan con colegios pide confirmación con `BotonConfirmar` («Afecta a N colegios»). `gestion` aparece fija («Siempre»).
@@ -83,6 +83,7 @@ matrizRoles(admin) · cambiarModuloDeRol(admin, { rol, modulo, habilitado }) · 
 ```
 
 ## Rutas y UI
+- El resumen de planes y roles se presenta en listas con divisores; las matrices conservan el desplazamiento horizontal dentro de la tabla en pantallas estrechas.
 - `admin.<dominio>/planes` — «Planes y módulos» (`src/app/plataforma/planes/`).
 - `admin.<dominio>/roles` — «Roles y permisos» (`src/app/plataforma/roles/`).
 - `admin.<dominio>/colegios/[id]` — sección «Módulos del colegio» (`ModulosColegio.tsx`, `CambiarModuloColegio.tsx`,

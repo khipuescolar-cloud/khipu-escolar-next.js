@@ -1,7 +1,7 @@
 import { Clock, Hourglass, Inbox, LifeBuoy, MessageCircleQuestion, Star } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { InsigniaEstadoTicket, InsigniaPrioridad } from "@/components/soporte/EstadoTicket";
 import { Badge } from "@/components/ui/badge";
@@ -53,7 +53,7 @@ export default async function MesaDeAyuda({ searchParams }: PageProps<"/platafor
   return (
     <div className="flex flex-col gap-6">
       <RefrescoPeriodico />
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Mesa de ayuda"
         descripcion="Conversaciones de los colegios con el equipo Khipu. Las urgentes y las más antiguas van primero."
         acciones={
@@ -63,7 +63,7 @@ export default async function MesaDeAyuda({ searchParams }: PageProps<"/platafor
         }
       />
 
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+      <div className="grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2 xl:grid-cols-5">
         <StatTile titulo="Abiertas sin respuesta" valor={String(resumen.abiertasSinRespuesta)} Icono={LifeBuoy} />
         <StatTile titulo="En progreso" valor={String(resumen.enProgreso)} Icono={Hourglass} />
         <StatTile titulo="Esperando al colegio" valor={String(resumen.esperandoColegio)} Icono={MessageCircleQuestion} />

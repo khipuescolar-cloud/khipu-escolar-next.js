@@ -1,7 +1,7 @@
 import { Download, Inbox } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -34,7 +34,7 @@ export default async function Solicitudes({ searchParams }: PageProps<"/platafor
 
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Solicitudes de demo"
         descripcion="Colegios que pidieron una demo desde la página de Khipu Escolar. Contienen datos de contacto: úsalos solo para responder el pedido."
         acciones={

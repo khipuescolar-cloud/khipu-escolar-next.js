@@ -2,7 +2,7 @@ import { CalendarX2, Lock, Trash2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { buttonVariants } from "@/components/ui/button";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -27,7 +27,7 @@ export default async function Configuracion({ searchParams }: PageProps<"/plataf
 
   return (
     <div className="flex flex-col gap-8">
-      <EncabezadoPagina titulo="Configuración" descripcion="Ajustes que valen para toda la plataforma." />
+      <EncabezadoPlataforma titulo="Configuración" descripcion="Ajustes que valen para toda la plataforma." />
 
       <section aria-labelledby="feriados" className="flex flex-col gap-3">
         <div className="flex flex-wrap items-end justify-between gap-3">

@@ -71,7 +71,7 @@ Puro y compartido: `src/lib/soporte.ts` (textos, límites, `minutosHabiles`, `et
 ## Rutas y UI
 - `/soporte` (colegio · dirección y administrativo habilitado): encabezado con «Nueva conversación», aviso fijo con el horario y «No compartas datos personales de alumnos si no es necesario.», lista con asunto, último mensaje, prioridad, categoría, estado (ícono + palabra), fecha y «N respuestas nuevas».
 - `/soporte/[id]`: «← Soporte Khipu», hilo tipo chat (propias en `primary`; Khipu en `superficie-2` con «Equipo Khipu · Nombre»; sistema discreto y centrado), acciones «Marcar como resuelto», «Reabrir», «Cerrar» (`BotonConfirmar`), caja de envío con captura y tarjeta «¿Cómo te atendimos?» (1–5 estrellas + comentario).
-- `/mesa-ayuda` (plataforma): insignia «N pendientes», 5 métricas (`StatTile`), filtros (GET), tabla (≥ md) o tarjetas (móvil) con SLA y «N sin leer». Se refresca cada 15 s con la pestaña visible.
+- `/mesa-ayuda` (plataforma): insignia «N pendientes», 5 métricas en una superficie dividida (`StatTile`), filtros (GET), tabla (≥ md) o tarjetas (móvil) con SLA y «N sin leer». Se refresca cada 15 s con la pestaña visible.
 - `/mesa-ayuda/[id]`: hilo completo (notas resaltadas en ámbar con borde punteado), conmutador «Responder al colegio» / «Nota interna», panel lateral: estado, prioridad, asignación (+ «Asignármela»), «Abierta por» (nombre, cargo, correo) y colegio (plan, estado, responsables, «Ver ficha», «Entrar como soporte» → ficha, donde está el flujo auditado).
 - Íconos Lucide: `LifeBuoy` (módulo), `MessagesSquare`, `CircleDot`/`Hourglass`/`MessageCircleQuestion`/`CircleCheck`/`Archive` (estados), `SignalLow/Medium/High`/`Siren` (prioridad).
 

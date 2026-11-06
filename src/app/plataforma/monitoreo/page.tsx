@@ -2,12 +2,13 @@ import { AlertTriangle, CheckCircle2, CircleHelp, Clock, Inbox, LifeBuoy, Play, 
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import { panelMonitoreo, type EstadoCron } from "@/lib/server/plataforma-monitoreo";
 import { GraficoDiario } from "../_componentes/Graficos";
+import { TituloBloque } from "../_componentes/TituloBloque";
 import { fechaHora } from "../EstadoColegio";
 import { procesarColaAction, reintentarAvisosAction } from "./actions";
 
@@ -37,11 +38,11 @@ function hace(min: number): string {
 
 function Dato({ titulo, valor, Icono, children }: { titulo: string; valor: string; Icono: typeof Inbox; children?: React.ReactNode }) {
   return (
-    <Tarjeta className="flex flex-col gap-1">
-      <p className="sobretitulo flex items-center gap-2"><Icono className="size-4" strokeWidth={2} aria-hidden /> {titulo}</p>
-      <p className="font-heading text-titulo-1 tabular-nums">{valor}</p>
+    <div className="flex flex-col gap-1 bg-card p-4">
+      <p className="flex items-center gap-2 text-cuerpo-sm text-muted-foreground"><Icono className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> {titulo}</p>
+      <p className="font-heading text-titulo-2 font-semibold tabular-nums">{valor}</p>
       {children && <div className="text-cuerpo-sm text-muted-foreground">{children}</div>}
-    </Tarjeta>
+    </div>
   );
 }
 
@@ -51,7 +52,7 @@ export default async function Monitoreo() {
 
   return (
     <div className="flex flex-col gap-8">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Monitoreo"
         descripcion="Salud del sistema: avisos, cola, rebotes y procesos automáticos. Solo conteos, sin el contenido de los mensajes."
         acciones={
@@ -65,13 +66,28 @@ export default async function Monitoreo() {
         }
       />
 
+      <section aria-labelledby="alertas" className="flex flex-col gap-3">
+        <TituloBloque id="alertas">Requiere atención</TituloBloque>
+        <div className="overflow-hidden rounded-xl border bg-card">
+          {p.crons.every((c) => c.estado === "al_dia") && p.cola.atascados === 0 && p.cola.errores === 0 && p.rebotesPorColegio.length === 0 ? (
+            <p className="flex items-center gap-2 p-4 text-cuerpo-sm text-llego"><CheckCircle2 className="size-4" strokeWidth={2} aria-hidden /> Procesos y avisos al día.</p>
+          ) : (
+            <ul className="divide-y">
+              {p.crons.filter((c) => c.estado !== "al_dia").map((c) => <li key={c.nombre} className="flex items-center gap-2 p-4 text-cuerpo-sm"><AlertTriangle className="size-4 shrink-0 text-tarde" strokeWidth={2} aria-hidden /><span><strong>{NOMBRE_CRON[c.nombre]}</strong> · {ESTADO_CRON[c.estado].palabra}</span></li>)}
+              {(p.cola.atascados + p.cola.errores > 0) && <li className="flex items-center gap-2 p-4 text-cuerpo-sm"><Inbox className="size-4 shrink-0 text-tarde" strokeWidth={2} aria-hidden /><span><strong>Cola de avisos</strong> · {p.cola.atascados} atascados y {p.cola.errores} con error</span></li>}
+              {p.rebotesPorColegio.length > 0 && <li className="flex items-center gap-2 p-4 text-cuerpo-sm"><AlertTriangle className="size-4 shrink-0 text-tarde" strokeWidth={2} aria-hidden /><span><strong>Correo</strong> · {p.rebotesPorColegio.length} colegios con rebotes o quejas</span></li>}
+            </ul>
+          )}
+        </div>
+      </section>
+
       <section aria-labelledby="canales" className="-mt-2 flex flex-col gap-3">
-        <h2 id="canales" className="font-heading text-titulo-2">Avisos de las últimas 24 horas</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <TituloBloque id="canales">Avisos de las últimas 24 horas</TituloBloque>
+        <div className="grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2">
           {p.usoCanales.map((c) => {
             const pct = c.tope ? Math.min(100, Math.round((c.enviados / c.tope) * 100)) : null;
             return (
-              <Tarjeta key={c.canal} className="flex flex-col gap-2">
+              <div key={c.canal} className="flex flex-col gap-2 bg-card p-4">
                 <p className="sobretitulo flex items-center gap-2"><Send className="size-4" strokeWidth={2} aria-hidden /> {NOMBRE_CANAL[c.canal]}</p>
                 <p className="font-heading text-titulo-1 tabular-nums">
                   {numero(c.enviados)}{c.tope ? <span className="text-cuerpo text-muted-foreground"> / {numero(c.tope)}</span> : null}
@@ -88,15 +104,15 @@ export default async function Monitoreo() {
                     </p>
                   </>
                 )}
-              </Tarjeta>
+              </div>
             );
           })}
         </div>
       </section>
 
       <section aria-labelledby="estado" className="flex flex-col gap-3">
-        <h2 id="estado" className="font-heading text-titulo-2">Cola y procesos</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <TituloBloque id="estado">Cola y procesos</TituloBloque>
+        <div className="grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2 lg:grid-cols-4">
           <Dato titulo="Cola de avisos" valor={numero(p.cola.pendientes)} Icono={Inbox}>
             pendientes · {numero(p.cola.enviando)} enviando ({numero(p.cola.atascados)} atascados) · {numero(p.cola.errores)} con error
           </Dato>
@@ -107,7 +123,7 @@ export default async function Monitoreo() {
           {p.crons.map((c) => {
             const { Icono, palabra, clase } = ESTADO_CRON[c.estado];
             return (
-              <Tarjeta key={c.nombre} className="flex flex-col gap-2">
+              <div key={c.nombre} className="flex flex-col gap-2 bg-card p-4">
                 <p className="sobretitulo flex items-center gap-2"><Clock className="size-4" strokeWidth={2} aria-hidden /> {NOMBRE_CRON[c.nombre]}</p>
                 <p className="font-heading text-titulo-2">{c.minutos === null ? "Sin ejecuciones" : hace(c.minutos)}</p>
                 <span className={`inline-flex w-fit items-center gap-1 rounded-pildora px-2 py-0.5 text-etiqueta ${clase}`}>
@@ -118,7 +134,7 @@ export default async function Monitoreo() {
                     {c.ejecucion.resultado === "ok" ? "Terminó bien" : "Terminó con error"} · {numero(c.ejecucion.duracionMs)} ms
                   </p>
                 )}
-              </Tarjeta>
+              </div>
             );
           })}
         </div>

@@ -1,5 +1,5 @@
-import { EsqueletoPagina, EsqueletoTabla } from "@/components/carga/Esqueletos";
+import { CargaPlataforma } from "@/app/plataforma/_componentes/CargaPlataforma";
 
 export default function Loading() {
-  return <EsqueletoPagina><EsqueletoTabla /></EsqueletoPagina>;
+  return <CargaPlataforma variante="tabla" />;
 }

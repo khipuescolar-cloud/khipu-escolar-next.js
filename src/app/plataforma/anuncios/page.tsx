@@ -1,7 +1,7 @@
 import { CalendarClock, CheckCircle2, Megaphone, Trash2, History } from "lucide-react";
 import type { Metadata } from "next";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -30,7 +30,7 @@ export default async function Anuncios() {
   const hastaPorDefecto = localDeLima(new Date(ahora.getTime() + 7 * 86_400_000));
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina
+      <EncabezadoPlataforma
         titulo="Anuncios"
         descripcion="Mensajes del equipo Khipu para los colegios: novedades, mantenimientos y avisos urgentes."
         acciones={<FormularioAnuncio accion={guardarAnuncioAction} nombresPlanes={nombres} desdePorDefecto={desdePorDefecto} hastaPorDefecto={hastaPorDefecto} />}

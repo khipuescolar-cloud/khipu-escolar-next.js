@@ -49,7 +49,8 @@ export function DialogoAgregarMiembro({ accion }: { accion: (previo: EstadoFormu
           </div>
           <Campo etiqueta="Documento (opcional)" name="documento" maxLength={12} inputMode="text" ayuda="DNI de 8 dígitos o carné de extranjería." />
           {estado?.error && <Alerta tipo="error">{estado.error}</Alerta>}
-          <DialogFooter>
+          <DialogFooter className="bg-card">
+            <Boton type="button" variante="secundario" onClick={() => setAbierto(false)}>Cancelar</Boton>
             <Boton type="submit" disabled={pendiente}>
               {pendiente && <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />}
               Agregar al equipo

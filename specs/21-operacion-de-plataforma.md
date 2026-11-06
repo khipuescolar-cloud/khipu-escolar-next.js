@@ -44,6 +44,7 @@ exportarAuditoria(admin, filtro) / opcionesFiltroAuditoria(admin) / textoAccion(
 ```
 
 ## Rutas y UI
+- Monitoreo abre con las excepciones de procesos, cola y correo; después muestra cifras en superficies divididas. Los encabezados del panel llevan la cuerda Colegio y una miga al inicio de plataforma.
 - `/usuarios` (buscador y lista), `/usuarios/[id]` (ficha, «← Usuarios»).
 - `/monitoreo` (acción «Procesar la cola ahora» en el encabezado).
 - `/auditoria` y `/auditoria/auditoria.csv`.
