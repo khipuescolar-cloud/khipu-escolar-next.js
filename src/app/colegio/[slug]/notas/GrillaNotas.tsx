@@ -222,7 +222,7 @@ export function GrillaNotas({ slug, escala, calculo, editable, alumnos, competen
                                     setValores((v) => ({ ...v, [clave]: ev.target.value }));
                                     cambiar(e, a, ev.target.value);
                                   }}
-                                  className={cn(CLASE_CAMPO, "h-10 w-28 cursor-pointer px-2 py-1.5", valor === "NSP" && "font-semibold text-falta")}
+                                  className={cn(CLASE_CAMPO, "h-10 w-36 cursor-pointer px-2 py-1.5", valor === "NSP" && "font-semibold text-falta")}
                                 >
                                   <option value="">—</option>
                                   {LITERALES.map((l) => (

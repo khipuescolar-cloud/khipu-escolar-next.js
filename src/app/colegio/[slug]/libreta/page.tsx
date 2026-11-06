@@ -161,11 +161,11 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
           </p>
         </section>
 
-        <section className="flex flex-col gap-2 text-cuerpo-sm text-muted-foreground">
+        <section className="flex flex-col gap-2 text-cuerpo-sm">
           <TituloBloque>Escala de calificación</TituloBloque>
           {datos.escala === "literal"
-            ? <p>{LITERALES.map((l) => `${l}: ${ETIQUETA_LITERAL[l]}`).join(" · ")}</p>
-            : <p>Escala vigesimal de 0 a 20. Aprobado desde {APROBADO_VIGESIMAL}.</p>}
+            ? <p className="text-muted-foreground">{LITERALES.map((l) => `${l}: ${ETIQUETA_LITERAL[l]}`).join(" · ")}</p>
+            : <p className="text-muted-foreground">Escala vigesimal de 0 a 20. Aprobado desde {APROBADO_VIGESIMAL}.</p>}
         </section>
         <p className="border-t border-borde-sutil pt-4 text-cuerpo-sm text-muted-foreground">Firmada por la dirección de {datos.colegio.nombre}.</p>
       </article>
