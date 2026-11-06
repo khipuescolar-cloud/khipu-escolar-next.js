@@ -73,7 +73,7 @@ export function FormularioAnuncio({
           <SheetDescription>Se muestra como una franja bajo la barra superior de los colegios, entre las fechas que elijas (hora de Lima).</SheetDescription>
         </SheetHeader>
         <form
-          className="flex flex-col gap-4 px-4 pb-4"
+          className="flex flex-col gap-4 px-4"
           onSubmit={(e) => {
             e.preventDefault();
             const datos = new FormData(e.currentTarget);
@@ -120,7 +120,7 @@ export function FormularioAnuncio({
             </div>
           </div>
           {estado?.error && <Alerta tipo="error">{estado.error}</Alerta>}
-          <SheetFooter className="px-0">
+          <SheetFooter className="-mx-4">
             <Boton type="submit" disabled={pendiente}>
               {pendiente && <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />}
               {anuncio ? "Guardar cambios" : "Publicar anuncio"}

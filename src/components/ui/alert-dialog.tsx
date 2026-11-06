@@ -88,7 +88,7 @@ function AlertDialogFooter({
     <div
       data-slot="alert-dialog-footer"
       className={cn(
-        "-mx-5 -mb-5 flex flex-col-reverse gap-2 rounded-b-xl border-t border-borde-sutil bg-superficie-2 px-5 py-4 sm:-mx-6 sm:-mb-6 sm:flex-row sm:justify-end sm:px-6",
+        "sticky bottom-[-1.25rem] z-10 -mx-5 -mb-5 flex flex-col-reverse gap-2 rounded-b-xl border-t border-borde-sutil bg-superficie-2 px-5 py-4 *:w-full sm:bottom-[-1.5rem] sm:-mx-6 sm:-mb-6 sm:flex-row sm:justify-end sm:px-6 sm:*:w-auto",
         className
       )}
       {...props}
