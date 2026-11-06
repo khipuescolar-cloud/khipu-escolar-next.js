@@ -28,7 +28,7 @@ test.afterAll(async () => {
   await cliente.end();
 });
 
-test("Lucía comparte carpeta con familias; Rosa descarga; Pedro no ve; papelera y restauración", async ({ browser }) => {
+test("Lucía comparte carpeta con familias; Rosa descarga; Pedro no ve; renombrar, papelera y restauración", async ({ browser }) => {
   const lucia = await entrar(browser, "lucia.garcia@nuevohorizonte.demo", `${COLEGIO}/inicio`);
   await lucia.goto(`${COLEGIO}/documentos?vista=unidad`);
   await expect(lucia.getByRole("heading", { name: "Documentos", level: 1 })).toBeVisible();
@@ -37,34 +37,64 @@ test("Lucía comparte carpeta con familias; Rosa descarga; Pedro no ve; papelera
   await lucia.getByRole("dialog").getByLabel("Nombre de la carpeta").fill(CARPETA);
   await lucia.getByRole("dialog").getByRole("button", { name: "Crear", exact: true }).click();
   await expect(lucia.getByText("Carpeta creada.")).toBeVisible();
+
+  // Compartir: buscador de personas y grupos, chip, nivel Lector y «Compartir»; el pie conserva «Copiar enlace» y «Listo».
   await lucia.getByRole("button", { name: `Opciones de ${CARPETA}` }).click();
   await lucia.getByRole("menuitem", { name: "Compartir" }).click();
-  await expect(lucia.getByRole("dialog", { name: `Compartir «${CARPETA}»` })).toBeVisible();
-  const grupoFamilias = await lucia.getByRole("dialog").getByLabel("Agregar personas y grupos").locator("option").filter({ hasText: /Familias de 3\.° B/ }).first().getAttribute("value");
-  await lucia.getByRole("dialog").getByLabel("Agregar personas y grupos").selectOption(grupoFamilias!);
-  await lucia.getByRole("dialog").getByRole("button", { name: "Compartir", exact: true }).click();
+  const dialogo = lucia.getByRole("dialog", { name: `Compartir «${CARPETA}»` });
+  await expect(dialogo).toBeVisible();
+  await expect(dialogo.getByText("Personas con acceso")).toBeVisible();
+  await expect(dialogo.getByText("Propietario", { exact: true })).toBeVisible();
+  await expect(dialogo.getByRole("button", { name: "Copiar enlace" })).toBeVisible();
+  await expect(dialogo.getByRole("button", { name: "Listo" })).toBeVisible();
+  await expect(dialogo.locator("select")).toHaveCount(0); // niveles y acceso general son menús del sistema, no selects nativos
+  await dialogo.getByRole("combobox", { name: "Agregar personas y grupos" }).fill("Familias de 3");
+  await dialogo.getByRole("option", { name: /Familias de 3\.° B/ }).click();
+  await expect(dialogo.getByRole("button", { name: "Quitar a Familias de 3.° B" })).toBeVisible();
+  await expect(dialogo.getByRole("button", { name: "Compartir", exact: true })).toBeVisible();
+  await dialogo.getByRole("button", { name: "Compartir", exact: true }).click();
   await expect(lucia.getByText("Acceso compartido.")).toBeVisible();
+  await expect(dialogo.getByRole("button", { name: /^Nivel de acceso de Familias de 3\.° B: Lector/ })).toBeVisible();
+  await dialogo.getByRole("button", { name: "Listo" }).click();
+
+  // Subir un PDF dentro (selector de archivos del menú «Nuevo») con progreso por archivo.
   await lucia.getByRole("button", { name: CARPETA, exact: true }).click();
-  await lucia.getByRole("button", { name: "Nuevo", exact: true }).click();
-  await lucia.getByRole("menuitem", { name: "Subir archivo" }).click();
-  await lucia.getByRole("dialog").getByLabel("Título").fill(TITULO);
-  await lucia.getByRole("dialog").getByLabel("Archivo", { exact: true }).setInputFiles({ name: "guia.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n%guia de prueba\n") });
-  await lucia.getByRole("dialog").getByRole("button", { name: "Subir archivo" }).click();
-  await expect(lucia.getByText("Documento publicado.")).toBeVisible();
+  await expect(lucia.getByRole("navigation", { name: "Ruta de carpetas" }).getByRole("link", { name: CARPETA })).toBeVisible();
+  await lucia.getByTestId("subir-archivos").setInputFiles({ name: `${TITULO}.pdf`, mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n%guia de prueba\n") });
+  await expect(lucia.getByText("Subidas terminadas")).toBeVisible();
+  await expect(lucia.getByRole("button", { name: TITULO, exact: true })).toBeVisible({ timeout: 20_000 });
+
+  // Renombrar con F2.
+  await lucia.getByRole("button", { name: TITULO, exact: true }).focus();
+  await lucia.keyboard.press("F2");
+  await lucia.getByRole("dialog").getByLabel("Nombre").fill(`${TITULO} v2`);
+  await lucia.getByRole("dialog").getByRole("button", { name: "Guardar" }).click();
+  await expect(lucia.getByRole("button", { name: `${TITULO} v2`, exact: true })).toBeVisible();
+  await lucia.getByRole("button", { name: `Opciones de ${TITULO} v2` }).click();
+  await lucia.getByRole("menuitem", { name: "Renombrar" }).click();
+  await lucia.getByRole("dialog").getByLabel("Nombre").fill(TITULO);
+  await lucia.getByRole("dialog").getByRole("button", { name: "Guardar" }).click();
   await expect(lucia.getByRole("button", { name: TITULO, exact: true })).toBeVisible();
 
   const rosa = await entrar(browser, "rosa.quispe@gmail.com", `${COLEGIO}/inicio`);
   await rosa.goto(`${COLEGIO}/documentos?vista=compartido`);
   await expect(rosa.getByRole("button", { name: CARPETA, exact: true })).toBeVisible();
+  await expect(rosa.getByRole("button", { name: "Nuevo", exact: true })).toHaveCount(0);
   await rosa.getByRole("button", { name: CARPETA, exact: true }).click();
   await expect(rosa.getByRole("button", { name: TITULO, exact: true })).toBeVisible();
+  await expect(rosa.getByRole("button", { name: `Opciones de ${TITULO}` })).toBeVisible();
   await rosa.getByRole("button", { name: TITULO, exact: true }).click();
+  await expect(rosa.getByRole("dialog").locator("iframe")).toHaveAttribute("src", /\/archivos\/[0-9a-f-]{36}\?vista=1/);
   const href = await rosa.getByRole("dialog").getByRole("link", { name: "Descargar" }).getAttribute("href");
   expect(href).toMatch(/^\/archivos\/[0-9a-f-]{36}$/);
   const descarga = await rosa.request.get(`${COLEGIO}${href}`);
   expect(descarga.status()).toBe(200);
   expect(descarga.headers()["content-disposition"]).toContain("attachment");
   expect((await descarga.body()).toString()).toContain("%PDF-1.4");
+  // La vista previa se puede incrustar solo desde el mismo origen; la descarga no.
+  const previa = await rosa.request.get(`${COLEGIO}${href}?vista=1`);
+  expect(previa.headers()["x-frame-options"]).toBe("SAMEORIGIN");
+  expect(descarga.headers()["x-frame-options"]).toBe("DENY");
 
   const pedro = await entrar(browser, "pedro.salas@nuevohorizonte.demo", `${COLEGIO}/inicio`);
   await pedro.goto(`${COLEGIO}/documentos?vista=compartido`);
@@ -74,6 +104,8 @@ test("Lucía comparte carpeta con familias; Rosa descarga; Pedro no ve; papelera
   await lucia.getByRole("button", { name: `Opciones de ${CARPETA}` }).click();
   await lucia.getByRole("menuitem", { name: "Mover a la papelera" }).click();
   await expect(lucia.getByRole("button", { name: CARPETA, exact: true })).toHaveCount(0);
+  await rosa.reload();
+  await expect(rosa.getByRole("button", { name: CARPETA, exact: true })).toHaveCount(0);
   await lucia.goto(`${COLEGIO}/documentos?vista=papelera`);
   await expect(lucia.getByRole("button", { name: CARPETA, exact: true })).toBeVisible();
   await lucia.getByRole("button", { name: `Opciones de ${CARPETA}` }).click();
