@@ -12,6 +12,7 @@ import {
   borrarCarpeta, borrarDocumento, crearCarpeta, editarCarpeta, editarDocumento, listarContenido, reemplazarArchivoDocumento, subirDocumento,
 } from "@/lib/server/documentos";
 import type { EntradaAdjunto } from "@/lib/server/adjuntos";
+import { compartirRecurso, destacarRecurso, restaurarRecurso, eliminarDefinitivoRecurso } from "@/lib/server/documentos-drive";
 import { requireFeature } from "@/lib/server/plan";
 import type { TenantContext } from "@/lib/server/tenant";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
@@ -164,6 +165,8 @@ describe("biblioteca de documentos", () => {
     await editarDocumento(tutora, id, { titulo: "Guía de 3.° B (v2)", carpetaId: null, visibleRoles: ["apoderado"], salonId: c.salon.id });
     expect(await titulos(alumno)).not.toContain("Guía de 3.° B (v2)");
     await borrarDocumento(c.ctxDe("direccion"), id);
+    expect(await c.db.documento.count({ where: { id, eliminadoAt: null } })).toBe(0);
+    await eliminarDefinitivoRecurso(c.ctxDe("direccion"), { tipo: "documento", id });
     expect(await c.db.documento.count({ where: { id } })).toBe(0);
   });
 
@@ -189,11 +192,47 @@ describe("biblioteca de documentos", () => {
     const archivos = await c.db.archivo.findMany({ where: { documento: { carpetaId: { in: [carpeta.id, sub.id] } } } });
     expect(archivos).toHaveLength(2);
     expect(await borrarCarpeta(dir, carpeta.id)).toEqual({ documentos: 2 });
-    expect(await c.db.carpetaDocumento.count({ where: { id: { in: [carpeta.id, sub.id] } } })).toBe(0);
+    expect(await c.db.carpetaDocumento.count({ where: { id: { in: [carpeta.id, sub.id] }, eliminadoAt: null } })).toBe(0);
+    expect(archivos.every((a) => existsSync(ruta(a.publicId)))).toBe(true);
+    await restaurarRecurso(dir, { tipo: "carpeta", id: carpeta.id });
+    expect(await c.db.carpetaDocumento.count({ where: { id: { in: [carpeta.id, sub.id] }, eliminadoAt: null } })).toBe(2);
+    await borrarCarpeta(dir, carpeta.id);
+    await eliminarDefinitivoRecurso(dir, { tipo: "carpeta", id: carpeta.id });
     expect(archivos.some((a) => existsSync(ruta(a.publicId)))).toBe(false);
     expect(await c.db.archivo.count({ where: { id: { in: archivos.map((a) => a.id) } } })).toBe(0);
     const auditados = await db.auditoria.findMany({ where: { tenantId: c.tenant.id, accion: "borrar", entidad: "carpeta_documento", entidadId: carpeta.id } });
-    expect(auditados).toHaveLength(1);
+    expect(auditados).toHaveLength(2);
+  });
+
+  it("Mi unidad: comparte con persona, rol y salón; hereda acceso y respeta niveles", async () => {
+    const tutora = c.ctxDe("tutora");
+    const madre = c.ctxDe("madre");
+    const colega = c.ctxDe("otroProfesor");
+    const carpeta = await crearCarpeta(tutora, { nombre: "Mi unidad 3B", parentId: null, ambito: "unidad" });
+    const documento = await subirDocumento(tutora, { titulo: "Ficha compartida 3B", carpetaId: carpeta.id, visibleRoles: [], salonId: null }, pdf());
+    expect((await listarContenido(madre, { vista: "compartido" })).carpetas.map((c) => c.id)).not.toContain(carpeta.id);
+    await compartirRecurso(tutora, { tipo: "carpeta", id: carpeta.id }, { membershipId: madre.membership.id }, "lector");
+    await compartirRecurso(tutora, { tipo: "carpeta", id: carpeta.id }, { rol: "apoderado", salonId: c.salon.id }, "lector");
+    await compartirRecurso(tutora, { tipo: "carpeta", id: carpeta.id }, { membershipId: colega.membership.id }, "editor");
+    expect((await listarContenido(madre, { vista: "compartido" })).carpetas.map((c) => c.id)).toContain(carpeta.id);
+    expect(await titulos(madre, { vista: "compartido", carpetaId: carpeta.id })).toContain("Ficha compartida 3B");
+    await expect(listarContenido(familiaOtroSalon, { vista: "compartido", carpetaId: carpeta.id })).rejects.toThrow();
+    await esperarProhibido(subirDocumento(madre, { titulo: "No", carpetaId: carpeta.id, visibleRoles: [], salonId: null }, pdf()));
+    await editarDocumento(colega, documento.id, { titulo: "Ficha editada 3B", carpetaId: carpeta.id, visibleRoles: [], salonId: null });
+    expect(await titulos(madre, { vista: "compartido", carpetaId: carpeta.id })).toContain("Ficha editada 3B");
+    await esperarProhibido(compartirRecurso(tutora, { tipo: "carpeta", id: carpeta.id }, { membershipId: madre.membership.id }, "editor"));
+    await esperarProhibido(compartirRecurso(tutora, { tipo: "carpeta", id: carpeta.id }, { rol: "apoderado", salonId: c.otroSalon.id }, "lector"));
+    await destacarRecurso(madre, { tipo: "carpeta", id: carpeta.id }, true);
+    expect((await listarContenido(madre, { vista: "destacados" })).carpetas.map((c) => c.id)).toContain(carpeta.id);
+    await destacarRecurso(madre, { tipo: "carpeta", id: carpeta.id }, false);
+    expect((await listarContenido(madre, { vista: "destacados" })).carpetas.map((c) => c.id)).not.toContain(carpeta.id);
+    await expect(listarContenido(otro.ctxDe("direccion"), { carpetaId: carpeta.id, vista: "unidad" })).rejects.toThrow();
+    await esperarProhibido(compartirRecurso(base.ctxDe("direccion"), { tipo: "carpeta", id: carpeta.id }, { rol: "profesor" }, "lector"));
+    await borrarCarpeta(tutora, carpeta.id);
+    expect((await listarContenido(madre, { vista: "compartido" })).carpetas.map((c) => c.id)).not.toContain(carpeta.id);
+    expect((await listarContenido(tutora, { vista: "papelera" })).carpetas.map((c) => c.id)).toContain(carpeta.id);
+    await restaurarRecurso(tutora, { tipo: "carpeta", id: carpeta.id });
+    expect((await listarContenido(madre, { vista: "compartido" })).carpetas.map((c) => c.id)).toContain(carpeta.id);
   });
 
   it("aviso opcional: solo con «avisar», solo a familias que lo ven y sin repetirse", async () => {

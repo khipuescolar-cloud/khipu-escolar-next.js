@@ -1,84 +1,64 @@
-# 31 — Biblioteca de documentos
+# 31 — Documentos del colegio
 
-> Estado: implementado · Plan: Khipu Pro (módulo `documentos`) · Última actualización: 2026-10-31 (Claude Code, rama `feat/documentos`)
+> Estado: implementado en Khipu Pro · Actualizado: 2026-11-06 · Sección Comunicación
 
-## Objetivo
-Una biblioteca del colegio con **carpetas** y **permisos por rol y salón**: reglamento, protocolos, formatos, horarios,
-material para docentes. Reemplaza el envío de PDFs sueltos por chat o correo.
+## Objetivo y espacios
 
-## Roles y permisos
-| Rol | Puede | No puede |
+El módulo permite organizar archivos del colegio con carpetas, enlaces privados y acceso heredado. Tiene seis vistas:
+
+| Vista | Contenido |
+|---|---|
+| Mi unidad | Raíz y carpetas de ámbito `unidad` creadas por la membresía; los archivos propios. |
+| Compartido conmigo | Carpetas y archivos de otros en `unidad` para los que existe acceso efectivo por persona, rol o salón. |
+| Biblioteca del colegio | Carpetas y documentos preexistentes (`ambito=biblioteca`) y nuevos contenidos de la institución. La migración asigna este ámbito por defecto y conserva todos los registros. |
+| Recientes | Recursos abiertos con registro en `accesos_documento`. |
+| Destacados | Recursos marcados por la membresía en `destacados_documento`. |
+| Papelera | Recursos eliminados por la membresía; dirección ve todos. |
+
+Las vistas son filtros de la misma ruta `/documentos?vista=unidad|compartido|biblioteca|recientes|destacados|papelera&carpeta=<uuid>&q=<texto>&orden=recientes|antiguos|titulo`. El enlace a archivo usa `&archivo=<uuid>`; exige sesión y permiso al abrir y al descargar. Portería recibe 403. Khipu Base conserva el candado y 403.
+
+## Roles
+
+| Rol | Lectura | Escritura y compartir |
 |---|---|---|
-| dirección | Ver todo; crear, renombrar, mover y borrar carpetas; subir, editar, reemplazar y borrar cualquier documento | — |
-| administrativo | Lo mismo que dirección sobre carpetas y documentos **que ve** (visibilidad por rol, ver «Reglas») | Ver lo que no es para su rol |
-| profesor | Subir documentos **solo a sus salones** (tutor o dicta); editar, reemplazar y borrar **solo los suyos**; ver lo visible para su rol y salón | Crear o mover carpetas; subir sin salón o a un salón ajeno; marcar «administrativo» como destinatario |
-| apoderado / alumno | Ver y descargar lo visible para su rol y salón (apoderado: salones de sus hijos; alumno: el suyo) | Subir o borrar |
-| portería | — (no usa la biblioteca: 403) | Todo |
+| Dirección | Todo el colegio | Todo recurso; restaura y elimina definitivamente cualquier elemento. |
+| Administrativo | Biblioteca visible, su unidad, compartidos | Crea en Mi unidad y Biblioteca; edita lo visible en Biblioteca y donde es editor. |
+| Profesor | Biblioteca según rol/salón, su unidad, compartidos | Crea carpetas en Mi unidad, sube allí o a salones propios de la Biblioteca; administra lo suyo o donde es editor. Compartir con grupos requiere un salón propio; familias y alumnos ajenos quedan fuera. |
+| Apoderado / alumno | Acceso efectivo por grupo, persona o biblioteca | Descarga y destaca. Nunca crea, sube ni recibe nivel Editor. |
+| Portería | Ninguna | Ninguna. |
 
-## Flujos
-1. Dirección o administrativo crea carpetas (anidadas) desde «Nueva carpeta» y, opcionalmente, limita quién las ve.
-2. «Subir documento»: título, descripción opcional, archivo, carpeta, salón opcional, casillas de destinatarios (Familias, Alumnos, Profesores, Personal administrativo) y, solo si se marca, «Avisar a las familias».
-3. Los usuarios navegan carpetas (migas de pan), buscan por título y descargan.
-4. «Editar» cambia datos, destinatarios, salón y carpeta (mover) y permite **reemplazar el archivo**. «Borrar» pide confirmación (AlertDialog).
+Los permisos se comprueban en servidor con `ctx.db` y `requireFeature(ctx, "documentos")`. La URL o un `tenantId` del cliente nunca concede acceso. Dirección y propietario tienen acceso total. Una entrada `editor` permite editar, mover, compartir y borrar; `lector` permite ver y descargar. Un grupo `rol+salonId` exige pertenencia al salón. Una entrada de carpeta se hereda por descendientes y documentos. Una entrada directa de archivo añade acceso. En Biblioteca se mantienen las reglas originales de `visibleRoles` y `salonId`; una carpeta puede seguir siendo visible para todos si `visibleRoles=[]`. En Mi unidad, `visibleRoles=[]` significa acceso general restringido. El acceso general por roles y salón se edita en Compartir. Las familias y alumnos siempre tienen lectura, incluso al recibir acceso general.
 
-## Reglas de negocio
-**Visibilidad (regla exacta, `documentoVisible` en `src/lib/documentos.ts`).** Un documento es visible para un usuario si:
-1. es **dirección** (ve todo); o
-2. **todas las carpetas de su cadena** (la suya y sus padres hasta la raíz) permiten su rol (`visibleRoles` vacío = sin restricción propia; con roles, solo esos), **y** además
-3. es **quien lo publicó**, o su rol está en `Documento.visibleRoles` (vacío = borrador: solo dirección y su autor) **y**, si el documento tiene `salonId`, ese salón está en su alcance (`salonIdsVisibles`: profesor = sus salones; apoderado = salones de sus hijos; alumno = el suyo). El **personal administrativo no pertenece a un salón**: la restricción de salón no lo limita.
+## Flujos y UI
 
-- Una carpeta es visible si ella y sus padres permiten el rol; si no, no aparece, su URL da 404 y sus documentos no salen ni en la búsqueda ni se descargan (403).
-- El administrativo que crea o edita una carpeta con roles queda incluido automáticamente en ellos para no perder de vista lo que administra.
-- Subcarpetas: nombre único entre hermanas (sin distinguir mayúsculas). Mover valida en servidor que no sea a sí misma ni a una descendiente.
-- **Archivo:** mismos tipos y límite que los adjuntos de comunicados: PDF, JPG, PNG, WEBP, DOCX y XLSX, 10 MB, validados por firma. Un `Archivo` con `documentoId`; vigente = el más reciente.
-- **Reemplazar archivo: gana el último.** Se sube el nuevo y se borra el anterior (BD y proveedor). **No hay historial de versiones** (pendiente). Cambia `updatedAt`.
-- Borrar un documento o una carpeta (con subcarpetas y documentos) borra sus archivos del proveedor después de la BD (sin huérfanos; `borrarDelProveedor`).
-- `requireFeature(ctx, "documentos")` en la página, en cada action y en la descarga (`requireArchivoVisible`).
-- **Auditoría** (`auditar`): `crear` documento/carpeta, `editar`, `borrar`, `ver` con `detalle.descarga = true` en **cada descarga**, y `enviar` al avisar.
-- **Aviso opcional** (`TipoAviso.documento`, plantilla `documento_nuevo`, ver spec 06): solo si se marca «Avisar a las familias», el documento incluye «Familias» y sus carpetas se lo permiten. Una fila por familia y canal (consentimiento y preferencias de la familia, vía `destinatariosDeAlumno`), solo a familias de alumnos activos del salón (o de todo el colegio). Idempotente. Se procesa la cola al instante (`after`). Editar no vuelve a avisar.
-- Exportación del colegio (spec 15): `carpetas_documento`, `documentos` y `archivos` (con `documentoId`) entran solos por derivar de `Prisma.ModelName`; los archivos DOCX/XLSX se guardan con su extensión.
-- Se mantiene aparte `DocumentoColegio` (texto plano del antiguo Nudito).
+- El botón «Nuevo» ofrece «Nueva carpeta» y «Subir archivo». El nombre es obligatorio y único, sin distinguir mayúsculas, entre carpetas hermanas del mismo espacio. Los archivos permitidos son PDF, JPG, PNG, WEBP, DOCX y XLSX, hasta 10 MB; se validan por firma. La subida por arrastre en escritorio usa el mismo servicio y muestra estado por archivo.
+- Migas de pan, búsqueda por nombre visible, carpetas primero, orden por modificación o nombre y vista de lista/cuadrícula (preferencia local con `try/catch`). En móvil se usa selector de vista y filas sin desbordamiento. La lista muestra Nombre, Propietario, Última modificación y Tamaño.
+- Clic en carpeta navega; clic en archivo abre vista previa. PDF e imágenes se sirven `inline` solo con `?vista=1` y después de la validación de `/archivos/<id>`; Office ofrece descarga. La descarga normal conserva `Content-Disposition: attachment` y auditoría.
+- Menú ⋮ y clic derecho: abrir, descargar, renombrar, mover, compartir, copiar enlace, destacar, detalles y papelera, según permiso. Enter activa los botones; Supr envía a papelera y F2 abre edición. Selección múltiple permite mover, descargar o enviar a papelera. El panel lateral muestra tipo, tamaño, ubicación, propietario, creación, modificación, accesos directos y acciones recientes de auditoría.
+- Compartir permite buscar una persona activa o elegir grupos por rol y salón. Cada entrada recibe Lector o Editor; el propietario encabeza la lista; se puede quitar acceso. Acceso general permite Restringido o roles marcados con salón opcional. Copiar enlace no crea permisos. «Avisar a las personas» usa por ahora el canal existente `documento_nuevo` para familias cuando se comparte un documento o una carpeta con documentos directos. El aviso opcional de la subida también usa ese canal; se respetan consentimiento y preferencias existentes.
+- Borrar mueve a Papelera (`eliminadoAt`, `eliminadoPorId`). Se puede restaurar o eliminar para siempre; el borrado definitivo retira los archivos del proveedor después de la cascada de BD. `vencimientoPapelera` es función pura de 30 días; `vaciarPapeleraVencida` puede invocarse desde mantenimiento existente sin crear un cron nuevo. Restaurar una carpeta restaura sus descendientes y documentos.
+- Reemplazar un archivo mantiene la regla previa: el último reemplaza al anterior, sin historial de versiones. Las notificaciones y el candado del plan no cambian.
 
-## Modelo de datos
-Migración `20261031130000_pro_completo_nudito_plus` (sin cambios de esquema en esta rama).
+## Datos y migraciones
 
-- **`CarpetaDocumento`** (`carpetas_documento`): `parentId?` (auto-relación, Cascade), `nombre`, `visibleRoles Rol[]`, `orden`, `creadoPorId`.
-- **`Documento`** (`documentos`): `carpetaId?` (Cascade; null = raíz), `titulo`, `descripcion?`, `visibleRoles Rol[]`, `salonId?` (Cascade), `publicadoPorId`.
-- **`Archivo.documentoId?`** (Cascade).
+`20261115090000_documentos_drive` crea `AmbitoDocumento`, `NivelCompartidoDocumento`, las tablas `compartidos_documento`, `destacados_documento`, `accesos_documento` y los campos de ámbito/papelera. `20261115090100_documentos_acceso_general` añade `salonId` opcional a carpetas. Las tablas nuevas tienen CHECK para exactamente un recurso, índices y unicidad por destinatario, RLS habilitado y forzado, y `REVOKE ALL` a `anon`/`authenticated`. Las relaciones de recurso son Cascade. Todos los registros existentes quedan en Biblioteca.
 
-## Contratos de `src/lib/server`
-```ts
-// documentos.ts
-listarContenido(ctx, { carpetaId?, q?, orden? }): Promise<Contenido>   // carpeta, ruta, subcarpetas visibles, documentos visibles
-opcionesDeCarpeta(ctx), salonesParaDocumentos(ctx), puedeVerDocumento(ctx, id), puedeAdministrarCarpetas(ctx)
-crearCarpeta(ctx, { nombre, parentId, visibleRoles }), editarCarpeta(ctx, id, { nombre, parentId, visibleRoles }), borrarCarpeta(ctx, id)
-subirDocumento(ctx, { titulo, descripcion, carpetaId, visibleRoles, salonId, avisar }, archivo): { id, avisados }
-editarDocumento(ctx, id, datos), reemplazarArchivoDocumento(ctx, id, archivo), borrarDocumento(ctx, id)
-// notificaciones/avisos-documentos.ts: avisarDocumentoNuevo(ctx, documentoId)
-// src/lib/documentos.ts (puro): documentoVisible, carpetaVisible, cadenaDeCarpetas, ROLES_DESTINO…
-```
+`CompartidoDocumento` guarda recurso (carpeta o documento), destinatario (membresía o rol con salón opcional), nivel, creador y fecha. `DestacadoDocumento` guarda usuario y recurso. `AccesoDocumento` guarda última apertura por usuario/recurso. Los archivos siguen en `Archivo.documentoId` y su ruta estable `/archivos/<id>`.
 
-## Rutas y UI
-- `/documentos?carpeta=<id>&q=<texto>&orden=recientes|antiguos|titulo` (todos menos portería). Descarga: `/archivos/<archivoId>` (sesión + regla de visibilidad).
-- Navegación: grupo «Comunicación», ícono de carpeta; candado «Plan Khipu Pro» en Khipu Base.
-- Carpetas como tarjetas (con «Restringida» para quien administra), documentos con ícono por tipo, fecha, autor, tamaño y etiquetas de destinatarios (solo las ve quien administra). Buscar por título abarca toda la biblioteca visible; orden por fecha o título.
+## Contratos de servidor
 
-## Textos y UX
-- Vacíos: «Todavía no hay documentos» / «Esta carpeta está vacía» (con acción de subir para quien puede) y «No encontramos documentos con ese título».
-- Estados con ícono + palabra; «tú» a las familias; el aviso lo firma el colegio, sin emojis.
-
-## Errores y casos borde
-- Ciclos al mover carpetas: validado en servidor. Nombre repetido entre hermanas: error de negocio.
-- Archivo vacío, de otro tipo o de más de 10 MB: mensaje claro y no se crea el documento.
-- Profesor sin salón o con salón ajeno: «Elige uno de tus salones» / 403.
-- Documento o carpeta de otro colegio: 404 (aislamiento por `ctx.db`).
+- `documentos-permisos.ts`: `contextoPermisosDocumento`, `nivelCarpeta`, `nivelDocumento`, `destinatarioCoincide`, `puedeEditarNivel`. Centraliza visibilidad heredada y niveles.
+- `documentos.ts`: `listarContenido(ctx, {vista, carpetaId, q, orden})`, `opcionesDeCarpeta`, `salonesParaDocumentos`, `puedeVerDocumento`; `crear/editar/borrarCarpeta`, `subir/editar/reemplazar/borrarDocumento`. `borrar*` ahora son movimientos a papelera. Mantiene validación de archivo y avisos.
+- `documentos-drive.ts`: personas y grupos para compartir; listar/añadir/quitar accesos; acceso general; destacar; registrar apertura; mover; restaurar; eliminar definitivamente; vencimiento y vaciado a 30 días.
+- `actions.ts` vuelve a validar contexto, rol y plan en cada operación. `/api/documentos/subir` aplica el mismo servicio para arrastre. `/archivos/<id>` conserva comprobación por colegio y descarga auditada.
+- Las operaciones de creación, edición, compartir, cambio de acceso, mover, destacar, papelera, restauración, borrado definitivo y descarga generan auditoría. La apertura alimenta Recientes.
 
 ## Pruebas
-- integración `tests/integracion/documentos.test.ts`: regla pura, matriz de visibilidad por rol y salón con descargas, herencia de carpetas y búsqueda, ciclos y permisos de carpetas, profesor (solo sus salones y lo suyo), validación/reemplazo/borrado sin archivos huérfanos, aviso opcional, aislamiento entre colegios y plan Base (403).
-- e2e `tests/e2e/documentos.test.ts`: dirección crea carpeta y sube un PDF para familias, Rosa lo ve y lo descarga, portería no; un colegio Khipu Base temporal ve el candado.
-- Demo: `prisma/seed-documentos.ts` (Nuevo Horizonte: «Reglamento y normas» con «Protocolos internos» solo para personal, «Calendario académico», «Comunicados oficiales»; siete PDF de ejemplo con visibilidad mixta, uno para 3.° B y un borrador solo de dirección).
 
-## Pendientes
-- Historial de versiones de documentos (hoy gana el último archivo).
-- PPTX y otros formatos de Office (hoy PDF, imágenes, DOCX y XLSX).
-- Vista previa de PDF; mover documentos en bloque; orden manual de carpetas (`orden` no tiene UI).
+Integración `tests/integracion/documentos.test.ts`: compatibilidad de visibilidad antigua, archivo y reemplazo, aviso, roles, salón, herencia, Editor/Lector, familia sin Editor, profesor fuera de su salón, papelera/restauración/borrado de proveedor, destacados, aislamiento entre colegios y plan Base. E2E `tests/e2e/documentos.test.ts`: Lucía crea en Mi unidad, comparte con Familias de 3.° B, sube PDF; Rosa lo ve y descarga; Pedro no lo ve; papelera/restauración; portería y Khipu Base sin acceso.
+
+## Decisiones abiertas
+
+- Historial de versiones y más formatos Office siguen fuera de alcance.
+- El vaciado a 30 días tiene función de mantenimiento, pendiente de conectarla al mantenimiento programado existente.
+- El aviso al compartir una carpeta vacía no genera mensaje. Otros destinatarios distintos de familias no tienen plantilla de aviso de documentos todavía. El aviso de carpeta recorre sus documentos directos; las subcarpetas quedan para una iteración posterior.

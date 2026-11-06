@@ -28,6 +28,16 @@ enum Rol {
   administrativo // personal no docente (secretaría, auxiliares, psicología…)
 }
 
+enum NivelCompartidoDocumento {
+  lector
+  editor
+}
+
+enum AmbitoDocumento {
+  biblioteca
+  unidad
+}
+
 enum TipoIdentificacion {
   dni
   ce // carné de extranjería
@@ -340,6 +350,9 @@ model Tenant {
   evaluacionDesempenos  EvaluacionDesempeno[]
   carpetasDocumento     CarpetaDocumento[]
   documentos            Documento[]
+  compartidosDocumento  CompartidoDocumento[]
+  destacadosDocumento   DestacadoDocumento[]
+  accesosDocumento      AccesoDocumento[]
   reuniones             Reunion[]
   reunionInvitados      ReunionInvitado[]
   reunionCambios        ReunionCambio[]
@@ -438,6 +451,10 @@ model Membership {
   tareasEntregadasPor      TareaAsignacion[]      @relation("TareaEntregadaPor")
   tareaEntregasEnviadas    TareaEntrega[]         @relation("TareaEntregaEnviadaPor")
   tareaComentarios         TareaComentario[]      @relation("TareaComentarioAutor")
+  compartidosRecibidos     CompartidoDocumento[]   @relation("DestinatarioDocumento")
+  compartidosCreados       CompartidoDocumento[]   @relation("CreadorCompartidoDocumento")
+  destacadosDocumento      DestacadoDocumento[]
+  accesosDocumento         AccesoDocumento[]
   tareaComentariosOcultos  TareaComentario[]      @relation("TareaComentarioOculto")
   tareaCambiosPlazo        TareaCambioPlazo[]     @relation("TareaCambioPlazoAutor")
   eventosCreados           EventoAgenda[]
@@ -503,6 +520,8 @@ model Salon {
   comunicados Comunicado[]
   eventos     EventoAgenda[]
   documentos  Documento[]
+  compartidosDocumento CompartidoDocumento[]
+  carpetasDocumento CarpetaDocumento[] @relation("CarpetaSalonDocumento")
   reuniones   Reunion[]
   bloques     BloqueHorario[]
 
@@ -2071,8 +2090,12 @@ model CarpetaDocumento {
   nombre       String
   /// Vacío = sin restricción propia; si tiene roles, solo esos roles (y dirección) ven la carpeta y su contenido.
   visibleRoles Rol[]    @default([]) @map("visible_roles")
+  salonId      String?  @map("salon_id") @db.Uuid
   orden        Int      @default(0)
   creadoPorId  String   @map("creado_por") @db.Uuid
+  ambito       AmbitoDocumento @default(biblioteca)
+  eliminadoAt  DateTime? @map("eliminado_at") @db.Timestamptz
+  eliminadoPorId String? @map("eliminado_por") @db.Uuid
   createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz
   updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz
 
@@ -2080,7 +2103,11 @@ model CarpetaDocumento {
   parent     CarpetaDocumento?  @relation("SubcarpetasDocumento", fields: [parentId], references: [id], onDelete: Cascade)
   hijas      CarpetaDocumento[] @relation("SubcarpetasDocumento")
   creadoPor  Membership         @relation(fields: [creadoPorId], references: [id], onDelete: NoAction)
+  salon      Salon?             @relation("CarpetaSalonDocumento", fields: [salonId], references: [id], onDelete: SetNull)
   documentos Documento[]
+  compartidos CompartidoDocumento[]
+  destacados DestacadoDocumento[]
+  accesos AccesoDocumento[]
 
   @@index([tenantId, parentId])
   @@map("carpetas_documento")
@@ -2099,6 +2126,9 @@ model Documento {
   /// Si tiene valor, solo lo ven el personal y las familias/alumnos de ese salón (además del filtro por rol).
   salonId        String?  @map("salon_id") @db.Uuid
   publicadoPorId String   @map("publicado_por") @db.Uuid
+  ambito         AmbitoDocumento @default(biblioteca)
+  eliminadoAt    DateTime? @map("eliminado_at") @db.Timestamptz
+  eliminadoPorId String? @map("eliminado_por") @db.Uuid
   createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz
   updatedAt      DateTime @updatedAt @map("updated_at") @db.Timestamptz
 
@@ -2107,10 +2137,65 @@ model Documento {
   salon        Salon?            @relation(fields: [salonId], references: [id], onDelete: Cascade)
   publicadoPor Membership        @relation(fields: [publicadoPorId], references: [id], onDelete: NoAction)
   archivos     Archivo[]
+  compartidos  CompartidoDocumento[]
+  destacados   DestacadoDocumento[]
+  accesos      AccesoDocumento[]
 
   @@index([tenantId, carpetaId])
   @@index([tenantId, salonId])
   @@map("documentos")
+}
+
+/// Entrada explícita de acceso. Exactamente un recurso y un destinatario (persona o grupo).
+model CompartidoDocumento {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  carpetaId String? @map("carpeta_id") @db.Uuid
+  documentoId String? @map("documento_id") @db.Uuid
+  membershipId String? @map("membership_id") @db.Uuid
+  rol Rol?
+  salonId String? @map("salon_id") @db.Uuid
+  nivel NivelCompartidoDocumento @default(lector)
+  creadoPorId String @map("creado_por") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  carpeta CarpetaDocumento? @relation(fields: [carpetaId], references: [id], onDelete: Cascade)
+  documento Documento? @relation(fields: [documentoId], references: [id], onDelete: Cascade)
+  membership Membership? @relation("DestinatarioDocumento", fields: [membershipId], references: [id], onDelete: Cascade)
+  creadoPor Membership @relation("CreadorCompartidoDocumento", fields: [creadoPorId], references: [id], onDelete: NoAction)
+  salon Salon? @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  @@index([tenantId, membershipId])
+  @@index([tenantId, rol, salonId])
+  @@map("compartidos_documento")
+}
+
+model DestacadoDocumento {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  membershipId String @map("membership_id") @db.Uuid
+  carpetaId String? @map("carpeta_id") @db.Uuid
+  documentoId String? @map("documento_id") @db.Uuid
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  membership Membership @relation(fields: [membershipId], references: [id], onDelete: Cascade)
+  carpeta CarpetaDocumento? @relation(fields: [carpetaId], references: [id], onDelete: Cascade)
+  documento Documento? @relation(fields: [documentoId], references: [id], onDelete: Cascade)
+  @@index([tenantId, membershipId])
+  @@map("destacados_documento")
+}
+
+model AccesoDocumento {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  membershipId String @map("membership_id") @db.Uuid
+  carpetaId String? @map("carpeta_id") @db.Uuid
+  documentoId String? @map("documento_id") @db.Uuid
+  ultimoAt DateTime @default(now()) @map("ultimo_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  membership Membership @relation(fields: [membershipId], references: [id], onDelete: Cascade)
+  carpeta CarpetaDocumento? @relation(fields: [carpetaId], references: [id], onDelete: Cascade)
+  documento Documento? @relation(fields: [documentoId], references: [id], onDelete: Cascade)
+  @@index([tenantId, membershipId, ultimoAt])
+  @@map("accesos_documento")
 }
 
 /// Para quién es una reunión (specs/32).
