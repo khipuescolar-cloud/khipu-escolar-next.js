@@ -74,6 +74,8 @@ type OpcionesReserva = {
   fueraDeHorario?: boolean;
   /** Dirección/administrativo: forzar sobre una CLASE (nunca sobre otra reunión, bloqueo o ausencia), con motivo. */
   forzarClase?: boolean;
+  /** El organizador aceptó una doble reserva; la persona ocupada queda invitada sin reserva exclusiva. */
+  confirmarChoque?: boolean;
 };
 
 /**
@@ -96,10 +98,16 @@ async function revalidarEnTransaccion(tx: Tdb & { $executeRaw: DbTx["$executeRaw
   }
   const reservar: string[] = [];
   let clasesForzadas = 0;
+  let choquesConfirmados = 0;
   for (const p of ordenadas) {
     const choques = (agendas.ocupacion.get(p.id) ?? []).filter((x) => seCruzan(x, franja));
     if (choques.length === 0) {
       reservar.push(p.id);
+      continue;
+    }
+    if (o.confirmarChoque) {
+      choquesConfirmados++;
+      if (choques.some((c) => c.motivo === "clase")) clasesForzadas++;
       continue;
     }
     if (!p.requerido) continue;
@@ -112,7 +120,7 @@ async function revalidarEnTransaccion(tx: Tdb & { $executeRaw: DbTx["$executeRaw
     clasesForzadas++;
     reservar.push(p.id);
   }
-  return { reservar, clasesForzadas };
+  return { reservar, clasesForzadas, choquesConfirmados };
 }
 
 type DbTx = Parameters<Parameters<TenantContext["db"]["$transaction"]>[0]>[0];
@@ -170,6 +178,7 @@ const esquemaConvocatoria = z.object({
   opcionales: listaIds,
   fueraDeHorario: casilla,
   forzarClase: casilla,
+  confirmarChoque: casilla,
   motivoForzar: opcional(300),
 }).refine((d) => d.lugar || d.enlace, { message: "Indica el lugar o el enlace de la reunión.", path: ["lugar"] });
 
@@ -247,7 +256,7 @@ export async function convocarReunion(ctx: TenantContext, entrada: unknown, ahor
   const familias = alcance === "ninguno" ? [] : generarInvitados(alcance, vinculos);
   if (alcance !== "ninguno" && familias.length === 0) return fallo("No hay familias con apoderados activos para invitar a esta reunión.");
   if (familias.length === 0 && personal.length === 0) return fallo("Agrega al menos un participante.");
-  if (d.data.forzarClase && !d.data.motivoForzar) return fallo("Escribe el motivo para programar sobre una clase.");
+  if (d.data.forzarClase && !d.data.confirmarChoque && !d.data.motivoForzar) return fallo("Escribe el motivo para programar sobre una clase.");
 
   const participantes: ParticipantePersonal[] = [
     { id: ctx.membership.id, nombre: nombreDe(ctx.user), requerido: true },
@@ -261,9 +270,12 @@ export async function convocarReunion(ctx: TenantContext, entrada: unknown, ahor
   ];
 
   let reunion;
+  let choquesConfirmados = 0;
   try {
     reunion = await ctx.db.$transaction(async (tx) => {
-      const { reservar, clasesForzadas } = await revalidarEnTransaccion(tx as never, ctx, participantes, { inicio, fin, fueraDeHorario: d.data.fueraDeHorario, forzarClase: d.data.forzarClase });
+      const validacion = await revalidarEnTransaccion(tx as never, ctx, participantes, { inicio, fin, fueraDeHorario: d.data.fueraDeHorario, forzarClase: d.data.forzarClase, confirmarChoque: d.data.confirmarChoque });
+      const { reservar, clasesForzadas } = validacion;
+      choquesConfirmados = validacion.choquesConfirmados;
       const r = await tx.reunion.create({
         data: {
           tenantId: ctx.tenant.id, titulo: d.data.titulo, descripcion: d.data.descripcion ?? null, motivo: d.data.motivo ?? null, observaciones: d.data.observaciones ?? null,
@@ -276,8 +288,8 @@ export async function convocarReunion(ctx: TenantContext, entrada: unknown, ahor
       await tx.reunionCambio.create({
         data: {
           tenantId: ctx.tenant.id, reunionId: r.id, tipo: "creada", actorId: ctx.membership.id,
-          despues: { inicio: inicio.toISOString(), fin: fin.toISOString(), invitados: filasInvitados.length, ...(clasesForzadas ? { clasesForzadas } : {}) },
-          motivo: clasesForzadas ? d.data.motivoForzar ?? null : null,
+          despues: { inicio: inicio.toISOString(), fin: fin.toISOString(), invitados: filasInvitados.length, ...(clasesForzadas ? { clasesForzadas } : {}), ...(choquesConfirmados ? { choques: choquesConfirmados } : {}) },
+          motivo: clasesForzadas && !d.data.confirmarChoque ? d.data.motivoForzar ?? null : null,
         },
       });
       return r;
@@ -293,7 +305,7 @@ export async function convocarReunion(ctx: TenantContext, entrada: unknown, ahor
   const aviso = await notificarReunion(ctx, { evento: "invitacion", reunion: { ...reunion, organizador: nombreDe(ctx.user) }, destinatarios: filasInvitados });
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "reunion", entidadId: reunion.id,
-    detalle: { tipo, alcance, invitados: filasInvitados.length, personal: personal.length, conCanal: aviso.conCanal, ...(d.data.forzarClase ? { forzarClase: true } : {}) },
+    detalle: { tipo, alcance, invitados: filasInvitados.length, personal: personal.length, conCanal: aviso.conCanal, conChoque: choquesConfirmados > 0, choques: choquesConfirmados, ...(d.data.forzarClase ? { forzarClase: true } : {}) },
   });
   const nFamilias = new Set(familias.map((f) => f.membershipId)).size;
   const partes = [nFamilias ? `${nFamilias} ${nFamilias === 1 ? "familia" : "familias"}` : "", personal.length ? `${personal.length} ${personal.length === 1 ? "persona del colegio" : "personas del colegio"}` : ""].filter(Boolean);

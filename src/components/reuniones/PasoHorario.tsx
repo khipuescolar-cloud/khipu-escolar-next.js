@@ -6,12 +6,13 @@ import {
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogMedia, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 import { buttonVariants } from "@/components/ui/button";
 import { CLASE_CAMPO } from "@/components/ui/Selector";
 import { NOMBRE_DIA_SEMANA_CORTO } from "@/lib/agenda-calendario";
 import {
-  analizar, columnasSemana, horaTexto, iniciales, limitar, nombreCorto, opcionalesOcupados, primerHueco, rangoVisible, semanaDe, textoChoques,
+  analizar, columnasSemana, horaTexto, iniciales, limitar, nombreCorto, opcionalesOcupados, primerHueco, rangoVisible, requiereConfirmarChoque, semanaDe, textoChoques,
   type Analisis, type Seleccion,
 } from "@/lib/asistente-horario";
 import { DURACIONES, DURACION_MAX, DURACION_MIN, esDuracionValida } from "@/lib/disponibilidad";
@@ -32,14 +33,12 @@ type Props = {
   /** Fecha con la que abre el calendario (mañana en la zona del colegio). */
   fechaInicial: string;
   hoy: string;
-  puedeForzarClase: boolean;
   seleccion: Seleccion | null;
   onSeleccion: (s: Seleccion) => void;
   duracion: number;
   onDuracion: (d: number) => void;
-  forzarClase: boolean;
-  onForzarClase: (v: boolean) => void;
-  onSeguir: (a: Analisis) => void;
+  onSeguir: (a: Analisis, confirmado: boolean) => void;
+  choqueConfirmado: boolean;
   /** Ranura de la barra superior del asistente: ahí van el estado de la franja y el botón para seguir. */
   ranuraAcciones: HTMLElement | null;
 };
@@ -95,6 +94,7 @@ export function PasoHorario(p: Props) {
   const [intento, setIntento] = useState(0);
   const [respuesta, setRespuesta] = useState<Respuesta | null>(null);
   const [verSugerencias, setVerSugerencias] = useState(false);
+  const [verChoque, setVerChoque] = useState(false);
   const vistaReal = esMovil || modo === "persona" ? "dia" : vista;
   // La consulta lee la selección y el callback del último render sin volver a dispararse por ellos.
   const seleccionRef = useRef(seleccion);
@@ -138,8 +138,7 @@ export function PasoHorario(p: Props) {
   const jornada = datos?.jornada ?? { desde: "07:30", hasta: "16:30" };
   const rango = rangoVisible(jornada, seleccion && dias.includes(seleccion.fecha) ? { desde: seleccion.inicio, hasta: seleccion.inicio + duracion } : null);
   const semanaHoy = semanaDe(p.hoy);
-  const bloqueado = !!evaluable && evaluable.choquesRequeridos.length > 0 && !(p.puedeForzarClase && evaluable.soloClases && p.forzarClase);
-  const puedeSeguir = !cargando && !!evaluable && !evaluable.pasada && !bloqueado;
+  const puedeSeguir = !cargando && !!evaluable && !evaluable.pasada;
 
   function irASemana(lunes: string, dia?: string) {
     setSemana(lunes);
@@ -170,7 +169,11 @@ export function PasoHorario(p: Props) {
   const titulo = vistaReal === "semana" ? tituloSemana(columnasSemana(semana, null)) : esMovil ? fechaCorta(diaSel) : fmt(diaSel, { weekday: "long", day: "numeric", month: "long" });
   const etiquetaNav = vistaReal === "semana" ? "Semana" : "Día";
 
-  const seguir = () => evaluable && puedeSeguir && p.onSeguir(evaluable);
+  const seguir = () => {
+    if (!evaluable || !puedeSeguir) return;
+    if (requiereConfirmarChoque(evaluable, p.choqueConfirmado)) setVerChoque(true);
+    else p.onSeguir(evaluable, p.choqueConfirmado);
+  };
   const vistaProps = {
     datos, rango, colores, seleccion, duracion, analisis: evaluable,
     onElegir: elegir, moverDia, onSeguir: seguir, puedeSeguir,
@@ -179,6 +182,26 @@ export function PasoHorario(p: Props) {
 
   return (
     <div className="flex flex-col gap-4">
+      <AlertDialog open={verChoque} onOpenChange={setVerChoque}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogMedia className="bg-falta-fondo text-falta"><CircleAlert strokeWidth={2} aria-hidden /></AlertDialogMedia>
+            <AlertDialogTitle>Ese horario está ocupado</AlertDialogTitle>
+            <AlertDialogDescription>
+              {seleccion && `${fechaCorta(seleccion.fecha)} · ${horaTexto(seleccion.inicio)}–${horaTexto(seleccion.inicio + duracion)}`}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <ul className="min-w-0 space-y-2 text-sm" aria-label="Choques de horario">
+            {evaluable?.choques.map((c) => <li key={c.membershipId} className="flex items-start gap-2 break-words"><CircleAlert className="mt-0.5 size-4 shrink-0 text-falta" strokeWidth={2} aria-hidden /><span>{nombreCorto(c)}: {c.etiqueta}</span></li>)}
+          </ul>
+          {evaluable?.choques.some((c) => c.etiqueta.startsWith("Clase")) && <p className="text-sm text-muted-foreground">La clase no se cancela.</p>}
+          {evaluable?.fueraDeHorario && <p className="flex items-start gap-2 text-sm text-muted-foreground"><Moon className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />También está fuera de la jornada laboral o en día no lectivo.</p>}
+          <AlertDialogFooter>
+            <AlertDialogCancel>Elegir otro horario</AlertDialogCancel>
+            <button type="button" className={buttonVariants()} onClick={() => { if (evaluable) p.onSeguir(evaluable, true); setVerChoque(false); }}>Sí, estoy seguro</button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
       {p.ranuraAcciones && createPortal(
         <>
           <EstadoSeleccion analisis={evaluable} seleccion={seleccion} cargando={cargando} jornada={jornada} />
@@ -227,13 +250,6 @@ export function PasoHorario(p: Props) {
           </label>
         </div>
       </div>
-      {p.puedeForzarClase && evaluable?.soloClases && (
-        <label className="flex items-start gap-2 text-cuerpo-sm">
-          <input type="checkbox" checked={p.forzarClase} onChange={(e) => p.onForzarClase(e.target.checked)} className="mt-0.5 size-4 accent-[var(--acento)]" />
-          Programar sobre la clase (indicarás el motivo en el siguiente paso; queda registrado).
-        </label>
-      )}
-
       <section aria-labelledby="titulo-horario" className="min-w-0 overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
         <header className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 border-b px-3 py-2.5 sm:px-4">
           <div className="flex min-w-0 items-center gap-1">

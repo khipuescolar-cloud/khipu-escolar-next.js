@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, CalendarCheck, Loader2, Search, UserMinus, Users, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarCheck, CircleAlert, Loader2, Search, UserMinus, Users, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
 import { toast } from "sonner";
@@ -66,7 +66,7 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
   const [duracion, setDuracion] = useState(30);
   const [analisis, setAnalisis] = useState<Analisis | null>(null);
   const [fueraDeHorario, setFueraDeHorario] = useState(false);
-  const [forzarClase, setForzarClase] = useState(false);
+  const [choqueConfirmado, setChoqueConfirmado] = useState(false);
 
   const reglaFamilias = familiasDelTipo(tipo);
   const filtrados = useMemo(() => {
@@ -96,6 +96,7 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
   }[alcance];
 
   function cambiarTipo(t: TipoReunion) {
+    setChoqueConfirmado(false);
     setTipo(t);
     const regla = familiasDelTipo(t);
     if (regla === "prohibidas") setAlcance("ninguno");
@@ -103,11 +104,13 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
   }
 
   function elegir(id: string, rol: "requerido" | "opcional") {
+    setChoqueConfirmado(false);
     setElegidos(new Map(elegidos).set(id, rol));
     setBusqueda("");
   }
 
   function quitar(id: string) {
+    setChoqueConfirmado(false);
     const m = new Map(elegidos);
     m.delete(id);
     setElegidos(m);
@@ -115,6 +118,7 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
 
   function agregarAlumno(id: string) {
     if (alumnos.length >= MAX_ALUMNOS) return;
+    setChoqueConfirmado(false);
     setAlumnos([...alumnos, id]);
     setBusquedaAlumno("");
   }
@@ -122,10 +126,10 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
   const fecha = seleccion?.fecha ?? "";
   const hora = seleccion ? horaTexto(seleccion.inicio) : "";
 
-  function seguirConHorario(a: Analisis) {
+  function seguirConHorario(a: Analisis, confirmado: boolean) {
     setAnalisis(a);
-    if (!a.fueraDeHorario) setFueraDeHorario(false);
-    if (!a.soloClases) setForzarClase(false);
+    setChoqueConfirmado(confirmado);
+    setFueraDeHorario(confirmado && a.fueraDeHorario);
     setError(null);
     setPaso(2);
   }
@@ -137,7 +141,7 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
         tipo, titulo: form.get("titulo"), motivo: form.get("motivo"), modalidad: form.get("modalidad"), lugar: form.get("lugar"), enlace: form.get("enlace"),
         observaciones: form.get("observaciones"), fecha, hora, duracion, alcance: alcance === "elegidos" ? "individual" : alcance,
         salonId: alcance === "salon" ? salonId : "", alumnoIds: alcance === "elegidos" ? alumnos : [],
-        requeridos: ids("requerido"), opcionales: ids("opcional"), fueraDeHorario, forzarClase, motivoForzar: form.get("motivoForzar") ?? "",
+        requeridos: ids("requerido"), opcionales: ids("opcional"), fueraDeHorario, confirmarChoque: choqueConfirmado,
       });
       if (r.ok) {
         toast.success(r.mensaje ?? "Reunión confirmada.");
@@ -173,7 +177,7 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
               </button>
             )}
             {paso === 0 && elegidos.size > 0 && (
-              <button type="button" onClick={() => setElegidos(new Map())} className={cn(buttonVariants({ variant: "ghost" }), "max-md:mr-auto")}><UserMinus strokeWidth={2} aria-hidden />Quitar a todos</button>
+              <button type="button" onClick={() => { setElegidos(new Map()); setChoqueConfirmado(false); }} className={cn(buttonVariants({ variant: "ghost" }), "max-md:mr-auto")}><UserMinus strokeWidth={2} aria-hidden />Quitar a todos</button>
             )}
             {paso === 0 && (
               <button type="button" disabled={!puedeSeguir} onClick={() => ir(1)} className={buttonVariants()}>Siguiente<ArrowRight strokeWidth={2} aria-hidden /></button>
@@ -226,14 +230,14 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
           </div>
           {reglaFamilias !== "prohibidas" && (
             <div className="grid gap-3 sm:grid-cols-2">
-              <Selector etiqueta="Familias" value={alcance} onChange={(e) => setAlcance(e.target.value as AlcanceUi)}>
+              <Selector etiqueta="Familias" value={alcance} onChange={(e) => { setAlcance(e.target.value as AlcanceUi); setChoqueConfirmado(false); }}>
                 {reglaFamilias === "opcionales" && <option value="ninguno">Sin familias</option>}
                 <option value="elegidos">Familias de alumnos elegidos</option>
                 <option value="salon">Las familias de un salón</option>
                 {opciones.puedeColegio && <option value="colegio">Todas las familias del colegio</option>}
               </Selector>
               {alcance === "salon" && (
-                <Selector etiqueta="Salón" value={salonId} onChange={(e) => setSalonId(e.target.value)}>
+                <Selector etiqueta="Salón" value={salonId} onChange={(e) => { setSalonId(e.target.value); setChoqueConfirmado(false); }}>
                   {opciones.salones.filter((x) => tipo !== "tutoria" || x.soyTutor || opciones.puedeColegio).map((x) => <option key={x.id} value={x.id}>{x.nombre}</option>)}
                 </Selector>
               )}
@@ -276,7 +280,7 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
                         <li key={id} className="inline-flex items-center gap-1.5 rounded-pildora bg-sec-suave px-3 py-1 text-cuerpo-sm text-sec-tinta">
                           <Users className="size-3.5 text-muted-foreground" strokeWidth={2} aria-hidden />
                           {alumno(id)?.nombre} <span className="text-muted-foreground">· {alumno(id)?.salon}</span>
-                          <button type="button" onClick={() => setAlumnos(alumnos.filter((x) => x !== id))} aria-label={`Quitar a ${alumno(id)?.nombre}`}><X className="size-3.5" strokeWidth={2} aria-hidden /></button>
+                          <button type="button" onClick={() => { setAlumnos(alumnos.filter((x) => x !== id)); setChoqueConfirmado(false); }} aria-label={`Quitar a ${alumno(id)?.nombre}`}><X className="size-3.5" strokeWidth={2} aria-hidden /></button>
                         </li>
                       ))}
                     </ul>
@@ -297,14 +301,12 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
           familias={familias}
           fechaInicial={fechaInicial}
           hoy={hoy}
-          puedeForzarClase={opciones.puedeForzarClase}
           seleccion={seleccion}
-          onSeleccion={setSeleccion}
+          onSeleccion={(s) => { setSeleccion(s); setChoqueConfirmado(false); }}
           duracion={duracion}
-          onDuracion={setDuracion}
-          forzarClase={forzarClase}
-          onForzarClase={setForzarClase}
+          onDuracion={(d) => { setDuracion(d); setChoqueConfirmado(false); }}
           onSeguir={seguirConHorario}
+          choqueConfirmado={choqueConfirmado}
           ranuraAcciones={ranura}
         />
       )}
@@ -316,6 +318,7 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
               {TEXTO_TIPO[tipo]} · <span className="first-letter:uppercase">{fecha && fechaCorta(fecha)}</span> · <span className="tabular-nums">{hora}–{seleccion ? horaTexto(seleccion.inicio + duracion) : ""}</span> · {duracion} minutos
               {familias ? ` · ${familias}` : ""}
             </p>
+            {choqueConfirmado && <p className="flex items-center gap-2 text-cuerpo-sm text-falta sm:col-span-2"><CircleAlert className="size-4 shrink-0" strokeWidth={2} aria-hidden />Programada sobre un horario ocupado</p>}
             <div className="sm:col-span-2"><Campo etiqueta="Título" name="titulo" required minLength={3} maxLength={150} placeholder="Reunión de coordinación" /></div>
             <div className="sm:col-span-2">
               <label className="flex flex-col gap-1.5 text-sm"><span className="font-medium">Motivo (opcional)</span><Textarea name="motivo" rows={2} maxLength={500} /></label>
@@ -328,14 +331,11 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
             <div className="sm:col-span-2">
               <label className="flex flex-col gap-1.5 text-sm"><span className="font-medium">Observaciones (opcional)</span><Textarea name="observaciones" rows={2} maxLength={1000} /></label>
             </div>
-            {analisis?.fueraDeHorario && (
+            {analisis?.fueraDeHorario && !choqueConfirmado && (
               <label className="flex items-start gap-2 text-cuerpo-sm sm:col-span-2">
                 <input type="checkbox" checked={fueraDeHorario} onChange={(e) => setFueraDeHorario(e.target.checked)} className="mt-1 size-4" />
                 Programar igual fuera de la jornada laboral o en día no lectivo.
               </label>
-            )}
-            {opciones.puedeForzarClase && analisis?.soloClases && forzarClase && (
-              <div className="sm:col-span-2"><Campo etiqueta="Motivo para usar la hora de clase" name="motivoForzar" required maxLength={300} ayuda="Programas sobre una clase: queda registrado con este motivo." /></div>
             )}
           </Tarjeta>
         </form>

@@ -157,6 +157,34 @@ describe("disponibilidad y confirmación", () => {
     expect((r as { alternativas: unknown[] }).alternativas.length).toBeGreaterThan(0);
   });
 
+  it("un profesor confirma un choque con su clase sin cancelar la clase ni crear reserva exclusiva", async () => {
+    const pedido = base({ titulo: "Choque con clase confirmado", tipo: "coordinacion", hora: "10:00", requeridos: [eva.membershipId] });
+    expect((await convocarReunion(lucia(), pedido)).ok).toBe(false);
+    const r = await convocarReunion(lucia(), { ...pedido, confirmarChoque: true });
+    expect(r.ok).toBe(true);
+    const id = (r as { id: string }).id;
+    expect(await pro.db.reservaAgenda.count({ where: { reunionId: id, membershipId: pro.miembros.tutora.membership.id } })).toBe(0);
+    expect(await pro.db.reservaAgenda.count({ where: { reunionId: id, membershipId: eva.membershipId } })).toBe(1);
+    const auditoria = await pro.db.auditoria.findFirstOrThrow({ where: { entidad: "reunion", entidadId: id, accion: "crear" } });
+    expect(auditoria.detalle).toMatchObject({ conChoque: true, choques: 1 });
+  });
+
+  it("dos reuniones pueden incluir a un requerido ocupado si el organizador confirma, sin violar EXCLUDE", async () => {
+    const ocupada = base({ titulo: "Primera reunión del choque", tipo: "coordinacion", hora: "13:15", requeridos: [eva.membershipId] });
+    const primera = await convocarReunion(luis(), ocupada);
+    expect(primera.ok).toBe(true);
+    const segunda = base({ titulo: "Segunda reunión del choque", tipo: "coordinacion", hora: "13:15", requeridos: [eva.membershipId] });
+    expect((await convocarReunion(lucia(), segunda)).ok).toBe(false);
+    const r = await convocarReunion(lucia(), { ...segunda, confirmarChoque: true });
+    expect(r.ok).toBe(true);
+    const id = (r as { id: string }).id;
+    expect(await pro.db.reunionInvitado.count({ where: { reunionId: id, membershipId: eva.membershipId, rol: "requerido" } })).toBe(1);
+    expect(await pro.db.reservaAgenda.count({ where: { reunionId: id, membershipId: eva.membershipId } })).toBe(0);
+    expect(await pro.db.reservaAgenda.count({ where: { reunionId: id, membershipId: pro.miembros.tutora.membership.id } })).toBe(1);
+    const auditoria = await pro.db.auditoria.findFirstOrThrow({ where: { entidad: "reunion", entidadId: id, accion: "crear" } });
+    expect(auditoria.detalle).toMatchObject({ conChoque: true, choques: 1 });
+  });
+
   it("una clase solo se puede forzar desde dirección, con motivo", async () => {
     const conLucia = base({ tipo: "direccion", hora: "10:00", requeridos: [pro.miembros.tutora.membership.id] });
     const sin = await convocarReunion(dir(), conLucia);
