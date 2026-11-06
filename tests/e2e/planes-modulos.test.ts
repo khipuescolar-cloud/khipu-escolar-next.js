@@ -53,7 +53,7 @@ const panel = async (browser: Browser, ruta: string) => {
 
 test("Khipu Base ve el candado de Pro y quitar Agenda de Khipu Pro la retira de sus colegios", async ({ browser }) => {
   const base = await entrar(browser, colegioBase.correos.direccion, colegio(colegioBase.slug, "/inicio"));
-  await expect(base.getByRole("main").locator("li", { hasText: "Agenda" }).getByText("Plan Khipu Pro")).toBeVisible();
+  await expect(base.locator('[data-slot="sidebar-menu-item"]', { hasText: "Agenda" })).toContainText("bloqueado, plan Khipu Pro");
   await base.close();
 
   const admin = await panel(browser, "/planes");

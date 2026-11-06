@@ -20,7 +20,7 @@ async function entrar(page: Page, email: string) {
 
 test("dirección no pasa lista: ve el reporte general del colegio y abre una lista para corregir", async ({ page }) => {
   await entrar(page, "direccion@nuevohorizonte.demo");
-  await expect(page.getByRole("main").getByText("Reportes de asistencia").first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "Reportes de asistencia" }).first()).toBeVisible();
   await expect(page.getByRole("main").getByText("Pasar lista", { exact: true })).toHaveCount(0);
 
   // /asistencia la lleva a los reportes.

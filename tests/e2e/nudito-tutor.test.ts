@@ -103,7 +103,8 @@ async function responderEnUI(page: Page, bien: boolean) {
       const preguntas = p.preguntas as { id: string; opciones?: Opcion[] }[];
       const respuestas = s.respuestas as Record<string, string | { aceptadas: string[] }>;
       for (const [i, q] of preguntas.entries()) {
-        const grupo = page.locator("ol > li").nth(i);
+        // `article + ol`: el `ol` de las preguntas, no el de las migas del encabezado.
+        const grupo = page.locator("article + ol > li").nth(i);
         const r = respuestas[q.id];
         if (q.opciones) {
           const elegida = bien ? q.opciones.find((o) => o.id === r)! : q.opciones.find((o) => o.id !== r)!;

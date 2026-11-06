@@ -31,7 +31,15 @@ test.afterAll(async () => {
 test("Lucía convoca a 3.° B, Rosa confirma, Lucía ve la confirmación y publica el acta, Rosa la lee", async ({ page, context }) => {
   const titulo = `Reunión e2e ${Date.now()}`;
   const inicio = new Date();
-  const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
+  // Próximo día hábil (lunes a viernes): el asistente propone horarios en días de clase.
+  const manana = (() => {
+    for (let dias = 1; dias <= 4; dias++) {
+      const fecha = new Date(Date.now() + dias * 86_400_000);
+      const diaSemana = new Intl.DateTimeFormat("en-US", { weekday: "short", timeZone: "America/Lima" }).format(fecha);
+      if (diaSemana !== "Sat" && diaSemana !== "Sun") return fecha.toLocaleDateString("en-CA", { timeZone: "America/Lima" });
+    }
+    throw new Error("sin día hábil");
+  })();
 
   try {
     // 1. Lucía convoca a 3.° B con el asistente (specs/40): tutoría, 18:00 (fuera de la jornada, lo confirma).

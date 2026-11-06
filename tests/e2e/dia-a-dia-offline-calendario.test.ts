@@ -37,7 +37,7 @@ test("dirección ve los avisos de hoy en el inicio y descarga el PDF de carnets"
   await page.waitForURL(`${COLEGIO}/inicio`);
   const main = page.getByRole("main");
   await expect(main.getByRole("heading", { name: "Avisos de hoy" })).toBeVisible();
-  await expect(main.getByRole("link", { name: /Ver todos los avisos/ })).toHaveAttribute("href", "/avisos");
+  await expect(main.getByRole("link", { name: /Ver avisos/ })).toHaveAttribute("href", "/avisos");
 
   await page.goto(`${COLEGIO}/gestion/carnets`);
   const generar = main.getByRole("button", { name: "Generar carnets" }).first();

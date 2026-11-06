@@ -97,7 +97,7 @@ test("Khipu Base ve el candado de Documentos y no puede abrirlos", async ({ brow
   try {
     const URL_BASE = `http://${colegioBase.slug}.lvh.me:${PUERTO}`;
     const base = await entrar(browser, colegioBase.correos.direccion, `${URL_BASE}/inicio`);
-    await expect(base.getByRole("main").locator("li", { hasText: "Documentos" }).getByText("Plan Khipu Pro")).toBeVisible();
+    await expect(base.locator('[data-slot="sidebar-menu-item"]', { hasText: "Documentos" })).toContainText("bloqueado, plan Khipu Pro");
     await esperarSinAcceso(base, await base.goto(`${URL_BASE}/documentos`), "Khipu Base");
   } finally {
     await colegioBase.limpiar();

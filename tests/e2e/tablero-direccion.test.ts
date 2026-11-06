@@ -87,8 +87,8 @@ test("una profesora no entra al tablero ni descarga el consolidado", async ({ pa
 test("en Khipu Base el inicio muestra el candado y el tablero responde 403", async ({ page }) => {
   const BASE = `http://${base.slug}.lvh.me:${PUERTO}`;
   await entrar(page, base.correos.direccion, BASE);
-  const mosaico = page.getByRole("main").locator("li", { hasText: "Asistencia, notas y avisos del colegio" });
-  await expect(mosaico).toContainText("Khipu Pro");
+  // El módulo bloqueado aparece en el menú lateral con candado y el plan que lo incluye.
+  await expect(page.locator('[data-slot="sidebar-menu-item"]', { hasText: "Tablero" })).toContainText("bloqueado, plan Khipu Pro");
   await esperarSinAcceso(page, await page.goto(`${BASE}/tablero`));
   expect((await page.request.get(`${BASE}/api/tablero/consolidado/pdf`)).status()).toBe(403);
 });

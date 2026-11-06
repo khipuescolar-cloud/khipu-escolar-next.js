@@ -81,9 +81,10 @@ test("dirección crea la cuenta del alumno; el alumno entra con su DNI, cambia l
   await p2.getByRole("button", { name: "Guardar y entrar" }).click();
   await p2.waitForURL(`${COLEGIO}/inicio`);
   await expect(p2.getByRole("heading", { name: `Hola, ${ALUMNO.nombres}` })).toBeVisible();
-  const main = p2.getByRole("main");
-  for (const t of ["Mi asistencia", "Comunicados", "Notas", "Libreta", "Tareas", "Agenda"]) await expect(main.getByText(t, { exact: true })).toBeVisible();
-  for (const t of ["Mensajes", "Gestión"]) await expect(main.getByText(t, { exact: true })).toHaveCount(0);
+  // La navegación vive en el menú lateral: el alumno ve sus módulos y no ve Mensajes ni Gestión.
+  const menu = p2.locator('[data-slot="sidebar"]').first();
+  for (const t of ["Mi asistencia", "Comunicados", "Notas", "Libreta", "Tareas", "Agenda"]) await expect(menu.getByText(t, { exact: true })).toBeVisible();
+  for (const t of ["Mensajes", "Gestión"]) await expect(menu.getByText(t, { exact: true })).toHaveCount(0);
 
   await p2.goto(`${COLEGIO}/tareas`);
   await expect(p2.getByRole("heading", { name: "Tareas" })).toBeVisible();
