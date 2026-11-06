@@ -51,6 +51,17 @@ export async function sembrarDocumentos(prisma: PrismaClient, _ids: Record<strin
   const calendario = await carpeta("Calendario académico", 2);
   const comunicados = await carpeta("Comunicados oficiales", 3);
 
+  // Mi unidad de Lucía: compartir una carpeta hereda el acceso a su contenido.
+  const lucia = await prisma.membership.findFirst({ where: { tenantId: tenant.id, rol: "profesor", user: { email: "lucia.garcia@nuevohorizonte.demo" } } });
+  const pedro = await prisma.membership.findFirst({ where: { tenantId: tenant.id, rol: "profesor", user: { email: "pedro.salas@nuevohorizonte.demo" } } });
+  if (lucia && pedro && salon) {
+    const unidad = await prisma.carpetaDocumento.create({ data: { tenantId: tenant.id, nombre: "Material de 3.° B", creadoPorId: lucia.id, ambito: "unidad" } });
+    await prisma.compartidoDocumento.createMany({ data: [
+      { tenantId: tenant.id, carpetaId: unidad.id, rol: "apoderado", salonId: salon.id, nivel: "lector", creadoPorId: lucia.id },
+      { tenantId: tenant.id, carpetaId: unidad.id, membershipId: pedro.id, nivel: "editor", creadoPorId: lucia.id },
+    ] });
+  }
+
   const subir = async (carpetaId: string, d: DocSemilla) => {
     const documento = await prisma.documento.create({
       data: {

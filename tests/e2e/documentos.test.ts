@@ -4,14 +4,11 @@ import { expect, test, type Browser, type Page } from "@playwright/test";
 import { esperarSinAcceso } from "./sin-acceso";
 import { crearColegioTemporal } from "./ayudantes/colegio-temporal";
 
-// Biblioteca de documentos (specs/31): dirección crea una carpeta y sube un PDF para las familias; la apoderada Rosa lo ve y
-// lo descarga; la profesora no ve lo que no es para su rol; Khipu Base ve el candado.
 const PUERTO = process.env.E2E_PORT ?? "3000";
 const COLEGIO = `http://nuevohorizonte.lvh.me:${PUERTO}`;
 const SUFIJO = Date.now();
-const CARPETA = `Reglamento E2E ${SUFIJO}`;
-const TITULO = `Reglamento de convivencia ${SUFIJO}`;
-const INTERNO = `Acta interna ${SUFIJO}`;
+const CARPETA = `Material Lucía E2E ${SUFIJO}`;
+const TITULO = `Guía para 3.° B ${SUFIJO}`;
 
 async function entrar(browser: Browser, correo: string, destino: string): Promise<Page> {
   const page = await (await browser.newContext()).newPage();
@@ -26,80 +23,105 @@ async function entrar(browser: Browser, correo: string, destino: string): Promis
 test.afterAll(async () => {
   const cliente = new Client({ connectionString: process.env.DATABASE_URL });
   await cliente.connect();
-  await cliente.query(`delete from carpetas_documento where nombre = $1`, [CARPETA]);
-  await cliente.query(`delete from documentos where titulo in ($1, $2)`, [TITULO, INTERNO]);
+  await cliente.query("delete from carpetas_documento where nombre = $1", [CARPETA]);
+  await cliente.query("delete from documentos where titulo = $1", [TITULO]);
   await cliente.end();
 });
 
-test("dirección crea una carpeta y sube un PDF para las familias; Rosa lo ve y lo descarga", async ({ browser }) => {
-  const direccion = await entrar(browser, "direccion@nuevohorizonte.demo", `${COLEGIO}/inicio`);
-  await direccion.goto(`${COLEGIO}/documentos`);
-  await expect(direccion.getByRole("heading", { name: "Documentos", level: 1 })).toBeVisible();
+test("Lucía comparte carpeta con familias; Rosa descarga; Pedro no ve; renombrar, papelera y restauración", async ({ browser }) => {
+  const lucia = await entrar(browser, "lucia.garcia@nuevohorizonte.demo", `${COLEGIO}/inicio`);
+  await lucia.goto(`${COLEGIO}/documentos?vista=unidad`);
+  await expect(lucia.getByRole("heading", { name: "Documentos", level: 1 })).toBeVisible();
+  await lucia.getByRole("button", { name: "Nuevo", exact: true }).click();
+  await lucia.getByRole("menuitem", { name: "Nueva carpeta" }).click();
+  await lucia.getByRole("dialog").getByLabel("Nombre de la carpeta").fill(CARPETA);
+  await lucia.getByRole("dialog").getByRole("button", { name: "Crear", exact: true }).click();
+  await expect(lucia.getByText("Carpeta creada.")).toBeVisible();
 
-  await direccion.getByRole("button", { name: "Nueva carpeta" }).first().click();
-  await direccion.getByRole("dialog").getByLabel("Nombre de la carpeta").fill(CARPETA);
-  await direccion.getByRole("dialog").getByRole("button", { name: "Crear carpeta" }).click();
-  await expect(direccion.getByText("Carpeta creada.")).toBeVisible();
-  await direccion.getByRole("link", { name: new RegExp(CARPETA) }).click();
-  await expect(direccion.getByText("Esta carpeta está vacía")).toBeVisible();
+  // Compartir: buscador de personas y grupos, chip, nivel Lector y «Compartir»; el pie conserva «Copiar enlace» y «Listo».
+  await lucia.getByRole("button", { name: `Opciones de ${CARPETA}` }).click();
+  await lucia.getByRole("menuitem", { name: "Compartir" }).click();
+  const dialogo = lucia.getByRole("dialog", { name: `Compartir «${CARPETA}»` });
+  await expect(dialogo).toBeVisible();
+  await expect(dialogo.getByText("Personas con acceso")).toBeVisible();
+  await expect(dialogo.getByText("Propietario", { exact: true })).toBeVisible();
+  await expect(dialogo.getByRole("button", { name: "Copiar enlace" })).toBeVisible();
+  await expect(dialogo.getByRole("button", { name: "Listo" })).toBeVisible();
+  await expect(dialogo.locator("select")).toHaveCount(0); // niveles y acceso general son menús del sistema, no selects nativos
+  await dialogo.getByRole("combobox", { name: "Agregar personas y grupos" }).fill("Familias de 3");
+  await dialogo.getByRole("option", { name: /Familias de 3\.° B/ }).click();
+  await expect(dialogo.getByRole("button", { name: "Quitar a Familias de 3.° B" })).toBeVisible();
+  await expect(dialogo.getByRole("button", { name: "Compartir", exact: true })).toBeVisible();
+  await dialogo.getByRole("button", { name: "Compartir", exact: true }).click();
+  await expect(lucia.getByText("Acceso compartido.")).toBeVisible();
+  await expect(dialogo.getByRole("button", { name: /^Nivel de acceso de Familias de 3\.° B: Lector/ })).toBeVisible();
+  await dialogo.getByRole("button", { name: "Listo" }).click();
 
-  await direccion.getByRole("button", { name: "Subir documento" }).first().click();
-  const dialogo = direccion.getByRole("dialog");
-  await dialogo.getByLabel("Título").fill(TITULO);
-  await dialogo.getByLabel("Archivo", { exact: true }).setInputFiles({ name: "reglamento.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n%reglamento de prueba\n") });
-  await dialogo.getByLabel("Familias", { exact: true }).check();
-  await dialogo.getByRole("button", { name: "Publicar documento" }).click();
-  await expect(direccion.getByText("Documento publicado.")).toBeVisible();
-  await expect(direccion.getByRole("heading", { name: TITULO })).toBeVisible();
+  // Subir un PDF dentro (selector de archivos del menú «Nuevo») con progreso por archivo.
+  await lucia.getByRole("button", { name: CARPETA, exact: true }).click();
+  await expect(lucia.getByRole("navigation", { name: "Ruta de carpetas" }).getByRole("link", { name: CARPETA })).toBeVisible();
+  await lucia.getByTestId("subir-archivos").setInputFiles({ name: `${TITULO}.pdf`, mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n%guia de prueba\n") });
+  await expect(lucia.getByText("Subidas terminadas")).toBeVisible();
+  await expect(lucia.getByRole("button", { name: TITULO, exact: true })).toBeVisible({ timeout: 20_000 });
 
-  // Un documento sin casillas es un borrador: solo dirección.
-  await direccion.getByRole("button", { name: "Subir documento" }).first().click();
-  await direccion.getByRole("dialog").getByLabel("Título").fill(INTERNO);
-  await direccion.getByRole("dialog").getByLabel("Archivo", { exact: true }).setInputFiles({ name: "acta.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n%acta\n") });
-  await direccion.getByRole("dialog").getByRole("button", { name: "Publicar documento" }).click();
-  await expect(direccion.getByRole("heading", { name: INTERNO })).toBeVisible();
-  await expect(direccion.getByText("Solo dirección")).toBeVisible();
+  // Renombrar con F2.
+  await lucia.getByRole("button", { name: TITULO, exact: true }).focus();
+  await lucia.keyboard.press("F2");
+  await lucia.getByRole("dialog").getByLabel("Nombre").fill(`${TITULO} v2`);
+  await lucia.getByRole("dialog").getByRole("button", { name: "Guardar" }).click();
+  await expect(lucia.getByRole("button", { name: `${TITULO} v2`, exact: true })).toBeVisible();
+  await lucia.getByRole("button", { name: `Opciones de ${TITULO} v2` }).click();
+  await lucia.getByRole("menuitem", { name: "Renombrar" }).click();
+  await lucia.getByRole("dialog").getByLabel("Nombre").fill(TITULO);
+  await lucia.getByRole("dialog").getByRole("button", { name: "Guardar" }).click();
+  await expect(lucia.getByRole("button", { name: TITULO, exact: true })).toBeVisible();
 
-  // Rosa (apoderada) entra a la carpeta, ve el documento para familias, busca por título y lo descarga.
   const rosa = await entrar(browser, "rosa.quispe@gmail.com", `${COLEGIO}/inicio`);
-  await rosa.goto(`${COLEGIO}/documentos`);
-  await rosa.getByRole("link", { name: new RegExp(CARPETA) }).click();
-  await expect(rosa.getByRole("heading", { name: TITULO })).toBeVisible();
-  await expect(rosa.getByRole("heading", { name: INTERNO })).toHaveCount(0);
-  await expect(rosa.getByRole("button", { name: "Subir documento" })).toHaveCount(0);
-
-  await rosa.goto(`${COLEGIO}/documentos?q=${encodeURIComponent(String(SUFIJO))}`);
-  await expect(rosa.getByRole("heading", { name: TITULO })).toBeVisible();
-  const href = await rosa.getByRole("link", { name: new RegExp(`Descargar ${TITULO}`) }).getAttribute("href");
+  await rosa.goto(`${COLEGIO}/documentos?vista=compartido`);
+  await expect(rosa.getByRole("button", { name: CARPETA, exact: true })).toBeVisible();
+  await expect(rosa.getByRole("button", { name: "Nuevo", exact: true })).toHaveCount(0);
+  await rosa.getByRole("button", { name: CARPETA, exact: true }).click();
+  await expect(rosa.getByRole("button", { name: TITULO, exact: true })).toBeVisible();
+  await expect(rosa.getByRole("button", { name: `Opciones de ${TITULO}` })).toBeVisible();
+  await rosa.getByRole("button", { name: TITULO, exact: true }).click();
+  await expect(rosa.getByRole("dialog").locator("iframe")).toHaveAttribute("src", /\/archivos\/[0-9a-f-]{36}\?vista=1/);
+  const href = await rosa.getByRole("dialog").getByRole("link", { name: "Descargar" }).getAttribute("href");
   expect(href).toMatch(/^\/archivos\/[0-9a-f-]{36}$/);
   const descarga = await rosa.request.get(`${COLEGIO}${href}`);
   expect(descarga.status()).toBe(200);
   expect(descarga.headers()["content-disposition"]).toContain("attachment");
   expect((await descarga.body()).toString()).toContain("%PDF-1.4");
+  // La vista previa se puede incrustar solo desde el mismo origen; la descarga no.
+  const previa = await rosa.request.get(`${COLEGIO}${href}?vista=1`);
+  expect(previa.headers()["x-frame-options"]).toBe("SAMEORIGIN");
+  expect(descarga.headers()["x-frame-options"]).toBe("DENY");
 
-  // Portería no usa la biblioteca: no descarga el archivo.
-  const porteria = await entrar(browser, "porteria@nuevohorizonte.demo", `${COLEGIO}/inicio`);
-  expect((await porteria.request.get(`${COLEGIO}${href}`)).status()).toBe(403);
-  await esperarSinAcceso(porteria, await porteria.goto(`${COLEGIO}/documentos`), "portería");
+  const pedro = await entrar(browser, "pedro.salas@nuevohorizonte.demo", `${COLEGIO}/inicio`);
+  await pedro.goto(`${COLEGIO}/documentos?vista=compartido`);
+  await expect(pedro.getByRole("button", { name: CARPETA, exact: true })).toHaveCount(0);
 
-  // Dirección borra el documento con confirmación y luego la carpeta.
-  await direccion.goto(`${COLEGIO}/documentos`);
-  await direccion.getByRole("link", { name: new RegExp(CARPETA) }).click();
-  await direccion.getByRole("button", { name: new RegExp(`Borrar ${TITULO}`) }).click();
-  await direccion.getByRole("button", { name: "Borrar documento" }).click();
-  await expect(direccion.getByText("Documento borrado.")).toBeVisible();
-  await expect(direccion.getByRole("heading", { name: TITULO })).toHaveCount(0);
-  expect((await rosa.request.get(`${COLEGIO}${href}`)).status()).toBe(404);
+  await lucia.goto(`${COLEGIO}/documentos?vista=unidad`);
+  await lucia.getByRole("button", { name: `Opciones de ${CARPETA}` }).click();
+  await lucia.getByRole("menuitem", { name: "Mover a la papelera" }).click();
+  await expect(lucia.getByRole("button", { name: CARPETA, exact: true })).toHaveCount(0);
+  await rosa.reload();
+  await expect(rosa.getByRole("button", { name: CARPETA, exact: true })).toHaveCount(0);
+  await lucia.goto(`${COLEGIO}/documentos?vista=papelera`);
+  await expect(lucia.getByRole("button", { name: CARPETA, exact: true })).toBeVisible();
+  await lucia.getByRole("button", { name: `Opciones de ${CARPETA}` }).click();
+  await lucia.getByRole("menuitem", { name: "Restaurar" }).click();
+  await lucia.goto(`${COLEGIO}/documentos?vista=unidad`);
+  await expect(lucia.getByRole("button", { name: CARPETA, exact: true })).toBeVisible();
 });
 
-test("Khipu Base ve el candado de Documentos y no puede abrirlos", async ({ browser }) => {
+test("portería no accede y Khipu Base ve el candado", async ({ browser }) => {
+  const porteria = await entrar(browser, "porteria@nuevohorizonte.demo", `${COLEGIO}/inicio`);
+  await esperarSinAcceso(porteria, await porteria.goto(`${COLEGIO}/documentos`), "portería");
   const colegioBase = await crearColegioTemporal({ plan: "base", prefijo: "e2e-base" });
   try {
     const URL_BASE = `http://${colegioBase.slug}.lvh.me:${PUERTO}`;
     const base = await entrar(browser, colegioBase.correos.direccion, `${URL_BASE}/inicio`);
     await expect(base.locator('[data-slot="sidebar-menu-item"]', { hasText: "Documentos" })).toContainText("bloqueado, plan Khipu Pro");
     await esperarSinAcceso(base, await base.goto(`${URL_BASE}/documentos`), "Khipu Base");
-  } finally {
-    await colegioBase.limpiar();
-  }
+  } finally { await colegioBase.limpiar(); }
 });
