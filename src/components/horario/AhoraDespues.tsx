@@ -15,7 +15,7 @@ export function AhoraDespues({ ahora, despues, hayClasesHoy, conSalon = false }:
     <div className="flex flex-col gap-1.5 text-cuerpo-sm" data-testid="ahora-despues">
       {ahora && (
         <p className="inline-flex items-start gap-1.5">
-          <CircleDot className="mt-0.5 size-4 shrink-0 text-primary" strokeWidth={2} aria-hidden />
+          <CircleDot className="mt-0.5 size-4 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
           <span><span className="font-semibold">Ahora:</span> {textoAhora(ahora, conSalon ? ahora.salonNombre : undefined)}</span>
         </p>
       )}

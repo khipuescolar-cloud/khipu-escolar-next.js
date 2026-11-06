@@ -40,7 +40,7 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada y en sus no
   await page.getByRole("button", { name: "Entrar" }).click();
   await page.waitForURL(colegio("nuevohorizonte", "/inicio"));
   await page.goto(colegio("nuevohorizonte", "/tareas"));
-  await expect(page.getByRole("heading", { name: "Para mañana" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Para mañana" }).first()).toBeVisible();
   await expect(page.getByText(titulo)).toBeVisible();
   // Sin correo (specs/38): la tarea llega a su bandeja de notificaciones.
   await page.goto(colegio("nuevohorizonte", "/notificaciones"));

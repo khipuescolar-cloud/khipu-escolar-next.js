@@ -18,6 +18,7 @@ import {
   calificarEntregaAction, comentarTareaAction, devolverEntregaAction, entregaFisicaAction, marcarNoEntregaronAction, ocultarComentarioAction, revisarEntregaAction,
 } from "../../actions";
 import { FormularioEnLinea } from "../../FormularioEnLinea";
+import { TituloBloque } from "../../../inicio/TituloBloque";
 import { EstadoEntrega, FechaEntrega } from "../../insignias";
 
 export const metadata: Metadata = { title: "Revisar entregas" };
@@ -40,14 +41,16 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
   const docente = ctx.rol === "profesor";
 
   return (
-    <div className="flex flex-col gap-4">
-      <Link href="/tareas" className={`${buttonVariants({ variant: "ghost", size: "sm" })} self-start`}><ArrowLeft strokeWidth={2} aria-hidden />Tareas</Link>
-      <EncabezadoPagina titulo={r.tarea.titulo} descripcion="Revisa las entregas por sección." />
-      <div className="flex flex-wrap gap-2"><FechaEntrega fecha={r.tarea.fechaEntrega} conHora={r.tarea.conHora} vencida={r.vencida} /></div>
-      {r.tarea.descripcion && <p className="whitespace-pre-line text-sm">{r.tarea.descripcion}</p>}
-      <ListaAdjuntos adjuntos={r.tarea.adjuntos} etiqueta="Materiales" />
+    <div className="flex flex-col gap-6">
+      <Link href="/tareas" className={`${buttonVariants({ variant: "ghost", size: "sm" })} -mb-3 self-start`}><ArrowLeft strokeWidth={2} aria-hidden />Tareas</Link>
+      <EncabezadoPagina seccion="academico" titulo={r.tarea.titulo} descripcion="Revisa las entregas por sección." />
+      <div className="-mt-3 flex flex-col gap-3">
+        <div className="flex flex-wrap gap-2"><FechaEntrega fecha={r.tarea.fechaEntrega} conHora={r.tarea.conHora} vencida={r.vencida} /></div>
+        {r.tarea.descripcion && <p className="max-w-prose whitespace-pre-line text-sm">{r.tarea.descripcion}</p>}
+        <ListaAdjuntos adjuntos={r.tarea.adjuntos} etiqueta="Materiales" />
+      </div>
 
-      <form className="flex flex-wrap items-end gap-3" aria-label="Filtrar entregas">
+      <form className="flex flex-wrap items-end gap-3 rounded-xl border border-borde-sutil bg-superficie px-4 py-3" aria-label="Filtrar entregas">
         <Selector etiqueta="Salón" name="curso" defaultValue={filtros.cursoId ?? ""}>
           <option value="">Todos</option>
           {r.secciones.map((s) => <option key={s.cursoId} value={s.cursoId}>{s.salon}</option>)}
@@ -58,18 +61,18 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
         </Selector>
         <label className="flex flex-col gap-1.5 text-sm">
           <span className="font-medium">Estudiante</span>
-          <input type="search" name="q" defaultValue={filtros.q ?? ""} className="h-11 rounded-md border bg-background px-3" />
+          <input type="search" name="q" defaultValue={filtros.q ?? ""} className="h-11 rounded-md border border-input bg-background px-3" />
         </label>
         <button type="submit" className={buttonVariants({ variant: "outline" })}>Filtrar</button>
       </form>
 
       {r.secciones.map((s) => (
-        <section key={s.id} className="flex flex-col gap-3 rounded-lg border bg-card p-4" aria-labelledby={`sec-${s.id}`}>
+        <section key={s.id} className="mt-4 flex flex-col gap-3" aria-labelledby={`sec-${s.id}`}>
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 id={`sec-${s.id}`} className="text-titulo-2">{s.curso} · {s.salon}</h2>
+            <TituloBloque id={`sec-${s.id}`}>{s.curso} · {s.salon}</TituloBloque>
             {s.fechaPropia && <FechaEntrega fecha={s.fechaPropia} conHora={r.tarea.conHora} />}
           </div>
-          <p className="text-cuerpo-sm tabular-nums" data-testid={`contadores-${s.cursoId}`}>
+          <p className="text-cuerpo-sm tabular-nums text-muted-foreground" data-testid={`contadores-${s.cursoId}`}>
             {s.contadores.entregaron}/{s.contadores.asignados} entregaron · {s.contadores.tarde} con retraso · {s.contadores.pendientes} pendientes · {s.contadores.devueltas} devueltas · {s.contadores.revisadas} revisadas
           </p>
           {docente && s.evaluacion && (
@@ -85,9 +88,9 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
           {s.filas.length === 0 ? (
             <EstadoVacio icono={ClipboardList} titulo="No hay estudiantes con ese filtro" />
           ) : (
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col divide-y divide-borde-sutil border-y border-borde-sutil">
               {s.filas.map((f) => (
-                <li key={f.asignacionId} className="flex flex-col gap-2 rounded-lg border bg-background p-3 text-sm" data-testid={`fila-${f.alumno.id}`}>
+                <li key={f.asignacionId} className="flex flex-col gap-2 py-4 text-sm" data-testid={`fila-${f.alumno.id}`}>
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <p className="font-medium">{f.alumno.nombre}{f.retirada ? " (ya no asignado)" : ""}</p>
                     <div className="flex flex-wrap items-center gap-2">
@@ -96,8 +99,8 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
                     </div>
                   </div>
                   {f.intentos.map((i) => (
-                    <div key={i.numero} className="flex flex-col gap-1 border-l-2 pl-3">
-                      <p className="text-cuerpo-sm text-muted-foreground">Intento {i.numero}{i.enviadaAt ? ` · ${cuando(i.enviadaAt)}` : ""}{i.tarde ? " · con retraso" : ""}</p>
+                    <div key={i.numero} className="flex flex-col gap-1 rounded-lg bg-sec-suave px-3 py-2">
+                      <p className="text-cuerpo-sm font-medium text-sec-tinta">Intento {i.numero}{i.enviadaAt ? ` · ${cuando(i.enviadaAt)}` : ""}{i.tarde ? " · con retraso" : ""}</p>
                       {i.texto && <p className="whitespace-pre-line">{i.texto}</p>}
                       <ListaAdjuntos adjuntos={i.archivos} etiqueta="Archivos" />
                     </div>
@@ -115,9 +118,9 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
                     </ul>
                   )}
                   {docente && !f.retirada && (
-                    <div className="flex flex-col gap-2 border-t pt-2">
+                    <div className="flex flex-wrap items-end gap-x-3 gap-y-2 pt-1">
                       {(f.estado === "entregada" || f.estado === "revisada") && (
-                        <FormularioEnLinea accion={devolverEntregaAction.bind(null, slug, id, f.asignacionId)} className="flex flex-col gap-2" etiqueta={`Devolver a ${f.alumno.nombre}`}>
+                        <FormularioEnLinea accion={devolverEntregaAction.bind(null, slug, id, f.asignacionId)} className="flex w-full flex-col gap-2" etiqueta={`Devolver a ${f.alumno.nombre}`}>
                           <label className="flex flex-col gap-1 text-sm">
                             <span className="font-medium">Observación (privada)</span>
                             <Textarea name="observacion" rows={2} maxLength={MAX_COMENTARIO_TAREA} />
@@ -137,16 +140,16 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
                         <FormularioEnLinea accion={calificarEntregaAction.bind(null, slug, id, f.asignacionId)} className="flex flex-wrap items-end gap-2" etiqueta={`Nota de ${f.alumno.nombre}`}>
                           <label className="flex flex-col gap-1 text-sm">
                             <span className="font-medium">Nota</span>
-                            <input name="valor" maxLength={10} defaultValue={f.nota ?? ""} className="h-11 w-24 rounded-md border bg-background px-3" />
+                            <input name="valor" maxLength={10} defaultValue={f.nota ?? ""} className="h-11 w-24 rounded-md border border-input bg-background px-3 tabular-nums" />
                           </label>
                           <Button type="submit" size="sm" variant="outline">Guardar nota</Button>
                         </FormularioEnLinea>
                       )}
-                      <FormularioEnLinea accion={comentarTareaAction.bind(null, slug, id)} className="flex flex-wrap items-end gap-2" etiqueta={`Comentario privado a ${f.alumno.nombre}`}>
+                      <FormularioEnLinea accion={comentarTareaAction.bind(null, slug, id)} className="flex w-full flex-wrap items-end gap-2" etiqueta={`Comentario privado a ${f.alumno.nombre}`}>
                         <input type="hidden" name="asignacionId" value={f.asignacionId} />
                         <label className="flex min-w-0 flex-1 flex-col gap-1 text-sm">
                           <span className="font-medium">Comentario privado</span>
-                          <input name="texto" required maxLength={MAX_COMENTARIO_TAREA} className="h-11 rounded-md border bg-background px-3" />
+                          <input name="texto" required maxLength={MAX_COMENTARIO_TAREA} className="h-11 rounded-md border border-input bg-background px-3" />
                         </label>
                         <Button type="submit" size="sm" variant="ghost">Enviar</Button>
                       </FormularioEnLinea>

@@ -21,7 +21,6 @@ export function CamposNuevaTarea({ cursos, alumnos }: { cursos: CursoOpcion[]; a
   const [secciones, setSecciones] = useState<Record<string, EstadoSeccion>>({});
   const [busqueda, setBusqueda] = useState("");
   const [verPrevia, setVerPrevia] = useState(false);
-  const [accion, setAccion] = useState("publicar");
 
   const cursoOrigen = cursos.find((c) => c.id === origen);
   const gemelos = useMemo(() => cursos.filter((c) => cursoOrigen && c.id !== origen && clave(c.nombre) === clave(cursoOrigen.nombre)), [cursos, cursoOrigen, origen]);
@@ -40,8 +39,7 @@ export function CamposNuevaTarea({ cursos, alumnos }: { cursos: CursoOpcion[]; a
         </Selector>
       </div>
       <input type="hidden" name="secciones" value={valor} />
-      <fieldset className="flex flex-col gap-3 rounded-lg border p-3 sm:col-span-2">
-        <legend className="px-1 text-sm font-medium">Para quién es</legend>
+      <div className="flex flex-col gap-3 rounded-lg border border-borde-sutil bg-superficie-2/50 p-3 sm:col-span-2">
         {[cursoOrigen, ...gemelos].filter((c): c is CursoOpcion => !!c).map((c) => {
           const e = estado(c.id);
           const lista = (alumnos[c.id] ?? []).filter((a) => !busqueda || `${a.apellidos} ${a.nombres}`.toLocaleLowerCase("es").includes(busqueda.toLocaleLowerCase("es")));
@@ -63,7 +61,7 @@ export function CamposNuevaTarea({ cursos, alumnos }: { cursos: CursoOpcion[]; a
                       <label className="relative text-sm">
                         <span className="sr-only">Buscar estudiante</span>
                         <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" strokeWidth={2} aria-hidden />
-                        <input type="search" value={busqueda} onChange={(ev) => setBusqueda(ev.target.value)} placeholder="Buscar estudiante" className="h-11 w-full rounded-md border bg-background pl-9 pr-3" />
+                        <input type="search" value={busqueda} onChange={(ev) => setBusqueda(ev.target.value)} placeholder="Buscar estudiante" className="h-11 w-full rounded-md border border-input bg-background pl-9 pr-3" />
                       </label>
                       <ul className="max-h-48 overflow-y-auto rounded-md border" aria-label={`Estudiantes de ${c.salon}`}>
                         {lista.map((a) => (
@@ -96,16 +94,24 @@ export function CamposNuevaTarea({ cursos, alumnos }: { cursos: CursoOpcion[]; a
             {activas.flatMap((c) => destinatarios(c.id).map((a) => <li key={`${c.id}-${a.id}`}>{a.apellidos}, {a.nombres} · {c.salon}</li>))}
           </ul>
         )}
-      </fieldset>
-      <fieldset className="flex flex-col gap-2 sm:col-span-2">
-        <legend className="mb-1 text-sm font-medium">Publicación</legend>
+      </div>
+    </>
+  );
+}
+
+/** Cuándo se publica: ahora, programada o como borrador. */
+export function CamposPublicacion() {
+  const [accion, setAccion] = useState("publicar");
+  return (
+    <>
+      <div className="flex flex-col gap-2 sm:col-span-2" role="radiogroup" aria-label="Publicación">
         <div className="flex flex-wrap gap-4 text-sm">
           {[["publicar", "Publicar ahora"], ["programar", "Programar"], ["borrador", "Guardar borrador"]].map(([v, t]) => (
             <label key={v} className="flex min-h-11 items-center gap-2"><input type="radio" name="accion" value={v} checked={accion === v} onChange={() => setAccion(v)} className="size-4 accent-primary" />{t}</label>
           ))}
         </div>
         {accion === "programar" && <Campo etiqueta="Publicar el" name="publicarEn" type="datetime-local" required />}
-      </fieldset>
+      </div>
     </>
   );
 }

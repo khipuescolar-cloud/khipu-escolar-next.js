@@ -64,7 +64,7 @@ action y cada función de `src/lib/server/horario.ts`.
    de hoy, con la hora escrita en el margen. Los bloques que se cruzan se reparten el ancho. Al tocar un bloque se abre su detalle (salón, aula, duración,
    cruce) con «Pasar lista» (solo hoy, si el colegio tiene asistencia y asistencia por curso en ese nivel), «Tareas» y
    «Notas» del curso (si el plan los incluye).
-6. **Horario** (familia) / **Mi horario** (alumno): píldoras por hijo si hay varios; tarjeta «Ahora / Después» y la
+6. **Horario** (familia) / **Mi horario** (alumno): píldoras por hijo si hay varios; franja «Ahora / Después» con fondo de sección y la
    cuadrícula del salón en solo lectura.
 7. **Inicio**: tarjeta «Hoy» para profesor, alumno y familia con los bloques del día, el de ahora marcado y el enlace al
    horario. No se muestra a dirección, el fin de semana, si no hay clases hoy o si el módulo no está activo.

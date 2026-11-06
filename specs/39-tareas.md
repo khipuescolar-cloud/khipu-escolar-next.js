@@ -104,12 +104,12 @@ avisada_at IS NULL AND publicar_en <= now()` y reclamo atómico de `avisada_at`)
 publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_at` se fija al crear (el cron no avisa).
 
 ## Rutas y UI
-- `/tareas` (profesor/dirección): lista con estado, secciones y contadores; filtros por curso y estado; «Nueva tarea».
+- `/tareas` (profesor/dirección): lista con divisores (sin tarjetas por fila) con estado, secciones, barra de avance y contadores; una barra de filtros por curso y estado; «Nueva tarea» en un diálogo por secciones (Para quién, La tarea, Plazo, Publicación, Opciones). Encabezado de sección «Académico».
 - `/tareas` (familia/alumno): por hijo, pendientes agrupadas (Para mañana · Esta semana · Más adelante · Sin fecha) e
   historial, con curso, docente, fecha límite y estado de entrega (ícono + palabra).
 - `/tareas/[id]` (familia/alumno): detalle y entrega (`?alumno=` elige hijo). El personal es redirigido a la revisión.
 - `/tareas/[id]/revision` (docente/dirección): filtros por salón, estado y estudiante; acciones por fila.
-- Componentes: `CamposNuevaTarea` (secciones, destinatarios con búsqueda, contador, vista previa, publicación),
+- Componentes: `SeccionFormulario` (secciones de formulario), `CamposNuevaTarea` y `CamposPublicacion` (secciones, destinatarios con búsqueda, contador, vista previa, publicación),
   `insignias.tsx` (`FechaEntrega`, `EstadoEntrega`, `EstadoTarea`: ícono + palabra), `FormularioEnLinea`;
   `CamposAdjuntos` acepta límites propios (`maxArchivos`, `maxMb`, `accept`, `tiposTexto`). Objetivos táctiles de 44 px.
 - La agenda enlaza la entrega a `/tareas/<id>` para familias y a `/tareas` para el personal.

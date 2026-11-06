@@ -13,7 +13,6 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Alerta } from "@/components/ui/Alerta";
 import { buttonVariants } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Selector } from "@/components/ui/Selector";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { NOMBRE_NIVEL } from "@/lib/asistencia-por-curso";
@@ -59,6 +58,7 @@ async function VistaDireccion({ ctx, slug, salonId }: { ctx: TenantContext; slug
   const elegido = salones.find((s) => s.id === salonId) ?? salones[0];
   const encabezado = (
     <EncabezadoPagina
+      seccion="dia"
       titulo="Horarios"
       descripcion="Elige un salón y toca cada casillero para asignar un curso. Khipu no deja que un profesor esté en dos salones a la vez."
       acciones={
@@ -70,7 +70,7 @@ async function VistaDireccion({ ctx, slug, salonId }: { ctx: TenantContext; slug
     />
   );
   if (!elegido) {
-    return <div>{encabezado}<EstadoVacio icono={School} titulo="Aún no hay salones" descripcion="Crea los salones en Gestión y vuelve para armar su horario." /></div>;
+    return <div data-seccion="dia">{encabezado}<EstadoVacio icono={School} titulo="Aún no hay salones" descripcion="Crea los salones en Gestión y vuelve para armar su horario." /></div>;
   }
   const [{ salon, periodos, bloques }, opciones, plantillas] = await Promise.all([horarioDelSalon(ctx, elegido.id), opcionesDeCasillero(ctx, elegido.id), listarPlantillas(ctx)]);
   const { dia, hora } = ahoraDelColegio(ctx);
@@ -79,9 +79,9 @@ async function VistaDireccion({ ctx, slug, salonId }: { ctx: TenantContext; slug
   const clases = periodos.filter((p) => p.tipo === "clase").length;
 
   return (
-    <div className="flex flex-col gap-4">
+    <div data-seccion="dia" className="flex flex-col gap-4">
       {encabezado}
-      <form method="get" className="flex flex-wrap items-end gap-2">
+      <form method="get" className="flex flex-wrap items-end gap-3 rounded-xl border border-borde-sutil bg-superficie px-4 py-3" aria-label="Elegir salón">
         <div className="w-full max-w-xs">
           <Selector etiqueta="Salón" name="salon" defaultValue={elegido.id}>
             {salones.map((s) => <option key={s.id} value={s.id}>{s.nombre} · {NOMBRE_NIVEL[s.nivel]}</option>)}
@@ -92,7 +92,7 @@ async function VistaDireccion({ ctx, slug, salonId }: { ctx: TenantContext; slug
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 className="text-titulo-2">{salon.nombre}</h2>
+          <h2 className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold"><span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />{salon.nombre}</h2>
           <p className="text-cuerpo-sm text-muted-foreground">
             {nivel}{salon.tutorNombre ? ` · Tutoría: ${salon.tutorNombre}` : ""}
             {salon.plantilla && <> · Plantilla «{salon.plantilla.nombre}» ({salon.plantilla.horaEntrada}–{salon.plantilla.horaSalida}) · {bloques.length} de {clases * 5} casilleros asignados</>}
@@ -189,14 +189,14 @@ async function CargaProfesores({ ctx }: { ctx: TenantContext }) {
   const carga = await cargaDocente(ctx);
   const conCruces = carga.filter((p) => p.cruces > 0).length;
   return (
-    <div className="flex flex-col gap-4">
+    <div data-seccion="dia" className="flex flex-col gap-4">
       <Link href="/horario" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Horarios</Link>
-      <EncabezadoPagina titulo="Carga de profesores" descripcion="Horas de clase por semana de cada profesor según los horarios, y si alguna clase se le cruza." />
+      <EncabezadoPagina seccion="dia" titulo="Carga de profesores" descripcion="Horas de clase por semana de cada profesor según los horarios, y si alguna clase se le cruza." />
       {conCruces > 0 && <Alerta tipo="aviso">{conCruces === 1 ? "1 profesor tiene clases que se cruzan" : `${conCruces} profesores tienen clases que se cruzan`}. Suele pasar al cambiar las horas del día o el profesor de un curso: abre su semana para corregirlo.</Alerta>}
       {carga.length === 0 ? (
         <EstadoVacio icono={Users} titulo="Aún no hay profesores" descripcion="Agrégalos en Gestión." />
       ) : (
-        <Card className="overflow-x-auto py-0">
+        <div className="overflow-x-auto rounded-xl border border-borde-sutil bg-card">
           <Table>
             <TableHeader>
               <TableRow>
@@ -225,7 +225,7 @@ async function CargaProfesores({ ctx }: { ctx: TenantContext }) {
               ))}
             </TableBody>
           </Table>
-        </Card>
+        </div>
       )}
     </div>
   );
@@ -258,6 +258,7 @@ async function SemanaProfesor({ ctx, profesorId }: { ctx: TenantContext; profeso
     <div className="flex flex-col gap-4">
       {!esPropio && <Link href="/horario?vista=profesores" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Carga de profesores</Link>}
       <EncabezadoPagina
+        seccion="dia"
         titulo={esPropio ? "Mi horario" : `Horario de ${profesor.nombre}`}
         descripcion={bloques.length ? `${bloques.length} ${bloques.length === 1 ? "bloque" : "bloques"} por semana · ${horasYMinutos(horasSemana)} de clase.` : undefined}
       />
@@ -298,7 +299,7 @@ async function VistaFamilia({ ctx, alumnoId }: { ctx: TenantContext; alumnoId?: 
   if (alumnos.length === 0) {
     return (
       <div>
-        <EncabezadoPagina titulo={titulo} />
+        <EncabezadoPagina seccion="dia" titulo={titulo} />
         <EstadoVacio
           icono={Users}
           titulo={esAlumno ? "Tu cuenta aún no está vinculada a tu ficha" : "Aún no hay alumnos vinculados a tu cuenta"}
@@ -314,7 +315,7 @@ async function VistaFamilia({ ctx, alumnoId }: { ctx: TenantContext; alumnoId?: 
 
   return (
     <div className="flex flex-col gap-4">
-      <EncabezadoPagina titulo={titulo} descripcion={esAlumno ? `Tus clases de la semana en ${salon.nombre}.` : `Las clases de la semana de ${alumno.nombres} en ${salon.nombre}.`} />
+      <EncabezadoPagina seccion="dia" titulo={titulo} descripcion={esAlumno ? `Tus clases de la semana en ${salon.nombre}.` : `Las clases de la semana de ${alumno.nombres} en ${salon.nombre}.`} />
       {alumnos.length > 1 && (
         <NavegacionPildoras etiqueta="Elige a tu hijo" items={alumnos.map((a) => ({ href: `/horario?alumno=${a.id}`, texto: `${a.nombres} · ${a.salonNombre}`, activo: a.id === alumno.id }))} />
       )}
@@ -323,9 +324,9 @@ async function VistaFamilia({ ctx, alumnoId }: { ctx: TenantContext; alumnoId?: 
       ) : (
         <>
           {esDiaHorario(dia) && (
-            <Card className="p-4">
+            <div className="rounded-xl bg-sec-suave px-4 py-3 text-sec-tinta">
               <AhoraDespues ahora={ahora} despues={despues} hayClasesHoy={bloques.some((b) => b.dia === dia)} />
-            </Card>
+            </div>
           )}
           <TablaHorario etiqueta={`Horario de ${salon.nombre}`} periodos={periodos} bloques={bloques} diaHoy={dia} ahoraId={ahora?.id ?? null} />
         </>

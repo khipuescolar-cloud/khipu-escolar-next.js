@@ -1,4 +1,4 @@
-import { Award, Link2, MessageSquare, Send } from "lucide-react";
+import { Award, Link2, Send, Timer } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
@@ -9,7 +9,6 @@ import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Alerta } from "@/components/ui/Alerta";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { formatoDia, formatoHora } from "@/lib/fechas";
 import { esVistaFamilia } from "@/lib/roles";
@@ -19,6 +18,7 @@ import { alumnosConTarea, detalleTareaFamilia, limitesTarea } from "@/lib/server
 import { requireTenantContext } from "@/lib/server/tenant";
 import { anularEntregaAction, comentarTareaAction, guardarEntregaAction } from "../actions";
 import { FormularioEnLinea } from "../FormularioEnLinea";
+import { TituloBloque } from "../../inicio/TituloBloque";
 import { EstadoEntrega, FechaEntrega } from "../insignias";
 
 export const metadata: Metadata = { title: "Tarea" };
@@ -45,8 +45,8 @@ export default async function TareaPage({ params, searchParams }: PageProps<"/co
   const quien = ctx.rol === "alumno" ? "tu" : `la de ${d.alumno.nombre.split(" ")[0]}`;
 
   return (
-    <div className="flex flex-col gap-4">
-      <EncabezadoPagina titulo={t.titulo} descripcion={ctx.rol === "apoderado" ? `Tarea de ${d.alumno.nombre}` : undefined} />
+    <div className="flex max-w-3xl flex-col gap-8">
+      <EncabezadoPagina seccion="academico" titulo={t.titulo} descripcion={ctx.rol === "apoderado" ? `Tarea de ${d.alumno.nombre}` : undefined} />
       {hijos.length > 1 && (
         <nav aria-label="Elegir hijo" className="flex flex-wrap gap-2">
           {hijos.map((h) => (
@@ -55,14 +55,13 @@ export default async function TareaPage({ params, searchParams }: PageProps<"/co
         </nav>
       )}
 
-      <Card>
-        <CardContent className="flex flex-col gap-3 pt-6">
+      <section aria-label="Datos de la tarea" className="-mt-5 flex flex-col gap-3">
           <p className="flex flex-wrap items-center gap-2 text-cuerpo-sm text-muted-foreground"><EtiquetaCurso>{t.curso}</EtiquetaCurso>{t.docente}</p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <FechaEntrega fecha={t.fechaEntrega} conHora={t.conHora} vencida={t.vencida} />
             <EstadoEntrega estado={a.estado} tarde={a.tarde} enFisico={a.enFisico} vencida={t.vencida} />
           </div>
-          {t.descripcion && <p className="whitespace-pre-line text-sm">{t.descripcion}</p>}
+          {t.descripcion && <p className="max-w-prose whitespace-pre-line text-cuerpo">{t.descripcion}</p>}
           {t.indicacionesEntrega && <Alerta tipo="info">{t.indicacionesEntrega}</Alerta>}
           <ListaAdjuntos adjuntos={t.adjuntos} etiqueta="Materiales" />
           {t.enlaces.length > 0 && (
@@ -71,17 +70,15 @@ export default async function TareaPage({ params, searchParams }: PageProps<"/co
             </ul>
           )}
           {d.calificacion && (
-            <p className="inline-flex items-center gap-2 font-medium"><Award className="size-4" strokeWidth={2} aria-hidden />Calificación: {d.calificacion}</p>
+            <p className="inline-flex items-center gap-2 font-medium"><Award className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden />Calificación: {d.calificacion}</p>
           )}
-        </CardContent>
-      </Card>
+      </section>
 
-      <Card>
-        <CardHeader><h2 className="font-titulo text-cuerpo font-semibold">{ctx.rol === "alumno" ? "Tu entrega" : "Entrega"}</h2></CardHeader>
-        <CardContent className="flex flex-col gap-4">
+      <section aria-labelledby="entrega" className="flex flex-col gap-4">
+          <TituloBloque id="entrega">{ctx.rol === "alumno" ? "Tu entrega" : "Entrega"}</TituloBloque>
           {d.intentos.map((i) => (
-            <div key={i.numero} className="flex flex-col gap-1.5 rounded-lg border p-3 text-sm">
-              <p className="font-medium">Intento {i.numero}{i.enviadaAt ? ` · enviado el ${cuando(i.enviadaAt)}` : ""}{i.tarde ? " · con retraso" : ""}</p>
+            <div key={i.numero} className="flex flex-col gap-1.5 rounded-lg bg-sec-suave px-4 py-3 text-sm">
+              <p className="font-medium text-sec-tinta">Intento {i.numero}{i.enviadaAt ? ` · enviado el ${cuando(i.enviadaAt)}` : ""}{i.tarde ? " · con retraso" : ""}</p>
               {i.texto && <p className="whitespace-pre-line">{i.texto}</p>}
               <ListaAdjuntos adjuntos={i.archivos} etiqueta="Archivos entregados" />
             </div>
@@ -96,7 +93,7 @@ export default async function TareaPage({ params, searchParams }: PageProps<"/co
                 <Textarea name="texto" rows={4} maxLength={MAX_TEXTO_ENTREGA} defaultValue={d.borrador?.texto ?? ""} />
               </label>
               <CamposAdjuntos id={`entrega-${alumnoId}`} existentes={d.borrador?.archivos ?? []} maxArchivos={limites.archivos} maxMb={limites.mb} accept={limites.accept} tiposTexto={limites.tiposTexto} etiqueta="Adjuntar trabajo" />
-              {regla.ok && regla.tarde && <p className="text-cuerpo-sm text-tarde">Ya pasó el plazo: la entrega quedará «Con retraso».</p>}
+              {regla.ok && regla.tarde && <p className="inline-flex items-center gap-1.5 text-cuerpo-sm text-tarde"><Timer className="size-4" strokeWidth={2} aria-hidden />Ya pasó el plazo: la entrega quedará «Con retraso».</p>}
               <div className="flex flex-wrap gap-2">
                 <Button type="submit" name="enviar" value="si"><Send strokeWidth={2} aria-hidden />Entregar</Button>
                 <Button type="submit" name="enviar" value="no" variant="outline">Guardar borrador</Button>
@@ -110,16 +107,14 @@ export default async function TareaPage({ params, searchParams }: PageProps<"/co
               confirmar="Anular entrega" accion={anularEntregaAction.bind(null, slug, id, alumnoId)}
             />
           )}
-        </CardContent>
-      </Card>
+      </section>
 
-      <Card>
-        <CardHeader><h2 className="flex items-center gap-2 font-titulo text-cuerpo font-semibold"><MessageSquare className="size-4" strokeWidth={2} aria-hidden />Comentarios</h2></CardHeader>
-        <CardContent className="flex flex-col gap-3">
+      <section aria-labelledby="comentarios" className="flex flex-col gap-3">
+          <TituloBloque id="comentarios">Comentarios</TituloBloque>
           {d.comentarios.length === 0 && <p className="text-cuerpo-sm text-muted-foreground">Aún no hay comentarios.</p>}
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-col divide-y divide-borde-sutil">
             {d.comentarios.map((c) => (
-              <li key={c.id} className="rounded-lg border p-3 text-sm">
+              <li key={c.id} className="py-3 text-sm">
                 <p className="text-cuerpo-sm text-muted-foreground">{c.autor}{c.esDocente ? " (profesor)" : ""} · {cuando(c.createdAt)} · {c.privado ? "Privado" : "Para todos"}</p>
                 <p className="whitespace-pre-line">{c.texto}</p>
               </li>
@@ -136,8 +131,7 @@ export default async function TareaPage({ params, searchParams }: PageProps<"/co
             )}
             <div><Button type="submit" variant="outline">Enviar comentario</Button></div>
           </FormularioEnLinea>
-        </CardContent>
-      </Card>
+      </section>
     </div>
   );
 }

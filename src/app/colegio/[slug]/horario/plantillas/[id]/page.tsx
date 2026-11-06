@@ -20,9 +20,9 @@ export default async function EditarPlantillaPage({ params }: PageProps<"/colegi
   const [p, plantillas, salones] = await Promise.all([detallePlantilla(ctx, id), listarPlantillas(ctx), salonesParaPlantillas(ctx)]);
   if (!p) notFound();
   return (
-    <div className="flex flex-col gap-4">
+    <div data-seccion="dia" className="flex flex-col gap-4">
       <Link href="/horario/plantillas" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Plantillas de horario</Link>
-      <EncabezadoPagina titulo={p.nombre} descripcion="Al guardar, Khipu vuelve a calcular las horas del día. Las clases ya puestas en el horario se mantienen (la 1.ª hora sigue siendo la 1.ª)." />
+      <EncabezadoPagina seccion="dia" titulo={p.nombre} descripcion="Al guardar, Khipu vuelve a calcular las horas del día. Las clases ya puestas en el horario se mantienen (la 1.ª hora sigue siendo la 1.ª)." />
       {p.salones.length > 0 && <Alerta tipo="info">La usan {p.salones.length === 1 ? "1 salón" : `${p.salones.length} salones`}: {p.salones.map((s) => s.nombre).join(", ")}. Los cambios valen para todos.</Alerta>}
       <FormPlantilla
         esNueva={false}
