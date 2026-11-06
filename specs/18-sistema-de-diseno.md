@@ -4,6 +4,8 @@
 
 **Componentes base:** botones y campos usan controles de al menos 44 px en su tamaño normal; tarjetas, tablas, diálogos, avisos y estados vacíos tienen superficies y divisores semánticos. `EncabezadoPagina` acepta migas y resumen opcionales. `NavegacionPildoras` usa una línea activa en lugar de una fila de píldoras rellenas. `EstadoVacio` acepta Nudito solo para situaciones benignas.
 
+**Navegación:** se conservan los grupos, rutas y permisos de `src/lib/navegacion.ts`. La barra lateral distingue el ítem activo con fondo índigo suave y texto de alto contraste, separa los grupos por tipografía y mantiene el colegio arriba y la cuenta abajo. En móvil, la cabecera incluye el nombre Khipu Escolar y el menú conserva su zona táctil.
+
 - **Estado:** implementado · alineado al manual de marca (2026-10-28)
 - **Plan:** todos
 - **Fuente de verdad del código:** `src/app/globals.css` (tokens), `src/components/ui/*` (shadcn/ui), `src/components/shell/*` (estructura)
