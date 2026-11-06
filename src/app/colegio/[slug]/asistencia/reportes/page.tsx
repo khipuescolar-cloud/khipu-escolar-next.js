@@ -1,4 +1,5 @@
 import { ArrowLeft, BarChart3, BookOpenCheck, School } from "lucide-react";
+import { CifrasJuntas } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -195,12 +196,12 @@ function AsistenciaDelDia({ reporte, dia, hoy, puedeCorregir }: { reporte: Repor
         <Alerta tipo="aviso">Ese día no es hábil (fin de semana o feriado): no se cuenta asistencia.</Alerta>
       ) : (
         <>
-          <ul className="grid gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil sm:grid-cols-2 lg:grid-cols-4" data-testid="asistencia-del-dia">
+          <CifrasJuntas como="ul" className="grid-cols-1 sm:grid-cols-2" data-testid="asistencia-del-dia">
             <Cifra titulo="Asistieron" valor={t.llego + t.tarde} detalle={`de ${alumnos} alumnos · ${t.llego} llegó, ${t.tarde} tarde`} estado="llego" />
             <Cifra titulo="Faltaron" valor={t.falta} detalle={`${t.faltasJustificadas} justificadas · ${t.faltasEnRevision} en revisión · ${t.faltasInjustificadas} sin justificar`} estado="falta" />
             <Cifra titulo="Con aviso" valor={t.problema} detalle="Situaciones registradas en la lista del día" estado="problema" />
             <Cifra titulo="Sin registro" valor={t.diasSinRegistro} detalle="Sin escaneo en portería ni lista del día" />
-          </ul>
+          </CifrasJuntas>
           <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
               <Table>
                 <TableHeader>

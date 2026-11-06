@@ -1,4 +1,5 @@
 import { CheckCircle2, ChevronRight, Play, RefreshCw, ShieldCheck, ShieldQuestion, Sprout, Users } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -32,7 +33,7 @@ export default async function NuditoFamiliaPage({ params, searchParams }: PagePr
       {hijos.length === 0 ? (
         <EstadoVacio icono={Users} titulo="Aún no tienes hijos vinculados en este colegio." descripcion="Pide al colegio que te vincule con tu hijo." />
       ) : (
-        <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
+        <ListaDividida>
           {hijos.map((h) => (
             <li key={h.id}>
               <div className="flex flex-col gap-4 p-5 sm:p-6">
@@ -66,7 +67,7 @@ export default async function NuditoFamiliaPage({ params, searchParams }: PagePr
               </div>
             </li>
           ))}
-        </ul>
+        </ListaDividida>
       )}
 
       <p className="max-w-prose text-cuerpo-sm text-muted-foreground">

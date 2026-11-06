@@ -25,7 +25,7 @@ export default async function PlantillasPage({ params }: PageProps<"/colegio/[sl
   );
 
   return (
-    <div data-seccion="dia" className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       {ctx.rol === "direccion" && (
         <Link href="/horario" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Horarios</Link>
       )}

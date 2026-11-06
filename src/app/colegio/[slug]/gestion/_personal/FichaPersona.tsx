@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Boton } from "@/components/ui/Boton";
 import { Flash } from "@/components/ui/Flash";
-import { TituloBloque } from "@/app/colegio/[slug]/inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { MigasSeccion } from "@/components/colegio/MigasSeccion";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { NOMBRE_ROL } from "@/lib/roles";

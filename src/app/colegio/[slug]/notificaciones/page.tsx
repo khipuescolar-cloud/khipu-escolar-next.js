@@ -1,4 +1,5 @@
 import { Bell, BellRing, CheckCheck } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -39,7 +40,7 @@ export default async function NotificacionesPage({ params, searchParams }: PageP
       {datos.filas.length === 0 ? (
         <EstadoVacio icono={Bell} titulo="No tienes notificaciones" descripcion="Cuando haya algo nuevo para ti en Khipu, aparecerá aquí." />
       ) : (
-        <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
+        <ListaDividida className="bg-card">
           {datos.filas.map((n) => (
             <li key={n.id}>
               {/* Enlace normal (no <Link>): la ruta marca leída y redirige. */}
@@ -58,7 +59,7 @@ export default async function NotificacionesPage({ params, searchParams }: PageP
               </a>
             </li>
           ))}
-        </ul>
+        </ListaDividida>
       )}
       {datos.paginas > 1 && (
         <nav aria-label="Páginas" className="flex items-center gap-3 text-sm">

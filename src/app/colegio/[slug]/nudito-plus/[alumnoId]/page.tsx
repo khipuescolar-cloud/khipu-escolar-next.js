@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BotonEnvio } from "../BotonEnvio";
 import { ProgresoTemas } from "../../nudito/seguimiento/_componentes/ProgresoTemas";
-import { TituloBloque } from "@/components/academico/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { buttonVariants } from "@/components/ui/button";
 import { Flash } from "@/components/ui/Flash";

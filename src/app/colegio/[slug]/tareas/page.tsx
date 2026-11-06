@@ -24,7 +24,7 @@ import { actualizarTareaAction, archivarTareaAction, cerrarTareaAction, crearTar
 import { CamposNuevaTarea, CamposPublicacion } from "./CamposNuevaTarea";
 import { EstadoEntrega, EstadoTarea, FechaEntrega } from "./insignias";
 import { SeccionFormulario } from "./SeccionFormulario";
-import { TituloBloque } from "../inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 
 export const metadata: Metadata = { title: "Tareas" };
 

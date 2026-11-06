@@ -1,7 +1,7 @@
 import { CheckCircle2, CircleOff, School } from "lucide-react";
 import type { Metadata } from "next";
 import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
-import { TituloBloque } from "@/app/plataforma/_componentes/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { ICONOS_NAV } from "@/components/shell/iconos";
 import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";

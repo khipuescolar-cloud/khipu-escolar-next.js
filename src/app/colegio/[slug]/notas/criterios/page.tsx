@@ -10,7 +10,7 @@ import { Alerta } from "@/components/ui/Alerta";
 import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { buttonVariants } from "@/components/ui/button";
-import { TituloBloque } from "@/components/academico/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { NOMBRE_INSTRUMENTO } from "@/lib/calificaciones";
 import { criteriosDeEvaluacion } from "@/lib/server/criterios";
 import { requireFeature } from "@/lib/server/plan";

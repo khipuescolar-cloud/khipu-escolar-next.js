@@ -1,4 +1,5 @@
 import { UserRound } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -36,7 +37,7 @@ export default async function NuevoMensajePage({ params, searchParams }: PagePro
       {posibles.length === 0 ? (
         <EstadoVacio icono={UserRound} titulo="Todavía no hay a quién escribir" descripcion="Cuando el colegio te asigne un profesor o una familia, aparecerá aquí." />
       ) : (
-        <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
+        <ListaDividida className="bg-card">
           {posibles.map((p) => (
             <li key={`${p.alumnoId}-${p.profesorId}-${p.apoderadoId}`}>
               <form action={abrirConversacionAction} className="flex min-h-16 items-center gap-3 px-4 py-3">
@@ -50,7 +51,7 @@ export default async function NuevoMensajePage({ params, searchParams }: PagePro
               </form>
             </li>
           ))}
-        </ul>
+        </ListaDividida>
       )}
     </div>
   );

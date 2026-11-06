@@ -1,7 +1,8 @@
 import { BookOpen, ChevronRight } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { TituloBloque } from "@/components/academico/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { AVISO_FORMATIVO, NOMBRE_AREA_NUDITO } from "@/lib/nudito-seguimiento";
@@ -33,7 +34,7 @@ export default async function SeguimientoNudito({ params }: PageProps<"/colegio/
       ) : (
         <section aria-labelledby="cursos-nudito" className="flex flex-col gap-3">
           <TituloBloque id="cursos-nudito" descripcion="Elige un curso para ver cómo practica cada alumno.">Tus cursos con Nudito</TituloBloque>
-          <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
+          <ListaDividida>
             {conArea.map((c) => (
               <li key={c.cursoId}>
                 <Link href={`/nudito/seguimiento/curso/${c.cursoId}`} className="flex min-h-14 items-center justify-between gap-3 px-4 py-3 transition-colors duration-150 hover:bg-sec-suave focus-visible:outline-2 sm:px-5">
@@ -45,7 +46,7 @@ export default async function SeguimientoNudito({ params }: PageProps<"/colegio/
                 </Link>
               </li>
             ))}
-          </ul>
+          </ListaDividida>
         </section>
       )}
     </div>

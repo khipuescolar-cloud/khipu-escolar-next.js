@@ -1,4 +1,5 @@
 import { LifeBuoy, MessagesSquare } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -41,7 +42,7 @@ export default async function SoportePage({ params }: PageProps<"/colegio/[slug]
           descripcion="Cuando necesites ayuda, usa «Nueva conversación» y el equipo de Khipu te responderá aquí."
         />
       ) : (
-        <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card" aria-label="Conversaciones con Khipu">
+        <ListaDividida className="bg-card" aria-label="Conversaciones con Khipu">
           {tickets.map((t) => (
             <li key={t.id}>
               <Link
@@ -69,7 +70,7 @@ export default async function SoportePage({ params }: PageProps<"/colegio/[slug]
               </Link>
             </li>
           ))}
-        </ul>
+        </ListaDividida>
       )}
     </div>
   );

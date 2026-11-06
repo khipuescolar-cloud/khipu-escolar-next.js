@@ -1,21 +1,6 @@
-import Link from "next/link";
+import { PestanasLinea } from "@/components/shell/PestanasPagina";
 
 /** Pestañas por enlaces (secciones, periodos, hijos): el activo lleva `aria-current` y la línea del color de su sección. */
 export function NavegacionPildoras({ etiqueta, items }: { etiqueta: string; items: { href: string; texto: string; activo: boolean }[] }) {
-  return (
-    <nav aria-label={etiqueta} className="flex flex-wrap gap-x-4 gap-y-1 border-b border-borde-sutil">
-      {items.map((i) => (
-        <Link
-          key={i.href}
-          href={i.href}
-          aria-current={i.activo ? "page" : undefined}
-          className={`inline-flex min-h-11 items-center border-b-2 px-1 text-sm font-medium transition-colors ${
-            i.activo ? "border-sec-trazo font-semibold text-sec-tinta" : "border-transparent text-muted-foreground hover:text-foreground"
-          }`}
-        >
-          {i.texto}
-        </Link>
-      ))}
-    </nav>
-  );
+  return <PestanasLinea etiqueta={etiqueta} items={items} />;
 }

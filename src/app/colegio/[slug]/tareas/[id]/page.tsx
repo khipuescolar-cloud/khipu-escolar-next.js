@@ -18,7 +18,7 @@ import { alumnosConTarea, detalleTareaFamilia, limitesTarea } from "@/lib/server
 import { requireTenantContext } from "@/lib/server/tenant";
 import { anularEntregaAction, comentarTareaAction, guardarEntregaAction } from "../actions";
 import { FormularioEnLinea } from "../FormularioEnLinea";
-import { TituloBloque } from "../../inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { EstadoEntrega, FechaEntrega } from "../insignias";
 
 export const metadata: Metadata = { title: "Tarea" };

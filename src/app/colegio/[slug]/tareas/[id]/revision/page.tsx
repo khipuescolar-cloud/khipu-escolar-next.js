@@ -18,7 +18,7 @@ import {
   calificarEntregaAction, comentarTareaAction, devolverEntregaAction, entregaFisicaAction, marcarNoEntregaronAction, ocultarComentarioAction, revisarEntregaAction,
 } from "../../actions";
 import { FormularioEnLinea } from "../../FormularioEnLinea";
-import { TituloBloque } from "../../../inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { EstadoEntrega, FechaEntrega } from "../../insignias";
 
 export const metadata: Metadata = { title: "Revisar entregas" };

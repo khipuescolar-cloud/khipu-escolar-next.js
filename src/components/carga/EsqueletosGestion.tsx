@@ -1,4 +1,5 @@
 import { Skeleton } from "@/components/ui/skeleton";
+import { EsqueletoFilas as EsqueletoFilasBase, EsqueletoPestanas as EsqueletoPestanasBase } from "@/components/carga/Esqueletos";
 
 // Esqueletos que imitan la forma final de las pantallas de gestión, configuración, perfil y soporte
 // (encabezado con cuerda, barra de filtros, filas con divisores). Ver DESIGN.md · Composición.
@@ -33,11 +34,7 @@ export function EsqueletoEncabezado({ acciones = 1 }: { acciones?: number }) {
 }
 
 export function EsqueletoPestanas({ cantidad = 7 }: { cantidad?: number }) {
-  return (
-    <div className="flex gap-3 overflow-hidden border-b pb-3">
-      {Array.from({ length: cantidad }, (_, i) => <Skeleton key={i} className="h-5 w-20 shrink-0" />)}
-    </div>
-  );
+  return <EsqueletoPestanasBase cantidad={cantidad} />;
 }
 
 export function EsqueletoBarraFiltros({ campos = 2 }: { campos?: number }) {
@@ -56,21 +53,7 @@ export function EsqueletoBarraFiltros({ campos = 2 }: { campos?: number }) {
 
 /** Lista con divisores dentro de una sola superficie; cada fila con avatar o ícono, dos líneas y un extremo. */
 export function EsqueletoFilas({ filas = 6, avatar = true }: { filas?: number; avatar?: boolean }) {
-  return (
-    <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
-      {Array.from({ length: filas }, (_, i) => (
-        <div key={i} className="flex items-center gap-3 border-b border-borde-sutil px-4 py-3.5 last:border-b-0">
-          {avatar && <Skeleton className="size-8 shrink-0 rounded-full" />}
-          <div className="flex min-w-0 flex-1 flex-col gap-2">
-            <Skeleton className="h-4 w-48 max-w-full" />
-            <Skeleton className="h-3 w-72 max-w-full" />
-          </div>
-          <Skeleton className="hidden h-6 w-20 rounded-full sm:block" />
-          <Skeleton className="size-9 rounded-[10px]" />
-        </div>
-      ))}
-    </div>
-  );
+  return <EsqueletoFilasBase filas={filas} avatar={avatar} extremo="pildora" />;
 }
 
 /** Secciones de formulario: título con nudo, campos y botón, separadas por divisores (sin tarjetas). */

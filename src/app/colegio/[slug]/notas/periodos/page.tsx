@@ -1,9 +1,10 @@
 import { AlertCircle, ArrowLeft, CalendarDays, CalendarRange, CheckCircle2, Lock, Megaphone, Pencil, Plus } from "lucide-react";
+import { CifrasJuntas } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
-import { TituloBloque } from "@/components/academico/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -89,7 +90,7 @@ export default async function PeriodosPage({ params, searchParams }: PageProps<"
         {niveles.length === 0 ? (
           <EstadoVacio icono={CalendarRange} titulo="Aún no hay salones" descripcion="Crea los salones en Gestión y vuelve para organizar el año." />
         ) : (
-          <ul className="grid gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil sm:grid-cols-2 xl:grid-cols-4">
+          <CifrasJuntas como="ul" className="grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
             {niveles.map((n) => {
               const tipo = organizacion[n];
               const suyos = periodos.filter((p) => p.niveles.includes(n));
@@ -144,7 +145,7 @@ export default async function PeriodosPage({ params, searchParams }: PageProps<"
                 </li>
               );
             })}
-          </ul>
+          </CifrasJuntas>
         )}
       </section>
 

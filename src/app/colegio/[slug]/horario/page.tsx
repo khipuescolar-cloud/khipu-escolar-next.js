@@ -70,7 +70,7 @@ async function VistaDireccion({ ctx, slug, salonId }: { ctx: TenantContext; slug
     />
   );
   if (!elegido) {
-    return <div data-seccion="dia">{encabezado}<EstadoVacio icono={School} titulo="Aún no hay salones" descripcion="Crea los salones en Gestión y vuelve para armar su horario." /></div>;
+    return <div>{encabezado}<EstadoVacio icono={School} titulo="Aún no hay salones" descripcion="Crea los salones en Gestión y vuelve para armar su horario." /></div>;
   }
   const [{ salon, periodos, bloques }, opciones, plantillas] = await Promise.all([horarioDelSalon(ctx, elegido.id), opcionesDeCasillero(ctx, elegido.id), listarPlantillas(ctx)]);
   const { dia, hora } = ahoraDelColegio(ctx);
@@ -79,7 +79,7 @@ async function VistaDireccion({ ctx, slug, salonId }: { ctx: TenantContext; slug
   const clases = periodos.filter((p) => p.tipo === "clase").length;
 
   return (
-    <div data-seccion="dia" className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       {encabezado}
       <form method="get" className="flex flex-wrap items-end gap-3 rounded-xl border border-borde-sutil bg-superficie px-4 py-3" aria-label="Elegir salón">
         <div className="w-full max-w-xs">
@@ -189,7 +189,7 @@ async function CargaProfesores({ ctx }: { ctx: TenantContext }) {
   const carga = await cargaDocente(ctx);
   const conCruces = carga.filter((p) => p.cruces > 0).length;
   return (
-    <div data-seccion="dia" className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <Link href="/horario" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Horarios</Link>
       <EncabezadoPagina seccion="dia" titulo="Carga de profesores" descripcion="Horas de clase por semana de cada profesor según los horarios, y si alguna clase se le cruza." />
       {conCruces > 0 && <Alerta tipo="aviso">{conCruces === 1 ? "1 profesor tiene clases que se cruzan" : `${conCruces} profesores tienen clases que se cruzan`}. Suele pasar al cambiar las horas del día o el profesor de un curso: abre su semana para corregirlo.</Alerta>}

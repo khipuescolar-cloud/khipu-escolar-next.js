@@ -1,17 +1,57 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-/** Contenedor accesible de los estados de carga (`loading.tsx`). Ver specs/18-sistema-de-diseno.md. */
-export function EsqueletoPagina({ children, conEncabezado = true }: { children: React.ReactNode; conEncabezado?: boolean }) {
+/**
+ * Contenedor accesible de los estados de carga (`loading.tsx`). Ver specs/18-sistema-de-diseno.md.
+ * `migas` añade la línea de migas sobre el título (pantallas con `EncabezadoPagina`).
+ */
+export function EsqueletoPagina({ children, conEncabezado = true, migas = false }: { children: React.ReactNode; conEncabezado?: boolean; migas?: boolean }) {
   return (
     <div className="flex flex-col gap-6" aria-busy="true" aria-live="polite">
       <span className="sr-only" role="status">Cargando…</span>
       {conEncabezado && (
         <div className="flex flex-col gap-2">
+          {migas && <Skeleton className="h-3.5 w-40" />}
           <Skeleton className="h-8 w-64 max-w-full" />
           <Skeleton className="h-4 w-96 max-w-full" />
         </div>
       )}
       {children}
+    </div>
+  );
+}
+
+/**
+ * Lista con divisores en una sola superficie (sin tarjeta por fila): avatar opcional, dos o tres líneas y un extremo
+ * opcional (`pildora` = estado, `boton` = acción). `superficie="abierta"` la deja sin caja (solo líneas arriba y abajo).
+ */
+export function EsqueletoFilas({
+  filas = 6, avatar = false, lineas = 2, extremo, superficie = "caja",
+}: { filas?: number; avatar?: boolean; lineas?: 2 | 3; extremo?: "pildora" | "boton"; superficie?: "caja" | "abierta" }) {
+  return (
+    <div className={superficie === "caja"
+      ? "flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card"
+      : "flex flex-col divide-y divide-borde-sutil border-y border-borde-sutil"}>
+      {Array.from({ length: filas }, (_, i) => (
+        <div key={i} className={`flex items-center gap-3 py-3.5 ${superficie === "caja" ? "px-4" : ""}`}>
+          {avatar && <Skeleton className="size-9 shrink-0 rounded-full" />}
+          <div className="flex min-w-0 flex-1 flex-col gap-2">
+            <Skeleton className="h-4 w-2/5" />
+            <Skeleton className="h-3 w-4/5" />
+            {lineas === 3 && <Skeleton className="h-3 w-3/5" />}
+          </div>
+          {extremo === "pildora" && <Skeleton className="h-7 w-20 rounded-full" />}
+          {extremo === "boton" && <Skeleton className="h-8 w-20 rounded-[10px]" />}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** Pestañas por enlaces (línea inferior). */
+export function EsqueletoPestanas({ cantidad = 4 }: { cantidad?: number }) {
+  return (
+    <div className="flex gap-6 overflow-hidden border-b border-borde-sutil py-3">
+      {Array.from({ length: cantidad }, (_, i) => <Skeleton key={i} className="h-4 w-20 shrink-0" />)}
     </div>
   );
 }

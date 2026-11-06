@@ -1,4 +1,5 @@
 // Piezas compartidas de /avisos y del detalle de un envío (specs/06).
+import { CifrasJuntas } from "@/components/ui/Superficies";
 import { CheckCircle2, Clock, MailX, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -33,9 +34,9 @@ const TONOS: Record<TonoIndicador, string> = {
 /** Cifras hermanas en una sola superficie dividida por líneas finas (sin una tarjeta por cifra). */
 export function PanelIndicadores({ children, ...rest }: { children: React.ReactNode } & React.AriaAttributes) {
   return (
-    <div {...rest} className="grid grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil lg:grid-cols-3">
+    <CifrasJuntas {...rest} className="lg:grid-cols-3">
       {children}
-    </div>
+    </CifrasJuntas>
   );
 }
 

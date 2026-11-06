@@ -106,7 +106,7 @@ export function DialogoPublicar({ salones, esDireccion }: { salones: Salon[]; es
       <DialogTrigger render={<Button />}>
         <Megaphone strokeWidth={2} aria-hidden /> Publicar un comunicado
       </DialogTrigger>
-      <DialogContent data-seccion="comunicacion" className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
+      <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="font-heading text-titulo-2">Publicar un comunicado</DialogTitle>
           <DialogDescription>Las familias lo verán en sus notificaciones de Khipu y en el celular en cuanto lo publiques.</DialogDescription>
@@ -149,7 +149,7 @@ export function DialogoEditar({ id, titulo, cuerpo, adjuntos }: { id: string; ti
       <DialogTrigger render={<Button variant="outline" />}>
         <Pencil strokeWidth={2} aria-hidden /> Editar
       </DialogTrigger>
-      <DialogContent data-seccion="comunicacion" className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
+      <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="text-titulo-2">Editar comunicado</DialogTitle>
           <DialogDescription>Puedes editarlo o borrarlo durante las primeras 24 horas.</DialogDescription>

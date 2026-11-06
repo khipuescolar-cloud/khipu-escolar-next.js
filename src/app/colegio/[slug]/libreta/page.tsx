@@ -2,7 +2,7 @@ import { BookOpen, CheckCircle2, Clock, Download, NotebookText, Stamp, XCircle }
 import type { Metadata } from "next";
 import Link from "next/link";
 import { forbidden } from "next/navigation";
-import { TituloBloque } from "@/components/academico/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Alerta } from "@/components/ui/Alerta";

@@ -1,7 +1,7 @@
 import { ShieldCheck, ShieldOff } from "lucide-react";
 import type { Metadata } from "next";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
-import { TituloBloque } from "@/app/colegio/[slug]/inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { Notificar } from "@/components/shell/Notificar";
 import { Boton } from "@/components/ui/Boton";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";

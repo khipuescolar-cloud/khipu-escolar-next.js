@@ -17,7 +17,7 @@ export default async function NuevaPlantillaPage({ params }: PageProps<"/colegio
   requireFeature(ctx, "horario");
   const [plantillas, salones] = await Promise.all([listarPlantillas(ctx), salonesParaPlantillas(ctx)]);
   return (
-    <div data-seccion="dia" className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <Link href="/horario/plantillas" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Plantillas de horario</Link>
       <EncabezadoPagina seccion="dia" titulo="Nueva plantilla de horario" descripcion="Indica la entrada, la duración de cada hora de clase, los recreos y la salida. Khipu arma las horas del día." />
       <FormPlantilla

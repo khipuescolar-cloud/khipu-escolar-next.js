@@ -1,4 +1,5 @@
 import { Ban, Bell, Hourglass, Mail, MailOpen, MailX, Megaphone, Send, UserRound } from "lucide-react";
+import { PestanasSegmento } from "@/components/shell/PestanasPagina";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Boton } from "@/components/ui/Boton";
@@ -25,24 +26,14 @@ function Pestanas({ vista }: { vista: VistaAvisos }) {
     { valor: "individuales" as const, texto: "Individuales", Icono: UserRound, href: "/avisos?vista=individuales" },
   ];
   return (
-    <nav aria-label="Tipos de envío" className="-mt-2 inline-flex w-fit rounded-[10px] bg-superficie-2 p-1">
-      {opciones.map(({ valor, texto, Icono, href }) => {
-        const activa = vista === valor;
-        return (
-          <Link
-            key={valor}
-            href={href}
-            aria-current={activa ? "page" : undefined}
-            className={cn(
-              "inline-flex min-h-11 items-center gap-1.5 rounded-md px-4 text-cuerpo-sm font-medium transition-colors duration-150 motion-reduce:transition-none",
-              activa ? "bg-sec-suave text-sec-tinta" : "text-muted-foreground hover:text-foreground",
-            )}
-          >
-            <Icono className={cn("size-4", activa && "text-sec-trazo")} strokeWidth={2} aria-hidden /> {texto}
-          </Link>
-        );
-      })}
-    </nav>
+    <PestanasSegmento
+      etiqueta="Tipos de envío"
+      className="-mt-2"
+      items={opciones.map(({ valor, texto, Icono, href }) => ({
+        href, texto, activo: vista === valor,
+        icono: <Icono className={cn("size-4", vista === valor && "text-sec-trazo")} strokeWidth={2} aria-hidden />,
+      }))}
+    />
   );
 }
 

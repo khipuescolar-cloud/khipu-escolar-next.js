@@ -1,4 +1,5 @@
 import { CircleAlert, Clock, Megaphone, Trash2, Users } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import { ListaAdjuntos } from "@/components/adjuntos/ListaAdjuntos";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -53,7 +54,7 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
           accion={publicar}
         />
       ) : (
-        <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
+        <ListaDividida className="bg-card">
           {comunicados.map((c) => (
             <li key={c.id} id={`comunicado-${c.id}`} className="scroll-mt-20 target:bg-sec-suave/50">
               <article className="flex flex-col gap-3 px-4 py-5 sm:px-6">
@@ -94,7 +95,7 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
               </article>
             </li>
           ))}
-        </ul>
+        </ListaDividida>
       )}
     </div>
   );

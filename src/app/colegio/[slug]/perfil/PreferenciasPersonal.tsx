@@ -5,7 +5,7 @@ import { useActionState, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
-import { TituloBloque } from "@/app/colegio/[slug]/inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { guardarPreferenciasPersonalAction, guardarSuscripcionPushPersonalAction, quitarSuscripcionPushPersonalAction, type EstadoFormulario } from "./actions";
 
 function claveABytes(base64: string): Uint8Array<ArrayBuffer> {

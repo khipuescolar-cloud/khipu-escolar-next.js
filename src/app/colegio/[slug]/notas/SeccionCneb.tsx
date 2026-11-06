@@ -1,4 +1,5 @@
 import { BookMarked, Download, GraduationCap, Layers, ListChecks, Pencil, Plus } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import Link from "next/link";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
@@ -6,7 +7,7 @@ import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Alerta } from "@/components/ui/Alerta";
 import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
-import { TituloBloque } from "@/components/academico/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { Textarea } from "@/components/ui/textarea";
 import { ETIQUETA_NIVEL, textoGrado as gradoComoTexto } from "@/lib/cneb/catalogo";
 import { estructuraCurso, type EstructuraCneb } from "@/lib/server/cneb";
@@ -65,13 +66,13 @@ export async function SeccionCneb({ ctx, slug, cursoId }: { ctx: TenantContext; 
           descripcion={e.puedeEditar ? "Usa «Importar desde el CNEB» para traer las competencias, capacidades y desempeños oficiales." : undefined}
         />
       ) : (
-        <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
+        <ListaDividida>
           {e.competencias.map((c, i) => (
             <li key={c.id}>
               <TarjetaCompetencia slug={slug} e={e} c={c} primero={i === 0} ultimo={i === e.competencias.length - 1} />
             </li>
           ))}
-        </ul>
+        </ListaDividida>
       )}
     </div>
   );

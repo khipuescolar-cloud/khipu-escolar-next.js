@@ -1,4 +1,5 @@
 import { CalendarClock, CalendarPlus, CalendarX, ListChecks, MapPin, MessageSquarePlus, Plus, Video } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { forbidden } from "next/navigation";
@@ -12,7 +13,7 @@ import { TEXTO_MODALIDAD, TEXTO_TIPO, esPersonal, puedeResponderReunion } from "
 import { listarReuniones, type ReunionVista } from "@/lib/server/reuniones";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { TituloBloque } from "../inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { responderAction } from "./actions";
 
 export const metadata: Metadata = { title: "Reuniones" };
@@ -58,9 +59,9 @@ function Grupo({ titulo, reuniones, slug, ahora }: { titulo: string; reuniones: 
   return (
     <section className="flex flex-col gap-3" aria-labelledby={`grupo-${titulo}`}>
       <TituloBloque id={`grupo-${titulo}`}>{titulo}</TituloBloque>
-      <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
+      <ListaDividida className="bg-card">
         {reuniones.map((r) => <li key={r.id}><TarjetaReunion r={r} slug={slug} ahora={ahora} /></li>)}
-      </ul>
+      </ListaDividida>
     </section>
   );
 }

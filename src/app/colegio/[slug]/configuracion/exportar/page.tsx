@@ -1,6 +1,6 @@
 import { Download, FileArchive, PackagePlus } from "lucide-react";
 import type { Metadata } from "next";
-import { TituloBloque } from "@/app/colegio/[slug]/inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { MigasSeccion } from "@/components/colegio/MigasSeccion";
 import { forbidden } from "next/navigation";
 import { EstadoExportacion } from "@/components/exportacion/EstadoExportacion";

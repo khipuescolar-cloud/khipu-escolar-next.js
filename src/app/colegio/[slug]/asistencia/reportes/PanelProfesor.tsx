@@ -1,3 +1,4 @@
+import { CifrasJuntas } from "@/components/ui/Superficies";
 import { BookOpen, Check, ChevronRight, CircleAlert, Clock, FileSpreadsheet, FileText, Percent, Table2, UsersRound, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { GraficoAsistenciaDias } from "@/components/asistencia/GraficoAsistenciaDias";
@@ -27,11 +28,6 @@ export function Cifra({ icono: Icono, titulo, valor, detalle, tono }: { icono: L
       {detalle && <p className="text-cuerpo-sm text-muted-foreground">{detalle}</p>}
     </div>
   );
-}
-
-/** Cifras hermanas en una sola superficie dividida por líneas finas. */
-export function CifrasJuntas({ children }: { children: React.ReactNode }) {
-  return <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil lg:grid-cols-4">{children}</div>;
 }
 
 function Tutoria({ r }: { r: ReporteSalon }) {
@@ -166,3 +162,5 @@ export function PanelProfesor({ panel }: { panel: Panel }) {
     </div>
   );
 }
+
+export { CifrasJuntas };

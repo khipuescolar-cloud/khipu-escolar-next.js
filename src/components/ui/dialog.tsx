@@ -1,5 +1,6 @@
 "use client"
 
+import { useSeccion } from "@/components/shell/SeccionContexto"
 import * as React from "react"
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog"
 import { cn } from "cn"
@@ -47,11 +48,13 @@ function DialogContent({
 }: DialogPrimitive.Popup.Props & {
   showCloseButton?: boolean
 }) {
+  const seccion = useSeccion()
   return (
     <DialogPortal>
       <DialogOverlay />
       <DialogPrimitive.Popup
         data-slot="dialog-content"
+        data-seccion={seccion}
         className={cn(
           "flota-modal fixed top-1/2 left-1/2 z-50 grid max-h-[calc(100dvh-2rem)] w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 content-start gap-4 overflow-y-auto overscroll-contain rounded-xl border border-borde-sutil bg-popover p-5 text-sm text-popover-foreground shadow-sombra-1 outline-none sm:max-w-md sm:p-6",
           className

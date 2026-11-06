@@ -4,7 +4,7 @@ import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import type { AsistenciaColegio } from "@/lib/server/inicio-tablero";
 import type { ResumenAvisosHoy } from "@/lib/server/resumen-direccion";
 import { cn } from "@/lib/utils";
-import { TituloBloque } from "./TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 
 type Dato = { palabra: string; valor: number; Icono: typeof Clock; clase: string; barra: string };
 

@@ -15,7 +15,7 @@ export function TituloBloque({
 }) {
   const Titulo = nivel === 2 ? "h2" : "h3";
   return (
-    <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
+    <div className={`flex flex-wrap justify-between gap-x-4 gap-y-2 ${descripcion ? "items-start" : "items-center"}`}>
       <div className="min-w-0">
         <Titulo id={id} className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold">
           <span aria-hidden className="size-2.5 shrink-0 rounded-full bg-sec-nudo" />

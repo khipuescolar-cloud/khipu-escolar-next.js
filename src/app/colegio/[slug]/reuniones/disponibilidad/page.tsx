@@ -1,4 +1,5 @@
 import { CalendarOff, Trash2, UserX } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import { forbidden } from "next/navigation";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
@@ -10,7 +11,7 @@ import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { formatoDia, formatoHora, momentoEnZona, sumarDias } from "@/lib/fechas";
 import { esPersonal } from "@/lib/reuniones";
-import { TituloBloque } from "../../inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { requireFeature } from "@/lib/server/plan";
 import { miDisponibilidad } from "@/lib/server/reuniones";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -54,7 +55,7 @@ export default async function DisponibilidadPage({ params }: PageProps<"/colegio
           </DialogoAccion>
         } >Mis bloqueos</TituloBloque>
         {d.bloqueos.length === 0 ? <p className="text-cuerpo-sm text-muted-foreground">No tienes bloqueos próximos.</p> : (
-          <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card text-cuerpo-sm">
+          <ListaDividida className="bg-card text-cuerpo-sm">
             {d.bloqueos.map((b) => (
               <li key={b.id} className="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 tabular-nums">
                 <span>{rango(b.inicio, b.fin)} · {b.tipo === "ausencia" ? "Ausencia" : "Bloqueo"}{b.motivo ? ` · ${b.motivo}` : ""}</span>
@@ -63,7 +64,7 @@ export default async function DisponibilidadPage({ params }: PageProps<"/colegio
                 )}
               </li>
             ))}
-          </ul>
+          </ListaDividida>
         )}
       </section>
 
@@ -82,14 +83,14 @@ export default async function DisponibilidadPage({ params }: PageProps<"/colegio
             </DialogoAccion>
           } >Ausencias del personal</TituloBloque>
           {d.ausencias.length === 0 ? <p className="text-cuerpo-sm text-muted-foreground">No hay ausencias próximas.</p> : (
-            <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card text-cuerpo-sm">
+            <ListaDividida className="bg-card text-cuerpo-sm">
               {d.ausencias.map((a) => (
                 <li key={a.id} className="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 tabular-nums">
                   <span><span className="font-medium">{a.persona}</span> · {rango(a.inicio, a.fin)}{a.motivo ? ` · ${a.motivo}` : ""}</span>
                   <BotonConfirmar variante="ghost" tamano="sm" etiqueta={<><Trash2 strokeWidth={2} aria-hidden />Quitar</>} titulo="¿Quitar la ausencia?" descripcion="La agenda de esa persona volverá a mostrarse libre." confirmar="Quitar" accion={quitarBloqueoAction.bind(null, slug, a.id)} />
                 </li>
               ))}
-            </ul>
+            </ListaDividida>
           )}
         </section>
       )}

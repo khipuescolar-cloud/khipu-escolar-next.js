@@ -9,7 +9,7 @@ import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
-import { TituloBloque } from "@/app/colegio/[slug]/inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { buttonVariants } from "@/components/ui/button";
 import { CATALOGO_CNEB, areaPorClave } from "@/lib/cneb/catalogo";
 import { listarProfesores, listarSalones } from "@/lib/server/gestion";

@@ -1,5 +1,6 @@
 "use client"
 
+import { useSeccion } from "@/components/shell/SeccionContexto"
 import * as React from "react"
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog"
 import { cn } from "cn"
@@ -45,11 +46,13 @@ function AlertDialogContent({
 }: AlertDialogPrimitive.Popup.Props & {
   size?: "default" | "sm"
 }) {
+  const seccion = useSeccion()
   return (
     <AlertDialogPortal>
       <AlertDialogOverlay />
       <AlertDialogPrimitive.Popup
         data-slot="alert-dialog-content"
+        data-seccion={seccion}
         data-size={size}
         className={cn(
           "flota-modal group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid max-h-[calc(100dvh-2rem)] w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 overflow-y-auto rounded-xl border border-borde-sutil bg-popover p-5 text-popover-foreground shadow-sombra-1 outline-none data-[size=default]:sm:max-w-md data-[size=sm]:sm:max-w-sm sm:p-6",

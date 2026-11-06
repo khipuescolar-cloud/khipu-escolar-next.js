@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -23,6 +23,13 @@ type Props = {
   abierto?: boolean;
   onCambio?: (abierto: boolean) => void;
 };
+
+const sinSuscripcion = () => () => {};
+
+/** `false` en el HTML del servidor y hasta que la página se hidrata; `true` después. */
+function useHidratado() {
+  return useSyncExternalStore(sinSuscripcion, () => true, () => false);
+}
 
 /** Cierra el panel cuando la acción del servidor redirige (cambia la URL con `?ok=` o `?error=`). */
 function useCerrarAlNavegar(cerrar: () => void) {
@@ -50,12 +57,14 @@ export function PanelFormulario({ tipo = "dialog", titulo, descripcion, children
   const open = controlado ? abierto : interno;
   const cambiar = (v: boolean) => (controlado ? onCambio?.(v) : setInterno(v));
   useCerrarAlNavegar(() => cambiar(false));
-  const claseBoton = cn(buttonVariants({ variant: variante }), className);
+  // Un clic antes de la hidratación no abriría nada (el botón aún no tiene su manejador): se deshabilita hasta entonces.
+  const hidratado = useHidratado();
+  const claseBoton = cn(buttonVariants({ variant: variante }), "disabled:cursor-wait disabled:opacity-100", className);
 
   if (tipo === "sheet") {
     return (
       <Sheet open={open} onOpenChange={cambiar}>
-        {boton && <SheetTrigger className={claseBoton}>{boton}</SheetTrigger>}
+        {boton && <SheetTrigger className={claseBoton} disabled={!hidratado}>{boton}</SheetTrigger>}
         <SheetContent className="data-[side=right]:w-full data-[side=right]:sm:max-w-xl">
           <SheetHeader className="gap-1.5 border-b border-borde-sutil px-5 py-4 pr-14">
             <SheetTitle className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold">
@@ -71,7 +80,7 @@ export function PanelFormulario({ tipo = "dialog", titulo, descripcion, children
   }
   return (
     <Dialog open={open} onOpenChange={cambiar}>
-      {boton && <DialogTrigger className={claseBoton}>{boton}</DialogTrigger>}
+      {boton && <DialogTrigger className={claseBoton} disabled={!hidratado}>{boton}</DialogTrigger>}
       <DialogContent className="max-h-[90dvh] gap-5 overflow-y-auto p-5 sm:max-w-lg sm:p-6">
         <DialogHeader className="pr-8">
           <DialogTitle className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold">

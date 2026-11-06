@@ -2,7 +2,7 @@ import { ArrowLeft, Download, ExternalLink, History, ImageIcon, LifeBuoy, Pencil
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EncabezadoPlataforma } from "@/app/plataforma/_componentes/EncabezadoPlataforma";
-import { TituloBloque } from "@/app/plataforma/_componentes/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Notificar } from "@/components/shell/Notificar";
 import { Boton } from "@/components/ui/Boton";

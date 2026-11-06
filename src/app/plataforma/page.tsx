@@ -11,7 +11,7 @@ import { nombresDePlanes } from "@/lib/server/modulos";
 import { META_APERTURA, metricasPlataforma, reporteColegios, requireAdminPlataforma, serieDiariaPlataforma } from "@/lib/server/plataforma";
 import { GraficoBarras, GraficoDiario } from "./_componentes/Graficos";
 import { StatTile, Semaforo } from "./_componentes/StatTile";
-import { TituloBloque } from "./_componentes/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { EstadoColegio, NOMBRE_ESTADO, PlanColegio, porcentaje } from "./EstadoColegio";
 
 export const metadata: Metadata = { title: "Vista principal" };

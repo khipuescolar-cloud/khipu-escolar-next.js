@@ -1,7 +1,7 @@
 import { ArrowLeft, Ban, CheckCircle2, PauseCircle } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { TituloBloque } from "@/components/academico/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";

@@ -1,4 +1,5 @@
 import { ArrowLeft, CalendarDays, FileDown, FileSpreadsheet, FileText, Table2 } from "lucide-react";
+import { PestanasSegmento } from "@/components/shell/PestanasPagina";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -13,7 +14,6 @@ import { hoyDelColegio } from "@/lib/server/asistencia";
 import { requireFeature } from "@/lib/server/plan";
 import { opcionesDeReporte, reporteSegunFiltros } from "@/lib/server/reportes-asistencia";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { cn } from "@/lib/utils";
 import { CalendarioReporte } from "../CalendarioReporte";
 import { FiltroReporte } from "../FiltroReporte";
 import { AsistenciaPorCurso, atajosDeFecha, Contenido, contextoDe, enlace, tituloDe, Totales } from "../vistas";
@@ -116,24 +116,13 @@ function SelectorVista({ filtros, vista }: { filtros: FiltrosReporte; vista: Vis
     { valor: "calendario" as const, texto: "Calendario", Icono: CalendarDays },
   ];
   return (
-    <nav aria-label="Ver como" className="inline-flex rounded-[10px] bg-superficie-2 p-1">
-      {opciones.map(({ valor, texto, Icono }) => {
-        const activa = vista === valor;
-        return (
-          <Link
-            key={valor}
-            href={enlace(filtros, { vista: valor })}
-            aria-current={activa ? "page" : undefined}
-            scroll={false}
-            className={cn(
-              "inline-flex min-h-11 items-center gap-1.5 rounded-md px-3 text-cuerpo-sm font-medium transition-colors duration-150 motion-reduce:transition-none",
-              activa ? "bg-sec-suave text-sec-tinta" : "text-muted-foreground hover:text-foreground",
-            )}
-          >
-            <Icono className="size-4" strokeWidth={2} aria-hidden /> {texto}
-          </Link>
-        );
-      })}
-    </nav>
+    <PestanasSegmento
+      etiqueta="Ver como"
+      scroll={false}
+      items={opciones.map(({ valor, texto, Icono }) => ({
+        href: enlace(filtros, { vista: valor }), texto, activo: vista === valor,
+        icono: <Icono className="size-4" strokeWidth={2} aria-hidden />,
+      }))}
+    />
   );
 }

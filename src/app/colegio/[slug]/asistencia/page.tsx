@@ -7,7 +7,7 @@ import { InsigniaAhora } from "@/components/horario/Insignias";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
-import { TituloBloque } from "../inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { cn } from "@/lib/utils";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { fechaLarga, hora12 } from "@/lib/fechas";

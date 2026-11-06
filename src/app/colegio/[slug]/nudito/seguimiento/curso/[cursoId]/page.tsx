@@ -1,7 +1,8 @@
 import { ArrowLeft, CheckCircle2, RefreshCw, Sprout } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { TituloBloque } from "@/components/academico/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { formatoDia } from "@/lib/fechas";
@@ -28,14 +29,14 @@ export default async function SeguimientoCurso({ params }: PageProps<"/colegio/[
       {p.temasDificiles.length > 0 && (
         <section aria-labelledby="temas-reforzar" className="flex flex-col gap-3">
           <TituloBloque id="temas-reforzar">Temas para reforzar en clase</TituloBloque>
-          <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
+          <ListaDividida>
             {p.temasDificiles.map((t) => (
               <li key={t.clave} className="flex items-center justify-between gap-3 px-4 py-2.5 text-cuerpo-sm sm:px-5">
                 <span className="inline-flex items-center gap-2 font-medium"><RefreshCw className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden />{t.nombre}</span>
                 <span className="tabular-nums text-muted-foreground">{t.alumnos} {t.alumnos === 1 ? "alumno" : "alumnos"}</span>
               </li>
             ))}
-          </ul>
+          </ListaDividida>
         </section>
       )}
 

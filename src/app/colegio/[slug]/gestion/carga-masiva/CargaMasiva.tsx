@@ -1,5 +1,6 @@
 "use client";
 
+import { CifrasJuntas } from "@/components/ui/Superficies";
 import { AlertTriangle, CheckCircle2, CircleDashed, FileUp, Info, Loader2, PencilLine, Plus, XCircle } from "lucide-react";
 import { useRef, useState, useTransition } from "react";
 import { toast } from "sonner";
@@ -146,13 +147,13 @@ export function CargaMasiva({ tipo }: { tipo: TipoCarga }) {
 
 function Conteos({ conteos }: { conteos: VistaCarga["conteos"] }) {
   return (
-    <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil lg:grid-cols-4">
+    <CifrasJuntas como="dl" className="lg:grid-cols-4">
       {conteos.map((c) => (
         <div key={c.clave} className="bg-card px-4 py-3" data-testid={`conteo-${c.clave}`}>
           <dt className="text-cuerpo-sm text-muted-foreground">{c.etiqueta}</dt>
           <dd className="font-heading text-titulo-2 font-semibold tabular-nums">{c.valor}</dd>
         </div>
       ))}
-    </dl>
+    </CifrasJuntas>
   );
 }

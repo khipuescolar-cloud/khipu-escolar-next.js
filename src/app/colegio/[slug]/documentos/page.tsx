@@ -1,4 +1,5 @@
 import { ChevronRight, Download, FileSearch, Folder, FolderOpen, Lock, Search, Trash2, Users } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IconoAdjunto } from "@/components/adjuntos/IconoAdjunto";
@@ -14,7 +15,7 @@ import { requireConsentimiento } from "@/lib/server/consentimiento";
 import { listarContenido, opcionesDeCarpeta, puedeAdministrarCarpetas, salonesParaDocumentos } from "@/lib/server/documentos";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { TituloBloque } from "../inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { borrarCarpetaAction, borrarDocumentoAction } from "./actions";
 import { DialogoEditarCarpeta, DialogoEditarDocumento, DialogoNuevaCarpeta, DialogoSubir } from "./FormulariosDocumentos";
 
@@ -120,7 +121,7 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
           {contenido.carpetas.length > 0 && (
             <section aria-labelledby="bloque-carpetas" className="flex flex-col gap-3">
               <TituloBloque id="bloque-carpetas">Carpetas</TituloBloque>
-              <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
+              <ListaDividida className="bg-card">
                 {contenido.carpetas.map((c) => (
                   <li key={c.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 pr-3 sm:pr-4">
                     <Link href={enlace(c.id)} className="flex min-h-14 min-w-0 basis-full items-center gap-3 px-4 py-2 sm:basis-0 sm:flex-1 outline-none transition-colors hover:bg-accent focus-visible:bg-accent focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-inset">
@@ -147,14 +148,14 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
                     )}
                   </li>
                 ))}
-              </ul>
+              </ListaDividida>
             </section>
           )}
 
           {contenido.documentos.length > 0 && (
             <section aria-labelledby="bloque-documentos" className="flex flex-col gap-3">
               <TituloBloque id="bloque-documentos">Documentos</TituloBloque>
-              <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
+              <ListaDividida className="bg-card">
                 {contenido.documentos.map((d) => (
                   <li key={d.id} className="flex flex-col gap-3 px-4 py-4 sm:px-5">
                     <div className="flex flex-wrap items-start gap-3">
@@ -205,7 +206,7 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
                     )}
                   </li>
                 ))}
-              </ul>
+              </ListaDividida>
             </section>
           )}
         </div>

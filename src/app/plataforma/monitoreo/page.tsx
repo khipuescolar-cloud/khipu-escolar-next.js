@@ -8,7 +8,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { requireAdminPlataforma } from "@/lib/server/plataforma";
 import { panelMonitoreo, type EstadoCron } from "@/lib/server/plataforma-monitoreo";
 import { GraficoDiario } from "../_componentes/Graficos";
-import { TituloBloque } from "../_componentes/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { fechaHora } from "../EstadoColegio";
 import { procesarColaAction, reintentarAvisosAction } from "./actions";
 

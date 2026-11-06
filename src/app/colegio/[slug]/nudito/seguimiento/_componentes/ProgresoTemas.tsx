@@ -1,5 +1,6 @@
 import { CheckCircle2, Circle, Lightbulb, RefreshCw, Sprout } from "lucide-react";
-import { TituloBloque } from "@/components/academico/TituloBloque";
+import { ListaDividida } from "@/components/ui/Superficies";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { formatoDia } from "@/lib/fechas";
 import type { AreaNudito, EstadoDominio } from "@/lib/nudito/contratos";
 import { AVISO_FORMATIVO, NOMBRE_AREA_NUDITO, NOMBRE_ESTADO_DOMINIO } from "@/lib/nudito-seguimiento";
@@ -38,7 +39,7 @@ export function ProgresoTemas({ areas, temas, vacio }: { areas: AreaNudito[]; te
         return (
           <section key={area} className="flex flex-col gap-3" aria-labelledby={`area-${area}`}>
             <TituloBloque id={`area-${area}`}>{NOMBRE_AREA_NUDITO[area]}</TituloBloque>
-            <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
+            <ListaDividida>
               {delArea.map((t) => (
                 <li key={t.clave}>
                   <div className="flex flex-col gap-1.5 p-4 sm:px-5">
@@ -55,7 +56,7 @@ export function ProgresoTemas({ areas, temas, vacio }: { areas: AreaNudito[]; te
                   </div>
                 </li>
               ))}
-            </ul>
+            </ListaDividida>
           </section>
         );
       })}

@@ -1,4 +1,7 @@
 import { Skeleton } from "@/components/ui/skeleton";
+import { EsqueletoFilas as EsqueletoFilasBase, EsqueletoPestanas } from "@/components/carga/Esqueletos";
+
+export { EsqueletoPestanas };
 
 /** Esqueletos de carga del módulo académico: imitan la forma final (barra de filtros, tabla densa, documento, lista). */
 
@@ -13,15 +16,6 @@ export function EsqueletoBarra({ campos = 2 }: { campos?: number }) {
         </div>
       ))}
       <Skeleton className="h-10 w-20 rounded-[10px]" />
-    </div>
-  );
-}
-
-/** Pestañas por enlaces. */
-export function EsqueletoPestanas({ cantidad = 4 }: { cantidad?: number }) {
-  return (
-    <div className="flex gap-6 border-b border-borde-sutil py-3">
-      {Array.from({ length: cantidad }, (_, i) => <Skeleton key={i} className="h-4 w-20" />)}
     </div>
   );
 }
@@ -61,19 +55,7 @@ export function EsqueletoCifras({ cantidad = 4 }: { cantidad?: number }) {
 
 /** Lista con divisores (sin tarjeta por fila). */
 export function EsqueletoFilas({ filas = 5 }: { filas?: number }) {
-  return (
-    <div className="divide-y divide-borde-sutil rounded-[14px] border border-borde-sutil bg-superficie">
-      {Array.from({ length: filas }, (_, i) => (
-        <div key={i} className="flex items-center justify-between gap-4 p-4">
-          <div className="flex flex-1 flex-col gap-2">
-            <Skeleton className="h-4 w-1/3" />
-            <Skeleton className="h-3.5 w-2/3" />
-          </div>
-          <Skeleton className="h-8 w-20 rounded-[10px]" />
-        </div>
-      ))}
-    </div>
-  );
+  return <EsqueletoFilasBase filas={filas} extremo="boton" />;
 }
 
 /** Documento (libreta): cabecera, bloques con filas de competencia. */

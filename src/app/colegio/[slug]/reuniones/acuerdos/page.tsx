@@ -1,4 +1,5 @@
 import { ListChecks } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MigasReunion } from "@/components/reuniones/MigasReunion";
@@ -21,7 +22,7 @@ export default async function AcuerdosPage({ params }: PageProps<"/colegio/[slug
       {acuerdos.length === 0 ? (
         <EstadoVacio icono={ListChecks} titulo="No hay acuerdos pendientes" descripcion="Cuando se registren acuerdos en un acta, los verás aquí." />
       ) : (
-        <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
+        <ListaDividida className="bg-card">
           {acuerdos.map((a) => (
             <li key={a.id} className="flex flex-col gap-1 px-4 py-3.5 text-cuerpo-sm sm:px-5">
               <p className="font-medium">{a.texto}</p>
@@ -31,7 +32,7 @@ export default async function AcuerdosPage({ params }: PageProps<"/colegio/[slug
               </p>
             </li>
           ))}
-        </ul>
+        </ListaDividida>
       )}
     </div>
   );

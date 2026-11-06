@@ -6,7 +6,7 @@ import { rango } from "@/lib/horario";
 import { horarioDeHoy } from "@/lib/server/horario";
 import type { TenantContext } from "@/lib/server/tenant";
 import { cn } from "@/lib/utils";
-import { TituloBloque } from "./TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 
 /** Horario de hoy (specs/34) en la columna lateral del inicio: «Ahora» y «Después» y los bloques del día como línea de tiempo. */
 export async function TarjetaHoy({ ctx }: { ctx: TenantContext }) {

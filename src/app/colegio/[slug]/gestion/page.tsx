@@ -1,7 +1,7 @@
 import { BookOpen, BriefcaseBusiness, ChevronRight, FileUp, GraduationCap, HeartHandshake, IdCard, School, type LucideIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { TituloBloque } from "@/app/colegio/[slug]/inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { exigirAlumnosFamilias } from "@/lib/server/gestion";
 import { whereSalonActivo } from "@/lib/server/salones-activos";

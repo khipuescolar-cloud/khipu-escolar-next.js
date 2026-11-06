@@ -1,22 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-/** Carga de listas con divisores (conversaciones, notificaciones, comunicados, documentos, reuniones): imita la superficie final. */
-export function EsqueletoFilas({ filas = 6, avatar = false, lineas = 2 }: { filas?: number; avatar?: boolean; lineas?: 2 | 3 }) {
-  return (
-    <div className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
-      {Array.from({ length: filas }, (_, i) => (
-        <div key={i} className="flex items-center gap-3 px-4 py-3.5">
-          {avatar && <Skeleton className="size-10 shrink-0 rounded-full" />}
-          <div className="flex flex-1 flex-col gap-2">
-            <Skeleton className="h-4 w-2/5" />
-            <Skeleton className="h-3 w-4/5" />
-            {lineas === 3 && <Skeleton className="h-3 w-3/5" />}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
+export { EsqueletoFilas } from "@/components/carga/Esqueletos";
 
 /** Carga del calendario de la agenda: barra de vistas, cabecera del periodo y cuadrícula. */
 export function EsqueletoCalendario() {

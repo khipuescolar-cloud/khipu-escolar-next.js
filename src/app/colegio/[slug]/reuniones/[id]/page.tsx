@@ -1,4 +1,5 @@
 import { Bell, CalendarClock, CheckCheck, CheckCircle2, CircleDashed, ClipboardList, ListPlus, MapPin, NotebookPen, Video, XCircle } from "lucide-react";
+import { CifrasJuntas, ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import { forbidden, notFound } from "next/navigation";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
@@ -15,7 +16,7 @@ import { DURACIONES } from "@/lib/disponibilidad";
 import { formatoDia, formatoHora, momentoEnZona } from "@/lib/fechas";
 import { TEXTO_MODALIDAD, TEXTO_TIPO, puedeResponderReunion } from "@/lib/reuniones";
 import { detalleReunion } from "@/lib/server/reuniones";
-import { TituloBloque } from "../../inicio/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { actaAction, acuerdoAction, asistenciaAction, cancelarAction, marcarAcuerdoAction, realizadaAction, recordarAction, reprogramarAction, responderAction } from "../actions";
@@ -124,7 +125,7 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
           <p className="text-cuerpo-sm text-muted-foreground">
             {r.resumen.asistire} aceptaron · {r.resumen.no_asistire} rechazaron · {r.resumen.propone_otra} proponen otra hora · {r.resumen.pendiente} sin respuesta
           </p>
-          <div className="grid gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil md:grid-cols-2 xl:grid-cols-4">
+          <CifrasJuntas className="grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
             {grupos.map((g) => {
               const lista = personas.filter((p) => p.respuesta === g.clave);
               return (
@@ -146,7 +147,7 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
                 </div>
               );
             })}
-          </div>
+          </CifrasJuntas>
         </section>
       )}
 
@@ -271,7 +272,7 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
             )}
           </div>
           {r.acuerdos.length === 0 ? <p className="text-cuerpo-sm text-muted-foreground">Todavía no hay acuerdos.</p> : (
-            <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
+            <ListaDividida className="bg-card">
               {r.acuerdos.map((a) => (
                 <li key={a.id}>
                   <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-3 text-cuerpo-sm">
@@ -297,7 +298,7 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
                   </div>
                 </li>
               ))}
-            </ul>
+            </ListaDividida>
           )}
         </section>
       )}

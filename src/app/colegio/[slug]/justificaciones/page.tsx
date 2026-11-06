@@ -1,4 +1,5 @@
 import { Check, CircleAlert, Clock, FileText, History, Inbox, Paperclip, Search, X } from "lucide-react";
+import { PestanasSegmento } from "@/components/shell/PestanasPagina";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ZodError } from "zod";
@@ -67,27 +68,15 @@ function Pestanas({ vista, pendientes }: { vista: "revisar" | "historial"; pendi
     { valor: "historial" as const, texto: "Historial", Icono: History, href: `${RUTA}?vista=historial` },
   ];
   return (
-    <nav aria-label="Vistas de justificaciones" className="-mt-2 inline-flex w-fit rounded-[10px] bg-superficie-2 p-1">
-      {opciones.map(({ valor, texto, Icono, href }) => {
-        const activa = vista === valor;
-        return (
-          <Link
-            key={valor}
-            href={href}
-            aria-current={activa ? "page" : undefined}
-            className={cn(
-              "inline-flex min-h-11 items-center gap-1.5 rounded-md px-4 text-cuerpo-sm font-medium transition-colors duration-150 motion-reduce:transition-none",
-              activa ? "bg-sec-suave text-sec-tinta" : "text-muted-foreground hover:text-foreground",
-            )}
-          >
-            <Icono className={cn("size-4", activa && "text-sec-trazo")} strokeWidth={2} aria-hidden /> {texto}
-            {valor === "revisar" && pendientes > 0 && (
-              <span className="ml-0.5 rounded-pildora bg-tarde-fondo px-2 text-etiqueta text-tarde tabular-nums" aria-label={`${pendientes} pendientes`}>{pendientes}</span>
-            )}
-          </Link>
-        );
-      })}
-    </nav>
+    <PestanasSegmento
+      etiqueta="Vistas de justificaciones"
+      className="-mt-2"
+      items={opciones.map(({ valor, texto, Icono, href }) => ({
+        href, texto, activo: vista === valor,
+        icono: <Icono className={cn("size-4", vista === valor && "text-sec-trazo")} strokeWidth={2} aria-hidden />,
+        insignia: valor === "revisar" && pendientes > 0 ? <span className="ml-0.5 rounded-pildora bg-tarde-fondo px-2 text-etiqueta text-tarde tabular-nums" aria-label={`${pendientes} pendientes`}>{pendientes}</span> : undefined,
+      }))}
+    />
   );
 }
 

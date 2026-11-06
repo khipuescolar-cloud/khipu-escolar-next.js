@@ -1,9 +1,10 @@
 import { AlertTriangle, BarChart3, BookOpenCheck, CalendarClock, ClipboardList, FileSpreadsheet, FileText, GraduationCap, MailCheck, UserX } from "lucide-react";
+import { CifrasJuntas } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
-import { TituloBloque } from "@/components/academico/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { BarraDistribucion } from "@/components/tablero/BarraDistribucion";
@@ -53,12 +54,12 @@ export default async function TableroPage({ params, searchParams }: PageProps<"/
       />
       <NavegacionPildoras etiqueta="Periodo del tablero" items={opcionesPeriodo} />
 
-      <section aria-label="Resumen" className="grid gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil sm:grid-cols-2 lg:grid-cols-4">
+      <CifrasJuntas como="section" aria-label="Resumen" className="grid-cols-1 sm:grid-cols-2">
         <Kpi icono={<ClipboardList className="size-5" strokeWidth={2} aria-hidden />} titulo="Asistencia" valor={textoPorcentaje(a.porcentaje)} detalle={`${a.registros.toLocaleString("es-PE")} registros en ${a.diasHabiles} días hábiles`} id="kpi-asistencia" />
         <Kpi icono={<AlertTriangle className="size-5" strokeWidth={2} aria-hidden />} titulo="Tardanzas y faltas" valor={`${a.tardanzas} · ${a.faltas}`} detalle="Tardanzas · faltas en el periodo" />
         <Kpi icono={<GraduationCap className="size-5" strokeWidth={2} aria-hidden />} titulo="Logro esperado" valor={textoPorcentaje(r.logroEsperado)} detalle={r.origen === "sin_datos" ? "Aún no hay notas en este periodo" : `${vigesimal ? "Notas de 14 o más" : "Calificaciones AD y A"} · ${t.periodo.referencia?.nombre}`} />
         <Kpi icono={<FileText className="size-5" strokeWidth={2} aria-hidden />} titulo="Justificaciones pendientes" valor={String(t.justificacionesPendientes)} detalle={<Link href="/justificaciones" className="enlace">Revisar justificaciones</Link>} id="kpi-justificaciones" />
-      </section>
+      </CifrasJuntas>
 
       <Seccion titulo="Asistencia" id="asistencia">
         {a.semanas.length === 0 ? (

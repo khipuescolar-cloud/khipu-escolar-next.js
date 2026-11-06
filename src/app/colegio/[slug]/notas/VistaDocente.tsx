@@ -1,9 +1,10 @@
 import {
   BookMarked, CalendarDays, CheckCircle2, Download, Eye, EyeOff, GraduationCap, History, Info, ListChecks, Lock, Pencil, Plus, Send, Target,
 } from "lucide-react";
+import { ListaDividida } from "@/components/ui/Superficies";
 import Link from "next/link";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
-import { TituloBloque } from "@/components/academico/TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
@@ -501,7 +502,7 @@ async function SeccionInforme({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
           activo: f.competencia.id === fila.competencia.id,
         }))}
       />
-      <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
+      <ListaDividida>
         {fila.alumnos.map((a) => (
           <li key={`${fila.competencia.id}:${a.alumno.id}`}>
             <FilaInforme
@@ -510,7 +511,7 @@ async function SeccionInforme({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
             />
           </li>
         ))}
-      </ul>
+      </ListaDividida>
     </div>
   );
 }
@@ -543,7 +544,7 @@ async function SeccionPeriodo({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
           activo: f.competencia.id === fila.competencia.id,
         }))}
       />
-      <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
+      <ListaDividida>
         {fila.alumnos.map((a) => (
           <li key={a.alumno.id}>
             <FilaCalificacion
@@ -553,7 +554,7 @@ async function SeccionPeriodo({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
             />
           </li>
         ))}
-      </ul>
+      </ListaDividida>
     </div>
   );
 }

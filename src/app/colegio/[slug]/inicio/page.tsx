@@ -14,7 +14,7 @@ import { KhipuDelDia } from "./KhipuDelDia";
 import { AvisosDeHoy, ResumenDireccion } from "./ResumenDireccion";
 import { SaludoInicio } from "./SaludoInicio";
 import { TarjetaHoy } from "./TarjetaHoy";
-import { TituloBloque } from "./TituloBloque";
+import { TituloBloque } from "@/components/shell/TituloBloque";
 
 export const metadata: Metadata = { title: "Inicio" };
 
