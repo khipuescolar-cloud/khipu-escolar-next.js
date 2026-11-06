@@ -10,7 +10,6 @@ import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { buttonVariants } from "@/components/ui/button";
 import { Campo } from "@/components/ui/Campo";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { fechaCorta, formatoDia, isoDeFechaDb, restarDias } from "@/lib/fechas";
 import { rangoEsteMes, textoPorcentaje } from "@/lib/reportes-asistencia";
 import { hoyDelColegio } from "@/lib/server/asistencia";
@@ -18,7 +17,7 @@ import { requireFeature } from "@/lib/server/plan";
 import { historialCurso, type ReporteCurso } from "@/lib/server/reportes-asistencia";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cn } from "@/lib/utils";
-import { Cifra } from "../../PanelProfesor";
+import { Cifra, CifrasJuntas } from "../../PanelProfesor";
 import { atajosDeFecha } from "../../vistas";
 
 export const metadata: Metadata = { title: "Asistencia del curso" };
@@ -57,6 +56,7 @@ export default async function HistorialCursoPage({ params, searchParams }: PageP
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
         titulo={r ? `${r.curso.nombre} · ${r.salon.nombre}` : "Asistencia del curso"}
+        seccion="dia"
         descripcion={r ? `Asistencia a clase${r.profesor ? ` · ${r.profesor}` : ""}` : undefined}
         acciones={
           <Link href="/asistencia/reportes" className={buttonVariants({ variant: "outline" })}>
@@ -65,7 +65,7 @@ export default async function HistorialCursoPage({ params, searchParams }: PageP
         }
       />
 
-      <Tarjeta className="-mt-2 flex flex-col gap-3">
+      <div className="flex flex-col gap-3 rounded-[14px] border border-borde-sutil bg-superficie p-4">
         {/* key: al tocar un atajo la página no se vuelve a montar; sin key, los campos (no controlados) mostraban las fechas anteriores. */}
         <form key={`${desde}|${hasta}`} method="get" className="flex flex-wrap items-end gap-3">
           <Campo etiqueta="Desde" name="desde" type="date" defaultValue={desde} max={hoy} />
@@ -88,7 +88,7 @@ export default async function HistorialCursoPage({ params, searchParams }: PageP
             );
           })}
         </p>
-      </Tarjeta>
+      </div>
 
       {error && <Alerta tipo="error">{error}</Alerta>}
 
@@ -115,17 +115,17 @@ export default async function HistorialCursoPage({ params, searchParams }: PageP
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            <CifrasJuntas>
               <Cifra icono={Percent} titulo="Asistencia" valor={textoPorcentaje(r.total.porcentaje)} detalle={`en ${NUM.format(r.fechas.length)} ${r.fechas.length === 1 ? "clase" : "clases"}`} />
               <Cifra icono={Check} titulo="Asistieron" valor={NUM.format(r.total.llego + r.total.tarde)} detalle="veces que un alumno estuvo en clase" tono="llego" />
               <Cifra icono={Clock} titulo="Tardanzas" valor={NUM.format(r.total.tarde)} detalle={`${NUM.format(r.filas.filter((f) => f.resumen.tarde > 0).length)} alumnos llegaron tarde`} tono="tarde" />
               <Cifra icono={CircleAlert} titulo="Faltas" valor={NUM.format(r.total.falta)} detalle={`${NUM.format(r.filas.filter((f) => f.resumen.falta > 0).length)} alumnos faltaron`} tono="falta" />
-            </div>
+            </CifrasJuntas>
 
-            <Tarjeta className="flex min-w-0 flex-col gap-2">
+            <div className="flex min-w-0 flex-col gap-2 rounded-[14px] border border-borde-sutil bg-superficie p-4">
               <h2 className="font-heading text-cuerpo font-semibold">Asistencia por clase</h2>
               <GraficoAsistenciaDias datos={r.porFecha} titulo={`Asistencia por clase de ${r.curso.nombre}`} etiquetaFila="Clase" />
-            </Tarjeta>
+            </div>
 
             <Matriz r={r} />
           </>
@@ -155,12 +155,12 @@ function Matriz({ r }: { r: ReporteCurso }) {
         })}
         <span className="inline-flex items-center gap-1.5"><span className="inline-flex size-7 items-center justify-center text-muted-foreground">—</span> Sin registro</span>
       </p>
-      <div className="overflow-x-auto rounded-lg border bg-card">
+      <div className="overflow-x-auto rounded-[14px] border border-borde-sutil bg-superficie">
         <table className="w-full border-collapse text-sm">
           <caption className="sr-only">Asistencia de cada alumno en cada clase de {r.curso.nombre}</caption>
           <thead>
-            <tr className="border-b bg-muted/50">
-              <th scope="col" className="sticky left-0 z-10 bg-muted px-3 py-2 text-left font-semibold">Alumno</th>
+            <tr className="border-b border-borde-sutil bg-superficie-2">
+              <th scope="col" className="sticky left-0 z-10 bg-superficie-2 px-3 py-2 text-left font-semibold">Alumno</th>
               {r.fechas.map((f) => (
                 <th key={f} scope="col" className="px-1.5 py-2 text-center text-etiqueta font-medium whitespace-nowrap text-muted-foreground">
                   <span className="block first-letter:uppercase">{formatoDia(f, { weekday: "short" })}</span>
@@ -175,7 +175,7 @@ function Matriz({ r }: { r: ReporteCurso }) {
           <tbody>
             {r.filas.map((f) => (
               <tr key={f.alumnoId} className="border-b last:border-b-0 hover:bg-muted/30">
-                <th scope="row" className="sticky left-0 z-10 bg-card px-3 py-1.5 text-left font-medium whitespace-nowrap">{f.apellidos}, {f.nombres}</th>
+                <th scope="row" className="sticky left-0 z-10 bg-superficie px-3 py-1.5 text-left font-medium whitespace-nowrap">{f.apellidos}, {f.nombres}</th>
                 {f.estados.map((e, i) => {
                   if (!e) return <td key={i} className="px-1.5 py-1.5 text-center text-muted-foreground" aria-label="Sin registro">—</td>;
                   const { palabra, Icono, clase } = ESTADOS_ASISTENCIA[e];

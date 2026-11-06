@@ -2,7 +2,6 @@ import { CircleAlert, CircleCheck } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
-import { Card, CardContent } from "@/components/ui/card";
 import { cuadriculaMes, fechaLarga, hora12 } from "@/lib/fechas";
 import { porcentajeAsistencia, type DetalleDia, type DiaAgregado } from "@/lib/reportes-asistencia";
 import type { ReporteAsistencia } from "@/lib/server/reportes-asistencia";
@@ -65,8 +64,7 @@ export function CalendarioReporte({ reporte, hoy, veTodo, puedeCorregir }: { rep
           .map((s) => s.slice(0, 5))
           .filter((s) => s.some((f) => delMes(f) && enRango(f)));
         return (
-          <Card key={clave}>
-            <CardContent className="flex flex-col gap-4">
+          <div key={clave} className="flex flex-col gap-4 rounded-[14px] border border-borde-sutil bg-superficie p-4 sm:p-5">
               <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
                 <h3 id={`mes-${clave}`} className="text-titulo-2 first-letter:uppercase">{nombreMes(anio, mes)}</h3>
                 {reporte.tipo === "alumno"
@@ -111,8 +109,7 @@ export function CalendarioReporte({ reporte, hoy, veTodo, puedeCorregir }: { rep
                   ))}
                 </tbody>
               </table>
-            </CardContent>
-          </Card>
+          </div>
         );
       })}
       <Leyenda individual={Boolean(individual)} ayuda={ayudaEnlace} />
@@ -123,7 +120,7 @@ export function CalendarioReporte({ reporte, hoy, veTodo, puedeCorregir }: { rep
 /** Número del día; «hoy» lleva un círculo de marca. */
 function NumeroDia({ dia, esHoy }: { dia: number; esHoy: boolean }) {
   return esHoy ? (
-    <span className="inline-flex size-6 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground tabular-nums">{dia}</span>
+    <span className="inline-flex size-6 items-center justify-center rounded-full bg-sec-tinta text-xs font-semibold text-fondo tabular-nums">{dia}</span>
   ) : (
     <span className="inline-flex h-6 items-center text-xs font-semibold text-foreground tabular-nums">{dia}</span>
   );

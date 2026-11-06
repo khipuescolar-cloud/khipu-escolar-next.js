@@ -54,6 +54,7 @@ export default async function VerReporteAsistenciaPage({ params, searchParams }:
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
         titulo={reporte ? tituloDe(reporte) : "Reporte de asistencia"}
+        seccion="dia"
         descripcion={reporte ? `Asistencia al colegio del ${fechaCorta(reporte.desde)} al ${fechaCorta(reporte.hastaEfectivo)}.` : undefined}
         acciones={
           <div className="flex flex-col gap-3 sm:items-end">
@@ -115,7 +116,7 @@ function SelectorVista({ filtros, vista }: { filtros: FiltrosReporte; vista: Vis
     { valor: "calendario" as const, texto: "Calendario", Icono: CalendarDays },
   ];
   return (
-    <nav aria-label="Ver como" className="inline-flex rounded-md border bg-muted p-0.5">
+    <nav aria-label="Ver como" className="inline-flex rounded-[10px] bg-superficie-2 p-1">
       {opciones.map(({ valor, texto, Icono }) => {
         const activa = vista === valor;
         return (
@@ -125,8 +126,8 @@ function SelectorVista({ filtros, vista }: { filtros: FiltrosReporte; vista: Vis
             aria-current={activa ? "page" : undefined}
             scroll={false}
             className={cn(
-              "inline-flex min-h-9 items-center gap-1.5 rounded-[5px] px-3 text-sm font-medium transition-colors",
-              activa ? "bg-card text-foreground shadow-xs" : "text-muted-foreground hover:text-foreground",
+              "inline-flex min-h-11 items-center gap-1.5 rounded-md px-3 text-cuerpo-sm font-medium transition-colors duration-150 motion-reduce:transition-none",
+              activa ? "bg-sec-suave text-sec-tinta" : "text-muted-foreground hover:text-foreground",
             )}
           >
             <Icono className="size-4" strokeWidth={2} aria-hidden /> {texto}

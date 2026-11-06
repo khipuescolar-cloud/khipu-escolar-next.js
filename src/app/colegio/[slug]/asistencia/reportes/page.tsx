@@ -11,7 +11,6 @@ import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { esFechaReal, fechaCorta, fechaLarga, hora12 } from "@/lib/fechas";
 import {
@@ -202,8 +201,7 @@ function AsistenciaDelDia({ reporte, dia, hoy, puedeCorregir }: { reporte: Repor
             <Cifra titulo="Con aviso" valor={t.problema} detalle="Situaciones registradas en la lista del día" estado="problema" />
             <Cifra titulo="Sin registro" valor={t.diasSinRegistro} detalle="Sin escaneo en portería ni lista del día" />
           </ul>
-          <Card>
-            <CardContent className="p-0">
+          <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -234,8 +232,7 @@ function AsistenciaDelDia({ reporte, dia, hoy, puedeCorregir }: { reporte: Repor
                   ))}
                 </TableBody>
               </Table>
-            </CardContent>
-          </Card>
+            </div>
         </>
       )}
     </section>
@@ -280,8 +277,7 @@ function VistaCurso({ detalle, puedeCorregir }: { detalle: DetalleCurso; puedeCo
       {detalle.filas.length === 0 ? (
         <EstadoVacio icono={BookOpenCheck} titulo="Sin faltas ni tardanzas a clase" descripcion="En este rango, todos los registros de este curso son «Llegó» o «Aviso»." />
       ) : (
-        <Card>
-          <CardContent className="p-0">
+        <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -310,8 +306,7 @@ function VistaCurso({ detalle, puedeCorregir }: { detalle: DetalleCurso; puedeCo
                 ))}
               </TableBody>
             </Table>
-          </CardContent>
-        </Card>
+          </div>
       )}
     </section>
   );

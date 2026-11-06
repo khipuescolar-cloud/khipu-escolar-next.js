@@ -3,7 +3,6 @@ import Link from "next/link";
 import { EstadoAsistencia } from "@/components/EstadoAsistencia";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { fechaCorta, fechaLarga } from "@/lib/fechas";
 import { claveGrado, rangoAnio, rangoEsteMes, textoJustificacion, textoPorcentaje, type FiltrosReporte, type ResumenAlumno } from "@/lib/reportes-asistencia";
@@ -97,8 +96,7 @@ export function Contenido({ reporte, filtros, familia, puedeCorregir }: { report
       {filas.length === 0 ? (
         <EstadoVacio icono={BarChart3} titulo="No hay alumnos para este reporte" descripcion="Cuando haya alumnos activos con asistencia, aparecerán aquí." />
       ) : (
-        <Card>
-          <CardContent className="p-0">
+        <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -117,8 +115,7 @@ export function Contenido({ reporte, filtros, familia, puedeCorregir }: { report
                 ))}
               </TableBody>
             </Table>
-          </CardContent>
-        </Card>
+          </div>
       )}
     </>
   );
@@ -166,11 +163,10 @@ export function contextoDe(r: ReporteAsistencia): string[] {
 
 export function Totales({ resumen, titulo, contexto = [] }: { resumen: ResumenAlumno; titulo: string; contexto?: string[] }) {
   return (
-    <Card>
-      <CardContent className="flex flex-wrap items-center gap-x-8 gap-y-3">
+    <div className="flex flex-wrap items-center gap-x-8 gap-y-3 rounded-[14px] border border-borde-sutil bg-superficie p-5">
         {contexto.length > 0 && (
           <ul className="flex basis-full flex-wrap gap-2" aria-label="Datos del reporte">
-            {contexto.map((c) => <li key={c} className="rounded-pildora border bg-superficie px-3 py-1 text-sm">{c}</li>)}
+            {contexto.map((c) => <li key={c} className="rounded-pildora bg-superficie-2 px-3 py-1 text-cuerpo-sm">{c}</li>)}
           </ul>
         )}
         <div>
@@ -187,8 +183,7 @@ export function Totales({ resumen, titulo, contexto = [] }: { resumen: ResumenAl
         <p className="text-sm text-muted-foreground tabular-nums">
           Faltas justificadas: <strong className="text-foreground">{resumen.faltasJustificadas}</strong> · en revisión: <strong className="text-foreground">{resumen.faltasEnRevision}</strong> · sin justificar: <strong className="text-foreground">{resumen.faltasInjustificadas}</strong> · con permiso: <strong className="text-foreground">{resumen.conPermiso}</strong> · días sin registro: <strong className="text-foreground">{resumen.diasSinRegistro}</strong>
         </p>
-      </CardContent>
-    </Card>
+      </div>
   );
 }
 
@@ -201,8 +196,7 @@ export function DetalleAlumno({ reporte, filtros, familia, puedeCorregir }: { re
         </Link>
       )}
       <Totales resumen={reporte.resumen} titulo={`${reporte.alumno.apellidos}, ${reporte.alumno.nombres}`} contexto={contextoDe(reporte)} />
-      <Card>
-        <CardContent className="p-0">
+      <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
           <Table>
             <TableHeader>
               <TableRow>
@@ -242,8 +236,7 @@ export function DetalleAlumno({ reporte, filtros, familia, puedeCorregir }: { re
             </TableBody>
           </Table>
           {reporte.detalle.length === 0 && <p className="p-4 text-sm text-muted-foreground">No hay días hábiles en este rango.</p>}
-        </CardContent>
-      </Card>
+        </div>
     </>
   );
 }
@@ -256,15 +249,14 @@ export function AsistenciaPorCurso({ reporte, filtros }: { reporte: ReporteColeg
     <section aria-labelledby="titulo-cursos" className="flex flex-col gap-3">
       <div>
         <h2 id="titulo-cursos" className="flex items-center gap-2 text-titulo-2">
-          <BookOpenCheck className="size-5 text-primary" strokeWidth={2} aria-hidden /> Asistencia por curso
+          <BookOpenCheck className="size-5 text-sec-trazo" strokeWidth={2} aria-hidden /> Asistencia por curso
         </h2>
         <p className="text-cuerpo-sm text-muted-foreground">Faltas a clase en el rango. «Ingresó pero faltó»: el alumno entró al colegio ese día y no estuvo en la clase.</p>
       </div>
       {cursos.length === 0 ? (
         <EstadoVacio icono={BookOpenCheck} titulo="Aún no hay listas de curso en este rango" descripcion="Cuando los profesores pasen lista en sus cursos, verás aquí las faltas a clase." />
       ) : (
-        <Card>
-          <CardContent className="p-0">
+        <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -289,8 +281,7 @@ export function AsistenciaPorCurso({ reporte, filtros }: { reporte: ReporteColeg
                 ))}
               </TableBody>
             </Table>
-          </CardContent>
-        </Card>
+          </div>
       )}
     </section>
   );
