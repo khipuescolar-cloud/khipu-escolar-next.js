@@ -110,6 +110,8 @@ test("Lucía comparte carpeta con familias; Rosa descarga; Pedro no ve; renombra
   await expect(lucia.getByRole("button", { name: CARPETA, exact: true })).toBeVisible();
   await lucia.getByRole("button", { name: `Opciones de ${CARPETA}` }).click();
   await lucia.getByRole("menuitem", { name: "Restaurar" }).click();
+  // Espera a que la acción termine (sale de la papelera) antes de navegar; si no, la navegación la cancela.
+  await expect(lucia.getByRole("button", { name: CARPETA, exact: true })).toHaveCount(0);
   await lucia.goto(`${COLEGIO}/documentos?vista=unidad`);
   await expect(lucia.getByRole("button", { name: CARPETA, exact: true })).toBeVisible();
 });
