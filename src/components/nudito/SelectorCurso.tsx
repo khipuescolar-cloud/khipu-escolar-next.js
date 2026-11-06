@@ -23,7 +23,7 @@ export function SelectorCurso({ cursos, nivel, ocupado, onElegir }: { cursos: Cu
                   type="button"
                   disabled={ocupado}
                   onClick={() => onElegir(c)}
-                  className={`group flex w-full items-center gap-3 rounded-[var(--radio-lg)] border bg-superficie text-left shadow-sm outline-none transition-[transform,box-shadow] duration-200 hover:shadow-md focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60 motion-safe:hover:-translate-y-0.5 ${v.borde} ${primaria ? "min-h-24 p-4 sm:flex-col sm:items-start" : "min-h-14 p-3"}`}
+                  className={`group flex w-full items-center gap-3 rounded-[var(--radio-lg)] border bg-superficie text-left outline-none transition-[transform,border-color] duration-200 hover:border-sec-trazo focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60 motion-safe:hover:-translate-y-0.5 ${v.borde} ${primaria ? "min-h-24 p-4 sm:flex-col sm:items-start" : "min-h-14 p-3"}`}
                 >
                   <span className={`flex shrink-0 items-center justify-center rounded-xl ${v.fondo} ${v.tinta} ${primaria ? "size-14" : "size-10"}`}>
                     <Icono className={primaria ? "size-8" : "size-5"} strokeWidth={2} aria-hidden />

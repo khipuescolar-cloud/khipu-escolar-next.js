@@ -55,7 +55,7 @@ export function VozNudito({ estado = "reposo", children, tamano = 48 }: { estado
   return (
     <div className="flex items-start gap-3">
       <NuditoMascota tamano={tamano} estado={estado} className="shrink-0" />
-      <div className="min-w-0 flex-1 rounded-2xl rounded-tl-sm border border-cochinilla/20 bg-superficie px-4 py-3 font-nudito text-voz-nudito text-tinta shadow-sm">
+      <div className="min-w-0 flex-1 rounded-2xl rounded-tl-sm border border-cochinilla/20 bg-superficie px-4 py-3 font-nudito text-voz-nudito text-tinta">
         {children}
       </div>
     </div>

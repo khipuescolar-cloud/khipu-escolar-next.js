@@ -5,7 +5,6 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
 import { Flash } from "@/components/ui/Flash";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { AVISO_FORMATIVO } from "@/lib/nudito-seguimiento";
 import { configNudito } from "@/lib/server/nudito/config-colegio";
 import { hijosParaNudito } from "@/lib/server/nudito-plus/familia";
@@ -24,6 +23,7 @@ export default async function NuditoFamiliaPage({ params, searchParams }: PagePr
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
         titulo="Nudito"
+        seccion="academico"
         descripcion={`El tutor de práctica de tu colegio: ayuda a tu hijo a repasar y practicar los temas de sus cursos. ${AVISO_FORMATIVO}`}
       />
       <Flash ok={sp.ok} error={sp.error} />
@@ -32,17 +32,17 @@ export default async function NuditoFamiliaPage({ params, searchParams }: PagePr
       {hijos.length === 0 ? (
         <EstadoVacio icono={Users} titulo="Aún no tienes hijos vinculados en este colegio." descripcion="Pide al colegio que te vincule con tu hijo." />
       ) : (
-        <ul className="grid gap-4 md:grid-cols-2">
+        <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
           {hijos.map((h) => (
             <li key={h.id}>
-              <Tarjeta className="flex h-full flex-col gap-4">
+              <div className="flex flex-col gap-4 p-5 sm:p-6">
                 <div>
-                  <h2 className="font-heading text-lg font-semibold">{h.nombres} {h.apellidos}</h2>
-                  <p className="text-cuerpo-sm text-muted-foreground">{h.salon}</p>
+                  <h2 className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold"><span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />{h.nombres} {h.apellidos}</h2>
+                  <p className="mt-1 text-cuerpo-sm text-muted-foreground">{h.salon}</p>
                 </div>
                 <p className="flex flex-wrap gap-x-4 gap-y-1 text-cuerpo-sm">
                   <span className="inline-flex items-center gap-1"><CheckCircle2 className="size-4 text-llego" strokeWidth={2} aria-hidden /> {h.dominados} dominados</span>
-                  <span className="inline-flex items-center gap-1"><Sprout className="size-4 text-indigo-cielo" strokeWidth={2} aria-hidden /> {h.practicando} practicando</span>
+                  <span className="inline-flex items-center gap-1"><Sprout className="size-4 text-primary" strokeWidth={2} aria-hidden /> {h.practicando} practicando</span>
                   <span className="inline-flex items-center gap-1"><RefreshCw className="size-4 text-cochinilla" strokeWidth={2} aria-hidden /> {h.reforzar} para reforzar</span>
                 </p>
                 {h.consentimiento.vigente ? (
@@ -50,7 +50,7 @@ export default async function NuditoFamiliaPage({ params, searchParams }: PagePr
                 ) : (
                   <span className="inline-flex items-center gap-1.5 text-cuerpo-sm text-muted-foreground"><ShieldQuestion className="size-4" strokeWidth={2} aria-hidden /> Falta tu autorización</span>
                 )}
-                <div className="mt-auto flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2">
                   <Link href={`/nudito-plus/${h.id}`} className={buttonVariants({ variant: "outline" })}>
                     Ver progreso <ChevronRight strokeWidth={2} aria-hidden />
                   </Link>
@@ -63,7 +63,7 @@ export default async function NuditoFamiliaPage({ params, searchParams }: PagePr
                     </Link>
                   )}
                 </div>
-              </Tarjeta>
+              </div>
             </li>
           ))}
         </ul>

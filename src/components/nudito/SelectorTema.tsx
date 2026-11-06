@@ -54,7 +54,7 @@ export function SelectorTema({
         type="button"
         disabled={ocupado}
         onClick={() => onElegir(t.clave)}
-        className={`flex w-full flex-col gap-2 rounded-[var(--radio-lg)] border bg-superficie text-left shadow-sm outline-none transition-[transform,box-shadow] duration-200 hover:shadow-md focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60 motion-safe:hover:-translate-y-0.5 ${t.recomendado ? "border-maiz" : "border-border"} ${primaria ? "min-h-20 p-4" : "min-h-14 p-3"}`}
+        className={`flex w-full flex-col gap-2 rounded-[var(--radio-lg)] border bg-superficie text-left outline-none transition-[transform,border-color] duration-200 hover:border-sec-trazo focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60 motion-safe:hover:-translate-y-0.5 ${t.recomendado ? "border-maiz" : "border-borde-sutil"} ${primaria ? "min-h-20 p-4" : "min-h-14 p-3"}`}
       >
         <span className="flex flex-wrap items-center gap-2">
           {t.recomendado && (
@@ -126,7 +126,7 @@ export function SelectorTema({
       </ul>
 
       {otros.length > 0 && (
-        <details className="group flex flex-col gap-3 rounded-[var(--radio-lg)] border border-border bg-superficie-2 p-3">
+        <details className="group flex flex-col gap-3 rounded-[var(--radio-lg)] border border-borde-sutil bg-superficie-2 p-3">
           <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 rounded-[var(--radio-md)] font-semibold outline-none focus-visible:ring-2 focus-visible:ring-ring">
             Repasar temas de grados anteriores ({otros.length})
             <ChevronDown className="size-5 transition-transform group-open:rotate-180 motion-reduce:transition-none" strokeWidth={2} aria-hidden />

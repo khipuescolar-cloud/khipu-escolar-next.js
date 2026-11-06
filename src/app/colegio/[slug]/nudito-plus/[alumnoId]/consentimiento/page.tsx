@@ -26,18 +26,16 @@ export default async function ConsentimientoNudito({ params }: PageProps<"/coleg
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Nudito de {nombre}
       </Link>
       <Tarjeta className="flex flex-col gap-4 p-6">
-        <div className="flex items-center gap-3">
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-superficie-2 text-primary">
-            <ShieldCheck className="size-6" strokeWidth={2} aria-hidden />
-          </span>
-          <h1 className="text-titulo-2 text-balance sm:text-titulo-1">Autorización para que {nombre} use Nudito</h1>
-        </div>
+        <h1 className="flex items-start gap-3 text-titulo-2 text-balance sm:text-titulo-1">
+          <ShieldCheck className="mt-1 size-6 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
+          Autorización para que {nombre} use Nudito
+        </h1>
         {parrafos(texto.texto).map((p) => (
           <p key={p} className="max-w-prose leading-relaxed">{p}</p>
         ))}
         <p className="text-cuerpo-sm text-muted-foreground">Versión {texto.version}</p>
         <Alerta tipo="aviso">Al aceptar declaras ser madre, padre o apoderado de {nombre}. Guardamos la fecha, la versión del texto y la dirección IP desde la que aceptas.</Alerta>
-        <form action={aceptarConsentimientoIaAction} className="flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center">
+        <form action={aceptarConsentimientoIaAction} className="flex flex-col gap-3 border-t border-borde-sutil pt-4 sm:flex-row sm:items-center">
           <input type="hidden" name="alumnoId" value={alumno.id} />
           <BotonEnvio tamano="lg">Acepto y autorizo</BotonEnvio>
           <span className="text-cuerpo-sm text-muted-foreground">Puedes retirar tu autorización cuando quieras.</span>

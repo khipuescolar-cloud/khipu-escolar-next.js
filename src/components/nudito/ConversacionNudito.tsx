@@ -288,7 +288,7 @@ export function ConversacionNudito({ alumnoId, nivel, inicial, permitirFotos = f
               Tengo una pregunta
             </Button>
           ) : (
-            <section aria-labelledby="titulo-pregunta" className="flex flex-col gap-3 rounded-[var(--radio-lg)] border border-border bg-superficie-2 p-3 motion-safe:animate-[nd-entra_320ms_ease-out_both]">
+            <section aria-labelledby="titulo-pregunta" className="flex flex-col gap-3 rounded-[var(--radio-lg)] border border-borde-sutil bg-superficie-2 p-3 motion-safe:animate-[nd-entra_320ms_ease-out_both]">
               <div className="flex items-center justify-between">
                 <h3 id="titulo-pregunta" className="font-titulo font-semibold">
                   Pregúntale a Nudito

@@ -5,7 +5,6 @@ import { useActionState, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
-import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { CLASE_CAMPO } from "@/components/ui/Selector";
@@ -47,21 +46,20 @@ export function FilaCalificacion({
   const obligatoria = escala === "literal" && requiereConclusion(valor.toUpperCase() as Literal);
 
   return (
-    <Card>
-      <CardContent className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 p-4 sm:p-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="font-medium">{alumno.apellidos}, {alumno.nombres}</p>
           {guardado ? (
             <span className="inline-flex items-center gap-1.5 rounded-pildora bg-llego-fondo px-2.5 py-1 text-etiqueta text-llego"><CheckCircle2 className="size-3.5" strokeWidth={2} aria-hidden />Confirmada</span>
           ) : (
-            <span className="inline-flex items-center gap-1.5 rounded-pildora bg-muted px-2.5 py-1 text-etiqueta text-muted-foreground"><CircleDashed className="size-3.5" strokeWidth={2} aria-hidden />Sin confirmar</span>
+            <span className="inline-flex items-center gap-1.5 rounded-pildora bg-superficie-2 px-2.5 py-1 text-etiqueta text-muted-foreground"><CircleDashed className="size-3.5" strokeWidth={2} aria-hidden />Sin confirmar</span>
           )}
         </div>
         <ListaNotas notas={notas} />
         {sugerido && <p className="text-cuerpo-sm text-muted-foreground">Sugerencia provisional del colegio: <strong className="text-foreground">{textoValor(sugerido)}</strong></p>}
         {desempenos.length > 0 ? (
           <details className="text-cuerpo-sm">
-            <summary className="cursor-pointer font-medium text-primary">Desempeños evaluados ({desempenos.length})</summary>
+            <summary className="cursor-pointer font-medium text-primary underline-offset-4 hover:underline">Desempeños evaluados ({desempenos.length})</summary>
             <ul className="mt-1.5 flex list-disc flex-col gap-1 pl-5 text-muted-foreground">
               {desempenos.map((d) => <li key={d.id}>{d.codigo && <span className="mr-1 font-mono text-xs">{d.codigo}</span>}{d.descripcion}</li>)}
             </ul>
@@ -111,7 +109,6 @@ export function FilaCalificacion({
             </div>
           </form>
         )}
-      </CardContent>
-    </Card>
+    </div>
   );
 }

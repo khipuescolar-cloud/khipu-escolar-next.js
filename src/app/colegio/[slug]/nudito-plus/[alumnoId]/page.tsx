@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BotonEnvio } from "../BotonEnvio";
 import { ProgresoTemas } from "../../nudito/seguimiento/_componentes/ProgresoTemas";
+import { TituloBloque } from "@/components/academico/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { buttonVariants } from "@/components/ui/button";
 import { Flash } from "@/components/ui/Flash";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { formatoDia } from "@/lib/fechas";
 import { evaluarAccesoNuditoPlus } from "@/lib/server/nudito-plus/acceso";
 import { autorizacionDeHijo } from "@/lib/server/nudito-plus/familia";
@@ -32,6 +32,7 @@ export default async function NuditoHijo({ params, searchParams }: PageProps<"/c
       </Link>
       <EncabezadoPagina
         titulo={`Nudito de ${nombre}`}
+        seccion="academico"
         descripcion={`${alumno.nombres} ${alumno.apellidos} · ${alumno.salon}`}
         acciones={acceso.ok ? (
           <Link href={`/nudito?alumno=${alumno.id}`} className={buttonVariants()}>
@@ -41,8 +42,8 @@ export default async function NuditoHijo({ params, searchParams }: PageProps<"/c
       />
       <Flash ok={sp.ok} error={sp.error} />
 
-      <Tarjeta className="flex flex-col gap-3">
-        <h2 className="text-lg font-semibold">Tu autorización</h2>
+      <section aria-labelledby="autorizacion" className="flex flex-col gap-3 rounded-[14px] border border-borde-sutil bg-superficie p-5 sm:p-6">
+        <TituloBloque id="autorizacion">Tu autorización</TituloBloque>
         {consentimiento ? (
           <>
             <p className="inline-flex items-center gap-1.5 font-medium text-llego"><ShieldCheck className="size-5" strokeWidth={2} aria-hidden /> Autorizado</p>
@@ -61,7 +62,7 @@ export default async function NuditoHijo({ params, searchParams }: PageProps<"/c
             <Link href={`/nudito-plus/${alumno.id}/consentimiento`} className={`${buttonVariants()} w-fit`}>Leer y autorizar</Link>
           </>
         )}
-      </Tarjeta>
+      </section>
 
       <ProgresoTemas areas={progreso.areas} temas={progreso.temas} vacio={`Cuando ${nombre} practique con Nudito, aquí verás sus temas y cómo avanza.`} />
     </div>

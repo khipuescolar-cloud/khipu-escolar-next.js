@@ -22,7 +22,7 @@ export default async function SeguimientoAlumno({ params, searchParams }: PagePr
       <Link href="/nudito/seguimiento" className="enlace inline-flex w-fit items-center gap-1 text-cuerpo-sm">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Seguimiento de Nudito
       </Link>
-      <EncabezadoPagina titulo={alumno ? `${alumno.nombres} ${alumno.apellidos}` : "Alumno"} descripcion={alumno ? `${alumno.salon.nombre} · progreso de práctica con Nudito` : undefined} />
+      <EncabezadoPagina titulo={alumno ? `${alumno.nombres} ${alumno.apellidos}` : "Alumno"} seccion="academico" descripcion={alumno ? `${alumno.salon.nombre} · progreso de práctica con Nudito` : undefined} />
       <ProgresoTemas areas={p.areas} temas={p.temas} vacio="Aún no practicó con Nudito en estos cursos." />
     </div>
   );

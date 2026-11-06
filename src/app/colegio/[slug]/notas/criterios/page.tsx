@@ -10,7 +10,7 @@ import { Alerta } from "@/components/ui/Alerta";
 import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
+import { TituloBloque } from "@/components/academico/TituloBloque";
 import { NOMBRE_INSTRUMENTO } from "@/lib/calificaciones";
 import { criteriosDeEvaluacion } from "@/lib/server/criterios";
 import { requireFeature } from "@/lib/server/plan";
@@ -41,6 +41,7 @@ export default async function CriteriosPage({ params, searchParams }: PageProps<
       </Link>
       <EncabezadoPagina
         titulo={`Criterios · ${e.titulo}`}
+        seccion="academico"
         descripcion={`${e.curso} · ${e.salon} · ${e.competencia?.nombre ?? "Sin competencia"}${e.instrumento ? ` · ${NOMBRE_INSTRUMENTO[e.instrumento]}` : ""}`}
         acciones={d.editable && (
           <DialogoAccion
@@ -83,15 +84,12 @@ export default async function CriteriosPage({ params, searchParams }: PageProps<
         <>
           <GrillaCriterios slug={slug} editable={d.editable} alumnos={d.alumnos} criterios={d.criterios} resultados={d.resultados} />
           {d.editable && (
-            <Card>
-              <CardHeader>
-                <h2 className="font-titulo text-cuerpo font-semibold">Criterios</h2>
-                <CardDescription>Al eliminar un criterio también se borran sus resultados.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="divide-y">
+            <section aria-labelledby="lista-criterios" className="flex flex-col gap-3">
+              <TituloBloque id="lista-criterios" descripcion="Al eliminar un criterio también se borran sus resultados.">Criterios</TituloBloque>
+              <div className="rounded-[14px] border border-borde-sutil bg-superficie px-4 sm:px-5">
+                <ul className="divide-y divide-borde-sutil">
                   {d.criterios.map((c, i) => (
-                    <li key={c.id} className="flex flex-wrap items-center justify-between gap-3 py-3 first:pt-0 last:pb-0">
+                    <li key={c.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
                       <div className="min-w-0">
                         <p className="font-medium">{i + 1}. {c.descripcion}</p>
                         <p className="text-cuerpo-sm text-muted-foreground">
@@ -109,8 +107,8 @@ export default async function CriteriosPage({ params, searchParams }: PageProps<
                     </li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
+              </div>
+            </section>
           )}
         </>
       )}

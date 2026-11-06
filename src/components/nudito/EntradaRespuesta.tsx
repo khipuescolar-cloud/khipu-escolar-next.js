@@ -230,7 +230,7 @@ export function EntradaRespuesta({
       cuerpo = (
         <ul className="flex flex-col gap-3">
           {ejercicio.afirmaciones.map((a) => (
-            <li key={a.id} className="flex flex-col gap-2 rounded-[var(--radio-md)] border border-border bg-superficie p-3">
+            <li key={a.id} className="flex flex-col gap-2 rounded-[var(--radio-md)] border border-borde-sutil bg-superficie p-3">
               <span id={`${base}-vf-${a.id}`}>{a.texto}</span>
               <div className="flex gap-2" role="group" aria-labelledby={`${base}-vf-${a.id}`}>
                 {([true, false] as const).map((valor) => (

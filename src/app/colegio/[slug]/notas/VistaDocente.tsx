@@ -3,13 +3,13 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
+import { TituloBloque } from "@/components/academico/TituloBloque";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -183,30 +183,27 @@ async function SeccionExcel({ ctx, slug, cursoId, periodoId }: { ctx: TenantCont
   const g = await grillaNotas(ctx, cursoId, periodoId);
   const bloqueo = ctx.rol !== "profesor" ? "Solo el profesor del curso puede importar notas." : g.editable ? null : g.cursoCerrado ? "Las notas de este curso están cerradas en este periodo." : "Este periodo está cerrado.";
   return (
-    <div className="grid gap-4 lg:grid-cols-2">
-      <Card>
-        <CardHeader>
-          <h2 className="font-titulo text-cuerpo font-semibold">Exportar a Excel (CSV)</h2>
-          <CardDescription>Una fila por alumno y una columna por evaluación. Se abre en Excel con tildes y columnas separadas por «;».</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <a href={`/api/notas/exportar?curso=${cursoId}&periodo=${periodoId}`} className={buttonVariants({ variant: "outline" })}>
-            <Download strokeWidth={2} aria-hidden />Descargar CSV
-          </a>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <h2 className="font-titulo text-cuerpo font-semibold">Importar notas</h2>
-          <CardDescription>
+    <div className="grid gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+      <section aria-labelledby="exportar-csv" className="flex flex-col gap-4 bg-superficie p-5">
+        <TituloBloque id="exportar-csv" descripcion="Una fila por alumno y una columna por evaluación. Se abre en Excel con tildes y columnas separadas por «;».">
+          Exportar a Excel (CSV)
+        </TituloBloque>
+        <a href={`/api/notas/exportar?curso=${cursoId}&periodo=${periodoId}`} className={buttonVariants({ variant: "outline", className: "w-fit" })}>
+          <Download strokeWidth={2} aria-hidden />Descargar CSV
+        </a>
+      </section>
+      <section aria-labelledby="importar-csv" className="flex flex-col gap-4 bg-superficie p-5">
+        <TituloBloque
+          id="importar-csv"
+          descripcion={<>
             Usa el CSV descargado como base. Identificamos al alumno por su código o su nombre y cada columna por el título de la evaluación.
             Valores: {g.escala === "literal" ? "AD, A, B o C" : "números de 0 a 20"}. Las celdas vacías no borran notas.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ImportarNotas slug={slug} cursoId={cursoId} periodoId={periodoId} bloqueo={bloqueo} />
-        </CardContent>
-      </Card>
+          </>}
+        >
+          Importar notas
+        </TituloBloque>
+        <ImportarNotas slug={slug} cursoId={cursoId} periodoId={periodoId} bloqueo={bloqueo} />
+      </section>
     </div>
   );
 }
@@ -290,23 +287,25 @@ async function ListaEvaluaciones({
   const conNota = new Set(g.notas.map((n) => n.evaluacionId));
   const usaPeso = g.calculo !== "ninguna";
   return (
-    <Card>
-      <CardHeader>
-        <h2 className="font-titulo text-cuerpo font-semibold">Evaluaciones del periodo</h2>
-        <CardDescription>
+    <section aria-labelledby="evaluaciones-periodo" className="flex flex-col gap-3">
+      <TituloBloque
+        id="evaluaciones-periodo"
+        descripcion={<>
           Las notas de una evaluación programada son un borrador: la familia las ve cuando publicas los resultados.
           {puedeEditar && " Solo se eliminan las columnas que nunca se publicaron y no tienen NSP, consecuencia ni recuperación; al eliminarlas se borran sus notas de borrador."}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <ul className="divide-y">
+        </>}
+      >
+        Evaluaciones del periodo
+      </TituloBloque>
+      <div className="rounded-[14px] border border-borde-sutil bg-superficie px-4 sm:px-5">
+        <ul className="divide-y divide-borde-sutil">
           {grupos.map((cols, i) => {
             const e = cols[0];
             const publicada = cols.every((c) => c.estado === "publicada");
             const hayNotas = cols.some((c) => conNota.has(c.id));
             const historial = historiales[i];
             return (
-              <li key={e.grupoId} className="flex flex-col gap-3 py-4 first:pt-0 last:pb-0">
+              <li key={e.grupoId} className="flex flex-col gap-3 py-4">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
                     <p className="flex flex-wrap items-center gap-2 font-medium">
@@ -314,7 +313,7 @@ async function ListaEvaluaciones({
                       {publicada ? (
                         <span className="inline-flex items-center gap-1 rounded-pildora bg-llego-fondo px-2 py-0.5 text-etiqueta text-llego"><Eye className="size-3.5" strokeWidth={2} aria-hidden />Publicada</span>
                       ) : (
-                        <span className="inline-flex items-center gap-1 rounded-pildora bg-muted px-2 py-0.5 text-etiqueta text-muted-foreground"><EyeOff className="size-3.5" strokeWidth={2} aria-hidden />Programada · borrador</span>
+                        <span className="inline-flex items-center gap-1 rounded-pildora bg-superficie-2 px-2 py-0.5 text-etiqueta text-muted-foreground"><EyeOff className="size-3.5" strokeWidth={2} aria-hidden />Programada · borrador</span>
                       )}
                     </p>
                     <p className="text-cuerpo-sm text-muted-foreground">
@@ -333,9 +332,9 @@ async function ListaEvaluaciones({
                       />
                   )}
                 </div>
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-col divide-y divide-borde-sutil border-l-2 border-borde-sutil pl-3">
                   {cols.map((c) => (
-                    <li key={c.id} className="flex flex-wrap items-center justify-between gap-2 rounded-md bg-muted/50 px-3 py-2">
+                    <li key={c.id} className="flex flex-wrap items-center justify-between gap-2 py-1.5">
                       <p className="min-w-0 text-cuerpo-sm">
                         <span className="font-medium">{g.competencias.find((x) => x.id === c.competenciaId)?.nombre ?? "Sin competencia"}</span>
                         <span className="text-muted-foreground">
@@ -411,8 +410,8 @@ async function ListaEvaluaciones({
             );
           })}
         </ul>
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 }
 
@@ -465,10 +464,9 @@ async function SeccionInforme({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
   const puedeCompartir = inf.editable && inf.escritos > 0;
   return (
     <div className="flex flex-col gap-4">
-      <Card>
-        <CardContent className="flex flex-wrap items-center justify-between gap-3">
+      <section aria-labelledby="informe-progreso" className="flex flex-wrap items-center justify-between gap-3 rounded-[14px] border border-borde-sutil bg-superficie p-4 sm:p-5">
           <div className="flex max-w-prose flex-col gap-1">
-            <p className="text-sm font-medium">Informe de progreso a mitad del periodo</p>
+            <h2 id="informe-progreso" className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold"><span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />Informe de progreso a mitad del periodo</h2>
             <p className="text-cuerpo-sm text-muted-foreground">
               Por cada competencia, cuéntale a la familia qué ha logrado su hijo o hija, qué necesita mejorar y qué recomiendas reforzar.
               Las familias lo ven en «Notas» cuando lo compartes.
@@ -494,8 +492,7 @@ async function SeccionInforme({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
               accion={compartirInformeAction.bind(null, slug, cursoId, periodoId, Boolean(inf.envio))}
             />
           )}
-        </CardContent>
-      </Card>
+      </section>
       <NavegacionPildoras
         etiqueta="Competencias"
         items={inf.filas.map((f) => ({
@@ -504,7 +501,7 @@ async function SeccionInforme({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
           activo: f.competencia.id === fila.competencia.id,
         }))}
       />
-      <ul className="grid gap-3 lg:grid-cols-2">
+      <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
         {fila.alumnos.map((a) => (
           <li key={`${fila.competencia.id}:${a.alumno.id}`}>
             <FilaInforme
@@ -546,7 +543,7 @@ async function SeccionPeriodo({ ctx, slug, cursoId, periodoId, sp }: { ctx: Tena
           activo: f.competencia.id === fila.competencia.id,
         }))}
       />
-      <ul className="grid gap-3 lg:grid-cols-2">
+      <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
         {fila.alumnos.map((a) => (
           <li key={a.alumno.id}>
             <FilaCalificacion
@@ -565,11 +562,10 @@ async function SeccionCompetencias({ ctx, slug, cursoId, periodoId }: { ctx: Ten
   const g = await grillaNotas(ctx, cursoId, periodoId);
   const puedeEditar = ctx.rol === "profesor";
   return (
-    <Card>
-      <CardHeader>
-        <h2 className="font-titulo text-cuerpo font-semibold">Competencias de {g.curso.nombre}</h2>
-        {puedeEditar && (
-          <div className="mt-2">
+    <section aria-labelledby="competencias-curso" className="flex flex-col gap-3">
+      <TituloBloque
+        id="competencias-curso"
+        accion={puedeEditar && (
             <DialogoAccion
               disparador={<><Plus strokeWidth={2} aria-hidden />Nueva competencia</>}
               variante="outline"
@@ -581,16 +577,17 @@ async function SeccionCompetencias({ ctx, slug, cursoId, periodoId }: { ctx: Ten
               <div className="sm:col-span-2"><Campo etiqueta="Nombre" name="nombre" required maxLength={200} placeholder="Resuelve problemas de cantidad" /></div>
               <div className="sm:col-span-2"><Campo etiqueta="Descripción (opcional)" name="descripcion" maxLength={500} /></div>
             </DialogoAccion>
-          </div>
         )}
-      </CardHeader>
-      <CardContent>
+      >
+        Competencias de {g.curso.nombre}
+      </TituloBloque>
+      <div className="rounded-[14px] border border-borde-sutil bg-superficie px-4 sm:px-5">
         {g.competencias.length === 0 ? (
           <EstadoVacio icono={BookMarked} titulo="Este curso aún no tiene competencias" descripcion={puedeEditar ? "Agrega la primera con «Nueva competencia»." : undefined} />
         ) : (
-          <ul className="divide-y">
+          <ul className="divide-y divide-borde-sutil">
             {g.competencias.map((c) => (
-              <li key={c.id} className="flex flex-wrap items-start justify-between gap-2 py-3 first:pt-0 last:pb-0">
+              <li key={c.id} className="flex flex-wrap items-start justify-between gap-2 py-3">
                 <div className="min-w-0">
                   <p className="font-medium">{c.nombre}</p>
                   {c.descripcion && <p className="text-cuerpo-sm text-muted-foreground">{c.descripcion}</p>}
@@ -608,7 +605,7 @@ async function SeccionCompetencias({ ctx, slug, cursoId, periodoId }: { ctx: Ten
             ))}
           </ul>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 }

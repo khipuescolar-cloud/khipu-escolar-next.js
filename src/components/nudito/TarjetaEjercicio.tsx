@@ -7,7 +7,7 @@ import { ENTRADA_PASO, TituloPaso } from "./piezas";
 export function TarjetaEjercicio({ ejercicio, numero, total, comprobacion, children }: { ejercicio: EjercicioPublico; numero: number; total: number; comprobacion: boolean; children: ReactNode }) {
   const pct = Math.min(100, Math.round((numero / Math.max(1, total)) * 100));
   return (
-    <section aria-labelledby="paso-ejercicio" className={`flex flex-col gap-4 rounded-[var(--radio-lg)] border border-border bg-superficie p-4 shadow-sm sm:p-5 ${ENTRADA_PASO}`}>
+    <section aria-labelledby="paso-ejercicio" className={`flex flex-col gap-4 rounded-[var(--radio-lg)] border border-borde-sutil bg-superficie p-4 sm:p-5 ${ENTRADA_PASO}`}>
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between gap-2">
           <span className="text-etiqueta text-muted-foreground">

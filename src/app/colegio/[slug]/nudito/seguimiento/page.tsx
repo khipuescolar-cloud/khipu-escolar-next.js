@@ -1,9 +1,9 @@
 import { BookOpen, ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TituloBloque } from "@/components/academico/TituloBloque";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { AVISO_FORMATIVO, NOMBRE_AREA_NUDITO } from "@/lib/nudito-seguimiento";
 import { configNudito } from "@/lib/server/nudito/config-colegio";
 import { cursosParaSeguimiento } from "@/lib/server/nudito/progreso";
@@ -22,7 +22,7 @@ export default async function SeguimientoNudito({ params }: PageProps<"/colegio/
 
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina titulo="Seguimiento de Nudito" descripcion={`Cómo practican tus alumnos con Nudito, por curso y tema. ${AVISO_FORMATIVO}`} />
+      <EncabezadoPagina titulo="Seguimiento de Nudito" seccion="academico" descripcion={`Cómo practican tus alumnos con Nudito, por curso y tema. ${AVISO_FORMATIVO}`} />
       {!estado.activo && (
         <p className="text-cuerpo-sm text-muted-foreground">
           Nudito está apagado en el colegio{ctx.rol === "direccion" ? <>: puedes activarlo en <Link href="/configuracion/nudito" className="enlace">Configuración de Nudito</Link>.</> : "."}
@@ -31,21 +31,22 @@ export default async function SeguimientoNudito({ params }: PageProps<"/colegio/
       {conArea.length === 0 ? (
         <EstadoVacio icono={BookOpen} titulo="No hay cursos de Matemática, Comunicación o Ciencia y Tecnología a tu cargo." descripcion="Nudito acompaña esas áreas por ahora." />
       ) : (
-        <ul className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-          {conArea.map((c) => (
-            <li key={c.cursoId}>
-              <Link href={`/nudito/seguimiento/curso/${c.cursoId}`} className="block rounded-xl focus-visible:outline-2">
-                <Tarjeta className="flex items-center justify-between gap-3 p-4 hover:bg-superficie-2">
+        <section aria-labelledby="cursos-nudito" className="flex flex-col gap-3">
+          <TituloBloque id="cursos-nudito" descripcion="Elige un curso para ver cómo practica cada alumno.">Tus cursos con Nudito</TituloBloque>
+          <ul className="divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
+            {conArea.map((c) => (
+              <li key={c.cursoId}>
+                <Link href={`/nudito/seguimiento/curso/${c.cursoId}`} className="flex min-h-14 items-center justify-between gap-3 px-4 py-3 transition-colors duration-150 hover:bg-sec-suave focus-visible:outline-2 sm:px-5">
                   <div>
                     <p className="font-semibold">{c.nombre}</p>
                     <p className="text-cuerpo-sm text-muted-foreground">{c.salon} · {NOMBRE_AREA_NUDITO[c.area!]}</p>
                   </div>
-                  <ChevronRight className="size-5 shrink-0 text-muted-foreground" strokeWidth={2} aria-hidden />
-                </Tarjeta>
-              </Link>
-            </li>
-          ))}
-        </ul>
+                  <ChevronRight className="size-5 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
     </div>
   );

@@ -5,7 +5,6 @@ import { useState, useTransition } from "react";
 import { toast } from "sonner";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
-import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { guardarInformeAction } from "./actions";
 import { ListaNotas, type NotaDelPeriodo } from "./ListaNotas";
@@ -46,14 +45,13 @@ export function FilaInforme({
   }
 
   return (
-    <Card>
-      <CardContent className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 p-4 sm:p-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="font-medium">{alumno.apellidos}, {alumno.nombres}</p>
           {guardado ? (
             <span className="inline-flex items-center gap-1.5 rounded-pildora bg-llego-fondo px-2.5 py-1 text-etiqueta text-llego"><CheckCircle2 className="size-3.5" strokeWidth={2} aria-hidden />Escrito</span>
           ) : (
-            <span className="inline-flex items-center gap-1.5 rounded-pildora bg-muted px-2.5 py-1 text-etiqueta text-muted-foreground"><CircleDashed className="size-3.5" strokeWidth={2} aria-hidden />Sin escribir</span>
+            <span className="inline-flex items-center gap-1.5 rounded-pildora bg-superficie-2 px-2.5 py-1 text-etiqueta text-muted-foreground"><CircleDashed className="size-3.5" strokeWidth={2} aria-hidden />Sin escribir</span>
           )}
         </div>
         <ListaNotas notas={notas} />
@@ -85,7 +83,6 @@ export function FilaInforme({
             {error && <Alerta tipo="error">{error}</Alerta>}
           </>
         )}
-      </CardContent>
-    </Card>
+    </div>
   );
 }

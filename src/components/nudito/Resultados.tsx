@@ -20,7 +20,7 @@ export function Resultados({ resultados, onOtroTema }: { resultados: ResultadosS
         {datos.map((d) => {
           const Icono = d.icono;
           return (
-            <div key={d.etiqueta} className="flex flex-col items-center gap-1 rounded-[var(--radio-lg)] border border-border bg-superficie p-3 text-center">
+            <div key={d.etiqueta} className="flex flex-col items-center gap-1 rounded-[var(--radio-lg)] border border-borde-sutil bg-superficie p-3 text-center">
               <Icono className="size-5 text-turquesa" strokeWidth={2} aria-hidden />
               <dd className="font-titulo text-titulo-2 tabular-nums">{d.valor}</dd>
               <dt className="text-etiqueta text-muted-foreground">{d.etiqueta}</dt>
@@ -33,7 +33,7 @@ export function Resultados({ resultados, onOtroTema }: { resultados: ResultadosS
           <h3 className="font-titulo font-semibold">Tus temas</h3>
           <ul className="flex flex-col gap-2">
             {resultados.temas.map((t) => (
-              <li key={t.clave} className="flex flex-wrap items-center justify-between gap-2 rounded-[var(--radio-md)] border border-border bg-superficie p-3">
+              <li key={t.clave} className="flex flex-wrap items-center justify-between gap-2 rounded-[var(--radio-md)] border border-borde-sutil bg-superficie p-3">
                 <span className="font-semibold">{t.nombre}</span>
                 <EtiquetaEstado estado={t.estado} />
               </li>

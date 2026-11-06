@@ -1,5 +1,10 @@
-import { EsqueletoPagina, EsqueletoTarjetas } from "@/components/carga/Esqueletos";
+import { EsqueletoPagina } from "@/components/carga/Esqueletos";
+import { EsqueletoFilas } from "@/components/academico/Esqueletos";
 
 export default function Loading() {
-  return <EsqueletoPagina><EsqueletoTarjetas cantidad={2} /></EsqueletoPagina>;
+  return (
+    <EsqueletoPagina>
+      <div data-seccion="academico"><EsqueletoFilas filas={2} /></div>
+    </EsqueletoPagina>
+  );
 }
