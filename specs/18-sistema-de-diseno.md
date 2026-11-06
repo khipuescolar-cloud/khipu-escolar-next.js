@@ -1,5 +1,7 @@
 # 18 · Sistema de diseño (tema, colores, formas y estilos)
 
+> Dirección visual vigente de la fase 1: [`DESIGN.md`](../DESIGN.md). Este documento conserva las reglas de marca y funcionalidad; las decisiones de composición, densidad, superficies y anti patrones se detallan allí. El inicio usa resumen del día primero y accesos compactos por grupo. Los componentes base comparten tokens semánticos cálidos y la navegación activa usa fondo índigo tenue.
+
 - **Estado:** implementado · alineado al manual de marca (2026-10-28)
 - **Plan:** todos
 - **Fuente de verdad del código:** `src/app/globals.css` (tokens), `src/components/ui/*` (shadcn/ui), `src/components/shell/*` (estructura)

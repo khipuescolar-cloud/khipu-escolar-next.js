@@ -26,6 +26,12 @@
   --tinta: #1b1f2a;
   --pizarra: #5b6170;
   --arena: #e4e1da;
+  --superficie-elevada: #fffdf9;
+  --borde-sutil: #e9e2d8;
+  --texto-terciario: #68655f;
+  --acento-suave: #e9eafb;
+  --info: #264c84;
+  --info-fondo: #eaf1fb;
   --acento: #1e2a78;
   --sobre-acento: #ffffff;
 
@@ -103,6 +109,12 @@
   --tinta: #eceef5;
   --pizarra: #a3a9ba;
   --arena: #2e3345;
+  --superficie-elevada: #252a39;
+  --borde-sutil: #34394b;
+  --texto-terciario: #b4b3bd;
+  --acento-suave: #292f52;
+  --info: #a9c9ff;
+  --info-fondo: #1d2d46;
   --acento: #8c9bff;
   --sobre-acento: #10132a;
 
@@ -130,6 +142,12 @@
   --color-tinta: var(--tinta);
   --color-pizarra: var(--pizarra);
   --color-arena: var(--arena);
+  --color-superficie-elevada: var(--superficie-elevada);
+  --color-borde-sutil: var(--borde-sutil);
+  --color-texto-terciario: var(--texto-terciario);
+  --color-acento-suave: var(--acento-suave);
+  --color-info: var(--info);
+  --color-info-fondo: var(--info-fondo);
   --color-acento: var(--acento);
   --color-sobre-acento: var(--sobre-acento);
   --color-barra: var(--barra);
@@ -238,6 +256,7 @@
   }
   body {
     @apply bg-background text-cuerpo text-foreground;
+    font-variant-numeric: tabular-nums;
   }
   h1, h2, h3 {
     @apply font-heading;
@@ -246,6 +265,8 @@
   button:not(:disabled), [role="button"]:not([aria-disabled="true"]), a[href], summary, label[for] {
     cursor: pointer;
   }
+  ::selection { background: var(--acento-suave); color: var(--tinta); }
+  input, textarea { caret-color: var(--acento); }
 }
 
 @layer utilities {
