@@ -36,14 +36,14 @@ export function TablaHorario({ etiqueta, periodos, bloques, diaHoy, ahoraId, edi
 
   return (
     <>
-      <div className="hidden overflow-x-auto rounded-lg border bg-card md:block">
+      <div className="hidden overflow-x-auto rounded-xl border border-borde-sutil bg-card md:block">
         <table className="w-full min-w-[44rem] table-fixed border-collapse text-sm">
           <caption className="sr-only">{etiqueta}</caption>
           <thead>
-            <tr className="border-b">
+            <tr className="border-b border-borde-sutil">
               <th scope="col" className="w-32 px-3 py-2.5 text-left text-etiqueta text-muted-foreground">Hora</th>
               {DIAS.map((d) => (
-                <th key={d} scope="col" className={cn("px-2 py-2.5 text-left font-semibold", d === diaHoy && "bg-primary/5")}>
+                <th key={d} scope="col" className={cn("px-2 py-2.5 text-left font-semibold", d === diaHoy && "bg-sec-suave")}>
                   <span className="flex flex-wrap items-center gap-1.5">
                     {NOMBRE_DIA[d]}
                     {d === diaHoy && <InsigniaHoy />}
@@ -54,7 +54,7 @@ export function TablaHorario({ etiqueta, periodos, bloques, diaHoy, ahoraId, edi
           </thead>
           <tbody>
             {periodos.map((p) => (
-              <tr key={p.id} className="border-b last:border-b-0">
+              <tr key={p.id} className="border-b border-borde-sutil last:border-b-0">
                 <th scope="row" className="px-3 py-2 text-left align-top font-normal">
                   <span className="block font-medium">{p.nombre}</span>
                   <span className="block text-cuerpo-sm text-muted-foreground tabular-nums">{rango(p)}</span>
@@ -65,7 +65,7 @@ export function TablaHorario({ etiqueta, periodos, bloques, diaHoy, ahoraId, edi
                   </td>
                 ) : (
                   DIAS.map((d) => (
-                    <td key={d} className={cn("p-1 align-top", d === diaHoy && "bg-primary/5")}>
+                    <td key={d} className={cn("p-1 align-top", d === diaHoy && "bg-sec-suave")}>
                       <Casillero
                         bloque={bloque(d, p.id)}
                         ahora={ahoraId !== null && bloque(d, p.id)?.id === ahoraId}
@@ -136,7 +136,7 @@ function Casillero({ bloque, ahora, etiquetaVacio, alEditar }: { bloque: BloqueV
   const contenido = bloque ? (
     <>
       {ahora && <InsigniaAhora />}
-      <span className={cn("block font-semibold", !bloque.cursoId && "text-turquesa")}>{bloque.titulo}</span>
+      <span className={cn("block font-semibold", !bloque.cursoId && "text-sec-tinta")}>{bloque.titulo}</span>
       {bloque.profesorNombre && <span className="block text-cuerpo-sm text-muted-foreground">{bloque.profesorNombre}</span>}
       {bloque.aula && <span className="block text-cuerpo-sm text-muted-foreground">Aula: {bloque.aula}</span>}
     </>
@@ -147,9 +147,9 @@ function Casillero({ bloque, ahora, etiquetaVacio, alEditar }: { bloque: BloqueV
   );
   const clase = cn(
     "flex min-h-14 w-full flex-col items-start gap-0.5 rounded-md px-2.5 py-2 text-left",
-    bloque && "border bg-card",
-    ahora && "border-primary ring-1 ring-primary",
-    !bloque && alEditar && "border border-dashed",
+    bloque && "border border-borde-sutil bg-superficie",
+    ahora && "border-sec-trazo ring-1 ring-sec-trazo",
+    !bloque && alEditar && "border border-dashed border-input",
   );
   if (!alEditar) return <div className={clase}>{contenido}</div>;
   return (

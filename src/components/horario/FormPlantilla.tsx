@@ -71,9 +71,9 @@ export function FormPlantilla({ inicial, salones, accion, esNueva }: {
       <input type="hidden" name="recreos" value={JSON.stringify(recreos.map(({ horaInicio, horaFin }) => ({ horaInicio, horaFin })))} />
       <input type="hidden" name="salonIds" value={JSON.stringify(salones.filter((s) => marcados.has(s.id) && !s.enEsta).map((s) => s.id))} />
 
-      <div className="flex flex-col gap-4">
-        <Tarjeta className="flex flex-col gap-4">
-          <h2 className="font-heading text-cuerpo font-semibold">Jornada</h2>
+      <div className="flex flex-col divide-y divide-borde-sutil rounded-xl border border-borde-sutil bg-card">
+        <section className="flex flex-col gap-4 p-4 sm:p-6" aria-labelledby="bloque-jornada">
+          <Titulo id="bloque-jornada">Jornada</Titulo>
           <Campo etiqueta="Nombre de la plantilla" name="nombre" value={v.nombre} onChange={(e) => cambiar("nombre", e.target.value)} maxLength={60} required placeholder="Primaria mañana" ayuda="Para reconocerla al asignarla a los salones." />
           <div className="grid gap-4 sm:grid-cols-2">
             <Campo etiqueta="Hora de entrada" name="horaEntrada" type="time" value={v.horaEntrada} onChange={(e) => cambiar("horaEntrada", e.target.value)} required ayuda="Desde esta hora, la llegada en portería es tardanza." />
@@ -99,11 +99,11 @@ export function FormPlantilla({ inicial, salones, accion, esNueva }: {
               ayuda="Si a esta hora no registró ingreso, se le pone falta y se avisa a la familia."
             />
           </div>
-        </Tarjeta>
+        </section>
 
-        <Tarjeta className="flex flex-col gap-3">
+        <section className="flex flex-col gap-3 p-4 sm:p-6" aria-labelledby="bloque-recreos">
           <div>
-            <h2 className="font-heading text-cuerpo font-semibold">Recreos</h2>
+            <Titulo id="bloque-recreos">Recreos</Titulo>
             <p className="text-cuerpo-sm text-muted-foreground">{recreos.length === 0 ? "Sin recreos. Agrega los que tenga la jornada." : recreos.length === 1 ? "1 recreo." : `${recreos.length} recreos.`}</p>
           </div>
           {recreos.length > 0 && (
@@ -131,11 +131,11 @@ export function FormPlantilla({ inicial, salones, accion, esNueva }: {
           <button type="button" onClick={agregarRecreo} disabled={recreos.length >= 6} className={cn(buttonVariants({ variant: "outline" }), "w-fit")}>
             <Plus strokeWidth={2} aria-hidden />Agregar recreo
           </button>
-        </Tarjeta>
+        </section>
 
-        <Tarjeta className="flex flex-col gap-3">
+        <section className="flex flex-col gap-3 p-4 sm:p-6" aria-labelledby="bloque-salones">
           <div>
-            <h2 className="font-heading text-cuerpo font-semibold">Salones que la usan</h2>
+            <Titulo id="bloque-salones">Salones que la usan</Titulo>
             <p className="text-cuerpo-sm text-muted-foreground">Al marcar un salón, deja su plantilla actual y sus clases pasan a la misma hora de esta (la 1.ª hora a la 1.ª hora).</p>
           </div>
           {salones.length === 0 ? (
@@ -143,10 +143,10 @@ export function FormPlantilla({ inicial, salones, accion, esNueva }: {
           ) : (
             [...porNivel.entries()].map(([nivel, lista]) => (
               <fieldset key={nivel} className="flex flex-col gap-2">
-                <legend className="mb-1 text-etiqueta font-medium tracking-wide text-muted-foreground uppercase">{nivel}</legend>
+                <legend className="mb-1 text-cuerpo-sm font-semibold text-sec-tinta">{nivel}</legend>
                 <div className="grid gap-2 sm:grid-cols-2">
                   {lista.map((s) => (
-                    <label key={s.id} className={cn("flex min-h-11 items-center gap-3 rounded-md border px-3 py-2 text-sm", marcados.has(s.id) && "border-primary/50 bg-primary/5", s.enEsta && "opacity-80")}>
+                    <label key={s.id} className={cn("flex min-h-11 items-center gap-3 rounded-md border px-3 py-2 text-sm", marcados.has(s.id) && "border-sec-trazo/60 bg-sec-suave", s.enEsta && "opacity-80")}>
                       <input
                         type="checkbox"
                         className="size-4 accent-[var(--primary)]"
@@ -164,13 +164,13 @@ export function FormPlantilla({ inicial, salones, accion, esNueva }: {
               </fieldset>
             ))
           )}
-        </Tarjeta>
+        </section>
       </div>
 
       <aside aria-labelledby="titulo-vista-previa" className="flex flex-col gap-3 lg:sticky lg:top-4">
         <Tarjeta className="flex flex-col gap-3">
           <div>
-            <h2 id="titulo-vista-previa" className="font-heading text-cuerpo font-semibold">Vista previa</h2>
+            <Titulo id="titulo-vista-previa">Vista previa</Titulo>
             <p className="text-cuerpo-sm text-muted-foreground">
               {error ? "Completa los datos para ver las horas." : `${clases.length} ${clases.length === 1 ? "hora" : "horas"} de clase de ${v.duracionClase} min · ${duracionTexto(clases.length * v.duracionClase)} de clase al día`}
             </p>
@@ -209,10 +209,18 @@ export function FormPlantilla({ inicial, salones, accion, esNueva }: {
   );
 }
 
+function Titulo({ id, children }: { id: string; children: React.ReactNode }) {
+  return (
+    <h2 id={id} className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold">
+      <span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />{children}
+    </h2>
+  );
+}
+
 function Hito({ icono: Icono, texto, hora }: { icono: typeof DoorOpen; texto: string; hora: string }) {
   return (
     <li className="flex items-center justify-between gap-3 py-1.5 font-semibold">
-      <span className="inline-flex items-center gap-1.5"><Icono className="size-4 text-primary" strokeWidth={2} aria-hidden />{texto}</span>
+      <span className="inline-flex items-center gap-1.5"><Icono className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden />{texto}</span>
       <span className="tabular-nums">{hora}</span>
     </li>
   );
