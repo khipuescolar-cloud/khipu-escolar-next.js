@@ -326,13 +326,9 @@ function Encabezado({ id, titulo, texto, claro, centrado }: { id: string; titulo
   );
 }
 
-/** Ícono en una pastilla de color sólido (blanco encima; tinta sobre maíz). */
+/** Ícono suelto, sin pastilla: trazo fino del tono de marca (menos aspecto de plantilla). */
 function Icono({ Icono: I, tono = "indigo" }: { Icono: LucideIcon; tono?: Tono }) {
-  return (
-    <span className={cn("flex size-11 shrink-0 items-center justify-center rounded-md", TONOS[tono].solido)}>
-      <I className="size-5" strokeWidth={2} aria-hidden />
-    </span>
-  );
+  return <I className={cn("mt-0.5 size-6 shrink-0", TONOS[tono].rotulo)} strokeWidth={1.75} aria-hidden />;
 }
 
 export default async function LandingPage({ searchParams }: PageProps<"/">) {
@@ -468,7 +464,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
                       <Icono Icono={f.Icono} tono={g.tono} />
                       <div className="flex flex-col gap-1">
                         <h4 className={cn("text-cuerpo font-semibold", n === 0 && "font-heading text-lg")}>{f.titulo}</h4>
-                        <p className="text-cuerpo-sm text-pretty text-muted-foreground">{f.texto}</p>
+                        <p className="text-cuerpo-sm text-pretty text-foreground/80">{f.texto}</p>
                       </div>
                     </li>
                   ))}
@@ -508,9 +504,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
                 "Habla solo con las familias: los alumnos no lo usan.",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3 text-cuerpo">
-                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-white/15">
-                    <Check className="size-4" strokeWidth={2.5} aria-hidden />
-                  </span>
+                  <Check className="mt-0.5 size-5 shrink-0 text-maiz" strokeWidth={2.5} aria-hidden />
                   {t}
                 </li>
               ))}
@@ -592,9 +586,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
                   <ul className="flex flex-col gap-2.5">
                     {p.nuevos.map((m) => (
                       <li key={m.clave} className="flex items-start gap-2.5 text-cuerpo-sm">
-                        <span className={cn("mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full", destacado ? "bg-maiz text-sobre-maiz" : tono.solido)}>
-                          <Check className="size-3.5" strokeWidth={3} aria-hidden />
-                        </span>
+                        <Check className={cn("mt-0.5 size-4 shrink-0", destacado ? "text-maiz" : tono.rotulo)} strokeWidth={2.5} aria-hidden />
                         {m.nombre}
                       </li>
                     ))}
