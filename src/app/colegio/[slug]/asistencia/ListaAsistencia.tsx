@@ -8,7 +8,6 @@ import { toast } from "sonner";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { NativeSelect } from "@/components/ui/native-select";
 import { VistaPreviaAviso } from "@/components/VistaPreviaAviso";
@@ -178,7 +177,7 @@ export function ListaAsistencia({
         ))}
       </ul>
       <p className="flex items-start gap-1.5 text-sm" data-testid="resumen-avisos">
-        <Mail className="mt-0.5 size-4 shrink-0 text-primary" strokeWidth={2} aria-hidden />
+        <Mail className="mt-0.5 size-4 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
         <span>
           {avisa ? textoResumenAvisos(avisos) : "Corrección de un día pasado: no se envían avisos."}
           {avisa && notasResumenAvisos(avisos).map((n) => (
@@ -221,22 +220,22 @@ export function ListaAsistencia({
           )}
         </div>
 
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col divide-y divide-borde-sutil border-y border-borde-sutil">
           {alumnos.map((a) => {
             const marca = marcas[a.id];
             const sinIngreso = bloqueado(a);
             return (
               <li key={a.id}>
-                <Card size="sm">
-                  <CardContent className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2 py-3.5">
+                  <div className="flex flex-col gap-3 2xl:grid 2xl:grid-cols-[minmax(0,1fr)_27rem] 2xl:items-center 2xl:gap-6">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <p className="text-cuerpo font-semibold">
                         {a.apellidos}, {a.nombres}
                       </p>
                       <span className="flex flex-wrap items-center gap-2">
                         {a.permiso && (
-                          <span className="inline-flex items-center gap-1 rounded-pildora bg-muted px-2 py-0.5 text-etiqueta">
-                            <CalendarCheck className="size-3.5" strokeWidth={2} aria-hidden /> Con permiso · {textoHorasPermiso(a.permiso, hora12)}
+                          <span className="inline-flex items-center gap-1 rounded-pildora bg-superficie-2 px-2 py-0.5 text-etiqueta">
+                            <CalendarCheck className="size-3.5 text-sec-trazo" strokeWidth={2} aria-hidden /> Con permiso · {textoHorasPermiso(a.permiso, hora12)}
                           </span>
                         )}
                         {esCurso && (
@@ -251,11 +250,6 @@ export function ListaAsistencia({
                         )}
                       </span>
                     </div>
-                    {sinIngreso && (
-                      <p id={`sin-ingreso-${a.id}`} className="text-cuerpo-sm text-muted-foreground">
-                        No pasó por portería hoy, así que queda con falta. Si ya llegó, pide a portería que registre su ingreso.
-                      </p>
-                    )}
                     <div
                       role="group"
                       aria-label={`Asistencia de ${a.nombres}`}
@@ -273,8 +267,8 @@ export function ListaAsistencia({
                             aria-pressed={activo}
                             disabled={deshabilitado}
                             onClick={() => marcar(a.id, estado)}
-                            className={`flex min-h-12 items-center justify-center gap-2 rounded-md border-2 px-3 py-2.5 text-cuerpo font-semibold transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-40 ${
-                              activo ? `${clase} border-current` : "border-input bg-card text-muted-foreground hover:bg-accent hover:text-foreground disabled:hover:bg-card disabled:hover:text-muted-foreground"
+                            className={`flex min-h-12 items-center justify-center gap-2 rounded-[10px] border-2 px-3 py-2.5 text-cuerpo font-semibold transition-colors duration-150 outline-none motion-reduce:transition-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-40 ${
+                              activo ? `${clase} border-current` : "border-borde-sutil bg-superficie text-muted-foreground hover:bg-superficie-2 hover:text-foreground disabled:hover:bg-superficie disabled:hover:text-muted-foreground"
                             }`}
                           >
                             <Icono className="size-5 shrink-0" strokeWidth={2} aria-hidden />
@@ -283,6 +277,12 @@ export function ListaAsistencia({
                         );
                       })}
                     </div>
+                  </div>
+                    {sinIngreso && (
+                      <p id={`sin-ingreso-${a.id}`} className="text-cuerpo-sm text-muted-foreground">
+                        No pasó por portería hoy, así que queda con falta. Si ya llegó, pide a portería que registre su ingreso.
+                      </p>
+                    )}
                     {marca.estado === "problema" && (
                       <label className="flex flex-col gap-1.5 text-sm">
                         <span className="font-medium">Nota para la familia (opcional)</span>
@@ -293,65 +293,66 @@ export function ListaAsistencia({
                         />
                       </label>
                     )}
-                  </CardContent>
-                </Card>
+                </div>
               </li>
             );
           })}
         </ul>
 
         {/* Barra de acción fija abajo en móvil y tableta; en escritorio el botón vive en el panel lateral. */}
-        <div className="sticky bottom-0 z-10 -mx-4 flex flex-col gap-2 border-t bg-background/95 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6 lg:hidden">
+        <div className="sticky bottom-0 z-10 -mx-4 flex flex-col gap-2 border-t border-borde-sutil bg-fondo px-4 py-3 sm:-mx-6 sm:px-6 lg:hidden">
           {resumenConteo}
           {botonGuardar("w-full")}
         </div>
       </div>
 
-      <aside className="flex flex-col gap-4 lg:sticky lg:top-4 lg:self-start">
-        <Card>
-          <CardContent className="flex flex-col gap-3">
-            <h2 className="text-titulo-2">Resumen</h2>
-            {resumenConteo}
-            {botonGuardar("mt-1 w-full max-lg:hidden")}
-            <p className="text-cuerpo-sm text-muted-foreground max-lg:hidden">
-              {!avisa
-                ? "Se guarda y queda en la auditoría. No se avisa a las familias porque no es el día de hoy."
-                : esCurso
-                  ? "Al guardar, las familias reciben el aviso de tardanzas, faltas a clase y problemas. La llegada a clase no se avisa; la falta solo si el alumno ingresó al colegio."
-                  : "Al guardar, las familias de los presentes, tardanzas, faltas y problemas reciben el aviso por correo y notificación. La llegada se avisa una sola vez al día."}
-            </p>
-          </CardContent>
-        </Card>
+      <aside className="flex flex-col divide-y divide-borde-sutil rounded-[14px] border border-borde-sutil bg-superficie lg:sticky lg:top-4 lg:self-start">
+        <section data-seccion="dia" className="flex flex-col gap-3 p-4">
+          <h2 className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold">
+            <span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />
+            Resumen
+          </h2>
+          {resumenConteo}
+          {botonGuardar("mt-1 w-full max-lg:hidden")}
+          <p className="text-cuerpo-sm text-muted-foreground max-lg:hidden">
+            {!avisa
+              ? "Se guarda y queda en la auditoría. No se avisa a las familias porque no es el día de hoy."
+              : esCurso
+                ? "Al guardar, las familias reciben el aviso de tardanzas, faltas a clase y problemas. La llegada a clase no se avisa; la falta solo si el alumno ingresó al colegio."
+                : "Al guardar, las familias de los presentes, tardanzas, faltas y problemas reciben el aviso por correo y notificación. La llegada se avisa una sola vez al día."}
+          </p>
+        </section>
 
         {alumnoPrevia && (
-          <Card>
-            <CardContent className="flex flex-col gap-3">
-              <h2 className="text-titulo-2">Vista previa del correo</h2>
-              <label className="flex flex-col gap-1.5 text-sm">
-                <span className="text-muted-foreground">Familia de</span>
-                <NativeSelect className="w-full" value={alumnoPrevia.id} onChange={(e) => setPreviaDe(e.target.value)}>
-                  {alumnos.map((a) => (
-                    <option key={a.id} value={a.id}>
-                      {a.nombres} {a.apellidos}
-                    </option>
-                  ))}
-                </NativeSelect>
-              </label>
-              {previa && !sinAvisoPrevia ? (
-                <VistaPreviaAviso
-                  asunto={previa.asunto}
-                  html={previa.html}
-                  alumno={alumnoPrevia.nombres.split(" ")[0]}
-                  horaIngreso={esCurso && alumnoPrevia.ingreso ? alumnoPrevia.ingreso.hora : undefined}
-                />
-              ) : (
-                <p className="flex items-start gap-2 text-cuerpo-sm text-muted-foreground" data-testid="sin-aviso">
-                  <Info className="mt-0.5 size-4 shrink-0" strokeWidth={2} aria-hidden />
-                  {sinAvisoPrevia ?? "Este estado no se avisa a la familia."}
-                </p>
-              )}
-            </CardContent>
-          </Card>
+          <section data-seccion="dia" className="flex flex-col gap-3 p-4">
+            <h2 className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold">
+              <span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />
+              Vista previa del correo
+            </h2>
+            <label className="flex flex-col gap-1.5 text-cuerpo-sm">
+              <span className="text-muted-foreground">Familia de</span>
+              <NativeSelect className="w-full" value={alumnoPrevia.id} onChange={(e) => setPreviaDe(e.target.value)}>
+                {alumnos.map((a) => (
+                  <option key={a.id} value={a.id}>
+                    {a.nombres} {a.apellidos}
+                  </option>
+                ))}
+              </NativeSelect>
+            </label>
+            {previa && !sinAvisoPrevia ? (
+              <VistaPreviaAviso
+                asunto={previa.asunto}
+                html={previa.html}
+                alumno={alumnoPrevia.nombres.split(" ")[0]}
+                horaIngreso={esCurso && alumnoPrevia.ingreso ? alumnoPrevia.ingreso.hora : undefined}
+              />
+            ) : (
+              <p className="flex items-start gap-2 text-cuerpo-sm text-muted-foreground" data-testid="sin-aviso">
+                <Info className="mt-0.5 size-4 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
+                {sinAvisoPrevia ?? "Este estado no se avisa a la familia."}
+              </p>
+            )}
+          </section>
         )}
       </aside>
     </div>

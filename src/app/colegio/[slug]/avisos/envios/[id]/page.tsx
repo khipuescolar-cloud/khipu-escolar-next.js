@@ -8,7 +8,7 @@ import { detalleEnvio } from "@/lib/server/avisos-panel";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cn } from "@/lib/utils";
-import { ESTADOS, Indicador, NOMBRE_TIPO, TablaAvisos, fecha } from "../../componentes";
+import { ESTADOS, Indicador, NOMBRE_TIPO, PanelIndicadores, TablaAvisos, fecha } from "../../componentes";
 
 export const metadata: Metadata = { title: "Detalle del envío" };
 
@@ -36,6 +36,7 @@ export default async function EnvioPage({ params, searchParams }: PageProps<"/co
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
         titulo={envio.titulo}
+        seccion="dia"
         descripcion={`${NOMBRE_TIPO[envio.tipo]} · ${envio.autor} · ${fecha.format(envio.createdAt)} · ${NUM.format(envio.familias)} ${envio.familias === 1 ? "familia" : "familias"}`}
         acciones={
           <Link href={envio.masivo ? "/avisos" : "/avisos?vista=individuales"} className={buttonVariants({ variant: "outline" })}>
@@ -44,7 +45,7 @@ export default async function EnvioPage({ params, searchParams }: PageProps<"/co
         }
       />
 
-      <div className="-mt-2 grid grid-cols-2 gap-3 lg:grid-cols-3">
+      <PanelIndicadores aria-label="Totales del envío">
         <Indicador icono={Mail} titulo="Correos enviados" valor={NUM.format(t.correosEnviados)} detalle={`de ${NUM.format(t.avisos)} avisos de este envío`} />
         <Indicador
           icono={MailOpen}
@@ -62,7 +63,7 @@ export default async function EnvioPage({ params, searchParams }: PageProps<"/co
         <Indicador icono={Hourglass} titulo="En cola" valor={NUM.format(t.enCola)} detalle={t.enCola === 0 ? "Todo está enviado" : "Por enviar en los próximos minutos"} tono={t.enCola === 0 ? "neutro" : "atencion"} />
         <Indicador icono={Bell} titulo="Notificaciones push" valor={NUM.format(t.pushEnviados)} detalle="Enviadas a celulares y computadoras" />
         <Indicador icono={Ban} titulo="No enviados" valor={NUM.format(t.omitidos)} detalle="La familia no tiene correo o apagó ese aviso" />
-      </div>
+      </PanelIndicadores>
 
       <nav aria-label="Filtrar avisos del envío" className="flex flex-wrap gap-2">
         {filtros.map((f) => (
@@ -71,8 +72,8 @@ export default async function EnvioPage({ params, searchParams }: PageProps<"/co
             href={f.href}
             aria-current={f.activo ? "page" : undefined}
             className={cn(
-              "inline-flex min-h-10 items-center gap-1.5 rounded-pildora border px-3.5 text-sm font-medium transition-colors",
-              f.activo ? "border-primary bg-primary text-primary-foreground" : "bg-card text-muted-foreground hover:text-foreground",
+              "inline-flex min-h-11 items-center gap-1.5 rounded-pildora px-3.5 text-cuerpo-sm font-medium transition-colors duration-150 motion-reduce:transition-none",
+              f.activo ? "bg-sec-suave text-sec-tinta" : "bg-superficie-2 text-muted-foreground hover:text-foreground",
             )}
           >
             {f.texto} <span className="tabular-nums">{NUM.format(f.total)}</span>

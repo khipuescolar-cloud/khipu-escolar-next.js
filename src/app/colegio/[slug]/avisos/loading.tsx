@@ -1,5 +1,9 @@
-import { EsqueletoPagina, EsqueletoTabla } from "@/components/carga/Esqueletos";
+import { EsqueletoFilas, EsqueletoPaginaDia } from "@/components/asistencia/Esqueletos";
 
 export default function Loading() {
-  return <EsqueletoPagina><EsqueletoTabla /></EsqueletoPagina>;
+  return (
+    <EsqueletoPaginaDia>
+      <EsqueletoFilas filas={7} />
+    </EsqueletoPaginaDia>
+  );
 }

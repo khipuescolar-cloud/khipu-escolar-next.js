@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FormJustificar } from "@/components/FormJustificar";
 import { Alerta } from "@/components/ui/Alerta";
-import { Tarjeta } from "@/components/ui/Tarjeta";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { fechaLarga } from "@/lib/fechas";
 import { faltaParaJustificar } from "@/lib/server/justificaciones";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -17,28 +17,27 @@ export default async function JustificarConSesionPage({ params }: PageProps<"/co
   const falta = await faltaParaJustificar(ctx, asistenciaId);
 
   return (
-    <div className="mx-auto flex max-w-lg flex-col gap-2">
-      <Link href="/asistencia" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace">
-        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Volver a asistencia
-      </Link>
-      <Tarjeta className="flex flex-col gap-4">
-        <div>
-          <h1 className="text-titulo-1">Justificar falta</h1>
-          <p className="text-cuerpo-sm text-muted-foreground">
-            {falta.alumno} · <span className="first-letter:uppercase">{fechaLarga(falta.fecha)}</span>
-          </p>
+    <div className="mx-auto flex max-w-xl flex-col">
+      <EncabezadoPagina
+        titulo="Justificar falta"
+        seccion="dia"
+        migas={
+          <Link href="/asistencia" className="inline-flex min-h-10 items-center gap-1 enlace">
+            <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Volver a asistencia
+          </Link>
+        }
+        descripcion={<>{falta.alumno} · <span className="first-letter:uppercase">{fechaLarga(falta.fecha)}</span></>}
+      />
+      {!falta.disponible ? (
+        <Alerta tipo="info">Esta falta ya tiene una justificación.</Alerta>
+      ) : falta.plazoVencido ? (
+        <Alerta tipo="aviso">{falta.mensajeVencido}</Alerta>
+      ) : (
+        <div className="flex flex-col gap-4">
+          <p className="text-cuerpo-sm font-medium">{falta.textoPlazo}.</p>
+          <FormJustificar accion={justificarConSesionAction.bind(null, slug, falta.id)} />
         </div>
-        {!falta.disponible ? (
-          <Alerta tipo="info">Esta falta ya tiene una justificación.</Alerta>
-        ) : falta.plazoVencido ? (
-          <Alerta tipo="aviso">{falta.mensajeVencido}</Alerta>
-        ) : (
-          <>
-            <p className="text-sm font-medium">{falta.textoPlazo}.</p>
-            <FormJustificar accion={justificarConSesionAction.bind(null, slug, falta.id)} />
-          </>
-        )}
-      </Tarjeta>
+      )}
     </div>
   );
 }

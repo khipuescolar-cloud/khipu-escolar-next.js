@@ -5,7 +5,6 @@ import { useActionState, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
-import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { guardarPreferenciasAction, guardarSuscripcionPushAction, quitarSuscripcionPushAction, type EstadoFormulario } from "./actions";
 
@@ -75,14 +74,13 @@ export function PreferenciasAvisos({ slug, correo, push, pushAcademico = true, v
     setEstadoPush("inactivo");
   }
 
-  const fila = "flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border bg-card px-3 py-2 text-sm transition-colors hover:bg-accent/40 has-[:checked]:border-primary/40";
+  const fila = "flex min-h-12 cursor-pointer items-center gap-3 rounded-xl bg-superficie-2 px-4 py-2 text-cuerpo-sm transition-colors duration-150 hover:bg-sec-suave has-[:checked]:bg-sec-suave motion-reduce:transition-none";
   const casilla = "size-5 shrink-0 accent-primary";
   return (
     <section id="avisos" aria-labelledby="titulo-avisos">
-    <Card>
-      <CardContent className="flex flex-col gap-4">
+    <div data-seccion="dia" className="flex flex-col gap-5 rounded-[14px] border border-borde-sutil bg-superficie p-5">
         <div>
-          <h2 id="titulo-avisos" className="text-titulo-2">Tus avisos</h2>
+          <h2 id="titulo-avisos" className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold"><span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />Tus avisos</h2>
           <p className="text-sm text-muted-foreground">Elige cómo quieres enterarte cuando tu hijo llegue tarde o falte.</p>
         </div>
         <form action={accion} className="flex flex-col gap-3">
@@ -136,8 +134,7 @@ export function PreferenciasAvisos({ slug, correo, push, pushAcademico = true, v
           )}
           {mensajePush && <Alerta tipo="error">{mensajePush}</Alerta>}
         </div>
-      </CardContent>
-    </Card>
+    </div>
     </section>
   );
 }

@@ -5,10 +5,9 @@ import { Camera, CameraOff, CloudOff, Loader2, LogIn, LogOut, Maximize, ScanLine
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import { toast } from "sonner";
 import { AvisoColaFallida } from "@/components/AvisoColaFallida";
-import { EstadoAsistencia, ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
+import { ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
 import { IndicadorSinConexion } from "@/components/IndicadorSinConexion";
 import { Boton } from "@/components/ui/Boton";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useColaOffline } from "@/lib/cliente/cola-offline";
 import { esErrorDeRed, textoPendientes, type ResultadoEnvio } from "@/lib/registro-offline";
@@ -138,10 +137,11 @@ export function Escaner({ slug }: { slug: string }) {
     iniciar(async () => setEncontrados(await buscarAlumnosAction(slug, busqueda)));
   }
 
+  const verbo = modo === "salida" ? "salida" : "llegada";
   return (
-    <div className="grid gap-6 lg:grid-cols-2">
+    <div className="grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
       <div ref={contenedor} className="flex flex-col gap-4 bg-background">
-        <div role="group" aria-label="Qué registrar" className="inline-flex w-fit rounded-md border bg-muted p-0.5">
+        <div role="group" aria-label="Qué registrar" className="grid grid-cols-2 gap-1 rounded-xl bg-superficie-2 p-1">
           {([
             { valor: "llegada" as const, texto: "Llegada", Icono: LogIn },
             { valor: "salida" as const, texto: "Salida", Icono: LogOut },
@@ -155,24 +155,25 @@ export function Escaner({ slug }: { slug: string }) {
                 setResultado(null);
                 ultimaLectura.current = null;
               }}
-              className={`inline-flex min-h-11 items-center gap-2 rounded-[5px] px-4 text-sm font-medium transition-colors ${modo === valor ? "bg-card text-foreground shadow-xs" : "text-muted-foreground hover:text-foreground"}`}
+              className={`inline-flex min-h-14 items-center justify-center gap-2.5 rounded-[10px] px-4 font-heading text-[20px] font-semibold transition-colors duration-150 motion-reduce:transition-none ${modo === valor ? "bg-superficie text-sec-tinta shadow-xs ring-1 ring-sec-trazo" : "text-muted-foreground hover:text-foreground"}`}
             >
-              <Icono className="size-4" strokeWidth={2} aria-hidden /> {texto}
+              <Icono className="size-6" strokeWidth={2} aria-hidden /> {texto}
             </button>
           ))}
         </div>
-        <div className="relative aspect-[4/3] overflow-hidden rounded-lg border bg-sidebar">
+        <Resultado resultado={resultado} verbo={verbo} />
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[14px] bg-sidebar">
           <video ref={video} className="h-full w-full object-cover" muted playsInline aria-label="Cámara para leer el carnet" />
           {camara === "encendida" ? (
-            <span aria-hidden className="pointer-events-none absolute inset-[18%] rounded-lg border-2 border-maiz/90" />
+            <span aria-hidden className="pointer-events-none absolute inset-[18%] rounded-[14px] border-2 border-maiz/90" />
           ) : (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center text-sidebar-foreground">
               <CameraOff className="size-10" strokeWidth={2} aria-hidden />
-              <p className="max-w-xs">{camara === "error" ? "No se pudo abrir la cámara. Revisa los permisos o usa la búsqueda manual." : "La cámara está apagada."}</p>
+              <p className="max-w-xs text-cuerpo">{camara === "error" ? "No se pudo abrir la cámara. Revisa los permisos o usa la búsqueda manual." : "La cámara está apagada."}</p>
             </div>
           )}
         </div>
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           {camara === "encendida" ? (
             <Boton type="button" variante="secundario" tamano="lg" onClick={apagar}>
               <CameraOff className="size-4" strokeWidth={2} aria-hidden /> Apagar cámara
@@ -182,121 +183,120 @@ export function Escaner({ slug }: { slug: string }) {
               <Camera className="size-4" strokeWidth={2} aria-hidden /> Encender cámara
             </Boton>
           )}
-          <Boton type="button" variante="secundario" tamano="lg" onClick={() => contenedor.current?.requestFullscreen?.()}>
+          <Boton type="button" variante="fantasma" tamano="lg" onClick={() => contenedor.current?.requestFullscreen?.()}>
             <Maximize className="size-4" strokeWidth={2} aria-hidden /> Pantalla completa
           </Boton>
-          <label className="flex min-h-11 items-center gap-2 text-sm">
+          <label className="flex min-h-11 items-center gap-2 text-cuerpo-sm">
             <input type="checkbox" checked={sonido} onChange={(e) => setSonido(e.target.checked)} className="size-5 accent-primary" />
             Sonido y vibración
           </label>
         </div>
         <IndicadorSinConexion enLinea={enLinea} enviando={enviando} pendientes={pendientes} textoPendientes={textoPendientes(pendientes, "lectura", "lecturas", "guardada")} />
         <AvisoColaFallida cantidad={agotados.length} singular="lectura" plural="lecturas" onDescartar={() => void Promise.all(agotados.map((e) => descartar(e.id)))} />
-        <Resultado resultado={resultado} />
       </div>
 
-      <section aria-labelledby="titulo-manual">
-        <Card>
-          <CardContent className="flex flex-col gap-4">
-            <div>
-              <h2 id="titulo-manual" className="text-titulo-2">¿No trae su carnet?</h2>
-              <p className="text-sm text-muted-foreground">{enLinea ? `Busca al alumno y registra su ${modo} a mano.` : "La búsqueda manual necesita conexión. Los carnets sí se guardan sin conexión."}</p>
-            </div>
-            <form onSubmit={buscar} className="flex gap-2">
-              <label htmlFor="busqueda" className="sr-only">Nombre, apellido o código</label>
-              <Input
-                id="busqueda"
-                value={busqueda}
-                onChange={(e) => setBusqueda(e.target.value)}
-                minLength={2}
-                placeholder="Nombre, apellido o código"
-                className="h-11 min-w-0 flex-1"
-              />
-              <Boton type="submit" variante="secundario" tamano="lg" disabled={pendiente || !enLinea}>
-                {pendiente ? <Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden /> : <Search className="size-4" strokeWidth={2} aria-hidden />} Buscar
-              </Boton>
-            </form>
-            {encontrados.length === 0 ? (
-              <p className="flex items-center gap-2 text-sm text-muted-foreground">
-                <ScanLine className="size-4 shrink-0" strokeWidth={2} aria-hidden /> Los resultados de la búsqueda aparecerán aquí.
-              </p>
-            ) : (
-              <ul className="flex flex-col gap-2">
-                {encontrados.map((a) => (
-                  <li key={a.id} className="flex flex-wrap items-center justify-between gap-2 rounded-lg border p-3">
-                    <span>
-                      <span className="font-semibold">{a.nombre}</span>
-                      <span className="block text-sm text-muted-foreground">
-                        {a.salon}
-                        {a.codigo ? ` · ${a.codigo}` : ""}
-                      </span>
+      <div className="flex flex-col gap-8">
+        <section aria-labelledby="titulo-manual" className="flex flex-col gap-4">
+          <div>
+            <h2 id="titulo-manual" className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold">
+              <span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />
+              ¿No trae su carnet?
+            </h2>
+            <p className="mt-1 text-cuerpo-sm text-muted-foreground">{enLinea ? `Busca al alumno y registra su ${modo} a mano.` : "La búsqueda manual necesita conexión. Los carnets sí se guardan sin conexión."}</p>
+          </div>
+          <form onSubmit={buscar} className="flex gap-2">
+            <label htmlFor="busqueda" className="sr-only">Nombre, apellido o código</label>
+            <Input
+              id="busqueda"
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+              minLength={2}
+              placeholder="Nombre, apellido o código"
+              className="h-12 min-w-0 flex-1 text-cuerpo"
+            />
+            <Boton type="submit" variante="secundario" tamano="lg" className="h-12" disabled={pendiente || !enLinea}>
+              {pendiente ? <Loader2 className="size-4 animate-spin motion-reduce:animate-none" strokeWidth={2} aria-hidden /> : <Search className="size-4" strokeWidth={2} aria-hidden />} Buscar
+            </Boton>
+          </form>
+          {encontrados.length === 0 ? (
+            <p className="flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
+              <Search className="size-4 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden /> Los resultados de la búsqueda aparecerán aquí.
+            </p>
+          ) : (
+            <ul className="flex flex-col divide-y divide-borde-sutil border-y border-borde-sutil">
+              {encontrados.map((a) => (
+                <li key={a.id} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-3">
+                  <span className="min-w-0">
+                    <span className="block text-cuerpo font-semibold">{a.nombre}</span>
+                    <span className="block text-cuerpo-sm text-muted-foreground">
+                      {a.salon}
+                      {a.codigo ? ` · ${a.codigo}` : ""}
                     </span>
-                    <Boton type="button" disabled={pendiente || !enLinea} onClick={() => iniciar(async () => mostrar(await registrarManualAction(slug, a.id, modo)))}>
-                      {modo === "salida" ? "Registrar salida" : "Registrar llegada"}
-                    </Boton>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </CardContent>
-        </Card>
-      </section>
+                  </span>
+                  <Boton type="button" tamano="lg" disabled={pendiente || !enLinea} onClick={() => iniciar(async () => mostrar(await registrarManualAction(slug, a.id, modo)))}>
+                    {modo === "salida" ? "Registrar salida" : "Registrar llegada"}
+                  </Boton>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      </div>
     </div>
   );
 }
 
-function Resultado({ resultado }: { resultado: ResultadoLocal | null }) {
+function Resultado({ resultado, verbo }: { resultado: ResultadoLocal | null; verbo: string }) {
+  const base = "flex min-h-52 flex-col justify-center gap-4 rounded-[14px] p-6 sm:p-8";
   if (!resultado) {
     return (
-      <p className="flex items-center gap-2 rounded-lg border border-dashed p-4 text-sm text-muted-foreground">
-        <ScanLine className="size-5 shrink-0" strokeWidth={2} aria-hidden /> Acerca el carnet a la cámara. Aquí verás el resultado.
-      </p>
+      <div role="status" aria-live="polite" className={`${base} items-start bg-sec-suave text-sec-tinta`}>
+        <ScanLine className="size-14" strokeWidth={1.75} aria-hidden />
+        <p className="font-heading text-[28px] leading-8 font-bold text-balance">Esperando carnet de {verbo}</p>
+        <p className="text-cuerpo">Acerca el carnet a la cámara. Aquí verás el resultado.</p>
+      </div>
     );
   }
   if (!resultado.ok) {
     return (
-      <div role="alert" className="flex items-center gap-4 rounded-lg border border-falta/30 bg-falta-fondo p-5 text-falta">
-        <CircleAlert className="size-12 shrink-0" strokeWidth={2} aria-hidden />
-        <p className="text-titulo-2">{resultado.mensaje}</p>
+      <div role="alert" className={`${base} bg-falta-fondo text-falta`}>
+        <CircleAlert className="size-14" strokeWidth={2} aria-hidden />
+        <p className="font-heading text-[30px] leading-9 font-bold text-balance">{resultado.mensaje}</p>
       </div>
     );
   }
   if (resultado.tipo === "sin-conexion") {
     return (
-      <div role="status" className="flex items-center gap-4 rounded-lg border border-tarde/30 bg-tarde-fondo p-5 text-tarde">
-        <CloudOff className="size-12 shrink-0" strokeWidth={2} aria-hidden />
-        <div>
-          <p className="text-titulo-2">Guardado sin conexión</p>
-          <p className="text-sm text-foreground">Se registrará la {resultado.movimiento === "salida" ? "salida" : "llegada"} cuando vuelva la conexión.</p>
-        </div>
+      <div role="status" className={`${base} bg-tarde-fondo text-tarde`}>
+        <CloudOff className="size-14" strokeWidth={2} aria-hidden />
+        <p className="font-heading text-[30px] leading-9 font-bold">Guardado sin conexión</p>
+        <p className="text-cuerpo text-foreground">Se registrará la {resultado.movimiento === "salida" ? "salida" : "llegada"} cuando vuelva la conexión.</p>
       </div>
     );
   }
-  const { clase } = ESTADOS_ASISTENCIA[resultado.estado];
+  const { clase, Icono, palabra } = ESTADOS_ASISTENCIA[resultado.estado];
+  const salida = resultado.movimiento === "salida";
   return (
-    <div role="status" className={`flex items-center gap-4 rounded-lg border border-current/20 p-5 ${clase}`}>
-      {resultado.alumno.fotoUrl ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={resultado.alumno.fotoUrl} alt="" className="size-20 shrink-0 rounded-full object-cover" />
-      ) : (
-        <span className="flex size-20 shrink-0 items-center justify-center rounded-full bg-card text-muted-foreground">
-          <UserRound className="size-10" strokeWidth={2} aria-hidden />
-        </span>
-      )}
-      <div className="flex min-w-0 flex-col gap-1">
-        <p className="text-titulo-2 text-balance text-foreground">{resultado.alumno.nombre}</p>
-        <p className="text-muted-foreground">{resultado.alumno.salon}</p>
-        <div className="flex flex-wrap items-center gap-2">
-          {resultado.movimiento === "salida" ? (
-            <span className="inline-flex items-center gap-1.5 rounded-pildora bg-card px-2.5 py-0.5 text-etiqueta text-foreground">
-              <LogOut className="size-4" strokeWidth={2} aria-hidden /> Salida
-            </span>
-          ) : (
-            <EstadoAsistencia estado={resultado.estado} />
-          )}
-          <span className="text-cuerpo font-semibold">{resultado.mensaje}</span>
+    <div role="status" className={`${base} ${salida ? "bg-sec-suave text-sec-tinta" : clase}`}>
+      <p className="inline-flex items-center gap-3 font-heading text-[40px] leading-[44px] font-bold">
+        {salida ? <LogOut className="size-11" strokeWidth={2} aria-hidden /> : <Icono className="size-11" strokeWidth={2.25} aria-hidden />}
+        {salida ? "Salida" : palabra}
+      </p>
+      <div className="flex items-center gap-4">
+        {resultado.alumno.fotoUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={resultado.alumno.fotoUrl} alt="" className="size-24 shrink-0 rounded-full object-cover" />
+        ) : (
+          <span className="flex size-24 shrink-0 items-center justify-center rounded-full bg-superficie text-muted-foreground">
+            <UserRound className="size-12" strokeWidth={2} aria-hidden />
+          </span>
+        )}
+        <div className="flex min-w-0 flex-col gap-1">
+          <p className="font-heading text-[28px] leading-8 font-bold text-balance text-foreground">{resultado.alumno.nombre}</p>
+          <p className="text-cuerpo font-medium text-foreground">{resultado.alumno.salon}</p>
         </div>
       </div>
+      <p className="text-[18px] leading-6 font-semibold text-foreground tabular-nums">{resultado.mensaje}</p>
     </div>
   );
 }

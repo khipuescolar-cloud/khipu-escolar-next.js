@@ -3,7 +3,6 @@ import Link from "next/link";
 import { GraficoAsistenciaDias } from "@/components/asistencia/GraficoAsistenciaDias";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { fechaCorta } from "@/lib/fechas";
 import { textoPorcentaje } from "@/lib/reportes-asistencia";
 import type { PanelProfesor as Panel, ReporteSalon } from "@/lib/server/reportes-asistencia";
@@ -17,19 +16,22 @@ const NUM = new Intl.NumberFormat("es-PE");
 
 /** Cifra con ícono: el estado lleva ícono + palabra, nunca solo color. */
 export function Cifra({ icono: Icono, titulo, valor, detalle, tono }: { icono: LucideIcon; titulo: string; valor: string; detalle?: string; tono?: "llego" | "tarde" | "falta" }) {
-  const clase = tono === "llego" ? "bg-llego-fondo text-llego" : tono === "tarde" ? "bg-tarde-fondo text-tarde" : tono === "falta" ? "bg-falta-fondo text-falta" : "bg-primary/10 text-primary";
+  const clase = tono === "llego" ? "text-llego" : tono === "tarde" ? "text-tarde" : tono === "falta" ? "text-falta" : "text-sec-trazo";
   return (
-    <Tarjeta className="flex flex-col gap-1.5 p-4">
-      <p className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-        <span className={cn("flex size-7 shrink-0 items-center justify-center rounded-md", clase)}>
-          <Icono className="size-4" strokeWidth={2} aria-hidden />
-        </span>
+    <div className="flex flex-col gap-1 bg-superficie px-5 py-4">
+      <p className="flex items-center gap-2 text-cuerpo-sm font-medium text-muted-foreground">
+        <Icono className={cn("size-4 shrink-0", clase)} strokeWidth={2} aria-hidden />
         {titulo}
       </p>
-      <p className="text-titulo-1 tabular-nums">{valor}</p>
+      <p className="font-heading text-titulo-1 tabular-nums">{valor}</p>
       {detalle && <p className="text-cuerpo-sm text-muted-foreground">{detalle}</p>}
-    </Tarjeta>
+    </div>
   );
+}
+
+/** Cifras hermanas en una sola superficie dividida por líneas finas. */
+export function CifrasJuntas({ children }: { children: React.ReactNode }) {
+  return <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil lg:grid-cols-4">{children}</div>;
 }
 
 function Tutoria({ r }: { r: ReporteSalon }) {
@@ -41,10 +43,10 @@ function Tutoria({ r }: { r: ReporteSalon }) {
     .sort((a, b) => b.resumen.falta - a.resumen.falta || b.resumen.tarde - a.resumen.tarde || a.apellidos.localeCompare(b.apellidos))
     .slice(0, 6);
   return (
-    <section aria-labelledby={`tutoria-${r.salon.id}`} className="flex flex-col gap-4">
+    <section aria-labelledby={`tutoria-${r.salon.id}`} data-seccion="dia" className="flex flex-col gap-4">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 id={`tutoria-${r.salon.id}`} className="text-titulo-2">Mi salón de tutoría · {r.salon.nombre}</h2>
+          <h2 id={`tutoria-${r.salon.id}`} className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold"><span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />Mi salón de tutoría · {r.salon.nombre}</h2>
           <p className="text-cuerpo-sm text-muted-foreground">
             Asistencia al colegio de los últimos 7 días (del {fechaCorta(r.desde)} al {fechaCorta(r.hasta)}) · {NUM.format(r.filas.length)} alumnos
           </p>
@@ -66,7 +68,7 @@ function Tutoria({ r }: { r: ReporteSalon }) {
         <EstadoVacio icono={UsersRound} titulo="No hubo días de clase en estos 7 días" descripcion="Fueron fin de semana o feriados. Usa «Ver detalle» para elegir otras fechas." />
       ) : (
         <>
-          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+          <CifrasJuntas>
             <Cifra icono={Percent} titulo="Asistencia" valor={textoPorcentaje(t.porcentaje)} detalle={`${NUM.format(dias)} ${dias === 1 ? "día" : "días"} de clase`} />
             <Cifra icono={Check} titulo="Asistieron" valor={NUM.format(t.llego + t.tarde)} detalle="veces que un alumno llegó (a tiempo o tarde)" tono="llego" />
             <Cifra icono={Clock} titulo="Tardanzas" valor={NUM.format(t.tarde)} detalle={`${NUM.format(r.filas.filter((f) => f.resumen.tarde > 0).length)} alumnos llegaron tarde`} tono="tarde" />
@@ -77,18 +79,18 @@ function Tutoria({ r }: { r: ReporteSalon }) {
               detalle={`${NUM.format(t.faltasJustificadas)} justificadas · ${NUM.format(t.faltasEnRevision)} en revisión`}
               tono="falta"
             />
-          </div>
-          <div className="grid gap-3 lg:grid-cols-3">
-            <Tarjeta className="flex min-w-0 flex-col gap-2 lg:col-span-2">
+          </CifrasJuntas>
+          <div className="grid gap-x-10 gap-y-8 lg:grid-cols-3">
+            <div className="flex min-w-0 flex-col gap-2 lg:col-span-2">
               <h3 className="font-heading text-cuerpo font-semibold">Asistencia por día</h3>
               <GraficoAsistenciaDias datos={r.porDia} titulo={`Asistencia por día de ${r.salon.nombre}`} />
-            </Tarjeta>
-            <Tarjeta className="flex flex-col gap-3">
+            </div>
+            <div className="flex flex-col gap-3">
               <h3 className="font-heading text-cuerpo font-semibold">Para conversar con la familia</h3>
               {atender.length === 0 ? (
                 <p className="text-cuerpo-sm text-muted-foreground">Nadie faltó ni llegó tarde en estos días.</p>
               ) : (
-                <ul className="flex flex-col divide-y">
+                <ul className="flex flex-col divide-y divide-borde-sutil">
                   {atender.map((f) => (
                     <li key={f.alumnoId} className="flex flex-col gap-1 py-2 first:pt-0 last:pb-0">
                       <Link href={`${RUTA_VER}?alumno=${f.alumnoId}&desde=${r.desde}&hasta=${r.hasta}`} className="font-medium enlace">
@@ -110,7 +112,7 @@ function Tutoria({ r }: { r: ReporteSalon }) {
                   ))}
                 </ul>
               )}
-            </Tarjeta>
+            </div>
           </div>
         </>
       )}
@@ -129,20 +131,18 @@ export function PanelProfesor({ panel }: { panel: Panel }) {
       {cursos.length > 0 && (
         <section aria-labelledby="mis-cursos" className="flex flex-col gap-3">
           <div>
-            <h2 id="mis-cursos" className="text-titulo-2">Mis cursos</h2>
+            <h2 id="mis-cursos" className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold"><span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />Mis cursos</h2>
             <p className="text-cuerpo-sm text-muted-foreground">Elige un curso para ver la asistencia de cada clase en las fechas que quieras y descargarla.</p>
           </div>
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid divide-y divide-borde-sutil border-y border-borde-sutil lg:grid-cols-2 lg:gap-x-10">
             {cursos.map((c) => (
               <li key={c.id}>
                 {c.porCurso ? (
                   <Link
                     href={`/asistencia/reportes/curso/${c.id}`}
-                    className="group flex min-h-16 items-center gap-3 rounded-lg border bg-card p-4 transition-colors hover:border-primary/40 hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
+                    className="group flex min-h-16 items-center gap-3 rounded-md py-3 transition-colors duration-150 hover:text-sec-tinta focus-visible:outline-2 focus-visible:outline-ring motion-reduce:transition-none"
                   >
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                      <BookOpen className="size-5" strokeWidth={2} aria-hidden />
-                    </span>
+                    <BookOpen className="size-5 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
                     <span className="min-w-0 flex-1">
                       <span className="block font-semibold">{c.nombre}</span>
                       <span className="block text-cuerpo-sm text-muted-foreground">{c.salon}</span>
@@ -150,7 +150,7 @@ export function PanelProfesor({ panel }: { panel: Panel }) {
                     <ChevronRight className="size-5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" strokeWidth={2} aria-hidden />
                   </Link>
                 ) : (
-                  <div className="flex min-h-16 items-center gap-3 rounded-lg border border-dashed p-4 text-muted-foreground">
+                  <div className="flex min-h-16 items-center gap-3 py-3 text-muted-foreground">
                     <BookOpen className="size-5 shrink-0" strokeWidth={2} aria-hidden />
                     <span className="min-w-0">
                       <span className="block font-semibold">{c.nombre} · {c.salon}</span>
