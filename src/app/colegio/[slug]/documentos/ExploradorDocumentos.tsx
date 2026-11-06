@@ -1,137 +1,191 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Check, ChevronRight, Clock3, Download, File, FileSpreadsheet, FileText, Folder, FolderOpen, Grid2X2, Info, List, MoreVertical, Search, Share2, Star, Trash2, Users, RotateCcw, Copy, Pencil, Image as ImageIcon } from "lucide-react";
+import { ChevronRight, Clock3, Copy, Download, Folder, FolderOpen, Grid2X2, Info, List, Pencil, RotateCcw, Search, Share2, Star, StarOff, Trash2, Users, X, Upload } from "lucide-react";
+import { toast } from "sonner";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Notificar } from "@/components/shell/Notificar";
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { CLASE_CAMPO } from "@/components/ui/Selector";
-import { formatoTamano } from "@/lib/adjuntos";
+import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogMedia } from "@/components/ui/alert-dialog";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ORDENES_DOCUMENTO } from "@/lib/documentos";
 import type { Contenido, CarpetaOpcion } from "@/lib/server/documentos";
-import { cargarActividadDocumentoAction, cargarAccesosDocumentoAction, compartirDocumentoAction, accesoGeneralDocumentoAction, destacarDocumentoAction, quitarAccesoDocumentoAction, restaurarDocumentoAction, eliminarDefinitivoDocumentoAction, moverDocumentoAction, moverLoteDocumentoAction, papeleraLoteDocumentoAction, borrarCarpetaAction, borrarDocumentoAction, registrarAccesoDocumentoAction } from "./actions";
+import { cn } from "@/lib/utils";
+import { borrarCarpetaAction, borrarDocumentoAction, destacarDocumentoAction, eliminarDefinitivoDocumentoAction, papeleraLoteDocumentoAction, registrarAccesoDocumentoAction, restaurarDocumentoAction } from "./actions";
+import { HojaAcciones, type Accion } from "./AccionesItem";
+import { DialogoCompartir } from "./DialogoCompartir";
+import { DialogoMover, DialogoRenombrar, VistaPrevia } from "./DialogosDocumentos";
+import { DialogoEditarDocumento } from "./FormulariosDocumentos";
+import { ListaContenido } from "./ListaContenido";
 import { NuevoDocumento } from "./NuevoDocumento";
-import { DialogoEditarCarpeta, DialogoEditarDocumento } from "./FormulariosDocumentos";
+import { PanelDetalles } from "./PanelDetalles";
+import { PanelSubidas, useSubidas } from "./Subidas";
+import type { Item, Persona, Salon, Vista } from "./tipos-documentos";
 
-type Vista = "biblioteca" | "unidad" | "compartido" | "recientes" | "destacados" | "papelera";
-type Persona = { id: string; nombre: string; email: string; rol: string };
-type Salon = { id: string; nombre: string };
-type Item = { tipo: "carpeta" | "documento"; id: string; nombre: string; propietario: string; modificado: Date; creado: Date; tamano: number | null; archivo?: { id: string; nombre: string; mimeType: string; bytes: number } | null; gestionable: boolean; destacado: boolean; descripcion?: string | null; carpetaId?: string | null; visibleRoles?: string[]; salonId?: string | null; eliminado?: boolean };
-type Acceso = Awaited<ReturnType<typeof cargarAccesosDocumentoAction>>[number];
 const vistas: { id: Vista; nombre: string; icono: typeof FolderOpen }[] = [
   { id: "unidad", nombre: "Mi unidad", icono: FolderOpen }, { id: "compartido", nombre: "Compartido conmigo", icono: Users },
   { id: "biblioteca", nombre: "Biblioteca del colegio", icono: Folder }, { id: "recientes", nombre: "Recientes", icono: Clock3 },
   { id: "destacados", nombre: "Destacados", icono: Star }, { id: "papelera", nombre: "Papelera", icono: Trash2 },
 ];
-const vacios: Record<Vista, string> = { unidad: "Mi unidad está vacía", compartido: "Nada compartido contigo todavía", biblioteca: "Esta carpeta está vacía", recientes: "Todavía no hay archivos recientes", destacados: "Todavía no tienes destacados", papelera: "La papelera está vacía" };
-const fecha = new Intl.DateTimeFormat("es-PE", { day: "numeric", month: "short", year: "numeric", timeZone: "America/Lima" });
-function Icono({ item }: { item: Item }) {
-  if (item.tipo === "carpeta") return <Folder className="size-5 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />;
-  const mime = item.archivo?.mimeType ?? "";
-  const I = mime === "application/pdf" ? FileText : mime.startsWith("image/") ? ImageIcon : mime.includes("sheet") || mime.includes("excel") ? FileSpreadsheet : File;
-  return <I className="size-5 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />;
-}
+const vacios: Record<Vista, { titulo: string; detalle: string }> = {
+  unidad: { titulo: "Mi unidad está vacía", detalle: "Crea una carpeta o sube tus archivos con el botón Nuevo, o arrástralos aquí." },
+  compartido: { titulo: "Nada compartido contigo todavía", detalle: "Cuando alguien comparta una carpeta o un archivo contigo, aparecerá aquí." },
+  biblioteca: { titulo: "Esta carpeta está vacía", detalle: "Aquí verás los documentos del colegio que puedes consultar." },
+  recientes: { titulo: "Todavía no hay archivos recientes", detalle: "Los archivos y carpetas que abras aparecerán aquí." },
+  destacados: { titulo: "Todavía no tienes destacados", detalle: "Marca con la estrella lo que quieras encontrar rápido." },
+  papelera: { titulo: "La papelera está vacía", detalle: "Lo que elimines se queda aquí 30 días antes de borrarse para siempre." },
+};
+const ordenes = Object.fromEntries(Object.entries(ORDENES_DOCUMENTO)) as Record<string, string>;
+const aArchivo = (d: Contenido["documentos"][number]): Item => ({ tipo: "documento", id: d.id, nombre: d.titulo, propietario: d.autor, modificado: d.updatedAt, creado: d.createdAt, tamano: d.archivo?.bytes ?? null, archivo: d.archivo, gestionable: d.gestionable, destacado: d.destacado, descripcion: d.descripcion, carpetaId: d.carpetaId, visibleRoles: d.visibleRoles, salonId: d.salonId, ambito: d.ambito });
+
 export function ExploradorDocumentos({ archivoInicial, contenido, vista, carpetaId, q, orden, opciones, salones, personas, esProfesor, puedeCrear, ok, error }: { archivoInicial: string | null; contenido: Contenido; vista: Vista; carpetaId: string | null; q: string; orden: string; opciones: CarpetaOpcion[]; salones: Salon[]; personas: Persona[]; esProfesor: boolean; puedeCrear: boolean; ok?: string; error?: string }) {
   const router = useRouter();
   const enlaceAbierto = useRef<string | null>(null);
+  const navegacion = useRef<HTMLElement>(null);
   const [modo, setModo] = useState<"lista" | "cuadricula">("lista");
   const [seleccion, setSeleccion] = useState<string[]>([]);
-  const [actual, setActual] = useState<Item | null>(null);
-  const [panel, setPanel] = useState<"compartir" | "detalles" | "vista" | "acciones" | "mover" | null>(null);
-  const [accesos, setAccesos] = useState<Acceso[]>([]);
-  const [actividad, setActividad] = useState<{ accion: string; createdAt: Date }[]>([]);
-  const [pendiente, iniciar] = useTransition();
-  const [destino, setDestino] = useState("");
-  const [filtroPersonas, setFiltroPersonas] = useState("");
-  const [destinoMover, setDestinoMover] = useState("");
-  const [moverLote, setMoverLote] = useState(false);
-  const [nivel, setNivel] = useState("lector");
-  const [mensaje, setMensaje] = useState("");
   const [arrastrando, setArrastrando] = useState(false);
-  const [subidas, setSubidas] = useState<string[]>([]);
-  const [general, setGeneral] = useState("restringido");
-  useEffect(() => { try { if (localStorage.getItem("documentos-modo") === "cuadricula") queueMicrotask(() => setModo("cuadricula")); } catch {} }, []);
-  const cambiarModo = (m: "lista" | "cuadricula") => { setModo(m); try { localStorage.setItem("documentos-modo", m); } catch {} };
+  const [vistaPrevia, setVistaPrevia] = useState<Item | null>(null);
+  const [detalles, setDetalles] = useState<Item | null>(null);
+  const [compartir, setCompartir] = useState<Item | null>(null);
+  const [renombrar, setRenombrar] = useState<Item | null>(null);
+  const [mover, setMover] = useState<Item[]>([]);
+  const [menuMovil, setMenuMovil] = useState<Item | null>(null);
+  const [eliminar, setEliminar] = useState<Item | null>(null);
+  const [, iniciar] = useTransition();
+  const refrescar = useCallback(() => router.refresh(), [router]);
+  const { subidas, subir, cerrar } = useSubidas(refrescar);
+  const volver = carpetaId ?? "";
+  const nombreVista = vistas.find((v) => v.id === vista)?.nombre ?? "";
+
+  useEffect(() => { try { if (localStorage.getItem("documentos-modo") === "cuadricula") queueMicrotask(() => setModo("cuadricula")); } catch { /* sin almacenamiento */ } }, []);
+  const cambiarModo = (m: "lista" | "cuadricula") => { setModo(m); try { localStorage.setItem("documentos-modo", m); } catch { /* sin almacenamiento */ } };
+  // En móvil la navegación interna se desplaza: deja a la vista la sección activa.
+  useEffect(() => { navegacion.current?.querySelector("[aria-current=page]")?.scrollIntoView({ inline: "center", block: "nearest" }); }, [vista]);
+  // Al cambiar de carpeta o de sección se limpia la selección.
+  useEffect(() => { queueMicrotask(() => setSeleccion([])); }, [vista, carpetaId, q]);
+
   const items: Item[] = [
-    ...contenido.carpetas.map((c) => ({ tipo: "carpeta" as const, id: c.id, nombre: c.nombre, propietario: c.propietario, modificado: c.updatedAt, creado: c.createdAt, tamano: null, gestionable: c.gestionable, destacado: c.destacado, visibleRoles: c.visibleRoles, salonId: c.salonId, carpetaId })),
-    ...contenido.documentos.map((d) => ({ tipo: "documento" as const, id: d.id, nombre: d.titulo, propietario: d.autor, modificado: d.updatedAt, creado: d.createdAt, tamano: d.archivo?.bytes ?? null, archivo: d.archivo, gestionable: d.gestionable, destacado: d.destacado, descripcion: d.descripcion, carpetaId: d.carpetaId, visibleRoles: d.visibleRoles, salonId: d.salonId })),
+    ...contenido.carpetas.map((c) => ({ tipo: "carpeta" as const, id: c.id, nombre: c.nombre, propietario: c.propietario, modificado: c.updatedAt, creado: c.createdAt, tamano: null, gestionable: c.gestionable, destacado: c.destacado, visibleRoles: c.visibleRoles, salonId: c.salonId, carpetaId: c.parentId, ambito: c.ambito, elementos: c.elementos })),
+    ...contenido.documentos.map(aArchivo),
   ];
+  const seleccionados = items.filter((i) => seleccion.includes(i.id));
+
   useEffect(() => {
     const d = contenido.documentos.find((x) => x.id === archivoInicial);
     if (!d || enlaceAbierto.current === d.id) return;
     enlaceAbierto.current = d.id;
-    queueMicrotask(() => { setActual({ tipo: "documento", id: d.id, nombre: d.titulo, propietario: d.autor, modificado: d.updatedAt, creado: d.createdAt, tamano: d.archivo?.bytes ?? null, archivo: d.archivo, gestionable: d.gestionable, destacado: d.destacado, descripcion: d.descripcion, carpetaId: d.carpetaId, visibleRoles: d.visibleRoles, salonId: d.salonId }); setPanel("vista"); });
+    queueMicrotask(() => setVistaPrevia(aArchivo(d)));
   }, [archivoInicial, contenido.documentos]);
+
   const ir = (id: string) => { void registrarAccesoDocumentoAction("carpeta", id); router.push(`/documentos?vista=${vista}&carpeta=${id}`); };
-  const abrir = (item: Item) => { if (item.tipo === "carpeta") ir(item.id); else { setActual(item); setPanel("vista"); void registrarAccesoDocumentoAction("documento", item.id); } };
-  const mostrar = (item: Item, p: typeof panel) => { setGeneral(item.visibleRoles?.length ? "colegio" : "restringido"); setActual(item); setPanel(p); if (p === "compartir" || p === "detalles") void cargarAccesosDocumentoAction(item.tipo, item.id).then(setAccesos).catch(() => setAccesos([])); if (p === "detalles") void cargarActividadDocumentoAction(item.tipo, item.id).then(setActividad).catch(() => setActividad([])); };
-  const volver = carpetaId ?? "";
-  const url = (item: Item) => item.tipo === "carpeta" ? `/documentos?vista=${vista}&carpeta=${item.id}` : `/documentos?vista=${vista}${item.carpetaId && vista !== "compartido" ? `&carpeta=${item.carpetaId}` : ""}&archivo=${item.id}`;
-  const copiar = (item: Item) => { void navigator.clipboard.writeText(`${location.origin}${url(item)}`).then(() => setMensaje("Enlace copiado. Se necesita permiso para abrirlo.")).catch(() => setMensaje("No se pudo copiar el enlace.")); };
-  const accion = (fn: (d: FormData) => Promise<unknown>, item: Item, extra: Record<string, string> = {}) => { const d = new FormData(); d.set("id", item.id); d.set("tipo", item.tipo); d.set("vista", vista); d.set("volver", volver); for (const [k, v] of Object.entries(extra)) d.set(k, v); iniciar(async () => { await fn(d); }); };
-  const soltar = async (archivos: FileList) => {
-    if (!puedeCrear) return;
-    const estado: string[] = [];
-    for (const archivo of Array.from(archivos)) {
-      const indice = estado.push(`${archivo.name}: subiendo…`) - 1;
-      setSubidas([...estado]);
-      try {
-        const d = new FormData(); d.set("archivo", archivo); d.set("titulo", archivo.name.replace(/\.[^.]+$/, "")); d.set("carpetaId", carpetaId ?? ""); d.set("ambito", vista === "unidad" || vista === "compartido" ? "unidad" : "biblioteca");
-        if (esProfesor && vista === "biblioteca") d.set("salonId", salones[0]?.id ?? "");
-        const respuesta = await fetch("/api/documentos/subir", { method: "POST", body: d });
-        const resultado = await respuesta.json() as { error?: string };
-        estado[indice] = `${archivo.name}: ${respuesta.ok ? "subido" : resultado.error ?? "error al subir"}`;
-      } catch { estado[indice] = `${archivo.name}: error de conexión`; }
-      setSubidas([...estado]);
-    }
-    router.refresh();
+  const abrir = (item: Item) => {
+    if (vista === "papelera") { toast("Restaura el elemento para abrirlo."); return; }
+    if (item.tipo === "carpeta") ir(item.id);
+    else { setVistaPrevia(item); void registrarAccesoDocumentoAction("documento", item.id); }
   };
-  const descargarSeleccion = () => {
-    for (const item of items.filter((i) => seleccion.includes(i.id) && i.archivo)) {
-      const enlace = document.createElement("a"); enlace.href = `/archivos/${item.archivo!.id}`; enlace.download = item.archivo!.nombre; document.body.append(enlace); enlace.click(); enlace.remove();
+  const enlace = (item: Item) => item.tipo === "carpeta" ? `/documentos?vista=${vista}&carpeta=${item.id}` : `/documentos?vista=${vista}${item.carpetaId && vista !== "compartido" ? `&carpeta=${item.carpetaId}` : ""}&archivo=${item.id}`;
+  const copiar = (item: Item) => { void navigator.clipboard.writeText(`${location.origin}${enlace(item)}`).then(() => toast.success("Enlace copiado. Quien lo abra necesita iniciar sesión y tener permiso.")).catch(() => toast.error("No se pudo copiar el enlace.")); };
+  const enviar = (fn: (d: FormData) => Promise<unknown>, item: Item, extra: Record<string, string> = {}) => { const d = new FormData(); d.set("id", item.id); d.set("tipo", item.tipo); d.set("vista", vista); d.set("volver", volver); for (const [k, v] of Object.entries(extra)) d.set(k, v); iniciar(async () => { await fn(d); }); };
+  const papelera = (item: Item) => enviar(item.tipo === "carpeta" ? borrarCarpetaAction : borrarDocumentoAction, item);
+  const descargar = (archivos: Item[]) => { for (const item of archivos) if (item.archivo) { const a = document.createElement("a"); a.href = `/archivos/${item.archivo.id}`; a.download = item.archivo.nombre; document.body.append(a); a.click(); a.remove(); } };
+  const subirAqui = (archivos: File[]) => void subir(archivos, { carpetaId, ambito: vista === "unidad" || vista === "compartido" ? "unidad" : "biblioteca", salonId: esProfesor && vista === "biblioteca" && !carpetaId ? salones[0]?.id : undefined });
+
+  const accionesDe = (item: Item): Accion[] => {
+    if (vista === "papelera") return [
+      { id: "restaurar", etiqueta: "Restaurar", icono: RotateCcw, alElegir: () => enviar(restaurarDocumentoAction, item) },
+      { id: "eliminar", etiqueta: "Eliminar para siempre", icono: Trash2, destructiva: true, separadorAntes: true, alElegir: () => setEliminar(item) },
+    ];
+    const a: Accion[] = [{ id: "abrir", etiqueta: "Abrir", icono: FolderOpen, alElegir: () => abrir(item) }];
+    if (item.archivo) a.push({ id: "descargar", etiqueta: "Descargar", icono: Download, alElegir: () => descargar([item]) });
+    if (item.gestionable) a.push({ id: "compartir", etiqueta: "Compartir", icono: Share2, alElegir: () => setCompartir(item) });
+    a.push({ id: "enlace", etiqueta: "Copiar enlace", icono: Copy, alElegir: () => copiar(item) });
+    if (item.gestionable) {
+      a.push({ id: "renombrar", etiqueta: "Renombrar", icono: Pencil, separadorAntes: true, alElegir: () => setRenombrar(item) });
+      a.push({ id: "mover", etiqueta: "Mover a…", icono: Folder, alElegir: () => setMover([item]) });
     }
+    a.push({ id: "destacar", etiqueta: item.destacado ? "Quitar de destacados" : "Destacar", icono: item.destacado ? StarOff : Star, alElegir: () => enviar(destacarDocumentoAction, item, { destacar: String(!item.destacado) }) });
+    a.push({ id: "detalles", etiqueta: "Detalles", icono: Info, alElegir: () => setDetalles(item) });
+    if (item.gestionable) a.push({ id: "papelera", etiqueta: "Mover a la papelera", icono: Trash2, destructiva: true, separadorAntes: true, alElegir: () => papelera(item) });
+    return a;
   };
-  const menu = (item: Item) => <DropdownMenu><DropdownMenuTrigger render={<Button variant="ghost" size="icon" aria-label={`Opciones de ${item.nombre}`} />}><MoreVertical strokeWidth={2} aria-hidden /></DropdownMenuTrigger><DropdownMenuContent align="end" className="min-w-48">
-    <DropdownMenuItem className="min-h-11" onClick={() => abrir(item)}><FolderOpen aria-hidden /> Abrir</DropdownMenuItem>
-    {item.archivo && <DropdownMenuItem className="min-h-11" onClick={() => window.open(`/archivos/${item.archivo!.id}`, "_blank")}><Download aria-hidden /> Descargar</DropdownMenuItem>}
-    {item.gestionable && <DropdownMenuItem className="min-h-11" onClick={() => mostrar(item, "acciones")}><Pencil aria-hidden /> Renombrar</DropdownMenuItem>}
-    {item.gestionable && <DropdownMenuItem className="min-h-11" onClick={() => mostrar(item, "mover")}><Folder aria-hidden /> Mover a…</DropdownMenuItem>}
-    {item.gestionable && <DropdownMenuItem className="min-h-11" onClick={() => mostrar(item, "compartir")}><Share2 aria-hidden /> Compartir</DropdownMenuItem>}
-    <DropdownMenuItem className="min-h-11" onClick={() => copiar(item)}><Copy aria-hidden /> Copiar enlace</DropdownMenuItem>
-    {vista !== "papelera" && <DropdownMenuItem className="min-h-11" onClick={() => accion(destacarDocumentoAction, item, { destacar: String(!item.destacado) })}><Star aria-hidden /> {item.destacado ? "Quitar destacado" : "Destacar"}</DropdownMenuItem>}
-    <DropdownMenuItem className="min-h-11" onClick={() => mostrar(item, "detalles")}><Info aria-hidden /> Detalles</DropdownMenuItem>
-    {item.gestionable && vista !== "papelera" && <DropdownMenuItem className="min-h-11" variant="destructive" onClick={() => accion(item.tipo === "carpeta" ? borrarCarpetaAction : borrarDocumentoAction, item)}><Trash2 aria-hidden /> Mover a la papelera</DropdownMenuItem>}
-    {vista === "papelera" && <><DropdownMenuItem className="min-h-11" onClick={() => accion(restaurarDocumentoAction, item)}><RotateCcw aria-hidden /> Restaurar</DropdownMenuItem><DropdownMenuItem className="min-h-11" variant="destructive" onClick={() => accion(eliminarDefinitivoDocumentoAction, item)}><Trash2 aria-hidden /> Eliminar para siempre</DropdownMenuItem></>}
-  </DropdownMenuContent></DropdownMenu>;
-  const check = (item: Item) => <input aria-label={`Seleccionar ${item.nombre}`} type="checkbox" checked={seleccion.includes(item.id)} onChange={(e) => setSeleccion(e.target.checked ? [...seleccion, item.id] : seleccion.filter((x) => x !== item.id))} className="size-5 accent-primary" />;
-  const fila = (item: Item) => <div key={item.id} className="group flex min-h-16 items-center gap-3 border-b border-borde-sutil px-3 last:border-b-0 sm:px-4" onContextMenu={(e) => { e.preventDefault(); mostrar(item, "acciones"); }} onKeyDown={(e) => { if (e.key === "Delete" && item.gestionable) accion(item.tipo === "carpeta" ? borrarCarpetaAction : borrarDocumentoAction, item); if (e.key === "F2" && item.gestionable) mostrar(item, "acciones"); }}>
-    {check(item)}<button type="button" onClick={() => abrir(item)} className="flex min-h-11 min-w-0 flex-1 items-center gap-3 rounded-md text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><Icono item={item} /><span className="truncate font-medium">{item.nombre}</span>{item.destacado && <Star className="size-4 shrink-0 fill-sec-suave text-sec-trazo" aria-label="Destacado" />}</button>
-    <span className="hidden w-32 truncate text-sm text-muted-foreground lg:block">{item.propietario}</span><span className="hidden w-32 text-sm tabular-nums text-muted-foreground md:block">{fecha.format(item.modificado)}</span><span className="hidden w-20 text-right text-sm tabular-nums text-muted-foreground sm:block">{item.tamano === null ? "—" : formatoTamano(item.tamano)}</span>{menu(item)}
-  </div>;
+  const teclas = (e: React.KeyboardEvent, item: Item) => {
+    if ((e.target as HTMLElement).closest("input, textarea, [role=checkbox]") && e.key !== "Delete" && e.key !== "F2") return;
+    if (e.key === "Delete" && item.gestionable && vista !== "papelera") { e.preventDefault(); papelera(item); }
+    if (e.key === "F2" && item.gestionable && vista !== "papelera") { e.preventDefault(); setRenombrar(item); }
+  };
+  const lotePapelera = () => { const d = new FormData(); d.set("vista", vista); d.set("volver", volver); seleccionados.filter((i) => i.gestionable).forEach((i) => d.append("recursos", `${i.tipo}:${i.id}`)); iniciar(async () => papeleraLoteDocumentoAction(d)); };
+
+  const rutaBase = `/documentos?vista=${vista}`;
   return <div>
     <Notificar ok={ok} error={error} />
-    <EncabezadoPagina titulo="Documentos" seccion="comunicacion" descripcion="Organiza y comparte los archivos del colegio." />
-    <div className="grid min-w-0 gap-6 md:grid-cols-[210px_minmax(0,1fr)] lg:grid-cols-[230px_minmax(0,1fr)]">
-      <aside className="min-w-0"><div className="mb-4">{puedeCrear && <NuevoDocumento carpetaId={carpetaId} vista={vista} salones={salones} esProfesor={esProfesor} />}</div><label className="block md:hidden"><span className="sr-only">Sección de documentos</span><select aria-label="Sección de documentos" value={vista} onChange={(e) => router.push(`/documentos?vista=${e.target.value}`)} className={`${CLASE_CAMPO} w-full`}>{vistas.map((v) => <option key={v.id} value={v.id}>{v.nombre}</option>)}</select></label><nav aria-label="Secciones de documentos" className="hidden gap-1 md:flex md:flex-col">{vistas.map(({ id, nombre, icono: Icon }) => <Link key={id} href={`/documentos?vista=${id}`} aria-current={vista === id ? "page" : undefined} className={`flex min-h-11 shrink-0 items-center gap-2 rounded-lg px-3 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${vista === id ? "bg-sec-suave text-sec-tinta" : "text-muted-foreground hover:bg-accent"}`}><Icon className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> {nombre}</Link>)}</nav></aside>
-      <main className={`min-w-0 ${arrastrando ? "rounded-xl outline-2 outline-dashed outline-sec-trazo" : ""}`} onDragOver={(e) => { if (puedeCrear) { e.preventDefault(); setArrastrando(true); } }} onDragLeave={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setArrastrando(false); }} onDrop={(e) => { e.preventDefault(); setArrastrando(false); void soltar(e.dataTransfer.files); }}>
-        <nav aria-label="Ruta de carpetas" className="mb-4 flex min-w-0 flex-wrap items-center gap-1 text-sm"><Link href={`/documentos?vista=${vista}`} className="min-h-8 rounded-md px-1.5 py-1 font-medium text-primary">{vistas.find((v) => v.id === vista)?.nombre}</Link>{contenido.ruta.map((r) => <span key={r.id} className="inline-flex min-w-0 items-center gap-1"><ChevronRight className="size-4 shrink-0 text-muted-foreground" aria-hidden /><Link href={`/documentos?vista=${vista}&carpeta=${r.id}`} className="truncate rounded-md px-1.5 text-primary">{r.nombre}</Link></span>)}</nav>
-        <div className="mb-4 flex flex-wrap items-end gap-2"><form method="get" action="/documentos" role="search" className="flex w-full min-w-0 gap-2 sm:w-auto sm:flex-1"><input type="hidden" name="vista" value={vista} />{carpetaId && <input type="hidden" name="carpeta" value={carpetaId} />}<label className="min-w-0 flex-1"><span className="sr-only">Buscar por nombre</span><input type="search" name="q" defaultValue={q} placeholder="Buscar por nombre" className={CLASE_CAMPO} /></label><Button type="submit" variant="outline" aria-label="Buscar"><Search aria-hidden /></Button></form><form method="get" action="/documentos" className="min-w-0 flex-1 sm:flex-none"><input type="hidden" name="vista" value={vista} />{carpetaId && <input type="hidden" name="carpeta" value={carpetaId} />}<select name="orden" aria-label="Ordenar" defaultValue={orden} onChange={(e) => e.currentTarget.form?.requestSubmit()} className={`${CLASE_CAMPO} w-full sm:w-32`}><option value="recientes">Recientes</option><option value="antiguos">Antiguos</option><option value="titulo">Nombre</option></select></form><div className="flex rounded-lg border border-borde-sutil p-0.5"><Button variant={modo === "lista" ? "secondary" : "ghost"} size="icon" aria-label="Vista de lista" onClick={() => cambiarModo("lista")}><List aria-hidden /></Button><Button variant={modo === "cuadricula" ? "secondary" : "ghost"} size="icon" aria-label="Vista de cuadrícula" onClick={() => cambiarModo("cuadricula")}><Grid2X2 aria-hidden /></Button></div></div>
-        {arrastrando && <p className="mb-3 rounded-lg bg-sec-suave p-4 text-center text-sm font-medium text-sec-tinta">Suelta los archivos para subirlos aquí</p>}
-        {subidas.length > 0 && <div role="status" className="mb-3 rounded-lg border border-borde-sutil p-3 text-sm">{subidas.map((x, i) => <p key={i}>{x}</p>)}</div>}
-        {mensaje && <p role="status" className="mb-3 text-sm text-sec-tinta">{mensaje}</p>}
-        {seleccion.length > 0 && <div className="mb-3 flex min-h-11 flex-wrap items-center gap-2 rounded-lg bg-sec-suave px-3 text-sm"><Check className="size-4 text-sec-trazo" aria-hidden /> {seleccion.length} seleccionados <Button variant="ghost" size="sm" onClick={() => setSeleccion([])}>Quitar selección</Button><Button variant="ghost" size="sm" onClick={descargarSeleccion}><Download aria-hidden /> Descargar</Button><Button variant="ghost" size="sm" onClick={() => setMoverLote(true)}><Folder aria-hidden /> Mover a…</Button><Button variant="ghost" size="sm" onClick={() => { const d = new FormData(); d.set("vista", vista); d.set("volver", volver); items.filter((i) => seleccion.includes(i.id) && i.gestionable).forEach((i) => d.append("recursos", `${i.tipo}:${i.id}`)); iniciar(async () => papeleraLoteDocumentoAction(d)); }}><Trash2 aria-hidden /> Papelera</Button></div>}
-        {items.length === 0 ? <EstadoVacio icono={vista === "papelera" ? Trash2 : vista === "compartido" ? Users : FolderOpen} titulo={q ? "No encontramos archivos con ese nombre" : vacios[vista]} descripcion={q ? "Prueba con otro nombre." : undefined} /> : modo === "lista" ? <section aria-label="Archivos y carpetas" className="overflow-hidden rounded-xl border border-borde-sutil bg-card"><div className="flex gap-3 border-b border-borde-sutil bg-sec-suave px-4 py-3 text-xs font-semibold text-sec-tinta"><span className="flex-1 pl-8">Nombre</span><span className="hidden w-32 lg:block">Propietario</span><span className="hidden w-32 md:block">Última modificación</span><span className="hidden w-20 text-right sm:block">Tamaño</span><span className="w-10" /></div>{items.map(fila)}</section> : <section aria-label="Archivos y carpetas" className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">{items.map((item) => <div key={item.id} className="min-w-0 rounded-xl border border-borde-sutil bg-card p-3" onContextMenu={(e) => { e.preventDefault(); mostrar(item, "acciones"); }}><div className="flex items-center justify-between">{check(item)}{menu(item)}</div><button type="button" onClick={() => abrir(item)} className="flex min-h-28 w-full flex-col items-center justify-center gap-2 rounded-lg bg-sec-suave p-3 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><Icono item={item} /><span className="line-clamp-2 break-words text-sm font-medium">{item.nombre}</span></button><p className="mt-2 truncate text-xs text-muted-foreground tabular-nums">{fecha.format(item.modificado)}</p></div>)}</section>}
-      </main>
+    <EncabezadoPagina titulo="Documentos" seccion="comunicacion" descripcion="Organiza, comparte y consulta los archivos del colegio." />
+    <div className="grid min-w-0 gap-4 md:grid-cols-[13.5rem_minmax(0,1fr)] md:gap-6 lg:grid-cols-[15rem_minmax(0,1fr)]">
+      <aside className="min-w-0 space-y-3">
+        {puedeCrear && <NuevoDocumento carpetaId={carpetaId} vista={vista} onSubir={subirAqui} className="h-12 w-full justify-start px-5 md:w-auto" />}
+        <nav ref={navegacion} aria-label="Secciones de documentos" className="-mx-4 flex gap-1 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-col md:overflow-visible md:px-0 md:pb-0">
+          {vistas.map(({ id, nombre, icono: Icon }) => <Link key={id} href={`/documentos?vista=${id}`} aria-current={vista === id ? "page" : undefined} className={cn("flex min-h-11 shrink-0 items-center gap-2 rounded-full px-4 text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:rounded-lg md:px-3", vista === id ? "bg-sec-suave text-sec-tinta" : "text-muted-foreground hover:bg-accent hover:text-foreground")}><Icon className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> {nombre}</Link>)}
+        </nav>
+      </aside>
+      <div className={cn("relative min-w-0 rounded-xl", arrastrando && "outline-2 outline-dashed outline-offset-4 outline-sec-trazo")} onDragOver={(e) => { if (puedeCrear && e.dataTransfer.types.includes("Files")) { e.preventDefault(); setArrastrando(true); } }} onDragLeave={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setArrastrando(false); }} onDrop={(e) => { if (!puedeCrear) return; e.preventDefault(); setArrastrando(false); const f = Array.from(e.dataTransfer.files); if (f.length) subirAqui(f); }}>
+        <nav aria-label="Ruta de carpetas" className="mb-3 flex min-w-0 flex-wrap items-center gap-0.5 text-sm">
+          <Link href={rutaBase} className={cn("inline-flex min-h-9 items-center rounded-md px-2 font-medium", contenido.ruta.length === 0 ? "text-foreground" : "text-primary hover:underline")} aria-current={contenido.ruta.length === 0 ? "page" : undefined}>{nombreVista}</Link>
+          {contenido.ruta.map((r, i) => <span key={r.id} className="inline-flex min-w-0 items-center gap-0.5"><ChevronRight className="size-4 shrink-0 text-muted-foreground" aria-hidden /><Link href={`${rutaBase}&carpeta=${r.id}`} aria-current={i === contenido.ruta.length - 1 ? "page" : undefined} className={cn("inline-flex min-h-9 max-w-48 items-center truncate rounded-md px-2", i === contenido.ruta.length - 1 ? "font-medium text-foreground" : "text-primary hover:underline")}>{r.nombre}</Link></span>)}
+        </nav>
+        <div className="mb-4 flex flex-wrap items-center gap-2">
+          <form method="get" action="/documentos" role="search" className="relative min-w-0 flex-1 basis-56"><input type="hidden" name="vista" value={vista} />{carpetaId && <input type="hidden" name="carpeta" value={carpetaId} />}
+            <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" strokeWidth={2} aria-hidden />
+            <Input type="search" name="q" defaultValue={q} aria-label="Buscar por nombre" placeholder="Buscar por nombre" className="pl-9" />
+          </form>
+          <Select value={orden} onValueChange={(v) => router.push(`${rutaBase}${carpetaId ? `&carpeta=${carpetaId}` : ""}${q ? `&q=${encodeURIComponent(q)}` : ""}&orden=${v}`)} items={ordenes}>
+            <SelectTrigger aria-label="Ordenar por" className="min-w-0 flex-1 sm:w-44 sm:flex-none"><SelectValue /></SelectTrigger>
+            <SelectContent alignItemWithTrigger={false} align="start">{Object.entries(ORDENES_DOCUMENTO).map(([v, n]) => <SelectItem key={v} value={v}>{n}</SelectItem>)}</SelectContent>
+          </Select>
+          <div role="group" aria-label="Tipo de vista" className="flex rounded-lg border border-input bg-superficie-elevada p-0.5">
+            <Button variant={modo === "lista" ? "secondary" : "ghost"} size="icon-sm" aria-label="Vista de lista" aria-pressed={modo === "lista"} onClick={() => cambiarModo("lista")}><List aria-hidden /></Button>
+            <Button variant={modo === "cuadricula" ? "secondary" : "ghost"} size="icon-sm" aria-label="Vista de cuadrícula" aria-pressed={modo === "cuadricula"} onClick={() => cambiarModo("cuadricula")}><Grid2X2 aria-hidden /></Button>
+          </div>
+        </div>
+        {arrastrando && <p role="status" className="mb-3 flex min-h-14 items-center justify-center gap-2 rounded-lg bg-sec-suave p-4 text-center text-sm font-medium text-sec-tinta"><Upload className="size-4" strokeWidth={2} aria-hidden /> Suelta los archivos para subirlos a esta carpeta</p>}
+        {vista === "papelera" && items.length > 0 && <p className="mb-3 text-sm text-muted-foreground">Los elementos de la papelera se eliminan solos a los 30 días.</p>}
+        {seleccionados.length > 0 && <div role="toolbar" aria-label="Acciones de la selección" className="sticky top-2 z-20 mb-3 flex min-h-12 flex-wrap items-center gap-1 rounded-lg border border-borde-sutil bg-sec-suave py-1 pr-2 pl-1 text-sm shadow-sombra-1">
+          <Button variant="ghost" size="icon" aria-label="Quitar selección" onClick={() => setSeleccion([])}><X aria-hidden /></Button>
+          <span className="mr-1 font-medium tabular-nums">{seleccionados.length} {seleccionados.length === 1 ? "seleccionado" : "seleccionados"}</span>
+          {vista !== "papelera" && <>
+            {seleccionados.some((i) => i.archivo) && <Button variant="ghost" size="sm" onClick={() => descargar(seleccionados)}><Download aria-hidden /> Descargar</Button>}
+            {seleccionados.every((i) => i.gestionable) && <Button variant="ghost" size="sm" onClick={() => setMover(seleccionados)}><Folder aria-hidden /> Mover a…</Button>}
+            {seleccionados.every((i) => i.gestionable) && <Button variant="ghost" size="sm" onClick={lotePapelera}><Trash2 aria-hidden /> Papelera</Button>}
+          </>}
+        </div>}
+        {items.length === 0
+          ? <EstadoVacio icono={vista === "papelera" ? Trash2 : vista === "compartido" ? Users : vista === "recientes" ? Clock3 : vista === "destacados" ? Star : FolderOpen} titulo={q ? "No encontramos nada con ese nombre" : carpetaId && vista !== "papelera" ? "Esta carpeta está vacía" : vacios[vista].titulo} descripcion={q ? "Prueba con otro nombre o cambia de sección." : puedeCrear && (carpetaId || vista === "unidad" || vista === "biblioteca") ? "Sube archivos o crea una carpeta con el botón Nuevo, o arrastra los archivos aquí." : vacios[vista].detalle} />
+          : <ListaContenido items={items} modo={modo} seleccion={seleccion} onSeleccion={setSeleccion} onAbrir={abrir} accionesDe={accionesDe} onTecla={teclas} onMenuMovil={setMenuMovil} />}
+      </div>
     </div>
-    <Dialog open={moverLote} onOpenChange={setMoverLote}><DialogContent><DialogHeader><DialogTitle>Mover selección</DialogTitle><DialogDescription>Elige la carpeta de destino.</DialogDescription></DialogHeader><form action={(d) => iniciar(async () => moverLoteDocumentoAction(d))} className="space-y-4"><input type="hidden" name="vista" value={vista} /><input type="hidden" name="volver" value={volver} />{items.filter((i) => seleccion.includes(i.id)).map((i) => <input key={i.id} type="hidden" name="recursos" value={`${i.tipo}:${i.id}`} />)}<label className="block text-sm font-medium">Carpeta<select name="destinoId" className={CLASE_CAMPO}><option value="">Raíz</option>{opciones.map((o) => <option key={o.id} value={o.id}>{o.ruta}</option>)}</select></label><Button type="submit" disabled={pendiente}>Mover</Button></form></DialogContent></Dialog>
-    <Dialog open={panel === "vista"} onOpenChange={(v) => !v && setPanel(null)}><DialogContent className="sm:max-w-4xl"><DialogHeader><DialogTitle>{actual?.nombre}</DialogTitle><DialogDescription>Vista previa del archivo</DialogDescription></DialogHeader>{actual?.archivo && (actual.archivo.mimeType === "application/pdf" ? <iframe title={`Vista previa de ${actual.nombre}`} src={`/archivos/${actual.archivo.id}?vista=1`} className="h-[65dvh] w-full rounded-lg border border-borde-sutil" /> : actual.archivo.mimeType.startsWith("image/") ? <Image unoptimized alt={actual.nombre} src={`/archivos/${actual.archivo.id}?vista=1`} width={1000} height={700} className="max-h-[65dvh] w-full object-contain" /> : <p className="rounded-lg bg-sec-suave p-6">No hay vista previa para este tipo de archivo.</p>)}{actual?.archivo?.mimeType === "application/pdf" && <a href={`/archivos/${actual.archivo.id}?vista=1`} target="_blank" rel="noopener noreferrer" className="text-sm text-primary underline">Abrir PDF en otra pestaña</a>}{actual?.archivo && <a href={`/archivos/${actual.archivo.id}`} download={actual.archivo.nombre} className="inline-flex min-h-11 items-center gap-2 self-start text-primary"><Download aria-hidden /> Descargar</a>}</DialogContent></Dialog>
-    <Dialog open={panel === "compartir"} onOpenChange={(v) => !v && setPanel(null)}><DialogContent className="sm:max-w-lg"><DialogHeader><DialogTitle>Compartir «{actual?.nombre}»</DialogTitle><DialogDescription>El enlace solo funciona para quienes tengan permiso.</DialogDescription></DialogHeader>{actual && <><div className="space-y-2"><p className="text-sm font-semibold">Quién tiene acceso</p><p className="rounded-lg bg-sec-suave px-3 py-2 text-sm">Propietario · Acceso total</p>{accesos.map((a) => <div key={a.id} className="flex min-h-11 items-center gap-2 border-b border-borde-sutil text-sm"><span className="min-w-0 flex-1 truncate">{a.nombre}</span><select aria-label={`Nivel de ${a.nombre}`} defaultValue={a.nivel} disabled={pendiente} onChange={(e) => accion(compartirDocumentoAction, actual, { membershipId: a.membershipId ?? "", rol: a.rol ?? "", salonId: a.salonId ?? "", nivel: e.target.value })} className="min-h-11 rounded-md border border-borde-sutil bg-background px-2"><option value="lector">Lector</option>{!(["apoderado", "alumno"].includes(a.rol ?? personas.find((p) => p.id === a.membershipId)?.rol ?? "")) && <option value="editor">Editor</option>}</select><Button variant="ghost" size="sm" onClick={() => accion(quitarAccesoDocumentoAction, actual, { compartidoId: a.id })}>Quitar</Button></div>)}</div><form action={(d) => iniciar(async () => compartirDocumentoAction(d))} className="space-y-3 border-t border-borde-sutil pt-3"><input type="hidden" name="id" value={actual.id} /><input type="hidden" name="tipo" value={actual.tipo} /><input type="hidden" name="vista" value={vista} /><input type="hidden" name="volver" value={volver} /><label className="block text-sm font-medium">Buscar personas y grupos<input type="search" value={filtroPersonas} onChange={(e) => setFiltroPersonas(e.target.value)} placeholder="Nombre, correo, rol o salón" className={CLASE_CAMPO} /></label><label className="block text-sm font-medium">Agregar personas y grupos<select className={CLASE_CAMPO} value={destino} onChange={(e) => setDestino(e.target.value)} required><option value="">Elige una persona o grupo</option><optgroup label="Personas">{personas.filter((p) => `${p.nombre} ${p.email} ${p.rol}`.toLocaleLowerCase("es").includes(filtroPersonas.toLocaleLowerCase("es"))).map((p) => <option key={p.id} value={`persona:${p.id}`}>{p.nombre} · {p.rol}</option>)}</optgroup><optgroup label="Grupos">{[ ["apoderado", "Familias"], ["alumno", "Alumnos"], ["profesor", "Profesores"], ["administrativo", "Personal administrativo"] ].filter(([r]) => !esProfesor || r !== "administrativo").map(([r,n]) => <option key={r} value={`rol:${r}`}>{n} · todo el colegio</option>)}{salones.filter((s) => `${s.nombre} familias alumnos profesores`.toLocaleLowerCase("es").includes(filtroPersonas.toLocaleLowerCase("es"))).flatMap((s) => [["apoderado", "Familias"], ["alumno", "Alumnos"], ["profesor", "Profesores"]].map(([r,n]) => <option key={`${r}:${s.id}`} value={`grupo:${r}:${s.id}`}>{n} de {s.nombre}</option>))}</optgroup></select></label><input type="hidden" name="membershipId" value={destino.startsWith("persona:") ? destino.slice(8) : ""} /><input type="hidden" name="rol" value={destino.startsWith("rol:") ? destino.slice(4) : destino.startsWith("grupo:") ? destino.split(":")[1] : ""} /><input type="hidden" name="salonId" value={destino.startsWith("grupo:") ? destino.split(":")[2] : ""} /><label className="block text-sm font-medium">Nivel<select name="nivel" value={nivel} onChange={(e) => setNivel(e.target.value)} className={CLASE_CAMPO}><option value="lector">Lector</option><option value="editor">Editor</option></select></label><label className="flex min-h-11 items-center gap-2 text-sm"><input type="checkbox" name="avisar" className="size-5 accent-primary" /> Avisar a las personas <span className="text-muted-foreground">(familias por ahora)</span></label><div className="flex justify-end"><Button type="submit" disabled={pendiente || !destino}><Share2 aria-hidden /> Compartir</Button></div></form><form action={(d) => iniciar(async () => accesoGeneralDocumentoAction(d))} className="space-y-3 border-t border-borde-sutil pt-3"><input type="hidden" name="id" value={actual.id} /><input type="hidden" name="tipo" value={actual.tipo} /><input type="hidden" name="vista" value={vista} /><input type="hidden" name="volver" value={volver} /><label className="block text-sm font-medium">Acceso general<select name="acceso" value={general} onChange={(e) => setGeneral(e.target.value)} className={CLASE_CAMPO}><option value="restringido">Restringido</option><option value="colegio">Todo el colegio (roles elegidos)</option></select></label>{general === "colegio" && <><div className="grid grid-cols-2 gap-2">{[["apoderado", "Familias"], ["alumno", "Alumnos"], ["profesor", "Profesores"], ["administrativo", "Personal administrativo"]].filter(([r]) => !esProfesor || r !== "administrativo").map(([r,n]) => <label key={r} className="flex min-h-11 items-center gap-2 text-sm"><input type="checkbox" name="visibleRoles" value={r} defaultChecked={actual.visibleRoles?.includes(r)} className="size-5 accent-primary" />{n}</label>)}</div><label className="block text-sm font-medium">Salón (opcional)<select name="salonId" defaultValue={actual.salonId ?? ""} required={esProfesor} className={CLASE_CAMPO}><option value="">Todo el colegio</option>{salones.map((s) => <option key={s.id} value={s.id}>{s.nombre}</option>)}</select></label></>}<div className="flex justify-end"><Button type="submit" disabled={pendiente}>Guardar acceso general</Button></div></form><Button variant="outline" onClick={() => copiar(actual)}><Copy aria-hidden /> Copiar enlace</Button></>}</DialogContent></Dialog>
-    <Sheet open={panel === "detalles" || panel === "acciones" || panel === "mover"} onOpenChange={(v) => !v && setPanel(null)}><SheetContent side="right" movil="abajo"><SheetHeader><SheetTitle>{panel === "acciones" ? "Acciones" : panel === "mover" ? "Mover a…" : "Detalles"}</SheetTitle></SheetHeader>{actual && <div className="space-y-4 px-4 pb-5 text-sm"><div className="flex items-center gap-3"><Icono item={actual} /><strong className="break-words">{actual.nombre}</strong></div>{panel === "mover" ? <form action={(d) => iniciar(async () => moverDocumentoAction(d))} className="space-y-3"><input type="hidden" name="id" value={actual.id} /><input type="hidden" name="tipo" value={actual.tipo} /><input type="hidden" name="vista" value={vista} /><input type="hidden" name="volver" value={volver} /><label className="block text-sm font-medium">Carpeta de destino<select name="destinoId" value={destinoMover} onChange={(e) => setDestinoMover(e.target.value)} className={CLASE_CAMPO}><option value="">Raíz</option>{opciones.filter((o) => o.id !== actual.id).map((o) => <option key={o.id} value={o.id}>{o.ruta}</option>)}</select></label><Button type="submit" disabled={pendiente}>Mover</Button></form> : panel === "acciones" ? <><Button variant="outline" className="w-full justify-start" onClick={() => abrir(actual)}><FolderOpen aria-hidden /> Abrir</Button>{actual.gestionable && <Button variant="outline" className="w-full justify-start" onClick={() => mostrar(actual, "compartir")}><Share2 aria-hidden /> Compartir</Button>}{actual.gestionable && (actual.tipo === "carpeta" ? <DialogoEditarCarpeta carpeta={{ id: actual.id, nombre: actual.nombre, visibleRoles: actual.visibleRoles ?? [], parentId: actual.carpetaId ?? null }} opciones={opciones} volver={carpetaId} /> : <DialogoEditarDocumento doc={{ id: actual.id, titulo: actual.nombre, descripcion: actual.descripcion ?? null, carpetaId: actual.carpetaId ?? null, salonId: actual.salonId ?? null, visibleRoles: actual.visibleRoles ?? [] }} opciones={opciones} salones={salones} esProfesor={esProfesor} volver={carpetaId} />)}{actual.gestionable && <Button variant="outline" className="w-full justify-start text-destructive" onClick={() => accion(actual.tipo === "carpeta" ? borrarCarpetaAction : borrarDocumentoAction, actual)}><Trash2 aria-hidden /> Mover a la papelera</Button>}</> : <><dl className="grid grid-cols-[auto_1fr] gap-3"><dt>Tipo</dt><dd>{actual.tipo === "carpeta" ? "Carpeta" : actual.archivo?.mimeType ?? "Archivo"}</dd><dt>Tamaño</dt><dd className="tabular-nums">{actual.tamano === null ? "—" : formatoTamano(actual.tamano)}</dd><dt>Ubicación</dt><dd>{contenido.ruta.map((r) => r.nombre).join(" / ") || vistas.find((v) => v.id === vista)?.nombre}</dd><dt>Propietario</dt><dd>{actual.propietario}</dd><dt>Creado</dt><dd className="tabular-nums">{fecha.format(actual.creado)}</dd><dt>Modificado</dt><dd className="tabular-nums">{fecha.format(actual.modificado)}</dd></dl><div><strong>Quién tiene acceso</strong>{accesos.length ? accesos.map((a) => <p key={a.id} className="mt-2">{a.nombre} · {a.nivel}</p>) : <p className="mt-2 text-muted-foreground">Sin accesos directos adicionales</p>}</div><div><strong>Actividad reciente</strong>{actividad.length ? actividad.map((a, i) => <p key={i} className="mt-2 text-muted-foreground"><span className="capitalize">{a.accion}</span> · <span className="tabular-nums">{fecha.format(a.createdAt)}</span></p>) : <p className="mt-2 text-muted-foreground">Sin actividad reciente</p>}</div></>}</div>}</SheetContent></Sheet>
+
+    <PanelSubidas subidas={subidas} onCerrar={cerrar} />
+    <HojaAcciones item={menuMovil} acciones={menuMovil ? accionesDe(menuMovil) : []} onCerrar={() => setMenuMovil(null)} />
+    <VistaPrevia item={vistaPrevia} onCerrar={() => setVistaPrevia(null)} />
+    <PanelDetalles item={detalles} opciones={opciones} onCerrar={() => setDetalles(null)} onCompartir={(i) => { setDetalles(null); setCompartir(i); }} extra={detalles?.tipo === "documento" && detalles.gestionable ? <DialogoEditarDocumento doc={{ id: detalles.id, titulo: detalles.nombre, descripcion: detalles.descripcion ?? null, carpetaId: detalles.carpetaId ?? null, salonId: detalles.salonId ?? null, visibleRoles: detalles.visibleRoles ?? [] }} opciones={opciones} salones={salones} esProfesor={esProfesor} volver={carpetaId} /> : undefined} />
+    <DialogoCompartir item={compartir} onCerrar={() => { setCompartir(null); refrescar(); }} personas={personas} salones={salones} esProfesor={esProfesor} onCopiar={copiar} />
+    <DialogoRenombrar item={renombrar} onCerrar={() => setRenombrar(null)} onListo={refrescar} />
+    <DialogoMover items={mover} opciones={opciones} onCerrar={() => setMover([])} onListo={() => { setSeleccion([]); refrescar(); }} />
+    <AlertDialog open={!!eliminar} onOpenChange={(v) => { if (!v) setEliminar(null); }}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogMedia className="bg-falta-fondo text-falta"><Trash2 strokeWidth={2} aria-hidden /></AlertDialogMedia>
+          <AlertDialogTitle>¿Eliminar «{eliminar?.nombre}» para siempre?</AlertDialogTitle>
+          <AlertDialogDescription>{eliminar?.tipo === "carpeta" ? "Se borrará la carpeta con todo lo que contiene." : "Se borrará el archivo."} No se puede deshacer.</AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancelar</AlertDialogCancel>
+          <button type="button" className={buttonVariants({ variant: "destructive" })} onClick={() => { const i = eliminar; setEliminar(null); if (i) enviar(eliminarDefinitivoDocumentoAction, i); }}>Eliminar para siempre</button>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   </div>;
 }

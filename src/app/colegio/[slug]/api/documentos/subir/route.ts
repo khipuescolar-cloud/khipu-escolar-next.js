@@ -13,16 +13,19 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
   const datos = await request.formData();
   const archivo = datos.get("archivo");
   if (!(archivo instanceof File)) return NextResponse.json({ error: "Elige un archivo." }, { status: 400 });
+  const carpetaId = typeof datos.get("carpetaId") === "string" && datos.get("carpetaId") ? String(datos.get("carpetaId")) : null;
+  // En la Biblioteca, lo que se sube a una carpeta con roles hereda esos roles (y su salón) para que quienes ven la carpeta vean el archivo.
+  const padre = carpetaId && /^[0-9a-f-]{36}$/i.test(carpetaId) ? await ctx.db.carpetaDocumento.findFirst({ where: { id: carpetaId, eliminadoAt: null }, select: { ambito: true, visibleRoles: true, salonId: true } }) : null;
+  const hereda = padre?.ambito === "biblioteca";
   try {
     const r = await subirDocumento(ctx, {
-      titulo: String(datos.get("titulo") ?? archivo.name), descripcion: null,
-      carpetaId: typeof datos.get("carpetaId") === "string" && datos.get("carpetaId") ? String(datos.get("carpetaId")) : null,
-      salonId: typeof datos.get("salonId") === "string" && datos.get("salonId") ? String(datos.get("salonId")) : null,
-      visibleRoles: [], ambito: datos.get("ambito") === "unidad" ? "unidad" : "biblioteca",
+      titulo: String(datos.get("titulo") ?? archivo.name), descripcion: null, carpetaId,
+      salonId: typeof datos.get("salonId") === "string" && datos.get("salonId") ? String(datos.get("salonId")) : (hereda ? padre.salonId : null),
+      visibleRoles: hereda ? padre.visibleRoles.filter((r) => ctx.rol === "profesor" ? r !== "administrativo" && r !== "direccion" : r !== "direccion") : [], ambito: datos.get("ambito") === "unidad" ? "unidad" : "biblioteca",
     }, { nombre: archivo.name, buffer: Buffer.from(await archivo.arrayBuffer()) });
     return NextResponse.json({ id: r.id });
   } catch (e) {
-    if (e instanceof ErrorDeNegocio || e instanceof ZodError) return NextResponse.json({ error: e.message }, { status: 400 });
+    if (e instanceof ErrorDeNegocio || e instanceof ZodError) return NextResponse.json({ error: e instanceof ZodError ? (e.issues[0]?.message ?? "Revisa los datos.") : e.message }, { status: 400 });
     throw e;
   }
 }

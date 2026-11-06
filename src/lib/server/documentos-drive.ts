@@ -4,6 +4,7 @@ import type { NivelCompartidoDocumento, Rol } from "@/generated/prisma/enums";
 import { borrarDelProveedor } from "./adjuntos";
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
+import { ETIQUETA_DESTINO, cadenaDeCarpetas } from "@/lib/documentos";
 import { contextoPermisosDocumento, nivelCarpeta, nivelDocumento, puedeEditarNivel } from "./documentos-permisos";
 import { requireFeature } from "./plan";
 import { salonIdsVisibles, type TenantContext } from "./tenant";
@@ -25,18 +26,65 @@ async function recurso(ctx: TenantContext, r: RecursoDocumento) {
 
 export async function personasParaCompartir(ctx: TenantContext) {
   habilitar(ctx);
-  const [personas, salones] = await Promise.all([
+  const idsSalones = ctx.rol === "profesor" ? await salonIdsVisibles(ctx) : undefined;
+  const [personas, salones, propios] = await Promise.all([
     ctx.db.membership.findMany({ where: { estado: "activa", rol: { in: ["direccion", ...rolesPermitidos] } }, select: { id: true, rol: true, user: { select: { nombres: true, apellidos: true, email: true } } }, orderBy: { user: { apellidos: "asc" } } }),
-    ctx.db.salon.findMany({ where: { id: { in: ctx.rol === "profesor" ? await salonIdsVisibles(ctx) : undefined } }, select: { id: true, nombre: true }, orderBy: { nombre: "asc" } }),
+    ctx.db.salon.findMany({ where: { id: { in: idsSalones } }, select: { id: true, nombre: true }, orderBy: { nombre: "asc" } }),
+    idsSalones
+      ? Promise.all([
+        ctx.db.alumno.findMany({ where: { salonId: { in: idsSalones }, cuentaId: { not: null } }, select: { cuentaId: true } }),
+        ctx.db.apoderadoAlumno.findMany({ where: { alumno: { salonId: { in: idsSalones } } }, select: { apoderadoId: true } }),
+      ])
+      : null,
   ]);
-  return { personas: personas.map((m) => ({ id: m.id, rol: m.rol, nombre: `${m.user.nombres} ${m.user.apellidos}`, email: m.user.email })), salones };
+  // Un profesor solo ve a las familias y alumnos de sus salones (el servidor lo vuelve a exigir al compartir).
+  const permitidos = propios ? new Set([...propios[0].map((a) => a.cuentaId), ...propios[1].map((a) => a.apoderadoId)]) : null;
+  const visibles = personas.filter((m) => !permitidos || (m.rol !== "apoderado" && m.rol !== "alumno") || permitidos.has(m.id));
+  return { personas: visibles.map((m) => ({ id: m.id, rol: m.rol, nombre: `${m.user.nombres} ${m.user.apellidos}`, email: m.user.email })), salones };
 }
 
 export async function accesosDeRecurso(ctx: TenantContext, r: RecursoDocumento) {
   const { nivel } = await recurso(ctx, r);
   if (nivel === "ninguno") notFound();
-  const shares = await ctx.db.compartidoDocumento.findMany({ where: r.tipo === "carpeta" ? { carpetaId: r.id } : { documentoId: r.id }, include: { membership: { select: { user: { select: { nombres: true, apellidos: true, email: true } } } }, salon: { select: { nombre: true } } }, orderBy: { createdAt: "asc" } });
-  return shares.map((s) => ({ id: s.id, nivel: s.nivel, membershipId: s.membershipId, rol: s.rol, salonId: s.salonId, nombre: s.membership ? `${s.membership.user.nombres} ${s.membership.user.apellidos}` : `${s.rol}${s.salon ? ` · ${s.salon.nombre}` : ""}`, email: s.membership?.user.email ?? null }));
+  const shares = await ctx.db.compartidoDocumento.findMany({ where: r.tipo === "carpeta" ? { carpetaId: r.id } : { documentoId: r.id }, include: { membership: { select: { rol: true, user: { select: { nombres: true, apellidos: true, email: true } } } }, salon: { select: { nombre: true } } }, orderBy: { createdAt: "asc" } });
+  return shares.map((s) => ({ id: s.id, nivel: s.nivel, membershipId: s.membershipId, rol: s.rol, salonId: s.salonId, rolDestino: (s.membership?.rol ?? s.rol) as Rol | null, nombre: s.membership ? `${s.membership.user.nombres} ${s.membership.user.apellidos}` : `${ETIQUETA_DESTINO[s.rol ?? ""] ?? s.rol}${s.salon ? ` de ${s.salon.nombre}` : " · todo el colegio"}`, email: s.membership?.user.email ?? null, salon: s.salon?.nombre ?? null }));
+}
+
+/** Todo lo que necesita el diálogo Compartir y el panel de detalles: propietario, accesos propios, accesos heredados de carpetas padre y acceso general. */
+export async function detalleAccesos(ctx: TenantContext, r: RecursoDocumento) {
+  const { fila, nivel, p } = await recurso(ctx, r);
+  if (nivel === "ninguno") notFound();
+  const propias = await accesosDeRecurso(ctx, r);
+  const propietarioId = r.tipo === "carpeta" ? (fila as { creadoPorId: string }).creadoPorId : (fila as { publicadoPorId: string }).publicadoPorId;
+  const propietario = await ctx.db.membership.findFirst({ where: { id: propietarioId }, select: { rol: true, user: { select: { nombres: true, apellidos: true, email: true } } } });
+  const cadena = cadenaDeCarpetas(p.mapa, r.tipo === "carpeta" ? (fila as { parentId: string | null }).parentId : (fila as { carpetaId: string | null }).carpetaId);
+  const heredadas = cadena.length
+    ? await ctx.db.compartidoDocumento.findMany({ where: { carpetaId: { in: cadena.map((c) => c.id) } }, include: { membership: { select: { rol: true, user: { select: { nombres: true, apellidos: true, email: true } } } }, salon: { select: { nombre: true } } }, orderBy: { createdAt: "asc" } })
+    : [];
+  const nombreCarpeta = new Map(cadena.map((c) => [c.id, c.nombre]));
+  return {
+    puedeCompartir: puedeEditarNivel(nivel),
+    propietario: propietario ? { nombre: `${propietario.user.nombres} ${propietario.user.apellidos}`, rol: propietario.rol as Rol, email: propietario.user.email, esTu: propietarioId === ctx.membership.id } : null,
+    general: { roles: (fila as { visibleRoles: Rol[] }).visibleRoles, salonId: (fila as { salonId: string | null }).salonId, ambito: (fila as { ambito: "biblioteca" | "unidad" }).ambito },
+    entradas: propias,
+    heredadas: heredadas.map((s) => ({ id: s.id, nivel: s.nivel, rolDestino: (s.membership?.rol ?? s.rol) as Rol | null, nombre: s.membership ? `${s.membership.user.nombres} ${s.membership.user.apellidos}` : `${ETIQUETA_DESTINO[s.rol ?? ""] ?? s.rol}${s.salon ? ` de ${s.salon.nombre}` : " · todo el colegio"}`, email: s.membership?.user.email ?? null, desde: nombreCarpeta.get(s.carpetaId ?? "") ?? "carpeta" })),
+  };
+}
+
+/** Cambia el nombre de una carpeta o el título de un documento (solo con permiso de edición). */
+export async function renombrarRecurso(ctx: TenantContext, r: RecursoDocumento, nombreNuevo: string) {
+  const actual = await recurso(ctx, r);
+  if (!puedeEditarNivel(actual.nivel)) forbidden();
+  const nombre = nombreNuevo.trim();
+  if (!nombre) throw new ErrorDeNegocio("Escribe un nombre.");
+  if (nombre.length > (r.tipo === "carpeta" ? 80 : 150)) throw new ErrorDeNegocio(`El nombre puede tener hasta ${r.tipo === "carpeta" ? 80 : 150} caracteres.`);
+  if (r.tipo === "carpeta") {
+    const c = actual.fila as { id: string; parentId: string | null; ambito: "biblioteca" | "unidad"; creadoPorId: string };
+    const hermanas = await ctx.db.carpetaDocumento.findMany({ where: { parentId: c.parentId, eliminadoAt: null, ...(c.parentId ? {} : { ambito: c.ambito, ...(c.ambito === "unidad" ? { creadoPorId: c.creadoPorId } : {}) }) }, select: { id: true, nombre: true } });
+    if (hermanas.some((h) => h.id !== c.id && h.nombre.toLocaleLowerCase("es") === nombre.toLocaleLowerCase("es"))) throw new ErrorDeNegocio("Ya existe una carpeta con ese nombre en este lugar.");
+    await ctx.db.carpetaDocumento.update({ where: { id: r.id }, data: { nombre } });
+  } else await ctx.db.documento.update({ where: { id: r.id }, data: { titulo: nombre } });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: r.tipo === "carpeta" ? "carpeta_documento" : "documento", entidadId: r.id, detalle: { renombrar: nombre } });
 }
 
 export async function compartirRecurso(ctx: TenantContext, r: RecursoDocumento, destinatario: { membershipId?: string; rol?: Rol; salonId?: string | null }, nivel: NivelCompartidoDocumento) {

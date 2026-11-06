@@ -27,9 +27,10 @@ const esquemaDocumento = z.object({
   descripcion: z.string().trim().max(600, "La descripción puede tener hasta 600 caracteres.").nullish(),
 });
 
-export type CarpetaVista = { id: string; nombre: string; visibleRoles: Rol[]; salonId: string | null; elementos: number; propietario: string; createdAt: Date; updatedAt: Date; gestionable: boolean; destacado: boolean };
-export type CarpetaOpcion = { id: string; ruta: string; parentId: string | null };
+export type CarpetaVista = { ambito: "biblioteca" | "unidad"; parentId: string | null; id: string; nombre: string; visibleRoles: Rol[]; salonId: string | null; elementos: number; propietario: string; createdAt: Date; updatedAt: Date; gestionable: boolean; destacado: boolean };
+export type CarpetaOpcion = { id: string; ruta: string; parentId: string | null; ambito: "biblioteca" | "unidad"; editable: boolean };
 export type DocumentoVista = {
+  ambito: "biblioteca" | "unidad";
   id: string;
   titulo: string;
   descripcion: string | null;
@@ -91,7 +92,8 @@ export async function opcionesDeCarpeta(ctx: TenantContext): Promise<CarpetaOpci
   const mapa = p.mapa;
   return [...mapa.values()]
     .filter((c) => nivelCarpeta(p, c.id) !== "ninguno")
-    .map((c) => ({ id: c.id, parentId: c.parentId, ruta: rutaDe(mapa, c.id) }))
+    .filter((c) => !c.eliminadoAt)
+    .map((c) => ({ id: c.id, parentId: c.parentId, ruta: rutaDe(mapa, c.id), ambito: c.ambito, editable: puedeEditarNivel(nivelCarpeta(p, c.id)) }))
     .sort((a, b) => a.ruta.localeCompare(b.ruta, "es"));
 }
 
@@ -136,7 +138,7 @@ export async function listarContenido(
     .filter((d) => vista === "papelera" ? (ctx.rol === "direccion" || d.eliminadoPorId === ctx.membership.id) : nivelDocumento(p, d) !== "ninguno")
     .filter((d) => carpetaId && !busqueda ? true : vista === "unidad" ? d.ambito === "unidad" && d.publicadoPorId === ctx.membership.id && (!!busqueda || !d.carpetaId) : vista === "biblioteca" ? d.ambito === "biblioteca" && (!!busqueda || !d.carpetaId) : vista === "compartido" ? d.publicadoPorId !== ctx.membership.id && d.ambito === "unidad" : vista === "destacados" ? destacadosDocumentos.has(d.id) : vista === "recientes" ? recientesDocumentos.has(d.id) : true)
     .map((d) => ({
-      id: d.id, titulo: d.titulo, descripcion: d.descripcion, createdAt: d.createdAt, updatedAt: d.updatedAt,
+      ambito: d.ambito, id: d.id, titulo: d.titulo, descripcion: d.descripcion, createdAt: d.createdAt, updatedAt: d.updatedAt,
       carpetaId: d.carpetaId, carpetaRuta: d.carpetaId ? rutaDe(mapa, d.carpetaId) : null,
       visibleRoles: d.visibleRoles, salonId: d.salonId, salon: d.salon?.nombre ?? null,
       autor: nombreDe(d.publicadoPor.user), archivo: d.archivos[0] ? adjuntoVista(d.archivos[0]) : null,
@@ -160,7 +162,7 @@ export async function listarContenido(
     : [];
   const carpetas = hijas
     .map((h) => ({
-      id: h.id, nombre: h.nombre, visibleRoles: h.visibleRoles, salonId: h.salonId, propietario: h.creadoPorId === ctx.membership.id ? "Tú" : nombreDe(h.creadoPor.user), createdAt: h.createdAt, updatedAt: h.updatedAt, gestionable: puedeEditarNivel(nivelCarpeta(p, h.id)), destacado: destacadosCarpetas.has(h.id),
+      ambito: h.ambito, parentId: h.parentId, id: h.id, nombre: h.nombre, visibleRoles: h.visibleRoles, salonId: h.salonId, propietario: h.creadoPorId === ctx.membership.id ? "Tú" : nombreDe(h.creadoPor.user), createdAt: h.createdAt, updatedAt: h.updatedAt, gestionable: puedeEditarNivel(nivelCarpeta(p, h.id)), destacado: destacadosCarpetas.has(h.id),
       elementos:
         conteoDocs.filter((d) => d.carpetaId === h.id && nivelDocumento(p, d) !== "ninguno").length +
         [...mapa.values()].filter((c) => c.parentId === h.id && nivelCarpeta(p, c.id) !== "ninguno").length,

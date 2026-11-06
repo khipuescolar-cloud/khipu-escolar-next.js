@@ -25,7 +25,15 @@ const nextConfig: NextConfig = {
     proxyClientMaxBodySize: "55mb",
   },
   async headers() {
-    return [{ source: "/:path*", headers: CABECERAS_SEGURIDAD }];
+    // La vista previa de documentos (specs/31) incrusta `/archivos/<id>?vista=1` en un iframe del MISMO origen: solo ahí se
+    // permite `SAMEORIGIN` (nunca otros sitios). El resto de la app y las descargas conservan `DENY`.
+    const mismoOrigen = CABECERAS_SEGURIDAD.map((c) => c.key === "X-Frame-Options" ? { ...c, value: "SAMEORIGIN" } : c.key === "Content-Security-Policy" ? { ...c, value: "frame-ancestors 'self'" } : c);
+    const vistaPrevia = { type: "query" as const, key: "vista", value: "1" };
+    return [
+      { source: "/archivos/:id", has: [vistaPrevia], headers: mismoOrigen },
+      { source: "/archivos/:id", missing: [vistaPrevia], headers: CABECERAS_SEGURIDAD },
+      { source: "/((?!archivos/).*)", headers: CABECERAS_SEGURIDAD },
+    ];
   },
   allowedDevOrigins: ["lvh.me", "*.lvh.me"],
   serverExternalPackages: ["@react-pdf/renderer", "pg"],
