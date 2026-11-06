@@ -1,6 +1,6 @@
 "use client";
 
-import { Loader2, Megaphone, Pencil } from "lucide-react";
+import { CircleAlert, Loader2, Megaphone, Pencil } from "lucide-react";
 import { useState, useTransition } from "react";
 import { CamposAdjuntos } from "@/components/adjuntos/CamposAdjuntos";
 import { Boton } from "@/components/ui/Boton";
@@ -52,7 +52,7 @@ function CamposDestino({ salones, esDireccion }: { salones: Salon[]; esDireccion
       <legend className="mb-1.5 text-sm font-medium text-foreground">Para quién</legend>
       <div className="grid gap-2 sm:grid-cols-2">
         {OPCIONES_DESTINO.map((o) => (
-          <label key={o.valor} className="flex cursor-pointer items-start gap-2.5 rounded-md border p-3 text-sm has-[:checked]:border-primary has-[:checked]:bg-primary/5 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring/50">
+          <label key={o.valor} className="flex cursor-pointer items-start gap-2.5 rounded-[10px] border border-borde-sutil p-3 text-sm transition-colors has-[:checked]:border-sec-trazo has-[:checked]:bg-sec-suave has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring/50">
             <input type="radio" name="destino" value={o.valor} checked={destino === o.valor} onChange={() => setDestino(o.valor)} aria-label={o.texto} aria-describedby={`destino-${o.valor}-ayuda`} className="mt-0.5 size-4 accent-primary" />
             <span className="flex flex-col">
               <span className="font-medium">{o.texto}</span>
@@ -106,9 +106,9 @@ export function DialogoPublicar({ salones, esDireccion }: { salones: Salon[]; es
       <DialogTrigger render={<Button />}>
         <Megaphone strokeWidth={2} aria-hidden /> Publicar un comunicado
       </DialogTrigger>
-      <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
+      <DialogContent data-seccion="comunicacion" className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle className="text-titulo-2">Publicar un comunicado</DialogTitle>
+          <DialogTitle className="font-heading text-titulo-2">Publicar un comunicado</DialogTitle>
           <DialogDescription>Las familias lo verán en sus notificaciones de Khipu y en el celular en cuanto lo publiques.</DialogDescription>
         </DialogHeader>
         <form
@@ -122,10 +122,10 @@ export function DialogoPublicar({ salones, esDireccion }: { salones: Salon[]; es
             <textarea name="cuerpo" rows={5} maxLength={5000} required className={CLASE_CAMPO} />
           </label>
           <CamposAdjuntos id="adjuntos-nuevo-comunicado" />
-          <label className="flex items-start gap-3 rounded-lg border bg-muted/50 p-3 text-sm">
+          <label className="flex min-h-11 cursor-pointer items-start gap-3 rounded-[10px] bg-sec-suave p-3 text-sm has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring/50">
             <input type="checkbox" name="importante" className="mt-0.5 size-4 accent-primary" />
             <span>
-              <span className="font-medium">Importante: enviar también por correo</span>
+              <span className="inline-flex items-center gap-1.5 font-medium text-sec-tinta"><CircleAlert className="size-4" strokeWidth={2} aria-hidden />Importante: enviar también por correo</span>
               <span className="block text-muted-foreground">Úsalo solo para lo que las familias no deben perderse.</span>
             </span>
           </label>
@@ -149,7 +149,7 @@ export function DialogoEditar({ id, titulo, cuerpo, adjuntos }: { id: string; ti
       <DialogTrigger render={<Button variant="outline" />}>
         <Pencil strokeWidth={2} aria-hidden /> Editar
       </DialogTrigger>
-      <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
+      <DialogContent data-seccion="comunicacion" className="max-h-[90dvh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="text-titulo-2">Editar comunicado</DialogTitle>
           <DialogDescription>Puedes editarlo o borrarlo durante las primeras 24 horas.</DialogDescription>

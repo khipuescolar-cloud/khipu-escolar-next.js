@@ -112,7 +112,7 @@ export function GrillaTiempo({ dias, items, hoyIso, horaAhora, ahoraId = null, j
         <TabsList className="w-full rounded-none border-b bg-transparent p-1.5 group-data-horizontal/tabs:h-auto" aria-label="Día de la semana">
           {dias.map((d) => (
             <TabsTrigger key={d} value={d} className="min-h-14 flex-col gap-0.5 px-0.5 py-1.5">
-              <span aria-hidden className="text-etiqueta font-medium tracking-wide uppercase">{NOMBRE_DIA_SEMANA_CORTO[diaDeSemana(d)]}</span>
+              <span aria-hidden className="text-etiqueta font-medium first-letter:uppercase">{NOMBRE_DIA_SEMANA_CORTO[diaDeSemana(d)]}</span>
               <NumeroDia fecha={d} hoy={d === hoyIso} chico />
               <span className="sr-only">{nombreDia(d)}{d === hoyIso ? " (hoy)" : ""}</span>
             </TabsTrigger>
@@ -135,7 +135,7 @@ export function NumeroDia({ fecha, hoy, chico }: { fecha: string; hoy: boolean; 
       className={cn(
         "inline-flex items-center justify-center rounded-full font-heading font-semibold tabular-nums",
         chico ? "size-7 text-cuerpo-sm" : "size-9 text-[1.375rem]",
-        hoy ? "bg-primary text-primary-foreground" : "text-foreground",
+        hoy ? "bg-sec-tinta text-fondo" : "text-foreground",
       )}
     >
       {Number(fecha.slice(8))}
@@ -159,8 +159,8 @@ function Cuadricula({ ctx, dias, sinEncabezado }: { ctx: Contexto; dias: readonl
         <div className="grid border-b" style={columnas}>
           <span className="self-end px-2 pb-1.5 text-right text-etiqueta font-normal text-muted-foreground">Hora</span>
           {dias.map((d) => (
-            <div key={d} className={cn("flex flex-col items-center gap-1 border-l py-2.5", esHoy(d) && "bg-primary/[0.04]")}>
-              <span className={cn("text-etiqueta font-medium tracking-wide uppercase", esHoy(d) ? "text-primary" : "text-muted-foreground")}>{NOMBRE_DIA_SEMANA_CORTO[diaDeSemana(d)]}</span>
+            <div key={d} className={cn("flex flex-col items-center gap-1 border-l py-2.5", esHoy(d) && "bg-sec-suave/40")}>
+              <span className={cn("text-etiqueta font-medium first-letter:uppercase", esHoy(d) ? "text-sec-tinta" : "text-muted-foreground")}>{NOMBRE_DIA_SEMANA_CORTO[diaDeSemana(d)]}</span>
               <NumeroDia fecha={d} hoy={esHoy(d)} />
             </div>
           ))}
@@ -170,7 +170,7 @@ function Cuadricula({ ctx, dias, sinEncabezado }: { ctx: Contexto; dias: readonl
         <div className="grid border-b" style={columnas}>
           <span className="px-2 py-2 text-right text-etiqueta leading-tight font-normal text-muted-foreground">Todo el día</span>
           {dias.map((d) => (
-            <ul key={d} aria-label={`Todo el día del ${nombreDia(d).toLowerCase()}`} className={cn("flex min-w-0 flex-col gap-1 border-l p-1", esHoy(d) && "bg-primary/[0.04]")}>
+            <ul key={d} aria-label={`Todo el día del ${nombreDia(d).toLowerCase()}`} className={cn("flex min-w-0 flex-col gap-1 border-l p-1", esHoy(d) && "bg-sec-suave/40")}>
               {ctx.items.filter((e) => e.fecha === d && e.todoElDia).map((e) => (
                 <li key={e.id} className="h-7"><ItemAgenda e={e} pasado={false} extra={ctx.detalles[e.id]} /></li>
               ))}
@@ -187,7 +187,7 @@ function Cuadricula({ ctx, dias, sinEncabezado }: { ctx: Contexto; dias: readonl
             </span>
           ))}
           {ctx.jornada && [ctx.jornada.entrada, ctx.jornada.salida].map((h) => (
-            <span key={h} className="absolute right-1.5 -translate-y-1/2 rounded-pildora border border-primary/40 bg-card px-1.5 text-etiqueta font-semibold text-primary tabular-nums" style={{ top: horas.y(minutos(h)) }}>
+            <span key={h} className="absolute right-1.5 -translate-y-1/2 rounded-pildora border border-sec-trazo/50 bg-card px-1.5 text-etiqueta font-semibold text-sec-tinta tabular-nums" style={{ top: horas.y(minutos(h)) }}>
               {etiquetaHora(minutos(h))}
             </span>
           ))}
@@ -220,7 +220,7 @@ function ColumnaDia({ ctx, fecha, marcas, alto, primera }: { ctx: Contexto; fech
   const { jornada } = ctx;
   const franja = (i: { horaInicio: string; horaFin: string }) => ({ top: y(minutos(i.horaInicio)), height: y(minutos(i.horaFin)) - y(minutos(i.horaInicio)) });
   return (
-    <section aria-label={`${nombreDia(fecha)} ${formatoDia(fecha, { day: "numeric", month: "long" })}${hoy ? " (hoy)" : ""}`} className={cn("relative border-l", hoy && "bg-primary/[0.04]")} style={{ height: alto }}>
+    <section aria-label={`${nombreDia(fecha)} ${formatoDia(fecha, { day: "numeric", month: "long" })}${hoy ? " (hoy)" : ""}`} className={cn("relative border-l", hoy && "bg-sec-suave/40")} style={{ height: alto }}>
       {marcas.map((m) => <div key={m} aria-hidden className="absolute inset-x-0 border-t" style={{ top: y(m) }} />)}
       {marcas.slice(0, -1).map((m) => <div key={`m${m}`} aria-hidden className="absolute inset-x-0 border-t border-dashed border-border/60" style={{ top: y(m + 30) }} />)}
       {jornada?.recreos.map((r) => (
@@ -230,9 +230,9 @@ function ColumnaDia({ ctx, fecha, marcas, alto, primera }: { ctx: Contexto; fech
         </div>
       ))}
       {jornada && (["entrada", "salida"] as const).map((k) => (
-        <div key={k} aria-hidden className="pointer-events-none absolute inset-x-0 border-t-2 border-dashed border-primary/45" style={{ top: y(minutos(jornada[k])) }}>
+        <div key={k} aria-hidden className="pointer-events-none absolute inset-x-0 border-t-2 border-dashed border-sec-trazo/45" style={{ top: y(minutos(jornada[k])) }}>
           {primera && (
-            <span className={cn("absolute left-1 rounded-sm bg-card px-1 text-etiqueta font-semibold text-primary", k === "entrada" ? "-top-5" : "top-0.5")}>
+            <span className={cn("absolute left-1 rounded-sm bg-card px-1 text-etiqueta font-semibold text-sec-tinta", k === "entrada" ? "-top-5" : "top-0.5")}>
               {k === "entrada" ? "Entrada" : "Salida"}
             </span>
           )}
@@ -279,7 +279,7 @@ function Clase({ b, color, ahora, pasado, extra }: { b: ItemCalendario; color: C
           c.fondo,
           c.barra,
           pasado && !ahora && "opacity-60",
-          ahora && "shadow-[var(--sombra-1)] ring-2 ring-primary",
+          ahora && "shadow-[var(--sombra-1)] ring-2 ring-sec-trazo",
           b.enCruce && "outline-2 outline-dashed outline-falta",
         )}
         aria-label={`${b.titulo}, ${salon}, ${b.horaInicio} – ${b.horaFin}${ahora ? " (ahora)" : ""}${b.enCruce ? " (se cruza con otra clase)" : ""}`}
@@ -351,7 +351,7 @@ function ItemAgenda({ e, pasado, extra }: { e: ItemCalendario; pasado: boolean; 
         <div className="flex items-start gap-3 p-4 pb-3">
           <Icono className={cn("mt-1 size-4 shrink-0", tinta)} strokeWidth={2} aria-hidden />
           <div className="flex min-w-0 flex-col gap-0.5">
-            <p className={cn("text-etiqueta font-medium uppercase", tinta)}>{palabra}{e.cancelado ? " · Cancelada" : ""}</p>
+            <p className={cn("text-etiqueta font-semibold", tinta)}>{palabra}{e.cancelado ? " · Cancelada" : ""}</p>
             <p className="font-heading text-cuerpo font-semibold">{e.titulo}</p>
             <p className="text-cuerpo-sm text-muted-foreground">{nombreDia(e.fecha)} · <span className="tabular-nums">{horario}</span></p>
           </div>

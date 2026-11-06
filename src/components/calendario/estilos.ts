@@ -14,18 +14,25 @@ const SUBTIPO_EVENTO: Record<string, { palabra: string; Icono: LucideIcon }> = {
   evento: { palabra: "Evento", Icono: CalendarDays },
 };
 
+/**
+ * Cada tipo toma la cuerda de la sección del menú a la que pertenece: clases = Día a día (turquesa), reuniones =
+ * Comunicación (cochinilla), evaluaciones y entregas = Académico (ocre), eventos del colegio = índigo.
+ */
+const DIA = { tinta: "text-[color:var(--dia-tinta)]", borde: "border-[color:var(--dia-trazo)]/60" };
+const COMUNICACION = { tinta: "text-[color:var(--comunicacion-tinta)]", borde: "border-[color:var(--comunicacion-trazo)]/60" };
+const ACADEMICO = { tinta: "text-[color:var(--academico-tinta)]", borde: "border-[color:var(--academico-trazo)]/60" };
+const COLEGIO = { tinta: "text-primary", borde: "border-primary/60" };
+
 export function estiloDe(it: Pick<ItemCalendario, "tipo" | "subtipo">): EstiloTipo {
-  const primario = { tinta: "text-primary", borde: "border-primary/60" };
   switch (it.tipo) {
-    case "reunion": return { palabra: "Reunión", Icono: Users, ...primario };
-    case "evaluacion": return { palabra: "Evaluación", Icono: NotebookPen, tinta: "text-falta", borde: "border-falta/60" };
-    case "entrega": return { palabra: "Entrega de tarea", Icono: ListTodo, tinta: "text-tarde", borde: "border-tarde/60" };
+    case "reunion": return { palabra: "Reunión", Icono: Users, ...COMUNICACION };
+    case "evaluacion": return { palabra: "Evaluación", Icono: NotebookPen, ...ACADEMICO };
+    case "entrega": return { palabra: "Entrega de tarea", Icono: ListTodo, ...ACADEMICO };
     case "bloqueo": return { palabra: "Ocupado", Icono: Ban, tinta: "text-muted-foreground", borde: "border-border" };
-    case "clase": return { palabra: "Clase", Icono: School, ...primario };
+    case "clase": return { palabra: "Clase", Icono: School, ...DIA };
     default: {
       const s = SUBTIPO_EVENTO[it.subtipo ?? "evento"] ?? SUBTIPO_EVENTO.evento;
-      return { ...s, ...primario };
+      return { ...s, ...(it.subtipo === "reunion" ? COMUNICACION : it.subtipo === "examen" ? ACADEMICO : COLEGIO) };
     }
   }
 }
-

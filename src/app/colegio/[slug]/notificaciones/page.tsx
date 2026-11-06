@@ -4,7 +4,6 @@ import Link from "next/link";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Boton } from "@/components/ui/Boton";
-import { Card, CardContent } from "@/components/ui/card";
 import { fechaLima, formatoHora } from "@/lib/fechas";
 import { listarNotificaciones, ROLES_BANDEJA } from "@/lib/server/notificaciones/bandeja";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -27,6 +26,7 @@ export default async function NotificacionesPage({ params, searchParams }: PageP
     <div className="flex flex-col gap-5">
       <EncabezadoPagina
         titulo="Notificaciones"
+        seccion="comunicacion"
         descripcion={ctx.rol === "apoderado" || ctx.rol === "alumno" ? "Notas, tareas, evaluaciones, mensajes y comunicados del colegio." : "Mensajes de las familias y avisos del colegio sobre tus clases."}
         acciones={
           datos.sinLeer > 0 ? (
@@ -39,27 +39,23 @@ export default async function NotificacionesPage({ params, searchParams }: PageP
       {datos.filas.length === 0 ? (
         <EstadoVacio icono={Bell} titulo="No tienes notificaciones" descripcion="Cuando haya algo nuevo para ti en Khipu, aparecerá aquí." />
       ) : (
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
           {datos.filas.map((n) => (
             <li key={n.id}>
-              <Card className={cn(!n.leidaAt && "border-primary/40")}>
-                <CardContent>
-                  {/* Enlace normal (no <Link>): la ruta marca leída y redirige. */}
-                  <a href={`/notificaciones/${n.id}/abrir`} className="flex items-start gap-3 rounded-md focus-visible:outline-2">
-                    {n.leidaAt
-                      ? <Bell className="mt-0.5 size-5 shrink-0 text-muted-foreground" strokeWidth={2} aria-hidden />
-                      : <BellRing className="mt-0.5 size-5 shrink-0 text-primary" strokeWidth={2} aria-hidden />}
-                    <span className="flex min-w-0 flex-col gap-0.5">
-                      <span className="flex flex-wrap items-center gap-2 font-medium">
-                        {n.titulo}
-                        {!n.leidaAt && <span className="rounded-pildora bg-primary/10 px-2 py-0.5 text-etiqueta text-primary">Nueva</span>}
-                      </span>
-                      <span className="text-sm">{n.cuerpo}</span>
-                      <span className="text-cuerpo-sm text-muted-foreground tabular-nums">{fechaLima(n.createdAt)} · {formatoHora(n.createdAt)}</span>
-                    </span>
-                  </a>
-                </CardContent>
-              </Card>
+              {/* Enlace normal (no <Link>): la ruta marca leída y redirige. */}
+              <a href={`/notificaciones/${n.id}/abrir`} className={cn("flex min-h-16 items-start gap-3 px-4 py-3.5 outline-none transition-colors hover:bg-accent focus-visible:bg-accent focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-inset", !n.leidaAt && "bg-sec-suave/50")}>
+                {n.leidaAt
+                  ? <Bell className="mt-0.5 size-5 shrink-0 text-muted-foreground" strokeWidth={2} aria-hidden />
+                  : <BellRing className="mt-0.5 size-5 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />}
+                <span className="flex min-w-0 flex-col gap-0.5">
+                  <span className={cn("flex flex-wrap items-center gap-2", n.leidaAt ? "font-medium" : "font-semibold")}>
+                    {n.titulo}
+                    {!n.leidaAt && <span className="inline-flex items-center gap-1 text-etiqueta font-semibold text-sec-tinta"><span aria-hidden className="size-1.5 rounded-full bg-sec-nudo" />Nueva</span>}
+                  </span>
+                  <span className="text-sm">{n.cuerpo}</span>
+                  <span className="text-cuerpo-sm text-muted-foreground tabular-nums">{fechaLima(n.createdAt)} · {formatoHora(n.createdAt)}</span>
+                </span>
+              </a>
             </li>
           ))}
         </ul>

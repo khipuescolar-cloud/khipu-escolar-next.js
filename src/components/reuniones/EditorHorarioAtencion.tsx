@@ -16,7 +16,7 @@ export function EditorHorarioAtencion({ inicial, guardar }: { inicial: Franja[];
   const [error, setError] = useState<string | null>(null);
   const [pendiente, iniciar] = useTransition();
   const cambiar = (i: number, cambio: Partial<Franja>) => setFranjas(franjas.map((f, j) => (j === i ? { ...f, ...cambio } : f)));
-  const campo = "h-10 rounded-lg border bg-background px-2 text-cuerpo";
+  const campo = "h-11 rounded-[10px] border border-input bg-background px-2 text-cuerpo";
   return (
     <div className="flex flex-col gap-3">
       {franjas.length === 0 && <p className="text-cuerpo-sm text-muted-foreground">Sin horario de atención: las familias te propondrán fecha y hora.</p>}

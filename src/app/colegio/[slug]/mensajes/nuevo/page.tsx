@@ -30,19 +30,20 @@ export default async function NuevoMensajePage({ params, searchParams }: PagePro
       <Notificar ok={Array.isArray(ok) ? ok[0] : ok} error={Array.isArray(error) ? error[0] : error} />
       <EncabezadoPagina
         titulo={ctx.rol === "apoderado" ? "¿A quién quieres escribir?" : "¿A qué familia quieres escribir?"}
+        seccion="comunicacion"
         descripcion="Elige a la persona y empieza la conversación. No se comparten teléfonos ni correos."
       />
       {posibles.length === 0 ? (
         <EstadoVacio icono={UserRound} titulo="Todavía no hay a quién escribir" descripcion="Cuando el colegio te asigne un profesor o una familia, aparecerá aquí." />
       ) : (
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
           {posibles.map((p) => (
             <li key={`${p.alumnoId}-${p.profesorId}-${p.apoderadoId}`}>
-              <form action={abrirConversacionAction} className="flex items-center gap-3 rounded-lg border bg-card p-3">
+              <form action={abrirConversacionAction} className="flex min-h-16 items-center gap-3 px-4 py-3">
                 <input type="hidden" name="alumnoId" value={p.alumnoId} />
                 <input type="hidden" name="contraparteId" value={ctx.rol === "apoderado" ? p.profesorId : p.apoderadoId} />
                 <Avatar size="lg">
-                  <AvatarFallback className="bg-maiz text-sm font-semibold text-sobre-maiz">{iniciales(p.etiqueta)}</AvatarFallback>
+                  <AvatarFallback className="bg-sec-suave text-sm font-semibold text-sec-tinta">{iniciales(p.etiqueta)}</AvatarFallback>
                 </Avatar>
                 <span className="min-w-0 flex-1 text-sm font-medium">{p.etiqueta}</span>
                 <Boton type="submit" variante="secundario">Escribir</Boton>

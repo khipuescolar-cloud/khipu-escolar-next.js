@@ -1,14 +1,13 @@
-import { ArrowLeft, Bell, CalendarClock, CheckCheck, CheckCircle2, CircleDashed, ClipboardList, FileText, History, ListPlus, MapPin, NotebookPen, Video, XCircle } from "lucide-react";
+import { Bell, CalendarClock, CheckCheck, CheckCircle2, CircleDashed, ClipboardList, ListPlus, MapPin, NotebookPen, Video, XCircle } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { forbidden, notFound } from "next/navigation";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
 import { FormularioRespuesta } from "@/components/reuniones/FormularioRespuesta";
+import { MigasReunion } from "@/components/reuniones/MigasReunion";
 import { InsigniaEstado, InsigniaRespuesta } from "@/components/reuniones/Insignias";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Alerta } from "@/components/ui/Alerta";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Textarea } from "@/components/ui/textarea";
 import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
@@ -16,6 +15,7 @@ import { DURACIONES } from "@/lib/disponibilidad";
 import { formatoDia, formatoHora, momentoEnZona } from "@/lib/fechas";
 import { TEXTO_MODALIDAD, TEXTO_TIPO, puedeResponderReunion } from "@/lib/reuniones";
 import { detalleReunion } from "@/lib/server/reuniones";
+import { TituloBloque } from "../../inicio/TituloBloque";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { actaAction, acuerdoAction, asistenciaAction, cancelarAction, marcarAcuerdoAction, realizadaAction, recordarAction, reprogramarAction, responderAction } from "../actions";
@@ -52,12 +52,12 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
   const responsables = [{ id: r.organizadorId, nombre: `${r.organizador} (organiza)` }, ...personas.map((p) => ({ id: p.membershipId, nombre: p.nombre }))];
 
   return (
-    <div className="flex flex-col gap-6">
-      <Link href="/reuniones" className="inline-flex w-fit items-center gap-1 text-sm font-medium text-indigo-cielo hover:underline">
-        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Todas las reuniones
-      </Link>
+    <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-4">
       <EncabezadoPagina
         titulo={r.titulo}
+        seccion="comunicacion"
+        migas={<MigasReunion actual={r.titulo} />}
         descripcion={<span className="first-letter:uppercase">{formatoDia(r.inicio, { weekday: "long", day: "numeric", month: "long", year: "numeric" })} · {formatoHora(r.inicio)} a {formatoHora(r.fin)} ({duracion} min)</span>}
         acciones={<InsigniaEstado estado={r.estado} porCerrar={r.gestiona && r.estado === "programada" && empezo} />}
       />
@@ -70,7 +70,7 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
       )}
       {r.reprogramadaAt && r.estado === "programada" && <Alerta tipo="info">Esta reunión se reprogramó. Revisa la nueva fecha y hora.</Alerta>}
 
-      <Tarjeta className="flex flex-col gap-2 text-cuerpo-sm">
+      <div className="flex flex-col gap-2 rounded-[14px] border border-borde-sutil bg-card p-4 text-cuerpo-sm sm:p-5">
         <p><span className="font-medium">Para:</span> {r.ambito}</p>
         <p><span className="font-medium">Tipo:</span> {TEXTO_TIPO[r.tipo]} · {TEXTO_MODALIDAD[r.modalidad]}</p>
         <p><span className="font-medium">Organiza:</span> {r.organizador}{r.convocadaPor !== r.organizador ? ` · solicitada por ${r.convocadaPor}` : ""}</p>
@@ -84,17 +84,18 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
           </p>
         )}
         {r.descripcion && <p className="whitespace-pre-line text-muted-foreground">{r.descripcion}</p>}
-      </Tarjeta>
+      </div>
+      </div>
 
       {r.mia && (
         <section aria-labelledby="mi-respuesta" className="flex flex-col gap-3">
-          <div className="flex flex-wrap items-center gap-3">
-            <h2 id="mi-respuesta" className="text-titulo-2">Tu respuesta</h2>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <TituloBloque id="mi-respuesta">Tu respuesta</TituloBloque>
             <InsigniaRespuesta respuesta={r.mia.respuesta} />
           </div>
           {r.mia.alumnos.length > 0 && <p className="text-cuerpo-sm text-muted-foreground">Te citamos por: {r.mia.alumnos.join(", ")}.</p>}
           {porConfirmar ? null : puedeResponder ? (
-            <Tarjeta><FormularioRespuesta id={r.id} accion={responderAction.bind(null, slug, r.id)} actual={r.mia.respuesta} comentario={r.mia.comentario} /></Tarjeta>
+            <div className="rounded-[14px] border border-borde-sutil bg-card p-4 sm:p-5"><FormularioRespuesta id={r.id} accion={responderAction.bind(null, slug, r.id)} actual={r.mia.respuesta} comentario={r.mia.comentario} /></div>
           ) : (
             r.estado !== "cancelada" && <p className="text-cuerpo-sm text-muted-foreground">La reunión ya empezó: no se puede cambiar la respuesta.</p>
           )}
@@ -107,7 +108,7 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
       {r.gestiona && r.resumen && (
         <section aria-labelledby="confirmaciones" className="flex flex-col gap-3">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 id="confirmaciones" className="text-titulo-2">Confirmaciones</h2>
+            <TituloBloque id="confirmaciones">Confirmaciones</TituloBloque>
             <div className="flex flex-wrap gap-2">
               {puedeResponderReunion(r, ahora) && r.resumen.pendiente > 0 && (
                 <BotonConfirmar
@@ -123,14 +124,12 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
           <p className="text-cuerpo-sm text-muted-foreground">
             {r.resumen.asistire} aceptaron · {r.resumen.no_asistire} rechazaron · {r.resumen.propone_otra} proponen otra hora · {r.resumen.pendiente} sin respuesta
           </p>
-          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil md:grid-cols-2 xl:grid-cols-4">
             {grupos.map((g) => {
               const lista = personas.filter((p) => p.respuesta === g.clave);
               return (
-                <Tarjeta key={g.clave} className="flex flex-col gap-2">
-                  <h3 className="flex items-center justify-between gap-2 font-titulo text-cuerpo font-semibold">
-                    {g.titulo}<InsigniaRespuesta respuesta={g.clave} />
-                  </h3>
+                <div key={g.clave} className="flex flex-col gap-2 bg-card p-4">
+                  <h3 className="font-heading text-cuerpo font-semibold">{g.titulo} <span className="font-normal text-muted-foreground tabular-nums">· {lista.length}</span></h3>
                   {lista.length === 0 ? <p className="text-cuerpo-sm text-muted-foreground">Nadie por ahora.</p> : (
                     <ul className="flex flex-col gap-2 text-cuerpo-sm">
                       {lista.map((p) => (
@@ -144,7 +143,7 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
                       ))}
                     </ul>
                   )}
-                </Tarjeta>
+                </div>
               );
             })}
           </div>
@@ -153,7 +152,7 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
 
       {r.gestiona && r.estado !== "cancelada" && (
         <section aria-labelledby="gestion" className="flex flex-col gap-3">
-          <h2 id="gestion" className="text-titulo-2">Después de la reunión</h2>
+          <TituloBloque id="gestion">Después de la reunión</TituloBloque>
           {porConfirmar ? null : !empezo ? (
             <p className="text-cuerpo-sm text-muted-foreground">Cuando empiece la reunión podrás marcar la asistencia y escribir el acta.</p>
           ) : (
@@ -243,16 +242,16 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
 
       {r.acta && (
         <section aria-labelledby="acta" className="flex flex-col gap-3">
-          <h2 id="acta" className="flex items-center gap-2 text-titulo-2"><FileText className="size-5" strokeWidth={2} aria-hidden />Acta</h2>
+          <TituloBloque id="acta">Acta</TituloBloque>
           {r.gestiona && !r.actaPublicadaAt && <Alerta tipo="aviso">Borrador: las familias todavía no ven esta acta.</Alerta>}
-          <Tarjeta><p className="whitespace-pre-line text-cuerpo">{r.acta}</p></Tarjeta>
+          <div className="rounded-[14px] border border-borde-sutil bg-card p-4 sm:p-5"><p className="max-w-prose whitespace-pre-line text-cuerpo">{r.acta}</p></div>
         </section>
       )}
 
       {(r.acuerdos.length > 0 || (r.gestiona && r.estado !== "cancelada" && !porConfirmar && empezo)) && (
         <section aria-labelledby="acuerdos" className="flex flex-col gap-3">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 id="acuerdos" className="text-titulo-2">Acuerdos</h2>
+            <TituloBloque id="acuerdos">Acuerdos</TituloBloque>
             {r.gestiona && r.estado !== "cancelada" && !porConfirmar && empezo && (
               <DialogoAccion
                 variante="outline"
@@ -272,10 +271,10 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
             )}
           </div>
           {r.acuerdos.length === 0 ? <p className="text-cuerpo-sm text-muted-foreground">Todavía no hay acuerdos.</p> : (
-            <ul className="flex flex-col gap-2">
+            <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
               {r.acuerdos.map((a) => (
                 <li key={a.id}>
-                  <Tarjeta className="flex flex-wrap items-center justify-between gap-2 text-cuerpo-sm">
+                  <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-3 text-cuerpo-sm">
                     <div>
                       <p className="flex items-center gap-1.5 font-medium">
                         {a.estado === "cumplido" ? <CheckCircle2 className="size-4 text-llego" strokeWidth={2} aria-hidden /> : <CircleDashed className="size-4 text-tarde" strokeWidth={2} aria-hidden />}
@@ -295,7 +294,7 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
                         accion={marcarAcuerdoAction.bind(null, slug, a.id, a.estado !== "cumplido")}
                       />
                     )}
-                  </Tarjeta>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -305,8 +304,8 @@ export default async function ReunionPage({ params }: PageProps<"/colegio/[slug]
 
       {r.historial && r.historial.length > 0 && (
         <section aria-labelledby="historial" className="flex flex-col gap-2">
-          <h2 id="historial" className="flex items-center gap-2 text-titulo-2"><History className="size-5" strokeWidth={2} aria-hidden />Historial</h2>
-          <ul className="flex flex-col gap-1 text-cuerpo-sm text-muted-foreground">
+          <TituloBloque id="historial">Historial</TituloBloque>
+          <ul className="flex flex-col gap-1 text-cuerpo-sm text-muted-foreground tabular-nums">
             {r.historial.map((c, i) => (
               <li key={i}>{formatoDia(c.fecha, { day: "numeric", month: "short" })} {formatoHora(c.fecha)} · {TEXTO_CAMBIO[c.tipo] ?? c.tipo}{c.actor ? ` · ${c.actor}` : ""}{c.motivo ? ` · «${c.motivo}»` : ""}</li>
             ))}

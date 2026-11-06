@@ -23,8 +23,8 @@ export default async function HiloPage({ params }: PageProps<"/colegio/[slug]/me
 
   return (
     <div className="lg:grid lg:grid-cols-[22rem_1fr] lg:gap-6">
-      <aside className="hidden self-start overflow-hidden rounded-lg border bg-card lg:block">
-        <h2 className="border-b px-4 py-3 text-base font-semibold">Mensajes</h2>
+      <aside className="hidden self-start overflow-hidden rounded-[14px] border border-borde-sutil bg-card lg:block">
+        <h2 className="border-b border-borde-sutil px-4 py-3 font-heading text-[18px] leading-6 font-semibold">Mensajes</h2>
         <ListaConversaciones filas={conversaciones} activa={id} compacta />
       </aside>
 

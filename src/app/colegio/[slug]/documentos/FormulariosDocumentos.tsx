@@ -35,7 +35,7 @@ function CamposDestino({ roles, marcados = [], ayuda }: { roles: string[]; marca
       <legend className="mb-1 text-sm font-medium">¿Quién lo ve?</legend>
       <div className="grid gap-1.5 sm:grid-cols-2">
         {roles.map((r) => (
-          <label key={r} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border bg-card px-3 py-2 text-sm has-[:checked]:border-primary/50 has-[:checked]:bg-primary/5">
+          <label key={r} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-[10px] border border-borde-sutil bg-card px-3 py-2 text-sm transition-colors has-[:checked]:border-sec-trazo has-[:checked]:bg-sec-suave">
             <input type="checkbox" name="visibleRoles" value={r} defaultChecked={marcados.includes(r)} className="size-5 accent-primary" />
             {ETIQUETA_DESTINO[r]}
           </label>
@@ -174,7 +174,7 @@ export function DialogoSubir({ carpetaId, volver, opciones, salones, esProfesor,
           <Selectores opciones={opciones} carpetaId={carpetaId} salones={salones} salonId={null} esProfesor={esProfesor} />
           <CamposDestino roles={esProfesor ? ROLES_DESTINO_PROFESOR : ROLES_DESTINO} marcados={esProfesor ? ["apoderado", "alumno"] : []} ayuda="Además de las casillas, cada carpeta puede limitar quién entra." />
           {hayFamilias && (
-            <label className="flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border bg-card px-3 py-2 text-sm">
+            <label className="flex min-h-11 cursor-pointer items-center gap-3 rounded-[10px] border border-borde-sutil bg-card px-3 py-2 text-sm">
               <input type="checkbox" name="avisar" className="size-5 accent-primary" />
               <span>Avisar a las familias <span className="text-cuerpo-sm text-muted-foreground">(correo y notificación, solo si marcaste «Familias»)</span></span>
             </label>

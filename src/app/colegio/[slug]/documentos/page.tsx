@@ -6,9 +6,7 @@ import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Notificar } from "@/components/shell/Notificar";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { CLASE_CAMPO } from "@/components/ui/Selector";
 import { formatoTamano } from "@/lib/adjuntos";
 import { esOrdenDocumento, etiquetasDestino, ORDENES_DOCUMENTO, ROLES_BIBLIOTECA } from "@/lib/documentos";
@@ -16,6 +14,7 @@ import { requireConsentimiento } from "@/lib/server/consentimiento";
 import { listarContenido, opcionesDeCarpeta, puedeAdministrarCarpetas, salonesParaDocumentos } from "@/lib/server/documentos";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
+import { TituloBloque } from "../inicio/TituloBloque";
 import { borrarCarpetaAction, borrarDocumentoAction } from "./actions";
 import { DialogoEditarCarpeta, DialogoEditarDocumento, DialogoNuevaCarpeta, DialogoSubir } from "./FormulariosDocumentos";
 
@@ -66,13 +65,14 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
       <Notificar ok={ok} error={error} />
       <EncabezadoPagina
         titulo="Documentos"
+        seccion="comunicacion"
         descripcion={puedeSubir ? "Reglamento, calendario y documentos del colegio, con permisos por rol y salón." : "Reglamento, calendario y documentos del colegio para ti."}
         acciones={acciones}
       />
 
       <nav aria-label="Ruta de carpetas" className="mb-4 flex flex-wrap items-center gap-1 text-cuerpo-sm">
         <Link href="/documentos" className="inline-flex min-h-8 items-center gap-1.5 rounded-md px-1.5 font-medium text-primary hover:underline">
-          <FolderOpen className="size-4" strokeWidth={2} aria-hidden /> Documentos
+          <FolderOpen className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> Documentos
         </Link>
         {contenido.ruta.map((r, i) => (
           <span key={r.id} className="inline-flex items-center gap-1">
@@ -116,39 +116,35 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
           />
         )
       ) : (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-10">
           {contenido.carpetas.length > 0 && (
-            <section aria-label="Carpetas">
-              <h2 className="mb-2 text-etiqueta uppercase tracking-wide text-muted-foreground">Carpetas</h2>
-              <ul className="grid gap-3 sm:grid-cols-2">
+            <section aria-labelledby="bloque-carpetas" className="flex flex-col gap-3">
+              <TituloBloque id="bloque-carpetas">Carpetas</TituloBloque>
+              <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
                 {contenido.carpetas.map((c) => (
-                  <li key={c.id}>
-                    <Card className="h-full">
-                      <CardContent className="flex flex-col gap-3">
-                        <Link href={enlace(c.id)} className="flex min-h-11 items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-                          <Folder className="size-6 shrink-0 text-primary" strokeWidth={2} aria-hidden />
-                          <span className="min-w-0 flex-1">
-                            <span className="block truncate font-medium">{c.nombre}</span>
-                            <span className="text-cuerpo-sm text-muted-foreground">{c.elementos} {c.elementos === 1 ? "elemento" : "elementos"}</span>
-                          </span>
-                          {c.visibleRoles.length > 0 && gestorCarpetas && <Badge variant="secondary"><Lock strokeWidth={2} aria-hidden /> Restringida</Badge>}
-                        </Link>
-                        {gestorCarpetas && (
-                          <div className="flex flex-wrap items-center gap-2 border-t pt-3">
-                            <DialogoEditarCarpeta key={`e${c.id}${clave}`} carpeta={{ id: c.id, nombre: c.nombre, visibleRoles: c.visibleRoles, parentId: carpetaId }} opciones={opciones} volver={volver} />
-                            <BotonConfirmar
-                              etiqueta={<><Trash2 strokeWidth={2} aria-hidden /> Borrar<span className="sr-only"> carpeta {c.nombre}</span></>}
-                              titulo={`¿Borrar la carpeta «${c.nombre}»?`}
-                              descripcion="Se borran también sus subcarpetas y todos sus documentos. Esta acción no se puede deshacer."
-                              confirmar="Borrar carpeta"
-                              accion={borrarCarpetaAction}
-                              campos={{ id: c.id, volver: volver ?? "" }}
-                              peligro variante="outline" className="text-destructive"
-                            />
-                          </div>
-                        )}
-                      </CardContent>
-                    </Card>
+                  <li key={c.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 pr-3 sm:pr-4">
+                    <Link href={enlace(c.id)} className="flex min-h-14 min-w-0 basis-full items-center gap-3 px-4 py-2 sm:basis-0 sm:flex-1 outline-none transition-colors hover:bg-accent focus-visible:bg-accent focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-inset">
+                      <Folder className="size-5 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate font-medium">{c.nombre}</span>
+                        <span className="text-cuerpo-sm text-muted-foreground tabular-nums">{c.elementos} {c.elementos === 1 ? "elemento" : "elementos"}</span>
+                      </span>
+                      {c.visibleRoles.length > 0 && gestorCarpetas && <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground"><Lock className="size-3.5" strokeWidth={2} aria-hidden /> Restringida</span>}
+                    </Link>
+                    {gestorCarpetas && (
+                      <div className="flex flex-wrap items-center gap-2 pb-2 pl-4 sm:p-0">
+                        <DialogoEditarCarpeta key={`e${c.id}${clave}`} carpeta={{ id: c.id, nombre: c.nombre, visibleRoles: c.visibleRoles, parentId: carpetaId }} opciones={opciones} volver={volver} />
+                        <BotonConfirmar
+                          etiqueta={<><Trash2 strokeWidth={2} aria-hidden /> Borrar<span className="sr-only"> carpeta {c.nombre}</span></>}
+                          titulo={`¿Borrar la carpeta «${c.nombre}»?`}
+                          descripcion="Se borran también sus subcarpetas y todos sus documentos. Esta acción no se puede deshacer."
+                          confirmar="Borrar carpeta"
+                          accion={borrarCarpetaAction}
+                          campos={{ id: c.id, volver: volver ?? "" }}
+                          peligro variante="outline" className="text-destructive"
+                        />
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -156,61 +152,57 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
           )}
 
           {contenido.documentos.length > 0 && (
-            <section aria-label="Documentos">
-              <h2 className="mb-2 text-etiqueta uppercase tracking-wide text-muted-foreground">Documentos</h2>
-              <ul className="flex flex-col gap-3">
+            <section aria-labelledby="bloque-documentos" className="flex flex-col gap-3">
+              <TituloBloque id="bloque-documentos">Documentos</TituloBloque>
+              <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
                 {contenido.documentos.map((d) => (
-                  <li key={d.id}>
-                    <Card>
-                      <CardContent className="flex flex-col gap-3">
-                        <div className="flex flex-wrap items-start gap-3">
-                          {d.archivo && <IconoAdjunto mimeType={d.archivo.mimeType} nombre={d.archivo.nombre} className="mt-1 size-6 shrink-0 text-primary" />}
-                          <div className="min-w-0 flex-1">
-                            <h3 className="text-titulo-3 font-medium">{d.titulo}</h3>
-                            {d.descripcion && <p className="mt-1 max-w-prose text-sm text-muted-foreground">{d.descripcion}</p>}
-                            <p className="mt-1 text-cuerpo-sm text-muted-foreground">
-                              {fecha.format(d.createdAt)} · {d.autor}{d.archivo ? ` · ${formatoTamano(d.archivo.bytes)}` : ""}
-                              {contenido.buscando && d.carpetaRuta ? ` · en ${d.carpetaRuta}` : ""}
-                            </p>
-                            {(d.gestionable || ctx.rol === "direccion") && (
-                              <div className="mt-2 flex flex-wrap gap-1.5">
-                                {etiquetasDestino(d.visibleRoles).map((e) => (
-                                  <Badge key={e} variant="secondary">{e === "Solo dirección" ? <Lock strokeWidth={2} aria-hidden /> : <Users strokeWidth={2} aria-hidden />} {e}</Badge>
-                                ))}
-                                {d.salon && <Badge variant="outline">{d.salon}</Badge>}
-                              </div>
-                            )}
-                          </div>
-                          {d.archivo && (
-                            <a
-                              href={`/archivos/${d.archivo.id}`}
-                              download={d.archivo.nombre}
-                              className="inline-flex min-h-11 items-center gap-2 rounded-lg border bg-background px-3 text-sm font-medium transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-                            >
-                              <Download className="size-4 text-primary" strokeWidth={2} aria-hidden /> Descargar<span className="sr-only"> {d.titulo}</span>
-                            </a>
-                          )}
-                        </div>
-                        {d.gestionable && puedeSubir && (
-                          <div className="flex flex-wrap items-center gap-2 border-t pt-3">
-                            <DialogoEditarDocumento
-                              key={`d${d.id}${clave}`}
-                              doc={{ id: d.id, titulo: d.titulo, descripcion: d.descripcion, carpetaId: d.carpetaId, salonId: d.salonId, visibleRoles: d.visibleRoles }}
-                              opciones={opciones} salones={salones} esProfesor={esProfesor} volver={volver}
-                            />
-                            <BotonConfirmar
-                              etiqueta={<><Trash2 strokeWidth={2} aria-hidden /> Borrar<span className="sr-only"> {d.titulo}</span></>}
-                              titulo={`¿Borrar «${d.titulo}»?`}
-                              descripcion="Dejará de estar disponible para todos y no se puede recuperar."
-                              confirmar="Borrar documento"
-                              accion={borrarDocumentoAction}
-                              campos={{ id: d.id, volver: volver ?? "" }}
-                              peligro variante="outline" className="text-destructive"
-                            />
-                          </div>
+                  <li key={d.id} className="flex flex-col gap-3 px-4 py-4 sm:px-5">
+                    <div className="flex flex-wrap items-start gap-3">
+                      {d.archivo && <IconoAdjunto mimeType={d.archivo.mimeType} nombre={d.archivo.nombre} className="mt-1 size-5 shrink-0 text-sec-trazo" />}
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-titulo-3 font-medium">{d.titulo}</h3>
+                        {d.descripcion && <p className="mt-1 max-w-prose text-sm text-muted-foreground">{d.descripcion}</p>}
+                        <p className="mt-1 text-cuerpo-sm text-muted-foreground tabular-nums">
+                          {fecha.format(d.createdAt)} · {d.autor}{d.archivo ? ` · ${formatoTamano(d.archivo.bytes)}` : ""}
+                          {contenido.buscando && d.carpetaRuta ? ` · en ${d.carpetaRuta}` : ""}
+                        </p>
+                        {(d.gestionable || ctx.rol === "direccion") && (
+                          <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-cuerpo-sm text-muted-foreground">
+                            {etiquetasDestino(d.visibleRoles).map((e) => (
+                              <span key={e} className="inline-flex items-center gap-1">{e === "Solo dirección" ? <Lock className="size-3.5" strokeWidth={2} aria-hidden /> : <Users className="size-3.5" strokeWidth={2} aria-hidden />} {e}</span>
+                            ))}
+                            {d.salon && <span>{d.salon}</span>}
+                          </p>
                         )}
-                      </CardContent>
-                    </Card>
+                      </div>
+                      {d.archivo && (
+                        <a
+                          href={`/archivos/${d.archivo.id}`}
+                          download={d.archivo.nombre}
+                          className="inline-flex min-h-11 items-center gap-2 rounded-[10px] border border-borde-sutil bg-background px-3 text-sm font-medium transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+                        >
+                          <Download className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> Descargar<span className="sr-only"> {d.titulo}</span>
+                        </a>
+                      )}
+                    </div>
+                    {d.gestionable && puedeSubir && (
+                      <div className="flex flex-wrap items-center gap-2">
+                        <DialogoEditarDocumento
+                          key={`d${d.id}${clave}`}
+                          doc={{ id: d.id, titulo: d.titulo, descripcion: d.descripcion, carpetaId: d.carpetaId, salonId: d.salonId, visibleRoles: d.visibleRoles }}
+                          opciones={opciones} salones={salones} esProfesor={esProfesor} volver={volver}
+                        />
+                        <BotonConfirmar
+                          etiqueta={<><Trash2 strokeWidth={2} aria-hidden /> Borrar<span className="sr-only"> {d.titulo}</span></>}
+                          titulo={`¿Borrar «${d.titulo}»?`}
+                          descripcion="Dejará de estar disponible para todos y no se puede recuperar."
+                          confirmar="Borrar documento"
+                          accion={borrarDocumentoAction}
+                          campos={{ id: d.id, volver: volver ?? "" }}
+                          peligro variante="outline" className="text-destructive"
+                        />
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>

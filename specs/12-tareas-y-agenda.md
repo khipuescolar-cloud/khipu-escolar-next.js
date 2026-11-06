@@ -108,3 +108,9 @@ eliminarEvento(ctx, eventoId): Resultado
 - Familia y alumno: mostrar en la agenda el horario del salón del hijo (opcional).
 - Vista por defecto según el dispositivo (hoy: Semana; en el celular la semana ya se ve día a día con pestañas).
 - (Resuelto) Adjuntos en la agenda: ver «Adjuntos».
+
+
+## Diseño visual de la agenda (fase 2)
+- La agenda pertenece a la sección Académico (`seccion="academico"`). El selector de vista activa y el día de hoy usan los tokens de sección (`sec-suave`, `sec-tinta`).
+- Color por tipo de ítem (ícono + palabra, `components/calendario/estilos.ts`): clase = Día a día (turquesa), reunión = Comunicación (cochinilla), evaluación y entrega = Académico (ocre), eventos del colegio = índigo.
+- Vistas Mes y Lista sin tarjetas internas: celdas y filas con divisores. `loading.tsx` imita el calendario.

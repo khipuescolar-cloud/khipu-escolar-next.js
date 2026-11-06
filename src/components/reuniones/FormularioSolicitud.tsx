@@ -8,7 +8,6 @@ import { Alerta } from "@/components/ui/Alerta";
 import { buttonVariants } from "@/components/ui/button";
 import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Textarea } from "@/components/ui/textarea";
 import type { Resultado } from "@/lib/resultado";
 import type { FranjaVista } from "@/lib/server/disponibilidad";
@@ -66,8 +65,8 @@ export function FormularioSolicitud({ hijos, fechaMinima, franjas, solicitar }: 
   if (hijos.length === 0) return <Alerta tipo="info">No encontramos hijos activos vinculados a tu cuenta.</Alerta>;
 
   return (
-    <form action={enviar} className="flex flex-col gap-4">
-      <Tarjeta className="grid gap-4 sm:grid-cols-2">
+    <form action={enviar} className="flex max-w-2xl flex-col gap-8">
+      <section aria-label="Con quién" className="grid gap-4 sm:grid-cols-2">
         <Selector etiqueta="¿Sobre quién?" value={alumnoId} onChange={(e) => { setAlumnoId(e.target.value); setDocenteId(hijos.find((h) => h.id === e.target.value)?.docentes[0]?.id ?? ""); }}>
           {hijos.map((h) => <option key={h.id} value={h.id}>{h.nombre} · {h.salon}</option>)}
         </Selector>
@@ -77,9 +76,9 @@ export function FormularioSolicitud({ hijos, fechaMinima, franjas, solicitar }: 
         <div className="sm:col-span-2">
           <label className="flex flex-col gap-1.5 text-sm"><span className="font-medium">Motivo</span><Textarea name="motivo" required minLength={5} maxLength={500} rows={3} placeholder="Por ejemplo: quiero conversar sobre sus avances en lectura." /></label>
         </div>
-      </Tarjeta>
-      <Tarjeta className="flex flex-col gap-3">
-        <h2 className="font-titulo text-cuerpo font-semibold">¿Cuándo?</h2>
+      </section>
+      <section aria-label="Cuándo" className="flex flex-col gap-3 border-t border-borde-sutil pt-8">
+        <h2 className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold"><span aria-hidden className="size-2.5 rounded-full bg-sec-nudo" />¿Cuándo?</h2>
         {ofrecidas === null ? (
           <p className="inline-flex items-center gap-2 text-cuerpo-sm text-muted-foreground"><Loader2 className="size-4 animate-spin" strokeWidth={2} aria-hidden />Buscando horarios…</p>
         ) : ofrecidas.length > 0 ? (
@@ -87,7 +86,7 @@ export function FormularioSolicitud({ hijos, fechaMinima, franjas, solicitar }: 
             <legend className="mb-2 text-cuerpo-sm text-muted-foreground">Horarios de atención libres del docente (30 minutos):</legend>
             <div className="flex flex-wrap gap-2">
               {ofrecidas.map((f) => (
-                <label key={f.inicio} className={`cursor-pointer rounded-pildora border px-3 py-1.5 text-cuerpo-sm ${elegida === f.inicio ? "border-primary bg-accent" : ""}`}>
+                <label key={f.inicio} className={`cursor-pointer min-h-11 rounded-[10px] border border-borde-sutil px-3 py-2.5 text-cuerpo-sm transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring/50 ${elegida === f.inicio ? "border-sec-trazo bg-sec-suave text-sec-tinta" : "hover:bg-accent"}`}>
                   <input type="radio" name="franja" value={f.inicio} checked={elegida === f.inicio} onChange={() => setElegida(f.inicio)} className="sr-only" required />
                   <span className="first-letter:uppercase">{dia(f.fecha)}</span> · {f.hora}
                 </label>
@@ -101,7 +100,7 @@ export function FormularioSolicitud({ hijos, fechaMinima, franjas, solicitar }: 
             <Campo etiqueta="Hora" name="hora" type="time" step={900} required />
           </div>
         )}
-      </Tarjeta>
+      </section>
       {error && <Alerta tipo="error">{error}</Alerta>}
       <button type="submit" disabled={pendiente || !docenteId} className={`${buttonVariants()} self-start`}>
         {pendiente ? <Loader2 className="animate-spin" strokeWidth={2} aria-hidden /> : <Send strokeWidth={2} aria-hidden />}Enviar solicitud
