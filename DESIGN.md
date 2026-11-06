@@ -43,6 +43,10 @@ Oscuro: nudo/trazo `#4FC3BF`, `#E8789F`, `#F2B84B`, `#A9B5FF`; suave `#133533`, 
 | trazo académico / papel-menu (ícono) | 4.10 | 10.27 |
 | contador (papel sobre comunicacion-tinta) | 7.39 | 9.07 |
 | estados (llegó, tarde, falta, info) | ≥5.56 | ≥6.89 |
+| sobre-falta / falta (botón destructivo) | 6.47 | 8.07 |
+| texto de ayuda (pizarra) / superficie-elevada (campo) | 6.10 | 6.09 |
+| placeholder (texto-terciario) / superficie-elevada | 5.72 | 6.89 |
+| texto de toast (llegó / tarde / falta) sobre su fondo | ≥5.56 | ≥6.89 |
 
 El nudo de maíz (1.67:1 sobre crema) es decorativo: siempre va junto a texto que nombra la sección y nunca es el único portador de información. El foco usa `--indigo-cielo` con contorno de 2 px separado 2 px.
 
@@ -69,6 +73,22 @@ Sombra solo en capas flotantes. Superficies de contenido con borde sutil o divis
 ## Nudito e ilustración
 
 Nudito saluda en el inicio con frases benignas según la hora («¡Buenos días! Un paso a la vez.», «¿Practicamos un ratito?») y aparece en vacíos positivos («Todo al día por ahora»). Jamás junto a faltas, errores, incidencias o malas noticias. Las cuerdas del saludo usan las variables de sección para funcionar en claro y oscuro. Los SVG oficiales no se deforman ni recolorean.
+
+## Componentes: reglas de uso
+
+**Jerarquía de botones.** Un solo primario (índigo, verbo concreto) por bloque o modal. Secundario (`outline`) para la alternativa frecuente, fantasma para acciones de bajo peso (Cancelar en barras, Archivar), enlace para navegación en línea, destructivo solo en la confirmación final (nunca como primer botón de una fila). Estados: hover aclara, `active` escala 0.96 (no con reduced-motion), foco anillo índigo de 2 px, deshabilitado 50 %, cargando con indicador y `aria-busy` (el texto se mantiene). Tamaños táctiles propios: 44 px por defecto, 40 px `sm`.
+
+**Modal o drawer.** Modal (`Dialog`) para decisiones y formularios cortos (≤ 6 campos): título, descripción, cuerpo, pie con acciones a la derecha (primario al final). `AlertDialog`/`BotonConfirmar` solo para confirmar algo irreversible o que avisa a familias, explicando la consecuencia. Drawer (`Sheet`) para formularios largos, filtros y detalle que conviene mirar junto a la lista: lado derecho en escritorio, desde abajo en móvil; encabezado y pie fijos, cuerpo con scroll. Popover para ajustes pequeños anclados a un control; menú (`DropdownMenu`) para acciones por fila.
+
+**Patrón de campo.** Etiqueta visible arriba (14 px, medio), control de 44 px, ayuda gris 14 px debajo, error debajo con ícono + texto en rojo y `aria-describedby`; el error reemplaza la ayuda. Campos relacionados en secciones con título; acciones agrupadas al final. Nunca placeholder como etiqueta.
+
+**Superficies y forma.** Radios concéntricos (contenedor = radio interno + relleno): modal 14 con controles 10; menú 14 con ítems 10; pestañas segmentadas 10 con pestaña 7. Bordes para estructura; sombra solo en modales, hojas, menús y toasts.
+
+**Tablas.** Cabecera sobria (13 px gris, sin mayúsculas, fondo `superficie-2` suave), filas con divisor, hover suave, cifras tabulares alineadas a la derecha; `densidad="compacta"` para trabajo del personal.
+
+**Estados.** Insignias y alertas siempre con ícono + palabra; toasts con el par de color del estado. Vacíos con `EstadoVacio` (borde punteado, ícono en el trazo de la sección).
+
+**Menú lateral.** El botón de colapsar es un círculo de 28 px sobre el borde derecho de la cabecera, discreto (70 % de opacidad) y pleno al pasar el cursor o enfocar.
 
 ## Movimiento
 

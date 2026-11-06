@@ -127,7 +127,7 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 ```
 
 - `MarcoPanel` (`src/components/shell/MarcoPanel.tsx`): barra lateral fija en escritorio y cabecera mínima de 48 px solo en móvil. El contenido ocupa el ancho completo; solo el texto corrido y los formularios cortos limitan su ancho. El padding es `p-4` en móvil y `p-8` desde `md`, sin centrado general. Las tablas anchas se desplazan dentro de sus tarjetas; `min-w-0` impide que agranden la página.
-- **Marca y menú:** la cabecera lateral muestra la insignia del colegio o el isotipo oficial de Khipu junto al nombre; en plataforma muestra el isotipo y «Khipu Escolar». El botón para colapsar o expandir vive al pie del lateral, visible también como ícono en el riel colapsado; conserva Ctrl/⌘+B. En móvil una cabecera clara y pegajosa contiene el botón «Abrir menú» de 44 × 44 px y el isotipo. Los avisos de soporte siguen en una franja visible sobre el contenido.
+- **Marca y menú:** la cabecera lateral muestra la insignia del colegio o el isotipo oficial de Khipu junto al nombre; en plataforma muestra el isotipo y «Khipu Escolar». El botón para colapsar o expandir es un círculo discreto de 28 px (área táctil 40 px) sobrepuesto al borde derecho de la cabecera del lateral, a media altura, sobre la línea divisoria; `aria-label` «Contraer menú»/«Expandir menú», `aria-expanded`, visible también con el riel colapsado; conserva Ctrl/⌘+B. No ocupa fila propia ni espacio del contenido y no existe en móvil. En móvil una cabecera clara y pegajosa contiene el botón «Abrir menú» de 44 × 44 px y el isotipo. Los avisos de soporte siguen en una franja visible sobre el contenido.
 - **La barra lateral lista solo módulos, nunca acciones.** Crear, importar, exportar o editar algo de un módulo (p. ej. «Nuevo colegio», «Agregar profesor») es un botón en el encabezado de la página del módulo (`EncabezadoPagina` → `acciones`), y la pantalla de esa acción lleva un enlace «← <Módulo>» para volver; el ítem del módulo sigue activo en sus subrutas.
 - **Barra lateral** (`BarraLateral.tsx`): `papel-menu` con borde `borde-sutil`; cabecera con la insignia y el nombre del colegio; cada grupo es una cuerda de su sección (nudo + rótulo en su tinta, íconos en su trazo); ítem activo con nudo, fondo suave y tinta de su sección; funciones fuera del plan con candado. Colapsable a íconos (Ctrl/⌘+B) y **drawer** en móvil.
 - **Páginas públicas** (`(publico)/layout.tsx`): escritorio en dos mitades. Izquierda, portada `indigo`: logotipo blanco, sobretítulo «PARA COLEGIOS DEL PERÚ», lema en `titulo-xl`, la promesa de marca, tres puntos (ícono + título + frase) y las cuerdas de khipu (`CuerdasKhipu`, en los tonos claros de la paleta) colgando hasta el borde inferior, nunca detrás del texto. Derecha, el formulario (máx. 440 px) centrado y un pie «© Khipu Escolar · Perú». En móvil: `logotipo-escolar`, formulario y pie. Siempre en tema claro.
@@ -139,14 +139,14 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 |---|---|---|
 | Etiqueta de curso | `EtiquetaCurso` (`components/academico`) | Pastilla `turquesa` (texto turquesa sobre `turquesa/10`), solo como acento |
 | Título de página | `EncabezadoPagina` (`components/shell`) | Un solo `h1` por página; acciones principales a la derecha |
-| Acción principal / secundaria | `Boton` (`primario`, `secundario`, `fantasma`, `peligro`) o shadcn `Button` | Un solo botón primario por bloque. Verbos concretos («Guardar y avisar», no «Aceptar») |
+| Acción principal / secundaria | `Boton` (`primario`, `secundario`, `fantasma`, `peligro`, `enlace`; `cargando`) o shadcn `Button` (`loading`) | Un solo botón primario por bloque. Verbos concretos («Guardar y avisar», no «Aceptar») |
 | Formulario con server action | `FormAccion` | Éxito → **toast**; error → `Alerta` junto al formulario |
 | Campo | `Campo`, `Selector`, shadcn `Input`/`Textarea`/`Field` | **Etiqueta visible siempre** (nunca solo placeholder); error debajo del campo |
 | Contenedor | `Tarjeta` o shadcn `Card` (`CardHeader/Title/Description/Content/Footer`) | |
 | Lista de registros | shadcn `Table` dentro de `Card`, con `overflow-x-auto` | En móvil, si hay más de 4 columnas, preferir lista de tarjetas |
 | Sin datos | `EstadoVacio` | Ícono + frase en positivo + siguiente acción |
-| Crear / editar algo corto (≤ 6 campos) | `Dialog` (modal) | Título, descripción, formulario, botones al pie |
-| Crear / editar algo largo o detalle de un registro | `Sheet` (panel lateral; desde abajo en móvil) | Mantiene el contexto de la lista |
+| Crear / editar algo corto (≤ 6 campos) | `Dialog` (modal; ancho por `sm:max-w-*`, 448 px por defecto) | Encabezado título + descripción, cuerpo con scroll, pie fijo con acciones a la derecha |
+| Crear / editar algo largo o detalle de un registro | `Sheet` (panel derecho en escritorio; sube desde abajo en móvil con `movil="abajo"`, por defecto; `movil="lado"` lo conserva) | Encabezado y pie fijos con borde; cuerpo con scroll (`SheetBody`). | Mantiene el contexto de la lista |
 | Acción destructiva o que avisa a familias | `BotonConfirmar` (shadcn `AlertDialog`) | Explica la consecuencia; botón con verbo concreto |
 | Resultado de una acción | `toast` de `sonner` (`toast.success/error`) o `Notificar` para `?ok=`/`?error=` | Arriba al centro, 4 s, con ícono |
 | Aviso persistente en la página | `Alerta` (`info`, `exito`, `aviso`, `error`) | Ícono + palabra para lectores de pantalla |
@@ -176,7 +176,7 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 
 ## 9. Movimiento
 
-- Transiciones de 150–250 ms en hover y foco; modales y drawers usan las animaciones de shadcn (`tw-animate-css`).
+- Transiciones de 150–250 ms en hover y foco. Botones: `scale(0.96)` al presionar (sin escala con reduced-motion). Modales: fondo y panel con `data-starting-style`/`data-ending-style` (clases `.flota-fondo` y `.flota-modal` en `globals.css`; entrada 220 ms con `--ease-khipu`, salida 120 ms). Hojas: deslizan con `translate` 300 ms. Popovers y menús usan `tw-animate-css`.
 - Sin animaciones de entrada en scroll ni efectos «parallax». Nudito tiene su propia animación suave.
 - `prefers-reduced-motion: reduce` desactiva todas las animaciones (regla global en `globals.css`).
 
@@ -202,6 +202,17 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 - [ ] Acciones destructivas con confirmación; éxito con toast.
 - [ ] Estado vacío y estado de carga definidos.
 - [ ] Foco visible y navegable con teclado; íconos solo-decorativos con `aria-hidden`.
+
+## 8.1 Componentes base (fase 2 del rediseño)
+
+- **Campos** (`Input`, `Textarea`, `NativeSelect`, `Select`, `Selector`): alto 44 px, radio 10, borde `--input`, hover `--input-hover`, foco con borde `--ring` + halo; `aria-invalid` en rojo; deshabilitado sobre `superficie-2`. `Campo` genera `aria-describedby` hacia la ayuda (`AyudaCampo`) o el error (`ErrorCampo`, ícono + texto, `role=alert`). Casillas y radios nativos heredan `accent-color` índigo.
+- **Controles** `Checkbox` y `RadioGroupItem` 18 px; `Switch` 40×24 con pulgar blanco.
+- **Botón**: variantes `default`, `secondary`, `outline`, `ghost`, `destructive`, `link`; `loading` deshabilita, pone `aria-busy` y un indicador. Destructivo: texto `--sobre-falta` sobre `--estado-falta`.
+- **Modales** `Dialog` / `AlertDialog`: radio 14, borde sutil + sombra de elevación, pie en `superficie-2` pegado abajo (`sticky`), `AlertDialogMedia` para ícono de aviso. `BotonConfirmar` con `peligro` muestra el triángulo de aviso.
+- **Tabla**: cabecera `superficie-2/60`, texto de etiqueta 13 px en gris, filas con divisor y hover suave, `densidad="compacta"`, números con `tabular-nums`.
+- **Insignias**: `Badge` suma `exito`, `aviso`, `error`, `info`, `seccion`; las de asistencia siguen con ícono + palabra.
+- **Toasts** (`sonner`, `richColors`): colores de éxito/error/aviso/info tomados de los estados fijos.
+- **Tabs**: segmentadas (radios concéntricos 10/7) o `line` con nudo de la sección; activa en `sec-tinta`.
 
 ## Pendientes
 

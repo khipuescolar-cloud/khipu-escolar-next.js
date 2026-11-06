@@ -68,6 +68,12 @@
   /* «Problema» usa el rojo de falta (manual: «Falta o problema · ! No llegó / Aviso»). */
   --estado-problema: var(--estado-falta);
   --estado-problema-fondo: var(--estado-falta-fondo);
+  /* Texto sobre el relleno sólido de falta (botón destructivo): 6.47:1 claro, 8.3:1 oscuro. */
+  --sobre-falta: #ffffff;
+  /* Borde de campo al pasar el cursor: un punto más firme que `--input`. */
+  --input-hover: color-mix(in oklab, var(--pizarra) 70%, var(--superficie));
+  /* Movimiento de componentes: salida rápida, entrada con desaceleración suave. */
+  --ease-khipu: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* — Radios (tokens.json · radius) — */
   --radio-sm: 6px; /* chips cuadrados, enlaces enfocados */
@@ -166,6 +172,7 @@
   --estado-tarde-fondo: #33240f;
   --estado-falta: #ff8a8a;
   --estado-falta-fondo: #3a1a1a;
+  --sobre-falta: #2a0a0a;
 
   --sombra-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
 }
@@ -237,6 +244,8 @@
   --color-falta-fondo: var(--estado-falta-fondo);
   --color-problema: var(--estado-problema);
   --color-problema-fondo: var(--estado-problema-fondo);
+  --color-sobre-falta: var(--sobre-falta);
+  --color-input-hover: var(--input-hover);
 
   /* Colores shadcn */
   --color-background: var(--background);
@@ -344,6 +353,9 @@
   }
   ::selection { background: var(--acento-suave); color: var(--tinta); }
   input, textarea { caret-color: var(--acento); }
+  /* Campos: el contorno global ya marca el foco; sin separación para no pisar el borde del control. */
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--acento); }
+  input:focus-visible, textarea:focus-visible, select:focus-visible { outline-offset: 0; }
 }
 
 @layer utilities {
@@ -365,6 +377,18 @@
 .nudo-onda {
   animation: nudo-onda 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Superficies flotantes (modales, hojas, menús): entrada suave con `data-starting-style` de Base UI.
+   Las clases `.flota-*` evitan repetir la receta en cada componente. */
+.flota-fondo {
+  transition: opacity 180ms ease-out;
+}
+.flota-fondo[data-starting-style], .flota-fondo[data-ending-style] { opacity: 0; }
+.flota-modal {
+  transition: opacity 180ms var(--ease-khipu), scale 220ms var(--ease-khipu);
+}
+.flota-modal[data-starting-style], .flota-modal[data-ending-style] { opacity: 0; scale: 0.96; }
+.flota-modal[data-ending-style] { transition-duration: 120ms; }
 
 /* Foco del teclado: anillo sólido de 2 px en indigo-cielo, separado 2 px del control (manual). */
 :focus-visible {

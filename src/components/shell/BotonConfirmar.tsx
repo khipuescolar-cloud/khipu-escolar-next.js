@@ -1,10 +1,10 @@
 "use client";
 
-import { Loader2 } from "lucide-react";
+import { Loader2, TriangleAlert } from "lucide-react";
 import { useState, useTransition, type ReactNode } from "react";
 import { toast } from "sonner";
 import {
-  AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader,
+  AlertDialog, AlertDialogCancel, AlertDialogMedia, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader,
   AlertDialogTitle, AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { buttonVariants } from "@/components/ui/button";
@@ -49,6 +49,11 @@ export function BotonConfirmar({ etiqueta, titulo, descripcion, confirmar, accio
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
+          {peligro && (
+            <AlertDialogMedia className="bg-falta-fondo text-falta">
+              <TriangleAlert strokeWidth={2} aria-hidden />
+            </AlertDialogMedia>
+          )}
           <AlertDialogTitle>{titulo}</AlertDialogTitle>
           <AlertDialogDescription>{descripcion}</AlertDialogDescription>
         </AlertDialogHeader>
