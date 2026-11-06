@@ -1,4 +1,4 @@
-import type { IconoMosaico } from "@/lib/navegacion";
+import type { GrupoNav, IconoMosaico } from "@/lib/navegacion";
 import type { IconoPlataforma } from "./iconos";
 
 /** Entrada de navegación ya resuelta en el servidor (serializable). */
@@ -11,7 +11,8 @@ export type ItemNav = {
   contador?: number;
 };
 
-export type GrupoNavResuelto = { titulo?: string; items: ItemNav[] };
+/** `seccion` da el color de la cuerda del grupo (DESIGN.md · Mundo khipu). */
+export type GrupoNavResuelto = { titulo?: string; seccion?: GrupoNav; items: ItemNav[] };
 
 export type UsuarioShell = {
   nombre: string;

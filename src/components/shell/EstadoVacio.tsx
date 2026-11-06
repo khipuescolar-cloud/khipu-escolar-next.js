@@ -9,7 +9,7 @@ export function EstadoVacio({ icono: Icono, titulo, descripcion, accion, nudito 
     <Empty className="rounded-xl bg-superficie-2/70 py-10">
       <EmptyHeader>
         <EmptyMedia variant="icon">
-          {nudito ? <NuditoMascota tamano={44} /> : <Icono strokeWidth={2} aria-hidden />}
+          {nudito ? <NuditoMascota tamano={44} /> : <Icono className="text-sec-trazo" strokeWidth={2} aria-hidden />}
         </EmptyMedia>
         <EmptyTitle>{titulo}</EmptyTitle>
         {descripcion && <EmptyDescription>{descripcion}</EmptyDescription>}

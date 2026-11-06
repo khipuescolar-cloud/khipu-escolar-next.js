@@ -23,7 +23,9 @@ test("profesora entra por el dominio de su colegio y llega a su subdominio", asy
   await expect(page.getByRole("heading", { name: /Entrando a I.E.P. Nuevo Horizonte/ })).toBeVisible();
   await page.waitForURL(`http://nuevohorizonte.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
   await expect(page.getByRole("heading", { name: "Hola, Lucía" })).toBeVisible();
-  await expect(page.getByRole("main").getByText("Pasar lista")).toBeVisible();
+  // El inicio es el tablero «lo que te toca hoy» (specs/18); pasar lista está en el menú.
+  await expect(page.getByRole("main").getByRole("heading", { name: "Lo que te toca hoy" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Pasar lista", exact: true })).toBeVisible();
 });
 
 test("apoderada con hijos en dos colegios elige a cuál entrar", async ({ page }) => {
@@ -35,7 +37,8 @@ test("apoderada con hijos en dos colegios elige a cuál entrar", async ({ page }
   await expect(page.getByText(otroColegio.nombre)).toBeVisible();
   await page.getByRole("link", { name: /I.E.P. Nuevo Horizonte/ }).click();
   await page.waitForURL(`http://nuevohorizonte.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
-  await expect(page.getByRole("main").getByText("Tareas", { exact: true })).toBeVisible();
+  await expect(page.getByRole("main").getByRole("heading", { name: "Llegada de hoy" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Tareas", exact: true })).toBeVisible();
   // Nudito es el tutor de Khipu Pro (specs/44): la familia lo ve como «Nudito» (sin el antiguo «Nudito+» de pago).
   await expect(page.getByRole("main").getByRole("link", { name: /^Nudito\+/ })).toHaveCount(0);
 });
@@ -46,7 +49,8 @@ test("Khipu Base muestra el candado «Plan Khipu Pro» en las funciones de Pro",
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
   await page.waitForURL(`http://${base.slug}.lvh.me:${process.env.E2E_PORT ?? "3000"}/inicio`);
-  await expect(page.getByText("Plan Khipu Pro").first()).toBeVisible();
+  // Candado en el menú: ícono visible y el plan en el nombre accesible del ítem (specs/18 · Navegación).
+  await expect(page.getByRole("button", { name: /plan Khipu Pro/ }).first()).toBeVisible();
 });
 
 test("contraseña incorrecta muestra un error claro", async ({ page }) => {

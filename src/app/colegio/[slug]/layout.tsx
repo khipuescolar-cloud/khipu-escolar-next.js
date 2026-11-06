@@ -51,6 +51,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
     { items: [{ href: "/inicio", titulo: "Inicio", icono: "House" }] },
     ...ORDEN_GRUPOS.map((g) => ({
       titulo: NOMBRE_GRUPO[g],
+      seccion: g,
       items: mosaicos
         .filter((m) => m.grupo === g)
         .map((m) => ({
@@ -71,6 +72,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
   return (
     <MarcoPanel
       abierta={estadoBarra !== "false"}
+      secciones={grupos.flatMap((g) => (g.seccion ? g.items.map((i): [string, GrupoNav] => [i.href, g.seccion!]) : []))}
       barraMovil={<BarraSuperior inicioHref="/inicio" />}
       barraLateral={
         <BarraLateral

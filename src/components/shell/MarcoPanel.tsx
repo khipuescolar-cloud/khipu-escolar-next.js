@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import type { GrupoNav } from "@/lib/navegacion";
+import { ZonaSeccion } from "./ZonaSeccion";
 
 /** Estructura compartida del panel: menú móvil, barra lateral y contenido fluido. */
 export function MarcoPanel({
@@ -9,6 +11,7 @@ export function MarcoPanel({
   avisoSuperior,
   children,
   flotante,
+  secciones,
 }: {
   abierta: boolean;
   barraMovil: ReactNode;
@@ -18,6 +21,8 @@ export function MarcoPanel({
   children: ReactNode;
   /** Elementos flotantes (p. ej. un botón de ayuda). */
   flotante?: ReactNode;
+  /** Ruta → sección del menú, para dar a cada página el color de su sección. */
+  secciones?: [string, GrupoNav][];
 }) {
   return (
     <SidebarProvider defaultOpen={abierta} className="flex-col">
@@ -27,7 +32,7 @@ export function MarcoPanel({
         {barraLateral}
         <SidebarInset id="contenido-panel" tabIndex={-1} className="min-w-0">
           {avisoSuperior}
-          <div className="w-full min-w-0 flex-1 p-4 md:p-8">{children}</div>
+          <div className="w-full min-w-0 flex-1 p-4 md:p-8">{secciones ? <ZonaSeccion secciones={secciones}>{children}</ZonaSeccion> : children}</div>
         </SidebarInset>
       </div>
       {flotante}

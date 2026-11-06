@@ -34,6 +34,29 @@
   --info-fondo: #eaf1fb;
   --acento: #1e2a78;
   --sobre-acento: #ffffff;
+  /* Papel del menú lateral: segunda capa neutra, un punto más cálida que `fondo`. */
+  --papel-menu: #f4eee4;
+  /* Franja del saludo de inicio: maíz muy suave (texto tinta 14:1; fecha en academico-tinta 6.9:1). */
+  --saludo-fondo: #fcf0d6;
+
+  /* — Secciones (DESIGN.md · Mundo khipu): cada grupo del menú es una cuerda con su color de marca.
+     nudo = relleno decorativo (siempre junto a texto) · trazo = ícono y línea (≥3:1) · suave = fondo · tinta = texto sobre suave (AA). — */
+  --dia-nudo: #0f7c7a;
+  --dia-trazo: #0f7c7a;
+  --dia-suave: #e2f3f1;
+  --dia-tinta: #0b5f5d;
+  --comunicacion-nudo: #a8325e;
+  --comunicacion-trazo: #a8325e;
+  --comunicacion-suave: #fbe9ef;
+  --comunicacion-tinta: #8a2550;
+  --academico-nudo: #f2b84b;
+  --academico-trazo: #9a6a0c;
+  --academico-suave: #fcf0d6;
+  --academico-tinta: #74490a;
+  --colegio-nudo: #3a4bb5;
+  --colegio-trazo: #3a4bb5;
+  --colegio-suave: #e9eafb;
+  --colegio-tinta: #1e2a78;
 
   /* — Estados de asistencia (fijos; siempre con ícono + palabra) — */
   --estado-llego: #166534;
@@ -86,14 +109,14 @@
   --barra: var(--indigo);
   --barra-foreground: var(--blanco);
 
-  /* Barra lateral: superficie clara; el ítem activo va en `acento`. */
-  --sidebar: var(--superficie);
+  /* Barra lateral: papel cálido; el ítem activo toma el color suave de su sección. */
+  --sidebar: var(--papel-menu);
   --sidebar-foreground: var(--tinta);
   --sidebar-primary: var(--acento);
   --sidebar-primary-foreground: var(--sobre-acento);
-  --sidebar-accent: var(--superficie-2);
+  --sidebar-accent: color-mix(in oklab, var(--tinta) 6%, var(--papel-menu));
   --sidebar-accent-foreground: var(--tinta);
-  --sidebar-border: var(--arena);
+  --sidebar-border: var(--borde-sutil);
   --sidebar-ring: var(--indigo-cielo);
 }
 
@@ -117,6 +140,25 @@
   --info-fondo: #1d2d46;
   --acento: #8c9bff;
   --sobre-acento: #10132a;
+  --papel-menu: #161922;
+  --saludo-fondo: #2a2416;
+
+  --dia-nudo: #4fc3bf;
+  --dia-trazo: #4fc3bf;
+  --dia-suave: #133533;
+  --dia-tinta: #7fd8d4;
+  --comunicacion-nudo: #e8789f;
+  --comunicacion-trazo: #e8789f;
+  --comunicacion-suave: #3a1d2b;
+  --comunicacion-tinta: #f4a3c0;
+  --academico-nudo: #f2b84b;
+  --academico-trazo: #f2b84b;
+  --academico-suave: #352812;
+  --academico-tinta: #f5cb72;
+  --colegio-nudo: #a9b5ff;
+  --colegio-trazo: #a9b5ff;
+  --colegio-suave: #262c50;
+  --colegio-tinta: #c3cbff;
 
   --estado-llego: #6fd394;
   --estado-llego-fondo: #16301f;
@@ -128,7 +170,42 @@
   --sombra-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
+/* Sección activa de una zona: `data-seccion` reasigna las variables `--sec-*` que leen los componentes
+   (`bg-sec-suave`, `text-sec-tinta`, `text-sec-trazo`, `bg-sec-nudo`). Sin atributo, la sección es la marca (índigo). */
+:root, [data-seccion="colegio"] {
+  --sec-nudo: var(--colegio-nudo);
+  --sec-trazo: var(--colegio-trazo);
+  --sec-suave: var(--colegio-suave);
+  --sec-tinta: var(--colegio-tinta);
+}
+[data-seccion="dia"] {
+  --sec-nudo: var(--dia-nudo);
+  --sec-trazo: var(--dia-trazo);
+  --sec-suave: var(--dia-suave);
+  --sec-tinta: var(--dia-tinta);
+}
+[data-seccion="comunicacion"] {
+  --sec-nudo: var(--comunicacion-nudo);
+  --sec-trazo: var(--comunicacion-trazo);
+  --sec-suave: var(--comunicacion-suave);
+  --sec-tinta: var(--comunicacion-tinta);
+}
+[data-seccion="academico"] {
+  --sec-nudo: var(--academico-nudo);
+  --sec-trazo: var(--academico-trazo);
+  --sec-suave: var(--academico-suave);
+  --sec-tinta: var(--academico-tinta);
+}
+
 @theme inline {
+  /* Sección (ver `data-seccion`) */
+  --color-sec-nudo: var(--sec-nudo);
+  --color-sec-trazo: var(--sec-trazo);
+  --color-sec-suave: var(--sec-suave);
+  --color-sec-tinta: var(--sec-tinta);
+  --color-papel-menu: var(--papel-menu);
+  --color-saludo-fondo: var(--saludo-fondo);
+
   /* Colores propios del proyecto */
   --color-indigo: var(--indigo);
   --color-indigo-cielo: var(--indigo-cielo);

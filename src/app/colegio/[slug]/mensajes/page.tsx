@@ -38,6 +38,7 @@ export default async function MensajesPage({ params, searchParams }: PageProps<"
     <div>
       <EncabezadoPagina
         titulo="Mensajes"
+        seccion="comunicacion"
         descripcion={ctx.rol === "direccion" ? "Solo lectura: cada vez que abres un chat queda registrado." : "Hablas con el colegio sin compartir tu teléfono."}
         acciones={puedeEscribir ? nuevo : undefined}
       />
@@ -51,7 +52,7 @@ export default async function MensajesPage({ params, searchParams }: PageProps<"
         />
       ) : (
         <div className="lg:grid lg:grid-cols-[22rem_1fr] lg:gap-6">
-          <div className="overflow-hidden rounded-lg border bg-card">
+          <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
             <ListaConversaciones filas={conversaciones} />
           </div>
           <div className="hidden lg:block">

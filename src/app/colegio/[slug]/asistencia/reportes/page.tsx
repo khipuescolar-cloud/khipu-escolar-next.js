@@ -56,6 +56,7 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
       <div className="flex flex-col gap-6">
         <EncabezadoPagina
           titulo="Reportes de asistencia"
+          seccion="dia"
           descripcion="La asistencia de tu salón de tutoría y el historial de las clases de tus cursos."
           acciones={
             <>
@@ -98,6 +99,7 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
         titulo="Reportes de asistencia"
+        seccion="dia"
         descripcion={
           veTodo
             ? "Asistencia al colegio por día y por fechas, por salón y alumno; y faltas a clase por curso."
@@ -177,11 +179,11 @@ function AsistenciaDelDia({ reporte, dia, hoy, puedeCorregir }: { reporte: Repor
   const alumnos = reporte.filas.reduce((s, f) => s + f.alumnos, 0);
   const esHabil = t.diasHabiles > 0;
   return (
-    <section aria-labelledby="titulo-dia" className="flex flex-col gap-3">
+    <section aria-labelledby="titulo-dia" data-seccion="dia" className="flex flex-col gap-4">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h2 id="titulo-dia" className="flex items-center gap-2 text-titulo-2">
-            <School className="size-5 text-primary" strokeWidth={2} aria-hidden /> Asistencia al colegio
+            <School className="size-5 text-sec-trazo" strokeWidth={2} aria-hidden /> Asistencia al colegio
           </h2>
           <p className="text-cuerpo-sm text-muted-foreground first-letter:uppercase">{dia === hoy ? `Hoy, ${fechaLarga(dia)}` : fechaLarga(dia)}</p>
         </div>
@@ -194,7 +196,7 @@ function AsistenciaDelDia({ reporte, dia, hoy, puedeCorregir }: { reporte: Repor
         <Alerta tipo="aviso">Ese día no es hábil (fin de semana o feriado): no se cuenta asistencia.</Alerta>
       ) : (
         <>
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4" data-testid="asistencia-del-dia">
+          <ul className="grid gap-px overflow-hidden rounded-[14px] border border-borde-sutil bg-borde-sutil sm:grid-cols-2 lg:grid-cols-4" data-testid="asistencia-del-dia">
             <Cifra titulo="Asistieron" valor={t.llego + t.tarde} detalle={`de ${alumnos} alumnos · ${t.llego} llegó, ${t.tarde} tarde`} estado="llego" />
             <Cifra titulo="Faltaron" valor={t.falta} detalle={`${t.faltasJustificadas} justificadas · ${t.faltasEnRevision} en revisión · ${t.faltasInjustificadas} sin justificar`} estado="falta" />
             <Cifra titulo="Con aviso" valor={t.problema} detalle="Situaciones registradas en la lista del día" estado="problema" />
@@ -247,7 +249,7 @@ function IconoEstado({ estado }: { estado: "llego" | "falta" | "problema" }) {
 
 function Cifra({ titulo, valor, detalle, estado }: { titulo: string; valor: number; detalle: string; estado?: "llego" | "falta" | "problema" }) {
   return (
-    <li className="flex flex-col gap-1 rounded-lg border bg-superficie p-4">
+    <li className="flex flex-col gap-1.5 bg-superficie px-5 py-4">
       {estado ? (
         <span className={`inline-flex w-fit items-center gap-1.5 rounded-pildora px-2.5 py-1 text-etiqueta ${ESTADOS_ASISTENCIA[estado].clase}`}>
           <IconoEstado estado={estado} />
@@ -256,7 +258,7 @@ function Cifra({ titulo, valor, detalle, estado }: { titulo: string; valor: numb
       ) : (
         <span className="text-etiqueta text-muted-foreground">{titulo}</span>
       )}
-      <strong className="text-titulo-1 tabular-nums">{valor}</strong>
+      <strong className="font-heading text-titulo-1 tabular-nums">{valor}</strong>
       <span className="text-cuerpo-sm text-muted-foreground tabular-nums">{detalle}</span>
     </li>
   );

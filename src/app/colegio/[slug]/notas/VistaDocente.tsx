@@ -65,7 +65,7 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
   if (!curso || !periodo) {
     return (
       <div>
-        <EncabezadoPagina titulo="Notas" descripcion={descripcion} acciones={botonPeriodos} />
+        <EncabezadoPagina titulo="Notas" seccion="academico" descripcion={descripcion} acciones={botonPeriodos} />
         <EstadoVacio
           icono={!curso ? GraduationCap : CalendarDays}
           titulo={!curso ? "Todavía no tienes cursos asignados" : "Aún no hay periodos del año"}
@@ -83,6 +83,7 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
     <div className="flex flex-col gap-5">
       <EncabezadoPagina
         titulo="Notas"
+        seccion="academico"
         descripcion={descripcion}
         acciones={
           <>
@@ -92,9 +93,8 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
         }
       />
 
-      <Card>
-        <CardContent>
-          <form method="get" className="grid gap-3 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
+      <section aria-label="Curso y periodo" className="flex flex-col gap-4 rounded-[14px] border border-borde-sutil bg-superficie p-4 xl:flex-row xl:items-end xl:justify-between">
+          <form method="get" className="grid gap-3 sm:grid-cols-[1fr_1fr_auto] sm:items-end xl:min-w-[36rem]">
             <input type="hidden" name="seccion" value={seccion} />
             <Selector etiqueta="Curso" name="curso" defaultValue={curso.id}>
               {cursos.map((c) => <option key={c.id} value={c.id}>{c.nombre} · {c.salon.nombre}</option>)}
@@ -102,15 +102,13 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
             <Selector etiqueta="Periodo" name="periodo" defaultValue={periodo.id}>
               {periodos.map((p) => <option key={p.id} value={p.id}>{p.nombre} {p.anio}{p.cerrado ? " (cerrado)" : ""}</option>)}
             </Selector>
-            <Boton type="submit">Ver</Boton>
+            <Boton type="submit" variante="secundario">Ver</Boton>
           </form>
-        </CardContent>
-      </Card>
-
-      <CierreCursoCard
-        slug={slug} esDireccion={esDireccion} cursoId={curso.id} periodoId={periodo.id} nombreCurso={curso.nombre}
-        periodoCerrado={periodo.cerrado} cierre={cierre}
-      />
+          <CierreCurso
+            slug={slug} esDireccion={esDireccion} cursoId={curso.id} periodoId={periodo.id} nombreCurso={curso.nombre}
+            periodoCerrado={periodo.cerrado} cierre={cierre}
+          />
+      </section>
 
       {periodo.cerrado && (
         <Alerta tipo="aviso">
@@ -141,7 +139,8 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
   );
 }
 
-function CierreCursoCard({
+/** Estado del cierre de notas del curso, dentro de la barra de curso y periodo (sin tarjeta propia). */
+function CierreCurso({
   slug, esDireccion, cursoId, periodoId, nombreCurso, periodoCerrado, cierre,
 }: {
   slug: string; esDireccion: boolean; cursoId: string; periodoId: string; nombreCurso: string; periodoCerrado: boolean;
@@ -149,10 +148,9 @@ function CierreCursoCard({
 }) {
   const cerrado = periodoCerrado || cierre !== null;
   return (
-    <Card>
-      <CardContent className="flex flex-wrap items-center justify-between gap-3">
+    <div className="flex flex-wrap items-center justify-between gap-3 border-t border-borde-sutil pt-4 xl:border-t-0 xl:border-l xl:pt-0 xl:pl-5">
         <div className="flex flex-col gap-0.5">
-          <p className="text-sm font-medium">Cierre de notas de {nombreCurso}</p>
+          <p className="text-sm text-muted-foreground">Cierre de notas de {nombreCurso}</p>
           <p className="flex items-center gap-1.5 text-sm">
             {cerrado ? <Lock className="size-4 text-muted-foreground" strokeWidth={2} aria-hidden /> : <CheckCircle2 className="size-4 text-llego" strokeWidth={2} aria-hidden />}
             <span className="font-semibold">{periodoCerrado ? "Periodo cerrado" : cierre ? "Cerrado" : "Abierto"}</span>
@@ -177,8 +175,7 @@ function CierreCursoCard({
             accion={reabrirCursoAction.bind(null, slug, cursoId, periodoId)}
           />
         )}
-      </CardContent>
-    </Card>
+    </div>
   );
 }
 

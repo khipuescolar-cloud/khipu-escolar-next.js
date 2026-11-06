@@ -36,7 +36,7 @@ function entrar(ctx: TenantContext) {
 const nombreDe = (u: { nombres: string; apellidos: string | null }) => `${u.nombres} ${u.apellidos ?? ""}`.trim();
 
 /** Reuniones visibles: dirección todas; personal las que organiza, convocó o donde está invitado; familia donde está invitada. */
-function dondeVisible(ctx: TenantContext): Prisma.ReunionWhereInput {
+export function dondeVisible(ctx: TenantContext): Prisma.ReunionWhereInput {
   if (ctx.rol === "direccion") return {};
   const invitado = { invitados: { some: { membershipId: ctx.membership.id } } };
   if (ctx.rol === "apoderado") return invitado;
