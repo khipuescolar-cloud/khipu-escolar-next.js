@@ -56,10 +56,10 @@ export function Hilo({ inicial }: { inicial: HiloVista }) {
   }
 
   return (
-    <div className="flex h-[calc(100dvh-11rem)] min-h-96 flex-col overflow-hidden rounded-lg border bg-card">
-      <header className="flex items-center gap-3 border-b px-4 py-3">
+    <div className="flex h-[calc(100dvh-11rem)] min-h-96 flex-col overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
+      <header className="flex items-center gap-3 border-b border-borde-sutil px-4 py-3">
         <Avatar size="lg">
-          <AvatarFallback className="bg-maiz text-sm font-semibold text-sobre-maiz">{iniciales(inicial.etiqueta)}</AvatarFallback>
+          <AvatarFallback className="bg-sec-suave text-sm font-semibold text-sec-tinta">{iniciales(inicial.etiqueta)}</AvatarFallback>
         </Avatar>
         <h1 className="min-w-0 text-cuerpo font-semibold leading-snug sm:text-titulo-2">{inicial.etiqueta}</h1>
       </header>
@@ -70,11 +70,11 @@ export function Hilo({ inicial }: { inicial: HiloVista }) {
           <li key={m.id} className={cn("flex max-w-[85%] items-end gap-2 sm:max-w-[75%]", m.propio ? "self-end" : "self-start")}>
             {!m.propio && (
               <Avatar size="sm" className="mb-0.5">
-                <AvatarFallback className="bg-superficie-2 text-xs font-semibold">{iniciales(m.autor)}</AvatarFallback>
+                <AvatarFallback className="bg-sec-suave text-xs font-semibold text-sec-tinta">{iniciales(m.autor)}</AvatarFallback>
               </Avatar>
             )}
-            <div className={cn("flex min-w-0 flex-col gap-0.5 px-3.5 py-2", m.propio ? "rounded-lg bg-primary text-primary-foreground" : "rounded-lg bg-superficie-2 text-foreground")}>
-              {!m.propio && <span className="text-xs font-semibold">{m.autor}</span>}
+            <div className={cn("flex min-w-0 flex-col gap-0.5 px-3.5 py-2", m.propio ? "rounded-[14px] rounded-br-md bg-primary text-primary-foreground" : "rounded-[14px] rounded-bl-md bg-superficie-2 text-foreground")}>
+              {!m.propio && <span className="text-xs font-semibold text-sec-tinta">{m.autor}</span>}
               <span className="whitespace-pre-wrap break-words text-sm">{m.cuerpo}</span>
               <time className={cn("self-end text-xs", m.propio ? "text-primary-foreground/80" : "text-muted-foreground")} dateTime={m.createdAt}>
                 {formatoHora.format(new Date(m.createdAt))}
@@ -85,7 +85,7 @@ export function Hilo({ inicial }: { inicial: HiloVista }) {
       </ol>
 
       {inicial.puedeEscribir && (
-        <form onSubmit={enviar} className="flex flex-col gap-2 border-t bg-card p-3">
+        <form onSubmit={enviar} className="flex flex-col gap-2 border-t border-borde-sutil bg-card p-3">
           {error && <Alerta tipo="error">{error}</Alerta>}
           <div className="flex items-end gap-2">
             <label htmlFor="cuerpo" className="sr-only">Tu mensaje</label>
