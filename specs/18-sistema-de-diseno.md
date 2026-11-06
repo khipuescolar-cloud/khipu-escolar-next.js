@@ -221,3 +221,4 @@ El rojo de falta también es el de **errores del sistema** (`destructive`). El v
 
 ## Estados de carga
 Cada ruta con datos de `colegio/[slug]` y `plataforma` tiene `loading.tsx` con esqueletos (`src/components/carga/Esqueletos.tsx`: `EsqueletoPagina`, `EsqueletoTarjetas`, `EsqueletoTabla`, `EsqueletoLista`, `EsqueletoFormulario`) con `aria-busy` y texto `sr-only` «Cargando…».
+Gestión, configuración, perfil, soporte y consentimiento usan `src/components/carga/EsqueletosGestion.tsx` (`CargaColegio`, `EsqueletoEncabezado`, `EsqueletoPestanas`, `EsqueletoBarraFiltros`, `EsqueletoFilas`, `EsqueletoSecciones`), que imitan la forma final: encabezado con cuerda, barra de filtros y filas con divisores. Las migas de páginas internas del colegio usan `src/components/colegio/MigasSeccion.tsx`.

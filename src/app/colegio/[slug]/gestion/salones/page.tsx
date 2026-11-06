@@ -9,12 +9,13 @@ import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
-import { Tarjeta } from "@/components/ui/Tarjeta";
+import { TituloBloque } from "@/app/colegio/[slug]/inicio/TituloBloque";
 import { buttonVariants } from "@/components/ui/button";
 import { CATALOGO_CNEB, areaPorClave } from "@/lib/cneb/catalogo";
 import { listarProfesores, listarSalones } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { AccionesFila } from "../_componentes/AccionesFila";
+import { SUPERFICIE_LISTA } from "../_componentes/BarraFiltros";
 import { PanelFormulario } from "../_componentes/PanelFormulario";
 import { archivarSalonAction, crearCursoAction, crearSalonAction, editarCursoAction, editarSalonAction, eliminarCursoAction, eliminarSalonAction, reactivarSalonAction } from "../actions";
 
@@ -64,6 +65,7 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
     <div className="flex flex-col gap-6">
       <div>
         <EncabezadoPagina
+          seccion="colegio"
           titulo="Grados y salones"
           descripcion="Salones por nivel y grado, con su tutor(a) y sus cursos."
           acciones={
@@ -86,7 +88,7 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
           }
         />
         <Flash ok={ok} error={error} />
-        <p className="mt-2 text-sm">
+        <p className="text-sm">
           {verArchivados ? (
             <Link href="/gestion/salones" className="inline-flex items-center gap-1.5 enlace"><School className="size-4" strokeWidth={2} aria-hidden /> Volver a los salones activos</Link>
           ) : (
@@ -95,7 +97,7 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
         </p>
       </div>
 
-      {verArchivados && <p className="-mt-2 rounded-lg border bg-muted/40 p-3 text-cuerpo-sm text-muted-foreground">Estos salones están archivados: no salen al pasar lista ni en los selectores, pero conservan su asistencia, notas y alumnos.</p>}
+      {verArchivados && <p className="-mt-2 rounded-[14px] bg-superficie-2/60 px-4 py-3 text-cuerpo-sm text-muted-foreground">Estos salones están archivados: no salen al pasar lista ni en los selectores, pero conservan su asistencia, notas y alumnos.</p>}
       {grupos.length === 0 && (
         verArchivados
           ? <EstadoVacio icono={Archive} titulo="No hay salones archivados" descripcion="Cuando archives un salón, aparecerá aquí y podrás reactivarlo." />
@@ -103,20 +105,30 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
       )}
 
       {grupos.map((n) => (
-        <section key={n.nivel} className="flex flex-col gap-4" aria-labelledby={`nivel-${n.nivel}`}>
-          <h2 id={`nivel-${n.nivel}`} className="border-b pb-2 text-titulo-2">{n.titulo}</h2>
+        <section key={n.nivel} className="flex flex-col gap-3" aria-labelledby={`nivel-${n.nivel}`}>
+          <TituloBloque id={`nivel-${n.nivel}`}>{n.titulo}</TituloBloque>
+          <div className={SUPERFICIE_LISTA}>
           {n.grados.map(({ grado, lista }) => (
-            <div key={grado ?? "sin"} className="flex flex-col gap-3">
-              <h3 className="sobretitulo">{grado === null ? "Sin grado" : `${grado}.° grado`}</h3>
-              <ul className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            <div key={grado ?? "sin"} className="border-b border-borde-sutil last:border-b-0">
+              <h3 className="bg-superficie-2/60 px-4 py-2 text-cuerpo-sm font-semibold text-muted-foreground">{grado === null ? "Sin grado" : `${grado}.° grado`}</h3>
+              <ul className="divide-y divide-borde-sutil">
                 {lista.map((s) => (
-                  <li key={s.id}>
-                    <Tarjeta className="flex h-full flex-col gap-3 p-4">
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="min-w-0">
-                          <p className="font-titulo text-cuerpo font-semibold">{s.nombre}</p>
-                          <p className="text-cuerpo-sm text-muted-foreground">Sección {s.seccion ?? "—"} · {s.anio}</p>
-                        </div>
+                  <li key={s.id} className="flex items-center gap-3 px-4 py-3">
+                    <div className="flex min-w-0 flex-1 flex-col gap-x-6 gap-y-1 sm:flex-row sm:items-center">
+                      <div className="min-w-0 sm:w-48 sm:shrink-0">
+                        <p className="font-heading font-semibold">{s.nombre}</p>
+                        <p className="text-cuerpo-sm text-muted-foreground tabular-nums">Sección {s.seccion ?? "—"} · {s.anio}</p>
+                      </div>
+                      <p className="min-w-0 flex-1 text-cuerpo-sm">
+                        <span className="text-muted-foreground">Tutor(a): </span>
+                        {s.tutor ? <span className="font-medium">{s.tutor.user.nombres} {s.tutor.user.apellidos}</span> : <span className="text-muted-foreground">Sin asignar</span>}
+                      </p>
+                      <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-cuerpo-sm text-muted-foreground tabular-nums">
+                        <span><strong className="font-semibold text-foreground">{s._count.alumnos}</strong> alumnos</span>
+                        <span><strong className="font-semibold text-foreground">{s.cursos.length}</strong> cursos</span>
+                        {s.archivadoAt && <Badge variant="outline" className="h-6 px-2.5"><Archive strokeWidth={2} aria-hidden /> Archivado</Badge>}
+                      </p>
+                    </div>
                         <AccionesFila
                           etiqueta={`Acciones para ${s.nombre}`}
                           items={[
@@ -138,13 +150,13 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
                                     <Boton type="submit" variante="secundario" className="justify-self-start sm:col-span-2">Guardar salón</Boton>
                                   </form>
 
-                                  <div className="border-t pt-5">
-                                    <h4 className="mb-3 font-semibold">Cursos</h4>
-                                    <ul className="flex flex-col gap-3">
-                                      {s.cursos.length === 0 && <li className="text-cuerpo-sm text-muted-foreground">Este salón aún no tiene cursos.</li>}
+                                  <div className="border-t border-borde-sutil pt-5">
+                                    <h4 className="mb-3 font-heading text-[18px] leading-6 font-semibold">Cursos</h4>
+                                    <ul className="flex flex-col divide-y divide-borde-sutil rounded-[10px] border border-borde-sutil">
+                                      {s.cursos.length === 0 && <li className="px-3 py-3 text-cuerpo-sm text-muted-foreground">Este salón aún no tiene cursos. Agrega el primero abajo.</li>}
                                       {s.cursos.map((c) => (
-                                        <li key={c.id} className="flex flex-wrap items-end gap-2 rounded-lg border p-3">
-                                          <form action={editarCursoAction} className="flex min-w-0 flex-1 flex-wrap items-end gap-2">
+                                        <li key={c.id} className="flex flex-wrap items-end gap-2 p-3">
+                                          <form action={editarCursoAction} className="grid min-w-0 flex-1 gap-3 sm:grid-cols-2 sm:items-end">
                                             <input type="hidden" name="id" value={c.id} />
                                             <Campo etiqueta="Curso" name="nombre" defaultValue={c.nombre} required />
                                             <Selector etiqueta="Profesor(a)" name="profesorId" defaultValue={c.profesorId ?? ""}>{opcionesProfesor}</Selector>
@@ -161,7 +173,7 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
                                         </li>
                                       ))}
                                     </ul>
-                                    <form action={crearCursoAction} className="mt-4 flex flex-wrap items-end gap-2 border-t pt-4">
+                                    <form action={crearCursoAction} className="mt-4 flex flex-wrap items-end gap-2 pt-1">
                                       <input type="hidden" name="salonId" value={s.id} />
                                       <Campo etiqueta="Nuevo curso" name="nombre" placeholder="Matemática" required />
                                       <Selector etiqueta="Profesor(a)" name="profesorId">{opcionesProfesor}</Selector>
@@ -191,19 +203,12 @@ export default async function SalonesPage({ params, searchParams }: PageProps<"/
                               : []),
                           ]}
                         />
-                      </div>
-                      <p className="text-sm"><span className="font-semibold">Tutor(a):</span> {s.tutor ? `${s.tutor.user.nombres} ${s.tutor.user.apellidos}` : <span className="text-muted-foreground">Sin asignar</span>}</p>
-                      <div className="mt-auto flex flex-wrap gap-2">
-                        <Badge variant="secondary" className="h-6 px-2.5">{s._count.alumnos} alumnos</Badge>
-                        <Badge variant="secondary" className="h-6 px-2.5">{s.cursos.length} cursos</Badge>
-                        {s.archivadoAt && <Badge variant="outline" className="h-6 px-2.5"><Archive strokeWidth={2} aria-hidden /> Archivado</Badge>}
-                      </div>
-                    </Tarjeta>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
+          </div>
         </section>
       ))}
     </div>

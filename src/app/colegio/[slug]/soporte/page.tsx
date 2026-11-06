@@ -23,8 +23,9 @@ export default async function SoportePage({ params }: PageProps<"/colegio/[slug]
   const [tickets, horario] = await Promise.all([listarTicketsColegio(ctx), horarioSoporte()]);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-6">
       <EncabezadoPagina
+        seccion="colegio"
         titulo="Soporte Khipu"
         descripcion="Escríbele directamente al equipo de Khipu Escolar: dudas, problemas o sugerencias."
         acciones={<NuevaConversacion />}
@@ -40,15 +41,15 @@ export default async function SoportePage({ params }: PageProps<"/colegio/[slug]
           descripcion="Cuando necesites ayuda, usa «Nueva conversación» y el equipo de Khipu te responderá aquí."
         />
       ) : (
-        <ul className="flex flex-col divide-y overflow-hidden rounded-lg border bg-card" aria-label="Conversaciones con Khipu">
+        <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card" aria-label="Conversaciones con Khipu">
           {tickets.map((t) => (
             <li key={t.id}>
               <Link
                 href={`/soporte/${t.id}`}
-                className="flex min-h-16 flex-col gap-1.5 px-4 py-3 outline-none transition-colors hover:bg-accent focus-visible:bg-accent sm:flex-row sm:items-center sm:gap-4"
+                className="flex min-h-16 flex-col gap-1.5 px-4 py-3 transition-colors duration-150 hover:bg-sec-suave/50 focus-visible:bg-sec-suave/50 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring sm:flex-row sm:items-center sm:gap-4"
                 data-testid="fila-ticket"
               >
-                <MessagesSquare className="hidden size-5 shrink-0 text-muted-foreground sm:block" strokeWidth={2} aria-hidden />
+                <MessagesSquare className="hidden size-5 shrink-0 text-sec-trazo sm:block" strokeWidth={2} aria-hidden />
                 <span className="min-w-0 flex-1">
                   <span className={cn("block truncate text-sm", t.noLeidos > 0 ? "font-bold" : "font-semibold")}>{t.asunto}</span>
                   <span className="block truncate text-cuerpo-sm text-muted-foreground">
@@ -62,8 +63,8 @@ export default async function SoportePage({ params }: PageProps<"/colegio/[slug]
                 </span>
                 <span className="flex flex-wrap items-center gap-2 sm:flex-col sm:items-end">
                   <InsigniaEstadoTicket estado={t.estado} lado="colegio" />
-                  <span className="text-cuerpo-sm text-muted-foreground">{fecha.format(t.ultimoMensajeAt)}</span>
-                  {t.noLeidos > 0 && <Badge className="h-6 px-2.5 text-xs">{t.noLeidos === 1 ? "1 respuesta nueva" : `${t.noLeidos} respuestas nuevas`}</Badge>}
+                  <span className="text-cuerpo-sm text-muted-foreground tabular-nums">{fecha.format(t.ultimoMensajeAt)}</span>
+                  {t.noLeidos > 0 && <Badge className="h-6 bg-sec-tinta px-2.5 text-xs text-background">{t.noLeidos === 1 ? "1 respuesta nueva" : `${t.noLeidos} respuestas nuevas`}</Badge>}
                 </span>
               </Link>
             </li>

@@ -1,9 +1,8 @@
-import { ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
-import { Tarjeta } from "@/components/ui/Tarjeta";
+import { NuditoMascota } from "@/components/nudito/NuditoMascota";
 import { CONSENTIMIENTO_NOTA_LEGAL, CONSENTIMIENTO_PARRAFOS, CONSENTIMIENTO_TITULO, CONSENTIMIENTO_VERSION } from "@/lib/consentimiento";
 import { estadoConsentimiento } from "@/lib/server/consentimiento";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -19,23 +18,23 @@ export default async function ConsentimientoPage({ params }: PageProps<"/colegio
 
   return (
     <div className="mx-auto max-w-2xl">
-      <Tarjeta className="flex flex-col gap-4 p-6">
-        <div className="flex items-center gap-3">
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-superficie-2 text-primary">
-            <ShieldCheck className="size-6" strokeWidth={2} aria-hidden />
-          </span>
-          <h1 className="text-titulo-1 text-balance">{CONSENTIMIENTO_TITULO}</h1>
+      <div className="flex flex-col gap-6 rounded-[14px] border border-borde-sutil bg-card p-6 sm:p-8">
+        <div className="flex items-center gap-4">
+          <NuditoMascota tamano={56} estado="saludo" />
+          <h1 className="font-heading text-titulo-2 text-balance sm:text-titulo-1">{CONSENTIMIENTO_TITULO}</h1>
         </div>
-        {CONSENTIMIENTO_PARRAFOS.map((p) => (
-          <p key={p} className="max-w-prose leading-relaxed">{p}</p>
-        ))}
+        <div className="flex flex-col gap-4">
+          {CONSENTIMIENTO_PARRAFOS.map((p) => (
+            <p key={p} className="max-w-prose leading-relaxed text-pretty">{p}</p>
+          ))}
+        </div>
         <p className="text-cuerpo-sm text-muted-foreground">Versión {CONSENTIMIENTO_VERSION}</p>
         <Alerta tipo="aviso">{CONSENTIMIENTO_NOTA_LEGAL}</Alerta>
-        <form action={aceptarConsentimientoAction} className="flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center">
+        <form action={aceptarConsentimientoAction} className="flex flex-col gap-3 border-t border-borde-sutil pt-5 sm:flex-row sm:items-center">
           <Boton type="submit" tamano="lg">Acepto</Boton>
           <span className="text-cuerpo-sm text-muted-foreground">Sin tu autorización no podremos enviarte avisos por correo.</span>
         </form>
-      </Tarjeta>
+      </div>
     </div>
   );
 }

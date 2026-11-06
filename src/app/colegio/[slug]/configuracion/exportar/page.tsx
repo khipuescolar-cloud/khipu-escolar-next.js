@@ -1,6 +1,7 @@
-import { ArrowLeft, Download, FileArchive, PackagePlus } from "lucide-react";
+import { Download, FileArchive, PackagePlus } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
+import { TituloBloque } from "@/app/colegio/[slug]/inicio/TituloBloque";
+import { MigasSeccion } from "@/components/colegio/MigasSeccion";
 import { forbidden } from "next/navigation";
 import { EstadoExportacion } from "@/components/exportacion/EstadoExportacion";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
@@ -8,7 +9,6 @@ import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Boton } from "@/components/ui/Boton";
 import { buttonVariants } from "@/components/ui/button";
 import { Flash } from "@/components/ui/Flash";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { EXPORTACION_VENCE_DIAS, listarExportaciones } from "@/lib/server/exportar";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -29,16 +29,18 @@ export default async function ExportarPage({ params, searchParams }: PageProps<"
 
   return (
     <div className="flex flex-col gap-6">
-      <Link href="/configuracion" className="inline-flex w-fit items-center gap-1.5 enlace">
-        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Configuración
-      </Link>
       <div>
-        <EncabezadoPagina titulo="Exportar datos" descripcion="Una copia de todo lo del colegio: tablas en JSON y los archivos subidos, en un ZIP." />
+        <EncabezadoPagina
+          titulo="Exportar datos"
+          descripcion="Una copia de todo lo del colegio: tablas en JSON y los archivos subidos, en un ZIP."
+          migas={<MigasSeccion ruta={[{ href: "/configuracion", texto: "Configuración" }]} actual="Exportar datos" />}
+        />
         <Flash ok={ok} error={error} />
       </div>
 
-      <Tarjeta className="flex flex-col gap-3">
-        <p className="text-cuerpo-sm text-muted-foreground">
+      <section aria-labelledby="exportar-nueva" className="flex max-w-3xl flex-col gap-3">
+        <TituloBloque id="exportar-nueva">Preparar una copia</TituloBloque>
+        <p className="text-cuerpo-sm text-pretty text-muted-foreground">
           Preparar la copia puede tardar unos minutos. Cuando esté lista, aparecerá abajo y podrás descargarla durante {EXPORTACION_VENCE_DIAS} días.
           El archivo contiene datos personales de menores y familias: guárdalo con cuidado.
         </p>
@@ -48,16 +50,18 @@ export default async function ExportarPage({ params, searchParams }: PageProps<"
           </Boton>
         </form>
         {enCurso && <p className="text-cuerpo-sm text-muted-foreground">Ya hay una exportación en preparación. Actualiza esta página en unos minutos.</p>}
-      </Tarjeta>
+      </section>
 
       {filas.length === 0 ? (
         <EstadoVacio icono={FileArchive} titulo="Aún no pediste exportaciones" descripcion="Cuando prepares una, aparecerá aquí con su estado." />
       ) : (
-        <Tarjeta className="overflow-hidden p-0">
+        <section aria-labelledby="exportar-historial" className="flex flex-col gap-3">
+        <TituloBloque id="exportar-historial">Exportaciones anteriores</TituloBloque>
+        <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
           <Table>
             <caption className="sr-only">Exportaciones del colegio</caption>
             <TableHeader>
-              <TableRow className="bg-muted/50 hover:bg-muted/50">
+              <TableRow className="bg-superficie-2/60 hover:bg-superficie-2/60">
                 <TableHead>Pedida</TableHead>
                 <TableHead>Estado</TableHead>
                 <TableHead>Tamaño</TableHead>
@@ -92,7 +96,8 @@ export default async function ExportarPage({ params, searchParams }: PageProps<"
               ))}
             </TableBody>
           </Table>
-        </Tarjeta>
+        </div>
+        </section>
       )}
     </div>
   );

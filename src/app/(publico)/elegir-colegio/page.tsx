@@ -2,7 +2,7 @@ import { ChevronRight, School } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Tarjeta } from "@/components/ui/Tarjeta";
+import { TarjetaPublica } from "../_componentes/TarjetaPublica";
 import { colegiosDelUsuario } from "@/lib/server/auth";
 import { usuarioActual } from "@/lib/server/tenant";
 
@@ -15,7 +15,7 @@ export default async function ElegirColegioPage() {
   if (colegios.length === 1) redirect(`/entrando?colegio=${colegios[0].slug}`);
 
   return (
-    <Tarjeta className="p-6 sm:p-8">
+    <TarjetaPublica className="p-6 sm:p-8">
       <h1 className="mb-1 font-heading text-titulo-2">Hola, {user.nombres}</h1>
       <p className="mb-6 text-cuerpo-sm text-muted-foreground">Tienes hijos en más de un colegio. ¿A cuál quieres entrar?</p>
       <ul className="flex flex-col gap-3">
@@ -23,9 +23,9 @@ export default async function ElegirColegioPage() {
           <li key={c.slug}>
             <Link
               href={`/entrando?colegio=${c.slug}`}
-              className="flex items-center gap-3 min-h-14 rounded-lg border bg-card p-4 transition-colors hover:border-primary/40 hover:bg-accent focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+              className="flex min-h-14 items-center gap-3 rounded-[10px] border border-borde-sutil bg-card p-4 transition-colors duration-150 hover:border-primary/40 hover:bg-superficie-2/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
             >
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-accent text-primary"><School className="size-5" strokeWidth={2} aria-hidden /></span>
+              <School className="size-5 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
               <span className="flex-1">
                 <span className="block font-semibold">{c.nombre}</span>
                 {c.ciudad && <span className="text-cuerpo-sm text-muted-foreground">{c.ciudad}</span>}
@@ -35,6 +35,6 @@ export default async function ElegirColegioPage() {
           </li>
         ))}
       </ul>
-    </Tarjeta>
+    </TarjetaPublica>
   );
 }

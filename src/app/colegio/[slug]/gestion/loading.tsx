@@ -1,5 +1,14 @@
-import { EsqueletoPagina, EsqueletoTarjetas, EsqueletoTabla } from "@/components/carga/Esqueletos";
+import { CargaColegio, EsqueletoEncabezado, EsqueletoFilas } from "@/components/carga/EsqueletosGestion";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Loading() {
-  return <EsqueletoPagina><><EsqueletoTarjetas /><EsqueletoTabla filas={4} /></></EsqueletoPagina>;
+  return (
+    <CargaColegio>
+      <EsqueletoEncabezado acciones={0} />
+      <Skeleton className="h-6 w-32" />
+      <EsqueletoFilas filas={4} avatar={false} />
+      <Skeleton className="h-6 w-48" />
+      <EsqueletoFilas filas={3} avatar={false} />
+    </CargaColegio>
+  );
 }

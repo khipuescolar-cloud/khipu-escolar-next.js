@@ -17,26 +17,24 @@ import { exigirGestion } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { urlLogoColegio } from "@/lib/server/logo";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { NOMBRE_NIVEL, nivelesConfigurables } from "@/lib/asistencia-por-curso";
 import { guardarAjustesReunionesAction, guardarAsistenciaPorCursoAction, guardarConfiguracionAction, guardarReglasAcademicasAction, quitarLogoAction, subirLogoAction } from "./actions";
 
 export const metadata: Metadata = { title: "Configuración" };
 
 function Seccion({ icono: Icono, titulo, descripcion, children }: { icono: typeof Bell; titulo: string; descripcion: string; children: React.ReactNode }) {
+  const id = `cfg-${titulo.toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g, "-")}`;
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex items-start gap-3">
-        <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-accent text-primary">
-          <Icono className="size-5" strokeWidth={2} aria-hidden />
-        </span>
-        <div>
-          <h2 className="text-titulo-2">{titulo}</h2>
-          <p className="text-cuerpo-sm text-muted-foreground">{descripcion}</p>
-        </div>
+    <section aria-labelledby={id} className="flex flex-col gap-4">
+      <div>
+        <h2 id={id} className="inline-flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold">
+          <Icono className="size-5 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
+          {titulo}
+        </h2>
+        <p className="mt-1 max-w-prose text-cuerpo-sm text-pretty text-muted-foreground">{descripcion}</p>
       </div>
       {children}
-    </div>
+    </section>
   );
 }
 
@@ -57,16 +55,17 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <EncabezadoPagina titulo="Configuración" descripcion="Avisos a las familias, identidad del colegio y privacidad de los datos." />
-        <p className="-mt-3 mb-3 flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
-          {t.nombre}
-          <span className="rounded-pildora bg-accent px-2.5 py-1 text-etiqueta text-accent-foreground">Plan {ctx.accesoModulos.nombrePlan}</span>
-        </p>
+        <EncabezadoPagina
+          seccion="colegio"
+          titulo="Configuración"
+          descripcion="Avisos a las familias, identidad del colegio y privacidad de los datos."
+          resumen={<span className="inline-flex flex-wrap items-center gap-2">{t.nombre}<span className="rounded-pildora bg-sec-suave px-2.5 py-0.5 text-etiqueta font-semibold text-sec-tinta">Plan {ctx.accesoModulos.nombrePlan}</span></span>}
+        />
         <Flash ok={ok} error={error} />
       </div>
 
-      <Tarjeta>
-        <form action={guardarConfiguracionAction} className="flex flex-col gap-8">
+      <div className="flex max-w-3xl flex-col gap-10">
+        <form action={guardarConfiguracionAction} className="flex flex-col gap-10">
           <Seccion icono={Bell} titulo="Avisos a las familias" descripcion="Al cerrar la lista, cada familia recibe el aviso de llegada, tardanza, falta o problema de su hijo.">
             <div className="grid gap-4 sm:grid-cols-2">
               <Campo etiqueta="Hora límite de tardanza" name="horaLimiteTardanza" type="time" defaultValue={t.horaLimiteTardanza} required ayuda="Solo para salones sin plantilla de horario: en los demás, la tardanza cuenta desde la entrada de su plantilla." />
@@ -74,7 +73,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
               <Campo etiqueta="Plazo para justificar faltas (días calendario)" name="plazoJustificacionDias" type="number" min={PLAZO_JUSTIFICACION_MIN_DIAS} max={PLAZO_JUSTIFICACION_MAX_DIAS} step={1} defaultValue={t.plazoJustificacionDias} required ayuda={`De ${PLAZO_JUSTIFICACION_MIN_DIAS} a ${PLAZO_JUSTIFICACION_MAX_DIAS} días calendario. El día de la falta es el día 0; el último día vence a las 11:59 p. m. Por defecto, ${PLAZO_JUSTIFICACION_DEFECTO_DIAS}.`} />
             </div>
             {ctx.modulos.has("porteria") ? (
-              <label className="flex items-start gap-3 rounded-lg border px-3 py-3 text-cuerpo">
+              <label className="flex items-start gap-3 rounded-[10px] border border-borde-sutil px-3 py-3 text-cuerpo">
                 <input type="checkbox" name="controlIngresoAutomatico" defaultChecked={t.controlIngresoAutomatico} className="mt-1 size-4 shrink-0 accent-[var(--primary)]" />
                 <span className="flex flex-col gap-1">
                   <span className="font-medium">Control de ingreso automático por portería</span>
@@ -88,13 +87,13 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             )}
           </Seccion>
 
-          <div className="border-t pt-8">
+          <div className="border-t border-borde-sutil pt-10">
             <Seccion icono={Globe} titulo="Dominio de correo" descripcion="Sirve para detectar tu colegio cuando alguien inicia sesión.">
               <Campo etiqueta="Dominios de correo del colegio" name="emailDomains" defaultValue={t.emailDomains.join(", ")} ayuda="Separados por coma. Sirven para detectar tu colegio al iniciar sesión." />
             </Seccion>
           </div>
 
-          <div className="border-t pt-8">
+          <div className="border-t border-borde-sutil pt-10">
             <Seccion icono={GraduationCap} titulo="Escala de calificación" descripcion="Cómo se muestran las notas en el colegio y cómo se sugiere la calificación del periodo.">
               <Selector etiqueta="Escala de calificación" name="escalaCalificacion" defaultValue={t.escalaCalificacion}>
                 <option value="literal">Literal (AD, A, B, C)</option>
@@ -111,7 +110,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             </Seccion>
           </div>
 
-          <div className="border-t pt-8">
+          <div className="border-t border-borde-sutil pt-10">
             <Seccion icono={UserRound} titulo="Cuenta propia del alumno" descripcion="Desde qué grado de primaria un alumno puede entrar con su propia cuenta. En secundaria siempre puede; en inicial, nunca.">
               <Selector etiqueta="Desde qué grado de primaria" name="gradoMinimoCuentaAlumno" defaultValue={String(t.gradoMinimoCuentaAlumno)}>
                 {[1, 2, 3, 4, 5, 6].map((g) => (
@@ -123,10 +122,9 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
 
           <Boton type="submit" className="self-start">Guardar</Boton>
         </form>
-      </Tarjeta>
 
       {ctx.modulos.has("reuniones") && (
-        <Tarjeta>
+        <div className="border-t border-borde-sutil pt-10">
           <form action={guardarAjustesReunionesAction} className="flex flex-col gap-4">
             <Seccion icono={CalendarClock} titulo="Reuniones" descripcion="Jornada del personal para buscar horarios libres y solicitudes de las familias.">
               <div className="grid gap-4 sm:grid-cols-2">
@@ -140,11 +138,11 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             </Seccion>
             <Boton type="submit" className="self-start">Guardar ajustes de reuniones</Boton>
           </form>
-        </Tarjeta>
+        </div>
       )}
 
       {ctx.modulos.has("notas") && (
-        <Tarjeta>
+        <div className="border-t border-borde-sutil pt-10">
           <form action={guardarReglasAcademicasAction} className="flex flex-col gap-4">
             <Seccion icono={Scale} titulo="Reglas académicas" descripcion="NSP (No se presentó) y vencimiento del plazo para justificar.">
               {nspSinConsecuencia > 0 && (
@@ -171,10 +169,10 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             </Seccion>
             <Boton type="submit" className="self-start">Guardar reglas académicas</Boton>
           </form>
-        </Tarjeta>
+        </div>
       )}
 
-      <Tarjeta>
+      <div className="border-t border-borde-sutil pt-10">
         <Seccion
           icono={BookOpenCheck}
           titulo="Asistencia por curso"
@@ -184,7 +182,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             <fieldset className="flex flex-col gap-2">
               <legend className="sr-only">Niveles con asistencia por curso</legend>
               {nivelesConfigurables(salonesPorNivel.has("academia")).map((n) => (
-                <label key={n} className="flex min-h-11 items-center gap-3 rounded-lg border px-3 py-2 text-cuerpo">
+                <label key={n} className="flex min-h-11 items-center gap-3 rounded-[10px] border border-borde-sutil px-3 py-2 text-cuerpo">
                   <input type="checkbox" name="niveles" value={n} defaultChecked={t.asistenciaPorCursoNiveles.includes(n)} className="size-4 accent-[var(--primary)]" />
                   <span className="font-medium">{NOMBRE_NIVEL[n]}</span>
                   <span className="ml-auto text-cuerpo-sm text-muted-foreground">
@@ -199,14 +197,14 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             <Boton type="submit" className="self-start">Guardar asistencia por curso</Boton>
           </form>
         </Seccion>
-      </Tarjeta>
+      </div>
 
-      <Tarjeta>
+      <div className="border-t border-borde-sutil pt-10">
         <Seccion icono={ImageIcon} titulo="Logo del colegio" descripcion="Aparece en el encabezado, los carnets y la libreta en PDF.">
           <div className="flex flex-wrap items-center gap-4">
             {logoUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={logoUrl} alt={`Logo de ${t.nombre}`} className="size-20 rounded-lg border bg-white object-contain" />
+              <img src={logoUrl} alt={`Logo de ${t.nombre}`} className="size-20 rounded-[10px] border border-borde-sutil bg-white object-contain" />
             ) : (
               <p className="text-cuerpo-sm text-muted-foreground">Aún no subiste un logo.</p>
             )}
@@ -215,25 +213,25 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
           <form action={subirLogoAction} className="flex flex-wrap items-end gap-3">
             <label className="flex flex-col gap-1.5 text-sm font-medium">
               Imagen del logo
-              <input type="file" name="logo" accept="image/png,image/jpeg,image/webp" required className="min-h-10 text-sm file:mr-3 file:h-10 file:cursor-pointer file:rounded-md file:border file:border-input file:bg-card file:px-3 file:text-sm file:font-semibold" />
+              <input type="file" name="logo" accept="image/png,image/jpeg,image/webp" required className="min-h-11 rounded-[10px] border border-dashed border-input bg-superficie-2/50 p-1.5 text-sm file:mr-3 file:h-8 file:cursor-pointer file:rounded-md file:border file:border-input file:bg-card file:px-3 file:text-sm file:font-semibold" />
               <span className="text-cuerpo-sm font-normal text-muted-foreground">PNG, JPG o WEBP, hasta 1 MB. Para la libreta en PDF se usa PNG o JPG.</span>
             </label>
             <Boton type="submit">Subir logo</Boton>
           </form>
         </Seccion>
-      </Tarjeta>
+      </div>
 
       {ctx.tenant.plan === "pro" && (
-        <Tarjeta>
+        <div className="border-t border-borde-sutil pt-10">
           <Seccion icono={Sparkles} titulo="Nudito, tutor de práctica" descripcion="Enciende Nudito, elige grados y cursos, fotos, límites y por cuánto tiempo se guarda la práctica.">
-            <Link href="/configuracion/nudito" className={buttonVariants({ variant: "outline" })}>
+            <Link href="/configuracion/nudito" className={buttonVariants({ variant: "outline", className: "self-start" })}>
               <Sparkles strokeWidth={2} aria-hidden /> Configurar Nudito
             </Link>
           </Seccion>
-        </Tarjeta>
+        </div>
       )}
 
-      <Tarjeta>
+      <div className="border-t border-borde-sutil pt-10">
         <Seccion icono={ScrollText} titulo="Privacidad y datos" descripcion="Transparencia sobre quién vio o cambió datos, y una copia de todo lo tuyo.">
           <div className="flex flex-wrap gap-2">
             <Link href="/configuracion/auditoria" className={buttonVariants({ variant: "outline" })}>
@@ -244,12 +242,12 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
             </Link>
           </div>
         </Seccion>
-      </Tarjeta>
+      </div>
 
       {responsables.length > 0 && (
-        <Tarjeta>
+        <div className="border-t border-borde-sutil pt-10">
           <Seccion icono={Contact} titulo="Responsables ante Khipu" descripcion="Las personas de tu colegio con las que habla el equipo de Khipu. Si algo cambia, avísanos.">
-            <ul className="flex flex-col divide-y text-cuerpo-sm">
+            <ul className="flex flex-col divide-y divide-borde-sutil text-cuerpo-sm">
               {responsables.map((r) => (
                 <li key={r.id} className="flex flex-col gap-0.5 py-2">
                   <p className="font-semibold">
@@ -261,8 +259,9 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
               ))}
             </ul>
           </Seccion>
-        </Tarjeta>
+        </div>
       )}
+      </div>
     </div>
   );
 }

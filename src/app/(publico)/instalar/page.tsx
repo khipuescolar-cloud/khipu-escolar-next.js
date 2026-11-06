@@ -2,7 +2,7 @@ import { ArrowLeft, Laptop, Smartphone } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { InstalarAqui, PasosIOS, PasosMenuNavegador } from "@/components/app/InstalarApp";
-import { Tarjeta } from "@/components/ui/Tarjeta";
+import { TarjetaPublica } from "../_componentes/TarjetaPublica";
 import { baseDomain } from "@/lib/dominio";
 
 export const metadata: Metadata = {
@@ -18,9 +18,8 @@ const CAPTURAS = [
 /** Página pública (specs/24): pasos por plataforma, capturas y el botón de instalar cuando el navegador lo ofrece. */
 export default function InstalarPage() {
   return (
-    <Tarjeta className="flex flex-col gap-6 p-6 sm:p-8" data-testid="pagina-instalar">
+    <TarjetaPublica className="flex flex-col gap-6 p-6 sm:p-8" data-testid="pagina-instalar">
       <div className="flex flex-col gap-1">
-        <p className="sobretitulo">App de Khipu Escolar</p>
         <h1 className="font-heading text-titulo-2">Lleva el colegio en tu celular</h1>
         <p className="text-cuerpo-sm text-muted-foreground">
           Se instala desde aquí, sin tienda de apps. Ocupa poco espacio, recibe avisos y abre con un toque.
@@ -40,7 +39,7 @@ export default function InstalarPage() {
 
       <section aria-labelledby="pasos-android" className="flex flex-col gap-3">
         <h2 id="pasos-android" className="flex items-center gap-2 text-cuerpo font-semibold">
-          <Smartphone className="size-5 text-primary" strokeWidth={2} aria-hidden /> Android (Chrome)
+          <Smartphone className="size-5 text-sec-trazo" strokeWidth={2} aria-hidden /> Android (Chrome)
         </h2>
         <p className="text-cuerpo-sm text-muted-foreground">Si ves el botón <strong>Instalar app</strong>, tócalo. Si no:</p>
         <PasosMenuNavegador plataforma="android" />
@@ -48,19 +47,19 @@ export default function InstalarPage() {
 
       <section aria-labelledby="pasos-ios" className="flex flex-col gap-3">
         <h2 id="pasos-ios" className="flex items-center gap-2 text-cuerpo font-semibold">
-          <Smartphone className="size-5 text-primary" strokeWidth={2} aria-hidden /> iPhone y iPad (Safari)
+          <Smartphone className="size-5 text-sec-trazo" strokeWidth={2} aria-hidden /> iPhone y iPad (Safari)
         </h2>
         <PasosIOS />
       </section>
 
       <section aria-labelledby="pasos-computador" className="flex flex-col gap-3">
         <h2 id="pasos-computador" className="flex items-center gap-2 text-cuerpo font-semibold">
-          <Laptop className="size-5 text-primary" strokeWidth={2} aria-hidden /> Computador (Chrome o Edge)
+          <Laptop className="size-5 text-sec-trazo" strokeWidth={2} aria-hidden /> Computador (Chrome o Edge)
         </h2>
         <PasosMenuNavegador plataforma="escritorio" />
       </section>
 
-      <p className="rounded-lg bg-superficie-2 p-3 text-cuerpo-sm">
+      <p className="rounded-[10px] bg-superficie-2/70 p-3 text-cuerpo-sm text-pretty">
         Instala la app desde la dirección de tu colegio (por ejemplo, <strong>tucolegio.{baseDomain()}</strong>): cada colegio
         tiene su propia app. Si tienes hijos en dos colegios, instala una por cada uno.
       </p>
@@ -68,6 +67,6 @@ export default function InstalarPage() {
       <Link href="/" className="enlace inline-flex min-h-10 items-center gap-1 text-cuerpo-sm">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Volver
       </Link>
-    </Tarjeta>
+    </TarjetaPublica>
   );
 }

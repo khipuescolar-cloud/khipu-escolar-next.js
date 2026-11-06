@@ -10,12 +10,12 @@ import { Campo } from "@/components/ui/Campo";
 import { Flash } from "@/components/ui/Flash";
 import { Selector } from "@/components/ui/Selector";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { buttonVariants } from "@/components/ui/button";
 import { FAMILIAS_POR_PAGINA, listarAlumnos, listarApoderados } from "@/lib/server/gestion";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cambiarEstadoMembresiaAction, desvincularApoderadoAction, editarApoderadoAction, invitarApoderadoAction, reenviarInvitacionAction, vincularApoderadoAction } from "../actions";
 import { AccionesFila, type ItemFila } from "../_componentes/AccionesFila";
+import { BarraFiltros, SUPERFICIE_LISTA } from "../_componentes/BarraFiltros";
 import { AvatarPersona } from "../_componentes/AvatarPersona";
 import { PanelFormulario } from "../_componentes/PanelFormulario";
 
@@ -46,6 +46,7 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
     <div className="flex flex-col gap-6">
       <div>
         <EncabezadoPagina
+          seccion="colegio"
           titulo="Familias"
           descripcion="Apoderados, sus alumnos y el consentimiento para recibir avisos."
           acciones={
@@ -71,13 +72,11 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
         <Flash ok={ok} error={error} />
       </div>
 
-      <Tarjeta className="p-4">
-        <form method="get" className="flex flex-wrap items-end gap-3" role="search">
-          <Campo etiqueta="Buscar familia" name="q" type="search" defaultValue={q ?? ""} placeholder={ctx.rol === "direccion" ? "Nombre, correo, documento o alumno" : "Nombre, correo o alumno"} />
-          <Boton type="submit" variante="secundario"><Search strokeWidth={2} aria-hidden /> Buscar</Boton>
-          {q && <Link href="/gestion/apoderados" className="inline-flex h-10 items-center px-2 enlace">Limpiar</Link>}
-        </form>
-      </Tarjeta>
+      <BarraFiltros etiqueta="Filtros de familias">
+        <Campo etiqueta="Buscar familia" name="q" type="search" defaultValue={q ?? ""} placeholder={ctx.rol === "direccion" ? "Nombre, correo, documento o alumno" : "Nombre, correo o alumno"} />
+        <Boton type="submit" variante="secundario"><Search strokeWidth={2} aria-hidden /> Buscar</Boton>
+        {q && <Link href="/gestion/apoderados" className="inline-flex min-h-10 items-center px-2 enlace">Limpiar</Link>}
+      </BarraFiltros>
 
       {apoderados.length === 0 ? (
         q ? (
@@ -86,7 +85,7 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
           <EstadoVacio icono={HeartHandshake} titulo="Aún no hay familias registradas" descripcion="Invita al primer apoderado con el botón «Invitar apoderado»." />
         )
       ) : (
-        <ul className="grid gap-4 lg:grid-cols-2">
+        <ul className={`${SUPERFICIE_LISTA} divide-y divide-borde-sutil`}>
           {apoderados.map((a) => {
             const c = CONSENTIMIENTO[a.consentimiento];
             const nombre = `${a.user.nombres} ${a.user.apellidos}`;
@@ -141,24 +140,23 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
                   },
             ];
             return (
-              <li key={a.id}>
-                <Tarjeta className="flex h-full flex-col gap-4">
+              <li key={a.id} className="flex flex-col gap-3 px-4 py-4">
                   <div className="flex items-start gap-3">
                     <AvatarPersona nombres={a.user.nombres} apellidos={a.user.apellidos} />
                     <div className="min-w-0 flex-1">
                       <p className="font-semibold">{nombre}</p>
                       <p className="truncate text-cuerpo-sm text-muted-foreground">{a.user.email}</p>
-                    </div>
-                    <AccionesFila etiqueta={`Acciones para ${nombre}`} items={items} />
-                  </div>
-                  <div className="flex flex-wrap items-center gap-2">
+                      <div className="mt-2 flex flex-wrap items-center gap-2">
                     {a.estado === "invitada" && (
                       <Badge className="h-6 bg-tarde-fondo px-2.5 text-etiqueta text-tarde"><Clock strokeWidth={2} aria-hidden /> Invitación pendiente</Badge>
                     )}
                     {a.estado === "inactiva" && <Badge className="h-6 bg-muted px-2.5 text-etiqueta text-muted-foreground">Cuenta inactiva</Badge>}
                     <Badge className={`h-6 px-2.5 text-etiqueta ${c.clase}`}><c.Icono strokeWidth={2} aria-hidden /> {c.texto}</Badge>
+                      </div>
+                    </div>
+                    <AccionesFila etiqueta={`Acciones para ${nombre}`} items={items} />
                   </div>
-                  <ul className="flex flex-col divide-y border-t text-sm">
+                  <ul className="sm:ml-11 flex flex-col divide-y divide-borde-sutil rounded-[10px] bg-superficie-2/50 px-3 text-sm">
                     {a.hijos.map((h) => (
                       <li key={h.id} className="flex items-center justify-between gap-2 py-2">
                         <span>{h.parentesco} de {h.alumno.nombres} {h.alumno.apellidos} <span className="text-muted-foreground">({h.alumno.salon.nombre})</span></span>
@@ -177,7 +175,6 @@ export default async function ApoderadosPage({ params, searchParams }: PageProps
                     ))}
                     {a.hijos.length === 0 && <li className="py-2 text-muted-foreground">Sin alumnos vinculados.</li>}
                   </ul>
-                </Tarjeta>
               </li>
             );
           })}

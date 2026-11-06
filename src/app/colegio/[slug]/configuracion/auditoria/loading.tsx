@@ -1,5 +1,11 @@
-import { EsqueletoPagina, EsqueletoTabla } from "@/components/carga/Esqueletos";
+import { CargaColegio, EsqueletoBarraFiltros, EsqueletoEncabezado, EsqueletoFilas } from "@/components/carga/EsqueletosGestion";
 
 export default function Loading() {
-  return <EsqueletoPagina><EsqueletoTabla /></EsqueletoPagina>;
+  return (
+    <CargaColegio>
+      <EsqueletoEncabezado acciones={0} />
+      <EsqueletoBarraFiltros campos={1} />
+      <EsqueletoFilas filas={8} avatar={false} />
+    </CargaColegio>
+  );
 }

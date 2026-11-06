@@ -51,7 +51,7 @@ test.afterAll(async () => {
 test("dirección registra un profesor con DNI; recibe la bienvenida y entra con el DNI cambiando la contraseña", async ({ page, browser }) => {
   await entrar(page, "direccion@nuevohorizonte.demo", "demo123");
   await page.waitForURL(`${COLEGIO}/inicio`);
-  await page.goto(`${COLEGIO}/gestion/profesores`);
+  await page.goto(`${COLEGIO}/gestion/profesores`, { waitUntil: "networkidle" });
   await expect(page.getByRole("heading", { name: "Profesores", exact: true })).toBeVisible();
 
   await page.getByRole("button", { name: "Agregar profesor" }).click();
@@ -101,7 +101,7 @@ test("dirección registra un profesor con DNI; recibe la bienvenida y entra con 
 test("personal administrativo: dirección lo registra y ve su inicio con Comunicados; grados y hub", async ({ page, browser }) => {
   await entrar(page, "direccion@nuevohorizonte.demo", "demo123");
   await page.waitForURL(`${COLEGIO}/inicio`);
-  await page.goto(`${COLEGIO}/gestion/personal`);
+  await page.goto(`${COLEGIO}/gestion/personal`, { waitUntil: "networkidle" });
   await expect(page.getByRole("heading", { name: "Personal", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Agregar personal" }).click();
   await page.getByLabel("Rol").selectOption("administrativo");
@@ -132,7 +132,7 @@ test("personal administrativo: dirección lo registra y ve su inicio con Comunic
   await p2.waitForURL(`${COLEGIO}/inicio`);
   await expect(p2.getByRole("heading", { name: "Hola, Sara" })).toBeVisible();
   await expect(p2.getByText("Personal administrativo")).toBeVisible();
-  await p2.getByRole("main").getByRole("link", { name: /Comunicados/ }).click();
+  await p2.getByRole("link", { name: /^Comunicados/ }).first().click();
   await expect(p2.getByRole("heading", { name: "Comunicados" })).toBeVisible();
   await esperarSinAcceso(p2, await p2.goto(`${COLEGIO}/gestion/personal`));
   // Permisos del administrativo: alumnos y familias sí; profesores, salones y configuración no; el chat tampoco.
@@ -153,7 +153,7 @@ test("dirección archiva un salón y lo reactiva", async ({ page }) => {
   const nombre = `Archivo E2E ${azar}`;
   await entrar(page, "direccion@nuevohorizonte.demo", "demo123");
   await page.waitForURL(`${COLEGIO}/inicio`);
-  await page.goto(`${COLEGIO}/gestion/salones`);
+  await page.goto(`${COLEGIO}/gestion/salones`, { waitUntil: "networkidle" });
   await page.getByRole("button", { name: "Crear salón" }).first().click();
   await page.getByLabel("Nombre").fill(nombre);
   await page.getByRole("button", { name: "Crear salón" }).last().click();
