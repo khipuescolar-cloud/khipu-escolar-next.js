@@ -40,6 +40,7 @@ describe("justificaciones: por revisar e historial", () => {
   it("el historial trae todas y filtra por estado, alumno y fecha de la falta", async () => {
     const todas = await historialJustificaciones(c.ctxDe("direccion"), {});
     expect(todas).toMatchObject({ total: 2, pagina: 1, paginas: 1 });
+    expect(todas.filas[0].estado).toBe("pendiente"); // la vista única muestra las pendientes primero
     expect((await historialJustificaciones(c.ctxDe("direccion"), { estado: "aceptada" })).filas.map((f) => f.id)).toEqual([idAceptada]);
     expect((await historialJustificaciones(c.ctxDe("direccion"), { q: "quispe mat" })).total).toBe(2);
     expect((await historialJustificaciones(c.ctxDe("direccion"), { q: "Valentina" })).total).toBe(0);

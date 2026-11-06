@@ -11,17 +11,22 @@ async function entrar(page: import("@playwright/test").Page, correo: string) {
   await page.waitForURL(`${COLEGIO}/inicio`);
 }
 
-// specs/07: dos vistas para quien revisa — «Por revisar» (bandeja) e «Historial» (tabla con filtros).
-test("dirección pasa de «Por revisar» al historial y filtra por estado y alumno", async ({ page }) => {
+// specs/07: una sola vista para quien revisa (tabla con filtros, pendientes primero) y el detalle en un panel.
+test("dirección filtra la tabla y abre el detalle de una pendiente en un panel", async ({ page }) => {
   await entrar(page, "direccion@nuevohorizonte.demo");
   await page.goto(`${COLEGIO}/justificaciones`);
-  const vistas = page.getByRole("navigation", { name: "Vistas de justificaciones" });
-  await expect(vistas.getByRole("link", { name: /Por revisar/ })).toHaveAttribute("aria-current", "page");
-
-  await vistas.getByRole("link", { name: "Historial" }).click();
-  await expect(page).toHaveURL(/vista=historial/);
-  await expect(vistas.getByRole("link", { name: "Historial" })).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("navigation", { name: "Vistas de justificaciones" })).toHaveCount(0);
   await expect(page.getByLabel("Alumno")).toBeVisible();
+
+  // «Revisar» abre el panel con el detalle y la decisión, sin salir de la tabla.
+  await page.getByRole("button", { name: /^Revisar la justificación de/ }).first().click();
+  const panel = page.getByRole("dialog");
+  await expect(panel.getByText("Motivo", { exact: true })).toBeVisible();
+  await expect(panel.getByText("Enviada por")).toBeVisible();
+  await expect(panel.getByRole("button", { name: "Aceptar" })).toBeVisible();
+  await expect(panel.getByRole("button", { name: "Rechazar" })).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(panel).toHaveCount(0);
 
   await page.getByLabel("Estado").selectOption("aceptada");
   await page.getByRole("button", { name: "Filtrar" }).click();
@@ -33,7 +38,7 @@ test("dirección pasa de «Por revisar» al historial y filtra por estado y alum
   await page.getByRole("button", { name: "Filtrar" }).click();
   await expect(page.getByText("Ninguna justificación coincide")).toBeVisible();
   await page.getByRole("link", { name: "Limpiar" }).click();
-  await expect(page).toHaveURL(/\/justificaciones\?vista=historial$/);
+  await expect(page).toHaveURL(/\/justificaciones$/);
 });
 
 test("la familia ve solo su lista, sin pestañas", async ({ page }) => {

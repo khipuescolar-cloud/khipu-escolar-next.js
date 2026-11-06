@@ -336,7 +336,7 @@ export type HistorialJustificaciones = { filas: JustificacionVista[]; total: num
 
 /**
  * Historial (tutor/dirección): todas las justificaciones de su alcance con filtros por estado, salón, alumno (nombre
- * o apellido) y fecha de la falta; las más recientes primero, de 25 en 25.
+ * o apellido) y fecha de la falta; las pendientes primero y luego las más recientes, de 25 en 25.
  */
 export async function historialJustificaciones(ctx: TenantContext, entrada: unknown): Promise<HistorialJustificaciones> {
   requireRevisor(ctx);
@@ -359,7 +359,7 @@ export async function historialJustificaciones(ctx: TenantContext, entrada: unkn
   const paginas = Math.max(1, Math.ceil(total / POR_PAGINA_HISTORIAL));
   const pagina = Math.min(f.pagina, paginas);
   const filas = await filasVista(ctx, {
-    where, orderBy: [{ createdAt: "desc" }, { id: "asc" }], take: POR_PAGINA_HISTORIAL, skip: (pagina - 1) * POR_PAGINA_HISTORIAL,
+    where, orderBy: [{ estado: "asc" }, { createdAt: "desc" }, { id: "asc" }], take: POR_PAGINA_HISTORIAL, skip: (pagina - 1) * POR_PAGINA_HISTORIAL,
   });
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "justificacion",
