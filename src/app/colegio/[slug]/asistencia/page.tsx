@@ -7,7 +7,7 @@ import { InsigniaAhora } from "@/components/horario/Insignias";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { TituloBloque } from "../inicio/TituloBloque";
 import { cn } from "@/lib/utils";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { fechaLarga, hora12 } from "@/lib/fechas";
@@ -65,6 +65,7 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
         titulo="Pasar lista"
+        seccion="dia"
         descripcion={<span className="first-letter:uppercase">{fechaLarga(hoy.isoFecha)}</span>}
         acciones={<Link href="/asistencia/reportes" className={buttonVariants({ variant: "outline" })}><BarChart3 className="size-4" strokeWidth={2} aria-hidden /> Reportes</Link>}
       />
@@ -74,26 +75,24 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
         <EstadoVacio icono={Users} titulo="Aún no tienes salones ni cursos asignados" descripcion="Cuando dirección te asigne un salón, podrás pasar lista desde aquí." />
       ) : (
         grupos.map(([nombre, lista]) => (
-          <section key={nombre} className="flex flex-col gap-3">
-            <h2 className="text-titulo-2">{nombre}</h2>
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <section key={nombre} data-seccion="dia" className="flex flex-col gap-2">
+            <TituloBloque id={`salon-${nombre}`}>{nombre}</TituloBloque>
+            <ul className="grid divide-y divide-borde-sutil border-y border-borde-sutil lg:grid-cols-2 lg:gap-x-10">
               {lista.map((o) => (
-                <li key={o.ambito}>
+                <li key={o.ambito} className="lg:[&:nth-child(2)]:border-t-0">
                   <Link
                     href={`/asistencia?salon=${o.salonId}&ambito=${o.ambito}`}
-                    className="group/lista flex min-h-16 items-center justify-between gap-3 rounded-lg border bg-superficie p-4 font-semibold transition-shadow outline-none hover:shadow-sombra-1 focus-visible:ring-3 focus-visible:ring-ring/50"
+                    className="group/lista flex min-h-16 items-center justify-between gap-3 rounded-md py-3 font-semibold outline-none hover:text-sec-tinta focus-visible:ring-3 focus-visible:ring-ring/50"
                   >
                     <span className="flex items-center gap-3">
-                      <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <CalendarCheck className="size-5" strokeWidth={2} aria-hidden />
-                      </span>
+                      <CalendarCheck className="size-5 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
                       <span className="flex flex-col gap-0.5">
                         {enHorario(o)?.ahora && <InsigniaAhora />}
                         {o.ambito === AMBITO_DIA ? `Asistencia del día · ${nombre}` : `${o.titulo} · ${nombre}`}
                         {enHorario(o) && <span className="text-cuerpo-sm font-normal text-muted-foreground tabular-nums">Hoy {rango(enHorario(o)!)}</span>}
                       </span>
                     </span>
-                    <ChevronRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover/lista:translate-x-0.5" strokeWidth={2} aria-hidden />
+                    <ChevronRight className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover/lista:translate-x-0.5 motion-reduce:transition-none" strokeWidth={2} aria-hidden />
                   </Link>
                 </li>
               ))}
@@ -156,6 +155,7 @@ async function PasarLista({ ctx, slug, salonId, ambito, fecha }: { ctx: TenantCo
       </Link>
       <EncabezadoPagina
         titulo={corregir ? `Corregir · ${nombreLista}` : nombreLista}
+        seccion="dia"
         descripcion={<span className="first-letter:uppercase">{fechaLarga(lista.hoy.isoFecha)}</span>}
       />
       {!corregir && <div className="mb-2"><SincronizadorListas /></div>}
@@ -187,7 +187,7 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
   const { hijos, anio, mes: numeroMes, hoy } = historial;
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina titulo="Asistencia" descripcion={esAlumno ? "Tu calendario del mes, con el detalle de cada día." : "Calendario del mes de cada hijo, con el detalle de cada día."} />
+      <EncabezadoPagina titulo="Asistencia" seccion="dia" descripcion={esAlumno ? "Tu calendario del mes, con el detalle de cada día." : "Calendario del mes de cada hijo, con el detalle de cada día."} />
 
       {hijos.length === 0 && (
         <EstadoVacio
@@ -198,11 +198,11 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
       )}
 
       {hijos.map((h) => (
-        <section key={h.id} className="flex flex-col gap-3" aria-labelledby={`hijo-${h.id}`}>
+        <section key={h.id} data-seccion="dia" className="flex flex-col gap-4" aria-labelledby={`hijo-${h.id}`}>
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 id={`hijo-${h.id}`} className="text-titulo-2">
-              {h.nombres} {h.apellidos} <span className="font-sans text-sm font-normal text-muted-foreground">· {h.salon}</span>
-            </h2>
+            <TituloBloque id={`hijo-${h.id}`}>
+              {h.nombres} {h.apellidos} <span className="font-sans text-cuerpo-sm font-normal text-muted-foreground">· {h.salon}</span>
+            </TituloBloque>
             {!esAlumno && tieneFeature(ctx, "mensajes") && (
               <Link href={`/mensajes/nuevo?alumno=${h.id}`} className={cn(buttonVariants({ variant: "outline" }))}>
                 <MessageSquarePlus strokeWidth={2} aria-hidden /> Escribir a la tutora
@@ -218,10 +218,10 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
           {h.registros.length === 0 ? (
             <EstadoVacio icono={ClipboardCheck} titulo={`No hay registros en ${nombreMes(anio, numeroMes)}`} descripcion={esAlumno ? "Cuando tengas asistencia registrada, aparecerá aquí." : "Cuando tu hijo tenga asistencia registrada, aparecerá aquí."} />
           ) : (
-            <Card className="py-0">
-              <ul className="divide-y">
+            <div>
+              <ul className="divide-y divide-borde-sutil border-y border-borde-sutil">
                 {h.registros.map((r) => (
-                  <li key={r.id} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3">
+                  <li key={r.id} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-4">
                     <div>
                       <p className="font-medium first-letter:uppercase">{fechaLarga(r.fecha)}</p>
                       <p className="text-sm text-muted-foreground">{r.lugar}</p>
@@ -261,7 +261,7 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
                   </li>
                 ))}
               </ul>
-            </Card>
+            </div>
           )}
         </section>
       ))}

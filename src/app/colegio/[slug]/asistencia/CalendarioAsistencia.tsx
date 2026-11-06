@@ -2,7 +2,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { ESTADOS_ASISTENCIA } from "@/components/EstadoAsistencia";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { claveMes, mesAnterior, mesPedido, mesSiguiente, type MesAsistencia } from "@/lib/calendario-asistencia";
 import type { EstadoAsistencia as Estado } from "@/generated/prisma/enums";
 import { cn } from "@/lib/utils";
@@ -29,10 +28,9 @@ export function CalendarioAsistencia({ hijoId, nombre, mes, hoy }: { hijoId: str
   const nav = "min-h-10";
 
   return (
-    <Card>
-      <CardContent className="flex flex-col gap-3">
+    <div className="flex flex-col gap-4 rounded-[14px] border border-borde-sutil bg-superficie p-4 sm:p-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 className="text-titulo-2 capitalize" id={`mes-${hijoId}`}>{titulo}</h3>
+          <h3 className="font-heading text-[18px] leading-6 font-semibold first-letter:uppercase" id={`mes-${hijoId}`}>{titulo}</h3>
           <nav aria-label={`Cambiar de mes para ${nombre}`} className="flex gap-2">
             {hayAnterior ? (
               <Link href={`/asistencia?mes=${claveMes(anterior.anio, anterior.mes)}`} className={cn(buttonVariants({ variant: "outline" }), nav)} scroll={false}>
@@ -70,7 +68,7 @@ export function CalendarioAsistencia({ hijoId, nombre, mes, hoy }: { hijoId: str
                       data-estado={d.estado ?? "sin-registro"}
                       className={cn(
                         "h-12 rounded-md border text-center align-middle sm:h-14",
-                        info ? `${info.clase} border-current/20` : d.esFinDeSemana || d.esFuturo ? "border-transparent bg-muted/40 text-muted-foreground" : "bg-card text-muted-foreground",
+                        info ? `${info.clase} border-current/20` : d.esFinDeSemana || d.esFuturo ? "border-transparent bg-superficie-2/60 text-muted-foreground" : "bg-superficie text-muted-foreground",
                         d.esHoy && "ring-2 ring-primary",
                       )}
                     >
@@ -101,10 +99,9 @@ export function CalendarioAsistencia({ hijoId, nombre, mes, hoy }: { hijoId: str
             );
           })}
           <li className="flex items-center gap-1.5 text-sm text-muted-foreground">
-            <span aria-hidden className="size-6 rounded border bg-card" /> Sin registro
+            <span aria-hidden className="size-6 rounded border border-borde-sutil bg-superficie" /> Sin registro
           </li>
         </ul>
-      </CardContent>
-    </Card>
+    </div>
   );
 }
