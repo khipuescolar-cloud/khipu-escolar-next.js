@@ -6,7 +6,6 @@ import { Calificacion } from "@/components/Calificacion";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { libretaVisibleParaFamilia } from "@/lib/libreta-publicacion";
 import { alumnosVisibles, listarPeriodos, notasDeAlumno, periodoEnCurso } from "@/lib/server/notas";
 import type { TenantContext } from "@/lib/server/tenant";
@@ -62,24 +61,24 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
 
       {sinNotas && <EstadoVacio icono={ClipboardList} titulo="En este periodo todavía no hay notas registradas" descripcion="Apenas el profesor las registre, aparecerán aquí." />}
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="flex max-w-3xl flex-col divide-y divide-borde-sutil rounded-[14px] border border-borde-sutil bg-superficie">
         {datos.cursos.map((curso) => (
-          <Card key={curso.id}>
-            <CardHeader>
-              <h2 className="font-titulo text-cuerpo font-semibold flex items-center gap-2"><GraduationCap className="size-5 text-primary" strokeWidth={2} aria-hidden />{curso.nombre}</h2>
-              {curso.profesor && <p className="text-cuerpo-sm text-muted-foreground">Profesor(a): {curso.profesor}</p>}
-            </CardHeader>
-            <CardContent className="flex flex-col gap-4">
+          <section key={curso.id} aria-label={curso.nombre} className="flex flex-col gap-4 p-5 sm:p-6">
+            <div>
+              <h2 className="flex items-center gap-2.5 font-heading text-[18px] leading-6 font-semibold"><GraduationCap className="size-5 text-sec-trazo" strokeWidth={2} aria-hidden />{curso.nombre}</h2>
+              {curso.profesor && <p className="mt-1 text-cuerpo-sm text-muted-foreground">Profesor(a): {curso.profesor}</p>}
+            </div>
+            <div className="flex flex-col gap-4">
               {curso.competencias.length > 0 && (
                 <ul className="flex flex-col gap-3">
                   {curso.competencias.map((c) => (
-                    <li key={c.id} className="flex flex-col gap-1.5 border-b pb-3 last:border-0 last:pb-0">
+                    <li key={c.id} className="flex flex-col gap-1.5 border-b border-borde-sutil pb-3 last:border-0 last:pb-0">
                       <p className="text-sm font-medium">{c.nombre}</p>
                       <div>{c.calificacion ? <Calificacion valor={c.calificacion} /> : <span className="text-cuerpo-sm text-muted-foreground">Sin calificar todavía</span>}</div>
                       {c.conclusion && <p className="text-cuerpo-sm text-muted-foreground">{c.conclusion}</p>}
                       {c.informe && (
-                        <div className="mt-1 rounded-md bg-muted/60 p-3 text-cuerpo-sm">
-                          <p className="mb-1.5 flex items-center gap-1.5 font-medium"><Sprout className="size-4 text-primary" strokeWidth={2} aria-hidden />Informe de progreso</p>
+                        <div className="mt-1 rounded-md bg-sec-suave p-3 text-cuerpo-sm text-foreground">
+                          <p className="mb-1.5 flex items-center gap-1.5 font-medium"><Sprout className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden />Informe de progreso</p>
                           <dl className="flex flex-col gap-1.5">
                             {c.informe.logros && <div><dt className="font-medium">Ha logrado</dt><dd className="text-muted-foreground">{c.informe.logros}</dd></div>}
                             {c.informe.mejorar && <div><dt className="font-medium">Necesita mejorar</dt><dd className="text-muted-foreground">{c.informe.mejorar}</dd></div>}
@@ -93,12 +92,12 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
               )}
               {curso.evaluaciones.length > 0 && (
                 <div>
-                  <h3 className="sobretitulo mb-2">Registro auxiliar publicado</h3>
+                  <h3 className="mb-2 text-sm font-semibold">Registro auxiliar publicado</h3>
                   <p className="mb-2 text-cuerpo-sm text-muted-foreground">Actividades que el profesor ya publicó. No son la calificación oficial de la libreta.</p>
                   {curso.evaluaciones.some((e) => e.valor.marca) && <p className="mb-2 text-cuerpo-sm text-muted-foreground">NSP: No se presentó · NE: No entregó.</p>}
                   <ul className="flex flex-col gap-2">
                     {curso.evaluaciones.map((e) => (
-                      <li key={e.id} id={`ev-${e.grupoId}`} className="flex scroll-mt-24 flex-col gap-1 text-sm target:rounded-md target:bg-accent/60 target:p-2">
+                      <li key={e.id} id={`ev-${e.grupoId}`} className="flex scroll-mt-24 flex-col gap-1 text-sm target:rounded-md target:bg-sec-suave target:p-2">
                         <div className="flex flex-wrap items-center justify-between gap-2">
                           <span>
                             {e.titulo}
@@ -114,8 +113,8 @@ export async function VistaFamilia({ ctx, sp }: { ctx: TenantContext; sp: SP }) 
                   </ul>
                 </div>
               )}
-            </CardContent>
-          </Card>
+            </div>
+          </section>
         ))}
       </div>
     </div>

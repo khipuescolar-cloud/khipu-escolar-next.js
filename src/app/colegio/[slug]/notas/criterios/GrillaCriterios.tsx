@@ -48,11 +48,11 @@ export function GrillaCriterios({ slug, editable, alumnos, criterios, resultados
   }
 
   return (
-    <div className="overflow-x-auto rounded-lg border bg-card">
+    <div className="overflow-x-auto rounded-[14px] border border-borde-sutil bg-card">
       <table className="w-full min-w-max border-collapse text-sm">
-        <thead className="bg-muted text-left">
+        <thead className="bg-sec-suave text-left text-sec-tinta">
           <tr>
-            <th scope="col" className="sticky left-0 z-10 min-w-44 border-r bg-muted px-3 py-2.5 font-semibold">Alumno</th>
+            <th scope="col" className="sticky left-0 z-10 min-w-44 border-r bg-sec-suave px-3 py-2.5 font-semibold">Alumno</th>
             {criterios.map((c, i) => (
               <th key={c.id} scope="col" className="max-w-56 min-w-36 px-3 py-2.5 align-bottom font-semibold">
                 <span className="line-clamp-3">{i + 1}. {c.descripcion}</span>

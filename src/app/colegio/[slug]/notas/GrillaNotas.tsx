@@ -156,11 +156,11 @@ export function GrillaNotas({ slug, escala, calculo, editable, alumnos, competen
         <span><strong className="text-foreground">NSP</strong>: No se presentó (faltó; lo pone la asistencia)</span>
         <span><strong className="text-foreground">NE</strong>: No entregó (asistió pero no entregó)</span>
       </p>
-      <div className="overflow-x-auto rounded-lg border bg-card">
+      <div className="overflow-x-auto rounded-[14px] border border-borde-sutil bg-card">
         <table className="w-full min-w-max border-collapse text-sm">
-          <thead className="bg-muted text-left">
+          <thead className="bg-sec-suave text-left text-sec-tinta">
             <tr>
-              <th scope="col" rowSpan={2} className="sticky left-0 z-10 min-w-44 border-r bg-muted px-3 py-2.5 align-bottom font-semibold">Alumno</th>
+              <th scope="col" rowSpan={2} className="sticky left-0 z-10 min-w-44 border-r bg-sec-suave px-3 py-2.5 align-bottom font-semibold">Alumno</th>
               {grupos.map((g) => (
                 <th
                   key={g.id || "sueltas"} scope="colgroup" colSpan={g.evaluaciones.length + (g.id && conPromedio ? 1 : 0)}
