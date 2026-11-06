@@ -17,6 +17,7 @@ Verificar la llegada del alumno en la puerta escaneando su carnet, sin depender 
 1. **Carnets** (`/gestion/carnets`): por salón, «Generar carnets» crea uno activo a cada alumno que no tenga. «Ver e imprimir» (`/gestion/carnets/<salonId>`) muestra la página imprimible (nombre, apellidos, salón, código, colegio y QR) con botón «Imprimir». Por alumno: «Regenerar (carnet perdido)» y «Anular».
 2. El QR contiene `<raíz>/q/<token>`. **Token = HMAC-SHA256(APP_SECRET, "carnet:<carnetId>")** (32 bytes base64url). En `carnets_qr` solo se guarda `SHA-256(token)`. Así se puede reimprimir sin guardar el token; regenerar crea otra fila (otro token) y desactiva la anterior.
 3. **Portería** (`/porteria`): «Encender cámara» (`@zxing/browser`, cámara trasera), «Pantalla completa», sonido/vibración opcional. Al leer → `registrarPorQrAction` → `registrarLlegadaPorQr(ctx, texto)`.
+   - **Diseño (fase 2):** el modo Llegada/Salida es un control grande (56 px); el resultado de la lectura es el bloque dominante, justo bajo el modo y sobre la cámara (estado en 40 px con ícono + palabra, nombre en 28 px, foto de 96 px; «Esperando carnet de llegada/salida» en reposo). La búsqueda manual es una lista con divisores, sin tarjeta.
 4. Respaldo manual: buscar por nombre, apellido o código → «Registrar llegada».
 5. Tras registrar se encola el aviso (spec 06) y `after()` procesa la cola.
 

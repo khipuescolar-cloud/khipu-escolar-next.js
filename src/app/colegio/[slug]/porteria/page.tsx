@@ -19,6 +19,7 @@ export default async function PorteriaPage({ params }: PageProps<"/colegio/[slug
     <div className="flex flex-col">
       <EncabezadoPagina
         titulo="Portería"
+        seccion="dia"
         descripcion={
           <>
             <span className="first-letter:uppercase">{fechaLarga(hoy.isoFecha)}</span> · Tardanza desde la entrada de cada salón
