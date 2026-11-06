@@ -243,27 +243,29 @@ export function GraficoAsistenciaDias({ datos, titulo, etiquetaFila = "Día" }: 
           </BarChart>
         )}
       </ChartContainer>
-      <table className="sr-only">
-        <caption>{titulo}{nota ? ` (${nota.toLowerCase()})` : ""}</caption>
-        <thead>
-          <tr>
-            <th scope="col">{fila}</th>
-            {SERIES.map((s) => <th key={s.clave} scope="col">{s.etiqueta}</th>)}
-            <th scope="col">% asistencia</th>
-          </tr>
-        </thead>
-        <tbody>
-          {grupos.map((g) => (
-            <tr key={g.desde}>
-              <th scope="row">{etiquetaLarga(g, agrupacion)}</th>
-              <td>{g.llego}</td>
-              <td>{g.tarde}</td>
-              <td>{g.falta}</td>
-              <td>{g.porcentaje === null ? "Sin datos" : `${PCT.format(g.porcentaje)} %`}</td>
+      <div className="sr-only">
+        <table>
+          <caption>{titulo}{nota ? ` (${nota.toLowerCase()})` : ""}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{fila}</th>
+              {SERIES.map((s) => <th key={s.clave} scope="col">{s.etiqueta}</th>)}
+              <th scope="col">% asistencia</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {grupos.map((g) => (
+              <tr key={g.desde}>
+                <th scope="row">{etiquetaLarga(g, agrupacion)}</th>
+                <td>{g.llego}</td>
+                <td>{g.tarde}</td>
+                <td>{g.falta}</td>
+                <td>{g.porcentaje === null ? "Sin datos" : `${PCT.format(g.porcentaje)} %`}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </figure>
   );
 }

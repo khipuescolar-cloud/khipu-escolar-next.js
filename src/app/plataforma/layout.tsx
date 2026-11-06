@@ -70,8 +70,8 @@ export default async function LayoutPlataforma({ children }: LayoutProps<"/plata
   return (
     <MarcoPanel
       abierta={estadoBarra !== "false"}
-      barraSuperior={
-        <BarraSuperior inicioHref="/" etiqueta="Plataforma" />
+      barraMovil={
+        <BarraSuperior inicioHref="/" />
       }
       barraLateral={
         <BarraLateral

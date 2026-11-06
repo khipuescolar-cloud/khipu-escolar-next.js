@@ -161,7 +161,7 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
   return (
     <div className="flex flex-col gap-4">
       {/* Barra de pasos y acciones: siempre visible bajo la barra superior. */}
-      <div className="sticky top-[calc(var(--header-height)+env(safe-area-inset-top))] z-20 -mx-4 border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/85 sm:-mx-6 sm:px-6">
+      <div className="sticky top-12 md:top-0 z-20 -mx-4 border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/85 md:-mx-8 md:px-8">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div className="min-w-0 shrink-0">
             <ProgresoPasos pasos={PASOS} actual={paso} />

@@ -31,7 +31,7 @@ export default async function ExportarColegioPage({ params, searchParams }: Page
   const enCurso = filas.some((f) => f.estado === "pendiente" || f.estado === "procesando");
 
   return (
-    <div className="flex max-w-3xl flex-col gap-6">
+    <div className="flex flex-col gap-6">
       <Link href={`/colegios/${tenant.id}`} className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace font-semibold">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> {tenant.nombre}
       </Link>

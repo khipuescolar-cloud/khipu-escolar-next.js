@@ -34,7 +34,7 @@ export default async function DetalleSolicitud({ params }: PageProps<"/plataform
   const s = d.solicitud;
 
   return (
-    <div className="flex max-w-5xl flex-col">
+    <div className="flex flex-col">
       <Link href="/solicitudes" className="enlace mb-2 inline-flex min-h-10 items-center gap-1 self-start text-cuerpo-sm font-semibold">
         <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Solicitudes de demo
       </Link>

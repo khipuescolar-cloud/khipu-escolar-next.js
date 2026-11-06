@@ -38,7 +38,7 @@ export default async function ComunicadosPage({ params, searchParams }: PageProp
   const publicar = puedePublicar ? <DialogoPublicar key={clave} salones={salones} esDireccion={ctx.rol !== "profesor"} /> : undefined;
 
   return (
-    <div className="max-w-3xl">
+    <div>
       <Notificar ok={okTexto} error={errorTexto} />
       <EncabezadoPagina
         titulo="Comunicados"

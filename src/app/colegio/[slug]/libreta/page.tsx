@@ -99,7 +99,7 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
         </CardContent>
       </Card>
 
-      <Card className="mx-auto w-full max-w-3xl">
+      <Card className="w-full">
         <CardContent className="flex flex-col gap-5">
           <div className="border-b pb-4">
             <p className="flex items-center gap-2 font-titulo text-cuerpo font-semibold"><BookOpen className="size-5 text-primary" strokeWidth={2} aria-hidden />{datos.colegio.nombre}</p>
@@ -176,7 +176,7 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
         </CardContent>
       </Card>
       {personal && datos.emision && (
-        <Card className="mx-auto w-full max-w-3xl">
+        <Card className="w-full">
           <CardContent className="flex flex-col gap-4">
             <div>
               <h2 className="text-titulo-2">Rectificaciones</h2>

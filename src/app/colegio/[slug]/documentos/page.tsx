@@ -62,7 +62,7 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
   const enlace = (c: string | null) => `/documentos${c ? `?carpeta=${c}` : ""}`;
 
   return (
-    <div className="max-w-4xl">
+    <div>
       <Notificar ok={ok} error={error} />
       <EncabezadoPagina
         titulo="Documentos"

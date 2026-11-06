@@ -71,7 +71,7 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
   return (
     <MarcoPanel
       abierta={estadoBarra !== "false"}
-      barraSuperior={<BarraSuperior inicioHref="/inicio" />}
+      barraMovil={<BarraSuperior inicioHref="/inicio" />}
       barraLateral={
         <BarraLateral
           grupos={grupos}

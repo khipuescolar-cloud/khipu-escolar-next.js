@@ -55,7 +55,7 @@ export default async function ConfiguracionPage({ params, searchParams }: PagePr
   const salonesPorNivel = new Map(nivelesConSalones.map((n) => [n.nivel, n._count._all]));
 
   return (
-    <div className="flex max-w-3xl flex-col gap-6">
+    <div className="flex flex-col gap-6">
       <div>
         <EncabezadoPagina titulo="Configuración" descripcion="Avisos a las familias, identidad del colegio y privacidad de los datos." />
         <p className="-mt-3 mb-3 flex items-center gap-2 text-cuerpo-sm text-muted-foreground">
