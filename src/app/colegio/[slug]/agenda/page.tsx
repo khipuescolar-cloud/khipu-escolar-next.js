@@ -104,6 +104,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
     <div className="flex flex-col gap-4">
       <EncabezadoPagina
         titulo="Agenda"
+        seccion="academico"
         descripcion={ctx.rol === "profesor" ? "Tus clases, reuniones, evaluaciones, entregas y actividades del colegio." : "Eventos del colegio, reuniones, evaluaciones y fechas de entrega de tareas."}
         acciones={
           <>
@@ -141,7 +142,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
 
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-          <nav aria-label="Vista del calendario" className="inline-flex w-fit rounded-lg border bg-card p-1">
+          <nav aria-label="Vista del calendario" className="inline-flex w-fit rounded-[10px] border border-borde-sutil bg-card p-1">
             {VISTAS.map((v) => {
               const Icono = ICONO_VISTA[v];
               return (
@@ -151,7 +152,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
                   aria-current={v === vista ? "page" : undefined}
                   className={cn(
                     "inline-flex min-h-10 items-center gap-1.5 rounded-md px-3 text-sm font-medium transition-colors",
-                    v === vista ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-accent",
+                    v === vista ? "bg-sec-suave font-semibold text-sec-tinta" : "text-foreground hover:bg-accent",
                   )}
                 >
                   <Icono className="size-4" strokeWidth={2} aria-hidden />{NOMBRE_VISTA[v]}
@@ -165,7 +166,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
             {filtro !== "todo" && <input type="hidden" name="filtro" value={filtro} />}
             <label className="flex flex-col gap-1 text-sm">
               <span className="font-medium">Curso o sección</span>
-              <select name="salon" defaultValue={salon ?? ""} className="min-h-10 rounded-md border bg-card px-3 text-sm">
+              <select name="salon" defaultValue={salon ?? ""} className="min-h-10 rounded-[10px] border border-input bg-card px-3 text-sm">
                 <option value="">Todos mis salones</option>
                 {salonesFiltro.map((s) => <option key={s.id} value={s.id}>{s.nombre}</option>)}
               </select>
@@ -179,8 +180,8 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
         />
       </div>
 
-      <section aria-labelledby="titulo-periodo" className="overflow-hidden rounded-lg border bg-card">
-        <header className="flex flex-wrap items-center justify-between gap-2 border-b px-4 py-3">
+      <section aria-labelledby="titulo-periodo" className="overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
+        <header className="flex flex-wrap items-center justify-between gap-2 border-b border-borde-sutil px-4 py-3">
           <h2 id="titulo-periodo" className="font-heading text-lg font-semibold first-letter:uppercase">{tituloPeriodo(vista, fecha, dias)}</h2>
           <div className="flex items-center gap-1">
             <Link href={url({ fecha: anterior })} aria-label={`${etiquetaNav} anterior`} className={enlaceNav}><ChevronLeft className="size-4" strokeWidth={2} aria-hidden />Anterior</Link>
@@ -216,10 +217,10 @@ function tituloPeriodo(vista: VistaAgenda, fecha: string, dias: string[]): strin
 }
 
 function Insignia({ it }: { it: Pick<ItemCalendario, "tipo" | "subtipo"> }) {
-  const { palabra, Icono, tinta, borde } = estiloDe(it);
+  const { palabra, Icono, tinta } = estiloDe(it);
   return (
-    <span className={cn("inline-flex w-fit shrink-0 items-center gap-1.5 rounded-pildora border border-dashed bg-card px-2.5 py-1 text-etiqueta", borde)}>
-      <Icono className={cn("size-3.5", tinta)} strokeWidth={2} aria-hidden />{palabra}
+    <span className={cn("inline-flex w-fit shrink-0 items-center gap-1.5 text-etiqueta font-semibold", tinta)}>
+      <Icono className="size-3.5" strokeWidth={2} aria-hidden />{palabra}
     </span>
   );
 }
@@ -237,7 +238,7 @@ function VistaMes({ dias, fecha, hoy, items, url }: {
       <thead>
         <tr>
           {[1, 2, 3, 4, 5, 6, 7].map((d) => (
-            <th key={d} scope="col" className="border-b py-2 text-etiqueta font-medium tracking-wide text-muted-foreground uppercase">{NOMBRE_DIA_SEMANA_CORTO[d]}</th>
+            <th key={d} scope="col" className="border-b border-borde-sutil py-2 text-etiqueta font-medium text-muted-foreground">{NOMBRE_DIA_SEMANA_CORTO[d]}</th>
           ))}
         </tr>
       </thead>
@@ -249,14 +250,14 @@ function VistaMes({ dias, fecha, hoy, items, url }: {
               const { visibles, mas } = resumenCelda(lista);
               const esHoy = d === hoy;
               return (
-                <td key={d} className={cn("h-24 border-t border-l p-1 align-top first:border-l-0 lg:h-28", d.slice(0, 7) !== mes && "bg-muted/30", esHoy && "bg-primary/[0.04]")}>
+                <td key={d} className={cn("h-24 border-t border-l border-borde-sutil p-1 align-top first:border-l-0 lg:h-28", d.slice(0, 7) !== mes && "bg-muted/30", esHoy && "bg-sec-suave/40")}>
                   <Link
                     href={url({ vista: "dia", fecha: d })}
                     aria-label={`${formatoDia(d)}${lista.length ? `, ${lista.length} ${lista.length === 1 ? "actividad" : "actividades"}` : ""}`}
                     aria-current={esHoy ? "date" : undefined}
                     className="flex h-full flex-col gap-0.5 rounded-md p-0.5 transition-colors hover:bg-accent/60"
                   >
-                    <span className={cn("inline-flex size-7 items-center justify-center rounded-full text-cuerpo-sm font-semibold tabular-nums", esHoy ? "bg-primary text-primary-foreground" : d.slice(0, 7) !== mes && "text-muted-foreground")}>
+                    <span className={cn("inline-flex size-7 items-center justify-center rounded-full text-cuerpo-sm font-semibold tabular-nums", esHoy ? "bg-sec-tinta text-fondo" : d.slice(0, 7) !== mes && "text-muted-foreground")}>
                       {Number(d.slice(8))}
                     </span>
                     {/* En el celular, puntos; desde tablet, hasta 3 ítems y «N más». */}
@@ -292,16 +293,16 @@ function VistaLista({ items, porId, slug }: { items: ItemCalendario[]; porId: Ma
     return <div className="p-4"><EstadoVacio icono={CalendarDays} titulo="Nada programado" descripcion="No hay actividades en estos 30 días con el filtro elegido." /></div>;
   }
   return (
-    <ul className="flex flex-col divide-y">
+    <ul className="flex flex-col divide-y divide-borde-sutil">
       {grupos.map(([dia, delDia]) => (
         <li key={dia} className="p-4">
-          <h3 className="font-titulo text-cuerpo font-semibold first-letter:uppercase">{formatoDia(dia)}</h3>
-          <ul className="mt-3 flex flex-col gap-3">
+          <h3 className="font-heading text-cuerpo font-semibold first-letter:uppercase">{formatoDia(dia)}</h3>
+          <ul className="mt-2 flex flex-col divide-y divide-borde-sutil">
             {delDia.map((c) => {
               const it = porId.get(c.id);
               if (!it) return null;
               return (
-                <li key={`${c.tipo}-${c.id}`} className="flex flex-wrap items-start justify-between gap-2 rounded-lg border bg-background p-3 text-sm">
+                <li key={`${c.tipo}-${c.id}`} className="flex flex-wrap items-start justify-between gap-2 py-3 text-sm">
                   <div className="flex min-w-0 flex-col gap-1.5">
                     <Insignia it={c} />
                     <p className={cn("font-medium", c.cancelado && "line-through")}>{c.titulo}</p>

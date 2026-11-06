@@ -1,5 +1,6 @@
-import { EsqueletoPagina, EsqueletoLista } from "@/components/carga/Esqueletos";
+import { EsqueletoPagina } from "@/components/carga/Esqueletos";
+import { EsqueletoCalendario } from "@/components/comunicacion/EsqueletoFilas";
 
 export default function Loading() {
-  return <EsqueletoPagina><EsqueletoLista /></EsqueletoPagina>;
+  return <EsqueletoPagina><EsqueletoCalendario /></EsqueletoPagina>;
 }
