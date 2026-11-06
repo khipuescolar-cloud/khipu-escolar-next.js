@@ -1,7 +1,6 @@
-import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { FormularioSolicitud } from "@/components/reuniones/FormularioSolicitud";
+import { MigasReunion } from "@/components/reuniones/MigasReunion";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Alerta } from "@/components/ui/Alerta";
 import { momentoEnZona, sumarDias } from "@/lib/fechas";
@@ -18,11 +17,8 @@ export default async function SolicitarReunionPage({ params }: PageProps<"/coleg
   requireFeature(ctx, "reuniones");
   const opciones = await opcionesSolicitud(ctx);
   return (
-    <div className="flex flex-col gap-6">
-      <Link href="/reuniones" className="inline-flex w-fit items-center gap-1 text-sm font-medium text-indigo-cielo hover:underline">
-        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Reuniones
-      </Link>
-      <EncabezadoPagina titulo="Solicitar reunión" descripcion="Pide una reunión al tutor o a un profesor de tu hijo. Te avisaremos cuando la confirme." />
+    <div>
+      <EncabezadoPagina titulo="Solicitar reunión" seccion="comunicacion" migas={<MigasReunion actual="Solicitar" />} descripcion="Pide una reunión al tutor o a un profesor de tu hijo. Te avisaremos cuando la confirme." />
       {opciones.habilitado ? (
         <FormularioSolicitud
           hijos={opciones.hijos}

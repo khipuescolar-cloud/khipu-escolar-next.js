@@ -161,7 +161,7 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
   return (
     <div className="flex flex-col gap-4">
       {/* Barra de pasos y acciones: siempre visible bajo la barra superior. */}
-      <div className="sticky top-12 md:top-0 z-20 -mx-4 border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/85 md:-mx-8 md:px-8">
+      <div className="sticky top-12 md:top-0 z-20 -mx-4 border-b border-borde-sutil bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/85 md:-mx-8 md:px-8">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div className="min-w-0 shrink-0">
             <ProgresoPasos pasos={PASOS} actual={paso} />
@@ -198,10 +198,10 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
             <label htmlFor="buscar-personal" className="text-sm font-medium">Personal del colegio</label>
             <div className="relative">
               <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" strokeWidth={2} aria-hidden />
-              <input id="buscar-personal" value={busqueda} onChange={(e) => setBusqueda(e.target.value)} placeholder="Escribe al menos 2 letras del nombre" className="h-11 w-full rounded-lg border bg-background pl-9 pr-3 text-cuerpo" />
+              <input id="buscar-personal" value={busqueda} onChange={(e) => setBusqueda(e.target.value)} placeholder="Escribe al menos 2 letras del nombre" className="h-11 w-full rounded-[10px] border border-input bg-background pl-9 pr-3 text-cuerpo" />
             </div>
             {filtrados.length > 0 && (
-              <ul className="flex flex-col divide-y rounded-lg border">
+              <ul className="flex flex-col divide-y divide-borde-sutil rounded-[10px] border border-borde-sutil">
                 {filtrados.map((p) => (
                   <li key={p.id} className="flex flex-wrap items-center justify-between gap-2 p-2">
                     <span>{p.nombre} <span className="text-muted-foreground">· {p.cargo ?? ROL[p.rol] ?? p.rol}</span></span>
@@ -216,7 +216,7 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
             {elegidos.size > 0 && (
               <ul className="flex flex-wrap gap-2" aria-label="Participantes elegidos">
                 {[...elegidos].map(([id, rol]) => (
-                  <li key={id} className="inline-flex items-center gap-1 rounded-pildora bg-accent px-3 py-1 text-cuerpo-sm text-accent-foreground">
+                  <li key={id} className="inline-flex items-center gap-1 rounded-pildora bg-sec-suave px-3 py-1 text-cuerpo-sm text-sec-tinta">
                     {nombre(id)} · {rol === "requerido" ? "Requerido" : "Opcional"}
                     <button type="button" onClick={() => quitar(id)} aria-label={`Quitar a ${nombre(id)}`}><X className="size-3.5" strokeWidth={2} aria-hidden /></button>
                   </li>
@@ -253,14 +253,14 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
                       onChange={(e) => setBusquedaAlumno(e.target.value)}
                       placeholder="Nombre o salón (al menos 2 letras)"
                       disabled={alumnos.length >= MAX_ALUMNOS}
-                      className="h-11 w-full rounded-lg border bg-background pl-9 pr-3 text-cuerpo disabled:opacity-50"
+                      className="h-11 w-full rounded-[10px] border border-input bg-background pl-9 pr-3 text-cuerpo disabled:opacity-50"
                     />
                   </div>
                   {busquedaAlumno.trim().length >= 2 && (
                     alumnosFiltrados.length === 0 ? (
                       <p className="text-cuerpo-sm text-muted-foreground">No encontramos alumnos con ese nombre o salón entre los que puedes convocar.</p>
                     ) : (
-                      <ul aria-label="Resultados de alumnos" className="flex flex-col divide-y rounded-lg border">
+                      <ul aria-label="Resultados de alumnos" className="flex flex-col divide-y divide-borde-sutil rounded-[10px] border border-borde-sutil">
                         {alumnosFiltrados.map((a) => (
                           <li key={a.id} className="flex items-center justify-between gap-2 p-2">
                             <span className="min-w-0">{a.nombre} <span className="text-muted-foreground">· {a.salon}</span></span>
@@ -273,7 +273,7 @@ export function AsistenteReunion({ opciones, fechaInicial, hoy, consultar, confi
                   {alumnos.length > 0 && (
                     <ul className="flex flex-wrap gap-2" aria-label="Alumnos elegidos">
                       {alumnos.map((id) => (
-                        <li key={id} className="inline-flex items-center gap-1.5 rounded-pildora bg-accent px-3 py-1 text-cuerpo-sm text-accent-foreground">
+                        <li key={id} className="inline-flex items-center gap-1.5 rounded-pildora bg-sec-suave px-3 py-1 text-cuerpo-sm text-sec-tinta">
                           <Users className="size-3.5 text-muted-foreground" strokeWidth={2} aria-hidden />
                           {alumno(id)?.nombre} <span className="text-muted-foreground">· {alumno(id)?.salon}</span>
                           <button type="button" onClick={() => setAlumnos(alumnos.filter((x) => x !== id))} aria-label={`Quitar a ${alumno(id)?.nombre}`}><X className="size-3.5" strokeWidth={2} aria-hidden /></button>

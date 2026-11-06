@@ -1,8 +1,7 @@
-import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { forbidden } from "next/navigation";
 import { AsistenteReunion } from "@/components/reuniones/AsistenteReunion";
+import { MigasReunion } from "@/components/reuniones/MigasReunion";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { momentoEnZona, sumarDias } from "@/lib/fechas";
 import { esPersonal } from "@/lib/reuniones";
@@ -22,12 +21,11 @@ export default async function NuevaReunionPage({ params }: PageProps<"/colegio/[
   const hoy = momentoEnZona(new Date(), ctx.tenant.zonaHoraria).isoFecha;
   const manana = sumarDias(hoy, 1);
   return (
-    <div className="flex flex-col gap-6">
-      <Link href="/reuniones" className="inline-flex w-fit items-center gap-1 text-sm font-medium text-indigo-cielo hover:underline">
-        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Reuniones
-      </Link>
+    <div className="flex flex-col gap-4">
       <EncabezadoPagina
         titulo="Nueva reunión"
+        seccion="comunicacion"
+        migas={<MigasReunion actual="Nueva" />}
         descripcion={`Elige a los participantes y busca en el calendario una hora en que todos estén libres (jornada ${opciones.horaInicioLaboral}–${opciones.horaFinLaboral}). De otras personas solo ves «Ocupado».`}
       />
       <AsistenteReunion

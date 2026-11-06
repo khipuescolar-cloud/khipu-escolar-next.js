@@ -6,13 +6,13 @@ import { FormularioRespuesta } from "@/components/reuniones/FormularioRespuesta"
 import { InsigniaEstado, InsigniaRespuesta } from "@/components/reuniones/Insignias";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { buttonVariants } from "@/components/ui/button";
 import { formatoDia, formatoHora } from "@/lib/fechas";
 import { TEXTO_MODALIDAD, TEXTO_TIPO, esPersonal, puedeResponderReunion } from "@/lib/reuniones";
 import { listarReuniones, type ReunionVista } from "@/lib/server/reuniones";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
+import { TituloBloque } from "../inicio/TituloBloque";
 import { responderAction } from "./actions";
 
 export const metadata: Metadata = { title: "Reuniones" };
@@ -20,17 +20,17 @@ export const metadata: Metadata = { title: "Reuniones" };
 function TarjetaReunion({ r, slug, ahora }: { r: ReunionVista; slug: string; ahora: Date }) {
   const puedeResponder = !!r.mia && puedeResponderReunion(r, ahora);
   return (
-    <Tarjeta className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 px-4 py-4 sm:px-5">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="flex min-w-0 flex-col gap-1.5">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <InsigniaEstado estado={r.estado} porCerrar={r.gestiona && r.estado === "programada" && r.inicio < ahora} />
             {r.mia && <InsigniaRespuesta respuesta={r.mia.respuesta} />}
           </div>
-          <h3 className="font-titulo text-cuerpo font-semibold">
+          <h3 className="font-heading text-cuerpo font-semibold">
             <Link href={`/reuniones/${r.id}`} className="hover:underline">{r.titulo}</Link>
           </h3>
-          <p className="text-cuerpo-sm text-muted-foreground first-letter:uppercase">
+          <p className="text-cuerpo-sm text-muted-foreground tabular-nums first-letter:uppercase">
             {formatoDia(r.inicio, { weekday: "long", day: "numeric", month: "long" })} · {formatoHora(r.inicio)} a {formatoHora(r.fin)} · {TEXTO_TIPO[r.tipo]} · {TEXTO_MODALIDAD[r.modalidad]} · {r.ambito}
           </p>
           {(r.lugar || r.enlace) && (
@@ -41,7 +41,7 @@ function TarjetaReunion({ r, slug, ahora }: { r: ReunionVista; slug: string; aho
           )}
           {r.mia && r.mia.alumnos.length > 0 && <p className="text-cuerpo-sm text-muted-foreground">Por: {r.mia.alumnos.join(", ")}</p>}
         </div>
-        <Link href={`/reuniones/${r.id}`} className="text-sm font-medium text-indigo-cielo hover:underline">Ver detalle</Link>
+        <Link href={`/reuniones/${r.id}`} className="inline-flex min-h-11 items-center text-sm font-medium text-indigo-cielo hover:underline">Ver detalle</Link>
       </div>
       {r.resumen && r.estado !== "cancelada" && (
         <p className="text-cuerpo-sm text-muted-foreground">
@@ -49,16 +49,16 @@ function TarjetaReunion({ r, slug, ahora }: { r: ReunionVista; slug: string; aho
         </p>
       )}
       {puedeResponder && r.mia && <FormularioRespuesta id={r.id} accion={responderAction.bind(null, slug, r.id)} actual={r.mia.respuesta} comentario={r.mia.comentario} />}
-    </Tarjeta>
+    </div>
   );
 }
 
 function Grupo({ titulo, reuniones, slug, ahora }: { titulo: string; reuniones: ReunionVista[]; slug: string; ahora: Date }) {
   if (reuniones.length === 0) return null;
   return (
-    <section className="flex flex-col gap-3" aria-label={titulo}>
-      <h2 className="text-titulo-2">{titulo}</h2>
-      <ul className="flex flex-col gap-3">
+    <section className="flex flex-col gap-3" aria-labelledby={`grupo-${titulo}`}>
+      <TituloBloque id={`grupo-${titulo}`}>{titulo}</TituloBloque>
+      <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
         {reuniones.map((r) => <li key={r.id}><TarjetaReunion r={r} slug={slug} ahora={ahora} /></li>)}
       </ul>
     </section>
@@ -81,9 +81,10 @@ export default async function ReunionesPage({ params }: PageProps<"/colegio/[slu
   const enlace = buttonVariants({ variant: "outline" });
 
   return (
-    <div className="flex flex-col gap-6">
+    <div>
       <EncabezadoPagina
         titulo="Reuniones"
+        seccion="comunicacion"
         descripcion={personal ? "Programa reuniones viendo la disponibilidad del personal, mira quién confirma y registra el acta." : "Las reuniones a las que te invita el colegio. Cuéntanos si podrás asistir."}
         acciones={
           <div className="flex flex-wrap gap-2">
@@ -103,12 +104,12 @@ export default async function ReunionesPage({ params }: PageProps<"/colegio/[slu
           descripcion={personal ? "Cuando programes una o te inviten, aquí verás las confirmaciones." : "Cuando el colegio te invite a una, la verás aquí."}
         />
       ) : (
-        <>
+        <div className="flex flex-col gap-10">
           <Grupo titulo={personal ? "Solicitudes por confirmar" : "Solicitudes enviadas"} reuniones={porConfirmar} slug={slug} ahora={ahora} />
           <Grupo titulo="Próximas" reuniones={proximas} slug={slug} ahora={ahora} />
           <Grupo titulo="Por cerrar" reuniones={porCerrar} slug={slug} ahora={ahora} />
           <Grupo titulo="Anteriores" reuniones={anteriores} slug={slug} ahora={ahora} />
-        </>
+        </div>
       )}
     </div>
   );

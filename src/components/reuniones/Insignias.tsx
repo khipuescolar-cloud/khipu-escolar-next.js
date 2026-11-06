@@ -2,20 +2,21 @@ import { CalendarClock, CheckCircle2, Clock, Hourglass, Repeat, ThumbsDown, Thum
 import type { EstadoReunion, RespuestaReunion } from "@/generated/prisma/enums";
 import { TEXTO_ESTADO, TEXTO_RESPUESTA } from "@/lib/reuniones";
 
-const base = "inline-flex w-fit items-center gap-1.5 rounded-pildora px-2.5 py-1 text-etiqueta";
+/** Estado plano: ícono + palabra con el color del estado, sin píldora de fondo. */
+const base = "inline-flex w-fit items-center gap-1.5 text-etiqueta font-semibold";
 
 const ESTADOS: Record<EstadoReunion, { Icono: LucideIcon; clase: string }> = {
-  por_confirmar: { Icono: Hourglass, clase: "bg-tarde-fondo text-tarde" },
-  programada: { Icono: CalendarClock, clase: "bg-accent text-accent-foreground" },
-  realizada: { Icono: CheckCircle2, clase: "bg-llego-fondo text-llego" },
-  cancelada: { Icono: XCircle, clase: "bg-falta-fondo text-falta" },
+  por_confirmar: { Icono: Hourglass, clase: "text-tarde" },
+  programada: { Icono: CalendarClock, clase: "text-sec-tinta" },
+  realizada: { Icono: CheckCircle2, clase: "text-llego" },
+  cancelada: { Icono: XCircle, clase: "text-falta" },
 };
 
 const RESPUESTAS: Record<RespuestaReunion, { Icono: LucideIcon; clase: string }> = {
-  pendiente: { Icono: Clock, clase: "bg-tarde-fondo text-tarde" },
-  asistire: { Icono: ThumbsUp, clase: "bg-llego-fondo text-llego" },
-  no_asistire: { Icono: ThumbsDown, clase: "bg-falta-fondo text-falta" },
-  propone_otra: { Icono: Repeat, clase: "bg-accent text-accent-foreground" },
+  pendiente: { Icono: Clock, clase: "text-tarde" },
+  asistire: { Icono: ThumbsUp, clase: "text-llego" },
+  no_asistire: { Icono: ThumbsDown, clase: "text-falta" },
+  propone_otra: { Icono: Repeat, clase: "text-sec-tinta" },
 };
 
 /** Estado de la reunión con ícono + palabra. `porCerrar`: programada que ya empezó (la persona que convoca debe cerrarla). */

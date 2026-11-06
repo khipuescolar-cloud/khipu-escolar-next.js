@@ -155,7 +155,7 @@ export function CalendarioHorario({ dias, sinEncabezado, ...p }: PropsVistaHorar
         <span aria-hidden />
         {dias.map((d) => (
           <div key={d} className={cn("flex flex-col items-center gap-0.5 border-l py-2", d === hoy && "bg-primary/[0.04]")}>
-            <span className={cn("text-etiqueta font-medium tracking-wide uppercase", d === hoy ? "text-primary" : "text-muted-foreground")}>{NOMBRE_DIA_SEMANA_CORTO[diaDeSemana(d)]}</span>
+            <span className={cn("text-etiqueta font-medium first-letter:uppercase", d === hoy ? "text-sec-tinta" : "text-muted-foreground")}>{NOMBRE_DIA_SEMANA_CORTO[diaDeSemana(d)]}</span>
             <NumeroDia fecha={d} hoy={d === hoy} chico={dias.length > 1} />
           </div>
         ))}

@@ -1,9 +1,9 @@
-import { ArrowLeft, ListChecks } from "lucide-react";
+import { ListChecks } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MigasReunion } from "@/components/reuniones/MigasReunion";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
-import { Tarjeta } from "@/components/ui/Tarjeta";
 import { requireFeature } from "@/lib/server/plan";
 import { acuerdosPendientes } from "@/lib/server/reuniones";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -16,24 +16,19 @@ export default async function AcuerdosPage({ params }: PageProps<"/colegio/[slug
   requireFeature(ctx, "reuniones");
   const acuerdos = await acuerdosPendientes(ctx);
   return (
-    <div className="flex flex-col gap-6">
-      <Link href="/reuniones" className="inline-flex w-fit items-center gap-1 text-sm font-medium text-indigo-cielo hover:underline">
-        <ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Reuniones
-      </Link>
-      <EncabezadoPagina titulo="Acuerdos pendientes" descripcion="Compromisos de las actas que aún no se cumplen. Márcalos como cumplidos desde la reunión." />
+    <div>
+      <EncabezadoPagina titulo="Acuerdos pendientes" seccion="comunicacion" migas={<MigasReunion actual="Acuerdos" />} descripcion="Compromisos de las actas que aún no se cumplen. Márcalos como cumplidos desde la reunión." />
       {acuerdos.length === 0 ? (
         <EstadoVacio icono={ListChecks} titulo="No hay acuerdos pendientes" descripcion="Cuando se registren acuerdos en un acta, los verás aquí." />
       ) : (
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col divide-y divide-borde-sutil overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
           {acuerdos.map((a) => (
-            <li key={a.id}>
-              <Tarjeta className="flex flex-col gap-1 text-cuerpo-sm">
-                <p className="font-medium">{a.texto}</p>
-                <p className="text-muted-foreground">
-                  <Link href={`/reuniones/${a.reunionId}`} className="text-indigo-cielo hover:underline">{a.reunion}</Link>
-                  {a.responsable ? ` · ${a.responsable}` : ""}{a.fechaCompromiso ? ` · hasta el ${a.fechaCompromiso}` : ""}
-                </p>
-              </Tarjeta>
+            <li key={a.id} className="flex flex-col gap-1 px-4 py-3.5 text-cuerpo-sm sm:px-5">
+              <p className="font-medium">{a.texto}</p>
+              <p className="text-muted-foreground tabular-nums">
+                <Link href={`/reuniones/${a.reunionId}`} className="text-indigo-cielo hover:underline">{a.reunion}</Link>
+                {a.responsable ? ` · ${a.responsable}` : ""}{a.fechaCompromiso ? ` · hasta el ${a.fechaCompromiso}` : ""}
+              </p>
             </li>
           ))}
         </ul>

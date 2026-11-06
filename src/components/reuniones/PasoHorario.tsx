@@ -234,7 +234,7 @@ export function PasoHorario(p: Props) {
         </label>
       )}
 
-      <section aria-labelledby="titulo-horario" className="min-w-0 overflow-hidden rounded-lg border bg-card">
+      <section aria-labelledby="titulo-horario" className="min-w-0 overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
         <header className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 border-b px-3 py-2.5 sm:px-4">
           <div className="flex min-w-0 items-center gap-1">
             <button type="button" onClick={() => navegar(-1)} disabled={!puedeAtras} aria-label={`${etiquetaNav} anterior`} className={buttonVariants({ variant: "ghost", size: "icon-sm" })}>
@@ -272,7 +272,7 @@ export function PasoHorario(p: Props) {
                 onClick={() => setDiaSel(d)}
                 className={cn(
                   "flex min-h-12 flex-col items-center justify-center gap-0.5 border-b-2 text-etiqueta font-medium transition-colors",
-                  d === diaSel ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:bg-accent",
+                  d === diaSel ? "border-sec-trazo font-semibold text-sec-tinta" : "border-transparent text-muted-foreground hover:bg-accent",
                 )}
               >
                 <span className="uppercase">{NOMBRE_DIA_SEMANA_CORTO[diaDeSemana(d)]}</span>
@@ -335,7 +335,7 @@ function ControlDuracion({ duracion, onDuracion }: { duracion: number; onDuracio
     <fieldset className="flex min-w-0 flex-col gap-1">
       <legend className="mb-1 text-sm font-medium">Duración</legend>
       <div className="flex flex-wrap items-center gap-2">
-        <div className="grid grid-cols-6 rounded-lg border bg-card p-1 sm:inline-flex">
+        <div className="grid grid-cols-6 rounded-[10px] border border-borde-sutil bg-card p-1 sm:inline-flex">
           {DURACIONES.map((d) => (
             <label key={d} className="relative">
               <input
@@ -350,14 +350,14 @@ function ControlDuracion({ duracion, onDuracion }: { duracion: number; onDuracio
                 }}
                 className="peer sr-only"
               />
-              <span className="inline-flex min-h-8 w-full items-center justify-center rounded-md px-2 text-sm font-medium whitespace-nowrap tabular-nums transition-colors peer-checked:bg-primary peer-checked:text-primary-foreground peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ring hover:bg-accent peer-checked:hover:bg-primary sm:px-2.5">
+              <span className="inline-flex min-h-8 w-full items-center justify-center rounded-md px-2 text-sm font-medium whitespace-nowrap tabular-nums transition-colors peer-checked:bg-sec-suave peer-checked:text-sec-tinta peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ring hover:bg-accent peer-checked:hover:bg-sec-suave sm:px-2.5">
                 {d}<span className="max-sm:sr-only">&nbsp;min</span>
               </span>
             </label>
           ))}
           <label className="relative">
             <input type="radio" name="duracion" value="otra" checked={otra} onChange={() => setOtra(true)} className="peer sr-only" />
-            <span className="inline-flex min-h-8 w-full items-center justify-center rounded-md px-2 text-sm font-medium transition-colors peer-checked:bg-primary peer-checked:text-primary-foreground peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ring hover:bg-accent peer-checked:hover:bg-primary sm:px-2.5">
+            <span className="inline-flex min-h-8 w-full items-center justify-center rounded-md px-2 text-sm font-medium transition-colors peer-checked:bg-sec-suave peer-checked:text-sec-tinta peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ring hover:bg-accent peer-checked:hover:bg-sec-suave sm:px-2.5">
               Otra
             </span>
           </label>
@@ -396,7 +396,7 @@ function Segmentado({ etiqueta, opciones, valor, onCambio, className }: {
   etiqueta: string; opciones: [string, string, ReactNode?][]; valor: string; onCambio: (v: string) => void; className?: string;
 }) {
   return (
-    <div role="group" aria-label={etiqueta} className={cn("inline-flex rounded-lg border bg-background p-0.5", className)}>
+    <div role="group" aria-label={etiqueta} className={cn("inline-flex rounded-[10px] border border-borde-sutil bg-background p-0.5", className)}>
       {opciones.map(([v, texto, icono]) => (
         <button
           key={v}
@@ -405,7 +405,7 @@ function Segmentado({ etiqueta, opciones, valor, onCambio, className }: {
           onClick={() => onCambio(v)}
           className={cn(
             "inline-flex min-h-9 items-center gap-1.5 rounded-md px-2.5 text-sm font-medium transition-colors",
-            v === valor ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-accent",
+            v === valor ? "bg-sec-suave font-semibold text-sec-tinta" : "text-foreground hover:bg-accent",
           )}
         >
           {icono}{texto}
@@ -483,7 +483,7 @@ function ModalSugerencias({ abierto, onAbierto, consultar, requeridos, opcionale
     <Dialog open={abierto} onOpenChange={onAbierto}>
       <DialogContent className="max-h-[calc(100svh-2rem)] gap-3 overflow-y-auto p-5 sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2 font-heading text-lg font-semibold"><Sparkles className="size-5 text-primary" strokeWidth={2} aria-hidden />Horarios sugeridos</DialogTitle>
+          <DialogTitle className="flex items-center gap-2 font-heading text-lg font-semibold"><Sparkles className="size-5 text-sec-trazo" strokeWidth={2} aria-hidden />Horarios sugeridos</DialogTitle>
           <DialogDescription>
             Franjas de {duracion} min en que todos los requeridos están libres · <span className="first-letter:uppercase">{titulo}</span>
           </DialogDescription>
