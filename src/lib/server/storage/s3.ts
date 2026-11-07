@@ -2,9 +2,9 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
-import { DeleteObjectCommand, GetObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { DeleteObjectCommand, GetObjectCommand, HeadObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import type { ArchivoSubido, FileStorage, OpcionesSubida, ReferenciaArchivo } from "./tipos";
+import type { ArchivoSubido, FileStorage, OpcionesSubida, ReferenciaArchivo, SubidaPrefirmada } from "./tipos";
 
 // Amazon S3 (o compatible: MinIO, R2…). Los privados se entregan con URL firmada que vence; los públicos (logo)
 // con una URL pública fija: `S3_PUBLIC_BASE_URL` (CDN o dominio del bucket) o, si falta, la URL estándar del bucket.
@@ -44,6 +44,24 @@ export function configuracionS3DesdeEntorno(env: NodeJS.ProcessEnv = process.env
 
 export class S3Storage implements FileStorage {
   readonly proveedor = "s3" as const;
+
+  async prepararSubida({ tenantId, carpeta, bytes, extension, mimeType }: OpcionesSubida & { bytes: number; extension: string }): Promise<SubidaPrefirmada> {
+    const publicId = `khipu/${tenantId}/${carpeta}/${randomUUID()}.${extension}`;
+    const expiraAt = new Date(Date.now() + 600_000);
+    const url = await getSignedUrl(this.cliente, new PutObjectCommand({ Bucket: this.config.bucket, Key: publicId, ContentType: mimeType, ContentLength: bytes }), { expiresIn: 600, signableHeaders: new Set(["content-length", "content-type"]) });
+    return { publicId, url, metodo: "PUT", headers: { "Content-Type": mimeType, "Content-Length": String(bytes) }, expiraAt };
+  }
+
+  async inspeccionar(publicId: string) {
+    try { const r = await this.cliente.send(new HeadObjectCommand({ Bucket: this.config.bucket, Key: publicId })); return { bytes: r.ContentLength ?? 0, contentType: r.ContentType ?? null }; }
+    catch (error) { if ((error as { name?: string }).name === "NotFound") return null; throw error; }
+  }
+
+  async leerRango(publicId: string, desde: number, hasta: number): Promise<Buffer> {
+    const r = await this.cliente.send(new GetObjectCommand({ Bucket: this.config.bucket, Key: publicId, Range: `bytes=${desde}-${hasta}` }));
+    if (!r.Body) throw new Error("Objeto sin contenido");
+    return Buffer.from(await r.Body.transformToByteArray());
+  }
   private readonly config: ConfiguracionS3;
   private readonly cliente: S3Client;
 

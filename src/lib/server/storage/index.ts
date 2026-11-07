@@ -7,6 +7,9 @@ import { leerArchivoLocal, LocalStorage } from "./local";
 import { S3Storage } from "./s3";
 import type { ArchivoSubido, FileStorage, OpcionesSubida } from "./tipos";
 import { MENSAJE_VALIDACION, validarArchivo } from "./validacion";
+import { reservarPorTenant, liberarReservaPorTenant, confirmarUsoPorTenant } from "../almacenamiento/cuotas";
+import { registrarMetrica } from "../almacenamiento/metricas";
+import type { CategoriaArchivo } from "@/generated/prisma/client";
 
 export type { FileStorage } from "./tipos";
 
@@ -47,8 +50,13 @@ export async function guardarArchivo(
   const validacion = validarArchivo(buffer);
   if (!validacion.ok) return { ok: false, error: MENSAJE_VALIDACION[validacion.error] };
   const privado = opciones.privado ?? true;
+  const categoria: CategoriaArchivo = opciones.carpeta === "logo" ? "logo" : opciones.carpeta === "fotos" ? "foto" : opciones.carpeta === "justificaciones" ? "justificacion" : "otro";
+  if (!(await reservarPorTenant(opciones.tenantId, buffer.length))) return { ok: false, error: "El colegio alcanzó su espacio. Avisa a dirección." };
   const proveedor = storage();
-  const subido = await proveedor.subir(buffer, {
+  let subido: ArchivoSubido | undefined;
+  let reservaVigente = true;
+  try {
+  subido = await proveedor.subir(buffer, {
     tenantId: opciones.tenantId,
     carpeta: opciones.carpeta,
     privado,
@@ -64,9 +72,18 @@ export async function guardarArchivo(
       bytes: buffer.length,
       privado,
       subidoPorId: opciones.subidoPorId ?? null,
+      categoria,
     },
   });
+  await confirmarUsoPorTenant(opciones.tenantId, categoria, BigInt(buffer.length), BigInt(buffer.length));
+  reservaVigente = false;
+  await registrarMetrica(opciones.tenantId, categoria, "subidas", buffer.length);
   return { ok: true, archivo };
+  } catch (error) {
+    if (reservaVigente) await liberarReservaPorTenant(opciones.tenantId, BigInt(buffer.length));
+    if (subido) await proveedor.borrar({ id: "", tenantId: opciones.tenantId, publicId: subido.publicId, mimeType: validacion.mimeType, privado, url: subido.url });
+    throw error;
+  }
 }
 
 /** Sube un archivo en disco: en flujo si el proveedor lo permite; si no, lo lee entero y usa `subir`. */

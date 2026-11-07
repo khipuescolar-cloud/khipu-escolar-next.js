@@ -65,6 +65,8 @@ async function retirarArchivoAnterior(tdb: DbTenant, archivoId: string | null): 
   if (!anterior) return;
   await storage().borrar(anterior).catch(() => undefined);
   await tdb.archivo.deleteMany({ where: { id: anterior.id } });
+  const { descontarPorTenant } = await import("./almacenamiento/cuotas");
+  await descontarPorTenant(anterior.tenantId, anterior.categoria, BigInt(anterior.bytes));
 }
 
 /** Valida el logo (PNG, JPG o WEBP, máx. 1 MB). Lanza ErrorDeNegocio con un mensaje legible. */

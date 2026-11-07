@@ -1,4 +1,5 @@
 import "server-only";
+import type { Archivo } from "@/generated/prisma/client";
 import { forbidden, notFound } from "next/navigation";
 import { z } from "zod";
 import { esquemaLecturaImagen, type AccesoNudito, type EntradaApi, type LecturaImagen, type ProveedorTutorIA, type SalidaApi } from "@/lib/nudito/contratos";
@@ -61,13 +62,24 @@ export async function subirFoto(
   if (!mime || !MIMES_FOTO.has(mime)) throw new ErrorDeNegocio(MENSAJE_FOTO_TIPO);
 
   const buffer = Buffer.from(bytes);
-  const subido = await storage().subir(buffer, { tenantId: ctx.tenant.id, carpeta: "nudito", privado: true, mimeType: mime });
-  const archivo = await ctx.db.archivo.create({
+  const { reservar, confirmarUso, liberarReserva } = await import("../almacenamiento/cuotas");
+  if (!(await reservar(ctx, buffer.length))) throw new ErrorDeNegocio("El colegio alcanzó su espacio. Avisa a dirección.");
+  let subido;
+  let archivo: Archivo;
+  try {
+  subido = await storage().subir(buffer, { tenantId: ctx.tenant.id, carpeta: "nudito", privado: true, mimeType: mime });
+  archivo = await ctx.db.archivo.create({
     data: {
       tenantId: ctx.tenant.id, proveedor: subido.proveedor, publicId: subido.publicId, url: null, mimeType: mime, bytes: buffer.length,
-      privado: true, subidoPorId: ctx.membership.id, nuditoSesionId: sesion.id, nombre: "foto-nudito",
+      privado: true, subidoPorId: ctx.membership.id, nuditoSesionId: sesion.id, nombre: "foto-nudito", categoria: "nudito",
     },
   });
+  await confirmarUso(ctx, "nudito", BigInt(buffer.length), BigInt(buffer.length));
+  } catch (error) {
+    await liberarReserva(ctx, BigInt(buffer.length));
+    if (subido) await storage().borrar({ id: "", tenantId: ctx.tenant.id, publicId: subido.publicId, mimeType: mime, privado: true, url: null });
+    throw error;
+  }
 
   let lectura: LecturaImagen;
   try {
@@ -94,6 +106,8 @@ async function descartar(ctx: TenantContext, archivoId: string): Promise<void> {
   if (!a) return;
   await borrarArchivoDelProveedor(a).catch(() => undefined);
   await ctx.db.archivo.delete({ where: { id: a.id } });
+  const { descontar } = await import("../almacenamiento/cuotas");
+  await descontar(ctx, a.categoria, BigInt(a.bytes));
 }
 
 /** URL temporal (5 min) de una foto propia (alumno o su apoderado en modo hijo). Nadie más la ve. */

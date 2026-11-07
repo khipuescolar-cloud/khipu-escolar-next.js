@@ -1,6 +1,6 @@
 # 45 — Almacenamiento centralizado, carga directa, cuotas y observabilidad
 
-> Estado: especificación (Etapa 2 SDD, sin implementar) · Plan: Khipu Pro (Base: solo medición, ver «Decisiones pendientes») · Actualizado: 2026-11-07 · Diagnóstico: `docs/documentos-diagnostico-2026-11.md` · Plan de trabajo: `docs/documentos-plan-implementacion.md` (flujo W1)
+> Estado: implementación W1 en curso · Plan: Khipu Pro (Base: solo medición, ver «Decisiones pendientes») · Actualizado: 2026-11-07 · Diagnóstico: `docs/documentos-diagnostico-2026-11.md` · Plan de trabajo: `docs/documentos-plan-implementacion.md` (flujo W1)
 
 ## Objetivo
 
@@ -256,3 +256,7 @@ Estados de un archivo: **activo** (su dueño está activo), **archivado** (dueñ
 4. Retención y purga física automática; plazo de conservación de solicitudes aprobadas y documentos oficiales.
 5. Si el almacenamiento excedente se cobra o solo se bloquea.
 6. Máximo de versiones por material y por solicitud.
+
+## Implementación W1 (2026-11-07)
+
+La migración `20261116090000_almacenamiento_cuotas` añade categorías, medidor, reservas, subidas y métricas con RLS cerrado. La carga directa usa URL PUT firmada para S3 y ruta HMAC local; Cloudinary conserva la carga por servidor. La cuota de Base queda sin límite y la de Pro usa rangos provisionales. La purga física automática permanece apagada hasta una decisión legal.

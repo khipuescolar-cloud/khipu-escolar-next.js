@@ -198,3 +198,7 @@ El usuario recibe el correo de invitación/recuperación para definir su contras
 - **Escribe en la base real y envía correos reales por Gmail**: no cargues datos de prueba ni correos inventados (rebotan y dañan la reputación de la cuenta).
 - Los enlaces de los correos (bienvenida, justificar) apuntan a `lvh.me:3100`: solo funcionan en este equipo hasta que se configure el dominio.
 
+
+## Almacenamiento directo W1
+
+Para carga directa configure `STORAGE_PROVIDER=s3`, `S3_BUCKET`, `S3_REGION`, `S3_ACCESS_KEY_ID` y `S3_SECRET_ACCESS_KEY`; `S3_ENDPOINT` permite Supabase Storage o R2 compatible. Configure el bucket como privado y CORS para `PUT` desde el dominio del colegio. Antes de producción verifique en el proveedor URL PUT con Content-Length firmado, tamaño máximo de 25 MB, egreso facturado, almacenamiento facturado y objetos huérfanos.
