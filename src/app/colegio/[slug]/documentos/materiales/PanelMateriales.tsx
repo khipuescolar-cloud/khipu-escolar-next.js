@@ -5,7 +5,8 @@ import { useState, useTransition } from "react";
 import { ListaAdjuntos } from "@/components/adjuntos/ListaAdjuntos";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import type { ArbolMateriales, SeccionMaterial } from "@/lib/server/materiales";
-import { crearMaterialAction } from "./actions";
+import { subirDirecto } from "@/lib/subida-directa";
+import { confirmarSubidaMaterialAction, crearMaterialAction, iniciarSubidaMaterialAction } from "./actions";
 
 export function PanelMateriales({ arbol, slug, opciones }: { arbol: ArbolMateriales; slug: string; opciones: SeccionMaterial[] }) {
   const [pendiente, iniciar] = useTransition();
@@ -17,7 +18,22 @@ export function PanelMateriales({ arbol, slug, opciones }: { arbol: ArbolMateria
     {opciones.length > 0 && <form className="space-y-3 rounded-xl border border-borde-sutil bg-superficie p-4" onSubmit={(evento) => {
       evento.preventDefault();
       const form = evento.currentTarget;
-      iniciar(async () => { const r = await crearMaterialAction(slug, new FormData(form)); setMensaje(r.ok ? "Material publicado." : r.error); if (r.ok) form.reset(); });
+      iniciar(async () => {
+        try {
+          const datos = new FormData(form);
+          const archivo = datos.get("archivos");
+          if (!(archivo instanceof File) || !archivo.size) throw new Error("Elige un PDF.");
+          const subida = await subirDirecto(archivo, {
+            iniciar: () => iniciarSubidaMaterialAction(slug, { nombre: archivo.name, bytes: archivo.size, mimeDeclarado: archivo.type || "application/pdf" }),
+            confirmar: async (id) => { await confirmarSubidaMaterialAction(slug, id); return { subidaId: id }; },
+          });
+          datos.delete("archivos");
+          datos.append("subidaIds", subida.subidaId);
+          const r = await crearMaterialAction(slug, datos);
+          setMensaje(r.ok ? "Material publicado." : r.error);
+          if (r.ok) form.reset();
+        } catch (error) { setMensaje(error instanceof Error ? error.message : "No se pudo publicar el material."); }
+      });
     }}>
       <h3 className="font-semibold">Publicar material de clase</h3>
       <label className="block text-sm">Título<input name="titulo" required minLength={3} maxLength={150} className="mt-1 h-11 w-full rounded-lg border px-3" /></label>
