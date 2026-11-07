@@ -15,7 +15,7 @@ export async function GET(request: NextRequest, ctx: RouteContext<"/colegio/[slu
   if (!/^[0-9a-f-]{36}$/i.test(id)) return new NextResponse("No encontrado", { status: 404 });
   const archivo = await requireArchivoVisible(tenant, id);
   await registrarMetrica(tenant.tenant.id, archivo.categoria, "descargas", archivo.bytes);
-  const esAdjunto = !!(archivo.comunicadoId || archivo.tareaId || archivo.entregaId || archivo.mensajeSoporteId || archivo.documentoId);
+  const esAdjunto = !!(archivo.comunicadoId || archivo.tareaId || archivo.entregaId || archivo.mensajeSoporteId || archivo.documentoId || (archivo.categoria === "material_clase" && await tenant.db.materialVersionArchivo.count({ where: { archivoId: archivo.id } })));
 
   if (!esAdjunto) {
     const exp = Number(request.nextUrl.searchParams.get("exp"));

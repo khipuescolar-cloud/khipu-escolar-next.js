@@ -4,7 +4,7 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { NavegacionDocumentos } from "./NavegacionDocumentos";
 import { PanelMateriales } from "./materiales/PanelMateriales";
 import { PanelSolicitudes } from "./solicitudes/PanelSolicitudes";
-import { listarMateriales } from "@/lib/server/materiales";
+import { listarMateriales, opcionesParaCompartir } from "@/lib/server/materiales";
 import { listarSolicitudes } from "@/lib/server/solicitudes/index";
 import { requireConsentimiento } from "@/lib/server/consentimiento";
 import { listarContenido, opcionesDeCarpeta, salonesParaDocumentos, usoBorradores } from "@/lib/server/documentos";
@@ -28,8 +28,8 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
   const seccion = seccionDocumento(uno(sp.seccion) ?? uno(sp.vista)) ?? "biblioteca";
   if (!puedeEntrarSeccion(ctx.rol, seccion)) forbidden();
   if (seccion === "materiales" || seccion === "gestion") {
-    const contenido = seccion === "materiales" ? <PanelMateriales arbol={await listarMateriales(ctx)} /> : <PanelSolicitudes solicitudes={await listarSolicitudes(ctx)} direccion={ctx.rol === "direccion"} />;
-    return <div><EncabezadoPagina titulo="Documentos" seccion="comunicacion" descripcion="Materiales, gestión académica y biblioteca del colegio." /><div className="grid min-w-0 gap-4 md:grid-cols-[13.5rem_minmax(0,1fr)] md:gap-6 lg:grid-cols-[15rem_minmax(0,1fr)]"><aside><NavegacionDocumentos rol={ctx.rol} activa={seccion} /></aside><section className="min-w-0"><h2 className="mb-5 text-xl font-semibold">{seccion === "materiales" ? "Materiales de clase" : "Gestión académica"}</h2>{contenido}</section></div></div>;
+    const contenido = seccion === "materiales" ? <PanelMateriales arbol={await listarMateriales(ctx)} slug={slug} opciones={ctx.rol === "profesor" ? await opcionesParaCompartir(ctx) : []} /> : <PanelSolicitudes solicitudes={await listarSolicitudes(ctx)} direccion={ctx.rol === "direccion"} />;
+    return <div><EncabezadoPagina titulo="Documentos" seccion="comunicacion" descripcion="Materiales, gestión académica y biblioteca del colegio." /><div className="grid min-w-0 gap-4 md:grid-cols-[13.5rem_minmax(0,1fr)] md:gap-6 lg:grid-cols-[15rem_minmax(0,1fr)]"><aside className="min-w-0"><NavegacionDocumentos rol={ctx.rol} activa={seccion} /></aside><section className="min-w-0"><h2 className="mb-5 text-xl font-semibold">{seccion === "materiales" ? "Materiales de clase" : "Gestión académica"}</h2>{contenido}</section></div></div>;
   }
   const vista = seccion === "borradores" ? "unidad" : seccion;
   const carpetaParam = uno(sp.carpeta);
