@@ -3,6 +3,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { db } from "@/lib/server/db";
 import { crearCalificacion, cursosDelRegistro, registroDelCurso } from "@/lib/server/registro-notas";
 import { guardarNota } from "@/lib/server/notas";
+import { crearTarea, calificarEntrega } from "@/lib/server/tareas";
 import { crearColegioPrueba, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
 process.env.__NEXT_EXPERIMENTAL_AUTH_INTERRUPTS = "true";
@@ -49,6 +50,22 @@ describe("Registro de notas", () => {
     expect(registro.evaluaciones.find((e) => e.id === ev.id)?.notas.some((n) => n.alumnoId === c.alumnos.valentina.id)).toBe(false);
     expect((await guardarNota(c.ctxDe("tutora"), { evaluacionId: ev.id, alumnoId: c.alumnos.mateo.id, valor: "B" })).ok).toBe(true);
     expect(await c.db.historialNota.count({ where: { evaluacionId: ev.id } })).toBe(2);
+  });
+  it("una tarea de dos secciones comparte notas y conserva la competencia elegida en cada una", async () => {
+    const gemelo = await c.db.curso.create({ data: { tenantId: c.tenant.id, salonId: c.otroSalon.id, nombre: "Matemática", profesorId: c.miembros.tutora.membership.id } });
+    const competenciaGemela = await c.db.competencia.create({ data: { tenantId: c.tenant.id, cursoId: gemelo.id, nombre: "Resuelve problemas de cantidad" } });
+    const r = await crearTarea(c.ctxDe("tutora"), { cursoId: c.cursoTutora.id, titulo: "Práctica compartida", calificable: true, competenciaId,
+      secciones: [{ cursoId: c.cursoTutora.id, competenciaId, todos: true }, { cursoId: gemelo.id, competenciaId: competenciaGemela.id, todos: true }] });
+    expect(r.ok).toBe(true);
+    const evaluaciones = await c.db.evaluacion.findMany({ where: { tareaId: r.tareaId } });
+    expect(evaluaciones).toHaveLength(2);
+    expect(evaluaciones.find((e) => e.cursoId === gemelo.id)?.competenciaId).toBe(competenciaGemela.id);
+    const asignacion = await c.db.tareaAsignacion.findFirstOrThrow({ where: { tareaId: r.tareaId, alumnoId: c.alumnos.mateo.id } });
+    expect((await calificarEntrega(c.ctxDe("tutora"), asignacion.id, { valor: "A" })).ok).toBe(true);
+    const ev = evaluaciones.find((e) => e.cursoId === c.cursoTutora.id)!;
+    const registro = await registroDelCurso(c.ctxDe("tutora"), c.cursoTutora.id, periodoId);
+    expect(registro.evaluaciones.find((e) => e.id === ev.id)?.notas.find((n) => n.alumnoId === c.alumnos.mateo.id)?.valorLiteral).toBe("A");
+    expect(await c.db.nota.count({ where: { evaluacionId: ev.id, alumnoId: c.alumnos.mateo.id } })).toBe(1);
   });
   it("exige competencia y bloquea periodo cerrado", async () => {
     const base = { cursoId: c.cursoTutora.id, periodoId, claveIdempotencia: randomUUID(), nombre: "Otra", fecha, notas: [] };

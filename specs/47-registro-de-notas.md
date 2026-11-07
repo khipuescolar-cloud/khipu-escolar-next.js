@@ -35,7 +35,7 @@ Cada operación valida `requireFeature(ctx, "notas")`, rol, curso y alcance con 
 
 ## Modelo de datos
 
-`Competencia`: `origen`, `codigoOficial`, `desactivadaAt`, `desactivadaPorId`, `createdAt`, `updatedAt`, además de `tenantId` y `cursoId`. `Membership.gestionaCompetencias` concede permiso explícito al profesor. `Evaluacion`: `fecha`, `creadaAt`, `actualizadaAt`, `creadaPorId`, `competenciaId`, `tareaId`, `periodoId`, `estado`, `grupoId`, `claveIdempotencia` única opcional. `Nota`: un registro por evaluación y alumno, con marca NSP/NE, recuperación y responsable. `HistorialNota` guarda cambios. `CalificacionPeriodo` y `LibretaEmitida` mantienen el resultado y documento del periodo. `Tarea.competenciaId` vincula la tarea con el currículo.
+`Competencia`: `origen`, `codigoOficial`, `desactivadaAt`, `desactivadaPorId`, `createdAt`, `updatedAt`, además de `tenantId` y `cursoId`. `Membership.gestionaCompetencias` concede permiso explícito al profesor. `Evaluacion`: `fecha`, `creadaAt`, `actualizadaAt`, `creadaPorId`, `competenciaId`, `tareaId`, `periodoId`, `estado`, `grupoId`, `claveIdempotencia` única opcional. `Nota`: un registro por evaluación y alumno, con marca NSP/NE, recuperación y responsable. `HistorialNota` guarda cambios. `CalificacionPeriodo` y `LibretaEmitida` mantienen el resultado y documento del periodo. `Tarea.competenciaId` y `TareaCurso.competenciaId` vinculan cada sección con el currículo. `Evaluacion(tareaId, cursoId)` es única para impedir duplicados al reprocesar.
 
 ## Contratos de `src/lib/server`
 

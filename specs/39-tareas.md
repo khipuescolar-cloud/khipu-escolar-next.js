@@ -153,4 +153,4 @@ Tareas ya recibe entregas y no se rehace. Cambia solo cómo usa archivos (detall
 
 ## Relación con Registro de notas (2026-11-07)
 
-Una tarea nueva calificable exige elegir una competencia activa del curso de origen. La entrega por sí sola no crea una nota. La evaluación vinculada por `tareaId` y `TareaCurso.evaluacionGrupoId` es la misma columna que lee `/notas/[cursoId]`; `Nota` sigue siendo única por evaluación y alumno. Las tareas anteriores sin competencia aparecen en «Sin competencia» y el profesor del curso puede asignarles una competencia activa explícitamente.
+Una tarea nueva calificable exige elegir una competencia activa en cada curso/sección incluido. La elección se guarda en `TareaCurso.competenciaId`. La entrega por sí sola no crea una nota. La evaluación vinculada por `tareaId` y `TareaCurso.evaluacionGrupoId` es la misma columna que lee `/notas/[cursoId]`; `Nota` sigue siendo única por evaluación y alumno; `Evaluacion(tareaId, cursoId)` es única para evitar columnas duplicadas ante reprocesos. Las tareas anteriores sin competencia aparecen en «Sin competencia» y el profesor del curso puede asignarles una competencia activa explícitamente.

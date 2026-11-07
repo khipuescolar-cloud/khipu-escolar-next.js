@@ -1,0 +1,115 @@
+import "dotenv/config";
+import { expect, test } from "@playwright/test";
+import { sql } from "./ayudantes/colegio-temporal";
+
+const puerto = process.env.E2E_PORT ?? "3000";
+const colegio = (ruta: string) => `http://nuevohorizonte.lvh.me:${puerto}${ruta}`;
+const carpeta = "/tmp/claude-1000/-home-carlos-calderon-Escritorio-StartUp/4708dc9f-ca0e-4c47-a074-186c44f0e3b5/scratchpad";
+const titulo = `Práctica e2e ${Date.now()}`;
+const tareaTitulo = `Tarea notas e2e ${Date.now()}`;
+let cursoId = "";
+
+test.beforeAll(async () => {
+  const [c] = await sql<{ id: string }>(`select cu.id from cursos cu join salones s on s.id=cu.salon_id join memberships m on m.id=cu.profesor_id join profiles p on p.id=m.user_id where p.email=$1 and cu.nombre='Matemática' and s.nombre='3.° B' limit 1`, ["lucia.garcia@nuevohorizonte.demo"]);
+  cursoId = c.id;
+});
+test.afterAll(async () => {
+  if (!cursoId) return;
+  await sql(`delete from historial_notas where evaluacion_id in (select id from evaluaciones where curso_id=$1 and titulo=$2)`, [cursoId, titulo]);
+  await sql(`delete from evaluaciones where curso_id=$1 and titulo=$2`, [cursoId, titulo]);
+  await sql(`delete from historial_notas where evaluacion_id in (select e.id from evaluaciones e join tareas t on t.id=e.tarea_id where t.titulo=$1)`, [tareaTitulo]);
+  await sql(`delete from evaluaciones where tarea_id in (select id from tareas where titulo=$1)`, [tareaTitulo]);
+  await sql(`delete from tareas where titulo=$1`, [tareaTitulo]);
+});
+
+test("docente crea una calificación y ve una tarea en el mismo registro", async ({ page }) => {
+  await page.goto("/login");
+  await page.getByLabel("Correo").fill("lucia.garcia@nuevohorizonte.demo");
+  await page.getByLabel("Contraseña").fill("demo123");
+  await page.getByRole("button", { name: "Entrar" }).click();
+  await page.waitForURL(colegio("/inicio"));
+  await page.goto(colegio("/notas"));
+  await expect(page.getByRole("heading", { name: "Registro de notas" })).toBeVisible();
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.screenshot({ path: `${carpeta}/notasB-mis-cursos-1440.png`, fullPage: true });
+  await page.getByRole("link", { name: "Abrir registro" }).first().click();
+  await page.goto(colegio(`/notas/${cursoId}`));
+  await expect(page.getByRole("heading", { name: /Matemática.*3.° B/ })).toBeVisible();
+  await page.screenshot({ path: `${carpeta}/notasB-registro-1440.png`, fullPage: true });
+  const boton = page.getByRole("button", { name: "Nueva calificación" });
+  await boton.click();
+  const hoja = page.getByRole("dialog", { name: "Nueva calificación" });
+  if (!(await hoja.isVisible())) await boton.click();
+  await expect(hoja).toBeVisible();
+  await page.waitForTimeout(400);
+  await page.screenshot({ path: `${carpeta}/notasB-nueva-paso1-1440.png` });
+  await hoja.getByLabel("Nombre").fill(titulo);
+  const fecha = new Date(Date.now() - 10 * 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
+  await hoja.getByLabel("Fecha de la actividad").fill(fecha);
+  const notas = hoja.getByRole("combobox", { name: /Nota de/ });
+  for (let i = 0; i < 3; i++) {
+    await notas.nth(i).click();
+    await page.getByRole("option", { name: "A", exact: true }).click();
+  }
+  await hoja.getByRole("button", { name: "Continuar" }).click();
+  await expect(hoja.getByText("¿A qué competencia corresponde esta calificación?")).toBeVisible();
+  await page.waitForTimeout(400);
+  await page.screenshot({ path: `${carpeta}/notasB-nueva-paso2-1440.png` });
+  await hoja.getByRole("button", { name: /Resuelve problemas/ }).first().click();
+  await hoja.getByRole("button", { name: "Guardar calificación" }).click();
+  await expect(page.getByText(titulo).first()).toBeVisible();
+  await page.reload();
+  await expect(page.getByText(titulo).first()).toBeVisible();
+  await page.getByRole("button", { name: new RegExp(titulo) }).first().click();
+  await expect(page.getByRole("dialog", { name: titulo })).toBeVisible();
+  await page.waitForTimeout(400);
+  await page.screenshot({ path: `${carpeta}/notasB-detalle-1440.png` });
+  await page.getByRole("button", { name: "Cerrar" }).click();
+  await page.getByRole("button", { name: new RegExp(`.*, ${titulo}:`) }).first().click();
+  await page.screenshot({ path: `${carpeta}/notasB-edicion-1440.png` });
+  for (const [w, h] of [[1024, 768], [390, 844]] as const) {
+    await page.setViewportSize({ width: w, height: h });
+    await page.goto(colegio("/notas"));
+    await page.screenshot({ path: `${carpeta}/notasB-mis-cursos-${w}.png` });
+    await page.goto(colegio(`/notas/${cursoId}`));
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.screenshot({ path: `${carpeta}/notasB-registro-${w}.png` });
+    await page.getByRole("button", { name: "Nueva calificación" }).click();
+    const nueva = page.getByRole("dialog", { name: "Nueva calificación" });
+    await expect(nueva).toBeVisible();
+    await page.waitForTimeout(400);
+    await page.screenshot({ path: `${carpeta}/notasB-nueva-paso1-${w}.png` });
+    await nueva.getByLabel("Nombre").fill("Borrador de captura");
+    await nueva.getByRole("button", { name: "Continuar" }).click();
+    await page.screenshot({ path: `${carpeta}/notasB-nueva-paso2-${w}.png` });
+    await nueva.getByRole("button", { name: "Cerrar" }).click();
+    await page.getByRole("button", { name: new RegExp(titulo) }).first().click();
+    await expect(page.getByRole("dialog", { name: titulo })).toBeVisible();
+    await page.waitForTimeout(400);
+    await page.screenshot({ path: `${carpeta}/notasB-detalle-${w}.png` });
+    await page.getByRole("button", { name: "Cerrar" }).click();
+    await page.getByRole("button", { name: new RegExp(`.*, ${titulo}:`) }).first().click();
+    await page.screenshot({ path: `${carpeta}/notasB-edicion-${w}.png` });
+  }
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(colegio("/tareas"));
+  await page.getByRole("button", { name: "Nueva tarea" }).click();
+  const tarea = page.getByRole("dialog", { name: "Nueva tarea" });
+  await expect(tarea).toBeVisible();
+  await tarea.getByRole("combobox", { name: "Curso" }).selectOption({ label: "Matemática · 3.° B" });
+  await tarea.getByText("Elige una competencia").click();
+  await page.getByRole("option", { name: /Resuelve problemas de cantidad/ }).click();
+  await tarea.getByLabel("Título", { exact: true }).fill(tareaTitulo);
+  await tarea.getByRole("checkbox", { name: /Calificable/ }).check();
+  await tarea.getByRole("button", { name: "Crear tarea" }).click();
+  await expect(page.getByText("Tarea creada.")).toBeVisible();
+  const [creada] = await sql<{ id: string }>(`select id from tareas where titulo=$1`, [tareaTitulo]);
+  await page.goto(colegio(`/tareas/${creada.id}/revision`));
+  const primera = page.getByRole("listitem").filter({ has: page.getByRole("button", { name: "Guardar nota" }) }).first();
+  await primera.getByLabel("Nota", { exact: true }).fill("A");
+  await primera.getByRole("button", { name: "Guardar nota" }).click();
+  await expect(primera.getByText("Nota: A")).toBeVisible();
+  await page.goto(colegio(`/notas/${cursoId}`));
+  await expect(page.getByRole("button", { name: new RegExp(tareaTitulo) }).first()).toBeVisible();
+  await expect(page.getByText("Tarea ·").first()).toBeVisible();
+});

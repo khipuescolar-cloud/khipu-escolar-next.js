@@ -66,7 +66,7 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
   if (!curso || !periodo) {
     return (
       <div>
-        <EncabezadoPagina titulo="Notas" seccion="academico" descripcion={descripcion} acciones={botonPeriodos} />
+        <EncabezadoPagina titulo="Registro de notas" seccion="academico" descripcion={descripcion} acciones={botonPeriodos} />
         <EstadoVacio
           icono={!curso ? GraduationCap : CalendarDays}
           titulo={!curso ? "Todavía no tienes cursos asignados" : "Aún no hay periodos del año"}
@@ -83,7 +83,7 @@ export async function VistaDocente({ ctx, slug, sp }: { ctx: TenantContext; slug
   return (
     <div className="flex flex-col gap-5">
       <EncabezadoPagina
-        titulo="Notas"
+        titulo="Registro de notas"
         seccion="academico"
         descripcion={descripcion}
         acciones={

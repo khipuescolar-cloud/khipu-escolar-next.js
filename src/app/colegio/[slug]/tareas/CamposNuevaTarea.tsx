@@ -29,6 +29,7 @@ const clave = (n: string) => n.trim().toLocaleLowerCase("es");
 export function CamposNuevaTarea({ cursos, alumnos, materiales = [], competencias = [] }: { cursos: CursoOpcion[]; alumnos: Record<string, AlumnoOpcion[]>; materiales?: MaterialOpcion[]; competencias?: { id: string; cursoId: string; nombre: string }[] }) {
   const [origen, setOrigen] = useState(cursos[0]?.id ?? "");
   const [competenciaId, setCompetenciaId] = useState("");
+  const [competenciasSeccion, setCompetenciasSeccion] = useState<Record<string, string>>({});
   const [secciones, setSecciones] = useState<Record<string, EstadoSeccion>>({});
   const [busqueda, setBusqueda] = useState("");
   const [verPrevia, setVerPrevia] = useState(false);
@@ -41,12 +42,12 @@ export function CamposNuevaTarea({ cursos, alumnos, materiales = [], competencia
   const destinatarios = (id: string) => (estado(id).todos ? (alumnos[id] ?? []) : (alumnos[id] ?? []).filter((a) => estado(id).alumnoIds.includes(a.id)));
   const total = activas.reduce((n, c) => n + destinatarios(c.id).length, 0);
   const cambiar = (id: string, parcial: Partial<EstadoSeccion>) => setSecciones((s) => ({ ...s, [id]: { ...estado(id), ...parcial } }));
-  const valor = JSON.stringify(activas.map((c) => ({ cursoId: c.id, todos: estado(c.id).todos, alumnoIds: estado(c.id).todos ? undefined : estado(c.id).alumnoIds })));
+  const valor = JSON.stringify(activas.map((c) => ({ cursoId: c.id, competenciaId: c.id === origen ? competenciaId || undefined : competenciasSeccion[c.id] || undefined, todos: estado(c.id).todos, alumnoIds: estado(c.id).todos ? undefined : estado(c.id).alumnoIds })));
 
   return (
     <>
       <div className="sm:col-span-2">
-        <Selector etiqueta="Curso" name="cursoId" required value={origen} onChange={(e) => { setOrigen(e.target.value); setSecciones({}); setCompetenciaId(""); }}>
+        <Selector etiqueta="Curso" name="cursoId" required value={origen} onChange={(e) => { setOrigen(e.target.value); setSecciones({}); setCompetenciaId(""); setCompetenciasSeccion({}); }}>
           {cursos.map((c) => <option key={c.id} value={c.id}>{c.nombre} · {c.salon}</option>)}
         </Selector>
       </div>
@@ -73,6 +74,7 @@ export function CamposNuevaTarea({ cursos, alumnos, materiales = [], competencia
                 <span className="font-medium">{c.salon}</span>
                 <span className="text-muted-foreground">{c.id === origen ? "(curso elegido)" : "(mismo curso en otro salón)"}</span>
               </label>
+              {e.incluida && c.id !== origen && <label className="ml-8 grid gap-1 text-sm"><span className="font-medium">Competencia de {c.salon}</span><Select value={competenciasSeccion[c.id] || null} onValueChange={(v) => setCompetenciasSeccion((prev) => ({ ...prev, [c.id]: String(v ?? "") }))} items={Object.fromEntries(competencias.filter((x) => x.cursoId === c.id).map((x) => [x.id, x.nombre]))}><SelectTrigger className="w-full"><SelectValue placeholder="Elige una competencia" /></SelectTrigger><SelectContent>{competencias.filter((x) => x.cursoId === c.id).map((x) => <SelectItem key={x.id} value={x.id}>{x.nombre}</SelectItem>)}</SelectContent></Select></label>}
               {e.incluida && (
                 <div className="ml-8 flex flex-col gap-2">
                   <div className="flex flex-wrap gap-4 text-sm">

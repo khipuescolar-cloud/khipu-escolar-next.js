@@ -1181,6 +1181,7 @@ model Evaluacion {
   criterios   CriterioEvaluacion[]
 
   @@index([tenantId, cursoId, periodoId])
+  @@unique([tareaId, cursoId])
   @@index([grupoId])
   @@index([tareaId])
   @@map("evaluaciones")
@@ -1445,6 +1446,7 @@ model TareaCurso {
   tenantId          String    @map("tenant_id") @db.Uuid
   tareaId           String    @map("tarea_id") @db.Uuid
   cursoId           String    @map("curso_id") @db.Uuid
+  competenciaId     String?   @map("competencia_id") @db.Uuid
   todos             Boolean   @default(true)
   /// Fecha límite propia de la sección (null = la de la tarea).
   fechaEntrega      DateTime? @map("fecha_entrega") @db.Timestamptz

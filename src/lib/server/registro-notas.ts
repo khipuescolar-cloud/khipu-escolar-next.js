@@ -39,7 +39,7 @@ export async function registroDelCurso(ctx: TenantContext, cursoId: string, peri
     orderBy: [{ fecha: "asc" }, { creadaAt: "asc" }],
   }) : [];
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "registro_notas", entidadId: cursoId, detalle: { periodoId: periodo?.id ?? null } });
-  return { curso, periodos, periodo, alumnos, competencias, evaluaciones, escala: ctx.tenant.escalaCalificacion, puedeEditar: ctx.rol === "profesor" && !!periodo && !periodo.cerrado };
+  return { curso, periodos, periodo, alumnos, competencias, evaluaciones: evaluaciones.map((e) => ({ ...e, peso: Number(e.peso), notas: e.notas.map((n) => ({ ...n, valorNumerico: n.valorNumerico === null ? null : Number(n.valorNumerico) })) })), escala: ctx.tenant.escalaCalificacion, puedeEditar: ctx.rol === "profesor" && !!periodo && !periodo.cerrado };
 }
 
 const esquema = z.object({
@@ -80,9 +80,9 @@ export async function crearCalificacion(ctx: TenantContext, entrada: unknown): P
         await tx.nota.createMany({ data: notas.map((n) => ({ tenantId: ctx.tenant.id, evaluacionId: evaluacion.id, alumnoId: n.alumnoId, valorLiteral: n.valorLiteral, valorNumerico: n.valorNumerico, marca: n.marca, registradoPorId: ctx.membership.id })) });
         await tx.historialNota.createMany({ data: notas.map((n) => ({ tenantId: ctx.tenant.id, evaluacionId: evaluacion.id, alumnoId: n.alumnoId, valorNuevo: n.texto, cambiadoPorId: ctx.membership.id, tipo: "registro" as const })) });
       }
+      await tx.auditoria.create({ data: { tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "evaluacion", entidadId: evaluacion.id, detalle: { alumnos: notas.length } } });
       return evaluacion.id;
     });
-    await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "evaluacion", entidadId: id, detalle: { alumnos: notas.length } });
     return { ...ok("Calificación guardada."), evaluacionId: id };
   } catch (error) {
     const retry = await ctx.db.evaluacion.findFirst({ where: { claveIdempotencia: x.claveIdempotencia, cursoId: x.cursoId }, select: { id: true } });
