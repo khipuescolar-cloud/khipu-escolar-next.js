@@ -3,16 +3,14 @@
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ChevronRight, Clock3, Copy, Download, Folder, FolderOpen, Grid2X2, Info, List, Pencil, RotateCcw, Search, Star, StarOff, Trash2, Users, X, Upload } from "lucide-react";
+import { ChevronRight, Clock3, Copy, Download, Folder, FolderOpen, Info, Pencil, RotateCcw, Star, StarOff, Trash2, Users, X, Upload } from "lucide-react";
 import { toast } from "sonner";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Notificar } from "@/components/shell/Notificar";
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogMedia } from "@/components/ui/alert-dialog";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ORDENES_DOCUMENTO } from "@/lib/documentos";
 import type { Rol, CategoriaBiblioteca } from "@/generated/prisma/enums";
 import type { Contenido, CarpetaOpcion } from "@/lib/server/documentos";
 import { cn } from "@/lib/utils";
@@ -27,6 +25,7 @@ import { PanelSubidas, useSubidas } from "./Subidas";
 import { NavegacionDocumentos } from "./NavegacionDocumentos";
 import { PanelBorradores } from "./PanelBorradores";
 import { IndicadorAlmacenamiento } from "./IndicadorAlmacenamiento";
+import { BarraExplorador } from "./BarraExplorador";
 import type { Item, Salon, Vista } from "./tipos-documentos";
 
 const vistas: { id: Vista; nombre: string; icono: typeof FolderOpen }[] = [
@@ -42,7 +41,6 @@ const vacios: Record<Vista, { titulo: string; detalle: string }> = {
   destacados: { titulo: "Todavía no tienes destacados", detalle: "Marca con la estrella lo que quieras encontrar rápido." },
   papelera: { titulo: "La papelera está vacía", detalle: "Lo que elimines se queda aquí 30 días antes de borrarse para siempre." },
 };
-const ordenes = Object.fromEntries(Object.entries(ORDENES_DOCUMENTO)) as Record<string, string>;
 const aArchivo = (d: Contenido["documentos"][number]): Item => ({ tipo: "documento", id: d.id, nombre: d.titulo, propietario: d.autor, modificado: d.updatedAt, creado: d.createdAt, tamano: d.archivo?.bytes ?? null, archivo: d.archivo, gestionable: d.gestionable, destacado: d.destacado, descripcion: d.descripcion, carpetaId: d.carpetaId, visibleRoles: d.visibleRoles, salonId: d.salonId, ambito: d.ambito, categoria: d.categoria, oficial: d.oficial, archivado: d.archivado });
 
 export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista, carpetaId, carpetaDeCreacion, carpetaCompartida, q, orden, opciones, salones, esProfesor, rol, puedeCrear, categoria, archivados, usadoBorradores, limiteBorradores, almacenamientoColegio, ok, error }: { archivoInicial: string | null; nuevos: string; contenido: Contenido; vista: Vista; carpetaId: string | null; carpetaDeCreacion: string | null; carpetaCompartida: boolean; q: string; orden: string; opciones: CarpetaOpcion[]; salones: Salon[]; esProfesor: boolean; rol: Rol; puedeCrear: boolean; categoria?: CategoriaBiblioteca; archivados: boolean; usadoBorradores: number | null; limiteBorradores: number | null; almacenamientoColegio: { usado: number; limite: number } | null; ok?: string; error?: string }) {
@@ -163,20 +161,7 @@ export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista,
           <Link href={rutaBase} className={cn("inline-flex min-h-9 items-center rounded-md px-2 font-medium", contenido.ruta.length === 0 ? "text-foreground" : "text-primary hover:underline")} aria-current={contenido.ruta.length === 0 ? "page" : undefined}>{nombreVista}</Link>
           {contenido.ruta.map((r, i) => <span key={r.id} className="inline-flex min-w-0 items-center gap-0.5"><ChevronRight className="size-4 shrink-0 text-muted-foreground" aria-hidden /><Link href={`${rutaBase}&carpeta=${r.id}`} aria-current={i === contenido.ruta.length - 1 ? "page" : undefined} className={cn("inline-flex min-h-9 max-w-48 items-center truncate rounded-md px-2", i === contenido.ruta.length - 1 ? "font-medium text-foreground" : "text-primary hover:underline")}>{r.nombre}</Link></span>)}
         </nav>
-        <div className="mb-4 flex flex-wrap items-center gap-2">
-          <form method="get" action="/documentos" role="search" className="relative min-w-0 flex-1 basis-full sm:basis-56"><input type="hidden" name="seccion" value={vista === "unidad" ? "borradores" : vista} />{carpetaId && <input type="hidden" name="carpeta" value={carpetaId} />}{categoria && <input type="hidden" name="categoria" value={categoria} />}{archivados && <input type="hidden" name="archivados" value="1" />}
-            <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" strokeWidth={2} aria-hidden />
-            <Input type="search" name="q" defaultValue={q} aria-label="Buscar por nombre" placeholder="Buscar por nombre" className="pl-9" />
-          </form>
-          <Select value={orden} onValueChange={(v) => router.push(`${rutaBase}${carpetaId ? `&carpeta=${carpetaId}` : ""}${q ? `&q=${encodeURIComponent(q)}` : ""}&orden=${v}`)} items={ordenes}>
-            <SelectTrigger aria-label="Ordenar por" className="min-w-0 flex-1 sm:w-44 sm:flex-none"><SelectValue /></SelectTrigger>
-            <SelectContent alignItemWithTrigger={false} align="start">{Object.entries(ORDENES_DOCUMENTO).map(([v, n]) => <SelectItem key={v} value={v}>{n}</SelectItem>)}</SelectContent>
-          </Select>
-          <div role="group" aria-label="Tipo de vista" className="flex rounded-lg border border-input bg-superficie-elevada p-0.5">
-            <Button variant={modo === "lista" ? "secondary" : "ghost"} size="icon-sm" aria-label="Vista de lista" aria-pressed={modo === "lista"} onClick={() => cambiarModo("lista")}><List aria-hidden /></Button>
-            <Button variant={modo === "cuadricula" ? "secondary" : "ghost"} size="icon-sm" aria-label="Vista de cuadrícula" aria-pressed={modo === "cuadricula"} onClick={() => cambiarModo("cuadricula")}><Grid2X2 aria-hidden /></Button>
-          </div>
-        </div>
+        <BarraExplorador q={q} orden={orden} modo={modo} campos={{ seccion: vista === "unidad" ? "borradores" : vista, carpeta: carpetaId, categoria, archivados: archivados ? "1" : null }} onOrden={(v) => router.push(`${rutaBase}${carpetaId ? `&carpeta=${carpetaId}` : ""}${q ? `&q=${encodeURIComponent(q)}` : ""}&orden=${v}`)} onModo={cambiarModo} />
         {vista === "biblioteca" && <div className="mb-4 flex flex-wrap items-center gap-3">
           <Select value={categoria ?? "todas"} onValueChange={(v) => router.push(`${rutaBase}${v === "todas" ? "" : `&categoria=${v}`}${archivados ? "&archivados=1" : ""}`)} items={{ todas: "Todas las categorías", reglamento: "Reglamento", convivencia: "Convivencia", protocolo: "Protocolo", calendario: "Calendario", formato: "Formato", oficial: "Oficial", otro: "Otro" }}><SelectTrigger aria-label="Filtrar por categoría" className="min-w-48"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="todas">Todas las categorías</SelectItem><SelectItem value="reglamento">Reglamento</SelectItem><SelectItem value="convivencia">Convivencia</SelectItem><SelectItem value="protocolo">Protocolo</SelectItem><SelectItem value="calendario">Calendario</SelectItem><SelectItem value="formato">Formato</SelectItem><SelectItem value="oficial">Oficial</SelectItem><SelectItem value="otro">Otro</SelectItem></SelectContent></Select>
           <Link href={`${rutaBase}${categoria ? `&categoria=${categoria}` : ""}${archivados ? "" : "&archivados=1"}`} className="inline-flex min-h-11 items-center rounded-md px-3 text-sm text-primary hover:underline">{archivados ? "Ver activos" : "Ver archivados"}</Link>
