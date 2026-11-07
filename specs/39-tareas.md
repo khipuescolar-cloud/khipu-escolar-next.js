@@ -128,6 +128,10 @@ publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_
   `bandeja-general`, `extras-edicion-ics-zip`.
 - e2e: `tests/e2e/tareas-classroom.test.ts` (docente crea multi-sección → apoderado entrega → docente devuelve → reentrega).
 
+## Selector de materiales por carpetas (2026-11-07)
+
+«Elegir de mis materiales» muestra curso, salón y subcarpeta para ubicar cada material. La referencia `TareaMaterial` sigue fijando la versión y no copia archivos.
+
 ## Reutilización de archivos y cuota (reestructuración de Documentos, 2026-11-07; especificado, sin implementar)
 W2 implementa la referencia `TareaMaterial` al crear o editar una tarea. Cada enlace guarda la versión elegida, por lo que una versión nueva del material no cambia el adjunto de la tarea. Las vistas de familia, revisión y agenda unen los adjuntos propios con los de la versión referenciada; borrar la tarea deja intactos los archivos del material. El selector «Elegir de mis materiales» envía IDs y el servidor comprueba autoría, estado de papelera y versión.
 El selector también aparece en «Editar tarea» y precarga las referencias existentes. Al guardar, la lista enviada reemplaza las referencias anteriores de esa tarea.

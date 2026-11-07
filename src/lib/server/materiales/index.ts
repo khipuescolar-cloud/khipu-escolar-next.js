@@ -5,6 +5,7 @@ export { resolverAccesoMaterial } from "../archivos-acceso/material";
 export { crearMaterial, actualizarMaterial, nuevaVersionMaterial, publicarMaterial, archivarMaterial, moverMaterialAPapelera, restaurarMaterial, eliminarDefinitivoMaterial } from "./gestion";
 export { listarMateriales, opcionesParaCompartir, materialesElegiblesParaTarea } from "./vistas";
 export { materialDesdeBorrador } from "./borradores";
+export { carpetasDeSalon, listarSubcarpetasMaterial, requireCursoMaterialVisible, requireSubcarpetaMaterial, crearSubcarpetaMaterial, moverMaterialACarpeta } from "./carpetas";
 export type SeccionMaterial = { cursoId: string; curso: string; salonId: string; salon: string; anio: number };
-export type MaterialVista = { id: string; titulo: string; descripcion: string | null; unidadTema: string | null; estado: "borrador" | "publicado" | "archivado"; versionActual: number; autor: string; archivos: AdjuntoVista[]; secciones: SeccionMaterial[]; actualizadoAt: Date; gestionable: boolean; referenciadoPorTareas: number; enPapelera: boolean };
+export type MaterialVista = { id: string; titulo: string; descripcion: string | null; unidadTema: string | null; estado: "borrador" | "publicado" | "archivado"; versionActual: number; autor: string; archivos: AdjuntoVista[]; secciones: SeccionMaterial[]; carpetaId: string | null; actualizadoAt: Date; gestionable: boolean; referenciadoPorTareas: number; enPapelera: boolean };
 export type ArbolMateriales = { anios: { anio: number; archivado: boolean; cursos: { nombre: string; secciones: { cursoId: string; salonId: string; salon: string; materiales: MaterialVista[] }[] }[] }[] };

@@ -254,7 +254,7 @@ describe("biblioteca de documentos", () => {
     await esperarProhibido(compartirRecurso(tutora, { tipo: "carpeta", id: carpeta.id }, { membershipId: madre.membership.id }, "editor"));
     await esperarProhibido(compartirRecurso(tutora, { tipo: "carpeta", id: carpeta.id }, { rol: "apoderado", salonId: c.otroSalon.id }, "lector"));
     await destacarRecurso(madre, { tipo: "carpeta", id: carpeta.id }, true);
-    expect((await listarContenido(madre, { vista: "destacados" })).carpetas.map((c) => c.id)).toContain(carpeta.id);
+    expect((await listarContenido(madre, { vista: "destacados" })).carpetas.map((c) => c.id)).not.toContain(carpeta.id);
     await destacarRecurso(madre, { tipo: "carpeta", id: carpeta.id }, false);
     expect((await listarContenido(madre, { vista: "destacados" })).carpetas.map((c) => c.id)).not.toContain(carpeta.id);
     await expect(listarContenido(otro.ctxDe("direccion"), { carpetaId: carpeta.id, vista: "unidad" })).rejects.toThrow();

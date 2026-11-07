@@ -141,6 +141,7 @@ export async function listarContenido(
   const documentos: DocumentoVista[] = filas
     .filter((d) => vista === "papelera" ? (ctx.rol === "direccion" || d.eliminadoPorId === ctx.membership.id) : nivelDocumento(p, d) !== "ninguno")
     .filter((d) => carpetaId && !busqueda ? true : vista === "unidad" ? d.ambito === "unidad" && d.publicadoPorId === ctx.membership.id && (!!busqueda || !d.carpetaId) : vista === "biblioteca" ? d.ambito === "biblioteca" && (!!busqueda || !d.carpetaId) : vista === "compartido" ? d.publicadoPorId !== ctx.membership.id && d.ambito === "unidad" : vista === "destacados" ? destacadosDocumentos.has(d.id) : vista === "recientes" ? recientesDocumentos.has(d.id) : true)
+    .filter((d) => (vista !== "recientes" && vista !== "destacados") || (d.ambito === "unidad" && d.publicadoPorId === ctx.membership.id))
     .filter((d) => vista !== "biblioteca" || archivados || !d.archivadoAt)
     .map((d) => ({
       ambito: d.ambito, id: d.id, titulo: d.titulo, descripcion: d.descripcion, createdAt: d.createdAt, updatedAt: d.updatedAt,
@@ -160,8 +161,8 @@ export async function listarContenido(
     if (vista === "biblioteca") return c.ambito === "biblioteca" && (busqueda || !c.parentId);
     if (vista === "unidad") return c.ambito === "unidad" && c.creadoPorId === ctx.membership.id && (busqueda || !c.parentId);
     if (vista === "compartido") return c.ambito === "unidad" && c.creadoPorId !== ctx.membership.id;
-    if (vista === "destacados") return destacadosCarpetas.has(c.id);
-    return recientesCarpetas.has(c.id);
+    if (vista === "destacados") return c.ambito === "unidad" && c.creadoPorId === ctx.membership.id && destacadosCarpetas.has(c.id);
+    return c.ambito === "unidad" && c.creadoPorId === ctx.membership.id && recientesCarpetas.has(c.id);
   });
   const conteoDocs = hijas.length
     ? await ctx.db.documento.findMany({ where: { carpetaId: { in: hijas.map((h) => h.id) }, eliminadoAt: null }, select: { id: true, carpetaId: true, visibleRoles: true, salonId: true, publicadoPorId: true, ambito: true, eliminadoAt: true } })

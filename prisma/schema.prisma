@@ -318,6 +318,7 @@ model Tenant {
   materialSecciones MaterialSeccion[]
   materialVersiones MaterialVersion[]
   materialVersionArchivos MaterialVersionArchivo[]
+  carpetasMaterial CarpetaMaterial[]
   tareaMateriales TareaMaterial[]
 
   // @@W3
@@ -493,6 +494,7 @@ model Membership {
 
   // @@W2
   materialesCreados MaterialClase[] @relation("AutorMaterial")
+  carpetasMaterialCreadas CarpetaMaterial[] @relation("AutorCarpetaMaterial")
   versionesMaterial MaterialVersion[] @relation("AutorVersionMaterial")
   materialesEnTareas TareaMaterial[] @relation("AutorTareaMaterial")
 
@@ -591,6 +593,7 @@ model Curso {
 
   // @@W2
   materialSecciones MaterialSeccion[]
+  carpetasMaterial CarpetaMaterial[]
 
   // @@W3
 
@@ -3483,6 +3486,7 @@ model MaterialClase {
   estado EstadoMaterial @default(borrador)
   versionActual Int @default(1) @map("version_actual")
   creadoPorId String @map("creado_por") @db.Uuid
+  carpetaId String? @map("carpeta_id") @db.Uuid
   publicadoAt DateTime? @map("publicado_at") @db.Timestamptz
   archivadoAt DateTime? @map("archivado_at") @db.Timestamptz
   eliminadoAt DateTime? @map("eliminado_at") @db.Timestamptz
@@ -3492,6 +3496,7 @@ model MaterialClase {
 
   tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   creadoPor Membership @relation("AutorMaterial", fields: [creadoPorId], references: [id], onDelete: Restrict)
+  carpeta CarpetaMaterial? @relation(fields: [carpetaId], references: [id], onDelete: SetNull)
   secciones MaterialSeccion[]
   versiones MaterialVersion[]
   tareas TareaMaterial[]
@@ -3499,6 +3504,26 @@ model MaterialClase {
   @@index([tenantId, creadoPorId])
   @@index([tenantId, estado])
   @@map("materiales_clase")
+}
+
+model CarpetaMaterial {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  cursoId String @map("curso_id") @db.Uuid
+  parentId String? @map("parent_id") @db.Uuid
+  nombre String
+  creadoPorId String @map("creado_por") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  curso Curso @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  parent CarpetaMaterial? @relation("JerarquiaCarpetaMaterial", fields: [parentId], references: [id], onDelete: Cascade)
+  hijas CarpetaMaterial[] @relation("JerarquiaCarpetaMaterial")
+  creadoPor Membership @relation("AutorCarpetaMaterial", fields: [creadoPorId], references: [id], onDelete: Restrict)
+  materiales MaterialClase[]
+
+  @@index([tenantId, cursoId, parentId])
+  @@map("carpetas_material")
 }
 
 model MaterialSeccion {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BookOpen, BriefcaseBusiness, Clock3, FileArchive, GraduationCap, Star, Trash2, Users } from "lucide-react";
+import { BriefcaseBusiness, Clock3, FileArchive, GraduationCap, Star, Trash2 } from "lucide-react";
 import type { Rol } from "@/generated/prisma/enums";
 import { puedeEntrarSeccion, type SeccionDocumentos } from "@/lib/documentos";
 import { cn } from "@/lib/utils";
@@ -7,9 +7,7 @@ import { cn } from "@/lib/utils";
 const secciones = [
   { id: "materiales", nombre: "Materiales de clase", icono: GraduationCap },
   { id: "gestion", nombre: "Gestión académica", icono: BriefcaseBusiness },
-  { id: "biblioteca", nombre: "Biblioteca del colegio", icono: BookOpen },
   { id: "borradores", nombre: "Mis borradores", icono: FileArchive },
-  { id: "compartido", nombre: "Compartido conmigo", icono: Users },
   { id: "recientes", nombre: "Recientes", icono: Clock3 },
   { id: "destacados", nombre: "Destacados", icono: Star },
   { id: "papelera", nombre: "Papelera", icono: Trash2 },

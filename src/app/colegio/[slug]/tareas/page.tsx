@@ -100,7 +100,10 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
   const [cursos, tareas] = await Promise.all([cursosParaTareas(ctx), tareasDelDocente(ctx, filtros)]);
   const alumnos = ctx.rol === "profesor" && cursos.length > 0 ? await alumnosParaDestinatarios(ctx, cursos.map((c) => c.id)) : [];
   const arbolMateriales = ctx.rol === "profesor" && ctx.modulos.has("documentos") ? await listarMateriales(ctx, { incluirArchivados: true }) : { anios: [] };
-  const materiales = arbolMateriales.anios.flatMap((a) => a.cursos.flatMap((c) => c.secciones.flatMap((s) => s.materiales.map((m) => ({ id: m.id, titulo: m.titulo, curso: c.nombre }))))).filter((m, i, a) => a.findIndex((x) => x.id === m.id) === i);
+  const carpetasMaterial = ctx.rol === "profesor" && ctx.modulos.has("documentos") ? await ctx.db.carpetaMaterial.findMany({ where: { creadoPorId: ctx.membership.id } }) : [];
+  const mapaCarpetas = new Map(carpetasMaterial.map(c => [c.id, c]));
+  const rutaCarpeta = (id: string | null) => { const partes: string[] = []; const vistos = new Set<string>(); for (let c = id ? mapaCarpetas.get(id) : undefined; c && !vistos.has(c.id); c = c.parentId ? mapaCarpetas.get(c.parentId) : undefined) { partes.unshift(c.nombre); vistos.add(c.id); } return partes.join(" › "); };
+  const materiales = arbolMateriales.anios.flatMap((a) => a.cursos.flatMap((c) => c.secciones.flatMap((s) => s.materiales.map((m) => ({ id: m.id, titulo: m.titulo, curso: c.nombre, salon: s.salon, carpeta: rutaCarpeta(m.carpetaId) }))))).filter((m, i, a) => a.findIndex((x) => x.id === m.id) === i);
   const referencias = ctx.rol === "profesor" ? await ctx.db.tareaMaterial.findMany({ where: { tareaId: { in: tareas.map((t) => t.id) } }, select: { tareaId: true, materialId: true } }) : [];
   const limites = limitesTarea(ctx);
   const hoy = momentoEnZona(new Date(), ctx.tenant.zonaHoraria).isoFecha;

@@ -38,8 +38,8 @@ test.afterAll(async () => {
 test("11–16 dirección solicita, docente corrige y dirección aprueba", async ({ browser }) => {
   const dir = await entrar(browser, "direccion@nuevohorizonte.demo");
   await dir.getByRole("form", { name: "Nueva solicitud documental" }).getByLabel("Título").fill(titulo);
-  const opcion = dir.getByRole("form", { name: "Nueva solicitud documental" }).getByLabel("Profesor").locator("option").filter({ hasText: /Lucía García/ });
-  await dir.getByRole("form", { name: "Nueva solicitud documental" }).getByLabel("Profesor").selectOption((await opcion.getAttribute("value"))!);
+  await dir.getByRole("form", { name: "Nueva solicitud documental" }).getByRole("combobox", { name: "Profesor" }).click();
+  await dir.getByRole("option", { name: /Lucía García/ }).click();
   await dir.getByRole("button", { name: "Crear y publicar" }).click();
   await expect(dir.getByText("Solicitud publicada.")).toBeVisible();
   await expect(dir.getByRole("heading", { name: titulo })).toBeVisible();
