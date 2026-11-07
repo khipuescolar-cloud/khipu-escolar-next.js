@@ -33,7 +33,8 @@ export type OpcionLista = { salonId: string; salonNombre: string; ambito: string
 export class AsistenciaPorCursoDesactivada extends ErrorDeNegocio {}
 
 /**
- * Listas que el usuario puede pasar: «Asistencia del día» (tutor; dirección para corregir) y sus cursos.
+ * Listas que el usuario puede pasar: «Asistencia del día» (tutor, respaldo de portería; dirección para corregir) y
+ * los cursos que dicta. Ser tutor de un salón no da las listas de los cursos que dictan otros profesores en él.
  * Las listas de curso solo se ofrecen en salones de los niveles con asistencia por curso activa (Configuración).
  */
 export async function opcionesDeLista(ctx: TenantContext): Promise<OpcionLista[]> {
@@ -54,7 +55,7 @@ export async function opcionesDeLista(ctx: TenantContext): Promise<OpcionLista[]
     if (esDireccion || esTutor) opciones.push({ salonId: s.id, salonNombre: s.nombre, ambito: AMBITO_DIA, titulo: "Asistencia del día" });
     if (!asistenciaPorCursoActiva(ctx.tenant.asistenciaPorCursoNiveles, s.nivel)) continue;
     for (const c of s.cursos) {
-      if (esDireccion || esTutor || c.profesorId === ctx.membership.id) {
+      if (esDireccion || c.profesorId === ctx.membership.id) {
         opciones.push({ salonId: s.id, salonNombre: s.nombre, ambito: c.id, titulo: c.nombre });
       }
     }
@@ -76,8 +77,10 @@ async function requireLista(ctx: TenantContext, salonId: string, ambito: string)
     return { salon, curso: null };
   }
   await requireCursoDelProfesor(ctx, ambito);
-  const curso = await ctx.db.curso.findUnique({ where: { id: ambito }, select: { id: true, nombre: true, salonId: true } });
+  const curso = await ctx.db.curso.findUnique({ where: { id: ambito }, select: { id: true, nombre: true, salonId: true, profesorId: true } });
   if (!curso || curso.salonId !== salon.id) forbidden();
+  // La lista de un curso la pasa quien lo dicta; el tutor del salón no pasa lista en cursos ajenos (specs/04).
+  if (ctx.rol !== "direccion" && curso.profesorId !== ctx.membership.id) forbidden();
   if (!asistenciaPorCursoActiva(ctx.tenant.asistenciaPorCursoNiveles, salon.nivel)) throw new AsistenciaPorCursoDesactivada(mensajeCursoDesactivado(salon.nivel));
   return { salon, curso };
 }
