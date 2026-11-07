@@ -21,6 +21,13 @@ import {
 
 const nombreDe = (p: { nombres: string; apellidos: string | null } | null | undefined) => (p ? `${p.nombres} ${p.apellidos ?? ""}`.trim() : null);
 
+async function archivosMaterialesDeTareas(ctx: TenantContext, tareaIds: string[]) {
+  const enlaces = await ctx.db.tareaMaterial.findMany({ where: { tareaId: { in: tareaIds } }, include: { version: { include: { archivos: { include: { archivo: true }, orderBy: { orden: "asc" } } } } } });
+  const mapa = new Map<string, AdjuntoVista[]>();
+  for (const e of enlaces) mapa.set(e.tareaId, [...(mapa.get(e.tareaId) ?? []), ...e.version.archivos.map((a) => adjuntoVista(a.archivo))]);
+  return mapa;
+}
+
 export type ItemTareaFamilia = {
   id: string; titulo: string; descripcion: string | null; curso: string; docente: string | null;
   fechaEntrega: Date | null; limite: Date | null; conHora: boolean; vencida: boolean;
@@ -56,6 +63,7 @@ export async function tareasDeFamilia(ctx: TenantContext, ahora: Date = new Date
     },
     orderBy: { createdAt: "desc" },
   });
+  const materialesPorTarea = await archivosMaterialesDeTareas(ctx, asignaciones.map((a) => a.tareaId));
   return hijos.map((h) => {
     const grupos: Record<Exclude<GrupoEntrega, "vencida"> | "sinFecha", ItemTareaFamilia[]> = { manana: [], semana: [], despues: [], sinFecha: [] };
     const historial: ItemTareaFamilia[] = [];
@@ -66,7 +74,7 @@ export async function tareasDeFamilia(ctx: TenantContext, ahora: Date = new Date
       const item: ItemTareaFamilia = {
         id: t.id, titulo: t.titulo, descripcion: t.descripcion, curso: t.curso.nombre, docente: nombreDe(t.creadoPor.user),
         fechaEntrega: fecha, limite, conHora: t.conHora, vencida: estaVencida(limite, ahora), estado: a.estado, tarde: a.tarde,
-        cerrada: t.estado === "cerrada", adjuntos: t.adjuntos.map(adjuntoVista),
+        cerrada: t.estado === "cerrada", adjuntos: [...t.adjuntos.map(adjuntoVista), ...(materialesPorTarea.get(t.id) ?? [])],
       };
       const pendiente = a.estado === "asignada" || a.estado === "en_proceso" || a.estado === "devuelta";
       if (!pendiente || (item.vencida && a.estado !== "devuelta")) {
@@ -98,6 +106,7 @@ export async function detalleTareaFamilia(ctx: TenantContext, tareaId: string, a
     ctx.db.alumno.findFirst({ where: { id: alumnoId }, select: { nombres: true, apellidos: true } }),
     ctx.db.membership.findFirst({ where: { id: t.creadoPorId }, select: { user: { select: { nombres: true, apellidos: true } } } }),
   ]);
+  const materialesPorTarea = await archivosMaterialesDeTareas(ctx, [tareaId]);
   // Calificación: solo si la evaluación de la sección ya se publicó (flujo de Notas, specs/11).
   let calificacion: string | null = null;
   if (a.tareaCurso.evaluacionGrupoId) {
@@ -113,7 +122,7 @@ export async function detalleTareaFamilia(ctx: TenantContext, tareaId: string, a
       id: t.id, titulo: t.titulo, descripcion: t.descripcion, indicacionesEntrega: t.indicacionesEntrega, curso: a.tareaCurso.curso.nombre,
       docente: nombreDe(docente?.user), estado: t.estado, permiteTardias: t.permiteTardias, comentariosGenerales: t.comentariosGenerales,
       fechaEntrega: a.tareaCurso.fechaEntrega ?? t.fechaEntrega, conHora: t.conHora, limite, vencida: estaVencida(limite, ahora),
-      adjuntos: adjuntos.map(adjuntoVista), enlaces: enlaces.map((e) => ({ id: e.id, url: e.url, titulo: e.titulo })),
+      adjuntos: [...adjuntos.map(adjuntoVista), ...(materialesPorTarea.get(tareaId) ?? [])], enlaces: enlaces.map((e) => ({ id: e.id, url: e.url, titulo: e.titulo })),
     },
     alumno: { id: alumnoId, nombre: nombreDe(alumno) ?? "" },
     asignacion: { estado: a.estado, tarde: a.tarde, entregadaAt: a.entregadaAt, enFisico: a.enFisico, devueltaAt: a.devueltaAt },
@@ -215,13 +224,14 @@ export async function revisionDeTarea(ctx: TenantContext, tareaId: string, filtr
     ctx.db.tareaEnlace.findMany({ where: { tareaId }, orderBy: { orden: "asc" } }),
     ctx.db.evaluacion.findMany({ where: { tareaId }, select: { id: true, grupoId: true, estado: true, notas: true } }),
   ]);
+  const materialesPorTarea = await archivosMaterialesDeTareas(ctx, [tareaId]);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "tarea_entregas", entidadId: tareaId });
   return {
     tarea: {
       id: tarea.id, titulo: tarea.titulo, descripcion: tarea.descripcion, estado: tarea.estado, calificable: tarea.calificable,
       fechaEntrega: tarea.fechaEntrega, conHora: tarea.conHora, permiteTardias: tarea.permiteTardias,
       esAutor: ctx.rol === "profesor" && tarea.creadoPorId === ctx.membership.id,
-      adjuntos: adjuntos.map(adjuntoVista), enlaces: enlaces.map((e) => ({ url: e.url, titulo: e.titulo })),
+      adjuntos: [...adjuntos.map(adjuntoVista), ...(materialesPorTarea.get(tareaId) ?? [])], enlaces: enlaces.map((e) => ({ url: e.url, titulo: e.titulo })),
     },
     secciones: visibles.map((s) => {
       const ev = evaluaciones.find((e) => e.grupoId === s.evaluacionGrupoId);
@@ -342,6 +352,7 @@ export async function tareasVisiblesParaAgenda(ctx: TenantContext, desde: Date, 
       tarea: { include: { adjuntos: { orderBy: { createdAt: "asc" } } } },
     },
   });
+  const materialesPorTarea = await archivosMaterialesDeTareas(ctx, secciones.map((s) => s.tareaId));
   const vistos = new Set<string>();
   const salida: EntregaAgenda[] = [];
   for (const s of secciones) {
@@ -352,7 +363,7 @@ export async function tareasVisiblesParaAgenda(ctx: TenantContext, desde: Date, 
     salida.push({
       id: secciones.filter((x) => x.tareaId === s.tareaId).length === 1 ? s.tareaId : `${s.tareaId}:${s.id}`,
       titulo: s.tarea.titulo, descripcion: s.tarea.descripcion, inicio, curso: s.curso.nombre, salon: s.curso.salon.nombre, salonId: s.curso.salonId,
-      adjuntos: s.tarea.adjuntos.map(adjuntoVista),
+      adjuntos: [...s.tarea.adjuntos.map(adjuntoVista), ...(materialesPorTarea.get(s.tareaId) ?? [])],
     });
   }
   return salida;

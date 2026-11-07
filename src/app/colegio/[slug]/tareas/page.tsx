@@ -17,6 +17,7 @@ import { NOMBRE_GRUPO } from "@/lib/fechas";
 import { esVistaFamilia } from "@/lib/roles";
 import { MAX_INSTRUCCIONES } from "@/lib/tareas";
 import { requireFeature } from "@/lib/server/plan";
+import { listarMateriales } from "@/lib/server/materiales";
 import { alumnosParaDestinatarios, cursosParaTareas, limitesTarea, tareasDeFamilia, tareasDelDocente, type ItemTareaFamilia } from "@/lib/server/tareas";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { momentoEnZona } from "@/lib/fechas";
@@ -98,6 +99,8 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
   const filtros = { cursoId: typeof sp.curso === "string" ? sp.curso : undefined, estado: typeof sp.estado === "string" ? sp.estado : undefined };
   const [cursos, tareas] = await Promise.all([cursosParaTareas(ctx), tareasDelDocente(ctx, filtros)]);
   const alumnos = ctx.rol === "profesor" && cursos.length > 0 ? await alumnosParaDestinatarios(ctx, cursos.map((c) => c.id)) : [];
+  const arbolMateriales = ctx.rol === "profesor" && ctx.modulos.has("documentos") ? await listarMateriales(ctx, { incluirArchivados: true }) : { anios: [] };
+  const materiales = arbolMateriales.anios.flatMap((a) => a.cursos.flatMap((c) => c.secciones.flatMap((s) => s.materiales.map((m) => ({ id: m.id, titulo: m.titulo, curso: c.nombre }))))).filter((m, i, a) => a.findIndex((x) => x.id === m.id) === i);
   const limites = limitesTarea(ctx);
   const hoy = momentoEnZona(new Date(), ctx.tenant.zonaHoraria).isoFecha;
 
@@ -120,6 +123,7 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
                 <CamposNuevaTarea
                   cursos={cursos.map((c) => ({ id: c.id, nombre: c.nombre, salon: c.salon.nombre }))}
                   alumnos={Object.fromEntries(alumnos.map((a) => [a.cursoId, a.alumnos]))}
+                  materiales={materiales}
                 />
               </SeccionFormulario>
               <SeccionFormulario titulo="La tarea">

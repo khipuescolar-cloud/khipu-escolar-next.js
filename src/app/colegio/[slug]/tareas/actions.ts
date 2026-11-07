@@ -65,6 +65,7 @@ export async function crearTareaAction(slug: string, _previo: Resultado | null, 
     fechaEntrega: texto(f, "fechaEntrega"), horaEntrega: texto(f, "horaEntrega"), permiteTardias: f.has("permiteTardias") ? marcado(f, "permiteTardias") : false,
     comentariosGenerales: marcado(f, "comentariosGenerales"), calificable: marcado(f, "calificable"), accion: texto(f, "accion") || "publicar",
     publicarEn: texto(f, "publicarEn"), secciones: json(f, "secciones", undefined), enlaces: enlacesDe(f), avisarFamilias,
+    materialesExistentes: json(f, "materialesExistentes", []),
   }, await adjuntosDeFormData(f));
   if (r.ok) {
     refrescar();
@@ -79,6 +80,7 @@ export async function actualizarTareaAction(slug: string, tareaId: string, _prev
     titulo: texto(f, "titulo"), descripcion: texto(f, "descripcion"), indicacionesEntrega: texto(f, "indicacionesEntrega"),
     fechaEntrega: texto(f, "fechaEntrega"), horaEntrega: texto(f, "horaEntrega"), motivoPlazo: texto(f, "motivoPlazo"),
     permiteTardias: marcado(f, "permiteTardias"), comentariosGenerales: marcado(f, "comentariosGenerales"), enlaces: enlacesDe(f),
+    materialesExistentes: json(f, "materialesExistentes", []),
   }, { nuevos: await adjuntosDeFormData(f), quitar: idsParaQuitar(f) });
   if (r.ok) {
     refrescar(tareaId);

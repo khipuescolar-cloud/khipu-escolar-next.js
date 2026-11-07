@@ -45,6 +45,8 @@ Portería: ninguna (403). Khipu Base: candado y 403 en todo el módulo. El profe
 
 ## Materiales de clase
 
+Implementación W2: `MaterialClase` conserva metadatos y enlaza secciones existentes por `Curso`; `MaterialVersion` y `MaterialVersionArchivo` fijan los binarios de cada versión. La vista agrupa automáticamente por año, curso y sección. Un material con varios destinos tiene una sola versión y una sola fila `Archivo` por binario. La papelera registra `eliminadoAt`, permite restaurar y solo admite purga tras 30 días y sin referencias de Tareas. Las operaciones y descargas validan colegio, plan Pro, rol y asignación en el servidor. La carga directa consume los contratos de W1; hasta integrarlos, el camino por servidor sigue disponible para archivos admitidos por el almacenamiento vigente.
+
 ### Requisitos funcionales
 - **RF-M1** El docente crea un material con título, descripción, unidad/tema opcional, archivo(s) y las **secciones** con las que lo comparte.
 - **RF-M2** Una sección es un `Curso` del docente (curso + salón + año). Solo puede elegir cursos que dicta con el **mismo nombre** que el curso de origen (`cursosGemelos`, como Tareas). Compartir con 5 secciones guarda **un** archivo y 5 filas de enlace (prueba 4).

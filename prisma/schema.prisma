@@ -314,6 +314,11 @@ model Tenant {
   metricasAlmacenamiento MetricaAlmacenamientoDia[]
 
   // @@W2
+  materialesClase MaterialClase[]
+  materialSecciones MaterialSeccion[]
+  materialVersiones MaterialVersion[]
+  materialVersionArchivos MaterialVersionArchivo[]
+  tareaMateriales TareaMaterial[]
 
   // @@W3
   conversaciones        Conversacion[]
@@ -482,6 +487,9 @@ model Membership {
   subidasArchivo         SubidaArchivo[]
 
   // @@W2
+  materialesCreados MaterialClase[] @relation("AutorMaterial")
+  versionesMaterial MaterialVersion[] @relation("AutorVersionMaterial")
+  materialesEnTareas TareaMaterial[] @relation("AutorTareaMaterial")
 
   // @@W3
   reunionesConvocadas      Reunion[]              @relation("ReunionConvocante")
@@ -572,6 +580,7 @@ model Curso {
   // @@W1
 
   // @@W2
+  materialSecciones MaterialSeccion[]
 
   // @@W3
 
@@ -932,6 +941,7 @@ model Archivo {
   @@index([tenantId, subidoPorId, categoria])
 
   // @@W2
+  versionesMaterial MaterialVersionArchivo[]
 
   // @@W3
 
@@ -1385,6 +1395,7 @@ model Tarea {
   // @@W1
 
   // @@W2
+  materiales TareaMaterial[]
 
   // @@W3
 
@@ -3435,6 +3446,108 @@ model MetricaAlmacenamientoDia {
 }
 
 // ===== W2 =====
+enum EstadoMaterial {
+  borrador
+  publicado
+  archivado
+}
+
+model MaterialClase {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  titulo String
+  descripcion String?
+  unidadTema String? @map("unidad_tema")
+  estado EstadoMaterial @default(borrador)
+  versionActual Int @default(1) @map("version_actual")
+  creadoPorId String @map("creado_por") @db.Uuid
+  publicadoAt DateTime? @map("publicado_at") @db.Timestamptz
+  archivadoAt DateTime? @map("archivado_at") @db.Timestamptz
+  eliminadoAt DateTime? @map("eliminado_at") @db.Timestamptz
+  eliminadoPorId String? @map("eliminado_por") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  creadoPor Membership @relation("AutorMaterial", fields: [creadoPorId], references: [id], onDelete: Restrict)
+  secciones MaterialSeccion[]
+  versiones MaterialVersion[]
+  tareas TareaMaterial[]
+
+  @@index([tenantId, creadoPorId])
+  @@index([tenantId, estado])
+  @@map("materiales_clase")
+}
+
+model MaterialSeccion {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  materialId String @map("material_id") @db.Uuid
+  cursoId String @map("curso_id") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  material MaterialClase @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  curso Curso @relation(fields: [cursoId], references: [id], onDelete: Restrict)
+
+  @@unique([materialId, cursoId])
+  @@index([tenantId, cursoId])
+  @@map("material_secciones")
+}
+
+model MaterialVersion {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  materialId String @map("material_id") @db.Uuid
+  numero Int
+  nota String?
+  creadaPorId String @map("creada_por") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  material MaterialClase @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  creadaPor Membership @relation("AutorVersionMaterial", fields: [creadaPorId], references: [id], onDelete: Restrict)
+  archivos MaterialVersionArchivo[]
+  tareas TareaMaterial[]
+
+  @@unique([materialId, numero])
+  @@map("material_versiones")
+}
+
+model MaterialVersionArchivo {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  versionId String @map("version_id") @db.Uuid
+  archivoId String @unique @map("archivo_id") @db.Uuid
+  orden Int
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  version MaterialVersion @relation(fields: [versionId], references: [id], onDelete: Cascade)
+  archivo Archivo @relation(fields: [archivoId], references: [id], onDelete: Restrict)
+
+  @@unique([versionId, orden])
+  @@map("material_version_archivos")
+}
+
+model TareaMaterial {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  tareaId String @map("tarea_id") @db.Uuid
+  materialId String @map("material_id") @db.Uuid
+  versionId String @map("version_id") @db.Uuid
+  creadoPorId String @map("creado_por") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tarea Tarea @relation(fields: [tareaId], references: [id], onDelete: Cascade)
+  material MaterialClase @relation(fields: [materialId], references: [id], onDelete: Restrict)
+  version MaterialVersion @relation(fields: [versionId], references: [id], onDelete: Restrict)
+  creadoPor Membership @relation("AutorTareaMaterial", fields: [creadoPorId], references: [id], onDelete: Restrict)
+
+  @@unique([tareaId, materialId])
+  @@index([tenantId, versionId])
+  @@map("tarea_materiales")
+}
 
 // ===== W3 =====
 
