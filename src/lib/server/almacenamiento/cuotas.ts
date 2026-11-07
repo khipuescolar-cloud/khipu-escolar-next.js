@@ -2,6 +2,7 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import type { CategoriaArchivo } from "@/generated/prisma/client";
 import { db } from "../db";
+import { actualizarAvisoCuota } from "./alertas";
 import type { TenantContext } from "../tenant";
 
 export async function asegurarMedidor(ctx: TenantContext) {
@@ -35,6 +36,7 @@ export async function confirmarUsoPorTenant(tenantId: string, categoria: Categor
     await tx.almacenamientoColegio.update({ where: { tenantId }, data: { reservadoBytes: { decrement: reserva }, usadoBytes: { increment: categoria === "exportacion" ? BigInt(0) : real } } });
     await tx.usoAlmacenamientoCategoria.upsert({ where: { tenantId_categoria: { tenantId, categoria } }, create: { id: randomUUID(), tenantId, categoria, bytes: real, archivos: 1 }, update: { bytes: { increment: real }, archivos: { increment: 1 } } });
   });
+  await actualizarAvisoCuota(tenantId).catch((error) => console.error("[almacenamiento] no se pudo avisar el umbral", error));
 }
 export async function descontar(ctx: TenantContext, categoria: CategoriaArchivo, bytes: bigint) {
   return descontarPorTenant(ctx.tenant.id, categoria, bytes);
@@ -44,6 +46,7 @@ export async function descontarPorTenant(tenantId: string, categoria: CategoriaA
     if (categoria !== "exportacion") await tx.almacenamientoColegio.updateMany({ where: { tenantId }, data: { usadoBytes: { decrement: bytes } } });
     await tx.usoAlmacenamientoCategoria.updateMany({ where: { tenantId, categoria }, data: { bytes: { decrement: bytes }, archivos: { decrement: 1 } } });
   });
+  await actualizarAvisoCuota(tenantId).catch((error) => console.error("[almacenamiento] no se pudo rearmar el umbral", error));
 }
 export async function recategorizarUso(ctx: TenantContext, anterior: CategoriaArchivo, nueva: CategoriaArchivo, bytes: bigint) {
   if (anterior === nueva) return;

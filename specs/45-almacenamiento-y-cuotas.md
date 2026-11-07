@@ -260,3 +260,7 @@ Estados de un archivo: **activo** (su dueño está activo), **archivado** (dueñ
 ## Implementación W1 (2026-11-07)
 
 La migración `20261116090000_almacenamiento_cuotas` añade categorías, medidor, reservas, subidas y métricas con RLS cerrado. La carga directa usa URL PUT firmada para S3 y ruta HMAC local; Cloudinary conserva la carga por servidor. La cuota de Base queda sin límite y la de Pro usa rangos provisionales. La purga física automática permanece apagada hasta una decisión legal.
+
+## Cierre W1 R2
+
+El medidor reclama por comparación atómica los cruces de 70, 85 y 95 %; genera bandeja, correo y push para dirección con `cuota_umbral`, audita el aviso y rearma cuando el uso baja más de cinco puntos. El panel de plataforma permite cambiar límite, reserva crítica, tamaños y cuota de borradores. La purga diaria sigue apagada por defecto; cuando se activa purga solo documentos de unidad no oficiales tras 30 días, y excluye entregas, solicitudes y materiales referenciados.
