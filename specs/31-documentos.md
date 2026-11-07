@@ -48,6 +48,7 @@ Portería: ninguna (403). Khipu Base: candado y 403 en todo el módulo. El profe
 ## Materiales de clase
 
 Implementación W2: `MaterialClase` conserva metadatos y enlaza secciones existentes por `Curso`; `MaterialVersion` y `MaterialVersionArchivo` fijan los binarios de cada versión. La vista agrupa automáticamente por año, curso y sección. Un material con varios destinos tiene una sola versión y una sola fila `Archivo` por binario. La papelera registra `eliminadoAt`, permite restaurar y solo admite purga tras 30 días y sin referencias de Tareas. Las operaciones y descargas validan colegio, plan Pro, rol y asignación en el servidor. La carga directa consume los contratos de W1; hasta integrarlos, el camino por servidor sigue disponible para archivos admitidos por el almacenamiento vigente.
+La vista de Materiales permite al profesor publicar un PDF para varios cursos gemelos. El cliente usa `iniciarSubida` → carga directa → `confirmarSubida`; `crearMaterial` materializa la subida confirmada bajo la cuota y el límite documental de 25 MB. Los archivos enlazados como material pueden descargarse desde `/archivos/<id>` tras la validación de acceso del request; el archivo local se entrega directamente y los proveedores externos usan URL temporal.
 
 ### Requisitos funcionales
 - **RF-M1** El docente crea un material con título, descripción, unidad/tema opcional, archivo(s) y las **secciones** con las que lo comparte.

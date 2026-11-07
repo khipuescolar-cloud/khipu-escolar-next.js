@@ -13,6 +13,14 @@ export type CursoOpcion = { id: string; nombre: string; salon: string };
 export type AlumnoOpcion = { id: string; nombres: string; apellidos: string };
 export type MaterialOpcion = { id: string; titulo: string; curso: string };
 
+export function SelectorMaterialesTarea({ materiales, curso, elegidosIniciales = [] }: { materiales: MaterialOpcion[]; curso: string; elegidosIniciales?: string[] }) {
+  const [elegidos, setElegidos] = useState(elegidosIniciales);
+  return <div className="sm:col-span-2"><details className="rounded-lg border border-borde-sutil p-3"><summary className="min-h-11 cursor-pointer text-sm font-medium">Elegir de mis materiales</summary>
+    <p className="mb-2 text-cuerpo-sm text-muted-foreground">Se añade una referencia al archivo existente.</p>
+    {materiales.filter((m) => clave(m.curso) === clave(curso)).map((m) => <label key={m.id} className="flex min-h-11 items-center gap-2 text-sm"><input type="checkbox" className="size-5 accent-primary" checked={elegidos.includes(m.id)} onChange={(e) => setElegidos((ids) => e.target.checked ? [...ids, m.id] : ids.filter((id) => id !== m.id))} />{m.titulo}</label>)}
+  </details><input type="hidden" name="materialesExistentes" value={JSON.stringify(elegidos.map((materialId) => ({ materialId })))} /></div>;
+}
+
 type EstadoSeccion = { incluida: boolean; todos: boolean; alumnoIds: string[] };
 
 const clave = (n: string) => n.trim().toLocaleLowerCase("es");

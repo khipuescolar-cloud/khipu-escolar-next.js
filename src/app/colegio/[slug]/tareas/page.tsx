@@ -22,7 +22,7 @@ import { alumnosParaDestinatarios, cursosParaTareas, limitesTarea, tareasDeFamil
 import { requireTenantContext } from "@/lib/server/tenant";
 import { momentoEnZona } from "@/lib/fechas";
 import { actualizarTareaAction, archivarTareaAction, cerrarTareaAction, crearTareaAction, eliminarTareaAction, publicarTareaAction } from "./actions";
-import { CamposNuevaTarea, CamposPublicacion } from "./CamposNuevaTarea";
+import { CamposNuevaTarea, CamposPublicacion, SelectorMaterialesTarea } from "./CamposNuevaTarea";
 import { EstadoEntrega, EstadoTarea, FechaEntrega } from "./insignias";
 import { SeccionFormulario } from "./SeccionFormulario";
 import { TituloBloque } from "@/components/shell/TituloBloque";
@@ -101,6 +101,7 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
   const alumnos = ctx.rol === "profesor" && cursos.length > 0 ? await alumnosParaDestinatarios(ctx, cursos.map((c) => c.id)) : [];
   const arbolMateriales = ctx.rol === "profesor" && ctx.modulos.has("documentos") ? await listarMateriales(ctx, { incluirArchivados: true }) : { anios: [] };
   const materiales = arbolMateriales.anios.flatMap((a) => a.cursos.flatMap((c) => c.secciones.flatMap((s) => s.materiales.map((m) => ({ id: m.id, titulo: m.titulo, curso: c.nombre }))))).filter((m, i, a) => a.findIndex((x) => x.id === m.id) === i);
+  const referencias = ctx.rol === "profesor" ? await ctx.db.tareaMaterial.findMany({ where: { tareaId: { in: tareas.map((t) => t.id) } }, select: { tareaId: true, materialId: true } }) : [];
   const limites = limitesTarea(ctx);
   const hoy = momentoEnZona(new Date(), ctx.tenant.zonaHoraria).isoFecha;
 
@@ -239,6 +240,7 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
                         <Textarea name="enlacesTexto" rows={2} defaultValue={t.enlaces.map((e) => e.url).join("\n")} />
                       </label>
                       <div className="sm:col-span-2"><CamposAdjuntos id={`adjuntos-${t.id}`} existentes={t.adjuntos} maxArchivos={limites.archivos} maxMb={limites.mb} accept={limites.accept} tiposTexto={limites.tiposTexto} etiqueta="Materiales" /></div>
+                      <SelectorMaterialesTarea materiales={materiales} curso={t.curso} elegidosIniciales={referencias.filter((r) => r.tareaId === t.id).map((r) => r.materialId)} />
                     </SeccionFormulario>
                     <SeccionFormulario titulo="Plazo">
                       <Campo etiqueta="Día de entrega" id={`fecha-${t.id}`} name="fechaEntrega" type="date" defaultValue={t.fechaEntrega ? momentoEnZona(t.fechaEntrega, ctx.tenant.zonaHoraria).isoFecha : ""} />
