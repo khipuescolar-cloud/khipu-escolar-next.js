@@ -39,7 +39,10 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
       const subcarpeta = uno(sp.subcarpeta);
       const carpetas = curso ? await listarSubcarpetasMaterial(ctx, curso.id) : [];
       if (subcarpeta && !carpetas.some(c => c.id === subcarpeta)) forbidden();
-      return <div className="min-w-0"><EncabezadoPagina titulo="Documentos" seccion="comunicacion" descripcion="Materiales y gestión académica del colegio." /><PanelMateriales slug={slug} rol={ctx.rol} arbol={await listarMateriales(ctx)} cursos={cursos} cursoId={curso?.id ?? null} carpetaId={subcarpeta ?? null} carpetas={carpetas} /></div>;
+      const q = (uno(sp.q) ?? "").slice(0, 100);
+      const ordenParam = uno(sp.orden);
+      const orden = esOrdenDocumento(ordenParam) ? ordenParam : "recientes";
+      return <div className="min-w-0"><EncabezadoPagina titulo="Documentos" seccion="comunicacion" descripcion="Materiales y gestión académica del colegio." /><PanelMateriales slug={slug} rol={ctx.rol} arbol={await listarMateriales(ctx)} cursos={cursos} cursoId={curso?.id ?? null} carpetaId={subcarpeta ?? null} carpetas={carpetas} q={q} orden={orden} /></div>;
     }
     const contenido = <PanelSolicitudes solicitudes={await listarSolicitudes(ctx)} ok={uno(sp.ok)} error={uno(sp.error)} direccion={ctx.rol === "direccion"} docentes={ctx.rol === "direccion" ? (await ctx.db.membership.findMany({ where: { rol: "profesor", estado: "activa" }, include: { user: true } })).map(m => ({ id: m.id, nombre: `${m.user.nombres} ${m.user.apellidos}` })) : []} />;
     return <div className="min-w-0"><EncabezadoPagina titulo="Documentos" seccion="comunicacion" descripcion="Materiales y gestión académica del colegio." /><div className="grid min-w-0 gap-4 md:grid-cols-[13.5rem_minmax(0,1fr)] md:gap-6 lg:grid-cols-[15rem_minmax(0,1fr)]"><aside className="min-w-0 overflow-hidden"><NavegacionDocumentos rol={ctx.rol} activa={seccion} /></aside><section className="min-w-0"><h2 className="mb-5 text-xl font-semibold">Gestión académica</h2>{contenido}</section></div></div>;
