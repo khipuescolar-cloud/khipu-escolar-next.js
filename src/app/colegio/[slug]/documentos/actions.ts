@@ -57,6 +57,22 @@ export async function crearCarpetaAction(formData: FormData) {
   });
 }
 
+/** El botón Nuevo espera el ID antes de navegar y mostrar la carpeta creada. */
+export async function crearCarpetaDesdeExploradorAction(nombre: string, parentId: string | null): Promise<{ ok: true; id: string } | { ok: false; error: string }> {
+  const ctx = await contextoDeAccion([...ROLES]);
+  requireFeature(ctx, "documentos");
+  try {
+    const carpeta = await crearCarpeta(ctx, { nombre, parentId, ambito: "unidad" });
+    revalidatePath("/documentos");
+    return { ok: true, id: carpeta.id };
+  } catch (e) {
+    if (e instanceof ErrorDeNegocio) return { ok: false, error: e.message };
+    if (e instanceof ZodError) return { ok: false, error: e.issues[0]?.message ?? "Revisa el nombre." };
+    unstable_rethrow(e);
+    throw e;
+  }
+}
+
 function recurso(formData: FormData) {
   const id = texto(formData, "id");
   if (!UUID.test(id)) throw new Error("Recurso inválido.");

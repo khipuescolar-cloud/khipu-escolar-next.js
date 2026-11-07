@@ -8,7 +8,7 @@ import { formatoTamano } from "@/lib/adjuntos";
 export type Subida = { id: number; nombre: string; bytes: number; progreso: number; estado: "subiendo" | "listo" | "error"; error?: string };
 type Destino = { carpetaId: string | null; ambito: "unidad" | "biblioteca"; salonId?: string };
 
-function enviar(archivo: File, destino: Destino, alProgreso: (p: number) => void): Promise<{ ok: boolean; error?: string }> {
+function enviar(archivo: File, destino: Destino, alProgreso: (p: number) => void): Promise<{ ok: boolean; id?: string; error?: string }> {
   return new Promise((resolver) => {
     const d = new FormData();
     d.set("archivo", archivo); d.set("titulo", archivo.name.replace(/\.[^.]+$/, "")); d.set("carpetaId", destino.carpetaId ?? ""); d.set("ambito", destino.ambito);
@@ -18,27 +18,30 @@ function enviar(archivo: File, destino: Destino, alProgreso: (p: number) => void
     xhr.upload.onprogress = (e) => { if (e.lengthComputable) alProgreso(Math.round((e.loaded / e.total) * 100)); };
     xhr.onerror = () => resolver({ ok: false, error: "Error de conexión." });
     xhr.onload = () => {
-      let error: string | undefined;
-      try { error = (JSON.parse(xhr.responseText) as { error?: string }).error; } catch { /* respuesta sin JSON */ }
-      resolver(xhr.status >= 200 && xhr.status < 300 ? { ok: true } : { ok: false, error: error ?? (xhr.status === 413 ? "El archivo supera los 10 MB." : "No se pudo subir el archivo.") });
+      let respuesta: { id?: string; error?: string } = {};
+      try { respuesta = JSON.parse(xhr.responseText) as typeof respuesta; } catch { /* respuesta sin JSON */ }
+      resolver(xhr.status >= 200 && xhr.status < 300 && respuesta.id ? { ok: true, id: respuesta.id } : { ok: false, error: respuesta.error ?? (xhr.status === 413 ? "El archivo supera los 10 MB." : "No se pudo subir el archivo.") });
     };
     xhr.send(d);
   });
 }
 
 /** Sube varios archivos de uno en uno con progreso y error por archivo. */
-export function useSubidas(alTerminar: () => void) {
+export function useSubidas(alTerminar: (ids: string[]) => void) {
   const [subidas, setSubidas] = useState<Subida[]>([]);
   const contador = useRef(0);
   const subir = useCallback(async (archivos: File[], destino: Destino) => {
     const nuevas: Subida[] = archivos.map((a) => ({ id: ++contador.current, nombre: a.name, bytes: a.size, progreso: 0, estado: "subiendo" }));
     setSubidas((s) => [...s, ...nuevas]);
     const cambiar = (id: number, c: Partial<Subida>) => setSubidas((s) => s.map((x) => (x.id === id ? { ...x, ...c } : x)));
+    const ids: string[] = [];
     for (let i = 0; i < archivos.length; i++) {
       const r = await enviar(archivos[i], destino, (p) => cambiar(nuevas[i].id, { progreso: p }));
       cambiar(nuevas[i].id, r.ok ? { estado: "listo", progreso: 100 } : { estado: "error", error: r.error });
+      if (r.id) ids.push(r.id);
     }
-    alTerminar();
+    alTerminar(ids);
+    if (ids.length === archivos.length) setSubidas((s) => s.filter((x) => !nuevas.some((n) => n.id === x.id)));
   }, [alTerminar]);
   const cerrar = useCallback(() => setSubidas((s) => s.filter((x) => x.estado === "subiendo")), []);
   return { subidas, subir, cerrar };

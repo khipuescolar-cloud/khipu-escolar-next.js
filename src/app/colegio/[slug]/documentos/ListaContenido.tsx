@@ -18,11 +18,13 @@ type Props = {
   accionesDe: (i: Item) => Accion[];
   onTecla: (e: React.KeyboardEvent, i: Item) => void;
   onMenuMovil: (i: Item) => void;
+  nuevos: string[];
 };
 
 function Estrella({ item }: { item: Item }) { return item.destacado ? <Star className="size-4 shrink-0 fill-sec-suave text-sec-trazo" strokeWidth={2} aria-label="Destacado" /> : null; }
 
-export function ListaContenido({ items, modo, seleccion, onSeleccion, onAbrir, accionesDe, onTecla, onMenuMovil }: Props) {
+export function ListaContenido({ items, modo, seleccion, onSeleccion, onAbrir, accionesDe, onTecla, onMenuMovil, nuevos }: Props) {
+  const resaltado = (item: Item) => nuevos.includes(item.id) && "bg-sec-suave ring-2 ring-sec-trazo";
   const marcar = (id: string, v: boolean) => onSeleccion(v ? [...seleccion, id] : seleccion.filter((x) => x !== id));
   const todos = items.length > 0 && items.every((i) => seleccion.includes(i.id));
   const algunos = seleccion.length > 0 && !todos;
@@ -43,10 +45,10 @@ export function ListaContenido({ items, modo, seleccion, onSeleccion, onAbrir, a
         {items.map((item) => {
           const acciones = accionesDe(item);
           const marcado = seleccion.includes(item.id);
-          return <MenuContextual key={`${item.tipo}-${item.id}`} acciones={acciones} render={<TableRow data-state={marcado ? "selected" : undefined} onKeyDown={(e) => onTecla(e, item)} />}>
+          return <MenuContextual key={`${item.tipo}-${item.id}`} acciones={acciones} render={<TableRow data-documento-id={item.id} data-state={marcado ? "selected" : undefined} className={cn("transition-[background-color,box-shadow] duration-700 motion-reduce:transition-none", resaltado(item))} onKeyDown={(e) => onTecla(e, item)} />}>
             <TableCell className="w-12 pl-4"><Checkbox aria-label={`Seleccionar ${item.nombre}`} checked={marcado} onCheckedChange={(v) => marcar(item.id, v === true)} /></TableCell>
             <TableCell className="max-w-0 w-full min-w-48 whitespace-normal">
-              <button type="button" onClick={() => onAbrir(item)} className="flex min-h-11 w-full min-w-0 items-center gap-3 rounded-md text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <button type="button" data-documento-abrir onClick={() => onAbrir(item)} className="flex min-h-11 w-full min-w-0 items-center gap-3 rounded-md text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                 <Icono item={item} />
                 <span className="min-w-0 flex-1"><span className="block truncate font-medium">{item.nombre}</span><span className="block truncate text-xs text-muted-foreground sm:hidden">{item.propietario} · {fecha.format(item.modificado)}{item.tamano !== null && ` · ${formatoTamano(item.tamano)}`}</span></span>
                 <Estrella item={item} />
@@ -70,9 +72,9 @@ export function ListaContenido({ items, modo, seleccion, onSeleccion, onAbrir, a
       <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">{carpetas.map((item) => {
         const acciones = accionesDe(item);
         const marcado = seleccion.includes(item.id);
-        return <MenuContextual key={item.id} acciones={acciones} render={<div onKeyDown={(e) => onTecla(e, item)} className={cn("flex min-h-14 items-center gap-1 rounded-xl border bg-card pr-1 pl-3", marcado ? "border-sec-trazo bg-sec-suave" : "border-borde-sutil")} />}>
+        return <MenuContextual key={item.id} acciones={acciones} render={<div data-documento-id={item.id} onKeyDown={(e) => onTecla(e, item)} className={cn("flex min-h-14 items-center gap-1 rounded-xl border bg-card pr-1 pl-3 transition-[background-color,box-shadow] duration-700 motion-reduce:transition-none", marcado ? "border-sec-trazo bg-sec-suave" : "border-borde-sutil", resaltado(item))} />}>
           <Checkbox aria-label={`Seleccionar ${item.nombre}`} checked={marcado} onCheckedChange={(v) => marcar(item.id, v === true)} />
-          <button type="button" onClick={() => onAbrir(item)} className="flex min-h-12 min-w-0 flex-1 items-center gap-3 rounded-md px-2 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><Icono item={item} /><span className="truncate font-medium">{item.nombre}</span><Estrella item={item} /></button>
+          <button type="button" data-documento-abrir onClick={() => onAbrir(item)} className="flex min-h-12 min-w-0 flex-1 items-center gap-3 rounded-md px-2 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><Icono item={item} /><span className="truncate font-medium">{item.nombre}</span><Estrella item={item} /></button>
           <BotonOpciones item={item} acciones={acciones} alAbrirMovil={onMenuMovil} />
         </MenuContextual>;
       })}</div></section>}
@@ -80,8 +82,8 @@ export function ListaContenido({ items, modo, seleccion, onSeleccion, onAbrir, a
       <div className="grid grid-cols-1 gap-3 min-[480px]:grid-cols-2 xl:grid-cols-3">{archivos.map((item) => {
         const acciones = accionesDe(item);
         const marcado = seleccion.includes(item.id);
-        return <MenuContextual key={item.id} acciones={acciones} render={<div onKeyDown={(e) => onTecla(e, item)} className={cn("min-w-0 overflow-hidden rounded-xl border bg-card", marcado ? "border-sec-trazo" : "border-borde-sutil")} />}>
-          <button type="button" onClick={() => onAbrir(item)} aria-label={`Abrir ${item.nombre}`} className="relative flex h-32 w-full items-center justify-center bg-sec-suave focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring">
+        return <MenuContextual key={item.id} acciones={acciones} render={<div data-documento-id={item.id} onKeyDown={(e) => onTecla(e, item)} className={cn("min-w-0 overflow-hidden rounded-xl border bg-card transition-[background-color,box-shadow] duration-700 motion-reduce:transition-none", marcado ? "border-sec-trazo" : "border-borde-sutil", resaltado(item))} />}>
+          <button type="button" data-documento-abrir onClick={() => onAbrir(item)} aria-label={`Abrir ${item.nombre}`} className="relative flex h-32 w-full items-center justify-center bg-sec-suave focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring">
             {miniatura(item) ? <Image unoptimized fill alt="" src={`/archivos/${item.archivo!.id}?vista=1`} className="object-cover" sizes="320px" /> : <Icono item={item} className="size-10" />}
           </button>
           <div className="flex items-center gap-1 border-t border-borde-sutil py-1 pr-1 pl-3">
