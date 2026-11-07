@@ -167,6 +167,12 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       soporte_respuesta: { colegio, asunto: "No llegan los correos", url: "http://s/soporte/1" },
       soporte_nuevo: { colegio, asunto: "No llegan los correos", prioridad: "Alta", nueva: true, url: "http://admin/mesa-ayuda/1" },
       nudito_plus: { colegio, alumno: "Mateo", titulo: "Nudito+ está activo para Mateo", parrafos: ["Puede usarlo hasta el 30/11/2026."], url: "http://n" },
+      material_nuevo: { colegio, titulo: "Fracciones", url: "http://m" },
+      solicitud_nueva: { colegio, titulo: "Programación curricular", url: "http://s" },
+      solicitud_observada: { colegio, titulo: "Programación curricular", url: "http://s" },
+      solicitud_aprobada: { colegio, titulo: "Programación curricular", url: "http://s" },
+      solicitud_version: { colegio, titulo: "Programación curricular", url: "http://s" },
+      cuota_umbral: { colegio, porcentaje: 85, url: "http://a" },
     };
     for (const nombre of NOMBRES_PLANTILLA) {
       const m = renderizarPlantilla(nombre, payloads[nombre]);

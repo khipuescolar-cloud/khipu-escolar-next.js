@@ -49,6 +49,8 @@ Avisar a la familia por correo y push cada vez que se registra la asistencia (y 
 ## Contrato de plantillas (para otros módulos)
 Insertar en `avisos`: `tenantId`, `tipo`, `canal` (`correo` → `destinatario` = email; `push` → endpoint), `plantilla`, `asunto` (informativo; el worker usa el de la plantilla), `payload`, `apoderadoId` (si es familia), `referenciaId` (conversación, tarea, justificación o apoderado; para agrupar y limitar), `estado = pendiente` (por defecto). **Solo para apoderados con consentimiento vigente y según sus preferencias** (usa `destinatariosDeAlumno` + `encolarParaDestinatario`, que además valida el payload). El worker agrega `colegio` si falta y `urlPreferencias` en las plantillas de familia (filas con `apoderadoId`). Los avisos al personal (profesor, tutora, dirección) no exigen consentimiento.
 
+**Paso 0 de Documentos (2026-11-07):** el registro acepta seis plantillas provisionales, aún sin productores: `material_nuevo`, `solicitud_nueva`, `solicitud_observada`, `solicitud_aprobada` y `solicitud_version` reciben `{ colegio, titulo, url }`; `cuota_umbral` recibe `{ colegio, porcentaje, url }`. Todas admiten `logoColegioUrl` y `urlPreferencias` opcionales. W1–W3 definirán sus destinatarios y canales al implementar los flujos.
+
 | `plantilla` | `tipo` | Destinatario | `referenciaId` | `payload` |
 |---|---|---|---|---|
 | `asistencia_llego` | asistencia | familia | — | `{ colegio, alumno, hora: "HH:mm" }` |

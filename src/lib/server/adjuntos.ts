@@ -106,10 +106,10 @@ export const adjuntoVista = (a: Pick<Archivo, "id" | "nombre" | "mimeType" | "by
   id: a.id, nombre: a.nombre ?? "archivo", mimeType: a.mimeType, bytes: a.bytes,
 });
 
-/** Sube los archivos ya validados como privados y los registra en el elemento. Si algo falla, deshace lo subido. */
-export async function guardarAdjuntos(ctx: TenantContext, destino: DestinoAdjunto, validados: AdjuntoValidado[]): Promise<Archivo[]> {
+/** Sube los archivos ya validados como privados. Sin destino deja filas huérfanas para el contrato provisional de almacenamiento. Si algo falla, deshace lo subido. */
+export async function guardarAdjuntos(ctx: TenantContext, destino: DestinoAdjunto | null, validados: AdjuntoValidado[]): Promise<Archivo[]> {
   const guardados: Archivo[] = [];
-  const carpeta = "comunicadoId" in destino ? "comunicados" : "tareaId" in destino || "entregaId" in destino ? "tareas" : "documentoId" in destino ? "documentos" : "soporte";
+  const carpeta = !destino ? "documentos" : "comunicadoId" in destino ? "comunicados" : "tareaId" in destino || "entregaId" in destino ? "tareas" : "documentoId" in destino ? "documentos" : "soporte";
   try {
     for (const v of validados) {
       const subido = await storage().subir(v.buffer, { tenantId: ctx.tenant.id, carpeta, privado: true, mimeType: v.mimeType });
@@ -118,7 +118,7 @@ export async function guardarAdjuntos(ctx: TenantContext, destino: DestinoAdjunt
           await ctx.db.archivo.create({
             data: {
               tenantId: ctx.tenant.id, proveedor: subido.proveedor, publicId: subido.publicId, url: null,
-              mimeType: v.mimeType, bytes: v.buffer.length, privado: true, subidoPorId: ctx.user.id, nombre: v.nombre, ...destino,
+              mimeType: v.mimeType, bytes: v.buffer.length, privado: true, subidoPorId: ctx.user.id, nombre: v.nombre, ...(destino ?? {}),
             },
           }),
         );

@@ -307,6 +307,11 @@ model Tenant {
   justificacionTokens   JustificacionToken[]
   justificaciones       Justificacion[]
   archivos              Archivo[]
+  // @@W1
+
+  // @@W2
+
+  // @@W3
   conversaciones        Conversacion[]
   mensajes              Mensaje[]
   comunicados           Comunicado[]
@@ -469,6 +474,11 @@ model Membership {
   resultadosCriterio       ResultadoCriterio[]
   carpetasCreadas          CarpetaDocumento[]
   documentosPublicados     Documento[]
+  // @@W1
+
+  // @@W2
+
+  // @@W3
   reunionesConvocadas      Reunion[]              @relation("ReunionConvocante")
   reunionesOrganizadas     Reunion[]              @relation("ReunionOrganizador")
   invitacionesReunion      ReunionInvitado[]
@@ -554,6 +564,11 @@ model Curso {
   bloques               BloqueHorario[]
   incidencias           IncidenciaCurso[]
   nuditoSesiones        NuditoSesion[]
+  // @@W1
+
+  // @@W2
+
+  // @@W3
 
   @@index([tenantId])
   @@index([profesorId])
@@ -903,6 +918,11 @@ model Archivo {
   reunion         Reunion?             @relation(fields: [reunionId], references: [id], onDelete: Cascade)
   nuditoSesion    NuditoSesion?        @relation(fields: [nuditoSesionId], references: [id], onDelete: SetNull)
   nuditoIntentos  NuditoIntento[]
+  // @@W1
+
+  // @@W2
+
+  // @@W3
 
   @@index([tenantId])
   @@index([comunicadoId])
@@ -1351,6 +1371,11 @@ model Tarea {
   enlaces      TareaEnlace[]
   cambiosPlazo TareaCambioPlazo[]
   evaluaciones Evaluacion[]
+  // @@W1
+
+  // @@W2
+
+  // @@W3
 
   @@index([tenantId, fechaEntrega])
   @@index([tenantId, estado])
@@ -2140,6 +2165,11 @@ model Documento {
   compartidos  CompartidoDocumento[]
   destacados   DestacadoDocumento[]
   accesos      AccesoDocumento[]
+  // @@W1
+
+  // @@W2
+
+  // @@W3
 
   @@index([tenantId, carpetaId])
   @@index([tenantId, salonId])
@@ -3289,3 +3319,11 @@ model Notificacion {
   @@index([tenantId])
   @@map("notificaciones")
 }
+
+// ===== W1 =====
+
+// ===== W2 =====
+
+// ===== W3 =====
+
+// ===== W4 =====

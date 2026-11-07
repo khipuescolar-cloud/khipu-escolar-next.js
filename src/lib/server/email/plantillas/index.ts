@@ -222,6 +222,13 @@ const ESQUEMAS = {
     parrafos: z.array(z.string().min(1).max(600)).min(1).max(4),
     url,
   }),
+  /** Contratos provisionales de Documentos (Paso 0); los productores llegan en W1–W3. */
+  material_nuevo: z.object({ ...comun, titulo: z.string().min(1), url }),
+  solicitud_nueva: z.object({ ...comun, titulo: z.string().min(1), url }),
+  solicitud_observada: z.object({ ...comun, titulo: z.string().min(1), url }),
+  solicitud_aprobada: z.object({ ...comun, titulo: z.string().min(1), url }),
+  solicitud_version: z.object({ ...comun, titulo: z.string().min(1), url }),
+  cuota_umbral: z.object({ ...comun, porcentaje: z.number().int().min(1).max(100), url }),
 } as const;
 
 export type NombrePlantilla = keyof typeof ESQUEMAS;
@@ -720,6 +727,37 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
       boton: { texto: "Ver Nudito+", url: p.url },
       urlPreferencias: p.urlPreferencias,
     }),
+  material_nuevo: (p) => armarMensaje({
+    colegio: p.colegio, logoColegioUrl: p.logoColegioUrl, asunto: `Nuevo material: ${p.titulo}`,
+    insignia: "info", palabraInsignia: "Material", parrafos: [`Ya puedes revisar «${p.titulo}».`],
+    boton: { texto: "Ver material", url: p.url }, urlPreferencias: p.urlPreferencias,
+  }),
+  solicitud_nueva: (p) => armarMensaje({
+    colegio: p.colegio, logoColegioUrl: p.logoColegioUrl, asunto: `Nueva solicitud: ${p.titulo}`,
+    insignia: "info", palabraInsignia: "Solicitud", parrafos: [`Tienes una solicitud documental: «${p.titulo}».`],
+    boton: { texto: "Ver solicitud", url: p.url }, urlPreferencias: p.urlPreferencias,
+  }),
+  solicitud_observada: (p) => armarMensaje({
+    colegio: p.colegio, logoColegioUrl: p.logoColegioUrl, asunto: `Solicitud observada: ${p.titulo}`,
+    insignia: "info", palabraInsignia: "Observada", parrafos: [`Revisa las observaciones de «${p.titulo}».`],
+    boton: { texto: "Ver observaciones", url: p.url }, urlPreferencias: p.urlPreferencias,
+  }),
+  solicitud_aprobada: (p) => armarMensaje({
+    colegio: p.colegio, logoColegioUrl: p.logoColegioUrl, asunto: `Solicitud aprobada: ${p.titulo}`,
+    insignia: "info", palabraInsignia: "Aprobada", parrafos: [`Se aprobó tu entrega de «${p.titulo}».`],
+    boton: { texto: "Ver solicitud", url: p.url }, urlPreferencias: p.urlPreferencias,
+  }),
+  solicitud_version: (p) => armarMensaje({
+    colegio: p.colegio, logoColegioUrl: p.logoColegioUrl, asunto: `Nueva versión: ${p.titulo}`,
+    insignia: "info", palabraInsignia: "Nueva versión", parrafos: [`Hay una nueva versión de «${p.titulo}» para revisar.`],
+    boton: { texto: "Ver versión", url: p.url }, urlPreferencias: p.urlPreferencias,
+  }),
+  cuota_umbral: (p) => armarMensaje({
+    colegio: p.colegio, logoColegioUrl: p.logoColegioUrl, asunto: `Almacenamiento al ${p.porcentaje} %`,
+    insignia: "info", palabraInsignia: "Almacenamiento",
+    parrafos: [`El almacenamiento del colegio llegó al ${p.porcentaje} % de su límite.`],
+    boton: { texto: "Ver almacenamiento", url: p.url }, urlPreferencias: p.urlPreferencias,
+  }),
 };
 
 export class PlantillaInvalidaError extends Error {}
