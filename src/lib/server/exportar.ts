@@ -380,6 +380,7 @@ async function contextoDeExportacion(tenantId: string, userId: string): Promise<
     rol: "direccion",
     estado: "activa",
     cargo: "Exportación",
+    gestionaCompetencias: false,
     createdAt: new Date(),
   };
   return { tenant, user, membership, rol: "direccion", roles: ["direccion"], db: dbTenant(tenantId), ...(await accesoModulos(tenant, "direccion")) };

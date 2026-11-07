@@ -123,6 +123,7 @@ export async function resolverContextoColegio(user: Profile, slug: string, rolPr
       rol: "direccion",
       estado: "activa",
       cargo: "Soporte Khipu",
+      gestionaCompetencias: false,
       createdAt: acceso.inicioAt,
     };
     return {

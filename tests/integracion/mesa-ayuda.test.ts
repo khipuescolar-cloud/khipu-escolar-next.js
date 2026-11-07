@@ -41,7 +41,7 @@ async function esperarNoEncontrado(promesa: Promise<unknown>) {
 /** Contexto del administrativo: `quitarSoporte` simula RolModulo(administrativo, soporte) = deshabilitado. */
 function ctxAdministrativo(quitarSoporte: boolean): TenantContext {
   const base = accesoModulosDeCodigo(a.tenant.plan);
-  const membership = { id: administrativo.membershipId, tenantId: a.tenant.id, userId: administrativo.user.id, rol: "administrativo" as const, estado: "activa" as const, cargo: "Secretaria", createdAt: new Date() };
+  const membership = { id: administrativo.membershipId, tenantId: a.tenant.id, userId: administrativo.user.id, rol: "administrativo" as const, estado: "activa" as const, cargo: "Secretaria", gestionaCompetencias: false, createdAt: new Date() };
   return {
     tenant: a.tenant, user: administrativo.user, membership, rol: "administrativo", roles: ["administrativo"], db: dbTenant(a.tenant.id),
     modulos: base.modulos,

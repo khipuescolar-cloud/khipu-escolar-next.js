@@ -1,5 +1,7 @@
 # 39 — Tareas estilo Classroom (entregas, revisión y calificación)
 
+> La vista compartida de calificaciones de Tareas y Registro de notas se documenta en [specs/47](47-registro-de-notas.md).
+
 > Estado: implementado (backend completo; UI funcional) · Plan: Khipu Pro (`requireFeature("tareas")`) · Última actualización: 2026-11-03 (Claude)
 
 Reemplaza el «tablón» de tareas de specs/12 (una tarea = un salón, fecha fija 08:00, sin entregas). La agenda y el .ics

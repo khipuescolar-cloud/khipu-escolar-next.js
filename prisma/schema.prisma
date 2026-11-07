@@ -83,6 +83,11 @@ enum EstadoEvaluacion {
   publicada
 }
 
+enum OrigenCompetencia {
+  oficial
+  personalizada
+}
+
 /// Escala de un criterio de un instrumento (rúbrica o lista de cotejo).
 enum EscalaCriterio {
   puntaje
@@ -446,6 +451,7 @@ model Membership {
   rol       Rol
   estado    EstadoMembresia @default(activa)
   cargo     String? // «Director(a) general», «Secretaria», «Docente de Matemática»…
+  gestionaCompetencias Boolean @default(false) @map("gestiona_competencias")
   createdAt DateTime        @default(now()) @map("created_at") @db.Timestamptz
 
   tenant Tenant  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
@@ -527,6 +533,8 @@ model Membership {
   rectificacionesPedidas   RectificacionLibreta[] @relation("RectificacionSolicitada")
   rectificacionesResueltas RectificacionLibreta[] @relation("RectificacionResuelta")
   notificaciones           Notificacion[]
+  competenciasDesactivadas Competencia[] @relation("CompetenciaDesactivadaPor")
+  evaluacionesCreadas Evaluacion[] @relation("EvaluacionCreadaPor")
 
   @@unique([tenantId, userId, rol])
   @@index([userId])
@@ -1116,6 +1124,12 @@ model Competencia {
   nombre      String
   descripcion String?
   orden       Int     @default(0)
+  origen      OrigenCompetencia @default(oficial)
+  codigoOficial String? @map("codigo_oficial")
+  desactivadaAt DateTime? @map("desactivada_at") @db.Timestamptz
+  desactivadaPorId String? @map("desactivada_por_id") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
 
   tenant                Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   curso                 Curso                  @relation(fields: [cursoId], references: [id], onDelete: Cascade)
@@ -1126,6 +1140,7 @@ model Competencia {
   informesProgreso      InformeProgreso[]
   rectificaciones       RectificacionLibreta[]
   tareas                Tarea[]
+  desactivadaPor Membership? @relation("CompetenciaDesactivadaPor", fields: [desactivadaPorId], references: [id], onDelete: SetNull)
 
   @@index([tenantId, cursoId])
   @@map("competencias")
@@ -1139,6 +1154,9 @@ model Evaluacion {
   competenciaId String?                @map("competencia_id") @db.Uuid
   titulo        String
   fecha         DateTime               @db.Date
+  creadaAt      DateTime               @default(now()) @map("creada_at") @db.Timestamptz
+  actualizadaAt DateTime               @default(now()) @updatedAt @map("actualizada_at") @db.Timestamptz
+  creadaPorId   String?                @map("creada_por_id") @db.Uuid
   peso          Decimal                @default(1) @db.Decimal(5, 2)
   instrumento   InstrumentoEvaluacion?
   /// Une las columnas de una misma evaluación que mide varias competencias (una fila por competencia).
@@ -1155,6 +1173,7 @@ model Evaluacion {
   tarea       Tarea?                @relation(fields: [tareaId], references: [id], onDelete: SetNull)
   periodo     Periodo               @relation(fields: [periodoId], references: [id], onDelete: Cascade)
   competencia Competencia?          @relation(fields: [competenciaId], references: [id], onDelete: SetNull)
+  creadaPor Membership?             @relation("EvaluacionCreadaPor", fields: [creadaPorId], references: [id], onDelete: SetNull)
   notas       Nota[]
   desempenos  EvaluacionDesempeno[]
   historial   HistorialNota[]

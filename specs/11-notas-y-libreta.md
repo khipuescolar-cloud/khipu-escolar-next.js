@@ -1,5 +1,7 @@
 # 11 — Notas y libreta (MINEDU)
 
+> El rediseño de la experiencia docente y el contrato curricular se documentan en [specs/47](47-registro-de-notas.md). Esta spec conserva las reglas académicas y de Libreta vigentes hasta su integración.
+
 > Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-11-03 (Claude Code, rama `pre-academico`: integridad académica — eliminar solo borradores sin historial, motivo mínimo, libretas emitidas imborrables y emitidas antes de publicar; specs/37)
 
 ## Objetivo
