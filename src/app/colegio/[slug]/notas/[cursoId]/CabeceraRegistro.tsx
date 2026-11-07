@@ -1,4 +1,5 @@
 "use client";
+import { Fragment } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
@@ -58,7 +59,7 @@ export function CabeceraRegistro({ datos, slug, gestionar, botonPeriodo, onNueva
             <div className="hidden flex-wrap gap-2 sm:flex">
               <Button variant="outline" onClick={onInforme}><FileText aria-hidden />Informe de progreso</Button>
               <Button variant="outline" onClick={onArchivos}><FileSpreadsheet aria-hidden />Importar / Exportar</Button>
-              {botonPeriodo}
+              <Fragment key="periodo-escritorio">{botonPeriodo}</Fragment>
               {gestionar && <Button variant="outline" render={<Link href={`/notas/competencias?curso=${curso.id}`} />}><BookMarked aria-hidden />Competencias</Button>}
             </div>
             <div className="flex flex-wrap gap-2 sm:hidden">
@@ -70,7 +71,7 @@ export function CabeceraRegistro({ datos, slug, gestionar, botonPeriodo, onNueva
                   {gestionar && <DropdownMenuItem className="min-h-11" render={<Link href={`/notas/competencias?curso=${curso.id}`} />}><BookMarked aria-hidden />Competencias</DropdownMenuItem>}
                 </DropdownMenuContent>
               </DropdownMenu>
-              {botonPeriodo}
+              <Fragment key="periodo-movil">{botonPeriodo}</Fragment>
             </div>
           </>
         )}
