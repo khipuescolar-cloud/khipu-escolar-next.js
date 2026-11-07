@@ -1,6 +1,6 @@
 # 46 — Solicitudes documentales (gestión académica)
 
-> Estado: especificación (Etapa 2 SDD, sin implementar) · Plan: Khipu Pro (`requireFeature(ctx, "documentos")`, sin módulo nuevo) · Actualizado: 2026-11-07 · Plan de trabajo: `docs/documentos-plan-implementacion.md` (flujo W3)
+> Estado: backend W3 implementado (migración, servicio, acciones y CSV; interfaz W4 pendiente) · Plan: Khipu Pro (`requireFeature(ctx, "documentos")`, sin módulo nuevo) · Actualizado: 2026-11-07 · Plan de trabajo: `docs/documentos-plan-implementacion.md` (flujo W3)
 
 ## Objetivo
 
@@ -135,3 +135,13 @@ unit (`tests/unit/solicitudes-reglas.test.ts`): tabla de transiciones, `vencida`
 3. Máximo de versiones por destinatario.
 4. Recordatorios antes del vencimiento (no hay cron horario; ver `specs/39` pendientes).
 5. Si el reporte se comparte con la UGEL u otras entidades (legal).
+
+## Implementación W3 y contratos de integración
+
+La migración local `20261116090200_solicitudes_documentales` añade las cinco tablas, RLS forzado y revocación de `anon`/`authenticated`. Los disparadores impiden modificar o borrar eventos, enlaces de archivos y campos originales de una versión; permiten fijar una sola revisión. El borrado del colegio por el proceso de limpieza conserva la cascada de claves externas.
+
+El servicio está en `src/lib/server/solicitudes/index.ts`; debe importarse con `/index` explícito, porque `src/lib/server/solicitudes.ts` ya pertenece a los pedidos de demo de la plataforma. Expone creación, edición de borrador, publicación, cierre/reapertura/anulación, gestión de destinatarios, cambio de plazo, presentación, revisión, vistas y reporte. Las acciones están en `/documentos/solicitudes/actions.ts` y el CSV en `/api/documentos/solicitudes/reporte`. W4 debe enlazar estas acciones desde su interfaz.
+
+La bandeja interna avisa con claves idempotentes. Mientras el enum global `TipoNotificacion` no tenga un valor propio para solicitudes, usa provisionalmente `tarea`; la integración de push debe completar ese contrato antes del piloto. `materializarArchivos` consume el contrato de W1: la carga directa y el límite de 25 MB dependen de su implementación final.
+
+La reapertura de una entrega aprobada registra evento y deja el estado `en_revision`, preservando el resultado de la versión original. La decisión de cómo emitir una segunda decisión sobre esa misma versión sigue pendiente; no se sobrescribe una aprobación histórica.

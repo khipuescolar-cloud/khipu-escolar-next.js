@@ -321,6 +321,11 @@ model Tenant {
   tareaMateriales TareaMaterial[]
 
   // @@W3
+  solicitudesDocumentales SolicitudDocumental[]
+  solicitudDestinatarios SolicitudDestinatario[]
+  solicitudVersiones SolicitudVersion[]
+  solicitudVersionArchivos SolicitudVersionArchivo[]
+  solicitudEventos SolicitudEvento[]
   conversaciones        Conversacion[]
   mensajes              Mensaje[]
   comunicados           Comunicado[]
@@ -492,6 +497,11 @@ model Membership {
   materialesEnTareas TareaMaterial[] @relation("AutorTareaMaterial")
 
   // @@W3
+  solicitudesCreadas SolicitudDocumental[] @relation("SolicitudCreador")
+  solicitudesRecibidas SolicitudDestinatario[] @relation("SolicitudReceptor")
+  versionesPresentadas SolicitudVersion[] @relation("VersionPresentador")
+  versionesRevisadas SolicitudVersion[] @relation("VersionRevisor")
+  eventosSolicitud SolicitudEvento[] @relation("EventoActor")
   reunionesConvocadas      Reunion[]              @relation("ReunionConvocante")
   reunionesOrganizadas     Reunion[]              @relation("ReunionOrganizador")
   invitacionesReunion      ReunionInvitado[]
@@ -944,6 +954,7 @@ model Archivo {
   versionesMaterial MaterialVersionArchivo[]
 
   // @@W3
+  solicitudVersionArchivos SolicitudVersionArchivo[]
 
   @@index([tenantId])
   @@index([comunicadoId])
@@ -2192,6 +2203,7 @@ model Documento {
   // @@W2
 
   // @@W3
+  solicitudesPlantilla SolicitudDocumental[]
 
   @@index([tenantId, carpetaId])
   @@index([tenantId, salonId])
@@ -3550,5 +3562,152 @@ model TareaMaterial {
 }
 
 // ===== W3 =====
+enum EstadoSolicitudDocumental {
+  borrador
+  publicada
+  cerrada
+  anulada
+}
+
+enum EstadoEntregaDocumental {
+  pendiente
+  entregado
+  en_revision
+  observado
+  aprobado
+}
+
+enum ResultadoVersionDocumental {
+  presentada
+  observada
+  aprobada
+}
+
+enum TipoEventoSolicitud {
+  creada
+  publicada
+  plazo_cambiado
+  destinatario_agregado
+  destinatario_retirado
+  version_presentada
+  revision_iniciada
+  observada
+  aprobada
+  revision_reabierta
+  cerrada
+  reabierta
+  anulada
+}
+
+model SolicitudDocumental {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  titulo String
+  instrucciones String?
+  anioAcademico Int @map("anio_academico")
+  periodoEtiqueta String? @map("periodo_etiqueta")
+  plantillaDocumentoId String? @map("plantilla_documento_id") @db.Uuid
+  fechaLimite DateTime? @map("fecha_limite") @db.Timestamptz
+  conHora Boolean @default(false) @map("con_hora")
+  permiteTardias Boolean @default(true) @map("permite_tardias")
+  estado EstadoSolicitudDocumental @default(borrador)
+  creadaPorId String @map("creada_por_id") @db.Uuid
+  publicadaAt DateTime? @map("publicada_at") @db.Timestamptz
+  cerradaAt DateTime? @map("cerrada_at") @db.Timestamptz
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  creadaPor Membership @relation("SolicitudCreador", fields: [creadaPorId], references: [id], onDelete: Restrict)
+  plantillaDocumento Documento? @relation(fields: [plantillaDocumentoId], references: [id], onDelete: SetNull)
+  destinatarios SolicitudDestinatario[]
+  eventos SolicitudEvento[]
+  @@index([tenantId, estado])
+  @@index([tenantId, anioAcademico])
+  @@map("solicitudes_documentales")
+}
+
+model SolicitudDestinatario {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  solicitudId String @map("solicitud_id") @db.Uuid
+  membershipId String @map("membership_id") @db.Uuid
+  grupo String?
+  estado EstadoEntregaDocumental @default(pendiente)
+  versionActual Int @default(0) @map("version_actual")
+  entregaTardia Boolean @default(false) @map("entrega_tardia")
+  primeraEntregaAt DateTime? @map("primera_entrega_at") @db.Timestamptz
+  ultimaEntregaAt DateTime? @map("ultima_entrega_at") @db.Timestamptz
+  plazoCorreccion DateTime? @map("plazo_correccion") @db.Timestamptz
+  revisadoPorId String? @map("revisado_por_id") @db.Uuid
+  revisadoAt DateTime? @map("revisado_at") @db.Timestamptz
+  aprobadoAt DateTime? @map("aprobado_at") @db.Timestamptz
+  retiradoAt DateTime? @map("retirado_at") @db.Timestamptz
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  solicitud SolicitudDocumental @relation(fields: [solicitudId], references: [id], onDelete: Cascade)
+  membership Membership @relation("SolicitudReceptor", fields: [membershipId], references: [id], onDelete: Restrict)
+  versiones SolicitudVersion[]
+  eventos SolicitudEvento[]
+  @@unique([solicitudId, membershipId])
+  @@index([tenantId, membershipId])
+  @@index([solicitudId, estado])
+  @@map("solicitud_destinatarios")
+}
+
+model SolicitudVersion {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  destinatarioId String @map("destinatario_id") @db.Uuid
+  numero Int
+  comentario String?
+  presentadaPorId String @map("presentada_por_id") @db.Uuid
+  presentadaAt DateTime @default(now()) @map("presentada_at") @db.Timestamptz
+  tardia Boolean @default(false)
+  resultado ResultadoVersionDocumental @default(presentada)
+  observaciones String?
+  revisadaPorId String? @map("revisada_por_id") @db.Uuid
+  revisadaAt DateTime? @map("revisada_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  destinatario SolicitudDestinatario @relation(fields: [destinatarioId], references: [id], onDelete: Cascade)
+  presentadaPor Membership @relation("VersionPresentador", fields: [presentadaPorId], references: [id], onDelete: Restrict)
+  revisadaPor Membership? @relation("VersionRevisor", fields: [revisadaPorId], references: [id], onDelete: SetNull)
+  archivos SolicitudVersionArchivo[]
+  eventos SolicitudEvento[]
+  @@unique([destinatarioId, numero])
+  @@map("solicitud_versiones")
+}
+
+model SolicitudVersionArchivo {
+  tenantId String @map("tenant_id") @db.Uuid
+  versionId String @map("version_id") @db.Uuid
+  archivoId String @unique @map("archivo_id") @db.Uuid
+  orden Int
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  version SolicitudVersion @relation(fields: [versionId], references: [id], onDelete: Restrict)
+  archivo Archivo @relation(fields: [archivoId], references: [id], onDelete: Restrict)
+  @@id([versionId, archivoId])
+  @@map("solicitud_version_archivos")
+}
+
+model SolicitudEvento {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  solicitudId String @map("solicitud_id") @db.Uuid
+  destinatarioId String? @map("destinatario_id") @db.Uuid
+  versionId String? @map("version_id") @db.Uuid
+  tipo TipoEventoSolicitud
+  actorId String? @map("actor_id") @db.Uuid
+  detalle Json?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  solicitud SolicitudDocumental @relation(fields: [solicitudId], references: [id], onDelete: Cascade)
+  destinatario SolicitudDestinatario? @relation(fields: [destinatarioId], references: [id], onDelete: SetNull)
+  version SolicitudVersion? @relation(fields: [versionId], references: [id], onDelete: SetNull)
+  actor Membership? @relation("EventoActor", fields: [actorId], references: [id], onDelete: SetNull)
+  @@index([tenantId, solicitudId, createdAt])
+  @@map("solicitud_eventos")
+}
+
 
 // ===== W4 =====
