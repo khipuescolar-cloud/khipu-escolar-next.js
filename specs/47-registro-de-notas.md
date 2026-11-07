@@ -78,6 +78,7 @@ El botón principal dice «Nueva calificación». Los estados combinan ícono y 
 - Unit: agrupación por competencias, origen, pendientes y validación de escala.
 - Integración: permisos por tenant/rol/curso; competencia desactivada; transacción e idempotencia; tarea y registro comparten `Nota`; NSP, historial, cierre y libreta.
 - E2E: Mis cursos → Registro → Nueva calificación; tarea calificada visible en registro; valoración de libreta independiente.
+- PASO 1 E2E: dirección activa `gestionaCompetencias` en la ficha de Lucía; ella crea y desactiva una competencia desde `/notas/competencias`, con capturas a 1440×900 y 390×844.
 
 ## Pendientes
 
