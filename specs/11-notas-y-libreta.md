@@ -1,5 +1,7 @@
 # 11 — Notas y libreta (MINEDU)
 
+> El rediseño de la experiencia docente y el contrato curricular se documentan en [specs/47](47-registro-de-notas.md). Esta spec conserva las reglas académicas y de Libreta vigentes hasta su integración.
+
 > Estado: implementado · Plan: Khipu Pro · Última actualización: 2026-11-03 (Claude Code, rama `pre-academico`: integridad académica — eliminar solo borradores sin historial, motivo mínimo, libretas emitidas imborrables y emitidas antes de publicar; specs/37)
 
 ## Objetivo
@@ -177,3 +179,7 @@ cursosDelDocente(ctx)
 - El PDF usa solo colores del manual: índigo en encabezados, tinta y pizarra en texto, arena en líneas. Pie con la firma «Khipu Escolar» y el isotipo oficial (`public/marca/isotipo.svg` convertido a PNG con `sharp`, 24 pt; helper `src/lib/server/marca-pdf.ts`).
 - Asistencia del periodo con las palabras fijas: «Llegó», «Tarde», «No llegó», «Aviso» (también en `/libreta`).
 - Fuente: Helvetica del PDF (Sora e Inter aún no se incrustan en `@react-pdf/renderer`).
+
+## Registro docente por curso (2026-11-07)
+
+`/notas` muestra los cursos del año académico accesibles al docente; `/notas/[cursoId]` muestra actividades existentes agrupadas por competencia y permite crear una calificación manual en dos pasos. Las valoraciones de periodo, informes e importación/exportación siguen accesibles desde «Más». La libreta continúa basada en la decisión docente `CalificacionPeriodo`, sin promedio automático desde el registro. La corrección de una celda usa `guardarNota`, incluido el motivo y el historial cuando corresponde.

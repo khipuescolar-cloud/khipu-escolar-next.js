@@ -4,6 +4,7 @@ import { Eye, Search, Users } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Campo } from "@/components/ui/Campo";
 import { Selector } from "@/components/ui/Selector";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 // Campos de «Nueva tarea» que dependen del curso elegido (specs/39): secciones gemelas (mismo curso en otros salones),
 // destinatarios por sección («Todos» o selección con búsqueda), contador, vista previa y publicación.
@@ -25,8 +26,10 @@ type EstadoSeccion = { incluida: boolean; todos: boolean; alumnoIds: string[] };
 
 const clave = (n: string) => n.trim().toLocaleLowerCase("es");
 
-export function CamposNuevaTarea({ cursos, alumnos, materiales = [] }: { cursos: CursoOpcion[]; alumnos: Record<string, AlumnoOpcion[]>; materiales?: MaterialOpcion[] }) {
+export function CamposNuevaTarea({ cursos, alumnos, materiales = [], competencias = [] }: { cursos: CursoOpcion[]; alumnos: Record<string, AlumnoOpcion[]>; materiales?: MaterialOpcion[]; competencias?: { id: string; cursoId: string; nombre: string }[] }) {
   const [origen, setOrigen] = useState(cursos[0]?.id ?? "");
+  const [competenciaId, setCompetenciaId] = useState("");
+  const [competenciasSeccion, setCompetenciasSeccion] = useState<Record<string, string>>({});
   const [secciones, setSecciones] = useState<Record<string, EstadoSeccion>>({});
   const [busqueda, setBusqueda] = useState("");
   const [verPrevia, setVerPrevia] = useState(false);
@@ -39,15 +42,18 @@ export function CamposNuevaTarea({ cursos, alumnos, materiales = [] }: { cursos:
   const destinatarios = (id: string) => (estado(id).todos ? (alumnos[id] ?? []) : (alumnos[id] ?? []).filter((a) => estado(id).alumnoIds.includes(a.id)));
   const total = activas.reduce((n, c) => n + destinatarios(c.id).length, 0);
   const cambiar = (id: string, parcial: Partial<EstadoSeccion>) => setSecciones((s) => ({ ...s, [id]: { ...estado(id), ...parcial } }));
-  const valor = JSON.stringify(activas.map((c) => ({ cursoId: c.id, todos: estado(c.id).todos, alumnoIds: estado(c.id).todos ? undefined : estado(c.id).alumnoIds })));
+  const valor = JSON.stringify(activas.map((c) => ({ cursoId: c.id, competenciaId: c.id === origen ? competenciaId || undefined : competenciasSeccion[c.id] || undefined, todos: estado(c.id).todos, alumnoIds: estado(c.id).todos ? undefined : estado(c.id).alumnoIds })));
 
   return (
     <>
       <div className="sm:col-span-2">
-        <Selector etiqueta="Curso" name="cursoId" required value={origen} onChange={(e) => { setOrigen(e.target.value); setSecciones({}); }}>
+        <Selector etiqueta="Curso" name="cursoId" required value={origen} onChange={(e) => { setOrigen(e.target.value); setSecciones({}); setCompetenciaId(""); setCompetenciasSeccion({}); }}>
           {cursos.map((c) => <option key={c.id} value={c.id}>{c.nombre} · {c.salon}</option>)}
         </Selector>
       </div>
+      <label className="grid gap-1.5 text-sm sm:col-span-2"><span className="font-medium">Competencia (obligatoria si la tarea es calificable)</span>
+        <Select name="competenciaId" value={competenciaId || null} onValueChange={(v) => setCompetenciaId(String(v ?? ""))} items={Object.fromEntries(competencias.filter((c) => c.cursoId === origen).map((c) => [c.id, c.nombre]))}><SelectTrigger className="w-full"><SelectValue placeholder="Elige una competencia" /></SelectTrigger><SelectContent>{competencias.filter((c) => c.cursoId === origen).map((c) => <SelectItem key={c.id} value={c.id}>{c.nombre}</SelectItem>)}</SelectContent></Select>
+      </label>
       <input type="hidden" name="secciones" value={valor} />
       <input type="hidden" name="materialesExistentes" value={JSON.stringify(elegidos.map((id) => ({ materialId: id })))} />
       <div className="sm:col-span-2">
@@ -68,6 +74,7 @@ export function CamposNuevaTarea({ cursos, alumnos, materiales = [] }: { cursos:
                 <span className="font-medium">{c.salon}</span>
                 <span className="text-muted-foreground">{c.id === origen ? "(curso elegido)" : "(mismo curso en otro salón)"}</span>
               </label>
+              {e.incluida && c.id !== origen && <label className="ml-8 grid gap-1 text-sm"><span className="font-medium">Competencia de {c.salon}</span><Select value={competenciasSeccion[c.id] || null} onValueChange={(v) => setCompetenciasSeccion((prev) => ({ ...prev, [c.id]: String(v ?? "") }))} items={Object.fromEntries(competencias.filter((x) => x.cursoId === c.id).map((x) => [x.id, x.nombre]))}><SelectTrigger className="w-full"><SelectValue placeholder="Elige una competencia" /></SelectTrigger><SelectContent>{competencias.filter((x) => x.cursoId === c.id).map((x) => <SelectItem key={x.id} value={x.id}>{x.nombre}</SelectItem>)}</SelectContent></Select></label>}
               {e.incluida && (
                 <div className="ml-8 flex flex-col gap-2">
                   <div className="flex flex-wrap gap-4 text-sm">

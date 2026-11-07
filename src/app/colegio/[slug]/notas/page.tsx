@@ -4,9 +4,10 @@ import { esVistaFamilia } from "@/lib/roles";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { VistaDocente } from "./VistaDocente";
+import { MisCursos } from "./MisCursos";
 import { VistaFamilia } from "./VistaFamilia";
 
-export const metadata: Metadata = { title: "Notas" };
+export const metadata: Metadata = { title: "Registro de notas" };
 
 export default async function NotasPage({ params, searchParams }: PageProps<"/colegio/[slug]/notas">) {
   const { slug } = await params;
@@ -15,6 +16,6 @@ export default async function NotasPage({ params, searchParams }: PageProps<"/co
   requireFeature(ctx, "notas");
   // Apoderado (sus hijos) y alumno con cuenta propia (solo él): misma vista de solo lectura.
   if (esVistaFamilia(ctx.rol)) return <VistaFamilia ctx={ctx} sp={sp} />;
-  if (ctx.rol === "profesor" || ctx.rol === "direccion") return <VistaDocente ctx={ctx} slug={slug} sp={sp} />;
+  if (ctx.rol === "profesor" || ctx.rol === "direccion") return (sp.vista === "anterior" || sp.curso || sp.seccion) ? <VistaDocente ctx={ctx} slug={slug} sp={sp} /> : <MisCursos ctx={ctx} />;
   forbidden();
 }

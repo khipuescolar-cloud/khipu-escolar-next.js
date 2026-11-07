@@ -1,6 +1,7 @@
 import "server-only";
 import { randomUUID } from "node:crypto";
 import type { Nivel, TipoIdentificacion } from "@/generated/prisma/enums";
+import { esNivelCneb, gradoValido } from "@/lib/cneb/catalogo";
 import { claveCurso, leerArchivoSalones, type Referencia, type SalonArchivo } from "@/lib/carga-masiva/salones";
 import { leerArchivoFamilias, type FilaFamilia } from "@/lib/carga-masiva/familias";
 import { enLotes, ordenarPorLinea, type ErrorFila, type Tabla } from "@/lib/carga-masiva/tabla";
@@ -10,6 +11,7 @@ import { auditar, auditarVarios } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { payloadBienvenida } from "./cuentas";
 import { db } from "./db";
+import { restaurarPlantillaOficial } from "./curriculo";
 import { renderizarPlantilla } from "./email/plantillas";
 import { exigirAlumnosFamilias, exigirGestion } from "./gestion";
 import { areaDeCurso } from "./nudito/areas-cursos";
@@ -218,6 +220,11 @@ export async function importarSalones(ctx: TenantContext, tabla: Tabla): Promise
 
   const cursos = planes.flatMap((p) => p.cursosNuevos.map((c) => ({ id: randomUUID(), tenantId, salonId: p.existenteId ?? idDe.get(p.archivo.clave)!, nombre: c.nombre, profesorId: c.profesorId, areaCneb: areaDeCurso(c.nombre, p.archivo.nivel as Nivel) })));
   for (const lote of enLotes(cursos, 1000)) await ctx.db.curso.createMany({ data: lote });
+  if (ctx.modulos.has("notas")) for (const c of cursos) {
+    const plan = planes.find((p) => (p.existenteId ?? idDe.get(p.archivo.clave)) === c.salonId);
+    const nivel = plan?.archivo.nivel as Nivel | undefined;
+    if (c.areaCneb && nivel && esNivelCneb(nivel) && gradoValido(nivel, plan?.archivo.grado)) await restaurarPlantillaOficial(ctx, c.id);
+  }
   for (const c of cursos) auditoria.push({ tenantId, actorId, accion: "crear", entidad: "curso", entidadId: c.id, detalle: { origen: "carga_masiva" } });
 
   const porProfesor = new Map<string, string[]>();

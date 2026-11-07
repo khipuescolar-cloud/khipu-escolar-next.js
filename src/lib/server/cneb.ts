@@ -3,7 +3,7 @@ import { forbidden } from "next/navigation";
 import { z } from "zod";
 import type { Nivel } from "@/generated/prisma/enums";
 import {
-  areaPorClave, areasDelNivel, detectarArea, gradoValido, mensajeImportacion, planearImportacion, plantillaCneb, reordenar, textoGrado,
+  areaPorClave, areasDelNivel, codigoOficialCompetencia, detectarArea, gradoValido, mensajeImportacion, planearImportacion, plantillaCneb, reordenar, textoGrado,
   GRADOS_POR_NIVEL, ETIQUETA_NIVEL,
 } from "@/lib/cneb/catalogo";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
@@ -302,10 +302,16 @@ export async function importarCneb(ctx: TenantContext, cursoId: string, areaClav
         desempenos: { where: { nivel: curso.salon.nivel, grado }, select: { codigo: true, descripcion: true, orden: true } },
       },
     });
-    const plan = planearImportacion(plantilla.competencias, existentes);
+    const plan = planearImportacion(plantilla.competencias, existentes.filter((c) => c.origen === "oficial").map((c) => ({
+      ...c,
+      nombre: area.competencias.find((oficial) => codigoOficialCompetencia(oficial.numero) === c.codigoOficial)?.nombre ?? c.nombre,
+    })));
     for (const paso of plan.pasos) {
+      const numero = area.competencias.find((c) => c.nombre === paso.nombre)?.numero;
+      const codigoOficial = numero === undefined ? null : codigoOficialCompetencia(numero);
       const competenciaId = paso.competenciaId
-        ?? (await tx.competencia.create({ data: { tenantId, cursoId, nombre: paso.nombre, orden: paso.orden } })).id;
+        ?? (await tx.competencia.create({ data: { tenantId, cursoId, nombre: paso.nombre, orden: paso.orden, origen: "oficial", codigoOficial } })).id;
+      if (paso.competenciaId && codigoOficial) await tx.competencia.updateMany({ where: { id: competenciaId, codigoOficial: null }, data: { codigoOficial } });
       const capacidades = { ...paso.capacidadesExistentes };
       if (paso.capacidadesNuevas.length > 0) {
         const creadas = await tx.capacidad.createManyAndReturn({

@@ -30,8 +30,8 @@ async function entrar(page: Page, correo: string, slug: string) {
 
 test("profesor de la academia (vigesimal) registra una nota de 0 a 20", async ({ page }) => {
   await entrar(page, academia.correos.profesor, academia.slug);
-  await page.goto(colegio(academia.slug, "/notas"));
-  await expect(page.getByRole("heading", { name: "Notas" })).toBeVisible();
+  await page.goto(colegio(academia.slug, "/notas?vista=anterior"));
+  await expect(page.getByRole("heading", { name: "Registro de notas" })).toBeVisible();
   // «Simulacro 1» ya está publicado: cada cambio pide el motivo (specs/37).
   const celda = page.getByLabel("Nota de Franco en Simulacro 1");
   const conMotivo = async (valor: string) => {
@@ -102,7 +102,7 @@ async function paginaNueva(browser: Browser, correo: string, slug: string) {
 
 test("profesor agrega una observación a una nota y la quita", async ({ page }) => {
   await entrar(page, academia.correos.profesor, academia.slug);
-  await page.goto(colegio(academia.slug, "/notas"));
+  await page.goto(colegio(academia.slug, "/notas?vista=anterior"));
   await page.getByRole("button", { name: /Agregar observación de Franco Herrera Poma en Simulacro 1/ }).click();
   await page.getByRole("textbox", { name: "Observación" }).fill("Mejoró mucho en el procedimiento.");
   await page.getByRole("button", { name: "Guardar observación" }).click();
@@ -122,7 +122,7 @@ test("el profesor cierra las notas de su curso y dirección las reabre", async (
   await limpiar();
   try {
     await entrar(page, academia.correos.profesor, academia.slug);
-    await page.goto(colegio(academia.slug, "/notas"));
+    await page.goto(colegio(academia.slug, "/notas?vista=anterior"));
     const main = page.getByRole("main");
     await expect(main.getByText("Abierto", { exact: true })).toBeVisible();
     await main.getByRole("button", { name: "Cerrar notas del curso" }).click();
@@ -133,7 +133,7 @@ test("el profesor cierra las notas de su curso y dirección las reabre", async (
     await expect(main.getByRole("button", { name: "Reabrir notas del curso" })).toHaveCount(0);
 
     const dir = await paginaNueva(browser, academia.correos.direccion, academia.slug);
-    await dir.goto(colegio(academia.slug, "/notas"));
+    await dir.goto(colegio(academia.slug, "/notas?vista=anterior"));
     await dir.getByRole("main").getByRole("button", { name: "Reabrir notas del curso" }).click();
     await dir.getByRole("alertdialog").getByRole("button", { name: "Reabrir notas del curso" }).click();
     await expect(dir.getByRole("main").getByText("Abierto", { exact: true })).toBeVisible();

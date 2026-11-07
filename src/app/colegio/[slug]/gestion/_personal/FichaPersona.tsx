@@ -1,4 +1,4 @@
-import { Info, Pencil } from "lucide-react";
+import { BookOpenCheck, Info, Pencil } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
@@ -10,7 +10,7 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { NOMBRE_ROL } from "@/lib/roles";
 import { obtenerFicha, ROLES_NO_DOCENTES, type RolPersonal } from "@/lib/server/personal";
 import type { TenantContext } from "@/lib/server/tenant";
-import { cambiarEstadoMembresiaAction, editarPersonaAction, reenviarBienvenidaAction, reenviarInvitacionAction, restablecerPasswordAction } from "../actions";
+import { cambiarEstadoMembresiaAction, editarPersonaAction, fijarPermisoCompetenciasAction, reenviarBienvenidaAction, reenviarInvitacionAction, restablecerPasswordAction } from "../actions";
 import { AccionesFila } from "../_componentes/AccionesFila";
 import { AvatarPersona } from "../_componentes/AvatarPersona";
 import { PanelFormulario } from "../_componentes/PanelFormulario";
@@ -163,6 +163,18 @@ export async function FichaPersona({ ctx, ambito, id, searchParams }: { ctx: Ten
           {ambito === "profesores" && (
             <section aria-labelledby="ficha-cursos" className="flex flex-col gap-3">
               <TituloBloque id="ficha-cursos">Cursos y tutoría</TituloBloque>
+              <div className="flex flex-col gap-3 rounded-[14px] border border-borde-sutil bg-superficie p-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="min-w-0">
+                  <p className="flex items-center gap-2 font-medium"><BookOpenCheck className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> Puede gestionar competencias</p>
+                  <p className="text-cuerpo-sm text-muted-foreground">{f.gestionaCompetencias ? "Activo · solo en los cursos que dicta." : "Desactivado · necesita autorización de dirección."}</p>
+                </div>
+                <form action={fijarPermisoCompetenciasAction}>
+                  <input type="hidden" name="id" value={f.id} />
+                  <input type="hidden" name="volver" value={volver} />
+                  <input type="hidden" name="permitido" value={f.gestionaCompetencias ? "0" : "1"} />
+                  <Boton type="submit" variante="secundario">{f.gestionaCompetencias ? "Desactivar permiso" : "Activar permiso"}</Boton>
+                </form>
+              </div>
               <p className="text-sm">
                 <strong>Tutoría:</strong> {f.salonesTutor.length > 0 ? f.salonesTutor.map((s) => s.nombre).join(", ") : "Sin tutoría."}
               </p>

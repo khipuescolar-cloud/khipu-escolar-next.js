@@ -63,7 +63,7 @@ export async function crearTareaAction(slug: string, _previo: Resultado | null, 
   const r = await crearTarea(ctx, {
     cursoId: texto(f, "cursoId"), titulo: texto(f, "titulo"), descripcion: texto(f, "descripcion"), indicacionesEntrega: texto(f, "indicacionesEntrega"),
     fechaEntrega: texto(f, "fechaEntrega"), horaEntrega: texto(f, "horaEntrega"), permiteTardias: f.has("permiteTardias") ? marcado(f, "permiteTardias") : false,
-    comentariosGenerales: marcado(f, "comentariosGenerales"), calificable: marcado(f, "calificable"), accion: texto(f, "accion") || "publicar",
+    comentariosGenerales: marcado(f, "comentariosGenerales"), calificable: marcado(f, "calificable"), competenciaId: texto(f, "competenciaId") || undefined, accion: texto(f, "accion") || "publicar",
     publicarEn: texto(f, "publicarEn"), secciones: json(f, "secciones", undefined), enlaces: enlacesDe(f), avisarFamilias,
     materialesExistentes: json(f, "materialesExistentes", []),
   }, await adjuntosDeFormData(f));

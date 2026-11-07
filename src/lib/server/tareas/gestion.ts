@@ -20,6 +20,7 @@ const hora = z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/, "La hora no es válid
 
 const esquemaSeccion = z.object({
   cursoId: z.uuid("Algún curso no es válido."),
+  competenciaId: opcional(z.uuid()),
   todos: bool(true),
   alumnoIds: z.array(z.uuid("Algún alumno no es válido.")).max(200).optional(),
   /** Fecha propia de la sección (AAAA-MM-DD); vacía = la general. Usa la hora general. */
@@ -186,7 +187,7 @@ async function crearEvaluacionesDeTarea(ctx: TenantContext, tareaId: string): Pr
     }
     const r = await crearEvaluacion(ctx, {
       cursoId: s.cursoId, periodoId: periodo.id, titulo: `Tarea: ${t.titulo}`.slice(0, 120), fecha, peso: 1,
-      competenciaId: s.cursoId === t.cursoId && t.competenciaId ? t.competenciaId : undefined,
+      competenciaId: s.competenciaId ?? (s.cursoId === t.cursoId ? t.competenciaId ?? undefined : undefined),
     }, { tareaId });
     if (!r.ok) {
       sinPeriodo++;
@@ -225,8 +226,16 @@ export async function crearTarea(ctx: TenantContext, entrada: unknown, adjuntos:
   for (const s of v.secciones) {
     if (s.fechaEntrega && plazoDe(ctx, s.fechaEntrega, d.data.horaEntrega, ahora).error) return fallo("La fecha de alguna sección ya pasó.");
   }
-  if (d.data.competenciaId && (await ctx.db.competencia.count({ where: { id: d.data.competenciaId, cursoId: d.data.cursoId } })) === 0) {
+  if (d.data.calificable && !d.data.competenciaId) return fallo("Elige una competencia para la tarea calificable.");
+  if (d.data.competenciaId && (await ctx.db.competencia.count({ where: { id: d.data.competenciaId, cursoId: d.data.cursoId, desactivadaAt: null } })) === 0) {
     return fallo("Esa competencia no es de este curso.");
+  }
+  if (d.data.calificable) {
+    for (const s of v.secciones) {
+      const compId = s.competenciaId ?? (s.cursoId === d.data.cursoId ? d.data.competenciaId : undefined);
+      if (!compId) return fallo("Elige una competencia para cada sección calificable.");
+      if ((await ctx.db.competencia.count({ where: { id: compId, cursoId: s.cursoId, desactivadaAt: null } })) === 0) return fallo("Una competencia no pertenece a su sección o está desactivada.");
+    }
   }
   let validados;
   try {
@@ -252,7 +261,7 @@ export async function crearTarea(ctx: TenantContext, entrada: unknown, adjuntos:
     for (const s of v.secciones) {
       const tc = await ctx.db.tareaCurso.create({
         data: {
-          tenantId: ctx.tenant.id, tareaId: t.id, cursoId: s.cursoId, todos: s.todos,
+          tenantId: ctx.tenant.id, tareaId: t.id, cursoId: s.cursoId, todos: s.todos, competenciaId: s.competenciaId ?? (s.cursoId === d.data.cursoId ? d.data.competenciaId ?? null : null),
           fechaEntrega: s.fechaEntrega ? instanteDeEntrega(s.fechaEntrega, d.data.horaEntrega ?? null, ctx.tenant.zonaHoraria) : null,
         },
       });

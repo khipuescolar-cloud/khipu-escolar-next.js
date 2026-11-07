@@ -413,6 +413,7 @@ export async function exportarColegioDesdePlataforma(admin: AdminContext, tenant
     rol: "direccion",
     estado: "activa",
     cargo: "Equipo Khipu",
+    gestionaCompetencias: false,
     createdAt: new Date(),
   };
   const ctx: TenantContext = { tenant, user: admin.user, membership, rol: "direccion", roles: ["direccion"], db: dbTenant(tenant.id), ...(await accesoModulos(tenant, "direccion")) };
