@@ -2,6 +2,7 @@ import "server-only";
 import { z } from "zod";
 import type { Prisma } from "@/generated/prisma/client";
 import type { Nivel } from "@/generated/prisma/enums";
+import { esNivelCneb, gradoValido } from "@/lib/cneb/catalogo";
 import { urlColegio, urlRaiz } from "@/lib/dominio";
 import { leerCsvAlumnos, type ErrorFila } from "@/lib/importar-alumnos";
 import { adjuntosDeCurso, adjuntosDeSalon, borrarDelProveedor } from "./adjuntos";
@@ -9,6 +10,7 @@ import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { encolarBienvenida } from "./cuentas";
 import { db } from "./db";
+import { restaurarPlantillaOficial } from "./curriculo";
 import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
 import { areaDeCurso } from "./nudito/areas-cursos";
 import { requireFeature } from "./plan";
@@ -241,10 +243,11 @@ const esquemaCurso = z.object({
 export async function crearCurso(ctx: TenantContext, entrada: z.input<typeof esquemaCurso>): Promise<string> {
   exigirGestion(ctx);
   const d = validar(esquemaCurso, entrada);
-  const salon = await ctx.db.salon.findFirst({ where: { id: d.salonId }, select: { nivel: true } });
+  const salon = await ctx.db.salon.findFirst({ where: { id: d.salonId }, select: { nivel: true, grado: true } });
   if (!salon) throw new ErrorDeNegocio("No se encontró el salón.");
   await exigirProfesorActivo(ctx, d.profesorId);
   const c = await ctx.db.curso.create({ data: { tenantId: ctx.tenant.id, ...d, areaCneb: areaDeCurso(d.nombre, salon.nivel) } });
+  if (ctx.modulos.has("notas") && c.areaCneb && esNivelCneb(salon.nivel) && gradoValido(salon.nivel, salon.grado)) await restaurarPlantillaOficial(ctx, c.id);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "curso", entidadId: c.id });
   return c.id;
 }

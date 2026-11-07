@@ -31,6 +31,35 @@ export type CompetenciaCatalogo = {
   /** nivel → grado ("1".."6"; en inicial la edad "3".."5") → textos oficiales. Grado ausente o vacío = sin desempeños (ver PENDIENTES.md). */
   desempenos: Partial<Record<NivelCneb, Record<string, string[]>>>;
 };
+/** Referencia estable compartida por grados y secciones para la misma competencia CNEB. */
+export function codigoOficialCompetencia(numero: number): string {
+  return `CNEB-${String(numero).padStart(2, "0")}`;
+}
+
+export type ReferenciaCompetenciaOficial = {
+  codigoOficial: string;
+  area: string;
+  nivel: NivelCneb;
+  grados: readonly number[];
+  gradosConDesempenos: readonly number[];
+  nombre: string;
+  capacidades: readonly string[];
+  versionCurricular: string;
+};
+
+/** Metadatos de la plantilla local; la vigencia normativa posterior a 2017 queda por verificar. */
+export function competenciasOficiales(area: AreaCatalogo, nivel: NivelCneb): ReferenciaCompetenciaOficial[] {
+  return area.competencias.filter((c) => c.niveles.includes(nivel)).map((c) => ({
+    codigoOficial: codigoOficialCompetencia(c.numero),
+    area: area.area,
+    nivel,
+    grados: GRADOS_POR_NIVEL[nivel],
+    gradosConDesempenos: GRADOS_POR_NIVEL[nivel].filter((grado) => (c.desempenos[nivel]?.[String(grado)]?.length ?? 0) > 0),
+    nombre: c.nombre,
+    capacidades: c.capacidades[nivel] ?? [],
+    versionCurricular: "Programas curriculares MINEDU 2016–2017 (vigencia por verificar)",
+  }));
+}
 export type FuenteCatalogo = { documento: string; url: string; anio: number; nivel?: NivelCneb; paginas?: string };
 export type AreaCatalogo = {
   area: string;

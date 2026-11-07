@@ -1,6 +1,6 @@
 # 47 — Registro de notas
 
-> Estado: en desarrollo (registro y tareas) · Plan: Khipu Pro · Última actualización: 2026-11-07 (Codex)
+> Estado: en desarrollo (registro, tareas, currículo y permisos) · Plan: Khipu Pro · Última actualización: 2026-11-07
 
 ## Objetivo
 Dar al docente un registro por curso semejante a una tabla de calificaciones, con actividades agrupadas por competencia y entrada rápida de notas, usando los servicios académicos existentes.
@@ -14,7 +14,7 @@ Dar al docente un registro por curso semejante a una tabla de calificaciones, co
 | Apoderado y alumno | Consultar sus notas publicadas y libreta según specs/11 | Editar o ver otros alumnos |
 | Otros roles o Khipu Base | Solo acceso permitido por specs/11 y 03 | Acceder al registro docente |
 
-Cada operación valida `requireFeature(ctx, "notas")`, rol, curso y alcance con `ctx.db`. El permiso se comprueba en el servidor y la UI solo muestra las acciones disponibles. El rol `administrativo` actual no equivale automáticamente a administrador académico: necesita una definición institucional de alcance antes de habilitar gestión.
+Cada operación valida `requireFeature(ctx, "notas")`, rol, curso y alcance con `ctx.db`. El permiso se comprueba en el servidor y la UI solo muestra las acciones disponibles. No existe un rol académico equivalente a dirección: `administrativo` es personal no docente y no recibe este permiso automáticamente. Dirección concede o retira `Membership.gestionaCompetencias` desde la ficha del profesor; el docente autorizado solo gestiona cursos donde figura en `Curso.profesorId`, no los que únicamente tutorea.
 
 ## Flujos
 
@@ -31,6 +31,9 @@ Cada operación valida `requireFeature(ctx, "notas")`, rol, curso y alcance con 
 - `Nota` es única por evaluación y alumno. Un pendiente es ausencia de valor; nunca equivale a C o NSP. Se validan escala literal/vigesimal, matriculados y periodo abierto. Crear por lote es transaccional e idempotente.
 - NSP, 15 días de justificación, recuperación, restricciones de publicación/cierre y corrección con motivo e `HistorialNota` siguen specs/11 y 37. Las tareas no generan NSP.
 - Las competencias oficiales provienen del catálogo CNEB; las personalizadas viven en el colegio. Se conserva `codigoOficial` solo si hay correspondencia verificable. Desactivar no borra notas ni relaciones; restaurar plantilla no sobreescribe personalizaciones.
+- Solo `origen = oficial` **y** `codigoOficial` válido identifica una competencia exportable a SIAGIE; las personalizadas muestran «No oficial» y quedan excluidas de reportes oficiales. La integración efectiva con SIAGIE requiere revisión normativa.
+- Un curso nuevo con área y grado CNEB reconocidos recibe competencias oficiales y capacidades automáticamente. La restauración es idempotente por `(cursoId, codigoOficial)`, reactiva las oficiales desactivadas y conserva las personalizadas. Los grados de una misma área reutilizan la definición del catálogo, aunque la BD conserva instancias por curso para aislamiento e historial.
+- La competencia usada en evaluaciones, valoraciones, tareas, informes o rectificaciones conserva su nombre histórico y solo puede desactivarse; una sin referencias puede eliminarse. La edición de una oficial sin uso que cambia su nombre la convierte en personalizada. Cada cambio registra antes, después y actor en auditoría.
 - No se modifica el catálogo compartido al editar una competencia del colegio. Cada escritura se audita. Una competencia desactivada se muestra en historial y se excluye del selector de actividades nuevas.
 
 ## Modelo de datos
@@ -56,6 +59,7 @@ Las firmas de PASO 0 son contratos; su implementación pertenece a pasos posteri
 ## Rutas y UI
 
 - `/notas`: Mis cursos para el docente; vista existente de lectura para familia y alumno.
+- `/notas/competencias`: acción secundaria de configuración, con selector de curso, insignias de origen y estado, capacidades plegadas y acciones de crear, editar, desactivar, reactivar y restaurar.
 - Registro de un curso en `/notas/[cursoId]` y «Nueva calificación» en dos pasos dentro de un Sheet. La configuración curricular es acción secundaria autorizada. `/notas/periodos` y `/notas/criterios` mantienen sus funciones internas.
 
 ## Textos y UX
@@ -74,9 +78,10 @@ El botón principal dice «Nueva calificación». Los estados combinan ícono y 
 - Unit: agrupación por competencias, origen, pendientes y validación de escala.
 - Integración: permisos por tenant/rol/curso; competencia desactivada; transacción e idempotencia; tarea y registro comparten `Nota`; NSP, historial, cierre y libreta.
 - E2E: Mis cursos → Registro → Nueva calificación; tarea calificada visible en registro; valoración de libreta independiente.
+- PASO 1 E2E: dirección activa `gestionaCompetencias` en la ficha de Lucía; ella crea y desactiva una competencia desde `/notas/competencias`, con capturas a 1440×900 y 390×844.
 
 ## Pendientes
 
-- Completar pruebas e2e y la reconciliación de permisos/textos anteriores de specs/11 y 39.
+- Completar pruebas e2e y reconciliar los textos anteriores de specs/11 y 39.
 - Las evaluaciones previas a la migración tienen `creadaAt` de migración, no fecha histórica verificable.
 - Revisar vigencia y equivalencia SIAGIE del catálogo oficial; Inicial ciclo I queda fuera del alcance actual.

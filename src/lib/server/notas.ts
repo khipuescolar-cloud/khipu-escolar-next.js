@@ -18,6 +18,8 @@ import { evaluacionEliminable, MENSAJE_EVALUACION_NO_ELIMINABLE, MENSAJE_MOTIVO_
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
 import { guardarDesempenosEvaluacion, validarDesempenosEvaluacion } from "./cneb";
+import { crearCompetencia as crearCompetenciaCurricular, desactivarCompetencia as desactivarCompetenciaCurricular } from "./curriculo";
+import { ErrorDeNegocio } from "./contexto-accion";
 import { cursosDelDocente } from "./cursos";
 import { destinatariosDeAlumno, encolarParaDestinatario, tieneCanalAviso, type Destinatario } from "./notificaciones/encolar";
 import { conEnvio } from "./notificaciones/envios";
@@ -369,26 +371,14 @@ const esquemaCompetencia = z.object({
 export async function crearCompetencia(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
   const d = esquemaCompetencia.safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
-  await cursoEscritura(ctx, d.data.cursoId);
-  const ultimo = await ctx.db.competencia.aggregate({ where: { cursoId: d.data.cursoId }, _max: { orden: true } });
-  await ctx.db.competencia.create({
-    data: {
-      tenantId: ctx.tenant.id, cursoId: d.data.cursoId, nombre: d.data.nombre,
-      descripcion: d.data.descripcion || null, orden: (ultimo._max.orden ?? -1) + 1,
-    },
-  });
+  try { await crearCompetenciaCurricular(ctx, d.data); }
+  catch (error) { if (error instanceof ErrorDeNegocio) return fallo(error.message); throw error; }
   return ok("Competencia agregada.");
 }
 
 export async function eliminarCompetencia(ctx: TenantContext, competenciaId: string): Promise<Resultado> {
-  requireFeature(ctx, "notas");
-  const comp = await ctx.db.competencia.findFirst({ where: { id: competenciaId } });
-  if (!comp) return fallo("No encontramos esa competencia.");
-  await cursoEscritura(ctx, comp.cursoId);
-  const usos = await ctx.db.calificacionPeriodo.count({ where: { competenciaId } });
-  if (usos > 0) return fallo("Esta competencia ya tiene calificaciones en la libreta y no se puede eliminar.");
-  await ctx.db.competencia.deleteMany({ where: { id: competenciaId } });
-  return ok("Competencia eliminada.");
+  await desactivarCompetenciaCurricular(ctx, competenciaId);
+  return ok("Competencia desactivada. Sus calificaciones se conservan.");
 }
 
 // ───────────── Evaluaciones ─────────────

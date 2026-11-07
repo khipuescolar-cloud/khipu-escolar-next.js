@@ -1,5 +1,7 @@
 # 17 — CRM del colegio: profesores, personal y grados
 
+> La ficha del profesor permite a dirección activar o desactivar «Puede gestionar competencias» (`Membership.gestionaCompetencias`); ver [specs/47](47-registro-de-notas.md).
+
 > Estado: implementado · Última actualización: 2026-11-03 (Claude Code, rama `pre-seguridad`: correcciones de seguridad; antes: Claude Code, rama `feat/carga-masiva`: carga masiva de salones, cursos y familias) · 2026-10-27 (Claude Code, rama `feat/crm-personal`) · Plan: Khipu Base (gestión)
 
 ## Objetivo
