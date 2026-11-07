@@ -5,11 +5,11 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { accesoModulosDeCodigo } from "@/lib/modulos";
-import { documentoVisible, type CarpetaPlana } from "@/lib/documentos";
+import { documentoVisible, puedeEntrarSeccion, seccionDocumento, type CarpetaPlana } from "@/lib/documentos";
 import { requireArchivoVisible } from "@/lib/server/archivos";
 import { db } from "@/lib/server/db";
 import {
-  borrarCarpeta, borrarDocumento, crearCarpeta, editarCarpeta, editarDocumento, listarContenido, reemplazarArchivoDocumento, subirDocumento,
+  archivarDocumento, borrarCarpeta, borrarDocumento, crearCarpeta, editarCarpeta, editarDocumento, listarContenido, reemplazarArchivoDocumento, subirDocumento,
 } from "@/lib/server/documentos";
 import type { EntradaAdjunto } from "@/lib/server/adjuntos";
 import { cambiarAccesoGeneral, compartirRecurso, destacarRecurso, detalleAccesos, eliminarDefinitivoRecurso, moverRecurso, personasParaCompartir, quitarAccesoRecurso, renombrarRecurso, restaurarRecurso, vaciarPapeleraVencida, vencimientoPapelera } from "@/lib/server/documentos-drive";
@@ -55,6 +55,37 @@ describe("biblioteca de documentos", () => {
   });
 
   const titulos = async (quien: TenantContext, opciones: Parameters<typeof listarContenido>[1] = {}) => (await listarContenido(quien, opciones)).documentos.map((d) => d.titulo).sort();
+
+  it("navegación por rol y alias de Mi unidad", () => {
+    expect(seccionDocumento("unidad")).toBe("borradores");
+    expect(puedeEntrarSeccion("profesor", "gestion")).toBe(true);
+    expect(puedeEntrarSeccion("apoderado", "gestion")).toBe(false);
+    expect(puedeEntrarSeccion("administrativo", "materiales")).toBe(false);
+    expect(puedeEntrarSeccion("porteria", "biblioteca")).toBe(false);
+  });
+
+  it("prueba 20: un restringido no aparece en búsqueda ni Recientes de otro rol", async () => {
+    const dir = c.ctxDe("direccion");
+    const { id } = await subirDocumento(dir, { titulo: "Circular confidencial W4", carpetaId: null, visibleRoles: ["profesor"], salonId: null, categoria: "protocolo" }, pdf("confidencial.pdf"));
+    const madre = c.ctxDe("madre");
+    await c.db.accesoDocumento.create({ data: { tenantId: c.tenant.id, membershipId: madre.membership.id, documentoId: id } });
+    expect(await titulos(madre, { q: "confidencial" })).not.toContain("Circular confidencial W4");
+    expect(await titulos(madre, { vista: "recientes" })).not.toContain("Circular confidencial W4");
+    expect((await listarContenido(dir, { q: "confidencial", categoria: "protocolo" })).documentos[0]).toMatchObject({ categoria: "protocolo", oficial: false });
+    await archivarDocumento(dir, id, true);
+    expect(await titulos(dir, { q: "confidencial" })).not.toContain("Circular confidencial W4");
+    expect(await titulos(dir, { q: "confidencial", archivados: true })).toContain("Circular confidencial W4");
+  });
+
+  it("documento oficial solo lo crea dirección y no se reemplaza ni se purga", async () => {
+    const dir = c.ctxDe("direccion");
+    await esperarProhibido(subirDocumento(administrativo, { titulo: "Oficial ajeno", carpetaId: null, visibleRoles: [], salonId: null, oficial: true }, pdf()));
+    const { id } = await subirDocumento(dir, { titulo: "Oficial W4", carpetaId: null, visibleRoles: [], salonId: null, oficial: true, categoria: "oficial" }, pdf());
+    await expect(reemplazarArchivoDocumento(dir, id, pdf("nuevo.pdf"))).rejects.toThrow(/oficial/);
+    await expect(borrarDocumento(dir, id)).rejects.toThrow(/oficial/);
+    await c.db.documento.update({ where: { id }, data: { eliminadoAt: new Date(), eliminadoPorId: dir.membership.id } });
+    await expect(eliminarDefinitivoRecurso(dir, { tipo: "documento", id })).rejects.toThrow(/oficial/);
+  });
 
   it("regla pura: dirección ve todo; autor ve lo suyo; salón no limita al administrativo; carpetas padre restringen", () => {
     const mapa = new Map<string, CarpetaPlana>([
@@ -152,18 +183,18 @@ describe("biblioteca de documentos", () => {
 
   it("el profesor sube solo a sus salones y gestiona solo lo suyo", async () => {
     const tutora = c.ctxDe("tutora");
-    await expect(subirDocumento(tutora, { titulo: "Sin salón", carpetaId: null, visibleRoles: ["apoderado"], salonId: null }, pdf())).rejects.toThrow(/Elige uno de tus salones/);
-    await esperarProhibido(subirDocumento(tutora, { titulo: "Salón ajeno", carpetaId: null, visibleRoles: ["apoderado"], salonId: c.otroSalon.id }, pdf()));
-    await expect(subirDocumento(tutora, { titulo: "Rol raro", carpetaId: null, visibleRoles: ["administrativo"], salonId: c.salon.id }, pdf())).rejects.toThrow(/roles válidos/);
-    const { id } = await subirDocumento(tutora, { titulo: "Guía de 3.° B", carpetaId: null, visibleRoles: ["apoderado", "alumno"], salonId: c.salon.id }, pdf("guia.pdf"));
-    expect(await titulos(c.ctxDe("madre"))).toContain("Guía de 3.° B");
-    expect(await titulos(familiaOtroSalon)).not.toContain("Guía de 3.° B");
+    await esperarProhibido(subirDocumento(tutora, { titulo: "Sin permiso de publicación", carpetaId: null, visibleRoles: ["apoderado"], salonId: c.salon.id }, pdf()));
+    await esperarProhibido(subirDocumento(tutora, { titulo: "Salón ajeno", carpetaId: null, visibleRoles: ["apoderado"], salonId: c.otroSalon.id, ambito: "unidad" }, pdf()));
+    await expect(subirDocumento(tutora, { titulo: "Rol raro", carpetaId: null, visibleRoles: ["administrativo"], salonId: c.salon.id, ambito: "unidad" }, pdf())).rejects.toThrow(/roles válidos/);
+    const { id } = await subirDocumento(tutora, { titulo: "Guía de 3.° B", carpetaId: null, visibleRoles: ["apoderado", "alumno"], salonId: c.salon.id, ambito: "unidad" }, pdf("guia.pdf"));
+    expect(await titulos(c.ctxDe("madre"), { vista: "compartido" })).toContain("Guía de 3.° B");
+    expect(await titulos(familiaOtroSalon, { vista: "compartido" })).not.toContain("Guía de 3.° B");
     // Otro profesor no puede editar ni borrar (tampoco la ve); dirección y la autora, sí.
     const colega = c.ctxDe("otroProfesor");
     await expect(editarDocumento(colega, id, { titulo: "x", carpetaId: null, visibleRoles: [], salonId: c.otroSalon.id })).rejects.toThrow();
     await expect(borrarDocumento(colega, id)).rejects.toThrow();
     await editarDocumento(tutora, id, { titulo: "Guía de 3.° B (v2)", carpetaId: null, visibleRoles: ["apoderado"], salonId: c.salon.id });
-    expect(await titulos(alumno)).not.toContain("Guía de 3.° B (v2)");
+    expect(await titulos(alumno, { vista: "compartido" })).not.toContain("Guía de 3.° B (v2)");
     await borrarDocumento(c.ctxDe("direccion"), id);
     expect(await c.db.documento.count({ where: { id, eliminadoAt: null } })).toBe(0);
     await eliminarDefinitivoRecurso(c.ctxDe("direccion"), { tipo: "documento", id });

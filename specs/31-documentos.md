@@ -1,6 +1,6 @@
 # 31 — Documentos: materiales, gestión académica, biblioteca y borradores
 
-> Estado: explorador implementado (Khipu Pro); **reestructuración especificada (Etapa 2 SDD) y sin implementar** · Actualizado: 2026-11-07 · Sección Comunicación · Relacionadas: `45-almacenamiento-y-cuotas.md`, `46-solicitudes-documentales.md`, `39-tareas.md`, `14-archivos-cloudinary.md` · Diagnóstico: `docs/documentos-diagnostico-2026-11.md` · Plan: `docs/documentos-plan-implementacion.md`
+> Estado: explorador implementado (Khipu Pro); navegación por sección y metadatos de Biblioteca implementados en W4. Materiales, solicitudes y almacenamiento central pendientes de integrar con W1–W3 · Actualizado: 2026-11-07 · Sección Comunicación · Relacionadas: `45-almacenamiento-y-cuotas.md`, `46-solicitudes-documentales.md`, `39-tareas.md`, `14-archivos-cloudinary.md` · Diagnóstico: `docs/documentos-diagnostico-2026-11.md` · Plan: `docs/documentos-plan-implementacion.md`
 
 Lo implementado hoy (explorador estilo Drive) se conserva y se describe en «Explorador vigente»; las secciones nuevas dicen qué cambia. Hasta que cada flujo se integre, **manda el comportamiento vigente**.
 
@@ -31,6 +31,8 @@ Ambos módulos usan el mismo repositorio y la misma cuota. Subir de nuevo el mis
 ## Navegación por rol
 
 Ruta `/documentos?seccion=materiales|gestion|biblioteca|borradores|compartido|recientes|destacados|papelera` (el `?vista=` actual sigue aceptándose: `unidad`→`borradores`, el resto igual). Sin autorización, la sección **no aparece** y la ruta responde 403.
+
+Implementación W4: `seccionDocumento` normaliza el alias y `puedeEntrarSeccion` aplica la matriz de roles en el servidor y en la navegación. Materiales y Gestión académica consumen `listarMateriales` y `listarSolicitudes`; mientras esos contratos sean provisionales se muestra un estado vacío.
 
 | Sección | Dirección | Administrativo | Profesor | Apoderado | Alumno |
 |---|---|---|---|---|---|
@@ -100,6 +102,8 @@ Se conserva todo (`ambito = biblioteca`, carpetas, `visibleRoles`, `salonId`, co
 - **RF-B5 Publicar:** dirección y administrativo. El profesor no publica en la raíz de la Biblioteca.
 - Migración W4 `20261116090300_biblioteca_categorias` (`documentos.categoria`, `documentos.oficial`, `documentos.archivado_at`; `carpetas_documento.archivado_at`).
 
+Implementación W4: las filas antiguas reciben categoría `otro`, `oficial = false` y quedan sin archivar. El filtro de categoría y «Ver archivados» se aplican en el servidor; la búsqueda y Recientes pasan por `nivelDocumento`. El formulario de publicación pide categoría y destinatarios explícitos; solo dirección puede marcar `oficial`. Se bloquean su reemplazo, envío a papelera y purga física, incluso si está dentro de una carpeta. El archivado manual de documentos está auditado.
+
 ## Mis borradores
 
 Es la vista «Mi unidad» (`AmbitoDocumento.unidad`, valor intacto) con otro nombre y límites:
@@ -107,6 +111,8 @@ Es la vista «Mi unidad» (`AmbitoDocumento.unidad`, valor intacto) con otro nom
 - Cuota de **2 GB por persona** (configurable, `specs/45`), dentro del total del colegio; incluye la papelera.
 - Acciones nuevas: **«Publicar como material de clase»** (elige curso/secciones; recategoriza) y **«Enviar a la Biblioteca»** (solo dirección/administrativo). Compartir con personas sigue disponible (entrada explícita, auditada), sin enlaces públicos.
 - Indicador «Usaste X de 2 GB» en la sección.
+
+Implementación provisional W4: el indicador suma los bytes de archivos en documentos propios de `ambito = unidad` (incluida la papelera) y usa 2 GB hasta conectar `resumenAlmacenamiento`/`limitesDe` de W1. La cuota todavía no se exige desde este flujo.
 
 ## Almacenamiento y cuotas
 

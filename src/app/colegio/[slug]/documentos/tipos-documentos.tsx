@@ -9,6 +9,7 @@ export type Item = {
   tipo: "carpeta" | "documento"; id: string; nombre: string; propietario: string; modificado: Date; creado: Date;
   tamano: number | null; archivo?: ArchivoItem | null; gestionable: boolean; destacado: boolean; descripcion?: string | null;
   carpetaId?: string | null; visibleRoles?: string[]; salonId?: string | null; ambito: "biblioteca" | "unidad"; elementos?: number;
+  categoria?: string; oficial?: boolean; archivado?: boolean;
 };
 
 export const ETIQUETA_ROL: Record<string, string> = { direccion: "Dirección", administrativo: "Administrativo", profesor: "Profesor", apoderado: "Familia", alumno: "Alumno" };

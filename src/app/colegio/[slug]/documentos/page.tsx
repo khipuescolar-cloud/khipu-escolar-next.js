@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
+import { forbidden } from "next/navigation";
+import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { NavegacionDocumentos } from "./NavegacionDocumentos";
+import { PanelMateriales } from "./materiales/PanelMateriales";
+import { PanelSolicitudes } from "./solicitudes/PanelSolicitudes";
+import { listarMateriales } from "@/lib/server/materiales";
+import { listarSolicitudes } from "@/lib/server/solicitudes/index";
 import { requireConsentimiento } from "@/lib/server/consentimiento";
-import { listarContenido, opcionesDeCarpeta, salonesParaDocumentos } from "@/lib/server/documentos";
+import { listarContenido, opcionesDeCarpeta, salonesParaDocumentos, usoBorradores } from "@/lib/server/documentos";
 import { contextoPermisosDocumento, nivelCarpeta, puedeEditarNivel } from "@/lib/server/documentos-permisos";
 import { personasParaCompartir } from "@/lib/server/documentos-drive";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { ROLES_BIBLIOTECA, esOrdenDocumento } from "@/lib/documentos";
+import { ROLES_BIBLIOTECA, esOrdenDocumento, puedeEntrarSeccion, seccionDocumento } from "@/lib/documentos";
 import { ExploradorDocumentos } from "./ExploradorDocumentos";
 
 export const metadata: Metadata = { title: "Documentos" };
 const uno = (v: string | string[] | undefined) => Array.isArray(v) ? v[0] : v;
 const UUID = /^[0-9a-f-]{36}$/i;
-const VISTAS = ["unidad", "compartido", "biblioteca", "recientes", "destacados", "papelera"] as const;
 
 export default async function DocumentosPage({ params, searchParams }: PageProps<"/colegio/[slug]/documentos">) {
   const { slug } = await params;
@@ -19,21 +25,31 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
   const ctx = await requireTenantContext(slug, ROLES_BIBLIOTECA);
   requireFeature(ctx, "documentos");
   await requireConsentimiento(ctx);
-  const vistaParam = uno(sp.vista);
-  const vista = VISTAS.find((v) => v === vistaParam) ?? "biblioteca";
+  const seccion = seccionDocumento(uno(sp.seccion) ?? uno(sp.vista)) ?? "biblioteca";
+  if (!puedeEntrarSeccion(ctx.rol, seccion)) forbidden();
+  if (seccion === "materiales" || seccion === "gestion") {
+    const contenido = seccion === "materiales" ? <PanelMateriales arbol={await listarMateriales(ctx)} /> : <PanelSolicitudes solicitudes={await listarSolicitudes(ctx)} direccion={ctx.rol === "direccion"} />;
+    return <div><EncabezadoPagina titulo="Documentos" seccion="comunicacion" descripcion="Materiales, gestión académica y biblioteca del colegio." /><div className="grid min-w-0 gap-4 md:grid-cols-[13.5rem_minmax(0,1fr)] md:gap-6 lg:grid-cols-[15rem_minmax(0,1fr)]"><aside><NavegacionDocumentos rol={ctx.rol} activa={seccion} /></aside><section className="min-w-0"><h2 className="mb-5 text-xl font-semibold">{seccion === "materiales" ? "Materiales de clase" : "Gestión académica"}</h2>{contenido}</section></div></div>;
+  }
+  const vista = seccion === "borradores" ? "unidad" : seccion;
   const carpetaParam = uno(sp.carpeta);
   const carpetaId = carpetaParam && UUID.test(carpetaParam) ? carpetaParam : null;
   const q = (uno(sp.q) ?? "").slice(0, 100);
   const ordenParam = uno(sp.orden);
   const orden = esOrdenDocumento(ordenParam) ? ordenParam : "recientes";
+  const categoriaParam = uno(sp.categoria);
+  const categorias = ["reglamento", "convivencia", "protocolo", "calendario", "formato", "oficial", "otro"] as const;
+  const categoria = categorias.find((c) => c === categoriaParam);
+  const archivados = uno(sp.archivados) === "1";
   const [contenido, opciones, salones, destinos, permisos] = await Promise.all([
-    listarContenido(ctx, { carpetaId, q, orden, vista }), opcionesDeCarpeta(ctx), salonesParaDocumentos(ctx), personasParaCompartir(ctx), contextoPermisosDocumento(ctx),
+    listarContenido(ctx, { carpetaId, q, orden, vista, categoria, archivados }), opcionesDeCarpeta(ctx), salonesParaDocumentos(ctx), personasParaCompartir(ctx), contextoPermisosDocumento(ctx),
   ]);
+  const usadoBorradores = seccion === "borradores" ? Number(await usoBorradores(ctx)) : null;
   const puedeCrear = ctx.rol === "direccion" || ctx.rol === "administrativo" || ctx.rol === "profesor";
   const carpetaActual = carpetaId ? permisos.mapa.get(carpetaId) : null;
   const carpetaDeCreacion = carpetaActual?.ambito === "unidad" && puedeEditarNivel(nivelCarpeta(permisos, carpetaActual.id)) ? carpetaActual.id : null;
   const carpetaCompartida = !!carpetaDeCreacion && carpetaActual?.creadoPorId !== ctx.membership.id;
   const archivoParam = uno(sp.archivo);
   const archivoInicial = archivoParam && UUID.test(archivoParam) ? archivoParam : null;
-  return <ExploradorDocumentos archivoInicial={archivoInicial} nuevos={uno(sp.nuevo) ?? ""} contenido={contenido} vista={vista} carpetaId={carpetaId} carpetaDeCreacion={carpetaDeCreacion} carpetaCompartida={carpetaCompartida} q={q} orden={orden} opciones={opciones} salones={salones} personas={destinos.personas} esProfesor={ctx.rol === "profesor"} puedeCrear={puedeCrear} ok={uno(sp.ok)} error={uno(sp.error)} />;
+  return <ExploradorDocumentos archivoInicial={archivoInicial} nuevos={uno(sp.nuevo) ?? ""} contenido={contenido} vista={vista} carpetaId={carpetaId} carpetaDeCreacion={carpetaDeCreacion} carpetaCompartida={carpetaCompartida} q={q} orden={orden} opciones={opciones} salones={salones} personas={destinos.personas} esProfesor={ctx.rol === "profesor"} rol={ctx.rol} puedeCrear={puedeCrear} categoria={categoria} archivados={archivados} usadoBorradores={usadoBorradores} ok={uno(sp.ok)} error={uno(sp.error)} />;
 }
