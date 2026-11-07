@@ -9,7 +9,7 @@ import { crearCalificacionAction } from "./actions";
 import { Elegir, fechaIso, opcionesDeNota, uuidCliente, type Datos } from "./comun";
 
 export function NuevaCalificacion({ datos, slug, abierto, onCerrar, onGuardada }: {
-  datos: Datos; slug: string; abierto: boolean; onCerrar: () => void; onGuardada: (evaluacionId: string | null) => void;
+  datos: Datos; slug: string; abierto: boolean; onCerrar: () => void; onGuardada: (evaluacionId: string | null, mensaje?: string) => void;
 }) {
   const [pendiente, transicion] = useTransition();
   const [paso, setPaso] = useState(1);
@@ -50,7 +50,7 @@ export function NuevaCalificacion({ datos, slug, abierto, onCerrar, onGuardada }
       });
       if (!r.ok) { setError(r.error); return; }
       reiniciar();
-      onGuardada(r.evaluacionId ?? null);
+      onGuardada(r.evaluacionId ?? null, r.mensaje);
     });
   };
 

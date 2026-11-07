@@ -4,7 +4,8 @@ import { z } from "zod";
 import { interpretarEntradaNota } from "@/lib/calificaciones";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
-import { cierreDeCurso, cursoEscritura, cursoLectura, guardarComentarioNota, listarPeriodos, periodoAbierto, periodoEnCurso } from "./notas";
+import { cierreDeCurso, cursoEscritura, cursoLectura, estadosNspDeGrilla, guardarComentarioNota, listarPeriodos, periodoAbierto, periodoEnCurso } from "./notas";
+import { sincronizarNsp } from "./nsp";
 import { requireFeature } from "./plan";
 import { type TenantContext } from "./tenant";
 
@@ -56,13 +57,15 @@ export async function registroDelCurso(ctx: TenantContext, cursoId: string, peri
   const periodo = periodos.find((p) => p.id === periodoId) ?? periodoEnCurso(periodos);
   const evaluaciones = periodo ? await ctx.db.evaluacion.findMany({
     where: { cursoId, periodoId: periodo.id },
-    include: { competencia: { select: { id: true, nombre: true } }, creadaPor: { select: { user: { select: { nombres: true, apellidos: true } } } }, notas: { select: { alumnoId: true, valorLiteral: true, valorNumerico: true, marca: true, updatedAt: true, comentario: true, comentarioPrivado: true } } },
+    include: { competencia: { select: { id: true, nombre: true } }, creadaPor: { select: { user: { select: { nombres: true, apellidos: true } } } }, notas: { select: { alumnoId: true, valorLiteral: true, valorNumerico: true, marca: true, updatedAt: true, comentario: true, comentarioPrivado: true, vencidaAt: true, recuperacion: true, fechaRecuperacion: true, justificacionId: true } } },
     orderBy: [{ fecha: "asc" }, { creadaAt: "asc" }],
   }) : [];
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "registro_notas", entidadId: cursoId, detalle: { periodoId: periodo?.id ?? null } });
   const cierre = periodo ? await cierreDeCurso(ctx, cursoId, periodo.id) : null;
   const propio = ctx.rol === "profesor" && curso.profesorId === ctx.membership.id;
-  return { cierre, puedeCerrar: (propio || ctx.rol === "direccion") && !!periodo && !periodo.cerrado && !cierre, puedeReabrir: ctx.rol === "direccion" && !!cierre && !!periodo && !periodo.cerrado,
+  // Estado de cada NSP (justificación, plazo, recuperación) para la celda y su diálogo (specs/37).
+  const { nsp: estadosNsp } = await estadosNspDeGrilla(ctx, evaluaciones, evaluaciones.flatMap((e) => e.notas.map((n) => ({ ...n, evaluacionId: e.id }))), alumnos.map((a) => a.id));
+  return { estadosNsp, cierre, puedeCerrar: (propio || ctx.rol === "direccion") && !!periodo && !periodo.cerrado && !cierre, puedeReabrir: ctx.rol === "direccion" && !!cierre && !!periodo && !periodo.cerrado,
      curso, periodos, periodo, alumnos, competencias, evaluaciones: evaluaciones.map((e) => ({ ...e, peso: Number(e.peso), notas: e.notas.map((n) => ({ ...n, valorNumerico: n.valorNumerico === null ? null : Number(n.valorNumerico) })) })), escala: ctx.tenant.escalaCalificacion, soloLectura: ctx.rol === "profesor" && curso.profesorId !== ctx.membership.id, puedeEditar: propio && !!periodo && !periodo.cerrado && !cierre };
 }
 
@@ -79,7 +82,11 @@ export async function crearCalificacion(ctx: TenantContext, entrada: unknown): P
   if (!d.success) return fallo(d.error.issues[0].message);
   const x = d.data;
   const existente = await ctx.db.evaluacion.findFirst({ where: { claveIdempotencia: x.claveIdempotencia }, select: { id: true, cursoId: true } });
-  if (existente) { await cursoEscritura(ctx, existente.cursoId); return { ok: true, evaluacionId: existente.id }; }
+  if (existente) {
+    await cursoEscritura(ctx, existente.cursoId);
+    await sincronizarNsp(ctx.db, ctx.tenant, { evaluacionIds: [existente.id] }); // idempotente: cubre un reintento tras un fallo a medias
+    return { ok: true, evaluacionId: existente.id };
+  }
   const curso = await cursoEscritura(ctx, x.cursoId);
   if (curso.profesorId !== ctx.membership.id) return fallo("Solo quien dicta el curso registra calificaciones aquí; el tutor del salón consulta en solo lectura.");
   const abierto = await periodoAbierto(ctx, x.periodoId, x.cursoId);
@@ -112,7 +119,13 @@ export async function crearCalificacion(ctx: TenantContext, entrada: unknown): P
       await tx.auditoria.create({ data: { tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "evaluacion", entidadId: evaluacion.id, detalle: { alumnos: notas.length, observaciones: notas.filter((n) => n.observacion).length, observacionVisible: x.observacionVisible === true } } });
       return evaluacion.id;
     });
-    return { ...ok("Calificación guardada."), evaluacionId: id };
+    // NSP automático (specs/37): quien faltó a la clase ese día sin justificar queda con «No se presentó». Es la misma
+    // regla de `crearEvaluacion`; una nota pendiente (sin fila) nunca se convierte en NSP por estar vacía. La actividad
+    // nace «programada» (borrador): el NSP se ve de inmediato en el registro y la familia lo ve al publicar los resultados.
+    const nsp = await sincronizarNsp(ctx.db, ctx.tenant, { evaluacionIds: [id] });
+    const conNsp = nsp.alumnosConNsp.length;
+    const textoNsp = conNsp > 0 ? ` ${conNsp === 1 ? "1 alumno quedó" : `${conNsp} alumnos quedaron`} con NSP por inasistencia.` : "";
+    return { ...ok(`Calificación guardada.${textoNsp}`), evaluacionId: id };
   } catch (error) {
     const retry = await ctx.db.evaluacion.findFirst({ where: { claveIdempotencia: x.claveIdempotencia, cursoId: x.cursoId }, select: { id: true } });
     if (retry) return { ok: true, evaluacionId: retry.id };

@@ -2,15 +2,17 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
-import { BookMarked, CheckCircle2, ChevronDown, FileSpreadsheet, FileText, Lock, Plus, Wrench } from "lucide-react";
+import { BookMarked, CheckCircle2, ChevronDown, FileSpreadsheet, FileText, Lock, Plus, Undo2, Wrench } from "lucide-react";
+import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { fechaLima } from "@/lib/fechas";
 import { Elegir, type Datos } from "./comun";
+import { reabrirCalificacionPeriodoAction } from "./periodo/actions";
 
-export function CabeceraRegistro({ datos, gestionar, botonPeriodo, onNueva, onInforme, onArchivos }: {
-  datos: Datos; gestionar: boolean; botonPeriodo?: ReactNode; onNueva: () => void; onInforme: () => void; onArchivos: () => void;
+export function CabeceraRegistro({ datos, slug, gestionar, botonPeriodo, onNueva, onInforme, onArchivos }: {
+  datos: Datos; slug: string; gestionar: boolean; botonPeriodo?: ReactNode; onNueva: () => void; onInforme: () => void; onArchivos: () => void;
 }) {
   const router = useRouter();
   const { curso, periodo, cierre } = datos;
@@ -41,6 +43,15 @@ export function CabeceraRegistro({ datos, gestionar, botonPeriodo, onNueva, onIn
             <span className="text-muted-foreground">Notas del curso:</span><span className="font-semibold">{estado}</span>
             {cierre && !periodo?.cerrado && <span className="hidden text-muted-foreground lg:inline">· {cierre.por}, {fechaLima(cierre.cerradoAt)}</span>}
           </p>
+          {datos.puedeReabrir && periodo && (
+            <BotonConfirmar
+              etiqueta={<><Undo2 aria-hidden />Reabrir</>}
+              titulo="¿Reabrir la calificación del periodo?"
+              descripcion="El profesor podrá volver a cambiar las notas y tendrá que enviar de nuevo la calificación del periodo. El tutor dejará de verla como enviada."
+              confirmar="Reabrir"
+              accion={reabrirCalificacionPeriodoAction.bind(null, slug, curso.id, periodo.id)}
+            />
+          )}
         </div>
         {periodo && (
           <>
@@ -50,7 +61,7 @@ export function CabeceraRegistro({ datos, gestionar, botonPeriodo, onNueva, onIn
               {botonPeriodo}
               {gestionar && <Button variant="outline" render={<Link href={`/notas/competencias?curso=${curso.id}`} />}><BookMarked aria-hidden />Competencias</Button>}
             </div>
-            <div className="flex gap-2 sm:hidden">
+            <div className="flex flex-wrap gap-2 sm:hidden">
               <DropdownMenu>
                 <DropdownMenuTrigger render={<Button variant="outline" />}><Wrench aria-hidden />Herramientas<ChevronDown aria-hidden /></DropdownMenuTrigger>
                 <DropdownMenuContent align="start">

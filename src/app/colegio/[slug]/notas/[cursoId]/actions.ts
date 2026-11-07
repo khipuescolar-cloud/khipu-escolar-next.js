@@ -24,6 +24,16 @@ export async function editarCeldaAction(slug: string, evaluacionId: string, alum
   return r;
 }
 
+/**
+ * Recuperación de un NSP justificado (specs/37): la nota va en la actividad original, con la fecha en que el alumno la rindió.
+ * Las reglas (autorizada por el profesor del curso, fecha no futura, historial `recuperacion`) viven en `guardarNota`.
+ */
+export async function registrarRecuperacionAction(slug: string, evaluacionId: string, alumnoId: string, valor: string, fechaRecuperacion: string) {
+  const r = await guardarNotaAction(slug, evaluacionId, alumnoId, valor, { fechaRecuperacion });
+  if (r.ok) refrescar();
+  return r;
+}
+
 /** Observación de una celda; privada salvo que `visible` sea true (specs/38). */
 export async function editarObservacionAction(slug: string, evaluacionId: string, alumnoId: string, observacion: string, visible: boolean): Promise<Resultado> {
   const r = await editarObservacionRegistro(await requireTenantContext(slug), { evaluacionId, alumnoId, observacion, visible });

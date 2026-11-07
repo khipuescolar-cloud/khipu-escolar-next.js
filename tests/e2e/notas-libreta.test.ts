@@ -132,6 +132,26 @@ test("el estado del curso se muestra en solo lectura y el curso cerrado no se ed
     await expect(estado.getByText("Enviado / Cerrado", { exact: true })).toBeVisible();
     await expect(page.getByRole("button", { name: /^Franco, Simulacro 1: / })).toBeDisabled();
     await expect(page.getByRole("button", { name: "Nueva calificación" })).toHaveCount(0);
+    // Dirección reabre desde la UI (no hay botón para el profesor) y el curso vuelve a quedar editable.
+    await expect(page.getByRole("button", { name: "Reabrir" })).toHaveCount(0);
+    await page.context().clearCookies();
+    await entrar(page, academia.correos.direccion, academia.slug);
+    await page.goto(colegio(academia.slug, `/notas/${academia.cursoId}`));
+    await expect(page.getByTestId("estado-cierre").getByText("Enviado / Cerrado", { exact: true })).toBeVisible();
+    for (const [ancho, alto] of [[1440, 900], [390, 844]] as const) {
+      await page.setViewportSize({ width: ancho, height: alto });
+      await page.waitForTimeout(300);
+      await page.screenshot({ path: `/tmp/claude-1000/-home-carlos-calderon-Escritorio-StartUp/4708dc9f-ca0e-4c47-a074-186c44f0e3b5/scratchpad/nsp-reabrir-${ancho}.png` });
+    }
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.getByRole("button", { name: "Reabrir" }).click();
+    await page.getByRole("alertdialog").getByRole("button", { name: "Reabrir" }).click();
+    await expect(page.getByTestId("estado-cierre").getByText("Abierto", { exact: true })).toBeVisible();
+    expect(await sql(`select 1 from cierres_curso where tenant_id = $1`, [academia.tenantId])).toHaveLength(0);
+    await page.context().clearCookies();
+    await entrar(page, academia.correos.profesor, academia.slug);
+    await page.goto(colegio(academia.slug, `/notas/${academia.cursoId}`));
+    await expect(page.getByRole("button", { name: /^Franco, Simulacro 1: / })).toBeEnabled();
   } finally {
     await limpiar();
   }

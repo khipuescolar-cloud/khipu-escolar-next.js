@@ -902,7 +902,7 @@ export type EstadoNspCelda = {
 };
 
 /** Estado de cada NSP de la rejilla y conflictos (alumno con calificación pero ausente según la asistencia). */
-async function estadosNspDeGrilla(
+export async function estadosNspDeGrilla(
   ctx: TenantContext,
   evaluaciones: { id: string; cursoId: string; fecha: Date }[],
   notas: { evaluacionId: string; alumnoId: string; marca: string | null; vencidaAt: Date | null; recuperacion: string | null; fechaRecuperacion: Date | null; justificacionId: string | null; valorLiteral: string | null; valorNumerico: unknown }[],

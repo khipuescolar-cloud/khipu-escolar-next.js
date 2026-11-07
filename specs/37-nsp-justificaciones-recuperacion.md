@@ -65,7 +65,7 @@ Un alumno **faltó a la clase** de un curso en una fecha cuando se cumple, en es
 `sincronizarNsp` corre también al **registrar o anular un permiso** (en cada día del permiso con actividades, hasta hoy). Al registrarlo después de la falta, el NSP sin valor se quita con historial «La falta está cubierta por un permiso de asistencia autorizado.» (`cambio_asistencia`, Khipu); al anularlo, vuelve.
 
 `sincronizarNsp` corre en estos momentos:
-- al crear una actividad;
+- al crear una actividad (`crearEvaluacion` y, en el registro nuevo, `crearCalificacion`: nace «programada», specs/47);
 - al cambiar su fecha;
 - al guardar una lista (`guardarLista`);
 - en la falta automática del control de ingreso;
@@ -147,6 +147,7 @@ evaluación carga los alumnos activos de todos los salones en una sola consulta.
 Un fallo en un colegio se registra y no detiene a los demás. Todo es idempotente, así que el próximo cron reintenta.
 
 ### 7. Recuperación en la actividad original
+0. En el registro nuevo (specs/47) el NSP se ve en la celda con ícono y palabra («Sin justificar», «En revisión», «Rechazada», «Recup. pendiente», «Recup. aprobada», «Recup. denegada»), y al abrirla el profesor decide la recuperación y registra la nota con su fecha desde `DialogoNsp`, con las mismas reglas de abajo.
 1. En la rejilla, el NSP muestra su estado: «Sin justificar · hasta 20/11», «Justificación en revisión», «Justificación rechazada» o «Falta justificada».
 2. Con la falta justificada, el profesor del curso ve **«Autorizar recuperación»** y **«No autorizar»** (`decidirRecuperacion`, una sola vez; historial `decision_recuperacion`). Solo el **profesor del curso** (`cursos.profesor_id`) decide y registra la recuperación: el tutor del salón que no dicta el curso recibe «La recuperación la decide y la registra el profesor del curso, no el tutor del salón.» (`requireCursoDelProfesor` sigue aceptando al tutor para lo demás).
 3. **Autorizada:** el profesor elige la nota y un diálogo pide la **fecha en que la rindió** (hoy por defecto, nunca futura).
