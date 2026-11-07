@@ -29,6 +29,7 @@ const esquemaSeccion = z.object({
 const esquemaEnlace = z.object({ url: z.string().max(2000), titulo: opcional(z.string().trim().max(120)) });
 
 const esquemaContenido = z.object({
+  materialesExistentes: z.array(z.object({ materialId: z.uuid(), versionId: z.uuid().optional() })).max(12).optional(),
   titulo: z.string().trim().min(3, "Escribe el título de la tarea.").max(150, "El título es muy largo (máximo 150 caracteres)."),
   descripcion: opcional(z.string().trim().max(MAX_INSTRUCCIONES, `Las instrucciones son muy largas (máximo ${MAX_INSTRUCCIONES} caracteres).`)),
   indicacionesEntrega: opcional(z.string().trim().max(1000)),
@@ -52,6 +53,24 @@ const esquemaTarea = esquemaContenido.extend({
 });
 
 type Seccion = z.infer<typeof esquemaSeccion>;
+
+async function validarMaterialesExistentes(ctx: TenantContext, entradas: { materialId: string; versionId?: string }[] | undefined) {
+  if (!entradas?.length) return [];
+  requireFeature(ctx, "documentos");
+  if (new Set(entradas.map((e) => e.materialId)).size !== entradas.length) throw new Error("Elegiste un material dos veces.");
+  const materiales = await ctx.db.materialClase.findMany({ where: { id: { in: entradas.map((e) => e.materialId) }, creadoPorId: ctx.membership.id, eliminadoAt: null }, include: { versiones: { select: { id: true, numero: true } } } });
+  if (materiales.length !== entradas.length) throw new Error("Algún material no está disponible.");
+  return entradas.map((e) => {
+    const m = materiales.find((x) => x.id === e.materialId)!;
+    const version = m.versiones.find((v) => e.versionId ? v.id === e.versionId : v.numero === m.versionActual);
+    if (!version) throw new Error("La versión del material no está disponible.");
+    return { materialId: m.id, versionId: version.id };
+  });
+}
+
+async function enlazarMateriales(ctx: TenantContext, tareaId: string, materiales: { materialId: string; versionId: string }[]) {
+  if (materiales.length) await ctx.db.tareaMaterial.createMany({ data: materiales.map((m) => ({ tenantId: ctx.tenant.id, tareaId, ...m, creadoPorId: ctx.membership.id })) });
+}
 
 /** Fecha general + hora → instante guardado y límite efectivo; error si ya pasó. */
 function plazoDe(ctx: TenantContext, fecha: string | undefined, horaEntrega: string | undefined, ahora: Date) {
@@ -188,6 +207,7 @@ export async function crearTarea(ctx: TenantContext, entrada: unknown, adjuntos:
   requireRol(ctx, ["profesor"]);
   const d = esquemaTarea.safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
+  const materiales = await validarMaterialesExistentes(ctx, d.data.materialesExistentes);
   await requireCursoDelProfesor(ctx, d.data.cursoId);
   const plazo = plazoDe(ctx, d.data.fechaEntrega, d.data.horaEntrega, ahora);
   if (plazo.error) return fallo(plazo.error);
@@ -243,6 +263,7 @@ export async function crearTarea(ctx: TenantContext, entrada: unknown, adjuntos:
     await sincronizarAsignaciones(ctx.db, ctx.tenant.id, t.id);
     if (enlaces.lista.length) await ctx.db.tareaEnlace.createMany({ data: enlaces.lista.map((e, orden) => ({ tenantId: ctx.tenant.id, tareaId: t.id, ...e, orden })) });
     await guardarAdjuntos(ctx, { tareaId: t.id }, validados);
+    await enlazarMateriales(ctx, t.id, materiales);
   } catch (e) {
     await ctx.db.tarea.deleteMany({ where: { id: t.id } });
     throw e;
@@ -272,6 +293,7 @@ export async function actualizarTarea(
   requireRol(ctx, ["profesor", "direccion"]);
   const d = esquemaEdicion.safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
+  const materiales = d.data.materialesExistentes ? await validarMaterialesExistentes(ctx, d.data.materialesExistentes) : null;
   const t = await requireTareaAutor(ctx, tareaId);
   const plazo = d.data.fechaEntrega ? plazoDe(ctx, d.data.fechaEntrega, d.data.horaEntrega, ahora) : { instante: null, conHora: false, error: null };
   const cambioPlazo = (plazo.instante?.getTime() ?? null) !== (t.fechaEntrega?.getTime() ?? null) || plazo.conHora !== t.conHora;
@@ -288,6 +310,10 @@ export async function actualizarTarea(
   }
   await quitarAdjuntos(ctx, { tareaId }, quitar);
   await guardarAdjuntos(ctx, { tareaId }, validados);
+  if (materiales) {
+    await ctx.db.tareaMaterial.deleteMany({ where: { tareaId } });
+    await enlazarMateriales(ctx, tareaId, materiales);
+  }
   if (enlaces) {
     await ctx.db.tareaEnlace.deleteMany({ where: { tareaId } });
     if (enlaces.lista.length) await ctx.db.tareaEnlace.createMany({ data: enlaces.lista.map((e, orden) => ({ tenantId: ctx.tenant.id, tareaId, ...e, orden })) });
