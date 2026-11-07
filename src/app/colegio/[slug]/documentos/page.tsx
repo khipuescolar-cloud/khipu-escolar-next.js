@@ -29,8 +29,11 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
   const [contenido, opciones, salones, destinos, permisos] = await Promise.all([
     listarContenido(ctx, { carpetaId, q, orden, vista }), opcionesDeCarpeta(ctx), salonesParaDocumentos(ctx), personasParaCompartir(ctx), contextoPermisosDocumento(ctx),
   ]);
-  const puedeCrear = (ctx.rol === "direccion" || ctx.rol === "administrativo" || ctx.rol === "profesor") && vista !== "papelera" && vista !== "recientes" && vista !== "destacados" && (carpetaId ? puedeEditarNivel(nivelCarpeta(permisos, carpetaId)) : vista === "unidad" || (vista === "biblioteca" && ctx.rol !== "profesor"));
+  const puedeCrear = ctx.rol === "direccion" || ctx.rol === "administrativo" || ctx.rol === "profesor";
+  const carpetaActual = carpetaId ? permisos.mapa.get(carpetaId) : null;
+  const carpetaDeCreacion = carpetaActual?.ambito === "unidad" && puedeEditarNivel(nivelCarpeta(permisos, carpetaActual.id)) ? carpetaActual.id : null;
+  const carpetaCompartida = !!carpetaDeCreacion && carpetaActual?.creadoPorId !== ctx.membership.id;
   const archivoParam = uno(sp.archivo);
   const archivoInicial = archivoParam && UUID.test(archivoParam) ? archivoParam : null;
-  return <ExploradorDocumentos archivoInicial={archivoInicial} contenido={contenido} vista={vista} carpetaId={carpetaId} q={q} orden={orden} opciones={opciones} salones={salones} personas={destinos.personas} esProfesor={ctx.rol === "profesor"} puedeCrear={puedeCrear} ok={uno(sp.ok)} error={uno(sp.error)} />;
+  return <ExploradorDocumentos archivoInicial={archivoInicial} nuevos={uno(sp.nuevo) ?? ""} contenido={contenido} vista={vista} carpetaId={carpetaId} carpetaDeCreacion={carpetaDeCreacion} carpetaCompartida={carpetaCompartida} q={q} orden={orden} opciones={opciones} salones={salones} personas={destinos.personas} esProfesor={ctx.rol === "profesor"} puedeCrear={puedeCrear} ok={uno(sp.ok)} error={uno(sp.error)} />;
 }

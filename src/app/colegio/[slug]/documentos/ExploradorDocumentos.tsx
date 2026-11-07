@@ -42,13 +42,14 @@ const vacios: Record<Vista, { titulo: string; detalle: string }> = {
 const ordenes = Object.fromEntries(Object.entries(ORDENES_DOCUMENTO)) as Record<string, string>;
 const aArchivo = (d: Contenido["documentos"][number]): Item => ({ tipo: "documento", id: d.id, nombre: d.titulo, propietario: d.autor, modificado: d.updatedAt, creado: d.createdAt, tamano: d.archivo?.bytes ?? null, archivo: d.archivo, gestionable: d.gestionable, destacado: d.destacado, descripcion: d.descripcion, carpetaId: d.carpetaId, visibleRoles: d.visibleRoles, salonId: d.salonId, ambito: d.ambito });
 
-export function ExploradorDocumentos({ archivoInicial, contenido, vista, carpetaId, q, orden, opciones, salones, personas, esProfesor, puedeCrear, ok, error }: { archivoInicial: string | null; contenido: Contenido; vista: Vista; carpetaId: string | null; q: string; orden: string; opciones: CarpetaOpcion[]; salones: Salon[]; personas: Persona[]; esProfesor: boolean; puedeCrear: boolean; ok?: string; error?: string }) {
+export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista, carpetaId, carpetaDeCreacion, carpetaCompartida, q, orden, opciones, salones, personas, esProfesor, puedeCrear, ok, error }: { archivoInicial: string | null; nuevos: string; contenido: Contenido; vista: Vista; carpetaId: string | null; carpetaDeCreacion: string | null; carpetaCompartida: boolean; q: string; orden: string; opciones: CarpetaOpcion[]; salones: Salon[]; personas: Persona[]; esProfesor: boolean; puedeCrear: boolean; ok?: string; error?: string }) {
   const router = useRouter();
   const enlaceAbierto = useRef<string | null>(null);
   const navegacion = useRef<HTMLElement>(null);
   const [modo, setModo] = useState<"lista" | "cuadricula">("lista");
   const [seleccion, setSeleccion] = useState<string[]>([]);
   const [arrastrando, setArrastrando] = useState(false);
+  const [resaltados, setResaltados] = useState<string[]>([]);
   const [vistaPrevia, setVistaPrevia] = useState<Item | null>(null);
   const [detalles, setDetalles] = useState<Item | null>(null);
   const [compartir, setCompartir] = useState<Item | null>(null);
@@ -58,7 +59,13 @@ export function ExploradorDocumentos({ archivoInicial, contenido, vista, carpeta
   const [eliminar, setEliminar] = useState<Item | null>(null);
   const [, iniciar] = useTransition();
   const refrescar = useCallback(() => router.refresh(), [router]);
-  const { subidas, subir, cerrar } = useSubidas(refrescar);
+  const urlCreacion = carpetaCompartida && carpetaDeCreacion ? `/documentos?vista=compartido&carpeta=${carpetaDeCreacion}` : `/documentos?vista=unidad${carpetaDeCreacion ? `&carpeta=${carpetaDeCreacion}` : ""}`;
+  const mostrarCreados = (ids: string[]) => router.push(`${urlCreacion}&nuevo=${ids.join(",")}`);
+  const { subidas, subir, cerrar } = useSubidas((ids) => {
+    if (!ids.length) return;
+    toast.success(`${ids.length === 1 ? "Archivo subido" : `${ids.length} archivos subidos`} ${carpetaCompartida ? "en la carpeta compartida" : "a Mi unidad"}.`);
+    mostrarCreados(ids);
+  });
   const volver = carpetaId ?? "";
   const nombreVista = vistas.find((v) => v.id === vista)?.nombre ?? "";
 
@@ -73,6 +80,23 @@ export function ExploradorDocumentos({ archivoInicial, contenido, vista, carpeta
     ...contenido.carpetas.map((c) => ({ tipo: "carpeta" as const, id: c.id, nombre: c.nombre, propietario: c.propietario, modificado: c.updatedAt, creado: c.createdAt, tamano: null, gestionable: c.gestionable, destacado: c.destacado, visibleRoles: c.visibleRoles, salonId: c.salonId, carpetaId: c.parentId, ambito: c.ambito, elementos: c.elementos })),
     ...contenido.documentos.map(aArchivo),
   ];
+  useEffect(() => {
+    const ids = nuevos.split(",").filter((id) => /^[0-9a-f-]{36}$/i.test(id));
+    if (!ids.length) return;
+    const primero = ids.find((id) => contenido.carpetas.some((c) => c.id === id) || contenido.documentos.some((d) => d.id === id));
+    if (!primero) return;
+    const fotograma = requestAnimationFrame(() => {
+      setResaltados(ids);
+      const elemento = document.querySelector(`[data-documento-id="${primero}"]`);
+      elemento?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "center" });
+      (elemento?.querySelector("[data-documento-abrir]") as HTMLButtonElement | null)?.focus({ preventScroll: true });
+    });
+    const temporizador = setTimeout(() => {
+      setResaltados([]);
+      router.replace(`${location.pathname}${location.search.replace(/([?&])nuevo=[^&]*&?/, "$1").replace(/[?&]$/, "")}`);
+    }, 4000);
+    return () => { cancelAnimationFrame(fotograma); clearTimeout(temporizador); };
+  }, [nuevos, contenido.carpetas, contenido.documentos, router]);
   const seleccionados = items.filter((i) => seleccion.includes(i.id));
 
   useEffect(() => {
@@ -93,7 +117,7 @@ export function ExploradorDocumentos({ archivoInicial, contenido, vista, carpeta
   const enviar = (fn: (d: FormData) => Promise<unknown>, item: Item, extra: Record<string, string> = {}) => { const d = new FormData(); d.set("id", item.id); d.set("tipo", item.tipo); d.set("vista", vista); d.set("volver", volver); for (const [k, v] of Object.entries(extra)) d.set(k, v); iniciar(async () => { await fn(d); }); };
   const papelera = (item: Item) => enviar(item.tipo === "carpeta" ? borrarCarpetaAction : borrarDocumentoAction, item);
   const descargar = (archivos: Item[]) => { for (const item of archivos) if (item.archivo) { const a = document.createElement("a"); a.href = `/archivos/${item.archivo.id}`; a.download = item.archivo.nombre; document.body.append(a); a.click(); a.remove(); } };
-  const subirAqui = (archivos: File[]) => void subir(archivos, { carpetaId, ambito: vista === "unidad" || vista === "compartido" ? "unidad" : "biblioteca", salonId: esProfesor && vista === "biblioteca" && !carpetaId ? salones[0]?.id : undefined });
+  const subirAqui = (archivos: File[]) => void subir(archivos, { carpetaId: carpetaDeCreacion, ambito: "unidad" });
 
   const accionesDe = (item: Item): Accion[] => {
     if (vista === "papelera") return [
@@ -126,12 +150,12 @@ export function ExploradorDocumentos({ archivoInicial, contenido, vista, carpeta
     <EncabezadoPagina titulo="Documentos" seccion="comunicacion" descripcion="Organiza, comparte y consulta los archivos del colegio." />
     <div className="grid min-w-0 gap-4 md:grid-cols-[13.5rem_minmax(0,1fr)] md:gap-6 lg:grid-cols-[15rem_minmax(0,1fr)]">
       <aside className="min-w-0 space-y-3">
-        {puedeCrear && <NuevoDocumento carpetaId={carpetaId} vista={vista} onSubir={subirAqui} className="h-12 w-full justify-start px-5 md:w-auto" />}
+        {puedeCrear && <NuevoDocumento carpetaId={carpetaDeCreacion} onCreada={(id) => { toast.success(`Carpeta creada ${carpetaCompartida ? "en la carpeta compartida" : "en Mi unidad"}.`); mostrarCreados([id]); }} onSubir={subirAqui} className="h-12 w-full justify-start px-5 md:w-auto" />}
         <nav ref={navegacion} aria-label="Secciones de documentos" className="-mx-4 flex gap-1 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-col md:overflow-visible md:px-0 md:pb-0">
           {vistas.map(({ id, nombre, icono: Icon }) => <Link key={id} href={`/documentos?vista=${id}`} aria-current={vista === id ? "page" : undefined} className={cn("flex min-h-11 shrink-0 items-center gap-2 rounded-full px-4 text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:rounded-lg md:px-3", vista === id ? "bg-sec-suave text-sec-tinta" : "text-muted-foreground hover:bg-accent hover:text-foreground")}><Icon className="size-4 text-sec-trazo" strokeWidth={2} aria-hidden /> {nombre}</Link>)}
         </nav>
       </aside>
-      <div className={cn("relative min-w-0 rounded-xl", arrastrando && "outline-2 outline-dashed outline-offset-4 outline-sec-trazo")} onDragOver={(e) => { if (puedeCrear && e.dataTransfer.types.includes("Files")) { e.preventDefault(); setArrastrando(true); } }} onDragLeave={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setArrastrando(false); }} onDrop={(e) => { if (!puedeCrear) return; e.preventDefault(); setArrastrando(false); const f = Array.from(e.dataTransfer.files); if (f.length) subirAqui(f); }}>
+      <div className={cn("relative min-w-0 rounded-xl pb-24 md:pb-8", arrastrando && "outline-2 outline-dashed outline-offset-4 outline-sec-trazo")} onDragOver={(e) => { if (puedeCrear && e.dataTransfer.types.includes("Files")) { e.preventDefault(); setArrastrando(true); } }} onDragLeave={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setArrastrando(false); }} onDrop={(e) => { if (!puedeCrear) return; e.preventDefault(); setArrastrando(false); const f = Array.from(e.dataTransfer.files); if (f.length) subirAqui(f); }}>
         <nav aria-label="Ruta de carpetas" className="mb-3 flex min-w-0 flex-wrap items-center gap-0.5 text-sm">
           <Link href={rutaBase} className={cn("inline-flex min-h-9 items-center rounded-md px-2 font-medium", contenido.ruta.length === 0 ? "text-foreground" : "text-primary hover:underline")} aria-current={contenido.ruta.length === 0 ? "page" : undefined}>{nombreVista}</Link>
           {contenido.ruta.map((r, i) => <span key={r.id} className="inline-flex min-w-0 items-center gap-0.5"><ChevronRight className="size-4 shrink-0 text-muted-foreground" aria-hidden /><Link href={`${rutaBase}&carpeta=${r.id}`} aria-current={i === contenido.ruta.length - 1 ? "page" : undefined} className={cn("inline-flex min-h-9 max-w-48 items-center truncate rounded-md px-2", i === contenido.ruta.length - 1 ? "font-medium text-foreground" : "text-primary hover:underline")}>{r.nombre}</Link></span>)}
@@ -150,7 +174,7 @@ export function ExploradorDocumentos({ archivoInicial, contenido, vista, carpeta
             <Button variant={modo === "cuadricula" ? "secondary" : "ghost"} size="icon-sm" aria-label="Vista de cuadrícula" aria-pressed={modo === "cuadricula"} onClick={() => cambiarModo("cuadricula")}><Grid2X2 aria-hidden /></Button>
           </div>
         </div>
-        {arrastrando && <p role="status" className="mb-3 flex min-h-14 items-center justify-center gap-2 rounded-lg bg-sec-suave p-4 text-center text-sm font-medium text-sec-tinta"><Upload className="size-4" strokeWidth={2} aria-hidden /> Suelta los archivos para subirlos a esta carpeta</p>}
+        {arrastrando && <p role="status" className="mb-3 flex min-h-14 items-center justify-center gap-2 rounded-lg bg-sec-suave p-4 text-center text-sm font-medium text-sec-tinta"><Upload className="size-4" strokeWidth={2} aria-hidden /> Suelta los archivos para subirlos {carpetaDeCreacion ? "a esta carpeta" : "a Mi unidad"}</p>}
         {vista === "papelera" && items.length > 0 && <p className="mb-3 text-sm text-muted-foreground">Los elementos de la papelera se eliminan solos a los 30 días.</p>}
         {seleccionados.length > 0 && <div role="toolbar" aria-label="Acciones de la selección" className="sticky top-2 z-20 mb-3 flex min-h-12 flex-wrap items-center gap-1 rounded-lg border border-borde-sutil bg-sec-suave py-1 pr-2 pl-1 text-sm shadow-sombra-1">
           <Button variant="ghost" size="icon" aria-label="Quitar selección" onClick={() => setSeleccion([])}><X aria-hidden /></Button>
@@ -163,7 +187,7 @@ export function ExploradorDocumentos({ archivoInicial, contenido, vista, carpeta
         </div>}
         {items.length === 0
           ? <EstadoVacio icono={vista === "papelera" ? Trash2 : vista === "compartido" ? Users : vista === "recientes" ? Clock3 : vista === "destacados" ? Star : FolderOpen} titulo={q ? "No encontramos nada con ese nombre" : carpetaId && vista !== "papelera" ? "Esta carpeta está vacía" : vacios[vista].titulo} descripcion={q ? "Prueba con otro nombre o cambia de sección." : puedeCrear && (carpetaId || vista === "unidad" || vista === "biblioteca") ? "Sube archivos o crea una carpeta con el botón Nuevo, o arrastra los archivos aquí." : vacios[vista].detalle} />
-          : <ListaContenido items={items} modo={modo} seleccion={seleccion} onSeleccion={setSeleccion} onAbrir={abrir} accionesDe={accionesDe} onTecla={teclas} onMenuMovil={setMenuMovil} />}
+          : <ListaContenido items={items} modo={modo} seleccion={seleccion} onSeleccion={setSeleccion} onAbrir={abrir} accionesDe={accionesDe} onTecla={teclas} onMenuMovil={setMenuMovil} nuevos={resaltados} />}
       </div>
     </div>
 
