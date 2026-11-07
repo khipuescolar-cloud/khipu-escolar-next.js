@@ -16,13 +16,13 @@ async function decidir(ctx: TenantContext, id: string, resultado: "observada" | 
   acceso(ctx, ["direccion"]);
   const d = await destinatarioVisible(ctx, id);
   if (d.solicitud.estado !== "publicada" || !["entregado", "en_revision"].includes(d.estado)) fallo();
-  const v = await ctx.db.solicitudVersion.findFirst({ where: { destinatarioId: id, numero: d.versionActual, resultado: "presentada" } });
+  const v = await ctx.db.solicitudVersion.findFirst({ where: { destinatarioId: id, numero: d.versionActual, resultado: d.estado === "en_revision" ? { in: ["presentada", "aprobada"] } : "presentada" } });
   if (!v) fallo();
   const ahora = new Date();
   await ctx.db.$transaction(async tx => {
     const r = await tx.solicitudDestinatario.updateMany({ where: { id, estado: d.estado, versionActual: d.versionActual, retiradoAt: null }, data: { estado: resultado === "observada" ? "observado" : "aprobado", plazoCorreccion: resultado === "observada" ? plazoCorreccion ?? null : null, aprobadoAt: resultado === "aprobada" ? ahora : null, revisadoPorId: ctx.membership.id, revisadoAt: ahora } });
     if (!r.count) fallo();
-    await tx.solicitudVersion.update({ where: { id: v.id }, data: { resultado, observaciones: observaciones ?? null, revisadaPorId: ctx.membership.id, revisadaAt: ahora } });
+    if (v.resultado === "presentada") await tx.solicitudVersion.update({ where: { id: v.id }, data: { resultado, observaciones: observaciones ?? null, revisadaPorId: ctx.membership.id, revisadaAt: ahora } });
   });
   await evento(ctx, d.solicitudId, resultado, id, v.id, observaciones ? { observaciones } : undefined);
   await avisarRevisionSolicitud(ctx, d.solicitudId, id, resultado);

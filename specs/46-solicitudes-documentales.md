@@ -1,6 +1,6 @@
 # 46 — Solicitudes documentales (gestión académica)
 
-> Estado: backend W3 implementado (migración, servicio, acciones y CSV; interfaz W4 pendiente) · Plan: Khipu Pro (`requireFeature(ctx, "documentos")`, sin módulo nuevo) · Actualizado: 2026-11-07 · Plan de trabajo: `docs/documentos-plan-implementacion.md` (flujo W3)
+> Estado: backend W3 implementado (migración, servicio, acciones y CSV; interfaz de Gestión académica conectada en segunda ronda) · Plan: Khipu Pro (`requireFeature(ctx, "documentos")`, sin módulo nuevo) · Actualizado: 2026-11-07 · Plan de trabajo: `docs/documentos-plan-implementacion.md` (flujo W3)
 
 ## Objetivo
 
@@ -140,8 +140,14 @@ unit (`tests/unit/solicitudes-reglas.test.ts`): tabla de transiciones, `vencida`
 
 La migración local `20261116090200_solicitudes_documentales` añade las cinco tablas, RLS forzado y revocación de `anon`/`authenticated`. Los disparadores impiden modificar o borrar eventos, enlaces de archivos y campos originales de una versión; permiten fijar una sola revisión. El borrado del colegio por el proceso de limpieza conserva la cascada de claves externas.
 
-El servicio está en `src/lib/server/solicitudes/index.ts`; debe importarse con `/index` explícito, porque `src/lib/server/solicitudes.ts` ya pertenece a los pedidos de demo de la plataforma. Expone creación, edición de borrador, publicación, cierre/reapertura/anulación, gestión de destinatarios, cambio de plazo, presentación, revisión, vistas y reporte. Las acciones están en `/documentos/solicitudes/actions.ts` y el CSV en `/api/documentos/solicitudes/reporte`. W4 debe enlazar estas acciones desde su interfaz.
+El servicio está en `src/lib/server/solicitudes/index.ts`; debe importarse con `/index` explícito, porque `src/lib/server/solicitudes.ts` ya pertenece a los pedidos de demo de la plataforma. Expone creación, edición de borrador, publicación, cierre/reapertura/anulación, gestión de destinatarios, cambio de plazo, presentación, revisión, vistas y reporte. Las acciones están en `/documentos/solicitudes/actions.ts` y el CSV en `/api/documentos/solicitudes/reporte`. La sección Gestión académica de W4 enlaza el panel de W3 para el circuito principal.
 
-La bandeja interna avisa con claves idempotentes. Mientras el enum global `TipoNotificacion` no tenga un valor propio para solicitudes, usa provisionalmente `tarea`; la integración de push debe completar ese contrato antes del piloto. `materializarArchivos` consume el contrato de W1: la carga directa y el límite de 25 MB dependen de su implementación final.
+La bandeja interna avisa con claves idempotentes. La migración W3 de la segunda ronda añade `TipoNotificacion.solicitud`; bandeja y push usan claves idempotentes y respetan la preferencia push del personal. No envían correo. `materializarArchivos` consume el contrato de W1: la carga directa y el límite de 25 MB dependen de su implementación final.
 
 La reapertura de una entrega aprobada registra evento y deja el estado `en_revision`, preservando el resultado de la versión original. La decisión de cómo emitir una segunda decisión sobre esa misma versión sigue pendiente; no se sobrescribe una aprobación histórica.
+
+### Revisión de una versión ya aprobada
+
+Decisión conservadora provisional: la aprobación original queda inmutable. Reabrir exige motivo, registra un evento y permite a dirección observar la versión aprobada sin sobrescribir su resultado histórico; una corrección posterior se presenta como versión nueva. Reaprobar sin nueva versión registra un evento y devuelve el estado a aprobado. La política final de rectificación de aprobaciones requiere decisión del dueño.
+
+La interfaz de la segunda ronda cubre un profesor por solicitud, una fecha límite y un archivo por presentación; las opciones avanzadas del servicio (múltiples docentes o áreas, plantilla, cambio de plazo, anular, retirar) siguen sin controles en pantalla.

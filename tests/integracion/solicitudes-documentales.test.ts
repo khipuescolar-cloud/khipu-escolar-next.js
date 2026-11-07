@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
-import { crearSolicitud, publicarSolicitud, presentarVersion, comenzarRevision, observarVersion, aprobarVersion, detalleSolicitud, listarSolicitudes, reporteCumplimiento } from "@/lib/server/solicitudes/index";
+import { crearSolicitud, publicarSolicitud, presentarVersion, comenzarRevision, observarVersion, aprobarVersion, reabrirRevision, detalleSolicitud, listarSolicitudes, reporteCumplimiento } from "@/lib/server/solicitudes/index";
 import { resolverAccesoSolicitud } from "@/lib/server/archivos-acceso/solicitud";
 import { db } from "@/lib/server/db";
 import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
@@ -15,6 +15,7 @@ describe("solicitudes documentales", () => {
     id = r.id;
     destinatarioId = (await detalleSolicitud(c.ctxDe("direccion"), id)).destinatarios[0].id;
     await publicarSolicitud(c.ctxDe("direccion"), id);
+    expect(await c.db.notificacion.count({ where: { tipo: "solicitud", clave: { startsWith: `solicitud:${id}:` } } })).toBe(1);
     expect((await detalleSolicitud(c.ctxDe("tutora"), id)).resumen.pendientes).toBe(1);
     await expect(crearSolicitud(c.ctxDe("direccion"), { titulo: "Ajena", anioAcademico: 2026, destinatarios: { membershipIds: [otra.miembros.tutora.membership.id] } })).rejects.toBeInstanceOf(ErrorDeNegocio);
     expect(await listarSolicitudes(c.ctxDe("otroProfesor"))).toHaveLength(0);
@@ -49,5 +50,12 @@ describe("solicitudes documentales", () => {
     expect(await resolverAccesoSolicitud(c.ctxDe("otroProfesor"), archivo)).toBe("denegar");
     await expect(db.solicitudVersion.update({ where: { id: detalle.destinatarios[0].versiones[0].id }, data: { comentario: "alterado" } })).rejects.toThrow();
     await expect(db.solicitudEvento.deleteMany({ where: { solicitudId: id } })).rejects.toThrow();
+    await expect(reabrirRevision(dir, destinatarioId, "")).rejects.toBeInstanceOf(ErrorDeNegocio);
+    await reabrirRevision(dir, destinatarioId, "Corrección de aprobación");
+    await observarVersion(dir, destinatarioId, { observaciones: "Nueva corrección" });
+    expect((await detalleSolicitud(dir, id)).destinatarios[0].versiones[1].resultado).toBe("aprobada");
+    expect((await presentarVersion(ctx, destinatarioId, { archivos: pdf(3) })).numero).toBe(3);
+    await aprobarVersion(dir, destinatarioId);
+    expect((await detalleSolicitud(dir, id)).destinatarios[0].versiones.map(v => v.resultado)).toEqual(["observada", "aprobada", "aprobada"]);
   });
 });
