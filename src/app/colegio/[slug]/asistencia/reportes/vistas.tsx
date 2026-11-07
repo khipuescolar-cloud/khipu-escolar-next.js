@@ -6,7 +6,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { fechaCorta, fechaLarga } from "@/lib/fechas";
 import { claveGrado, rangoAnio, rangoEsteMes, textoJustificacion, textoPorcentaje, type FiltrosReporte, type ResumenAlumno } from "@/lib/reportes-asistencia";
-import type { ReporteAsistencia, ReporteColegio } from "@/lib/server/reportes-asistencia";
+import type { ReporteAsistencia, ReporteColegio, ReporteCursos } from "@/lib/server/reportes-asistencia";
 
 // Piezas del reporte de asistencia compartidas por la página general y la vista filtrada (`ver/`), specs/27.
 
@@ -284,6 +284,112 @@ export function AsistenciaPorCurso({ reporte, filtros }: { reporte: ReporteColeg
           </div>
       )}
     </section>
+  );
+}
+
+/**
+ * Asistencia a clase de los cursos del profesor fuera de su tutoría (o con el filtro «Curso»), specs/27: totales, una
+ * fila por curso (enlaza a su historial) y, con un alumno, cada falta o tardanza a clase. No incluye la asistencia al colegio.
+ */
+export function VistaCursos({ reporte }: { reporte: ReporteCursos }) {
+  const rango = new URLSearchParams({ desde: reporte.desde, hasta: reporte.hasta }).toString();
+  const contexto = [
+    ...(reporte.alumno ? [`Salón ${reporte.alumno.salon}`] : []),
+    ...(reporte.curso && reporte.salon ? [`Salón ${reporte.salon.nombre}`] : []),
+    `Del ${fechaCorta(reporte.desde)} al ${fechaCorta(reporte.hasta)}`,
+  ];
+  const { total } = reporte;
+  return (
+    <>
+      {reporte.hastaEfectivo !== reporte.hasta && (
+        <p className="text-cuerpo-sm text-muted-foreground">Se cuenta hasta hoy ({fechaCorta(reporte.hastaEfectivo)}).</p>
+      )}
+      <div className="flex flex-wrap items-center gap-x-8 gap-y-3 rounded-[14px] border border-borde-sutil bg-superficie p-5">
+        <ul className="flex basis-full flex-wrap gap-2" aria-label="Datos del reporte">
+          {contexto.map((c) => <li key={c} className="rounded-pildora bg-superficie-2 px-3 py-1 text-cuerpo-sm">{c}</li>)}
+        </ul>
+        <div>
+          <p className="text-sm text-muted-foreground">Asistencia a clase · {reporte.filas.length === 1 ? "1 curso" : `${reporte.filas.length} cursos`}</p>
+          <p className="text-titulo-1 tabular-nums">{total.registros}</p>
+          <p className="text-sm text-muted-foreground">registros de lista en el rango</p>
+        </div>
+        <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <li className="flex items-center gap-1.5 text-sm"><EstadoAsistencia estado="falta" /> <strong className="tabular-nums">{total.faltas}</strong></li>
+          <li className="flex items-center gap-1.5 text-sm"><EstadoAsistencia estado="tarde" /> <strong className="tabular-nums">{total.tardanzas}</strong></li>
+        </ul>
+        <p className="text-sm text-muted-foreground tabular-nums">
+          Ingresó pero faltó: <strong className="text-foreground">{total.faltasConIngreso}</strong>
+        </p>
+      </div>
+
+      {reporte.filas.length === 0 ? (
+        <EstadoVacio icono={BookOpenCheck} titulo="No hay cursos con lista en este filtro" descripcion="Aquí aparecen los cursos que dictas (y todos los de tu tutoría) en los niveles que pasan lista por curso." />
+      ) : (
+        <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Curso</TableHead>
+                <TableHead>Salón</TableHead>
+                <TableHead className={NUM}>Registros</TableHead>
+                <TableHead className={NUM}>Faltas a clase</TableHead>
+                <TableHead className={NUM}>Ingresó pero faltó</TableHead>
+                <TableHead className={NUM}>Tardanzas</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {reporte.filas.map((c) => (
+                <TableRow key={c.cursoId}>
+                  <TableCell><Link href={`/asistencia/reportes/curso/${c.cursoId}?${rango}`} className="enlace font-medium">{c.curso}</Link></TableCell>
+                  <TableCell>{c.salon}</TableCell>
+                  <TableCell className={NUM}>{c.registros}</TableCell>
+                  <TableCell className={NUM}>{c.faltas}</TableCell>
+                  <TableCell className={`${NUM} font-semibold`}>{c.faltasConIngreso}</TableCell>
+                  <TableCell className={NUM}>{c.tardanzas}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      )}
+
+      {reporte.detalle && (
+        <section aria-labelledby="titulo-faltas-clase" className="flex flex-col gap-3">
+          <h2 id="titulo-faltas-clase" className="text-titulo-2">Faltas y tardanzas a clase</h2>
+          {reporte.detalle.length === 0 ? (
+            <EstadoVacio icono={BookOpenCheck} titulo="Sin faltas ni tardanzas a clase" descripcion="En este rango, el alumno llegó a todas las clases de estos cursos." />
+          ) : (
+            <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Día</TableHead>
+                    <TableHead>Curso</TableHead>
+                    <TableHead>Estado</TableHead>
+                    <TableHead>Hora</TableHead>
+                    <TableHead>Justificación</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {reporte.detalle.map((f) => (
+                    <TableRow key={`${f.fecha}-${f.curso}-${f.hora}`}>
+                      <TableCell>{fechaLarga(f.fecha)}</TableCell>
+                      <TableCell>{f.curso}</TableCell>
+                      <TableCell><EstadoAsistencia estado={f.estado} /></TableCell>
+                      <TableCell className="tabular-nums">{f.hora}</TableCell>
+                      <TableCell>{f.estado !== "falta" ? "" : f.justificacion === "aceptada" ? "Justificada" : f.justificacion === "pendiente" ? "En revisión" : "Sin justificar"}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          )}
+        </section>
+      )}
+      <p className="text-sm text-muted-foreground">
+        Cuenta las listas de tus cursos (en tu tutoría, de todos los cursos del salón). «Ingresó pero faltó»: el alumno entró al colegio ese día y no estuvo en la clase. La asistencia al colegio solo se ve en tu salón de tutoría.
+      </p>
+    </>
   );
 }
 

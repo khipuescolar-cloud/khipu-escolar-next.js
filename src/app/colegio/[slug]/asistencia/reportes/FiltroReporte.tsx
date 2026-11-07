@@ -15,18 +15,27 @@ type Opciones = {
   /** Grados (todas sus secciones); `clave` = «primaria-3». */
   grados?: { clave: string; nombre: string }[];
   alumnos: { id: string; nombres: string; apellidos: string; salonId: string }[];
+  /** Profesor: cursos que puede ver (los que dicta y todos los de su tutoría); `grado` = clave del grado del salón. */
+  cursos?: { id: string; nombre: string; salonId: string; salon: string; grado: string | null }[];
+  /** Profesor: salones de su tutoría. */
+  tutorias?: string[];
 };
+
+/** Valor de «Mis cursos» / «Todos los cursos» (igual a `MIS_CURSOS` de `@/lib/reportes-asistencia`). */
+const MIS = "mis";
 type Atajo = { texto: string; desde: string; hasta: string };
 
 /**
  * Filtro del reporte en un panel lateral (specs/27): primero el salón, dentro del salón la lista de
  * sus alumnos (o «Todo el salón») y al final el rango de fechas. Abre el reporte en su propia vista (`ver/`).
+ * Profesor: además el filtro «Curso». En su tutoría, «Asistencia al colegio», «Todos los cursos» o un curso; en otro
+ * salón, grado o sin filtro, «Mis cursos» o uno de sus cursos.
  */
 export function FiltroReporte({
   opciones, inicial, atajos, hoy, activos, vista,
 }: {
   opciones: Opciones;
-  inicial: { salonId?: string; alumnoId?: string; grado?: { nivel: string; grado: number }; desde: string; hasta: string };
+  inicial: { salonId?: string; alumnoId?: string; grado?: { nivel: string; grado: number }; cursoId?: string; desde: string; hasta: string };
   atajos: Atajo[];
   hoy: string;
   activos: number;
@@ -39,6 +48,12 @@ export function FiltroReporte({
   const [alumnoId, setAlumnoId] = useState(inicial.alumnoId ?? "");
   const [grado, setGrado] = useState(inicial.grado ? `${inicial.grado.nivel}-${inicial.grado.grado}` : "");
   const grados = opciones.grados ?? [];
+  const esProfesor = opciones.cursos !== undefined && opciones.tutorias !== undefined && (opciones.cursos.length > 0 || opciones.tutorias.length > 0);
+  const esTutoria = (id: string) => !!id && (opciones.tutorias ?? []).includes(id);
+  /** Curso por defecto: en su tutoría, la asistencia al colegio (""); fuera de ella, «Mis cursos». */
+  const cursoPorDefecto = (salon: string) => (!esProfesor || esTutoria(salon) ? "" : MIS);
+  const [cursoId, setCursoId] = useState(inicial.cursoId ?? cursoPorDefecto(inicial.salonId ?? ""));
+  const cursos = (opciones.cursos ?? []).filter((c) => (salonId ? c.salonId === salonId : !grado || c.grado === grado));
   const [desde, setDesde] = useState(inicial.desde);
   const [hasta, setHasta] = useState(inicial.hasta);
   const [busqueda, setBusqueda] = useState("");
@@ -51,10 +66,17 @@ export function FiltroReporte({
   }, [opciones.alumnos, salonId, busqueda]);
 
   function verReporte() {
+    // Un curso entero (sin alumno): su historial, con la matriz alumnos × clases y las descargas.
+    if (esProfesor && cursoId && cursoId !== MIS && !alumnoId) {
+      setAbierto(false);
+      router.push(`/asistencia/reportes/curso/${cursoId}?${new URLSearchParams({ desde, hasta }).toString()}`);
+      return;
+    }
     const q = new URLSearchParams();
     if (salonId) q.set("salon", salonId);
     if (salonId && alumnoId) q.set("alumno", alumnoId);
     if (!salonId && grado) q.set("grado", grado);
+    if (esProfesor && cursoId) q.set("curso", cursoId);
     q.set("desde", desde);
     q.set("hasta", hasta);
     if (vista) q.set("vista", vista);
@@ -71,7 +93,11 @@ export function FiltroReporte({
       <SheetContent className="data-[side=right]:w-full data-[side=right]:sm:max-w-md">
         <SheetHeader className="border-b pr-12">
           <SheetTitle className="text-titulo-2">Filtrar reporte</SheetTitle>
-          <SheetDescription>Elige un grado (todas sus secciones) o un salón y, dentro del salón, un alumno; luego las fechas.</SheetDescription>
+          <SheetDescription>
+            {esProfesor
+              ? "Elige un grado o un salón, el curso y, dentro del salón, un alumno; luego las fechas."
+              : "Elige un grado (todas sus secciones) o un salón y, dentro del salón, un alumno; luego las fechas."}
+          </SheetDescription>
         </SheetHeader>
         <form
           id="filtro-reporte"
@@ -91,6 +117,7 @@ export function FiltroReporte({
                   setSalonId("");
                   setAlumnoId("");
                 }
+                setCursoId(cursoPorDefecto(""));
               }}
             >
               <option value="">Todos los grados</option>
@@ -105,11 +132,20 @@ export function FiltroReporte({
               if (e.target.value) setGrado("");
               setAlumnoId("");
               setBusqueda("");
+              setCursoId(cursoPorDefecto(e.target.value));
             }}
           >
             <option value="">Todos los salones</option>
             {opciones.salones.map((s) => <option key={s.id} value={s.id}>{s.nombre}</option>)}
           </Selector>
+
+          {esProfesor && (
+            <Selector etiqueta="Curso" value={cursoId} onChange={(e) => setCursoId(e.target.value)}>
+              {esTutoria(salonId) && <option value="">Asistencia al colegio</option>}
+              <option value={MIS}>{esTutoria(salonId) ? "Todos los cursos" : "Mis cursos"}</option>
+              {cursos.map((c) => <option key={c.id} value={c.id}>{salonId ? c.nombre : `${c.nombre} · ${c.salon}`}</option>)}
+            </Selector>
+          )}
 
           {salonId && (
             <fieldset className="flex flex-col gap-2">

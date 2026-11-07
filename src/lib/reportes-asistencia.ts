@@ -193,7 +193,11 @@ export type NivelReporte = "inicial" | "primaria" | "secundaria" | "academia";
 /** Grado de un nivel (todas sus secciones): en la URL va como `grado=primaria-3`. */
 export type GradoReporte = { nivel: NivelReporte; grado: number };
 
-export type FiltrosReporte = { salonId?: string; alumnoId?: string; grado?: GradoReporte; desde: string; hasta: string };
+/** `cursoId`: «mis» (los cursos que el profesor puede ver en ese alcance) o el id de un curso (specs/27). */
+export type FiltrosReporte = { salonId?: string; alumnoId?: string; grado?: GradoReporte; cursoId?: string; desde: string; hasta: string };
+
+/** Valor de `?curso=` para «Mis cursos» / «Todos los cursos» del profesor. */
+export const MIS_CURSOS = "mis";
 
 const NOMBRE_NIVEL_REPORTE: Record<NivelReporte, string> = { inicial: "inicial", primaria: "primaria", secundaria: "secundaria", academia: "academia" };
 
@@ -218,8 +222,8 @@ export function filtrosDeBusqueda(get: (clave: string) => string | null | undefi
   const vacio = (v: string | null | undefined) => (v && v.trim() !== "" ? v.trim() : undefined);
   const base = rangoEsteMes(hoy);
   const filtros = z
-    .object({ salonId: z.uuid().optional(), alumnoId: z.uuid().optional(), grado: gradoSchema.optional() })
-    .parse({ salonId: vacio(get("salon")), alumnoId: vacio(get("alumno")), grado: vacio(get("grado")) });
+    .object({ salonId: z.uuid().optional(), alumnoId: z.uuid().optional(), grado: gradoSchema.optional(), cursoId: z.union([z.literal(MIS_CURSOS), z.uuid()]).optional() })
+    .parse({ salonId: vacio(get("salon")), alumnoId: vacio(get("alumno")), grado: vacio(get("grado")), cursoId: vacio(get("curso")) });
   const rango = rangoSchema.parse({ desde: vacio(get("desde")) ?? base.desde, hasta: vacio(get("hasta")) ?? base.hasta });
-  return { salonId: filtros.salonId, alumnoId: filtros.alumnoId, ...(filtros.grado ? { grado: filtros.grado } : {}), ...rango };
+  return { salonId: filtros.salonId, alumnoId: filtros.alumnoId, ...(filtros.grado ? { grado: filtros.grado } : {}), ...(filtros.cursoId ? { cursoId: filtros.cursoId } : {}), ...rango };
 }

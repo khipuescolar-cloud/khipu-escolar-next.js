@@ -10,7 +10,7 @@ Dirección, administrativos y profesores ven el porcentaje de asistencia **al co
 |---|---|---|
 | Dirección | Reporte general (día + rango + por curso), cualquier salón, alumno y curso; exportar; **«Corregir»** abre la lista en modo corrección (spec 04) | — |
 | Administrativo | Igual que dirección (solo lectura, sin «Corregir») | Corregir |
-| Profesor | Salones donde es tutor o dicta (`salonIdsVisibles`), sus alumnos, el resumen de sus salones y sus cursos; exportar | Salones, alumnos o cursos ajenos (403); corregir |
+| Profesor | **Asistencia al colegio** solo de su **tutoría** (salón y alumnos; exportar). En los salones donde solo dicta: la **asistencia a clase de sus cursos** (`reporteCursos`, filtro «Curso»); en su tutoría, de todos los cursos del salón | Asistencia al colegio de salones o alumnos que no tutorea, cursos ajenos (403); corregir |
 | Apoderado | Reporte de sus hijos (`alumnoIdsVisibles`); exportar | Reporte de salón, resumen del colegio, alumnos ajenos (403) |
 | Alumno | Su propio reporte | Todo lo demás (403) |
 | Portería | — | Todo (403) |
@@ -51,6 +51,15 @@ Solo si algún nivel del colegio tiene asistencia por curso activa (`Tenant.asis
 - Lógica pura en `src/lib/reportes-curso.ts` (`resumirCurso`, `LETRA_ESTADO`, `NOTA_CURSO`); la tabla para Excel/PDF en `tablaDeReporte` (`tipo: "curso"`).
 - Barra lateral: solo se marca el enlace más específico (`rutaActiva` en `src/lib/navegacion.ts`): en `/asistencia/reportes` ya no se marca también «Pasar lista» (`/asistencia`).
 
+## Filtro «Curso» del profesor (2026-11-07)
+En «Filtrar reporte», el profesor solo ve los **grados y salones donde enseña o es tutor** (`opcionesDeReporte`: su tutoría y los salones de sus cursos con lista por curso) y un selector **Curso** después del salón:
+- **Su salón de tutoría:** «Asistencia al colegio» (por defecto: el reporte del salón de siempre, con descargas), **«Todos los cursos»** (todos los cursos del salón, aunque no los dicte) o un curso del salón.
+- **Otro salón, un grado o sin filtro:** **«Mis cursos»** (por defecto) o uno de sus cursos (sin salón, con el salón: «Ciencia y Tecnología · 3.° B»). Por grado: los cursos que dicta en ese grado y todos los de su tutoría si está en ese grado.
+- **Un curso sin alumno** abre su historial (`/asistencia/reportes/curso/[cursoId]?desde&hasta`, con descargas).
+- **«Mis cursos»/«Todos los cursos» o un alumno de un salón que no tutorea:** `ver/?curso=mis|<id>` muestra `VistaCursos` (`vistas.tsx`): registros, faltas, tardanzas e «Ingresó pero faltó» por curso (enlaza al historial) y, con alumno, cada falta o tardanza a clase con su justificación. **No** muestra la asistencia al colegio de ese salón o alumno. Sin calendario ni descargas (pendiente).
+- Servidor: `reporteCursos(ctx, filtros, como?)` → `ReporteCursos` (`tipo: "cursos"`; filas de todos los cursos visibles del alcance, también sin registros; 403 si el filtro no deja ningún curso suyo, el curso no es suyo o el alumno es de un salón donde no tiene cursos; auditado `tipo: "cursos"`). `esReporteDeCursos(ctx, filtros)`: con `curso` siempre; para el profesor, todo lo que no sea su tutoría o un alumno de ella. `FiltrosReporte.cursoId` (`?curso=`, «mis» = `MIS_CURSOS` o uuid).
+- Permisos: `reporteSalon`, `reporteAlumno`, `reporteGrado` y `resumenColegio` del profesor se limitan a su **tutoría** (antes, todo `salonIdsVisibles`). `detalleCurso` usa la regla del historial (profesor del curso o tutor del salón).
+
 ## Contratos de `src/lib/server/reportes-asistencia.ts`
 ```ts
 reporteSalon(ctx, { salonId, desde, hasta }, como?)   // → { salon, filas por alumno, total }
@@ -81,6 +90,8 @@ Validación zod: ids `uuid`, fechas reales `AAAA-MM-DD`, `desde ≤ hasta`, máx
 - e2e: `tests/e2e/reportes-asistencia.test.ts` (dirección ve la asistencia al colegio del día, filtra salón y descarga Excel y PDF, content-type, 400 en rango inválido), `tests/e2e/asistencia-colegio-cursos.test.ts`.
 
 - por grado, CSV y permisos: unit `tests/unit/permisos-asistencia.test.ts`; integración `tests/integracion/permisos-salida-reportes.test.ts` (el grado suma sus secciones y deja fuera otros grados, profesor solo sus salones, familia/portería 403, otro colegio no ve nada; CSV: apoderado no ve otro alumno ni salones, profesor no ve salón ajeno, portería 403, otro colegio nada, auditoría `csv`). Las columnas del resumen ahora incluyen «Con permiso» (`tests/unit/reportes-asistencia.test.ts` actualizado).
+
+- filtro «Curso» (2026-11-07): integración `tests/integracion/reportes-profesor.test.ts` (opciones, sin asistencia al colegio fuera de la tutoría, «Mis cursos», tutoría con todos los cursos, alumno ajeno solo sus cursos, por grado, 403); unit `tests/unit/reportes-asistencia.test.ts` (`?curso=`); e2e `tests/e2e/reportes-profesor.test.ts` (Pedro: salones, «Mis cursos» en 3.° B, su tutoría 5.° A).
 
 ## Pendientes
 - La ruta `/api/reportes-asistencia/csv` en sí no tiene e2e (comparte `reporteParaExportar` con Excel y PDF).
