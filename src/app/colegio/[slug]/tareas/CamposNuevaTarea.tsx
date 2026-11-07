@@ -11,16 +11,18 @@ import { Selector } from "@/components/ui/Selector";
 
 export type CursoOpcion = { id: string; nombre: string; salon: string };
 export type AlumnoOpcion = { id: string; nombres: string; apellidos: string };
+export type MaterialOpcion = { id: string; titulo: string; curso: string };
 
 type EstadoSeccion = { incluida: boolean; todos: boolean; alumnoIds: string[] };
 
 const clave = (n: string) => n.trim().toLocaleLowerCase("es");
 
-export function CamposNuevaTarea({ cursos, alumnos }: { cursos: CursoOpcion[]; alumnos: Record<string, AlumnoOpcion[]> }) {
+export function CamposNuevaTarea({ cursos, alumnos, materiales = [] }: { cursos: CursoOpcion[]; alumnos: Record<string, AlumnoOpcion[]>; materiales?: MaterialOpcion[] }) {
   const [origen, setOrigen] = useState(cursos[0]?.id ?? "");
   const [secciones, setSecciones] = useState<Record<string, EstadoSeccion>>({});
   const [busqueda, setBusqueda] = useState("");
   const [verPrevia, setVerPrevia] = useState(false);
+  const [elegidos, setElegidos] = useState<string[]>([]);
 
   const cursoOrigen = cursos.find((c) => c.id === origen);
   const gemelos = useMemo(() => cursos.filter((c) => cursoOrigen && c.id !== origen && clave(c.nombre) === clave(cursoOrigen.nombre)), [cursos, cursoOrigen, origen]);
@@ -39,6 +41,14 @@ export function CamposNuevaTarea({ cursos, alumnos }: { cursos: CursoOpcion[]; a
         </Selector>
       </div>
       <input type="hidden" name="secciones" value={valor} />
+      <input type="hidden" name="materialesExistentes" value={JSON.stringify(elegidos.map((id) => ({ materialId: id })))} />
+      <div className="sm:col-span-2">
+        <details className="rounded-lg border border-borde-sutil p-3">
+          <summary className="min-h-11 cursor-pointer text-sm font-medium">Elegir de mis materiales</summary>
+          <p className="mb-2 text-cuerpo-sm text-muted-foreground">Se añade una referencia al archivo existente.</p>
+          {materiales.filter((m) => !cursoOrigen || clave(m.curso) === clave(cursoOrigen.nombre)).map((m) => <label key={m.id} className="flex min-h-11 items-center gap-2 text-sm"><input type="checkbox" className="size-5 accent-primary" checked={elegidos.includes(m.id)} onChange={(e) => setElegidos((ids) => e.target.checked ? [...ids, m.id] : ids.filter((id) => id !== m.id))} />{m.titulo}</label>)}
+        </details>
+      </div>
       <div className="flex flex-col gap-3 rounded-lg border border-borde-sutil bg-superficie-2/50 p-3 sm:col-span-2">
         {[cursoOrigen, ...gemelos].filter((c): c is CursoOpcion => !!c).map((c) => {
           const e = estado(c.id);
