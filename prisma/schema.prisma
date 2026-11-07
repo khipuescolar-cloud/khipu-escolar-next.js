@@ -308,6 +308,10 @@ model Tenant {
   justificaciones       Justificacion[]
   archivos              Archivo[]
   // @@W1
+  almacenamiento         AlmacenamientoColegio?
+  usoAlmacenamiento      UsoAlmacenamientoCategoria[]
+  subidasArchivo         SubidaArchivo[]
+  metricasAlmacenamiento MetricaAlmacenamientoDia[]
 
   // @@W2
 
@@ -475,6 +479,7 @@ model Membership {
   carpetasCreadas          CarpetaDocumento[]
   documentosPublicados     Documento[]
   // @@W1
+  subidasArchivo         SubidaArchivo[]
 
   // @@W2
 
@@ -919,6 +924,12 @@ model Archivo {
   nuditoSesion    NuditoSesion?        @relation(fields: [nuditoSesionId], references: [id], onDelete: SetNull)
   nuditoIntentos  NuditoIntento[]
   // @@W1
+  categoria        CategoriaArchivo @default(otro)
+  sha256           String?
+  subidasArchivo   SubidaArchivo[]
+
+  @@index([tenantId, categoria])
+  @@index([tenantId, subidoPorId, categoria])
 
   // @@W2
 
@@ -3321,6 +3332,107 @@ model Notificacion {
 }
 
 // ===== W1 =====
+enum CategoriaArchivo {
+  documento
+  material_clase
+  material_tarea
+  entrega
+  solicitud
+  borrador
+  comunicado
+  soporte
+  justificacion
+  reunion
+  foto
+  logo
+  nudito
+  exportacion
+  otro
+}
+
+enum EstadoSubida {
+  pendiente
+  confirmada
+  fallida
+  expirada
+  cancelada
+}
+
+model AlmacenamientoColegio {
+  tenantId              String   @id @map("tenant_id") @db.Uuid
+  limiteBytes           BigInt?  @map("limite_bytes")
+  usadoBytes            BigInt   @default(0) @map("usado_bytes")
+  reservadoBytes        BigInt   @default(0) @map("reservado_bytes")
+  reservaCriticaPct     Int      @default(5) @map("reserva_critica_pct")
+  maxBytesDocumento     Int      @default(26214400) @map("max_bytes_documento")
+  maxBytesEntrega       Int      @default(10485760) @map("max_bytes_entrega")
+  maxArchivosEntrega    Int      @default(3) @map("max_archivos_entrega")
+  cuotaBorradorBytes    BigInt   @default(2147483648) @map("cuota_borrador_bytes")
+  purgaAutomaticaActiva Boolean  @default(false) @map("purga_automatica_activa")
+  umbralNotificado      Int      @default(0) @map("umbral_notificado")
+  actualizadoAt         DateTime @updatedAt @map("actualizado_at") @db.Timestamptz
+  tenant                Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@map("almacenamiento_colegio")
+}
+
+model UsoAlmacenamientoCategoria {
+  id        String           @id @default(uuid()) @db.Uuid
+  tenantId  String           @map("tenant_id") @db.Uuid
+  categoria CategoriaArchivo
+  bytes     BigInt           @default(0)
+  archivos  Int              @default(0)
+  tenant    Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, categoria])
+  @@map("uso_almacenamiento_categoria")
+}
+
+model SubidaArchivo {
+  id              String           @id @default(uuid()) @db.Uuid
+  tenantId        String           @map("tenant_id") @db.Uuid
+  membershipId    String           @map("membership_id") @db.Uuid
+  categoria       CategoriaArchivo
+  critica         Boolean          @default(false)
+  nombre          String
+  mimeDeclarado   String           @map("mime_declarado")
+  bytesDeclarados Int              @map("bytes_declarados")
+  proveedor       ProveedorArchivo
+  publicId        String           @map("public_id")
+  estado          EstadoSubida     @default(pendiente)
+  reservaBytes    BigInt           @map("reserva_bytes")
+  contexto        Json?
+  archivoId       String?          @map("archivo_id") @db.Uuid
+  error           String?
+  expiraAt        DateTime         @map("expira_at") @db.Timestamptz
+  createdAt       DateTime         @default(now()) @map("created_at") @db.Timestamptz
+  confirmadaAt    DateTime?        @map("confirmada_at") @db.Timestamptz
+  tenant          Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  membership      Membership       @relation(fields: [membershipId], references: [id], onDelete: Cascade)
+  archivo         Archivo?         @relation(fields: [archivoId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, estado, expiraAt])
+  @@map("subidas_archivo")
+}
+
+model MetricaAlmacenamientoDia {
+  id                      String           @id @default(uuid()) @db.Uuid
+  tenantId                String           @map("tenant_id") @db.Uuid
+  dia                     DateTime         @db.Date
+  categoria               CategoriaArchivo
+  subidas                 Int              @default(0)
+  bytesSubidos            BigInt           @default(0) @map("bytes_subidos")
+  borrados                Int              @default(0)
+  bytesBorrados           BigInt           @default(0) @map("bytes_borrados")
+  descargas               Int              @default(0)
+  bytesDescargaEstimados  BigInt           @default(0) @map("bytes_descarga_estimados")
+  rechazosCuota           Int              @default(0) @map("rechazos_cuota")
+  subidasFallidas         Int              @default(0) @map("subidas_fallidas")
+  tenant                  Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, dia, categoria])
+  @@map("metricas_almacenamiento_dia")
+}
 
 // ===== W2 =====
 

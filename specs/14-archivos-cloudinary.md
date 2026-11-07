@@ -82,3 +82,7 @@ interface FileStorage {
 - Tareas aceptan además PPTX y ODT (detección por entradas del ZIP / `mimetype`) y exigen que la extensión coincida con el tipo real; DOC/PPT/XLS antiguos no (firma OLE común). Comunicados siguen con los 6 tipos de siempre (`MIMES_BASICOS`).
 - Límites por colegio `tareas_max_archivos`/`tareas_max_mb` (techo 5 × 10 MB por el `bodySizeLimit` de 55 MB).
 - Descarga de un archivo de entrega: solo el alumno, sus apoderados, el profesor del curso de la sección (o el autor) y dirección; nunca otros profesores del salón ni el modo soporte. Cada descarga se audita (`tarea_entrega_archivo`).
+
+## Carga directa W1
+
+`FileStorage` incorpora `prepararSubida`, `inspeccionar` y `leerRango` opcionales. Local y S3 los implementan; Cloudinary sigue con carga por servidor. La ruta PUT local exige firma HMAC, sesión, pertenencia a la subida, expiración y tamaño declarado.

@@ -26,11 +26,15 @@ export async function encontrarArchivosHuerfanos(prisma: PrismaClient, ahora = n
   return prisma.archivo.findMany({
     where: {
       createdAt: { lt: limite },
+      categoria: "otro",
       id: { notIn: referenciados },
       comunicadoId: null,
       tareaId: null,
       documentoId: null,
       mensajeSoporteId: null,
+      entregaId: null,
+      reunionId: null,
+      nuditoSesionId: null,
       justificaciones: { none: {} },
       exportaciones: { none: {} },
     },

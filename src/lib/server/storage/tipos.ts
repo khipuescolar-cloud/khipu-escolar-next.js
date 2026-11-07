@@ -15,6 +15,8 @@ export type ArchivoSubido = {
   url: string | null;
 };
 
+export type SubidaPrefirmada = { publicId: string; url: string; metodo: "PUT"; headers: Record<string, string>; expiraAt: Date };
+
 /** Lo mínimo de la fila `archivos` que necesita un proveedor. */
 export type ReferenciaArchivo = {
   id: string;
@@ -34,4 +36,7 @@ export interface FileStorage {
   /** URL que vence en `segundos` (los privados) o la URL pública. */
   urlTemporal(archivo: ReferenciaArchivo, segundos: number): Promise<string>;
   borrar(archivo: ReferenciaArchivo): Promise<void>;
+  prepararSubida?(opciones: OpcionesSubida & { bytes: number; extension: string }): Promise<SubidaPrefirmada>;
+  inspeccionar?(publicId: string): Promise<{ bytes: number; contentType: string | null } | null>;
+  leerRango?(publicId: string, desde: number, hasta: number): Promise<Buffer>;
 }

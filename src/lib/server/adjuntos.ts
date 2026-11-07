@@ -4,6 +4,10 @@ import type { Archivo } from "@/generated/prisma/client";
 import { MAX_ADJUNTOS, MAX_BYTES_ADJUNTO, TIPOS_ADJUNTO_TEXTO, type AdjuntoVista } from "@/lib/adjuntos";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { storage } from "./storage";
+import { storageDe } from "./storage";
+import { reservar, confirmarUso, liberarReserva, descontarPorTenant } from "./almacenamiento/cuotas";
+import { registrarMetrica } from "./almacenamiento/metricas";
+import type { CategoriaArchivo } from "@/generated/prisma/client";
 import { detectarMime } from "./storage/validacion";
 import type { TenantContext } from "./tenant";
 
@@ -110,15 +114,19 @@ export const adjuntoVista = (a: Pick<Archivo, "id" | "nombre" | "mimeType" | "by
 export async function guardarAdjuntos(ctx: TenantContext, destino: DestinoAdjunto | null, validados: AdjuntoValidado[]): Promise<Archivo[]> {
   const guardados: Archivo[] = [];
   const carpeta = !destino ? "documentos" : "comunicadoId" in destino ? "comunicados" : "tareaId" in destino || "entregaId" in destino ? "tareas" : "documentoId" in destino ? "documentos" : "soporte";
+  const categoria: CategoriaArchivo = !destino ? "documento" : "comunicadoId" in destino ? "comunicado" : "tareaId" in destino ? "material_tarea" : "entregaId" in destino ? "entrega" : "documentoId" in destino ? "documento" : "soporte";
   try {
     for (const v of validados) {
+      if (!(await reservar(ctx, v.buffer.length, categoria === "entrega"))) throw new ErrorDeNegocio("El colegio alcanzó su espacio. Avisa a dirección.");
+      let reservaVigente = true;
+      try {
       const subido = await storage().subir(v.buffer, { tenantId: ctx.tenant.id, carpeta, privado: true, mimeType: v.mimeType });
       try {
         guardados.push(
           await ctx.db.archivo.create({
             data: {
               tenantId: ctx.tenant.id, proveedor: subido.proveedor, publicId: subido.publicId, url: null,
-              mimeType: v.mimeType, bytes: v.buffer.length, privado: true, subidoPorId: ctx.user.id, nombre: v.nombre, ...(destino ?? {}),
+              mimeType: v.mimeType, bytes: v.buffer.length, privado: true, subidoPorId: ctx.user.id, nombre: v.nombre, categoria, ...(destino ?? {}),
             },
           }),
         );
@@ -126,6 +134,10 @@ export async function guardarAdjuntos(ctx: TenantContext, destino: DestinoAdjunt
         await storage().borrar({ id: "", tenantId: ctx.tenant.id, publicId: subido.publicId, mimeType: v.mimeType, privado: true, url: null }).catch(() => undefined);
         throw e;
       }
+      await confirmarUso(ctx, categoria, BigInt(v.buffer.length), BigInt(v.buffer.length));
+      reservaVigente = false;
+      await registrarMetrica(ctx.tenant.id, categoria, "subidas", v.buffer.length);
+      } catch (error) { if (reservaVigente) await liberarReserva(ctx, BigInt(v.buffer.length)); throw error; }
     }
   } catch (e) {
     await borrarArchivos(ctx, guardados);
@@ -140,7 +152,9 @@ export async function guardarAdjuntos(ctx: TenantContext, destino: DestinoAdjunt
  */
 export async function borrarDelProveedor(archivos: Archivo[]): Promise<void> {
   for (const a of archivos) {
-    await storage().borrar(a).catch((error) => console.error("[archivos] no se pudo borrar del proveedor", a.proveedor, a.publicId, error));
+    await storageDe(a.proveedor).borrar(a).catch((error) => console.error("[archivos] no se pudo borrar del proveedor", a.proveedor, a.publicId, error));
+    await descontarPorTenant(a.tenantId, a.categoria, BigInt(a.bytes));
+    await registrarMetrica(a.tenantId, a.categoria, "borrados", a.bytes);
   }
 }
 

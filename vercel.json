@@ -3,6 +3,7 @@
   "crons": [
     { "path": "/api/cron/avisos", "schedule": "0 12 * * *" },
     { "path": "/api/cron/exportaciones", "schedule": "0 9 * * *" },
-    { "path": "/api/cron/nudito-plus", "schedule": "0 13 * * 1" }
+    { "path": "/api/cron/nudito-plus", "schedule": "0 13 * * 1" },
+    { "path": "/api/cron/almacenamiento", "schedule": "0 10 * * *" }
   ]
 }

@@ -10,6 +10,7 @@ import { panelMonitoreo, type EstadoCron } from "@/lib/server/plataforma-monitor
 import { GraficoDiario } from "../_componentes/Graficos";
 import { TituloBloque } from "@/components/shell/TituloBloque";
 import { fechaHora } from "../EstadoColegio";
+import { Almacenamiento } from "./Almacenamiento";
 import { procesarColaAction, reintentarAvisosAction } from "./actions";
 
 export const metadata: Metadata = { title: "Monitoreo" };
@@ -66,6 +67,7 @@ export default async function Monitoreo() {
         }
       />
 
+      <Almacenamiento />
       <section aria-labelledby="alertas" className="flex flex-col gap-3">
         <TituloBloque id="alertas">Requiere atención</TituloBloque>
         <div className="overflow-hidden rounded-xl border bg-card">

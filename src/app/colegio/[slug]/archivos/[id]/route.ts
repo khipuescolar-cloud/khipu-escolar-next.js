@@ -1,6 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { requireArchivoVisible } from "@/lib/server/archivos";
-import { urlArchivo } from "@/lib/server/storage";
+import { storageDe } from "@/lib/server/storage";
+import { segundosUrl } from "@/lib/almacenamiento";
+import { registrarMetrica } from "@/lib/server/almacenamiento/metricas";
 import { leerArchivoLocal, verificarFirmaArchivoLocal } from "@/lib/server/storage/local";
 import { requireTenantContext } from "@/lib/server/tenant";
 
@@ -12,6 +14,7 @@ export async function GET(request: NextRequest, ctx: RouteContext<"/colegio/[slu
   const tenant = await requireTenantContext(slug);
   if (!/^[0-9a-f-]{36}$/i.test(id)) return new NextResponse("No encontrado", { status: 404 });
   const archivo = await requireArchivoVisible(tenant, id);
+  await registrarMetrica(tenant.tenant.id, archivo.categoria, "descargas", archivo.bytes);
   const esAdjunto = !!(archivo.comunicadoId || archivo.tareaId || archivo.entregaId || archivo.mensajeSoporteId || archivo.documentoId);
 
   if (!esAdjunto) {
@@ -21,7 +24,9 @@ export async function GET(request: NextRequest, ctx: RouteContext<"/colegio/[slu
     if (archivo.proveedor !== "local") return new NextResponse("No encontrado", { status: 404 });
   } else if (archivo.proveedor !== "local") {
     // Cloudinary u otro proveedor: URL temporal firmada generada solo para quien pasó el control de acceso.
-    return NextResponse.redirect(await urlArchivo(archivo), 307);
+    const respuesta = NextResponse.redirect(await storageDe(archivo.proveedor).urlTemporal(archivo, segundosUrl(archivo.categoria)), 307);
+    respuesta.headers.set("Cache-Control", "private, no-store");
+    return respuesta;
   }
 
   const contenido = await leerArchivoLocal(archivo.publicId);

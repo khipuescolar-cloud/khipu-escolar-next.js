@@ -33,7 +33,8 @@ export const TABLAS_NUDITO_PLUS_PRIVADAS = ["NuditoConversacion", "NuditoMensaje
  */
 export const TABLAS_NUDITO_PRACTICA = ["NuditoSesion", "NuditoEjercicio", "NuditoIntento", "NuditoConsumoIa"] as const;
 /** Modelos que no se exportan: secretos, actividad privada de Nudito+ y el detalle de práctica de Nudito. */
-export const TABLAS_OMITIDAS = [...TABLAS_SECRETAS, ...TABLAS_NUDITO_PLUS_PRIVADAS, ...TABLAS_NUDITO_PRACTICA] as const;
+/** Subidas efímeras y métricas operativas no son datos académicos exportables. */
+export const TABLAS_OMITIDAS = [...TABLAS_SECRETAS, ...TABLAS_NUDITO_PLUS_PRIVADAS, ...TABLAS_NUDITO_PRACTICA, "AlmacenamientoColegio", "SubidaArchivo", "MetricaAlmacenamientoDia"] as const;
 
 /** Filas que no se exportan dentro de una tabla exportada (por delegado). Fotos privadas de la práctica de Nudito. */
 export const FILTRO_EXPORTACION: Readonly<Record<string, object>> = { archivo: { nuditoSesionId: null } };
