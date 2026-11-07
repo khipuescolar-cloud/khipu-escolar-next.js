@@ -34,12 +34,13 @@ test.afterAll(async () => {
 test("publica en dos secciones, consulta, descarga y reutiliza en tarea", async ({ page }) => {
   await entrar(page, "lucia.garcia@nuevohorizonte.demo");
   await page.goto(`${base}/documentos?seccion=materiales`);
+  await page.getByRole("button", { name: "Nuevo material" }).click();
   await page.getByLabel("Título").fill(titulo);
-  await page.getByLabel("Curso").selectOption({ label: "Matemática · 3.° B" });
-  await page.getByRole("checkbox", { name: "5.° A" }).check();
-  await page.getByLabel("Archivo PDF").setInputFiles({ name: `${titulo}.pdf`, mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n1 0 obj\n<<>>\nendobj\n%%EOF\n") });
-  await page.getByRole("button", { name: "Publicar material" }).click();
-  await expect(page.getByRole("status")).toHaveText("Material publicado.");
+  await page.getByRole("checkbox", { name: /Matemática · 3\.° B/ }).check();
+  await page.getByRole("checkbox", { name: /Matemática · 5\.° A/ }).check();
+  await page.getByLabel("Archivos").setInputFiles({ name: `${titulo}.pdf`, mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n1 0 obj\n<<>>\nendobj\n%%EOF\n") });
+  await page.getByRole("button", { name: "Guardar material" }).click();
+  await expect(page.getByText("Material creado.")).toBeVisible();
   const [material] = await sql<{ id: string }>("select id from materiales_clase where titulo=$1", [titulo]);
   materialId = material.id;
   const [conteo] = await sql<{ secciones: string; archivos: string }>("select (select count(*) from material_secciones where material_id=$1)::text secciones, (select count(*) from material_version_archivos a join material_versiones v on v.id=a.version_id where v.material_id=$1)::text archivos", [materialId]);
