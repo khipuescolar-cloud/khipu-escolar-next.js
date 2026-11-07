@@ -1,6 +1,6 @@
 # 31 — Documentos: materiales, gestión académica, biblioteca y borradores
 
-> Estado: explorador implementado (Khipu Pro); navegación por sección y metadatos de Biblioteca implementados en W4. Materiales, solicitudes y almacenamiento central pendientes de integrar con W1–W3 · Actualizado: 2026-11-07 · Sección Comunicación · Relacionadas: `45-almacenamiento-y-cuotas.md`, `46-solicitudes-documentales.md`, `39-tareas.md`, `14-archivos-cloudinary.md` · Diagnóstico: `docs/documentos-diagnostico-2026-11.md` · Plan: `docs/documentos-plan-implementacion.md`
+> Estado: explorador y navegación por sección implementados (Khipu Pro); integración de Materiales y almacenamiento central en W4 R2 · Actualizado: 2026-11-07 · Sección Comunicación · Relacionadas: `45-almacenamiento-y-cuotas.md`, `46-solicitudes-documentales.md`, `39-tareas.md`, `14-archivos-cloudinary.md` · Diagnóstico: `docs/documentos-diagnostico-2026-11.md` · Plan: `docs/documentos-plan-implementacion.md`
 
 Lo implementado hoy (explorador estilo Drive) se conserva y se describe en «Explorador vigente»; las secciones nuevas dicen qué cambia. Hasta que cada flujo se integre, **manda el comportamiento vigente**.
 
@@ -32,7 +32,7 @@ Ambos módulos usan el mismo repositorio y la misma cuota. Subir de nuevo el mis
 
 Ruta `/documentos?seccion=materiales|gestion|biblioteca|borradores|compartido|recientes|destacados|papelera` (el `?vista=` actual sigue aceptándose: `unidad`→`borradores`, el resto igual). Sin autorización, la sección **no aparece** y la ruta responde 403.
 
-Implementación W4: `seccionDocumento` normaliza el alias y `puedeEntrarSeccion` aplica la matriz de roles en el servidor y en la navegación. Materiales y Gestión académica consumen `listarMateriales` y `listarSolicitudes`; mientras esos contratos sean provisionales se muestra un estado vacío.
+Implementación W4: `seccionDocumento` normaliza el alias y `puedeEntrarSeccion` aplica la matriz de roles en el servidor y en la navegación. Materiales consume `listarMateriales` y `opcionesParaCompartir` reales; el formulario de alta permite título, descripción, unidad, archivos y secciones. Gestión académica consume `listarSolicitudes`.
 
 | Sección | Dirección | Administrativo | Profesor | Apoderado | Alumno |
 |---|---|---|---|---|---|
@@ -115,7 +115,7 @@ Es la vista «Mi unidad» (`AmbitoDocumento.unidad`, valor intacto) con otro nom
 - Acciones nuevas: **«Publicar como material de clase»** (elige curso/secciones; recategoriza) y **«Enviar a la Biblioteca»** (solo dirección/administrativo). Compartir con personas sigue disponible (entrada explícita, auditada), sin enlaces públicos.
 - Indicador «Usaste X de 2 GB» en la sección.
 
-Implementación provisional W4: el indicador suma los bytes de archivos en documentos propios de `ambito = unidad` (incluida la papelera) y usa 2 GB hasta conectar `resumenAlmacenamiento`/`limitesDe` de W1. La cuota todavía no se exige desde este flujo.
+Implementación W4 R2: el indicador suma archivos `categoria = borrador` de la persona (incluida la papelera), toma `cuotaBorradorBytes` de `limitesDe` y W1 la exige al iniciar cada subida. Dirección ve el resumen total de `resumenAlmacenamiento`. «Nuevo» usa `subirDirecto` con progreso y tres intentos; el servidor valida el destino antes de reservar espacio y enlaza el archivo confirmado con el documento. `/api/documentos/subir` continúa como respaldo.
 
 ## Almacenamiento y cuotas
 

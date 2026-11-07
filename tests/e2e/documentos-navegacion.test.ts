@@ -9,7 +9,7 @@ async function entrar(page: import("@playwright/test").Page, correo: string) {
   await page.getByLabel("Correo").fill(correo);
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  await expect(page).toHaveURL(/\/inicio/);
+  await expect(page).toHaveURL(/\/inicio/, { timeout: 30_000 });
 }
 
 test("dirección ve ocho secciones y Biblioteca responde en escritorio y móvil", async ({ page }) => {
@@ -40,4 +40,28 @@ test("profesor ve sus secciones y familia no entra en Gestión académica", asyn
   await expect(nav.getByRole("link", { name: "Gestión académica" })).toHaveCount(0);
   await familia.goto(`${colegio}/documentos?seccion=gestion`);
   await expect(familia.getByText(/403|Forbidden|acceso/i).first()).toBeVisible();
+});
+
+test("capturas de secciones autorizadas por rol", async ({ browser }) => {
+  test.setTimeout(240_000);
+  const perfiles = [
+    { rol: "direccion", correo: "direccion@nuevohorizonte.demo", secciones: ["materiales", "gestion", "biblioteca", "borradores", "compartido", "recientes", "destacados", "papelera"] },
+    { rol: "profesora", correo: "lucia.garcia@nuevohorizonte.demo", secciones: ["materiales", "gestion", "biblioteca", "borradores", "compartido", "recientes", "destacados", "papelera"] },
+    { rol: "familia", correo: "rosa.quispe@gmail.com", secciones: ["materiales", "biblioteca", "compartido", "recientes", "destacados"] },
+    { rol: "alumno", correo: "lucas.huaman@nuevohorizonte.demo", secciones: ["materiales", "biblioteca", "compartido", "recientes", "destacados"] },
+  ];
+  for (const perfil of perfiles) {
+    const pagina = await browser.newPage();
+    await entrar(pagina, perfil.correo);
+    for (const seccion of perfil.secciones) {
+      await pagina.goto(`${colegio}/documentos?seccion=${seccion}`);
+      await expect(pagina.getByRole("navigation", { name: "Secciones de documentos" }).locator('[aria-current="page"]')).toBeVisible();
+      for (const ancho of [1440, 390]) {
+        await pagina.setViewportSize({ width: ancho, height: ancho === 1440 ? 900 : 844 });
+        await pagina.screenshot({ path: `${carpetaCapturas}/w4-r2-${perfil.rol}-${seccion}-${ancho}.png`, fullPage: true });
+      }
+      expect(await pagina.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    }
+    await pagina.close();
+  }
 });

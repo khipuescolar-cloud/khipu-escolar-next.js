@@ -1,5 +1,5 @@
 import { IndicadorAlmacenamiento } from "./IndicadorAlmacenamiento";
 
-export function PanelBorradores({ usado }: { usado: number }) {
-  return <div className="mb-5"><IndicadorAlmacenamiento usado={usado} limite={2 * 1024 ** 3} titulo="Espacio de mis borradores" /></div>;
+export function PanelBorradores({ usado, limite }: { usado: number; limite: number }) {
+  return <div className="mb-5"><IndicadorAlmacenamiento usado={usado} limite={limite} titulo="Espacio de mis borradores" /></div>;
 }

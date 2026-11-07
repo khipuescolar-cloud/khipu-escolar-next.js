@@ -16,6 +16,7 @@ import { salonEsActivo, salonesActivos } from "./salones-activos";
 import { salonIdsVisibles, type TenantContext } from "./tenant";
 import { contextoPermisosDocumento, nivelCarpeta, nivelDocumento, puedeEditarNivel } from "./documentos-permisos";
 import { requireFeature } from "./plan";
+import { iniciarSubida, confirmarSubida, liberarArchivo } from "./almacenamiento";
 
 // Biblioteca de documentos (specs/31). Reglas de visibilidad puras en `src/lib/documentos.ts`.
 
@@ -204,8 +205,39 @@ export async function puedeVerDocumento(ctx: TenantContext, documentoId: string)
 export async function usoBorradores(ctx: TenantContext): Promise<bigint> {
   requireUsoBiblioteca(ctx);
   if (!puedeSubir(ctx)) forbidden();
-  const total = await ctx.db.archivo.aggregate({ where: { documento: { ambito: "unidad", publicadoPorId: ctx.membership.id } }, _sum: { bytes: true } });
+  const total = await ctx.db.archivo.aggregate({ where: { subidoPorId: ctx.user.id, categoria: "borrador" }, _sum: { bytes: true } });
   return BigInt(total._sum.bytes ?? 0);
+}
+
+export async function iniciarSubidaDocumento(ctx: TenantContext, entrada: EntradaDocumento, archivo: { nombre: string; bytes: number; mimeDeclarado: string }) {
+  requireUsoBiblioteca(ctx);
+  if (!puedeSubir(ctx)) forbidden();
+  await validarDestino(ctx, entrada);
+  const ambito = entrada.carpetaId ? (await requireCarpeta(ctx, entrada.carpetaId)).ambito : entrada.ambito ?? "biblioteca";
+  if (ambito === "biblioteca" && !esGestorDocumentos(ctx.rol) && !entrada.carpetaId) forbidden();
+  if (entrada.oficial && ctx.rol !== "direccion") forbidden();
+  return iniciarSubida(ctx, { categoria: ambito === "unidad" ? "borrador" : "documento", ...archivo });
+}
+
+export async function subirDocumentoDesdeSubida(ctx: TenantContext, entrada: EntradaDocumento, subidaId: string): Promise<{ id: string }> {
+  requireUsoBiblioteca(ctx);
+  const datos = esquemaDocumento.parse({ titulo: entrada.titulo, descripcion: entrada.descripcion || null });
+  const visibleRoles = await validarDestino(ctx, entrada);
+  const ambito = entrada.carpetaId ? (await requireCarpeta(ctx, entrada.carpetaId)).ambito : entrada.ambito ?? "biblioteca";
+  if (ambito === "biblioteca" && !esGestorDocumentos(ctx.rol) && !entrada.carpetaId) forbidden();
+  if (entrada.oficial && ctx.rol !== "direccion") forbidden();
+  const subida = await ctx.db.subidaArchivo.findFirst({ where: { id: subidaId, membershipId: ctx.membership.id } });
+  if (!subida || subida.categoria !== (ambito === "unidad" ? "borrador" : "documento")) forbidden();
+  const { archivo } = await confirmarSubida(ctx, subidaId);
+  if (archivo.documentoId) throw new ErrorDeNegocio("Este archivo ya fue publicado.");
+  let documento: { id: string };
+  try {
+    documento = await ctx.db.documento.create({ data: { tenantId: ctx.tenant.id, carpetaId: entrada.carpetaId, titulo: datos.titulo, descripcion: datos.descripcion || null, visibleRoles, salonId: entrada.salonId, publicadoPorId: ctx.membership.id, ambito, categoria: ambito === "biblioteca" ? entrada.categoria ?? "otro" : "otro", oficial: ambito === "biblioteca" && !!entrada.oficial } });
+    const enlace = await ctx.db.archivo.updateMany({ where: { id: archivo.id, documentoId: null }, data: { documentoId: documento.id } });
+    if (!enlace.count) { await ctx.db.documento.delete({ where: { id: documento.id } }); throw new ErrorDeNegocio("Este archivo ya fue publicado."); }
+  } catch (error) { if (!(await ctx.db.archivo.findFirst({ where: { id: archivo.id, documentoId: { not: null } } }))) await liberarArchivo(ctx, archivo.id); throw error; }
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "documento", entidadId: documento.id, detalle: { titulo: datos.titulo, roles: visibleRoles, salonId: entrada.salonId } });
+  return documento;
 }
 
 // ───────────── Carpetas ─────────────

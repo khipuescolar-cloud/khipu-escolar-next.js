@@ -7,7 +7,7 @@ import { after } from "next/server";
 import { ejecutarYVolver, texto, textoONulo } from "@/lib/server/accion-formulario";
 import { ErrorDeNegocio, contextoDeAccion } from "@/lib/server/contexto-accion";
 import {
-  archivarDocumento, borrarCarpeta, borrarDocumento, crearCarpeta, editarCarpeta, editarDocumento, reemplazarArchivoDocumento, subirDocumento,
+  archivarDocumento, borrarCarpeta, borrarDocumento, crearCarpeta, editarCarpeta, editarDocumento, iniciarSubidaDocumento, reemplazarArchivoDocumento, subirDocumento, subirDocumentoDesdeSubida,
 } from "@/lib/server/documentos";
 import { compartirRecurso, detalleAccesos, renombrarRecurso, quitarAccesoRecurso, destacarRecurso, restaurarRecurso, eliminarDefinitivoRecurso, accesosDeRecurso, registrarAccesoDocumento, cambiarAccesoGeneral, moverRecurso } from "@/lib/server/documentos-drive";
 import type { Rol, NivelCompartidoDocumento, CategoriaBiblioteca } from "@/generated/prisma/enums";
@@ -273,6 +273,20 @@ export async function subirDocumentoAction(formData: FormData) {
     }
     return `Documento publicado.${r.avisados > 0 ? ` Se avisó a ${r.avisados} ${r.avisados === 1 ? "familia" : "familias"}.` : ""}`;
   });
+}
+
+export async function iniciarSubidaDocumentoAction(entrada: { titulo: string; carpetaId: string | null; ambito: "unidad" | "biblioteca"; nombre: string; bytes: number; mimeDeclarado: string }) {
+  const ctx = await contextoDeAccion([...ROLES]);
+  requireFeature(ctx, "documentos");
+  return iniciarSubidaDocumento(ctx, { titulo: entrada.titulo, carpetaId: entrada.carpetaId, ambito: entrada.ambito, visibleRoles: [], salonId: null }, { nombre: entrada.nombre, bytes: entrada.bytes, mimeDeclarado: entrada.mimeDeclarado });
+}
+
+export async function confirmarSubidaDocumentoAction(entrada: { titulo: string; carpetaId: string | null; ambito: "unidad" | "biblioteca"; subidaId: string }) {
+  const ctx = await contextoDeAccion([...ROLES]);
+  requireFeature(ctx, "documentos");
+  const r = await subirDocumentoDesdeSubida(ctx, { titulo: entrada.titulo, carpetaId: entrada.carpetaId, ambito: entrada.ambito, visibleRoles: [], salonId: null }, entrada.subidaId);
+  revalidatePath("/documentos");
+  return r;
 }
 
 export async function editarDocumentoAction(formData: FormData) {

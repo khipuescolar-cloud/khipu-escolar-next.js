@@ -27,6 +27,7 @@ import { PanelDetalles } from "./PanelDetalles";
 import { PanelSubidas, useSubidas } from "./Subidas";
 import { NavegacionDocumentos } from "./NavegacionDocumentos";
 import { PanelBorradores } from "./PanelBorradores";
+import { IndicadorAlmacenamiento } from "./IndicadorAlmacenamiento";
 import type { Item, Persona, Salon, Vista } from "./tipos-documentos";
 
 const vistas: { id: Vista; nombre: string; icono: typeof FolderOpen }[] = [
@@ -45,7 +46,7 @@ const vacios: Record<Vista, { titulo: string; detalle: string }> = {
 const ordenes = Object.fromEntries(Object.entries(ORDENES_DOCUMENTO)) as Record<string, string>;
 const aArchivo = (d: Contenido["documentos"][number]): Item => ({ tipo: "documento", id: d.id, nombre: d.titulo, propietario: d.autor, modificado: d.updatedAt, creado: d.createdAt, tamano: d.archivo?.bytes ?? null, archivo: d.archivo, gestionable: d.gestionable, destacado: d.destacado, descripcion: d.descripcion, carpetaId: d.carpetaId, visibleRoles: d.visibleRoles, salonId: d.salonId, ambito: d.ambito, categoria: d.categoria, oficial: d.oficial, archivado: d.archivado });
 
-export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista, carpetaId, carpetaDeCreacion, carpetaCompartida, q, orden, opciones, salones, personas, esProfesor, rol, puedeCrear, categoria, archivados, usadoBorradores, ok, error }: { archivoInicial: string | null; nuevos: string; contenido: Contenido; vista: Vista; carpetaId: string | null; carpetaDeCreacion: string | null; carpetaCompartida: boolean; q: string; orden: string; opciones: CarpetaOpcion[]; salones: Salon[]; personas: Persona[]; esProfesor: boolean; rol: Rol; puedeCrear: boolean; categoria?: CategoriaBiblioteca; archivados: boolean; usadoBorradores: number | null; ok?: string; error?: string }) {
+export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista, carpetaId, carpetaDeCreacion, carpetaCompartida, q, orden, opciones, salones, personas, esProfesor, rol, puedeCrear, categoria, archivados, usadoBorradores, limiteBorradores, almacenamientoColegio, ok, error }: { archivoInicial: string | null; nuevos: string; contenido: Contenido; vista: Vista; carpetaId: string | null; carpetaDeCreacion: string | null; carpetaCompartida: boolean; q: string; orden: string; opciones: CarpetaOpcion[]; salones: Salon[]; personas: Persona[]; esProfesor: boolean; rol: Rol; puedeCrear: boolean; categoria?: CategoriaBiblioteca; archivados: boolean; usadoBorradores: number | null; limiteBorradores: number | null; almacenamientoColegio: { usado: number; limite: number } | null; ok?: string; error?: string }) {
   const router = useRouter();
   const enlaceAbierto = useRef<string | null>(null);
   const navegacion = useRef<HTMLElement>(null);
@@ -159,7 +160,8 @@ export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista,
         <div ref={navegacion as React.RefObject<HTMLDivElement>}><NavegacionDocumentos rol={rol} activa={vista === "unidad" ? "borradores" : vista} /></div>
       </aside>
       <div className={cn("relative min-w-0 rounded-xl pb-24 md:pb-8", arrastrando && "outline-2 outline-dashed outline-offset-4 outline-sec-trazo")} onDragOver={(e) => { if (puedeCrear && e.dataTransfer.types.includes("Files")) { e.preventDefault(); setArrastrando(true); } }} onDragLeave={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setArrastrando(false); }} onDrop={(e) => { if (!puedeCrear) return; e.preventDefault(); setArrastrando(false); const f = Array.from(e.dataTransfer.files); if (f.length) subirAqui(f); }}>
-        {usadoBorradores !== null && <PanelBorradores usado={usadoBorradores} />}
+        {usadoBorradores !== null && limiteBorradores !== null && <PanelBorradores usado={usadoBorradores} limite={limiteBorradores} />}
+        {almacenamientoColegio && almacenamientoColegio.limite > 0 && <div className="mb-5"><IndicadorAlmacenamiento usado={almacenamientoColegio.usado} limite={almacenamientoColegio.limite} titulo="Espacio del colegio" /></div>}
         <nav aria-label="Ruta de carpetas" className="mb-3 flex min-w-0 flex-wrap items-center gap-0.5 text-sm">
           <Link href={rutaBase} className={cn("inline-flex min-h-9 items-center rounded-md px-2 font-medium", contenido.ruta.length === 0 ? "text-foreground" : "text-primary hover:underline")} aria-current={contenido.ruta.length === 0 ? "page" : undefined}>{nombreVista}</Link>
           {contenido.ruta.map((r, i) => <span key={r.id} className="inline-flex min-w-0 items-center gap-0.5"><ChevronRight className="size-4 shrink-0 text-muted-foreground" aria-hidden /><Link href={`${rutaBase}&carpeta=${r.id}`} aria-current={i === contenido.ruta.length - 1 ? "page" : undefined} className={cn("inline-flex min-h-9 max-w-48 items-center truncate rounded-md px-2", i === contenido.ruta.length - 1 ? "font-medium text-foreground" : "text-primary hover:underline")}>{r.nombre}</Link></span>)}
