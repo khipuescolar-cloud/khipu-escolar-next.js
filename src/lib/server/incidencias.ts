@@ -142,7 +142,7 @@ export async function registrarIncidencia(ctx: TenantContext, entrada: unknown, 
 
 export type IncidenciaVista = {
   id: string; fecha: string; hora: string; alumno: string; salon: string; tipo: TipoIncidencia; retiro: boolean; horaRetiro: string | null;
-  cursos: string[]; registradoPor: string;
+  cursos: string[]; registradoPor: string; registradaAt: Date;
   /** Solo para dirección, el tutor del salón y quien la registró; los demás ven null (dato sensible). */
   descripcion: string | null;
 };
@@ -168,7 +168,7 @@ export async function listarIncidencias(ctx: TenantContext, opciones: { desde?: 
     return {
       id: f.id, fecha: isoDeFechaDb(f.fecha), hora: f.hora, alumno: `${f.alumno.apellidos}, ${f.alumno.nombres}`, salon: f.alumno.salon.nombre,
       tipo: f.tipo, retiro: f.retiro, horaRetiro: f.horaRetiro, cursos: f.cursos.map((c) => c.curso.nombre),
-      registradoPor: `${f.registradoPor.user.nombres} ${f.registradoPor.user.apellidos}`.trim(),
+      registradoPor: `${f.registradoPor.user.nombres} ${f.registradoPor.user.apellidos}`.trim(), registradaAt: f.createdAt,
       descripcion: puedeVerDetalle ? f.descripcion : null,
     };
   });

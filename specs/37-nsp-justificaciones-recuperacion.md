@@ -273,7 +273,7 @@ ultimoDiaJustificacion · expiracionJustificacion · dentroDelPlazo · textoPlaz
 - El historial muestra el tipo, el motivo y «Khipu».
 
 **Otras pantallas**
-- `/incidencias` (dirección, profesor, administrativo): formulario en dos pasos y lista de recientes; el detalle es reservado.
+- `/incidencias` (dirección, profesor, administrativo): lista tabular de recientes con «Ver». «Registrar incidencia» abre un drawer lateral (inferior en móvil) con dos pasos: alumno y momento; luego tipo, descripción, retiro y cursos sugeridos. Los errores quedan junto al campo. «Ver» abre un drawer de detalle; la descripción sigue reservada según el rol. Al guardar, se cierra el panel, aparece un aviso, se actualiza la lista y se destaca brevemente la nueva fila. No existe acción de anulación o edición de incidencias.
 - `/configuracion` → **«Reglas académicas»** (dirección, con el módulo Notas): consecuencia por vencimiento y alerta de NSP vencidos sin configuración (la hora del resumen se quitó con el resumen diario). El plazo pasa a decir «(días calendario)».
 - `/libreta`:
   - «Versión N emitida el … por …»;
