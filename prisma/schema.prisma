@@ -1143,6 +1143,7 @@ model Competencia {
   desactivadaPor Membership? @relation("CompetenciaDesactivadaPor", fields: [desactivadaPorId], references: [id], onDelete: SetNull)
 
   @@index([tenantId, cursoId])
+  @@unique([cursoId, codigoOficial])
   @@map("competencias")
 }
 

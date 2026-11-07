@@ -10,7 +10,16 @@ import {
 } from "@/lib/server/gestion";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
 import { fijarAreaCurso } from "@/lib/server/nudito/areas-cursos";
-import { altaPersonal, editarFicha, importarPersonalCsv, reenviarBienvenida, restablecerPasswordAlDocumento, type RolPersonal } from "@/lib/server/personal";
+import { altaPersonal, editarFicha, fijarPermisoCompetencias, importarPersonalCsv, reenviarBienvenida, restablecerPasswordAlDocumento, type RolPersonal } from "@/lib/server/personal";
+
+export async function fijarPermisoCompetenciasAction(formData: FormData) {
+  const ctx = await gestionar();
+  const permitido = texto(formData, "permitido") === "1";
+  await ejecutarYVolver(volverA(formData, "/gestion/profesores"), async () => {
+    await fijarPermisoCompetencias(ctx, texto(formData, "id"), permitido);
+    return permitido ? "Permiso para gestionar competencias activado." : "Permiso para gestionar competencias desactivado.";
+  });
+}
 
 const ROLES = ["direccion"] as const;
 const gestionar = () => contextoDeAccion([...ROLES]);

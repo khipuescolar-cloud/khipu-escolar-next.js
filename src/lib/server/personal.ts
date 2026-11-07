@@ -1,4 +1,5 @@
 import "server-only";
+import { forbidden } from "next/navigation";
 import { z } from "zod";
 import type { Genero, Rol, TipoIdentificacion } from "@/generated/prisma/enums";
 import type { Prisma } from "@/generated/prisma/client";
@@ -151,6 +152,7 @@ export async function obtenerFicha(ctx: TenantContext, membershipId: string, rol
       rol: true,
       estado: true,
       cargo: true,
+      gestionaCompetencias: true,
       createdAt: true,
       user: {
         select: {
@@ -227,6 +229,16 @@ export async function editarFicha(ctx: TenantContext, membershipId: string, role
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: m.id, detalle: { campos: modificados } });
   // El perfil es global: si cambió algo que ven los otros colegios de la persona, queda auditado también allí.
   await auditarCambioGlobal(ctx, m.userId, modificados);
+}
+
+/** Dirección concede o retira el permiso curricular de una membresía docente del colegio. */
+export async function fijarPermisoCompetencias(ctx: TenantContext, membershipId: string, permitido: boolean): Promise<void> {
+  exigirGestion(ctx);
+  const docente = await ctx.db.membership.findFirst({ where: { id: membershipId, rol: "profesor" }, select: { id: true, gestionaCompetencias: true } });
+  if (!docente) forbidden();
+  if (docente.gestionaCompetencias === permitido) return;
+  await ctx.db.membership.update({ where: { id: docente.id }, data: { gestionaCompetencias: permitido } });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "membresia", entidadId: docente.id, detalle: { campo: "gestionaCompetencias", antes: docente.gestionaCompetencias, despues: permitido } });
 }
 
 /**

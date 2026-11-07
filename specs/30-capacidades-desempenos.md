@@ -2,6 +2,8 @@
 
 > Estado: implementado · Plan: Khipu Pro (módulo `notas`; la libreta usa `libreta`) · Última actualización: 2026-10-30 (Claude Code, catálogo completo)
 
+> Actualización PASO 1 (2026-11-07): ver [specs/47](47-registro-de-notas.md). Las competencias oficiales ahora llevan `codigoOficial = CNEB-01…CNEB-31`, origen, desactivación lógica y auditoría. La plantilla se siembra al crear un curso reconocido y se restaura sin duplicar por código. Dirección gestiona todas; un profesor requiere `gestionaCompetencias` y solo puede cambiar cursos que dicta. Los desempeños y el flujo histórico de importación siguen disponibles. La lista del catálogo usa programas MINEDU 2016–2017; su vigencia posterior y lecturas dudosas de Secundaria siguen por verificar en `src/lib/cneb/PENDIENTES.md`.
+
 ## Objetivo
 Completar las notas por competencias (`specs/11`) con la estructura del Currículo Nacional de Educación Básica (CNEB, MINEDU):
 competencia → **capacidades** → **desempeños por nivel y grado**. Dirección carga la estructura (a mano o importándola de un
