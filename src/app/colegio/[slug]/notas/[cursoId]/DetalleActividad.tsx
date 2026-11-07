@@ -1,7 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useState, useTransition } from "react";
-import { ClipboardList, PenLine } from "lucide-react";
+import { CheckCircle2, CircleDashed, ClipboardList, PenLine, Send } from "lucide-react";
+import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
+import { publicarEvaluacionAction } from "../actions";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { asignarCompetenciaAction } from "./actions";
@@ -38,9 +40,20 @@ export function DetalleActividad({ evaluacion, datos, slug, onCerrar, onAsignada
               <dt className="text-muted-foreground">Registrada el</dt><dd>{fechaHora(e.creadaAt)}</dd>
               <dt className="text-muted-foreground">Registró</dt><dd>{autor}</dd>
               <dt className="text-muted-foreground">Competencia</dt><dd>{e.competencia?.nombre ?? "Sin competencia"}</dd>
+              <dt className="text-muted-foreground">Resultados</dt>
+              <dd className="flex items-center gap-1.5">{e.estado === "publicada" ? <><CheckCircle2 className="size-4 text-llego" aria-hidden />Publicados a las familias</> : <><CircleDashed className="size-4" aria-hidden />Borrador: la familia aún no los ve</>}</dd>
               <dt className="text-muted-foreground">Origen</dt>
               <dd className="flex items-center gap-1.5">{e.tareaId ? <ClipboardList className="size-4" aria-hidden /> : <PenLine className="size-4" aria-hidden />}{origenDe(e)}</dd>
             </dl>
+            {e.estado !== "publicada" && datos.puedeEditar && (
+              <BotonConfirmar
+                etiqueta={<><Send aria-hidden />Publicar resultados</>}
+                titulo={`¿Publicar los resultados de ${e.titulo}?`}
+                descripcion="Las familias verán la nota de su hijo y las observaciones que marcaste como visibles, y recibirán una notificación en Khipu. Después, cambiar una nota pide un motivo."
+                confirmar="Publicar resultados"
+                accion={publicarEvaluacionAction.bind(null, slug, e.grupoId)}
+              />
+            )}
             {e.tareaId && <Link className="inline-block text-sm underline underline-offset-4" href={`/tareas/${e.tareaId}`}>Abrir tarea</Link>}
             {e.tareaId && !e.competenciaId && datos.puedeEditar && (
               <div className="grid gap-2">

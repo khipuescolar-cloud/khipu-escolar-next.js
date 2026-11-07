@@ -1,5 +1,5 @@
-// Flujo de evaluación (specs/11): la profesora crea una prueba escrita de dos competencias, ve el registro auxiliar
-// agrupado con el promedio en vivo y comparte el informe de progreso. Crea su propio salón, curso y alumno en Nuevo
+// Flujo de evaluación (specs/11 y 47): la profesora crea una calificación con observaciones en el registro, publica los
+// resultados, la familia los ve y ella escribe y comparte el informe de progreso. Crea su propio salón, curso y alumno en Nuevo
 // Horizonte (nombres únicos) y los borra al terminar: no toca los datos del seed.
 import "dotenv/config";
 import { randomUUID } from "node:crypto";
@@ -75,55 +75,48 @@ test.afterAll(async () => {
   await sql(`delete from salones where id = $1`, [ids.salon]);
 });
 
-test("programa una prueba de dos competencias, pone notas en borrador y publica los resultados", async ({ page }) => {
+test("crea una calificación con observación, publica los resultados y corrige una nota publicada", async ({ page }) => {
   await entrar(page, "lucia.garcia@nuevohorizonte.demo");
-  await page.goto(colegio(`/notas?curso=${ids.curso}&periodo=${ids.periodo}`));
-  await expect(page.getByRole("link", { name: "Registro auxiliar" })).toBeVisible();
+  await page.goto(colegio(`/notas/${ids.curso}?periodo=${ids.periodo}`));
+  await expect(page.getByRole("heading", { name: /Comunicación/ })).toBeVisible();
 
-  await page.getByRole("button", { name: "Nueva evaluación" }).click();
-  const dialogo = page.getByRole("dialog");
-  await dialogo.getByLabel("Título").fill("Prueba escrita 1");
-  await dialogo.getByLabel("Instrumento").selectOption("prueba_escrita");
-  await dialogo.getByLabel(/Descripción/).fill("Comprensión lectora y producción de textos.");
-  await expect(dialogo.getByRole("checkbox", { name: /Avisar a las familias/ })).toBeChecked();
-  await dialogo.getByRole("checkbox", { name: "Lee diversos tipos de textos" }).check();
-  await dialogo.getByRole("checkbox", { name: "Escribe diversos tipos de textos" }).check();
-  await expect(dialogo.getByText("2 columnas, una nota por competencia")).toBeVisible();
-  await dialogo.getByRole("button", { name: "Crear evaluación" }).click();
-  await expect(page.getByText(/^Evaluación creada: una columna por cada una de sus 2 competencias\..*1 alumno quedó con NSP por inasistencia\./)).toBeVisible();
+  await page.getByRole("button", { name: "Nueva calificación" }).click();
+  const hoja = page.getByRole("dialog", { name: "Nueva calificación" });
+  await hoja.getByLabel("Nombre").fill("Prueba escrita 1");
+  await hoja.getByRole("combobox", { name: "Nota de Ana" }).click();
+  await page.getByRole("option", { name: "A", exact: true }).click();
+  await hoja.getByLabel("Observación de Ana").fill("Identifica la idea principal del texto.");
+  // Una observación sin nota se rechaza con un mensaje claro.
+  await hoja.getByLabel("Observación de Beto").fill("Faltó material.");
+  await hoja.getByRole("button", { name: "Continuar" }).click();
+  await expect(hoja.getByText(/Pon una nota para guardar la observación/)).toBeVisible();
+  await hoja.getByLabel("Observación de Beto").fill("");
+  await hoja.getByRole("switch", { name: "Observaciones visibles para la familia" }).click();
+  await hoja.getByRole("button", { name: "Continuar" }).click();
+  await hoja.getByRole("button", { name: "Lee diversos tipos de textos" }).click();
+  await hoja.getByRole("button", { name: "Guardar calificación" }).click();
+  await expect(page.getByText("Calificación guardada.")).toBeVisible();
+  await expect(page.getByRole("button", { name: /Observación de Ana en Prueba escrita 1/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Ana, Prueba escrita 1: A" })).toBeVisible();
 
-  const tabla = page.getByRole("table");
-  await expect(tabla.getByRole("columnheader", { name: "Lee diversos tipos de textos" })).toBeVisible();
-  await expect(tabla.getByRole("columnheader", { name: "Escribe diversos tipos de textos" })).toBeVisible();
-  await expect(tabla.getByText(/Prueba escrita ·/).first()).toBeVisible();
-  await expect(tabla.getByText("Borrador").first()).toBeVisible();
-  // Beto faltó: NSP en sus dos columnas, con la leyenda y el plazo para justificar.
-  await expect(page.getByText("No se presentó (faltó; lo pone la asistencia)")).toBeVisible();
-  await expect(page.getByRole("combobox", { name: "Nota de Beto en Prueba escrita 1" }).first()).toHaveValue("NSP");
-  await expect(tabla.getByText(/Sin justificar · hasta/).first()).toBeVisible();
-  // Sin sugerencia (por defecto) no hay columna de promedio.
-  await expect(tabla.getByRole("columnheader", { name: /Promedio/ })).toHaveCount(0);
-
-  await page.getByRole("combobox", { name: "Nota de Ana en Prueba escrita 1" }).first().selectOption("A");
-  await expect(page.getByRole("status").filter({ hasText: "Guardado" })).toBeVisible();
-
-  await page.reload();
-  await expect(page.getByText("Programada · borrador")).toBeVisible();
-  await page.getByRole("button", { name: "Publicar resultados de Prueba escrita 1" }).click();
+  // Borrador: la familia aún no lo ve. Se publica desde el detalle de la actividad.
+  await page.getByRole("button", { name: /Prueba escrita 1/ }).first().click();
+  const detalle = page.getByRole("dialog", { name: "Prueba escrita 1" });
+  await expect(detalle.getByText("Borrador: la familia aún no los ve")).toBeVisible();
+  await detalle.getByRole("button", { name: "Publicar resultados" }).click();
   await page.getByRole("alertdialog").getByRole("button", { name: "Publicar resultados" }).click();
   await expect(page.getByText(/^Resultados publicados\./)).toBeVisible();
-  await expect(page.getByText("Publicada", { exact: true })).toBeVisible();
-  await page.getByText(/Historial de cambios \(3\)/).click();
-  await expect(page.getByText(/sin nota → A/)).toBeVisible();
-  await expect(page.getByText(/sin nota → NSP/).first()).toBeVisible();
+  await expect(detalle.getByText("Publicados a las familias")).toBeVisible();
+  await detalle.getByRole("button", { name: "Cerrar" }).click();
 
   // Publicada: cambiar una nota pide el motivo.
-  await page.getByRole("combobox", { name: "Nota de Ana en Prueba escrita 1" }).first().selectOption("B");
-  const dialogoMotivo = page.getByRole("dialog", { name: "Motivo del cambio" });
-  await expect(dialogoMotivo).toBeVisible();
-  await dialogoMotivo.getByLabel("Motivo").fill("Error al digitar");
-  await dialogoMotivo.getByRole("button", { name: "Guardar cambio" }).click();
-  await expect(page.getByText("Cambio guardado con su motivo.")).toBeVisible();
+  await page.getByRole("button", { name: "Ana, Prueba escrita 1: A" }).click();
+  await page.getByRole("combobox", { name: "Nota de Ana en Prueba escrita 1" }).click();
+  await page.getByRole("option", { name: "B", exact: true }).click();
+  const motivo = page.getByRole("dialog", { name: "Corregir nota" });
+  await motivo.getByLabel("Motivo de la corrección").fill("Error al digitar");
+  await motivo.getByRole("button", { name: "Guardar corrección" }).click();
+  await expect(page.getByRole("button", { name: "Ana, Prueba escrita 1: B" })).toBeVisible();
 });
 
 test("la apoderada recibe la notificación en Khipu y llega a la actividad publicada (specs/38)", async ({ page }) => {
@@ -137,22 +130,29 @@ test("la apoderada recibe la notificación en Khipu y llega a la actividad publi
   await page.waitForURL(/\/notas\?alumno=/);
   await expect(page.getByRole("heading", { name: "Registro auxiliar publicado" }).first()).toBeVisible();
   await expect(page.getByText("Prueba escrita 1").first()).toBeVisible();
+  // La observación marcada como visible llega a la familia.
+  await expect(page.getByText("Identifica la idea principal del texto.").first()).toBeVisible();
 });
 
 test("la profesora escribe y comparte el informe de progreso", async ({ page }) => {
   await entrar(page, "lucia.garcia@nuevohorizonte.demo");
-  await page.goto(colegio(`/notas?curso=${ids.curso}&periodo=${ids.periodo}&seccion=informe`));
-  await expect(page.getByText("Aún no compartido")).toBeVisible();
-  await expect(page.getByText("Notas del periodo (1)").first()).toBeVisible(); // Ana (A) y Beto (NSP)
-  await page.getByLabel(/Qué ha logrado/).first().fill("Identifica la idea principal del texto.");
-  await page.getByLabel(/Qué recomendamos reforzar/).first().fill("Leer 15 minutos cada día.");
-  await page.getByRole("button", { name: "Guardar informe" }).first().click();
+  await page.goto(colegio(`/notas/${ids.curso}?periodo=${ids.periodo}`));
+  await page.getByRole("button", { name: "Informe de progreso" }).click();
+  const panel = page.getByRole("dialog", { name: "Informe de progreso" });
+  await panel.getByLabel("Buscar alumno").fill("Ana");
+  await expect(panel.getByText("Sin informe")).toBeVisible();
+  await panel.getByRole("button", { name: new RegExp(`Prueba ${sufijo}, Ana`) }).click();
+  await expect(panel.getByText("Notas del periodo en esta competencia")).toBeVisible();
+  await expect(panel.getByText("Prueba escrita 1").first()).toBeVisible(); // evidencia: la nota de Ana
+  await panel.getByLabel(/Qué logró/).fill("Identifica la idea principal del texto.");
+  await panel.getByLabel(/Qué recomendamos reforzar/).fill("Leer 15 minutos cada día.");
+  await panel.getByRole("button", { name: "Guardar", exact: true }).click();
   await expect(page.getByText("Informe guardado.")).toBeVisible();
+  await expect(panel.getByText("Borrador").first()).toBeVisible();
 
-  await page.reload();
-  await page.getByRole("button", { name: "Compartir con las familias" }).click();
-  await page.getByRole("alertdialog").getByRole("button", { name: "Compartir" }).click();
-  await expect(page.getByText("Compartido con las familias")).toBeVisible();
+  await panel.getByRole("button", { name: "Compartir con la familia" }).click();
+  await page.getByRole("alertdialog").getByRole("button", { name: "Compartir", exact: true }).click();
+  await expect(panel.getByText("Compartido", { exact: true }).first()).toBeVisible();
   const [envio] = await sql(`select 1 from envios_informe_progreso where curso_id = $1`, [ids.curso]);
   expect(envio).toBeTruthy();
 });

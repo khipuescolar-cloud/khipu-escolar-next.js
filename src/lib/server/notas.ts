@@ -6,7 +6,6 @@ import {
   INSTRUMENTOS, interpretarEntradaNota, interpretarValor, requiereConclusion, sugerirCalificacion, textoValor,
   type Escala, type Instrumento, type Literal, type Marca, type ValorCalificacion, type ValorNota,
 } from "@/lib/calificaciones";
-import { analizarNotasCsv, exportarNotasCsv, MAX_BYTES_CSV_NOTAS, type ResultadoNotasCsv } from "@/lib/notas-csv";
 import { puedePublicarLibreta } from "@/lib/libreta-publicacion";
 import { urlColegio } from "@/lib/dominio";
 import { fechaCorta, fechaDb } from "@/lib/fechas";
@@ -903,7 +902,7 @@ export type EstadoNspCelda = {
 };
 
 /** Estado de cada NSP de la rejilla y conflictos (alumno con calificación pero ausente según la asistencia). */
-async function estadosNspDeGrilla(
+export async function estadosNspDeGrilla(
   ctx: TenantContext,
   evaluaciones: { id: string; cursoId: string; fecha: Date }[],
   notas: { evaluacionId: string; alumnoId: string; marca: string | null; vencidaAt: Date | null; recuperacion: string | null; fechaRecuperacion: Date | null; justificacionId: string | null; valorLiteral: string | null; valorNumerico: unknown }[],
@@ -971,85 +970,6 @@ export async function guardarComentarioNota(ctx: TenantContext, entrada: { evalu
   if (r.count === 0) return fallo("Primero pon la nota; después puedes agregar una observación.");
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "nota", entidadId: evaluacion.id, detalle: { alumnoId: d.data.alumnoId, comentario: true } });
   return ok(!d.data.comentario ? "Observación borrada." : d.data.privado ? "Observación guardada (solo para ti)." : "Observación guardada.");
-}
-
-// ───────────── Importar y exportar notas (CSV) ─────────────
-
-async function datosParaCsv(ctx: TenantContext, cursoId: string, periodoId: string) {
-  const g = await grillaNotas(ctx, cursoId, periodoId);
-  const alumnosCompleto = await ctx.db.alumno.findMany({
-    where: { id: { in: g.alumnos.map((a) => a.id) } },
-    select: { id: true, nombres: true, apellidos: true, codigo: true },
-    orderBy: [{ apellidos: "asc" }, { nombres: "asc" }],
-  });
-  return { g, alumnos: alumnosCompleto };
-}
-
-/** CSV (UTF-8 con BOM, separador «;») de la rejilla del curso en el periodo. Profesor del curso o dirección. */
-export async function exportarNotasCurso(ctx: TenantContext, cursoId: string, periodoId: string): Promise<{ nombre: string; csv: string }> {
-  const { g, alumnos } = await datosParaCsv(ctx, cursoId, periodoId);
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "exportar", entidad: "notas_curso", entidadId: cursoId, detalle: { periodoId } });
-  return {
-    nombre: `notas-${g.curso.nombre}-${g.periodo.nombre}`.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase(),
-    csv: exportarNotasCsv({ alumnos, evaluaciones: g.evaluaciones.map((e) => ({ id: e.id, titulo: e.columna })), notas: g.notas }),
-  };
-}
-
-export type VistaPreviaImportacion = ResultadoNotasCsv & { editable: boolean; motivoBloqueo: string | null };
-
-/** Vista previa de la importación: valida el CSV sin guardar nada. */
-export async function previsualizarImportacionNotas(ctx: TenantContext, cursoId: string, periodoId: string, texto: string): Promise<VistaPreviaImportacion> {
-  const { g, alumnos } = await datosParaCsv(ctx, cursoId, periodoId);
-  const vacio: ResultadoNotasCsv = { cambios: [], errores: [], columnasIgnoradas: [], vacias: 0 };
-  const motivoBloqueo =
-    ctx.rol !== "profesor" ? "Solo el profesor del curso puede importar notas."
-    : g.periodo.cerrado ? MENSAJE_CERRADO
-    : g.cursoCerrado ? MENSAJE_CURSO_CERRADO
-    : null;
-  if (texto.length > MAX_BYTES_CSV_NOTAS) return { ...vacio, errores: [{ linea: 1, mensaje: "El archivo es demasiado grande (máximo 500 KB)." }], editable: false, motivoBloqueo };
-  const r = analizarNotasCsv(texto, { escala: escalaDe(ctx), alumnos, evaluaciones: g.evaluaciones.map((e) => ({ id: e.id, titulo: e.columna })) });
-  return { ...r, editable: motivoBloqueo === null, motivoBloqueo };
-}
-
-/** Guarda las notas válidas del CSV (las filas con error se omiten). No pisa cursos ni periodos cerrados. */
-export async function importarNotas(ctx: TenantContext, cursoId: string, periodoId: string, texto: string): Promise<Resultado> {
-  const curso = await cursoEscritura(ctx, cursoId);
-  const p = await periodoAbierto(ctx, periodoId, cursoId);
-  if (p.error) return fallo(p.error);
-  const vista = await previsualizarImportacionNotas(ctx, cursoId, periodoId, texto);
-  if (vista.cambios.length === 0) return fallo(vista.errores[0]?.mensaje ?? "No hay notas para importar.");
-  // Las notas publicadas, los NSP y las consecuencias por vencimiento no se importan: se corrigen una por una, con motivo
-  // (specs/37).
-  const publicadas = new Set((await ctx.db.evaluacion.findMany({ where: { cursoId, periodoId, estado: "publicada" }, select: { id: true } })).map((e) => e.id));
-  let protegidas = 0;
-  let importadas = 0;
-  for (const c of vista.cambios) {
-    const antes = await ctx.db.nota.findFirst({ where: { evaluacionId: c.evaluacionId, alumnoId: c.alumnoId } });
-    if (publicadas.has(c.evaluacionId) || antes?.marca || antes?.vencidaAt) {
-      if (textoDeNota(antes) !== textoValor(c.valor)) protegidas += 1;
-      continue;
-    }
-    const anterior = textoDeNota(antes);
-    if (anterior === textoValor(c.valor)) continue;
-    await ctx.db.$transaction(async (tx) => {
-      await tx.nota.upsert({
-        where: { evaluacionId_alumnoId: { evaluacionId: c.evaluacionId, alumnoId: c.alumnoId } },
-        create: { tenantId: ctx.tenant.id, evaluacionId: c.evaluacionId, alumnoId: c.alumnoId, ...c.valor, registradoPorId: ctx.membership.id },
-        update: { ...c.valor, registradoPorId: ctx.membership.id },
-      });
-      await tx.historialNota.create({
-        data: datosHistorial({
-          tenantId: ctx.tenant.id, evaluacionId: c.evaluacionId, alumnoId: c.alumnoId, anterior, nuevo: textoValor(c.valor),
-          tipo: "registro", motivo: "Importación de notas", cambiadoPorId: ctx.membership.id, publicada: false,
-        }),
-      });
-    });
-    importadas += 1;
-  }
-  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "notas_curso", entidadId: curso.id, detalle: { periodoId, importadas, protegidas, errores: vista.errores.length } });
-  const omitidas = vista.errores.length > 0 ? ` ${vista.errores.length} ${vista.errores.length === 1 ? "celda no se importó" : "celdas no se importaron"}.` : "";
-  const textoProtegidas = protegidas > 0 ? ` ${protegidas} ${protegidas === 1 ? "nota no se cambió porque está publicada o tiene NSP" : "notas no se cambiaron porque están publicadas o tienen NSP"}: corrígelas una por una con su motivo.` : "";
-  return ok(`Se importaron ${importadas} ${importadas === 1 ? "nota" : "notas"}.${omitidas}${textoProtegidas}`);
 }
 
 // ───────────── Calificaciones del periodo (lo que va a la libreta) ─────────────

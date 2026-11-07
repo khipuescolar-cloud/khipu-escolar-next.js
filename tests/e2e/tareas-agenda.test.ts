@@ -67,10 +67,12 @@ test("dirección ve los periodos y las notas de todos los cursos", async ({ page
   await entrar(page, "direccion@nuevohorizonte.demo", "nuevohorizonte");
   await page.goto(colegio("nuevohorizonte", "/notas/periodos"));
   await expect(page.getByText("IV Bimestre 2026")).toBeVisible();
-  await page.goto(colegio("nuevohorizonte", "/notas?vista=anterior"));
+  await page.goto(colegio("nuevohorizonte", "/notas"));
   await expect(page.getByRole("link", { name: "Gestionar periodos" })).toBeVisible();
+  // Los enlaces de la vista vieja por pestañas ya no existen: llevan a Mis cursos.
   await page.goto(colegio("nuevohorizonte", "/notas?seccion=periodo"));
-  await expect(page.getByText("Calificación del periodo").first()).toBeVisible();
+  await expect(page).toHaveURL(colegio("nuevohorizonte", "/notas"));
+  await expect(page.getByRole("heading", { name: "Registro de notas" })).toBeVisible();
 });
 
 test("la profesora edita su tarea y descarga el calendario .ics", async ({ page }) => {

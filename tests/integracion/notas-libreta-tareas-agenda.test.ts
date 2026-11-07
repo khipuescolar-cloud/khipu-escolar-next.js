@@ -7,8 +7,8 @@ import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant } from "@/lib/server/db";
 import { datosLibreta } from "@/lib/server/libreta";
 import {
-  calificacionesPeriodo, cerrarCursoPeriodo, crearEvaluacion, editarEvaluacion, estadoPublicacionLibreta, exportarNotasCurso, grillaNotas,
-  guardarCalificacionPeriodo, guardarComentarioNota, guardarNota, importarNotas, listarPeriodos, notasDeAlumno, previsualizarImportacionNotas,
+  calificacionesPeriodo, cerrarCursoPeriodo, crearEvaluacion, editarEvaluacion, estadoPublicacionLibreta, grillaNotas,
+  guardarCalificacionPeriodo, guardarComentarioNota, guardarNota, listarPeriodos, notasDeAlumno,
   publicarLibreta, reabrirCursoPeriodo,
 } from "@/lib/server/notas";
 import { crearTarea, tareasDeFamilia } from "@/lib/server/tareas";
@@ -200,7 +200,6 @@ describe("cierre por curso", () => {
     expect((await editarEvaluacion(profe, ids.evA, { titulo: "Cambio", fecha: "2026-10-10", peso: 1 })).ok).toBe(false);
     expect((await guardarCalificacionPeriodo(profe, { alumnoId: ids.a1, competenciaId: ids.comp, periodoId: ids.abierto, valor: "11", conclusion: "" })).ok).toBe(false);
     expect((await guardarComentarioNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, comentario: "x" })).ok).toBe(false);
-    expect((await importarNotas(profe, ids.curso, ids.abierto, "Código;Práctica 1\n;9")).ok).toBe(false);
     expect((await grillaNotas(profe, ids.curso, ids.abierto)).editable).toBe(false);
 
     // Otro periodo del mismo curso no se ve afectado por el cierre.
@@ -227,30 +226,6 @@ describe("observaciones por nota", () => {
     await expect(guardarComentarioNota(madreA, { evaluacionId: ids.evA, alumnoId: ids.a1, comentario: "hack" })).rejects.toMatchObject(PROHIBIDO);
     expect((await guardarComentarioNota(profe, { evaluacionId: ids.evA, alumnoId: ids.a1, comentario: "" })).ok).toBe(true);
     expect((await db.nota.findFirstOrThrow({ where: { evaluacionId: ids.evA, alumnoId: ids.a1 } })).comentario).toBeNull();
-  });
-});
-
-describe("importar y exportar notas", () => {
-  it("exporta la rejilla, previsualiza y guarda solo lo válido; el curso cerrado no se pisa", async () => {
-    const exp = await exportarNotasCurso(profe, ids.curso, ids.abierto);
-    expect(exp.csv.startsWith("\uFEFFCódigo;Alumno;Práctica 1;Examen")).toBe(true);
-    expect(exp.csv).toContain("Uno, Ana;");
-    const csv = "Código;Alumno;Práctica 1;Examen\n;Uno, Ana;;18\n;Dos, Beto;99;12,5\n;Fantasma;1;1";
-    const vista = await previsualizarImportacionNotas(profe, ids.curso, ids.abierto, csv);
-    expect(vista.cambios).toHaveLength(2);
-    expect(vista.errores).toHaveLength(2);
-    expect(vista.editable).toBe(true);
-    expect(await db.nota.count({ where: { evaluacionId: ids.evB, alumnoId: ids.a2 } })).toBe(0); // la vista previa no guarda
-    const r = await importarNotas(profe, ids.curso, ids.abierto, csv);
-    expect(r).toMatchObject({ ok: true });
-    expect((await db.nota.findFirstOrThrow({ where: { evaluacionId: ids.evB, alumnoId: ids.a2 } })).valorNumerico?.toString()).toBe("12.5");
-    expect((await db.nota.findFirstOrThrow({ where: { evaluacionId: ids.evA, alumnoId: ids.a2 } })).valorNumerico?.toString()).toBe("7");
-    // Dirección y profesores ajenos no importan.
-    await expect(importarNotas(direccion, ids.curso, ids.abierto, csv)).rejects.toMatchObject(PROHIBIDO);
-    await expect(importarNotas(profeAjeno, ids.curso, ids.abierto, csv)).rejects.toMatchObject(PROHIBIDO);
-    // Periodo cerrado: ni vista previa editable ni importación.
-    expect((await importarNotas(profe, ids.curso, ids.cerrado, "Código;Antiguo\n;Uno, Ana;5")).ok).toBe(false);
-    expect((await previsualizarImportacionNotas(profe, ids.curso, ids.cerrado, "Código;Antiguo\n;Uno, Ana;5")).editable).toBe(false);
   });
 });
 

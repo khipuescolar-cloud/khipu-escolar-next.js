@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { expect, test, type Browser, type Page } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import { esperarSinAcceso } from "./sin-acceso";
 import { Client } from "pg";
 import { crearColegioTemporal, type ColegioTemporal } from "./ayudantes/colegio-temporal";
@@ -28,31 +28,33 @@ async function entrar(page: Page, correo: string, slug: string) {
   await page.waitForURL(colegio(slug, "/inicio"));
 }
 
-test("profesor de la academia (vigesimal) registra una nota de 0 a 20", async ({ page }) => {
+test("profesor de la academia (vigesimal) corrige una nota de 0 a 20 en el registro", async ({ page }) => {
   await entrar(page, academia.correos.profesor, academia.slug);
-  await page.goto(colegio(academia.slug, "/notas?vista=anterior"));
-  await expect(page.getByRole("heading", { name: "Registro de notas" })).toBeVisible();
+  await page.goto(colegio(academia.slug, `/notas/${academia.cursoId}`));
+  await expect(page.getByRole("heading", { name: /Álgebra/ })).toBeVisible();
   // «Simulacro 1» ya está publicado: cada cambio pide el motivo (specs/37).
-  const celda = page.getByLabel("Nota de Franco en Simulacro 1");
-  const conMotivo = async (valor: string) => {
-    await celda.fill(valor);
-    await celda.blur();
-    const dialogo = page.getByRole("dialog", { name: "Motivo del cambio" });
-    await dialogo.getByLabel("Motivo").fill("Corrección de prueba");
-    await dialogo.getByRole("button", { name: "Guardar cambio" }).click();
-    return dialogo;
+  const corregir = async (valor: string) => {
+    await page.getByRole("button", { name: /^Franco, Simulacro 1: / }).click();
+    await page.getByRole("combobox", { name: "Nota de Franco en Simulacro 1" }).click();
+    await page.getByRole("option", { name: valor, exact: true }).click();
+    const dialogo = page.getByRole("dialog", { name: "Corregir nota" });
+    await dialogo.getByLabel("Motivo de la corrección").fill("Corrección de prueba");
+    await dialogo.getByRole("button", { name: "Guardar corrección" }).click();
+    await expect(dialogo).toBeHidden();
   };
-  await conMotivo("13");
-  await expect(page.getByText("Cambio guardado con su motivo.")).toBeVisible();
+  await corregir("13");
   await page.reload();
-  await expect(page.getByLabel("Nota de Franco en Simulacro 1")).toHaveValue("13");
-  // Una nota fuera de rango se rechaza con un mensaje claro.
-  const dialogo = await conMotivo("25");
-  await expect(dialogo.getByText("Escribe una nota entre 0 y 20.")).toBeVisible();
-  await dialogo.getByRole("button", { name: "Cancelar" }).click();
+  await expect(page.getByRole("button", { name: "Franco, Simulacro 1: 13" })).toBeVisible();
+  // La escala vigesimal solo ofrece de 0 a 20: no hay forma de elegir 25.
+  await page.getByRole("button", { name: "Franco, Simulacro 1: 13" }).click();
+  await page.getByRole("combobox", { name: "Nota de Franco en Simulacro 1" }).click();
+  await expect(page.getByRole("option", { name: "25", exact: true })).toHaveCount(0);
+  await page.keyboard.press("Escape");
+  await page.reload();
   // Restaura el valor original (9).
-  await conMotivo("9");
-  await expect(page.getByText("Cambio guardado con su motivo.").first()).toBeVisible();
+  await corregir("9");
+  await page.reload();
+  await expect(page.getByRole("button", { name: "Franco, Simulacro 1: 9" })).toBeVisible();
 });
 
 test("apoderada descarga la libreta en PDF de su hijo", async ({ page }) => {
@@ -94,69 +96,80 @@ async function sql<T = Record<string, unknown>>(consulta: string, params: unknow
   }
 }
 
-async function paginaNueva(browser: Browser, correo: string, slug: string) {
-  const page = await browser.newPage({ baseURL: `http://lvh.me:${PUERTO}` });
-  await entrar(page, correo, slug);
-  return page;
-}
 
 test("profesor agrega una observación a una nota y la quita", async ({ page }) => {
   await entrar(page, academia.correos.profesor, academia.slug);
-  await page.goto(colegio(academia.slug, "/notas?vista=anterior"));
-  await page.getByRole("button", { name: /Agregar observación de Franco Herrera Poma en Simulacro 1/ }).click();
-  await page.getByRole("textbox", { name: "Observación" }).fill("Mejoró mucho en el procedimiento.");
-  await page.getByRole("button", { name: "Guardar observación" }).click();
+  await page.goto(colegio(academia.slug, `/notas/${academia.cursoId}`));
+  await page.getByRole("button", { name: /^Franco, Simulacro 1: / }).click();
+  await page.getByRole("button", { name: /Agregar observación de Franco en Simulacro 1/ }).click();
+  const dialogo = page.getByRole("dialog", { name: "Observación" });
+  await dialogo.getByRole("textbox").fill("Mejoró mucho en el procedimiento.");
+  await dialogo.getByRole("button", { name: "Guardar observación" }).click();
   await expect(page.getByText("Observación guardada.")).toBeVisible();
   await page.reload();
-  const boton = page.getByRole("button", { name: /Editar observación de Franco Herrera Poma en Simulacro 1/ });
-  await expect(boton).toBeVisible();
-  await boton.click();
-  await expect(page.getByRole("textbox", { name: "Observación" })).toHaveValue("Mejoró mucho en el procedimiento.");
-  await page.getByRole("textbox", { name: "Observación" }).fill("");
+  const indicador = page.getByRole("button", { name: /Observación de Franco en Simulacro 1 \(privada\)/ });
+  await expect(indicador).toBeVisible();
+  await indicador.click();
+  await expect(page.getByRole("dialog", { name: "Observación" }).getByRole("textbox")).toHaveValue("Mejoró mucho en el procedimiento.");
+  await page.getByRole("dialog", { name: "Observación" }).getByRole("textbox").fill("");
   await page.getByRole("button", { name: "Guardar observación" }).click();
-  await expect(page.getByText("Observación borrada.")).toBeVisible();
+  await page.reload();
+  await expect(page.getByRole("button", { name: /Observación de Franco en Simulacro 1/ })).toHaveCount(0);
 });
 
-test("el profesor cierra las notas de su curso y dirección las reabre", async ({ page, browser }) => {
+test("el estado del curso se muestra en solo lectura y el curso cerrado no se edita", async ({ page }) => {
   const limpiar = () => sql(`delete from cierres_curso where tenant_id = $1`, [academia.tenantId]);
   await limpiar();
   try {
     await entrar(page, academia.correos.profesor, academia.slug);
-    await page.goto(colegio(academia.slug, "/notas?vista=anterior"));
-    const main = page.getByRole("main");
-    await expect(main.getByText("Abierto", { exact: true })).toBeVisible();
-    await main.getByRole("button", { name: "Cerrar notas del curso" }).click();
-    await page.getByRole("alertdialog").getByRole("button", { name: "Cerrar notas del curso" }).click();
-    await expect(main.getByText("Notas del curso cerradas.")).toBeVisible();
-    await expect(main.getByText("Cerrado", { exact: true })).toBeVisible();
-    await expect(page.getByLabel("Nota de Franco en Simulacro 1")).toHaveCount(0);
-    await expect(main.getByRole("button", { name: "Reabrir notas del curso" })).toHaveCount(0);
-
-    const dir = await paginaNueva(browser, academia.correos.direccion, academia.slug);
-    await dir.goto(colegio(academia.slug, "/notas?vista=anterior"));
-    await dir.getByRole("main").getByRole("button", { name: "Reabrir notas del curso" }).click();
-    await dir.getByRole("alertdialog").getByRole("button", { name: "Reabrir notas del curso" }).click();
-    await expect(dir.getByRole("main").getByText("Abierto", { exact: true })).toBeVisible();
-    await dir.close();
-
+    await page.goto(colegio(academia.slug, `/notas/${academia.cursoId}`));
+    const estado = page.getByTestId("estado-cierre");
+    await expect(estado.getByText("Abierto", { exact: true })).toBeVisible();
+    await expect(estado.getByRole("button")).toHaveCount(0);
+    // El cierre lo produce el envío de la calificación del periodo (rama notas-periodo); aquí se simula en la BD.
+    await sql(`insert into cierres_curso (id, tenant_id, periodo_id, curso_id, cerrado_por) select gen_random_uuid(), $1, p.id, $2, c.profesor_id from periodos p, cursos c where p.tenant_id = $1 and p.numero = 4 and c.id = $2`, [academia.tenantId, academia.cursoId]);
     await page.reload();
-    await expect(page.getByLabel("Nota de Franco en Simulacro 1")).toBeVisible();
+    await expect(estado.getByText("Enviado / Cerrado", { exact: true })).toBeVisible();
+    await expect(page.getByRole("button", { name: /^Franco, Simulacro 1: / })).toBeDisabled();
+    await expect(page.getByRole("button", { name: "Nueva calificación" })).toHaveCount(0);
+    // Dirección reabre desde la UI (no hay botón para el profesor) y el curso vuelve a quedar editable.
+    await expect(page.getByRole("button", { name: "Reabrir" })).toHaveCount(0);
+    await page.context().clearCookies();
+    await entrar(page, academia.correos.direccion, academia.slug);
+    await page.goto(colegio(academia.slug, `/notas/${academia.cursoId}`));
+    await expect(page.getByTestId("estado-cierre").getByText("Enviado / Cerrado", { exact: true })).toBeVisible();
+    for (const [ancho, alto] of [[1440, 900], [390, 844]] as const) {
+      await page.setViewportSize({ width: ancho, height: alto });
+      await page.waitForTimeout(300);
+      await page.screenshot({ path: `/tmp/claude-1000/-home-carlos-calderon-Escritorio-StartUp/4708dc9f-ca0e-4c47-a074-186c44f0e3b5/scratchpad/nsp-reabrir-${ancho}.png` });
+    }
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.getByRole("button", { name: "Reabrir" }).click();
+    await page.getByRole("alertdialog").getByRole("button", { name: "Reabrir" }).click();
+    await expect(page.getByTestId("estado-cierre").getByText("Abierto", { exact: true })).toBeVisible();
+    expect(await sql(`select 1 from cierres_curso where tenant_id = $1`, [academia.tenantId])).toHaveLength(0);
+    await page.context().clearCookies();
+    await entrar(page, academia.correos.profesor, academia.slug);
+    await page.goto(colegio(academia.slug, `/notas/${academia.cursoId}`));
+    await expect(page.getByRole("button", { name: /^Franco, Simulacro 1: / })).toBeEnabled();
   } finally {
     await limpiar();
   }
 });
 
-test("exporta la rejilla en CSV con BOM y separador «;»", async ({ page }) => {
+test("exporta el registro en CSV con BOM y separador «;»", async ({ page }) => {
   await entrar(page, academia.correos.profesor, academia.slug);
-  await page.goto(colegio(academia.slug, "/notas?seccion=excel"));
+  await page.goto(colegio(academia.slug, `/notas/${academia.cursoId}`));
+  await page.getByRole("button", { name: "Importar / Exportar" }).click();
   const descarga = page.waitForEvent("download");
-  await page.getByRole("link", { name: "Descargar CSV" }).click();
+  await page.getByRole("link", { name: "Exportar registro (CSV)" }).click();
   const archivo = await descarga;
-  expect(archivo.suggestedFilename()).toMatch(/^notas-algebra.*\.csv$/);
+  expect(archivo.suggestedFilename()).toMatch(/^registro-algebra.*\.csv$/);
   const { readFileSync } = await import("node:fs");
   const texto = readFileSync((await archivo.path())!, "utf8");
-  expect(texto.startsWith("\uFEFFCódigo;Alumno;Simulacro 1")).toBe(true);
-  expect(texto).toContain("Herrera Poma, Franco");
+  expect(texto.startsWith("\uFEFF;Resuelve problemas algebraicos;")).toBe(true);
+  expect(texto).toContain("Alumno;Simulacro 1 (2026-10-19);Observación");
+  expect(texto).toContain("Herrera Poma, Franco;9;");
 });
 
 test("dirección publica la libreta, avisa a las familias y puede reenviar el aviso", async ({ page }) => {

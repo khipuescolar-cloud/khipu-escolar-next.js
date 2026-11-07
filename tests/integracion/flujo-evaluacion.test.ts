@@ -1,9 +1,10 @@
 // Flujo de evaluación (specs/11): una prueba que mide varias competencias, instrumento, calificación sugerida por promedio
 // e informe de progreso a mitad del periodo que la familia ve cuando el profesor lo comparte. Requiere la BD local.
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { exportarRegistro } from "@/lib/server/registro-notas-archivos";
 import { db } from "@/lib/server/db";
 import {
-  calificacionesPeriodo, compartirInformeProgreso, crearEvaluacion, exportarNotasCurso, grillaNotas, guardarInformeProgreso, guardarNota,
+  calificacionesPeriodo, compartirInformeProgreso, crearEvaluacion, grillaNotas, guardarInformeProgreso, guardarNota,
   informesProgreso, notasDeAlumno,
 } from "@/lib/server/notas";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
@@ -39,9 +40,10 @@ describe("flujo de evaluación", () => {
       [escribe.id, "prueba_escrita", "Prueba escrita 1 · Escribe diversos tipos de textos"],
       [lee.id, "prueba_escrita", "Prueba escrita 1 · Lee diversos tipos de textos"],
     ].sort());
-    // El CSV usa los nombres únicos de columna.
-    const { csv } = await exportarNotasCurso(ctx, c.cursoTutora.id, periodoId);
-    expect(csv).toContain("Prueba escrita 1 · Lee diversos tipos de textos");
+    // El CSV del registro agrupa por competencia y trae el título de la actividad.
+    const { csv } = await exportarRegistro(ctx, c.cursoTutora.id, periodoId);
+    expect(csv).toContain("Lee diversos tipos de textos");
+    expect(csv).toContain("Prueba escrita 1");
   });
 
   it("por defecto Khipu no sugiere la calificación: muestra las notas; promedio y más frecuente son opcionales", async () => {

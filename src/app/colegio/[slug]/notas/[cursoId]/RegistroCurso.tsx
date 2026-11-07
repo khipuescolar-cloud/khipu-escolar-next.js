@@ -1,20 +1,29 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useState, useTransition } from "react";
+import { useState, useTransition, type ReactNode } from "react";
 import { toast } from "sonner";
 import { editarCeldaAction } from "./actions";
 import { CabeceraRegistro } from "./CabeceraRegistro";
 import type { Datos, Evaluacion } from "./comun";
 import { DetalleActividad } from "./DetalleActividad";
 import { DialogoCorreccion, type Correccion } from "./DialogoCorreccion";
+import { DialogoNsp, type CeldaNsp } from "./DialogoNsp";
+import { DialogoObservacion, type CeldaObservacion } from "./DialogoObservacion";
+import { ImportarExportar } from "./ImportarExportar";
+import { InformeProgreso } from "./InformeProgreso";
 import { NuevaCalificacion } from "./NuevaCalificacion";
 import { TablaRegistro } from "./TablaRegistro";
 
-export function RegistroCurso({ datos, slug, gestionar }: { datos: Datos; slug: string; gestionar: boolean }) {
+export function RegistroCurso({ datos, slug, gestionar, botonPeriodo }: { datos: Datos; slug: string; gestionar: boolean; botonPeriodo?: ReactNode }) {
   const router = useRouter();
   const [pendiente, transicion] = useTransition();
   const [nueva, setNueva] = useState(false);
-  const [detalle, setDetalle] = useState<Evaluacion | null>(null);
+  const [detalleId, setDetalleId] = useState<string | null>(null);
+  const detalle = datos.evaluaciones.find((e) => e.id === detalleId) ?? null;
+  const [observacion, setObservacion] = useState<CeldaObservacion | null>(null);
+  const [nsp, setNsp] = useState<CeldaNsp | null>(null);
+  const [informe, setInforme] = useState(false);
+  const [archivos, setArchivos] = useState(false);
   const [correccion, setCorreccion] = useState<Correccion | null>(null);
   const [errorCorreccion, setErrorCorreccion] = useState("");
   const [error, setError] = useState("");
@@ -44,11 +53,15 @@ export function RegistroCurso({ datos, slug, gestionar }: { datos: Datos; slug: 
 
   return (
     <div className="space-y-5">
-      <CabeceraRegistro datos={datos} gestionar={gestionar} onNueva={() => setNueva(true)} />
+      <CabeceraRegistro datos={datos} slug={slug} gestionar={gestionar} botonPeriodo={botonPeriodo} onNueva={() => setNueva(true)} onInforme={() => setInforme(true)} onArchivos={() => setArchivos(true)} />
       {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
-      <TablaRegistro datos={datos} valores={valores} editando={editando} ocupado={pendiente} resaltar={resaltar} onDetalle={setDetalle} onEditar={setEditando} onCambio={cambiarCelda} />
-      <DetalleActividad evaluacion={detalle} datos={datos} slug={slug} onCerrar={() => setDetalle(null)} onAsignada={() => { setDetalle(null); router.refresh(); }} />
-      <NuevaCalificacion datos={datos} slug={slug} abierto={nueva} onCerrar={() => setNueva(false)} onGuardada={(id) => { setNueva(false); setResaltar(id); toast.success("Calificación guardada."); router.refresh(); }} />
+      <TablaRegistro datos={datos} valores={valores} editando={editando} ocupado={pendiente} resaltar={resaltar} onDetalle={(e) => setDetalleId(e.id)} onEditar={setEditando} onCambio={cambiarCelda} onObservacion={setObservacion} onNsp={setNsp} />
+      <DetalleActividad evaluacion={detalle} datos={datos} slug={slug} onCerrar={() => setDetalleId(null)} onAsignada={() => { setDetalleId(null); router.refresh(); }} />
+      <DialogoNsp celda={nsp} datos={datos} slug={slug} onCerrar={() => setNsp(null)} onCambio={() => router.refresh()} />
+      <DialogoObservacion celda={observacion} slug={slug} editable={datos.puedeEditar} onCerrar={() => { setObservacion(null); setEditando(null); }} onGuardada={() => { setObservacion(null); setEditando(null); toast.success("Observación guardada."); router.refresh(); }} />
+      <InformeProgreso abierto={informe} onCerrar={() => setInforme(false)} datos={datos} slug={slug} />
+      <ImportarExportar abierto={archivos} onCerrar={() => setArchivos(false)} datos={datos} slug={slug} onImportada={(id) => { setArchivos(false); setResaltar(id); router.refresh(); }} />
+      <NuevaCalificacion datos={datos} slug={slug} abierto={nueva} onCerrar={() => setNueva(false)} onGuardada={(id, mensaje) => { setNueva(false); setResaltar(id); toast.success(mensaje ?? "Calificación guardada."); router.refresh(); }} />
       <DialogoCorreccion
         key={correccion ? `${correccion.evaluacionId}:${correccion.alumnoId}` : "cerrado"}
         correccion={correccion} guardando={pendiente} errorServidor={errorCorreccion}
