@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ChevronRight, Clock3, Copy, Download, Folder, FolderOpen, Grid2X2, Info, List, Pencil, RotateCcw, Search, Share2, Star, StarOff, Trash2, Users, X, Upload } from "lucide-react";
+import { ChevronRight, Clock3, Copy, Download, Folder, FolderOpen, Grid2X2, Info, List, Pencil, RotateCcw, Search, Star, StarOff, Trash2, Users, X, Upload } from "lucide-react";
 import { toast } from "sonner";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -18,7 +18,6 @@ import type { Contenido, CarpetaOpcion } from "@/lib/server/documentos";
 import { cn } from "@/lib/utils";
 import { archivarDocumentoAction, borrarCarpetaAction, borrarDocumentoAction, destacarDocumentoAction, eliminarDefinitivoDocumentoAction, papeleraLoteDocumentoAction, registrarAccesoDocumentoAction, restaurarDocumentoAction } from "./actions";
 import { HojaAcciones, type Accion } from "./AccionesItem";
-import { DialogoCompartir } from "./DialogoCompartir";
 import { DialogoMover, DialogoRenombrar, VistaPrevia } from "./DialogosDocumentos";
 import { DialogoEditarDocumento, DialogoSubir } from "./FormulariosDocumentos";
 import { ListaContenido } from "./ListaContenido";
@@ -28,7 +27,7 @@ import { PanelSubidas, useSubidas } from "./Subidas";
 import { NavegacionDocumentos } from "./NavegacionDocumentos";
 import { PanelBorradores } from "./PanelBorradores";
 import { IndicadorAlmacenamiento } from "./IndicadorAlmacenamiento";
-import type { Item, Persona, Salon, Vista } from "./tipos-documentos";
+import type { Item, Salon, Vista } from "./tipos-documentos";
 
 const vistas: { id: Vista; nombre: string; icono: typeof FolderOpen }[] = [
   { id: "unidad", nombre: "Mis borradores", icono: FolderOpen }, { id: "compartido", nombre: "Compartido conmigo", icono: Users },
@@ -46,7 +45,7 @@ const vacios: Record<Vista, { titulo: string; detalle: string }> = {
 const ordenes = Object.fromEntries(Object.entries(ORDENES_DOCUMENTO)) as Record<string, string>;
 const aArchivo = (d: Contenido["documentos"][number]): Item => ({ tipo: "documento", id: d.id, nombre: d.titulo, propietario: d.autor, modificado: d.updatedAt, creado: d.createdAt, tamano: d.archivo?.bytes ?? null, archivo: d.archivo, gestionable: d.gestionable, destacado: d.destacado, descripcion: d.descripcion, carpetaId: d.carpetaId, visibleRoles: d.visibleRoles, salonId: d.salonId, ambito: d.ambito, categoria: d.categoria, oficial: d.oficial, archivado: d.archivado });
 
-export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista, carpetaId, carpetaDeCreacion, carpetaCompartida, q, orden, opciones, salones, personas, esProfesor, rol, puedeCrear, categoria, archivados, usadoBorradores, limiteBorradores, almacenamientoColegio, ok, error }: { archivoInicial: string | null; nuevos: string; contenido: Contenido; vista: Vista; carpetaId: string | null; carpetaDeCreacion: string | null; carpetaCompartida: boolean; q: string; orden: string; opciones: CarpetaOpcion[]; salones: Salon[]; personas: Persona[]; esProfesor: boolean; rol: Rol; puedeCrear: boolean; categoria?: CategoriaBiblioteca; archivados: boolean; usadoBorradores: number | null; limiteBorradores: number | null; almacenamientoColegio: { usado: number; limite: number } | null; ok?: string; error?: string }) {
+export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista, carpetaId, carpetaDeCreacion, carpetaCompartida, q, orden, opciones, salones, esProfesor, rol, puedeCrear, categoria, archivados, usadoBorradores, limiteBorradores, almacenamientoColegio, ok, error }: { archivoInicial: string | null; nuevos: string; contenido: Contenido; vista: Vista; carpetaId: string | null; carpetaDeCreacion: string | null; carpetaCompartida: boolean; q: string; orden: string; opciones: CarpetaOpcion[]; salones: Salon[]; esProfesor: boolean; rol: Rol; puedeCrear: boolean; categoria?: CategoriaBiblioteca; archivados: boolean; usadoBorradores: number | null; limiteBorradores: number | null; almacenamientoColegio: { usado: number; limite: number } | null; ok?: string; error?: string }) {
   const router = useRouter();
   const enlaceAbierto = useRef<string | null>(null);
   const navegacion = useRef<HTMLElement>(null);
@@ -56,7 +55,6 @@ export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista,
   const [resaltados, setResaltados] = useState<string[]>([]);
   const [vistaPrevia, setVistaPrevia] = useState<Item | null>(null);
   const [detalles, setDetalles] = useState<Item | null>(null);
-  const [compartir, setCompartir] = useState<Item | null>(null);
   const [renombrar, setRenombrar] = useState<Item | null>(null);
   const [mover, setMover] = useState<Item[]>([]);
   const [menuMovil, setMenuMovil] = useState<Item | null>(null);
@@ -130,7 +128,6 @@ export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista,
     ];
     const a: Accion[] = [{ id: "abrir", etiqueta: "Abrir", icono: FolderOpen, alElegir: () => abrir(item) }];
     if (item.archivo) a.push({ id: "descargar", etiqueta: "Descargar", icono: Download, alElegir: () => descargar([item]) });
-    if (item.gestionable) a.push({ id: "compartir", etiqueta: "Compartir", icono: Share2, alElegir: () => setCompartir(item) });
     a.push({ id: "enlace", etiqueta: "Copiar enlace", icono: Copy, alElegir: () => copiar(item) });
     if (item.gestionable) {
       a.push({ id: "renombrar", etiqueta: "Renombrar", icono: Pencil, separadorAntes: true, alElegir: () => setRenombrar(item) });
@@ -204,8 +201,7 @@ export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista,
     <PanelSubidas subidas={subidas} onCerrar={cerrar} />
     <HojaAcciones item={menuMovil} acciones={menuMovil ? accionesDe(menuMovil) : []} onCerrar={() => setMenuMovil(null)} />
     <VistaPrevia item={vistaPrevia} onCerrar={() => setVistaPrevia(null)} />
-    <PanelDetalles item={detalles} opciones={opciones} onCerrar={() => setDetalles(null)} onCompartir={(i) => { setDetalles(null); setCompartir(i); }} extra={detalles?.tipo === "documento" && detalles.gestionable ? <DialogoEditarDocumento doc={{ id: detalles.id, titulo: detalles.nombre, descripcion: detalles.descripcion ?? null, carpetaId: detalles.carpetaId ?? null, salonId: detalles.salonId ?? null, visibleRoles: detalles.visibleRoles ?? [] }} opciones={opciones} salones={salones} esProfesor={esProfesor} volver={carpetaId} /> : undefined} />
-    <DialogoCompartir item={compartir} onCerrar={() => { setCompartir(null); refrescar(); }} personas={personas} salones={salones} esProfesor={esProfesor} onCopiar={copiar} />
+    <PanelDetalles item={detalles} opciones={opciones} onCerrar={() => setDetalles(null)} extra={detalles?.tipo === "documento" && detalles.gestionable ? <DialogoEditarDocumento doc={{ id: detalles.id, titulo: detalles.nombre, descripcion: detalles.descripcion ?? null, carpetaId: detalles.carpetaId ?? null, salonId: detalles.salonId ?? null, visibleRoles: detalles.visibleRoles ?? [] }} opciones={opciones} salones={salones} esProfesor={esProfesor} volver={carpetaId} /> : undefined} />
     <DialogoRenombrar item={renombrar} onCerrar={() => setRenombrar(null)} onListo={refrescar} />
     <DialogoMover items={mover} opciones={opciones} onCerrar={() => setMover([])} onListo={() => { setSeleccion([]); refrescar(); }} />
     <AlertDialog open={!!eliminar} onOpenChange={(v) => { if (!v) setEliminar(null); }}>

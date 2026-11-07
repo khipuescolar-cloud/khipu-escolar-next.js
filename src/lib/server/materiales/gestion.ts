@@ -6,19 +6,24 @@ import { liberarArchivo, materializarArchivos, type EntradaArchivo } from "../al
 import { avisarMaterialNuevo } from "../notificaciones/avisos-materiales";
 import type { TenantContext } from "../tenant";
 import { cursosAutorizadosMaterial, materialGestionable } from "./permisos";
+import { requireSubcarpetaMaterial } from "./carpetas";
 
 const validarArchivos = (archivos: EntradaArchivo[]) => {
   if (!archivos.length || archivos.length > 5) throw new Error("Elige entre uno y cinco archivos.");
 };
 
-export async function crearMaterial(ctx: TenantContext, e: { titulo: string; descripcion?: string; unidadTema?: string; cursoIds: string[]; archivos: EntradaArchivo[]; publicar: boolean; avisar?: boolean }): Promise<{ id: string }> {
+export async function crearMaterial(ctx: TenantContext, e: { titulo: string; descripcion?: string; unidadTema?: string; cursoIds: string[]; carpetaId?: string | null; archivos: EntradaArchivo[]; publicar: boolean; avisar?: boolean }): Promise<{ id: string }> {
   const titulo = nombreMaterial(e.titulo);
   await cursosAutorizadosMaterial(ctx, e.cursoIds);
+  if (e.carpetaId) {
+    if (e.cursoIds.length !== 1) forbidden();
+    await requireSubcarpetaMaterial(ctx, e.cursoIds[0], e.carpetaId);
+  }
   validarArchivos(e.archivos);
   const archivos = await materializarArchivos(ctx, "material_clase", e.archivos, { maxArchivos: 5 });
   try {
     const material = await ctx.db.materialClase.create({ data: { tenantId: ctx.tenant.id, titulo, descripcion: e.descripcion?.trim() || null, unidadTema: e.unidadTema?.trim() || null,
-      estado: e.publicar ? "publicado" : "borrador", publicadoAt: e.publicar ? new Date() : null, creadoPorId: ctx.membership.id,
+      estado: e.publicar ? "publicado" : "borrador", publicadoAt: e.publicar ? new Date() : null, creadoPorId: ctx.membership.id, carpetaId: e.carpetaId || null,
       secciones: { create: e.cursoIds.map((cursoId) => ({ tenantId: ctx.tenant.id, cursoId })) },
       versiones: { create: { tenantId: ctx.tenant.id, numero: 1, creadaPorId: ctx.membership.id,
         archivos: { create: archivos.map((a, orden) => ({ tenantId: ctx.tenant.id, archivoId: a.id, orden })) } } } } });

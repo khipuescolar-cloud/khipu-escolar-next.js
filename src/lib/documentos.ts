@@ -19,6 +19,7 @@ export const SECCIONES_DOCUMENTOS = ["materiales", "gestion", "biblioteca", "bor
 export type SeccionDocumentos = typeof SECCIONES_DOCUMENTOS[number];
 export function puedeEntrarSeccion(rol: Rol, seccion: SeccionDocumentos): boolean {
   if (rol === "porteria") return false;
+  if (seccion === "biblioteca" || seccion === "compartido") return false;
   if (seccion === "gestion") return rol === "direccion" || rol === "profesor";
   if (seccion === "materiales") return rol !== "administrativo";
   if (seccion === "borradores" || seccion === "papelera") return rol === "direccion" || rol === "administrativo" || rol === "profesor";

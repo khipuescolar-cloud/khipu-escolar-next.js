@@ -1,8 +1,19 @@
-# 31 — Documentos: materiales, gestión académica, biblioteca y borradores
+# 31 — Documentos: materiales, gestión académica y borradores
 
 > Estado: explorador y navegación por sección implementados (Khipu Pro); integración de Materiales y almacenamiento central en W4 R2 · Actualizado: 2026-11-07 · Sección Comunicación · Relacionadas: `45-almacenamiento-y-cuotas.md`, `46-solicitudes-documentales.md`, `39-tareas.md`, `14-archivos-cloudinary.md` · Diagnóstico: `docs/documentos-diagnostico-2026-11.md` · Plan: `docs/documentos-plan-implementacion.md`
 
 Lo implementado hoy (explorador estilo Drive) se conserva y se describe en «Explorador vigente»; las secciones nuevas dicen qué cambia. Hasta que cada flujo se integre, **manda el comportamiento vigente**.
+
+## Comportamiento vigente: carpetas de salón (2026-11-07)
+
+- La sección inicial de Documentos es `materiales`. La navegación visible conserva Materiales de clase, Gestión académica, Mis borradores, Recientes, Destacados y Papelera según rol. `biblioteca` y `compartido` dejan de figurar; `?seccion=` y `?vista=` con esos valores redirigen a Materiales. Sus tablas, binarios y enlaces previos permanecen en la base. Los enlaces nuevos del aviso `documento_nuevo` llevan a Materiales. Las consultas de Recientes y Destacados muestran solo borradores propios; las funciones de compartición y Biblioteca quedan obsoletas para esta interfaz y se conservan por compatibilidad de otros flujos. Compartir deja de ofrecerse en Mis borradores.
+- Cada curso y salón visible aparece como carpeta automática aun si no hay materiales. El profesor ve solo los cursos que dicta (`Curso.profesorId`), alumno y familia solo los salones asociados a sus cuentas, y dirección todos. Se ordenan por año descendente; los anteriores están colapsados. El nombre visible es «Curso · Salón» y no es editable. La URL de curso y subcarpeta se valida en servidor. Dirección, familia y alumno consultan y descargan; el profesor administra solo sus cursos.
+- `carpetas_material` guarda subcarpetas anidadas de un curso, con nombre único sin distinguir mayúsculas entre hermanas, y `materiales_clase.carpeta_id` es opcional. Los materiales previos permanecen en la raíz de cada carpeta automática. La migración `20261116090500_carpetas_material` es aditiva y cierra RLS a `anon` y `authenticated`.
+- En la carpeta de un salón, «Nuevo» ofrece «Subir material» (Sheet a la derecha, en móvil desde abajo) y «Nueva carpeta» (Dialog). En la raíz ambas opciones están deshabilitadas. El formulario no pide sección: fija el curso de la carpeta actual y la subcarpeta actual. Sube hasta cinco archivos de 25 MB mediante subida directa con progreso; «Publicar ahora» inicia marcado. Tras crear, muestra aviso y resalta la fila. La lista expone fecha, versión, tamaño, vista previa, descarga y acciones de nueva versión, cambio de nombre, movimiento y papelera. Las migas enlazan la jerarquía.
+- El selector de Tareas conserva referencias a materiales sin copiar binarios y muestra la ruta curso, salón y subcarpeta.
+- Dirección agrupa las carpetas de salón por año y grado. La fila de cada material usa un ícono según el tipo de archivo. Los materiales antiguos asociados a varios salones permanecen en la raíz de cada uno y no pueden moverse a una subcarpeta única; sus demás acciones siguen disponibles.
+
+Las menciones posteriores a Biblioteca, Compartido, selección manual de secciones, compartir borradores y «sin carpetas manuales» describen el diseño anterior y quedan **obsoletas** para la navegación vigente. Los datos y contratos de servidor anteriores se conservan hasta su retiro planificado.
 
 ## Visión de la reestructuración
 

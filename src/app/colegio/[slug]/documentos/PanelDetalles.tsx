@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { Building2, Download, Share2, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Building2, Download, Users } from "lucide-react";
 import { Sheet, SheetBody, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { formatoTamano } from "@/lib/adjuntos";
 import type { CarpetaOpcion } from "@/lib/server/documentos";
@@ -17,7 +16,7 @@ function Fila({ nombre, sub, grupo, derecha }: { nombre: string; sub: string; gr
 }
 
 /** Panel lateral de detalles (hoja inferior en móvil): metadatos, quién tiene acceso y actividad reciente. */
-export function PanelDetalles({ item, opciones, onCerrar, onCompartir, extra }: { item: Item | null; opciones: CarpetaOpcion[]; onCerrar: () => void; onCompartir: (i: Item) => void; extra?: ReactNode }) {
+export function PanelDetalles({ item, opciones, onCerrar, extra }: { item: Item | null; opciones: CarpetaOpcion[]; onCerrar: () => void; extra?: ReactNode }) {
   const [detalle, setDetalle] = useState<Detalle | null>(null);
   const [actividad, setActividad] = useState<Actividad | null>(null);
   const id = item?.id;
@@ -59,7 +58,6 @@ export function PanelDetalles({ item, opciones, onCerrar, onCompartir, extra }: 
           {!actividad ? <div role="status" aria-busy className="h-10 motion-safe:animate-pulse rounded-lg bg-sec-suave"><span className="sr-only">Cargando</span></div> : actividad.length ? <ul className="divide-y divide-borde-sutil">{actividad.map((a, i) => <li key={i} className="flex min-h-10 items-center justify-between gap-3 py-1.5"><span>{a.texto}</span><span className="shrink-0 text-xs tabular-nums text-muted-foreground">{fechaHora.format(a.createdAt)}</span></li>)}</ul> : <p className="py-2 text-muted-foreground">Todavía no hay actividad.</p>}
         </section>
         <div className="flex flex-wrap gap-2">
-          {item.gestionable && <Button variant="outline" onClick={() => onCompartir(item)}><Share2 aria-hidden /> Compartir</Button>}
           {item.archivo && <a href={`/archivos/${item.archivo.id}`} download={item.archivo.nombre} className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-input bg-superficie-elevada px-4 text-sm font-semibold hover:bg-superficie-2"><Download className="size-4" strokeWidth={2} aria-hidden /> Descargar</a>}
           {extra}
         </div>

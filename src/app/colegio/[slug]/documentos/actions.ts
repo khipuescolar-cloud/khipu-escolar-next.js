@@ -24,7 +24,7 @@ const UUID = /^[0-9a-f-]{36}$/i;
 function destino(formData: FormData): string {
   const volver = textoONulo(formData, "volver");
   const vista = texto(formData, "vista");
-  const seccion = vista === "unidad" ? "borradores" : ["compartido", "recientes", "destacados", "papelera", "biblioteca"].includes(vista) ? vista : "biblioteca";
+  const seccion = vista === "unidad" ? "borradores" : ["recientes", "destacados", "papelera"].includes(vista) ? vista : "borradores";
   return volver && UUID.test(volver) ? `/documentos?seccion=${seccion}&carpeta=${volver}` : `/documentos?seccion=${seccion}`;
 }
 

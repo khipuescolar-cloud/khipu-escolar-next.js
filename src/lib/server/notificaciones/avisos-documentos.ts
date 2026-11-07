@@ -32,7 +32,7 @@ export async function avisarDocumentoNuevo(ctx: TenantContext, documentoId: stri
     }
   }
   const carpeta = doc.carpetaId ? carpetas.get(doc.carpetaId)?.nombre : undefined;
-  const payload = { colegio: ctx.tenant.nombre, titulo: doc.titulo, ...(carpeta ? { carpeta } : {}), url: urlColegio(ctx.tenant.slug, doc.carpetaId ? `/documentos?carpeta=${doc.carpetaId}` : "/documentos") };
+  const payload = { colegio: ctx.tenant.nombre, titulo: doc.titulo, ...(carpeta ? { carpeta } : {}), url: urlColegio(ctx.tenant.slug, "/documentos?seccion=materiales") };
   await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "documento", titulo: `Documento: ${doc.titulo}`, creadoPorId: ctx.membership.id }, async () => {
     for (const d of familias.values()) {
       await encolarParaDestinatario(ctx.db, d, { tenantId: ctx.tenant.id, tipo: "documento", plantilla: "documento_nuevo", referenciaId: doc.id, payload });

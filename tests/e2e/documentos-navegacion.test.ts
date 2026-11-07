@@ -1,10 +1,10 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
 const puerto = process.env.E2E_PORT ?? "3000";
 const colegio = `http://nuevohorizonte.lvh.me:${puerto}`;
 const carpetaCapturas = "/tmp/claude-1000/-home-carlos-calderon-Escritorio-StartUp/4708dc9f-ca0e-4c47-a074-186c44f0e3b5/scratchpad";
 
-async function entrar(page: import("@playwright/test").Page, correo: string) {
+async function entrar(page: Page, correo: string) {
   await page.goto(`${colegio}/login`);
   await page.getByLabel("Correo").fill(correo);
   await page.getByLabel("Contraseña").fill("demo123");
@@ -12,56 +12,45 @@ async function entrar(page: import("@playwright/test").Page, correo: string) {
   await expect(page).toHaveURL(/\/inicio/, { timeout: 30_000 });
 }
 
-test("dirección ve ocho secciones y Biblioteca responde en escritorio y móvil", async ({ page }) => {
+test("las URL antiguas redirigen y el menú muestra solo las secciones vigentes", async ({ page }) => {
   await entrar(page, "direccion@nuevohorizonte.demo");
-  await page.goto(`${colegio}/documentos?seccion=biblioteca`);
+  for (const enlace of ["?seccion=biblioteca", "?seccion=compartido", "?vista=biblioteca", "?vista=compartido"]) {
+    await page.goto(`${colegio}/documentos${enlace}`);
+    await expect(page).toHaveURL(`${colegio}/documentos?seccion=materiales`);
+  }
   const nav = page.getByRole("navigation", { name: "Secciones de documentos" });
-  await expect(nav.getByRole("link")).toHaveCount(8);
-  await expect(nav.getByRole("link", { name: "Biblioteca del colegio" })).toHaveAttribute("aria-current", "page");
+  await expect(nav.getByRole("link")).toHaveCount(6);
+  await expect(nav.getByRole("link", { name: "Materiales de clase" })).toHaveAttribute("aria-current", "page");
+  await expect(page.getByText("Biblioteca del colegio")).toHaveCount(0);
+  await expect(page.getByText("Compartido conmigo")).toHaveCount(0);
+  await page.goto(`${colegio}/documentos`);
+  await expect(nav.getByRole("link", { name: "Materiales de clase" })).toHaveAttribute("aria-current", "page");
+  await page.goto(`${colegio}/documentos?seccion=gestion`);
+  await expect(page.getByRole("link", { name: "Descargar reporte CSV" })).toBeVisible();
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.screenshot({ path: `${carpetaCapturas}/w4-biblioteca-1440.png`, fullPage: true });
+  await page.screenshot({ path: `${carpetaCapturas}/mat-gestion-1440.png`, fullPage: true, style: "nextjs-portal { display: none !important; }" });
   await page.setViewportSize({ width: 390, height: 844 });
-  await expect(page.getByRole("button", { name: "Nuevo", exact: true })).toBeVisible();
-  await page.screenshot({ path: `${carpetaCapturas}/w4-biblioteca-390.png`, fullPage: true });
+  await page.screenshot({ path: `${carpetaCapturas}/mat-gestion-390.png`, fullPage: true, style: "nextjs-portal { display: none !important; }" });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
-test("profesor ve sus secciones y familia no entra en Gestión académica", async ({ browser }) => {
-  const profesor = await browser.newPage();
-  await entrar(profesor, "lucia.garcia@nuevohorizonte.demo");
-  await profesor.goto(`${colegio}/documentos?seccion=borradores`);
-  await expect(profesor.getByRole("navigation", { name: "Secciones de documentos" }).getByRole("link")).toHaveCount(8);
-  await expect(profesor.getByText("Espacio de mis borradores")).toBeVisible();
-  const familia = await browser.newPage();
-  await entrar(familia, "rosa.quispe@gmail.com");
-  await familia.goto(`${colegio}/documentos?seccion=biblioteca`);
-  const nav = familia.getByRole("navigation", { name: "Secciones de documentos" });
-  await expect(nav.getByRole("link")).toHaveCount(5);
-  await expect(nav.getByRole("link", { name: "Gestión académica" })).toHaveCount(0);
-  await familia.goto(`${colegio}/documentos?seccion=gestion`);
-  await expect(familia.getByText(/403|Forbidden|acceso/i).first()).toBeVisible();
-});
-
-test("capturas de secciones autorizadas por rol", async ({ browser }) => {
-  test.setTimeout(240_000);
+test("profesor, familia y alumno ven solo las secciones de su rol", async ({ browser }) => {
   const perfiles = [
-    { rol: "direccion", correo: "direccion@nuevohorizonte.demo", secciones: ["materiales", "gestion", "biblioteca", "borradores", "compartido", "recientes", "destacados", "papelera"] },
-    { rol: "profesora", correo: "lucia.garcia@nuevohorizonte.demo", secciones: ["materiales", "gestion", "biblioteca", "borradores", "compartido", "recientes", "destacados", "papelera"] },
-    { rol: "familia", correo: "rosa.quispe@gmail.com", secciones: ["materiales", "biblioteca", "compartido", "recientes", "destacados"] },
-    { rol: "alumno", correo: "lucas.huaman@nuevohorizonte.demo", secciones: ["materiales", "biblioteca", "compartido", "recientes", "destacados"] },
+    { correo: "lucia.garcia@nuevohorizonte.demo", total: 6, secciones: ["materiales", "gestion", "borradores", "recientes", "destacados", "papelera"] },
+    { correo: "rosa.quispe@gmail.com", total: 3, secciones: ["materiales", "recientes", "destacados"] },
+    { correo: "lucas.huaman@nuevohorizonte.demo", total: 3, secciones: ["materiales", "recientes", "destacados"] },
   ];
   for (const perfil of perfiles) {
-    const pagina = await browser.newPage();
-    await entrar(pagina, perfil.correo);
+    const page = await browser.newPage();
+    await entrar(page, perfil.correo);
+    const nav = page.getByRole("navigation", { name: "Secciones de documentos" });
     for (const seccion of perfil.secciones) {
-      await pagina.goto(`${colegio}/documentos?seccion=${seccion}`);
-      await expect(pagina.getByRole("navigation", { name: "Secciones de documentos" }).locator('[aria-current="page"]')).toBeVisible();
-      for (const ancho of [1440, 390]) {
-        await pagina.setViewportSize({ width: ancho, height: ancho === 1440 ? 900 : 844 });
-        await pagina.screenshot({ path: `${carpetaCapturas}/w4-r2-${perfil.rol}-${seccion}-${ancho}.png`, fullPage: true });
-      }
-      expect(await pagina.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      await page.goto(`${colegio}/documentos?seccion=${seccion}`);
+      await expect(nav.getByRole("link")).toHaveCount(perfil.total);
+      await expect(nav.locator('[aria-current="page"]')).toBeVisible();
+      await page.setViewportSize({ width: 390, height: 844 });
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     }
-    await pagina.close();
+    await page.close();
   }
 });

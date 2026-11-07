@@ -8,6 +8,7 @@ import { iniciarSubida, confirmarSubida } from "@/lib/server/almacenamiento";
 import {
   crearMaterial, actualizarMaterial, nuevaVersionMaterial, publicarMaterial, archivarMaterial,
   moverMaterialAPapelera, restaurarMaterial, eliminarDefinitivoMaterial,
+  crearSubcarpetaMaterial, moverMaterialACarpeta,
 } from "@/lib/server/materiales";
 import type { EntradaArchivo } from "@/lib/server/almacenamiento";
 
@@ -35,7 +36,15 @@ async function ejecutar(fn: () => Promise<{ id?: string; numero?: number } | voi
 }
 export async function crearMaterialAction(slug: string, f: FormData): Promise<Resultado> {
   const ctx = await contexto(slug);
-  return ejecutar(async () => crearMaterial(ctx, { titulo: texto(f, "titulo"), descripcion: texto(f, "descripcion"), unidadTema: texto(f, "unidadTema"), cursoIds: ids(f, "cursoIds"), archivos: await archivosDe(f), publicar: f.get("publicar") === "on", avisar: f.get("avisar") === "on" }));
+  return ejecutar(async () => crearMaterial(ctx, { titulo: texto(f, "titulo"), descripcion: texto(f, "descripcion"), unidadTema: texto(f, "unidadTema"), cursoIds: ids(f, "cursoIds"), carpetaId: texto(f, "carpetaId") || null, archivos: await archivosDe(f), publicar: f.get("publicar") === "on", avisar: f.get("avisar") === "on" }));
+}
+export async function crearSubcarpetaMaterialAction(slug: string, e: { cursoId: string; parentId?: string | null; nombre: string }): Promise<Resultado> {
+  const ctx = await contexto(slug);
+  return ejecutar(() => crearSubcarpetaMaterial(ctx, e));
+}
+export async function moverMaterialACarpetaAction(slug: string, materialId: string, cursoId: string, carpetaId: string | null): Promise<Resultado> {
+  const ctx = await contexto(slug);
+  return ejecutar(() => moverMaterialACarpeta(ctx, materialId, cursoId, carpetaId));
 }
 export async function nuevaVersionMaterialAction(slug: string, id: string, f: FormData): Promise<Resultado> {
   const ctx = await contexto(slug);
