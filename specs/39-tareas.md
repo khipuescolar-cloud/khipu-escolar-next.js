@@ -128,6 +128,14 @@ publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_
   `bandeja-general`, `extras-edicion-ics-zip`.
 - e2e: `tests/e2e/tareas-classroom.test.ts` (docente crea multi-sección → apoderado entrega → docente devuelve → reentrega).
 
+## Reutilización de archivos y cuota (reestructuración de Documentos, 2026-11-07; especificado, sin implementar)
+Tareas ya recibe entregas y no se rehace. Cambia solo cómo usa archivos (detalle en `specs/31` y `specs/45`):
+- **Materiales existentes:** al crear o editar una tarea el docente puede «Elegir de mis materiales de clase». Se crea `tarea_materiales` (`tareaId`, `materialId`, `versionId` fijada): es una **referencia, no una copia**. `crearTarea`/`actualizarTarea` aceptan `materialesExistentes?: { materialId: string; versionId?: string }[]`; solo materiales propios y fuera de la papelera. Los materiales subidos directamente siguen con `Archivo.tareaId`. Las vistas devuelven ambos como `AdjuntoVista[]`.
+- **Descarga:** un archivo de material lo puede descargar quien ve una tarea publicada que lo referencia (`puedeVerTarea`), aunque el material no estuviera compartido con su sección. Borrar una tarea no borra el archivo; no se elimina físicamente un material referenciado.
+- **Cuota:** materiales y entregas pasan por `iniciarSubida`/`confirmarSubida` (carga directa, `specs/45`). Las entregas son categoría crítica: pueden usar la reserva de cuota del colegio, con aviso previo a dirección en 70/85/95 %.
+- **Límites de entrega:** 10 MB por archivo y **3 archivos** por entrega, desde `almacenamiento_colegio` (`maxBytesEntrega`, `maxArchivosEntrega`). `tenants.tareas_max_archivos/tareas_max_mb` quedan como valor de respaldo para materiales (no se eliminan columnas) y `limitesTarea(ctx)` lee primero la configuración central. Cambia el valor por defecto de 5 a 3 archivos en entregas: las pruebas `tareas-classroom` y `adjuntos-comunicados-tareas` se ajustan.
+- Sin cambios: estados de entrega, reentregas, revisión, calificación, avisos y la regla de descarga de entregas (alumno, apoderados, docente del curso o autor, dirección; sin soporte; auditada).
+
 ## Pendientes
 - Recordatorio «vence mañana»: no se envía (el cron de Vercel Hobby es diario); dejarlo para cuando haya cron horario.
 - Reasignar al cambiar a un alumno de salón (hoy conserva la asignación en su sección anterior).

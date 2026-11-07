@@ -36,7 +36,7 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 28 | [Licencias de Nudito+ (por alumno, pago con Yape)](28-licencias-nudito-plus.md) | — | obsoleto (inerte), ver specs/44 |
 | 29 | [Nudito+ (tutor IA por alumno)](29-nudito-plus-tutor.md) | — | reemplazado por specs/41 |
 | 30 | [Capacidades y desempeños del CNEB](30-capacidades-desempenos.md) | Khipu Pro | implementado |
-| 31 | [Biblioteca de documentos](31-documentos.md) | Khipu Pro | implementado |
+| 31 | [Documentos: materiales de clase, gestión académica, biblioteca y borradores](31-documentos.md) | Khipu Pro | explorador implementado; reestructuración especificada (2026-11-07) |
 | 32 | [Reuniones (convocatoria, confirmación y acta)](32-reuniones.md) | Khipu Pro | implementado |
 | 33 | [Tablero de dirección](33-tablero-direccion.md) | Khipu Pro | implementada |
 | 34 | [Horario semanal por salón («Mi horario», plantillas de horario, sin cruces de profesores)](34-horario.md) | Khipu Base y Pro | implementado |
@@ -50,3 +50,5 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 43 | [Nudito: práctica, evaluación y dominio por habilidad](43-nudito-practica-y-dominio.md) | Khipu Pro | borrador |
 | 44 | [Nudito: seguimiento, gobierno institucional, privacidad y fin de las licencias familiares](44-nudito-seguimiento-y-gobierno.md) | Khipu Pro | borrador |
 | 37 | [NSP, justificaciones, recuperación, incidencias y libretas emitidas](37-nsp-justificaciones-recuperacion.md) | Khipu Base / Pro | implementado |
+| 45 | [Almacenamiento centralizado, carga directa, cuotas y observabilidad](45-almacenamiento-y-cuotas.md) | Khipu Pro (Base: medición) | especificado, sin implementar |
+| 46 | [Solicitudes documentales (gestión académica: estados, versiones y revisión)](46-solicitudes-documentales.md) | Khipu Pro | especificado, sin implementar |
