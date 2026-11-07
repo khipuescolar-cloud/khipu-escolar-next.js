@@ -5,6 +5,8 @@ import { NavegacionDocumentos } from "./NavegacionDocumentos";
 import { PanelMateriales } from "./materiales/PanelMateriales";
 import { PanelSolicitudes } from "./solicitudes/PanelSolicitudes";
 import { listarMateriales } from "@/lib/server/materiales";
+import { opcionesParaCompartir } from "@/lib/server/materiales";
+import { limitesDe, resumenAlmacenamiento } from "@/lib/server/almacenamiento";
 import { listarSolicitudes } from "@/lib/server/solicitudes/index";
 import { requireConsentimiento } from "@/lib/server/consentimiento";
 import { listarContenido, opcionesDeCarpeta, salonesParaDocumentos, usoBorradores } from "@/lib/server/documentos";
@@ -28,8 +30,8 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
   const seccion = seccionDocumento(uno(sp.seccion) ?? uno(sp.vista)) ?? "biblioteca";
   if (!puedeEntrarSeccion(ctx.rol, seccion)) forbidden();
   if (seccion === "materiales" || seccion === "gestion") {
-    const contenido = seccion === "materiales" ? <PanelMateriales arbol={await listarMateriales(ctx)} /> : <PanelSolicitudes solicitudes={await listarSolicitudes(ctx)} direccion={ctx.rol === "direccion"} />;
-    return <div><EncabezadoPagina titulo="Documentos" seccion="comunicacion" descripcion="Materiales, gestión académica y biblioteca del colegio." /><div className="grid min-w-0 gap-4 md:grid-cols-[13.5rem_minmax(0,1fr)] md:gap-6 lg:grid-cols-[15rem_minmax(0,1fr)]"><aside><NavegacionDocumentos rol={ctx.rol} activa={seccion} /></aside><section className="min-w-0"><h2 className="mb-5 text-xl font-semibold">{seccion === "materiales" ? "Materiales de clase" : "Gestión académica"}</h2>{contenido}</section></div></div>;
+    const contenido = seccion === "materiales" ? <PanelMateriales slug={slug} arbol={await listarMateriales(ctx)} opciones={await opcionesParaCompartir(ctx)} /> : <PanelSolicitudes solicitudes={await listarSolicitudes(ctx)} direccion={ctx.rol === "direccion"} />;
+    return <div className="min-w-0"><EncabezadoPagina titulo="Documentos" seccion="comunicacion" descripcion="Materiales, gestión académica y biblioteca del colegio." /><div className="grid min-w-0 gap-4 md:grid-cols-[13.5rem_minmax(0,1fr)] md:gap-6 lg:grid-cols-[15rem_minmax(0,1fr)]"><aside className="min-w-0 overflow-hidden"><NavegacionDocumentos rol={ctx.rol} activa={seccion} /></aside><section className="min-w-0"><h2 className="mb-5 text-xl font-semibold">{seccion === "materiales" ? "Materiales de clase" : "Gestión académica"}</h2>{contenido}</section></div></div>;
   }
   const vista = seccion === "borradores" ? "unidad" : seccion;
   const carpetaParam = uno(sp.carpeta);
@@ -45,11 +47,13 @@ export default async function DocumentosPage({ params, searchParams }: PageProps
     listarContenido(ctx, { carpetaId, q, orden, vista, categoria, archivados }), opcionesDeCarpeta(ctx), salonesParaDocumentos(ctx), personasParaCompartir(ctx), contextoPermisosDocumento(ctx),
   ]);
   const usadoBorradores = seccion === "borradores" ? Number(await usoBorradores(ctx)) : null;
+  const limiteBorradores = seccion === "borradores" ? Number((await limitesDe(ctx)).cuotaBorradorBytes) : null;
+  const almacenamientoColegio = ctx.rol === "direccion" ? await resumenAlmacenamiento(ctx) : null;
   const puedeCrear = ctx.rol === "direccion" || ctx.rol === "administrativo" || ctx.rol === "profesor";
   const carpetaActual = carpetaId ? permisos.mapa.get(carpetaId) : null;
   const carpetaDeCreacion = carpetaActual?.ambito === "unidad" && puedeEditarNivel(nivelCarpeta(permisos, carpetaActual.id)) ? carpetaActual.id : null;
   const carpetaCompartida = !!carpetaDeCreacion && carpetaActual?.creadoPorId !== ctx.membership.id;
   const archivoParam = uno(sp.archivo);
   const archivoInicial = archivoParam && UUID.test(archivoParam) ? archivoParam : null;
-  return <ExploradorDocumentos archivoInicial={archivoInicial} nuevos={uno(sp.nuevo) ?? ""} contenido={contenido} vista={vista} carpetaId={carpetaId} carpetaDeCreacion={carpetaDeCreacion} carpetaCompartida={carpetaCompartida} q={q} orden={orden} opciones={opciones} salones={salones} personas={destinos.personas} esProfesor={ctx.rol === "profesor"} rol={ctx.rol} puedeCrear={puedeCrear} categoria={categoria} archivados={archivados} usadoBorradores={usadoBorradores} ok={uno(sp.ok)} error={uno(sp.error)} />;
+  return <ExploradorDocumentos archivoInicial={archivoInicial} nuevos={uno(sp.nuevo) ?? ""} contenido={contenido} vista={vista} carpetaId={carpetaId} carpetaDeCreacion={carpetaDeCreacion} carpetaCompartida={carpetaCompartida} q={q} orden={orden} opciones={opciones} salones={salones} personas={destinos.personas} esProfesor={ctx.rol === "profesor"} rol={ctx.rol} puedeCrear={puedeCrear} categoria={categoria} archivados={archivados} usadoBorradores={usadoBorradores} limiteBorradores={limiteBorradores} almacenamientoColegio={almacenamientoColegio ? { usado: Number(almacenamientoColegio.usadoBytes), limite: Number(almacenamientoColegio.limiteBytes ?? 0) } : null} ok={uno(sp.ok)} error={uno(sp.error)} />;
 }

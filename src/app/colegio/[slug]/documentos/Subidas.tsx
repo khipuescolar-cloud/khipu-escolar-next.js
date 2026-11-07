@@ -4,26 +4,22 @@ import { useCallback, useRef, useState } from "react";
 import { AlertCircle, CheckCircle2, Loader2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatoTamano } from "@/lib/adjuntos";
+import { subirDirecto } from "@/lib/subida-directa";
+import { confirmarSubidaDocumentoAction, iniciarSubidaDocumentoAction } from "./actions";
 
 export type Subida = { id: number; nombre: string; bytes: number; progreso: number; estado: "subiendo" | "listo" | "error"; error?: string };
 type Destino = { carpetaId: string | null; ambito: "unidad" | "biblioteca"; salonId?: string };
 
-function enviar(archivo: File, destino: Destino, alProgreso: (p: number) => void): Promise<{ ok: boolean; id?: string; error?: string }> {
-  return new Promise((resolver) => {
-    const d = new FormData();
-    d.set("archivo", archivo); d.set("titulo", archivo.name.replace(/\.[^.]+$/, "")); d.set("carpetaId", destino.carpetaId ?? ""); d.set("ambito", destino.ambito);
-    if (destino.salonId) d.set("salonId", destino.salonId);
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/api/documentos/subir");
-    xhr.upload.onprogress = (e) => { if (e.lengthComputable) alProgreso(Math.round((e.loaded / e.total) * 100)); };
-    xhr.onerror = () => resolver({ ok: false, error: "Error de conexión." });
-    xhr.onload = () => {
-      let respuesta: { id?: string; error?: string } = {};
-      try { respuesta = JSON.parse(xhr.responseText) as typeof respuesta; } catch { /* respuesta sin JSON */ }
-      resolver(xhr.status >= 200 && xhr.status < 300 && respuesta.id ? { ok: true, id: respuesta.id } : { ok: false, error: respuesta.error ?? (xhr.status === 413 ? "El archivo supera los 10 MB." : "No se pudo subir el archivo.") });
-    };
-    xhr.send(d);
-  });
+async function enviar(archivo: File, destino: Destino, alProgreso: (p: number) => void): Promise<{ ok: boolean; id?: string; error?: string }> {
+  const titulo = archivo.name.replace(/\.[^.]+$/, "");
+  try {
+    const r = await subirDirecto(archivo, {
+      iniciar: () => iniciarSubidaDocumentoAction({ titulo, carpetaId: destino.carpetaId, ambito: destino.ambito, nombre: archivo.name, bytes: archivo.size, mimeDeclarado: archivo.type }),
+      confirmar: (subidaId) => confirmarSubidaDocumentoAction({ titulo, carpetaId: destino.carpetaId, ambito: destino.ambito, subidaId }),
+      onProgreso: alProgreso,
+    });
+    return { ok: true, id: r.id };
+  } catch (e) { return { ok: false, error: e instanceof Error ? e.message : "No se pudo subir el archivo." }; }
 }
 
 /** Sube varios archivos de uno en uno con progreso y error por archivo. */
