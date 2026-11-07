@@ -1,6 +1,6 @@
 # 47 — Registro de notas
 
-> Estado: en desarrollo (PASO 0: contrato y esquema) · Plan: Khipu Pro · Última actualización: 2026-11-07 (Codex)
+> Estado: en desarrollo (registro y tareas) · Plan: Khipu Pro · Última actualización: 2026-11-07 (Codex)
 
 ## Objetivo
 Dar al docente un registro por curso semejante a una tabla de calificaciones, con actividades agrupadas por competencia y entrada rápida de notas, usando los servicios académicos existentes.
@@ -35,7 +35,7 @@ Cada operación valida `requireFeature(ctx, "notas")`, rol, curso y alcance con 
 
 ## Modelo de datos
 
-`Competencia`: `origen`, `codigoOficial`, `desactivadaAt`, `desactivadaPorId`, `createdAt`, `updatedAt`, además de `tenantId` y `cursoId`. `Membership.gestionaCompetencias` concede permiso explícito al profesor. `Evaluacion`: `fecha`, `creadaAt`, `actualizadaAt`, `creadaPorId`, `competenciaId`, `tareaId`, `periodoId`, `estado`, `grupoId`. `Nota`: un registro por evaluación y alumno, con marca NSP/NE, recuperación y responsable. `HistorialNota` guarda cambios. `CalificacionPeriodo` y `LibretaEmitida` mantienen el resultado y documento del periodo. `Tarea.competenciaId` vincula la tarea con el currículo.
+`Competencia`: `origen`, `codigoOficial`, `desactivadaAt`, `desactivadaPorId`, `createdAt`, `updatedAt`, además de `tenantId` y `cursoId`. `Membership.gestionaCompetencias` concede permiso explícito al profesor. `Evaluacion`: `fecha`, `creadaAt`, `actualizadaAt`, `creadaPorId`, `competenciaId`, `tareaId`, `periodoId`, `estado`, `grupoId`, `claveIdempotencia` única opcional. `Nota`: un registro por evaluación y alumno, con marca NSP/NE, recuperación y responsable. `HistorialNota` guarda cambios. `CalificacionPeriodo` y `LibretaEmitida` mantienen el resultado y documento del periodo. `Tarea.competenciaId` vincula la tarea con el currículo.
 
 ## Contratos de `src/lib/server`
 
@@ -56,7 +56,7 @@ Las firmas de PASO 0 son contratos; su implementación pertenece a pasos posteri
 ## Rutas y UI
 
 - `/notas`: Mis cursos para el docente; vista existente de lectura para familia y alumno.
-- Registro de un curso y «Nueva calificación»: rutas y componentes a concretar en la implementación. La configuración curricular es acción secundaria autorizada. `/notas/periodos` y `/notas/criterios` mantienen sus funciones internas.
+- Registro de un curso en `/notas/[cursoId]` y «Nueva calificación» en dos pasos dentro de un Sheet. La configuración curricular es acción secundaria autorizada. `/notas/periodos` y `/notas/criterios` mantienen sus funciones internas.
 
 ## Textos y UX
 
@@ -66,7 +66,7 @@ El botón principal dice «Nueva calificación». Los estados combinan ícono y 
 
 - Curso, competencia, alumno o periodo de otro colegio o fuera del alcance: denegar. Periodo cerrado: denegar escritura.
 - Tarea antigua sin competencia: no asignar arbitrariamente; pedir asociación autorizada antes de nueva calificación.
-- Reintentos: la clave de idempotencia debe impedir columnas duplicadas. La implementación y persistencia de esa clave quedan pendientes.
+- Reintentos: la clave de idempotencia debe impedir columnas duplicadas. La clave UUID se genera en el cliente y `Evaluacion.claveIdempotencia` tiene índice único; los reintentos devuelven la evaluación original.
 - Evaluación histórica sin competencia: mantener visible sin falsear asociación. Competencia desactivada: mantener la etiqueta histórica.
 
 ## Pruebas
@@ -77,6 +77,6 @@ El botón principal dice «Nueva calificación». Los estados combinan ícono y 
 
 ## Pendientes
 
-- Implementar servicios, UI y reconciliar permisos/textos anteriores de specs/11 y 39.
-- Resolver el mecanismo persistente de `claveIdempotencia` y la atribución histórica de `creadaAt`.
+- Completar pruebas e2e y la reconciliación de permisos/textos anteriores de specs/11 y 39.
+- Las evaluaciones previas a la migración tienen `creadaAt` de migración, no fecha histórica verificable.
 - Revisar vigencia y equivalencia SIAGIE del catálogo oficial; Inicial ciclo I queda fuera del alcance actual.

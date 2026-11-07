@@ -225,7 +225,8 @@ export async function crearTarea(ctx: TenantContext, entrada: unknown, adjuntos:
   for (const s of v.secciones) {
     if (s.fechaEntrega && plazoDe(ctx, s.fechaEntrega, d.data.horaEntrega, ahora).error) return fallo("La fecha de alguna sección ya pasó.");
   }
-  if (d.data.competenciaId && (await ctx.db.competencia.count({ where: { id: d.data.competenciaId, cursoId: d.data.cursoId } })) === 0) {
+  if (d.data.calificable && !d.data.competenciaId) return fallo("Elige una competencia para la tarea calificable.");
+  if (d.data.competenciaId && (await ctx.db.competencia.count({ where: { id: d.data.competenciaId, cursoId: d.data.cursoId, desactivadaAt: null } })) === 0) {
     return fallo("Esa competencia no es de este curso.");
   }
   let validados;

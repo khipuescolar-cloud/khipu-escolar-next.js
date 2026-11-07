@@ -260,8 +260,9 @@ describe("plazos, calificación y avisos", () => {
   it("calificable: crea la evaluación ligada (sin NSP aunque el alumno falte el día del plazo); NE solo explícito; publica con el flujo de Notas", async () => {
     // Mateo falta el día del plazo.
     await db.asistencia.create({ data: { tenantId: c.tenant.id, alumnoId: c.alumnos.mateo.id, ambito: "dia", fecha: fechaDb(D), hora: "08:30", estado: "falta" } });
+    const competencia = await c.db.competencia.create({ data: { tenantId: c.tenant.id, cursoId: c.cursoTutora.id, nombre: "Resuelve problemas de cantidad" } });
     expect(await crearTarea(tutora(), {
-      cursoId: c.cursoTutora.id, titulo: "Calificada", fechaEntrega: D, calificable: true,
+      cursoId: c.cursoTutora.id, titulo: "Calificada", fechaEntrega: D, calificable: true, competenciaId: competencia.id,
       secciones: [{ cursoId: c.cursoTutora.id, todos: false, alumnoIds: [c.alumnos.mateo.id] }],
     })).toMatchObject({ ok: true });
     const t = await tareaPor("Calificada");

@@ -1167,6 +1167,7 @@ model Evaluacion {
   publicadaAt   DateTime?              @map("publicada_at") @db.Timestamptz
   /// Evaluación creada desde una tarea calificable (specs/39): nunca genera NSP (specs/37).
   tareaId       String?                @map("tarea_id") @db.Uuid
+  claveIdempotencia String?           @unique @map("clave_idempotencia") @db.Uuid
 
   tenant      Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   curso       Curso                 @relation(fields: [cursoId], references: [id], onDelete: Cascade)

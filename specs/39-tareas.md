@@ -150,3 +150,7 @@ Tareas ya recibe entregas y no se rehace. Cambia solo cómo usa archivos (detall
 - Editar secciones ya creadas (agregar/quitar salones) desde la UI; hoy solo destinatarios por sección.
 - Configurar `tareas_max_archivos`/`tareas_max_mb` desde la configuración del colegio (hoy solo en BD).
 - Rúbricas y calificación con varias competencias por tarea.
+
+## Relación con Registro de notas (2026-11-07)
+
+Una tarea nueva calificable exige elegir una competencia activa del curso de origen. La entrega por sí sola no crea una nota. La evaluación vinculada por `tareaId` y `TareaCurso.evaluacionGrupoId` es la misma columna que lee `/notas/[cursoId]`; `Nota` sigue siendo única por evaluación y alumno. Las tareas anteriores sin competencia aparecen en «Sin competencia» y el profesor del curso puede asignarles una competencia activa explícitamente.

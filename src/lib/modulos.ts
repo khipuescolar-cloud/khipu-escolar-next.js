@@ -38,7 +38,7 @@ export const INFO_MODULO: Record<Feature, { nombre: string; descripcion: string;
   comunicados: { nombre: "Comunicados", descripcion: "Anuncios del colegio y de cada salón.", icono: "Megaphone" },
   gestion: { nombre: "Gestión del colegio", descripcion: "Profesores, personal, salones, alumnos, familias y configuración. Esencial.", icono: "Users" },
   horario: { nombre: "Horario", descripcion: "Horario semanal de cada salón, plantillas de horario (entrada, recreos y salida) y «Mi horario» del profesor, el alumno y la familia.", icono: "CalendarClock" },
-  notas: { nombre: "Notas", descripcion: "Evaluaciones y calificaciones por competencia.", icono: "GraduationCap" },
+  notas: { nombre: "Registro de notas", descripcion: "Calificaciones por curso y competencia.", icono: "GraduationCap" },
   libreta: { nombre: "Libreta", descripcion: "Libreta de notas por periodo, en pantalla y en PDF.", icono: "BookOpen" },
   tareas: { nombre: "Tareas", descripcion: "Tareas con fecha de entrega y adjuntos.", icono: "ListTodo" },
   agenda: { nombre: "Agenda", descripcion: "Eventos, exámenes y reuniones del colegio y de cada salón.", icono: "CalendarDays" },

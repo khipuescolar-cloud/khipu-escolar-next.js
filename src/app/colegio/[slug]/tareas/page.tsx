@@ -98,6 +98,7 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
   if (ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();
   const filtros = { cursoId: typeof sp.curso === "string" ? sp.curso : undefined, estado: typeof sp.estado === "string" ? sp.estado : undefined };
   const [cursos, tareas] = await Promise.all([cursosParaTareas(ctx), tareasDelDocente(ctx, filtros)]);
+  const competenciasTarea = ctx.rol === "profesor" ? await ctx.db.competencia.findMany({ where: { cursoId: { in: cursos.map((c) => c.id) }, desactivadaAt: null }, select: { id: true, cursoId: true, nombre: true }, orderBy: { orden: "asc" } }) : [];
   const alumnos = ctx.rol === "profesor" && cursos.length > 0 ? await alumnosParaDestinatarios(ctx, cursos.map((c) => c.id)) : [];
   const arbolMateriales = ctx.rol === "profesor" && ctx.modulos.has("documentos") ? await listarMateriales(ctx, { incluirArchivados: true }) : { anios: [] };
   const carpetasMaterial = ctx.rol === "profesor" && ctx.modulos.has("documentos") ? await ctx.db.carpetaMaterial.findMany({ where: { creadoPorId: ctx.membership.id } }) : [];
@@ -128,6 +129,7 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
                   cursos={cursos.map((c) => ({ id: c.id, nombre: c.nombre, salon: c.salon.nombre }))}
                   alumnos={Object.fromEntries(alumnos.map((a) => [a.cursoId, a.alumnos]))}
                   materiales={materiales}
+                  competencias={competenciasTarea}
                 />
               </SeccionFormulario>
               <SeccionFormulario titulo="La tarea">
