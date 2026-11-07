@@ -88,22 +88,26 @@ const extension = (mime: string) => ({ "image/jpeg": "jpg", "image/png": "png", 
 /** Filas por consulta al exportar: acota la memoria pico sin importar el tamaño del colegio. */
 export const LOTE_FILAS_EXPORTACION = 500;
 
-/** Recorre una tabla del colegio por lotes (cursor por `id`; todos los modelos lo tienen). */
+/** Modelos sin columna `id`: campo único que sirve de cursor al exportar. */
+const CURSOR_EXPORTACION: Record<string, string> = { solicitudVersionArchivo: "archivoId" };
+
+/** Recorre una tabla del colegio por lotes (cursor por `id`, o por el campo único de `CURSOR_EXPORTACION`). */
 export async function* filasPorLotes(ctx: TenantContext, nombre: string, tamano = LOTE_FILAS_EXPORTACION): AsyncGenerator<unknown[]> {
-  type Delegado = { findMany: (args: object) => Promise<{ id: unknown }[]> };
+  type Delegado = { findMany: (args: object) => Promise<Record<string, unknown>[]> };
   const delegadoDb = (ctx.db as unknown as Record<string, Delegado>)[nombre];
+  const campo = CURSOR_EXPORTACION[nombre] ?? "id";
   let cursor: unknown;
   for (;;) {
     const lote = await delegadoDb.findMany({
       ...(FILTRO_EXPORTACION[nombre] ? { where: FILTRO_EXPORTACION[nombre] } : {}),
       take: tamano,
-      orderBy: { id: "asc" },
-      ...(cursor === undefined ? {} : { cursor: { id: cursor }, skip: 1 }),
+      orderBy: { [campo]: "asc" },
+      ...(cursor === undefined ? {} : { cursor: { [campo]: cursor }, skip: 1 }),
     });
     if (lote.length === 0) return;
     yield lote;
     if (lote.length < tamano) return;
-    cursor = lote[lote.length - 1].id;
+    cursor = lote[lote.length - 1][campo];
   }
 }
 
