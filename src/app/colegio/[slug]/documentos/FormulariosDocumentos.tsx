@@ -150,8 +150,8 @@ function CampoArchivo({ requerido, id }: { requerido: boolean; id: string }) {
   );
 }
 
-export function DialogoSubir({ carpetaId, volver, opciones, salones, esProfesor, hayFamilias }: {
-  carpetaId: string | null; volver: string | null; opciones: OpcionCarpeta[]; salones: Salon[]; esProfesor: boolean; hayFamilias: boolean;
+export function DialogoSubir({ carpetaId, volver, opciones, salones, esProfesor, esDireccion, hayFamilias }: {
+  carpetaId: string | null; volver: string | null; opciones: OpcionCarpeta[]; salones: Salon[]; esProfesor: boolean; esDireccion: boolean; hayFamilias: boolean;
 }) {
   const [abierto, setAbierto] = useState(false);
   const [pendiente, iniciar] = useTransition();
@@ -171,6 +171,7 @@ export function DialogoSubir({ carpetaId, volver, opciones, salones, esProfesor,
             <textarea name="descripcion" rows={2} maxLength={600} className={CLASE_CAMPO} />
           </label>
           <CampoArchivo requerido id="archivo-nuevo" />
+          {!esProfesor && <><Selector etiqueta="Categoría" name="categoria" defaultValue="otro"><option value="reglamento">Reglamento</option><option value="convivencia">Convivencia</option><option value="protocolo">Protocolo</option><option value="calendario">Calendario</option><option value="formato">Formato</option><option value="oficial">Oficial</option><option value="otro">Otro</option></Selector>{esDireccion && <label className="flex min-h-11 items-center gap-3 text-sm"><input type="checkbox" name="oficial" className="size-5 accent-primary" />Documento oficial</label>}</>}
           <Selectores opciones={opciones} carpetaId={carpetaId} salones={salones} salonId={null} esProfesor={esProfesor} />
           <CamposDestino roles={esProfesor ? ROLES_DESTINO_PROFESOR : ROLES_DESTINO} marcados={esProfesor ? ["apoderado", "alumno"] : []} ayuda="Además de las casillas, cada carpeta puede limitar quién entra." />
           {hayFamilias && (

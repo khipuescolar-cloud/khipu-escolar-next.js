@@ -2142,6 +2142,8 @@ model EvaluacionDesempeno {
 
 /// Carpeta de la biblioteca de documentos (specs/31). `parentId` null = carpeta raíz.
 model CarpetaDocumento {
+  // @@W4
+  archivadoAt DateTime? @map("archivado_at") @db.Timestamptz
   id           String   @id @default(uuid()) @db.Uuid
   tenantId     String   @map("tenant_id") @db.Uuid
   parentId     String?  @map("parent_id") @db.Uuid
@@ -2168,11 +2170,16 @@ model CarpetaDocumento {
   accesos AccesoDocumento[]
 
   @@index([tenantId, parentId])
+  @@index([tenantId, archivadoAt])
   @@map("carpetas_documento")
 }
 
 /// Documento de la biblioteca del colegio (specs/31). Su archivo es un `Archivo` con `documentoId`.
 model Documento {
+  // @@W4
+  categoria CategoriaBiblioteca @default(otro)
+  oficial Boolean @default(false)
+  archivadoAt DateTime? @map("archivado_at") @db.Timestamptz
   id             String   @id @default(uuid()) @db.Uuid
   tenantId       String   @map("tenant_id") @db.Uuid
   /// null = en la raíz de la biblioteca.
@@ -2207,6 +2214,8 @@ model Documento {
 
   @@index([tenantId, carpetaId])
   @@index([tenantId, salonId])
+  @@index([tenantId, categoria])
+  @@index([tenantId, archivadoAt])
   @@map("documentos")
 }
 
@@ -3711,3 +3720,12 @@ model SolicitudEvento {
 
 
 // ===== W4 =====
+enum CategoriaBiblioteca {
+  reglamento
+  convivencia
+  protocolo
+  calendario
+  formato
+  oficial
+  otro
+}

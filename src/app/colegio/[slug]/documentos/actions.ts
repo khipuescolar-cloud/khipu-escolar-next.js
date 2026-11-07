@@ -7,10 +7,10 @@ import { after } from "next/server";
 import { ejecutarYVolver, texto, textoONulo } from "@/lib/server/accion-formulario";
 import { ErrorDeNegocio, contextoDeAccion } from "@/lib/server/contexto-accion";
 import {
-  borrarCarpeta, borrarDocumento, crearCarpeta, editarCarpeta, editarDocumento, reemplazarArchivoDocumento, subirDocumento,
+  archivarDocumento, borrarCarpeta, borrarDocumento, crearCarpeta, editarCarpeta, editarDocumento, reemplazarArchivoDocumento, subirDocumento,
 } from "@/lib/server/documentos";
 import { compartirRecurso, detalleAccesos, renombrarRecurso, quitarAccesoRecurso, destacarRecurso, restaurarRecurso, eliminarDefinitivoRecurso, accesosDeRecurso, registrarAccesoDocumento, cambiarAccesoGeneral, moverRecurso } from "@/lib/server/documentos-drive";
-import type { Rol, NivelCompartidoDocumento } from "@/generated/prisma/enums";
+import type { Rol, NivelCompartidoDocumento, CategoriaBiblioteca } from "@/generated/prisma/enums";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
 import { avisarDocumentoNuevo } from "@/lib/server/notificaciones/avisos-documentos";
 import { requireFeature } from "@/lib/server/plan";
@@ -24,7 +24,8 @@ const UUID = /^[0-9a-f-]{36}$/i;
 function destino(formData: FormData): string {
   const volver = textoONulo(formData, "volver");
   const vista = texto(formData, "vista");
-  return volver && UUID.test(volver) ? `/documentos?vista=${vista || "biblioteca"}&carpeta=${volver}` : `/documentos?vista=${["unidad", "compartido", "recientes", "destacados", "papelera"].includes(vista) ? vista : "biblioteca"}`;
+  const seccion = vista === "unidad" ? "borradores" : ["compartido", "recientes", "destacados", "papelera", "biblioteca"].includes(vista) ? vista : "biblioteca";
+  return volver && UUID.test(volver) ? `/documentos?seccion=${seccion}&carpeta=${volver}` : `/documentos?seccion=${seccion}`;
 }
 
 async function archivoDe(formData: FormData, campo = "archivo"): Promise<EntradaAdjunto | null> {
@@ -37,6 +38,9 @@ const marcado = (formData: FormData, campo: string) => ["on", "true"].includes(t
 const roles = (formData: FormData) => formData.getAll("visibleRoles").filter((v): v is string => typeof v === "string");
 
 function datosDocumento(formData: FormData) {
+  const categoria = texto(formData, "categoria");
+  const categorias = ["reglamento", "convivencia", "protocolo", "calendario", "formato", "oficial", "otro"];
+  if (categoria && !categorias.includes(categoria)) throw new ErrorDeNegocio("Elige una categoría válida.");
   return {
     titulo: texto(formData, "titulo"),
     descripcion: textoONulo(formData, "descripcion"),
@@ -44,6 +48,8 @@ function datosDocumento(formData: FormData) {
     visibleRoles: roles(formData),
     salonId: textoONulo(formData, "salonId"),
     ambito: texto(formData, "ambito") === "unidad" ? "unidad" as const : "biblioteca" as const,
+    categoria: (categoria || "otro") as CategoriaBiblioteca,
+    oficial: marcado(formData, "oficial"),
   };
 }
 
@@ -289,6 +295,17 @@ export async function borrarDocumentoAction(formData: FormData) {
     await borrarDocumento(ctx, texto(formData, "id"));
     revalidatePath("/documentos");
     return "Documento borrado.";
+  });
+}
+
+export async function archivarDocumentoAction(formData: FormData) {
+  const ctx = await contextoDeAccion([...ROLES]);
+  requireFeature(ctx, "documentos");
+  await ejecutarYVolver(destino(formData), async () => {
+    const archivar = texto(formData, "archivar") === "true";
+    await archivarDocumento(ctx, texto(formData, "id"), archivar);
+    revalidatePath("/documentos");
+    return archivar ? "Documento archivado." : "Documento desarchivado.";
   });
 }
 

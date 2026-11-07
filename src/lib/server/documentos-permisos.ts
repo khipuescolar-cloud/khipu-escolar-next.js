@@ -3,7 +3,7 @@ import type { AmbitoDocumento, NivelCompartidoDocumento, Rol } from "@/generated
 import { cadenaDeCarpetas, carpetaVisible, documentoVisible, type CarpetaPlana } from "@/lib/documentos";
 import { salonIdsVisibles, type TenantContext } from "./tenant";
 
-type CarpetaAcceso = CarpetaPlana & { creadoPorId: string; creadoPor: { user: { nombres: string; apellidos: string } }; ambito: AmbitoDocumento; eliminadoAt: Date | null; salonId: string | null; createdAt: Date; updatedAt: Date };
+type CarpetaAcceso = CarpetaPlana & { creadoPorId: string; creadoPor: { user: { nombres: string; apellidos: string } }; ambito: AmbitoDocumento; eliminadoAt: Date | null; archivadoAt: Date | null; salonId: string | null; createdAt: Date; updatedAt: Date };
 type DocumentoAcceso = { id: string; carpetaId: string | null; publicadoPorId: string; ambito: AmbitoDocumento; eliminadoAt: Date | null; visibleRoles: Rol[]; salonId: string | null };
 type Compartido = { carpetaId: string | null; documentoId: string | null; membershipId: string | null; rol: Rol | null; salonId: string | null; nivel: NivelCompartidoDocumento };
 
@@ -38,7 +38,7 @@ export function nivelEfectivo(
 
 export async function contextoPermisosDocumento(ctx: TenantContext) {
   const [carpetas, compartidos, salones] = await Promise.all([
-    ctx.db.carpetaDocumento.findMany({ select: { id: true, parentId: true, nombre: true, visibleRoles: true, salonId: true, creadoPorId: true, creadoPor: { select: { user: { select: { nombres: true, apellidos: true } } } }, ambito: true, eliminadoAt: true, createdAt: true, updatedAt: true } }),
+    ctx.db.carpetaDocumento.findMany({ select: { id: true, parentId: true, nombre: true, visibleRoles: true, salonId: true, creadoPorId: true, creadoPor: { select: { user: { select: { nombres: true, apellidos: true } } } }, ambito: true, eliminadoAt: true, archivadoAt: true, createdAt: true, updatedAt: true } }),
     ctx.db.compartidoDocumento.findMany({ select: { carpetaId: true, documentoId: true, membershipId: true, rol: true, salonId: true, nivel: true } }),
     salonIdsVisibles(ctx),
   ]);

@@ -15,6 +15,19 @@ export const ETIQUETA_DESTINO: Record<string, string> = {
 
 /** Roles que usan la biblioteca. */
 export const ROLES_BIBLIOTECA: Rol[] = ["direccion", "administrativo", "profesor", "apoderado", "alumno"];
+export const SECCIONES_DOCUMENTOS = ["materiales", "gestion", "biblioteca", "borradores", "compartido", "recientes", "destacados", "papelera"] as const;
+export type SeccionDocumentos = typeof SECCIONES_DOCUMENTOS[number];
+export function puedeEntrarSeccion(rol: Rol, seccion: SeccionDocumentos): boolean {
+  if (rol === "porteria") return false;
+  if (seccion === "gestion") return rol === "direccion" || rol === "profesor";
+  if (seccion === "materiales") return rol !== "administrativo";
+  if (seccion === "borradores" || seccion === "papelera") return rol === "direccion" || rol === "administrativo" || rol === "profesor";
+  return true;
+}
+export function seccionDocumento(valor: string | undefined): SeccionDocumentos | null {
+  if (valor === "unidad") return "borradores";
+  return SECCIONES_DOCUMENTOS.find((s) => s === valor) ?? null;
+}
 
 /** Roles que administran carpetas (y todos los documentos que ven). */
 export const esGestorDocumentos = (rol: Rol) => rol === "direccion" || rol === "administrativo";

@@ -43,7 +43,7 @@ export const INFO_MODULO: Record<Feature, { nombre: string; descripcion: string;
   tareas: { nombre: "Tareas", descripcion: "Tareas con fecha de entrega y adjuntos.", icono: "ListTodo" },
   agenda: { nombre: "Agenda", descripcion: "Eventos, exámenes y reuniones del colegio y de cada salón.", icono: "CalendarDays" },
   tablero: { nombre: "Tablero de dirección", descripcion: "Indicadores de asistencia, notas, tareas y avisos del colegio, y el consolidado de notas por salón en Excel y PDF.", icono: "BarChart3" },
-  documentos: { nombre: "Documentos", descripcion: "Biblioteca del colegio con carpetas y permisos por rol y salón: reglamento, calendario y comunicados oficiales.", icono: "FolderOpen" },
+  documentos: { nombre: "Documentos", descripcion: "Materiales de clase, solicitudes académicas, biblioteca institucional y borradores del personal.", icono: "FolderOpen" },
   reuniones: { nombre: "Reuniones", descripcion: "Convocar reuniones de padres, confirmar asistencia, marcar quién asistió y publicar el acta.", icono: "Users" },
   soporte: { nombre: "Soporte Khipu", descripcion: "Chat del colegio con el equipo de Khipu Escolar (mesa de ayuda): dudas, problemas y sugerencias.", icono: "LifeBuoy" },
   nudito_plus: { nombre: "Nudito, tutor de práctica", descripcion: "Tutor de práctica con IA: el alumno repasa y practica los temas de sus cursos; docentes y familias ven su progreso formativo (no es nota). Solo Khipu Pro (fijo por plan).", icono: "Sparkles" },

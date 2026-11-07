@@ -57,7 +57,7 @@ test("Un Editor crea dentro de la carpeta compartida y permanece allí", async (
   const pedro = await entrar(browser, "pedro.salas@nuevohorizonte.demo", `${COLEGIO}/inicio`);
   await pedro.goto(`${COLEGIO}/documentos?vista=compartido`);
   await pedro.getByRole("button", { name: CARPETA_EDITOR, exact: true }).click();
-  await expect(pedro).toHaveURL(/vista=compartido&carpeta=/);
+  await expect(pedro).toHaveURL(/seccion=compartido&carpeta=/);
   const urlCarpeta = pedro.url().split("&nuevo=")[0];
   await pedro.getByRole("button", { name: "Nuevo", exact: true }).click();
   await pedro.getByRole("menuitem", { name: "Nueva carpeta" }).click();
@@ -166,7 +166,7 @@ test("Nuevo aparece en todas las vistas y muestra carpeta y archivos creados en 
   await pagina.getByRole("menuitem", { name: "Nueva carpeta" }).click();
   await pagina.getByRole("dialog").getByLabel("Nombre de la carpeta").fill(CARPETA_DESDE_PAPELERA);
   await pagina.getByRole("dialog").getByRole("button", { name: "Crear", exact: true }).click();
-  await expect(pagina).toHaveURL(/documentos\?vista=unidad/);
+  await expect(pagina).toHaveURL(/documentos\?seccion=borradores/);
   const carpeta = pagina.locator("[data-documento-id]", { has: pagina.getByRole("button", { name: CARPETA_DESDE_PAPELERA, exact: true }) });
   await expect(carpeta).toHaveClass(/bg-sec-suave/);
   await expect(pagina.getByRole("button", { name: CARPETA_DESDE_PAPELERA, exact: true })).toBeFocused();
@@ -183,7 +183,7 @@ test("Nuevo aparece en todas las vistas y muestra carpeta y archivos creados en 
   await pagina.getByRole("menuitem", { name: "Subir archivo" }).click();
   await (await selector).setFiles(archivos);
   await expect(pagina.getByText("2 archivos subidos a Mi unidad.")).toBeVisible({ timeout: 20_000 });
-  await expect(pagina).toHaveURL(/documentos\?vista=unidad/, { timeout: 20_000 });
+  await expect(pagina).toHaveURL(/documentos\?seccion=borradores/, { timeout: 20_000 });
   for (const nombre of ARCHIVOS_DESDE_RECIENTES) {
     const fila = pagina.locator("[data-documento-id]", { has: pagina.getByText(nombre, { exact: true }) });
     await expect(fila).toHaveClass(/bg-sec-suave/);

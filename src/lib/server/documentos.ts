@@ -2,7 +2,7 @@ import "server-only";
 import { forbidden, notFound } from "next/navigation";
 import { z } from "zod";
 import type { Archivo } from "@/generated/prisma/client";
-import type { Rol } from "@/generated/prisma/enums";
+import type { CategoriaBiblioteca, Rol } from "@/generated/prisma/enums";
 import type { AdjuntoVista } from "@/lib/adjuntos";
 import {
   cadenaDeCarpetas, esGestorDocumentos, ROLES_DESTINO, ROLES_DESTINO_PROFESOR,
@@ -27,7 +27,7 @@ const esquemaDocumento = z.object({
   descripcion: z.string().trim().max(600, "La descripción puede tener hasta 600 caracteres.").nullish(),
 });
 
-export type CarpetaVista = { ambito: "biblioteca" | "unidad"; parentId: string | null; id: string; nombre: string; visibleRoles: Rol[]; salonId: string | null; elementos: number; propietario: string; createdAt: Date; updatedAt: Date; gestionable: boolean; destacado: boolean };
+export type CarpetaVista = { ambito: "biblioteca" | "unidad"; parentId: string | null; id: string; nombre: string; visibleRoles: Rol[]; salonId: string | null; elementos: number; propietario: string; createdAt: Date; updatedAt: Date; gestionable: boolean; destacado: boolean; archivado: boolean };
 export type CarpetaOpcion = { id: string; ruta: string; parentId: string | null; ambito: "biblioteca" | "unidad"; editable: boolean };
 export type DocumentoVista = {
   ambito: "biblioteca" | "unidad";
@@ -46,6 +46,9 @@ export type DocumentoVista = {
   archivo: AdjuntoVista | null;
   gestionable: boolean;
   destacado: boolean;
+  categoria: CategoriaBiblioteca;
+  oficial: boolean;
+  archivado: boolean;
 };
 
 const nombreDe = (u: { nombres: string; apellidos: string }) => `${u.nombres} ${u.apellidos}`.trim();
@@ -109,7 +112,7 @@ export type Contenido = {
 /** Contenido de una carpeta (o de la raíz) visible para el usuario; con `q` busca por título en toda la biblioteca visible. */
 export async function listarContenido(
   ctx: TenantContext,
-  { carpetaId = null, q = "", orden = "recientes", vista = "biblioteca" }: { carpetaId?: string | null; q?: string; orden?: OrdenDocumento; vista?: "biblioteca" | "unidad" | "compartido" | "recientes" | "destacados" | "papelera" } = {},
+  { carpetaId = null, q = "", orden = "recientes", vista = "biblioteca", categoria, archivados = false }: { carpetaId?: string | null; q?: string; orden?: OrdenDocumento; vista?: "biblioteca" | "unidad" | "compartido" | "recientes" | "destacados" | "papelera"; categoria?: CategoriaBiblioteca; archivados?: boolean } = {},
 ): Promise<Contenido> {
   requireUsoBiblioteca(ctx);
   const p = await contextoPermisosDocumento(ctx);
@@ -126,7 +129,7 @@ export async function listarContenido(
   const busqueda = q.trim();
 
   const filas = await ctx.db.documento.findMany({
-    where: { ...(busqueda ? { titulo: { contains: busqueda, mode: "insensitive" as const } } : vista === "destacados" || vista === "recientes" || vista === "compartido" || vista === "papelera" ? {} : { carpetaId }), ...(vista === "papelera" ? { eliminadoAt: { not: null } } : { eliminadoAt: null }) },
+    where: { ...(busqueda ? { titulo: { contains: busqueda, mode: "insensitive" as const } } : vista === "destacados" || vista === "recientes" || vista === "compartido" || vista === "papelera" ? {} : { carpetaId }), ...(vista === "papelera" ? { eliminadoAt: { not: null } } : { eliminadoAt: null }), ...(vista === "biblioteca" ? { archivadoAt: archivados ? { not: null } : null, ...(categoria ? { categoria } : {}) } : {}) },
     include: {
       archivos: { orderBy: { createdAt: "desc" }, take: 1 },
       salon: { select: { nombre: true } },
@@ -137,19 +140,21 @@ export async function listarContenido(
   const documentos: DocumentoVista[] = filas
     .filter((d) => vista === "papelera" ? (ctx.rol === "direccion" || d.eliminadoPorId === ctx.membership.id) : nivelDocumento(p, d) !== "ninguno")
     .filter((d) => carpetaId && !busqueda ? true : vista === "unidad" ? d.ambito === "unidad" && d.publicadoPorId === ctx.membership.id && (!!busqueda || !d.carpetaId) : vista === "biblioteca" ? d.ambito === "biblioteca" && (!!busqueda || !d.carpetaId) : vista === "compartido" ? d.publicadoPorId !== ctx.membership.id && d.ambito === "unidad" : vista === "destacados" ? destacadosDocumentos.has(d.id) : vista === "recientes" ? recientesDocumentos.has(d.id) : true)
+    .filter((d) => vista !== "biblioteca" || archivados || !d.archivadoAt)
     .map((d) => ({
       ambito: d.ambito, id: d.id, titulo: d.titulo, descripcion: d.descripcion, createdAt: d.createdAt, updatedAt: d.updatedAt,
       carpetaId: d.carpetaId, carpetaRuta: d.carpetaId ? rutaDe(mapa, d.carpetaId) : null,
       visibleRoles: d.visibleRoles, salonId: d.salonId, salon: d.salon?.nombre ?? null,
       autor: nombreDe(d.publicadoPor.user), archivo: d.archivos[0] ? adjuntoVista(d.archivos[0]) : null,
       gestionable: puedeEditarNivel(nivelDocumento(p, d)) || (d.ambito === "biblioteca" && esGestorDocumentos(ctx.rol)),
-      destacado: destacadosDocumentos.has(d.id),
+      destacado: destacadosDocumentos.has(d.id), categoria: d.categoria, oficial: d.oficial, archivado: !!d.archivadoAt,
     }));
 
   const hijas = [...mapa.values()].filter((c) => {
     if (busqueda && !c.nombre.toLocaleLowerCase("es").includes(busqueda.toLocaleLowerCase("es"))) return false;
     if (vista === "papelera") return !!c.eliminadoAt && (ctx.rol === "direccion" || c.creadoPorId === ctx.membership.id);
     if (nivelCarpeta(p, c.id) === "ninguno") return false;
+    if (vista === "biblioteca" && (archivados ? !c.archivadoAt : !!c.archivadoAt)) return false;
     if (carpetaId && !busqueda) return c.parentId === carpetaId;
     if (vista === "biblioteca") return c.ambito === "biblioteca" && (busqueda || !c.parentId);
     if (vista === "unidad") return c.ambito === "unidad" && c.creadoPorId === ctx.membership.id && (busqueda || !c.parentId);
@@ -162,7 +167,7 @@ export async function listarContenido(
     : [];
   const carpetas = hijas
     .map((h) => ({
-      ambito: h.ambito, parentId: h.parentId, id: h.id, nombre: h.nombre, visibleRoles: h.visibleRoles, salonId: h.salonId, propietario: h.creadoPorId === ctx.membership.id ? "Tú" : nombreDe(h.creadoPor.user), createdAt: h.createdAt, updatedAt: h.updatedAt, gestionable: puedeEditarNivel(nivelCarpeta(p, h.id)), destacado: destacadosCarpetas.has(h.id),
+      ambito: h.ambito, parentId: h.parentId, id: h.id, nombre: h.nombre, visibleRoles: h.visibleRoles, salonId: h.salonId, propietario: h.creadoPorId === ctx.membership.id ? "Tú" : nombreDe(h.creadoPor.user), createdAt: h.createdAt, updatedAt: h.updatedAt, gestionable: puedeEditarNivel(nivelCarpeta(p, h.id)), destacado: destacadosCarpetas.has(h.id), archivado: !!h.archivadoAt,
       elementos:
         conteoDocs.filter((d) => d.carpetaId === h.id && nivelDocumento(p, d) !== "ninguno").length +
         [...mapa.values()].filter((c) => c.parentId === h.id && nivelCarpeta(p, c.id) !== "ninguno").length,
@@ -193,6 +198,14 @@ export async function puedeVerDocumento(ctx: TenantContext, documentoId: string)
   const d = await ctx.db.documento.findFirst({ where: { id: documentoId, eliminadoAt: null } });
   if (!d) return false;
   return nivelDocumento(await contextoPermisosDocumento(ctx), d) !== "ninguno";
+}
+
+/** Resumen provisional de los archivos propios en borradores hasta integrar la cuota central de W1. */
+export async function usoBorradores(ctx: TenantContext): Promise<bigint> {
+  requireUsoBiblioteca(ctx);
+  if (!puedeSubir(ctx)) forbidden();
+  const total = await ctx.db.archivo.aggregate({ where: { documento: { ambito: "unidad", publicadoPorId: ctx.membership.id } }, _sum: { bytes: true } });
+  return BigInt(total._sum.bytes ?? 0);
 }
 
 // ───────────── Carpetas ─────────────
@@ -283,6 +296,8 @@ export type EntradaDocumento = {
   salonId: string | null;
   avisar?: boolean;
   ambito?: "biblioteca" | "unidad";
+  categoria?: CategoriaBiblioteca;
+  oficial?: boolean;
 };
 
 /** Valida destinatarios y salón según el rol (el profesor: solo sus salones, salón obligatorio). */
@@ -309,13 +324,15 @@ export async function subirDocumento(ctx: TenantContext, entrada: EntradaDocumen
   if (!archivo) throw new ErrorDeNegocio("Elige el archivo del documento.");
   const visibleRoles = await validarDestino(ctx, entrada);
   const ambito = entrada.carpetaId ? (await requireCarpeta(ctx, entrada.carpetaId)).ambito : entrada.ambito ?? "biblioteca";
-  if (ctx.rol === "profesor" && ambito === "biblioteca" && !entrada.carpetaId && !entrada.salonId) forbidden();
+  if (ambito === "biblioteca" && !esGestorDocumentos(ctx.rol) && !entrada.carpetaId) forbidden();
+  if (entrada.oficial && ctx.rol !== "direccion") forbidden();
   const [validado] = validarAdjuntos([archivo]);
 
   const d = await ctx.db.documento.create({
     data: {
       tenantId: ctx.tenant.id, carpetaId: entrada.carpetaId, titulo: datos.titulo, descripcion: datos.descripcion || null,
       visibleRoles, salonId: entrada.salonId, publicadoPorId: ctx.membership.id, ambito,
+      categoria: ambito === "biblioteca" ? entrada.categoria ?? "otro" : "otro", oficial: ambito === "biblioteca" && !!entrada.oficial,
     },
   });
   try {
@@ -347,6 +364,7 @@ export async function editarDocumento(ctx: TenantContext, id: string, entrada: O
   const datos = esquemaDocumento.parse({ titulo: entrada.titulo, descripcion: entrada.descripcion || null });
   const visibleRoles = await validarDestino(ctx, { ...entrada, ambito: actual.ambito });
   const ambito = entrada.carpetaId ? (await requireCarpeta(ctx, entrada.carpetaId)).ambito : actual.ambito;
+  if (ambito === "biblioteca" && !esGestorDocumentos(ctx.rol) && actual.ambito !== "biblioteca") forbidden();
   await ctx.db.documento.update({
     where: { id },
     data: { titulo: datos.titulo, descripcion: datos.descripcion || null, visibleRoles, salonId: entrada.salonId, carpetaId: entrada.carpetaId, ambito },
@@ -356,7 +374,8 @@ export async function editarDocumento(ctx: TenantContext, id: string, entrada: O
 
 /** Reemplazar el archivo: gana el más reciente. Se sube el nuevo y se borra el anterior (sin historial de versiones). */
 export async function reemplazarArchivoDocumento(ctx: TenantContext, id: string, archivo: EntradaAdjunto): Promise<void> {
-  await requireDocumentoGestionable(ctx, id);
+  const actual = await requireDocumentoGestionable(ctx, id);
+  if (actual.oficial) throw new ErrorDeNegocio("Un documento oficial no se puede reemplazar.");
   const [validado] = validarAdjuntos([archivo]);
   const anteriores: Archivo[] = await ctx.db.archivo.findMany({ where: { documentoId: id } });
   await guardarAdjuntos(ctx, { documentoId: id }, [validado]);
@@ -367,6 +386,14 @@ export async function reemplazarArchivoDocumento(ctx: TenantContext, id: string,
 
 export async function borrarDocumento(ctx: TenantContext, id: string): Promise<void> {
   const d = await requireDocumentoGestionable(ctx, id);
+  if (d.oficial) throw new ErrorDeNegocio("Archiva el documento oficial en lugar de enviarlo a la papelera.");
   await ctx.db.documento.update({ where: { id }, data: { eliminadoAt: new Date(), eliminadoPorId: ctx.membership.id } });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "borrar", entidad: "documento", entidadId: id, detalle: { titulo: d.titulo } });
+}
+
+export async function archivarDocumento(ctx: TenantContext, id: string, archivar: boolean): Promise<void> {
+  const d = await requireDocumentoGestionable(ctx, id);
+  if (d.ambito !== "biblioteca" || (d.oficial && ctx.rol !== "direccion")) forbidden();
+  await ctx.db.documento.update({ where: { id }, data: { archivadoAt: archivar ? new Date() : null } });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "documento", entidadId: id, detalle: { archivado: archivar } });
 }

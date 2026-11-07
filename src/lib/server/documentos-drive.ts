@@ -205,6 +205,7 @@ export async function restaurarRecurso(ctx: TenantContext, r: RecursoDocumento) 
       padreId = padre.parentId;
     }
     const ids = await idsSubarbol(ctx, c.id);
+    if (await ctx.db.documento.count({ where: { carpetaId: { in: ids }, oficial: true } })) throw new ErrorDeNegocio("La carpeta contiene documentos oficiales. Archívalos.");
     await ctx.db.carpetaDocumento.updateMany({ where: { id: { in: ids } }, data: { eliminadoAt: null, eliminadoPorId: null } });
     await ctx.db.documento.updateMany({ where: { carpetaId: { in: ids } }, data: { eliminadoAt: null, eliminadoPorId: null } });
   } else {
@@ -242,6 +243,7 @@ export async function eliminarDefinitivoRecurso(ctx: TenantContext, r: RecursoDo
   } else {
     const d = await ctx.db.documento.findFirst({ where });
     if (!d) notFound();
+    if (d.oficial) throw new ErrorDeNegocio("Un documento oficial no se puede eliminar para siempre.");
     const archivos = await ctx.db.archivo.findMany({ where: { documentoId: d.id } });
     await ctx.db.documento.delete({ where: { id: d.id } });
     await borrarDelProveedor(archivos);
@@ -255,8 +257,8 @@ export async function vaciarPapeleraVencida(ctx: TenantContext, ahora = new Date
   habilitar(ctx);
   if (ctx.rol !== "direccion") forbidden();
   const limite = new Date(ahora.getTime() - 30 * 86_400_000);
-  const carpetas = await ctx.db.carpetaDocumento.findMany({ where: { eliminadoAt: { lte: limite } }, select: { id: true } });
-  const documentos = await ctx.db.documento.findMany({ where: { eliminadoAt: { lte: limite } }, select: { id: true } });
+  const carpetas = await ctx.db.carpetaDocumento.findMany({ where: { eliminadoAt: { lte: limite }, documentos: { none: { oficial: true } } }, select: { id: true } });
+  const documentos = await ctx.db.documento.findMany({ where: { eliminadoAt: { lte: limite }, oficial: false }, select: { id: true } });
   for (const c of carpetas) if (await ctx.db.carpetaDocumento.count({ where: { id: c.id } })) await eliminarDefinitivoRecurso(ctx, { tipo: "carpeta", id: c.id });
   for (const d of documentos) if (await ctx.db.documento.count({ where: { id: d.id } })) await eliminarDefinitivoRecurso(ctx, { tipo: "documento", id: d.id });
 }
