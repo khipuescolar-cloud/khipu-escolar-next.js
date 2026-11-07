@@ -106,5 +106,5 @@ export async function crearColegioTemporal(opciones: { plan: "base" | "pro"; vig
     for (const id of usuarios) await fetch(`${SUPABASE}/auth/v1/admin/users/${id}`, { method: "DELETE", headers: cabeceras });
   }
 
-  return { tenantId, slug, nombre, correos, limpiar };
+  return { tenantId, slug, nombre, correos, cursoId, limpiar };
 }

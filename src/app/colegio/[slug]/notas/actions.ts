@@ -5,10 +5,9 @@ import { after } from "next/server";
 import { procesarEventosYPush } from "@/lib/server/eventos-academicos";
 import type { Resultado } from "@/lib/resultado";
 import {
-  cerrarCursoPeriodo, guardarComentarioNota, importarNotas, previsualizarImportacionNotas, publicarLibreta, reabrirCursoPeriodo,
-  type VistaPreviaImportacion,
-  cambiarEstadoPeriodo, crearCompetencia, crearEvaluacion, crearPeriodo, editarEvaluacion, eliminarCompetencia,
-  eliminarEvaluacion, guardarCalificacionPeriodo, guardarNota, actualizarPeriodo, organizarNivel,
+  cerrarCursoPeriodo, publicarLibreta, reabrirCursoPeriodo,
+  cambiarEstadoPeriodo, crearPeriodo,
+  guardarCalificacionPeriodo, guardarNota, actualizarPeriodo, organizarNivel,
   compartirInformeProgreso, guardarInformeProgreso, publicarEvaluacion, decidirRecuperacion } from "@/lib/server/notas";
 import { crearCriterio, eliminarCriterio, guardarResultadoCriterio } from "@/lib/server/criterios";
 import { requireFeature } from "@/lib/server/plan";
@@ -16,8 +15,6 @@ import { requireTenantContext } from "@/lib/server/tenant";
 
 const texto = (f: FormData, k: string) => String(f.get(k) ?? "");
 const refrescar = () => revalidatePath("/colegio/[slug]/notas", "layout");
-/** Desempeños marcados (specs/30); undefined si el formulario no trae el selector (se conservan los actuales). */
-const desempenos = (f: FormData) => (f.has("desempenosEnviados") ? f.getAll("desempenoIds").map(String) : undefined);
 
 async function contexto(slug: string) {
   const ctx = await requireTenantContext(slug);
@@ -51,45 +48,6 @@ function notificarDespues(tenantId: string) {
 /** El profesor autoriza o no la recuperación de una actividad con NSP justificado (specs/37). */
 export async function decidirRecuperacionAction(slug: string, evaluacionId: string, alumnoId: string, decision: "autorizada" | "denegada"): Promise<Resultado> {
   const r = await decidirRecuperacion(await contexto(slug), { evaluacionId, alumnoId, decision });
-  if (r.ok) refrescar();
-  return r;
-}
-
-export async function crearEvaluacionAction(slug: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
-  const r = await crearEvaluacion(await contexto(slug), {
-    cursoId: texto(f, "cursoId"), periodoId: texto(f, "periodoId"), competenciaIds: f.getAll("competenciaIds").map(String),
-    titulo: texto(f, "titulo"), fecha: texto(f, "fecha"), peso: texto(f, "peso"), instrumento: texto(f, "instrumento"),
-    descripcion: texto(f, "descripcion"), avisar: f.get("avisar") === "on", desempenoIds: desempenos(f),
-  });
-  if (r.ok) refrescar();
-  return r;
-}
-
-export async function editarEvaluacionAction(slug: string, evaluacionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
-  const r = await editarEvaluacion(await contexto(slug), evaluacionId, {
-    competenciaId: texto(f, "competenciaId"), titulo: texto(f, "titulo"), fecha: texto(f, "fecha"), peso: texto(f, "peso"),
-    instrumento: texto(f, "instrumento"), descripcion: f.has("descripcion") ? texto(f, "descripcion") : undefined, desempenoIds: desempenos(f),
-  });
-  if (r.ok) refrescar();
-  return r;
-}
-
-export async function eliminarEvaluacionAction(slug: string, evaluacionId: string): Promise<Resultado> {
-  const r = await eliminarEvaluacion(await contexto(slug), evaluacionId);
-  if (r.ok) refrescar();
-  return r;
-}
-
-export async function crearCompetenciaAction(slug: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
-  const r = await crearCompetencia(await contexto(slug), {
-    cursoId: texto(f, "cursoId"), nombre: texto(f, "nombre"), descripcion: texto(f, "descripcion"),
-  });
-  if (r.ok) refrescar();
-  return r;
-}
-
-export async function eliminarCompetenciaAction(slug: string, competenciaId: string): Promise<Resultado> {
-  const r = await eliminarCompetencia(await contexto(slug), competenciaId);
   if (r.ok) refrescar();
   return r;
 }
@@ -138,20 +96,6 @@ export async function cerrarCursoAction(slug: string, cursoId: string, periodoId
 
 export async function reabrirCursoAction(slug: string, cursoId: string, periodoId: string): Promise<Resultado> {
   const r = await reabrirCursoPeriodo(await contexto(slug), cursoId, periodoId);
-  if (r.ok) refrescar();
-  return r;
-}
-
-export async function guardarComentarioNotaAction(slug: string, evaluacionId: string, alumnoId: string, comentario: string, privado = false): Promise<Resultado> {
-  return guardarComentarioNota(await contexto(slug), { evaluacionId, alumnoId, comentario, privado });
-}
-
-export async function previsualizarImportacionAction(slug: string, cursoId: string, periodoId: string, texto: string): Promise<VistaPreviaImportacion> {
-  return previsualizarImportacionNotas(await contexto(slug), cursoId, periodoId, texto);
-}
-
-export async function importarNotasAction(slug: string, cursoId: string, periodoId: string, texto: string): Promise<Resultado> {
-  const r = await importarNotas(await contexto(slug), cursoId, periodoId, texto);
   if (r.ok) refrescar();
   return r;
 }

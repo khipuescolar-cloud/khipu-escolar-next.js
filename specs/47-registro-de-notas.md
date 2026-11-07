@@ -1,6 +1,6 @@
 # 47 — Registro de notas
 
-> Estado: en desarrollo (registro, tareas, currículo y permisos) · Plan: Khipu Pro · Última actualización: 2026-11-07
+> Estado: en desarrollo (registro, tareas, currículo y permisos) · Plan: Khipu Pro · Última actualización: 2026-11-07 (observaciones, cabecera, informe, plantilla)
 
 ## Objetivo
 Dar al docente un registro por curso semejante a una tabla de calificaciones, con actividades agrupadas por competencia y entrada rápida de notas, usando los servicios académicos existentes.
@@ -22,7 +22,11 @@ Cada operación valida `requireFeature(ctx, "notas")`, rol, curso y alcance con 
 2. **Registro del curso:** se abre el periodo vigente o elegido; la primera columna fija muestra alumnos y las columnas existentes se agrupan por competencia, con desplazamiento horizontal. Las columnas de actividad tienen ancho compacto fijo (nombre truncado, origen y fecha debajo); el nombre de cada bloque de competencia ocupa como máximo dos líneas, con el texto completo en `title`. El origen sale de `Evaluacion.tareaId`: con valor es «Tarea», sin valor «Manual». Los pendientes se ven con un guion tenue, nunca como C ni NSP. Al pulsar el encabezado de una columna se abre el detalle (descripción, fecha de la actividad, «Registrada el» con fecha y hora, quién la registró, competencia, origen y enlace a la tarea; las tareas viejas sin competencia van en «Sin competencia» con «Asignar competencia»). La corrección de una celda con valor previo, o de una actividad publicada, pide el motivo en un diálogo (valor anterior y nuevo, motivo de al menos 8 caracteres, «Cancelar» y «Guardar corrección»). No se crean columnas por capacidades o desempeños vacíos.
 3. **Nueva calificación:** el docente pone nombre, descripción opcional, fecha académica editable y notas para los alumnos precargados. El periodo sale del contexto y admite corrección válida. Antes de confirmar elige una competencia activa aplicable. Los valores nulos quedan pendientes. «Atrás» del paso 2 conserva el formulario; «Cancelar» del paso 1 lo descarta.
 4. **Tareas:** una tarea calificable elige competencia válida; una entrega no genera nota. Al calificar, se crea o usa la `Evaluacion` con `tareaId` y `creadaPorId` del docente y se guarda la misma `Nota` que lee el registro. Correcciones en cualquiera de las vistas muestran el mismo resultado.
-5. **Libreta:** el docente valora cada competencia del periodo con su criterio. El registro aporta evidencias; no genera promedios automáticos ni reemplaza `CalificacionPeriodo`.
+5. **Observación por alumno:** en el paso 1 de «Nueva calificación» cada alumno tiene, además de la nota, un campo «Observación» opcional (500 caracteres; debajo del nombre y la nota a 390 px). Se guarda en `Nota.comentario`. Visibilidad: **un interruptor global** «Observaciones visibles para la familia» en el paso 1 (apagado por defecto): apagado, `comentarioPrivado = true` (solo profesor, tutor y dirección); la vista de familia ya oculta las privadas (specs/38) y solo muestra resultados publicados. Una observación sin nota se rechaza con «Pon una nota para guardar la observación.». En la tabla, la celda con observación muestra el ícono `MessageSquareText` con tooltip («Privada» o «Visible para la familia» + texto) y abre un diálogo; al editar la celda hay «Agregar/Editar observación» con interruptor «Visible para la familia» por celda. Se audita (`evaluacion.crear` con conteos y `nota.editar`). Funciones: `crearCalificacion({ …, observacionVisible, notas: [{ alumnoId, valor, observacion }] })` y `editarObservacionRegistro(ctx, { evaluacionId, alumnoId, observacion, visible })`.
+6. **Cabecera:** título, «Nueva calificación» (principal) y una fila de herramientas: selector de periodo, estado de las notas del curso en solo lectura (ícono + «Abierto» / «Enviado / Cerrado» / «Periodo cerrado»), botones con texto «Informe de progreso» e «Importar / Exportar», el botón `BotonCalificacionPeriodo` (rama `notas-periodo`; cierra el curso al enviar y dirección reabre con `reabrirCursoPeriodo`) y «Competencias» si está autorizado. En móvil los tres primeros se agrupan en «Herramientas». Ninguna opción lleva a la vista vieja (retirada). «Publicar resultados» está en el detalle de la actividad.
+7. **Plantilla e importación:** «Importar / Exportar» abre un `Sheet`. *Descargar plantilla* (solo el profesor del curso): Excel `.xlsx` (hojas «Datos» con columnas `alumno_id` oculta, `apellidos_nombres`, `nota` con lista de valores de la escala y `observacion`; «Instrucciones»; «Competencias» con los nombres válidos) o CSV con BOM y `;` con el mismo encabezado `alumno_id;apellidos_nombres;nota;observacion` (el proyecto ya usa `exceljs`). **Una plantilla corresponde a una actividad**: nombre, fecha, competencia y visibilidad de observaciones se piden en el formulario, no se leen del archivo. *Importar notas*: archivo `.xlsx` o CSV (máx. 3 MB, 500 alumnos); vista previa con filas válidas, errores por fila (alumno desconocido, nota inválida, observación sin nota, duplicado) y pendientes; el alumno se identifica por `alumno_id` o, si falta, por «Apellidos, Nombres». Con «Importar» se llama a `crearCalificacion` con la clave de idempotencia generada al abrir el formulario (reintentar no duplica); solo se importan las filas válidas. El servidor valida alumnos del curso, escala, competencia activa, fecha dentro del periodo y periodo/curso abiertos. *Exportar registro*: CSV con BOM y `;` (alumnos × actividades agrupadas por competencia, con nota y observación por actividad; las privadas se marcan «[Privada]»). Rutas: `GET /api/notas/plantilla?curso&periodo&formato=xlsx|csv`, `GET /api/notas/exportar?curso&periodo`.
+8. **Informe de progreso:** `Sheet` ancho desde el registro (ver specs/11).
+9. **Libreta:** el docente valora cada competencia del periodo con su criterio. El registro aporta evidencias; no genera promedios automáticos ni reemplaza `CalificacionPeriodo`.
 
 ## Reglas de negocio
 
@@ -52,7 +56,9 @@ cursosDelRegistro(ctx)  // { anio, propios, tutoria }
 anioAcademicoVigente(ctx)
 registroDelCurso(ctx, cursoId, periodoId?)
 crearCalificacion(ctx, { cursoId, periodoId?, nombre, descripcion?, fecha, competenciaId, notas, claveIdempotencia })
-editarNotaRegistro(ctx, { evaluacionId, alumnoId, valor, motivo })
+editarNotaRegistro(ctx, { evaluacionId, alumnoId, valor, motivo }) // vía guardarNota
+editarObservacionRegistro(ctx, { evaluacionId, alumnoId, observacion, visible })
+plantillaNotas / previsualizarImportacionRegistro / importarRegistro / exportarRegistro  // registro-notas-archivos.ts
 ```
 
 `competenciasActivasDelCurso` (registro) lee con `ctx.db` y no usa `competenciasDelCurso`, que exige que el profesor dicte el curso: el tutor también lee el registro. `src/lib/server/notas.ts` y `tareas/*` siguen siendo la fuente de reglas ya aplicadas.
@@ -76,6 +82,8 @@ El botón principal dice «Nueva calificación». Los estados combinan ícono y 
 
 ## Pruebas
 
+- Integración `registro-notas-archivos`: observación privada/visible (la familia ve solo las visibles), plantilla Excel/CSV, vista previa con errores, importación idempotente, exportación e informe de progreso. Unit `notas-plantilla`.
+- E2E `registro-notas`: observación al crear, plantilla, importación con vista previa e informe.
 - Integración (registro): origen tarea/manual por `tareaId`; Mis cursos solo con los cursos que dicta y tutoría aparte, de solo lectura.
 - Unit: agrupación por competencias, origen, pendientes y validación de escala.
 - Integración: permisos por tenant/rol/curso; competencia desactivada; transacción e idempotencia; tarea y registro comparten `Nota`; NSP, historial, cierre y libreta.

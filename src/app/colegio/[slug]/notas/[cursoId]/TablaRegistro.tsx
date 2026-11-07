@@ -1,6 +1,8 @@
 "use client";
 import { useMemo } from "react";
-import { ClipboardList, PenLine } from "lucide-react";
+import { ClipboardList, MessageSquareText, PenLine } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import type { CeldaObservacion } from "./DialogoObservacion";
 import { Elegir, fechaCorta, origenDe, opcionesDeNota, valorDe, type Datos, type Evaluacion } from "./comun";
 
 type Bloque = { id: string; nombre: string; evaluaciones: Evaluacion[] };
@@ -16,7 +18,7 @@ export function agruparPorCompetencia(datos: Datos): Bloque[] {
   return [...mapa.entries()].map(([id, b]) => ({ id, ...b }));
 }
 
-export function TablaRegistro({ datos, valores, editando, ocupado, resaltar, onDetalle, onEditar, onCambio }: {
+export function TablaRegistro({ datos, valores, editando, ocupado, resaltar, onDetalle, onEditar, onCambio, onObservacion }: {
   datos: Datos;
   valores: Record<string, string>;
   editando: string | null;
@@ -25,6 +27,7 @@ export function TablaRegistro({ datos, valores, editando, ocupado, resaltar, onD
   onDetalle: (e: Evaluacion) => void;
   onEditar: (clave: string | null) => void;
   onCambio: (e: Evaluacion, alumnoId: string, previo: string, nuevo: string) => void;
+  onObservacion: (c: CeldaObservacion) => void;
 }) {
   const bloques = useMemo(() => agruparPorCompetencia(datos), [datos]);
   const conNotas = bloques.filter((b) => b.evaluaciones.length);
@@ -79,20 +82,34 @@ export function TablaRegistro({ datos, valores, editando, ocupado, resaltar, onD
                   const n = e.notas.find((x) => x.alumnoId === a.id);
                   const clave = `${e.id}:${a.id}`;
                   const actual = valores[clave] ?? valorDe(n);
+                  const abrirObservacion = () => onObservacion({ evaluacionId: e.id, alumnoId: a.id, alumno: `${a.apellidos}, ${a.nombres}`, actividad: e.titulo, observacion: n?.comentario ?? "", visible: !!n?.comentario && !n.comentarioPrivado });
                   return (
                     <td key={e.id} className={`border-r border-b text-center ${resaltar === e.id ? "bg-accent/50" : ""}`}>
                       {editando === clave ? (
-                        <Elegir value={actual || "pendiente"} onChange={(v) => onCambio(e, a.id, valorDe(n), v === "pendiente" ? "" : v)} opciones={opciones} etiqueta={`Nota de ${a.nombres} en ${e.titulo}`} className="w-28" />
+                        <div className="flex flex-col items-center gap-1 py-1">
+                          <Elegir value={actual || "pendiente"} onChange={(v) => onCambio(e, a.id, valorDe(n), v === "pendiente" ? "" : v)} opciones={opciones} etiqueta={`Nota de ${a.nombres} en ${e.titulo}`} className="w-28" />
+                          {n && <button type="button" onClick={abrirObservacion} className="flex min-h-11 items-center gap-1 rounded-md px-2 text-xs underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring"><MessageSquareText className="size-3.5" aria-hidden />{n.comentario ? "Editar observación" : "Agregar observación"}<span className="sr-only"> de {a.nombres} en {e.titulo}</span></button>}
+                        </div>
                       ) : (
-                        <button
-                          data-celda data-row={fila} data-col={columna}
-                          disabled={!datos.puedeEditar || ocupado}
-                          onClick={() => onEditar(clave)}
-                          className="min-h-11 w-full px-2 font-semibold focus-visible:outline-2 focus-visible:outline-ring disabled:cursor-default"
-                          aria-label={`${a.nombres}, ${e.titulo}: ${actual || "pendiente"}`}
-                        >
-                          {actual || <span className="font-normal text-muted-foreground/60" aria-hidden>—</span>}
-                        </button>
+                        <div className="flex items-center">
+                          <button
+                            data-celda data-row={fila} data-col={columna}
+                            disabled={!datos.puedeEditar || ocupado}
+                            onClick={() => onEditar(clave)}
+                            className="min-h-11 flex-1 px-2 font-semibold focus-visible:outline-2 focus-visible:outline-ring disabled:cursor-default"
+                            aria-label={`${a.nombres}, ${e.titulo}: ${actual || "pendiente"}`}
+                          >
+                            {actual || <span className="font-normal text-muted-foreground/60" aria-hidden>—</span>}
+                          </button>
+                          {n?.comentario && (
+                            <Tooltip>
+                              <TooltipTrigger render={<button type="button" onClick={abrirObservacion} aria-label={`Observación de ${a.nombres} en ${e.titulo}${n.comentarioPrivado ? " (privada)" : ""}`} className="grid min-h-11 min-w-9 place-items-center text-primary focus-visible:outline-2 focus-visible:outline-ring" />}>
+                                <MessageSquareText className="size-4" aria-hidden />
+                              </TooltipTrigger>
+                              <TooltipContent>{n.comentarioPrivado ? "Privada · " : "Visible para la familia · "}{n.comentario.length > 140 ? `${n.comentario.slice(0, 140)}…` : n.comentario}</TooltipContent>
+                            </Tooltip>
+                          )}
+                        </div>
                       )}
                     </td>
                   );
