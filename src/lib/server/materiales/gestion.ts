@@ -4,6 +4,7 @@ import { nombreMaterial } from "@/lib/materiales";
 import { auditar } from "../auditoria";
 import { liberarArchivo, materializarArchivos, type EntradaArchivo } from "../almacenamiento";
 import { avisarMaterialNuevo } from "../notificaciones/avisos-materiales";
+import { requireFeature } from "../plan";
 import type { TenantContext } from "../tenant";
 import { cursosAutorizadosMaterial, materialGestionable } from "./permisos";
 import { requireSubcarpetaMaterial } from "./carpetas";
@@ -44,6 +45,29 @@ export async function actualizarMaterial(ctx: TenantContext, id: string, e: { ti
   for (const cursoId of e.cursoIds) await ctx.db.materialSeccion.upsert({ where: { materialId_cursoId: { materialId: id, cursoId } }, create: { tenantId: ctx.tenant.id, materialId: id, cursoId }, update: {} });
   await ctx.db.materialClase.update({ where: { id }, data: { titulo: nombreMaterial(e.titulo), descripcion: e.descripcion?.trim() || null, unidadTema: e.unidadTema?.trim() || null } });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "material_clase", entidadId: id });
+}
+
+/** Comparte el mismo material y sus futuras versiones en cursos gemelos del profesor autor. */
+export async function compartirMaterial(ctx: TenantContext, id: string, cursoIds: string[]): Promise<void> {
+  requireFeature(ctx, "documentos");
+  if (ctx.soporte || !["profesor", "direccion"].includes(ctx.rol)) forbidden();
+  const material = await ctx.db.materialClase.findFirst({ where: { id, eliminadoAt: null }, include: { secciones: { include: { curso: true }, orderBy: [{ createdAt: "asc" }, { id: "asc" }] } } });
+  if (!material || !material.secciones.length || ctx.rol === "profesor" && material.creadoPorId !== ctx.membership.id) forbidden();
+  const origen = material.secciones[0].curso;
+  if (!origen.profesorId) forbidden();
+  const ids = [...new Set(cursoIds)];
+  if (!ids.length) throw new Error("El material debe permanecer en al menos un salón.");
+  if (!ids.includes(origen.id)) throw new Error("No puedes quitar el salón de origen.");
+  if (ids.length !== cursoIds.length || ids.length > 12) forbidden();
+  const destinos = await ctx.db.curso.findMany({ where: { id: { in: ids }, profesorId: origen.profesorId } });
+  if (destinos.length !== ids.length || destinos.some(c => c.nombre.trim().toLocaleLowerCase("es") !== origen.nombre.trim().toLocaleLowerCase("es"))) forbidden();
+  const previos = new Set(material.secciones.map(s => s.cursoId));
+  await ctx.db.$transaction(async tx => {
+    await tx.materialSeccion.deleteMany({ where: { materialId: id, cursoId: { notIn: ids } } });
+    for (const cursoId of ids.filter(c => !previos.has(c))) await tx.materialSeccion.create({ data: { tenantId: ctx.tenant.id, materialId: id, cursoId } });
+  });
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "material_clase", entidadId: id, detalle: { cursos: ids } });
+  if (material.estado === "publicado" && ids.some(c => !previos.has(c))) await avisarMaterialNuevo(ctx, id).catch(error => console.error("[materiales] aviso pendiente", error));
 }
 
 export async function nuevaVersionMaterial(ctx: TenantContext, id: string, e: { archivos: EntradaArchivo[]; nota?: string }): Promise<{ numero: number }> {

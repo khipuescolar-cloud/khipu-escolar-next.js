@@ -10,6 +10,10 @@ const carpetaNombre = `Unidad 1 ${Date.now()}`;
 let cursoGemelo: string;
 let materialId: string;
 let carpetaId: string;
+let alumnoCompartidoId: string;
+let membresiaCompartidaId: string;
+let authCompartidoId: string;
+const alumnoCompartidoEmail = `compartido.material.${Date.now()}@nuevohorizonte.demo`;
 
 async function entrar(page: Page, correo: string) {
   await page.context().clearCookies();
@@ -24,6 +28,15 @@ test.beforeAll(async () => {
   const [profesor] = await sql<{ tenant_id: string; profesor_id: string }>("select c.tenant_id, c.profesor_id from cursos c join memberships m on m.id=c.profesor_id join profiles p on p.id=m.user_id where p.email='lucia.garcia@nuevohorizonte.demo' and c.nombre='Matemática' limit 1");
   const [salon] = await sql<{ id: string }>("select id from salones where tenant_id=$1 and nombre='5.° A' limit 1", [profesor.tenant_id]);
   [{ id: cursoGemelo }] = await sql<{ id: string }>("insert into cursos (id, tenant_id, salon_id, nombre, profesor_id) values (gen_random_uuid(), $1, $2, 'Matemática', $3) returning id", [profesor.tenant_id, salon.id, profesor.profesor_id]);
+  const clave = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/admin/users`, { method: "POST", headers: { apikey: clave, Authorization: `Bearer ${clave}`, "Content-Type": "application/json" }, body: JSON.stringify({ email: alumnoCompartidoEmail, password: "demo123", email_confirm: true }) });
+  const auth = await res.json() as { id?: string };
+  if (!auth.id) throw new Error("No se pudo crear la cuenta local de prueba.");
+  authCompartidoId = auth.id;
+  await sql("insert into profiles (id, email, nombres, apellidos) values ($1, $2, 'Alumno', 'Compartido')", [authCompartidoId, alumnoCompartidoEmail]);
+  [{ id: membresiaCompartidaId }] = await sql<{ id: string }>("insert into memberships (id, tenant_id, user_id, rol) values (gen_random_uuid(), $1, $2, 'alumno') returning id", [profesor.tenant_id, authCompartidoId]);
+  const [salonCompartido] = await sql<{ id: string }>("select id from salones where tenant_id=$1 and nombre='3.° B' limit 1", [profesor.tenant_id]);
+  [{ id: alumnoCompartidoId }] = await sql<{ id: string }>("insert into alumnos (id, tenant_id, salon_id, nombres, apellidos, cuenta_id) values (gen_random_uuid(), $1, $2, 'Alumno', 'Compartido', $3) returning id", [profesor.tenant_id, salonCompartido.id, membresiaCompartidaId]);
 });
 test.afterAll(async () => {
   await sql("delete from tareas where titulo=$1", [tarea]);
@@ -34,9 +47,17 @@ test.afterAll(async () => {
   }
   if (carpetaId) await sql("delete from carpetas_material where id=$1", [carpetaId]);
   if (cursoGemelo) await sql("delete from cursos where id=$1", [cursoGemelo]);
+  if (alumnoCompartidoId) await sql("delete from alumnos where id=$1", [alumnoCompartidoId]);
+  if (membresiaCompartidaId) await sql("delete from memberships where id=$1", [membresiaCompartidaId]);
+  if (authCompartidoId) {
+    await sql("delete from profiles where id=$1", [authCompartidoId]);
+    const clave = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/admin/users/${authCompartidoId}`, { method: "DELETE", headers: { apikey: clave, Authorization: `Bearer ${clave}` } });
+  }
 });
 
 test("Lucía crea una subcarpeta y publica en un salón; alumno autorizado descarga y otro no ve", async ({ page }) => {
+  test.setTimeout(120_000);
   await entrar(page, "lucia.garcia@nuevohorizonte.demo");
   await page.goto(`${base}/documentos?seccion=materiales`);
   const enlaceSalon = page.getByRole("link", { name: "Matemática · 5.° A" }).last();
@@ -66,7 +87,11 @@ test("Lucía crea una subcarpeta y publica en un salón; alumno autorizado desca
   await page.waitForTimeout(450);
   await page.screenshot({ path: `${capturas}/mat-drawer-390.png`, fullPage: true, style: "nextjs-portal { display: none !important; }" });
   await drawer.getByLabel("Título").fill(titulo);
-  await drawer.getByLabel("Archivos").setInputFiles({ name: `${titulo}.pdf`, mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n1 0 obj\n<<>>\nendobj\n%%EOF\n") });
+  await drawer.getByLabel("Archivos").setInputFiles({ name: `${titulo}.pdf`, mimeType: "application/pdf", buffer: await page.pdf({ format: "A4" }) });
+  await page.screenshot({ path: `${capturas}/ver-subir-390.png`, style: "nextjs-portal { display: none !important; }" });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.screenshot({ path: `${capturas}/ver-subir-1440.png`, style: "nextjs-portal { display: none !important; }" });
+  await page.setViewportSize({ width: 390, height: 844 });
   await drawer.getByRole("button", { name: "Subir material", exact: true }).click();
   await expect(drawer).toHaveCount(0);
   await expect(page.getByText("Material subido a Matemática · 5.° A.")).toBeVisible();
@@ -74,6 +99,44 @@ test("Lucía crea una subcarpeta y publica en un salón; alumno autorizado desca
   const [dato] = await sql<{ carpeta_id: string; curso_id: string }>("select m.carpeta_id, s.curso_id from materiales_clase m join material_secciones s on s.material_id=m.id where m.id=$1", [materialId]);
   expect(dato).toEqual({ carpeta_id: carpetaId, curso_id: cursoGemelo });
   await expect(page.locator(`[data-material-id="${materialId}"]`)).toHaveClass(/bg-sec-suave/);
+  await page.locator(`[data-material-id="${materialId}"]`).getByRole("button").first().click();
+  const detalle = page.getByRole("dialog", { name: titulo });
+  await expect(detalle.getByRole("button", { name: "Ver" })).toBeVisible();
+  await expect(detalle.getByRole("link", { name: "Descargar" })).toBeVisible();
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.screenshot({ path: `${capturas}/ver-detalle-1440.png`, style: "nextjs-portal { display: none !important; }" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: `${capturas}/ver-detalle-390.png`, style: "nextjs-portal { display: none !important; }" });
+  await detalle.getByRole("button", { name: "Ver" }).click();
+  const visor = page.getByRole("dialog", { name: `${titulo}.pdf` });
+  await expect(visor.locator("iframe")).toBeVisible();
+  const enlaceInline = visor.getByRole("link", { name: "Abrir en otra pestaña" });
+  const urlInline = new URL((await enlaceInline.getAttribute("href"))!, base).toString();
+  const respuestaInline = await page.request.get(urlInline);
+  expect(respuestaInline.headers()["content-disposition"]).toMatch(/^inline;/);
+  const descargaMaterial = detalle.getByRole("link", { name: "Descargar" });
+  const respuestaDescarga = await page.request.get(new URL((await descargaMaterial.getAttribute("href"))!, base).toString());
+  expect(respuestaDescarga.headers()["content-disposition"]).toMatch(/^attachment;/);
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.screenshot({ path: `${capturas}/ver-previa-1440.png`, style: "nextjs-portal { display: none !important; }" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: `${capturas}/ver-previa-390.png`, style: "nextjs-portal { display: none !important; }" });
+  await visor.getByRole("button", { name: "Cerrar" }).click();
+  await detalle.getByRole("button", { name: "Compartir con otros salones" }).click();
+  const compartir = page.getByRole("dialog", { name: "Compartir con otros salones" });
+  await expect(compartir.getByText("3.° B")).toBeVisible();
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.screenshot({ path: `${capturas}/ver-compartir-1440.png`, style: "nextjs-portal { display: none !important; }" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: `${capturas}/ver-compartir-390.png`, style: "nextjs-portal { display: none !important; }" });
+  await compartir.getByText("3.° B").click();
+  await compartir.getByRole("button", { name: "Guardar" }).click();
+  await expect(page.getByText("Compartido con 3.° B.")).toBeVisible();
+  expect((await sql<{ total: number }>("select count(*)::int as total from material_secciones where material_id=$1", [materialId]))[0].total).toBe(2);
+  await entrar(page, alumnoCompartidoEmail);
+  await page.goto(`${base}/documentos?seccion=materiales`);
+  await page.getByRole("link", { name: "Matemática · 3.° B" }).last().click();
+  await expect(page.getByText(titulo)).toBeVisible();
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.screenshot({ path: `${capturas}/mat-subcarpeta-1440.png`, fullPage: true, style: "nextjs-portal { display: none !important; }" });
   await page.setViewportSize({ width: 390, height: 844 });
@@ -85,7 +148,7 @@ test("Lucía crea una subcarpeta y publica en un salón; alumno autorizado desca
   await page.getByRole("link", { name: carpetaNombre }).last().click();
   await expect(page.getByText(titulo)).toBeVisible();
   await page.locator(`[data-material-id="${materialId}"]`).getByRole("button").first().click();
-  const enlace = page.getByRole("link", { name: new RegExp(titulo) }).first();
+  const enlace = page.getByRole("dialog", { name: titulo }).getByRole("link", { name: "Descargar" });
   const descarga = await page.request.get(new URL((await enlace.getAttribute("href"))!, base).toString());
   expect(descarga.status()).toBe(200);
   await page.screenshot({ path: `${capturas}/mat-alumno-390.png`, fullPage: true, style: "nextjs-portal { display: none !important; }" });

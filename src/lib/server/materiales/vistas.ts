@@ -29,6 +29,8 @@ export async function listarMateriales(ctx: TenantContext, f: { anio?: number; c
     versionActual: m.versionActual, autor: `${m.creadoPor.user.nombres} ${m.creadoPor.user.apellidos ?? ""}`.trim(),
     archivos: (m.versiones.find((v) => v.numero === m.versionActual)?.archivos ?? []).map((a) => adjuntoVista(a.archivo)),
     secciones: m.secciones.filter((s) => (!salonesVisibles || salonesVisibles.has(s.curso.salonId)) && (!f.anio || s.curso.salon.anio === f.anio) && (!f.curso || s.curso.nombre === f.curso) && (!f.salonId || s.curso.salonId === f.salonId)).map((s) => ({ cursoId: s.cursoId, curso: s.curso.nombre, salonId: s.curso.salonId, salon: s.curso.salon.nombre, anio: s.curso.salon.anio })),
+    origenCursoId: [...m.secciones].sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime() || a.id.localeCompare(b.id))[0]?.cursoId ?? "",
+    profesorId: m.secciones[0]?.curso.profesorId ?? "", compartible: (ctx.rol === "direccion" || ctx.rol === "profesor" && m.creadoPorId === ctx.membership.id) && !ctx.soporte,
     carpetaId: m.carpetaId, actualizadoAt: m.updatedAt, gestionable: ctx.rol === "profesor" && m.creadoPorId === ctx.membership.id, referenciadoPorTareas: m._count.tareas, enPapelera: !!m.eliminadoAt }));
   return { anios: agruparMateriales(materiales).map((a) => ({ ...a, archivado: a.cursos.every((c) => c.secciones.every((s) => s.materiales.every((m) => m.estado === "archivado"))) })) };
 }
