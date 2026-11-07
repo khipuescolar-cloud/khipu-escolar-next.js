@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { Download, ExternalLink, Folder, FolderOpen } from "lucide-react";
 import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { formatoTamano } from "@/lib/adjuntos";
@@ -83,7 +83,7 @@ export function DialogoMover({ items, opciones, onCerrar, onListo }: { items: It
 export function VistaPrevia({ item, onCerrar }: { item: Item | null; onCerrar: () => void }) {
   const a = item?.archivo;
   const pdf = a?.mimeType === "application/pdf";
-  const imagen = a?.mimeType.startsWith("image/");
+  const imagen = a && ["image/jpeg", "image/png", "image/webp"].includes(a.mimeType);
   return <Dialog open={!!item} onOpenChange={(v) => { if (!v) onCerrar(); }}>
     <DialogContent className="grid-cols-[minmax(0,1fr)] sm:max-w-4xl" aria-describedby={undefined}>
       <DialogHeader><DialogTitle className="truncate">{item?.nombre}</DialogTitle><DialogDescription>{item && `${tipoLegible(item)}${item.tamano !== null ? ` · ${formatoTamano(item.tamano)}` : ""}`}</DialogDescription></DialogHeader>
@@ -91,8 +91,8 @@ export function VistaPrevia({ item, onCerrar }: { item: Item | null; onCerrar: (
         : imagen ? <Image unoptimized alt={item.nombre} src={`/archivos/${a.id}?vista=1`} width={1000} height={700} className="max-h-[62dvh] w-full rounded-lg border border-borde-sutil bg-superficie-2 object-contain" />
         : <div className="flex flex-col items-center gap-3 rounded-lg border border-borde-sutil bg-superficie-2 px-6 py-10 text-center"><span className="flex size-16 items-center justify-center rounded-xl bg-sec-suave"><Icono item={item} className="size-8" /></span><p className="font-medium">{a.nombre}</p><p className="max-w-sm text-muted-foreground">Este tipo de archivo no se muestra aquí. Descárgalo para abrirlo en tu computadora o celular.</p></div>)}
       <DialogFooter>
-        {pdf && a && <a href={`/archivos/${a.id}?vista=1`} target="_blank" rel="noopener noreferrer" className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-input bg-superficie-elevada px-4 text-sm font-semibold hover:bg-superficie-2"><ExternalLink className="size-4" strokeWidth={2} aria-hidden /> Abrir en otra pestaña</a>}
-        {a && <a href={`/archivos/${a.id}`} download={a.nombre} className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary/90"><Download className="size-4" strokeWidth={2} aria-hidden /> Descargar</a>}
+        {(pdf || imagen) && a && <a className={buttonVariants({ variant: "outline" })} href={`/archivos/${a.id}?vista=1`} target="_blank" rel="noopener noreferrer"><ExternalLink className="size-4" strokeWidth={2} aria-hidden /> Abrir en otra pestaña</a>}
+        {a && <a className={buttonVariants()} href={`/archivos/${a.id}`} download={a.nombre}><Download className="size-4" strokeWidth={2} aria-hidden /> Descargar</a>}
       </DialogFooter>
     </DialogContent>
   </Dialog>;

@@ -1,7 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { db } from "@/lib/server/db";
-import { carpetasDeSalon, crearMaterial, crearSubcarpetaMaterial, listarMateriales, listarSubcarpetasMaterial, moverMaterialACarpeta, nuevaVersionMaterial, moverMaterialAPapelera, restaurarMaterial, eliminarDefinitivoMaterial } from "@/lib/server/materiales";
+import { carpetasDeSalon, crearMaterial, crearSubcarpetaMaterial, compartirMaterial, listarMateriales, listarSubcarpetasMaterial, moverMaterialACarpeta, nuevaVersionMaterial, moverMaterialAPapelera, restaurarMaterial, eliminarDefinitivoMaterial } from "@/lib/server/materiales";
 import { resolverAccesoMaterial } from "@/lib/server/archivos-acceso/material";
 import type { TenantContext } from "@/lib/server/tenant";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
@@ -82,5 +82,28 @@ describe("materiales de clase", () => {
     await restaurarMaterial(c.ctxDe("tutora"), id);
     expect((await listarMateriales(alumno)).anios).toHaveLength(1);
     await expect(eliminarDefinitivoMaterial(c.ctxDe("tutora"), id)).rejects.toThrow("30 días");
+  });
+  it("comparte sin copiar archivos, valida curso y docente, y respeta el salón de origen", async () => {
+    const r = await crearMaterial(c.ctxDe("tutora"), { titulo: "Material para compartir", cursoIds: [c.cursoTutora.id], archivos: [pdf("compartir.pdf")], publicar: true });
+    const archivosAntes = await c.db.archivo.count({ where: { versionesMaterial: { some: { version: { materialId: r.id } } } } });
+    await compartirMaterial(c.ctxDe("tutora"), r.id, [c.cursoTutora.id, gemelo]);
+    expect(await c.db.materialSeccion.count({ where: { materialId: r.id } })).toBe(2);
+    expect(await c.db.archivo.count({ where: { versionesMaterial: { some: { version: { materialId: r.id } } } } })).toBe(archivosAntes);
+    const uid = randomUUID(); perfiles.push(uid);
+    const user = await db.profile.create({ data: { id: uid, email: `${uid}@test-materiales.local`, nombres: "Alumno", apellidos: "Compartido" } });
+    const membership = await db.membership.create({ data: { tenantId: c.tenant.id, userId: uid, rol: "alumno" } });
+    await c.db.alumno.update({ where: { id: c.alumnos.thiago.id }, data: { cuentaId: membership.id } });
+    const alumnoGemelo: TenantContext = { ...c.ctxDe("madre"), user, membership, rol: "alumno", roles: ["alumno"] };
+    expect((await listarMateriales(alumnoGemelo)).anios.flatMap(a => a.cursos.flatMap(cu => cu.secciones.flatMap(s => s.materiales))).some(m => m.id === r.id)).toBe(true);
+    expect((await listarMateriales(otro.ctxDe("madre"))).anios).toHaveLength(0);
+    await esperarProhibido(compartirMaterial(c.ctxDe("tutora"), r.id, [c.cursoTutora.id, c.cursoAjeno.id]));
+    const cursoProfesorAjeno = await c.db.curso.create({ data: { tenantId: c.tenant.id, salonId: c.otroSalon.id, nombre: "Matemática", profesorId: c.miembros.otroProfesor.membership.id } });
+    await esperarProhibido(compartirMaterial(c.ctxDe("tutora"), r.id, [c.cursoTutora.id, cursoProfesorAjeno.id]));
+    const cursoOtroNombre = await c.db.curso.create({ data: { tenantId: c.tenant.id, salonId: c.otroSalon.id, nombre: "Comunicación", profesorId: c.miembros.tutora.membership.id } });
+    await esperarProhibido(compartirMaterial(c.ctxDe("tutora"), r.id, [c.cursoTutora.id, cursoOtroNombre.id]));
+    await expect(compartirMaterial(c.ctxDe("tutora"), r.id, [])).rejects.toThrow("al menos un salón");
+    await expect(compartirMaterial(c.ctxDe("tutora"), r.id, [gemelo])).rejects.toThrow("salón de origen");
+    await compartirMaterial(c.ctxDe("tutora"), r.id, [c.cursoTutora.id]);
+    expect((await listarMateriales(alumnoGemelo)).anios.flatMap(a => a.cursos.flatMap(cu => cu.secciones.flatMap(s => s.materiales))).some(m => m.id === r.id)).toBe(false);
   });
 });

@@ -6,7 +6,7 @@ import { requireTenantContext } from "@/lib/server/tenant";
 import { requireFeature } from "@/lib/server/plan";
 import { iniciarSubida, confirmarSubida } from "@/lib/server/almacenamiento";
 import {
-  crearMaterial, actualizarMaterial, nuevaVersionMaterial, publicarMaterial, archivarMaterial,
+  crearMaterial, actualizarMaterial, compartirMaterial, nuevaVersionMaterial, publicarMaterial, archivarMaterial,
   moverMaterialAPapelera, restaurarMaterial, eliminarDefinitivoMaterial,
   crearSubcarpetaMaterial, moverMaterialACarpeta,
 } from "@/lib/server/materiales";
@@ -53,6 +53,10 @@ export async function nuevaVersionMaterialAction(slug: string, id: string, f: Fo
 export async function actualizarMaterialAction(slug: string, id: string, f: FormData): Promise<Resultado> {
   const ctx = await contexto(slug);
   return ejecutar(() => actualizarMaterial(ctx, id, { titulo: texto(f, "titulo"), descripcion: texto(f, "descripcion"), unidadTema: texto(f, "unidadTema"), cursoIds: ids(f, "cursoIds") }));
+}
+export async function compartirMaterialAction(slug: string, id: string, cursoIds: string[]): Promise<Resultado> {
+  const ctx = await contexto(slug);
+  return ejecutar(() => compartirMaterial(ctx, id, cursoIds));
 }
 export async function publicarMaterialAction(slug: string, id: string): Promise<Resultado> { const ctx = await contexto(slug); return ejecutar(() => publicarMaterial(ctx, id)); }
 export async function archivarMaterialAction(slug: string, id: string): Promise<Resultado> { const ctx = await contexto(slug); return ejecutar(() => archivarMaterial(ctx, id)); }

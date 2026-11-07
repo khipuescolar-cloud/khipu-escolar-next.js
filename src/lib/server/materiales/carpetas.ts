@@ -9,7 +9,7 @@ export async function carpetasDeSalon(ctx: TenantContext) {
   if (ctx.soporte || !["profesor", "direccion", "alumno", "apoderado"].includes(ctx.rol)) forbidden();
   const where = ctx.rol === "profesor" ? { profesorId: ctx.membership.id } : ctx.rol === "direccion" ? {} : { salonId: { in: await salonIdsVisibles(ctx) } };
   const cursos = await ctx.db.curso.findMany({ where, include: { salon: true }, orderBy: [{ salon: { anio: "desc" } }, { nombre: "asc" }] });
-  return cursos.map(c => ({ id: c.id, nombre: c.nombre, salonId: c.salonId, salon: c.salon.nombre, anio: c.salon.anio, grado: c.salon.grado, nivel: c.salon.nivel, archivado: !!c.salon.archivadoAt }));
+  return cursos.map(c => ({ id: c.id, nombre: c.nombre, profesorId: c.profesorId, salonId: c.salonId, salon: c.salon.nombre, anio: c.salon.anio, grado: c.salon.grado, nivel: c.salon.nivel, archivado: !!c.salon.archivadoAt }));
 }
 
 export async function requireCursoMaterialVisible(ctx: TenantContext, cursoId: string) {
