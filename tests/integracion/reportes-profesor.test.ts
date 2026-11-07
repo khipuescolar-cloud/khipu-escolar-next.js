@@ -2,7 +2,7 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { guardarLista, hoyDelColegio } from "@/lib/server/asistencia";
 import { db } from "@/lib/server/db";
-import { historialCurso, panelReportesProfesor } from "@/lib/server/reportes-asistencia";
+import { detalleCurso, esReporteDeCursos, historialCurso, opcionesDeReporte, panelReportesProfesor, reporteAlumno, reporteCursos, reporteSalon } from "@/lib/server/reportes-asistencia";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
 describe("reportes del profesor", () => {
@@ -55,5 +55,62 @@ describe("reportes del profesor", () => {
   it("ver el historial queda en la auditoría", async () => {
     const n = await db.auditoria.count({ where: { tenantId: c.tenant.id, entidad: "reporte_asistencia", entidadId: arteId } });
     expect(n).toBeGreaterThan(0);
+  });
+
+  describe("filtro «Curso»: fuera de su tutoría, solo sus cursos", () => {
+    it("las opciones traen sus salones, sus cursos y todos los de su tutoría", async () => {
+      const pedro = await opcionesDeReporte(c.ctxDe("otroProfesor"));
+      expect(pedro.tutorias).toEqual([c.otroSalon.id]);
+      expect(pedro.salones.map((s) => s.nombre)).toEqual(["3.° B", "5.° A"]);
+      expect(pedro.cursos.map((x) => `${x.nombre} · ${x.salon}`)).toEqual(["Arte y Cultura · 3.° B", "Ciencia · 5.° A"]);
+      const lucia = await opcionesDeReporte(c.ctxDe("tutora"));
+      expect(lucia.cursos.map((x) => x.nombre).sort()).toEqual(["Arte y Cultura", "Matemática"]);
+      expect((await opcionesDeReporte(c.ctxDe("direccion"))).cursos).toEqual([]);
+    });
+
+    it("en un salón ajeno no ve la asistencia al colegio; en su tutoría sí", async () => {
+      const pedro = c.ctxDe("otroProfesor");
+      await esperarProhibido(reporteSalon(pedro, { salonId: c.salon.id, desde: hoy, hasta: hoy }));
+      await esperarProhibido(reporteAlumno(pedro, { alumnoId: c.alumnos.mateo.id, desde: hoy, hasta: hoy }));
+      expect(await esReporteDeCursos(pedro, { salonId: c.salon.id, desde: hoy, hasta: hoy })).toBe(true);
+      expect(await esReporteDeCursos(pedro, { alumnoId: c.alumnos.mateo.id, desde: hoy, hasta: hoy })).toBe(true);
+      expect(await esReporteDeCursos(pedro, { salonId: c.otroSalon.id, desde: hoy, hasta: hoy })).toBe(false);
+      expect(await esReporteDeCursos(pedro, { desde: hoy, hasta: hoy })).toBe(true);
+      expect(await esReporteDeCursos(c.ctxDe("direccion"), { salonId: c.salon.id, desde: hoy, hasta: hoy })).toBe(false);
+    });
+
+    it("«Mis cursos» en un salón ajeno: solo sus cursos, con faltas y tardanzas", async () => {
+      const r = await reporteCursos(c.ctxDe("otroProfesor"), { salonId: c.salon.id, cursoId: "mis", desde: hoy, hasta: hoy });
+      expect(r.filas).toMatchObject([{ curso: "Arte y Cultura", registros: 2, faltas: 1, tardanzas: 1, faltasConIngreso: 0 }]);
+      expect(r.detalle).toBeNull();
+      // Sin filtro: todos sus cursos (también los de su tutoría, aunque aún no tengan registros).
+      const todos = await reporteCursos(c.ctxDe("otroProfesor"), { cursoId: "mis", desde: hoy, hasta: hoy });
+      expect(todos.filas.map((f) => [f.curso, f.registros])).toEqual([["Arte y Cultura", 2], ["Ciencia", 0]]);
+    });
+
+    it("en su tutoría ve todos los cursos del salón", async () => {
+      const r = await reporteCursos(c.ctxDe("tutora"), { salonId: c.salon.id, cursoId: "mis", desde: hoy, hasta: hoy });
+      expect(r.filas.map((f) => f.curso)).toEqual(["Arte y Cultura", "Matemática"]);
+      await expect(detalleCurso(c.ctxDe("tutora"), { cursoId: arteId, desde: hoy, hasta: hoy })).resolves.toMatchObject({ curso: { nombre: "Arte y Cultura" } });
+    });
+
+    it("un alumno de un salón ajeno: solo sus faltas y tardanzas a clase en los cursos del profesor", async () => {
+      const r = await reporteCursos(c.ctxDe("otroProfesor"), { alumnoId: c.alumnos.mateo.id, cursoId: "mis", desde: hoy, hasta: hoy });
+      expect(r.alumno).toMatchObject({ nombres: "Mateo", salon: "3.° B" });
+      expect(r.detalle).toMatchObject([{ curso: "Arte y Cultura", estado: "tarde", fecha: hoy }]);
+      await esperarProhibido(reporteCursos(c.ctxDe("otroProfesor"), { alumnoId: c.alumnos.mateo.id, cursoId: c.cursoTutora.id, desde: hoy, hasta: hoy }));
+      await esperarProhibido(reporteCursos(c.ctxDe("tutora"), { alumnoId: c.alumnos.thiago.id, cursoId: "mis", desde: hoy, hasta: hoy }));
+      await esperarProhibido(reporteCursos(c.ctxDe("madre"), { cursoId: "mis", desde: hoy, hasta: hoy }));
+      // El profesor del curso ve su detalle aunque no sea tutor del salón.
+      await expect(detalleCurso(c.ctxDe("otroProfesor"), { cursoId: arteId, desde: hoy, hasta: hoy })).resolves.toMatchObject({ filas: [{}, {}] });
+    });
+
+    it("por grado: los cursos que dicta en ese grado", async () => {
+      await db.salon.update({ where: { id: c.salon.id }, data: { grado: 3 } });
+      await db.salon.update({ where: { id: c.otroSalon.id }, data: { grado: 5 } });
+      const r = await reporteCursos(c.ctxDe("otroProfesor"), { grado: { nivel: "primaria", grado: 3 }, cursoId: "mis", desde: hoy, hasta: hoy });
+      expect(r.filas.map((f) => f.curso)).toEqual(["Arte y Cultura"]);
+      await esperarProhibido(reporteCursos(c.ctxDe("tutora"), { grado: { nivel: "primaria", grado: 5 }, cursoId: "mis", desde: hoy, hasta: hoy }));
+    });
   });
 });

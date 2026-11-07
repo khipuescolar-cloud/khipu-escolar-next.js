@@ -121,6 +121,12 @@ describe("validación del rango", () => {
   it("rechaza ids que no son uuid", () => {
     expect(() => filtrosDeBusqueda((k) => (k === "salon" ? "x" : null), "2026-10-30")).toThrow();
   });
+  it("el filtro «Curso» acepta «mis» o el id de un curso", () => {
+    const id = "6f1c2d3e-4b5a-4c6d-8e7f-1a2b3c4d5e6f";
+    expect(filtrosDeBusqueda((k) => (k === "curso" ? "mis" : null), "2026-10-30").cursoId).toBe("mis");
+    expect(filtrosDeBusqueda((k) => (k === "curso" ? id : null), "2026-10-30").cursoId).toBe(id);
+    expect(() => filtrosDeBusqueda((k) => (k === "curso" ? "todos" : null), "2026-10-30")).toThrow();
+  });
 });
 
 function diasMax() {

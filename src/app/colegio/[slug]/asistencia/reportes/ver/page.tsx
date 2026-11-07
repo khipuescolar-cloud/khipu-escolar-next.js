@@ -12,11 +12,11 @@ import { filtrosDeBusqueda, rangoEsteMes, type FiltrosReporte } from "@/lib/repo
 import { esVistaFamilia } from "@/lib/roles";
 import { hoyDelColegio } from "@/lib/server/asistencia";
 import { requireFeature } from "@/lib/server/plan";
-import { opcionesDeReporte, reporteSegunFiltros } from "@/lib/server/reportes-asistencia";
+import { esReporteDeCursos, opcionesDeReporte, reporteCursos, reporteSegunFiltros } from "@/lib/server/reportes-asistencia";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { CalendarioReporte } from "../CalendarioReporte";
 import { FiltroReporte } from "../FiltroReporte";
-import { AsistenciaPorCurso, atajosDeFecha, Contenido, contextoDe, enlace, tituloDe, Totales } from "../vistas";
+import { AsistenciaPorCurso, atajosDeFecha, Contenido, contextoDe, enlace, tituloDe, Totales, VistaCursos } from "../vistas";
 
 export const metadata: Metadata = { title: "Reporte de asistencia" };
 
@@ -46,16 +46,29 @@ export default async function VerReporteAsistenciaPage({ params, searchParams }:
     if (!(e instanceof ZodError)) throw e;
     error = e.issues[0]?.message ?? "Revisa los filtros.";
   }
-  const reporte = filtros ? await reporteSegunFiltros(ctx, filtros) : null;
+  // Profesor fuera de su tutoría (o con «Curso»): la asistencia a clase de sus cursos, no la del colegio.
+  const deCursos = filtros && (await esReporteDeCursos(ctx, filtros)) ? await reporteCursos(ctx, filtros) : null;
+  const reporte = filtros && !deCursos ? await reporteSegunFiltros(ctx, filtros) : null;
   const base = filtros ?? { desde: rangoEsteMes(hoy).desde, hasta: hoy };
-  const activos = [uno("salon") || uno("grado"), uno("alumno"), uno("desde") || uno("hasta")].filter(Boolean).length;
+  const activos = [uno("salon") || uno("grado"), uno("alumno"), uno("curso"), uno("desde") || uno("hasta")].filter(Boolean).length;
+  const tituloCursos = deCursos
+    ? deCursos.alumno ? `${deCursos.alumno.apellidos}, ${deCursos.alumno.nombres}`
+      : deCursos.curso ? deCursos.curso.nombre
+      : deCursos.salon ? `Salón ${deCursos.salon.nombre}`
+      : deCursos.grado ? deCursos.grado.nombre.charAt(0).toUpperCase() + deCursos.grado.nombre.slice(1)
+      : "Mis cursos"
+    : null;
 
   return (
     <div className="flex flex-col gap-6">
       <EncabezadoPagina
-        titulo={reporte ? tituloDe(reporte) : "Reporte de asistencia"}
+        titulo={reporte ? tituloDe(reporte) : tituloCursos ?? "Reporte de asistencia"}
         seccion="dia"
-        descripcion={reporte ? `Asistencia al colegio del ${fechaCorta(reporte.desde)} al ${fechaCorta(reporte.hastaEfectivo)}.` : undefined}
+        descripcion={
+          reporte ? `Asistencia al colegio del ${fechaCorta(reporte.desde)} al ${fechaCorta(reporte.hastaEfectivo)}.`
+          : deCursos ? `Asistencia a clase del ${fechaCorta(deCursos.desde)} al ${fechaCorta(deCursos.hastaEfectivo)}.`
+          : undefined
+        }
         acciones={
           <div className="flex flex-col gap-3 sm:items-end">
             <div className="flex flex-wrap items-center gap-2">
@@ -82,6 +95,8 @@ export default async function VerReporteAsistenciaPage({ params, searchParams }:
         }
       />
       {error && <Alerta tipo="error">{error}</Alerta>}
+
+      {deCursos && <VistaCursos reporte={deCursos} />}
 
       {reporte && filtros && (
         <>

@@ -58,3 +58,38 @@ test("un profesor no ve el historial de un curso que no dicta ni de un salón qu
   const r = await page.request.get(`${COLEGIO}/api/reportes-asistencia/excel?curso=${cursoId}&desde=${DESDE}&hasta=${HASTA}`);
   expect(r.status()).toBe(403);
 });
+
+test("filtro «Curso»: fuera de su tutoría el profesor solo ve sus cursos; en su tutoría, la asistencia al colegio", async ({ page }) => {
+  test.setTimeout(90_000);
+  // Pedro es tutor de 5.° A y dicta Ciencia y Tecnología en 3.° B, 5.° B y 6.° A.
+  await entrar(page, "pedro.salas@nuevohorizonte.demo");
+  await page.goto(`${COLEGIO}/asistencia/reportes`);
+  await page.getByRole("button", { name: "Filtrar reporte" }).click();
+  const panel = page.getByRole("dialog", { name: "Filtrar reporte" });
+  const salon = panel.getByRole("combobox", { name: "Salón", exact: true });
+  // Solo los salones donde enseña o es tutor.
+  await expect(salon.locator("option")).toHaveText(["Todos los salones", "3.° B", "5.° A", "5.° B", "6.° A"]);
+  const curso = panel.getByRole("combobox", { name: "Curso", exact: true });
+  await expect(curso).toHaveValue("mis");
+
+  await salon.selectOption({ label: "3.° B" });
+  await expect(curso.locator("option")).toHaveText(["Mis cursos", "Ciencia y Tecnología"]);
+  await page.getByRole("button", { name: "Ver reporte" }).click();
+  await expect(page).toHaveURL(/curso=mis/);
+  await expect(page.getByRole("heading", { name: "Salón 3.° B" })).toBeVisible();
+  await expect(page.getByRole("row", { name: /Ciencia y Tecnología/ })).toBeVisible();
+  await expect(page.getByRole("row", { name: /Matemática/ })).toHaveCount(0);
+  // No ve la asistencia al colegio de 3.° B ni la descarga.
+  await expect(page.getByRole("link", { name: "Descargar Excel" })).toHaveCount(0);
+
+  // En su tutoría: asistencia al colegio por defecto y todos los cursos del salón.
+  await page.getByRole("button", { name: "Filtrar reporte" }).click();
+  await salon.selectOption({ label: "5.° A" });
+  await expect(curso).toHaveValue("");
+  await expect(curso.locator("option").first()).toHaveText("Asistencia al colegio");
+  await expect(curso.locator("option").nth(1)).toHaveText("Todos los cursos");
+  expect(await curso.locator("option").count()).toBeGreaterThan(3);
+  await page.getByRole("button", { name: "Ver reporte" }).click();
+  await expect(page.getByRole("heading", { name: "Salón 5.° A" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Descargar Excel" })).toBeVisible();
+});

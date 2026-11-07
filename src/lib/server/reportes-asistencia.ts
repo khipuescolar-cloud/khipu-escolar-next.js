@@ -6,7 +6,7 @@ import type { EstadoJustificacion } from "@/generated/prisma/enums";
 import { asistenciaPorCursoActiva } from "@/lib/asistencia-por-curso";
 import { fechaDb, isoDeFechaDb, restarDias, sumarDias } from "@/lib/fechas";
 import {
-  agregarPorDia, claveGrado, diasHabilesDelRango, gradoSchema, nombreGrado, rangoSchema, resumirAlumno, sumarResumenes,
+  agregarPorDia, claveGrado, diasHabilesDelRango, gradoSchema, MIS_CURSOS, nombreGrado, rangoSchema, resumirAlumno, sumarResumenes,
   type DetalleDia, type DiaAgregado, type FiltrosReporte, type GradoReporte, type RegistroDia, type ResumenAlumno,
 } from "@/lib/reportes-asistencia";
 import { resumirCurso, type ConteoClase, type FilaCurso, type ResumenCurso } from "@/lib/reportes-curso";
@@ -16,7 +16,7 @@ import { auditar } from "./auditoria";
 import { feriadosAplicables } from "./plataforma-configuracion";
 import { requireFeature } from "./plan";
 import { whereSalonActivo } from "./salones-activos";
-import { requireAlumnoVisible, salonIdsVisibles, type TenantContext } from "./tenant";
+import { requireAlumnoVisible, type TenantContext } from "./tenant";
 
 // Reportes de asistencia por alumno, salón y rango de fechas (specs/27-reportes-asistencia.md).
 // Asistencia al colegio (solo `ambito = "dia"`): porcentaje = (llegó + tarde) / días hábiles con registro.
@@ -90,10 +90,19 @@ export type ReporteAsistencia = ReporteAlumno | ReporteSalon | ReporteColegio;
 
 const veTodo = (ctx: TenantContext) => ctx.rol === "direccion" || ctx.rol === "administrativo";
 
-/** Salones que el rol puede ver en reportes: null = todos. Familias y portería no ven reportes de salón (403). */
+/** Salones activos de los que el profesor es tutor. */
+async function tutoriasDe(ctx: TenantContext): Promise<string[]> {
+  const salones = await ctx.db.salon.findMany({ where: { ...whereSalonActivo, tutorId: ctx.membership.id }, select: { id: true } });
+  return salones.map((s) => s.id);
+}
+
+/**
+ * Salones cuya asistencia al colegio puede ver el rol: null = todos. El profesor, solo su tutoría: en los salones donde
+ * solo dicta ve sus cursos (`reporteCursos`). Familias y portería no ven reportes de salón (403).
+ */
 async function alcanceDeSalones(ctx: TenantContext): Promise<string[] | null> {
   if (veTodo(ctx)) return null;
-  if (ctx.rol === "profesor") return salonIdsVisibles(ctx);
+  if (ctx.rol === "profesor") return tutoriasDe(ctx);
   forbidden();
 }
 
@@ -210,9 +219,11 @@ export async function reporteAlumno(ctx: TenantContext, entrada: unknown, como: 
   if (!veTodo(ctx)) await requireAlumnoVisible(ctx, alumnoId);
   const alumno = await ctx.db.alumno.findFirst({
     where: { id: alumnoId },
-    select: { id: true, nombres: true, apellidos: true, codigo: true, salonId: true, salon: { select: { nombre: true } } },
+    select: { id: true, nombres: true, apellidos: true, codigo: true, salonId: true, salon: { select: { nombre: true, tutorId: true } } },
   });
   if (!alumno) notFound();
+  // El profesor ve la asistencia al colegio solo de los alumnos de su tutoría (en otros salones, sus cursos).
+  if (ctx.rol === "profesor" && alumno.salon.tutorId !== ctx.membership.id) forbidden();
   const hastaEfectivo = hastaEfectivoDe(ctx, hasta);
   const dias = await diasHabiles(ctx, desde, hastaEfectivo);
   const [registros, permisos] = await Promise.all([
@@ -274,7 +285,7 @@ async function resumenDeSalones(ctx: TenantContext, alcance: string[] | null, gr
   const [registros, permisos, cursos] = await Promise.all([
     registrosPorAlumno(ctx, alumnoIds, desde, hastaEfectivo),
     diasConPermisoPorAlumno(ctx, alumnoIds, desde, hastaEfectivo),
-    ctx.tenant.asistenciaPorCursoNiveles.length > 0 ? asistenciaPorCurso(ctx, alcanceCursos, desde, hastaEfectivo) : Promise.resolve(null),
+    ctx.tenant.asistenciaPorCursoNiveles.length > 0 ? asistenciaPorCurso(ctx, { salones: alcanceCursos }, desde, hastaEfectivo) : Promise.resolve(null),
   ]);
   const detalles: DetalleDia[][] = [];
   const filas = salones.map<FilaSalonReporte>((s) => {
@@ -291,11 +302,12 @@ async function resumenDeSalones(ctx: TenantContext, alcance: string[] | null, gr
 /**
  * Faltas y tardanzas a clase por salón y curso en el rango, con las faltas de alumnos que ese día sí ingresaron al
  * colegio. Una sola consulta agregada en SQL (sin listas de ids: un colegio de 1 000 alumnos no pasa el tope de parámetros).
- * `alcance`: salones visibles (null = todos). Solo alumnos activos y salones no archivados.
+ * `salones`: salones visibles (null = todos); `cursos`: solo esos cursos; `alumnoId`: solo ese alumno.
+ * Solo alumnos activos y salones no archivados.
  */
-async function asistenciaPorCurso(ctx: TenantContext, alcance: string[] | null, desde: string, hasta: string): Promise<FilaCursoReporte[]> {
-  if (alcance && alcance.length === 0) return [];
-  const filtroSalon = alcance ? Prisma.sql`AND s.id = ANY(${alcance}::uuid[])` : Prisma.empty;
+async function asistenciaPorCurso(ctx: TenantContext, alcance: { salones: string[] | null; cursos?: string[]; alumnoId?: string }, desde: string, hasta: string): Promise<FilaCursoReporte[]> {
+  if ((alcance.salones && alcance.salones.length === 0) || (alcance.cursos && alcance.cursos.length === 0)) return [];
+  const filtroSalon = Prisma.sql`${alcance.salones ? Prisma.sql`AND s.id = ANY(${alcance.salones}::uuid[])` : Prisma.empty} ${alcance.cursos ? Prisma.sql`AND c.id = ANY(${alcance.cursos}::uuid[])` : Prisma.empty} ${alcance.alumnoId ? Prisma.sql`AND a.alumno_id = ${alcance.alumnoId}::uuid` : Prisma.empty}`;
   const filas = await ctx.db.$queryRaw<{ salon_id: string; salon: string; curso_id: string; curso: string; registros: number; faltas: number; faltas_con_ingreso: number; tardanzas: number }[]>`
     SELECT s.id::text AS salon_id, s.nombre AS salon, c.id::text AS curso_id, c.nombre AS curso,
       count(*)::int AS registros,
@@ -339,13 +351,12 @@ export type DetalleCurso = {
 
 const entradaCurso = z.object({ cursoId: z.uuid() }).and(rangoSchema);
 
-/** Detalle de un curso: cada falta o tardanza a clase del rango con el ingreso al colegio de ese día. Profesor: solo sus salones. */
+/** Detalle de un curso: cada falta o tardanza a clase del rango con el ingreso al colegio de ese día. Profesor: el del curso o el tutor. */
 export async function detalleCurso(ctx: TenantContext, entrada: unknown): Promise<DetalleCurso> {
   requireFeature(ctx, "asistencia");
   const { cursoId, desde, hasta } = entradaCurso.parse(entrada);
-  const curso = await ctx.db.curso.findFirst({ where: { id: cursoId }, select: { id: true, nombre: true, salonId: true } });
-  if (!curso) notFound();
-  const salon = await requireSalonDelReporte(ctx, curso.salonId);
+  const curso = await requireCursoDelHistorial(ctx, cursoId);
+  const salon = { id: curso.salon.id, nombre: curso.salon.nombre };
   const hastaEfectivo = hastaEfectivoDe(ctx, hasta);
   const rango = { gte: fechaDb(desde), lte: fechaDb(hastaEfectivo) };
   const registros = await ctx.db.asistencia.findMany({
@@ -392,14 +403,36 @@ export type OpcionesReporte = {
   grados: { clave: string; nombre: string }[];
   alumnos: { id: string; nombres: string; apellidos: string; salonId: string }[];
   periodos: { nombre: string; inicio: string; fin: string }[];
+  /**
+   * Profesor: cursos que puede ver en el filtro «Curso» (los que dicta y todos los de su tutoría, de niveles que pasan
+   * lista por curso). Vacío para dirección, administrativo y familias.
+   */
+  cursos: { id: string; nombre: string; salonId: string; salon: string; grado: string | null }[];
+  /** Profesor: salones de su tutoría (ahí ve la asistencia al colegio y todos los cursos). */
+  tutorias: string[];
 };
+
+/** Cursos de salones activos que el rol puede ver en reportes: todos (dirección, administrativo) o los que dicta y los de su tutoría. */
+async function cursosDelReporte(ctx: TenantContext) {
+  return ctx.db.curso.findMany({
+    where: veTodo(ctx)
+      ? { salon: whereSalonActivo }
+      : { salon: whereSalonActivo, OR: [{ profesorId: ctx.membership.id }, { salon: { tutorId: ctx.membership.id } }] },
+    orderBy: [{ salon: { nombre: "asc" } }, { nombre: "asc" }],
+    select: { id: true, nombre: true, salonId: true, salon: { select: { nombre: true, nivel: true, grado: true } } },
+  });
+}
 
 /** Opciones de los filtros según el rol: salones y alumnos que puede ver y los periodos del año (para el atajo «Bimestre»). */
 export async function opcionesDeReporte(ctx: TenantContext): Promise<OpcionesReporte> {
   requireFeature(ctx, "asistencia");
   const familia = esVistaFamilia(ctx.rol);
-  if (!familia && !veTodo(ctx) && ctx.rol !== "profesor") forbidden();
-  const alcance = familia ? [] : await alcanceDeSalones(ctx);
+  const profesor = ctx.rol === "profesor";
+  if (!familia && !veTodo(ctx) && !profesor) forbidden();
+  // Profesor: sus salones de tutoría y los salones donde dicta un curso con lista por curso.
+  const [tutorias, cursosVisibles] = profesor ? await Promise.all([tutoriasDe(ctx), cursosDelReporte(ctx)]) : [[], []];
+  const cursos = cursosVisibles.filter((c) => asistenciaPorCursoActiva(ctx.tenant.asistenciaPorCursoNiveles, c.salon.nivel));
+  const alcance = familia ? [] : profesor ? [...new Set([...tutorias, ...cursos.map((c) => c.salonId)])] : null;
   const [salones, alumnos, periodos] = await Promise.all([
     familia ? Promise.resolve([]) : ctx.db.salon.findMany({ where: { ...whereSalonActivo, ...(alcance ? { id: { in: alcance } } : {}) }, orderBy: { nombre: "asc" }, select: { id: true, nombre: true, nivel: true, grado: true } }),
     ctx.db.alumno.findMany({
@@ -419,7 +452,114 @@ export async function opcionesDeReporte(ctx: TenantContext): Promise<OpcionesRep
     grados: [...grados.values()]
       .sort((a, b) => ORDEN.indexOf(a.nivel) - ORDEN.indexOf(b.nivel) || a.grado - b.grado)
       .map((g) => ({ clave: claveGrado(g), nombre: nombreGrado(g) })),
-    alumnos, periodos: periodos.map((p) => ({ nombre: p.nombre, inicio: isoDeFechaDb(p.inicio), fin: isoDeFechaDb(p.fin) })) };
+    alumnos, periodos: periodos.map((p) => ({ nombre: p.nombre, inicio: isoDeFechaDb(p.inicio), fin: isoDeFechaDb(p.fin) })),
+    cursos: cursos.map((c) => ({
+      id: c.id, nombre: c.nombre, salonId: c.salonId, salon: c.salon.nombre,
+      grado: c.salon.grado === null ? null : claveGrado({ nivel: c.salon.nivel, grado: c.salon.grado }),
+    })),
+    tutorias,
+  };
+}
+
+// ───────────── Asistencia a clase por cursos (filtro «Curso» del profesor, specs/27) ─────────────
+
+export type FaltaClaseAlumno = { fecha: string; hora: string; curso: string; estado: "falta" | "tarde"; justificacion: EstadoJustificacion | null };
+
+export type ReporteCursos = {
+  tipo: "cursos";
+  colegio: string;
+  salon: { id: string; nombre: string } | null;
+  grado: (GradoReporte & { nombre: string }) | null;
+  alumno: { id: string; nombres: string; apellidos: string; salonId: string; salon: string } | null;
+  /** Un solo curso elegido; null = «Mis cursos» / «Todos los cursos». */
+  curso: { id: string; nombre: string } | null;
+  desde: string;
+  hasta: string;
+  hastaEfectivo: string;
+  /** Una fila por curso visible del alcance (también los que aún no tienen registros). */
+  filas: FilaCursoReporte[];
+  total: { registros: number; faltas: number; faltasConIngreso: number; tardanzas: number };
+  /** Con alumno: cada falta o tardanza a clase del rango (más reciente primero). */
+  detalle: FaltaClaseAlumno[] | null;
+};
+
+/**
+ * Asistencia a clase de los cursos que el rol puede ver, filtrada por salón, grado, alumno y curso. Profesor: los
+ * cursos que dicta y todos los de su tutoría (403 si el filtro no deja ninguno o el curso no es suyo). No incluye la
+ * asistencia al colegio. Auditado (`tipo: "cursos"`).
+ */
+export async function reporteCursos(ctx: TenantContext, filtros: FiltrosReporte, como: AccionReporte = { accion: "ver" }): Promise<ReporteCursos> {
+  requireFeature(ctx, "asistencia");
+  if (!veTodo(ctx) && ctx.rol !== "profesor") forbidden();
+  const { desde, hasta } = rangoSchema.parse(filtros);
+  const cursoId = filtros.cursoId && filtros.cursoId !== MIS_CURSOS ? z.uuid().parse(filtros.cursoId) : null;
+  const alumnoId = filtros.alumnoId ? z.uuid().parse(filtros.alumnoId) : null;
+  const alumno = alumnoId
+    ? await ctx.db.alumno.findFirst({ where: { id: alumnoId, estado: "activo" }, select: { id: true, nombres: true, apellidos: true, salonId: true, salon: { select: { nombre: true } } } })
+    : null;
+  if (alumnoId && !alumno) notFound();
+  const salonId = alumno?.salonId ?? (filtros.salonId ? z.uuid().parse(filtros.salonId) : null);
+  const grado = !salonId && filtros.grado ? filtros.grado : null;
+  const elegidos = (await cursosDelReporte(ctx)).filter((c) =>
+    (!salonId || c.salonId === salonId) && (!grado || (c.salon.nivel === grado.nivel && c.salon.grado === grado.grado)) && (!cursoId || c.id === cursoId));
+  if (elegidos.length === 0 && (cursoId || salonId || grado)) {
+    if (!veTodo(ctx)) forbidden();
+    if (cursoId) notFound();
+  }
+  const cursos = elegidos.filter((c) => asistenciaPorCursoActiva(ctx.tenant.asistenciaPorCursoNiveles, c.salon.nivel));
+  const ids = cursos.map((c) => c.id);
+  const hastaEfectivo = hastaEfectivoDe(ctx, hasta);
+  const salon = salonId ? await ctx.db.salon.findFirst({ where: { id: salonId }, select: { id: true, nombre: true } }) : null;
+  if (salonId && !salon) notFound();
+  const [agregadas, faltas] = await Promise.all([
+    asistenciaPorCurso(ctx, { salones: null, cursos: ids, ...(alumnoId ? { alumnoId } : {}) }, desde, hastaEfectivo),
+    alumnoId && ids.length > 0
+      ? ctx.db.asistencia.findMany({
+          where: { alumnoId, ambito: { in: ids }, fecha: { gte: fechaDb(desde), lte: fechaDb(hastaEfectivo) }, estado: { in: ["falta", "tarde"] } },
+          orderBy: [{ fecha: "desc" }, { hora: "asc" }],
+          select: { fecha: true, hora: true, estado: true, ambito: true, justificaciones: { orderBy: { createdAt: "desc" }, take: 1, select: { estado: true } } },
+        })
+      : Promise.resolve(null),
+  ]);
+  const porId = new Map(agregadas.map((f) => [f.cursoId, f]));
+  const filas = cursos.map<FilaCursoReporte>((c) => porId.get(c.id) ?? {
+    salonId: c.salonId, salon: c.salon.nombre, cursoId: c.id, curso: c.nombre, registros: 0, faltas: 0, faltasConIngreso: 0, tardanzas: 0,
+  });
+  const nombreCurso = new Map(cursos.map((c) => [c.id, c.nombre]));
+  const total = { registros: 0, faltas: 0, faltasConIngreso: 0, tardanzas: 0 };
+  for (const f of filas) {
+    total.registros += f.registros;
+    total.faltas += f.faltas;
+    total.faltasConIngreso += f.faltasConIngreso;
+    total.tardanzas += f.tardanzas;
+  }
+  await auditarReporte(ctx, alumnoId ?? cursoId ?? salonId ?? ctx.tenant.id, { tipo: "cursos", desde, hasta, ...(grado ? { grado: claveGrado(grado) } : {}) }, como);
+  const unico = cursoId ? cursos.find((c) => c.id === cursoId) ?? elegidos[0] : null;
+  return {
+    tipo: "cursos", colegio: ctx.tenant.nombre, salon, grado: grado ? { ...grado, nombre: nombreGrado(grado) } : null,
+    alumno: alumno ? { id: alumno.id, nombres: alumno.nombres, apellidos: alumno.apellidos, salonId: alumno.salonId, salon: alumno.salon.nombre } : null,
+    curso: unico ? { id: unico.id, nombre: unico.nombre } : null,
+    desde, hasta, hastaEfectivo, filas, total,
+    detalle: alumnoId ? (faltas ?? []).map((r) => ({
+      fecha: isoDeFechaDb(r.fecha), hora: r.hora, curso: nombreCurso.get(r.ambito) ?? "", estado: r.estado as "falta" | "tarde",
+      justificacion: r.justificaciones[0]?.estado ?? null,
+    })) : null,
+  };
+}
+
+/**
+ * ¿El filtro muestra la asistencia a clase por cursos (`reporteCursos`) en vez de la asistencia al colegio? Siempre con
+ * `curso`; para el profesor, además, todo lo que no sea su salón de tutoría o un alumno de ella.
+ */
+export async function esReporteDeCursos(ctx: TenantContext, filtros: FiltrosReporte): Promise<boolean> {
+  if (filtros.cursoId) return true;
+  if (ctx.rol !== "profesor") return false;
+  const tutorias = await tutoriasDe(ctx);
+  if (filtros.alumnoId) {
+    const alumno = await ctx.db.alumno.findFirst({ where: { id: filtros.alumnoId }, select: { salonId: true } });
+    return !alumno || !tutorias.includes(alumno.salonId);
+  }
+  return !filtros.salonId || !tutorias.includes(filtros.salonId);
 }
 
 // ───────────── Profesor: su salón de tutoría y el historial de sus cursos (specs/27) ─────────────
