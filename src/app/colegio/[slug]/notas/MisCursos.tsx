@@ -5,6 +5,7 @@ import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
 import { cursosDelRegistro } from "@/lib/server/registro-notas";
 import type { TenantContext } from "@/lib/server/tenant";
+import { ReportesPeriodo } from "./[cursoId]/periodo/ReportesPeriodo";
 
 type Curso = Awaited<ReturnType<typeof cursosDelRegistro>>["propios"][number];
 
@@ -67,6 +68,7 @@ export async function MisCursos({ ctx }: { ctx: TenantContext }) {
           )}
         </>
       )}
+      <ReportesPeriodo ctx={ctx} />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { Lock, MoreHorizontal, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Elegir, type Datos } from "./comun";
+import { BotonCalificacionPeriodo } from "./periodo/BotonCalificacionPeriodo";
 
 export function CabeceraRegistro({ datos, gestionar, onNueva }: { datos: Datos; gestionar: boolean; onNueva: () => void }) {
   const router = useRouter();
@@ -20,6 +21,7 @@ export function CabeceraRegistro({ datos, gestionar, onNueva }: { datos: Datos; 
         acciones={
           <div className="flex flex-wrap gap-2">
             {datos.puedeEditar && <Button onClick={onNueva}><Plus aria-hidden />Nueva calificación</Button>}
+            {periodo && <BotonCalificacionPeriodo cursoId={curso.id} periodoId={periodo.id} slug="" />}
             {gestionar && <Button variant="outline" render={<Link href={`/notas/competencias?curso=${curso.id}`} />}>Competencias</Button>}
           </div>
         }
