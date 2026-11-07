@@ -19,6 +19,7 @@ test.afterAll(async () => {
   await sql(`delete from evaluaciones where curso_id=$1 and titulo=$2`, [cursoId, titulo]);
   await sql(`delete from historial_notas where evaluacion_id in (select e.id from evaluaciones e join tareas t on t.id=e.tarea_id where t.titulo=$1)`, [tareaTitulo]);
   await sql(`delete from evaluaciones where tarea_id in (select id from tareas where titulo=$1)`, [tareaTitulo]);
+  await sql(`delete from evaluaciones where curso_id=$1 and titulo=$2`, [cursoId, `Tarea: ${tareaTitulo}`]);
   await sql(`delete from tareas where titulo=$1`, [tareaTitulo]);
 });
 
@@ -67,6 +68,20 @@ test("docente crea una calificación y ve una tarea en el mismo registro", async
   await page.getByRole("button", { name: "Cerrar" }).click();
   await page.getByRole("button", { name: new RegExp(`.*, ${titulo}:`) }).first().click();
   await page.screenshot({ path: `${carpeta}/notasB-edicion-1440.png` });
+  await page.getByRole("combobox", { name: /Nota de/ }).click();
+  await page.getByRole("option", { name: "B", exact: true }).click();
+  const correccion = page.getByRole("dialog", { name: "Corregir nota" });
+  await expect(correccion).toBeVisible();
+  await expect(correccion.getByText("Valor anterior")).toBeVisible();
+  await correccion.getByLabel("Motivo de la corrección").fill("corto");
+  await correccion.getByRole("button", { name: "Guardar corrección" }).click();
+  await expect(correccion.getByText("Escribe al menos 8 caracteres.")).toBeVisible();
+  await correccion.getByLabel("Motivo de la corrección").fill("Error de digitación al pasar la nota");
+  await correccion.getByRole("button", { name: "Guardar corrección" }).click();
+  await expect(correccion).toBeHidden();
+  await expect(page.getByRole("button", { name: new RegExp(`.*, ${titulo}: B`) }).first()).toBeVisible();
+  const [historial] = await sql<{ n: string }>(`select count(*)::text n from historial_notas h join evaluaciones e on e.id=h.evaluacion_id where e.curso_id=$1 and e.titulo=$2 and h.motivo is not null`, [cursoId, titulo]);
+  expect(Number(historial.n)).toBeGreaterThan(0);
   for (const [w, h] of [[1024, 768], [390, 844]] as const) {
     await page.setViewportSize({ width: w, height: h });
     await page.goto(colegio("/notas"));
@@ -111,5 +126,33 @@ test("docente crea una calificación y ve una tarea en el mismo registro", async
   await expect(primera.getByText("Nota: A")).toBeVisible();
   await page.goto(colegio(`/notas/${cursoId}`));
   await expect(page.getByRole("button", { name: new RegExp(tareaTitulo) }).first()).toBeVisible();
-  await expect(page.getByText("Tarea ·").first()).toBeVisible();
+  await expect(page.getByRole("columnheader", { name: /Manual/ }).first()).toBeVisible();
+  const columnaTarea = page.getByRole("columnheader", { name: new RegExp(tareaTitulo) });
+  await expect(columnaTarea).toContainText("Tarea");
+  await expect(columnaTarea).not.toContainText("Manual");
+  for (const [w, h] of [[1440, 900], [390, 844]] as const) {
+    await page.setViewportSize({ width: w, height: h });
+    await page.goto(colegio("/notas"));
+    await expect(page.getByRole("heading", { name: "Mis cursos" })).toBeVisible();
+    await page.screenshot({ path: `${carpeta}/notasC-mis-cursos-${w}.png`, fullPage: true });
+    await page.goto(colegio(`/notas/${cursoId}`));
+    await expect(page.getByRole("button", { name: new RegExp(tareaTitulo) }).first()).toBeVisible();
+    await page.screenshot({ path: `${carpeta}/notasC-registro-${w}.png`, fullPage: true });
+    await page.getByRole("button", { name: new RegExp(`.*, ${titulo}:`) }).first().click();
+    await page.getByRole("combobox", { name: /Nota de/ }).click();
+    await page.getByRole("option", { name: "A", exact: true }).click();
+    const dlg = page.getByRole("dialog", { name: "Corregir nota" });
+    await expect(dlg).toBeVisible();
+    await dlg.getByLabel("Motivo de la corrección").fill("corto");
+    await dlg.getByRole("button", { name: "Guardar corrección" }).click();
+    await page.waitForTimeout(400);
+    await page.screenshot({ path: `${carpeta}/notasC-correccion-${w}.png` });
+    await dlg.getByRole("button", { name: "Cancelar" }).click();
+    await page.getByRole("button", { name: new RegExp(tareaTitulo) }).first().click();
+    const det = page.getByRole("dialog", { name: new RegExp(tareaTitulo) });
+    await expect(det.getByText("Registrada el")).toBeVisible();
+    await expect(det.getByRole("link", { name: "Abrir tarea" })).toBeVisible();
+    await page.waitForTimeout(400);
+    await page.screenshot({ path: `${carpeta}/notasC-detalle-tarea-${w}.png` });
+  }
 });

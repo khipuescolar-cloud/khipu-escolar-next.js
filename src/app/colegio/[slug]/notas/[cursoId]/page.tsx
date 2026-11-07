@@ -12,7 +12,5 @@ export default async function Page({ params, searchParams }: PageProps<"/colegio
   const ctx = await requireTenantContext(slug);
   if (ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();
   const datos = await registroDelCurso(ctx, cursoId, typeof sp.periodo === "string" ? sp.periodo : undefined);
-  let gestionar = ctx.rol === "direccion";
-  try { gestionar = puedeGestionarCompetencias(ctx); } catch { /* contrato pendiente de integración */ }
-  return <RegistroCurso datos={datos} slug={slug} gestionar={gestionar} />;
+  return <RegistroCurso datos={datos} slug={slug} gestionar={puedeGestionarCompetencias(ctx)} />;
 }

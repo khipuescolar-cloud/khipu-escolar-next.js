@@ -8,24 +8,45 @@ import { cursoEscritura, cursoLectura, listarPeriodos, periodoAbierto, periodoEn
 import { requireFeature } from "./plan";
 import { type TenantContext } from "./tenant";
 
+const seleccionCurso = { id: true, nombre: true, profesorId: true, salon: { select: { id: true, nombre: true, nivel: true, grado: true, seccion: true, anio: true, tutorId: true, alumnos: { where: { estado: "activo" as const }, select: { id: true } } } } };
+const ordenCursos = [{ salon: { grado: "asc" as const } }, { salon: { nombre: "asc" as const } }, { nombre: "asc" as const }];
+
+/** Año académico vigente: el del periodo en curso del colegio; sin periodos, el más reciente entre sus salones activos. */
+export async function anioAcademicoVigente(ctx: TenantContext): Promise<number> {
+  const periodo = periodoEnCurso(await listarPeriodos(ctx));
+  if (periodo) return periodo.anio;
+  const reciente = await ctx.db.salon.aggregate({ where: { archivadoAt: null }, _max: { anio: true } });
+  return reciente._max.anio ?? new Date().getFullYear();
+}
+
+/**
+ * Cursos del registro. `propios`: los que el profesor dicta (dirección: todos).
+ * `tutoria`: los demás cursos del salón que tutora, de solo lectura (cursoLectura ya lo permite).
+ */
 export async function cursosDelRegistro(ctx: TenantContext) {
   requireFeature(ctx, "notas");
   if (ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();
-  return ctx.db.curso.findMany({
-    where: { salon: { archivadoAt: null, anio: new Date().getFullYear() }, ...(ctx.rol === "profesor" ? { OR: [{ profesorId: ctx.membership.id }, { salon: { tutorId: ctx.membership.id } }] } : {}) },
-    select: { id: true, nombre: true, salon: { select: { id: true, nombre: true, nivel: true, grado: true, seccion: true, anio: true, alumnos: { where: { estado: "activo" }, select: { id: true } } } } },
-    orderBy: [{ salon: { grado: "asc" } }, { salon: { nombre: "asc" } }, { nombre: "asc" }],
-  });
+  const anio = await anioAcademicoVigente(ctx);
+  const salon = { archivadoAt: null, anio };
+  if (ctx.rol === "direccion") return { anio, propios: await ctx.db.curso.findMany({ where: { salon }, select: seleccionCurso, orderBy: ordenCursos }), tutoria: [] };
+  const [propios, tutoria] = await Promise.all([
+    ctx.db.curso.findMany({ where: { salon, profesorId: ctx.membership.id }, select: seleccionCurso, orderBy: ordenCursos }),
+    ctx.db.curso.findMany({ where: { salon: { ...salon, tutorId: ctx.membership.id }, NOT: { profesorId: ctx.membership.id } }, select: seleccionCurso, orderBy: ordenCursos }),
+  ]);
+  return { anio, propios, tutoria };
 }
 
+/**
+ * Competencias activas del curso para el registro. No se usa `competenciasDelCurso` (curriculo.ts): exige que el
+ * profesor dicte el curso, y el tutor del salón también lee este registro en modo solo lectura.
+ */
 export async function competenciasActivasDelCurso(ctx: TenantContext, cursoId: string) {
-  // TODO: usar competenciasDelCurso al integrar
   return ctx.db.competencia.findMany({ where: { cursoId, desactivadaAt: null }, select: { id: true, nombre: true, orden: true }, orderBy: [{ orden: "asc" }, { nombre: "asc" }] });
 }
 
 export async function registroDelCurso(ctx: TenantContext, cursoId: string, periodoId?: string) {
   await cursoLectura(ctx, cursoId);
-  const curso = await ctx.db.curso.findFirst({ where: { id: cursoId }, select: { id: true, nombre: true, salon: { select: { id: true, nombre: true, nivel: true, anio: true } } } });
+  const curso = await ctx.db.curso.findFirst({ where: { id: cursoId }, select: { id: true, nombre: true, profesorId: true, salon: { select: { id: true, nombre: true, nivel: true, anio: true } } } });
   if (!curso) forbidden();
   const [periodos, alumnos, competencias] = await Promise.all([
     listarPeriodos(ctx, curso.salon.nivel),
@@ -39,7 +60,7 @@ export async function registroDelCurso(ctx: TenantContext, cursoId: string, peri
     orderBy: [{ fecha: "asc" }, { creadaAt: "asc" }],
   }) : [];
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "registro_notas", entidadId: cursoId, detalle: { periodoId: periodo?.id ?? null } });
-  return { curso, periodos, periodo, alumnos, competencias, evaluaciones: evaluaciones.map((e) => ({ ...e, peso: Number(e.peso), notas: e.notas.map((n) => ({ ...n, valorNumerico: n.valorNumerico === null ? null : Number(n.valorNumerico) })) })), escala: ctx.tenant.escalaCalificacion, puedeEditar: ctx.rol === "profesor" && !!periodo && !periodo.cerrado };
+  return { curso, periodos, periodo, alumnos, competencias, evaluaciones: evaluaciones.map((e) => ({ ...e, peso: Number(e.peso), notas: e.notas.map((n) => ({ ...n, valorNumerico: n.valorNumerico === null ? null : Number(n.valorNumerico) })) })), escala: ctx.tenant.escalaCalificacion, soloLectura: ctx.rol === "profesor" && curso.profesorId !== ctx.membership.id, puedeEditar: ctx.rol === "profesor" && curso.profesorId === ctx.membership.id && !!periodo && !periodo.cerrado };
 }
 
 const esquema = z.object({
@@ -55,6 +76,7 @@ export async function crearCalificacion(ctx: TenantContext, entrada: unknown): P
   const existente = await ctx.db.evaluacion.findFirst({ where: { claveIdempotencia: x.claveIdempotencia }, select: { id: true, cursoId: true } });
   if (existente) { await cursoEscritura(ctx, existente.cursoId); return { ok: true, evaluacionId: existente.id }; }
   const curso = await cursoEscritura(ctx, x.cursoId);
+  if (curso.profesorId !== ctx.membership.id) return fallo("Solo quien dicta el curso registra calificaciones aquí; el tutor del salón consulta en solo lectura.");
   const abierto = await periodoAbierto(ctx, x.periodoId, x.cursoId);
   if (abierto.error) return fallo(abierto.error);
   const periodo = abierto.periodo;

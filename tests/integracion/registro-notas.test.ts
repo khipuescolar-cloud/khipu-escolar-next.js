@@ -25,9 +25,9 @@ afterAll(async () => { await c.limpiar(); await otro.limpiar(); await db.$discon
 
 describe("Registro de notas", () => {
   it("muestra solo cursos propios y alumnos matriculados", async () => {
-    const cursos = await cursosDelRegistro(c.ctxDe("tutora"));
-    expect(cursos.map((x) => x.id)).toContain(c.cursoTutora.id);
-    expect(cursos.map((x) => x.id)).not.toContain(c.cursoAjeno.id);
+    const { propios } = await cursosDelRegistro(c.ctxDe("tutora"));
+    expect(propios.map((x) => x.id)).toContain(c.cursoTutora.id);
+    expect(propios.map((x) => x.id)).not.toContain(c.cursoAjeno.id);
     const registro = await registroDelCurso(c.ctxDe("tutora"), c.cursoTutora.id, periodoId);
     expect(registro.alumnos.map((x) => x.id).sort()).toEqual([c.alumnos.mateo.id, c.alumnos.valentina.id].sort());
     await expect(registroDelCurso(c.ctxDe("tutora"), c.cursoAjeno.id, periodoId)).rejects.toMatchObject({ digest: expect.stringContaining(";403") });
@@ -63,9 +63,38 @@ describe("Registro de notas", () => {
     const asignacion = await c.db.tareaAsignacion.findFirstOrThrow({ where: { tareaId: r.tareaId, alumnoId: c.alumnos.mateo.id } });
     expect((await calificarEntrega(c.ctxDe("tutora"), asignacion.id, { valor: "A" })).ok).toBe(true);
     const ev = evaluaciones.find((e) => e.cursoId === c.cursoTutora.id)!;
+    expect(evaluaciones.every((e) => e.tareaId === r.tareaId)).toBe(true);
     const registro = await registroDelCurso(c.ctxDe("tutora"), c.cursoTutora.id, periodoId);
     expect(registro.evaluaciones.find((e) => e.id === ev.id)?.notas.find((n) => n.alumnoId === c.alumnos.mateo.id)?.valorLiteral).toBe("A");
     expect(await c.db.nota.count({ where: { evaluacionId: ev.id, alumnoId: c.alumnos.mateo.id } })).toBe(1);
+  });
+  it("el origen sale de tareaId: columna de tarea con tarea, columna creada a mano sin tarea", async () => {
+    const registro = await registroDelCurso(c.ctxDe("tutora"), c.cursoTutora.id, periodoId);
+    const deTarea = registro.evaluaciones.filter((e) => e.titulo.startsWith("Tarea: "));
+    expect(deTarea.length).toBeGreaterThan(0);
+    expect(deTarea.every((e) => e.tareaId !== null && e.creadaPorId !== null)).toBe(true);
+    const manual = registro.evaluaciones.find((e) => e.claveIdempotencia === clave);
+    expect(manual?.tareaId).toBeNull();
+  });
+  it("Mis cursos lista solo los que dicta; los demás del salón que tutora van aparte y de solo lectura", async () => {
+    const delTutor = await c.db.curso.create({ data: { tenantId: c.tenant.id, salonId: c.salon.id, nombre: "Ciencia y Tecnología", profesorId: c.miembros.otroProfesor.membership.id } });
+    const dictadoFuera = await c.db.curso.create({ data: { tenantId: c.tenant.id, salonId: c.otroSalon.id, nombre: "Arte", profesorId: c.miembros.tutora.membership.id } });
+    const tutora = await cursosDelRegistro(c.ctxDe("tutora"));
+    const propios = tutora.propios.map((x) => x.id);
+    expect(propios).toEqual(expect.arrayContaining([c.cursoTutora.id, dictadoFuera.id]));
+    expect(propios).not.toContain(delTutor.id);
+    expect(tutora.tutoria.map((x) => x.id)).toEqual([delTutor.id]);
+    expect(tutora.propios.find((x) => x.id === c.cursoTutora.id)?.salon.alumnos).toHaveLength(2);
+    const lectura = await registroDelCurso(c.ctxDe("tutora"), delTutor.id, periodoId);
+    expect(lectura.soloLectura).toBe(true);
+    expect(lectura.puedeEditar).toBe(false);
+    const propio = await registroDelCurso(c.ctxDe("tutora"), c.cursoTutora.id, periodoId);
+    expect(propio.soloLectura).toBe(false);
+    const entrada = { cursoId: delTutor.id, periodoId, competenciaId, claveIdempotencia: randomUUID(), nombre: "Intento", fecha, notas: [] };
+    expect((await crearCalificacion(c.ctxDe("tutora"), entrada)).ok).toBe(false);
+    const dir = await cursosDelRegistro(c.ctxDe("direccion"));
+    expect(dir.propios.map((x) => x.id)).toEqual(expect.arrayContaining([c.cursoTutora.id, delTutor.id, c.cursoAjeno.id]));
+    expect(dir.tutoria).toEqual([]);
   });
   it("exige competencia y bloquea periodo cerrado", async () => {
     const base = { cursoId: c.cursoTutora.id, periodoId, claveIdempotencia: randomUUID(), nombre: "Otra", fecha, notas: [] };

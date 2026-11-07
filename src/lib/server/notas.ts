@@ -435,7 +435,7 @@ export async function crearEvaluacion(ctx: TenantContext, entrada: unknown, opci
   const base = {
     tenantId: ctx.tenant.id, cursoId: d.data.cursoId, periodoId: d.data.periodoId, titulo: d.data.titulo, grupoId,
     fecha: fechaDate(d.data.fecha), peso: d.data.peso, instrumento: d.data.instrumento ?? null,
-    descripcion: d.data.descripcion || null, estado: "programada" as const, tareaId: opciones.tareaId ?? null,
+    descripcion: d.data.descripcion || null, estado: "programada" as const, tareaId: opciones.tareaId ?? null, creadaPorId: ctx.membership.id,
   };
   const destinos = competenciaIds.length > 0 ? competenciaIds : [null];
   const creadas: string[] = [];

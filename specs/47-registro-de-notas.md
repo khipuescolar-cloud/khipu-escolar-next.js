@@ -9,7 +9,7 @@ Dar al docente un registro por curso semejante a una tabla de calificaciones, co
 
 | Rol | Puede | No puede |
 |---|---|---|
-| Profesor | Ver y calificar cursos que dicta o salones que tutorea; gestionar sus competencias solo con `gestionaCompetencias` explícito | Ver o editar cursos ajenos, cambiar periodos cerrados |
+| Profesor | Ver y calificar los cursos que dicta; leer (sin registrar ni corregir) los demás cursos del salón que tutorea; gestionar sus competencias solo con `gestionaCompetencias` explícito | Ver o editar cursos ajenos, cambiar periodos cerrados |
 | Dirección y rol académico equivalente autorizado por la institución | Ver cursos y gestionar competencias del colegio, periodos y cierre según permisos vigentes | Saltar auditoría, publicación o aislamiento del colegio |
 | Apoderado y alumno | Consultar sus notas publicadas y libreta según specs/11 | Editar o ver otros alumnos |
 | Otros roles o Khipu Base | Solo acceso permitido por specs/11 y 03 | Acceder al registro docente |
@@ -18,10 +18,10 @@ Cada operación valida `requireFeature(ctx, "notas")`, rol, curso y alcance con 
 
 ## Flujos
 
-1. **Mis cursos:** al entrar a Registro de notas, el docente ve cursos asignados del año académico, cada uno con nombre, nivel, grado, sección y cantidad de alumnos. Cada sección tiene registro propio.
-2. **Registro del curso:** se abre el periodo vigente o elegido; la primera columna fija muestra alumnos y las columnas existentes se agrupan por competencia, con desplazamiento horizontal. Cada columna señala origen manual o tarea, fecha, pendientes, NSP y detalles. No se crean columnas por capacidades o desempeños vacíos.
-3. **Nueva calificación:** el docente pone nombre, descripción opcional, fecha académica editable y notas para los alumnos precargados. El periodo sale del contexto y admite corrección válida. Antes de confirmar elige una competencia activa aplicable. Los valores nulos quedan pendientes. Cancelar la confirmación conserva el formulario.
-4. **Tareas:** una tarea calificable elige competencia válida; una entrega no genera nota. Al calificar, se crea o usa la `Evaluacion` con `tareaId` y se guarda la misma `Nota` que lee el registro. Correcciones en cualquiera de las vistas muestran el mismo resultado.
+1. **Mis cursos:** al entrar a Registro de notas, el docente ve solo los cursos que dicta (`Curso.profesorId`) del año académico vigente (el del periodo en curso del colegio; sin periodos, el del salón activo más reciente), cada uno con nombre, nivel, grado, sección y cantidad de alumnos y el botón «Abrir registro». Si además es tutor, debajo aparece la sección discreta «Salón que tutoras · solo lectura» con los demás cursos de su salón; esos registros se abren sin «Nueva calificación» ni edición de celdas, y el servidor rechaza crear calificaciones ahí. Dirección ve todos los cursos agrupados por grado.
+2. **Registro del curso:** se abre el periodo vigente o elegido; la primera columna fija muestra alumnos y las columnas existentes se agrupan por competencia, con desplazamiento horizontal. Las columnas de actividad tienen ancho compacto fijo (nombre truncado, origen y fecha debajo); el nombre de cada bloque de competencia ocupa como máximo dos líneas, con el texto completo en `title`. El origen sale de `Evaluacion.tareaId`: con valor es «Tarea», sin valor «Manual». Los pendientes se ven con un guion tenue, nunca como C ni NSP. Al pulsar el encabezado de una columna se abre el detalle (descripción, fecha de la actividad, «Registrada el» con fecha y hora, quién la registró, competencia, origen y enlace a la tarea; las tareas viejas sin competencia van en «Sin competencia» con «Asignar competencia»). La corrección de una celda con valor previo, o de una actividad publicada, pide el motivo en un diálogo (valor anterior y nuevo, motivo de al menos 8 caracteres, «Cancelar» y «Guardar corrección»). No se crean columnas por capacidades o desempeños vacíos.
+3. **Nueva calificación:** el docente pone nombre, descripción opcional, fecha académica editable y notas para los alumnos precargados. El periodo sale del contexto y admite corrección válida. Antes de confirmar elige una competencia activa aplicable. Los valores nulos quedan pendientes. «Atrás» del paso 2 conserva el formulario; «Cancelar» del paso 1 lo descarta.
+4. **Tareas:** una tarea calificable elige competencia válida; una entrega no genera nota. Al calificar, se crea o usa la `Evaluacion` con `tareaId` y `creadaPorId` del docente y se guarda la misma `Nota` que lee el registro. Correcciones en cualquiera de las vistas muestran el mismo resultado.
 5. **Libreta:** el docente valora cada competencia del periodo con su criterio. El registro aporta evidencias; no genera promedios automáticos ni reemplaza `CalificacionPeriodo`.
 
 ## Reglas de negocio
@@ -48,13 +48,14 @@ puedeGestionarCompetencias(ctx)
 crearCompetencia(ctx, datos); editarCompetencia(ctx, id, cambios)
 desactivarCompetencia(ctx, id); reactivarCompetencia(ctx, id)
 restaurarPlantillaOficial(ctx, cursoId)
-cursosDelDocente(ctx, anio?)
+cursosDelRegistro(ctx)  // { anio, propios, tutoria }
+anioAcademicoVigente(ctx)
 registroDelCurso(ctx, cursoId, periodoId?)
 crearCalificacion(ctx, { cursoId, periodoId?, nombre, descripcion?, fecha, competenciaId, notas, claveIdempotencia })
 editarNotaRegistro(ctx, { evaluacionId, alumnoId, valor, motivo })
 ```
 
-Las firmas de PASO 0 son contratos; su implementación pertenece a pasos posteriores. `src/lib/server/notas.ts` y `tareas/*` siguen siendo la fuente de reglas ya aplicadas.
+`competenciasActivasDelCurso` (registro) lee con `ctx.db` y no usa `competenciasDelCurso`, que exige que el profesor dicte el curso: el tutor también lee el registro. `src/lib/server/notas.ts` y `tareas/*` siguen siendo la fuente de reglas ya aplicadas.
 
 ## Rutas y UI
 
@@ -75,6 +76,7 @@ El botón principal dice «Nueva calificación». Los estados combinan ícono y 
 
 ## Pruebas
 
+- Integración (registro): origen tarea/manual por `tareaId`; Mis cursos solo con los cursos que dicta y tutoría aparte, de solo lectura.
 - Unit: agrupación por competencias, origen, pendientes y validación de escala.
 - Integración: permisos por tenant/rol/curso; competencia desactivada; transacción e idempotencia; tarea y registro comparten `Nota`; NSP, historial, cierre y libreta.
 - E2E: Mis cursos → Registro → Nueva calificación; tarea calificada visible en registro; valoración de libreta independiente.
