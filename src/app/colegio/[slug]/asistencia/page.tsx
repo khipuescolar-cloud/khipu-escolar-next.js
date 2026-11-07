@@ -1,4 +1,4 @@
-import { ArrowLeft, BarChart3, CalendarCheck, CalendarX, ChevronRight, ClipboardCheck, FileText, LogOut, MessageSquarePlus, Users } from "lucide-react";
+import { ArrowLeft, BarChart3, CalendarCheck, CalendarX, ChevronRight, ClipboardCheck, DoorOpen, FileText, LogOut, MessageSquarePlus, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -78,7 +78,24 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
           <section key={nombre} data-seccion="dia" className="flex flex-col gap-2">
             <TituloBloque id={`salon-${nombre}`}>{nombre}</TituloBloque>
             <ul className="grid divide-y divide-borde-sutil border-y border-borde-sutil lg:grid-cols-2 lg:gap-x-10">
-              {lista.map((o) => (
+              {lista.map((o) => o.ambito === AMBITO_DIA ? (
+                // Ingreso al colegio (respaldo de portería): otro color y una línea que lo explica, para no confundirlo con un curso.
+                <li key={o.ambito} className="py-2 lg:[&:nth-child(2)]:border-t-0">
+                  <Link
+                    href={`/asistencia?salon=${o.salonId}&ambito=${o.ambito}`}
+                    className="group/lista flex min-h-16 items-center justify-between gap-3 rounded-md border border-info/25 bg-info-fondo px-3 py-3 font-semibold text-info outline-none hover:border-info/50 focus-visible:ring-3 focus-visible:ring-ring/50"
+                  >
+                    <span className="flex items-center gap-3">
+                      <DoorOpen className="size-5 shrink-0" strokeWidth={2} aria-hidden />
+                      <span className="flex flex-col gap-0.5">
+                        {`Asistencia del día · ${nombre}`}
+                        <span className="text-cuerpo-sm font-normal">Ingreso al colegio · respaldo si portería no lo registró</span>
+                      </span>
+                    </span>
+                    <ChevronRight className="size-4 shrink-0 transition-transform duration-150 group-hover/lista:translate-x-0.5 motion-reduce:transition-none" strokeWidth={2} aria-hidden />
+                  </Link>
+                </li>
+              ) : (
                 <li key={o.ambito} className="lg:[&:nth-child(2)]:border-t-0">
                   <Link
                     href={`/asistencia?salon=${o.salonId}&ambito=${o.ambito}`}
@@ -88,7 +105,7 @@ async function ElegirLista({ ctx }: { ctx: TenantContext }) {
                       <CalendarCheck className="size-5 shrink-0 text-sec-trazo" strokeWidth={2} aria-hidden />
                       <span className="flex flex-col gap-0.5">
                         {enHorario(o)?.ahora && <InsigniaAhora />}
-                        {o.ambito === AMBITO_DIA ? `Asistencia del día · ${nombre}` : `${o.titulo} · ${nombre}`}
+                        {`${o.titulo} · ${nombre}`}
                         {enHorario(o) && <span className="text-cuerpo-sm font-normal text-muted-foreground tabular-nums">Hoy {rango(enHorario(o)!)}</span>}
                       </span>
                     </span>

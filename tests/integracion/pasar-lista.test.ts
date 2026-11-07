@@ -78,6 +78,27 @@ describe("pasar lista", () => {
     await esperarProhibido(obtenerLista(c.ctxDe("otroProfesor"), c.salon.id, c.cursoTutora.id));
   });
 
+  it("el tutor solo ve y pasa lista en los cursos que dicta; de su salón le queda la «Asistencia del día»", async () => {
+    // Inglés de 3.° B lo dicta otro profesor: la tutora de 3.° B no lo ve ni lo puede pasar (specs/04).
+    const ingles = await db.curso.create({ data: { tenantId: c.tenant.id, salonId: c.salon.id, nombre: "Inglés", profesorId: c.miembros.otroProfesor.membership.id } });
+    try {
+      const deTutora = await opcionesDeLista(c.ctxDe("tutora"));
+      expect(deTutora.filter((o) => o.salonId === c.salon.id).map((o) => o.titulo)).toEqual(["Asistencia del día", "Matemática"]);
+      expect(deTutora.some((o) => o.salonId === c.otroSalon.id)).toBe(false);
+      await esperarProhibido(obtenerLista(c.ctxDe("tutora"), c.salon.id, ingles.id));
+      await esperarProhibido(
+        guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: ingles.id, registros: [{ alumnoId: c.alumnos.mateo.id, estado: "llego" }] }),
+      );
+      // Quien dicta Inglés sí la ve, sin la «Asistencia del día» de 3.° B; dirección ve todas.
+      const delProfesor = (await opcionesDeLista(c.ctxDe("otroProfesor"))).filter((o) => o.salonId === c.salon.id);
+      expect(delProfesor.map((o) => o.titulo)).toEqual(["Inglés"]);
+      expect((await obtenerLista(c.ctxDe("otroProfesor"), c.salon.id, ingles.id)).curso?.nombre).toBe("Inglés");
+      expect((await opcionesDeLista(c.ctxDe("direccion"))).filter((o) => o.salonId === c.salon.id).map((o) => o.titulo)).toEqual(["Asistencia del día", "Inglés", "Matemática"]);
+    } finally {
+      await db.curso.delete({ where: { id: ingles.id } });
+    }
+  });
+
   it("no acepta alumnos de otro salón en la lista", async () => {
     await esperarProhibido(
       guardarLista(c.ctxDe("tutora"), { salonId: c.salon.id, ambito: "dia", registros: [{ alumnoId: c.alumnos.thiago.id, estado: "falta" }] }),
