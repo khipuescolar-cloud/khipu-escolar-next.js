@@ -12,6 +12,19 @@ test.afterAll(async () => {
   await sql("delete from notificaciones where tipo = 'tarea' and created_at >= $1", [INICIO]);
 });
 
+/** Curso elegido en «Nueva tarea» («Matemática · 3.° B»): con eso se abre su carpeta en la pestaña «Cursos». */
+async function cursoElegido(page: Page) {
+  return page.getByRole("dialog").getByRole("combobox", { name: /^Curso/ }).evaluate((e) => (e as HTMLSelectElement).selectedOptions[0].text);
+}
+
+/** Pestaña «Cursos» (specs/39): abre la carpeta de ese curso. */
+async function abrirCarpeta(page: Page, etiqueta: string) {
+  const [curso, salon] = etiqueta.split(" · ");
+  await page.goto(colegio("nuevohorizonte", "/tareas"));
+  await page.getByRole("list", { name: "Cursos" }).getByRole("link").filter({ hasText: salon }).filter({ hasText: curso }).first().click();
+  await page.waitForURL(/curso=/);
+}
+
 async function entrar(page: Page, correo: string, slug: string) {
   await page.goto("/login");
   await page.getByLabel("Correo").fill(correo);
@@ -31,10 +44,11 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada y en sus no
   const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
   await page.getByLabel("Fecha de entrega", { exact: true }).fill(manana);
   await page.getByLabel("Avisar a las familias").check();
+  const curso = await cursoElegido(page);
   await page.getByRole("button", { name: "Crear tarea" }).click();
   await expect(page.getByText("Tarea creada.")).toBeVisible();
-  // Aparece en «Para revisar» (vence mañana) y en la lista por salón.
-  await expect(page.getByRole("region", { name: "Para revisar" }).getByText(titulo)).toBeVisible();
+  // Aparece dentro de la carpeta de su curso, en la tarjeta del salón.
+  await abrirCarpeta(page, curso);
   await expect(page.getByRole("region", { name: "3.° B" }).getByText(titulo, { exact: true })).toBeVisible();
 
   await context.clearCookies();
@@ -54,7 +68,7 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada y en sus no
   // Limpieza: la profesora borra la tarea.
   await context.clearCookies();
   await entrar(page, "lucia.garcia@nuevohorizonte.demo", "nuevohorizonte");
-  await page.goto(colegio("nuevohorizonte", "/tareas"));
+  await abrirCarpeta(page, curso);
   await page.locator("li", { hasText: titulo }).getByRole("button", { name: "Eliminar" }).click();
   await page.getByRole("alertdialog").getByRole("button", { name: "Eliminar tarea" }).click();
   await expect(page.getByText(titulo)).toHaveCount(0);
@@ -91,9 +105,11 @@ test("la profesora edita su tarea y descarga el calendario .ics", async ({ page 
   await page.getByLabel("Título", { exact: true }).fill(titulo);
   const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
   await page.getByLabel("Fecha de entrega", { exact: true }).fill(manana);
+  const curso = await cursoElegido(page);
   await page.getByRole("button", { name: "Crear tarea" }).click();
   await expect(page.getByText("Tarea creada.")).toBeVisible();
 
+  await abrirCarpeta(page, curso);
   const fila = page.getByRole("region", { name: "3.° B" }).locator("li", { hasText: titulo }).first();
   await fila.getByRole("button", { name: /^Editar/ }).click();
   const dialogo = page.getByRole("dialog");
@@ -114,7 +130,7 @@ test("la profesora edita su tarea y descarga el calendario .ics", async ({ page 
   await expect(page.getByRole("link", { name: "Descargar calendario (.ics)" })).toBeVisible();
 
   // Limpieza.
-  await page.goto(colegio("nuevohorizonte", "/tareas"));
+  await abrirCarpeta(page, curso);
   await page.getByRole("region", { name: "3.° B" }).locator("li", { hasText: nuevo }).first().getByRole("button", { name: "Eliminar" }).click();
   await page.getByRole("alertdialog").getByRole("button", { name: "Eliminar tarea" }).click();
   await expect(page.getByText(nuevo)).toHaveCount(0);

@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, ChevronRight, ClipboardCheck, Inbox, LockOpen, Pencil, Send, Trash2 } from "lucide-react";
+import { CheckCircle2, ChevronRight, Folder, FolderOpen, Inbox, LockOpen, Pencil, Send, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { CamposAdjuntos } from "@/components/adjuntos/CamposAdjuntos";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
@@ -6,17 +6,19 @@ import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { Campo } from "@/components/ui/Campo";
 import { Textarea } from "@/components/ui/textarea";
 import { momentoEnZona } from "@/lib/fechas";
-import { agendaDeRevision, HORIZONTE_REVISION_DIAS, MAX_INSTRUCCIONES, type ItemRevision } from "@/lib/tareas";
+import { MAX_INSTRUCCIONES } from "@/lib/tareas";
 import type { limitesTarea, TareaDocente } from "@/lib/server/tareas";
 import { actualizarTareaAction, cerrarTareaAction, eliminarTareaAction, publicarTareaAction } from "./actions";
 import { SelectorMaterialesTarea } from "./CamposNuevaTarea";
 import { EstadoTarea, FechaEntrega, Revisada } from "./insignias";
 import { SeccionFormulario } from "./SeccionFormulario";
 
-// Lista del docente y de dirección (specs/39): mismo lenguaje que la vista del alumno. Banda «Para revisar» arriba,
-// pestañas por estado y tarjetas por salón con las tareas agrupadas por curso.
+// Lista del docente y de dirección (specs/39): mismo lenguaje que la vista del alumno. Pestaña «Cursos» con carpetas
+// y, en cada pestaña o carpeta, tarjetas por salón con las tareas agrupadas por curso.
 
 type Seccion = TareaDocente["secciones"][number];
+/** Tarea con sus secciones filtradas por la pestaña; `seccionesTodas` conserva todas para «También en …». */
+export type TareaLista = TareaDocente & { seccionesTodas?: Seccion[] };
 type Material = { id: string; titulo: string; curso: string; salon: string; carpeta: string };
 type Comun = { slug: string; zona: string; limites: ReturnType<typeof limitesTarea>; materiales: Material[]; referencias: { tareaId: string; materialId: string }[]; esDireccion: boolean };
 
@@ -44,58 +46,34 @@ function Avance({ k, revisada = false }: { k: Seccion["contadores"]; revisada?: 
   );
 }
 
-/** Tarjeta de la banda «Para revisar» (mismo estilo que «Vence pronto» de la vista del alumno). */
-function TarjetaRevision({ item }: { item: ItemRevision<TareaDocente, Seccion> }) {
-  const { tarea: t, seccion: s } = item;
+/** Pestaña «Cursos»: una carpeta por curso (salón + curso) con sus tareas y lo que falta revisar; abre `/tareas?curso=`. */
+export function CarpetasCursos({ carpetas }: { carpetas: { id: string; curso: string; salon: string; tareas: number; porRevisar: number }[] }) {
+  const orden = [...carpetas].sort((a, b) => ordenEs(a.salon, b.salon) || ordenEs(a.curso, b.curso));
   return (
-    <li className="min-w-0">
-      <Link
-        href={enlaceRevision(t, s)}
-        className="group/card flex h-full flex-col gap-2 rounded-xl bg-superficie p-4 shadow-[0_1px_2px_rgb(0_0_0/0.05)] outline-none transition-shadow duration-150 hover:shadow-[0_2px_4px_rgb(0_0_0/0.06),0_8px_20px_-8px_rgb(0_0_0/0.18)] focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:transition-none"
-      >
-        <span className="flex min-w-0 items-baseline gap-1.5 text-cuerpo-sm text-sec-tinta"><span className="shrink-0 font-semibold">{s.salon}</span><span aria-hidden>·</span><span className="truncate">{s.curso}</span></span>
-        <span className="text-cuerpo font-semibold text-pretty">{t.titulo}</span>
-        <span className="flex flex-wrap items-center gap-2">
-          <FechaEntrega fecha={s.fechaPropia ?? t.fechaEntrega} conHora={t.conHora} vencida={s.vencida} />
-          {s.contadores.porRevisar > 0 && <PorRevisar n={s.contadores.porRevisar} />}
-        </span>
-        <span className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-1">
-          <Avance k={s.contadores} />
-          <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
-            Revisar<ArrowRight className="size-4 transition-transform duration-150 group-hover/card:translate-x-0.5 motion-reduce:transition-none" strokeWidth={2} aria-hidden />
-          </span>
-        </span>
-      </Link>
-    </li>
-  );
-}
-
-/** Banda «Para revisar»: lo de hoy (vence hoy o vencido con entregas sin revisar) y lo que vence en los próximos días. */
-export function AgendaRevision({ tareas, zona }: { tareas: TareaDocente[]; zona: string }) {
-  const { hoy, proximos } = agendaDeRevision(tareas, new Date(), zona);
-  const grupos = [
-    { id: "revisar-hoy", titulo: "Hoy", items: hoy },
-    { id: "revisar-proximos", titulo: `Próximos ${HORIZONTE_REVISION_DIAS} días`, items: proximos },
-  ].filter((g) => g.items.length > 0);
-  return (
-    <section aria-labelledby="para-revisar" className="flex flex-col gap-4 rounded-2xl bg-sec-suave p-4 sm:p-5">
-      <h2 id="para-revisar" className="flex items-center gap-2 font-heading text-lg font-semibold text-sec-tinta">
-        <ClipboardCheck className="size-5" strokeWidth={2} aria-hidden />Para revisar
-        <span className="rounded-pildora bg-superficie px-2 py-0.5 text-etiqueta tabular-nums">{hoy.length + proximos.length}</span>
-      </h2>
-      {grupos.length === 0 ? (
-        <p className="flex items-center gap-2 text-cuerpo text-sec-tinta">
-          <CheckCircle2 className="size-5 text-llego" strokeWidth={2} aria-hidden />Estás al día: no tienes entregas por revisar ni plazos cerca.
-        </p>
-      ) : grupos.map((g) => (
-        <div key={g.id} className="flex flex-col gap-2">
-          <h3 id={g.id} className="text-cuerpo-sm font-semibold text-sec-tinta">{g.titulo} <span className="font-normal tabular-nums">· {g.items.length}</span></h3>
-          <ul aria-labelledby={g.id} className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-            {g.items.map((item) => <TarjetaRevision key={item.seccion.id} item={item} />)}
-          </ul>
-        </div>
+    <ul aria-label="Cursos" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {orden.map((c) => (
+        <li key={c.id} className="min-w-0">
+          <Link
+            href={`/tareas?curso=${c.id}`}
+            className="group/carpeta flex h-full items-start gap-3 rounded-2xl border border-borde-sutil bg-superficie p-4 outline-none transition-[box-shadow,border-color] duration-150 hover:border-sec-trazo/40 hover:shadow-[0_2px_4px_rgb(0_0_0/0.06),0_8px_20px_-8px_rgb(0_0_0/0.18)] focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:transition-none"
+          >
+            <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-sec-suave text-sec-tinta">
+              <Folder className="size-5 group-hover/carpeta:hidden" strokeWidth={2} aria-hidden />
+              <FolderOpen className="hidden size-5 group-hover/carpeta:block" strokeWidth={2} aria-hidden />
+            </span>
+            <span className="flex min-w-0 flex-1 flex-col gap-1">
+              <span className="font-heading text-base font-semibold">{c.salon}</span>
+              <span className="line-clamp-2 text-cuerpo-sm text-muted-foreground">{c.curso}</span>
+              <span className="mt-1 flex flex-wrap items-center gap-2">
+                <span className="text-cuerpo-sm tabular-nums text-muted-foreground">{c.tareas === 0 ? "Sin tareas" : `${c.tareas} ${c.tareas === 1 ? "tarea" : "tareas"}`}</span>
+                {c.porRevisar > 0 && <PorRevisar n={c.porRevisar} />}
+              </span>
+            </span>
+            <ChevronRight className="mt-1 size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover/carpeta:translate-x-0.5 motion-reduce:transition-none" strokeWidth={2} aria-hidden />
+          </Link>
+        </li>
       ))}
-    </section>
+    </ul>
   );
 }
 
@@ -184,8 +162,8 @@ function Nudo({ t, s }: { t: TareaDocente; s: Seccion }) {
   return <span aria-hidden className="flex size-4 shrink-0 items-center justify-center pt-2"><span className={`size-3 rounded-full border-2 ${clase}`} /></span>;
 }
 
-function FilaTarea({ t, s, c }: { t: TareaDocente; s: Seccion; c: Comun }) {
-  const otras = t.secciones.filter((x) => x.id !== s.id).map((x) => x.salon);
+function FilaTarea({ t, s, c }: { t: TareaLista; s: Seccion; c: Comun }) {
+  const otras = (t.seccionesTodas ?? t.secciones).filter((x) => x.id !== s.id).map((x) => x.salon);
   const borrador = t.estado === "borrador";
   const revisada = estaRevisada(t, s);
   const contenido = (
@@ -224,8 +202,18 @@ function FilaTarea({ t, s, c }: { t: TareaDocente; s: Seccion; c: Comun }) {
 }
 
 /** Tareas agrupadas por salón (una tarjeta por salón, en dos columnas en escritorio) y, dentro, por curso. */
-export function TareasPorSalon({ tareas, comun }: { tareas: TareaDocente[]; comun: Comun }) {
-  const salones = new Map<string, { nombre: string; cursos: Map<string, { nombre: string; filas: { t: TareaDocente; s: Seccion }[] }> }>();
+/** Dentro de una carpeta (un curso de un salón): una sola tarjeta con las tareas, sin repetir salón ni curso. */
+export function TareasDeCarpeta({ tareas, comun, etiqueta }: { tareas: TareaLista[]; comun: Comun; etiqueta: string }) {
+  const filas = tareas.flatMap((t) => t.secciones.map((s) => ({ t, s })));
+  return (
+    <section aria-label={etiqueta} className="rounded-2xl border border-borde-sutil bg-superficie p-2">
+      <ul className="flex flex-col divide-y divide-borde-sutil">{filas.map(({ t, s }) => <FilaTarea key={s.id} t={t} s={s} c={comun} />)}</ul>
+    </section>
+  );
+}
+
+export function TareasPorSalon({ tareas, comun }: { tareas: TareaLista[]; comun: Comun }) {
+  const salones = new Map<string, { nombre: string; cursos: Map<string, { nombre: string; filas: { t: TareaLista; s: Seccion }[] }> }>();
   for (const t of tareas) {
     for (const s of t.secciones) {
       const salon = salones.get(s.salonId) ?? { nombre: s.salon, cursos: new Map() };
