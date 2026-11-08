@@ -1,6 +1,6 @@
 # 48 — Planificación académica anual (sílabo compartido por grado y curso)
 
-> Estado: en desarrollo (paso 0 hecho) · Plan: Khipu Pro · Última actualización: 2026-11-08 (Claude Code, orquestador) · Responsable: orquestador + agentes Codex
+> Estado: servicios y UI de planificación implementados · Plan: Khipu Pro · Última actualización: 2026-11-08 (Codex, agente de planificación) · Responsable: orquestador + agentes Codex
 
 ## Objetivo
 Que los docentes que dictan el **mismo curso (área CNEB) en el mismo grado, nivel y año** elaboren, revisen y aprueben
@@ -119,6 +119,9 @@ Errores de negocio con `ErrorDeNegocio` (mensajes en español); operaciones crí
 en `db.$transaction` con revalidación del estado dentro de la transacción.
 
 ## Rutas y UI
+
+Rutas implementadas: `/planificacion`, `/planificacion/[planId]` (redirige a Temas), `/planificacion/[planId]/temas`, `/planificacion/[planId]/revision`, `/planificacion/[planId]/reuniones` y `/planificacion/[planId]/versiones`. Las pestañas Materiales y Progreso enlazan a las rutas de specs/49, a cargo del agente de Nudito. Las mutaciones salen de `planificacion/actions.ts`, vuelven a comprobar el contexto del colegio y usan la capa `src/lib/server/plan-anual/`.
+
 - `/planificacion` (profesor, dirección): mis grupos detectados con su plan (estado con ícono + palabra) y «Crear plan».
   Dirección ve todos y filtra por año/nivel/grado/área.
 - `/planificacion/[planId]`: navegación arriba (preferencia de UI) con pestañas Temas · Revisión · Reuniones ·
@@ -143,3 +146,5 @@ en `db.$transaction` con revalidación del estado dentro de la transacción.
 
 ## Pendientes
 - Solicitud de acceso al grado superior (prevista, no implementada).
+- Las rutas de Materiales y Progreso y el flujo e2e conjunto se integran con el trabajo paralelo de specs/49.
+- La creación de temas propios usa las áreas que soporta el catálogo de Nudito (Matemática, Comunicación y Ciencia y Tecnología); ampliar el catálogo a otras áreas CNEB requiere un contrato curricular adicional.
