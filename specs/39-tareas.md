@@ -125,13 +125,16 @@ publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_
 ### Comentarios privados: avisos y respuesta (2026-11-08)
 - Comentario privado del alumno o su familia → notificación en la bandeja (tipo `tarea`, clave `tarea-comentario:<id>`,
   sin push ni correo) al profesor del curso de esa sección y al autor de la tarea si es otro; el enlace
-  `/tareas/<id>/revision?curso=<cursoId>&alumno=<alumnoId>` abre directo la entrega de ese estudiante.
+  `/tareas/<id>/revision?curso=<cursoId>&alumno=<alumnoId>` abre directo el chat de ese estudiante.
 - Respuesta del docente → notificación «El profesor respondió: <tarea>» al alumno con cuenta y a sus apoderados
   (`/tareas/<id>?alumno=<alumnoId>#comentarios`). Nadie más del salón la recibe.
 - **Sin responder** = el último comentario privado visible es del alumno o su familia. Se marca con «Comentario sin
   responder» en la fila del estudiante (revisión), «N comentarios sin responder» en la fila de la tarea y en la carpeta
   del curso (`comentariosSinResponder` por sección en `tareasDelDocente`).
-- El panel de cada estudiante (revisión) muestra la conversación y el campo «Responder» (profesor), aparte de la nota.
+- **Chat lateral** (`ChatComentarios.tsx`, `Sheet` a la derecha): en cada fila de la revisión, junto a «Ver»/«Revisar», un
+  botón con ícono de chat (relleno y con punto si hay un comentario sin responder). Abre la conversación tipo chat
+  (estudiante a la izquierda, docente a la derecha) y abajo el campo para responder (Enter envía, Mayús + Enter salta de
+  línea). El modal «Ver» queda solo para la entrega y la nota. El enlace del aviso (`?alumno=`) abre el chat.
 
 ## Rutas y UI
 - `/tareas` (profesor/dirección), `ListaDocente.tsx` (rediseño 2026-11-08, mismo lenguaje que la vista del alumno):

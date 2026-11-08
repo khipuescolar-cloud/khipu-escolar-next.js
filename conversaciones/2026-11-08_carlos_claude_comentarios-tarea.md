@@ -28,3 +28,10 @@
 ## Pendientes y preguntas abiertas
 - El comentario de Jimena es anterior al cambio: no generó notificación (la marca «sin responder» sí aparece).
 - Hoy el aviso es solo de bandeja; se podría sumar push al profesor si Carlos lo quiere.
+
+## Seguimiento: chat en panel lateral
+> [captura de la revisión] donde dice ver , deberia aparecer un icono como de un chat y al abrirlo que se abra un drawer como si fuera un chat para poder responder el comentario , de esa manera vamos a responder, no vamos a responder por un modal
+
+- Nuevo `tareas/[id]/revision/ChatComentarios.tsx`: botón con ícono de chat junto a «Ver» (relleno y con punto si hay un comentario sin responder) que abre un `Sheet` lateral con la conversación y el campo para responder (Enter envía).
+- El modal «Ver» ya no muestra comentarios: solo la entrega y la nota. El aviso (`?alumno=`) abre el chat.
+- Validación: tsc y lint limpios; e2e `tareas-classroom` en verde; captura con Carla Mendoza (conversación con Jimena).

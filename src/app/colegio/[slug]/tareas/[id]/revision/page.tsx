@@ -1,4 +1,4 @@
-import { ArrowLeft, CheckCircle2, ChevronDown, Circle, ClipboardList, FileText, MessageSquare, RotateCcw, Send, Upload, XCircle } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ChevronDown, Circle, ClipboardList, FileText, MessageSquare, RotateCcw, Upload, XCircle } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,16 +8,14 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Selector } from "@/components/ui/Selector";
-import { Textarea } from "@/components/ui/textarea";
-import { MAX_COMENTARIO_TAREA } from "@/lib/tareas";
 import { formatoDia, formatoHora } from "@/lib/fechas";
-import type { Resultado } from "@/lib/resultado";
 import { requireFeature } from "@/lib/server/plan";
 import { revisionDeTarea } from "@/lib/server/tareas";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { activarCalificacionAction, comentarTareaAction, revisarConNotaAction, subirNotasAction } from "../../actions";
 import { FormularioEnLinea } from "../../FormularioEnLinea";
 import { FechaEntrega } from "../../insignias";
+import { ChatComentarios } from "./ChatComentarios";
 import { PanelRevision } from "./PanelRevision";
 
 export const metadata: Metadata = { title: "Revisar entregas" };
@@ -51,8 +49,8 @@ const sinResponder = (f: Fila) => {
   return visibles.length > 0 && !visibles[visibles.length - 1].esDocente;
 };
 
-/** Lo que mandó el estudiante: cada intento con su hora, texto y archivos; y los comentarios privados (con respuesta del docente). */
-function ContenidoEntrega({ f, responder }: { f: Fila; responder?: (previo: Resultado | null, datos: FormData) => Promise<Resultado> }) {
+/** Lo que mandó el estudiante: cada intento con su hora, texto y archivos (los comentarios van en el chat lateral). */
+function ContenidoEntrega({ f }: { f: Fila }) {
   const intentos = f.intentos.filter((i) => i.enviadaAt || i.texto || i.archivos.length > 0);
   return (
     <>
@@ -68,34 +66,6 @@ function ContenidoEntrega({ f, responder }: { f: Fila; responder?: (previo: Resu
             <ListaAdjuntos adjuntos={i.archivos} etiqueta="Archivos" />
           </section>
         ))
-      )}
-      {(f.comentarios.length > 0 || responder) && (
-        <section aria-label="Comentarios privados" className="flex flex-col gap-2">
-          <h3 className="text-cuerpo-sm font-semibold">Comentarios</h3>
-          {f.comentarios.filter((c) => !c.oculto).length > 0 && (
-            <ul className="flex flex-col gap-2">
-              {f.comentarios.filter((c) => !c.oculto).map((c) => (
-                <li key={c.id} className={`flex max-w-[85%] flex-col gap-1 ${c.esDocente ? "self-end items-end" : "self-start"}`}>
-                  <span className="text-etiqueta text-muted-foreground">{c.autor} · {cuando(c.createdAt)}</span>
-                  <p className={`rounded-2xl px-3.5 py-2 text-sm whitespace-pre-line ${c.esDocente ? "rounded-tr-md bg-primary text-primary-foreground" : "rounded-tl-md bg-sec-suave text-foreground"}`}>{c.texto}</p>
-                </li>
-              ))}
-            </ul>
-          )}
-          {responder && (
-            <FormularioEnLinea accion={responder} etiqueta="Responder al estudiante" className="flex flex-col gap-2 rounded-xl border border-borde-sutil bg-superficie p-2">
-              <input type="hidden" name="asignacionId" value={f.asignacionId} />
-              <label className="flex flex-col text-sm">
-                <span className="sr-only">Respuesta privada</span>
-                <Textarea name="texto" rows={2} maxLength={MAX_COMENTARIO_TAREA} required placeholder={sinResponder(f) ? "Responde al estudiante…" : "Escribe un comentario privado…"} className="min-h-14 resize-y border-0 bg-transparent px-1 shadow-none focus-visible:ring-0" />
-              </label>
-              <div className="flex items-center justify-between gap-2 border-t border-borde-sutil pt-2">
-                <span className="text-etiqueta text-muted-foreground">Privado: solo el estudiante y su familia</span>
-                <Button type="submit" size="sm"><Send strokeWidth={2} aria-hidden />Responder</Button>
-              </div>
-            </FormularioEnLinea>
-          )}
-        </section>
       )}
     </>
   );
@@ -223,7 +193,7 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
                     <th scope="col" className="px-2 py-3 font-medium sm:px-4"><span className="sm:hidden">Estudiante y entrega</span><span className="hidden sm:inline">Estudiante</span></th>
                     <th scope="col" className="hidden px-2 py-3 font-medium sm:table-cell sm:px-4">Entrega</th>
                     <th scope="col" className="w-14 px-2 py-3 font-medium sm:w-24 sm:px-4">Nota</th>
-                    <th scope="col" className="px-2 py-3 text-right font-medium sm:w-36 sm:px-4"><span className="sr-only">Acción</span></th>
+                    <th scope="col" className="px-2 py-3 text-right font-medium sm:w-48 sm:px-4"><span className="sr-only">Acciones</span></th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-borde-sutil">
@@ -248,6 +218,16 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
                           {f.nota ? (f.nota === "NE" ? <span className="text-muted-foreground">NE</span> : f.nota) : <span className="text-muted-foreground" aria-label="Sin nota">—</span>}
                         </td>
                         <td className="px-2 py-3 text-right sm:px-4">
+                          <div className="flex items-center justify-end gap-2">
+                          <ChatComentarios
+                            alumno={f.alumno.nombre}
+                            subtitulo={`${tarea.titulo} · ${s.salon}`}
+                            mensajes={f.comentarios.filter((c) => !c.oculto).map((c) => ({ id: c.id, autor: c.autor, texto: c.texto, cuando: cuando(c.createdAt), esDocente: c.esDocente }))}
+                            asignacionId={f.asignacionId}
+                            sinResponder={sinResponder(f)}
+                            abiertoInicial={f.alumno.id === alumnoAbierto}
+                            responder={docente ? comentarTareaAction.bind(null, slug, id) : undefined}
+                          />
                           <PanelRevision
                             disparador={<>{revisar ? "Revisar" : "Ver"}<span className="sr-only"> la entrega de {f.alumno.nombre}</span></>}
                             destacado={revisar}
@@ -257,15 +237,15 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
                             escala={todas.escala}
                             notaInicial={f.nota && f.nota !== "NE" ? f.nota : ""}
                             sinEntrega={sinEntrega}
-                            abiertoInicial={f.alumno.id === alumnoAbierto}
                           >
-                            <ContenidoEntrega f={f} responder={docente ? comentarTareaAction.bind(null, slug, id) : undefined} />
+                            <ContenidoEntrega f={f} />
                             {docente && ev?.publicada && (
                               <p className="text-cuerpo-sm text-muted-foreground">
                                 Las notas ya se subieron. Para cambiar esta nota, corrígela en el <Link href={`/notas/${s.cursoId}`} className="font-medium text-foreground underline underline-offset-4">Registro de notas</Link>.
                               </p>
                             )}
                           </PanelRevision>
+                          </div>
                         </td>
                       </tr>
                     );
