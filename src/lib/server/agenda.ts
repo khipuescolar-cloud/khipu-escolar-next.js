@@ -52,7 +52,7 @@ export type OpcionesAgenda = {
   /** Excluido. */
   hasta: Date;
   filtros?: { filtro?: FiltroAgenda; salonId?: string };
-  /** Proyecta las clases del horario del profesor (rango máximo: MAX_DIAS_RANGO días). */
+  /** Proyecta las clases del horario del profesor o del salón del alumno (rango máximo: MAX_DIAS_RANGO días). */
   incluirClases?: boolean;
 };
 
@@ -60,7 +60,7 @@ const MS_DIA = 86_400_000;
 
 /**
  * Lo visible para el usuario entre dos instantes (`hasta` excluido): eventos, entregas de tareas, evaluaciones, reuniones
- * y, con `incluirClases`, las clases del profesor proyectadas desde su horario semanal (specs/12 «Calendario»).
+ * y, con `incluirClases`, las clases del profesor o del alumno proyectadas desde su horario semanal (specs/12 «Calendario»).
  * Acepta `(ctx, desde, hasta)` o `(ctx, { desde, hasta, filtros, incluirClases })`. Una consulta por fuente.
  */
 export async function itemsDeAgenda(ctx: TenantContext, desdeUOpciones: Date | OpcionesAgenda, hastaPosicional?: Date): Promise<ItemAgenda[]> {
@@ -90,7 +90,7 @@ export async function itemsDeAgenda(ctx: TenantContext, desdeUOpciones: Date | O
         : filtro === "todo" ? (ctx.rol === "direccion" ? "todas" : "mias") : null;
   const verEvaluaciones = tieneFeature(ctx, "notas") && quiere("academico");
   const verEntregas = quiere("academico");
-  const verClases = !!op.incluirClases && filtro === "todo" && ctx.rol === "profesor" && tieneFeature(ctx, "horario");
+  const verClases = !!op.incluirClases && filtro === "todo" && (ctx.rol === "profesor" || ctx.rol === "alumno") && tieneFeature(ctx, "horario");
   const verEventos = filtro === "todo" || filtro === "institucional" || verClases;
   const zona = ctx.tenant.zonaHoraria;
   const fechaDesde = momentoEnZona(desde, zona).isoFecha;
@@ -106,7 +106,7 @@ export async function itemsDeAgenda(ctx: TenantContext, desdeUOpciones: Date | O
     verEntregas ? entregasDeTareas(ctx, rango, salonIds) : Promise.resolve([]),
     alcanceReuniones ? reunionesDeAgenda(ctx, rango, alcanceReuniones, salonFiltro) : Promise.resolve([]),
     verEvaluaciones ? evaluacionesDeAgenda(ctx, desde, hasta, salonIds) : Promise.resolve([]),
-    verClases ? bloquesDelProfesor(ctx, salonFiltro) : Promise.resolve([]),
+    verClases ? (ctx.rol === "alumno" ? bloquesDeSalones(ctx, salonIds) : bloquesDelProfesor(ctx, salonFiltro)) : Promise.resolve([]),
   ]);
 
   const items: ItemAgenda[] = [...reuniones, ...evaluaciones, ...tareas];
@@ -132,11 +132,16 @@ export async function itemsDeAgenda(ctx: TenantContext, desdeUOpciones: Date | O
       const b = c.bloque;
       items.push({
         id: c.id, tipo: "clase", categoria: "clase", salonId: b.salonId, titulo: b.titulo, descripcion: null, inicio: c.inicio, fin: c.fin,
-        ambito: b.salonNombre, lugar: b.aula, eliminable: false, adjuntos: [], cursoId: b.cursoId, salonNombre: b.salonNombre, aula: b.aula,
+        ambito: ctx.rol === "alumno" ? (b.profesorNombre ?? b.salonNombre) : b.salonNombre, lugar: b.aula, eliminable: false, adjuntos: [], cursoId: b.cursoId, salonNombre: ctx.rol === "alumno" ? undefined : b.salonNombre, aula: b.aula,
       });
     }
   }
   return items.sort((a, b) => a.inicio.getTime() - b.inicio.getTime());
+}
+
+/** Clases del alumno: los bloques del horario de su salón (salones no archivados). */
+async function bloquesDeSalones(ctx: TenantContext, salonIds: string[]) {
+  return salonIds.length ? buscarBloques(ctx, { salonId: { in: salonIds }, salon: whereSalonActivo }) : [];
 }
 
 /** Clases del profesor (bloques de su horario semanal), opcionalmente de un salón. */

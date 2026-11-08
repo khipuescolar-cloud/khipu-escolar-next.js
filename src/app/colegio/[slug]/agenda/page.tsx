@@ -46,7 +46,7 @@ function OpcionesTipo() {
 
 /**
  * Calendario institucional (specs/12, plan Pro): vistas Día, Semana, Mes y Lista; filtros por tipo y por salón; el
- * profesor ve sus clases (proyectadas desde su horario) junto con sus reuniones. Todo el estado va en la URL.
+ * profesor y el alumno ven sus clases (proyectadas desde el horario) junto con lo demás. Todo el estado va en la URL.
  */
 export default async function AgendaPage({ params, searchParams }: PageProps<"/colegio/[slug]/agenda">) {
   const { slug } = await params;
@@ -112,7 +112,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
       <EncabezadoPagina
         titulo="Agenda"
         seccion="academico"
-        descripcion={ctx.rol === "profesor" ? "Tus clases, reuniones, evaluaciones, entregas y actividades del colegio." : "Eventos del colegio, reuniones, evaluaciones y fechas de entrega de tareas."}
+        descripcion={ctx.rol === "profesor" ? "Tus clases, reuniones, evaluaciones, entregas y actividades del colegio." : ctx.rol === "alumno" ? "Tus clases, evaluaciones, fechas de entrega de tareas y actividades del colegio." : "Eventos del colegio, reuniones, evaluaciones y fechas de entrega de tareas."}
         acciones={
           <>
             <a href="/api/agenda.ics" className={buttonVariants({ variant: "outline" })}>

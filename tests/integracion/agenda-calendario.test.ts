@@ -141,6 +141,26 @@ describe("dirección y administrativo", () => {
   });
 });
 
+describe("calendario del alumno", () => {
+  it("ve las clases de su salón proyectadas, con el profesor como ámbito, junto con sus entregas y actividades", async () => {
+    const id = crypto.randomUUID();
+    perfiles.push(id);
+    const user = await db.profile.create({ data: { id, email: `alumno-${id.slice(0, 8)}@test-calendario.local`, nombres: "Mateo" } });
+    const membership = await db.membership.create({ data: { tenantId: pro.tenant.id, userId: id, rol: "alumno" } });
+    await db.alumno.update({ where: { id: pro.alumnos.mateo.id }, data: { cuentaId: membership.id } });
+    const alumno: TenantContext = { ...pro.ctxDe("madre"), user, membership, rol: "alumno", roles: ["alumno"] };
+
+    const items = await semana(alumno);
+    const clases = items.filter((i) => i.tipo === "clase");
+    expect(clases.map((c) => c.id).sort()).toEqual([`${ids.bloqueLunes}:2027-03-01`, `${ids.bloqueMartes}:2027-03-02`].sort());
+    expect(clases.every((c) => c.categoria === "clase" && c.ambito === `${pro.miembros.tutora.user.nombres} ${pro.miembros.tutora.user.apellidos ?? ""}`.trim())).toBe(true);
+    expect(idsDe(items)).toEqual(expect.arrayContaining([ids.actividad, ids.tarea]));
+    expect(idsDe(items)).not.toContain(ids.eventoOtroSalon);
+    // Sin incluirClases (el .ics) no hay clases.
+    expect((await itemsDeAgenda(alumno, SEMANA.desde, SEMANA.hasta)).some((i) => i.tipo === "clase")).toBe(false);
+  });
+});
+
 describe("familia y aislamiento", () => {
   it("la familia solo ve lo del salón de su hijo y del colegio, sin clases", async () => {
     const r = await semana(pro.ctxDe("madre"));
