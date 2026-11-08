@@ -13,7 +13,10 @@
 
 > en la pregunta a me gusta tu propuesta y es justamente lo que queria , en la pregunta b si deja una opcion que diga MIS CURSOS; c si me gusta tu propuesta
 
+> [captura: grado «2.° grado de secundaria» y el selector Salón con 1.°, 3.°, 4.° y 5.°] aqui te das cuenta que si selecciono en grado 2º de secundaria, en salon me aparecen hasta salones de 1º,3º,4º y 5º ; eso no deberia ser asi pues;
+
 ## Decisiones
+- (seguimiento) El selector Salón lista solo los salones del grado elegido («Todos los salones del grado»); elegir un salón pone su grado; cambiar de grado quita el salón si no es de ese grado. Aplica a todos los roles del personal.
 - (a) Grado sin salón: los cursos que dicta en ese grado y todos los de su tutoría si está en ese grado.
 - (b) Salón que no tutorea: opción «Mis cursos» (por defecto) o un curso suyo.
 - (c) Alumno de un salón que no tutorea: solo sus faltas y tardanzas a clase en los cursos del profesor, sin la asistencia al colegio.
@@ -26,6 +29,7 @@
 - `src/lib/reportes-asistencia.ts`: `FiltrosReporte.cursoId` (`?curso=mis|uuid`), `MIS_CURSOS`.
 - `FiltroReporte.tsx`: selector «Curso»; `ver/page.tsx`: vista por cursos; `vistas.tsx`: `VistaCursos`.
 - Pruebas: integración, unit y e2e (ver spec 27, «Pruebas»).
+- Seguimiento (rama `fix/filtro-grado-salon`): `opcionesDeReporte.salones` trae `grado`; `FiltroReporte.tsx` filtra los salones por grado; e2e de Pedro con grado → solo 3.° B.
 
 ## Validación
 - `pnpm lint`, `pnpm typecheck`: OK. `pnpm test`: 155 archivos, 1241 pruebas OK (incluye las nuevas).
@@ -33,4 +37,4 @@
 
 ## Pendientes y preguntas abiertas
 - Descargas (Excel/PDF/CSV) y vista calendario del reporte por cursos («Mis cursos»).
-- El e2e de dirección depende de que hoy sea día hábil.
+- Los e2e de dirección (`reportes-asistencia`, `asistencia-colegio-cursos`) dependen de que hoy sea día hábil (fallan en sábado).

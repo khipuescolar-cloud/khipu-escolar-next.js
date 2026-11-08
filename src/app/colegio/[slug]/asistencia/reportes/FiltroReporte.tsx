@@ -11,7 +11,8 @@ import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetT
 import { cn } from "@/lib/utils";
 
 type Opciones = {
-  salones: { id: string; nombre: string }[];
+  /** `grado`: clave del grado del salón; con un grado elegido, solo se listan sus salones. */
+  salones: { id: string; nombre: string; grado?: string | null }[];
   /** Grados (todas sus secciones); `clave` = «primaria-3». */
   grados?: { clave: string; nombre: string }[];
   alumnos: { id: string; nombres: string; apellidos: string; salonId: string }[];
@@ -46,7 +47,9 @@ export function FiltroReporte({
   const [abierto, setAbierto] = useState(false);
   const [salonId, setSalonId] = useState(inicial.salonId ?? "");
   const [alumnoId, setAlumnoId] = useState(inicial.alumnoId ?? "");
-  const [grado, setGrado] = useState(inicial.grado ? `${inicial.grado.nivel}-${inicial.grado.grado}` : "");
+  const gradoDeSalon = (id: string) => opciones.salones.find((s) => s.id === id)?.grado ?? "";
+  const [grado, setGrado] = useState(inicial.grado ? `${inicial.grado.nivel}-${inicial.grado.grado}` : gradoDeSalon(inicial.salonId ?? ""));
+  const salones = grado ? opciones.salones.filter((s) => s.grado === grado) : opciones.salones;
   const grados = opciones.grados ?? [];
   const esProfesor = opciones.cursos !== undefined && opciones.tutorias !== undefined && (opciones.cursos.length > 0 || opciones.tutorias.length > 0);
   const esTutoria = (id: string) => !!id && (opciones.tutorias ?? []).includes(id);
@@ -95,8 +98,8 @@ export function FiltroReporte({
           <SheetTitle className="text-titulo-2">Filtrar reporte</SheetTitle>
           <SheetDescription>
             {esProfesor
-              ? "Elige un grado o un salón, el curso y, dentro del salón, un alumno; luego las fechas."
-              : "Elige un grado (todas sus secciones) o un salón y, dentro del salón, un alumno; luego las fechas."}
+              ? "Elige un grado, uno de sus salones y el curso; dentro del salón, un alumno; luego las fechas."
+              : "Elige un grado (todas sus secciones) o uno de sus salones y, dentro del salón, un alumno; luego las fechas."}
           </SheetDescription>
         </SheetHeader>
         <form
@@ -112,12 +115,16 @@ export function FiltroReporte({
               etiqueta="Grado"
               value={grado}
               onChange={(e) => {
-                setGrado(e.target.value);
-                if (e.target.value) {
+                const nuevo = e.target.value;
+                setGrado(nuevo);
+                // El salón elegido se queda si es de ese grado; si no, vuelve a «Todos los salones» del grado.
+                const queda = salonId && (!nuevo || gradoDeSalon(salonId) === nuevo) ? salonId : "";
+                if (queda !== salonId) {
                   setSalonId("");
                   setAlumnoId("");
+                  setBusqueda("");
                 }
-                setCursoId(cursoPorDefecto(""));
+                setCursoId(cursoPorDefecto(queda));
               }}
             >
               <option value="">Todos los grados</option>
@@ -129,14 +136,14 @@ export function FiltroReporte({
             value={salonId}
             onChange={(e) => {
               setSalonId(e.target.value);
-              if (e.target.value) setGrado("");
+              if (e.target.value) setGrado(gradoDeSalon(e.target.value));
               setAlumnoId("");
               setBusqueda("");
               setCursoId(cursoPorDefecto(e.target.value));
             }}
           >
-            <option value="">Todos los salones</option>
-            {opciones.salones.map((s) => <option key={s.id} value={s.id}>{s.nombre}</option>)}
+            <option value="">{grado ? "Todos los salones del grado" : "Todos los salones"}</option>
+            {salones.map((s) => <option key={s.id} value={s.id}>{s.nombre}</option>)}
           </Selector>
 
           {esProfesor && (
