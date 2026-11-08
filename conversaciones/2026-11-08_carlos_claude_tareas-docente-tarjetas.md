@@ -42,3 +42,12 @@
 
 - Sección revisada: check verde, insignia «Revisada», barra verde y fecha vencida en gris (`ListaDocente.tsx`, `insignias.tsx`: `Revisada`, `FechaEntrega neutra`).
 - Por revisar: nudo relleno + «N por revisar» (sin cambios). Validación: tsc y lint limpios; captura con Carla Mendoza.
+
+## Seguimiento: carpetas por curso
+> [captura de «Para revisar»] quitamos esto, y en los tabs primero ponemos,los cursos como si fueran carpetas y dentro de los cuales podemos ver las tareas de cada curso, luego tareas vencidas, luego tareas programadas, luego tareas revisadas,
+
+- Se quita la banda «Para revisar».
+- Pestañas: Cursos (carpetas; `?curso=` abre una) · Vencidas · Programadas · Revisadas. Sin el filtro «Todos los cursos».
+- Decisión: «Vencidas» excluye lo que ya está todo revisado (eso va a «Revisadas»), para no repetir tareas.
+- `CarpetasCursos` y `TareasDeCarpeta` en `ListaDocente.tsx`; `seccionesTodas` mantiene «También en …» al filtrar.
+- e2e `tareas-agenda` y `tareas-classroom` ahora abren la carpeta del curso. Validación: tsc y lint limpios; e2e de tareas, registro de notas y materiales en verde; capturas a 1440 px.

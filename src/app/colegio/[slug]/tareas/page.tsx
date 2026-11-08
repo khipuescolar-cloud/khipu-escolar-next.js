@@ -1,4 +1,4 @@
-import { CheckCircle2, Filter, ListTodo, Plus } from "lucide-react";
+import { ArrowLeft, CheckCircle2, FolderOpen, ListTodo, Plus } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { forbidden } from "next/navigation";
@@ -6,7 +6,6 @@ import { CamposAdjuntos } from "@/components/adjuntos/CamposAdjuntos";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
-import { buttonVariants } from "@/components/ui/button";
 import { Campo } from "@/components/ui/Campo";
 import { Textarea } from "@/components/ui/textarea";
 import { esVistaFamilia } from "@/lib/roles";
@@ -19,7 +18,7 @@ import { momentoEnZona } from "@/lib/fechas";
 import { crearTareaAction } from "./actions";
 import { CamposNuevaTarea, CamposPublicacion } from "./CamposNuevaTarea";
 import { SeccionFormulario } from "./SeccionFormulario";
-import { AgendaRevision, TareasPorSalon } from "./ListaDocente";
+import { CarpetasCursos, TareasDeCarpeta, TareasPorSalon } from "./ListaDocente";
 import { VistaFamilia } from "./VistaFamilia";
 
 export const metadata: Metadata = { title: "Tareas" };
@@ -36,28 +35,35 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
   }
 
   if (ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();
-  const filtros = { cursoId: typeof sp.curso === "string" ? sp.curso : undefined };
-  // Pestañas (specs/39): Todas · Programadas · Sin revisar · Revisadas. Se filtra por sección (salón): una tarea puede
-  // estar sin revisar en un salón y revisada en otro. Sin borradores ni archivadas.
-  const [cursos, todas] = await Promise.all([cursosParaTareas(ctx), tareasDelDocente(ctx, { cursoId: filtros.cursoId })]);
+  // Pestañas (specs/39): Cursos (carpetas; `?curso=` abre una) · Vencidas · Programadas · Revisadas. Se filtra por
+  // sección (salón): una tarea puede estar revisada en un salón y vencida en otro.
+  const cursoAbierto = typeof sp.curso === "string" ? sp.curso : undefined;
+  const [cursos, todas] = await Promise.all([cursosParaTareas(ctx), tareasDelDocente(ctx)]);
   type T = (typeof todas)[number];
   type S = T["secciones"][number];
   const activa = (t: T) => !t.programada && (t.estado === "publicada" || t.estado === "cerrada");
+  const revisada = (t: T, s: S) => activa(t) && s.contadores.porRevisar === 0 && s.contadores.revisadas > 0;
   const criterios: Record<string, (t: T, s: S) => boolean> = {
-    todas: () => true,
+    curso: (_t, s) => s.cursoId === cursoAbierto,
+    vencidas: (t, s) => activa(t) && s.vencida && !revisada(t, s),
     programadas: (t) => t.programada,
-    "sin-revisar": (t, s) => activa(t) && s.contadores.porRevisar > 0,
-    revisadas: (t, s) => activa(t) && s.contadores.porRevisar === 0 && s.contadores.revisadas > 0,
+    revisadas: revisada,
   };
-  const filtrar = (id: string) => todas.map((t) => ({ ...t, secciones: t.secciones.filter((s) => criterios[id](t, s)) })).filter((t) => t.secciones.length > 0);
+  const filtrar = (id: string) => todas.map((t) => ({ ...t, seccionesTodas: t.secciones, secciones: t.secciones.filter((s) => criterios[id](t, s)) })).filter((t) => t.secciones.length > 0);
   const vistas = [
-    { id: "todas", titulo: "Todas" }, { id: "programadas", titulo: "Programadas" },
-    { id: "sin-revisar", titulo: "Sin revisar" }, { id: "revisadas", titulo: "Revisadas" },
-  ].map((v) => ({ ...v, n: v.id === "todas" ? todas.length : filtrar(v.id).length }));
-  const pedida = typeof sp.ver === "string" ? sp.ver : "todas";
-  const vista = vistas.some((v) => v.id === pedida) ? pedida : "todas";
-  const tareas = vista === "todas" ? todas : filtrar(vista);
-  const urlVista = (id: string) => `/tareas?${new URLSearchParams({ ...(filtros.cursoId ? { curso: filtros.cursoId } : {}), ...(id !== "todas" ? { ver: id } : {}) })}`;
+    { id: "cursos", titulo: "Cursos", n: cursos.length },
+    ...[{ id: "vencidas", titulo: "Vencidas" }, { id: "programadas", titulo: "Programadas" }, { id: "revisadas", titulo: "Revisadas" }].map((v) => ({ ...v, n: filtrar(v.id).length })),
+  ];
+  const pedida = typeof sp.ver === "string" ? sp.ver : "cursos";
+  const vista = vistas.some((v) => v.id === pedida) ? pedida : "cursos";
+  const carpeta = vista === "cursos" ? cursos.find((c) => c.id === cursoAbierto) : undefined;
+  const tareas = vista === "cursos" ? (carpeta ? filtrar("curso") : []) : filtrar(vista);
+  // Carpetas: una por curso (curso + salón), con sus tareas y lo que falta revisar.
+  const carpetas = cursos.map((c) => {
+    const secs = todas.flatMap((t) => t.secciones.filter((x) => x.cursoId === c.id));
+    return { id: c.id, curso: c.nombre, salon: c.salon.nombre, tareas: secs.length, porRevisar: secs.reduce((n, x) => n + x.contadores.porRevisar, 0) };
+  });
+  const urlVista = (id: string) => (id === "cursos" ? "/tareas" : `/tareas?ver=${id}`);
   const competenciasTarea = ctx.rol === "profesor" ? await ctx.db.competencia.findMany({ where: { cursoId: { in: cursos.map((c) => c.id) }, desactivadaAt: null }, select: { id: true, cursoId: true, nombre: true }, orderBy: { orden: "asc" } }) : [];
   const alumnos = ctx.rol === "profesor" && cursos.length > 0 ? await alumnosParaDestinatarios(ctx, cursos.map((c) => c.id)) : [];
   const arbolMateriales = ctx.rol === "profesor" && ctx.modulos.has("documentos") ? await listarMateriales(ctx, { incluirArchivados: true }) : { anios: [] };
@@ -134,43 +140,42 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
         <EstadoVacio icono={ListTodo} titulo="Todavía no tienes cursos asignados" descripcion="Cuando dirección te asigne un curso, podrás crear tareas." />
       )}
 
-      {ctx.rol === "profesor" && cursos.length > 0 && <AgendaRevision tareas={todas} zona={ctx.tenant.zonaHoraria} />}
-
       <section aria-label="Tareas por estado" className="flex flex-col gap-5">
-        <div className="flex flex-col gap-3 border-b border-borde-sutil lg:flex-row lg:items-end lg:justify-between">
-          <nav aria-label="Ver tareas" className="-mb-px flex gap-1 overflow-x-auto">
-            {vistas.map((v) => (
-              <Link
-                key={v.id}
-                href={urlVista(v.id)}
-                aria-current={vista === v.id ? "page" : undefined}
-                className={`inline-flex min-h-11 items-center gap-2 border-b-2 px-3 text-sm font-medium whitespace-nowrap transition-colors duration-150 motion-reduce:transition-none ${vista === v.id ? "border-sec-nudo text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"}`}
-              >
-                {v.titulo}
-                <span className={`rounded-pildora px-2 py-0.5 text-etiqueta tabular-nums ${vista === v.id ? "bg-sec-suave text-sec-tinta" : "bg-muted"}`}>{v.n}</span>
-              </Link>
-            ))}
-          </nav>
-          {cursos.length > 1 && (
-            <form className="flex items-center gap-2 pb-2" aria-label="Filtrar por curso">
-              {vista !== "todas" && <input type="hidden" name="ver" value={vista} />}
-              <label htmlFor="filtro-curso" className="sr-only">Curso</label>
-              <select id="filtro-curso" name="curso" defaultValue={filtros.cursoId ?? ""} className="min-h-10 max-w-64 rounded-[10px] border border-input bg-card px-3 text-sm">
-                <option value="">Todos los cursos</option>
-                {cursos.map((c) => <option key={c.id} value={c.id}>{c.nombre} · {c.salon.nombre}</option>)}
-              </select>
-              <button type="submit" className={buttonVariants({ variant: "outline", size: "sm" })}><Filter strokeWidth={2} aria-hidden />Ver</button>
-            </form>
-          )}
-        </div>
+        <nav aria-label="Ver tareas" className="-mb-px flex gap-1 overflow-x-auto border-b border-borde-sutil">
+          {vistas.map((v) => (
+            <Link
+              key={v.id}
+              href={urlVista(v.id)}
+              aria-current={vista === v.id ? "page" : undefined}
+              className={`-mb-px inline-flex min-h-11 items-center gap-2 border-b-2 px-3 text-sm font-medium whitespace-nowrap transition-colors duration-150 motion-reduce:transition-none ${vista === v.id ? "border-sec-nudo text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"}`}
+            >
+              {v.titulo}
+              <span className={`rounded-pildora px-2 py-0.5 text-etiqueta tabular-nums ${vista === v.id ? "bg-sec-suave text-sec-tinta" : "bg-muted"}`}>{v.n}</span>
+            </Link>
+          ))}
+        </nav>
 
-        {tareas.length === 0 ? (
-          <p className="flex items-center gap-2 py-6 text-cuerpo text-muted-foreground">
-            <CheckCircle2 className="size-5 text-llego" strokeWidth={2} aria-hidden />
-            {vista === "todas" ? (ctx.rol === "profesor" ? "Aún no hay tareas. Crea una con «Nueva tarea»." : "No hay tareas.") : vista === "programadas" ? "No hay tareas programadas." : vista === "sin-revisar" ? "Estás al día: no hay entregas sin revisar." : "Todavía no hay tareas con entregas revisadas."}
-          </p>
+        {vista === "cursos" && !carpeta ? (
+          carpetas.length > 0 && <CarpetasCursos carpetas={carpetas} />
         ) : (
-          <TareasPorSalon tareas={tareas} comun={{ slug, zona: ctx.tenant.zonaHoraria, limites, materiales, referencias, esDireccion: ctx.rol === "direccion" }} />
+          <>
+            {carpeta && (
+              <div className="flex flex-col gap-1">
+                <Link href="/tareas" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Cursos</Link>
+                <h2 className="flex items-center gap-2 font-heading text-lg font-semibold"><FolderOpen className="size-5 text-sec-trazo" strokeWidth={2} aria-hidden />{carpeta.nombre} · {carpeta.salon.nombre}</h2>
+              </div>
+            )}
+            {tareas.length === 0 ? (
+              <p className="flex items-center gap-2 py-6 text-cuerpo text-muted-foreground">
+                <CheckCircle2 className="size-5 text-llego" strokeWidth={2} aria-hidden />
+                {carpeta ? (ctx.rol === "profesor" ? "Este curso aún no tiene tareas. Crea una con «Nueva tarea»." : "Este curso aún no tiene tareas.") : vista === "vencidas" ? "Estás al día: no hay tareas vencidas por revisar." : vista === "programadas" ? "No hay tareas programadas." : "Todavía no hay tareas con todas sus entregas revisadas."}
+              </p>
+            ) : (
+              carpeta
+                ? <TareasDeCarpeta tareas={tareas} etiqueta={carpeta.salon.nombre} comun={{ slug, zona: ctx.tenant.zonaHoraria, limites, materiales, referencias, esDireccion: ctx.rol === "direccion" }} />
+                : <TareasPorSalon tareas={tareas} comun={{ slug, zona: ctx.tenant.zonaHoraria, limites, materiales, referencias, esDireccion: ctx.rol === "direccion" }} />
+            )}
+          </>
         )}
       </section>
     </div>

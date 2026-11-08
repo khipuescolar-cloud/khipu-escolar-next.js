@@ -20,6 +20,13 @@ test.afterAll(async () => {
   await sql("delete from notificaciones where tipo = 'tarea' and created_at >= $1", [INICIO]);
 });
 
+/** Pestaña «Cursos» (specs/39): abre la carpeta del curso en ese salón. */
+async function abrirCarpeta(page: Page, curso: string, salon: string) {
+  await page.goto(colegio("/tareas"));
+  await page.getByRole("list", { name: "Cursos" }).getByRole("link").filter({ hasText: salon }).filter({ hasText: curso }).first().click();
+  await page.waitForURL(/curso=/);
+}
+
 async function entrar(page: Page, correo: string) {
   await page.context().clearCookies();
   await page.goto("/login");
@@ -49,9 +56,11 @@ test("docente crea multi-sección → apoderada entrega → docente califica y s
   await dialogo.getByLabel("Fecha de entrega", { exact: true }).fill(enTresDias);
   await dialogo.getByRole("button", { name: "Crear tarea" }).click();
   await expect(page.getByText("Tarea creada.")).toBeVisible();
-  // Agrupada por salón: aparece en 3.° B (con «También en 5.° B») y en 5.° B.
+  // Pestaña «Cursos» (specs/39): aparece en la carpeta de cada curso, en 3.° B (con «También en 5.° B») y en 5.° B.
+  await abrirCarpeta(page, "Ciencia y Tecnología", "3.° B");
   const enTresB = page.getByRole("region", { name: "3.° B" }).locator("li", { hasText: titulo });
   await expect(enTresB.getByText("También en 5.° B")).toBeVisible();
+  await abrirCarpeta(page, "Ciencia y Tecnología", "5.° B");
   await expect(page.getByRole("region", { name: "5.° B" }).locator("li", { hasText: titulo })).toBeVisible();
 
   // 2. Rosa Quispe (apoderada de Mateo, 3.° B) la ve y la entrega en su nombre.
@@ -68,7 +77,7 @@ test("docente crea multi-sección → apoderada entrega → docente califica y s
 
   // 3. Pedro la devuelve con una observación.
   await entrar(page, "pedro.salas@nuevohorizonte.demo");
-  await page.goto(colegio("/tareas"));
+  await abrirCarpeta(page, "Ciencia y Tecnología", "3.° B");
   await page.getByRole("region", { name: "3.° B" }).locator("li", { hasText: titulo }).getByRole("link", { name: /Revisar entregas/ }).click();
   // La lista del salón: Mateo «Entregado» con «Revisar»; se califica desde su panel.
   const fila = page.getByRole("row", { name: /Quispe Huamán, Mateo/ });

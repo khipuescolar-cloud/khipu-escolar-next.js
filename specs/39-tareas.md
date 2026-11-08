@@ -124,17 +124,16 @@ publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_
 
 ## Rutas y UI
 - `/tareas` (profesor/dirección), `ListaDocente.tsx` (rediseño 2026-11-08, mismo lenguaje que la vista del alumno):
-  - **Para revisar** (solo profesor, arriba): banda de color de la sección (como «Vence pronto» del alumno) con
-    tarjetas por sección de tarea publicada o cerrada (no programada), en dos grupos: «Hoy» = el plazo vence hoy, o ya
-    venció / no tiene fecha y quedan entregas por revisar (estado `entregada`); «Próximos 7 días» = vence en los
-    próximos 7 días. Regla pura `agendaDeRevision` (`src/lib/tareas.ts`). Cada tarjeta (salón · curso, título, plazo,
-    «N por revisar», barra «3/12 entregaron», «Revisar →») abre `/tareas/<id>/revision?curso=<cursoId>`. Sin nada:
-    «Estás al día…». Siempre mira las tareas no archivadas, aunque se elija otra pestaña.
-  - **Pestañas con su cantidad** («Ver tareas», `?ver=`): Todas (sin archivadas) · Programadas · Sin revisar · Revisadas.
-    Se filtra por sección (salón): «Sin revisar» = sección publicada o cerrada (no programada) con entregas por revisar
-    (`porRevisar > 0`); «Revisadas» = sin entregas por revisar y al menos una revisada. La cantidad cuenta tareas. Sin
-    pestañas de borradores, cerradas ni archivadas. A la derecha, el filtro «Todos los cursos» (si hay más de uno) con «Ver».
-  - **Tarjetas por salón** (dos columnas en escritorio) y, dentro, las tareas por curso. Una tarea con varias secciones
+  - **Sin banda «Para revisar»** (se quitó el 2026-11-08; `agendaDeRevision` queda en `src/lib/tareas.ts` sin uso en la UI).
+  - **Pestañas con su cantidad** («Ver tareas»), en este orden: **Cursos** (`/tareas`, por defecto) · **Vencidas**
+    (`?ver=vencidas`) · **Programadas** (`?ver=programadas`) · **Revisadas** (`?ver=revisadas`). Se filtra por sección
+    (salón): «Vencidas» = sección publicada o cerrada (no programada) con el plazo vencido y **sin estar toda revisada**
+    (lo ya revisado pasa a «Revisadas»); «Revisadas» = sin entregas por revisar y al menos una revisada. La cantidad de
+    «Cursos» es el número de carpetas; la de las demás, el de tareas. Sin pestañas de borradores, cerradas ni archivadas.
+  - **Cursos como carpetas** (`CarpetasCursos`): una carpeta por curso que dicta (salón en grande, curso debajo, «N
+    tareas», «N por revisar»). Al abrirla (`/tareas?curso=<cursoId>`): «← Cursos», el nombre de la carpeta y una sola
+    tarjeta con sus tareas (`TareasDeCarpeta`). Reemplaza al filtro «Todos los cursos».
+  - **Tarjetas por salón** en Vencidas, Programadas y Revisadas (dos columnas en escritorio) y, dentro, las tareas por curso. Una tarea con varias secciones
     aparece en cada salón, con «También en …». **Sección revisada** (ninguna entrega por revisar y al menos una
     revisada): check verde, insignia «Revisada» (ícono + palabra, verde), barra verde y su fecha vencida en gris (ya no
     pide atención); con entregas por revisar: nudo relleno y «N por revisar». Cada fila: nudo de estado, título, estado (solo si no es publicada),
