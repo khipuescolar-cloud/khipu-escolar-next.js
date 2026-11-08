@@ -2,6 +2,8 @@ import "server-only";
 import type { ConsumoIA, EvaluacionRubricaIA, Explicacion, LecturaImagen, MensajeTutorIA, PistaIA, ProveedorTutorIA, Rubrica, SalidaIA, Tema } from "@/lib/nudito/contratos";
 import { estimarTokens, responderFalso } from "../../nudito-plus/proveedor-falso";
 import { normalizar } from "../../nudito-plus/seguridad";
+import { muestrasDelTema } from "../lecciones/muestras";
+import type { Leccion } from "@/lib/nudito/leccion";
 
 // Proveedor de IA SIMULADO del tutor (specs/41): local, determinista, sin red ni claves. Amplía el proveedor falso de
 // Nudito+ (`responder`) con las operaciones estructuradas. Todo lo que devuelve sale de textos REVISADOS (repaso y
@@ -92,6 +94,16 @@ export class ProveedorTutorSimulado implements ProveedorTutorIA {
       ? { transcripcion: fija, contieneRostro: false, legible: true, confianza: 0.9 }
       : { transcripcion: "", contieneRostro: false, legible: false, confianza: 0 };
     return { datos, consumo: { ...consumo("", datos.transcripcion), tokensEntrada: Math.ceil(entrada.bytes.length / 1000) } };
+  }
+
+  async generarLeccion(entrada: { tema: Tema; grado: number; nivel: Tema["nivel"] }): Promise<SalidaIA<Leccion>> {
+    const t = entrada.tema;
+    const datos: Leccion = {
+      titulo: t.nombre, idea: recortar(t.repaso.idea, 400), explicacion: recortar(t.repaso.idea, 1500),
+      ejemplos: [{ enunciado: t.nombre, desarrollo: t.repaso.ejemplo }],
+      recursos: [], ejerciciosMuestra: muestrasDelTema(t),
+    };
+    return { datos, consumo: consumo(JSON.stringify({ tema: t.clave, grado: entrada.grado, nivel: entrada.nivel }), JSON.stringify(datos)) };
   }
 
   async sugerirTemas(entrada: { texto: string; candidatos: { clave: string; nombre: string }[] }): Promise<SalidaIA<{ claves: string[] }>> {

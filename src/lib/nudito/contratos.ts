@@ -376,7 +376,7 @@ export type ConsumoIA = {
 };
 
 /** Mismos nombres que el enum `OperacionIaNudito` de Prisma. */
-export type OperacionIa = "explicar" | "pista" | "retroalimentar_abierta" | "interpretar_imagen" | "preguntar" | "moderar" | "validar_tema";
+export type OperacionIa = "explicar" | "pista" | "retroalimentar_abierta" | "interpretar_imagen" | "preguntar" | "moderar" | "validar_tema" | "generar_leccion";
 
 export const esquemaExplicacion = z.object({ texto: z.string().min(1).max(900), ejemplo: z.string().max(400).optional() });
 /** Si `revelaRespuesta` es true, la pista se descarta y se usa la revisada. */
@@ -418,6 +418,7 @@ export interface ProveedorTutorIA {
   retroalimentarAbierta(entrada: { consigna: string; texto: string; rubrica: Rubrica }): Promise<SalidaIA<EvaluacionRubricaIA>>;
   interpretarImagen(entrada: { mime: string; bytes: Uint8Array; proposito: "ejercicio" | "procedimiento" }): Promise<SalidaIA<LecturaImagen>>;
   sugerirTemas?(entrada: { texto: string; candidatos: { clave: string; nombre: string }[] }): Promise<SalidaIA<CandidatosTema>>;
+  generarLeccion?(entrada: { tema: Tema; grado: number; nivel: NivelNudito }): Promise<SalidaIA<import("./leccion").Leccion>>;
 }
 
 // ───────────────────────────── Configuración institucional (specs/44) ─────────────────────────────
@@ -453,7 +454,7 @@ export type AccesoNudito = {
 export type CursoNuditoVista = { cursoId: string; nombre: string; area: AreaNudito };
 export type TemaVista = Pick<Tema, "clave" | "nombre" | "subtema" | "grado"> & { estado: EstadoDominio; recomendado: boolean };
 
-export type ResultadosSesion = { aciertos: number; total: number; pistas: number; minutos: number; temas: TemaVista[]; mensaje: string };
+export type ResultadosSesion = { aciertos: number; total: number; pistas: number; minutos: number; temas: TemaVista[]; mensaje: string; plan?: { total: number; dominados: number; completo: boolean }; habilidades: string[]; dificultades: string[]; recomendaciones: string[] };
 export type ProgresoAlumno = {
   porArea: { area: AreaNudito; temas: (TemaVista & { ultimaPractica: string | null; motivo: string | null })[] }[];
 };
@@ -474,8 +475,8 @@ export type ApiNudito = {
     reanudable?: { sesionId: string; tema: string };
   }>;
   elegirCurso(i: { sesionId: string; cursoId: string }): Promise<{ temas: TemaVista[] }>;
-  elegirTema(i: { sesionId: string } & ({ temaClave: TemaClave } | { textoLibre: string })): Promise<ValidacionTema>;
-  pedirRepaso(i: { sesionId: string }): Promise<{ idea: string; ejemplo: string; explicacionIa?: string }>;
+  elegirTema(i: { sesionId: string; temaClave: TemaClave }): Promise<ValidacionTema>;
+  pedirRepaso(i: { sesionId: string }): Promise<{ idea: string; ejemplo: string; explicacion: string; recursos: { tipo: "svg" | "diagrama" | "enlace"; titulo: string; valor: string }[]; explicacionIa?: string }>;
   siguienteEjercicio(i: { sesionId: string }): Promise<
     { ejercicioId: string; numero: number; total: number; comprobacion: boolean; ejercicio: EjercicioPublico } | { fin: true }
   >;

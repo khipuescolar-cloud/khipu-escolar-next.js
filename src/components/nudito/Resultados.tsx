@@ -16,6 +16,7 @@ export function Resultados({ resultados, onOtroTema }: { resultados: ResultadosS
       <VozNudito estado="celebrando" tamano={64}>
         {resultados.mensaje}
       </VozNudito>
+      {resultados.plan && <p className="rounded-[var(--radio-md)] bg-superficie-2 p-3 font-nudito">Temas dominados: {resultados.plan.dominados} de {resultados.plan.total}{resultados.plan.completo ? " · ¡Plan completo! Repasa libremente o profundiza." : ""}</p>}
       <dl className="grid grid-cols-3 gap-2">
         {datos.map((d) => {
           const Icono = d.icono;
@@ -41,6 +42,11 @@ export function Resultados({ resultados, onOtroTema }: { resultados: ResultadosS
           </ul>
         </div>
       )}
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="rounded-[var(--radio-lg)] bg-superficie-2 p-3"><h3 className="font-semibold">Habilidades</h3><p className="text-cuerpo-sm">{resultados.habilidades.length ? resultados.habilidades.join(", ") : "Sigues construyendo estas habilidades."}</p></div>
+        <div className="rounded-[var(--radio-lg)] bg-superficie-2 p-3"><h3 className="font-semibold">Por reforzar</h3><p className="text-cuerpo-sm">{resultados.dificultades.length ? resultados.dificultades.join(", ") : "Buen avance en esta práctica."}</p></div>
+      </div>
+      <div className="rounded-[var(--radio-lg)] border border-borde-sutil p-3"><h3 className="font-semibold">Te recomiendo</h3><ul className="list-inside list-disc text-cuerpo-sm">{resultados.recomendaciones.map((r,i) => <li key={i}>{r}</li>)}</ul></div>
       <Button size="lg" className="min-h-11 self-start" onClick={onOtroTema}>
         <RotateCcw strokeWidth={2} aria-hidden />
         Practicar otro tema

@@ -104,3 +104,11 @@ metricasContenido(ctx, { desde?, hasta? }): { reutilizadas, generadas, solicitud
 ## Limitaciones honestas
 - Sin claves de IA: generación y explicaciones extra usan el proveedor **simulado**; las lecciones de catálogo no usan IA.
 - Fotos de ejercicios: se mantiene specs/41 (`permitirFotos`, interpretación confirmada por el alumno).
+
+## Estado de implementación — 2026-11-08
+- Rutas: `/planificacion/[planId]/materiales`, `/planificacion/[planId]/materiales/[temaClave]`, `/planificacion/[planId]/progreso`, `/nudito` y `/api/cron/nudito-contenido` (Bearer `CRON_SECRET`). Las páginas de planificación usan el layout y las pestañas del agente responsable del plan.
+- `temasPublicadosDelAlumno` consulta la última foto publicada y las lecciones publicadas, sin depender de semanas. `progresoDelPlan` mapea los estados sin borrar temas retirados del historial. La selección acepta solo claves de esa lista; «Otro tema» y el desbloqueo superior desaparecen de la interfaz.
+- Preparación: trabajo idempotente por plan y versión; cada llamada procesa hasta cinco ítems con concurrencia máxima de dos, tres intentos por ítem y cupos de trabajo/colegio. Lecciones globales se arman desde el catálogo y muestras deterministas. Los temas propios usan el proveedor configurado; sin credenciales, el simulado deja borradores `ia_simulada` que requieren edición docente para poder aprobarse.
+- Revisión: participantes activos y dirección editan y cambian estados; publicar exige coordinación o dirección. Se registran revisiones y auditoría. El contenido publicado alimenta el repaso de Nudito. El seguimiento marca temas fuera del plan vigente.
+- Limitaciones: la revisión se edita como JSON en esta primera interfaz; los SVG se renderizan como imagen inerte y los diagramas de texto se muestran sin HTML ejecutable. El catálogo global original sigue pendiente de revisión pedagógica docente (specs/42). No se configuraron credenciales de IA ni se activó un proveedor real. La generación real por chat queda sujeta a la validación de esquema y revisión docente antes de publicar.
+- Los resultados de sesión presentan aciertos, progreso del plan, habilidades, dificultades y recomendaciones formativas; si el plan está completo, ofrecen repaso libre y profundización.
