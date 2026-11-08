@@ -28,3 +28,11 @@
 
 ## Pendientes y preguntas abiertas
 - Ocultar al alumno la calificación de sus entregas en Tareas (pregunta abierta desde «alumno sin notas»).
+
+## Seguimiento: pestañas y sin borradores
+> [captura de las pestañas] aqui deberia ver las tareas : todas, programadas, sin revisar y revisadas ; lo de borradores no deberia existir, no deberian exisitir "tareas borradores" ni tampoco deberia existir "archivadas"
+
+- Pestañas: Todas · Programadas · Sin revisar · Revisadas (`?ver=`), filtradas por salón. Sin «Borradores», «Cerradas» ni «Archivadas».
+- «Nueva tarea» ya no ofrece «Guardar borrador»; `crearTarea` rechaza `accion: "borrador"` (test en `tests/integracion/tareas-classroom.test.ts`).
+- Los borradores que ya existían no se tocan: aparecen en «Todas» con «Publicar» o se pueden eliminar. En la BD local queda uno de Carla Mendoza («Cuestionario: instituciones del Estado»).
+- Validación: tsc y lint limpios; integración de tareas 22/22; e2e `tareas-agenda` y `tareas-classroom` en verde.

@@ -102,6 +102,8 @@ describe("crear tareas multi-sección con destinatarios", () => {
     const fmt = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Lima", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(publicarEn);
     const p = (t: string) => fmt.find((x) => x.type === t)!.value;
     const texto = `${p("year")}-${p("month")}-${p("day")}T${p("hour")}:${p("minute")}`;
+    // Ya no hay borradores (specs/39): solo «publicar» o «programar».
+    expect(await crearTarea(tutora(), { cursoId: c.cursoTutora.id, titulo: "Borrador", fechaEntrega: D, accion: "borrador" })).toMatchObject({ ok: false });
     expect(await crearTarea(tutora(), { cursoId: c.cursoTutora.id, titulo: "Programada", fechaEntrega: D, accion: "programar", publicarEn: texto, avisarFamilias: true })).toMatchObject({ ok: true });
     const t = await tareaPor("Programada");
     const visibles = (await tareasDeFamilia(madre()))[0];

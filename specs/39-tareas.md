@@ -28,7 +28,8 @@ la califique en el MISMO registro de notas (sin un segundo registro y sin NSP).
    otros salones). Por sección: «Todos» o selección individual con búsqueda; contador y vista previa de destinatarios.
    Título, instrucciones (≤5000), indicaciones de entrega, materiales (archivos y enlaces http/https), fecha límite
    opcional con o sin hora (zona del colegio), «Permitir entregas tardías», «Comentarios generales», «Calificable».
-   Guardar como borrador, publicar ahora o programar (`publicar_en`).
+   Publicar ahora o programar (`publicar_en`). **Desde 2026-11-08 no hay borradores de tarea**: `crearTarea` solo acepta
+   `accion` «publicar» o «programar». Los borradores creados antes se ven en «Todas» con «Publicar» (`publicarTarea`) o se eliminan.
 2. **Ver/entregar** (`/tareas/[id]?alumno=`): instrucciones, materiales, estado (ícono + palabra), borrador (texto +
    archivos), «Entregar» (hora real; tarde si pasó el plazo), «Anular entrega» antes de la revisión, reentrega si fue
    devuelta (nuevo intento numerado), comentarios privados, calificación solo si se publicó.
@@ -129,8 +130,10 @@ publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_
     próximos 7 días. Regla pura `agendaDeRevision` (`src/lib/tareas.ts`). Cada tarjeta (salón · curso, título, plazo,
     «N por revisar», barra «3/12 entregaron», «Revisar →») abre `/tareas/<id>/revision?curso=<cursoId>`. Sin nada:
     «Estás al día…». Siempre mira las tareas no archivadas, aunque se elija otra pestaña.
-  - **Pestañas con su cantidad** («Ver tareas»): Todas (sin archivadas) · Borradores · Programadas · Cerradas ·
-    Archivadas (`?estado=`). A la derecha, el filtro «Todos los cursos» (si hay más de uno) con «Ver».
+  - **Pestañas con su cantidad** («Ver tareas», `?ver=`): Todas (sin archivadas) · Programadas · Sin revisar · Revisadas.
+    Se filtra por sección (salón): «Sin revisar» = sección publicada o cerrada (no programada) con entregas por revisar
+    (`porRevisar > 0`); «Revisadas» = sin entregas por revisar y al menos una revisada. La cantidad cuenta tareas. Sin
+    pestañas de borradores, cerradas ni archivadas. A la derecha, el filtro «Todos los cursos» (si hay más de uno) con «Ver».
   - **Tarjetas por salón** (dos columnas en escritorio) y, dentro, las tareas por curso. Una tarea con varias secciones
     aparece en cada salón, con «También en …». Cada fila: nudo de estado, título, estado (solo si no es publicada),
     plazo, «N por revisar» y la barra de entregas; toda la fila abre «Revisar entregas» de ese salón (un borrador no

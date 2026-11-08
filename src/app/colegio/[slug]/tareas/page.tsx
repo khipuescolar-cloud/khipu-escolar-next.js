@@ -36,23 +36,28 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
   }
 
   if (ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();
-  const filtros = { cursoId: typeof sp.curso === "string" ? sp.curso : undefined, estado: typeof sp.estado === "string" ? sp.estado : undefined };
-  // «Todas» (sin archivadas) da los contadores de las pestañas y la banda «Para revisar»; la pestaña elegida filtra.
-  const [cursos, todas, archivadas] = await Promise.all([
-    cursosParaTareas(ctx),
-    tareasDelDocente(ctx, { cursoId: filtros.cursoId }),
-    tareasDelDocente(ctx, { cursoId: filtros.cursoId, estado: "archivada" }),
-  ]);
+  const filtros = { cursoId: typeof sp.curso === "string" ? sp.curso : undefined };
+  // Pestañas (specs/39): Todas · Programadas · Sin revisar · Revisadas. Se filtra por sección (salón): una tarea puede
+  // estar sin revisar en un salón y revisada en otro. Sin borradores ni archivadas.
+  const [cursos, todas] = await Promise.all([cursosParaTareas(ctx), tareasDelDocente(ctx, { cursoId: filtros.cursoId })]);
+  type T = (typeof todas)[number];
+  type S = T["secciones"][number];
+  const activa = (t: T) => !t.programada && (t.estado === "publicada" || t.estado === "cerrada");
+  const criterios: Record<string, (t: T, s: S) => boolean> = {
+    todas: () => true,
+    programadas: (t) => t.programada,
+    "sin-revisar": (t, s) => activa(t) && s.contadores.porRevisar > 0,
+    revisadas: (t, s) => activa(t) && s.contadores.porRevisar === 0 && s.contadores.revisadas > 0,
+  };
+  const filtrar = (id: string) => todas.map((t) => ({ ...t, secciones: t.secciones.filter((s) => criterios[id](t, s)) })).filter((t) => t.secciones.length > 0);
   const vistas = [
-    { id: "", titulo: "Todas", n: todas.length },
-    { id: "borrador", titulo: "Borradores", n: todas.filter((t) => t.estado === "borrador").length },
-    { id: "programada", titulo: "Programadas", n: todas.filter((t) => t.programada).length },
-    { id: "cerrada", titulo: "Cerradas", n: todas.filter((t) => t.estado === "cerrada").length },
-    { id: "archivada", titulo: "Archivadas", n: archivadas.length },
-  ];
-  const vista = vistas.some((v) => v.id === filtros.estado) ? filtros.estado ?? "" : "";
-  const tareas = vista === "" ? todas : vista === "archivada" ? archivadas : await tareasDelDocente(ctx, { cursoId: filtros.cursoId, estado: vista });
-  const urlVista = (id: string) => `/tareas?${new URLSearchParams({ ...(filtros.cursoId ? { curso: filtros.cursoId } : {}), ...(id ? { estado: id } : {}) })}`;
+    { id: "todas", titulo: "Todas" }, { id: "programadas", titulo: "Programadas" },
+    { id: "sin-revisar", titulo: "Sin revisar" }, { id: "revisadas", titulo: "Revisadas" },
+  ].map((v) => ({ ...v, n: v.id === "todas" ? todas.length : filtrar(v.id).length }));
+  const pedida = typeof sp.ver === "string" ? sp.ver : "todas";
+  const vista = vistas.some((v) => v.id === pedida) ? pedida : "todas";
+  const tareas = vista === "todas" ? todas : filtrar(vista);
+  const urlVista = (id: string) => `/tareas?${new URLSearchParams({ ...(filtros.cursoId ? { curso: filtros.cursoId } : {}), ...(id !== "todas" ? { ver: id } : {}) })}`;
   const competenciasTarea = ctx.rol === "profesor" ? await ctx.db.competencia.findMany({ where: { cursoId: { in: cursos.map((c) => c.id) }, desactivadaAt: null }, select: { id: true, cursoId: true, nombre: true }, orderBy: { orden: "asc" } }) : [];
   const alumnos = ctx.rol === "profesor" && cursos.length > 0 ? await alumnosParaDestinatarios(ctx, cursos.map((c) => c.id)) : [];
   const arbolMateriales = ctx.rol === "profesor" && ctx.modulos.has("documentos") ? await listarMateriales(ctx, { incluirArchivados: true }) : { anios: [] };
@@ -136,7 +141,7 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
           <nav aria-label="Ver tareas" className="-mb-px flex gap-1 overflow-x-auto">
             {vistas.map((v) => (
               <Link
-                key={v.id || "todas"}
+                key={v.id}
                 href={urlVista(v.id)}
                 aria-current={vista === v.id ? "page" : undefined}
                 className={`inline-flex min-h-11 items-center gap-2 border-b-2 px-3 text-sm font-medium whitespace-nowrap transition-colors duration-150 motion-reduce:transition-none ${vista === v.id ? "border-sec-nudo text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"}`}
@@ -148,7 +153,7 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
           </nav>
           {cursos.length > 1 && (
             <form className="flex items-center gap-2 pb-2" aria-label="Filtrar por curso">
-              {vista && <input type="hidden" name="estado" value={vista} />}
+              {vista !== "todas" && <input type="hidden" name="ver" value={vista} />}
               <label htmlFor="filtro-curso" className="sr-only">Curso</label>
               <select id="filtro-curso" name="curso" defaultValue={filtros.cursoId ?? ""} className="min-h-10 max-w-64 rounded-[10px] border border-input bg-card px-3 text-sm">
                 <option value="">Todos los cursos</option>
@@ -162,7 +167,7 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
         {tareas.length === 0 ? (
           <p className="flex items-center gap-2 py-6 text-cuerpo text-muted-foreground">
             <CheckCircle2 className="size-5 text-llego" strokeWidth={2} aria-hidden />
-            {vista === "" ? (ctx.rol === "profesor" ? "Aún no hay tareas. Crea una con «Nueva tarea»." : "No hay tareas.") : `No hay tareas ${vistas.find((v) => v.id === vista)?.titulo.toLowerCase()}.`}
+            {vista === "todas" ? (ctx.rol === "profesor" ? "Aún no hay tareas. Crea una con «Nueva tarea»." : "No hay tareas.") : vista === "programadas" ? "No hay tareas programadas." : vista === "sin-revisar" ? "Estás al día: no hay entregas sin revisar." : "Todavía no hay tareas con entregas revisadas."}
           </p>
         ) : (
           <TareasPorSalon tareas={tareas} comun={{ slug, zona: ctx.tenant.zonaHoraria, limites, materiales, referencias, esDireccion: ctx.rol === "direccion" }} />
