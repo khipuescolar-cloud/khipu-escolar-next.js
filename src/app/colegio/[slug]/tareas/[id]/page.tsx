@@ -196,9 +196,9 @@ export default async function TareaPage({ params, searchParams }: PageProps<"/co
             ) : (
               <ul className="flex flex-col gap-3">
                 {d.comentarios.map((c) => (
-                  <li key={c.id} className={`flex max-w-[85%] flex-col gap-1 ${c.esDocente ? "self-start" : "self-end items-end"}`}>
+                  <li key={c.id} className={`flex min-w-0 max-w-[85%] flex-col gap-1 ${c.esDocente ? "self-start" : "self-end items-end"}`}>
                     <span className="text-etiqueta text-muted-foreground">{c.autor}{c.esDocente ? " · profesor" : ""} · {cuando(c.createdAt)}{c.privado ? "" : " · para toda la clase"}</span>
-                    <p className={`rounded-2xl px-4 py-2.5 text-sm whitespace-pre-line ${c.esDocente ? "rounded-tl-md bg-sec-suave text-foreground" : "rounded-tr-md bg-primary text-primary-foreground"}`}>{c.texto}</p>
+                    <p className={`max-w-full rounded-2xl px-4 py-2.5 text-sm whitespace-pre-line [overflow-wrap:anywhere] ${c.esDocente ? "rounded-tl-md bg-sec-suave text-foreground" : "rounded-tr-md bg-primary text-primary-foreground"}`}>{c.texto}</p>
                   </li>
                 ))}
               </ul>
