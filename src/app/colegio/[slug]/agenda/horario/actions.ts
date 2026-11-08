@@ -16,7 +16,7 @@ async function contexto(slug: string) {
 
 function refrescar(r: Resultado) {
   if (r.ok) {
-    revalidatePath("/colegio/[slug]/horario", "page");
+    revalidatePath("/colegio/[slug]/agenda/horario", "page");
     revalidatePath("/colegio/[slug]/inicio", "page");
   }
   return r;

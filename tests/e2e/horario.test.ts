@@ -86,7 +86,7 @@ async function horaLibreDeLucia() {
 test("dirección asigna un bloque en 3.° B; Lucía lo ve en «Mi horario» y Rosa en el horario de Mateo", async ({ page, context }) => {
   // 1. Dirección abre el horario de 3.° B (si primaria aún no tiene horas, usa las sugeridas).
   await entrar(page, "direccion@nuevohorizonte.demo");
-  await page.goto(colegio(`/horario?salon=${ids.salon}`));
+  await page.goto(colegio(`/agenda/horario?salon=${ids.salon}`));
   await expect(page.getByRole("heading", { name: "Horarios", level: 1 })).toBeVisible();
   const sugeridas = page.getByRole("button", { name: "Usar horas sugeridas" });
   if (await sugeridas.isVisible()) {
@@ -113,7 +113,7 @@ test("dirección asigna un bloque en 3.° B; Lucía lo ve en «Mi horario» y Ro
   // 3. Lucía lo ve en «Mi horario», en la columna de ese día, con el salón.
   await context.clearCookies();
   await entrar(page, "lucia.garcia@nuevohorizonte.demo");
-  await page.goto(colegio("/horario"));
+  await page.goto(colegio("/agenda/horario"));
   await expect(page.getByRole("heading", { name: "Mi horario", level: 1 })).toBeVisible();
   const columna = page.getByRole("region", { name: new RegExp(`^${NOMBRE_DIA[dia]}`) });
   const bloque = columna.getByRole("listitem").filter({ hasText: TITULO });
@@ -123,7 +123,7 @@ test("dirección asigna un bloque en 3.° B; Lucía lo ve en «Mi horario» y Ro
   // 4. Rosa lo ve en el horario de Mateo.
   await context.clearCookies();
   await entrar(page, "rosa.quispe@gmail.com");
-  await page.goto(colegio(`/horario?alumno=${ids.mateo}`));
+  await page.goto(colegio(`/agenda/horario?alumno=${ids.mateo}`));
   await expect(page.getByRole("heading", { name: "Horario", level: 1 })).toBeVisible();
   await expect(page.getByRole("table", { name: "Horario de 3.° B" }).getByText(TITULO)).toBeVisible();
   // La familia no edita: no hay casilleros con botón.
@@ -133,7 +133,7 @@ test("dirección asigna un bloque en 3.° B; Lucía lo ve en «Mi horario» y Ro
 test("en el celular el horario se ve por días, con hoy elegido", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 800 });
   await entrar(page, "rosa.quispe@gmail.com");
-  await page.goto(colegio(`/horario?alumno=${ids.mateo}`));
+  await page.goto(colegio(`/agenda/horario?alumno=${ids.mateo}`));
   await expect(page.getByRole("table")).toBeHidden();
   await expect(page.getByRole("tab", { name: new RegExp(NOMBRE_DIA[dia]) })).toHaveAttribute("aria-selected", "true");
   await expect(page.getByRole("tabpanel").getByText(TITULO)).toBeVisible();

@@ -13,7 +13,7 @@ import { opcionesDeSalones } from "../componentes";
 
 export const metadata: Metadata = { title: "Plantilla de horario" };
 
-export default async function EditarPlantillaPage({ params }: PageProps<"/colegio/[slug]/horario/plantillas/[id]">) {
+export default async function EditarPlantillaPage({ params }: PageProps<"/colegio/[slug]/agenda/horario/plantillas/[id]">) {
   const { slug, id } = await params;
   const ctx = await requireTenantContext(slug, ["direccion", "administrativo"]);
   requireFeature(ctx, "horario");
@@ -21,8 +21,8 @@ export default async function EditarPlantillaPage({ params }: PageProps<"/colegi
   if (!p) notFound();
   return (
     <div className="flex flex-col gap-4">
-      <Link href="/horario/plantillas" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Plantillas de horario</Link>
-      <EncabezadoPagina seccion="dia" titulo={p.nombre} descripcion="Al guardar, Khipu vuelve a calcular las horas del día. Las clases ya puestas en el horario se mantienen (la 1.ª hora sigue siendo la 1.ª)." />
+      <Link href="/agenda/horario/plantillas" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Plantillas de horario</Link>
+      <EncabezadoPagina seccion="academico" titulo={p.nombre} descripcion="Al guardar, Khipu vuelve a calcular las horas del día. Las clases ya puestas en el horario se mantienen (la 1.ª hora sigue siendo la 1.ª)." />
       {p.salones.length > 0 && <Alerta tipo="info">La usan {p.salones.length === 1 ? "1 salón" : `${p.salones.length} salones`}: {p.salones.map((s) => s.nombre).join(", ")}. Los cambios valen para todos.</Alerta>}
       <FormPlantilla
         esNueva={false}

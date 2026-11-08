@@ -55,6 +55,10 @@ eliminarEvento(ctx, eventoId): Resultado
 
 ## Rutas y UI
 - `/tareas` (profesor, dirección, apoderado) · `/agenda` (los mismos). Acciones en `tareas/actions.ts` y `agenda/actions.ts`.
+- **2026-11-07:** la Agenda es el módulo único de calendario y horario. Arriba, `PestanasAgenda` (Calendario + las
+  pestañas del horario de specs/34 según el rol). El horario vive en `/agenda/horario` (y `/agenda/horario/plantillas`).
+  Colegio sin `agenda` (Khipu Base) pero con `horario`: el menú muestra «Agenda» sin candado y `/agenda` redirige al
+  horario; el calendario sigue siendo de Khipu Pro.
 
 ## Textos y UX
 

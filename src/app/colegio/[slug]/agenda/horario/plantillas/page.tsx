@@ -1,6 +1,7 @@
-import { ArrowLeft, CalendarClock, Coffee, DoorClosed, DoorOpen, Pencil, Plus, Trash2 } from "lucide-react";
+import { CalendarClock, Coffee, DoorClosed, DoorOpen, Pencil, Plus, Trash2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PestanasAgenda } from "@/components/agenda/PestanasAgenda";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
@@ -13,24 +14,22 @@ import { eliminarPlantillaAction } from "./actions";
 export const metadata: Metadata = { title: "Plantillas de horario" };
 
 /** Plantillas de horario (specs/34): dirección y secretaría las crean y las asignan a los salones. */
-export default async function PlantillasPage({ params }: PageProps<"/colegio/[slug]/horario/plantillas">) {
+export default async function PlantillasPage({ params }: PageProps<"/colegio/[slug]/agenda/horario/plantillas">) {
   const { slug } = await params;
   const ctx = await requireTenantContext(slug, ["direccion", "administrativo"]);
   requireFeature(ctx, "horario");
   const plantillas = await listarPlantillas(ctx);
   const nueva = (
-    <Link href="/horario/plantillas/nueva" className={buttonVariants()}>
+    <Link href="/agenda/horario/plantillas/nueva" className={buttonVariants()}>
       <Plus strokeWidth={2} aria-hidden />Nueva plantilla
     </Link>
   );
 
   return (
     <div className="flex flex-col gap-4">
-      {ctx.rol === "direccion" && (
-        <Link href="/horario" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Horarios</Link>
-      )}
+      <PestanasAgenda ctx={ctx} activa="plantillas" />
       <EncabezadoPagina
-        seccion="dia"
+        seccion="academico"
         titulo="Plantillas de horario"
         descripcion="La entrada, los recreos y la salida de cada jornada. Khipu calcula las horas de clase; cada salón usa una plantilla y su entrada marca la tardanza en portería."
         acciones={plantillas.length > 0 ? nueva : undefined}
@@ -61,7 +60,7 @@ export default async function PlantillasPage({ params }: PageProps<"/colegio/[sl
                 )}
               </div>
               <div className="flex flex-wrap items-center gap-2">
-                <Link href={`/horario/plantillas/${p.id}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
+                <Link href={`/agenda/horario/plantillas/${p.id}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
                   <Pencil strokeWidth={2} aria-hidden />Editar<span className="sr-only"> {p.nombre}</span>
                 </Link>
                 {p.salones.length === 0 && (

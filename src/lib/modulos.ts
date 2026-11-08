@@ -64,6 +64,8 @@ export const INFO_ROL: Record<Rol, { nombre: string; descripcion: string }> = {
  */
 const USOS_FUERA_DE_NAVEGACION: Partial<Record<Feature, Rol[]>> = {
   avisos: ["apoderado"],
+  // El horario vive dentro de la Agenda (specs/34): dirección lo arma, secretaría las plantillas y el resto lo consulta.
+  horario: ["direccion", "administrativo", "profesor", "apoderado", "alumno"],
 };
 
 /** Roles que el código soporta para cada módulo (mosaicos de navegación + usos fuera de ella). */

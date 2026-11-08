@@ -28,7 +28,11 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
   const ctx = await requireTenantContext(slug);
   // Módulos quitados al colegio o al rol (specs/19) y, en modo soporte (specs/16), chats, notas y libreta: no se muestran.
   const mosaicos = mosaicosParaRol(ctx.rol)
-    .map((m) => ({ ...m, acceso: estadoModulo(ctx, m.feature) }))
+    .map((m) => {
+      const acceso = estadoModulo(ctx, m.feature);
+      const alterno = acceso.estado !== "activo" && m.alternativa ? estadoModulo(ctx, m.alternativa) : null;
+      return { ...m, acceso: alterno?.estado === "activo" ? alterno : acceso };
+    })
     .filter((m) => m.acceso.estado !== "oculto");
   const tieneMensajes = mosaicos.some((m) => m.contador === "mensajes" && m.acceso.estado === "activo");
   const [logoUrl, sinLeer, estadoBarra, soporteHasta] = await Promise.all([

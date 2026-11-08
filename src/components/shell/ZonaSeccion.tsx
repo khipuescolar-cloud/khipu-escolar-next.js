@@ -5,8 +5,8 @@ import type { ReactNode } from "react";
 import { ProveedorSeccion } from "@/components/shell/SeccionContexto";
 import { rutaActiva, type GrupoNav } from "@/lib/navegacion";
 
-/** Rutas cuyo color no sale del menú (el mismo enlace aparece en dos grupos según el rol): el horario es de «Día a día». */
-const SECCION_POR_RUTA: [string, GrupoNav][] = [["/horario", "dia"]];
+/** Rutas cuyo color no sale del menú (el mismo enlace aparece en dos grupos según el rol). Hoy ninguna. */
+const SECCION_POR_RUTA: [string, GrupoNav][] = [];
 
 /**
  * Pone `data-seccion` en el contenido según la ruta activa del menú: así la cuerda del encabezado, las pestañas y los
