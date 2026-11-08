@@ -15,7 +15,7 @@ El profesor pasa lista en menos de un minuto y las familias se enteran al instan
 | Profesor | Pasar lista (hoy) **solo** en los cursos que dicta (en cualquier salón); si es tutor, además la «Asistencia del día» de su salón. Ser tutor no da las listas de los cursos que dictan otros profesores en su salón. Las listas de curso solo en salones de niveles con asistencia por curso activa | Cursos o salones ajenos (403); listas de curso de un nivel apagado (error de negocio); otro día que no sea hoy (403) |
 | Dirección | **No pasa lista** (no tiene «Pasar lista» en el menú; `/asistencia` la lleva a `/asistencia/reportes`). Desde los reportes abre la lista de un salón (del día o de un curso) de cualquier fecha hasta hoy y **corrige** entradas; activa la asistencia por curso por nivel | Corregir días futuros; listas de curso de un nivel apagado |
 | Apoderado | Ver el calendario mensual de sus hijos y justificar faltas | Ver otros alumnos; pasar lista |
-| Alumno (cuenta propia) | «Mi asistencia»: calendario y lista **solo de su llegada al colegio** y, debajo, su reporte al colegio y por curso (spec 27) | Justificar; avisos; ver otros alumnos |
+| Alumno (cuenta propia) | «Mi asistencia» con dos pestañas: «Asistencia» (calendario y lista **solo de su llegada al colegio**) y «Reporte» (al colegio, por curso y el historial de cada curso, spec 27) | Justificar; avisos; ver otros alumnos |
 | Portería | Registra llegadas y salidas desde `/porteria` (spec 05) | Entrar a `/asistencia` o `/permisos` (403) |
 | Administrativo | Registrar y anular permisos de asistencia (`/permisos`) | Pasar lista |
 

@@ -291,7 +291,7 @@ export function AsistenciaPorCurso({ reporte, filtros }: { reporte: ReporteColeg
  * Asistencia a clase de los cursos del profesor fuera de su tutoría (o con el filtro «Curso»), specs/27: totales, una
  * fila por curso (enlaza a su historial) y, con un alumno, cada falta o tardanza a clase. No incluye la asistencia al colegio.
  */
-export function VistaCursos({ reporte, familia = false }: { reporte: ReporteCursos; familia?: boolean }) {
+export function VistaCursos({ reporte, familia = false, enlaceCurso }: { reporte: ReporteCursos; familia?: boolean; enlaceCurso?: (cursoId: string) => string }) {
   const rango = new URLSearchParams({ desde: reporte.desde, hasta: reporte.hasta }).toString();
   const contexto = [
     ...(reporte.alumno ? [`Salón ${reporte.alumno.salon}`] : []),
@@ -346,7 +346,7 @@ export function VistaCursos({ reporte, familia = false }: { reporte: ReporteCurs
               {reporte.filas.map((c) => (
                 <TableRow key={c.cursoId}>
                   <TableCell>
-                    {familia ? <span className="font-medium">{c.curso}</span> : <Link href={`/asistencia/reportes/curso/${c.cursoId}?${rango}`} className="enlace font-medium">{c.curso}</Link>}
+                    {familia ? <Link href={enlaceCurso?.(c.cursoId) ?? "#"} scroll={false} className="enlace font-medium">{c.curso}</Link> : <Link href={`/asistencia/reportes/curso/${c.cursoId}?${rango}`} className="enlace font-medium">{c.curso}</Link>}
                   </TableCell>
                   {!familia && <TableCell>{c.salon}</TableCell>}
                   <TableCell className={NUM}>{c.registros}</TableCell>
@@ -396,7 +396,7 @@ export function VistaCursos({ reporte, familia = false }: { reporte: ReporteCurs
       )}
       <p className="text-sm text-muted-foreground">
         {familia
-          ? "Cuenta las listas que cada profesor pasa en su clase; no cambian el porcentaje de asistencia al colegio. % asistencia = clases sin falta ÷ clases con lista. «Ingresó pero faltó»: entró al colegio ese día y no estuvo en la clase."
+          ? "Toca un curso para ver su historial clase por clase. Cuenta las listas que cada profesor pasa en su clase; no cambian el porcentaje de asistencia al colegio. % asistencia = clases sin falta ÷ clases con lista. «Ingresó pero faltó»: entró al colegio ese día y no estuvo en la clase."
           : "Cuenta las listas de tus cursos (en tu tutoría, de todos los cursos del salón). «Ingresó pero faltó»: el alumno entró al colegio ese día y no estuvo en la clase. La asistencia al colegio solo se ve en tu salón de tutoría."}
       </p>
     </>

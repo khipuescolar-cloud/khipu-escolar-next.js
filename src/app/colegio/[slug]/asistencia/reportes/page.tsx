@@ -41,11 +41,11 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
   const hoy = hoyDelColegio(ctx).isoFecha;
   const uno = (k: string) => (typeof sp[k] === "string" ? (sp[k] as string) : null);
   const familia = esVistaFamilia(ctx.rol);
-  // El alumno ve su reporte dentro de «Mi asistencia», junto a su llegada al colegio (specs/27).
+  // El alumno ve su reporte en la pestaña «Reporte» de «Mi asistencia» (specs/27).
   if (ctx.rol === "alumno") {
-    const q = new URLSearchParams();
-    for (const k of ["desde", "hasta", "vista"]) if (uno(k)) q.set(k, uno(k)!);
-    redirect(`/asistencia${q.size ? `?${q.toString()}` : ""}#reporte`);
+    const q = new URLSearchParams({ tab: "reporte" });
+    for (const k of ["desde", "hasta", "vista", "curso"]) if (uno(k)) q.set(k, uno(k)!);
+    redirect(`/asistencia?${q.toString()}`);
   }
   // Apoderado: reporte de sus hijos por fechas, al colegio o por curso.
   if (familia) {
