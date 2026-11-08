@@ -8,7 +8,7 @@ import { NUDITO_TUTOR_DISPONIBLE } from "../../src/lib/planes";
 // Tutor Nudito (specs/41–44) con los datos demo de `pnpm db:reconstruir`: Nuevo Horizonte con Nudito activo, cursos con
 // área, Lucas (alumno 5.° A con cuenta) con consentimiento de IA v2, y Rosa (apoderada de Mateo, 3.° B, sin cuenta).
 // Recorre las TRES áreas: curso → tema → repaso → ejercicio → respuesta incorrecta → pista → reintento → resultados, y
-// «Otro tema» demasiado avanzado. La respuesta correcta/incorrecta se arma leyendo la solución guardada en la BD (el
+// comprueba que ya no existe «Otro tema» (specs/49). La respuesta correcta/incorrecta se arma leyendo la solución guardada en la BD (el
 // cliente nunca la recibe). Opcional: `NUDITO_CAPTURAS=<carpeta>` guarda capturas en escritorio (1280×800) y móvil (390×844).
 test.skip(!NUDITO_TUTOR_DISPONIBLE, "Nudito desactivado en el producto");
 
@@ -194,7 +194,8 @@ for (const [n, a] of AREAS.entries()) {
     await page.getByRole("button", { name: "Terminar" }).click();
     await expect(page.getByRole("heading", { name: "¡Terminaste la práctica!" })).toBeVisible();
     await expect(page.getByText("1/1")).toBeVisible();
-    await expect(page.getByText(a.tema, { exact: true })).toBeVisible();
+    // «Tus temas» (el nombre también puede salir en «Por reforzar»).
+    await expect(page.locator("li").getByText(a.tema, { exact: true })).toBeVisible();
     if (n === 0) await captura(page, "resultados");
 
     // Quedó registrado el dominio del tema (formativo; no toca notas).
@@ -203,17 +204,16 @@ for (const [n, a] of AREAS.entries()) {
   });
 }
 
-test("«Otro tema» demasiado avanzado: Nudito propone temas de su grado y no deja practicarlo", async ({ page }) => {
+// specs/49: el alumno solo elige entre los temas publicados del plan anual; «Otro tema» ya no existe.
+test("sin «Otro tema»: Nudito solo ofrece los temas publicados del plan", async ({ page }) => {
   await entrar(page, LUCAS);
   await abrirNudito(page);
   await page.getByRole("button", { name: /¡Empecemos!|Empezar algo nuevo/ }).click();
   await page.getByRole("button", { name: /^Matemática/ }).click();
-  await page.getByRole("button", { name: "Otro tema" }).click();
-  await page.getByLabel("¿Qué tema quieres practicar?").fill("derivadas");
-  await page.getByRole("button", { name: "Buscar tema" }).click();
-  await expect(page.getByText(/más adelante|todavía no|aún no/i).first()).toBeVisible();
-  await expect(page.getByRole("heading", { name: /Repasemos:/ })).toHaveCount(0);
-  await captura(page, "otro-tema-avanzado");
+  await expect(page.getByRole("heading", { name: /¿Qué tema de/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Otro tema", exact: true })).toHaveCount(0);
+  await expect(page.getByLabel("¿Qué tema quieres practicar?")).toHaveCount(0);
+  await captura(page, "sin-otro-tema");
 });
 
 test("escritura con rúbrica: proveedor simulado → «Lo revisamos juntos» con retro formativa (no cuenta para dominio)", async ({ page }) => {

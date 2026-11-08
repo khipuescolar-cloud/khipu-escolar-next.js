@@ -154,5 +154,4 @@ Rutas implementadas: `/planificacion`, `/planificacion/[planId]` (redirige a Tem
 
 ## Pendientes
 - Solicitud de acceso al grado superior (prevista, no implementada).
-- Las rutas de Materiales y Progreso y el flujo e2e conjunto se integran con el trabajo paralelo de specs/49.
 - La creación de temas propios usa las áreas que soporta el catálogo de Nudito (Matemática, Comunicación y Ciencia y Tecnología); ampliar el catálogo a otras áreas CNEB requiere un contrato curricular adicional.

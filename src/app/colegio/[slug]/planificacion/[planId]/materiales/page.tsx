@@ -2,7 +2,8 @@ import Link from "next/link";
 import { CircleCheck, CircleDashed, CircleX, Clock3, Play } from "lucide-react";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { listarLeccionesDelPlan } from "@/lib/server/nudito/lecciones";
+import { listarLeccionesDelPlan, nombresDeTemas } from "@/lib/server/nudito/lecciones";
+import { obtenerPlan } from "@/lib/server/plan-anual";
 import { metricasContenido } from "@/lib/server/nudito/lecciones/preparacion";
 import { continuarAction, prepararAction } from "./actions";
 
@@ -11,12 +12,16 @@ const iconos = { publicada: CircleCheck, aprobada: CircleCheck, en_revision: Clo
 export default async function MaterialesPage({ params }: PageProps<"/colegio/[slug]/planificacion/[planId]/materiales">) {
   const { slug, planId } = await params;
   const ctx = await requireTenantContext(slug, ["profesor", "direccion"]);
+  const plan = await obtenerPlan(ctx, planId);
+  // Sin versión publicada no hay foto del plan: se explica en vez de romper la pestaña.
+  if (!plan.versionPublicada) return <p className="inline-flex items-center gap-2 text-cuerpo-sm"><CircleDashed className="size-4" strokeWidth={2} aria-hidden />Publica el plan antes de preparar materiales.</p>;
   const [filas, trabajo, metricas] = await Promise.all([
     listarLeccionesDelPlan(ctx, planId),
     ctx.db.nuditoTrabajoContenido.findFirst({ where: { planId }, orderBy: { versionPlan: "desc" } }),
     metricasContenido(ctx),
   ]);
-  return <main className="min-w-0">
+  const nombres = await nombresDeTemas(ctx.db, filas.map(f => f.temaClave));
+  return <div className="min-w-0">
     <EncabezadoPagina titulo="Materiales de Nudito" seccion="academico" descripcion="Revisa las lecciones antes de publicarlas para tus alumnos." />
     <div className="mb-5 flex flex-wrap items-center gap-3">
       <form action={prepararAction.bind(null, planId)}><button className="min-h-11 rounded-lg bg-primary px-4 font-semibold text-primary-foreground">{trabajo ? "Preparar materiales" : "Preparar materiales"}</button></form>
@@ -32,11 +37,11 @@ export default async function MaterialesPage({ params }: PageProps<"/colegio/[sl
         const estado = leccion?.estado ?? "pendiente";
         const Icono = leccion ? iconos[leccion.estado] : CircleDashed;
         return <li key={temaClave} className="min-w-0 rounded-lg border border-borde-sutil bg-superficie p-4">
-          <p className="break-all font-semibold">{temaClave}</p>
+          <p className="break-words font-semibold">{nombres.get(temaClave)}</p>
           <p className="mt-2 inline-flex items-center gap-2 text-cuerpo-sm"><Icono className="size-4" strokeWidth={2} aria-hidden />{estado.replaceAll("_"," ")}</p>
           {leccion && <Link href={"/planificacion/" + planId + "/materiales/" + encodeURIComponent(temaClave)} className="mt-3 block min-h-11 rounded-lg border border-input px-3 py-2 text-center font-semibold">Revisar lección</Link>}
         </li>;
       })}
     </ul>
-  </main>;
+  </div>;
 }

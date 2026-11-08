@@ -22,7 +22,7 @@ export default async function LeccionPage({ params }: PageProps<"/colegio/[slug]
   ] as const;
   const acciones = l.estado === "borrador" || l.estado === "cambios_solicitados" ? ["enviar", "retirar"] : l.estado === "en_revision" ? ["cambios", "aprobar", "retirar"] : l.estado === "aprobada" ? ["publicar", "retirar"] : l.estado === "publicada" ? ["retirar"] : [];
   const Icono = l.estado === "publicada" || l.estado === "aprobada" ? CircleCheck : l.estado === "en_revision" ? Clock3 : l.estado === "retirada" || l.estado === "cambios_solicitados" ? CircleX : CircleDashed;
-  return <main className="min-w-0 space-y-5">
+  return <div className="min-w-0 space-y-5">
     <EncabezadoPagina titulo={contenido.titulo} seccion="academico" descripcion={"Origen: " + l.origen} />
     <p className="inline-flex items-center gap-2 text-cuerpo-sm font-semibold"><Icono className="size-4" strokeWidth={2} aria-hidden />{l.estado.replaceAll("_"," ")}</p>
     <section className="rounded-lg border border-borde-sutil bg-superficie p-4">
@@ -65,5 +65,5 @@ export default async function LeccionPage({ params }: PageProps<"/colegio/[slug]
       <button className="min-h-11 rounded-lg border border-input px-4 font-semibold">{texto}</button>
     </form>)}</div>
     <section className="rounded-lg border border-borde-sutil bg-superficie p-4"><h2 className="font-semibold">Historial de revisión</h2><ol className="mt-2 space-y-2 text-cuerpo-sm">{revisiones.map(r => <li key={r.id}>{r.accion.replaceAll("_"," ")} · {r.createdAt.toLocaleDateString("es-PE")}{r.comentario ? " · " + r.comentario : ""}</li>)}</ol></section>
-  </main>;
+  </div>;
 }
