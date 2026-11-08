@@ -9,7 +9,7 @@ const PILDORA = "inline-flex items-center gap-1.5 rounded-pildora px-2.5 py-1 te
 const NEUTRO = "inline-flex items-center gap-1.5 text-etiqueta text-muted-foreground";
 
 /** Fecha límite: «Entrega mañana», «Venció…», «Sin fecha límite». */
-export function FechaEntrega({ fecha, conHora = false, vencida = false }: { fecha: Date | null; conHora?: boolean; vencida?: boolean }) {
+export function FechaEntrega({ fecha, conHora = false, vencida = false, neutra = false }: { fecha: Date | null; conHora?: boolean; vencida?: boolean; neutra?: boolean }) {
   if (!fecha) {
     return <span className={NEUTRO}><CalendarDays className="size-3.5" strokeWidth={2} aria-hidden />Sin fecha límite</span>;
   }
@@ -26,7 +26,14 @@ export function FechaEntrega({ fecha, conHora = false, vencida = false }: { fech
   } else if (dia === sumarDias(hoy, 1)) {
     Icono = Clock; clase = "bg-tarde-fondo text-tarde"; texto = `Entrega mañana${hora}`;
   }
-  return <span className={clase ? `${PILDORA} ${clase}` : NEUTRO}><Icono className="size-3.5" strokeWidth={2} aria-hidden />{texto}</span>;
+  // `neutra`: ya no pide atención (p. ej. todo revisado): mismo texto, sin relleno ni rojo.
+  if (neutra) Icono = CalendarDays;
+  return <span className={clase && !neutra ? `${PILDORA} ${clase}` : NEUTRO}><Icono className="size-3.5" strokeWidth={2} aria-hidden />{texto}</span>;
+}
+
+/** Sección de tarea con todas sus entregas revisadas (vista del docente). */
+export function Revisada() {
+  return <span className={`${PILDORA} bg-llego-fondo font-semibold text-llego`}><CheckCheck className="size-3.5" strokeWidth={2} aria-hidden />Revisada</span>;
 }
 
 const ENTREGA = {

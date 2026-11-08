@@ -36,3 +36,9 @@
 - «Nueva tarea» ya no ofrece «Guardar borrador»; `crearTarea` rechaza `accion: "borrador"` (test en `tests/integracion/tareas-classroom.test.ts`).
 - Los borradores que ya existían no se tocan: aparecen en «Todas» con «Publicar» o se pueden eliminar. En la BD local queda uno de Carla Mendoza («Cuestionario: instituciones del Estado»).
 - Validación: tsc y lint limpios; integración de tareas 22/22; e2e `tareas-agenda` y `tareas-classroom` en verde.
+
+## Seguimiento: distinguir lo revisado
+> [capturas] pero si estos ya fueron revisados no deberian tener el mismo color o si ? creo yo que algo debe diferenciarlos para que el profesor sepa cual ah revisado y cual no ya que aqui [captura] se ven todos iguales
+
+- Sección revisada: check verde, insignia «Revisada», barra verde y fecha vencida en gris (`ListaDocente.tsx`, `insignias.tsx`: `Revisada`, `FechaEntrega neutra`).
+- Por revisar: nudo relleno + «N por revisar» (sin cambios). Validación: tsc y lint limpios; captura con Carla Mendoza.
