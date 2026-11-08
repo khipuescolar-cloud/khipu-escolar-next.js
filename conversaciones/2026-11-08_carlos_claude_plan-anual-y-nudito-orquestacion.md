@@ -74,7 +74,8 @@ finalización (escenario de 19 pasos con datos ficticios); 22. Informe final del
 - `pnpm test`: 163 archivos, 1310 pruebas OK (una corrida previa tuvo 1 falla intermitente en
   `nudito-sesiones.test.ts › salida inválida o pista que revela`, no reproducida en 8 corridas posteriores).
 - `tests/e2e/plan-anual-nudito.test.ts`: 5 passed; `nudito-tutor` + `reuniones` e2e: 13 passed.
-- E2E completo en puerto 3063: ver resultado en el informe final de la sesión.
+- E2E completo (puerto 3063): 118 passed, 9 failed, 3 skipped. Al reintentar, 6 pasaron (`ERR_NETWORK_CHANGED`/timeouts). 3 fallan igual en `dev` limpio (`4d06fbc`), así que ya fallaban antes de esta rama: `asistencia-colegio-cursos`, `reportes-asistencia` (no aparece «Asistieron»; posible dependencia de la fecha, domingo) y `rol-alumno` («Cuenta del alumno creada»).
+- `pnpm db:reconstruir` no se ejecutó (bloqueado por borrar datos); quedan colegios temporales de e2e si alguno no se limpió.
 - `pnpm db:demo-plan-anual` ejecutado en la BD local: 23 planes publicados, 143 lecciones; segunda corrida 0/0 (idempotente).
 
 ## Pendientes y preguntas abiertas
