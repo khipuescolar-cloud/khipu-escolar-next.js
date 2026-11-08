@@ -47,7 +47,7 @@ function CampoNota({ escala, inicial }: { escala: Escala; inicial: string }) {
  * de nota. Éxito: toast y cierre; error: alerta dentro del panel.
  */
 export function PanelRevision({
-  disparador, destacado, titulo, descripcion, children, accion, escala, notaInicial = "", sinEntrega = false,
+  disparador, destacado, titulo, descripcion, children, accion, escala, notaInicial = "", sinEntrega = false, abiertoInicial = false,
 }: {
   disparador: ReactNode;
   destacado: boolean;
@@ -59,8 +59,10 @@ export function PanelRevision({
   escala: Escala;
   notaInicial?: string;
   sinEntrega?: boolean;
+  /** Abre el panel al cargar (enlace del aviso de un comentario). */
+  abiertoInicial?: boolean;
 }) {
-  const [abierto, setAbierto] = useState(false);
+  const [abierto, setAbierto] = useState(abiertoInicial);
   return (
     <Dialog open={abierto} onOpenChange={setAbierto}>
       <DialogTrigger className={cn(buttonVariants({ variant: destacado ? "default" : "outline", size: "sm" }), "px-2.5 sm:w-28")}>{disparador}</DialogTrigger>

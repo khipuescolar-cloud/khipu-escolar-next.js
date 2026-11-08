@@ -1,0 +1,30 @@
+# Comentarios de tareas: aviso al profesor y respuesta
+
+| Campo | Valor |
+|---|---|
+| Fecha | 2026-11-08 |
+| Colaborador | Carlos (desarrollo) |
+| Agente y modelo | Claude Code · claude-opus-5-5 (Codex sin créditos hasta el 2026-11-11) |
+| Rama y commits | `feat/comentarios-tarea-avisos` |
+| Specs afectadas | `specs/39-tareas.md` |
+
+## Pedidos del colaborador (textual)
+> [capturas: comentario de la alumna en la tarea y revisión del profesor] acabo de enviarle un comentario al profesor para que me responda, pero no veo que le aya llegado algo al profesor o donde lo puede ver?
+
+## Diagnóstico
+- El comentario se guardaba, pero no generaba ningún aviso. Solo se veía abriendo «Ver» en la fila del alumno, sin marca en la tabla.
+- El profesor no tenía dónde responder (solo el comentario ligado a la nota).
+
+## Cambios realizados
+- `src/lib/server/tareas/vistas.ts`: `comentarTarea` avisa en la bandeja (profesor ↔ alumno/familia); `tareasDelDocente` cuenta `comentariosSinResponder` por sección.
+- `tareas/[id]/revision/page.tsx` y `PanelRevision.tsx`: marca «Comentario sin responder», conversación tipo chat, campo «Responder» y apertura automática con `?alumno=`.
+- `ListaDocente.tsx` y `page.tsx`: «N comentarios sin responder» en la fila de la tarea y en la carpeta del curso.
+- Test de integración nuevo en `tests/integracion/tareas-classroom.test.ts`.
+
+## Validación
+- tsc y lint limpios; integración de tareas 23/23; e2e `tareas-classroom` y `tareas-agenda` en verde.
+- Navegador: como Carla Mendoza, la carpeta 2.° A y la fila de Jimena muestran el comentario sin responder; el panel ofrece «Responder».
+
+## Pendientes y preguntas abiertas
+- El comentario de Jimena es anterior al cambio: no generó notificación (la marca «sin responder» sí aparece).
+- Hoy el aviso es solo de bandeja; se podría sumar push al profesor si Carlos lo quiere.
