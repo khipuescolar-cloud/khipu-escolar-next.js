@@ -1,5 +1,6 @@
 import { CheckCircle2, Filter, ListTodo, Plus } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { forbidden } from "next/navigation";
 import { CamposAdjuntos } from "@/components/adjuntos/CamposAdjuntos";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
@@ -7,7 +8,6 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
 import { Campo } from "@/components/ui/Campo";
-import { Selector } from "@/components/ui/Selector";
 import { Textarea } from "@/components/ui/textarea";
 import { esVistaFamilia } from "@/lib/roles";
 import { MAX_INSTRUCCIONES } from "@/lib/tareas";
@@ -37,7 +37,22 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
 
   if (ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();
   const filtros = { cursoId: typeof sp.curso === "string" ? sp.curso : undefined, estado: typeof sp.estado === "string" ? sp.estado : undefined };
-  const [cursos, tareas] = await Promise.all([cursosParaTareas(ctx), tareasDelDocente(ctx, filtros)]);
+  // «Todas» (sin archivadas) da los contadores de las pestañas y la banda «Para revisar»; la pestaña elegida filtra.
+  const [cursos, todas, archivadas] = await Promise.all([
+    cursosParaTareas(ctx),
+    tareasDelDocente(ctx, { cursoId: filtros.cursoId }),
+    tareasDelDocente(ctx, { cursoId: filtros.cursoId, estado: "archivada" }),
+  ]);
+  const vistas = [
+    { id: "", titulo: "Todas", n: todas.length },
+    { id: "borrador", titulo: "Borradores", n: todas.filter((t) => t.estado === "borrador").length },
+    { id: "programada", titulo: "Programadas", n: todas.filter((t) => t.programada).length },
+    { id: "cerrada", titulo: "Cerradas", n: todas.filter((t) => t.estado === "cerrada").length },
+    { id: "archivada", titulo: "Archivadas", n: archivadas.length },
+  ];
+  const vista = vistas.some((v) => v.id === filtros.estado) ? filtros.estado ?? "" : "";
+  const tareas = vista === "" ? todas : vista === "archivada" ? archivadas : await tareasDelDocente(ctx, { cursoId: filtros.cursoId, estado: vista });
+  const urlVista = (id: string) => `/tareas?${new URLSearchParams({ ...(filtros.cursoId ? { curso: filtros.cursoId } : {}), ...(id ? { estado: id } : {}) })}`;
   const competenciasTarea = ctx.rol === "profesor" ? await ctx.db.competencia.findMany({ where: { cursoId: { in: cursos.map((c) => c.id) }, desactivadaAt: null }, select: { id: true, cursoId: true, nombre: true }, orderBy: { orden: "asc" } }) : [];
   const alumnos = ctx.rol === "profesor" && cursos.length > 0 ? await alumnosParaDestinatarios(ctx, cursos.map((c) => c.id)) : [];
   const arbolMateriales = ctx.rol === "profesor" && ctx.modulos.has("documentos") ? await listarMateriales(ctx, { incluirArchivados: true }) : { anios: [] };
@@ -47,12 +62,10 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
   const materiales = arbolMateriales.anios.flatMap((a) => a.cursos.flatMap((c) => c.secciones.flatMap((s) => s.materiales.map((m) => ({ id: m.id, titulo: m.titulo, curso: c.nombre, salon: s.salon, carpeta: rutaCarpeta(m.carpetaId) }))))).filter((m, i, a) => a.findIndex((x) => x.id === m.id) === i);
   const referencias = ctx.rol === "profesor" ? await ctx.db.tareaMaterial.findMany({ where: { tareaId: { in: tareas.map((t) => t.id) } }, select: { tareaId: true, materialId: true } }) : [];
   const limites = limitesTarea(ctx);
-  // «Para revisar» mira siempre las tareas activas, aunque el filtro de estado muestre borradores o archivadas.
-  const agenda = ctx.rol === "profesor" && filtros.estado ? await tareasDelDocente(ctx, { cursoId: filtros.cursoId }) : tareas;
   const hoy = momentoEnZona(new Date(), ctx.tenant.zonaHoraria).isoFecha;
 
   return (
-    <div>
+    <div data-seccion="academico" className="flex flex-col gap-8">
       <EncabezadoPagina
         seccion="academico"
         titulo="Tareas"
@@ -113,32 +126,48 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
       />
 
       {ctx.rol === "profesor" && cursos.length === 0 && (
-        <div className="mb-4"><EstadoVacio icono={ListTodo} titulo="Todavía no tienes cursos asignados" descripcion="Cuando dirección te asigne un curso, podrás crear tareas." /></div>
+        <EstadoVacio icono={ListTodo} titulo="Todavía no tienes cursos asignados" descripcion="Cuando dirección te asigne un curso, podrás crear tareas." />
       )}
 
-      {ctx.rol === "profesor" && cursos.length > 0 && <AgendaRevision tareas={agenda} zona={ctx.tenant.zonaHoraria} />}
+      {ctx.rol === "profesor" && cursos.length > 0 && <AgendaRevision tareas={todas} zona={ctx.tenant.zonaHoraria} />}
 
-      <form className="mb-6 flex flex-wrap items-end gap-3 rounded-xl border border-borde-sutil bg-superficie px-4 py-3" aria-label="Filtrar tareas">
-        <Selector etiqueta="Curso" name="curso" defaultValue={filtros.cursoId ?? ""}>
-          <option value="">Todos</option>
-          {cursos.map((c) => <option key={c.id} value={c.id}>{c.nombre} · {c.salon.nombre}</option>)}
-        </Selector>
-        <Selector etiqueta="Estado" name="estado" defaultValue={filtros.estado ?? ""}>
-          <option value="">Activas</option>
-          <option value="borrador">Borradores</option>
-          <option value="programada">Programadas</option>
-          <option value="publicada">Publicadas</option>
-          <option value="cerrada">Cerradas</option>
-        </Selector>
-        <button type="submit" className={buttonVariants({ variant: "outline" })}><Filter strokeWidth={2} aria-hidden />Filtrar</button>
-        <p className="ml-auto self-center text-cuerpo-sm tabular-nums text-muted-foreground" aria-live="polite">{tareas.length} {tareas.length === 1 ? "tarea" : "tareas"}</p>
-      </form>
+      <section aria-label="Tareas por estado" className="flex flex-col gap-5">
+        <div className="flex flex-col gap-3 border-b border-borde-sutil lg:flex-row lg:items-end lg:justify-between">
+          <nav aria-label="Ver tareas" className="-mb-px flex gap-1 overflow-x-auto">
+            {vistas.map((v) => (
+              <Link
+                key={v.id || "todas"}
+                href={urlVista(v.id)}
+                aria-current={vista === v.id ? "page" : undefined}
+                className={`inline-flex min-h-11 items-center gap-2 border-b-2 px-3 text-sm font-medium whitespace-nowrap transition-colors duration-150 motion-reduce:transition-none ${vista === v.id ? "border-sec-nudo text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"}`}
+              >
+                {v.titulo}
+                <span className={`rounded-pildora px-2 py-0.5 text-etiqueta tabular-nums ${vista === v.id ? "bg-sec-suave text-sec-tinta" : "bg-muted"}`}>{v.n}</span>
+              </Link>
+            ))}
+          </nav>
+          {cursos.length > 1 && (
+            <form className="flex items-center gap-2 pb-2" aria-label="Filtrar por curso">
+              {vista && <input type="hidden" name="estado" value={vista} />}
+              <label htmlFor="filtro-curso" className="sr-only">Curso</label>
+              <select id="filtro-curso" name="curso" defaultValue={filtros.cursoId ?? ""} className="min-h-10 max-w-64 rounded-[10px] border border-input bg-card px-3 text-sm">
+                <option value="">Todos los cursos</option>
+                {cursos.map((c) => <option key={c.id} value={c.id}>{c.nombre} · {c.salon.nombre}</option>)}
+              </select>
+              <button type="submit" className={buttonVariants({ variant: "outline", size: "sm" })}><Filter strokeWidth={2} aria-hidden />Ver</button>
+            </form>
+          )}
+        </div>
 
-      {tareas.length === 0 ? (
-        <EstadoVacio icono={CheckCircle2} titulo="No hay tareas" descripcion={ctx.rol === "profesor" ? "Crea una con «Nueva tarea»." : undefined} />
-      ) : (
-        <TareasPorSalon tareas={tareas} comun={{ slug, zona: ctx.tenant.zonaHoraria, limites, materiales, referencias, esDireccion: ctx.rol === "direccion" }} />
-      )}
+        {tareas.length === 0 ? (
+          <p className="flex items-center gap-2 py-6 text-cuerpo text-muted-foreground">
+            <CheckCircle2 className="size-5 text-llego" strokeWidth={2} aria-hidden />
+            {vista === "" ? (ctx.rol === "profesor" ? "Aún no hay tareas. Crea una con «Nueva tarea»." : "No hay tareas.") : `No hay tareas ${vistas.find((v) => v.id === vista)?.titulo.toLowerCase()}.`}
+          </p>
+        ) : (
+          <TareasPorSalon tareas={tareas} comun={{ slug, zona: ctx.tenant.zonaHoraria, limites, materiales, referencias, esDireccion: ctx.rol === "direccion" }} />
+        )}
+      </section>
     </div>
   );
 }
