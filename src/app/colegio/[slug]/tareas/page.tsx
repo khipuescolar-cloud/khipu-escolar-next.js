@@ -61,7 +61,7 @@ export default async function TareasPage({ params, searchParams }: PageProps<"/c
   // Carpetas: una por curso (curso + salón), con sus tareas y lo que falta revisar.
   const carpetas = cursos.map((c) => {
     const secs = todas.flatMap((t) => t.secciones.filter((x) => x.cursoId === c.id));
-    return { id: c.id, curso: c.nombre, salon: c.salon.nombre, tareas: secs.length, porRevisar: secs.reduce((n, x) => n + x.contadores.porRevisar, 0) };
+    return { id: c.id, curso: c.nombre, salon: c.salon.nombre, tareas: secs.length, porRevisar: secs.reduce((n, x) => n + x.contadores.porRevisar, 0), sinResponder: secs.reduce((n, x) => n + x.comentariosSinResponder, 0) };
   });
   const urlVista = (id: string) => (id === "cursos" ? "/tareas" : `/tareas?ver=${id}`);
   const competenciasTarea = ctx.rol === "profesor" ? await ctx.db.competencia.findMany({ where: { cursoId: { in: cursos.map((c) => c.id) }, desactivadaAt: null }, select: { id: true, cursoId: true, nombre: true }, orderBy: { orden: "asc" } }) : [];

@@ -122,6 +122,17 @@ avisada_at IS NULL AND publicar_en <= now()` y reclamo atómico de `avisada_at`)
 `tarea-devuelta:<asignacionId>:<ms>`. Plantillas `tarea_nueva` (fecha opcional) y `tarea_actualizada`. La calificación
 publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_at` se fija al crear (el cron no avisa).
 
+### Comentarios privados: avisos y respuesta (2026-11-08)
+- Comentario privado del alumno o su familia → notificación en la bandeja (tipo `tarea`, clave `tarea-comentario:<id>`,
+  sin push ni correo) al profesor del curso de esa sección y al autor de la tarea si es otro; el enlace
+  `/tareas/<id>/revision?curso=<cursoId>&alumno=<alumnoId>` abre directo la entrega de ese estudiante.
+- Respuesta del docente → notificación «El profesor respondió: <tarea>» al alumno con cuenta y a sus apoderados
+  (`/tareas/<id>?alumno=<alumnoId>#comentarios`). Nadie más del salón la recibe.
+- **Sin responder** = el último comentario privado visible es del alumno o su familia. Se marca con «Comentario sin
+  responder» en la fila del estudiante (revisión), «N comentarios sin responder» en la fila de la tarea y en la carpeta
+  del curso (`comentariosSinResponder` por sección en `tareasDelDocente`).
+- El panel de cada estudiante (revisión) muestra la conversación y el campo «Responder» (profesor), aparte de la nota.
+
 ## Rutas y UI
 - `/tareas` (profesor/dirección), `ListaDocente.tsx` (rediseño 2026-11-08, mismo lenguaje que la vista del alumno):
   - **Sin banda «Para revisar»** (se quitó el 2026-11-08; `agendaDeRevision` queda en `src/lib/tareas.ts` sin uso en la UI).

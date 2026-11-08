@@ -11,6 +11,7 @@ import { auditar } from "../auditoria";
 import { cursosQueDicta } from "../cursos";
 import { requireFeature } from "../plan";
 import { textoDeNota } from "../nsp";
+import { crearNotificaciones, cuentasDeAlumnos, vinculosFamilias, type FilaNotificacion } from "../notificaciones/internas";
 import { alumnoIdsVisibles, requireRol, salonIdsVisibles, type TenantContext } from "../tenant";
 import {
   asegurarAsignacionesDeAlumnos, limiteDe, puedeRevisarSeccion, requireAsignacionFamilia, requireTareaDocente, sincronizarAsignaciones, whereTareaVisible,
@@ -206,6 +207,16 @@ export async function tareasDelDocente(ctx: TenantContext, filtros: { cursoId?: 
     where: { tareaId: { in: tareas.map((t) => t.id) }, retiradaAt: null },
     _count: { _all: true },
   });
+  // Comentarios privados cuyo último mensaje es del alumno o su familia: «sin responder» por sección (specs/39).
+  const comentarios = await ctx.db.tareaComentario.findMany({
+    where: { tareaId: { in: tareas.map((t) => t.id) }, asignacionId: { not: null }, ocultoAt: null },
+    orderBy: { createdAt: "asc" },
+    select: { asignacionId: true, autor: { select: { rol: true } }, asignacion: { select: { tareaCursoId: true } } },
+  });
+  const ultimo = new Map<string, { tareaCursoId: string; deDocente: boolean }>();
+  for (const c of comentarios) ultimo.set(c.asignacionId!, { tareaCursoId: c.asignacion!.tareaCursoId, deDocente: c.autor.rol === "profesor" || c.autor.rol === "direccion" });
+  const sinResponder = new Map<string, number>();
+  for (const u of ultimo.values()) if (!u.deDocente) sinResponder.set(u.tareaCursoId, (sinResponder.get(u.tareaCursoId) ?? 0) + 1);
   const zona = ctx.tenant.zonaHoraria;
   return tareas.map((t) => {
     const limite = limiteDe(t, null, zona);
@@ -217,6 +228,8 @@ export async function tareasDelDocente(ctx: TenantContext, filtros: { cursoId?: 
           id: s.id, cursoId: s.cursoId, curso: s.curso.nombre, salonId: s.curso.salon.id, salon: s.curso.salon.nombre,
           limite: limiteSeccion, vencida: estaVencida(limiteSeccion, ahora), fechaPropia: s.fechaEntrega,
           contadores: contadoresDe(conteos.filter((c) => c.tareaCursoId === s.id)),
+          /** Estudiantes cuyo último comentario privado espera respuesta del docente. */
+          comentariosSinResponder: sinResponder.get(s.id) ?? 0,
         };
       });
     return {
@@ -341,8 +354,50 @@ export async function comentarTarea(ctx: TenantContext, tareaId: string, entrada
       asignacionId = a.id;
     }
   }
-  await ctx.db.tareaComentario.create({ data: { tenantId: ctx.tenant.id, tareaId, asignacionId, autorId: ctx.membership.id, texto: d.data.texto } });
+  const comentario = await ctx.db.tareaComentario.create({ data: { tenantId: ctx.tenant.id, tareaId, asignacionId, autorId: ctx.membership.id, texto: d.data.texto } });
+  if (asignacionId) await avisarComentarioPrivado(ctx, comentario.id, asignacionId, d.data.texto);
   return ok("Comentario enviado.");
+}
+
+/**
+ * Aviso en la bandeja (specs/39, specs/38) de un comentario privado: si escribe el alumno o su familia, al profesor del
+ * curso de esa sección (y al autor de la tarea si es otro); si escribe el docente, al alumno con cuenta y a sus
+ * apoderados. El enlace del profesor abre la entrega de ese alumno en la revisión. Sin push ni correo.
+ */
+async function avisarComentarioPrivado(ctx: TenantContext, comentarioId: string, asignacionId: string, texto: string) {
+  const a = await ctx.db.tareaAsignacion.findFirst({
+    where: { id: asignacionId },
+    select: {
+      alumnoId: true, alumno: { select: { nombres: true, apellidos: true } },
+      tarea: { select: { id: true, titulo: true, creadoPorId: true } },
+      tareaCurso: { select: { cursoId: true, curso: { select: { nombre: true, profesorId: true } } } },
+    },
+  });
+  if (!a) return;
+  const extracto = texto.length > 140 ? `${texto.slice(0, 139)}…` : texto;
+  const deFamilia = ctx.rol === "alumno" || ctx.rol === "apoderado";
+  let filas: FilaNotificacion[];
+  if (deFamilia) {
+    const posibles = [...new Set([a.tareaCurso.curso.profesorId, a.tarea.creadoPorId].filter((x): x is string => !!x && x !== ctx.membership.id))];
+    const activos = await ctx.db.membership.findMany({ where: { id: { in: posibles }, rol: { in: ["profesor", "direccion"] }, estado: "activa" }, select: { id: true } });
+    const alumno = `${a.alumno.nombres} ${a.alumno.apellidos}`.trim();
+    filas = activos.map((m) => ({
+      membershipId: m.id, alumnoId: a.alumnoId,
+      titulo: `Comentario de ${ctx.rol === "alumno" ? alumno : `la familia de ${alumno}`}: ${a.tarea.titulo}`,
+      cuerpo: `«${extracto}» · ${a.tareaCurso.curso.nombre}`,
+      url: `/tareas/${a.tarea.id}/revision?curso=${a.tareaCurso.cursoId}&alumno=${a.alumnoId}`,
+    }));
+  } else {
+    const [familias, cuentas] = await Promise.all([vinculosFamilias(ctx.db, [a.alumnoId]), cuentasDeAlumnos(ctx.db, [a.alumnoId])]);
+    const destinos = [...new Set([...familias.map((v) => v.apoderadoId), ...cuentas.map((c) => c.membershipId)])];
+    filas = destinos.map((membershipId) => ({
+      membershipId, alumnoId: a.alumnoId,
+      titulo: `El profesor respondió: ${a.tarea.titulo}`,
+      cuerpo: `«${extracto}» · ${a.tareaCurso.curso.nombre}`,
+      url: `/tareas/${a.tarea.id}?alumno=${a.alumnoId}#comentarios`,
+    }));
+  }
+  if (filas.length > 0) await crearNotificaciones(ctx.db, { tenantId: ctx.tenant.id, tipo: "tarea", clave: `tarea-comentario:${comentarioId}`, filas });
 }
 
 /** El docente oculta (modera) un comentario de su tarea. Queda registrado quién y cuándo. */

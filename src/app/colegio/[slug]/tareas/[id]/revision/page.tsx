@@ -1,4 +1,4 @@
-import { ArrowLeft, CheckCircle2, ChevronDown, Circle, ClipboardList, FileText, RotateCcw, Upload, XCircle } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ChevronDown, Circle, ClipboardList, FileText, MessageSquare, RotateCcw, Send, Upload, XCircle } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,11 +8,14 @@ import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Selector } from "@/components/ui/Selector";
+import { Textarea } from "@/components/ui/textarea";
+import { MAX_COMENTARIO_TAREA } from "@/lib/tareas";
 import { formatoDia, formatoHora } from "@/lib/fechas";
+import type { Resultado } from "@/lib/resultado";
 import { requireFeature } from "@/lib/server/plan";
 import { revisionDeTarea } from "@/lib/server/tareas";
 import { requireTenantContext } from "@/lib/server/tenant";
-import { activarCalificacionAction, revisarConNotaAction, subirNotasAction } from "../../actions";
+import { activarCalificacionAction, comentarTareaAction, revisarConNotaAction, subirNotasAction } from "../../actions";
 import { FormularioEnLinea } from "../../FormularioEnLinea";
 import { FechaEntrega } from "../../insignias";
 import { PanelRevision } from "./PanelRevision";
@@ -42,8 +45,14 @@ function Entrega({ f, vencida }: { f: Fila; vencida: boolean }) {
   return <span className="inline-flex items-center gap-1.5 text-muted-foreground"><Circle className="size-4" strokeWidth={2} aria-hidden />Pendiente</span>;
 }
 
-/** Lo que mandó el estudiante: cada intento con su hora, texto y archivos; y los comentarios privados. */
-function ContenidoEntrega({ f }: { f: Fila }) {
+/** El último comentario privado visible es del estudiante o su familia: espera respuesta del docente. */
+const sinResponder = (f: Fila) => {
+  const visibles = f.comentarios.filter((c) => !c.oculto);
+  return visibles.length > 0 && !visibles[visibles.length - 1].esDocente;
+};
+
+/** Lo que mandó el estudiante: cada intento con su hora, texto y archivos; y los comentarios privados (con respuesta del docente). */
+function ContenidoEntrega({ f, responder }: { f: Fila; responder?: (previo: Resultado | null, datos: FormData) => Promise<Resultado> }) {
   const intentos = f.intentos.filter((i) => i.enviadaAt || i.texto || i.archivos.length > 0);
   return (
     <>
@@ -60,17 +69,32 @@ function ContenidoEntrega({ f }: { f: Fila }) {
           </section>
         ))
       )}
-      {f.comentarios.length > 0 && (
-        <section aria-label="Comentarios privados" className="flex flex-col gap-1.5">
+      {(f.comentarios.length > 0 || responder) && (
+        <section aria-label="Comentarios privados" className="flex flex-col gap-2">
           <h3 className="text-cuerpo-sm font-semibold">Comentarios</h3>
-          <ul className="flex flex-col gap-1.5">
-            {f.comentarios.filter((c) => !c.oculto).map((c) => (
-              <li key={c.id} className="rounded-md bg-muted/60 px-3 py-2 text-sm">
-                <span className="text-cuerpo-sm text-muted-foreground">{c.autor} · {cuando(c.createdAt)}</span>
-                <span className="block">{c.texto}</span>
-              </li>
-            ))}
-          </ul>
+          {f.comentarios.filter((c) => !c.oculto).length > 0 && (
+            <ul className="flex flex-col gap-2">
+              {f.comentarios.filter((c) => !c.oculto).map((c) => (
+                <li key={c.id} className={`flex max-w-[85%] flex-col gap-1 ${c.esDocente ? "self-end items-end" : "self-start"}`}>
+                  <span className="text-etiqueta text-muted-foreground">{c.autor} · {cuando(c.createdAt)}</span>
+                  <p className={`rounded-2xl px-3.5 py-2 text-sm whitespace-pre-line ${c.esDocente ? "rounded-tr-md bg-primary text-primary-foreground" : "rounded-tl-md bg-sec-suave text-foreground"}`}>{c.texto}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+          {responder && (
+            <FormularioEnLinea accion={responder} etiqueta="Responder al estudiante" className="flex flex-col gap-2 rounded-xl border border-borde-sutil bg-superficie p-2">
+              <input type="hidden" name="asignacionId" value={f.asignacionId} />
+              <label className="flex flex-col text-sm">
+                <span className="sr-only">Respuesta privada</span>
+                <Textarea name="texto" rows={2} maxLength={MAX_COMENTARIO_TAREA} required placeholder={sinResponder(f) ? "Responde al estudiante…" : "Escribe un comentario privado…"} className="min-h-14 resize-y border-0 bg-transparent px-1 shadow-none focus-visible:ring-0" />
+              </label>
+              <div className="flex items-center justify-between gap-2 border-t border-borde-sutil pt-2">
+                <span className="text-etiqueta text-muted-foreground">Privado: solo el estudiante y su familia</span>
+                <Button type="submit" size="sm"><Send strokeWidth={2} aria-hidden />Responder</Button>
+              </div>
+            </FormularioEnLinea>
+          )}
         </section>
       )}
     </>
@@ -86,6 +110,8 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
   if (!/^[0-9a-f-]{36}$/i.test(id)) notFound();
   const todas = await revisionDeTarea(ctx, id);
   const elegido = typeof sp.curso === "string" ? sp.curso : undefined;
+  // `?alumno=`: llega desde el aviso de un comentario y abre la entrega de ese estudiante.
+  const alumnoAbierto = typeof sp.alumno === "string" ? sp.alumno : undefined;
   const s = todas.secciones.find((x) => x.cursoId === elegido) ?? todas.secciones[0];
   const docente = ctx.rol === "profesor";
   const tarea = todas.tarea;
@@ -210,6 +236,11 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
                         <td className="hidden px-4 py-3 tabular-nums text-muted-foreground sm:table-cell">{i + 1}</td>
                         <th scope="row" className="px-2 py-3 text-left font-medium sm:px-4">
                           {f.alumno.nombre}
+                          {sinResponder(f) && (
+                            <span className="mt-1 flex w-fit items-center gap-1.5 rounded-pildora bg-sec-suave px-2.5 py-0.5 text-etiqueta font-semibold text-sec-tinta">
+                              <MessageSquare className="size-3.5" strokeWidth={2} aria-hidden />Comentario sin responder
+                            </span>
+                          )}
                           <span className="mt-1 block font-normal sm:hidden"><Entrega f={f} vencida={vencida} /></span>
                         </th>
                         <td className="hidden px-2 py-3 sm:table-cell sm:px-4"><Entrega f={f} vencida={vencida} /></td>
@@ -226,8 +257,9 @@ export default async function RevisionPage({ params, searchParams }: PageProps<"
                             escala={todas.escala}
                             notaInicial={f.nota && f.nota !== "NE" ? f.nota : ""}
                             sinEntrega={sinEntrega}
+                            abiertoInicial={f.alumno.id === alumnoAbierto}
                           >
-                            <ContenidoEntrega f={f} />
+                            <ContenidoEntrega f={f} responder={docente ? comentarTareaAction.bind(null, slug, id) : undefined} />
                             {docente && ev?.publicada && (
                               <p className="text-cuerpo-sm text-muted-foreground">
                                 Las notas ya se subieron. Para cambiar esta nota, corrígela en el <Link href={`/notas/${s.cursoId}`} className="font-medium text-foreground underline underline-offset-4">Registro de notas</Link>.

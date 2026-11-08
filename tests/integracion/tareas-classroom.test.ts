@@ -254,6 +254,26 @@ describe("privacidad", () => {
     expect(await ocultarComentario(tutora(), com.id)).toMatchObject({ ok: true });
     expect((await detalleTareaFamilia(padre(), f.id, c.alumnos.valentina.id)).comentarios).toHaveLength(0);
   });
+
+  it("un comentario privado avisa al profesor, queda «sin responder» y la respuesta avisa a la familia", async () => {
+    expect(await crearTarea(tutora(), { cursoId: c.cursoTutora.id, titulo: "Con duda", fechaEntrega: D })).toMatchObject({ ok: true });
+    const t = await tareaPor("Con duda");
+    expect(await comentarTarea(madre(), t.id, { alumnoId: c.alumnos.mateo.id, texto: "Profesora, ¿qué se hace?" })).toMatchObject({ ok: true });
+    const alProfesor = await c.db.notificacion.findMany({ where: { membershipId: tutora().membership.id, clave: { startsWith: "tarea-comentario:" }, alumnoId: c.alumnos.mateo.id } });
+    expect(alProfesor).toHaveLength(1);
+    expect(alProfesor[0].url).toContain(`/tareas/${t.id}/revision?curso=`);
+    expect(alProfesor[0].url).toContain(`alumno=${c.alumnos.mateo.id}`);
+    const sinResp = () => tareasDelDocente(tutora()).then((l) => l.find((x) => x.id === t.id)!.secciones[0].comentariosSinResponder);
+    expect(await sinResp()).toBe(1);
+
+    const a = await asignacion(t.id, c.alumnos.mateo.id);
+    expect(await comentarTarea(tutora(), t.id, { asignacionId: a.id, texto: "Lee la página 12." })).toMatchObject({ ok: true });
+    expect(await sinResp()).toBe(0);
+    const aLaFamilia = await c.db.notificacion.findMany({ where: { membershipId: madre().membership.id, clave: { startsWith: "tarea-comentario:" } } });
+    expect(aLaFamilia.map((n) => n.titulo)).toContain("El profesor respondió: Con duda");
+    // Nadie más del salón recibe el aviso privado.
+    expect(await c.db.notificacion.count({ where: { membershipId: padre().membership.id, clave: { startsWith: "tarea-comentario:" } } })).toBe(0);
+  });
 });
 
 describe("tutor de un salón y cursos ajenos", () => {

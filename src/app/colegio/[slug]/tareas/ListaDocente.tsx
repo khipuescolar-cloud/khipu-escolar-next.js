@@ -1,4 +1,4 @@
-import { CheckCircle2, ChevronRight, Folder, FolderOpen, Inbox, LockOpen, Pencil, Send, Trash2 } from "lucide-react";
+import { CheckCircle2, ChevronRight, Folder, FolderOpen, Inbox, MessageSquare, LockOpen, Pencil, Send, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { CamposAdjuntos } from "@/components/adjuntos/CamposAdjuntos";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
@@ -35,6 +35,15 @@ function PorRevisar({ n }: { n: number }) {
   );
 }
 
+/** Estudiantes que escribieron y esperan respuesta del docente. */
+function SinResponder({ n }: { n: number }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-pildora bg-sec-suave px-2.5 py-1 text-etiqueta font-semibold tabular-nums text-sec-tinta">
+      <MessageSquare className="size-3.5" strokeWidth={2} aria-hidden />{n === 1 ? "1 comentario sin responder" : `${n} comentarios sin responder`}
+    </span>
+  );
+}
+
 /** Avance de entregas: barra corta + «3/12 entregaron». */
 function Avance({ k, revisada = false }: { k: Seccion["contadores"]; revisada?: boolean }) {
   const pct = k.asignados ? Math.round((k.entregaron / k.asignados) * 100) : 0;
@@ -47,7 +56,7 @@ function Avance({ k, revisada = false }: { k: Seccion["contadores"]; revisada?: 
 }
 
 /** Pestaña «Cursos»: una carpeta por curso (salón + curso) con sus tareas y lo que falta revisar; abre `/tareas?curso=`. */
-export function CarpetasCursos({ carpetas }: { carpetas: { id: string; curso: string; salon: string; tareas: number; porRevisar: number }[] }) {
+export function CarpetasCursos({ carpetas }: { carpetas: { id: string; curso: string; salon: string; tareas: number; porRevisar: number; sinResponder: number }[] }) {
   const orden = [...carpetas].sort((a, b) => ordenEs(a.salon, b.salon) || ordenEs(a.curso, b.curso));
   return (
     <ul aria-label="Cursos" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -67,6 +76,7 @@ export function CarpetasCursos({ carpetas }: { carpetas: { id: string; curso: st
               <span className="mt-1 flex flex-wrap items-center gap-2">
                 <span className="text-cuerpo-sm tabular-nums text-muted-foreground">{c.tareas === 0 ? "Sin tareas" : `${c.tareas} ${c.tareas === 1 ? "tarea" : "tareas"}`}</span>
                 {c.porRevisar > 0 && <PorRevisar n={c.porRevisar} />}
+                {c.sinResponder > 0 && <SinResponder n={c.sinResponder} />}
               </span>
             </span>
             <ChevronRight className="mt-1 size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover/carpeta:translate-x-0.5 motion-reduce:transition-none" strokeWidth={2} aria-hidden />
@@ -176,6 +186,7 @@ function FilaTarea({ t, s, c }: { t: TareaLista; s: Seccion; c: Comun }) {
           {revisada && <Revisada />}
           <FechaEntrega fecha={s.fechaPropia ?? t.fechaEntrega} conHora={t.conHora} vencida={s.vencida} neutra={revisada} />
           {!borrador && s.contadores.porRevisar > 0 && <PorRevisar n={s.contadores.porRevisar} />}
+          {s.comentariosSinResponder > 0 && <SinResponder n={s.comentariosSinResponder} />}
         </span>
         {!borrador && <Avance k={s.contadores} revisada={revisada} />}
         {otras.length > 0 && <span className="text-etiqueta text-muted-foreground">También en {otras.join(", ")}</span>}
