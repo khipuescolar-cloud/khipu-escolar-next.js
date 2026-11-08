@@ -486,16 +486,17 @@ async function avisarFamilias(
   const [vinculos, cuentas] = await Promise.all([vinculosFamilias(ctx.db, ids), cuentasDeAlumnos(ctx.db, ids)]);
   const familias = porFamilia(vinculos, ids);
   const payload = { colegio: ctx.tenant.nombre, curso: curso.nombre, ...a.payload, url: urlColegio(ctx.tenant.slug, "/notas") };
+  // El alumno no entra a Notas (specs/11): su aviso lleva a la Agenda, donde ve la fecha de la evaluación.
   const texto = (quien: string | null) => ({
     titulo: `Evaluación programada: ${curso.nombre}`,
     cuerpo: `${quien ? `${quien} tendrá` : "Tendrás"} la evaluación «${a.payload.titulo}» de ${curso.nombre} el ${fechaCorta(a.payload.fecha)}.`,
-    url: "/notas",
+    url: quien === null ? "/agenda" : "/notas",
   });
   const entregas: Entrega<"evaluacion_programada">[] = [...familias.values()].map(({ vinculo, alumnoIds }) => {
     const hijos = unirNombres(alumnoIds.map((id) => nombres.get(id) ?? ""));
     return { membershipId: vinculo.apoderadoId, alumnoId: alumnoIds[0], ...texto(hijos), email: null, endpoints: vinculo.endpoints, apoderadoId: vinculo.apoderadoId, payload: { ...payload, alumno: hijos } };
   });
-  for (const c of cuentas) entregas.push({ membershipId: c.membershipId, alumnoId: c.alumnoId, ...texto(null), email: null, endpoints: [], apoderadoId: null, payload });
+  for (const c of cuentas) entregas.push({ membershipId: c.membershipId, alumnoId: c.alumnoId, ...texto(null), email: null, endpoints: [], apoderadoId: null, payload: { ...payload, url: urlColegio(ctx.tenant.slug, "/agenda") } });
   await conEnvio(ctx.db, { tenantId: ctx.tenant.id, tipo: "libreta", titulo: a.titulo, creadoPorId: ctx.membership.id }, () =>
     entregarNotificaciones(ctx.db, {
       tenant: ctx.tenant, tipo: "evaluacion_programada", clave: `evaluacion:${a.grupoId}`, tipoAviso: "libreta", plantilla: a.plantilla, referenciaId: a.grupoId, entregas,
@@ -1211,6 +1212,7 @@ export type NotasDeAlumno = Awaited<ReturnType<typeof notasDeAlumno>>;
  */
 export async function notasDeAlumno(ctx: TenantContext, alumnoId: string, periodoId: string) {
   requireFeature(ctx, "notas");
+  if (ctx.rol === "alumno") forbidden(); // el alumno no ve sus notas en Khipu; las ve su familia (specs/11)
   await requireAlumnoVisible(ctx, alumnoId);
   const alumno = await ctx.db.alumno.findFirst({ where: { id: alumnoId }, include: { salon: { select: { nombre: true, nivel: true } } } });
   const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId } });

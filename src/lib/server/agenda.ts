@@ -190,7 +190,7 @@ async function evaluacionesDeAgenda(ctx: TenantContext, desde: Date, hasta: Date
     .map((e) => ({
       id: e.grupoId, tipo: "examen" as const, categoria: "academico" as const, salonId: e.curso.salonId, titulo: `Evaluación: ${e.titulo}`, descripcion: e.descripcion,
       inicio: instanteLima(e.fecha.toISOString().slice(0, 10), "00:00"), fin: null,
-      ambito: `${e.curso.nombre} · ${e.curso.salon.nombre}`, eliminable: false, adjuntos: [], href: "/notas", sinHora: true,
+      ambito: `${e.curso.nombre} · ${e.curso.salon.nombre}`, eliminable: false, adjuntos: [], href: ctx.rol === "alumno" ? undefined : "/notas", sinHora: true,
     }))
     .filter((e) => e.inicio >= desde && e.inicio < hasta);
 }

@@ -49,8 +49,8 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/notificaciones", grupo: "comunicacion", titulo: "Notificaciones", descripcion: "Mensajes de las familias y avisos del colegio sobre tus clases.", icono: "Bell", feature: "avisos", roles: ["profesor", "direccion", "administrativo"], contador: "notificaciones" },
   { href: "/comunicados", grupo: "comunicacion", titulo: "Comunicados", descripcion: "Anuncios del colegio.", icono: "Megaphone", feature: "comunicados", roles: ["direccion", "profesor", "apoderado", "administrativo", "alumno"] },
   { href: "/documentos", grupo: "comunicacion", titulo: "Documentos", descripcion: "Materiales de clase, gestión académica, biblioteca y borradores.", icono: "FolderOpen", feature: "documentos", roles: ["direccion", "administrativo", "profesor", "apoderado", "alumno"] },
-  { href: "/notas", grupo: "academico", titulo: "Registro de notas", descripcion: "Calificaciones por curso y competencia.", icono: "GraduationCap", feature: "notas", roles: ["profesor", "direccion", "apoderado", "alumno"] },
-  { href: "/libreta", grupo: "academico", titulo: "Libreta", descripcion: "Libreta de notas por periodo.", icono: "BookOpen", feature: "libreta", roles: ["direccion", "apoderado", "profesor", "alumno"] },
+  { href: "/notas", grupo: "academico", titulo: "Registro de notas", descripcion: "Calificaciones por curso y competencia.", icono: "GraduationCap", feature: "notas", roles: ["profesor", "direccion", "apoderado"] },
+  { href: "/libreta", grupo: "academico", titulo: "Libreta", descripcion: "Libreta de notas por periodo.", icono: "BookOpen", feature: "libreta", roles: ["direccion", "apoderado", "profesor"] },
   { href: "/tareas", grupo: "academico", titulo: "Tareas", descripcion: "Tareas y fechas de entrega.", icono: "ListTodo", feature: "tareas", roles: ["profesor", "direccion", "apoderado", "alumno"] },
   // Nudito, tutor de práctica de Khipu Pro (specs/41, specs/44). Práctica formativa: nunca es nota.
   { href: "/nudito", grupo: "academico", titulo: "Nudito", descripcion: "Tu tutor de práctica: repasa y practica los temas de tus cursos.", icono: "Sparkles", feature: "nudito_plus", roles: ["alumno"] },
