@@ -133,8 +133,8 @@ publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_
   del curso (`comentariosSinResponder` por sección en `tareasDelDocente`).
 - **Chat lateral** (`ChatComentarios.tsx`, `Sheet` a la derecha): en cada fila de la revisión, junto a «Ver»/«Revisar», un
   botón con ícono de chat (relleno y con punto si hay un comentario sin responder). Abre la conversación tipo chat
-  (estudiante a la izquierda, docente a la derecha) y abajo el campo para responder (Enter envía, Mayús + Enter salta de
-  línea). El modal «Ver» queda solo para la entrega y la nota. El enlace del aviso (`?alumno=`) abre el chat.
+  (estudiante a la izquierda, docente a la derecha) y abajo el campo para responder: empieza en una fila y crece con el texto
+  hasta 3 filas; desde ahí, scroll dentro del campo (Enter envía, Mayús + Enter salta de línea; sin texto de ayuda). El modal «Ver» queda solo para la entrega y la nota. El enlace del aviso (`?alumno=`) abre el chat.
 
 ## Rutas y UI
 - `/tareas` (profesor/dirección), `ListaDocente.tsx` (rediseño 2026-11-08, mismo lenguaje que la vista del alumno):
