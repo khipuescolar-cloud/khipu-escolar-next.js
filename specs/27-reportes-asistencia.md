@@ -1,6 +1,6 @@
 # 27 — Reportes de asistencia
 
-> Estado: implementado (pruebas de integración y e2e escritas; pendientes de correr tras la migración de planes) · Plan: el del módulo `asistencia` (Khipu Base) · Última actualización: 2026-11-03 (Claude Code, rama `pre-asistencia`: reporte por grado, exportación CSV, «Con permiso» y hora de salida; antes, 2026-10-30, rama `dev`: el filtro abre la vista propia `ver/` con tabla o calendario; antes: asistencia de hoy primero, filtro en panel lateral salón → alumnos → fechas y resumen del mes plegado; antes, rama `feat/asistencia-colegio-cursos`: reporte general del colegio para dirección, solo asistencia al colegio en el porcentaje, faltas en revisión, sección «Asistencia por curso» y enlaces «Corregir»)
+> Estado: implementado (pruebas de integración y e2e escritas; pendientes de correr tras la migración de planes) · Plan: el del módulo `asistencia` (Khipu Base) · Última actualización: 2026-11-08 (Claude Code, rama `feat/asistencia-alumno-por-curso`: el alumno ve llegada al colegio y reporte en «Mi asistencia»; familia y alumno con pestaña «Por curso»; antes, 2026-11-03, rama `pre-asistencia`: reporte por grado, exportación CSV, «Con permiso» y hora de salida; antes, 2026-10-30, rama `dev`: el filtro abre la vista propia `ver/` con tabla o calendario; antes: asistencia de hoy primero, filtro en panel lateral salón → alumnos → fechas y resumen del mes plegado; antes, rama `feat/asistencia-colegio-cursos`: reporte general del colegio para dirección, solo asistencia al colegio en el porcentaje, faltas en revisión, sección «Asistencia por curso» y enlaces «Corregir»)
 
 ## Objetivo
 Dirección, administrativos y profesores ven el porcentaje de asistencia **al colegio** por **alumno**, por **salón** y por **rango de fechas**, y lo descargan en **Excel (.xlsx)** y **PDF**. Para dirección y administrativo es el **reporte general del colegio**: cuántos asistieron, faltaron (justificadas, en revisión, sin justificar) y sin registro en un día y en un rango, por salón, y aparte las **faltas a clase por curso**. Las familias ven el reporte de sus hijos. Complementa la spec 04 (pasar lista y corregir).
@@ -11,7 +11,8 @@ Dirección, administrativos y profesores ven el porcentaje de asistencia **al co
 | Dirección | Reporte general (día + rango + por curso), cualquier salón, alumno y curso; exportar; **«Corregir»** abre la lista en modo corrección (spec 04) | — |
 | Administrativo | Igual que dirección (solo lectura, sin «Corregir») | Corregir |
 | Profesor | **Asistencia al colegio** solo de su **tutoría** (salón y alumnos; exportar). En los salones donde solo dicta: la **asistencia a clase de sus cursos** (`reporteCursos`, filtro «Curso»); en su tutoría, de todos los cursos del salón | Asistencia al colegio de salones o alumnos que no tutorea, cursos ajenos (403); corregir |
-| Apoderado | Reporte de sus hijos (`alumnoIdsVisibles`); exportar | Reporte de salón, resumen del colegio, alumnos ajenos (403) |
+| Apoderado | Reporte de sus hijos (`alumnoIdsVisibles`), **al colegio** y **por curso** (`reporteCursos` con `alumnoId`: los cursos del salón del hijo); exportar el de al colegio | Reporte de salón, resumen del colegio, alumnos ajenos, `reporteCursos` sin alumno (403) |
+| Alumno (cuenta propia) | Su propio reporte, al colegio y por curso, dentro de **«Mi asistencia»** (`/asistencia`); `/asistencia/reportes` lo redirige ahí | Lo mismo que el apoderado |
 | Alumno | Su propio reporte | Todo lo demás (403) |
 | Portería | — | Todo (403) |
 
@@ -41,6 +42,8 @@ Solo si algún nivel del colegio tiene asistencia por curso activa (`Tenant.asis
 2. Sin salón ni alumno: resumen por salón (dirección/administrativo/profesor). Con salón: tabla por alumno + total del salón. Con alumno: resumen y detalle día a día (estado con ícono + palabra, hora, justificación). Cada fila enlaza al nivel siguiente.
 3. «Descargar Excel» / «Descargar PDF» con los mismos filtros.
 4. La familia entra con el reporte de su primer hijo y elige entre sus hijos.
+5. **Familia y alumno: pestañas «Al colegio» | «Por curso»** (`ReporteFamilia.tsx`, `?vista=cursos`; 2026-11-08). Arriba, fechas (desde, hasta, atajos) y el selector de hijo (solo si hay más de uno). «Al colegio» es el reporte de siempre (porcentaje, detalle por día y descargas). «Por curso» usa `VistaCursos` en modo familia: por cada curso del salón con lista por curso, **Clases** (con lista), **% asistencia** (clases sin falta ÷ clases con lista), faltas a clase, «Ingresó pero faltó» y tardanzas, sin enlace al historial del curso; debajo, cada falta o tardanza a clase con su justificación. Si el nivel no pasa lista por curso: estado vacío. Sin descargas por curso (pendiente).
+6. **Alumno:** su menú ya no tiene «Reporte de asistencia». En «Mi asistencia» ve primero **«Llegada al colegio»** (calendario del mes y la lista por día **solo con el ingreso al colegio**, sin los registros de cada clase) y debajo **«Reporte de asistencia»** (punto 5), con ancla `#reporte`. El mes del calendario (`?mes=`) se conserva al cambiar el rango del reporte.
 
 ## Profesor: su tutoría y el historial de sus cursos (2026-11-06)
 `/asistencia/reportes` del **profesor** ya no muestra el reporte genérico (`panelReportesProfesor`, `PanelProfesor.tsx`):

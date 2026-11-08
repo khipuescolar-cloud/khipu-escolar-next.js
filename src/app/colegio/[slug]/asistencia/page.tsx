@@ -29,6 +29,7 @@ import { CalendarioAsistencia, nombreMes } from "./CalendarioAsistencia";
 import { ListaAsistencia } from "./ListaAsistencia";
 import { SincronizadorListas } from "./SincronizadorListas";
 import { PreferenciasAvisos } from "./PreferenciasAvisos";
+import { ReporteFamilia } from "./reportes/ReporteFamilia";
 
 export const metadata: Metadata = { title: "Asistencia" };
 
@@ -38,7 +39,10 @@ export default async function AsistenciaPage({ params, searchParams }: PageProps
   const ctx = await requireTenantContext(slug, ["profesor", "direccion", "apoderado", "alumno"]);
   requireFeature(ctx, "asistencia");
 
-  if (esVistaFamilia(ctx.rol)) return <VistaFamilia ctx={ctx} slug={slug} mes={typeof sp.mes === "string" ? sp.mes : undefined} />;
+  if (esVistaFamilia(ctx.rol)) {
+    const parametro = (k: string) => (typeof sp[k] === "string" ? (sp[k] as string) : null);
+    return <VistaFamilia ctx={ctx} slug={slug} mes={parametro("mes") ?? undefined} parametro={parametro} />;
+  }
 
   const salon = typeof sp.salon === "string" ? sp.salon : null;
   const ambito = typeof sp.ambito === "string" ? sp.ambito : null;
@@ -197,14 +201,17 @@ async function PasarLista({ ctx, slug, salonId, ambito, fecha }: { ctx: TenantCo
 
 const PALABRA_JUSTIFICACION = { pendiente: "Justificación en revisión", aceptada: "Falta justificada", rechazada: "Justificación no aceptada" } as const;
 
-async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: string; mes?: string }) {
+async function VistaFamilia({ ctx, slug, mes, parametro }: { ctx: TenantContext; slug: string; mes?: string; parametro: (clave: string) => string | null }) {
   // El alumno con cuenta propia ve solo su asistencia: sin chat, sin justificar y sin preferencias de avisos (son de la familia).
+  // Su página junta la llegada al colegio (calendario del mes) y el reporte por fechas, al colegio y por curso (specs/27).
   const esAlumno = ctx.rol === "alumno";
   const [historial, preferencias] = await Promise.all([historialDeHijos(ctx, mes), esAlumno ? null : obtenerPreferencias(ctx)]);
-  const { hijos, anio, mes: numeroMes, hoy } = historial;
+  const { anio, mes: numeroMes, hoy } = historial;
+  // El alumno ve aquí solo el ingreso al colegio; sus clases están en el reporte «Por curso».
+  const hijos = esAlumno ? historial.hijos.map((h) => ({ ...h, registros: h.registros.filter((r) => r.esDia) })) : historial.hijos;
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina titulo="Asistencia" seccion="dia" descripcion={esAlumno ? "Tu calendario del mes, con el detalle de cada día." : "Calendario del mes de cada hijo, con el detalle de cada día."} />
+      <EncabezadoPagina titulo="Asistencia" seccion="dia" descripcion={esAlumno ? "Tu llegada al colegio cada día y tu reporte de asistencia, al colegio y por curso." : "Calendario del mes de cada hijo, con el detalle de cada día."} />
 
       {hijos.length === 0 && (
         <EstadoVacio
@@ -218,7 +225,7 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
         <section key={h.id} data-seccion="dia" className="flex flex-col gap-4" aria-labelledby={`hijo-${h.id}`}>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <TituloBloque id={`hijo-${h.id}`}>
-              {h.nombres} {h.apellidos} <span className="font-sans text-cuerpo-sm font-normal text-muted-foreground">· {h.salon}</span>
+              {esAlumno ? "Llegada al colegio" : <>{h.nombres} {h.apellidos}</>} <span className="font-sans text-cuerpo-sm font-normal text-muted-foreground">· {h.salon}</span>
             </TituloBloque>
             {!esAlumno && tieneFeature(ctx, "mensajes") && (
               <Link href={`/mensajes/nuevo?alumno=${h.id}`} className={cn(buttonVariants({ variant: "outline" }))}>
@@ -282,6 +289,8 @@ async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: stri
           )}
         </section>
       ))}
+
+      {esAlumno && hijos.length > 0 && <ReporteFamilia ctx={ctx} ruta="/asistencia" parametro={parametro} conservar={{ mes: mes ?? null }} />}
 
       {preferencias && (
         <PreferenciasAvisos slug={slug} correo={preferencias.correo} push={preferencias.push} pushAcademico={preferencias.pushAcademico} vapidPublica={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? ""} />

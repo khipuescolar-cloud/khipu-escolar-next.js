@@ -37,7 +37,7 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/asistencia", grupo: "dia", titulo: "Asistencia", descripcion: "Mira si tus hijos llegaron al colegio.", icono: "ClipboardCheck", feature: "asistencia", roles: ["apoderado"] },
   { href: "/asistencia", grupo: "dia", titulo: "Mi asistencia", descripcion: "Mira tus llegadas al colegio.", icono: "ClipboardCheck", feature: "asistencia", roles: ["alumno"] },
   { href: "/asistencia/reportes", grupo: "dia", titulo: "Reportes de asistencia", descripcion: "Asistencia al colegio y por curso, por día, salón y fechas; Excel y PDF.", icono: "BarChart3", feature: "asistencia", roles: ["direccion", "administrativo", "profesor"] },
-  { href: "/asistencia/reportes", grupo: "dia", titulo: "Reporte de asistencia", descripcion: "Porcentaje de asistencia de tus hijos por fechas.", icono: "BarChart3", feature: "asistencia", roles: ["apoderado", "alumno"] },
+  { href: "/asistencia/reportes", grupo: "dia", titulo: "Reporte de asistencia", descripcion: "Porcentaje de asistencia de tus hijos por fechas, al colegio y por curso.", icono: "BarChart3", feature: "asistencia", roles: ["apoderado"] },
   { href: "/porteria", grupo: "dia", titulo: "Portería", descripcion: "Escanea el carnet QR en la entrada.", icono: "ScanLine", feature: "porteria", roles: ["porteria", "direccion"] },
   { href: "/avisos", grupo: "dia", titulo: "Avisos enviados", descripcion: "Correos y notificaciones a las familias.", icono: "MailCheck", feature: "avisos", roles: ["direccion", "administrativo"] },
   { href: "/permisos", grupo: "dia", titulo: "Permisos", descripcion: "Permisos de asistencia: días u horas que el colegio autoriza.", icono: "CalendarCheck", feature: "asistencia", roles: ["direccion", "profesor", "administrativo"] },

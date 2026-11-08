@@ -3,7 +3,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { db } from "@/lib/server/db";
 import { fechaDb, restarDias, sumarDias } from "@/lib/fechas";
 import { hoyDelColegio } from "@/lib/server/asistencia";
-import { detalleCurso, opcionesDeReporte, reporteAlumno, reporteSalon, resumenColegio } from "@/lib/server/reportes-asistencia";
+import { detalleCurso, opcionesDeReporte, reporteAlumno, reporteCursos, reporteSalon, resumenColegio } from "@/lib/server/reportes-asistencia";
 import { reporteAExcel, TIPO_XLSX } from "@/lib/server/reportes-asistencia-excel";
 import { ReporteAsistenciaPdf } from "@/lib/server/reportes-asistencia-pdf";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
@@ -145,6 +145,18 @@ describe("reportes de asistencia", () => {
 
     const pdf = await renderToBuffer(ReporteAsistenciaPdf({ reporte }));
     expect(pdf.subarray(0, 4).toString()).toBe("%PDF");
+  });
+
+  it("la familia ve la asistencia por curso solo de sus hijos, con cada falta a clase", async () => {
+    const madre = c.ctxDe("madre");
+    const r = await reporteCursos(madre, { alumnoId: c.alumnos.mateo.id, ...RANGO });
+    expect(r.filas.map((f) => [f.curso, f.registros, f.faltas])).toEqual([["Matemática", 1, 1]]);
+    expect(r.detalle?.map((d) => [d.fecha, d.curso, d.estado])).toEqual([["2026-03-02", "Matemática", "falta"]]);
+    // Otro alumno del salón, otro salón o sin alumno: 403.
+    await esperarProhibido(reporteCursos(madre, { alumnoId: c.alumnos.valentina.id, ...RANGO }));
+    await esperarProhibido(reporteCursos(madre, { alumnoId: c.alumnos.thiago.id, ...RANGO }));
+    await esperarProhibido(reporteCursos(madre, { ...RANGO }));
+    await esperarProhibido(reporteCursos(c.ctxDe("porteria"), { alumnoId: c.alumnos.mateo.id, ...RANGO }));
   });
 });
 

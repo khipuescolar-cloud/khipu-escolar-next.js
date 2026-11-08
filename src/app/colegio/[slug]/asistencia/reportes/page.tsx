@@ -1,4 +1,4 @@
-import { ArrowLeft, BarChart3, BookOpenCheck, School } from "lucide-react";
+import { ArrowLeft, BookOpenCheck, School } from "lucide-react";
 import { CifrasJuntas } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -10,7 +10,6 @@ import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { Alerta } from "@/components/ui/Alerta";
 import { Boton } from "@/components/ui/Boton";
 import { Campo } from "@/components/ui/Campo";
-import { Selector } from "@/components/ui/Selector";
 import { buttonVariants } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { esFechaReal, fechaCorta, fechaLarga, hora12 } from "@/lib/fechas";
@@ -22,11 +21,12 @@ import { hoyDelColegio } from "@/lib/server/asistencia";
 import { requireFeature } from "@/lib/server/plan";
 import {
   detalleCurso, opcionesDeReporte, panelReportesProfesor, reporteSegunFiltros, resumenColegio,
-  type DetalleCurso, type OpcionesReporte, type ReporteColegio,
+  type DetalleCurso, type ReporteColegio,
 } from "@/lib/server/reportes-asistencia";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { FiltroReporte } from "./FiltroReporte";
 import { PanelProfesor } from "./PanelProfesor";
+import { ReporteFamilia } from "./ReporteFamilia";
 import { atajosDeFecha, BotonCorregir, enlace, enlaceCorregir, NUM, ResultadoRango, RUTA_VER } from "./vistas";
 
 const RUTA_GENERAL = "/asistencia/reportes";
@@ -41,6 +41,30 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
   const hoy = hoyDelColegio(ctx).isoFecha;
   const uno = (k: string) => (typeof sp[k] === "string" ? (sp[k] as string) : null);
   const familia = esVistaFamilia(ctx.rol);
+  // El alumno ve su reporte dentro de «Mi asistencia», junto a su llegada al colegio (specs/27).
+  if (ctx.rol === "alumno") {
+    const q = new URLSearchParams();
+    for (const k of ["desde", "hasta", "vista"]) if (uno(k)) q.set(k, uno(k)!);
+    redirect(`/asistencia${q.size ? `?${q.toString()}` : ""}#reporte`);
+  }
+  // Apoderado: reporte de sus hijos por fechas, al colegio o por curso.
+  if (familia) {
+    return (
+      <div className="flex flex-col gap-6">
+        <EncabezadoPagina
+          titulo="Reporte de asistencia"
+          seccion="dia"
+          descripcion="Asistencia de tus hijos al colegio y en cada curso, en las fechas que elijas."
+          acciones={
+            <Link href="/asistencia" className={buttonVariants({ variant: "outline" })}>
+              <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Calendario
+            </Link>
+          }
+        />
+        <ReporteFamilia ctx={ctx} ruta={RUTA_GENERAL} parametro={uno} />
+      </div>
+    );
+  }
   // El personal ve el resultado de un filtro en su propia vista (tabla o calendario); aquí queda el día y el resumen.
   if (!familia && !uno("curso") && (uno("salon") || uno("alumno") || uno("grado") || uno("desde") || uno("hasta"))) {
     const q = new URLSearchParams();
@@ -78,18 +102,18 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
   let filtros: FiltrosReporte | null = null;
   let error: string | null = null;
   try {
-    filtros = filtrosDeBusqueda((k) => (k === "alumno" && familia && !uno("alumno") ? opciones.alumnos[0]?.id : uno(k)), hoy);
+    filtros = filtrosDeBusqueda(uno, hoy);
   } catch (e) {
     if (!(e instanceof ZodError)) throw e;
     error = e.issues[0]?.message ?? "Revisa los filtros.";
   }
   const periodo = opciones.periodos.find((p) => p.inicio <= hoy && hoy <= p.fin) ?? opciones.periodos.filter((p) => p.fin < hoy).at(-1);
-  const cursoId = !familia && uno("curso") ? uno("curso")! : null;
+  const cursoId = uno("curso");
   const dia = esFechaReal(uno("dia") ?? undefined) && uno("dia")! <= hoy ? uno("dia")! : hoy;
   const curso = filtros && cursoId && !error ? await cursoODetalle(ctx, { cursoId, desde: filtros.desde, hasta: filtros.hasta }) : null;
   if (curso && "error" in curso) error = curso.error;
   // Dirección y administrativo solo ven aquí el día; el rango (y la asistencia por curso) va en «Filtrar reporte».
-  const reporte = filtros && !cursoId && !veTodo && (familia && !filtros.alumnoId ? null : await reporteSegunFiltros(ctx, filtros));
+  const reporte = filtros && !cursoId && !veTodo ? await reporteSegunFiltros(ctx, filtros) : null;
   // Dirección y administrativo: la página empieza por la asistencia al colegio de un día (hoy por defecto).
   const delDia = veTodo && !cursoId ? await resumenColegio(ctx, { desde: dia, hasta: dia }) : null;
   const base = filtros ?? { desde: rangoEsteMes(hoy).desde, hasta: hoy };
@@ -107,59 +131,19 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
         }
         acciones={
           <>
-            {(familia || ctx.rol === "profesor") && (
-              <Link href="/asistencia" className={buttonVariants({ variant: "outline" })}>
-                <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> {familia ? "Calendario" : "Pasar lista"}
-              </Link>
-            )}
-            {!familia && <FiltroReporte opciones={opciones} inicial={base} atajos={atajos} hoy={hoy} activos={0} />}
+            <FiltroReporte opciones={opciones} inicial={base} atajos={atajos} hoy={hoy} activos={0} />
           </>
         }
       />
 
-      {familia && <Filtros base={base} opciones={opciones} familia={familia} atajos={atajos} hoy={hoy} />}
       {error && <Alerta tipo="error">{error}</Alerta>}
 
       {delDia && <AsistenciaDelDia reporte={delDia} dia={dia} hoy={hoy} puedeCorregir={puedeCorregir} />}
 
       {curso && !("error" in curso) && <VistaCurso detalle={curso} puedeCorregir={puedeCorregir} />}
 
-      {reporte && filtros && <ResultadoRango reporte={reporte} filtros={filtros} familia={familia} puedeCorregir={puedeCorregir} />}
-      {!error && !reporte && !curso && !veTodo && <EstadoVacio icono={BarChart3} titulo="Aún no hay un alumno para mostrar" descripcion="Cuando tu hijo(a) tenga asistencia registrada, verás aquí su reporte." />}
+      {reporte && filtros && <ResultadoRango reporte={reporte} filtros={filtros} familia={false} puedeCorregir={puedeCorregir} />}
     </div>
-  );
-}
-
-/** Filtros en línea de la familia (solo sus hijos y fechas); el personal usa el panel «Filtrar reporte». */
-function Filtros({ base, opciones, familia, atajos, hoy }: { base: Partial<FiltrosReporte>; opciones: OpcionesReporte; familia: boolean; atajos: { texto: string; desde: string; hasta: string }[]; hoy: string }) {
-  const alumnos = familia ? opciones.alumnos : opciones.alumnos.filter((a) => !base.salonId || a.salonId === base.salonId);
-  return (
-    <section aria-label="Filtros" className="flex flex-col gap-3">
-      {/* key: los atajos navegan sin volver a montar la página; así los campos muestran las fechas nuevas. */}
-      <form key={`${base.salonId ?? ""}|${base.alumnoId ?? ""}|${base.desde}|${base.hasta}`} method="get" className="grid gap-3 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end">
-        {!familia && (
-          <Selector etiqueta="Salón" name="salon" defaultValue={base.salonId ?? ""}>
-            <option value="">Todos los salones</option>
-            {opciones.salones.map((s) => <option key={s.id} value={s.id}>{s.nombre}</option>)}
-          </Selector>
-        )}
-        <Selector etiqueta="Alumno" name="alumno" defaultValue={base.alumnoId ?? (familia ? alumnos[0]?.id : "") ?? ""}>
-          {!familia && <option value="">Todo el salón</option>}
-          {alumnos.map((a) => <option key={a.id} value={a.id}>{a.apellidos}, {a.nombres}</option>)}
-        </Selector>
-        <Campo etiqueta="Desde" name="desde" type="date" defaultValue={base.desde} max={hoy} />
-        <Campo etiqueta="Hasta" name="hasta" type="date" defaultValue={base.hasta} />
-        <div className="flex items-center gap-3 sm:col-span-2">
-          <Boton type="submit" variante="secundario">Ver reporte</Boton>
-        </div>
-      </form>
-      <p className="flex flex-wrap items-center gap-2 text-sm">
-        <span className="text-muted-foreground">Atajos:</span>
-        {atajos.map((a) => (
-          <Link key={a.texto} href={enlace(base, { desde: a.desde, hasta: a.hasta }, RUTA_GENERAL)} className={buttonVariants({ variant: "outline", size: "sm" })}>{a.texto}</Link>
-        ))}
-      </p>
-    </section>
   );
 }
 
