@@ -10,6 +10,7 @@ import {
   type DetalleDia, type DiaAgregado, type FiltrosReporte, type GradoReporte, type RegistroDia, type ResumenAlumno,
 } from "@/lib/reportes-asistencia";
 import { resumirCurso, type ConteoClase, type FilaCurso, type ResumenCurso } from "@/lib/reportes-curso";
+import { periodosParaAsistencia, type PeriodoAsistencia } from "@/lib/periodos-asistencia";
 import { esVistaFamilia } from "@/lib/roles";
 import { AMBITO_DIA, hoyDelColegio } from "./asistencia";
 import { auditar } from "./auditoria";
@@ -624,6 +625,24 @@ export async function historialCursoAlumno(ctx: TenantContext, entrada: unknown)
     curso: { id: curso.id, nombre: curso.nombre, profesor: curso.profesor ? `${curso.profesor.user.nombres} ${curso.profesor.user.apellidos}` : null },
     desde, hasta, hastaEfectivo, clases, resumen,
   };
+}
+
+/**
+ * Periodos para «Mi asistencia» de un alumno (specs/27): los del año de su nivel ya empezados y «Año». Familia y alumno:
+ * solo sus hijos o él mismo (403); dirección, administrativo y profesor pueden consultarlo para cualquier alumno visible.
+ */
+export async function periodosDelAlumno(ctx: TenantContext, alumnoId: string): Promise<PeriodoAsistencia[]> {
+  requireFeature(ctx, "asistencia");
+  if (esVistaFamilia(ctx.rol)) await requireAlumnoVisible(ctx, alumnoId);
+  const alumno = await ctx.db.alumno.findFirst({ where: { id: alumnoId }, select: { salon: { select: { nivel: true } } } });
+  if (!alumno) notFound();
+  const hoy = hoyDelColegio(ctx).isoFecha;
+  const periodos = await ctx.db.periodo.findMany({
+    where: { anio: Number(hoy.slice(0, 4)), niveles: { has: alumno.salon.nivel } },
+    orderBy: { inicio: "asc" },
+    select: { numero: true, nombre: true, inicio: true, fin: true },
+  });
+  return periodosParaAsistencia(periodos.map((p) => ({ numero: p.numero, nombre: p.nombre, inicio: isoDeFechaDb(p.inicio), fin: isoDeFechaDb(p.fin) })), hoy);
 }
 
 /**

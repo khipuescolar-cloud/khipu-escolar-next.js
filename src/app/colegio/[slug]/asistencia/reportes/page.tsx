@@ -26,7 +26,7 @@ import {
 import { requireTenantContext } from "@/lib/server/tenant";
 import { FiltroReporte } from "./FiltroReporte";
 import { PanelProfesor } from "./PanelProfesor";
-import { ReporteFamilia } from "./ReporteFamilia";
+import { AsistenciaAlumno } from "../_alumno/AsistenciaAlumno";
 import { atajosDeFecha, BotonCorregir, enlace, enlaceCorregir, NUM, ResultadoRango, RUTA_VER } from "./vistas";
 
 const RUTA_GENERAL = "/asistencia/reportes";
@@ -41,27 +41,26 @@ export default async function ReportesAsistenciaPage({ params, searchParams }: P
   const hoy = hoyDelColegio(ctx).isoFecha;
   const uno = (k: string) => (typeof sp[k] === "string" ? (sp[k] as string) : null);
   const familia = esVistaFamilia(ctx.rol);
-  // El alumno ve su reporte en la pestaña «Reporte» de «Mi asistencia» (specs/27).
+  // El alumno ve su reporte en «Mi asistencia» (Resumen y Cursos; specs/27).
   if (ctx.rol === "alumno") {
-    const q = new URLSearchParams({ tab: "reporte" });
-    for (const k of ["desde", "hasta", "vista", "curso"]) if (uno(k)) q.set(k, uno(k)!);
-    redirect(`/asistencia?${q.toString()}`);
+    if (uno("curso")) redirect(`/asistencia/curso/${encodeURIComponent(uno("curso")!)}`);
+    redirect(uno("vista") === "cursos" || uno("tab") === "cursos" ? "/asistencia?tab=cursos" : "/asistencia");
   }
-  // Apoderado: reporte de sus hijos por fechas, al colegio o por curso.
+  // Apoderado: resumen y cursos de sus hijos por periodo; el calendario y las justificaciones siguen en /asistencia.
   if (familia) {
     return (
       <div className="flex flex-col gap-6">
         <EncabezadoPagina
           titulo="Reporte de asistencia"
           seccion="dia"
-          descripcion="Asistencia de tus hijos al colegio y en cada curso, en las fechas que elijas."
+          descripcion="Cómo van tus hijos en el colegio y en cada curso, por bimestre o en todo el año."
           acciones={
             <Link href="/asistencia" className={buttonVariants({ variant: "outline" })}>
               <ArrowLeft className="size-4" strokeWidth={2} aria-hidden /> Calendario
             </Link>
           }
         />
-        <ReporteFamilia ctx={ctx} ruta={RUTA_GENERAL} parametro={uno} />
+        <AsistenciaAlumno ctx={ctx} modo="familia" parametro={uno} />
       </div>
     );
   }

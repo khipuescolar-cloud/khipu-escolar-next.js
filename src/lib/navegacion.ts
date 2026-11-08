@@ -35,7 +35,7 @@ export const MOSAICOS: Mosaico[] = [
   // Pasar lista es tarea del profesor (specs/04): dirección ve y corrige la asistencia desde «Reportes de asistencia».
   { href: "/asistencia", grupo: "dia", titulo: "Pasar lista", descripcion: "Marca la asistencia y avisa a las familias.", icono: "ClipboardCheck", feature: "asistencia", roles: ["profesor"] },
   { href: "/asistencia", grupo: "dia", titulo: "Asistencia", descripcion: "Mira si tus hijos llegaron al colegio.", icono: "ClipboardCheck", feature: "asistencia", roles: ["apoderado"] },
-  { href: "/asistencia", grupo: "dia", titulo: "Mi asistencia", descripcion: "Mira tus llegadas al colegio.", icono: "ClipboardCheck", feature: "asistencia", roles: ["alumno"] },
+  { href: "/asistencia", grupo: "dia", titulo: "Mi asistencia", descripcion: "Cómo vas en el colegio y en cada curso.", icono: "ClipboardCheck", feature: "asistencia", roles: ["alumno"] },
   { href: "/asistencia/reportes", grupo: "dia", titulo: "Reportes de asistencia", descripcion: "Asistencia al colegio y por curso, por día, salón y fechas; Excel y PDF.", icono: "BarChart3", feature: "asistencia", roles: ["direccion", "administrativo", "profesor"] },
   { href: "/asistencia/reportes", grupo: "dia", titulo: "Reporte de asistencia", descripcion: "Porcentaje de asistencia de tus hijos por fechas, al colegio y por curso.", icono: "BarChart3", feature: "asistencia", roles: ["apoderado"] },
   { href: "/porteria", grupo: "dia", titulo: "Portería", descripcion: "Escanea el carnet QR en la entrada.", icono: "ScanLine", feature: "porteria", roles: ["porteria", "direccion"] },
