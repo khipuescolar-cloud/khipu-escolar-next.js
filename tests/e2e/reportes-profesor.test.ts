@@ -72,7 +72,12 @@ test("filtro «Curso»: fuera de su tutoría el profesor solo ve sus cursos; en 
   const curso = panel.getByRole("combobox", { name: "Curso", exact: true });
   await expect(curso).toHaveValue("mis");
 
+  // Con un grado, el salón solo lista las secciones de ese grado.
+  const grado = panel.getByRole("combobox", { name: "Grado", exact: true });
+  await grado.selectOption({ label: "3.° grado de primaria" });
+  await expect(salon.locator("option")).toHaveText(["Todos los salones del grado", "3.° B"]);
   await salon.selectOption({ label: "3.° B" });
+  await expect(grado).toHaveValue("primaria-3");
   await expect(curso.locator("option")).toHaveText(["Mis cursos", "Ciencia y Tecnología"]);
   await page.getByRole("button", { name: "Ver reporte" }).click();
   await expect(page).toHaveURL(/curso=mis/);
@@ -84,7 +89,9 @@ test("filtro «Curso»: fuera de su tutoría el profesor solo ve sus cursos; en 
 
   // En su tutoría: asistencia al colegio por defecto y todos los cursos del salón.
   await page.getByRole("button", { name: "Filtrar reporte" }).click();
+  await grado.selectOption({ label: "Todos los grados" });
   await salon.selectOption({ label: "5.° A" });
+  await expect(grado).toHaveValue("primaria-5");
   await expect(curso).toHaveValue("");
   await expect(curso.locator("option").first()).toHaveText("Asistencia al colegio");
   await expect(curso.locator("option").nth(1)).toHaveText("Todos los cursos");

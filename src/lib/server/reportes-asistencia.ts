@@ -398,7 +398,8 @@ export async function reporteSegunFiltros(ctx: TenantContext, filtros: FiltrosRe
 }
 
 export type OpcionesReporte = {
-  salones: { id: string; nombre: string }[];
+  /** `grado`: clave del grado del salón («secundaria-2»), para filtrar los salones por grado; null si no tiene. */
+  salones: { id: string; nombre: string; grado: string | null }[];
   /** Grados (nivel + grado) de los salones visibles: `clave` = «primaria-3». */
   grados: { clave: string; nombre: string }[];
   alumnos: { id: string; nombres: string; apellidos: string; salonId: string }[];
@@ -448,7 +449,7 @@ export async function opcionesDeReporte(ctx: TenantContext): Promise<OpcionesRep
   const grados = new Map<string, GradoReporte>();
   for (const s of salones) if (s.grado !== null) grados.set(claveGrado({ nivel: s.nivel, grado: s.grado }), { nivel: s.nivel, grado: s.grado });
   return {
-    salones: salones.map((s) => ({ id: s.id, nombre: s.nombre })),
+    salones: salones.map((s) => ({ id: s.id, nombre: s.nombre, grado: s.grado === null ? null : claveGrado({ nivel: s.nivel, grado: s.grado }) })),
     grados: [...grados.values()]
       .sort((a, b) => ORDEN.indexOf(a.nivel) - ORDEN.indexOf(b.nivel) || a.grado - b.grado)
       .map((g) => ({ clave: claveGrado(g), nombre: nombreGrado(g) })),
