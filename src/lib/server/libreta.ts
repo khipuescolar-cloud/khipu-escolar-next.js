@@ -19,6 +19,7 @@ export type DatosLibreta = Awaited<ReturnType<typeof datosLibreta>>;
  */
 export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodoId: string, accion: "ver" | "exportar" = "ver") {
   requireFeature(ctx, "libreta");
+  if (ctx.rol === "alumno") forbidden(); // la libreta es de la familia (specs/11)
   await requireAlumnoVisible(ctx, alumnoId);
   const [alumno, periodo, emitida] = await Promise.all([
     ctx.db.alumno.findFirst({ where: { id: alumnoId }, include: { salon: { select: { nivel: true, tutorId: true } } } }),

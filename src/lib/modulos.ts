@@ -55,7 +55,7 @@ export const INFO_ROL: Record<Rol, { nombre: string; descripcion: string }> = {
   administrativo: { nombre: "Administrativo", descripcion: "Personal no docente: comunicados, agenda, alumnos y familias, y avisos enviados (solo lectura)." },
   porteria: { nombre: "Portería", descripcion: "Registra la entrada de los alumnos escaneando su carnet QR." },
   apoderado: { nombre: "Familia (apoderado)", descripcion: "Sigue la asistencia, las notas y las tareas de sus hijos, justifica faltas y conversa con el profesor." },
-  alumno: { nombre: "Alumno", descripcion: "Ve solo lo suyo: asistencia, notas, libreta, tareas, agenda y comunicados. Sin mensajes." },
+  alumno: { nombre: "Alumno", descripcion: "Ve solo lo suyo: asistencia, tareas, agenda y comunicados. Sin mensajes, notas ni libreta (las ve su familia)." },
 };
 
 /**

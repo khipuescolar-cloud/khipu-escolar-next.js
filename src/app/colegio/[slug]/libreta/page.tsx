@@ -33,7 +33,7 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
   const sp = await searchParams;
   const ctx = await requireTenantContext(slug);
   requireFeature(ctx, "libreta");
-  if (!["apoderado", "alumno", "profesor", "direccion"].includes(ctx.rol)) forbidden();
+  if (!["apoderado", "profesor", "direccion"].includes(ctx.rol)) forbidden(); // el alumno no ve su libreta (specs/11)
   const familia = esVistaFamilia(ctx.rol);
 
   // `?alumno=` (enlaces de notas y avisos) abre la libreta de ese alumno, solo si está en el alcance del usuario.

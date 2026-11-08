@@ -17,7 +17,7 @@ Desde la rama `pre-notificaciones` (2026-11-03) la bandeja es **general** (§8):
 |---|---|---|
 | Profesor del curso | Publicar resultados (genera el evento); corregir con motivo | Notificar mientras edita borradores |
 | Apoderado | Ver su bandeja, abrir notificaciones, ver el registro auxiliar **publicado** de sus hijos; elegir si quiere push de notas | Ver borradores, observaciones internas, notas de otros alumnos, notificaciones de otra familia o de otro colegio |
-| Alumno con cuenta | Ver su bandeja (tareas, evaluaciones programadas, comunicados; sin push ni correo) | Ver las de su familia |
+| Alumno con cuenta | Ver su bandeja (tareas, evaluaciones programadas, comunicados; sin push ni correo). Su aviso de evaluación programada lleva a `/agenda` (no entra a Notas, specs/11) | Ver las de su familia; avisos de notas o libreta |
 | Profesor, dirección, administrativo | Ver su propia bandeja (mensajes de familias, justificaciones aprobadas, incidencias) | Ver las de otra persona |
 | Portería | — | La bandeja (403) |
 

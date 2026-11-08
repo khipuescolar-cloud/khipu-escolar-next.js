@@ -98,17 +98,14 @@ describe("alcance del alumno: solo él mismo", () => {
   it("no ve las notas ni la asistencia de sus compañeros", async () => {
     await esperarProhibido(notasDeAlumno(ctxAlumno, c.alumnos.valentina.id, periodoId));
     await esperarProhibido(requireAlumnoVisible(ctxAlumno, c.alumnos.thiago.id));
-    const propias = await notasDeAlumno(ctxAlumno, c.alumnos.mateo.id, periodoId);
-    expect(propias.alumno.id).toBe(c.alumnos.mateo.id);
     const historial = await historialDeHijos(ctxAlumno);
     expect(historial.hijos.map((h) => h.id)).toEqual([c.alumnos.mateo.id]);
   });
 
-  it("la libreta solo de periodos publicados", async () => {
-    await esperarProhibido(datosLibreta(ctxAlumno, c.alumnos.mateo.id, periodoId));
+  it("no ve sus propias notas ni su libreta: las ve su familia (specs/11)", async () => {
+    await esperarProhibido(notasDeAlumno(ctxAlumno, c.alumnos.mateo.id, periodoId));
     await db.periodo.update({ where: { id: periodoId }, data: { cerrado: true, libretaPublicadaAt: new Date() } });
-    expect((await datosLibreta(ctxAlumno, c.alumnos.mateo.id, periodoId)).alumno.id).toBe(c.alumnos.mateo.id);
-    await esperarProhibido(datosLibreta(ctxAlumno, c.alumnos.valentina.id, periodoId));
+    await esperarProhibido(datosLibreta(ctxAlumno, c.alumnos.mateo.id, periodoId));
   });
 
   it("ve las tareas de su salón y no las de otro", async () => {
