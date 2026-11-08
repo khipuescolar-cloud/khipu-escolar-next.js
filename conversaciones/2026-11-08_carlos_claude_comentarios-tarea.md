@@ -35,3 +35,9 @@
 - Nuevo `tareas/[id]/revision/ChatComentarios.tsx`: botón con ícono de chat junto a «Ver» (relleno y con punto si hay un comentario sin responder) que abre un `Sheet` lateral con la conversación y el campo para responder (Enter envía).
 - El modal «Ver» ya no muestra comentarios: solo la entrega y la nota. El aviso (`?alumno=`) abre el chat.
 - Validación: tsc y lint limpios; e2e `tareas-classroom` en verde; captura con Carla Mendoza (conversación con Jimena).
+
+## Seguimiento: campo del chat
+> tiene que desaparecer esto "Enter para enviar · Mayús + Enter para otra línea" tambien que el input cuando ingreso mucho texto se deforma, aqui vamos a usar un input que vaya creaciendo en vertical y acomodandose segun la cantidad de palabras que lleva, ademas que lo maximo que deberia mostrar son 3 filas y luego usar un scroll automatico
+
+- Sin la línea de ayuda. El campo empieza en una fila, crece hasta 3 y luego hace scroll interno; vuelve a una fila tras enviar (`ajustar` en `ChatComentarios.tsx`).
+- Validación: en el navegador, alto 44 px (1 fila) → 62 px (2) → 82 px tope (3 filas con 5 líneas escritas); tsc y lint limpios.

@@ -10,6 +10,18 @@ import { MAX_COMENTARIO_TAREA } from "@/lib/tareas";
 import { cn } from "@/lib/utils";
 import { FormularioEnLinea } from "../../FormularioEnLinea";
 
+/** Alto del campo según su contenido: de 1 a 3 filas; con más texto, scroll interno. */
+function ajustar(el: HTMLTextAreaElement) {
+  const estilo = getComputedStyle(el);
+  const linea = parseFloat(estilo.lineHeight) || 20;
+  const bordes = parseFloat(estilo.borderTopWidth) + parseFloat(estilo.borderBottomWidth);
+  const maximo = linea * 3 + parseFloat(estilo.paddingTop) + parseFloat(estilo.paddingBottom) + bordes;
+  el.style.height = "auto";
+  const alto = el.scrollHeight + bordes; // border-box: scrollHeight ya incluye el padding
+  el.style.height = `${Math.min(alto, maximo)}px`;
+  el.style.overflowY = alto > maximo + 1 ? "auto" : "hidden";
+}
+
 export type MensajeChat = { id: string; autor: string; texto: string; cuando: string; esDocente: boolean };
 
 /**
@@ -28,6 +40,11 @@ export function ChatComentarios({ alumno, subtitulo, mensajes, asignacionId, sin
 }) {
   const [abierto, setAbierto] = useState(abiertoInicial);
   const fin = useRef<HTMLDivElement>(null);
+  const campo = useRef<HTMLTextAreaElement>(null);
+  // Tras enviar, el formulario se limpia: el campo vuelve a una fila.
+  useEffect(() => {
+    if (campo.current) ajustar(campo.current);
+  }, [mensajes.length]);
   // Al abrir y al llegar un mensaje nuevo, baja al último.
   useEffect(() => {
     if (abierto) fin.current?.scrollIntoView({ block: "end" });
@@ -69,9 +86,12 @@ export function ChatComentarios({ alumno, subtitulo, mensajes, asignacionId, sin
               <label className="flex flex-1 flex-col text-sm">
                 <span className="sr-only">Mensaje</span>
                 <Textarea
-                  name="texto" rows={2} maxLength={MAX_COMENTARIO_TAREA} required
+                  ref={campo}
+                  name="texto" rows={1} maxLength={MAX_COMENTARIO_TAREA} required
                   placeholder={sinResponder ? "Responde al estudiante…" : "Escribe un mensaje…"}
-                  className="max-h-40 min-h-11 resize-none"
+                  // Crece hacia abajo con el texto hasta 3 filas; desde ahí, scroll dentro del campo.
+                  className="field-sizing-fixed min-h-11 resize-none overflow-y-hidden leading-5"
+                  onInput={(e) => ajustar(e.currentTarget)}
                   onKeyDown={(e) => {
                     // Enter envía; Mayús + Enter hace un salto de línea.
                     if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
@@ -81,9 +101,8 @@ export function ChatComentarios({ alumno, subtitulo, mensajes, asignacionId, sin
                   }}
                 />
               </label>
-              <Button type="submit" size="sm" className="h-11 w-11 px-0" aria-label="Enviar"><Send strokeWidth={2} aria-hidden /></Button>
+              <Button type="submit" size="sm" className="h-11 w-11 shrink-0 px-0" aria-label="Enviar"><Send strokeWidth={2} aria-hidden /></Button>
             </div>
-            <span className="text-etiqueta text-muted-foreground">Enter para enviar · Mayús + Enter para otra línea</span>
           </FormularioEnLinea>
         )}
       </SheetContent>
