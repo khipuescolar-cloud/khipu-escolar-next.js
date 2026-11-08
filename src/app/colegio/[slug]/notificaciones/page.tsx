@@ -28,7 +28,7 @@ export default async function NotificacionesPage({ params, searchParams }: PageP
       <EncabezadoPagina
         titulo="Notificaciones"
         seccion="comunicacion"
-        descripcion={ctx.rol === "apoderado" || ctx.rol === "alumno" ? "Notas, tareas, evaluaciones, mensajes y comunicados del colegio." : "Mensajes de las familias y avisos del colegio sobre tus clases."}
+        descripcion={ctx.rol === "alumno" ? "Tareas, evaluaciones y comunicados del colegio." : ctx.rol === "apoderado" ? "Notas, tareas, evaluaciones, mensajes y comunicados del colegio." : "Mensajes de las familias y avisos del colegio sobre tus clases."}
         acciones={
           datos.sinLeer > 0 ? (
             <form action={marcarTodasLeidasAction.bind(null, slug)}>
