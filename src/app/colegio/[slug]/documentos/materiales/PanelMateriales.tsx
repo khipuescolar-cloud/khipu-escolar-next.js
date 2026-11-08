@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useRef, useState, useTransition } from "react";
 import { toast } from "sonner";
 import { ChevronDown, ChevronRight, Download, Eye, FileImage, FileSpreadsheet, FileText, Folder, FolderOpen, MoreVertical, Pencil, Plus, Share2, Trash2, Upload } from "lucide-react";
 import type { Rol } from "@/generated/prisma/enums";
@@ -21,7 +21,7 @@ import type { ArbolMateriales, MaterialVista } from "@/lib/server/materiales";
 import { NavegacionDocumentos } from "../NavegacionDocumentos";
 import { VistaPrevia } from "../DialogosDocumentos";
 import type { Item } from "../tipos-documentos";
-import { BarraExplorador, type ModoExplorador } from "../BarraExplorador";
+import { BarraExplorador, useModoExplorador } from "../BarraExplorador";
 import { actualizarMaterialAction, compartirMaterialAction, confirmarSubidaMaterialAction, crearMaterialAction, crearSubcarpetaMaterialAction, iniciarSubidaMaterialAction, moverMaterialACarpetaAction, moverMaterialAPapeleraAction, nuevaVersionMaterialAction, restaurarMaterialAction } from "./actions";
 
 type Curso = { id: string; nombre: string; profesorId: string | null; salon: string; anio: number; grado: number | null; nivel: string; archivado: boolean };
@@ -32,9 +32,7 @@ const iconoArchivo = (nombre?: string) => /\.(png|jpe?g|webp|gif)$/i.test(nombre
 
 export function PanelMateriales({ slug, rol, arbol, cursos, cursoId, carpetaId, carpetas, q, orden }: { slug: string; rol: Rol; arbol: ArbolMateriales; cursos: Curso[]; cursoId: string | null; carpetaId: string | null; carpetas: Carpeta[]; q: string; orden: "recientes" | "antiguos" | "titulo" }) {
   const router = useRouter();
-  const [modo, setModo] = useState<ModoExplorador>("lista");
-  useEffect(() => { try { if (localStorage.getItem("materiales-modo") === "cuadricula") queueMicrotask(() => setModo("cuadricula")); } catch { /* sin almacenamiento */ } }, []);
-  const cambiarModo = (valor: ModoExplorador) => { setModo(valor); try { localStorage.setItem("materiales-modo", valor); } catch { /* sin almacenamiento */ } };
+  const [modo, cambiarModo] = useModoExplorador();
   const [subir, setSubir] = useState(false);
   const [nuevaCarpeta, setNuevaCarpeta] = useState(false);
   const [nombre, setNombre] = useState("");

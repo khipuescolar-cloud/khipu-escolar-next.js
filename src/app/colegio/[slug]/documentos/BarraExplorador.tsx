@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Grid2X2, List, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,6 +8,24 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ORDENES_DOCUMENTO } from "@/lib/documentos";
 
 export type ModoExplorador = "lista" | "cuadricula";
+
+const CLAVE_MODO = "documentos-modo";
+
+/** Vista lista/cuadrícula compartida por todas las secciones de Documentos (se recuerda en el navegador). */
+export function useModoExplorador() {
+  const [modo, setModo] = useState<ModoExplorador>("lista");
+  useEffect(() => {
+    try {
+      const guardado = localStorage.getItem(CLAVE_MODO) ?? localStorage.getItem("materiales-modo");
+      if (guardado === "cuadricula") queueMicrotask(() => setModo("cuadricula"));
+    } catch { /* sin almacenamiento */ }
+  }, []);
+  const cambiarModo = (valor: ModoExplorador) => {
+    setModo(valor);
+    try { localStorage.setItem(CLAVE_MODO, valor); localStorage.removeItem("materiales-modo"); } catch { /* sin almacenamiento */ }
+  };
+  return [modo, cambiarModo] as const;
+}
 
 export function BarraExplorador({ q, orden, modo, campos, conservarOrden = false, onOrden, onModo }: {
   q: string;

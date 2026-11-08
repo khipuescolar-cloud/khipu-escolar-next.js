@@ -25,7 +25,7 @@ import { PanelSubidas, useSubidas } from "./Subidas";
 import { NavegacionDocumentos } from "./NavegacionDocumentos";
 import { PanelBorradores } from "./PanelBorradores";
 import { IndicadorAlmacenamiento } from "./IndicadorAlmacenamiento";
-import { BarraExplorador } from "./BarraExplorador";
+import { BarraExplorador, useModoExplorador } from "./BarraExplorador";
 import type { Item, Salon, Vista } from "./tipos-documentos";
 
 const vistas: { id: Vista; nombre: string; icono: typeof FolderOpen }[] = [
@@ -47,10 +47,10 @@ export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista,
   const router = useRouter();
   const enlaceAbierto = useRef<string | null>(null);
   const navegacion = useRef<HTMLElement>(null);
-  const [modo, setModo] = useState<"lista" | "cuadricula">("lista");
   const [seleccion, setSeleccion] = useState<string[]>([]);
   const [arrastrando, setArrastrando] = useState(false);
   const [resaltados, setResaltados] = useState<string[]>([]);
+  const [modo, cambiarModo] = useModoExplorador();
   const [vistaPrevia, setVistaPrevia] = useState<Item | null>(null);
   const [detalles, setDetalles] = useState<Item | null>(null);
   const [renombrar, setRenombrar] = useState<Item | null>(null);
@@ -69,8 +69,6 @@ export function ExploradorDocumentos({ archivoInicial, nuevos, contenido, vista,
   const volver = carpetaId ?? "";
   const nombreVista = vistas.find((v) => v.id === vista)?.nombre ?? "";
 
-  useEffect(() => { try { if (localStorage.getItem("documentos-modo") === "cuadricula") queueMicrotask(() => setModo("cuadricula")); } catch { /* sin almacenamiento */ } }, []);
-  const cambiarModo = (m: "lista" | "cuadricula") => { setModo(m); try { localStorage.setItem("documentos-modo", m); } catch { /* sin almacenamiento */ } };
   // En móvil la navegación interna se desplaza: deja a la vista la sección activa.
   useEffect(() => { navegacion.current?.querySelector("[aria-current=page]")?.scrollIntoView({ inline: "center", block: "nearest" }); }, [vista]);
   // Al cambiar de carpeta o de sección se limpia la selección.
