@@ -2,7 +2,7 @@
 
 > La vista compartida de calificaciones de Tareas y Registro de notas se documenta en [specs/47](47-registro-de-notas.md).
 
-> Estado: implementado (backend completo; UI funcional) · Plan: Khipu Pro (`requireFeature("tareas")`) · Última actualización: 2026-11-03 (Claude)
+> Estado: implementado (backend completo; UI funcional) · Plan: Khipu Pro (`requireFeature("tareas")`) · Última actualización: 2026-11-07 (Claude)
 
 Reemplaza el «tablón» de tareas de specs/12 (una tarea = un salón, fecha fija 08:00, sin entregas). La agenda y el .ics
 siguen en specs/12; los adjuntos, en specs/14.
@@ -15,9 +15,9 @@ la califique en el MISMO registro de notas (sin un segundo registro y sin NSP).
 ## Roles y permisos
 | Rol | Puede | No puede |
 |---|---|---|
-| Profesor (autor o profesor del curso de origen) | Crear, editar, publicar/programar, cerrar/reabrir, archivar, eliminar (sin entregas), cambiar plazos, elegir destinatarios | Elegir alumnos de salones que no dicta o de otro colegio |
+| Profesor (autor o profesor del curso de origen) | Crear, editar, publicar/programar, reabrir (si estaba cerrada), eliminar (sin entregas), cambiar plazos, elegir destinatarios | Crear tareas en cursos que no dicta (aunque sea tutor de ese salón); elegir alumnos de salones que no dicta o de otro colegio |
 | Profesor del curso de una sección / autor | Revisar entregas de esa sección, devolver, marcar revisada, marcar «en físico», calificar, «Marcar NE», comentar en privado, moderar | Ver entregas de secciones de otros docentes |
-| Otro profesor del salón (o tutor) | Ver la tarea y descargar sus materiales | Ver entregas, archivos de entregas ni comentarios privados |
+| Otro profesor del salón (o tutor) | Descargar los materiales de la tarea si la ve en la agenda | Crear tareas en ese curso, verla en su lista de Tareas, ver entregas, archivos de entregas ni comentarios privados |
 | Dirección | Ver todo, revisar, eliminar | Editar el contenido (solo consulta) |
 | Apoderado | Ver y entregar en nombre de sus hijos asignados; comentar en privado | Ver tareas, entregas, comentarios o notas de otros alumnos |
 | Alumno con cuenta | Ver y entregar sus tareas; comentar en privado | Ver lo de sus compañeros |
@@ -32,9 +32,16 @@ la califique en el MISMO registro de notas (sin un segundo registro y sin NSP).
 2. **Ver/entregar** (`/tareas/[id]?alumno=`): instrucciones, materiales, estado (ícono + palabra), borrador (texto +
    archivos), «Entregar» (hora real; tarde si pasó el plazo), «Anular entrega» antes de la revisión, reentrega si fue
    devuelta (nuevo intento numerado), comentarios privados, calificación solo si se publicó.
-3. **Revisar** (`/tareas/[id]/revision`): por sección, filtros (salón, estado, estudiante), contadores (entregaron, tarde,
-   pendientes, devueltas, revisadas), intentos y archivos, observación privada, «Devolver», «Marcar revisada»,
-   «Entregada en físico», nota y «Marcar NE a quienes no entregaron».
+3. **Revisar y calificar** (`/tareas/[id]/revision?curso=`, rediseño 2026-11-07): un salón a la vez (botones por
+   salón si la tarea tiene varios). Tabla con la lista del salón: N.º, Estudiante, Entrega («Entregado» con fecha,
+   «con retraso» o «en físico»; «Pendiente» antes del plazo; «No entregó» al vencer), Nota y una acción: **«Revisar»**
+   (entregó y aún no tiene nota) o **«Ver»** (el resto). El panel muestra solo lo que mandó el alumno (intentos, texto,
+   archivos, comentarios) y el formulario de nota: AD/A/B/C con su significado o 0–20 según la escala del colegio, más
+   un comentario opcional. Quien no entregó solo se califica marcando «Lo entregó en físico». Arriba: «N de M
+   entregaron · K con nota» y **«Subir notas»**, habilitado cuando todos los que entregaron tienen nota. Al subir: «NE» a
+   quienes no entregaron, se publica la columna del registro y cada apoderado y alumno con cuenta recibe el aviso.
+   Después, la nota se corrige en el Registro de notas (con motivo). En celular, la entrega va bajo el nombre.
+   Sin «Devolver para corregir» ni filtros en la UI (`devolverEntrega` queda en el servidor).
 
 ## Reglas de negocio
 - **Visibilidad:** una familia/alumno ve una tarea solo con asignación vigente (`retirada_at` null) en una tarea
@@ -42,17 +49,26 @@ la califique en el MISMO registro de notas (sin un segundo registro y sin NSP).
 - **Destinatarios:** `tarea_asignaciones` unique(tarea, alumno). «Todos» = `sincronizarAsignaciones` idempotente
   (`createMany skipDuplicates`); los alumnos que llegan después se agregan al abrir la lista de tareas de la familia y la
   revisión. Quitar = `retirada_at` (deja de verla, se conservan entregas); volver a agregar la revive.
-- **Anti-manipulación:** cada sección debe ser un curso del docente con el mismo nombre que el de origen; cada alumno
+- **Solo cursos que dicta:** `cursosParaTareas`, `cursosGemelos`, `alumnosParaDestinatarios`, `vistaPreviaDestinatarios` y
+  `crearTarea` usan `cursosQueDicta` / `requireCursoQueDicta` (`profesorId` = el docente). Ser tutor del salón NO da
+  acceso a los cursos que dictan otros (mismo criterio que pasar lista, specs/04). Dirección no crea tareas.
+- **Anti-manipulación:** cada sección debe ser un curso que el docente dicta con el mismo nombre que el de origen; cada alumno
   elegido debe estar activo en el salón de su sección y en el colegio (`ctx.db`). Nunca se lee un tenant del cliente.
 - **Plazo:** `fecha_entrega` null = nunca vence. Sin hora se guarda a las 08:00 (compatibilidad con agenda/.ics) pero
   vence a las 23:59:59.999 del día en `tenant.zona_horaria` (`limiteEfectivo`). Cada sección puede tener fecha propia.
+- **Cierre de entregas (2026-11-07):** lo deciden el plazo y «Permitir entregas tardías». Sin tardías, la tarea deja de
+  recibir entregas al vencer; con tardías, las acepta marcadas «Con retraso». No hay botón «Cerrar entregas» en la UI:
+  para cortar las tardías, el docente edita la tarea y desmarca la opción. Una tarea sin fecha no vence; para que se
+  cierre, se le pone fecha. Solo queda «Reabrir entregas» en las tareas `cerrada` de antes de este cambio
+  (`cambiarCierreTarea` sigue en el servidor).
 - **Tarde / bloqueo:** `puedeEnviar`: tarea cerrada → «El profesor cerró las entregas»; no publicada → bloqueado;
   vencida sin tardías → rechazo. La condición «tarde» se fija al enviar y no se recalcula.
 - **Cambio de plazo:** fila inmutable en `tarea_cambios_plazo` (trigger bloquea UPDATE) + `auditar` (antes/después,
   motivo) + aviso; las entregas ya enviadas conservan su hora real y condición.
 - **Estados por alumno** (separados del estado de la tarea): asignada (Pendiente) → en_proceso → entregada ↔ devuelta →
   revisada. Anular solo desde `entregada` (no revisada, no en físico) y si aún se puede enviar.
-- **Eliminar** solo sin entregas ni notas; si no, archivar.
+- **Eliminar** solo sin entregas ni notas. La UI no ofrece «Archivar» (2026-11-07): una tarea con entregas se queda en la
+  lista como historial. `archivarTarea` sigue en el servidor y las archivadas de antes no se listan.
 - **Calificación (opcional):** si `calificable` y el colegio tiene `notas`, al publicar se crea una `Evaluacion` por
   sección con `crearEvaluacion(ctx, …, { tareaId })` (periodo abierto del nivel que contiene la fecha). La nota se
   escribe con `guardarNota` (historial incluido); se publica con `publicarEvaluacion`. Una evaluación con `tarea_id`
@@ -106,11 +122,36 @@ avisada_at IS NULL AND publicar_en <= now()` y reclamo atómico de `avisada_at`)
 publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_at` se fija al crear (el cron no avisa).
 
 ## Rutas y UI
-- `/tareas` (profesor/dirección): lista con divisores (sin tarjetas por fila) con estado, secciones, barra de avance y contadores; una barra de filtros por curso y estado; «Nueva tarea» en un diálogo por secciones (Para quién, La tarea, Plazo, Publicación, Opciones). Encabezado de sección «Académico».
-- `/tareas` (familia/alumno): por hijo, pendientes agrupadas (Para mañana · Esta semana · Más adelante · Sin fecha) e
-  historial, con curso, docente, fecha límite y estado de entrega (ícono + palabra).
+- `/tareas` (profesor/dirección), `ListaDocente.tsx`:
+  - **Para revisar** (solo profesor, arriba): dos columnas por sección de tarea publicada o cerrada (no programada).
+    «Hoy» = el plazo vence hoy, o ya venció / no tiene fecha y quedan entregas por revisar (estado `entregada`).
+    «Próximos 7 días» = el plazo vence en los próximos 7 días. Regla pura `agendaDeRevision` (`src/lib/tareas.ts`).
+    Cada fila abre `/tareas/<id>/revision?curso=<cursoId>`. Ignora el filtro de estado (siempre mira las activas).
+  - **Lista agrupada por salón y, dentro, por curso.** Una tarea con varias secciones aparece en cada salón, con
+    «También en …», su plazo, «N por revisar» y contadores de esa sección. Filtros por curso y estado; «Nueva tarea»
+    en un diálogo por secciones (Para quién, La tarea, Plazo, Publicación, Opciones). Encabezado «Académico».
+  - **Acciones de cada fila**, en una sola línea alineada a la derecha (botones `sm`, misma altura), de izquierda a
+    derecha: eliminar (ícono; solo si nadie empezó una entrega, `tieneEntregas`), «Reabrir» (solo tareas `cerrada` de
+    antes), «Editar» (autor) y, al extremo, la principal con ancho mínimo fijo: «Revisar entregas» o «Publicar» en un
+    borrador. Así la principal queda en la misma columna en todas las filas. Filtro de estado sin «Archivadas».
+  - `tareasDelDocente` devuelve, por tarea, solo las `secciones` que el usuario puede revisar (`puedeRevisarSeccion`),
+    con `contadores.porRevisar`; el profesor ve las que creó o con sección en un curso que dicta. Así «Revisar entregas»
+    nunca lleva a la página «No tienes acceso» (antes el tutor veía tareas de cursos ajenos de su salón).
+- `/tareas` (familia/alumno), `VistaFamilia.tsx` (rediseño 2026-11-08): un hijo a la vez (botones con su número de
+  pendientes, `?alumno=`). Arriba, **«Vence pronto»**: tarjetas de lo que vence hoy o mañana o fue devuelto, con
+  «Entregar →». Debajo, pestañas con contador (`?ver=`): **Pendientes** · **Entregadas** · **Sin entregar** (venció sin
+  entrega). En cada pestaña, las tareas se agrupan por curso (tarjeta con docente y cantidad; dos columnas en
+  escritorio). Cada fila lleva un nudo del estado, fecha o estado de entrega (ícono + palabra) y, si ya se subieron las
+  notas, la nota (`ItemTareaFamilia.calificacion`, solo evaluaciones publicadas).
 - `/tareas/[id]` (familia/alumno): detalle y entrega (`?alumno=` elige hijo). El personal es redirigido a la revisión.
-- `/tareas/[id]/revision` (docente/dirección): filtros por salón, estado y estudiante; acciones por fila.
+  Rediseño 2026-11-08: encabezado estándar con curso y docente; dos columnas en escritorio. A la derecha, fijo al
+  desplazar, el panel «Tu entrega» / «Entrega de <hijo>»: avance como cuerda de khipu con cuatro nudos (Asignada →
+  Entregada → Revisada → Calificada, con `aria-current="step"`), la nota en grande con su significado («AD · Logro
+  destacado»; «NE · No entregó»), lo enviado y el formulario (Guardar borrador · Entregar). A la izquierda,
+  Instrucciones (con «Cómo entregar» y Materiales) y Comentarios como conversación: profesor a la izquierda y
+  familia o alumno a la derecha, con el campo de escribir integrado. En celular, el panel de entrega va primero.
+- `/tareas/[id]/revision` (docente/dirección): ver flujo 3. Componentes `PanelRevision.tsx` (diálogo con la entrega y
+  la nota) y la tabla en `page.tsx`.
 - Componentes: `SeccionFormulario` (secciones de formulario), `CamposNuevaTarea` y `CamposPublicacion` (secciones, destinatarios con búsqueda, contador, vista previa, publicación),
   `insignias.tsx` (`FechaEntrega`, `EstadoEntrega`, `EstadoTarea`: ícono + palabra), `FormularioEnLinea`;
   `CamposAdjuntos` acepta límites propios (`maxArchivos`, `maxMb`, `accept`, `tiposTexto`). Objetivos táctiles de 44 px.
@@ -122,9 +163,9 @@ publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_
 - Alumno nuevo en el salón: recibe las tareas «Todos» vigentes al abrir sus tareas.
 
 ## Pruebas
-- unit: `tests/unit/tareas-reglas.test.ts` (zona horaria, tarde/vencida, envío, enlaces, extensiones, límites).
+- unit: `tests/unit/tareas-reglas.test.ts` (zona horaria, tarde/vencida, envío, enlaces, extensiones, límites, agenda de revisión).
 - integración: `tests/integracion/tareas-classroom.test.ts` (multi-sección, anti-manipulación, programada, puntual vs.
-  tarde, sin fecha, sin tardías, cerrar, devolver/reentregar, físico, quitar destinatario, privacidad, archivos de
+  tarde, sin fecha, sin tardías, tutor sin cursos ajenos, contadores por sección, cerrar, devolver/reentregar, físico, quitar destinatario, privacidad, archivos de
   entrega, profesor de otro curso, comentarios, plazo auditado, calificación sin NSP y NE explícito, avisos sin correo,
   extensión falsa y límites). Ajustadas: `notas-libreta-tareas-agenda`, `adjuntos-comunicados-tareas`,
   `bandeja-general`, `extras-edicion-ics-zip`.
@@ -150,6 +191,21 @@ Tareas ya recibe entregas y no se rehace. Cambia solo cómo usa archivos (detall
 - Editar secciones ya creadas (agregar/quitar salones) desde la UI; hoy solo destinatarios por sección.
 - Configurar `tareas_max_archivos`/`tareas_max_mb` desde la configuración del colegio (hoy solo en BD).
 - Rúbricas y calificación con varias competencias por tarea.
+
+## Toda tarea lleva nota (2026-11-07)
+
+- La UI ya no ofrece «Calificable»: la acción de crear envía `calificable = tieneFeature("notas")` y exige la
+  competencia de cada salón («Competencia que evalúa»). `crearTarea` sin `calificable` sigue aceptándose en el
+  servidor (forma antigua y pruebas) y esa tarea queda sin columna.
+- Tarea sin columna (anterior o creada así): la revisión muestra «Esta tarea aún no tiene notas» con las competencias
+  activas del curso; `activarCalificacion(ctx, tareaId, tareaCursoId, competenciaId)` la marca calificable y crea la
+  columna (solo el profesor del curso o autor; competencia del mismo curso).
+- `revisarConNota(ctx, asignacionId, { valor, observacion?, enFisico? })`: `guardarNota` + entrega `revisada` +
+  comentario privado. Rechaza «NE» (se pone al subir), a quien no entregó sin `enFisico` y cambios después de subir.
+- `subirNotasDeSeccion(ctx, tareaId, tareaCursoId)`: exige nota en cada asignación vigente entregada/revisada/devuelta,
+  aplica `marcarNoEntregaron` y `publicarEvaluacion` (reclamo atómico + outbox). La acción procesa el outbox en
+  `after()`. Aviso (specs/38): «Tarea calificada» · «Se calificó la tarea «X» de Mateo en Curso.» → `/tareas/<id>?alumno=`,
+  al apoderado (bandeja y push) y al alumno con cuenta (solo bandeja). Nunca la nota en el texto.
 
 ## Relación con Registro de notas (2026-11-07)
 

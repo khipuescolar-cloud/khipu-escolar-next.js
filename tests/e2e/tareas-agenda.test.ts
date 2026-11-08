@@ -25,13 +25,17 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada y en sus no
   await entrar(page, "lucia.garcia@nuevohorizonte.demo", "nuevohorizonte");
   await page.goto(colegio("nuevohorizonte", "/tareas"));
   await page.getByRole("button", { name: "Nueva tarea" }).click();
+  await page.getByRole("dialog").getByText("Elige una competencia").click();
+  await page.getByRole("listbox").getByRole("option").first().click();
   await page.getByLabel("Título", { exact: true }).fill(titulo);
   const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
   await page.getByLabel("Fecha de entrega", { exact: true }).fill(manana);
   await page.getByLabel("Avisar a las familias").check();
   await page.getByRole("button", { name: "Crear tarea" }).click();
   await expect(page.getByText("Tarea creada.")).toBeVisible();
-  await expect(page.getByText(titulo)).toBeVisible();
+  // Aparece en «Para revisar» (vence mañana) y en la lista por salón.
+  await expect(page.getByRole("region", { name: "Para revisar" }).getByText(titulo)).toBeVisible();
+  await expect(page.getByRole("region", { name: "3.° B" }).getByText(titulo, { exact: true })).toBeVisible();
 
   await context.clearCookies();
   await page.goto("/login");
@@ -40,8 +44,9 @@ test("profesora crea una tarea con aviso y la familia la ve agrupada y en sus no
   await page.getByRole("button", { name: "Entrar" }).click();
   await page.waitForURL(colegio("nuevohorizonte", "/inicio"));
   await page.goto(colegio("nuevohorizonte", "/tareas"));
-  await expect(page.getByRole("heading", { name: "Para mañana" }).first()).toBeVisible();
-  await expect(page.getByText(titulo)).toBeVisible();
+  // Vence mañana: aparece en «Vence pronto» y en la pestaña «Pendientes», agrupada por curso.
+  await expect(page.getByRole("region", { name: /Vence pronto/ }).getByText(titulo)).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Ver tareas" }).getByRole("link", { name: /Pendientes/ })).toHaveAttribute("aria-current", "page");
   // Sin correo (specs/38): la tarea llega a su bandeja de notificaciones.
   await page.goto(colegio("nuevohorizonte", "/notificaciones"));
   await expect(page.getByText(new RegExp(`tarea nueva de .*«${titulo}»`))).toBeVisible();
@@ -81,14 +86,16 @@ test("la profesora edita su tarea y descarga el calendario .ics", async ({ page 
   await entrar(page, "lucia.garcia@nuevohorizonte.demo", "nuevohorizonte");
   await page.goto(colegio("nuevohorizonte", "/tareas"));
   await page.getByRole("button", { name: "Nueva tarea" }).click();
+  await page.getByRole("dialog").getByText("Elige una competencia").click();
+  await page.getByRole("listbox").getByRole("option").first().click();
   await page.getByLabel("Título", { exact: true }).fill(titulo);
   const manana = new Date(Date.now() + 86_400_000).toLocaleDateString("en-CA", { timeZone: "America/Lima" });
   await page.getByLabel("Fecha de entrega", { exact: true }).fill(manana);
   await page.getByRole("button", { name: "Crear tarea" }).click();
   await expect(page.getByText("Tarea creada.")).toBeVisible();
 
-  const fila = page.locator("li", { hasText: titulo }).first();
-  await fila.getByRole("button", { name: "Editar tarea" }).click();
+  const fila = page.getByRole("region", { name: "3.° B" }).locator("li", { hasText: titulo }).first();
+  await fila.getByRole("button", { name: /^Editar/ }).click();
   const dialogo = page.getByRole("dialog");
   await dialogo.getByLabel("Nombre de la tarea").fill(nuevo);
   await dialogo.getByRole("button", { name: "Guardar cambios" }).click();
@@ -108,7 +115,7 @@ test("la profesora edita su tarea y descarga el calendario .ics", async ({ page 
 
   // Limpieza.
   await page.goto(colegio("nuevohorizonte", "/tareas"));
-  await page.locator("li", { hasText: nuevo }).first().getByRole("button", { name: "Eliminar" }).click();
+  await page.getByRole("region", { name: "3.° B" }).locator("li", { hasText: nuevo }).first().getByRole("button", { name: "Eliminar" }).click();
   await page.getByRole("alertdialog").getByRole("button", { name: "Eliminar tarea" }).click();
   await expect(page.getByText(nuevo)).toHaveCount(0);
 });

@@ -51,7 +51,7 @@ export function CamposNuevaTarea({ cursos, alumnos, materiales = [], competencia
           {cursos.map((c) => <option key={c.id} value={c.id}>{c.nombre} · {c.salon}</option>)}
         </Selector>
       </div>
-      <label className="grid gap-1.5 text-sm sm:col-span-2"><span className="font-medium">Competencia (obligatoria si la tarea es calificable)</span>
+      <label className="grid gap-1.5 text-sm sm:col-span-2"><span className="font-medium">Competencia que evalúa</span><span className="text-muted-foreground">La nota de la tarea va a esta competencia en el registro de notas.</span>
         <Select name="competenciaId" value={competenciaId || null} onValueChange={(v) => setCompetenciaId(String(v ?? ""))} items={Object.fromEntries(competencias.filter((c) => c.cursoId === origen).map((c) => [c.id, c.nombre]))}><SelectTrigger className="w-full"><SelectValue placeholder="Elige una competencia" /></SelectTrigger><SelectContent>{competencias.filter((c) => c.cursoId === origen).map((c) => <SelectItem key={c.id} value={c.id}>{c.nombre}</SelectItem>)}</SelectContent></Select>
       </label>
       <input type="hidden" name="secciones" value={valor} />

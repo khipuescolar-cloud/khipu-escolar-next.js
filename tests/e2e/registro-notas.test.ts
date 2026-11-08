@@ -119,15 +119,19 @@ test("docente crea una calificación y ve una tarea en el mismo registro", async
   await tarea.getByText("Elige una competencia").click();
   await page.getByRole("option", { name: /Resuelve problemas de cantidad/ }).click();
   await tarea.getByLabel("Título", { exact: true }).fill(tareaTitulo);
-  await tarea.getByRole("checkbox", { name: /Calificable/ }).check();
   await tarea.getByRole("button", { name: "Crear tarea" }).click();
   await expect(page.getByText("Tarea creada.")).toBeVisible();
   const [creada] = await sql<{ id: string }>(`select id from tareas where titulo=$1`, [tareaTitulo]);
   await page.goto(colegio(`/tareas/${creada.id}/revision`));
-  const primera = page.getByRole("listitem").filter({ has: page.getByRole("button", { name: "Guardar nota" }) }).first();
-  await primera.getByLabel("Nota", { exact: true }).fill("A");
-  await primera.getByRole("button", { name: "Guardar nota" }).click();
-  await expect(primera.getByText("Nota: A")).toBeVisible();
+  // Nadie entregó por Khipu: se califica a quien lo entregó en físico, desde su panel «Ver».
+  const primera = page.getByRole("row").filter({ has: page.getByRole("button", { name: /^Ver/ }) }).first();
+  await primera.getByRole("button", { name: /^Ver/ }).click();
+  const panel = page.getByRole("dialog");
+  await panel.getByText("Lo entregó en físico").click();
+  await panel.getByText("Logro esperado").click();
+  await panel.getByRole("button", { name: "Guardar nota" }).click();
+  await expect(page.getByText("Nota guardada.")).toBeVisible();
+  await expect(primera.getByRole("cell", { name: "A", exact: true })).toBeVisible();
   await page.goto(colegio(`/notas/${cursoId}`));
   await expect(page.getByRole("button", { name: new RegExp(tareaTitulo) }).first()).toBeVisible();
   await expect(page.getByRole("columnheader", { name: /Manual/ }).first()).toBeVisible();

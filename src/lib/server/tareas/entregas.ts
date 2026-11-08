@@ -5,7 +5,7 @@ import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { MAX_COMENTARIO_TAREA, MAX_TEXTO_ENTREGA, puedeEnviar } from "@/lib/tareas";
 import { contarRestantes, guardarAdjuntos, quitarAdjuntos, type EntradaAdjunto } from "../adjuntos";
 import { auditar } from "../auditoria";
-import { guardarNota } from "../notas";
+import { guardarNota, publicarEvaluacion } from "../notas";
 import { avisarDevuelta } from "../notificaciones/avisos-tareas";
 import { requireFeature } from "../plan";
 import type { TenantContext } from "../tenant";
@@ -183,4 +183,62 @@ export async function marcarNoEntregaron(ctx: TenantContext, tareaId: string, ta
   }
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "tarea_ne", entidadId: tareaId, detalle: { seccion: tareaCursoId, marcados } });
   return ok(marcados === 0 ? "Nadie quedó sin entregar." : `Marcamos «NE» a ${marcados} ${marcados === 1 ? "estudiante" : "estudiantes"}.`);
+}
+
+/**
+ * Revisión con nota (specs/39): guarda la nota del alumno en la columna de su sección, marca la entrega como revisada
+ * y, si hay observación, la deja como comentario privado. «Lo entregó en físico» registra la entrega antes. Después de
+ * «Subir notas», la nota se corrige desde el Registro de notas (con motivo).
+ */
+export async function revisarConNota(ctx: TenantContext, asignacionId: string, entrada: { valor: string; observacion?: string; enFisico?: boolean }, ahora = new Date()): Promise<Resultado> {
+  requireFeature(ctx, "tareas");
+  const a = await requireAsignacionDocente(ctx, asignacionId);
+  if (a.retiradaAt) return fallo("Este estudiante ya no tiene asignada la tarea.");
+  if (!a.tareaCurso.evaluacionGrupoId) return fallo("Primero elige la competencia de esta tarea.");
+  const e = await ctx.db.evaluacion.findFirst({ where: { grupoId: a.tareaCurso.evaluacionGrupoId, tareaId: a.tareaId }, select: { id: true, estado: true } });
+  if (!e) return fallo("No encontramos la columna de notas de esta tarea.");
+  if (e.estado === "publicada") return fallo("Las notas ya se subieron: para cambiar esta nota, corrígela en el Registro de notas.");
+  const valor = entrada.valor.trim();
+  if (!valor) return fallo("Elige la nota.");
+  if (valor.toUpperCase() === "NE") return fallo("«NE» se pone solo al subir notas, a quienes no entregaron.");
+  const sinEntrega = a.estado === "asignada" || a.estado === "en_proceso" || a.estado === "devuelta";
+  if (sinEntrega && !entrada.enFisico) return fallo("Este estudiante no entregó. Si te lo dio en clase, marca «Lo entregó en físico».");
+  const r = await guardarNota(ctx, { evaluacionId: e.id, alumnoId: a.alumnoId, valor });
+  if (!r.ok) return r;
+  if (sinEntrega) {
+    const f = await marcarEntregaFisica(ctx, asignacionId, ahora);
+    if (!f.ok) return f;
+  }
+  await ctx.db.tareaAsignacion.updateMany({ where: { id: a.id, estado: "entregada" }, data: { estado: "revisada", revisadaAt: ahora } });
+  await comentarioPrivado(ctx, a, entrada.observacion);
+  return ok("Nota guardada.");
+}
+
+/**
+ * «Subir notas» de una sección (specs/39): exige nota en cada estudiante que entregó; pone «NE» a quienes no entregaron
+ * y publica la columna del registro con `publicarEvaluacion` (outbox: aviso «Tarea calificada» al apoderado y al alumno).
+ */
+export async function subirNotasDeSeccion(ctx: TenantContext, tareaId: string, tareaCursoId: string): Promise<Resultado> {
+  requireFeature(ctx, "tareas");
+  requireFeature(ctx, "notas");
+  const { secciones } = await requireTareaDocente(ctx, tareaId);
+  const s = secciones.find((x) => x.id === tareaCursoId);
+  if (!s) forbidden();
+  if (!s.evaluacionGrupoId) return fallo("Primero elige la competencia de esta tarea.");
+  const e = await ctx.db.evaluacion.findFirst({ where: { grupoId: s.evaluacionGrupoId, tareaId }, select: { id: true, estado: true } });
+  if (!e) return fallo("No encontramos la columna de notas de esta tarea.");
+  if (e.estado === "publicada") return fallo("Las notas de este salón ya se subieron.");
+  const entregaron = await ctx.db.tareaAsignacion.findMany({
+    where: { tareaId, tareaCursoId, retiradaAt: null, estado: { in: ["entregada", "revisada", "devuelta"] } },
+    select: { alumnoId: true },
+  });
+  const conNota = new Set((await ctx.db.nota.findMany({ where: { evaluacionId: e.id }, select: { alumnoId: true } })).map((n) => n.alumnoId));
+  const faltan = entregaron.filter((x) => !conNota.has(x.alumnoId)).length;
+  if (faltan > 0) return fallo(`Falta poner nota a ${faltan} ${faltan === 1 ? "estudiante que entregó" : "estudiantes que entregaron"}.`);
+  const ne = await marcarNoEntregaron(ctx, tareaId, tareaCursoId);
+  if (!ne.ok) return ne;
+  const r = await publicarEvaluacion(ctx, s.evaluacionGrupoId);
+  if (!r.ok) return r;
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "tarea_notas_subidas", entidadId: tareaId, detalle: { seccion: tareaCursoId } });
+  return ok("Notas subidas. Las familias y los estudiantes ya ven la nota y reciben un aviso en Khipu.");
 }

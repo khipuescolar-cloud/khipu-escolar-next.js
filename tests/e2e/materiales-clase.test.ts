@@ -39,6 +39,8 @@ test.beforeAll(async () => {
   [{ id: alumnoCompartidoId }] = await sql<{ id: string }>("insert into alumnos (id, tenant_id, salon_id, nombres, apellidos, cuenta_id) values (gen_random_uuid(), $1, $2, 'Alumno', 'Compartido', $3) returning id", [profesor.tenant_id, salonCompartido.id, membresiaCompartidaId]);
 });
 test.afterAll(async () => {
+  // Toda tarea crea su columna en el registro de notas (specs/39): se borra junto con la tarea.
+  await sql("delete from evaluaciones where tarea_id in (select id from tareas where titulo=$1)", [tarea]);
   await sql("delete from tareas where titulo=$1", [tarea]);
   if (materialId) {
     const archivos = await sql<{ archivo_id: string }>("select mva.archivo_id from material_version_archivos mva join material_versiones mv on mv.id=mva.version_id where mv.material_id=$1", [materialId]);
@@ -201,6 +203,8 @@ test("Lucía crea una subcarpeta y publica en un salón; alumno autorizado desca
   await page.getByRole("button", { name: "Nueva tarea" }).click();
   const dialogo = page.getByRole("dialog");
   await dialogo.getByRole("combobox", { name: /^Curso/ }).selectOption({ label: "Matemática · 3.° B" });
+  await dialogo.getByText("Elige una competencia").click();
+  await page.getByRole("listbox").getByRole("option").first().click();
   await dialogo.getByText("Elegir de mis materiales").click();
   await dialogo.getByRole("checkbox", { name: new RegExp(titulo) }).check();
   await dialogo.getByLabel("Título", { exact: true }).fill(tarea);

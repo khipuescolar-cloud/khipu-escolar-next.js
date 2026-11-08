@@ -8,7 +8,7 @@ import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { estaVencida, MAX_COMENTARIO_TAREA } from "@/lib/tareas";
 import { adjuntoVista } from "../adjuntos";
 import { auditar } from "../auditoria";
-import { cursosDelDocente } from "../cursos";
+import { cursosQueDicta } from "../cursos";
 import { requireFeature } from "../plan";
 import { textoDeNota } from "../nsp";
 import { alumnoIdsVisibles, requireRol, salonIdsVisibles, type TenantContext } from "../tenant";
@@ -32,6 +32,8 @@ export type ItemTareaFamilia = {
   id: string; titulo: string; descripcion: string | null; curso: string; docente: string | null;
   fechaEntrega: Date | null; limite: Date | null; conHora: boolean; vencida: boolean;
   estado: EstadoEntregaTarea; tarde: boolean; cerrada: boolean; adjuntos: AdjuntoVista[];
+  /** Nota publicada de la tarea («AD», «14», «NE»), o null si aún no se suben las notas. */
+  calificacion: string | null;
 };
 export type TareasDeHijo = Awaited<ReturnType<typeof tareasDeFamilia>>[number];
 
@@ -64,6 +66,12 @@ export async function tareasDeFamilia(ctx: TenantContext, ahora: Date = new Date
     orderBy: { createdAt: "desc" },
   });
   const materialesPorTarea = await archivosMaterialesDeTareas(ctx, asignaciones.map((a) => a.tareaId));
+  // Notas publicadas de estas tareas (solo de los hijos visibles): se muestran en «Entregadas».
+  const notas = await ctx.db.nota.findMany({
+    where: { alumnoId: { in: hijos.map((h) => h.id) }, evaluacion: { tareaId: { in: asignaciones.map((a) => a.tareaId) }, estado: "publicada" } },
+    select: { alumnoId: true, valorLiteral: true, valorNumerico: true, marca: true, evaluacion: { select: { tareaId: true } } },
+  });
+  const notaDe = (alumnoId: string, tareaId: string) => textoDeNota(notas.find((n) => n.alumnoId === alumnoId && n.evaluacion.tareaId === tareaId) ?? null);
   return hijos.map((h) => {
     const grupos: Record<Exclude<GrupoEntrega, "vencida"> | "sinFecha", ItemTareaFamilia[]> = { manana: [], semana: [], despues: [], sinFecha: [] };
     const historial: ItemTareaFamilia[] = [];
@@ -75,6 +83,7 @@ export async function tareasDeFamilia(ctx: TenantContext, ahora: Date = new Date
         id: t.id, titulo: t.titulo, descripcion: t.descripcion, curso: t.curso.nombre, docente: nombreDe(t.creadoPor.user),
         fechaEntrega: fecha, limite, conHora: t.conHora, vencida: estaVencida(limite, ahora), estado: a.estado, tarde: a.tarde,
         cerrada: t.estado === "cerrada", adjuntos: [...t.adjuntos.map(adjuntoVista), ...(materialesPorTarea.get(t.id) ?? [])],
+        calificacion: notaDe(h.id, t.id),
       };
       const pendiente = a.estado === "asignada" || a.estado === "en_proceso" || a.estado === "devuelta";
       if (!pendiente || (item.vencida && a.estado !== "devuelta")) {
@@ -146,10 +155,30 @@ export async function alumnosConTarea(ctx: TenantContext, tareaId: string, ahora
 
 const FILTRO_ESTADO = z.enum(["borrador", "publicada", "cerrada", "archivada", "programada"]).optional().catch(undefined);
 
-/** Tareas del docente (las que creó o de sus cursos) o de todo el colegio (dirección), con contadores de entrega. */
+type ConteoAsignaciones = { tareaId: string; tareaCursoId: string; estado: EstadoEntregaTarea; tarde: boolean; _count: { _all: number } };
+
+function contadoresDe(filas: ConteoAsignaciones[]) {
+  const suma = (f: (c: ConteoAsignaciones) => boolean) => filas.filter(f).reduce((n, c) => n + c._count._all, 0);
+  return {
+    asignados: suma(() => true),
+    entregaron: suma((c) => c.estado === "entregada" || c.estado === "revisada"),
+    tarde: suma((c) => c.tarde && (c.estado === "entregada" || c.estado === "revisada")),
+    pendientes: suma((c) => c.estado === "asignada" || c.estado === "en_proceso"),
+    devueltas: suma((c) => c.estado === "devuelta"),
+    revisadas: suma((c) => c.estado === "revisada"),
+    /** Entregas que esperan revisión del docente (entregadas, aún no revisadas ni devueltas). */
+    porRevisar: suma((c) => c.estado === "entregada"),
+  };
+}
+
+/**
+ * Tareas del docente o de todo el colegio (dirección), con contadores de entrega por sección. El profesor ve las que
+ * creó o que tienen una sección en un curso que DICTA; de cada tarea recibe solo las secciones que puede revisar (ser
+ * tutor del salón no basta: specs/39). Así la lista nunca ofrece «Revisar entregas» a quien no puede revisarlas.
+ */
 export async function tareasDelDocente(ctx: TenantContext, filtros: { cursoId?: string; estado?: string } = {}, ahora = new Date()) {
   requireFeature(ctx, "tareas");
-  const cursos = await cursosDelDocente(ctx);
+  const cursos = await cursosQueDicta(ctx);
   const estado = FILTRO_ESTADO.parse(filtros.estado);
   const cursoIds = cursos.map((c) => c.id).filter((id) => !filtros.cursoId || id === filtros.cursoId);
   const where: Prisma.TareaWhereInput = {
@@ -166,39 +195,45 @@ export async function tareasDelDocente(ctx: TenantContext, filtros: { cursoId?: 
     include: {
       adjuntos: { orderBy: { createdAt: "asc" } },
       curso: { include: { salon: { select: { nombre: true } } } },
-      cursos: { include: { curso: { select: { salon: { select: { nombre: true } } } } } },
+      cursos: { include: { curso: { select: { id: true, nombre: true, profesorId: true, salon: { select: { id: true, nombre: true } } } } } },
       enlaces: { orderBy: { orden: "asc" } },
     },
     orderBy: [{ createdAt: "desc" }],
     take: 100,
   });
-  const conteos = await ctx.db.tareaAsignacion.groupBy({
-    by: ["tareaId", "estado", "tarde"],
+  const conteos: ConteoAsignaciones[] = await ctx.db.tareaAsignacion.groupBy({
+    by: ["tareaId", "tareaCursoId", "estado", "tarde"],
     where: { tareaId: { in: tareas.map((t) => t.id) }, retiradaAt: null },
     _count: { _all: true },
   });
+  const zona = ctx.tenant.zonaHoraria;
   return tareas.map((t) => {
-    const mios = conteos.filter((c) => c.tareaId === t.id);
-    const suma = (f: (c: (typeof mios)[number]) => boolean) => mios.filter(f).reduce((n, c) => n + c._count._all, 0);
-    const limite = limiteDe(t, null, ctx.tenant.zonaHoraria);
+    const limite = limiteDe(t, null, zona);
+    const secciones = t.cursos
+      .filter((s) => puedeRevisarSeccion(ctx, t, s.curso) && (!filtros.cursoId || s.cursoId === filtros.cursoId))
+      .map((s) => {
+        const limiteSeccion = limiteDe(t, s, zona);
+        return {
+          id: s.id, cursoId: s.cursoId, curso: s.curso.nombre, salonId: s.curso.salon.id, salon: s.curso.salon.nombre,
+          limite: limiteSeccion, vencida: estaVencida(limiteSeccion, ahora), fechaPropia: s.fechaEntrega,
+          contadores: contadoresDe(conteos.filter((c) => c.tareaCursoId === s.id)),
+        };
+      });
     return {
       id: t.id, titulo: t.titulo, descripcion: t.descripcion, indicacionesEntrega: t.indicacionesEntrega, fechaEntrega: t.fechaEntrega, conHora: t.conHora,
       limite, vencida: estaVencida(limite, ahora), estado: t.estado, programada: t.estado === "publicada" && !!t.publicarEn && t.publicarEn > ahora, publicarEn: t.publicarEn,
       permiteTardias: t.permiteTardias, comentariosGenerales: t.comentariosGenerales, calificable: t.calificable,
       adjuntos: t.adjuntos.map(adjuntoVista), enlaces: t.enlaces.map((e) => ({ url: e.url, titulo: e.titulo })),
-      curso: t.curso.nombre, salon: t.curso.salon.nombre, secciones: t.cursos.map((s) => s.curso.salon.nombre),
+      curso: t.curso.nombre, salon: t.curso.salon.nombre, secciones,
       esAutor: ctx.rol === "profesor" && t.creadoPorId === ctx.membership.id,
-      contadores: {
-        asignados: suma(() => true),
-        entregaron: suma((c) => c.estado === "entregada" || c.estado === "revisada"),
-        tarde: suma((c) => c.tarde && (c.estado === "entregada" || c.estado === "revisada")),
-        pendientes: suma((c) => c.estado === "asignada" || c.estado === "en_proceso"),
-        devueltas: suma((c) => c.estado === "devuelta"),
-        revisadas: suma((c) => c.estado === "revisada"),
-      },
+      contadores: contadoresDe(conteos.filter((c) => secciones.some((s) => s.id === c.tareaCursoId))),
+      /** Algún estudiante ya empezó o envió una entrega: la tarea ya no se puede eliminar. */
+      tieneEntregas: conteos.some((c) => c.tareaId === t.id && c.estado !== "asignada"),
     };
   });
 }
+
+export type TareaDocente = Awaited<ReturnType<typeof tareasDelDocente>>[number];
 
 /**
  * Revisión de entregas (`/tareas/[id]/revision`): profesor del curso de cada sección (o autor) y dirección. Por sección:
@@ -222,8 +257,13 @@ export async function revisionDeTarea(ctx: TenantContext, tareaId: string, filtr
     }),
     ctx.db.archivo.findMany({ where: { tareaId }, orderBy: { createdAt: "asc" } }),
     ctx.db.tareaEnlace.findMany({ where: { tareaId }, orderBy: { orden: "asc" } }),
-    ctx.db.evaluacion.findMany({ where: { tareaId }, select: { id: true, grupoId: true, estado: true, notas: true } }),
+    ctx.db.evaluacion.findMany({ where: { tareaId }, select: { id: true, grupoId: true, estado: true, publicadaAt: true, notas: true, competencia: { select: { nombre: true } } } }),
   ]);
+  // Secciones sin columna de notas (tareas anteriores): competencias activas para que el profesor elija una.
+  const sinColumna = visibles.filter((s) => !s.evaluacionGrupoId).map((s) => s.cursoId);
+  const competencias = sinColumna.length && ctx.rol === "profesor"
+    ? await ctx.db.competencia.findMany({ where: { cursoId: { in: sinColumna }, desactivadaAt: null }, select: { id: true, cursoId: true, nombre: true }, orderBy: { orden: "asc" } })
+    : [];
   const materialesPorTarea = await archivosMaterialesDeTareas(ctx, [tareaId]);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "tarea_entregas", entidadId: tareaId });
   return {
@@ -251,7 +291,8 @@ export async function revisionDeTarea(ctx: TenantContext, tareaId: string, filtr
       return {
         id: s.id, cursoId: s.cursoId, curso: s.curso.nombre, salon: s.curso.salon.nombre, todos: s.todos,
         limite: limiteDe(tarea, s, ctx.tenant.zonaHoraria), fechaPropia: s.fechaEntrega,
-        evaluacion: ev ? { id: ev.id, grupoId: ev.grupoId, publicada: ev.estado === "publicada" } : null,
+        evaluacion: ev ? { id: ev.id, grupoId: ev.grupoId, publicada: ev.estado === "publicada", publicadaAt: ev.publicadaAt, competencia: ev.competencia?.nombre ?? null } : null,
+        competencias: competencias.filter((c) => c.cursoId === s.cursoId).map((c) => ({ id: c.id, nombre: c.nombre })),
         contadores: {
           asignados: vigentes.length,
           entregaron: cuenta((a) => a.estado === "entregada" || a.estado === "revisada"),
@@ -264,6 +305,7 @@ export async function revisionDeTarea(ctx: TenantContext, tareaId: string, filtr
       };
     }),
     vencida: estaVencida(limiteDe(tarea, null, ctx.tenant.zonaHoraria), ahora),
+    escala: ctx.tenant.escalaCalificacion,
   };
 }
 

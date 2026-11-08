@@ -65,6 +65,9 @@ Una actividad de varias competencias genera **una** notificación por apoderado 
 
 **Texto (se ve en la pantalla bloqueada)**
 - Título: «Nuevo resultado publicado» o «Calificación actualizada».
+- Si la evaluación es de una tarea (`tareaId`, specs/39): «Tarea calificada» / «Calificación de tarea actualizada»,
+  cuerpo «Se calificó la tarea «Fracciones» de Mateo en Matemática.» y enlace a `/tareas/<id>?alumno=`. En ese caso el
+  alumno con cuenta activa también recibe la notificación en su bandeja (sin push).
 - Cuerpo: «Hay un resultado nuevo de Mateo en Matemática: «Fracciones».»
 - **Nunca la nota.**
 

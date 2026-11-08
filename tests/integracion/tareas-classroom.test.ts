@@ -7,11 +7,12 @@ import { requireArchivoVisible } from "@/lib/server/archivos";
 import { itemsDeAgenda } from "@/lib/server/agenda";
 import { publicarEvaluacion, guardarNota } from "@/lib/server/notas";
 import { sincronizarNsp } from "@/lib/server/nsp";
+import { procesarEventosAcademicos } from "@/lib/server/eventos-academicos";
 import { procesarTareasProgramadas } from "@/lib/server/notificaciones/avisos-tareas";
 import {
-  anularEntrega, calificarEntrega, cambiarCierreTarea, cambiarPlazo, comentarTarea, crearTarea, detalleTareaFamilia, devolverEntrega,
+  actualizarTarea, anularEntrega, calificarEntrega, cambiarCierreTarea, cambiarPlazo, comentarTarea, crearTarea, cursosParaTareas, detalleTareaFamilia, devolverEntrega,
   editarDestinatarios, eliminarTarea, guardarEntrega, marcarEntregaFisica, marcarNoEntregaron, marcarRevisada, ocultarComentario,
-  revisionDeTarea, tareasDeFamilia, tareasDelDocente,
+  revisionDeTarea, revisarConNota, subirNotasDeSeccion, activarCalificacion, tareasDeFamilia, tareasDelDocente,
 } from "@/lib/server/tareas";
 import type { TenantContext } from "@/lib/server/tenant";
 import { fechaDb, fechaLima, instanteEnZona, sumarDias } from "@/lib/fechas";
@@ -158,6 +159,15 @@ describe("entregas", () => {
     expect(await guardarEntrega(padre(), t.id, c.alumnos.valentina.id, { texto: "x", enviar: true })).toMatchObject({ ok: true });
   });
 
+  it("desmarcar «Permitir entregas tardías» al editar cierra la tarea al vencer, sin botón de cierre", async () => {
+    expect(await crearTarea(tutora(), { cursoId: c.cursoTutora.id, titulo: "Con tardías", fechaEntrega: D, horaEntrega: "08:00" })).toMatchObject({ ok: true });
+    const t = await tareaPor("Con tardías");
+    expect(t.permiteTardias).toBe(true);
+    expect(await actualizarTarea(tutora(), t.id, { titulo: "Con tardías", permiteTardias: false, fechaEntrega: D, horaEntrega: "08:00" })).toMatchObject({ ok: true });
+    expect(await guardarEntrega(alumnoCtx, t.id, c.alumnos.mateo.id, { texto: "x", enviar: true }, {}, instanteEnZona(D, "09:00"))).toMatchObject({ ok: false });
+    expect(await guardarEntrega(alumnoCtx, t.id, c.alumnos.mateo.id, { texto: "x", enviar: true }, {}, instanteEnZona(D, "07:00"))).toMatchObject({ ok: true });
+  });
+
   it("devolver y reentregar: intentos numerados; anular antes de revisión; revisada no se anula", async () => {
     expect(await crearTarea(tutora(), { cursoId: c.cursoTutora.id, titulo: "Reentrega", fechaEntrega: D })).toMatchObject({ ok: true });
     const t = await tareaPor("Reentrega");
@@ -244,6 +254,26 @@ describe("privacidad", () => {
   });
 });
 
+describe("tutor de un salón y cursos ajenos", () => {
+  it("la tutora no crea tareas en un curso de su salón que dicta otro profesor, ni lo ve en su lista", async () => {
+    const ajenoEnSuSalon = (await db.curso.create({ data: { tenantId: c.tenant.id, salonId: c.salon.id, nombre: "Inglés", profesorId: c.miembros.otroProfesor.membership.id } })).id;
+    await esperarProhibido(crearTarea(tutora(), { cursoId: ajenoEnSuSalon, titulo: "Tarea ajena", fechaEntrega: D }));
+    const delOtro = await crearTarea(c.ctxDe("otroProfesor"), { cursoId: ajenoEnSuSalon, titulo: "Inglés del otro profesor", fechaEntrega: D });
+    expect(delOtro).toMatchObject({ ok: true });
+    expect((await cursosParaTareas(tutora())).map((x) => x.id)).not.toContain(ajenoEnSuSalon);
+    const lista = await tareasDelDocente(tutora());
+    expect(lista.find((t) => t.titulo === "Inglés del otro profesor")).toBeUndefined();
+    // Cada sección listada es revisable: «Revisar entregas» nunca lleva a una página prohibida.
+    for (const t of lista) for (const s of t.secciones) expect((await revisionDeTarea(tutora(), t.id, { cursoId: s.cursoId })).secciones).toHaveLength(1);
+  });
+
+  it("la lista docente separa contadores por sección y cuenta las entregas por revisar", async () => {
+    const r = (await tareasDelDocente(tutora())).find((t) => t.titulo === "Reentrega")!;
+    expect(r.secciones.length).toBeGreaterThanOrEqual(1);
+    for (const s of r.secciones) expect(s).toMatchObject({ salon: expect.any(String), curso: expect.any(String), contadores: { porRevisar: expect.any(Number) } });
+  });
+});
+
 describe("plazos, calificación y avisos", () => {
   it("cambio de plazo: historial inmutable, auditoría con antes/después, aviso sin correo; entregas enviadas conservan su condición", async () => {
     const t = await tareaPor("Con hora");
@@ -283,6 +313,56 @@ describe("plazos, calificación y avisos", () => {
     expect((await detalleTareaFamilia(madre(), t.id, c.alumnos.mateo.id)).calificacion).toBeNull(); // aún no publicada
     expect(await publicarEvaluacion(tutora(), ev.grupoId)).toMatchObject({ ok: true });
     expect((await detalleTareaFamilia(madre(), t.id, c.alumnos.mateo.id)).calificacion).toBe("A");
+  });
+
+  it("revisar con nota y «Subir notas»: exige nota a quienes entregaron, NE automático, publica y avisa al apoderado y al alumno", async () => {
+    const competencia = await c.db.competencia.create({ data: { tenantId: c.tenant.id, cursoId: c.cursoTutora.id, nombre: "Lee diversos tipos de textos" } });
+    expect(await crearTarea(tutora(), {
+      cursoId: c.cursoTutora.id, titulo: "Con nota", fechaEntrega: D, calificable: true, competenciaId: competencia.id,
+      secciones: [{ cursoId: c.cursoTutora.id, todos: false, alumnoIds: [c.alumnos.mateo.id, c.alumnos.valentina.id] }],
+    })).toMatchObject({ ok: true });
+    const t = await tareaPor("Con nota");
+    const s = await c.db.tareaCurso.findFirstOrThrow({ where: { tareaId: t.id } });
+    const ev = await c.db.evaluacion.findFirstOrThrow({ where: { tareaId: t.id } });
+    expect(await guardarEntrega(alumnoCtx, t.id, c.alumnos.mateo.id, { texto: "Mi resumen.", enviar: true })).toMatchObject({ ok: true });
+    const mateo = await asignacion(t.id, c.alumnos.mateo.id);
+    const valentina = await asignacion(t.id, c.alumnos.valentina.id);
+
+    expect(await subirNotasDeSeccion(tutora(), t.id, s.id)).toMatchObject({ ok: false, error: expect.stringContaining("Falta poner nota") });
+    expect(await revisarConNota(tutora(), valentina.id, { valor: "A" })).toMatchObject({ ok: false, error: expect.stringContaining("no entregó") });
+    expect(await revisarConNota(tutora(), mateo.id, { valor: "NE" })).toMatchObject({ ok: false });
+    expect(await revisarConNota(tutora(), mateo.id, { valor: "AD", observacion: "Muy claro." })).toMatchObject({ ok: true });
+    expect((await asignacion(t.id, c.alumnos.mateo.id)).estado).toBe("revisada");
+    expect(await c.db.tareaComentario.count({ where: { asignacionId: mateo.id, texto: "Muy claro." } })).toBe(1);
+    expect((await detalleTareaFamilia(madre(), t.id, c.alumnos.mateo.id)).calificacion).toBeNull();
+
+    expect(await subirNotasDeSeccion(tutora(), t.id, s.id)).toMatchObject({ ok: true });
+    expect(await c.db.nota.findFirst({ where: { evaluacionId: ev.id, alumnoId: c.alumnos.valentina.id } })).toMatchObject({ marca: "no_entrego" });
+    expect((await c.db.evaluacion.findUniqueOrThrow({ where: { id: ev.id } })).estado).toBe("publicada");
+    expect((await detalleTareaFamilia(madre(), t.id, c.alumnos.mateo.id)).calificacion).toBe("AD");
+    expect(await subirNotasDeSeccion(tutora(), t.id, s.id)).toMatchObject({ ok: false });
+    expect(await revisarConNota(tutora(), mateo.id, { valor: "A" })).toMatchObject({ ok: false, error: expect.stringContaining("Registro de notas") });
+
+    await procesarEventosAcademicos({ tenantId: c.tenant.id });
+    const avisos = await c.db.notificacion.findMany({ where: { alumnoId: c.alumnos.mateo.id, titulo: "Tarea calificada", url: { startsWith: `/tareas/${t.id}` } } });
+    expect(avisos.map((n) => n.membershipId).sort()).toEqual([c.miembros.madre.membership.id, alumnoCtx.membership.id].sort());
+    expect(avisos[0].url).toBe(`/tareas/${t.id}?alumno=${c.alumnos.mateo.id}`);
+    // Un profesor que no dicta el curso no sube notas.
+    await esperarProhibido(subirNotasDeSeccion(c.ctxDe("otroProfesor"), t.id, s.id));
+  });
+
+  it("una tarea sin columna de notas se activa eligiendo la competencia del curso", async () => {
+    expect(await crearTarea(tutora(), { cursoId: c.cursoTutora.id, titulo: "Sin columna", fechaEntrega: D })).toMatchObject({ ok: true });
+    const t = await tareaPor("Sin columna");
+    const s = await c.db.tareaCurso.findFirstOrThrow({ where: { tareaId: t.id } });
+    expect(s.evaluacionGrupoId).toBeNull();
+    const r = await revisionDeTarea(tutora(), t.id);
+    expect(r.secciones[0].evaluacion).toBeNull();
+    expect(r.secciones[0].competencias.length).toBeGreaterThan(0);
+    const ajena = await c.db.competencia.create({ data: { tenantId: c.tenant.id, cursoId: c.cursoAjeno.id, nombre: "Indaga" } });
+    expect(await activarCalificacion(tutora(), t.id, s.id, ajena.id)).toMatchObject({ ok: false });
+    expect(await activarCalificacion(tutora(), t.id, s.id, r.secciones[0].competencias[0].id)).toMatchObject({ ok: true });
+    expect((await c.db.tareaCurso.findFirstOrThrow({ where: { id: s.id } })).evaluacionGrupoId).not.toBeNull();
   });
 
   it("aviso de tarea publicada idempotente, a destinatarios, sin correo", async () => {

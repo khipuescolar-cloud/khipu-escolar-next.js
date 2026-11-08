@@ -2,13 +2,14 @@
 
 import { revalidatePath } from "next/cache";
 import { after } from "next/server";
-import { fallo, type Resultado } from "@/lib/resultado";
+import { type Resultado } from "@/lib/resultado";
 import { adjuntosDeFormData, idsParaQuitar } from "@/lib/server/adjuntos";
 import { procesarCola } from "@/lib/server/notificaciones/cola";
-import { requireFeature } from "@/lib/server/plan";
+import { procesarEventosYPush } from "@/lib/server/eventos-academicos";
+import { requireFeature, tieneFeature } from "@/lib/server/plan";
 import {
-  actualizarTarea, anularEntrega, archivarTarea, calificarEntrega, cambiarCierreTarea, cambiarPlazo, comentarTarea, crearTarea, devolverEntrega,
-  editarDestinatarios, eliminarTarea, guardarEntrega, marcarEntregaFisica, marcarNoEntregaron, marcarRevisada, ocultarComentario, publicarTarea,
+  activarCalificacion, actualizarTarea, anularEntrega, cambiarCierreTarea, cambiarPlazo, comentarTarea, crearTarea, editarDestinatarios,
+  eliminarTarea, guardarEntrega, publicarTarea, revisarConNota, subirNotasDeSeccion,
 } from "@/lib/server/tareas";
 import { requireTenantContext } from "@/lib/server/tenant";
 
@@ -63,7 +64,7 @@ export async function crearTareaAction(slug: string, _previo: Resultado | null, 
   const r = await crearTarea(ctx, {
     cursoId: texto(f, "cursoId"), titulo: texto(f, "titulo"), descripcion: texto(f, "descripcion"), indicacionesEntrega: texto(f, "indicacionesEntrega"),
     fechaEntrega: texto(f, "fechaEntrega"), horaEntrega: texto(f, "horaEntrega"), permiteTardias: f.has("permiteTardias") ? marcado(f, "permiteTardias") : false,
-    comentariosGenerales: marcado(f, "comentariosGenerales"), calificable: marcado(f, "calificable"), competenciaId: texto(f, "competenciaId") || undefined, accion: texto(f, "accion") || "publicar",
+    comentariosGenerales: marcado(f, "comentariosGenerales"), calificable: tieneFeature(ctx, "notas"), competenciaId: texto(f, "competenciaId") || undefined, accion: texto(f, "accion") || "publicar",
     publicarEn: texto(f, "publicarEn"), secciones: json(f, "secciones", undefined), enlaces: enlacesDe(f), avisarFamilias,
     materialesExistentes: json(f, "materialesExistentes", []),
   }, await adjuntosDeFormData(f));
@@ -115,12 +116,6 @@ export async function cerrarTareaAction(slug: string, tareaId: string, f: FormDa
   return r;
 }
 
-export async function archivarTareaAction(slug: string, tareaId: string): Promise<Resultado> {
-  const r = await archivarTarea(await contexto(slug), tareaId);
-  if (r.ok) refrescar(tareaId);
-  return r;
-}
-
 export async function eliminarTareaAction(slug: string, tareaId: string): Promise<Resultado> {
   const r = await eliminarTarea(await contexto(slug), tareaId);
   if (r.ok) refrescar();
@@ -161,44 +156,34 @@ export async function comentarTareaAction(slug: string, tareaId: string, _previo
 
 // ───────── Revisión ─────────
 
-export async function devolverEntregaAction(slug: string, tareaId: string, asignacionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
+/** El profesor elige la competencia de una tarea sin columna de notas (specs/39). */
+export async function activarCalificacionAction(slug: string, tareaId: string, tareaCursoId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
+  const r = await activarCalificacion(await contexto(slug), tareaId, tareaCursoId, texto(f, "competenciaId"));
+  if (r.ok) refrescar(tareaId);
+  return r;
+}
+
+/** Nota de un estudiante desde el panel «Revisar» (marca la entrega revisada). */
+export async function revisarConNotaAction(slug: string, tareaId: string, asignacionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
+  const r = await revisarConNota(await contexto(slug), asignacionId, { valor: texto(f, "valor"), observacion: texto(f, "observacion"), enFisico: marcado(f, "enFisico") });
+  if (r.ok) refrescar(tareaId);
+  return r;
+}
+
+/** «Subir notas» de un salón: NE a quienes no entregaron, publica la columna y avisa después de responder. */
+export async function subirNotasAction(slug: string, tareaId: string, tareaCursoId: string): Promise<Resultado> {
   const ctx = await contexto(slug);
-  const r = await devolverEntrega(ctx, asignacionId, texto(f, "observacion"));
+  const r = await subirNotasDeSeccion(ctx, tareaId, tareaCursoId);
   if (r.ok) {
     refrescar(tareaId);
-    despacharAvisos(ctx.tenant.id);
+    const tenantId = ctx.tenant.id;
+    after(async () => {
+      try {
+        await procesarEventosYPush(tenantId);
+      } catch (error) {
+        console.error("[eventos-academicos] error al notificar notas de tarea", error);
+      }
+    });
   }
-  return r;
-}
-
-export async function revisarEntregaAction(slug: string, tareaId: string, asignacionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
-  const r = await marcarRevisada(await contexto(slug), asignacionId, texto(f, "observacion"));
-  if (r.ok) refrescar(tareaId);
-  return r;
-}
-
-export async function entregaFisicaAction(slug: string, tareaId: string, asignacionId: string): Promise<Resultado> {
-  const r = await marcarEntregaFisica(await contexto(slug), asignacionId);
-  if (r.ok) refrescar(tareaId);
-  return r;
-}
-
-export async function calificarEntregaAction(slug: string, tareaId: string, asignacionId: string, _previo: Resultado | null, f: FormData): Promise<Resultado> {
-  const valor = texto(f, "valor");
-  if (!valor.trim()) return fallo("Escribe la nota.");
-  const r = await calificarEntrega(await contexto(slug), asignacionId, { valor, motivo: texto(f, "motivo") || undefined, tipo: texto(f, "tipo") || undefined });
-  if (r.ok) refrescar(tareaId);
-  return r;
-}
-
-export async function marcarNoEntregaronAction(slug: string, tareaId: string, tareaCursoId: string): Promise<Resultado> {
-  const r = await marcarNoEntregaron(await contexto(slug), tareaId, tareaCursoId);
-  if (r.ok) refrescar(tareaId);
-  return r;
-}
-
-export async function ocultarComentarioAction(slug: string, tareaId: string, comentarioId: string): Promise<Resultado> {
-  const r = await ocultarComentario(await contexto(slug), comentarioId);
-  if (r.ok) refrescar(tareaId);
   return r;
 }

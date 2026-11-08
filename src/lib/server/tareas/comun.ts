@@ -54,6 +54,14 @@ export function puedeRevisarSeccion(ctx: TenantContext, t: { creadoPorId: string
   return ctx.rol === "profesor" && (curso.profesorId === ctx.membership.id || t.creadoPorId === ctx.membership.id);
 }
 
+/** 403 si el profesor no dicta ese curso (el tutor del salón tampoco puede usar cursos ajenos). Dirección pasa. */
+export async function requireCursoQueDicta(ctx: TenantContext, cursoId: string): Promise<void> {
+  if (ctx.rol === "direccion") return;
+  if (ctx.rol !== "profesor") forbidden();
+  const n = await ctx.db.curso.count({ where: { id: cursoId, profesorId: ctx.membership.id } });
+  if (n === 0) forbidden();
+}
+
 /** Carga la tarea con sus secciones y exige que el usuario pueda revisar al menos una (403 si no). */
 export async function requireTareaDocente(ctx: TenantContext, tareaId: string) {
   if (ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();

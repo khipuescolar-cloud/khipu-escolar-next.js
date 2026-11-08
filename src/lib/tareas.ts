@@ -1,6 +1,6 @@
 // Reglas puras de tareas estilo Classroom (specs/39): plazo, tardías, enlaces y tipos de archivo.
 // Las comparten servidor y cliente; se prueban en tests/unit/tareas-reglas.test.ts.
-import { instanteEnZona, momentoEnZona } from "./fechas";
+import { diasEntre, instanteEnZona, momentoEnZona } from "./fechas";
 
 /** Techo duro de archivos por elemento y MB por archivo: 5 × 10 MB cabe en el `bodySizeLimit` (55 MB) de las server actions. */
 export const TECHO_ARCHIVOS_TAREA = 5;
@@ -89,4 +89,35 @@ export const ACCEPT_TAREAS = ".pdf,.jpg,.jpeg,.png,.webp,.docx,.xlsx,.pptx,.odt"
 export function extensionCoincide(nombre: string, mime: string): boolean {
   const ext = /\.([a-z0-9]{2,5})$/i.exec(nombre.trim())?.[1]?.toLowerCase();
   return !!ext && (EXTENSIONES_POR_MIME[mime] ?? []).includes(ext);
+}
+
+/** Días que mira hacia adelante la lista «Próximos días» del docente. */
+export const HORIZONTE_REVISION_DIAS = 7;
+
+type SeccionRevisable = { limite: Date | null; contadores: { porRevisar: number } };
+type TareaRevisable = { estado: string; programada: boolean; secciones: SeccionRevisable[] };
+export type ItemRevision<T, S> = { tarea: T; seccion: S; dias: number | null };
+
+/**
+ * Agenda de revisión del docente (specs/39), por sección de cada tarea publicada o cerrada:
+ * - **hoy**: el plazo vence hoy, o ya venció / no tiene fecha y quedan entregas sin revisar;
+ * - **proximos**: el plazo vence en los próximos `horizonte` días.
+ * `dias` = días desde hoy hasta el último día del plazo en la zona del colegio (negativo si venció; null sin fecha).
+ */
+export function agendaDeRevision<T extends TareaRevisable>(tareas: T[], ahora: Date, zona: string, horizonte = HORIZONTE_REVISION_DIAS) {
+  type S = T["secciones"][number];
+  const hoyIso = momentoEnZona(ahora, zona).isoFecha;
+  const hoy: ItemRevision<T, S>[] = [];
+  const proximos: ItemRevision<T, S>[] = [];
+  for (const tarea of tareas) {
+    if ((tarea.estado !== "publicada" && tarea.estado !== "cerrada") || tarea.programada) continue;
+    for (const seccion of tarea.secciones as S[]) {
+      const dias = seccion.limite ? diasEntre(hoyIso, momentoEnZona(seccion.limite, zona).isoFecha) : null;
+      const pendientes = seccion.contadores.porRevisar > 0;
+      if (dias === 0 || (pendientes && (dias === null || dias < 0))) hoy.push({ tarea, seccion, dias });
+      else if (dias !== null && dias > 0 && dias <= horizonte) proximos.push({ tarea, seccion, dias });
+    }
+  }
+  const orden = (a: ItemRevision<T, S>, b: ItemRevision<T, S>) => (a.dias ?? Infinity) - (b.dias ?? Infinity) || b.seccion.contadores.porRevisar - a.seccion.contadores.porRevisar;
+  return { hoy: hoy.sort(orden), proximos: proximos.sort(orden) };
 }

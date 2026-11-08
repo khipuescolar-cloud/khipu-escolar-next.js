@@ -1,16 +1,17 @@
 import "server-only";
+import { forbidden } from "next/navigation";
 import { z } from "zod";
 import { fechaDb, instanteEnZona, momentoEnZona } from "@/lib/fechas";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { instanteDeEntrega, limiteEfectivo, MAX_ENLACES_TAREA, MAX_INSTRUCCIONES, normalizarEnlace } from "@/lib/tareas";
 import { adjuntosDe, borrarDelProveedor, contarRestantes, guardarAdjuntos, quitarAdjuntos, type EntradaAdjunto } from "../adjuntos";
 import { auditar } from "../auditoria";
-import { cursosDelDocente } from "../cursos";
+import { cursosQueDicta } from "../cursos";
 import { crearEvaluacion, periodoEnCurso } from "../notas";
 import { avisarCambioPlazo, avisarTareaPublicada } from "../notificaciones/avisos-tareas";
 import { requireFeature, tieneFeature } from "../plan";
-import { requireCursoDelProfesor, requireRol, type TenantContext } from "../tenant";
-import { mensajeDe, requireTareaAutor, sincronizarAsignaciones, validarAdjuntosTarea } from "./comun";
+import { requireRol, type TenantContext } from "../tenant";
+import { mensajeDe, requireCursoQueDicta, requireTareaAutor, requireTareaDocente, sincronizarAsignaciones, validarAdjuntosTarea } from "./comun";
 
 // Crear, editar, publicar, cerrar, archivar y eliminar tareas; destinatarios por sección y cambios de plazo (specs/39).
 
@@ -85,7 +86,7 @@ function plazoDe(ctx: TenantContext, fecha: string | undefined, horaEntrega: str
 /** Cursos «gemelos» del docente: mismo nombre de curso en otros salones que también dicta (para secciones adicionales). */
 export async function cursosGemelos(ctx: TenantContext, cursoId: string) {
   requireFeature(ctx, "tareas");
-  const cursos = await cursosDelDocente(ctx);
+  const cursos = await cursosQueDicta(ctx);
   const origen = cursos.find((c) => c.id === cursoId);
   if (!origen) return [];
   const nombre = origen.nombre.trim().toLocaleLowerCase("es");
@@ -108,7 +109,7 @@ async function validarSecciones(ctx: TenantContext, cursoId: string, entrada: Se
   for (const s of lista) {
     const c = cursos.find((x) => x.id === s.cursoId);
     if (!c) return { error: "Alguna sección no es de este colegio." };
-    await requireCursoDelProfesor(ctx, c.id);
+    await requireCursoQueDicta(ctx, c.id);
     if (c.nombre.trim().toLocaleLowerCase("es") !== origen.nombre.trim().toLocaleLowerCase("es")) return { error: "Las secciones adicionales deben ser del mismo curso." };
     const alumnoIds = [...new Set(s.alumnoIds ?? [])];
     if (!s.todos) {
@@ -125,7 +126,7 @@ async function validarSecciones(ctx: TenantContext, cursoId: string, entrada: Se
 export async function vistaPreviaDestinatarios(ctx: TenantContext, entrada: { cursoId: string; secciones?: Seccion[] }) {
   requireFeature(ctx, "tareas");
   requireRol(ctx, ["profesor"]);
-  await requireCursoDelProfesor(ctx, entrada.cursoId);
+  await requireCursoQueDicta(ctx, entrada.cursoId);
   const v = await validarSecciones(ctx, entrada.cursoId, entrada.secciones?.map((s) => esquemaSeccion.parse(s)));
   if ("error" in v) return { error: v.error, secciones: [], total: 0 };
   const secciones = [];
@@ -144,7 +145,7 @@ export async function vistaPreviaDestinatarios(ctx: TenantContext, entrada: { cu
 export async function alumnosParaDestinatarios(ctx: TenantContext, cursoIds: string[]) {
   requireFeature(ctx, "tareas");
   requireRol(ctx, ["profesor"]);
-  for (const id of cursoIds) await requireCursoDelProfesor(ctx, id);
+  for (const id of cursoIds) await requireCursoQueDicta(ctx, id);
   const cursos = await ctx.db.curso.findMany({ where: { id: { in: cursoIds } }, select: { id: true, salonId: true } });
   const alumnos = await ctx.db.alumno.findMany({
     where: { salonId: { in: cursos.map((c) => c.salonId) }, estado: "activo" },
@@ -209,7 +210,7 @@ export async function crearTarea(ctx: TenantContext, entrada: unknown, adjuntos:
   const d = esquemaTarea.safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
   const materiales = await validarMaterialesExistentes(ctx, d.data.materialesExistentes);
-  await requireCursoDelProfesor(ctx, d.data.cursoId);
+  await requireCursoQueDicta(ctx, d.data.cursoId);
   const plazo = plazoDe(ctx, d.data.fechaEntrega, d.data.horaEntrega, ahora);
   if (plazo.error) return fallo(plazo.error);
   let publicarEn: Date | null = null;
@@ -226,14 +227,14 @@ export async function crearTarea(ctx: TenantContext, entrada: unknown, adjuntos:
   for (const s of v.secciones) {
     if (s.fechaEntrega && plazoDe(ctx, s.fechaEntrega, d.data.horaEntrega, ahora).error) return fallo("La fecha de alguna sección ya pasó.");
   }
-  if (d.data.calificable && !d.data.competenciaId) return fallo("Elige una competencia para la tarea calificable.");
+  if (d.data.calificable && !d.data.competenciaId) return fallo("Elige la competencia que evalúa esta tarea.");
   if (d.data.competenciaId && (await ctx.db.competencia.count({ where: { id: d.data.competenciaId, cursoId: d.data.cursoId, desactivadaAt: null } })) === 0) {
     return fallo("Esa competencia no es de este curso.");
   }
   if (d.data.calificable) {
     for (const s of v.secciones) {
       const compId = s.competenciaId ?? (s.cursoId === d.data.cursoId ? d.data.competenciaId : undefined);
-      if (!compId) return fallo("Elige una competencia para cada sección calificable.");
+      if (!compId) return fallo("Elige la competencia de cada salón.");
       if ((await ctx.db.competencia.count({ where: { id: compId, cursoId: s.cursoId, desactivadaAt: null } })) === 0) return fallo("Una competencia no pertenece a su sección o está desactivada.");
     }
   }
@@ -440,8 +441,8 @@ export async function eliminarTarea(ctx: TenantContext, tareaId: string): Promis
   if (!t) return fallo("No encontramos esa tarea.");
   if (ctx.rol === "profesor") await requireTareaAutor(ctx, tareaId);
   const entregas = await ctx.db.tareaEntrega.count({ where: { asignacion: { tareaId } } });
-  if (entregas > 0) return fallo("Esta tarea ya tiene entregas: archívala en lugar de eliminarla.");
-  if ((await ctx.db.evaluacion.count({ where: { tareaId, notas: { some: {} } } })) > 0) return fallo("Esta tarea ya tiene notas: archívala en lugar de eliminarla.");
+  if (entregas > 0) return fallo("Esta tarea ya tiene entregas y no se puede eliminar.");
+  if ((await ctx.db.evaluacion.count({ where: { tareaId, notas: { some: {} } } })) > 0) return fallo("Esta tarea ya tiene notas y no se puede eliminar.");
   const archivos = await adjuntosDe(ctx, { tareaId });
   await ctx.db.evaluacion.deleteMany({ where: { tareaId, notas: { none: {} }, historial: { none: {} } } });
   await ctx.db.tarea.deleteMany({ where: { id: tareaId } }); // adjuntos, secciones y asignaciones se borran en cascada
@@ -486,5 +487,26 @@ export async function editarDestinatarios(ctx: TenantContext, tareaId: string, e
 /** Cursos donde el usuario puede crear tareas (para el formulario). */
 export async function cursosParaTareas(ctx: TenantContext) {
   requireFeature(ctx, "tareas");
-  return cursosDelDocente(ctx);
+  return cursosQueDicta(ctx);
+}
+
+/**
+ * Tarea sin columna de notas (anterior a que toda tarea se califique, specs/39): el profesor del curso elige la
+ * competencia de su sección y Khipu crea la columna en el registro. Idempotente por sección.
+ */
+export async function activarCalificacion(ctx: TenantContext, tareaId: string, tareaCursoId: string, competenciaId: string): Promise<Resultado> {
+  requireFeature(ctx, "tareas");
+  requireFeature(ctx, "notas");
+  requireRol(ctx, ["profesor"]);
+  const { secciones } = await requireTareaDocente(ctx, tareaId);
+  const s = secciones.find((x) => x.id === tareaCursoId);
+  if (!s) forbidden();
+  if (s.evaluacionGrupoId) return ok();
+  if ((await ctx.db.competencia.count({ where: { id: competenciaId, cursoId: s.cursoId, desactivadaAt: null } })) === 0) return fallo("Esa competencia no es de este curso o está desactivada.");
+  await ctx.db.tareaCurso.updateMany({ where: { id: s.id }, data: { competenciaId } });
+  await ctx.db.tarea.updateMany({ where: { id: tareaId }, data: { calificable: true } });
+  const aviso = await crearEvaluacionesDeTarea(ctx, tareaId);
+  const creada = await ctx.db.tareaCurso.findFirst({ where: { id: s.id }, select: { evaluacionGrupoId: true } });
+  if (!creada?.evaluacionGrupoId) return fallo(aviso?.trim() ?? "No pudimos crear la columna de notas: revisa que haya un periodo abierto.");
+  return ok("Listo: ya puedes poner notas en esta tarea.");
 }

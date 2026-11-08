@@ -97,16 +97,19 @@ async function procesarEvento(tdb: DbTenant, eventoId: string): Promise<{ alumno
   const evento = await tdb.eventoAcademico.findFirstOrThrow({ where: { id: eventoId }, include: { tenant: { select: { nombre: true, slug: true } } } });
   const evaluaciones = await tdb.evaluacion.findMany({
     where: { grupoId: evento.grupoId, estado: "publicada" },
-    select: { id: true, titulo: true, periodoId: true, curso: { select: { nombre: true } } },
+    select: { id: true, titulo: true, periodoId: true, tareaId: true, curso: { select: { nombre: true } } },
   });
   if (evaluaciones.length === 0) return { alumnos: 0, notificaciones: 0, push: 0 }; // se despublicó o se eliminó
-  const { titulo, periodoId, curso } = evaluaciones[0];
+  const { titulo, periodoId, curso, tareaId } = evaluaciones[0];
   const notas = await tdb.nota.findMany({
     where: { evaluacionId: { in: evaluaciones.map((e) => e.id) }, ...(evento.alumnoId ? { alumnoId: evento.alumnoId } : {}) },
     select: { alumnoId: true },
     distinct: ["alumnoId"],
   });
-  const alumnos = await tdb.alumno.findMany({ where: { id: { in: notas.map((n) => n.alumnoId) }, estado: "activo" }, select: { id: true, nombres: true } });
+  const alumnos = await tdb.alumno.findMany({
+    where: { id: { in: notas.map((n) => n.alumnoId) }, estado: "activo" },
+    select: { id: true, nombres: true, cuentaId: true, cuenta: { select: { estado: true } } },
+  });
   if (alumnos.length === 0) return { alumnos: 0, notificaciones: 0, push: 0 };
   const nombres = new Map(alumnos.map((a) => [a.id, primerNombre(a.nombres)]));
   // Apoderados autorizados: vínculo con avisos activos y membresía activa. El push además exige consentimiento vigente
@@ -125,14 +128,27 @@ async function procesarEvento(tdb: DbTenant, eventoId: string): Promise<{ alumno
     },
   });
   const correccion = evento.tipo === "nota_corregida";
-  const texto = (alumnoId: string) => ({
+  // Tarea calificada (specs/39): el aviso nombra la tarea y abre su detalle, donde la familia ve la nota.
+  const texto = (alumnoId: string) => tareaId ? {
+    titulo: correccion ? "Calificación de tarea actualizada" : "Tarea calificada",
+    cuerpo: correccion
+      ? `Se actualizó la calificación de ${nombres.get(alumnoId)} en la tarea «${titulo.replace(/^Tarea: /, "")}» de ${curso.nombre}.`
+      : `Se calificó la tarea «${titulo.replace(/^Tarea: /, "")}» de ${nombres.get(alumnoId)} en ${curso.nombre}.`,
+    url: `/tareas/${tareaId}?alumno=${alumnoId}`,
+  } : {
     titulo: correccion ? "Calificación actualizada" : "Nuevo resultado publicado",
     cuerpo: correccion
       ? `Se actualizó un resultado de ${nombres.get(alumnoId)} en ${curso.nombre}.`
       : `Hay un resultado nuevo de ${nombres.get(alumnoId)} en ${curso.nombre}: «${titulo}».`,
     url: `/notas?alumno=${alumnoId}&periodo=${periodoId}#ev-${evento.grupoId}`,
-  });
+  };
   const filas = vinculos.map((v) => ({ tenantId: evento.tenantId, membershipId: v.apoderadoId, alumnoId: v.alumnoId, eventoId: evento.id, tipo: "calificacion" as const, ...texto(v.alumnoId) }));
+  // En una tarea, el alumno con cuenta propia también recibe el aviso en su bandeja (sin push).
+  if (tareaId) {
+    for (const a of alumnos) {
+      if (a.cuentaId && a.cuenta?.estado === "activa") filas.push({ tenantId: evento.tenantId, membershipId: a.cuentaId, alumnoId: a.id, eventoId: evento.id, tipo: "calificacion" as const, ...texto(a.id) });
+    }
+  }
   for (const lote of trozos(filas, LOTE_FILAS)) await tdb.notificacion.createMany({ data: lote, skipDuplicates: true });
   const creadas = await tdb.notificacion.findMany({ where: { eventoId: evento.id }, select: { id: true, membershipId: true, alumnoId: true, titulo: true, cuerpo: true, url: true } });
 
