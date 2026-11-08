@@ -93,6 +93,9 @@ metricasContenido(ctx, { desde?, hasta? }): { reutilizadas, generadas, solicitud
   métricas de costo y pendientes. `/planificacion/[planId]/materiales/[temaClave]`: revisión (explicación, ejemplos,
   muestras con respuesta y pistas, dificultad, recursos), editar, solicitar cambios, aprobar, publicar.
 - `/planificacion/[planId]/progreso`: progreso de los alumnos del grupo por tema (participantes y dirección).
+- Materiales, Progreso y las observaciones de Revisión muestran el **nombre** del tema (`nombresDeTemas`), nunca la clave
+  interna. Si el plan aún no tiene versión publicada, Materiales y Progreso muestran un aviso («Publica el plan…») en vez
+  de un error.
 - `/nudito` (alumno / modo hijo): bienvenida con nombre → curso → temas del plan (sin «Otro tema») → repaso → práctica →
   resultados (completados, aciertos, dificultades, habilidades, recomendaciones) → felicitación si completa el plan.
 
@@ -102,7 +105,9 @@ La pantalla de materiales usa campos etiquetados para título, idea, explicació
 ## Pruebas
 - unit: `leccion-validacion.test.ts`, `plan-publicado-reglas.test.ts`.
 - integración: `nudito-plan-anual.test.ts` (casos 13–28 del pedido).
-- e2e: `plan-anual-nudito.test.ts` (flujo completo, escritorio y móvil).
+- e2e: `plan-anual-nudito.test.ts` (colegio temporal Pro: crear plan, designar coordinador, temas, observación y
+  bloqueos, conformidades, publicación, versión 1, materiales, revisión y publicación de lecciones, alumno solo con temas
+  publicados y sin «Otro tema», progreso docente y recorrido móvil 360×740 sin scroll horizontal).
 
 ## Limitaciones honestas
 - Sin claves de IA: generación y explicaciones extra usan el proveedor **simulado**; las lecciones de catálogo no usan IA.

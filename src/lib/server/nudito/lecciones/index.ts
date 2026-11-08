@@ -32,6 +32,13 @@ export async function listarLeccionesDelPlan(ctx: TenantContext, planId: string)
   return claves.map(temaClave => ({ temaClave, leccion: vigentes.get(temaClave) ?? null }));
 }
 
+/** Nombre visible de cada tema (catálogo global o tema propio del colegio) para no mostrar claves internas. */
+export async function nombresDeTemas(dbTenant: DbTenant, claves: string[]): Promise<Map<string, string>> {
+  const propios = claves.filter(c => c.startsWith("col:")).map(c => c.slice(4));
+  const filas = propios.length ? await dbTenant.nuditoTemaColegio.findMany({ where: { id: { in: propios } }, select: { id: true, nombre: true } }) : [];
+  return new Map(claves.map(clave => [clave, temaPorClave(clave)?.nombre ?? filas.find(f => "col:" + f.id === clave)?.nombre ?? clave]));
+}
+
 export function armarLeccionCatalogo(tema: Tema): Leccion {
   return esquemaLeccion.parse({
     titulo: tema.nombre, idea: tema.repaso.idea.slice(0, 400),
