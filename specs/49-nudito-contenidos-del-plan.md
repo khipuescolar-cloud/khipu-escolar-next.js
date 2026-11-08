@@ -1,6 +1,6 @@
 # 49 — Nudito: contenidos preparados del plan anual, revisión docente y costos de IA
 
-> Estado: en desarrollo (paso 0: contratos) · Plan: Khipu Pro · Última actualización: 2026-11-08 (Claude Code, orquestador) · Responsable: orquestador + agentes Codex
+> Estado: en desarrollo (paso 0 hecho) · Plan: Khipu Pro · Última actualización: 2026-11-08 (Claude Code, orquestador) · Responsable: orquestador + agentes Codex
 
 ## Objetivo
 Que Nudito (specs/41–44) use **solo** los temas del plan anual publicado (specs/48) y una **lección preparada,
@@ -53,7 +53,7 @@ concurrencia = 2 })` procesa ítems `pendiente`/`fallido` (máx. 3 intentos), re
 generar_leccion`, `alumno_id = NULL`) y nunca envía todos los temas a la vez. Se dispara desde la UI («Preparar
 materiales» / «Continuar») y desde `/api/cron/nudito-contenido` (local; `CRON_SECRET`).
 
-## Modelo de datos (paso 0)
+## Modelo de datos (paso 0 implementado)
 ```prisma
 enum EstadoLeccionNudito { borrador en_revision cambios_solicitados aprobada publicada retirada }
 enum OrigenLeccionNudito { catalogo ia ia_simulada docente }
@@ -69,8 +69,10 @@ model NuditoTrabajoContenido { id, tenantId, planId, versionPlan Int, estado, to
                                @@unique([tenantId, planId, versionPlan]) }
 model NuditoTrabajoItem      { id, tenantId, trabajoId, temaClave, estado, intentos Int, leccionId?, error?, updatedAt
                                @@unique([trabajoId, temaClave]) @@index([trabajoId, estado]) }
-// NuditoConsumoIa: alumnoId pasa a opcional; + leccionId?; OperacionIaNudito + generar_leccion
+// NuditoConsumoIa: alumnoId opcional con SetNull; leccionId opcional con SetNull; OperacionIaNudito + generar_leccion
 ```
+
+Las cuatro tablas reales de materiales están en `prisma/schema.prisma` y se crean en `20261118090000_plan_anual_nudito_contenido`, con RLS activada y forzada sin políticas para clientes públicos. La migración agrega CHECKs de versión positiva y contadores/costos no negativos. El hash SHA-256 canoniza las claves del JSON. `validarLeccion` comprueba el esquema, datos personales, HTTPS y SVG sin código; recibe `evaluar` para verificar muestras y `permitirEnlace` para aplicar la lista de `SitioPermitido` desde el servicio. La función pura no consulta esa lista por sí misma. `ia_simulada` nunca pasa a aprobada: una edición docente debe cambiar su origen a `docente`.
 
 ## Contratos
 ```ts

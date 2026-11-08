@@ -1,6 +1,6 @@
 # 48 — Planificación académica anual (sílabo compartido por grado y curso)
 
-> Estado: en desarrollo (paso 0: contratos) · Plan: Khipu Pro · Última actualización: 2026-11-08 (Claude Code, orquestador) · Responsable: orquestador + agentes Codex
+> Estado: en desarrollo (paso 0 hecho) · Plan: Khipu Pro · Última actualización: 2026-11-08 (Claude Code, orquestador) · Responsable: orquestador + agentes Codex
 
 ## Objetivo
 Que los docentes que dictan el **mismo curso (área CNEB) en el mismo grado, nivel y año** elaboren, revisen y aprueben
@@ -54,7 +54,7 @@ borrador ──enviar_revision──▶ en_revision ──(observación abierta)
   coordinador. Todo auditado. `sincronizarParticipantes` agrega a los docentes nuevos del grupo y **no** retira solo a
   nadie (marca `fuera_de_asignacion = true` para que dirección decida).
 
-## Modelo de datos (centralizado; solo lo cambia el paso 0)
+## Modelo de datos (paso 0 implementado)
 ```prisma
 enum EstadoPlanAnual { borrador en_revision con_observaciones aprobado publicado archivado }
 enum RolParticipantePlan { coordinador docente }
@@ -86,8 +86,10 @@ model PlanAnualVersion      { id, tenantId, planId, numero Int, temas Json /*[{t
 model PlanAnualEvento       { id, tenantId, planId, actorId?, tipo String, detalle Json, createdAt; @@index([planId, createdAt]) }
 // Reunion: + planAnualId String? (PlanAnual, SetNull) @@index([planAnualId])
 ```
-Todas con `tenant_id`, RLS activada y cerrada para `anon`/`authenticated` (como el resto, specs/01) y acceso solo vía
+Las ocho tablas reales de planificación están en `prisma/schema.prisma` y se crean en `20261118090000_plan_anual_nudito_contenido`. `Reunion.planAnualId` es opcional con `SetNull`. Las FKs de autores obligatorios usan `NoAction`; las membresías opcionales usan `SetNull`. Hay CHECKs para grado 1–6, orden no negativo, rondas y versiones positivas, y observación con estado obligatorio. Todas llevan `tenant_id`, RLS activada y forzada, cerrada para `anon`/`authenticated` (como el resto, specs/01) y acceso solo vía
 `ctx.db`. Ningún `tenantId`, `planId` de otro colegio o rol enviado por el navegador se acepta sin pasar por `ctx`.
+
+La puerta de plan Pro es `requireFeature(ctx, "notas")`: es la feature académica Pro existente que ya está disponible para dirección y profesores, mientras `nudito_plus` representa el tutor y su interruptor institucional. `gruposDelDocente` y `docentesDelGrupo` consultan los cursos asignados y agrupan las secciones por docente en memoria tras una única consulta. La acción `registrar_observacion` de la máquina pura presupone que la capa de acceso ya verificó al participante; las demás acciones pedagógicas exigen coordinador.
 
 ## Contratos de `src/lib/server/plan-anual/`
 ```ts
