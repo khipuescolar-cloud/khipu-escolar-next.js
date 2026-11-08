@@ -1,6 +1,15 @@
 # 34 — Horario
 
-> Estado: implementado · Plan: Khipu Base y Khipu Pro · Última actualización: 2026-11-03 (rama `pro-calendario`: `CalendarioSemana` usa la grilla compartida `GrillaTiempo`; antes: 2026-10-30, Claude Code)
+> Estado: implementado · Plan: Khipu Base y Khipu Pro · Última actualización: 2026-11-07 (rama `feat/agenda-unificada`: el horario vive dentro del módulo **Agenda**, en `/agenda/horario`; antes: 2026-11-03, `CalendarioSemana` usa la grilla compartida `GrillaTiempo`)
+
+> **2026-11-07 — Horario dentro de la Agenda.** Ya no hay entradas «Mi horario», «Horario», «Horarios» ni «Plantillas de
+> horario» en el menú: todo se entra por **Agenda** (grupo «Académico»), con pestañas por rol (`PestanasAgenda`,
+> `src/components/agenda/PestanasAgenda.tsx`): Calendario (si el colegio tiene `agenda`, Khipu Pro) · Mi horario
+> (profesor, alumno) / Horario (apoderado) / Horarios de salones + Carga de profesores (dirección) · Plantillas de horario
+> (dirección y administrativo). En **Khipu Base** (sin `agenda`) la Agenda abre en la primera pestaña del horario y no muestra
+> «Calendario». El mosaico «Agenda» usa `feature: "agenda"` con `alternativa: "horario"` (vale si cualquiera está activo).
+> `/horario/…` redirige a `/agenda/horario/…` (enlaces viejos). Los roles del módulo `horario` se declaran en
+> `USOS_FUERA_DE_NAVEGACION` (`src/lib/modulos.ts`). Las rutas de abajo llevan el prefijo `/agenda`.
 
 ## Objetivo
 Que cada salón tenga su horario semanal (lunes a viernes) y que cada persona sepa qué clase tiene ahora y cuál sigue:
@@ -143,14 +152,12 @@ Puros en `src/lib/plantillas-horario.ts`: `generarPeriodos`, `validarPlantilla`,
 
 ## Rutas y UI
 - `/horario/plantillas`, `/horario/plantillas/nueva`, `/horario/plantillas/<id>` (dirección y administrativo;
-  `FormPlantilla` con vista previa). Menú del administrativo: grupo «Colegio», «Plantillas de horario»; dirección entra
-  desde el botón «Plantillas de horario» de `/horario`.
+  `FormPlantilla` con vista previa). Dirección y administrativo entran desde la pestaña «Plantillas de horario» de la Agenda.
 - `/horario` (dirección): selector de salón + cuadrícula editable (`TablaHorario` + `DialogoCasillero`), «Cambiar
-  plantilla» (`DialogoAccion`), «Horas del día» (`EditorHoras`, `Sheet`), «Copiar de otro salón» (`DialogoAccion`), «Carga de profesores». Menú: grupo «Colegio»,
-  «Horarios».
+  plantilla» (`DialogoAccion`), «Horas del día» (`EditorHoras`, `Sheet`), «Copiar de otro salón» (`DialogoAccion`), «Carga de profesores» (pestañas de la Agenda: «Horarios de salones» y «Carga de profesores»).
 - `/horario?vista=profesores`, `/horario?profesor=<id>` (dirección).
-- `/horario` (profesor, «Mi horario», grupo «Día a día»): `AhoraDespues` + `CalendarioSemana` (lógica pura en `src/lib/horario-calendario.ts`; reuniones y eventos con `agendaDeLaSemana` en `src/lib/server/horario.ts`). `CalendarioSemana` conserva sus props, su barra (mes, semana, «Ahora / Después») y su leyenda, y dibuja la cuadrícula con `GrillaTiempo` (`src/components/calendario/GrillaTiempo.tsx`), la misma de la agenda (specs/12): convierte bloques y eventos a `ItemCalendario` (`itemsDeLaSemana`) con la fecha de cada día; mismos colores por curso, carriles, fila «Todo el día», jornada (entrada, salida, recreos), línea de ahora y popovers. `agendaDeLaSemana` descarta las clases de la agenda (`tipo: "clase"`) porque «Mi horario» ya dibuja los bloques.
-- `/horario?alumno=<id>` (familia, «Horario»; alumno, «Mi horario»; grupo «Día a día»): `AhoraDespues` + `TablaHorario`.
+- `/horario` (profesor, pestaña «Mi horario» de la Agenda): `AhoraDespues` + `CalendarioSemana` (lógica pura en `src/lib/horario-calendario.ts`; reuniones y eventos con `agendaDeLaSemana` en `src/lib/server/horario.ts`). `CalendarioSemana` conserva sus props, su barra (mes, semana, «Ahora / Después») y su leyenda, y dibuja la cuadrícula con `GrillaTiempo` (`src/components/calendario/GrillaTiempo.tsx`), la misma de la agenda (specs/12): convierte bloques y eventos a `ItemCalendario` (`itemsDeLaSemana`) con la fecha de cada día; mismos colores por curso, carriles, fila «Todo el día», jornada (entrada, salida, recreos), línea de ahora y popovers. `agendaDeLaSemana` descarta las clases de la agenda (`tipo: "clase"`) porque «Mi horario» ya dibuja los bloques.
+- `/horario?alumno=<id>` (familia, pestaña «Horario»; alumno, pestaña «Mi horario»): `AhoraDespues` + `TablaHorario`.
 - Inicio: `TarjetaHoy` (`inicio/TarjetaHoy.tsx`).
 - Responsive: desde `md` la cuadrícula es una tabla (`caption`, `th scope`); en el celular, pestañas Lun–Vie (Base UI
   `Tabs`, teclado con flechas) con hoy elegido. La semana del profesor es una cuadrícula de 5 días desde `lg`; en

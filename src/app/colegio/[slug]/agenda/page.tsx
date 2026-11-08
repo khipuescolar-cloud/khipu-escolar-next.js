@@ -1,11 +1,12 @@
 import { CalendarDays, CalendarRange, ChevronLeft, ChevronRight, Download, Grid3x3, List, Pencil, Plus, Rows3 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { forbidden } from "next/navigation";
+import { forbidden, redirect } from "next/navigation";
 import type { ReactNode } from "react";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
 import { ListaAdjuntos } from "@/components/adjuntos/ListaAdjuntos";
+import { PestanasAgenda, inicioAgenda } from "@/components/agenda/PestanasAgenda";
 import { GrillaTiempo } from "@/components/calendario/GrillaTiempo";
 import { estiloDe } from "@/components/calendario/estilos";
 import { BotonConfirmar } from "@/components/shell/BotonConfirmar";
@@ -25,7 +26,7 @@ import { fechaLima, formatoDia, formatoHora, sumarDias } from "@/lib/fechas";
 import { minutos } from "@/lib/horario";
 import { itemsDeAgenda, salonesParaEventos, salonesParaFiltro, type ItemAgenda } from "@/lib/server/agenda";
 import { ahoraDelColegio } from "@/lib/server/horario";
-import { requireFeature } from "@/lib/server/plan";
+import { requireFeature, tieneFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { cn } from "@/lib/utils";
 import { actualizarEventoAction, crearEventoAction, eliminarEventoAction } from "./actions";
@@ -51,6 +52,11 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
   const { slug } = await params;
   const sp = await searchParams;
   const ctx = await requireTenantContext(slug);
+  // Khipu Base (sin calendario): la Agenda abre en el horario de clases (specs/34).
+  if (!tieneFeature(ctx, "agenda")) {
+    const destino = inicioAgenda(ctx);
+    if (destino) redirect(destino);
+  }
   requireFeature(ctx, "agenda");
   if (!["apoderado", "alumno", "profesor", "direccion", "administrativo"].includes(ctx.rol)) forbidden();
 
@@ -102,6 +108,7 @@ export default async function AgendaPage({ params, searchParams }: PageProps<"/c
 
   return (
     <div className="flex flex-col gap-4">
+      <PestanasAgenda ctx={ctx} activa="calendario" />
       <EncabezadoPagina
         titulo="Agenda"
         seccion="academico"

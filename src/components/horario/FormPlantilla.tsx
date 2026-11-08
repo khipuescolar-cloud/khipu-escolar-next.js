@@ -42,7 +42,7 @@ export function FormPlantilla({ inicial, salones, accion, esNueva }: {
     const r = await accion(previo, datos);
     if (r.ok) {
       if (r.mensaje) toast.success(r.mensaje);
-      router.push("/horario/plantillas");
+      router.push("/agenda/horario/plantillas");
     }
     return r;
   }, null);

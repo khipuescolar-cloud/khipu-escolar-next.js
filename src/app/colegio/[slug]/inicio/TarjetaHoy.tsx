@@ -17,7 +17,7 @@ export async function TarjetaHoy({ ctx }: { ctx: TenantContext }) {
   return (
     <section aria-labelledby="titulo-hoy" data-seccion="dia" className="flex flex-col gap-3" data-testid="tarjeta-hoy">
       <TituloBloque id="titulo-hoy" accion={
-        <Link href="/horario" className="inline-flex min-h-10 items-center gap-0.5 text-cuerpo-sm enlace">
+        <Link href="/agenda/horario" className="inline-flex min-h-10 items-center gap-0.5 text-cuerpo-sm enlace">
           {esProfesor || ctx.rol === "alumno" ? "Mi horario" : "Ver horario"}<ChevronRight className="size-4" strokeWidth={2} aria-hidden />
         </Link>
       }>Tu horario de hoy</TituloBloque>

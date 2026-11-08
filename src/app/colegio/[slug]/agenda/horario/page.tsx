@@ -2,6 +2,8 @@ import { ArrowLeft, CalendarClock, CheckCircle2, Copy, Eye, LayoutTemplate, Plus
 import type { Metadata } from "next";
 import Link from "next/link";
 import { forbidden } from "next/navigation";
+import type { ReactNode } from "react";
+import { PestanasAgenda, type PestanaAgenda } from "@/components/agenda/PestanasAgenda";
 import { DialogoAccion } from "@/components/academico/DialogoAccion";
 import { NavegacionPildoras } from "@/components/academico/NavegacionPildoras";
 import { AhoraDespues } from "@/components/horario/AhoraDespues";
@@ -31,20 +33,24 @@ export const metadata: Metadata = { title: "Horario" };
 
 const uno = (v: string | string[] | undefined) => (typeof v === "string" ? v : undefined);
 
-export default async function HorarioPage({ params, searchParams }: PageProps<"/colegio/[slug]/horario">) {
+export default async function HorarioPage({ params, searchParams }: PageProps<"/colegio/[slug]/agenda/horario">) {
   const { slug } = await params;
   const sp = await searchParams;
   const ctx = await requireTenantContext(slug, ["direccion", "profesor", "apoderado", "alumno"]);
   requireFeature(ctx, "horario");
 
+  // Dentro de la Agenda (specs/12 y specs/34): las pestañas llevan al calendario y a las demás vistas del horario.
+  const conPestanas = (activa: PestanaAgenda, vista: ReactNode) => (
+    <div className="flex flex-col gap-4"><PestanasAgenda ctx={ctx} activa={activa} />{vista}</div>
+  );
   if (ctx.rol === "direccion") {
     const profesor = uno(sp.profesor);
-    if (profesor) return <SemanaProfesor ctx={ctx} profesorId={profesor} />;
-    if (uno(sp.vista) === "profesores") return <CargaProfesores ctx={ctx} />;
-    return <VistaDireccion ctx={ctx} slug={slug} salonId={uno(sp.salon)} />;
+    if (profesor) return conPestanas("profesores", <SemanaProfesor ctx={ctx} profesorId={profesor} />);
+    if (uno(sp.vista) === "profesores") return conPestanas("profesores", <CargaProfesores ctx={ctx} />);
+    return conPestanas("horario", <VistaDireccion ctx={ctx} slug={slug} salonId={uno(sp.salon)} />);
   }
-  if (ctx.rol === "profesor") return <SemanaProfesor ctx={ctx} />;
-  return <VistaFamilia ctx={ctx} alumnoId={uno(sp.alumno)} />;
+  if (ctx.rol === "profesor") return conPestanas("horario", <SemanaProfesor ctx={ctx} />);
+  return conPestanas("horario", <VistaFamilia ctx={ctx} alumnoId={uno(sp.alumno)} />);
 }
 
 function bloqueAhora(bloques: BloqueVista[], dia: number, hora: string) {
@@ -58,15 +64,9 @@ async function VistaDireccion({ ctx, slug, salonId }: { ctx: TenantContext; slug
   const elegido = salones.find((s) => s.id === salonId) ?? salones[0];
   const encabezado = (
     <EncabezadoPagina
-      seccion="dia"
+      seccion="academico"
       titulo="Horarios"
       descripcion="Elige un salón y toca cada casillero para asignar un curso. Khipu no deja que un profesor esté en dos salones a la vez."
-      acciones={
-        <>
-          <Link href="/horario/plantillas" className={buttonVariants({ variant: "outline" })}><LayoutTemplate strokeWidth={2} aria-hidden />Plantillas de horario</Link>
-          <Link href="/horario?vista=profesores" className={buttonVariants({ variant: "outline" })}><Users strokeWidth={2} aria-hidden />Carga de profesores</Link>
-        </>
-      }
     />
   );
   if (!elegido) {
@@ -156,7 +156,7 @@ async function VistaDireccion({ ctx, slug, salonId }: { ctx: TenantContext; slug
               ) : (
                 <BotonSugeridas texto={`Usar la plantilla sugerida de ${nivel.toLowerCase()}`} accion={sugeridasAction.bind(null, slug, salon.id)} />
               )}
-              <Link href="/horario/plantillas/nueva" className="inline-flex min-h-10 items-center gap-1 text-cuerpo-sm enlace"><Plus className="size-4" strokeWidth={2} aria-hidden />Crear una plantilla nueva</Link>
+              <Link href="/agenda/horario/plantillas/nueva" className="inline-flex min-h-10 items-center gap-1 text-cuerpo-sm enlace"><Plus className="size-4" strokeWidth={2} aria-hidden />Crear una plantilla nueva</Link>
             </div>
           }
         />
@@ -190,8 +190,7 @@ async function CargaProfesores({ ctx }: { ctx: TenantContext }) {
   const conCruces = carga.filter((p) => p.cruces > 0).length;
   return (
     <div className="flex flex-col gap-4">
-      <Link href="/horario" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Horarios</Link>
-      <EncabezadoPagina seccion="dia" titulo="Carga de profesores" descripcion="Horas de clase por semana de cada profesor según los horarios, y si alguna clase se le cruza." />
+      <EncabezadoPagina seccion="academico" titulo="Carga de profesores" descripcion="Horas de clase por semana de cada profesor según los horarios, y si alguna clase se le cruza." />
       {conCruces > 0 && <Alerta tipo="aviso">{conCruces === 1 ? "1 profesor tiene clases que se cruzan" : `${conCruces} profesores tienen clases que se cruzan`}. Suele pasar al cambiar las horas del día o el profesor de un curso: abre su semana para corregirlo.</Alerta>}
       {carga.length === 0 ? (
         <EstadoVacio icono={Users} titulo="Aún no hay profesores" descripcion="Agrégalos en Gestión." />
@@ -220,7 +219,7 @@ async function CargaProfesores({ ctx }: { ctx: TenantContext }) {
                       <span className="inline-flex items-center gap-1 text-llego"><CheckCircle2 className="size-4" strokeWidth={2} aria-hidden />Sin cruces</span>
                     )}
                   </TableCell>
-                  <TableCell className="text-right"><Link href={`/horario?profesor=${p.id}`} className="enlace text-cuerpo-sm">Ver semana<span className="sr-only"> de {p.nombre}</span></Link></TableCell>
+                  <TableCell className="text-right"><Link href={`/agenda/horario?profesor=${p.id}`} className="enlace text-cuerpo-sm">Ver semana<span className="sr-only"> de {p.nombre}</span></Link></TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -256,9 +255,9 @@ async function SemanaProfesor({ ctx, profesorId }: { ctx: TenantContext; profeso
 
   return (
     <div className="flex flex-col gap-4">
-      {!esPropio && <Link href="/horario?vista=profesores" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Carga de profesores</Link>}
+      {!esPropio && <Link href="/agenda/horario?vista=profesores" className="inline-flex min-h-10 w-fit items-center gap-1 text-cuerpo-sm enlace"><ArrowLeft className="size-4" strokeWidth={2} aria-hidden />Carga de profesores</Link>}
       <EncabezadoPagina
-        seccion="dia"
+        seccion="academico"
         titulo={esPropio ? "Mi horario" : `Horario de ${profesor.nombre}`}
         descripcion={bloques.length ? `${bloques.length} ${bloques.length === 1 ? "bloque" : "bloques"} por semana · ${horasYMinutos(horasSemana)} de clase.` : undefined}
       />
@@ -299,7 +298,7 @@ async function VistaFamilia({ ctx, alumnoId }: { ctx: TenantContext; alumnoId?: 
   if (alumnos.length === 0) {
     return (
       <div>
-        <EncabezadoPagina seccion="dia" titulo={titulo} />
+        <EncabezadoPagina seccion="academico" titulo={titulo} />
         <EstadoVacio
           icono={Users}
           titulo={esAlumno ? "Tu cuenta aún no está vinculada a tu ficha" : "Aún no hay alumnos vinculados a tu cuenta"}
@@ -315,9 +314,9 @@ async function VistaFamilia({ ctx, alumnoId }: { ctx: TenantContext; alumnoId?: 
 
   return (
     <div className="flex flex-col gap-4">
-      <EncabezadoPagina seccion="dia" titulo={titulo} descripcion={esAlumno ? `Tus clases de la semana en ${salon.nombre}.` : `Las clases de la semana de ${alumno.nombres} en ${salon.nombre}.`} />
+      <EncabezadoPagina seccion="academico" titulo={titulo} descripcion={esAlumno ? `Tus clases de la semana en ${salon.nombre}.` : `Las clases de la semana de ${alumno.nombres} en ${salon.nombre}.`} />
       {alumnos.length > 1 && (
-        <NavegacionPildoras etiqueta="Elige a tu hijo" items={alumnos.map((a) => ({ href: `/horario?alumno=${a.id}`, texto: `${a.nombres} · ${a.salonNombre}`, activo: a.id === alumno.id }))} />
+        <NavegacionPildoras etiqueta="Elige a tu hijo" items={alumnos.map((a) => ({ href: `/agenda/horario?alumno=${a.id}`, texto: `${a.nombres} · ${a.salonNombre}`, activo: a.id === alumno.id }))} />
       )}
       {periodos.length === 0 || bloques.length === 0 ? (
         <EstadoVacio icono={CalendarClock} titulo="El horario aún no está listo" descripcion="Cuando el colegio lo publique, lo verás aquí." />

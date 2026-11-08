@@ -24,6 +24,8 @@ export type Mosaico = {
   descripcion: string;
   icono: IconoMosaico;
   feature: Feature;
+  /** Si `feature` no está activo, el mosaico vale con este otro (p. ej. la Agenda con solo el horario en Khipu Base). */
+  alternativa?: Feature;
   roles: Rol[];
   /** Contador que se muestra sobre el mosaico (hoy: mensajes sin leer). */
   contador?: "mensajes" | "notificaciones";
@@ -36,9 +38,6 @@ export const MOSAICOS: Mosaico[] = [
   { href: "/asistencia", grupo: "dia", titulo: "Mi asistencia", descripcion: "Mira tus llegadas al colegio.", icono: "ClipboardCheck", feature: "asistencia", roles: ["alumno"] },
   { href: "/asistencia/reportes", grupo: "dia", titulo: "Reportes de asistencia", descripcion: "Asistencia al colegio y por curso, por día, salón y fechas; Excel y PDF.", icono: "BarChart3", feature: "asistencia", roles: ["direccion", "administrativo", "profesor"] },
   { href: "/asistencia/reportes", grupo: "dia", titulo: "Reporte de asistencia", descripcion: "Porcentaje de asistencia de tus hijos por fechas.", icono: "BarChart3", feature: "asistencia", roles: ["apoderado", "alumno"] },
-  // Horario (specs/34): dirección lo arma (grupo «Colegio»); profesor, alumno y familia lo consultan en su día a día.
-  { href: "/horario", grupo: "dia", titulo: "Mi horario", descripcion: "Tus clases de la semana y la que sigue.", icono: "CalendarClock", feature: "horario", roles: ["profesor", "alumno"] },
-  { href: "/horario", grupo: "dia", titulo: "Horario", descripcion: "Las clases de la semana de tus hijos.", icono: "CalendarClock", feature: "horario", roles: ["apoderado"] },
   { href: "/porteria", grupo: "dia", titulo: "Portería", descripcion: "Escanea el carnet QR en la entrada.", icono: "ScanLine", feature: "porteria", roles: ["porteria", "direccion"] },
   { href: "/avisos", grupo: "dia", titulo: "Avisos enviados", descripcion: "Correos y notificaciones a las familias.", icono: "MailCheck", feature: "avisos", roles: ["direccion", "administrativo"] },
   { href: "/permisos", grupo: "dia", titulo: "Permisos", descripcion: "Permisos de asistencia: días u horas que el colegio autoriza.", icono: "CalendarCheck", feature: "asistencia", roles: ["direccion", "profesor", "administrativo"] },
@@ -56,11 +55,10 @@ export const MOSAICOS: Mosaico[] = [
   // Nudito, tutor de práctica de Khipu Pro (specs/41, specs/44). Práctica formativa: nunca es nota.
   { href: "/nudito", grupo: "academico", titulo: "Nudito", descripcion: "Tu tutor de práctica: repasa y practica los temas de tus cursos.", icono: "Sparkles", feature: "nudito_plus", roles: ["alumno"] },
   { href: "/nudito/seguimiento", grupo: "academico", titulo: "Seguimiento de Nudito", descripcion: "Progreso de práctica de tus alumnos por curso y tema (no es nota).", icono: "Sparkles", feature: "nudito_plus", roles: ["profesor", "direccion"] },
-  { href: "/agenda", grupo: "academico", titulo: "Agenda", descripcion: "Eventos, exámenes y reuniones.", icono: "CalendarDays", feature: "agenda", roles: ["profesor", "direccion", "apoderado", "administrativo", "alumno"] },
+  // Agenda (specs/12 y specs/34): calendario (Pro) y horario de clases (Base) en un solo módulo. En Khipu Base entra por el horario.
+  { href: "/agenda", grupo: "academico", titulo: "Agenda", descripcion: "Horario de clases, eventos, exámenes y reuniones.", icono: "CalendarDays", feature: "agenda", alternativa: "horario", roles: ["profesor", "direccion", "apoderado", "administrativo", "alumno"] },
   { href: "/tablero", grupo: "colegio", titulo: "Tablero", descripcion: "Asistencia, notas y avisos del colegio; consolidado de notas en Excel y PDF.", icono: "BarChart3", feature: "tablero", roles: ["direccion"] },
   { href: "/reuniones", grupo: "comunicacion", titulo: "Reuniones", descripcion: "Convocatorias, disponibilidad, confirmaciones y actas.", icono: "Users", feature: "reuniones", roles: ["profesor", "direccion", "administrativo", "apoderado"] },
-  { href: "/horario", grupo: "colegio", titulo: "Horarios", descripcion: "Horario semanal de cada salón y carga de cada profesor.", icono: "CalendarClock", feature: "horario", roles: ["direccion"] },
-  { href: "/horario/plantillas", grupo: "colegio", titulo: "Plantillas de horario", descripcion: "Entrada, recreos y salida de cada jornada; cada salón usa una.", icono: "CalendarClock", feature: "horario", roles: ["administrativo"] },
   { href: "/gestion", grupo: "colegio", titulo: "Gestión", descripcion: "Profesores, personal, grados, alumnos y familias.", icono: "Users", feature: "gestion", roles: ["direccion"] },
   { href: "/gestion", grupo: "colegio", titulo: "Alumnos y familias", descripcion: "Altas, datos e invitaciones de alumnos y familias.", icono: "Users", feature: "gestion", roles: ["administrativo"] },
   { href: "/configuracion", grupo: "colegio", titulo: "Configuración", descripcion: "Avisos, logo, dominio y escala de notas.", icono: "Settings", feature: "gestion", roles: ["direccion"] },

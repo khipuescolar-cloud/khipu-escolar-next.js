@@ -18,6 +18,8 @@ async function entrar(page: Page, correo: string) {
 
 test("secretaría crea una plantilla de horario, ve las horas calculadas y la elimina", async ({ page }) => {
   await entrar(page, "secretaria@nuevohorizonte.demo");
+  // Las plantillas viven en la Agenda (specs/34): menú «Agenda» → pestaña «Plantillas de horario».
+  await page.getByRole("link", { name: "Agenda", exact: true }).first().click();
   await page.getByRole("link", { name: "Plantillas de horario" }).first().click();
   await expect(page.getByRole("heading", { name: "Plantillas de horario", level: 1 })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Primaria", exact: true })).toBeVisible();
@@ -38,7 +40,7 @@ test("secretaría crea una plantilla de horario, ve las horas calculadas y la el
   await expect(vista.getByText("Tardanza desde las 07:45 · falta desde las 08:45.")).toBeVisible();
 
   await page.getByRole("button", { name: "Crear plantilla" }).click();
-  await page.waitForURL(colegio("/horario/plantillas"));
+  await page.waitForURL(colegio("/agenda/horario/plantillas"));
   const tarjeta = page.getByRole("listitem").filter({ has: page.getByRole("heading", { name: NOMBRE }) });
   await expect(tarjeta.getByText("Sin salones")).toBeVisible();
   await expect(tarjeta.getByText("10:00–10:30 · 12:00–12:15")).toBeVisible();

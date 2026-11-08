@@ -1,11 +1,11 @@
 import "dotenv/config";
 import { Client } from "pg";
 import { expect, test, type Browser, type Page } from "@playwright/test";
-import { esperarSinAcceso } from "./sin-acceso";
 import { crearColegioTemporal, type ColegioTemporal } from "./ayudantes/colegio-temporal";
 
-// Planes y módulos (specs/19): un colegio Khipu Base temporal ve Agenda con el candado «Plan Khipu Pro». El super administrador
-// quita Agenda de Khipu Pro: ningún plan la incluye, así que en Nuevo Horizonte (Khipu Pro) desaparece y /agenda queda sin acceso.
+// Planes y módulos (specs/19): un colegio Khipu Base temporal ve la Agenda solo con el horario (sin la pestaña Calendario, de
+// Khipu Pro; specs/34). El super administrador quita Agenda de Khipu Pro: ningún plan la incluye, así que en Nuevo Horizonte
+// (Khipu Pro) /agenda abre directo en el horario y el calendario queda sin acceso.
 // Al final se restaura y se borra el colegio temporal.
 
 const PUERTO = process.env.E2E_PORT ?? "3000";
@@ -51,9 +51,13 @@ const panel = async (browser: Browser, ruta: string) => {
   return p;
 };
 
-test("Khipu Base ve el candado de Pro y quitar Agenda de Khipu Pro la retira de sus colegios", async ({ browser }) => {
+test("Khipu Base ve la Agenda solo con el horario y quitar Agenda de Khipu Pro deja solo el horario", async ({ browser }) => {
   const base = await entrar(browser, colegioBase.correos.direccion, colegio(colegioBase.slug, "/inicio"));
-  await expect(base.locator('[data-slot="sidebar-menu-item"]', { hasText: "Agenda" })).toContainText("bloqueado, plan Khipu Pro");
+  await expect(base.locator('[data-slot="sidebar-menu-item"]', { hasText: "Agenda" })).not.toContainText("bloqueado");
+  await base.goto(colegio(colegioBase.slug, "/agenda"));
+  await base.waitForURL(/\/agenda\/horario/);
+  await expect(base.getByRole("link", { name: "Horarios de salones" })).toBeVisible();
+  await expect(base.getByRole("link", { name: "Calendario", exact: true })).toHaveCount(0);
   await base.close();
 
   const admin = await panel(browser, "/planes");
@@ -68,8 +72,9 @@ test("Khipu Base ve el candado de Pro y quitar Agenda de Khipu Pro la retira de 
   try {
     const dir = await entrar(browser, "direccion@nuevohorizonte.demo", colegio("nuevohorizonte", "/inicio"));
     await expect(dir.getByRole("main").getByText("Comunicados", { exact: true })).toBeVisible();
-    await expect(dir.getByRole("main").getByText("Agenda", { exact: true })).toHaveCount(0);
-    await esperarSinAcceso(dir, await dir.goto(colegio("nuevohorizonte", "/agenda")));
+    await dir.goto(colegio("nuevohorizonte", "/agenda"));
+    await dir.waitForURL(/\/agenda\/horario/);
+    await expect(dir.getByRole("link", { name: "Calendario", exact: true })).toHaveCount(0);
     await dir.close();
   } finally {
     const restaurar = await panel(browser, "/planes");
