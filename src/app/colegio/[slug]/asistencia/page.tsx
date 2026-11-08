@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { EstadoAsistencia } from "@/components/EstadoAsistencia";
 import { InsigniaAhora } from "@/components/horario/Insignias";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
-import { PestanasLinea } from "@/components/shell/PestanasPagina";
+import { ListaDividida } from "@/components/ui/Superficies";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
 import { TituloBloque } from "@/components/shell/TituloBloque";
@@ -30,7 +30,7 @@ import { CalendarioAsistencia, nombreMes } from "./CalendarioAsistencia";
 import { ListaAsistencia } from "./ListaAsistencia";
 import { SincronizadorListas } from "./SincronizadorListas";
 import { PreferenciasAvisos } from "./PreferenciasAvisos";
-import { ReporteFamilia } from "./reportes/ReporteFamilia";
+import { AsistenciaAlumno } from "./_alumno/AsistenciaAlumno";
 
 export const metadata: Metadata = { title: "Asistencia" };
 
@@ -42,7 +42,8 @@ export default async function AsistenciaPage({ params, searchParams }: PageProps
 
   if (esVistaFamilia(ctx.rol)) {
     const parametro = (k: string) => (typeof sp[k] === "string" ? (sp[k] as string) : null);
-    return <VistaFamilia ctx={ctx} slug={slug} mes={parametro("mes") ?? undefined} parametro={parametro} />;
+    if (ctx.rol === "alumno") return <VistaAlumno ctx={ctx} mes={parametro("mes") ?? undefined} parametro={parametro} />;
+    return <VistaFamilia ctx={ctx} slug={slug} mes={parametro("mes") ?? undefined} />;
   }
 
   const salon = typeof sp.salon === "string" ? sp.salon : null;
@@ -202,46 +203,84 @@ async function PasarLista({ ctx, slug, salonId, ambito, fecha }: { ctx: TenantCo
 
 const PALABRA_JUSTIFICACION = { pendiente: "Justificación en revisión", aceptada: "Falta justificada", rechazada: "Justificación no aceptada" } as const;
 
-async function VistaFamilia({ ctx, slug, mes, parametro }: { ctx: TenantContext; slug: string; mes?: string; parametro: (clave: string) => string | null }) {
-  // El alumno con cuenta propia ve solo su asistencia: sin chat, sin justificar y sin preferencias de avisos (son de la familia).
-  // Su página junta la llegada al colegio (calendario del mes) y el reporte por fechas, al colegio y por curso (specs/27).
-  const esAlumno = ctx.rol === "alumno";
-  // Alumno: dos pestañas, «Asistencia» (llegada al colegio) y «Reporte» (`?tab=reporte`: al colegio y por curso).
-  const enReporte = esAlumno && parametro("tab") === "reporte";
-  const [historial, preferencias] = await Promise.all([historialDeHijos(ctx, mes), esAlumno ? null : obtenerPreferencias(ctx)]);
-  const { anio, mes: numeroMes, hoy } = historial;
-  // El alumno ve aquí solo el ingreso al colegio; sus clases están en el reporte «Por curso».
-  const hijos = esAlumno ? historial.hijos.map((h) => ({ ...h, registros: h.registros.filter((r) => r.esDia) })) : historial.hijos;
+/**
+ * «Mi asistencia» del alumno (specs/27): Resumen del periodo (khipu de días, lo que conviene revisar, cursos con menos
+ * asistencia), Llegadas (calendario del mes con la lista de ingresos al colegio) y Cursos (cada uno abre su historial).
+ * Sin chat, sin justificar y sin preferencias de avisos: son de la familia.
+ */
+async function VistaAlumno({ ctx, mes, parametro }: { ctx: TenantContext; mes?: string; parametro: (clave: string) => string | null }) {
+  const enLlegadas = parametro("tab") === "llegadas";
+  const historial = enLlegadas ? await historialDeHijos(ctx, mes) : null;
+  const yo = historial?.hijos[0];
+  const llegadas = historial && yo && (
+    <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)]">
+      <CalendarioAsistencia
+        hijoId={yo.id}
+        nombre={yo.nombres}
+        hoy={historial.hoy}
+        compacto
+        hrefMes={(clave) => `/asistencia?tab=llegadas&mes=${clave}`}
+        mes={armarMesAsistencia(historial.anio, historial.mes, yo.registros.filter((r) => r.esDia).map((r) => ({ fecha: r.fecha, estado: r.estado, esDia: r.esDia })), historial.hoy)}
+      />
+      <section aria-labelledby="titulo-llegadas" className="flex flex-col gap-3">
+        <TituloBloque id="titulo-llegadas">Tus llegadas de {nombreMes(historial.anio, historial.mes).split(" ")[0]}</TituloBloque>
+        {yo.registros.filter((r) => r.esDia).length === 0 ? (
+          <EstadoVacio icono={ClipboardCheck} titulo={`No hay llegadas registradas en ${nombreMes(historial.anio, historial.mes)}`} descripcion="Cuando pases por portería o el tutor pase la lista del día, aparecerá aquí." />
+        ) : (
+          <ListaDividida>
+            {yo.registros.filter((r) => r.esDia).map((r) => (
+              <li key={r.id} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3 sm:px-5">
+                <span className="font-medium first-letter:uppercase">{fechaLarga(r.fecha)}</span>
+                <span className="flex flex-wrap items-center gap-2">
+                  <EstadoAsistencia estado={r.estado} hora={r.estado === "falta" ? undefined : hora12(r.hora)} />
+                  {r.horaSalida && (
+                    <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground">
+                      <LogOut className="size-3.5" strokeWidth={2} aria-hidden /> Salió {hora12(r.horaSalida)}
+                    </span>
+                  )}
+                  {r.conPermiso && (
+                    <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground">
+                      <CalendarCheck className="size-3.5" strokeWidth={2} aria-hidden /> Con permiso
+                    </span>
+                  )}
+                </span>
+              </li>
+            ))}
+          </ListaDividida>
+        )}
+      </section>
+    </div>
+  );
+  return (
+    <div className="flex flex-col gap-6" data-seccion="dia">
+      <EncabezadoPagina titulo="Mi asistencia" seccion="dia" descripcion="Cómo vas en el colegio y en cada curso, día por día." />
+      <AsistenciaAlumno ctx={ctx} modo="alumno" parametro={parametro} llegadas={llegadas} />
+    </div>
+  );
+}
+
+async function VistaFamilia({ ctx, slug, mes }: { ctx: TenantContext; slug: string; mes?: string }) {
+  const [historial, preferencias] = await Promise.all([historialDeHijos(ctx, mes), obtenerPreferencias(ctx)]);
+  const { anio, mes: numeroMes, hoy, hijos } = historial;
   return (
     <div className="flex flex-col gap-6">
-      <EncabezadoPagina titulo="Asistencia" seccion="dia" descripcion={esAlumno ? "Tu llegada al colegio cada día y tu reporte de asistencia, al colegio y por curso." : "Calendario del mes de cada hijo, con el detalle de cada día."} />
-      {esAlumno && hijos.length > 0 && (
-        <div data-seccion="dia">
-          <PestanasLinea
-            etiqueta="Vistas de asistencia"
-            items={[
-              { href: "/asistencia", texto: "Asistencia", activo: !enReporte },
-              { href: "/asistencia?tab=reporte", texto: "Reporte", activo: enReporte },
-            ]}
-          />
-        </div>
-      )}
+      <EncabezadoPagina titulo="Asistencia" seccion="dia" descripcion="Calendario del mes de cada hijo, con el detalle de cada día." />
 
       {hijos.length === 0 && (
         <EstadoVacio
           icono={Users}
-          titulo={esAlumno ? "Tu cuenta aún no está vinculada a tu ficha" : "Aún no hay alumnos vinculados a tu cuenta"}
-          descripcion={esAlumno ? "Avisa a la dirección del colegio para que la revise." : "Cuando el colegio vincule a tus hijos, verás aquí su asistencia."}
+          titulo="Aún no hay alumnos vinculados a tu cuenta"
+          descripcion="Cuando el colegio vincule a tus hijos, verás aquí su asistencia."
         />
       )}
 
-      {!enReporte && hijos.map((h) => (
+      {hijos.map((h) => (
         <section key={h.id} data-seccion="dia" className="flex flex-col gap-4" aria-labelledby={`hijo-${h.id}`}>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <TituloBloque id={`hijo-${h.id}`}>
-              {esAlumno ? "Llegada al colegio" : <>{h.nombres} {h.apellidos}</>} <span className="font-sans text-cuerpo-sm font-normal text-muted-foreground">· {h.salon}</span>
+              {h.nombres} {h.apellidos} <span className="font-sans text-cuerpo-sm font-normal text-muted-foreground">· {h.salon}</span>
             </TituloBloque>
-            {!esAlumno && tieneFeature(ctx, "mensajes") && (
+            {tieneFeature(ctx, "mensajes") && (
               <Link href={`/mensajes/nuevo?alumno=${h.id}`} className={cn(buttonVariants({ variant: "outline" }))}>
                 <MessageSquarePlus strokeWidth={2} aria-hidden /> Escribir a la tutora
               </Link>
@@ -254,7 +293,7 @@ async function VistaFamilia({ ctx, slug, mes, parametro }: { ctx: TenantContext;
             mes={armarMesAsistencia(anio, numeroMes, h.registros.map((r) => ({ fecha: r.fecha, estado: r.estado, esDia: r.esDia })), hoy)}
           />
           {h.registros.length === 0 ? (
-            <EstadoVacio icono={ClipboardCheck} titulo={`No hay registros en ${nombreMes(anio, numeroMes)}`} descripcion={esAlumno ? "Cuando tengas asistencia registrada, aparecerá aquí." : "Cuando tu hijo tenga asistencia registrada, aparecerá aquí."} />
+            <EstadoVacio icono={ClipboardCheck} titulo={`No hay registros en ${nombreMes(anio, numeroMes)}`} descripcion="Cuando tu hijo tenga asistencia registrada, aparecerá aquí." />
           ) : (
             <div>
               <ul className="divide-y divide-borde-sutil border-y border-borde-sutil">
@@ -290,7 +329,7 @@ async function VistaFamilia({ ctx, slug, mes, parametro }: { ctx: TenantContext;
                           <span className="text-cuerpo-sm text-muted-foreground">{r.justificarHasta ? textoUltimoDiaJustificacion(r.justificarHasta) : textoPlazoJustificacion(r.fecha, ctx.tenant.plazoJustificacionDias)}</span>
                         </span>
                       )}
-                      {!esAlumno && r.plazoVencido && (
+                      {r.plazoVencido && (
                         <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground" title={mensajePlazoVencido(ctx.tenant.plazoJustificacionDias)}>
                           <CalendarX className="size-3.5" strokeWidth={2} aria-hidden /> Plazo vencido
                         </span>
@@ -303,8 +342,6 @@ async function VistaFamilia({ ctx, slug, mes, parametro }: { ctx: TenantContext;
           )}
         </section>
       ))}
-
-      {enReporte && hijos.length > 0 && <ReporteFamilia ctx={ctx} ruta="/asistencia" parametro={parametro} conservar={{ tab: "reporte" }} />}
 
       {preferencias && (
         <PreferenciasAvisos slug={slug} correo={preferencias.correo} push={preferencias.push} pushAcademico={preferencias.pushAcademico} vapidPublica={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? ""} />

@@ -17,7 +17,12 @@ export function nombreMes(anio: number, mes: number): string {
 }
 
 /** Calendario del mes de un hijo: cada día con ícono + palabra (accesible) y color por estado; navegación por mes. */
-export function CalendarioAsistencia({ hijoId, nombre, mes, hoy }: { hijoId: string; nombre: string; mes: MesAsistencia; hoy: string }) {
+export function CalendarioAsistencia({ hijoId, nombre, mes, hoy, compacto = false, hrefMes = (clave) => `/asistencia?mes=${clave}` }: {
+  hijoId: string; nombre: string; mes: MesAsistencia; hoy: string;
+  /** Celdas más bajas y navegación con solo flechas (el calendario va junto a una lista). */
+  compacto?: boolean;
+  hrefMes?: (clave: string) => string;
+}) {
   const anterior = mesAnterior(mes.anio, mes.mes);
   const siguiente = mesSiguiente(mes.anio, mes.mes);
   const claveAnterior = claveMes(anterior.anio, anterior.mes);
@@ -33,13 +38,13 @@ export function CalendarioAsistencia({ hijoId, nombre, mes, hoy }: { hijoId: str
           <h3 className="font-heading text-[18px] leading-6 font-semibold first-letter:uppercase" id={`mes-${hijoId}`}>{titulo}</h3>
           <nav aria-label={`Cambiar de mes para ${nombre}`} className="flex gap-2">
             {hayAnterior ? (
-              <Link href={`/asistencia?mes=${claveMes(anterior.anio, anterior.mes)}`} className={cn(buttonVariants({ variant: "outline" }), nav)} scroll={false}>
-                <ChevronLeft strokeWidth={2} aria-hidden /> Mes anterior
+              <Link href={hrefMes(claveMes(anterior.anio, anterior.mes))} aria-label="Mes anterior" className={cn(buttonVariants({ variant: "outline", size: compacto ? "icon" : "default" }), nav)} scroll={false}>
+                <ChevronLeft strokeWidth={2} aria-hidden /> {!compacto && "Mes anterior"}
               </Link>
             ) : null}
             {haySiguiente ? (
-              <Link href={`/asistencia?mes=${claveMes(siguiente.anio, siguiente.mes)}`} className={cn(buttonVariants({ variant: "outline" }), nav)} scroll={false}>
-                Mes siguiente <ChevronRight strokeWidth={2} aria-hidden />
+              <Link href={hrefMes(claveMes(siguiente.anio, siguiente.mes))} aria-label="Mes siguiente" className={cn(buttonVariants({ variant: "outline", size: compacto ? "icon" : "default" }), nav)} scroll={false}>
+                {!compacto && "Mes siguiente"} <ChevronRight strokeWidth={2} aria-hidden />
               </Link>
             ) : null}
           </nav>
@@ -60,14 +65,14 @@ export function CalendarioAsistencia({ hijoId, nombre, mes, hoy }: { hijoId: str
             {mes.semanas.map((semana) => (
               <tr key={semana[0].fecha}>
                 {semana.map((d) => {
-                  if (!d.delMes) return <td key={d.fecha} aria-hidden className="h-12 rounded-md" />;
+                  if (!d.delMes) return <td key={d.fecha} aria-hidden className={cn("rounded-md", compacto ? "h-10" : "h-12")} />;
                   const info = d.estado ? ESTADOS_ASISTENCIA[d.estado] : null;
                   return (
                     <td
                       key={d.fecha}
                       data-estado={d.estado ?? "sin-registro"}
                       className={cn(
-                        "h-12 rounded-md border text-center align-middle sm:h-14",
+                        compacto ? "h-10 rounded-md border text-center align-middle" : "h-12 rounded-md border text-center align-middle sm:h-14",
                         info ? `${info.clase} border-current/20` : d.esFinDeSemana || d.esFuturo ? "border-transparent bg-superficie-2/60 text-muted-foreground" : "bg-superficie text-muted-foreground",
                         d.esHoy && "ring-2 ring-primary",
                       )}
