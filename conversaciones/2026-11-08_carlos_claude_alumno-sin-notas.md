@@ -32,3 +32,10 @@
 
 ## Pendientes y preguntas abiertas
 - Las tareas estilo Classroom (specs/39) pueden mostrarle al alumno la calificación de su entrega; no se tocó (otra sesión trabaja en tareas). Decidir si también se oculta.
+
+## Seguimiento (2026-11-08)
+> la nota de la tarea no deberias ocultarle, pero las otras notas que pueda tener del registro de notas el profesor, eso si
+
+- Se mantiene: el alumno ve la nota de sus tareas en `/tareas`; el registro de notas y la libreta siguen ocultos.
+- Revisado: los avisos de notas publicadas (`calificacion`) solo van a las familias.
+- Texto de «Notificaciones» del alumno sin «Notas» (`notificaciones/page.tsx`, `navegacion.ts`); specs/11 aclara la regla.
