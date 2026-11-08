@@ -135,7 +135,9 @@ publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_
     (`porRevisar > 0`); «Revisadas» = sin entregas por revisar y al menos una revisada. La cantidad cuenta tareas. Sin
     pestañas de borradores, cerradas ni archivadas. A la derecha, el filtro «Todos los cursos» (si hay más de uno) con «Ver».
   - **Tarjetas por salón** (dos columnas en escritorio) y, dentro, las tareas por curso. Una tarea con varias secciones
-    aparece en cada salón, con «También en …». Cada fila: nudo de estado, título, estado (solo si no es publicada),
+    aparece en cada salón, con «También en …». **Sección revisada** (ninguna entrega por revisar y al menos una
+    revisada): check verde, insignia «Revisada» (ícono + palabra, verde), barra verde y su fecha vencida en gris (ya no
+    pide atención); con entregas por revisar: nudo relleno y «N por revisar». Cada fila: nudo de estado, título, estado (solo si no es publicada),
     plazo, «N por revisar» y la barra de entregas; toda la fila abre «Revisar entregas» de ese salón (un borrador no
     es enlace). «Nueva tarea» en un diálogo por secciones (Para quién, La tarea, Plazo, Publicación, Opciones).
   - **Acciones de cada fila**, íconos a la derecha (en el celular, debajo de la tarea): eliminar (solo si nadie empezó

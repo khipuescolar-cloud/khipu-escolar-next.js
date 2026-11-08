@@ -10,7 +10,7 @@ import { agendaDeRevision, HORIZONTE_REVISION_DIAS, MAX_INSTRUCCIONES, type Item
 import type { limitesTarea, TareaDocente } from "@/lib/server/tareas";
 import { actualizarTareaAction, cerrarTareaAction, eliminarTareaAction, publicarTareaAction } from "./actions";
 import { SelectorMaterialesTarea } from "./CamposNuevaTarea";
-import { EstadoTarea, FechaEntrega } from "./insignias";
+import { EstadoTarea, FechaEntrega, Revisada } from "./insignias";
 import { SeccionFormulario } from "./SeccionFormulario";
 
 // Lista del docente y de dirección (specs/39): mismo lenguaje que la vista del alumno. Banda «Para revisar» arriba,
@@ -34,11 +34,11 @@ function PorRevisar({ n }: { n: number }) {
 }
 
 /** Avance de entregas: barra corta + «3/12 entregaron». */
-function Avance({ k }: { k: Seccion["contadores"] }) {
+function Avance({ k, revisada = false }: { k: Seccion["contadores"]; revisada?: boolean }) {
   const pct = k.asignados ? Math.round((k.entregaron / k.asignados) * 100) : 0;
   return (
     <span className="inline-flex items-center gap-2 text-cuerpo-sm tabular-nums text-muted-foreground">
-      <span aria-hidden className="h-1.5 w-16 overflow-hidden rounded-full bg-borde-sutil"><span className="block h-full rounded-full bg-sec-nudo" style={{ width: `${pct}%` }} /></span>
+      <span aria-hidden className="h-1.5 w-16 overflow-hidden rounded-full bg-borde-sutil"><span className={`block h-full rounded-full ${revisada ? "bg-llego" : "bg-sec-nudo"}`} style={{ width: `${pct}%` }} /></span>
       {k.entregaron}/{k.asignados} entregaron
     </span>
   );
@@ -171,17 +171,23 @@ function AccionesTarea({ t, s, c }: { t: TareaDocente; s: Seccion; c: Comun }) {
   );
 }
 
-/** Nudo del estado: anillo (borrador o programada), relleno de la sección (publicada), gris (cerrada o archivada). */
+/** Nudo del estado: check verde (todo revisado), relleno (hay por revisar), anillo (sin entregas por revisar, borrador o programada), gris (cerrada o archivada). */
+/** Todas las entregas de esta sección están revisadas (ninguna por revisar y al menos una revisada). */
+const estaRevisada = (t: TareaDocente, s: Seccion) =>
+  !t.programada && (t.estado === "publicada" || t.estado === "cerrada") && s.contadores.porRevisar === 0 && s.contadores.revisadas > 0;
+
 function Nudo({ t, s }: { t: TareaDocente; s: Seccion }) {
+  if (estaRevisada(t, s)) return <CheckCircle2 aria-hidden className="mt-1 size-4 shrink-0 text-llego" strokeWidth={2.5} />;
   const clase = t.estado === "borrador" || t.programada
     ? "border-muted-foreground/50 bg-superficie"
     : t.estado === "publicada" ? (s.contadores.porRevisar > 0 ? "border-sec-nudo bg-sec-nudo" : "border-sec-trazo bg-superficie") : "border-borde-sutil bg-borde-sutil";
-  return <span aria-hidden className={`mt-1.5 size-3 shrink-0 rounded-full border-2 ${clase}`} />;
+  return <span aria-hidden className="flex size-4 shrink-0 items-center justify-center pt-2"><span className={`size-3 rounded-full border-2 ${clase}`} /></span>;
 }
 
 function FilaTarea({ t, s, c }: { t: TareaDocente; s: Seccion; c: Comun }) {
   const otras = t.secciones.filter((x) => x.id !== s.id).map((x) => x.salon);
   const borrador = t.estado === "borrador";
+  const revisada = estaRevisada(t, s);
   const contenido = (
     <>
       <Nudo t={t} s={s} />
@@ -189,10 +195,11 @@ function FilaTarea({ t, s, c }: { t: TareaDocente; s: Seccion; c: Comun }) {
         <span className="text-cuerpo font-medium text-pretty">{t.titulo}</span>
         <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
           {(borrador || t.programada || t.estado !== "publicada") && <EstadoTarea estado={t.estado} programada={t.programada} />}
-          <FechaEntrega fecha={s.fechaPropia ?? t.fechaEntrega} conHora={t.conHora} vencida={s.vencida} />
+          {revisada && <Revisada />}
+          <FechaEntrega fecha={s.fechaPropia ?? t.fechaEntrega} conHora={t.conHora} vencida={s.vencida} neutra={revisada} />
           {!borrador && s.contadores.porRevisar > 0 && <PorRevisar n={s.contadores.porRevisar} />}
         </span>
-        {!borrador && <Avance k={s.contadores} />}
+        {!borrador && <Avance k={s.contadores} revisada={revisada} />}
         {otras.length > 0 && <span className="text-etiqueta text-muted-foreground">También en {otras.join(", ")}</span>}
       </span>
     </>
