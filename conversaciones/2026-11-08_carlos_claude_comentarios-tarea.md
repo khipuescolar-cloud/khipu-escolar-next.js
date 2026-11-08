@@ -41,3 +41,9 @@
 
 - Sin la línea de ayuda. El campo empieza en una fila, crece hasta 3 y luego hace scroll interno; vuelve a una fila tras enviar (`ajustar` en `ChatComentarios.tsx`).
 - Validación: en el navegador, alto 44 px (1 fila) → 62 px (2) → 82 px tope (3 filas con 5 líneas escritas); tsc y lint limpios.
+
+## Seguimiento: burbujas con palabras largas
+> [captura del chat] aqui para mostrar el chat tambien tenemos el mismo problema
+
+- Una palabra larga sin espacios se salía de la burbuja. Ahora se parte dentro del ancho (`[overflow-wrap:anywhere]`, `min-w-0`) en el chat del docente (`ChatComentarios.tsx`) y en los comentarios del alumno/familia (`tareas/[id]/page.tsx`).
+- Validación: en el navegador el chat ya no tiene desplazamiento horizontal (scrollWidth = clientWidth = 447 px).

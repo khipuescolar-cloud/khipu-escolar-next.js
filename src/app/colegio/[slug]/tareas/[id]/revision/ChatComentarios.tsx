@@ -71,9 +71,9 @@ export function ChatComentarios({ alumno, subtitulo, mensajes, asignacionId, sin
             <p className="m-auto max-w-60 text-center text-cuerpo-sm text-muted-foreground">Aún no hay comentarios. Puedes escribirle al estudiante sobre esta tarea.</p>
           ) : (
             mensajes.map((m) => (
-              <div key={m.id} className={cn("flex max-w-[85%] flex-col gap-1", m.esDocente ? "self-end items-end" : "self-start")}>
+              <div key={m.id} className={cn("flex min-w-0 max-w-[85%] flex-col gap-1", m.esDocente ? "self-end items-end" : "self-start")}>
                 <span className="text-etiqueta text-muted-foreground">{m.autor} · {m.cuando}</span>
-                <p className={cn("rounded-2xl px-3.5 py-2 text-sm whitespace-pre-line", m.esDocente ? "rounded-tr-md bg-primary text-primary-foreground" : "rounded-tl-md bg-card text-foreground shadow-[0_1px_2px_rgb(0_0_0/0.06)]")}>{m.texto}</p>
+                <p className={cn("max-w-full rounded-2xl px-3.5 py-2 text-sm whitespace-pre-line [overflow-wrap:anywhere]", m.esDocente ? "rounded-tr-md bg-primary text-primary-foreground" : "rounded-tl-md bg-card text-foreground shadow-[0_1px_2px_rgb(0_0_0/0.06)]")}>{m.texto}</p>
               </div>
             ))
           )}
