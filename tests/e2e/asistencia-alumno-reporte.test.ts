@@ -19,8 +19,10 @@ test("el alumno ve su resumen, sus llegadas y el historial de cada curso", async
   await expect(page.getByRole("heading", { name: "Mi asistencia", level: 1 })).toBeVisible();
   const vistas = page.getByRole("navigation", { name: "Vistas de asistencia" });
   await expect(vistas.getByRole("link", { name: "Resumen" })).toHaveAttribute("aria-current", "page");
-  await expect(page.getByRole("heading", { name: /Llegaste al colegio \d+ de \d+ días|Aún no hay asistencia/ })).toBeVisible();
+  await expect(page.getByText(/Llegaste \d+ de \d+ días|Aún sin días registrados/)).toBeVisible();
   await expect(page.getByRole("heading", { name: "Para revisar" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Día a día/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Descargar PDF del periodo" })).toBeVisible();
 
   // Periodo: «Año» desde el inicio de clases.
   await page.getByRole("navigation", { name: "Periodo" }).getByRole("link", { name: "Año" }).click();
@@ -34,6 +36,7 @@ test("el alumno ve su resumen, sus llegadas y el historial de cada curso", async
   await page.getByRole("link", { name: /Arte y Cultura/ }).click();
   await expect(page.getByRole("heading", { name: "Arte y Cultura", level: 1 })).toBeVisible();
   await expect(page.getByText("Desde el inicio de clases")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Clase por clase" })).toBeVisible();
   await expect(page.getByRole("heading", { name: /Estuviste en \d+ de \d+ clases/ })).toBeVisible();
   await page.getByRole("link", { name: "Todos los cursos" }).first().click();
   await expect(page.getByRole("heading", { name: "Tu asistencia en cada curso" })).toBeVisible();
