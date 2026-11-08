@@ -44,8 +44,8 @@ const esquemaContenido = z.object({
 
 const esquemaTarea = esquemaContenido.extend({
   cursoId: z.uuid("Elige el curso."),
-  /** publicar (ahora) · programar (en `publicarEn`) · borrador. */
-  accion: z.enum(["publicar", "programar", "borrador"]).default("publicar"),
+  /** publicar (ahora) · programar (en `publicarEn`). Ya no se crean borradores (2026-11-08, specs/39). */
+  accion: z.enum(["publicar", "programar"]).default("publicar"),
   /** «AAAA-MM-DDTHH:mm» en la zona del colegio. */
   publicarEn: opcional(z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/, "Elige cuándo publicar.")),
   secciones: z.array(esquemaSeccion).max(12, "Elige como máximo 12 secciones.").optional(),
@@ -245,14 +245,13 @@ export async function crearTarea(ctx: TenantContext, entrada: unknown, adjuntos:
     return fallo(mensajeDe(e));
   }
 
-  const borrador = d.data.accion === "borrador";
   const t = await ctx.db.tarea.create({
     data: {
       tenantId: ctx.tenant.id, cursoId: d.data.cursoId, titulo: d.data.titulo, descripcion: d.data.descripcion ?? null,
       indicacionesEntrega: d.data.indicacionesEntrega ?? null, fechaEntrega: plazo.instante, conHora: plazo.conHora,
       permiteTardias: d.data.permiteTardias, comentariosGenerales: d.data.comentariosGenerales, calificable: d.data.calificable,
-      competenciaId: d.data.competenciaId ?? null, estado: borrador ? "borrador" : "publicada", publicarEn,
-      publicadaAt: borrador ? null : (publicarEn ?? ahora),
+      competenciaId: d.data.competenciaId ?? null, estado: "publicada", publicarEn,
+      publicadaAt: publicarEn ?? ahora,
       // Sin «avisar», la tarea nace como ya avisada: el cron no la notificará al llegar su hora.
       avisadaAt: d.data.avisarFamilias ? null : ahora,
       creadoPorId: ctx.membership.id,
@@ -278,14 +277,14 @@ export async function crearTarea(ctx: TenantContext, entrada: unknown, adjuntos:
     await ctx.db.tarea.deleteMany({ where: { id: t.id } });
     throw e;
   }
-  const avisoCalif = borrador ? null : await crearEvaluacionesDeTarea(ctx, t.id);
+  const avisoCalif = await crearEvaluacionesDeTarea(ctx, t.id);
   const asignados = await ctx.db.tareaAsignacion.count({ where: { tareaId: t.id } });
   await auditar({
     tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "tarea", entidadId: t.id,
     detalle: { adjuntos: validados.length, secciones: v.secciones.length, destinatarios: asignados, estado: t.estado, programada: !!publicarEn },
   });
-  if (!borrador && !publicarEn && d.data.avisarFamilias) await avisarTareaPublicada(ctx.db, ctx.tenant, t.id, ahora);
-  const msg = borrador ? "Borrador guardado." : publicarEn ? "Tarea programada." : "Tarea creada.";
+  if (!publicarEn && d.data.avisarFamilias) await avisarTareaPublicada(ctx.db, ctx.tenant, t.id, ahora);
+  const msg = publicarEn ? "Tarea programada." : "Tarea creada.";
   return { ...ok(`${msg}${avisoCalif ?? ""}`), tareaId: t.id };
 }
 

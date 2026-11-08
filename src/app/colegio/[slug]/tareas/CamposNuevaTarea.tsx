@@ -124,14 +124,14 @@ export function CamposNuevaTarea({ cursos, alumnos, materiales = [], competencia
   );
 }
 
-/** Cuándo se publica: ahora, programada o como borrador. */
+/** Cuándo se publica: ahora o programada (no hay borradores, specs/39). */
 export function CamposPublicacion() {
   const [accion, setAccion] = useState("publicar");
   return (
     <>
       <div className="flex flex-col gap-2 sm:col-span-2" role="radiogroup" aria-label="Publicación">
         <div className="flex flex-wrap gap-4 text-sm">
-          {[["publicar", "Publicar ahora"], ["programar", "Programar"], ["borrador", "Guardar borrador"]].map(([v, t]) => (
+          {[["publicar", "Publicar ahora"], ["programar", "Programar"]].map(([v, t]) => (
             <label key={v} className="flex min-h-11 items-center gap-2"><input type="radio" name="accion" value={v} checked={accion === v} onChange={() => setAccion(v)} className="size-4 accent-primary" />{t}</label>
           ))}
         </div>
