@@ -1,7 +1,8 @@
-import { BookOpenCheck, Users } from "lucide-react";
+import { BookOpenCheck, DoorOpen, FileDown, LayoutDashboard, Users } from "lucide-react";
 import type { ReactNode } from "react";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
-import { PestanasLinea, PestanasSegmento } from "@/components/shell/PestanasPagina";
+import { PestanasSegmento } from "@/components/shell/PestanasPagina";
+import { buttonVariants } from "@/components/ui/button";
 import { periodoElegido, rangoCorto } from "@/lib/periodos-asistencia";
 import { hoyDelColegio } from "@/lib/server/asistencia";
 import { opcionesDeReporte, periodosDelAlumno, reporteAlumno, reporteCursos } from "@/lib/server/reportes-asistencia";
@@ -70,17 +71,25 @@ export async function AsistenciaAlumno({ ctx, modo, parametro, llegadas }: {
           items={alumnos.map((a) => ({ href: href({ alumno: a.id }), texto: a.nombres.split(" ")[0], activo: a.id === alumno.id }))}
         />
       )}
-      <PestanasLinea
-        etiqueta="Vistas de asistencia"
-        items={[
-          { href: href({ tab: "resumen" }), texto: "Resumen", activo: pestana === "resumen" },
-          ...(tu ? [{ href: href({ tab: "llegadas" }), texto: "Llegadas", activo: pestana === "llegadas" }] : []),
-          { href: href({ tab: "cursos" }), texto: "Cursos", activo: pestana === "cursos" },
-        ]}
-      />
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <PestanasSegmento
+          etiqueta="Vistas de asistencia"
+          scroll={false}
+          items={[
+            { href: href({ tab: "resumen" }), texto: "Resumen", activo: pestana === "resumen", icono: <LayoutDashboard className="size-4" strokeWidth={2} aria-hidden /> },
+            ...(tu ? [{ href: href({ tab: "llegadas" }), texto: "Llegadas", activo: pestana === "llegadas", icono: <DoorOpen className="size-4" strokeWidth={2} aria-hidden /> }] : []),
+            { href: href({ tab: "cursos" }), texto: "Cursos", activo: pestana === "cursos", icono: <BookOpenCheck className="size-4" strokeWidth={2} aria-hidden /> },
+          ]}
+        />
+        {pestana !== "llegadas" && (
+          <a href={`/api/reportes-asistencia/pdf?${new URLSearchParams({ alumno: alumno.id, desde: periodo.desde, hasta: periodo.hasta }).toString()}`} className={buttonVariants({ variant: "outline" })}>
+            <FileDown className="size-4" strokeWidth={2} aria-hidden /> Descargar PDF del periodo
+          </a>
+        )}
+      </div>
 
       {pestana !== "llegadas" && (
-        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-b border-borde-sutil pb-4">
           <SelectorPeriodo periodos={periodos} actual={periodo.clave} href={(clave) => href({ periodo: clave })} />
           <p className="text-cuerpo-sm text-muted-foreground">
             {periodo.clave === "anio" ? "Desde el inicio de clases" : periodo.nombre} · <span className="tabular-nums">{rangoCorto(periodo.desde, periodo.hasta)}</span>
@@ -99,7 +108,6 @@ export async function AsistenciaAlumno({ ctx, modo, parametro, llegadas }: {
           tu={tu}
           hrefCurso={hrefCurso}
           hrefCursos={href({ tab: "cursos" })}
-          hrefPdf={`/api/reportes-asistencia/pdf?${new URLSearchParams({ alumno: alumno.id, desde: periodo.desde, hasta: periodo.hasta }).toString()}`}
         />
       )}
 

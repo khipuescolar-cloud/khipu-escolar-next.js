@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import { EstadoAsistencia } from "@/components/EstadoAsistencia";
 import { InsigniaAhora } from "@/components/horario/Insignias";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
-import { ListaDividida } from "@/components/ui/Superficies";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
 import { TituloBloque } from "@/components/shell/TituloBloque";
@@ -213,7 +212,7 @@ async function VistaAlumno({ ctx, mes, parametro }: { ctx: TenantContext; mes?: 
   const historial = enLlegadas ? await historialDeHijos(ctx, mes) : null;
   const yo = historial?.hijos[0];
   const llegadas = historial && yo && (
-    <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)]">
+    <div className="grid items-start gap-8 xl:grid-cols-[minmax(0,24rem)_minmax(0,1fr)]">
       <CalendarioAsistencia
         hijoId={yo.id}
         nombre={yo.nombres}
@@ -227,9 +226,9 @@ async function VistaAlumno({ ctx, mes, parametro }: { ctx: TenantContext; mes?: 
         {yo.registros.filter((r) => r.esDia).length === 0 ? (
           <EstadoVacio icono={ClipboardCheck} titulo={`No hay llegadas registradas en ${nombreMes(historial.anio, historial.mes)}`} descripcion="Cuando pases por portería o el tutor pase la lista del día, aparecerá aquí." />
         ) : (
-          <ListaDividida>
+          <ul className="grid gap-2 md:grid-cols-2">
             {yo.registros.filter((r) => r.esDia).map((r) => (
-              <li key={r.id} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3 sm:px-5">
+              <li key={r.id} className="flex flex-col gap-2 rounded-[14px] border border-borde-sutil bg-superficie px-4 py-3">
                 <span className="font-medium first-letter:uppercase">{fechaLarga(r.fecha)}</span>
                 <span className="flex flex-wrap items-center gap-2">
                   <EstadoAsistencia estado={r.estado} hora={r.estado === "falta" ? undefined : hora12(r.hora)} />
@@ -246,7 +245,7 @@ async function VistaAlumno({ ctx, mes, parametro }: { ctx: TenantContext; mes?: 
                 </span>
               </li>
             ))}
-          </ListaDividida>
+          </ul>
         )}
       </section>
     </div>
