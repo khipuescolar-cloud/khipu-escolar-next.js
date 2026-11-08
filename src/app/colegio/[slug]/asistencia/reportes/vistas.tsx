@@ -291,7 +291,7 @@ export function AsistenciaPorCurso({ reporte, filtros }: { reporte: ReporteColeg
  * Asistencia a clase de los cursos del profesor fuera de su tutoría (o con el filtro «Curso»), specs/27: totales, una
  * fila por curso (enlaza a su historial) y, con un alumno, cada falta o tardanza a clase. No incluye la asistencia al colegio.
  */
-export function VistaCursos({ reporte }: { reporte: ReporteCursos }) {
+export function VistaCursos({ reporte, familia = false }: { reporte: ReporteCursos; familia?: boolean }) {
   const rango = new URLSearchParams({ desde: reporte.desde, hasta: reporte.hasta }).toString();
   const contexto = [
     ...(reporte.alumno ? [`Salón ${reporte.alumno.salon}`] : []),
@@ -311,7 +311,7 @@ export function VistaCursos({ reporte }: { reporte: ReporteCursos }) {
         <div>
           <p className="text-sm text-muted-foreground">Asistencia a clase · {reporte.filas.length === 1 ? "1 curso" : `${reporte.filas.length} cursos`}</p>
           <p className="text-titulo-1 tabular-nums">{total.registros}</p>
-          <p className="text-sm text-muted-foreground">registros de lista en el rango</p>
+          <p className="text-sm text-muted-foreground">{familia ? "clases con lista en el rango" : "registros de lista en el rango"}</p>
         </div>
         <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <li className="flex items-center gap-1.5 text-sm"><EstadoAsistencia estado="falta" /> <strong className="tabular-nums">{total.faltas}</strong></li>
@@ -323,15 +323,20 @@ export function VistaCursos({ reporte }: { reporte: ReporteCursos }) {
       </div>
 
       {reporte.filas.length === 0 ? (
-        <EstadoVacio icono={BookOpenCheck} titulo="No hay cursos con lista en este filtro" descripcion="Aquí aparecen los cursos que dictas (y todos los de tu tutoría) en los niveles que pasan lista por curso." />
+        <EstadoVacio
+          icono={BookOpenCheck}
+          titulo={familia ? "Aún no hay asistencia por curso" : "No hay cursos con lista en este filtro"}
+          descripcion={familia ? "En este nivel el colegio solo registra la asistencia al colegio." : "Aquí aparecen los cursos que dictas (y todos los de tu tutoría) en los niveles que pasan lista por curso."}
+        />
       ) : (
         <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-superficie">
           <Table>
             <TableHeader>
               <TableRow>
                 <TableHead>Curso</TableHead>
-                <TableHead>Salón</TableHead>
-                <TableHead className={NUM}>Registros</TableHead>
+                {!familia && <TableHead>Salón</TableHead>}
+                <TableHead className={NUM}>{familia ? "Clases" : "Registros"}</TableHead>
+                <TableHead className={NUM}>% asistencia</TableHead>
                 <TableHead className={NUM}>Faltas a clase</TableHead>
                 <TableHead className={NUM}>Ingresó pero faltó</TableHead>
                 <TableHead className={NUM}>Tardanzas</TableHead>
@@ -340,9 +345,12 @@ export function VistaCursos({ reporte }: { reporte: ReporteCursos }) {
             <TableBody>
               {reporte.filas.map((c) => (
                 <TableRow key={c.cursoId}>
-                  <TableCell><Link href={`/asistencia/reportes/curso/${c.cursoId}?${rango}`} className="enlace font-medium">{c.curso}</Link></TableCell>
-                  <TableCell>{c.salon}</TableCell>
+                  <TableCell>
+                    {familia ? <span className="font-medium">{c.curso}</span> : <Link href={`/asistencia/reportes/curso/${c.cursoId}?${rango}`} className="enlace font-medium">{c.curso}</Link>}
+                  </TableCell>
+                  {!familia && <TableCell>{c.salon}</TableCell>}
                   <TableCell className={NUM}>{c.registros}</TableCell>
+                  <TableCell className={NUM}>{textoPorcentaje(c.registros === 0 ? null : ((c.registros - c.faltas) / c.registros) * 100)}</TableCell>
                   <TableCell className={NUM}>{c.faltas}</TableCell>
                   <TableCell className={`${NUM} font-semibold`}>{c.faltasConIngreso}</TableCell>
                   <TableCell className={NUM}>{c.tardanzas}</TableCell>
@@ -387,7 +395,9 @@ export function VistaCursos({ reporte }: { reporte: ReporteCursos }) {
         </section>
       )}
       <p className="text-sm text-muted-foreground">
-        Cuenta las listas de tus cursos (en tu tutoría, de todos los cursos del salón). «Ingresó pero faltó»: el alumno entró al colegio ese día y no estuvo en la clase. La asistencia al colegio solo se ve en tu salón de tutoría.
+        {familia
+          ? "Cuenta las listas que cada profesor pasa en su clase; no cambian el porcentaje de asistencia al colegio. % asistencia = clases sin falta ÷ clases con lista. «Ingresó pero faltó»: entró al colegio ese día y no estuvo en la clase."
+          : "Cuenta las listas de tus cursos (en tu tutoría, de todos los cursos del salón). «Ingresó pero faltó»: el alumno entró al colegio ese día y no estuvo en la clase. La asistencia al colegio solo se ve en tu salón de tutoría."}
       </p>
     </>
   );

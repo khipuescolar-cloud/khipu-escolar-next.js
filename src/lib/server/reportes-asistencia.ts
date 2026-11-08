@@ -486,25 +486,39 @@ export type ReporteCursos = {
 
 /**
  * Asistencia a clase de los cursos que el rol puede ver, filtrada por salón, grado, alumno y curso. Profesor: los
- * cursos que dicta y todos los de su tutoría (403 si el filtro no deja ninguno o el curso no es suyo). No incluye la
- * asistencia al colegio. Auditado (`tipo: "cursos"`).
+ * cursos que dicta y todos los de su tutoría (403 si el filtro no deja ninguno o el curso no es suyo). Apoderado y
+ * alumno: solo con `alumnoId` de un hijo (o el propio), los cursos de su salón. No incluye la asistencia al colegio.
+ * Auditado (`tipo: "cursos"`).
  */
 export async function reporteCursos(ctx: TenantContext, filtros: FiltrosReporte, como: AccionReporte = { accion: "ver" }): Promise<ReporteCursos> {
   requireFeature(ctx, "asistencia");
-  if (!veTodo(ctx) && ctx.rol !== "profesor") forbidden();
+  const familia = esVistaFamilia(ctx.rol);
+  if (!veTodo(ctx) && ctx.rol !== "profesor" && !familia) forbidden();
   const { desde, hasta } = rangoSchema.parse(filtros);
   const cursoId = filtros.cursoId && filtros.cursoId !== MIS_CURSOS ? z.uuid().parse(filtros.cursoId) : null;
   const alumnoId = filtros.alumnoId ? z.uuid().parse(filtros.alumnoId) : null;
+  // La familia solo ve a sus hijos (el alumno, a sí mismo): siempre con un alumno visible.
+  if (familia) {
+    if (!alumnoId) forbidden();
+    await requireAlumnoVisible(ctx, alumnoId);
+  }
   const alumno = alumnoId
     ? await ctx.db.alumno.findFirst({ where: { id: alumnoId, estado: "activo" }, select: { id: true, nombres: true, apellidos: true, salonId: true, salon: { select: { nombre: true } } } })
     : null;
   if (alumnoId && !alumno) notFound();
   const salonId = alumno?.salonId ?? (filtros.salonId ? z.uuid().parse(filtros.salonId) : null);
   const grado = !salonId && filtros.grado ? filtros.grado : null;
-  const elegidos = (await cursosDelReporte(ctx)).filter((c) =>
+  const visibles = familia
+    ? await ctx.db.curso.findMany({
+        where: { salonId: alumno!.salonId, salon: whereSalonActivo },
+        orderBy: { nombre: "asc" },
+        select: { id: true, nombre: true, salonId: true, salon: { select: { nombre: true, nivel: true, grado: true } } },
+      })
+    : await cursosDelReporte(ctx);
+  const elegidos = visibles.filter((c) =>
     (!salonId || c.salonId === salonId) && (!grado || (c.salon.nivel === grado.nivel && c.salon.grado === grado.grado)) && (!cursoId || c.id === cursoId));
   if (elegidos.length === 0 && (cursoId || salonId || grado)) {
-    if (!veTodo(ctx)) forbidden();
+    if (!veTodo(ctx) && !familia) forbidden();
     if (cursoId) notFound();
   }
   const cursos = elegidos.filter((c) => asistenciaPorCursoActiva(ctx.tenant.asistenciaPorCursoNiveles, c.salon.nivel));
