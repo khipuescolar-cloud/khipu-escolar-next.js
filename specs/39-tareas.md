@@ -122,18 +122,21 @@ avisada_at IS NULL AND publicar_en <= now()` y reclamo atómico de `avisada_at`)
 publicada la avisa el outbox de evaluaciones. Sin «avisar» al crear, `avisada_at` se fija al crear (el cron no avisa).
 
 ## Rutas y UI
-- `/tareas` (profesor/dirección), `ListaDocente.tsx`:
-  - **Para revisar** (solo profesor, arriba): dos columnas por sección de tarea publicada o cerrada (no programada).
-    «Hoy» = el plazo vence hoy, o ya venció / no tiene fecha y quedan entregas por revisar (estado `entregada`).
-    «Próximos 7 días» = el plazo vence en los próximos 7 días. Regla pura `agendaDeRevision` (`src/lib/tareas.ts`).
-    Cada fila abre `/tareas/<id>/revision?curso=<cursoId>`. Ignora el filtro de estado (siempre mira las activas).
-  - **Lista agrupada por salón y, dentro, por curso.** Una tarea con varias secciones aparece en cada salón, con
-    «También en …», su plazo, «N por revisar» y contadores de esa sección. Filtros por curso y estado; «Nueva tarea»
-    en un diálogo por secciones (Para quién, La tarea, Plazo, Publicación, Opciones). Encabezado «Académico».
-  - **Acciones de cada fila**, en una sola línea alineada a la derecha (botones `sm`, misma altura), de izquierda a
-    derecha: eliminar (ícono; solo si nadie empezó una entrega, `tieneEntregas`), «Reabrir» (solo tareas `cerrada` de
-    antes), «Editar» (autor) y, al extremo, la principal con ancho mínimo fijo: «Revisar entregas» o «Publicar» en un
-    borrador. Así la principal queda en la misma columna en todas las filas. Filtro de estado sin «Archivadas».
+- `/tareas` (profesor/dirección), `ListaDocente.tsx` (rediseño 2026-11-08, mismo lenguaje que la vista del alumno):
+  - **Para revisar** (solo profesor, arriba): banda de color de la sección (como «Vence pronto» del alumno) con
+    tarjetas por sección de tarea publicada o cerrada (no programada), en dos grupos: «Hoy» = el plazo vence hoy, o ya
+    venció / no tiene fecha y quedan entregas por revisar (estado `entregada`); «Próximos 7 días» = vence en los
+    próximos 7 días. Regla pura `agendaDeRevision` (`src/lib/tareas.ts`). Cada tarjeta (salón · curso, título, plazo,
+    «N por revisar», barra «3/12 entregaron», «Revisar →») abre `/tareas/<id>/revision?curso=<cursoId>`. Sin nada:
+    «Estás al día…». Siempre mira las tareas no archivadas, aunque se elija otra pestaña.
+  - **Pestañas con su cantidad** («Ver tareas»): Todas (sin archivadas) · Borradores · Programadas · Cerradas ·
+    Archivadas (`?estado=`). A la derecha, el filtro «Todos los cursos» (si hay más de uno) con «Ver».
+  - **Tarjetas por salón** (dos columnas en escritorio) y, dentro, las tareas por curso. Una tarea con varias secciones
+    aparece en cada salón, con «También en …». Cada fila: nudo de estado, título, estado (solo si no es publicada),
+    plazo, «N por revisar» y la barra de entregas; toda la fila abre «Revisar entregas» de ese salón (un borrador no
+    es enlace). «Nueva tarea» en un diálogo por secciones (Para quién, La tarea, Plazo, Publicación, Opciones).
+  - **Acciones de cada fila**, íconos a la derecha (en el celular, debajo de la tarea): eliminar (solo si nadie empezó
+    una entrega, `tieneEntregas`), «Reabrir» (solo tareas `cerrada` de antes), editar (autor) y «Publicar» en un borrador.
   - `tareasDelDocente` devuelve, por tarea, solo las `secciones` que el usuario puede revisar (`puedeRevisarSeccion`),
     con `contadores.porRevisar`; el profesor ve las que creó o con sección en un curso que dicta. Así «Revisar entregas»
     nunca lleva a la página «No tienes acceso» (antes el tutor veía tareas de cursos ajenos de su salón).
