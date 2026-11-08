@@ -20,6 +20,7 @@
     "db:seed": "prisma db seed",
     "db:reconstruir": "tsx scripts/datos-piloto/reconstruir.ts --credenciales ../../credenciales-pruebas.md",
     "cron:local": "tsx scripts/cron-local.ts",
+    "db:demo-plan-anual": "tsx scripts/datos-piloto/plan-anual-demo.ts",
     "db:credenciales": "tsx scripts/datos-piloto/credenciales.ts --salida ../../credenciales-pruebas.md",
     "db:studio": "prisma studio",
     "khipu:borrar-colegio": "tsx --conditions=react-server scripts/borrar-colegio.ts",

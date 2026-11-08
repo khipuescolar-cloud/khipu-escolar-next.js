@@ -1,7 +1,7 @@
 import type { EnvioRespuesta, EjercicioConSolucion, Tema } from "@/lib/nudito/contratos";
 import { ejercicioPara } from "@/lib/nudito/generadores/registro";
 import { evaluar } from "@/lib/nudito/evaluadores";
-import type { Leccion } from "@/lib/nudito/leccion";
+import { esquemaLeccion, type Leccion } from "@/lib/nudito/leccion";
 
 function respuestaDe(e: EjercicioConSolucion): EnvioRespuesta["respuesta"] {
   const s = e.solucion;
@@ -33,4 +33,16 @@ export function muestrasDelTema(tema: Tema): Leccion["ejerciciosMuestra"] {
     }
   }
   return muestras;
+}
+
+/** Lección `catalogo`: se arma sin IA desde el repaso del catálogo y muestras verificadas. Pura (la usa también el seed). */
+export function armarLeccionCatalogo(tema: Tema): Leccion {
+  return esquemaLeccion.parse({
+    titulo: tema.nombre, idea: tema.repaso.idea.slice(0, 400),
+    explicacion: tema.repaso.idea.slice(0, 1500),
+    ejemplos: [{ enunciado: tema.nombre, desarrollo: tema.repaso.ejemplo }],
+    ...(tema.repaso.errorFrecuente ? { errorFrecuente: tema.repaso.errorFrecuente } : {}),
+    recursos: tema.recursos.map(r => ({ tipo: "enlace", titulo: r.titulo, valor: r.url })),
+    ejerciciosMuestra: muestrasDelTema(tema),
+  });
 }

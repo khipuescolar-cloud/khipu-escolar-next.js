@@ -50,3 +50,11 @@ Ciencia y Tecnología en 3.° B, 5.° B y 6.° A), `porteria@`, `lucas.huaman@` 
   `tests/e2e/ayudantes/colegio-temporal.ts` (BD + usuarios de Auth). Fechas relativas a hoy con `tests/e2e/ayudantes/datos-demo.ts`.
 - Los e2e limpian lo que crean (asistencia de hoy de 3.° B con sus avisos y justificaciones, mensajes, comunicados, tareas…).
   Igual, tras una corrida completa conviene `pnpm db:reconstruir` para volver a los datos limpios.
+
+## Planes anuales y lecciones de Nudito (2026-11-08, specs/48–49)
+- `prisma/seed-plan-anual.ts` (lo llama `prisma/seed.ts`, por tanto también `pnpm db:reconstruir`) y `pnpm db:demo-plan-anual`
+  (solo BD local, idempotente, sin reconstruir): un plan **publicado** por cada grupo (año, nivel, grado, área de Nudito) con
+  todos los temas del catálogo de su grado, participantes, conformidades y lecciones `catalogo` publicadas (contenido
+  pendiente de revisión pedagógica real; publicado solo como dato demo).
+- **3.° de primaria · Matemática queda sin plan** para probar el flujo completo a mano: docentes
+  `jorge.villanueva@nuevohorizonte.demo` (3.° A) y `lucia.garcia@nuevohorizonte.demo` (3.° B), dirección para designar coordinador.

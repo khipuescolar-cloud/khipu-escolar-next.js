@@ -148,6 +148,10 @@ Rutas implementadas: `/planificacion`, `/planificacion/[planId]` (redirige a Tem
   privado, catálogo global intacto).
 - e2e: `tests/e2e/plan-anual-nudito.test.ts` (flujo completo, ver specs/49).
 
+## Datos demo
+- `pnpm db:demo-plan-anual` / seed: ver specs/35. 3.° primaria · Matemática queda sin plan para la demostración manual.
+- Prueba de servicios del flujo completo: `tests/integracion/plan-anual-flujo-completo.test.ts`.
+
 ## Pendientes
 - Solicitud de acceso al grado superior (prevista, no implementada).
 - Las rutas de Materiales y Progreso y el flujo e2e conjunto se integran con el trabajo paralelo de specs/49.

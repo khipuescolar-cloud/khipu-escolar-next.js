@@ -32,16 +32,7 @@ export async function listarLeccionesDelPlan(ctx: TenantContext, planId: string)
   return claves.map(temaClave => ({ temaClave, leccion: vigentes.get(temaClave) ?? null }));
 }
 
-export function armarLeccionCatalogo(tema: Tema): Leccion {
-  return esquemaLeccion.parse({
-    titulo: tema.nombre, idea: tema.repaso.idea.slice(0, 400),
-    explicacion: tema.repaso.idea.slice(0, 1500),
-    ejemplos: [{ enunciado: tema.nombre, desarrollo: tema.repaso.ejemplo }],
-    ...(tema.repaso.errorFrecuente ? { errorFrecuente: tema.repaso.errorFrecuente } : {}),
-    recursos: tema.recursos.map(r => ({ tipo: "enlace", titulo: r.titulo, valor: r.url })),
-    ejerciciosMuestra: muestrasDelTema(tema),
-  });
-}
+export { armarLeccionCatalogo } from "./muestras";
 
 async function validarContenido(ctx: TenantContext, temaClave: string, contenido: Leccion) {
   const [sitios, propio] = await Promise.all([
