@@ -1,4 +1,4 @@
-import { CheckCircle2, Circle, Lightbulb, RefreshCw, Sprout } from "lucide-react";
+import { CheckCircle2, Circle, CircleOff, Lightbulb, RefreshCw, Sprout } from "lucide-react";
 import { ListaDividida } from "@/components/ui/Superficies";
 import { TituloBloque } from "@/components/shell/TituloBloque";
 import { formatoDia } from "@/lib/fechas";
@@ -45,7 +45,7 @@ export function ProgresoTemas({ areas, temas, vacio }: { areas: AreaNudito[]; te
                   <div className="flex flex-col gap-1.5 p-4 sm:px-5">
                     <div className="flex flex-wrap items-start justify-between gap-2">
                       <p className="font-semibold">{t.nombre}{t.subtema ? <span className="font-normal text-muted-foreground"> · {t.subtema}</span> : null}</p>
-                      <EstadoTema estado={t.estado} />
+                      <span className="flex flex-wrap gap-2"><EstadoTema estado={t.estado} />{t.fueraDelPlan && <span className="inline-flex items-center gap-1 text-cuerpo-sm text-muted-foreground"><CircleOff className="size-4" strokeWidth={2} aria-hidden />Fuera del plan vigente</span>}</span>
                     </div>
                     <p className="text-cuerpo-sm tabular-nums">
                       {t.aciertos} de {t.intentos} aciertos · {t.aciertosSinPista} sin pista

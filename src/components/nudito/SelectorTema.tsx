@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowLeft, ChevronDown, PencilLine, Send, Star } from "lucide-react";
+import { ArrowLeft, ChevronDown, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Tema, TemaVista, ValidacionTema } from "@/lib/nudito/contratos";
 import { ENTRADA_PASO, EtiquetaEstado, TituloPaso, VozNudito, type NivelVista } from "./piezas";
@@ -19,7 +18,7 @@ function textoDe(v: Aviso): string {
   return v.tipo === "ambiguo" ? v.pregunta : v.mensaje;
 }
 
-/** Temas del curso (recomendados primero) y «Otro tema» con validación en el servidor. */
+/** Temas del curso (recomendados primero) del plan publicado. */
 export function SelectorTema({
   curso,
   temas,
@@ -27,7 +26,6 @@ export function SelectorTema({
   aviso,
   ocupado,
   onElegir,
-  onOtroTema,
   onVolver,
 }: {
   curso: string;
@@ -36,11 +34,8 @@ export function SelectorTema({
   aviso: Aviso | null;
   ocupado: boolean;
   onElegir: (clave: string) => void;
-  onOtroTema: (texto: string) => void;
   onVolver: () => void;
 }) {
-  const [otro, setOtro] = useState(false);
-  const [texto, setTexto] = useState("");
   const ordenados = [...temas].sort((a, b) => Number(b.recomendado) - Number(a.recomendado));
   // Primero los de su grado (recomendados) y los que ya practica; el resto (grados anteriores) va plegado para no
   // abrumar con decenas de tarjetas, sobre todo en el celular.
@@ -80,55 +75,16 @@ export function SelectorTema({
         <TituloPaso id="paso-tema">¿Qué tema de {curso}?</TituloPaso>
       </div>
 
-      {ordenados.length === 0 && <VozNudito>Aún no tengo temas listos para este curso. Prueba con «Otro tema».</VozNudito>}
+      {ordenados.length === 0 && <VozNudito>Tu colegio está preparando los temas de este curso.</VozNudito>}
 
       <ul className={lista}>
         {principales.map(tarjeta)}
-        <li>
-          {otro ? (
-            <form
-              className="flex flex-col gap-2 rounded-[var(--radio-lg)] border border-dashed border-input bg-superficie p-3"
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (texto.trim().length >= 2) onOtroTema(texto.trim());
-              }}
-            >
-              <label htmlFor="otro-tema" className="text-etiqueta">
-                ¿Qué tema quieres practicar?
-              </label>
-              <div className="flex gap-2">
-                <input
-                  id="otro-tema"
-                  autoFocus
-                  value={texto}
-                  maxLength={200}
-                  onChange={(e) => setTexto(e.target.value)}
-                  placeholder="Por ejemplo: fracciones"
-                  className="h-11 min-w-0 flex-1 rounded-[var(--radio-md)] border border-input bg-background px-3 text-cuerpo outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                />
-                <Button type="submit" size="icon-lg" disabled={ocupado || texto.trim().length < 2} aria-label="Buscar tema">
-                  <Send strokeWidth={2} aria-hidden />
-                </Button>
-              </div>
-            </form>
-          ) : (
-            <button
-              type="button"
-              onClick={() => setOtro(true)}
-              disabled={ocupado}
-              className="flex min-h-14 w-full items-center gap-2 rounded-[var(--radio-lg)] border border-dashed border-input bg-transparent p-3 text-left font-semibold outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <PencilLine className="size-5" strokeWidth={2} aria-hidden />
-              Otro tema
-            </button>
-          )}
-        </li>
       </ul>
 
       {otros.length > 0 && (
         <details className="group flex flex-col gap-3 rounded-[var(--radio-lg)] border border-borde-sutil bg-superficie-2 p-3">
           <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 rounded-[var(--radio-md)] font-semibold outline-none focus-visible:ring-2 focus-visible:ring-ring">
-            Repasar temas de grados anteriores ({otros.length})
+            Más temas del plan ({otros.length})
             <ChevronDown className="size-5 transition-transform group-open:rotate-180 motion-reduce:transition-none" strokeWidth={2} aria-hidden />
           </summary>
           <ul className={`${lista} mt-3`}>{otros.map(tarjeta)}</ul>

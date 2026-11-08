@@ -118,3 +118,6 @@ tiene al menos uno). Matemática: todos los temas del catálogo (primaria 1.°�
 - (Hecho por C, 2026-11-04) `contexto` de prerrequisitos a `evaluarDominio`, dificultad acotada a `tema.dificultad`, `usados` a
   `ejercicioPara` y eventos con su motivo. Nuevo subtipo `decimales` de `mat.operaciones` (desde 4.° de primaria, clave
   «decimal»: suma/resta con 1–2 decimales, problemas en soles, × 10/100/natural; `tests/unit/nudito-generador-decimales.test.ts`).
+
+## Selección vigente (specs/49, 2026-11-08)
+La política de dominio, incluidas las evidencias y los eventos `desbloqueo_tema`, conserva su historial y cálculo. Esos eventos no amplían la lista de temas de `/nudito`: solo se seleccionan temas del plan anual publicado con lección publicada. Al completar el plan, la práctica libre de un tema ya dominado puede usar su dificultad máxima; no se abre el grado superior.

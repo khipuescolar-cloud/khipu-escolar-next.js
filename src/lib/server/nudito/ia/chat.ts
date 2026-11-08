@@ -1,6 +1,7 @@
 import "server-only";
 import type { MensajeTutorIA, ProveedorTutorIA, SalidaIA } from "@/lib/nudito/contratos";
 import { extraerJson } from "./esquemas";
+import { muestrasDelTema } from "../lecciones/muestras";
 
 // Base común de los adaptadores REALES (Claude, GPT, Gemini): convierten cada operación del tutor en una llamada de chat
 // con instrucciones fijas y piden JSON. Aquí NO se valida (lo hace `conValidacion` con zod, con reintento y respaldo).
@@ -53,6 +54,9 @@ export function crearProveedorChat(nombre: string, modelo: string, llamar: Llama
       // Los adaptadores de texto no envían imágenes: la foto se interpreta solo cuando se configure un modelo con visión.
       throw new Error(`${nombre}: interpretarImagen no configurado`);
     },
+    generarLeccion: ({ tema, grado, nivel }) => json(
+      "Redacta una lección escolar breve en español del Perú. Devuelve titulo, idea, explicacion, ejemplos (1 a 3), recursos (arreglo vacío) y ejerciciosMuestra (1 a 5). Usa solo las muestras verificadas adjuntas y no inventes datos personales.",
+      { tema: tema.nombre, grado, nivel, repaso: tema.repaso, muestras: muestrasDelTema(tema) }, 1800),
     sugerirTemas: ({ texto, candidatos }) =>
       json('Elige hasta 3 claves de la lista de candidatos que correspondan al pedido. Formato: {"claves": string[]}.', { texto, candidatos }, 120),
   };

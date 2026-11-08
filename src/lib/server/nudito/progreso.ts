@@ -2,6 +2,7 @@ import "server-only";
 import { forbidden, notFound } from "next/navigation";
 import { z } from "zod";
 import { temaPorClave } from "@/lib/nudito/catalogo";
+import { clavesDeVersion } from "@/lib/nudito/plan-publicado-reglas";
 import {
   AREAS_NUDITO, esAreaNudito, esquemaEvidenciaPractica, type AreaNudito, type EntradaApi, type EstadoDominio, type SalidaApi, type TemaClave,
 } from "@/lib/nudito/contratos";
@@ -88,6 +89,7 @@ export type TemaProgresoDetalle = {
   /** Motivo legible del último cambio (progresión, refuerzo…). */
   motivo: string | null;
   ultimaPractica: string | null;
+  fueraDelPlan: boolean;
 };
 
 async function dominiosVisibles(ctx: TenantContext, alumnoId: string, area?: AreaNudito) {
@@ -117,6 +119,11 @@ function pistasPromedio(evidencia: unknown): number | null {
 export async function detalleProgresoAlumno(ctx: TenantContext, alumnoId: string, area?: AreaNudito): Promise<{ areas: AreaNudito[]; temas: TemaProgresoDetalle[] }> {
   const { areas, filas } = await dominiosVisibles(ctx, alumnoId, area);
   const nombres = await nombresDeTemas(ctx.db, filas.map((f) => f.temaClave));
+  const alumno = await ctx.db.alumno.findFirst({ where: { id: alumnoId }, select: { salon: { select: { anio: true, nivel: true, grado: true } } } });
+  const salon = alumno?.salon;
+  const planes = salon?.grado ? await ctx.db.planAnual.findMany({ where: { anio: salon.anio, nivel: salon.nivel, grado: salon.grado, area: { in: areas }, versionPublicada: { gt: 0 } }, select: { id: true, versionPublicada: true } }) : [];
+  const versiones = planes.length ? await ctx.db.planAnualVersion.findMany({ where: { OR: planes.map(p => ({ planId: p.id, numero: p.versionPublicada })) }, select: { temas: true } }) : [];
+  const vigentes = new Set(versiones.flatMap(v => clavesDeVersion(v.temas)));
   return {
     areas,
     temas: filas
@@ -135,6 +142,7 @@ export async function detalleProgresoAlumno(ctx: TenantContext, alumnoId: string
         pistasPromedio: pistasPromedio(f.evidencia),
         motivo: f.motivo,
         ultimaPractica: f.intentos > 0 ? f.updatedAt.toISOString() : null,
+        fueraDelPlan: !vigentes.has(f.temaClave),
       })),
   };
 }
