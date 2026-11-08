@@ -73,6 +73,10 @@ describe("plan anual compartido", () => {
     observacionId = obs.id;
     expect((await obtenerPlan(a.ctxDe("tutora"), planId)).estado).toBe("con_observaciones");
   });
+  it("4b: no guarda conformidad con observaciones sin comentario", async () => {
+    await expect(registrarConformidad(a.ctxDe("otroProfesor"), planId, { decision: "observaciones" })).rejects.toThrow("Explica tus observaciones.");
+    expect(await a.db.planAnualConformidad.count({ where: { planId, membershipId: a.miembros.otroProfesor.membership.id } })).toBe(0);
+  });
   it("5: el coordinador resuelve la observación", async () => {
     await resolverObservacion(a.ctxDe("tutora"), observacionId, "Orden revisado con el equipo.");
     expect((await a.db.planAnualComentario.findFirst({ where: { id: observacionId } }))?.estado).toBe("resuelta");

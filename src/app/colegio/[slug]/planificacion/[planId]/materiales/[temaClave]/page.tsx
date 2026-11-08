@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { CircleCheck, CircleDashed, CircleX, Clock3 } from "lucide-react";
+import { FormAccion } from "@/components/FormAccion";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { esquemaLeccion } from "@/lib/nudito/leccion";
 import { temaPorClave } from "@/lib/nudito/catalogo";
@@ -38,11 +39,27 @@ export default async function LeccionPage({ params }: PageProps<"/colegio/[slug]
       </li>)}</ol>
     </section>
     {contenido.recursos.length > 0 && <section className="rounded-lg border border-borde-sutil bg-superficie p-4"><h2 className="font-semibold">Recursos</h2><ul>{contenido.recursos.map((r,i) => <li key={i}>{r.titulo} ({r.tipo}): <code className="break-all">{r.valor}</code></li>)}</ul></section>}
-    {["borrador","cambios_solicitados"].includes(l.estado) && <form action={editarAction.bind(null, planId, l.id)} className="space-y-2">
-      <label htmlFor="contenido-leccion" className="block font-semibold">Editar contenido JSON</label>
-      <textarea id="contenido-leccion" name="contenido" defaultValue={JSON.stringify(contenido,null,2)} rows={16} className="w-full min-w-0 rounded-lg border border-input bg-background p-3 font-mono text-cuerpo-sm" />
-      <button className="min-h-11 rounded-lg border border-input px-4 font-semibold">Guardar edición docente</button>
-    </form>}
+    {["borrador","cambios_solicitados"].includes(l.estado) && <section className="min-w-0 rounded-lg border border-borde-sutil bg-superficie p-4">
+      <h2 className="text-lg font-semibold">Editar lección</h2>
+      <p className="mt-1 text-sm text-muted-foreground">Revisa el repaso y las respuestas antes de enviarlo a aprobación.</p>
+      <FormAccion accion={editarAction.bind(null, planId, l.id)} etiqueta="Guardar edición docente" className="mt-4 grid min-w-0 gap-4">
+        <label className="grid gap-1 text-sm font-medium">Título<input name="titulo" required maxLength={200} defaultValue={contenido.titulo} className="h-11 min-w-0 rounded-md border border-input bg-background px-3" /></label>
+        <label className="grid gap-1 text-sm font-medium">Idea principal<textarea name="idea" required maxLength={400} defaultValue={contenido.idea} className="min-h-20 min-w-0 rounded-md border border-input bg-background p-3" /></label>
+        <label className="grid gap-1 text-sm font-medium">Explicación<textarea name="explicacion" required maxLength={1500} defaultValue={contenido.explicacion} className="min-h-32 min-w-0 rounded-md border border-input bg-background p-3" /></label>
+        <fieldset className="grid min-w-0 gap-3"><legend className="font-semibold">Ejemplos (1 a 3)</legend>
+          {Array.from({ length: 3 }, (_, i) => <div key={i} className="grid min-w-0 gap-2 rounded-md border border-borde-sutil p-3"><p className="text-sm font-medium">Ejemplo {i + 1}</p>
+            <label className="grid gap-1 text-sm">Enunciado<input name={"ejemploEnunciado" + i} defaultValue={contenido.ejemplos[i]?.enunciado ?? ""} maxLength={1000} className="h-11 min-w-0 rounded-md border border-input bg-background px-3" /></label>
+            <label className="grid gap-1 text-sm">Desarrollo<textarea name={"ejemploDesarrollo" + i} defaultValue={contenido.ejemplos[i]?.desarrollo ?? ""} maxLength={1500} className="min-h-20 min-w-0 rounded-md border border-input bg-background p-3" /></label>
+          </div>)}</fieldset>
+        <label className="grid gap-1 text-sm font-medium">Error frecuente (opcional)<textarea name="errorFrecuente" maxLength={500} defaultValue={contenido.errorFrecuente ?? ""} className="min-h-20 min-w-0 rounded-md border border-input bg-background p-3" /></label>
+        <fieldset className="grid min-w-0 gap-3"><legend className="font-semibold">Ejercicios de muestra (1 a 5)</legend>
+          {Array.from({ length: 5 }, (_, i) => <div key={i} className="grid min-w-0 gap-2 rounded-md border border-borde-sutil p-3"><p className="text-sm font-medium">Muestra {i + 1}</p>
+            <label className="grid gap-1 text-sm">Enunciado<input name={"muestraEnunciado" + i} defaultValue={contenido.ejerciciosMuestra[i]?.enunciado ?? ""} maxLength={1000} className="h-11 min-w-0 rounded-md border border-input bg-background px-3" /></label>
+            <label className="grid gap-1 text-sm">Respuesta<input name={"muestraRespuesta" + i} defaultValue={contenido.ejerciciosMuestra[i]?.respuesta ?? ""} maxLength={1000} className="h-11 min-w-0 rounded-md border border-input bg-background px-3" /></label>
+            <label className="grid gap-1 text-sm">Pistas (una por línea)<textarea name={"muestraPistas" + i} defaultValue={contenido.ejerciciosMuestra[i]?.pistas.join("\n") ?? ""} className="min-h-20 min-w-0 rounded-md border border-input bg-background p-3" /></label>
+          </div>)}</fieldset>
+      </FormAccion>
+    </section>}
     <div className="flex flex-wrap gap-2">{botones.filter(([accion]) => acciones.includes(accion)).map(([accion,texto]) => <form key={accion} action={revisarAction.bind(null, planId, l.id, accion)} className="flex flex-wrap gap-2">
       {(accion === "cambios" || accion === "retirar") && <input name="comentario" aria-label={"Motivo para " + texto.toLowerCase()} placeholder="Motivo" className="min-h-11 rounded-lg border border-input bg-background px-3" />}
       <button className="min-h-11 rounded-lg border border-input px-4 font-semibold">{texto}</button>

@@ -96,6 +96,9 @@ metricasContenido(ctx, { desde?, hasta? }): { reutilizadas, generadas, solicitud
 - `/nudito` (alumno / modo hijo): bienvenida con nombre → curso → temas del plan (sin «Otro tema») → repaso → práctica →
   resultados (completados, aciertos, dificultades, habilidades, recomendaciones) → felicitación si completa el plan.
 
+## Edición docente (QA)
+La pantalla de materiales usa campos etiquetados para título, idea, explicación, hasta tres ejemplos, error frecuente y hasta cinco muestras con respuesta y pistas. El servidor reconstruye y valida con `esquemaLeccion`; los recursos vigentes se conservan y los errores de forma se muestran junto al formulario.
+
 ## Pruebas
 - unit: `leccion-validacion.test.ts`, `plan-publicado-reglas.test.ts`.
 - integración: `nudito-plan-anual.test.ts` (casos 13–28 del pedido).

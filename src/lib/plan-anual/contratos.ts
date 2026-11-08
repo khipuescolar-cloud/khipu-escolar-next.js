@@ -16,8 +16,8 @@ export const esquemaComentar = z.object({
 });
 export const esquemaConformidad = z.object({
   decision: z.enum(["conforme", "observaciones"]),
-  comentario: texto.max(3000).optional(),
-}).refine(x => x.decision !== "observaciones" || !!x.comentario, "Explica tus observaciones.");
+  comentario: z.string().trim().max(3000).optional(),
+}).refine(x => x.decision !== "observaciones" || !!x.comentario, { message: "Explica tus observaciones.", path: ["comentario"] });
 export const esquemaOrdenarTemas = z.array(z.object({
   temaClave: texto.max(200),
   orden: z.number().int().nonnegative(),

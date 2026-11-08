@@ -137,6 +137,10 @@ Rutas implementadas: `/planificacion`, `/planificacion/[planId]` (redirige a Tem
 - Lo que ve el alumno se lee de la **última `plan_anual_versiones` publicada** (no de las filas vivas), filtrado por
   temas con lección publicada (specs/49).
 
+## Pulido de revisión (QA)
+- Comentarios y observaciones muestran autor y fecha/hora en la zona horaria del colegio. La observación abierta se resuelve con un motivo escrito antes de reenviar.
+- «Con observaciones» exige comentario no vacío; Zod rechaza el envío antes de escribir la conformidad.
+
 ## Pruebas
 - unit: `tests/unit/plan-anual-estados.test.ts` (máquina de estados).
 - integración: `tests/integracion/plan-anual.test.ts` (casos 1–12 del pedido: compartir plan, aislamiento por curso y

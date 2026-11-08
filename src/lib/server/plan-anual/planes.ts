@@ -29,7 +29,7 @@ export async function obtenerPlan(ctx: TenantContext, planId: string) {
   return ctx.db.planAnual.findFirstOrThrow({ where: { id: planId }, include: {
     temas: { orderBy: { orden: "asc" } }, unidades: { orderBy: { orden: "asc" } },
     participantes: { include: { membership: { select: { user: { select: { nombres: true, apellidos: true } } } } }, orderBy: { createdAt: "asc" } },
-    comentarios: { orderBy: { createdAt: "asc" } }, conformidades: { orderBy: { createdAt: "desc" } },
+    comentarios: { orderBy: { createdAt: "asc" }, include: { autor: { select: { user: { select: { nombres: true, apellidos: true } } } } } }, conformidades: { orderBy: { createdAt: "desc" } },
   } });
 }
 export async function crearPlan(ctx: TenantContext, entrada: unknown) {

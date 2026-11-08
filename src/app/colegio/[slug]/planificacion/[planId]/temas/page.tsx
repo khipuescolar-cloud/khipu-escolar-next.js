@@ -17,6 +17,7 @@ export default async function TemasPage({ params, searchParams }: { params: Prom
   const propios = await ctx.db.nuditoTemaColegio.findMany({ where: { id: { in: plan.temas.filter(t => t.temaClave.startsWith("col:")).map(t => t.temaClave.slice(4)) } }, select: { id: true, nombre: true } });
   const tipoFuente = plan.area === "matematica" ? "generador" : plan.area === "comunicacion" ? "lecturas" : "banco";
   const fuentes = plan.area === "matematica" || plan.area === "comunicacion" || plan.area === "ciencia-tecnologia" ? FUENTES_CONOCIDAS[tipoFuente] : [];
+  const fecha = (valor: Date) => new Intl.DateTimeFormat("es-PE", { dateStyle: "medium", timeStyle: "short", timeZone: ctx.tenant.zonaHoraria }).format(valor);
   const nombreTema = (clave: string) => temaPorClave(clave)?.nombre ?? propios.find(t => "col:" + t.id === clave)?.nombre ?? clave;
   const consulta = (pagina: number) => "?q=" + encodeURIComponent(sp.q ?? "") + "&competencia=" + encodeURIComponent(sp.competencia ?? "") + "&pagina=" + pagina;
   return <div className="grid min-w-0 gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
@@ -60,7 +61,7 @@ export default async function TemasPage({ params, searchParams }: { params: Prom
           </div>
           {editando && plan.unidades.length > 0 && <FormAccion accion={accionPlan.bind(null, slug, planId, "asignar_unidad")} etiqueta="Asignar unidad" className="mt-3 flex flex-wrap items-end gap-2"><input type="hidden" name="temaClave" value={t.temaClave} /><label className="grid gap-1 text-sm">Unidad<select name="unidadId" defaultValue={t.unidadId ?? ""} className="h-11 rounded-md border border-input bg-background px-3"><option value="">Sin unidad</option>{plan.unidades.map(u => <option key={u.id} value={u.id}>{u.titulo}</option>)}</select></label></FormAccion>}
           <div className="mt-3 border-t border-borde-sutil pt-3"><p className="mb-2 inline-flex items-center gap-2 text-sm font-medium"><MessageSquare className="size-4" aria-hidden />Comentarios</p>
-            {plan.comentarios.filter(c => c.temaClave === t.temaClave).map(c => <p key={c.id} className="mb-2 rounded-md bg-superficie-2 p-2 text-sm">{c.contenido}</p>)}
+            {plan.comentarios.filter(c => c.temaClave === t.temaClave).map(c => <div key={c.id} className="mb-2 rounded-md bg-superficie-2 p-2 text-sm"><p className="text-xs text-muted-foreground">{c.autor.user.nombres} {c.autor.user.apellidos} · {fecha(c.createdAt)}</p><p className="mt-1">{c.contenido}</p></div>)}
             {plan.estado !== "archivado" && <FormAccion accion={accionPlan.bind(null, slug, planId, "comentar")} etiqueta="Comentar" className="grid gap-2"><input type="hidden" name="temaClave" value={t.temaClave} /><textarea name="contenido" required maxLength={3000} aria-label={"Comentario sobre " + nombreTema(t.temaClave)} className="min-h-20 w-full rounded-md border border-input bg-background p-3" /></FormAccion>}
           </div>
         </li>)}</ol>}
