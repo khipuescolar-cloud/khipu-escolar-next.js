@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { EstadoAsistencia } from "@/components/EstadoAsistencia";
 import { InsigniaAhora } from "@/components/horario/Insignias";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
+import { PestanasLinea } from "@/components/shell/PestanasPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { buttonVariants } from "@/components/ui/button";
 import { TituloBloque } from "@/components/shell/TituloBloque";
@@ -205,6 +206,8 @@ async function VistaFamilia({ ctx, slug, mes, parametro }: { ctx: TenantContext;
   // El alumno con cuenta propia ve solo su asistencia: sin chat, sin justificar y sin preferencias de avisos (son de la familia).
   // Su página junta la llegada al colegio (calendario del mes) y el reporte por fechas, al colegio y por curso (specs/27).
   const esAlumno = ctx.rol === "alumno";
+  // Alumno: dos pestañas, «Asistencia» (llegada al colegio) y «Reporte» (`?tab=reporte`: al colegio y por curso).
+  const enReporte = esAlumno && parametro("tab") === "reporte";
   const [historial, preferencias] = await Promise.all([historialDeHijos(ctx, mes), esAlumno ? null : obtenerPreferencias(ctx)]);
   const { anio, mes: numeroMes, hoy } = historial;
   // El alumno ve aquí solo el ingreso al colegio; sus clases están en el reporte «Por curso».
@@ -212,6 +215,17 @@ async function VistaFamilia({ ctx, slug, mes, parametro }: { ctx: TenantContext;
   return (
     <div className="flex flex-col gap-6">
       <EncabezadoPagina titulo="Asistencia" seccion="dia" descripcion={esAlumno ? "Tu llegada al colegio cada día y tu reporte de asistencia, al colegio y por curso." : "Calendario del mes de cada hijo, con el detalle de cada día."} />
+      {esAlumno && hijos.length > 0 && (
+        <div data-seccion="dia">
+          <PestanasLinea
+            etiqueta="Vistas de asistencia"
+            items={[
+              { href: "/asistencia", texto: "Asistencia", activo: !enReporte },
+              { href: "/asistencia?tab=reporte", texto: "Reporte", activo: enReporte },
+            ]}
+          />
+        </div>
+      )}
 
       {hijos.length === 0 && (
         <EstadoVacio
@@ -221,7 +235,7 @@ async function VistaFamilia({ ctx, slug, mes, parametro }: { ctx: TenantContext;
         />
       )}
 
-      {hijos.map((h) => (
+      {!enReporte && hijos.map((h) => (
         <section key={h.id} data-seccion="dia" className="flex flex-col gap-4" aria-labelledby={`hijo-${h.id}`}>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <TituloBloque id={`hijo-${h.id}`}>
@@ -290,7 +304,7 @@ async function VistaFamilia({ ctx, slug, mes, parametro }: { ctx: TenantContext;
         </section>
       ))}
 
-      {esAlumno && hijos.length > 0 && <ReporteFamilia ctx={ctx} ruta="/asistencia" parametro={parametro} conservar={{ mes: mes ?? null }} />}
+      {enReporte && hijos.length > 0 && <ReporteFamilia ctx={ctx} ruta="/asistencia" parametro={parametro} conservar={{ tab: "reporte" }} />}
 
       {preferencias && (
         <PreferenciasAvisos slug={slug} correo={preferencias.correo} push={preferencias.push} pushAcademico={preferencias.pushAcademico} vapidPublica={process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? ""} />

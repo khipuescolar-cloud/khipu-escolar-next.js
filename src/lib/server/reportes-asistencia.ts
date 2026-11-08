@@ -562,6 +562,70 @@ export async function reporteCursos(ctx: TenantContext, filtros: FiltrosReporte,
   };
 }
 
+export type ClaseAlumno = {
+  fecha: string;
+  hora: string;
+  estado: "llego" | "tarde" | "falta" | "problema";
+  nota: string | null;
+  justificacion: EstadoJustificacion | null;
+};
+
+export type HistorialCursoAlumno = {
+  tipo: "curso-alumno";
+  alumno: { id: string; nombres: string; apellidos: string; salon: string };
+  curso: { id: string; nombre: string; profesor: string | null };
+  desde: string;
+  hasta: string;
+  hastaEfectivo: string;
+  /** Cada clase con lista de ese curso en el rango, la más reciente primero. */
+  clases: ClaseAlumno[];
+  resumen: { clases: number; llego: number; tarde: number; falta: number; problema: number; porcentaje: number | null };
+};
+
+const entradaCursoAlumno = z.object({ alumnoId: z.uuid(), cursoId: z.uuid() }).and(rangoSchema);
+
+/**
+ * Historial de un alumno en un curso: cada clase con lista (llegó, tarde, no llegó, aviso), su hora y la justificación.
+ * Familia y alumno: solo sus hijos (o él mismo) y un curso de su salón. Dirección y administrativo: cualquiera.
+ * Profesor: el que dicta el curso o el tutor del salón. % = clases sin falta ÷ clases con lista. Auditado (`tipo: "curso-alumno"`).
+ */
+export async function historialCursoAlumno(ctx: TenantContext, entrada: unknown): Promise<HistorialCursoAlumno> {
+  requireFeature(ctx, "asistencia");
+  const { alumnoId, cursoId, desde, hasta } = entradaCursoAlumno.parse(entrada);
+  if (ctx.rol === "porteria") forbidden();
+  if (esVistaFamilia(ctx.rol)) await requireAlumnoVisible(ctx, alumnoId);
+  const [alumno, curso] = await Promise.all([
+    ctx.db.alumno.findFirst({ where: { id: alumnoId }, select: { id: true, nombres: true, apellidos: true, salonId: true, salon: { select: { nombre: true } } } }),
+    ctx.db.curso.findFirst({
+      where: { id: cursoId },
+      select: { id: true, nombre: true, salonId: true, profesorId: true, salon: { select: { tutorId: true } }, profesor: { select: { user: { select: { nombres: true, apellidos: true } } } } },
+    }),
+  ]);
+  if (!alumno || !curso) notFound();
+  if (curso.salonId !== alumno.salonId) forbidden();
+  if (ctx.rol === "profesor" && curso.profesorId !== ctx.membership.id && curso.salon.tutorId !== ctx.membership.id) forbidden();
+  if (!veTodo(ctx) && !esVistaFamilia(ctx.rol) && ctx.rol !== "profesor") forbidden();
+  const hastaEfectivo = hastaEfectivoDe(ctx, hasta);
+  const registros = await ctx.db.asistencia.findMany({
+    where: { alumnoId, ambito: cursoId, fecha: { gte: fechaDb(desde), lte: fechaDb(hastaEfectivo) } },
+    orderBy: [{ fecha: "desc" }, { hora: "desc" }],
+    select: { fecha: true, hora: true, estado: true, nota: true, justificaciones: { orderBy: { createdAt: "desc" }, take: 1, select: { estado: true } } },
+  });
+  const clases = registros.map<ClaseAlumno>((r) => ({
+    fecha: isoDeFechaDb(r.fecha), hora: r.hora, estado: r.estado, nota: r.nota, justificacion: r.justificaciones[0]?.estado ?? null,
+  }));
+  const contar = (e: ClaseAlumno["estado"]) => clases.filter((c) => c.estado === e).length;
+  const resumen = { clases: clases.length, llego: contar("llego"), tarde: contar("tarde"), falta: contar("falta"), problema: contar("problema"), porcentaje: null as number | null };
+  resumen.porcentaje = resumen.clases === 0 ? null : ((resumen.clases - resumen.falta) / resumen.clases) * 100;
+  await auditarReporte(ctx, alumnoId, { tipo: "curso-alumno", cursoId, desde, hasta }, { accion: "ver" });
+  return {
+    tipo: "curso-alumno",
+    alumno: { id: alumno.id, nombres: alumno.nombres, apellidos: alumno.apellidos, salon: alumno.salon.nombre },
+    curso: { id: curso.id, nombre: curso.nombre, profesor: curso.profesor ? `${curso.profesor.user.nombres} ${curso.profesor.user.apellidos}` : null },
+    desde, hasta, hastaEfectivo, clases, resumen,
+  };
+}
+
 /**
  * ¿El filtro muestra la asistencia a clase por cursos (`reporteCursos`) en vez de la asistencia al colegio? Siempre con
  * `curso`; para el profesor, además, todo lo que no sea su salón de tutoría o un alumno de ella.

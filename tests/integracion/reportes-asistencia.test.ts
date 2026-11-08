@@ -3,7 +3,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { db } from "@/lib/server/db";
 import { fechaDb, restarDias, sumarDias } from "@/lib/fechas";
 import { hoyDelColegio } from "@/lib/server/asistencia";
-import { detalleCurso, opcionesDeReporte, reporteAlumno, reporteCursos, reporteSalon, resumenColegio } from "@/lib/server/reportes-asistencia";
+import { detalleCurso, historialCursoAlumno, opcionesDeReporte, reporteAlumno, reporteCursos, reporteSalon, resumenColegio } from "@/lib/server/reportes-asistencia";
 import { reporteAExcel, TIPO_XLSX } from "@/lib/server/reportes-asistencia-excel";
 import { ReporteAsistenciaPdf } from "@/lib/server/reportes-asistencia-pdf";
 import { crearColegioPrueba, esperarProhibido, type ColegioPrueba } from "./ayudantes/colegio-prueba";
@@ -157,6 +157,21 @@ describe("reportes de asistencia", () => {
     await esperarProhibido(reporteCursos(madre, { alumnoId: c.alumnos.thiago.id, ...RANGO }));
     await esperarProhibido(reporteCursos(madre, { ...RANGO }));
     await esperarProhibido(reporteCursos(c.ctxDe("porteria"), { alumnoId: c.alumnos.mateo.id, ...RANGO }));
+  });
+
+  it("historial de un alumno en un curso: cada clase con estado y hora, solo para quien puede verlo", async () => {
+    const entrada = { alumnoId: c.alumnos.mateo.id, cursoId: c.cursoTutora.id, ...RANGO };
+    const h = await historialCursoAlumno(c.ctxDe("madre"), entrada);
+    expect(h.curso.nombre).toBe("Matemática");
+    expect(h.clases).toEqual([{ fecha: "2026-03-02", hora: "09:00", estado: "falta", nota: null, justificacion: null }]);
+    expect(h.resumen).toMatchObject({ clases: 1, falta: 1, porcentaje: 0 });
+    expect((await historialCursoAlumno(c.ctxDe("direccion"), entrada)).clases).toHaveLength(1);
+    expect((await historialCursoAlumno(c.ctxDe("tutora"), entrada)).clases).toHaveLength(1);
+    // Otro hijo, curso de otro salón, otro profesor o portería: 403.
+    await esperarProhibido(historialCursoAlumno(c.ctxDe("madre"), { ...entrada, alumnoId: c.alumnos.valentina.id }));
+    await esperarProhibido(historialCursoAlumno(c.ctxDe("madre"), { ...entrada, cursoId: c.cursoAjeno.id }));
+    await esperarProhibido(historialCursoAlumno(c.ctxDe("otroProfesor"), entrada));
+    await esperarProhibido(historialCursoAlumno(c.ctxDe("porteria"), entrada));
   });
 });
 
