@@ -37,7 +37,7 @@ export function ReporteSalon({ reporte, slug, puedeSolicitar, destinatarios }: {
       const r = await solicitarReportesPeriodoAction(slug, { salonId: salon.id, periodoId: periodo.id, titulo, descripcion });
       if (!r.ok) { setError(r.error); return; }
       setAbierto(false);
-      toast.success("Solicitud enviada a " + r.enviados + " profesores");
+      toast.success(`Solicitud enviada a ${r.enviados} ${r.enviados === 1 ? "profesor" : "profesores"}`);
       router.refresh();
     });
   }
