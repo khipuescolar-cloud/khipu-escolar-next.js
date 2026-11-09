@@ -115,3 +115,11 @@ El botón principal dice «Nueva calificación». Los estados combinan ícono y 
 - Completar pruebas e2e y reconciliar los textos anteriores de specs/11 y 39.
 - Las evaluaciones previas a la migración tienen `creadaAt` de migración, no fecha histórica verificable.
 - Revisar vigencia y equivalencia SIAGIE del catálogo oficial; Inicial ciclo I queda fuera del alcance actual.
+
+### Solicitud de reportes periódicos (2026-11-09)
+
+En el reporte del salón, el tutor o dirección ve «Solicitar reportes» mientras haya cursos pendientes. El diálogo propone «Solicitud de reportes periódicos · <periodo>» como título editable (1–150 caracteres) y una descripción opcional (hasta 1000), además de mostrar los docentes y sus cursos pendientes. El servidor valida salón y periodo del mismo colegio y nivel. Un profesor ajeno recibe 403.
+
+Se envía una sola notificación por profesor activo que dicta al menos un curso del salón sin `CierreCurso` para ese periodo; se excluye al remitente y se agrupan sus cursos. Si no queda ningún destinatario se informa el error. Solo se admite una solicitud por salón, periodo y día de la zona horaria del colegio. La clave de idempotencia se comparte entre destinatarios.
+
+Cada destinatario recibe bandeja interna (`TipoNotificacion.reporte_periodo`) y, según sus preferencias, correo y push. El correo se encola con `TipoAviso.libreta`, plantilla `reporte_periodo_solicitud`, asunto igual al título, solicitante, salón, periodo, cursos pendientes, descripción opcional y botón «Abrir registro». La notificación abre `/notas/<cursoId>` del primer curso pendiente. Se audita `enviar` en `reporte_periodo_salon` con periodo y cantidad de destinatarios.

@@ -169,3 +169,5 @@ La interfaz `NotificationChannel` se mantiene para correo y push.
 
 ## Cron programado
 `vercel.json` ejecuta `/api/cron/avisos` y `/api/cron/exportaciones` una vez al día (límite de Vercel Hobby); es un respaldo, porque cada acción procesa la cola al momento con `after()`. En producción `/api/cron/avisos` debe correr **cada 1–5 min** (Vercel Pro, `pg_cron` + `pg_net` de Supabase o disparador externo; ejemplos en `docs/despliegue.md` §3). Vercel envía `Authorization: Bearer <CRON_SECRET>`. Guía: `docs/despliegue.md` §3.
+
+- `reporte_periodo_solicitud` (specs/47): aviso al profesor activo de cursos pendientes del salón; bandeja `reporte_periodo` siempre, correo y push según preferencias. `TipoAviso.libreta`; payload `{ colegio, titulo, solicitante, salon, periodo, cursos, descripcion?, url }` y botón «Abrir registro».\n

@@ -5,6 +5,9 @@ import { hoyEnZona, periodoTerminado, faltantesDelPeriodo, type CeldaPeriodo, ty
 import { requiereConclusion, type Literal, type Marca } from "@/lib/calificaciones";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
+import { ErrorDeNegocio } from "./contexto-accion";
+import { urlColegio } from "@/lib/dominio";
+import { entregarNotificaciones } from "./notificaciones/internas";
 import { cerrarCursoPeriodo, cursoLectura, guardarCalificacionPeriodo, listarPeriodos, periodoEnCurso, reabrirCursoPeriodo } from "./notas";
 import { requireFeature } from "./plan";
 import { anioAcademicoVigente } from "./registro-notas";
@@ -257,3 +260,60 @@ export async function reporteSalonPeriodo(ctx: TenantContext, salonId: string, p
   };
 }
 export type ReporteSalonPeriodo = Awaited<ReturnType<typeof reporteSalonPeriodo>>;
+
+const esquemaSolicitudReportes = z.object({
+  salonId: z.uuid(), periodoId: z.uuid(),
+  titulo: z.string().trim().min(1, "Escribe un título.").max(150),
+  descripcion: z.string().trim().max(1000).optional(),
+});
+
+export async function destinatariosReportesPeriodo(ctx: TenantContext, salonId: string, periodoId: string) {
+  requireFeature(ctx, "notas");
+  const salon = await ctx.db.salon.findFirst({ where: { id: salonId }, select: { id: true, nombre: true, nivel: true, anio: true, tutorId: true } });
+  if (!salon || (ctx.rol !== "direccion" && salon.tutorId !== ctx.membership.id)) forbidden();
+  const periodo = await ctx.db.periodo.findFirst({ where: { id: periodoId }, select: { id: true, nombre: true, anio: true, niveles: true } });
+  if (!periodo || periodo.anio !== salon.anio || !periodo.niveles.includes(salon.nivel)) forbidden();
+  const cursos = await ctx.db.curso.findMany({
+    where: { salonId }, orderBy: { nombre: "asc" },
+    select: { id: true, nombre: true, profesor: { select: { id: true, estado: true, rol: true, preferenciaAviso: { select: { correo: true, push: true } }, user: { select: { nombres: true, apellidos: true, email: true, pushSuscripciones: { select: { endpoint: true } } } } } } },
+  });
+  const cierres = await ctx.db.cierreCurso.findMany({ where: { periodoId, cursoId: { in: cursos.map(c => c.id) } }, select: { cursoId: true } });
+  const enviados = new Set(cierres.map(c => c.cursoId));
+  const destinatarios = new Map<string, { miembro: NonNullable<(typeof cursos)[number]["profesor"]>; cursos: { id: string; nombre: string }[] }>();
+  for (const curso of cursos) {
+    const profesor = curso.profesor;
+    if (enviados.has(curso.id) || !profesor || profesor.estado !== "activa" || profesor.rol !== "profesor" || profesor.id === ctx.membership.id) continue;
+    const destino = destinatarios.get(profesor.id) ?? { miembro: profesor, cursos: [] };
+    destino.cursos.push({ id: curso.id, nombre: curso.nombre });
+    destinatarios.set(profesor.id, destino);
+  }
+  return { salon, periodo, destinatarios: [...destinatarios.values()] };
+}
+
+export async function solicitarReportesPeriodo(ctx: TenantContext, entrada: unknown, ahora: Date = new Date()): Promise<{ enviados: number }> {
+  const validacion = esquemaSolicitudReportes.safeParse(entrada);
+  if (!validacion.success) throw new ErrorDeNegocio(validacion.error.issues[0]?.message ?? "Revisa la solicitud.");
+  const { salonId, periodoId, titulo, descripcion } = validacion.data;
+  const { salon, periodo, destinatarios } = await destinatariosReportesPeriodo(ctx, salonId, periodoId);
+  if (destinatarios.length === 0) throw new ErrorDeNegocio("No hay profesores con reportes pendientes para solicitar.");
+  const clave = ["reporte-periodo", salonId, periodoId, hoyEnZona(ctx.tenant.zonaHoraria, ahora)].join(":");
+  if (await ctx.db.notificacion.findFirst({ where: { clave }, select: { id: true } })) throw new ErrorDeNegocio("Ya enviaste esta solicitud hoy");
+  const nombrePeriodo = periodo.nombre + " " + periodo.anio;
+  const solicitante = nombreDe(ctx.user);
+  const resultado = await entregarNotificaciones(ctx.db, {
+    tenant: ctx.tenant, tipo: "reporte_periodo", tipoAviso: "libreta", plantilla: "reporte_periodo_solicitud", clave,
+    entregas: destinatarios.map(({ miembro, cursos }) => {
+      const url = "/notas/" + cursos[0].id;
+      const nombres = cursos.map(c => c.nombre);
+      return { membershipId: miembro.id, titulo,
+        cuerpo: descripcion || ("Solicita el reporte de " + salon.nombre + " para " + nombrePeriodo + ". Cursos pendientes: " + nombres.join(", ") + "."),
+        url, email: miembro.preferenciaAviso?.correo === false ? null : miembro.user.email,
+        endpoints: miembro.preferenciaAviso?.push === false ? [] : miembro.user.pushSuscripciones.map(p => p.endpoint),
+        apoderadoId: null, payload: { colegio: ctx.tenant.nombre, titulo, solicitante, salon: salon.nombre, periodo: nombrePeriodo, cursos: nombres, descripcion: descripcion || undefined, url: urlColegio(ctx.tenant.slug, url) },
+      };
+    }),
+  });
+  if (resultado.notificaciones === 0) throw new ErrorDeNegocio("Ya enviaste esta solicitud hoy");
+  await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "enviar", entidad: "reporte_periodo_salon", entidadId: salonId, detalle: { periodoId, destinatarios: destinatarios.length } });
+  return { enviados: destinatarios.length };
+}
