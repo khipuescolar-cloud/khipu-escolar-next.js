@@ -18,7 +18,7 @@ Ofrecer al profesor todos los temas del grado y curso para elegir el temario, y 
 | Alumno | Practicar temas de la última versión aceptada | Elegir temas fuera del plan |
 
 ## Desglose y esquema
-Una ficha de `conocimiento/banco/matematica/primaria-3/*.json` corresponde a una práctica seleccionable. Se desglosan desempeños en operaciones, contextos, lectura de representaciones y comprobación. El nombre de la ficha es una propuesta didáctica; el MINEDU publica desempeños, no una lista de 239 temas. `esquemaFicha` exige identidad, vínculo curricular, bloque, prerrequisitos, idea central, pasos, dos ejemplos, errores y correcciones, vocabulario, 12 ejercicios con respuesta y tres pistas, fuentes, versión y `revisado: null`.
+Una ficha de `conocimiento/banco/matematica/primaria-3/*.json` corresponde a una práctica seleccionable. Se desglosan desempeños en operaciones, contextos, lectura de representaciones y comprobación. Los ejercicios de patrones preguntan por el siguiente término de una secuencia y el validador comprueba sus afirmaciones de verdadero/falso. El nombre de la ficha es una propuesta didáctica; el MINEDU publica desempeños, no una lista de 239 temas. `esquemaFicha` exige identidad, vínculo curricular, bloque, prerrequisitos, idea central, pasos, dos ejemplos, errores y correcciones, vocabulario, 12 ejercicios con respuesta y tres pistas, fuentes, versión y `revisado: null`.
 
 | Competencia | Fichas |
 |---|---:|

@@ -47,7 +47,7 @@ export function validarBanco(): { fichas: FichaConocimiento[]; errores: string[]
         const correcta = e.tipo === "numerico" ? e.respuesta : e.tipo === "opcion_multiple" ? e.opciones?.find(o => o.id === e.respuesta)?.texto : null;
         if (correcta !== null && Number(correcta) !== valor) errores.push(f.clave + ": respuesta aritmética incorrecta " + e.id);
         if (e.tipo === "verdadero_falso") {
-          const afirmado = Number(e.enunciado.match(/=\s*(-?\d+)/)?.[1]);
+          const afirmado = Number((e.enunciado.match(/=\s*(-?\d+)/) ?? e.enunciado.match(/sigue\s*(-?\d+)/))?.[1]);
           if (!Number.isFinite(afirmado) || e.respuesta !== (afirmado === valor)) errores.push(f.clave + ": verdadero/falso incorrecto " + e.id);
         }
       }
