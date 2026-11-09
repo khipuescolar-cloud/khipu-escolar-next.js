@@ -119,7 +119,7 @@ describe("permisos de asistencia", () => {
   });
 
   it("permiso registrado después de la falta: el NSP automático se retira; al anularlo, vuelve", async () => {
-    const fecha = dia(5);
+    const fecha = "2026-10-22"; // fecha fija: evita colisionar con la prueba de control del 04/11
     await registro(c.alumnos.valentina.id, fecha, "falta");
     const e = await evaluacion("Práctica calificada", fecha);
     expect(await nota(e.id, c.alumnos.valentina.id)).toMatchObject({ marca: "nsp" });

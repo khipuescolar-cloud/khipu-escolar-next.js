@@ -6,7 +6,7 @@ import { etiquetaApoderado, etiquetaProfesor, MAX_MENSAJE, nombreCompleto } from
 import { auditar } from "./auditoria";
 import { ErrorDeNegocio } from "./contexto-accion";
 import { avisarMensajeNuevo } from "./notificaciones/avisos-mensajes";
-import { salonIdsVisibles, type TenantContext } from "./tenant";
+import type { TenantContext } from "./tenant";
 
 // Chat familia ↔ profesor (specs/08-chat-familia-profesor.md).
 // Conversación = (alumno, profesor, apoderado). Nunca se expone teléfono ni correo de la otra parte.
@@ -14,34 +14,30 @@ import { salonIdsVisibles, type TenantContext } from "./tenant";
 const SELECT_NOMBRE = { select: { user: { select: { nombres: true, apellidos: true, genero: true } } } } as const;
 const SELECT_SALON = { select: { nombre: true, tutorId: true, cursos: { select: { nombre: true, profesorId: true } } } } as const;
 
-export type Interlocutor = { alumnoId: string; profesorId: string; apoderadoId: string; etiqueta: string };
+export type Interlocutor = { alumnoId: string; profesorId: string; apoderadoId: string; etiqueta: string; alumnoNombre: string };
 
-/** A quién puede escribir el usuario (apoderado → tutor y profesores de sus hijos; profesor → apoderados de sus alumnos). */
+/** A quién puede escribir el usuario: solo la tutoría vigente. */
 export async function destinatariosPosibles(ctx: TenantContext): Promise<Interlocutor[]> {
   if (ctx.rol === "apoderado") {
     const vinculos = await ctx.db.apoderadoAlumno.findMany({
       where: { apoderadoId: ctx.membership.id, alumno: { estado: "activo" } },
       select: {
         alumnoId: true,
-        alumno: { select: { nombres: true, apellidos: true, salon: { select: { ...SELECT_SALON.select, tutor: { select: { estado: true, user: SELECT_NOMBRE.select.user } }, cursos: { select: { nombre: true, profesorId: true, profesor: { select: { estado: true, user: SELECT_NOMBRE.select.user } } } } } } } },
+        alumno: { select: { nombres: true, apellidos: true, salon: { select: { ...SELECT_SALON.select, tutor: { select: { estado: true, user: SELECT_NOMBRE.select.user } } } } } },
       },
     });
     const salida: Interlocutor[] = [];
     for (const v of vinculos) {
       const salon = v.alumno.salon;
-      const profesores = new Map<string, { nombre: string; genero: Genero | null }>();
-      if (salon.tutorId && salon.tutor?.estado === "activa") profesores.set(salon.tutorId, { nombre: nombreCompleto(salon.tutor.user), genero: salon.tutor.user.genero });
-      for (const c of salon.cursos) {
-        if (c.profesorId && c.profesor?.estado === "activa") profesores.set(c.profesorId, { nombre: nombreCompleto(c.profesor.user), genero: c.profesor.user.genero });
-      }
-      for (const [profesorId, { nombre, genero }] of profesores) {
-        salida.push({ alumnoId: v.alumnoId, profesorId, apoderadoId: ctx.membership.id, etiqueta: `${etiquetaProfesor(nombre, profesorId, salon, genero)} — sobre ${v.alumno.nombres}` });
+      if (salon.tutorId && salon.tutor?.estado === "activa") {
+        salida.push({ alumnoId: v.alumnoId, profesorId: salon.tutorId, apoderadoId: ctx.membership.id, alumnoNombre: nombreCompleto(v.alumno), etiqueta: `${etiquetaProfesor(nombreCompleto(salon.tutor.user), salon.tutorId, salon, salon.tutor.user.genero)} — sobre ${v.alumno.nombres}` });
       }
     }
     return salida;
   }
   if (ctx.rol === "profesor") {
-    const salonIds = await salonIdsVisibles(ctx);
+    const salones = await ctx.db.salon.findMany({ where: { tutorId: ctx.membership.id }, select: { id: true } });
+    const salonIds = salones.map((salon) => salon.id);
     const vinculos = await ctx.db.apoderadoAlumno.findMany({
       where: { alumno: { salonId: { in: salonIds }, estado: "activo" }, apoderado: { estado: "activa" } },
       select: { alumnoId: true, apoderadoId: true, parentesco: true, alumno: { select: { nombres: true, apellidos: true } }, apoderado: SELECT_NOMBRE },
@@ -50,10 +46,22 @@ export async function destinatariosPosibles(ctx: TenantContext): Promise<Interlo
       alumnoId: v.alumnoId,
       profesorId: ctx.membership.id,
       apoderadoId: v.apoderadoId,
+      alumnoNombre: nombreCompleto(v.alumno),
       etiqueta: etiquetaApoderado(nombreCompleto(v.apoderado.user), v.parentesco, nombreCompleto(v.alumno)),
     }));
   }
   return [];
+}
+
+/** Comprueba la relación actual incluso si la conversación se abrió antes de cambiar la tutoría. */
+export async function conversacionVigente(ctx: TenantContext, conv: { alumnoId: string; profesorId: string; apoderadoId: string }): Promise<boolean> {
+  const [alumno, vinculo, profesor, apoderado] = await Promise.all([
+    ctx.db.alumno.findFirst({ where: { id: conv.alumnoId, estado: "activo" }, select: { salon: { select: { tutorId: true } } } }),
+    ctx.db.apoderadoAlumno.findFirst({ where: { alumnoId: conv.alumnoId, apoderadoId: conv.apoderadoId }, select: { alumnoId: true } }),
+    ctx.db.membership.findFirst({ where: { id: conv.profesorId, estado: "activa", rol: "profesor" }, select: { id: true } }),
+    ctx.db.membership.findFirst({ where: { id: conv.apoderadoId, estado: "activa", rol: "apoderado" }, select: { id: true } }),
+  ]);
+  return Boolean(alumno && alumno.salon.tutorId === conv.profesorId && vinculo && profesor && apoderado);
 }
 
 const esquemaApertura = z.object({ alumnoId: z.uuid(), contraparteId: z.uuid() });
@@ -120,6 +128,7 @@ export type ResumenConversacion = {
   etiqueta: string;
   ultimoMensaje: { cuerpo: string; createdAt: Date; propio: boolean } | null;
   noLeidos: number;
+  puedeEscribir: boolean;
 };
 
 export async function listarConversaciones(ctx: TenantContext): Promise<ResumenConversacion[]> {
@@ -141,6 +150,7 @@ export async function listarConversaciones(ctx: TenantContext): Promise<ResumenC
         etiqueta: await etiquetaDe(ctx, c),
         ultimoMensaje: ultimo ? { cuerpo: ultimo.cuerpo, createdAt: ultimo.createdAt, propio: ultimo.autorId === ctx.membership.id } : null,
         noLeidos: ctx.rol === "direccion" ? 0 : (cuenta.get(c.id) ?? 0),
+        puedeEscribir: ctx.rol !== "direccion" && await conversacionVigente(ctx, c),
       };
     }),
   );
@@ -155,7 +165,7 @@ export async function conteoNoLeidos(ctx: TenantContext): Promise<number> {
   });
 }
 
-export type MensajeVista = { id: string; cuerpo: string; createdAt: string; propio: boolean; autor: string };
+export type MensajeVista = { id: string; cuerpo: string; createdAt: string; propio: boolean; autor: string; leido: boolean };
 export type HiloVista = { id: string; etiqueta: string; puedeEscribir: boolean; mensajes: MensajeVista[] };
 
 /**
@@ -181,13 +191,14 @@ export async function obtenerHilo(ctx: TenantContext, id: string): Promise<HiloV
   return {
     id: c.id,
     etiqueta: await etiquetaDe(ctx, c),
-    puedeEscribir: ctx.rol !== "direccion",
+    puedeEscribir: ctx.rol !== "direccion" && await conversacionVigente(ctx, c),
     mensajes: c.mensajes.map((m) => ({
       id: m.id,
       cuerpo: m.cuerpo,
       createdAt: m.createdAt.toISOString(),
       propio: m.autorId === ctx.membership.id,
       autor: nombreCompleto(m.autor.user),
+      leido: m.leidoAt !== null,
     })),
   };
 }
@@ -207,6 +218,7 @@ export async function enviarMensaje(ctx: TenantContext, entrada: { conversacionI
     include: { alumno: { select: { nombres: true, apellidos: true } } },
   });
   if (!c) forbidden();
+  if (!await conversacionVigente(ctx, c)) throw new ErrorDeNegocio("Esta conversación está cerrada: ahora solo puedes escribir al tutor/a del salón");
 
   await ctx.db.mensaje.create({
     data: { tenantId: ctx.tenant.id, conversacionId: c.id, autorId: ctx.membership.id, cuerpo: datos.data.cuerpo },

@@ -1,10 +1,6 @@
-import { MessageSquarePlus, MessagesSquare } from "lucide-react";
+import { LockKeyhole, MessagesSquare } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { redirect } from "next/navigation";
-import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
-import { EstadoVacio } from "@/components/shell/EstadoVacio";
-import { buttonVariants } from "@/components/ui/button";
 import { requireConsentimiento } from "@/lib/server/consentimiento";
 import { listarConversaciones } from "@/lib/server/mensajes";
 import { requireFeature } from "@/lib/server/plan";
@@ -12,54 +8,22 @@ import { requireAlumnoVisible, requireTenantContext } from "@/lib/server/tenant"
 import { ListaConversaciones } from "./ListaConversaciones";
 
 export const metadata: Metadata = { title: "Mensajes" };
-
 export default async function MensajesPage({ params, searchParams }: PageProps<"/colegio/[slug]/mensajes">) {
   const { slug } = await params;
   const { alumno } = await searchParams;
   const ctx = await requireTenantContext(slug, ["apoderado", "profesor", "direccion"]);
   requireFeature(ctx, "mensajes");
   await requireConsentimiento(ctx);
-  // Enlaces «Hablar con la tutora» (asistencia): `?alumno=` abre el nuevo mensaje sobre ese hijo.
   const alumnoId = Array.isArray(alumno) ? alumno[0] : alumno;
-  if (alumnoId && ctx.rol !== "direccion") {
-    await requireAlumnoVisible(ctx, alumnoId);
-    redirect(`/mensajes/nuevo?alumno=${encodeURIComponent(alumnoId)}`);
-  }
+  if (alumnoId && ctx.rol !== "direccion") { await requireAlumnoVisible(ctx, alumnoId); redirect("/mensajes/nuevo?alumno=" + encodeURIComponent(alumnoId)); }
   const conversaciones = await listarConversaciones(ctx);
-  const puedeEscribir = ctx.rol !== "direccion";
-
-  const nuevo = (
-    <Link href="/mensajes/nuevo" className={buttonVariants()}>
-      <MessageSquarePlus strokeWidth={2} aria-hidden /> Nuevo mensaje
-    </Link>
-  );
-
-  return (
-    <div>
-      <EncabezadoPagina
-        titulo="Mensajes"
-        seccion="comunicacion"
-        descripcion={ctx.rol === "direccion" ? "Solo lectura: cada vez que abres un chat queda registrado." : "Hablas con el colegio sin compartir tu teléfono."}
-        acciones={puedeEscribir ? nuevo : undefined}
-      />
-
-      {conversaciones.length === 0 ? (
-        <EstadoVacio
-          icono={MessagesSquare}
-          titulo="Aún no hay conversaciones"
-          descripcion={puedeEscribir ? "Cuando quieras hablar con el colegio, empieza un mensaje nuevo." : "Cuando familias y profesores conversen, las verás aquí."}
-          accion={puedeEscribir ? nuevo : undefined}
-        />
-      ) : (
-        <div className="lg:grid lg:grid-cols-[22rem_1fr] lg:gap-6">
-          <div className="overflow-hidden rounded-[14px] border border-borde-sutil bg-card">
-            <ListaConversaciones filas={conversaciones} />
-          </div>
-          <div className="hidden lg:block">
-            <EstadoVacio icono={MessagesSquare} titulo="Elige una conversación" descripcion="Selecciona una a la izquierda para leerla y responder." />
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  return <div className="flex h-[calc(100dvh-7rem)] min-h-[28rem] overflow-hidden rounded-lg border border-border bg-card md:h-[calc(100dvh-8rem)]">
+    <ListaConversaciones filas={conversaciones} puedeCrear={ctx.rol !== "direccion"} />
+    <section className="hidden min-w-0 flex-1 flex-col items-center justify-center bg-muted/40 px-6 text-center md:flex" aria-label="Sin conversación elegida">
+      <div className="mb-5 flex size-20 items-center justify-center rounded-full bg-card text-primary"><MessagesSquare className="size-10" strokeWidth={2} aria-hidden /></div>
+      <h2 className="font-heading text-2xl font-semibold">Khipu Mensajes</h2>
+      <p className="mt-2 max-w-sm text-sm text-muted-foreground">{ctx.rol === "apoderado" ? "Escribe al tutor/a de tu hijo sin compartir tu teléfono" : ctx.rol === "profesor" ? "Conversa con las familias de tu salón de tutoría" : "Consulta las conversaciones del colegio"}</p>
+      <p className="mt-6 flex items-center gap-2 text-sm text-muted-foreground"><LockKeyhole className="size-4" aria-hidden /> Tus datos de contacto no se comparten</p>
+    </section>
+  </div>;
 }

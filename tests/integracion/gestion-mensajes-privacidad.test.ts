@@ -11,7 +11,7 @@ import { exportarColegio, listarAuditoria } from "@/lib/server/exportar";
 import {
   cambiarEstadoAlumno, cambiarEstadoMembresia, crearAlumno, importarAlumnosCsv, invitarUsuario, vincularApoderado,
 } from "@/lib/server/gestion";
-import { abrirConversacion, conteoNoLeidos, enviarMensaje, listarConversaciones, obtenerHilo } from "@/lib/server/mensajes";
+import { abrirConversacion, conteoNoLeidos, destinatariosPosibles, enviarMensaje, listarConversaciones, obtenerHilo } from "@/lib/server/mensajes";
 import { supabaseAdmin } from "@/lib/server/supabase";
 import type { TenantContext } from "@/lib/server/tenant";
 
@@ -61,17 +61,20 @@ afterAll(async () => {
 describe("chat familia ↔ profesor", () => {
   let convId = "";
 
-  it("la familia escribe a la tutora y a los profesores de su hijo, no a otros", async () => {
+  it("la familia escribe solo a la tutora de su hijo", async () => {
     convId = await abrirConversacion(ctxs.madre, { alumnoId, contraparteId: m.tutora.id });
     expect(await abrirConversacion(ctxs.madre, { alumnoId, contraparteId: m.tutora.id })).toBe(convId);
-    await expect(abrirConversacion(ctxs.madre, { alumnoId, contraparteId: m.prof.id })).resolves.toBeTruthy();
+    expect((await destinatariosPosibles(ctxs.madre)).map((p) => p.profesorId)).toEqual([m.tutora.id]);
+    await expect(abrirConversacion(ctxs.madre, { alumnoId, contraparteId: m.prof.id })).rejects.toThrow();
     await expect(abrirConversacion(ctxs.madre, { alumnoId, contraparteId: m.ajeno.id })).rejects.toThrow();
     await expect(abrirConversacion(ctxs.madre, { alumnoId: alumnoOtroId, contraparteId: m.ajeno.id })).rejects.toThrow();
   });
 
-  it("el profesor solo escribe a familias de sus alumnos", async () => {
+  it("el profesor solo escribe a familias de alumnos bajo su tutoría", async () => {
     await expect(abrirConversacion(ctxs.tutora, { alumnoId, contraparteId: m.madre.id })).resolves.toBe(convId);
     await expect(abrirConversacion(ctxs.tutora, { alumnoId: alumnoOtroId, contraparteId: m.otra.id })).rejects.toThrow();
+    expect(await destinatariosPosibles(ctxs.prof)).toEqual([]);
+    await expect(abrirConversacion(ctxs.prof, { alumnoId, contraparteId: m.madre.id })).rejects.toThrow();
   });
 
   it("cuenta no leídos, marca leídos al abrir y no muestra correo ni teléfono", async () => {
@@ -89,6 +92,30 @@ describe("chat familia ↔ profesor", () => {
     expect(textoVisto).not.toContain("@prueba.demo");
     expect(textoVisto).not.toContain("999111222");
     expect((await listarConversaciones(ctxs.madre)).find((c) => c.id === convId)?.etiqueta).toBe("Lucía Tutora · Tutor(a) de 3.° B — sobre Mateo");
+  });
+
+  it("un chat antiguo queda visible, solo lectura y rechaza nuevos mensajes", async () => {
+    const antiguo = await db.conversacion.create({ data: { tenantId: tenant.id, alumnoId, profesorId: m.prof.id, apoderadoId: m.madre.id } });
+    try {
+      expect((await listarConversaciones(ctxs.madre)).find((c) => c.id === antiguo.id)?.puedeEscribir).toBe(false);
+      expect((await obtenerHilo(ctxs.madre, antiguo.id)).puedeEscribir).toBe(false);
+      await expect(enviarMensaje(ctxs.madre, { conversacionId: antiguo.id, cuerpo: "Hola" })).rejects.toThrow("cerrada");
+      await expect(enviarMensaje(ctxs.prof, { conversacionId: antiguo.id, cuerpo: "Hola" })).rejects.toThrow("cerrada");
+    } finally {
+      await db.conversacion.delete({ where: { id: antiguo.id } });
+    }
+  });
+
+  it("al cambiar el tutor, el hilo antiguo queda en solo lectura", async () => {
+    await db.salon.update({ where: { id: salonId }, data: { tutorId: m.prof.id } });
+    try {
+      expect((await obtenerHilo(ctxs.madre, convId)).puedeEscribir).toBe(false);
+      expect((await destinatariosPosibles(ctxs.madre)).map((p) => p.profesorId)).toEqual([m.prof.id]);
+      await expect(enviarMensaje(ctxs.tutora, { conversacionId: convId, cuerpo: "Hola" })).rejects.toThrow("cerrada");
+      await expect(abrirConversacion(ctxs.madre, { alumnoId, contraparteId: m.tutora.id })).rejects.toThrow();
+    } finally {
+      await db.salon.update({ where: { id: salonId }, data: { tutorId: m.tutora.id } });
+    }
   });
 
   it("una familia no puede abrir ni escribir en la conversación de otra", async () => {

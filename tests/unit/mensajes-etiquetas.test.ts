@@ -1,11 +1,16 @@
 import { describe, expect, it } from "vitest";
 import { etiquetaApoderado, etiquetaProfesor } from "@/lib/mensajes";
+import { fechaLista, iniciales } from "@/app/colegio/[slug]/mensajes/ListaConversaciones";
 import { nombreRol } from "@/lib/roles";
 import { porcentajeApertura } from "@/lib/server/avisos-panel";
 
 const salon = { nombre: "3.° B", tutorId: "t1", cursos: [{ nombre: "Ciencia", profesorId: "p2" }, { nombre: "Arte", profesorId: "p2" }] };
 
 describe("etiquetas del chat", () => {
+  it("muestra iniciales y fechas compactas sin datos de contacto", () => {
+    expect(iniciales("Lucía García · Tutora de 3.° B")).toBe("LG");
+    expect(fechaLista(new Date("2026-11-03T14:00:00Z"))).toMatch(/\d{2}\/\d{2}\/\d{2}/);
+  });
   it("la tutora se muestra con su salón", () => {
     expect(etiquetaProfesor("Lucía García", "t1", salon)).toBe("Lucía García · Tutor(a) de 3.° B");
   });

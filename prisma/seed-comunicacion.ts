@@ -147,7 +147,6 @@ export async function sembrarComunicacion(prisma: PrismaClient) {
     { alumno: "Thiago", salon: "5.° A", sinLeer: "profesor", guion: 4 },
     { alumno: "Ximena", salon: "5.° A", sinLeer: "ninguno", guion: 0 },
     { alumno: "Sofía", salon: "1.° A Sec.", sinLeer: "familia", guion: 4 },
-    { alumno: "Sofía", salon: "1.° A Sec.", profesor: "Inglés", sinLeer: "ninguno", guion: 2 },
   ];
   // Más conversaciones en otros salones.
   for (const s of salones.filter((x) => !["3.° B", "5.° A", "1.° A Sec."].includes(x.nombre)).filter((_, i) => i % 3 === 0)) {
