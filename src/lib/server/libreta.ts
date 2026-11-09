@@ -8,7 +8,52 @@ import { esVistaFamilia, tituloProfesor } from "@/lib/roles";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
 import { requireFeature } from "./plan";
-import { requireAlumnoVisible, type TenantContext } from "./tenant";
+import { requireAlumnoVisible, salonIdsVisibles, type TenantContext } from "./tenant";
+
+
+/** Resumen del salón en consultas agrupadas; listar no audita la vista de cada alumno. */
+export async function resumenLibretasSalon(ctx: TenantContext, salonId: string, periodoId: string) {
+  requireFeature(ctx, "libreta");
+  if (ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();
+  if (!(await salonIdsVisibles(ctx)).includes(salonId)) forbidden();
+  const [salon, periodo] = await Promise.all([
+    ctx.db.salon.findFirst({ where: { id: salonId }, select: { id: true, nombre: true, nivel: true } }),
+    ctx.db.periodo.findFirst({ where: { id: periodoId }, select: { id: true, nombre: true, anio: true, niveles: true } }),
+  ]);
+  if (!salon || !periodo || !periodo.niveles.includes(salon.nivel)) forbidden();
+  const [alumnos, cursos, calificaciones, emitidas] = await Promise.all([
+    ctx.db.alumno.findMany({ where: { salonId, estado: "activo" }, select: { id: true, nombres: true, apellidos: true }, orderBy: [{ apellidos: "asc" }, { nombres: "asc" }] }),
+    ctx.db.curso.findMany({ where: { salonId }, select: { id: true, nombre: true, competencias: { select: { id: true, nombre: true }, orderBy: [{ orden: "asc" }, { nombre: "asc" }] } }, orderBy: { nombre: "asc" } }),
+    ctx.db.calificacionPeriodo.findMany({ where: { periodoId, alumno: { salonId, estado: "activo" } }, select: { alumnoId: true, competenciaId: true, valorLiteral: true, valorNumerico: true } }),
+    ctx.db.libretaEmitida.findMany({ where: { periodoId, alumno: { salonId, estado: "activo" } }, select: { alumnoId: true, version: true, datos: true }, orderBy: { version: "desc" } }),
+  ]);
+  const enVivo = new Map(calificaciones.map((g) => [g.alumnoId + ":" + g.competenciaId, {
+    valorLiteral: g.valorLiteral as Literal | null,
+    valorNumerico: g.valorNumerico === null ? null : Number(g.valorNumerico.toString()),
+  }]));
+  const emitidaPorAlumno = new Map<string, (typeof emitidas)[number]>();
+  for (const e of emitidas) if (!emitidaPorAlumno.has(e.alumnoId)) emitidaPorAlumno.set(e.alumnoId, e);
+  return {
+    salon, periodo, cursos, escala: ctx.tenant.escalaCalificacion,
+    alumnos: alumnos.map((a) => {
+      const emitida = emitidaPorAlumno.get(a.id);
+      const valores = new Map<string, ValorCalificacion>();
+      if (emitida) {
+        const datos = emitida.datos as unknown as LibretaConstruida;
+        for (const c of datos.cursos) for (const k of c.competencias) if (k.calificacion) valores.set(k.id, k.calificacion);
+      } else {
+        for (const c of cursos) for (const k of c.competencias) {
+          const valor = enVivo.get(a.id + ":" + k.id);
+          if (valor) valores.set(k.id, valor);
+        }
+      }
+      return { id: a.id, nombre: a.apellidos + ", " + a.nombres, version: emitida?.version ?? null,
+        calificaciones: Object.fromEntries(valores) };
+    }),
+  };
+}
+
+export type ResumenLibretasSalon = Awaited<ReturnType<typeof resumenLibretasSalon>>;
 
 export type DatosLibreta = Awaited<ReturnType<typeof datosLibreta>>;
 

@@ -5,7 +5,7 @@ import type { Rol } from "@/generated/prisma/enums";
 import { crearEvento, itemsDeAgenda } from "@/lib/server/agenda";
 import { accesoModulosDeCodigo } from "@/lib/modulos";
 import { db, dbTenant } from "@/lib/server/db";
-import { datosLibreta } from "@/lib/server/libreta";
+import { construirLibreta, datosLibreta, resumenLibretasSalon } from "@/lib/server/libreta";
 import {
   calificacionesPeriodo, cerrarCursoPeriodo, crearEvaluacion, editarEvaluacion, estadoPublicacionLibreta, grillaNotas,
   guardarCalificacionPeriodo, guardarComentarioNota, guardarNota, listarPeriodos, notasDeAlumno,
@@ -170,6 +170,25 @@ describe("notas: escritura del profesor", () => {
 });
 
 describe("libreta", () => {
+  it("resume solo el salón visible sin auditar alumnos y usa la última versión emitida", async () => {
+    await expect(resumenLibretasSalon(profeAjeno, ids.salon, ids.cerrado)).rejects.toMatchObject(PROHIBIDO);
+    await expect(resumenLibretasSalon(madreA, ids.salon, ids.cerrado)).rejects.toMatchObject(PROHIBIDO);
+    const periodo = await db.periodo.create({ data: { tenantId, anio: 2025, tipo: "bimestre", numero: 4, nombre: "Periodo de prueba", inicio: new Date("2025-10-01"), fin: new Date("2025-12-01"), cerrado: true } });
+    await expect(resumenLibretasSalon(profe, ids.salon, ids.cerrado)).resolves.toMatchObject({ salon: { id: ids.salon } });
+    await db.calificacionPeriodo.create({ data: { tenantId, alumnoId: ids.a1, competenciaId: ids.comp, periodoId: periodo.id, valorNumerico: 12 } });
+    const snapshot = await construirLibreta(profe, ids.a1, periodo.id);
+    const datos = JSON.parse(JSON.stringify(snapshot));
+    await db.libretaEmitida.create({ data: { tenantId, alumnoId: ids.a1, periodoId: periodo.id, version: 1, emitidaPorId: direccion.membership.id, datos } });
+    datos.cursos[0].competencias[0].calificacion.valorNumerico = 16;
+    await db.libretaEmitida.create({ data: { tenantId, alumnoId: ids.a1, periodoId: periodo.id, version: 2, emitidaPorId: direccion.membership.id, datos } });
+    await db.calificacionPeriodo.updateMany({ where: { alumnoId: ids.a1, periodoId: periodo.id }, data: { valorNumerico: 19 } });
+    const antes = await db.auditoria.count({ where: { tenantId, entidad: "libreta", accion: "ver" } });
+    const resumen = await resumenLibretasSalon(profe, ids.salon, periodo.id);
+    expect(resumen.alumnos.find((a) => a.id === ids.a1)).toMatchObject({ version: 2, calificaciones: { [ids.comp]: { valorNumerico: 16 } } });
+    expect(resumen.alumnos.find((a) => a.id === ids.a2)?.version).toBeNull();
+    expect(await db.auditoria.count({ where: { tenantId, entidad: "libreta", accion: "ver" } })).toBe(antes);
+  });
+
   it("arma la libreta con calificaciones, conclusión y asistencia, y audita la vista", async () => {
     const l = await datosLibreta(madreA, ids.a1, ids.cerrado, "exportar");
     expect(l.cursos[0].competencias[0]).toMatchObject({ nombre: "Resuelve problemas", conclusion: "Va bien." });
