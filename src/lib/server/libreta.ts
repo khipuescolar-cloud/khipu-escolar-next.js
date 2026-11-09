@@ -8,14 +8,38 @@ import { esVistaFamilia, tituloProfesor } from "@/lib/roles";
 import { fallo, ok, type Resultado } from "@/lib/resultado";
 import { auditar } from "./auditoria";
 import { requireFeature } from "./plan";
-import { requireAlumnoVisible, salonIdsVisibles, type TenantContext } from "./tenant";
+import { requireAlumnoVisible, type TenantContext } from "./tenant";
 
+
+/** Salones cuya libreta puede consultar el personal: solo tutoría o dirección. */
+export async function salonIdsLibreta(ctx: TenantContext): Promise<string[]> {
+  if (ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();
+  const salones = await ctx.db.salon.findMany({
+    where: { archivadoAt: null, ...(ctx.rol === "profesor" ? { tutorId: ctx.membership.id } : {}) },
+    select: { id: true },
+  });
+  return salones.map((s) => s.id);
+}
+
+/** Valida también el alcance del tutor antes de leer o descargar la libreta. */
+export async function requireLibretaVisible(ctx: TenantContext, alumnoId: string): Promise<void> {
+  if (ctx.rol === "profesor") {
+    const alumno = await ctx.db.alumno.findFirst({
+      where: { id: alumnoId, salon: { tutorId: ctx.membership.id, archivadoAt: null } },
+      select: { id: true },
+    });
+    if (!alumno) forbidden();
+    return;
+  }
+  if (ctx.rol !== "direccion" && ctx.rol !== "apoderado") forbidden();
+  await requireAlumnoVisible(ctx, alumnoId);
+}
 
 /** Resumen del salón en consultas agrupadas; listar no audita la vista de cada alumno. */
 export async function resumenLibretasSalon(ctx: TenantContext, salonId: string, periodoId: string) {
   requireFeature(ctx, "libreta");
   if (ctx.rol !== "profesor" && ctx.rol !== "direccion") forbidden();
-  if (!(await salonIdsVisibles(ctx)).includes(salonId)) forbidden();
+  if (!(await salonIdsLibreta(ctx)).includes(salonId)) forbidden();
   const [salon, periodo] = await Promise.all([
     ctx.db.salon.findFirst({ where: { id: salonId }, select: { id: true, nombre: true, nivel: true } }),
     ctx.db.periodo.findFirst({ where: { id: periodoId }, select: { id: true, nombre: true, anio: true, niveles: true } }),
@@ -65,7 +89,7 @@ export type DatosLibreta = Awaited<ReturnType<typeof datosLibreta>>;
 export async function datosLibreta(ctx: TenantContext, alumnoId: string, periodoId: string, accion: "ver" | "exportar" = "ver") {
   requireFeature(ctx, "libreta");
   if (ctx.rol === "alumno") forbidden(); // la libreta es de la familia (specs/11)
-  await requireAlumnoVisible(ctx, alumnoId);
+  await requireLibretaVisible(ctx, alumnoId);
   const [alumno, periodo, emitida] = await Promise.all([
     ctx.db.alumno.findFirst({ where: { id: alumnoId }, include: { salon: { select: { nivel: true, tutorId: true } } } }),
     ctx.db.periodo.findFirst({ where: { id: periodoId } }),

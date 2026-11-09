@@ -310,7 +310,8 @@ describe("libreta emitida y rectificación", () => {
     await guardarNota(tutora, { evaluacionId: e.id, alumnoId: c.alumnos.mateo.id, valor: "C", motivo: "Revisión", tipo: "otra" });
     await c.db.calificacionPeriodo.updateMany({ where: { alumnoId: c.alumnos.mateo.id, competenciaId: comp.mat }, data: { valorLiteral: "C" } });
     expect(califDe(await datosLibreta(tutora, c.alumnos.mateo.id, periodoId))).toBe("A");
-    // Rectificación formal.
+    // Rectificación formal: la pide el profesor del curso con la calificación del periodo enviada (specs/37).
+    await c.db.cierreCurso.create({ data: { tenantId: c.tenant.id, periodoId, cursoId: c.cursoTutora.id, cerradoPorId: c.miembros.tutora.membership.id } });
     expect(await solicitarRectificacion(tutora, { alumnoId: c.alumnos.mateo.id, periodoId, competenciaId: comp.mat, valor: "B", conclusion: "Debe reforzar fracciones.", motivo: "Se registró A por error al digitar." }))
       .toEqual({ ok: true, mensaje: "Rectificación enviada. Dirección la revisará." });
     const r = await c.db.rectificacionLibreta.findFirstOrThrow();

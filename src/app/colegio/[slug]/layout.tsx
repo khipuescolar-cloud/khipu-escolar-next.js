@@ -10,6 +10,7 @@ import { ShieldAlert } from "lucide-react";
 import { urlPlataforma } from "@/lib/dominio";
 import { mosaicosParaRol, NOMBRE_GRUPO, type GrupoNav } from "@/lib/navegacion";
 import { nombreRol } from "@/lib/roles";
+import { salonIdsLibreta } from "@/lib/server/libreta";
 import { urlLogoColegio } from "@/lib/server/logo";
 import { conteoNoLeidos } from "@/lib/server/mensajes";
 import { estadoModulo } from "@/lib/server/plan";
@@ -27,7 +28,9 @@ export default async function LayoutColegio({ children, params }: LayoutProps<"/
   const { slug } = await params;
   const ctx = await requireTenantContext(slug);
   // Módulos quitados al colegio o al rol (specs/19) y, en modo soporte (specs/16), chats, notas y libreta: no se muestran.
+  const muestraLibreta = ctx.rol !== "profesor" || (await salonIdsLibreta(ctx)).length > 0;
   const mosaicos = mosaicosParaRol(ctx.rol)
+    .filter((m) => m.href !== "/libreta" || muestraLibreta)
     .map((m) => {
       const acceso = estadoModulo(ctx, m.feature);
       const alterno = acceso.estado !== "activo" && m.alternativa ? estadoModulo(ctx, m.alternativa) : null;

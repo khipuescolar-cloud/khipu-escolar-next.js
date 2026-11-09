@@ -10,13 +10,13 @@ import { auditar } from "./auditoria";
 import { construirLibreta, type LibretaConstruida } from "./libreta";
 import { destinatariosDeAlumno, encolarParaDestinatario, tieneCanalAviso } from "./notificaciones/encolar";
 import { requireFeature } from "./plan";
-import { requireAlumnoVisible, requireCursoDelProfesor, requireRol, type TenantContext } from "./tenant";
+import { requireAlumnoVisible, requireRol, type TenantContext } from "./tenant";
 
 // Libretas emitidas y rectificaciones (specs/37).
 // - Al publicar la libreta del periodo se emite la versión 1 de cada alumno: una copia congelada de lo que se entregó.
 //   Desde ahí, ni el registro auxiliar ni las calificaciones en vivo la cambian.
-// - Para corregir un error se pide una rectificación (profesor del curso o dirección) con el valor nuevo, el motivo y la
-//   evidencia. Dirección la aprueba o rechaza. Al aprobar se crea la versión siguiente (copia de la anterior con solo esa
+// - Para corregir un error, el profesor del curso pide una rectificación desde «Calificación del periodo» (curso enviado y
+//   libreta del alumno emitida) con el valor nuevo, el motivo y la evidencia. Dirección la aprueba o rechaza. Al aprobar se crea la versión siguiente (copia de la anterior con solo esa
 //   competencia corregida) y la anterior queda intacta. Nada se traslada al periodo siguiente.
 
 /** Emite la versión 1 de la libreta de cada alumno del periodo que aún no la tenga. Idempotente. */
@@ -63,20 +63,23 @@ const esquemaSolicitud = z.object({
   evidencia: z.string().trim().max(1000, "La evidencia es muy larga (máximo 1000 caracteres).").optional(),
 });
 
-/** Profesor del curso de la competencia o dirección pide corregir una calificación de una libreta ya emitida. */
+/** El profesor que dicta el curso pide corregir una calificación enviada de una libreta ya emitida. Dirección solo resuelve. */
 export async function solicitarRectificacion(ctx: TenantContext, entrada: unknown): Promise<Resultado> {
   requireFeature(ctx, "libreta");
-  requireRol(ctx, ["profesor", "direccion"]);
+  requireRol(ctx, ["profesor"]);
   const d = esquemaSolicitud.safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
   const comp = await ctx.db.competencia.findFirst({ where: { id: d.data.competenciaId }, select: { id: true, cursoId: true } });
   if (!comp) return fallo("No encontramos esa competencia.");
-  if (ctx.rol === "profesor") await requireCursoDelProfesor(ctx, comp.cursoId);
+  const curso = await ctx.db.curso.findFirst({ where: { id: comp.cursoId }, select: { profesorId: true } });
+  if (!curso || curso.profesorId !== ctx.membership.id) forbidden();
+  const cierre = await ctx.db.cierreCurso.findFirst({ where: { cursoId: comp.cursoId, periodoId: d.data.periodoId }, select: { id: true } });
+  if (!cierre) return fallo("La calificación del periodo aún no se envió: corrígela directamente antes de enviarla.");
   await requireAlumnoVisible(ctx, d.data.alumnoId);
   const emitida = await ctx.db.libretaEmitida.findFirst({ where: { alumnoId: d.data.alumnoId, periodoId: d.data.periodoId }, orderBy: { version: "desc" } });
-  if (!emitida) return fallo("Esta libreta aún no se emitió: corrige la calificación directamente.");
+  if (!emitida) return fallo("La libreta de este alumno aún no se emitió: pide a dirección reabrir el curso para corregir la calificación.");
   const actual = valorDeSnapshot(emitida.datos as unknown as LibretaConstruida, comp.id);
-  if (!actual) return fallo("Esa competencia no está en la libreta emitida de este alumno.");
+  if (!actual || actual.curso.id !== comp.cursoId) return fallo("Esa competencia no está en la libreta emitida de este alumno.");
   const v = interpretarValor(ctx.tenant.escalaCalificacion, d.data.valor);
   if (!v.ok) return fallo(v.error);
   if (!v.valor) return fallo("Indica la calificación correcta.");

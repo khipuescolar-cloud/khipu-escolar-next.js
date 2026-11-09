@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition, type KeyboardEvent } from "react";
-import { AlertTriangle, CheckCircle2, Loader2, MessageSquarePlus, MessageSquareText, Save, Send, Undo2 } from "lucide-react";
+import { AlertTriangle, CheckCircle2, Clock, FileX, Loader2, MessageSquarePlus, MessageSquareText, Save, Send, Undo2, XCircle } from "lucide-react";
 import { toast } from "sonner";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { Alerta } from "@/components/ui/Alerta";
@@ -17,6 +17,7 @@ import { formatearNumero, requiereConclusion, type Literal } from "@/lib/calific
 import type { DatosCalificacionPeriodo } from "@/lib/server/calificacion-periodo";
 import { enviarCalificacionPeriodoAction, guardarBorradorPeriodoAction, reabrirCalificacionPeriodoAction } from "./actions";
 import { Evidencias } from "./Evidencias";
+import { RectificarPeriodo } from "./RectificarPeriodo";
 
 const PENDIENTE = "pendiente";
 const comoTexto = (g: { valorLiteral: Literal | null; valorNumerico: number | null }) => g.valorLiteral ?? (g.valorNumerico === null ? "" : formatearNumero(g.valorNumerico).replace(",", "."));
@@ -139,6 +140,7 @@ export function TablaPeriodo({ datos, slug, esDireccion }: { datos: DatosCalific
 
   const filasFaltantes = Object.entries(Object.groupBy(faltantes, (f) => f.alumno));
   const enviada = datos.estado.estado === "enviada";
+  const emitidas = new Set(datos.emitidas);
 
   return (
     <div className="space-y-5">
@@ -155,6 +157,7 @@ export function TablaPeriodo({ datos, slug, esDireccion }: { datos: DatosCalific
           {datos.salon.tutor ? ` y ya la puede ver ${datos.salon.tutor}, tutor de ${datos.salon.nombre}` : ""}. Está en solo lectura{esDireccion ? "." : "; dirección puede reabrirla si hace falta."}
         </Alerta>
       )}
+      {enviada && datos.estado.esPropio && <Alerta tipo="info">{datos.emitidas.length < datos.alumnos.length ? "Si una calificación tiene un error, usa «Rectificar» en las libretas ya emitidas; dirección la revisa. Si la libreta del alumno aún no se emitió, pide a dirección reabrir el curso." : "Si una calificación tiene un error, usa «Rectificar» en su celda; dirección revisa la solicitud."}</Alerta>}
       {!enviada && datos.estado.estado === "no_disponible" && <Alerta tipo="info">Disponible desde el {ddmm(datos.estado.disponibleDesde)}, cuando termina el periodo.</Alerta>}
       {!enviada && datos.estado.periodoCerrado && <Alerta tipo="aviso">Este periodo está cerrado: ya no se puede enviar ni cambiar.</Alerta>}
       {esDireccion && !enviada && <Alerta tipo="info">Estás viendo la calificación como dirección. Solo el profesor del curso la califica y la envía.</Alerta>}
@@ -225,6 +228,8 @@ export function TablaPeriodo({ datos, slug, esDireccion }: { datos: DatosCalific
                   const obligatoria = literal && requiereConclusion(celda.valor.toUpperCase() as Literal);
                   const falta = faltaClave.has(clave);
                   const etiqueta = `${a.nombre}, ${c.nombre}`;
+                  const rectificaciones = datos.rectificaciones.filter((r) => r.alumnoId === a.id && r.competenciaId === c.id);
+                  const pendienteRectificacion = rectificaciones.some((r) => r.estado === "pendiente");
                   return [
                     <td key={`${clave}-e`} className="border-r border-b px-2 py-1 align-middle">
                       <Evidencias evidencias={evidencias.get(clave) ?? []} alumno={a.nombre} />
@@ -263,6 +268,9 @@ export function TablaPeriodo({ datos, slug, esDireccion }: { datos: DatosCalific
                             <Button variant="outline" onClick={() => setConclusionAbierta(null)}>Listo</Button>
                           </PopoverContent>
                         </Popover>
+                        {enviada && emitidas.has(a.id) && !pendienteRectificacion && datos.estado.esPropio && <RectificarPeriodo slug={slug} cursoId={datos.curso.id} alumnoId={a.id} alumno={a.nombre} periodoId={datos.periodo.id} competenciaId={c.id} competencia={c.nombre} escala={datos.escala} actual={celda.valor} />}
+                        {enviada && datos.estado.esPropio && !emitidas.has(a.id) && <span className="inline-flex items-center gap-1 text-xs text-muted-foreground" title="Para corregir, pide a dirección reabrir el curso"><FileX className="size-3.5" strokeWidth={2} aria-hidden />Sin libreta emitida</span>}
+                        {pendienteRectificacion && <span className="inline-flex items-center gap-1 text-xs text-tarde"><Clock className="size-3.5" strokeWidth={2} aria-hidden />Pendiente</span>}
                       </div>
                     </td>,
                   ];
@@ -272,6 +280,17 @@ export function TablaPeriodo({ datos, slug, esDireccion }: { datos: DatosCalific
           </tbody>
         </table>
       </div>
+      {datos.rectificaciones.length > 0 && <section aria-labelledby="rectificaciones-curso" className="rounded-lg border border-borde-sutil bg-superficie p-4">
+        <h2 id="rectificaciones-curso" className="font-heading font-semibold">Rectificaciones del curso</h2>
+        <ul className="mt-3 divide-y divide-borde-sutil">{datos.rectificaciones.map((r) => {
+          const estado = { pendiente: { Icono: Clock, texto: "Pendiente" }, aprobada: { Icono: CheckCircle2, texto: "Aprobada" }, rechazada: { Icono: XCircle, texto: "Rechazada" } }[r.estado];
+          return <li key={r.id} className="flex flex-wrap items-center gap-x-2 py-2 text-sm">
+            <span className="font-medium">{datos.alumnos.find((a) => a.id === r.alumnoId)?.nombre} · {datos.competencias.find((c) => c.id === r.competenciaId)?.nombre}</span>
+            <span className="inline-flex items-center gap-1"><estado.Icono className="size-4" strokeWidth={2} aria-hidden />{estado.texto}</span>
+            <span className="text-muted-foreground">{r.valorAnterior ?? "sin calificar"} → {r.valorLiteral ?? (r.valorNumerico === null ? "—" : formatearNumero(r.valorNumerico))} · {r.motivo}</span>
+          </li>;
+        })}</ul>
+      </section>}
       {editable && literal && <p className="text-sm text-muted-foreground">Teclado: las flechas te mueven entre calificaciones; D, A, B o C califican (D = AD) y Supr borra. Enter abre la lista.</p>}
 
       <AlertDialog open={confirmar} onOpenChange={setConfirmar}>

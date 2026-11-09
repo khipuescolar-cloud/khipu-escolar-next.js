@@ -1,6 +1,6 @@
 # 37 — NSP, justificaciones, recuperación, incidencias y libretas emitidas
 
-> Estado: implementado · Plan: Khipu Base (incidencias, plazo, permisos) y Khipu Pro (notas, libreta) · Última actualización: 2026-11-03 (Claude Code: integridad académica y permisos de asistencia sin NSP)
+> Estado: implementado · Plan: Khipu Base (incidencias, plazo, permisos) y Khipu Pro (notas, libreta) · Última actualización: 2026-11-09 (Claude Code: la rectificación se pide desde «Calificación del periodo»; dirección la resuelve en la libreta)
 
 ## Objetivo
 Conectar la asistencia con el registro auxiliar:
@@ -45,8 +45,8 @@ El registro auxiliar **no** calcula la calificación oficial.
 |---|---|---|
 | Apoderado | Justificar faltas de sus hijos (una solicitud por fecha); ver estados y notas publicadas | Ver alumnos ajenos; justificar fuera de plazo |
 | Tutor del salón (o dirección) | Aprobar o rechazar justificaciones; ver el detalle de las incidencias de su salón | Decidir o registrar la recuperación de cursos ajenos (el servidor exige `cursos.profesor_id` = quien decide; dirección tampoco, porque no edita notas) |
-| Profesor del curso | Ver NSP, autorizar o no la recuperación, registrarla, corregir con motivo; registrar incidencias de sus salones; pedir rectificaciones de sus cursos | Editar notas de otros cursos o colegios; escribir «NSP» a mano |
-| Dirección | Configurar la consecuencia, la hora del resumen y el plazo; aprobar o rechazar rectificaciones; registrar y ver incidencias | Editar notas del registro auxiliar |
+| Profesor del curso | Ver NSP, autorizar o no la recuperación, registrarla, corregir con motivo; registrar incidencias de sus salones; pedir rectificaciones de sus cursos, solo desde «Calificación del periodo» | Editar notas de otros cursos o colegios; escribir «NSP» a mano |
+| Dirección | Configurar la consecuencia, la hora del resumen y el plazo; aprobar o rechazar rectificaciones (en la libreta del alumno); registrar y ver incidencias | Editar notas del registro auxiliar; pedir rectificaciones |
 | Administrativo | Registrar incidencias | Ver diagnósticos de salones ajenos (solo ve el detalle de las que registró) |
 | Khipu (sistema) | Poner y quitar NSP según la asistencia, aplicar vencimientos, enviar resúmenes y avisos. Actor `null` en el historial («Khipu») | — |
 
@@ -197,7 +197,11 @@ Reglas comunes:
 - `guardarCalificacionPeriodo` se rechaza: «La libreta de este periodo ya se emitió. Para corregirla, pide una rectificación…».
 
 **Rectificación**
-1. La pide el profesor del curso o dirección, desde la libreta del alumno, con competencia, valor correcto, conclusión, motivo (mínimo 10 caracteres) y evidencia. Solo se admite una pendiente por competencia.
+1. La pide **solo el profesor que dicta el curso** (`Curso.profesorId`; otro profesor o dirección: 403) desde `/notas/[cursoId]/periodo` («Calificación del periodo»), con «Rectificar» en la celda del alumno y la competencia: valor correcto, conclusión, motivo (mínimo 10 caracteres) y evidencia. Solo se admite una pendiente por competencia. Requisitos (`solicitarRectificacion`):
+   - la calificación del periodo del curso está **enviada** (`CierreCurso`); si no: «La calificación del periodo aún no se envió: corrígela directamente antes de enviarla.»;
+   - la libreta del alumno está **emitida**; si no: «La libreta de este alumno aún no se emitió: pide a dirección reabrir el curso para corregir la calificación.» (en la tabla: «Sin libreta emitida»);
+   - la competencia es del curso (la action lo valida con el `cursoId` de la ruta) y está en la libreta emitida.
+   - Dirección no pide rectificaciones (así nadie aprueba la suya). Desde la libreta ya no se piden (2026-11-09).
 2. Dirección la **aprueba** o la **rechaza**.
 3. Al aprobar, en una transacción:
    - se crea la versión N+1: copia de la anterior con **solo** esa competencia corregida y `rectificacion_id`;
@@ -278,7 +282,8 @@ ultimoDiaJustificacion · expiracionJustificacion · dentroDelPlazo · textoPlaz
 - `/configuracion` → **«Reglas académicas»** (dirección, con el módulo Notas): consecuencia por vencimiento y alerta de NSP vencidos sin configuración (la hora del resumen se quitó con el resumen diario). El plazo pasa a decir «(días calendario)».
 - `/libreta`:
   - «Versión N emitida el … por …»;
-  - tarjeta «Rectificaciones» (profesor y dirección) con estados (ícono + palabra), «Pedir una rectificación» y, para dirección, «Aprobar» y «Rechazar» con confirmación.
+  - tarjeta «Rectificaciones» (solo dirección) en el diálogo de la libreta del alumno, con estados (ícono + palabra), «Aprobar» y «Rechazar» con confirmación. El profesor (también el tutor) no la ve: sigue el estado en «Calificación del periodo».
+- `/notas/[cursoId]/periodo` (profesor del curso, calificación enviada): por celda, «Rectificar» (diálogo con alumno y competencia, `RectificarPeriodo.tsx`) si la libreta del alumno está emitida, «Sin libreta emitida» si no, y «Pendiente» (reloj) si ya hay una; debajo, «Rectificaciones del curso» con alumno · competencia, estado (ícono + palabra), valor anterior → nuevo (literal o vigesimal con coma) y motivo.
 - `/notas` (familia): píldora «NSP · No se presentó» o «NE · No entregó» y la leyenda; «Recuperación rendida el …»; «Venció el plazo para justificar la falta: se aplicó la regla del colegio.»
 
 ## Textos y UX
@@ -309,8 +314,9 @@ ultimoDiaJustificacion · expiracionJustificacion · dentroDelPlazo · textoPlaz
   - actividad tardía (15);
   - notas intercambiadas (11) e historial inmutable;
   - otro colegio (13);
-  - libreta emitida y rectificación (14);
+  - libreta emitida y rectificación (14; crea el cierre del curso antes de pedirla);
   - resumen diario único.
+- **Rectificación desde el periodo:** `tests/integracion/rectificacion-desde-periodo.test.ts` (sin envío falla; enviada sin libreta emitida falla con «pide a dirección reabrir el curso»; otro profesor y dirección 403; el profesor del curso la pide, una pendiente por competencia; al aprobar, la calificación del periodo muestra el valor nuevo).
 - **Permisos:** `tests/integracion/permisos-salida-reportes.test.ts` (falta con permiso sin NSP, permiso posterior retira el NSP, anular lo devuelve, tardanza nunca NSP, permiso por horas).
 - **Actualizadas:** `evaluaciones-publicacion` (sin aviso inmediato; corrección con motivo), `notas-libreta-tareas-agenda`, `justificar-token`, `dia-a-dia-offline-plazo` y `plataforma-equipo-anuncios-configuracion` (los feriados no mueven el plazo).
 - **unit:** `plazo-justificacion` (días calendario, día 15 dentro y 16 fuera, zona horaria) y `plantillas-avisos` (plantillas nuevas, sin notas ni diagnósticos).
@@ -329,7 +335,7 @@ ultimoDiaJustificacion · expiracionJustificacion · dentroDelPlazo · textoPlaz
 - **Retiro anticipado vs. permiso (por decidir, product owner):** hoy un retiro registrado como incidencia sigue creando faltas a clase y NSP (`Incidencia.retiro`), aunque el alumno tenga un permiso por horas que cubra esas clases (las faltas por incidencia no las cubre un permiso). ¿Un retiro autorizado por la familia debe tratarse como permiso (sin NSP) o mantener el NSP para que el profesor decida la recuperación? No se cambió el comportamiento.
 - **Plazo:** sigue configurable de 1 a 30 días (15 por defecto). ¿Se fija en 15?
 - **Rectificación:** no tiene adjuntos (la evidencia es texto) y la aprueba cualquier usuario de dirección.
-- **Rectificaciones — diferencia con el requisito original (pendiente de validación, sin cambios de código):** el requisito separaba la **autorización** de la rectificación y la **emisión** de la nueva versión; hoy la aprobación de dirección crea y publica la v2 al instante. La v1 sigue guardada pero no es visible en la UI. Quien pide la rectificación (si es de dirección) puede aprobarla él mismo. La evidencia es opcional.
+- **Rectificaciones — diferencia con el requisito original (pendiente de validación, sin cambios de código):** el requisito separaba la **autorización** de la rectificación y la **emisión** de la nueva versión; hoy la aprobación de dirección crea y publica la v2 al instante. La v1 sigue guardada pero no es visible en la UI. La evidencia es opcional. (Desde 2026-11-09 dirección ya no pide rectificaciones, así que nadie aprueba la suya.)
 
 ## Evaluaciones ligadas a tareas (specs/39)
 - Una evaluación con `tarea_id` (tarea calificable) **nunca** genera NSP: `sincronizarNsp` agrega `tareaId: null` al filtro de evaluaciones (por evaluación y por fecha) y `guardarNota` rechaza la marca NSP en ellas. Faltar el día del plazo no cambia nada.

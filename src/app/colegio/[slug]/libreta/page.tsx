@@ -8,10 +8,10 @@ import { Boton } from "@/components/ui/Boton";
 import { Selector } from "@/components/ui/Selector";
 import { buttonVariants } from "@/components/ui/button";
 import { libretaVisibleParaFamilia } from "@/lib/libreta-publicacion";
-import { datosLibreta, resumenLibretasSalon } from "@/lib/server/libreta";
+import { datosLibreta, requireLibretaVisible, resumenLibretasSalon, salonIdsLibreta } from "@/lib/server/libreta";
 import { alumnosVisibles, listarPeriodos, periodoParaLibreta } from "@/lib/server/notas";
 import { requireFeature } from "@/lib/server/plan";
-import { requireAlumnoVisible, requireTenantContext, salonIdsVisibles } from "@/lib/server/tenant";
+import { requireTenantContext } from "@/lib/server/tenant";
 import { DocumentoLibreta } from "./DocumentoLibreta";
 import { TablaLibretas } from "./TablaLibretas";
 
@@ -25,7 +25,7 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
   requireFeature(ctx, "libreta");
   if (!["apoderado", "profesor", "direccion"].includes(ctx.rol)) forbidden();
   const pedido = uno(sp.alumno);
-  if (pedido) await requireAlumnoVisible(ctx, pedido);
+  if (pedido) await requireLibretaVisible(ctx, pedido);
   const todos = await listarPeriodos(ctx);
   const descripcion = "Calificaciones por competencia y conclusiones de cada periodo.";
 
@@ -50,13 +50,15 @@ export default async function LibretaPage({ params, searchParams }: PageProps<"/
     </div>;
   }
 
-  const salonIds = await salonIdsVisibles(ctx);
+  const salonIds = await salonIdsLibreta(ctx);
+  const salonPedido = uno(sp.salon);
+  if (salonPedido && !salonIds.includes(salonPedido)) forbidden();
   const salones = await ctx.db.salon.findMany({ where: { id: { in: salonIds }, archivadoAt: null }, select: { id: true, nombre: true, nivel: true }, orderBy: { nombre: "asc" } });
   const alumnoPedido = pedido ? await ctx.db.alumno.findFirst({ where: { id: pedido }, select: { salonId: true } }) : null;
   const salon = salones.find((s) => s.id === alumnoPedido?.salonId) ?? salones.find((s) => s.id === uno(sp.salon)) ?? salones[0];
   const periodos = salon ? todos.filter((p) => p.niveles.includes(salon.nivel)) : [];
   const periodo = periodos.find((p) => p.id === uno(sp.periodo)) ?? periodoParaLibreta(periodos);
-  if (!salon || !periodo) return <><EncabezadoPagina titulo="Libreta" seccion="academico" descripcion={descripcion} /><EstadoVacio icono={NotebookText} titulo="Todavía no hay una libreta para mostrar" descripcion="Cuando el colegio cree un periodo con notas, la verás aquí." /></>;
+  if (!salon || !periodo) return <><EncabezadoPagina titulo="Libreta" seccion="academico" descripcion={descripcion} /><EstadoVacio icono={NotebookText} titulo="Todavía no hay una libreta para mostrar" descripcion={ctx.rol === "profesor" && salones.length === 0 ? "La libreta la ven el tutor del salón y la dirección." : "Cuando el colegio cree un periodo con notas, la verás aquí."} /></>;
   const resumen = await resumenLibretasSalon(ctx, salon.id, periodo.id);
   return <div className="flex flex-col gap-5">
     <EncabezadoPagina titulo="Libreta" seccion="academico" descripcion={descripcion} />
