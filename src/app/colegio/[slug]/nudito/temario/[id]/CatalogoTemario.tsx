@@ -5,7 +5,7 @@ import type { Resultado } from "@/lib/resultado";
 import { FormAccion } from "@/components/FormAccion";
 
 type Accion = (previo: Resultado | null, datos: FormData) => Promise<Resultado>;
-export function CatalogoTemario({ temas, elegidos, editar, accion }: { temas: Tema[]; elegidos: string[]; editar: boolean; accion: Accion }) {
+export function CatalogoTemario({ temas, competencias, elegidos, editar, accion }: { temas: Tema[]; competencias: Record<number, string>; elegidos: string[]; editar: boolean; accion: Accion }) {
   const [consulta, setConsulta] = useState("");
   const [pendientes, setPendientes] = useState<Set<string>>(new Set());
   const incluidos = useMemo(() => new Set(elegidos), [elegidos]);
@@ -40,14 +40,14 @@ export function CatalogoTemario({ temas, elegidos, editar, accion }: { temas: Te
         if (!visibles.length) return null;
         const todos = [...bloques.values()].flat();
         return <details key={competencia + ":" + Boolean(consulta)} open className="min-w-0 rounded-md border border-borde-sutil">
-          <summary className="min-h-11 cursor-pointer px-3 py-3 font-semibold">Competencia {competencia} · {todos.filter(t => incluidos.has(t.clave)).length} elegidos / {todos.length}</summary>
+          <summary className="min-h-11 cursor-pointer px-3 py-3 font-semibold">{competencias[competencia] ?? "Competencia " + competencia} <span className="font-normal text-muted-foreground">· {todos.filter(t => incluidos.has(t.clave)).length} de {todos.length} elegidos</span></summary>
           <div className="grid gap-2 px-2 pb-3">
             {visibles.map(([nombre, lista]) => {
               const bloqueCompleto = bloques.get(nombre)!;
               const disponibles = bloqueCompleto.filter(t => !incluidos.has(t.clave));
               const todosMarcados = disponibles.length > 0 && disponibles.every(t => pendientes.has(t.clave));
               return <details key={nombre + ":" + Boolean(consulta)} open className="min-w-0 rounded-md bg-superficie-2">
-                <summary className="min-h-11 cursor-pointer px-3 py-3 font-medium">{nombre} · {bloqueCompleto.filter(t => incluidos.has(t.clave)).length} elegidos / {bloqueCompleto.length}</summary>
+                <summary className="min-h-11 cursor-pointer px-3 py-3 font-medium">{nombre} <span className="font-normal text-muted-foreground">· {bloqueCompleto.filter(t => incluidos.has(t.clave)).length} de {bloqueCompleto.length}</span></summary>
                 <div className="px-3 pb-3">
                   {editar && <label className="flex min-h-11 items-center gap-2 text-sm font-medium">
                     <input type="checkbox" checked={todosMarcados} disabled={!disponibles.length} onChange={e => setPendientes(actual => {

@@ -4,6 +4,7 @@ import { FormAccion } from "@/components/FormAccion";
 import { PestanasNudito } from "@/components/nudito/PestanasNudito";
 import { temasDeConBanco } from "@/lib/nudito/conocimiento/servidor";
 import { CatalogoTemario } from "./CatalogoTemario";
+import { CATALOGO_CNEB } from "@/lib/cneb/catalogo";
 import type { AreaNudito } from "@/lib/nudito/contratos";
 import { detalleTemario, estadoTemario, nombreTemaTemario } from "@/lib/server/plan-anual/temario";
 import { requireTenantContext } from "@/lib/server/tenant";
@@ -151,7 +152,7 @@ export default async function TemarioDetalle({
           </ol>
         </section>
 
-        <CatalogoTemario temas={catalogo} elegidos={temas.map(t => t.temaClave)} editar={editar} accion={accion("agregar")} />
+        <CatalogoTemario temas={catalogo} competencias={Object.fromEntries(CATALOGO_CNEB.flatMap(a => a.competencias.map(c => [c.numero, c.nombre])))} elegidos={temas.map(t => t.temaClave)} editar={editar} accion={accion("agregar")} />
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ La revisión del supervisor rechazó las 239 fichas anteriores por repetición d
 No hay migración. Las claves estables se guardan en `plan_anual_temas`, `nudito_sesiones` y `nudito_dominios` como hasta ahora. El contenido del banco vive en JSON versionado.
 
 ## Rutas y UI
-`/nudito/temario/[id]`: muestra las fichas de la combinación de área, nivel y grado del plan, sin búsqueda obligatoria ni paginación; bloques plegables con conteo «elegidos / total» y «Elegir todo el bloque». El filtro se ejecuta en el cliente, sin recarga.
+`/nudito/temario/[id]`: muestra las fichas de la combinación de área, nivel y grado del plan, sin búsqueda obligatoria ni paginación; bloques plegables con el nombre oficial de la competencia y conteo «n de total elegidos» y «Elegir todo el bloque». El filtro se ejecuta en el cliente, sin recarga.
 
 ## Errores y casos borde
 - Una clave ajena al grado o al área se rechaza en la acción, aunque se envíe manualmente.

@@ -100,7 +100,7 @@ test("dos profesores aceptan el temario y el alumno ve la versión habilitada en
   await alumno.close(); await b.close(); await direccion.close(); await a.close();
 });
 
-test("Matemática 3.° muestra más de 200 temas sin buscar y cabe en móvil", async ({ browser }) => {
+test("Matemática 3.° muestra todo el banco (129 temas) sin buscar y cabe en móvil", async ({ browser }) => {
   const page = await entrar(browser, correos.a, { width: 360, height: 740 });
   await page.goto(url("/nudito/temario"));
   const grupo = page.locator("article").filter({ hasText: "3.° grado" }).filter({ has: page.getByRole("heading", { name: "Matemática" }) });
@@ -108,7 +108,7 @@ test("Matemática 3.° muestra más de 200 temas sin buscar y cabe en móvil", a
   await page.waitForURL(/\/nudito\/temario\/[0-9a-f-]{36}/);
   const catalogo = page.getByText(/\d+ temas disponibles para este grado y curso/);
   await expect(catalogo).toBeVisible();
-  expect(Number((await catalogo.textContent())?.match(/\d+/)?.[0])).toBeGreaterThanOrEqual(200);
+  expect(Number((await catalogo.textContent())?.match(/\d+/)?.[0])).toBe(129);
   await expect(page.getByRole("searchbox", { name: "Filtrar temas (opcional)" })).toHaveValue("");
   await expect(page.locator("#titulo-catalogo")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
