@@ -1,14 +1,14 @@
 import "server-only";
 import type { AccesoNudito, AreaNudito, Tema } from "@/lib/nudito/contratos";
-import { clavesDeVersion, clavesDisponibles, planCompleto } from "@/lib/nudito/plan-publicado-reglas";
+import { clavesDeVersion, planCompleto } from "@/lib/nudito/plan-publicado-reglas";
 import { mapearEstadoProgreso } from "@/lib/nudito/leccion";
 import { requireAlumnoVisible, type TenantContext } from "../tenant";
 import { auditar } from "../auditoria";
-import { catalogoDelColegio } from "./catalogo";
+import { temasDe } from "@/lib/nudito/catalogo";
 
 export type TemaDisponible = Tema;
 
-/** Solo la foto de la última versión publicada y las lecciones publicadas del grado matriculado. */
+/** Solo la foto de la última versión habilitada del grado matriculado. */
 export async function temasPublicadosDelAlumno(ctx: TenantContext, acceso: AccesoNudito, area: AreaNudito): Promise<TemaDisponible[]> {
   await requireAlumnoVisible(ctx, acceso.alumno.id);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "nudito_temas_publicados", entidadId: acceso.alumno.id, detalle: { area } });
@@ -25,13 +25,9 @@ export async function temasPublicadosDelAlumno(ctx: TenantContext, acceso: Acces
   // Se consulta una sola vez cada tabla, sin una consulta por tema.
   const foto = clavesDeVersion(version.temas);
   if (!foto.length) return [];
-  const [lecciones, catalogo] = await Promise.all([
-    ctx.db.nuditoLeccion.findMany({ where: { temaClave: { in: foto }, area, estado: "publicada" }, select: { temaClave: true, version: true } }),
-    catalogoDelColegio(ctx.db, { area, nivel: salon.nivel }),
-  ]);
-  const disponibles = new Set(clavesDisponibles(version.temas, lecciones));
+  const catalogo = temasDe(area, salon.nivel, salon.grado);
   const porClave = new Map(catalogo.filter(t => t.nivel === salon.nivel && t.grado === salon.grado).map(t => [t.clave, t]));
-  return foto.filter(clave => disponibles.has(clave)).flatMap(clave => { const tema = porClave.get(clave); return tema ? [tema] : []; });
+  return foto.flatMap(clave => { const tema = porClave.get(clave); return tema ? [tema] : []; });
 }
 
 export async function progresoDelPlan(ctx: TenantContext, alumnoId: string, area: AreaNudito) {

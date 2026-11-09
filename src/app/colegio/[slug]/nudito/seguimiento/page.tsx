@@ -3,6 +3,7 @@ import { ListaDividida } from "@/components/ui/Superficies";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TituloBloque } from "@/components/shell/TituloBloque";
+import { PestanasNudito } from "@/components/nudito/PestanasNudito";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { EstadoVacio } from "@/components/shell/EstadoVacio";
 import { AVISO_FORMATIVO, NOMBRE_AREA_NUDITO } from "@/lib/nudito-seguimiento";
@@ -24,6 +25,7 @@ export default async function SeguimientoNudito({ params }: PageProps<"/colegio/
   return (
     <div className="flex flex-col gap-6">
       <EncabezadoPagina titulo="Seguimiento de Nudito" seccion="academico" descripcion={`Cómo practican tus alumnos con Nudito, por curso y tema. ${AVISO_FORMATIVO}`} />
+      <PestanasNudito activa="seguimiento" />
       {!estado.activo && (
         <p className="text-cuerpo-sm text-muted-foreground">
           Nudito está apagado en el colegio{ctx.rol === "direccion" ? <>: puedes activarlo en <Link href="/configuracion/nudito" className="enlace">Configuración de Nudito</Link>.</> : "."}

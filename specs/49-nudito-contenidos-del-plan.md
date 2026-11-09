@@ -1,21 +1,20 @@
-# 49 — Nudito: contenidos preparados del plan anual, revisión docente y costos de IA
+# 49 — Nudito: repaso del catálogo y contenidos opcionales
 
 > Estado: en desarrollo (paso 0 hecho) · Plan: Khipu Pro · Última actualización: 2026-11-08 (Claude Code, orquestador) · Responsable: orquestador + agentes Codex
 
 ## Objetivo
-Que Nudito (specs/41–44) use **solo** los temas del plan anual publicado (specs/48) y una **lección preparada,
-validada y aprobada por docentes**, reutilizada por todos los alumnos del colegio. La IA queda para dudas, pistas y
+Que Nudito (specs/41–44) use los temas de la última versión habilitada del temario (specs/48). Una lección publicada es opcional: si falta, el repaso proviene del catálogo global. La IA queda para dudas, pistas y
 retroalimentación; nunca genera una clase por alumno.
 
 ## Reglas de negocio
 1. **Temas del alumno** = temas de la última `plan_anual_versiones` publicada del grupo `(tenant, salon.anio,
-   salon.nivel, salon.grado, area)` **∩** temas con `nudito_lecciones.estado = publicada` (versión vigente).
+   salon.nivel, salon.grado, area)` sin exigir una lección publicada; las claves `col:` históricas no se presentan.
    Todos disponibles desde el inicio: **sin bloqueo semanal ni por avance del docente**. Sin plan publicado: lista
    vacía y el mensaje «Tu colegio está preparando los temas de este curso.» (Nudito nunca da malas noticias).
 2. **Se elimina «Otro tema»**: `elegirTema` solo acepta `temaClave` y la rechaza si no está en la lista del punto 1
    (también para temas de grados anteriores o desbloqueados: el desbloqueo automático al grado superior queda inactivo).
 3. Áreas: Matemática, Comunicación, Ciencia y Tecnología, filtradas por la matrícula (cursos del salón, specs/42).
-4. **Repaso** = contenido de la lección publicada (no el repaso del catálogo). «Explícame otra vez» sigue usando la IA
+4. **Repaso** = contenido de la lección publicada cuando exista; en su ausencia, repaso del catálogo global. «Explícame otra vez» sigue usando la IA
    con caché y límites (specs/41).
 5. **Progreso**: estados del alumno por tema = `pendiente` (sin dominio) · `en_progreso` · `necesita_refuerzo` ·
    `dominado`, mapeados desde `nudito_dominios.estado` (specs/43). Abrir un tema no lo completa; dominar exige la
@@ -26,7 +25,9 @@ retroalimentación; nunca genera una clase por alumno.
    dominios; el seguimiento muestra temas retirados como «fuera del plan vigente».
 8. **Resultados formativos**: Nudito nunca escribe en notas, evaluaciones, competencias ni libretas.
 
-## Lecciones
+## Lecciones (histórico y uso opcional)
+
+La revisión docente y la publicación de lecciones dejan de ser requisitos para que el alumno vea un tema. Se retiran las pantallas de materiales y revisión docente; los datos y servicios que usan otros flujos se conservan.
 - `nudito_lecciones` (tenant): una fila por `(tenant, temaClave, version)`; la vigente es la mayor versión `publicada`.
 - `contenido` (zod `esquemaLeccion` en `src/lib/nudito/leccion.ts`):
   `{ titulo, idea (≤400), explicacion (≤1500), ejemplos: [{enunciado, desarrollo}] (1–3), errorFrecuente?,
@@ -89,17 +90,11 @@ metricasContenido(ctx, { desde?, hasta? }): { reutilizadas, generadas, solicitud
 ```
 
 ## Rutas y UI
-- `/planificacion/[planId]/materiales`: estado por tema (ícono + palabra), «Preparar materiales», progreso del trabajo,
-  métricas de costo y pendientes. `/planificacion/[planId]/materiales/[temaClave]`: revisión (explicación, ejemplos,
-  muestras con respuesta y pistas, dificultad, recursos), editar, solicitar cambios, aprobar, publicar.
-- `/planificacion/[planId]/progreso`: progreso de los alumnos del grupo por tema (participantes y dirección).
-- Materiales, Progreso y las observaciones de Revisión muestran el **nombre** del tema (`nombresDeTemas`), nunca la clave
-  interna. Si el plan aún no tiene versión publicada, Materiales y Progreso muestran un aviso («Publica el plan…») en vez
-  de un error.
-- `/nudito` (alumno / modo hijo): bienvenida con nombre → curso → temas del plan (sin «Otro tema») → repaso → práctica →
-  resultados (completados, aciertos, dificultades, habilidades, recomendaciones) → felicitación si completa el plan.
+- /nudito/temario y /nudito/temario/[id]: elección y aceptación del temario (specs/48).
+- /nudito (alumno / modo hijo): bienvenida, curso, temas de la última versión habilitada, repaso de lección publicada si existe o del catálogo, práctica y progreso.
+- Las antiguas rutas /planificacion y subrutas redirigen al temario. Se retiran las pantallas de materiales, revisión de lecciones y progreso del plan; el seguimiento general permanece en /nudito/seguimiento.
 
-## Edición docente (QA)
+## Edición docente (histórico; UI retirada)
 La pantalla de materiales usa campos etiquetados para título, idea, explicación, hasta tres ejemplos, error frecuente y hasta cinco muestras con respuesta y pistas. El servidor reconstruye y valida con `esquemaLeccion`; los recursos vigentes se conservan y los errores de forma se muestran junto al formulario.
 
 ## Pruebas
@@ -113,7 +108,9 @@ La pantalla de materiales usa campos etiquetados para título, idea, explicació
 - Sin claves de IA: generación y explicaciones extra usan el proveedor **simulado**; las lecciones de catálogo no usan IA.
 - Fotos de ejercicios: se mantiene specs/41 (`permitirFotos`, interpretación confirmada por el alumno).
 
-## Estado de implementación — 2026-11-08
+## Estado histórico de implementación — 2026-11-08
+
+Este bloque documenta servicios de contenido que permanecen en el repositorio; la interfaz de revisión y su requisito de publicación quedaron retirados en 2026-11-09.
 - Rutas: `/planificacion/[planId]/materiales`, `/planificacion/[planId]/materiales/[temaClave]`, `/planificacion/[planId]/progreso`, `/nudito` y `/api/cron/nudito-contenido` (Bearer `CRON_SECRET`). Las páginas de planificación usan el layout y las pestañas del agente responsable del plan.
 - `temasPublicadosDelAlumno` consulta la última foto publicada y las lecciones publicadas, sin depender de semanas. `progresoDelPlan` mapea los estados sin borrar temas retirados del historial. La selección acepta solo claves de esa lista; «Otro tema» y el desbloqueo superior desaparecen de la interfaz.
 - Preparación: trabajo idempotente por plan y versión; cada llamada procesa hasta cinco ítems con concurrencia máxima de dos, tres intentos por ítem y cupos de trabajo/colegio. Lecciones globales se arman desde el catálogo y muestras deterministas. Los temas propios usan el proveedor configurado; sin credenciales, el simulado deja borradores `ia_simulada` que requieren edición docente para poder aprobarse.

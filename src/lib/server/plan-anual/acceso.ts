@@ -1,20 +1,20 @@
 import "server-only";
 import { notFound } from "next/navigation";
 import type { Nivel, PlanAnual } from "@/generated/prisma/client";
-import { editable } from "@/lib/plan-anual/estados";
+import { AREAS_NUDITO } from "@/lib/nudito/contratos";
 import { requireFeature } from "@/lib/server/plan";
 import type { DbTenant } from "@/lib/server/db";
 import type { TenantContext } from "@/lib/server/tenant";
 
 export type GrupoCurricular = { anio: number; nivel: Nivel; grado: number; area: string; nombreCurso: string };
 export function exigirPlanificacion(ctx: TenantContext): void {
-  requireFeature(ctx, "notas");
+  requireFeature(ctx, "nudito_plus");
 }
 function agrupar(cursos: { nombre: string; areaCneb: string | null; salon: { anio: number; nivel: Nivel; grado: number | null } }[]): GrupoCurricular[] {
   const grupos = new Map<string, GrupoCurricular>();
   for (const curso of cursos) {
     const { anio, nivel, grado } = curso.salon;
-    if (!curso.areaCneb || grado === null) continue;
+    if (!curso.areaCneb || !AREAS_NUDITO.some(a => a === curso.areaCneb) || grado === null) continue;
     const key = [anio, nivel, grado, curso.areaCneb].join("|");
     if (!grupos.has(key)) grupos.set(key, { anio, nivel, grado, area: curso.areaCneb, nombreCurso: curso.nombre });
   }
@@ -55,8 +55,8 @@ export async function requireAccesoPlan(ctx: TenantContext, planId: string, opci
     include: { participantes: { where: { membershipId: ctx.membership.id, activo: true }, select: { id: true } } },
   });
   if (!plan) notFound();
-  if (ctx.rol === "profesor" && plan.participantes.length === 0) notFound();
-  if (opciones.coordinador && (ctx.rol !== "profesor" || plan.coordinadorId !== ctx.membership.id)) notFound();
-  if (opciones.editar && !editable(plan.estado)) notFound();
+  if (ctx.rol === "profesor" && !(await docentesDelGrupo(ctx.db, plan)).some(d => d.membershipId === ctx.membership.id)) notFound();
+  if (opciones.coordinador) notFound();
+  if (opciones.editar && ctx.rol !== "profesor") notFound();
   return plan;
 }
