@@ -1,6 +1,4 @@
-import { EsqueletoFilas } from "@/components/comunicacion/EsqueletoFilas";
-import { EsqueletoPagina } from "@/components/carga/Esqueletos";
-
+import { Skeleton } from "@/components/ui/skeleton";
 export default function Loading() {
-  return <EsqueletoPagina><EsqueletoFilas avatar /></EsqueletoPagina>;
+  return <div className="flex h-[calc(100dvh-7rem)] min-h-[28rem] overflow-hidden rounded-lg border border-border bg-card md:h-[calc(100dvh-8rem)]"><div className="w-full border-r border-border md:w-[22.5rem] md:shrink-0"><div className="flex h-16 items-center justify-between border-b border-border px-4"><Skeleton className="h-7 w-24" /><Skeleton className="size-11 rounded-full" /></div><div className="border-b border-border p-3"><Skeleton className="h-11 w-full" /></div>{Array.from({ length: 6 }, (_, i) => <div key={i} className="flex h-20 items-center gap-3 border-b border-border px-4"><Skeleton className="size-11 rounded-full" /><div className="flex-1 space-y-2"><Skeleton className="h-4 w-36" /><Skeleton className="h-3 w-48" /></div></div>)}</div><div className="hidden flex-1 flex-col md:flex"><div className="flex h-16 items-center gap-3 border-b border-border px-4"><Skeleton className="size-11 rounded-full" /><Skeleton className="h-5 w-40" /></div><div className="flex-1 bg-muted/40" /><div className="flex items-center gap-3 border-t border-border p-3"><Skeleton className="h-11 flex-1" /><Skeleton className="size-11 rounded-full" /></div></div></div>;
 }

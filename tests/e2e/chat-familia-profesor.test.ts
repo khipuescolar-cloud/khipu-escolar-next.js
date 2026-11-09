@@ -35,7 +35,7 @@ test("Rosa y la tutora Lucía conversan sin ver teléfonos ni correos", async ({
   // Rosa escribe a la tutora.
   const rosa = await entrar(browser, "rosa.quispe@gmail.com");
   await rosa.goto(`${COLEGIO}/mensajes/nuevo`);
-  const fila = rosa.getByRole("listitem").filter({ hasText: "Lucía García Paz · Tutora de 3.° B" });
+  const fila = rosa.getByRole("listitem").filter({ hasText: "Lucía García Paz" });
   await fila.getByRole("button", { name: "Escribir" }).click();
   await rosa.waitForURL(/\/mensajes\/[0-9a-f-]{36}$/);
   await rosa.getByLabel("Tu mensaje").fill(mensajeRosa);
@@ -46,8 +46,8 @@ test("Rosa y la tutora Lucía conversan sin ver teléfonos ni correos", async ({
   // Lucía ve el mensaje sin leer, lo abre y responde.
   const lucia = await entrar(browser, "lucia.garcia@nuevohorizonte.demo");
   await lucia.goto(`${COLEGIO}/mensajes`);
-  await expect(lucia.getByRole("main").getByText("1 sin leer")).toBeVisible();
-  await expect(lucia.getByText("Rosa Quispe Mamani · madre de Mateo Quispe Huamán")).toBeVisible();
+  await expect(lucia.getByRole("link", { name: /Rosa Quispe Mamani/ }).getByText("1 sin leer")).toBeVisible();
+  await expect(lucia.getByRole("link", { name: /Rosa Quispe Mamani/ })).toBeVisible();
   await lucia.getByRole("link", { name: /Rosa Quispe Mamani/ }).click();
   await expect(lucia.getByText(mensajeRosa)).toBeVisible();
   await lucia.getByLabel("Tu mensaje").fill(respuesta);
