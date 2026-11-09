@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { esDisciplinaDe } from "./disciplinas";
 
 const texto = z.string().trim().min(1);
 export const esquemaEjercicioBanco = z.object({
@@ -22,7 +23,7 @@ export const esquemaFicha = z.object({
   clave: z.string().regex(/^(mat|com|cyt)\.(p|s)\d\.[a-z0-9-]+$/), area: z.enum(["matematica", "comunicacion", "ciencia-tecnologia"]), nivel: z.enum(["primaria", "secundaria"]), grado: z.number().int().min(1).max(6),
   competenciaCneb: z.number().int().min(1).max(31), capacidad: texto,
   desempenosOrigen: z.array(z.string().regex(/^(MAT|COM|CYT)-C\d{1,2}-(P|S)\d-\d{2}$/)).min(1), bloque: texto,
-  nombre: texto.max(80), descripcionCorta: texto.max(200), palabrasClave: z.array(texto).min(1),
+  nombre: texto.max(80), disciplina: z.string(), descripcionCorta: texto.max(200), palabrasClave: z.array(texto).min(1),
   prerrequisitos: z.array(z.string()), ordenSugerido: z.number().int().positive(),
   ideaCentral: texto, pasos: z.array(texto).min(2),
   ejemplos: z.array(z.object({ situacion: texto, desarrollo: texto, respuesta: texto })).min(2).max(3),
@@ -35,6 +36,7 @@ export const esquemaFicha = z.object({
   const prefijo = { matematica: "mat", comunicacion: "com", "ciencia-tecnologia": "cyt" }[f.area];
   const codigoArea = prefijo.toUpperCase();
   const nivel = f.nivel === "primaria" ? "p" : "s";
+  if (!esDisciplinaDe(f.area, f.disciplina)) ctx.addIssue({ code: "custom", path: ["disciplina"], message: "Disciplina no válida para el área" });
   if (f.nivel === "secundaria" && f.grado > 5) ctx.addIssue({ code: "custom", path: ["grado"], message: "Secundaria tiene grados 1–5" });
   if (!f.clave.startsWith(`${prefijo}.${nivel}${f.grado}.`)) ctx.addIssue({ code: "custom", path: ["clave"], message: "Clave incoherente con área, nivel o grado" });
   if (f.desempenosOrigen.some(c => !c.startsWith(`${codigoArea}-C${f.competenciaCneb}-${nivel.toUpperCase()}${f.grado}-`))) ctx.addIssue({ code: "custom", path: ["desempenosOrigen"], message: "Desempeño incoherente con ficha" });

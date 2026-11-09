@@ -7,11 +7,12 @@ import matematica from "../src/lib/nudito/conocimiento/cneb/matematica.json";
 import comunicacion from "../src/lib/nudito/conocimiento/cneb/comunicacion.json";
 import cienciaTecnologia from "../src/lib/nudito/conocimiento/cneb/ciencia-tecnologia.json";
 import type { AreaNudito, NivelNudito } from "../src/lib/nudito/contratos";
+import { esDisciplinaDe } from "../src/lib/nudito/conocimiento/disciplinas";
 
 const raiz = fileURLToPath(new URL("../src/lib/nudito/conocimiento/banco/", import.meta.url));
 const fuentes = { matematica, comunicacion, "ciencia-tecnologia": cienciaTecnologia };
 const areas = Object.keys(fuentes) as AreaNudito[];
-type TemaPropuesto = { clave: string; desempenosOrigen: string[]; prerrequisitos: string[]; competencia?: number };
+type TemaPropuesto = { clave: string; nombre: string; disciplina?: string; desempenosOrigen: string[]; prerrequisitos: string[]; competencia?: number };
 type TemarioPropuesto = { competencias: { numero: number; capacidades: { bloques: { temas: TemaPropuesto[] }[] }[] }[] };
 const normalizar = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
 const forma = (s: string) => normalizar(s).replace(/\b\d+(?:[.,]\d+)?\b/g, "#");
@@ -61,6 +62,7 @@ export function validarBanco(): { fichas: FichaConocimiento[]; errores: string[]
       if (clavesTemario.has(t.clave)) errores.push(etiqueta + ": clave repetida en temario " + t.clave);
       clavesTemario.add(t.clave);
       for (const pre of t.prerrequisitos) if (!catalogo.has(pre)) errores.push(etiqueta + ": prerrequisito inexistente " + pre);
+      if (!esDisciplinaDe(area, t.disciplina)) errores.push(etiqueta + ": disciplina inválida o ausente en " + t.clave);
     }
     temasActivos.push(...temas);
     const fuente = fuentes[area];
@@ -87,6 +89,7 @@ export function validarBanco(): { fichas: FichaConocimiento[]; errores: string[]
       if (clavesFichas.has(f.clave)) errores.push(etiqueta + ": clave repetida " + f.clave);
       clavesFichas.add(f.clave);
       if (!clavesTemario.has(f.clave)) errores.push(etiqueta + ": ficha fuera del temario " + f.clave);
+      else if (temas.find(t => t.clave === f.clave)?.disciplina !== f.disciplina) errores.push(f.clave + ": disciplina distinta a la del temario");
       const nombre = normalizar(f.nombre);
       if (nombres.has(nombre)) errores.push(etiqueta + ": nombre repetido " + f.nombre);
       nombres.add(nombre);

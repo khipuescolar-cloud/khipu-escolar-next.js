@@ -47,6 +47,8 @@ No hay migración. Las claves estables se guardan en `plan_anual_temas`, `nudito
 Unit: `nudito-banco-conocimiento.test.ts`. E2E: `plan-anual-nudito.test.ts` verifica conteo y ancho móvil. Gates: lint, typecheck, test, validador y dos e2e solicitados. Playwright resuelve los subdominios de `lvh.me` a 127.0.0.1 para el entorno local.
 
 ## Temarios propuestos (2026-11-09)
+Cada tema (y cada ficha) lleva `disciplina` (`src/lib/nudito/conocimiento/disciplinas.ts`): permite cursos propios del colegio como Química o Álgebra (specs/51). El validador exige un valor válido y que la ficha coincida con su tema.
+
 Los 33 temarios existen como `banco/<area>/<nivel>-<grado>/temario-propuesto.json` con su vista legible en `docs/nudito/temario-<mat|com|cyt>-<grado>-<nivel>.md` (resumen por competencia, bloques, cobertura de desempeños, fuentes realmente consultadas y decisiones dudosas para revisión docente). Matemática 1 365 temas, Comunicación 1 139, Ciencia y Tecnología 1 335 (≈ 100–147 por grado; sin relleno). Los temas que el CNEB no nombra literalmente pero traen los textos MINEDU (p. ej. razonamiento verbal, química en 4.° sec., logaritmos en 5.° sec.) están marcados como dudosos en cada `.md`.
 
 Ejercicios de opción múltiple: el orden de las opciones está mezclado (la correcta no es siempre la primera) y las explicaciones nombran la opción por su texto, no por letra (la pantalla no muestra letras). Texto corto del banco: modo `literal` (specs/43).
