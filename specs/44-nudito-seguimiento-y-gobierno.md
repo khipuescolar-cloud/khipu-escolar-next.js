@@ -70,7 +70,7 @@ gobierne Nudito (límites, retención, fotos); y dejar **inerte**, sin borrar da
   y `/nudito-plus/[alumnoId]` (autorización + progreso). Siempre con «Práctica formativa, no es nota» (`AVISO_FORMATIVO`,
   `src/lib/nudito-seguimiento.ts`) y estados con ícono + palabra («Para reforzar», nunca «mal»).
 - **Navegación** (`navegacion.ts`): alumno «Nudito» `/nudito`; apoderado «Nudito» `/nudito-plus`; profesor y dirección
-  «Seguimiento de Nudito» `/nudito/seguimiento`.
+  «Nudito» `/nudito/seguimiento`, con pestañas superiores «Temario» y «Seguimiento» (specs/48).
 - **Fotos** (`fotos.ts`): `subirFoto(ctx, acceso, { sesionId, ejercicioId?, archivo }, { proveedor?, proposito? })` exige
   colegio activo y `permitir_fotos` (si no, `MENSAJE_FOTOS_APAGADAS`), sesión (y ejercicio) del propio alumno, JPG/PNG/WEBP
   por firma (`detectarMime`) y ≤ 5 MB. Guarda `Archivo` privado (`nudito_sesion_id`, carpeta `nudito`), llama a

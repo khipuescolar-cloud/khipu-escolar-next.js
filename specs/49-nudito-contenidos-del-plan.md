@@ -8,7 +8,7 @@ retroalimentación; nunca genera una clase por alumno.
 
 ## Reglas de negocio
 1. **Temas del alumno** = temas de la última `plan_anual_versiones` publicada del grupo `(tenant, salon.anio,
-   salon.nivel, salon.grado, area)` sin exigir una lección publicada.
+   salon.nivel, salon.grado, area)` sin exigir una lección publicada; las claves `col:` históricas no se presentan.
    Todos disponibles desde el inicio: **sin bloqueo semanal ni por avance del docente**. Sin plan publicado: lista
    vacía y el mensaje «Tu colegio está preparando los temas de este curso.» (Nudito nunca da malas noticias).
 2. **Se elimina «Otro tema»**: `elegirTema` solo acepta `temaClave` y la rechaza si no está en la lista del punto 1

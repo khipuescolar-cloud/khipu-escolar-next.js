@@ -53,5 +53,5 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 45 | [Almacenamiento centralizado, carga directa, cuotas y observabilidad](45-almacenamiento-y-cuotas.md) | Khipu Pro (Base: medición) | especificado, sin implementar |
 | 46 | [Solicitudes documentales (gestión académica: estados, versiones y revisión)](46-solicitudes-documentales.md) | Khipu Pro | especificado, sin implementar |
 | 47 | [Registro de notas](47-registro-de-notas.md) | Khipu Pro | en desarrollo (PASO 0: contrato y esquema) |
-| 48 | [Planificación académica anual](48-planificacion-academica-anual.md) | Khipu Pro | en desarrollo (paso 0 hecho) |
+| 48 | [Temario de Nudito](48-nudito-temario.md) | Khipu Pro | implementado |
 | 49 | [Nudito: contenidos del plan](49-nudito-contenidos-del-plan.md) | Khipu Pro | en desarrollo (paso 0 hecho) |

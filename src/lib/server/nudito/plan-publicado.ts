@@ -4,7 +4,7 @@ import { clavesDeVersion, planCompleto } from "@/lib/nudito/plan-publicado-regla
 import { mapearEstadoProgreso } from "@/lib/nudito/leccion";
 import { requireAlumnoVisible, type TenantContext } from "../tenant";
 import { auditar } from "../auditoria";
-import { catalogoDelColegio } from "./catalogo";
+import { temasDe } from "@/lib/nudito/catalogo";
 
 export type TemaDisponible = Tema;
 
@@ -25,7 +25,7 @@ export async function temasPublicadosDelAlumno(ctx: TenantContext, acceso: Acces
   // Se consulta una sola vez cada tabla, sin una consulta por tema.
   const foto = clavesDeVersion(version.temas);
   if (!foto.length) return [];
-  const catalogo = await catalogoDelColegio(ctx.db, { area, nivel: salon.nivel });
+  const catalogo = temasDe(area, salon.nivel, salon.grado);
   const porClave = new Map(catalogo.filter(t => t.nivel === salon.nivel && t.grado === salon.grado).map(t => [t.clave, t]));
   return foto.flatMap(clave => { const tema = porClave.get(clave); return tema ? [tema] : []; });
 }
