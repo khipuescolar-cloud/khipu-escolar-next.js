@@ -60,7 +60,7 @@ test("profesor de la academia (vigesimal) corrige una nota de 0 a 20 en el regis
 test("apoderada descarga la libreta en PDF de su hijo", async ({ page }) => {
   await entrar(page, "rosa.quispe@gmail.com", "nuevohorizonte");
   await page.goto(colegio("nuevohorizonte", "/libreta"));
-  await expect(page.getByRole("heading", { name: "Libreta" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Libreta", exact: true })).toBeVisible();
   // Rosa tiene dos hijos: elige a Mateo.
   await page.getByRole("combobox", { name: "Alumno" }).selectOption({ label: "Quispe Huamán, Mateo · 3.° B" });
   await page.getByRole("button", { name: "Ver", exact: true }).click();
@@ -72,6 +72,23 @@ test("apoderada descarga la libreta en PDF de su hijo", async ({ page }) => {
   const ruta = await archivo.path();
   const { readFileSync } = await import("node:fs");
   expect(readFileSync(ruta).subarray(0, 5).toString()).toBe("%PDF-");
+});
+
+test("dirección consulta el salón y abre una libreta en el diálogo", async ({ page }) => {
+  await entrar(page, "direccion@nuevohorizonte.demo", "nuevohorizonte");
+  await page.goto(colegio("nuevohorizonte", "/libreta"));
+  await expect(page.getByRole("combobox", { name: "Salón" })).toBeVisible();
+  const tabla = page.getByRole("region", { name: "Libretas del salón por curso y competencia" });
+  await expect(tabla.getByRole("columnheader", { name: "Documento" })).toBeVisible();
+  await tabla.getByRole("button", { name: /Ver documento de/ }).first().click();
+  const dialogo = page.getByRole("dialog", { name: /Libreta de/ });
+  await expect(dialogo.getByRole("heading", { name: "Informe de progreso del aprendizaje · Libreta" })).toBeVisible();
+  await expect(dialogo.getByRole("table", { name: "Cursos, competencias, calificaciones y conclusiones descriptivas" })).toBeVisible();
+  await dialogo.getByRole("button", { name: "Cerrar" }).click();
+  await expect(dialogo).toBeHidden();
+  const [mateo] = await sql<{ id: string }>("select a.id from alumnos a join tenants t on t.id = a.tenant_id where t.slug = 'nuevohorizonte' and a.nombres = 'Mateo' limit 1");
+  await page.goto(colegio("nuevohorizonte", "/libreta?alumno=" + mateo.id));
+  await expect(page.getByRole("dialog", { name: /Libreta de/ })).toBeVisible();
 });
 
 test("apoderada ve las notas de su hijo sin comparaciones", async ({ page }) => {
