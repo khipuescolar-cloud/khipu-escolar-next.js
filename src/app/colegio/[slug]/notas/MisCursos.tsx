@@ -9,6 +9,9 @@ import { ReportesPeriodo } from "./[cursoId]/periodo/ReportesPeriodo";
 
 type Curso = Awaited<ReturnType<typeof cursosDelRegistro>>["propios"][number];
 
+/** Oculta por ahora la sección «Salón que tutoras · solo lectura» (specs/47). Poner en `true` para volver a mostrarla. */
+const MOSTRAR_SALON_TUTORIA = false;
+
 const mayuscula = (t: string) => t[0].toUpperCase() + t.slice(1);
 
 function FilaCurso({ curso, discreta }: { curso: Curso; discreta?: boolean }) {
@@ -45,7 +48,7 @@ export async function MisCursos({ ctx }: { ctx: TenantContext }) {
         descripcion={`${esDireccion ? "Cursos del colegio" : "Mis cursos"} · Año académico ${anio}`}
         acciones={esDireccion ? <Link href="/notas/periodos" className={buttonVariants({ variant: "outline" })}><CalendarDays aria-hidden />Gestionar periodos</Link> : undefined}
       />
-      {propios.length === 0 && tutoria.length === 0 ? (
+      {propios.length === 0 && (!MOSTRAR_SALON_TUTORIA || tutoria.length === 0) ? (
         <EstadoVacio icono={GraduationCap} titulo="No hay cursos asignados" descripcion="Cuando dirección asigne cursos, aparecerán aquí." />
       ) : esDireccion ? (
         grupos.map(([grupo, lista]) => (
@@ -60,7 +63,7 @@ export async function MisCursos({ ctx }: { ctx: TenantContext }) {
             <h2 id="mis-cursos" className="mb-2 font-heading text-lg font-semibold">Mis cursos</h2>
             {propios.length ? <ListaCursos cursos={propios} /> : <p className="border-y border-borde-sutil py-4 text-sm text-muted-foreground">No dictas cursos este año.</p>}
           </section>
-          {tutoria.length > 0 && (
+          {MOSTRAR_SALON_TUTORIA && tutoria.length > 0 && (
             <section aria-labelledby="tutoria" className="space-y-1">
               <h2 id="tutoria" className="text-sm font-semibold text-muted-foreground">Salón que tutoras · solo lectura</h2>
               <ListaCursos cursos={tutoria} discreta />
