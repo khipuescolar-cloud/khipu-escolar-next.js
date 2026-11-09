@@ -1,0 +1,1409 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "comunicacion",
+  "nivel": "primaria",
+  "grado": 5,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Primaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+    },
+    {
+      "titulo": "Cuaderno de trabajo Comunicación 5, quinto grado, MINEDU (edición 2020, en SIFODS)",
+      "url": "https://formacionenservicio.minedu.gob.pe/sifods/centro-recurso/2021/recursos-orientaciones-escolar/recursos-pedagogicos/primaria/materiales-estudiantes/cuadernos-trabajo/comunicacion-2020-5.pdf"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 7,
+      "nombre": "Se comunica oralmente en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Obtiene información del texto oral",
+          "bloques": [
+            {
+              "nombre": "Comprensión de textos orales",
+              "temas": [
+                {
+                  "clave": "com.p5.integrar-datos-orales",
+                  "nombre": "Datos dichos en distintos momentos de un texto oral",
+                  "descripcion": "Reúne datos que aparecen en diferentes partes de la transcripción de una exposición o un diálogo.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "com.p5.la-noticia-radial",
+                  "nombre": "La noticia radial",
+                  "descripcion": "Ubica en la transcripción de una noticia radial qué pasó, a quién, dónde y cuándo.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-01",
+                    "COM-C7-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.integrar-datos-orales"
+                  ],
+                  "ordenSugerido": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Infiere e interpreta información del texto oral",
+          "bloques": [
+            {
+              "nombre": "Comprensión de textos orales",
+              "temas": [
+                {
+                  "clave": "com.p5.conclusiones-de-lo-escuchado",
+                  "nombre": "Conclusiones sobre un texto oral",
+                  "descripcion": "Saca una conclusión de lo escuchado relacionándolo con su experiencia y su comunidad.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.integrar-datos-orales"
+                  ],
+                  "ordenSugerido": 16
+                },
+                {
+                  "clave": "com.p5.moralejas-en-relatos-orales",
+                  "nombre": "Moralejas en relatos de la tradición oral",
+                  "descripcion": "Explica la moraleja o el refrán con que cierra un relato de la tradición oral.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 17
+                },
+                {
+                  "clave": "com.p5.intencion-del-interlocutor",
+                  "nombre": "Intención del que habla",
+                  "descripcion": "Deduce qué busca quien habla (pedir, convencer, advertir) a partir de sus palabras, gestos y tono descritos.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.conclusiones-de-lo-escuchado"
+                  ],
+                  "ordenSugerido": 44
+                },
+                {
+                  "clave": "com.p5.hiperbole-en-lo-oral",
+                  "nombre": "La exageración en lo que se dice",
+                  "descripcion": "Reconoce exageraciones en expresiones cotidianas y explica qué se quiere destacar con ellas.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-04",
+                    "COM-C7-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "com.p5.mensajes-publicitarios-orales",
+                  "nombre": "Mensajes publicitarios de radio",
+                  "descripcion": "Reconoce en la transcripción de un anuncio radial qué quiere lograr y con qué palabras lo busca.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-04",
+                    "COM-C7-P5-09"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.intencion-del-interlocutor"
+                  ],
+                  "ordenSugerido": 80
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Adecúa, organiza y desarrolla las ideas de forma coherente y cohesionada",
+          "bloques": [
+            {
+              "nombre": "Expresión oral",
+              "temas": [
+                {
+                  "clave": "com.p5.elegir-registro",
+                  "nombre": "Elección del registro según el interlocutor",
+                  "descripcion": "Elige entre registro formal e informal según con quién habla y en qué situación.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "com.p5.exposicion-con-subtemas",
+                  "nombre": "Exposición oral organizada en subtemas",
+                  "descripcion": "Jerarquiza en su guion el tema, los subtemas y los ejemplos que va a exponer.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-06",
+                    "COM-C7-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.elegir-registro"
+                  ],
+                  "ordenSugerido": 18
+                },
+                {
+                  "clave": "com.p5.relatos-de-tradicion-oral",
+                  "nombre": "Relatos de la tradición oral de mi comunidad",
+                  "descripcion": "Organiza para contar un relato de su comunidad con inicio, hechos y cierre claros.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-06",
+                    "COM-C7-P5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "com.p5.conectores-al-exponer",
+                  "nombre": "Conectores de contraste y consecuencia al hablar",
+                  "descripcion": "Planifica cómo enlazar ideas orales con «en cambio», «por lo tanto» o «por eso».",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.exposicion-con-subtemas"
+                  ],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "com.p5.apoyo-visual-para-exponer",
+                  "nombre": "Papelógrafos y diapositivas de apoyo",
+                  "descripcion": "Prepara un apoyo visual con palabras clave e imágenes, no con párrafos completos.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-05",
+                    "COM-C7-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.exposicion-con-subtemas"
+                  ],
+                  "ordenSugerido": 82
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Utiliza recursos no verbales y paraverbales de forma estratégica",
+          "bloques": [
+            {
+              "nombre": "Expresión oral",
+              "temas": [
+                {
+                  "clave": "com.p5.distancia-ritmo-y-suspenso",
+                  "nombre": "Ritmo, pausas y suspenso al narrar",
+                  "descripcion": "Indica en un guion de narración dónde bajar la voz, pausar o acelerar para crear suspenso.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "com.p5.declamacion",
+                  "nombre": "Preparar la declamación de un poema: pausas, ritmo y emoción",
+                  "descripcion": "Marca en un poema las pausas, el ritmo y la emoción con que lo dirá ante el público.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.distancia-ritmo-y-suspenso"
+                  ],
+                  "ordenSugerido": 81
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Interactúa estratégicamente con distintos interlocutores",
+          "bloques": [
+            {
+              "nombre": "Interacción oral",
+              "temas": [
+                {
+                  "clave": "com.p5.aportar-y-complementar",
+                  "nombre": "Aportar información nueva en una conversación",
+                  "descripcion": "Complementa lo que dijo otro con un dato o ejemplo nuevo en lugar de repetirlo.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "com.p5.la-entrevista-con-repreguntas",
+                  "nombre": "Entrevista con preguntas abiertas y repreguntas",
+                  "descripcion": "Formula preguntas abiertas y repreguntas a partir de las respuestas del entrevistado.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-08"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.aportar-y-complementar"
+                  ],
+                  "ordenSugerido": 19
+                },
+                {
+                  "clave": "com.p5.el-dialogo-para-acuerdos",
+                  "nombre": "Diálogo para llegar a acuerdos",
+                  "descripcion": "Reconoce cómo se argumenta una propuesta y se llega a un acuerdo respetando opiniones.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-08",
+                    "COM-C7-P5-09"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.aportar-y-complementar"
+                  ],
+                  "ordenSugerido": 49
+                },
+                {
+                  "clave": "com.p5.argumentos-en-una-discusion",
+                  "nombre": "Argumentos en una discusión",
+                  "descripcion": "Sostiene su postura en una discusión con razones y responde a lo que dijo el otro.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-08",
+                    "COM-C7-P5-09"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.el-dialogo-para-acuerdos"
+                  ],
+                  "ordenSugerido": 83
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto oral",
+          "bloques": [
+            {
+              "nombre": "Reflexión sobre lo oral",
+              "temas": [
+                {
+                  "clave": "com.p5.justificar-opinion-oral",
+                  "nombre": "Opinión justificada sobre un texto oral",
+                  "descripcion": "Opina sobre un mensaje radial o una conversación y sostiene su posición con razones.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-09"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.conclusiones-de-lo-escuchado"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "com.p5.evaluar-una-exposicion",
+                  "nombre": "Evaluación de una exposición",
+                  "descripcion": "Revisa con criterios si una exposición fue adecuada, ordenada y usó bien los recursos de apoyo.",
+                  "desempenosOrigen": [
+                    "COM-C7-P5-10"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.apoyo-visual-para-exponer"
+                  ],
+                  "ordenSugerido": 84
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "nombre": "Lee diversos tipos de textos escritos en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Obtiene información del texto escrito",
+          "bloques": [
+            {
+              "nombre": "Ubicar e integrar información",
+              "temas": [
+                {
+                  "clave": "com.p5.informacion-complementaria",
+                  "nombre": "Información relevante y complementaria",
+                  "descripcion": "Integra datos de distintas partes del texto, tablas o gráficos.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "com.p5.toma-de-notas",
+                  "nombre": "Toma de notas mientras lee",
+                  "descripcion": "Anota palabras clave y datos importantes de un texto para usarlos después.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.informacion-complementaria"
+                  ],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "com.p5.lectura-de-graficos-de-barras",
+                  "nombre": "Gráficos y tablas en textos informativos",
+                  "descripcion": "Relaciona la información de un gráfico o tabla con lo que dice el texto.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.informacion-complementaria"
+                  ],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "com.p5.secciones-del-periodico",
+                  "nombre": "Secciones del periódico",
+                  "descripcion": "Ubica una información según la sección del periódico impreso o digital donde aparece.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-01",
+                    "COM-C8-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "com.p5.textos-discontinuos-cotidianos",
+                  "nombre": "Recibos, horarios y formularios",
+                  "descripcion": "Ubica datos en textos de la vida diaria como recibos, horarios y formularios.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.lectura-de-graficos-de-barras"
+                  ],
+                  "ordenSugerido": 51
+                }
+              ]
+            },
+            {
+              "nombre": "Textos informativos y de opinión",
+              "temas": [
+                {
+                  "clave": "com.p5.notas-al-pie-y-glosario",
+                  "nombre": "Notas al pie y glosario",
+                  "descripcion": "Usa las notas al pie y el glosario para comprender términos y datos de un texto.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-01",
+                    "COM-C8-P5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Infiere e interpreta información del texto",
+          "bloques": [
+            {
+              "nombre": "Inferencias",
+              "temas": [
+                {
+                  "clave": "com.p5.inferencias",
+                  "nombre": "Inferencias de causas, consecuencias y expresiones",
+                  "descripcion": "Deduce causas, consecuencias y el significado de expresiones.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "com.p5.palabras-polisemicas",
+                  "nombre": "Palabras con varios significados",
+                  "descripcion": "Elige el significado correcto de una palabra polisémica según el contexto.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.inferencias"
+                  ],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "com.p5.puntos-de-vista-personajes",
+                  "nombre": "Puntos de vista de personas y personajes",
+                  "descripcion": "Explica lo que piensa cada personaje sobre un mismo hecho y por qué.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.inferencias"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "com.p5.problema-central",
+                  "nombre": "El problema central de una historia",
+                  "descripcion": "Identifica el conflicto que mueve la historia y cómo se resuelve.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 53
+                }
+              ]
+            },
+            {
+              "nombre": "Sentido global",
+              "temas": [
+                {
+                  "clave": "com.p5.idea-principal",
+                  "nombre": "Idea principal y secundarias",
+                  "descripcion": "Reconoce la idea principal de un párrafo y las ideas que la apoyan.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "com.p5.sintesis-en-organizadores",
+                  "nombre": "Síntesis en mapas y cuadros sinópticos",
+                  "descripcion": "Sintetiza la información de un texto en un mapa conceptual o un cuadro sinóptico.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.idea-principal"
+                  ],
+                  "ordenSugerido": 54
+                },
+                {
+                  "clave": "com.p5.sentido-global-del-texto",
+                  "nombre": "Sentido global de un texto",
+                  "descripcion": "Explica de qué trata el texto completo uniendo tema, propósito y enseñanza.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.idea-principal",
+                    "com.p5.problema-central"
+                  ],
+                  "ordenSugerido": 85
+                }
+              ]
+            },
+            {
+              "nombre": "Textos literarios",
+              "temas": [
+                {
+                  "clave": "com.p5.el-narrador",
+                  "nombre": "El narrador de una historia",
+                  "descripcion": "Distingue si la historia la cuenta un personaje o alguien de fuera de ella.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "com.p5.mito-y-leyenda",
+                  "nombre": "Diferencias entre mito y leyenda",
+                  "descripcion": "Compara un mito y una leyenda por sus personajes, su tiempo y lo que explican.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "com.p5.cuento-de-ciencia-ficcion",
+                  "nombre": "El cuento de ciencia ficción",
+                  "descripcion": "Reconoce cómo un cuento imagina avances científicos y sus consecuencias.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "com.p5.la-hiperbole",
+                  "nombre": "La hipérbole",
+                  "descripcion": "Explica el efecto de una exageración en un poema o un cuento.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04",
+                    "COM-C8-P5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 55
+                },
+                {
+                  "clave": "com.p5.actos-escenas-acotaciones",
+                  "nombre": "Actos, escenas y acotaciones en el teatro",
+                  "descripcion": "Distingue en una obra teatral los parlamentos de las acotaciones y los actos.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04",
+                    "COM-C8-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.el-narrador"
+                  ],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "com.p5.medida-de-los-versos",
+                  "nombre": "Medida de los versos",
+                  "descripcion": "Cuenta las sílabas de versos sencillos y reconoce versos de arte menor y mayor.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "com.p5.poesia-verso-libre",
+                  "nombre": "Poemas con verso libre",
+                  "descripcion": "Reconoce poemas sin rima fija y explica lo que expresan sus imágenes.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 86
+                }
+              ]
+            },
+            {
+              "nombre": "Textos informativos y de opinión",
+              "temas": [
+                {
+                  "clave": "com.p5.el-texto-expositivo-de-causa",
+                  "nombre": "Texto expositivo de causa y efecto",
+                  "descripcion": "Reconoce cómo un texto explica las causas y consecuencias de un fenómeno.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-02",
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "com.p5.texto-expositivo-de-proceso",
+                  "nombre": "Texto expositivo de proceso",
+                  "descripcion": "Reconoce las etapas de un proceso natural o técnico y el orden en que ocurren.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-01",
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.idea-principal"
+                  ],
+                  "ordenSugerido": 58
+                },
+                {
+                  "clave": "com.p5.entrevista-periodistica",
+                  "nombre": "Entrevista periodística: presentación, preguntas y respuestas",
+                  "descripcion": "Reconoce la presentación, las preguntas y las respuestas de una entrevista publicada.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04",
+                    "COM-C8-P5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 59
+                },
+                {
+                  "clave": "com.p5.texto-de-opinion",
+                  "nombre": "El texto de opinión",
+                  "descripcion": "Identifica la opinión del autor y las razones con que la sostiene.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 60
+                },
+                {
+                  "clave": "com.p5.el-reportaje-escolar",
+                  "nombre": "El reportaje",
+                  "descripcion": "Reconoce cómo un reportaje amplía una noticia con testimonios, datos e imágenes.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-04",
+                    "COM-C8-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.entrevista-periodistica"
+                  ],
+                  "ordenSugerido": 87
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto",
+          "bloques": [
+            {
+              "nombre": "Reflexión sobre lo leído",
+              "temas": [
+                {
+                  "clave": "com.p5.hecho-y-opinion",
+                  "nombre": "Hecho y opinión",
+                  "descripcion": "Distingue lo que se puede comprobar de lo que alguien piensa.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "com.p5.predecir-por-resenas-y-fotos",
+                  "nombre": "Predicción por reseñas y fotografías",
+                  "descripcion": "Anticipa el contenido de un libro o artículo a partir de su reseña y sus fotografías.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 28
+                },
+                {
+                  "clave": "com.p5.intencion-de-negritas-y-esquemas",
+                  "nombre": "Intención de negritas y esquemas",
+                  "descripcion": "Explica por qué el autor usa negritas, recuadros o esquemas para organizar el texto.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 61
+                },
+                {
+                  "clave": "com.p5.organizacion-textual",
+                  "nombre": "Organización del texto y su efecto en el lector",
+                  "descripcion": "Opina si el orden y las partes del texto ayudan a entenderlo.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.intencion-de-negritas-y-esquemas"
+                  ],
+                  "ordenSugerido": 62
+                },
+                {
+                  "clave": "com.p5.comparar-tipos-textuales",
+                  "nombre": "Comparación entre tipos de textos",
+                  "descripcion": "Compara dos textos sobre un mismo tema y explica en qué se parecen y diferencian por su tipo.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.texto-de-opinion"
+                  ],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "com.p5.dos-opiniones-sobre-un-tema",
+                  "nombre": "Dos opiniones sobre un mismo tema",
+                  "descripcion": "Compara las posturas de dos autores sobre un tema y explica con cuál coincide.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-06",
+                    "COM-C8-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.texto-de-opinion"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "com.p5.sustentar-preferencias",
+                  "nombre": "Sustento de mis preferencias de lectura",
+                  "descripcion": "Sustenta ante otros por qué elige un texto, relacionándolo con otros que leyó.",
+                  "desempenosOrigen": [
+                    "COM-C8-P5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 90
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 9,
+      "nombre": "Escribe diversos tipos de textos en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Adecúa el texto a la situación comunicativa",
+          "bloques": [
+            {
+              "nombre": "Planificación y adecuación",
+              "temas": [
+                {
+                  "clave": "com.p5.plan-con-formato-y-soporte",
+                  "nombre": "Plan de escritura con formato y soporte",
+                  "descripcion": "Decide el propósito, el destinatario, el tipo de texto, el formato y si será impreso o digital.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "com.p5.fuentes-de-informacion",
+                  "nombre": "Búsqueda de información en fuentes",
+                  "descripcion": "Selecciona libros, enciclopedias o páginas confiables para obtener información de su texto.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.plan-con-formato-y-soporte"
+                  ],
+                  "ordenSugerido": 29
+                }
+              ]
+            },
+            {
+              "nombre": "Escritura de textos",
+              "temas": [
+                {
+                  "clave": "com.p5.escribo-una-biografia",
+                  "nombre": "Escribo una biografía",
+                  "descripcion": "Narra en tercera persona y en orden cronológico la vida de un personaje.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-01",
+                    "COM-C9-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.plan-con-formato-y-soporte"
+                  ],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "com.p5.escribo-una-carta",
+                  "nombre": "Escribo una carta",
+                  "descripcion": "Escribe una carta con lugar y fecha, saludo, cuerpo, despedida y firma.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "com.p5.escribo-un-acta",
+                  "nombre": "Escribo un acta de acuerdos",
+                  "descripcion": "Registra la fecha, los asistentes, los temas y los acuerdos de una reunión o asamblea.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.escribo-una-carta"
+                  ],
+                  "ordenSugerido": 66
+                },
+                {
+                  "clave": "com.p5.escribo-una-entrevista",
+                  "nombre": "Escribo una entrevista para publicar",
+                  "descripcion": "Redacta la presentación del entrevistado y ordena preguntas y respuestas.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-01",
+                    "COM-C9-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.plan-con-formato-y-soporte"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "com.p5.escribo-un-texto-de-opinion",
+                  "nombre": "Escribo un texto de opinión",
+                  "descripcion": "Expresa su opinión sobre un tema y la sostiene con dos razones.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-01",
+                    "COM-C9-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.conectores-de-contraste-iniciales"
+                  ],
+                  "ordenSugerido": 68
+                },
+                {
+                  "clave": "com.p5.escribo-una-infografia-para-una-causa",
+                  "nombre": "Escribo una infografía para defender una causa",
+                  "descripcion": "Combina datos, imágenes y un mensaje breve para convencer sobre el cuidado de una especie o un ambiente.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-01",
+                    "COM-C9-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.escribo-un-texto-de-opinion"
+                  ],
+                  "ordenSugerido": 92
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Organiza y desarrolla las ideas de forma coherente y cohesionada",
+          "bloques": [
+            {
+              "nombre": "Coherencia y cohesión",
+              "temas": [
+                {
+                  "clave": "com.p5.subtemas-en-parrafos",
+                  "nombre": "Subtemas organizados en párrafos",
+                  "descripcion": "Jerarquiza las ideas de su texto en subtemas y dedica un párrafo a cada uno.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.plan-con-formato-y-soporte"
+                  ],
+                  "ordenSugerido": 10
+                },
+                {
+                  "clave": "com.p5.conectores-de-contraste-iniciales",
+                  "nombre": "Conectores de contraste: pero, en cambio",
+                  "descripcion": "Opone dos ideas con «pero», «en cambio» o «aunque».",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.subtemas-en-parrafos"
+                  ],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "com.p5.conectores-de-orden",
+                  "nombre": "Conectores de orden: en primer lugar, además, finalmente",
+                  "descripcion": "Ordena las partes de una explicación con conectores de orden y adición.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.subtemas-en-parrafos"
+                  ],
+                  "ordenSugerido": 63
+                },
+                {
+                  "clave": "com.p5.referentes-sinonimos-elipsis",
+                  "nombre": "Sinónimos y omisión para no repetir",
+                  "descripcion": "Mantiene el hilo del texto reemplazando nombres por sinónimos o sobreentendiéndolos.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02",
+                    "COM-C9-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.subtemas-en-parrafos"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "com.p5.digresiones-y-vacios",
+                  "nombre": "Ideas que se salen del tema",
+                  "descripcion": "Detecta y elimina ideas que se desvían del tema o completa información que falta.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02",
+                    "COM-C9-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.subtemas-en-parrafos"
+                  ],
+                  "ordenSugerido": 65
+                }
+              ]
+            },
+            {
+              "nombre": "Escritura de textos",
+              "temas": [
+                {
+                  "clave": "com.p5.escribo-un-texto-expositivo",
+                  "nombre": "Escribo un texto expositivo con subtemas",
+                  "descripcion": "Explica un tema de estudio en párrafos con subtemas y términos propios del área.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.subtemas-en-parrafos",
+                    "com.p5.fuentes-de-informacion"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "com.p5.escribo-un-texto-de-proceso",
+                  "nombre": "Escribo un texto que explica un proceso",
+                  "descripcion": "Explica en orden las etapas de un proceso usando conectores de secuencia y términos precisos.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.texto-expositivo-de-proceso"
+                  ],
+                  "ordenSugerido": 91
+                }
+              ]
+            },
+            {
+              "nombre": "Vocabulario",
+              "temas": [
+                {
+                  "clave": "com.p5.prefijos",
+                  "nombre": "Prefijos",
+                  "descripcion": "Forma palabras nuevas con prefijos como des-, in-, re-, pre- y sub- y explica cómo cambian el significado.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02",
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "com.p5.sufijos",
+                  "nombre": "Sufijos",
+                  "descripcion": "Forma palabras con sufijos como -ero, -dor, -oso y -ción y explica qué aportan.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02",
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.prefijos"
+                  ],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "com.p5.palabras-homofonas",
+                  "nombre": "Palabras homófonas",
+                  "descripcion": "Distingue palabras que suenan igual y se escriben distinto, como ola y hola o tubo y tuvo.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02",
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.uso-de-h"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "com.p5.palabras-de-origen-quechua",
+                  "nombre": "Palabras de origen quechua en el castellano",
+                  "descripcion": "Reconoce palabras del castellano peruano que vienen del quechua, como cancha, choclo o puma.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 102
+                },
+                {
+                  "clave": "com.p5.peruanismos",
+                  "nombre": "Peruanismos y expresiones regionales",
+                  "descripcion": "Reconoce palabras y expresiones propias del Perú y elige cuándo usarlas según el registro.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-02",
+                    "COM-C9-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.palabras-de-origen-quechua"
+                  ],
+                  "ordenSugerido": 103
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Utiliza convenciones del lenguaje escrito de forma pertinente",
+          "bloques": [
+            {
+              "nombre": "Escritura de textos",
+              "temas": [
+                {
+                  "clave": "com.p5.escribo-un-cuento-de-ciencia-ficcion",
+                  "nombre": "Escribo un cuento de ciencia ficción",
+                  "descripcion": "Crea un cuento ambientado en el futuro con un invento y sus consecuencias.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03",
+                    "COM-C9-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.cuento-de-ciencia-ficcion"
+                  ],
+                  "ordenSugerido": 93
+                },
+                {
+                  "clave": "com.p5.escribo-un-cuento-con-dialogos",
+                  "nombre": "Escribo un cuento con diálogos",
+                  "descripcion": "Escribe un cuento en el que los personajes hablan, usando raya para el diálogo.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.uso-de-la-raya"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "com.p5.escribo-un-poema-verso-libre",
+                  "nombre": "Escribo un poema en verso libre",
+                  "descripcion": "Crea un poema sin rima fija con personificaciones y adjetivos que expresan emociones.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.personificar-al-escribir"
+                  ],
+                  "ordenSugerido": 95
+                }
+              ]
+            },
+            {
+              "nombre": "Recursos expresivos",
+              "temas": [
+                {
+                  "clave": "com.p5.personificar-al-escribir",
+                  "nombre": "Personificación al escribir",
+                  "descripcion": "Atribuye acciones y sentimientos humanos a objetos o elementos de la naturaleza en sus textos.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 69
+                },
+                {
+                  "clave": "com.p5.adjetivacion-expresiva",
+                  "nombre": "Adjetivación para caracterizar",
+                  "descripcion": "Elige adjetivos que expresan emoción y valoración, no solo apariencia.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.grados-del-adjetivo"
+                  ],
+                  "ordenSugerido": 70
+                }
+              ]
+            },
+            {
+              "nombre": "Ortografía y puntuación",
+              "temas": [
+                {
+                  "clave": "com.p5.diptongo-e-hiato",
+                  "nombre": "Diptongo e hiato",
+                  "descripcion": "Distingue cuándo dos vocales seguidas van en la misma sílaba o en sílabas distintas.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "com.p5.tildes-agudas-graves-esdrujulas",
+                  "nombre": "Reglas generales de tildación: agudas, graves y esdrújulas",
+                  "descripcion": "Aplica las reglas generales de tildación según la sílaba tónica.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "com.p5.punto-aparte-y-parrafos",
+                  "nombre": "Punto aparte y párrafos",
+                  "descripcion": "Organiza el texto en párrafos usando el punto aparte.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "com.p5.tilde-sobresdrujulas",
+                  "nombre": "Palabras sobresdrújulas",
+                  "descripcion": "Reconoce y tilda palabras sobresdrújulas como «dígaselo» o «rápidamente».",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.tildes-agudas-graves-esdrujulas"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "com.p5.tilde-interrogativos-exclamativos",
+                  "nombre": "Tilde en qué, cuál, cómo, dónde y cuándo",
+                  "descripcion": "Tilda las palabras interrogativas y exclamativas en preguntas directas e indirectas.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.tildes-agudas-graves-esdrujulas"
+                  ],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "com.p5.coma-vocativa",
+                  "nombre": "La coma vocativa",
+                  "descripcion": "Separa con coma el nombre de la persona a quien se habla.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 35
+                },
+                {
+                  "clave": "com.p5.signos-en-medio-de-oracion",
+                  "nombre": "Interrogación y exclamación en medio de la oración",
+                  "descripcion": "Abre los signos de pregunta o exclamación donde empieza la pregunta, aunque no sea al inicio.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "com.p5.uso-de-h",
+                  "nombre": "Uso de h en hum- y en los verbos haber y hacer",
+                  "descripcion": "Escribe con h las palabras que empiezan con hum- y todas las formas de haber y hacer.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "com.p5.uso-de-v",
+                  "nombre": "Uso de la v: nv, dv, bv y -ivo, -iva",
+                  "descripcion": "Escribe con v las palabras con nv, dv y bv y los adjetivos terminados en -ivo e -iva.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "com.p5.uso-de-la-raya",
+                  "nombre": "La raya en los diálogos",
+                  "descripcion": "Usa la raya para introducir lo que dice cada personaje y los comentarios del narrador.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "com.p5.uso-de-comillas",
+                  "nombre": "Las comillas",
+                  "descripcion": "Usa comillas para citar palabras textuales y destacar una palabra.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03",
+                    "COM-C9-P5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "com.p5.cambio-de-y-por-e",
+                  "nombre": "Cambio de y por e y de o por u",
+                  "descripcion": "Escribe «e» antes de palabras que empiezan con i o hi y «u» antes de o u ho.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "com.p5.uso-de-ll-y-y",
+                  "nombre": "Uso de ll y y",
+                  "descripcion": "Escribe ll o y en palabras frecuentes y en terminaciones como -illo, -illa.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "com.p5.terminaciones-ez-eza-oso",
+                  "nombre": "Terminaciones -ez, -eza, -oso y -osa",
+                  "descripcion": "Escribe con z los sustantivos en -ez y -eza y con s los adjetivos en -oso y -osa.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.sufijos"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "com.p5.terminaciones-isimo-ense",
+                  "nombre": "Terminaciones -ísimo, -ense y -esa",
+                  "descripcion": "Escribe con s los superlativos en -ísimo, los gentilicios en -ense y femeninos como princesa.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.grados-del-adjetivo"
+                  ],
+                  "ordenSugerido": 96
+                },
+                {
+                  "clave": "com.p5.abreviaturas-y-siglas",
+                  "nombre": "Abreviaturas y siglas",
+                  "descripcion": "Lee y escribe abreviaturas como Sr. o Av. y siglas como MINEDU o ONU.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 97
+                },
+                {
+                  "clave": "com.p5.uso-de-cion-sion",
+                  "nombre": "Palabras terminadas en -ción y -sión",
+                  "descripcion": "Elige entre -ción y -sión según la palabra de la que se deriva.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 98
+                }
+              ]
+            },
+            {
+              "nombre": "Gramática",
+              "temas": [
+                {
+                  "clave": "com.p5.grados-del-adjetivo",
+                  "nombre": "Grados del adjetivo",
+                  "descripcion": "Usa el adjetivo en grado positivo, comparativo y superlativo.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "com.p5.pronombres-demostrativos-posesivos",
+                  "nombre": "Pronombres demostrativos y posesivos",
+                  "descripcion": "Distingue cuándo este o mío acompañan al sustantivo y cuándo lo reemplazan.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03",
+                    "COM-C9-P5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 40
+                },
+                {
+                  "clave": "com.p5.tiempos-simples-indicativo",
+                  "nombre": "Tiempos simples del modo indicativo",
+                  "descripcion": "Usa presente, pretérito, copretérito, futuro y condicional según cuándo ocurre la acción.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "com.p5.verboides",
+                  "nombre": "Infinitivo, gerundio y participio",
+                  "descripcion": "Reconoce las formas no personales del verbo y las usa sin abusar del gerundio.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.tiempos-simples-indicativo"
+                  ],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "com.p5.sujeto-expreso-y-tacito",
+                  "nombre": "Sujeto expreso y sujeto tácito",
+                  "descripcion": "Reconoce el sujeto que no aparece escrito a partir de la terminación del verbo.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 99
+                },
+                {
+                  "clave": "com.p5.oraciones-unimembres-bimembres",
+                  "nombre": "Oraciones unimembres y bimembres",
+                  "descripcion": "Distingue oraciones con sujeto y predicado de las que no se pueden dividir, como «¡Auxilio!».",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.sujeto-expreso-y-tacito"
+                  ],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "com.p5.las-preposiciones",
+                  "nombre": "Las preposiciones",
+                  "descripcion": "Usa a, con, de, desde, en, para, por y sin para relacionar palabras.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 101
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto escrito",
+          "bloques": [
+            {
+              "nombre": "Revisión",
+              "temas": [
+                {
+                  "clave": "com.p5.revisar-hilo-tematico",
+                  "nombre": "Revisión del hilo temático",
+                  "descripcion": "Revisa si su texto mantiene el tema, si sobran repeticiones o se desvía.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.subtemas-en-parrafos"
+                  ],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "com.p5.revisar-vocabulario",
+                  "nombre": "Revisión del vocabulario",
+                  "descripcion": "Cambia palabras imprecisas o repetidas por otras más exactas.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 79
+                },
+                {
+                  "clave": "com.p5.evaluar-recursos-del-texto",
+                  "nombre": "Evaluación de los recursos de mi texto",
+                  "descripcion": "Evalúa si las negritas, comillas y figuras que usó producen el efecto que buscaba en el lector.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.uso-de-comillas"
+                  ],
+                  "ordenSugerido": 104
+                },
+                {
+                  "clave": "com.p5.comparar-normas-ortograficas",
+                  "nombre": "Reflexión sobre errores ortográficos frecuentes",
+                  "descripcion": "Compara sus errores de tildación y puntuación con las reglas para no repetirlos.",
+                  "desempenosOrigen": [
+                    "COM-C9-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.p5.tildes-agudas-graves-esdrujulas"
+                  ],
+                  "ordenSugerido": 105
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

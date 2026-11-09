@@ -1,0 +1,1515 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "comunicacion",
+  "nivel": "secundaria",
+  "grado": 5,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Secundaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+    },
+    {
+      "titulo": "Texto de Comunicación 5, quinto grado de Secundaria, MINEDU (2025)",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/12630"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 7,
+      "nombre": "Se comunica oralmente en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Obtiene información del texto oral",
+          "bloques": [
+            {
+              "nombre": "Comprensión de textos orales",
+              "temas": [
+                {
+                  "clave": "com.s5.matices-y-paradojas-en-lo-dicho",
+                  "nombre": "Matices y paradojas en lo que se dice",
+                  "descripcion": "Reconoce afirmaciones matizadas o aparentemente contradictorias e integra lo que el hablante quiere decir.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-01",
+                    "COM-C7-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "com.s5.reformular-lo-dicho-por-un-especialista",
+                  "nombre": "Reformular lo dicho por un especialista",
+                  "descripcion": "Explica con sus palabras, sin deformarla, la idea central de la intervención de un experto.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-02",
+                    "COM-C7-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.matices-y-paradojas-en-lo-dicho"
+                  ],
+                  "ordenSugerido": 20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Infiere e interpreta información del texto oral",
+          "bloques": [
+            {
+              "nombre": "Comprensión de textos orales",
+              "temas": [
+                {
+                  "clave": "com.s5.niveles-de-sentido-del-discurso-oral",
+                  "nombre": "Niveles de sentido de un discurso oral",
+                  "descripcion": "Distingue lo que se dice literalmente, lo que se insinúa y el sentido global de un discurso.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-04",
+                    "COM-C7-S5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "com.s5.ironia-y-humor-en-monologos-y-satiras",
+                  "nombre": "Ironía y humor en monólogos y sátiras",
+                  "descripcion": "Explica qué critica un monólogo humorístico o una sátira y cómo usa la ironía para hacerlo.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-03",
+                    "COM-C7-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.niveles-de-sentido-del-discurso-oral"
+                  ],
+                  "ordenSugerido": 50
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Adecúa, organiza y desarrolla las ideas de forma coherente y cohesionada",
+          "bloques": [
+            {
+              "nombre": "Expresión oral planificada",
+              "temas": [
+                {
+                  "clave": "com.s5.elevator-pitch",
+                  "nombre": "Elevator pitch: una propuesta en un minuto",
+                  "descripcion": "Condensa una idea o propuesta en un mensaje breve con problema, solución y llamado a la acción.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-05",
+                    "COM-C7-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "com.s5.sustentar-un-trabajo-de-investigacion",
+                  "nombre": "La ponencia: presentar una investigación",
+                  "descripcion": "Organiza la presentación oral de una investigación: problema, método, hallazgos y conclusiones.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-05",
+                    "COM-C7-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "com.s5.pechakucha",
+                  "nombre": "Pechakucha: exponer con veinte imágenes",
+                  "descripcion": "Planifica una exposición de veinte diapositivas de veinte segundos con un guion breve para cada una.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-05",
+                    "COM-C7-S5-06",
+                    "COM-C7-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.sustentar-un-trabajo-de-investigacion"
+                  ],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "com.s5.responder-preguntas-del-publico",
+                  "nombre": "Responder preguntas del público",
+                  "descripcion": "Prepara respuestas breves a preguntas previsibles y admite con cortesía lo que no sabe.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-06",
+                    "COM-C7-S5-08"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.sustentar-un-trabajo-de-investigacion"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "com.s5.discurso-de-graduacion",
+                  "nombre": "Discurso de graduación o de despedida",
+                  "descripcion": "Organiza un discurso emotivo y breve que recuerda, agradece y proyecta el futuro de la promoción.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-05",
+                    "COM-C7-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 83
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Utiliza recursos no verbales y paraverbales de forma estratégica",
+          "bloques": [
+            {
+              "nombre": "Expresión oral planificada",
+              "temas": [
+                {
+                  "clave": "com.s5.declamacion-de-un-poema",
+                  "nombre": "Declamación: pausas, intensidad y ritmo según el sentido",
+                  "descripcion": "Marca en el poema pausas, intensidad y ritmo según su sentido y explica el efecto que busca.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "com.s5.lenguaje-no-verbal-en-una-entrevista-personal",
+                  "nombre": "Lenguaje no verbal en una entrevista personal",
+                  "descripcion": "Elige postura, contacto visual, gestos y distancia apropiados para una entrevista de trabajo o de admisión.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-07",
+                    "COM-C7-S5-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 53
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Interactúa estratégicamente con distintos interlocutores",
+          "bloques": [
+            {
+              "nombre": "Interacción oral",
+              "temas": [
+                {
+                  "clave": "com.s5.debate-academico-con-evidencias",
+                  "nombre": "Debate académico con evidencias",
+                  "descripcion": "Defiende una postura con fuentes citadas, refuta con datos y reconoce los puntos fuertes del rival.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-08",
+                    "COM-C7-S5-10"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "com.s5.la-entrevista-personal",
+                  "nombre": "La entrevista personal de trabajo o admisión",
+                  "descripcion": "Prepara respuestas a preguntas frecuentes y formula preguntas propias con cortesía y registro formal.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-08",
+                    "COM-C7-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.lenguaje-no-verbal-en-una-entrevista-personal"
+                  ],
+                  "ordenSugerido": 54
+                },
+                {
+                  "clave": "com.s5.negociar-y-persuadir",
+                  "nombre": "Negociar y persuadir para llegar a acuerdos",
+                  "descripcion": "Combina argumentos, concesiones y cortesía para persuadir y consensuar en una discusión.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "com.s5.rueda-de-prensa",
+                  "nombre": "La rueda de prensa",
+                  "descripcion": "Prepara preguntas precisas para una autoridad y repregunta cuando la respuesta evade el tema.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-08",
+                    "COM-C7-S5-10"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 85
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto oral",
+          "bloques": [
+            {
+              "nombre": "Evaluación de textos orales",
+              "temas": [
+                {
+                  "clave": "com.s5.estilos-de-los-hablantes",
+                  "nombre": "Estilos de los hablantes",
+                  "descripcion": "Compara cómo dos oradores construyen su estilo con el vocabulario, el tono y la organización de sus ideas.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-10"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "com.s5.debate-de-candidatos",
+                  "nombre": "Debate de candidatos: propuestas, evasivas y falacias",
+                  "descripcion": "Evalúa si las propuestas de un debate electoral son viables y detecta evasivas y falacias.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-10",
+                    "COM-C7-S5-04",
+                    "COM-C7-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.debate-academico-con-evidencias"
+                  ],
+                  "ordenSugerido": 55
+                },
+                {
+                  "clave": "com.s5.propaganda-politica",
+                  "nombre": "Propaganda política y campañas",
+                  "descripcion": "Explica cómo una campaña construye una imagen y apela a emociones, miedos o identidades.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-09",
+                    "COM-C7-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.debate-de-candidatos"
+                  ],
+                  "ordenSugerido": 86
+                },
+                {
+                  "clave": "com.s5.discurso-de-odio-y-libertad-de-expresion",
+                  "nombre": "Discurso de odio y libertad de expresión",
+                  "descripcion": "Distingue la crítica legítima del discurso que incita al odio y justifica su posición.",
+                  "desempenosOrigen": [
+                    "COM-C7-S5-09"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 87
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "nombre": "Lee diversos tipos de textos escritos en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Obtiene información del texto escrito",
+          "bloques": [
+            {
+              "nombre": "Lectura de textos académicos y de la vida adulta",
+              "temas": [
+                {
+                  "clave": "com.s5.leer-una-monografia-o-tesis",
+                  "nombre": "Leer una monografía o una tesis",
+                  "descripcion": "Ubica el problema, los objetivos, el marco teórico y las conclusiones de un trabajo académico.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-01",
+                    "COM-C8-S5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "com.s5.leer-contratos-y-terminos-de-servicio",
+                  "nombre": "Leer contratos y términos de servicio",
+                  "descripcion": "Ubica obligaciones, plazos, costos y cláusulas que limitan derechos en un contrato o en condiciones de uso.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-01",
+                    "COM-C8-S5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "com.s5.leer-convocatorias-y-bases",
+                  "nombre": "Leer convocatorias y bases de becas o concursos",
+                  "descripcion": "Extrae requisitos, fechas, documentos y criterios de evaluación de una convocatoria.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "com.s5.leer-indicadores-sociales",
+                  "nombre": "Leer indicadores sociales: tasas, índices y porcentajes",
+                  "descripcion": "Interpreta tasas e índices de informes estadísticos y explica qué miden y qué no.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-01",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 56
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Infiere e interpreta información del texto",
+          "bloques": [
+            {
+              "nombre": "Lectura de textos académicos y de la vida adulta",
+              "temas": [
+                {
+                  "clave": "com.s5.generos-academicos",
+                  "nombre": "Géneros académicos: monografía, ensayo, informe y artículo",
+                  "descripcion": "Distingue el propósito, la estructura y el lector de cada género académico.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-02",
+                    "COM-C8-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 6
+                }
+              ]
+            },
+            {
+              "nombre": "Lectura crítica de la argumentación",
+              "temas": [
+                {
+                  "clave": "com.s5.el-ensayo-academico",
+                  "nombre": "El ensayo académico: problema, tesis y fuentes",
+                  "descripcion": "Identifica el problema, la tesis, los argumentos con respaldo y la conclusión de un ensayo académico.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 7
+                }
+              ]
+            },
+            {
+              "nombre": "Análisis del texto literario",
+              "temas": [
+                {
+                  "clave": "com.s5.monologo-interior-y-fluir-de-conciencia",
+                  "nombre": "Monólogo interior y fluir de conciencia",
+                  "descripcion": "Reconoce cómo el relato reproduce el pensamiento desordenado de un personaje.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "com.s5.simbolo-e-imagen-poetica",
+                  "nombre": "Símbolo e imagen poética",
+                  "descripcion": "Interpreta qué representan los símbolos e imágenes recurrentes de un poeta.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "com.s5.vasos-comunicantes-y-estructura-fragmentada",
+                  "nombre": "Vasos comunicantes y estructura fragmentada",
+                  "descripcion": "Explica cómo una novela alterna escenas, tiempos y narradores y qué sentido produce.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.monologo-interior-y-fluir-de-conciencia"
+                  ],
+                  "ordenSugerido": 29
+                },
+                {
+                  "clave": "com.s5.multiples-interpretaciones-de-una-obra",
+                  "nombre": "Múltiples interpretaciones de una obra",
+                  "descripcion": "Explica cómo la trama, las figuras o los personajes admiten más de una lectura válida.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "com.s5.ritmo-en-el-verso-libre",
+                  "nombre": "Ritmo sin métrica: cómo suena el verso libre",
+                  "descripcion": "Reconoce cómo un poema sin rima ni métrica fija crea ritmo con pausas, repeticiones y encabalgamientos.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "com.s5.apostrofe-gradacion-y-enumeracion-caotica",
+                  "nombre": "Apóstrofe, gradación y enumeración caótica",
+                  "descripcion": "Interpreta el efecto de dirigirse a un ausente, intensificar por grados y acumular imágenes dispares.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.simbolo-e-imagen-poetica"
+                  ],
+                  "ordenSugerido": 61
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto",
+          "bloques": [
+            {
+              "nombre": "Lectura crítica de la argumentación",
+              "temas": [
+                {
+                  "clave": "com.s5.falacias-de-ambiguedad-pendiente-y-hombre-de-paja",
+                  "nombre": "Falacias de ambigüedad, pendiente resbaladiza y hombre de paja",
+                  "descripcion": "Reconoce argumentos que juegan con palabras ambiguas, exageran consecuencias o deforman la postura rival.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "com.s5.paradojas-y-matices-en-la-argumentacion",
+                  "nombre": "Paradojas y matices en la argumentación",
+                  "descripcion": "Explica cómo un autor matiza su tesis o usa una paradoja para hacer pensar al lector.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "com.s5.infodemia-y-verificacion",
+                  "nombre": "Infodemia y verificación de datos",
+                  "descripcion": "Verifica una afirmación viral con lectura lateral: quién la dice, qué dicen otras fuentes y cuál es el dato original.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-05",
+                    "COM-C8-S5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 28
+                },
+                {
+                  "clave": "com.s5.manipulacion-con-estadisticas",
+                  "nombre": "Manipulación con estadísticas",
+                  "descripcion": "Detecta gráficos con escalas engañosas, porcentajes sin base y promedios mal usados.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.leer-indicadores-sociales"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "com.s5.razonamiento-deductivo-e-inductivo",
+                  "nombre": "Razonamiento deductivo e inductivo",
+                  "descripcion": "Distingue conclusiones que se siguen necesariamente de las que solo son probables.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.falacias-de-ambiguedad-pendiente-y-hombre-de-paja"
+                  ],
+                  "ordenSugerido": 58
+                },
+                {
+                  "clave": "com.s5.polemica-entre-dos-autores",
+                  "nombre": "Contrastar una polémica entre dos autores",
+                  "descripcion": "Compara dos textos que defienden posturas opuestas y decide cuál argumenta mejor.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.razonamiento-deductivo-e-inductivo"
+                  ],
+                  "ordenSugerido": 59
+                },
+                {
+                  "clave": "com.s5.eufemismos-y-disfemismos",
+                  "nombre": "Eufemismos y disfemismos en el discurso público",
+                  "descripcion": "Reconoce palabras que suavizan o agravan un hecho y explica la intención de usarlas.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 60
+                },
+                {
+                  "clave": "com.s5.ideologia-en-textos-periodisticos",
+                  "nombre": "Ideología en textos periodísticos",
+                  "descripcion": "Explica cómo la selección de datos, titulares y adjetivos revela una postura ideológica.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "com.s5.burbujas-de-filtro-y-algoritmos",
+                  "nombre": "Burbujas de filtro y algoritmos en lo que leemos",
+                  "descripcion": "Reflexiona sobre cómo las redes seleccionan lo que lee y cómo diversificar sus fuentes.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "com.s5.estilo-de-un-autor",
+                  "nombre": "El estilo de un autor",
+                  "descripcion": "Opina sobre los rasgos que hacen reconocible la escritura de un autor y su efecto en el lector.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 90
+                }
+              ]
+            },
+            {
+              "nombre": "Análisis del texto literario",
+              "temas": [
+                {
+                  "clave": "com.s5.novela-y-adaptacion-al-cine",
+                  "nombre": "Una novela y su adaptación al cine",
+                  "descripcion": "Compara una obra literaria con su versión fílmica y explica qué se gana y qué se pierde.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 91
+                }
+              ]
+            },
+            {
+              "nombre": "Literatura peruana",
+              "temas": [
+                {
+                  "clave": "com.s5.literatura-quechua-prehispanica",
+                  "nombre": "Literatura quechua prehispánica",
+                  "descripcion": "Lee harawis, hayllis y relatos del manuscrito de Huarochirí y reconoce su función ritual y social.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 10
+                },
+                {
+                  "clave": "com.s5.ollantay",
+                  "nombre": "El drama «Ollantay»",
+                  "descripcion": "Analiza el conflicto, los personajes y el debate sobre el origen del drama quechua.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.literatura-quechua-prehispanica"
+                  ],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "com.s5.inca-garcilaso-y-guaman-poma",
+                  "nombre": "Inca Garcilaso y Guamán Poma",
+                  "descripcion": "Contrasta la visión del Perú en los «Comentarios reales» y en la «Nueva corónica».",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.ollantay"
+                  ],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "com.s5.caviedes-y-la-satira-colonial",
+                  "nombre": "Juan del Valle y Caviedes: la sátira colonial",
+                  "descripcion": "Reconoce la burla contra médicos y poderosos en la poesía satírica de Caviedes.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.inca-garcilaso-y-guaman-poma"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "com.s5.costumbrismo-y-romanticismo-peruanos",
+                  "nombre": "Costumbrismo y romanticismo peruanos: Pardo, Segura y Palma",
+                  "descripcion": "Ubica a Palma en su época y lo compara con el teatro costumbrista de Pardo y Aliaga y Segura.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.caviedes-y-la-satira-colonial"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "com.s5.realismo-peruano-gonzalez-prada-y-matto",
+                  "nombre": "Realismo peruano: González Prada y Clorinda Matto",
+                  "descripcion": "Relaciona el «Discurso en el Politeama» y «Aves sin nido» con la crítica social de su época.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.costumbrismo-y-romanticismo-peruanos"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "com.s5.chocano-eguren-y-valdelomar",
+                  "nombre": "Modernismo y posmodernismo: Chocano, Eguren y Valdelomar",
+                  "descripcion": "Contrasta el modernismo de Chocano con el simbolismo de Eguren y los cuentos de Valdelomar.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.simbolo-e-imagen-poetica"
+                  ],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "com.s5.vallejo-los-heraldos-negros",
+                  "nombre": "Vallejo: «Los heraldos negros»",
+                  "descripcion": "Interpreta el dolor, la orfandad y el hogar en los primeros poemas de Vallejo.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.chocano-eguren-y-valdelomar"
+                  ],
+                  "ordenSugerido": 62
+                },
+                {
+                  "clave": "com.s5.vallejo-trilce-y-poemas-humanos",
+                  "nombre": "Vallejo: «Trilce» y «Poemas humanos»",
+                  "descripcion": "Explica la ruptura vanguardista de «Trilce» y la solidaridad humana de sus poemas finales.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.vallejo-los-heraldos-negros",
+                    "com.s5.ritmo-en-el-verso-libre"
+                  ],
+                  "ordenSugerido": 63
+                },
+                {
+                  "clave": "com.s5.vanguardia-peruana-oquendo-y-westphalen",
+                  "nombre": "Vanguardia peruana: Oquendo de Amat y Westphalen",
+                  "descripcion": "Reconoce la experimentación visual y surrealista de la vanguardia peruana.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.vallejo-trilce-y-poemas-humanos"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "com.s5.mariategui-y-los-siete-ensayos",
+                  "nombre": "Mariátegui y los «Siete ensayos»",
+                  "descripcion": "Interpreta las tesis de Mariátegui sobre el problema del indio y la literatura nacional.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.realismo-peruano-gonzalez-prada-y-matto"
+                  ],
+                  "ordenSugerido": 65
+                },
+                {
+                  "clave": "com.s5.indigenismo-lopez-albujar-y-ciro-alegria",
+                  "nombre": "Indigenismo: López Albújar y Ciro Alegría",
+                  "descripcion": "Analiza la representación del mundo andino en «Cuentos andinos» y «El mundo es ancho y ajeno».",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.mariategui-y-los-siete-ensayos"
+                  ],
+                  "ordenSugerido": 66
+                },
+                {
+                  "clave": "com.s5.jose-maria-arguedas",
+                  "nombre": "José María Arguedas y «Los ríos profundos»",
+                  "descripcion": "Interpreta la mirada de Ernesto sobre el mundo andino y su visión de un Perú plural.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.indigenismo-lopez-albujar-y-ciro-alegria"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "com.s5.ribeyro-y-la-generacion-del-50",
+                  "nombre": "Ribeyro y la narrativa urbana del 50",
+                  "descripcion": "Analiza cómo Ribeyro y su generación retratan la migración y la ciudad.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.jose-maria-arguedas"
+                  ],
+                  "ordenSugerido": 92
+                },
+                {
+                  "clave": "com.s5.mario-vargas-llosa",
+                  "nombre": "Mario Vargas Llosa",
+                  "descripcion": "Reconoce las técnicas narrativas y la crítica social en «La ciudad y los perros» o sus relatos.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.vasos-comunicantes-y-estructura-fragmentada",
+                    "com.s5.ribeyro-y-la-generacion-del-50"
+                  ],
+                  "ordenSugerido": 93
+                },
+                {
+                  "clave": "com.s5.poesia-peruana-del-50-y-60",
+                  "nombre": "Poesía peruana: Varela, Eielson y Heraud",
+                  "descripcion": "Interpreta poemas de Blanca Varela, Jorge Eduardo Eielson y Javier Heraud.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.ritmo-en-el-verso-libre"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "com.s5.literatura-testimonial",
+                  "nombre": "Literatura testimonial: «Gregorio Condori Mamani»",
+                  "descripcion": "Reconoce la voz del testimonio y lo que aporta al conocimiento del Perú andino.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.jose-maria-arguedas"
+                  ],
+                  "ordenSugerido": 95
+                },
+                {
+                  "clave": "com.s5.narrativa-de-la-violencia-politica",
+                  "nombre": "Narrativa sobre la violencia política en el Perú",
+                  "descripcion": "Analiza cómo cuentos y novelas de las últimas décadas representan la violencia y la memoria.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 96
+                },
+                {
+                  "clave": "com.s5.literatura-afroperuana-y-amazonica",
+                  "nombre": "Literatura afroperuana y amazónica",
+                  "descripcion": "Lee décimas de Nicomedes Santa Cruz y relatos amazónicos y valora la diversidad literaria del país.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 97
+                },
+                {
+                  "clave": "com.s5.narrativa-peruana-contemporanea",
+                  "nombre": "Narrativa peruana contemporánea: de Bryce Echenique a hoy",
+                  "descripcion": "Lee fragmentos de narradores peruanos recientes y reconoce sus temas y técnicas.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.mario-vargas-llosa"
+                  ],
+                  "ordenSugerido": 98
+                }
+              ]
+            },
+            {
+              "nombre": "Literatura universal del siglo XX",
+              "temas": [
+                {
+                  "clave": "com.s5.vanguardias-europeas",
+                  "nombre": "Vanguardias europeas: futurismo, dadaísmo y surrealismo",
+                  "descripcion": "Reconoce los manifiestos y rasgos de las vanguardias en poemas y textos breves.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 35
+                },
+                {
+                  "clave": "com.s5.joyce-y-woolf",
+                  "nombre": "Joyce y Woolf: la novela de la conciencia",
+                  "descripcion": "Lee fragmentos de «Ulises» y «La señora Dalloway» y reconoce el fluir de conciencia.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.monologo-interior-y-fluir-de-conciencia"
+                  ],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "com.s5.pessoa-y-los-heteronimos",
+                  "nombre": "Pessoa y los heterónimos",
+                  "descripcion": "Interpreta cómo Pessoa crea poetas distintos con estilos y visiones propias.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "com.s5.macbeth-ambicion-y-culpa",
+                  "nombre": "«Macbeth»: ambición y culpa",
+                  "descripcion": "Analiza cómo la ambición conduce al crimen y cómo la culpa destruye a Macbeth y a su esposa.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "com.s5.dostoievski-crimen-y-castigo",
+                  "nombre": "Dostoievski y «Crimen y castigo»",
+                  "descripcion": "Interpreta la culpa y la redención de Raskólnikov y el debate moral que plantea la novela.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.macbeth-ambicion-y-culpa"
+                  ],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "com.s5.ibsen-un-enemigo-del-pueblo",
+                  "nombre": "Ibsen y el drama de ideas: «Un enemigo del pueblo»",
+                  "descripcion": "Analiza el conflicto entre el individuo que dice la verdad y una sociedad que prefiere callarla.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 68
+                },
+                {
+                  "clave": "com.s5.lorca-y-la-generacion-del-27",
+                  "nombre": "García Lorca y la generación del 27",
+                  "descripcion": "Analiza símbolos y conflicto en poemas del «Romancero gitano» o en «La casa de Bernarda Alba».",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.simbolo-e-imagen-poetica"
+                  ],
+                  "ordenSugerido": 69
+                },
+                {
+                  "clave": "com.s5.existencialismo-y-teatro-del-absurdo",
+                  "nombre": "Existencialismo y teatro del absurdo",
+                  "descripcion": "Relaciona «El extranjero» de Camus y obras de Beckett o Ionesco con la crisis de sentido del siglo XX.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 70
+                },
+                {
+                  "clave": "com.s5.testimonio-y-memoria-ana-frank-y-primo-levi",
+                  "nombre": "Testimonio y memoria: Ana Frank y Primo Levi",
+                  "descripcion": "Analiza cómo el testimonio literario preserva la memoria del Holocausto.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "com.s5.novela-distopica",
+                  "nombre": "La novela distópica: Orwell y Bradbury",
+                  "descripcion": "Analiza cómo «1984» o «Fahrenheit 451» critican el control y la manipulación social.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06",
+                    "COM-C8-S5-04",
+                    "COM-C8-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 99
+                },
+                {
+                  "clave": "com.s5.comparar-literatura-peruana-y-universal",
+                  "nombre": "Comparar una obra peruana y una universal",
+                  "descripcion": "Contrasta temas y técnicas de dos obras y sustenta sus semejanzas y diferencias.",
+                  "desempenosOrigen": [
+                    "COM-C8-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.mario-vargas-llosa",
+                    "com.s5.novela-distopica"
+                  ],
+                  "ordenSugerido": 100
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 9,
+      "nombre": "Escribe diversos tipos de textos en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Adecúa el texto a la situación comunicativa",
+          "bloques": [
+            {
+              "nombre": "Planificación y adecuación",
+              "temas": [
+                {
+                  "clave": "com.s5.textos-del-ambito-academico-y-laboral",
+                  "nombre": "Textos del ámbito académico y laboral",
+                  "descripcion": "Elige género, registro, formato y soporte según escriba para la universidad, un trabajo o una institución.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "com.s5.delimitar-tema-y-pregunta-de-investigacion",
+                  "nombre": "Delimitar el tema y la pregunta de investigación",
+                  "descripcion": "Pasa de un tema general a una pregunta concreta que su texto pueda responder.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "com.s5.lenguaje-claro-en-documentos-publicos",
+                  "nombre": "Lenguaje claro en documentos para la ciudadanía",
+                  "descripcion": "Reescribe avisos y trámites con frases cortas, palabras comunes y orden lógico para que cualquiera los entienda.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01",
+                    "COM-C9-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 101
+                }
+              ]
+            },
+            {
+              "nombre": "Textos académicos",
+              "temas": [
+                {
+                  "clave": "com.s5.poster-academico",
+                  "nombre": "Póster académico",
+                  "descripcion": "Resume una investigación en un póster con título, hallazgos, gráficos y referencias.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01",
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.resumen-y-palabras-clave"
+                  ],
+                  "ordenSugerido": 102
+                }
+              ]
+            },
+            {
+              "nombre": "Textos del ámbito laboral y ciudadano",
+              "temas": [
+                {
+                  "clave": "com.s5.curriculum-vitae",
+                  "nombre": "El currículum vitae",
+                  "descripcion": "Organiza datos personales, formación, experiencia y habilidades con formato claro.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.textos-del-ambito-academico-y-laboral"
+                  ],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "com.s5.post-contra-la-desinformacion",
+                  "nombre": "Publicación en redes contra la desinformación",
+                  "descripcion": "Escribe un post breve que desmiente un dato falso, cita la fuente verificada y se adapta al formato de la red.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01",
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.infodemia-y-verificacion"
+                  ],
+                  "ordenSugerido": 44
+                },
+                {
+                  "clave": "com.s5.carta-de-presentacion",
+                  "nombre": "Carta de presentación",
+                  "descripcion": "Escribe una carta formal que presenta su perfil y motivación ante una institución o empleador.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01",
+                    "COM-C9-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.curriculum-vitae"
+                  ],
+                  "ordenSugerido": 76
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Organiza y desarrolla las ideas de forma coherente y cohesionada",
+          "bloques": [
+            {
+              "nombre": "Textos académicos",
+              "temas": [
+                {
+                  "clave": "com.s5.esquema-de-la-monografia",
+                  "nombre": "Esquema de una monografía",
+                  "descripcion": "Organiza índice, capítulos y subtemas a partir de la pregunta de investigación.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01",
+                    "COM-C9-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.delimitar-tema-y-pregunta-de-investigacion"
+                  ],
+                  "ordenSugerido": 16
+                },
+                {
+                  "clave": "com.s5.planteamiento-del-problema",
+                  "nombre": "Redactar el planteamiento del problema",
+                  "descripcion": "Describe la situación, justifica su importancia y formula la pregunta y los objetivos.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.esquema-de-la-monografia"
+                  ],
+                  "ordenSugerido": 40
+                },
+                {
+                  "clave": "com.s5.redactar-la-monografia",
+                  "nombre": "Redactar el cuerpo de una monografía",
+                  "descripcion": "Desarrolla capítulos con información de varias fuentes, citada y jerarquizada.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-02",
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.planteamiento-del-problema"
+                  ],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "com.s5.conclusiones-de-una-investigacion",
+                  "nombre": "Redactar las conclusiones de una investigación",
+                  "descripcion": "Responde la pregunta inicial con lo hallado, sin datos nuevos y señalando límites.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.redactar-la-monografia"
+                  ],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "com.s5.resumen-y-palabras-clave",
+                  "nombre": "Resumen y palabras clave de un trabajo académico",
+                  "descripcion": "Condensa en un párrafo el problema, el método y los hallazgos y elige palabras clave.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.conclusiones-de-una-investigacion"
+                  ],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "com.s5.escribir-un-articulo-cientifico-escolar",
+                  "nombre": "Escribir un artículo científico escolar",
+                  "descripcion": "Organiza una indagación propia en introducción, método, resultados y discusión, con referencias.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01",
+                    "COM-C9-S5-02",
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.resumen-y-palabras-clave"
+                  ],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "com.s5.ensayo-academico-argumentativo",
+                  "nombre": "Escribir un ensayo académico argumentativo",
+                  "descripcion": "Redacta un ensayo con tesis, argumentos respaldados en fuentes, contraargumento y conclusión.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01",
+                    "COM-C9-S5-02",
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.el-ensayo-academico"
+                  ],
+                  "ordenSugerido": 75
+                }
+              ]
+            },
+            {
+              "nombre": "Textos del ámbito laboral y ciudadano",
+              "temas": [
+                {
+                  "clave": "com.s5.escribir-una-carta-abierta",
+                  "nombre": "Escribir una carta abierta",
+                  "descripcion": "Dirige públicamente a una autoridad o a la sociedad una postura argumentada sobre un problema común.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01",
+                    "COM-C9-S5-02",
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "com.s5.ensayo-personal-para-una-postulacion",
+                  "nombre": "Ensayo personal para una postulación",
+                  "descripcion": "Narra una experiencia propia y la conecta con sus metas para postular a una beca o universidad.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01",
+                    "COM-C9-S5-02",
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.leer-convocatorias-y-bases"
+                  ],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "com.s5.propuesta-de-proyecto",
+                  "nombre": "Redactar un proyecto participativo",
+                  "descripcion": "Presenta problema, objetivos, actividades, responsables y cronograma de un proyecto para la comunidad.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-01",
+                    "COM-C9-S5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 103
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Utiliza convenciones del lenguaje escrito de forma pertinente",
+          "bloques": [
+            {
+              "nombre": "Escritura literaria",
+              "temas": [
+                {
+                  "clave": "com.s5.relato-con-tecnicas-narrativas-modernas",
+                  "nombre": "Escribir un relato con técnicas narrativas modernas",
+                  "descripcion": "Escribe un relato con monólogo interior, saltos temporales o varios narradores.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.monologo-interior-y-fluir-de-conciencia"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "com.s5.poema-con-imagenes-vanguardistas",
+                  "nombre": "Escribir un poema con imágenes vanguardistas",
+                  "descripcion": "Crea un poema con imágenes insólitas, ritmos propios y disposición visual libre.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.vanguardias-europeas"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "com.s5.adaptar-un-texto-para-la-escena",
+                  "nombre": "Adaptar un texto narrativo para la puesta en escena",
+                  "descripcion": "Convierte un relato en escenas con diálogos, acotaciones y indicaciones para los actores.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03",
+                    "COM-C9-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.ibsen-un-enemigo-del-pueblo"
+                  ],
+                  "ordenSugerido": 104
+                },
+                {
+                  "clave": "com.s5.escribir-un-monologo-dramatico",
+                  "nombre": "Escribir un monólogo dramático",
+                  "descripcion": "Escribe un monólogo teatral en que un personaje revela su conflicto ante el público.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.existencialismo-y-teatro-del-absurdo"
+                  ],
+                  "ordenSugerido": 105
+                }
+              ]
+            },
+            {
+              "nombre": "Gramática y estilo académico",
+              "temas": [
+                {
+                  "clave": "com.s5.nominalizacion",
+                  "nombre": "Nominalización en textos académicos",
+                  "descripcion": "Transforma verbos en sustantivos para condensar ideas y reconoce cuándo abusar de ello oscurece el texto.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03",
+                    "COM-C9-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 17
+                },
+                {
+                  "clave": "com.s5.verbos-de-las-consignas-academicas",
+                  "nombre": "Verbos de las consignas académicas",
+                  "descripcion": "Distingue lo que piden «analizar», «explicar», «contrastar», «argumentar» o «sintetizar».",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-02",
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 18
+                },
+                {
+                  "clave": "com.s5.impersonalidad-en-el-discurso-academico",
+                  "nombre": "Impersonalidad en el discurso académico",
+                  "descripcion": "Usa «se», el plural de modestia y construcciones impersonales para dar objetividad al texto.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03",
+                    "COM-C9-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "com.s5.regimen-preposicional",
+                  "nombre": "Régimen preposicional: consistir en, incidir en, en relación con",
+                  "descripcion": "Usa la preposición que exige cada verbo o expresión en textos formales.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03",
+                    "COM-C9-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "com.s5.formulas-de-tratamiento",
+                  "nombre": "Fórmulas de tratamiento en documentos formales",
+                  "descripcion": "Emplea tratamientos y fórmulas de saludo y despedida según el cargo del destinatario.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03",
+                    "COM-C9-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.carta-de-presentacion"
+                  ],
+                  "ordenSugerido": 79
+                }
+              ]
+            },
+            {
+              "nombre": "Ortografía y puntuación",
+              "temas": [
+                {
+                  "clave": "com.s5.escritura-de-numeros-y-cifras",
+                  "nombre": "Escritura de números y cifras",
+                  "descripcion": "Decide cuándo escribir números con letras o cifras y cómo escribir fechas, horas y porcentajes.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03",
+                    "COM-C9-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 19
+                },
+                {
+                  "clave": "com.s5.puntuacion-de-enumeraciones-y-vinetas",
+                  "nombre": "Puntuación de enumeraciones complejas y viñetas",
+                  "descripcion": "Puntúa listas con elementos largos, viñetas e incisos internos de forma coherente.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03",
+                    "COM-C9-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "com.s5.tilde-en-monosilabos-ortograficos",
+                  "nombre": "Tilde en monosílabos ortográficos: guion, truhan, fie",
+                  "descripcion": "Aplica la norma que considera monosílabas, y por tanto sin tilde, palabras como guion o crie.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03",
+                    "COM-C9-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 80
+                },
+                {
+                  "clave": "com.s5.guion-barra-y-signos-auxiliares",
+                  "nombre": "Guion, barra y otros signos auxiliares",
+                  "descripcion": "Usa el guion en compuestos y cortes, y la barra y el asterisco según la norma.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-03",
+                    "COM-C9-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 106
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto escrito",
+          "bloques": [
+            {
+              "nombre": "Corrección y revisión",
+              "temas": [
+                {
+                  "clave": "com.s5.gerundio-incorrecto",
+                  "nombre": "Uso incorrecto del gerundio",
+                  "descripcion": "Corrige el gerundio de posterioridad y el gerundio que funciona como adjetivo.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-04",
+                    "COM-C9-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 49
+                },
+                {
+                  "clave": "com.s5.palabras-baul-y-lenguaje-impreciso",
+                  "nombre": "Palabras baúl y lenguaje impreciso en la escritura",
+                  "descripcion": "Sustituye «cosa», «tema», «nivel» o «aspecto» por palabras exactas en textos formales.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 81
+                },
+                {
+                  "clave": "com.s5.revisar-el-registro-academico",
+                  "nombre": "Revisar el registro académico",
+                  "descripcion": "Detecta expresiones coloquiales, juicios sin respaldo y primera persona innecesaria y las ajusta.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-04",
+                    "COM-C9-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.impersonalidad-en-el-discurso-academico"
+                  ],
+                  "ordenSugerido": 82
+                },
+                {
+                  "clave": "com.s5.revisar-coherencia-de-un-texto-extenso",
+                  "nombre": "Revisar la coherencia de un texto extenso",
+                  "descripcion": "Comprueba que cada capítulo o sección responda a la pregunta sin contradicciones ni vacíos.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.redactar-la-monografia"
+                  ],
+                  "ordenSugerido": 107
+                },
+                {
+                  "clave": "com.s5.efectos-de-persuasion-y-verosimilitud",
+                  "nombre": "Efectos de persuasión y verosimilitud en el propio texto",
+                  "descripcion": "Evalúa si su texto logra convencer o hacer creíble lo narrado y ajusta recursos y paratextos.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-05",
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.ensayo-academico-argumentativo"
+                  ],
+                  "ordenSugerido": 108
+                },
+                {
+                  "clave": "com.s5.edicion-final-de-un-trabajo-academico",
+                  "nombre": "Edición final de un trabajo académico",
+                  "descripcion": "Ajusta portada, índice, títulos, numeración y referencias antes de entregar.",
+                  "desempenosOrigen": [
+                    "COM-C9-S5-05",
+                    "COM-C9-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s5.revisar-coherencia-de-un-texto-extenso"
+                  ],
+                  "ordenSugerido": 109
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
