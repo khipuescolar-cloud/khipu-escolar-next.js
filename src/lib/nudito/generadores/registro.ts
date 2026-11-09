@@ -67,5 +67,5 @@ export function ejercicioPara(tema: Tema, dificultad: Dificultad, semilla: numbe
 
 /** Ids de bancos y colecciones disponibles (para el test de integridad del catálogo). */
 export function fuentesDisponibles(): { generadores: string[]; bancos: string[]; lecturas: string[] } {
-  return { generadores: [...GENERADORES.keys()], bancos: [BANCO_CIENCIA_ID], lecturas: [COLECCION_LECTURAS_ID, COLECCION_ESCRITURA_ID] };
+  return { generadores: [...GENERADORES.keys()], bancos: [BANCO_CIENCIA_ID, "mat.banco"], lecturas: [COLECCION_LECTURAS_ID, COLECCION_ESCRITURA_ID] };
 }

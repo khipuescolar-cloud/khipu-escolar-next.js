@@ -130,3 +130,6 @@ Seed: `prisma/seed-nudito-tutor.ts` activa `nudito_config_colegio` de Nuevo Hori
 
 ## Uso actual en el tutor (specs/49, 2026-11-08)
 El catálogo global y los temas del colegio siguen sirviendo para planificar y generar ejercicios. `validarTema` y `temasParaAlumno` permanecen como funciones históricas y pruebas puras, pero `/nudito` ya no ofrece «Otro tema» ni selecciona temas por texto libre. La lista del alumno sale de la foto de la última versión publicada del plan anual de su grupo curricular y se intersecta con lecciones publicadas del mismo grado y área. Todos esos temas están disponibles desde el inicio.
+
+## Piloto de banco de conocimiento (specs/50, 2026-11-09)
+Matemática de 3.° primaria tiene 239 fichas en el banco, incluidas las siete claves existentes. El catálogo anterior permanece para el resto de grados y áreas. Las consultas del servidor usan `temasDeConBanco` y `temaPorClaveConBanco` para incorporar el banco con carga diferida. Los desempeños oficiales estructurados están en `conocimiento/cneb/matematica.json`. El contenido sigue sin revisión docente (`revisado: null`).

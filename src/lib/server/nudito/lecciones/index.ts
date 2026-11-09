@@ -2,7 +2,7 @@ import "server-only";
 import { Prisma } from "@/generated/prisma/client";
 import type { Tema } from "@/lib/nudito/contratos";
 import { clavesDeVersion } from "@/lib/nudito/plan-publicado-reglas";
-import { temaPorClave } from "@/lib/nudito/catalogo";
+import { temaPorClaveConBanco } from "@/lib/nudito/conocimiento/servidor";
 import { temaDeColegio } from "../catalogo";
 import { esquemaLeccion, hashContenido, puedeTransicionarLeccion, validarLeccion, type AccionLeccion, type Leccion } from "@/lib/nudito/leccion";
 import { auditar } from "../../auditoria";
@@ -38,7 +38,7 @@ export { armarLeccionCatalogo } from "./muestras";
 export async function nombresDeTemas(dbTenant: DbTenant, claves: string[]): Promise<Map<string, string>> {
   const propios = claves.filter(c => c.startsWith("col:")).map(c => c.slice(4));
   const filas = propios.length ? await dbTenant.nuditoTemaColegio.findMany({ where: { id: { in: propios } }, select: { id: true, nombre: true } }) : [];
-  return new Map(claves.map(clave => [clave, temaPorClave(clave)?.nombre ?? filas.find(f => "col:" + f.id === clave)?.nombre ?? clave]));
+  return new Map(await Promise.all(claves.map(async clave => [clave, (await temaPorClaveConBanco(clave))?.nombre ?? filas.find(f => "col:" + f.id === clave)?.nombre ?? clave] as const)));
 }
 
 
@@ -47,7 +47,7 @@ async function validarContenido(ctx: TenantContext, temaClave: string, contenido
     db.sitioPermitido.findMany({ where: { activo: true }, select: { dominio: true } }),
     temaClave.startsWith("col:") ? ctx.db.nuditoTemaColegio.findFirst({ where: { id: temaClave.slice(4) } }) : Promise.resolve(null),
   ]);
-  const tema = temaClave.startsWith("col:") ? (propio ? temaDeColegio(propio) : null) : temaPorClave(temaClave);
+  const tema = temaClave.startsWith("col:") ? (propio ? temaDeColegio(propio) : null) : await temaPorClaveConBanco(temaClave);
   const verificadas = tema ? muestrasDelTema(tema) : [];
   return validarLeccion(contenido, {
     permitirEnlace: url => sitios.some(s => url.hostname === s.dominio || url.hostname.endsWith("." + s.dominio)),

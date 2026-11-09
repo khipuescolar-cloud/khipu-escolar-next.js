@@ -1,7 +1,8 @@
 import "server-only";
 import type { AreaNudito, ConfigNudito, CursoNuditoVista, Dificultad, EjercicioConSolucion, EnvioRespuesta, EstadoDominioTema, Evaluacion, EvidenciaPractica, NivelNudito, PoliticaDominio, ProveedorTutorIA, Tema, TemaClave, ConsumoIA, EntradaValidarTema, ValidacionTema } from "@/lib/nudito/contratos";
 import { crearAzar, type Azar } from "@/lib/nudito/azar";
-import { posicionGrado, posicionTema, temaPorClave as temaGlobalPorClave, temasDe, temasGlobales } from "@/lib/nudito/catalogo";
+import { posicionGrado, posicionTema } from "@/lib/nudito/catalogo";
+import { temaPorClaveConBanco, temasDeConBanco } from "@/lib/nudito/conocimiento/servidor";
 import { evaluadorAbierto, evaluar } from "@/lib/nudito/evaluadores";
 import { ejercicioPara as ejercicioParaB } from "@/lib/nudito/generadores/registro";
 import { evaluarDominio as evaluarDominioB, politicaEfectiva, type ContextoDominio } from "@/lib/nudito/politica-dominio";
@@ -48,7 +49,7 @@ export function catalogo(db: DbTenant, filtro: { area: AreaNudito; nivel: NivelN
  */
 export async function temaDelArea(db: DbTenant, area: AreaNudito, nivel: NivelNudito, clave: TemaClave): Promise<Tema | null> {
   if (clave.startsWith(PREFIJO_TEMA_COLEGIO)) return (await catalogo(db, { area, nivel })).find((t) => t.clave === clave) ?? null;
-  const t = temaGlobalPorClave(clave);
+  const t = await temaPorClaveConBanco(clave);
   return t && t.area === area ? t : null;
 }
 
@@ -61,7 +62,7 @@ export async function esTemaReal(db: DbTenant, tema: Tema, nivel: NivelNudito): 
 export async function temasPracticables(db: DbTenant, filtro: { area: AreaNudito; nivel: NivelNudito; grado: number; desbloqueados: ReadonlySet<TemaClave> }): Promise<Tema[]> {
   const pos = posicionGrado(filtro.nivel, filtro.grado);
   const propios = await catalogo(db, filtro);
-  const otros = filtro.nivel === "secundaria" ? temasDe(filtro.area, "primaria") : temasDe(filtro.area, "secundaria");
+  const otros = filtro.nivel === "secundaria" ? await temasDeConBanco(filtro.area, "primaria") : await temasDeConBanco(filtro.area, "secundaria");
   return [...otros, ...propios].filter((t) => posicionTema(t) <= pos || filtro.desbloqueados.has(t.clave));
 }
 
@@ -76,9 +77,9 @@ export function validarTema(entrada: EntradaValidarTema): ValidacionTema {
 }
 
 /** Temas globales del área por encima del grado del alumno que tienen `clave` como prerrequisito (para desbloquear). */
-export function temasQueDesbloquea(area: AreaNudito, clave: TemaClave, nivel: NivelNudito, grado: number): Tema[] {
+export async function temasQueDesbloquea(area: AreaNudito, clave: TemaClave, nivel: NivelNudito, grado: number): Promise<Tema[]> {
   const pos = posicionGrado(nivel, grado);
-  return temasGlobales().filter((t) => t.area === area && posicionTema(t) > pos && t.prerrequisitos.includes(clave));
+  return (await Promise.all([temasDeConBanco(area, "primaria"), temasDeConBanco(area, "secundaria")])).flat().filter((t) => t.area === area && posicionTema(t) > pos && t.prerrequisitos.includes(clave));
 }
 
 // ───────────── B: ejercicios, evaluación y dominio ─────────────

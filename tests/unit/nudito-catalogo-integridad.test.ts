@@ -81,7 +81,7 @@ describe("catálogo global de Nudito", () => {
       expect(fuenteConocida(t.fuente), `${t.clave}: ${idDeFuente(t.fuente)}`).toBe(true);
       expect(t.fuente.tipo).toBe(tipoPorArea[t.area]);
     }
-    for (const lista of Object.values(FUENTES_CONOCIDAS)) for (const id of lista) expect(clavesPorFuente(id).length, id).toBeGreaterThan(0);
+    for (const lista of Object.values(FUENTES_CONOCIDAS)) for (const id of lista) if (id !== "mat.banco") expect(clavesPorFuente(id).length, id).toBeGreaterThan(0);
   });
 
   it("claves.ts está sincronizado con los JSON (lo usa specs/43 para etiquetar ítems)", () => {

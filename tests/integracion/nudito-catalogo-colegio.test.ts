@@ -1,6 +1,6 @@
 // Requiere la BD local. Temas propios del colegio para Nudito (specs/42): CRUD, permisos, banco revisado y aislamiento.
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { temasDe } from "@/lib/nudito/catalogo";
+import { temasDeConBanco } from "@/lib/nudito/conocimiento/servidor";
 import { esquemaTema } from "@/lib/nudito/contratos";
 import { validarTema } from "@/lib/nudito/validar-tema";
 import { db } from "@/lib/server/db";
@@ -38,7 +38,7 @@ describe("temas del colegio", () => {
     const ctx = c.ctxDe("direccion");
     const { id } = await crearTemaColegio(ctx, temaFeria);
     const catalogo = await catalogoDelColegio(c.db, { area: "matematica", nivel: "primaria" });
-    expect(catalogo.length).toBe(temasDe("matematica", "primaria").length + 1);
+    expect(catalogo.length).toBe((await temasDeConBanco("matematica", "primaria")).length + 1);
     const propio = catalogo.find((t) => t.clave === `col:${id}`)!;
     expect(propio).toMatchObject({ origen: "colegio", grado: 3, nombre: "Problemas de la kermés" });
     expect(esquemaTema.safeParse(propio).success).toBe(true);
