@@ -1,0 +1,1897 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "ciencia-tecnologia",
+  "nivel": "secundaria",
+  "grado": 3,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Secundaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+    },
+    {
+      "titulo": "Ciencia y Tecnología 3: fichas de autoaprendizaje a distancia, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/8354"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 21,
+      "nombre": "Explica el mundo físico basándose en conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo",
+      "capacidades": [
+        {
+          "nombre": "Comprende y usa conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo",
+          "bloques": [
+            {
+              "nombre": "Enlace químico",
+              "temas": [
+                {
+                  "clave": "cyt.s3.regla-del-octeto",
+                  "nombre": "Regla del octeto",
+                  "descripcion": "Explica por qué los átomos ganan, pierden o comparten electrones para estabilizarse.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "cyt.s3.estructuras-de-lewis",
+                  "nombre": "Estructuras de Lewis de moléculas",
+                  "descripcion": "Dibuja moléculas como H₂O, CO₂ y NH₃ con pares de electrones.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.regla-del-octeto"
+                  ],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "cyt.s3.enlace-ionico",
+                  "nombre": "Enlace iónico",
+                  "descripcion": "Explica la transferencia de electrones entre un metal y un no metal, como en el NaCl.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.regla-del-octeto"
+                  ],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "cyt.s3.enlace-covalente",
+                  "nombre": "Enlace covalente simple, doble y triple",
+                  "descripcion": "Explica cómo se comparten pares de electrones entre no metales.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.estructuras-de-lewis"
+                  ],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "cyt.s3.covalente-polar-y-apolar",
+                  "nombre": "Enlace covalente polar y apolar",
+                  "descripcion": "Usa la diferencia de electronegatividad para clasificar enlaces.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.enlace-covalente"
+                  ],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "cyt.s3.propiedades-ionicos-covalentes",
+                  "nombre": "Propiedades de compuestos iónicos y covalentes",
+                  "descripcion": "Relaciona tipo de enlace con punto de fusión, solubilidad y conductividad.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.enlace-ionico",
+                    "cyt.s3.covalente-polar-y-apolar"
+                  ],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "cyt.s3.fuerzas-intermoleculares",
+                  "nombre": "Fuerzas intermoleculares y puente de hidrógeno",
+                  "descripcion": "Explica propiedades del agua por las atracciones entre moléculas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.covalente-polar-y-apolar"
+                  ],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "cyt.s3.energia-de-enlace",
+                  "nombre": "Energía al romper y formar enlaces",
+                  "descripcion": "Explica que romper enlaces absorbe energía y formarlos la libera.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.enlace-covalente"
+                  ],
+                  "ordenSugerido": 8
+                }
+              ]
+            },
+            {
+              "nombre": "Compuestos inorgánicos",
+              "temas": [
+                {
+                  "clave": "cyt.s3.numero-de-oxidacion",
+                  "nombre": "Valencia y número de oxidación",
+                  "descripcion": "Asigna números de oxidación a los elementos de un compuesto.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.enlace-ionico"
+                  ],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "cyt.s3.funciones-quimicas-inorganicas",
+                  "nombre": "Funciones químicas inorgánicas: visión general",
+                  "descripcion": "Reconoce óxidos, hidróxidos, ácidos, sales e hidruros por su fórmula.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.numero-de-oxidacion"
+                  ],
+                  "ordenSugerido": 10
+                },
+                {
+                  "clave": "cyt.s3.oxidos-basicos",
+                  "nombre": "Óxidos básicos: formulación y nomenclatura",
+                  "descripcion": "Nombra óxidos metálicos en los sistemas tradicional, Stock e IUPAC.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.funciones-quimicas-inorganicas"
+                  ],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "cyt.s3.oxidos-acidos",
+                  "nombre": "Óxidos ácidos o anhídridos",
+                  "descripcion": "Formula y nombra óxidos de no metales como CO₂ y SO₂.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.oxidos-basicos"
+                  ],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "cyt.s3.hidroxidos",
+                  "nombre": "Hidróxidos",
+                  "descripcion": "Formula hidróxidos a partir de óxidos básicos y agua y los nombra.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.oxidos-basicos"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "cyt.s3.acidos-oxacidos",
+                  "nombre": "Ácidos oxácidos",
+                  "descripcion": "Formula ácidos a partir de óxidos ácidos y agua, como el ácido sulfúrico.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.oxidos-acidos"
+                  ],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "cyt.s3.acidos-hidracidos",
+                  "nombre": "Ácidos hidrácidos e hidruros",
+                  "descripcion": "Formula y nombra compuestos de hidrógeno como HCl y NH₃.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.funciones-quimicas-inorganicas"
+                  ],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "cyt.s3.sales-oxisales-haloideas",
+                  "nombre": "Sales oxisales y haloideas",
+                  "descripcion": "Forma sales a partir de un ácido y un hidróxido y las nombra.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.hidroxidos",
+                    "cyt.s3.acidos-oxacidos",
+                    "cyt.s3.acidos-hidracidos"
+                  ],
+                  "ordenSugerido": 16
+                },
+                {
+                  "clave": "cyt.s3.inorganicos-en-la-vida-diaria",
+                  "nombre": "Compuestos inorgánicos en la vida diaria",
+                  "descripcion": "Identifica cal, soda cáustica, ácido muriático y sal de mesa y sus riesgos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.sales-oxisales-haloideas"
+                  ],
+                  "ordenSugerido": 17
+                }
+              ]
+            },
+            {
+              "nombre": "Reacciones químicas",
+              "temas": [
+                {
+                  "clave": "cyt.s3.ecuacion-quimica",
+                  "nombre": "La ecuación química: reactivos, productos y coeficientes",
+                  "descripcion": "Lee una ecuación química y el significado de sus símbolos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.funciones-quimicas-inorganicas"
+                  ],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "cyt.s3.ley-de-lavoisier-tanteo",
+                  "nombre": "Ley de Lavoisier y balanceo por tanteo",
+                  "descripcion": "Balancea ecuaciones sencillas para que se conserve la masa.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.ecuacion-quimica"
+                  ],
+                  "ordenSugerido": 44
+                },
+                {
+                  "clave": "cyt.s3.tipos-de-reacciones",
+                  "nombre": "Reacciones de síntesis, descomposición y desplazamiento",
+                  "descripcion": "Clasifica reacciones químicas por la forma en que cambian las sustancias.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.ecuacion-quimica"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "cyt.s3.reacciones-de-combustion",
+                  "nombre": "Reacciones de combustión y su energía",
+                  "descripcion": "Escribe y balancea combustiones y explica la energía liberada.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.ley-de-lavoisier-tanteo",
+                    "cyt.s3.energia-de-enlace"
+                  ],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "cyt.s3.velocidad-de-reaccion",
+                  "nombre": "Factores que modifican la velocidad de una reacción",
+                  "descripcion": "Relaciona temperatura, concentración, superficie y catalizadores con la rapidez de reacción.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01",
+                    "CYT-C21-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.tipos-de-reacciones"
+                  ],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "cyt.s3.masa-en-reacciones",
+                  "nombre": "Cálculo de masas de reactivos y productos",
+                  "descripcion": "Calcula la masa de un producto usando la conservación de la masa.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.ley-de-lavoisier-tanteo"
+                  ],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "cyt.s3.oxidos-contaminantes-del-aire",
+                  "nombre": "Óxidos de azufre, nitrógeno y carbono en el aire",
+                  "descripcion": "Relaciona estos óxidos con fuentes contaminantes y efectos en la salud.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.oxidos-acidos"
+                  ],
+                  "ordenSugerido": 49
+                },
+                {
+                  "clave": "cyt.s3.fertilizantes-y-eutrofizacion",
+                  "nombre": "Fertilizantes inorgánicos y eutrofización",
+                  "descripcion": "Evalúa beneficios agrícolas y daños al agua de nitratos y fosfatos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.sales-oxisales-haloideas"
+                  ],
+                  "ordenSugerido": 50
+                }
+              ]
+            },
+            {
+              "nombre": "Degradación de los materiales",
+              "temas": [
+                {
+                  "clave": "cyt.s3.corrosion-de-metales",
+                  "nombre": "Corrosión de los metales",
+                  "descripcion": "Explica la corrosión del hierro como reacción con oxígeno y agua y su relación con la sal.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.tipos-de-reacciones"
+                  ],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "cyt.s3.proteccion-anticorrosiva",
+                  "nombre": "Protección contra la corrosión: pintura, galvanizado y aleaciones",
+                  "descripcion": "Explica cómo se evita la corrosión en estructuras y techos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.corrosion-de-metales"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "cyt.s3.biodegradacion",
+                  "nombre": "Biodegradación de la materia orgánica",
+                  "descripcion": "Explica la acción de bacterias y hongos que descomponen materiales.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 53
+                },
+                {
+                  "clave": "cyt.s3.factores-ambientales-de-degradacion",
+                  "nombre": "Humedad, temperatura y salinidad en la degradación",
+                  "descripcion": "Compara la degradación de un mismo material en costa, sierra y selva.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.corrosion-de-metales",
+                    "cyt.s3.biodegradacion"
+                  ],
+                  "ordenSugerido": 54
+                },
+                {
+                  "clave": "cyt.s3.tiempo-de-degradacion-de-envases",
+                  "nombre": "Tiempo de degradación de vidrio, aluminio, papel y plástico",
+                  "descripcion": "Relaciona la composición del material con su permanencia en el ambiente.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.factores-ambientales-de-degradacion"
+                  ],
+                  "ordenSugerido": 55
+                },
+                {
+                  "clave": "cyt.s3.perdida-de-masa-en-degradacion",
+                  "nombre": "Pérdida de masa en un proceso de degradación",
+                  "descripcion": "Calcula el porcentaje de masa perdido por un material en el tiempo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.factores-ambientales-de-degradacion"
+                  ],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "cyt.s3.microplasticos",
+                  "nombre": "Microplásticos en el mar y en los alimentos",
+                  "descripcion": "Explica cómo se fragmentan los plásticos y llegan a la cadena trófica.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.tiempo-de-degradacion-de-envases"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "cyt.s3.conservacion-de-alimentos",
+                  "nombre": "Descomposición de alimentos y métodos de conservación",
+                  "descripcion": "Relaciona salado, secado, frío y envasado con la detención de la degradación.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.biodegradacion"
+                  ],
+                  "ordenSugerido": 58
+                }
+              ]
+            },
+            {
+              "nombre": "Electrostática",
+              "temas": [
+                {
+                  "clave": "cyt.s3.carga-electrica",
+                  "nombre": "Carga eléctrica y conservación de la carga",
+                  "descripcion": "Explica cargas positivas y negativas como exceso o falta de electrones.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "cyt.s3.electrizacion",
+                  "nombre": "Electrización por frotamiento, contacto e inducción",
+                  "descripcion": "Explica cómo se cargan los cuerpos y por qué se atraen o repelen.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.carga-electrica"
+                  ],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "cyt.s3.carga-en-conductores-efecto-punta",
+                  "nombre": "Distribución de la carga en conductores y efecto punta",
+                  "descripcion": "Explica por qué la carga se acumula en las puntas de un conductor.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.electrizacion"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "cyt.s3.electroscopio",
+                  "nombre": "El electroscopio",
+                  "descripcion": "Explica cómo detectar si un cuerpo está cargado.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.electrizacion"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "cyt.s3.ley-de-coulomb",
+                  "nombre": "Ley de Coulomb",
+                  "descripcion": "Calcula la fuerza entre dos cargas puntuales.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.electrizacion"
+                  ],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "cyt.s3.campo-electrico",
+                  "nombre": "Campo eléctrico y líneas de campo",
+                  "descripcion": "Representa el campo alrededor de cargas positivas y negativas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.ley-de-coulomb"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "cyt.s3.rayos-y-pararrayos",
+                  "nombre": "Rayos, tormentas eléctricas y pararrayos",
+                  "descripcion": "Explica las descargas eléctricas de la atmósfera y cómo protegerse.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.campo-electrico",
+                    "cyt.s3.carga-en-conductores-efecto-punta"
+                  ],
+                  "ordenSugerido": 79
+                }
+              ]
+            },
+            {
+              "nombre": "Magnetismo",
+              "temas": [
+                {
+                  "clave": "cyt.s3.imanes-y-polos",
+                  "nombre": "Imanes y polos magnéticos",
+                  "descripcion": "Describe atracción y repulsión entre polos y materiales magnéticos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 80
+                },
+                {
+                  "clave": "cyt.s3.campo-magnetico",
+                  "nombre": "Campo magnético y sus líneas",
+                  "descripcion": "Representa el campo de un imán con limaduras de hierro.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.imanes-y-polos"
+                  ],
+                  "ordenSugerido": 81
+                },
+                {
+                  "clave": "cyt.s3.magnetismo-terrestre",
+                  "nombre": "Campo magnético terrestre y la brújula",
+                  "descripcion": "Explica la orientación de la brújula y la protección de la magnetosfera.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.campo-magnetico"
+                  ],
+                  "ordenSugerido": 82
+                },
+                {
+                  "clave": "cyt.s3.experimento-de-oersted",
+                  "nombre": "Experimento de Oersted: la corriente crea un campo magnético",
+                  "descripcion": "Explica la desviación de una brújula junto a un cable con corriente.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.campo-magnetico",
+                    "cyt.s3.carga-electrica"
+                  ],
+                  "ordenSugerido": 83
+                },
+                {
+                  "clave": "cyt.s3.campo-de-una-bobina",
+                  "nombre": "Campo magnético de una bobina",
+                  "descripcion": "Relaciona el número de espiras y la corriente con la fuerza del electroimán.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.experimento-de-oersted"
+                  ],
+                  "ordenSugerido": 84
+                }
+              ]
+            },
+            {
+              "nombre": "Energía nuclear",
+              "temas": [
+                {
+                  "clave": "cyt.s3.radiactividad-becquerel-curie",
+                  "nombre": "Radiactividad: Becquerel y Marie Curie",
+                  "descripcion": "Explica el descubrimiento de núcleos inestables que emiten radiación.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-04",
+                    "CYT-C21-S3-11"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 110
+                },
+                {
+                  "clave": "cyt.s3.nucleo-inestable-e-isotopos-radiactivos",
+                  "nombre": "Isótopos radiactivos y núcleos inestables",
+                  "descripcion": "Relaciona el exceso de neutrones con la desintegración nuclear.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.radiactividad-becquerel-curie"
+                  ],
+                  "ordenSugerido": 111
+                },
+                {
+                  "clave": "cyt.s3.fision-nuclear-reaccion-en-cadena",
+                  "nombre": "Fisión nuclear y reacción en cadena",
+                  "descripcion": "Explica la ruptura del uranio-235 y la liberación de neutrones y energía.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.nucleo-inestable-e-isotopos-radiactivos"
+                  ],
+                  "ordenSugerido": 112
+                },
+                {
+                  "clave": "cyt.s3.fusion-nuclear-en-el-sol",
+                  "nombre": "Fusión nuclear: la energía del Sol",
+                  "descripcion": "Explica la unión de núcleos de hidrógeno para formar helio.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.nucleo-inestable-e-isotopos-radiactivos"
+                  ],
+                  "ordenSugerido": 113
+                },
+                {
+                  "clave": "cyt.s3.masa-y-energia-nuclear",
+                  "nombre": "Masa que se convierte en energía en las reacciones nucleares",
+                  "descripcion": "Calcula la energía liberada a partir de la masa perdida.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.fision-nuclear-reaccion-en-cadena",
+                    "cyt.s3.fusion-nuclear-en-el-sol"
+                  ],
+                  "ordenSugerido": 114
+                },
+                {
+                  "clave": "cyt.s3.central-nuclear",
+                  "nombre": "Cómo funciona una central nuclear",
+                  "descripcion": "Describe reactor, moderador, barras de control y generador eléctrico.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.fision-nuclear-reaccion-en-cadena"
+                  ],
+                  "ordenSugerido": 115
+                },
+                {
+                  "clave": "cyt.s3.reactor-ipen-huarangal",
+                  "nombre": "El reactor nuclear de investigación del IPEN en Huarangal",
+                  "descripcion": "Conoce los usos de la energía nuclear en el Perú en medicina e industria.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-04",
+                    "CYT-C21-S3-11"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.central-nuclear"
+                  ],
+                  "ordenSugerido": 116
+                },
+                {
+                  "clave": "cyt.s3.residuos-radiactivos",
+                  "nombre": "Residuos radiactivos y su almacenamiento",
+                  "descripcion": "Analiza riesgos y medidas para gestionar los desechos nucleares.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.central-nuclear"
+                  ],
+                  "ordenSugerido": 117
+                }
+              ]
+            },
+            {
+              "nombre": "Gases",
+              "temas": [
+                {
+                  "clave": "cyt.s3.teoria-cinetica-de-los-gases",
+                  "nombre": "Teoría cinética molecular de los gases",
+                  "descripcion": "Explica presión y temperatura por el movimiento y los choques de las moléculas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 59
+                },
+                {
+                  "clave": "cyt.s3.variables-de-estado",
+                  "nombre": "Presión, volumen y temperatura de un gas",
+                  "descripcion": "Mide y convierte las variables de un gas y usa la escala Kelvin.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.teoria-cinetica-de-los-gases"
+                  ],
+                  "ordenSugerido": 60
+                },
+                {
+                  "clave": "cyt.s3.ley-de-boyle",
+                  "nombre": "Ley de Boyle: presión y volumen",
+                  "descripcion": "Calcula cambios de volumen al variar la presión a temperatura constante.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.variables-de-estado"
+                  ],
+                  "ordenSugerido": 61
+                },
+                {
+                  "clave": "cyt.s3.ley-de-charles",
+                  "nombre": "Ley de Charles: volumen y temperatura",
+                  "descripcion": "Calcula cambios de volumen al calentar un gas a presión constante.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.variables-de-estado"
+                  ],
+                  "ordenSugerido": 62
+                },
+                {
+                  "clave": "cyt.s3.ley-de-gay-lussac",
+                  "nombre": "Ley de Gay-Lussac: presión y temperatura",
+                  "descripcion": "Explica por qué una olla a presión o una llanta caliente aumentan su presión.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.variables-de-estado"
+                  ],
+                  "ordenSugerido": 63
+                },
+                {
+                  "clave": "cyt.s3.ley-combinada-de-gases",
+                  "nombre": "Ley combinada de los gases",
+                  "descripcion": "Resuelve problemas en los que cambian presión, volumen y temperatura.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.ley-de-boyle",
+                    "cyt.s3.ley-de-charles",
+                    "cyt.s3.ley-de-gay-lussac"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "cyt.s3.presion-atmosferica-y-altitud",
+                  "nombre": "Presión atmosférica y altitud: de Lima a Puno",
+                  "descripcion": "Explica por qué la presión baja con la altura y el agua hierve a menor temperatura.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-05",
+                    "CYT-C21-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.variables-de-estado"
+                  ],
+                  "ordenSugerido": 65
+                },
+                {
+                  "clave": "cyt.s3.torricelli-y-barometro",
+                  "nombre": "Experimento de Torricelli y el barómetro",
+                  "descripcion": "Explica cómo se midió la presión atmosférica con una columna de mercurio.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-05",
+                    "CYT-C21-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.presion-atmosferica-y-altitud"
+                  ],
+                  "ordenSugerido": 66
+                }
+              ]
+            },
+            {
+              "nombre": "Fluidos en reposo",
+              "temas": [
+                {
+                  "clave": "cyt.s3.presion-fuerza-sobre-area",
+                  "nombre": "Presión: fuerza sobre área",
+                  "descripcion": "Calcula la presión y explica por qué un cuchillo afilado corta mejor.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 85
+                },
+                {
+                  "clave": "cyt.s3.presion-hidrostatica",
+                  "nombre": "Presión hidrostática y profundidad",
+                  "descripcion": "Calcula la presión en un líquido según su densidad y profundidad.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.presion-fuerza-sobre-area"
+                  ],
+                  "ordenSugerido": 86
+                },
+                {
+                  "clave": "cyt.s3.vasos-comunicantes",
+                  "nombre": "Vasos comunicantes",
+                  "descripcion": "Explica por qué un líquido alcanza el mismo nivel en recipientes unidos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.presion-hidrostatica"
+                  ],
+                  "ordenSugerido": 87
+                },
+                {
+                  "clave": "cyt.s3.principio-de-pascal",
+                  "nombre": "Principio de Pascal y prensa hidráulica",
+                  "descripcion": "Calcula la fuerza que se multiplica en una prensa o gata hidráulica.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.presion-hidrostatica"
+                  ],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "cyt.s3.principio-de-arquimedes",
+                  "nombre": "Principio de Arquímedes: el empuje",
+                  "descripcion": "Calcula el empuje sobre un cuerpo sumergido.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.presion-hidrostatica"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "cyt.s3.flotacion-de-los-cuerpos",
+                  "nombre": "Flotación: caballitos de totora y barcos",
+                  "descripcion": "Explica cuándo un cuerpo flota, se hunde o queda en equilibrio.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.principio-de-arquimedes"
+                  ],
+                  "ordenSugerido": 90
+                },
+                {
+                  "clave": "cyt.s3.manometro",
+                  "nombre": "Manómetros y medida de la presión",
+                  "descripcion": "Explica el funcionamiento del manómetro en llantas y balones de gas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.vasos-comunicantes"
+                  ],
+                  "ordenSugerido": 91
+                }
+              ]
+            },
+            {
+              "nombre": "Locomoción",
+              "temas": [
+                {
+                  "clave": "cyt.s3.locomocion-unicelulares",
+                  "nombre": "Locomoción en unicelulares: cilios, flagelos y seudópodos",
+                  "descripcion": "Compara cómo se desplazan el paramecio, el euglena y la ameba.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 18
+                },
+                {
+                  "clave": "cyt.s3.locomocion-invertebrados",
+                  "nombre": "Locomoción en invertebrados: hidroesqueleto y exoesqueleto",
+                  "descripcion": "Explica el movimiento de la lombriz y de los insectos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.locomocion-unicelulares"
+                  ],
+                  "ordenSugerido": 19
+                },
+                {
+                  "clave": "cyt.s3.locomocion-vertebrados",
+                  "nombre": "Nado, vuelo, marcha y salto en vertebrados",
+                  "descripcion": "Relaciona estructuras de peces, aves y mamíferos con su forma de moverse.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.locomocion-invertebrados"
+                  ],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "cyt.s3.sistema-esqueletico",
+                  "nombre": "Tejido óseo y crecimiento de los huesos",
+                  "descripcion": "Explica la estructura del hueso, el cartílago de crecimiento y la importancia del calcio.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.locomocion-vertebrados"
+                  ],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "cyt.s3.articulaciones",
+                  "nombre": "Articulaciones y ligamentos",
+                  "descripcion": "Distingue articulaciones móviles, semimóviles e inmóviles.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.sistema-esqueletico"
+                  ],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "cyt.s3.sistema-muscular",
+                  "nombre": "Sistema muscular y contracción",
+                  "descripcion": "Explica cómo los músculos esqueléticos se contraen en pares antagonistas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.sistema-esqueletico"
+                  ],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "cyt.s3.huesos-y-musculos-como-palancas",
+                  "nombre": "Huesos y músculos como palancas",
+                  "descripcion": "Analiza el brazo y el pie como palancas del cuerpo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.sistema-muscular",
+                    "cyt.s3.articulaciones"
+                  ],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "cyt.s3.lesiones-del-locomotor",
+                  "nombre": "Lesiones del sistema locomotor y su prevención",
+                  "descripcion": "Reconoce esguinces, fracturas y malas posturas y cómo evitarlos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.huesos-y-musculos-como-palancas"
+                  ],
+                  "ordenSugerido": 25
+                }
+              ]
+            },
+            {
+              "nombre": "Ciclo celular",
+              "temas": [
+                {
+                  "clave": "cyt.s3.ciclo-celular-interfase",
+                  "nombre": "Ciclo celular: interfase y división",
+                  "descripcion": "Describe las etapas G1, S, G2 y la fase de división.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 92
+                },
+                {
+                  "clave": "cyt.s3.cromosomas-y-cromatidas",
+                  "nombre": "Cromosomas, cromátidas y centrómero",
+                  "descripcion": "Explica cómo el ADN se condensa en cromosomas antes de dividirse.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.ciclo-celular-interfase"
+                  ],
+                  "ordenSugerido": 93
+                },
+                {
+                  "clave": "cyt.s3.fases-de-la-mitosis",
+                  "nombre": "Mitosis: profase, metafase, anafase y telofase",
+                  "descripcion": "Describe lo que ocurre con los cromosomas en cada fase.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.cromosomas-y-cromatidas"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "cyt.s3.citocinesis",
+                  "nombre": "Citocinesis en células animales y vegetales",
+                  "descripcion": "Compara la división del citoplasma por estrangulamiento y por placa celular.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.fases-de-la-mitosis"
+                  ],
+                  "ordenSugerido": 95
+                },
+                {
+                  "clave": "cyt.s3.mitosis-crecimiento-y-reparacion",
+                  "nombre": "Mitosis en el crecimiento y la reparación de tejidos",
+                  "descripcion": "Relaciona la división celular con el crecimiento y la cicatrización.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.citocinesis"
+                  ],
+                  "ordenSugerido": 96
+                },
+                {
+                  "clave": "cyt.s3.mitosis-y-reproduccion-asexual",
+                  "nombre": "División celular y reproducción asexual",
+                  "descripcion": "Explica cómo la mitosis produce descendientes idénticos en organismos asexuales.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.mitosis-crecimiento-y-reparacion"
+                  ],
+                  "ordenSugerido": 97
+                },
+                {
+                  "clave": "cyt.s3.mitosis-y-meiosis-comparadas",
+                  "nombre": "Mitosis y meiosis: diferencias generales",
+                  "descripcion": "Compara número de divisiones, células hijas y número de cromosomas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.fases-de-la-mitosis"
+                  ],
+                  "ordenSugerido": 98
+                },
+                {
+                  "clave": "cyt.s3.division-celular-descontrolada",
+                  "nombre": "Cuando la división celular se descontrola: tumores",
+                  "descripcion": "Explica qué ocurre cuando falla el control del ciclo y cómo prevenir factores de riesgo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.mitosis-crecimiento-y-reparacion"
+                  ],
+                  "ordenSugerido": 99
+                }
+              ]
+            },
+            {
+              "nombre": "Genética mendeliana",
+              "temas": [
+                {
+                  "clave": "cyt.s3.mendel-y-las-arvejas",
+                  "nombre": "Gregor Mendel y sus experimentos con arvejas",
+                  "descripcion": "Describe cómo Mendel cruzó plantas y contó sus descendientes.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-09"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 118
+                },
+                {
+                  "clave": "cyt.s3.genes-alelos-genotipo-fenotipo",
+                  "nombre": "Genes, alelos, genotipo y fenotipo",
+                  "descripcion": "Usa los términos básicos de la genética con ejemplos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.mendel-y-las-arvejas"
+                  ],
+                  "ordenSugerido": 119
+                },
+                {
+                  "clave": "cyt.s3.dominante-y-recesivo",
+                  "nombre": "Alelos dominantes y recesivos; homocigoto y heterocigoto",
+                  "descripcion": "Representa genotipos con letras e identifica su fenotipo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.genes-alelos-genotipo-fenotipo"
+                  ],
+                  "ordenSugerido": 120
+                },
+                {
+                  "clave": "cyt.s3.primera-ley-de-mendel",
+                  "nombre": "Primera ley de Mendel: segregación",
+                  "descripcion": "Resuelve cruces monohíbridos y halla las proporciones de la descendencia.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.dominante-y-recesivo"
+                  ],
+                  "ordenSugerido": 121
+                },
+                {
+                  "clave": "cyt.s3.cuadro-de-punnett",
+                  "nombre": "Cuadro de Punnett y probabilidad",
+                  "descripcion": "Usa el cuadro de Punnett para calcular probabilidades de genotipos y fenotipos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.primera-ley-de-mendel"
+                  ],
+                  "ordenSugerido": 122
+                },
+                {
+                  "clave": "cyt.s3.cruce-de-prueba",
+                  "nombre": "Cruce de prueba",
+                  "descripcion": "Determina si un individuo dominante es homocigoto o heterocigoto.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.cuadro-de-punnett"
+                  ],
+                  "ordenSugerido": 123
+                },
+                {
+                  "clave": "cyt.s3.segunda-ley-de-mendel",
+                  "nombre": "Segunda ley de Mendel: transmisión independiente",
+                  "descripcion": "Resuelve cruces dihíbridos y la proporción 9:3:3:1.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.cuadro-de-punnett"
+                  ],
+                  "ordenSugerido": 124
+                },
+                {
+                  "clave": "cyt.s3.dominancia-incompleta-codominancia",
+                  "nombre": "Dominancia incompleta y codominancia",
+                  "descripcion": "Explica fenotipos intermedios o combinados en la descendencia.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.cuadro-de-punnett"
+                  ],
+                  "ordenSugerido": 125
+                },
+                {
+                  "clave": "cyt.s3.grupos-sanguineos-abo-rh",
+                  "nombre": "Herencia de los grupos sanguíneos ABO y Rh",
+                  "descripcion": "Resuelve problemas de herencia de grupos sanguíneos con alelos múltiples.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.dominancia-incompleta-codominancia"
+                  ],
+                  "ordenSugerido": 126
+                },
+                {
+                  "clave": "cyt.s3.rasgos-hereditarios-humanos",
+                  "nombre": "Rasgos hereditarios humanos sencillos",
+                  "descripcion": "Analiza rasgos como el lóbulo de la oreja en una familia.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.primera-ley-de-mendel"
+                  ],
+                  "ordenSugerido": 127
+                },
+                {
+                  "clave": "cyt.s3.genes-en-los-cromosomas",
+                  "nombre": "Genes en los cromosomas: de Mendel al ADN",
+                  "descripcion": "Relaciona los factores de Mendel con segmentos de ADN en los cromosomas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.genes-alelos-genotipo-fenotipo",
+                    "cyt.s3.cromosomas-y-cromatidas"
+                  ],
+                  "ordenSugerido": 128
+                }
+              ]
+            },
+            {
+              "nombre": "Relieve y dinámica interna de la Tierra",
+              "temas": [
+                {
+                  "clave": "cyt.s3.litosfera-y-astenosfera",
+                  "nombre": "Modelo dinámico: litósfera y astenósfera",
+                  "descripcion": "Describe las capas de la Tierra según su comportamiento rígido o plástico.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "cyt.s3.deriva-continental-wegener",
+                  "nombre": "Deriva continental de Wegener",
+                  "descripcion": "Analiza las pruebas de que los continentes estuvieron unidos en Pangea.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10",
+                    "CYT-C21-S3-11"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.litosfera-y-astenosfera"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "cyt.s3.limites-de-placas",
+                  "nombre": "Límites convergentes, divergentes y transformantes",
+                  "descripcion": "Relaciona cada tipo de límite con sismos, volcanes o dorsales.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.deriva-continental-wegener"
+                  ],
+                  "ordenSugerido": 28
+                },
+                {
+                  "clave": "cyt.s3.subduccion-y-andes",
+                  "nombre": "Subducción y levantamiento de los Andes",
+                  "descripcion": "Explica cómo la placa de Nazca bajo la Sudamericana origina montañas y sismos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.limites-de-placas"
+                  ],
+                  "ordenSugerido": 29
+                },
+                {
+                  "clave": "cyt.s3.pliegues-y-fallas",
+                  "nombre": "Pliegues y fallas",
+                  "descripcion": "Explica cómo las fuerzas internas deforman las rocas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.limites-de-placas"
+                  ],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "cyt.s3.ondas-sismicas",
+                  "nombre": "Ondas sísmicas P y S y el sismógrafo",
+                  "descripcion": "Explica cómo viajan las ondas de un sismo y cómo se registran.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.subduccion-y-andes"
+                  ],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "cyt.s3.magma-y-tipos-de-erupcion",
+                  "nombre": "Magma y tipos de erupción volcánica",
+                  "descripcion": "Relaciona la composición del magma con erupciones explosivas o efusivas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.subduccion-y-andes"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "cyt.s3.ciclo-de-las-rocas",
+                  "nombre": "El ciclo de las rocas",
+                  "descripcion": "Explica cómo una roca se transforma en otra por calor, presión y erosión.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.magma-y-tipos-de-erupcion"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "cyt.s3.rocas-igneas",
+                  "nombre": "Rocas ígneas: granito, basalto y sillar",
+                  "descripcion": "Describe la formación de rocas a partir del magma y del sillar arequipeño.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.ciclo-de-las-rocas"
+                  ],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "cyt.s3.rocas-sedimentarias",
+                  "nombre": "Rocas sedimentarias y fósiles",
+                  "descripcion": "Explica la formación de rocas por acumulación de sedimentos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.ciclo-de-las-rocas"
+                  ],
+                  "ordenSugerido": 35
+                },
+                {
+                  "clave": "cyt.s3.rocas-metamorficas",
+                  "nombre": "Rocas metamórficas",
+                  "descripcion": "Explica cómo el calor y la presión transforman las rocas sin fundirlas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.ciclo-de-las-rocas"
+                  ],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "cyt.s3.minerales-propiedades",
+                  "nombre": "Minerales: dureza, brillo y raya",
+                  "descripcion": "Identifica minerales por sus propiedades y conoce yacimientos del Perú.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.rocas-igneas"
+                  ],
+                  "ordenSugerido": 37
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa las implicancias del saber y del quehacer científico y tecnológico",
+          "bloques": [
+            {
+              "nombre": "Ciencia, sociedad y eventos paradigmáticos",
+              "temas": [
+                {
+                  "clave": "cyt.s3.electrificacion-y-vida-moderna",
+                  "nombre": "Electrificación y cambio en la vida de las personas",
+                  "descripcion": "Relaciona el desarrollo de la electricidad con demandas de luz, industria y comunicación.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-11"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 129
+                },
+                {
+                  "clave": "cyt.s3.vacunas-covid-demanda-social",
+                  "nombre": "Vacunas contra la COVID-19: ciencia ante una emergencia",
+                  "descripcion": "Analiza cómo la demanda social aceleró la investigación y la producción de vacunas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-11"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 130
+                },
+                {
+                  "clave": "cyt.s3.revolucion-verde",
+                  "nombre": "La Revolución Verde y los fertilizantes",
+                  "descripcion": "Evalúa cómo la química agrícola respondió al hambre y qué problemas generó.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-11",
+                    "CYT-C21-S3-12"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.fertilizantes-y-eutrofizacion"
+                  ],
+                  "ordenSugerido": 131
+                },
+                {
+                  "clave": "cyt.s3.chernobil-y-fukushima",
+                  "nombre": "Chernóbil y Fukushima: accidentes nucleares",
+                  "descripcion": "Fundamenta una posición sobre la seguridad nuclear usando evidencia de ambos casos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-12",
+                    "CYT-C21-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.central-nuclear"
+                  ],
+                  "ordenSugerido": 132
+                },
+                {
+                  "clave": "cyt.s3.talidomida",
+                  "nombre": "La talidomida: una lección sobre la seguridad de los fármacos",
+                  "descripcion": "Analiza cómo un caso cambió las pruebas de medicamentos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-12"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 133
+                },
+                {
+                  "clave": "cyt.s3.plomo-en-la-oroya",
+                  "nombre": "Contaminación por plomo en La Oroya",
+                  "descripcion": "Evalúa con evidencia los efectos de los metales pesados en la salud y el ambiente.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-12",
+                    "CYT-C21-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.inorganicos-en-la-vida-diaria"
+                  ],
+                  "ordenSugerido": 134
+                },
+                {
+                  "clave": "cyt.s3.derrame-de-ventanilla",
+                  "nombre": "Derrame de petróleo en Ventanilla (2022)",
+                  "descripcion": "Analiza impactos en el mar y en la pesca y las responsabilidades del caso.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-12"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 135
+                },
+                {
+                  "clave": "cyt.s3.debate-energia-nuclear-peru",
+                  "nombre": "Debate: ¿energía nuclear para generar electricidad en el Perú?",
+                  "descripcion": "Fundamenta una postura comparando riesgos y beneficios con otras fuentes.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S3-12",
+                    "CYT-C21-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.residuos-radiactivos"
+                  ],
+                  "ordenSugerido": 136
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 20,
+      "nombre": "Indaga mediante métodos científicos para construir sus conocimientos",
+      "capacidades": [
+        {
+          "nombre": "Problematiza situaciones",
+          "bloques": [
+            {
+              "nombre": "Problema e hipótesis",
+              "temas": [
+                {
+                  "clave": "cyt.s3.planteamiento-del-problema",
+                  "nombre": "Planteamiento del problema de indagación",
+                  "descripcion": "Delimita qué fenómeno indagará, dónde y con qué variables.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "cyt.s3.objetivos-general-y-especificos",
+                  "nombre": "Objetivos general y específicos de la indagación",
+                  "descripcion": "Redacta objetivos con verbos que se puedan verificar.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.planteamiento-del-problema"
+                  ],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "cyt.s3.hipotesis-fundamentada",
+                  "nombre": "Hipótesis fundamentada en conocimientos científicos",
+                  "descripcion": "Justifica su hipótesis con información científica.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.objetivos-general-y-especificos"
+                  ],
+                  "ordenSugerido": 40
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Diseña estrategias para hacer indagación",
+          "bloques": [
+            {
+              "nombre": "Diseño de estrategias",
+              "temas": [
+                {
+                  "clave": "cyt.s3.fundamentar-el-procedimiento",
+                  "nombre": "Fundamentación del procedimiento experimental",
+                  "descripcion": "Explica por qué cada paso permite medir las variables y lograr el objetivo.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.hipotesis-fundamentada"
+                  ],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "cyt.s3.eleccion-de-instrumentos",
+                  "nombre": "Elección de instrumentos según la variable",
+                  "descripcion": "Selecciona instrumentos de recojo de datos cualitativos y cuantitativos adecuados.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.fundamentar-el-procedimiento"
+                  ],
+                  "ordenSugerido": 67
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Genera y registra datos e información",
+          "bloques": [
+            {
+              "nombre": "Generación y registro de datos",
+              "temas": [
+                {
+                  "clave": "cyt.s3.control-durante-el-experimento",
+                  "nombre": "Control de variables intervinientes durante el experimento",
+                  "descripcion": "Registra y corrige condiciones que pueden alterar los datos.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.eleccion-de-instrumentos"
+                  ],
+                  "ordenSugerido": 68
+                },
+                {
+                  "clave": "cyt.s3.tablas-de-frecuencia",
+                  "nombre": "Tablas de frecuencia de datos experimentales",
+                  "descripcion": "Organiza mediciones repetidas en tablas de frecuencia.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.control-durante-el-experimento"
+                  ],
+                  "ordenSugerido": 69
+                },
+                {
+                  "clave": "cyt.s3.indagacion-ley-de-boyle",
+                  "nombre": "Indagación: presión y volumen del aire en una jeringa",
+                  "descripcion": "Mide el volumen del aire al aumentar la presión y grafica la relación.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-01",
+                    "CYT-C20-S3-02",
+                    "CYT-C20-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.eleccion-de-instrumentos",
+                    "cyt.s3.ley-de-boyle"
+                  ],
+                  "ordenSugerido": 70
+                },
+                {
+                  "clave": "cyt.s3.indagacion-corrosion-del-hierro",
+                  "nombre": "Indagación: corrosión de clavos en distintos medios",
+                  "descripcion": "Compara la oxidación en agua, agua salada, aceite y aire seco.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-01",
+                    "CYT-C20-S3-02",
+                    "CYT-C20-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.control-durante-el-experimento",
+                    "cyt.s3.corrosion-de-metales"
+                  ],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "cyt.s3.indagacion-pila-con-alimentos",
+                  "nombre": "Indagación: electricidad con frutas y papas",
+                  "descripcion": "Mide el voltaje de pilas con limón o papa variando los electrodos y registra los datos.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-01",
+                    "CYT-C20-S3-02",
+                    "CYT-C20-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.control-durante-el-experimento",
+                    "cyt.s3.carga-electrica"
+                  ],
+                  "ordenSugerido": 101
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Analiza datos e información",
+          "bloques": [
+            {
+              "nombre": "Análisis de datos",
+              "temas": [
+                {
+                  "clave": "cyt.s3.regularidades-y-tendencias",
+                  "nombre": "Regularidades y tendencias en los resultados",
+                  "descripcion": "Identifica patrones que se repiten en sus datos.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.tablas-de-frecuencia"
+                  ],
+                  "ordenSugerido": 102
+                },
+                {
+                  "clave": "cyt.s3.discusion-con-fuentes",
+                  "nombre": "Discusión de resultados con fuentes científicas",
+                  "descripcion": "Compara sus resultados con los de otras investigaciones.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.regularidades-y-tendencias"
+                  ],
+                  "ordenSugerido": 103
+                },
+                {
+                  "clave": "cyt.s3.indagacion-empuje",
+                  "nombre": "Indagación: volumen sumergido y empuje",
+                  "descripcion": "Mide el empuje con un dinamómetro y relaciona sus datos con el principio de Arquímedes.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-01",
+                    "CYT-C20-S3-02",
+                    "CYT-C20-S3-03",
+                    "CYT-C20-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.regularidades-y-tendencias",
+                    "cyt.s3.principio-de-arquimedes"
+                  ],
+                  "ordenSugerido": 104
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa y comunica el proceso y resultados de su indagación",
+          "bloques": [
+            {
+              "nombre": "Evaluación y comunicación",
+              "temas": [
+                {
+                  "clave": "cyt.s3.sustentacion-de-conclusiones",
+                  "nombre": "Sustentación de conclusiones con evidencia",
+                  "descripcion": "Argumenta si la hipótesis se demostró y si se logró el objetivo.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.discusion-con-fuentes"
+                  ],
+                  "ordenSugerido": 137
+                },
+                {
+                  "clave": "cyt.s3.poster-cientifico",
+                  "nombre": "Póster científico",
+                  "descripcion": "Comunica su indagación en un póster para una feria de ciencias.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.sustentacion-de-conclusiones"
+                  ],
+                  "ordenSugerido": 138
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 22,
+      "nombre": "Diseña y construye soluciones tecnológicas para resolver problemas de su entorno",
+      "capacidades": [
+        {
+          "nombre": "Determina una alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Problema y alternativa de solución",
+              "temas": [
+                {
+                  "clave": "cyt.s3.problema-de-conservacion-de-alimentos",
+                  "nombre": "Problema tecnológico: pérdida de alimentos por descomposición",
+                  "descripcion": "Analiza causas de la pérdida de cosechas y propone una alternativa basada en ciencia.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S3-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 42
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Diseña la alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Diseño de la solución",
+              "temas": [
+                {
+                  "clave": "cyt.s3.dibujo-estructurado-a-escala",
+                  "nombre": "Dibujo estructurado a escala",
+                  "descripcion": "Representa su prototipo usando una escala y medidas reales.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.problema-de-conservacion-de-alimentos"
+                  ],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "cyt.s3.plan-de-pruebas",
+                  "nombre": "Plan de pruebas del prototipo",
+                  "descripcion": "Propone cómo probará que su solución cumple cada requerimiento.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.dibujo-estructurado-a-escala"
+                  ],
+                  "ordenSugerido": 72
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Implementa y valida la alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Implementación y validación",
+              "temas": [
+                {
+                  "clave": "cyt.s3.precision-en-la-construccion",
+                  "nombre": "Precisión de instrumentos y herramientas en la construcción",
+                  "descripcion": "Usa instrumentos según su grado de precisión y normas de seguridad.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.plan-de-pruebas"
+                  ],
+                  "ordenSugerido": 105
+                },
+                {
+                  "clave": "cyt.s3.proyecto-secador-solar",
+                  "nombre": "Proyecto: secador solar de alimentos",
+                  "descripcion": "Construye un secador que aplica conservación de alimentos y transferencia de calor.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S3-01",
+                    "CYT-C22-S3-02",
+                    "CYT-C22-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.precision-en-la-construccion",
+                    "cyt.s3.conservacion-de-alimentos"
+                  ],
+                  "ordenSugerido": 106
+                },
+                {
+                  "clave": "cyt.s3.proyecto-elevador-hidraulico",
+                  "nombre": "Proyecto: elevador hidráulico con jeringas",
+                  "descripcion": "Construye un brazo o elevador aplicando el principio de Pascal.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S3-02",
+                    "CYT-C22-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.precision-en-la-construccion",
+                    "cyt.s3.principio-de-pascal"
+                  ],
+                  "ordenSugerido": 107
+                },
+                {
+                  "clave": "cyt.s3.proyecto-motor-electrico-simple",
+                  "nombre": "Proyecto: motor eléctrico simple con bobina e imán",
+                  "descripcion": "Construye un motor sencillo aplicando el campo magnético de una bobina.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S3-02",
+                    "CYT-C22-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.precision-en-la-construccion",
+                    "cyt.s3.campo-de-una-bobina"
+                  ],
+                  "ordenSugerido": 108
+                },
+                {
+                  "clave": "cyt.s3.proyecto-tornillo-de-arquimedes",
+                  "nombre": "Proyecto: tornillo de Arquímedes para elevar agua",
+                  "descripcion": "Construye un tornillo que eleva agua para riego y prueba su caudal.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S3-01",
+                    "CYT-C22-S3-02",
+                    "CYT-C22-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.precision-en-la-construccion"
+                  ],
+                  "ordenSugerido": 109
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Evaluación y comunicación",
+              "temas": [
+                {
+                  "clave": "cyt.s3.pruebas-repetitivas-registro",
+                  "nombre": "Pruebas repetidas y registro del funcionamiento",
+                  "descripcion": "Realiza varias pruebas, registra resultados y fundamenta mejoras.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.proyecto-secador-solar"
+                  ],
+                  "ordenSugerido": 139
+                },
+                {
+                  "clave": "cyt.s3.impacto-social-de-la-solucion",
+                  "nombre": "Impacto ambiental y social de la solución",
+                  "descripcion": "Evalúa a quién beneficia o perjudica su solución y qué residuos genera.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s3.pruebas-repetitivas-registro"
+                  ],
+                  "ordenSugerido": 140
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

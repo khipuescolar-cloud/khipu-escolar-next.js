@@ -1,0 +1,1769 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "ciencia-tecnologia",
+  "nivel": "secundaria",
+  "grado": 5,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Secundaria, MINEDU (RM N.° 649-2016-MINEDU)",
+      "url": "http://www.minedu.gob.pe/curriculo/pdf/programa-curricular-educacion-secundaria.pdf"
+    },
+    {
+      "titulo": "Fichas de actividades de indagación con el uso de los kits de Ciencia y Tecnología 5, MINEDU (2020)",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7554"
+    },
+    {
+      "titulo": "Ficha de autoaprendizaje «Diseñamos un sistema de poleas para respetar el distanciamiento social en nuestra escuela», Ciencia y Tecnología secundaria, MINEDU (2021)",
+      "url": "https://formacionenservicio.minedu.gob.pe/sifods/centro-recurso/2021/recursos-orientaciones-escolar/recursos-pedagogicos/secundaria/materiales-estudiantes/ciencia-tecnologia/disenamos-sistema-poleas.pdf"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 20,
+      "nombre": "Indaga mediante métodos científicos para construir sus conocimientos",
+      "capacidades": [
+        {
+          "nombre": "Problematiza situaciones",
+          "bloques": [
+            {
+              "nombre": "Problema e hipótesis",
+              "temas": [
+                {
+                  "clave": "cyt.s5.delimitar-problema-indagacion",
+                  "nombre": "Delimitación del problema de indagación",
+                  "descripcion": "Acota una situación amplia a una pregunta investigable con variables medibles.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "cyt.s5.comportamiento-de-variables",
+                  "nombre": "Observación del comportamiento de las variables",
+                  "descripcion": "Hace pruebas previas para ver cómo varía una magnitud antes de plantear la hipótesis.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.delimitar-problema-indagacion"
+                  ],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "cyt.s5.hipotesis-relacion-entre-variables",
+                  "nombre": "Hipótesis sobre la relación entre variables",
+                  "descripcion": "Plantea una hipótesis que anticipa si la relación es directa, inversa u otra.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.comportamiento-de-variables"
+                  ],
+                  "ordenSugerido": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Diseña estrategias para hacer indagación",
+          "bloques": [
+            {
+              "nombre": "Diseño de estrategias",
+              "temas": [
+                {
+                  "clave": "cyt.s5.plan-de-indagacion-fundamentado",
+                  "nombre": "Plan de indagación fundamentado",
+                  "descripcion": "Justifica con información científica el procedimiento, el tiempo, los materiales y el grupo de control.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.hipotesis-relacion-entre-variables"
+                  ],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "cyt.s5.instrumentos-de-medicion-fisica",
+                  "nombre": "Instrumentos de medición en física",
+                  "descripcion": "Usa vernier, cronómetro, dinamómetro y sensores de celular reconociendo su precisión.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-02",
+                    "CYT-C20-S5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "cyt.s5.indagacion-periodo-del-pendulo",
+                  "nombre": "Indagación: longitud del péndulo y su periodo",
+                  "descripcion": "Diseña y realiza una indagación sobre cómo la longitud cambia el periodo de un péndulo.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-01",
+                    "CYT-C20-S5-02",
+                    "CYT-C20-S5-03",
+                    "CYT-C20-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.plan-de-indagacion-fundamentado"
+                  ],
+                  "ordenSugerido": 25
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Genera y registra datos e información",
+          "bloques": [
+            {
+              "nombre": "Generación y registro de datos",
+              "temas": [
+                {
+                  "clave": "cyt.s5.cifras-significativas",
+                  "nombre": "Cifras significativas y redondeo",
+                  "descripcion": "Expresa medidas y resultados con las cifras que permite el instrumento.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.instrumentos-de-medicion-fisica"
+                  ],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "cyt.s5.error-absoluto-y-relativo",
+                  "nombre": "Error absoluto, relativo y porcentual",
+                  "descripcion": "Calcula el error de una medición respecto al valor aceptado o al promedio.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-03",
+                    "CYT-C20-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.cifras-significativas"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "cyt.s5.proporcionalidad-en-datos",
+                  "nombre": "Proporcionalidad directa e inversa en los datos",
+                  "descripcion": "Reconoce en una tabla y una gráfica si dos variables son directa o inversamente proporcionales.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-03",
+                    "CYT-C20-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Analiza datos e información",
+          "bloques": [
+            {
+              "nombre": "Análisis de datos",
+              "temas": [
+                {
+                  "clave": "cyt.s5.ajuste-lineal-y-pendiente",
+                  "nombre": "Ajuste lineal y significado de la pendiente",
+                  "descripcion": "Traza la recta que mejor se ajusta a los datos e interpreta su pendiente como magnitud física.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.proporcionalidad-en-datos"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "cyt.s5.prediccion-desde-la-tendencia",
+                  "nombre": "Predicción del comportamiento a partir de la tendencia",
+                  "descripcion": "Usa la gráfica o la ecuación obtenida para predecir valores no medidos.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.ajuste-lineal-y-pendiente"
+                  ],
+                  "ordenSugerido": 65
+                },
+                {
+                  "clave": "cyt.s5.indagacion-plano-inclinado",
+                  "nombre": "Indagación: superficie del plano inclinado y rozamiento",
+                  "descripcion": "Indaga cómo el tipo de superficie cambia el tiempo de bajada de un objeto por un plano inclinado.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-01",
+                    "CYT-C20-S5-02",
+                    "CYT-C20-S5-03",
+                    "CYT-C20-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.ajuste-lineal-y-pendiente"
+                  ],
+                  "ordenSugerido": 66
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa y comunica el proceso y resultados de su indagación",
+          "bloques": [
+            {
+              "nombre": "Evaluación y comunicación",
+              "temas": [
+                {
+                  "clave": "cyt.s5.informe-cientifico-escrito",
+                  "nombre": "Informe científico escrito",
+                  "descripcion": "Redacta un informe con título, resumen, introducción, metodología, resultados, discusión y conclusiones.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.prediccion-desde-la-tendencia"
+                  ],
+                  "ordenSugerido": 101
+                },
+                {
+                  "clave": "cyt.s5.citas-y-referencias",
+                  "nombre": "Citas y referencias bibliográficas",
+                  "descripcion": "Cita las fuentes científicas que usó y elabora la lista de referencias.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.informe-cientifico-escrito"
+                  ],
+                  "ordenSugerido": 102
+                },
+                {
+                  "clave": "cyt.s5.reproducibilidad-nuevas-preguntas",
+                  "nombre": "Reproducibilidad y nuevas preguntas de indagación",
+                  "descripcion": "Explica qué permite que otros repitan su indagación y qué nuevas preguntas abre.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.informe-cientifico-escrito"
+                  ],
+                  "ordenSugerido": 103
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 21,
+      "nombre": "Explica el mundo físico basándose en conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo",
+      "capacidades": [
+        {
+          "nombre": "Comprende y usa conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo",
+          "bloques": [
+            {
+              "nombre": "Vectores y cinemática",
+              "temas": [
+                {
+                  "clave": "cyt.s5.magnitudes-escalares-vectoriales",
+                  "nombre": "Magnitudes escalares y vectoriales",
+                  "descripcion": "Distingue magnitudes que solo tienen valor de las que también tienen dirección y sentido.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "cyt.s5.suma-de-vectores",
+                  "nombre": "Suma de vectores: método gráfico y analítico",
+                  "descripcion": "Suma vectores con el método del polígono, del paralelogramo y con el teorema de Pitágoras.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.magnitudes-escalares-vectoriales"
+                  ],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "cyt.s5.descomposicion-rectangular",
+                  "nombre": "Descomposición rectangular de vectores",
+                  "descripcion": "Obtiene las componentes de un vector con seno y coseno.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.suma-de-vectores"
+                  ],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "cyt.s5.mruv",
+                  "nombre": "Movimiento rectilíneo uniformemente variado (MRUV)",
+                  "descripcion": "Aplica las ecuaciones del MRUV para calcular velocidad, aceleración, tiempo y distancia.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.magnitudes-escalares-vectoriales"
+                  ],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "cyt.s5.graficas-del-movimiento",
+                  "nombre": "Gráficas posición-tiempo y velocidad-tiempo",
+                  "descripcion": "Interpreta pendientes y áreas de las gráficas del MRU y del MRUV.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.mruv"
+                  ],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "cyt.s5.caida-libre",
+                  "nombre": "Caída libre",
+                  "descripcion": "Calcula tiempos, alturas y velocidades de cuerpos que caen con la aceleración de la gravedad.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.mruv"
+                  ],
+                  "ordenSugerido": 10
+                },
+                {
+                  "clave": "cyt.s5.lanzamiento-vertical",
+                  "nombre": "Lanzamiento vertical hacia arriba",
+                  "descripcion": "Calcula la altura máxima y el tiempo de vuelo de un objeto lanzado hacia arriba.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.caida-libre"
+                  ],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "cyt.s5.independencia-de-movimientos",
+                  "nombre": "Principio de independencia de los movimientos",
+                  "descripcion": "Explica que dos movimientos simultáneos actúan sin afectarse, como sostuvo Galileo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.descomposicion-rectangular",
+                    "cyt.s5.caida-libre"
+                  ],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "cyt.s5.bote-que-cruza-un-rio",
+                  "nombre": "Movimiento compuesto: bote que cruza un río",
+                  "descripcion": "Calcula la velocidad resultante, el tiempo de cruce y el desvío de un bote en la corriente.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.independencia-de-movimientos"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "cyt.s5.lanzamiento-horizontal",
+                  "nombre": "Lanzamiento horizontal",
+                  "descripcion": "Combina un MRU horizontal con una caída libre vertical para hallar alcance y tiempo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.independencia-de-movimientos"
+                  ],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "cyt.s5.movimiento-parabolico",
+                  "nombre": "Movimiento parabólico: alcance y altura máxima",
+                  "descripcion": "Calcula el alcance, la altura máxima y el tiempo de vuelo de un proyectil.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.lanzamiento-horizontal",
+                    "cyt.s5.lanzamiento-vertical"
+                  ],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "cyt.s5.movimiento-circular-uniforme",
+                  "nombre": "Movimiento circular uniforme",
+                  "descripcion": "Relaciona periodo, frecuencia, velocidad angular y velocidad tangencial.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.magnitudes-escalares-vectoriales"
+                  ],
+                  "ordenSugerido": 16
+                }
+              ]
+            },
+            {
+              "nombre": "Dinámica y equilibrio",
+              "temas": [
+                {
+                  "clave": "cyt.s5.diagrama-de-cuerpo-libre",
+                  "nombre": "Diagrama de cuerpo libre",
+                  "descripcion": "Representa todas las fuerzas que actúan sobre un cuerpo aislado.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.suma-de-vectores"
+                  ],
+                  "ordenSugerido": 17
+                },
+                {
+                  "clave": "cyt.s5.peso-normal-tension",
+                  "nombre": "Peso, fuerza normal y tensión",
+                  "descripcion": "Identifica y calcula las fuerzas más comunes que actúan sobre un cuerpo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.diagrama-de-cuerpo-libre"
+                  ],
+                  "ordenSugerido": 18
+                },
+                {
+                  "clave": "cyt.s5.primera-ley-de-newton",
+                  "nombre": "Primera ley de Newton: inercia",
+                  "descripcion": "Explica que un cuerpo sin fuerza neta sigue en reposo o con velocidad constante.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.diagrama-de-cuerpo-libre"
+                  ],
+                  "ordenSugerido": 19
+                },
+                {
+                  "clave": "cyt.s5.fuerza-resultante-nula",
+                  "nombre": "Fuerza resultante nula y velocidad constante",
+                  "descripcion": "Calcula fuerzas desconocidas en cuerpos en reposo o en MRU.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.primera-ley-de-newton",
+                    "cyt.s5.peso-normal-tension"
+                  ],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "cyt.s5.segunda-ley-de-newton",
+                  "nombre": "Segunda ley de Newton",
+                  "descripcion": "Relaciona la fuerza neta, la masa y la aceleración de un cuerpo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.fuerza-resultante-nula",
+                    "cyt.s5.mruv"
+                  ],
+                  "ordenSugerido": 29
+                },
+                {
+                  "clave": "cyt.s5.tercera-ley-de-newton",
+                  "nombre": "Tercera ley de Newton: acción y reacción",
+                  "descripcion": "Identifica pares de fuerzas de acción y reacción en situaciones cotidianas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.primera-ley-de-newton"
+                  ],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "cyt.s5.fuerza-de-rozamiento",
+                  "nombre": "Fuerza de rozamiento estático y cinético",
+                  "descripcion": "Calcula el rozamiento con el coeficiente de fricción y la fuerza normal.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.peso-normal-tension"
+                  ],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "cyt.s5.fuerzas-en-el-plano-inclinado",
+                  "nombre": "Fuerzas en el plano inclinado",
+                  "descripcion": "Descompone el peso en un plano inclinado y calcula la aceleración o el equilibrio.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.fuerza-de-rozamiento",
+                    "cyt.s5.descomposicion-rectangular"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "cyt.s5.fuerza-centripeta",
+                  "nombre": "Fuerza centrípeta",
+                  "descripcion": "Calcula la fuerza que mantiene un cuerpo en movimiento circular.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.segunda-ley-de-newton",
+                    "cyt.s5.movimiento-circular-uniforme"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "cyt.s5.gravitacion-universal",
+                  "nombre": "Ley de gravitación universal",
+                  "descripcion": "Calcula la fuerza de atracción entre dos masas y explica las órbitas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-06",
+                    "CYT-C21-S5-11"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.fuerza-centripeta"
+                  ],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "cyt.s5.primera-condicion-equilibrio",
+                  "nombre": "Primera condición de equilibrio",
+                  "descripcion": "Aplica que la suma de fuerzas es cero en cuerpos en reposo con varias cuerdas o apoyos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03",
+                    "CYT-C21-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.fuerza-resultante-nula",
+                    "cyt.s5.descomposicion-rectangular"
+                  ],
+                  "ordenSugerido": 35
+                },
+                {
+                  "clave": "cyt.s5.momento-de-una-fuerza",
+                  "nombre": "Momento de una fuerza (torque)",
+                  "descripcion": "Calcula el efecto de giro de una fuerza según su brazo de palanca.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.primera-condicion-equilibrio"
+                  ],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "cyt.s5.segunda-condicion-equilibrio",
+                  "nombre": "Segunda condición de equilibrio",
+                  "descripcion": "Aplica que la suma de momentos es cero en barras y balancines.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.momento-de-una-fuerza"
+                  ],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "cyt.s5.centro-de-gravedad",
+                  "nombre": "Centro de gravedad y condiciones de vuelco",
+                  "descripcion": "Ubica el centro de gravedad y explica por qué un cuerpo se vuelca o se mantiene.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.segunda-condicion-equilibrio"
+                  ],
+                  "ordenSugerido": 38
+                }
+              ]
+            },
+            {
+              "nombre": "Trabajo, energía y potencia",
+              "temas": [
+                {
+                  "clave": "cyt.s5.trabajo-de-fuerza-constante",
+                  "nombre": "Trabajo mecánico de una fuerza constante",
+                  "descripcion": "Calcula el trabajo según la fuerza, el desplazamiento y el ángulo entre ellos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.descomposicion-rectangular"
+                  ],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "cyt.s5.teorema-trabajo-energia",
+                  "nombre": "Teorema del trabajo y la energía cinética",
+                  "descripcion": "Relaciona el trabajo neto con el cambio de energía cinética.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.trabajo-de-fuerza-constante"
+                  ],
+                  "ordenSugerido": 40
+                },
+                {
+                  "clave": "cyt.s5.energia-potencial-elastica",
+                  "nombre": "Energía potencial gravitatoria y elástica",
+                  "descripcion": "Calcula la energía almacenada por la altura y por un resorte con la ley de Hooke.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.trabajo-de-fuerza-constante"
+                  ],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "cyt.s5.conservacion-energia-mecanica",
+                  "nombre": "Conservación de la energía mecánica",
+                  "descripcion": "Resuelve problemas en los que la energía cinética y potencial se transforman sin pérdidas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.teorema-trabajo-energia",
+                    "cyt.s5.energia-potencial-elastica"
+                  ],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "cyt.s5.energia-perdida-por-rozamiento",
+                  "nombre": "Energía disipada por rozamiento",
+                  "descripcion": "Calcula la energía mecánica que se transforma en calor por fricción.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.conservacion-energia-mecanica",
+                    "cyt.s5.fuerza-de-rozamiento"
+                  ],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "cyt.s5.potencia-mecanica",
+                  "nombre": "Potencia mecánica",
+                  "descripcion": "Calcula la rapidez con que se realiza un trabajo en watts y caballos de fuerza.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.trabajo-de-fuerza-constante"
+                  ],
+                  "ordenSugerido": 44
+                },
+                {
+                  "clave": "cyt.s5.rendimiento-de-una-maquina",
+                  "nombre": "Rendimiento de una máquina",
+                  "descripcion": "Calcula la eficiencia como relación entre la potencia útil y la consumida.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.potencia-mecanica"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "cyt.s5.palancas-ventaja-mecanica",
+                  "nombre": "Palancas: géneros y ventaja mecánica",
+                  "descripcion": "Clasifica palancas y calcula la fuerza necesaria con la condición de equilibrio.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.segunda-condicion-equilibrio"
+                  ],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "cyt.s5.poleas-y-polipastos",
+                  "nombre": "Poleas fijas, móviles y polipastos",
+                  "descripcion": "Calcula la fuerza necesaria y la ventaja mecánica de sistemas de poleas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.primera-condicion-equilibrio"
+                  ],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "cyt.s5.plano-inclinado-maquina-simple",
+                  "nombre": "Plano inclinado como máquina simple",
+                  "descripcion": "Compara el trabajo para subir una carga por una rampa y verticalmente.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.fuerzas-en-el-plano-inclinado",
+                    "cyt.s5.trabajo-de-fuerza-constante"
+                  ],
+                  "ordenSugerido": 48
+                }
+              ]
+            },
+            {
+              "nombre": "Oscilaciones y ondas",
+              "temas": [
+                {
+                  "clave": "cyt.s5.movimiento-armonico-simple",
+                  "nombre": "Movimiento armónico simple",
+                  "descripcion": "Describe la elongación, la amplitud, el periodo y la frecuencia de un oscilador.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.movimiento-circular-uniforme"
+                  ],
+                  "ordenSugerido": 49
+                },
+                {
+                  "clave": "cyt.s5.sistema-masa-resorte",
+                  "nombre": "Sistema masa-resorte",
+                  "descripcion": "Calcula el periodo de oscilación de una masa unida a un resorte.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.movimiento-armonico-simple",
+                    "cyt.s5.energia-potencial-elastica"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "cyt.s5.pendulo-simple",
+                  "nombre": "Péndulo simple y su periodo",
+                  "descripcion": "Calcula el periodo de un péndulo y explica de qué depende.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.movimiento-armonico-simple"
+                  ],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "cyt.s5.ondas-transversales-longitudinales",
+                  "nombre": "Ondas transversales y longitudinales",
+                  "descripcion": "Clasifica ondas según la dirección de vibración y de propagación.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.movimiento-armonico-simple"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "cyt.s5.ecuacion-fundamental-ondas",
+                  "nombre": "Ecuación fundamental de las ondas (v = λ · f)",
+                  "descripcion": "Relaciona velocidad, longitud de onda y frecuencia de una onda.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.ondas-transversales-longitudinales"
+                  ],
+                  "ordenSugerido": 53
+                },
+                {
+                  "clave": "cyt.s5.sonido-cualidades",
+                  "nombre": "El sonido: intensidad, tono y timbre",
+                  "descripcion": "Relaciona las cualidades del sonido con la amplitud, la frecuencia y la forma de la onda.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.ecuacion-fundamental-ondas"
+                  ],
+                  "ordenSugerido": 54
+                },
+                {
+                  "clave": "cyt.s5.nivel-de-intensidad-decibeles",
+                  "nombre": "Nivel de intensidad sonora en decibeles",
+                  "descripcion": "Interpreta la escala de decibeles y los límites seguros de exposición al ruido.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.sonido-cualidades"
+                  ],
+                  "ordenSugerido": 55
+                },
+                {
+                  "clave": "cyt.s5.ondas-estacionarias-resonancia",
+                  "nombre": "Ondas estacionarias y resonancia",
+                  "descripcion": "Explica los modos de vibración en cuerdas y tubos de instrumentos musicales.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.ecuacion-fundamental-ondas"
+                  ],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "cyt.s5.efecto-doppler",
+                  "nombre": "Efecto Doppler",
+                  "descripcion": "Explica el cambio de frecuencia percibida cuando la fuente o el observador se mueven.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.sonido-cualidades"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "cyt.s5.ondas-electromagneticas-aplicaciones",
+                  "nombre": "Ondas electromagnéticas en las comunicaciones",
+                  "descripcion": "Relaciona frecuencias de radio, microondas e infrarrojo con sus usos tecnológicos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.ecuacion-fundamental-ondas"
+                  ],
+                  "ordenSugerido": 58
+                }
+              ]
+            },
+            {
+              "nombre": "Electricidad y electromagnetismo",
+              "temas": [
+                {
+                  "clave": "cyt.s5.corriente-electrica",
+                  "nombre": "Corriente eléctrica e intensidad",
+                  "descripcion": "Calcula la intensidad de corriente como carga que pasa por segundo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "cyt.s5.ley-de-ohm",
+                  "nombre": "Resistencia eléctrica y ley de Ohm",
+                  "descripcion": "Relaciona voltaje, intensidad y resistencia en un conductor.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.corriente-electrica"
+                  ],
+                  "ordenSugerido": 68
+                },
+                {
+                  "clave": "cyt.s5.circuitos-serie-paralelo",
+                  "nombre": "Resistencia equivalente en circuitos serie y paralelo",
+                  "descripcion": "Calcula resistencias equivalentes, corrientes y voltajes en circuitos sencillos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.ley-de-ohm"
+                  ],
+                  "ordenSugerido": 69
+                },
+                {
+                  "clave": "cyt.s5.potencia-electrica-consumo",
+                  "nombre": "Potencia eléctrica y consumo en kWh",
+                  "descripcion": "Calcula la potencia de un aparato y el costo de su consumo en el recibo de luz.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02",
+                    "CYT-C21-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.circuitos-serie-paralelo"
+                  ],
+                  "ordenSugerido": 70
+                },
+                {
+                  "clave": "cyt.s5.fuerza-magnetica-conductor",
+                  "nombre": "Fuerza magnética sobre un conductor: el motor eléctrico",
+                  "descripcion": "Explica cómo un campo magnético empuja un conductor con corriente y hace girar un motor.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.corriente-electrica"
+                  ],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "cyt.s5.flujo-magnetico",
+                  "nombre": "Flujo magnético a través de una espira",
+                  "descripcion": "Calcula el flujo magnético según el campo, el área y la orientación de la espira.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.fuerza-magnetica-conductor"
+                  ],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "cyt.s5.ley-de-faraday",
+                  "nombre": "Ley de inducción de Faraday",
+                  "descripcion": "Calcula la fuerza electromotriz inducida por la variación del flujo magnético.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.flujo-magnetico"
+                  ],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "cyt.s5.ley-de-lenz",
+                  "nombre": "Ley de Lenz",
+                  "descripcion": "Determina el sentido de la corriente inducida que se opone al cambio de flujo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.ley-de-faraday"
+                  ],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "cyt.s5.generador-de-corriente-alterna",
+                  "nombre": "Generador de corriente alterna",
+                  "descripcion": "Explica cómo una espira que gira en un campo magnético produce corriente alterna.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.ley-de-lenz"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "cyt.s5.corriente-continua-y-alterna",
+                  "nombre": "Corriente continua y corriente alterna",
+                  "descripcion": "Compara ambos tipos de corriente, sus gráficas y sus usos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.generador-de-corriente-alterna"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "cyt.s5.transformador",
+                  "nombre": "El transformador",
+                  "descripcion": "Calcula voltajes y corrientes en un transformador según el número de espiras.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.corriente-continua-y-alterna"
+                  ],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "cyt.s5.centrales-electricas-peru",
+                  "nombre": "Centrales de generación eléctrica en el Perú",
+                  "descripcion": "Explica cómo generan electricidad las centrales hidroeléctricas, térmicas, eólicas y solares del país.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-02",
+                    "CYT-C21-S5-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.generador-de-corriente-alterna"
+                  ],
+                  "ordenSugerido": 78
+                }
+              ]
+            },
+            {
+              "nombre": "Biotecnología y genética",
+              "temas": [
+                {
+                  "clave": "cyt.s5.universalidad-codigo-genetico",
+                  "nombre": "Universalidad del código genético",
+                  "descripcion": "Explica por qué un gen de una especie puede expresarse en otra.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 79
+                },
+                {
+                  "clave": "cyt.s5.transferencia-horizontal-genes",
+                  "nombre": "Transferencia horizontal de genes en bacterias",
+                  "descripcion": "Describe la transformación, la conjugación y la transducción como transferencia natural de genes.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.universalidad-codigo-genetico"
+                  ],
+                  "ordenSugerido": 80
+                },
+                {
+                  "clave": "cyt.s5.enzimas-de-restriccion-adn-recombinante",
+                  "nombre": "Enzimas de restricción y ADN recombinante",
+                  "descripcion": "Explica cómo se corta y une el ADN de distintas especies.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.universalidad-codigo-genetico"
+                  ],
+                  "ordenSugerido": 81
+                },
+                {
+                  "clave": "cyt.s5.plasmidos-vectores",
+                  "nombre": "Plásmidos y vectores de clonación",
+                  "descripcion": "Explica cómo se introduce un gen en una bacteria usando un plásmido.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-07",
+                    "CYT-C21-S5-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.enzimas-de-restriccion-adn-recombinante"
+                  ],
+                  "ordenSugerido": 82
+                },
+                {
+                  "clave": "cyt.s5.pcr-amplificacion-adn",
+                  "nombre": "Reacción en cadena de la polimerasa (PCR)",
+                  "descripcion": "Describe cómo se obtienen millones de copias de un fragmento de ADN y sus usos en diagnóstico.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.enzimas-de-restriccion-adn-recombinante"
+                  ],
+                  "ordenSugerido": 83
+                },
+                {
+                  "clave": "cyt.s5.electroforesis-huella-genetica",
+                  "nombre": "Electroforesis y huella genética",
+                  "descripcion": "Interpreta un gel de electroforesis en pruebas de paternidad y casos forenses.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.pcr-amplificacion-adn"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "cyt.s5.organismos-transgenicos",
+                  "nombre": "Organismos transgénicos",
+                  "descripcion": "Explica cómo se obtienen plantas y animales transgénicos y para qué se usan.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-07",
+                    "CYT-C21-S5-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.plasmidos-vectores"
+                  ],
+                  "ordenSugerido": 85
+                },
+                {
+                  "clave": "cyt.s5.insulina-recombinante",
+                  "nombre": "Insulina recombinante y fármacos biotecnológicos",
+                  "descripcion": "Describe la producción de insulina humana por bacterias modificadas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.plasmidos-vectores"
+                  ],
+                  "ordenSugerido": 86
+                },
+                {
+                  "clave": "cyt.s5.edicion-genetica-crispr",
+                  "nombre": "Edición genética con CRISPR",
+                  "descripcion": "Explica de forma sencilla cómo CRISPR corta y modifica un gen específico.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.organismos-transgenicos"
+                  ],
+                  "ordenSugerido": 87
+                },
+                {
+                  "clave": "cyt.s5.clonacion",
+                  "nombre": "Clonación reproductiva y terapéutica",
+                  "descripcion": "Distingue ambos tipos de clonación y sus límites éticos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.organismos-transgenicos"
+                  ],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "cyt.s5.moratoria-transgenicos-peru",
+                  "nombre": "Moratoria de transgénicos en el Perú",
+                  "descripcion": "Fundamenta una posición sobre la moratoria considerando la biodiversidad, la economía y la ética.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.organismos-transgenicos"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "cyt.s5.mutaciones-geneticas-puntuales",
+                  "nombre": "Mutaciones génicas: sustitución, inserción y deleción",
+                  "descripcion": "Predice cómo un cambio en la secuencia de ADN altera la proteína.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.universalidad-codigo-genetico"
+                  ],
+                  "ordenSugerido": 90
+                },
+                {
+                  "clave": "cyt.s5.agentes-mutagenos",
+                  "nombre": "Agentes mutágenos físicos, químicos y biológicos",
+                  "descripcion": "Relaciona la radiación, ciertos químicos y virus con daños en el ADN.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.mutaciones-geneticas-puntuales"
+                  ],
+                  "ordenSugerido": 91
+                },
+                {
+                  "clave": "cyt.s5.enfermedades-monogenicas",
+                  "nombre": "Enfermedades monogénicas",
+                  "descripcion": "Explica el origen de la anemia falciforme y la fibrosis quística en un gen alterado.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.mutaciones-geneticas-puntuales"
+                  ],
+                  "ordenSugerido": 92
+                },
+                {
+                  "clave": "cyt.s5.cancer-oncogenes",
+                  "nombre": "Cáncer: oncogenes y genes supresores de tumores",
+                  "descripcion": "Explica cómo fallas en la regulación de genes provocan división celular descontrolada.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.agentes-mutagenos"
+                  ],
+                  "ordenSugerido": 93
+                },
+                {
+                  "clave": "cyt.s5.terapia-genica",
+                  "nombre": "Terapia génica",
+                  "descripcion": "Describe cómo se intenta corregir una enfermedad introduciendo un gen funcional.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-07",
+                    "CYT-C21-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.enfermedades-monogenicas",
+                    "cyt.s5.plasmidos-vectores"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "cyt.s5.diagnostico-consejo-genetico",
+                  "nombre": "Diagnóstico y consejo genético",
+                  "descripcion": "Explica cómo las pruebas genéticas orientan a las familias con riesgo de enfermedades hereditarias.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.enfermedades-monogenicas"
+                  ],
+                  "ordenSugerido": 95
+                },
+                {
+                  "clave": "cyt.s5.proyecto-genoma-humano",
+                  "nombre": "Proyecto Genoma Humano",
+                  "descripcion": "Describe qué se logró al secuenciar el genoma humano y sus usos en medicina.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.universalidad-codigo-genetico"
+                  ],
+                  "ordenSugerido": 96
+                }
+              ]
+            },
+            {
+              "nombre": "Física nuclear",
+              "temas": [
+                {
+                  "clave": "cyt.s5.equivalencia-masa-energia",
+                  "nombre": "Equivalencia masa-energía (E = m · c²)",
+                  "descripcion": "Calcula la energía equivalente a una masa y la conservación de masa-energía.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 104
+                },
+                {
+                  "clave": "cyt.s5.defecto-de-masa",
+                  "nombre": "Defecto de masa y energía de enlace nuclear",
+                  "descripcion": "Calcula la energía que mantiene unido un núcleo a partir de su defecto de masa.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.equivalencia-masa-energia"
+                  ],
+                  "ordenSugerido": 105
+                },
+                {
+                  "clave": "cyt.s5.radiaciones-alfa-beta-gamma",
+                  "nombre": "Radiaciones alfa, beta y gamma",
+                  "descripcion": "Compara la naturaleza, la carga y el poder de penetración de cada radiación.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 106
+                },
+                {
+                  "clave": "cyt.s5.periodo-de-semidesintegracion",
+                  "nombre": "Periodo de semidesintegración",
+                  "descripcion": "Calcula cuánto material radiactivo queda después de varios periodos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.radiaciones-alfa-beta-gamma"
+                  ],
+                  "ordenSugerido": 107
+                },
+                {
+                  "clave": "cyt.s5.energia-fision-fusion",
+                  "nombre": "Energía liberada en la fisión y en la fusión",
+                  "descripcion": "Calcula la energía de una reacción nuclear a partir de la diferencia de masas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.defecto-de-masa"
+                  ],
+                  "ordenSugerido": 108
+                },
+                {
+                  "clave": "cyt.s5.irradiacion-de-alimentos",
+                  "nombre": "Irradiación de alimentos y usos agrícolas de la radiación",
+                  "descripcion": "Evalúa la conservación de alimentos y el control de plagas con radiación.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.radiaciones-alfa-beta-gamma"
+                  ],
+                  "ordenSugerido": 109
+                },
+                {
+                  "clave": "cyt.s5.medicina-nuclear",
+                  "nombre": "Radiación en medicina: diagnóstico y radioterapia",
+                  "descripcion": "Explica el uso de radioisótopos y radioterapia y sus beneficios y riesgos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.periodo-de-semidesintegracion"
+                  ],
+                  "ordenSugerido": 110
+                },
+                {
+                  "clave": "cyt.s5.proteccion-radiologica",
+                  "nombre": "Riesgos de la radiación y protección radiológica",
+                  "descripcion": "Aplica las reglas de tiempo, distancia y blindaje ante fuentes radiactivas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.radiaciones-alfa-beta-gamma"
+                  ],
+                  "ordenSugerido": 111
+                }
+              ]
+            },
+            {
+              "nombre": "Origen de los elementos",
+              "temas": [
+                {
+                  "clave": "cyt.s5.big-bang-particulas-elementales",
+                  "nombre": "Big Bang y partículas elementales",
+                  "descripcion": "Describe la formación de quarks, protones, neutrones y electrones en el universo temprano.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-11"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 112
+                },
+                {
+                  "clave": "cyt.s5.nucleosintesis-primordial",
+                  "nombre": "Nucleosíntesis primordial: hidrógeno y helio",
+                  "descripcion": "Explica por qué el hidrógeno y el helio fueron los primeros elementos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-11"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.big-bang-particulas-elementales"
+                  ],
+                  "ordenSugerido": 113
+                },
+                {
+                  "clave": "cyt.s5.fuerzas-fundamentales",
+                  "nombre": "Las cuatro fuerzas fundamentales",
+                  "descripcion": "Compara la gravedad, el electromagnetismo y las fuerzas nucleares fuerte y débil.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-11"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.big-bang-particulas-elementales",
+                    "cyt.s5.gravitacion-universal"
+                  ],
+                  "ordenSugerido": 114
+                },
+                {
+                  "clave": "cyt.s5.nucleosintesis-estelar",
+                  "nombre": "Nucleosíntesis estelar y vida de las estrellas",
+                  "descripcion": "Explica cómo la fusión en las estrellas forma elementos hasta el hierro.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-11"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.nucleosintesis-primordial",
+                    "cyt.s5.energia-fision-fusion"
+                  ],
+                  "ordenSugerido": 115
+                },
+                {
+                  "clave": "cyt.s5.supernovas-elementos-pesados",
+                  "nombre": "Supernovas y origen de los elementos pesados",
+                  "descripcion": "Explica por qué los elementos más pesados que el hierro provienen de explosiones estelares.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-11"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.nucleosintesis-estelar"
+                  ],
+                  "ordenSugerido": 116
+                }
+              ]
+            },
+            {
+              "nombre": "Sostenibilidad de la biósfera",
+              "temas": [
+                {
+                  "clave": "cyt.s5.balance-de-radiacion-terrestre",
+                  "nombre": "Balance de radiación de la Tierra",
+                  "descripcion": "Explica cómo la energía solar que entra y la que sale determinan la temperatura del planeta.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-10"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 117
+                },
+                {
+                  "clave": "cyt.s5.gases-de-efecto-invernadero",
+                  "nombre": "Gases de efecto invernadero y calentamiento global",
+                  "descripcion": "Relaciona el aumento de CO2, metano y óxido nitroso con el calentamiento.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.balance-de-radiacion-terrestre"
+                  ],
+                  "ordenSugerido": 118
+                },
+                {
+                  "clave": "cyt.s5.acidificacion-de-oceanos",
+                  "nombre": "Acidificación de los océanos",
+                  "descripcion": "Explica la reacción del CO2 con el agua de mar y su efecto en corales y moluscos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.gases-de-efecto-invernadero"
+                  ],
+                  "ordenSugerido": 119
+                },
+                {
+                  "clave": "cyt.s5.lluvia-acida",
+                  "nombre": "Lluvia ácida",
+                  "descripcion": "Explica la formación de lluvia ácida a partir de óxidos de azufre y nitrógeno.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-10"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 120
+                },
+                {
+                  "clave": "cyt.s5.capa-de-ozono",
+                  "nombre": "Destrucción de la capa de ozono y Protocolo de Montreal",
+                  "descripcion": "Explica cómo los CFC destruyen el ozono y evalúa el éxito del protocolo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-10"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 121
+                },
+                {
+                  "clave": "cyt.s5.retroceso-glaciares-andinos",
+                  "nombre": "Retroceso de los glaciares andinos",
+                  "descripcion": "Analiza datos de pérdida de glaciares en el Perú y su efecto en el agua disponible.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.gases-de-efecto-invernadero"
+                  ],
+                  "ordenSugerido": 122
+                },
+                {
+                  "clave": "cyt.s5.fenomeno-el-nino",
+                  "nombre": "Fenómeno El Niño y sus impactos",
+                  "descripcion": "Explica el calentamiento del mar frente a la costa peruana y sus efectos en clima y pesca.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.balance-de-radiacion-terrestre"
+                  ],
+                  "ordenSugerido": 123
+                },
+                {
+                  "clave": "cyt.s5.huella-de-carbono",
+                  "nombre": "Huella de carbono",
+                  "descripcion": "Calcula de forma aproximada la huella de carbono de actividades cotidianas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.gases-de-efecto-invernadero",
+                    "cyt.s5.potencia-electrica-consumo"
+                  ],
+                  "ordenSugerido": 124
+                },
+                {
+                  "clave": "cyt.s5.acuerdo-de-paris",
+                  "nombre": "Acuerdo de París y contribuciones nacionales",
+                  "descripcion": "Evalúa la pertinencia científica de las metas del Perú frente al cambio climático.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.huella-de-carbono"
+                  ],
+                  "ordenSugerido": 125
+                },
+                {
+                  "clave": "cyt.s5.desarrollo-sostenible",
+                  "nombre": "Desarrollo sostenible y Objetivos de Desarrollo Sostenible",
+                  "descripcion": "Relaciona los ODS ambientales con acciones concretas de conservación.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.acuerdo-de-paris"
+                  ],
+                  "ordenSugerido": 126
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa las implicancias del saber y del quehacer científico y tecnológico",
+          "bloques": [
+            {
+              "nombre": "Ciencia, cosmovisión y sociedad",
+              "temas": [
+                {
+                  "clave": "cyt.s5.revolucion-copernicana",
+                  "nombre": "De Ptolomeo a Copérnico: un cambio de visión del mundo",
+                  "descripcion": "Analiza cómo el modelo heliocéntrico cambió el lugar del ser humano en el universo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-13"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "cyt.s5.darwin-y-la-vision-del-ser-humano",
+                  "nombre": "Darwin y el lugar del ser humano en la naturaleza",
+                  "descripcion": "Analiza cómo la teoría de la evolución cambió la visión del ser humano.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-13"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.revolucion-copernicana"
+                  ],
+                  "ordenSugerido": 59
+                },
+                {
+                  "clave": "cyt.s5.etica-investigacion-humanos",
+                  "nombre": "Ética en la investigación con seres humanos",
+                  "descripcion": "Analiza el consentimiento informado y los principios éticos en ensayos clínicos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-12"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 97
+                },
+                {
+                  "clave": "cyt.s5.relatividad-y-cuantica",
+                  "nombre": "Relatividad y física cuántica: nuevas ideas del mundo",
+                  "descripcion": "Explica cómo estas teorías cambiaron las nociones de espacio, tiempo y materia.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-13"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.equivalencia-masa-energia"
+                  ],
+                  "ordenSugerido": 127
+                },
+                {
+                  "clave": "cyt.s5.tecnologias-digitales-vida",
+                  "nombre": "Tecnologías digitales e inteligencia artificial en la vida diaria",
+                  "descripcion": "Evalúa beneficios y riesgos sociales de las tecnologías digitales.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-12"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 128
+                },
+                {
+                  "clave": "cyt.s5.saberes-ancestrales-y-ciencia",
+                  "nombre": "Saberes ancestrales y conocimiento científico",
+                  "descripcion": "Compara prácticas andinas y amazónicas con explicaciones científicas, como el uso de plantas medicinales.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S5-12"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 129
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 22,
+      "nombre": "Diseña y construye soluciones tecnológicas para resolver problemas de su entorno",
+      "capacidades": [
+        {
+          "nombre": "Determina una alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Problema y alternativa de solución",
+              "temas": [
+                {
+                  "clave": "cyt.s5.fundamento-cientifico-solucion",
+                  "nombre": "Fundamento científico de la alternativa de solución",
+                  "descripcion": "Explica con conocimientos científicos o prácticas locales por qué su solución funcionará.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "cyt.s5.comparar-soluciones-similares",
+                  "nombre": "Comparación con soluciones tecnológicas similares",
+                  "descripcion": "Compara beneficios directos e indirectos de su propuesta con otras ya existentes.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.fundamento-cientifico-solucion"
+                  ],
+                  "ordenSugerido": 23
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Diseña la alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Diseño de la solución",
+              "temas": [
+                {
+                  "clave": "cyt.s5.planos-tecnicos-con-cotas",
+                  "nombre": "Planos técnicos con cotas y escalas",
+                  "descripcion": "Elabora planos con medidas acotadas, vistas y escala normalizada.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.comparar-soluciones-similares"
+                  ],
+                  "ordenSugerido": 60
+                },
+                {
+                  "clave": "cyt.s5.seleccion-por-margen-de-error",
+                  "nombre": "Selección de materiales e instrumentos por su margen de error",
+                  "descripcion": "Elige materiales e instrumentos considerando precisión, costo y tiempo.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.planos-tecnicos-con-cotas"
+                  ],
+                  "ordenSugerido": 61
+                },
+                {
+                  "clave": "cyt.s5.protocolo-de-pruebas",
+                  "nombre": "Protocolo de pruebas de eficiencia y confiabilidad",
+                  "descripcion": "Define cómo y cuántas veces probará la solución y qué medirá.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S5-02",
+                    "CYT-C22-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.planos-tecnicos-con-cotas"
+                  ],
+                  "ordenSugerido": 62
+                },
+                {
+                  "clave": "cyt.s5.proyecto-sistema-de-poleas",
+                  "nombre": "Proyecto: sistema de poleas para trasladar objetos",
+                  "descripcion": "Diseña un sistema de poleas que traslade materiales a distancia calculando la ventaja mecánica.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S5-01",
+                    "CYT-C22-S5-02",
+                    "CYT-C22-S5-03",
+                    "CYT-C22-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.protocolo-de-pruebas",
+                    "cyt.s5.poleas-y-polipastos"
+                  ],
+                  "ordenSugerido": 63
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Implementa y valida la alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Implementación y validación",
+              "temas": [
+                {
+                  "clave": "cyt.s5.rango-de-funcionamiento",
+                  "nombre": "Rango de funcionamiento de cada etapa",
+                  "descripcion": "Verifica entre qué valores funciona correctamente cada parte de la solución.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.seleccion-por-margen-de-error"
+                  ],
+                  "ordenSugerido": 98
+                },
+                {
+                  "clave": "cyt.s5.errores-y-cambio-de-materiales",
+                  "nombre": "Detección de errores y cambio de materiales",
+                  "descripcion": "Identifica fallas en el procedimiento o en los materiales y hace los cambios necesarios.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.rango-de-funcionamiento"
+                  ],
+                  "ordenSugerido": 99
+                },
+                {
+                  "clave": "cyt.s5.proyecto-generador-electrico",
+                  "nombre": "Proyecto: generador eléctrico por inducción",
+                  "descripcion": "Construye un generador sencillo con imanes y bobina y mide la corriente que produce.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S5-01",
+                    "CYT-C22-S5-02",
+                    "CYT-C22-S5-03",
+                    "CYT-C22-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.generador-de-corriente-alterna",
+                    "cyt.s5.errores-y-cambio-de-materiales"
+                  ],
+                  "ordenSugerido": 100
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Evaluación y comunicación",
+              "temas": [
+                {
+                  "clave": "cyt.s5.propuesta-de-mejora-fundamentada",
+                  "nombre": "Propuesta de mejora fundamentada",
+                  "descripcion": "Fundamenta cambios para aumentar la eficiencia y reducir el impacto ambiental.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.errores-y-cambio-de-materiales"
+                  ],
+                  "ordenSugerido": 130
+                },
+                {
+                  "clave": "cyt.s5.explicar-construccion-y-ajustes",
+                  "nombre": "Explicación de la construcción y los ajustes realizados",
+                  "descripcion": "Comunica cómo construyó su solución y por qué hizo cada ajuste.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s5.propuesta-de-mejora-fundamentada"
+                  ],
+                  "ordenSugerido": 131
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
