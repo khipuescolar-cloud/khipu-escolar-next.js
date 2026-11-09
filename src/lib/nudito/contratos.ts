@@ -122,6 +122,7 @@ const base = {
   fuenteId: z.string().min(1),
   semilla: z.number().int().nonnegative(),
   enunciado: texto(1200),
+  lectura: texto(3000).optional(),
   imagenAlt: z.string().max(300).optional(),
 };
 

@@ -24,6 +24,7 @@ export function TarjetaEjercicio({ ejercicio, numero, total, comprobacion, child
           <div className="h-full rounded-full bg-turquesa transition-[width] duration-500 motion-reduce:transition-none" style={{ width: `${pct}%` }} />
         </div>
       </div>
+      {ejercicio.lectura && <div className="max-h-80 overflow-y-auto rounded-[var(--radio-md)] bg-superficie-2 p-4 text-cuerpo-sm whitespace-pre-line" aria-label="Texto de lectura">{ejercicio.lectura}</div>}
       <TituloPaso id="paso-ejercicio">
         <span className="whitespace-pre-line">{ejercicio.enunciado}</span>
       </TituloPaso>

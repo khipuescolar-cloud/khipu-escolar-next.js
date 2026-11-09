@@ -6,6 +6,7 @@ export const esquemaEjercicioBanco = z.object({
   dificultad: z.union([z.literal(1), z.literal(2), z.literal(3)]),
   tipo: z.enum(["numerico", "opcion_multiple", "verdadero_falso", "texto_corto"]),
   enunciado: texto,
+  lectura: texto.max(3000).optional(),
   respuesta: z.union([z.number().finite(), z.boolean(), texto]),
   alternativasAceptadas: z.array(texto).default([]),
   opciones: z.array(z.object({ id: texto, texto })).optional(),
@@ -18,9 +19,9 @@ export const esquemaEjercicioBanco = z.object({
   if (e.tipo === "opcion_multiple" && (!e.opciones || e.opciones.length < 2 || e.opciones.filter(o => o.id === e.respuesta).length !== 1)) ctx.addIssue({ code: "custom", message: "Debe existir exactamente una opción correcta" });
 });
 export const esquemaFicha = z.object({
-  clave: z.string().regex(/^mat\.p3\.[a-z0-9-]+$/), area: z.literal("matematica"), nivel: z.literal("primaria"), grado: z.literal(3),
-  competenciaCneb: z.union([z.literal(23), z.literal(24), z.literal(25), z.literal(26)]), capacidad: texto,
-  desempenosOrigen: z.array(z.string().regex(/^MAT-C(23|24|25|26)-P3-\d{2}$/)).min(1), bloque: texto,
+  clave: z.string().regex(/^(mat|com|cyt)\.(p|s)\d\.[a-z0-9-]+$/), area: z.enum(["matematica", "comunicacion", "ciencia-tecnologia"]), nivel: z.enum(["primaria", "secundaria"]), grado: z.number().int().min(1).max(6),
+  competenciaCneb: z.number().int().min(1).max(31), capacidad: texto,
+  desempenosOrigen: z.array(z.string().regex(/^(MAT|COM|CYT)-C\d{1,2}-(P|S)\d-\d{2}$/)).min(1), bloque: texto,
   nombre: texto.max(80), descripcionCorta: texto.max(200), palabrasClave: z.array(texto).min(1),
   prerrequisitos: z.array(z.string()), ordenSugerido: z.number().int().positive(),
   ideaCentral: texto, pasos: z.array(texto).min(2),
@@ -30,5 +31,12 @@ export const esquemaFicha = z.object({
   ejercicios: z.array(esquemaEjercicioBanco).min(12),
   generadorId: z.string().optional(), fuentes: z.array(z.object({ documento: texto, url: z.url(), paginas: texto.optional() })).min(1),
   version: z.number().int().positive(), revisado: z.null(),
+}).superRefine((f, ctx) => {
+  const prefijo = { matematica: "mat", comunicacion: "com", "ciencia-tecnologia": "cyt" }[f.area];
+  const codigoArea = prefijo.toUpperCase();
+  const nivel = f.nivel === "primaria" ? "p" : "s";
+  if (f.nivel === "secundaria" && f.grado > 5) ctx.addIssue({ code: "custom", path: ["grado"], message: "Secundaria tiene grados 1–5" });
+  if (!f.clave.startsWith(`${prefijo}.${nivel}${f.grado}.`)) ctx.addIssue({ code: "custom", path: ["clave"], message: "Clave incoherente con área, nivel o grado" });
+  if (f.desempenosOrigen.some(c => !c.startsWith(`${codigoArea}-C${f.competenciaCneb}-${nivel.toUpperCase()}${f.grado}-`))) ctx.addIssue({ code: "custom", path: ["desempenosOrigen"], message: "Desempeño incoherente con ficha" });
 });
 export type FichaConocimiento = z.infer<typeof esquemaFicha>;
