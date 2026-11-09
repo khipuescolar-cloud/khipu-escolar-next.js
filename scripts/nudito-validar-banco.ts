@@ -48,7 +48,7 @@ export function validarBanco(): { fichas: FichaConocimiento[]; errores: string[]
       temarios.set(area + ":" + nivel + ":" + grado, temas);
       for (const t of temas) catalogo.add(t.clave);
     }
-    if (archivos.length) combinaciones.push({ area, nivel, grado, carpeta, archivos });
+    if (archivos.length || existsSync(ruta)) combinaciones.push({ area, nivel, grado, carpeta, archivos });
   }
   const temasActivos: TemaPropuesto[] = [];
   for (const { area, nivel, grado, carpeta, archivos } of combinaciones) {
@@ -67,6 +67,7 @@ export function validarBanco(): { fichas: FichaConocimiento[]; errores: string[]
     const oficiales = new Map(fuente.competencias.flatMap(c => ((nivel === "primaria" ? c.desempenos : c.secundaria.desempenos) as Record<string, { codigo: string }[]>)[String(grado)]?.map(d => [d.codigo, c.numero] as const) ?? []));
     for (const codigo of oficiales.keys()) if (!temas.some(t => t.desempenosOrigen.includes(codigo))) errores.push(etiqueta + ": desempeño sin tema " + codigo);
     for (const t of temas) for (const codigo of t.desempenosOrigen) if (oficiales.get(codigo) !== t.competencia) errores.push(etiqueta + ": desempeño ajeno a la competencia o grado " + codigo);
+    if (!archivos.length) continue;
     const fichasLocal: FichaConocimiento[] = [];
     for (const archivo of archivos) {
       const datos: unknown = JSON.parse(readFileSync(join(carpeta, "fichas", archivo), "utf8"));
@@ -126,6 +127,14 @@ export function validarBanco(): { fichas: FichaConocimiento[]; errores: string[]
       if (/[\w.+-]+@[\w.-]+\.[a-z]{2,}/i.test(texto) || /\b\d{8}\b/.test(texto)) errores.push(f.clave + ": posible dato personal");
     }
     for (const f of fichasLocal) for (const pre of f.prerrequisitos) if (clavesFichas.has(pre) && !clavesTemario.has(pre)) errores.push(f.clave + ": prerrequisito fuera del temario " + pre);
+  }
+  const nombresPorArea = new Map<string, string>();
+  for (const [combinacion, temas] of temarios) for (const t of temas) {
+    const llave = combinacion.split(":")[0] + ":" + normalizar(t.nombre);
+    const previo = nombresPorArea.get(llave);
+    if (previo && previo !== combinacion) errores.push("Banco: nombre de tema repetido entre grados (" + previo + " y " + combinacion + "): " + t.nombre);
+    else if (previo === combinacion) errores.push(combinacion + ": nombre de tema repetido " + t.nombre);
+    nombresPorArea.set(llave, combinacion);
   }
   const clavesGlobales = new Set<string>();
   for (const tema of temasActivos) {

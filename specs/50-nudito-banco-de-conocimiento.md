@@ -1,6 +1,6 @@
 # 50 — Banco de conocimiento de Nudito
 
-> Estado: infraestructura generalizada para 33 combinaciones; contenidos en elaboración · Plan: Khipu Pro · Última actualización: 2026-11-09 (Codex)
+> Estado: 33 temarios propuestos (3839 temas); fichas completas solo en Matemática 3.° primaria · Plan: Khipu Pro · Última actualización: 2026-11-09 (Claude + Codex)
 
 ## Objetivo
 Ofrecer al profesor todos los temas del grado y curso para elegir el temario, y dar a Nudito contenido y ejercicios verificables para enseñar sin LLM. La infraestructura cubre Matemática, Comunicación y Ciencia y Tecnología de 1.° a 6.° de primaria y 1.° a 5.° de secundaria (33 combinaciones). Cada temario y sus fichas requieren elaboración y revisión por separado.
@@ -30,7 +30,7 @@ La revisión del supervisor rechazó las 239 fichas anteriores por repetición d
 - `temasDeConBanco(area, nivel, grado)` y `temaPorClaveConBanco(clave)` cargan fichas perezosamente en el servidor por combinación. Si una combinación no tiene fichas, se conserva el catálogo actual. Un tema de un temario propuesto sin ficha no entra en el catálogo. El cargador usa `fs.readFile` desde `src/` en el servidor. `outputFileTracingIncludes` en `next.config.ts` incluye `src/lib/nudito/conocimiento/banco/**/*.json` en los trazados de todas las rutas del servidor para que Next build y Vercel empaqueten estos archivos; esta opción no agrega los JSON al bundle del cliente.
 - El temario muestra todos los temas disponibles de la combinación, agrupados por competencia y bloque, con filtro instantáneo opcional; los elegidos quedan bloqueados. La acción del servidor valida área, nivel y grado.
 - Las fichas usan `mat.banco`, `com.banco` o `cyt.banco` según el área. Los ejercicios y las respuestas quedan en el servidor; solo el enunciado y la lectura opcional se envían al alumno.
-- `pnpm nudito:validar-banco` recorre las combinaciones con fichas nuevas. Exige 100–180 temas por combinación, pertenencia de cada ficha al temario, cobertura de todos los desempeños del grado, prerrequisitos existentes y sin ciclos, opciones correctas únicas, respuestas aritméticas verificables, dificultades 1–3, pistas distintas y ausencia de tres enunciados con la misma plantilla numérica; también detecta posibles datos personales.
+- `pnpm nudito:validar-banco` valida **todos** los `temario-propuesto.json` (100–180 temas, claves únicas, cobertura de todos los desempeños del grado, desempeños de la competencia correcta, prerrequisitos sin ciclos) y que ningún nombre de tema se repita entre grados del mismo curso (si un tema vuelve en otro grado, su nombre dice el alcance). En las combinaciones con fichas exige además 100–180 temas por combinación, pertenencia de cada ficha al temario, cobertura de todos los desempeños del grado, prerrequisitos existentes y sin ciclos, opciones correctas únicas, respuestas aritméticas verificables, dificultades 1–3, pistas distintas y ausencia de tres enunciados con la misma plantilla numérica; también detecta posibles datos personales.
 
 ## Modelo de datos
 No hay migración. Las claves estables se guardan en `plan_anual_temas`, `nudito_sesiones` y `nudito_dominios` como hasta ahora. El contenido del banco vive en JSON versionado.
@@ -46,7 +46,13 @@ No hay migración. Las claves estables se guardan en `plan_anual_temas`, `nudito
 ## Pruebas
 Unit: `nudito-banco-conocimiento.test.ts`. E2E: `plan-anual-nudito.test.ts` verifica conteo y ancho móvil. Gates: lint, typecheck, test, validador y dos e2e solicitados. Playwright resuelve los subdominios de `lvh.me` a 127.0.0.1 para el entorno local.
 
+## Temarios propuestos (2026-11-09)
+Los 33 temarios existen como `banco/<area>/<nivel>-<grado>/temario-propuesto.json` con su vista legible en `docs/nudito/temario-<mat|com|cyt>-<grado>-<nivel>.md` (resumen por competencia, bloques, cobertura de desempeños, fuentes realmente consultadas y decisiones dudosas para revisión docente). Matemática 1 365 temas, Comunicación 1 139, Ciencia y Tecnología 1 335 (≈ 100–147 por grado; sin relleno). Los temas que el CNEB no nombra literalmente pero traen los textos MINEDU (p. ej. razonamiento verbal, química en 4.° sec., logaritmos en 5.° sec.) están marcados como dudosos en cada `.md`.
+
+Ejercicios de opción múltiple: el orden de las opciones está mezclado (la correcta no es siempre la primera) y las explicaciones nombran la opción por su texto, no por letra (la pantalla no muestra letras). Texto corto del banco: modo `literal` (specs/43).
+
 ## Pendientes
-- Completar y revisar los temarios y fichas de las 33 combinaciones. La infraestructura no convierte un temario propuesto en contenido publicable.
+- Revisión docente de los 33 temarios (ver «decisiones dudosas» en cada `.md`).
+- Escribir las fichas de las 32 combinaciones restantes (≈ 3 700 fichas), grado por grado, con el mismo proceso que Mat. 3.°: lotes por bloque, validador y revisión por muestreo. Mientras una combinación no tenga fichas, el profesor ve el catálogo anterior.
 - Revisar pedagógicamente las 129 fichas nuevas de Matemática 3.° tras su validación técnica y mantener su contenido alineado con el temario aprobado.
 - Validar pedagógicamente explicaciones, ejercicios, lecturas, pistas y progresión antes de publicar cada combinación.
