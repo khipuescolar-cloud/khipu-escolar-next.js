@@ -17,6 +17,7 @@ import { sembrarNotas } from "./seed-notas";
 import { sembrarNuditoPlus } from "./seed-nudito-plus";
 import { sembrarNuditoPlusTutor } from "./seed-nudito-plus-tutor";
 import { sembrarNuditoTutor } from "./seed-nudito-tutor";
+import { sembrarPlanesAnuales } from "./seed-plan-anual";
 import { sembrarReuniones } from "./seed-reuniones";
 import { SLUG_COLEGIO, asegurarUsuariosAuth } from "./seed-utilidades";
 
@@ -77,6 +78,7 @@ async function main() {
   await paso("Nudito+ (tutor)", () => sembrarNuditoPlusTutor(prisma, {}));
   await paso("Nudito+ (licencias)", () => sembrarNuditoPlus(prisma, { superadminId }));
   await paso("Nudito (tutor: áreas y temas)", () => sembrarNuditoTutor(prisma));
+  await paso("Planes anuales y lecciones de Nudito (specs/48–49)", () => sembrarPlanesAnuales(prisma).then(() => undefined));
 
   console.log(`Seed listo en ${((Date.now() - t0) / 1000).toFixed(1)} s. Contraseña de todas las cuentas: demo123`);
   console.log("  direccion@nuevohorizonte.demo · lucia.garcia@nuevohorizonte.demo · rosa.quispe@gmail.com · admin@khipuescolar.demo");

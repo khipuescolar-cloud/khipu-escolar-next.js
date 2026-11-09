@@ -217,3 +217,6 @@ Integración final de A, B, C y D en `dev`, con la BD local recién reconstruida
   respuesta; lista de temas de 30+ tarjetas en móvil (grados anteriores ahora plegados); conteo de palabras repetido en la
   retro de escritura; radios encogidos en opciones largas.
 
+
+## Actualización — contenidos del plan anual (specs/49, 2026-11-08)
+Las referencias anteriores a «Otro tema», texto libre, catálogo completo, temas de grados anteriores o desbloqueo superior describen la versión previa y quedan sustituidas por esta regla: la selección del alumno acepta únicamente `temaClave` de la última versión publicada del plan de su grado y curso, siempre que exista lección publicada. No hay bloqueo semanal. El repaso inicial toma la idea, explicación, ejemplos y recursos de esa lección; «Explícame otra vez» conserva IA, caché y límites. Al dominar todos los temas visibles se felicita al alumno y puede repasarlos o profundizar en la dificultad máxima. La acción rechaza campos ajenos como `textoLibre`.

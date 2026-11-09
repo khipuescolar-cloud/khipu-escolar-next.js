@@ -127,3 +127,6 @@ Seed: `prisma/seed-nudito-tutor.ts` activa `nudito_config_colegio` de Nuevo Hori
   un tema sintético; conviene que el contrato admita `Pick<Tema, "nombre" | "area">` en una próxima versión.
 - La UI de temas del colegio (pantalla de dirección) queda para Dev D/C; el servidor ya está.
 - El nombre suelto «Ciencia» no es sinónimo CNEB (`detectarArea`): esos cursos necesitan el selector manual.
+
+## Uso actual en el tutor (specs/49, 2026-11-08)
+El catálogo global y los temas del colegio siguen sirviendo para planificar y generar ejercicios. `validarTema` y `temasParaAlumno` permanecen como funciones históricas y pruebas puras, pero `/nudito` ya no ofrece «Otro tema» ni selecciona temas por texto libre. La lista del alumno sale de la foto de la última versión publicada del plan anual de su grupo curricular y se intersecta con lecciones publicadas del mismo grado y área. Todos esos temas están disponibles desde el inicio.

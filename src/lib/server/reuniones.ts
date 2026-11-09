@@ -156,6 +156,7 @@ export const MAX_ALUMNOS_ELEGIDOS = 30;
 
 const esquemaConvocatoria = z.object({
   titulo: z.string().trim().min(3, "Escribe el título de la reunión.").max(150),
+  planAnualId: z.uuid().optional(),
   descripcion: opcional(1000),
   motivo: opcional(500),
   observaciones: opcional(1000),
@@ -197,6 +198,10 @@ export async function convocarReunion(ctx: TenantContext, entrada: unknown, ahor
   requireRol(ctx, [...ROLES_PERSONAL]);
   const d = esquemaConvocatoria.safeParse(entrada);
   if (!d.success) return fallo(d.error.issues[0].message);
+  if (d.data.planAnualId) {
+    const plan = await ctx.db.planAnual.findFirst({ where: { id: d.data.planAnualId }, include: { participantes: { where: { membershipId: ctx.membership.id, activo: true }, select: { id: true } } } });
+    if (!plan || (ctx.rol !== "direccion" && plan.participantes.length === 0)) return fallo("No tienes acceso a este plan anual.");
+  }
   const zona = ctx.tenant.zonaHoraria;
   const { alcance } = d.data;
   const inicio = instanteEnZona(d.data.fecha, d.data.hora, zona);
@@ -278,7 +283,7 @@ export async function convocarReunion(ctx: TenantContext, entrada: unknown, ahor
       choquesConfirmados = validacion.choquesConfirmados;
       const r = await tx.reunion.create({
         data: {
-          tenantId: ctx.tenant.id, titulo: d.data.titulo, descripcion: d.data.descripcion ?? null, motivo: d.data.motivo ?? null, observaciones: d.data.observaciones ?? null,
+          tenantId: ctx.tenant.id, planAnualId: d.data.planAnualId ?? null, titulo: d.data.titulo, descripcion: d.data.descripcion ?? null, motivo: d.data.motivo ?? null, observaciones: d.data.observaciones ?? null,
           tipo, modalidad: d.data.modalidad, inicio, fin, lugar: d.data.lugar ?? null, enlace: d.data.enlace ?? null,
           alcance: alcance === "ninguno" ? "individual" : alcance, salonId, convocadaPorId: ctx.membership.id, organizadorId: ctx.membership.id,
         },

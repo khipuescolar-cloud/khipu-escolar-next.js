@@ -128,7 +128,7 @@ export function ConversacionNudito({ alumnoId, nivel, inicial, permitirFotos = f
     setPaso("tema");
   }
 
-  async function validarTema(entrada: { temaClave: string } | { textoLibre: string }) {
+  async function validarTema(entrada: { temaClave: string }) {
     const v = await llamar(() => elegirTemaAction({ alumnoId, sesionId, ...entrada }));
     if (!v) return;
     if (v.tipo !== "permitido") {
@@ -235,13 +235,12 @@ export function ConversacionNudito({ alumnoId, nivel, inicial, permitirFotos = f
           aviso={aviso}
           ocupado={ocupado}
           onElegir={(temaClave) => validarTema({ temaClave })}
-          onOtroTema={(textoLibre) => validarTema({ textoLibre })}
           onVolver={() => setPaso("curso")}
         />
       )}
 
       {paso === "repaso" && repaso && (
-        <Repaso tema={tema} idea={repaso.idea} ejemplo={repaso.ejemplo} explicacionIa={repaso.explicacionIa} ocupado={ocupado} onOtraVez={otraVez} onPracticar={() => siguiente()} />
+        <Repaso tema={tema} idea={repaso.idea} ejemplo={repaso.ejemplo} explicacion={repaso.explicacion} recursos={repaso.recursos} explicacionIa={repaso.explicacionIa} ocupado={ocupado} onOtraVez={otraVez} onPracticar={() => siguiente()} />
       )}
 
       {paso === "practica" && ejercicio && (

@@ -2,7 +2,7 @@ import "server-only";
 import type { ConsumoIA, Explicacion, OperacionIa } from "@/lib/nudito/contratos";
 import type { DbTenant } from "../../db";
 import { configProveedor } from "../../nudito-plus/proveedor";
-import { costoEstimadoUsd, mesLima, registrarUso } from "../../nudito-plus/uso";
+import { costoEstimadoUsd, inicioMesLima, registrarUso } from "../../nudito-plus/uso";
 
 // Consumo de IA del tutor (specs/41): cada llamada queda en `nudito_consumos_ia` (con `simulado`) y suma al `UsoNudito`
 // mensual del alumno (los topes por alumno de Nudito+ siguen valiendo). Los topes por colegio, minuto, día y sesión
@@ -12,7 +12,7 @@ export const LIMITE_IA_POR_MINUTO = 20;
 export const LIMITE_IA_POR_DIA = 200;
 export const LIMITE_IA_POR_SESION = 60;
 
-export type DatosConsumo = { tenantId: string; alumnoId: string; sesionId: string | null; operacion: OperacionIa; consumo: ConsumoIA; ok: boolean; error?: string };
+export type DatosConsumo = { tenantId: string; alumnoId: string | null; leccionId?: string | null; sesionId: string | null; operacion: OperacionIa; consumo: ConsumoIA; ok: boolean; error?: string };
 
 /** Registra una llamada y suma el total del mes (un acierto de caché se registra pero no suma uso). */
 export async function registrarConsumo(db: DbTenant, datos: DatosConsumo, ahora: Date = new Date()): Promise<void> {
@@ -23,6 +23,7 @@ export async function registrarConsumo(db: DbTenant, datos: DatosConsumo, ahora:
     data: {
       tenantId: datos.tenantId,
       alumnoId: datos.alumnoId,
+      leccionId: datos.leccionId ?? null,
       sesionId: datos.sesionId,
       operacion: datos.operacion,
       proveedor: consumo.proveedor,
@@ -38,14 +39,16 @@ export async function registrarConsumo(db: DbTenant, datos: DatosConsumo, ahora:
       createdAt: ahora,
     },
   });
-  if (!consumo.cache && (consumo.tokensEntrada > 0 || consumo.tokensSalida > 0)) {
+  if (datos.alumnoId && !consumo.cache && (consumo.tokensEntrada > 0 || consumo.tokensSalida > 0)) {
     await registrarUso(db, datos.tenantId, datos.alumnoId, consumo, consumo.simulado ? { costoEntradaUsdPorMillon: 0, costoSalidaUsdPorMillon: 0 } : precios, ahora);
   }
 }
 
 /** Costo estimado del colegio en el mes (suma de `usos_nudito`). */
 export async function costoColegioMes(db: DbTenant, ahora: Date = new Date()): Promise<number> {
-  const r = await db.usoNudito.aggregate({ where: { mes: mesLima(ahora) }, _sum: { costoEstimadoUsd: true } });
+  const inicio = inicioMesLima(ahora);
+  const fin = new Date(inicio); fin.setUTCMonth(fin.getUTCMonth() + 1);
+  const r = await db.nuditoConsumoIa.aggregate({ where: { createdAt: { gte: inicio, lt: fin } }, _sum: { costoEstimadoUsd: true } });
   return Number(r._sum.costoEstimadoUsd ?? 0);
 }
 

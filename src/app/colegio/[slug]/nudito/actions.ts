@@ -45,14 +45,10 @@ export async function elegirCursoAction(e: { alumnoId?: string | null; sesionId:
   return ejecutar(p.data.alumnoId, (ctx, a) => sesiones.elegirCurso(ctx, a.acceso, p.data));
 }
 
-export async function elegirTemaAction(e: { alumnoId?: string | null; sesionId: string; temaClave?: string; textoLibre?: string }): Promise<ResultadoNudito<SalidaApi<"elegirTema">>> {
-  const p = z
-    .object({ alumnoId, sesionId: uuid, temaClave: z.string().max(80).optional(), textoLibre: z.string().trim().min(2, "Escribe el tema.").max(MAX_ENTRADA_NUDITO).optional() })
-    .refine((x) => Boolean(x.temaClave) !== Boolean(x.textoLibre), "Elige un tema.")
-    .safeParse(e);
+export async function elegirTemaAction(e: { alumnoId?: string | null; sesionId: string; temaClave: string }): Promise<ResultadoNudito<SalidaApi<"elegirTema">>> {
+  const p = z.object({ alumnoId, sesionId: uuid, temaClave: z.string().max(80) }).strict().safeParse(e);
   if (!p.success) return invalido(p.error);
-  const { sesionId, temaClave, textoLibre } = p.data;
-  return ejecutar(p.data.alumnoId, (ctx, a) => sesiones.elegirTema(ctx, a.acceso, temaClave ? { sesionId, temaClave } : { sesionId, textoLibre: textoLibre ?? "" }));
+  return ejecutar(p.data.alumnoId, (ctx, a) => sesiones.elegirTema(ctx, a.acceso, { sesionId: p.data.sesionId, temaClave: p.data.temaClave }));
 }
 
 export async function pedirRepasoAction(e: { alumnoId?: string | null; sesionId: string; otraVez?: boolean }): Promise<ResultadoNudito<SalidaApi<"pedirRepaso">>> {

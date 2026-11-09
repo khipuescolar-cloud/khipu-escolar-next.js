@@ -400,6 +400,18 @@ model Tenant {
   nuditoDominios        NuditoDominio[]
   nuditoDominioEventos  NuditoDominioEvento[]
   nuditoConsumosIa      NuditoConsumoIa[]
+  planesAnuales PlanAnual[]
+  planUnidades PlanAnualUnidad[]
+  planTemas PlanAnualTema[]
+  planParticipantes PlanAnualParticipante[]
+  planComentarios PlanAnualComentario[]
+  planConformidades PlanAnualConformidad[]
+  planVersiones PlanAnualVersion[]
+  planEventos PlanAnualEvento[]
+  nuditoLecciones NuditoLeccion[]
+  nuditoLeccionRevisiones NuditoLeccionRevision[]
+  nuditoTrabajosContenido NuditoTrabajoContenido[]
+  nuditoTrabajoItems NuditoTrabajoItem[]
   // Horario semanal por salón (specs/34)
   horarioPeriodos       HorarioPeriodo[]
   plantillasHorario     PlantillaHorario[]
@@ -535,6 +547,24 @@ model Membership {
   notificaciones           Notificacion[]
   competenciasDesactivadas Competencia[] @relation("CompetenciaDesactivadaPor")
   evaluacionesCreadas Evaluacion[] @relation("EvaluacionCreadaPor")
+
+  planesCreados PlanAnual[] @relation("PlanCreador")
+  planesCoordinados PlanAnual[] @relation("PlanCoordinador")
+  planesAprobados PlanAnual[] @relation("PlanAprobador")
+  planesPublicados PlanAnual[] @relation("PlanPublicador")
+  temasPropuestos PlanAnualTema[] @relation("TemaProponente")
+  participacionesPlan PlanAnualParticipante[] @relation("PlanParticipante")
+  participantesAgregados PlanAnualParticipante[] @relation("ParticipanteAgregador")
+  comentariosPlan PlanAnualComentario[] @relation("ComentarioAutor")
+  observacionesResueltas PlanAnualComentario[] @relation("ObservacionResolutor")
+  conformidadesPlan PlanAnualConformidad[]
+  versionesPlan PlanAnualVersion[]
+  eventosPlan PlanAnualEvento[]
+  leccionesCreadas NuditoLeccion[] @relation("LeccionCreador")
+  leccionesAprobadas NuditoLeccion[] @relation("LeccionAprobador")
+  leccionesPublicadas NuditoLeccion[] @relation("LeccionPublicador")
+  revisionesLeccion NuditoLeccionRevision[]
+  trabajosContenidoCreados NuditoTrabajoContenido[]
 
   @@unique([tenantId, userId, rol])
   @@index([userId])
@@ -2404,6 +2434,9 @@ model Reunion {
 
   @@index([tenantId, inicio])
   @@index([tenantId, salonId])
+  planAnualId String? @map("plan_anual_id") @db.Uuid
+  planAnual PlanAnual? @relation(fields: [planAnualId], references: [id], onDelete: SetNull)
+  @@index([planAnualId])
   @@map("reuniones")
 }
 
@@ -2797,6 +2830,7 @@ enum OperacionIaNudito {
   preguntar
   moderar
   validar_tema
+  generar_leccion
 }
 
 /// Configuración institucional de Nudito (1:1 con el colegio). Sin fila = Nudito apagado en el colegio (specs/44).
@@ -3040,7 +3074,8 @@ model NuditoDominioEvento {
 model NuditoConsumoIa {
   id               String            @id @default(uuid()) @db.Uuid
   tenantId         String            @map("tenant_id") @db.Uuid
-  alumnoId         String            @map("alumno_id") @db.Uuid
+  alumnoId         String?           @map("alumno_id") @db.Uuid
+  leccionId        String?           @map("leccion_id") @db.Uuid
   sesionId         String?           @map("sesion_id") @db.Uuid
   operacion        OperacionIaNudito
   proveedor        String
@@ -3056,12 +3091,14 @@ model NuditoConsumoIa {
   createdAt        DateTime          @default(now()) @map("created_at") @db.Timestamptz
 
   tenant Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  alumno Alumno        @relation(fields: [alumnoId], references: [id], onDelete: Cascade)
+  alumno Alumno?       @relation(fields: [alumnoId], references: [id], onDelete: SetNull)
+  leccion NuditoLeccion? @relation(fields: [leccionId], references: [id], onDelete: SetNull)
   sesion NuditoSesion? @relation(fields: [sesionId], references: [id], onDelete: SetNull)
 
   @@index([tenantId, createdAt])
   @@index([alumnoId, createdAt])
   @@index([sesionId])
+  @@index([leccionId])
   @@map("nudito_consumos_ia")
 }
 
@@ -3777,4 +3814,312 @@ enum CategoriaBiblioteca {
   formato
   oficial
   otro
+}
+
+enum EstadoPlanAnual {
+  borrador
+  en_revision
+  con_observaciones
+  aprobado
+  publicado
+  archivado
+}
+enum RolParticipantePlan {
+  coordinador
+  docente
+}
+enum EstadoObservacionPlan {
+  abierta
+  resuelta
+}
+enum DecisionConformidadPlan {
+  conforme
+  observaciones
+}
+enum EstadoLeccionNudito {
+  borrador
+  en_revision
+  cambios_solicitados
+  aprobada
+  publicada
+  retirada
+}
+enum OrigenLeccionNudito {
+  catalogo
+  ia
+  ia_simulada
+  docente
+}
+enum EstadoTrabajoContenido {
+  pendiente
+  en_proceso
+  completado
+  fallido
+  cancelado
+}
+enum EstadoItemTrabajo {
+  pendiente
+  en_proceso
+  reutilizada
+  generada
+  fallida
+  omitida
+}
+
+model PlanAnual {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  anio Int
+  nivel Nivel
+  grado Int
+  area String
+  nombreCurso String @map("nombre_curso")
+  estado EstadoPlanAnual @default(borrador)
+  coordinadorId String? @map("coordinador_id") @db.Uuid
+  rondaRevision Int @default(0) @map("ronda_revision")
+  versionPublicada Int @default(0) @map("version_publicada")
+  copiadoDeId String? @map("copiado_de_id") @db.Uuid
+  creadoPorId String @map("creado_por_id") @db.Uuid
+  aprobadoPorId String? @map("aprobado_por_id") @db.Uuid
+  aprobadoAt DateTime? @map("aprobado_at") @db.Timestamptz
+  publicadoPorId String? @map("publicado_por_id") @db.Uuid
+  publicadoAt DateTime? @map("publicado_at") @db.Timestamptz
+  archivadoAt DateTime? @map("archivado_at") @db.Timestamptz
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  coordinador Membership? @relation("PlanCoordinador", fields: [coordinadorId], references: [id], onDelete: SetNull)
+  copiadoDe PlanAnual? @relation("PlanCopiado", fields: [copiadoDeId], references: [id], onDelete: SetNull)
+  copias PlanAnual[] @relation("PlanCopiado")
+  creadoPor Membership @relation("PlanCreador", fields: [creadoPorId], references: [id], onDelete: NoAction)
+  aprobadoPor Membership? @relation("PlanAprobador", fields: [aprobadoPorId], references: [id], onDelete: SetNull)
+  publicadoPor Membership? @relation("PlanPublicador", fields: [publicadoPorId], references: [id], onDelete: SetNull)
+  unidades PlanAnualUnidad[]
+  temas PlanAnualTema[]
+  participantes PlanAnualParticipante[]
+  comentarios PlanAnualComentario[]
+  conformidades PlanAnualConformidad[]
+  versiones PlanAnualVersion[]
+  eventos PlanAnualEvento[]
+  reuniones Reunion[]
+  trabajosContenido NuditoTrabajoContenido[]
+  @@unique([tenantId, anio, nivel, grado, area])
+  @@index([tenantId, estado])
+  @@index([tenantId, anio])
+  @@map("planes_anuales")
+}
+
+model PlanAnualUnidad {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  planId String @map("plan_id") @db.Uuid
+  titulo String
+  orden Int
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  plan PlanAnual @relation(fields: [planId], references: [id], onDelete: Cascade)
+  temas PlanAnualTema[]
+  @@index([planId, orden])
+  @@map("plan_anual_unidades")
+}
+
+model PlanAnualTema {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  planId String @map("plan_id") @db.Uuid
+  temaClave String @map("tema_clave")
+  unidadId String? @map("unidad_id") @db.Uuid
+  orden Int
+  nota String?
+  propuestoPorId String @map("propuesto_por_id") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  plan PlanAnual @relation(fields: [planId], references: [id], onDelete: Cascade)
+  unidad PlanAnualUnidad? @relation(fields: [unidadId], references: [id], onDelete: SetNull)
+  propuestoPor Membership @relation("TemaProponente", fields: [propuestoPorId], references: [id], onDelete: NoAction)
+  @@unique([planId, temaClave])
+  @@index([planId, orden])
+  @@map("plan_anual_temas")
+}
+
+model PlanAnualParticipante {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  planId String @map("plan_id") @db.Uuid
+  membershipId String @map("membership_id") @db.Uuid
+  rol RolParticipantePlan @default(docente)
+  activo Boolean @default(true)
+  fueraDeAsignacion Boolean @default(false) @map("fuera_de_asignacion")
+  agregadoPorId String? @map("agregado_por_id") @db.Uuid
+  motivo String?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  retiradoAt DateTime? @map("retirado_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  plan PlanAnual @relation(fields: [planId], references: [id], onDelete: Cascade)
+  membership Membership @relation("PlanParticipante", fields: [membershipId], references: [id], onDelete: NoAction)
+  agregadoPor Membership? @relation("ParticipanteAgregador", fields: [agregadoPorId], references: [id], onDelete: SetNull)
+  @@unique([planId, membershipId])
+  @@index([tenantId, membershipId])
+  @@map("plan_anual_participantes")
+}
+
+model PlanAnualComentario {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  planId String @map("plan_id") @db.Uuid
+  temaClave String? @map("tema_clave")
+  autorId String @map("autor_id") @db.Uuid
+  contenido String
+  esObservacion Boolean @default(false) @map("es_observacion")
+  estado EstadoObservacionPlan?
+  resueltoPorId String? @map("resuelto_por_id") @db.Uuid
+  resolucion String?
+  resueltoAt DateTime? @map("resuelto_at") @db.Timestamptz
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  plan PlanAnual @relation(fields: [planId], references: [id], onDelete: Cascade)
+  autor Membership @relation("ComentarioAutor", fields: [autorId], references: [id], onDelete: NoAction)
+  resueltoPor Membership? @relation("ObservacionResolutor", fields: [resueltoPorId], references: [id], onDelete: SetNull)
+  @@index([planId, createdAt])
+  @@index([planId, estado])
+  @@map("plan_anual_comentarios")
+}
+
+model PlanAnualConformidad {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  planId String @map("plan_id") @db.Uuid
+  ronda Int
+  membershipId String @map("membership_id") @db.Uuid
+  decision DecisionConformidadPlan
+  comentario String?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  plan PlanAnual @relation(fields: [planId], references: [id], onDelete: Cascade)
+  membership Membership @relation(fields: [membershipId], references: [id], onDelete: NoAction)
+  @@unique([planId, ronda, membershipId])
+  @@map("plan_anual_conformidades")
+}
+
+model PlanAnualVersion {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  planId String @map("plan_id") @db.Uuid
+  numero Int
+  temas Json
+  unidades Json
+  conformidades Json
+  motivo String?
+  publicadoPorId String @map("publicado_por_id") @db.Uuid
+  publicadoAt DateTime @default(now()) @map("publicado_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  plan PlanAnual @relation(fields: [planId], references: [id], onDelete: Cascade)
+  publicadoPor Membership @relation(fields: [publicadoPorId], references: [id], onDelete: NoAction)
+  @@unique([planId, numero])
+  @@index([tenantId, planId])
+  @@map("plan_anual_versiones")
+}
+
+model PlanAnualEvento {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  planId String @map("plan_id") @db.Uuid
+  actorId String? @map("actor_id") @db.Uuid
+  tipo String
+  detalle Json
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  plan PlanAnual @relation(fields: [planId], references: [id], onDelete: Cascade)
+  actor Membership? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  @@index([planId, createdAt])
+  @@map("plan_anual_eventos")
+}
+
+model NuditoLeccion {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  temaClave String @map("tema_clave")
+  area String
+  version Int
+  estado EstadoLeccionNudito @default(borrador)
+  origen OrigenLeccionNudito
+  contenido Json
+  validacion Json?
+  contenidoHash String @map("contenido_hash")
+  creadoPorId String? @map("creado_por_id") @db.Uuid
+  aprobadoPorId String? @map("aprobado_por_id") @db.Uuid
+  aprobadoAt DateTime? @map("aprobado_at") @db.Timestamptz
+  publicadoPorId String? @map("publicado_por_id") @db.Uuid
+  publicadaAt DateTime? @map("publicada_at") @db.Timestamptz
+  comentarioRevision String? @map("comentario_revision")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  creadoPor Membership? @relation("LeccionCreador", fields: [creadoPorId], references: [id], onDelete: SetNull)
+  aprobadoPor Membership? @relation("LeccionAprobador", fields: [aprobadoPorId], references: [id], onDelete: SetNull)
+  publicadoPor Membership? @relation("LeccionPublicador", fields: [publicadoPorId], references: [id], onDelete: SetNull)
+  revisiones NuditoLeccionRevision[]
+  trabajosItem NuditoTrabajoItem[]
+  consumosIa NuditoConsumoIa[]
+  @@unique([tenantId, temaClave, version])
+  @@index([tenantId, temaClave, estado])
+  @@map("nudito_lecciones")
+}
+
+model NuditoLeccionRevision {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  leccionId String @map("leccion_id") @db.Uuid
+  actorId String? @map("actor_id") @db.Uuid
+  accion String
+  comentario String?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  leccion NuditoLeccion @relation(fields: [leccionId], references: [id], onDelete: Cascade)
+  actor Membership? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  @@index([leccionId, createdAt])
+  @@map("nudito_leccion_revisiones")
+}
+
+model NuditoTrabajoContenido {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  planId String @map("plan_id") @db.Uuid
+  versionPlan Int @map("version_plan")
+  estado EstadoTrabajoContenido @default(pendiente)
+  total Int @default(0)
+  procesados Int @default(0)
+  reutilizados Int @default(0)
+  generados Int @default(0)
+  fallidos Int @default(0)
+  presupuestoUsd Decimal? @map("presupuesto_usd") @db.Decimal(10, 2)
+  costoUsd Decimal @default(0) @map("costo_usd") @db.Decimal(10, 6)
+  creadoPorId String? @map("creado_por_id") @db.Uuid
+  error String?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  iniciadoAt DateTime? @map("iniciado_at") @db.Timestamptz
+  terminadoAt DateTime? @map("terminado_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  plan PlanAnual @relation(fields: [planId], references: [id], onDelete: Cascade)
+  creadoPor Membership? @relation(fields: [creadoPorId], references: [id], onDelete: SetNull)
+  items NuditoTrabajoItem[]
+  @@unique([tenantId, planId, versionPlan])
+  @@map("nudito_trabajos_contenido")
+}
+
+model NuditoTrabajoItem {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  trabajoId String @map("trabajo_id") @db.Uuid
+  temaClave String @map("tema_clave")
+  estado EstadoItemTrabajo @default(pendiente)
+  intentos Int @default(0)
+  leccionId String? @map("leccion_id") @db.Uuid
+  error String?
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  trabajo NuditoTrabajoContenido @relation(fields: [trabajoId], references: [id], onDelete: Cascade)
+  leccion NuditoLeccion? @relation(fields: [leccionId], references: [id], onDelete: SetNull)
+  @@unique([trabajoId, temaClave])
+  @@index([trabajoId, estado])
+  @@map("nudito_trabajo_items")
 }

@@ -131,3 +131,6 @@ proveedor para menores, fotos de menores, quién accede a una conversación ante
 - (Hecho 2026-11-04) `/nudito-plus/hijo/[alumnoId]` → `/nudito?alumno=<id>` y `/nudito-plus/chat` → `/nudito`. Los seeds ya no
   crean licencias ni pagos con `NUDITO_LICENCIAS_FAMILIARES = false`; siembran el consentimiento v2 de Mateo y de Lucas, y
   `seed-nudito-tutor.ts` activa la configuración de Nuevo Horizonte y rellena las áreas de los cursos.
+
+## Seguimiento del plan anual (specs/49, 2026-11-08)
+El detalle de seguimiento conserva dominios y sesiones de temas retirados al publicar otra versión. Esos temas se muestran con el estado «Fuera del plan vigente» (ícono y palabra) en el seguimiento docente. El cálculo compara el historial con la foto de las últimas versiones publicadas del grado y área del alumno; no modifica notas ni borra datos.
