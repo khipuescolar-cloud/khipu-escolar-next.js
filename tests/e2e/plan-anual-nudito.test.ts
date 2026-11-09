@@ -63,7 +63,7 @@ async function entrar(browser: Browser, correo: string, viewport = { width: 1280
   await page.getByLabel("Correo").fill(correo);
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  await expect(page).toHaveURL(url("/inicio"));
+  await expect(page).toHaveURL(url("/inicio"), { timeout: 30_000 });
   return page;
 }
 

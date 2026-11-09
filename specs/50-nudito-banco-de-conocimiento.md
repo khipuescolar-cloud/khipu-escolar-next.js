@@ -50,7 +50,7 @@ No hay migración. Las claves estables se guardan en `plan_anual_temas`, `nudito
 - Los otros grados mantienen los generadores y el catálogo existentes.
 
 ## Pruebas
-Unit: `nudito-banco-conocimiento.test.ts`. E2E: `plan-anual-nudito.test.ts` verifica conteo y ancho móvil. Gates: lint, typecheck, test, validador y dos e2e solicitados.
+Unit: `nudito-banco-conocimiento.test.ts`. E2E: `plan-anual-nudito.test.ts` verifica conteo y ancho móvil. Gates: lint, typecheck, test, validador y dos e2e solicitados. Playwright resuelve los subdominios de `lvh.me` a 127.0.0.1 para el entorno local.
 
 ## Pendientes
 - Revisión docente ficha por ficha: precisión curricular, progresión, variedad real y calidad de distractores. Las 239 fichas son un borrador técnico y varias prácticas de cálculo comparten una misma destreza; el número no certifica 239 aprendizajes independientes.
