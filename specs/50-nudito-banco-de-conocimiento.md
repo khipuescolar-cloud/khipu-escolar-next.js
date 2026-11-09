@@ -1,6 +1,6 @@
 # 50 — Banco de conocimiento de Nudito
 
-> Estado: piloto técnico pendiente de revisión pedagógica · Plan: Khipu Pro · Última actualización: 2026-11-09 (Codex)
+> Estado: infraestructura conservada; contenido anterior rechazado; temario nuevo en revisión docente · Plan: Khipu Pro · Última actualización: 2026-11-09 (Codex)
 
 ## Objetivo
 Ofrecer al profesor todos los temas del grado y curso para elegir el temario, y dar a Nudito contenido y ejercicios verificables para enseñar sin LLM. Este piloto cubre Matemática de 3.° de primaria; no autoriza aún el escalado automático a otros grados.
@@ -9,6 +9,9 @@ Ofrecer al profesor todos los temas del grado y curso para elegir el temario, y 
 - [Programa curricular de Educación Primaria, MINEDU (2016)](https://repositorio.minedu.gob.pe/handle/20.500.12799/4549): competencias 23–26, capacidades y desempeños de tercer grado. Los textos fieles y códigos estables se guardan en `conocimiento/cneb/matematica.json`; se contrastaron con `src/lib/cneb/matematica.json`.
 - [Cuaderno de trabajo Matemática 3, MINEDU](https://repositorio.minedu.gob.pe/handle/20.500.12799/7863): referencia para situaciones de práctica de las cuatro competencias.
 - [Programa curricular de Educación Secundaria, MINEDU](https://repositorio.minedu.gob.pe/handle/20.500.12799/4550): fuente localizada para el escalado; no se incorporó en este piloto.
+
+## Propuesta curricular de Matemática 3.° de primaria
+La revisión del supervisor rechazó las 239 fichas actuales por repetición de habilidades y vacíos curriculares. Esos JSON se conservan temporalmente para no alterar la infraestructura, pero **no están aprobados como banco pedagógico**. El [temario propuesto](../docs/nudito/temario-mat-3-primaria.md) y su [JSON estructurado](../src/lib/nudito/conocimiento/banco/matematica/primaria-3/temario-propuesto.json) presentan 129 habilidades distintas con código, desempeño de origen, prerrequisito y orden anual. Antes de redactar nuevas fichas, el dueño revisará esta lista. No se debe interpretar la cantidad de fichas cargables como cantidad de temas válidos. El validador de fichas omite `temario-propuesto.json`, que es una propuesta curricular y no una colección de fichas.
 
 ## Roles y permisos
 | Rol | Puede | No puede |
@@ -53,7 +56,7 @@ No hay migración. Las claves estables se guardan en `plan_anual_temas`, `nudito
 Unit: `nudito-banco-conocimiento.test.ts`. E2E: `plan-anual-nudito.test.ts` verifica conteo y ancho móvil. Gates: lint, typecheck, test, validador y dos e2e solicitados. Playwright resuelve los subdominios de `lvh.me` a 127.0.0.1 para el entorno local.
 
 ## Pendientes
-- Revisión docente ficha por ficha: precisión curricular, progresión, variedad real y calidad de distractores. Las 239 fichas son un borrador técnico y varias prácticas de cálculo comparten una misma destreza; el número no certifica 239 aprendizajes independientes.
+- Aprobar o corregir primero el temario propuesto de 129 habilidades. Después reescribir fichas con enseñanza y ejercicios específicos de cada habilidad; las 239 fichas anteriores no se aceptan en contenido.
 - Profundizar las prácticas de simetría, ubicación, capacidad, comparación de superficie, encuesta y probabilidad. El piloto ya incluye ejemplos de esos contenidos, pero aún no cubre toda su profundidad en el CNEB.
 - Validar prerrequisitos transitivos y ampliar la variación de ejercicios para sesiones repetidas; cada ficha tiene 12 ítems.
-- Escalar solo tras revisión: 3 áreas × (6 grados de primaria + 5 de secundaria) = 33 combinaciones. A 200–300 temas por combinación serían 6 600–9 900 fichas. Extraer primero desempeños oficiales de Comunicación, Ciencia y Tecnología y secundaria; crear fichas y revisión docente por grado. El PDF de secundaria del repositorio MINEDU tiene capa de texto y es la fuente candidata.
+- Escalar solo tras revisión: 3 áreas × (6 grados de primaria + 5 de secundaria) = 33 combinaciones. La cantidad de temas se decide por la granularidad real de cada grado y curso, sin cuota artificial de 200. Extraer primero desempeños oficiales de Comunicación, Ciencia y Tecnología y secundaria; crear fichas y revisión docente por grado. El PDF de secundaria del repositorio MINEDU tiene capa de texto y es la fuente candidata.

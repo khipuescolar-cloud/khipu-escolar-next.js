@@ -10,7 +10,7 @@ const carpeta = fileURLToPath(new URL("../src/lib/nudito/conocimiento/banco/mate
 export function validarBanco(): { fichas: FichaConocimiento[]; errores: string[] } {
   const errores: string[] = [];
   const fichas: FichaConocimiento[] = [];
-  for (const archivo of readdirSync(carpeta).filter(a => a.endsWith(".json"))) {
+  for (const archivo of readdirSync(carpeta).filter(a => a.endsWith(".json") && a !== "temario-propuesto.json")) {
     const datos: unknown = JSON.parse(readFileSync(join(carpeta, archivo), "utf8"));
     if (!Array.isArray(datos)) { errores.push(archivo + ": se espera un arreglo"); continue; }
     for (const crudo of datos) {
