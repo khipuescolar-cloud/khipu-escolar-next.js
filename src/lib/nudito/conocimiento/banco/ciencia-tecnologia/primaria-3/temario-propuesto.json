@@ -1,0 +1,1384 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "ciencia-tecnologia",
+  "nivel": "primaria",
+  "grado": 3,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Primaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 20,
+      "nombre": "Indaga mediante métodos científicos para construir sus conocimientos",
+      "capacidades": [
+        {
+          "nombre": "Problematiza situaciones para hacer indagación",
+          "bloques": [
+            {
+              "nombre": "Pregunta y posible respuesta",
+              "temas": [
+                {
+                  "clave": "cyt.p3.preguntas-indagacion",
+                  "nombre": "Hacer una pregunta investigable",
+                  "descripcion": "Formula una pregunta que se pueda responder observando o experimentando.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "cyt.p3.plantear-una-hipotesis",
+                  "nombre": "Posible respuesta a partir de casos parecidos",
+                  "descripcion": "Propone una posible respuesta basada en lo que ocurre en situaciones parecidas.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.preguntas-indagacion"
+                  ],
+                  "ordenSugerido": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Diseña estrategias para hacer indagación",
+          "bloques": [
+            {
+              "nombre": "Plan de indagación",
+              "temas": [
+                {
+                  "clave": "cyt.p3.plan-de-indagacion",
+                  "nombre": "Elaborar un plan de indagación",
+                  "descripcion": "Describe las acciones, los materiales y el orden en que comprobará su hipótesis.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.plantear-una-hipotesis"
+                  ],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "cyt.p3.fuentes-de-informacion-confiables",
+                  "nombre": "Buscar información confiable",
+                  "descripcion": "Elige libros, textos escolares o especialistas para comprobar su respuesta.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.plan-de-indagacion"
+                  ],
+                  "ordenSugerido": 19
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Genera y registra datos e información",
+          "bloques": [
+            {
+              "nombre": "Medición y registro de datos",
+              "temas": [
+                {
+                  "clave": "cyt.p3.instrumentos-de-medicion",
+                  "nombre": "Instrumentos: regla, termómetro, reloj y balanza",
+                  "descripcion": "Elige el instrumento adecuado para medir longitud, temperatura, tiempo o masa.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-02",
+                    "CYT-C20-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.plan-de-indagacion"
+                  ],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "cyt.p3.medir-la-temperatura",
+                  "nombre": "Medir la temperatura con el termómetro",
+                  "descripcion": "Lee la temperatura en grados Celsius en un termómetro de laboratorio o ambiental.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.instrumentos-de-medicion"
+                  ],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "cyt.p3.registrar-datos-en-tabla",
+                  "nombre": "Registrar datos en una tabla",
+                  "descripcion": "Organiza datos cualitativos y cuantitativos en una tabla con título y columnas.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.instrumentos-de-medicion"
+                  ],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "cyt.p3.grafico-de-barras-de-datos",
+                  "nombre": "Representar datos en un gráfico de barras",
+                  "descripcion": "Elabora un gráfico de barras sencillo con los datos de su indagación.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.registrar-datos-en-tabla"
+                  ],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "cyt.p3.organizar-en-esquema",
+                  "nombre": "Organizar información en un esquema",
+                  "descripcion": "Organiza lo aprendido en un esquema o dibujo rotulado.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.registrar-datos-en-tabla"
+                  ],
+                  "ordenSugerido": 38
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Analiza datos e información",
+          "bloques": [
+            {
+              "nombre": "Análisis y comunicación",
+              "temas": [
+                {
+                  "clave": "cyt.p3.comparar-datos-con-hipotesis",
+                  "nombre": "¿Los datos confirman mi posible respuesta?",
+                  "descripcion": "Usa sus datos para confirmar o descartar su posible respuesta.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.registrar-datos-en-tabla"
+                  ],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "cyt.p3.elaborar-conclusiones",
+                  "nombre": "Elaborar conclusiones con datos",
+                  "descripcion": "Escribe una conclusión que relaciona los datos con la información científica.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.comparar-datos-con-hipotesis"
+                  ],
+                  "ordenSugerido": 40
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa y comunica el proceso y resultados de su indagación",
+          "bloques": [
+            {
+              "nombre": "Análisis y comunicación",
+              "temas": [
+                {
+                  "clave": "cyt.p3.informe-de-indagacion",
+                  "nombre": "Comunicar la indagación y proponer mejoras",
+                  "descripcion": "Presenta oralmente o por escrito su pregunta, procedimiento, conclusión, dificultades y mejoras.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.elaborar-conclusiones"
+                  ],
+                  "ordenSugerido": 80
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 21,
+      "nombre": "Explica el mundo físico basándose en conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo",
+      "capacidades": [
+        {
+          "nombre": "Comprende y usa conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo",
+          "bloques": [
+            {
+              "nombre": "Órganos de las plantas",
+              "temas": [
+                {
+                  "clave": "cyt.p3.organos-plantas-animales",
+                  "nombre": "Órganos de plantas y animales",
+                  "descripcion": "Reconoce que los órganos son partes que cumplen una función y forman sistemas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "cyt.p3.la-raiz",
+                  "nombre": "La raíz y sus tipos",
+                  "descripcion": "Distingue raíces principales, fasciculadas y comestibles y dónde se ubican en la planta.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.organos-plantas-animales"
+                  ],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "cyt.p3.el-tallo",
+                  "nombre": "El tallo y sus tipos",
+                  "descripcion": "Distingue tallos leñosos, herbáceos y subterráneos, como el tronco, el tallo del maíz y la papa.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.la-raiz"
+                  ],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "cyt.p3.la-hoja-fabrica-alimento",
+                  "nombre": "Partes de la hoja",
+                  "descripcion": "Describe el limbo, el peciolo y las nervaduras de la hoja.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.el-tallo"
+                  ],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "cyt.p3.partes-de-la-flor",
+                  "nombre": "Partes de la flor",
+                  "descripcion": "Identifica pétalos, sépalos, estambres y pistilo en flores de su entorno.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.organos-plantas-animales"
+                  ],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "cyt.p3.partes-de-la-semilla-germinacion",
+                  "nombre": "Partes de la semilla y germinación",
+                  "descripcion": "Reconoce cubierta, embrión y reserva de la semilla y observa cómo germina.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.partes-de-la-flor"
+                  ],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "cyt.p3.tipos-de-frutos",
+                  "nombre": "Frutos carnosos y frutos secos",
+                  "descripcion": "Compara frutos como el mango y la lúcuma con frutos secos como el maní.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.partes-de-la-flor"
+                  ],
+                  "ordenSugerido": 10
+                }
+              ]
+            },
+            {
+              "nombre": "Sistemas del cuerpo humano y de los animales",
+              "temas": [
+                {
+                  "clave": "cyt.p3.sistema-digestivo",
+                  "nombre": "Órganos del sistema digestivo",
+                  "descripcion": "Nombra y ubica boca, esófago, estómago e intestinos en el cuerpo humano.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.organos-plantas-animales"
+                  ],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "cyt.p3.sistema-respiratorio",
+                  "nombre": "Órganos del sistema respiratorio",
+                  "descripcion": "Nombra y ubica nariz, tráquea y pulmones y reconoce que por ellos entra y sale el aire.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.organos-plantas-animales"
+                  ],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "cyt.p3.corazon-y-circulacion",
+                  "nombre": "El corazón y los vasos sanguíneos",
+                  "descripcion": "Ubica el corazón y reconoce que la sangre recorre el cuerpo por vasos sanguíneos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.sistema-respiratorio"
+                  ],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "cyt.p3.ejercicio-respiracion-latidos",
+                  "nombre": "Respiración y latidos durante el ejercicio",
+                  "descripcion": "Relaciona la actividad física con el aumento de la respiración y del pulso.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.corazon-y-circulacion"
+                  ],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "cyt.p3.huesos-y-musculos",
+                  "nombre": "Huesos y músculos del cuerpo",
+                  "descripcion": "Ubica algunos huesos y músculos y reconoce que juntos permiten moverse.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.organos-plantas-animales"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "cyt.p3.cuidado-de-los-sistemas",
+                  "nombre": "Hábitos para cuidar los órganos del cuerpo",
+                  "descripcion": "Relaciona la alimentación, el ejercicio y la postura con la salud de sus órganos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.sistema-digestivo",
+                    "cyt.p3.corazon-y-circulacion",
+                    "cyt.p3.huesos-y-musculos"
+                  ],
+                  "ordenSugerido": 28
+                },
+                {
+                  "clave": "cyt.p3.respiracion-de-los-animales",
+                  "nombre": "Pulmones, branquias y piel: cómo respiran los animales",
+                  "descripcion": "Compara los órganos de respiración de mamíferos, peces, anfibios e insectos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-01",
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.sistema-respiratorio"
+                  ],
+                  "ordenSugerido": 29
+                }
+              ]
+            },
+            {
+              "nombre": "Diversidad de especies",
+              "temas": [
+                {
+                  "clave": "cyt.p3.especies-semejanzas",
+                  "nombre": "Comparamos especies",
+                  "descripcion": "Compara especies por su cuerpo, su alimentación y su forma de nacer.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "cyt.p3.agrupar-seres-vivos",
+                  "nombre": "Agrupar seres vivos por sus características",
+                  "descripcion": "Forma grupos de seres vivos según una característica y explica su criterio.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.especies-semejanzas"
+                  ],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "cyt.p3.vertebrados-e-invertebrados",
+                  "nombre": "Animales vertebrados e invertebrados",
+                  "descripcion": "Clasifica animales según tengan o no columna vertebral.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.especies-semejanzas"
+                  ],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "cyt.p3.los-mamiferos",
+                  "nombre": "Los mamíferos",
+                  "descripcion": "Describe características de los mamíferos con ejemplos del Perú como el oso de anteojos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.vertebrados-e-invertebrados"
+                  ],
+                  "ordenSugerido": 44
+                },
+                {
+                  "clave": "cyt.p3.camelidos-sudamericanos",
+                  "nombre": "Camélidos sudamericanos",
+                  "descripcion": "Compara llama, alpaca, vicuña y guanaco por su tamaño, fibra y crianza.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.los-mamiferos"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "cyt.p3.las-aves",
+                  "nombre": "Las aves",
+                  "descripcion": "Describe plumas, pico, alas y huevos de aves como el cóndor, el pingüino de Humboldt y el gallito de las rocas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.vertebrados-e-invertebrados"
+                  ],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "cyt.p3.los-peces",
+                  "nombre": "Los peces",
+                  "descripcion": "Describe aletas, escamas y branquias de peces como la anchoveta y el paiche.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.vertebrados-e-invertebrados"
+                  ],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "cyt.p3.los-reptiles",
+                  "nombre": "Los reptiles",
+                  "descripcion": "Describe la piel con escamas y la reproducción por huevos de lagartijas, tortugas y serpientes.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.vertebrados-e-invertebrados"
+                  ],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "cyt.p3.los-anfibios",
+                  "nombre": "Los anfibios",
+                  "descripcion": "Describe la piel húmeda y la vida en agua y tierra de ranas y sapos, como la rana gigante del Titicaca.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.vertebrados-e-invertebrados"
+                  ],
+                  "ordenSugerido": 49
+                },
+                {
+                  "clave": "cyt.p3.insectos-y-aracnidos",
+                  "nombre": "Insectos y arácnidos",
+                  "descripcion": "Distingue insectos (seis patas) de arañas (ocho patas) y otros invertebrados.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.vertebrados-e-invertebrados"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "cyt.p3.moluscos",
+                  "nombre": "Moluscos: caracoles, choros y pulpos",
+                  "descripcion": "Describe el cuerpo blando y la concha de los moluscos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.vertebrados-e-invertebrados"
+                  ],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "cyt.p3.crustaceos",
+                  "nombre": "Crustáceos: camarones y cangrejos",
+                  "descripcion": "Describe el caparazón y las patas articuladas de los crustáceos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.vertebrados-e-invertebrados"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "cyt.p3.gusanos-y-lombrices",
+                  "nombre": "Gusanos y lombrices",
+                  "descripcion": "Describe el cuerpo alargado y blando de lombrices y otros gusanos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.vertebrados-e-invertebrados"
+                  ],
+                  "ordenSugerido": 53
+                },
+                {
+                  "clave": "cyt.p3.insectos-utiles-y-daninos",
+                  "nombre": "Insectos útiles y dañinos",
+                  "descripcion": "Compara insectos que ayudan, como la abeja, con otros que dañan cultivos o transmiten enfermedades.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.insectos-y-aracnidos"
+                  ],
+                  "ordenSugerido": 54
+                },
+                {
+                  "clave": "cyt.p3.plantas-con-flores-y-sin-flores",
+                  "nombre": "Plantas con flores y sin flores",
+                  "descripcion": "Compara plantas con flores y semillas con helechos y musgos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.especies-semejanzas",
+                    "cyt.p3.partes-de-la-flor"
+                  ],
+                  "ordenSugerido": 55
+                },
+                {
+                  "clave": "cyt.p3.arboles-arbustos-hierbas",
+                  "nombre": "Árboles, arbustos y hierbas",
+                  "descripcion": "Clasifica plantas por el tamaño y el tipo de su tallo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.especies-semejanzas",
+                    "cyt.p3.el-tallo"
+                  ],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "cyt.p3.plantas-cultivadas-y-silvestres",
+                  "nombre": "Plantas cultivadas y silvestres",
+                  "descripcion": "Distingue plantas que siembran las personas de las que crecen solas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.especies-semejanzas"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "cyt.p3.plantas-nativas-del-peru",
+                  "nombre": "Plantas nativas del Perú",
+                  "descripcion": "Reconoce la papa, la quinua, la maca, la puya Raimondi y otras plantas originarias del Perú.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.plantas-con-flores-y-sin-flores"
+                  ],
+                  "ordenSugerido": 58
+                },
+                {
+                  "clave": "cyt.p3.herbivoros-y-carnivoros-comparados",
+                  "nombre": "Dientes, garras y ojos de herbívoros y carnívoros",
+                  "descripcion": "Compara rasgos del cuerpo de especies herbívoras y carnívoras y los relaciona con su alimentación.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.los-mamiferos"
+                  ],
+                  "ordenSugerido": 59
+                },
+                {
+                  "clave": "cyt.p3.los-hongos",
+                  "nombre": "Hongos: ni plantas ni animales",
+                  "descripcion": "Compara hongos con plantas y animales y reconoce que no fabrican su alimento con luz.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.especies-semejanzas"
+                  ],
+                  "ordenSugerido": 60
+                }
+              ]
+            },
+            {
+              "nombre": "Materiales y sus características",
+              "temas": [
+                {
+                  "clave": "cyt.p3.materiales-propiedades",
+                  "nombre": "Materiales duros, blandos y frágiles",
+                  "descripcion": "Clasifica materiales según sean duros, blandos o frágiles.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "cyt.p3.flexibles-y-rigidos",
+                  "nombre": "Materiales flexibles y rígidos",
+                  "descripcion": "Clasifica materiales según se doblen sin romperse o mantengan su forma.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.materiales-propiedades"
+                  ],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "cyt.p3.madera-metal-plastico-vidrio",
+                  "nombre": "Propiedades de la madera, el metal, el plástico y el vidrio",
+                  "descripcion": "Compara materiales comunes y relaciona sus propiedades con los objetos que se fabrican.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.flexibles-y-rigidos"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "cyt.p3.transparentes-translucidos-opacos",
+                  "nombre": "Materiales transparentes, translúcidos y opacos",
+                  "descripcion": "Clasifica materiales según dejen pasar la luz por completo, en parte o nada.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.materiales-propiedades"
+                  ],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "cyt.p3.dureza-por-rayado",
+                  "nombre": "Qué material raya a otro: la dureza",
+                  "descripcion": "Compara la dureza de materiales probando cuál raya a cuál.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.materiales-propiedades"
+                  ],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "cyt.p3.materiales-magneticos",
+                  "nombre": "Materiales magnéticos y no magnéticos",
+                  "descripcion": "Clasifica materiales según los atraiga o no un imán.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.madera-metal-plastico-vidrio"
+                  ],
+                  "ordenSugerido": 16
+                },
+                {
+                  "clave": "cyt.p3.materiales-de-construccion",
+                  "nombre": "Materiales de construcción: adobe, quincha y ladrillo",
+                  "descripcion": "Relaciona las características de materiales de su comunidad con su uso en viviendas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.madera-metal-plastico-vidrio"
+                  ],
+                  "ordenSugerido": 17
+                },
+                {
+                  "clave": "cyt.p3.materiales-para-abrigarnos",
+                  "nombre": "Materiales para abrigarnos: lana y algodón",
+                  "descripcion": "Compara cuánto abrigan la lana de alpaca, el algodón y otras telas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.flexibles-y-rigidos"
+                  ],
+                  "ordenSugerido": 18
+                }
+              ]
+            },
+            {
+              "nombre": "Fuerzas y movimiento",
+              "temas": [
+                {
+                  "clave": "cyt.p3.fuerzas-movimiento",
+                  "nombre": "Las fuerzas mueven y deforman",
+                  "descripcion": "Relaciona empujar o jalar con el desplazamiento, el cambio de dirección o de forma de un objeto.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "cyt.p3.empujar-y-jalar",
+                  "nombre": "Empujar y jalar",
+                  "descripcion": "Distingue fuerzas de empuje y de jalón en situaciones de juego y trabajo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.fuerzas-movimiento"
+                  ],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "cyt.p3.fuerzas-que-cambian-direccion",
+                  "nombre": "Fuerzas que cambian la dirección",
+                  "descripcion": "Explica cómo un golpe o un choque hace que una pelota cambie de dirección.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.empujar-y-jalar"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "cyt.p3.fuerzas-que-detienen",
+                  "nombre": "Fuerzas que detienen un objeto",
+                  "descripcion": "Explica cómo atajar, frenar o chocar detiene un objeto en movimiento.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.empujar-y-jalar"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "cyt.p3.rapidez-y-trayectoria",
+                  "nombre": "Movimiento rápido y lento",
+                  "descripcion": "Compara cómo un empujón más fuerte hace que un objeto vaya más rápido o más lejos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.fuerzas-movimiento"
+                  ],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "cyt.p3.deformacion-elastica-y-permanente",
+                  "nombre": "Fuerzas que cambian la forma",
+                  "descripcion": "Relaciona presionar, estirar o golpear con el cambio de forma de una pelota, una lata o la plastilina.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-03",
+                    "CYT-C21-P3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.fuerzas-movimiento",
+                    "cyt.p3.flexibles-y-rigidos"
+                  ],
+                  "ordenSugerido": 35
+                },
+                {
+                  "clave": "cyt.p3.fuerza-del-agua-y-del-viento",
+                  "nombre": "La fuerza del agua y del viento",
+                  "descripcion": "Relaciona la corriente del río y el viento con el movimiento de botes, molinos y objetos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.fuerzas-movimiento"
+                  ],
+                  "ordenSugerido": 36
+                }
+              ]
+            },
+            {
+              "nombre": "El clima durante el año",
+              "temas": [
+                {
+                  "clave": "cyt.p3.clima-del-ano",
+                  "nombre": "El clima durante el año",
+                  "descripcion": "Compara cómo cambian la temperatura y las lluvias a lo largo del año.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 61
+                },
+                {
+                  "clave": "cyt.p3.tiempo-atmosferico-y-clima",
+                  "nombre": "Tiempo atmosférico y clima",
+                  "descripcion": "Distingue el tiempo de un día del clima de un lugar durante años.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.clima-del-ano"
+                  ],
+                  "ordenSugerido": 62
+                },
+                {
+                  "clave": "cyt.p3.epoca-de-lluvias-y-seca",
+                  "nombre": "Época de lluvias y época seca",
+                  "descripcion": "Describe los meses de lluvia y de secas en los Andes y la selva y su efecto en la siembra.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.clima-del-ano"
+                  ],
+                  "ordenSugerido": 63
+                },
+                {
+                  "clave": "cyt.p3.fenomenos-del-tiempo",
+                  "nombre": "Lluvia, granizo, nevada y helada",
+                  "descripcion": "Describe las manifestaciones del tiempo en distintas épocas del año.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.tiempo-atmosferico-y-clima"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "cyt.p3.estaciones-del-ano",
+                  "nombre": "Las estaciones del año",
+                  "descripcion": "Relaciona verano, otoño, invierno y primavera con los cambios del ambiente en su región.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.clima-del-ano"
+                  ],
+                  "ordenSugerido": 65
+                },
+                {
+                  "clave": "cyt.p3.clima-de-la-costa",
+                  "nombre": "El clima en la costa, la sierra y la selva",
+                  "descripcion": "Compara de forma sencilla las lluvias y la temperatura de las tres regiones del Perú.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.clima-del-ano"
+                  ],
+                  "ordenSugerido": 66
+                },
+                {
+                  "clave": "cyt.p3.calendario-del-tiempo",
+                  "nombre": "Registrar el tiempo en un calendario",
+                  "descripcion": "Anota cada día si hay sol, nubes o lluvia y compara los meses.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.tiempo-atmosferico-y-clima",
+                    "cyt.p3.registrar-datos-en-tabla"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "cyt.p3.actividades-segun-la-epoca",
+                  "nombre": "Siembra, cosecha y vestido según la época",
+                  "descripcion": "Relaciona la época de lluvias o de secas con las actividades y la ropa de su comunidad.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.epoca-de-lluvias-y-seca"
+                  ],
+                  "ordenSugerido": 68
+                }
+              ]
+            },
+            {
+              "nombre": "El hábitat de los seres vivos",
+              "temas": [
+                {
+                  "clave": "cyt.p3.habitat",
+                  "nombre": "El hábitat de los seres vivos",
+                  "descripcion": "Describe cómo el hábitat da alimento, agua y refugio a los seres que viven en él.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 81
+                },
+                {
+                  "clave": "cyt.p3.habitat-de-mi-localidad",
+                  "nombre": "Hábitats de mi localidad: chacra, río y cerro",
+                  "descripcion": "Describe qué recursos encuentran los seres vivos en los hábitats cercanos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.habitat"
+                  ],
+                  "ordenSugerido": 82
+                },
+                {
+                  "clave": "cyt.p3.habitats-acuaticos-y-terrestres",
+                  "nombre": "Hábitats acuáticos y terrestres",
+                  "descripcion": "Clasifica hábitats y los seres que viven en ellos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.habitat"
+                  ],
+                  "ordenSugerido": 83
+                },
+                {
+                  "clave": "cyt.p3.habitat-mar-peruano",
+                  "nombre": "Qué comen y dónde viven los animales del mar",
+                  "descripcion": "Describe cómo peces, aves y lobos marinos encuentran alimento y refugio en el mar peruano.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.habitats-acuaticos-y-terrestres"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "cyt.p3.habitat-rios-y-lagos",
+                  "nombre": "Seres vivos de ríos y lagos",
+                  "descripcion": "Describe qué comen y dónde se refugian animales de ríos y lagos como el Titicaca.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.habitats-acuaticos-y-terrestres"
+                  ],
+                  "ordenSugerido": 85
+                },
+                {
+                  "clave": "cyt.p3.habitat-desierto-y-lomas",
+                  "nombre": "Seres vivos del desierto costero",
+                  "descripcion": "Describe cómo encuentran agua y refugio lagartijas, zorros y plantas del desierto de la costa.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.habitats-acuaticos-y-terrestres"
+                  ],
+                  "ordenSugerido": 86
+                },
+                {
+                  "clave": "cyt.p3.habitat-puna-y-valles",
+                  "nombre": "Seres vivos de la puna",
+                  "descripcion": "Describe qué comen y dónde se refugian la vicuña, la vizcacha y otros animales de la puna.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.habitats-acuaticos-y-terrestres"
+                  ],
+                  "ordenSugerido": 87
+                },
+                {
+                  "clave": "cyt.p3.habitat-selva-amazonica",
+                  "nombre": "Cómo se alimentan los animales de la selva",
+                  "descripcion": "Describe qué comen y dónde se refugian monos, aves y peces de la selva.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.habitats-acuaticos-y-terrestres"
+                  ],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "cyt.p3.pequenos-habitats",
+                  "nombre": "Pequeños hábitats: bajo piedras y troncos",
+                  "descripcion": "Describe los seres vivos que encuentran refugio y alimento bajo piedras y troncos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-06",
+                    "CYT-C21-P3-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.habitat"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "cyt.p3.refugios-de-animales",
+                  "nombre": "Refugios de animales: nidos, madrigueras y colmenas",
+                  "descripcion": "Describe cómo los animales construyen o usan refugios en su hábitat.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.habitat"
+                  ],
+                  "ordenSugerido": 90
+                }
+              ]
+            },
+            {
+              "nombre": "Interacciones en el hábitat",
+              "temas": [
+                {
+                  "clave": "cyt.p3.vivos-y-no-vivos-del-habitat",
+                  "nombre": "Componentes vivos y no vivos del hábitat",
+                  "descripcion": "Describe cómo el agua, el suelo, la luz y el aire se relacionan con los seres vivos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.habitat"
+                  ],
+                  "ordenSugerido": 91
+                },
+                {
+                  "clave": "cyt.p3.impacto-humano-en-el-habitat",
+                  "nombre": "Cómo las personas afectan el hábitat",
+                  "descripcion": "Explica efectos de la tala, la quema y la basura en los seres vivos de un hábitat.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-06",
+                    "CYT-C21-P3-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.vivos-y-no-vivos-del-habitat"
+                  ],
+                  "ordenSugerido": 92
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa las implicancias del saber y del quehacer científico y tecnológico",
+          "bloques": [
+            {
+              "nombre": "Tecnología y sociedad",
+              "temas": [
+                {
+                  "clave": "cyt.p3.oficios-detras-de-un-producto",
+                  "nombre": "Oficios y profesiones detrás de un producto",
+                  "descripcion": "Argumenta que fabricar un objeto requiere personas con distintas ocupaciones.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 69
+                },
+                {
+                  "clave": "cyt.p3.de-la-materia-prima-al-producto",
+                  "nombre": "De la materia prima al producto: las conservas",
+                  "descripcion": "Describe las etapas desde la materia prima hasta el producto envasado.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.oficios-detras-de-un-producto"
+                  ],
+                  "ordenSugerido": 70
+                },
+                {
+                  "clave": "cyt.p3.del-algodon-a-la-ropa",
+                  "nombre": "Del algodón a la ropa",
+                  "descripcion": "Describe las ocupaciones que intervienen desde el cultivo del algodón hasta la prenda.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.oficios-detras-de-un-producto"
+                  ],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "cyt.p3.alimentos-procesados",
+                  "nombre": "Alimentos frescos y alimentos procesados",
+                  "descripcion": "Opina sobre ventajas y desventajas de los alimentos envasados para la salud y el ambiente.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.de-la-materia-prima-al-producto"
+                  ],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "cyt.p3.conservacion-ancestral",
+                  "nombre": "Conservación ancestral: chuño, charqui y colcas",
+                  "descripcion": "Explica cómo los pueblos andinos conservan alimentos con frío, sol y almacenes.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.de-la-materia-prima-al-producto"
+                  ],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "cyt.p3.tecnologias-andinas-del-agua",
+                  "nombre": "Tecnologías para el agua: andenes, qochas y riego",
+                  "descripcion": "Relaciona andenes, qochas y canales con el uso del agua en la agricultura.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.oficios-detras-de-un-producto"
+                  ],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "cyt.p3.envases-y-residuos",
+                  "nombre": "Envases: ventajas y residuos que generan",
+                  "descripcion": "Opina sobre las ventajas de los envases y la basura que producen.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.de-la-materia-prima-al-producto"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "cyt.p3.tecnologia-cambia-la-vida",
+                  "nombre": "Cómo la tecnología cambia la vida y el ambiente",
+                  "descripcion": "Opina sobre ventajas y desventajas de productos tecnológicos para las personas y el ambiente.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P3-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.envases-y-residuos"
+                  ],
+                  "ordenSugerido": 76
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 22,
+      "nombre": "Diseña y construye soluciones tecnológicas para resolver problemas de su entorno",
+      "capacidades": [
+        {
+          "nombre": "Determina una alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Problema y alternativas",
+              "temas": [
+                {
+                  "clave": "cyt.p3.problema-tecnologico-y-causas",
+                  "nombre": "Un problema tecnológico del colegio y sus causas",
+                  "descripcion": "Determina un problema de su entorno y lo que lo genera.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "cyt.p3.alternativas-de-solucion",
+                  "nombre": "Proponer alternativas de solución",
+                  "descripcion": "Plantea varias soluciones basadas en conocimientos científicos o prácticas locales.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.problema-tecnologico-y-causas"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "cyt.p3.requerimientos-y-recursos",
+                  "nombre": "Qué debe cumplir la solución y con qué contamos",
+                  "descripcion": "Precisa qué debe cumplir la solución y con qué recursos cuenta.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.alternativas-de-solucion"
+                  ],
+                  "ordenSugerido": 79
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Diseña la alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Diseño",
+              "temas": [
+                {
+                  "clave": "cyt.p3.boceto-con-partes-y-medidas",
+                  "nombre": "Boceto con partes y medidas",
+                  "descripcion": "Dibuja su solución con sus partes, medidas y una descripción de su funcionamiento.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.requerimientos-y-recursos"
+                  ],
+                  "ordenSugerido": 93
+                },
+                {
+                  "clave": "cyt.p3.secuencia-de-implementacion",
+                  "nombre": "Secuencia de pasos para construir",
+                  "descripcion": "Ordena los pasos de construcción y el tiempo que tomará cada uno.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.boceto-con-partes-y-medidas"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "cyt.p3.seleccionar-materiales-por-propiedades",
+                  "nombre": "Seleccionar materiales y herramientas por sus propiedades",
+                  "descripcion": "Elige materiales y herramientas según su dureza, flexibilidad o resistencia al agua.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.secuencia-de-implementacion",
+                    "cyt.p3.madera-metal-plastico-vidrio"
+                  ],
+                  "ordenSugerido": 95
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Implementa y valida la alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Construcción, prueba y evaluación",
+              "temas": [
+                {
+                  "clave": "cyt.p3.normas-de-seguridad",
+                  "nombre": "Orden y seguridad en la mesa de trabajo",
+                  "descripcion": "Aplica normas de seguridad y orden al usar herramientas y limpiar el área de trabajo.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.secuencia-de-implementacion"
+                  ],
+                  "ordenSugerido": 96
+                },
+                {
+                  "clave": "cyt.p3.medir-al-construir",
+                  "nombre": "Medir con unidades convencionales al construir",
+                  "descripcion": "Usa centímetros, metros y litros para cortar, armar y comprobar su solución.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.normas-de-seguridad"
+                  ],
+                  "ordenSugerido": 97
+                },
+                {
+                  "clave": "cyt.p3.ecoeficiencia",
+                  "nombre": "Ecoeficiencia al construir",
+                  "descripcion": "Ahorra materiales, agua y energía y reutiliza residuos al construir.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.normas-de-seguridad"
+                  ],
+                  "ordenSugerido": 98
+                },
+                {
+                  "clave": "cyt.p3.ajustes-para-mejorar",
+                  "nombre": "Hacer ajustes para mejorar el funcionamiento",
+                  "descripcion": "Modifica su solución hasta que funcione y cumpla los requerimientos.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.medir-al-construir"
+                  ],
+                  "ordenSugerido": 99
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Construcción, prueba y evaluación",
+              "temas": [
+                {
+                  "clave": "cyt.p3.probar-requerimientos",
+                  "nombre": "Probar si cumple los requerimientos",
+                  "descripcion": "Realiza pruebas, mide resultados y compara con lo que debía cumplir.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.ajustes-para-mejorar"
+                  ],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "cyt.p3.explicar-mi-solucion",
+                  "nombre": "Presentar mi solución y las dificultades superadas",
+                  "descripcion": "Explica la construcción, el funcionamiento, el conocimiento aplicado y las dificultades superadas.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P3-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p3.probar-requerimientos"
+                  ],
+                  "ordenSugerido": 101
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
