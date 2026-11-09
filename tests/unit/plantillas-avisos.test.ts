@@ -169,6 +169,7 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
       nudito_plus: { colegio, alumno: "Mateo", titulo: "Nudito+ está activo para Mateo", parrafos: ["Puede usarlo hasta el 30/11/2026."], url: "http://n" },
       material_nuevo: { colegio, titulo: "Fracciones", url: "http://m" },
       solicitud_nueva: { colegio, titulo: "Programación curricular", url: "http://s" },
+      reporte_periodo_solicitud: { colegio, titulo: "Solicitud de reportes", solicitante: "Lucía", salon: "3.° B", periodo: "IV Bimestre 2026", cursos: ["Comunicación"], url: "http://n" },
       solicitud_observada: { colegio, titulo: "Programación curricular", url: "http://s" },
       solicitud_aprobada: { colegio, titulo: "Programación curricular", url: "http://s" },
       solicitud_version: { colegio, titulo: "Programación curricular", url: "http://s" },
@@ -287,5 +288,17 @@ describe("plantillas de avisos: textos exactos de la spec 06", () => {
   it("rechaza plantillas desconocidas y payloads inválidos", () => {
     expect(() => renderizarPlantilla("no_existe", {})).toThrow(PlantillaInvalidaError);
     expect(() => renderizarPlantilla("asistencia_llego", { colegio, alumno: "Mateo" })).toThrow(PlantillaInvalidaError);
+  });
+});
+
+
+describe("solicitud de reportes periódicos", () => {
+  it("usa el título como asunto y explica cursos y descripción", () => {
+    const m = renderizarPlantilla("reporte_periodo_solicitud", { colegio, titulo: "Solicitud IV Bimestre", solicitante: "Lucía García", salon: "3.° B", periodo: "IV Bimestre 2026", cursos: ["Comunicación"], descripcion: "Envía el reporte, por favor.", url: "http://nuevohorizonte.lvh.me:3000/notas/curso" });
+    expect(m.asunto).toBe("Solicitud IV Bimestre");
+    expect(m.texto).toContain("Lucía García");
+    expect(m.texto).toContain("Comunicación");
+    expect(m.texto).toContain("Envía el reporte, por favor.");
+    expect(m.texto).toContain("Abrir registro");
   });
 });

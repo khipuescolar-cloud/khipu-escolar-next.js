@@ -225,6 +225,7 @@ const ESQUEMAS = {
   /** Contratos provisionales de Documentos (Paso 0); los productores llegan en W1–W3. */
   material_nuevo: z.object({ ...comun, titulo: z.string().min(1), url }),
   solicitud_nueva: z.object({ ...comun, titulo: z.string().min(1), url }),
+  reporte_periodo_solicitud: z.object({ ...comun, titulo: z.string().min(1).max(150), solicitante: z.string().min(1), salon: z.string().min(1), periodo: z.string().min(1), cursos: z.array(z.string().min(1)).min(1), descripcion: z.string().max(1000).optional(), url }),
   solicitud_observada: z.object({ ...comun, titulo: z.string().min(1), url }),
   solicitud_aprobada: z.object({ ...comun, titulo: z.string().min(1), url }),
   solicitud_version: z.object({ ...comun, titulo: z.string().min(1), url }),
@@ -731,6 +732,12 @@ const RENDERIZADORES: { [N in NombrePlantilla]: (p: z.output<(typeof ESQUEMAS)[N
     colegio: p.colegio, logoColegioUrl: p.logoColegioUrl, asunto: `Nuevo material: ${p.titulo}`,
     insignia: "info", palabraInsignia: "Material", parrafos: [`Ya puedes revisar «${p.titulo}».`],
     boton: { texto: "Ver material", url: p.url }, urlPreferencias: p.urlPreferencias,
+  }),
+  reporte_periodo_solicitud: (p) => armarMensaje({
+    colegio: p.colegio, logoColegioUrl: p.logoColegioUrl, asunto: p.titulo,
+    insignia: "info", palabraInsignia: "Solicitud de reportes",
+    parrafos: [`${p.solicitante} solicita los reportes periódicos del salón ${p.salon} para ${p.periodo}.`, `Cursos pendientes: ${p.cursos.join(", ")}.`, ...(p.descripcion ? [p.descripcion] : [])],
+    boton: { texto: "Abrir registro", url: p.url }, urlPreferencias: p.urlPreferencias,
   }),
   solicitud_nueva: (p) => armarMensaje({
     colegio: p.colegio, logoColegioUrl: p.logoColegioUrl, asunto: `Nueva solicitud: ${p.titulo}`,
