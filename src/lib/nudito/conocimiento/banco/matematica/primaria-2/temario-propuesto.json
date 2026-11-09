@@ -1,0 +1,1735 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "matematica",
+  "nivel": "primaria",
+  "grado": 2,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Primaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+    },
+    {
+      "titulo": "Cuaderno de trabajo Matemática 2, segundo grado, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7862"
+    },
+    {
+      "titulo": "Cuadernillo de Matemática 2, segundo grado de Primaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/10080"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 23,
+      "nombre": "Resuelve problemas de cantidad",
+      "capacidades": [
+        {
+          "nombre": "Traduce cantidades a expresiones numéricas",
+          "bloques": [
+            {
+              "nombre": "Adición y sustracción hasta 100",
+              "temas": [
+                {
+                  "clave": "mat.p2.problemas-juntar-separar",
+                  "nombre": "Problemas de juntar y separar",
+                  "descripcion": "Representa con una suma o una resta situaciones en las que se juntan o separan dos grupos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.suma-resta-hasta-100"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "mat.p2.problemas-agregar-quitar",
+                  "nombre": "Problemas de agregar y quitar hasta 100",
+                  "descripcion": "Representa con una suma o una resta una cantidad que aumenta o disminuye.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.problemas-juntar-separar"
+                  ],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "mat.p2.problemas-avanzar-retroceder",
+                  "nombre": "Problemas de avanzar y retroceder",
+                  "descripcion": "Resuelve situaciones de avanzar o retroceder posiciones en un camino o en la recta numérica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.problemas-agregar-quitar",
+                    "mat.p2.recta-numerica-100"
+                  ],
+                  "ordenSugerido": 35
+                },
+                {
+                  "clave": "mat.p2.problemas-comparar",
+                  "nombre": "Problemas de comparación: cuántos más, cuántos menos",
+                  "descripcion": "Halla cuánto más o cuánto menos tiene una cantidad que otra.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-01",
+                    "MAT-C23-P2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.problemas-agregar-quitar"
+                  ],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "mat.p2.problemas-igualar",
+                  "nombre": "Problemas de igualación",
+                  "descripcion": "Halla cuánto hay que agregar o quitar para que dos cantidades sean iguales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-01",
+                    "MAT-C23-P2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.problemas-comparar"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "mat.p2.problemas-dos-acciones",
+                  "nombre": "Problemas con dos acciones",
+                  "descripcion": "Resuelve situaciones que encadenan dos acciones de agregar, quitar, juntar o separar.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.problemas-igualar",
+                    "mat.p2.suma-con-canje",
+                    "mat.p2.resta-con-canje"
+                  ],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "mat.p2.inventar-problemas",
+                  "nombre": "Inventar problemas de suma y resta",
+                  "descripcion": "Crea un problema a partir de una imagen, unos datos o una operación dada.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.problemas-comparar"
+                  ],
+                  "ordenSugerido": 65
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre los números y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Numeración hasta 100",
+              "temas": [
+                {
+                  "clave": "mat.p2.contar-hasta-100",
+                  "nombre": "Conteo hasta 100",
+                  "descripcion": "Cuenta colecciones hasta 100 de uno en uno y agrupando de diez en diez.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "mat.p2.contar-por-grupos",
+                  "nombre": "Conteo de 2 en 2, de 5 en 5 y de 10 en 10",
+                  "descripcion": "Cuenta colecciones por grupos iguales para hacerlo más rápido.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.contar-hasta-100"
+                  ],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "mat.p2.decena-nueva-unidad",
+                  "nombre": "La decena como nueva unidad",
+                  "descripcion": "Explica que diez unidades forman una decena y que la decena se cuenta como una unidad nueva.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.contar-hasta-100"
+                  ],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "mat.p2.leer-escribir-hasta-99",
+                  "nombre": "Lectura y escritura de números hasta 99",
+                  "descripcion": "Lee y escribe con cifras y palabras números de dos cifras.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-02",
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.decena-nueva-unidad"
+                  ],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "mat.p2.valor-posicional",
+                  "nombre": "Valor posicional: decenas y unidades",
+                  "descripcion": "Indica el valor de cada cifra según su posición en un número de dos cifras.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.leer-escribir-hasta-99"
+                  ],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "mat.p2.base-diez-y-abaco",
+                  "nombre": "Números con material base diez y ábaco",
+                  "descripcion": "Representa números de dos cifras con barras y cubitos, el ábaco o la yupana.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.valor-posicional"
+                  ],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "mat.p2.componer-descomponer",
+                  "nombre": "Composición y descomposición en decenas y unidades",
+                  "descripcion": "Escribe un número como decenas más unidades, por ejemplo 47 = 40 + 7.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.valor-posicional"
+                  ],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "mat.p2.canje-decenas-unidades",
+                  "nombre": "Canje de unidades por decenas",
+                  "descripcion": "Cambia diez unidades por una decena y una decena por diez unidades.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.componer-descomponer"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "mat.p2.el-numero-100",
+                  "nombre": "El número 100: diez decenas",
+                  "descripcion": "Forma el 100 juntando diez decenas o noventa y nueve más uno.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-02",
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.canje-decenas-unidades"
+                  ],
+                  "ordenSugerido": 66
+                },
+                {
+                  "clave": "mat.p2.antecesor-sucesor",
+                  "nombre": "Antecesor y sucesor",
+                  "descripcion": "Halla el número que va antes y el que va después de un número hasta 100.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.leer-escribir-hasta-99"
+                  ],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "mat.p2.recta-numerica-100",
+                  "nombre": "La recta numérica hasta 100",
+                  "descripcion": "Ubica números en la recta numérica graduada de uno en uno o de diez en diez.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.antecesor-sucesor"
+                  ],
+                  "ordenSugerido": 28
+                },
+                {
+                  "clave": "mat.p2.comparar-dos-cifras",
+                  "nombre": "Comparación de números de dos cifras",
+                  "descripcion": "Compara dos números mirando primero las decenas y luego las unidades.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03",
+                    "MAT-C23-P2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.valor-posicional"
+                  ],
+                  "ordenSugerido": 29
+                },
+                {
+                  "clave": "mat.p2.signos-mayor-menor",
+                  "nombre": "Los signos >, < e =",
+                  "descripcion": "Escribe comparaciones de números con los signos mayor que, menor que e igual.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.comparar-dos-cifras"
+                  ],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "mat.p2.ordenar-dos-cifras",
+                  "nombre": "Orden de números de dos cifras",
+                  "descripcion": "Ordena varios números de dos cifras de menor a mayor y de mayor a menor.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.signos-mayor-menor"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "mat.p2.decena-mas-cercana",
+                  "nombre": "La decena más cercana a un número",
+                  "descripcion": "Ubica un número en la recta y decide a qué decena completa está más cerca.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.recta-numerica-100"
+                  ],
+                  "ordenSugerido": 68
+                },
+                {
+                  "clave": "mat.p2.ordinales-hasta-vigesimo",
+                  "nombre": "Números ordinales hasta el vigésimo",
+                  "descripcion": "Usa los ordinales del primero al vigésimo para indicar posiciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.antecesor-sucesor"
+                  ],
+                  "ordenSugerido": 31
+                }
+              ]
+            },
+            {
+              "nombre": "Adición y sustracción hasta 100",
+              "temas": [
+                {
+                  "clave": "mat.p2.suma-resta-hasta-100",
+                  "nombre": "Suma y resta hasta 100 sin canje",
+                  "descripcion": "Suma y resta números de dos cifras sin canje, en forma horizontal y vertical.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.componer-descomponer"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "mat.p2.doble",
+                  "nombre": "El doble de un número",
+                  "descripcion": "Calcula el doble de un número sumándolo dos veces.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.usar-dobles"
+                  ],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "mat.p2.mitad",
+                  "nombre": "La mitad de un número",
+                  "descripcion": "Reparte una cantidad en dos partes iguales y halla la mitad.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.doble"
+                  ],
+                  "ordenSugerido": 74
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos de estimación y cálculo",
+          "bloques": [
+            {
+              "nombre": "Numeración hasta 100",
+              "temas": [
+                {
+                  "clave": "mat.p2.tablero-del-cien",
+                  "nombre": "El tablero del cien",
+                  "descripcion": "Usa el tablero del cien para ubicar, comparar números y encontrar regularidades.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.recta-numerica-100"
+                  ],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "mat.p2.estimar-colecciones",
+                  "nombre": "Estimación de colecciones hasta 100",
+                  "descripcion": "Estima cuántos objetos hay en una colección y lo comprueba agrupando de diez en diez.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.contar-por-grupos"
+                  ],
+                  "ordenSugerido": 69
+                }
+              ]
+            },
+            {
+              "nombre": "Adición y sustracción hasta 100",
+              "temas": [
+                {
+                  "clave": "mat.p2.combinaciones-basicas",
+                  "nombre": "Combinaciones aditivas básicas hasta 20",
+                  "descripcion": "Recupera de memoria sumas y restas básicas hasta 20 para usarlas en cálculos mayores.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "mat.p2.calculo-con-decenas",
+                  "nombre": "Cálculo mental con decenas: 70 + 20 y 70 + 9",
+                  "descripcion": "Suma y resta decenas completas y une decenas con unidades mentalmente.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.componer-descomponer"
+                  ],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "mat.p2.descomponer-para-sumar",
+                  "nombre": "Descomponer para sumar y restar",
+                  "descripcion": "Separa los números en decenas y unidades para calcular, como 25 + 13 = 20 + 10 + 5 + 3.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.calculo-con-decenas"
+                  ],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "mat.p2.completar-la-decena",
+                  "nombre": "Completar la decena más cercana",
+                  "descripcion": "Suma o resta pasando por la decena, por ejemplo 38 + 5 = 38 + 2 + 3.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.calculo-con-decenas"
+                  ],
+                  "ordenSugerido": 70
+                },
+                {
+                  "clave": "mat.p2.sumar-restar-9",
+                  "nombre": "Sumar y restar 9 usando el 10",
+                  "descripcion": "Suma o resta 10 y luego ajusta 1 para calcular con 9, como 46 + 9 = 46 + 10 − 1.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.calculo-con-decenas"
+                  ],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "mat.p2.completar-a-100",
+                  "nombre": "Completar a 100 con decenas",
+                  "descripcion": "Encuentra cuánto le falta a una decena completa para llegar a 100, como 30 + 70.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.el-numero-100",
+                    "mat.p2.calculo-con-decenas"
+                  ],
+                  "ordenSugerido": 98
+                },
+                {
+                  "clave": "mat.p2.usar-dobles",
+                  "nombre": "Sumar usando dobles",
+                  "descripcion": "Usa dobles conocidos para calcular sumas cercanas, como 15 + 16.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.suma-resta-hasta-100"
+                  ],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "mat.p2.sumar-para-restar",
+                  "nombre": "Restar pensando en una suma",
+                  "descripcion": "Resuelve una resta buscando cuánto le falta al número menor para llegar al mayor.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.suma-resta-hasta-100"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "mat.p2.conmutatividad",
+                  "nombre": "Cambiar el orden de los sumandos",
+                  "descripcion": "Empieza por el sumando mayor o agrupa sumandos para calcular más fácil.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.suma-resta-hasta-100"
+                  ],
+                  "ordenSugerido": 40
+                },
+                {
+                  "clave": "mat.p2.saltos-en-la-recta",
+                  "nombre": "Sumas y restas con saltos en la recta numérica",
+                  "descripcion": "Calcula avanzando o retrocediendo de diez en diez y de uno en uno en la recta.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.recta-numerica-100",
+                    "mat.p2.calculo-con-decenas"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "mat.p2.suma-con-canje",
+                  "nombre": "Suma con canje hasta 100",
+                  "descripcion": "Suma números de dos cifras canjeando diez unidades por una decena.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.suma-resta-hasta-100",
+                    "mat.p2.canje-decenas-unidades"
+                  ],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "mat.p2.resta-con-canje",
+                  "nombre": "Resta con canje hasta 100",
+                  "descripcion": "Resta números de dos cifras canjeando una decena por diez unidades.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.suma-con-canje"
+                  ],
+                  "ordenSugerido": 99
+                },
+                {
+                  "clave": "mat.p2.suma-tres-sumandos",
+                  "nombre": "Suma de tres sumandos",
+                  "descripcion": "Suma tres números agrupando los que forman decenas completas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.suma-con-canje"
+                  ],
+                  "ordenSugerido": 101
+                },
+                {
+                  "clave": "mat.p2.estimar-resultado",
+                  "nombre": "Estimación de sumas y restas con decenas",
+                  "descripcion": "Calcula aproximadamente un resultado con decenas para saber si la respuesta tiene sentido.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.calculo-con-decenas"
+                  ],
+                  "ordenSugerido": 102
+                }
+              ]
+            },
+            {
+              "nombre": "Medición: masa y tiempo",
+              "temas": [
+                {
+                  "clave": "mat.p2.masa-unidades-no-convencionales",
+                  "nombre": "Medir la masa con unidades no convencionales",
+                  "descripcion": "Equilibra una balanza con cubos, chapas u otros objetos para saber cuánto pesa algo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "mat.p2.comparar-masas-balanza",
+                  "nombre": "Comparar y ordenar masas con la balanza",
+                  "descripcion": "Usa la balanza de platillos para comparar la masa de varios objetos y ordenarlos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.masa-unidades-no-convencionales"
+                  ],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "mat.p2.horario-diario",
+                  "nombre": "Las actividades de un día en orden",
+                  "descripcion": "Ordena las actividades de un día según el momento en que ocurren.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "mat.p2.horario-semanal",
+                  "nombre": "El horario semanal de clases",
+                  "descripcion": "Lee un horario escolar semanal para saber qué toca cada día.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.horario-diario"
+                  ],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "mat.p2.calendario",
+                  "nombre": "El calendario: días, semanas y meses",
+                  "descripcion": "Ubica fechas en el calendario y relaciona días, semanas y meses.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.horario-semanal"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "mat.p2.cuantos-dias-faltan",
+                  "nombre": "¿Cuántos días faltan?",
+                  "descripcion": "Cuenta en el calendario los días o semanas que faltan para un evento.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.calendario"
+                  ],
+                  "ordenSugerido": 103
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Numeración hasta 100",
+              "temas": [
+                {
+                  "clave": "mat.p2.descomposiciones-diversas",
+                  "nombre": "Un número de varias formas: 3 decenas y 5 unidades = 2 decenas y 15 unidades",
+                  "descripcion": "Muestra con material que un número puede formarse con distintas combinaciones de decenas y unidades.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.canje-decenas-unidades"
+                  ],
+                  "ordenSugerido": 79
+                },
+                {
+                  "clave": "mat.p2.afirmaciones-comparacion",
+                  "nombre": "¿Verdadero o falso? Comparaciones de números",
+                  "descripcion": "Decide si una afirmación sobre qué número es mayor es cierta y lo justifica con material.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.ordenar-dos-cifras"
+                  ],
+                  "ordenSugerido": 80
+                }
+              ]
+            },
+            {
+              "nombre": "Adición y sustracción hasta 100",
+              "temas": [
+                {
+                  "clave": "mat.p2.por-que-sumar-restar",
+                  "nombre": "¿Por qué sumar o restar en un problema?",
+                  "descripcion": "Justifica qué operación usa a partir de lo que ocurre en la situación.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.problemas-agregar-quitar"
+                  ],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "mat.p2.comprobar-resta",
+                  "nombre": "Comprobar una resta con una suma",
+                  "descripcion": "Verifica el resultado de una resta sumando la diferencia y el sustraendo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.resta-con-canje"
+                  ],
+                  "ordenSugerido": 104
+                },
+                {
+                  "clave": "mat.p2.explicar-resolucion",
+                  "nombre": "Explicar el proceso y el resultado",
+                  "descripcion": "Explica los pasos que siguió para resolver un problema y si el resultado es razonable.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.problemas-dos-acciones"
+                  ],
+                  "ordenSugerido": 105
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 24,
+      "nombre": "Resuelve problemas de regularidad, equivalencia y cambio",
+      "capacidades": [
+        {
+          "nombre": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+          "bloques": [
+            {
+              "nombre": "Igualdades y equivalencias",
+              "temas": [
+                {
+                  "clave": "mat.p2.grupos-misma-cantidad",
+                  "nombre": "Grupos con la misma cantidad hasta 20",
+                  "descripcion": "Relaciona dos grupos de hasta 20 objetos que tienen igual cantidad aunque estén organizados distinto.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 10
+                },
+                {
+                  "clave": "mat.p2.igualdades-sumas-restas",
+                  "nombre": "Igualdades con sumas y restas",
+                  "descripcion": "Escribe igualdades como 8 + 4 = 15 − 3 a partir de dos colecciones equivalentes.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.grupos-misma-cantidad"
+                  ],
+                  "ordenSugerido": 44
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones de repetición",
+              "temas": [
+                {
+                  "clave": "mat.p2.patron-dos-criterios",
+                  "nombre": "Patrones con dos criterios: color y forma",
+                  "descripcion": "Reconoce y forma patrones que cambian a la vez en dos características.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-02",
+                    "MAT-C24-P2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "mat.p2.patron-sonidos-movimientos",
+                  "nombre": "Patrones de sonidos y movimientos con dos criterios",
+                  "descripcion": "Reproduce y forma patrones combinando sonidos, gestos y movimientos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.patron-dos-criterios"
+                  ],
+                  "ordenSugerido": 12
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones aditivos",
+              "temas": [
+                {
+                  "clave": "mat.p2.patrones-aditivos",
+                  "nombre": "Patrones con números que crecen",
+                  "descripcion": "Reconoce secuencias numéricas que aumentan siempre la misma cantidad.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-02",
+                    "MAT-C24-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.contar-por-grupos"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "mat.p2.patrones-decrecientes",
+                  "nombre": "Patrones con números que disminuyen",
+                  "descripcion": "Reconoce secuencias numéricas que disminuyen siempre la misma cantidad.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-02",
+                    "MAT-C24-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.patrones-aditivos"
+                  ],
+                  "ordenSugerido": 81
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las relaciones algebraicas",
+          "bloques": [
+            {
+              "nombre": "Igualdades y equivalencias",
+              "temas": [
+                {
+                  "clave": "mat.p2.signo-igual",
+                  "nombre": "El signo igual: vale lo mismo",
+                  "descripcion": "Explica que el signo igual indica que ambos lados tienen el mismo valor.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.grupos-misma-cantidad"
+                  ],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "mat.p2.balanza-platillos",
+                  "nombre": "La balanza de platillos y la igualdad",
+                  "descripcion": "Representa una igualdad con objetos en una balanza en equilibrio.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.signo-igual"
+                  ],
+                  "ordenSugerido": 47
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones de repetición",
+              "temas": [
+                {
+                  "clave": "mat.p2.nucleo-patron",
+                  "nombre": "El núcleo de un patrón",
+                  "descripcion": "Identifica la parte que se repite en un patrón de dos criterios.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.patron-dos-criterios"
+                  ],
+                  "ordenSugerido": 13
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones aditivos",
+              "temas": [
+                {
+                  "clave": "mat.p2.regla-del-patron",
+                  "nombre": "La regla de un patrón aditivo",
+                  "descripcion": "Describe cuánto aumenta o disminuye cada término de una secuencia.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.patrones-aditivos"
+                  ],
+                  "ordenSugerido": 82
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+          "bloques": [
+            {
+              "nombre": "Igualdades y equivalencias",
+              "temas": [
+                {
+                  "clave": "mat.p2.igualdades-equilibrio",
+                  "nombre": "Igualdades: mantener el equilibrio",
+                  "descripcion": "Agrega o quita lo mismo en ambos lados para que la igualdad o la balanza siga en equilibrio.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.balanza-platillos"
+                  ],
+                  "ordenSugerido": 83
+                },
+                {
+                  "clave": "mat.p2.repartir-para-igualar",
+                  "nombre": "Repartir para tener lo mismo",
+                  "descripcion": "Pasa objetos de un grupo a otro para que ambos tengan la misma cantidad.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.grupos-misma-cantidad"
+                  ],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "mat.p2.numero-que-falta-igualdad",
+                  "nombre": "El número que falta en una igualdad",
+                  "descripcion": "Halla el número que completa una igualdad como 8 + __ = 10 + 3.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.igualdades-equilibrio"
+                  ],
+                  "ordenSugerido": 106
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones de repetición",
+              "temas": [
+                {
+                  "clave": "mat.p2.continuar-completar-patron",
+                  "nombre": "Continuar y completar patrones de repetición",
+                  "descripcion": "Dibuja lo que sigue o lo que falta en un patrón de repetición.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.nucleo-patron"
+                  ],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "mat.p2.crear-patron",
+                  "nombre": "Crear patrones de repetición",
+                  "descripcion": "Inventa patrones de repetición con dos criterios y los presenta a sus compañeros.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.continuar-completar-patron"
+                  ],
+                  "ordenSugerido": 49
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones aditivos",
+              "temas": [
+                {
+                  "clave": "mat.p2.patrones-tablero-cien",
+                  "nombre": "Patrones en el tablero del cien",
+                  "descripcion": "Colorea y descubre secuencias que avanzan de 2 en 2, de 5 en 5 o de 10 en 10 en el tablero del cien.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.patrones-aditivos",
+                    "mat.p2.tablero-del-cien"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "mat.p2.numeros-que-faltan-secuencia",
+                  "nombre": "Números que faltan en una secuencia",
+                  "descripcion": "Completa los términos que faltan en una secuencia creciente o decreciente.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.regla-del-patron"
+                  ],
+                  "ordenSugerido": 107
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+          "bloques": [
+            {
+              "nombre": "Igualdades y equivalencias",
+              "temas": [
+                {
+                  "clave": "mat.p2.igualdad-verdadera",
+                  "nombre": "¿Es verdadera la igualdad?",
+                  "descripcion": "Decide si los dos lados de una igualdad valen lo mismo y lo explica.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.igualdades-sumas-restas"
+                  ],
+                  "ordenSugerido": 85
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones de repetición",
+              "temas": [
+                {
+                  "clave": "mat.p2.mismo-patron-dos-versiones",
+                  "nombre": "El mismo patrón en dos versiones",
+                  "descripcion": "Encuentra que dos patrones con objetos distintos se forman de la misma manera.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.crear-patron"
+                  ],
+                  "ordenSugerido": 86
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones aditivos",
+              "temas": [
+                {
+                  "clave": "mat.p2.explicar-patron-aditivo",
+                  "nombre": "Explicar cómo cambia un patrón",
+                  "descripcion": "Explica con ejemplos cómo continúa una secuencia numérica y qué número seguirá.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.numeros-que-faltan-secuencia"
+                  ],
+                  "ordenSugerido": 108
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 26,
+      "nombre": "Resuelve problemas de forma, movimiento y localización",
+      "capacidades": [
+        {
+          "nombre": "Modela objetos con formas geométricas y sus transformaciones",
+          "bloques": [
+            {
+              "nombre": "Cuerpos geométricos",
+              "temas": [
+                {
+                  "clave": "mat.p2.cuerpos-ruedan-no-ruedan",
+                  "nombre": "Cuerpos que ruedan y que no ruedan",
+                  "descripcion": "Clasifica cuerpos geométricos según rueden o no rueden y lo comprueba.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-01",
+                    "MAT-C26-P2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "mat.p2.cuerpos-del-entorno",
+                  "nombre": "Cubo, prisma, cilindro, cono y esfera",
+                  "descripcion": "Reconoce y nombra cuerpos geométricos en objetos del entorno.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.cuerpos-ruedan-no-ruedan"
+                  ],
+                  "ordenSugerido": 16
+                }
+              ]
+            },
+            {
+              "nombre": "Figuras planas",
+              "temas": [
+                {
+                  "clave": "mat.p2.figuras-planas",
+                  "nombre": "Cuadrado, rectángulo, círculo y triángulo",
+                  "descripcion": "Reconoce y dibuja las figuras planas básicas en objetos del entorno.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 50
+                }
+              ]
+            },
+            {
+              "nombre": "Longitud",
+              "temas": [
+                {
+                  "clave": "mat.p2.largo-y-ancho",
+                  "nombre": "Largo y ancho de los objetos",
+                  "descripcion": "Distingue el largo y el ancho de objetos como mesas, cuadernos y puertas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-01",
+                    "MAT-C26-P2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 17
+                }
+              ]
+            },
+            {
+              "nombre": "Ubicación y desplazamientos",
+              "temas": [
+                {
+                  "clave": "mat.p2.ubicacion-cuadricula",
+                  "nombre": "Ubicación en la cuadrícula",
+                  "descripcion": "Ubica objetos en una cuadrícula a partir de un punto de referencia.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.punto-de-referencia"
+                  ],
+                  "ordenSugerido": 87
+                },
+                {
+                  "clave": "mat.p2.recorridos-cuadricula",
+                  "nombre": "Recorridos en la cuadrícula descritos con número de casilleros",
+                  "descripcion": "Describe y traza caminos en la cuadrícula contando casilleros.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.ubicacion-cuadricula",
+                    "mat.p2.codigos-de-flechas"
+                  ],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "mat.p2.rutas-en-la-comunidad",
+                  "nombre": "Rutas en la comunidad con puntos de referencia",
+                  "descripcion": "Describe el camino de su casa a la escuela usando lugares conocidos como referencia.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.expresiones-desplazamiento"
+                  ],
+                  "ordenSugerido": 109
+                },
+                {
+                  "clave": "mat.p2.croquis-del-aula",
+                  "nombre": "Croquis del aula",
+                  "descripcion": "Representa con un dibujo sencillo la ubicación de objetos del aula.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.punto-de-referencia"
+                  ],
+                  "ordenSugerido": 110
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las formas y relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Cuerpos geométricos",
+              "temas": [
+                {
+                  "clave": "mat.p2.se-sostienen",
+                  "nombre": "Cuerpos que se sostienen y que no se sostienen",
+                  "descripcion": "Prueba qué cuerpos se mantienen apilados o parados y lo relaciona con sus caras planas o curvas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.cuerpos-ruedan-no-ruedan"
+                  ],
+                  "ordenSugerido": 18
+                },
+                {
+                  "clave": "mat.p2.caras-y-puntas",
+                  "nombre": "Número de caras y puntas de un cuerpo",
+                  "descripcion": "Cuenta las caras y las puntas de cubos, prismas y otros cuerpos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.cuerpos-del-entorno"
+                  ],
+                  "ordenSugerido": 19
+                },
+                {
+                  "clave": "mat.p2.forma-de-las-caras",
+                  "nombre": "La forma de las caras de un cuerpo",
+                  "descripcion": "Identifica qué figura plana forma cada cara de un cuerpo, por ejemplo con sus huellas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.caras-y-puntas",
+                    "mat.p2.figuras-planas"
+                  ],
+                  "ordenSugerido": 51
+                }
+              ]
+            },
+            {
+              "nombre": "Figuras planas",
+              "temas": [
+                {
+                  "clave": "mat.p2.lados-y-vertices",
+                  "nombre": "Lados y vértices de las figuras",
+                  "descripcion": "Cuenta los lados y vértices de cuadrados, rectángulos y triángulos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.figuras-planas"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "mat.p2.lineas-abiertas-cerradas",
+                  "nombre": "Líneas abiertas y cerradas",
+                  "descripcion": "Distingue líneas abiertas y cerradas e identifica el interior y el exterior de una figura.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "mat.p2.lados-rectos-curvos",
+                  "nombre": "Figuras con lados rectos y curvos",
+                  "descripcion": "Distingue figuras con lados rectos, con lados curvos o con ambos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.figuras-planas"
+                  ],
+                  "ordenSugerido": 53
+                }
+              ]
+            },
+            {
+              "nombre": "Longitud",
+              "temas": [
+                {
+                  "clave": "mat.p2.cuantas-veces-mas-largo",
+                  "nombre": "¿Cuántas veces más largo?",
+                  "descripcion": "Determina cuántas veces cabe un objeto en la longitud de otro.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.medir-longitudes"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "mat.p2.conservacion-longitud",
+                  "nombre": "La longitud no cambia al doblar o enrollar",
+                  "descripcion": "Comprueba que un objeto mantiene su longitud aunque se doble, enrolle o cambie de lugar.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.largo-y-ancho"
+                  ],
+                  "ordenSugerido": 90
+                },
+                {
+                  "clave": "mat.p2.ordenar-longitudes",
+                  "nombre": "Ordenar objetos por su longitud",
+                  "descripcion": "Ordena varios objetos del más largo al más corto y viceversa.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.conservacion-longitud"
+                  ],
+                  "ordenSugerido": 91
+                }
+              ]
+            },
+            {
+              "nombre": "Ubicación y desplazamientos",
+              "temas": [
+                {
+                  "clave": "mat.p2.punto-de-referencia",
+                  "nombre": "Posiciones respecto a un punto de referencia",
+                  "descripcion": "Describe dónde está un objeto o persona con relación a otro objeto.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "mat.p2.derecha-izquierda",
+                  "nombre": "Derecha e izquierda",
+                  "descripcion": "Ubica objetos y se desplaza hacia la derecha o la izquierda tomando su cuerpo como referencia.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.punto-de-referencia"
+                  ],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "mat.p2.expresiones-desplazamiento",
+                  "nombre": "Sube, entra, hacia adelante, por el borde",
+                  "descripcion": "Describe desplazamientos con expresiones como sube, entra, hacia adelante, por el borde o en frente de.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.derecha-izquierda"
+                  ],
+                  "ordenSugerido": 54
+                },
+                {
+                  "clave": "mat.p2.codigos-de-flechas",
+                  "nombre": "Códigos de flechas",
+                  "descripcion": "Representa y sigue desplazamientos escritos con flechas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.expresiones-desplazamiento"
+                  ],
+                  "ordenSugerido": 55
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para orientarse en el espacio",
+          "bloques": [
+            {
+              "nombre": "Cuerpos geométricos",
+              "temas": [
+                {
+                  "clave": "mat.p2.construir-con-cuerpos",
+                  "nombre": "Construir objetos con cuerpos geométricos",
+                  "descripcion": "Construye objetos con cajas y bloques eligiendo los cuerpos que se sostienen.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.caras-y-puntas"
+                  ],
+                  "ordenSugerido": 56
+                }
+              ]
+            },
+            {
+              "nombre": "Figuras planas",
+              "temas": [
+                {
+                  "clave": "mat.p2.armar-figuras",
+                  "nombre": "Armar figuras con otras figuras",
+                  "descripcion": "Forma figuras nuevas juntando triángulos, cuadrados y rectángulos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.lados-y-vertices"
+                  ],
+                  "ordenSugerido": 92
+                }
+              ]
+            },
+            {
+              "nombre": "Longitud",
+              "temas": [
+                {
+                  "clave": "mat.p2.medir-longitudes",
+                  "nombre": "Medir longitudes con unidades no convencionales",
+                  "descripcion": "Mide el largo y el ancho de objetos con manos, pasos, pies u objetos y expresa la medida con un número.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.largo-y-ancho"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "mat.p2.que-camino-es-mas-largo",
+                  "nombre": "¿Qué camino es más largo?",
+                  "descripcion": "Compara la longitud de dos recorridos en la cuadrícula contando casilleros.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-04",
+                    "MAT-C26-P2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.recorridos-cuadricula"
+                  ],
+                  "ordenSugerido": 111
+                },
+                {
+                  "clave": "mat.p2.distintas-unidades-distinta-medida",
+                  "nombre": "Distintas unidades, distinta medida",
+                  "descripcion": "Mide un mismo objeto con dos unidades diferentes y explica por qué obtiene números distintos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-06",
+                    "MAT-C26-P2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.medir-longitudes"
+                  ],
+                  "ordenSugerido": 112
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Figuras planas",
+              "temas": [
+                {
+                  "clave": "mat.p2.clasificar-por-lados",
+                  "nombre": "Clasificar figuras por el número de lados",
+                  "descripcion": "Agrupa figuras según sus lados y afirma, por ejemplo, que toda figura de tres lados es un triángulo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.lados-y-vertices"
+                  ],
+                  "ordenSugerido": 93
+                },
+                {
+                  "clave": "mat.p2.bloques-logicos",
+                  "nombre": "Clasificar con bloques lógicos: forma, color y tamaño",
+                  "descripcion": "Agrupa piezas según uno o dos atributos y explica qué tienen en común.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.lados-y-vertices"
+                  ],
+                  "ordenSugerido": 58
+                },
+                {
+                  "clave": "mat.p2.figura-en-otra-posicion",
+                  "nombre": "Una figura en distinta posición",
+                  "descripcion": "Comprueba que una figura sigue siendo la misma aunque se gire o cambie de posición.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.clasificar-por-lados"
+                  ],
+                  "ordenSugerido": 113
+                },
+                {
+                  "clave": "mat.p2.semejanzas-diferencias-formas",
+                  "nombre": "Semejanzas y diferencias entre formas",
+                  "descripcion": "Compara dos formas geométricas y explica en qué se parecen y en qué se diferencian.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.forma-de-las-caras",
+                    "mat.p2.lados-rectos-curvos"
+                  ],
+                  "ordenSugerido": 114
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 25,
+      "nombre": "Resuelve problemas de gestión de datos e incertidumbre",
+      "capacidades": [
+        {
+          "nombre": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+          "bloques": [
+            {
+              "nombre": "Recogida y organización de datos",
+              "temas": [
+                {
+                  "clave": "mat.p2.datos-cualitativos",
+                  "nombre": "Datos cualitativos y categorías",
+                  "descripcion": "Agrupa respuestas como plato favorito o color de ojos en categorías.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.lista-de-datos"
+                  ],
+                  "ordenSugerido": 59
+                }
+              ]
+            },
+            {
+              "nombre": "Gráficos y pictogramas",
+              "temas": [
+                {
+                  "clave": "mat.p2.pictograma-uno",
+                  "nombre": "Pictograma: un símbolo, una unidad",
+                  "descripcion": "Representa datos en un pictograma horizontal donde cada símbolo vale uno.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.tabla-de-conteo"
+                  ],
+                  "ordenSugerido": 62
+                },
+                {
+                  "clave": "mat.p2.pictograma-dos",
+                  "nombre": "Pictograma: un símbolo vale dos",
+                  "descripcion": "Representa datos en un pictograma donde cada símbolo vale dos unidades y usa medio símbolo.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.pictograma-uno"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "mat.p2.barras-verticales",
+                  "nombre": "Gráfico de barras verticales a partir de una tabla de conteo",
+                  "descripcion": "Elabora un gráfico de barras verticales sin escala a partir de una tabla de conteo.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.tabla-de-conteo"
+                  ],
+                  "ordenSugerido": 95
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+          "bloques": [
+            {
+              "nombre": "Recogida y organización de datos",
+              "temas": [
+                {
+                  "clave": "mat.p2.leer-tabla-conteo",
+                  "nombre": "Lectura de tablas de conteo: comparar categorías",
+                  "descripcion": "Lee y describe la información de una tabla de conteo simple.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.tabla-de-conteo"
+                  ],
+                  "ordenSugerido": 63
+                }
+              ]
+            },
+            {
+              "nombre": "Gráficos y pictogramas",
+              "temas": [
+                {
+                  "clave": "mat.p2.leer-pictograma",
+                  "nombre": "Lectura de pictogramas donde un símbolo vale dos",
+                  "descripcion": "Lee cuántos hay de cada categoría en un pictograma, incluso cuando el símbolo vale dos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.pictograma-dos"
+                  ],
+                  "ordenSugerido": 96
+                },
+                {
+                  "clave": "mat.p2.leer-barras",
+                  "nombre": "Lectura de gráficos de barras con eje numerado de 1 en 1",
+                  "descripcion": "Lee la cantidad de cada categoría en un gráfico de barras verticales.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.barras-verticales"
+                  ],
+                  "ordenSugerido": 115
+                },
+                {
+                  "clave": "mat.p2.mayor-menor-frecuencia",
+                  "nombre": "Mayor y menor frecuencia",
+                  "descripcion": "Indica qué opción tiene más y cuál tiene menos en una tabla o gráfico.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.leer-tabla-conteo"
+                  ],
+                  "ordenSugerido": 97
+                },
+                {
+                  "clave": "mat.p2.comparar-datos",
+                  "nombre": "Comparación de datos: cuántos más y cuántos menos",
+                  "descripcion": "Compara las cantidades de dos categorías de un gráfico y halla la diferencia.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.mayor-menor-frecuencia",
+                    "mat.p2.problemas-comparar"
+                  ],
+                  "ordenSugerido": 116
+                }
+              ]
+            },
+            {
+              "nombre": "Posible e imposible",
+              "temas": [
+                {
+                  "clave": "mat.p2.posible-imposible",
+                  "nombre": "Sucesos posibles e imposibles",
+                  "descripcion": "Clasifica hechos cotidianos y juegos como posibles o imposibles y lo explica.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 60
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para recopilar y procesar datos",
+          "bloques": [
+            {
+              "nombre": "Recogida y organización de datos",
+              "temas": [
+                {
+                  "clave": "mat.p2.preguntas-encuesta",
+                  "nombre": "Preguntas para una encuesta",
+                  "descripcion": "Formula una pregunta con opciones de respuesta para recoger datos de sus compañeros.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "mat.p2.lista-de-datos",
+                  "nombre": "Lista de datos",
+                  "descripcion": "Registra en una lista las respuestas obtenidas en una encuesta.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.preguntas-encuesta"
+                  ],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "mat.p2.tabla-de-conteo",
+                  "nombre": "Tabla de conteo con palotes y columna de total",
+                  "descripcion": "Organiza los datos en una tabla con marcas de conteo y totales.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.lista-de-datos"
+                  ],
+                  "ordenSugerido": 61
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Sustenta conclusiones o decisiones con base en la información obtenida",
+          "bloques": [
+            {
+              "nombre": "Gráficos y pictogramas",
+              "temas": [
+                {
+                  "clave": "mat.p2.decisiones-con-datos",
+                  "nombre": "Decisiones a partir de los datos",
+                  "descripcion": "Toma una decisión sencilla basada en un gráfico o tabla y explica por qué.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.mayor-menor-frecuencia"
+                  ],
+                  "ordenSugerido": 117
+                },
+                {
+                  "clave": "mat.p2.conclusiones-grafico",
+                  "nombre": "¿Qué nos dice el gráfico?",
+                  "descripcion": "Formula conclusiones sencillas a partir de un pictograma o gráfico de barras.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p2.leer-barras"
+                  ],
+                  "ordenSugerido": 118
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

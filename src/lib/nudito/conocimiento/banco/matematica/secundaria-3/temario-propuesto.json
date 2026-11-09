@@ -1,0 +1,1821 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "matematica",
+  "nivel": "secundaria",
+  "grado": 3,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Secundaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+    },
+    {
+      "titulo": "Resolvamos problemas 3, Secundaria: cuaderno de trabajo de Matemática, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7924"
+    },
+    {
+      "titulo": "Texto de Matemática 3, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/12633"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 23,
+      "nombre": "Resuelve problemas de cantidad",
+      "capacidades": [
+        {
+          "nombre": "Traduce cantidades a expresiones numéricas",
+          "bloques": [
+            {
+              "nombre": "Números racionales y decimales",
+              "temas": [
+                {
+                  "clave": "mat.s3.comparar-igualar-racionales",
+                  "nombre": "Problemas de comparación e igualación con fracciones y decimales",
+                  "descripcion": "Modela con racionales situaciones de comparar o igualar cantidades de masa, tiempo o dinero.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "mat.s3.comparar-modelos-numericos",
+                  "nombre": "Comparación de dos modelos numéricos para un mismo problema",
+                  "descripcion": "Decide cuál de dos expresiones representa todas las condiciones del problema y propone mejoras.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.comparar-igualar-racionales"
+                  ],
+                  "ordenSugerido": 9
+                }
+              ]
+            },
+            {
+              "nombre": "Interés simple y finanzas",
+              "temas": [
+                {
+                  "clave": "mat.s3.interes-simple",
+                  "nombre": "Interés simple",
+                  "descripcion": "Calcula el interés simple y el monto de un capital en un tiempo dado.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-01",
+                    "MAT-C23-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.terminos-financieros"
+                  ],
+                  "ordenSugerido": 57
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre los números y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números racionales y decimales",
+              "temas": [
+                {
+                  "clave": "mat.s3.ordenes-sistema-decimal",
+                  "nombre": "Órdenes y clases del sistema de numeración decimal",
+                  "descripcion": "Relaciona cada orden con el valor posicional de las cifras de racionales hasta los millones y los millonésimos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-03",
+                    "MAT-C23-S3-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "mat.s3.decimal-periodico-mixto",
+                  "nombre": "Decimales periódicos puros y mixtos",
+                  "descripcion": "Distingue la parte entera, el anteperiodo y el periodo de un decimal periódico.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 2
+                }
+              ]
+            },
+            {
+              "nombre": "Notación científica",
+              "temas": [
+                {
+                  "clave": "mat.s3.notacion-cientifica",
+                  "nombre": "Notación científica con exponente positivo",
+                  "descripcion": "Expresa cantidades muy grandes como a × 10ⁿ con 1 ≤ a < 10.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.ordenes-sistema-decimal"
+                  ],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "mat.s3.cantidades-astronomicas",
+                  "nombre": "Comparación de cantidades muy grandes en notación científica",
+                  "descripcion": "Compara distancias astronómicas, poblaciones o presupuestos expresados en notación científica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-01",
+                    "MAT-C23-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.notacion-cientifica"
+                  ],
+                  "ordenSugerido": 33
+                }
+              ]
+            },
+            {
+              "nombre": "Interés simple y finanzas",
+              "temas": [
+                {
+                  "clave": "mat.s3.terminos-financieros",
+                  "nombre": "Capital, tasa, tiempo, interés y monto",
+                  "descripcion": "Identifica los elementos de una operación financiera de ahorro o préstamo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "mat.s3.tasa-mensual-anual",
+                  "nombre": "Equivalencia entre tasas de interés simple mensual y anual",
+                  "descripcion": "Convierte tasas y tiempos a la misma unidad antes de calcular el interés.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-05",
+                    "MAT-C23-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.interes-simple"
+                  ],
+                  "ordenSugerido": 58
+                },
+                {
+                  "clave": "mat.s3.estado-cuenta",
+                  "nombre": "Lectura de un estado de cuenta bancario",
+                  "descripcion": "Interpreta saldos, intereses, comisiones e ITF en un estado de cuenta.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.itf"
+                  ],
+                  "ordenSugerido": 61
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos de estimación y cálculo",
+          "bloques": [
+            {
+              "nombre": "Números racionales y decimales",
+              "temas": [
+                {
+                  "clave": "mat.s3.generatriz-periodico-mixto",
+                  "nombre": "Fracción generatriz de un decimal periódico mixto",
+                  "descripcion": "Obtiene la fracción que genera un decimal periódico mixto y la comprueba dividiendo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-04",
+                    "MAT-C23-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.decimal-periodico-mixto"
+                  ],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "mat.s3.operaciones-con-periodicos",
+                  "nombre": "Operaciones con decimales periódicos usando su generatriz",
+                  "descripcion": "Suma, resta, multiplica y divide decimales periódicos convirtiéndolos en fracciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-07",
+                    "MAT-C23-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.generatriz-periodico-mixto"
+                  ],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "mat.s3.fracciones-complejas",
+                  "nombre": "Fracciones complejas y operaciones combinadas en Q",
+                  "descripcion": "Simplifica expresiones con fracciones dentro de fracciones respetando la jerarquía.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-06",
+                    "MAT-C23-S3-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 6
+                }
+              ]
+            },
+            {
+              "nombre": "Notación científica",
+              "temas": [
+                {
+                  "clave": "mat.s3.multiplicacion-division-cientifica",
+                  "nombre": "Multiplicación y división en notación científica",
+                  "descripcion": "Opera cantidades en notación científica aplicando las propiedades de las potencias.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.notacion-cientifica"
+                  ],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "mat.s3.adicion-sustraccion-cientifica",
+                  "nombre": "Adición y sustracción en notación científica",
+                  "descripcion": "Iguala exponentes para sumar o restar cantidades en notación científica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.notacion-cientifica"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "mat.s3.redondeo-cifras-significativas",
+                  "nombre": "Redondeo y cifras significativas",
+                  "descripcion": "Redondea resultados a las cifras significativas que exige la situación.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.notacion-cientifica"
+                  ],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "mat.s3.cientifica-calculadora",
+                  "nombre": "Notación científica en la calculadora y la hoja de cálculo",
+                  "descripcion": "Interpreta y registra resultados que la calculadora o la hoja de cálculo muestran como 3,2E8.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-03",
+                    "MAT-C23-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.redondeo-cifras-significativas"
+                  ],
+                  "ordenSugerido": 35
+                }
+              ]
+            },
+            {
+              "nombre": "Interés simple y finanzas",
+              "temas": [
+                {
+                  "clave": "mat.s3.capital-tasa-tiempo",
+                  "nombre": "Capital, tasa o tiempo desconocidos en interés simple",
+                  "descripcion": "Despeja el dato que falta en la fórmula del interés simple.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.tasa-mensual-anual"
+                  ],
+                  "ordenSugerido": 59
+                },
+                {
+                  "clave": "mat.s3.itf",
+                  "nombre": "Impuesto a las transacciones financieras (ITF)",
+                  "descripcion": "Calcula el ITF de depósitos y retiros e interpreta su efecto en el saldo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-05",
+                    "MAT-C23-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.terminos-financieros"
+                  ],
+                  "ordenSugerido": 60
+                }
+              ]
+            },
+            {
+              "nombre": "Medidas",
+              "temas": [
+                {
+                  "clave": "mat.s3.tiempo-decimal-sexagesimal",
+                  "nombre": "Tiempo en forma decimal y sexagesimal",
+                  "descripcion": "Convierte entre expresiones como 2,75 h y 2 h 45 min y opera con ellas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 91
+                },
+                {
+                  "clave": "mat.s3.unidades-masa-tradicionales",
+                  "nombre": "Unidades de masa tradicionales y del sistema internacional",
+                  "descripcion": "Convierte entre toneladas, quintales, arrobas, kilogramos y gramos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 92
+                },
+                {
+                  "clave": "mat.s3.variacion-temperatura-escalas",
+                  "nombre": "Variaciones de temperatura en distintas escalas",
+                  "descripcion": "Convierte variaciones de temperatura sabiendo que 1 °C equivale a 1,8 °F y a 1 K.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 93
+                },
+                {
+                  "clave": "mat.s3.error-medicion",
+                  "nombre": "Precisión de instrumentos y error de medición",
+                  "descripcion": "Elige el instrumento adecuado y estima el error de una medida de masa, tiempo o temperatura.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 94
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números racionales y decimales",
+              "temas": [
+                {
+                  "clave": "mat.s3.tipo-decimal-denominador",
+                  "nombre": "Tipo de decimal según los factores del denominador",
+                  "descripcion": "Predice si una fracción da decimal exacto, periódico puro o mixto y lo justifica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-09",
+                    "MAT-C23-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.generatriz-periodico-mixto"
+                  ],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "mat.s3.propiedades-q-conexiones",
+                  "nombre": "Conexiones entre las operaciones con racionales y sus propiedades",
+                  "descripcion": "Explica cómo la distributiva, el inverso y la clausura en Q simplifican cálculos y comprueba afirmaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-06",
+                    "MAT-C23-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.fracciones-complejas"
+                  ],
+                  "ordenSugerido": 7
+                }
+              ]
+            },
+            {
+              "nombre": "Interés simple y finanzas",
+              "temas": [
+                {
+                  "clave": "mat.s3.comparar-prestamos-ahorros",
+                  "nombre": "Comparación de préstamos y ahorros con diferentes tasas",
+                  "descripcion": "Justifica qué opción financiera conviene comparando intereses y montos finales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S3-01",
+                    "MAT-C23-S3-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.capital-tasa-tiempo"
+                  ],
+                  "ordenSugerido": 62
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 24,
+      "nombre": "Resuelve problemas de regularidad, equivalencia y cambio",
+      "capacidades": [
+        {
+          "nombre": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+          "bloques": [
+            {
+              "nombre": "Inecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s3.inecuaciones-ax-b-c",
+                  "nombre": "Inecuaciones de la forma ax ± b < c",
+                  "descripcion": "Resuelve inecuaciones con coeficientes racionales y expresa la solución con intervalos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-01",
+                    "MAT-C24-S3-04",
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 17
+                },
+                {
+                  "clave": "mat.s3.inecuaciones-ganancia-carga",
+                  "nombre": "Inecuaciones en situaciones de ganancia mínima y límite de carga",
+                  "descripcion": "Modela condiciones de ganancia mínima, carga máxima o nota mínima e interpreta la solución.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-01",
+                    "MAT-C24-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.inecuaciones-ax-b-c"
+                  ],
+                  "ordenSugerido": 19
+                }
+              ]
+            },
+            {
+              "nombre": "Sistemas de ecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s3.plantear-sistemas",
+                  "nombre": "Planteamiento de sistemas de dos ecuaciones lineales",
+                  "descripcion": "Traduce dos condiciones con dos incógnitas a un sistema de ecuaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-01",
+                    "MAT-C24-S3-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "mat.s3.problemas-dos-incognitas",
+                  "nombre": "Problemas de dos incógnitas: monedas, entradas y mezclas",
+                  "descripcion": "Resuelve situaciones con dos cantidades desconocidas eligiendo el método más conveniente.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-01",
+                    "MAT-C24-S3-02",
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.metodo-reduccion",
+                    "mat.s3.metodo-sustitucion"
+                  ],
+                  "ordenSugerido": 45
+                }
+              ]
+            },
+            {
+              "nombre": "Proporcionalidad compuesta",
+              "temas": [
+                {
+                  "clave": "mat.s3.proporcionalidad-compuesta",
+                  "nombre": "Magnitudes en proporcionalidad compuesta",
+                  "descripcion": "Analiza cómo se relaciona una magnitud con otras dos o más a la vez.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 63
+                }
+              ]
+            },
+            {
+              "nombre": "Progresión geométrica",
+              "temas": [
+                {
+                  "clave": "mat.s3.crecimiento-decrecimiento-geometrico",
+                  "nombre": "Situaciones de crecimiento y decrecimiento geométrico",
+                  "descripcion": "Modela reproducción de bacterias, rebotes o depreciación con progresiones geométricas.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-01",
+                    "MAT-C24-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.termino-general-geometrica"
+                  ],
+                  "ordenSugerido": 71
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuación y función cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s3.ecuacion-cuadratica-areas",
+                  "nombre": "Problemas de áreas que llevan a una ecuación ax² = c",
+                  "descripcion": "Plantea y resuelve situaciones de terrenos cuadrados o círculos de área conocida.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-01",
+                    "MAT-C24-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.ecuacion-ax2-c"
+                  ],
+                  "ordenSugerido": 97
+                },
+                {
+                  "clave": "mat.s3.modelo-cuadratico-contexto",
+                  "nombre": "Modelación con funciones cuadráticas de la forma ax² + c",
+                  "descripcion": "Modela caídas libres, áreas o trayectorias simples con f(x) = ax² + c y evalúa el modelo.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-01",
+                    "MAT-C24-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.funcion-ax2-c"
+                  ],
+                  "ordenSugerido": 105
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las relaciones algebraicas",
+          "bloques": [
+            {
+              "nombre": "Productos notables y factorización",
+              "temas": [
+                {
+                  "clave": "mat.s3.productos-notables-areas",
+                  "nombre": "Interpretación geométrica de los productos notables",
+                  "descripcion": "Representa productos notables con áreas de cuadrados y rectángulos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.binomio-cuadrado"
+                  ],
+                  "ordenSugerido": 11
+                }
+              ]
+            },
+            {
+              "nombre": "Inecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s3.soluciones-enteras-inecuacion",
+                  "nombre": "Soluciones enteras de una inecuación",
+                  "descripcion": "Determina cuántos y cuáles enteros cumplen una inecuación según la situación.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-04",
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.inecuaciones-ax-b-c"
+                  ],
+                  "ordenSugerido": 18
+                }
+              ]
+            },
+            {
+              "nombre": "Sistemas de ecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s3.solucion-sistema-par",
+                  "nombre": "Solución de un sistema como par ordenado",
+                  "descripcion": "Comprueba si un par ordenado satisface ambas ecuaciones e interpreta su significado.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.plantear-sistemas"
+                  ],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "mat.s3.tipos-sistemas",
+                  "nombre": "Sistemas con solución única, sin solución o con infinitas soluciones",
+                  "descripcion": "Relaciona rectas secantes, paralelas o coincidentes con el número de soluciones.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-04",
+                    "MAT-C24-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.metodo-grafico-sistemas"
+                  ],
+                  "ordenSugerido": 42
+                }
+              ]
+            },
+            {
+              "nombre": "Progresión geométrica",
+              "temas": [
+                {
+                  "clave": "mat.s3.progresion-geometrica",
+                  "nombre": "Progresión geométrica y su razón",
+                  "descripcion": "Reconoce progresiones donde cada término se obtiene multiplicando por una razón constante.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-01",
+                    "MAT-C24-S3-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 66
+                },
+                {
+                  "clave": "mat.s3.crecimiento-aritmetico-geometrico",
+                  "nombre": "Crecimiento aritmético frente a crecimiento geométrico",
+                  "descripcion": "Compara con tablas y gráficas cómo crece una cantidad que suma frente a una que multiplica.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-03",
+                    "MAT-C24-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.progresion-geometrica"
+                  ],
+                  "ordenSugerido": 69
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuación y función cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s3.soluciones-ax2-c",
+                  "nombre": "Número de soluciones de ax² = c",
+                  "descripcion": "Explica cuándo la ecuación tiene dos, una o ninguna solución real.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.ecuacion-ax2-c"
+                  ],
+                  "ordenSugerido": 96
+                },
+                {
+                  "clave": "mat.s3.funcion-x2",
+                  "nombre": "Función cuadrática f(x) = x²: tabla y parábola",
+                  "descripcion": "Tabula y grafica f(x) = x² y describe su forma y simetría.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 98
+                },
+                {
+                  "clave": "mat.s3.elementos-parabola",
+                  "nombre": "Vértice, eje de simetría, orientación e interceptos de la parábola",
+                  "descripcion": "Identifica los elementos de una parábola en su gráfica y en su regla.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.funcion-x2"
+                  ],
+                  "ordenSugerido": 99
+                },
+                {
+                  "clave": "mat.s3.maximo-minimo-contexto",
+                  "nombre": "Valor máximo o mínimo en situaciones de contexto",
+                  "descripcion": "Interpreta el vértice como la mayor altura o el menor costo en la situación.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.elementos-parabola"
+                  ],
+                  "ordenSugerido": 103
+                },
+                {
+                  "clave": "mat.s3.lineal-vs-cuadratica",
+                  "nombre": "Diferencias entre una función lineal y una cuadrática",
+                  "descripcion": "Compara tablas y gráficas para distinguir variación constante de variación cuadrática.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.funcion-x2"
+                  ],
+                  "ordenSugerido": 104
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+          "bloques": [
+            {
+              "nombre": "Productos notables y factorización",
+              "temas": [
+                {
+                  "clave": "mat.s3.binomio-cuadrado",
+                  "nombre": "Binomio al cuadrado",
+                  "descripcion": "Desarrolla (a ± b)² y explica por qué no es igual a a² ± b².",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 10
+                },
+                {
+                  "clave": "mat.s3.binomios-conjugados",
+                  "nombre": "Producto de binomios conjugados",
+                  "descripcion": "Multiplica (a + b)(a − b) y obtiene una diferencia de cuadrados.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.binomio-cuadrado"
+                  ],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "mat.s3.binomios-termino-comun",
+                  "nombre": "Producto de binomios con término común",
+                  "descripcion": "Desarrolla (x + a)(x + b) sumando y multiplicando los términos no comunes.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.binomio-cuadrado"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "mat.s3.factor-comun",
+                  "nombre": "Factorización por factor común",
+                  "descripcion": "Extrae el factor común monomio o polinomio de una expresión.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "mat.s3.factorizar-diferencia-cuadrados",
+                  "nombre": "Factorización de una diferencia de cuadrados",
+                  "descripcion": "Factoriza a² − b² como producto de binomios conjugados.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.binomios-conjugados",
+                    "mat.s3.factor-comun"
+                  ],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "mat.s3.factorizar-trinomio-cuadrado",
+                  "nombre": "Factorización de trinomios cuadrados perfectos",
+                  "descripcion": "Reconoce un trinomio cuadrado perfecto y lo escribe como binomio al cuadrado.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.factorizar-diferencia-cuadrados"
+                  ],
+                  "ordenSugerido": 16
+                }
+              ]
+            },
+            {
+              "nombre": "Sistemas de ecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s3.metodo-grafico-sistemas",
+                  "nombre": "Método gráfico para sistemas de ecuaciones",
+                  "descripcion": "Grafica las dos rectas y lee la solución en su punto de intersección.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-04",
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.solucion-sistema-par"
+                  ],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "mat.s3.metodo-sustitucion",
+                  "nombre": "Método de sustitución",
+                  "descripcion": "Despeja una incógnita y la sustituye en la otra ecuación.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.solucion-sistema-par"
+                  ],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "mat.s3.metodo-igualacion",
+                  "nombre": "Método de igualación",
+                  "descripcion": "Despeja la misma incógnita en ambas ecuaciones e iguala las expresiones.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.solucion-sistema-par"
+                  ],
+                  "ordenSugerido": 40
+                },
+                {
+                  "clave": "mat.s3.metodo-reduccion",
+                  "nombre": "Método de reducción",
+                  "descripcion": "Elimina una incógnita sumando o restando ecuaciones multiplicadas convenientemente.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.solucion-sistema-par"
+                  ],
+                  "ordenSugerido": 41
+                }
+              ]
+            },
+            {
+              "nombre": "Proporcionalidad compuesta",
+              "temas": [
+                {
+                  "clave": "mat.s3.regla-tres-compuesta",
+                  "nombre": "Regla de tres compuesta",
+                  "descripcion": "Resuelve situaciones de obreros, días y obra con regla de tres compuesta.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.proporcionalidad-compuesta"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "mat.s3.reparto-directo-inverso",
+                  "nombre": "Reparto proporcional mixto: directo e inverso a la vez",
+                  "descripcion": "Reparte cantidades en forma directamente proporcional a unos datos e inversa a otros.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.proporcionalidad-compuesta"
+                  ],
+                  "ordenSugerido": 65
+                }
+              ]
+            },
+            {
+              "nombre": "Progresión geométrica",
+              "temas": [
+                {
+                  "clave": "mat.s3.termino-general-geometrica",
+                  "nombre": "Término enésimo de una progresión geométrica",
+                  "descripcion": "Halla cualquier término con aₙ = a₁ · rⁿ⁻¹.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-03",
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.progresion-geometrica"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "mat.s3.medios-geometricos",
+                  "nombre": "Términos desconocidos e interpolación de medios geométricos",
+                  "descripcion": "Halla términos faltantes y la razón entre dos términos conocidos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.termino-general-geometrica"
+                  ],
+                  "ordenSugerido": 68
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuación y función cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s3.ecuacion-ax2-c",
+                  "nombre": "Ecuación cuadrática de la forma ax² = c",
+                  "descripcion": "Resuelve ax² = c obteniendo las dos raíces y las comprueba.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-01",
+                    "MAT-C24-S3-04",
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 95
+                },
+                {
+                  "clave": "mat.s3.funcion-ax2-c",
+                  "nombre": "Gráfica de f(x) = ax² + c",
+                  "descripcion": "Grafica funciones de la forma ax² + c a partir de una tabla y de sus elementos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-05",
+                    "MAT-C24-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.elementos-parabola"
+                  ],
+                  "ordenSugerido": 100
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+          "bloques": [
+            {
+              "nombre": "Sistemas de ecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s3.sistemas-equivalentes",
+                  "nombre": "Sistemas de ecuaciones equivalentes",
+                  "descripcion": "Justifica por qué dos sistemas distintos tienen la misma solución.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.metodo-reduccion"
+                  ],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "mat.s3.punto-equilibrio-tarifas",
+                  "nombre": "Punto de equilibrio entre dos tarifas",
+                  "descripcion": "Interpreta la intersección de dos funciones lineales como el valor donde dos planes cuestan igual.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-01",
+                    "MAT-C24-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.metodo-grafico-sistemas"
+                  ],
+                  "ordenSugerido": 44
+                }
+              ]
+            },
+            {
+              "nombre": "Progresión geométrica",
+              "temas": [
+                {
+                  "clave": "mat.s3.posicion-termino-geometrica",
+                  "nombre": "Relación entre la posición y el término en una progresión geométrica",
+                  "descripcion": "Justifica si un número pertenece a una progresión geométrica y en qué lugar.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.termino-general-geometrica"
+                  ],
+                  "ordenSugerido": 70
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuación y función cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s3.signo-valor-a",
+                  "nombre": "Efecto del signo y del valor de a en la parábola",
+                  "descripcion": "Justifica cómo a abre, cierra o invierte la parábola.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06",
+                    "MAT-C24-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.funcion-ax2-c"
+                  ],
+                  "ordenSugerido": 101
+                },
+                {
+                  "clave": "mat.s3.efecto-c-parabola",
+                  "nombre": "Efecto de c: traslación vertical de la parábola",
+                  "descripcion": "Justifica cómo c desplaza el vértice y los interceptos de la parábola.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S3-06",
+                    "MAT-C24-S3-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.funcion-ax2-c"
+                  ],
+                  "ordenSugerido": 102
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 26,
+      "nombre": "Resuelve problemas de forma, movimiento y localización",
+      "capacidades": [
+        {
+          "nombre": "Modela objetos con formas geométricas y sus transformaciones",
+          "bloques": [
+            {
+              "nombre": "Plano cartesiano",
+              "temas": [
+                {
+                  "clave": "mat.s3.figuras-por-coordenadas",
+                  "nombre": "Clasificación de triángulos y cuadriláteros por sus coordenadas",
+                  "descripcion": "Usa distancias entre vértices para clasificar figuras dadas en el plano.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-01",
+                    "MAT-C26-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.distancia-dos-puntos"
+                  ],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "mat.s3.planos-escala-coordenadas",
+                  "nombre": "Planos a escala con coordenadas cartesianas",
+                  "descripcion": "Ubica lugares y describe recorridos en un plano a escala con ejes de coordenadas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.punto-medio"
+                  ],
+                  "ordenSugerido": 23
+                }
+              ]
+            },
+            {
+              "nombre": "Polígonos, prismas y cilindro",
+              "temas": [
+                {
+                  "clave": "mat.s3.solidos-compuestos-cilindro",
+                  "nombre": "Área y volumen de sólidos compuestos con prismas y cilindros",
+                  "descripcion": "Modela objetos reales como combinación de prismas y cilindros y calcula sus medidas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-01",
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.volumen-cilindro",
+                    "mat.s3.prisma-base-regular"
+                  ],
+                  "ordenSugerido": 80
+                },
+                {
+                  "clave": "mat.s3.diseno-envases",
+                  "nombre": "Diseño de envases: relación entre área y volumen",
+                  "descripcion": "Compara envases de igual volumen y distinta forma según el material que usan.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-01",
+                    "MAT-C26-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.volumen-cilindro"
+                  ],
+                  "ordenSugerido": 82
+                }
+              ]
+            },
+            {
+              "nombre": "Transformaciones y mapas",
+              "temas": [
+                {
+                  "clave": "mat.s3.transformaciones-coordenadas",
+                  "nombre": "Transformaciones expresadas con coordenadas",
+                  "descripcion": "Describe traslaciones, reflexiones y ampliaciones con reglas sobre las coordenadas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 107
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las formas y relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Relaciones métricas y trigonometría",
+              "temas": [
+                {
+                  "clave": "mat.s3.semejanza-razones",
+                  "nombre": "Semejanza de triángulos rectángulos y razones trigonométricas",
+                  "descripcion": "Explica que las razones entre lados no cambian en triángulos rectángulos semejantes.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-03",
+                    "MAT-C26-S3-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "mat.s3.razones-trigonometricas",
+                  "nombre": "Razones trigonométricas seno, coseno y tangente",
+                  "descripcion": "Define y calcula seno, coseno y tangente de un ángulo agudo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-03",
+                    "MAT-C26-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.semejanza-razones"
+                  ],
+                  "ordenSugerido": 49
+                },
+                {
+                  "clave": "mat.s3.razones-reciprocas",
+                  "nombre": "Cotangente, secante y cosecante",
+                  "descripcion": "Reconoce las razones recíprocas y su relación con seno, coseno y tangente.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.razones-trigonometricas"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "mat.s3.triangulos-notables",
+                  "nombre": "Triángulos rectángulos notables",
+                  "descripcion": "Usa las proporciones de los triángulos de 45°, 30°-60° y 37°-53°.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-03",
+                    "MAT-C26-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.razones-trigonometricas"
+                  ],
+                  "ordenSugerido": 51
+                }
+              ]
+            },
+            {
+              "nombre": "Polígonos, prismas y cilindro",
+              "temas": [
+                {
+                  "clave": "mat.s3.clasificacion-poligonos",
+                  "nombre": "Clasificación de polígonos",
+                  "descripcion": "Clasifica polígonos en convexos o cóncavos y regulares o irregulares según sus propiedades.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "mat.s3.prismas-cilindro-clasificacion",
+                  "nombre": "Prismas rectos, oblicuos y el cilindro",
+                  "descripcion": "Clasifica prismas y reconoce el cilindro como cuerpo redondo con sus elementos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-01",
+                    "MAT-C26-S3-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 75
+                }
+              ]
+            },
+            {
+              "nombre": "Transformaciones y mapas",
+              "temas": [
+                {
+                  "clave": "mat.s3.secuencias-transformaciones-equivalentes",
+                  "nombre": "Secuencias de transformaciones equivalentes",
+                  "descripcion": "Justifica cuándo dos secuencias de transformaciones llevan una figura a la misma posición.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 106
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+          "bloques": [
+            {
+              "nombre": "Plano cartesiano",
+              "temas": [
+                {
+                  "clave": "mat.s3.distancia-dos-puntos",
+                  "nombre": "Distancia entre dos puntos en el plano cartesiano",
+                  "descripcion": "Calcula la distancia entre dos puntos con su fórmula algebraica.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-02",
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "mat.s3.punto-medio",
+                  "nombre": "Punto medio de un segmento",
+                  "descripcion": "Halla el punto medio de un segmento a partir de las coordenadas de sus extremos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.distancia-dos-puntos"
+                  ],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "mat.s3.area-por-coordenadas",
+                  "nombre": "Área de polígonos por coordenadas de sus vértices",
+                  "descripcion": "Calcula áreas de polígonos irregulares con el método de los determinantes.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.figuras-por-coordenadas"
+                  ],
+                  "ordenSugerido": 24
+                }
+              ]
+            },
+            {
+              "nombre": "Relaciones métricas y trigonometría",
+              "temas": [
+                {
+                  "clave": "mat.s3.relaciones-metricas-rectangulo",
+                  "nombre": "Relaciones métricas en el triángulo rectángulo",
+                  "descripcion": "Usa las relaciones entre catetos, hipotenusa, altura y proyecciones para hallar longitudes.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "mat.s3.razones-angulos-notables",
+                  "nombre": "Razones trigonométricas de ángulos notables",
+                  "descripcion": "Obtiene las razones de 30°, 37°, 45°, 53° y 60° desde los triángulos notables.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-03",
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.triangulos-notables"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "mat.s3.resolver-triangulo-rectangulo",
+                  "nombre": "Resolución de triángulos rectángulos",
+                  "descripcion": "Halla lados y ángulos desconocidos con razones trigonométricas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.razones-angulos-notables"
+                  ],
+                  "ordenSugerido": 53
+                },
+                {
+                  "clave": "mat.s3.angulos-elevacion-depresion",
+                  "nombre": "Ángulos de elevación y de depresión",
+                  "descripcion": "Resuelve situaciones de alturas y distancias con ángulos de elevación y depresión.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-05",
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.resolver-triangulo-rectangulo"
+                  ],
+                  "ordenSugerido": 54
+                }
+              ]
+            },
+            {
+              "nombre": "Polígonos, prismas y cilindro",
+              "temas": [
+                {
+                  "clave": "mat.s3.area-poligono-regular",
+                  "nombre": "Área de un polígono regular con la apotema",
+                  "descripcion": "Calcula el área de polígonos regulares con perímetro y apotema.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.clasificacion-poligonos"
+                  ],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "mat.s3.area-irregular-triangulacion",
+                  "nombre": "Área de regiones irregulares por descomposición en triángulos",
+                  "descripcion": "Divide un terreno irregular en triángulos y suma sus áreas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "mat.s3.desarrollo-cilindro",
+                  "nombre": "Desarrollo plano del cilindro",
+                  "descripcion": "Construye el desarrollo del cilindro y relaciona el largo del rectángulo con la circunferencia de la base.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.prismas-cilindro-clasificacion"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "mat.s3.area-cilindro",
+                  "nombre": "Área lateral y total del cilindro",
+                  "descripcion": "Calcula el área del cilindro a partir de su desarrollo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.desarrollo-cilindro"
+                  ],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "mat.s3.volumen-cilindro",
+                  "nombre": "Volumen del cilindro",
+                  "descripcion": "Calcula el volumen y la capacidad de tanques y envases cilíndricos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.area-cilindro"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "mat.s3.prisma-base-regular",
+                  "nombre": "Área y volumen de prismas de base poligonal regular",
+                  "descripcion": "Calcula área y volumen de prismas hexagonales u octogonales usando la apotema.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.area-poligono-regular"
+                  ],
+                  "ordenSugerido": 79
+                },
+                {
+                  "clave": "mat.s3.reconstruccion-desde-vistas",
+                  "nombre": "Reconstrucción de un sólido a partir de sus vistas",
+                  "descripcion": "Dibuja el sólido y su desarrollo a partir de sus vistas de frente, perfil y base.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.prismas-cilindro-clasificacion"
+                  ],
+                  "ordenSugerido": 81
+                }
+              ]
+            },
+            {
+              "nombre": "Transformaciones y mapas",
+              "temas": [
+                {
+                  "clave": "mat.s3.mapas-diferente-escala",
+                  "nombre": "Comparación de mapas a diferente escala",
+                  "descripcion": "Compara la información de mapas de distinta escala para ubicar lugares.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 108
+                },
+                {
+                  "clave": "mat.s3.rutas-mapas",
+                  "nombre": "Rutas y distancias reales en mapas a escala",
+                  "descripcion": "Determina la ruta más corta y su distancia real combinando mapas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.mapas-diferente-escala"
+                  ],
+                  "ordenSugerido": 109
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Relaciones métricas y trigonometría",
+              "temas": [
+                {
+                  "clave": "mat.s3.ternas-reciproco-pitagoras",
+                  "nombre": "Ternas pitagóricas y recíproco de Pitágoras",
+                  "descripcion": "Decide si un triángulo es rectángulo a partir de sus lados y lo justifica.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.relaciones-metricas-rectangulo"
+                  ],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "mat.s3.propiedades-razones-trigonometricas",
+                  "nombre": "Propiedades de las razones trigonométricas",
+                  "descripcion": "Justifica la relación entre razones de ángulos complementarios y por qué seno y coseno son menores que 1.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.razones-angulos-notables"
+                  ],
+                  "ordenSugerido": 55
+                }
+              ]
+            },
+            {
+              "nombre": "Transformaciones y mapas",
+              "temas": [
+                {
+                  "clave": "mat.s3.razonamiento-inductivo-deductivo",
+                  "nombre": "Razonamiento inductivo y deductivo en geometría",
+                  "descripcion": "Comprueba o descarta afirmaciones geométricas con casos y con propiedades conocidas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S3-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 110
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 25,
+      "nombre": "Resuelve problemas de gestión de datos e incertidumbre",
+      "capacidades": [
+        {
+          "nombre": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+          "bloques": [
+            {
+              "nombre": "Población y muestra",
+              "temas": [
+                {
+                  "clave": "mat.s3.seleccion-variables",
+                  "nombre": "Selección de variables según el objetivo del estudio",
+                  "descripcion": "Elige qué variables estudiar y las clasifica según el propósito de la investigación.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 25
+                }
+              ]
+            },
+            {
+              "nombre": "Medidas de dispersión",
+              "temas": [
+                {
+                  "clave": "mat.s3.graficos-comparativos",
+                  "nombre": "Gráficos de barras dobles y apiladas",
+                  "descripcion": "Representa dos variables o dos grupos en gráficos comparativos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-01",
+                    "MAT-C25-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.observacion-registro"
+                  ],
+                  "ordenSugerido": 83
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s3.espacio-muestral-compuesto",
+                  "nombre": "Espacio muestral de experimentos compuestos",
+                  "descripcion": "Construye el espacio muestral de experimentos de varias etapas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 111
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+          "bloques": [
+            {
+              "nombre": "Población y muestra",
+              "temas": [
+                {
+                  "clave": "mat.s3.sesgo-muestra",
+                  "nombre": "Muestras representativas y sesgo",
+                  "descripcion": "Reconoce cuándo una muestra no representa a la población y corrige el procedimiento.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-05",
+                    "MAT-C25-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.muestreo-aleatorio-simple"
+                  ],
+                  "ordenSugerido": 28
+                }
+              ]
+            },
+            {
+              "nombre": "Medidas de dispersión",
+              "temas": [
+                {
+                  "clave": "mat.s3.rango-dispersion",
+                  "nombre": "Dispersión de los datos y rango",
+                  "descripcion": "Reconoce que grupos con igual media pueden estar más o menos dispersos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-01",
+                    "MAT-C25-S3-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 85
+                },
+                {
+                  "clave": "mat.s3.interpretar-desviacion",
+                  "nombre": "Interpretación de la desviación estándar respecto a la media",
+                  "descripcion": "Explica qué indica una desviación estándar grande o pequeña en el contexto.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.desviacion-estandar"
+                  ],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "mat.s3.informes-estadisticos",
+                  "nombre": "Interpretación de informes con medidas estadísticas",
+                  "descripcion": "Deduce información de textos y gráficos que reportan medias y dispersión.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.interpretar-desviacion"
+                  ],
+                  "ordenSugerido": 90
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s3.independientes-dependientes",
+                  "nombre": "Sucesos independientes y dependientes",
+                  "descripcion": "Distingue si el resultado de una etapa afecta la probabilidad de la siguiente.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-02",
+                    "MAT-C25-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.espacio-muestral-compuesto"
+                  ],
+                  "ordenSugerido": 112
+                },
+                {
+                  "clave": "mat.s3.probable-muy-probable",
+                  "nombre": "Probabilidad como fracción: probable, muy probable o casi seguro",
+                  "descripcion": "Caracteriza la ocurrencia de un suceso según su probabilidad fraccionaria o decimal.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-02",
+                    "MAT-C25-S3-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.propiedades-probabilidad"
+                  ],
+                  "ordenSugerido": 118
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para recopilar y procesar datos",
+          "bloques": [
+            {
+              "nombre": "Población y muestra",
+              "temas": [
+                {
+                  "clave": "mat.s3.muestreo-aleatorio-simple",
+                  "nombre": "Muestreo aleatorio simple",
+                  "descripcion": "Selecciona una muestra al azar con sorteos o tablas de números aleatorios.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "mat.s3.muestreo-sistematico-estratificado",
+                  "nombre": "Muestreo sistemático y estratificado",
+                  "descripcion": "Elige muestras proporcionales a grupos de la población o a intervalos fijos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.muestreo-aleatorio-simple"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "mat.s3.observacion-registro",
+                  "nombre": "Recojo de datos por observación y registro",
+                  "descripcion": "Diseña fichas de observación y organiza los datos en tablas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.seleccion-variables"
+                  ],
+                  "ordenSugerido": 29
+                }
+              ]
+            },
+            {
+              "nombre": "Medidas de dispersión",
+              "temas": [
+                {
+                  "clave": "mat.s3.media-datos-agrupados",
+                  "nombre": "Media de datos agrupados en intervalos",
+                  "descripcion": "Calcula la media con marcas de clase y frecuencias.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-01",
+                    "MAT-C25-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.observacion-registro"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "mat.s3.varianza",
+                  "nombre": "Varianza de datos no agrupados",
+                  "descripcion": "Calcula la varianza como promedio de los cuadrados de las desviaciones a la media.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.rango-dispersion"
+                  ],
+                  "ordenSugerido": 86
+                },
+                {
+                  "clave": "mat.s3.desviacion-estandar",
+                  "nombre": "Desviación estándar de datos no agrupados",
+                  "descripcion": "Calcula la desviación estándar a partir de la varianza.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-01",
+                    "MAT-C25-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.varianza"
+                  ],
+                  "ordenSugerido": 87
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s3.regla-producto",
+                  "nombre": "Probabilidad de sucesos independientes: regla del producto",
+                  "descripcion": "Calcula la probabilidad de que ocurran dos sucesos independientes.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.independientes-dependientes"
+                  ],
+                  "ordenSugerido": 113
+                },
+                {
+                  "clave": "mat.s3.con-sin-reposicion",
+                  "nombre": "Extracciones con y sin reposición",
+                  "descripcion": "Calcula probabilidades en extracciones de urnas o barajas con y sin reposición.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-02",
+                    "MAT-C25-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.regla-producto"
+                  ],
+                  "ordenSugerido": 114
+                },
+                {
+                  "clave": "mat.s3.dependientes-doble-entrada",
+                  "nombre": "Probabilidad de sucesos dependientes con tablas de doble entrada",
+                  "descripcion": "Calcula la probabilidad de un suceso sabiendo que ocurrió otro usando una tabla de doble entrada.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-02",
+                    "MAT-C25-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.con-sin-reposicion"
+                  ],
+                  "ordenSugerido": 115
+                },
+                {
+                  "clave": "mat.s3.propiedades-probabilidad",
+                  "nombre": "Propiedades de la probabilidad: valores entre 0 y 1 y complemento",
+                  "descripcion": "Aplica las propiedades de la probabilidad para calcular y verificar resultados.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.espacio-muestral-compuesto"
+                  ],
+                  "ordenSugerido": 116
+                },
+                {
+                  "clave": "mat.s3.mutuamente-excluyentes",
+                  "nombre": "Sucesos mutuamente excluyentes y regla de la suma",
+                  "descripcion": "Calcula la probabilidad de que ocurra uno u otro suceso que no pueden darse a la vez.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.propiedades-probabilidad"
+                  ],
+                  "ordenSugerido": 117
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Sustenta conclusiones o decisiones con base en la información obtenida",
+          "bloques": [
+            {
+              "nombre": "Medidas de dispersión",
+              "temas": [
+                {
+                  "clave": "mat.s3.comparar-grupos-dispersion",
+                  "nombre": "Comparación de dos grupos con media y desviación estándar",
+                  "descripcion": "Decide qué grupo es más homogéneo o confiable usando media y desviación estándar.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-04",
+                    "MAT-C25-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.interpretar-desviacion"
+                  ],
+                  "ordenSugerido": 89
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s3.inferencias-muestra",
+                  "nombre": "Inferencias sobre una población a partir de una muestra",
+                  "descripcion": "Plantea conclusiones sobre una población y reconoce sus límites según la muestra.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.sesgo-muestra"
+                  ],
+                  "ordenSugerido": 119
+                },
+                {
+                  "clave": "mat.s3.decisiones-con-probabilidad",
+                  "nombre": "Decisiones con base en probabilidades",
+                  "descripcion": "Justifica decisiones en juegos o riesgos usando probabilidades de sucesos independientes.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S3-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s3.regla-producto"
+                  ],
+                  "ordenSugerido": 120
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

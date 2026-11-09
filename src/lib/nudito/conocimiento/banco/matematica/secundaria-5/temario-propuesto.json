@@ -1,0 +1,1745 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "matematica",
+  "nivel": "secundaria",
+  "grado": 5,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Secundaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+    },
+    {
+      "titulo": "Resolvamos problemas 5: manual para el docente, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/5835"
+    },
+    {
+      "titulo": "Texto de Matemática 5, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/12635"
+    },
+    {
+      "titulo": "Matemática 5: cuaderno de autoaprendizaje, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/8336"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 23,
+      "nombre": "Resuelve problemas de cantidad",
+      "capacidades": [
+        {
+          "nombre": "Traduce cantidades a expresiones numéricas",
+          "bloques": [
+            {
+              "nombre": "Matemática financiera",
+              "temas": [
+                {
+                  "clave": "mat.s5.capitalizacion-periodica",
+                  "nombre": "Interés compuesto con capitalización mensual, trimestral y diaria",
+                  "descripcion": "Calcula montos según la frecuencia de capitalización y compara resultados.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-01",
+                    "MAT-C23-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.tasa-nominal-efectiva"
+                  ],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "mat.s5.cuotas-prestamo",
+                  "nombre": "Cuotas fijas de un préstamo y cronograma de pagos",
+                  "descripcion": "Interpreta un cronograma de cuotas y separa en cada pago el interés y la amortización.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-01",
+                    "MAT-C23-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.tcea-gastos"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "mat.s5.ahorro-programado",
+                  "nombre": "Ahorro programado con depósitos periódicos",
+                  "descripcion": "Modela el monto acumulado con depósitos iguales en cada periodo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.capitalizacion-periodica"
+                  ],
+                  "ordenSugerido": 58
+                },
+                {
+                  "clave": "mat.s5.ajustar-modelos-numericos",
+                  "nombre": "Ajuste de un modelo numérico a problemas similares",
+                  "descripcion": "Revisa si la expresión planteada reproduce la situación y la adapta a variantes del problema.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.capitalizacion-periodica"
+                  ],
+                  "ordenSugerido": 63
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre los números y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números reales",
+              "temas": [
+                {
+                  "clave": "mat.s5.irracionales-notables",
+                  "nombre": "Los irracionales π, e y φ",
+                  "descripcion": "Reconoce el origen de π, e y la razón áurea y usa sus aproximaciones habituales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-03",
+                    "MAT-C23-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "mat.s5.racional-como-fraccion",
+                  "nombre": "El número racional como cociente de enteros",
+                  "descripcion": "Expresa todo racional como fracción a/b y justifica que un decimal periódico es racional.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "mat.s5.recta-real-completa",
+                  "nombre": "Correspondencia entre los puntos de la recta y los números reales",
+                  "descripcion": "Asocia puntos de la recta con racionales e irracionales y explica por qué Q no la llena.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.racional-como-fraccion",
+                    "mat.s5.irracionales-notables"
+                  ],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "mat.s5.redondeo-truncamiento",
+                  "nombre": "Aproximación de π, e y φ por redondeo y truncamiento",
+                  "descripcion": "Aproxima π, √3 o φ al número de cifras requerido y compara ambos procedimientos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-03",
+                    "MAT-C23-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.irracionales-notables"
+                  ],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "mat.s5.comparar-expresiones-irracionales",
+                  "nombre": "Comparación de expresiones irracionales mediante aproximaciones",
+                  "descripcion": "Decide cuál de dos expresiones con raíces o π es mayor usando aproximaciones adecuadas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.redondeo-truncamiento"
+                  ],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "mat.s5.operaciones-irracionales-aproximados",
+                  "nombre": "Operaciones combinadas con irracionales aproximados",
+                  "descripcion": "Opera con racionales e irracionales aproximados y decide cuántas cifras conservar.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-06",
+                    "MAT-C23-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.redondeo-truncamiento"
+                  ],
+                  "ordenSugerido": 6
+                }
+              ]
+            },
+            {
+              "nombre": "Notación exponencial",
+              "temas": [
+                {
+                  "clave": "mat.s5.exponentes-fraccionarios",
+                  "nombre": "Exponentes fraccionarios y radicales",
+                  "descripcion": "Convierte raíces en potencias de exponente fraccionario y opera con las leyes de exponentes.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-06",
+                    "MAT-C23-S5-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "mat.s5.prefijos-si",
+                  "nombre": "Prefijos del Sistema Internacional, de nano a tera",
+                  "descripcion": "Convierte entre prefijos del SI usando potencias de 10.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 28
+                },
+                {
+                  "clave": "mat.s5.orden-de-magnitud",
+                  "nombre": "Orden de magnitud y estimaciones",
+                  "descripcion": "Estima resultados por su orden de magnitud y compara cantidades de escalas muy distintas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-06",
+                    "MAT-C23-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.prefijos-si"
+                  ],
+                  "ordenSugerido": 29
+                }
+              ]
+            },
+            {
+              "nombre": "Matemática financiera",
+              "temas": [
+                {
+                  "clave": "mat.s5.tasa-nominal-efectiva",
+                  "nombre": "Tasa nominal y tasa efectiva anual (TEA)",
+                  "descripcion": "Distingue la tasa nominal de la efectiva y convierte una en la otra.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "mat.s5.tcea-gastos",
+                  "nombre": "Costo efectivo de un crédito (TCEA) y gastos de operación",
+                  "descripcion": "Interpreta la TCEA de un crédito incluyendo comisiones, seguros y gastos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-05",
+                    "MAT-C23-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.tasa-nominal-efectiva"
+                  ],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "mat.s5.inflacion-poder-adquisitivo",
+                  "nombre": "Inflación y poder adquisitivo",
+                  "descripcion": "Interpreta la variación de precios y su efecto sobre el valor real del dinero y del ahorro.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 59
+                },
+                {
+                  "clave": "mat.s5.indice-per-capita",
+                  "nombre": "Índice per cápita e indicadores económicos",
+                  "descripcion": "Calcula e interpreta indicadores per cápita, como el ingreso o el gasto por habitante.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 60
+                },
+                {
+                  "clave": "mat.s5.renta-cuarta-categoria",
+                  "nombre": "Impuesto a la renta de trabajadores independientes (cuarta categoría)",
+                  "descripcion": "Calcula retenciones y el impuesto anual de un trabajador que emite recibos por honorarios.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 61
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos de estimación y cálculo",
+          "bloques": [
+            {
+              "nombre": "Números reales",
+              "temas": [
+                {
+                  "clave": "mat.s5.valor-absoluto-distancia",
+                  "nombre": "Valor absoluto como distancia en la recta real",
+                  "descripcion": "Interpreta el valor absoluto de x − a como distancia y lo relaciona con intervalos centrados en a.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "mat.s5.margen-de-error",
+                  "nombre": "Intervalos para expresar márgenes de error",
+                  "descripcion": "Expresa una medida con su margen, como 2,35 ± 0,05, y la traduce a un intervalo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.valor-absoluto-distancia"
+                  ],
+                  "ordenSugerido": 10
+                }
+              ]
+            },
+            {
+              "nombre": "Magnitudes derivadas",
+              "temas": [
+                {
+                  "clave": "mat.s5.velocidad-aceleracion-mruv",
+                  "nombre": "Velocidad y aceleración en el movimiento uniformemente variado",
+                  "descripcion": "Estima velocidades y aceleraciones en recorridos con cambio de rapidez.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 91
+                },
+                {
+                  "clave": "mat.s5.densidad-caudal-presion",
+                  "nombre": "Densidad, caudal y presión como magnitudes derivadas",
+                  "descripcion": "Expresa estas magnitudes con sus unidades y las estima en situaciones cotidianas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 92
+                },
+                {
+                  "clave": "mat.s5.factores-conversion",
+                  "nombre": "Conversión de unidades compuestas con factores de conversión",
+                  "descripcion": "Convierte unidades compuestas, como kg/m³ a g/cm³ o L/min a m³/h, encadenando factores.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.densidad-caudal-presion"
+                  ],
+                  "ordenSugerido": 93
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números reales",
+              "temas": [
+                {
+                  "clave": "mat.s5.error-acumulado",
+                  "nombre": "Error acumulado al redondear en cálculos encadenados",
+                  "descripcion": "Justifica cuándo conviene redondear al final y cuándo en cada paso de un cálculo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.operaciones-irracionales-aproximados"
+                  ],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "mat.s5.afirmaciones-raices-aproximadas",
+                  "nombre": "Afirmaciones sobre operaciones con raíces aproximadas",
+                  "descripcion": "Comprueba o refuta con ejemplos y contraejemplos propiedades de las operaciones con raíces aproximadas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.operaciones-irracionales-aproximados"
+                  ],
+                  "ordenSugerido": 8
+                }
+              ]
+            },
+            {
+              "nombre": "Matemática financiera",
+              "temas": [
+                {
+                  "clave": "mat.s5.conveniencia-tasas",
+                  "nombre": "Conveniencia de tasas y productos financieros",
+                  "descripcion": "Argumenta con cálculos qué tasa o producto financiero conviene en cada caso.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.tcea-gastos",
+                    "mat.s5.ahorro-programado"
+                  ],
+                  "ordenSugerido": 62
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 24,
+      "nombre": "Resuelve problemas de regularidad, equivalencia y cambio",
+      "capacidades": [
+        {
+          "nombre": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+          "bloques": [
+            {
+              "nombre": "Sucesiones",
+              "temas": [
+                {
+                  "clave": "mat.s5.sucesiones-crecientes-decrecientes",
+                  "nombre": "Sucesiones crecientes y decrecientes",
+                  "descripcion": "Determina si una sucesión crece o decrece analizando su término general.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-01",
+                    "MAT-C24-S5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 11
+                }
+              ]
+            },
+            {
+              "nombre": "Inecuaciones y sistemas",
+              "temas": [
+                {
+                  "clave": "mat.s5.inecuaciones-cuadraticas",
+                  "nombre": "Inecuaciones cuadráticas",
+                  "descripcion": "Resuelve ax² + bx + c > 0 con los puntos críticos y la gráfica de la parábola.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-01",
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "mat.s5.inecuaciones-dos-variables",
+                  "nombre": "Inecuaciones lineales con dos variables y región factible",
+                  "descripcion": "Grafica semiplanos y la región que cumple varias restricciones a la vez.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-01",
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 35
+                },
+                {
+                  "clave": "mat.s5.programacion-lineal",
+                  "nombre": "Programación lineal: máximo y mínimo en la región factible",
+                  "descripcion": "Optimiza una ganancia o un costo evaluando los vértices de la región factible.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-01",
+                    "MAT-C24-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.inecuaciones-dos-variables"
+                  ],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "mat.s5.sistemas-tres-incognitas",
+                  "nombre": "Sistemas de ecuaciones lineales con tres incógnitas",
+                  "descripcion": "Plantea y resuelve sistemas 3 × 3 por reducción.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-01",
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "mat.s5.ajustar-modelos-algebraicos",
+                  "nombre": "Ajuste de un modelo algebraico a nuevas condiciones",
+                  "descripcion": "Modifica una ecuación, inecuación o gráfica cuando no cumple todas las condiciones del problema.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.programacion-lineal"
+                  ],
+                  "ordenSugerido": 40
+                }
+              ]
+            },
+            {
+              "nombre": "Función cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s5.cuadratica-desde-datos",
+                  "nombre": "Función cuadrática a partir de tres puntos o de datos",
+                  "descripcion": "Halla los coeficientes de una función cuadrática que pasa por puntos dados.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-01",
+                    "MAT-C24-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.forma-canonica"
+                  ],
+                  "ordenSugerido": 71
+                }
+              ]
+            },
+            {
+              "nombre": "Función exponencial",
+              "temas": [
+                {
+                  "clave": "mat.s5.funcion-exponencial",
+                  "nombre": "Función exponencial f(x) = a·bˣ",
+                  "descripcion": "Reconoce situaciones en que una magnitud se multiplica por un factor constante en cada periodo.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-01",
+                    "MAT-C24-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "mat.s5.modelos-exponenciales",
+                  "nombre": "Modelos exponenciales de poblaciones y desintegración",
+                  "descripcion": "Modela crecimiento de bacterias o poblaciones y desintegración radiactiva.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-01",
+                    "MAT-C24-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.crecimiento-decrecimiento-exponencial"
+                  ],
+                  "ordenSugerido": 99
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las relaciones algebraicas",
+          "bloques": [
+            {
+              "nombre": "Sucesiones",
+              "temas": [
+                {
+                  "clave": "mat.s5.sucesiones-cuadraticas",
+                  "nombre": "Término general de sucesiones cuadráticas",
+                  "descripcion": "Halla aₙ = an² + bn + c a partir de las diferencias sucesivas.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-03",
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.sucesiones-crecientes-decrecientes"
+                  ],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "mat.s5.sucesiones-acotadas",
+                  "nombre": "Sucesiones acotadas y valor al que se acercan",
+                  "descripcion": "Describe si los términos se aproximan a un valor fijo observando tablas y gráficas.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-03",
+                    "MAT-C24-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.sucesiones-crecientes-decrecientes"
+                  ],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "mat.s5.suma-pg-infinita",
+                  "nombre": "Suma de una progresión geométrica infinita decreciente",
+                  "descripcion": "Calcula a₁/(1 − r) e interpreta qué significa sumar infinitos términos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-03",
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.sucesiones-acotadas"
+                  ],
+                  "ordenSugerido": 16
+                }
+              ]
+            },
+            {
+              "nombre": "Función cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s5.forma-canonica",
+                  "nombre": "Forma canónica de la función cuadrática",
+                  "descripcion": "Escribe f(x) = a(x − h)² + k completando cuadrados y lee el vértice directamente.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "mat.s5.desplazamientos-parabola",
+                  "nombre": "Desplazamientos horizontales y verticales de la parábola",
+                  "descripcion": "Describe cómo se traslada la gráfica de y = x² al cambiar h y k.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.forma-canonica"
+                  ],
+                  "ordenSugerido": 68
+                },
+                {
+                  "clave": "mat.s5.dilatacion-contraccion-parabola",
+                  "nombre": "Dilatación, contracción y reflexión de la parábola",
+                  "descripcion": "Describe el efecto del coeficiente a en la abertura y la orientación de la parábola.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-05",
+                    "MAT-C24-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.forma-canonica"
+                  ],
+                  "ordenSugerido": 69
+                },
+                {
+                  "clave": "mat.s5.tiro-parabolico",
+                  "nombre": "Altura máxima y alcance en el movimiento parabólico",
+                  "descripcion": "Interpreta el vértice y los interceptos en problemas de lanzamientos y trayectorias.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-04",
+                    "MAT-C24-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.forma-canonica"
+                  ],
+                  "ordenSugerido": 70
+                }
+              ]
+            },
+            {
+              "nombre": "Función exponencial",
+              "temas": [
+                {
+                  "clave": "mat.s5.grafica-exponencial",
+                  "nombre": "Gráfica de la función exponencial: asíntota, dominio y rango",
+                  "descripcion": "Tabula y grafica funciones exponenciales e identifica su asíntota horizontal.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.funcion-exponencial"
+                  ],
+                  "ordenSugerido": 95
+                },
+                {
+                  "clave": "mat.s5.crecimiento-decrecimiento-exponencial",
+                  "nombre": "Crecimiento y decrecimiento exponencial",
+                  "descripcion": "Distingue el comportamiento cuando b > 1 y cuando 0 < b < 1.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-05",
+                    "MAT-C24-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.grafica-exponencial"
+                  ],
+                  "ordenSugerido": 96
+                },
+                {
+                  "clave": "mat.s5.transformaciones-exponencial",
+                  "nombre": "Variación de los coeficientes de la función exponencial",
+                  "descripcion": "Describe cómo se desplaza, estira o refleja la gráfica al cambiar sus coeficientes.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.grafica-exponencial"
+                  ],
+                  "ordenSugerido": 97
+                },
+                {
+                  "clave": "mat.s5.funcion-exponencial-natural",
+                  "nombre": "Función exponencial natural y el número e",
+                  "descripcion": "Usa f(x) = eˣ en modelos de crecimiento continuo.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.grafica-exponencial"
+                  ],
+                  "ordenSugerido": 98
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+          "bloques": [
+            {
+              "nombre": "Sucesiones",
+              "temas": [
+                {
+                  "clave": "mat.s5.sucesiones-recurrencia",
+                  "nombre": "Sucesiones definidas por recurrencia",
+                  "descripcion": "Genera términos de sucesiones como la de Fibonacci a partir de los anteriores.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.sucesiones-crecientes-decrecientes"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "mat.s5.notacion-sumatoria",
+                  "nombre": "Notación sumatoria y sumas notables",
+                  "descripcion": "Escribe sumas con el símbolo Σ y calcula sumas de naturales, cuadrados e impares.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.sucesiones-cuadraticas"
+                  ],
+                  "ordenSugerido": 15
+                }
+              ]
+            },
+            {
+              "nombre": "Inecuaciones y sistemas",
+              "temas": [
+                {
+                  "clave": "mat.s5.inecuaciones-racionales",
+                  "nombre": "Inecuaciones fraccionarias o racionales",
+                  "descripcion": "Resuelve inecuaciones con la incógnita en el denominador usando puntos críticos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.inecuaciones-cuadraticas"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "mat.s5.ecuaciones-inecuaciones-valor-absoluto",
+                  "nombre": "Ecuaciones e inecuaciones con valor absoluto",
+                  "descripcion": "Resuelve ecuaciones e inecuaciones con valor absoluto interpretándolas como distancias en la recta.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "mat.s5.regla-cramer",
+                  "nombre": "Determinantes 2 × 2 y regla de Cramer",
+                  "descripcion": "Resuelve sistemas 2 × 2 con determinantes y anticipa si tienen solución única.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "mat.s5.sistemas-lineal-cuadratica",
+                  "nombre": "Sistemas formados por una ecuación lineal y una cuadrática",
+                  "descripcion": "Halla los puntos de corte entre una recta y una parábola algebraica y gráficamente.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 39
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuación cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s5.ecuaciones-bicuadradas",
+                  "nombre": "Ecuaciones reducibles a cuadráticas",
+                  "descripcion": "Resuelve ecuaciones bicuadradas y otras con cambio de variable.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 65
+                },
+                {
+                  "clave": "mat.s5.ecuaciones-con-radicales",
+                  "nombre": "Ecuaciones con radicales y soluciones extrañas",
+                  "descripcion": "Resuelve ecuaciones irracionales y descarta las soluciones que no las verifican.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06",
+                    "MAT-C24-S5-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 66
+                }
+              ]
+            },
+            {
+              "nombre": "Función exponencial",
+              "temas": [
+                {
+                  "clave": "mat.s5.ecuaciones-exponenciales",
+                  "nombre": "Ecuaciones exponenciales con bases iguales",
+                  "descripcion": "Resuelve ecuaciones igualando exponentes tras expresar ambos miembros con la misma base.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.funcion-exponencial"
+                  ],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "mat.s5.logaritmo-como-exponente",
+                  "nombre": "El logaritmo como exponente",
+                  "descripcion": "Interpreta logₐ x = y como aʸ = x y calcula logaritmos sencillos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.ecuaciones-exponenciales"
+                  ],
+                  "ordenSugerido": 101
+                },
+                {
+                  "clave": "mat.s5.propiedades-logaritmos",
+                  "nombre": "Propiedades de los logaritmos",
+                  "descripcion": "Aplica el logaritmo de un producto, de un cociente, de una potencia y el cambio de base.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.logaritmo-como-exponente"
+                  ],
+                  "ordenSugerido": 102
+                },
+                {
+                  "clave": "mat.s5.exponenciales-con-logaritmos",
+                  "nombre": "Ecuaciones exponenciales resueltas con logaritmos",
+                  "descripcion": "Despeja el exponente con logaritmos cuando las bases no se pueden igualar.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.propiedades-logaritmos"
+                  ],
+                  "ordenSugerido": 103
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+          "bloques": [
+            {
+              "nombre": "Sucesiones",
+              "temas": [
+                {
+                  "clave": "mat.s5.afirmaciones-sucesiones",
+                  "nombre": "Contraste de afirmaciones sobre sucesiones",
+                  "descripcion": "Comprueba con ejemplos y contraejemplos afirmaciones opuestas sobre el comportamiento de una sucesión.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.sucesiones-acotadas"
+                  ],
+                  "ordenSugerido": 17
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuación cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s5.cuadratica-con-parametro",
+                  "nombre": "Ecuaciones cuadráticas con parámetro",
+                  "descripcion": "Halla los valores de un parámetro para que la ecuación tenga dos, una o ninguna solución real.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 64
+                }
+              ]
+            },
+            {
+              "nombre": "Función exponencial",
+              "temas": [
+                {
+                  "clave": "mat.s5.tiempo-duplicacion",
+                  "nombre": "Tiempo de duplicación y vida media",
+                  "descripcion": "Calcula cuánto tarda una cantidad en duplicarse o reducirse a la mitad.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.exponenciales-con-logaritmos",
+                    "mat.s5.modelos-exponenciales"
+                  ],
+                  "ordenSugerido": 104
+                },
+                {
+                  "clave": "mat.s5.lineal-cuadratico-exponencial",
+                  "nombre": "Comparación de crecimientos lineal, cuadrático y exponencial",
+                  "descripcion": "Justifica cuál crecimiento termina superando a los otros con tablas y gráficas.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S5-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.crecimiento-decrecimiento-exponencial"
+                  ],
+                  "ordenSugerido": 105
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 26,
+      "nombre": "Resuelve problemas de forma, movimiento y localización",
+      "capacidades": [
+        {
+          "nombre": "Modela objetos con formas geométricas y sus transformaciones",
+          "bloques": [
+            {
+              "nombre": "Relaciones métricas",
+              "temas": [
+                {
+                  "clave": "mat.s5.teoremas-euclides",
+                  "nombre": "Teoremas de Euclides en triángulos oblicuángulos",
+                  "descripcion": "Calcula lados y proyecciones en triángulos acutángulos y obtusángulos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-01",
+                    "MAT-C26-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 18
+                },
+                {
+                  "clave": "mat.s5.ley-senos",
+                  "nombre": "Ley de senos",
+                  "descripcion": "Resuelve triángulos no rectángulos conociendo dos ángulos y un lado, o dos lados y un ángulo opuesto.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-01",
+                    "MAT-C26-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 19
+                },
+                {
+                  "clave": "mat.s5.ley-cosenos",
+                  "nombre": "Ley de cosenos",
+                  "descripcion": "Resuelve triángulos no rectángulos conociendo tres lados o dos lados y el ángulo comprendido.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-01",
+                    "MAT-C26-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.ley-senos"
+                  ],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "mat.s5.angulos-circunferencia",
+                  "nombre": "Ángulos en la circunferencia",
+                  "descripcion": "Relaciona ángulos central, inscrito, semiinscrito, interior y exterior con sus arcos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-01",
+                    "MAT-C26-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "mat.s5.metricas-circunferencia",
+                  "nombre": "Relaciones métricas en la circunferencia",
+                  "descripcion": "Aplica las propiedades de cuerdas, secantes y tangentes que se cortan.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-01",
+                    "MAT-C26-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.angulos-circunferencia"
+                  ],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "mat.s5.poligonos-inscritos-circunscritos",
+                  "nombre": "Polígonos regulares inscritos y circunscritos",
+                  "descripcion": "Relaciona el lado y la apotema de un polígono regular con el radio de la circunferencia.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-01",
+                    "MAT-C26-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.angulos-circunferencia"
+                  ],
+                  "ordenSugerido": 24
+                }
+              ]
+            },
+            {
+              "nombre": "Trigonometría",
+              "temas": [
+                {
+                  "clave": "mat.s5.sistemas-medida-angular",
+                  "nombre": "Sistemas de medida angular: sexagesimal y radial",
+                  "descripcion": "Convierte ángulos entre grados y radianes y los interpreta como longitud de arco.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "mat.s5.circunferencia-trigonometrica",
+                  "nombre": "Ángulos en posición normal y circunferencia trigonométrica",
+                  "descripcion": "Ubica ángulos en los cuatro cuadrantes y lee el seno y el coseno en la circunferencia unitaria.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.sistemas-medida-angular"
+                  ],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "mat.s5.razones-cualquier-angulo",
+                  "nombre": "Razones trigonométricas de ángulos de cualquier magnitud",
+                  "descripcion": "Determina signos y valores reduciendo el ángulo al primer cuadrante.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.circunferencia-trigonometrica"
+                  ],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "mat.s5.rumbos-navegacion",
+                  "nombre": "Rumbos y navegación con razones trigonométricas",
+                  "descripcion": "Describe desplazamientos con rumbos y calcula distancias y posiciones finales.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-02",
+                    "MAT-C26-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.ley-cosenos"
+                  ],
+                  "ordenSugerido": 45
+                }
+              ]
+            },
+            {
+              "nombre": "Geometría analítica",
+              "temas": [
+                {
+                  "clave": "mat.s5.ecuacion-circunferencia",
+                  "nombre": "Ecuación ordinaria de la circunferencia",
+                  "descripcion": "Escribe la ecuación (x − h)² + (y − k)² = r² a partir del centro y el radio.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "mat.s5.ecuacion-general-circunferencia",
+                  "nombre": "Ecuación general de la circunferencia",
+                  "descripcion": "Halla el centro y el radio completando cuadrados en la ecuación general.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.ecuacion-circunferencia"
+                  ],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "mat.s5.zonas-cobertura",
+                  "nombre": "Zonas de cobertura y alcance con circunferencias",
+                  "descripcion": "Decide si un punto está dentro del alcance de una antena o un sismo usando la ecuación.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.ecuacion-circunferencia"
+                  ],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "mat.s5.ecuacion-parabola",
+                  "nombre": "Ecuación de la parábola: vértice, foco y directriz",
+                  "descripcion": "Escribe la ecuación de una parábola de eje vertical u horizontal y ubica sus elementos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "mat.s5.aplicaciones-parabola",
+                  "nombre": "Propiedad reflectora de la parábola en antenas, faros y puentes",
+                  "descripcion": "Usa el foco de la parábola para resolver problemas de diseño de antenas y arcos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-02",
+                    "MAT-C26-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.ecuacion-parabola"
+                  ],
+                  "ordenSugerido": 73
+                }
+              ]
+            },
+            {
+              "nombre": "Cuerpos de revolución y compuestos",
+              "temas": [
+                {
+                  "clave": "mat.s5.revolucion-figuras-compuestas",
+                  "nombre": "Sólidos generados al girar figuras compuestas",
+                  "descripcion": "Identifica el sólido que se obtiene al rotar una figura plana compuesta alrededor de un eje.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-01",
+                    "MAT-C26-S5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 77
+                }
+              ]
+            },
+            {
+              "nombre": "Transformaciones y clasificación",
+              "temas": [
+                {
+                  "clave": "mat.s5.secuencia-transformaciones",
+                  "nombre": "Secuencias de transformaciones que originan una figura",
+                  "descripcion": "Reconstruye qué transformaciones sucesivas dieron origen a una forma dada.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-02",
+                    "MAT-C26-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 106
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las formas y relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Cuerpos de revolución y compuestos",
+              "temas": [
+                {
+                  "clave": "mat.s5.clasificar-formas-tridimensionales",
+                  "nombre": "Clasificación de las formas tridimensionales por sus propiedades",
+                  "descripcion": "Organiza poliedros y cuerpos redondos en clases según sus propiedades comunes y distintivas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-03",
+                    "MAT-C26-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "mat.s5.troncos",
+                  "nombre": "Tronco de pirámide y tronco de cono",
+                  "descripcion": "Reconoce los cuerpos truncados y sus elementos en objetos reales como baldes y macetas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-03",
+                    "MAT-C26-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.clasificar-formas-tridimensionales"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "mat.s5.casquete-huso-esferico",
+                  "nombre": "Casquete, zona, huso y cuña esférica",
+                  "descripcion": "Calcula áreas y volúmenes de partes de la esfera.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-03",
+                    "MAT-C26-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.clasificar-formas-tridimensionales"
+                  ],
+                  "ordenSugerido": 79
+                }
+              ]
+            },
+            {
+              "nombre": "Transformaciones y clasificación",
+              "temas": [
+                {
+                  "clave": "mat.s5.clasificacion-jerarquica-poligonos",
+                  "nombre": "Diagramas de inclusión de cuadriláteros y polígonos",
+                  "descripcion": "Organiza las figuras en un diagrama de inclusión según sus propiedades.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-04",
+                    "MAT-C26-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 107
+                },
+                {
+                  "clave": "mat.s5.simetrias-figura",
+                  "nombre": "Orden de simetría rotacional y ejes de los polígonos regulares",
+                  "descripcion": "Determina todas las simetrías de un polígono regular y justifica su número.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 108
+                }
+              ]
+            },
+            {
+              "nombre": "Mapas y rutas",
+              "temas": [
+                {
+                  "clave": "mat.s5.rutas-optimas",
+                  "nombre": "Rutas óptimas en mapas a diferentes escalas",
+                  "descripcion": "Compara recorridos en mapas de distinta escala y elige la ruta más corta o conveniente.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 109
+                },
+                {
+                  "clave": "mat.s5.latitud-longitud",
+                  "nombre": "Latitud y longitud en el globo terrestre",
+                  "descripcion": "Ubica lugares con coordenadas geográficas y estima distancias sobre un meridiano con longitud de arco.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-05",
+                    "MAT-C26-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.sistemas-medida-angular"
+                  ],
+                  "ordenSugerido": 110
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+          "bloques": [
+            {
+              "nombre": "Relaciones métricas",
+              "temas": [
+                {
+                  "clave": "mat.s5.area-triangulo-heron",
+                  "nombre": "Área del triángulo con la fórmula trigonométrica y la de Herón",
+                  "descripcion": "Calcula el área sin conocer la altura, a partir de lados y ángulos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.ley-cosenos"
+                  ],
+                  "ordenSugerido": 21
+                }
+              ]
+            },
+            {
+              "nombre": "Cuerpos de revolución y compuestos",
+              "temas": [
+                {
+                  "clave": "mat.s5.area-volumen-troncos",
+                  "nombre": "Área y volumen de troncos de pirámide y de cono",
+                  "descripcion": "Calcula el área lateral, total y el volumen de cuerpos truncados.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.troncos"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "mat.s5.area-volumen-revolucion-compuestos",
+                  "nombre": "Área y volumen de cuerpos de revolución compuestos",
+                  "descripcion": "Calcula medidas de sólidos formados por cilindros, conos y semiesferas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.revolucion-figuras-compuestas"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "mat.s5.reconstruir-desde-vistas",
+                  "nombre": "Vistas y desarrollo de cuerpos truncados y de revolución",
+                  "descripcion": "Dibuja las vistas de frente, perfil y base de troncos y cuerpos de revolución compuestos y reconstruye su desarrollo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.troncos"
+                  ],
+                  "ordenSugerido": 80
+                }
+              ]
+            },
+            {
+              "nombre": "Mapas y rutas",
+              "temas": [
+                {
+                  "clave": "mat.s5.areas-irregulares-mapas",
+                  "nombre": "Áreas de regiones irregulares en mapas con escala y hectáreas",
+                  "descripcion": "Calcula el área real de una región de un mapa combinando coordenadas, escala y conversión a hectáreas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 111
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Trigonometría",
+              "temas": [
+                {
+                  "clave": "mat.s5.identidades-fundamentales",
+                  "nombre": "Identidades trigonométricas fundamentales",
+                  "descripcion": "Demuestra identidades sencillas con las relaciones pitagóricas, recíprocas y por cociente.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.circunferencia-trigonometrica"
+                  ],
+                  "ordenSugerido": 44
+                }
+              ]
+            },
+            {
+              "nombre": "Cuerpos de revolución y compuestos",
+              "temas": [
+                {
+                  "clave": "mat.s5.conjeturas-truncados",
+                  "nombre": "Conjeturas sobre volúmenes de cuerpos truncados",
+                  "descripcion": "Plantea y verifica con simulaciones o contraejemplos afirmaciones sobre cómo cambia el volumen al truncar un cuerpo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.area-volumen-troncos"
+                  ],
+                  "ordenSugerido": 81
+                }
+              ]
+            },
+            {
+              "nombre": "Mapas y rutas",
+              "temas": [
+                {
+                  "clave": "mat.s5.afirmaciones-opuestas-geometria",
+                  "nombre": "Contraste de afirmaciones geométricas opuestas y casos especiales",
+                  "descripcion": "Comprueba cuál de dos afirmaciones opuestas es válida mediante contraejemplos y propiedades.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S5-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 112
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 25,
+      "nombre": "Resuelve problemas de gestión de datos e incertidumbre",
+      "capacidades": [
+        {
+          "nombre": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+          "bloques": [
+            {
+              "nombre": "Medidas de localización",
+              "temas": [
+                {
+                  "clave": "mat.s5.terciles-quintiles",
+                  "nombre": "Terciles y quintiles",
+                  "descripcion": "Divide una distribución en tres o cinco partes iguales y calcula los valores que las separan.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-01",
+                    "MAT-C25-S5-03",
+                    "MAT-C25-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 49
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s5.sucesos-simples-compuestos",
+                  "nombre": "Sucesos simples y compuestos",
+                  "descripcion": "Distingue sucesos simples de compuestos y describe las condiciones de la situación aleatoria.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-02",
+                    "MAT-C25-S5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 113
+                },
+                {
+                  "clave": "mat.s5.probabilidad-con-conteo",
+                  "nombre": "Probabilidad con técnicas de conteo",
+                  "descripcion": "Calcula probabilidades contando casos con permutaciones y combinaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-02",
+                    "MAT-C25-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.combinaciones",
+                    "mat.s5.sucesos-simples-compuestos"
+                  ],
+                  "ordenSugerido": 114
+                },
+                {
+                  "clave": "mat.s5.comparar-sucesos-compuestos",
+                  "nombre": "Comparación de probabilidades de sucesos compuestos",
+                  "descripcion": "Determina cuál de dos sucesos compuestos es más probable y lo justifica.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.probabilidad-con-conteo"
+                  ],
+                  "ordenSugerido": 116
+                },
+                {
+                  "clave": "mat.s5.valor-esperado",
+                  "nombre": "Valor esperado en juegos y decisiones",
+                  "descripcion": "Calcula la ganancia media esperada de un juego o una decisión con riesgo.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-02",
+                    "MAT-C25-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.probabilidad-total"
+                  ],
+                  "ordenSugerido": 117
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+          "bloques": [
+            {
+              "nombre": "Medidas de localización",
+              "temas": [
+                {
+                  "clave": "mat.s5.quintiles-ingreso",
+                  "nombre": "Interpretación de quintiles en indicadores sociales",
+                  "descripcion": "Interpreta informes que agrupan a la población por quintiles de ingreso o pobreza.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.terciles-quintiles"
+                  ],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "mat.s5.pertinencia-media-mediana",
+                  "nombre": "Pertinencia de la media o la mediana según la dispersión",
+                  "descripcion": "Argumenta qué medida de tendencia central representa mejor los datos según la desviación estándar.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "mat.s5.asimetria",
+                  "nombre": "Asimetría de una distribución",
+                  "descripcion": "Relaciona la posición de la media, la mediana y la moda con la forma de la distribución.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-03",
+                    "MAT-C25-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.pertinencia-media-mediana"
+                  ],
+                  "ordenSugerido": 53
+                },
+                {
+                  "clave": "mat.s5.distribucion-normal",
+                  "nombre": "Distribución normal y regla 68-95-99,7",
+                  "descripcion": "Interpreta la proporción de datos a una, dos y tres desviaciones estándar de la media.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-03",
+                    "MAT-C25-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.asimetria"
+                  ],
+                  "ordenSugerido": 54
+                },
+                {
+                  "clave": "mat.s5.datos-que-sesgan",
+                  "nombre": "Datos que sesgan el comportamiento de otros indicadores",
+                  "descripcion": "Identifica datos atípicos o mal registrados que distorsionan las medidas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.pertinencia-media-mediana"
+                  ],
+                  "ordenSugerido": 55
+                }
+              ]
+            },
+            {
+              "nombre": "Tendencias y conclusiones",
+              "temas": [
+                {
+                  "clave": "mat.s5.diagrama-dispersion",
+                  "nombre": "Diagrama de dispersión y tendencia lineal",
+                  "descripcion": "Representa dos variables y describe si hay relación positiva, negativa o ninguna.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 82
+                },
+                {
+                  "clave": "mat.s5.recta-tendencia",
+                  "nombre": "Recta de tendencia y predicción",
+                  "descripcion": "Traza una recta que se ajuste a los datos y la usa para predecir con cautela.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.diagrama-dispersion"
+                  ],
+                  "ordenSugerido": 83
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para recopilar y procesar datos",
+          "bloques": [
+            {
+              "nombre": "Estudio estadístico",
+              "temas": [
+                {
+                  "clave": "mat.s5.tamano-muestra",
+                  "nombre": "Tamaño de muestra y margen de error en encuestas",
+                  "descripcion": "Relaciona el tamaño de la muestra con el margen de error de una encuesta y justifica su representatividad.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "mat.s5.cuestionarios-sin-sesgo",
+                  "nombre": "Diseño de cuestionarios sin sesgo",
+                  "descripcion": "Redacta preguntas claras y neutras y evita las que inducen la respuesta.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.tamano-muestra"
+                  ],
+                  "ordenSugerido": 26
+                }
+              ]
+            },
+            {
+              "nombre": "Medidas de localización",
+              "temas": [
+                {
+                  "clave": "mat.s5.deciles-percentiles",
+                  "nombre": "Deciles y percentiles",
+                  "descripcion": "Calcula e interpreta deciles y percentiles, como en tablas de crecimiento infantil.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.terciles-quintiles"
+                  ],
+                  "ordenSugerido": 50
+                }
+              ]
+            },
+            {
+              "nombre": "Tendencias y conclusiones",
+              "temas": [
+                {
+                  "clave": "mat.s5.informe-investigacion",
+                  "nombre": "Informe de investigación estadística",
+                  "descripcion": "Comunica un estudio propio con su pregunta, muestra, análisis y conclusiones sustentadas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-05",
+                    "MAT-C25-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.cuestionarios-sin-sesgo",
+                    "mat.s5.evaluar-estudios"
+                  ],
+                  "ordenSugerido": 86
+                }
+              ]
+            },
+            {
+              "nombre": "Técnicas de conteo",
+              "temas": [
+                {
+                  "clave": "mat.s5.principio-multiplicativo",
+                  "nombre": "Principios multiplicativo y aditivo de conteo",
+                  "descripcion": "Cuenta los casos posibles de un experimento compuesto sin enumerarlos todos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 87
+                },
+                {
+                  "clave": "mat.s5.factorial-permutaciones",
+                  "nombre": "Factorial y permutaciones",
+                  "descripcion": "Cuenta ordenaciones de objetos distintos con n! y con permutaciones de r elementos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.principio-multiplicativo"
+                  ],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "mat.s5.permutaciones-repeticion-circulares",
+                  "nombre": "Permutaciones con repetición y circulares",
+                  "descripcion": "Cuenta ordenaciones con elementos repetidos o dispuestos en círculo.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.factorial-permutaciones"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "mat.s5.combinaciones",
+                  "nombre": "Combinaciones",
+                  "descripcion": "Cuenta selecciones en las que el orden no importa y las distingue de las permutaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.factorial-permutaciones"
+                  ],
+                  "ordenSugerido": 90
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s5.probabilidad-total",
+                  "nombre": "Probabilidad total con diagramas de árbol",
+                  "descripcion": "Calcula la probabilidad de un suceso que puede ocurrir por varios caminos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.sucesos-simples-compuestos"
+                  ],
+                  "ordenSugerido": 115
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Sustenta conclusiones o decisiones con base en la información obtenida",
+          "bloques": [
+            {
+              "nombre": "Tendencias y conclusiones",
+              "temas": [
+                {
+                  "clave": "mat.s5.correlacion-causalidad",
+                  "nombre": "Correlación no implica causalidad",
+                  "descripcion": "Distingue una relación entre variables de una relación de causa y efecto.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.diagrama-dispersion"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "mat.s5.evaluar-estudios",
+                  "nombre": "Evaluación crítica de estudios y encuestas publicadas",
+                  "descripcion": "Reconoce errores, vacíos y sesgos en estudios ajenos y propone mejoras.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 85
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s5.falacia-jugador",
+                  "nombre": "Falacias del azar: la falacia del jugador",
+                  "descripcion": "Descarta con argumentos la idea de que el azar «compensa» los resultados anteriores.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s5.sucesos-simples-compuestos"
+                  ],
+                  "ordenSugerido": 118
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1895 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "matematica",
+  "nivel": "secundaria",
+  "grado": 2,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Secundaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+    },
+    {
+      "titulo": "Resolvamos problemas 2, Secundaria: cuaderno de trabajo de Matemática, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7923"
+    },
+    {
+      "titulo": "Texto de Matemática 2, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/12632"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 23,
+      "nombre": "Resuelve problemas de cantidad",
+      "capacidades": [
+        {
+          "nombre": "Traduce cantidades a expresiones numéricas",
+          "bloques": [
+            {
+              "nombre": "Números racionales",
+              "temas": [
+                {
+                  "clave": "mat.s2.situaciones-racionales",
+                  "nombre": "Situaciones de comparar e igualar con racionales",
+                  "descripcion": "Modela con racionales cambios de temperatura, saldos o medidas con fracciones y decimales, y comprueba el modelo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-01",
+                    "MAT-C23-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.numeros-racionales"
+                  ],
+                  "ordenSugerido": 11
+                }
+              ]
+            },
+            {
+              "nombre": "Porcentajes, impuestos e interés",
+              "temas": [
+                {
+                  "clave": "mat.s2.variacion-porcentual",
+                  "nombre": "Variación porcentual entre dos cantidades",
+                  "descripcion": "Calcula en qué porcentaje aumentó o disminuyó una cantidad respecto a su valor inicial.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-01",
+                    "MAT-C23-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.porcentajes-extremos"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "mat.s2.aumentos-descuentos-sucesivos",
+                  "nombre": "Aumento o descuento único equivalente a varios sucesivos",
+                  "descripcion": "Halla el porcentaje único que equivale a dos aumentos o descuentos sucesivos y lo justifica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-01",
+                    "MAT-C23-S2-05",
+                    "MAT-C23-S2-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.variacion-porcentual"
+                  ],
+                  "ordenSugerido": 58
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre los números y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números racionales",
+              "temas": [
+                {
+                  "clave": "mat.s2.conjunto-q",
+                  "nombre": "El conjunto Q de los números racionales",
+                  "descripcion": "Reconoce los racionales como cocientes de enteros, incluidos los negativos, y su relación con N y Z.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-03",
+                    "MAT-C23-S2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "mat.s2.racionales-recta",
+                  "nombre": "Racionales positivos y negativos en la recta numérica",
+                  "descripcion": "Ubica fracciones y decimales con signo en la recta y los relaciona con su significado en el contexto.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-03",
+                    "MAT-C23-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.conjunto-q"
+                  ],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "mat.s2.opuesto-inverso-racional",
+                  "nombre": "Opuesto e inverso de un número racional",
+                  "descripcion": "Distingue el opuesto aditivo del inverso multiplicativo de un racional y los usa en cálculos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-04",
+                    "MAT-C23-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.racionales-recta"
+                  ],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "mat.s2.descomposicion-decimal-racional",
+                  "nombre": "Composición y descomposición de racionales decimales",
+                  "descripcion": "Descompone decimales según el valor posicional de sus cifras enteras y decimales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "mat.s2.fraccion-razon-operador",
+                  "nombre": "Fracción como razón y como operador",
+                  "descripcion": "Interpreta una fracción como comparación entre cantidades y como operador que transforma una cantidad.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.conjunto-q"
+                  ],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "mat.s2.porcentajes-extremos",
+                  "nombre": "Porcentajes mayores que 100 % y menores que 1 %",
+                  "descripcion": "Expresa como fracción y decimal porcentajes como 150 % o 0,5 % y los interpreta.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-09"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 12
+                }
+              ]
+            },
+            {
+              "nombre": "Potenciación y radicación en Q",
+              "temas": [
+                {
+                  "clave": "mat.s2.potencia-exponente-negativo",
+                  "nombre": "Potencias de exponente entero negativo",
+                  "descripcion": "Interpreta a⁻ⁿ como el inverso de aⁿ y lo calcula con bases enteras y fraccionarias.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.potencia-base-fraccionaria"
+                  ],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "mat.s2.radicacion-inversa-potenciacion",
+                  "nombre": "Radicación como operación inversa de la potenciación",
+                  "descripcion": "Relaciona raíz y potencia con enteros y explica por qué una raíz par de un negativo no es racional.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-06",
+                    "MAT-C23-S2-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.potencia-base-fraccionaria"
+                  ],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "mat.s2.notacion-exponencial",
+                  "nombre": "Notación exponencial de números naturales",
+                  "descripcion": "Expresa cantidades como producto de potencias de primos o de 10 y la distingue de la descomposición polinómica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-03",
+                    "MAT-C23-S2-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 28
+                }
+              ]
+            },
+            {
+              "nombre": "Porcentajes, impuestos e interés",
+              "temas": [
+                {
+                  "clave": "mat.s2.precio-sin-igv",
+                  "nombre": "Precio sin IGV a partir del precio final",
+                  "descripcion": "Separa el valor de venta y el IGV de un precio que ya incluye el impuesto.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-05",
+                    "MAT-C23-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.variacion-porcentual"
+                  ],
+                  "ordenSugerido": 59
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos de estimación y cálculo",
+          "bloques": [
+            {
+              "nombre": "Números racionales",
+              "temas": [
+                {
+                  "clave": "mat.s2.numeros-racionales",
+                  "nombre": "Operaciones con números racionales",
+                  "descripcion": "Suma, resta, multiplica y divide racionales con signo en forma fraccionaria y decimal.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-06",
+                    "MAT-C23-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.opuesto-inverso-racional"
+                  ],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "mat.s2.operaciones-combinadas-racionales",
+                  "nombre": "Operaciones combinadas con racionales y signos de agrupación",
+                  "descripcion": "Resuelve expresiones con varias operaciones entre racionales respetando la jerarquía.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.numeros-racionales"
+                  ],
+                  "ordenSugerido": 9
+                }
+              ]
+            },
+            {
+              "nombre": "Potenciación y radicación en Q",
+              "temas": [
+                {
+                  "clave": "mat.s2.potencia-base-fraccionaria",
+                  "nombre": "Potencias de base fraccionaria o decimal",
+                  "descripcion": "Calcula potencias de racionales y determina su signo según la base y el exponente.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-06",
+                    "MAT-C23-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.numeros-racionales"
+                  ],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "mat.s2.potencias-raices",
+                  "nombre": "Propiedades de potencias y raíces con racionales",
+                  "descripcion": "Aplica las propiedades de la potenciación y la radicación con bases racionales para simplificar.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-06",
+                    "MAT-C23-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.potencia-exponente-negativo"
+                  ],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "mat.s2.raiz-aproximada",
+                  "nombre": "Raíz cuadrada aproximada y estimación",
+                  "descripcion": "Estima raíces no exactas entre dos enteros y las aproxima a décimos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.radicacion-inversa-potenciacion"
+                  ],
+                  "ordenSugerido": 27
+                }
+              ]
+            },
+            {
+              "nombre": "Porcentajes, impuestos e interés",
+              "temas": [
+                {
+                  "clave": "mat.s2.ganancia-perdida-porcentual",
+                  "nombre": "Ganancia y pérdida como porcentaje del costo o de la venta",
+                  "descripcion": "Calcula ganancias o pérdidas porcentuales y distingue sobre qué valor se aplican.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-01",
+                    "MAT-C23-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.variacion-porcentual"
+                  ],
+                  "ordenSugerido": 60
+                },
+                {
+                  "clave": "mat.s2.tasa-interes-periodo",
+                  "nombre": "Tasa de interés en un periodo",
+                  "descripcion": "Calcula el interés que gana o paga un capital en un solo periodo a una tasa dada.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-05",
+                    "MAT-C23-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.variacion-porcentual"
+                  ],
+                  "ordenSugerido": 61
+                },
+                {
+                  "clave": "mat.s2.impuesto-renta",
+                  "nombre": "Impuesto a la renta en casos sencillos con la UIT",
+                  "descripcion": "Estima el impuesto a la renta de un trabajador aplicando tramos porcentuales y la UIT.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.tasa-interes-periodo"
+                  ],
+                  "ordenSugerido": 62
+                }
+              ]
+            },
+            {
+              "nombre": "Magnitudes de distintos países",
+              "temas": [
+                {
+                  "clave": "mat.s2.masa-sistema-ingles",
+                  "nombre": "Equivalencias de masa entre el sistema métrico y el inglés",
+                  "descripcion": "Convierte entre kilogramos, libras y onzas en situaciones de compras e importaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "mat.s2.husos-horarios",
+                  "nombre": "Husos horarios y diferencia de hora entre países",
+                  "descripcion": "Calcula la hora en otro país usando la diferencia horaria y la duración de un viaje.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "mat.s2.celsius-fahrenheit",
+                  "nombre": "Conversión entre grados Celsius y Fahrenheit",
+                  "descripcion": "Convierte temperaturas entre Celsius y Fahrenheit con la fórmula y por estimación.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 90
+                },
+                {
+                  "clave": "mat.s2.tipo-cambio-compra-venta",
+                  "nombre": "Tipo de cambio de compra y venta entre varias monedas",
+                  "descripcion": "Convierte montos entre soles, dólares y otras monedas usando el tipo de cambio de compra o de venta.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-01",
+                    "MAT-C23-S2-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 91
+                },
+                {
+                  "clave": "mat.s2.unidades-compuestas-velocidad",
+                  "nombre": "Conversión de unidades compuestas: km/h y m/s",
+                  "descripcion": "Transforma velocidades y caudales entre unidades compuestas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 92
+                },
+                {
+                  "clave": "mat.s2.estimacion-racionales",
+                  "nombre": "Estimación de resultados con racionales",
+                  "descripcion": "Redondea y estima resultados de operaciones con racionales para verificar si son razonables.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 93
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números racionales",
+              "temas": [
+                {
+                  "clave": "mat.s2.comparar-racionales",
+                  "nombre": "Comparación y orden de números racionales con signo",
+                  "descripcion": "Compara racionales con signo usando común denominador o forma decimal y justifica el orden.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-03",
+                    "MAT-C23-S2-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.racionales-recta"
+                  ],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "mat.s2.densidad-racionales",
+                  "nombre": "Racionales entre dos racionales dados",
+                  "descripcion": "Encuentra racionales entre dos dados y explica por qué siempre existe otro entre ellos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-03",
+                    "MAT-C23-S2-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.comparar-racionales"
+                  ],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "mat.s2.propiedades-operaciones-q",
+                  "nombre": "Propiedades de la adición y la multiplicación en Q",
+                  "descripcion": "Usa conmutativa, asociativa, distributiva e inverso para simplificar cálculos con racionales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-06",
+                    "MAT-C23-S2-07",
+                    "MAT-C23-S2-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.numeros-racionales"
+                  ],
+                  "ordenSugerido": 10
+                }
+              ]
+            },
+            {
+              "nombre": "Potenciación y radicación en Q",
+              "temas": [
+                {
+                  "clave": "mat.s2.justificar-propiedades-potencias",
+                  "nombre": "Justificación de propiedades de potencias y raíces",
+                  "descripcion": "Justifica con ejemplos por qué a⁰ = 1 y detecta errores como √(a + b) = √a + √b.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S2-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.potencias-raices"
+                  ],
+                  "ordenSugerido": 29
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 24,
+      "nombre": "Resuelve problemas de regularidad, equivalencia y cambio",
+      "capacidades": [
+        {
+          "nombre": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+          "bloques": [
+            {
+              "nombre": "Polinomios",
+              "temas": [
+                {
+                  "clave": "mat.s2.monomios-polinomios",
+                  "nombre": "Monomios y polinomios: elementos y grado",
+                  "descripcion": "Identifica coeficientes, variables y grado de monomios y polinomios que modelan situaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-01",
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 30
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuaciones lineales con coeficientes racionales",
+              "temas": [
+                {
+                  "clave": "mat.s2.elementos-modelo-ecuacion",
+                  "nombre": "Relación entre las partes de una ecuación y el problema",
+                  "descripcion": "Reconoce qué representa cada término de la ecuación y comprueba si resolvió el problema.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-02",
+                    "MAT-C24-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.ecuaciones-coeficientes-decimales"
+                  ],
+                  "ordenSugerido": 40
+                },
+                {
+                  "clave": "mat.s2.problemas-moviles",
+                  "nombre": "Problemas de móviles con ecuaciones",
+                  "descripcion": "Plantea ecuaciones con distancia, velocidad y tiempo para encuentros y alcances.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-01",
+                    "MAT-C24-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.elementos-modelo-ecuacion"
+                  ],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "mat.s2.problemas-mezclas",
+                  "nombre": "Problemas de mezclas y precios con ecuaciones",
+                  "descripcion": "Plantea ecuaciones para mezclas de productos con distinto precio o concentración.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-01",
+                    "MAT-C24-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.elementos-modelo-ecuacion"
+                  ],
+                  "ordenSugerido": 42
+                }
+              ]
+            },
+            {
+              "nombre": "Inecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s2.inecuaciones-ax-b",
+                  "nombre": "Inecuaciones de la forma ax > b y ax < b",
+                  "descripcion": "Resuelve inecuaciones con coeficiente racional y expresa su conjunto solución.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-01",
+                    "MAT-C24-S2-04",
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.ecuaciones-coeficientes-decimales"
+                  ],
+                  "ordenSugerido": 63
+                },
+                {
+                  "clave": "mat.s2.inecuaciones-presupuesto",
+                  "nombre": "Situaciones de presupuesto y capacidad con inecuaciones",
+                  "descripcion": "Modela con inecuaciones límites de gasto, carga o capacidad e interpreta la solución.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-01",
+                    "MAT-C24-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.intervalos"
+                  ],
+                  "ordenSugerido": 66
+                }
+              ]
+            },
+            {
+              "nombre": "Proporcionalidad",
+              "temas": [
+                {
+                  "clave": "mat.s2.constante-proporcionalidad-racional",
+                  "nombre": "Constante de proporcionalidad con fracciones y decimales",
+                  "descripcion": "Halla y usa constantes de proporcionalidad no enteras en recetas, mapas y tarifas.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-01",
+                    "MAT-C24-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.numeros-racionales"
+                  ],
+                  "ordenSugerido": 68
+                }
+              ]
+            },
+            {
+              "nombre": "Función lineal y afín",
+              "temas": [
+                {
+                  "clave": "mat.s2.modelo-costo-fijo-variable",
+                  "nombre": "Modelación con función afín: monto fijo más monto variable",
+                  "descripcion": "Expresa sueldos con comisión o tarifas con cargo fijo como y = mx + b.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-01",
+                    "MAT-C24-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.lineal-vs-afin"
+                  ],
+                  "ordenSugerido": 102
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las relaciones algebraicas",
+          "bloques": [
+            {
+              "nombre": "Polinomios",
+              "temas": [
+                {
+                  "clave": "mat.s2.perimetros-areas-algebraicos",
+                  "nombre": "Perímetros y áreas expresados con polinomios",
+                  "descripcion": "Representa perímetros y áreas de figuras con lados variables mediante polinomios.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.monomios-polinomios"
+                  ],
+                  "ordenSugerido": 31
+                }
+              ]
+            },
+            {
+              "nombre": "Inecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s2.intervalos",
+                  "nombre": "Notación de intervalos y conjunto solución",
+                  "descripcion": "Representa el conjunto solución con intervalos, en la recta y con lenguaje verbal.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.inecuaciones-ax-b"
+                  ],
+                  "ordenSugerido": 65
+                }
+              ]
+            },
+            {
+              "nombre": "Proporcionalidad",
+              "temas": [
+                {
+                  "clave": "mat.s2.grafica-proporcionalidad-inversa",
+                  "nombre": "Gráfica de la proporcionalidad inversa",
+                  "descripcion": "Tabula y grafica magnitudes inversas y reconoce que el producto se mantiene constante.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.constante-proporcionalidad-racional"
+                  ],
+                  "ordenSugerido": 69
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones y progresiones aritméticas",
+              "temas": [
+                {
+                  "clave": "mat.s2.progresiones-diferencia-racional",
+                  "nombre": "Progresiones aritméticas con diferencia negativa o racional",
+                  "descripcion": "Halla la regla de formación de progresiones decrecientes o con diferencia fraccionaria.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-01",
+                    "MAT-C24-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "mat.s2.total-elementos-patron",
+                  "nombre": "Cantidad total de elementos en patrones gráficos",
+                  "descripcion": "Calcula cuántas piezas se usan en total hasta una figura dada de un patrón gráfico.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-03",
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.suma-progresion-aritmetica"
+                  ],
+                  "ordenSugerido": 97
+                }
+              ]
+            },
+            {
+              "nombre": "Función lineal y afín",
+              "temas": [
+                {
+                  "clave": "mat.s2.pendiente-razon-cambio",
+                  "nombre": "Pendiente como razón de cambio",
+                  "descripcion": "Relaciona la constante de cambio de una situación con la pendiente de su gráfica.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.constante-proporcionalidad-racional"
+                  ],
+                  "ordenSugerido": 99
+                },
+                {
+                  "clave": "mat.s2.lineal-vs-afin",
+                  "nombre": "Diferencias entre función lineal y función afín",
+                  "descripcion": "Distingue por tabla, gráfica y regla si una relación pasa por el origen o tiene valor inicial.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-05",
+                    "MAT-C24-S2-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.pendiente-razon-cambio"
+                  ],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "mat.s2.signo-pendiente",
+                  "nombre": "Pendiente positiva, negativa y nula",
+                  "descripcion": "Relaciona el signo de la pendiente con el crecimiento, decrecimiento o constancia de la situación.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.lineal-vs-afin"
+                  ],
+                  "ordenSugerido": 101
+                },
+                {
+                  "clave": "mat.s2.graficos-distancia-tiempo",
+                  "nombre": "Gráficos de distancia-tiempo por tramos",
+                  "descripcion": "Interpreta avances, paradas y regresos en gráficos de movimiento con varios tramos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.pendiente-razon-cambio"
+                  ],
+                  "ordenSugerido": 105
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+          "bloques": [
+            {
+              "nombre": "Polinomios",
+              "temas": [
+                {
+                  "clave": "mat.s2.adicion-sustraccion-polinomios",
+                  "nombre": "Adición y sustracción de polinomios",
+                  "descripcion": "Suma y resta polinomios reduciendo términos semejantes y suprimiendo signos de agrupación.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.monomios-polinomios"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "mat.s2.multiplicacion-monomio-polinomio",
+                  "nombre": "Multiplicación de un monomio por un polinomio",
+                  "descripcion": "Multiplica aplicando la propiedad distributiva y las leyes de exponentes.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.monomios-polinomios"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "mat.s2.multiplicacion-polinomios",
+                  "nombre": "Multiplicación de polinomios",
+                  "descripcion": "Multiplica dos polinomios ordenando y reduciendo el resultado.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.multiplicacion-monomio-polinomio"
+                  ],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "mat.s2.division-polinomio-monomio",
+                  "nombre": "División de un polinomio entre un monomio",
+                  "descripcion": "Divide cada término del polinomio entre el monomio aplicando el cociente de potencias.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.multiplicacion-monomio-polinomio"
+                  ],
+                  "ordenSugerido": 35
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuaciones lineales con coeficientes racionales",
+              "temas": [
+                {
+                  "clave": "mat.s2.ecuaciones-coeficientes-decimales",
+                  "nombre": "Ecuaciones lineales con coeficientes decimales",
+                  "descripcion": "Resuelve ax + b = cx + d con coeficientes decimales, con o sin convertirlos a enteros.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-04",
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.adicion-sustraccion-polinomios"
+                  ],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "mat.s2.ecuaciones-fracciones-signo",
+                  "nombre": "Ecuaciones con fracciones algebraicas de denominador numérico",
+                  "descripcion": "Resuelve ecuaciones con varias fracciones y signos negativos multiplicando por el MCM.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-04",
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.ecuaciones-coeficientes-decimales"
+                  ],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "mat.s2.despeje-formulas",
+                  "nombre": "Despeje de una variable en una fórmula",
+                  "descripcion": "Despeja una variable en fórmulas de perímetro, velocidad o costo usando propiedades de la igualdad.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-06",
+                    "MAT-C24-S2-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.ecuaciones-coeficientes-decimales"
+                  ],
+                  "ordenSugerido": 39
+                }
+              ]
+            },
+            {
+              "nombre": "Inecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s2.cambio-sentido-desigualdad",
+                  "nombre": "Cambio de sentido al multiplicar o dividir por un negativo",
+                  "descripcion": "Explica con ejemplos por qué la desigualdad se invierte al operar con un negativo.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-06",
+                    "MAT-C24-S2-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.inecuaciones-ax-b"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "mat.s2.ecuaciones-inecuaciones",
+                  "nombre": "Ecuaciones e inecuaciones lineales en una misma situación",
+                  "descripcion": "Decide si la condición pide una igualdad o una desigualdad y resuelve ambas.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-04",
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.inecuaciones-presupuesto"
+                  ],
+                  "ordenSugerido": 67
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones y progresiones aritméticas",
+              "temas": [
+                {
+                  "clave": "mat.s2.interpolacion-medios-aritmeticos",
+                  "nombre": "Interpolación de medios aritméticos",
+                  "descripcion": "Inserta términos entre dos dados para formar una progresión aritmética.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.progresiones-diferencia-racional"
+                  ],
+                  "ordenSugerido": 95
+                },
+                {
+                  "clave": "mat.s2.suma-progresion-aritmetica",
+                  "nombre": "Suma de los n primeros términos de una progresión aritmética",
+                  "descripcion": "Calcula la suma de n términos con la fórmula de Gauss y la aplica a ahorros o asientos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-03",
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.progresiones-diferencia-racional"
+                  ],
+                  "ordenSugerido": 96
+                }
+              ]
+            },
+            {
+              "nombre": "Función lineal y afín",
+              "temas": [
+                {
+                  "clave": "mat.s2.regla-afin-dos-puntos",
+                  "nombre": "Regla de una función afín a partir de dos puntos o una tabla",
+                  "descripcion": "Obtiene la pendiente y el valor inicial de una función afín desde datos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.lineal-vs-afin"
+                  ],
+                  "ordenSugerido": 103
+                },
+                {
+                  "clave": "mat.s2.valores-funcion-afin",
+                  "nombre": "Tabla de valores y gráfica de una función afín en un intervalo",
+                  "descripcion": "Evalúa una función afín en un conjunto de valores y la grafica en el contexto.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.modelo-costo-fijo-variable"
+                  ],
+                  "ordenSugerido": 104
+                },
+                {
+                  "clave": "mat.s2.solucion-grafica-ecuacion",
+                  "nombre": "Solución gráfica de una ecuación lineal",
+                  "descripcion": "Resuelve ax + b = cx + d ubicando dónde se cruzan dos rectas.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.valores-funcion-afin"
+                  ],
+                  "ordenSugerido": 106
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+          "bloques": [
+            {
+              "nombre": "Polinomios",
+              "temas": [
+                {
+                  "clave": "mat.s2.propiedades-simplificacion",
+                  "nombre": "Propiedades que justifican la simplificación de expresiones",
+                  "descripcion": "Explica qué propiedad sustenta cada paso al simplificar una expresión algebraica y corrige errores.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.adicion-sustraccion-polinomios"
+                  ],
+                  "ordenSugerido": 36
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuaciones lineales con coeficientes racionales",
+              "temas": [
+                {
+                  "clave": "mat.s2.errores-transposicion",
+                  "nombre": "Errores al transponer términos en una ecuación",
+                  "descripcion": "Detecta y corrige errores de signo o de división al resolver ecuaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.ecuaciones-fracciones-signo"
+                  ],
+                  "ordenSugerido": 43
+                }
+              ]
+            },
+            {
+              "nombre": "Proporcionalidad",
+              "temas": [
+                {
+                  "clave": "mat.s2.directa-o-inversa",
+                  "nombre": "Directa o inversa: cómo distinguirlas",
+                  "descripcion": "Justifica si dos magnitudes son directa o inversamente proporcionales con tablas y contraejemplos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-05",
+                    "MAT-C24-S2-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.grafica-proporcionalidad-inversa"
+                  ],
+                  "ordenSugerido": 70
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones y progresiones aritméticas",
+              "temas": [
+                {
+                  "clave": "mat.s2.posicion-termino-regla",
+                  "nombre": "Relación entre la posición de un término y su regla de formación",
+                  "descripcion": "Justifica si un número pertenece a una progresión y en qué posición, usando la regla.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.progresiones-diferencia-racional"
+                  ],
+                  "ordenSugerido": 98
+                }
+              ]
+            },
+            {
+              "nombre": "Función lineal y afín",
+              "temas": [
+                {
+                  "clave": "mat.s2.efecto-m-b-grafica",
+                  "nombre": "Efecto de cambiar la pendiente y el término independiente",
+                  "descripcion": "Predice y justifica cómo cambia la recta al variar m o b.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S2-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.regla-afin-dos-puntos"
+                  ],
+                  "ordenSugerido": 107
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 26,
+      "nombre": "Resuelve problemas de forma, movimiento y localización",
+      "capacidades": [
+        {
+          "nombre": "Modela objetos con formas geométricas y sus transformaciones",
+          "bloques": [
+            {
+              "nombre": "Semejanza y Pitágoras",
+              "temas": [
+                {
+                  "clave": "mat.s2.poligonos-congruentes-semejantes",
+                  "nombre": "Polígonos congruentes y semejantes en diseños",
+                  "descripcion": "Reconoce polígonos congruentes y semejantes en planos, logotipos y mosaicos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.criterios-semejanza"
+                  ],
+                  "ordenSugerido": 51
+                }
+              ]
+            },
+            {
+              "nombre": "Pirámides y sólidos",
+              "temas": [
+                {
+                  "clave": "mat.s2.solidos-compuestos",
+                  "nombre": "Objetos modelados con prismas y pirámides combinados",
+                  "descripcion": "Representa objetos reales como combinación de prismas y pirámides y estima sus medidas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.volumen-piramide"
+                  ],
+                  "ordenSugerido": 82
+                }
+              ]
+            },
+            {
+              "nombre": "Transformaciones y escalas",
+              "temas": [
+                {
+                  "clave": "mat.s2.composicion-transformaciones",
+                  "nombre": "Composición de dos transformaciones",
+                  "descripcion": "Aplica dos transformaciones seguidas y describe la figura resultante.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-02",
+                    "MAT-C26-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.distinguir-transformaciones"
+                  ],
+                  "ordenSugerido": 110
+                },
+                {
+                  "clave": "mat.s2.recorridos-coordenadas",
+                  "nombre": "Recorridos y desplazamientos con coordenadas cartesianas",
+                  "descripcion": "Describe rutas como sucesión de desplazamientos entre puntos del plano.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 112
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las formas y relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Líneas notables y congruencia",
+              "temas": [
+                {
+                  "clave": "mat.s2.lineas-notables-triangulo",
+                  "nombre": "Líneas notables del triángulo",
+                  "descripcion": "Traza altura, mediana, bisectriz y mediatriz de un triángulo con regla y compás.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "mat.s2.puntos-notables-triangulo",
+                  "nombre": "Puntos notables: baricentro, incentro, circuncentro y ortocentro",
+                  "descripcion": "Ubica los puntos notables y explica su utilidad en situaciones de reparto o equidistancia.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.lineas-notables-triangulo"
+                  ],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "mat.s2.criterios-congruencia",
+                  "nombre": "Criterios de congruencia de triángulos",
+                  "descripcion": "Reconoce triángulos congruentes con los criterios LAL, ALA y LLL aunque cambien de posición.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-01",
+                    "MAT-C26-S2-03",
+                    "MAT-C26-S2-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "mat.s2.isosceles-equilatero-propiedades",
+                  "nombre": "Propiedades del triángulo isósceles y equilátero",
+                  "descripcion": "Usa la igualdad de lados y ángulos para hallar medidas desconocidas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-03",
+                    "MAT-C26-S2-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.criterios-congruencia"
+                  ],
+                  "ordenSugerido": 17
+                }
+              ]
+            },
+            {
+              "nombre": "Semejanza y Pitágoras",
+              "temas": [
+                {
+                  "clave": "mat.s2.criterios-semejanza",
+                  "nombre": "Criterios de semejanza de triángulos",
+                  "descripcion": "Reconoce triángulos semejantes con los criterios AA, LAL y LLL.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-01",
+                    "MAT-C26-S2-03",
+                    "MAT-C26-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.criterios-congruencia"
+                  ],
+                  "ordenSugerido": 44
+                },
+                {
+                  "clave": "mat.s2.angulos-poligonos-regulares",
+                  "nombre": "Ángulo central, interior y exterior de polígonos regulares",
+                  "descripcion": "Calcula los ángulos de un polígono regular según su número de lados.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 50
+                }
+              ]
+            },
+            {
+              "nombre": "Pirámides y sólidos",
+              "temas": [
+                {
+                  "clave": "mat.s2.piramides-elementos",
+                  "nombre": "Pirámides: elementos y clasificación",
+                  "descripcion": "Identifica base, caras laterales, apotema y altura de pirámides regulares.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-01",
+                    "MAT-C26-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "mat.s2.vistas-prismas-piramides",
+                  "nombre": "Vistas de prismas y pirámides en distintas posiciones",
+                  "descripcion": "Dibuja y reconoce vistas de frente, perfil y planta de prismas y pirámides.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-03",
+                    "MAT-C26-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.piramides-elementos"
+                  ],
+                  "ordenSugerido": 83
+                }
+              ]
+            },
+            {
+              "nombre": "Transformaciones y escalas",
+              "temas": [
+                {
+                  "clave": "mat.s2.distinguir-transformaciones",
+                  "nombre": "Diferencias entre rotación, traslación y reflexión",
+                  "descripcion": "Distingue las tres transformaciones por lo que conservan y cambian en la figura.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 108
+                },
+                {
+                  "clave": "mat.s2.simetria-axial-central",
+                  "nombre": "Simetría axial y simetría central",
+                  "descripcion": "Reconoce ejes y centros de simetría en figuras y completa figuras simétricas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.distinguir-transformaciones"
+                  ],
+                  "ordenSugerido": 109
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+          "bloques": [
+            {
+              "nombre": "Líneas notables y congruencia",
+              "temas": [
+                {
+                  "clave": "mat.s2.construccion-triangulos-congruentes",
+                  "nombre": "Construcción de triángulos congruentes con regla y compás",
+                  "descripcion": "Construye un triángulo congruente a otro a partir de tres datos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.criterios-congruencia"
+                  ],
+                  "ordenSugerido": 16
+                }
+              ]
+            },
+            {
+              "nombre": "Semejanza y Pitágoras",
+              "temas": [
+                {
+                  "clave": "mat.s2.teorema-tales",
+                  "nombre": "Teorema de Tales y segmentos proporcionales",
+                  "descripcion": "Calcula segmentos desconocidos en rectas paralelas cortadas por secantes.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-03",
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.criterios-semejanza"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "mat.s2.alturas-inaccesibles",
+                  "nombre": "Alturas inaccesibles con sombras y semejanza",
+                  "descripcion": "Calcula alturas de árboles o edificios comparando sombras.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-01",
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.criterios-semejanza"
+                  ],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "mat.s2.teorema-pitagoras",
+                  "nombre": "Teorema de Pitágoras",
+                  "descripcion": "Calcula un lado de un triángulo rectángulo conociendo los otros dos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "mat.s2.pitagoras-situaciones",
+                  "nombre": "Pitágoras en diagonales, escaleras y distancias",
+                  "descripcion": "Usa el teorema de Pitágoras para hallar distancias en situaciones reales.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-01",
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.teorema-pitagoras"
+                  ],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "mat.s2.diagonal-prisma",
+                  "nombre": "Diagonal de un prisma recto con Pitágoras",
+                  "descripcion": "Calcula la diagonal de cajas y habitaciones aplicando Pitágoras dos veces.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.pitagoras-situaciones"
+                  ],
+                  "ordenSugerido": 49
+                }
+              ]
+            },
+            {
+              "nombre": "Círculo y áreas",
+              "temas": [
+                {
+                  "clave": "mat.s2.longitud-arco",
+                  "nombre": "Longitud de un arco de circunferencia",
+                  "descripcion": "Calcula la longitud de un arco a partir del ángulo central.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "mat.s2.sector-corona-circular",
+                  "nombre": "Área del sector circular y de la corona circular",
+                  "descripcion": "Calcula áreas de sectores y coronas en ruedas, jardines y pistas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.longitud-arco"
+                  ],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "mat.s2.area-figuras-compuestas",
+                  "nombre": "Área de figuras compuestas con partes circulares",
+                  "descripcion": "Calcula áreas sumando y restando polígonos, círculos y sectores.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-01",
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.sector-corona-circular"
+                  ],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "mat.s2.area-irregular-cuadricula",
+                  "nombre": "Área de regiones irregulares por aproximación con cuadrícula",
+                  "descripcion": "Estima el área de terrenos o lagos irregulares contando cuadrados completos e incompletos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "mat.s2.area-perimetro-coordenadas",
+                  "nombre": "Perímetro y área de polígonos en el plano cartesiano",
+                  "descripcion": "Calcula perímetros y áreas de polígonos dados por sus vértices en el plano.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.teorema-pitagoras"
+                  ],
+                  "ordenSugerido": 75
+                }
+              ]
+            },
+            {
+              "nombre": "Pirámides y sólidos",
+              "temas": [
+                {
+                  "clave": "mat.s2.desarrollo-piramide",
+                  "nombre": "Desarrollo plano de una pirámide",
+                  "descripcion": "Construye el desarrollo de una pirámide y relaciona apotema con altura.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-03",
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.piramides-elementos",
+                    "mat.s2.teorema-pitagoras"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "mat.s2.area-piramide",
+                  "nombre": "Área lateral y total de una pirámide",
+                  "descripcion": "Calcula el área de una pirámide regular a partir de su desarrollo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.desarrollo-piramide"
+                  ],
+                  "ordenSugerido": 79
+                },
+                {
+                  "clave": "mat.s2.volumen-piramide",
+                  "nombre": "Volumen de la pirámide y su relación con el prisma",
+                  "descripcion": "Calcula el volumen de una pirámide y justifica que es un tercio del prisma de igual base y altura.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-06",
+                    "MAT-C26-S2-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.area-piramide"
+                  ],
+                  "ordenSugerido": 80
+                },
+                {
+                  "clave": "mat.s2.volumen-capacidad",
+                  "nombre": "Equivalencia entre volumen y capacidad",
+                  "descripcion": "Relaciona cm³, dm³ y m³ con mililitros y litros en tanques y envases.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 81
+                }
+              ]
+            },
+            {
+              "nombre": "Transformaciones y escalas",
+              "temas": [
+                {
+                  "clave": "mat.s2.homotecia",
+                  "nombre": "Ampliación y reducción con homotecia",
+                  "descripcion": "Amplía o reduce figuras desde un centro y con una razón dada.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-02",
+                    "MAT-C26-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.composicion-transformaciones"
+                  ],
+                  "ordenSugerido": 111
+                },
+                {
+                  "clave": "mat.s2.planos-vivienda-escala",
+                  "nombre": "Planos de vivienda a escala",
+                  "descripcion": "Lee planos a escala para obtener medidas reales de ambientes y rutas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-05",
+                    "MAT-C26-S2-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 113
+                },
+                {
+                  "clave": "mat.s2.vistas-plano-escala",
+                  "nombre": "Vistas de objetos en planos a escala",
+                  "descripcion": "Dibuja vistas de un objeto a escala y obtiene sus medidas reales.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.planos-vivienda-escala"
+                  ],
+                  "ordenSugerido": 114
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Líneas notables y congruencia",
+              "temas": [
+                {
+                  "clave": "mat.s2.justificar-congruencia",
+                  "nombre": "Justificación de igualdades con triángulos congruentes",
+                  "descripcion": "Argumenta que dos segmentos o ángulos son iguales mostrando triángulos congruentes.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.criterios-congruencia"
+                  ],
+                  "ordenSugerido": 18
+                }
+              ]
+            },
+            {
+              "nombre": "Círculo y áreas",
+              "temas": [
+                {
+                  "clave": "mat.s2.razon-semejanza-areas",
+                  "nombre": "Razón de semejanza y razón de áreas",
+                  "descripcion": "Justifica que si los lados se multiplican por k, el área se multiplica por k².",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.criterios-semejanza"
+                  ],
+                  "ordenSugerido": 76
+                }
+              ]
+            },
+            {
+              "nombre": "Transformaciones y escalas",
+              "temas": [
+                {
+                  "clave": "mat.s2.verificar-propiedades-software",
+                  "nombre": "Verificación de propiedades geométricas con simulaciones",
+                  "descripcion": "Comprueba o descarta conjeturas midiendo casos en GeoGebra o con material concreto.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S2-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 115
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 25,
+      "nombre": "Resuelve problemas de gestión de datos e incertidumbre",
+      "capacidades": [
+        {
+          "nombre": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+          "bloques": [
+            {
+              "nombre": "Datos agrupados",
+              "temas": [
+                {
+                  "clave": "mat.s2.variables-continuas",
+                  "nombre": "Variables cuantitativas discretas y continuas",
+                  "descripcion": "Distingue variables discretas de continuas y decide cómo organizarlas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-01",
+                    "MAT-C25-S2-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 19
+                }
+              ]
+            },
+            {
+              "nombre": "Histogramas y polígonos",
+              "temas": [
+                {
+                  "clave": "mat.s2.histograma",
+                  "nombre": "Histograma",
+                  "descripcion": "Construye histogramas a partir de tablas con intervalos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.tabla-intervalos"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "mat.s2.poligono-frecuencias",
+                  "nombre": "Polígono de frecuencias",
+                  "descripcion": "Construye el polígono de frecuencias uniendo las marcas de clase del histograma.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.histograma"
+                  ],
+                  "ordenSugerido": 53
+                },
+                {
+                  "clave": "mat.s2.ojiva",
+                  "nombre": "Polígono de frecuencias acumuladas",
+                  "descripcion": "Construye la ojiva y la usa para saber cuántos datos están por debajo de un valor.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-01",
+                    "MAT-C25-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.poligono-frecuencias"
+                  ],
+                  "ordenSugerido": 55
+                },
+                {
+                  "clave": "mat.s2.eleccion-grafico",
+                  "nombre": "Gráfico adecuado según el tipo de variable",
+                  "descripcion": "Elige entre barras, circular, histograma o polígono según la variable y el propósito.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-01",
+                    "MAT-C25-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.histograma"
+                  ],
+                  "ordenSugerido": 56
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s2.espacio-muestral-arbol",
+                  "nombre": "Espacio muestral con diagrama de árbol y tabla de doble entrada",
+                  "descripcion": "Organiza los resultados de experimentos de dos etapas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 116
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+          "bloques": [
+            {
+              "nombre": "Histogramas y polígonos",
+              "temas": [
+                {
+                  "clave": "mat.s2.leer-histogramas",
+                  "nombre": "Interpretación de histogramas y polígonos de frecuencia",
+                  "descripcion": "Lee y compara histogramas para deducir datos que no aparecen explícitos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.poligono-frecuencias"
+                  ],
+                  "ordenSugerido": 54
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s2.seguro-probable-imposible",
+                  "nombre": "Escala de probabilidad: imposible, probable y seguro",
+                  "descripcion": "Ubica sucesos en la escala de 0 a 1 según el valor de su probabilidad.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-02",
+                    "MAT-C25-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.laplace-sucesos-compuestos"
+                  ],
+                  "ordenSugerido": 119
+                },
+                {
+                  "clave": "mat.s2.azar-en-textos",
+                  "nombre": "Situaciones aleatorias en noticias y juegos",
+                  "descripcion": "Interpreta descripciones de juegos y sorteos para deducir probabilidades.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.seguro-probable-imposible"
+                  ],
+                  "ordenSugerido": 121
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para recopilar y procesar datos",
+          "bloques": [
+            {
+              "nombre": "Datos agrupados",
+              "temas": [
+                {
+                  "clave": "mat.s2.recojo-medicion",
+                  "nombre": "Recojo de datos por encuesta y medición",
+                  "descripcion": "Recoge datos de variables continuas como estatura o tiempo y los registra con precisión.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.variables-continuas"
+                  ],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "mat.s2.rango-intervalos-amplitud",
+                  "nombre": "Rango, número de intervalos y amplitud",
+                  "descripcion": "Determina el rango y forma intervalos de igual amplitud con la regla de Sturges.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.recojo-medicion"
+                  ],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "mat.s2.tabla-intervalos",
+                  "nombre": "Tabla de frecuencias con datos agrupados en intervalos",
+                  "descripcion": "Organiza datos continuos con marca de clase y frecuencias absolutas, relativas y acumuladas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.rango-intervalos-amplitud"
+                  ],
+                  "ordenSugerido": 22
+                }
+              ]
+            },
+            {
+              "nombre": "Medidas de tendencia central",
+              "temas": [
+                {
+                  "clave": "mat.s2.mtc-tabla-frecuencias",
+                  "nombre": "Media, mediana y moda desde una tabla de frecuencias",
+                  "descripcion": "Calcula las medidas de tendencia central de datos discretos organizados en tablas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.tabla-intervalos"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "mat.s2.media-ponderada",
+                  "nombre": "Media ponderada",
+                  "descripcion": "Calcula promedios con pesos distintos, como notas de curso o precios por cantidad.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.mtc-tabla-frecuencias"
+                  ],
+                  "ordenSugerido": 85
+                },
+                {
+                  "clave": "mat.s2.dato-faltante-media",
+                  "nombre": "Dato faltante conocida la media",
+                  "descripcion": "Halla el valor que falta para obtener un promedio determinado.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-04",
+                    "MAT-C25-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.mtc-tabla-frecuencias"
+                  ],
+                  "ordenSugerido": 86
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s2.laplace-sucesos-compuestos",
+                  "nombre": "Regla de Laplace en experimentos de dos etapas",
+                  "descripcion": "Calcula probabilidades como decimal en experimentos con dos dados, monedas o urnas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-02",
+                    "MAT-C25-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.espacio-muestral-arbol"
+                  ],
+                  "ordenSugerido": 117
+                },
+                {
+                  "clave": "mat.s2.suceso-contrario",
+                  "nombre": "Probabilidad del suceso contrario",
+                  "descripcion": "Calcula la probabilidad de que algo no ocurra restando de 1.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.laplace-sucesos-compuestos"
+                  ],
+                  "ordenSugerido": 118
+                },
+                {
+                  "clave": "mat.s2.ley-grandes-numeros",
+                  "nombre": "Frecuencia relativa con muchas repeticiones",
+                  "descripcion": "Compara la frecuencia relativa de simulaciones con la probabilidad teórica.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-02",
+                    "MAT-C25-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.laplace-sucesos-compuestos"
+                  ],
+                  "ordenSugerido": 120
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Sustenta conclusiones o decisiones con base en la información obtenida",
+          "bloques": [
+            {
+              "nombre": "Medidas de tendencia central",
+              "temas": [
+                {
+                  "clave": "mat.s2.comparar-grupos-mtc",
+                  "nombre": "Comparación de dos grupos con medidas de tendencia central",
+                  "descripcion": "Elige la medida adecuada para comparar dos poblaciones y justifica su conclusión.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-03",
+                    "MAT-C25-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.mtc-tabla-frecuencias"
+                  ],
+                  "ordenSugerido": 87
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s2.juegos-justos",
+                  "nombre": "Juegos justos y decisiones con probabilidad",
+                  "descripcion": "Decide si un juego es justo comparando probabilidades y corrige argumentos erróneos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.suceso-contrario"
+                  ],
+                  "ordenSugerido": 122
+                },
+                {
+                  "clave": "mat.s2.conclusiones-histograma",
+                  "nombre": "Conclusiones sobre una población a partir de su distribución",
+                  "descripcion": "Plantea conclusiones sobre la tendencia de una población usando histogramas y medidas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s2.leer-histogramas"
+                  ],
+                  "ordenSugerido": 123
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

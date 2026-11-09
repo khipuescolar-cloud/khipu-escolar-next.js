@@ -1,0 +1,1862 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "matematica",
+  "nivel": "primaria",
+  "grado": 4,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Primaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+    },
+    {
+      "titulo": "Cuaderno de trabajo Matemática 4, cuarto grado, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7864"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 23,
+      "nombre": "Resuelve problemas de cantidad",
+      "capacidades": [
+        {
+          "nombre": "Traduce cantidades a expresiones numéricas",
+          "bloques": [
+            {
+              "nombre": "Adición y sustracción",
+              "temas": [
+                {
+                  "clave": "mat.p4.problemas-aditivos-10000",
+                  "nombre": "Problemas de juntar, agregar y quitar hasta 10 000",
+                  "descripcion": "Traduce situaciones de combinación y cambio con cantidades de cuatro cifras a sumas y restas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.suma-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "mat.p4.problemas-comparar-igualar-10000",
+                  "nombre": "Problemas de comparar e igualar hasta 10 000",
+                  "descripcion": "Halla diferencias y cantidades para igualar en situaciones con números de cuatro cifras.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.resta-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 16
+                },
+                {
+                  "clave": "mat.p4.problemas-aditivos-varias-etapas",
+                  "nombre": "Problemas aditivos de varias etapas",
+                  "descripcion": "Resuelve situaciones que encadenan dos o más sumas y restas con números hasta 10 000.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-01",
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.problemas-aditivos-10000",
+                    "mat.p4.problemas-comparar-igualar-10000"
+                  ],
+                  "ordenSugerido": 35
+                }
+              ]
+            },
+            {
+              "nombre": "Multiplicación y división",
+              "temas": [
+                {
+                  "clave": "mat.p4.problemas-comparacion-multiplicativa",
+                  "nombre": "Problemas de comparación multiplicativa («veces más»)",
+                  "descripcion": "Resuelve situaciones en que una cantidad es el doble, triple o varias veces otra.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.multiplicacion-varias-cifras"
+                  ],
+                  "ordenSugerido": 44
+                },
+                {
+                  "clave": "mat.p4.problemas-precio-unitario",
+                  "nombre": "Problemas de precio unitario y precio total",
+                  "descripcion": "Calcula el costo de varias unidades o el precio de una a partir del total.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.multiplicacion-varias-cifras",
+                    "mat.p4.division-una-cifra"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "mat.p4.problemas-reparto-agrupacion",
+                  "nombre": "Problemas de reparto y agrupación con división",
+                  "descripcion": "Distingue si hay que repartir en partes iguales o formar grupos y resuelve con una división.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.division-una-cifra"
+                  ],
+                  "ordenSugerido": 79
+                },
+                {
+                  "clave": "mat.p4.problemas-division-residuo",
+                  "nombre": "Problemas de división con residuo",
+                  "descripcion": "Interpreta qué significa el residuo en la situación y decide la respuesta adecuada.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.division-exacta-inexacta"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "mat.p4.problemas-cuatro-operaciones",
+                  "nombre": "Problemas de dos etapas con las cuatro operaciones",
+                  "descripcion": "Combina multiplicación o división con suma o resta en una misma situación.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-01",
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.problemas-precio-unitario",
+                    "mat.p4.problemas-reparto-agrupacion"
+                  ],
+                  "ordenSugerido": 80
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones",
+              "temas": [
+                {
+                  "clave": "mat.p4.completar-la-unidad",
+                  "nombre": "Cuánto falta para completar la unidad",
+                  "descripcion": "Calcula la fracción que falta para formar un entero en situaciones de partición.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.fraccion-todo-continuo"
+                  ],
+                  "ordenSugerido": 86
+                },
+                {
+                  "clave": "mat.p4.problemas-suma-resta-fracciones",
+                  "nombre": "Problemas de suma y resta con fracciones usuales",
+                  "descripcion": "Traduce situaciones de juntar o quitar medios, cuartos u octavos de una unidad a sumas y restas de fracciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.suma-resta-fracciones-equivalentes"
+                  ],
+                  "ordenSugerido": 112
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre los números y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números hasta 10 000",
+              "temas": [
+                {
+                  "clave": "mat.p4.unidad-de-millar",
+                  "nombre": "La unidad de millar",
+                  "descripcion": "Forma un millar con diez centenas y explica la equivalencia con material base diez.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03",
+                    "MAT-C23-P4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "mat.p4.representar-cuatro-cifras",
+                  "nombre": "Representación de números de cuatro cifras",
+                  "descripcion": "Representa cantidades de cuatro cifras con material base diez, ábaco y tablero de valor posicional.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.unidad-de-millar"
+                  ],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "mat.p4.leer-escribir-hasta-10000",
+                  "nombre": "Lectura y escritura de números hasta 10 000",
+                  "descripcion": "Lee y escribe con cifras y palabras números de hasta cinco cifras.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.representar-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "mat.p4.valor-posicional-cuatro-cifras",
+                  "nombre": "Valor posicional en números de cuatro cifras",
+                  "descripcion": "Determina cuánto vale un dígito según su posición de millar, centena, decena o unidad.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.representar-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "mat.p4.equivalencias-um-c-d-u",
+                  "nombre": "Equivalencias entre millares, centenas, decenas y unidades",
+                  "descripcion": "Expresa una misma cantidad de distintas formas, como 2 UM = 20 C = 200 D.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03",
+                    "MAT-C23-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.valor-posicional-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "mat.p4.descomponer-cuatro-cifras",
+                  "nombre": "Composición y descomposición de números de cuatro cifras",
+                  "descripcion": "Descompone números de cuatro cifras en sumandos según su valor posicional y los vuelve a componer.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03",
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.valor-posicional-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "mat.p4.comparar-cuatro-cifras",
+                  "nombre": "Comparación de números de cuatro cifras",
+                  "descripcion": "Compara dos números de hasta cuatro cifras usando los signos >, < e =.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.valor-posicional-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "mat.p4.ordenar-hasta-10000",
+                  "nombre": "Orden de números hasta 10 000",
+                  "descripcion": "Ordena de forma creciente y decreciente varios números de hasta cuatro cifras.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.comparar-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "mat.p4.recta-numerica-10000",
+                  "nombre": "Números hasta 10 000 en la recta numérica",
+                  "descripcion": "Ubica números de cuatro cifras en una recta graduada de 100 en 100 o de 1000 en 1000.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.ordenar-hasta-10000"
+                  ],
+                  "ordenSugerido": 9
+                }
+              ]
+            },
+            {
+              "nombre": "Multiplicación y división",
+              "temas": [
+                {
+                  "clave": "mat.p4.terminos-multiplicacion-division",
+                  "nombre": "Términos de la multiplicación y la división",
+                  "descripcion": "Nombra factores, producto, dividendo, divisor, cociente y residuo en una operación.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "mat.p4.conmutativa-multiplicacion",
+                  "nombre": "Propiedad conmutativa de la multiplicación",
+                  "descripcion": "Comprueba con arreglos rectangulares que el orden de los factores no altera el producto.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.terminos-multiplicacion-division"
+                  ],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "mat.p4.asociativa-multiplicacion",
+                  "nombre": "Propiedad asociativa de la multiplicación",
+                  "descripcion": "Agrupa tres factores de diferentes formas para facilitar el cálculo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03",
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.conmutativa-multiplicacion"
+                  ],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "mat.p4.relacion-multiplicacion-division",
+                  "nombre": "Relación entre la multiplicación y la división",
+                  "descripcion": "Usa un hecho multiplicativo para encontrar el cociente de una división y al revés.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.terminos-multiplicacion-division"
+                  ],
+                  "ordenSugerido": 40
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones",
+              "temas": [
+                {
+                  "clave": "mat.p4.leer-escribir-fracciones",
+                  "nombre": "Lectura y escritura de fracciones",
+                  "descripcion": "Identifica numerador y denominador y lee fracciones como tres quintos o siete octavos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 49
+                },
+                {
+                  "clave": "mat.p4.fraccion-todo-continuo",
+                  "nombre": "Fracción de una unidad continua",
+                  "descripcion": "Representa fracciones de figuras, tiras y regletas divididas en partes iguales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.leer-escribir-fracciones"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "mat.p4.fraccion-de-cantidad",
+                  "nombre": "Fracción de una colección",
+                  "descripcion": "Halla la fracción de un conjunto de objetos, como 3/4 de 20 canicas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-02",
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.fraccion-todo-continuo",
+                    "mat.p4.division-exacta-inexacta"
+                  ],
+                  "ordenSugerido": 83
+                },
+                {
+                  "clave": "mat.p4.fracciones-homogeneas-heterogeneas",
+                  "nombre": "Fracciones homogéneas y heterogéneas",
+                  "descripcion": "Clasifica fracciones según tengan o no el mismo denominador.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.leer-escribir-fracciones"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "mat.p4.fracciones-equivalentes",
+                  "nombre": "Fracciones equivalentes con tiras y regletas",
+                  "descripcion": "Reconoce con tiras y regletas fracciones que representan la misma parte de la unidad.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03",
+                    "MAT-C23-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.fraccion-todo-continuo"
+                  ],
+                  "ordenSugerido": 85
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos de estimación y cálculo",
+          "bloques": [
+            {
+              "nombre": "Números hasta 10 000",
+              "temas": [
+                {
+                  "clave": "mat.p4.redondeo-centena-millar",
+                  "nombre": "Redondeo a la decena, centena y millar",
+                  "descripcion": "Redondea números de cuatro cifras al múltiplo de 10, 100 o 1000 más cercano.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.recta-numerica-10000"
+                  ],
+                  "ordenSugerido": 10
+                },
+                {
+                  "clave": "mat.p4.completar-millar",
+                  "nombre": "Completar al millar más cercano",
+                  "descripcion": "Calcula mentalmente cuánto falta a un número para llegar al siguiente millar.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.equivalencias-um-c-d-u"
+                  ],
+                  "ordenSugerido": 11
+                }
+              ]
+            },
+            {
+              "nombre": "Adición y sustracción",
+              "temas": [
+                {
+                  "clave": "mat.p4.suma-cuatro-cifras",
+                  "nombre": "Suma con números de cuatro cifras",
+                  "descripcion": "Suma números de hasta cuatro cifras con canjes en cualquier orden.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.descomponer-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "mat.p4.resta-cuatro-cifras",
+                  "nombre": "Resta con números de cuatro cifras",
+                  "descripcion": "Resta números de hasta cuatro cifras con canjes entre millares, centenas y decenas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.descomponer-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "mat.p4.resta-ceros-millar",
+                  "nombre": "Resta con ceros en el minuendo",
+                  "descripcion": "Resta de números como 3000 o 5004 desagrupando millares y centenas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.resta-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 17
+                },
+                {
+                  "clave": "mat.p4.compensacion-suma-resta",
+                  "nombre": "Cálculo mental por compensación",
+                  "descripcion": "Suma o resta redondeando un número a la centena o millar y ajustando luego el resultado.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.redondeo-centena-millar",
+                    "mat.p4.suma-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "mat.p4.comprobar-suma-resta",
+                  "nombre": "Comprobación de sumas y restas",
+                  "descripcion": "Verifica el resultado de una resta con una suma y viceversa.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.resta-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 18
+                }
+              ]
+            },
+            {
+              "nombre": "Multiplicación y división",
+              "temas": [
+                {
+                  "clave": "mat.p4.multiplicar-por-10-100-1000",
+                  "nombre": "Multiplicación por 10, 100 y 1000",
+                  "descripcion": "Multiplica agregando ceros y explica el cambio de valor posicional de las cifras.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.valor-posicional-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "mat.p4.multiplicar-decenas-centenas",
+                  "nombre": "Multiplicación por decenas y centenas exactas",
+                  "descripcion": "Multiplica por 20, 30 o 400 descomponiendo el factor en un dígito por 10 o 100.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.multiplicar-por-10-100-1000"
+                  ],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "mat.p4.multiplicacion-varias-cifras",
+                  "nombre": "Multiplicación de varias cifras por una cifra",
+                  "descripcion": "Multiplica números de hasta cuatro cifras por un dígito con el algoritmo y con canjes.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.multiplicar-decenas-centenas"
+                  ],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "mat.p4.multiplicacion-dos-cifras",
+                  "nombre": "Multiplicación por un número de dos cifras",
+                  "descripcion": "Multiplica por un factor de dos cifras sumando productos parciales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.multiplicacion-varias-cifras",
+                    "mat.p4.distributiva-calculo"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "mat.p4.distributiva-calculo",
+                  "nombre": "Multiplicar descomponiendo un factor (propiedad distributiva)",
+                  "descripcion": "Calcula productos como 7 × 23 como 7 × 20 + 7 × 3.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03",
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.multiplicacion-varias-cifras"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "mat.p4.duplicar-reiteradamente",
+                  "nombre": "Doblar y dividir por 2 de forma reiterada",
+                  "descripcion": "Multiplica por 4 u 8 doblando varias veces y divide entre 4 u 8 sacando mitades sucesivas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.asociativa-multiplicacion"
+                  ],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "mat.p4.descomposicion-multiplicativa",
+                  "nombre": "Cálculo mental con descomposiciones multiplicativas",
+                  "descripcion": "Descompone un factor en otros dos para calcular, como 16 × 5 = 8 × 2 × 5.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.asociativa-multiplicacion"
+                  ],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "mat.p4.division-exacta-inexacta",
+                  "nombre": "División exacta e inexacta",
+                  "descripcion": "Reconoce cuándo un reparto deja residuo y por qué el residuo es menor que el divisor.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03",
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.relacion-multiplicacion-division"
+                  ],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "mat.p4.division-una-cifra",
+                  "nombre": "División entre una cifra",
+                  "descripcion": "Divide números de hasta cuatro cifras entre un dígito con el algoritmo usual.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.division-exacta-inexacta"
+                  ],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "mat.p4.dividir-entre-10-100",
+                  "nombre": "División entre 10, 100 y 1000",
+                  "descripcion": "Divide números terminados en ceros entre 10, 100 y 1000 y explica el resultado.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.multiplicar-por-10-100-1000"
+                  ],
+                  "ordenSugerido": 81
+                },
+                {
+                  "clave": "mat.p4.comprobar-division",
+                  "nombre": "Comprobación de la división",
+                  "descripcion": "Verifica que el dividendo es igual al divisor por el cociente más el residuo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.division-una-cifra"
+                  ],
+                  "ordenSugerido": 82
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones",
+              "temas": [
+                {
+                  "clave": "mat.p4.amplificar-fracciones",
+                  "nombre": "Amplificación de fracciones",
+                  "descripcion": "Obtiene fracciones equivalentes multiplicando numerador y denominador por un mismo número.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.fracciones-equivalentes"
+                  ],
+                  "ordenSugerido": 87
+                },
+                {
+                  "clave": "mat.p4.simplificar-fracciones",
+                  "nombre": "Simplificación de fracciones",
+                  "descripcion": "Obtiene la fracción equivalente con términos menores dividiendo entre un mismo número.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.amplificar-fracciones"
+                  ],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "mat.p4.suma-fracciones-homogeneas",
+                  "nombre": "Suma de fracciones con igual denominador",
+                  "descripcion": "Suma fracciones homogéneas con material concreto y luego de forma simbólica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03",
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.fracciones-homogeneas-heterogeneas"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "mat.p4.resta-fracciones-homogeneas",
+                  "nombre": "Resta de fracciones con igual denominador",
+                  "descripcion": "Resta fracciones homogéneas con material concreto y luego de forma simbólica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03",
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.suma-fracciones-homogeneas"
+                  ],
+                  "ordenSugerido": 90
+                },
+                {
+                  "clave": "mat.p4.suma-resta-fracciones-equivalentes",
+                  "nombre": "Suma y resta de fracciones usuales con equivalentes",
+                  "descripcion": "Suma o resta medios, cuartos y octavos convirtiéndolos antes a fracciones equivalentes.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-03",
+                    "MAT-C23-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.amplificar-fracciones",
+                    "mat.p4.resta-fracciones-homogeneas"
+                  ],
+                  "ordenSugerido": 111
+                }
+              ]
+            },
+            {
+              "nombre": "Medición: masa y tiempo",
+              "temas": [
+                {
+                  "clave": "mat.p4.kilogramo-gramo",
+                  "nombre": "El kilogramo y el gramo",
+                  "descripcion": "Mide masas con balanza y elige el kilogramo o el gramo según el objeto.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "mat.p4.medio-cuarto-kilo",
+                  "nombre": "Medio kilo y cuarto de kilo",
+                  "descripcion": "Relaciona 1/2 kg con 500 g y 1/4 kg con 250 g en compras cotidianas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.kilogramo-gramo",
+                    "mat.p4.fraccion-de-cantidad"
+                  ],
+                  "ordenSugerido": 113
+                },
+                {
+                  "clave": "mat.p4.estimar-comparar-masas",
+                  "nombre": "Estimación y comparación de masas en kilogramos y gramos",
+                  "descripcion": "Estima la masa de objetos en gramos o kilogramos y la compara con la medida real.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.kilogramo-gramo"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "mat.p4.hora-media-cuarto",
+                  "nombre": "La hora, la media hora y el cuarto de hora",
+                  "descripcion": "Lee la hora en relojes de agujas y digitales con medias horas y cuartos de hora.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 19
+                },
+                {
+                  "clave": "mat.p4.duracion-actividades",
+                  "nombre": "Duración de actividades",
+                  "descripcion": "Calcula cuánto dura una actividad en horas, medias horas y cuartos de hora.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.hora-media-cuarto"
+                  ],
+                  "ordenSugerido": 53
+                },
+                {
+                  "clave": "mat.p4.el-anio",
+                  "nombre": "El año, los meses y las semanas",
+                  "descripcion": "Usa equivalencias entre año, meses, semanas y días para resolver situaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 114
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números hasta 10 000",
+              "temas": [
+                {
+                  "clave": "mat.p4.justificar-comparaciones",
+                  "nombre": "Justificación de la conformación del millar y del orden",
+                  "descripcion": "Explica con material concreto por qué un número de cuatro cifras es mayor o menor que otro.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.comparar-cuatro-cifras"
+                  ],
+                  "ordenSugerido": 12
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones",
+              "temas": [
+                {
+                  "clave": "mat.p4.comparar-fracciones",
+                  "nombre": "Comparación de fracciones",
+                  "descripcion": "Explica con material concreto cuál de dos fracciones es mayor.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.fracciones-equivalentes"
+                  ],
+                  "ordenSugerido": 91
+                },
+                {
+                  "clave": "mat.p4.ordenar-fracciones",
+                  "nombre": "Orden de fracciones de igual numerador o denominador",
+                  "descripcion": "Ordena fracciones y justifica el orden con tiras de fracciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.comparar-fracciones"
+                  ],
+                  "ordenSugerido": 92
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 24,
+      "nombre": "Resuelve problemas de regularidad, equivalencia y cambio",
+      "capacidades": [
+        {
+          "nombre": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+          "bloques": [
+            {
+              "nombre": "Igualdades y equivalencias",
+              "temas": [
+                {
+                  "clave": "mat.p4.igualdades-suma-resta",
+                  "nombre": "Igualdades con dos equivalencias de suma y resta",
+                  "descripcion": "Expresa con una igualdad dos situaciones equivalentes, como 25 + 15 = 50 − 10.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "mat.p4.igualdades-dos-equivalencias",
+                  "nombre": "Igualdades con multiplicación y división",
+                  "descripcion": "Expresa equivalencias como 4 × 6 = 3 × 8 o 24 ÷ 2 = 6 × 2.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.igualdades-suma-resta",
+                    "mat.p4.relacion-multiplicacion-division"
+                  ],
+                  "ordenSugerido": 54
+                },
+                {
+                  "clave": "mat.p4.equivalencias-balanza",
+                  "nombre": "Equivalencias con la balanza",
+                  "descripcion": "Representa con una balanza en equilibrio dos grupos de objetos de igual masa.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.igualdades-suma-resta"
+                  ],
+                  "ordenSugerido": 21
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones",
+              "temas": [
+                {
+                  "clave": "mat.p4.patrones-repeticion-simetria",
+                  "nombre": "Patrones de repetición con simetría",
+                  "descripcion": "Identifica y continúa patrones que combinan color o forma con una figura y su reflejo.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "mat.p4.patrones-aditivos-multiplicativos",
+                  "nombre": "Patrones aditivos y patrones multiplicativos",
+                  "descripcion": "Distingue si una secuencia aumenta sumando o multiplicando por un mismo número.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.patrones-aditivos-10000"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "mat.p4.patrones-graficos-crecientes",
+                  "nombre": "Patrones gráficos que crecen",
+                  "descripcion": "Traduce una secuencia de figuras que crecen a una sucesión numérica.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.patrones-aditivos-10000"
+                  ],
+                  "ordenSugerido": 96
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las relaciones algebraicas",
+          "bloques": [
+            {
+              "nombre": "Igualdades y equivalencias",
+              "temas": [
+                {
+                  "clave": "mat.p4.signo-igual-dos-usos",
+                  "nombre": "El signo igual: resultado o equivalencia",
+                  "descripcion": "Distingue el = que anuncia un resultado del = que relaciona dos expresiones equivalentes.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.igualdades-suma-resta"
+                  ],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "mat.p4.termino-desconocido-icono",
+                  "nombre": "Igualdad con un término desconocido",
+                  "descripcion": "Representa con un ícono o casilla el valor que falta en una igualdad.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.signo-igual-dos-usos"
+                  ],
+                  "ordenSugerido": 55
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones",
+              "temas": [
+                {
+                  "clave": "mat.p4.regla-formacion-patron",
+                  "nombre": "Regla de formación de un patrón aditivo o multiplicativo",
+                  "descripcion": "Expresa con palabras y operaciones la regla que genera un patrón.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.patrones-aditivos-multiplicativos"
+                  ],
+                  "ordenSugerido": 58
+                }
+              ]
+            },
+            {
+              "nombre": "Relaciones de cambio",
+              "temas": [
+                {
+                  "clave": "mat.p4.tabla-dos-magnitudes",
+                  "nombre": "Relación entre dos magnitudes en una tabla",
+                  "descripcion": "Describe cómo cambia una cantidad cuando cambia otra, como número de cuadernos y precio.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 98
+                },
+                {
+                  "clave": "mat.p4.cambio-dibujos-graficos",
+                  "nombre": "Relación de cambio en dibujos",
+                  "descripcion": "Describe con dibujos o esquemas cómo varía una magnitud respecto de otra.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.tabla-dos-magnitudes"
+                  ],
+                  "ordenSugerido": 99
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+          "bloques": [
+            {
+              "nombre": "Igualdades y equivalencias",
+              "temas": [
+                {
+                  "clave": "mat.p4.operacion-inversa-igualdad",
+                  "nombre": "Término desconocido con la operación inversa",
+                  "descripcion": "Halla el valor que falta en una igualdad usando la operación contraria.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.termino-desconocido-icono"
+                  ],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "mat.p4.duplicar-repartir-lados",
+                  "nombre": "Duplicar o repartir en ambos lados de la igualdad",
+                  "descripcion": "Mantiene una igualdad al duplicar o dividir en partes iguales sus dos lados.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.igualdades-dos-equivalencias"
+                  ],
+                  "ordenSugerido": 93
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones",
+              "temas": [
+                {
+                  "clave": "mat.p4.patrones-aditivos-10000",
+                  "nombre": "Patrones aditivos con números hasta 10 000",
+                  "descripcion": "Continúa y completa términos faltantes en secuencias que suman o restan un mismo número.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.recta-numerica-10000"
+                  ],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "mat.p4.patrones-multiplicativos",
+                  "nombre": "Patrones multiplicativos por 2, 3, 5 o 10",
+                  "descripcion": "Continúa y crea secuencias que multiplican por 2, 3, 5 o 10.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.patrones-aditivos-multiplicativos"
+                  ],
+                  "ordenSugerido": 59
+                },
+                {
+                  "clave": "mat.p4.patrones-tabla-numerica",
+                  "nombre": "Patrones en tablas numéricas y calendarios",
+                  "descripcion": "Descubre regularidades en la tabla de multiplicar, el tablero del 100 y el calendario.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.patrones-aditivos-10000"
+                  ],
+                  "ordenSugerido": 60
+                }
+              ]
+            },
+            {
+              "nombre": "Relaciones de cambio",
+              "temas": [
+                {
+                  "clave": "mat.p4.valores-faltantes-cambio",
+                  "nombre": "Valores que faltan en una relación de cambio",
+                  "descripcion": "Completa una tabla de dos magnitudes encontrando la relación entre ellas.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.tabla-dos-magnitudes"
+                  ],
+                  "ordenSugerido": 115
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+          "bloques": [
+            {
+              "nombre": "Igualdades y equivalencias",
+              "temas": [
+                {
+                  "clave": "mat.p4.uniformidad-igualdad",
+                  "nombre": "Propiedad de uniformidad de la igualdad con la balanza",
+                  "descripcion": "Explica con la balanza que una igualdad se mantiene si se hace la misma operación en ambos lados.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.duplicar-repartir-lados"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "mat.p4.cancelativa-igualdad",
+                  "nombre": "Propiedad cancelativa de la igualdad con la balanza",
+                  "descripcion": "Explica con la balanza que al quitar lo mismo de ambos lados la igualdad se conserva.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.uniformidad-igualdad"
+                  ],
+                  "ordenSugerido": 95
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones",
+              "temas": [
+                {
+                  "clave": "mat.p4.elemento-siguiente-patron",
+                  "nombre": "Predicción de elementos de un patrón",
+                  "descripcion": "Anticipa qué elemento ocupa una posición dada y justifica su respuesta con la regla.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.regla-formacion-patron"
+                  ],
+                  "ordenSugerido": 97
+                }
+              ]
+            },
+            {
+              "nombre": "Relaciones de cambio",
+              "temas": [
+                {
+                  "clave": "mat.p4.justificar-relacion-cambio",
+                  "nombre": "Explicación de relaciones de cambio",
+                  "descripcion": "Justifica con ejemplos la relación hallada entre dos magnitudes y su proceso.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.valores-faltantes-cambio"
+                  ],
+                  "ordenSugerido": 116
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 26,
+      "nombre": "Resuelve problemas de forma, movimiento y localización",
+      "capacidades": [
+        {
+          "nombre": "Modela objetos con formas geométricas y sus transformaciones",
+          "bloques": [
+            {
+              "nombre": "Polígonos",
+              "temas": [
+                {
+                  "clave": "mat.p4.poligonos-no-poligonos",
+                  "nombre": "Polígonos y no polígonos",
+                  "descripcion": "Reconoce figuras cerradas de lados rectos en objetos reales y las distingue de otras.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 25
+                }
+              ]
+            },
+            {
+              "nombre": "Simetría y traslación",
+              "temas": [
+                {
+                  "clave": "mat.p4.figuras-simetricas-cuadricula",
+                  "nombre": "Figuras simétricas en cuadrícula",
+                  "descripcion": "Completa y construye figuras simétricas respecto de un eje en papel cuadriculado.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 28
+                },
+                {
+                  "clave": "mat.p4.traslacion-cuadricula",
+                  "nombre": "Traslación de figuras",
+                  "descripcion": "Desplaza una figura en la cuadrícula un número de casillas en una dirección.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-02",
+                    "MAT-C26-P4-05",
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.figuras-simetricas-cuadricula"
+                  ],
+                  "ordenSugerido": 102
+                }
+              ]
+            },
+            {
+              "nombre": "Ubicación y recorridos",
+              "temas": [
+                {
+                  "clave": "mat.p4.croquis-referencias",
+                  "nombre": "Croquis con puntos de referencia",
+                  "descripcion": "Dibuja un croquis de lugares cercanos ubicando objetos fijos como referencia.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 29
+                }
+              ]
+            },
+            {
+              "nombre": "Capacidad",
+              "temas": [
+                {
+                  "clave": "mat.p4.capacidad-cubos-prismas",
+                  "nombre": "Capacidad de cajas con forma de cubo o prisma",
+                  "descripcion": "Calcula cuántos cubitos caben en una caja con forma de cubo o prisma.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.elementos-cubo-prisma"
+                  ],
+                  "ordenSugerido": 120
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las formas y relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Polígonos",
+              "temas": [
+                {
+                  "clave": "mat.p4.elementos-poligono",
+                  "nombre": "Elementos de un polígono",
+                  "descripcion": "Identifica lados, vértices y ángulos en polígonos dibujados.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.poligonos-no-poligonos"
+                  ],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "mat.p4.clasificar-poligonos-lados",
+                  "nombre": "Clasificación de polígonos por número de lados",
+                  "descripcion": "Nombra triángulos, cuadriláteros, pentágonos y hexágonos según sus lados.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.elementos-poligono"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "mat.p4.angulo-recto",
+                  "nombre": "El ángulo recto",
+                  "descripcion": "Reconoce ángulos rectos en figuras y objetos usando una escuadra o una hoja doblada.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.elementos-poligono"
+                  ],
+                  "ordenSugerido": 61
+                },
+                {
+                  "clave": "mat.p4.paralelas-perpendiculares",
+                  "nombre": "Líneas paralelas y perpendiculares",
+                  "descripcion": "Identifica y traza rectas que no se cortan o que se cortan formando ángulo recto.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-03",
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.angulo-recto"
+                  ],
+                  "ordenSugerido": 62
+                }
+              ]
+            },
+            {
+              "nombre": "Cubos y prismas",
+              "temas": [
+                {
+                  "clave": "mat.p4.cubo-prisma-entorno",
+                  "nombre": "Cubos y prismas en el entorno",
+                  "descripcion": "Asocia cajas y objetos reales con cubos y prismas de base cuadrada.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "mat.p4.elementos-cubo-prisma",
+                  "nombre": "Elementos del cubo y del prisma de base cuadrada",
+                  "descripcion": "Cuenta y dibuja caras, aristas y vértices de cubos y prismas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.cubo-prisma-entorno"
+                  ],
+                  "ordenSugerido": 65
+                }
+              ]
+            },
+            {
+              "nombre": "Ubicación y recorridos",
+              "temas": [
+                {
+                  "clave": "mat.p4.instrucciones-ubicacion",
+                  "nombre": "Instrucciones para ubicar y desplazarse",
+                  "descripcion": "Da y sigue indicaciones para llegar a un lugar usando referencias del entorno.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.croquis-referencias"
+                  ],
+                  "ordenSugerido": 30
+                }
+              ]
+            },
+            {
+              "nombre": "Superficie",
+              "temas": [
+                {
+                  "clave": "mat.p4.superficie-extension",
+                  "nombre": "La superficie como extensión",
+                  "descripcion": "Compara superficies diciendo cuál es más o menos extensa al superponerlas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 105
+                }
+              ]
+            },
+            {
+              "nombre": "Capacidad",
+              "temas": [
+                {
+                  "clave": "mat.p4.llenar-recipientes",
+                  "nombre": "Cuántas veces se llena un recipiente con otro",
+                  "descripcion": "Compara capacidades contando cuántas veces un recipiente llena a otro.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 117
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para orientarse en el espacio",
+          "bloques": [
+            {
+              "nombre": "Polígonos",
+              "temas": [
+                {
+                  "clave": "mat.p4.comparar-angulos-recto",
+                  "nombre": "Ángulos mayores y menores que el recto",
+                  "descripcion": "Estima si un ángulo es igual, mayor o menor que el ángulo recto.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.angulo-recto"
+                  ],
+                  "ordenSugerido": 63
+                }
+              ]
+            },
+            {
+              "nombre": "Ubicación y recorridos",
+              "temas": [
+                {
+                  "clave": "mat.p4.desplazamientos-cuadricula",
+                  "nombre": "Desplazamientos en cuadrícula",
+                  "descripcion": "Describe y realiza recorridos contando casillas hacia arriba, abajo, izquierda o derecha.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-05",
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.instrucciones-ubicacion"
+                  ],
+                  "ordenSugerido": 66
+                }
+              ]
+            },
+            {
+              "nombre": "Longitud y perímetro",
+              "temas": [
+                {
+                  "clave": "mat.p4.metro-centimetro",
+                  "nombre": "El metro y el centímetro",
+                  "descripcion": "Mide longitudes con regla y cinta métrica eligiendo la unidad adecuada.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "mat.p4.convertir-m-cm",
+                  "nombre": "Conversión entre metros y centímetros",
+                  "descripcion": "Expresa medidas en metros y centímetros sabiendo que 1 m = 100 cm.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.metro-centimetro"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "mat.p4.medio-cuarto-metro",
+                  "nombre": "Medio metro y cuarto de metro",
+                  "descripcion": "Relaciona 1/2 m y 1/4 m con 50 cm y 25 cm.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.convertir-m-cm",
+                    "mat.p4.fraccion-todo-continuo"
+                  ],
+                  "ordenSugerido": 103
+                },
+                {
+                  "clave": "mat.p4.estimar-longitudes",
+                  "nombre": "Estimación de longitudes",
+                  "descripcion": "Estima longitudes y distancias del entorno y las comprueba midiendo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.metro-centimetro"
+                  ],
+                  "ordenSugerido": 68
+                },
+                {
+                  "clave": "mat.p4.perimetro-poligonos",
+                  "nombre": "Perímetro de polígonos sumando sus lados",
+                  "descripcion": "Calcula el contorno de un polígono sumando la medida de sus lados.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-01",
+                    "MAT-C26-P4-04",
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.metro-centimetro",
+                    "mat.p4.clasificar-poligonos-lados"
+                  ],
+                  "ordenSugerido": 69
+                }
+              ]
+            },
+            {
+              "nombre": "Superficie",
+              "temas": [
+                {
+                  "clave": "mat.p4.superficie-unidades-patron",
+                  "nombre": "Medida de superficies con unidades patrón",
+                  "descripcion": "Mide superficies en cuadrícula contando cuadrados enteros y medios cuadrados.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-04",
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.superficie-extension"
+                  ],
+                  "ordenSugerido": 106
+                }
+              ]
+            },
+            {
+              "nombre": "Capacidad",
+              "temas": [
+                {
+                  "clave": "mat.p4.el-litro",
+                  "nombre": "El litro",
+                  "descripcion": "Mide la capacidad de recipientes con el litro como unidad convencional.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.llenar-recipientes"
+                  ],
+                  "ordenSugerido": 118
+                },
+                {
+                  "clave": "mat.p4.medio-cuarto-litro",
+                  "nombre": "Medio litro y cuarto de litro",
+                  "descripcion": "Expresa capacidades con fracciones de litro y calcula cuántas forman un litro.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.el-litro",
+                    "mat.p4.fraccion-todo-continuo"
+                  ],
+                  "ordenSugerido": 119
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Cubos y prismas",
+              "temas": [
+                {
+                  "clave": "mat.p4.desarrollo-cubo",
+                  "nombre": "Desarrollo plano del cubo",
+                  "descripcion": "Construye un cubo a partir de una plantilla de seis cuadrados y reconoce plantillas válidas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.elementos-cubo-prisma"
+                  ],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "mat.p4.desarrollo-prisma",
+                  "nombre": "Desarrollo plano del prisma de base cuadrada",
+                  "descripcion": "Arma un prisma desde su plantilla y explica en qué se parece y diferencia del cubo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.desarrollo-cubo"
+                  ],
+                  "ordenSugerido": 101
+                }
+              ]
+            },
+            {
+              "nombre": "Longitud y perímetro",
+              "temas": [
+                {
+                  "clave": "mat.p4.mismo-perimetro",
+                  "nombre": "Figuras con el mismo perímetro",
+                  "descripcion": "Construye figuras distintas con igual perímetro y explica sus diferencias.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.perimetro-poligonos"
+                  ],
+                  "ordenSugerido": 104
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 25,
+      "nombre": "Resuelve problemas de gestión de datos e incertidumbre",
+      "capacidades": [
+        {
+          "nombre": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+          "bloques": [
+            {
+              "nombre": "Datos y tablas",
+              "temas": [
+                {
+                  "clave": "mat.p4.tipos-de-datos",
+                  "nombre": "Datos cualitativos y cuantitativos",
+                  "descripcion": "Distingue datos que son cualidades (color, deporte) de datos que son números (hermanos, goles).",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 32
+                }
+              ]
+            },
+            {
+              "nombre": "Gráficos",
+              "temas": [
+                {
+                  "clave": "mat.p4.pictogramas-equivalencias",
+                  "nombre": "Pictogramas verticales y horizontales con equivalencias",
+                  "descripcion": "Representa datos con símbolos que valen varias unidades y medio símbolo.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.tabla-frecuencias-4"
+                  ],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "mat.p4.barras-escala-10",
+                  "nombre": "Gráfico de barras con escala múltiplo de 10",
+                  "descripcion": "Elabora gráficos de barras con ejes graduados de 10 en 10 o de 20 en 20.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.tabla-frecuencias-4"
+                  ],
+                  "ordenSugerido": 73
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+          "bloques": [
+            {
+              "nombre": "Datos y tablas",
+              "temas": [
+                {
+                  "clave": "mat.p4.leer-doble-entrada",
+                  "nombre": "Lectura de tablas de doble entrada",
+                  "descripcion": "Ubica e interpreta información cruzando filas y columnas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.organizar-doble-entrada"
+                  ],
+                  "ordenSugerido": 71
+                }
+              ]
+            },
+            {
+              "nombre": "Gráficos",
+              "temas": [
+                {
+                  "clave": "mat.p4.leer-barras-escala",
+                  "nombre": "Lectura de gráficos de barras con escala",
+                  "descripcion": "Interpreta valores que caen entre dos marcas de la escala y compara barras.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.barras-escala-10"
+                  ],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "mat.p4.varias-representaciones",
+                  "nombre": "Un mismo conjunto de datos en tabla, pictograma y barras",
+                  "descripcion": "Reconoce la misma información en diferentes representaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.pictogramas-equivalencias",
+                    "mat.p4.leer-barras-escala"
+                  ],
+                  "ordenSugerido": 107
+                }
+              ]
+            },
+            {
+              "nombre": "Moda y media",
+              "temas": [
+                {
+                  "clave": "mat.p4.moda",
+                  "nombre": "La moda",
+                  "descripcion": "Identifica el dato con mayor frecuencia en una tabla o gráfico.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-01",
+                    "MAT-C25-P4-02",
+                    "MAT-C25-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.tabla-frecuencias-4"
+                  ],
+                  "ordenSugerido": 108
+                },
+                {
+                  "clave": "mat.p4.media-punto-equilibrio",
+                  "nombre": "La media como punto de equilibrio",
+                  "descripcion": "Iguala cantidades con material concreto para hallar la media de pocos datos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-02",
+                    "MAT-C25-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.moda"
+                  ],
+                  "ordenSugerido": 121
+                }
+              ]
+            },
+            {
+              "nombre": "Azar",
+              "temas": [
+                {
+                  "clave": "mat.p4.seguro-mas-menos-probable",
+                  "nombre": "Sucesos seguros, más y menos probables en la vida diaria",
+                  "descripcion": "Clasifica sucesos cotidianos según su posibilidad de ocurrir.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 109
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para recopilar y procesar datos",
+          "bloques": [
+            {
+              "nombre": "Datos y tablas",
+              "temas": [
+                {
+                  "clave": "mat.p4.encuestas-entrevistas",
+                  "nombre": "Encuestas sencillas y entrevistas cortas",
+                  "descripcion": "Formula preguntas adecuadas y registra respuestas de un grupo.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.tipos-de-datos"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "mat.p4.tabla-frecuencias-4",
+                  "nombre": "Tabla de frecuencias",
+                  "descripcion": "Organiza los datos recogidos en una tabla con conteo y frecuencia.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.encuestas-entrevistas"
+                  ],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "mat.p4.organizar-doble-entrada",
+                  "nombre": "Organización de datos en tablas de doble entrada",
+                  "descripcion": "Registra datos que dependen de dos criterios en filas y columnas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.tabla-frecuencias-4"
+                  ],
+                  "ordenSugerido": 70
+                }
+              ]
+            },
+            {
+              "nombre": "Azar",
+              "temas": [
+                {
+                  "clave": "mat.p4.resultados-posibles",
+                  "nombre": "Todos los resultados posibles de un experimento",
+                  "descripcion": "Enumera con listas o diagramas los resultados al lanzar dados, monedas o girar ruletas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.seguro-mas-menos-probable"
+                  ],
+                  "ordenSugerido": 122
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Sustenta conclusiones o decisiones con base en la información obtenida",
+          "bloques": [
+            {
+              "nombre": "Azar",
+              "temas": [
+                {
+                  "clave": "mat.p4.predecir-suceso-probable",
+                  "nombre": "Predicción del suceso más probable",
+                  "descripcion": "Predice qué suceso es más probable comparando sus casos posibles.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.resultados-posibles"
+                  ],
+                  "ordenSugerido": 123
+                }
+              ]
+            },
+            {
+              "nombre": "Conclusiones",
+              "temas": [
+                {
+                  "clave": "mat.p4.conclusiones-graficos",
+                  "nombre": "Conclusiones a partir de tablas y gráficos",
+                  "descripcion": "Explica conclusiones sustentadas en los datos de una tabla o gráfico.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.varias-representaciones"
+                  ],
+                  "ordenSugerido": 110
+                },
+                {
+                  "clave": "mat.p4.decisiones-encuesta",
+                  "nombre": "Decisiones con base en una encuesta",
+                  "descripcion": "Propone una decisión para el aula usando los resultados de una encuesta.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p4.conclusiones-graficos",
+                    "mat.p4.moda"
+                  ],
+                  "ordenSugerido": 124
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
