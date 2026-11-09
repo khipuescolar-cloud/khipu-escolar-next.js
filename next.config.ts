@@ -37,6 +37,8 @@ const nextConfig: NextConfig = {
   },
   allowedDevOrigins: ["lvh.me", "*.lvh.me"],
   serverExternalPackages: ["@react-pdf/renderer", "pg"],
+  // El banco se lee en el servidor desde archivos JSON según área, nivel y grado.
+  outputFileTracingIncludes: { "/*": ["src/lib/nudito/conocimiento/banco/**/*.json"] },
   turbopack: {
     rules: {
       "*.css": {
