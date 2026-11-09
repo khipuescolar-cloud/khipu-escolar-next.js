@@ -26,19 +26,7 @@ async function leerFichas(carpeta: string): Promise<FichaConocimiento[]> {
 }
 
 async function cargar(area: AreaNudito, nivel: NivelNudito, grado: number): Promise<readonly FichaConocimiento[]> {
-  const carpeta = join(raiz, area, nivel + "-" + grado);
-  const nuevas = await leerFichas(join(carpeta, "fichas"));
-  if (nuevas.length) return nuevas;
-  if (area === "matematica" && nivel === "primaria" && grado === 3) {
-    const archivos = ["competencia-23.json", "competencia-24.json", "competencia-25.json", "competencia-26.json", "temas-existentes.json"];
-    const grupos = await Promise.all(archivos.map(async archivo => {
-      const datos: unknown = JSON.parse(await readFile(join(carpeta, archivo), "utf8"));
-      if (!Array.isArray(datos)) throw new Error("Se esperaba un arreglo de fichas en " + archivo);
-      return datos.map(f => esquemaFicha.parse(f));
-    }));
-    return grupos.flat();
-  }
-  return [];
+  return leerFichas(join(raiz, area, nivel + "-" + grado, "fichas"));
 }
 
 export async function fichasDe(area: AreaNudito, nivel: NivelNudito, grado: number): Promise<readonly FichaConocimiento[]> {
