@@ -35,6 +35,8 @@ test.beforeAll(async () => {
     "insert into salones (id, tenant_id, nombre, nivel, grado, seccion, anio) values (gen_random_uuid(), $1, $2, 'primaria', 5, $3, $4) returning id",
     [c.tenantId, `5.° ${seccion}`, seccion, ANIO],
   ))[0].id;
+  const salon3 = (await sql<{ id: string }>("insert into salones (id, tenant_id, nombre, nivel, grado, seccion, anio) values (gen_random_uuid(), $1, $2, 'primaria', 3, 'A', $3) returning id", [c.tenantId, "3.° A", ANIO]))[0].id;
+  await sql("insert into cursos (id, tenant_id, salon_id, nombre, area_cneb, profesor_id) values (gen_random_uuid(), $1, $2, 'Matemática', 'matematica', $3)", [c.tenantId, salon3, c.profesor]);
   const salonA = await salon("A");
   const salonB = await salon("B");
   for (const [salonId, profesorId] of [[salonA, c.profesor], [salonB, profesorB]]) {
@@ -61,7 +63,7 @@ async function entrar(browser: Browser, correo: string, viewport = { width: 1280
   await page.getByLabel("Correo").fill(correo);
   await page.getByLabel("Contraseña").fill("demo123");
   await page.getByRole("button", { name: "Entrar" }).click();
-  await page.waitForURL(url("/inicio"));
+  await expect(page).toHaveURL(url("/inicio"));
   return page;
 }
 
@@ -70,7 +72,7 @@ test("dos profesores aceptan el temario y el alumno ve la versión habilitada en
   const a = await entrar(browser, correos.a);
   await a.goto(url("/nudito/temario"));
   await expect(a.getByRole("heading",{name:"Temario de Nudito"})).toBeVisible();
-  const grupo = a.locator("article").filter({has:a.getByRole("heading",{name:"Matemática"})});
+  const grupo = a.locator("article").filter({hasText:"5.° grado"}).filter({has:a.getByRole("heading",{name:"Matemática"})});
   await grupo.getByRole("button",{name:"Crear temario"}).click();
   await a.waitForURL(/\/nudito\/temario\/[0-9a-f-]{36}/);
   planId=a.url().match(/temario\/([0-9a-f-]{36})/)![1];
@@ -96,4 +98,19 @@ test("dos profesores aceptan el temario y el alumno ve la versión habilitada en
   await expect(alumno.getByText("Números decimales",{exact:true}).first()).toBeVisible();
   expect(await alumno.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
   await alumno.close(); await b.close(); await direccion.close(); await a.close();
+});
+
+test("Matemática 3.° muestra más de 200 temas sin buscar y cabe en móvil", async ({ browser }) => {
+  const page = await entrar(browser, correos.a, { width: 360, height: 740 });
+  await page.goto(url("/nudito/temario"));
+  const grupo = page.locator("article").filter({ hasText: "3.° grado" }).filter({ has: page.getByRole("heading", { name: "Matemática" }) });
+  await grupo.getByRole("button", { name: "Crear temario" }).click();
+  await page.waitForURL(/\/nudito\/temario\/[0-9a-f-]{36}/);
+  const catalogo = page.getByText(/\d+ temas disponibles para este grado y curso/);
+  await expect(catalogo).toBeVisible();
+  expect(Number((await catalogo.textContent())?.match(/\d+/)?.[0])).toBeGreaterThanOrEqual(200);
+  await expect(page.getByRole("searchbox", { name: "Filtrar temas (opcional)" })).toHaveValue("");
+  await expect(page.locator("#titulo-catalogo")).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  await page.close();
 });
