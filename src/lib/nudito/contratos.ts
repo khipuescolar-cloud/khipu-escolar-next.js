@@ -170,7 +170,7 @@ export const esquemaSolucion = z.discriminatedUnion("tipo", [
   z.object({ tipo: z.literal("opcion_multiple"), correcta: id, distractores: z.record(z.string(), z.string()) }),
   z.object({ tipo: z.literal("numerico"), valor: z.number().finite(), tolerancia: z.number().min(0) }),
   z.object({ tipo: z.literal("fraccion"), num: z.number().int(), den: z.number().int().refine((d) => d !== 0, "den ≠ 0"), aceptarEquivalentes: z.boolean() }),
-  z.object({ tipo: z.literal("texto_corto"), aceptadas: z.array(z.string().min(1)).min(1), normalizacion: z.enum(["estricta", "flexible"]) }),
+  z.object({ tipo: z.literal("texto_corto"), aceptadas: z.array(z.string().min(1)).min(1), normalizacion: z.enum(["estricta", "flexible", "literal"]) }),
   /** Por pregunta: id de opción correcta o textos aceptados. */
   z.object({ tipo: z.literal("lectura"), respuestas: z.record(z.string(), z.union([z.string(), z.object({ aceptadas: z.array(z.string().min(1)).min(1) })])) }),
   z.object({ tipo: z.literal("escritura_rubrica"), rubrica: esquemaRubrica }),
