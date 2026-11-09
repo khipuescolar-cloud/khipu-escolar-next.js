@@ -33,9 +33,9 @@ export function DocumentoLibreta({ datos, slug }: { datos: DatosLibreta; slug: s
       <section className="space-y-3">
         <h3 className="font-heading text-base font-semibold">Calificaciones por competencia</h3>
         <div className="overflow-x-auto rounded-lg border border-borde-sutil" role="region" aria-label="Cuadro de calificaciones" tabIndex={0}>
-          <table className="w-full min-w-[720px] border-collapse text-cuerpo-sm">
+          <table className="w-full min-w-[820px] border-collapse text-cuerpo-sm">
             <caption className="sr-only">Cursos, competencias, calificaciones y conclusiones descriptivas</caption>
-            <thead className="bg-superficie-2"><tr><th scope="col" className="w-36 border-r border-b border-borde-sutil px-3 py-2 text-left">Área / Curso</th><th scope="col" className="w-2/5 border-r border-b border-borde-sutil px-3 py-2 text-left">Competencia</th><th scope="col" className="w-32 border-r border-b border-borde-sutil px-3 py-2 text-center">Calificación</th><th scope="col" className="border-b border-borde-sutil px-3 py-2 text-left">Conclusión descriptiva</th></tr></thead>
+            <thead className="bg-superficie-2"><tr><th scope="col" className="w-36 border-r border-b border-borde-sutil px-3 py-2 text-left">Área / Curso</th><th scope="col" className="w-2/5 border-r border-b border-borde-sutil px-3 py-2 text-left">Competencia</th><th scope="col" className="w-40 min-w-40 border-r border-b border-borde-sutil px-3 py-2 text-center">Calificación</th><th scope="col" className="border-b border-borde-sutil px-3 py-2 text-left">Conclusión descriptiva</th></tr></thead>
             <tbody>
               {datos.cursos.map((curso) => curso.competencias.length ? curso.competencias.map((c, i) => (
                 <tr key={c.id}>
@@ -45,7 +45,7 @@ export function DocumentoLibreta({ datos, slug }: { datos: DatosLibreta; slug: s
                     {c.capacidades.length > 0 && <p className="mt-1 font-normal text-muted-foreground">Capacidades: {c.capacidades.join(" · ")}</p>}
                     {c.desempenosEvaluados.length > 0 && <details className="mt-2 font-normal"><summary className="cursor-pointer text-primary">Desempeños evaluados ({c.desempenosEvaluados.length})</summary><ul className="mt-1 list-disc space-y-1 pl-5 text-muted-foreground">{c.desempenosEvaluados.map((d) => <li key={d}>{d}</li>)}</ul></details>}
                   </th>
-                  <td className="border-r border-b border-borde-sutil px-2 py-3 text-center align-top">{c.calificacion ? <Calificacion valor={c.calificacion} /> : <span className="text-muted-foreground">Sin calificar</span>}</td>
+                  <td className="whitespace-nowrap border-r border-b border-borde-sutil px-2 py-3 text-center align-top">{c.calificacion ? <Calificacion valor={c.calificacion} /> : <span className="text-muted-foreground">Sin calificar</span>}</td>
                   <td className="border-b border-borde-sutil px-3 py-3 align-top">{c.conclusion || <span className="text-muted-foreground">—</span>}</td>
                 </tr>
               )) : <tr key={curso.id}><th scope="row" className="border-r border-b border-borde-sutil bg-superficie-2 px-3 py-3 text-left">{curso.nombre}</th><td colSpan={3} className="border-b border-borde-sutil px-3 py-3 text-muted-foreground">Sin competencias registradas.</td></tr>)}

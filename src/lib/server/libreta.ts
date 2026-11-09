@@ -34,7 +34,7 @@ export async function resumenLibretasSalon(ctx: TenantContext, salonId: string, 
   const emitidaPorAlumno = new Map<string, (typeof emitidas)[number]>();
   for (const e of emitidas) if (!emitidaPorAlumno.has(e.alumnoId)) emitidaPorAlumno.set(e.alumnoId, e);
   return {
-    salon, periodo, cursos,
+    salon, periodo, cursos, escala: ctx.tenant.escalaCalificacion,
     alumnos: alumnos.map((a) => {
       const emitida = emitidaPorAlumno.get(a.id);
       const valores = new Map<string, ValorCalificacion>();

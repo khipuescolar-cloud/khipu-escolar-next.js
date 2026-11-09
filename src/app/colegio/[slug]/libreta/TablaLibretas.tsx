@@ -8,6 +8,7 @@ import { Boton } from "@/components/ui/Boton";
 import { buttonVariants } from "@/components/ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { fechaLima } from "@/lib/fechas";
+import { ETIQUETA_LITERAL, LITERALES } from "@/lib/calificaciones";
 import type { ResumenLibretasSalon } from "@/lib/server/libreta";
 import { abrirDocumentoLibretaAction, resolverRectificacionAction } from "./actions";
 import { DocumentoLibreta } from "./DocumentoLibreta";
@@ -58,7 +59,7 @@ export function TablaLibretas({ resumen, slug, alumnoInicial }: { resumen: Resum
           <tbody>{resumen.alumnos.map((a) => (
             <tr key={a.id} className="hover:bg-accent/40">
               <th scope="row" className="sticky left-0 z-10 w-32 min-w-32 border-r border-b border-borde-sutil bg-superficie px-3 py-2 text-left text-pretty font-medium sm:w-auto sm:min-w-56">{a.nombre}</th>
-              {cursos.flatMap((c) => c.competencias.map((k) => <td key={k.id} className="border-r border-b border-borde-sutil px-2 py-2 text-center">{a.calificaciones[k.id] ? <Calificacion valor={a.calificaciones[k.id]} /> : <span className="text-muted-foreground">Sin calificar</span>}</td>))}
+              {cursos.flatMap((c) => c.competencias.map((k) => <td key={k.id} className="border-r border-b border-borde-sutil px-2 py-2 text-center">{a.calificaciones[k.id] ? <Calificacion valor={a.calificaciones[k.id]} compacta /> : <span className="text-muted-foreground">Sin calificar</span>}</td>))}
               <td className="sticky right-0 z-10 border-l border-b border-borde-sutil bg-superficie px-3 py-2">
                 <div className="flex flex-col items-start gap-1">
                   <Boton type="button" variante="secundario" tamano="sm" onClick={() => void cargar(a.id)} aria-label={"Ver documento de " + a.nombre}><FileText className="size-4" strokeWidth={2} aria-hidden />Ver documento</Boton>
@@ -69,6 +70,7 @@ export function TablaLibretas({ resumen, slug, alumnoInicial }: { resumen: Resum
           ))}</tbody>
         </table>
       </div>
+      {resumen.escala === "literal" && <p className="text-cuerpo-sm text-muted-foreground" aria-label="Escala literal de calificación"><span className="font-medium">Escala:</span> {LITERALES.map((l) => l + " · " + ETIQUETA_LITERAL[l]).join("  |  ")}</p>}
       <Dialog open={abierto} onOpenChange={setAbierto}>
         <DialogContent showCloseButton={false} className="z-[60] inset-0 top-0 left-0 h-dvh max-h-dvh w-full max-w-none translate-x-0 translate-y-0 rounded-none p-0 sm:top-1/2 sm:left-1/2 sm:h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-2rem)] sm:max-w-5xl sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-xl">
           <div className="sticky top-0 z-30 flex flex-wrap items-center justify-between gap-3 border-b border-borde-sutil bg-popover px-4 py-3 sm:px-6">
