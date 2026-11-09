@@ -27,7 +27,8 @@
     "nudito:areas": "tsx --conditions=react-server scripts/nudito-backfill-areas.ts",
     "dev:nube": "node scripts/dev-nube.mjs",
     "khipu:crear-superadmin": "tsx --conditions=react-server scripts/crear-superadmin.ts",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "nudito:validar-banco": "tsx scripts/nudito-validar-banco.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1157.0",
