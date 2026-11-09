@@ -12,7 +12,6 @@ import { ETIQUETA_LITERAL, LITERALES } from "@/lib/calificaciones";
 import type { ResumenLibretasSalon } from "@/lib/server/libreta";
 import { abrirDocumentoLibretaAction, resolverRectificacionAction } from "./actions";
 import { DocumentoLibreta } from "./DocumentoLibreta";
-import { FormRectificacion } from "./Rectificacion";
 
 type DocumentoAbierto = Awaited<ReturnType<typeof abrirDocumentoLibretaAction>>;
 
@@ -97,10 +96,10 @@ export function TablaLibretas({ resumen, slug, alumnoInicial }: { resumen: Resum
 
 function RectificacionesDocumento({ documento, slug, refrescar }: { documento: DocumentoAbierto; slug: string; refrescar: () => void }) {
   const datos = documento.datos;
-  if (!datos.emision) return null;
+  if (!datos.emision || !documento.esDireccion) return null;
   return <section aria-labelledby="rectificaciones" className="space-y-3">
     <h3 id="rectificaciones" className="font-heading text-base font-semibold">Rectificaciones</h3>
-    <p className="text-cuerpo-sm text-muted-foreground">La libreta emitida no se edita. Una rectificación aprobada crea una versión nueva y conserva la anterior.</p>
+    <p className="text-cuerpo-sm text-muted-foreground">La libreta emitida no se edita. El profesor del curso pide la rectificación desde «Calificación del periodo»; al aprobarla se crea una versión nueva y se conserva la anterior.</p>
     <div className="rounded-[14px] border border-borde-sutil bg-superficie px-4">
       {documento.rectificaciones.length ? <ul className="divide-y divide-borde-sutil">{documento.rectificaciones.map((r) => {
         const estado = { pendiente: { Icono: Clock, texto: "Pendiente" }, aprobada: { Icono: CheckCircle2, texto: "Aprobada" }, rechazada: { Icono: XCircle, texto: "Rechazada" } }[r.estado];
@@ -109,13 +108,12 @@ function RectificacionesDocumento({ documento, slug, refrescar }: { documento: D
           <p className="flex items-center gap-1 text-muted-foreground"><estado.Icono className="size-4" strokeWidth={2} aria-hidden />{estado.texto}{r.version && " · versión " + r.version}</p>
           <p>Motivo: {r.motivo}{r.evidencia ? " · Evidencia: " + r.evidencia : ""}</p>
           <p className="text-cuerpo-sm text-muted-foreground">Pidió {r.solicitadaPor} el {fechaLima(r.solicitadaAt)}{r.resueltaPor && r.resueltaAt && " · resolvió " + r.resueltaPor + " el " + fechaLima(r.resueltaAt)}</p>
-          {documento.esDireccion && r.estado === "pendiente" && <div className="flex flex-wrap gap-2 pt-2">
+          {r.estado === "pendiente" && <div className="flex flex-wrap gap-2 pt-2">
             <BotonConfirmar etiqueta="Aprobar" variante="default" titulo="¿Aprobar la rectificación?" descripcion="Se emite una versión nueva y se avisa a la familia. La anterior se conserva." confirmar="Aprobar y emitir" accion={async () => { const resultado = await resolverRectificacionAction(slug, r.id, "aprobada"); if (resultado.ok) refrescar(); return resultado; }} />
             <BotonConfirmar etiqueta="Rechazar" variante="outline" titulo="¿Rechazar la rectificación?" descripcion="La libreta emitida no cambia." confirmar="Rechazar" accion={async () => { const resultado = await resolverRectificacionAction(slug, r.id, "rechazada"); if (resultado.ok) refrescar(); return resultado; }} />
           </div>}
         </li>;
       })}</ul> : <p className="py-4 text-cuerpo-sm text-muted-foreground">Todavía no hay rectificaciones de esta libreta.</p>}
-      {documento.competenciasRectificables.length > 0 && <details className="border-t border-borde-sutil py-4"><summary className="cursor-pointer font-medium text-primary">Pedir una rectificación</summary><div className="mt-3 max-w-xl"><FormRectificacion slug={slug} alumnoId={datos.alumno.id} periodoId={datos.periodo.id} escala={datos.escala} competencias={documento.competenciasRectificables} /></div></details>}
     </div>
   </section>;
 }

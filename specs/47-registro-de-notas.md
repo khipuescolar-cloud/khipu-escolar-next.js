@@ -1,6 +1,6 @@
 # 47 — Registro de notas
 
-> Estado: en desarrollo (registro, tareas, currículo y permisos) · Plan: Khipu Pro · Última actualización: 2026-11-07 (observaciones, cabecera, informe, plantilla, NSP y recuperación en el registro, reapertura)
+> Estado: en desarrollo (registro, tareas, currículo y permisos) · Plan: Khipu Pro · Última actualización: 2026-11-09 (rectificación de la libreta desde «Calificación del periodo»)
 
 ## Objetivo
 Dar al docente un registro por curso semejante a una tabla de calificaciones, con actividades agrupadas por competencia y entrada rápida de notas, usando los servicios académicos existentes.
@@ -33,6 +33,7 @@ Cada operación valida `requireFeature(ctx, "notas")`, rol, curso y alcance con 
    - Pantalla `/notas/[cursoId]/periodo?periodo=…`: tabla estilo Excel con la columna del alumno fija y, por cada competencia activa, «Evidencias» (chips de solo lectura con las notas del periodo; al pasar o tocar se ve la actividad y la fecha) y «Calificación» (`Select` con AD, A, B, C o 0–20 según el colegio) más un ícono que abre la «Conclusión descriptiva» en un `Popover` (obligatoria en B y C; se abre sola al elegir B o C). Teclado: flechas entre calificaciones, D/A/B/C califican (D = AD), Supr borra, Enter abre la lista. **Sin promedios ni valores precargados.**
    - «Guardar borrador» guarda en bloque solo las celdas modificadas; una celda B o C sin conclusión no se guarda (la regla de `guardarCalificacionPeriodo` se conserva). «Enviar calificación del periodo» revisa en la pantalla que todo alumno tenga calificación en toda competencia activa y conclusión en B y C; si falta algo lista qué falta (se recalcula al completar) y marca las celdas; si está completo pide confirmación.
    - **Enviar = cierre del curso en el periodo:** reutiliza `CierreCurso` (quién y cuándo) vía `cerrarCursoPeriodo`; no hay estado paralelo ni migración. El curso queda en solo lectura para el profesor y dirección lo reabre con `reabrirCursoPeriodo` («Reabrir calificación» en la misma pantalla). El envío exige además ser quien dicta el curso (`Curso.profesorId`), el periodo terminado (o cerrado por dirección sin cierre del curso: no se puede enviar) y competencias activas. Se audita (`enviar` / `calificacion_periodo`, con el salón y el tutor) además del cierre.
+   - **Rectificación (specs/37):** con la calificación enviada, el profesor del curso corrige una calificación **solo desde esta pantalla**: «Rectificar» en la celda abre un diálogo (valor correcto, conclusión, motivo y evidencia) si la libreta del alumno ya se emitió; si no, la celda dice «Sin libreta emitida» y un aviso indica pedir a dirección reabrir el curso. Con una solicitud pendiente la celda muestra «Pendiente». La lista «Rectificaciones del curso» muestra cada solicitud con su estado. Dirección la aprueba o rechaza en la libreta del alumno; al aprobar se actualiza `CalificacionPeriodo` y la tabla muestra el valor nuevo.
    - El envío **no notifica** todavía al tutor: no hay plantilla de aviso interna para personal con este fin (pendiente, specs/38). El tutor entra desde Mis cursos.
 11. **Reporte del periodo del salón** (`/notas/salon/[salonId]/periodo?periodo=…`; entrada «Reporte del periodo · 3.° B» en Mis cursos): una fila por alumno y, por curso y competencia activa, la calificación del periodo (con su conclusión en un `Popover`). Encima, el estado por curso con ícono y palabra: «Enviado por <profesor> el dd/mm» o «Pendiente · <profesor>». Solo se leen las calificaciones de los cursos ya enviados; los demás aparecen como «Pendiente» sin valores. Solo el tutor del salón (`Salon.tutorId`) y dirección; un profesor que no es tutor del salón y otro colegio reciben 403. El periodo por defecto es el último terminado.
 
@@ -69,7 +70,7 @@ editarObservacionRegistro(ctx, { evaluacionId, alumnoId, observacion, visible })
 plantillaNotas / previsualizarImportacionRegistro / importarRegistro / exportarRegistro  // registro-notas-archivos.ts
 // src/lib/server/calificacion-periodo.ts (ahora = inyectable para pruebas)
 estadoCalificacionPeriodo(ctx, cursoId, periodoId, ahora?)  // no_disponible | pendiente | enviada
-datosCalificacionPeriodo(ctx, cursoId, periodoId, ahora?)   // alumnos, competencias activas, evidencias, guardadas
+datosCalificacionPeriodo(ctx, cursoId, periodoId, ahora?)   // alumnos, competencias activas, evidencias, guardadas, emitidas (alumnoIds con libreta emitida), rectificaciones del curso
 guardarBorradorPeriodo(ctx, { cursoId, periodoId, celdas }, ahora?)
 enviarCalificacionPeriodo(ctx, { cursoId, periodoId }, ahora?) // { ok, faltantes? }; cierra el curso (CierreCurso)
 reabrirCalificacionPeriodo(ctx, cursoId, periodoId)            // solo dirección
@@ -105,6 +106,7 @@ El botón principal dice «Nueva calificación». Los estados combinan ícono y 
 - Integración `registro-notas-nsp` (`tests/integracion/registro-notas-nsp.test.ts`): `crearCalificacion` marca NSP al ausente sin justificar y no al pendiente que asistió, nace en borrador, no pisa la nota escrita; una tarea nunca genera NSP; decidir y registrar la recuperación desde el registro con su fecha, en la actividad original.
 - e2e `registro-notas-nsp`: NSP al crear, estado en la celda, decisión de recuperación y nota con fecha; `notas-libreta`: dirección reabre desde la UI.
 - Integración (`tests/integracion/calificacion-periodo.test.ts`): botón no disponible antes del fin del periodo; sin envío con faltantes ni B/C sin conclusión; envío auditado y solo lectura; dirección reabre; el tutor ve solo su salón y solo los cursos enviados; profesor no tutor y otro colegio reciben 403; la libreta sigue leyendo `CalificacionPeriodo`.
+- Integración `rectificacion-desde-periodo`: rectificación desde la calificación enviada (requisitos, permisos y aprobación; specs/37).
 - e2e (`tests/e2e/calificacion-periodo.test.ts`): botón deshabilitado; el profesor califica con teclado, ve los faltantes y envía; la tutora lo ve en el reporte y un profesor sin tutoría recibe 403.
 - Integración: permisos por tenant/rol/curso; competencia desactivada; transacción e idempotencia; tarea y registro comparten `Nota`; NSP, historial, cierre y libreta.
 - E2E: Mis cursos → Registro → Nueva calificación; tarea calificada visible en registro; valoración de libreta independiente.

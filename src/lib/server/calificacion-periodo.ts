@@ -85,7 +85,7 @@ export async function datosCalificacionPeriodo(ctx: TenantContext, cursoId: stri
   const cargado = await cargarCursoYPeriodo(ctx, cursoId, periodoId);
   if (!cargado) forbidden();
   const { curso, periodo, salon } = cargado;
-  const [alumnos, competencias, guardadas, notas] = await Promise.all([
+  const [alumnos, competencias, guardadas, notas, emitidas, rectificaciones] = await Promise.all([
     ctx.db.alumno.findMany({ where: { salonId: curso.salonId, estado: "activo" }, select: { id: true, nombres: true, apellidos: true }, orderBy: [{ apellidos: "asc" }, { nombres: "asc" }] }),
     ctx.db.competencia.findMany({ where: { cursoId, desactivadaAt: null }, select: { id: true, nombre: true }, orderBy: [{ orden: "asc" }, { nombre: "asc" }] }),
     ctx.db.calificacionPeriodo.findMany({ where: { periodoId, competencia: { cursoId, desactivadaAt: null } } }),
@@ -94,6 +94,8 @@ export async function datosCalificacionPeriodo(ctx: TenantContext, cursoId: stri
       select: { alumnoId: true, valorLiteral: true, valorNumerico: true, marca: true, evaluacion: { select: { competenciaId: true, titulo: true, fecha: true } } },
       orderBy: [{ evaluacion: { fecha: "asc" } }],
     }),
+    ctx.db.libretaEmitida.findMany({ where: { periodoId, alumno: { salonId: curso.salonId } }, select: { alumnoId: true }, distinct: ["alumnoId"] }),
+    ctx.db.rectificacionLibreta.findMany({ where: { periodoId, competencia: { cursoId } }, select: { id: true, alumnoId: true, competenciaId: true, estado: true, valorAnterior: true, valorLiteral: true, valorNumerico: true, motivo: true, evidencia: true, solicitadaAt: true }, orderBy: { solicitadaAt: "desc" } }),
   ]);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "ver", entidad: "calificacion_periodo", entidadId: cursoId, detalle: { periodoId } });
   return {
@@ -104,6 +106,8 @@ export async function datosCalificacionPeriodo(ctx: TenantContext, cursoId: stri
     periodo: { id: periodo.id, nombre: `${periodo.nombre} ${periodo.anio}`, fin: iso(periodo.fin) },
     alumnos: alumnos.map((a) => ({ id: a.id, nombre: `${a.apellidos}, ${a.nombres}` })),
     competencias,
+    emitidas: emitidas.map((e) => e.alumnoId),
+    rectificaciones: rectificaciones.map((r) => ({ ...r, valorNumerico: num(r.valorNumerico), solicitadaAt: r.solicitadaAt.toISOString() })),
     guardadas: guardadas.map((g) => ({ alumnoId: g.alumnoId, competenciaId: g.competenciaId, valorLiteral: g.valorLiteral as Literal | null, valorNumerico: num(g.valorNumerico), conclusion: g.conclusion })),
     evidencias: notas
       .filter((n) => n.valorLiteral !== null || n.valorNumerico !== null || n.marca !== null)
