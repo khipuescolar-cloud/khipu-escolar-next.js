@@ -46,3 +46,20 @@
 - Fichas de las 32 combinaciones restantes (≈ 3 700 fichas), grado por grado.
 - Revisión pedagógica de las 129 fichas de Mat. 3.°.
 - Merge a `dev` pendiente del visto bueno de Carlos.
+
+## Continuación: cursos propios del colegio (Química, Álgebra…)
+> pero tambien hay cursos como quimica y fisica que son importantes que lo ven en el curso de ciencias ; como podriamos hacer con ello?
+
+> ese es otro problema, por que en otros colegios y mas que nada en los particulares desde primaria nomas ven temas de quimica o fisica
+
+> es que aqui va algo muy importante ; todo depende del colegio ;  ya que al inicio cuando se crea el colegio y el director o la persona de administracion empieza a llevar los datos del colegio hay preguntas como, cuales son los cursos que llevara, luego preguntara por cada grado y nivel educativo que cursos llevan; […] con eso en cada grado podra mostrar como curso y no como subcurso el curso de aritmetica, algebra, quimica, fisica; me comprendiste?? por ahora estamos planeando bien como seria para esos casos
+
+> obvio que no existe aun ese paso inicial por que aun no vemos el panel del administrador o del director
+
+> ahora te pasare unas instucciones que acabo de armar con mi equipo; lo que tengas pendiente por migrar terminalo, que necesito que estes listo para esta nueva tarea
+
+Decisiones: lista de cursos de Khipu + «otro» libre (sin Nudito); banco propio por curso y grado; si conviven área y curso especializado, cada uno ve lo suyo. El asistente irá en el panel de dirección/administración (aún no diseñado). Plan completo en specs/51.
+
+Cambios: `26b2a47` catálogo de cursos de Khipu (`src/lib/cursos-khipu/catalogo.ts`), disciplinas (`src/lib/nudito/conocimiento/disciplinas.ts`) marcadas en los 3 839 temas y las 129 fichas, validador que las exige, sinónimos trigonometría/estadística, `specs/51`. Merge a `dev`: `137c55a` (lint, typecheck, 1 299 pruebas y validador OK). Worktree y rama `feat/nudito-banco` eliminados; sin push.
+
+Pendientes: modelo `CursoColegio`/malla y Nudito por curso (specs/51); temarios de cursos especializados; fichas de las 32 combinaciones restantes.
