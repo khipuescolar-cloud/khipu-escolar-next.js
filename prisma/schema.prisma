@@ -103,6 +103,12 @@ enum InstrumentoEvaluacion {
   otro
 }
 
+enum EstadoEditorialTema {
+  borrador
+  revisado
+  publicado
+}
+
 enum Nivel {
   inicial
   primaria
@@ -301,6 +307,8 @@ model Tenant {
   memberships           Membership[]
   salones               Salon[]
   cursos                Curso[]
+  cursosColegio         CursoColegio[]
+  cursosColegioGrado    CursoColegioGrado[]
   alumnos               Alumno[]
   apoderadosAlumnos     ApoderadoAlumno[]
   consentimientos       Consentimiento[]
@@ -613,9 +621,11 @@ model Curso {
   areaCneb       String? @map("area_cneb")
   /// true = la fijó dirección: ningún proceso automático la cambia.
   areaCnebManual Boolean @default(false) @map("area_cneb_manual")
+  cursoColegioId String? @map("curso_colegio_id") @db.Uuid
 
   tenant                Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   salon                 Salon                  @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  cursoColegio          CursoColegio?          @relation(fields: [tenantId, cursoColegioId], references: [tenantId, id], onDelete: NoAction)
   profesor              Membership?            @relation("ProfesorCurso", fields: [profesorId], references: [id], onDelete: SetNull)
   asistencias           Asistencia[]
   competencias          Competencia[]
@@ -638,6 +648,7 @@ model Curso {
   @@index([tenantId])
   @@index([profesorId])
   @@index([tenantId, areaCneb])
+  @@index([tenantId, cursoColegioId])
   @@map("cursos")
 }
 
@@ -4123,4 +4134,71 @@ model NuditoTrabajoItem {
   @@unique([trabajoId, temaClave])
   @@index([trabajoId, estado])
   @@map("nudito_trabajo_items")
+}
+
+// Catálogo global: el contenido vive en JSON versionado; esta fila indexa metadatos y revisión.
+model TemaCurricular {
+  clave String @id
+  areaCneb String @map("area_cneb")
+  disciplinas String[] @default([])
+  nivel Nivel
+  grado Int
+  procedencia String
+  fuenteId String? @map("fuente_id")
+  fuenteLocator String? @map("fuente_locator")
+  estado EstadoEditorialTema @default(borrador)
+  version Int @default(1)
+  revisadoPorId String? @map("revisado_por_id") @db.Uuid
+  revisadoAt DateTime? @map("revisado_at") @db.Timestamptz
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
+  desempenosOficiales TemaDesempenoOficial[]
+  @@index([areaCneb, nivel, grado, estado])
+  @@map("temas_curriculares")
+}
+
+// Referencia documental oficial global; no apunta al Desempeno de un colegio.
+model TemaDesempenoOficial {
+  id String @id @default(uuid()) @db.Uuid
+  temaClave String @map("tema_clave")
+  codigoCompetencia String @map("codigo_competencia")
+  codigoDesempeno String @map("codigo_desempeno")
+  fuenteId String @map("fuente_id")
+  fuenteLocator String @map("fuente_locator")
+  verificadoAt DateTime? @map("verificado_at") @db.Timestamptz
+  tema TemaCurricular @relation(fields: [temaClave], references: [clave], onDelete: Cascade)
+  @@unique([temaClave, codigoDesempeno, fuenteId])
+  @@map("tema_desempenos_oficiales")
+}
+
+// Curso definido por el colegio, estable entre salones y años.
+model CursoColegio {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  cursoKhipu String? @map("curso_khipu")
+  nombre String
+  orden Int @default(0)
+  archivadoAt DateTime? @map("archivado_at") @db.Timestamptz
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  grados CursoColegioGrado[]
+  cursos Curso[]
+  @@unique([tenantId, id])
+  @@unique([tenantId, cursoKhipu])
+  @@index([tenantId, archivadoAt])
+  @@map("cursos_colegio")
+}
+
+// Malla anual por nivel y grado; el salón materializa la oferta con Curso.
+model CursoColegioGrado {
+  id String @id @default(uuid()) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  cursoColegioId String @map("curso_colegio_id") @db.Uuid
+  anio Int
+  nivel Nivel
+  grado Int
+  orden Int @default(0)
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  cursoColegio CursoColegio @relation(fields: [tenantId, cursoColegioId], references: [tenantId, id], onDelete: NoAction)
+  @@unique([cursoColegioId, anio, nivel, grado])
+  @@index([tenantId, anio, nivel, grado])
+  @@map("cursos_colegio_grados")
 }
