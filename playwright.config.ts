@@ -9,6 +9,6 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1, // comparten BD y sesiones demo: en paralelo el login se vuelve intermitente
   use: { baseURL: `http://lvh.me:${PORT}`, trace: "retain-on-failure", locale: "es-PE" },
-  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"], launchOptions: { args: ["--host-resolver-rules=MAP *.lvh.me 127.0.0.1,MAP lvh.me 127.0.0.1"] } } }],
   webServer: { command: `pnpm dev --port ${PORT}`, url: `http://lvh.me:${PORT}/login`, reuseExistingServer: true, timeout: 120_000 },
 });

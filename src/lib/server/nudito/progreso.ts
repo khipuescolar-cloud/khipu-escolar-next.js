@@ -1,7 +1,7 @@
 import "server-only";
 import { forbidden, notFound } from "next/navigation";
 import { z } from "zod";
-import { temaPorClave } from "@/lib/nudito/catalogo";
+import { temaPorClaveConBanco } from "@/lib/nudito/conocimiento/servidor";
 import { clavesDeVersion } from "@/lib/nudito/plan-publicado-reglas";
 import {
   AREAS_NUDITO, esAreaNudito, esquemaEvidenciaPractica, type AreaNudito, type EntradaApi, type EstadoDominio, type SalidaApi, type TemaClave,
@@ -62,7 +62,7 @@ export async function nombresDeTemas(db: DbTenant, claves: readonly TemaClave[])
     if (mapa.has(c) || c.startsWith("col:")) continue;
     let tema = null;
     try {
-      tema = temaPorClave(c);
+      tema = await temaPorClaveConBanco(c);
     } catch {
       // Catálogo aún no disponible (paso 0): se muestra la clave.
     }

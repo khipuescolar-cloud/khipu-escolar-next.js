@@ -1,0 +1,1683 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "ciencia-tecnologia",
+  "nivel": "primaria",
+  "grado": 4,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Primaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+    },
+    {
+      "titulo": "Orientaciones para el desarrollo de las competencias haciendo uso de los cuadernos de autoaprendizaje de Ciencia y Tecnología (multigrado), MINEDU, 2021",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/8439"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 21,
+      "nombre": "Explica el mundo físico basándose en conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo",
+      "capacidades": [
+        {
+          "nombre": "Comprende y usa conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo",
+          "bloques": [
+            {
+              "nombre": "Nutrición y alimentación",
+              "temas": [
+                {
+                  "clave": "cyt.p4.sistemas-funciones-vitales",
+                  "nombre": "Sistemas del cuerpo y funciones vitales",
+                  "disciplina": "biologia",
+                  "descripcion": "Relaciona las funciones de nutrición, relación y reproducción con los sistemas del cuerpo que las realizan.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "cyt.p4.nutrientes-de-los-alimentos",
+                  "nombre": "Los nutrientes de los alimentos",
+                  "disciplina": "biologia",
+                  "descripcion": "Identifica carbohidratos, proteínas, grasas, vitaminas, minerales y agua en alimentos de consumo diario.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.sistemas-funciones-vitales"
+                  ],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "cyt.p4.alimentos-energeticos-constructores-reguladores",
+                  "nombre": "Alimentos energéticos, constructores y reguladores",
+                  "disciplina": "biologia",
+                  "descripcion": "Clasifica los alimentos según la función que cumplen en el crecimiento y la energía del cuerpo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.nutrientes-de-los-alimentos"
+                  ],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "cyt.p4.plato-saludable",
+                  "nombre": "El plato de alimentación saludable",
+                  "disciplina": "biologia",
+                  "descripcion": "Arma un plato balanceado con alimentos locales en proporciones adecuadas y explica por qué incluye cada grupo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.alimentos-energeticos-constructores-reguladores"
+                  ],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "cyt.p4.hierro-y-anemia",
+                  "nombre": "El hierro y la prevención de la anemia",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica para qué necesita hierro la sangre y qué alimentos ayudan a prevenir la anemia.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.nutrientes-de-los-alimentos",
+                    "cyt.p4.la-sangre"
+                  ],
+                  "ordenSugerido": 33
+                }
+              ]
+            },
+            {
+              "nombre": "Sistema digestivo",
+              "temas": [
+                {
+                  "clave": "cyt.p4.organos-sistema-digestivo",
+                  "nombre": "Recorrido del alimento por el tubo digestivo",
+                  "disciplina": "biologia",
+                  "descripcion": "Nombra y ubica boca, faringe, esófago, estómago, intestinos y glándulas anexas en un modelo del cuerpo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.sistemas-funciones-vitales"
+                  ],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "cyt.p4.digestion-en-la-boca",
+                  "nombre": "Dientes, saliva y digestión en la boca",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo los dientes trituran y la saliva empieza a transformar los alimentos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.organos-sistema-digestivo"
+                  ],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "cyt.p4.digestion-estomago-intestino",
+                  "nombre": "Digestión en el estómago y el intestino delgado",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe cómo los jugos digestivos transforman el bolo alimenticio en sustancias más simples.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.digestion-en-la-boca"
+                  ],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "cyt.p4.higado-pancreas",
+                  "nombre": "Hígado y páncreas en la digestión",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica el aporte de la bilis y del jugo pancreático a la digestión.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.digestion-estomago-intestino"
+                  ],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "cyt.p4.absorcion-de-nutrientes",
+                  "nombre": "Absorción de nutrientes y paso a la sangre",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo los nutrientes atraviesan el intestino delgado y la sangre los reparte por el cuerpo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.digestion-estomago-intestino"
+                  ],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "cyt.p4.intestino-grueso",
+                  "nombre": "Intestino grueso y eliminación de desechos",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe la absorción de agua en el intestino grueso y la formación y eliminación de las heces.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.absorcion-de-nutrientes"
+                  ],
+                  "ordenSugerido": 10
+                },
+                {
+                  "clave": "cyt.p4.cuidado-sistema-digestivo",
+                  "nombre": "Cuidado del sistema digestivo y parásitos intestinales",
+                  "disciplina": "biologia",
+                  "descripcion": "Relaciona higiene de manos y alimentos, agua segura y desparasitación con la salud digestiva.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.intestino-grueso"
+                  ],
+                  "ordenSugerido": 11
+                }
+              ]
+            },
+            {
+              "nombre": "Sistema respiratorio",
+              "temas": [
+                {
+                  "clave": "cyt.p4.vias-respiratorias",
+                  "nombre": "Las vías respiratorias",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe el recorrido del aire por fosas nasales, faringe, laringe, tráquea y bronquios.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.sistemas-funciones-vitales"
+                  ],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "cyt.p4.pulmones-y-alveolos",
+                  "nombre": "Pulmones y alvéolos",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica la estructura de los pulmones y el papel de los alvéolos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.vias-respiratorias"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "cyt.p4.inspiracion-espiracion",
+                  "nombre": "Inspiración y espiración",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo el diafragma y las costillas permiten que el aire entre y salga de los pulmones.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.pulmones-y-alveolos"
+                  ],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "cyt.p4.intercambio-de-gases",
+                  "nombre": "Intercambio de oxígeno y dióxido de carbono",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo el oxígeno pasa a la sangre en los alvéolos y el dióxido de carbono sale del cuerpo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.inspiracion-espiracion"
+                  ],
+                  "ordenSugerido": 28
+                },
+                {
+                  "clave": "cyt.p4.enfermedades-respiratorias",
+                  "nombre": "Enfermedades respiratorias y su prevención",
+                  "disciplina": "biologia",
+                  "descripcion": "Reconoce resfrío, neumonía y asma, y medidas de prevención como abrigo, ventilación y no fumar.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.intercambio-de-gases"
+                  ],
+                  "ordenSugerido": 29
+                }
+              ]
+            },
+            {
+              "nombre": "Sistema circulatorio",
+              "temas": [
+                {
+                  "clave": "cyt.p4.el-corazon",
+                  "nombre": "El corazón y sus cavidades",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe aurículas y ventrículos y cómo el corazón bombea la sangre.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.sistemas-funciones-vitales"
+                  ],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "cyt.p4.vasos-sanguineos",
+                  "nombre": "Arterias, venas y capilares",
+                  "disciplina": "biologia",
+                  "descripcion": "Diferencia los vasos sanguíneos por la dirección en que llevan la sangre y por su estructura.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.el-corazon"
+                  ],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "cyt.p4.la-sangre",
+                  "nombre": "Componentes de la sangre",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe plasma, glóbulos rojos, glóbulos blancos y plaquetas, y la función de cada uno.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.vasos-sanguineos"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "cyt.p4.circulacion-mayor-menor",
+                  "nombre": "Circulación mayor y circulación menor",
+                  "disciplina": "biologia",
+                  "descripcion": "Sigue el recorrido de la sangre entre el corazón, los pulmones y el resto del cuerpo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.la-sangre",
+                    "cyt.p4.intercambio-de-gases"
+                  ],
+                  "ordenSugerido": 34
+                }
+              ]
+            },
+            {
+              "nombre": "Sistema excretor",
+              "temas": [
+                {
+                  "clave": "cyt.p4.rinones-y-orina",
+                  "nombre": "Riñones y formación de la orina",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo los riñones filtran la sangre y cómo la orina sale por uréteres, vejiga y uretra.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.circulacion-mayor-menor"
+                  ],
+                  "ordenSugerido": 35
+                },
+                {
+                  "clave": "cyt.p4.piel-y-sudor",
+                  "nombre": "La piel y el sudor",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo las glándulas sudoríparas eliminan desechos y ayudan a regular la temperatura.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.rinones-y-orina"
+                  ],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "cyt.p4.hidratacion-cuidado-excretor",
+                  "nombre": "Hidratación y cuidado del sistema excretor",
+                  "disciplina": "biologia",
+                  "descripcion": "Relaciona el consumo de agua y la higiene con el buen funcionamiento de riñones y piel.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.piel-y-sudor"
+                  ],
+                  "ordenSugerido": 37
+                }
+              ]
+            },
+            {
+              "nombre": "Relación y locomoción",
+              "temas": [
+                {
+                  "clave": "cyt.p4.encefalo-medula-nervios",
+                  "nombre": "Encéfalo, médula espinal y nervios",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe cómo el sistema nervioso recibe información, la procesa y ordena respuestas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.sistemas-funciones-vitales"
+                  ],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "cyt.p4.actos-voluntarios-reflejos",
+                  "nombre": "Actos voluntarios y actos reflejos",
+                  "disciplina": "biologia",
+                  "descripcion": "Diferencia las respuestas que decide el encéfalo de las que produce la médula espinal.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.encefalo-medula-nervios"
+                  ],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "cyt.p4.huesos-del-esqueleto",
+                  "nombre": "Huesos del esqueleto humano",
+                  "disciplina": "biologia",
+                  "descripcion": "Ubica los principales huesos de cabeza, tronco y extremidades y explica que sostienen y protegen.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.sistemas-funciones-vitales"
+                  ],
+                  "ordenSugerido": 40
+                },
+                {
+                  "clave": "cyt.p4.articulaciones",
+                  "nombre": "Articulaciones móviles, semimóviles y fijas",
+                  "disciplina": "biologia",
+                  "descripcion": "Relaciona cada tipo de articulación con el movimiento que permite.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.huesos-del-esqueleto"
+                  ],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "cyt.p4.musculos-y-movimiento",
+                  "nombre": "Músculos y movimiento",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo los músculos se contraen y relajan en pares para mover los huesos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.articulaciones",
+                    "cyt.p4.encefalo-medula-nervios"
+                  ],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "cyt.p4.cuidado-sistema-locomotor",
+                  "nombre": "Postura y cuidado del sistema locomotor",
+                  "disciplina": "biologia",
+                  "descripcion": "Relaciona postura, peso de la mochila, calcio y ejercicio con la salud de huesos y músculos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.musculos-y-movimiento"
+                  ],
+                  "ordenSugerido": 43
+                }
+              ]
+            },
+            {
+              "nombre": "Funciones vitales de las plantas",
+              "temas": [
+                {
+                  "clave": "cyt.p4.raiz-absorcion",
+                  "nombre": "Absorción de agua y sales minerales por la raíz",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo los pelos absorbentes toman agua y sales del suelo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "cyt.p4.tallo-transporte-savia",
+                  "nombre": "Transporte de la savia por el tallo",
+                  "disciplina": "biologia",
+                  "descripcion": "Diferencia la savia bruta que sube de la savia elaborada que se reparte por la planta.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.raiz-absorcion"
+                  ],
+                  "ordenSugerido": 16
+                },
+                {
+                  "clave": "cyt.p4.fotosintesis",
+                  "nombre": "Fotosíntesis: la hoja fabrica alimento",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica que la hoja usa luz, agua y dióxido de carbono para producir alimento y liberar oxígeno.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.tallo-transporte-savia"
+                  ],
+                  "ordenSugerido": 17
+                },
+                {
+                  "clave": "cyt.p4.respiracion-de-las-plantas",
+                  "nombre": "Respiración de las plantas",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica que las plantas toman oxígeno de día y de noche y lo diferencia de la fotosíntesis.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.fotosintesis"
+                  ],
+                  "ordenSugerido": 18
+                },
+                {
+                  "clave": "cyt.p4.transpiracion",
+                  "nombre": "Transpiración en las hojas",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo la planta pierde agua por los estomas y cómo eso ayuda a subir la savia.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.fotosintesis"
+                  ],
+                  "ordenSugerido": 19
+                },
+                {
+                  "clave": "cyt.p4.tropismos",
+                  "nombre": "Tropismos: respuestas de las plantas a la luz y al agua",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe cómo tallos y raíces crecen hacia o en contra de la luz, el agua y la gravedad.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.tallo-transporte-savia"
+                  ],
+                  "ordenSugerido": 44
+                }
+              ]
+            },
+            {
+              "nombre": "Funciones vitales de los animales",
+              "temas": [
+                {
+                  "clave": "cyt.p4.digestion-en-animales",
+                  "nombre": "Digestión en rumiantes y aves",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe el estómago de la vaca y el buche y la molleja de las aves.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.organos-sistema-digestivo"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "cyt.p4.endoesqueleto-exoesqueleto",
+                  "nombre": "Esqueleto interno y esqueleto externo",
+                  "disciplina": "biologia",
+                  "descripcion": "Compara el esqueleto de los vertebrados con el caparazón de insectos y crustáceos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.huesos-del-esqueleto"
+                  ],
+                  "ordenSugerido": 46
+                }
+              ]
+            },
+            {
+              "nombre": "Reproducción y especie",
+              "temas": [
+                {
+                  "clave": "cyt.p4.reproduccion-misma-especie",
+                  "nombre": "Reproducción entre individuos de la misma especie",
+                  "disciplina": "biologia",
+                  "descripcion": "Justifica por qué los seres vivos solo tienen crías fértiles con individuos de su misma especie.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 62
+                },
+                {
+                  "clave": "cyt.p4.cortejo-apareamiento",
+                  "nombre": "Cortejo y apareamiento en los animales",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe conductas de cortejo con las que los animales reconocen a su pareja de la misma especie.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.reproduccion-misma-especie"
+                  ],
+                  "ordenSugerido": 63
+                },
+                {
+                  "clave": "cyt.p4.cruces-entre-especies",
+                  "nombre": "Cruces entre especies: la mula",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica por qué la cría de un caballo y una burra no puede reproducirse.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.reproduccion-misma-especie"
+                  ],
+                  "ordenSugerido": 64
+                }
+              ]
+            },
+            {
+              "nombre": "Roles en el hábitat",
+              "temas": [
+                {
+                  "clave": "cyt.p4.cadena-alimenticia",
+                  "nombre": "Productores, consumidores y descomponedores",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe el rol de plantas, animales y descomponedores en el hábitat.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.fotosintesis"
+                  ],
+                  "ordenSugerido": 65
+                },
+                {
+                  "clave": "cyt.p4.carroneros",
+                  "nombre": "Carroñeros: el cóndor y el gallinazo",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica el papel de los animales que se alimentan de restos de otros animales.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.cadena-alimenticia"
+                  ],
+                  "ordenSugerido": 66
+                },
+                {
+                  "clave": "cyt.p4.descomponedores",
+                  "nombre": "Descomponedores y reciclaje de nutrientes",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo los descomponedores devuelven nutrientes al suelo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.cadena-alimenticia"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "cyt.p4.niveles-de-consumidores",
+                  "nombre": "Consumidores primarios, secundarios y terciarios",
+                  "disciplina": "biologia",
+                  "descripcion": "Arma cadenas de un hábitat cercano y ubica a cada consumidor como primario, secundario o terciario.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.cadena-alimenticia"
+                  ],
+                  "ordenSugerido": 68
+                }
+              ]
+            },
+            {
+              "nombre": "Adaptaciones",
+              "temas": [
+                {
+                  "clave": "cyt.p4.adaptaciones",
+                  "nombre": "Adaptaciones al hábitat",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica qué es una adaptación y cómo ayuda a sobrevivir en un hábitat.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.cadena-alimenticia"
+                  ],
+                  "ordenSugerido": 69
+                },
+                {
+                  "clave": "cyt.p4.adaptaciones-estructurales",
+                  "nombre": "Adaptaciones de forma y estructura del cuerpo",
+                  "disciplina": "biologia",
+                  "descripcion": "Relaciona picos, patas, pelaje y otras estructuras con el ambiente donde vive el animal.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.adaptaciones"
+                  ],
+                  "ordenSugerido": 70
+                },
+                {
+                  "clave": "cyt.p4.camuflaje-mimetismo",
+                  "nombre": "Camuflaje y mimetismo",
+                  "disciplina": "biologia",
+                  "descripcion": "Diferencia confundirse con el entorno de imitar a otro ser vivo, con ejemplos como el camaleón.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.adaptaciones-estructurales"
+                  ],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "cyt.p4.adaptaciones-conductuales",
+                  "nombre": "Migración, hibernación y vida en grupo",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica comportamientos que permiten sobrevivir a cambios de clima o a depredadores.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.adaptaciones"
+                  ],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "cyt.p4.plantas-zonas-secas",
+                  "nombre": "Plantas de zonas secas: cactus y espinas",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica por qué los cactus guardan agua en el tallo y tienen espinas en lugar de hojas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.transpiracion",
+                    "cyt.p4.adaptaciones"
+                  ],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "cyt.p4.plantas-acuaticas",
+                  "nombre": "Plantas acuáticas: totora y lenteja de agua",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe tallos huecos, hojas flotantes y otras adaptaciones a vivir en el agua.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.adaptaciones"
+                  ],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "cyt.p4.animales-de-la-puna",
+                  "nombre": "Animales de la puna: vicuña y alpaca",
+                  "disciplina": "biologia",
+                  "descripcion": "Relaciona el pelaje, la sangre y la conducta de animales altoandinos con el frío y la altura.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.adaptaciones-estructurales"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "cyt.p4.adaptaciones-selva",
+                  "nombre": "Adaptaciones en la selva amazónica",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe adaptaciones de animales y plantas a la humedad, la sombra y la vida en los árboles.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.adaptaciones-estructurales"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "cyt.p4.adaptaciones-mar",
+                  "nombre": "Adaptaciones de los animales del mar peruano",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica la forma del cuerpo, la grasa y las aletas de lobos marinos, pingüinos y peces.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.adaptaciones-estructurales"
+                  ],
+                  "ordenSugerido": 77
+                }
+              ]
+            },
+            {
+              "nombre": "Cambios de la materia",
+              "temas": [
+                {
+                  "clave": "cyt.p4.cambios-de-estado",
+                  "nombre": "Temperaturas de fusión y de ebullición",
+                  "disciplina": "quimica",
+                  "descripcion": "Relaciona cada cambio de estado con la temperatura a la que ocurre en el agua y otras sustancias.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "cyt.p4.fusion-solidificacion",
+                  "nombre": "Fusión y solidificación de distintos materiales",
+                  "disciplina": "quimica",
+                  "descripcion": "Compara cómo se funden y solidifican hielo, cera, chocolate y metales al ganar o perder calor.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.cambios-de-estado"
+                  ],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "cyt.p4.evaporacion-ebullicion-condensacion",
+                  "nombre": "Evaporación, ebullición, condensación y sublimación",
+                  "disciplina": "quimica",
+                  "descripcion": "Diferencia la evaporación lenta de la ebullición y describe la condensación y la sublimación.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.cambios-de-estado"
+                  ],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "cyt.p4.ciclo-del-agua",
+                  "nombre": "El ciclo del agua",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica cómo la energía del sol mueve el agua entre mar, atmósfera y tierra con cambios de estado.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.evaporacion-ebullicion-condensacion"
+                  ],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "cyt.p4.cambios-reversibles",
+                  "nombre": "Cambios reversibles e irreversibles",
+                  "disciplina": "quimica",
+                  "descripcion": "Distingue los cambios que pueden deshacerse de los que no, con ejemplos cotidianos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.fusion-solidificacion"
+                  ],
+                  "ordenSugerido": 24
+                }
+              ]
+            },
+            {
+              "nombre": "Fuerzas y equilibrio",
+              "temas": [
+                {
+                  "clave": "cyt.p4.fuerzas-contacto-distancia",
+                  "nombre": "Fuerzas de contacto y fuerzas a distancia",
+                  "disciplina": "fisica",
+                  "descripcion": "Diferencia empujar o jalar de la atracción de un imán o de la gravedad.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "cyt.p4.peso-y-gravedad",
+                  "nombre": "El peso como fuerza: diferencia entre masa y peso",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica que el peso es la fuerza con que la Tierra atrae a un objeto y lo diferencia de su masa.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.fuerzas-contacto-distancia"
+                  ],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "cyt.p4.medir-fuerzas-dinamometro",
+                  "nombre": "Medición de fuerzas con dinamómetro",
+                  "disciplina": "fisica",
+                  "descripcion": "Usa un dinamómetro o un resorte para comparar la fuerza que se aplica.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.peso-y-gravedad"
+                  ],
+                  "ordenSugerido": 49
+                },
+                {
+                  "clave": "cyt.p4.cuerpos-elasticos-plasticos",
+                  "nombre": "Fuerza elástica: resortes y ligas",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica por qué un elástico estirado se deforma y recupera su forma inicial al soltarlo, y cuándo se rompe.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.fuerzas-contacto-distancia"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "cyt.p4.equilibrio-fuerzas",
+                  "nombre": "Fuerzas y equilibrio",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica que un objeto queda en reposo cuando las fuerzas que actúan sobre él se compensan.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.peso-y-gravedad"
+                  ],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "cyt.p4.centro-de-gravedad",
+                  "nombre": "Centro de gravedad y estabilidad",
+                  "disciplina": "fisica",
+                  "descripcion": "Relaciona la base de apoyo y la posición del centro de gravedad con que un objeto se caiga o no.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.equilibrio-fuerzas"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "cyt.p4.la-palanca",
+                  "nombre": "La palanca y sus partes",
+                  "disciplina": "fisica",
+                  "descripcion": "Identifica punto de apoyo, fuerza y resistencia en palancas como el balancín y la tijera.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.equilibrio-fuerzas"
+                  ],
+                  "ordenSugerido": 53
+                },
+                {
+                  "clave": "cyt.p4.polea-plano-inclinado",
+                  "nombre": "La polea y el plano inclinado",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica cómo estas máquinas simples reducen el esfuerzo para subir objetos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.la-palanca"
+                  ],
+                  "ordenSugerido": 54
+                }
+              ]
+            },
+            {
+              "nombre": "Energía y sus formas",
+              "temas": [
+                {
+                  "clave": "cyt.p4.formas-energia",
+                  "nombre": "Formas de energía",
+                  "disciplina": "fisica",
+                  "descripcion": "Reconoce la energía luminosa, térmica, sonora, eléctrica, química y de movimiento en situaciones diarias.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 92
+                },
+                {
+                  "clave": "cyt.p4.luz-y-sombras",
+                  "nombre": "La luz: fuentes, propagación y sombras",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica que la luz viaja en línea recta y que un objeto opaco forma sombra.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.formas-energia"
+                  ],
+                  "ordenSugerido": 93
+                },
+                {
+                  "clave": "cyt.p4.reflexion-de-la-luz",
+                  "nombre": "Reflexión de la luz y espejos",
+                  "disciplina": "fisica",
+                  "descripcion": "Describe cómo la luz rebota en superficies lisas y forma imágenes en espejos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.luz-y-sombras"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "cyt.p4.el-sonido",
+                  "nombre": "El sonido: vibración y propagación",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica que el sonido se produce por vibraciones y viaja por el aire, el agua y los sólidos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.formas-energia"
+                  ],
+                  "ordenSugerido": 95
+                },
+                {
+                  "clave": "cyt.p4.energia-termica-temperatura",
+                  "nombre": "Energía térmica y temperatura",
+                  "disciplina": "fisica",
+                  "descripcion": "Relaciona el calor con el aumento de temperatura y lo mide con un termómetro.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.formas-energia",
+                    "cyt.p4.cambios-de-estado"
+                  ],
+                  "ordenSugerido": 96
+                },
+                {
+                  "clave": "cyt.p4.energia-de-movimiento",
+                  "nombre": "Energía del movimiento",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica que todo cuerpo en movimiento tiene energía y que es mayor si va más rápido.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.formas-energia"
+                  ],
+                  "ordenSugerido": 97
+                },
+                {
+                  "clave": "cyt.p4.energia-quimica",
+                  "nombre": "Energía química en alimentos, pilas y combustibles",
+                  "disciplina": "quimica",
+                  "descripcion": "Explica que algunas sustancias guardan energía que se libera al usarlas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.formas-energia"
+                  ],
+                  "ordenSugerido": 98
+                },
+                {
+                  "clave": "cyt.p4.transformaciones-energia",
+                  "nombre": "Transformaciones de la energía",
+                  "disciplina": "fisica",
+                  "descripcion": "Describe cómo la energía de una pila se convierte en movimiento, sonido y luz en un juguete.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.energia-quimica",
+                    "cyt.p4.energia-de-movimiento"
+                  ],
+                  "ordenSugerido": 99
+                },
+                {
+                  "clave": "cyt.p4.fuentes-renovables-no-renovables",
+                  "nombre": "Fuentes de energía renovables y no renovables",
+                  "disciplina": "fisica",
+                  "descripcion": "Clasifica el sol, el viento, el agua, el petróleo y el gas según si se agotan.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.transformaciones-energia"
+                  ],
+                  "ordenSugerido": 100
+                }
+              ]
+            },
+            {
+              "nombre": "Electricidad",
+              "temas": [
+                {
+                  "clave": "cyt.p4.energia-electrica",
+                  "nombre": "Energía eléctrica y sus usos",
+                  "disciplina": "fisica",
+                  "descripcion": "Reconoce aparatos que funcionan con electricidad y en qué la transforman.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.formas-energia"
+                  ],
+                  "ordenSugerido": 101
+                },
+                {
+                  "clave": "cyt.p4.circuito-electrico-simple",
+                  "nombre": "Circuito eléctrico simple",
+                  "disciplina": "fisica",
+                  "descripcion": "Arma un circuito con pila, cables, interruptor y foco y explica por qué debe estar cerrado.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.energia-electrica"
+                  ],
+                  "ordenSugerido": 102
+                },
+                {
+                  "clave": "cyt.p4.conductores-aislantes-electricos",
+                  "nombre": "Conductores y aislantes de la electricidad",
+                  "disciplina": "fisica",
+                  "descripcion": "Clasifica materiales según dejen pasar o no la corriente eléctrica.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.circuito-electrico-simple"
+                  ],
+                  "ordenSugerido": 103
+                }
+              ]
+            },
+            {
+              "nombre": "Tierra y clima",
+              "temas": [
+                {
+                  "clave": "cyt.p4.tiempo-atmosferico-clima",
+                  "nombre": "Elementos del tiempo: temperatura, humedad, presión y viento",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Describe los elementos que definen el tiempo de un día y los diferencia del clima de un lugar.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "cyt.p4.instrumentos-meteorologicos",
+                  "nombre": "Lectura de datos de una estación meteorológica",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Interpreta tablas de temperatura y lluvia de varios días para describir el tiempo de su localidad.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.tiempo-atmosferico-clima"
+                  ],
+                  "ordenSugerido": 79
+                },
+                {
+                  "clave": "cyt.p4.rayos-solares-latitud",
+                  "nombre": "Los rayos del sol según la latitud",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica por qué el sol calienta más en el ecuador que en los polos por la forma de la Tierra.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.tiempo-atmosferico-clima"
+                  ],
+                  "ordenSugerido": 80
+                },
+                {
+                  "clave": "cyt.p4.zonas-climaticas",
+                  "nombre": "Zonas climáticas de la Tierra",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Describe la zona cálida, las templadas y las polares y por qué se forman.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.rayos-solares-latitud"
+                  ],
+                  "ordenSugerido": 81
+                },
+                {
+                  "clave": "cyt.p4.eje-inclinado-estaciones",
+                  "nombre": "Inclinación del eje terrestre y estaciones",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Relaciona la inclinación de la Tierra y su traslación con las estaciones del año.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.rayos-solares-latitud"
+                  ],
+                  "ordenSugerido": 82
+                },
+                {
+                  "clave": "cyt.p4.altitud-y-clima",
+                  "nombre": "La altitud y el relieve en el clima",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica por qué hace más frío a mayor altura y cómo las montañas cambian el clima.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.zonas-climaticas"
+                  ],
+                  "ordenSugerido": 83
+                },
+                {
+                  "clave": "cyt.p4.corriente-de-humboldt",
+                  "nombre": "La corriente de Humboldt y el clima de la costa",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica por qué la costa peruana es fresca y casi no llueve.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.altitud-y-clima"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "cyt.p4.fenomeno-el-nino",
+                  "nombre": "El Niño costero: calentamiento del mar y lluvias",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Describe el calentamiento del mar y sus efectos de lluvias e inundaciones en la costa norte.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.corriente-de-humboldt"
+                  ],
+                  "ordenSugerido": 85
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa las implicancias del saber y del quehacer científico y tecnológico",
+          "bloques": [
+            {
+              "nombre": "Tecnología y sociedad",
+              "temas": [
+                {
+                  "clave": "cyt.p4.objetos-tecnologicos-necesidades",
+                  "nombre": "Objetos tecnológicos que satisfacen necesidades",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Relaciona objetos como la cocina, el teléfono o la bicicleta con la necesidad que atienden.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-09"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 104
+                },
+                {
+                  "clave": "cyt.p4.rayos-x",
+                  "nombre": "Los rayos X en la medicina",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica para qué usan los médicos los rayos X y cuáles son sus ventajas y riesgos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.objetos-tecnologicos-necesidades",
+                    "cyt.p4.huesos-del-esqueleto"
+                  ],
+                  "ordenSugerido": 105
+                },
+                {
+                  "clave": "cyt.p4.lentes-y-audifonos",
+                  "nombre": "Lentes y audífonos: tecnología para los sentidos",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica cómo estos objetos ayudan a personas con dificultades para ver u oír.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.objetos-tecnologicos-necesidades",
+                    "cyt.p4.reflexion-de-la-luz",
+                    "cyt.p4.el-sonido"
+                  ],
+                  "ordenSugerido": 106
+                },
+                {
+                  "clave": "cyt.p4.refrigeradora-conservacion",
+                  "nombre": "La refrigeradora y la conservación de alimentos",
+                  "disciplina": "fisica",
+                  "descripcion": "Opina sobre cómo la refrigeradora cambió la alimentación y su consumo de energía.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.cambios-reversibles",
+                    "cyt.p4.objetos-tecnologicos-necesidades"
+                  ],
+                  "ordenSugerido": 107
+                },
+                {
+                  "clave": "cyt.p4.celular-e-internet",
+                  "nombre": "Cambios en la vida por el celular e internet",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Opina sobre ventajas y problemas que trajeron el celular e internet.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.objetos-tecnologicos-necesidades"
+                  ],
+                  "ordenSugerido": 108
+                },
+                {
+                  "clave": "cyt.p4.pilas-y-residuos-electronicos",
+                  "nombre": "Pilas y residuos electrónicos en el ambiente",
+                  "disciplina": "quimica",
+                  "descripcion": "Explica por qué las pilas usadas contaminan y cómo deben desecharse.",
+                  "desempenosOrigen": [
+                    "CYT-C21-P4-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.energia-quimica"
+                  ],
+                  "ordenSugerido": 109
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 20,
+      "nombre": "Indaga mediante métodos científicos para construir sus conocimientos",
+      "capacidades": [
+        {
+          "nombre": "Problematiza situaciones para hacer indagación",
+          "bloques": [
+            {
+              "nombre": "Preguntas y explicaciones",
+              "temas": [
+                {
+                  "clave": "cyt.p4.preguntas-sobre-factores",
+                  "nombre": "Preguntas sobre factores que producen cambios",
+                  "disciplina": "indagacion",
+                  "descripcion": "Formula preguntas que relacionan un hecho con el factor que lo cambia, como el calor y el hielo.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "cyt.p4.explicacion-inicial",
+                  "nombre": "La posible explicación inicial",
+                  "disciplina": "indagacion",
+                  "descripcion": "Escribe una respuesta provisional a su pregunta que relaciona el hecho con su causa.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.preguntas-sobre-factores"
+                  ],
+                  "ordenSugerido": 26
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Diseña estrategias para hacer indagación",
+          "bloques": [
+            {
+              "nombre": "Plan de indagación",
+              "temas": [
+                {
+                  "clave": "cyt.p4.plan-de-indagacion",
+                  "nombre": "Plan de indagación: pasos y materiales",
+                  "disciplina": "indagacion",
+                  "descripcion": "Ordena las acciones, materiales e instrumentos que usará para comprobar su explicación.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.explicacion-inicial"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "cyt.p4.fuentes-para-ninos",
+                  "nombre": "Fuentes de información científica para estudiantes",
+                  "disciplina": "indagacion",
+                  "descripcion": "Elige libros, enciclopedias y páginas confiables para buscar información sobre su pregunta.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.plan-de-indagacion"
+                  ],
+                  "ordenSugerido": 55
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Genera y registra datos e información",
+          "bloques": [
+            {
+              "nombre": "Medición y registro",
+              "temas": [
+                {
+                  "clave": "cyt.p4.unidades-convencionales-no-convencionales",
+                  "nombre": "Medición con unidades convencionales y no convencionales",
+                  "disciplina": "indagacion",
+                  "descripcion": "Mide longitudes, tiempos, temperaturas y capacidades con unidades no convencionales y con cm, s, °C y mL.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.plan-de-indagacion"
+                  ],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "cyt.p4.graficos-de-barras-datos",
+                  "nombre": "Organizadores de datos: cuadros comparativos y esquemas",
+                  "disciplina": "indagacion",
+                  "descripcion": "Organiza los datos de su indagación en cuadros comparativos, esquemas o gráficos.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.unidades-convencionales-no-convencionales"
+                  ],
+                  "ordenSugerido": 86
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Analiza datos e información",
+          "bloques": [
+            {
+              "nombre": "Resultados y conclusiones",
+              "temas": [
+                {
+                  "clave": "cyt.p4.comparar-con-explicacion",
+                  "nombre": "Comparar los datos con la explicación inicial",
+                  "disciplina": "indagacion",
+                  "descripcion": "Decide si sus datos apoyan o no su respuesta provisional y la contrasta con información científica.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.graficos-de-barras-datos"
+                  ],
+                  "ordenSugerido": 87
+                },
+                {
+                  "clave": "cyt.p4.redactar-conclusiones",
+                  "nombre": "Redacción de conclusiones",
+                  "disciplina": "indagacion",
+                  "descripcion": "Escribe una conclusión breve que responde la pregunta con base en los datos.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.comparar-con-explicacion"
+                  ],
+                  "ordenSugerido": 88
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa y comunica el proceso y resultados de su indagación",
+          "bloques": [
+            {
+              "nombre": "Comunicación de la indagación",
+              "temas": [
+                {
+                  "clave": "cyt.p4.comunicar-indagacion",
+                  "nombre": "Comunicar una indagación oral o escrita",
+                  "disciplina": "indagacion",
+                  "descripcion": "Presenta su pregunta, procedimiento, resultados y conclusión a sus compañeros.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.redactar-conclusiones"
+                  ],
+                  "ordenSugerido": 110
+                },
+                {
+                  "clave": "cyt.p4.logros-dificultades-mejoras",
+                  "nombre": "Logros, dificultades y mejoras de una indagación",
+                  "disciplina": "indagacion",
+                  "descripcion": "Reflexiona sobre lo que salió bien y lo que cambiaría en una nueva indagación.",
+                  "desempenosOrigen": [
+                    "CYT-C20-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.comunicar-indagacion"
+                  ],
+                  "ordenSugerido": 111
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 22,
+      "nombre": "Diseña y construye soluciones tecnológicas para resolver problemas de su entorno",
+      "capacidades": [
+        {
+          "nombre": "Determina una alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Problema y alternativas",
+              "temas": [
+                {
+                  "clave": "cyt.p4.problema-tecnologico",
+                  "nombre": "Problema tecnológico y sus causas",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Describe una necesidad del entorno que puede resolverse con un objeto o sistema y explica sus causas.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "cyt.p4.requerimientos-y-recursos",
+                  "nombre": "Requerimientos medibles de una solución",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Lista lo que debe cumplir la solución y los materiales disponibles para construirla.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.problema-tecnologico"
+                  ],
+                  "ordenSugerido": 58
+                },
+                {
+                  "clave": "cyt.p4.practicas-locales",
+                  "nombre": "Prácticas locales como base de soluciones",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Recoge cómo resuelven las familias y la comunidad un problema parecido.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.problema-tecnologico"
+                  ],
+                  "ordenSugerido": 59
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Diseña la alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Diseño",
+              "temas": [
+                {
+                  "clave": "cyt.p4.boceto-de-la-solucion",
+                  "nombre": "Boceto con partes, pasos y función",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Dibuja la solución, rotula sus partes y escribe la secuencia para construirla.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.requerimientos-y-recursos"
+                  ],
+                  "ordenSugerido": 60
+                },
+                {
+                  "clave": "cyt.p4.materiales-por-propiedades",
+                  "nombre": "Elección de materiales por sus propiedades físicas",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Elige materiales según dureza, flexibilidad, peso o impermeabilidad para cada parte.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.boceto-de-la-solucion"
+                  ],
+                  "ordenSugerido": 61
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Implementa y valida la alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Construcción",
+              "temas": [
+                {
+                  "clave": "cyt.p4.herramientas-y-seguridad",
+                  "nombre": "Herramientas y normas de seguridad al construir",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Usa tijeras, punzón, regla y pegamento con cuidado y orden.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.materiales-por-propiedades"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "cyt.p4.ecoeficiencia-al-construir",
+                  "nombre": "Ecoeficiencia: reducir, reusar y reciclar al construir",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Aprovecha materiales reciclados y evita desperdicios al fabricar el prototipo.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.herramientas-y-seguridad"
+                  ],
+                  "ordenSugerido": 90
+                },
+                {
+                  "clave": "cyt.p4.filtro-de-agua-casero",
+                  "nombre": "Proyecto: filtro de agua casero",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Construye y ajusta un filtro con botella, arena, grava y algodón para aclarar agua turbia.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P4-01",
+                    "CYT-C22-P4-02",
+                    "CYT-C22-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.ecoeficiencia-al-construir"
+                  ],
+                  "ordenSugerido": 91
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Prueba y explicación",
+              "temas": [
+                {
+                  "clave": "cyt.p4.prueba-de-funcionamiento",
+                  "nombre": "Prueba de funcionamiento del prototipo",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Comprueba si la solución cumple los requerimientos y anota lo que falla.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.filtro-de-agua-casero"
+                  ],
+                  "ordenSugerido": 112
+                },
+                {
+                  "clave": "cyt.p4.explicar-la-solucion",
+                  "nombre": "Explicar cómo funciona la solución",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Explica cómo la construyó, qué conocimiento aplicó y sus beneficios e inconvenientes.",
+                  "desempenosOrigen": [
+                    "CYT-C22-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.p4.prueba-de-funcionamiento"
+                  ],
+                  "ordenSugerido": 113
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

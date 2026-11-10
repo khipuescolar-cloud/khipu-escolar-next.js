@@ -1,6 +1,6 @@
 import "server-only";
 import { Prisma } from "@/generated/prisma/client";
-import { temaPorClave } from "@/lib/nudito/catalogo";
+import { temaPorClaveConBanco } from "@/lib/nudito/conocimiento/servidor";
 import { esquemaLeccion, hashContenido, validarLeccion, type Leccion } from "@/lib/nudito/leccion";
 import { dbTenant, type DbTenant } from "../../db";
 import type { TenantContext } from "../../tenant";
@@ -33,7 +33,7 @@ async function costoMes(dbT: DbTenant) {
 }
 
 async function temaDeItem(dbT: DbTenant, clave: string) {
-  if (!clave.startsWith("col:")) return temaPorClave(clave);
+  if (!clave.startsWith("col:")) return temaPorClaveConBanco(clave);
   const fila = await dbT.nuditoTemaColegio.findFirst({ where: { id: clave.slice(4), activo: true } });
   return fila ? temaDeColegio(fila) : null;
 }

@@ -1,0 +1,1489 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "comunicacion",
+  "nivel": "primaria",
+  "grado": 4,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Primaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+    },
+    {
+      "titulo": "Cuadernillo de Comunicación 4, cuarto grado de Primaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/8892"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 7,
+      "nombre": "Se comunica oralmente en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Obtiene información del texto oral",
+          "bloques": [
+            {
+              "nombre": "Comprensión de textos orales",
+              "temas": [
+                {
+                  "clave": "com.p4.terminos-en-textos-orales",
+                  "nombre": "Sinónimos y términos de las áreas en un texto oral",
+                  "disciplina": "oralidad",
+                  "descripcion": "Reconoce en la transcripción de una explicación los sinónimos y términos de ciencia o historia que se usan.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "com.p4.recado-oral",
+                  "nombre": "Recados y mensajes orales completos",
+                  "disciplina": "oralidad",
+                  "descripcion": "Reconoce qué datos no pueden faltar al dar o recibir un recado: quién, qué, cuándo y dónde.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-01",
+                    "COM-C7-P4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 18
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Infiere e interpreta información del texto oral",
+          "bloques": [
+            {
+              "nombre": "Comprensión de textos orales",
+              "temas": [
+                {
+                  "clave": "com.p4.relevante-y-complementario-oral",
+                  "nombre": "Lo relevante y lo complementario en un texto oral",
+                  "disciplina": "oralidad",
+                  "descripcion": "Distingue la idea importante de un mensaje oral de los detalles que la acompañan.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.terminos-en-textos-orales"
+                  ],
+                  "ordenSugerido": 19
+                },
+                {
+                  "clave": "com.p4.dichos-populares",
+                  "nombre": "Dichos populares",
+                  "disciplina": "oralidad",
+                  "descripcion": "Explica el sentido figurado de dichos populares peruanos según la situación en que se dicen.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "com.p4.causa-efecto-en-lo-escuchado",
+                  "nombre": "Causa y efecto en un relato oral",
+                  "disciplina": "oralidad",
+                  "descripcion": "Deduce por qué ocurren los hechos de un relato oral transcrito y qué consecuencias traen.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.relevante-y-complementario-oral"
+                  ],
+                  "ordenSugerido": 49
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Adecúa, organiza y desarrolla las ideas de forma coherente y cohesionada",
+          "bloques": [
+            {
+              "nombre": "Expresión oral",
+              "temas": [
+                {
+                  "clave": "com.p4.registro-segun-genero-oral",
+                  "nombre": "Registro según el género oral: aviso, exposición y conversación",
+                  "disciplina": "oralidad",
+                  "descripcion": "Reconoce qué tan formal debe ser lo que dice según se trate de un aviso, una exposición o una conversación.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "com.p4.presentacion-personal",
+                  "nombre": "Presentación personal ante un grupo",
+                  "disciplina": "oralidad",
+                  "descripcion": "Organiza qué decir al presentarse ante un grupo: nombre, datos importantes y un cierre.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-05",
+                    "COM-C7-P4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "com.p4.guion-para-exponer",
+                  "nombre": "Guion para una exposición breve",
+                  "disciplina": "oralidad",
+                  "descripcion": "Ordena en un guion la presentación, el desarrollo y el cierre de lo que expondrá sobre un tema.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-05",
+                    "COM-C7-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.registro-segun-genero-oral"
+                  ],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "com.p4.explicar-causas-al-hablar",
+                  "nombre": "Explicar causas y consecuencias al hablar",
+                  "disciplina": "oralidad",
+                  "descripcion": "Planifica una explicación oral uniendo causas y consecuencias con «porque», «por eso» y «entonces».",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.guion-para-exponer"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "com.p4.guion-de-radio-escolar",
+                  "nombre": "Guion de un programa de radio escolar",
+                  "disciplina": "oralidad",
+                  "descripcion": "Ordena en un guion la presentación, las secciones y la despedida de un programa de radio escolar.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-05",
+                    "COM-C7-P4-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.guion-para-exponer"
+                  ],
+                  "ordenSugerido": 79
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Utiliza recursos no verbales y paraverbales de forma estratégica",
+          "bloques": [
+            {
+              "nombre": "Expresión oral",
+              "temas": [
+                {
+                  "clave": "com.p4.entonacion-para-personajes",
+                  "nombre": "Entonación para caracterizar personajes",
+                  "disciplina": "oralidad",
+                  "descripcion": "Decide cómo cambiar la voz y la entonación para que se distinga a cada personaje al narrar.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-07",
+                    "COM-C7-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "com.p4.lectura-expresiva-pausas",
+                  "nombre": "Lectura en voz alta: pausas y entonación",
+                  "disciplina": "oralidad",
+                  "descripcion": "Marca en un texto dónde pausar y qué entonación usar según los signos de puntuación.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-07"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.entonacion-para-personajes"
+                  ],
+                  "ordenSugerido": 80
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Interactúa estratégicamente con distintos interlocutores",
+          "bloques": [
+            {
+              "nombre": "Interacción oral",
+              "temas": [
+                {
+                  "clave": "com.p4.preguntas-pertinentes",
+                  "nombre": "Preguntas y comentarios relevantes",
+                  "disciplina": "oralidad",
+                  "descripcion": "Elige preguntas y comentarios que se relacionan con el tema de una conversación.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "com.p4.pedidos-con-cortesia",
+                  "nombre": "Pedidos y reclamos con cortesía",
+                  "disciplina": "oralidad",
+                  "descripcion": "Formula un pedido o un reclamo con fórmulas de cortesía adecuadas a la persona.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-08",
+                    "COM-C7-P4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "com.p4.asamblea-y-acuerdos",
+                  "nombre": "La asamblea de aula",
+                  "disciplina": "oralidad",
+                  "descripcion": "Reconoce cómo se proponen ideas, se piden turnos y se registran acuerdos en una asamblea.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-08",
+                    "COM-C7-P4-09"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.preguntas-pertinentes"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "com.p4.comentarios-ante-opiniones-distintas",
+                  "nombre": "Comentarios respetuosos ante opiniones distintas",
+                  "disciplina": "oralidad",
+                  "descripcion": "Elige formas respetuosas de responder cuando alguien opina distinto.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-08"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.preguntas-pertinentes"
+                  ],
+                  "ordenSugerido": 53
+                },
+                {
+                  "clave": "com.p4.mesa-redonda-soluciones",
+                  "nombre": "La mesa redonda para proponer soluciones",
+                  "disciplina": "oralidad",
+                  "descripcion": "Reconoce cómo varios participantes exponen propuestas sobre un problema común y cómo se coordinan los turnos.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-08",
+                    "COM-C7-P4-09"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.asamblea-y-acuerdos"
+                  ],
+                  "ordenSugerido": 81
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto oral",
+          "bloques": [
+            {
+              "nombre": "Interacción oral",
+              "temas": [
+                {
+                  "clave": "com.p4.opinar-sobre-lo-escuchado",
+                  "nombre": "Opinión sobre avisos y noticias radiales",
+                  "disciplina": "oralidad",
+                  "descripcion": "Da su opinión sobre lo que se dice en un aviso, una noticia radial o un programa escolar.",
+                  "desempenosOrigen": [
+                    "COM-C7-P4-09"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.relevante-y-complementario-oral"
+                  ],
+                  "ordenSugerido": 82
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "nombre": "Lee diversos tipos de textos escritos en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Obtiene información del texto escrito",
+          "bloques": [
+            {
+              "nombre": "Ubicar información",
+              "temas": [
+                {
+                  "clave": "com.p4.informacion-relevante",
+                  "nombre": "Información explícita y relevante",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Distingue la información importante de la que no lo es.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "com.p4.subrayar-palabras-clave",
+                  "nombre": "Subrayado de palabras e ideas clave",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Subraya lo importante de cada párrafo para encontrar luego la información.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.informacion-relevante"
+                  ],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "com.p4.lectura-de-tablas-simples",
+                  "nombre": "Información en tablas y cuadros",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Ubica datos en tablas, cuadros y listas que acompañan a un texto.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.informacion-relevante"
+                  ],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "com.p4.linea-de-tiempo-biografia",
+                  "nombre": "Línea de tiempo de una biografía",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Ubica en una línea de tiempo los hechos de la vida de una persona.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.la-biografia"
+                  ],
+                  "ordenSugerido": 54
+                }
+              ]
+            },
+            {
+              "nombre": "Textos informativos e instructivos",
+              "temas": [
+                {
+                  "clave": "com.p4.avisos-y-anuncios",
+                  "nombre": "Avisos y anuncios clasificados",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Ubica en avisos y anuncios clasificados qué se ofrece, dónde y cómo comunicarse.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 32
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Infiere e interpreta información del texto",
+          "bloques": [
+            {
+              "nombre": "Inferencias",
+              "temas": [
+                {
+                  "clave": "com.p4.significado-por-contexto",
+                  "nombre": "Significado de palabras nuevas por pistas del párrafo",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Deduce lo que significa una palabra nueva usando las demás palabras.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "com.p4.causa-y-efecto",
+                  "nombre": "Causa y efecto en lo que leo",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Deduce por qué pasan las cosas y qué consecuencias tienen.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "com.p4.intencion-y-finalidad",
+                  "nombre": "Intención y finalidad de las acciones",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Deduce para qué hace algo un personaje o una persona del texto.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.causa-y-efecto"
+                  ],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "com.p4.sentimientos-de-personajes",
+                  "nombre": "Sentimientos de los personajes en lo que leo",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Deduce cómo se sienten los personajes por lo que hacen y dicen.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-02",
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "com.p4.tema-y-subtema",
+                  "nombre": "Tema y subtemas de un texto",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Distingue el tema general de los subtemas que se desarrollan en cada parte.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-02",
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 55
+                },
+                {
+                  "clave": "com.p4.refranes-y-expresiones-escritas",
+                  "nombre": "Refranes y expresiones figuradas en lo que leo",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Explica qué quiere decir un refrán o una expresión figurada dentro de un cuento o artículo.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.significado-por-contexto"
+                  ],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "com.p4.evolucion-del-personaje",
+                  "nombre": "Cómo cambia un personaje en la historia",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Explica cómo y por qué cambia un personaje del inicio al final.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-02",
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.sentimientos-de-personajes"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "com.p4.caracteristicas-de-objetos-y-lugares",
+                  "nombre": "Características implícitas de animales, objetos y lugares",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Deduce cómo es un animal, un objeto o un lugar a partir de pistas del texto informativo o literario.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 83
+                }
+              ]
+            },
+            {
+              "nombre": "Anticipación y propósito",
+              "temas": [
+                {
+                  "clave": "com.p4.predecir-por-subtitulos-y-tipografia",
+                  "nombre": "Predicción con subtítulos, negritas y tipografía",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Anticipa el contenido de un texto con sus subtítulos, el tamaño de letra, las negritas y los colores.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "com.p4.autopreguntas-al-leer",
+                  "nombre": "Preguntas antes, durante y después de leer",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Se hace preguntas mientras lee para comprobar si está entendiendo.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "com.p4.relacion-titulo-contenido",
+                  "nombre": "Relación entre el título y el contenido",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Explica por qué un título corresponde o no con lo que dice el texto.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-03",
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.predecir-por-subtitulos-y-tipografia"
+                  ],
+                  "ordenSugerido": 28
+                },
+                {
+                  "clave": "com.p4.el-indice",
+                  "nombre": "Uso del índice de un libro",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Ubica temas en un libro usando el índice y los títulos.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-03",
+                    "COM-C8-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.predecir-por-subtitulos-y-tipografia"
+                  ],
+                  "ordenSugerido": 58
+                },
+                {
+                  "clave": "com.p4.valores-en-las-acciones",
+                  "nombre": "Valores en las acciones de los personajes",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Explica qué valores muestran los personajes con lo que hacen y qué enseña el texto.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 59
+                }
+              ]
+            },
+            {
+              "nombre": "Textos literarios",
+              "temas": [
+                {
+                  "clave": "com.p4.el-mito",
+                  "nombre": "El mito",
+                  "disciplina": "literatura",
+                  "descripcion": "Reconoce en un mito andino o amazónico a los dioses y héroes y lo que el mito explica.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 29
+                },
+                {
+                  "clave": "com.p4.rima-consonante-y-asonante",
+                  "nombre": "Rima consonante y rima asonante",
+                  "disciplina": "literatura",
+                  "descripcion": "Distingue en un poema si riman todas las letras finales o solo las vocales.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 60
+                },
+                {
+                  "clave": "com.p4.coplas-y-canciones-populares",
+                  "nombre": "Coplas y canciones populares",
+                  "disciplina": "literatura",
+                  "descripcion": "Interpreta coplas, huaynos y canciones populares y lo que expresan sobre la vida de la comunidad.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.rima-consonante-y-asonante"
+                  ],
+                  "ordenSugerido": 61
+                },
+                {
+                  "clave": "com.p4.comparar-versiones-de-un-relato",
+                  "nombre": "Comparación de dos versiones de un relato",
+                  "disciplina": "literatura",
+                  "descripcion": "Compara dos versiones de una leyenda o cuento y explica en qué se diferencian.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-05",
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.el-mito"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "com.p4.el-cuento-maravilloso",
+                  "nombre": "El cuento maravilloso",
+                  "disciplina": "literatura",
+                  "descripcion": "Reconoce los elementos mágicos, el héroe y las pruebas que enfrenta en un cuento maravilloso.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-04",
+                    "COM-C8-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 85
+                }
+              ]
+            },
+            {
+              "nombre": "Textos informativos e instructivos",
+              "temas": [
+                {
+                  "clave": "com.p4.texto-instructivo",
+                  "nombre": "El texto instructivo: materiales y pasos",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Comprende recetas e instrucciones y el orden de sus pasos.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "com.p4.la-biografia",
+                  "nombre": "La biografía",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Ubica los hechos importantes de la vida de una persona en orden cronológico.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-01",
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "com.p4.noticia",
+                  "nombre": "La noticia: partes y propósito",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Reconoce las partes y el propósito de una noticia.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "com.p4.texto-expositivo-simple",
+                  "nombre": "Texto expositivo de estructura simple",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Identifica el tema y la información de cada párrafo en un texto que explica un hecho o fenómeno.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-01",
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.tema-y-subtema"
+                  ],
+                  "ordenSugerido": 62
+                },
+                {
+                  "clave": "com.p4.folletos-y-tripticos",
+                  "nombre": "Folletos y trípticos",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Ubica la información de un folleto o tríptico según sus paneles, títulos e imágenes.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-01",
+                    "COM-C8-P4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 63
+                },
+                {
+                  "clave": "com.p4.normas-y-reglamentos",
+                  "nombre": "Normas y reglamentos",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Comprende para qué sirven las normas de un reglamento y cómo están redactadas.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-04",
+                    "COM-C8-P4-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.texto-instructivo"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "com.p4.parafrasear-un-parrafo",
+                  "nombre": "Parafraseo de un párrafo",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Dice con sus propias palabras lo que expresa un párrafo sin cambiar su sentido.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.tema-y-subtema"
+                  ],
+                  "ordenSugerido": 65
+                },
+                {
+                  "clave": "com.p4.texto-expositivo-comparacion",
+                  "nombre": "Texto expositivo de comparación",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Reconoce cómo un texto presenta semejanzas y diferencias entre dos seres o fenómenos.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-02",
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.texto-expositivo-simple"
+                  ],
+                  "ordenSugerido": 86
+                },
+                {
+                  "clave": "com.p4.clasificar-y-sintetizar",
+                  "nombre": "Cuadros para clasificar información",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Clasifica y sintetiza lo leído en un cuadro o esquema sencillo.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.texto-expositivo-simple"
+                  ],
+                  "ordenSugerido": 87
+                },
+                {
+                  "clave": "com.p4.la-enciclopedia",
+                  "nombre": "La enciclopedia y el artículo enciclopédico",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Busca un tema en una enciclopedia y reconoce cómo organiza su información.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-01",
+                    "COM-C8-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.el-indice"
+                  ],
+                  "ordenSugerido": 88
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto",
+          "bloques": [
+            {
+              "nombre": "Opinión sobre lo leído",
+              "temas": [
+                {
+                  "clave": "com.p4.opinion-apoyada-en-el-texto",
+                  "nombre": "Opinión apoyada en datos del texto",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Sustenta su opinión sobre un texto citando una parte que la respalda.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "com.p4.elegir-textos-segun-necesidad",
+                  "nombre": "Elegir textos según mis necesidades",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Justifica qué texto conviene leer para informarse, aprender a hacer algo o entretenerse.",
+                  "desempenosOrigen": [
+                    "COM-C8-P4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 89
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 9,
+      "nombre": "Escribe diversos tipos de textos en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Adecúa el texto a la situación comunicativa",
+          "bloques": [
+            {
+              "nombre": "Planificación y adecuación",
+              "temas": [
+                {
+                  "clave": "com.p4.organizador-de-ideas",
+                  "nombre": "Organizador de ideas antes de escribir",
+                  "disciplina": "escritura",
+                  "descripcion": "Anota y agrupa en un organizador lo que dirá en su texto antes de redactarlo.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "com.p4.titulo-adecuado",
+                  "nombre": "Un título adecuado para mi texto",
+                  "disciplina": "escritura",
+                  "descripcion": "Elige un título breve que anticipa el tema y atrae al lector.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-01",
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.organizador-de-ideas"
+                  ],
+                  "ordenSugerido": 66
+                }
+              ]
+            },
+            {
+              "nombre": "Escritura de textos",
+              "temas": [
+                {
+                  "clave": "com.p4.escribo-un-diario-personal",
+                  "nombre": "Escribo un diario personal",
+                  "disciplina": "escritura",
+                  "descripcion": "Registra con fecha lo que vivió y sintió en un día, en primera persona.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "com.p4.escribo-una-nota-o-aviso",
+                  "nombre": "Escribo un aviso o una nota",
+                  "disciplina": "escritura",
+                  "descripcion": "Redacta avisos y notas breves con la información necesaria para el lector.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "com.p4.escribo-sobre-una-costumbre",
+                  "nombre": "Escribo sobre una costumbre de mi comunidad",
+                  "disciplina": "escritura",
+                  "descripcion": "Describe una fiesta o costumbre de su comunidad y narra cómo se celebra.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-01",
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.escribo-una-descripcion"
+                  ],
+                  "ordenSugerido": 68
+                },
+                {
+                  "clave": "com.p4.escribo-un-texto-de-recomendaciones",
+                  "nombre": "Escribo un texto de recomendaciones",
+                  "disciplina": "escritura",
+                  "descripcion": "Redacta recomendaciones claras y justificadas para cuidar algo o actuar ante una situación.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-01",
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.conectores-basicos"
+                  ],
+                  "ordenSugerido": 90
+                },
+                {
+                  "clave": "com.p4.escribo-un-folleto",
+                  "nombre": "Escribo un folleto informativo",
+                  "disciplina": "escritura",
+                  "descripcion": "Organiza en un folleto títulos, textos breves e imágenes sobre un tema de su comunidad.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-01",
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.folletos-y-tripticos"
+                  ],
+                  "ordenSugerido": 92
+                },
+                {
+                  "clave": "com.p4.escribo-la-continuacion-de-un-cuento",
+                  "nombre": "Escribo la continuación de un cuento",
+                  "disciplina": "escritura",
+                  "descripcion": "Continúa un cuento leído manteniendo los personajes y la coherencia con lo ya contado.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-01",
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.evolucion-del-personaje"
+                  ],
+                  "ordenSugerido": 93
+                },
+                {
+                  "clave": "com.p4.escribo-un-cuento-maravilloso",
+                  "nombre": "Escribo un cuento maravilloso",
+                  "disciplina": "escritura",
+                  "descripcion": "Crea un cuento con un héroe, un objeto mágico y pruebas que superar.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-01",
+                    "COM-C9-P4-02",
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.el-cuento-maravilloso"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "com.p4.escribo-un-mito-o-explicacion",
+                  "nombre": "Escribo un relato que explica un origen",
+                  "disciplina": "escritura",
+                  "descripcion": "Inventa un relato al estilo del mito que explique el origen de algo de la naturaleza.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-01",
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.el-mito"
+                  ],
+                  "ordenSugerido": 95
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Organiza y desarrolla las ideas de forma coherente y cohesionada",
+          "bloques": [
+            {
+              "nombre": "Planificación y adecuación",
+              "temas": [
+                {
+                  "clave": "com.p4.parrafo-introduccion-y-cierre",
+                  "nombre": "Párrafo de introducción y párrafo de cierre",
+                  "disciplina": "escritura",
+                  "descripcion": "Escribe un párrafo que presenta el tema y otro que lo concluye.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.ampliar-sin-repetir"
+                  ],
+                  "ordenSugerido": 34
+                }
+              ]
+            },
+            {
+              "nombre": "Coherencia y cohesión",
+              "temas": [
+                {
+                  "clave": "com.p4.ampliar-sin-repetir",
+                  "nombre": "Ampliar ideas sin repeticiones ni contradicciones",
+                  "disciplina": "escritura",
+                  "descripcion": "Agrega detalles a una idea sin repetir lo ya dicho ni contradecirse.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-02",
+                    "COM-C9-P4-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.organizador-de-ideas"
+                  ],
+                  "ordenSugerido": 10
+                },
+                {
+                  "clave": "com.p4.conectores-basicos",
+                  "nombre": "Conectores de adición, tiempo y causa",
+                  "disciplina": "escritura",
+                  "descripcion": "Une ideas con conectores de adición, tiempo y causa.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 35
+                }
+              ]
+            },
+            {
+              "nombre": "Escritura de textos",
+              "temas": [
+                {
+                  "clave": "com.p4.escribo-una-descripcion",
+                  "nombre": "Escribo una descripción",
+                  "disciplina": "escritura",
+                  "descripcion": "Describe una persona, un animal o un lugar con detalles ordenados.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "com.p4.escribo-un-texto-causa-consecuencia",
+                  "nombre": "Escribo un texto que explica causas y consecuencias",
+                  "disciplina": "escritura",
+                  "descripcion": "Explica un fenómeno o problema de su entorno señalando sus causas y consecuencias.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.conectores-basicos"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "com.p4.escribo-un-texto-de-comparacion",
+                  "nombre": "Escribo un texto que compara",
+                  "disciplina": "escritura",
+                  "descripcion": "Escribe sobre las semejanzas y diferencias entre dos seres, lugares u objetos.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.texto-expositivo-comparacion"
+                  ],
+                  "ordenSugerido": 91
+                }
+              ]
+            },
+            {
+              "nombre": "Vocabulario",
+              "temas": [
+                {
+                  "clave": "com.p4.acepciones-del-diccionario",
+                  "nombre": "Acepciones en el diccionario",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Elige entre las acepciones de una entrada del diccionario la que corresponde al texto.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 17
+                },
+                {
+                  "clave": "com.p4.sinonimos-en-contexto",
+                  "nombre": "Sinónimos según el contexto",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Elige el sinónimo que mantiene el sentido de la oración, porque no todos sirven en cualquier caso.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.acepciones-del-diccionario"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "com.p4.palabras-de-emociones",
+                  "nombre": "Palabras para expresar emociones",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Amplía su vocabulario de emociones y elige la palabra más precisa para cada situación.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "com.p4.onomatopeyas",
+                  "nombre": "Onomatopeyas",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Reconoce y usa palabras que imitan sonidos en historietas, cuentos y poemas.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-02",
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 77
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Utiliza convenciones del lenguaje escrito de forma pertinente",
+          "bloques": [
+            {
+              "nombre": "Escritura de textos",
+              "temas": [
+                {
+                  "clave": "com.p4.escribo-un-poema-con-comparaciones",
+                  "nombre": "Escribo un poema con comparaciones",
+                  "disciplina": "escritura",
+                  "descripcion": "Crea un poema en el que compara elementos con «como» y busca rimas.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.rima-consonante-y-asonante"
+                  ],
+                  "ordenSugerido": 69
+                }
+              ]
+            },
+            {
+              "nombre": "Recursos expresivos",
+              "temas": [
+                {
+                  "clave": "com.p4.adjetivos-y-comparaciones-al-describir",
+                  "nombre": "Adjetivos y comparaciones para caracterizar",
+                  "disciplina": "escritura",
+                  "descripcion": "Caracteriza personas, personajes y escenarios con adjetivos precisos y comparaciones.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.escribo-una-descripcion"
+                  ],
+                  "ordenSugerido": 70
+                },
+                {
+                  "clave": "com.p4.juegos-de-palabras-ritmo",
+                  "nombre": "Jitanjáforas y juegos con el ritmo",
+                  "disciplina": "escritura",
+                  "descripcion": "Crea versos y juegos verbales que juegan con el sonido y el ritmo de las palabras.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.rima-consonante-y-asonante"
+                  ],
+                  "ordenSugerido": 96
+                }
+              ]
+            },
+            {
+              "nombre": "Ortografía y puntuación",
+              "temas": [
+                {
+                  "clave": "com.p4.clasificacion-por-silaba-tonica",
+                  "nombre": "Clasificación de palabras por su sílaba tónica",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Clasifica palabras en agudas, graves y esdrújulas según su sílaba tónica, lleven o no tilde.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "com.p4.monosilabos-sin-tilde",
+                  "nombre": "Monosílabos que no llevan tilde",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Escribe sin tilde monosílabos como fue, fui, dio, vio y pie.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.clasificacion-por-silaba-tonica"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "com.p4.mayusculas-instituciones-festividades",
+                  "nombre": "Mayúsculas en instituciones y festividades",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Usa mayúscula en nombres de instituciones, festividades y fechas patrias.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "com.p4.dos-puntos",
+                  "nombre": "Los dos puntos",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Usa los dos puntos antes de una enumeración y después del saludo de una carta o nota.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "com.p4.coma-explicativa",
+                  "nombre": "La coma explicativa",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Encierra entre comas una aclaración; si se tapa lo aclarado, la oración conserva su sentido.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "com.p4.uso-de-b-en-verbos",
+                  "nombre": "Uso de b en -aba, -bir y -buir",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Escribe con b los verbos en copretérito terminados en -aba y los infinitivos en -bir y -buir.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 40
+                },
+                {
+                  "clave": "com.p4.uso-de-h-hie-hue",
+                  "nombre": "Uso de h en hie- y hue-",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Escribe con h las palabras que empiezan con hie- y hue-, como hielo y hueso.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "com.p4.coma-en-fechas-y-lugares",
+                  "nombre": "La coma en fechas, direcciones y lugares",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Separa con coma el lugar de la fecha y los datos de una dirección.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "com.p4.uso-de-c-z-plurales",
+                  "nombre": "Uso de c y z: plurales en -ces",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Cambia la z por c al formar el plural de palabras como lápiz y pez.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "com.p4.separacion-al-final-de-renglon",
+                  "nombre": "Separación de palabras al final del renglón",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Divide una palabra al final del renglón con guion, respetando sus sílabas.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "com.p4.uso-de-c-en-cito-cillo",
+                  "nombre": "Uso de c en -cito, -cillo y -cita",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Escribe con c los diminutivos en -cito y -cillo, como «pancito» o «cochecillo».",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.uso-de-c-z-plurales"
+                  ],
+                  "ordenSugerido": 97
+                },
+                {
+                  "clave": "com.p4.uso-de-g-en-geo-y-gen",
+                  "nombre": "Uso de g en geo- y -gen",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Escribe con g las palabras con geo- y las terminadas en -gen, como geografía u origen.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 98
+                },
+                {
+                  "clave": "com.p4.sangria-y-margenes",
+                  "nombre": "Sangría, márgenes y letra legible",
+                  "disciplina": "escritura",
+                  "descripcion": "Presenta su texto con sangría al inicio de cada párrafo, márgenes y letra clara.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.revisar-punto-aparte"
+                  ],
+                  "ordenSugerido": 99
+                }
+              ]
+            },
+            {
+              "nombre": "Gramática",
+              "temas": [
+                {
+                  "clave": "com.p4.genero-y-numero",
+                  "nombre": "Género y número del sustantivo",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Forma el femenino y el plural de sustantivos, incluidos los que cambian de palabra o de terminación.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "com.p4.sustantivos-concretos-abstractos",
+                  "nombre": "Sustantivos concretos y abstractos",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Distingue sustantivos que nombran seres de los que nombran ideas o sentimientos.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 16
+                },
+                {
+                  "clave": "com.p4.sustantivos-primitivos-derivados",
+                  "nombre": "Sustantivos primitivos y derivados",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Reconoce el sustantivo del que se forman otros, como flor, florero y florería.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03",
+                    "COM-C9-P4-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.sustantivos-concretos-abstractos"
+                  ],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "com.p4.adjetivos-gentilicios",
+                  "nombre": "Adjetivos gentilicios",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Forma gentilicios a partir de nombres de lugares del Perú, como cusqueño o loretano.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "com.p4.persona-y-numero-del-verbo",
+                  "nombre": "Persona y número del verbo",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Reconoce en un verbo conjugado quién realiza la acción y si es uno o varios.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 44
+                },
+                {
+                  "clave": "com.p4.adjetivos-numerales",
+                  "nombre": "Adjetivos numerales cardinales y ordinales",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Escribe números como palabras y usa ordinales como primero, décimo o vigésimo.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "com.p4.determinantes-posesivos-demostrativos",
+                  "nombre": "Determinantes posesivos y demostrativos",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Usa mi, tu, su, este, ese y aquel para señalar a quién pertenece algo o a qué distancia está.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.genero-y-numero"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "com.p4.conjugaciones-ar-er-ir",
+                  "nombre": "Las tres conjugaciones verbales",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Clasifica verbos según su infinitivo termine en -ar, -er o -ir y los conjuga en presente.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.persona-y-numero-del-verbo"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "com.p4.el-adverbio",
+                  "nombre": "El adverbio",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Reconoce palabras que indican lugar, tiempo y modo de una acción.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.conjugaciones-ar-er-ir"
+                  ],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "com.p4.nucleo-del-sujeto-y-predicado",
+                  "nombre": "Núcleo del sujeto y núcleo del predicado",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Identifica el sustantivo principal del sujeto y el verbo principal del predicado.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.persona-y-numero-del-verbo"
+                  ],
+                  "ordenSugerido": 101
+                },
+                {
+                  "clave": "com.p4.sujeto-simple-y-compuesto",
+                  "nombre": "Sujeto simple y sujeto compuesto",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Distingue sujetos con un núcleo de los que tienen dos o más y concuerda el verbo en plural.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.nucleo-del-sujeto-y-predicado"
+                  ],
+                  "ordenSugerido": 102
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto escrito",
+          "bloques": [
+            {
+              "nombre": "Revisión",
+              "temas": [
+                {
+                  "clave": "com.p4.revisar-con-lista-de-cotejo",
+                  "nombre": "Revisión con lista de cotejo",
+                  "disciplina": "escritura",
+                  "descripcion": "Revisa su texto con una lista: propósito, orden de ideas, conectores y ortografía.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "com.p4.revisar-punto-aparte",
+                  "nombre": "Revisión de párrafos y punto aparte",
+                  "disciplina": "escritura",
+                  "descripcion": "Revisa si cada párrafo trata una idea y si falta el punto aparte entre ellos.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "com.p4.importancia-de-la-ortografia",
+                  "nombre": "Por qué importa la ortografía",
+                  "disciplina": "escritura",
+                  "descripcion": "Explica cómo una tilde, una coma o una letra cambian lo que entiende el lector.",
+                  "desempenosOrigen": [
+                    "COM-C9-P4-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.p4.clasificacion-por-silaba-tonica"
+                  ],
+                  "ordenSugerido": 103
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

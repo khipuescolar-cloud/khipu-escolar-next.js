@@ -1,0 +1,2344 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "matematica",
+  "nivel": "secundaria",
+  "grado": 1,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Secundaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+    },
+    {
+      "titulo": "Resolvamos problemas 1, Secundaria: cuaderno de trabajo de Matemática, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/6862"
+    },
+    {
+      "titulo": "Texto de Matemática 1, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/12631"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 23,
+      "nombre": "Resuelve problemas de cantidad",
+      "capacidades": [
+        {
+          "nombre": "Traduce cantidades a expresiones numéricas",
+          "bloques": [
+            {
+              "nombre": "Números naturales y divisibilidad",
+              "temas": [
+                {
+                  "clave": "mat.s1.mcm-mcd-situaciones",
+                  "nombre": "MCM y MCD en situaciones de la vida diaria",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Resuelve situaciones de coincidencia periódica y de reparto en partes iguales máximas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-01",
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.factores-primos-divisores"
+                  ],
+                  "ordenSugerido": 5
+                }
+              ]
+            },
+            {
+              "nombre": "Números enteros",
+              "temas": [
+                {
+                  "clave": "mat.s1.ganar-perder-enteros",
+                  "nombre": "Situaciones de ganar, perder, deber e igualar con enteros",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Modela con enteros situaciones de saldos, deudas y cambios sucesivos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-01",
+                    "MAT-C23-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.sustraccion-enteros"
+                  ],
+                  "ordenSugerido": 17
+                },
+                {
+                  "clave": "mat.s1.variaciones-temperatura-altitud",
+                  "nombre": "Variaciones de temperatura y altitud con enteros",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Calcula variaciones entre valores positivos y negativos en climas y alturas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-01",
+                    "MAT-C23-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.sustraccion-enteros"
+                  ],
+                  "ordenSugerido": 18
+                }
+              ]
+            },
+            {
+              "nombre": "Potenciación y radicación",
+              "temas": [
+                {
+                  "clave": "mat.s1.potenciacion-enteros",
+                  "nombre": "Potenciación con base entera",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Calcula potencias de base positiva o negativa y deduce el signo según el exponente.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-01",
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.multiplicacion-enteros"
+                  ],
+                  "ordenSugerido": 29
+                },
+                {
+                  "clave": "mat.s1.radicacion-exacta",
+                  "nombre": "Raíz cuadrada y raíz cúbica exactas",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Halla raíces exactas relacionándolas con cuadrados y cubos perfectos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-01",
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.potenciacion-enteros"
+                  ],
+                  "ordenSugerido": 31
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones y decimales",
+              "temas": [
+                {
+                  "clave": "mat.s1.fraccion-de-fraccion-resto",
+                  "nombre": "Problemas de fracciones sucesivas y del resto",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Resuelve situaciones de gastos o repartos sucesivos sobre lo que queda.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-01",
+                    "MAT-C23-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.multiplicacion-division-fracciones"
+                  ],
+                  "ordenSugerido": 40
+                }
+              ]
+            },
+            {
+              "nombre": "Porcentajes",
+              "temas": [
+                {
+                  "clave": "mat.s1.aumento-porcentual",
+                  "nombre": "Aumentos porcentuales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Calcula el nuevo valor tras un aumento usando el factor 1 + p/100.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-01",
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.porcentaje-de-cantidad"
+                  ],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "mat.s1.descuento-porcentual",
+                  "nombre": "Descuentos porcentuales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Calcula el precio final tras un descuento usando el factor 1 − p/100.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-01",
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.porcentaje-de-cantidad"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "mat.s1.descuentos-sucesivos",
+                  "nombre": "Descuentos y aumentos sucesivos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Justifica por qué dos descuentos sucesivos no equivalen a la suma de ambos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-01",
+                    "MAT-C23-S1-06",
+                    "MAT-C23-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.aumento-porcentual",
+                    "mat.s1.descuento-porcentual"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "mat.s1.igv-precio-venta",
+                  "nombre": "IGV, precio de costo y precio de venta",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Calcula el IGV y la ganancia o pérdida en compras y ventas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-01",
+                    "MAT-C23-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.aumento-porcentual"
+                  ],
+                  "ordenSugerido": 77
+                }
+              ]
+            },
+            {
+              "nombre": "Razones",
+              "temas": [
+                {
+                  "clave": "mat.s1.reparto-proporcional",
+                  "nombre": "Reparto proporcional",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Reparte una cantidad en partes proporcionales a números dados.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-01",
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.razon-aritmetica-geometrica"
+                  ],
+                  "ordenSugerido": 79
+                }
+              ]
+            },
+            {
+              "nombre": "Comprobación y argumentación",
+              "temas": [
+                {
+                  "clave": "mat.s1.comprobar-modelo-numerico",
+                  "nombre": "Comprobación de que una expresión representa el problema",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Verifica que la expresión planteada recoge todos los datos, acciones y condiciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.ganar-perder-enteros"
+                  ],
+                  "ordenSugerido": 108
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre los números y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números naturales y divisibilidad",
+              "temas": [
+                {
+                  "clave": "mat.s1.valor-posicional-millones",
+                  "nombre": "Valor posicional hasta los millones",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Lee, escribe y determina el valor de las cifras en números de hasta nueve cifras.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "mat.s1.comparar-ordenar-millones",
+                  "nombre": "Comparación y orden de números hasta los millones",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Compara y ordena números grandes en contextos de población, presupuestos o distancias.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.valor-posicional-millones"
+                  ],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "mat.s1.descomposicion-polinomica",
+                  "nombre": "Descomposición polinómica de un número",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Expresa un número como suma de productos de sus cifras por potencias de 10.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.valor-posicional-millones"
+                  ],
+                  "ordenSugerido": 3
+                }
+              ]
+            },
+            {
+              "nombre": "Números enteros",
+              "temas": [
+                {
+                  "clave": "mat.s1.numeros-enteros",
+                  "nombre": "Números enteros y su significado en contexto",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Usa el signo positivo o negativo para expresar ganancias, deudas, temperaturas y altitudes.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "mat.s1.conjuntos-n-z",
+                  "nombre": "Conjuntos numéricos N y Z",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Reconoce que los naturales forman parte de los enteros y ubica números en cada conjunto.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-03",
+                    "MAT-C23-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.numeros-enteros"
+                  ],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "mat.s1.recta-numerica-enteros",
+                  "nombre": "Enteros en la recta numérica",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Representa enteros en la recta y relaciona posición con orden.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-03",
+                    "MAT-C23-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.numeros-enteros"
+                  ],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "mat.s1.valor-absoluto-opuesto",
+                  "nombre": "Valor absoluto y opuesto de un entero",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Interpreta el valor absoluto como distancia al cero y el opuesto como simétrico.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.recta-numerica-enteros"
+                  ],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "mat.s1.comparar-ordenar-enteros",
+                  "nombre": "Comparación y orden de números enteros",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Compara y ordena enteros, incluso negativos, justificando con la recta numérica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.valor-absoluto-opuesto"
+                  ],
+                  "ordenSugerido": 10
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones y decimales",
+              "temas": [
+                {
+                  "clave": "mat.s1.fraccion-como-medida",
+                  "nombre": "Fracción como medida",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Usa fracciones para expresar medidas no enteras con una unidad de referencia.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 35
+                },
+                {
+                  "clave": "mat.s1.decimales-exactos-periodicos",
+                  "nombre": "Decimales exactos y periódicos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Clasifica decimales según su parte decimal y reconoce qué fracciones los generan.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.fraccion-irreductible"
+                  ],
+                  "ordenSugerido": 41
+                }
+              ]
+            },
+            {
+              "nombre": "Porcentajes",
+              "temas": [
+                {
+                  "clave": "mat.s1.fracciones-decimales-porcentajes",
+                  "nombre": "Equivalencias entre fracciones, decimales y porcentajes",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Convierte entre las tres formas y elige la más útil para cada cálculo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.fraccion-generatriz"
+                  ],
+                  "ordenSugerido": 71
+                }
+              ]
+            },
+            {
+              "nombre": "Razones",
+              "temas": [
+                {
+                  "clave": "mat.s1.razon-aritmetica-geometrica",
+                  "nombre": "Razón aritmética y razón geométrica",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Compara dos cantidades por diferencia o por cociente e interpreta «2 es a 3».",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.fraccion-como-medida"
+                  ],
+                  "ordenSugerido": 78
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos de estimación y cálculo",
+          "bloques": [
+            {
+              "nombre": "Números naturales y divisibilidad",
+              "temas": [
+                {
+                  "clave": "mat.s1.factores-primos-divisores",
+                  "nombre": "Descomposición en factores primos y cantidad de divisores",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Descompone un número en factores primos y la distingue de la descomposición polinómica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.descomposicion-polinomica"
+                  ],
+                  "ordenSugerido": 4
+                }
+              ]
+            },
+            {
+              "nombre": "Números enteros",
+              "temas": [
+                {
+                  "clave": "mat.s1.adicion-enteros",
+                  "nombre": "Adición de números enteros",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Suma enteros de igual y distinto signo con la recta y con reglas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.valor-absoluto-opuesto"
+                  ],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "mat.s1.sustraccion-enteros",
+                  "nombre": "Sustracción de números enteros",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Resta enteros sumando el opuesto del sustraendo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.adicion-enteros"
+                  ],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "mat.s1.signos-agrupacion-enteros",
+                  "nombre": "Supresión de signos de agrupación con enteros",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Elimina paréntesis, corchetes y llaves precedidos de signo más o menos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.sustraccion-enteros"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "mat.s1.multiplicacion-enteros",
+                  "nombre": "Multiplicación de enteros y ley de signos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Multiplica enteros aplicando la ley de signos y la explica con patrones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.adicion-enteros"
+                  ],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "mat.s1.division-enteros",
+                  "nombre": "División exacta de números enteros",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Divide enteros aplicando la ley de signos y la relación inversa con la multiplicación.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.multiplicacion-enteros"
+                  ],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "mat.s1.operaciones-combinadas-enteros",
+                  "nombre": "Operaciones combinadas con enteros",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Resuelve expresiones con las cuatro operaciones y signos de agrupación con enteros.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-05",
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.division-enteros",
+                    "mat.s1.signos-agrupacion-enteros"
+                  ],
+                  "ordenSugerido": 16
+                }
+              ]
+            },
+            {
+              "nombre": "Potenciación y radicación",
+              "temas": [
+                {
+                  "clave": "mat.s1.potencias",
+                  "nombre": "Propiedades de la potenciación",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Aplica producto y cociente de bases iguales, potencia de potencia y exponente cero.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-05",
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.potenciacion-enteros"
+                  ],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "mat.s1.propiedades-radicacion",
+                  "nombre": "Propiedades de la radicación",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Usa la raíz de un producto y de un cociente para simplificar cálculos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-05",
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.radicacion-exacta",
+                    "mat.s1.potencias"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "mat.s1.operaciones-potencias-raices",
+                  "nombre": "Operaciones combinadas con potencias y raíces",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Resuelve expresiones con potencias y raíces respetando la jerarquía de operaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.propiedades-radicacion",
+                    "mat.s1.operaciones-combinadas-enteros"
+                  ],
+                  "ordenSugerido": 33
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones y decimales",
+              "temas": [
+                {
+                  "clave": "mat.s1.fraccion-irreductible",
+                  "nombre": "Fracciones equivalentes y fracción irreductible",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Simplifica fracciones hasta su forma irreductible usando el MCD.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.fraccion-como-medida",
+                    "mat.s1.mcm-mcd-situaciones"
+                  ],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "mat.s1.adicion-sustraccion-fracciones",
+                  "nombre": "Adición y sustracción de fracciones y mixtos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Suma y resta fracciones heterogéneas y números mixtos con el MCM.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.fraccion-irreductible"
+                  ],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "mat.s1.multiplicacion-division-fracciones",
+                  "nombre": "Multiplicación y división de fracciones",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Multiplica fracciones y divide multiplicando por la inversa.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.fraccion-irreductible"
+                  ],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "mat.s1.operaciones-combinadas-fracciones",
+                  "nombre": "Operaciones combinadas con fracciones",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Resuelve expresiones con varias operaciones y fracciones respetando la jerarquía.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.adicion-sustraccion-fracciones",
+                    "mat.s1.multiplicacion-division-fracciones"
+                  ],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "mat.s1.fraccion-generatriz",
+                  "nombre": "Fracción generatriz de un decimal",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Obtiene la fracción que genera un decimal exacto o periódico puro.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.decimales-exactos-periodicos"
+                  ],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "mat.s1.operaciones-decimales-s1",
+                  "nombre": "Multiplicación y división de decimales con divisor decimal",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Multiplica y divide decimales, incluido el divisor decimal, y redondea el resultado.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 43
+                }
+              ]
+            },
+            {
+              "nombre": "Porcentajes",
+              "temas": [
+                {
+                  "clave": "mat.s1.porcentaje-de-cantidad",
+                  "nombre": "Porcentaje de una cantidad",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Calcula cualquier porcentaje de una cantidad con fracción, decimal o regla de tres.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.fracciones-decimales-porcentajes"
+                  ],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "mat.s1.que-porcentaje-es",
+                  "nombre": "Qué porcentaje es una cantidad de otra",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Expresa como porcentaje la relación entre una parte y el total.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.porcentaje-de-cantidad"
+                  ],
+                  "ordenSugerido": 73
+                }
+              ]
+            },
+            {
+              "nombre": "Magnitudes y medidas",
+              "temas": [
+                {
+                  "clave": "mat.s1.equivalencias-masa",
+                  "nombre": "Unidades de masa y sus equivalencias",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Convierte entre tonelada, kilogramo, gramo y miligramo en situaciones reales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-07",
+                    "MAT-C23-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.operaciones-decimales-s1"
+                  ],
+                  "ordenSugerido": 103
+                },
+                {
+                  "clave": "mat.s1.equivalencias-tiempo",
+                  "nombre": "Equivalencias entre unidades de tiempo",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Convierte entre siglos, años, días, horas, minutos y segundos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 104
+                },
+                {
+                  "clave": "mat.s1.escalas-temperatura",
+                  "nombre": "Escalas de temperatura Celsius y Kelvin",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Convierte temperaturas entre escalas y las relaciona con los enteros.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.variaciones-temperatura-altitud"
+                  ],
+                  "ordenSugerido": 105
+                },
+                {
+                  "clave": "mat.s1.unidades-monetarias",
+                  "nombre": "Unidades monetarias y tipo de cambio",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Convierte soles a dólares y viceversa usando el tipo de cambio.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-07",
+                    "MAT-C23-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.operaciones-decimales-s1"
+                  ],
+                  "ordenSugerido": 106
+                },
+                {
+                  "clave": "mat.s1.instrumentos-medicion",
+                  "nombre": "Instrumentos y estimación de medidas",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Elige el instrumento y la unidad pertinentes para medir o estimar masa, tiempo o temperatura.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.equivalencias-masa"
+                  ],
+                  "ordenSugerido": 107
+                }
+              ]
+            },
+            {
+              "nombre": "Comprobación y argumentación",
+              "temas": [
+                {
+                  "clave": "mat.s1.estimacion-redondeo",
+                  "nombre": "Estimación y redondeo en cálculos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Estima resultados con redondeo para anticipar y controlar cálculos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 109
+                },
+                {
+                  "clave": "mat.s1.simplificar-con-propiedades",
+                  "nombre": "Simplificación de cálculos con propiedades",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Usa propiedades distributiva, asociativa y conmutativa para calcular de forma eficiente.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.propiedades-operaciones-enteros"
+                  ],
+                  "ordenSugerido": 110
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números enteros",
+              "temas": [
+                {
+                  "clave": "mat.s1.propiedades-operaciones-enteros",
+                  "nombre": "Propiedades de las operaciones con enteros",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Verifica con ejemplos qué propiedades se cumplen en Z y cuáles no, como la conmutativa en la resta.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-05",
+                    "MAT-C23-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.operaciones-combinadas-enteros"
+                  ],
+                  "ordenSugerido": 19
+                }
+              ]
+            },
+            {
+              "nombre": "Potenciación y radicación",
+              "temas": [
+                {
+                  "clave": "mat.s1.errores-potencias",
+                  "nombre": "Errores frecuentes con potencias de base negativa",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Explica la diferencia entre (−2)⁴ y −2⁴ y corrige errores de signo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.potencias"
+                  ],
+                  "ordenSugerido": 34
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones y decimales",
+              "temas": [
+                {
+                  "clave": "mat.s1.orden-fracciones-decimales",
+                  "nombre": "Orden de fracciones y decimales en la recta",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Ordena fracciones y decimales y justifica su ubicación en la recta numérica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-05",
+                    "MAT-C23-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.fraccion-generatriz"
+                  ],
+                  "ordenSugerido": 44
+                }
+              ]
+            },
+            {
+              "nombre": "Comprobación y argumentación",
+              "temas": [
+                {
+                  "clave": "mat.s1.relacion-inversa-operaciones-s1",
+                  "nombre": "Relación inversa entre operaciones con números enteros",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Usa la operación inversa para hallar términos desconocidos y comprobar resultados.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-05",
+                    "MAT-C23-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.operaciones-combinadas-enteros"
+                  ],
+                  "ordenSugerido": 111
+                },
+                {
+                  "clave": "mat.s1.corregir-errores-procedimientos",
+                  "nombre": "Detección y corrección de errores en procedimientos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Identifica errores en resoluciones propias o ajenas y los corrige con argumentos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.operaciones-combinadas-fracciones"
+                  ],
+                  "ordenSugerido": 112
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 24,
+      "nombre": "Resuelve problemas de regularidad, equivalencia y cambio",
+      "capacidades": [
+        {
+          "nombre": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+          "bloques": [
+            {
+              "nombre": "Expresiones algebraicas",
+              "temas": [
+                {
+                  "clave": "mat.s1.lenguaje-algebraico",
+                  "nombre": "Traducción del lenguaje verbal al algebraico",
+                  "disciplina": "algebra",
+                  "descripcion": "Escribe expresiones como «el doble de un número aumentado en 5».",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 45
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s1.plantear-ecuaciones",
+                  "nombre": "Planteamiento de ecuaciones lineales",
+                  "disciplina": "algebra",
+                  "descripcion": "Traduce una situación a una ecuación identificando incógnita y relación.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.lenguaje-algebraico"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "mat.s1.comprobar-solucion-contexto",
+                  "nombre": "Comprobación de la solución en el contexto",
+                  "disciplina": "algebra",
+                  "descripcion": "Verifica que la solución cumple la ecuación y tiene sentido en la situación.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-02",
+                    "MAT-C24-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.ecuaciones-lineales"
+                  ],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "mat.s1.problemas-edades",
+                  "nombre": "Problemas de edades",
+                  "disciplina": "algebra",
+                  "descripcion": "Plantea ecuaciones con edades pasadas, presentes y futuras.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01",
+                    "MAT-C24-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.incognita-ambos-miembros",
+                    "mat.s1.plantear-ecuaciones"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "mat.s1.problemas-consecutivos",
+                  "nombre": "Problemas de números consecutivos",
+                  "disciplina": "algebra",
+                  "descripcion": "Representa números consecutivos, pares o impares con una variable y plantea la ecuación.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.plantear-ecuaciones",
+                    "mat.s1.ecuaciones-lineales"
+                  ],
+                  "ordenSugerido": 58
+                }
+              ]
+            },
+            {
+              "nombre": "Desigualdades",
+              "temas": [
+                {
+                  "clave": "mat.s1.como-maximo-como-minimo",
+                  "nombre": "Condiciones de «como máximo» y «como mínimo»",
+                  "disciplina": "algebra",
+                  "descripcion": "Traduce restricciones de presupuesto, edad o capacidad a desigualdades con ≤ y ≥.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.desigualdades-simples"
+                  ],
+                  "ordenSugerido": 81
+                }
+              ]
+            },
+            {
+              "nombre": "Proporcionalidad",
+              "temas": [
+                {
+                  "clave": "mat.s1.magnitudes-directamente-proporcionales-s1",
+                  "nombre": "Magnitudes directamente proporcionales y su constante (y = kx)",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Reconoce y modela relaciones en que el cociente entre magnitudes es constante.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.razon-aritmetica-geometrica"
+                  ],
+                  "ordenSugerido": 84
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones y progresiones",
+              "temas": [
+                {
+                  "clave": "mat.s1.patrones-graficos-transformaciones",
+                  "nombre": "Patrones gráficos con traslaciones, rotaciones y ampliaciones",
+                  "disciplina": "algebra",
+                  "descripcion": "Reconoce la transformación que genera un patrón gráfico y lo continúa.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01",
+                    "MAT-C24-S1-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 113
+                },
+                {
+                  "clave": "mat.s1.progresiones-aritmeticas",
+                  "nombre": "Progresiones aritméticas",
+                  "disciplina": "algebra",
+                  "descripcion": "Identifica la razón constante de una progresión con números enteros y la continúa.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01",
+                    "MAT-C24-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.adicion-enteros"
+                  ],
+                  "ordenSugerido": 114
+                }
+              ]
+            },
+            {
+              "nombre": "Función lineal",
+              "temas": [
+                {
+                  "clave": "mat.s1.pares-ordenados-graficos",
+                  "nombre": "Pares ordenados y gráficos cartesianos de una relación",
+                  "disciplina": "algebra",
+                  "descripcion": "Representa en el plano cartesiano los pares de una tabla de valores.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 118
+                },
+                {
+                  "clave": "mat.s1.graficos-tarifas",
+                  "nombre": "Interpretación de gráficos de tarifas y costos",
+                  "disciplina": "algebra",
+                  "descripcion": "Lee gráficos de cobro fijo más variable y responde preguntas del contexto.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01",
+                    "MAT-C24-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.funcion-lineal-afin"
+                  ],
+                  "ordenSugerido": 125
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las relaciones algebraicas",
+          "bloques": [
+            {
+              "nombre": "Desigualdades",
+              "temas": [
+                {
+                  "clave": "mat.s1.desigualdades-simples",
+                  "nombre": "Desigualdades de la forma x > a y x < b",
+                  "disciplina": "algebra",
+                  "descripcion": "Expresa condiciones de «más de» y «menos de» con desigualdades.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01",
+                    "MAT-C24-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.lenguaje-algebraico"
+                  ],
+                  "ordenSugerido": 80
+                },
+                {
+                  "clave": "mat.s1.conjunto-solucion-recta",
+                  "nombre": "Conjunto solución de una desigualdad en la recta",
+                  "disciplina": "algebra",
+                  "descripcion": "Representa el conjunto de valores que cumplen una desigualdad en la recta numérica.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.desigualdades-simples"
+                  ],
+                  "ordenSugerido": 82
+                }
+              ]
+            },
+            {
+              "nombre": "Función lineal",
+              "temas": [
+                {
+                  "clave": "mat.s1.relacion-funcion",
+                  "nombre": "Relación y función: correspondencia entre magnitudes",
+                  "disciplina": "algebra",
+                  "descripcion": "Distingue cuándo a cada valor le corresponde un único valor de otra magnitud.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.pares-ordenados-graficos"
+                  ],
+                  "ordenSugerido": 119
+                },
+                {
+                  "clave": "mat.s1.funcion-lineal",
+                  "nombre": "Función lineal f(x) = mx",
+                  "disciplina": "algebra",
+                  "descripcion": "Representa la función lineal en tabla, gráfica y expresión, y la relaciona con la proporcionalidad.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-05",
+                    "MAT-C24-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.relacion-funcion",
+                    "mat.s1.regla-tres-directa"
+                  ],
+                  "ordenSugerido": 120
+                },
+                {
+                  "clave": "mat.s1.pendiente-funcion",
+                  "nombre": "Pendiente de una función lineal",
+                  "disciplina": "algebra",
+                  "descripcion": "Interpreta la pendiente como razón de cambio y como constante de proporcionalidad.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-05",
+                    "MAT-C24-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.funcion-lineal"
+                  ],
+                  "ordenSugerido": 121
+                },
+                {
+                  "clave": "mat.s1.funcion-lineal-afin",
+                  "nombre": "Función lineal afín f(x) = mx + b",
+                  "disciplina": "algebra",
+                  "descripcion": "Reconoce el valor inicial b y su efecto en la gráfica, incluida la función constante.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-01",
+                    "MAT-C24-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.pendiente-funcion"
+                  ],
+                  "ordenSugerido": 122
+                },
+                {
+                  "clave": "mat.s1.interceptos-ejes",
+                  "nombre": "Interceptos de una función con los ejes",
+                  "disciplina": "algebra",
+                  "descripcion": "Halla los puntos donde la recta corta a los ejes y los interpreta en el contexto.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.funcion-lineal-afin"
+                  ],
+                  "ordenSugerido": 123
+                },
+                {
+                  "clave": "mat.s1.dominio-rango",
+                  "nombre": "Dominio y rango de una función lineal",
+                  "disciplina": "algebra",
+                  "descripcion": "Determina los valores posibles de entrada y salida según la situación.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.funcion-lineal-afin"
+                  ],
+                  "ordenSugerido": 124
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+          "bloques": [
+            {
+              "nombre": "Expresiones algebraicas",
+              "temas": [
+                {
+                  "clave": "mat.s1.terminos-algebraicos",
+                  "nombre": "Términos algebraicos: coeficiente, variable y exponente",
+                  "disciplina": "algebra",
+                  "descripcion": "Identifica los elementos de un término algebraico.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.lenguaje-algebraico"
+                  ],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "mat.s1.valor-numerico",
+                  "nombre": "Valor numérico de una expresión algebraica",
+                  "disciplina": "algebra",
+                  "descripcion": "Reemplaza las variables por números enteros y calcula el resultado.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.terminos-algebraicos"
+                  ],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "mat.s1.terminos-semejantes",
+                  "nombre": "Reducción de términos semejantes",
+                  "disciplina": "algebra",
+                  "descripcion": "Agrupa términos con la misma parte literal y suma sus coeficientes.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.terminos-algebraicos"
+                  ],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "mat.s1.signos-agrupacion-algebraicos",
+                  "nombre": "Signos de agrupación y distributiva en expresiones",
+                  "disciplina": "algebra",
+                  "descripcion": "Elimina paréntesis aplicando la propiedad distributiva y reduce la expresión.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07",
+                    "MAT-C24-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.terminos-semejantes"
+                  ],
+                  "ordenSugerido": 49
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s1.ecuaciones-lineales",
+                  "nombre": "Ecuaciones de primer grado con una incógnita",
+                  "disciplina": "algebra",
+                  "descripcion": "Resuelve ecuaciones de la forma ax + b = c con coeficientes enteros.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-04",
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.propiedades-igualdad"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "mat.s1.incognita-ambos-miembros",
+                  "nombre": "Ecuaciones con incógnita en ambos miembros",
+                  "disciplina": "algebra",
+                  "descripcion": "Resuelve ecuaciones ax + b = cx + d transponiendo términos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.ecuaciones-lineales"
+                  ],
+                  "ordenSugerido": 53
+                },
+                {
+                  "clave": "mat.s1.ecuaciones-con-parentesis",
+                  "nombre": "Ecuaciones con signos de agrupación",
+                  "disciplina": "algebra",
+                  "descripcion": "Resuelve ecuaciones que requieren eliminar paréntesis antes de despejar.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.incognita-ambos-miembros",
+                    "mat.s1.signos-agrupacion-algebraicos"
+                  ],
+                  "ordenSugerido": 54
+                },
+                {
+                  "clave": "mat.s1.ecuaciones-coeficientes-fraccionarios",
+                  "nombre": "Ecuaciones con coeficientes fraccionarios",
+                  "disciplina": "algebra",
+                  "descripcion": "Elimina denominadores multiplicando por el MCM y resuelve la ecuación.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.ecuaciones-con-parentesis"
+                  ],
+                  "ordenSugerido": 55
+                }
+              ]
+            },
+            {
+              "nombre": "Desigualdades",
+              "temas": [
+                {
+                  "clave": "mat.s1.inecuaciones-lineales",
+                  "nombre": "Inecuaciones lineales sencillas",
+                  "disciplina": "algebra",
+                  "descripcion": "Resuelve inecuaciones de un paso o dos pasos y determina sus soluciones enteras.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.conjunto-solucion-recta",
+                    "mat.s1.ecuaciones-lineales"
+                  ],
+                  "ordenSugerido": 83
+                }
+              ]
+            },
+            {
+              "nombre": "Proporcionalidad",
+              "temas": [
+                {
+                  "clave": "mat.s1.magnitudes-inversamente-proporcionales",
+                  "nombre": "Magnitudes inversamente proporcionales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Reconoce relaciones en que el producto de las magnitudes es constante.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.magnitudes-directamente-proporcionales-s1"
+                  ],
+                  "ordenSugerido": 85
+                },
+                {
+                  "clave": "mat.s1.regla-tres-directa",
+                  "nombre": "Regla de tres simple directa",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Halla valores desconocidos en relaciones de proporcionalidad directa.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.magnitudes-directamente-proporcionales-s1"
+                  ],
+                  "ordenSugerido": 86
+                },
+                {
+                  "clave": "mat.s1.regla-tres-inversa",
+                  "nombre": "Regla de tres simple inversa",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Halla valores desconocidos en relaciones de proporcionalidad inversa, como obreros y días.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.magnitudes-inversamente-proporcionales"
+                  ],
+                  "ordenSugerido": 87
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones y progresiones",
+              "temas": [
+                {
+                  "clave": "mat.s1.termino-enesimo",
+                  "nombre": "Término enésimo de una progresión aritmética",
+                  "disciplina": "algebra",
+                  "descripcion": "Obtiene la regla de formación aₙ = a₁ + (n − 1)r y calcula términos lejanos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-03",
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.progresiones-aritmeticas",
+                    "mat.s1.valor-numerico"
+                  ],
+                  "ordenSugerido": 115
+                },
+                {
+                  "clave": "mat.s1.numero-terminos-progresion",
+                  "nombre": "Número de términos de una progresión",
+                  "disciplina": "algebra",
+                  "descripcion": "Despeja n en la regla de formación para saber cuántos términos tiene una progresión.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.termino-enesimo",
+                    "mat.s1.ecuaciones-lineales"
+                  ],
+                  "ordenSugerido": 116
+                },
+                {
+                  "clave": "mat.s1.terminos-desconocidos-patron",
+                  "nombre": "Términos desconocidos en un patrón gráfico",
+                  "disciplina": "algebra",
+                  "descripcion": "Halla la cantidad de elementos de una figura lejana del patrón con su regla.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.patrones-graficos-transformaciones",
+                    "mat.s1.termino-enesimo"
+                  ],
+                  "ordenSugerido": 117
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+          "bloques": [
+            {
+              "nombre": "Ecuaciones lineales",
+              "temas": [
+                {
+                  "clave": "mat.s1.propiedades-igualdad",
+                  "nombre": "Propiedades de la igualdad al resolver ecuaciones",
+                  "disciplina": "algebra",
+                  "descripcion": "Justifica cada paso de la resolución con la propiedad de la igualdad que lo sustenta.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.terminos-semejantes"
+                  ],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "mat.s1.ecuaciones-equivalentes",
+                  "nombre": "Ecuaciones equivalentes",
+                  "disciplina": "algebra",
+                  "descripcion": "Justifica cuándo dos ecuaciones tienen la misma solución.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.propiedades-igualdad"
+                  ],
+                  "ordenSugerido": 59
+                },
+                {
+                  "clave": "mat.s1.tipos-solucion-ecuacion",
+                  "nombre": "Ecuaciones con solución única, sin solución o con infinitas",
+                  "disciplina": "algebra",
+                  "descripcion": "Reconoce y explica los casos en que una ecuación lineal no tiene solución o tiene infinitas.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.incognita-ambos-miembros"
+                  ],
+                  "ordenSugerido": 60
+                }
+              ]
+            },
+            {
+              "nombre": "Función lineal",
+              "temas": [
+                {
+                  "clave": "mat.s1.comparar-funciones-lineales",
+                  "nombre": "Comparación de funciones lineales por su gráfica",
+                  "disciplina": "algebra",
+                  "descripcion": "Decide qué opción es más conveniente comparando pendientes e interceptos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-05",
+                    "MAT-C24-S1-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.interceptos-ejes"
+                  ],
+                  "ordenSugerido": 126
+                },
+                {
+                  "clave": "mat.s1.propiedades-funcion-lineal",
+                  "nombre": "Afirmaciones sobre crecimiento de funciones lineales",
+                  "disciplina": "algebra",
+                  "descripcion": "Justifica si una función crece o decrece según el signo de su pendiente.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S1-10"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.pendiente-funcion"
+                  ],
+                  "ordenSugerido": 127
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 26,
+      "nombre": "Resuelve problemas de forma, movimiento y localización",
+      "capacidades": [
+        {
+          "nombre": "Modela objetos con formas geométricas y sus transformaciones",
+          "bloques": [
+            {
+              "nombre": "Perímetro y área",
+              "temas": [
+                {
+                  "clave": "mat.s1.perimetro-area-poligonos",
+                  "nombre": "Perímetro y área de triángulos y cuadriláteros",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula perímetros y áreas de triángulos, paralelogramos y trapecios.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.conversion-longitud-area"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "mat.s1.area-figuras-compuestas",
+                  "nombre": "Área de figuras compuestas con círculos y polígonos",
+                  "disciplina": "geometria",
+                  "descripcion": "Modela terrenos u objetos con figuras compuestas y calcula su área.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-01",
+                    "MAT-C26-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.perimetro-area-poligonos",
+                    "mat.s1.longitud-circunferencia-area-circulo"
+                  ],
+                  "ordenSugerido": 90
+                }
+              ]
+            },
+            {
+              "nombre": "Prismas y volumen",
+              "temas": [
+                {
+                  "clave": "mat.s1.prismas-elementos",
+                  "nombre": "Prismas: elementos y clasificación",
+                  "disciplina": "geometria",
+                  "descripcion": "Clasifica prismas por su base e identifica caras, aristas y vértices.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-01",
+                    "MAT-C26-S1-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 91
+                }
+              ]
+            },
+            {
+              "nombre": "Semejanza",
+              "temas": [
+                {
+                  "clave": "mat.s1.triangulos-semejantes",
+                  "nombre": "Triángulos semejantes",
+                  "disciplina": "geometria",
+                  "descripcion": "Reconoce triángulos semejantes por sus ángulos iguales y lados proporcionales.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-01",
+                    "MAT-C26-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.propiedades-triangulos"
+                  ],
+                  "ordenSugerido": 128
+                }
+              ]
+            },
+            {
+              "nombre": "Ubicación y transformaciones",
+              "temas": [
+                {
+                  "clave": "mat.s1.plano-cartesiano-cuadrantes",
+                  "nombre": "Coordenadas cartesianas en los cuatro cuadrantes",
+                  "disciplina": "geometria",
+                  "descripcion": "Ubica puntos con coordenadas enteras en los cuatro cuadrantes.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 131
+                },
+                {
+                  "clave": "mat.s1.traslacion",
+                  "nombre": "Traslación de figuras en el plano",
+                  "disciplina": "geometria",
+                  "descripcion": "Traslada figuras según un vector y describe el cambio de coordenadas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.plano-cartesiano-cuadrantes"
+                  ],
+                  "ordenSugerido": 132
+                },
+                {
+                  "clave": "mat.s1.rotacion",
+                  "nombre": "Rotación de figuras en el plano",
+                  "disciplina": "geometria",
+                  "descripcion": "Rota figuras 90°, 180° o 270° alrededor de un punto.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.plano-cartesiano-cuadrantes"
+                  ],
+                  "ordenSugerido": 133
+                },
+                {
+                  "clave": "mat.s1.reflexion",
+                  "nombre": "Reflexión de figuras respecto a un eje",
+                  "disciplina": "geometria",
+                  "descripcion": "Refleja figuras respecto a los ejes coordenados y describe sus coordenadas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.plano-cartesiano-cuadrantes"
+                  ],
+                  "ordenSugerido": 134
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las formas y relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Rectas y ángulos",
+              "temas": [
+                {
+                  "clave": "mat.s1.angulos-complementarios-suplementarios",
+                  "nombre": "Ángulos complementarios y suplementarios",
+                  "disciplina": "geometria",
+                  "descripcion": "Halla el complemento y el suplemento de un ángulo y los usa en problemas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "mat.s1.angulos-opuestos-adyacentes",
+                  "nombre": "Ángulos opuestos por el vértice y adyacentes",
+                  "disciplina": "geometria",
+                  "descripcion": "Reconoce pares de ángulos y aplica sus propiedades para hallar medidas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.angulos-complementarios-suplementarios"
+                  ],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "mat.s1.rectas-paralelas-secante",
+                  "nombre": "Rectas paralelas cortadas por una secante",
+                  "disciplina": "geometria",
+                  "descripcion": "Identifica ángulos alternos, correspondientes y conjugados y sus relaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.angulos-opuestos-adyacentes"
+                  ],
+                  "ordenSugerido": 22
+                }
+              ]
+            },
+            {
+              "nombre": "Triángulos, polígonos y circunferencia",
+              "temas": [
+                {
+                  "clave": "mat.s1.propiedades-triangulos",
+                  "nombre": "Propiedades de los ángulos de un triángulo",
+                  "disciplina": "geometria",
+                  "descripcion": "Aplica la suma de ángulos interiores y la propiedad del ángulo exterior.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-03",
+                    "MAT-C26-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.rectas-paralelas-secante"
+                  ],
+                  "ordenSugerido": 61
+                },
+                {
+                  "clave": "mat.s1.propiedades-cuadrilateros",
+                  "nombre": "Propiedades de los cuadriláteros",
+                  "disciplina": "geometria",
+                  "descripcion": "Reconoce propiedades de lados, ángulos y diagonales de paralelogramos y trapecios.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.propiedades-triangulos"
+                  ],
+                  "ordenSugerido": 63
+                },
+                {
+                  "clave": "mat.s1.poligonos-elementos",
+                  "nombre": "Polígonos: elementos, diagonales y suma de ángulos",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula el número de diagonales y la suma de ángulos interiores de un polígono.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-03",
+                    "MAT-C26-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.propiedades-cuadrilateros"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "mat.s1.circunferencia-elementos",
+                  "nombre": "Elementos de la circunferencia y del círculo",
+                  "disciplina": "geometria",
+                  "descripcion": "Identifica radio, diámetro, cuerda, arco, tangente y sector circular.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 65
+                }
+              ]
+            },
+            {
+              "nombre": "Semejanza",
+              "temas": [
+                {
+                  "clave": "mat.s1.razon-semejanza",
+                  "nombre": "Razón de semejanza en ampliaciones y reducciones",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula medidas de figuras ampliadas o reducidas usando la razón de semejanza.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.triangulos-semejantes"
+                  ],
+                  "ordenSugerido": 129
+                }
+              ]
+            },
+            {
+              "nombre": "Ubicación y transformaciones",
+              "temas": [
+                {
+                  "clave": "mat.s1.planos-mapas-escala",
+                  "nombre": "Lectura de planos y mapas a escala",
+                  "disciplina": "geometria",
+                  "descripcion": "Interpreta la escala de un plano y calcula medidas reales.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.razon-semejanza"
+                  ],
+                  "ordenSugerido": 135
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+          "bloques": [
+            {
+              "nombre": "Rectas y ángulos",
+              "temas": [
+                {
+                  "clave": "mat.s1.construcciones-regla-compas",
+                  "nombre": "Construcciones con regla y compás: mediatriz y bisectriz",
+                  "disciplina": "geometria",
+                  "descripcion": "Traza mediatrices, bisectrices, paralelas y perpendiculares con regla y compás.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.angulos-opuestos-adyacentes"
+                  ],
+                  "ordenSugerido": 23
+                }
+              ]
+            },
+            {
+              "nombre": "Triángulos, polígonos y circunferencia",
+              "temas": [
+                {
+                  "clave": "mat.s1.longitud-circunferencia-area-circulo",
+                  "nombre": "Longitud de la circunferencia y área del círculo",
+                  "disciplina": "geometria",
+                  "descripcion": "Usa π para calcular la longitud de una circunferencia y el área de un círculo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-03",
+                    "MAT-C26-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.circunferencia-elementos"
+                  ],
+                  "ordenSugerido": 66
+                }
+              ]
+            },
+            {
+              "nombre": "Perímetro y área",
+              "temas": [
+                {
+                  "clave": "mat.s1.conversion-longitud-area",
+                  "nombre": "Conversiones de unidades de longitud y de área",
+                  "disciplina": "geometria",
+                  "descripcion": "Convierte entre km, m y cm, y entre sus unidades cuadradas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 88
+                }
+              ]
+            },
+            {
+              "nombre": "Prismas y volumen",
+              "temas": [
+                {
+                  "clave": "mat.s1.desarrollo-prisma",
+                  "nombre": "Desarrollo plano de un prisma",
+                  "disciplina": "geometria",
+                  "descripcion": "Construye el desarrollo de un prisma y lo relaciona con su superficie.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-03",
+                    "MAT-C26-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.prismas-elementos"
+                  ],
+                  "ordenSugerido": 92
+                },
+                {
+                  "clave": "mat.s1.area-lateral-total-prisma",
+                  "nombre": "Área lateral y total de un prisma",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula la superficie de un prisma sumando las áreas de su desarrollo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.desarrollo-prisma",
+                    "mat.s1.perimetro-area-poligonos"
+                  ],
+                  "ordenSugerido": 93
+                },
+                {
+                  "clave": "mat.s1.volumen-prisma",
+                  "nombre": "Volumen de prismas",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula el volumen como área de la base por altura.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.area-lateral-total-prisma"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "mat.s1.vistas-solidos",
+                  "nombre": "Vistas de un sólido: frontal, lateral y superior",
+                  "disciplina": "geometria",
+                  "descripcion": "Dibuja e interpreta las vistas de un sólido y reconstruye el sólido a partir de ellas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-03",
+                    "MAT-C26-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.prismas-elementos"
+                  ],
+                  "ordenSugerido": 96
+                }
+              ]
+            },
+            {
+              "nombre": "Ubicación y transformaciones",
+              "temas": [
+                {
+                  "clave": "mat.s1.rutas-escala",
+                  "nombre": "Rutas y distancias reales con escalas",
+                  "disciplina": "geometria",
+                  "descripcion": "Determina rutas y distancias reales a partir de un plano o mapa.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-05",
+                    "MAT-C26-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.planos-mapas-escala"
+                  ],
+                  "ordenSugerido": 136
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Triángulos, polígonos y circunferencia",
+              "temas": [
+                {
+                  "clave": "mat.s1.desigualdad-triangular",
+                  "nombre": "Existencia de un triángulo: desigualdad triangular",
+                  "disciplina": "geometria",
+                  "descripcion": "Justifica si tres longitudes pueden formar un triángulo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.propiedades-triangulos"
+                  ],
+                  "ordenSugerido": 62
+                }
+              ]
+            },
+            {
+              "nombre": "Prismas y volumen",
+              "temas": [
+                {
+                  "clave": "mat.s1.cambio-dimensiones",
+                  "nombre": "Efecto de cambiar las dimensiones en perímetro, área y volumen",
+                  "disciplina": "geometria",
+                  "descripcion": "Justifica qué ocurre con el perímetro, el área y el volumen al duplicar las medidas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-01",
+                    "MAT-C26-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.area-figuras-compuestas",
+                    "mat.s1.volumen-prisma"
+                  ],
+                  "ordenSugerido": 95
+                }
+              ]
+            },
+            {
+              "nombre": "Semejanza",
+              "temas": [
+                {
+                  "clave": "mat.s1.conjeturas-geometricas",
+                  "nombre": "Conjeturas geométricas a partir de casos",
+                  "disciplina": "geometria",
+                  "descripcion": "Formula y prueba conjeturas sobre figuras con ejemplos y contraejemplos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.razon-semejanza"
+                  ],
+                  "ordenSugerido": 130
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 25,
+      "nombre": "Resuelve problemas de gestión de datos e incertidumbre",
+      "capacidades": [
+        {
+          "nombre": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+          "bloques": [
+            {
+              "nombre": "Recojo y organización de datos",
+              "temas": [
+                {
+                  "clave": "mat.s1.variables-tipos",
+                  "nombre": "Variables cualitativas nominales, ordinales y cuantitativas discretas",
+                  "disciplina": "estadistica",
+                  "descripcion": "Clasifica variables según cómo se expresan sus datos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "mat.s1.poblacion-muestra",
+                  "nombre": "Población, muestra y unidad de análisis",
+                  "disciplina": "estadistica",
+                  "descripcion": "Distingue a quiénes se estudia y a quiénes se encuesta en un estudio.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.variables-tipos"
+                  ],
+                  "ordenSugerido": 25
+                }
+              ]
+            },
+            {
+              "nombre": "Gráficos estadísticos",
+              "temas": [
+                {
+                  "clave": "mat.s1.grafico-barras",
+                  "nombre": "Gráfico de barras",
+                  "disciplina": "estadistica",
+                  "descripcion": "Construye gráficos de barras para variables cualitativas y cuantitativas discretas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.tabla-frecuencias-s1"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "mat.s1.construir-grafico-circular",
+                  "nombre": "Construcción del gráfico circular",
+                  "disciplina": "estadistica",
+                  "descripcion": "Calcula los ángulos de cada sector y traza el gráfico con transportador.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.frecuencia-porcentual"
+                  ],
+                  "ordenSugerido": 68
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s1.experimentos-aleatorios",
+                  "nombre": "Experimentos aleatorios y deterministas",
+                  "disciplina": "estadistica",
+                  "descripcion": "Distingue situaciones cuyo resultado se puede o no predecir con certeza.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 137
+                },
+                {
+                  "clave": "mat.s1.espacio-muestral-sucesos",
+                  "nombre": "Espacio muestral y sucesos",
+                  "disciplina": "estadistica",
+                  "descripcion": "Determina todos los resultados posibles y define sucesos simples.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.experimentos-aleatorios"
+                  ],
+                  "ordenSugerido": 138
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+          "bloques": [
+            {
+              "nombre": "Gráficos estadísticos",
+              "temas": [
+                {
+                  "clave": "mat.s1.interpretar-tablas-graficos",
+                  "nombre": "Interpretación de tablas y gráficos de barras y circulares",
+                  "disciplina": "estadistica",
+                  "descripcion": "Lee y compara información de tablas y gráficos y produce nueva información.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.grafico-barras",
+                    "mat.s1.construir-grafico-circular"
+                  ],
+                  "ordenSugerido": 69
+                }
+              ]
+            },
+            {
+              "nombre": "Medidas de tendencia central",
+              "temas": [
+                {
+                  "clave": "mat.s1.media-datos-no-agrupados",
+                  "nombre": "Media aritmética de datos no agrupados",
+                  "disciplina": "estadistica",
+                  "descripcion": "Calcula e interpreta la media de un conjunto de datos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-01",
+                    "MAT-C25-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.tabla-frecuencias-s1"
+                  ],
+                  "ordenSugerido": 97
+                },
+                {
+                  "clave": "mat.s1.leer-medidas-en-textos",
+                  "nombre": "Medidas de tendencia central en noticias e informes",
+                  "disciplina": "estadistica",
+                  "descripcion": "Interpreta promedios y medianas que aparecen en textos y gráficos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.mediana"
+                  ],
+                  "ordenSugerido": 100
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s1.probabilidad-decimal-porcentaje",
+                  "nombre": "Probabilidad expresada como decimal y porcentaje",
+                  "disciplina": "estadistica",
+                  "descripcion": "Expresa la probabilidad entre 0 y 1 y en porcentaje para comparar sucesos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-02",
+                    "MAT-C25-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.regla-laplace"
+                  ],
+                  "ordenSugerido": 140
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para recopilar y procesar datos",
+          "bloques": [
+            {
+              "nombre": "Recojo y organización de datos",
+              "temas": [
+                {
+                  "clave": "mat.s1.diseno-encuestas",
+                  "nombre": "Diseño y aplicación de encuestas",
+                  "disciplina": "estadistica",
+                  "descripcion": "Formula preguntas cerradas y abiertas adecuadas a la variable que se quiere estudiar.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.poblacion-muestra"
+                  ],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "mat.s1.tabla-frecuencias-s1",
+                  "nombre": "Tabla de frecuencias absolutas y relativas",
+                  "disciplina": "estadistica",
+                  "descripcion": "Organiza datos en tablas con frecuencia absoluta y relativa.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.diseno-encuestas"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "mat.s1.frecuencia-porcentual",
+                  "nombre": "Frecuencia relativa porcentual",
+                  "disciplina": "estadistica",
+                  "descripcion": "Expresa la frecuencia relativa en porcentaje para comparar grupos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-05",
+                    "MAT-C25-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.tabla-frecuencias-s1"
+                  ],
+                  "ordenSugerido": 28
+                }
+              ]
+            },
+            {
+              "nombre": "Medidas de tendencia central",
+              "temas": [
+                {
+                  "clave": "mat.s1.mediana",
+                  "nombre": "Mediana de datos no agrupados",
+                  "disciplina": "estadistica",
+                  "descripcion": "Ordena los datos y encuentra el valor central, con número par o impar de datos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-03",
+                    "MAT-C25-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.media-datos-no-agrupados"
+                  ],
+                  "ordenSugerido": 98
+                },
+                {
+                  "clave": "mat.s1.moda-s1",
+                  "nombre": "Moda de variables cualitativas y cuantitativas",
+                  "disciplina": "estadistica",
+                  "descripcion": "Identifica la moda, incluidos los casos bimodales o sin moda.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-03",
+                    "MAT-C25-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.tabla-frecuencias-s1"
+                  ],
+                  "ordenSugerido": 99
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s1.regla-laplace",
+                  "nombre": "Probabilidad con la regla de Laplace",
+                  "disciplina": "estadistica",
+                  "descripcion": "Calcula la probabilidad de sucesos simples como casos favorables entre posibles.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-02",
+                    "MAT-C25-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.espacio-muestral-sucesos"
+                  ],
+                  "ordenSugerido": 139
+                },
+                {
+                  "clave": "mat.s1.probabilidad-frecuencial",
+                  "nombre": "Probabilidad frecuencial a partir de experimentos",
+                  "disciplina": "estadistica",
+                  "descripcion": "Estima la probabilidad con la frecuencia relativa de muchas repeticiones.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-02",
+                    "MAT-C25-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.probabilidad-decimal-porcentaje",
+                    "mat.s1.frecuencia-porcentual"
+                  ],
+                  "ordenSugerido": 141
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Sustenta conclusiones o decisiones con base en la información obtenida",
+          "bloques": [
+            {
+              "nombre": "Gráficos estadísticos",
+              "temas": [
+                {
+                  "clave": "mat.s1.graficos-enganosos",
+                  "nombre": "Gráficos engañosos y errores de interpretación",
+                  "disciplina": "estadistica",
+                  "descripcion": "Detecta escalas o proporciones que distorsionan la información de un gráfico.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.interpretar-tablas-graficos"
+                  ],
+                  "ordenSugerido": 70
+                }
+              ]
+            },
+            {
+              "nombre": "Medidas de tendencia central",
+              "temas": [
+                {
+                  "clave": "mat.s1.medida-representativa",
+                  "nombre": "Medida de tendencia central más representativa",
+                  "disciplina": "estadistica",
+                  "descripcion": "Justifica si la media, la mediana o la moda describe mejor una población.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.mediana",
+                    "mat.s1.moda-s1"
+                  ],
+                  "ordenSugerido": 101
+                },
+                {
+                  "clave": "mat.s1.valores-extremos",
+                  "nombre": "Efecto de los valores extremos en la media",
+                  "disciplina": "estadistica",
+                  "descripcion": "Explica cómo un dato muy alto o muy bajo cambia la media y no la mediana.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.medida-representativa"
+                  ],
+                  "ordenSugerido": 102
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s1.conclusiones-estadisticas",
+                  "nombre": "Conclusiones sobre una población y sobre el azar",
+                  "disciplina": "estadistica",
+                  "descripcion": "Formula y justifica conclusiones con la información estadística y probabilística obtenida.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s1.valores-extremos",
+                    "mat.s1.probabilidad-frecuencial"
+                  ],
+                  "ordenSugerido": 142
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

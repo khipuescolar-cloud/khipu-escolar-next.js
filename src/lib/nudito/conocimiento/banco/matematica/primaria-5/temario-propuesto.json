@@ -1,0 +1,1938 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "matematica",
+  "nivel": "primaria",
+  "grado": 5,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Primaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+    },
+    {
+      "titulo": "Cuaderno de trabajo Matemática 5, quinto grado, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7865"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 23,
+      "nombre": "Resuelve problemas de cantidad",
+      "capacidades": [
+        {
+          "nombre": "Traduce cantidades a expresiones numéricas",
+          "bloques": [
+            {
+              "nombre": "Operaciones con naturales",
+              "temas": [
+                {
+                  "clave": "mat.p5.problemas-cuatro-operaciones-5",
+                  "nombre": "Problemas con las cuatro operaciones",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Elige la operación que modela situaciones de agregar, comparar, igualar, reiterar o repartir.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.multiplicacion-dos-tres-cifras"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "mat.p5.problemas-varias-etapas",
+                  "nombre": "Problemas de varias etapas con números naturales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Planifica y resuelve situaciones que requieren tres o más operaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-01",
+                    "MAT-C23-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.problemas-cuatro-operaciones-5",
+                    "mat.p5.operaciones-combinadas"
+                  ],
+                  "ordenSugerido": 65
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones",
+              "temas": [
+                {
+                  "clave": "mat.p5.problemas-fraccion-operador",
+                  "nombre": "Problemas de fracción de una cantidad",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Resuelve situaciones de gastos, repartos o descuentos expresados como fracción de un total.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.fraccion-como-operador"
+                  ],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "mat.p5.problemas-suma-resta-fracciones-5",
+                  "nombre": "Problemas de suma y resta con fracciones heterogéneas",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Traduce situaciones con partes de distintos tamaños a sumas y restas de fracciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.suma-resta-fracciones"
+                  ],
+                  "ordenSugerido": 71
+                }
+              ]
+            },
+            {
+              "nombre": "Números decimales",
+              "temas": [
+                {
+                  "clave": "mat.p5.problemas-decimales",
+                  "nombre": "Problemas de suma y resta con decimales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Resuelve situaciones de compras, medidas y marcas deportivas con decimales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.resta-decimales"
+                  ],
+                  "ordenSugerido": 106
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre los números y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números hasta 999 999",
+              "temas": [
+                {
+                  "clave": "mat.p5.decena-centena-millar",
+                  "nombre": "La decena y la centena de millar",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Forma decenas y centenas de millar a partir de unidades de millar y explica sus equivalencias.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "mat.p5.leer-escribir-seis-cifras",
+                  "nombre": "Lectura y escritura de números de hasta seis cifras",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Lee y escribe con cifras y palabras números hasta 999 999 separando por periodos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.decena-centena-millar"
+                  ],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "mat.p5.valor-posicional-seis-cifras",
+                  "nombre": "Valor posicional en números de hasta seis cifras",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Determina el valor de un dígito en un número de hasta seis cifras.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.leer-escribir-seis-cifras"
+                  ],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "mat.p5.equivalencias-ordenes",
+                  "nombre": "Equivalencias entre órdenes del sistema decimal",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Expresa una cantidad en distintos órdenes, como 3 DM = 30 UM = 300 C.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.valor-posicional-seis-cifras"
+                  ],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "mat.p5.descomponer-seis-cifras",
+                  "nombre": "Descomposición de números de hasta seis cifras",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Descompone números grandes en forma aditiva y por órdenes.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.valor-posicional-seis-cifras"
+                  ],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "mat.p5.comparar-ordenar-seis-cifras",
+                  "nombre": "Comparación y orden de números de hasta seis cifras",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Compara y ordena números grandes analizando sus cifras de mayor orden.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03",
+                    "MAT-C23-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.valor-posicional-seis-cifras"
+                  ],
+                  "ordenSugerido": 6
+                }
+              ]
+            },
+            {
+              "nombre": "Operaciones con naturales",
+              "temas": [
+                {
+                  "clave": "mat.p5.multiplos-de-un-numero",
+                  "nombre": "Múltiplos de un número",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Genera los múltiplos de un número y reconoce si un número es múltiplo de otro.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 28
+                },
+                {
+                  "clave": "mat.p5.multiplos-comunes",
+                  "nombre": "Múltiplos comunes en situaciones cotidianas",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Encuentra cuándo coinciden dos sucesos que se repiten cada cierto tiempo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.multiplos-de-un-numero"
+                  ],
+                  "ordenSugerido": 29
+                },
+                {
+                  "clave": "mat.p5.propiedad-distributiva",
+                  "nombre": "Propiedad distributiva de la multiplicación",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Expresa un producto como suma o resta de productos y la usa en cálculos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03",
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "mat.p5.relacion-cuatro-operaciones",
+                  "nombre": "Relación entre las cuatro operaciones",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Explica que la resta deshace la suma y la división deshace la multiplicación.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "mat.p5.propiedades-calculo-mental",
+                  "nombre": "Propiedades de las operaciones en el cálculo mental",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Usa las propiedades conmutativa, asociativa y distributiva para calcular de forma abreviada.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03",
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.propiedad-distributiva"
+                  ],
+                  "ordenSugerido": 30
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones",
+              "temas": [
+                {
+                  "clave": "mat.p5.fraccion-discreta-continua",
+                  "nombre": "Fracción de una cantidad continua o discreta",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Representa fracciones de una figura y de una colección y relaciona ambas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "mat.p5.fraccion-como-operador",
+                  "nombre": "La fracción como operador",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Interpreta 3/4 de 80 como dividir entre 4 y multiplicar por 3.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.fraccion-discreta-continua"
+                  ],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "mat.p5.fracciones-impropias-mixtas",
+                  "nombre": "Fracciones impropias y números mixtos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Convierte fracciones mayores que la unidad en números mixtos y viceversa.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.fraccion-discreta-continua"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "mat.p5.fracciones-recta-numerica",
+                  "nombre": "Fracciones en la recta numérica",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Ubica fracciones propias e impropias entre dos números naturales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03",
+                    "MAT-C23-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.fracciones-impropias-mixtas"
+                  ],
+                  "ordenSugerido": 68
+                }
+              ]
+            },
+            {
+              "nombre": "Números decimales",
+              "temas": [
+                {
+                  "clave": "mat.p5.numeros-decimales",
+                  "nombre": "Números decimales: el décimo",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Reconoce el décimo como una de diez partes iguales de la unidad y lo escribe con coma.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.fraccion-discreta-continua"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "mat.p5.leer-escribir-decimales",
+                  "nombre": "Lectura y escritura de números decimales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Lee y escribe decimales hasta el décimo con cifras y palabras.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.numeros-decimales"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "mat.p5.fracciones-decimales",
+                  "nombre": "Fracciones decimales y números decimales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Relaciona fracciones con denominador 10 con su escritura decimal.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03",
+                    "MAT-C23-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.numeros-decimales"
+                  ],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "mat.p5.valor-posicional-decimal",
+                  "nombre": "Valor posicional en decimales hasta el décimo",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Distingue la parte entera y los décimos y los representa en el tablero de valor posicional.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.numeros-decimales"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "mat.p5.decimales-recta-numerica",
+                  "nombre": "Decimales en la recta numérica",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Ubica números decimales hasta el décimo entre dos naturales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.valor-posicional-decimal"
+                  ],
+                  "ordenSugerido": 79
+                },
+                {
+                  "clave": "mat.p5.comparar-ordenar-decimales",
+                  "nombre": "Comparación y orden de números decimales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Compara y ordena decimales hasta el décimo con la recta y el tablero.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03",
+                    "MAT-C23-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.decimales-recta-numerica"
+                  ],
+                  "ordenSugerido": 80
+                },
+                {
+                  "clave": "mat.p5.decimales-con-dinero",
+                  "nombre": "Decimales en precios: soles y céntimos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Interpreta precios como S/ 4,50 y relaciona 10 céntimos con 0,10 soles.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.valor-posicional-decimal"
+                  ],
+                  "ordenSugerido": 102
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos de estimación y cálculo",
+          "bloques": [
+            {
+              "nombre": "Números hasta 999 999",
+              "temas": [
+                {
+                  "clave": "mat.p5.redondear-naturales",
+                  "nombre": "Redondeo de números naturales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Redondea números de hasta seis cifras al millar o a la decena de millar más cercana.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.comparar-ordenar-seis-cifras"
+                  ],
+                  "ordenSugerido": 7
+                }
+              ]
+            },
+            {
+              "nombre": "Operaciones con naturales",
+              "temas": [
+                {
+                  "clave": "mat.p5.suma-resta-seis-cifras",
+                  "nombre": "Suma y resta con números de hasta seis cifras",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Suma y resta números grandes con canjes y verifica el resultado.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.descomponer-seis-cifras"
+                  ],
+                  "ordenSugerido": 10
+                },
+                {
+                  "clave": "mat.p5.multiplicacion-dos-tres-cifras",
+                  "nombre": "Multiplicación por números de dos y tres cifras",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Multiplica con el algoritmo usual ordenando los productos parciales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.propiedad-distributiva"
+                  ],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "mat.p5.division-dos-cifras",
+                  "nombre": "División entre un número de dos cifras",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Divide estimando cada cifra del cociente y comprobando con el residuo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.relacion-cuatro-operaciones"
+                  ],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "mat.p5.descomponer-dividendo",
+                  "nombre": "División descomponiendo el dividendo",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Divide repartiendo el dividendo en partes fáciles, como 156 ÷ 12 = 120 ÷ 12 + 36 ÷ 12.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.propiedad-distributiva"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "mat.p5.estimar-productos-cocientes",
+                  "nombre": "Estimación de productos y cocientes",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Redondea factores o dividendo para anticipar el resultado aproximado.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.redondear-naturales",
+                    "mat.p5.multiplicacion-dos-tres-cifras"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "mat.p5.operaciones-combinadas",
+                  "nombre": "Operaciones combinadas sin signos de agrupación",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Aplica el orden: primero multiplicaciones y divisiones, luego sumas y restas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03",
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.multiplicacion-dos-tres-cifras",
+                    "mat.p5.division-dos-cifras"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "mat.p5.operaciones-con-parentesis",
+                  "nombre": "Operaciones combinadas con paréntesis",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Resuelve primero lo que está entre paréntesis y escribe expresiones que modelan un problema.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.operaciones-combinadas"
+                  ],
+                  "ordenSugerido": 66
+                },
+                {
+                  "clave": "mat.p5.numero-inicial-inversas",
+                  "nombre": "Hallar el número inicial con operaciones inversas",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Recupera el valor de partida deshaciendo una cadena de operaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.relacion-cuatro-operaciones"
+                  ],
+                  "ordenSugerido": 34
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones",
+              "temas": [
+                {
+                  "clave": "mat.p5.comun-denominador",
+                  "nombre": "Reducción de fracciones a común denominador",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Amplifica o simplifica dos fracciones para que tengan el mismo denominador.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.fraccion-discreta-continua",
+                    "mat.p5.multiplos-de-un-numero"
+                  ],
+                  "ordenSugerido": 69
+                },
+                {
+                  "clave": "mat.p5.suma-resta-fracciones",
+                  "nombre": "Suma y resta de fracciones heterogéneas",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Suma y resta fracciones de distinto denominador buscando fracciones equivalentes.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03",
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.comun-denominador"
+                  ],
+                  "ordenSugerido": 70
+                },
+                {
+                  "clave": "mat.p5.suma-resta-mixtos",
+                  "nombre": "Suma y resta con números mixtos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Opera con números mixtos separando enteros y fracciones o convirtiéndolos a impropias.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03",
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.suma-resta-fracciones",
+                    "mat.p5.fracciones-impropias-mixtas"
+                  ],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "mat.p5.fraccion-por-natural",
+                  "nombre": "Multiplicación de una fracción por un número natural",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Interpreta 4 × 2/3 como suma reiterada y lo calcula.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.fraccion-como-operador"
+                  ],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "mat.p5.multiplicacion-fracciones",
+                  "nombre": "Multiplicación de dos fracciones con modelo de área",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Multiplica dos fracciones con modelos de área y de forma simbólica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.fraccion-por-natural"
+                  ],
+                  "ordenSugerido": 101
+                }
+              ]
+            },
+            {
+              "nombre": "Números decimales",
+              "temas": [
+                {
+                  "clave": "mat.p5.redondear-decimales",
+                  "nombre": "Redondeo de decimales al entero",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Aproxima un número decimal al número natural más cercano.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.comparar-ordenar-decimales"
+                  ],
+                  "ordenSugerido": 103
+                },
+                {
+                  "clave": "mat.p5.suma-decimales",
+                  "nombre": "Suma de números decimales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Suma decimales alineando la coma y canjeando décimos por unidades.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03",
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.valor-posicional-decimal"
+                  ],
+                  "ordenSugerido": 104
+                },
+                {
+                  "clave": "mat.p5.resta-decimales",
+                  "nombre": "Resta de números decimales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Resta decimales alineando la coma y completando con ceros si hace falta.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-03",
+                    "MAT-C23-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.suma-decimales"
+                  ],
+                  "ordenSugerido": 105
+                }
+              ]
+            },
+            {
+              "nombre": "Medición: masa y tiempo",
+              "temas": [
+                {
+                  "clave": "mat.p5.masa-fracciones-decimales",
+                  "nombre": "Masa en kilogramos con fracciones y decimales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Expresa masas como 1/2 kg, 3/4 kg o 0,5 kg y las compara.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.fracciones-decimales"
+                  ],
+                  "ordenSugerido": 108
+                },
+                {
+                  "clave": "mat.p5.convertir-kg-g",
+                  "nombre": "Conversión entre kilogramos y gramos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Convierte medidas de masa multiplicando o dividiendo entre 1000.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.masa-fracciones-decimales"
+                  ],
+                  "ordenSugerido": 109
+                },
+                {
+                  "clave": "mat.p5.decadas-siglos",
+                  "nombre": "Décadas y siglos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Relaciona años, décadas y siglos y ubica hechos en el siglo que corresponde.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "mat.p5.numeros-romanos-siglos",
+                  "nombre": "Números romanos para escribir siglos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Lee y escribe siglos con números romanos, como siglo XXI.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.decadas-siglos"
+                  ],
+                  "ordenSugerido": 40
+                },
+                {
+                  "clave": "mat.p5.linea-de-tiempo",
+                  "nombre": "Líneas de tiempo",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Representa intervalos de años, décadas y siglos en una línea de tiempo y calcula duraciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.decadas-siglos"
+                  ],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "mat.p5.convertir-unidades-tiempo",
+                  "nombre": "Conversión de horas, minutos y segundos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Convierte unidades de tiempo usando multiplicaciones y divisiones entre 60.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.multiplicacion-dos-tres-cifras"
+                  ],
+                  "ordenSugerido": 42
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Operaciones con naturales",
+              "temas": [
+                {
+                  "clave": "mat.p5.justificar-relaciones-inversas",
+                  "nombre": "Justificación con operaciones inversas",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Comprueba resultados y argumenta afirmaciones usando la operación inversa.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-06",
+                    "MAT-C23-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.numero-inicial-inversas"
+                  ],
+                  "ordenSugerido": 35
+                }
+              ]
+            },
+            {
+              "nombre": "Fracciones",
+              "temas": [
+                {
+                  "clave": "mat.p5.comparar-fracciones-heterogeneas",
+                  "nombre": "Comparación y orden de fracciones heterogéneas",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Compara fracciones de distinto denominador y justifica con equivalencias.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.suma-resta-fracciones"
+                  ],
+                  "ordenSugerido": 74
+                }
+              ]
+            },
+            {
+              "nombre": "Números decimales",
+              "temas": [
+                {
+                  "clave": "mat.p5.relacionar-naturales-fracciones-decimales",
+                  "nombre": "Relación entre naturales, fracciones y decimales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Ordena y compara cantidades expresadas en distintas formas y justifica sus relaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.comparar-ordenar-decimales",
+                    "mat.p5.comparar-fracciones-heterogeneas"
+                  ],
+                  "ordenSugerido": 107
+                }
+              ]
+            },
+            {
+              "nombre": "Justificación de procesos",
+              "temas": [
+                {
+                  "clave": "mat.p5.justificar-resolucion",
+                  "nombre": "Justificación del proceso de resolución",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Explica paso a paso cómo resolvió un problema y verifica si la respuesta tiene sentido.",
+                  "desempenosOrigen": [
+                    "MAT-C23-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.problemas-cuatro-operaciones-5"
+                  ],
+                  "ordenSugerido": 43
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 24,
+      "nombre": "Resuelve problemas de regularidad, equivalencia y cambio",
+      "capacidades": [
+        {
+          "nombre": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+          "bloques": [
+            {
+              "nombre": "Ecuaciones",
+              "temas": [
+                {
+                  "clave": "mat.p5.plantear-ecuaciones",
+                  "nombre": "Planteamiento de ecuaciones a partir de problemas",
+                  "disciplina": "algebra",
+                  "descripcion": "Traduce una situación con un valor desconocido a una ecuación con una letra.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.ecuaciones-simples"
+                  ],
+                  "ordenSugerido": 44
+                },
+                {
+                  "clave": "mat.p5.equivalencias-balanzas",
+                  "nombre": "Equivalencias con balanzas",
+                  "disciplina": "algebra",
+                  "descripcion": "Representa con balanzas en equilibrio relaciones entre objetos de masa desconocida.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 12
+                }
+              ]
+            },
+            {
+              "nombre": "Proporcionalidad",
+              "temas": [
+                {
+                  "clave": "mat.p5.proporcionalidad-tablas",
+                  "nombre": "Tablas de proporcionalidad",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Organiza en una tabla dos magnitudes que aumentan o disminuyen en la misma razón.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.multiplicacion-dos-tres-cifras"
+                  ],
+                  "ordenSugerido": 82
+                },
+                {
+                  "clave": "mat.p5.problemas-proporcionalidad",
+                  "nombre": "Problemas de proporcionalidad en recetas y precios",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Resuelve situaciones cotidianas de magnitudes directamente proporcionales.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-01",
+                    "MAT-C24-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.valores-proporcionales"
+                  ],
+                  "ordenSugerido": 110
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones",
+              "temas": [
+                {
+                  "clave": "mat.p5.patrones-simetria-traslacion",
+                  "nombre": "Patrones de repetición con simetría y traslación",
+                  "disciplina": "algebra",
+                  "descripcion": "Identifica y continúa patrones geométricos que combinan un reflejo o un desplazamiento con color o forma.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "mat.p5.patrones-segundo-orden",
+                  "nombre": "Patrones aditivos de segundo orden",
+                  "disciplina": "algebra",
+                  "descripcion": "Reconoce secuencias cuyas diferencias aumentan de forma regular, como 13, 15, 18, 22, 27.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "mat.p5.patrones-graficos-5",
+                  "nombre": "Patrones gráficos con figuras que crecen",
+                  "disciplina": "algebra",
+                  "descripcion": "Traduce secuencias de figuras a sucesiones numéricas de segundo orden.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.patrones-segundo-orden"
+                  ],
+                  "ordenSugerido": 47
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las relaciones algebraicas",
+          "bloques": [
+            {
+              "nombre": "Ecuaciones",
+              "temas": [
+                {
+                  "clave": "mat.p5.ecuaciones-simples",
+                  "nombre": "Ecuaciones simples (x + a = b)",
+                  "disciplina": "algebra",
+                  "descripcion": "Interpreta la letra como un número desconocido que hace verdadera la igualdad.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.equivalencias-balanzas"
+                  ],
+                  "ordenSugerido": 13
+                }
+              ]
+            },
+            {
+              "nombre": "Proporcionalidad",
+              "temas": [
+                {
+                  "clave": "mat.p5.proporcionalidad-cambio-constante",
+                  "nombre": "La proporcionalidad como cambio constante",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Reconoce que al doble, triple o mitad de una magnitud le corresponde lo mismo en la otra.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.proporcionalidad-tablas"
+                  ],
+                  "ordenSugerido": 83
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones",
+              "temas": [
+                {
+                  "clave": "mat.p5.patrones-regla-formacion",
+                  "nombre": "Regla de formación de un patrón de segundo orden",
+                  "disciplina": "algebra",
+                  "descripcion": "Expresa con palabras y operaciones cómo se obtiene cada término de un patrón de segundo orden.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.patrones-segundo-orden"
+                  ],
+                  "ordenSugerido": 48
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+          "bloques": [
+            {
+              "nombre": "Ecuaciones",
+              "temas": [
+                {
+                  "clave": "mat.p5.ecuaciones-aditivas",
+                  "nombre": "Ecuaciones aditivas: x + a = b y x − a = b",
+                  "disciplina": "algebra",
+                  "descripcion": "Halla la incógnita sumando o restando el mismo número en ambos lados.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.ecuaciones-simples"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "mat.p5.ecuaciones-multiplicativas",
+                  "nombre": "Ecuaciones multiplicativas: a × x = b",
+                  "disciplina": "algebra",
+                  "descripcion": "Halla la incógnita dividiendo ambos lados entre el mismo número.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.ecuaciones-aditivas"
+                  ],
+                  "ordenSugerido": 46
+                }
+              ]
+            },
+            {
+              "nombre": "Proporcionalidad",
+              "temas": [
+                {
+                  "clave": "mat.p5.valores-proporcionales",
+                  "nombre": "Valores faltantes en magnitudes proporcionales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Encuentra valores desconocidos multiplicando o dividiendo por el mismo número.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.proporcionalidad-cambio-constante"
+                  ],
+                  "ordenSugerido": 84
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones",
+              "temas": [
+                {
+                  "clave": "mat.p5.terminos-faltantes-segundo-orden",
+                  "nombre": "Términos faltantes en patrones de segundo orden",
+                  "disciplina": "algebra",
+                  "descripcion": "Completa términos intermedios y siguientes analizando las diferencias entre términos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.patrones-regla-formacion"
+                  ],
+                  "ordenSugerido": 49
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+          "bloques": [
+            {
+              "nombre": "Ecuaciones",
+              "temas": [
+                {
+                  "clave": "mat.p5.comprobar-solucion-ecuacion",
+                  "nombre": "Comprobación de la solución de ecuaciones de un paso",
+                  "disciplina": "algebra",
+                  "descripcion": "Sustituye el valor hallado y justifica con las propiedades de la igualdad.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.ecuaciones-multiplicativas"
+                  ],
+                  "ordenSugerido": 81
+                }
+              ]
+            },
+            {
+              "nombre": "Proporcionalidad",
+              "temas": [
+                {
+                  "clave": "mat.p5.proporcional-o-no",
+                  "nombre": "Magnitudes proporcionales y no proporcionales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Decide con ejemplos si dos magnitudes varían proporcionalmente.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.proporcionalidad-cambio-constante"
+                  ],
+                  "ordenSugerido": 111
+                }
+              ]
+            },
+            {
+              "nombre": "Patrones",
+              "temas": [
+                {
+                  "clave": "mat.p5.terminos-lejanos",
+                  "nombre": "Términos lejanos de un patrón de segundo orden",
+                  "disciplina": "algebra",
+                  "descripcion": "Predice un término no inmediato del patrón y lo justifica con cálculos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.terminos-faltantes-segundo-orden"
+                  ],
+                  "ordenSugerido": 85
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 26,
+      "nombre": "Resuelve problemas de forma, movimiento y localización",
+      "capacidades": [
+        {
+          "nombre": "Modela objetos con formas geométricas y sus transformaciones",
+          "bloques": [
+            {
+              "nombre": "Cuadriláteros y ángulos",
+              "temas": [
+                {
+                  "clave": "mat.p5.cuadrilateros-entorno",
+                  "nombre": "Cuadriláteros en el entorno",
+                  "disciplina": "geometria",
+                  "descripcion": "Asocia objetos reales con cuadrados, rectángulos, rombos, romboides y trapecios.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 16
+                }
+              ]
+            },
+            {
+              "nombre": "Prismas rectos",
+              "temas": [
+                {
+                  "clave": "mat.p5.prismas-entorno",
+                  "nombre": "Prismas rectos en el entorno",
+                  "disciplina": "geometria",
+                  "descripcion": "Asocia cajas, edificios y objetos con prismas de base triangular, cuadrada o rectangular.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 55
+                },
+                {
+                  "clave": "mat.p5.capacidad-prismas",
+                  "nombre": "Capacidad de prismas con cubos unidad",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula cuántos cubos unidad llenan una caja contando capas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.elementos-prismas"
+                  ],
+                  "ordenSugerido": 112
+                }
+              ]
+            },
+            {
+              "nombre": "Ubicación y transformaciones",
+              "temas": [
+                {
+                  "clave": "mat.p5.ampliacion-reduccion",
+                  "nombre": "Ampliación y reducción de figuras en la cuadrícula",
+                  "disciplina": "geometria",
+                  "descripcion": "Amplía o reduce figuras en la cuadrícula conservando su forma.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-03",
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.plano-cartesiano"
+                  ],
+                  "ordenSugerido": 114
+                },
+                {
+                  "clave": "mat.p5.reflexion-figuras",
+                  "nombre": "Reflexión de figuras en el plano cartesiano",
+                  "disciplina": "geometria",
+                  "descripcion": "Dibuja el reflejo de una figura respecto de un eje en el plano cartesiano.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-03",
+                    "MAT-C26-P5-06",
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.plano-cartesiano"
+                  ],
+                  "ordenSugerido": 115
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las formas y relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Cuadriláteros y ángulos",
+              "temas": [
+                {
+                  "clave": "mat.p5.clasificar-cuadrilateros",
+                  "nombre": "Clasificación de cuadriláteros",
+                  "disciplina": "geometria",
+                  "descripcion": "Clasifica cuadriláteros en paralelogramos, trapecios y trapezoides según sus lados paralelos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.cuadrilateros-entorno",
+                    "mat.p5.lados-paralelos-perpendiculares"
+                  ],
+                  "ordenSugerido": 18
+                },
+                {
+                  "clave": "mat.p5.lados-paralelos-perpendiculares",
+                  "nombre": "Lados paralelos y perpendiculares en cuadriláteros",
+                  "disciplina": "geometria",
+                  "descripcion": "Identifica lados paralelos y perpendiculares en cuadriláteros usando regla y escuadra.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.cuadrilateros-entorno"
+                  ],
+                  "ordenSugerido": 17
+                },
+                {
+                  "clave": "mat.p5.diagonales-cuadrilateros",
+                  "nombre": "Diagonales de los cuadriláteros",
+                  "disciplina": "geometria",
+                  "descripcion": "Traza las diagonales y compara su longitud y cruce en distintos cuadriláteros.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.clasificar-cuadrilateros"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "mat.p5.clases-de-angulos",
+                  "nombre": "Ángulos agudos, rectos y obtusos",
+                  "disciplina": "geometria",
+                  "descripcion": "Clasifica ángulos comparándolos con el ángulo recto.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 19
+                }
+              ]
+            },
+            {
+              "nombre": "Prismas rectos",
+              "temas": [
+                {
+                  "clave": "mat.p5.elementos-prismas",
+                  "nombre": "Elementos de los prismas rectos",
+                  "disciplina": "geometria",
+                  "descripcion": "Identifica bases, caras laterales, aristas y vértices de prismas rectos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.prismas-entorno"
+                  ],
+                  "ordenSugerido": 56
+                }
+              ]
+            },
+            {
+              "nombre": "Perímetro y superficie",
+              "temas": [
+                {
+                  "clave": "mat.p5.perimetro-cuadrilateros",
+                  "nombre": "Perímetro de cuadriláteros",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula el perímetro de cuadriláteros sumando lados o usando sus propiedades.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-01",
+                    "MAT-C26-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.clasificar-cuadrilateros"
+                  ],
+                  "ordenSugerido": 59
+                },
+                {
+                  "clave": "mat.p5.superficie-porcion-plano",
+                  "nombre": "La superficie como porción del plano",
+                  "disciplina": "geometria",
+                  "descripcion": "Mide superficies recubriéndolas con unidades cuadradas y explica su conservación.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 60
+                }
+              ]
+            },
+            {
+              "nombre": "Ubicación y transformaciones",
+              "temas": [
+                {
+                  "clave": "mat.p5.croquis-calles",
+                  "nombre": "Croquis con calles y avenidas",
+                  "disciplina": "geometria",
+                  "descripcion": "Representa ubicaciones y recorridos en un croquis usando calles y avenidas como referencia.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "mat.p5.describir-recorridos",
+                  "nombre": "Descripción de recorridos en un croquis",
+                  "disciplina": "geometria",
+                  "descripcion": "Indica desplazamientos con cuadras, giros y direcciones sobre un croquis.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.croquis-calles"
+                  ],
+                  "ordenSugerido": 23
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para orientarse en el espacio",
+          "bloques": [
+            {
+              "nombre": "Cuadriláteros y ángulos",
+              "temas": [
+                {
+                  "clave": "mat.p5.medir-angulos",
+                  "nombre": "Medición de ángulos con transportador",
+                  "disciplina": "geometria",
+                  "descripcion": "Mide ángulos en grados ubicando correctamente el transportador.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.clases-de-angulos"
+                  ],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "mat.p5.construir-angulos",
+                  "nombre": "Construcción de ángulos",
+                  "disciplina": "geometria",
+                  "descripcion": "Traza ángulos de una medida dada con transportador.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.medir-angulos"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "mat.p5.construir-cuadrilateros",
+                  "nombre": "Construcción de cuadriláteros",
+                  "disciplina": "geometria",
+                  "descripcion": "Traza cuadrados, rectángulos y paralelogramos con regla, escuadra y transportador.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.clasificar-cuadrilateros",
+                    "mat.p5.construir-angulos"
+                  ],
+                  "ordenSugerido": 53
+                }
+              ]
+            },
+            {
+              "nombre": "Longitud",
+              "temas": [
+                {
+                  "clave": "mat.p5.el-kilometro",
+                  "nombre": "El kilómetro",
+                  "disciplina": "geometria",
+                  "descripcion": "Usa el kilómetro para expresar distancias largas y lo relaciona con el metro.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "mat.p5.convertir-km-m-cm",
+                  "nombre": "Conversión entre kilómetros, metros y centímetros",
+                  "disciplina": "geometria",
+                  "descripcion": "Convierte medidas de longitud multiplicando o dividiendo entre 10, 100 o 1000.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.el-kilometro"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "mat.p5.ordenar-longitudes-transitiva",
+                  "nombre": "Orden de longitudes con la propiedad transitiva",
+                  "disciplina": "geometria",
+                  "descripcion": "Deduce el orden de varios objetos a partir de comparaciones de a dos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "mat.p5.estimar-distancias",
+                  "nombre": "Estimación de distancias",
+                  "disciplina": "geometria",
+                  "descripcion": "Estima longitudes y distancias del entorno en metros y kilómetros.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.el-kilometro"
+                  ],
+                  "ordenSugerido": 58
+                }
+              ]
+            },
+            {
+              "nombre": "Perímetro y superficie",
+              "temas": [
+                {
+                  "clave": "mat.p5.area-rectangulos",
+                  "nombre": "Área de cuadrados y rectángulos",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula el área multiplicando filas por columnas de unidades cuadradas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-01",
+                    "MAT-C26-P5-05",
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.superficie-porcion-plano",
+                    "mat.p5.perimetro-cuadrilateros"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "mat.p5.cm2-m2",
+                  "nombre": "El centímetro cuadrado y el metro cuadrado",
+                  "disciplina": "geometria",
+                  "descripcion": "Elige la unidad cuadrada adecuada para medir superficies pequeñas o grandes.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.area-rectangulos"
+                  ],
+                  "ordenSugerido": 90
+                },
+                {
+                  "clave": "mat.p5.area-figuras-compuestas",
+                  "nombre": "Área de figuras compuestas por rectángulos",
+                  "disciplina": "geometria",
+                  "descripcion": "Descompone figuras en rectángulos para calcular su área total.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.area-rectangulos"
+                  ],
+                  "ordenSugerido": 91
+                },
+                {
+                  "clave": "mat.p5.perimetro-figuras-compuestas",
+                  "nombre": "Perímetro de figuras compuestas",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula el contorno de figuras formadas por rectángulos hallando los lados que faltan.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.perimetro-cuadrilateros"
+                  ],
+                  "ordenSugerido": 92
+                }
+              ]
+            },
+            {
+              "nombre": "Capacidad",
+              "temas": [
+                {
+                  "clave": "mat.p5.litro-decimales",
+                  "nombre": "Capacidad en litros con decimales",
+                  "disciplina": "geometria",
+                  "descripcion": "Expresa capacidades como 1,5 L o 0,5 L y las compara.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-05",
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.numeros-decimales"
+                  ],
+                  "ordenSugerido": 113
+                }
+              ]
+            },
+            {
+              "nombre": "Ubicación y transformaciones",
+              "temas": [
+                {
+                  "clave": "mat.p5.plano-cartesiano",
+                  "nombre": "Ubicación de puntos con pares ordenados en el plano cartesiano",
+                  "disciplina": "geometria",
+                  "descripcion": "Lee y ubica puntos con pares ordenados en el primer cuadrante.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.describir-recorridos"
+                  ],
+                  "ordenSugerido": 94
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Cuadriláteros y ángulos",
+              "temas": [
+                {
+                  "clave": "mat.p5.relaciones-cuadrilateros",
+                  "nombre": "Relaciones entre cuadriláteros",
+                  "disciplina": "geometria",
+                  "descripcion": "Explica afirmaciones como «todo cuadrado es un rectángulo» con ejemplos y dibujos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.clasificar-cuadrilateros"
+                  ],
+                  "ordenSugerido": 54
+                },
+                {
+                  "clave": "mat.p5.ejes-simetria-cuadrilateros",
+                  "nombre": "Ejes de simetría de los cuadriláteros",
+                  "disciplina": "geometria",
+                  "descripcion": "Encuentra los ejes de simetría de cada cuadrilátero y explica por qué unos tienen más que otros.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.clasificar-cuadrilateros"
+                  ],
+                  "ordenSugerido": 86
+                }
+              ]
+            },
+            {
+              "nombre": "Prismas rectos",
+              "temas": [
+                {
+                  "clave": "mat.p5.desarrollo-prismas",
+                  "nombre": "Desarrollo plano de prismas rectos",
+                  "disciplina": "geometria",
+                  "descripcion": "Construye prismas a partir de plantillas y anticipa qué plantilla forma cada prisma.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.elementos-prismas"
+                  ],
+                  "ordenSugerido": 87
+                },
+                {
+                  "clave": "mat.p5.caras-aristas-segun-base",
+                  "nombre": "Caras, aristas y vértices según la base",
+                  "disciplina": "geometria",
+                  "descripcion": "Relaciona el número de lados de la base con el número de caras, aristas y vértices del prisma.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.elementos-prismas"
+                  ],
+                  "ordenSugerido": 88
+                }
+              ]
+            },
+            {
+              "nombre": "Perímetro y superficie",
+              "temas": [
+                {
+                  "clave": "mat.p5.area-perimetro-relacion",
+                  "nombre": "Igual área con distinto perímetro",
+                  "disciplina": "geometria",
+                  "descripcion": "Construye figuras de igual área y diferente perímetro y explica por qué ocurre.",
+                  "desempenosOrigen": [
+                    "MAT-C26-P5-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.area-rectangulos"
+                  ],
+                  "ordenSugerido": 93
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 25,
+      "nombre": "Resuelve problemas de gestión de datos e incertidumbre",
+      "capacidades": [
+        {
+          "nombre": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+          "bloques": [
+            {
+              "nombre": "Datos y tablas",
+              "temas": [
+                {
+                  "clave": "mat.p5.variables-cualitativas-cuantitativas",
+                  "nombre": "Variables cualitativas y cuantitativas discretas",
+                  "disciplina": "estadistica",
+                  "descripcion": "Clasifica las características de una población según sean cualidades o conteos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 24
+                }
+              ]
+            },
+            {
+              "nombre": "Gráficos",
+              "temas": [
+                {
+                  "clave": "mat.p5.pictograma-escala-5",
+                  "nombre": "Pictogramas con equivalencias",
+                  "disciplina": "estadistica",
+                  "descripcion": "Representa datos con símbolos que valen varias unidades y fracciones de símbolo.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.tabla-frecuencias-5"
+                  ],
+                  "ordenSugerido": 62
+                },
+                {
+                  "clave": "mat.p5.barras-desde-tabla",
+                  "nombre": "Gráfico de barras a partir de una tabla de frecuencias",
+                  "disciplina": "estadistica",
+                  "descripcion": "Elige una escala múltiplo de 10 y construye barras verticales u horizontales.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.tabla-frecuencias-5"
+                  ],
+                  "ordenSugerido": 63
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+          "bloques": [
+            {
+              "nombre": "Gráficos",
+              "temas": [
+                {
+                  "clave": "mat.p5.interpretar-representaciones",
+                  "nombre": "Interpretación de un mismo conjunto de datos en varias representaciones",
+                  "disciplina": "estadistica",
+                  "descripcion": "Compara la información de una tabla, un pictograma y un gráfico de barras sobre los mismos datos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.barras-desde-tabla",
+                    "mat.p5.pictograma-escala-5",
+                    "mat.p5.doble-entrada-5"
+                  ],
+                  "ordenSugerido": 95
+                }
+              ]
+            },
+            {
+              "nombre": "Moda y media",
+              "temas": [
+                {
+                  "clave": "mat.p5.moda-5",
+                  "nombre": "La moda como dato más frecuente",
+                  "disciplina": "estadistica",
+                  "descripcion": "Halla la moda en tablas y gráficos e interpreta qué indica.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-01",
+                    "MAT-C25-P5-02",
+                    "MAT-C25-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.tabla-frecuencias-5"
+                  ],
+                  "ordenSugerido": 96
+                },
+                {
+                  "clave": "mat.p5.media-aritmetica",
+                  "nombre": "La media aritmética",
+                  "disciplina": "estadistica",
+                  "descripcion": "Halla la media igualando cantidades y luego sumando y dividiendo entre el número de datos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-01",
+                    "MAT-C25-P5-02",
+                    "MAT-C25-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.moda-5",
+                    "mat.p5.division-dos-cifras"
+                  ],
+                  "ordenSugerido": 97
+                }
+              ]
+            },
+            {
+              "nombre": "Azar",
+              "temas": [
+                {
+                  "clave": "mat.p5.nociones-probabilidad",
+                  "nombre": "Seguro, más probable y menos probable en juegos de azar",
+                  "disciplina": "estadistica",
+                  "descripcion": "Describe la posibilidad de resultados al lanzar dados o monedas y al girar ruletas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 98
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para recopilar y procesar datos",
+          "bloques": [
+            {
+              "nombre": "Datos y tablas",
+              "temas": [
+                {
+                  "clave": "mat.p5.planificar-encuesta",
+                  "nombre": "Planificación y aplicación de una encuesta",
+                  "disciplina": "estadistica",
+                  "descripcion": "Define la pregunta, las opciones y a quiénes encuestar, y registra las respuestas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.variables-cualitativas-cuantitativas"
+                  ],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "mat.p5.tabla-frecuencias-5",
+                  "nombre": "Tabla de frecuencias absolutas",
+                  "disciplina": "estadistica",
+                  "descripcion": "Organiza los datos en una tabla con conteo, frecuencia y total.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.planificar-encuesta"
+                  ],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "mat.p5.doble-entrada-5",
+                  "nombre": "Tablas de doble entrada con dos variables",
+                  "disciplina": "estadistica",
+                  "descripcion": "Organiza datos que combinan dos variables en filas y columnas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.tabla-frecuencias-5"
+                  ],
+                  "ordenSugerido": 61
+                }
+              ]
+            },
+            {
+              "nombre": "Azar",
+              "temas": [
+                {
+                  "clave": "mat.p5.experimentos-aleatorios",
+                  "nombre": "Registro de resultados de experimentos aleatorios",
+                  "disciplina": "estadistica",
+                  "descripcion": "Repite un experimento de azar, registra sus resultados y los organiza en una tabla.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.nociones-probabilidad",
+                    "mat.p5.tabla-frecuencias-5"
+                  ],
+                  "ordenSugerido": 99
+                },
+                {
+                  "clave": "mat.p5.diagrama-arbol",
+                  "nombre": "Resultados posibles con diagramas de árbol",
+                  "disciplina": "estadistica",
+                  "descripcion": "Cuenta todos los resultados de experimentos de dos pasos con un diagrama.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.nociones-probabilidad"
+                  ],
+                  "ordenSugerido": 117
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Sustenta conclusiones o decisiones con base en la información obtenida",
+          "bloques": [
+            {
+              "nombre": "Moda y media",
+              "temas": [
+                {
+                  "clave": "mat.p5.moda-o-media",
+                  "nombre": "Elección entre moda y media",
+                  "disciplina": "estadistica",
+                  "descripcion": "Decide qué medida representa mejor un conjunto de datos y lo justifica.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.media-aritmetica"
+                  ],
+                  "ordenSugerido": 116
+                }
+              ]
+            },
+            {
+              "nombre": "Azar",
+              "temas": [
+                {
+                  "clave": "mat.p5.comparar-posibilidades",
+                  "nombre": "Comparación de la posibilidad de dos sucesos",
+                  "disciplina": "estadistica",
+                  "descripcion": "Predice cuál de dos sucesos tiene mayor posibilidad contando casos favorables.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.diagrama-arbol"
+                  ],
+                  "ordenSugerido": 118
+                }
+              ]
+            },
+            {
+              "nombre": "Conclusiones",
+              "temas": [
+                {
+                  "clave": "mat.p5.predecir-frecuencias",
+                  "nombre": "Predicción de la mayor o menor frecuencia",
+                  "disciplina": "estadistica",
+                  "descripcion": "Anticipa qué valor tendrá mayor o menor frecuencia y lo contrasta con los datos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.interpretar-representaciones"
+                  ],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "mat.p5.decisiones-con-datos",
+                  "nombre": "Decisiones a partir del análisis de datos",
+                  "disciplina": "estadistica",
+                  "descripcion": "Formula conclusiones y propone decisiones sustentadas en tablas y gráficos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-P5-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.p5.interpretar-representaciones",
+                    "mat.p5.moda-o-media"
+                  ],
+                  "ordenSugerido": 119
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

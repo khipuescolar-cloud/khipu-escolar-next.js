@@ -3,7 +3,8 @@ import { forbidden } from "next/navigation";
 import { z } from "zod";
 import type { NuditoTemaColegio } from "@/generated/prisma/client";
 import { planIncluye } from "@/lib/planes";
-import { posicionGrado, posicionTema, temasDe, temaPorClave, fuenteConocida, cicloDePrerrequisitos } from "@/lib/nudito/catalogo";
+import { posicionGrado, posicionTema, fuenteConocida, cicloDePrerrequisitos } from "@/lib/nudito/catalogo";
+import { temasDeConBanco, temaPorClaveConBanco } from "@/lib/nudito/conocimiento/servidor";
 import {
   esquemaArea, esquemaFuenteTema, esquemaNivel, esquemaTema, esquemaTemaClave, TIPOS_EJERCICIO,
   type AreaNudito, type FuenteTema, type NivelNudito, type Tema, type TemaClave,
@@ -51,7 +52,7 @@ export async function catalogoDelColegio(db: DbTenant, filtro: { area: AreaNudit
     where: { area: filtro.area, nivel: filtro.nivel, activo: true },
     orderBy: [{ grado: "asc" }, { nombre: "asc" }],
   });
-  return [...temasDe(filtro.area, filtro.nivel), ...propios.map(temaDeColegio)];
+  return [...(await temasDeConBanco(filtro.area, filtro.nivel)), ...propios.map(temaDeColegio)];
 }
 
 /**
@@ -64,7 +65,7 @@ export async function temasParaAlumno(
 ): Promise<Tema[]> {
   const pos = posicionGrado(filtro.nivel, filtro.grado);
   const propios = await catalogoDelColegio(ctx.db, filtro);
-  const anteriores = filtro.nivel === "secundaria" ? temasDe(filtro.area, "primaria") : [];
+  const anteriores = filtro.nivel === "secundaria" ? await temasDeConBanco(filtro.area, "primaria") : [];
   return [...anteriores, ...propios].filter((t) => posicionTema(t) <= pos || filtro.desbloqueados?.has(t.clave));
 }
 
@@ -114,12 +115,12 @@ function validarEntrada(entrada: unknown) {
 
 /** Prerrequisitos existentes (globales o del colegio), de grado igual o menor, y fuente acordada (registrada por B). */
 async function validarReferencias(ctx: TenantContext, d: z.infer<typeof esquemaTemaColegioEntrada>, idPropio?: string) {
-  if (!fuenteConocida(d.fuente)) throw new ErrorDeNegocio("La fuente de ejercicios no existe.");
+  if (!fuenteConocida(d.fuente) || (d.fuente.tipo === "banco" && d.fuente.bancoId === "mat.banco")) throw new ErrorDeNegocio("La fuente de ejercicios no existe.");
   const pos = posicionGrado(d.nivel, d.grado);
   const idsColegio = d.prerrequisitos.filter((c) => c.startsWith(PREFIJO_TEMA_COLEGIO)).map((c) => c.slice(PREFIJO_TEMA_COLEGIO.length));
   const delColegio = idsColegio.length > 0 ? await ctx.db.nuditoTemaColegio.findMany({ where: { id: { in: idsColegio } } }) : [];
   for (const clave of d.prerrequisitos) {
-    const t = clave.startsWith(PREFIJO_TEMA_COLEGIO) ? delColegio.find((f) => `${PREFIJO_TEMA_COLEGIO}${f.id}` === clave) : temaPorClave(clave);
+    const t = clave.startsWith(PREFIJO_TEMA_COLEGIO) ? delColegio.find((f) => `${PREFIJO_TEMA_COLEGIO}${f.id}` === clave) : await temaPorClaveConBanco(clave);
     if (!t || t.area !== d.area) throw new ErrorDeNegocio("Un prerrequisito no existe en el área.");
     if (posicionGrado(t.nivel as NivelNudito, t.grado) > pos) throw new ErrorDeNegocio("Un prerrequisito es de un grado superior.");
   }

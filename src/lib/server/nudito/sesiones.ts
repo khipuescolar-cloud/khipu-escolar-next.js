@@ -24,6 +24,7 @@ import {
   type Tema,
   type TemaVista,
 } from "@/lib/nudito/contratos";
+import { ejercicioDelBanco, fichaPorClave } from "@/lib/nudito/conocimiento/servidor";
 import { primerNombre } from "@/lib/nombres";
 import { ErrorDeNegocio } from "../contexto-accion";
 import { conversar, MENSAJE_PROVEEDOR_CAIDO } from "../nudito-plus/conversar";
@@ -209,6 +210,9 @@ export async function pedirRepaso(ctx: TenantContext, acceso: AccesoNudito, entr
   const tema = await temaDeSesion(ctx, sesion, nivel);
   await ctx.db.nuditoSesion.update({ where: { id: sesion.id }, data: { fase: sesion.fase === "bienvenida" || sesion.fase === "tema" ? "repaso" : sesion.fase, ultimaActividadAt: new Date() } });
   const leccion = await ctx.db.nuditoLeccion.findFirst({ where: { temaClave: tema.clave, estado: "publicada" }, orderBy: { version: "desc" }, select: { contenido: true, version: true } });
+  const ficha = leccion ? null : await fichaPorClave(tema.clave);
+  if (!leccion && !ficha) throw new ErrorDeNegocio("Tu colegio está preparando este tema.");
+  if (ficha) return { idea: ficha.ideaCentral, ejemplo: ficha.ejemplos.map(e => e.situacion + " " + e.desarrollo).join("\n"), explicacion: ficha.pasos.join("\n"), recursos: [] };
   if (!leccion) throw new ErrorDeNegocio("Tu colegio está preparando este tema.");
   const contenido = esquemaLeccion.parse(leccion.contenido);
   const base = { idea: contenido.idea, ejemplo: contenido.ejemplos.map(e => `${e.enunciado} ${e.desarrollo}`).join("\n"), explicacion: contenido.explicacion, recursos: contenido.recursos };
@@ -260,7 +264,7 @@ export async function siguienteEjercicio(ctx: TenantContext, acceso: AccesoNudit
   const semilla = azar(sesion.semilla + orden * 7919).entero(0, 0x7fffffff);
   // B: generador, banco o lecturas según la fuente del tema; sin repetir ítems de esta sesión.
   const usados = (await ctx.db.nuditoEjercicio.findMany({ where: { sesionId: sesion.id }, select: { fuenteId: true } })).map((e) => e.fuenteId);
-  const ejercicio = esquemaEjercicioConSolucion.parse(ejercicioPara(tema, dificultad, semilla, usados));
+  const ejercicio = esquemaEjercicioConSolucion.parse((await ejercicioDelBanco(tema, dificultad, semilla, usados)) ?? ejercicioPara(tema, dificultad, semilla, usados));
   const solucion: SolucionGuardada = { solucion: ejercicio.solucion, pistas: ejercicio.pistas, explicacion: ejercicio.explicacion };
   try {
     const fila = await ctx.db.nuditoEjercicio.create({
@@ -326,7 +330,7 @@ export async function responder(ctx: TenantContext, acceso: AccesoNudito, entrad
   const { nivel, grado } = await datosDelSalon(ctx, acceso);
   const temaActual = fila.sesion.area ? await temaDelArea(ctx.db, fila.sesion.area as AreaNudito, nivel, fila.temaClave) : null;
   const contexto = temaActual ? await contextoDominio(ctx.db, acceso.alumno.id, temaActual) : undefined;
-  const desbloqueables = temaActual ? temasQueDesbloquea(temaActual.area, temaActual.clave, nivel, grado) : [];
+  const desbloqueables = temaActual ? await temasQueDesbloquea(temaActual.area, temaActual.clave, nivel, grado) : [];
 
   let cambioDominio: { estado: EstadoDominio; motivo: string } | undefined;
   try {

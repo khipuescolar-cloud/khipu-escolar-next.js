@@ -61,8 +61,12 @@ dos primeras no revelan el resultado) y una explicación paso a paso. Alias temp
 - Fracción: equivalentes si `aceptarEquivalentes`; si `pideSimplificar` y no está simplificada → `parcial` (0,5,
   `no_simplifica`); equivalente pero se pedía otra forma → `parcial`; invertida, denominador 0, numerador/denominador errado.
 - Texto corto flexible: sin mayúsculas, tildes, puntuación ni espacios extra; acepta respuestas que contienen todas las palabras
-  de contenido de una aceptada («Fue con su abuela» ⊇ «abuela») y una letra de diferencia. Estricta: conserva tildes (si solo
-  coincide sin tildes → `parcial`, `ortografia`).
+  de contenido de una aceptada («Fue con su abuela» ⊇ «abuela») y un error de tipeo: misma frase con una letra distinta
+  en **una** palabra de 6+ letras (2 si tiene 9+); nunca en números ni palabras cortas («menor» ≠ «mayor», «2, 3, 6» ≠
+  «2, 3, 5»). Estricta: conserva tildes (si solo coincide sin tildes → `parcial`, `ortografia`).
+- Texto corto literal (ejercicios del banco de conocimiento, specs/50): ignora mayúsculas, tildes, espacios y el punto final,
+  pero conserva números, orden y signos («5÷30» ≠ «30÷5», «3+3+3» ≠ «3+3+3+3»); admite el mismo error de tipeo. Las
+  variantes válidas se escriben en `alternativasAceptadas`.
 - Lectura: puntaje parcial por pregunta (texto flexible en las abiertas); retro por tipo de pregunta.
 - Relacionar y VF: parcial por par/afirmación; en VF se muestra la justificación de las falladas.
 - Respuesta de otro tipo → `incorrecto` (`tipo_de_respuesta`), sin lanzar.

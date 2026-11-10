@@ -1,0 +1,1442 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "comunicacion",
+  "nivel": "secundaria",
+  "grado": 2,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Secundaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+    },
+    {
+      "titulo": "Cuaderno de trabajo de Comunicación, Comprensión lectora 2, segundo grado de Secundaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7834"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 7,
+      "nombre": "Se comunica oralmente en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Obtiene información del texto oral",
+          "bloques": [
+            {
+              "nombre": "Comprensión de textos orales",
+              "temas": [
+                {
+                  "clave": "com.s2.informacion-contrapuesta-en-un-debate",
+                  "nombre": "Información contrapuesta en un debate",
+                  "disciplina": "oralidad",
+                  "descripcion": "Recupera y ordena los datos que defiende cada participante cuando sus posturas se oponen.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "com.s2.sesgos-en-lo-que-se-escucha",
+                  "nombre": "Sesgos en una noticia o comentario oral",
+                  "disciplina": "oralidad",
+                  "descripcion": "Reconoce cuándo un hablante presenta solo una parte de los hechos para favorecer una postura.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-01",
+                    "COM-C7-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.informacion-contrapuesta-en-un-debate"
+                  ],
+                  "ordenSugerido": 19
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Infiere e interpreta información del texto oral",
+          "bloques": [
+            {
+              "nombre": "Comprensión de textos orales",
+              "temas": [
+                {
+                  "clave": "com.s2.sintetizar-un-texto-oral",
+                  "nombre": "Sintetizar las ideas de un texto oral",
+                  "disciplina": "oralidad",
+                  "descripcion": "Clasifica y resume en pocas líneas las ideas de la transcripción de una charla o un programa.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "com.s2.figuras-y-doble-sentido-en-el-habla",
+                  "nombre": "Símil y doble sentido en el habla cotidiana",
+                  "disciplina": "oralidad",
+                  "descripcion": "Interpreta comparaciones, ironías leves y dobles sentidos en diálogos y entrevistas.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-03",
+                    "COM-C7-S2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 20
+                },
+                {
+                  "clave": "com.s2.conclusiones-de-un-texto-oral",
+                  "nombre": "Conclusiones a partir de una charla o un programa",
+                  "disciplina": "oralidad",
+                  "descripcion": "Establece conclusiones relacionando lo escuchado con su experiencia y su contexto.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.sintetizar-un-texto-oral"
+                  ],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "com.s2.estrategias-discursivas-del-hablante",
+                  "nombre": "Estrategias discursivas del hablante",
+                  "disciplina": "oralidad",
+                  "descripcion": "Explica cómo un hablante usa preguntas, ejemplos o anécdotas para lograr su propósito.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.sintetizar-un-texto-oral"
+                  ],
+                  "ordenSugerido": 54
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Adecúa, organiza y desarrolla las ideas de forma coherente y cohesionada",
+          "bloques": [
+            {
+              "nombre": "Expresión oral",
+              "temas": [
+                {
+                  "clave": "com.s2.variedades-sociales-y-jergas",
+                  "nombre": "Variedades sociales del castellano: jergas y argot",
+                  "disciplina": "oralidad",
+                  "descripcion": "Reconoce el habla juvenil, las jergas profesionales y cuándo es adecuado usarlas.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "com.s2.adecuar-el-discurso-al-genero",
+                  "nombre": "Adecuar lo que se dice al género oral",
+                  "disciplina": "oralidad",
+                  "descripcion": "Ajusta el lenguaje según sea un debate, un discurso, una mesa redonda o una conversación.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.variedades-sociales-y-jergas"
+                  ],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "com.s2.discurso-persuasivo",
+                  "nombre": "El discurso persuasivo",
+                  "disciplina": "oralidad",
+                  "descripcion": "Prepara un discurso breve con una postura, razones y una apelación al público.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-06",
+                    "COM-C7-S2-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "com.s2.exposicion-con-fuentes-citadas",
+                  "nombre": "Exposición oral citando fuentes",
+                  "disciplina": "oralidad",
+                  "descripcion": "Ordena una exposición en subtemas y menciona de dónde obtuvo la información.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 55
+                },
+                {
+                  "clave": "com.s2.guion-para-narrar-con-suspenso",
+                  "nombre": "Guion para narrar oralmente con suspenso",
+                  "disciplina": "oralidad",
+                  "descripcion": "Prepara por escrito la narración de un relato marcando pausas, cambios de voz y momentos de tensión.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-06",
+                    "COM-C7-S2-07"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.gestos-que-enfatizan-o-atenuan"
+                  ],
+                  "ordenSugerido": 57
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Utiliza recursos no verbales y paraverbales de forma estratégica",
+          "bloques": [
+            {
+              "nombre": "Expresión oral",
+              "temas": [
+                {
+                  "clave": "com.s2.gestos-que-enfatizan-o-atenuan",
+                  "nombre": "Gestos y tono que enfatizan o atenúan lo que se dice",
+                  "disciplina": "oralidad",
+                  "descripcion": "Explica, a partir de ejemplos escritos, cómo los gestos y el tono pueden reforzar o suavizar un mensaje.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 56
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Interactúa estratégicamente con distintos interlocutores",
+          "bloques": [
+            {
+              "nombre": "Interacción oral",
+              "temas": [
+                {
+                  "clave": "com.s2.debate-roles-y-reglas",
+                  "nombre": "Preparar la postura de un equipo para el debate",
+                  "disciplina": "oralidad",
+                  "descripcion": "Organiza con su equipo la postura, los argumentos y las posibles réplicas antes de debatir.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "com.s2.el-foro",
+                  "nombre": "El foro: preguntar y aportar",
+                  "disciplina": "oralidad",
+                  "descripcion": "Participa en un foro con preguntas pertinentes y aportes que amplían el tema.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "com.s2.mesa-redonda",
+                  "nombre": "Mesa redonda: preparar una intervención como especialista",
+                  "disciplina": "oralidad",
+                  "descripcion": "Expone un punto de vista sobre un tema común y escucha el de otros especialistas.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-08"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.debate-roles-y-reglas"
+                  ],
+                  "ordenSugerido": 58
+                },
+                {
+                  "clave": "com.s2.retomar-lo-dicho-por-otros",
+                  "nombre": "Retomar lo dicho por otros para argumentar",
+                  "disciplina": "oralidad",
+                  "descripcion": "Usa frases como «como dijo…» o «a diferencia de…» para construir sobre lo que dijeron otros.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-08"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.debate-roles-y-reglas"
+                  ],
+                  "ordenSugerido": 59
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto oral",
+          "bloques": [
+            {
+              "nombre": "Reflexión sobre textos orales",
+              "temas": [
+                {
+                  "clave": "com.s2.creencias-y-valores-en-textos-orales",
+                  "nombre": "Creencias y valores en canciones, discursos y programas",
+                  "disciplina": "oralidad",
+                  "descripcion": "Identifica creencias y valores que transmite un texto oral y justifica su postura.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-09"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 60
+                },
+                {
+                  "clave": "com.s2.evaluar-un-debate",
+                  "nombre": "Evaluar la pertinencia de los argumentos de un debate",
+                  "disciplina": "oralidad",
+                  "descripcion": "Valora si las estrategias discursivas y los argumentos de los participantes fueron adecuados y coherentes.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-10"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.mesa-redonda"
+                  ],
+                  "ordenSugerido": 83
+                },
+                {
+                  "clave": "com.s2.confiabilidad-de-la-informacion-en-medios",
+                  "nombre": "Confiabilidad de la información en medios y redes",
+                  "disciplina": "oralidad",
+                  "descripcion": "Distingue fuentes fiables de rumores y noticias falsas contrastando con otras fuentes.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-10"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.sesgos-en-lo-que-se-escucha"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "com.s2.persuasion-en-anuncios-de-radio-y-tv",
+                  "nombre": "Persuasión en anuncios de radio y televisión",
+                  "disciplina": "oralidad",
+                  "descripcion": "Analiza cómo los anuncios combinan palabras, música y voces para persuadir.",
+                  "desempenosOrigen": [
+                    "COM-C7-S2-10",
+                    "COM-C7-S2-09"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 85
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "nombre": "Lee diversos tipos de textos escritos en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Obtiene información del texto escrito",
+          "bloques": [
+            {
+              "nombre": "Obtención de información",
+              "temas": [
+                {
+                  "clave": "com.s2.lectura-de-textos-con-posturas-opuestas",
+                  "nombre": "Leer textos con posturas opuestas",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Identifica los datos y razones que da cada texto cuando defienden posturas contrarias.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "com.s2.tomar-notas-y-fichas-de-lectura",
+                  "nombre": "Fichas bibliográficas y de cita textual",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Registra información relevante en fichas de resumen y de cita textual con su fuente.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-01",
+                    "COM-C8-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 26
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Infiere e interpreta información del texto",
+          "bloques": [
+            {
+              "nombre": "Tema, ideas y síntesis",
+              "temas": [
+                {
+                  "clave": "com.s2.jerarquizar-ideas-de-un-texto",
+                  "nombre": "Jerarquizar ideas principales y secundarias de un texto",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Ordena las ideas de un texto largo en niveles de importancia.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "com.s2.parafrasis",
+                  "nombre": "La paráfrasis",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Expresa con sus palabras el sentido de un fragmento sin alterar su contenido.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.jerarquizar-ideas-de-un-texto"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "com.s2.mapa-mental-y-cuadro-comparativo",
+                  "nombre": "Mapa mental y cuadro comparativo",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Organiza la información de uno o varios textos en un mapa mental o un cuadro comparativo.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.jerarquizar-ideas-de-un-texto"
+                  ],
+                  "ordenSugerido": 28
+                }
+              ]
+            },
+            {
+              "nombre": "Inferencias",
+              "temas": [
+                {
+                  "clave": "com.s2.inferencias-y-relaciones",
+                  "nombre": "Inferencias en textos argumentativos",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Deduce relaciones lógicas y lo que el autor da por supuesto en un texto de opinión.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "com.s2.intencion-del-autor",
+                  "nombre": "Intención del autor y estereotipos",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Explica la intención del autor, los puntos de vista y los estereotipos que aparecen en el texto.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.inferencias-y-relaciones"
+                  ],
+                  "ordenSugerido": 29
+                },
+                {
+                  "clave": "com.s2.leer-graficos-estadisticos",
+                  "nombre": "Leer gráficos de barras, líneas y sectores",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Interpreta qué información aportan los gráficos que acompañan a un texto.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04",
+                    "COM-C8-S2-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 30
+                }
+              ]
+            },
+            {
+              "nombre": "Vocabulario y semántica",
+              "temas": [
+                {
+                  "clave": "com.s2.polisemia",
+                  "nombre": "Polisemia",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Determina cuál de los significados de una palabra polisémica corresponde al contexto.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "com.s2.hiperonimos-e-hiponimos",
+                  "nombre": "Hiperónimos para resumir y cohesionar",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Usa palabras de significado general para resumir enumeraciones y evitar repeticiones.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.polisemia"
+                  ],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "com.s2.analogias-verbales",
+                  "nombre": "Analogías verbales",
+                  "disciplina": "razonamiento-verbal",
+                  "descripcion": "Identifica la relación entre un par de palabras y encuentra otro par con la misma relación.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.hiperonimos-e-hiponimos"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "com.s2.refranes-y-expresiones-idiomaticas",
+                  "nombre": "Refranes peruanos y su sentido",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Explica el sentido figurado de refranes y frases hechas en textos y diálogos.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 61
+                }
+              ]
+            },
+            {
+              "nombre": "Narrativa literaria",
+              "temas": [
+                {
+                  "clave": "com.s2.tipos-de-narrador",
+                  "nombre": "Tipos de narrador: protagonista, testigo y omnisciente",
+                  "disciplina": "literatura",
+                  "descripcion": "Identifica quién cuenta la historia y cómo cambia lo que sabe el lector.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "com.s2.conflicto-y-climax",
+                  "nombre": "Conflicto y clímax del relato",
+                  "disciplina": "literatura",
+                  "descripcion": "Identifica el conflicto que mueve la historia y el momento de mayor tensión.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.tipos-de-narrador"
+                  ],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "com.s2.evolucion-de-los-personajes",
+                  "nombre": "Evolución de los personajes en el relato",
+                  "disciplina": "literatura",
+                  "descripcion": "Explica cómo cambia un personaje a lo largo de la historia y por qué.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.tipos-de-narrador"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "com.s2.la-novela",
+                  "nombre": "La novela: capítulos, trama principal y secundarias",
+                  "disciplina": "literatura",
+                  "descripcion": "Reconoce los rasgos de la novela y sigue tramas paralelas en fragmentos.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04",
+                    "COM-C8-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.evolucion-de-los-personajes"
+                  ],
+                  "ordenSugerido": 62
+                },
+                {
+                  "clave": "com.s2.cuento-fantastico-y-de-terror",
+                  "nombre": "El cuento fantástico y de terror",
+                  "disciplina": "literatura",
+                  "descripcion": "Reconoce lo sobrenatural, la atmósfera y el suspenso en relatos fantásticos.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.tipos-de-narrador"
+                  ],
+                  "ordenSugerido": 63
+                }
+              ]
+            },
+            {
+              "nombre": "Recursos literarios y lírica",
+              "temas": [
+                {
+                  "clave": "com.s2.el-simil",
+                  "nombre": "El símil o comparación",
+                  "disciplina": "literatura",
+                  "descripcion": "Reconoce comparaciones con como, cual o semejante a y explica qué rasgo comparten.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 10
+                },
+                {
+                  "clave": "com.s2.anafora-y-aliteracion",
+                  "nombre": "Anáfora y aliteración",
+                  "disciplina": "literatura",
+                  "descripcion": "Identifica la repetición de palabras al inicio de versos y de sonidos, y su efecto.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.el-simil"
+                  ],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "com.s2.metrica-silabas-y-sinalefa",
+                  "nombre": "Métrica: sílabas métricas y sinalefa",
+                  "disciplina": "literatura",
+                  "descripcion": "Cuenta las sílabas de un verso aplicando sinalefa y la ley del acento final.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "com.s2.rima-consonante-y-asonante",
+                  "nombre": "Esquema de rima: consonante, asonante y verso blanco",
+                  "disciplina": "literatura",
+                  "descripcion": "Distingue los tipos de rima y representa el esquema de rima de un poema.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.metrica-silabas-y-sinalefa"
+                  ],
+                  "ordenSugerido": 65
+                },
+                {
+                  "clave": "com.s2.estructura-de-la-obra-dramatica",
+                  "nombre": "Actos, escenas y cuadros de la obra dramática",
+                  "disciplina": "literatura",
+                  "descripcion": "Reconoce cómo se divide una obra de teatro y cómo progresa el conflicto.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04",
+                    "COM-C8-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.evolucion-de-los-personajes"
+                  ],
+                  "ordenSugerido": 86
+                },
+                {
+                  "clave": "com.s2.epopeya-y-cantar-de-gesta",
+                  "nombre": "La épica: epopeya y cantar de gesta",
+                  "disciplina": "literatura",
+                  "descripcion": "Reconoce al héroe épico y los rasgos de la narración en verso de hazañas.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-04",
+                    "COM-C8-S2-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 87
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto",
+          "bloques": [
+            {
+              "nombre": "Argumentación en la lectura",
+              "temas": [
+                {
+                  "clave": "com.s2.tesis-y-argumentos",
+                  "nombre": "Tesis explícita e implícita en textos de opinión",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Identifica la postura del autor, aunque no esté escrita, y las razones que la sostienen.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "com.s2.tipos-de-argumentos",
+                  "nombre": "Pertinencia y suficiencia de los argumentos",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Evalúa si las razones de un texto se relacionan con la tesis y si bastan para sostenerla.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.tesis-y-argumentos"
+                  ],
+                  "ordenSugerido": 35
+                },
+                {
+                  "clave": "com.s2.texto-expositivo-comparativo",
+                  "nombre": "Texto expositivo de comparación y contraste",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Reconoce cómo el texto organiza semejanzas y diferencias entre dos temas.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-06",
+                    "COM-C8-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "com.s2.articulo-de-opinion",
+                  "nombre": "El artículo de opinión",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Analiza la estructura y el propósito de un artículo de opinión periodístico.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-05",
+                    "COM-C8-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.tipos-de-argumentos"
+                  ],
+                  "ordenSugerido": 66
+                },
+                {
+                  "clave": "com.s2.texto-expositivo-problema-solucion",
+                  "nombre": "Texto expositivo de causa-efecto",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Identifica la estructura de textos que explican causas y consecuencias de un fenómeno.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-06",
+                    "COM-C8-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.texto-expositivo-comparativo"
+                  ],
+                  "ordenSugerido": 67
+                }
+              ]
+            },
+            {
+              "nombre": "Valoración del texto",
+              "temas": [
+                {
+                  "clave": "com.s2.valoro-el-texto",
+                  "nombre": "Evalúo la confiabilidad de un texto",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Juzga si la información es confiable según su autor, su fecha, sus fuentes y su propósito.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "com.s2.eficacia-de-los-recursos-textuales",
+                  "nombre": "Eficacia de títulos, imágenes y gráficos en un texto",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Evalúa si los recursos textuales ayudan a transmitir la información al lector.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-05"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.leer-graficos-estadisticos"
+                  ],
+                  "ordenSugerido": 68
+                },
+                {
+                  "clave": "com.s2.entrevista-periodistica",
+                  "nombre": "La entrevista periodística escrita",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Reconoce la presentación del entrevistado, las preguntas y las respuestas, y su propósito.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-06",
+                    "COM-C8-S2-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 69
+                },
+                {
+                  "clave": "com.s2.creencias-y-valores-en-los-textos",
+                  "nombre": "Creencias y valores en los textos",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Sustenta su posición sobre las creencias y valores que transmite un texto.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-06"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.intencion-del-autor"
+                  ],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "com.s2.estereotipos-de-genero-en-la-publicidad",
+                  "nombre": "Estereotipos de género en la publicidad",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Identifica roles asignados a hombres y mujeres en avisos y sustenta su posición.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-06",
+                    "COM-C8-S2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "com.s2.comparar-autores-y-generos",
+                  "nombre": "Contrastar autores, tipos textuales y géneros",
+                  "disciplina": "comprension-lectora",
+                  "descripcion": "Compara dos textos y explica en qué se parecen sus autores, su tipo textual y su género.",
+                  "desempenosOrigen": [
+                    "COM-C8-S2-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 90
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 9,
+      "nombre": "Escribe diversos tipos de textos en su lengua materna",
+      "capacidades": [
+        {
+          "nombre": "Adecúa el texto a la situación comunicativa",
+          "bloques": [
+            {
+              "nombre": "Planificación",
+              "temas": [
+                {
+                  "clave": "com.s2.adecuar-registro-al-destinatario",
+                  "nombre": "Adecuar el registro al destinatario y al género",
+                  "disciplina": "escritura",
+                  "descripcion": "Ajusta vocabulario y tratamiento según el lector y el tipo de documento.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "com.s2.citar-fuentes-al-escribir",
+                  "nombre": "Citas directas e indirectas",
+                  "disciplina": "escritura",
+                  "descripcion": "Incluye citas textuales y referencias de las fuentes que consultó.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "com.s2.guion-radial",
+                  "nombre": "Guion de un programa radial",
+                  "disciplina": "escritura",
+                  "descripcion": "Organiza por escrito un segmento de radio con locutores, música y tiempos.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "com.s2.entrada-de-blog",
+                  "nombre": "Escribir una entrada de blog o publicación digital",
+                  "disciplina": "escritura",
+                  "descripcion": "Adapta un texto al soporte digital con título, enlaces, imágenes y lenguaje adecuado.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.adecuar-registro-al-destinatario"
+                  ],
+                  "ordenSugerido": 91
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Organiza y desarrolla las ideas de forma coherente y cohesionada",
+          "bloques": [
+            {
+              "nombre": "Escritura por tipo de texto",
+              "temas": [
+                {
+                  "clave": "com.s2.escribo-un-texto-argumentativo",
+                  "nombre": "Escribo un texto argumentativo de varios párrafos",
+                  "disciplina": "escritura",
+                  "descripcion": "Redacta un texto con tesis, al menos dos argumentos y una conclusión.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-02",
+                    "COM-C9-S2-01"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.desarrollar-un-argumento"
+                  ],
+                  "ordenSugerido": 40
+                },
+                {
+                  "clave": "com.s2.carta-de-solicitud",
+                  "nombre": "Carta formal a una institución",
+                  "disciplina": "escritura",
+                  "descripcion": "Redacta una carta formal de presentación, invitación o agradecimiento con sus partes y fórmulas de cortesía.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-01",
+                    "COM-C9-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.adecuar-registro-al-destinatario"
+                  ],
+                  "ordenSugerido": 41
+                },
+                {
+                  "clave": "com.s2.escribir-una-resena",
+                  "nombre": "Escribir una reseña crítica de una película o serie",
+                  "disciplina": "escritura",
+                  "descripcion": "Resume y valora un libro o una película con argumentos.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 70
+                },
+                {
+                  "clave": "com.s2.texto-sobre-una-costumbre",
+                  "nombre": "Texto expositivo sobre una costumbre de mi comunidad",
+                  "disciplina": "escritura",
+                  "descripcion": "Describe y explica el origen y el sentido de una costumbre local con información de fuentes y testimonios.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-02",
+                    "COM-C9-S2-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "com.s2.escribir-un-texto-expositivo-comparativo",
+                  "nombre": "Escribir un texto expositivo comparativo",
+                  "disciplina": "escritura",
+                  "descripcion": "Redacta un texto que compara dos temas con conectores de semejanza y diferencia.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "com.s2.escribir-un-relato-fantastico",
+                  "nombre": "Escribir un relato fantástico",
+                  "disciplina": "escritura",
+                  "descripcion": "Crea un relato con un elemento sobrenatural, narrador definido y atmósfera de suspenso.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-02",
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 92
+                },
+                {
+                  "clave": "com.s2.poema-con-simil-y-rima",
+                  "nombre": "Escribir un poema con símiles y rima",
+                  "disciplina": "escritura",
+                  "descripcion": "Compone estrofas con rima y comparaciones que caractericen un ser o un paisaje.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 93
+                }
+              ]
+            },
+            {
+              "nombre": "Coherencia y cohesión",
+              "temas": [
+                {
+                  "clave": "com.s2.desarrollar-un-argumento",
+                  "nombre": "Desarrollar un párrafo argumentativo",
+                  "disciplina": "escritura",
+                  "descripcion": "Escribe un párrafo con una afirmación, una razón y una prueba.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "com.s2.cohesion-y-referentes",
+                  "nombre": "Referentes: anáfora, catáfora y elipsis",
+                  "disciplina": "escritura",
+                  "descripcion": "Usa referentes que remiten a lo dicho, anticipan lo que se dirá o lo omiten sin perder claridad.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "com.s2.parrafos-de-introduccion-y-cierre",
+                  "nombre": "Párrafos de introducción y de cierre",
+                  "disciplina": "escritura",
+                  "descripcion": "Escribe introducciones que presentan el tema y cierres que concluyen sin repetir.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.desarrollar-un-argumento"
+                  ],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "com.s2.conectores-de-simultaneidad-y-tiempo",
+                  "nombre": "Conectores de simultaneidad y de tiempo",
+                  "disciplina": "escritura",
+                  "descripcion": "Usa mientras, a la vez, entretanto, al mismo tiempo para relacionar hechos.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "com.s2.conectores-de-causa-y-de-adicion",
+                  "nombre": "Conectores de causa y de adición en la argumentación",
+                  "disciplina": "escritura",
+                  "descripcion": "Usa porque, ya que, puesto que, además y asimismo para sumar razones.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.conectores-de-simultaneidad-y-tiempo"
+                  ],
+                  "ordenSugerido": 44
+                },
+                {
+                  "clave": "com.s2.terminos-tecnicos-y-precision",
+                  "nombre": "Términos técnicos y precisión léxica",
+                  "disciplina": "escritura",
+                  "descripcion": "Sustituye palabras generales (cosa, hacer, poner) por términos precisos del tema.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 73
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Utiliza convenciones del lenguaje escrito de forma pertinente",
+          "bloques": [
+            {
+              "nombre": "Categorías gramaticales",
+              "temas": [
+                {
+                  "clave": "com.s2.pronombres-relativos-e-interrogativos",
+                  "nombre": "Pronombres relativos, interrogativos y exclamativos",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Reconoce que, quien, cual, cuyo y sus usos interrogativos y exclamativos.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "com.s2.modo-del-verbo",
+                  "nombre": "Subjuntivo e imperativo: usos y errores frecuentes",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Usa el subjuntivo y el imperativo según la actitud del hablante y corrige formas como «haiga» o «salgan» por «salid».",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 16
+                },
+                {
+                  "clave": "com.s2.tiempos-compuestos-y-conjugacion",
+                  "nombre": "Verbos irregulares de conjugación dudosa",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Conjuga verbos como andar, prever, satisfacer, conducir y caber sin formas incorrectas.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.modo-del-verbo"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "com.s2.verboides",
+                  "nombre": "Verboides: infinitivo, gerundio y participio",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Reconoce las formas no personales del verbo y evita el gerundio de posterioridad.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.tiempos-compuestos-y-conjugacion"
+                  ],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "com.s2.perifrasis-verbales",
+                  "nombre": "Perífrasis verbales de obligación, inicio y probabilidad",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Reconoce construcciones como ir a + infinitivo o tener que + infinitivo y su significado.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.verboides"
+                  ],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "com.s2.locuciones-adverbiales-y-prepositivas",
+                  "nombre": "Locuciones adverbiales y prepositivas",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Reconoce grupos de palabras que funcionan como un adverbio o una preposición.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "com.s2.errores-con-preposiciones",
+                  "nombre": "Errores frecuentes con preposiciones",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Corrige usos como «en base a», «a nivel de» o «de acuerdo a» según el contexto.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.locuciones-adverbiales-y-prepositivas"
+                  ],
+                  "ordenSugerido": 94
+                }
+              ]
+            },
+            {
+              "nombre": "Complementos y clases de oración",
+              "temas": [
+                {
+                  "clave": "com.s2.objeto-directo-e-indirecto",
+                  "nombre": "Complementos directo e indirecto con pronombres átonos",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Reconoce el objeto directo y el indirecto en oraciones complejas y los sustituye por lo, la, le sin errores.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "com.s2.complementos-circunstanciales",
+                  "nombre": "Complementos circunstanciales",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Reconoce complementos de lugar, tiempo, modo, causa, finalidad y compañía.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.objeto-directo-e-indirecto"
+                  ],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "com.s2.atributo-y-predicativo",
+                  "nombre": "Atributo y complemento predicativo",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Distingue el atributo de las oraciones copulativas del predicativo.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.complementos-circunstanciales"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "com.s2.oracion-copulativa-y-predicativa",
+                  "nombre": "Oraciones copulativas y predicativas; transitivas e intransitivas",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Clasifica la oración simple según su predicado.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.atributo-y-predicativo"
+                  ],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "com.s2.oracion-segun-la-actitud-del-hablante",
+                  "nombre": "Oraciones según la actitud del hablante",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Clasifica oraciones en enunciativas, interrogativas, exclamativas, desiderativas, dubitativas e imperativas.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.modo-del-verbo"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "com.s2.voz-activa-y-voz-pasiva",
+                  "nombre": "Transformar oraciones de voz activa a pasiva",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Transforma oraciones de activa a pasiva y reconoce la pasiva refleja.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.objeto-directo-e-indirecto"
+                  ],
+                  "ordenSugerido": 95
+                },
+                {
+                  "clave": "com.s2.oraciones-impersonales",
+                  "nombre": "Oraciones impersonales",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Reconoce oraciones sin sujeto: de fenómenos naturales, con haber, hacer y se.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.oracion-copulativa-y-predicativa"
+                  ],
+                  "ordenSugerido": 96
+                }
+              ]
+            },
+            {
+              "nombre": "Etimología y formación de palabras",
+              "temas": [
+                {
+                  "clave": "com.s2.raices-griegas",
+                  "nombre": "Raíces griegas en el vocabulario académico",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Deduce el significado de palabras como biología o democracia por sus raíces griegas.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03",
+                    "COM-C9-S2-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 49
+                },
+                {
+                  "clave": "com.s2.raices-latinas",
+                  "nombre": "Raíces latinas en el vocabulario académico",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Deduce el significado de palabras por sus raíces y prefijos latinos.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03",
+                    "COM-C9-S2-02"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.raices-griegas"
+                  ],
+                  "ordenSugerido": 79
+                },
+                {
+                  "clave": "com.s2.siglas-acronimos-y-abreviaturas",
+                  "nombre": "Escritura de siglas y abreviaturas usuales",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Escribe correctamente siglas, acrónimos y abreviaturas usuales.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 97
+                }
+              ]
+            },
+            {
+              "nombre": "Ortografía y puntuación",
+              "temas": [
+                {
+                  "clave": "com.s2.tilde-en-hiatos",
+                  "nombre": "Tilde en hiatos y en monosílabos ortográficos",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Tilda hiatos con vocal cerrada tónica y escribe sin tilde monosílabos ortográficos como guion, truhan o fie.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 17
+                },
+                {
+                  "clave": "com.s2.punto-y-coma",
+                  "nombre": "Punto y coma en enumeraciones complejas y entre oraciones",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Usa punto y coma en enumeraciones complejas y antes de conectores en oraciones largas.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 18
+                },
+                {
+                  "clave": "com.s2.tilde-diacritica-en-interrogativos-y-exclamativos",
+                  "nombre": "Tilde diacrítica en interrogativos y exclamativos",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Tilda qué, quién, cómo, cuándo, dónde y cuánto en preguntas y exclamaciones directas e indirectas.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.tilde-en-hiatos"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "com.s2.coma-con-conectores",
+                  "nombre": "Coma en complementos circunstanciales antepuestos",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Coloca coma tras complementos circunstanciales extensos al inicio de la oración.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.punto-y-coma"
+                  ],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "com.s2.uso-de-g-y-j",
+                  "nombre": "Uso de g y j en verbos irregulares y raíces",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Escribe con j los pretéritos de decir y traer y con g las raíces geo-, -logía y -gen.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "com.s2.comillas-parentesis-y-raya",
+                  "nombre": "La raya en diálogos e incisos y las comillas en citas",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Usa comillas para citas, paréntesis y raya para incisos y la raya en diálogos.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 80
+                },
+                {
+                  "clave": "com.s2.uso-de-h",
+                  "nombre": "Uso de h en prefijos y raíces griegas",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Escribe con h palabras formadas con hidro-, hiper-, hipo-, hemi-, hetero- y homo-, y deduce su significado.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.uso-de-g-y-j"
+                  ],
+                  "ordenSugerido": 81
+                },
+                {
+                  "clave": "com.s2.uso-de-ll-e-y",
+                  "nombre": "Uso de ll e y",
+                  "disciplina": "lenguaje",
+                  "descripcion": "Aplica las reglas de ll e y y diferencia homófonos como halla, haya y aya.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [
+                    "com.s2.uso-de-h"
+                  ],
+                  "ordenSugerido": 98
+                }
+              ]
+            },
+            {
+              "nombre": "Recursos de estilo",
+              "temas": [
+                {
+                  "clave": "com.s2.simil-para-caracterizar",
+                  "nombre": "Usar el símil para caracterizar personajes y escenarios",
+                  "disciplina": "escritura",
+                  "descripcion": "Escribe comparaciones originales para describir y producir un efecto en el lector.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 99
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Reflexiona y evalúa la forma, el contenido y contexto del texto escrito",
+          "bloques": [
+            {
+              "nombre": "Revisión",
+              "temas": [
+                {
+                  "clave": "com.s2.revisar-la-progresion-del-argumento",
+                  "nombre": "Revisar la progresión de las ideas en un argumento",
+                  "disciplina": "escritura",
+                  "descripcion": "Comprueba que cada párrafo aporte información nueva sin contradecir la tesis.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 53
+                },
+                {
+                  "clave": "com.s2.corregir-errores-de-concordancia",
+                  "nombre": "Corregir errores de concordancia verbal y nominal",
+                  "disciplina": "escritura",
+                  "descripcion": "Detecta y corrige desajustes de género, número y persona en sus textos.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 82
+                },
+                {
+                  "clave": "com.s2.coevaluacion-de-textos",
+                  "nombre": "Coevaluar un texto argumentativo",
+                  "disciplina": "escritura",
+                  "descripcion": "Revisa el texto de un compañero con una rúbrica y sugiere mejoras concretas.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-04",
+                    "COM-C9-S2-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "com.s2.comparar-mi-texto-con-un-modelo",
+                  "nombre": "Comparar mi texto con un modelo del mismo género",
+                  "disciplina": "escritura",
+                  "descripcion": "Contrasta su texto con uno modelo en estructura, recursos y convenciones para mejorarlo.",
+                  "desempenosOrigen": [
+                    "COM-C9-S2-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 101
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

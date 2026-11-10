@@ -1,0 +1,2104 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "ciencia-tecnologia",
+  "nivel": "secundaria",
+  "grado": 1,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Secundaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+    },
+    {
+      "titulo": "Ciencia y Tecnología 1: fichas de autoaprendizaje a distancia, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/8352"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 21,
+      "nombre": "Explica el mundo físico basándose en conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo",
+      "capacidades": [
+        {
+          "nombre": "Comprende y usa conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo",
+          "bloques": [
+            {
+              "nombre": "La materia y sus propiedades",
+              "temas": [
+                {
+                  "clave": "cyt.s1.propiedades-generales-de-la-materia",
+                  "nombre": "Propiedades generales: masa, volumen e impenetrabilidad",
+                  "disciplina": "quimica",
+                  "descripcion": "Reconoce las propiedades que tiene toda materia y las mide con sus unidades.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "cyt.s1.propiedades-especificas-de-la-materia",
+                  "nombre": "Propiedades específicas: densidad, punto de fusión y de ebullición",
+                  "disciplina": "quimica",
+                  "descripcion": "Usa propiedades específicas para identificar una sustancia y distinguirla de otra.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.propiedades-generales-de-la-materia"
+                  ],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "cyt.s1.densidad-masa-sobre-volumen",
+                  "nombre": "Densidad: cálculo con masa y volumen",
+                  "disciplina": "quimica",
+                  "descripcion": "Calcula la densidad de sólidos y líquidos y predice si un cuerpo flota o se hunde.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.propiedades-especificas-de-la-materia"
+                  ],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "cyt.s1.modelo-cinetico-de-particulas",
+                  "nombre": "Modelo cinético de partículas y estados de agregación",
+                  "disciplina": "quimica",
+                  "descripcion": "Explica el sólido, el líquido y el gas por el orden y el movimiento de sus partículas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.propiedades-generales-de-la-materia"
+                  ],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "cyt.s1.cambios-de-estado-y-energia",
+                  "nombre": "Cambios de estado con absorción o liberación de energía",
+                  "disciplina": "fisica",
+                  "descripcion": "Relaciona fusión, vaporización, condensación y solidificación con el calor ganado o cedido.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.modelo-cinetico-de-particulas"
+                  ],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "cyt.s1.sustancias-puras-y-mezclas",
+                  "nombre": "Clasificación de la materia: sustancias puras y mezclas",
+                  "disciplina": "quimica",
+                  "descripcion": "Distingue elementos, compuestos y mezclas por su composición.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.modelo-cinetico-de-particulas"
+                  ],
+                  "ordenSugerido": 6
+                },
+                {
+                  "clave": "cyt.s1.mezclas-homogeneas-y-heterogeneas",
+                  "nombre": "Mezclas homogéneas y heterogéneas: fases y ejemplos",
+                  "disciplina": "quimica",
+                  "descripcion": "Diferencia las mezclas por el número de fases que se observan.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.sustancias-puras-y-mezclas"
+                  ],
+                  "ordenSugerido": 7
+                },
+                {
+                  "clave": "cyt.s1.separacion-de-mezclas-heterogeneas",
+                  "nombre": "Separación de mezclas: filtración, decantación, tamizado e imantación",
+                  "disciplina": "quimica",
+                  "descripcion": "Elige el método físico adecuado para separar los componentes de una mezcla heterogénea.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.mezclas-homogeneas-y-heterogeneas"
+                  ],
+                  "ordenSugerido": 8
+                },
+                {
+                  "clave": "cyt.s1.separacion-de-mezclas-homogeneas",
+                  "nombre": "Separación por evaporación, destilación y cromatografía",
+                  "disciplina": "quimica",
+                  "descripcion": "Explica cómo se separan los componentes de una mezcla homogénea usando sus propiedades.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.separacion-de-mezclas-heterogeneas"
+                  ],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "cyt.s1.disoluciones-soluto-y-solvente",
+                  "nombre": "Disoluciones: soluto, solvente y agua como disolvente",
+                  "disciplina": "quimica",
+                  "descripcion": "Identifica soluto y solvente y explica por qué el agua disuelve muchas sustancias.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.mezclas-homogeneas-y-heterogeneas"
+                  ],
+                  "ordenSugerido": 10
+                }
+              ]
+            },
+            {
+              "nombre": "Cambios de la materia y energía",
+              "temas": [
+                {
+                  "clave": "cyt.s1.cambios-fisicos-quimicos",
+                  "nombre": "Cambios físicos y químicos de la materia",
+                  "disciplina": "quimica",
+                  "descripcion": "Distingue los cambios que conservan la sustancia de los que forman sustancias nuevas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.sustancias-puras-y-mezclas"
+                  ],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "cyt.s1.evidencias-de-reaccion-quimica",
+                  "nombre": "Señales de una reacción química",
+                  "disciplina": "quimica",
+                  "descripcion": "Reconoce cambio de color, gas, precipitado, luz o calor como indicios de reacción.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.cambios-fisicos-quimicos"
+                  ],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "cyt.s1.reacciones-exotermicas-endotermicas",
+                  "nombre": "Reacciones exotérmicas y endotérmicas",
+                  "disciplina": "quimica",
+                  "descripcion": "Clasifica cambios químicos según liberen o absorban energía del entorno.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.evidencias-de-reaccion-quimica"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "cyt.s1.oxidacion-del-hierro",
+                  "nombre": "Oxidación del hierro y de otros metales",
+                  "disciplina": "quimica",
+                  "descripcion": "Explica la formación de herrumbre como reacción del metal con oxígeno y agua.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.evidencias-de-reaccion-quimica"
+                  ],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "cyt.s1.cambios-quimicos-en-la-cocina",
+                  "nombre": "Cambios químicos al cocinar los alimentos",
+                  "disciplina": "quimica",
+                  "descripcion": "Analiza la cocción, el dorado y la descomposición de alimentos como transformaciones químicas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.reacciones-exotermicas-endotermicas"
+                  ],
+                  "ordenSugerido": 15
+                }
+              ]
+            },
+            {
+              "nombre": "Estructura del átomo",
+              "temas": [
+                {
+                  "clave": "cyt.s1.modelo-atomico",
+                  "nombre": "El átomo y sus modelos",
+                  "disciplina": "quimica",
+                  "descripcion": "Explica que el modelo del átomo cambió con nuevas evidencias experimentales.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.propiedades-generales-de-la-materia"
+                  ],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "cyt.s1.modelo-de-dalton",
+                  "nombre": "Modelo atómico de Dalton",
+                  "disciplina": "quimica",
+                  "descripcion": "Describe el átomo como esfera indivisible y sus postulados sobre elementos y compuestos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.modelo-atomico"
+                  ],
+                  "ordenSugerido": 26
+                },
+                {
+                  "clave": "cyt.s1.modelo-de-thomson",
+                  "nombre": "Modelo de Thomson y el descubrimiento del electrón",
+                  "disciplina": "quimica",
+                  "descripcion": "Relaciona el tubo de rayos catódicos con la idea de partículas negativas en el átomo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.modelo-de-dalton"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "cyt.s1.modelo-de-rutherford",
+                  "nombre": "Modelo de Rutherford y el núcleo atómico",
+                  "disciplina": "quimica",
+                  "descripcion": "Explica cómo el experimento de la lámina de oro reveló un núcleo pequeño y denso.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.modelo-de-thomson"
+                  ],
+                  "ordenSugerido": 28
+                },
+                {
+                  "clave": "cyt.s1.modelo-de-bohr",
+                  "nombre": "Modelo de Bohr: niveles de energía",
+                  "disciplina": "quimica",
+                  "descripcion": "Describe los electrones girando en niveles de energía definidos alrededor del núcleo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.modelo-de-rutherford"
+                  ],
+                  "ordenSugerido": 29
+                },
+                {
+                  "clave": "cyt.s1.modelo-atomico-actual",
+                  "nombre": "Modelo atómico actual: núcleo y nube electrónica",
+                  "disciplina": "quimica",
+                  "descripcion": "Explica que los electrones se ubican en zonas de probabilidad llamadas orbitales.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.modelo-de-bohr"
+                  ],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "cyt.s1.particulas-subatomicas",
+                  "nombre": "Protones, neutrones y electrones",
+                  "disciplina": "quimica",
+                  "descripcion": "Compara carga, masa y ubicación de las partículas subatómicas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.modelo-de-rutherford"
+                  ],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "cyt.s1.numero-atomico-y-masico",
+                  "nombre": "Número atómico y número de masa",
+                  "disciplina": "quimica",
+                  "descripcion": "Calcula protones, neutrones y electrones a partir de Z y A.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.particulas-subatomicas"
+                  ],
+                  "ordenSugerido": 32
+                },
+                {
+                  "clave": "cyt.s1.isotopos-de-un-elemento",
+                  "nombre": "Isótopos de un elemento y sus usos",
+                  "disciplina": "quimica",
+                  "descripcion": "Identifica isótopos por su número de masa y conoce usos como el carbono-14.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.numero-atomico-y-masico"
+                  ],
+                  "ordenSugerido": 33
+                },
+                {
+                  "clave": "cyt.s1.iones-cationes-aniones",
+                  "nombre": "Iones: cationes y aniones",
+                  "disciplina": "quimica",
+                  "descripcion": "Explica cómo un átomo gana o pierde electrones y queda con carga.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.numero-atomico-y-masico"
+                  ],
+                  "ordenSugerido": 34
+                },
+                {
+                  "clave": "cyt.s1.tecnologia-y-modelos-atomicos",
+                  "nombre": "Instrumentos que hicieron posible conocer el átomo",
+                  "disciplina": "quimica",
+                  "descripcion": "Valora el papel del tubo de rayos catódicos y otros aparatos en el avance del modelo atómico.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.modelo-atomico-actual"
+                  ],
+                  "ordenSugerido": 35
+                }
+              ]
+            },
+            {
+              "nombre": "La luz y el espectro electromagnético",
+              "temas": [
+                {
+                  "clave": "cyt.s1.longitud-de-onda-y-frecuencia",
+                  "nombre": "Longitud de onda y frecuencia de una onda",
+                  "disciplina": "fisica",
+                  "descripcion": "Identifica cresta, valle, longitud de onda y frecuencia en el dibujo de una onda.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 36
+                },
+                {
+                  "clave": "cyt.s1.espectro-electromagnetico",
+                  "nombre": "El espectro electromagnético",
+                  "disciplina": "fisica",
+                  "descripcion": "Ordena ondas de radio, microondas, infrarrojo, luz visible, ultravioleta, rayos X y gamma.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.longitud-de-onda-y-frecuencia"
+                  ],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "cyt.s1.luz-visible-y-colores",
+                  "nombre": "La luz visible y los colores",
+                  "disciplina": "fisica",
+                  "descripcion": "Relaciona cada color con una longitud de onda y explica por qué vemos los objetos de color.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.espectro-electromagnetico"
+                  ],
+                  "ordenSugerido": 38
+                },
+                {
+                  "clave": "cyt.s1.radiacion-ultravioleta-e-infrarroja",
+                  "nombre": "Radiación ultravioleta e infrarroja",
+                  "disciplina": "fisica",
+                  "descripcion": "Describe efectos y usos de estas radiaciones invisibles y la protección ante el UV en los Andes.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.espectro-electromagnetico"
+                  ],
+                  "ordenSugerido": 39
+                },
+                {
+                  "clave": "cyt.s1.usos-de-ondas-electromagneticas",
+                  "nombre": "Usos de ondas de radio, microondas y rayos X",
+                  "disciplina": "fisica",
+                  "descripcion": "Relaciona cada tipo de onda con aplicaciones en comunicación, cocina y medicina.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.espectro-electromagnetico"
+                  ],
+                  "ordenSugerido": 40
+                },
+                {
+                  "clave": "cyt.s1.velocidad-de-la-luz",
+                  "nombre": "Velocidad de la luz y el año luz",
+                  "disciplina": "fisica",
+                  "descripcion": "Usa la velocidad de la luz para estimar el tiempo que tarda en llegar desde el Sol.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.longitud-de-onda-y-frecuencia"
+                  ],
+                  "ordenSugerido": 41
+                }
+              ]
+            },
+            {
+              "nombre": "Fuerzas y movimiento",
+              "temas": [
+                {
+                  "clave": "cyt.s1.movimiento-fuerzas",
+                  "nombre": "Fuerzas y movimiento",
+                  "disciplina": "fisica",
+                  "descripcion": "Reconoce que las fuerzas pueden iniciar, detener o cambiar el movimiento de un cuerpo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 42
+                },
+                {
+                  "clave": "cyt.s1.fuerza-como-interaccion",
+                  "nombre": "La fuerza como interacción entre cuerpos",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica que una fuerza siempre actúa entre dos cuerpos y tiene efectos visibles.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.movimiento-fuerzas"
+                  ],
+                  "ordenSugerido": 43
+                },
+                {
+                  "clave": "cyt.s1.fuerzas-contacto-y-distancia",
+                  "nombre": "Fuerzas por contacto y a distancia: roce, magnetismo y gravedad",
+                  "disciplina": "fisica",
+                  "descripcion": "Clasifica empujes, tirones, roce, fuerza magnética y gravedad según actúen con o sin contacto.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.fuerza-como-interaccion"
+                  ],
+                  "ordenSugerido": 44
+                },
+                {
+                  "clave": "cyt.s1.dinamometro-y-newton",
+                  "nombre": "El dinamómetro y el newton",
+                  "disciplina": "fisica",
+                  "descripcion": "Mide fuerzas con un dinamómetro y las expresa en newtons.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.fuerza-como-interaccion"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "cyt.s1.masa-y-peso",
+                  "nombre": "Diferencia entre masa y peso",
+                  "disciplina": "fisica",
+                  "descripcion": "Calcula el peso a partir de la masa y explica por qué cambia en otro planeta.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.dinamometro-y-newton"
+                  ],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "cyt.s1.representar-fuerzas-con-flechas",
+                  "nombre": "Representación de fuerzas con flechas",
+                  "disciplina": "fisica",
+                  "descripcion": "Dibuja fuerzas indicando punto de aplicación, dirección, sentido e intensidad.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.dinamometro-y-newton"
+                  ],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "cyt.s1.fuerza-neta-misma-direccion",
+                  "nombre": "Fuerza neta de fuerzas en una misma dirección",
+                  "disciplina": "fisica",
+                  "descripcion": "Suma o resta fuerzas colineales y predice hacia dónde se moverá el cuerpo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.representar-fuerzas-con-flechas"
+                  ],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "cyt.s1.friccion-en-la-vida-diaria",
+                  "nombre": "Fuerza de fricción en la vida diaria",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica cómo el roce frena los cuerpos y cuándo conviene aumentarlo o reducirlo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.fuerzas-contacto-y-distancia"
+                  ],
+                  "ordenSugerido": 49
+                },
+                {
+                  "clave": "cyt.s1.gravedad-terrestre",
+                  "nombre": "La gravedad: fuerza que atrae hacia la Tierra",
+                  "disciplina": "fisica",
+                  "descripcion": "Explica la caída de los cuerpos y el movimiento de la Luna por la atracción gravitatoria.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.fuerzas-contacto-y-distancia"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "cyt.s1.sistema-de-referencia-y-trayectoria",
+                  "nombre": "Sistema de referencia, trayectoria y distancia recorrida",
+                  "disciplina": "fisica",
+                  "descripcion": "Describe la posición de un móvil respecto a un punto y dibuja su trayectoria.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.movimiento-fuerzas"
+                  ],
+                  "ordenSugerido": 51
+                },
+                {
+                  "clave": "cyt.s1.rapidez-media",
+                  "nombre": "Rapidez media de un recorrido",
+                  "disciplina": "fisica",
+                  "descripcion": "Calcula cuántos metros recorre un cuerpo por segundo a partir de distancia y tiempo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.sistema-de-referencia-y-trayectoria"
+                  ],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "cyt.s1.fuerzas-y-cambios-de-rapidez",
+                  "nombre": "Fuerzas que aceleran, frenan o desvían un móvil",
+                  "disciplina": "fisica",
+                  "descripcion": "Relaciona la fuerza neta con el aumento, la disminución o el cambio de dirección del movimiento.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.fuerza-neta-misma-direccion",
+                    "cyt.s1.rapidez-media"
+                  ],
+                  "ordenSugerido": 53
+                }
+              ]
+            },
+            {
+              "nombre": "La célula y sus biomoléculas",
+              "temas": [
+                {
+                  "clave": "cyt.s1.teoria-celular",
+                  "nombre": "Teoría celular: Hooke, Schleiden y Schwann",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica los postulados de la teoría celular y cómo el microscopio permitió formularla.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 63
+                },
+                {
+                  "clave": "cyt.s1.el-microscopio-optico",
+                  "nombre": "Preparación de muestras y aumento en el microscopio",
+                  "disciplina": "biologia",
+                  "descripcion": "Prepara una muestra en lámina y calcula el aumento total de la observación.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.teoria-celular"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "cyt.s1.bioelementos",
+                  "nombre": "Bioelementos primarios y secundarios",
+                  "disciplina": "biologia",
+                  "descripcion": "Identifica C, H, O, N, P y S como base de la materia viva y el papel de oligoelementos como hierro.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.teoria-celular"
+                  ],
+                  "ordenSugerido": 65
+                },
+                {
+                  "clave": "cyt.s1.agua-y-sales-minerales",
+                  "nombre": "Agua y sales minerales en los seres vivos",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica las funciones del agua y de las sales como sustancias inorgánicas de la célula.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.bioelementos"
+                  ],
+                  "ordenSugerido": 66
+                },
+                {
+                  "clave": "cyt.s1.biomoleculas-celula",
+                  "nombre": "Biomoléculas de la célula",
+                  "disciplina": "biologia",
+                  "descripcion": "Distingue sustancias inorgánicas de biomoléculas orgánicas y su papel en la célula.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.bioelementos"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "cyt.s1.carbohidratos-funciones",
+                  "nombre": "Carbohidratos: fuente de energía",
+                  "disciplina": "biologia",
+                  "descripcion": "Reconoce azúcares simples, almidón y celulosa y su función energética o estructural.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.biomoleculas-celula"
+                  ],
+                  "ordenSugerido": 68
+                },
+                {
+                  "clave": "cyt.s1.lipidos-funciones",
+                  "nombre": "Lípidos: reserva de energía y membranas",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe grasas, aceites y fosfolípidos y su función en la célula.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.biomoleculas-celula"
+                  ],
+                  "ordenSugerido": 69
+                },
+                {
+                  "clave": "cyt.s1.proteinas-funciones",
+                  "nombre": "Proteínas: funciones en la célula",
+                  "disciplina": "biologia",
+                  "descripcion": "Relaciona las proteínas con funciones de estructura, transporte, defensa y movimiento.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.biomoleculas-celula"
+                  ],
+                  "ordenSugerido": 70
+                },
+                {
+                  "clave": "cyt.s1.acidos-nucleicos-informacion",
+                  "nombre": "Ácidos nucleicos: ADN y ARN como información",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica que el ADN guarda la información hereditaria y el ARN ayuda a usarla.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.biomoleculas-celula"
+                  ],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "cyt.s1.vitaminas-y-nutricion-celular",
+                  "nombre": "Vitaminas y su función en el organismo",
+                  "disciplina": "biologia",
+                  "descripcion": "Relaciona vitaminas con funciones del cuerpo y enfermedades por su carencia.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.biomoleculas-celula"
+                  ],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "cyt.s1.celula-procariota-y-eucariota",
+                  "nombre": "Célula procariota y célula eucariota",
+                  "disciplina": "biologia",
+                  "descripcion": "Compara bacterias con células de plantas, animales y hongos por su organización.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.teoria-celular"
+                  ],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "cyt.s1.membrana-y-transporte-celular",
+                  "nombre": "Membrana celular: difusión y ósmosis",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo entran y salen sustancias de la célula a través de la membrana.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.lipidos-funciones"
+                  ],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "cyt.s1.organelos-de-energia",
+                  "nombre": "Mitocondrias y cloroplastos",
+                  "disciplina": "biologia",
+                  "descripcion": "Relaciona estos organelos con la obtención y transformación de energía.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.celula-procariota-y-eucariota"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "cyt.s1.organelos-de-sintesis",
+                  "nombre": "Ribosomas, retículo endoplasmático y aparato de Golgi",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe cómo la célula fabrica, modifica y envía proteínas y lípidos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.celula-procariota-y-eucariota",
+                    "cyt.s1.proteinas-funciones"
+                  ],
+                  "ordenSugerido": 76
+                },
+                {
+                  "clave": "cyt.s1.lisosomas-y-vacuolas",
+                  "nombre": "Lisosomas y vacuolas",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica la digestión intracelular y el almacenamiento de agua y sustancias.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.organelos-de-sintesis"
+                  ],
+                  "ordenSugerido": 77
+                },
+                {
+                  "clave": "cyt.s1.nucleo-celular",
+                  "nombre": "El núcleo celular y la cromatina",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe el núcleo como centro de control que guarda el ADN.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.acidos-nucleicos-informacion",
+                    "cyt.s1.celula-procariota-y-eucariota"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "cyt.s1.citoesqueleto-y-movimiento-celular",
+                  "nombre": "Citoesqueleto, cilios y seudópodos",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo las proteínas del citoesqueleto permiten a la ameba moverse y fagocitar.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.proteinas-funciones",
+                    "cyt.s1.celula-procariota-y-eucariota"
+                  ],
+                  "ordenSugerido": 79
+                },
+                {
+                  "clave": "cyt.s1.funciones-vitales-de-la-celula",
+                  "nombre": "Funciones de la célula: nutrición, relación y reproducción",
+                  "disciplina": "biologia",
+                  "descripcion": "Integra organelos y biomoléculas en las tres funciones que mantienen viva a la célula.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.organelos-de-energia",
+                    "cyt.s1.nucleo-celular"
+                  ],
+                  "ordenSugerido": 80
+                }
+              ]
+            },
+            {
+              "nombre": "Ecosistemas: flujo de materia y energía",
+              "temas": [
+                {
+                  "clave": "cyt.s1.factores-bioticos-y-abioticos",
+                  "nombre": "Factores bióticos y abióticos del ecosistema",
+                  "disciplina": "biologia",
+                  "descripcion": "Distingue los componentes vivos y no vivos de un ecosistema y cómo se influyen.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 81
+                },
+                {
+                  "clave": "cyt.s1.poblacion-comunidad-ecosistema",
+                  "nombre": "Población, comunidad y ecosistema",
+                  "disciplina": "biologia",
+                  "descripcion": "Diferencia los niveles de organización ecológica con ejemplos peruanos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.factores-bioticos-y-abioticos"
+                  ],
+                  "ordenSugerido": 82
+                },
+                {
+                  "clave": "cyt.s1.niveles-troficos",
+                  "nombre": "Niveles tróficos según la forma de obtener energía",
+                  "disciplina": "biologia",
+                  "descripcion": "Clasifica organismos según cómo obtienen la materia y la energía.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.poblacion-comunidad-ecosistema"
+                  ],
+                  "ordenSugerido": 83
+                },
+                {
+                  "clave": "cyt.s1.cadenas-troficas",
+                  "nombre": "Cadenas tróficas del mar peruano y de la puna",
+                  "disciplina": "biologia",
+                  "descripcion": "Construye cadenas como fitoplancton, anchoveta, lobo marino y analiza sus eslabones.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.niveles-troficos"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "cyt.s1.redes-troficas",
+                  "nombre": "Redes tróficas y flujo de energía",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica que la energía pasa de un nivel a otro y se pierde en cada paso.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.cadenas-troficas"
+                  ],
+                  "ordenSugerido": 85
+                },
+                {
+                  "clave": "cyt.s1.regla-del-diez-por-ciento",
+                  "nombre": "Regla del 10 % de transferencia de energía",
+                  "disciplina": "biologia",
+                  "descripcion": "Calcula la energía disponible en cada nivel trófico.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.redes-troficas"
+                  ],
+                  "ordenSugerido": 86
+                },
+                {
+                  "clave": "cyt.s1.piramides-de-numero-biomasa-energia",
+                  "nombre": "Pirámides de número, biomasa y energía",
+                  "disciplina": "biologia",
+                  "descripcion": "Interpreta los tres tipos de pirámides y explica su forma.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.regla-del-diez-por-ciento"
+                  ],
+                  "ordenSugerido": 87
+                },
+                {
+                  "clave": "cyt.s1.reciclaje-de-la-materia",
+                  "nombre": "Reciclaje de la materia por los descomponedores",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica cómo bacterias y hongos devuelven nutrientes al suelo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.niveles-troficos"
+                  ],
+                  "ordenSugerido": 88
+                },
+                {
+                  "clave": "cyt.s1.relaciones-interespecificas",
+                  "nombre": "Relaciones entre especies: depredación, competencia, mutualismo y parasitismo",
+                  "disciplina": "biologia",
+                  "descripcion": "Identifica relaciones entre especies y su efecto en las poblaciones.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.poblacion-comunidad-ecosistema"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "cyt.s1.bioacumulacion",
+                  "nombre": "Bioacumulación de contaminantes en la cadena trófica",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica por qué el mercurio se concentra en los peces y en quienes los consumen.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.redes-troficas"
+                  ],
+                  "ordenSugerido": 90
+                },
+                {
+                  "clave": "cyt.s1.el-nino-y-la-anchoveta",
+                  "nombre": "Variaciones del mar y la cadena trófica de la anchoveta",
+                  "disciplina": "biologia",
+                  "descripcion": "Analiza cómo el calentamiento del mar reduce el fitoplancton y afecta a toda la red.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.cadenas-troficas"
+                  ],
+                  "ordenSugerido": 91
+                },
+                {
+                  "clave": "cyt.s1.sostenibilidad-del-ecosistema",
+                  "nombre": "Equilibrio y sostenibilidad de un ecosistema",
+                  "disciplina": "biologia",
+                  "descripcion": "Argumenta cómo la pérdida de un eslabón altera el flujo de materia y energía.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-06"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.piramides-de-numero-biomasa-energia",
+                    "cyt.s1.reciclaje-de-la-materia"
+                  ],
+                  "ordenSugerido": 92
+                }
+              ]
+            },
+            {
+              "nombre": "Áreas naturales protegidas",
+              "temas": [
+                {
+                  "clave": "cyt.s1.sinanpe-categorias",
+                  "nombre": "El SINANPE y sus categorías",
+                  "disciplina": "biologia",
+                  "descripcion": "Diferencia parque nacional, reserva nacional y santuario nacional.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.factores-bioticos-y-abioticos"
+                  ],
+                  "ordenSugerido": 93
+                },
+                {
+                  "clave": "cyt.s1.anp-emblematicas-del-peru",
+                  "nombre": "Manu, Huascarán, Paracas y Pacaya Samiria",
+                  "disciplina": "biologia",
+                  "descripcion": "Describe ecosistemas y especies que se conservan en ANP representativas del Perú.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.sinanpe-categorias"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "cyt.s1.servicios-ecosistemicos-tipos",
+                  "nombre": "Servicios ecosistémicos de provisión, regulación y culturales",
+                  "disciplina": "biologia",
+                  "descripcion": "Clasifica los beneficios que la sociedad obtiene de los ecosistemas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.anp-emblematicas-del-peru"
+                  ],
+                  "ordenSugerido": 95
+                },
+                {
+                  "clave": "cyt.s1.conservacion-in-situ-ex-situ",
+                  "nombre": "Conservación in situ y ex situ",
+                  "disciplina": "biologia",
+                  "descripcion": "Compara la protección en el hábitat con bancos de germoplasma y zoológicos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-07"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.sinanpe-categorias"
+                  ],
+                  "ordenSugerido": 96
+                },
+                {
+                  "clave": "cyt.s1.amenazas-a-las-anp",
+                  "nombre": "Amenazas a las áreas protegidas: tala, caza y minería ilegal",
+                  "disciplina": "biologia",
+                  "descripcion": "Analiza actividades que ponen en riesgo la biodiversidad de una ANP.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-07",
+                    "CYT-C21-S1-12"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.servicios-ecosistemicos-tipos"
+                  ],
+                  "ordenSugerido": 97
+                }
+              ]
+            },
+            {
+              "nombre": "Evolución y clasificación de los seres vivos",
+              "temas": [
+                {
+                  "clave": "cyt.s1.ideas-antes-de-darwin",
+                  "nombre": "Fijismo y transformismo de Lamarck",
+                  "disciplina": "biologia",
+                  "descripcion": "Contrasta la idea de especies inmutables con la herencia de caracteres adquiridos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 108
+                },
+                {
+                  "clave": "cyt.s1.darwin-y-wallace",
+                  "nombre": "Darwin, Wallace y el viaje del Beagle",
+                  "disciplina": "biologia",
+                  "descripcion": "Relata cómo las observaciones de Darwin llevaron a la teoría de la selección natural.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-08",
+                    "CYT-C21-S1-11"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.ideas-antes-de-darwin"
+                  ],
+                  "ordenSugerido": 109
+                },
+                {
+                  "clave": "cyt.s1.evolucion-seleccion-natural",
+                  "nombre": "Evolución y selección natural",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica variación, herencia, competencia y supervivencia diferencial como motor del cambio.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.darwin-y-wallace"
+                  ],
+                  "ordenSugerido": 110
+                },
+                {
+                  "clave": "cyt.s1.adaptaciones-altoandinas",
+                  "nombre": "Adaptaciones de especies altoandinas y amazónicas",
+                  "disciplina": "biologia",
+                  "descripcion": "Analiza rasgos de la vicuña, la llama y la rana del Titicaca como resultado de la selección.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.evolucion-seleccion-natural"
+                  ],
+                  "ordenSugerido": 111
+                },
+                {
+                  "clave": "cyt.s1.resistencia-a-antibioticos",
+                  "nombre": "Resistencia de las bacterias a los antibióticos",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica la resistencia bacteriana como selección natural observable hoy.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-08",
+                    "CYT-C21-S1-12"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.evolucion-seleccion-natural"
+                  ],
+                  "ordenSugerido": 112
+                },
+                {
+                  "clave": "cyt.s1.ancestro-comun-arbol-de-la-vida",
+                  "nombre": "Ancestro común y árbol de la vida",
+                  "disciplina": "biologia",
+                  "descripcion": "Interpreta un árbol filogenético sencillo para relacionar especies emparentadas.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.evolucion-seleccion-natural"
+                  ],
+                  "ordenSugerido": 113
+                },
+                {
+                  "clave": "cyt.s1.homologos-y-analogos",
+                  "nombre": "Órganos homólogos y análogos",
+                  "disciplina": "biologia",
+                  "descripcion": "Compara extremidades de vertebrados y alas de insectos para inferir parentesco.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.ancestro-comun-arbol-de-la-vida"
+                  ],
+                  "ordenSugerido": 114
+                },
+                {
+                  "clave": "cyt.s1.categorias-taxonomicas",
+                  "nombre": "Categorías taxonómicas: de especie a dominio",
+                  "disciplina": "biologia",
+                  "descripcion": "Ordena especie, género, familia, orden, clase, filo, reino y dominio.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.ancestro-comun-arbol-de-la-vida"
+                  ],
+                  "ordenSugerido": 115
+                },
+                {
+                  "clave": "cyt.s1.nomenclatura-binomial",
+                  "nombre": "Nomenclatura binomial",
+                  "disciplina": "biologia",
+                  "descripcion": "Escribe correctamente el nombre científico de una especie, como Vicugna vicugna.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.categorias-taxonomicas"
+                  ],
+                  "ordenSugerido": 116
+                },
+                {
+                  "clave": "cyt.s1.tres-dominios",
+                  "nombre": "Los tres dominios: Bacteria, Archaea y Eukarya",
+                  "disciplina": "biologia",
+                  "descripcion": "Ubica los reinos dentro de los tres dominios según el tipo de célula.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-08"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.categorias-taxonomicas"
+                  ],
+                  "ordenSugerido": 117
+                }
+              ]
+            },
+            {
+              "nombre": "Origen del universo y de la Tierra",
+              "temas": [
+                {
+                  "clave": "cyt.s1.origen-del-universo",
+                  "nombre": "Origen del universo: la gran explosión",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Describe la expansión del universo a partir de un estado muy denso y caliente.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-09"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 118
+                },
+                {
+                  "clave": "cyt.s1.nacimiento-de-estrellas",
+                  "nombre": "Nacimiento de estrellas y galaxias",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica cómo la gravedad reúne gas y polvo para formar estrellas y galaxias.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.origen-del-universo"
+                  ],
+                  "ordenSugerido": 119
+                },
+                {
+                  "clave": "cyt.s1.nebulosa-solar",
+                  "nombre": "Formación del sistema solar a partir de una nebulosa",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica cómo se formaron el Sol y los planetas a partir de una nube de gas y polvo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.nacimiento-de-estrellas"
+                  ],
+                  "ordenSugerido": 120
+                },
+                {
+                  "clave": "cyt.s1.tierra-primitiva",
+                  "nombre": "La Tierra primitiva hace 4500 millones de años",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Describe una Tierra caliente con volcanes, impactos y sin oxígeno libre.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.nebulosa-solar"
+                  ],
+                  "ordenSugerido": 121
+                },
+                {
+                  "clave": "cyt.s1.atmosfera-e-hidrosfera-primitivas",
+                  "nombre": "Formación de la atmósfera y de los océanos",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica la desgasificación volcánica y la condensación del vapor de agua.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.tierra-primitiva"
+                  ],
+                  "ordenSugerido": 122
+                },
+                {
+                  "clave": "cyt.s1.origen-de-la-vida",
+                  "nombre": "Origen de la vida: Oparin y el experimento de Miller",
+                  "disciplina": "biologia",
+                  "descripcion": "Explica la hipótesis de formación de moléculas orgánicas en la Tierra primitiva.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.atmosfera-e-hidrosfera-primitivas"
+                  ],
+                  "ordenSugerido": 123
+                },
+                {
+                  "clave": "cyt.s1.cianobacterias-y-oxigeno",
+                  "nombre": "Cianobacterias, plantas y el aumento del oxígeno",
+                  "disciplina": "biologia",
+                  "descripcion": "Relaciona la fotosíntesis con el cambio de la atmósfera y la capa de ozono.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.origen-de-la-vida"
+                  ],
+                  "ordenSugerido": 124
+                },
+                {
+                  "clave": "cyt.s1.formacion-del-suelo",
+                  "nombre": "Formación del suelo por meteorización de las rocas",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica cómo el clima y los seres vivos transforman la roca en suelo.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.atmosfera-e-hidrosfera-primitivas"
+                  ],
+                  "ordenSugerido": 125
+                },
+                {
+                  "clave": "cyt.s1.tierra-planeta-habitable",
+                  "nombre": "La Tierra, un planeta habitable",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Integra distancia al Sol, agua líquida y atmósfera como condiciones para la vida.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-09"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.cianobacterias-y-oxigeno",
+                    "cyt.s1.formacion-del-suelo"
+                  ],
+                  "ordenSugerido": 126
+                }
+              ]
+            },
+            {
+              "nombre": "Clima y diversidad de la vida",
+              "temas": [
+                {
+                  "clave": "cyt.s1.tiempo-atmosferico-y-clima",
+                  "nombre": "Tiempo atmosférico y clima como promedio de largo plazo",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Diferencia el estado del día de las condiciones promedio de muchos años.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-10"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 127
+                },
+                {
+                  "clave": "cyt.s1.capas-de-la-atmosfera",
+                  "nombre": "Capas de la atmósfera según la temperatura",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Describe troposfera, estratosfera, mesosfera, termosfera y exosfera.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.tiempo-atmosferico-y-clima"
+                  ],
+                  "ordenSugerido": 128
+                },
+                {
+                  "clave": "cyt.s1.elementos-del-clima",
+                  "nombre": "Elementos del clima: temperatura, presión, humedad, precipitación y viento",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Interpreta datos de una estación meteorológica.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.tiempo-atmosferico-y-clima"
+                  ],
+                  "ordenSugerido": 129
+                },
+                {
+                  "clave": "cyt.s1.factores-latitud-y-altitud",
+                  "nombre": "Factores del clima: latitud y altitud",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica por qué hace más frío en la puna que en la selva baja.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.elementos-del-clima"
+                  ],
+                  "ordenSugerido": 130
+                },
+                {
+                  "clave": "cyt.s1.corriente-de-humboldt",
+                  "nombre": "Corriente de Humboldt como factor del clima costero",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica por qué la costa peruana es árida y nublada pese a estar en el trópico.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.factores-latitud-y-altitud"
+                  ],
+                  "ordenSugerido": 131
+                },
+                {
+                  "clave": "cyt.s1.regulacion-termica-de-la-atmosfera",
+                  "nombre": "Regulación de la temperatura terrestre por la atmósfera",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica cómo el vapor de agua y el CO₂ retienen calor y moderan la temperatura.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-09",
+                    "CYT-C21-S1-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.capas-de-la-atmosfera"
+                  ],
+                  "ordenSugerido": 132
+                },
+                {
+                  "clave": "cyt.s1.pisos-altitudinales",
+                  "nombre": "Pisos altitudinales y regiones naturales del Perú",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Relaciona altitud, clima y seres vivos de cada región natural.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.factores-latitud-y-altitud"
+                  ],
+                  "ordenSugerido": 133
+                },
+                {
+                  "clave": "cyt.s1.climas-y-biodiversidad",
+                  "nombre": "Variedad climática y diversidad de la vida en el Perú",
+                  "disciplina": "biologia",
+                  "descripcion": "Argumenta por qué la variedad de climas explica la megadiversidad peruana.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.pisos-altitudinales",
+                    "cyt.s1.corriente-de-humboldt"
+                  ],
+                  "ordenSugerido": 134
+                },
+                {
+                  "clave": "cyt.s1.heladas-y-friaje",
+                  "nombre": "Heladas y friaje",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica las causas de estos eventos climáticos y sus efectos en la salud y los cultivos.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-10"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.pisos-altitudinales"
+                  ],
+                  "ordenSugerido": 135
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa las implicancias del saber y del quehacer científico y tecnológico",
+          "bloques": [
+            {
+              "nombre": "Ciencia, historia y sociedad",
+              "temas": [
+                {
+                  "clave": "cyt.s1.hubble-y-expansion",
+                  "nombre": "Hubble y el descubrimiento de la expansión del universo",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica cómo un telescopio cambió la idea de un universo estático.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-11"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.origen-del-universo"
+                  ],
+                  "ordenSugerido": 136
+                },
+                {
+                  "clave": "cyt.s1.observatorios-del-peru",
+                  "nombre": "Observatorios astronómicos y geofísicos del Perú",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Conoce el trabajo de observatorios peruanos y lo que aportan a la ciencia.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-11"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.hubble-y-expansion"
+                  ],
+                  "ordenSugerido": 137
+                },
+                {
+                  "clave": "cyt.s1.perusat-imagenes-satelitales",
+                  "nombre": "PerúSAT-1 y el uso de imágenes satelitales",
+                  "disciplina": "tierra-universo",
+                  "descripcion": "Explica cómo las imágenes de satélite ayudan a vigilar bosques, cultivos y desastres.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-11"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.observatorios-del-peru"
+                  ],
+                  "ordenSugerido": 138
+                },
+                {
+                  "clave": "cyt.s1.ciencia-y-pseudociencia",
+                  "nombre": "Ciencia y pseudociencia: cómo distinguirlas",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Reconoce afirmaciones sin evidencia frente a explicaciones comprobables.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-12"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 139
+                },
+                {
+                  "clave": "cyt.s1.debate-anchoveta",
+                  "nombre": "Debate: anchoveta para harina o para consumo humano",
+                  "disciplina": "biologia",
+                  "descripcion": "Fundamenta una postura usando datos sobre la pesca y la red trófica marina.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-12"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.ciencia-y-pseudociencia"
+                  ],
+                  "ordenSugerido": 140
+                },
+                {
+                  "clave": "cyt.s1.debate-carreteras-en-anp",
+                  "nombre": "Debate: carreteras en zonas de bosque y áreas protegidas",
+                  "disciplina": "biologia",
+                  "descripcion": "Evalúa beneficios e impactos ambientales con evidencia científica.",
+                  "desempenosOrigen": [
+                    "CYT-C21-S1-12"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.ciencia-y-pseudociencia"
+                  ],
+                  "ordenSugerido": 141
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 20,
+      "nombre": "Indaga mediante métodos científicos para construir sus conocimientos",
+      "capacidades": [
+        {
+          "nombre": "Problematiza situaciones",
+          "bloques": [
+            {
+              "nombre": "Pregunta e hipótesis",
+              "temas": [
+                {
+                  "clave": "cyt.s1.preguntas-investigables-sobre-variables",
+                  "nombre": "Preguntas investigables sobre variables",
+                  "disciplina": "indagacion",
+                  "descripcion": "Formula preguntas que relacionan un factor que se cambia con un efecto que se mide.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 16
+                },
+                {
+                  "clave": "cyt.s1.hipotesis-si-entonces",
+                  "nombre": "Hipótesis causal: «si…, entonces…»",
+                  "disciplina": "indagacion",
+                  "descripcion": "Plantea hipótesis que expresan una relación de causa y efecto entre variables.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.preguntas-investigables-sobre-variables"
+                  ],
+                  "ordenSugerido": 17
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Diseña estrategias para hacer indagación",
+          "bloques": [
+            {
+              "nombre": "Diseño de la indagación",
+              "temas": [
+                {
+                  "clave": "cyt.s1.procedimiento-experimental",
+                  "nombre": "Procedimiento experimental paso a paso",
+                  "disciplina": "indagacion",
+                  "descripcion": "Escribe los pasos para cambiar una variable, medir otra y mantener lo demás igual.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.hipotesis-si-entonces"
+                  ],
+                  "ordenSugerido": 18
+                },
+                {
+                  "clave": "cyt.s1.materiales-de-laboratorio",
+                  "nombre": "Materiales e instrumentos del laboratorio escolar",
+                  "disciplina": "indagacion",
+                  "descripcion": "Reconoce vaso de precipitados, probeta, matraz, mechero y su uso.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 19
+                },
+                {
+                  "clave": "cyt.s1.seguridad-en-el-laboratorio",
+                  "nombre": "Normas de seguridad en el laboratorio",
+                  "disciplina": "indagacion",
+                  "descripcion": "Aplica reglas de protección personal, manejo de sustancias y orden del lugar de trabajo.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.materiales-de-laboratorio"
+                  ],
+                  "ordenSugerido": 20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Genera y registra datos e información",
+          "bloques": [
+            {
+              "nombre": "Medición y registro",
+              "temas": [
+                {
+                  "clave": "cyt.s1.magnitudes-y-unidades-si",
+                  "nombre": "Magnitudes y unidades del Sistema Internacional",
+                  "disciplina": "indagacion",
+                  "descripcion": "Expresa longitud, masa, tiempo, temperatura y volumen con sus unidades y prefijos.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 21
+                },
+                {
+                  "clave": "cyt.s1.medir-volumen-y-masa",
+                  "nombre": "Medición de volumen con probeta y de masa con balanza",
+                  "disciplina": "indagacion",
+                  "descripcion": "Lee correctamente el menisco y la balanza para obtener datos confiables.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.magnitudes-y-unidades-si",
+                    "cyt.s1.materiales-de-laboratorio"
+                  ],
+                  "ordenSugerido": 22
+                },
+                {
+                  "clave": "cyt.s1.datos-cualitativos-y-cuantitativos",
+                  "nombre": "Registro de datos cualitativos y cuantitativos",
+                  "disciplina": "indagacion",
+                  "descripcion": "Distingue observaciones descriptivas de medidas numéricas y las anota en tablas.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.medir-volumen-y-masa"
+                  ],
+                  "ordenSugerido": 54
+                },
+                {
+                  "clave": "cyt.s1.moda-y-mediana-de-mediciones",
+                  "nombre": "Moda y mediana de mediciones repetidas",
+                  "disciplina": "indagacion",
+                  "descripcion": "Calcula la moda y la mediana de varias mediciones de una misma variable.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.datos-cualitativos-y-cuantitativos"
+                  ],
+                  "ordenSugerido": 55
+                },
+                {
+                  "clave": "cyt.s1.graficos-de-barras-y-lineales",
+                  "nombre": "Gráficos de barras y gráficos lineales",
+                  "disciplina": "indagacion",
+                  "descripcion": "Elige y elabora el gráfico adecuado para representar sus datos.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.datos-cualitativos-y-cuantitativos"
+                  ],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "cyt.s1.indagacion-densidad-de-liquidos",
+                  "nombre": "Indagación: densidad de líquidos y flotación",
+                  "disciplina": "indagacion",
+                  "descripcion": "Mide masa y volumen de agua, aceite y agua salada y relaciona la densidad con la flotación.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-02",
+                    "CYT-C20-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.procedimiento-experimental",
+                    "cyt.s1.medir-volumen-y-masa"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "cyt.s1.indagacion-fusion-del-hielo",
+                  "nombre": "Indagación: fuente de calor y tiempo de fusión del hielo",
+                  "disciplina": "indagacion",
+                  "descripcion": "Mide cuánto tarda en derretirse un cubo de hielo con distintas fuentes de calor y registra los datos.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-01",
+                    "CYT-C20-S1-02",
+                    "CYT-C20-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.procedimiento-experimental",
+                    "cyt.s1.datos-cualitativos-y-cuantitativos"
+                  ],
+                  "ordenSugerido": 58
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Analiza datos e información",
+          "bloques": [
+            {
+              "nombre": "Análisis de resultados",
+              "temas": [
+                {
+                  "clave": "cyt.s1.causa-y-efecto-en-los-datos",
+                  "nombre": "Relaciones de causa y efecto en los datos",
+                  "disciplina": "indagacion",
+                  "descripcion": "Describe cómo cambia la variable medida cuando cambia la variable manipulada.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.graficos-de-barras-y-lineales"
+                  ],
+                  "ordenSugerido": 98
+                },
+                {
+                  "clave": "cyt.s1.contrastar-con-informacion-cientifica",
+                  "nombre": "Contraste de resultados con la hipótesis y fuentes científicas",
+                  "disciplina": "indagacion",
+                  "descripcion": "Confirma o refuta su hipótesis comparando datos e información confiable.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.causa-y-efecto-en-los-datos"
+                  ],
+                  "ordenSugerido": 99
+                },
+                {
+                  "clave": "cyt.s1.redactar-conclusiones",
+                  "nombre": "Redacción de conclusiones de una indagación",
+                  "disciplina": "indagacion",
+                  "descripcion": "Escribe conclusiones que responden la pregunta con base en los datos.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.contrastar-con-informacion-cientifica"
+                  ],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "cyt.s1.indagacion-superficie-y-disolucion",
+                  "nombre": "Indagación: tamaño de partícula y rapidez de disolución",
+                  "disciplina": "indagacion",
+                  "descripcion": "Compara cuánto tarda en disolverse azúcar en grano y molida y analiza los datos.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-01",
+                    "CYT-C20-S1-03",
+                    "CYT-C20-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.procedimiento-experimental",
+                    "cyt.s1.moda-y-mediana-de-mediciones"
+                  ],
+                  "ordenSugerido": 101
+                },
+                {
+                  "clave": "cyt.s1.indagacion-masa-y-caida",
+                  "nombre": "Indagación: masa de un cuerpo y tiempo de caída",
+                  "disciplina": "indagacion",
+                  "descripcion": "Compara tiempos de caída de objetos de distinta masa y contrasta con la idea de que los pesados caen antes.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-01",
+                    "CYT-C20-S1-02",
+                    "CYT-C20-S1-03",
+                    "CYT-C20-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.moda-y-mediana-de-mediciones",
+                    "cyt.s1.causa-y-efecto-en-los-datos"
+                  ],
+                  "ordenSugerido": 102
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa y comunica el proceso y resultados de su indagación",
+          "bloques": [
+            {
+              "nombre": "Evaluación y comunicación",
+              "temas": [
+                {
+                  "clave": "cyt.s1.evaluacion-de-la-indagacion",
+                  "nombre": "Evaluación de la indagación realizada",
+                  "disciplina": "indagacion",
+                  "descripcion": "Juzga si los procedimientos y mediciones permitieron responder la pregunta.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.redactar-conclusiones"
+                  ],
+                  "ordenSugerido": 142
+                },
+                {
+                  "clave": "cyt.s1.exposicion-de-la-indagacion",
+                  "nombre": "Exposición de la indagación con apoyo visual",
+                  "disciplina": "indagacion",
+                  "descripcion": "Comunica pregunta, método, resultados y conclusión en una presentación presencial o virtual.",
+                  "desempenosOrigen": [
+                    "CYT-C20-S1-05"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.evaluacion-de-la-indagacion"
+                  ],
+                  "ordenSugerido": 143
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 22,
+      "nombre": "Diseña y construye soluciones tecnológicas para resolver problemas de su entorno",
+      "capacidades": [
+        {
+          "nombre": "Determina una alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Problema y alternativa de solución",
+              "temas": [
+                {
+                  "clave": "cyt.s1.problema-tecnologico-y-causas",
+                  "nombre": "Identificación de un problema tecnológico y sus causas",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Describe una necesidad de su entorno y las causas que la generan.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 23
+                },
+                {
+                  "clave": "cyt.s1.requerimientos-y-recursos",
+                  "nombre": "Requerimientos y recursos de una solución",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Enumera lo que debe cumplir la solución y los materiales disponibles.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.problema-tecnologico-y-causas"
+                  ],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "cyt.s1.tecnologias-tradicionales-peruanas",
+                  "nombre": "Tecnologías tradicionales peruanas: andenes, qochas y waru waru",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Explica el fundamento científico de prácticas locales que resuelven problemas de agua y suelo.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-01"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.problema-tecnologico-y-causas"
+                  ],
+                  "ordenSugerido": 59
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Diseña la alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Diseño de la solución",
+              "temas": [
+                {
+                  "clave": "cyt.s1.dibujo-estructurado",
+                  "nombre": "Dibujo estructurado de un prototipo",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Representa su solución con partes rotuladas, medidas y función de cada una.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.requerimientos-y-recursos"
+                  ],
+                  "ordenSugerido": 60
+                },
+                {
+                  "clave": "cyt.s1.materiales-e-impacto-ambiental",
+                  "nombre": "Selección de materiales por su seguridad e impacto ambiental",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Elige materiales reutilizables, seguros y disponibles para su prototipo.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.dibujo-estructurado"
+                  ],
+                  "ordenSugerido": 61
+                },
+                {
+                  "clave": "cyt.s1.costos-y-tiempo",
+                  "nombre": "Estimación de costos y tiempo de ejecución",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Calcula el costo de materiales y organiza un cronograma de construcción.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-02"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.materiales-e-impacto-ambiental"
+                  ],
+                  "ordenSugerido": 62
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Implementa y valida la alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Implementación y validación",
+              "temas": [
+                {
+                  "clave": "cyt.s1.herramientas-y-seguridad-en-el-taller",
+                  "nombre": "Herramientas básicas y seguridad en el taller",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Usa tijeras, cúter, sierra y pegamento con normas de seguridad.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 103
+                },
+                {
+                  "clave": "cyt.s1.proyecto-filtro-de-agua",
+                  "nombre": "Proyecto: filtro de agua con arena, grava y carbón",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Construye un filtro aplicando la separación de mezclas y mide la turbidez del agua.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-01",
+                    "CYT-C22-S1-02",
+                    "CYT-C22-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.costos-y-tiempo",
+                    "cyt.s1.separacion-de-mezclas-heterogeneas"
+                  ],
+                  "ordenSugerido": 104
+                },
+                {
+                  "clave": "cyt.s1.verificacion-por-etapas",
+                  "nombre": "Verificación de cada etapa del prototipo",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Prueba cada parte, detecta errores de procedimiento o material y hace ajustes.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.proyecto-filtro-de-agua"
+                  ],
+                  "ordenSugerido": 105
+                },
+                {
+                  "clave": "cyt.s1.proyecto-riego-por-goteo",
+                  "nombre": "Proyecto: sistema de riego por goteo para el huerto escolar",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Diseña un riego por goteo con material reciclado para ahorrar agua.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-01",
+                    "CYT-C22-S1-02",
+                    "CYT-C22-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.costos-y-tiempo",
+                    "cyt.s1.herramientas-y-seguridad-en-el-taller"
+                  ],
+                  "ordenSugerido": 106
+                },
+                {
+                  "clave": "cyt.s1.proyecto-papel-artesanal",
+                  "nombre": "Proyecto: papel artesanal reciclado",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Elabora papel a partir de papel usado aplicando separación de mezclas y secado.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-02",
+                    "CYT-C22-S1-03"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.herramientas-y-seguridad-en-el-taller",
+                    "cyt.s1.separacion-de-mezclas-heterogeneas"
+                  ],
+                  "ordenSugerido": 107
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+          "bloques": [
+            {
+              "nombre": "Evaluación y comunicación",
+              "temas": [
+                {
+                  "clave": "cyt.s1.comprobacion-de-funcionamiento",
+                  "nombre": "Comprobación del funcionamiento según los requerimientos",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Contrasta el desempeño del prototipo con lo que se propuso lograr.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.verificacion-por-etapas"
+                  ],
+                  "ordenSugerido": 144
+                },
+                {
+                  "clave": "cyt.s1.impacto-ambiental-de-la-solucion",
+                  "nombre": "Impacto ambiental de una solución tecnológica",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Determina residuos y efectos ambientales al construir y usar su solución.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.comprobacion-de-funcionamiento"
+                  ],
+                  "ordenSugerido": 145
+                },
+                {
+                  "clave": "cyt.s1.proyecto-fertilizante-ecologico",
+                  "nombre": "Proyecto: fertilizante ecológico con residuos orgánicos",
+                  "disciplina": "tecnologia",
+                  "descripcion": "Prepara compost o biol aplicando el reciclaje de la materia y evalúa su efecto en las plantas.",
+                  "desempenosOrigen": [
+                    "CYT-C22-S1-01",
+                    "CYT-C22-S1-02",
+                    "CYT-C22-S1-03",
+                    "CYT-C22-S1-04"
+                  ],
+                  "prerrequisitos": [
+                    "cyt.s1.reciclaje-de-la-materia",
+                    "cyt.s1.herramientas-y-seguridad-en-el-taller"
+                  ],
+                  "ordenSugerido": 146
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

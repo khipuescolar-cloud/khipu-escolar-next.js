@@ -1,7 +1,7 @@
 import "server-only";
 import { notFound } from "next/navigation";
 import { AREAS_NUDITO, type AreaNudito } from "@/lib/nudito/contratos";
-import { temaPorClave, temasDe } from "@/lib/nudito/catalogo";
+import { temaPorClaveConBanco, temasDeConBanco } from "@/lib/nudito/conocimiento/servidor";
 import { clavesDeVersion } from "@/lib/nudito/plan-publicado-reglas";
 import { auditar } from "@/lib/server/auditoria";
 import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
@@ -87,8 +87,8 @@ async function cambiar(ctx: TenantContext, id: string, operacion: "agregar" | "q
 export async function agregarTemasTemario(ctx: TenantContext, id: string, claves: string[]) {
   const plan = await accesoEdicion(ctx, id);
   const unicas = [...new Set(claves)];
-  if (!unicas.length || unicas.length > 100) throw new ErrorDeNegocio("Elige entre 1 y 100 temas.");
-  const validas = new Set(temasDe(plan.area as AreaNudito, plan.nivel as "primaria" | "secundaria", plan.grado).map(t => t.clave));
+  if (!unicas.length || unicas.length > 300) throw new ErrorDeNegocio("Elige entre 1 y 300 temas.");
+  const validas = new Set((await temasDeConBanco(plan.area as AreaNudito, plan.nivel as "primaria" | "secundaria", plan.grado)).map(t => t.clave));
   if (unicas.some(c => !validas.has(c) || c.startsWith("col:"))) throw new ErrorDeNegocio("Elige temas del catálogo global de este grado y curso.");
   await cambiar(ctx, id, "agregar", unicas);
 }
@@ -130,7 +130,7 @@ export async function copiarTemarioAnterior(ctx: TenantContext, id: string) {
   if (!anterior) throw new ErrorDeNegocio("No hay temario del año anterior.");
   const foto = anterior.versionPublicada > 0 ? await ctx.db.planAnualVersion.findFirst({ where: { planId: anterior.id, numero: anterior.versionPublicada }, select: { temas: true } }) : null;
   const claves = foto ? clavesDeVersion(foto.temas) : (await ctx.db.planAnualTema.findMany({ where: { planId: anterior.id }, orderBy: { orden: "asc" } })).map(t => t.temaClave);
-  const validas = new Set(temasDe(actual.area as AreaNudito, actual.nivel as "primaria" | "secundaria", actual.grado).map(t => t.clave));
+  const validas = new Set((await temasDeConBanco(actual.area as AreaNudito, actual.nivel as "primaria" | "secundaria", actual.grado)).map(t => t.clave));
   await agregarTemasTemario(ctx, id, claves.filter(c => validas.has(c)));
 }
-export function nombreTemaTemario(clave: string) { return temaPorClave(clave)?.nombre ?? clave; }
+export async function nombreTemaTemario(clave: string) { return (await temaPorClaveConBanco(clave))?.nombre ?? clave; }

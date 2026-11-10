@@ -1,0 +1,5222 @@
+[
+  {
+    "clave": "mat.p3.problemas-juntar-colecciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P3-01"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Problemas de juntar colecciones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Modela la combinación de dos colecciones distintas con una adición.",
+    "palabrasClave": [
+      "juntar",
+      "total",
+      "partes",
+      "adición",
+      "problemas"
+    ],
+    "prerrequisitos": [
+      "mat.p3.contar-hasta-1000"
+    ],
+    "ordenSugerido": 13,
+    "ideaCentral": "Cuando tienes dos grupos distintos y quieres saber cuántos hay entre los dos, los juntas con una suma. Cada grupo es una parte y la suma te da el total.",
+    "pasos": [
+      "Lee el problema y encuentra los dos grupos (las partes) y cuántos hay en cada uno.",
+      "Fíjate si la pregunta pide cuántos hay en total, entre los dos o juntos.",
+      "Escribe la suma: una parte más la otra parte.",
+      "Suma unidades con unidades, decenas con decenas y centenas con centenas.",
+      "Responde con la palabra del problema: cuyes, libros, soles…"
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la granja de Rosa hay 24 cuyes blancos y 15 cuyes marrones. ¿Cuántos cuyes hay en total?",
+        "desarrollo": "Las partes son 24 cuyes blancos y 15 cuyes marrones. Juntamos: 24 + 15. Unidades: 4 + 5 = 9. Decenas: 2 + 1 = 3. Total: 39.",
+        "respuesta": "Hay 39 cuyes."
+      },
+      {
+        "situacion": "En la biblioteca del colegio hay 132 cuentos y 245 libros de ciencias. ¿Cuántos libros hay entre los dos tipos?",
+        "desarrollo": "Las partes son 132 cuentos y 245 libros de ciencias. Juntamos: 132 + 245. Unidades: 2 + 5 = 7. Decenas: 3 + 4 = 7. Centenas: 1 + 2 = 3. Total: 377.",
+        "respuesta": "Hay 377 libros."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar porque en el problema aparecen dos números, aunque la pregunta pide el total.",
+        "correccion": "Lee la pregunta: «en total», «entre los dos» o «juntos» te dicen que hay que juntar, y juntar es sumar."
+      },
+      {
+        "error": "Sumar también un número que no forma parte de los grupos que se preguntan.",
+        "correccion": "Subraya solo los grupos que nombra la pregunta; los demás datos se quedan fuera de la suma."
+      },
+      {
+        "error": "Sumar las cifras sin ordenarlas, por ejemplo poner las unidades de un número debajo de las decenas del otro.",
+        "correccion": "Escribe los números uno debajo del otro, alineados por la derecha: unidades con unidades."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Parte",
+        "significado": "Cada uno de los grupos que se van a juntar."
+      },
+      {
+        "termino": "Total",
+        "significado": "Lo que obtienes al juntar todas las partes."
+      },
+      {
+        "termino": "Sumando",
+        "significado": "Cada número que se suma en una adición."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una canasta hay 12 mangos y 6 plátanos. ¿Cuántas frutas hay en la canasta? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los dos grupos de frutas: los mangos y los plátanos.",
+          "Junta las dos partes con una suma: 12 + 6.",
+          "Suma las unidades 2 + 6 y deja la decena del 12 como está."
+        ],
+        "retroalimentacion": "Los mangos y los plátanos se juntan: 12 + 6 = 18 frutas. Si restaste, recuerda que para saber cuántas hay en los dos grupos se suma.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 12,
+          "b": 6
+        }
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En el aula de 3.° A hay 14 niñas y 13 niños. ¿Cuántos estudiantes hay en el aula? Escribe solo el número.",
+        "respuesta": 27,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los estudiantes del aula forman dos grupos: niñas y niños.",
+          "Para saber cuántos hay en el aula, suma 14 + 13.",
+          "Unidades: 4 + 3. Decenas: 1 + 1. Une las dos cifras."
+        ],
+        "retroalimentacion": "Niñas y niños juntos son los estudiantes del aula: 14 + 13 = 27. A veces se suma solo una columna; revisa unidades y decenas.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 14,
+          "b": 13
+        }
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la chacra de don Julio hay 23 ovejas y 15 llamas. ¿Qué operación te ayuda a saber cuántos animales hay en total?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta dice «en total»: ¿juntas o separas a los animales?",
+          "Las ovejas y las llamas son dos partes que se juntan.",
+          "Busca la opción que une 23 y 15 con el signo de juntar."
+        ],
+        "retroalimentacion": "Para el total de animales se juntan las ovejas y las llamas: 23 + 15. Las restas sirven para comparar o quitar, no para juntar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "23 + 15"
+          },
+          {
+            "id": "b",
+            "texto": "23 − 15"
+          },
+          {
+            "id": "c",
+            "texto": "15 − 23"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un corral hay 30 gallinas y 20 patos, entonces en total hay 50 aves.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Gallinas y patos son aves: hay que juntarlos.",
+          "Suma las decenas: 3 decenas más 2 decenas.",
+          "Revisa si 30 + 20 coincide con el número que dice la frase."
+        ],
+        "retroalimentacion": "Es verdadero: 30 + 20 = 50 aves. Cuando los números terminan en cero, puedes sumar solo las decenas: 3 + 2 = 5 decenas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para la kermés, la mamá de Luis preparó 125 tamales de pollo y 42 tamales de chancho. ¿Cuántos tamales preparó en total? Escribe solo el número.",
+        "respuesta": 167,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos tipos de tamales: 125 de pollo y 42 de chancho.",
+          "Escribe 125 + 42 con el 42 alineado a la derecha, debajo del 25.",
+          "Unidades 5 + 2, decenas 2 + 4 y la centena del 125 baja sola."
+        ],
+        "retroalimentacion": "Se juntan los dos tipos de tamales: 125 + 42 = 167. Un error común es poner el 4 debajo del 1; el 42 no tiene centenas.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 125,
+          "b": 42
+        }
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una combi viajan 18 pasajeros sentados y 11 parados. ¿Cuántos pasajeros viajan en la combi? Escribe solo el número.",
+        "respuesta": 29,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los pasajeros de la combi son de dos grupos: sentados y parados.",
+          "Junta los grupos: 18 + 11.",
+          "8 + 1 en las unidades y 1 + 1 en las decenas."
+        ],
+        "retroalimentacion": "Todos los pasajeros son los sentados más los parados: 18 + 11 = 29.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 18,
+          "b": 11
+        }
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el mercado de Cusco, una casera tiene 210 choclos amarillos y 140 choclos morados. ¿Cuántos choclos tiene en total?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los choclos amarillos y los morados se juntan.",
+          "Suma 210 + 140 empezando por las unidades: 0 + 0.",
+          "Decenas: 1 + 4. Centenas: 2 + 1. Busca ese número entre las opciones."
+        ],
+        "retroalimentacion": "210 + 140 = 350 choclos. La opción 70 sale de restar, pero aquí se pide el total, así que se suma.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "250"
+          },
+          {
+            "id": "b",
+            "texto": "340"
+          },
+          {
+            "id": "c",
+            "texto": "70"
+          },
+          {
+            "id": "d",
+            "texto": "350"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para saber cuántos lápices hay entre una caja con 36 lápices rojos y otra con 22 lápices azules, debo restar 36 − 22.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en la frase «entre una caja y otra»: ¿se juntan o se separan?",
+          "Los rojos y los azules forman un solo grupo de lápices al juntarlos.",
+          "Piensa qué signo une los 36 rojos con los 22 azules para tener el total."
+        ],
+        "retroalimentacion": "Es falso: para el total de lápices se suma, 36 + 22 = 58. La resta 36 − 22 diría cuántos rojos hay de más, no el total."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la fiesta del colegio se inflaron 104 globos verdes y 53 globos amarillos. ¿Cuántos globos se inflaron? Escribe solo el número.",
+        "respuesta": 157,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta los globos verdes y los amarillos.",
+          "En 104 hay un cero en las decenas: 104 + 53 se alinea con el 3 debajo del 4.",
+          "Unidades 4 + 3, decenas 0 + 5 y la centena 1 queda igual."
+        ],
+        "retroalimentacion": "104 + 53 = 157 globos. Cuidado con el cero de 104: en las decenas se hace 0 + 5 = 5.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 104,
+          "b": 53
+        }
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la tienda de Carmen hay 231 botellas de agua y 156 botellas de gaseosa. Ayer Carmen vendió 20 panes. ¿Cuántas botellas hay en la tienda? Escribe solo el número.",
+        "respuesta": 387,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta es por las botellas. ¿Los panes son botellas?",
+          "Usa solo los dos grupos de botellas: 231 de agua y 156 de gaseosa.",
+          "Suma 231 + 156: unidades 1 + 6, decenas 3 + 5, centenas 2 + 1."
+        ],
+        "retroalimentacion": "Solo se juntan las botellas: 231 + 156 = 387. Los 20 panes son un dato que no se usa; si los sumaste o restaste, vuelve a leer la pregunta.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 231,
+          "b": 156
+        }
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una caja hay 120 canicas rojas, 205 canicas azules y 13 canicas verdes. ¿Cuántas canicas hay en la caja? Escribe solo el número.",
+        "respuesta": 338,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aquí no son dos grupos sino tres: rojas, azules y verdes.",
+          "Primero junta 120 + 205 y luego agrega las 13 verdes.",
+          "120 + 205 = 325; ahora suma 325 + 13."
+        ],
+        "retroalimentacion": "Se juntan los tres colores: 120 + 205 = 325 y 325 + 13 = 338. Si te salió 325, olvidaste las canicas verdes."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Ana tiene 32 figuritas de animales y Beto tiene 45 figuritas de autos. Escribe la suma que da el total de figuritas con su resultado (por ejemplo: 10 + 5 = 15).",
+        "respuesta": "32 + 45 = 77",
+        "alternativasAceptadas": [
+          "32+45=77",
+          "45 + 32 = 77",
+          "45+32=77",
+          "32 + 45 es 77",
+          "77"
+        ],
+        "pistas": [
+          "Las partes son las figuritas de Ana y las de Beto.",
+          "Escribe los dos números con el signo + entre ellos.",
+          "2 + 5 en las unidades y 3 + 4 en las decenas; completa con el signo =."
+        ],
+        "retroalimentacion": "La suma es 32 + 45 = 77 figuritas. También vale 45 + 32 = 77, porque el orden no cambia el total."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la feria de Iquitos hay 312 kilos de paiche y 165 kilos de boquichico. Carlos dice que hay 147 kilos de pescado en total. ¿Qué le dirías?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el número de Carlos: ¿es mayor o menor que 312? ¿Puede el total ser menor que una de sus partes?",
+          "Para el total hay que juntar: 312 + 165.",
+          "Unidades 2 + 5, decenas 1 + 6, centenas 3 + 1; compara con 147."
+        ],
+        "retroalimentacion": "Carlos restó (312 − 165 = 147). Al juntar se suma: 312 + 165 = 477 kilos. Recuerda que el total siempre es mayor que cada parte.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene razón."
+          },
+          {
+            "id": "b",
+            "texto": "Restó; en total hay 477 kilos."
+          },
+          {
+            "id": "c",
+            "texto": "En total hay 467 kilos."
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.problemas-agregar-quitar",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P3-01"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Problemas de agregar y quitar",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Distingue cuándo una cantidad aumenta o disminuye y representa el cambio.",
+    "palabrasClave": [
+      "agregar",
+      "quitar",
+      "aumentar",
+      "disminuir",
+      "cambio"
+    ],
+    "prerrequisitos": [
+      "mat.p3.problemas-juntar-colecciones"
+    ],
+    "ordenSugerido": 14,
+    "ideaCentral": "Cuando a una cantidad le llega algo más, aumenta y tú sumas. Cuando se va una parte, disminuye y tú restas.",
+    "pasos": [
+      "Encuentra la cantidad inicial: lo que había al principio.",
+      "Busca la acción: ¿llegó, ganó o compró (agrega) o regaló, vendió o gastó (quita)?",
+      "Si la cantidad aumenta, suma; si disminuye, resta.",
+      "Revisa: si se agregó, el resultado es mayor que el inicio; si se quitó, es menor."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Pedro tenía 45 soles en su alcancía y su abuela le regaló 23 soles más. ¿Cuánto tiene ahora?",
+        "desarrollo": "Inicio: 45 soles. Acción: le regalaron, su dinero aumenta. Sumamos 45 + 23: unidades 5 + 3 = 8, decenas 4 + 2 = 6. Resultado: 68.",
+        "respuesta": "Pedro tiene 68 soles."
+      },
+      {
+        "situacion": "En el mercado de Huancayo, una casera tenía 86 panes y vendió 34. ¿Cuántos panes le quedan?",
+        "desarrollo": "Inicio: 86 panes. Acción: vendió, los panes disminuyen. Restamos 86 − 34: unidades 6 − 4 = 2, decenas 8 − 3 = 5. Resultado: 52.",
+        "respuesta": "Le quedan 52 panes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar siempre que ve la palabra «más», aunque la acción quita (por ejemplo «vendió 10 más»).",
+        "correccion": "Fíjate en lo que pasó: si alguien vendió, regaló, perdió o gastó, la cantidad baja y se resta."
+      },
+      {
+        "error": "Restar al revés, poniendo el número que se quita primero.",
+        "correccion": "En la resta va primero lo que había al inicio, que es la cantidad más grande."
+      },
+      {
+        "error": "Confundir quién da y quién recibe: «le dieron» con «dio».",
+        "correccion": "Si a la persona le dieron, ella tiene más; si ella dio, tiene menos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cantidad inicial",
+        "significado": "Lo que había antes del cambio."
+      },
+      {
+        "termino": "Aumentar",
+        "significado": "Hacerse más grande; pasa cuando se agrega."
+      },
+      {
+        "termino": "Disminuir",
+        "significado": "Hacerse más pequeño; pasa cuando se quita."
+      },
+      {
+        "termino": "Cantidad final",
+        "significado": "Lo que queda después del cambio."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lucía tenía 15 caramelos y se comió 4. ¿La cantidad de caramelos de Lucía aumenta o disminuye?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en la acción: «se comió».",
+          "Si se comió caramelos, ¿le quedan más o menos que los 15 que tenía?",
+          "Los caramelos que se come ya no los tiene: piensa en quitar."
+        ],
+        "retroalimentacion": "Disminuye: al comerse 4, le quedan menos de 15 (15 − 4 = 11). Comer, gastar o regalar son acciones de quitar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Disminuye"
+          },
+          {
+            "id": "b",
+            "texto": "Queda igual"
+          },
+          {
+            "id": "c",
+            "texto": "Aumenta"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un árbol había 18 palomas y llegaron 11 más. ¿Cuántas palomas hay ahora? Escribe solo el número.",
+        "respuesta": 29,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La palabra «llegaron» te dice que hay más palomas que antes.",
+          "Empieza con las 18 palomas y agrega las 11 que llegaron.",
+          "Suma 18 + 11: unidades 8 + 1, decenas 1 + 1."
+        ],
+        "retroalimentacion": "Llegar es agregar: 18 + 11 = 29 palomas. El resultado es mayor que 18, como debe ser.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 18,
+          "b": 11
+        }
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Rosa tenía 27 figuritas y regaló 5 a su prima. ¿Cuántas figuritas le quedan? Escribe solo el número.",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Rosa regaló figuritas: ¿tiene más o menos que 27?",
+          "Quita las 5 figuritas regaladas a las 27 que tenía.",
+          "En las unidades haz 7 − 5 y deja las 2 decenas."
+        ],
+        "retroalimentacion": "Regalar es quitar: 27 − 5 = 22 figuritas. Si sumaste, te salió 32, pero Rosa no puede tener más después de regalar.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 27,
+          "b": 5
+        }
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Miguel tenía 40 soles y gastó 10 soles en el mercado, entonces ahora tiene más dinero que antes.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la acción de Miguel: gastó.",
+          "Gastar hace que el dinero baje: 40 − 10.",
+          "Compara lo que le queda con los 40 soles del inicio."
+        ],
+        "retroalimentacion": "Es falso: al gastar, el dinero disminuye. Le quedan 40 − 10 = 30 soles, que es menos que 40."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la combi iban 26 pasajeros. En el paradero bajaron 13. ¿Cuántos pasajeros siguen en la combi? Escribe solo el número.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«Bajaron» significa que algunos pasajeros se fueron de la combi.",
+          "Resta los que bajaron a los que iban: 26 − 13.",
+          "6 − 3 en las unidades y 2 − 1 en las decenas."
+        ],
+        "retroalimentacion": "Bajar de la combi es quitar: 26 − 13 = 13 pasajeros. Si sumaste, tendrías 39, pero la combi quedó con menos gente.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 26,
+          "b": 13
+        }
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La biblioteca del aula tenía 134 libros y los padres de familia donaron 25 libros. ¿Cuántos libros tiene ahora? Escribe solo el número.",
+        "respuesta": 159,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Donar a la biblioteca hace que tenga más libros.",
+          "Agrega los 25 libros donados a los 134: 134 + 25.",
+          "Alinea el 25 debajo del 34: 4 + 5 y 3 + 2; la centena baja igual."
+        ],
+        "retroalimentacion": "La biblioteca recibe libros, así que se suma: 134 + 25 = 159 libros.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 134,
+          "b": 25
+        }
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Don Pablo cosechó 258 kilos de papa y vendió 120 kilos en la feria. ¿Qué operación muestra cuántos kilos de papa le quedan?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Don Pablo vendió papa: su cantidad baja.",
+          "Al quitar, se empieza por lo que había: los 258 kilos.",
+          "Busca la resta que tiene primero el 258."
+        ],
+        "retroalimentacion": "Vender es quitar, y se empieza por lo que había: 258 − 120 (le quedan 138 kilos). 120 − 258 está al revés.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "120 − 258"
+          },
+          {
+            "id": "b",
+            "texto": "258 + 120"
+          },
+          {
+            "id": "c",
+            "texto": "258 − 120"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe «agregar» o «quitar»: Sofía tenía 60 soles y su papá le dio 20 soles por su cumpleaños.",
+        "respuesta": "agregar",
+        "alternativasAceptadas": [
+          "agrega",
+          "se agrega",
+          "aumentar",
+          "aumenta",
+          "sumar"
+        ],
+        "pistas": [
+          "¿Quién recibe el dinero en esta historia?",
+          "Si a Sofía le dan 20 soles, su dinero cambia de 60 a otro número. ¿Mayor o menor?",
+          "Sofía termina con 80 soles: piensa qué acción hace subir la cantidad."
+        ],
+        "retroalimentacion": "Es agregar: a Sofía le dieron dinero, así que tiene más (60 + 20 = 80 soles)."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un granjero de Cajamarca tenía 67 cuyes y vendió 25 en la feria. ¿Cuántos cuyes le quedan? Escribe solo el número.",
+        "respuesta": 42,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Vender cuyes hace que el granjero tenga menos.",
+          "Resta 67 − 25.",
+          "Unidades 7 − 5 y decenas 6 − 2."
+        ],
+        "retroalimentacion": "Se vendieron cuyes, se quitan: 67 − 25 = 42 cuyes.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 67,
+          "b": 25
+        }
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una panadería de Arequipa horneó 365 panes. En la mañana vendió 143. ¿Cuántos panes le quedan para la tarde? Escribe solo el número.",
+        "respuesta": 222,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lo que había al inicio son los 365 panes horneados.",
+          "La venta de la mañana quita panes: 365 − 143.",
+          "5 − 3, 6 − 4 y 3 − 1: resta cada columna."
+        ],
+        "retroalimentacion": "Vender es quitar: 365 − 143 = 222 panes para la tarde.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 365,
+          "b": 143
+        }
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Juan tenía 48 canicas, perdió 12 y después ganó 12. Al final tiene 48 canicas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos cambios: uno quita y otro agrega.",
+          "Primero 48 − 12; con ese resultado, suma las 12 que ganó.",
+          "Si quitas 12 y luego agregas 12, ¿cambió algo?"
+        ],
+        "retroalimentacion": "Es verdadero: 48 − 12 = 36 y 36 + 12 = 48. Quitar y luego agregar la misma cantidad deja todo como al inicio."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el tanque había 450 litros de agua. Se usaron 230 litros para regar la chacra. Ana dice que quedan 680 litros. ¿Qué pasó?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Usar agua hace que el tanque tenga más o menos?",
+          "680 es más que 450: compáralo con lo que había al inicio.",
+          "Calcula 450 − 230 restando decenas 5 − 3 y centenas 4 − 2."
+        ],
+        "retroalimentacion": "Ana sumó, pero usar agua la disminuye. Lo correcto es 450 − 230 = 220 litros.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ana sumó, pero el agua disminuyó: quedan 220 litros."
+          },
+          {
+            "id": "b",
+            "texto": "Ana tiene razón."
+          },
+          {
+            "id": "c",
+            "texto": "Quedan 230 litros."
+          }
+        ]
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Teresa tenía 205 soles ahorrados. Vendió chicha morada en la kermés y ganó 74 soles. ¿Cuánto dinero tiene ahora? Escribe solo el número.",
+        "respuesta": 279,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«Ganó» te dice si el dinero de Teresa sube o baja.",
+          "Agrega los 74 soles a los 205: 205 + 74.",
+          "En 205 las decenas son 0: haz 5 + 4 y 0 + 7."
+        ],
+        "retroalimentacion": "Ganar es agregar: 205 + 74 = 279 soles. Cuidado con el cero de 205 al alinear.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 205,
+          "b": 74
+        }
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.problemas-comparacion-aditiva",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P3-01",
+      "MAT-C23-P3-07"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Problemas de comparación aditiva",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Encuentra cuánto más o cuánto menos tiene una colección que otra.",
+    "palabrasClave": [
+      "comparar",
+      "cuánto más",
+      "cuánto menos",
+      "diferencia",
+      "resta"
+    ],
+    "prerrequisitos": [
+      "mat.p3.resta-con-canje"
+    ],
+    "ordenSugerido": 46,
+    "ideaCentral": "Para saber cuánto más tiene uno que otro, comparas las dos cantidades: a la mayor le restas la menor. Esa diferencia es lo que uno tiene de más y el otro tiene de menos.",
+    "pasos": [
+      "Encuentra las dos cantidades que se comparan.",
+      "Decide cuál es la mayor y cuál la menor.",
+      "Resta: mayor menos menor.",
+      "Responde usando la frase de la pregunta: «tiene … más» o «tiene … menos»."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "María tiene 85 soles y José tiene 52 soles. ¿Cuántos soles más tiene María?",
+        "desarrollo": "Comparamos 85 y 52. La mayor es 85. Restamos 85 − 52: 5 − 2 = 3 y 8 − 5 = 3. Diferencia: 33.",
+        "respuesta": "María tiene 33 soles más."
+      },
+      {
+        "situacion": "En 3.° A hay 34 estudiantes y en 3.° B hay 29. ¿Cuántos estudiantes menos tiene 3.° B?",
+        "desarrollo": "Restamos 34 − 29. Como 4 es menor que 9, cambiamos 1 decena: 14 − 9 = 5 y 2 − 2 = 0. Diferencia: 5.",
+        "respuesta": "3.° B tiene 5 estudiantes menos."
+      },
+      {
+        "situacion": "Una llama pesa 125 kilos y una alpaca 68 kilos. ¿Cuántos kilos más pesa la llama?",
+        "desarrollo": "Restamos 125 − 68: 15 − 8 = 7; en las decenas queda 1, cambiamos la centena: 11 − 6 = 5. Diferencia: 57.",
+        "respuesta": "La llama pesa 57 kilos más."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar porque la pregunta dice «más».",
+        "correccion": "«¿Cuánto más?» pregunta por la diferencia entre dos cantidades, y eso se halla restando."
+      },
+      {
+        "error": "Restar la menor menos la mayor o restar cifra por cifra «la chica de la grande».",
+        "correccion": "Pon siempre la cantidad mayor arriba y, si una cifra de arriba es menor, haz el canje."
+      },
+      {
+        "error": "Responder con la cantidad mayor en lugar de la diferencia.",
+        "correccion": "La pregunta no pide cuánto tiene cada uno, sino cuánto le sobra a uno comparado con el otro."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Comparar",
+        "significado": "Ver cuál de dos cantidades es mayor y por cuánto."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Resultado de restar la menor a la mayor."
+      },
+      {
+        "termino": "Mayor y menor",
+        "significado": "La cantidad que tiene más y la que tiene menos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Luis tiene 17 canicas y Pepe tiene 12. ¿Cuántas canicas más tiene Luis? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las canicas de Luis con las de Pepe.",
+          "A las 17 de Luis réstale las 12 de Pepe.",
+          "7 − 2 en las unidades; las decenas se cancelan."
+        ],
+        "retroalimentacion": "Luis tiene 17 − 12 = 5 canicas más. Si respondiste 29, sumaste; aquí se busca la diferencia.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 17,
+          "b": 12
+        }
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Carla leyó 48 páginas y Diego leyó 23. ¿Qué operación dice cuántas páginas más leyó Carla?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Quién leyó más, Carla o Diego?",
+          "Para comparar, a la cantidad mayor se le resta la menor.",
+          "Busca la resta que empieza con 48."
+        ],
+        "retroalimentacion": "Se compara restando la mayor menos la menor: 48 − 23 = 25 páginas más. La suma daría el total leído, que no se pregunta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "48 − 23"
+          },
+          {
+            "id": "b",
+            "texto": "48 + 23"
+          },
+          {
+            "id": "c",
+            "texto": "23 − 48"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un perro pesa 26 kilos y un gato pesa 4 kilos. ¿Cuántos kilos menos pesa el gato? Escribe solo el número.",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«¿Cuántos kilos menos?» también se responde comparando.",
+          "Resta el peso del gato al del perro: 26 − 4.",
+          "En las unidades, 6 − 4; las 2 decenas quedan."
+        ],
+        "retroalimentacion": "El gato pesa 26 − 4 = 22 kilos menos. «Cuánto más» y «cuánto menos» se resuelven con la misma resta.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 26,
+          "b": 4
+        }
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Ana tiene 30 soles y Rosa tiene 20 soles, entonces Rosa tiene 10 soles menos que Ana.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 30 con 20.",
+          "Resta las decenas: 3 − 2.",
+          "Mira si la diferencia es la que dice la frase."
+        ],
+        "retroalimentacion": "Es verdadero: 30 − 20 = 10, Rosa tiene 10 soles menos (y Ana 10 soles más)."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la feria, la casera Juana vendió 92 choclos y la casera Elena vendió 57. ¿Cuántos choclos más vendió Juana? Escribe solo el número.",
+        "respuesta": 35,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Juana vendió más; resta lo de Elena a lo de Juana.",
+          "92 − 57: como 2 es menor que 7, cambia 1 decena por 10 unidades.",
+          "12 − 7 en las unidades y 8 − 5 en las decenas."
+        ],
+        "retroalimentacion": "92 − 57 = 35 choclos más. Si te salió 45, restaste 7 − 2 en lugar de hacer el canje.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 92,
+          "b": 57
+        }
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El colegio de Iquitos tiene 245 estudiantes y el colegio de Nauta tiene 180. ¿Cuántos estudiantes menos tiene el colegio de Nauta? Escribe solo el número.",
+        "respuesta": 65,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 245 y 180: ¿cuál es mayor?",
+          "Resta 245 − 180 empezando por las unidades: 5 − 0.",
+          "En las decenas 4 es menor que 8: cambia 1 centena y haz 14 − 8."
+        ],
+        "retroalimentacion": "245 − 180 = 65 estudiantes menos. Sumar daría el total de los dos colegios, que no es lo que se pregunta.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 245,
+          "b": 180
+        }
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mateo le dice a su amigo: «Tengo 63 figuritas y tú 40, así que tengo 103 más que tú». ¿Cuántas figuritas más tiene Mateo en verdad?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Qué hizo Mateo con 63 y 40 para obtener 103?",
+          "Para saber cuántas más tiene, compara restando: 63 − 40.",
+          "6 decenas menos 4 decenas; las 3 unidades quedan."
+        ],
+        "retroalimentacion": "Mateo sumó. Lo correcto es 63 − 40 = 23 figuritas más.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "63"
+          },
+          {
+            "id": "b",
+            "texto": "103"
+          },
+          {
+            "id": "c",
+            "texto": "33"
+          },
+          {
+            "id": "d",
+            "texto": "23"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una mochila cuesta 85 soles y una lonchera 37 soles. La mochila cuesta 48 soles más que la lonchera.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los precios de la mochila y la lonchera.",
+          "Calcula 85 − 37; 5 es menor que 7, hay canje.",
+          "15 − 7 y luego 7 − 3: arma el número y compáralo con 48."
+        ],
+        "retroalimentacion": "Es verdadero: 85 − 37 = 48. Puedes comprobar: 37 + 48 = 85."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una carrera, Sara corrió 400 metros y Toño corrió 275 metros. ¿Cuántos metros más corrió Sara? Escribe solo el número.",
+        "respuesta": 125,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sara corrió más; resta lo de Toño.",
+          "400 − 275 tiene ceros: cambia 1 centena por 10 decenas y 1 decena por 10 unidades.",
+          "Queda 3 centenas, 9 decenas y 10 unidades: resta 10 − 5, 9 − 7 y 3 − 2."
+        ],
+        "retroalimentacion": "400 − 275 = 125 metros más. Comprueba: 275 + 125 = 400.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 400,
+          "b": 275
+        }
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Pilar tiene 312 soles y su hermano tiene 158 soles menos que ella. ¿Cuántos soles tiene su hermano? Escribe solo el número.",
+        "respuesta": 154,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ahora no se busca la diferencia: la diferencia es 158 y se busca lo que tiene el hermano.",
+          "Si el hermano tiene 158 menos, quita 158 a lo de Pilar: 312 − 158.",
+          "12 − 8 con canje, luego 10 − 5 con otro canje y 2 − 1."
+        ],
+        "retroalimentacion": "El hermano tiene 312 − 158 = 154 soles. Si sumaste, obtuviste 470, pero él tiene menos que Pilar.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 312,
+          "b": 158
+        }
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Raúl cosechó 236 kilos de quinua. Su vecina cosechó 85 kilos más que él. ¿Cuántos kilos cosechó la vecina? Escribe solo el número.",
+        "respuesta": 321,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La vecina cosechó MÁS que Raúl: su cantidad es mayor que 236.",
+          "Agrega los 85 kilos de diferencia a los de Raúl: 236 + 85.",
+          "6 + 5 = 11 (llevas 1); 3 + 8 + 1 = 12 (llevas 1); 2 + 1."
+        ],
+        "retroalimentacion": "La vecina tiene 85 más que Raúl: 236 + 85 = 321 kilos. Aquí se suma porque ya conoces la diferencia y buscas la cantidad mayor.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 236,
+          "b": 85
+        }
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa la frase: Una gallina puso 126 huevos en el año y otra puso 98. La primera puso ___ huevos más.",
+        "respuesta": "28",
+        "alternativasAceptadas": [
+          "28 huevos",
+          "veintiocho"
+        ],
+        "pistas": [
+          "Compara 126 con 98.",
+          "Resta 126 − 98 con canjes.",
+          "16 − 8 en las unidades y 11 − 9 en las decenas."
+        ],
+        "retroalimentacion": "126 − 98 = 28 huevos más. Comprueba: 98 + 28 = 126."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para reciclar, 3.° A juntó 154 tapitas y 3.° B juntó 209. ¿Qué frase es correcta?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero mira qué salón juntó más tapitas.",
+          "Resta 209 − 154; en las decenas hay un 0 arriba.",
+          "Unidades 9 − 4; en las decenas cambia 1 centena y haz 10 − 5; centenas 1 − 1."
+        ],
+        "retroalimentacion": "3.° B juntó más: 209 − 154 = 55 tapitas más. 363 es la suma de las dos cantidades, no la diferencia.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3.° B juntó 363 tapitas más."
+          },
+          {
+            "id": "b",
+            "texto": "3.° B juntó 45 tapitas más."
+          },
+          {
+            "id": "c",
+            "texto": "3.° B juntó 55 tapitas más."
+          },
+          {
+            "id": "d",
+            "texto": "3.° A juntó 55 tapitas más."
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.problemas-igualacion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P3-01",
+      "MAT-C23-P3-07"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Problemas de igualación de cantidades",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Halla cuánto agregar o quitar para que dos cantidades sean iguales.",
+    "palabrasClave": [
+      "igualar",
+      "faltar",
+      "sobrar",
+      "diferencia",
+      "problemas"
+    ],
+    "prerrequisitos": [
+      "mat.p3.problemas-comparacion-aditiva"
+    ],
+    "ordenSugerido": 47,
+    "ideaCentral": "Para que dos cantidades queden iguales, buscas la diferencia entre ellas: eso es lo que le falta a la menor o lo que le sobra a la mayor.",
+    "pasos": [
+      "Lee las dos cantidades y cuál de ellas se va a cambiar.",
+      "Si la menor debe crecer, piensa cuánto le falta para llegar a la mayor.",
+      "Si la mayor debe bajar, piensa cuánto le sobra.",
+      "En los dos casos calcula mayor − menor.",
+      "Comprueba: agrega o quita ese número y mira que queden iguales."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Lucía tiene 45 stickers y Marta 28. ¿Cuántos stickers le faltan a Marta para tener los mismos que Lucía?",
+        "desarrollo": "La menor es 28 y debe llegar a 45. Restamos 45 − 28: 15 − 8 = 7 y 3 − 2 = 1. Le faltan 17. Comprobamos: 28 + 17 = 45.",
+        "respuesta": "Le faltan 17 stickers."
+      },
+      {
+        "situacion": "En una canasta hay 72 naranjas y en otra 50. ¿Cuántas naranjas hay que sacar de la primera para que las dos tengan igual?",
+        "desarrollo": "La mayor es 72 y debe bajar a 50. Restamos 72 − 50 = 22. Comprobamos: 72 − 22 = 50.",
+        "respuesta": "Hay que sacar 22 naranjas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar las dos cantidades.",
+        "correccion": "Igualar no es juntar: busca cuánto separa a una cantidad de la otra, y eso es una resta."
+      },
+      {
+        "error": "Responder con la cantidad final (por ejemplo «Marta tendrá 45») en lugar de lo que falta.",
+        "correccion": "La pregunta pide cuántos agregar o quitar, no con cuántos queda."
+      },
+      {
+        "error": "Agregar a la cantidad mayor o quitar a la menor.",
+        "correccion": "Para igualar, la menor crece o la mayor baja; si haces al revés se separan más."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Igualar",
+        "significado": "Hacer que dos cantidades sean la misma."
+      },
+      {
+        "termino": "Faltar",
+        "significado": "Lo que necesita la cantidad menor para llegar a la mayor."
+      },
+      {
+        "termino": "Sobrar",
+        "significado": "Lo que tiene de más la cantidad mayor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Pedro tiene 9 lápices y Rita tiene 14. ¿Cuántos lápices le faltan a Pedro para tener los mismos que Rita? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pedro tiene menos lápices; tiene que llegar a 14.",
+          "Cuenta desde 9 hasta 14 o calcula 14 − 9.",
+          "De 9 a 10 hay 1 y de 10 a 14 hay 4."
+        ],
+        "retroalimentacion": "A Pedro le faltan 14 − 9 = 5 lápices. Comprueba: 9 + 5 = 14.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 14,
+          "b": 9
+        }
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una fila hay 20 sillas y en otra fila hay 16. ¿Cuántas sillas hay que poner en la segunda fila para que las dos tengan igual? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La segunda fila tiene menos sillas: 16.",
+          "¿Cuánto le falta a 16 para llegar a 20?",
+          "Cuenta 17, 18, 19, 20 y fíjate cuántos números dijiste."
+        ],
+        "retroalimentacion": "Faltan 20 − 16 = 4 sillas. Con 4 más, la segunda fila llega a 20.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 20,
+          "b": 16
+        }
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tomás tiene 25 soles y Nora tiene 30 soles. Si Tomás recibe 5 soles, los dos tendrán la misma cantidad.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuánto tendría Tomás después de recibir 5 soles.",
+          "Suma 25 + 5.",
+          "Compara ese resultado con los 30 soles de Nora."
+        ],
+        "retroalimentacion": "Es verdadero: 25 + 5 = 30, igual que Nora. La diferencia entre 30 y 25 era justo 5."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un plato tiene 12 galletas y otro tiene 8. ¿Cuántas galletas hay que quitar del primer plato para que los dos tengan igual?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer plato tiene más galletas: debe bajar hasta 8.",
+          "Calcula cuánto le sobra: 12 − 8.",
+          "Desde 8, cuenta hasta 12."
+        ],
+        "retroalimentacion": "Hay que quitar 12 − 8 = 4 galletas. 20 sería juntar los dos platos, que no es igualar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "4"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La casera Rosa tiene 64 paltas y la casera Inés tiene 39. ¿Cuántas paltas tiene que conseguir Inés para tener las mismas que Rosa? Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Inés tiene menos paltas y debe llegar a 64.",
+          "Calcula 64 − 39; 4 es menor que 9, hay canje.",
+          "14 − 9 en las unidades y 5 − 3 en las decenas."
+        ],
+        "retroalimentacion": "Inés necesita 64 − 39 = 25 paltas. Comprueba: 39 + 25 = 64.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 64,
+          "b": 39
+        }
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el corral de don Félix hay 83 ovejas y en el de don Ramón hay 60. ¿Cuántas ovejas tendría que vender don Félix para tener las mismas que don Ramón? Escribe solo el número.",
+        "respuesta": 23,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Don Félix tiene más ovejas; su cantidad debe bajar a 60.",
+          "Calcula lo que le sobra: 83 − 60.",
+          "3 − 0 en las unidades y 8 − 6 en las decenas."
+        ],
+        "retroalimentacion": "Le sobran 83 − 60 = 23 ovejas. Si vende 23, se queda con 60, igual que don Ramón.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 83,
+          "b": 60
+        }
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Kevin ahorró 47 soles y su hermana ahorró 75 soles. ¿Cuántos soles más necesita ahorrar Kevin para igualar a su hermana?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Kevin tiene 47 y quiere llegar a 75.",
+          "Haz 75 − 47 con canje en las unidades.",
+          "15 − 7 y luego 6 − 4."
+        ],
+        "retroalimentacion": "Kevin necesita 75 − 47 = 28 soles. Comprueba: 47 + 28 = 75. 122 es la suma de los dos ahorros.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "38"
+          },
+          {
+            "id": "b",
+            "texto": "28"
+          },
+          {
+            "id": "c",
+            "texto": "32"
+          },
+          {
+            "id": "d",
+            "texto": "122"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una caja tiene 56 tizas y otra tiene 70. Completa: a la primera caja le faltan ___ tizas para tener igual que la segunda.",
+        "respuesta": "14",
+        "alternativasAceptadas": [
+          "14 tizas",
+          "catorce"
+        ],
+        "pistas": [
+          "La primera caja tiene 56 y debe llegar a 70.",
+          "Puedes ir de 56 a 60 y de 60 a 70.",
+          "De 56 a 60 hay 4; de 60 a 70 hay 10. Júntalos."
+        ],
+        "retroalimentacion": "Le faltan 70 − 56 = 14 tizas. Comprueba: 56 + 14 = 70."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 3.° A hay 31 estudiantes y en 3.° B hay 27. Si llegan 3 estudiantes nuevos a 3.° B, los dos salones tendrán igual cantidad.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántos tendría 3.° B con los 3 nuevos.",
+          "27 + 3 = 30; compáralo con 31.",
+          "¿Cuánto le faltaba en realidad a 27 para llegar a 31?"
+        ],
+        "retroalimentacion": "Es falso: 27 + 3 = 30, y 3.° A tiene 31. Para igualar se necesitan 31 − 27 = 4 estudiantes."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La biblioteca de Puno tiene 230 cuentos y la de Juliaca tiene 185. ¿Cuántos cuentos debe recibir la de Juliaca para tener los mismos que la de Puno? Escribe solo el número.",
+        "respuesta": 45,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Juliaca tiene menos cuentos: 185 debe llegar a 230.",
+          "Calcula 230 − 185 con canjes.",
+          "10 − 5 en unidades; en decenas queda 2, cambia 1 centena: 12 − 8; centenas 1 − 1."
+        ],
+        "retroalimentacion": "Juliaca debe recibir 230 − 185 = 45 cuentos. Comprueba: 185 + 45 = 230.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 230,
+          "b": 185
+        }
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un tanque hay 500 litros de agua y en otro hay 365 litros. ¿Cuántos litros hay que sacar del primer tanque para que los dos tengan la misma cantidad? Escribe solo el número.",
+        "respuesta": 135,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer tanque tiene más agua; debe bajar a 365 litros.",
+          "Calcula 500 − 365: el 500 tiene ceros, haz los canjes desde las centenas.",
+          "Queda 4 centenas, 9 decenas y 10 unidades: 10 − 5, 9 − 6, 4 − 3."
+        ],
+        "retroalimentacion": "Hay que sacar 500 − 365 = 135 litros. Comprueba: 500 − 135 = 365.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 500,
+          "b": 365
+        }
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lía tiene 140 chapitas y Mario tiene 96. Mario dice: «Si junto 54 chapitas más, tendré las mismas que Lía». ¿Tiene razón?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba lo que dice Mario: suma 96 + 54.",
+          "96 + 54 da 150; ¿es igual a 140?",
+          "Calcula lo que de verdad le falta: 140 − 96."
+        ],
+        "retroalimentacion": "Mario no tiene razón: 96 + 54 = 150. Le faltan 140 − 96 = 44 chapitas, porque 96 + 44 = 140.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No, le faltan 236."
+          },
+          {
+            "id": "b",
+            "texto": "Sí, porque 96 + 54 = 140."
+          },
+          {
+            "id": "c",
+            "texto": "No, le faltan 44, porque 96 + 44 = 140."
+          }
+        ]
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Carmen tiene 128 soles y quiere comprar una bicicleta usada que cuesta 300 soles. ¿Cuántos soles le faltan para tener lo que cuesta la bicicleta? Escribe solo el número.",
+        "respuesta": 172,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lo que Carmen tiene debe llegar al precio: de 128 a 300.",
+          "Puedes ir de 128 a 130, de 130 a 200 y de 200 a 300.",
+          "2 + 70 + 100: suma esos saltos."
+        ],
+        "retroalimentacion": "Le faltan 300 − 128 = 172 soles. Comprueba: 128 + 172 = 300.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 300,
+          "b": 128
+        }
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.problemas-dos-etapas-aditivas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P3-01",
+      "MAT-C23-P3-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Problemas aditivos de dos etapas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve situaciones que encadenan dos cambios de suma o resta.",
+    "palabrasClave": [
+      "dos etapas",
+      "problemas",
+      "suma",
+      "resta",
+      "resultado parcial"
+    ],
+    "prerrequisitos": [
+      "mat.p3.problemas-agregar-quitar",
+      "mat.p3.resta-con-canje"
+    ],
+    "ordenSugerido": 88,
+    "ideaCentral": "Algunos problemas tienen dos cambios seguidos. Resuelves el primer cambio, guardas ese resultado y con él haces el segundo cambio.",
+    "pasos": [
+      "Encuentra lo que había al inicio.",
+      "Lee el primer cambio y calcula: suma si se agrega, resta si se quita.",
+      "Con ese resultado, aplica el segundo cambio.",
+      "Responde la pregunta y revisa si el número tiene sentido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la combi iban 24 pasajeros. En un paradero subieron 9 y en el siguiente bajaron 12. ¿Cuántos pasajeros van ahora?",
+        "desarrollo": "Primer cambio: subieron 9, sumamos 24 + 9 = 33. Segundo cambio: bajaron 12, restamos 33 − 12 = 21.",
+        "respuesta": "Van 21 pasajeros."
+      },
+      {
+        "situacion": "Ana tenía 150 soles. Gastó 45 en útiles y luego su tía le regaló 30. ¿Cuánto tiene ahora?",
+        "desarrollo": "Primer cambio: gastó 45, restamos 150 − 45 = 105. Segundo cambio: le regalaron 30, sumamos 105 + 30 = 135.",
+        "respuesta": "Ana tiene 135 soles."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Hacer solo el primer cambio y olvidar el segundo.",
+        "correccion": "Antes de responder, revisa que usaste todos los cambios que cuenta el problema."
+      },
+      {
+        "error": "Usar el número del inicio en el segundo cambio, en lugar del resultado del primero.",
+        "correccion": "Cada cambio empieza donde terminó el anterior: usa el resultado parcial."
+      },
+      {
+        "error": "Sumar todos los números que aparecen.",
+        "correccion": "Mira cada acción: subir, ganar o comprar suman; bajar, perder o gastar restan."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Etapa",
+        "significado": "Cada uno de los pasos o cambios del problema."
+      },
+      {
+        "termino": "Resultado parcial",
+        "significado": "Lo que obtienes después de la primera etapa."
+      },
+      {
+        "termino": "Cantidad inicial",
+        "significado": "Lo que había antes del primer cambio."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un árbol había 10 loros. Llegaron 5 y luego se fueron 3. ¿Cuántos loros hay ahora? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos cambios: primero llegan loros y después se van.",
+          "Primero 10 + 5; con ese resultado, quita los 3 que se fueron.",
+          "10 + 5 = 15; ahora calcula 15 − 3."
+        ],
+        "retroalimentacion": "10 + 5 = 15 y 15 − 3 = 12 loros. Si respondiste 15, faltó la segunda etapa."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Nico tenía 20 soles. Ganó 10 soles ayudando en la tienda y luego gastó 5 soles en un helado. ¿Cuántos soles tiene ahora? Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero Nico gana dinero y después gasta.",
+          "Etapa 1: 20 + 10.",
+          "Con los 30 soles que tiene, resta los 5 del helado."
+        ],
+        "retroalimentacion": "20 + 10 = 30 y 30 − 5 = 25 soles. Ganar suma y gastar resta."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Rosa tenía 15 huevos, usó 6 para una torta y luego compró 6 más. Ahora tiene 15 huevos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usar huevos quita; comprar huevos agrega.",
+          "Etapa 1: 15 − 6. Etapa 2: al resultado súmale 6.",
+          "Quitó 6 y luego puso 6: ¿vuelve a lo mismo?"
+        ],
+        "retroalimentacion": "Es verdadero: 15 − 6 = 9 y 9 + 6 = 15. Quitar y agregar la misma cantidad deja igual."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un bus tenía 30 pasajeros. En el primer paradero bajaron 10 y en el segundo subieron 4. ¿Cuál es el primer cálculo que debes hacer?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Qué pasó primero: bajaron o subieron pasajeros?",
+          "Primero bajan 10 de los 30 que había.",
+          "Busca la opción que empieza con los 30 pasajeros y quita los que bajaron."
+        ],
+        "retroalimentacion": "Lo primero es 30 − 10 = 20; después 20 + 4 = 24. Sumar 10 + 4 mezcla dos acciones distintas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "30 + 10 = 40"
+          },
+          {
+            "id": "b",
+            "texto": "10 + 4 = 14"
+          },
+          {
+            "id": "c",
+            "texto": "30 − 10 = 20"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La casera Juana llevó 85 panes al mercado. Vendió 40 en la mañana y 27 en la tarde. ¿Cuántos panes le quedan? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos ventas quitan panes.",
+          "Etapa 1: 85 − 40. Etapa 2: al resultado réstale 27.",
+          "85 − 40 = 45; ahora 45 − 27 con canje en las unidades."
+        ],
+        "retroalimentacion": "85 − 40 = 45 y 45 − 27 = 18 panes. Si te salió 45, te faltó la venta de la tarde."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el aula había 28 libros. La profesora trajo 15 y los niños se llevaron 12 a su casa. ¿Cuántos libros quedan en el aula? Escribe solo el número.",
+        "respuesta": 31,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La profesora agrega libros; los niños se llevan otros.",
+          "Primero 28 + 15; luego quita 12.",
+          "28 + 15 = 43; calcula 43 − 12."
+        ],
+        "retroalimentacion": "28 + 15 = 43 y 43 − 12 = 31 libros. Cuidado al sumar 8 + 5: llevas 1 decena."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Don Luis tenía 120 kilos de papa. Compró 50 kilos más y después vendió 80 kilos. ¿Cuántos kilos tiene ahora?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero compra (agrega) y después vende (quita).",
+          "Etapa 1: 120 + 50.",
+          "Con 170 kilos, quita los 80 vendidos."
+        ],
+        "retroalimentacion": "120 + 50 = 170 y 170 − 80 = 90 kilos. 250 sale de sumar todo, y la venta debe restarse.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "150"
+          },
+          {
+            "id": "b",
+            "texto": "250"
+          },
+          {
+            "id": "c",
+            "texto": "90"
+          },
+          {
+            "id": "d",
+            "texto": "170"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Mía tenía 64 figuritas, regaló 14 a su primo y después compró 25. Escribe solo el resultado de la primera etapa: ¿cuántas figuritas tenía Mía después de regalar?",
+        "respuesta": "50",
+        "alternativasAceptadas": [
+          "50 figuritas",
+          "cincuenta"
+        ],
+        "pistas": [
+          "Solo se pregunta por la primera etapa: antes de comprar.",
+          "Regalar quita: 64 − 14.",
+          "4 − 4 en las unidades y 6 − 1 en las decenas."
+        ],
+        "retroalimentacion": "Después de regalar tenía 64 − 14 = 50. Ese resultado parcial sirve para la segunda etapa: 50 + 25 = 75."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para la kermés se hicieron 200 empanadas. Se vendieron 125 y luego se hornearon 60 más. ¿Cuántas empanadas hay ahora? Escribe solo el número.",
+        "respuesta": 135,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Vender quita empanadas y hornear agrega.",
+          "Etapa 1: 200 − 125 (cuidado con los ceros).",
+          "Te quedan 75; ahora súmale las 60 nuevas."
+        ],
+        "retroalimentacion": "200 − 125 = 75 y 75 + 60 = 135 empanadas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un camión llevaba 356 sacos de arroz hacia Iquitos. En Yurimaguas descargó 128 sacos y luego cargó 47. ¿Cuántos sacos lleva ahora? Escribe solo el número.",
+        "respuesta": 275,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descargar quita sacos y cargar agrega.",
+          "Etapa 1: 356 − 128, con canje en las unidades.",
+          "Con 228 sacos, súmale los 47."
+        ],
+        "retroalimentacion": "356 − 128 = 228 y 228 + 47 = 275 sacos. Si sumaste 47 al 356, usaste el inicio en vez del resultado parcial."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Ximena tenía 500 soles. Pagó 235 soles por una cocina y 148 soles por una licuadora. ¿Cuánto dinero le queda? Escribe solo el número.",
+        "respuesta": 117,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos pagos quitan dinero.",
+          "Etapa 1: 500 − 235 (ceros: cambia desde las centenas).",
+          "Le quedan 265; ahora 265 − 148."
+        ],
+        "retroalimentacion": "500 − 235 = 265 y 265 − 148 = 117 soles. También puedes sumar los gastos (235 + 148 = 383) y restar 500 − 383 = 117."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Paco tenía 240 canicas. Perdió 75 y luego ganó 90. Paco dice que ahora tiene 405. ¿Qué error cometió?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "405 es mayor que 240 + 90: ¿qué hizo Paco con las 75 perdidas?",
+          "Perder quita: 240 − 75.",
+          "Con 165 canicas, suma las 90 que ganó."
+        ],
+        "retroalimentacion": "Paco sumó todo. Lo correcto: 240 − 75 = 165 y 165 + 90 = 255 canicas. 165 es solo la primera etapa.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ninguno, tiene 405."
+          },
+          {
+            "id": "b",
+            "texto": "Tiene 165."
+          },
+          {
+            "id": "c",
+            "texto": "Sumó todo; perder resta. Tiene 255."
+          }
+        ]
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una granja había 312 gallinas. Se vendieron 108 y nacieron 96 pollitos. Ahora hay 300 aves en la granja.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Vender quita aves y nacer agrega.",
+          "Etapa 1: 312 − 108, con canje en las unidades.",
+          "Te quedan 204; súmale los 96 pollitos y compara con 300."
+        ],
+        "retroalimentacion": "Es verdadero: 312 − 108 = 204 y 204 + 96 = 300 aves."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.suma-resta-hasta-1000",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P3-01",
+      "MAT-C23-P3-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Suma y resta hasta 1000 sin canje",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula sumas y restas de tres cifras sin transformar unidades.",
+    "palabrasClave": [
+      "suma",
+      "resta",
+      "tres cifras",
+      "sin canje",
+      "columnas"
+    ],
+    "prerrequisitos": [
+      "mat.p3.componer-descomponer"
+    ],
+    "ordenSugerido": 15,
+    "ideaCentral": "Para sumar o restar números de tres cifras, pones unidades debajo de unidades, decenas debajo de decenas y centenas debajo de centenas. Luego operas cada columna, empezando por las unidades.",
+    "pasos": [
+      "Escribe los números uno debajo del otro, alineados por la derecha.",
+      "Opera la columna de las unidades.",
+      "Opera la columna de las decenas.",
+      "Opera la columna de las centenas.",
+      "Revisa: sin canje, en la suma ninguna columna pasa de 9 y en la resta la cifra de arriba nunca es menor."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En el colegio hay 342 estudiantes en el turno mañana y 215 en el turno tarde. ¿Cuántos hay en total?",
+        "desarrollo": "342 + 215. Unidades: 2 + 5 = 7. Decenas: 4 + 1 = 5. Centenas: 3 + 2 = 5. Resultado: 557.",
+        "respuesta": "Hay 557 estudiantes."
+      },
+      {
+        "situacion": "Una librería de Trujillo tenía 678 cuadernos y vendió 254. ¿Cuántos quedan?",
+        "desarrollo": "678 − 254. Unidades: 8 − 4 = 4. Decenas: 7 − 5 = 2. Centenas: 6 − 2 = 4. Resultado: 424.",
+        "respuesta": "Quedan 424 cuadernos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Alinear los números por la izquierda: en 342 + 25 sumar el 2 del 25 con las centenas.",
+        "correccion": "Alinea siempre por la derecha: la última cifra de cada número son las unidades."
+      },
+      {
+        "error": "En la resta, restar la cifra de abajo menos la de arriba.",
+        "correccion": "En la resta siempre es «arriba menos abajo» en cada columna."
+      },
+      {
+        "error": "Saltarse una columna cuando hay un cero, por ejemplo en 405 + 32.",
+        "correccion": "El cero también ocupa su lugar: en las decenas haz 0 + 3 = 3."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Unidades",
+        "significado": "La cifra de la derecha de un número."
+      },
+      {
+        "termino": "Decenas",
+        "significado": "La cifra del medio en un número de tres cifras; cada decena vale 10."
+      },
+      {
+        "termino": "Centenas",
+        "significado": "La cifra de la izquierda en un número de tres cifras; cada centena vale 100."
+      },
+      {
+        "termino": "Columna",
+        "significado": "Las cifras que quedan una debajo de otra y tienen el mismo valor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 231 + 145.",
+        "respuesta": 376,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe 145 debajo de 231, unidades con unidades.",
+          "Unidades: 1 + 5. Decenas: 3 + 4.",
+          "Te falta la columna de las centenas: 2 + 1."
+        ],
+        "retroalimentacion": "231 + 145 = 376: 1 + 5 = 6, 3 + 4 = 7 y 2 + 1 = 3.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 231,
+          "b": 145
+        }
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 587 − 263.",
+        "respuesta": 324,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pon 587 arriba y 263 abajo.",
+          "Resta columna por columna: arriba menos abajo.",
+          "7 − 3, 8 − 6 y 5 − 2."
+        ],
+        "retroalimentacion": "587 − 263 = 324. En cada columna se resta la cifra de abajo a la de arriba.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 587,
+          "b": 263
+        }
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 402 + 56.",
+        "respuesta": 458,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "56 tiene solo dos cifras: va debajo del 02 de 402.",
+          "Unidades: 2 + 6. Decenas: 0 + 5.",
+          "La centena 4 no tiene con quién sumarse: baja igual."
+        ],
+        "retroalimentacion": "402 + 56 = 458. Si te salió 962, pusiste el 5 debajo del 4; alinea por la derecha.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 402,
+          "b": 56
+        }
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La suma 123 + 456 da 579.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma cada columna de 123 + 456.",
+          "3 + 6 en las unidades y 2 + 5 en las decenas.",
+          "Termina con 1 + 4 y compara con 579."
+        ],
+        "retroalimentacion": "Es verdadero: 3 + 6 = 9, 2 + 5 = 7 y 1 + 4 = 5, así que da 579."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 869 − 437.",
+        "respuesta": 432,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta empezando por la derecha.",
+          "Unidades: 9 − 7. Decenas: 6 − 3.",
+          "Centenas: 8 − 4."
+        ],
+        "retroalimentacion": "869 − 437 = 432. Ninguna columna necesita canje porque arriba siempre hay una cifra mayor.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 869,
+          "b": 437
+        }
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pedro sumó 314 + 52 así: 314 + 520 = 834. ¿Cuál es el resultado correcto de 314 + 52?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pedro movió el 52 hacia la izquierda. ¿Dónde van sus unidades?",
+          "El 2 del 52 va debajo del 4 y el 5 debajo del 1.",
+          "4 + 2, 1 + 5 y el 3 baja solo."
+        ],
+        "retroalimentacion": "314 + 52 = 366. Pedro convirtió el 52 en 520 por alinear a la izquierda.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "366"
+          },
+          {
+            "id": "b",
+            "texto": "356"
+          },
+          {
+            "id": "c",
+            "texto": "834"
+          },
+          {
+            "id": "d",
+            "texto": "466"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La escuela de Huaraz tiene 523 libros y le llegan 264 libros nuevos. ¿Cuántos libros tiene ahora? Escribe solo el número.",
+        "respuesta": 787,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Llegan libros: suma 523 + 264.",
+          "Unidades 3 + 4 y decenas 2 + 6.",
+          "Centenas 5 + 2; arma el número con las tres cifras."
+        ],
+        "retroalimentacion": "523 + 264 = 787 libros: 7 unidades, 8 decenas y 7 centenas.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 523,
+          "b": 264
+        }
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El tren a Machu Picchu llevaba 396 turistas y bajaron 175 en Ollantaytambo. ¿Cuántos turistas siguen en el tren? Escribe solo el número.",
+        "respuesta": 221,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Bajaron turistas: resta 396 − 175.",
+          "6 − 5 en las unidades, 9 − 7 en las decenas.",
+          "Termina con 3 − 1 en las centenas."
+        ],
+        "retroalimentacion": "396 − 175 = 221 turistas.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 396,
+          "b": 175
+        }
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al restar 658 − 235, la cifra de las decenas del resultado es 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La columna de las decenas es la del medio.",
+          "En 658 las decenas son 5 y en 235 son 3.",
+          "Calcula 5 − 3 y compáralo con 2."
+        ],
+        "retroalimentacion": "Es verdadero: 658 − 235 = 423 y la cifra de las decenas es 5 − 3 = 2."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Encuentra la cifra que falta: 4_3 + 215 = 668. ¿Qué cifra va en el espacio?",
+        "respuesta": "5",
+        "alternativasAceptadas": [
+          "cinco"
+        ],
+        "pistas": [
+          "El espacio está en las decenas del primer número.",
+          "En las decenas del resultado hay un 6, y el 215 aporta 1 decena.",
+          "¿Qué número más 1 da 6?"
+        ],
+        "retroalimentacion": "La cifra es 5: 453 + 215 = 668, porque en las decenas 5 + 1 = 6."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Completa: 976 − ___ = 432. Escribe solo el número que falta.",
+        "respuesta": 544,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca qué número hay que quitarle a 976 para que queden 432.",
+          "Hazlo por columnas: 6 − ? = 2, 7 − ? = 3, 9 − ? = 4.",
+          "Las cifras que faltan son 4, 4 y 5: ordénalas de centenas a unidades."
+        ],
+        "retroalimentacion": "Falta 544, porque 976 − 544 = 432. También puedes calcularlo con 976 − 432 = 544."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas operaciones se puede resolver sin canje?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sin canje significa que en la suma ninguna columna pasa de 9 y en la resta arriba nunca hay una cifra menor.",
+          "Revisa las unidades de cada opción: 5 + 8, 2 + 6, 0 − 5, 3 + 0.",
+          "Revisa también las decenas: en 473 + 190, 7 + 9 pasa de 9."
+        ],
+        "retroalimentacion": "512 + 376 no necesita canje: 2 + 6, 1 + 7 y 5 + 3 no pasan de 9. En 345 + 238 las unidades dan 13, en 640 − 125 hay 0 − 5 y en 473 + 190 las decenas dan 16.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "512 + 376"
+          },
+          {
+            "id": "b",
+            "texto": "345 + 238"
+          },
+          {
+            "id": "c",
+            "texto": "640 − 125"
+          },
+          {
+            "id": "d",
+            "texto": "473 + 190"
+          }
+        ]
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una familia de Puno tenía 899 soles. Gastó 230 soles en el mercado y 145 soles en la farmacia. ¿Cuánto dinero le queda? Escribe solo el número.",
+        "respuesta": 524,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos gastos; los dos se restan del dinero que tenían.",
+          "Puedes juntar los gastos primero: 230 + 145.",
+          "Gastaron 375 soles; resta 899 − 375."
+        ],
+        "retroalimentacion": "230 + 145 = 375 y 899 − 375 = 524 soles. También sirve 899 − 230 = 669 y 669 − 145 = 524."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.suma-con-canje",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P3-01",
+      "MAT-C23-P3-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Suma de tres cifras con canje",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Reagrupa diez unidades o decenas al sumar números de hasta tres cifras.",
+    "palabrasClave": [
+      "suma",
+      "canje",
+      "llevar",
+      "reagrupar",
+      "tres cifras"
+    ],
+    "prerrequisitos": [
+      "mat.p3.suma-resta-hasta-1000",
+      "mat.p3.canjes-c-d-u"
+    ],
+    "ordenSugerido": 37,
+    "ideaCentral": "Cuando al sumar una columna te sale 10 o más, cambias 10 unidades por 1 decena (o 10 decenas por 1 centena) y la llevas a la columna de la izquierda.",
+    "pasos": [
+      "Escribe los números alineados por la derecha.",
+      "Suma las unidades; si pasan de 9, escribe solo la unidad y lleva 1 decena.",
+      "Suma las decenas junto con la que llevas; si pasan de 9, lleva 1 centena.",
+      "Suma las centenas junto con la que llevas.",
+      "Estima para revisar que el resultado tenga sentido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la chacra cosecharon 256 kilos de papa amarilla y 138 kilos de papa blanca. ¿Cuántos kilos cosecharon?",
+        "desarrollo": "Unidades: 6 + 8 = 14, escribo 4 y llevo 1 decena. Decenas: 5 + 3 + 1 = 9. Centenas: 2 + 1 = 3. Resultado: 394.",
+        "respuesta": "Cosecharon 394 kilos."
+      },
+      {
+        "situacion": "Una panadería vendió 475 panes el sábado y 368 el domingo. ¿Cuántos panes vendió?",
+        "desarrollo": "Unidades: 5 + 8 = 13, escribo 3 y llevo 1. Decenas: 7 + 6 + 1 = 14, escribo 4 y llevo 1 centena. Centenas: 4 + 3 + 1 = 8. Resultado: 843.",
+        "respuesta": "Vendió 843 panes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir el 14 completo en la columna de las unidades.",
+        "correccion": "En cada columna solo cabe una cifra: escribe el 4 y lleva la decena a la columna siguiente."
+      },
+      {
+        "error": "Olvidar sumar la decena o centena que se lleva.",
+        "correccion": "Anota un 1 pequeño arriba de la columna siguiente para no olvidarlo."
+      },
+      {
+        "error": "Llevar el 1 a la columna equivocada.",
+        "correccion": "Lo que sobra de las unidades va a las decenas, y lo que sobra de las decenas va a las centenas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Canje",
+        "significado": "Cambiar 10 unidades por 1 decena o 10 decenas por 1 centena."
+      },
+      {
+        "termino": "Llevar",
+        "significado": "Pasar la decena o centena del canje a la columna de la izquierda."
+      },
+      {
+        "termino": "Reagrupar",
+        "significado": "Juntar diez elementos para formar uno del orden siguiente."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 247 + 35.",
+        "respuesta": 282,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira las unidades: 7 + 5 es más que 9.",
+          "7 + 5 = 12: escribe 2 y lleva 1 decena.",
+          "Decenas: 4 + 3 + 1. La centena 2 baja."
+        ],
+        "retroalimentacion": "247 + 35 = 282. Si te salió 272, olvidaste sumar la decena que llevabas.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 247,
+          "b": 35
+        }
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 168 + 214.",
+        "respuesta": 382,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por las unidades: 8 + 4.",
+          "Da 12: escribes 2 y llevas 1 a las decenas.",
+          "Decenas: 6 + 1 + 1. Centenas: 1 + 2."
+        ],
+        "retroalimentacion": "168 + 214 = 382. El canje está en las unidades: 8 + 4 = 12.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 168,
+          "b": 214
+        }
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al sumar 129 + 46, en las unidades 9 + 6 = 15, así que escribes 5 y llevas 1 decena.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en la columna de las unidades del 129 y del 46.",
+          "9 + 6 da 15, que es 1 decena y 5 unidades.",
+          "¿Qué se escribe en las unidades y qué pasa a las decenas?"
+        ],
+        "retroalimentacion": "Es verdadero: 15 unidades son 1 decena y 5 unidades. Se escribe 5 y se lleva 1. El resultado es 175."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿En cuál de estas sumas debes hacer canje en las unidades?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira solo las unidades de cada suma.",
+          "Hay canje cuando las unidades suman 10 o más.",
+          "Prueba: 2 + 5, 7 + 8, 0 + 6, 1 + 0."
+        ],
+        "retroalimentacion": "En 327 + 58 las unidades suman 7 + 8 = 15, así que hay canje. En las demás las unidades no llegan a 10.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "410 + 206"
+          },
+          {
+            "id": "b",
+            "texto": "327 + 58"
+          },
+          {
+            "id": "c",
+            "texto": "132 + 45"
+          },
+          {
+            "id": "d",
+            "texto": "251 + 30"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resuelve en columnas la suma 385 + 147.",
+        "respuesta": 532,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aquí hay canje dos veces: en unidades y en decenas.",
+          "5 + 7 = 12: escribe 2, lleva 1. Luego 8 + 4 + 1.",
+          "Las decenas dan 13: escribe 3, lleva 1 a las centenas: 3 + 1 + 1."
+        ],
+        "retroalimentacion": "385 + 147 = 532. Hay dos canjes: 12 unidades y 13 decenas.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 385,
+          "b": 147
+        }
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la feria de Huancayo se vendieron 286 kilos de queso en la mañana y 175 kilos en la tarde. ¿Cuántos kilos se vendieron? Escribe solo el número.",
+        "respuesta": 461,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta lo de la mañana y lo de la tarde: 286 + 175.",
+          "Unidades 6 + 5 = 11: escribe 1 y lleva 1.",
+          "Decenas 8 + 7 + 1 = 16: escribe 6 y lleva 1 a las centenas."
+        ],
+        "retroalimentacion": "286 + 175 = 461 kilos: 11 unidades y 16 decenas obligan a hacer dos canjes.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 286,
+          "b": 175
+        }
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el resultado de 456 + 278?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Unidades: 6 + 8 = 14.",
+          "Escribe 4 y lleva 1; decenas: 5 + 7 + 1.",
+          "Decenas 13: escribe 3 y lleva 1; centenas: 4 + 2 + 1."
+        ],
+        "retroalimentacion": "456 + 278 = 734. 624 sale de no llevar nada, y 724 o 634 de olvidar uno de los dos canjes.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "724"
+          },
+          {
+            "id": "b",
+            "texto": "624"
+          },
+          {
+            "id": "c",
+            "texto": "634"
+          },
+          {
+            "id": "d",
+            "texto": "734"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un colegio de Tacna hay 397 estudiantes en primaria y 285 en secundaria. ¿Cuántos estudiantes hay en total? Escribe solo el número.",
+        "respuesta": 682,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 397 + 285.",
+          "7 + 5 = 12: escribe 2 y lleva 1; luego 9 + 8 + 1.",
+          "Las decenas dan 18: escribe 8, lleva 1 y suma 3 + 2 + 1."
+        ],
+        "retroalimentacion": "397 + 285 = 682 estudiantes.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 397,
+          "b": 285
+        }
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La suma 564 + 182 da 746.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Haz la suma columna por columna.",
+          "Unidades 4 + 2; decenas 6 + 8, que pasa de 9.",
+          "Decenas 14: escribes 4 y llevas 1 a las centenas: 5 + 1 + 1."
+        ],
+        "retroalimentacion": "Es verdadero: 564 + 182 = 746. El canje está en las decenas (6 + 8 = 14)."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para una chocolatada se juntaron 368 tazas en el colegio, 275 en la parroquia y 149 en el municipio. ¿Cuántas tazas hay en total? Escribe solo el número.",
+        "respuesta": 792,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Son tres sumandos. Puedes sumar dos y luego el tercero.",
+          "368 + 275 = 643.",
+          "Ahora 643 + 149: 3 + 9 = 12, lleva 1; 4 + 4 + 1; 6 + 1."
+        ],
+        "retroalimentacion": "368 + 275 = 643 y 643 + 149 = 792 tazas."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Encuentra la cifra que falta: 2_7 + 456 = 723. ¿Qué cifra va en el espacio?",
+        "respuesta": "6",
+        "alternativasAceptadas": [
+          "seis"
+        ],
+        "pistas": [
+          "Empieza por las unidades: 7 + 6 = 13. ¿Llevas algo a las decenas?",
+          "En las decenas: la cifra que falta + 5 + 1 debe terminar en 2.",
+          "Esa columna tiene que dar 12 para llevar 1 a las centenas (2 + 4 + 1 = 7)."
+        ],
+        "retroalimentacion": "La cifra es 6: 267 + 456 = 723, porque en las decenas 6 + 5 + 1 = 12."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una familia tiene 600 soles. Quiere comprar una cocina de 389 soles y una olla de 187 soles. ¿Le alcanza el dinero?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero averigua cuánto cuestan las dos cosas juntas.",
+          "Suma 389 + 187: 9 + 7 = 16, lleva 1.",
+          "Decenas 8 + 8 + 1 = 17, lleva 1; centenas 3 + 1 + 1. Compara con 600."
+        ],
+        "retroalimentacion": "389 + 187 = 576 soles, que es menos que 600: sí le alcanza y le sobran 24 soles.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No, necesita 676 soles."
+          },
+          {
+            "id": "b",
+            "texto": "Sí, gasta 576 soles y le sobra dinero."
+          },
+          {
+            "id": "c",
+            "texto": "No, necesita 466 soles."
+          }
+        ]
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Qué número es 158 más que 694? Escribe solo el número.",
+        "respuesta": 852,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«158 más que 694» significa 694 + 158.",
+          "4 + 8 = 12: escribe 2 y lleva 1.",
+          "9 + 5 + 1 = 15: escribe 5 y lleva 1; centenas 6 + 1 + 1."
+        ],
+        "retroalimentacion": "694 + 158 = 852. Tiene dos canjes: en unidades y en decenas.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 694,
+          "b": 158
+        }
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.resta-con-canje",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P3-01",
+      "MAT-C23-P3-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Resta de tres cifras con canje",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Desagrupa una decena o centena al restar números de hasta tres cifras.",
+    "palabrasClave": [
+      "resta",
+      "canje",
+      "desagrupar",
+      "prestar",
+      "tres cifras"
+    ],
+    "prerrequisitos": [
+      "mat.p3.suma-resta-hasta-1000",
+      "mat.p3.canjes-c-d-u"
+    ],
+    "ordenSugerido": 38,
+    "ideaCentral": "Si al restar una columna la cifra de arriba es menor que la de abajo, desagrupas: cambias 1 decena por 10 unidades (o 1 centena por 10 decenas) y recién restas.",
+    "pasos": [
+      "Escribe el número mayor arriba y alinea por la derecha.",
+      "En las unidades, si la cifra de arriba es menor, desagrupa 1 decena: las unidades suben 10 y las decenas bajan 1.",
+      "Resta las decenas con lo que quedó; si arriba es menor, desagrupa 1 centena.",
+      "Resta las centenas con lo que quedó.",
+      "Comprueba sumando el resultado con el número que restaste."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una casera tenía 352 naranjas y vendió 127. ¿Cuántas le quedan?",
+        "desarrollo": "Unidades: 2 es menor que 7, desagrupo 1 decena: 12 − 7 = 5. Decenas: quedan 4, 4 − 2 = 2. Centenas: 3 − 1 = 2. Resultado: 225.",
+        "respuesta": "Le quedan 225 naranjas."
+      },
+      {
+        "situacion": "Un colegio tiene 534 estudiantes; 278 son de primaria. ¿Cuántos son de secundaria?",
+        "desarrollo": "Unidades: 14 − 8 = 6 (desagrupé 1 decena). Decenas: quedan 2, es menor que 7, desagrupo 1 centena: 12 − 7 = 5. Centenas: quedan 4, 4 − 2 = 2. Resultado: 256. Compruebo: 278 + 256 = 534.",
+        "respuesta": "Son 256 de secundaria."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar «el chico del grande» en cada columna: en 352 − 127 hacer 7 − 2 = 5.",
+        "correccion": "Siempre es arriba menos abajo; si arriba es menor, desagrupa."
+      },
+      {
+        "error": "Desagrupar y olvidar bajar en 1 la decena o centena que prestó.",
+        "correccion": "Tacha la cifra que presta y escribe encima la nueva, que tiene 1 menos."
+      },
+      {
+        "error": "Desagrupar aunque no haga falta.",
+        "correccion": "Solo se desagrupa cuando la cifra de arriba es menor que la de abajo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Desagrupar",
+        "significado": "Cambiar 1 decena por 10 unidades o 1 centena por 10 decenas."
+      },
+      {
+        "termino": "Minuendo",
+        "significado": "El número de arriba en una resta, al que se le quita."
+      },
+      {
+        "termino": "Sustraendo",
+        "significado": "El número que se quita."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "El resultado de la resta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 64 − 28.",
+        "respuesta": 36,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira las unidades: ¿puedes quitar 8 de 4?",
+          "Desagrupa 1 decena: el 4 se vuelve 14 y el 6 se vuelve 5.",
+          "Ahora 14 − 8 y 5 − 2."
+        ],
+        "retroalimentacion": "64 − 28 = 36. Si te salió 44, restaste 8 − 4 en vez de desagrupar.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 64,
+          "b": 28
+        }
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 352 − 136.",
+        "respuesta": 216,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En las unidades, 2 es menor que 6.",
+          "Cambia 1 decena del 5: las unidades quedan en 12 y las decenas en 4.",
+          "12 − 6, 4 − 3 y 3 − 1."
+        ],
+        "retroalimentacion": "352 − 136 = 216. Comprueba: 216 + 136 = 352.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 352,
+          "b": 136
+        }
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para restar 471 − 245, en las unidades hay que cambiar 1 decena por 10 unidades porque 1 es menor que 5.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira las unidades de 471 y de 245.",
+          "Arriba hay 1 y abajo 5: ¿se puede quitar sin canje?",
+          "Con el canje, el 1 se vuelve 11 y las 7 decenas quedan en 6."
+        ],
+        "retroalimentacion": "Es verdadero: como 1 es menor que 5, se desagrupa una decena (11 − 5 = 6). El resultado es 226."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿En cuál de estas restas necesitas desagrupar una decena?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira las unidades de cada resta: arriba y abajo.",
+          "Busca la resta donde la unidad de arriba es menor que la de abajo.",
+          "Compara: 6 y 4, 2 y 8, 5 y 1, 9 y 6."
+        ],
+        "retroalimentacion": "En 742 − 318 las unidades son 2 y 8: 2 es menor, hay que desagrupar. En las otras, la cifra de arriba es mayor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "695 − 451"
+          },
+          {
+            "id": "b",
+            "texto": "742 − 318"
+          },
+          {
+            "id": "c",
+            "texto": "586 − 234"
+          },
+          {
+            "id": "d",
+            "texto": "879 − 506"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resuelve en columnas la resta 625 − 381.",
+        "respuesta": 244,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las unidades se restan sin problema: 5 − 1.",
+          "En las decenas 2 es menor que 8: desagrupa 1 centena.",
+          "Decenas: 12 − 8. Centenas: quedan 5, así que 5 − 3."
+        ],
+        "retroalimentacion": "625 − 381 = 244. Aquí el canje está en las decenas, no en las unidades.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 625,
+          "b": 381
+        }
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La biblioteca de Ayacucho tenía 463 libros y prestó 185. ¿Cuántos libros quedan en la biblioteca? Escribe solo el número.",
+        "respuesta": 278,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 463 − 185.",
+          "Unidades: 3 es menor que 5, desagrupa: 13 − 5.",
+          "Decenas: quedan 5, menor que 8: desagrupa otra vez, 15 − 8; centenas 3 − 1."
+        ],
+        "retroalimentacion": "463 − 185 = 278 libros. Hay dos canjes. Comprueba: 185 + 278 = 463.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 463,
+          "b": 185
+        }
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el resultado de 543 − 268?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En las unidades, 3 es menor que 8.",
+          "13 − 8; las decenas quedan en 3 y 3 es menor que 6.",
+          "13 − 6 en las decenas y 4 − 2 en las centenas."
+        ],
+        "retroalimentacion": "543 − 268 = 275. La opción 325 sale de restar el número chico del grande en cada columna, sin desagrupar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "275"
+          },
+          {
+            "id": "b",
+            "texto": "325"
+          },
+          {
+            "id": "c",
+            "texto": "285"
+          },
+          {
+            "id": "d",
+            "texto": "385"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un camión llevaba 752 ladrillos y descargó 326 en una obra de Chiclayo. ¿Cuántos ladrillos quedan en el camión? Escribe solo el número.",
+        "respuesta": 426,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 752 − 326.",
+          "2 es menor que 6: desagrupa 1 decena del 5.",
+          "12 − 6, 4 − 2 y 7 − 3."
+        ],
+        "retroalimentacion": "752 − 326 = 426 ladrillos. Comprueba: 326 + 426 = 752.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 752,
+          "b": 326
+        }
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al resolver 815 − 472 se obtiene 343.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Unidades: 5 − 2 sin canje.",
+          "Decenas: 1 es menor que 7, desagrupa 1 centena: 11 − 7.",
+          "Centenas: quedan 7, así que 7 − 4. Compara con 343."
+        ],
+        "retroalimentacion": "Es verdadero: 5 − 2 = 3, 11 − 7 = 4 y 7 − 4 = 3. Resultado 343."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Encuentra la cifra que falta: 7_2 − 358 = 384. ¿Qué cifra va en el espacio?",
+        "respuesta": "4",
+        "alternativasAceptadas": [
+          "cuatro"
+        ],
+        "pistas": [
+          "Usa la suma para buscar el número de arriba: 384 + 358.",
+          "4 + 8 = 12, llevas 1; 8 + 5 + 1 = 14, llevas 1.",
+          "El número de arriba es 7_2; mira qué cifra quedó en las decenas."
+        ],
+        "retroalimentacion": "La cifra es 4: 742 − 358 = 384, porque 384 + 358 = 742."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Rita juntó 912 soles para el viaje de promoción y ya pagó 487 soles. ¿Cuántos soles le quedan? Escribe solo el número.",
+        "respuesta": 425,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 912 − 487.",
+          "Unidades: 2 es menor que 7, desagrupa la decena: 12 − 7. Las decenas quedan en 0.",
+          "Decenas: 0 es menor que 8, desagrupa 1 centena: 10 − 8; centenas 8 − 4."
+        ],
+        "retroalimentacion": "912 − 487 = 425 soles. Comprueba: 487 + 425 = 912.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 912,
+          "b": 487
+        }
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Toño restó 634 − 179 y obtuvo 545. ¿Cuál es el resultado correcto?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Toño olvidó algo al desagrupar. Hazlo tú columna por columna.",
+          "Unidades: 14 − 9. Las decenas quedan en 2, menor que 7.",
+          "Decenas: 12 − 7. Centenas: quedan 5, haz 5 − 1."
+        ],
+        "retroalimentacion": "634 − 179 = 455. Toño no bajó en 1 la centena que prestó (6 − 1 = 5, no 6). Comprueba: 179 + 455 = 634.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "545"
+          },
+          {
+            "id": "b",
+            "texto": "555"
+          },
+          {
+            "id": "c",
+            "texto": "465"
+          },
+          {
+            "id": "d",
+            "texto": "455"
+          }
+        ]
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un camino al mirador del cerro San Cristóbal tiene 825 escalones. Lucho ya subió 368. ¿Cuántos escalones le faltan para llegar arriba? Escribe solo el número.",
+        "respuesta": 457,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lo que falta es 825 − 368.",
+          "Unidades: 15 − 8. Las decenas quedan en 1.",
+          "Decenas: 1 es menor que 6, desagrupa: 11 − 6; centenas 7 − 3."
+        ],
+        "retroalimentacion": "825 − 368 = 457 escalones. Comprueba: 368 + 457 = 825.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 825,
+          "b": 368
+        }
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.resta-con-ceros",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P3-01",
+      "MAT-C23-P3-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Sustracción con ceros intermedios",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Usa canjes sucesivos al restar de un número que tiene cero en alguna posición.",
+    "palabrasClave": [
+      "resta",
+      "ceros",
+      "canje sucesivo",
+      "desagrupar",
+      "centenas"
+    ],
+    "prerrequisitos": [
+      "mat.p3.resta-con-canje"
+    ],
+    "ordenSugerido": 39,
+    "ideaCentral": "Cuando restas de un número con cero, como 500 o 403, el cero no tiene nada que prestar. Primero vas a la centena, la cambias por 10 decenas y recién una de esas decenas se cambia por 10 unidades.",
+    "pasos": [
+      "Mira si en una columna necesitas canje y la cifra de al lado es cero.",
+      "Ve a la primera cifra de la izquierda que no sea cero y desagrupa 1.",
+      "El cero se convierte en 10; si también presta, queda en 9.",
+      "Resta columna por columna con las cifras nuevas.",
+      "Comprueba sumando el resultado con el número que quitaste."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Papá tenía 500 soles y pagó 236 soles de luz y agua. ¿Cuánto le queda?",
+        "desarrollo": "Desagrupo 1 centena: 5 centenas → 4 centenas y 10 decenas. Desagrupo 1 decena: 9 decenas y 10 unidades. Resto: 10 − 6 = 4, 9 − 3 = 6, 4 − 2 = 2. Resultado: 264.",
+        "respuesta": "Le quedan 264 soles."
+      },
+      {
+        "situacion": "La biblioteca tiene 403 libros y presta 158. ¿Cuántos quedan?",
+        "desarrollo": "Unidades: 3 es menor que 8 y las decenas son 0. Desagrupo 1 centena: quedan 3 centenas y 10 decenas; luego 1 decena: quedan 9 decenas y 13 unidades. Resto: 13 − 8 = 5, 9 − 5 = 4, 3 − 1 = 2. Resultado: 245.",
+        "respuesta": "Quedan 245 libros."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir que 0 − 6 = 6.",
+        "correccion": "De 0 no puedes quitar 6: tienes que desagrupar de la columna de la izquierda."
+      },
+      {
+        "error": "Convertir el cero en 10 y olvidar que, al prestar, queda en 9.",
+        "correccion": "Si la decena 10 le presta 1 a las unidades, se queda con 9."
+      },
+      {
+        "error": "Olvidar bajar en 1 la centena que prestó.",
+        "correccion": "Tacha la centena y escribe encima una menos antes de restar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cero intermedio",
+        "significado": "Un cero en las decenas o en las unidades de un número, como en 403 o 500."
+      },
+      {
+        "termino": "Canje sucesivo",
+        "significado": "Hacer un canje tras otro: de centena a decenas y luego de decena a unidades."
+      },
+      {
+        "termino": "Desagrupar",
+        "significado": "Cambiar 1 centena por 10 decenas o 1 decena por 10 unidades."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 40 − 17.",
+        "respuesta": 23,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En las unidades de 40 hay un 0 y debes quitar 7.",
+          "Desagrupa 1 de las 4 decenas: quedan 3 decenas y 10 unidades.",
+          "10 − 7 y 3 − 1."
+        ],
+        "retroalimentacion": "40 − 17 = 23. Si te salió 37, escribiste 0 − 7 = 7; hay que desagrupar.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 40,
+          "b": 17
+        }
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 300 − 120.",
+        "respuesta": 180,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Unidades: 0 − 0 no tiene problema.",
+          "Decenas: 0 − 2 necesita canje: cambia 1 centena por 10 decenas.",
+          "Decenas 10 − 2 y centenas 2 − 1."
+        ],
+        "retroalimentacion": "300 − 120 = 180. La centena que prestó baja de 3 a 2.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 300,
+          "b": 120
+        }
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al restar 50 − 27, en las unidades se puede escribir 7 porque 0 − 7 = 7.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Puedes quitar 7 cosas si no tienes ninguna?",
+          "Hay que desagrupar 1 de las 5 decenas.",
+          "Las unidades quedan en 10: 10 − 7."
+        ],
+        "retroalimentacion": "Es falso: 0 − 7 no da 7. Se desagrupa una decena: 10 − 7 = 3 y 4 − 2 = 2. Resultado: 23."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para restar 405 − 128, ¿qué haces primero en las unidades?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En las unidades, 5 es menor que 8: hace falta canje.",
+          "¿Qué cifra hay en las decenas del 405 para prestar?",
+          "Si las decenas son 0, hay que pedir a las centenas."
+        ],
+        "retroalimentacion": "Como 5 es menor que 8 y no hay decenas, se desagrupa 1 centena en 10 decenas y una decena en 10 unidades. Resultado: 277.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Escribo 3 porque 8 − 5 = 3."
+          },
+          {
+            "id": "b",
+            "texto": "Pido a las decenas, pero como hay 0, voy primero a las centenas."
+          },
+          {
+            "id": "c",
+            "texto": "Escribo 0 y sigo."
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 600 − 254 haciendo los canjes desde las centenas.",
+        "respuesta": 346,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las unidades y decenas de 600 son ceros.",
+          "Desagrupa: 6 centenas → 5 centenas, 9 decenas y 10 unidades.",
+          "10 − 4, 9 − 5 y 5 − 2."
+        ],
+        "retroalimentacion": "600 − 254 = 346. Comprueba: 254 + 346 = 600.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 600,
+          "b": 254
+        }
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una panadería había 304 huevos y usaron 176 para los panetones. ¿Cuántos huevos quedan? Escribe solo el número.",
+        "respuesta": 128,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 304 − 176; en 304 las decenas son 0.",
+          "4 es menor que 6 y no hay decenas: desagrupa 1 centena y luego 1 decena.",
+          "Quedan 2 centenas, 9 decenas y 14 unidades: 14 − 6, 9 − 7, 2 − 1."
+        ],
+        "retroalimentacion": "304 − 176 = 128 huevos. Comprueba: 176 + 128 = 304.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 304,
+          "b": 176
+        }
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al resolver 700 − 365, ¿cómo queda el 700 después de hacer los canjes?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 700 tiene 7 centenas y 0 decenas y 0 unidades.",
+          "Una centena se cambia por 10 decenas; una de esas decenas, por 10 unidades.",
+          "Las centenas bajan a 6 y las decenas, después de prestar, quedan en 9."
+        ],
+        "retroalimentacion": "700 queda como 6 centenas, 9 decenas y 10 unidades. Así 700 − 365 = 335.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 centenas, 10 decenas y 10 unidades"
+          },
+          {
+            "id": "b",
+            "texto": "7 centenas, 10 decenas y 10 unidades"
+          },
+          {
+            "id": "c",
+            "texto": "6 centenas, 9 decenas y 10 unidades"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Luz tiene 800 soles y compra una refrigeradora de segunda que cuesta 475 soles. ¿Cuánto dinero le queda? Escribe solo el número.",
+        "respuesta": 325,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 800 − 475.",
+          "Desagrupa: 7 centenas, 9 decenas y 10 unidades.",
+          "10 − 5, 9 − 7 y 7 − 4."
+        ],
+        "retroalimentacion": "800 − 475 = 325 soles. Comprueba: 475 + 325 = 800.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 800,
+          "b": 475
+        }
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La resta 907 − 549 da 358.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En 907 las decenas son 0 y en las unidades 7 es menor que 9.",
+          "Desagrupa: 8 centenas, 9 decenas y 17 unidades.",
+          "17 − 9, 9 − 4 y 8 − 5. Compara con 358."
+        ],
+        "retroalimentacion": "Es verdadero: 17 − 9 = 8, 9 − 4 = 5 y 8 − 5 = 3. Resultado: 358."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un álbum tiene 1000 figuritas en total. Mateo ya pegó 365. ¿Cuántas figuritas le faltan? Escribe solo el número.",
+        "respuesta": 635,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lo que falta es 1000 − 365.",
+          "1000 es 1 millar: se cambia por 9 centenas, 9 decenas y 10 unidades.",
+          "10 − 5, 9 − 6 y 9 − 3."
+        ],
+        "retroalimentacion": "1000 − 365 = 635 figuritas. Comprueba: 365 + 635 = 1000.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 1000,
+          "b": 365
+        }
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Encuentra la cifra que falta: 50_ − 237 = 265. ¿Qué cifra va en el espacio?",
+        "respuesta": "2",
+        "alternativasAceptadas": [
+          "dos"
+        ],
+        "pistas": [
+          "Usa la suma para hallar el número de arriba: 265 + 237.",
+          "5 + 7 = 12, escribes 2 y llevas 1.",
+          "El número de arriba empieza con 50: la última cifra es la de las unidades de 265 + 237."
+        ],
+        "retroalimentacion": "La cifra es 2: 502 − 237 = 265, porque 265 + 237 = 502."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Sami resolvió 603 − 278 y obtuvo 435. ¿Cuál es el resultado correcto?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En 603 las decenas son 0: necesitas canje sucesivo.",
+          "Quedan 5 centenas, 9 decenas y 13 unidades.",
+          "13 − 8, 9 − 7 y 5 − 2."
+        ],
+        "retroalimentacion": "603 − 278 = 325. Comprueba: 278 + 325 = 603.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "435"
+          },
+          {
+            "id": "b",
+            "texto": "425"
+          },
+          {
+            "id": "c",
+            "texto": "325"
+          },
+          {
+            "id": "d",
+            "texto": "335"
+          }
+        ]
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la fiesta de la Candelaria de Puno había 900 sillas. Se ocuparon 648. ¿Cuántas sillas quedaron libres? Escribe solo el número.",
+        "respuesta": 252,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las sillas libres son 900 − 648.",
+          "Desagrupa: 8 centenas, 9 decenas y 10 unidades.",
+          "10 − 8, 9 − 4 y 8 − 6."
+        ],
+        "retroalimentacion": "900 − 648 = 252 sillas libres. Comprueba: 648 + 252 = 900.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 900,
+          "b": 648
+        }
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.calculo-mental-descomposicion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P3-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Cálculo mental por descomposición",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Descompone sumandos o sustraendos en centenas, decenas y unidades para calcular mentalmente.",
+    "palabrasClave": [
+      "cálculo mental",
+      "descomponer",
+      "por partes",
+      "suma",
+      "resta"
+    ],
+    "prerrequisitos": [
+      "mat.p3.componer-descomponer"
+    ],
+    "ordenSugerido": 40,
+    "ideaCentral": "Para calcular de memoria, separas un número en centenas, decenas y unidades y lo sumas o restas por partes: primero las centenas, luego las decenas y al final las unidades.",
+    "pasos": [
+      "Descompón el segundo número: por ejemplo, 243 = 200 + 40 + 3.",
+      "Suma o resta las centenas al primer número.",
+      "Luego suma o resta las decenas.",
+      "Al final suma o resta las unidades y di el resultado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Luis compra un polo de 35 soles y un short de 24 soles. ¿Cuánto paga?",
+        "desarrollo": "Separo 24 = 20 + 4. 35 + 20 = 55 y 55 + 4 = 59.",
+        "respuesta": "Paga 59 soles."
+      },
+      {
+        "situacion": "En el aula hay 468 hojas y se usan 230. ¿Cuántas quedan?",
+        "desarrollo": "Separo 230 = 200 + 30. 468 − 200 = 268 y 268 − 30 = 238.",
+        "respuesta": "Quedan 238 hojas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Separar un número en sus cifras sueltas: pensar que 243 = 2 + 4 + 3.",
+        "correccion": "Cada cifra vale según su lugar: el 2 vale 200 y el 4 vale 40."
+      },
+      {
+        "error": "Olvidar una de las partes al final.",
+        "correccion": "Cuenta las partes que separaste y revisa que usaste todas."
+      },
+      {
+        "error": "En una resta, sumar alguna de las partes.",
+        "correccion": "Si restas un número, todas sus partes se restan."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Descomponer",
+        "significado": "Separar un número en centenas, decenas y unidades."
+      },
+      {
+        "termino": "Cálculo mental",
+        "significado": "Hacer una operación en la cabeza, sin escribir la cuenta en columnas."
+      },
+      {
+        "termino": "Valor posicional",
+        "significado": "Lo que vale una cifra según el lugar donde está."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se descompone 325?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 3 está en las centenas, el 2 en las decenas y el 5 en las unidades.",
+          "El 3 vale 300 y el 2 vale 20.",
+          "Busca la opción con 300, 20 y 5."
+        ],
+        "retroalimentacion": "325 = 300 + 20 + 5. Escribir 3 + 2 + 5 olvida que cada cifra vale según su lugar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "300 + 25 + 5"
+          },
+          {
+            "id": "b",
+            "texto": "3 + 2 + 5"
+          },
+          {
+            "id": "c",
+            "texto": "30 + 20 + 5"
+          },
+          {
+            "id": "d",
+            "texto": "300 + 20 + 5"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula de memoria 46 + 30. Escribe solo el resultado.",
+        "respuesta": 76,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "30 son 3 decenas: solo cambian las decenas de 46.",
+          "Cuenta de diez en diez desde 46: 56, 66…",
+          "Da el tercer salto de diez."
+        ],
+        "retroalimentacion": "46 + 30 = 76: a las 4 decenas se le suman 3 decenas y las unidades no cambian.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 46,
+          "b": 30
+        }
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: 52 + 27 = 52 + 20 + ___. ¿Qué número va en el espacio?",
+        "respuesta": "7",
+        "alternativasAceptadas": [
+          "siete"
+        ],
+        "pistas": [
+          "Mira cómo se separó el 27.",
+          "27 se descompone en decenas y unidades.",
+          "Ya está el 20; falta la parte de las unidades."
+        ],
+        "retroalimentacion": "27 = 20 + 7, por eso falta el 7. Luego 52 + 20 = 72 y 72 + 7 = 79."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para calcular 85 − 23 puedo hacer 85 − 20 = 65 y luego 65 + 3 = 68.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en el segundo paso: ¿se suma o se resta el 3?",
+          "Si estás restando 23, sus dos partes, 20 y 3, se restan.",
+          "Haz 65 − 3 en lugar de 65 + 3."
+        ],
+        "retroalimentacion": "Es falso: 85 − 20 = 65 y 65 − 3 = 62. Al restar 23 se quitan las dos partes."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula de memoria 340 + 250. Escribe solo el resultado.",
+        "respuesta": 590,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa 250 en 200 y 50.",
+          "340 + 200 = 540.",
+          "Ahora agrega 50 a 540."
+        ],
+        "retroalimentacion": "340 + 200 = 540 y 540 + 50 = 590.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 340,
+          "b": 250
+        }
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Usa descomposición para 237 + 142: primero 237 + 100, luego suma 40 y después 2. ¿Cuánto da? Escribe solo el número.",
+        "respuesta": 379,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sigue los tres pasos en orden.",
+          "237 + 100 = 337.",
+          "337 + 40 = 377; falta sumar 2."
+        ],
+        "retroalimentacion": "237 + 100 = 337, 337 + 40 = 377 y 377 + 2 = 379.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 237,
+          "b": 142
+        }
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa calcula 563 − 240 de memoria. ¿Qué camino es correcto?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "240 se separa en 200 y 40, y las dos partes se restan.",
+          "Descarta el camino donde aparece un signo +.",
+          "Revisa que se haya quitado 200 y 40, no 2."
+        ],
+        "retroalimentacion": "Lo correcto es 563 − 200 = 363 y 363 − 40 = 323. El 2 de 240 vale 200, no 2.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "563 − 200 = 363; 363 − 40 = 323"
+          },
+          {
+            "id": "b",
+            "texto": "563 − 2 = 561; 561 − 40 = 521"
+          },
+          {
+            "id": "c",
+            "texto": "563 − 200 = 363; 363 + 40 = 403"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la feria, Juan vende 125 choclos en la mañana y 63 en la tarde. Calcula de memoria cuántos choclos vendió. Escribe solo el número.",
+        "respuesta": 188,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa 63 en 60 y 3.",
+          "125 + 60 = 185.",
+          "A 185 súmale las 3 unidades."
+        ],
+        "retroalimentacion": "125 + 60 = 185 y 185 + 3 = 188 choclos.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 125,
+          "b": 63
+        }
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa el cálculo de 476 − 153: 476 − 100 = 376; 376 − 50 = 326; 326 − 3 = ___.",
+        "respuesta": "323",
+        "alternativasAceptadas": [
+          "trescientos veintitrés"
+        ],
+        "pistas": [
+          "Ya se quitaron 100 y 50; solo falta el último paso.",
+          "Quita 3 unidades a 326.",
+          "Solo cambia la cifra de las unidades: 6 − 3."
+        ],
+        "retroalimentacion": "326 − 3 = 323, así que 476 − 153 = 323."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula de memoria 48 + 35 separando el 35 en 30 y 5. Escribe solo el resultado.",
+        "respuesta": 83,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero suma las decenas: 48 + 30.",
+          "48 + 30 = 78.",
+          "Ahora 78 + 5: llega a 80 con 2 y suma los 3 que quedan."
+        ],
+        "retroalimentacion": "48 + 30 = 78 y 78 + 5 = 83. Al sumar las unidades pasas a la decena siguiente.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 48,
+          "b": 35
+        }
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tienda de Gamarra tenía 785 polos y vendió 342. Calcula de memoria, por partes, cuántos polos quedan. Escribe solo el número.",
+        "respuesta": 443,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa 342 en 300, 40 y 2.",
+          "785 − 300 = 485.",
+          "485 − 40 = 445; falta quitar 2."
+        ],
+        "retroalimentacion": "785 − 300 = 485, 485 − 40 = 445 y 445 − 2 = 443 polos.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 785,
+          "b": 342
+        }
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Leo calculó 267 + 315 así: 267 + 300 = 567; 567 + 10 = 577; 577 + 5 = 582. ¿Está bien su cálculo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si 300, 10 y 5 forman 315.",
+          "Comprueba cada paso de Leo: 267 + 300, luego + 10, luego + 5.",
+          "Si cada paso está bien, el resultado final también."
+        ],
+        "retroalimentacion": "Sí, está bien: 315 = 300 + 10 + 5 y 267 + 315 = 582.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No, el resultado es 572."
+          },
+          {
+            "id": "b",
+            "texto": "Sí, sumó 300, 10 y 5, que forman 315."
+          },
+          {
+            "id": "c",
+            "texto": "No, debía sumar 3 + 1 + 5."
+          }
+        ]
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para calcular 900 − 456 por partes se hace 900 − 400 = 500, 500 − 50 = 450 y 450 − 6 = 444.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira si 400, 50 y 6 forman 456.",
+          "Revisa la primera resta: 900 − 400.",
+          "Después 500 − 50 y por último 450 − 6."
+        ],
+        "retroalimentacion": "Es verdadero: se quitan 400, 50 y 6, que forman 456. El resultado 444 es correcto."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.completar-centena",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P3-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Complementos hasta la centena próxima",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Encuentra cuánto falta para llegar a la centena siguiente.",
+    "palabrasClave": [
+      "completar",
+      "centena",
+      "cuánto falta",
+      "complemento",
+      "cálculo mental"
+    ],
+    "prerrequisitos": [
+      "mat.p3.calculo-mental-descomposicion"
+    ],
+    "ordenSugerido": 41,
+    "ideaCentral": "Para llegar a la centena siguiente, primero completas la decena y luego cuentas las decenas que faltan. Por ejemplo, de 367 a 400 faltan 3 + 30 = 33.",
+    "pasos": [
+      "Encuentra la centena siguiente: después de 367 viene 400.",
+      "Completa las unidades hasta la decena: de 367 a 370 hay 3.",
+      "Cuenta las decenas hasta la centena: de 370 a 400 hay 30.",
+      "Junta lo que contaste: 3 + 30 = 33.",
+      "Comprueba sumando: 367 + 33 = 400."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana tiene 74 soles y quiere juntar 100 soles para una mochila. ¿Cuánto le falta?",
+        "desarrollo": "De 74 a 80 hay 6. De 80 a 100 hay 20. Juntamos 6 + 20 = 26. Comprobamos: 74 + 26 = 100.",
+        "respuesta": "Le faltan 26 soles."
+      },
+      {
+        "situacion": "Un álbum tiene 300 figuritas y Pepe ya pegó 245. ¿Cuántas le faltan?",
+        "desarrollo": "De 245 a 250 hay 5. De 250 a 300 hay 50. Juntamos 5 + 50 = 55. Comprobamos: 245 + 55 = 300.",
+        "respuesta": "Le faltan 55 figuritas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir la centena anterior: pensar que de 367 se llega a 300.",
+        "correccion": "La centena siguiente es la que está más adelante al contar: de 367 se va hacia 400."
+      },
+      {
+        "error": "Contar solo las unidades: decir que de 367 a 400 faltan 3.",
+        "correccion": "Después de llegar a 370 todavía faltan decenas: 380, 390, 400."
+      },
+      {
+        "error": "Contar decenas de más: decir que de 362 a 400 faltan 48.",
+        "correccion": "Primero completa la decena (362 → 370 son 8) y luego cuenta solo las decenas que faltan (370 → 400 son 30)."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Centena siguiente",
+        "significado": "El primer número terminado en 00 que viene después."
+      },
+      {
+        "termino": "Complemento",
+        "significado": "Lo que le falta a un número para llegar a otro."
+      },
+      {
+        "termino": "Decena completa",
+        "significado": "Un número terminado en 0, como 370."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto le falta a 90 para llegar a 100? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "90 ya es una decena completa.",
+          "Cuenta de diez en diez desde 90.",
+          "Con un solo salto de diez llegas a 100."
+        ],
+        "retroalimentacion": "A 90 le faltan 10 para llegar a 100, porque 90 + 10 = 100."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto le falta a 230 para llegar a 300? Escribe solo el número.",
+        "respuesta": 70,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "230 termina en 0: solo faltan decenas.",
+          "Cuenta 240, 250, 260… hasta 300.",
+          "Cuenta cuántos saltos de diez diste: son 7."
+        ],
+        "retroalimentacion": "De 230 a 300 hay 7 decenas, es decir, 70. Comprueba: 230 + 70 = 300."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es la centena siguiente de 458?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la cifra de las centenas de 458.",
+          "458 está entre 400 y 500.",
+          "La siguiente es la que viene después al contar."
+        ],
+        "retroalimentacion": "La centena siguiente de 458 es 500. 400 es la centena anterior.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "500"
+          },
+          {
+            "id": "b",
+            "texto": "400"
+          },
+          {
+            "id": "c",
+            "texto": "600"
+          },
+          {
+            "id": "d",
+            "texto": "460"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "A 85 le faltan 15 para llegar a 100.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Completa primero la decena: de 85 a 90.",
+          "De 85 a 90 hay 5; de 90 a 100 hay 10.",
+          "Junta 5 + 10 y compáralo con 15."
+        ],
+        "retroalimentacion": "Es verdadero: 5 + 10 = 15, y 85 + 15 = 100."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Completa 362 hasta la centena siguiente. ¿Cuánto tienes que sumarle? Escribe solo el número.",
+        "respuesta": 38,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La centena siguiente de 362 es 400.",
+          "De 362 a 370 hay 8.",
+          "De 370 a 400 hay 30; junta las dos partes."
+        ],
+        "retroalimentacion": "8 + 30 = 38. Comprueba: 362 + 38 = 400. Si dijiste 48, contaste una decena de más."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el colegio quieren juntar 500 botellas para reciclar. Ya tienen 456. ¿Cuántas botellas faltan? Escribe solo el número.",
+        "respuesta": 44,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay que ir de 456 a 500.",
+          "De 456 a 460 hay 4.",
+          "De 460 a 500 hay 40."
+        ],
+        "retroalimentacion": "4 + 40 = 44 botellas. Comprueba: 456 + 44 = 500."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: 618 + ___ = 700.",
+        "respuesta": "82",
+        "alternativasAceptadas": [
+          "ochenta y dos"
+        ],
+        "pistas": [
+          "Busca cuánto le falta a 618 para llegar a 700.",
+          "De 618 a 620 hay 2.",
+          "De 620 a 700 hay 80: junta los dos saltos."
+        ],
+        "retroalimentacion": "Faltan 2 + 80 = 82, porque 618 + 82 = 700."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para ir de 547 a 600, Lucía cuenta así: de 547 a 550 y de 550 a 600. ¿Cuánto falta en total?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el primer salto: de 547 a 550.",
+          "El segundo salto va de 550 a 600: cuenta las decenas.",
+          "Junta 3 con 50."
+        ],
+        "retroalimentacion": "3 + 50 = 53. Comprueba: 547 + 53 = 600. Las opciones 3 y 50 son solo uno de los saltos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "63"
+          },
+          {
+            "id": "b",
+            "texto": "53"
+          },
+          {
+            "id": "c",
+            "texto": "3"
+          },
+          {
+            "id": "d",
+            "texto": "50"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 271 a 300 faltan 39.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Completa la decena: de 271 a 280.",
+          "De 271 a 280 hay 9; ahora de 280 a 300.",
+          "De 280 a 300 hay 2 decenas: junta 9 + 20."
+        ],
+        "retroalimentacion": "Es falso: faltan 9 + 20 = 29, no 39. Comprueba: 271 + 29 = 300."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Doña Carmen quiere juntar 900 soles para comprar una máquina de coser. Ya ahorró 815 soles. ¿Cuántos soles le faltan? Escribe solo el número.",
+        "respuesta": 85,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay que ir de 815 a 900.",
+          "De 815 a 820 hay 5.",
+          "De 820 a 900 hay 8 decenas: 80."
+        ],
+        "retroalimentacion": "5 + 80 = 85 soles. Comprueba: 815 + 85 = 900."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué pareja de números suma exactamente 500?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Todas las parejas empiezan con 436: busca cuánto le falta a 436 para 500.",
+          "De 436 a 440 hay 4 y de 440 a 500 hay 60.",
+          "El compañero de 436 debe ser 4 + 60."
+        ],
+        "retroalimentacion": "436 + 64 = 500. Con 74 se pasa (510), con 54 no llega (490) y con 164 llega a 600.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "436 y 64"
+          },
+          {
+            "id": "b",
+            "texto": "436 y 74"
+          },
+          {
+            "id": "c",
+            "texto": "436 y 54"
+          },
+          {
+            "id": "d",
+            "texto": "436 y 164"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Luz tiene 704 semillas de quinua y quiere completar 800 para sembrar. ¿Cuántas semillas le faltan? Escribe solo el número.",
+        "respuesta": 96,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En 704 las decenas son 0. La centena siguiente es 800.",
+          "De 704 a 710 hay 6.",
+          "De 710 a 800 hay 9 decenas: 90."
+        ],
+        "retroalimentacion": "6 + 90 = 96 semillas. Comprueba: 704 + 96 = 800."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Toño dice: «A 380 le faltan 620 para llegar a 400». Escribe cuánto le falta en verdad.",
+        "respuesta": "20",
+        "alternativasAceptadas": [
+          "20 unidades",
+          "veinte"
+        ],
+        "pistas": [
+          "380 está muy cerca de 400: la respuesta es un número pequeño.",
+          "380 ya es una decena completa: cuenta 390, 400.",
+          "Fueron 2 saltos de diez."
+        ],
+        "retroalimentacion": "Faltan 20, porque 380 + 20 = 400. Toño calculó lo que falta para llegar a 1000."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.estimar-sumas-restas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P3-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Estimación de sumas y restas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Anticipa un resultado aproximado y detecta respuestas poco razonables.",
+    "palabrasClave": [
+      "estimar",
+      "redondear",
+      "aproximadamente",
+      "razonable",
+      "resultado"
+    ],
+    "prerrequisitos": [
+      "mat.p3.redondear-decena-centena"
+    ],
+    "ordenSugerido": 42,
+    "ideaCentral": "Estimar es calcular más o menos antes de la cuenta exacta. Redondeas los números a la decena o a la centena más cercana, haces una cuenta fácil y así sabes si un resultado tiene sentido.",
+    "pasos": [
+      "Redondea cada número a la decena o centena más cercana.",
+      "Suma o resta los números redondeados.",
+      "Compara la respuesta exacta con tu estimación.",
+      "Si están muy lejos, revisa la cuenta exacta."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Mamá compra una mochila de 48 soles y zapatos de 79 soles. ¿Le alcanza con 150 soles?",
+        "desarrollo": "48 está cerca de 50 y 79 está cerca de 80. 50 + 80 = 130, que es menos que 150. La cuenta exacta es 48 + 79 = 127.",
+        "respuesta": "Sí le alcanza; gasta unos 130 soles."
+      },
+      {
+        "situacion": "En un colegio hay 612 estudiantes y 289 salen de excursión. ¿Cuántos se quedan, aproximadamente?",
+        "desarrollo": "612 está cerca de 600 y 289 está cerca de 300. 600 − 300 = 300. La cuenta exacta da 323, que está cerca de 300, así que es razonable.",
+        "respuesta": "Se quedan unos 300 estudiantes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Redondear siempre hacia abajo: decir que 79 está cerca de 70.",
+        "correccion": "Mira las unidades: si son 5 o más, redondea hacia la decena de arriba (79 → 80)."
+      },
+      {
+        "error": "Creer que la estimación es la respuesta exacta.",
+        "correccion": "La estimación es un número cercano que sirve para revisar; la respuesta exacta se calcula aparte."
+      },
+      {
+        "error": "Aceptar un resultado que no tiene sentido, como una suma menor que uno de los números.",
+        "correccion": "Antes de escribir la respuesta, compárala con tu estimación."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Estimar",
+        "significado": "Calcular de forma aproximada, sin la cuenta exacta."
+      },
+      {
+        "termino": "Redondear",
+        "significado": "Cambiar un número por la decena o centena más cercana."
+      },
+      {
+        "termino": "Razonable",
+        "significado": "Que tiene sentido porque está cerca de lo estimado."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es la mejor estimación de 39 + 52?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea cada número a la decena más cercana.",
+          "39 está cerca de 40 y 52 está cerca de 50.",
+          "Suma 40 + 50."
+        ],
+        "retroalimentacion": "40 + 50 = 90, por eso la mejor estimación es 90. La suma exacta es 91.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "50"
+          },
+          {
+            "id": "b",
+            "texto": "90"
+          },
+          {
+            "id": "c",
+            "texto": "70"
+          },
+          {
+            "id": "d",
+            "texto": "120"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Redondea a la decena y estima 61 + 28. Escribe solo la estimación.",
+        "respuesta": 90,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿A qué decena está más cerca 61? ¿Y 28?",
+          "61 → 60 y 28 → 30.",
+          "Suma las dos decenas: 60 + 30."
+        ],
+        "retroalimentacion": "60 + 30 = 90. La suma exacta es 89, muy cerca de la estimación."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si sumas 198 + 203, el resultado debe estar cerca de 400.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea a la centena: 198 y 203.",
+          "198 está cerca de 200 y 203 también.",
+          "¿Cuánto da 200 + 200?"
+        ],
+        "retroalimentacion": "Es verdadero: 200 + 200 = 400. La suma exacta es 401."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para estimar 487 − 211 redondeando a la centena, ¿qué cuenta haces?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea 487 a la centena más cercana.",
+          "487 está más cerca de 500 que de 400; 211 está cerca de 200.",
+          "Busca la resta con 500 y 200."
+        ],
+        "retroalimentacion": "487 → 500 y 211 → 200, así que la cuenta es 500 − 200 = 300. La resta exacta es 276.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "500 − 200"
+          },
+          {
+            "id": "b",
+            "texto": "400 − 200"
+          },
+          {
+            "id": "c",
+            "texto": "500 − 300"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Estima redondeando a la centena: 312 + 489. Escribe solo la estimación.",
+        "respuesta": 800,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea 312 y 489 a la centena más cercana.",
+          "312 → 300 y 489 → 500.",
+          "Suma 300 + 500."
+        ],
+        "retroalimentacion": "300 + 500 = 800. La suma exacta es 801."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Lucho sumó 245 + 330 y obtuvo 875. Su resultado es razonable.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Estima: 245 está cerca de 250 y 330 ya es una decena completa.",
+          "Una estimación rápida es 200 + 300 = 500 o 250 + 330 = 580.",
+          "¿875 está cerca de esos números?"
+        ],
+        "retroalimentacion": "Es falso: la suma debe estar cerca de 580 y 875 está muy lejos. La suma exacta es 575."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mamá tiene 100 soles. Quiere comprar arroz a 38 soles, aceite a 21 soles y pollo a 47 soles. Estimando, ¿qué pasa?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea los tres precios a la decena.",
+          "38 → 40, 21 → 20 y 47 → 50.",
+          "Suma 40 + 20 + 50 y compáralo con 100."
+        ],
+        "retroalimentacion": "40 + 20 + 50 = 110, más que 100: no le alcanza. La suma exacta es 106 soles.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No le alcanza: necesita unos 110 soles."
+          },
+          {
+            "id": "b",
+            "texto": "Le alcanza y le sobra mucho."
+          },
+          {
+            "id": "c",
+            "texto": "Gasta unos 50 soles."
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Redondea a la decena y estima 83 − 47. Escribe solo la estimación.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea 83 y 47 a la decena más cercana.",
+          "83 → 80 y 47 → 50.",
+          "Resta 80 − 50."
+        ],
+        "retroalimentacion": "80 − 50 = 30. La resta exacta es 36, cerca de la estimación."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe «sí» o «no»: ¿es razonable decir que 703 − 298 da 405?",
+        "respuesta": "sí",
+        "alternativasAceptadas": [
+          "si",
+          "sí es razonable",
+          "es razonable"
+        ],
+        "pistas": [
+          "Redondea a la centena: 703 y 298.",
+          "703 → 700 y 298 → 300.",
+          "700 − 300 = 400: ¿405 está cerca?"
+        ],
+        "retroalimentacion": "Sí es razonable: la estimación es 400 y 405 está muy cerca. Además, la cuenta exacta da 405."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El colegio de Chiclayo tiene 386 estudiantes y el de Lambayeque tiene 417. ¿Cuántos son, aproximadamente, entre los dos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«Entre los dos» pide una suma.",
+          "Redondea: 386 → 400 y 417 → 400.",
+          "400 + 400."
+        ],
+        "retroalimentacion": "Son unos 800 estudiantes (400 + 400). La suma exacta es 803. 30 sería la diferencia, no el total.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Unos 800"
+          },
+          {
+            "id": "b",
+            "texto": "Unos 30"
+          },
+          {
+            "id": "c",
+            "texto": "Unos 700"
+          },
+          {
+            "id": "d",
+            "texto": "Unos 900"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Sin hacer la cuenta exacta, ¿cuál puede ser el resultado de 592 − 187? Estima para elegir.",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea 592 y 187 a la centena.",
+          "592 → 600 y 187 → 200.",
+          "600 − 200 = 400: busca la opción más cercana."
+        ],
+        "retroalimentacion": "La estimación es 400, así que el resultado es 405. 779 sería una suma y 205 o 85 están muy lejos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "85"
+          },
+          {
+            "id": "b",
+            "texto": "205"
+          },
+          {
+            "id": "c",
+            "texto": "779"
+          },
+          {
+            "id": "d",
+            "texto": "405"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una camioneta lleva 278 kilos de papa y 315 kilos de camote. Como 300 + 300 = 600, puede cruzar un puente que soporta hasta 1000 kilos de carga.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira si la estimación de la carga es menor que 1000.",
+          "278 → 300 y 315 → 300: unos 600 kilos.",
+          "Compara 600 con 1000."
+        ],
+        "retroalimentacion": "Es verdadero: la carga es de unos 600 kilos (exacto: 593), mucho menos que 1000."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Raúl estimó 452 + 336 redondeando a la centena y obtuvo 800. Ana estimó redondeando a la decena. ¿Qué estimación obtuvo Ana? Escribe solo el número.",
+        "respuesta": 790,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ana redondea a la decena, no a la centena.",
+          "452 → 450 y 336 → 340.",
+          "Suma 450 + 340."
+        ],
+        "retroalimentacion": "Ana obtuvo 450 + 340 = 790. La suma exacta es 788: redondear a la decena da una estimación más cercana."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.conmutativa-adicion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P3-03",
+      "MAT-C23-P3-07"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Propiedad conmutativa de la adición",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Explica por qué cambiar el orden de los sumandos conserva la suma.",
+    "palabrasClave": [
+      "conmutativa",
+      "orden",
+      "sumandos",
+      "propiedad",
+      "suma"
+    ],
+    "prerrequisitos": [
+      "mat.p3.suma-resta-hasta-1000"
+    ],
+    "ordenSugerido": 43,
+    "ideaCentral": "Al sumar, puedes cambiar el orden de los sumandos y el total sigue siendo el mismo: 25 + 8 da lo mismo que 8 + 25. Con la resta no pasa eso.",
+    "pasos": [
+      "Mira los sumandos de la suma.",
+      "Cámbialos de lugar.",
+      "Comprueba que el total no cambia.",
+      "Úsalo para calcular más fácil: empieza por el número mayor."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana compra 3 panes y luego 25 panes. Luis compra 25 panes y luego 3. ¿Quién tiene más panes?",
+        "desarrollo": "Ana: 3 + 25 = 28. Luis: 25 + 3 = 28. Cambia el orden, pero el total es el mismo.",
+        "respuesta": "Los dos tienen 28 panes."
+      },
+      {
+        "situacion": "En una bodega llegan 140 cajas en la mañana y 260 en la tarde. Otro día llegan 260 en la mañana y 140 en la tarde. ¿Qué día llegaron más?",
+        "desarrollo": "140 + 260 = 400 y 260 + 140 = 400. El orden de los sumandos no cambia la suma.",
+        "respuesta": "Los dos días llegaron 400 cajas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que en la resta también se puede cambiar el orden.",
+        "correccion": "9 − 4 = 5, pero 4 − 9 no se puede con los números que conoces: la propiedad es solo para la suma."
+      },
+      {
+        "error": "Creer que si cambias el orden, la suma cambia y volver a calcular.",
+        "correccion": "Si ya sabes 37 + 12, ya sabes 12 + 37: es el mismo total."
+      },
+      {
+        "error": "Cambiar las cifras de un número en lugar de cambiar los sumandos de lugar (34 + 5 por 43 + 5).",
+        "correccion": "Se mueve el número completo; sus cifras no se tocan."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Sumandos",
+        "significado": "Los números que se suman."
+      },
+      {
+        "termino": "Propiedad conmutativa",
+        "significado": "El orden de los sumandos no cambia la suma."
+      },
+      {
+        "termino": "Orden",
+        "significado": "El lugar que ocupa cada sumando: primero o segundo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si 37 + 12 = 49, ¿cuánto es 12 + 37? Escribe solo el número.",
+        "respuesta": 49,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los sumandos de las dos sumas.",
+          "Son los mismos números, 37 y 12, en otro orden.",
+          "Si los sumandos son iguales, el total también."
+        ],
+        "retroalimentacion": "12 + 37 = 49, igual que 37 + 12. Cambiar el orden no cambia la suma.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 12,
+          "b": 37
+        }
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué suma da lo mismo que 8 + 56?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca una suma con los mismos números, 8 y 56.",
+          "Cuidado: 65 no es 56, y la resta no vale.",
+          "Solo cambia el lugar del 8 y del 56."
+        ],
+        "retroalimentacion": "56 + 8 da lo mismo que 8 + 56 (64). En 86 + 5 y 8 + 65 se cambiaron las cifras, y 56 − 8 es otra operación.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "56 − 8"
+          },
+          {
+            "id": "b",
+            "texto": "86 + 5"
+          },
+          {
+            "id": "c",
+            "texto": "8 + 65"
+          },
+          {
+            "id": "d",
+            "texto": "56 + 8"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "45 + 30 da el mismo resultado que 30 + 45.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira si las dos sumas tienen los mismos sumandos.",
+          "45 y 30 están en las dos, solo cambian de lugar.",
+          "Puedes comprobar: 45 + 30 = 75."
+        ],
+        "retroalimentacion": "Es verdadero: las dos dan 75, porque el orden de los sumandos no cambia la suma."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "9 − 4 da el mismo resultado que 4 − 9.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en el signo: es una resta.",
+          "9 − 4 = 5. ¿Puedes quitar 9 de 4 cosas?",
+          "La propiedad del orden es solo de la suma."
+        ],
+        "retroalimentacion": "Es falso: 9 − 4 = 5, pero de 4 no se pueden quitar 9. En la resta el orden sí importa."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: 123 + 254 = 254 + ___.",
+        "respuesta": "123",
+        "alternativasAceptadas": [
+          "ciento veintitrés"
+        ],
+        "pistas": [
+          "A la izquierda están 123 y 254.",
+          "A la derecha ya está el 254.",
+          "Falta el otro sumando de la izquierda."
+        ],
+        "retroalimentacion": "Va 123: 123 + 254 = 254 + 123 = 377. Solo cambiaron de lugar."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa juntó 6 huevos de gallina y luego 45 de pato. Pepe juntó primero 45 de pato y luego 6 de gallina. ¿Qué pasa?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Rosa hizo 6 + 45 y Pepe hizo 45 + 6.",
+          "Los sumandos son los mismos, solo cambia el orden.",
+          "Calcula uno de los dos: 45 + 6."
+        ],
+        "retroalimentacion": "Los dos juntaron 51 huevos: 6 + 45 = 45 + 6 = 51.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los dos juntaron 51 huevos."
+          },
+          {
+            "id": "b",
+            "texto": "Rosa juntó más."
+          },
+          {
+            "id": "c",
+            "texto": "Pepe juntó más."
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para sumar 7 + 186 rápido, empieza por el número mayor: 186 + 7. ¿Cuánto da? Escribe solo el número.",
+        "respuesta": 193,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza en 186 y avanza 7.",
+          "De 186 a 190 hay 4.",
+          "Te faltan 3 más después de 190."
+        ],
+        "retroalimentacion": "186 + 7 = 193, que es lo mismo que 7 + 186. Empezar por el mayor facilita contar.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 186,
+          "b": 7
+        }
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Como 350 + 425 = 775, entonces 425 + 350 = 785.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los sumandos de las dos sumas son los mismos.",
+          "Si los sumandos son los mismos, ¿puede cambiar el total?",
+          "Compara 775 con 785."
+        ],
+        "retroalimentacion": "Es falso: 425 + 350 = 775, igual que 350 + 425. Cambiar el orden no cambia el total."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿En cuál operación NO puedes cambiar el orden sin cambiar el resultado?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los signos de cada operación.",
+          "Las sumas se pueden dar vuelta sin problema.",
+          "Busca la que tiene el signo menos."
+        ],
+        "retroalimentacion": "En 50 − 20 el orden importa: 50 − 20 = 30, pero 20 − 50 no da 30. Las sumas sí pueden cambiar de orden.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "200 + 30"
+          },
+          {
+            "id": "b",
+            "texto": "8 + 120"
+          },
+          {
+            "id": "c",
+            "texto": "50 − 20"
+          },
+          {
+            "id": "d",
+            "texto": "15 + 40"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Leo dice: «Si cambio el orden de 64 + 29, el resultado cambia». Escribe «sí» si tiene razón o «no» si no la tiene.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no tiene razón",
+          "no tiene razon"
+        ],
+        "pistas": [
+          "Piensa en 64 + 29 y 29 + 64.",
+          "Los dos tienen los mismos sumandos.",
+          "Calcula uno: 64 + 29 = 93. ¿El otro da distinto?"
+        ],
+        "retroalimentacion": "No tiene razón: 64 + 29 = 29 + 64 = 93. En la suma el orden no cambia el resultado."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una caja hay 278 tornillos y 516 clavos. Mario los contó empezando por los clavos y Lía empezando por los tornillos. Si Lía contó 794 en total, ¿cuántos contó Mario? Escribe solo el número.",
+        "respuesta": 794,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lía hizo 278 + 516 y Mario hizo 516 + 278.",
+          "Contaron las mismas cosas en distinto orden.",
+          "Usa el total de Lía."
+        ],
+        "retroalimentacion": "Mario contó 794, igual que Lía: 516 + 278 = 278 + 516. No hace falta volver a sumar."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué igualdad muestra la propiedad conmutativa de la suma?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca dos sumas con los mismos sumandos en distinto orden.",
+          "En 43 + 25 las cifras están cambiadas: no son los mismos números.",
+          "La resta no tiene esta propiedad."
+        ],
+        "retroalimentacion": "34 + 52 = 52 + 34 muestra la propiedad conmutativa: los mismos sumandos, distinto orden, igual total (86).",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "52 − 34 = 34 − 52"
+          },
+          {
+            "id": "b",
+            "texto": "34 + 52 = 43 + 25"
+          },
+          {
+            "id": "c",
+            "texto": "34 + 52 = 34 + 25"
+          },
+          {
+            "id": "d",
+            "texto": "34 + 52 = 52 + 34"
+          }
+        ]
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Pepe y Ana compraron lo mismo en el mercado: un kilo de arroz a 4 soles y un pollo a 18 soles. Pepe pagó primero el pollo y Ana primero el arroz. ¿Cuántos soles pagó cada uno? Escribe solo el número.",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pepe hizo 18 + 4 y Ana hizo 4 + 18.",
+          "Como el orden no cambia la suma, los dos pagaron lo mismo.",
+          "Empieza en 18 y avanza 4."
+        ],
+        "retroalimentacion": "Cada uno pagó 22 soles: 18 + 4 = 4 + 18 = 22."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.asociativa-adicion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P3-04",
+      "MAT-C23-P3-07"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Agrupar sumandos para calcular",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Cambia la agrupación de tres sumandos para facilitar el cálculo.",
+    "palabrasClave": [
+      "agrupar",
+      "asociativa",
+      "tres sumandos",
+      "paréntesis",
+      "cálculo"
+    ],
+    "prerrequisitos": [
+      "mat.p3.conmutativa-adicion"
+    ],
+    "ordenSugerido": 44,
+    "ideaCentral": "Cuando sumas tres números, puedes elegir cuáles dos sumar primero. El total no cambia, así que busca la pareja que dé un número redondo como 10, 50 o 100.",
+    "pasos": [
+      "Mira los tres sumandos.",
+      "Busca dos que juntos den una decena o centena exacta.",
+      "Súmalos primero (puedes ponerlos entre paréntesis).",
+      "Suma el tercer número al resultado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Pilar compró fruta por 18 soles, pan por 7 soles y leche por 3 soles. ¿Cuánto gastó?",
+        "desarrollo": "7 + 3 = 10 es fácil. Agrupo: 18 + (7 + 3) = 18 + 10 = 28.",
+        "respuesta": "Gastó 28 soles."
+      },
+      {
+        "situacion": "En tres aulas hay 125, 36 y 75 sillas. ¿Cuántas sillas hay?",
+        "desarrollo": "125 + 75 = 200 es redondo. Agrupo: (125 + 75) + 36 = 200 + 36 = 236.",
+        "respuesta": "Hay 236 sillas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que si cambias la agrupación, el total cambia.",
+        "correccion": "En una suma de tres números, sumar primero cualquier pareja da el mismo total."
+      },
+      {
+        "error": "Sumar la pareja fácil y olvidar el tercer número.",
+        "correccion": "Después de la pareja, siempre falta sumar el número que quedó."
+      },
+      {
+        "error": "Agrupar en una resta como si fuera suma.",
+        "correccion": "Esta forma de agrupar solo sirve cuando todos los números se suman."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Agrupar",
+        "significado": "Elegir qué números se suman primero."
+      },
+      {
+        "termino": "Paréntesis",
+        "significado": "Los signos ( ) que muestran qué se calcula primero."
+      },
+      {
+        "termino": "Número redondo",
+        "significado": "Un número terminado en 0 o en 00, fácil de sumar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 6 + 9 + 4, ¿qué pareja conviene sumar primero?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca dos números que juntos den 10.",
+          "Prueba 6 + 4 y 9 + 4.",
+          "¿Cuál pareja da justo 10?"
+        ],
+        "retroalimentacion": "Conviene 6 + 4 = 10; luego 10 + 9 = 19. Las otras parejas no dan un número redondo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 + 9"
+          },
+          {
+            "id": "b",
+            "texto": "9 + 4"
+          },
+          {
+            "id": "c",
+            "texto": "6 + 4"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Suma 8 + 2 + 15 agrupando primero los que dan 10. Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Qué dos números dan 10?",
+          "8 + 2 = 10.",
+          "Ahora 10 + 15."
+        ],
+        "retroalimentacion": "(8 + 2) + 15 = 10 + 15 = 25."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "(5 + 5) + 7 da lo mismo que 5 + (5 + 7).",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cada lado empezando por el paréntesis.",
+          "Izquierda: 10 + 7. Derecha: 5 + 12.",
+          "Compara los dos resultados."
+        ],
+        "retroalimentacion": "Es verdadero: 10 + 7 = 17 y 5 + 12 = 17. Cambiar la agrupación no cambia la suma."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Lucía tiene 3 canicas rojas, 14 azules y 7 verdes. Agrupa para que sea fácil y di cuántas canicas tiene. Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca entre 3, 14 y 7 una pareja que dé 10.",
+          "3 + 7 = 10.",
+          "Súmale las 14 azules a ese 10."
+        ],
+        "retroalimentacion": "(3 + 7) + 14 = 10 + 14 = 24 canicas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Suma 25 + 38 + 75 haciendo primero 25 + 75. Escribe solo el número.",
+        "respuesta": 138,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por la pareja indicada: 25 + 75.",
+          "25 + 75 = 100.",
+          "Ahora suma 100 + 38."
+        ],
+        "retroalimentacion": "(25 + 75) + 38 = 100 + 38 = 138."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué agrupación hace más fácil la suma 46 + 17 + 54?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira las unidades: 6 y 4 juntos dan 10.",
+          "46 + 54 da un número redondo.",
+          "Busca la opción que suma primero 46 y 54."
+        ],
+        "retroalimentacion": "(46 + 54) + 17 = 100 + 17 = 117. Las otras agrupaciones dan el mismo total, pero con cuentas más difíciles.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(46 + 54) + 17"
+          },
+          {
+            "id": "b",
+            "texto": "(17 + 54) + 46"
+          },
+          {
+            "id": "c",
+            "texto": "(46 + 17) + 54"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa y escribe el resultado final: 13 + 6 + 4 = 13 + (6 + 4) = 13 + 10 = ___.",
+        "respuesta": "23",
+        "alternativasAceptadas": [
+          "veintitrés",
+          "veintitres"
+        ],
+        "pistas": [
+          "El paréntesis ya está resuelto: 6 + 4 = 10.",
+          "Solo falta sumar 13 + 10.",
+          "Una decena más sobre 13."
+        ],
+        "retroalimentacion": "13 + 10 = 23. Agrupar 6 + 4 hizo la suma más fácil."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la kermés se vendieron 140 anticuchos el viernes, 95 el sábado y 60 el domingo. ¿Cuántos anticuchos se vendieron en los tres días? Escribe solo el número.",
+        "respuesta": 295,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca dos números que formen una centena.",
+          "140 + 60 = 200.",
+          "Suma 200 + 95."
+        ],
+        "retroalimentacion": "(140 + 60) + 95 = 200 + 95 = 295 anticuchos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para sumar 37 + 50 + 13, conviene sumar primero 37 + 50.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira las unidades de 37 y 13.",
+          "7 + 3 = 10: 37 + 13 da un número redondo.",
+          "37 + 13 = 50; luego 50 + 50."
+        ],
+        "retroalimentacion": "Es falso: conviene (37 + 13) + 50 = 50 + 50 = 100. 37 + 50 = 87 es una cuenta menos cómoda."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve la suma de tres números 180 + 245 + 20. Busca la pareja que forma una centena. Escribe solo el número.",
+        "respuesta": 445,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira 180 y 20.",
+          "180 + 20 = 200.",
+          "Suma 200 + 245."
+        ],
+        "retroalimentacion": "(180 + 20) + 245 = 200 + 245 = 445."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana sumó (68 + 32) + 19 y obtuvo 119. Beto sumó 68 + (32 + 19). ¿Qué resultado obtuvo Beto?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ana y Beto suman los mismos tres números.",
+          "Solo cambia qué pareja suman primero.",
+          "Si la agrupación no cambia el total, ¿qué obtuvo Beto?"
+        ],
+        "retroalimentacion": "Beto obtuvo 119: 32 + 19 = 51 y 68 + 51 = 119. Cambiar la agrupación no cambia la suma.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "100"
+          },
+          {
+            "id": "b",
+            "texto": "119"
+          },
+          {
+            "id": "c",
+            "texto": "51"
+          },
+          {
+            "id": "d",
+            "texto": "129"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Don Teo cosechó 236 kilos de papa en la primera chacra, 150 en la segunda y 64 en la tercera. Agrupando bien, ¿cuántos kilos cosechó? Escribe solo el número.",
+        "respuesta": 450,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las unidades 6 y 4 suman 10: mira 236 y 64.",
+          "236 + 64 = 300.",
+          "Suma 300 + 150."
+        ],
+        "retroalimentacion": "(236 + 64) + 150 = 300 + 150 = 450 kilos."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe la pareja que sumarías primero en 7 + 125 + 75 (por ejemplo: 7 + 125).",
+        "respuesta": "125 + 75",
+        "alternativasAceptadas": [
+          "125+75",
+          "75 + 125",
+          "75+125",
+          "125 y 75",
+          "75 y 125"
+        ],
+        "pistas": [
+          "De los tres números, ¿cuáles dos juntos dan 200?",
+          "Mira los que terminan en 25 y en 75.",
+          "125 + 75 = 200."
+        ],
+        "retroalimentacion": "Conviene 125 + 75 = 200; luego 200 + 7 = 207."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p3.inversa-suma-resta",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 3,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P3-07"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Relación inversa entre suma y resta",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Comprueba una suma o resta usando la operación inversa.",
+    "palabrasClave": [
+      "operación inversa",
+      "comprobar",
+      "suma",
+      "resta",
+      "verificar"
+    ],
+    "prerrequisitos": [
+      "mat.p3.suma-con-canje",
+      "mat.p3.resta-con-canje"
+    ],
+    "ordenSugerido": 45,
+    "ideaCentral": "La suma y la resta se deshacen una a la otra. Si 245 + 130 = 375, entonces 375 − 130 = 245. Así puedes comprobar si tu cuenta está bien.",
+    "pasos": [
+      "Para comprobar una resta, suma el resultado con el número que restaste.",
+      "Si te da el número de arriba, la resta está bien.",
+      "Para comprobar una suma, réstale al total uno de los sumandos.",
+      "Si te da el otro sumando, la suma está bien."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Juana tenía 352 soles, gastó 178 y dice que le quedan 174. ¿Está bien?",
+        "desarrollo": "Compruebo la resta con una suma: 174 + 178. 4 + 8 = 12, llevo 1; 7 + 7 + 1 = 15, llevo 1; 1 + 1 + 1 = 3. Da 352, que es lo que tenía.",
+        "respuesta": "Sí, le quedan 174 soles."
+      },
+      {
+        "situacion": "En un colegio hay 268 niños y 157 niñas. Suman 425 estudiantes. Compruébalo.",
+        "desarrollo": "Compruebo la suma con una resta: 425 − 157. 15 − 7 = 8; 11 − 5 = 6; 3 − 1 = 2. Da 268, que es el otro sumando.",
+        "respuesta": "La suma está bien: son 425 estudiantes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comprobar una resta restando otra vez.",
+        "correccion": "La resta se comprueba con su operación inversa, la suma."
+      },
+      {
+        "error": "Sumar el resultado con el número de arriba en vez de con el que se restó.",
+        "correccion": "Suma la diferencia con el sustraendo (el número de abajo)."
+      },
+      {
+        "error": "Pensar que la comprobación debe dar el mismo resultado de la cuenta.",
+        "correccion": "La comprobación de una resta debe dar el número de arriba; la de una suma, el otro sumando."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Operación inversa",
+        "significado": "La operación que deshace a otra: la resta deshace la suma y la suma deshace la resta."
+      },
+      {
+        "termino": "Comprobar",
+        "significado": "Revisar si un resultado es correcto."
+      },
+      {
+        "termino": "Sustraendo",
+        "significado": "El número que se quita en una resta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para comprobar que 45 − 20 = 25, ¿qué suma haces?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una resta se comprueba con una suma.",
+          "Suma el resultado, 25, con el número que se quitó.",
+          "Esa suma debe dar 45."
+        ],
+        "retroalimentacion": "25 + 20 = 45, por eso la resta está bien. 45 + 20 no comprueba nada.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25 + 20"
+          },
+          {
+            "id": "b",
+            "texto": "25 + 45"
+          },
+          {
+            "id": "c",
+            "texto": "45 + 20"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si 63 + 24 = 87, ¿cuánto es 87 − 24? Escribe solo el número.",
+        "respuesta": 63,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La resta deshace la suma.",
+          "Al total 87 le quitas uno de los sumandos, 24.",
+          "Te queda el otro sumando."
+        ],
+        "retroalimentacion": "87 − 24 = 63, el otro sumando. Si sabes una suma, sabes también su resta.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 87,
+          "b": 24
+        }
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 150 − 50 = 100, entonces 100 + 50 = 150.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los tres números de las dos operaciones.",
+          "La suma vuelve a poner lo que la resta quitó.",
+          "Calcula 100 + 50."
+        ],
+        "retroalimentacion": "Es verdadero: 100 + 50 = 150. Es la comprobación de 150 − 50 = 100."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa la resta que comprueba 32 + 15 = 47: 47 − 15 = ___.",
+        "respuesta": "32",
+        "alternativasAceptadas": [
+          "treinta y dos"
+        ],
+        "pistas": [
+          "Al total 47 se le quita el 15.",
+          "Debe quedar el otro sumando.",
+          "¿Cuál es el sumando que acompaña al 15?"
+        ],
+        "retroalimentacion": "47 − 15 = 32, el otro sumando. Así se comprueba la suma."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Nina restó 524 − 276 = 248. ¿Qué cuenta comprueba su resultado?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para comprobar una resta se suma.",
+          "Suma el resultado de Nina con el número que restó.",
+          "Esa suma debe dar 524."
+        ],
+        "retroalimentacion": "248 + 276 = 524, así que la resta de Nina está bien.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "248 + 276"
+          },
+          {
+            "id": "b",
+            "texto": "524 + 276"
+          },
+          {
+            "id": "c",
+            "texto": "524 + 248"
+          },
+          {
+            "id": "d",
+            "texto": "248 − 276"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Pepe hizo 613 − 287 = 336. Al comprobar, 336 + 287 da 623, así que su resta está mal.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La comprobación debe dar 613.",
+          "Revisa la suma: 336 + 287.",
+          "6 + 7 = 13, 3 + 8 + 1 = 12, 3 + 2 + 1 = 6: compara 623 con 613."
+        ],
+        "retroalimentacion": "Es verdadero: 336 + 287 = 623, no 613, así que la resta está mal. Lo correcto es 613 − 287 = 326."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Sabes que 438 + 295 = 733. Sin volver a sumar, ¿cuánto es 733 − 438? Escribe solo el número.",
+        "respuesta": 295,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "733 es el total y 438 es uno de los sumandos.",
+          "Si al total le quitas un sumando, queda el otro.",
+          "Mira cuál es el otro sumando en 438 + 295."
+        ],
+        "retroalimentacion": "733 − 438 = 295, porque 438 + 295 = 733.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 733,
+          "b": 438
+        }
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Qué número sumado a 186 da 500? Usa la resta 500 − 186. Escribe solo el número.",
+        "respuesta": 314,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La suma 186 + ? = 500 se deshace con una resta.",
+          "Calcula 500 − 186: el 500 tiene ceros.",
+          "Quedan 4 centenas, 9 decenas y 10 unidades: 10 − 6, 9 − 8, 4 − 1."
+        ],
+        "retroalimentacion": "500 − 186 = 314. Comprueba: 186 + 314 = 500.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 500,
+          "b": 186
+        }
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tito sumó 357 + 268 y obtuvo 615. Para comprobar, hizo 615 − 268. ¿Qué obtuvo y qué significa?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Si la suma estuviera bien, 615 − 268 debería dar 357.",
+          "Calcula 615 − 268 con canjes.",
+          "15 − 8, 10 − 6 y 5 − 2: compara con 357."
+        ],
+        "retroalimentacion": "615 − 268 = 347, no 357: la suma está mal. Lo correcto es 357 + 268 = 625.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Obtuvo 347; como no es 357, la suma está mal."
+          },
+          {
+            "id": "b",
+            "texto": "Obtuvo 883; la suma está bien."
+          },
+          {
+            "id": "c",
+            "texto": "Obtuvo 357; la suma está bien."
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una frutera de Iquitos tenía algunos plátanos. Vendió 245 y le quedaron 378. ¿Cuántos plátanos tenía al inicio? Escribe solo el número.",
+        "respuesta": 623,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lo que tenía − 245 = 378. Busca lo que tenía.",
+          "Deshaz la resta con una suma: 378 + 245.",
+          "8 + 5 = 13, llevas 1; 7 + 4 + 1 = 12, llevas 1; 3 + 2 + 1."
+        ],
+        "retroalimentacion": "378 + 245 = 623 plátanos. Comprueba: 623 − 245 = 378.",
+        "operacion": {
+          "tipo": "suma",
+          "a": 378,
+          "b": 245
+        }
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Pienso un número. Si le sumo 159, obtengo 404. ¿Qué número pensé? Escribe solo el número.",
+        "respuesta": 245,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Número + 159 = 404: deshaz la suma.",
+          "Calcula 404 − 159; en 404 las decenas son 0.",
+          "Quedan 3 centenas, 9 decenas y 14 unidades: 14 − 9, 9 − 5, 3 − 1."
+        ],
+        "retroalimentacion": "404 − 159 = 245. Comprueba: 245 + 159 = 404.",
+        "operacion": {
+          "tipo": "resta",
+          "a": 404,
+          "b": 159
+        }
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: ___ − 128 = 456.",
+        "respuesta": "584",
+        "alternativasAceptadas": [
+          "quinientos ochenta y cuatro"
+        ],
+        "pistas": [
+          "El número que falta es el de arriba en la resta.",
+          "Deshaz la resta sumando 456 + 128.",
+          "6 + 8 = 14, llevas 1; 5 + 2 + 1; 4 + 1."
+        ],
+        "retroalimentacion": "456 + 128 = 584, y 584 − 128 = 456."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Lola dice: «Para comprobar 700 − 315 = 385, sumo 700 + 315». Lola tiene razón.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para comprobar una resta se suma el resultado con lo que se restó.",
+          "El resultado aquí es 385 y lo que se restó es 315.",
+          "La suma correcta debería dar 700."
+        ],
+        "retroalimentacion": "Es falso: se comprueba con 385 + 315 = 700. Sumar 700 + 315 no deshace la resta."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "Cuaderno de trabajo Matemática 3, tercer grado, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7863"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -55,3 +55,5 @@ Planes institucionales (desde el 2026-10-31): **Khipu Base** (`base`) y **Khipu 
 | 47 | [Registro de notas](47-registro-de-notas.md) | Khipu Pro | en desarrollo (PASO 0: contrato y esquema) |
 | 48 | [Temario de Nudito](48-nudito-temario.md) | Khipu Pro | implementado |
 | 49 | [Nudito: contenidos del plan](49-nudito-contenidos-del-plan.md) | Khipu Pro | en desarrollo (paso 0 hecho) |
+| 50 | [Nudito: banco de conocimiento](50-nudito-banco-de-conocimiento.md) | Khipu Pro | 33 temarios propuestos; fichas de Mat. 3.° |
+| 51 | [Plan de estudios del colegio y Nudito por curso](51-plan-de-estudios-del-colegio.md) | Khipu Base / Pro | en desarrollo |

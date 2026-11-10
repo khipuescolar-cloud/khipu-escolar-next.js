@@ -19,6 +19,31 @@ export function normalizarEstricta(texto: string): string {
   return texto.toLowerCase().replace(/\s+/g, " ").replace(/[.!¡¿?]+$/u, "").replace(/^[¡¿]+/u, "").trim();
 }
 
+/** Literal: minúsculas, sin tildes, espacios simples; conserva números, orden y signos matemáticos; sin punto final. */
+export function normalizarLiteral(texto: string): string {
+  return sinTildes(texto.toLowerCase())
+    .replace(/[−–]/g, "-").replace(/[*]/g, "×").replace(/[«»"“”'‘’]/g, "")
+    .replace(/\s*([+\-×÷=/,:;])\s*/g, "$1")
+    .replace(/\s+/g, " ").replace(/[.!¡¿?]+$/u, "").replace(/^[¡¿]+/u, "").trim();
+}
+
+/**
+ * Error de tipeo tolerable: mismas palabras en el mismo orden y, como mucho, una palabra sin dígitos de 6+ letras con
+ * 1 letra de diferencia (2 si tiene 9+). Así «triangulo» ≈ «trianglo», pero «menor» ≠ «mayor» y «236» ≠ «235».
+ */
+export function casiIguales(respuesta: string, aceptada: string): boolean {
+  const r = respuesta.split(" "), a = aceptada.split(" ");
+  if (r.length !== a.length || respuesta === aceptada) return false;
+  let distintas = 0;
+  for (let i = 0; i < a.length; i++) {
+    if (r[i] === a[i]) continue;
+    distintas++;
+    const tol = /\d/.test(a[i]) || /\d/.test(r[i]) ? 0 : a[i].length >= 9 ? 2 : a[i].length >= 6 ? 1 : 0;
+    if (distintas > 1 || !tol || levenshtein(r[i], a[i]) > tol) return false;
+  }
+  return distintas === 1;
+}
+
 const VACIAS = new Set([
   "el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del", "al", "a", "con", "en", "y", "e", "o", "su", "sus", "mi", "mis",
   "que", "por", "para", "es", "son", "fue", "era", "lo", "se", "le", "les",
@@ -48,10 +73,18 @@ export type Coincidencia = "exacta" | "flexible" | "casi" | "parcial" | "ninguna
 /**
  * Compara una respuesta breve con las aceptadas.
  * - exacta: igual tras normalizar; flexible: contiene todas las palabras de contenido de una aceptada sin agregar demasiado
- *   («fue con su abuela» ⊇ «abuela»); casi: una letra de diferencia (2 si es larga); parcial: al menos la mitad de las
- *   palabras de contenido; ninguna.
+ *   («fue con su abuela» ⊇ «abuela»); casi: mismas palabras con una letra de diferencia en alguna palabra larga (nunca en
+ *   números ni en palabras cortas: «menor» ≠ «mayor», «2, 3, 6» ≠ «2, 3, 5»); parcial: al menos la mitad de las palabras de
+ *   contenido; ninguna.
+ * - literal (banco de conocimiento): igual tras normalizar mayúsculas, tildes y espacios, conservando números, orden y
+ *   signos (+ − × ÷ = / , :); admite «casi» con la misma regla por palabra. Las variantes válidas van en `aceptadas`.
  */
-export function compararTexto(respuesta: string, aceptadas: readonly string[], modo: "estricta" | "flexible"): Coincidencia {
+export function compararTexto(respuesta: string, aceptadas: readonly string[], modo: "estricta" | "flexible" | "literal"): Coincidencia {
+  if (modo === "literal") {
+    const r = normalizarLiteral(respuesta);
+    if (aceptadas.some((a) => normalizarLiteral(a) === r)) return "exacta";
+    return aceptadas.some((a) => casiIguales(r, normalizarLiteral(a))) ? "casi" : "ninguna";
+  }
   if (modo === "estricta") {
     const r = normalizarEstricta(respuesta);
     if (aceptadas.some((a) => normalizarEstricta(a) === r)) return "exacta";
@@ -68,9 +101,7 @@ export function compararTexto(respuesta: string, aceptadas: readonly string[], m
   for (const a of aceptadas) {
     const pa = palabrasDeContenido(a);
     if (pa.length && pa.every((p) => setR.has(p)) && palabrasR.length <= pa.length * 2 + 3) return "flexible";
-    const na = normalizarFlexible(a);
-    const tolerancia = na.length >= 8 ? 2 : na.length >= 4 ? 1 : 0;
-    if (tolerancia && levenshtein(r, na) <= tolerancia) mejor = "casi";
+    if (casiIguales(r, normalizarFlexible(a))) mejor = "casi";
     if (mejor === "ninguna" && pa.length >= 2 && pa.filter((p) => setR.has(p)).length * 2 >= pa.length) mejor = "parcial";
   }
   return mejor;

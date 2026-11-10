@@ -1,0 +1,2019 @@
+{
+  "estado": "propuesta para revisión docente",
+  "area": "matematica",
+  "nivel": "secundaria",
+  "grado": 4,
+  "version": "1.0.0-propuesta",
+  "fuentes": [
+    {
+      "titulo": "Programa curricular de Educación Secundaria, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+    },
+    {
+      "titulo": "Resolvamos problemas 4, Secundaria: cuaderno de trabajo de Matemática, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/7925"
+    },
+    {
+      "titulo": "Texto de Matemática 4, MINEDU",
+      "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/12634"
+    }
+  ],
+  "competencias": [
+    {
+      "numero": 23,
+      "nombre": "Resuelve problemas de cantidad",
+      "capacidades": [
+        {
+          "nombre": "Traduce cantidades a expresiones numéricas",
+          "bloques": [
+            {
+              "nombre": "Modelos numéricos",
+              "temas": [
+                {
+                  "clave": "mat.s4.modelos-racionales-raices",
+                  "nombre": "Modelos numéricos con racionales y raíces inexactas",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Traduce situaciones de comparar e igualar medidas a expresiones con fracciones, decimales y raíces y valora si el modelo respeta las condiciones.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-01",
+                    "MAT-C23-S4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.simplificar-radicales"
+                  ],
+                  "ordenSugerido": 34
+                }
+              ]
+            },
+            {
+              "nombre": "Matemática financiera",
+              "temas": [
+                {
+                  "clave": "mat.s4.interes-compuesto",
+                  "nombre": "Interés compuesto",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Modela el monto M = C(1 + r)ⁿ en depósitos y préstamos con capitalización periódica.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-01",
+                    "MAT-C23-S4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.terminos-financieros"
+                  ],
+                  "ordenSugerido": 64
+                },
+                {
+                  "clave": "mat.s4.simple-vs-compuesto",
+                  "nombre": "Interés simple frente a interés compuesto",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Compara en tablas y gráficos los montos de ambos regímenes a lo largo del tiempo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-01",
+                    "MAT-C23-S4-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.interes-compuesto"
+                  ],
+                  "ordenSugerido": 65
+                },
+                {
+                  "clave": "mat.s4.depreciacion-compuesta",
+                  "nombre": "Depreciación y crecimiento porcentual compuesto",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Modela con (1 ± r)ⁿ la pérdida de valor de un bien o el crecimiento de una población.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-01",
+                    "MAT-C23-S4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.interes-compuesto"
+                  ],
+                  "ordenSugerido": 66
+                },
+                {
+                  "clave": "mat.s4.ofertas-credito-ahorro",
+                  "nombre": "Conveniencia de ofertas financieras a interés compuesto",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Evalúa qué modelo de interés compuesto representa cada oferta y argumenta cuál conviene.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-02",
+                    "MAT-C23-S4-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.simple-vs-compuesto",
+                    "mat.s4.tasas-equivalentes"
+                  ],
+                  "ordenSugerido": 70
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre los números y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números reales",
+              "temas": [
+                {
+                  "clave": "mat.s4.numeros-irracionales",
+                  "nombre": "Números irracionales y raíces inexactas",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Reconoce las raíces inexactas como decimales infinitos no periódicos y las distingue de los racionales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 1
+                },
+                {
+                  "clave": "mat.s4.conjunto-numeros-reales",
+                  "nombre": "Conjuntos numéricos N, Z, Q, I y R",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Clasifica números en los conjuntos numéricos y explica cómo se incluyen unos en otros.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.numeros-irracionales"
+                  ],
+                  "ordenSugerido": 2
+                },
+                {
+                  "clave": "mat.s4.densidad-racionales",
+                  "nombre": "Densidad de Q: infinitos racionales entre dos racionales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Encuentra al menos un racional entre dos racionales dados, por ejemplo con la semisuma.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-04",
+                    "MAT-C23-S4-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.conjunto-numeros-reales"
+                  ],
+                  "ordenSugerido": 3
+                },
+                {
+                  "clave": "mat.s4.irracionales-en-recta",
+                  "nombre": "Ubicación de raíces inexactas en la recta numérica",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Ubica √2, √5 y otras raíces en la recta con construcciones basadas en Pitágoras.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.numeros-irracionales"
+                  ],
+                  "ordenSugerido": 4
+                },
+                {
+                  "clave": "mat.s4.intervalos",
+                  "nombre": "Intervalos acotados y no acotados en la recta real",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Representa subconjuntos de R como intervalos abiertos, cerrados, semiabiertos e infinitos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-04",
+                    "MAT-C23-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.conjunto-numeros-reales"
+                  ],
+                  "ordenSugerido": 6
+                }
+              ]
+            },
+            {
+              "nombre": "Notación científica",
+              "temas": [
+                {
+                  "clave": "mat.s4.notacion-cientifica-pequenas",
+                  "nombre": "Notación científica de cantidades muy pequeñas",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Escribe medidas microscópicas o atómicas en notación científica con exponente negativo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 9
+                },
+                {
+                  "clave": "mat.s4.exponencial-vs-cientifica",
+                  "nombre": "Diferencia entre notación exponencial y notación científica",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Distingue 35 × 10⁴ de 3,5 × 10⁵ o 0,4 × 10⁻³ de 4 × 10⁻⁴, convierte entre ambas y compara cantidades expresadas así.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.notacion-cientifica-pequenas"
+                  ],
+                  "ordenSugerido": 10
+                }
+              ]
+            },
+            {
+              "nombre": "Radicales",
+              "temas": [
+                {
+                  "clave": "mat.s4.propiedades-radicales",
+                  "nombre": "Propiedades de los radicales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Aplica la raíz de un producto, de un cociente y de una potencia a raíces inexactas.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.numeros-irracionales"
+                  ],
+                  "ordenSugerido": 27
+                },
+                {
+                  "clave": "mat.s4.simplificar-radicales",
+                  "nombre": "Simplificación de radicales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Extrae factores de un radical, como √72 = 6√2, usando la descomposición en primos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-06",
+                    "MAT-C23-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.propiedades-radicales"
+                  ],
+                  "ordenSugerido": 28
+                }
+              ]
+            },
+            {
+              "nombre": "Matemática financiera",
+              "temas": [
+                {
+                  "clave": "mat.s4.terminos-financieros",
+                  "nombre": "Capitalización de intereses y periodo de capitalización",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Interpreta cómo los intereses se suman al capital en cada periodo y qué cambia según la frecuencia de capitalización.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 63
+                },
+                {
+                  "clave": "mat.s4.impuesto-renta-quinta",
+                  "nombre": "Impuesto a la renta de quinta categoría",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Calcula el impuesto anual de un trabajador dependiente según tramos expresados en UIT.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 69
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos de estimación y cálculo",
+          "bloques": [
+            {
+              "nombre": "Números reales",
+              "temas": [
+                {
+                  "clave": "mat.s4.aproximar-raices",
+                  "nombre": "Aproximación de raíces inexactas por defecto y por exceso",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Encuadra una raíz inexacta entre dos decimales y la aproxima al décimo o al centésimo.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.numeros-irracionales"
+                  ],
+                  "ordenSugerido": 5
+                },
+                {
+                  "clave": "mat.s4.operaciones-intervalos",
+                  "nombre": "Unión, intersección y diferencia de intervalos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Opera con intervalos apoyándose en su representación en la recta.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.intervalos"
+                  ],
+                  "ordenSugerido": 7
+                }
+              ]
+            },
+            {
+              "nombre": "Radicales",
+              "temas": [
+                {
+                  "clave": "mat.s4.radicales-semejantes",
+                  "nombre": "Adición y sustracción de radicales semejantes",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Reduce sumas y restas de radicales con el mismo índice y radicando.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.simplificar-radicales"
+                  ],
+                  "ordenSugerido": 29
+                },
+                {
+                  "clave": "mat.s4.multiplicar-dividir-radicales",
+                  "nombre": "Multiplicación y división de radicales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Multiplica y divide radicales del mismo índice y simplifica el resultado.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.simplificar-radicales"
+                  ],
+                  "ordenSugerido": 30
+                },
+                {
+                  "clave": "mat.s4.racionalizacion",
+                  "nombre": "Racionalización de denominadores",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Elimina las raíces del denominador multiplicando por el factor racionalizante adecuado.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.multiplicar-dividir-radicales"
+                  ],
+                  "ordenSugerido": 31
+                },
+                {
+                  "clave": "mat.s4.radicales-distinto-indice",
+                  "nombre": "Radicales de distinto índice: reducción a índice común",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Homogeniza índices para comparar, multiplicar o dividir radicales de índice distinto.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.multiplicar-dividir-radicales"
+                  ],
+                  "ordenSugerido": 32
+                }
+              ]
+            },
+            {
+              "nombre": "Matemática financiera",
+              "temas": [
+                {
+                  "clave": "mat.s4.tasas-equivalentes",
+                  "nombre": "Tasas equivalentes en interés compuesto",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Convierte una tasa anual en su equivalente mensual o trimestral y comprueba que producen el mismo monto.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-07",
+                    "MAT-C23-S4-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.interes-compuesto"
+                  ],
+                  "ordenSugerido": 67
+                },
+                {
+                  "clave": "mat.s4.capital-tiempo-compuesto",
+                  "nombre": "Capital inicial y número de periodos en interés compuesto",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Despeja el capital o estima el número de periodos necesario a partir del monto.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.interes-compuesto"
+                  ],
+                  "ordenSugerido": 68
+                }
+              ]
+            },
+            {
+              "nombre": "Magnitudes derivadas",
+              "temas": [
+                {
+                  "clave": "mat.s4.velocidad-media",
+                  "nombre": "Velocidad media en recorridos por tramos",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Calcula la velocidad media de un recorrido con tramos de distinta rapidez y explica por qué no es el promedio de las rapideces.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 99
+                },
+                {
+                  "clave": "mat.s4.aceleracion",
+                  "nombre": "Aceleración y sus unidades",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Interpreta la aceleración como cambio de velocidad por unidad de tiempo y la expresa en m/s².",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.velocidad-media"
+                  ],
+                  "ordenSugerido": 100
+                },
+                {
+                  "clave": "mat.s4.exactitud-medicion",
+                  "nombre": "Estimación de velocidad y aceleración en experiencias reales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Mide distancias y tiempos con instrumentos pertinentes para estimar velocidades y aceleraciones con la exactitud requerida.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.velocidad-media"
+                  ],
+                  "ordenSugerido": 101
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+          "bloques": [
+            {
+              "nombre": "Números reales",
+              "temas": [
+                {
+                  "clave": "mat.s4.afirmaciones-reales",
+                  "nombre": "Validez de afirmaciones con racionales e irracionales",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Justifica o refuta afirmaciones como «racional más irracional es irracional» con ejemplos y contraejemplos.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.conjunto-numeros-reales"
+                  ],
+                  "ordenSugerido": 8
+                }
+              ]
+            },
+            {
+              "nombre": "Radicales",
+              "temas": [
+                {
+                  "clave": "mat.s4.errores-radicales",
+                  "nombre": "Falsas propiedades de los radicales: √(a + b) ≠ √a + √b",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Descarta con contraejemplos propiedades inexistentes de los radicales.",
+                  "desempenosOrigen": [
+                    "MAT-C23-S4-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.radicales-semejantes"
+                  ],
+                  "ordenSugerido": 33
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 24,
+      "nombre": "Resuelve problemas de regularidad, equivalencia y cambio",
+      "capacidades": [
+        {
+          "nombre": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+          "bloques": [
+            {
+              "nombre": "Progresión geométrica",
+              "temas": [
+                {
+                  "clave": "mat.s4.suma-terminos-pg",
+                  "nombre": "Suma de los n primeros términos de una progresión geométrica",
+                  "disciplina": "algebra",
+                  "descripcion": "Deduce y aplica la fórmula de la suma de n términos de una progresión geométrica y la interpreta en contexto.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-01",
+                    "MAT-C24-S4-03",
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 18
+                },
+                {
+                  "clave": "mat.s4.problemas-suma-geometrica",
+                  "nombre": "Problemas de suma geométrica: ahorros que se duplican, rebotes y contagios",
+                  "disciplina": "algebra",
+                  "descripcion": "Resuelve situaciones en que hay que acumular términos de una progresión geométrica.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-01",
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.suma-terminos-pg"
+                  ],
+                  "ordenSugerido": 19
+                }
+              ]
+            },
+            {
+              "nombre": "Sistemas de ecuaciones",
+              "temas": [
+                {
+                  "clave": "mat.s4.plantear-sistemas",
+                  "nombre": "Sistemas lineales en problemas de cifras, edades y móviles",
+                  "disciplina": "algebra",
+                  "descripcion": "Traduce a sistemas 2 × 2 problemas con dos incógnitas que exigen reorganizar las condiciones.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 35
+                },
+                {
+                  "clave": "mat.s4.evaluar-modelos-algebraicos",
+                  "nombre": "Evaluación de modelos algebraicos planteados para un mismo problema",
+                  "disciplina": "algebra",
+                  "descripcion": "Compara sistemas o ecuaciones propuestos y decide cuál representa mejor las condiciones.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.plantear-sistemas"
+                  ],
+                  "ordenSugerido": 36
+                }
+              ]
+            },
+            {
+              "nombre": "Inecuaciones",
+              "temas": [
+                {
+                  "clave": "mat.s4.plantear-inecuaciones",
+                  "nombre": "Inecuaciones que comparan dos planes o tarifas",
+                  "disciplina": "algebra",
+                  "descripcion": "Plantea ax + b < cx + d para decidir desde qué cantidad conviene un plan sobre otro.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-01"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 40
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuación cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s4.plantear-ecuacion-cuadratica",
+                  "nombre": "Planteamiento de ecuaciones cuadráticas",
+                  "disciplina": "algebra",
+                  "descripcion": "Traduce problemas de áreas, productos o números a la forma ax² + bx + c = 0.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.factorizar-trinomios"
+                  ],
+                  "ordenSugerido": 71
+                },
+                {
+                  "clave": "mat.s4.soluciones-validas-contexto",
+                  "nombre": "Soluciones válidas de una ecuación cuadrática en contexto",
+                  "disciplina": "algebra",
+                  "descripcion": "Descarta las raíces negativas o no enteras cuando la situación no las admite.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-02",
+                    "MAT-C24-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.formula-general"
+                  ],
+                  "ordenSugerido": 78
+                },
+                {
+                  "clave": "mat.s4.cuadraticas-moviles-obras",
+                  "nombre": "Problemas de móviles y de obras que llevan a una ecuación cuadrática",
+                  "disciplina": "algebra",
+                  "descripcion": "Plantea y resuelve situaciones de velocidades o rendimientos que generan una ecuación de segundo grado.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.formula-general"
+                  ],
+                  "ordenSugerido": 79
+                }
+              ]
+            },
+            {
+              "nombre": "Función cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s4.modelar-funcion-cuadratica",
+                  "nombre": "Modelación con funciones cuadráticas completas ax² + bx + c",
+                  "disciplina": "algebra",
+                  "descripcion": "Construye f(x) = ax² + bx + c para ingresos, áreas o trayectorias a partir de los datos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.plantear-ecuacion-cuadratica"
+                  ],
+                  "ordenSugerido": 81
+                },
+                {
+                  "clave": "mat.s4.optimizacion-vertice",
+                  "nombre": "Optimización con la función cuadrática completa: ingreso con descuentos",
+                  "disciplina": "algebra",
+                  "descripcion": "Modela ingresos o áreas con f(x) = ax² + bx + c y usa el vértice para hallar el valor óptimo.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-01",
+                    "MAT-C24-S4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.dominio-rango-cuadratica"
+                  ],
+                  "ordenSugerido": 103
+                }
+              ]
+            },
+            {
+              "nombre": "Reparto proporcional",
+              "temas": [
+                {
+                  "clave": "mat.s4.reparto-compuesto",
+                  "nombre": "Regla de compañía: ganancias según capital y tiempo",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Reparte ganancias según dos criterios a la vez, como capital aportado y tiempo.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-01",
+                    "MAT-C24-S4-09"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 105
+                },
+                {
+                  "clave": "mat.s4.reparto-parte-conocida",
+                  "nombre": "Repartos proporcionales con una parte o una diferencia conocida",
+                  "disciplina": "aritmetica",
+                  "descripcion": "Halla el total o las demás partes cuando se conoce una parte o la diferencia entre dos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.reparto-compuesto"
+                  ],
+                  "ordenSugerido": 106
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las relaciones algebraicas",
+          "bloques": [
+            {
+              "nombre": "Progresión geométrica",
+              "temas": [
+                {
+                  "clave": "mat.s4.representaciones-pg",
+                  "nombre": "Tabla y gráfica de la suma acumulada de una progresión geométrica",
+                  "disciplina": "algebra",
+                  "descripcion": "Representa en tabla y en el plano cómo crece la suma acumulada y la compara con los términos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-03"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.suma-terminos-pg"
+                  ],
+                  "ordenSugerido": 20
+                }
+              ]
+            },
+            {
+              "nombre": "Inecuaciones",
+              "temas": [
+                {
+                  "clave": "mat.s4.inecuaciones-ambos-miembros",
+                  "nombre": "Inecuaciones con incógnita en ambos miembros",
+                  "disciplina": "algebra",
+                  "descripcion": "Resuelve ax + b < cx + d y expresa el conjunto solución como intervalo y en la recta.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-04",
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 41
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuación cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s4.formula-general",
+                  "nombre": "Fórmula general de la ecuación cuadrática",
+                  "disciplina": "algebra",
+                  "descripcion": "Resuelve cualquier ecuación cuadrática con x = (−b ± √(b² − 4ac)) / 2a.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-04",
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.completar-cuadrado"
+                  ],
+                  "ordenSugerido": 75
+                },
+                {
+                  "clave": "mat.s4.suma-producto-raices",
+                  "nombre": "Suma y producto de las raíces",
+                  "disciplina": "algebra",
+                  "descripcion": "Relaciona los coeficientes con la suma y el producto de raíces y reconstruye la ecuación.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.formula-general"
+                  ],
+                  "ordenSugerido": 77
+                }
+              ]
+            },
+            {
+              "nombre": "Función cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s4.vertice-interceptos-formulas",
+                  "nombre": "Vértice e interceptos de la parábola con fórmulas",
+                  "disciplina": "algebra",
+                  "descripcion": "Halla el vértice con x = −b/2a y los cortes con los ejes para trazar la parábola.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.modelar-funcion-cuadratica",
+                    "mat.s4.formula-general"
+                  ],
+                  "ordenSugerido": 82
+                },
+                {
+                  "clave": "mat.s4.dominio-rango-cuadratica",
+                  "nombre": "Dominio y rango de una función cuadrática",
+                  "disciplina": "algebra",
+                  "descripcion": "Determina el dominio y el rango, tanto en general como restringidos por el contexto.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.vertice-interceptos-formulas"
+                  ],
+                  "ordenSugerido": 83
+                },
+                {
+                  "clave": "mat.s4.forma-factorizada",
+                  "nombre": "Forma factorizada de la función cuadrática",
+                  "disciplina": "algebra",
+                  "descripcion": "Escribe f(x) = a(x − x₁)(x − x₂) a partir de sus raíces y lee los interceptos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.vertice-interceptos-formulas",
+                    "mat.s4.suma-producto-raices"
+                  ],
+                  "ordenSugerido": 84
+                },
+                {
+                  "clave": "mat.s4.coeficientes-parabola",
+                  "nombre": "Efecto del coeficiente b en la posición de la parábola",
+                  "disciplina": "algebra",
+                  "descripcion": "Describe cómo se desplazan el vértice y el eje de simetría al variar b, manteniendo a y c.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-05",
+                    "MAT-C24-S4-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.vertice-interceptos-formulas"
+                  ],
+                  "ordenSugerido": 102
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+          "bloques": [
+            {
+              "nombre": "Expresiones algebraicas",
+              "temas": [
+                {
+                  "clave": "mat.s4.productos-notables",
+                  "nombre": "Binomio al cubo y suma y diferencia de cubos",
+                  "disciplina": "algebra",
+                  "descripcion": "Desarrolla el cubo de un binomio y factoriza sumas y diferencias de cubos.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 11
+                },
+                {
+                  "clave": "mat.s4.factor-comun-agrupacion",
+                  "nombre": "Factorización por agrupación de términos",
+                  "disciplina": "algebra",
+                  "descripcion": "Agrupa términos de un polinomio para extraer un factor común polinomio.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 12
+                },
+                {
+                  "clave": "mat.s4.factorizar-trinomios",
+                  "nombre": "Factorización de trinomios por aspa simple",
+                  "disciplina": "algebra",
+                  "descripcion": "Factoriza trinomios x² + bx + c y ax² + bx + c.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.factor-comun-agrupacion"
+                  ],
+                  "ordenSugerido": 13
+                },
+                {
+                  "clave": "mat.s4.fracciones-algebraicas",
+                  "nombre": "Simplificación de fracciones algebraicas",
+                  "disciplina": "algebra",
+                  "descripcion": "Simplifica cocientes de polinomios factorizando numerador y denominador.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.factorizar-trinomios",
+                    "mat.s4.productos-notables"
+                  ],
+                  "ordenSugerido": 14
+                },
+                {
+                  "clave": "mat.s4.division-ruffini",
+                  "nombre": "División de polinomios por el método de Ruffini",
+                  "disciplina": "algebra",
+                  "descripcion": "Divide un polinomio entre x − a con la regla de Ruffini e interpreta cociente y resto.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 15
+                },
+                {
+                  "clave": "mat.s4.teorema-resto",
+                  "nombre": "Teorema del resto",
+                  "disciplina": "algebra",
+                  "descripcion": "Halla el resto de dividir un polinomio entre x − a sin efectuar la división.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.division-ruffini"
+                  ],
+                  "ordenSugerido": 16
+                },
+                {
+                  "clave": "mat.s4.factorizar-por-divisores",
+                  "nombre": "Factorización por divisores binomios",
+                  "disciplina": "algebra",
+                  "descripcion": "Factoriza polinomios de grado tres o más buscando raíces entre los divisores del término independiente.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.teorema-resto"
+                  ],
+                  "ordenSugerido": 17
+                }
+              ]
+            },
+            {
+              "nombre": "Sistemas de ecuaciones",
+              "temas": [
+                {
+                  "clave": "mat.s4.sistemas-coeficientes-racionales",
+                  "nombre": "Sistemas lineales con coeficientes fraccionarios y decimales",
+                  "disciplina": "algebra",
+                  "descripcion": "Transforma las ecuaciones a coeficientes enteros y resuelve el sistema.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.plantear-sistemas"
+                  ],
+                  "ordenSugerido": 37
+                },
+                {
+                  "clave": "mat.s4.estrategia-optima-sistema",
+                  "nombre": "Estrategia óptima para resolver un sistema 2 × 2",
+                  "disciplina": "algebra",
+                  "descripcion": "Elige entre sustitución, igualación, reducción o gráfico según la forma del sistema y lo justifica.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.sistemas-coeficientes-racionales"
+                  ],
+                  "ordenSugerido": 38
+                }
+              ]
+            },
+            {
+              "nombre": "Inecuaciones",
+              "temas": [
+                {
+                  "clave": "mat.s4.sistemas-inecuaciones-una-variable",
+                  "nombre": "Sistemas de inecuaciones lineales con una incógnita",
+                  "disciplina": "algebra",
+                  "descripcion": "Halla la intersección de las soluciones de dos inecuaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.inecuaciones-ambos-miembros"
+                  ],
+                  "ordenSugerido": 42
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuación cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s4.cuadratica-incompleta",
+                  "nombre": "Ecuaciones cuadráticas incompletas",
+                  "disciplina": "algebra",
+                  "descripcion": "Resuelve ax² + c = 0 y ax² + bx = 0 sin usar la fórmula general.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.plantear-ecuacion-cuadratica"
+                  ],
+                  "ordenSugerido": 72
+                },
+                {
+                  "clave": "mat.s4.cuadratica-por-factorizacion",
+                  "nombre": "Resolución de ecuaciones cuadráticas por factorización",
+                  "disciplina": "algebra",
+                  "descripcion": "Iguala a cero cada factor de un trinomio factorizado para obtener las raíces.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.cuadratica-incompleta"
+                  ],
+                  "ordenSugerido": 73
+                },
+                {
+                  "clave": "mat.s4.completar-cuadrado",
+                  "nombre": "Método de completar cuadrados",
+                  "disciplina": "algebra",
+                  "descripcion": "Transforma la ecuación en un trinomio cuadrado perfecto para despejar la incógnita.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.cuadratica-por-factorizacion"
+                  ],
+                  "ordenSugerido": 74
+                },
+                {
+                  "clave": "mat.s4.fraccionarias-a-cuadraticas",
+                  "nombre": "Ecuaciones fraccionarias que llevan a una cuadrática",
+                  "disciplina": "algebra",
+                  "descripcion": "Elimina denominadores con incógnita, resuelve y descarta valores que anulan el denominador.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-06",
+                    "MAT-C24-S4-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.formula-general",
+                    "mat.s4.fracciones-algebraicas"
+                  ],
+                  "ordenSugerido": 80
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+          "bloques": [
+            {
+              "nombre": "Progresión geométrica",
+              "temas": [
+                {
+                  "clave": "mat.s4.conjeturas-sucesiones",
+                  "nombre": "Conjeturas sobre sucesiones gráficas y numéricas",
+                  "disciplina": "algebra",
+                  "descripcion": "Plantea una regla para una sucesión y la valida o descarta por razonamiento inductivo y deductivo.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.representaciones-pg"
+                  ],
+                  "ordenSugerido": 21
+                }
+              ]
+            },
+            {
+              "nombre": "Sistemas de ecuaciones",
+              "temas": [
+                {
+                  "clave": "mat.s4.sistemas-con-parametro",
+                  "nombre": "Discusión de un sistema según un parámetro",
+                  "disciplina": "algebra",
+                  "descripcion": "Determina para qué valores de un parámetro el sistema tiene una, ninguna o infinitas soluciones.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-08",
+                    "MAT-C24-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.estrategia-optima-sistema"
+                  ],
+                  "ordenSugerido": 39
+                }
+              ]
+            },
+            {
+              "nombre": "Inecuaciones",
+              "temas": [
+                {
+                  "clave": "mat.s4.inecuaciones-sin-solucion",
+                  "nombre": "Inecuaciones sin solución o con todos los reales como solución",
+                  "disciplina": "algebra",
+                  "descripcion": "Argumenta por qué algunas inecuaciones no tienen solución o se cumplen siempre.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.inecuaciones-ambos-miembros"
+                  ],
+                  "ordenSugerido": 43
+                }
+              ]
+            },
+            {
+              "nombre": "Ecuación cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s4.discriminante",
+                  "nombre": "Discriminante y naturaleza de las raíces",
+                  "disciplina": "algebra",
+                  "descripcion": "Argumenta si la ecuación tiene dos, una o ninguna solución real según b² − 4ac.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-08",
+                    "MAT-C24-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.formula-general"
+                  ],
+                  "ordenSugerido": 76
+                }
+              ]
+            },
+            {
+              "nombre": "Función cuadrática",
+              "temas": [
+                {
+                  "clave": "mat.s4.segundas-diferencias",
+                  "nombre": "Segundas diferencias constantes en la función cuadrática",
+                  "disciplina": "algebra",
+                  "descripcion": "Justifica que una tabla corresponde a una función cuadrática porque sus segundas diferencias son constantes.",
+                  "desempenosOrigen": [
+                    "MAT-C24-S4-09"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.coeficientes-parabola"
+                  ],
+                  "ordenSugerido": 104
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 26,
+      "nombre": "Resuelve problemas de forma, movimiento y localización",
+      "capacidades": [
+        {
+          "nombre": "Modela objetos con formas geométricas y sus transformaciones",
+          "bloques": [
+            {
+              "nombre": "Poliedros y cuerpos de revolución",
+              "temas": [
+                {
+                  "clave": "mat.s4.cuerpos-revolucion",
+                  "nombre": "Cuerpos de revolución: cilindro, cono y esfera",
+                  "disciplina": "geometria",
+                  "descripcion": "Genera cuerpos al girar figuras planas alrededor de un eje y reconoce sus elementos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-01",
+                    "MAT-C26-S4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 24
+                },
+                {
+                  "clave": "mat.s4.modelar-solidos-compuestos",
+                  "nombre": "Modelación de objetos con sólidos compuestos",
+                  "disciplina": "geometria",
+                  "descripcion": "Representa objetos reales combinando prismas, pirámides, conos y cilindros.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.cuerpos-revolucion"
+                  ],
+                  "ordenSugerido": 44
+                }
+              ]
+            },
+            {
+              "nombre": "Semejanza, congruencia y homotecia",
+              "temas": [
+                {
+                  "clave": "mat.s4.semejanza-maquetas",
+                  "nombre": "Semejanza de sólidos en maquetas y modelos a escala",
+                  "disciplina": "geometria",
+                  "descripcion": "Halla medidas reales de un edificio o un objeto a partir de su maqueta.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-01",
+                    "MAT-C26-S4-05"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.propiedades-homotecia"
+                  ],
+                  "ordenSugerido": 55
+                }
+              ]
+            },
+            {
+              "nombre": "Trigonometría",
+              "temas": [
+                {
+                  "clave": "mat.s4.razones-angulos-no-notables",
+                  "nombre": "Razones trigonométricas de ángulos no notables con calculadora",
+                  "disciplina": "trigonometria",
+                  "descripcion": "Obtiene razones y ángulos con calculadora y los usa en situaciones de elevación y depresión.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-02",
+                    "MAT-C26-S4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 85
+                },
+                {
+                  "clave": "mat.s4.clinometro",
+                  "nombre": "Construcción y uso del clinómetro",
+                  "disciplina": "trigonometria",
+                  "descripcion": "Mide ángulos de elevación con un clinómetro casero para estimar alturas.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.razones-angulos-no-notables"
+                  ],
+                  "ordenSugerido": 86
+                },
+                {
+                  "clave": "mat.s4.pendiente-rampas",
+                  "nombre": "Pendiente de rampas y caminos como ángulo y como porcentaje",
+                  "disciplina": "trigonometria",
+                  "descripcion": "Relaciona el ángulo de inclinación de una rampa con su pendiente en porcentaje y verifica normas de accesibilidad.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-02",
+                    "MAT-C26-S4-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.razones-angulos-no-notables"
+                  ],
+                  "ordenSugerido": 88
+                }
+              ]
+            },
+            {
+              "nombre": "Geometría analítica",
+              "temas": [
+                {
+                  "clave": "mat.s4.pendiente-inclinacion",
+                  "nombre": "Pendiente de una recta y ángulo de inclinación",
+                  "disciplina": "geometria",
+                  "descripcion": "Relaciona la pendiente con la tangente del ángulo que forma la recta con el eje x.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.razones-angulos-no-notables"
+                  ],
+                  "ordenSugerido": 89
+                },
+                {
+                  "clave": "mat.s4.ecuacion-recta-punto-pendiente",
+                  "nombre": "Ecuación de la recta en forma punto-pendiente",
+                  "disciplina": "geometria",
+                  "descripcion": "Escribe la ecuación de una recta conociendo un punto y su pendiente, o dos puntos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.pendiente-inclinacion"
+                  ],
+                  "ordenSugerido": 90
+                },
+                {
+                  "clave": "mat.s4.ecuacion-recta-general",
+                  "nombre": "Formas pendiente-ordenada y general de la recta",
+                  "disciplina": "geometria",
+                  "descripcion": "Convierte entre las formas de la ecuación de la recta y lee sus elementos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.ecuacion-recta-punto-pendiente"
+                  ],
+                  "ordenSugerido": 91
+                },
+                {
+                  "clave": "mat.s4.rectas-paralelas-perpendiculares",
+                  "nombre": "Rectas paralelas y perpendiculares en el plano cartesiano",
+                  "disciplina": "geometria",
+                  "descripcion": "Reconoce y construye rectas paralelas y perpendiculares por la relación entre sus pendientes.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-02",
+                    "MAT-C26-S4-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.ecuacion-recta-general"
+                  ],
+                  "ordenSugerido": 107
+                },
+                {
+                  "clave": "mat.s4.interseccion-rectas-encuentro",
+                  "nombre": "Intersección de dos rectas como punto de encuentro",
+                  "disciplina": "geometria",
+                  "descripcion": "Ubica dónde se cruzan dos trayectorias rectilíneas resolviendo sus ecuaciones.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.ecuacion-recta-general",
+                    "mat.s4.plantear-sistemas"
+                  ],
+                  "ordenSugerido": 109
+                },
+                {
+                  "clave": "mat.s4.trayectorias-con-rectas",
+                  "nombre": "Trayectorias y ubicaciones con la ecuación de la recta",
+                  "disciplina": "geometria",
+                  "descripcion": "Describe recorridos rectilíneos y decide si un lugar está sobre una ruta usando su ecuación.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.ecuacion-recta-general"
+                  ],
+                  "ordenSugerido": 110
+                }
+              ]
+            },
+            {
+              "nombre": "Mapas y teselaciones",
+              "temas": [
+                {
+                  "clave": "mat.s4.teselaciones-regulares",
+                  "nombre": "Teselaciones regulares y semirregulares",
+                  "disciplina": "geometria",
+                  "descripcion": "Determina qué polígonos regulares cubren el plano según la suma de ángulos en un vértice.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-02",
+                    "MAT-C26-S4-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 113
+                },
+                {
+                  "clave": "mat.s4.teselaciones-transformaciones",
+                  "nombre": "Teselaciones con transformaciones geométricas",
+                  "disciplina": "geometria",
+                  "descripcion": "Diseña teselados a partir de una figura modificada con traslaciones, giros y simetrías.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.teselaciones-regulares"
+                  ],
+                  "ordenSugerido": 114
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión sobre las formas y relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Poliedros y cuerpos de revolución",
+              "temas": [
+                {
+                  "clave": "mat.s4.poliedros-regulares",
+                  "nombre": "Poliedros regulares y relación de Euler",
+                  "disciplina": "geometria",
+                  "descripcion": "Identifica los cinco poliedros regulares y verifica que C + V = A + 2.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-03",
+                    "MAT-C26-S4-08"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 22
+                }
+              ]
+            },
+            {
+              "nombre": "Semejanza, congruencia y homotecia",
+              "temas": [
+                {
+                  "clave": "mat.s4.homotecia",
+                  "nombre": "Construcción de homotecias con regla y compás",
+                  "disciplina": "geometria",
+                  "descripcion": "Construye figuras homotéticas con regla y compás a partir de un centro y una razón.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-04"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 52
+                },
+                {
+                  "clave": "mat.s4.homotecia-directa-inversa",
+                  "nombre": "Homotecia directa e inversa",
+                  "disciplina": "geometria",
+                  "descripcion": "Distingue y construye homotecias de razón positiva y negativa.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.homotecia"
+                  ],
+                  "ordenSugerido": 53
+                }
+              ]
+            },
+            {
+              "nombre": "Mapas y teselaciones",
+              "temas": [
+                {
+                  "clave": "mat.s4.curvas-nivel",
+                  "nombre": "Curvas de nivel: alturas y profundidades",
+                  "disciplina": "geometria",
+                  "descripcion": "Lee curvas de nivel y batimetrías para estimar alturas, profundidades y pendientes.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 111
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+          "bloques": [
+            {
+              "nombre": "Poliedros y cuerpos de revolución",
+              "temas": [
+                {
+                  "clave": "mat.s4.area-volumen-poliedros",
+                  "nombre": "Área y volumen de poliedros regulares",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula el área y el volumen de tetraedros, cubos y octaedros regulares descomponiéndolos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-06",
+                    "MAT-C26-S4-01"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.poliedros-regulares"
+                  ],
+                  "ordenSugerido": 23
+                }
+              ]
+            },
+            {
+              "nombre": "Áreas y volúmenes",
+              "temas": [
+                {
+                  "clave": "mat.s4.area-cono",
+                  "nombre": "Área lateral y total del cono",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula el área del cono a partir de su radio y su generatriz.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.cuerpos-revolucion"
+                  ],
+                  "ordenSugerido": 45
+                },
+                {
+                  "clave": "mat.s4.volumen-cono",
+                  "nombre": "Volumen del cono",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula el volumen del cono y lo relaciona con el del cilindro de igual base y altura.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.cuerpos-revolucion"
+                  ],
+                  "ordenSugerido": 46
+                },
+                {
+                  "clave": "mat.s4.area-volumen-esfera",
+                  "nombre": "Área y volumen de la esfera",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula la superficie y el volumen de esferas y semiesferas en objetos reales.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.cuerpos-revolucion"
+                  ],
+                  "ordenSugerido": 47
+                },
+                {
+                  "clave": "mat.s4.desarrollo-cono",
+                  "nombre": "Desarrollo plano del cono",
+                  "disciplina": "geometria",
+                  "descripcion": "Construye el desarrollo del cono calculando el ángulo del sector circular.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-07",
+                    "MAT-C26-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.area-cono"
+                  ],
+                  "ordenSugerido": 48
+                },
+                {
+                  "clave": "mat.s4.area-volumen-compuestos",
+                  "nombre": "Área y volumen de sólidos compuestos con conos, esferas y pirámides",
+                  "disciplina": "geometria",
+                  "descripcion": "Descompone un sólido compuesto en cuerpos conocidos para calcular su área y su volumen.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.modelar-solidos-compuestos",
+                    "mat.s4.volumen-cono"
+                  ],
+                  "ordenSugerido": 50
+                },
+                {
+                  "clave": "mat.s4.vistas-desarrollo-compuestos",
+                  "nombre": "Vistas y desarrollo plano de sólidos compuestos",
+                  "disciplina": "geometria",
+                  "descripcion": "Dibuja las vistas de frente, perfil y base de un sólido compuesto y reconstruye su desarrollo.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.modelar-solidos-compuestos"
+                  ],
+                  "ordenSugerido": 51
+                }
+              ]
+            },
+            {
+              "nombre": "Trigonometría",
+              "temas": [
+                {
+                  "clave": "mat.s4.distancias-inaccesibles",
+                  "nombre": "Distancias inaccesibles observadas desde dos posiciones",
+                  "disciplina": "trigonometria",
+                  "descripcion": "Calcula alturas de edificios o anchos de ríos observando desde dos puntos distintos.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.razones-angulos-no-notables"
+                  ],
+                  "ordenSugerido": 87
+                }
+              ]
+            },
+            {
+              "nombre": "Geometría analítica",
+              "temas": [
+                {
+                  "clave": "mat.s4.distancia-punto-recta",
+                  "nombre": "Distancia de un punto a una recta",
+                  "disciplina": "geometria",
+                  "descripcion": "Calcula la menor distancia de un lugar a una ruta recta con su fórmula.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.ecuacion-recta-general"
+                  ],
+                  "ordenSugerido": 108
+                }
+              ]
+            },
+            {
+              "nombre": "Mapas y teselaciones",
+              "temas": [
+                {
+                  "clave": "mat.s4.superficies-irregulares-planos",
+                  "nombre": "Superficies con bordes curvos en planos: aproximación por trapecios",
+                  "disciplina": "geometria",
+                  "descripcion": "Estima el área de terrenos con bordes curvos dividiéndolos en franjas trapeciales sobre una cuadrícula.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 112
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Argumenta afirmaciones sobre relaciones geométricas",
+          "bloques": [
+            {
+              "nombre": "Áreas y volúmenes",
+              "temas": [
+                {
+                  "clave": "mat.s4.relacion-volumenes-cono-cilindro-esfera",
+                  "nombre": "Relación entre los volúmenes del cono, el cilindro y la esfera",
+                  "disciplina": "geometria",
+                  "descripcion": "Comprueba con trasvases o simulaciones que el cono es un tercio del cilindro de igual base y altura.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-08"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.volumen-cono",
+                    "mat.s4.area-volumen-esfera"
+                  ],
+                  "ordenSugerido": 49
+                }
+              ]
+            },
+            {
+              "nombre": "Semejanza, congruencia y homotecia",
+              "temas": [
+                {
+                  "clave": "mat.s4.propiedades-homotecia",
+                  "nombre": "Razón entre áreas y volúmenes de cuerpos semejantes",
+                  "disciplina": "geometria",
+                  "descripcion": "Justifica que al aplicar una razón k las áreas se multiplican por k² y los volúmenes por k³.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-08",
+                    "MAT-C26-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.homotecia"
+                  ],
+                  "ordenSugerido": 54
+                }
+              ]
+            },
+            {
+              "nombre": "Mapas y teselaciones",
+              "temas": [
+                {
+                  "clave": "mat.s4.demostraciones-geometricas",
+                  "nombre": "Demostraciones con semejanza y congruencia de triángulos",
+                  "disciplina": "geometria",
+                  "descripcion": "Justifica deductivamente igualdades y proporciones entre segmentos a partir de triángulos congruentes o semejantes.",
+                  "desempenosOrigen": [
+                    "MAT-C26-S4-08",
+                    "MAT-C26-S4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 115
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 25,
+      "nombre": "Resuelve problemas de gestión de datos e incertidumbre",
+      "capacidades": [
+        {
+          "nombre": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+          "bloques": [
+            {
+              "nombre": "Medidas de tendencia central y posición",
+              "temas": [
+                {
+                  "clave": "mat.s4.cuartiles-no-agrupados",
+                  "nombre": "Cuartiles de datos no agrupados",
+                  "disciplina": "estadistica",
+                  "descripcion": "Ordena los datos, halla los cuartiles y explica qué parte de los datos queda en cada tramo.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-01",
+                    "MAT-C25-S4-03"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 58
+                }
+              ]
+            },
+            {
+              "nombre": "Dispersión",
+              "temas": [
+                {
+                  "clave": "mat.s4.coeficiente-variacion",
+                  "nombre": "Coeficiente de variación para comparar grupos",
+                  "disciplina": "estadistica",
+                  "descripcion": "Compara la homogeneidad de dos grupos con medias distintas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-01",
+                    "MAT-C25-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.desviacion-estandar-agrupados"
+                  ],
+                  "ordenSugerido": 93
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s4.operaciones-sucesos",
+                  "nombre": "Operaciones con sucesos: unión, intersección y complemento",
+                  "disciplina": "estadistica",
+                  "descripcion": "Representa sucesos con diagramas de Venn y opera con ellos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-02"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 116
+                },
+                {
+                  "clave": "mat.s4.probabilidad-geometrica",
+                  "nombre": "Probabilidad geométrica con longitudes y áreas",
+                  "disciplina": "estadistica",
+                  "descripcion": "Calcula la probabilidad como razón de longitudes o áreas, como en un tablero o una diana.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-02"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.operaciones-sucesos"
+                  ],
+                  "ordenSugerido": 118
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+          "bloques": [
+            {
+              "nombre": "Medidas de tendencia central y posición",
+              "temas": [
+                {
+                  "clave": "mat.s4.diagrama-caja",
+                  "nombre": "Diagrama de caja y bigotes",
+                  "disciplina": "estadistica",
+                  "descripcion": "Construye e interpreta el diagrama de caja a partir de los cinco números resumen.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-03",
+                    "MAT-C25-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.cuartiles-no-agrupados"
+                  ],
+                  "ordenSugerido": 60
+                },
+                {
+                  "clave": "mat.s4.rango-intercuartilico",
+                  "nombre": "Rango intercuartílico y datos atípicos",
+                  "disciplina": "estadistica",
+                  "descripcion": "Identifica valores atípicos con el rango intercuartílico y explica su efecto.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.diagrama-caja"
+                  ],
+                  "ordenSugerido": 61
+                },
+                {
+                  "clave": "mat.s4.cajas-paralelas",
+                  "nombre": "Comparación de grupos con diagramas de caja paralelos",
+                  "disciplina": "estadistica",
+                  "descripcion": "Compara la posición y la dispersión de dos o más grupos con cajas en la misma escala.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-04",
+                    "MAT-C25-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.diagrama-caja"
+                  ],
+                  "ordenSugerido": 62
+                }
+              ]
+            },
+            {
+              "nombre": "Dispersión",
+              "temas": [
+                {
+                  "clave": "mat.s4.informes-estadisticos",
+                  "nombre": "Lectura de informes con cuartiles y diagramas de caja",
+                  "disciplina": "estadistica",
+                  "descripcion": "Interpreta informes que resumen datos con cuartiles y cajas y deduce datos nuevos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.diagrama-caja"
+                  ],
+                  "ordenSugerido": 94
+                },
+                {
+                  "clave": "mat.s4.prediccion-tendencias",
+                  "nombre": "Predicción a partir de la tendencia de los datos",
+                  "disciplina": "estadistica",
+                  "descripcion": "Predice valores futuros según la tendencia observada en tablas y gráficos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.informes-estadisticos"
+                  ],
+                  "ordenSugerido": 95
+                },
+                {
+                  "clave": "mat.s4.sesgo-presentacion-datos",
+                  "nombre": "Sesgo en los datos de estudios publicados",
+                  "disciplina": "estadistica",
+                  "descripcion": "Evalúa si los datos de un estudio están sesgados por la muestra, las preguntas o la forma de presentarlos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-04",
+                    "MAT-C25-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.informes-estadisticos"
+                  ],
+                  "ordenSugerido": 96
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s4.probabilidad-condicional",
+                  "nombre": "Probabilidad condicional",
+                  "disciplina": "estadistica",
+                  "descripcion": "Calcula la probabilidad de un suceso sabiendo que ocurrió otro, con tablas de doble entrada.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-03",
+                    "MAT-C25-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.operaciones-sucesos"
+                  ],
+                  "ordenSugerido": 121
+                },
+                {
+                  "clave": "mat.s4.comprobar-independencia",
+                  "nombre": "Comprobación de la independencia de dos sucesos",
+                  "disciplina": "estadistica",
+                  "descripcion": "Verifica si P(A ∩ B) = P(A)·P(B) en tablas de datos y argumenta si los sucesos son independientes.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-03",
+                    "MAT-C25-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.probabilidad-condicional"
+                  ],
+                  "ordenSugerido": 123
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Usa estrategias y procedimientos para recopilar y procesar datos",
+          "bloques": [
+            {
+              "nombre": "Población y muestra",
+              "temas": [
+                {
+                  "clave": "mat.s4.muestra-representativa-sesgo",
+                  "nombre": "Plan de muestreo para un estudio en la institución educativa",
+                  "disciplina": "estadistica",
+                  "descripcion": "Decide la población, el tipo de muestreo y el tamaño de muestra adecuados al objetivo de su estudio.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-05",
+                    "MAT-C25-S4-07"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 25
+                },
+                {
+                  "clave": "mat.s4.tabla-doble-entrada",
+                  "nombre": "Tablas de doble entrada: frecuencias conjuntas y marginales",
+                  "disciplina": "estadistica",
+                  "descripcion": "Organiza dos variables cualitativas en una tabla de contingencia y calcula sus totales.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-05"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 26
+                }
+              ]
+            },
+            {
+              "nombre": "Medidas de tendencia central y posición",
+              "temas": [
+                {
+                  "clave": "mat.s4.mediana-moda-agrupados",
+                  "nombre": "Mediana y moda de datos agrupados por interpolación",
+                  "disciplina": "estadistica",
+                  "descripcion": "Halla el intervalo y el valor de la mediana y de la moda por interpolación.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 56
+                },
+                {
+                  "clave": "mat.s4.media-desviacion-hoja-calculo",
+                  "nombre": "Medidas estadísticas con hoja de cálculo",
+                  "disciplina": "estadistica",
+                  "descripcion": "Usa funciones de la hoja de cálculo para obtener media, cuartiles y desviación estándar de muchos datos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.mediana-moda-agrupados"
+                  ],
+                  "ordenSugerido": 57
+                },
+                {
+                  "clave": "mat.s4.cuartiles-agrupados",
+                  "nombre": "Cuartiles de datos agrupados",
+                  "disciplina": "estadistica",
+                  "descripcion": "Calcula cuartiles en tablas de intervalos con la frecuencia acumulada.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.cuartiles-no-agrupados",
+                    "mat.s4.mediana-moda-agrupados"
+                  ],
+                  "ordenSugerido": 59
+                }
+              ]
+            },
+            {
+              "nombre": "Dispersión",
+              "temas": [
+                {
+                  "clave": "mat.s4.desviacion-estandar-agrupados",
+                  "nombre": "Varianza y desviación estándar de datos agrupados",
+                  "disciplina": "estadistica",
+                  "descripcion": "Calcula la varianza y la desviación estándar de datos continuos en tablas de intervalos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-06"
+                  ],
+                  "prerrequisitos": [],
+                  "ordenSugerido": 92
+                }
+              ]
+            },
+            {
+              "nombre": "Conclusiones",
+              "temas": [
+                {
+                  "clave": "mat.s4.proyecto-estadistico",
+                  "nombre": "Proyecto estadístico: de la pregunta al informe",
+                  "disciplina": "estadistica",
+                  "descripcion": "Plantea una pregunta, recoge datos de una muestra, los procesa y comunica conclusiones.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-05",
+                    "MAT-C25-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.muestra-representativa-sesgo",
+                    "mat.s4.desviacion-estandar-agrupados"
+                  ],
+                  "ordenSugerido": 98
+                }
+              ]
+            },
+            {
+              "nombre": "Probabilidad",
+              "temas": [
+                {
+                  "clave": "mat.s4.probabilidad-union",
+                  "nombre": "Probabilidad de la unión de sucesos no excluyentes",
+                  "disciplina": "estadistica",
+                  "descripcion": "Aplica P(A ∪ B) = P(A) + P(B) − P(A ∩ B) y la del suceso contrario.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.operaciones-sucesos"
+                  ],
+                  "ordenSugerido": 117
+                },
+                {
+                  "clave": "mat.s4.al-menos-uno",
+                  "nombre": "Probabilidad de «al menos uno» con el complemento",
+                  "disciplina": "estadistica",
+                  "descripcion": "Calcula la probabilidad de al menos un éxito en ensayos independientes repetidos.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.probabilidad-union"
+                  ],
+                  "ordenSugerido": 119
+                },
+                {
+                  "clave": "mat.s4.simulacion-aleatoria",
+                  "nombre": "Simulación de experimentos aleatorios con hoja de cálculo",
+                  "disciplina": "estadistica",
+                  "descripcion": "Simula muchas repeticiones y compara la frecuencia obtenida con la probabilidad calculada.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-06",
+                    "MAT-C25-S4-04"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.operaciones-sucesos"
+                  ],
+                  "ordenSugerido": 120
+                },
+                {
+                  "clave": "mat.s4.diagrama-arbol",
+                  "nombre": "Diagramas de árbol con probabilidades en cada rama",
+                  "disciplina": "estadistica",
+                  "descripcion": "Calcula probabilidades de sucesos dependientes en experimentos de tres o más etapas multiplicando por las ramas.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-06"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.probabilidad-condicional"
+                  ],
+                  "ordenSugerido": 122
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Sustenta conclusiones o decisiones con base en la información obtenida",
+          "bloques": [
+            {
+              "nombre": "Conclusiones",
+              "temas": [
+                {
+                  "clave": "mat.s4.contraste-conclusiones",
+                  "nombre": "Contraste de conclusiones sobre una población",
+                  "disciplina": "estadistica",
+                  "descripcion": "Contrasta conclusiones propias y ajenas, reconoce vacíos y propone mejoras al estudio.",
+                  "desempenosOrigen": [
+                    "MAT-C25-S4-07"
+                  ],
+                  "prerrequisitos": [
+                    "mat.s4.sesgo-presentacion-datos"
+                  ],
+                  "ordenSugerido": 97
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

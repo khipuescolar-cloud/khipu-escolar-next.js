@@ -15,7 +15,7 @@ const CRUDO: Record<AreaNudito, unknown[]> = { matematica, comunicacion, "cienci
 /** IDs de fuente acordados con el Dev B (generadores, banco y colecciones que implementa specs/43). */
 export const FUENTES_CONOCIDAS = {
   generador: ["mat.operaciones", "mat.fracciones", "mat.proporcionalidad", "mat.porcentajes", "mat.ecuaciones", "mat.geometria", "mat.patrones"],
-  banco: ["cyt.banco"],
+  banco: ["cyt.banco", "mat.banco"],
   lecturas: ["com.lecturas", "com.escritura"],
 } as const satisfies Record<FuenteTema["tipo"], readonly string[]>;
 
