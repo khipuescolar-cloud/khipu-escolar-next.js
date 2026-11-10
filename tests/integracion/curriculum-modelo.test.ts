@@ -1,5 +1,6 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { db } from "@/lib/server/db";
+import { tablasExportadas } from "@/lib/server/exportar";
 import { temaVisibleParaAlumno } from "@/lib/server/curriculum/modelo";
 import { crearColegioPrueba, type ColegioPrueba } from "./ayudantes/colegio-prueba";
 
@@ -49,6 +50,11 @@ describe("modelo curricular global y oferta aislada", () => {
 
     const tema = await db.temaCurricular.findUniqueOrThrow({ where: { clave } });
     expect(tema.clave).toBe(clave);
+    expect(await a.db.temaCurricular.findUnique({ where: { clave } })).toMatchObject({ clave });
+    expect(tablasExportadas()).not.toContain("temaCurricular");
+    expect(tablasExportadas()).not.toContain("temaDesempenoOficial");
+    expect(tablasExportadas()).toContain("cursoColegio");
+    expect(tablasExportadas()).toContain("cursoColegioGrado");
     expect(await db.temaCurricular.count({ where: { clave } })).toBe(1);
     expect((await a.db.curso.findUniqueOrThrow({ where: { id: a.cursoTutora.id } })).cursoColegioId).toBe(matematica.id);
     expect((await b.db.curso.findUniqueOrThrow({ where: { id: b.cursoTutora.id } })).cursoColegioId).toBe(algebra.id);

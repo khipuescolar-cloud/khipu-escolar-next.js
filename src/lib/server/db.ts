@@ -28,6 +28,8 @@ export const MODELOS_GLOBALES = new Set([
   "SolicitudDemo",
   // Nudito+ (specs/29): lista blanca de sitios para materiales, administrada por el equipo Khipu.
   "SitioPermitido",
+  // Índice curricular y vínculos oficiales compartidos por todos los colegios (specs/52).
+  "TemaCurricular", "TemaDesempenoOficial",
 ]);
 
 const OPERACIONES_CON_WHERE = new Set([

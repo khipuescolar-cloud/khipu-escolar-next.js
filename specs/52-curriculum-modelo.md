@@ -20,7 +20,7 @@ La conformidad del temario exige a todos los profesores participantes (specs/48)
 - `disciplinas` es una lista: un tema puede pertenecer a varias. Un curso es una vista filtrada por disciplina; no tiene banco propio. Las disciplinas cedidas a un curso especializado se excluyen de la vista del área en ese grado (specs/51).
 - El vínculo con desempeño oficial usa códigos y localizador documental globales, verificados. `Desempeno` actual es por colegio y no es el catálogo oficial global. Sin código o fuente comprobada, no se crea vínculo. Los candidatos del paquete son propuestas editoriales, no temas oficiales MINEDU.
 - `CursoColegioGrado` fija oferta por año, nivel y grado. `Curso` es la instancia de salón y se enlaza opcionalmente por `cursoColegioId`; los cursos históricos quedan intactos. El servicio debe comprobar que el salón y la oferta tienen igual año, nivel y grado.
-- Toda lectura o escritura institucional usa `ctx.db`. El catálogo global se lee con `db` tras autorización en servidor. Si se accede al catálogo mediante `ctx.db`, la integración debe agregar `TemaCurricular` y `TemaDesempenoOficial` a `MODELOS_GLOBALES` de `src/lib/server/db.ts`. La FK compuesta `(tenant_id, curso_colegio_id)` impide cruces entre colegios.
+- Toda lectura o escritura institucional usa `ctx.db`. El catálogo global se lee con `db` tras autorización en servidor. `TemaCurricular` y `TemaDesempenoOficial` figuran en `MODELOS_GLOBALES` de `src/lib/server/db.ts`: `dbTenant` no les inyecta `tenantId` y la exportación del colegio los excluye; `CursoColegio` y `CursoColegioGrado` sí se exportan. La FK compuesta `(tenant_id, curso_colegio_id)` impide cruces entre colegios.
 
 ## Modelo de datos
 - `TemaCurricular`: `clave` global, `areaCneb`, `disciplinas[]`, `nivel`, `grado`, `procedencia`, `fuenteId`, `fuenteLocator`, `estado` (borrador/revisado/publicado), `version`, `revisadoPorId`, `revisadoAt`.
@@ -45,4 +45,5 @@ Sin rutas nuevas en esta subtarea. La UI futura marcará «Borrador» y ocultar�
 Integración: un índice global compartido por Matemática de A y Álgebra de B; aislamiento de `dbTenant` y FK compuesta. Validación Prisma, migración local, generación de cliente y checks del proyecto.
 
 ## Pendientes
-Importador, sincronización de contenido, auditoría editorial, servicio de plan de estudios, migración idempotente de cursos antiguos y UI; son subtareas separadas.
+- `pnpm db:migrate` falla al reconstruir la base temporal por un problema previo a este modelo: `20261109120000_reporte_periodo_notificacion` ejecuta `ALTER TYPE "TipoNotificacion"` antes de que `20261112090100_bandeja_general` cree ese tipo. Se reprodujo P3006/P3018 en una base temporal aislada usando el esquema y las 53 migraciones anteriores, sin la migración curricular. La migración curricular se aplicó a la BD local con `pnpm db:deploy`; corregir el historial anterior queda fuera de esta subtarea.
+- Importador, sincronización de contenido, auditoría editorial, servicio de plan de estudios, migración idempotente de cursos antiguos y UI; son subtareas separadas.
