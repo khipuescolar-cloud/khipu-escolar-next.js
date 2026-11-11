@@ -143,6 +143,10 @@ export function validarBanco(): { fichas: FichaConocimiento[]; errores: string[]
       for (const [patron, n] of formas) if (n >= 3) errores.push(f.clave + ": plantilla de enunciado repetida " + n + " veces: " + patron);
       const grupoEnunciados = mayorGrupoParecido(f.ejercicios.map(e => e.enunciado));
       if (grupoEnunciados >= 6) errores.push(f.clave + ": " + grupoEnunciados + " enunciados casi iguales (plantilla con otro contexto)");
+      const conPrefijo = f.ejercicios.filter(e => /^(En|Durante|Al|Para|Con|Después|Antes|Cuando|Sobre)[^:.]{3,80}: /.test(e.pistas[0])).length;
+      if (conPrefijo >= 3) errores.push(f.clave + ": " + conPrefijo + " primeras pistas con prefijo de contexto repetido («En el aula: …»)");
+      const conMira = f.ejercicios.filter(e => /\bMira (los|las|el|la) [a-zñáéíóú]+ (en|de) /.test(e.pistas[0])).length;
+      if (conMira >= 3) errores.push(f.clave + ": " + conMira + " primeras pistas «Mira los X en el Y» (plantilla)");
       const grupoPistas = mayorGrupoParecido(f.ejercicios.map(e => e.pistas[0]));
       if (grupoPistas >= 6) errores.push(f.clave + ": " + grupoPistas + " primeras pistas casi iguales");
       const texto = JSON.stringify(f);

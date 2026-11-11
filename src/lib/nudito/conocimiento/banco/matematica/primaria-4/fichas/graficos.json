@@ -1,0 +1,1316 @@
+[
+  {
+    "clave": "mat.p4.pictogramas-equivalencias",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P4-01"
+    ],
+    "bloque": "Gráficos",
+    "nombre": "Pictogramas verticales y horizontales con equivalencias",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Representa datos con símbolos que valen varias unidades y medio símbolo.",
+    "palabrasClave": [
+      "pictograma",
+      "equivalencia",
+      "símbolo",
+      "medio símbolo",
+      "clave"
+    ],
+    "prerrequisitos": [
+      "mat.p4.tabla-frecuencias-4"
+    ],
+    "ordenSugerido": 72,
+    "ideaCentral": "Un pictograma usa dibujos o símbolos para mostrar datos. Una clave dice cuánto vale cada símbolo, por ejemplo ● = 10. Un medio símbolo vale la mitad. Puede dibujarse en filas (horizontal) o en columnas (vertical).",
+    "pasos": [
+      "Lee la clave: cuánto vale un símbolo completo.",
+      "Calcula cuánto vale medio símbolo: la mitad.",
+      "Para cada dato, divide el valor entre lo que vale un símbolo y dibuja ese número de símbolos.",
+      "Si sobra la mitad de un símbolo, dibuja medio símbolo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Clave: ★ = 10 panes. La panadería de Cusco vendió 30 panes el lunes. ¿Cuántas estrellas dibujas?",
+        "desarrollo": "30 ÷ 10 = 3.",
+        "respuesta": "3 estrellas."
+      },
+      {
+        "situacion": "Clave: ● = 20 kg. En el mercado se vendieron 50 kg de papa. ¿Cómo lo dibujas?",
+        "desarrollo": "50 ÷ 20 = 2 y sobran 10 kg, que es la mitad de 20. Dibujas 2 círculos y medio círculo.",
+        "respuesta": "2 círculos y medio círculo."
+      },
+      {
+        "situacion": "Clave: ▲ = 4 niños. Se ve ▲▲▲ y medio ▲. ¿Cuántos niños son?",
+        "desarrollo": "Tres símbolos valen 3 × 4 = 12. Medio símbolo vale 2. Total 12 + 2 = 14.",
+        "respuesta": "14 niños."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar cada símbolo como 1 sin mirar la clave.",
+        "correccion": "Siempre lee la clave: cada símbolo puede valer 2, 5, 10 o más."
+      },
+      {
+        "error": "Pensar que medio símbolo vale 1.",
+        "correccion": "Medio símbolo vale la mitad del símbolo completo; si ● = 10, medio vale 5."
+      },
+      {
+        "error": "Dibujar de más porque se divide mal.",
+        "correccion": "Divide el dato entre el valor del símbolo y comprueba multiplicando."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Pictograma",
+        "significado": "Gráfico que usa dibujos para representar datos."
+      },
+      {
+        "termino": "Clave",
+        "significado": "Indica cuánto vale cada símbolo del pictograma."
+      },
+      {
+        "termino": "Equivalencia",
+        "significado": "Valor que representa un símbolo."
+      },
+      {
+        "termino": "Medio símbolo",
+        "significado": "Símbolo cortado por la mitad que vale la mitad del completo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "tipo": "numerico",
+        "dificultad": 1,
+        "enunciado": "Clave: ● = 5 alumnos. En el pictograma de «Fútbol» hay 4 círculos. ¿Cuántos alumnos prefieren fútbol? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee la clave: cada círculo vale 5.",
+          "Hay 4 círculos.",
+          "Multiplica 4 por 5."
+        ],
+        "retroalimentacion": "4 × 5 = 20 alumnos. Un error típico es responder 4, contando solo los círculos.",
+        "id": "e01"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 1,
+        "enunciado": "Clave: ★ = 10 soles. Una tienda ganó 30 soles el sábado. ¿Cuántas estrellas se dibujan?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "30"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "3"
+          },
+          {
+            "id": "d",
+            "texto": "6"
+          }
+        ],
+        "pistas": [
+          "Cada estrella vale 10 soles.",
+          "Divide 30 entre 10.",
+          "30 ÷ 10 da el número de estrellas."
+        ],
+        "retroalimentacion": "30 ÷ 10 = 3 estrellas. El número 30 son los soles, no las estrellas.",
+        "id": "e02"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 1,
+        "enunciado": "Si cada ▲ vale 2 y hay 6 triángulos, el dato es 12.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada triángulo vale 2.",
+          "Suma 2 seis veces o multiplica.",
+          "6 × 2 es la cuenta."
+        ],
+        "retroalimentacion": "Es verdadero: 6 × 2 = 12.",
+        "id": "e03"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 1,
+        "enunciado": "En un pictograma, ● = 8 kg. ¿Cuántos kg vale medio círculo? Escribe solo el número.",
+        "respuesta": "4",
+        "alternativasAceptadas": [
+          "cuatro"
+        ],
+        "pistas": [
+          "Medio símbolo es la mitad del círculo.",
+          "Un círculo vale 8 kg.",
+          "La mitad de 8 es la respuesta."
+        ],
+        "retroalimentacion": "La mitad de 8 es 4 kg.",
+        "id": "e04"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 2,
+        "enunciado": "Clave: ● = 20 kg. En el pictograma de papa se dibujaron 3 círculos y medio círculo. ¿Cuántos kilos de papa se vendieron? Escribe solo el número.",
+        "respuesta": 70,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada círculo vale 20 kg.",
+          "Medio círculo vale 10 kg.",
+          "3 × 20 es 60; suma el medio."
+        ],
+        "retroalimentacion": "3 círculos valen 3 × 20 = 60 y medio círculo vale 10; 60 + 10 = 70 kg.",
+        "id": "e05"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 2,
+        "enunciado": "Clave: ★ = 4. Quieres mostrar que 14 niños juegan fútbol en una gráfica horizontal. ¿Cómo se dibuja ese dato?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 estrellas"
+          },
+          {
+            "id": "b",
+            "texto": "3 estrellas y media"
+          },
+          {
+            "id": "c",
+            "texto": "14 estrellas"
+          },
+          {
+            "id": "d",
+            "texto": "4 estrellas"
+          }
+        ],
+        "pistas": [
+          "Divide 14 entre 4.",
+          "14 ÷ 4 da 3 y sobran 2.",
+          "Sobran 2 que es la mitad de 4."
+        ],
+        "retroalimentacion": "14 = 3 × 4 + 2, y 2 es medio símbolo. Son 3 estrellas y media; 14 estrellas sería ignorar la clave.",
+        "id": "e06"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 2,
+        "enunciado": "Clave: ▲ = 6 pasajeros. Una combi llevó 15 pasajeros. ¿Cuántos triángulos y medio triángulo? Escribe: «2 y medio» o «3».",
+        "respuesta": "2 y medio",
+        "alternativasAceptadas": [
+          "2 y 1/2",
+          "dos y medio",
+          "2 triángulos y medio",
+          "2 1/2"
+        ],
+        "pistas": [
+          "Cada triángulo vale 6.",
+          "6 + 6 = 12; faltan 3.",
+          "3 es la mitad de 6."
+        ],
+        "retroalimentacion": "15 = 2 × 6 + 3, y 3 es la mitad de 6. Se dibujan 2 triángulos y medio.",
+        "id": "e07"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 2,
+        "enunciado": "En un pictograma vertical y en uno horizontal con la misma clave, los mismos datos usan el mismo número de símbolos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en lo que cambia: la posición del gráfico.",
+          "La clave dice cuánto vale cada símbolo en ambos.",
+          "Los datos y la clave son iguales."
+        ],
+        "retroalimentacion": "Es verdadero: solo cambia la orientación; el número de símbolos depende de la clave.",
+        "id": "e08"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 3,
+        "enunciado": "Un pictograma tiene la clave ● = 10. El lunes hay ● ● ●, el martes ● ● ● ● ● y el miércoles ● ●. ¿Cuántos más se vendieron el martes que el lunes?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "20"
+          },
+          {
+            "id": "d",
+            "texto": "50"
+          }
+        ],
+        "pistas": [
+          "Calcula cada día multiplicando por 10.",
+          "Lunes: 3 × 10; martes: 5 × 10.",
+          "Resta los dos valores."
+        ],
+        "retroalimentacion": "Lunes 30 y martes 50; 50 − 30 = 20. Responder 2 es contar solo la diferencia de círculos.",
+        "id": "e09"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 3,
+        "enunciado": "Clave: ★ = 10. Lucía tiene 3 estrellas y media en su fila de «chocolates» y Pablo 2 estrellas en la suya. ¿Cuántos chocolates tienen juntos? Escribe solo el número.",
+        "respuesta": 55,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lucía: 3 estrellas valen 30 y media estrella vale 5.",
+          "Pablo: 2 × 10.",
+          "Suma los totales de los dos."
+        ],
+        "retroalimentacion": "Lucía tiene 35 y Pablo 20; 35 + 20 = 55 chocolates.",
+        "id": "e10"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 3,
+        "enunciado": "En un pictograma ● = 20. En «quinua» hay 2 círculos y en «maíz» hay 3 y medio. ¿Qué producto tiene más? Escribe quinua o maíz.",
+        "respuesta": "maíz",
+        "alternativasAceptadas": [
+          "maiz"
+        ],
+        "pistas": [
+          "Calcula quinua: 2 × 20.",
+          "Calcula maíz: 3 círculos y medio.",
+          "Compara 40 con 70."
+        ],
+        "retroalimentacion": "Quinua tiene 40 y maíz 70; maíz tiene más.",
+        "id": "e11"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 3,
+        "enunciado": "Con la clave ● = 10, el dato 25 se dibuja con 2 círculos y medio círculo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 25 entre 10.",
+          "Sobra 5.",
+          "5 es la mitad de 10, o sea, medio círculo."
+        ],
+        "retroalimentacion": "Es verdadero: 25 = 2 × 10 + 5, y 5 es medio círculo.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.barras-escala-10",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P4-01"
+    ],
+    "bloque": "Gráficos",
+    "nombre": "Gráfico de barras con escala múltiplo de 10",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Elabora gráficos de barras con ejes graduados de 10 en 10 o de 20 en 20.",
+    "palabrasClave": [
+      "gráfico de barras",
+      "escala",
+      "eje",
+      "graduado",
+      "altura de la barra"
+    ],
+    "prerrequisitos": [
+      "mat.p4.tabla-frecuencias-4"
+    ],
+    "ordenSugerido": 73,
+    "ideaCentral": "En un gráfico de barras, la altura de cada barra muestra cuánto vale un dato. El eje vertical tiene una escala: números que suben de 10 en 10 o de 20 en 20. Para dibujar una barra, ubica el valor en la escala y levanta la barra hasta esa marca.",
+    "pasos": [
+      "Mira los datos de la tabla y busca el mayor valor.",
+      "Elige una escala que llegue hasta ese valor, de 10 en 10 o de 20 en 20.",
+      "Dibuja una barra por cada dato con la altura que marca su valor en la escala.",
+      "Escribe título y nombres de las barras en el eje de abajo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Datos: papa 40 sacos, maíz 70 sacos, quinua 20 sacos. ¿Con qué escala de 10 en 10 dibujas la barra de maíz?",
+        "desarrollo": "La barra de maíz llega hasta la marca 70. En escala de 10 en 10: 0, 10, 20, 30, 40, 50, 60, 70.",
+        "respuesta": "La barra de maíz sube hasta 70."
+      },
+      {
+        "situacion": "En una escala de 20 en 20, ¿hasta qué marca sube la barra de 60 alumnos?",
+        "desarrollo": "Las marcas son 0, 20, 40, 60. La barra llega a la tercera marca después del 0.",
+        "respuesta": "Hasta la marca 60."
+      },
+      {
+        "situacion": "Una feria vendió 80 kg de camote y 30 kg de yuca. ¿Qué escala de 10 en 10 usas como mínimo?",
+        "desarrollo": "Se necesita llegar hasta 80, el mayor dato: 0, 10, 20, … 80.",
+        "respuesta": "Escala de 10 en 10 hasta 80."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Empezar la escala sin el 0 o saltarse marcas.",
+        "correccion": "La escala empieza en 0 y sube con saltos iguales."
+      },
+      {
+        "error": "Dibujar la barra hasta una marca equivocada, por ejemplo hasta 50 cuando el dato es 60.",
+        "correccion": "Cuenta las marcas con cuidado: 10, 20, 30, 40, 50, 60."
+      },
+      {
+        "error": "Elegir una escala que no llegue al dato mayor.",
+        "correccion": "Mira el mayor valor y asegúrate de que la escala lo alcance."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Gráfico de barras",
+        "significado": "Gráfico que usa barras de distinta altura para comparar datos."
+      },
+      {
+        "termino": "Escala",
+        "significado": "Números de un eje que suben con saltos iguales, como de 10 en 10."
+      },
+      {
+        "termino": "Eje vertical",
+        "significado": "Línea de arriba hacia abajo donde se escribe la escala."
+      },
+      {
+        "termino": "Título",
+        "significado": "Texto que dice de qué trata el gráfico."
+      }
+    ],
+    "ejercicios": [
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 1,
+        "enunciado": "Una escala sube así: 0, 10, 20, 30. ¿Cuál es el siguiente número?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "31"
+          },
+          {
+            "id": "b",
+            "texto": "35"
+          },
+          {
+            "id": "c",
+            "texto": "50"
+          },
+          {
+            "id": "d",
+            "texto": "40"
+          }
+        ],
+        "pistas": [
+          "La escala sube de 10 en 10.",
+          "El último número es 30.",
+          "30 más 10."
+        ],
+        "retroalimentacion": "30 + 10 = 40, porque la escala sube de 10 en 10. Dar 31 sería sumar solo 1.",
+        "id": "e01"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 1,
+        "enunciado": "En una escala de 20 en 20, ¿qué número está después de 40? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada marca sube 20.",
+          "La marca anterior es 40.",
+          "40 más 20."
+        ],
+        "retroalimentacion": "40 + 20 = 60. Si sumaras 10 te quedarías a mitad de camino.",
+        "id": "e02"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 1,
+        "enunciado": "Para dibujar la barra de 30 en una escala de 10 en 10, la barra llega hasta la tercera marca después del 0.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las marcas son 10, 20, 30…",
+          "Cuenta cuántos saltos de 10 hay hasta 30.",
+          "30 son tres saltos de 10."
+        ],
+        "retroalimentacion": "Es verdadero: 10, 20 y 30 son tres marcas.",
+        "id": "e03"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 1,
+        "enunciado": "El dato «40 sacos de papa» se dibuja con una barra. ¿Hasta dónde sube en una escala de 10 en 10?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hasta la marca 40"
+          },
+          {
+            "id": "b",
+            "texto": "Hasta la marca 4"
+          },
+          {
+            "id": "c",
+            "texto": "Hasta la marca 10"
+          },
+          {
+            "id": "d",
+            "texto": "Hasta la marca 400"
+          }
+        ],
+        "pistas": [
+          "Mira el valor del dato: 40.",
+          "La barra sube hasta el número que es igual al dato.",
+          "Busca la marca con el número 40."
+        ],
+        "retroalimentacion": "La barra llega hasta la marca que dice 40. El 4 es solo cuántos saltos de 10 se cuentan.",
+        "id": "e04"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 2,
+        "enunciado": "Los datos son 30, 50 y 70 alumnos. Si usas una escala de 10 en 10, ¿cuál es el menor número de marcas, sin contar el 0, que debes dibujar? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La escala debe llegar al dato mayor, 70.",
+          "Cuenta 10, 20, 30, 40, 50, 60, 70.",
+          "Son tantas marcas como saltos de 10 hay hasta 70."
+        ],
+        "retroalimentacion": "Para llegar a 70 hacen falta 7 marcas: 10, 20, …, 70.",
+        "id": "e05"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 2,
+        "enunciado": "Los datos de visitantes de un museo en Cusco son 20, 60, 100 y 40. ¿Qué escala es más cómoda?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "De 1 en 1"
+          },
+          {
+            "id": "b",
+            "texto": "De 20 en 20"
+          },
+          {
+            "id": "c",
+            "texto": "De 100 en 100"
+          },
+          {
+            "id": "d",
+            "texto": "De 3 en 3"
+          }
+        ],
+        "pistas": [
+          "Mira lo que tienen en común los datos.",
+          "20, 40, 60 y 100 son múltiplos de 20.",
+          "Elige el salto que acierta en todos los datos."
+        ],
+        "retroalimentacion": "Con escala de 20 en 20, todos los datos caen justo en una marca. De 100 en 100, los datos 20, 40 y 60 quedarían entre marcas.",
+        "id": "e06"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 2,
+        "enunciado": "Datos de ventas: lunes 40, martes 80 y miércoles 20. En una escala de 20 en 20, ¿qué día tiene la barra más alta?",
+        "respuesta": "martes",
+        "alternativasAceptadas": [
+          "el martes"
+        ],
+        "pistas": [
+          "Compara los tres valores.",
+          "80 es mayor que 40 y que 20.",
+          "Busca el día de 80."
+        ],
+        "retroalimentacion": "El martes tiene 80, el dato mayor, y su barra es la más alta.",
+        "id": "e07"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 2,
+        "enunciado": "En una escala de 20 en 20, el dato 30 cae justo sobre una de las marcas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "30 no es múltiplo de 20.",
+          "Las marcas de la escala son 0, 20, 40…",
+          "Un dato que no es múltiplo de 20 queda entre dos marcas."
+        ],
+        "retroalimentacion": "Es falso: en esa escala el dato 30 queda entre las marcas 20 y 40. Para ese dato conviene una escala de 10 en 10.",
+        "id": "e08"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 3,
+        "enunciado": "Una tabla dice: tomate 120, cebolla 60, ají 90, zanahoria 30. Se hace un gráfico de barras con escala de 30 en 30. ¿Cuántas marcas, sin contar el 0, tiene la escala hasta el dato mayor?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "4"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ],
+        "pistas": [
+          "El dato mayor es 120.",
+          "Cuenta de 30 en 30: 30, 60, 90, 120.",
+          "Cada salto es una marca."
+        ],
+        "retroalimentacion": "30, 60, 90 y 120 son 4 marcas. Responder 12 sería contar de 10 en 10.",
+        "id": "e09"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 3,
+        "enunciado": "En un gráfico, la barra de maíz llega a 70 y la de quinua a 40. Si la escala sube de 10 en 10, ¿cuántas marcas más sube la barra de maíz que la de quinua? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántas marcas sube cada barra.",
+          "Maíz: 70 son 7 marcas; quinua: 40 son 4 marcas.",
+          "Resta 7 menos 4."
+        ],
+        "retroalimentacion": "La diferencia es 70 − 40 = 30, que son 3 marcas de 10. Cuidado con responder 30.",
+        "id": "e10"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 3,
+        "enunciado": "Mía dibujó la barra de 90 alumnos hasta la marca 80 en una escala de 20 en 20, porque no hay marca 90. ¿Qué debió hacer?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dejar la barra en 80"
+          },
+          {
+            "id": "b",
+            "texto": "Dibujarla a mitad entre 80 y 100, o cambiar la escala a 10 en 10"
+          },
+          {
+            "id": "c",
+            "texto": "Dibujarla hasta 100"
+          },
+          {
+            "id": "d",
+            "texto": "Borrarla"
+          }
+        ],
+        "pistas": [
+          "90 no es múltiplo de 20.",
+          "Está justo a la mitad entre 80 y 100.",
+          "También puede usar una escala que sí tenga la marca 90."
+        ],
+        "retroalimentacion": "90 está en la mitad entre 80 y 100, así que debió ubicar la barra a la mitad o usar escala de 10 en 10. Dejarla en 80 hace que el dato quede incorrecto.",
+        "id": "e11"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 3,
+        "enunciado": "En una escala de 10 en 10, la barra de arroz sube hasta 90 y la de frijol hasta 50. Si la barra de lenteja llega al doble que la de frijol, ¿hasta qué marca sube? Escribe solo el número.",
+        "respuesta": "100",
+        "alternativasAceptadas": [
+          "cien"
+        ],
+        "pistas": [
+          "Mira la barra de frijol: 50.",
+          "El doble de un número es multiplicarlo por 2.",
+          "Calcula 50 × 2."
+        ],
+        "retroalimentacion": "El doble de 50 es 100, y la barra de lenteja sube hasta 100. El 90 de arroz no se usa en esta cuenta.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.leer-barras-escala",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P4-03"
+    ],
+    "bloque": "Gráficos",
+    "nombre": "Lectura de gráficos de barras con escala",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Interpreta valores que caen entre dos marcas de la escala y compara barras.",
+    "palabrasClave": [
+      "gráfico de barras",
+      "escala",
+      "valor entre marcas",
+      "comparar barras",
+      "interpretar"
+    ],
+    "prerrequisitos": [
+      "mat.p4.barras-escala-10"
+    ],
+    "ordenSugerido": 74,
+    "ideaCentral": "Para leer un gráfico de barras, mira hasta dónde llega cada barra en la escala. Si la barra termina entre dos marcas, estima su valor: si cae a la mitad, es el número que está justo en medio de ellas. Luego compara las barras para decir cuál es mayor, cuál menor y cuánto más.",
+    "pasos": [
+      "Lee el título y el nombre de cada barra.",
+      "Mira cuánto sube la escala de marca en marca.",
+      "Ubica el final de la barra y lee su valor; si queda entre dos marcas, estima el valor a la mitad.",
+      "Compara las barras restando sus valores."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una escala de 10 en 10, la barra de papa llega a la mitad entre 30 y 40. ¿Cuántos sacos son?",
+        "desarrollo": "Entre 30 y 40, la mitad es 35.",
+        "respuesta": "35 sacos."
+      },
+      {
+        "situacion": "Barra de lunes: 60. Barra de martes: 80. ¿Cuánto más vendió el martes?",
+        "desarrollo": "Resto 80 − 60 = 20.",
+        "respuesta": "20 más."
+      },
+      {
+        "situacion": "En escala de 20 en 20, la barra de quinua llega a la mitad entre 40 y 60. ¿Qué valor es?",
+        "desarrollo": "La mitad entre 40 y 60 es 50.",
+        "respuesta": "50."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer la marca anterior cuando la barra queda entre dos marcas.",
+        "correccion": "Si pasó la marca, el valor es mayor; estima el punto medio entre las dos marcas."
+      },
+      {
+        "error": "Comparar los nombres de las barras en lugar de su altura.",
+        "correccion": "La altura de la barra dice cuánto vale; compara las alturas."
+      },
+      {
+        "error": "Restar mal al comparar dos barras.",
+        "correccion": "Resta el valor menor del mayor y revisa con una suma."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Escala",
+        "significado": "Números del eje que muestran el valor de la altura."
+      },
+      {
+        "termino": "Marca",
+        "significado": "Raya de la escala con un número."
+      },
+      {
+        "termino": "Punto medio",
+        "significado": "Valor que está justo a la mitad de dos marcas."
+      },
+      {
+        "termino": "Comparar",
+        "significado": "Ver cuál es mayor o menor y cuánto más."
+      }
+    ],
+    "ejercicios": [
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 1,
+        "enunciado": "En un gráfico, la barra de maíz llega hasta la marca 50. ¿Cuánto vale?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "50"
+          },
+          {
+            "id": "c",
+            "texto": "500"
+          }
+        ],
+        "pistas": [
+          "Mira el número de la marca donde termina la barra.",
+          "La marca dice 50.",
+          "No hace falta calcular nada más."
+        ],
+        "retroalimentacion": "La barra llega a la marca 50, por tanto vale 50. Responder 5 es no leer la escala completa.",
+        "id": "e01"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 1,
+        "enunciado": "Barra de Ana: 30 libros. Barra de Luis: 50 libros. ¿Cuántos libros más leyó Luis? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los valores de las dos barras.",
+          "Luis leyó más.",
+          "Resta 50 menos 30."
+        ],
+        "retroalimentacion": "50 − 30 = 20 libros más. No es 80, que sería sumar.",
+        "id": "e02"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 1,
+        "enunciado": "Si una barra es más alta que otra, su valor es mayor.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La altura de la barra muestra el valor.",
+          "Más alta significa que sube más en la escala.",
+          "Mayor altura es mayor valor."
+        ],
+        "retroalimentacion": "Es verdadero: la barra más alta tiene el valor mayor.",
+        "id": "e03"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 1,
+        "enunciado": "En un gráfico, la barra de «Fútbol» llega a 40, la de «Vóley» a 30 y la de «Natación» a 20. ¿Qué deporte prefieren menos? Escribe el deporte.",
+        "respuesta": "natación",
+        "alternativasAceptadas": [
+          "natacion"
+        ],
+        "pistas": [
+          "Fíjate en la barra más baja.",
+          "Compara 40, 30 y 20.",
+          "El valor menor es 20."
+        ],
+        "retroalimentacion": "La barra más baja es la de natación, con 20.",
+        "id": "e04"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 2,
+        "enunciado": "Escala de 10 en 10. La barra de lúcuma termina justo a la mitad entre 40 y 50. ¿Cuántas lúcumas representa? Escribe solo el número.",
+        "respuesta": 45,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las marcas vecinas son 40 y 50.",
+          "Mitad entre ellas.",
+          "Suma 40 y 50 y divide entre 2, o suma 5 a 40."
+        ],
+        "retroalimentacion": "La mitad entre 40 y 50 es 45. Un error es decir 40 o 50.",
+        "id": "e05"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 2,
+        "enunciado": "En un gráfico con escala de 20 en 20, la barra de Pedro termina a la mitad entre 60 y 80. ¿Cuál es su valor?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "65"
+          },
+          {
+            "id": "b",
+            "texto": "70"
+          },
+          {
+            "id": "c",
+            "texto": "75"
+          },
+          {
+            "id": "d",
+            "texto": "80"
+          }
+        ],
+        "pistas": [
+          "Las marcas vecinas son 60 y 80.",
+          "Entre 60 y 80 hay 20 de diferencia.",
+          "La mitad de 20 es 10: súmalo a 60."
+        ],
+        "retroalimentacion": "60 + 10 = 70, la mitad entre 60 y 80. El valor 65 sería usar un salto de 10 con otra escala.",
+        "id": "e06"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 2,
+        "enunciado": "Las barras de ventas son: lunes 70, martes 90, miércoles 50. ¿Cuántos soles más vendió el martes que el miércoles? Escribe solo el número.",
+        "respuesta": "40",
+        "alternativasAceptadas": [
+          "cuarenta"
+        ],
+        "pistas": [
+          "Ubica las barras de martes y miércoles.",
+          "Martes 90 y miércoles 50.",
+          "Resta 90 menos 50."
+        ],
+        "retroalimentacion": "90 − 50 = 40 soles más. El lunes no se usa.",
+        "id": "e07"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 2,
+        "enunciado": "Si una barra termina entre las marcas 20 y 40 de una escala de 20 en 20, su valor puede ser 30.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en las marcas vecinas: 20 y 40.",
+          "Entre ellas hay valores como 25, 30 o 35.",
+          "30 está justo en medio."
+        ],
+        "retroalimentacion": "Es verdadero: 30 está a la mitad entre 20 y 40.",
+        "id": "e08"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 3,
+        "enunciado": "Un gráfico muestra tres barras: gallinas 70, cuyes 45 y patos 55. Si se vendieran 15 cuyes más, ¿qué animal quedaría con mayor valor?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Gallinas"
+          },
+          {
+            "id": "b",
+            "texto": "Cuyes"
+          },
+          {
+            "id": "c",
+            "texto": "Patos"
+          },
+          {
+            "id": "d",
+            "texto": "Empatan los tres"
+          }
+        ],
+        "pistas": [
+          "Suma 15 a la barra de cuyes: 45 + 15.",
+          "Compara el nuevo valor con 70 y con 55.",
+          "Cuyes quedaría en 60."
+        ],
+        "retroalimentacion": "Con 15 más, cuyes sería 60, y gallinas sigue siendo mayor con 70.",
+        "id": "e09"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 3,
+        "enunciado": "Escala de 10 en 10. Las barras de tres días son: lunes, 30; martes, mitad entre 50 y 60; miércoles, 45. ¿Cuántas unidades más tiene el martes que el lunes? Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla el valor de martes: mitad entre 50 y 60.",
+          "Martes vale 55.",
+          "Resta 55 menos 30."
+        ],
+        "retroalimentacion": "Martes es 55 y lunes 30. La diferencia es 55 − 30 = 25.",
+        "id": "e10"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 3,
+        "enunciado": "Dos barras: «Sol» llega a la mitad entre 20 y 40 y «Luna» llega a 35. ¿Cuál barra es más alta? Escribe Sol o Luna.",
+        "respuesta": "Luna",
+        "alternativasAceptadas": [
+          "luna"
+        ],
+        "pistas": [
+          "La mitad entre 20 y 40 es el valor de Sol.",
+          "Esa mitad es 30.",
+          "Compara 30 con 35."
+        ],
+        "retroalimentacion": "Sol vale 30 y Luna 35; la más alta es Luna.",
+        "id": "e11"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 3,
+        "enunciado": "Si en un gráfico la barra de A vale 60 y la de B vale 40, entonces A vale el doble de B.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El doble de 40 es 40 × 2.",
+          "Compáralo con 60.",
+          "80 no es 60."
+        ],
+        "retroalimentacion": "Es falso: el doble de 40 es 80, no 60. A tiene 20 más que B.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.varias-representaciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P4-03"
+    ],
+    "bloque": "Gráficos",
+    "nombre": "Un mismo conjunto de datos en tabla, pictograma y barras",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Reconoce la misma información en diferentes representaciones.",
+    "palabrasClave": [
+      "tabla",
+      "pictograma",
+      "gráfico de barras",
+      "representaciones",
+      "mismos datos"
+    ],
+    "prerrequisitos": [
+      "mat.p4.pictogramas-equivalencias",
+      "mat.p4.leer-barras-escala"
+    ],
+    "ordenSugerido": 107,
+    "ideaCentral": "Los mismos datos se pueden mostrar de tres maneras: en una tabla (con números), en un pictograma (con símbolos que valen algo) y en un gráfico de barras (con alturas en una escala). Aunque se vean distintos, dicen lo mismo: los valores son iguales.",
+    "pasos": [
+      "Lee los números de la tabla: son los datos de referencia.",
+      "En el pictograma, multiplica los símbolos por lo que vale cada uno según la clave.",
+      "En el gráfico de barras, lee en la escala hasta dónde llega cada barra.",
+      "Comprueba que los tres coincidan en cada dato."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tabla: papa 40, maíz 20. Pictograma con ● = 10: papa ● ● ● ●, maíz ● ●. ¿Muestran lo mismo?",
+        "desarrollo": "Papa: 4 × 10 = 40 y maíz: 2 × 10 = 20. Coinciden con la tabla.",
+        "respuesta": "Sí, muestran los mismos datos."
+      },
+      {
+        "situacion": "Tabla: lunes 30, martes 50. Gráfico de barras: la barra del lunes llega a 30 y la del martes a 50. ¿Es el mismo dato?",
+        "desarrollo": "Los valores de las barras son iguales a los de la tabla.",
+        "respuesta": "Sí, es el mismo dato."
+      },
+      {
+        "situacion": "Tabla: Cusco 60, Lima 80. Pictograma ★ = 20: Cusco ★★★, Lima ★★★. ¿Hay un error?",
+        "desarrollo": "Lima debe ser 80 ÷ 20 = 4 estrellas, no 3.",
+        "respuesta": "Sí, a Lima le falta una estrella."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar los símbolos del pictograma sin usar la clave.",
+        "correccion": "Multiplica el número de símbolos por el valor de la clave para comparar con la tabla."
+      },
+      {
+        "error": "Creer que una tabla y un gráfico con distinta forma muestran datos distintos.",
+        "correccion": "Pueden verse diferentes y decir lo mismo; compara los valores."
+      },
+      {
+        "error": "Leer mal la escala del gráfico de barras.",
+        "correccion": "Mira cuánto sube la escala por marca antes de leer la barra."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Representación",
+        "significado": "Forma de mostrar datos: tabla, pictograma o gráfico de barras."
+      },
+      {
+        "termino": "Tabla",
+        "significado": "Organiza datos en filas y columnas con números."
+      },
+      {
+        "termino": "Pictograma",
+        "significado": "Gráfico con símbolos; la clave dice cuánto vale cada uno."
+      },
+      {
+        "termino": "Gráfico de barras",
+        "significado": "Gráfico con barras cuya altura muestra el valor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 1,
+        "enunciado": "Una tabla dice: manzana 30, pera 10. En un pictograma con ● = 10, ¿cuántos círculos tiene la manzana?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "30"
+          },
+          {
+            "id": "d",
+            "texto": "10"
+          }
+        ],
+        "pistas": [
+          "La clave dice que cada círculo vale 10.",
+          "Divide 30 entre 10.",
+          "El resultado es el número de círculos."
+        ],
+        "retroalimentacion": "30 ÷ 10 = 3 círculos. El número 30 es el valor, no la cantidad de símbolos.",
+        "id": "e01"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 1,
+        "enunciado": "Una tabla y un gráfico de barras pueden mostrar los mismos datos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo se muestran los datos de la clase de varias formas.",
+          "Ambas representaciones pueden usar los mismos números.",
+          "Cambia la forma, no el dato."
+        ],
+        "retroalimentacion": "Es verdadero: son formas distintas de mostrar los mismos datos.",
+        "id": "e02"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 1,
+        "enunciado": "Tabla: yuca 40. Pictograma con ★ = 10. ¿Cuántas estrellas tiene la yuca? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la clave: cada estrella vale 10.",
+          "El dato de yuca es 40.",
+          "Divide 40 entre 10."
+        ],
+        "retroalimentacion": "40 ÷ 10 = 4 estrellas. No es 40, ese es el valor.",
+        "id": "e03"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 1,
+        "enunciado": "En una tabla, el helado de lúcuma tiene 50 votos. En el gráfico de barras, ¿hasta qué marca sube su barra? Escribe solo el número.",
+        "respuesta": "50",
+        "alternativasAceptadas": [
+          "cincuenta"
+        ],
+        "pistas": [
+          "La barra debe mostrar el mismo dato que la tabla.",
+          "El dato es 50.",
+          "La barra llega a la marca del dato."
+        ],
+        "retroalimentacion": "La barra sube hasta la marca 50, igual que el dato de la tabla.",
+        "id": "e04"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 2,
+        "enunciado": "Tabla: lunes 20, martes 60, miércoles 40. Un pictograma con ● = 20 muestra lunes ●, martes ● ● ●, miércoles ● ●. ¿Qué se puede decir?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Está bien: coincide con la tabla"
+          },
+          {
+            "id": "b",
+            "texto": "Hay un error en el lunes"
+          },
+          {
+            "id": "c",
+            "texto": "Hay un error en el martes"
+          },
+          {
+            "id": "d",
+            "texto": "Hay un error en el miércoles"
+          }
+        ],
+        "pistas": [
+          "Calcula los círculos de cada día con la clave 20.",
+          "Lunes 20 ÷ 20; martes 60 ÷ 20; miércoles 40 ÷ 20.",
+          "Compara con los círculos dibujados."
+        ],
+        "retroalimentacion": "Lunes 1, martes 3 y miércoles 2 círculos: coincide con la tabla. No hay errores.",
+        "id": "e05"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 2,
+        "enunciado": "En un pictograma con ● = 5, la barra de «cuyes» tiene 6 círculos. En la tabla, ¿cuántos cuyes se anotan? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada círculo vale 5.",
+          "Hay 6 círculos.",
+          "Multiplica 6 por 5."
+        ],
+        "retroalimentacion": "6 × 5 = 30 cuyes. No es 6, ese es el número de círculos.",
+        "id": "e06"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 2,
+        "enunciado": "Una tabla dice: Cusco 50, Lima 70. En el gráfico de barras la barra de Cusco llega a 50 y la de Lima a 60. ¿En qué ciudad está el error? Escribe el nombre.",
+        "respuesta": "Lima",
+        "alternativasAceptadas": [
+          "lima"
+        ],
+        "pistas": [
+          "Compara cada barra con el dato de la tabla.",
+          "Cusco coincide.",
+          "La barra de Lima debería ser 70."
+        ],
+        "retroalimentacion": "La barra de Lima llega a 60 pero debe llegar a 70. Cusco coincide con la tabla.",
+        "id": "e07"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 2,
+        "enunciado": "Si en un pictograma con ★ = 20 hay 3 estrellas y media, la tabla debe decir 70.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres estrellas valen 3 × 20.",
+          "Media estrella vale 10.",
+          "Suma 60 más 10."
+        ],
+        "retroalimentacion": "Es verdadero: 60 + 10 = 70.",
+        "id": "e08"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 3,
+        "enunciado": "Una tabla dice: papa 80, maíz 60, quinua 40. Un pictograma tiene la clave ● = 20. ¿Cuántos círculos en total se dibujan para las tres cosechas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9"
+          },
+          {
+            "id": "b",
+            "texto": "180"
+          },
+          {
+            "id": "c",
+            "texto": "3"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ],
+        "pistas": [
+          "Calcula los círculos de cada cosecha: 80 ÷ 20, 60 ÷ 20, 40 ÷ 20.",
+          "Son 4, 3 y 2.",
+          "Suma los tres resultados."
+        ],
+        "retroalimentacion": "4 + 3 + 2 = 9 círculos. El 180 es la suma de los valores, no de los círculos.",
+        "id": "e09"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 3,
+        "enunciado": "El gráfico de barras tiene escala de 10 en 10. La barra de Ana llega a 50 y la de Beto a 80. El pictograma con ● = 10 muestra a Ana con 5 círculos. ¿Cuántos círculos debe tener Beto? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada círculo vale 10, igual que en la escala.",
+          "El valor de Beto es 80.",
+          "Divide 80 entre 10."
+        ],
+        "retroalimentacion": "80 ÷ 10 = 8 círculos para Beto.",
+        "id": "e10"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 3,
+        "enunciado": "Un pictograma con ★ = 4 muestra «gatos» con 2 estrellas y media. El gráfico de barras dice 12. ¿Está bien el gráfico? Responde sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no está bien"
+        ],
+        "pistas": [
+          "Calcula el valor del pictograma: 2 estrellas valen 8.",
+          "Media estrella vale 2.",
+          "El pictograma da 10, no 12."
+        ],
+        "retroalimentacion": "El pictograma da 2 × 4 + 2 = 10 gatos, y el gráfico dice 12: no coinciden.",
+        "id": "e11"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 3,
+        "enunciado": "Con la clave ● = 10, el pictograma de 25 niños tiene 2 círculos y medio y el gráfico de barras sube hasta la mitad entre 20 y 30.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 25 entre 10 para el pictograma.",
+          "25 es la mitad entre 20 y 30 en el gráfico.",
+          "Ambos dicen 25."
+        ],
+        "retroalimentacion": "Es verdadero: 2 círculos y medio valen 25, y la mitad entre 20 y 30 es 25.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,628 @@
+[
+  {
+    "clave": "mat.p4.figuras-simetricas-cuadricula",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P4-06"
+    ],
+    "bloque": "Simetría y traslación",
+    "nombre": "Figuras simétricas en cuadrícula",
+    "disciplina": "geometria",
+    "descripcionCorta": "Completa y construye figuras simétricas respecto de un eje en papel cuadriculado.",
+    "palabrasClave": [
+      "simetría",
+      "eje",
+      "reflejo",
+      "cuadrícula",
+      "mitades iguales"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 28,
+    "ideaCentral": "En una figura simétrica, las dos mitades se ven como en un espejo: a cada lado del eje, cada casilla tiene su pareja a la misma distancia. Para completarla, refleja cada fila leyéndola al revés.",
+    "pasos": [
+      "Ubica el eje de simetría.",
+      "Mira cada casilla pintada y mide a cuántas casillas está del eje.",
+      "Pinta del otro lado la casilla que está a la misma distancia.",
+      "Comprueba que al doblar por el eje las dos mitades coinciden."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El eje es |. La fila ■ ■ □ | queda a la izquierda. ¿Cómo se completa?",
+        "desarrollo": "Lee la fila izquierda al revés: □ ■ ■.",
+        "respuesta": "La fila completa es ■ ■ □ | □ ■ ■."
+      },
+      {
+        "situacion": "Una mariposa dibujada en cuadrícula tiene un punto pintado a 2 casillas del eje, a la izquierda. ¿Dónde va su pareja?",
+        "desarrollo": "La pareja está a la misma distancia, pero al otro lado.",
+        "respuesta": "A 2 casillas del eje, a la derecha."
+      },
+      {
+        "situacion": "La mitad izquierda de un diseño de tejido cusqueño tiene 4 casillas pintadas. ¿Cuántas tendrá el diseño completo?",
+        "desarrollo": "La mitad derecha repite esas 4.",
+        "respuesta": "El diseño completo tiene 8 casillas pintadas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Copiar la mitad igual en la derecha, sin invertirla.",
+        "correccion": "El reflejo se lee al revés: lo que estaba lejos del eje queda lejos del eje en el otro lado."
+      },
+      {
+        "error": "Medir mal las distancias al eje.",
+        "correccion": "Cuenta las casillas desde el eje hacia afuera; la pareja está a la misma cantidad."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Eje de simetría",
+        "significado": "Línea donde se dobla la figura para que las mitades coincidan."
+      },
+      {
+        "termino": "Simétrica",
+        "significado": "Figura que tiene dos mitades iguales como en un espejo."
+      },
+      {
+        "termino": "Reflejo",
+        "significado": "Imagen que se ve como en un espejo, con el orden invertido."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una figura es simétrica cuando, al doblarla por el eje, las dos mitades coinciden exactamente.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en doblar una hoja con un dibujo por la mitad.",
+          "Si el dibujo es simétrico, una mitad cae sobre la otra.",
+          "Las dos mitades deben coincidir sin que sobre ni falte nada."
+        ],
+        "retroalimentacion": "Es verdadero: en una figura simétrica las dos mitades son iguales y coinciden al doblar por el eje."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "El eje de simetría es |. Mira esta fila de la cuadrícula:\n■ □ □ | ? ? ?\n¿Cómo se ve la fila simétrica en la derecha?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "■ □ □"
+          },
+          {
+            "id": "b",
+            "texto": "□ ■ □"
+          },
+          {
+            "id": "c",
+            "texto": "□ □ ■"
+          },
+          {
+            "id": "d",
+            "texto": "■ ■ □"
+          }
+        ],
+        "pistas": [
+          "La casilla pintada de la izquierda está pegada al borde exterior, lejos del eje.",
+          "La simétrica también debe quedar lejos del eje, pero al otro lado.",
+          "Lee la fila izquierda de atrás hacia adelante."
+        ],
+        "retroalimentacion": "La fila simétrica es □ □ ■: se lee la izquierda al revés. Repetir ■ □ □ es copiar, no reflejar."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La mitad izquierda de una figura simétrica tiene 5 casillas pintadas. ¿Cuántas casillas pintadas debe tener la mitad derecha? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos mitades de una figura simétrica son iguales.",
+          "Si coinciden al doblar, tienen la misma cantidad de casillas pintadas.",
+          "La derecha tiene tantas como la izquierda."
+        ],
+        "retroalimentacion": "La mitad derecha también tiene 5 casillas pintadas, porque es el reflejo de la izquierda."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La línea sobre la que se dobla una figura para que sus mitades coincidan se llama ___ de simetría. Escribe la palabra que falta.",
+        "respuesta": "eje",
+        "alternativasAceptadas": [
+          "el eje",
+          "eje de simetría"
+        ],
+        "pistas": [
+          "Piensa en la línea de doblez de la hoja.",
+          "Es una línea recta que divide la figura en dos mitades iguales.",
+          "Es una palabra de 3 letras que empieza con e."
+        ],
+        "retroalimentacion": "La palabra es eje: es la línea donde se dobla la figura para que las mitades coincidan."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El eje es |. La mitad izquierda de una figura en cuadrícula es:\nFila 1: ■ ■ □ |\nFila 2: ■ □ □ |\nFila 3: ■ ■ ■ |\nSi la completas simétrica, ¿cuántas casillas pintadas tendrá toda la figura? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta primero las casillas pintadas de la mitad izquierda, fila por fila.",
+          "Hay 2 en la fila 1, 1 en la fila 2 y 3 en la fila 3.",
+          "La derecha será igual: duplica ese total."
+        ],
+        "retroalimentacion": "La izquierda tiene 2 + 1 + 3 = 6 casillas pintadas, y la figura completa tiene 6 + 6 = 12. Si respondes 6 solo cuentas una mitad."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El eje es |. Mira la fila:\n□ ■ ■ | ? ? ?\n¿Cuál es su fila simétrica?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "■ ■ □"
+          },
+          {
+            "id": "b",
+            "texto": "□ ■ ■"
+          },
+          {
+            "id": "c",
+            "texto": "■ □ ■"
+          },
+          {
+            "id": "d",
+            "texto": "□ □ ■"
+          }
+        ],
+        "pistas": [
+          "La casilla pegada al eje, a la izquierda, está pintada.",
+          "Su simétrica también debe estar pegada al eje.",
+          "La fila derecha empieza con ■ ■ y termina con □."
+        ],
+        "retroalimentacion": "La fila simétrica es ■ ■ □. La opción □ ■ ■ es solo una copia, no un reflejo."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una casilla pintada está a 3 casillas del eje, por la izquierda. Su casilla simétrica está a 2 casillas del eje, por la derecha.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La simétrica está a la misma distancia del eje.",
+          "Si una está a 3 casillas del eje, la otra también.",
+          "La distancia debe ser 3, no 2."
+        ],
+        "retroalimentacion": "Es falso: dos casillas simétricas están a la misma distancia del eje, así que la derecha está a 3 casillas, no a 2."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una casilla pintada está a 4 casillas del eje, por la izquierda. Para que la figura sea simétrica, ¿a cuántas casillas del eje, por la derecha, debe haber otra casilla pintada? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mide la distancia de la casilla pintada al eje.",
+          "Esa distancia se repite al otro lado del eje.",
+          "La distancia en la derecha es la misma: 4."
+        ],
+        "retroalimentacion": "La casilla simétrica está también a 4 casillas del eje, pero por la derecha."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El eje es |. Esta es la mitad izquierda:\nFila 1: ■ ■ □ □ |\nFila 2: □ ■ ■ □ |\nFila 3: ■ □ □ □ |\nCompleta la figura simétrica. ¿Cuántas casillas pintadas tendrá en total? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las pintadas de cada fila izquierda: 2, 2 y 1.",
+          "En la izquierda hay 2 + 2 + 1 = 5 pintadas.",
+          "La derecha es un reflejo, con las mismas 5 pintadas."
+        ],
+        "retroalimentacion": "La izquierda tiene 5 pintadas y el reflejo tiene otras 5, así que hay 10. Con 5 solo contaste media figura."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El eje es |. Completa las dos filas simétricas:\nFila 1: ■ □ □ | ? ? ?\nFila 2: □ ■ ■ | ? ? ?\n¿Qué opción es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Fila 1: ■ □ □ y Fila 2: □ ■ ■"
+          },
+          {
+            "id": "b",
+            "texto": "Fila 1: □ □ ■ y Fila 2: □ ■ ■"
+          },
+          {
+            "id": "c",
+            "texto": "Fila 1: ■ □ □ y Fila 2: ■ ■ □"
+          },
+          {
+            "id": "d",
+            "texto": "Fila 1: □ □ ■ y Fila 2: ■ ■ □"
+          }
+        ],
+        "pistas": [
+          "Refleja cada fila por separado, leyéndola al revés.",
+          "Fila 1 al revés: □ □ ■. Fila 2 al revés: ■ ■ □.",
+          "Una opción acierta solo una de las filas; la correcta acierta las dos."
+        ],
+        "retroalimentacion": "Las dos filas se leen al revés: □ □ ■ y ■ ■ □. Copiar las filas sin invertirlas es el error más común."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una figura tiene 7 casillas pintadas a la izquierda del eje y 8 a la derecha. Esta figura puede ser simétrica.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos mitades simétricas deben tener la misma cantidad de casillas pintadas.",
+          "Compara 7 y 8.",
+          "Como 7 no es igual a 8, no coinciden al doblar."
+        ],
+        "retroalimentacion": "Es falso: una figura simétrica tiene igual cantidad de casillas pintadas a cada lado del eje. 7 y 8 son distintas."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El eje es |. Tomás dibujó la fila ■ □ | ■ □ y dice que es simétrica. ¿Qué debió dibujar en la derecha para que lo fuera? Escribe las dos casillas, por ejemplo □■.",
+        "respuesta": "□■",
+        "alternativasAceptadas": [
+          "□ ■"
+        ],
+        "pistas": [
+          "Mira qué casilla está pegada al eje en la izquierda.",
+          "La casilla pegada al eje en la izquierda es □; su simétrica también debe estar pegada al eje.",
+          "La derecha empieza con □."
+        ],
+        "retroalimentacion": "La fila simétrica es ■ □ | □ ■. Tomás copió la fila en vez de reflejarla."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.traslacion-cuadricula",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P4-02",
+      "MAT-C26-P4-05",
+      "MAT-C26-P4-06"
+    ],
+    "bloque": "Simetría y traslación",
+    "nombre": "Traslación de figuras",
+    "disciplina": "geometria",
+    "descripcionCorta": "Desplaza una figura en la cuadrícula un número de casillas en una dirección.",
+    "palabrasClave": [
+      "traslación",
+      "cuadrícula",
+      "desplazar",
+      "dirección",
+      "casillas"
+    ],
+    "prerrequisitos": [
+      "mat.p4.figuras-simetricas-cuadricula"
+    ],
+    "ordenSugerido": 102,
+    "ideaCentral": "Trasladar es deslizar una figura a otra posición sin girarla ni cambiar su tamaño. Cuentas cuántas casillas se mueve y hacia dónde: derecha o izquierda cambia la columna; arriba o abajo cambia la fila.",
+    "pasos": [
+      "Ubica la figura y su posición inicial en la cuadrícula.",
+      "Lee la dirección y cuántas casillas debes moverla.",
+      "Mueve cada casilla de la figura la misma cantidad.",
+      "Revisa que la figura quedó igual, solo en otro lugar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un ● está en la columna 3. Se traslada 2 casillas a la derecha. ¿Dónde queda?",
+        "desarrollo": "A la derecha se suma a la columna: 3 + 2.",
+        "respuesta": "Queda en la columna 5."
+      },
+      {
+        "situacion": "Una piedra de un juego, en (col 2, fila 4), se traslada 3 casillas hacia abajo. ¿Dónde queda?",
+        "desarrollo": "Abajo resta a la fila; la columna no cambia: 4 − 3.",
+        "respuesta": "Queda en (2, 1)."
+      },
+      {
+        "situacion": "Una figura de 3 casillas se traslada 5 a la izquierda. ¿Cuántas casillas tendrá?",
+        "desarrollo": "La traslación no cambia el tamaño.",
+        "respuesta": "Seguirá teniendo 3 casillas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar la columna cuando el movimiento es hacia arriba o abajo.",
+        "correccion": "Derecha e izquierda cambian la columna; arriba y abajo cambian la fila."
+      },
+      {
+        "error": "Mover solo una casilla de la figura.",
+        "correccion": "Todas las casillas se mueven igual para que la figura no se deforme."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Traslación",
+        "significado": "Movimiento que desliza una figura sin girarla ni cambiarla."
+      },
+      {
+        "termino": "Columna",
+        "significado": "Línea de casillas de arriba abajo."
+      },
+      {
+        "termino": "Fila",
+        "significado": "Línea de casillas de izquierda a derecha."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un ● está en la columna 3 de la cuadrícula. Lo trasladas 2 casillas a la derecha. ¿En qué columna queda? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Trasladar a la derecha significa avanzar hacia columnas con números mayores.",
+          "Empieza en 3 y avanza 2 casillas.",
+          "3 + 2 = ..."
+        ],
+        "retroalimentacion": "Al moverlo 2 casillas a la derecha pasa de la columna 3 a la 5. Si restaste, lo moviste hacia la izquierda."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Trasladar una figura es moverla sin girarla y sin cambiar su tamaño.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en deslizar una hoja sobre la mesa.",
+          "Al deslizarla no la volteas ni la haces más grande.",
+          "La figura solo cambia de lugar."
+        ],
+        "retroalimentacion": "Es verdadero: en una traslación la figura se desliza y queda igual, solo cambia de posición."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Trasladas un ■ 4 casillas hacia la izquierda en la cuadrícula. ¿Cómo se mueve?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se desliza 4 casillas de lado, hacia la izquierda"
+          },
+          {
+            "id": "b",
+            "texto": "Sube 4 casillas"
+          },
+          {
+            "id": "c",
+            "texto": "Baja 4 casillas"
+          },
+          {
+            "id": "d",
+            "texto": "Gira 4 veces sobre sí mismo"
+          }
+        ],
+        "pistas": [
+          "Izquierda y derecha son movimientos de lado.",
+          "Subir y bajar son los movimientos verticales.",
+          "La traslación no gira la figura."
+        ],
+        "retroalimentacion": "Se desliza de lado, 4 casillas hacia la izquierda. Subir o bajar sería otra dirección y girar no es traslación."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La dirección contraria a «hacia la derecha» es «hacia la ___». Escribe la palabra que falta.",
+        "respuesta": "izquierda",
+        "alternativasAceptadas": [
+          "la izquierda",
+          "hacia la izquierda"
+        ],
+        "pistas": [
+          "Piensa en moverte al lado opuesto.",
+          "Si derecha es un lado, el otro lado es...",
+          "Empieza con i."
+        ],
+        "retroalimentacion": "La dirección contraria a derecha es izquierda."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un ■ está en la columna 5, fila 2. Se traslada 3 casillas a la izquierda y 4 casillas hacia arriba. ¿En qué fila queda? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa los dos movimientos: izquierda cambia la columna; arriba cambia la fila.",
+          "Hacia arriba suma a la fila.",
+          "Fila 2 más 4 casillas."
+        ],
+        "retroalimentacion": "Subir 4 casillas lleva de la fila 2 a la 6. Moverse a la izquierda cambia la columna, no la fila."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una figura ocupa las columnas 2, 3 y 4. Se traslada 5 casillas a la derecha. ¿En qué columna termina su casilla que estaba más a la derecha? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La casilla más a la derecha estaba en la columna 4.",
+          "Todas las casillas se mueven 5 columnas a la derecha.",
+          "4 + 5 = ..."
+        ],
+        "retroalimentacion": "La casilla de la columna 4 pasa a la 9; la figura completa ocupará las columnas 7, 8 y 9."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si trasladas una figura 3 casillas a la derecha y luego 3 casillas a la izquierda, vuelve al lugar donde empezó.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los dos movimientos: uno va a un lado y el otro vuelve.",
+          "Se mueve 3 hacia un lado y 3 hacia el contrario.",
+          "3 − 3 = 0 casillas de diferencia."
+        ],
+        "retroalimentacion": "Es verdadero: ir 3 a la derecha y volver 3 a la izquierda deja la figura en su posición inicial."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura formada por 4 casillas se traslada 6 casillas hacia abajo. ¿Cuántas casillas tiene la figura trasladada?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 casillas"
+          },
+          {
+            "id": "b",
+            "texto": "2 casillas"
+          },
+          {
+            "id": "c",
+            "texto": "4 casillas, la figura es la misma"
+          },
+          {
+            "id": "d",
+            "texto": "6 casillas"
+          }
+        ],
+        "pistas": [
+          "La traslación no cambia el tamaño de la figura.",
+          "Solo cambia el lugar.",
+          "Sigue teniendo las casillas que tenía antes."
+        ],
+        "retroalimentacion": "La figura trasladada sigue teniendo 4 casillas. El 6 es cuánto se movió, no su tamaño."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un ◆ está en (col 4, fila 7). Lo trasladas 5 casillas hacia abajo y 3 casillas a la derecha. Escribe dónde queda con el formato (col, fila).",
+        "respuesta": "(7, 2)",
+        "alternativasAceptadas": [
+          "(7,2)",
+          "7,2",
+          "7 y 2",
+          "col 7, fila 2",
+          "(col 7, fila 2)"
+        ],
+        "pistas": [
+          "Mira qué número cambia con cada movimiento.",
+          "Abajo baja la fila: 7 − 5. A la derecha sube la columna: 4 + 3.",
+          "Columna 7 y fila 2."
+        ],
+        "retroalimentacion": "Queda en (7, 2): la columna sube de 4 a 7 y la fila baja de 7 a 2. Si cambias el orden quedaría (2, 7)."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un ■ está en (col 2, fila 3). Se traslada 6 casillas a la derecha, luego 4 casillas hacia arriba y luego 2 casillas a la izquierda. ¿En qué columna queda al final? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Solo los movimientos a los lados cambian la columna.",
+          "Arriba no cambia la columna; sí cambian los 6 a la derecha y los 2 a la izquierda.",
+          "2 + 6 − 2 = ..."
+        ],
+        "retroalimentacion": "La columna final es 2 + 6 − 2 = 6. El movimiento hacia arriba solo cambia la fila."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marta trasladó un ● de (col 3, fila 2) a (col 7, fila 2). Luis dice: «lo movió 4 a la derecha y 2 hacia arriba». Marta dice: «lo moví solo 4 a la derecha». ¿Quién tiene razón?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Luis, porque la figura cambió de lugar"
+          },
+          {
+            "id": "b",
+            "texto": "Los dos, porque se movió a la derecha"
+          },
+          {
+            "id": "c",
+            "texto": "Ninguno, porque se giró"
+          },
+          {
+            "id": "d",
+            "texto": "Marta, porque la fila no cambió: sigue en 2"
+          }
+        ],
+        "pistas": [
+          "Compara el punto de inicio con el punto final.",
+          "La columna cambió de 3 a 7: 4 casillas a la derecha.",
+          "La fila era 2 y sigue siendo 2."
+        ],
+        "retroalimentacion": "Tiene razón Marta: la fila sigue en 2, así que no subió. Luis inventó un movimiento hacia arriba que no ocurrió."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Trasladar un triángulo 3 casillas a la derecha y luego 2 hacia arriba lo deja en el mismo lugar que subirlo primero 2 casillas y luego moverlo 3 a la derecha.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en la columna y la fila final con cada orden.",
+          "A la derecha suma 3 columnas, arriba suma 2 filas.",
+          "Sumar 3 y 2 en cualquier orden da el mismo punto final."
+        ],
+        "retroalimentacion": "Es verdadero: la columna y la fila finales son las mismas aunque cambies el orden de los movimientos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

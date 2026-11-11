@@ -1,0 +1,607 @@
+[
+  {
+    "clave": "mat.p4.moda",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P4-01",
+      "MAT-C25-P4-02",
+      "MAT-C25-P4-05"
+    ],
+    "bloque": "Moda y media",
+    "nombre": "La moda",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Identifica el dato con mayor frecuencia en una tabla o gráfico.",
+    "palabrasClave": [
+      "moda",
+      "frecuencia",
+      "dato",
+      "tabla",
+      "se repite más"
+    ],
+    "prerrequisitos": [
+      "mat.p4.tabla-frecuencias-4"
+    ],
+    "ordenSugerido": 108,
+    "ideaCentral": "La moda es el dato que más se repite en un grupo de datos. En una tabla o gráfico, es el que tiene la mayor frecuencia.",
+    "pasos": [
+      "Mira todos los datos o la tabla de frecuencias.",
+      "Cuenta cuántas veces aparece cada dato.",
+      "Busca el dato que aparece más veces.",
+      "Responde con ese dato: esa es la moda."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Las notas de 7 niños fueron 14, 15, 15, 13, 16, 15 y 14. ¿Cuál es la moda?",
+        "desarrollo": "El 14 aparece 2 veces, el 13 una, el 16 una y el 15 tres veces.",
+        "respuesta": "La moda es 15."
+      },
+      {
+        "situacion": "En una tabla, Cuy tiene 6 votos, Gato 4 y Perro 5 como mascota favorita. ¿Cuál es la moda?",
+        "desarrollo": "El mayor número de votos es 6, de Cuy.",
+        "respuesta": "La moda es Cuy."
+      },
+      {
+        "situacion": "Colores favoritos: rojo, azul, rojo, verde, azul, rojo. ¿Cuál es la moda?",
+        "desarrollo": "Rojo aparece 3 veces, azul 2 y verde 1.",
+        "respuesta": "La moda es rojo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir el dato más grande como moda (decir que la moda de 2, 3, 3, 8 es 8).",
+        "correccion": "La moda es el dato que más se repite, no el mayor. Aquí es 3."
+      },
+      {
+        "error": "Responder con la frecuencia en lugar del dato (decir «la moda es 4 veces»).",
+        "correccion": "Responde con el dato; la frecuencia es cuántas veces aparece."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Dato",
+        "significado": "Cada valor o respuesta que se anota."
+      },
+      {
+        "termino": "Frecuencia",
+        "significado": "Número de veces que aparece un dato."
+      },
+      {
+        "termino": "Moda",
+        "significado": "El dato con la mayor frecuencia."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un grupo de niños se anotaron las edades: 2, 3, 3, 5, 3. ¿Cuál es la moda? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas veces aparece cada edad.",
+          "El 3 aparece más veces que el 2 y el 5.",
+          "El 3 aparece tres veces."
+        ],
+        "retroalimentacion": "El 3 aparece 3 veces, más que cualquier otro dato: la moda es 3."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Colores favoritos de un grupo: rojo, azul, rojo, verde, rojo, azul. ¿Cuál es la moda? Responde con una palabra.",
+        "respuesta": "rojo",
+        "alternativasAceptadas": [
+          "el rojo",
+          "rojo."
+        ],
+        "pistas": [
+          "Cuenta cada color por separado.",
+          "Rojo aparece 3 veces, azul 2 veces y verde 1.",
+          "Elige el color con más repeticiones."
+        ],
+        "retroalimentacion": "Rojo se repite 3 veces, más que azul y verde."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La moda es el dato que más se repite.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la palabra «moda»: lo que está de moda es lo más usado.",
+          "Frecuencia mayor significa que aparece más veces.",
+          "La moda es el dato de mayor frecuencia."
+        ],
+        "retroalimentacion": "Es verdadero: la moda es el dato que tiene la mayor frecuencia."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla de frutas favoritas en el mercado: Manzana 4, Plátano 7, Naranja 5. ¿Cuál es la moda?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Manzana"
+          },
+          {
+            "id": "b",
+            "texto": "Plátano"
+          },
+          {
+            "id": "c",
+            "texto": "Naranja"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la columna de números (frecuencias).",
+          "Compara 4, 7 y 5.",
+          "Busca la fruta con el número más grande."
+        ],
+        "retroalimentacion": "Plátano tiene 7 votos, el mayor número de la tabla. Manzana (4) y Naranja (5) tienen menos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Las notas de siete estudiantes fueron 14, 15, 15, 13, 16, 15 y 14. ¿Cuál es la moda? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Anota cuántas veces aparece cada nota.",
+          "El 14 sale 2 veces; falta contar el 15.",
+          "El 15 aparece 3 veces."
+        ],
+        "retroalimentacion": "El 15 se repite 3 veces; el 14, 2 veces; el 13 y el 16, 1 vez cada uno. La moda es 15."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Gráfico de mascotas (cada ● es un niño): Perro ●●●● , Gato ●● , Cuy ●●●●●●. ¿Cuál es la moda?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Perro"
+          },
+          {
+            "id": "b",
+            "texto": "Gato"
+          },
+          {
+            "id": "c",
+            "texto": "Cuy"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los puntos de cada fila.",
+          "Perro tiene 4 y Gato 2; falta Cuy.",
+          "Cuy tiene más puntos que las otras dos filas."
+        ],
+        "retroalimentacion": "Cuy tiene 6 puntos, Perro 4 y Gato 2; la fila más larga es la moda."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En una tabla de meses de cumpleaños hay: Mayo 3, Junio 8, Julio 5. ¿Cuál es la moda? Responde con el mes.",
+        "respuesta": "junio",
+        "alternativasAceptadas": [
+          "Junio",
+          "el mes de junio"
+        ],
+        "pistas": [
+          "Mira la columna de números, no el orden de los meses.",
+          "Compara 3, 8 y 5.",
+          "El 8 es el mayor número de cumpleaños."
+        ],
+        "retroalimentacion": "Junio tiene 8 cumpleaños, la mayor frecuencia; la moda es junio."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un grupo de datos 8, 9, 9, 7, 9, 8, 9, 10, la moda es 9. ¿Cuántas veces aparece la moda? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca solo el dato 9 en la lista.",
+          "Marca cada 9 que veas.",
+          "Hay un 9 en la 2ª, 3ª, 5ª y 7ª posición."
+        ],
+        "retroalimentacion": "El 9 aparece 4 veces; esa es su frecuencia."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una encuesta de 20 niños: 5 eligieron lápiz, 7 cuaderno y el resto eligió borrador. Si la moda es borrador, ¿cuántos niños eligieron borrador? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los niños que eligieron lápiz y cuaderno.",
+          "5 + 7 = 12 niños.",
+          "Resta 12 al total de 20 niños."
+        ],
+        "retroalimentacion": "20 − 12 = 8 niños. Como 8 es mayor que 7 y que 5, borrador sí es la moda."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos secciones anotaron sus datos. A: 4, 5, 5, 6. B: 4, 4, 5, 6. ¿Qué afirmación es correcta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Las dos secciones tienen la misma moda"
+          },
+          {
+            "id": "b",
+            "texto": "La moda de B es 5 y la de A es 4"
+          },
+          {
+            "id": "c",
+            "texto": "La moda de A es 6 y la de B es 4"
+          },
+          {
+            "id": "d",
+            "texto": "La moda de A es 5 y la de B es 4"
+          }
+        ],
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las repeticiones en cada sección por separado.",
+          "En A el 5 se repite 2 veces; en B ¿qué número se repite?",
+          "En B el 4 aparece dos veces."
+        ],
+        "retroalimentacion": "En A el 5 aparece 2 veces y en B el 4 aparece 2 veces. Las otras opciones mezclan las modas o dicen que son iguales."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En los datos 2, 3, 4, 5 la moda es 5 porque es el número mayor.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas veces aparece cada dato.",
+          "Cada uno aparece una sola vez.",
+          "La moda no se elige por ser el mayor."
+        ],
+        "retroalimentacion": "Es falso: ningún dato se repite más que otro, así que no hay una moda única. La moda no es el número mayor."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tienda vendió polos de talla S: 12, M: 18 y L: 15. ¿Cuántos polos L más debe vender, como mínimo, para que L sea la única moda? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ahora la moda es M con 18.",
+          "Para superar 18 necesitas llegar a 19 polos L.",
+          "19 − 15."
+        ],
+        "retroalimentacion": "L tiene 15 y debe pasar a M (18): necesita 19, o sea 19 − 15 = 4 polos más."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.media-punto-equilibrio",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P4-02",
+      "MAT-C25-P4-05"
+    ],
+    "bloque": "Moda y media",
+    "nombre": "La media como punto de equilibrio",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Iguala cantidades con material concreto para hallar la media de pocos datos.",
+    "palabrasClave": [
+      "media",
+      "igualar",
+      "reparto equitativo",
+      "promedio",
+      "equilibrio"
+    ],
+    "prerrequisitos": [
+      "mat.p4.moda"
+    ],
+    "ordenSugerido": 121,
+    "ideaCentral": "La media es el valor que tendría cada dato si todas las cantidades se igualaran, pasando de los que tienen más a los que tienen menos. También se halla sumando todo y repartiendo en partes iguales.",
+    "pasos": [
+      "Mira las cantidades que tienen cada niño o cada grupo.",
+      "Pasa unidades de las cantidades grandes a las pequeñas hasta que todas queden iguales.",
+      "El número que queda en cada uno es la media.",
+      "Compruébalo: suma todo y reparte entre el número de datos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana tiene 2 caramelos y Beto 4. Si los reparten para tener lo mismo, ¿cuántos tiene cada uno?",
+        "desarrollo": "Beto pasa 1 caramelo a Ana: Ana 3 y Beto 3.",
+        "respuesta": "Cada uno tiene 3; la media es 3."
+      },
+      {
+        "situacion": "Tres torres tienen 2, 4 y 6 cubos. ¿Cuál es la media?",
+        "desarrollo": "Pasamos 2 cubos de la torre de 6 a la de 2: quedan 4, 4 y 4.",
+        "respuesta": "La media es 4."
+      },
+      {
+        "situacion": "En el mercado, tres puestos venden 10, 20 y 30 kilos de papa. Si vendieran igual cantidad cada uno, ¿cuántos kilos serían?",
+        "desarrollo": "Sumamos: 10 + 20 + 30 = 60. Repartimos entre 3: 60 ÷ 3 = 20.",
+        "respuesta": "La media es 20 kilos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir el dato del medio sin igualar (decir que la media de 1, 2 y 9 es 2).",
+        "correccion": "La media usa todos los datos: 1 + 2 + 9 = 12 y 12 ÷ 3 = 4."
+      },
+      {
+        "error": "Sumar los datos y no dividir entre la cantidad de datos.",
+        "correccion": "Después de sumar, reparte en partes iguales: divide entre cuántos datos hay."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Media",
+        "significado": "Valor que quedaría en cada dato si todos se igualaran."
+      },
+      {
+        "termino": "Igualar",
+        "significado": "Hacer que varias cantidades queden iguales."
+      },
+      {
+        "termino": "Dato",
+        "significado": "Cada cantidad o valor que se anota."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Ana tiene 2 caramelos y Beto 4. Reparten para quedar con la misma cantidad. ¿Cuántos caramelos tiene cada uno? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Beto tiene 2 más que Ana.",
+          "Si Beto pasa 1 caramelo a Ana, ¿cuánto tiene cada uno?",
+          "Ana pasa de 2 a 3 y Beto de 4 a 3."
+        ],
+        "retroalimentacion": "Beto pasa 1 caramelo a Ana y ambos quedan con 3. La media es 3."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tres torres de cubos tienen 2, 4 y 6 cubos. Igualas las tres torres. ¿Cuántos cubos queda en cada una? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La torre de 6 tiene cubos que le sobran a la de 2.",
+          "Pasa 2 cubos de la torre alta a la más baja.",
+          "Las torres quedan 4, 4 y ... complétalo."
+        ],
+        "retroalimentacion": "Pasan 2 cubos de la torre de 6 a la de 2 y todas quedan con 4; la media es 4."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si reparten 3 y 5 caramelos entre dos niños para igualar, cada uno queda con 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos niños juntos tienen 3 + 5 caramelos.",
+          "Ese total se reparte entre 2 niños.",
+          "8 ÷ 2."
+        ],
+        "retroalimentacion": "Es verdadero: 3 + 5 = 8 y 8 ÷ 2 = 4 para cada niño."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lucía tiene 4 soles y Mario 8 soles. Si juntan y reparten para quedar iguales, ¿cuánto tiene cada uno?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 soles"
+          },
+          {
+            "id": "b",
+            "texto": "4 soles"
+          },
+          {
+            "id": "c",
+            "texto": "6 soles"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero junta lo de los dos: 4 + 8.",
+          "Reparte ese total en dos partes iguales.",
+          "12 ÷ 2."
+        ],
+        "retroalimentacion": "4 + 8 = 12 soles y 12 ÷ 2 = 6 soles cada uno. Los 12 soles son el total y los 4 soles son lo que tenía Lucía."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tres amigos juntan soles para la fiesta: Ana 3, Beto 6 y Carla 9. Reparten todo en partes iguales. ¿Cuántos soles tiene cada uno? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma lo de los tres: 3 + 6 + 9.",
+          "El total es 18 soles.",
+          "Reparte 18 entre 3 amigos."
+        ],
+        "retroalimentacion": "3 + 6 + 9 = 18 y 18 ÷ 3 = 6 soles cada uno."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Cuatro hermanos tienen 2, 4, 6 y 8 caramelos. Si se reparten para quedar todos con la misma cantidad, ¿cuántos tiene cada uno? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 2 + 4 + 6 + 8.",
+          "El total es 20 caramelos.",
+          "Reparte 20 entre los 4 hermanos."
+        ],
+        "retroalimentacion": "2 + 4 + 6 + 8 = 20 y 20 ÷ 4 = 5 caramelos cada uno."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay dos torres: una de 9 cubos y otra de 5. Para igualarlas, ¿cuántos cubos pasan de la torre alta a la baja?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 cubo"
+          },
+          {
+            "id": "b",
+            "texto": "4 cubos"
+          },
+          {
+            "id": "c",
+            "texto": "2 cubos"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las torres quedarán con la media: 9 + 5 = 14 cubos entre 2.",
+          "Cada torre queda con 7 cubos.",
+          "La torre alta pasa de 9 a 7."
+        ],
+        "retroalimentacion": "La media es 7; la torre de 9 pasa de 9 a 7, o sea cede 2 cubos. Si pasaran 4 cubos, la torre alta quedaría con 5 y la baja con 9, y no estarían iguales."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Tres puestos del mercado venden 10, 20 y 30 kilos de papa. Si vendieran lo mismo cada uno, ¿cuántos kilos serían? Escribe solo el número.",
+        "respuesta": "20",
+        "alternativasAceptadas": [
+          "20 kilos",
+          "20 kg",
+          "20 kilo"
+        ],
+        "pistas": [
+          "Suma los tres: 10 + 20 + 30.",
+          "El total es 60 kilos.",
+          "Divide 60 entre 3 puestos."
+        ],
+        "retroalimentacion": "10 + 20 + 30 = 60 y 60 ÷ 3 = 20 kilos cada puesto."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tres amigos tienen 12, 8 y 10 soles. Reparten para quedar con la misma cantidad. ¿Cuántos soles tiene que dar el amigo que tiene 12? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla cuánto quedará cada uno: suma 12 + 8 + 10 y divide entre 3.",
+          "30 ÷ 3 = 10 soles cada uno.",
+          "El que tiene 12 baja hasta 10."
+        ],
+        "retroalimentacion": "La media es 30 ÷ 3 = 10; el que tiene 12 debe dar 12 − 10 = 2 soles."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Los datos son 6, 9 y un número que no conocemos. La media de los tres es 8. ¿Cuál es el número que falta? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Si la media es 8 y hay 3 datos, el total debe ser 8 × 3.",
+          "El total es 24.",
+          "Resta lo que ya conoces: 24 − 6 − 9."
+        ],
+        "retroalimentacion": "Total = 8 × 3 = 24; el dato que falta es 24 − 6 − 9 = 9."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos grupos de datos tiene media 5?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1, 2 y 6"
+          },
+          {
+            "id": "b",
+            "texto": "2, 3 y 4"
+          },
+          {
+            "id": "c",
+            "texto": "3, 5 y 7"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para cada grupo, suma los datos y divide entre 3.",
+          "Si la media es 5, el total debe ser 15.",
+          "1 + 2 + 6 = 9 y 2 + 3 + 4 = 9: no llegan a 15."
+        ],
+        "retroalimentacion": "3 + 5 + 7 = 15 y 15 ÷ 3 = 5. Los grupos 1, 2 y 6 y 2, 3 y 4 suman 9, o sea media 3."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La media de 2 y 10 es 5.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para la media de dos datos, junta los dos valores.",
+          "El total es 12; ahora hay que repartirlo en partes iguales.",
+          "Reparte el total entre 2 datos."
+        ],
+        "retroalimentacion": "Es falso: 2 + 10 = 12 y 12 ÷ 2 = 6. El 5 no sale de repartir el total."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

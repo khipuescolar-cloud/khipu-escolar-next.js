@@ -1,0 +1,1502 @@
+[
+  {
+    "clave": "mat.p4.problemas-comparacion-multiplicativa",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P4-01"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Problemas de comparación multiplicativa («veces más»)",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve situaciones en que una cantidad es el doble, triple o varias veces otra.",
+    "palabrasClave": [
+      "problemas",
+      "comparación",
+      "multiplicativa",
+      "(«veces",
+      "más»)"
+    ],
+    "prerrequisitos": [
+      "mat.p4.multiplicacion-varias-cifras"
+    ],
+    "ordenSugerido": 44,
+    "ideaCentral": "«Tres veces» una cantidad significa tres grupos iguales de esa cantidad. Multiplica la cantidad de referencia por el número de veces; si buscas la cantidad de referencia, divide el total entre ese número.",
+    "pasos": [
+      "Identifica la cantidad de referencia.",
+      "Encuentra cuántas veces se repite.",
+      "Multiplica para hallar la cantidad mayor, o divide para volver a la referencia.",
+      "Comprueba que el resultado respete la comparación."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja tiene 24 lápices y otra tiene el triple. ¿Cuántos hay en la segunda?",
+        "desarrollo": "El triple es 3 veces 24: 3 × 24 = 72.",
+        "respuesta": "La segunda caja tiene 72 lápices."
+      },
+      {
+        "situacion": "Una clase reunió 96 tapitas, cuatro veces lo que reunió otra. ¿Cuántas reunió la otra?",
+        "desarrollo": "96 es 4 grupos iguales. Un grupo vale 96 ÷ 4 = 24.",
+        "respuesta": "La otra reunió 24 tapitas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Interpretar «triple» como sumar 3.",
+        "correccion": "Triple significa tres grupos de la misma cantidad: multiplica por 3."
+      },
+      {
+        "error": "Multiplicar cuando ya se conoce la cantidad mayor.",
+        "correccion": "Si el total ya representa varias veces la referencia, divide para hallar una vez."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Doble",
+        "significado": "Dos veces una misma cantidad."
+      },
+      {
+        "termino": "Triple",
+        "significado": "Tres veces una misma cantidad."
+      },
+      {
+        "termino": "Referencia",
+        "significado": "Cantidad que se toma como una vez."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Julia llevó 18 mandarinas y Marco llevó el doble. ¿Cuántas llevó Marco?",
+        "respuesta": 36,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cantidad de Julia es la referencia.",
+          "El doble forma dos grupos de 18.",
+          "18 × 2 da las mandarinas de Marco."
+        ],
+        "retroalimentacion": "Marco llevó 36 mandarinas; sumar 2 a 18 no calcula el doble."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un puesto vendió 25 panes y otro vendió el triple. ¿Qué expresión calcula los panes del segundo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una vez equivale a 25 panes.",
+          "El triple repite esa cantidad tres veces.",
+          "Busca una multiplicación de 25 por 3."
+        ],
+        "retroalimentacion": "La expresión 25 × 3 forma tres grupos de 25 panes.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25 + 3"
+          },
+          {
+            "id": "b",
+            "texto": "25 × 3"
+          },
+          {
+            "id": "c",
+            "texto": "25 − 3"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un tejido usa 30 cuentas y otro usa cuatro veces esa cantidad, el segundo usa 120 cuentas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuatro veces indica cuatro grupos iguales.",
+          "Calcula 4 × 30.",
+          "Compara el producto con 120."
+        ],
+        "retroalimentacion": "Es verdadero: 4 × 30 = 120 cuentas."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa tiene 21 canicas; otra tiene cinco veces tantas. ¿Cuántas canicas hay en la segunda?",
+        "respuesta": 105,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una bolsa representa una vez la cantidad.",
+          "Multiplica 21 por 5.",
+          "5 × 20 y 5 × 1 se suman."
+        ],
+        "retroalimentacion": "La segunda bolsa tiene 105 canicas; 26 sería sumar 5, no tomar cinco veces."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un museo recibió 144 visitantes el lunes y el triple el martes. ¿Cuántos recibió el martes?",
+        "respuesta": 432,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El lunes da la cantidad de referencia.",
+          "El martes tuvo tres grupos de 144.",
+          "144 × 3 = 432."
+        ],
+        "retroalimentacion": "El martes recibió 432 visitantes; 144 + 3 no corresponde al triple."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una ruta mide 72 km, cuatro veces otra ruta. ¿Cuánto mide la ruta corta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La ruta de 72 km es la mayor.",
+          "Contiene cuatro tramos iguales de la ruta corta.",
+          "Calcula 72 ÷ 4."
+        ],
+        "retroalimentacion": "La ruta corta mide 18 km; multiplicar 72 por 4 alejaría la respuesta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "288 km"
+          },
+          {
+            "id": "b",
+            "texto": "68 km"
+          },
+          {
+            "id": "c",
+            "texto": "24 km"
+          },
+          {
+            "id": "d",
+            "texto": "18 km"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una caja con 160 fichas tiene cinco veces lo de una caja con 32 fichas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La caja pequeña es una vez.",
+          "Multiplica 32 × 5.",
+          "Revisa si el producto es 160."
+        ],
+        "retroalimentacion": "Es verdadero: 32 × 5 = 160 fichas."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un taller hizo 84 pulseras, siete veces la producción del día anterior. ¿Cuántas hizo el día anterior?",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "84 pulseras son siete grupos iguales.",
+          "Para hallar un grupo, divide entre 7.",
+          "84 ÷ 7 = 12."
+        ],
+        "retroalimentacion": "El día anterior hizo 12 pulseras. No multipliques: 84 ya es la cantidad mayor."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una cooperativa cosechó 238 kg de café y otra cosechó seis veces esa cantidad. ¿Cuántos kg cosechó la segunda?",
+        "respuesta": 1428,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "238 kg es la cantidad que se repite.",
+          "Calcula 238 × 6.",
+          "200 × 6, 30 × 6 y 8 × 6 se suman."
+        ],
+        "retroalimentacion": "La segunda cosechó 1428 kg. Revisa los canjes al multiplicar."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una biblioteca tiene 1728 libros, nueve veces los de otra sala. ¿Cuántos libros hay en la sala menor?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total de 1728 está repartido en nueve partes iguales.",
+          "Divide 1728 entre 9.",
+          "9 × 192 = 1728."
+        ],
+        "retroalimentacion": "Hay 192 libros en la sala menor. 1737 resulta de sumar nueve.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "192"
+          },
+          {
+            "id": "b",
+            "texto": "1737"
+          },
+          {
+            "id": "c",
+            "texto": "15552"
+          },
+          {
+            "id": "d",
+            "texto": "182"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un equipo reunió 415 tapitas; otro reunió ocho veces esa cantidad. ¿Cuántas reunió el segundo?",
+        "respuesta": 3320,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Toma 415 como una vez.",
+          "Forma ocho grupos iguales de 415.",
+          "400 × 8 y 15 × 8 se suman."
+        ],
+        "retroalimentacion": "El segundo reunió 3320 tapitas. Si obtuviste 830, calculaste solo el doble."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una escuela reunió 936 libros, cuatro veces lo reunido por una clase, esa clase reunió 234 libros.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "936 equivale a cuatro grupos iguales.",
+          "Divide 936 entre 4.",
+          "Comprueba 234 × 4 = 936."
+        ],
+        "retroalimentacion": "Es verdadero: un cuarto de 936 es 234 libros."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.problemas-division-residuo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P4-01"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Problemas de división con residuo",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Interpreta qué significa el residuo en la situación y decide la respuesta adecuada.",
+    "palabrasClave": [
+      "problemas",
+      "división",
+      "residuo"
+    ],
+    "prerrequisitos": [
+      "mat.p4.division-exacta-inexacta"
+    ],
+    "ordenSugerido": 75,
+    "ideaCentral": "Cuando una división no es exacta, el residuo son los objetos que sobran después de formar grupos iguales. Según la pregunta, puedes responder con los grupos completos, con lo que sobra o con un grupo adicional para incluir a todos.",
+    "pasos": [
+      "Divide el total entre el tamaño de cada grupo.",
+      "Anota el cociente y el residuo.",
+      "Lee si la pregunta pide grupos completos, objetos sobrantes o grupos para todos.",
+      "Comprueba que divisor × cociente + residuo sea el total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Hay 26 mandarinas para bolsas de 5. ¿Cuántas bolsas completas y cuántas sueltas?",
+        "desarrollo": "26 = 5 × 5 + 1.",
+        "respuesta": "Se llenan 5 bolsas y sobra 1 mandarina."
+      },
+      {
+        "situacion": "Viajan 26 estudiantes en combis de 5 asientos. ¿Cuántas combis se necesitan para todos?",
+        "desarrollo": "Cinco combis llevan 25 estudiantes; queda uno, que necesita otra combi.",
+        "respuesta": "Se necesitan 6 combis."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que el residuo es otro grupo completo.",
+        "correccion": "El residuo tiene menos objetos que el tamaño de un grupo."
+      },
+      {
+        "error": "Responder solo el cociente cuando todos deben viajar.",
+        "correccion": "Si sobra una persona, necesitas un vehículo adicional."
+      },
+      {
+        "error": "Añadir un grupo cuando se preguntan grupos completos.",
+        "correccion": "El grupo incompleto no cuenta como completo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Residuo",
+        "significado": "Cantidad que queda sin formar un grupo completo."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "Número de grupos completos al dividir."
+      },
+      {
+        "termino": "Divisor",
+        "significado": "Tamaño de cada grupo en estos problemas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Hay 17 galletas y se ponen 4 en cada paquete. ¿Cuántas galletas sobran?",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Forma paquetes de cuatro.",
+          "Cuatro paquetes guardan 16 galletas.",
+          "17 − 16 da las que quedan fuera."
+        ],
+        "retroalimentacion": "Sobra 1 galleta; 4 es el número de paquetes completos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Con 23 flores se hacen ramos de 5. ¿Cuántos ramos completos se pueden hacer?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada ramo debe tener cinco flores.",
+          "Cuatro ramos usan 20 flores.",
+          "Las tres restantes no completan otro ramo."
+        ],
+        "retroalimentacion": "Se hacen 4 ramos completos; 5 incluiría un ramo incompleto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 ramos"
+          },
+          {
+            "id": "b",
+            "texto": "3 ramos"
+          },
+          {
+            "id": "c",
+            "texto": "4 ramos"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si repartes 19 lápices en grupos de 6, se forman 3 grupos completos y sobra 1 lápiz.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres grupos de seis usan 18 lápices.",
+          "Compara 18 con el total 19.",
+          "El residuo es 19 − 18."
+        ],
+        "retroalimentacion": "Es verdadero: 19 = 6 × 3 + 1."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Veintidós niñas y niños necesitan mesas de 4 asientos. ¿Cuántas mesas se requieren para sentar a todos?",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cinco mesas sientan a 20 estudiantes.",
+          "Quedan dos estudiantes sin asiento.",
+          "Se necesita una mesa más, aunque no se llene."
+        ],
+        "retroalimentacion": "Se requieren 6 mesas; 5 dejarían a dos estudiantes de pie."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una librería tiene 74 cuadernos para cajas de 8. ¿Cuántos cuadernos quedan fuera de las cajas completas?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un múltiplo de 8 cercano a 74.",
+          "9 × 8 = 72.",
+          "74 − 72 es el residuo."
+        ],
+        "retroalimentacion": "Quedan 2 cuadernos; 9 es el número de cajas completas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una excursión lleva 53 personas en buses de 12 asientos. ¿Cuántos buses necesita para todas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuatro buses llevan 48 personas.",
+          "Aún quedan cinco por viajar.",
+          "Un quinto bus puede llevarlas."
+        ],
+        "retroalimentacion": "Se necesitan 5 buses; 4 dejarían cinco personas sin asiento.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 buses"
+          },
+          {
+            "id": "b",
+            "texto": "4 buses"
+          },
+          {
+            "id": "c",
+            "texto": "6 buses"
+          },
+          {
+            "id": "d",
+            "texto": "12 buses"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al poner 67 panes en bolsas de 9, se llenan 7 bolsas y sobran 4 panes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Siete bolsas usan 7 × 9 panes.",
+          "Ese producto es 63.",
+          "Calcula 67 − 63."
+        ],
+        "retroalimentacion": "Es verdadero: 67 = 9 × 7 + 4."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una artesana forma collares de 11 cuentas con 95 cuentas. ¿Cuántos collares completos logra?",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada collar requiere 11 cuentas.",
+          "8 × 11 = 88, mientras 9 × 11 supera 95.",
+          "Cuenta solo los collares completos."
+        ],
+        "retroalimentacion": "Logra 8 collares; las 7 cuentas restantes no hacen otro."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se guardan 287 lápices en cajas de 24. ¿Cuántos lápices sobran tras llenar todas las cajas posibles?",
+        "respuesta": 23,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca cuántas cajas de 24 caben en 287.",
+          "11 × 24 = 264; 12 × 24 = 288, demasiado.",
+          "287 − 264 es el residuo."
+        ],
+        "retroalimentacion": "Sobran 23 lápices; con uno más se llenaría la caja número doce."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un colegio lleva 385 estudiantes en buses de 48 asientos. ¿Cuántos buses necesita si todos viajan?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ocho buses ofrecen 384 asientos.",
+          "Hay un estudiante adicional.",
+          "Ese estudiante requiere otro bus."
+        ],
+        "retroalimentacion": "Se necesitan 9 buses; 8 dejan una persona sin asiento.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 buses"
+          },
+          {
+            "id": "b",
+            "texto": "10 buses"
+          },
+          {
+            "id": "c",
+            "texto": "48 buses"
+          },
+          {
+            "id": "d",
+            "texto": "9 buses"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un agricultor empaca 431 paltas en cajas de 36. ¿Cuántas cajas completas prepara?",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada caja completa requiere 36 paltas.",
+          "11 × 36 = 396; 12 × 36 = 432.",
+          "431 no alcanza para la caja doce."
+        ],
+        "retroalimentacion": "Prepara 11 cajas completas; sobran 35 paltas."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con 509 fichas en grupos de 25, se forman 20 grupos completos y sobran 9 fichas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Veinte grupos contienen 20 × 25 fichas.",
+          "Eso usa 500 fichas.",
+          "Resta 500 del total 509."
+        ],
+        "retroalimentacion": "Es verdadero: 509 = 25 × 20 + 9."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.problemas-precio-unitario",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P4-01"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Problemas de precio unitario y precio total",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula el costo de varias unidades o el precio de una a partir del total.",
+    "palabrasClave": [
+      "problemas",
+      "precio",
+      "unitario",
+      "precio",
+      "total"
+    ],
+    "prerrequisitos": [
+      "mat.p4.multiplicacion-varias-cifras",
+      "mat.p4.division-una-cifra"
+    ],
+    "ordenSugerido": 78,
+    "ideaCentral": "El precio unitario es lo que cuesta un objeto; el precio total es lo que cuestan varios objetos iguales. Multiplica precio unitario por cantidad para hallar el total, o divide el total entre la cantidad para hallar el precio de uno.",
+    "pasos": [
+      "Identifica cuántos objetos iguales se compran.",
+      "Ubica si conoces el precio de uno o el total.",
+      "Multiplica para hallar el total o divide para hallar el precio unitario.",
+      "Responde en soles y comprueba con la operación inversa."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Cada cuaderno cuesta S/ 8. ¿Cuánto cuestan 6?",
+        "desarrollo": "Son 6 cuadernos de S/ 8: 6 × 8 = 48.",
+        "respuesta": "Cuestan S/ 48."
+      },
+      {
+        "situacion": "Cinco vasos iguales cuestan S/ 35. ¿Cuánto cuesta uno?",
+        "desarrollo": "Reparto el total entre 5 vasos: 35 ÷ 5 = 7.",
+        "respuesta": "Cada vaso cuesta S/ 7."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar cantidad y precio unitario.",
+        "correccion": "Cada unidad tiene el mismo precio; repítelo tantas veces como unidades hay."
+      },
+      {
+        "error": "Dividir el precio unitario entre la cantidad.",
+        "correccion": "Para un total, multiplica precio por número de productos."
+      },
+      {
+        "error": "Escribir como precio de uno el total de varios.",
+        "correccion": "Divide el costo total entre el número de unidades iguales."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Precio unitario",
+        "significado": "Costo de una sola unidad."
+      },
+      {
+        "termino": "Precio total",
+        "significado": "Costo de todas las unidades compradas."
+      },
+      {
+        "termino": "Cantidad",
+        "significado": "Número de unidades del mismo producto."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un lápiz cuesta S/ 3. ¿Cuántos soles cuestan 7 lápices iguales?",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada lápiz tiene el mismo precio.",
+          "Repite S/ 3 siete veces.",
+          "7 × 3 = 21."
+        ],
+        "retroalimentacion": "Cuestan S/ 21; S/ 10 sería sumar precio y cantidad."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cuatro panes iguales cuestan S/ 12. ¿Cuánto cuesta un pan?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total de S/ 12 corresponde a cuatro panes.",
+          "Reparte el costo en cuatro partes iguales.",
+          "12 ÷ 4 = 3."
+        ],
+        "retroalimentacion": "Cada pan cuesta S/ 3; S/ 48 sería multiplicar cuando ya conoces el total.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 48"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 8"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 3"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una regla vale S/ 5, tres reglas iguales cuestan S/ 15.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay tres reglas al mismo precio.",
+          "Multiplica 3 × 5.",
+          "Compara el producto con S/ 15."
+        ],
+        "retroalimentacion": "Es verdadero: tres veces S/ 5 son S/ 15."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa de arroz cuesta S/ 9. ¿Cuál es el precio en soles de 6 bolsas iguales?",
+        "respuesta": 54,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El precio de una bolsa es S/ 9.",
+          "Multiplica 9 por el número de bolsas.",
+          "9 × 6 = 54."
+        ],
+        "retroalimentacion": "Se paga S/ 54 por seis bolsas; no confundas seis bolsas con S/ 6."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un libro cuesta S/ 24. ¿Cuánto se paga por 8 libros iguales?",
+        "respuesta": 192,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Son ocho libros al mismo precio.",
+          "Calcula 24 × 8.",
+          "20 × 8 más 4 × 8 da el total."
+        ],
+        "retroalimentacion": "Se paga S/ 192. Si obtuviste S/ 32, sumaste cantidad y precio."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se pagaron S/ 96 por 6 mochilas pequeñas iguales. ¿Cuál es su precio unitario?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "S/ 96 es el precio de todas.",
+          "Divide ese total entre las 6 mochilas.",
+          "96 ÷ 6 = 16."
+        ],
+        "retroalimentacion": "Una mochila cuesta S/ 16; S/ 576 sería el total multiplicado otra vez.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 16"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 90"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 576"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 14"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si cinco polos iguales cuestan S/ 125 en total, cada polo vale S/ 25.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total se reparte entre cinco polos.",
+          "Calcula 125 ÷ 5.",
+          "Comprueba 25 × 5 = 125."
+        ],
+        "retroalimentacion": "Es verdadero: cada polo vale S/ 25."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el mercado, 9 kilos de mandarinas al mismo precio cuestan S/ 72. ¿Cuánto vale un kilo?",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "S/ 72 corresponde a nueve kilos.",
+          "Busca el costo de un kilo dividiendo entre 9.",
+          "72 ÷ 9 = 8."
+        ],
+        "retroalimentacion": "Un kilo vale S/ 8. Multiplicar por 9 aumentaría el total conocido."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Cada caja de colores cuesta S/ 37. ¿Cuánto cuestan 14 cajas iguales?",
+        "respuesta": 518,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cantidad es 14 cajas.",
+          "Multiplica 37 × 14.",
+          "37 × 10 = 370 y 37 × 4 = 148; suma ambos."
+        ],
+        "retroalimentacion": "Cuestan S/ 518. Revisa que incluyas las diez cajas y las cuatro adicionales."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Por 12 cuadernos iguales se pagaron S/ 336. ¿Cuánto cuesta cada cuaderno?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "S/ 336 es el precio total.",
+          "Haz 336 ÷ 12.",
+          "12 × 28 = 336."
+        ],
+        "retroalimentacion": "Cada cuaderno cuesta S/ 28. S/ 4032 sería multiplicar un total ya conocido.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 324"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 24"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 4032"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 28"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tienda vende 16 termos iguales a S/ 45 cada uno. ¿Cuál es el precio total en soles?",
+        "respuesta": 720,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada termo vale S/ 45.",
+          "Multiplica 45 por 16 termos.",
+          "45 × (10 + 6) = 450 + 270."
+        ],
+        "retroalimentacion": "El total es S/ 720. No sumes 45 + 16: mezcla soles con objetos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 18 paquetes iguales cuestan S/ 270, cada paquete vale S/ 15.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El precio de uno se obtiene del total.",
+          "Divide 270 entre 18.",
+          "Comprueba 18 × 15 = 270."
+        ],
+        "retroalimentacion": "Es verdadero: cada paquete cuesta S/ 15."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.problemas-reparto-agrupacion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P4-01"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Problemas de reparto y agrupación con división",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Distingue si hay que repartir en partes iguales o formar grupos y resuelve con una división.",
+    "palabrasClave": [
+      "problemas",
+      "reparto",
+      "agrupación",
+      "división"
+    ],
+    "prerrequisitos": [
+      "mat.p4.division-una-cifra"
+    ],
+    "ordenSugerido": 79,
+    "ideaCentral": "En un reparto sabes cuántos grupos habrá y buscas cuánto recibe cada uno. En una agrupación sabes cuántos objetos van en cada grupo y buscas cuántos grupos se forman; ambas situaciones se resuelven dividiendo.",
+    "pasos": [
+      "Reconoce el total de objetos.",
+      "Decide si conoces el número de grupos o el tamaño de cada grupo.",
+      "Divide el total entre el dato conocido.",
+      "Nombra la respuesta como objetos por grupo o número de grupos y comprueba multiplicando."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Repartes 48 semillas entre 6 macetas por igual. ¿Cuántas van en cada maceta?",
+        "desarrollo": "Conozco 6 grupos: 48 ÷ 6 = 8.",
+        "respuesta": "Van 8 semillas por maceta."
+      },
+      {
+        "situacion": "Pones 48 semillas en bolsas de 6. ¿Cuántas bolsas completas llenas?",
+        "desarrollo": "Conozco 6 semillas por bolsa: 48 ÷ 6 = 8.",
+        "respuesta": "Llenas 8 bolsas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Responder «8 bolsas» en un reparto entre 8 personas.",
+        "correccion": "Mira qué pide la pregunta: si los grupos ya están dados, responde objetos por grupo."
+      },
+      {
+        "error": "Sumar total y tamaño del grupo.",
+        "correccion": "Para formar grupos iguales con un total, usa división."
+      },
+      {
+        "error": "No comprobar que todos los grupos sean iguales.",
+        "correccion": "Multiplica grupos por objetos en cada grupo; debe dar el total."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Reparto",
+        "significado": "Distribuir un total entre grupos ya conocidos."
+      },
+      {
+        "termino": "Agrupación",
+        "significado": "Formar grupos de un tamaño ya conocido."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "Resultado de una división."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Reparte 24 choclos entre 4 canastas iguales. ¿Cuántos choclos van en cada canasta?",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay cuatro canastas conocidas.",
+          "Busca cuántos choclos recibe cada una.",
+          "24 ÷ 4 = 6."
+        ],
+        "retroalimentacion": "Van 6 choclos por canasta; 4 es la cantidad de canastas, no la respuesta."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay 30 naranjas y caben 5 en cada bolsa. ¿Qué se busca al dividir 30 ÷ 5?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ya conoces el tamaño de una bolsa.",
+          "La pregunta es cuántas bolsas se llenan.",
+          "El cociente cuenta los grupos formados."
+        ],
+        "retroalimentacion": "Se buscan 6 bolsas; 5 naranjas es el tamaño de cada bolsa.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 naranjas por bolsa"
+          },
+          {
+            "id": "b",
+            "texto": "6 bolsas"
+          },
+          {
+            "id": "c",
+            "texto": "5 bolsas"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 36 estudiantes se sientan en 6 mesas con la misma cantidad, cada mesa recibe 6 estudiantes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las seis mesas son grupos conocidos.",
+          "Divide 36 entre 6.",
+          "Comprueba 6 mesas × 6 estudiantes."
+        ],
+        "retroalimentacion": "Es verdadero: hay 6 estudiantes en cada mesa."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Con 42 flores se hacen ramos de 7 flores. ¿Cuántos ramos completos se forman?",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada ramo contiene 7 flores.",
+          "El total es 42 flores.",
+          "42 ÷ 7 = 6 grupos."
+        ],
+        "retroalimentacion": "Se forman 6 ramos; 7 es la cantidad de flores de cada uno."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Se reparten 156 cuadernos entre 12 aulas por igual. ¿Cuántos recibe cada aula?",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las 12 aulas son los grupos.",
+          "Divide 156 entre 12.",
+          "12 × 13 = 156 comprueba el reparto."
+        ],
+        "retroalimentacion": "Cada aula recibe 13 cuadernos. No respondas 12, pues ya era el número de aulas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cooperativa guarda 168 huevos en bandejas de 12. ¿Cuántas bandejas llena?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada bandeja tiene 12 huevos.",
+          "Divide el total entre esa capacidad.",
+          "168 ÷ 12 = 14."
+        ],
+        "retroalimentacion": "Llena 14 bandejas; 12 es el tamaño de una bandeja.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 bandejas"
+          },
+          {
+            "id": "b",
+            "texto": "156 bandejas"
+          },
+          {
+            "id": "c",
+            "texto": "2016 bandejas"
+          },
+          {
+            "id": "d",
+            "texto": "14 bandejas"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al repartir 144 lápices entre 9 estudiantes por igual, a cada uno le corresponden 16 lápices.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Conoces el número de estudiantes.",
+          "Divide 144 entre 9.",
+          "Comprueba 9 × 16 = 144."
+        ],
+        "retroalimentacion": "Es verdadero: cada estudiante recibe 16 lápices."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una imprenta empaqueta 225 tarjetas en paquetes de 15. ¿Cuántos paquetes arma?",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sabes que van 15 tarjetas por paquete.",
+          "Busca cuántos grupos de 15 caben en 225.",
+          "225 ÷ 15 = 15."
+        ],
+        "retroalimentacion": "Arma 15 paquetes; el cociente indica el número de paquetes."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Reparte 384 semillas en 16 sobres con igual cantidad. ¿Cuántas semillas lleva cada sobre?",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los 16 sobres ya están contados.",
+          "Divide 384 entre 16.",
+          "16 × 24 = 384."
+        ],
+        "retroalimentacion": "Cada sobre lleva 24 semillas; 16 no es el tamaño del reparto."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un comedor tiene 432 vasos y arma cajas de 18 vasos. ¿Cuántas cajas completas puede llenar?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada caja debe contener 18 vasos.",
+          "Calcula 432 ÷ 18.",
+          "18 × 24 = 432."
+        ],
+        "retroalimentacion": "Llena 24 cajas completas. 18 es la capacidad de cada caja.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "24 cajas"
+          },
+          {
+            "id": "b",
+            "texto": "18 cajas"
+          },
+          {
+            "id": "c",
+            "texto": "414 cajas"
+          },
+          {
+            "id": "d",
+            "texto": "7776 cajas"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una escuela reparte 612 libros entre 18 aulas sin que sobre ninguno. ¿Cuántos recibe cada aula?",
+        "respuesta": 34,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Conoces las 18 aulas.",
+          "La cantidad por aula es 612 ÷ 18.",
+          "Comprueba 18 × 34 = 612."
+        ],
+        "retroalimentacion": "Cada aula recibe 34 libros. Multiplicar aumentaría el total conocido."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con 560 fichas, al formar grupos de 28 fichas se obtienen 20 grupos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El tamaño de cada grupo es 28.",
+          "Divide 560 entre 28.",
+          "Comprueba 28 × 20 = 560."
+        ],
+        "retroalimentacion": "Es verdadero: se forman 20 grupos de 28 fichas."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.problemas-cuatro-operaciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P4-01",
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Problemas de dos etapas con las cuatro operaciones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Combina multiplicación o división con suma o resta en una misma situación.",
+    "palabrasClave": [
+      "problemas",
+      "etapas",
+      "cuatro",
+      "operaciones"
+    ],
+    "prerrequisitos": [
+      "mat.p4.problemas-precio-unitario",
+      "mat.p4.problemas-reparto-agrupacion"
+    ],
+    "ordenSugerido": 80,
+    "ideaCentral": "Algunos problemas necesitan dos operaciones: una multiplicación o división para obtener un subtotal, y luego una suma o resta para responder la pregunta final. Resuelve primero la etapa que produce el dato faltante.",
+    "pasos": [
+      "Marca los datos y la pregunta final.",
+      "Identifica el subtotal que debes hallar multiplicando o dividiendo.",
+      "Usa ese subtotal en una suma o resta.",
+      "Comprueba cada etapa y escribe la respuesta con su unidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Hay 6 cajas con 12 libros y llegan 8 libros sueltos. ¿Cuántos hay?",
+        "desarrollo": "En cajas hay 6 × 12 = 72 libros; con los sueltos, 72 + 8 = 80.",
+        "respuesta": "Hay 80 libros."
+      },
+      {
+        "situacion": "Se reparten 48 naranjas entre 6 mesas y en cada mesa comen 3. ¿Cuántas quedan por mesa?",
+        "desarrollo": "Cada mesa recibe 48 ÷ 6 = 8; después quedan 8 − 3 = 5.",
+        "respuesta": "Quedan 5 naranjas por mesa."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar los números de cajas y libros por caja.",
+        "correccion": "Multiplica para hallar primero los libros de todas las cajas."
+      },
+      {
+        "error": "Responder con el subtotal y olvidar la segunda etapa.",
+        "correccion": "Vuelve a leer la pregunta final después de la primera operación."
+      },
+      {
+        "error": "Dividir por el número equivocado.",
+        "correccion": "Identifica qué grupos son iguales antes de repartir."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Subtotal",
+        "significado": "Resultado de la primera etapa."
+      },
+      {
+        "termino": "Precio por unidad",
+        "significado": "Costo de un producto antes de reunir varios."
+      },
+      {
+        "termino": "Etapa",
+        "significado": "Una de las operaciones necesarias para resolver el problema."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Hay 4 cajas con 8 cuadernos cada una y 5 cuadernos sueltos. ¿Cuántos cuadernos hay?",
+        "respuesta": 37,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero cuenta los cuadernos de las cajas.",
+          "4 × 8 = 32.",
+          "Suma los cinco sueltos a 32."
+        ],
+        "retroalimentacion": "Hay 37 cuadernos; 32 omite los sueltos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se compran 3 panes a S/ 4 cada uno y un jugo de S/ 5. ¿Qué cuenta da el gasto total?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los tres panes cuestan lo mismo.",
+          "Calcula primero 3 × 4.",
+          "Después añade el costo del jugo."
+        ],
+        "retroalimentacion": "La cuenta 3 × 4 + 5 da S/ 17; sumar 3 + 4 confunde panes con soles.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 + 4 + 5"
+          },
+          {
+            "id": "b",
+            "texto": "3 × 4 + 5"
+          },
+          {
+            "id": "c",
+            "texto": "3 × (4 + 5)"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos paquetes con 12 lápices cada uno y 7 lápices sueltos suman 31 lápices.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero los lápices empaquetados.",
+          "2 × 12 = 24.",
+          "Añade los siete sueltos."
+        ],
+        "retroalimentacion": "Es verdadero: 24 + 7 = 31 lápices."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Reparte 36 galletas entre 6 niños por igual; cada uno come 2. ¿Cuántas le quedan a cada niño?",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero reparte las 36 galletas.",
+          "36 ÷ 6 = 6 por niño.",
+          "Resta las dos que come cada uno."
+        ],
+        "retroalimentacion": "A cada niño le quedan 4; 6 era la cantidad antes de comer."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una feria vende 7 bolsas de 15 choclos y regala 12 choclos. ¿Cuántos choclos quedan de esas bolsas?",
+        "respuesta": 93,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las bolsas reúnen grupos iguales.",
+          "7 × 15 = 105 choclos.",
+          "Quita los 12 regalados."
+        ],
+        "retroalimentacion": "Quedan 93 choclos. No restes 12 a 15 antes de contar todas las bolsas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una escuela reparte 96 marcadores entre 8 aulas por igual. Cada aula usa 5. ¿Cuántos le quedan a cada aula?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero calcula el reparto por aula.",
+          "96 ÷ 8 = 12.",
+          "A las 12 por aula quita las cinco usadas."
+        ],
+        "retroalimentacion": "Quedan 7 marcadores por aula; 12 era la cantidad recibida inicialmente.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "17"
+          },
+          {
+            "id": "b",
+            "texto": "91"
+          },
+          {
+            "id": "c",
+            "texto": "12"
+          },
+          {
+            "id": "d",
+            "texto": "7"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Cinco paquetes de 24 hojas y 30 hojas adicionales suman 150 hojas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta primero las hojas de los paquetes.",
+          "5 × 24 = 120.",
+          "Añade las 30 hojas adicionales."
+        ],
+        "retroalimentacion": "Es verdadero: 120 + 30 = 150 hojas."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Cada entrada cuesta S/ 18. Si una familia compra 6 entradas y paga con S/ 150, ¿cuántos soles recibe de vuelto?",
+        "respuesta": 42,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla el costo de las seis entradas.",
+          "6 × 18 = 108 soles.",
+          "Calcula 150 − 108."
+        ],
+        "retroalimentacion": "Recibe S/ 42 de vuelto; S/ 108 es el gasto, no el vuelto."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se distribuyen 216 semillas entre 9 macetas por igual. Luego se agregan 13 semillas a cada maceta. ¿Cuántas tiene cada una?",
+        "respuesta": 37,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero distribuye las 216 semillas.",
+          "216 ÷ 9 = 24 por maceta.",
+          "Suma 13 a las 24 de cada maceta."
+        ],
+        "retroalimentacion": "Cada maceta tiene 37 semillas. No sumes 13 al total antes de repartir: se añade a cada una."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un taller tenía S/ 500. Compró 12 metros de tela a S/ 28 el metro. ¿Cuántos soles le quedan?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El costo de la tela depende de los 12 metros.",
+          "12 × 28 = 336 soles.",
+          "Resta 336 del dinero inicial."
+        ],
+        "retroalimentacion": "Quedan S/ 164; S/ 336 es lo gastado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "164"
+          },
+          {
+            "id": "b",
+            "texto": "336"
+          },
+          {
+            "id": "c",
+            "texto": "488"
+          },
+          {
+            "id": "d",
+            "texto": "836"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un comedor compró 8 cajas con 36 vasos cada una y usó 125 vasos. ¿Cuántos vasos conserva?",
+        "respuesta": 163,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero cuenta todos los vasos comprados.",
+          "8 × 36 = 288.",
+          "Resta los 125 vasos usados."
+        ],
+        "retroalimentacion": "Conserva 163 vasos. Si respondes 288, falta la segunda etapa."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al repartir 324 libros entre 9 aulas por igual y añadir 14 libros a cada aula, cada una termina con 50 libros.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el reparto inicial.",
+          "324 ÷ 9 = 36 libros por aula.",
+          "Añade 14 a las 36 de cada aula."
+        ],
+        "retroalimentacion": "Es verdadero: cada aula termina con 50 libros."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
