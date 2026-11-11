@@ -1,0 +1,1204 @@
+[
+  {
+    "clave": "mat.p6.potencia-cuadrada",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P6-01",
+      "MAT-C23-P6-03"
+    ],
+    "bloque": "Potenciación",
+    "nombre": "Potencias cuadradas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Representa un número multiplicado por sí mismo como cuadrado y lo relaciona con el área.",
+    "palabrasClave": [
+      "cuadrado",
+      "base",
+      "exponente",
+      "área"
+    ],
+    "prerrequisitos": [
+      "mat.p6.propiedades-multiplicacion"
+    ],
+    "ordenSugerido": 22,
+    "ideaCentral": "Elevar un número al cuadrado es multiplicarlo por sí mismo. Si un cuadrado tiene ese número de unidades por lado, su área tiene esa cantidad de unidades cuadradas.",
+    "pasos": [
+      "Identifica el número que se repite: es la base.",
+      "Escribe la base dos veces con una multiplicación.",
+      "Calcula el producto y, si representa un área, expresa la unidad cuadrada."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una loseta cuadrada mide 4 cm por lado.",
+        "desarrollo": "4² = 4 × 4 = 16.",
+        "respuesta": "Su área es 16 cm²."
+      },
+      {
+        "situacion": "Un tablero tiene 7 casillas por lado.",
+        "desarrollo": "7² = 7 × 7 = 49.",
+        "respuesta": "Tiene 49 casillas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que 6² es 6 × 2.",
+        "correccion": "El exponente 2 indica dos factores 6: 6 × 6 = 36."
+      },
+      {
+        "error": "Contar solo un lado del cuadrado como área.",
+        "correccion": "Multiplica filas por columnas; ambos lados miden lo mismo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Base",
+        "significado": "Número que se multiplica por sí mismo."
+      },
+      {
+        "termino": "Exponente 2",
+        "significado": "Indica que la base aparece dos veces como factor."
+      },
+      {
+        "termino": "Unidad cuadrada",
+        "significado": "Unidad para medir superficies, como cm²."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 3². Escribe solo el número.",
+        "respuesta": 9,
+        "pistas": [
+          "Escribe dos factores iguales.",
+          "Usa 3 × 3.",
+          "Tres grupos de tres dan nueve."
+        ],
+        "retroalimentacion": "No se suma 3 + 2: 3² = 3 × 3 = 9.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué producto representa 5²?",
+        "respuesta": "c",
+        "pistas": [
+          "El 2 indica cuántas veces aparece la base.",
+          "La base es 5.",
+          "Busca dos factores 5."
+        ],
+        "retroalimentacion": "La expresión correcta es «5 × 5»; «5 × 2» confunde exponente con factor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 + 5"
+          },
+          {
+            "id": "b",
+            "texto": "5 × 2"
+          },
+          {
+            "id": "c",
+            "texto": "5 × 5"
+          },
+          {
+            "id": "d",
+            "texto": "2 × 2 × 2 × 2 × 2"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuadrado de 2 baldosas por lado contiene 4 baldosas.",
+        "respuesta": true,
+        "pistas": [
+          "Imagina dos filas.",
+          "Cada fila tiene dos baldosas.",
+          "Calcula 2 × 2."
+        ],
+        "retroalimentacion": "Es verdadero: 2² = 4 baldosas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una cuadrícula tiene 6 filas y 6 columnas. ¿Cuántas casillas hay? Escribe solo el número.",
+        "respuesta": 36,
+        "pistas": [
+          "Las filas y columnas son iguales.",
+          "Representa 6².",
+          "Multiplica 6 × 6."
+        ],
+        "retroalimentacion": "No bastan 12 casillas de los bordes: 6² = 36.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con una potencia: 8 × 8 = __. Usa el signo ^.",
+        "respuesta": "8^2",
+        "pistas": [
+          "Fíjate qué factor se repite.",
+          "El 8 aparece dos veces.",
+          "Escribe base 8 y exponente 2 con ^."
+        ],
+        "retroalimentacion": "La potencia es 8^2, no 8^8: el exponente cuenta factores.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una hoja cuadrada mide 9 cm de lado. ¿Cuál es su área en cm²?",
+        "respuesta": "b",
+        "pistas": [
+          "El área de un cuadrado es lado por lado.",
+          "Calcula 9 × 9.",
+          "Compara tu producto con las opciones."
+        ],
+        "retroalimentacion": "El área es «81 cm²» porque 9² = 81; 18 es solo el doble del lado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18 cm²"
+          },
+          {
+            "id": "b",
+            "texto": "81 cm²"
+          },
+          {
+            "id": "c",
+            "texto": "36 cm²"
+          },
+          {
+            "id": "d",
+            "texto": "90 cm²"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "4² y 2⁴ tienen el mismo valor.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula cada potencia por separado.",
+          "4² = 4 × 4.",
+          "2⁴ = 2 × 2 × 2 × 2."
+        ],
+        "retroalimentacion": "Es verdadero: ambas valen 16, aunque tienen distintas bases y exponentes.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un mural cuadrado tiene 11 azulejos por lado. ¿Cuántos azulejos lo cubren? Escribe solo el número.",
+        "respuesta": 121,
+        "pistas": [
+          "Piensa en filas de 11.",
+          "Hay también 11 filas.",
+          "Multiplica 11 × 11."
+        ],
+        "retroalimentacion": "Se cubre con 121 azulejos: 11² = 121.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa dice que 12² = 24. ¿Qué cálculo corrige su error?",
+        "respuesta": "d",
+        "pistas": [
+          "24 sale de duplicar 12.",
+          "Un cuadrado requiere dos factores 12.",
+          "Calcula 12 × 12."
+        ],
+        "retroalimentacion": "«12 × 12 = 144» corrige el error; 12 × 2 no es elevar al cuadrado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 + 2 = 14"
+          },
+          {
+            "id": "b",
+            "texto": "12 × 2 = 24"
+          },
+          {
+            "id": "c",
+            "texto": "12 + 12 = 24"
+          },
+          {
+            "id": "d",
+            "texto": "12 × 12 = 144"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos patios cuadrados tienen lados de 5 m y 8 m. ¿Cuántos m² más tiene el segundo? Escribe solo el número.",
+        "respuesta": 39,
+        "pistas": [
+          "Calcula por separado las dos áreas.",
+          "5² = 25 y 8² = 64.",
+          "Resta 64 − 25."
+        ],
+        "retroalimentacion": "La diferencia es 39 m²; restar solo 8 − 5 compara lados, no áreas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El área de un cuadrado es 49 cm² y su lado es un número entero de cm. ¿Qué potencia cuadrada produce esa área? Usa ^.",
+        "respuesta": "7^2",
+        "pistas": [
+          "Busca un número que multiplicado por sí mismo dé 49.",
+          "7 × 7 = 49.",
+          "Escribe el 7 como base con exponente 2."
+        ],
+        "retroalimentacion": "La potencia es 7^2; 49^2 daría un área mucho mayor.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una feria arma un piso cuadrado de 10 losetas por lado y retira una fila completa. ¿Cuántas losetas quedan? Escribe solo el número.",
+        "respuesta": 90,
+        "pistas": [
+          "Primero calcula 10².",
+          "El piso tenía 100 losetas.",
+          "Quita una fila de 10."
+        ],
+        "retroalimentacion": "Quedan 90 losetas: 10² − 10 = 90.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.potencia-cubica",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P6-01",
+      "MAT-C23-P6-03"
+    ],
+    "bloque": "Potenciación",
+    "nombre": "Potencias cúbicas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Representa un número multiplicado tres veces por sí mismo como cubo y lo relaciona con el volumen.",
+    "palabrasClave": [
+      "cubo",
+      "base",
+      "exponente 3",
+      "volumen"
+    ],
+    "prerrequisitos": [
+      "mat.p6.potencia-cuadrada"
+    ],
+    "ordenSugerido": 23,
+    "ideaCentral": "Elevar al cubo es multiplicar la base tres veces por sí misma. Un cubo de arista n unidades contiene n³ cubitos unitarios.",
+    "pasos": [
+      "Reconoce la base y el exponente 3.",
+      "Escribe tres factores iguales.",
+      "Multiplica en dos etapas: primero dos factores y luego el tercero.",
+      "Relaciona el resultado con cubitos o unidades cúbicas si corresponde."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja cúbica mide 3 cm de arista.",
+        "desarrollo": "3³ = 3 × 3 × 3 = 27.",
+        "respuesta": "Su volumen es 27 cm³."
+      },
+      {
+        "situacion": "Un cubo se construye con 4 cubitos por arista.",
+        "desarrollo": "Cada capa tiene 4 × 4 = 16 cubitos y hay 4 capas.",
+        "respuesta": "Se necesitan 64 cubitos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Calcular 5³ como 5 × 3.",
+        "correccion": "Escribe 5 × 5 × 5 = 125."
+      },
+      {
+        "error": "Contar solo una capa del cubo.",
+        "correccion": "Multiplica los cubitos de una capa por el número de capas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Potencia cúbica",
+        "significado": "Producto de tres factores iguales."
+      },
+      {
+        "termino": "Arista",
+        "significado": "Borde de un cubo."
+      },
+      {
+        "termino": "Volumen",
+        "significado": "Espacio ocupado, medido aquí en unidades cúbicas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 2³. Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "Escribe tres doses.",
+          "Haz 2 × 2 × 2.",
+          "Primero 2 × 2 = 4; luego duplica 4."
+        ],
+        "retroalimentacion": "2³ = 8; 2 × 3 = 6 no es una potencia cúbica.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es la forma desarrollada de 4³?",
+        "respuesta": "a",
+        "pistas": [
+          "La base es 4.",
+          "El exponente pide tres factores.",
+          "Selecciona tres cuatros multiplicados."
+        ],
+        "retroalimentacion": "«4 × 4 × 4» representa 4³; tres no es un factor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 × 4 × 4"
+          },
+          {
+            "id": "b",
+            "texto": "4 × 3"
+          },
+          {
+            "id": "c",
+            "texto": "4 + 4 + 4"
+          },
+          {
+            "id": "d",
+            "texto": "3 × 3 × 3 × 3"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "3³ equivale a 3 × 3 × 3.",
+        "respuesta": true,
+        "pistas": [
+          "Cuenta cuántas veces aparece 3.",
+          "El exponente es 3.",
+          "Hay tres factores 3."
+        ],
+        "retroalimentacion": "Es verdadero: 3³ tiene tres factores iguales a 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una torre cúbica tiene 3 cubitos por arista. ¿Cuántos cubitos hay? Escribe solo el número.",
+        "respuesta": 27,
+        "pistas": [
+          "Una capa tiene 3 × 3 cubitos.",
+          "Hay 3 capas.",
+          "Multiplica 9 × 3."
+        ],
+        "retroalimentacion": "Hay 27 cubitos; 9 cuenta una sola capa.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 5³. Escribe solo el número.",
+        "respuesta": 125,
+        "pistas": [
+          "Empieza con 5 × 5.",
+          "Ese producto da 25.",
+          "Multiplica 25 × 5."
+        ],
+        "retroalimentacion": "5³ = 125, no 15; el exponente no indica sumar.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja cúbica tiene arista de 6 cm. ¿Qué volumen tiene?",
+        "respuesta": "d",
+        "pistas": [
+          "El volumen se expresa en cm³.",
+          "Calcula 6 × 6 × 6.",
+          "36 × 6 = 216."
+        ],
+        "retroalimentacion": "«216 cm³» es el volumen; 36 cm³ cuenta solo una capa.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18 cm³"
+          },
+          {
+            "id": "b",
+            "texto": "36 cm³"
+          },
+          {
+            "id": "c",
+            "texto": "66 cm³"
+          },
+          {
+            "id": "d",
+            "texto": "216 cm³"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe como potencia 7 × 7 × 7. Usa ^.",
+        "respuesta": "7^3",
+        "pistas": [
+          "Observa el número repetido.",
+          "Cuenta tres factores 7.",
+          "Coloca 7 como base y 3 como exponente."
+        ],
+        "retroalimentacion": "Se escribe 7^3; 3^7 invierte base y exponente.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "4³ vale lo mismo que 4² + 4.",
+        "respuesta": false,
+        "pistas": [
+          "Calcula 4³.",
+          "4³ = 64.",
+          "Compara con 4² + 4 = 20."
+        ],
+        "retroalimentacion": "Es falso: 64 no es 20; una potencia cúbica multiplica tres factores.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos cubos tienen aristas de 2 cm y 3 cm. ¿Cuántos cm³ mayor es el volumen del segundo? Escribe solo el número.",
+        "respuesta": 19,
+        "pistas": [
+          "Calcula ambos cubos.",
+          "2³ = 8 y 3³ = 27.",
+          "Resta 27 − 8."
+        ],
+        "retroalimentacion": "La diferencia es 19 cm³; comparar solo aristas daría 1 cm.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Micaela arma un cubo con 4 capas de 16 cubitos. ¿Qué potencia describe el total?",
+        "respuesta": "b",
+        "pistas": [
+          "16 cubitos forman una capa de 4 × 4.",
+          "Hay 4 capas.",
+          "Escribe tres factores 4."
+        ],
+        "retroalimentacion": "«4³» describe 4 × 4 × 4 = 64 cubitos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "16³"
+          },
+          {
+            "id": "b",
+            "texto": "4³"
+          },
+          {
+            "id": "c",
+            "texto": "4²"
+          },
+          {
+            "id": "d",
+            "texto": "16²"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un cubo de arista 5 se arma con cubitos; se retira una capa completa. ¿Cuántos cubitos quedan? Escribe solo el número.",
+        "respuesta": 100,
+        "pistas": [
+          "Cuenta 5³ en todo el cubo.",
+          "Una capa tiene 5² cubitos.",
+          "Resta 125 − 25."
+        ],
+        "retroalimentacion": "Quedan 100 cubitos; quitar una capa retira 25, no 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un cubo tiene 64 cubitos unitarios y todas sus aristas miden igual. ¿Qué potencia cúbica da 64? Usa ^.",
+        "respuesta": "4^3",
+        "pistas": [
+          "Busca tres factores iguales.",
+          "4 × 4 × 4 = 64.",
+          "Escribe base 4 y exponente 3."
+        ],
+        "retroalimentacion": "La potencia es 4^3; 8² también vale 64 pero no expresa el cubo.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.potencias-de-diez",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03"
+    ],
+    "bloque": "Potenciación",
+    "nombre": "Potencias de base 10",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Relaciona las potencias de 10 con las unidades del sistema decimal.",
+    "palabrasClave": [
+      "base 10",
+      "valor posicional",
+      "ceros",
+      "sistema decimal"
+    ],
+    "prerrequisitos": [
+      "mat.p6.potencia-cubica",
+      "mat.p6.unidades-sistema-decimal"
+    ],
+    "ordenSugerido": 24,
+    "ideaCentral": "Una potencia de 10 multiplica varios dieces. En números naturales, 10 elevado a n es 1 seguido de n ceros y corresponde a una unidad decimal de cierto orden.",
+    "pasos": [
+      "Cuenta cuántos factores 10 hay: ese es el exponente.",
+      "Escribe 1 y tantos ceros como indique el exponente.",
+      "Relaciona 10, 100, 1000 y órdenes mayores con decenas, centenas y millares."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una caja hay 10 paquetes de 10 lápices.",
+        "desarrollo": "10² = 10 × 10 = 100.",
+        "respuesta": "Hay 100 lápices, una centena."
+      },
+      {
+        "situacion": "Una cifra 1 ocupa el lugar de decenas de millar.",
+        "desarrollo": "10⁴ = 10 000.",
+        "respuesta": "Su valor es diez mil."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner un cero menos que el exponente.",
+        "correccion": "10³ tiene tres ceros: 1000."
+      },
+      {
+        "error": "Interpretar 10⁴ como 10 × 4.",
+        "correccion": "Son cuatro factores 10; el resultado es 10 000."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Decena",
+        "significado": "Grupo de 10 unidades: 10¹."
+      },
+      {
+        "termino": "Centena",
+        "significado": "Grupo de 100 unidades: 10²."
+      },
+      {
+        "termino": "Millar",
+        "significado": "Grupo de 1000 unidades: 10³."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 10². Escribe solo el número.",
+        "respuesta": 100,
+        "pistas": [
+          "La base es diez.",
+          "El exponente pide dos dieces.",
+          "Multiplica 10 × 10."
+        ],
+        "retroalimentacion": "10² = 100; 20 surge de sumar, no multiplicar.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué potencia representa 1000?",
+        "respuesta": "c",
+        "pistas": [
+          "Cuenta los ceros de 1000.",
+          "Hay tres ceros.",
+          "Usa exponente 3 con base 10."
+        ],
+        "retroalimentacion": "«10³» representa 1000; 10² vale 100.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10¹"
+          },
+          {
+            "id": "b",
+            "texto": "10²"
+          },
+          {
+            "id": "c",
+            "texto": "10³"
+          },
+          {
+            "id": "d",
+            "texto": "10⁴"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "10⁴ es 1 seguido de cuatro ceros.",
+        "respuesta": true,
+        "pistas": [
+          "Lee el exponente de 10⁴.",
+          "Es 4.",
+          "Escribe 1 y cuatro ceros."
+        ],
+        "retroalimentacion": "Es verdadero: 10⁴ = 10 000.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos ceros tiene 10⁵? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "En una potencia de 10, mira el exponente.",
+          "El exponente es 5.",
+          "Cuenta los lugares después del 1."
+        ],
+        "retroalimentacion": "10⁵ tiene 5 ceros, no 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe 10 000 como potencia de diez usando ^.",
+        "respuesta": "10^4",
+        "pistas": [
+          "Cuenta los ceros de 10 000.",
+          "Son cuatro ceros.",
+          "Pon 10 como base y 4 como exponente."
+        ],
+        "retroalimentacion": "Se escribe 10^4; 10^3 solo llega a mil.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué unidad del sistema decimal equivale a 10³ unidades?",
+        "respuesta": "b",
+        "pistas": [
+          "Calcula 10³.",
+          "Es 1000.",
+          "Nombra la agrupación de mil unidades."
+        ],
+        "retroalimentacion": "«Un millar» equivale a 1000 unidades; una centena tiene 100.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una centena"
+          },
+          {
+            "id": "b",
+            "texto": "Un millar"
+          },
+          {
+            "id": "c",
+            "texto": "Una decena"
+          },
+          {
+            "id": "d",
+            "texto": "Una unidad"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un paquete contiene 10⁴ hojas. ¿Cuántas hojas contiene? Escribe solo el número.",
+        "respuesta": 10000,
+        "pistas": [
+          "La potencia tiene exponente cuatro.",
+          "Escribe 1 con cuatro ceros.",
+          "Agrupa las cifras como 10 000."
+        ],
+        "retroalimentacion": "Contiene 10 000 hojas; 10 × 4 solo da 40.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Diez centenas equivalen a 10³ unidades.",
+        "respuesta": true,
+        "pistas": [
+          "Una centena son 100 unidades.",
+          "Diez centenas son 10 × 100.",
+          "Eso da 1000 = 10³."
+        ],
+        "retroalimentacion": "Es verdadero: diez centenas forman un millar.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cifra 1 pasa de centenas a decenas de millar. ¿Qué potencia de 10 expresa su nuevo valor?",
+        "respuesta": "d",
+        "pistas": [
+          "Las centenas valen 10².",
+          "Decenas de millar valen 10 000.",
+          "Cuenta los cuatro ceros de 10 000."
+        ],
+        "retroalimentacion": "«10⁴» expresa una decena de millar; 10² corresponde a una centena.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10¹"
+          },
+          {
+            "id": "b",
+            "texto": "10²"
+          },
+          {
+            "id": "c",
+            "texto": "10³"
+          },
+          {
+            "id": "d",
+            "texto": "10⁴"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas centenas hay en 10⁵ unidades? Escribe solo el número.",
+        "respuesta": 1000,
+        "pistas": [
+          "Convierte 10⁵ a 100 000.",
+          "Una centena son 100.",
+          "Divide 100 000 entre 100."
+        ],
+        "retroalimentacion": "Hay 1000 centenas; contar solo los ceros de 10⁵ no responde cuántos grupos de 100 hay.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Se juntan 10 grupos de 10³ semillas. Escribe el total como potencia de diez usando ^.",
+        "respuesta": "10^4",
+        "pistas": [
+          "Cada grupo tiene 1000 semillas.",
+          "10 × 1000 = 10 000.",
+          "Escribe 10 000 como potencia de base 10."
+        ],
+        "retroalimentacion": "El total es 10^4; multiplicar por 10 aumenta el exponente en uno.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una biblioteca tiene 10² cajas con 10² fichas cada una. ¿Cuántas fichas hay? Escribe solo el número.",
+        "respuesta": 10000,
+        "pistas": [
+          "Cada potencia vale 100.",
+          "Hay 100 cajas de 100 fichas.",
+          "Multiplica 100 × 100."
+        ],
+        "retroalimentacion": "Hay 10 000 fichas; sumar las dos centenas daría solo 200.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.potencias-operaciones-combinadas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Potenciación",
+    "nombre": "Potencias en operaciones combinadas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve expresiones que incluyen potencias respetando la jerarquía de operaciones.",
+    "palabrasClave": [
+      "jerarquía",
+      "paréntesis",
+      "potencias",
+      "operaciones combinadas"
+    ],
+    "prerrequisitos": [
+      "mat.p6.potencia-cubica",
+      "mat.p6.operaciones-combinadas-naturales"
+    ],
+    "ordenSugerido": 25,
+    "ideaCentral": "En una expresión combinada, resuelve primero paréntesis, luego potencias, después multiplicaciones y divisiones, y al final sumas y restas de izquierda a derecha cuando tienen igual prioridad.",
+    "pasos": [
+      "Resuelve primero lo que esté dentro de paréntesis.",
+      "Calcula las potencias restantes.",
+      "Haz multiplicaciones y divisiones de izquierda a derecha.",
+      "Termina sumas y restas de izquierda a derecha."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Para 3 + 2² × 4,",
+        "desarrollo": "primero 2² = 4; luego 4 × 4 = 16; finalmente 3 + 16.",
+        "respuesta": "El valor es 19."
+      },
+      {
+        "situacion": "Para (5 − 2)³ + 1,",
+        "desarrollo": "primero 5 − 2 = 3; después 3³ = 27; finalmente suma 1.",
+        "respuesta": "El valor es 28."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar antes de elevar en 2 + 3².",
+        "correccion": "Calcula 3² = 9 y luego 2 + 9 = 11."
+      },
+      {
+        "error": "Olvidar los paréntesis.",
+        "correccion": "En (2 + 3)², eleva 5 al cuadrado: 25."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Jerarquía",
+        "significado": "Orden acordado para resolver operaciones."
+      },
+      {
+        "termino": "Paréntesis",
+        "significado": "Agrupan una parte que se calcula primero."
+      },
+      {
+        "termino": "Potencia",
+        "significado": "Multiplicación repetida de una base."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 2 + 3². Escribe solo el número.",
+        "respuesta": 11,
+        "pistas": [
+          "Primero identifica 3².",
+          "3² vale 9.",
+          "Suma 2 + 9."
+        ],
+        "retroalimentacion": "El resultado es 11; elevar 2 + 3 juntos daría 25 sin paréntesis.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué se calcula primero en 4 × 2² + 1?",
+        "respuesta": "b",
+        "pistas": [
+          "Busca la potencia.",
+          "2² tiene prioridad.",
+          "Después irá la multiplicación."
+        ],
+        "retroalimentacion": "«2²» se calcula primero; 4 × 2 espera a que la potencia esté resuelta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 × 2"
+          },
+          {
+            "id": "b",
+            "texto": "2²"
+          },
+          {
+            "id": "c",
+            "texto": "2 + 1"
+          },
+          {
+            "id": "d",
+            "texto": "4 + 1"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 7 − 2³ se calcula la potencia antes de la resta.",
+        "respuesta": true,
+        "pistas": [
+          "Identifica resta y potencia.",
+          "La potencia tiene mayor prioridad.",
+          "Calcula 2³ antes de restar a 7."
+        ],
+        "retroalimentacion": "Es verdadero: primero 2³ = 8 y luego se resta.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 5 × 2². Escribe solo el número.",
+        "respuesta": 20,
+        "pistas": [
+          "Calcula 2².",
+          "Vale 4.",
+          "Multiplica 5 × 4."
+        ],
+        "retroalimentacion": "Vale 20; multiplicar 5 × 2 antes de elevar cambia la expresión.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resuelve (2 + 4)². Escribe solo el número.",
+        "respuesta": 36,
+        "pistas": [
+          "El paréntesis va primero.",
+          "2 + 4 = 6.",
+          "Eleva 6 al cuadrado."
+        ],
+        "retroalimentacion": "Da 36; 2 + 4² = 18 es otra expresión.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el valor de 18 ÷ 3² + 2?",
+        "respuesta": "d",
+        "pistas": [
+          "Calcula 3² = 9.",
+          "Divide 18 entre 9.",
+          "Suma 2 al cociente."
+        ],
+        "retroalimentacion": "«4» es correcto: 18 ÷ 9 + 2 = 4.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "18"
+          },
+          {
+            "id": "c",
+            "texto": "11"
+          },
+          {
+            "id": "d",
+            "texto": "4"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En 6 + 2³ × 3, ¿qué operación se resuelve justo después de la potencia? Escribe una palabra.",
+        "respuesta": "multiplicación",
+        "pistas": [
+          "Después de 2³ queda 6 + 8 × 3.",
+          "Compara prioridad de suma y producto.",
+          "El producto 8 × 3 va primero."
+        ],
+        "retroalimentacion": "Sigue la multiplicación, no la suma.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 4² − 3 × 2. Escribe solo el número.",
+        "respuesta": 10,
+        "pistas": [
+          "4² = 16.",
+          "3 × 2 = 6.",
+          "Resta 16 − 6."
+        ],
+        "retroalimentacion": "Vale 10; restar 16 − 3 antes de multiplicar rompe la jerarquía.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un estudiante obtiene 81 en (2 + 1)³ × 3. ¿Su resultado es correcto?",
+        "respuesta": "a",
+        "pistas": [
+          "Resuelve 2 + 1.",
+          "Luego 3³ = 27.",
+          "Finalmente 27 × 3 = 81."
+        ],
+        "retroalimentacion": "«Sí, porque 3³ × 3 = 81» es correcto; no se eleva también el último 3.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, porque 3³ × 3 = 81"
+          },
+          {
+            "id": "b",
+            "texto": "No, porque vale 27"
+          },
+          {
+            "id": "c",
+            "texto": "No, porque vale 12"
+          },
+          {
+            "id": "d",
+            "texto": "Sí, porque 2 + 1 + 3 + 3 = 9"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula 30 − (2 + 1)³ ÷ 9. Escribe solo el número.",
+        "respuesta": 27,
+        "pistas": [
+          "Primero 2 + 1 = 3.",
+          "Después 3³ = 27 y 27 ÷ 9 = 3.",
+          "Resta 30 − 3."
+        ],
+        "retroalimentacion": "El valor es 27; no se resta antes de dividir.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 2³ + 4 × (5 − 2)². Escribe solo el número.",
+        "respuesta": 44,
+        "pistas": [
+          "Paréntesis: 5 − 2 = 3.",
+          "Potencias: 2³ = 8 y 3² = 9.",
+          "Producto 4 × 9 = 36; suma 8 + 36."
+        ],
+        "retroalimentacion": "Da 44; sumar 8 + 4 primero altera el orden.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expresión 2 × (3 + 1)² vale 32.",
+        "respuesta": true,
+        "pistas": [
+          "Dentro del paréntesis hay 4.",
+          "Su cuadrado vale 16.",
+          "Multiplica 2 × 16."
+        ],
+        "retroalimentacion": "Es verdadero: 2 × 4² = 32, no 18.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

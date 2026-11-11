@@ -1,0 +1,3119 @@
+[
+  {
+    "clave": "mat.p6.fraccion-como-cociente",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Fracción como cociente de una división",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Interpreta a/b como el resultado de repartir a unidades entre b partes.",
+    "palabrasClave": [
+      "fracción",
+      "reparto",
+      "cociente"
+    ],
+    "prerrequisitos": [
+      "mat.p6.division-divisor-dos-cifras"
+    ],
+    "ordenSugerido": 37,
+    "ideaCentral": "La fracción a/b también significa a ÷ b: repartir a unidades entre b personas por igual.",
+    "pasos": [
+      "Identifica el total y los grupos.",
+      "Escribe total ÷ grupos como fracción.",
+      "Explica cuánto recibe cada grupo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tres panes entre cuatro personas.",
+        "desarrollo": "3 ÷ 4 = 3/4.",
+        "respuesta": "Cada una recibe 3/4 de pan."
+      },
+      {
+        "situacion": "Siete choclos entre dos personas.",
+        "desarrollo": "7 ÷ 2 = 7/2 = 3 1/2.",
+        "respuesta": "Cada una recibe 3 1/2 choclos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Invertir numerador y denominador.",
+        "correccion": "El total va arriba; los grupos, abajo."
+      },
+      {
+        "error": "Pensar que 7/2 no representa un reparto.",
+        "correccion": "Cada grupo puede recibir más de una unidad."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cociente",
+        "significado": "Resultado de una división."
+      },
+      {
+        "termino": "Numerador",
+        "significado": "Total repartido."
+      },
+      {
+        "termino": "Denominador",
+        "significado": "Cantidad de grupos iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Repartes 2 panes entre 3 niñas. ¿Qué fracción recibe cada una?",
+        "respuesta": "2/3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay 2 panes.",
+          "Son 3 niñas.",
+          "Escribe 2 ÷ 3 como fracción."
+        ],
+        "retroalimentacion": "Cada niña recibe 2/3, no 3/2."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cinco litros de chicha entre 4 vasos iguales: ¿cuánto va en cada vaso?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 5 entre 4.",
+          "El total va arriba.",
+          "Los vasos van abajo."
+        ],
+        "retroalimentacion": "La opción 5/4 L representa 5 ÷ 4.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/5 L"
+          },
+          {
+            "id": "b",
+            "texto": "5/4 L"
+          },
+          {
+            "id": "c",
+            "texto": "5/5 L"
+          },
+          {
+            "id": "d",
+            "texto": "4 L"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fracción 3/8 puede leerse como 3 unidades repartidas en 8 partes iguales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El numerador es 3.",
+          "El denominador es 8.",
+          "Lee 3 ÷ 8 como reparto."
+        ],
+        "retroalimentacion": "Es verdadero: 3/8 es 3 dividido entre 8."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una pizza entre 6 amigos por igual. ¿Qué fracción recibe cada uno?",
+        "respuesta": "1/6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay 1 pizza.",
+          "Son 6 amigos.",
+          "Reparte 1 entre 6."
+        ],
+        "retroalimentacion": "Cada amigo recibe 1/6 de pizza."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se comparten 9 panes entre 3 familias. ¿Qué cociente equivale a 9/3?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una fracción es una división.",
+          "El 9 es el dividendo.",
+          "El 3 es el divisor."
+        ],
+        "retroalimentacion": "La opción 9 ÷ 3 expresa el cociente 9/3.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 ÷ 9"
+          },
+          {
+            "id": "b",
+            "texto": "9 + 3"
+          },
+          {
+            "id": "c",
+            "texto": "9 × 3"
+          },
+          {
+            "id": "d",
+            "texto": "9 ÷ 3"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 4 tortas se reparten entre 5 mesas, cada mesa recibe 5/4 de torta.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total es 4.",
+          "Las mesas son 5.",
+          "El reparto se escribe 4 ÷ 5."
+        ],
+        "retroalimentacion": "Es falso: cada mesa recibe 4/5."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Siete metros de cinta se dividen entre 4 equipos. Escribe el cociente como fracción.",
+        "respuesta": "7/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La longitud total es 7.",
+          "Hay 4 equipos.",
+          "Coloca 7 arriba y 4 abajo."
+        ],
+        "retroalimentacion": "Cada equipo recibe 7/4 m."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un grupo comparte 6 botellas entre 4 personas. ¿Qué cantidad recibe cada una?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe 6 ÷ 4.",
+          "6/4 puede simplificarse.",
+          "Divide 6 y 4 entre 2."
+        ],
+        "retroalimentacion": "La opción 3/2 botella equivale a 6/4.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3/2 botella"
+          },
+          {
+            "id": "b",
+            "texto": "2/3 botella"
+          },
+          {
+            "id": "c",
+            "texto": "4/6 botella"
+          },
+          {
+            "id": "d",
+            "texto": "2 botellas"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Diez panes se reparten entre 4 estudiantes. ¿Cuánto recibe cada uno? Escribe como mixto.",
+        "respuesta": "2 1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "10 ÷ 4 da 2 enteros.",
+          "Se usan 8 y sobran 2.",
+          "2/4 = 1/2 más."
+        ],
+        "retroalimentacion": "Cada estudiante recibe 2 1/2 panes."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al repartir 11 choclos entre 3 familias, cada una recibe 3 choclos y 2/3 de otro.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Da 3 a cada familia.",
+          "Se usan 9 y quedan 2.",
+          "Los 2 restantes se reparten entre 3."
+        ],
+        "retroalimentacion": "Es verdadero: 11/3 = 3 2/3."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ocho litros se reparten en 6 recipientes. ¿Cuál explica la cantidad por recipiente?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada uno recibe 8/6 L.",
+          "Simplifica entre 2.",
+          "Queda 4/3 L."
+        ],
+        "retroalimentacion": "La opción 4/3 L equivale a 8/6 L.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6/8 L"
+          },
+          {
+            "id": "b",
+            "texto": "2/3 L"
+          },
+          {
+            "id": "c",
+            "texto": "4/3 L"
+          },
+          {
+            "id": "d",
+            "texto": "4 L"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Doce panes se reparten entre 5 grupos. Escribe el cociente como fracción impropia.",
+        "respuesta": "12/5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total es 12.",
+          "Se divide entre 5.",
+          "Pon 12 sobre 5."
+        ],
+        "retroalimentacion": "El cociente es 12/5."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.fraccion-como-operador",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-02",
+      "MAT-C23-P6-03"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Fracción de una cantidad (fracción como operador)",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula la fracción de una cantidad dividiendo entre el denominador y multiplicando por el numerador.",
+    "palabrasClave": [
+      "fracción de",
+      "cantidad",
+      "operador"
+    ],
+    "prerrequisitos": [
+      "mat.p6.fraccion-como-cociente"
+    ],
+    "ordenSugerido": 38,
+    "ideaCentral": "Para hallar una fracción de una cantidad, divide por el denominador y multiplica por el numerador. Si hay dos fracciones seguidas, la segunda actúa sobre el primer resultado.",
+    "pasos": [
+      "Identifica la cantidad inicial.",
+      "Divide por el denominador.",
+      "Multiplica por el numerador.",
+      "Si continúa el problema, usa el resultado como nueva cantidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tres cuartos de 20 cuadernos.",
+        "desarrollo": "20 ÷ 4 = 5; 5 × 3 = 15.",
+        "respuesta": "15 cuadernos."
+      },
+      {
+        "situacion": "Dos tercios de 18 panes.",
+        "desarrollo": "18 ÷ 3 = 6; 6 × 2 = 12.",
+        "respuesta": "12 panes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar por el denominador.",
+        "correccion": "El denominador indica en cuántas partes se divide."
+      },
+      {
+        "error": "Aplicar la segunda fracción al total inicial.",
+        "correccion": "Usa la cantidad que quedó tras el primer cálculo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Operador",
+        "significado": "Regla que transforma una cantidad."
+      },
+      {
+        "termino": "Denominador",
+        "significado": "Número de partes iguales."
+      },
+      {
+        "termino": "Numerador",
+        "significado": "Cantidad de partes que se toman."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 1/4 de 20 canicas. Escribe solo el número de canicas.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 20 entre 4.",
+          "Cada cuarto tiene 5.",
+          "Toma un cuarto."
+        ],
+        "retroalimentacion": "Es 5; no se multiplica 20 por 4."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántas naranjas son 2/3 de 12?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Haz tres grupos iguales de 12.",
+          "Cada grupo tiene 4.",
+          "Toma dos grupos."
+        ],
+        "retroalimentacion": "La opción 8 naranjas corresponde a 2 × 4.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 naranjas"
+          },
+          {
+            "id": "b",
+            "texto": "6 naranjas"
+          },
+          {
+            "id": "c",
+            "texto": "8 naranjas"
+          },
+          {
+            "id": "d",
+            "texto": "18 naranjas"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tres quintos de 25 es 15.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 25 entre 5.",
+          "Cada quinto vale 5.",
+          "Tres quintos son 3 × 5."
+        ],
+        "retroalimentacion": "Es verdadero: 3/5 de 25 es 15."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una familia usa 1/2 de 18 huevos. Escribe solo cuántos huevos usa.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una mitad divide en dos.",
+          "18 ÷ 2 = 9.",
+          "Toma una de esas mitades."
+        ],
+        "retroalimentacion": "Usa 9 huevos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la feria, 3/4 de 32 puestos venden comida. Escribe solo el número de puestos.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 32 en cuatro grupos.",
+          "Cada cuarto tiene 8.",
+          "Tres cuartos son 3 × 8."
+        ],
+        "retroalimentacion": "Venden comida 24 puestos; 8 es solo un cuarto."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un equipo leyó 5/6 de 30 páginas. ¿Cuántas leyó?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 30 ÷ 6.",
+          "Un sexto son 5 páginas.",
+          "Multiplica por 5."
+        ],
+        "retroalimentacion": "La opción 25 páginas es 5/6 de 30.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25 páginas"
+          },
+          {
+            "id": "b",
+            "texto": "5 páginas"
+          },
+          {
+            "id": "c",
+            "texto": "36 páginas"
+          },
+          {
+            "id": "d",
+            "texto": "30 páginas"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 2/5 de 40 litros se consumen, quedan 16 litros.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dos quintos de 40 son 16.",
+          "Esos 16 litros se consumen.",
+          "Quedan 40 − 16."
+        ],
+        "retroalimentacion": "Es falso: quedan 24 litros; 16 es lo consumido."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una artesana tiñe 7/8 de 64 hilos. Escribe solo los hilos teñidos.",
+        "respuesta": 56,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "64 ÷ 8 = 8.",
+          "Cada octavo tiene 8 hilos.",
+          "Siete octavos son 7 × 8."
+        ],
+        "retroalimentacion": "Tiñe 56 hilos, no 8."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "De 48 libros, 3/4 son cuentos; 2/3 de esos cuentos son peruanos. ¿Cuántos cuentos peruanos hay? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres cuartos de 48 son 36.",
+          "Ahora aplica 2/3 a esos 36.",
+          "36 ÷ 3 × 2 = 24."
+        ],
+        "retroalimentacion": "Hay 24 cuentos peruanos; el segundo operador actúa sobre 36."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una cesta hay 60 mangos. Se vende 2/5 y se regala 1/3 de los que quedan. ¿Cuántos se regalan?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se venden 24 mangos.",
+          "Quedan 60 − 24 = 36.",
+          "Un tercio de 36 es 12."
+        ],
+        "retroalimentacion": "La opción 12 mangos toma 1/3 de los 36 restantes.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20 mangos"
+          },
+          {
+            "id": "b",
+            "texto": "24 mangos"
+          },
+          {
+            "id": "c",
+            "texto": "36 mangos"
+          },
+          {
+            "id": "d",
+            "texto": "12 mangos"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 3/4 de 40 estudiantes son niñas y 1/3 de ellas juega vóley, entonces juegan vóley 10 niñas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "3/4 de 40 son 30.",
+          "Ahora calcula 1/3 de 30.",
+          "30 ÷ 3 = 10."
+        ],
+        "retroalimentacion": "Es verdadero: 10 niñas juegan vóley."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un saco tiene 72 kg de arroz. Se usa 5/6 y luego 1/4 de lo usado va a la olla común. ¿Cuántos kg van a la olla? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "5/6 de 72 son 60.",
+          "La olla recibe un cuarto de esos 60.",
+          "60 ÷ 4 = 15."
+        ],
+        "retroalimentacion": "Van 15 kg; el cuarto se aplica a lo usado, no al saco entero."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.fracciones-equivalentes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Fracciones equivalentes en la recta numérica",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Reconoce fracciones que representan la misma parte con gráficos y en la recta numérica.",
+    "palabrasClave": [
+      "equivalencia",
+      "recta numérica",
+      "representación"
+    ],
+    "prerrequisitos": [
+      "mat.p6.fraccion-como-cociente"
+    ],
+    "ordenSugerido": 39,
+    "ideaCentral": "Dos fracciones son equivalentes si representan la misma cantidad y ocupan el mismo punto en la recta numérica. Puedes comprobarlo dividiendo una misma unidad en partes más pequeñas.",
+    "pasos": [
+      "Usa unidades del mismo tamaño.",
+      "Ubica la primera fracción en una barra o recta.",
+      "Divide cada parte en trozos iguales y cuenta las nuevas partes.",
+      "Comprueba si los puntos coinciden."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una mitad de una barra.",
+        "desarrollo": "Al dividir cada mitad en dos, queda 2/4.",
+        "respuesta": "1/2 = 2/4."
+      },
+      {
+        "situacion": "Dos tercios de un metro.",
+        "desarrollo": "Cada tercio se parte en tres: quedan 6/9.",
+        "respuesta": "2/3 = 6/9."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comparar solo numeradores.",
+        "correccion": "Las partes pueden tener tamaños distintos."
+      },
+      {
+        "error": "Usar barras de longitudes diferentes.",
+        "correccion": "La unidad de comparación debe ser la misma."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Fracciones equivalentes",
+        "significado": "Fracciones distintas que representan la misma cantidad."
+      },
+      {
+        "termino": "Recta numérica",
+        "significado": "Línea donde cada número ocupa una posición."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una mitad y dos cuartos ocupan el mismo punto entre 0 y 1 en la recta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Parte el segmento en 2.",
+          "Luego pártelo en 4.",
+          "La mitad coincide con dos de cuatro partes."
+        ],
+        "retroalimentacion": "Es verdadero: 1/2 = 2/4."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué fracción señala el mismo punto que 1/3?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina tercios iguales.",
+          "Divide cada tercio en dos.",
+          "Una de tres partes se convierte en dos de seis."
+        ],
+        "retroalimentacion": "La opción 2/6 coincide con 1/3.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/6"
+          },
+          {
+            "id": "b",
+            "texto": "2/6"
+          },
+          {
+            "id": "c",
+            "texto": "3/6"
+          },
+          {
+            "id": "d",
+            "texto": "2/3"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En la recta de 0 a 1, el punto 3/4 también se escribe con octavos. ¿Qué fracción es?",
+        "respuesta": "6/8",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuarto se divide en dos.",
+          "Tres cuartos son seis partes pequeñas.",
+          "El total pasa a ocho partes."
+        ],
+        "retroalimentacion": "3/4 y 6/8 ocupan el mismo punto."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los puntos 2/5 y 4/10 coinciden en una recta numérica.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide cada quinto en dos.",
+          "Dos quintos se convierten en cuatro décimos.",
+          "La posición no cambia."
+        ],
+        "retroalimentacion": "Es verdadero: 2/5 = 4/10."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una barra muestra ●●●○○○ de seis partes. ¿Qué fracción equivalente a la sombreada eliges?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay 3 de 6 partes marcadas.",
+          "3/6 es la mitad.",
+          "Busca una forma de escribir la mitad."
+        ],
+        "retroalimentacion": "La opción 1/2 corresponde a 3/6.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/3"
+          },
+          {
+            "id": "b",
+            "texto": "2/3"
+          },
+          {
+            "id": "c",
+            "texto": "3/5"
+          },
+          {
+            "id": "d",
+            "texto": "1/2"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El punto 4/6 coincide con otro punto escrito en tercios. ¿Cuál?",
+        "respuesta": "2/3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa las seis partes en pares.",
+          "Cuatro sextos son dos pares.",
+          "Hay tres pares en total."
+        ],
+        "retroalimentacion": "4/6 coincide con 2/3."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la recta, 3/5 y 6/15 coinciden.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara partes iguales.",
+          "3/5 se expresa como 9/15.",
+          "9/15 no es 6/15."
+        ],
+        "retroalimentacion": "Es falso: 3/5 = 9/15, distinto de 6/15."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos barras iguales tienen 2/3 y 4/6 marcados. ¿Qué afirmación es correcta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En las barras de 2/3 y 4/6, cada tercio contiene dos sextos.",
+          "Dos tercios dan cuatro sextos.",
+          "Las zonas marcadas tienen igual longitud."
+        ],
+        "retroalimentacion": "La opción «Ocupan igual longitud» es correcta: 2/3 = 4/6.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ocupan igual longitud"
+          },
+          {
+            "id": "b",
+            "texto": "La primera es el doble"
+          },
+          {
+            "id": "c",
+            "texto": "La segunda es el doble"
+          },
+          {
+            "id": "d",
+            "texto": "No se pueden comparar"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En una recta de 0 a 2, el punto 5/4 se expresa en octavos. ¿Qué fracción señala ese mismo punto?",
+        "respuesta": "10/8",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para representar 5/4 en octavos, subdivide sus cinco cuartos.",
+          "Cinco cuartos se vuelven diez partes.",
+          "Cada unidad tiene ocho partes."
+        ],
+        "retroalimentacion": "5/4 y 10/8 coinciden, incluso después del 1."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres alumnos marcan 6/9, 2/3 y 4/6 en la misma recta. ¿Cómo quedan los puntos?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Simplifica 6/9.",
+          "4/6 también se reduce a 2/3.",
+          "Los tres valores son iguales."
+        ],
+        "retroalimentacion": "La opción «Los tres coinciden» es correcta: todos valen 2/3.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6/9 queda primero"
+          },
+          {
+            "id": "b",
+            "texto": "4/6 queda último"
+          },
+          {
+            "id": "c",
+            "texto": "Los tres coinciden"
+          },
+          {
+            "id": "d",
+            "texto": "Solo coinciden dos"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 8/12 y 2/3 están en la misma recta, el primero queda a la derecha porque 8 es mayor que 2.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No compares numeradores solos.",
+          "8/12 se reduce entre 4.",
+          "8/12 = 2/3."
+        ],
+        "retroalimentacion": "Es falso: ambos señalan el mismo punto."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una barra tiene 9/12 de su longitud marcada. Una segunda se divide en cuartos. ¿Cuántos cuartos debes marcar para la misma longitud? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reduce 9/12.",
+          "Divide 9 y 12 entre 3.",
+          "9/12 = 3/4."
+        ],
+        "retroalimentacion": "Debes marcar 3 cuartos; no 9 cuartos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.amplificar-simplificar",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Amplificación y simplificación de fracciones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Obtiene fracciones equivalentes y la fracción irreductible multiplicando o dividiendo por un mismo número.",
+    "palabrasClave": [
+      "amplificar",
+      "simplificar",
+      "irreductible"
+    ],
+    "prerrequisitos": [
+      "mat.p6.fracciones-equivalentes",
+      "mat.p6.mcd"
+    ],
+    "ordenSugerido": 40,
+    "ideaCentral": "Amplificar o simplificar una fracción conserva su valor si multiplicas o divides numerador y denominador por el mismo número distinto de cero. Una fracción irreductible ya no admite divisor común mayor que 1.",
+    "pasos": [
+      "Busca un factor común o un factor de ampliación.",
+      "Aplica la misma operación a numerador y denominador.",
+      "Si simplificas, repite hasta que no haya divisor común mayor que 1."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Amplificar 2/3 por 4.",
+        "desarrollo": "2 × 4 = 8 y 3 × 4 = 12.",
+        "respuesta": "8/12."
+      },
+      {
+        "situacion": "Reducir 18/30.",
+        "desarrollo": "Ambos se dividen entre 6: 3/5.",
+        "respuesta": "3/5."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Modificar solo el numerador.",
+        "correccion": "Cambia ambos términos con el mismo factor."
+      },
+      {
+        "error": "Detenerse antes de la forma irreductible.",
+        "correccion": "Comprueba si aún hay un divisor común."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Amplificar",
+        "significado": "Multiplicar ambos términos por el mismo factor."
+      },
+      {
+        "termino": "Simplificar",
+        "significado": "Dividir ambos términos por el mismo divisor."
+      },
+      {
+        "termino": "Irreductible",
+        "significado": "Fracción sin divisor común mayor que 1."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Amplifica 1/3 por 2. Escribe la fracción obtenida.",
+        "respuesta": "2/6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica el numerador por 2.",
+          "Multiplica también el denominador por 2.",
+          "1 × 2 sobre 3 × 2."
+        ],
+        "retroalimentacion": "Sale 2/6; cambiar solo el numerador altera el valor."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es la simplificación de 4/8 entre 4?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 4 entre 4.",
+          "Divide 8 entre 4.",
+          "Obtienes 1 sobre 2."
+        ],
+        "retroalimentacion": "La opción 1/2 resulta de dividir ambos términos entre 4.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/2"
+          },
+          {
+            "id": "b",
+            "texto": "1/8"
+          },
+          {
+            "id": "c",
+            "texto": "1/2"
+          },
+          {
+            "id": "d",
+            "texto": "8/4"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Multiplicar numerador y denominador de 2/5 por 3 produce 6/15.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 2 × 3.",
+          "Calcula 5 × 3.",
+          "Se forma 6/15."
+        ],
+        "retroalimentacion": "Es verdadero: 2/5 = 6/15."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Reduce 6/9 dividiendo ambos términos entre 3.",
+        "respuesta": "2/3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "6 ÷ 3 = 2.",
+          "9 ÷ 3 = 3.",
+          "Escribe 2 sobre 3."
+        ],
+        "retroalimentacion": "El resultado es 2/3, no 3/2."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es la forma irreductible de 12/18?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un divisor común de 12 y 18.",
+          "El máximo común divisor es 6.",
+          "Divide ambos entre 6."
+        ],
+        "retroalimentacion": "La opción 2/3 es irreductible: 12/18 ÷ 6/6 = 2/3.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2/3"
+          },
+          {
+            "id": "b",
+            "texto": "6/9"
+          },
+          {
+            "id": "c",
+            "texto": "4/6"
+          },
+          {
+            "id": "d",
+            "texto": "3/2"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 5/7 se obtiene una equivalente 15/21 multiplicando ambos términos por 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "5 × 3 = 15.",
+          "7 × 3 = 21.",
+          "Se usó el mismo factor."
+        ],
+        "retroalimentacion": "Es verdadero: 5/7 = 15/21."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica 15/25 hasta una fracción irreductible.",
+        "respuesta": "3/5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un factor común.",
+          "15 y 25 se dividen entre 5.",
+          "15 ÷ 5 = 3; 25 ÷ 5 = 5."
+        ],
+        "retroalimentacion": "15/25 = 3/5; 3 y 5 ya no comparten divisor mayor que 1."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para pasar de 3/4 a 12/16, ¿por cuánto amplificas?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los numeradores 3 y 12.",
+          "3 × 4 = 12.",
+          "También 4 × 4 = 16."
+        ],
+        "retroalimentacion": "La opción 4 es el factor común de amplificación.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "4"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Reduce 42/56 a su forma irreductible.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un divisor común grande.",
+          "42 y 56 son múltiplos de 14.",
+          "42 ÷ 14 = 3; 56 ÷ 14 = 4."
+        ],
+        "retroalimentacion": "La forma irreductible es 3/4."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un alumno simplifica 18/24 a 9/12 y dice que ya terminó. ¿Qué debería hacer?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "9 y 12 aún comparten un divisor.",
+          "Divide ambos entre 3.",
+          "Obtiene 3/4."
+        ],
+        "retroalimentacion": "La opción «Seguir hasta 3/4» es correcta; 9/12 aún se reduce.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dejar 9/12"
+          },
+          {
+            "id": "b",
+            "texto": "Seguir hasta 3/4"
+          },
+          {
+            "id": "c",
+            "texto": "Volver a 18/24"
+          },
+          {
+            "id": "d",
+            "texto": "Cambiar a 9/24"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fracción 35/49 queda irreductible como 5/7 tras dividir ambos términos entre 7.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "35 ÷ 7 = 5.",
+          "49 ÷ 7 = 7.",
+          "5 y 7 son coprimos."
+        ],
+        "retroalimentacion": "Es verdadero: 35/49 = 5/7."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Completa la equivalencia 7/9 = ?/36. Escribe solo el numerador faltante.",
+        "respuesta": 28,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "9 se multiplica por 4 para llegar a 36.",
+          "Aplica 4 al numerador.",
+          "7 × 4 = 28."
+        ],
+        "retroalimentacion": "El numerador es 28; amplificar exige el mismo factor en ambos términos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.comparar-ordenar-fracciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-06"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Comparación y orden de fracciones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Compara fracciones homogéneas y heterogéneas usando equivalencias y justifica el orden.",
+    "palabrasClave": [
+      "comparar",
+      "ordenar",
+      "denominador común"
+    ],
+    "prerrequisitos": [
+      "mat.p6.amplificar-simplificar"
+    ],
+    "ordenSugerido": 41,
+    "ideaCentral": "Para comparar fracciones, usa partes del mismo tamaño: convierte a un denominador común o representa ambas en la misma recta. Luego ordena los numeradores.",
+    "pasos": [
+      "Busca un denominador común.",
+      "Escribe fracciones equivalentes con ese denominador.",
+      "Compara los numeradores y justifica el orden."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Comparar 2/3 y 3/4.",
+        "desarrollo": "2/3 = 8/12 y 3/4 = 9/12.",
+        "respuesta": "3/4 es mayor."
+      },
+      {
+        "situacion": "Ordenar 1/2, 2/5 y 3/4.",
+        "desarrollo": "En veinteavos son 10/20, 8/20 y 15/20.",
+        "respuesta": "2/5 < 1/2 < 3/4."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comparar solo numeradores de fracciones distintas.",
+        "correccion": "Primero iguala los denominadores."
+      },
+      {
+        "error": "Confundir izquierda y derecha en la recta.",
+        "correccion": "Más a la derecha significa mayor valor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Denominador común",
+        "significado": "Mismo número de partes para comparar."
+      },
+      {
+        "termino": "Orden ascendente",
+        "significado": "Del menor al mayor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es mayor: 3/8 o 5/8?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tienen el mismo denominador.",
+          "Compara 3 con 5.",
+          "Cinco octavos cubren más partes."
+        ],
+        "retroalimentacion": "La opción 5/8 es mayor que 3/8.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3/8"
+          },
+          {
+            "id": "b",
+            "texto": "5/8"
+          },
+          {
+            "id": "c",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "d",
+            "texto": "No se sabe"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con igual denominador, 7/10 es mayor que 4/10.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas unidades se parten en décimos.",
+          "Compara 7 partes con 4.",
+          "Siete partes son más."
+        ],
+        "retroalimentacion": "Es verdadero: 7/10 > 4/10."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Ordena de menor a mayor 1/6, 4/6 y 2/6. Usa comas.",
+        "respuesta": "1/6, 2/6, 4/6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Todos son sextos.",
+          "Ordena los numeradores 1, 4, 2.",
+          "El orden numérico es 1, 2, 4."
+        ],
+        "retroalimentacion": "El orden es 1/6, 2/6, 4/6."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Entre 1/2 y 1/4 de una misma torta, ¿qué porción es mayor?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La torta es la misma unidad.",
+          "Dos partes son mayores que cuatro partes.",
+          "Una mitad supera un cuarto."
+        ],
+        "retroalimentacion": "La opción 1/2 es mayor: cada mitad es más grande que cada cuarto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/4"
+          },
+          {
+            "id": "b",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "c",
+            "texto": "No se pueden comparar"
+          },
+          {
+            "id": "d",
+            "texto": "1/2"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos tercios es menor que tres sextos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe 2/3 en sextos.",
+          "2/3 = 4/6.",
+          "4/6 supera 3/6."
+        ],
+        "retroalimentacion": "Es falso: 2/3 > 3/6."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ordena 3/4, 1/2 y 1/4 de menor a mayor.",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 1/2 a cuartos.",
+          "1/2 = 2/4.",
+          "Ordena 1/4, 2/4 y 3/4."
+        ],
+        "retroalimentacion": "La opción 1/4, 1/2, 3/4 está ordenada de menor a mayor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/4, 1/2, 3/4"
+          },
+          {
+            "id": "b",
+            "texto": "3/4, 1/2, 1/4"
+          },
+          {
+            "id": "c",
+            "texto": "1/2, 1/4, 3/4"
+          },
+          {
+            "id": "d",
+            "texto": "1/4, 3/4, 1/2"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cuál es mayor entre 5/6 y 3/4? Escribe la fracción.",
+        "respuesta": "5/6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa doceavos.",
+          "5/6 = 10/12.",
+          "3/4 = 9/12."
+        ],
+        "retroalimentacion": "5/6 es mayor porque 10/12 > 9/12."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fracción 4/5 queda a la izquierda de 7/10 en la recta de 0 a 1.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Expresa 4/5 en décimos.",
+          "4/5 = 8/10.",
+          "8/10 está a la derecha de 7/10."
+        ],
+        "retroalimentacion": "Es falso: 4/5 > 7/10."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres recetas usan 5/8, 2/3 y 3/4 de taza. ¿Cuál usa más?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa denominador común 24.",
+          "5/8 = 15/24 y 2/3 = 16/24.",
+          "3/4 = 18/24."
+        ],
+        "retroalimentacion": "La opción 3/4 usa más: 18/24 supera 16/24 y 15/24.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5/8"
+          },
+          {
+            "id": "b",
+            "texto": "2/3"
+          },
+          {
+            "id": "c",
+            "texto": "3/4"
+          },
+          {
+            "id": "d",
+            "texto": "Todas igual"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Ordena de menor a mayor 3/5, 7/10 y 1/2. Usa comas.",
+        "respuesta": "1/2, 3/5, 7/10",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lleva todo a décimos.",
+          "1/2 = 5/10; 3/5 = 6/10.",
+          "Compara 5/10, 6/10 y 7/10."
+        ],
+        "retroalimentacion": "El orden es 1/2, 3/5, 7/10."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si Rosa avanzó 7/12 km y Luis 2/3 km, Rosa avanzó más.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Expresa 2/3 en doceavos.",
+          "2/3 = 8/12.",
+          "8/12 es mayor que 7/12."
+        ],
+        "retroalimentacion": "Es falso: Luis avanzó más, 8/12 km."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una lista marca 4/6 < 5/9 < 3/4. ¿Dónde está el error?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 4/6 con 5/9.",
+          "4/6 = 6/9.",
+          "6/9 no es menor que 5/9."
+        ],
+        "retroalimentacion": "La opción «4/6 < 5/9» identifica el error: 4/6 es 6/9 y resulta mayor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5/9 < 3/4"
+          },
+          {
+            "id": "b",
+            "texto": "4/6 < 5/9"
+          },
+          {
+            "id": "c",
+            "texto": "3/4 es la mayor"
+          },
+          {
+            "id": "d",
+            "texto": "Todas son correctas"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.suma-resta-homogeneas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-02",
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Adición y sustracción de fracciones homogéneas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Suma y resta fracciones de igual denominador y simplifica el resultado.",
+    "palabrasClave": [
+      "fracciones homogéneas",
+      "suma",
+      "resta"
+    ],
+    "prerrequisitos": [
+      "mat.p6.amplificar-simplificar"
+    ],
+    "ordenSugerido": 42,
+    "ideaCentral": "Con fracciones de igual denominador, suma o resta los numeradores y conserva el denominador. Después simplifica si es posible.",
+    "pasos": [
+      "Confirma que los denominadores sean iguales.",
+      "Opera solo los numeradores.",
+      "Conserva el denominador común.",
+      "Simplifica el resultado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos octavos más tres octavos de pizza.",
+        "desarrollo": "2/8 + 3/8 = 5/8.",
+        "respuesta": "5/8 de pizza."
+      },
+      {
+        "situacion": "Siete décimos menos dos décimos de litro.",
+        "desarrollo": "7/10 − 2/10 = 5/10 = 1/2.",
+        "respuesta": "1/2 litro."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar también denominadores.",
+        "correccion": "El tamaño de cada parte no cambia."
+      },
+      {
+        "error": "Olvidar simplificar 6/8.",
+        "correccion": "Divide numerador y denominador entre 2: 3/4."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Homogéneas",
+        "significado": "Fracciones de igual denominador."
+      },
+      {
+        "termino": "Simplificar",
+        "significado": "Escribir una fracción equivalente con términos menores."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Suma 2/7 + 3/7. Escribe la fracción.",
+        "respuesta": "5/7",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambos son séptimos.",
+          "Suma 2 + 3.",
+          "Mantén el denominador 7."
+        ],
+        "retroalimentacion": "La suma es 5/7, no 5/14."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 6/9 − 2/9?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambos términos son novenos.",
+          "Resta 6 − 2.",
+          "Conserva el 9 abajo."
+        ],
+        "retroalimentacion": "La opción 4/9 es correcta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/0"
+          },
+          {
+            "id": "b",
+            "texto": "8/9"
+          },
+          {
+            "id": "c",
+            "texto": "4/9"
+          },
+          {
+            "id": "d",
+            "texto": "4/18"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La suma 1/5 + 2/5 es 3/5.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se suman quintos.",
+          "1 + 2 = 3.",
+          "El denominador sigue siendo 5."
+        ],
+        "retroalimentacion": "Es verdadero: 1/5 + 2/5 = 3/5."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una cinta mide 7/8 m; se cortan 3/8 m. ¿Cuánto queda? Escribe la fracción.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 7 − 3 octavos.",
+          "Quedan 4/8.",
+          "Simplifica 4/8."
+        ],
+        "retroalimentacion": "Queda 1/2 m; 4/8 es equivalente pero no simplificado."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La receta usa 3/10 kg de harina y 5/10 kg más. ¿Cuánto se usa en total, simplificado?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 3 + 5 décimos.",
+          "Obtienes 8/10.",
+          "Reduce entre 2."
+        ],
+        "retroalimentacion": "La opción 4/5 kg equivale a 8/10 kg.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/5 kg"
+          },
+          {
+            "id": "b",
+            "texto": "8/20 kg"
+          },
+          {
+            "id": "c",
+            "texto": "2/10 kg"
+          },
+          {
+            "id": "d",
+            "texto": "8/5 kg"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 11/12 L se beben 5/12 L; quedan 1/2 L.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 11 − 5.",
+          "Quedan 6/12.",
+          "6/12 se reduce a 1/2."
+        ],
+        "retroalimentacion": "Es verdadero: 11/12 − 5/12 = 1/2."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 4/15 + 7/15 y deja el resultado irreductible.",
+        "respuesta": "11/15",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Son quinceavos.",
+          "Suma los numeradores 4 y 7.",
+          "11 y 15 no comparten divisor."
+        ],
+        "retroalimentacion": "El resultado es 11/15."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se pintó 9/10 de un mural y se borró 3/10. ¿Qué parte permanece pintada?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta las partes pintadas que se borraron.",
+          "9/10 − 3/10 = 6/10.",
+          "Simplifica entre 2."
+        ],
+        "retroalimentacion": "La opción 3/5 permanece pintada.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6/20"
+          },
+          {
+            "id": "b",
+            "texto": "12/10"
+          },
+          {
+            "id": "c",
+            "texto": "2/5"
+          },
+          {
+            "id": "d",
+            "texto": "3/5"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "De 13/16 de tela, se usan 5/16 y luego 3/16. ¿Qué fracción queda?",
+        "respuesta": "5/16",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta lo usado: 5/16 + 3/16.",
+          "Se usan 8/16.",
+          "13/16 − 8/16 = 5/16."
+        ],
+        "retroalimentacion": "Quedan 5/16; hay que restar ambos usos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un tanque tiene 7/12 L y recibe 8/12 L. ¿Cuánto contiene como fracción impropia simplificada?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los numeradores 7 y 8.",
+          "Obtienes 15/12.",
+          "Reduce ambos entre 3."
+        ],
+        "retroalimentacion": "La opción 5/4 L equivale a 15/12 L.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15/24 L"
+          },
+          {
+            "id": "b",
+            "texto": "5/4 L"
+          },
+          {
+            "id": "c",
+            "texto": "1/4 L"
+          },
+          {
+            "id": "d",
+            "texto": "4/5 L"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si se juntan 5/6 kg y 4/6 kg y luego se usan 3/6 kg, quedan 1 kg.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 5/6 + 4/6 = 9/6.",
+          "Resta 3/6.",
+          "6/6 es 1 entero."
+        ],
+        "retroalimentacion": "Es verdadero: quedan 6/6 kg, o 1 kg."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En una carrera, Elena recorrió 11/14 km y retrocedió 4/14 km para buscar su gorra. ¿Cuál es su avance neto, simplificado?",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 11/14 − 4/14.",
+          "Queda 7/14.",
+          "Divide ambos términos entre 7."
+        ],
+        "retroalimentacion": "Su avance neto es 1/2 km."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.suma-resta-heterogeneas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-02",
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Adición y sustracción de fracciones heterogéneas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Suma y resta fracciones de distinto denominador usando el mcm o fracciones equivalentes.",
+    "palabrasClave": [
+      "fracciones heterogéneas",
+      "mcm",
+      "denominador común"
+    ],
+    "prerrequisitos": [
+      "mat.p6.suma-resta-homogeneas",
+      "mat.p6.mcm"
+    ],
+    "ordenSugerido": 43,
+    "ideaCentral": "Para sumar o restar fracciones de distinto denominador, conviértelas a fracciones equivalentes con un denominador común. Entonces opera numeradores y simplifica.",
+    "pasos": [
+      "Busca un múltiplo común de los denominadores.",
+      "Transforma cada fracción sin cambiar su valor.",
+      "Suma o resta los numeradores.",
+      "Simplifica si es posible."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un medio más un tercio.",
+        "desarrollo": "1/2 = 3/6 y 1/3 = 2/6; sumo 5/6.",
+        "respuesta": "5/6."
+      },
+      {
+        "situacion": "Tres cuartos menos un sexto.",
+        "desarrollo": "3/4 = 9/12 y 1/6 = 2/12; resto 7/12.",
+        "respuesta": "7/12."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar numeradores y denominadores directamente.",
+        "correccion": "Primero iguala el tamaño de las partes."
+      },
+      {
+        "error": "Cambiar solo el denominador.",
+        "correccion": "Multiplica numerador y denominador por el mismo factor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Heterogéneas",
+        "significado": "Fracciones con distinto denominador."
+      },
+      {
+        "termino": "Mínimo común múltiplo",
+        "significado": "Menor múltiplo compartido por dos números."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Suma 1/2 + 1/4 y simplifica.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 1/2 en cuartos.",
+          "1/2 = 2/4.",
+          "2/4 + 1/4 = 3/4."
+        ],
+        "retroalimentacion": "La suma es 3/4; sumar denominadores daría un error."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 2/3 − 1/6?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa sextos.",
+          "2/3 = 4/6.",
+          "4/6 − 1/6 = 3/6."
+        ],
+        "retroalimentacion": "La opción 1/2 es la forma reducida de 3/6.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/3"
+          },
+          {
+            "id": "b",
+            "texto": "1/2"
+          },
+          {
+            "id": "c",
+            "texto": "1/6"
+          },
+          {
+            "id": "d",
+            "texto": "3/9"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuarto más un medio es tres cuartos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 1/2 a 2/4.",
+          "Suma 1/4 y 2/4.",
+          "Obtienes 3/4."
+        ],
+        "retroalimentacion": "Es verdadero: 1/4 + 1/2 = 3/4."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 1/3 + 1/6. Responde simplificado.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El denominador común es 6.",
+          "1/3 = 2/6.",
+          "2/6 + 1/6 = 3/6."
+        ],
+        "retroalimentacion": "El resultado simplificado es 1/2."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una sopa lleva 3/4 L de agua y 2/5 L más. ¿Cuánto es en total?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El mcm de 4 y 5 es 20.",
+          "3/4 = 15/20; 2/5 = 8/20.",
+          "Suma 15 + 8 veinteavos."
+        ],
+        "retroalimentacion": "La opción 23/20 L resulta de 15/20 + 8/20.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5/9 L"
+          },
+          {
+            "id": "b",
+            "texto": "6/20 L"
+          },
+          {
+            "id": "c",
+            "texto": "17/20 L"
+          },
+          {
+            "id": "d",
+            "texto": "23/20 L"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La diferencia 5/6 − 1/4 es 7/12.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa denominador 12.",
+          "5/6 = 10/12; 1/4 = 3/12.",
+          "10/12 − 3/12 = 7/12."
+        ],
+        "retroalimentacion": "Es verdadero: la diferencia es 7/12."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "De 7/10 m de soga se cortan 1/5 m. ¿Qué fracción queda?",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 1/5 a décimos.",
+          "1/5 = 2/10.",
+          "7/10 − 2/10 = 5/10."
+        ],
+        "retroalimentacion": "Queda 1/2 m."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Calcula 2/9 + 1/3. ¿Cuál es el resultado?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un tercio equivale a 3/9.",
+          "Suma 2/9 y 3/9.",
+          "Quedan 5/9."
+        ],
+        "retroalimentacion": "La opción 5/9 es correcta; 3/12 sumaría denominadores.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5/9"
+          },
+          {
+            "id": "b",
+            "texto": "3/12"
+          },
+          {
+            "id": "c",
+            "texto": "2/27"
+          },
+          {
+            "id": "d",
+            "texto": "1/3"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una tela tiene 5/6 m. Se añaden 3/8 m y se cortan 1/4 m. ¿Cuánto queda? Escribe fracción simplificada.",
+        "respuesta": "23/24",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa denominador 24.",
+          "5/6 = 20/24; 3/8 = 9/24.",
+          "1/4 = 6/24; calcula 20 + 9 − 6."
+        ],
+        "retroalimentacion": "Quedan 23/24 m; el corte se resta al final."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una jarra tiene 3/5 L y recibe 7/10 L; luego sirven 1/4 L. ¿Cuánto queda?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa denominador 20.",
+          "3/5 = 12/20; 7/10 = 14/20.",
+          "1/4 = 5/20; calcula 12 + 14 − 5."
+        ],
+        "retroalimentacion": "La opción 21/20 L corresponde a 26/20 − 5/20.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9/20 L"
+          },
+          {
+            "id": "b",
+            "texto": "21/40 L"
+          },
+          {
+            "id": "c",
+            "texto": "21/20 L"
+          },
+          {
+            "id": "d",
+            "texto": "11/20 L"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 2/3 de un metro se une a 3/4 m y se quita 1/2 m, quedan 11/12 m.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa doceavos.",
+          "2/3 = 8/12 y 3/4 = 9/12.",
+          "Resta 1/2 = 6/12 de 17/12."
+        ],
+        "retroalimentacion": "Es verdadero: 8/12 + 9/12 − 6/12 = 11/12."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Suma 5/12 + 7/18 y expresa el resultado irreductible.",
+        "respuesta": "29/36",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El mcm de 12 y 18 es 36.",
+          "5/12 = 15/36.",
+          "7/18 = 14/36; suma."
+        ],
+        "retroalimentacion": "La suma es 29/36, ya irreductible."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.suma-resta-mixtos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-02",
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Adición y sustracción con números mixtos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Opera con números mixtos separando enteros y fracciones o convirtiéndolos a impropias.",
+    "palabrasClave": [
+      "número mixto",
+      "reagrupar",
+      "fracción impropia"
+    ],
+    "prerrequisitos": [
+      "mat.p6.suma-resta-heterogeneas"
+    ],
+    "ordenSugerido": 44,
+    "ideaCentral": "Un número mixto reúne enteros y una fracción. Puedes sumar o restar por separado; si falta fracción para restar, toma un entero y conviértelo en partes.",
+    "pasos": [
+      "Separa enteros y fracciones.",
+      "Busca denominador común para las fracciones.",
+      "Suma o resta; reagrupa un entero si hace falta.",
+      "Convierte el resultado a mixto simplificado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos y medio más uno y cuarto.",
+        "desarrollo": "2 + 1 = 3; 1/2 + 1/4 = 3/4.",
+        "respuesta": "3 3/4."
+      },
+      {
+        "situacion": "Cuatro y un cuarto menos uno y tres cuartos.",
+        "desarrollo": "4 1/4 = 3 5/4; resto 1 3/4.",
+        "respuesta": "2 1/2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar 1/4 − 3/4 como 2/4 sin reagrupar.",
+        "correccion": "Toma un entero para disponer de 5/4."
+      },
+      {
+        "error": "Sumar denominadores de partes fraccionarias.",
+        "correccion": "Usa un denominador común."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Número mixto",
+        "significado": "Entero acompañado de una fracción propia."
+      },
+      {
+        "termino": "Reagrupar",
+        "significado": "Cambiar un entero por partes fraccionarias equivalentes."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 1 1/4 + 2 1/4. Escribe como mixto.",
+        "respuesta": "3 1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma enteros: 1 + 2 = 3.",
+          "Suma cuartos: 1/4 + 1/4 = 2/4.",
+          "Reduce 2/4 a 1/2."
+        ],
+        "retroalimentacion": "El resultado es 3 1/2, no 3 2/8."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 4 3/5 − 1 1/5?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta enteros 4 − 1.",
+          "Resta quintos 3/5 − 1/5.",
+          "Junta 3 y 2/5."
+        ],
+        "retroalimentacion": "La opción 3 2/5 es correcta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 4/5"
+          },
+          {
+            "id": "b",
+            "texto": "3 2/5"
+          },
+          {
+            "id": "c",
+            "texto": "5 2/5"
+          },
+          {
+            "id": "d",
+            "texto": "3 2/10"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos enteros y medio más un entero y medio suman cuatro enteros.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 2 + 1.",
+          "Dos mitades forman 1 entero.",
+          "3 + 1 = 4."
+        ],
+        "retroalimentacion": "Es verdadero: 2 1/2 + 1 1/2 = 4."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una cuerda mide 3 1/3 m. Se corta 1 1/3 m. ¿Cuánto queda? Escribe solo el número entero.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta las partes enteras.",
+          "Las dos partes de 1/3 se cancelan.",
+          "3 − 1 = 2."
+        ],
+        "retroalimentacion": "Quedan 2 m."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Suma 2 1/2 + 1 1/4.",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma enteros: 3.",
+          "1/2 = 2/4.",
+          "2/4 + 1/4 = 3/4."
+        ],
+        "retroalimentacion": "La opción 3 3/4 es correcta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 2/6"
+          },
+          {
+            "id": "b",
+            "texto": "2 3/4"
+          },
+          {
+            "id": "c",
+            "texto": "4 1/4"
+          },
+          {
+            "id": "d",
+            "texto": "3 3/4"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La resta 5 3/4 − 2 1/2 da 3 1/4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 1/2 a 2/4.",
+          "Resta 5 − 2.",
+          "3/4 − 2/4 = 1/4."
+        ],
+        "retroalimentacion": "Es verdadero: queda 3 1/4."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 1 2/3 + 2 5/6. Responde como mixto simplificado.",
+        "respuesta": "4 1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 2/3 a 4/6.",
+          "4/6 + 5/6 = 9/6 = 1 1/2.",
+          "Los enteros iniciales suman 3."
+        ],
+        "retroalimentacion": "3 + 1 1/2 = 4 1/2."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 4 1/2 kg de harina se usan 2 3/4 kg. ¿Cuánto queda?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 4 1/2 en 4 2/4.",
+          "Toma un entero: 3 6/4.",
+          "Resta 2 3/4."
+        ],
+        "retroalimentacion": "La opción 1 3/4 kg queda tras reagrupar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 3/4 kg"
+          },
+          {
+            "id": "b",
+            "texto": "2 1/4 kg"
+          },
+          {
+            "id": "c",
+            "texto": "2 3/4 kg"
+          },
+          {
+            "id": "d",
+            "texto": "1 1/4 kg"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En un taller usan 2 3/4 m de tela y luego 1 5/6 m; devuelven 1/3 m. ¿Cuánto se usó? Escribe como mixto simplificado.",
+        "respuesta": "4 1/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa doceavos: 3/4 = 9/12 y 5/6 = 10/12.",
+          "Resta 1/3 = 4/12.",
+          "Las fracciones dan 15/12 = 1 1/4; enteros 2 + 1."
+        ],
+        "retroalimentacion": "Se usó 4 1/4 m en total."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caminata fue de 6 1/4 km. Tras 2 2/3 km, ¿cuánto faltó?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa doceavos: 1/4 = 3/12; 2/3 = 8/12.",
+          "Reagrupa 6 3/12 como 5 15/12.",
+          "Resta 2 8/12."
+        ],
+        "retroalimentacion": "La opción 3 7/12 km es correcta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 5/12 km"
+          },
+          {
+            "id": "b",
+            "texto": "3 5/12 km"
+          },
+          {
+            "id": "c",
+            "texto": "3 7/12 km"
+          },
+          {
+            "id": "d",
+            "texto": "4 7/12 km"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si se suman 1 3/5 L y 2 3/10 L y luego se sirven 1 1/2 L, quedan 2 2/5 L.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1 3/5 + 2 3/10 = 3 9/10.",
+          "1 1/2 = 1 5/10.",
+          "3 9/10 − 1 5/10 = 2 4/10."
+        ],
+        "retroalimentacion": "Es verdadero: 2 4/10 = 2 2/5 L."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 3 1/6 + 2 5/6 − 1 1/2. Escribe como mixto simplificado.",
+        "respuesta": "4 1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1/6 + 5/6 = 1.",
+          "Los dos primeros números suman 6.",
+          "6 − 1 1/2 = 4 1/2."
+        ],
+        "retroalimentacion": "El resultado es 4 1/2; las sextas partes forman un entero."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.multiplicacion-fracciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-02",
+      "MAT-C23-P6-03",
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Multiplicación de fracciones como fracción de una fracción",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Multiplica fracciones entre sí y por un natural, e interpreta el producto como fracción de fracción.",
+    "palabrasClave": [
+      "fracción de fracción",
+      "producto",
+      "numerador",
+      "denominador",
+      "simplificación"
+    ],
+    "prerrequisitos": [
+      "mat.p6.fraccion-como-operador",
+      "mat.p6.amplificar-simplificar"
+    ],
+    "ordenSugerido": 45,
+    "ideaCentral": "Multiplicar fracciones permite hallar una parte de otra parte. Multiplicas numeradores entre sí y denominadores entre sí; luego simplificas si es posible.",
+    "pasos": [
+      "Identifica qué fracción se toma de qué cantidad o fracción.",
+      "Multiplica los numeradores y después los denominadores.",
+      "Si aparece un número natural, escríbelo como una fracción con denominador 1.",
+      "Simplifica el resultado y comprueba si tiene sentido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "De una tela se usa 3/4, y de esa parte se corta 2/3. ¿Qué fracción de toda la tela se corta?",
+        "desarrollo": "2/3 de 3/4 es (2×3)/(3×4)=6/12=1/2.",
+        "respuesta": "Se corta 1/2 de la tela."
+      },
+      {
+        "situacion": "Cada estudiante recibe 2/5 de metro de cinta. ¿Cuánto reciben 3 estudiantes?",
+        "desarrollo": "3×2/5=6/5=1 1/5.",
+        "respuesta": "Reciben 6/5 m en total."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar numeradores y denominadores al multiplicar.",
+        "correccion": "En un producto se multiplican numeradores y denominadores; no se suman."
+      },
+      {
+        "error": "Multiplicar el denominador por un natural al calcular 3×2/5.",
+        "correccion": "Escribe 3 como 3/1: (3×2)/(1×5)=6/5."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Producto de fracciones",
+        "significado": "Resultado de multiplicar dos fracciones."
+      },
+      {
+        "termino": "Simplificar",
+        "significado": "Dividir numerador y denominador por un mismo número sin cambiar el valor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 1/2 × 1/3?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica los números de arriba.",
+          "Arriba queda 1×1; abajo, 2×3.",
+          "La fracción obtenida tiene numerador 1 y denominador 6."
+        ],
+        "retroalimentacion": "La respuesta es 1/6; sumar los denominadores daría un valor incorrecto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/5"
+          },
+          {
+            "id": "b",
+            "texto": "1/6"
+          },
+          {
+            "id": "c",
+            "texto": "2/6"
+          },
+          {
+            "id": "d",
+            "texto": "2/5"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe en forma de fracción simplificada: 2/3 de 3/4.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«De» indica multiplicar.",
+          "Calcula (2×3)/(3×4).",
+          "6/12 se simplifica dividiendo entre 6."
+        ],
+        "retroalimentacion": "2/3 de 3/4 es 6/12, o 1/2; 5/7 resultaría de sumar."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El producto 2/5 × 1/2 es 2/10.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 2 por 1 para el numerador.",
+          "El denominador sale de 5×2.",
+          "Compara el producto 2/10 con la afirmación."
+        ],
+        "retroalimentacion": "Es verdadero: (2×1)/(5×2)=2/10, equivalente a 1/5."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa tiene 8 panes. Se come 1/2 de ellos. ¿Cuántos panes se comen? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe 8 como 8/1.",
+          "Calcula 1/2 × 8/1.",
+          "8/2 equivale a cuatro panes."
+        ],
+        "retroalimentacion": "La mitad de 8 es 4 panes; multiplicar 8×2 daría el doble."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 4/5 de una huerta se siembra 3/4 con maíz. ¿Qué fracción de la huerta tiene maíz?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La porción de maíz se toma de la zona cultivada.",
+          "Multiplica 3/4 por 4/5.",
+          "12/20 se reduce dividiendo entre 4."
+        ],
+        "retroalimentacion": "La respuesta es 3/5; 3/4 describe solo la porción cultivada.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7/9"
+          },
+          {
+            "id": "b",
+            "texto": "12/9"
+          },
+          {
+            "id": "c",
+            "texto": "1/5"
+          },
+          {
+            "id": "d",
+            "texto": "3/5"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Cada vaso contiene 3/4 de litro de emoliente. ¿Cuántos litros hay en 4 vasos? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Repite cuatro veces 3/4.",
+          "Multiplica 4×3/4.",
+          "12/4 es un número entero."
+        ],
+        "retroalimentacion": "Hay 3 litros; 4×3/4=12/4=3."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 4/9 × 3/8 y escribe la fracción simplificada.",
+        "respuesta": "1/6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 4×3 y 9×8.",
+          "Obtendrás 12/72.",
+          "Divide 12 y 72 entre 12."
+        ],
+        "retroalimentacion": "El producto es 12/72=1/6; no se suman numeradores ni denominadores."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si tomas 1/2 de 2/3 de una pizza, obtienes 2/5 de la pizza completa.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La palabra «de» indica multiplicación.",
+          "Calcula (1×2)/(2×3).",
+          "El resultado es 2/6, no 2/5."
+        ],
+        "retroalimentacion": "Es falso: 1/2 de 2/3 es 2/6=1/3; sumar denominadores produce 2/5."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para una receta se usa 2/3 de una botella de leche; cada porción lleva 1/4 de lo usado. ¿Qué fracción de la botella lleva una porción?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero distingue la botella completa de la leche usada.",
+          "Calcula 1/4 de 2/3.",
+          "Multiplica 1×2 y 4×3; simplifica 2/12."
+        ],
+        "retroalimentacion": "Una porción lleva 1/6 de la botella; 1/4 se refiere solo a la leche usada.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/6"
+          },
+          {
+            "id": "b",
+            "texto": "1/4"
+          },
+          {
+            "id": "c",
+            "texto": "2/7"
+          },
+          {
+            "id": "d",
+            "texto": "2/3"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una cinta mide 18 m. Se utiliza 2/3 de ella y se reserva 1/2 de esa parte para un mural. ¿Cuántos metros se reservan? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla primero 2/3 de 18.",
+          "2/3 × 18 = 12.",
+          "La mitad de los 12 m usados es la reserva."
+        ],
+        "retroalimentacion": "Se reservan 6 m; tomar la mitad de los 18 m completos daría 9 m."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Multiplica 3/5 por 10/9 y simplifica el resultado como fracción.",
+        "respuesta": "2/3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El producto inicial es (3×10)/(5×9).",
+          "Obtienes 30/45.",
+          "Divide numerador y denominador entre 15."
+        ],
+        "retroalimentacion": "3/5 × 10/9=30/45=2/3; 30/14 vendría de sumar denominadores."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una alumna afirma: «Al multiplicar 3/4 por 2/3 obtengo 1/2; el resultado es menor que 3/4».",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero 3/4 × 2/3.",
+          "El producto es 6/12.",
+          "Compara 1/2 con 3/4 usando cuartos."
+        ],
+        "retroalimentacion": "Es verdadero: 6/12=1/2=2/4, menor que 3/4."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.partes-y-resto-fracciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P6-02",
+      "MAT-C23-P6-07"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Problemas de partes sucesivas y lo que queda",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve situaciones donde se gasta una fracción y luego otra fracción del resto.",
+    "palabrasClave": [
+      "parte del resto",
+      "fracciones sucesivas",
+      "cantidad inicial",
+      "restante"
+    ],
+    "prerrequisitos": [
+      "mat.p6.multiplicacion-fracciones",
+      "mat.p6.suma-resta-heterogeneas"
+    ],
+    "ordenSugerido": 46,
+    "ideaCentral": "Cuando se usa una fracción y luego otra del resto, la segunda fracción se aplica a lo que quedó, no a la cantidad inicial. Resuelve cada etapa en orden.",
+    "pasos": [
+      "Calcula la primera parte tomada de la cantidad inicial.",
+      "Resta esa parte para conocer el primer resto.",
+      "Calcula la segunda fracción sobre ese resto.",
+      "Resta otra vez y verifica que las partes usadas más el resto sumen el total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Hay 24 panes. Se vende 1/4 y luego 1/3 de los que quedan. ¿Cuántos quedan?",
+        "desarrollo": "Primero se venden 6 y quedan 18. Luego se venden 1/3 de 18=6; quedan 12.",
+        "respuesta": "Quedan 12 panes."
+      },
+      {
+        "situacion": "De 40 hojas, Ana usa 1/2 y después 1/4 de las restantes.",
+        "desarrollo": "Tras usar 20 quedan 20. Usa 1/4 de 20=5; quedan 15.",
+        "respuesta": "Le quedan 15 hojas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Calcular la segunda fracción sobre el total original.",
+        "correccion": "El segundo cálculo usa el resto que dejó la primera etapa."
+      },
+      {
+        "error": "Sumar las dos fracciones como si tuvieran la misma base.",
+        "correccion": "Cada fracción se refiere a una cantidad distinta; calcula etapa por etapa."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Resto",
+        "significado": "Cantidad que queda después de retirar una parte."
+      },
+      {
+        "termino": "Parte sucesiva",
+        "significado": "Parte que se toma de un resto ya reducido."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Hay 20 mandarinas. Se entrega 1/5. ¿Cuántas quedan antes de hacer otra entrega? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 1/5 de 20.",
+          "Se entregan 4 mandarinas.",
+          "Resta 4 de 20."
+        ],
+        "retroalimentacion": "Quedan 16; 4 es la cantidad entregada, no el resto."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 12 cuadernos se regala 1/3. Después se regalará 1/2 de los que quedan. ¿Sobre cuántos cuadernos se aplica 1/2?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero 1/3 de 12.",
+          "Se regalaron 4 y quedan 8.",
+          "La mitad se toma de los 8 restantes."
+        ],
+        "retroalimentacion": "Se aplica sobre 8 cuadernos; usar 12 repetiría la base inicial.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si quedan 18 frutas después de la primera venta, la segunda venta de 1/3 del resto se calcula sobre 18.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica la cantidad que quedó.",
+          "La frase «del resto» señala las 18 frutas.",
+          "La tercera parte de 18 sería 6."
+        ],
+        "retroalimentacion": "Es verdadero: la segunda fracción usa las 18 frutas restantes."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Tras usar 1/2 de 10 hojas, ¿cuál es el primer resto? Escribe la cantidad en cifra.",
+        "respuesta": "5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Encuentra la mitad de 10.",
+          "La mitad es 5 hojas usadas.",
+          "Resta esas 5 de las 10 iniciales."
+        ],
+        "retroalimentacion": "Quedan 5 hojas; confundir lo usado con lo restante aquí da el mismo número, pero debes restar."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una caja hay 30 lápices. Se reparte 1/3 y luego 1/2 del resto. ¿Cuántos lápices quedan? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero se reparten 10 lápices.",
+          "Después de la primera entrega quedan 20.",
+          "La mitad de 20 es 10; resta esa entrega."
+        ],
+        "retroalimentacion": "Quedan 10 lápices; la segunda mitad se calcula sobre 20, no sobre 30."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un tanque tiene 36 L. Se usa 1/6 y después 1/3 de lo que queda. ¿Cuántos litros se usan en la segunda etapa?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1/6 de 36 son 6 L.",
+          "Tras la primera etapa quedan 30 L.",
+          "Calcula 1/3 de 30."
+        ],
+        "retroalimentacion": "En la segunda etapa se usan 10 L; 12 L sería 1/3 del total inicial.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 L"
+          },
+          {
+            "id": "b",
+            "texto": "10 L"
+          },
+          {
+            "id": "c",
+            "texto": "12 L"
+          },
+          {
+            "id": "d",
+            "texto": "20 L"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 20 panes se vende 1/4 y luego 1/5 de los restantes; al final quedan 12 panes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera venta es de 5 panes.",
+          "Quedan 15; la segunda venta es 1/5 de 15.",
+          "Resta 3 de 15."
+        ],
+        "retroalimentacion": "Es verdadero: 20−5=15 y 15−3=12."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "De 28 semillas se siembra 1/2 y luego 1/2 de las que quedan. ¿Cuántas semillas se sembraron en la segunda etapa?",
+        "respuesta": "7",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera mitad de 28 son 14.",
+          "Quedan 14 semillas tras la primera siembra.",
+          "La mitad de ese resto es 7."
+        ],
+        "retroalimentacion": "En la segunda etapa se siembran 7; 14 corresponde a la primera."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un puesto tenía 48 botellas. Vendió 1/4 por la mañana y 2/3 del resto por la tarde. ¿Cuántas quedaron? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Por la mañana salieron 12 botellas.",
+          "El resto fue 36; por la tarde salieron 2/3 de 36.",
+          "Se vendieron 24 por la tarde: resta 24 de 36."
+        ],
+        "retroalimentacion": "Quedaron 12; calcular 2/3 de 48 ignoraría la primera venta."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luz tiene 60 soles. Gasta 1/5 y luego 1/4 de lo que queda. ¿Qué cálculo da el dinero final?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero queda 4/5 de 60.",
+          "4/5 de 60 son 48 soles.",
+          "Luego se resta 1/4 de 48."
+        ],
+        "retroalimentacion": "El cálculo correcto es 48−12=36; 1/4 debe aplicarse a 48.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "60−12−15=33"
+          },
+          {
+            "id": "b",
+            "texto": "60−12−12=36 sin hallar resto"
+          },
+          {
+            "id": "c",
+            "texto": "60−15−12=33"
+          },
+          {
+            "id": "d",
+            "texto": "48−12=36"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "De 32 retazos se usa 3/8 y luego 1/5 del resto. ¿Cuántos retazos quedan al final? Escribe la cifra.",
+        "respuesta": "16",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "3/8 de 32 son 12 retazos.",
+          "Tras la primera etapa quedan 20.",
+          "1/5 de 20 son 4; resta 4."
+        ],
+        "retroalimentacion": "Quedan 16 retazos: 32−12−4=16."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo tenía 40 vasos, usó 1/4 y después 1/2 de los restantes. Afirmar que usó 20 vasos en la segunda etapa es correcto.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1/4 de 40 son 10 vasos.",
+          "Quedan 30 después del primer uso.",
+          "La mitad de 30 es 15, no 20."
+        ],
+        "retroalimentacion": "Es falso: en la segunda etapa usa 15 vasos; 20 sería la mitad de los 40 iniciales."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,2177 @@
+[
+  {
+    "clave": "mat.p6.unidades-masa",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-05"
+    ],
+    "bloque": "Medidas: masa, tiempo y temperatura",
+    "nombre": "Unidades de masa y sus conversiones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Convierte entre tonelada, kilogramo y gramo usando equivalencias.",
+    "palabrasClave": [
+      "tonelada",
+      "kilogramo",
+      "gramo",
+      "equivalencias",
+      "conversión"
+    ],
+    "prerrequisitos": [
+      "mat.p6.multiplicar-dividir-potencias-diez"
+    ],
+    "ordenSugerido": 106,
+    "ideaCentral": "Una tonelada equivale a 1000 kilogramos y un kilogramo a 1000 gramos. Multiplica por 1000 al pasar a una unidad menor y divide entre 1000 al pasar a una mayor.",
+    "pasos": [
+      "Identifica la unidad inicial y la unidad pedida.",
+      "Usa 1 t = 1000 kg y 1 kg = 1000 g.",
+      "Multiplica o divide según el sentido del cambio.",
+      "Comprueba si el resultado tiene sentido: la unidad menor necesita más unidades."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un camión lleva 3 t de papa.",
+        "desarrollo": "3 × 1000 = 3000 kg.",
+        "respuesta": "Lleva 3000 kg."
+      },
+      {
+        "situacion": "Un saco contiene 4500 g de arroz.",
+        "desarrollo": "4500 ÷ 1000 = 4,5 kg.",
+        "respuesta": "Contiene 4,5 kg."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir al pasar de kg a g.",
+        "correccion": "El gramo es menor: 2 kg son 2000 g, así que multiplica."
+      },
+      {
+        "error": "Confundir 1 t con 100 kg.",
+        "correccion": "Una tonelada tiene 1000 kg."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Tonelada",
+        "significado": "Unidad de masa que equivale a 1000 kg."
+      },
+      {
+        "termino": "Kilogramo",
+        "significado": "Unidad de masa que equivale a 1000 g."
+      },
+      {
+        "termino": "Gramo",
+        "significado": "Unidad pequeña de masa."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un saco de quinua pesa 2 kg. ¿Cuántos gramos pesa? Escribe solo el número.",
+        "respuesta": 2000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada kilogramo reúne 1000 g.",
+          "Hay dos grupos de 1000 g.",
+          "Multiplica 2 × 1000."
+        ],
+        "retroalimentacion": "No son 200 g: 2 kg equivalen a 2000 g."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una camioneta transporta 4 t de arena. ¿Cuántos kilogramos son?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una tonelada reúne 1000 kg.",
+          "Toma cuatro veces esa equivalencia.",
+          "Calcula 4 × 1000 kg."
+        ],
+        "retroalimentacion": "La opción «4000 kg» corresponde a 4 t; 400 kg quita un cero.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "40 kg"
+          },
+          {
+            "id": "b",
+            "texto": "400 kg"
+          },
+          {
+            "id": "c",
+            "texto": "4000 kg"
+          },
+          {
+            "id": "d",
+            "texto": "40 000 kg"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una bolsa de 3000 g de maíz tiene una masa de 3 kg.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Relaciona 1000 g con 1 kg.",
+          "Separa 3000 g en grupos de 1000.",
+          "Hay tres grupos completos."
+        ],
+        "retroalimentacion": "Es verdadero: 3000 g ÷ 1000 = 3 kg."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué unidad es más conveniente para expresar la masa de un camión cargado: t, kg o g? Escribe la abreviatura.",
+        "respuesta": "t",
+        "alternativasAceptadas": [
+          "tonelada",
+          "toneladas"
+        ],
+        "pistas": [
+          "El camión tiene una masa grande.",
+          "Miles de kilogramos se expresan con una unidad mayor.",
+          "La tonelada se abrevia t."
+        ],
+        "retroalimentacion": "La abreviatura es t: una tonelada reúne 1000 kg."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una caja contiene 7500 g de café. ¿Cuántos kilogramos son? Escribe solo el número.",
+        "respuesta": 7.5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para ir de g a kg, divide entre 1000.",
+          "7000 g son 7 kg.",
+          "Los 500 g restantes son 0,5 kg."
+        ],
+        "retroalimentacion": "7500 g = 7,5 kg; dividir entre 100 daría demasiado."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El almacén recibe 2 t y 500 kg de fertilizante. ¿Cuánto es todo en kg?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte primero las toneladas.",
+          "2 t son 2000 kg.",
+          "Agrega los 500 kg."
+        ],
+        "retroalimentacion": "La opción «2500 kg» suma 2000 + 500; no se suman 2 y 500 sin convertir.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2500 kg"
+          },
+          {
+            "id": "b",
+            "texto": "700 kg"
+          },
+          {
+            "id": "c",
+            "texto": "205 kg"
+          },
+          {
+            "id": "d",
+            "texto": "5200 kg"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un paquete de 1 kg y otro de 250 g suman 1250 g.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pasa el kilogramo a gramos.",
+          "1 kg equivale a 1000 g.",
+          "Luego suma 1000 + 250."
+        ],
+        "retroalimentacion": "Es verdadero: la masa conjunta es 1250 g."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tres sacos pesan 1 t, 300 kg y 200 kg. ¿Masa total en kg? Escribe solo el número.",
+        "respuesta": 1500,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 1 t a kg.",
+          "La tonelada aporta 1000 kg.",
+          "Suma 1000 + 300 + 200."
+        ],
+        "retroalimentacion": "Sumar 1 + 300 + 200 mezcla unidades; el total es 1500 kg."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una bodega tiene 3 t de arroz y vende 1800 kg. ¿Qué masa le queda en kg?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Expresa todo en kg.",
+          "3 t equivalen a 3000 kg.",
+          "Resta 1800 a 3000."
+        ],
+        "retroalimentacion": "La opción «1200 kg» es 3000 − 1800; 4800 kg sumaría la venta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "180 kg"
+          },
+          {
+            "id": "b",
+            "texto": "300 kg"
+          },
+          {
+            "id": "c",
+            "texto": "4800 kg"
+          },
+          {
+            "id": "d",
+            "texto": "1200 kg"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para cargar 2 t de papas se usan sacos de 25 kg. ¿Cuántos sacos llenos hacen falta? Escribe solo el número.",
+        "respuesta": 80,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 2 t a 2000 kg.",
+          "Cada saco puede llevar 25 kg.",
+          "Divide 2000 entre 25."
+        ],
+        "retroalimentacion": "No son 8 sacos: 2000 ÷ 25 = 80 sacos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una carga de 1 t y 200 kg es más liviana que 1100 kg.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pasa la tonelada a kilogramos.",
+          "La carga suma 1000 + 200 kg.",
+          "Compara 1200 con 1100."
+        ],
+        "retroalimentacion": "Es falso: 1200 kg es 100 kg más pesado que 1100 kg."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un molino envasa 250 kg de harina y 750 000 g de harina. ¿Cuántas toneladas envasa en total? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 750 000 g a kg.",
+          "Son 750 kg, que se suman a 250 kg.",
+          "1000 kg equivalen a una tonelada."
+        ],
+        "retroalimentacion": "El total es 1000 kg = 1 t; no sumes 250 y 750 000 directamente."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.masa-con-decimales",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-05"
+    ],
+    "bloque": "Medidas: masa, tiempo y temperatura",
+    "nombre": "Medidas de masa con expresiones decimales",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Interpreta y opera medidas como 2,5 kg o 0,75 kg y las expresa en gramos.",
+    "palabrasClave": [
+      "masa decimal",
+      "kilogramo",
+      "gramo",
+      "suma",
+      "diferencia"
+    ],
+    "prerrequisitos": [
+      "mat.p6.unidades-masa"
+    ],
+    "ordenSugerido": 107,
+    "ideaCentral": "Las medidas decimales de masa expresan partes de un kilogramo: 0,5 kg son 500 g y 0,75 kg son 750 g. Puedes operar masas cuando están en la misma unidad.",
+    "pasos": [
+      "Convierte todas las medidas a kg o a g antes de operar.",
+      "Para pasar de kg a g, multiplica por 1000.",
+      "Suma o resta alineando las cifras decimales.",
+      "Da el resultado en la unidad solicitada."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una bolsa pesa 2,5 kg y otra 0,75 kg.",
+        "desarrollo": "2,50 + 0,75 = 3,25 kg.",
+        "respuesta": "Ambas pesan 3,25 kg."
+      },
+      {
+        "situacion": "De 1,2 kg de harina se usan 350 g.",
+        "desarrollo": "1,2 kg = 1200 g; 1200 − 350 = 850 g.",
+        "respuesta": "Quedan 850 g."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar 2,5 kg y 300 g como 302,5.",
+        "correccion": "Convierte 300 g a 0,3 kg, luego suma 2,5 + 0,3."
+      },
+      {
+        "error": "Leer 0,75 kg como 75 g.",
+        "correccion": "Multiplica 0,75 por 1000: son 750 g."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Décima de kilogramo",
+        "significado": "Una de diez partes de 1 kg: 100 g."
+      },
+      {
+        "termino": "Centésima de kilogramo",
+        "significado": "Una de cien partes de 1 kg: 10 g."
+      },
+      {
+        "termino": "Masa",
+        "significado": "Cantidad que mide la balanza en g o kg."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa marca 0,5 kg de cacao. ¿Cuántos gramos son? Escribe solo el número.",
+        "respuesta": 500,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Medio kilogramo es la mitad de 1000 g.",
+          "Divide 1000 entre 2.",
+          "La mitad es 500 g."
+        ],
+        "retroalimentacion": "0,5 kg son 500 g, no 50 g."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una balanza muestra 1,25 kg de queso. ¿Qué lectura en gramos coincide?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El kilogramo completo aporta 1000 g.",
+          "0,25 kg aporta 250 g.",
+          "Reúne 1000 y 250."
+        ],
+        "retroalimentacion": "La opción «1250 g» corresponde a 1,25 kg; 125 g pierde un factor de diez.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "125 g"
+          },
+          {
+            "id": "b",
+            "texto": "1250 g"
+          },
+          {
+            "id": "c",
+            "texto": "1025 g"
+          },
+          {
+            "id": "d",
+            "texto": "12 500 g"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una botella de miel de 0,75 kg pesa 750 g.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica los kg por 1000.",
+          "0,75 × 1000 mueve tres lugares la coma.",
+          "El resultado es 750."
+        ],
+        "retroalimentacion": "Es verdadero: 0,75 kg equivale a 750 g."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos paquetes de 0,4 kg cada uno tienen juntos ¿cuántos gramos? Escribe solo el número.",
+        "respuesta": 800,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta primero las masas en kg.",
+          "0,4 + 0,4 = 0,8 kg.",
+          "Convierte 0,8 kg a gramos."
+        ],
+        "retroalimentacion": "0,8 kg son 800 g; 400 g cuenta un solo paquete."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una receta necesita 0,25 kg de azúcar. Escríbelo en gramos con la unidad.",
+        "respuesta": "250 g",
+        "alternativasAceptadas": [
+          "250 gramos"
+        ],
+        "pistas": [
+          "Un cuarto de kilogramo es la cuarta parte de 1000 g.",
+          "1000 ÷ 4 = 250.",
+          "Escribe 250 seguido de g."
+        ],
+        "retroalimentacion": "0,25 kg = 250 g; no equivale a 25 g."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una feria se juntan 1,5 kg y 0,35 kg de maní. ¿Cuántos kg hay? Escribe solo el número.",
+        "respuesta": 1.85,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe 1,5 como 1,50.",
+          "Alinea centésimos con centésimos.",
+          "Suma 1,50 + 0,35."
+        ],
+        "retroalimentacion": "El total es 1,85 kg; no pegues las cifras para formar 1,535."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 2,4 kg de harina se apartan 600 g. ¿Qué masa queda en kg?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "600 g son 0,6 kg.",
+          "Resta con ambas masas en kg.",
+          "Calcula 2,4 − 0,6."
+        ],
+        "retroalimentacion": "La opción «1,8 kg» resta 0,6 kg a 2,4 kg; 1,4 kg supone que 600 g son 1 kg.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1,4 kg"
+          },
+          {
+            "id": "b",
+            "texto": "2,34 kg"
+          },
+          {
+            "id": "c",
+            "texto": "3 kg"
+          },
+          {
+            "id": "d",
+            "texto": "1,8 kg"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un paquete de 0,08 kg y otro de 0,2 kg pesan juntos 280 g.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte cada masa a g.",
+          "0,08 kg son 80 g.",
+          "0,2 kg son 200 g."
+        ],
+        "retroalimentacion": "Es verdadero: 80 + 200 = 280 g."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un vendedor mezcla 1,25 kg de frejoles con 750 g. Luego vende 0,5 kg. ¿Cuántos gramos quedan? Escribe solo el número.",
+        "respuesta": 1500,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1,25 kg son 1250 g.",
+          "Primero suma 1250 + 750.",
+          "Resta 500 g vendidos."
+        ],
+        "retroalimentacion": "Quedan 2000 − 500 = 1500 g; no restes 0,5 de 2000 sin convertir."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres bolsas pesan 0,6 kg, 450 g y 0,75 kg. ¿Qué masa total indican en kg?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "450 g son 0,45 kg.",
+          "Suma 0,60 + 0,45.",
+          "Agrega después 0,75."
+        ],
+        "retroalimentacion": "La opción «1,8 kg» sale de 0,6 + 0,45 + 0,75.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1,8 kg"
+          },
+          {
+            "id": "b",
+            "texto": "1,35 kg"
+          },
+          {
+            "id": "c",
+            "texto": "5,1 kg"
+          },
+          {
+            "id": "d",
+            "texto": "1,05 kg"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una bolsa de 1,4 kg pierde 350 g, quedan 1,05 kg.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pasa 350 g a 0,35 kg.",
+          "Alinea 1,40 − 0,35.",
+          "Las centésimas requieren un canje."
+        ],
+        "retroalimentacion": "Es verdadero: 1,40 − 0,35 = 1,05 kg."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una familia compra 2,5 kg de arroz. Usa 650 g el lunes y 0,85 kg el martes. ¿Cuántos gramos quedan? Escribe solo el número.",
+        "respuesta": 1000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "2,5 kg equivalen a 2500 g.",
+          "El martes usa 850 g.",
+          "Resta 650 y 850 de 2500."
+        ],
+        "retroalimentacion": "Quedan 2500 − 650 − 850 = 1000 g."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.estimar-comparar-masas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-05"
+    ],
+    "bloque": "Medidas: masa, tiempo y temperatura",
+    "nombre": "Estimación de masas con la unidad conveniente: t, kg o g",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Estima la masa de objetos y elige la unidad conveniente según la situación.",
+    "palabrasClave": [
+      "estimación",
+      "tonelada",
+      "kilogramo",
+      "gramo",
+      "unidad conveniente"
+    ],
+    "prerrequisitos": [
+      "mat.p6.unidades-masa"
+    ],
+    "ordenSugerido": 108,
+    "ideaCentral": "Elige g para objetos livianos, kg para personas o bultos y t para cargas muy grandes. Una estimación razonable se apoya en masas conocidas y en equivalencias.",
+    "pasos": [
+      "Piensa si el objeto se sostiene con una mano, lo carga una persona o necesita un vehículo.",
+      "Elige g, kg o t según su tamaño habitual.",
+      "Compara con una referencia conocida, como 1 kg de arroz.",
+      "Comprueba que la estimación no sea exagerada."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una mandarina puede pesar cerca de 150.",
+        "desarrollo": "Es un objeto pequeño; 150 kg sería más que una persona.",
+        "respuesta": "La unidad razonable es g: 150 g."
+      },
+      {
+        "situacion": "Un camión con arena puede llevar cerca de 5.",
+        "desarrollo": "Una carga de camión equivale a miles de kg.",
+        "respuesta": "La unidad conveniente es t: 5 t."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir toneladas para un cuaderno.",
+        "correccion": "Un cuaderno se puede sostener fácilmente; su masa se estima en gramos."
+      },
+      {
+        "error": "Comparar 2 t con 900 kg como si 2 fuera menor.",
+        "correccion": "Convierte 2 t a 2000 kg antes de comparar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Estimar",
+        "significado": "Dar un valor aproximado razonable."
+      },
+      {
+        "termino": "Unidad conveniente",
+        "significado": "Unidad que expresa una medida sin cifras exageradas."
+      },
+      {
+        "termino": "Referencia",
+        "significado": "Masa conocida que sirve para comparar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un lápiz nuevo podría pesar alrededor de 8 ¿qué unidad?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cabe en una mano.",
+          "Ocho kilogramos serían imposibles para un lápiz.",
+          "Una masa pequeña suele expresarse en gramos."
+        ],
+        "retroalimentacion": "La opción «g» es razonable: un lápiz puede pesar unos 8 g.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "t"
+          },
+          {
+            "id": "b",
+            "texto": "g"
+          },
+          {
+            "id": "c",
+            "texto": "kg"
+          },
+          {
+            "id": "d",
+            "texto": "mil kg"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para la masa aproximada de una niña de 11 años, ¿qué abreviatura elegirías: g, kg o t?",
+        "respuesta": "kg",
+        "alternativasAceptadas": [
+          "kilogramos",
+          "kilogramo"
+        ],
+        "pistas": [
+          "Piensa en decenas de unidades.",
+          "Gramos son demasiado pequeños para expresar cómodamente esa masa.",
+          "Toneladas serían demasiado grandes."
+        ],
+        "retroalimentacion": "Se usa kg para expresar la masa de una persona."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una naranja de 200 g tiene una estimación razonable.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La naranja cabe en la mano.",
+          "200 g es menos que 1 kg.",
+          "Esa escala corresponde a una fruta mediana."
+        ],
+        "retroalimentacion": "Es verdadero: 200 g es una estimación plausible para una naranja."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una volqueta llena de tierra puede llevar cerca de 6 ¿qué unidad?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Es una carga enorme.",
+          "6 g y 6 kg serían poquísimo para una volqueta.",
+          "Miles de kg se expresan en toneladas."
+        ],
+        "retroalimentacion": "La opción «t» expresa una masa razonable para una volqueta llena.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "g"
+          },
+          {
+            "id": "b",
+            "texto": "mg"
+          },
+          {
+            "id": "c",
+            "texto": "kg"
+          },
+          {
+            "id": "d",
+            "texto": "t"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un costal pesa aproximadamente 25 kg. ¿Cuántos costales así equivalen a 1 t? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una tonelada son 1000 kg.",
+          "Cada costal aporta 25 kg.",
+          "Divide 1000 entre 25."
+        ],
+        "retroalimentacion": "Se necesitan 40 costales: 40 × 25 = 1000 kg."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un perro grande pesa cerca de 30 kg. ¿Cuál estimación describe mejor la masa de un gato doméstico?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El gato suele pesar bastante menos que un perro grande.",
+          "Debe estar en kg, pero por debajo de 30.",
+          "4 kg es un valor plausible."
+        ],
+        "retroalimentacion": "La opción «4 kg» es razonable; 4 t o 400 kg son enormes para un gato.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 kg"
+          },
+          {
+            "id": "b",
+            "texto": "4 t"
+          },
+          {
+            "id": "c",
+            "texto": "400 kg"
+          },
+          {
+            "id": "d",
+            "texto": "4 g"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una bolsa de arroz de 1 kg y una piedra de 900 g: la bolsa es aproximadamente 100 g más pesada.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 1 kg a gramos.",
+          "Compara 1000 g y 900 g.",
+          "Calcula la diferencia."
+        ],
+        "retroalimentacion": "Es verdadero: 1000 − 900 = 100 g."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un niño anota «la mochila llena pesa aproximadamente 4». ¿Qué unidad completa una estimación razonable?",
+        "respuesta": "kg",
+        "alternativasAceptadas": [
+          "kilogramos",
+          "kilogramo"
+        ],
+        "pistas": [
+          "Una mochila llena se carga en la espalda.",
+          "4 g sería apenas el peso de un objeto diminuto.",
+          "4 t requeriría maquinaria pesada."
+        ],
+        "retroalimentacion": "La estimación razonable es 4 kg."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un molino recibe 2 t de trigo. ¿Cuál cantidad de sacos de 50 kg se acerca exactamente a esa masa?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero convierte 2 t a 2000 kg.",
+          "Calcula cuántos grupos de 50 forman 2000.",
+          "50 × 40 = 2000."
+        ],
+        "retroalimentacion": "La opción «40 sacos» alcanza 2 t; 20 sacos solo forman 1 t.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20 sacos"
+          },
+          {
+            "id": "b",
+            "texto": "25 sacos"
+          },
+          {
+            "id": "c",
+            "texto": "40 sacos"
+          },
+          {
+            "id": "d",
+            "texto": "400 sacos"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para estimar la masa de una bicicleta, «12 kg» es más razonable que «12 t».",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una bicicleta puede ser levantada por una persona.",
+          "12 t equivalen a 12 000 kg.",
+          "Compara con la masa de un automóvil."
+        ],
+        "retroalimentacion": "Es verdadero: 12 kg es plausible; 12 t exceden incluso muchos vehículos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un agricultor estima 3 t de cosecha y ya llenó 50 sacos de 40 kg. ¿Cuántos kg faltan para su estimación? Escribe solo el número.",
+        "respuesta": 1000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La meta de 3 t equivale a 3000 kg.",
+          "Los sacos llenos reúnen 50 × 40 = 2000 kg.",
+          "Resta lo recogido de la meta."
+        ],
+        "retroalimentacion": "Faltan 3000 − 2000 = 1000 kg; 50 sacos aún no son 3 t."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se quiere expresar una caja de clavos de 1250 g con una unidad cómoda y comparar con otra de 1 kg. ¿Qué afirmación es correcta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1250 g equivalen a 1,25 kg.",
+          "Compara 1,25 kg con 1 kg.",
+          "La diferencia es 0,25 kg."
+        ],
+        "retroalimentacion": "La opción «1,25 kg; supera a la otra por 250 g» convierte y compara bien.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1,25 t; supera por 250 kg"
+          },
+          {
+            "id": "b",
+            "texto": "1,25 kg; supera a la otra por 250 g"
+          },
+          {
+            "id": "c",
+            "texto": "125 kg; supera por 124 kg"
+          },
+          {
+            "id": "d",
+            "texto": "0,125 kg; pesa menos"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.conversion-tiempo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-05"
+    ],
+    "bloque": "Medidas: masa, tiempo y temperatura",
+    "nombre": "Conversión entre horas, minutos y segundos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Convierte unidades de tiempo usando las equivalencias de 60 y 3600.",
+    "palabrasClave": [
+      "horas",
+      "minutos",
+      "segundos",
+      "conversión",
+      "equivalencia"
+    ],
+    "prerrequisitos": [
+      "mat.p6.operaciones-decimales"
+    ],
+    "ordenSugerido": 109,
+    "ideaCentral": "Una hora tiene 60 minutos y un minuto tiene 60 segundos; por eso una hora equivale a 3600 segundos. Convierte antes de sumar o comparar duraciones expresadas en distintas unidades.",
+    "pasos": [
+      "Identifica la unidad de partida y la unidad solicitada.",
+      "Usa 1 h = 60 min, 1 min = 60 s o 1 h = 3600 s.",
+      "Multiplica al pasar a una unidad menor y divide al pasar a una mayor.",
+      "Si sobra una parte, exprésala con la unidad menor."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un viaje dura 2 h y 15 min.",
+        "desarrollo": "2 × 60 = 120 min; 120 + 15 = 135 min.",
+        "respuesta": "Dura 135 min."
+      },
+      {
+        "situacion": "Una canción dura 150 s.",
+        "desarrollo": "150 ÷ 60 = 2 minutos y sobran 30 segundos.",
+        "respuesta": "Dura 2 min 30 s."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar 100 minutos por hora.",
+        "correccion": "El tiempo se agrupa de 60 en 60."
+      },
+      {
+        "error": "Convertir 1 h en 60 s.",
+        "correccion": "Una hora tiene 60 min y cada minuto 60 s: 3600 s."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Hora",
+        "significado": "Unidad de tiempo de 60 minutos."
+      },
+      {
+        "termino": "Minuto",
+        "significado": "Unidad de tiempo de 60 segundos."
+      },
+      {
+        "termino": "Segundo",
+        "significado": "Unidad breve de tiempo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un recreo dura 20 min. ¿Cuántos segundos son? Escribe solo el número.",
+        "respuesta": 1200,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada minuto tiene 60 s.",
+          "Hay veinte grupos de 60 s.",
+          "Multiplica 20 × 60."
+        ],
+        "retroalimentacion": "No son 2000 s: 20 min = 1200 s."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una película dura 2 h. ¿Cuántos minutos son?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una hora tiene 60 min.",
+          "Son dos horas completas.",
+          "Duplica 60."
+        ],
+        "retroalimentacion": "La opción «120 min» corresponde a 2 × 60; 200 usa base cien.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "100 min"
+          },
+          {
+            "id": "b",
+            "texto": "120 min"
+          },
+          {
+            "id": "c",
+            "texto": "60 min"
+          },
+          {
+            "id": "d",
+            "texto": "720 min"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un minuto y medio equivale a 90 segundos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un minuto completo son 60 s.",
+          "Medio minuto son 30 s.",
+          "Suma las dos partes."
+        ],
+        "retroalimentacion": "Es verdadero: 60 + 30 = 90 s."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué unidad completa esta equivalencia: 3600 segundos = 1 ___?",
+        "respuesta": "hora",
+        "alternativasAceptadas": [
+          "h",
+          "1 hora"
+        ],
+        "pistas": [
+          "Primero junta los segundos en minutos.",
+          "3600 ÷ 60 = 60 minutos.",
+          "Sesenta minutos forman una hora."
+        ],
+        "retroalimentacion": "3600 s equivalen a una hora."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una clase dura 1 h y 25 min. ¿Cuántos minutos son? Escribe solo el número.",
+        "respuesta": 85,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte la hora a 60 min.",
+          "Los 25 min se agregan, no se convierten.",
+          "Suma 60 + 25."
+        ],
+        "retroalimentacion": "1 h 25 min = 85 min; 125 no respeta la base 60."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El cronómetro marca 125 s. ¿Cómo se expresa en minutos y segundos?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dos minutos equivalen a 120 s.",
+          "Después de 120 s sobran 5 s.",
+          "Escribe ambas partes."
+        ],
+        "retroalimentacion": "La opción «2 min 5 s» coincide con 120 + 5; 1 min 65 s no normaliza el tiempo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 min 25 s"
+          },
+          {
+            "id": "b",
+            "texto": "2 min 25 s"
+          },
+          {
+            "id": "c",
+            "texto": "1 min 5 s"
+          },
+          {
+            "id": "d",
+            "texto": "2 min 5 s"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tres cuartos de hora son 45 minutos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una hora equivale a 60 min.",
+          "La cuarta parte de 60 es 15.",
+          "Toma tres grupos de 15."
+        ],
+        "retroalimentacion": "Es verdadero: 3 × 15 = 45 min."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un viaje toma 1 h y 40 min. ¿Cuántos segundos son en total? Escribe solo el número.",
+        "respuesta": 6000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una hora son 3600 s.",
+          "Cuarenta minutos son 40 × 60 s.",
+          "Suma 3600 + 2400."
+        ],
+        "retroalimentacion": "El total es 6000 s; no conviertas 40 min como 40 s."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres videos duran 35 min, 50 min y 1 h. ¿Cuánto duran juntos en horas y minutos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El tercer video dura 1 h, equivalente a 60 min.",
+          "Suma 35 + 50 + 60 = 145 min.",
+          "Separa 120 min y el resto."
+        ],
+        "retroalimentacion": "La opción «2 h 25 min» equivale a 145 min; 1 h 85 min deja minutos sin agrupar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 h 25 min"
+          },
+          {
+            "id": "b",
+            "texto": "2 h 45 min"
+          },
+          {
+            "id": "c",
+            "texto": "1 h 25 min"
+          },
+          {
+            "id": "d",
+            "texto": "3 h 5 min"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un taller dura 2 h 10 min y otro 50 min. ¿Cuántos segundos duran juntos? Escribe solo el número.",
+        "respuesta": 10800,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "2 h 10 min son 130 min.",
+          "Junto al otro taller hacen 180 min.",
+          "Multiplica 180 por 60."
+        ],
+        "retroalimentacion": "180 min = 10 800 s; sumar 2 + 10 + 50 mezcla unidades."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un entrenamiento de 5400 s y otro de 1 h 20 min difieren en 10 min.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "5400 s son 90 min.",
+          "1 h 20 min son 80 min.",
+          "Compara 90 con 80."
+        ],
+        "retroalimentacion": "Es verdadero: 90 − 80 = 10 min."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un documental dura 1 h 15 min. Se ve en dos partes: la primera dura 2400 s. ¿Cuántos minutos dura la segunda? Escribe solo el número.",
+        "respuesta": 35,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El documental completo dura 75 min.",
+          "2400 s equivalen a 40 min.",
+          "Resta 75 − 40."
+        ],
+        "retroalimentacion": "La segunda parte dura 35 min; no restes segundos directamente de minutos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.intervalos-tiempo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-05"
+    ],
+    "bloque": "Medidas: masa, tiempo y temperatura",
+    "nombre": "Duración e intervalos de tiempo",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula la hora de inicio, de fin o la duración de un evento en horas y minutos.",
+    "palabrasClave": [
+      "duración",
+      "hora de inicio",
+      "hora de fin",
+      "intervalo",
+      "reloj"
+    ],
+    "prerrequisitos": [
+      "mat.p6.conversion-tiempo"
+    ],
+    "ordenSugerido": 110,
+    "ideaCentral": "La duración es el tiempo transcurrido entre el inicio y el fin. Puedes avanzar por tramos hasta la hora final o retroceder desde ella para hallar el inicio.",
+    "pasos": [
+      "Escribe las horas de inicio y fin con a. m. o p. m.",
+      "Avanza hasta la hora en punto más cercana y cuenta los minutos.",
+      "Suma los tramos o resta la duración para hallar el inicio.",
+      "Comprueba avanzando desde el inicio hasta el fin."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una visita empieza a las 9:35 a. m. y acaba a las 11:10 a. m.",
+        "desarrollo": "De 9:35 a 10:00 hay 25 min; hasta 11:00 hay 60 min; hasta 11:10, 10 min. Total 95 min.",
+        "respuesta": "Dura 1 h 35 min."
+      },
+      {
+        "situacion": "Un taller acaba a las 4:20 p. m. y dura 50 min.",
+        "desarrollo": "Retrocedo 20 min hasta las 4:00 y 30 min más hasta las 3:30.",
+        "respuesta": "Empieza a las 3:30 p. m."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar 9:35 de 11:10 cifra por cifra.",
+        "correccion": "La base de los minutos es 60; cuenta tramos o haz un canje de una hora."
+      },
+      {
+        "error": "Olvidar el cambio de mediodía.",
+        "correccion": "De 11:30 a. m. a 12:30 p. m. pasa una hora."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Intervalo",
+        "significado": "Tiempo comprendido entre dos momentos."
+      },
+      {
+        "termino": "Duración",
+        "significado": "Cantidad de tiempo transcurrido."
+      },
+      {
+        "termino": "Hora de inicio",
+        "significado": "Momento en que empieza una actividad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una charla va de 8:00 a. m. a 9:00 a. m. ¿Cuántos minutos dura? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos horas están en punto.",
+          "De las 8 a las 9 transcurre una hora.",
+          "Una hora son 60 min."
+        ],
+        "retroalimentacion": "La charla dura 60 min, no 100."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "El recreo comienza a las 10:15 a. m. y dura 20 min. ¿A qué hora acaba?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrega 20 a los minutos.",
+          "15 + 20 = 35.",
+          "La hora sigue siendo las 10."
+        ],
+        "retroalimentacion": "La opción «10:35 a. m.» suma 20 min; 10:45 agrega 30.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10:25 a. m."
+          },
+          {
+            "id": "b",
+            "texto": "10:30 a. m."
+          },
+          {
+            "id": "c",
+            "texto": "10:35 a. m."
+          },
+          {
+            "id": "d",
+            "texto": "11:15 a. m."
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 2:10 p. m. a 2:40 p. m. transcurren 30 minutos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las horas son iguales.",
+          "Resta los minutos 40 − 10.",
+          "El resultado es media hora."
+        ],
+        "retroalimentacion": "Es verdadero: pasan 30 min."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un partido empieza a las 3:00 p. m. y termina a las 4:00 p. m. ¿Cuánto dura? Responde en horas.",
+        "respuesta": "1 hora",
+        "alternativasAceptadas": [
+          "una hora",
+          "1 h"
+        ],
+        "pistas": [
+          "Compara las horas en punto.",
+          "De 3 a 4 hay un salto de hora.",
+          "Expresa ese salto con la unidad hora."
+        ],
+        "retroalimentacion": "Dura 1 hora, equivalente a 60 minutos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La biblioteca abre a las 9:45 a. m. y cierra a las 11:15 a. m. ¿Cuántos minutos permanece abierta? Escribe solo el número.",
+        "respuesta": 90,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 9:45 a 10:00 van 15 min.",
+          "De 10:00 a 11:00 van 60 min.",
+          "Faltan 15 min hasta 11:15."
+        ],
+        "retroalimentacion": "15 + 60 + 15 = 90 min; no restes 15 − 45 sin canje."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una función termina a las 6:10 p. m. y dura 45 min. ¿Cuándo empezó?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Retrocede 10 min hasta las 6:00.",
+          "Quedan 35 min por retroceder.",
+          "Desde las 6:00 retrocede a las 5:25."
+        ],
+        "retroalimentacion": "La opción «5:25 p. m.» deja 45 min hasta 6:10 p. m.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5:25 p. m."
+          },
+          {
+            "id": "b",
+            "texto": "5:35 p. m."
+          },
+          {
+            "id": "c",
+            "texto": "6:55 p. m."
+          },
+          {
+            "id": "d",
+            "texto": "6:25 p. m."
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una caminata de 7:50 a. m. a 8:20 a. m. dura 70 minutos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero avanza hasta las 8:00.",
+          "Ese tramo toma 10 min.",
+          "Después van 20 min hasta 8:20."
+        ],
+        "retroalimentacion": "Es falso: 10 + 20 = 30 min; restar 20 − 50 directamente causa el error."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una reunión empieza a la 1:25 p. m. y dura 1 h 15 min. ¿Qué minuto marca el reloj al terminar? Escribe solo el número del minuto.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una hora después son las 2:25 p. m.",
+          "Agrega los 15 min restantes.",
+          "25 + 15 = 40."
+        ],
+        "retroalimentacion": "Termina a las 2:40 p. m.; el minuto es 40."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un bus sale a las 11:35 a. m., viaja 1 h 50 min y espera 15 min antes de abrir puertas. ¿A qué hora se abren?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El viaje termina a la 1:25 p. m.",
+          "Agrega luego la espera de 15 min.",
+          "1:25 más 15 da 1:40."
+        ],
+        "retroalimentacion": "La opción «1:40 p. m.» incluye viaje y espera; 1:25 omite la espera.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12:40 p. m."
+          },
+          {
+            "id": "b",
+            "texto": "1:25 p. m."
+          },
+          {
+            "id": "c",
+            "texto": "2:40 p. m."
+          },
+          {
+            "id": "d",
+            "texto": "1:40 p. m."
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una práctica termina a las 12:20 p. m.; hubo 15 min de pausa y 1 h 5 min de actividad. ¿Cuántos minutos pasaron desde el inicio? Escribe solo el número.",
+        "respuesta": 80,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La actividad equivale a 65 min.",
+          "La pausa también ocupa tiempo del intervalo.",
+          "Suma 65 + 15."
+        ],
+        "retroalimentacion": "Transcurrieron 80 min; 65 min omite la pausa."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una visita empieza a las 10:55 a. m., dura 1 h 20 min y concluye a las 12:15 p. m.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 10:55 a 11:55 pasa una hora.",
+          "Quedan 20 min.",
+          "11:55 más 20 atraviesa el mediodía."
+        ],
+        "retroalimentacion": "Es verdadero: concluye a las 12:15 p. m."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El taller acaba a las 5:05 p. m. tras 1 h 30 min. ¿A qué hora empezó? Usa el formato h:mm p. m.",
+        "respuesta": "3:35 p. m.",
+        "alternativasAceptadas": [
+          "03:35 p. m.",
+          "3:35 pm"
+        ],
+        "pistas": [
+          "Retrocede una hora hasta 4:05 p. m.",
+          "Faltan 30 min por retroceder.",
+          "Desde 4:05 retrocede 5 min y luego 25 min."
+        ],
+        "retroalimentacion": "Empezó a las 3:35 p. m.; 4:35 p. m. cuenta solo media hora."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.lectura-termometro",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-05"
+    ],
+    "bloque": "Medidas: masa, tiempo y temperatura",
+    "nombre": "Lectura del termómetro en grados Celsius",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Lee temperaturas en grados Celsius con decimales en termómetros y reportes.",
+    "palabrasClave": [
+      "termómetro",
+      "grados Celsius",
+      "temperatura",
+      "escala",
+      "decimal"
+    ],
+    "prerrequisitos": [
+      "mat.p6.valor-posicional-decimales"
+    ],
+    "ordenSugerido": 111,
+    "ideaCentral": "Un termómetro indica temperatura en grados Celsius (°C). Lee la marca entre dos números de la escala y observa cuánto vale cada división, incluso si marca décimos.",
+    "pasos": [
+      "Ubica los números enteros a ambos lados de la marca.",
+      "Cuenta las divisiones entre esos números para saber cuánto vale cada una.",
+      "Lee la marca y agrega la unidad °C.",
+      "Compara con las marcas cercanas para verificar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un termómetro tiene marcas 18, 18,5 y 19 °C. El líquido llega a 18,5.",
+        "desarrollo": "La marca está a mitad entre 18 y 19.",
+        "respuesta": "La lectura es 18,5 °C."
+      },
+      {
+        "situacion": "En una escala cada raya pequeña vale 0,2 °C. La marca está dos rayas después de 24 °C.",
+        "desarrollo": "24 + 0,2 + 0,2 = 24,4.",
+        "respuesta": "Marca 24,4 °C."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer cada raya como 1 °C sin observar la escala.",
+        "correccion": "Calcula el valor de cada división según las marcas numeradas."
+      },
+      {
+        "error": "Confundir 20,5 °C con 20,05 °C.",
+        "correccion": "La mitad entre 20 y 21 es 20,5."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Termómetro",
+        "significado": "Instrumento que mide temperatura."
+      },
+      {
+        "termino": "Grado Celsius",
+        "significado": "Unidad de temperatura que se escribe °C."
+      },
+      {
+        "termino": "Escala",
+        "significado": "Conjunto de marcas que permite leer la medida."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una pantalla de termómetro indica 24 °C. ¿Qué número muestra? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pantalla ya presenta la lectura.",
+          "Separa número y unidad.",
+          "Antes de °C aparece 24."
+        ],
+        "retroalimentacion": "La lectura numérica es 24; °C es la unidad."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una raya está exactamente a mitad entre 20 °C y 21 °C. ¿Qué temperatura indica?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La distancia entre 20 y 21 es 1 °C.",
+          "La mitad de 1 es 0,5.",
+          "Suma 0,5 a 20."
+        ],
+        "retroalimentacion": "La opción «20,5 °C» está a mitad; 20,1 °C queda mucho más cerca de 20.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20,1 °C"
+          },
+          {
+            "id": "b",
+            "texto": "20,5 °C"
+          },
+          {
+            "id": "c",
+            "texto": "21,5 °C"
+          },
+          {
+            "id": "d",
+            "texto": "20,05 °C"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La lectura 18,5 °C está entre 18 °C y 19 °C.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 18,5 con 18.",
+          "Luego compáralo con 19.",
+          "El decimal 0,5 es menor que 1."
+        ],
+        "retroalimentacion": "Es verdadero: 18 < 18,5 < 19."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un reporte de temperatura, ¿qué símbolo acompaña al número para expresar grados Celsius?",
+        "respuesta": "°C",
+        "alternativasAceptadas": [
+          "°c"
+        ],
+        "pistas": [
+          "El nombre de la escala es Celsius.",
+          "Se escribe un pequeño círculo antes de C.",
+          "Copia el símbolo completo, sin número."
+        ],
+        "retroalimentacion": "El símbolo es °C, que identifica grados Celsius."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una escala va de 22 °C a 23 °C con diez divisiones iguales. La marca está en la tercera división después de 22. ¿Qué número indica? Escribe solo el número.",
+        "respuesta": 22.3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada una de diez divisiones vale 0,1 °C.",
+          "Tres divisiones agregan 0,3 °C.",
+          "Suma 22 + 0,3."
+        ],
+        "retroalimentacion": "La marca señala 22,3 °C; 22,03 confunde décimos con centésimos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El termómetro tiene marcas 16, 16,25, 16,5, 16,75 y 17 °C. La línea llega a la marca anterior a 17. ¿Cuál es la lectura?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el último número antes de 17.",
+          "Las marcas aumentan de 0,25 °C.",
+          "La marca anterior es 16,75."
+        ],
+        "retroalimentacion": "La opción «16,75 °C» es la marca inmediatamente anterior a 17 °C.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "16,25 °C"
+          },
+          {
+            "id": "b",
+            "texto": "16,5 °C"
+          },
+          {
+            "id": "c",
+            "texto": "17,25 °C"
+          },
+          {
+            "id": "d",
+            "texto": "16,75 °C"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si entre 25 °C y 26 °C hay cuatro espacios iguales, la segunda raya después de 25 indica 25,5 °C.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 1 °C en cuatro partes.",
+          "Cada espacio vale 0,25 °C.",
+          "Dos espacios suman 0,5 °C."
+        ],
+        "retroalimentacion": "Es verdadero: 25 + 0,25 + 0,25 = 25,5 °C."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un registro de Puno muestra 12,8 °C. ¿Qué número se lee en el registro? Escribe solo el número.",
+        "respuesta": 12.8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La coma separa parte entera y décimos.",
+          "El número es doce enteros y ocho décimos.",
+          "Escríbelo sin la unidad."
+        ],
+        "retroalimentacion": "La lectura numérica es 12,8; no es 128."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Entre 19 °C y 20 °C hay cinco espacios iguales. La marca cae en el cuarto espacio después de 19. ¿Qué lectura corresponde?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada espacio vale 1 ÷ 5 °C.",
+          "Un espacio es 0,2 °C.",
+          "Cuatro espacios agregan 0,8 °C."
+        ],
+        "retroalimentacion": "La opción «19,8 °C» usa cuatro saltos de 0,2; 19,4 usa solo dos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "19,8 °C"
+          },
+          {
+            "id": "b",
+            "texto": "19,4 °C"
+          },
+          {
+            "id": "c",
+            "texto": "20,8 °C"
+          },
+          {
+            "id": "d",
+            "texto": "19,08 °C"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una escala con marcas 23,0; 23,2; 23,4; 23,6 °C indica 23,06 °C en la tercera marca.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las marcas desde 23,0.",
+          "La tercera marca es 23,4.",
+          "23,06 queda muy cerca de 23,0."
+        ],
+        "retroalimentacion": "Es falso: la tercera marca señala 23,4 °C, no 23,06 °C."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una escala, cada raya vale 0,25 °C. El líquido está tres rayas después de 27 °C. ¿Qué número indica? Escribe solo el número.",
+        "respuesta": 27.75,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres rayas son tres veces 0,25.",
+          "0,25 × 3 = 0,75.",
+          "Agrega 0,75 a 27."
+        ],
+        "retroalimentacion": "La lectura es 27,75 °C; no 27,3 °C."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un termómetro muestra 15,6 °C. Otro lector escribió «quince grados y seis centésimos». ¿Qué palabra debe reemplazar «centésimos»?",
+        "respuesta": "décimos",
+        "alternativasAceptadas": [
+          "decimos"
+        ],
+        "pistas": [
+          "La cifra 6 está inmediatamente después de la coma.",
+          "El primer lugar decimal es el de los décimos.",
+          "15,6 significa 15 más 6/10."
+        ],
+        "retroalimentacion": "Debe decir «décimos»; 15,6 tiene seis décimos, no seis centésimos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.variacion-temperatura",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-05"
+    ],
+    "bloque": "Medidas: masa, tiempo y temperatura",
+    "nombre": "Variación de temperatura",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula aumentos y descensos de temperatura sobre cero entre dos momentos del día.",
+    "palabrasClave": [
+      "temperatura",
+      "aumento",
+      "descenso",
+      "diferencia",
+      "grados Celsius"
+    ],
+    "prerrequisitos": [
+      "mat.p6.lectura-termometro"
+    ],
+    "ordenSugerido": 112,
+    "ideaCentral": "Para saber cuánto varió una temperatura sobre cero, resta la menor de la mayor. Indica si subió o bajó según el orden de las lecturas.",
+    "pasos": [
+      "Ordena las dos lecturas por momento: antes y después.",
+      "Calcula la diferencia entre sus valores en °C.",
+      "Si el valor final es mayor, di que subió; si es menor, que bajó.",
+      "Comprueba sumando o restando la diferencia al valor inicial."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En Arequipa la temperatura pasa de 17,5 °C a 22 °C.",
+        "desarrollo": "22 − 17,5 = 4,5. La lectura final es mayor.",
+        "respuesta": "Subió 4,5 °C."
+      },
+      {
+        "situacion": "Una bebida pasa de 28 °C a 19,5 °C.",
+        "desarrollo": "28 − 19,5 = 8,5. La lectura final es menor.",
+        "respuesta": "Bajó 8,5 °C."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Responder solo la diferencia sin indicar el sentido.",
+        "correccion": "Compara la lectura final con la inicial y di si aumentó o descendió."
+      },
+      {
+        "error": "Sumar las dos temperaturas para hallar el cambio.",
+        "correccion": "El cambio es la distancia entre lecturas: se resta."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Variación",
+        "significado": "Cambio entre una temperatura inicial y una final."
+      },
+      {
+        "termino": "Aumento",
+        "significado": "Cambio hacia una temperatura mayor."
+      },
+      {
+        "termino": "Descenso",
+        "significado": "Cambio hacia una temperatura menor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La temperatura sube de 18 °C a 21 °C. ¿Cuántos °C aumenta? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La lectura final es mayor.",
+          "Resta 21 − 18.",
+          "Cuenta los saltos 18, 19, 20, 21."
+        ],
+        "retroalimentacion": "Sube 3 °C; sumar 18 + 21 no mide el cambio."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 25 °C a 20 °C, ¿cómo cambia la temperatura?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La segunda lectura es menor.",
+          "La diferencia es 25 − 20.",
+          "Expresa la dirección y el tamaño."
+        ],
+        "retroalimentacion": "La opción «Baja 5 °C» indica el sentido y la diferencia correctos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sube 5 °C"
+          },
+          {
+            "id": "b",
+            "texto": "Baja 45 °C"
+          },
+          {
+            "id": "c",
+            "texto": "Baja 5 °C"
+          },
+          {
+            "id": "d",
+            "texto": "No cambia"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un salón pasa de 23 °C a 26 °C, la temperatura aumenta 3 °C.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el valor inicial y final.",
+          "26 es mayor que 23.",
+          "La diferencia es 26 − 23."
+        ],
+        "retroalimentacion": "Es verdadero: aumenta 3 °C."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un reporte pasa de 19 °C a 17 °C. ¿La temperatura subió o bajó?",
+        "respuesta": "bajó",
+        "alternativasAceptadas": [
+          "bajo",
+          "descendió",
+          "descendio"
+        ],
+        "pistas": [
+          "Compara 17 con 19.",
+          "17 es menor que 19.",
+          "Usa un verbo de descenso."
+        ],
+        "retroalimentacion": "Bajó 2 °C; el valor final es menor."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En Cusco el termómetro marca 14,5 °C temprano y 20 °C al mediodía. ¿Cuántos °C sube? Escribe solo el número.",
+        "respuesta": 5.5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta la lectura temprana de la del mediodía.",
+          "Escribe 20 como 20,0.",
+          "Calcula 20,0 − 14,5."
+        ],
+        "retroalimentacion": "Sube 5,5 °C; no 6,5 °C."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una sopa se enfría de 68,5 °C a 52 °C. ¿Cuál es el cambio?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La temperatura final es menor.",
+          "Resta 68,5 − 52.",
+          "La diferencia es 16,5 °C."
+        ],
+        "retroalimentacion": "La opción «Baja 16,5 °C» combina diferencia y dirección correctas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Baja 16,5 °C"
+          },
+          {
+            "id": "b",
+            "texto": "Sube 16,5 °C"
+          },
+          {
+            "id": "c",
+            "texto": "Baja 20,5 °C"
+          },
+          {
+            "id": "d",
+            "texto": "Baja 120,5 °C"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 12,5 °C a 15 °C hay un aumento de 3,5 °C.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 15,0 − 12,5.",
+          "De 12,5 a 14,5 hay 2 °C.",
+          "Hasta 15 falta 0,5 °C."
+        ],
+        "retroalimentacion": "Es falso: aumenta 2,5 °C, no 3,5 °C."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "A las 7 a. m. hay 16 °C y a las 9 a. m. hay 22,5 °C. ¿Cuántos °C varió? Escribe solo el número.",
+        "respuesta": 6.5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "A las 9 a. m. hay más grados que a las 7 a. m.",
+          "Alinea 16,0 y 22,5.",
+          "Resta 22,5 − 16,0."
+        ],
+        "retroalimentacion": "La variación es 6,5 °C de aumento."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un invernadero marca 21 °C, luego sube 4,5 °C y después baja 2 °C. ¿Cuál es la lectura final?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tras la subida marca 25,5 °C.",
+          "A esa lectura réstale 2 °C.",
+          "La bajada no anula toda la subida."
+        ],
+        "retroalimentacion": "La opción «23,5 °C» resulta de 21 + 4,5 − 2.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "27,5 °C"
+          },
+          {
+            "id": "b",
+            "texto": "19,5 °C"
+          },
+          {
+            "id": "c",
+            "texto": "25,5 °C"
+          },
+          {
+            "id": "d",
+            "texto": "23,5 °C"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En Puno la temperatura pasa de 13 °C a 18,5 °C y luego a 15 °C. ¿Cuántos °C está la lectura final por encima de la inicial? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el primer y el último dato.",
+          "La subida intermedia no es la variación total.",
+          "Resta 15 − 13."
+        ],
+        "retroalimentacion": "La lectura final está 2 °C por encima de la inicial; sumar los cambios da el mismo resultado."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una bebida a 30 °C baja 7,5 °C y luego sube 2,5 °C. Termina a 25 °C.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tras bajar marca 22,5 °C.",
+          "La subida siguiente agrega 2,5 °C.",
+          "22,5 + 2,5 = 25."
+        ],
+        "retroalimentacion": "Es verdadero: 30 − 7,5 + 2,5 = 25 °C."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Ayer una cámara marcó 18 °C; hoy 21,5 °C. Escribe el cambio con dirección y unidad.",
+        "respuesta": "subió 3,5 °C",
+        "alternativasAceptadas": [
+          "subio 3,5 °C",
+          "aumentó 3,5 °C",
+          "aumento 3,5 °C"
+        ],
+        "pistas": [
+          "Hoy está más caliente que ayer.",
+          "Calcula 21,5 − 18.",
+          "La diferencia es 3,5 °C."
+        ],
+        "retroalimentacion": "Subió 3,5 °C; 21,5 °C es la lectura final, no el cambio."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,1514 @@
+[
+  {
+    "clave": "mat.p6.significado-porcentaje",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "Significado del porcentaje",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Interpreta el porcentaje como una parte de cada 100 y lo representa en cuadrículas.",
+    "palabrasClave": [
+      "porcentaje",
+      "por ciento",
+      "cuadrícula",
+      "centésimos"
+    ],
+    "prerrequisitos": [
+      "mat.p6.decimos-centesimos"
+    ],
+    "ordenSugerido": 78,
+    "ideaCentral": "Un porcentaje indica cuántas partes se toman de cada 100. En una cuadrícula de 100 casillas, 35 % significa 35 casillas de las 100.",
+    "pasos": [
+      "Identifica el total de 100 partes iguales.",
+      "Cuenta cuántas partes están marcadas.",
+      "Escribe esa cantidad seguida de %.",
+      "Si no hay 100 partes, busca una representación equivalente sobre 100."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una cuadrícula de 100 casillas, 28 están pintadas. ¿Qué porcentaje es?",
+        "desarrollo": "28 de cada 100 se escribe 28 %.",
+        "respuesta": "Es 28 %."
+      },
+      {
+        "situacion": "En un mural, 60 de 100 cuadros son verdes.",
+        "desarrollo": "El total es 100 y 60 están pintados de verde.",
+        "respuesta": "Son 60 %."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que 25 % significa 25 de cualquier total sin mirar el 100.",
+        "correccion": "El signo % expresa 25 de cada 100 partes."
+      },
+      {
+        "error": "Contar las casillas sin comprobar el tamaño del total.",
+        "correccion": "Verifica que la cuadrícula tenga 100 casillas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "porcentaje",
+        "significado": "Cantidad de partes por cada 100."
+      },
+      {
+        "termino": "%",
+        "significado": "Símbolo que significa por ciento."
+      },
+      {
+        "termino": "centésimo",
+        "significado": "Una de 100 partes iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una cuadrícula de 100 casillas hay 14 pintadas. ¿Qué porcentaje está pintado? Escribe solo el número, sin %.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total ya es 100 casillas.",
+          "Cuenta las 14 pintadas como partes de 100.",
+          "Catorce de cien se expresa con 14 %."
+        ],
+        "retroalimentacion": "Es 14 %; escribir 86 contaría las casillas sin pintar."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué significa 32 % en una cuadrícula de 100 cuadros?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El signo % dice de cada cien.",
+          "El número 32 indica los cuadros marcados.",
+          "Relaciona 32 con un total de 100."
+        ],
+        "retroalimentacion": "Significa 32 de 100 cuadros; 32 de 10 no es 32 %.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "32 de 100 cuadros"
+          },
+          {
+            "id": "b",
+            "texto": "32 de 10 cuadros"
+          },
+          {
+            "id": "c",
+            "texto": "100 de 32 cuadros"
+          },
+          {
+            "id": "d",
+            "texto": "32 cuadros sin total"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una cuadrícula de 100 partes, 5 partes coloreadas representan 5 %.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total es exactamente 100.",
+          "El número de partes coloreadas es 5.",
+          "El porcentaje conserva ese 5 al hablar de cien."
+        ],
+        "retroalimentacion": "Verdadero: 5 de 100 es 5 %."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un cartel dice «12 por ciento». ¿Cómo se escribe con el símbolo?",
+        "respuesta": "12 %",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe primero el número doce.",
+          "El símbolo por ciento es %.",
+          "Coloca % después de 12."
+        ],
+        "retroalimentacion": "Se escribe 12 %; 12/10 representa otra cantidad."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "De 100 semillas dibujadas, 65 son negras. ¿Qué porcentaje no es negro? Escribe solo el número, sin %.",
+        "respuesta": 35,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay 100 semillas en total.",
+          "Resta las 65 negras al total.",
+          "100 − 65 = 35 semillas de otro color."
+        ],
+        "retroalimentacion": "El porcentaje no negro es 35 %; 65 % corresponde a las negras."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una cuadrícula de 100 cuadritos tiene 50 azules y el resto blancos. ¿Qué porcentaje es blanco? Escribe con %.",
+        "respuesta": "50 %",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total debe sumar 100 cuadritos.",
+          "Quedan 100 − 50 blancos.",
+          "Son 50 blancos de cada 100."
+        ],
+        "retroalimentacion": "El blanco representa 50 %; 100 % incluiría también el azul."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si se colorean 40 de 100 casillas, queda 60 % sin colorear.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca cuántas casillas no se colorearon.",
+          "100 − 40 = 60.",
+          "Sesenta de cien equivale a 60 %."
+        ],
+        "retroalimentacion": "Verdadero: 60 de 100 casillas quedan libres."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla de cien casillas tiene 20 rojas, 30 verdes y las demás amarillas. ¿Qué porcentaje es amarillo?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las casillas rojas y verdes.",
+          "20 + 30 = 50 usadas.",
+          "Las restantes son 100 − 50."
+        ],
+        "retroalimentacion": "Es 50 % amarillo; 30 % corresponde solo al verde.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20 %"
+          },
+          {
+            "id": "b",
+            "texto": "30 %"
+          },
+          {
+            "id": "c",
+            "texto": "50 %"
+          },
+          {
+            "id": "d",
+            "texto": "70 %"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un tablero de 100 espacios tiene 18 estrellas y 27 círculos; los demás están vacíos. ¿Qué porcentaje está ocupado? Escribe solo el número, sin %.",
+        "respuesta": 45,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ocupado incluye estrellas y círculos.",
+          "Suma 18 + 27.",
+          "El resultado es 45 de 100 espacios."
+        ],
+        "retroalimentacion": "Está ocupado el 45 %; restarlo de 100 daría el porcentaje vacío."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un mosaico de 100 piezas tiene 25 azules, 25 verdes y 50 blancas. ¿Cuál afirmación describe el azul y el verde juntos?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los dos colores pedidos.",
+          "25 + 25 = 50 piezas.",
+          "Compara 50 piezas con el total de 100."
+        ],
+        "retroalimentacion": "Azul y verde juntos representan 50 %; 25 % describe un solo color.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25 %"
+          },
+          {
+            "id": "b",
+            "texto": "75 %"
+          },
+          {
+            "id": "c",
+            "texto": "100 %"
+          },
+          {
+            "id": "d",
+            "texto": "50 %"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una cuadrícula de 100 casillas muestra 10 rojas, 20 azules y 70 blancas. Las casillas de color rojo o azul son 30 %.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Elige solo rojo y azul.",
+          "Suma 10 + 20 = 30.",
+          "El total es 100 casillas."
+        ],
+        "retroalimentacion": "Verdadero: 30 de 100 casillas son rojas o azules."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En 100 recuadros, 45 tienen dibujo. Si se pintan otros 15 recuadros vacíos, ¿qué porcentaje tendrá dibujo? Escribe solo el número, sin %.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los 15 nuevos se suman a los 45 existentes.",
+          "45 + 15 = 60 recuadros.",
+          "El total sigue siendo 100."
+        ],
+        "retroalimentacion": "Ahora tiene dibujo el 60 %; 15 % cuenta solo lo añadido."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.equivalencias-fraccion-decimal-porcentaje",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03",
+      "MAT-C23-P6-06"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "Equivalencias entre fracción, decimal y porcentaje usuales",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Relaciona 1/2, 1/4, 3/4, 1/5 y 1/10 con sus decimales y porcentajes.",
+    "palabrasClave": [
+      "fracción",
+      "decimal",
+      "porcentaje",
+      "equivalencia"
+    ],
+    "prerrequisitos": [
+      "mat.p6.significado-porcentaje",
+      "mat.p6.fraccion-decimal-conversion"
+    ],
+    "ordenSugerido": 79,
+    "ideaCentral": "Una misma parte puede escribirse como fracción, decimal o porcentaje. Las equivalencias usuales son 1/2 = 0,5 = 50 %, 1/4 = 0,25 = 25 %, 3/4 = 0,75 = 75 %, 1/5 = 0,2 = 20 % y 1/10 = 0,1 = 10 %.",
+    "pasos": [
+      "Identifica la fracción o el decimal inicial.",
+      "Llévalo a centésimos o piensa en partes de 100.",
+      "Escribe el porcentaje equivalente.",
+      "Comprueba que las tres formas representan la misma parte."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una chocolatada llena media jarra. ¿Cómo escribir esa parte?",
+        "desarrollo": "Una mitad es 1/2; en decimal 0,5; de cada 100 son 50.",
+        "respuesta": "1/2 = 0,5 = 50 %."
+      },
+      {
+        "situacion": "Tres cuartos de una bandera están coloreados.",
+        "desarrollo": "Cada cuarto es 25 %; tres cuartos son 75 %, o 0,75.",
+        "respuesta": "3/4 = 0,75 = 75 %."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir 0,5 con 5 %.",
+        "correccion": "0,5 son cinco décimos, o 50 centésimos: 50 %."
+      },
+      {
+        "error": "Creer que 1/5 equivale a 5 %.",
+        "correccion": "Divide 100 entre 5: una quinta parte es 20 %."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "equivalente",
+        "significado": "Que representa la misma cantidad."
+      },
+      {
+        "termino": "decimal",
+        "significado": "Número con parte entera y parte decimal separadas por coma."
+      },
+      {
+        "termino": "fracción",
+        "significado": "Parte de un entero dividido en partes iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué porcentaje equivale a 1/2? Escribe con %.",
+        "respuesta": "50 %",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una mitad divide el entero en dos.",
+          "De 100 partes, una mitad son 50.",
+          "Escribe 50 con el símbolo %."
+        ],
+        "retroalimentacion": "1/2 equivale a 50 %; 2 % lee el denominador como porcentaje."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál decimal representa 1/4 de una unidad?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un cuarto son 25 de cada 100.",
+          "Veinticinco centésimos se escriben con coma.",
+          "Busca 0,25."
+        ],
+        "retroalimentacion": "Es 0,25; 0,4 confunde el denominador con décimos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,4"
+          },
+          {
+            "id": "b",
+            "texto": "0,25"
+          },
+          {
+            "id": "c",
+            "texto": "0,75"
+          },
+          {
+            "id": "d",
+            "texto": "0,5"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "1/10, 0,1 y 10 % representan la misma parte.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un décimo son diez centésimos.",
+          "Diez centésimos se escriben 0,10.",
+          "0,10 equivale a 10 %."
+        ],
+        "retroalimentacion": "Verdadero: las tres escrituras expresan un décimo."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe como decimal el 50 % de una unidad, usando coma.",
+        "respuesta": "0,5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "50 % son 50 centésimos.",
+          "50/100 se simplifica a una mitad.",
+          "Una mitad se escribe 0,5."
+        ],
+        "retroalimentacion": "El decimal es 0,5; 5,0 sería cinco enteros."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Qué número acompaña al símbolo % cuando escribes 3/4 como porcentaje? Escribe solo el número.",
+        "respuesta": 75,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuarto vale 25 %.",
+          "Tres cuartos son tres grupos de 25.",
+          "Calcula 25 × 3."
+        ],
+        "retroalimentacion": "3/4 es 75 %; 25 % corresponde a un solo cuarto."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un quinto de una barra está sombreado. Escribe su equivalente decimal con coma.",
+        "respuesta": "0,2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 1 entre 5.",
+          "Un quinto son dos décimos.",
+          "Dos décimos se escriben 0,2."
+        ],
+        "retroalimentacion": "1/5 equivale a 0,2; 0,5 representa una mitad."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "0,75 equivale a 3/4 y a 75 %.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "0,75 son 75 centésimos.",
+          "75/100 se simplifica dividiendo entre 25.",
+          "Resulta 3/4."
+        ],
+        "retroalimentacion": "Verdadero: 0,75 = 75/100 = 3/4 = 75 %."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál trío expresa la misma parte de un entero?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa primero los porcentajes.",
+          "Una quinta parte de 100 es 20.",
+          "Ese valor decimal es 0,2."
+        ],
+        "retroalimentacion": "El trío 1/5, 0,2 y 20 % es equivalente; 0,5 sería una mitad.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/5, 0,5, 20 %"
+          },
+          {
+            "id": "b",
+            "texto": "1/4, 0,25, 75 %"
+          },
+          {
+            "id": "c",
+            "texto": "1/10, 0,1, 1 %"
+          },
+          {
+            "id": "d",
+            "texto": "1/5, 0,2, 20 %"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una ficha dice 75 % y otra 0,75. ¿Qué fracción usual representa ambas?",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "75 % es 75/100.",
+          "Divide numerador y denominador entre 25.",
+          "Obtienes tres partes de cuatro."
+        ],
+        "retroalimentacion": "Ambas equivalen a 3/4; 1/4 sería 25 %."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una receta, se usa 0,25 de una bolsa. ¿Qué par de escrituras es equivalente?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "0,25 son 25 centésimos.",
+          "25/100 se reduce a 1/4.",
+          "El porcentaje es 25 %."
+        ],
+        "retroalimentacion": "El par correcto es 1/4 y 25 %; 1/2 sería 0,5.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/4 y 25 %"
+          },
+          {
+            "id": "b",
+            "texto": "1/2 y 25 %"
+          },
+          {
+            "id": "c",
+            "texto": "1/4 y 75 %"
+          },
+          {
+            "id": "d",
+            "texto": "1/5 y 20 %"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una cinta muestra 1/5 pintado y otra muestra 0,2 pintado, ambas tienen la misma proporción pintada.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos cintas como partes de un entero.",
+          "La cinta con 1/5 tiene una parte de cinco iguales.",
+          "Al expresar esa quinta parte en décimos, aparecen dos décimos."
+        ],
+        "retroalimentacion": "Verdadero: las dos proporciones son equivalentes."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "De 100 casillas se pintan 10. Escribe la fracción usual equivalente al decimal 0,1 y al porcentaje pintado.",
+        "respuesta": "1/10",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Diez de cien se escribe 10/100.",
+          "Simplifica dividiendo entre 10.",
+          "La forma simplificada tiene numerador 1."
+        ],
+        "retroalimentacion": "La fracción es 1/10; 1/100 sería solo una casilla."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.porcentajes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "Porcentajes usuales de una cantidad",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula el 10 %, 20 %, 25 %, 50 % y 75 % de una cantidad usando fracciones equivalentes.",
+    "palabrasClave": [
+      "10 %",
+      "25 %",
+      "50 %",
+      "75 %",
+      "cantidad"
+    ],
+    "prerrequisitos": [
+      "mat.p6.equivalencias-fraccion-decimal-porcentaje",
+      "mat.p6.fraccion-como-operador"
+    ],
+    "ordenSugerido": 80,
+    "ideaCentral": "Los porcentajes usuales de una cantidad se calculan con fracciones: 10 % es un décimo, 20 % un quinto, 25 % un cuarto, 50 % la mitad y 75 % tres cuartos.",
+    "pasos": [
+      "Identifica la cantidad total.",
+      "Cambia el porcentaje por su fracción usual.",
+      "Divide el total según el denominador.",
+      "Multiplica por el numerador si la fracción lo pide."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El 25 % de 80 cuadernos se dona. ¿Cuántos son?",
+        "desarrollo": "25 % es 1/4; 80 ÷ 4 = 20.",
+        "respuesta": "Se donan 20 cuadernos."
+      },
+      {
+        "situacion": "El 75 % de 40 estudiantes participa.",
+        "desarrollo": "Un cuarto de 40 es 10; tres cuartos son 30.",
+        "respuesta": "Participan 30 estudiantes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar por 25 para hallar 25 %.",
+        "correccion": "25 % es 1/4: divide el total entre 4."
+      },
+      {
+        "error": "Hallar 75 % como 75 unidades sin mirar el total.",
+        "correccion": "Calcula tres cuartos de la cantidad dada."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "porcentaje de una cantidad",
+        "significado": "Parte que corresponde a cierto número por cada cien."
+      },
+      {
+        "termino": "cuarto",
+        "significado": "Una de cuatro partes iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "El 10 % de 90 lápices se guarda. ¿Cuántos lápices se guardan? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "10 % es un décimo.",
+          "Divide los 90 lápices en diez grupos iguales.",
+          "Calcula 90 ÷ 10."
+        ],
+        "retroalimentacion": "Se guardan 9 lápices; 90 sería el total."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 20 panes, el 50 % es integral. ¿Cuántos panes son integrales?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "50 % es la mitad.",
+          "Divide los 20 panes en dos mitades.",
+          "Calcula 20 ÷ 2."
+        ],
+        "retroalimentacion": "Son 10 panes integrales; 20 representa todos los panes.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "20"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "15"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El 25 % de 40 canicas equivale a 10 canicas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "25 % es un cuarto.",
+          "Divide 40 entre 4.",
+          "Cada cuarto contiene 10 canicas."
+        ],
+        "retroalimentacion": "Verdadero: 40 ÷ 4 = 10."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa tiene 60 semillas. ¿Cuántas semillas son el 20 %? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "20 % equivale a un quinto.",
+          "Divide 60 entre cinco grupos.",
+          "Calcula 60 ÷ 5."
+        ],
+        "retroalimentacion": "Son 12 semillas; 20 semillas serían un tercio."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El 75 % de 24 estudiantes participa en una feria. ¿Cuántos participan? Escribe el número.",
+        "respuesta": "18",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "75 % son tres cuartos.",
+          "Un cuarto de 24 es 6.",
+          "Multiplica 6 por 3."
+        ],
+        "retroalimentacion": "Participan 18; 6 representa solo el 25 %."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El 10 % de una caja de 250 fichas se reparte. ¿Cuántas fichas son? Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "10 % es dividir entre diez.",
+          "Separa 250 en diez grupos iguales.",
+          "250 ÷ 10 = 25."
+        ],
+        "retroalimentacion": "Se reparten 25 fichas; 250 es la caja completa."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El 20 % de 45 árboles es 9 árboles.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un quinto equivale a 20 %.",
+          "Divide 45 en cinco partes.",
+          "45 ÷ 5 = 9."
+        ],
+        "retroalimentacion": "Verdadero: 9 árboles son el 20 % de 45."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un taller hay 48 hilos. ¿Cuántos son el 25 %?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los 48 hilos deben dividirse en cuatro porciones iguales.",
+          "Divide los 48 hilos en cuatro grupos.",
+          "48 ÷ 4 = 12."
+        ],
+        "retroalimentacion": "Son 12 hilos; 24 sería la mitad.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12"
+          },
+          {
+            "id": "b",
+            "texto": "24"
+          },
+          {
+            "id": "c",
+            "texto": "16"
+          },
+          {
+            "id": "d",
+            "texto": "36"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una biblioteca tiene 80 libros. El 25 % son cuentos y el 50 % son novelas. ¿Cuántos libros son de esos dos tipos juntos? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula un cuarto de 80 para cuentos.",
+          "La mitad de 80 son 40 novelas.",
+          "Suma 20 cuentos y 40 novelas."
+        ],
+        "retroalimentacion": "Son 60 libros; 75 es el porcentaje conjunto, no la cantidad."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una escuela hay 120 afiches. Se usa el 75 %. ¿Cuántos afiches quedan sin usar?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Si se usa 75 %, queda 25 %.",
+          "25 % es un cuarto del total.",
+          "Calcula 120 ÷ 4."
+        ],
+        "retroalimentacion": "Quedan 30 afiches; 90 son los que se usaron.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "90"
+          },
+          {
+            "id": "b",
+            "texto": "60"
+          },
+          {
+            "id": "c",
+            "texto": "25"
+          },
+          {
+            "id": "d",
+            "texto": "30"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "El 10 % de 200 y el 20 % de 100 son cantidades iguales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 200 ÷ 10.",
+          "Un quinto de 100 es 20.",
+          "Compara ambos resultados."
+        ],
+        "retroalimentacion": "Verdadero: las dos cantidades son 20."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una caja tiene 64 tizas. Se entrega el 25 % por la mañana y el 50 % por la tarde, ambos del total inicial. ¿Cuántas tizas se entregan? Escribe solo el número.",
+        "respuesta": 48,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un cuarto de 64 son 16.",
+          "La mitad del total inicial es 32.",
+          "Suma 16 + 32."
+        ],
+        "retroalimentacion": "Se entregan 48 tizas; calcular el 50 % del resto cambiaría el dato."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.que-porcentaje-representa",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03",
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "Porcentaje que representa una parte del total",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Expresa como porcentaje la parte de un total en casos usuales.",
+    "palabrasClave": [
+      "parte",
+      "total",
+      "porcentaje",
+      "proporción"
+    ],
+    "prerrequisitos": [
+      "mat.p6.porcentajes"
+    ],
+    "ordenSugerido": 81,
+    "ideaCentral": "Para saber qué porcentaje representa una parte, compara esa parte con el total. Expresa la relación como partes de 100 o reconoce una fracción usual.",
+    "pasos": [
+      "Distingue la parte del total.",
+      "Escribe parte/total.",
+      "Busca una fracción equivalente con denominador 100 o una fracción usual.",
+      "Lee cuántas partes de 100 representa."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "De 20 panes, 5 son integrales. ¿Qué porcentaje representan?",
+        "desarrollo": "5/20 = 1/4 = 25/100.",
+        "respuesta": "Representan 25 %."
+      },
+      {
+        "situacion": "En una clase de 40, 20 llegaron caminando.",
+        "desarrollo": "20/40 = 1/2 = 50/100.",
+        "respuesta": "Representan 50 %."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir el total entre la parte.",
+        "correccion": "La fracción correcta es parte sobre total."
+      },
+      {
+        "error": "Confundir cantidad con porcentaje.",
+        "correccion": "El porcentaje siempre compara con el total; 5 de 20 no es 5 %."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "parte",
+        "significado": "Cantidad que se estudia dentro del total."
+      },
+      {
+        "termino": "total",
+        "significado": "Conjunto completo al que se compara la parte."
+      },
+      {
+        "termino": "proporción",
+        "significado": "Relación entre una parte y el total."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "De 100 entradas, se vendieron 30. ¿Qué porcentaje se vendió? Escribe solo el número, sin %.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total ya es 100.",
+          "La parte vendida es 30.",
+          "Treinta de cien equivale a 30 %."
+        ],
+        "retroalimentacion": "Se vendió 30 %; 70 % corresponde a lo no vendido."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 10 juguetes, 5 son de madera. ¿Qué porcentaje representan?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La mitad de los juguetes es de madera.",
+          "Cinco de diez equivale a 1/2.",
+          "Una mitad es 50 %."
+        ],
+        "retroalimentacion": "Representan 50 %; 5 % sería una parte mucho menor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 %"
+          },
+          {
+            "id": "b",
+            "texto": "50 %"
+          },
+          {
+            "id": "c",
+            "texto": "10 %"
+          },
+          {
+            "id": "d",
+            "texto": "25 %"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 1 de 4 macetas tiene flores, las macetas con flores representan 25 %.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La parte es una maceta.",
+          "El total es cuatro macetas.",
+          "1/4 equivale a 25/100."
+        ],
+        "retroalimentacion": "Verdadero: una de cuatro representa 25 %."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un grupo de 20, 2 personas usan sombrero. ¿Qué porcentaje del grupo usa sombrero? Escribe con %.",
+        "respuesta": "10 %",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe la parte sobre el total: 2/20.",
+          "Simplifica a 1/10.",
+          "Un décimo equivale a 10 %."
+        ],
+        "retroalimentacion": "Es 10 %; 2 % confunde personas con porcentaje."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "De 80 libros, 40 son de cuentos. ¿Qué porcentaje son cuentos? Escribe solo el número, sin %.",
+        "respuesta": 50,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La parte de cuentos es 40.",
+          "40 de 80 es la mitad.",
+          "La mitad equivale a 50 %."
+        ],
+        "retroalimentacion": "Son 50 %; 40 es la cantidad de libros, no el porcentaje."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un frutero tiene 15 naranjas y 5 mandarinas. ¿Qué porcentaje de las 20 frutas son mandarinas? Escribe con %.",
+        "respuesta": "25 %",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total es 15 + 5 = 20 frutas.",
+          "La parte de mandarinas es 5/20.",
+          "Simplifica a 1/4 y convierte a porcentaje."
+        ],
+        "retroalimentacion": "Representan 25 %; 5 % confunde cantidad de frutas con porcentaje."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 6 de 30 estudiantes usan lentes, representan el 20 % del salón.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La fracción es 6/30.",
+          "Simplifica dividiendo entre 6: 1/5.",
+          "Un quinto equivale a 20 %."
+        ],
+        "retroalimentacion": "Verdadero: 6 de 30 es 20 %."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja tiene 40 vasos; 10 son azules. ¿Qué porcentaje es azul?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La parte azul es 10 de 40.",
+          "Simplifica 10/40 a 1/4.",
+          "Un cuarto equivale a 25 %."
+        ],
+        "retroalimentacion": "Es 25 %; 10 % confunde cantidad con porcentaje.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 %"
+          },
+          {
+            "id": "b",
+            "texto": "40 %"
+          },
+          {
+            "id": "c",
+            "texto": "50 %"
+          },
+          {
+            "id": "d",
+            "texto": "25 %"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una clase hay 24 estudiantes: 6 trajeron material reciclado y 6 trajeron papel. ¿Qué porcentaje trajo uno de esos dos materiales? Escribe solo el número, sin %.",
+        "respuesta": 50,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta los dos grupos pedidos.",
+          "6 + 6 = 12 estudiantes de 24.",
+          "12/24 equivale a la mitad."
+        ],
+        "retroalimentacion": "Es 50 %; 25 % describe solo uno de los grupos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una feria se vendieron 15 de 60 entradas por la mañana. ¿Qué porcentaje representa la venta matutina?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La fracción es 15/60.",
+          "Divide numerador y denominador entre 15.",
+          "Resulta 1/4."
+        ],
+        "retroalimentacion": "La mañana representa 25 %; 15 % es solo el número de entradas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25 %"
+          },
+          {
+            "id": "b",
+            "texto": "15 %"
+          },
+          {
+            "id": "c",
+            "texto": "50 %"
+          },
+          {
+            "id": "d",
+            "texto": "75 %"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 50 plantas, 10 son geranios y 15 son rosas. Juntas representan 50 % de las plantas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las dos clases de plantas.",
+          "10 + 15 = 25 plantas.",
+          "25 de 50 es la mitad."
+        ],
+        "retroalimentacion": "Verdadero: geranios y rosas suman 50 %."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un concurso, 18 de 60 equipos pasan a la final. ¿Qué porcentaje de equipos clasifica? Escribe solo el número, sin %.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La parte es 18 y el total 60.",
+          "Para llegar a 100, multiplica 18/60 por 100.",
+          "18 ÷ 60 = 0,3."
+        ],
+        "retroalimentacion": "Clasifica el 30 %; 18 % confunde el número de equipos con la proporción."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.comparar-fraccion-decimal-porcentaje",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-06"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "Comparación entre fracciones, decimales y porcentajes",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Ordena cantidades expresadas en distintas formas convirtiéndolas a una misma representación.",
+    "palabrasClave": [
+      "comparar",
+      "ordenar",
+      "fracción",
+      "decimal",
+      "porcentaje"
+    ],
+    "prerrequisitos": [
+      "mat.p6.equivalencias-fraccion-decimal-porcentaje"
+    ],
+    "ordenSugerido": 82,
+    "ideaCentral": "Para comparar fracciones, decimales y porcentajes, conviértelos a una misma forma. Así puedes ordenarlos por su valor y reconocer si dos escrituras son equivalentes.",
+    "pasos": [
+      "Convierte cada cantidad a porcentaje o decimal.",
+      "Anota los valores con la misma unidad de comparación.",
+      "Compara de menor a mayor.",
+      "Vuelve a escribir el orden con las formas originales."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se comparan 1/4, 0,5 y 75 %.",
+        "desarrollo": "1/4 = 25 %, 0,5 = 50 %; 25 < 50 < 75.",
+        "respuesta": "El orden es 1/4, 0,5, 75 %."
+      },
+      {
+        "situacion": "En un juego hay 0,2 y 1/10 de avance.",
+        "desarrollo": "0,2 = 20 % y 1/10 = 10 %.",
+        "respuesta": "0,2 es mayor."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comparar solo los números 1, 0,5 y 75 sin sus formas.",
+        "correccion": "Conviértelos primero a la misma representación."
+      },
+      {
+        "error": "Creer que 0,75 supera 75 %.",
+        "correccion": "Son dos escrituras de la misma cantidad."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "ordenar",
+        "significado": "Colocar cantidades de menor a mayor o al revés."
+      },
+      {
+        "termino": "equivalencia",
+        "significado": "Igual valor escrito de dos maneras."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál cantidad es mayor: 1/4, 0,5 o 10 %?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 1/4 a 25 %.",
+          "0,5 equivale a 50 %.",
+          "Compara 25 %, 50 % y 10 %."
+        ],
+        "retroalimentacion": "La mayor es 0,5; 1/4 representa solo 25 %.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/4"
+          },
+          {
+            "id": "b",
+            "texto": "10 %"
+          },
+          {
+            "id": "c",
+            "texto": "0,5"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "0,5 y 50 % tienen el mismo valor.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "0,5 es una mitad.",
+          "Una mitad son 50 de 100 partes.",
+          "50 de 100 se escribe 50 %."
+        ],
+        "retroalimentacion": "Verdadero: 0,5 = 50 %."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Entre 1/10 y 25 %, ¿cuál es menor? Escribe la forma que aparece en la pregunta.",
+        "respuesta": "1/10",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un décimo equivale a 10 %.",
+          "Compara 10 % con 25 %.",
+          "Diez por ciento es menor."
+        ],
+        "retroalimentacion": "La menor es 1/10; 25 % es un cuarto."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Qué número va con % al escribir la mayor entre 0,2 y 1/4? Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "0,2 equivale a 20 %.",
+          "Un cuarto equivale a 25 %.",
+          "Compara 20 con 25."
+        ],
+        "retroalimentacion": "La mayor es 1/4, o 25 %; 20 % es menor."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ordena de menor a mayor: 75 %, 1/2, 0,25.",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 0,25 a 25 %.",
+          "Una mitad vale 50 %.",
+          "Compara 25, 50 y 75."
+        ],
+        "retroalimentacion": "El orden es 0,25; 1/2; 75 %.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,25; 1/2; 75 %"
+          },
+          {
+            "id": "b",
+            "texto": "1/2; 0,25; 75 %"
+          },
+          {
+            "id": "c",
+            "texto": "75 %; 1/2; 0,25"
+          },
+          {
+            "id": "d",
+            "texto": "0,25; 75 %; 1/2"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "1/5 es mayor que 0,25.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un quinto equivale a 0,2.",
+          "Compara 0,2 con 0,25.",
+          "Veinte centésimos son menos que veinticinco."
+        ],
+        "retroalimentacion": "Falso: 1/5 = 0,2 < 0,25."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En una carrera se avanzó 20 %, 0,1 y 1/4. ¿Qué forma representa el menor avance? Escríbela como aparece.",
+        "respuesta": "0,1",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 0,1 a 10 %.",
+          "La fracción 1/4 representa veinticinco de cada cien.",
+          "Compara 10 %, 20 % y 25 %."
+        ],
+        "retroalimentacion": "El menor avance es 0,1; 20 % es mayor."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Entre 3/4 y 0,5, ¿qué porcentaje es mayor? Escribe solo el número, sin %.",
+        "respuesta": 75,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres cuartos son 75 %.",
+          "La forma decimal 0,5 representa cincuenta de cada cien.",
+          "Compara 75 con 50."
+        ],
+        "retroalimentacion": "El mayor es 75 %; 50 % es la mitad."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "De menor a mayor, ¿cómo se ordenan 0,2; 1/10; 25 %; 1/2?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cambia todo a porcentajes.",
+          "Son 20 %, 10 %, 25 % y 50 %.",
+          "Ordénalos: 10, 20, 25, 50."
+        ],
+        "retroalimentacion": "El orden es 1/10; 0,2; 25 %; 1/2.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,2; 1/10; 25 %; 1/2"
+          },
+          {
+            "id": "b",
+            "texto": "1/10; 25 %; 0,2; 1/2"
+          },
+          {
+            "id": "c",
+            "texto": "1/2; 25 %; 0,2; 1/10"
+          },
+          {
+            "id": "d",
+            "texto": "1/10; 0,2; 25 %; 1/2"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al ordenar 1/4, 0,25 y 20 % de menor a mayor, 20 % queda primero y las otras dos cantidades empatan.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Transforma la fracción 1/4 en centésimos para compararla.",
+          "0,25 también es 25 %.",
+          "20 % es menor que ambas."
+        ],
+        "retroalimentacion": "Verdadero: 20 % < 1/4 = 0,25."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Tres etiquetas muestran 0,75; 1/5; 50 %. ¿Cuál queda en medio al ordenarlas? Escribe exactamente la forma dada.",
+        "respuesta": "50 %",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "0,75 equivale a 75 %.",
+          "1/5 equivale a 20 %.",
+          "Ordena 20, 50 y 75."
+        ],
+        "retroalimentacion": "En medio queda 50 %; 0,75 es la mayor."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un estudiante afirma que 1/2 < 0,25 < 75 %. ¿Qué corrección conserva el mayor al final?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una mitad equivale a 50 %.",
+          "0,25 vale 25 %.",
+          "El inicio correcto es 0,25 < 1/2."
+        ],
+        "retroalimentacion": "La corrección es 0,25 < 1/2 < 75 %; invertir los dos primeros repara el orden.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/2 < 75 % < 0,25"
+          },
+          {
+            "id": "b",
+            "texto": "0,25 < 1/2 < 75 %"
+          },
+          {
+            "id": "c",
+            "texto": "75 % < 0,25 < 1/2"
+          },
+          {
+            "id": "d",
+            "texto": "0,25 < 75 % < 1/2"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

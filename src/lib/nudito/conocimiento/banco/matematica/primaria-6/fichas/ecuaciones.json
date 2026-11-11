@@ -1,0 +1,1856 @@
+[
+  {
+    "clave": "mat.p6.equivalencias-balanza",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P6-01"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Equivalencias en balanzas",
+    "disciplina": "algebra",
+    "descripcionCorta": "Representa situaciones de equilibrio con igualdades y halla el valor desconocido.",
+    "palabrasClave": [
+      "balanza",
+      "equilibrio",
+      "igualdad",
+      "valor desconocido"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 47,
+    "ideaCentral": "Una balanza equilibrada representa una igualdad: ambos platillos tienen el mismo peso. Tú puedes representar las pesas desconocidas con una letra y encontrar su valor.",
+    "pasos": [
+      "Identifica lo que hay en cada platillo.",
+      "Escribe una igualdad entre sus pesos.",
+      "Quita o agrupa pesos iguales.",
+      "Comprueba que ambos lados tengan el mismo valor."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un bloque x y 3 kg equilibran 8 kg.",
+        "desarrollo": "x + 3 = 8; x = 8 − 3.",
+        "respuesta": "x pesa 5 kg."
+      },
+      {
+        "situacion": "Dos cajas iguales equilibran 12 kg.",
+        "desarrollo": "2x = 12; cada caja pesa 12 ÷ 2.",
+        "respuesta": "Cada caja pesa 6 kg."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar pesos de lados opuestos.",
+        "correccion": "Cada platillo forma un lado de la igualdad."
+      },
+      {
+        "error": "Quitar una pesa solo de un lado.",
+        "correccion": "Para conservar el equilibrio, quita igual peso de ambos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Equilibrio",
+        "significado": "Ambos platillos tienen igual peso."
+      },
+      {
+        "termino": "Incógnita",
+        "significado": "Valor desconocido representado por una letra."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un paquete x y una pesa de 2 kg equilibran 7 kg. ¿Cuántos kg pesa x? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "La igualdad es x + 2 = 7.",
+          "Resta 2 a 7.",
+          "7 − 2 = 5."
+        ],
+        "retroalimentacion": "x pesa 5 kg; sumar 7 + 2 no conserva el equilibrio."
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un platillo tiene 4 kg y el otro 4 kg, la balanza está equilibrada.",
+        "respuesta": true,
+        "pistas": [
+          "Compara ambos lados.",
+          "Los dos marcan 4 kg.",
+          "Pesos iguales dan equilibrio."
+        ],
+        "retroalimentacion": "Verdadero: 4 = 4."
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja x equilibra dos pesas de 3 kg. ¿Qué igualdad corresponde?",
+        "respuesta": "b",
+        "pistas": [
+          "Suma las dos pesas del lado derecho.",
+          "3 + 3 = 6.",
+          "El lado izquierdo es x."
+        ],
+        "retroalimentacion": "x = 3 + 3 representa la balanza; x = 3 ignora una pesa.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x = 3"
+          },
+          {
+            "id": "b",
+            "texto": "x = 3 + 3"
+          },
+          {
+            "id": "c",
+            "texto": "x + 3 = 3"
+          },
+          {
+            "id": "d",
+            "texto": "2x = 3"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una balanza, x + 4 = 10. Escribe el valor de x en kg como número.",
+        "respuesta": "6",
+        "pistas": [
+          "Hay 4 kg junto a x.",
+          "Quita 4 de ambos lados.",
+          "10 − 4 = 6."
+        ],
+        "retroalimentacion": "x vale 6 kg; comprueba 6 + 4 = 10."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tres paquetes idénticos equilibran 15 kg. ¿Cuántos kg pesa cada uno? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Escribe 3x = 15.",
+          "Divide 15 entre 3.",
+          "Cada paquete pesa 5."
+        ],
+        "retroalimentacion": "Cada uno pesa 5 kg; 15 es el peso conjunto."
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un platillo tiene x + 5 kg y el otro 12 kg. ¿Qué valor mantiene equilibrio?",
+        "respuesta": "d",
+        "pistas": [
+          "Plantea x + 5 = 12.",
+          "Resta 5 al otro lado.",
+          "12 − 5 = 7."
+        ],
+        "retroalimentacion": "7 kg mantiene el equilibrio; 17 kg suma en lugar de restar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 kg"
+          },
+          {
+            "id": "b",
+            "texto": "12 kg"
+          },
+          {
+            "id": "c",
+            "texto": "17 kg"
+          },
+          {
+            "id": "d",
+            "texto": "7 kg"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 2x = 14, entonces cada objeto x pesa 14 kg.",
+        "respuesta": false,
+        "pistas": [
+          "Hay dos objetos iguales.",
+          "Reparte 14 entre 2.",
+          "Cada uno vale 7."
+        ],
+        "retroalimentacion": "Falso: x = 7 kg; 14 kg es el total."
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un platillo hay x, x y 2 kg; en el otro, 10 kg. Escribe la igualdad sin espacios usando x.",
+        "respuesta": "2x+2=10",
+        "pistas": [
+          "Dos x equivalen a 2x.",
+          "Añade la pesa de 2 al lado izquierdo.",
+          "El derecho lleva 10."
+        ],
+        "retroalimentacion": "La igualdad es 2x+2=10; no olvides los 2 kg."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos sacos iguales y 4 kg equilibran 18 kg. ¿Cuántos kg pesa cada saco? Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "Representa 2x + 4 = 18.",
+          "Quita 4: 2x = 14.",
+          "Divide 14 entre 2."
+        ],
+        "retroalimentacion": "Cada saco pesa 7 kg; 14 es el peso de ambos."
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una balanza, 3x + 2 = x + 10. ¿Qué valor de x equilibra?",
+        "respuesta": "a",
+        "pistas": [
+          "Quita x de ambos lados.",
+          "Queda 2x + 2 = 10.",
+          "Entonces 2x = 8."
+        ],
+        "retroalimentacion": "x = 4; comprueba 3·4 + 2 = 4 + 10.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si x + 6 = 11, al quitar 6 kg solo del lado izquierdo la balanza sigue equilibrada.",
+        "respuesta": false,
+        "pistas": [
+          "Antes ambos lados pesan 11.",
+          "Después el izquierdo pesa 5.",
+          "El derecho sigue en 11."
+        ],
+        "retroalimentacion": "Falso: hay que quitar 6 kg de ambos lados."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Dos cajas iguales y una pesa de 3 kg equilibran una caja igual y 9 kg. ¿Cuántos kg pesa cada caja? Escribe solo el número.",
+        "respuesta": "6",
+        "pistas": [
+          "Plantea 2x + 3 = x + 9.",
+          "Quita una x de ambos lados.",
+          "Queda x + 3 = 9."
+        ],
+        "retroalimentacion": "Cada caja pesa 6 kg; comprueba 15 = 15."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.propiedad-uniformidad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P6-04"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Propiedad de uniformidad para resolver ecuaciones",
+    "disciplina": "algebra",
+    "descripcionCorta": "Mantiene una igualdad al sumar, restar, multiplicar o dividir ambos miembros por lo mismo.",
+    "palabrasClave": [
+      "uniformidad",
+      "igualdad",
+      "ambos miembros",
+      "ecuación"
+    ],
+    "prerrequisitos": [
+      "mat.p6.equivalencias-balanza"
+    ],
+    "ordenSugerido": 48,
+    "ideaCentral": "Una igualdad sigue siendo válida si haces la misma operación en ambos miembros. Tú puedes usar esta propiedad para aislar la incógnita sin perder el equilibrio.",
+    "pasos": [
+      "Elige la operación que deshace la que acompaña a x.",
+      "Aplícala a ambos miembros.",
+      "Simplifica hasta dejar x sola.",
+      "Sustituye el valor para comprobar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Resuelve x + 7 = 15.",
+        "desarrollo": "Resta 7 a ambos: x = 15 − 7.",
+        "respuesta": "x = 8."
+      },
+      {
+        "situacion": "Resuelve 3x = 21.",
+        "desarrollo": "Divide ambos miembros entre 3.",
+        "respuesta": "x = 7."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Operar solo el lado de x.",
+        "correccion": "Escribe la misma operación en el otro lado."
+      },
+      {
+        "error": "Dividir entre cero.",
+        "correccion": "Solo divide por números distintos de cero."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Miembros",
+        "significado": "Los dos lados de una igualdad."
+      },
+      {
+        "termino": "Operación inversa",
+        "significado": "Acción que deshace otra, como restar frente a sumar."
+      },
+      {
+        "termino": "Uniformidad",
+        "significado": "Conservación de la igualdad al operar igual en ambos lados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 5 = 5, al sumar 2 a ambos miembros queda 7 = 7.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula 5 + 2.",
+          "Hazlo en ambos lados.",
+          "Ambos quedan en 7."
+        ],
+        "retroalimentacion": "Verdadero: sumar igual conserva la igualdad."
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Resuelve x + 3 = 9 restando 3 a ambos miembros. Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "A x + 3 le quitas 3.",
+          "Al 9 también le quitas 3.",
+          "9 − 3 = 6."
+        ],
+        "retroalimentacion": "x = 6; restar solo a un lado rompería la igualdad."
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para resolver x − 4 = 10, ¿qué haces en ambos miembros?",
+        "respuesta": "c",
+        "pistas": [
+          "Busca lo inverso de restar 4.",
+          "Lo inverso es sumar 4.",
+          "x quedará sola."
+        ],
+        "retroalimentacion": "Sumar 4 a ambos da x = 14; restar 4 otra vez aleja x.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Restar 4"
+          },
+          {
+            "id": "b",
+            "texto": "Multiplicar por 4"
+          },
+          {
+            "id": "c",
+            "texto": "Sumar 4"
+          },
+          {
+            "id": "d",
+            "texto": "Dividir entre 4"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa 2x = 12: divide ambos miembros entre __.",
+        "respuesta": "2",
+        "pistas": [
+          "x está multiplicada por 2.",
+          "La operación inversa es dividir.",
+          "Usa el mismo factor 2."
+        ],
+        "retroalimentacion": "Divide entre 2; queda x = 6."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 4x = 28. Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "Divide ambos lados entre 4.",
+          "28 ÷ 4 = 7.",
+          "Comprueba 4 · 7 = 28."
+        ],
+        "retroalimentacion": "x = 7; dividir solo un miembro no es válido."
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 18 = 3x se obtiene 6 = x al dividir ambos lados entre 3.",
+        "respuesta": true,
+        "pistas": [
+          "18 ÷ 3 = 6.",
+          "3x ÷ 3 = x.",
+          "Los miembros siguen iguales."
+        ],
+        "retroalimentacion": "Verdadero: dividir ambos entre 3 da x = 6."
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Partiendo de x + 5 = 13, ¿qué igualdad queda tras restar 5 a ambos lados?",
+        "respuesta": "b",
+        "pistas": [
+          "En la izquierda se cancelan +5 y −5.",
+          "En la derecha 13 − 5 = 8.",
+          "El resultado conserva la igualdad."
+        ],
+        "retroalimentacion": "x = 8; dejar 13 sin cambio opera solo un lado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x = 13"
+          },
+          {
+            "id": "b",
+            "texto": "x = 8"
+          },
+          {
+            "id": "c",
+            "texto": "x = 18"
+          },
+          {
+            "id": "d",
+            "texto": "x − 5 = 8"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En 15 = x − 2, ¿qué operación igual aplicas a ambos miembros para dejar x sola? Escribe «sumar 2» o «restar 2».",
+        "respuesta": "sumar 2",
+        "pistas": [
+          "x tiene un −2.",
+          "Deshazlo con +2.",
+          "Haz +2 también al 15."
+        ],
+        "retroalimentacion": "Hay que sumar 2 a ambos; entonces x = 17."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 3x + 2 = 17 aplicando uniformidad dos veces. Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Resta 2 a ambos: 3x = 15.",
+          "Divide ambos entre 3.",
+          "15 ÷ 3 = 5."
+        ],
+        "retroalimentacion": "x = 5; comprobar da 3·5 + 2 = 17."
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para despejar x de 2x − 6 = 10, ¿qué secuencia conserva la igualdad?",
+        "respuesta": "d",
+        "pistas": [
+          "Primero deshaz −6.",
+          "Suma 6 a ambos: 2x = 16.",
+          "Luego divide ambos entre 2."
+        ],
+        "retroalimentacion": "Sumar 6 y dividir entre 2 en ambos lados da x = 8.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Restar 6 y dividir entre 2"
+          },
+          {
+            "id": "b",
+            "texto": "Sumar 6 solo a la izquierda"
+          },
+          {
+            "id": "c",
+            "texto": "Dividir entre 2 solo a la derecha"
+          },
+          {
+            "id": "d",
+            "texto": "Sumar 6 y dividir entre 2 en ambos lados"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "De x/4 = 3 puedes multiplicar ambos miembros por 4 y obtener x = 12.",
+        "respuesta": true,
+        "pistas": [
+          "Multiplicar por 4 deshace dividir entre 4.",
+          "3 · 4 = 12.",
+          "Comprueba 12/4 = 3."
+        ],
+        "retroalimentacion": "Verdadero: aplicar ×4 a ambos da x = 12."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "De 5x + 4 = 24 se resta 4 a ambos y luego se divide entre 5. Escribe las dos igualdades resultantes separadas por coma, sin espacios.",
+        "respuesta": "5x=20,x=4",
+        "pistas": [
+          "Primero 24 − 4 = 20.",
+          "Queda 5x = 20.",
+          "Después 20 ÷ 5 = 4."
+        ],
+        "retroalimentacion": "La cadena es 5x=20,x=4; dividir antes de restar 4 sería otro procedimiento."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.propiedad-cancelativa",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P6-04"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Propiedad cancelativa para simplificar ecuaciones",
+    "disciplina": "algebra",
+    "descripcionCorta": "Elimina términos iguales en ambos miembros para simplificar una igualdad.",
+    "palabrasClave": [
+      "igualdad",
+      "cancelar",
+      "término común"
+    ],
+    "prerrequisitos": [
+      "mat.p6.propiedad-uniformidad"
+    ],
+    "ordenSugerido": 49,
+    "ideaCentral": "Si una cantidad igual aparece sumada a ambos lados de una igualdad, puedes quitarla de ambos lados sin cambiar el equilibrio. Lo mismo ocurre con un factor común distinto de cero.",
+    "pasos": [
+      "Identifica el término o factor que se repite en ambos miembros.",
+      "Quita la misma suma o resta en ambos lados; si es un factor, divide ambos lados por él.",
+      "Escribe la igualdad simplificada y comprueba que conserva la solución."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una balanza: x + 5 = 12 + 5.",
+        "desarrollo": "Quito 5 de cada lado: x = 12.",
+        "respuesta": "x = 12."
+      },
+      {
+        "situacion": "Tres paquetes iguales cumplen 3x = 3 × 7.",
+        "desarrollo": "Divido ambos lados entre 3: x = 7.",
+        "respuesta": "x = 7."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Borrar solo un 4 de un lado de x + 4 = 9 + 4.",
+        "correccion": "El mismo 4 se cancela en los dos lados."
+      },
+      {
+        "error": "Cancelar un factor cero.",
+        "correccion": "No dividas entre cero; solo puedes cancelar un factor distinto de cero."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Miembro",
+        "significado": "Cada lado de una igualdad."
+      },
+      {
+        "termino": "Término común",
+        "significado": "Cantidad que aparece sumada en ambos miembros."
+      },
+      {
+        "termino": "Factor común",
+        "significado": "Número que multiplica a ambos miembros."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica x + 6 = 9 + 6 cancelando lo común. Escribe la igualdad final.",
+        "respuesta": "x = 9",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 6 está sumado a ambos lados.",
+          "Resta 6 a cada miembro de x + 6 = 9 + 6.",
+          "Quedan x y 9."
+        ],
+        "retroalimentacion": "Si quitas 6 solo de un lado rompes la igualdad; queda x = 9."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué queda al cancelar 4 en a + 4 = 11 + 4?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el término idéntico a izquierda y derecha.",
+          "El +4 se quita de ambos miembros.",
+          "Compara a con 11 después de quitarlo."
+        ],
+        "retroalimentacion": "Cancelar +4 de ambos lados deja a = 11; no cambia el 11.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "a = 15"
+          },
+          {
+            "id": "b",
+            "texto": "a = 7"
+          },
+          {
+            "id": "c",
+            "texto": "a = 11"
+          },
+          {
+            "id": "d",
+            "texto": "a + 4 = 11"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 8 + y = 8 + 3 se puede obtener y = 3 quitando 8 en ambos miembros.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 8 se suma a ambos lados.",
+          "Resta 8 a la izquierda y a la derecha.",
+          "Después quedan y y 3."
+        ],
+        "retroalimentacion": "Es verdadero: 8 se cancela en ambos miembros y queda y = 3."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En 5m = 5 × 2, divide ambos miembros entre 5. ¿Qué igualdad obtienes?",
+        "respuesta": "m = 2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 5 multiplica a m y también a 2.",
+          "Divide 5m entre 5.",
+          "Divide 5 × 2 entre 5."
+        ],
+        "retroalimentacion": "Al dividir solo un lado no habría equilibrio; m = 2."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una balanza muestra z + 13 = 20 + 13. ¿Cuál es la igualdad simplificada?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Retira 13 unidades de cada platillo.",
+          "A la izquierda queda z.",
+          "A la derecha queda 20."
+        ],
+        "retroalimentacion": "Retirar 13 de ambos platillos da z = 20.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "z = 33"
+          },
+          {
+            "id": "b",
+            "texto": "z = 20"
+          },
+          {
+            "id": "c",
+            "texto": "z = 7"
+          },
+          {
+            "id": "d",
+            "texto": "z + 13 = 20"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 7p = 7 × 4, cancelar el factor 7 deja p = 28.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 7 está multiplicando a ambos lados.",
+          "Divide cada miembro entre 7.",
+          "7 × 4 dividido entre 7 es 4."
+        ],
+        "retroalimentacion": "Es falso: cancelar 7 da p = 4, no p = 28."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica 18 + n − 5 = 18 + 10 − 5 quitando primero el 18 y luego el −5 de ambos lados.",
+        "respuesta": "n = 10",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 18 aparece sumado a ambos miembros.",
+          "También aparece −5 en ambos miembros.",
+          "Tras cancelar ambos, compara n con 10."
+        ],
+        "retroalimentacion": "No canceles solo uno de los lados: al quitar 18 y −5 de ambos queda n = 10."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué operación cancela el 6 común en 6q = 6 × 9?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 6 es un factor, no un sumando.",
+          "La operación inversa de multiplicar por 6 es dividir entre 6.",
+          "Aplica esa división en ambos miembros."
+        ],
+        "retroalimentacion": "Debes dividir ambos miembros entre 6 para obtener q = 9.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Restar 6 solo a la izquierda"
+          },
+          {
+            "id": "b",
+            "texto": "Sumar 6 a ambos miembros"
+          },
+          {
+            "id": "c",
+            "texto": "Dividir solo la derecha entre 6"
+          },
+          {
+            "id": "d",
+            "texto": "Dividir ambos miembros entre 6"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Lucía escribió 4x + 7 = 4 × 6 + 7. Cancela 7 y después el factor 4. Escribe el resultado.",
+        "respuesta": "x = 6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita el +7 de cada miembro.",
+          "Obtienes 4x = 4 × 6.",
+          "Divide los dos miembros entre 4."
+        ],
+        "retroalimentacion": "Si divides antes de quitar 7, debes dividir todo el miembro. Cancelando en orden queda x = 6."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 3a + 8 = 3 × 5 + 8 se obtiene a = 5 si se quita 8 de ambos lados y luego se divide ambos entre 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero observa el +8 repetido.",
+          "Tras quitarlo: 3a = 3 × 5.",
+          "Ahora cancela el factor 3."
+        ],
+        "retroalimentacion": "Es verdadero: las dos cancelaciones mantienen la igualdad y dejan a = 5."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mario parte de 2t + 9 = 2 × 8 + 9. ¿Cuál secuencia conserva la igualdad?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El +9 puede retirarse de ambos miembros.",
+          "Después queda un factor 2 en ambos lados.",
+          "Para cancelar ese factor divide los dos miembros entre 2."
+        ],
+        "retroalimentacion": "Quitar 9 a ambos lados y dividir ambos entre 2 da t = 8.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Quitar 9 a ambos lados; dividir ambos entre 2"
+          },
+          {
+            "id": "b",
+            "texto": "Quitar 9 solo a la izquierda; dividir entre 2"
+          },
+          {
+            "id": "c",
+            "texto": "Dividir solo la izquierda entre 2"
+          },
+          {
+            "id": "d",
+            "texto": "Quitar 2 a ambos lados; dividir entre 9"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En la igualdad 5(r + 3) = 5(7 + 3), cancela primero el factor 5 y luego el +3. Escribe la igualdad final.",
+        "respuesta": "r = 7",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide ambos miembros entre 5.",
+          "Queda r + 3 = 7 + 3.",
+          "Resta 3 a los dos miembros."
+        ],
+        "retroalimentacion": "No se cancela el 3 antes de retirar el factor 5; siguiendo ambos pasos queda r = 7."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.plantear-ecuaciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P6-01"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Planteamiento de ecuaciones a partir de enunciados",
+    "disciplina": "algebra",
+    "descripcionCorta": "Traduce una situación a una ecuación identificando la incógnita.",
+    "palabrasClave": [
+      "incógnita",
+      "ecuación",
+      "traducir"
+    ],
+    "prerrequisitos": [
+      "mat.p6.equivalencias-balanza"
+    ],
+    "ordenSugerido": 50,
+    "ideaCentral": "Una ecuación expresa con números y una letra una relación que debe cumplirse. Elige qué representa la letra y traduce cada acción respetando su orden.",
+    "pasos": [
+      "Nombra la cantidad desconocida con una letra.",
+      "Relaciona los datos con suma, resta, multiplicación o división.",
+      "Escribe la igualdad completa.",
+      "Lee tu ecuación para comprobar que coincide con el relato."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una entrada cuesta S/ 8 y Ana pagó S/ 24 por varias.",
+        "desarrollo": "Si x es el número de entradas, el costo es 8x y debe ser 24.",
+        "respuesta": "8x = 24."
+      },
+      {
+        "situacion": "Rosa tenía algunas semillas y regaló 5; le quedan 12.",
+        "desarrollo": "Llamo s a las semillas iniciales; después de quitar 5 quedan 12.",
+        "respuesta": "s − 5 = 12."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir cantidad inicial con cantidad final.",
+        "correccion": "Define la letra antes de escribir la operación."
+      },
+      {
+        "error": "Traducir «el triple más 2» como 3(x + 2).",
+        "correccion": "Si se añade 2 al triple, escribe 3x + 2."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Incógnita",
+        "significado": "Cantidad desconocida representada por una letra."
+      },
+      {
+        "termino": "Ecuación",
+        "significado": "Igualdad con una incógnita."
+      },
+      {
+        "termino": "Traducir",
+        "significado": "Pasar un relato a una expresión matemática."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Carmen tenía x soles y recibió 7 más; ahora tiene 19. ¿Qué ecuación lo representa?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El monto inicial es x.",
+          "Recibir 7 significa sumar 7.",
+          "El total resultante es 19."
+        ],
+        "retroalimentacion": "La cantidad inicial más 7 es 19: x + 7 = 19.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x − 7 = 19"
+          },
+          {
+            "id": "b",
+            "texto": "x + 7 = 19"
+          },
+          {
+            "id": "c",
+            "texto": "7x = 19"
+          },
+          {
+            "id": "d",
+            "texto": "x + 19 = 7"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una caja tenía n lápices. Al sacar 4, quedaron 9. Escribe la ecuación.",
+        "respuesta": "n - 4 = 9",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "n representa los lápices iniciales.",
+          "Sacar 4 se expresa restando 4.",
+          "El resultado de esa resta es 9."
+        ],
+        "retroalimentacion": "No sumes los 4 retirados en el lado izquierdo: n - 4 = 9."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si p es el precio de un cuaderno, cuatro cuadernos cuestan S/ 28 y la ecuación es 4p = 28.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuaderno cuesta p.",
+          "Cuatro precios iguales suman p + p + p + p.",
+          "Esa suma es 4p y vale 28."
+        ],
+        "retroalimentacion": "Es verdadero: cuatro cuadernos de precio p cumplen 4p = 28."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cinta de x metros se parte en 3 trozos iguales de 5 metros. ¿Qué ecuación indica el reparto?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "x es la longitud total.",
+          "Dividir entre 3 da cada trozo.",
+          "Cada trozo mide 5."
+        ],
+        "retroalimentacion": "La longitud de un trozo es x ÷ 3; por eso x ÷ 3 = 5.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x + 3 = 5"
+          },
+          {
+            "id": "b",
+            "texto": "3 ÷ x = 5"
+          },
+          {
+            "id": "c",
+            "texto": "x − 3 = 5"
+          },
+          {
+            "id": "d",
+            "texto": "x ÷ 3 = 5"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El doble de una edad e más 3 años es 17. Escribe la ecuación.",
+        "respuesta": "2e + 3 = 17",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El doble de e es 2e.",
+          "Después se agregan 3 años.",
+          "Toda la expresión equivale a 17."
+        ],
+        "retroalimentacion": "No dupliques también el 3: la ecuación es 2e + 3 = 17."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una bolsa con x mandarinas se reparte entre 4 personas y cada una recibe 6; x + 4 = 6 describe la situación.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Repartir en partes iguales implica división.",
+          "La cantidad por persona es x ÷ 4.",
+          "Esa cantidad debe ser 6."
+        ],
+        "retroalimentacion": "Es falso: sumar 4 no representa repartir; corresponde x ÷ 4 = 6."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un taxi cobra S/ 5 de inicio y S/ 3 por kilómetro k. El viaje costó S/ 20. ¿Cuál es la ecuación?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cobro fijo es 5.",
+          "Los kilómetros aportan 3k.",
+          "La suma de ambos cobros es 20."
+        ],
+        "retroalimentacion": "El costo se expresa 5 + 3k = 20; 3(k + 5) cobraría tres veces el fijo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 + 3k = 20"
+          },
+          {
+            "id": "b",
+            "texto": "3(k + 5) = 20"
+          },
+          {
+            "id": "c",
+            "texto": "5k + 3 = 20"
+          },
+          {
+            "id": "d",
+            "texto": "20 + 3k = 5"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Después de gastar S/ 8, Diego conserva la mitad de sus x soles iniciales. Escribe una ecuación para esa relación.",
+        "respuesta": "x - 8 = x / 2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los soles que quedan son x − 8.",
+          "La mitad del dinero inicial es x ÷ 2.",
+          "Iguala las dos expresiones para lo que queda."
+        ],
+        "retroalimentacion": "La mitad corresponde al dinero inicial, no a los S/ 8: x - 8 = x / 2."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La feria vendió 2 paquetes de g galletas cada uno y 5 sueltas; en total fueron 23. ¿Qué ecuación describe esto?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dos paquetes aportan 2g.",
+          "Las cinco galletas sueltas se suman.",
+          "La venta total es 23."
+        ],
+        "retroalimentacion": "Dos paquetes más cinco sueltas se expresa 2g + 5 = 23.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2(g + 5) = 23"
+          },
+          {
+            "id": "b",
+            "texto": "g + 2 + 5 = 23"
+          },
+          {
+            "id": "c",
+            "texto": "2g + 5 = 23"
+          },
+          {
+            "id": "d",
+            "texto": "2g − 5 = 23"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "El perímetro de un rectángulo de ancho 4 cm y largo l cm es 30 cm; la ecuación 2(l + 4) = 30 representa el dato.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El perímetro suma dos largos y dos anchos.",
+          "Eso equivale a 2l + 2 × 4.",
+          "Factoriza el 2: 2(l + 4)."
+        ],
+        "retroalimentacion": "Es verdadero: 2(l + 4) = 30 suma los cuatro lados."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En una colecta, tres grupos aportan s soles cada uno. Tras pagar S/ 12, quedan S/ 48. Plantea la ecuación.",
+        "respuesta": "3s - 12 = 48",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres aportes iguales suman 3s.",
+          "Se retiran 12 soles del total reunido.",
+          "El dinero restante es 48."
+        ],
+        "retroalimentacion": "Restar 12 a cada grupo sería incorrecto; el gasto fue una vez: 3s - 12 = 48."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un número n se reduce en 6 y el resultado se triplica; se obtiene 27. Elige la ecuación.",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero se reduce n en 6.",
+          "El resultado de n − 6 va entre paréntesis.",
+          "Luego se multiplica todo por 3."
+        ],
+        "retroalimentacion": "La frase indica 3(n − 6) = 27, no 3n − 6 = 27.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3n − 6 = 27"
+          },
+          {
+            "id": "b",
+            "texto": "3(n − 6) = 27"
+          },
+          {
+            "id": "c",
+            "texto": "n − 18 = 27"
+          },
+          {
+            "id": "d",
+            "texto": "n ÷ 3 − 6 = 27"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.ecuaciones-cuatro-operaciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P6-01",
+      "MAT-C24-P6-04"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Ecuaciones con las cuatro operaciones",
+    "disciplina": "algebra",
+    "descripcionCorta": "Resuelve ecuaciones de uno y dos pasos con naturales o decimales usando las propiedades de la igualdad.",
+    "palabrasClave": [
+      "resolver",
+      "operación inversa",
+      "igualdad"
+    ],
+    "prerrequisitos": [
+      "mat.p6.propiedad-cancelativa",
+      "mat.p6.plantear-ecuaciones"
+    ],
+    "ordenSugerido": 51,
+    "ideaCentral": "Para hallar la incógnita, deshaz las operaciones en orden inverso y aplica cada cambio a ambos miembros. Comprueba al final que la igualdad se cumple.",
+    "pasos": [
+      "Observa qué operaciones rodean la incógnita.",
+      "Deshaz primero la suma o resta exterior en ambos lados.",
+      "Deshaz la multiplicación o división restante en ambos lados.",
+      "Sustituye el valor encontrado en la ecuación original."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la feria: 3x + 4 = 19.",
+        "desarrollo": "Resto 4: 3x = 15. Divido entre 3: x = 5.",
+        "respuesta": "x = 5."
+      },
+      {
+        "situacion": "Una medida cumple y ÷ 2 − 3 = 5.",
+        "desarrollo": "Sumo 3: y ÷ 2 = 8. Multiplico por 2: y = 16.",
+        "respuesta": "y = 16."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar solo un miembro.",
+        "correccion": "Haz exactamente la misma operación en ambos."
+      },
+      {
+        "error": "Resolver 2x + 5 = 13 dividiendo 13 entre 2 primero.",
+        "correccion": "Primero quita 5; luego divide entre 2."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Operación inversa",
+        "significado": "Operación que deshace otra, como sumar y restar."
+      },
+      {
+        "termino": "Despejar",
+        "significado": "Dejar la incógnita sola en un miembro."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Resuelve x + 9 = 17. Escribe solo el número. ",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 9 está sumado a x.",
+          "Resta 9 de ambos lados.",
+          "Calcula 17 − 9."
+        ],
+        "retroalimentacion": "No sumes 9 otra vez: x = 17 − 9 = 8."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es la solución de y − 6 = 11?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para deshacer −6, suma 6.",
+          "Suma 6 a ambos miembros.",
+          "Obtén y = 11 + 6."
+        ],
+        "retroalimentacion": "La solución es 17; restar 6 de 11 iría en sentido contrario.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "17"
+          },
+          {
+            "id": "d",
+            "texto": "66"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 4a = 28, entonces a = 7.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 4 multiplica a a.",
+          "Divide los dos miembros entre 4.",
+          "28 ÷ 4 = 7."
+        ],
+        "retroalimentacion": "Es verdadero: 4 × 7 = 28."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La igualdad b ÷ 5 = 6 tiene una sola solución. Escribe solo el número b.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La división entre 5 se deshace multiplicando por 5.",
+          "Multiplica ambos lados por 5.",
+          "6 × 5 = 30."
+        ],
+        "retroalimentacion": "b es 30; 30 ÷ 5 = 6."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 2x + 3 = 15. Escribe solo el número x.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita primero el +3.",
+          "15 − 3 = 12, así que 2x = 12.",
+          "Divide 12 entre 2."
+        ],
+        "retroalimentacion": "No dividas 15 entre 2 antes de quitar 3: x = 6."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 3y − 4 = 20, ¿qué valor cumple la igualdad?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 4 a ambos miembros.",
+          "Queda 3y = 24.",
+          "Divide 24 entre 3."
+        ],
+        "retroalimentacion": "y = 8, porque 3 × 8 − 4 = 20.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "12"
+          },
+          {
+            "id": "d",
+            "texto": "72"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La solución de z ÷ 4 + 2 = 7 es z = 20.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero resta 2 de ambos lados.",
+          "Queda z ÷ 4 = 5.",
+          "Multiplica 5 por 4."
+        ],
+        "retroalimentacion": "Es verdadero: 20 ÷ 4 + 2 = 7."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una balanza cumple 5m + 5 = 40. ¿Cuánto vale m? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Retira 5 unidades de ambos lados.",
+          "Queda 5m = 35.",
+          "35 ÷ 5 = 7."
+        ],
+        "retroalimentacion": "m = 7; dividir 40 directamente entre 5 olvidaría el +5."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Resuelve 2(x − 3) = 18. ¿Qué valor tiene x?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero divide ambos miembros entre 2.",
+          "Queda x − 3 = 9.",
+          "Suma 3 a cada miembro."
+        ],
+        "retroalimentacion": "x = 12: 2(12 − 3) = 18.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6"
+          },
+          {
+            "id": "b",
+            "texto": "9"
+          },
+          {
+            "id": "c",
+            "texto": "21"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La ecuación 3(a + 2) − 4 = 20 describe un reparto. Halla a; escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para deshacer el −4 exterior, agrega cuatro unidades al 20.",
+          "Divide 24 entre 3: a + 2 = 8.",
+          "Resta 2 para aislar a."
+        ],
+        "retroalimentacion": "a = 6; 3(6 + 2) − 4 = 20."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 4n ÷ 2 + 1 = 11, n = 5 es solución.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye n por 5 o despeja.",
+          "4 × 5 ÷ 2 = 10.",
+          "Luego 10 + 1 = 11."
+        ],
+        "retroalimentacion": "Es verdadero: n = 5 satisface 4n ÷ 2 + 1 = 11."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve (q + 5) ÷ 3 − 2 = 4. Escribe solo el número q.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 2: (q + 5) ÷ 3 = 6.",
+          "Multiplica por 3: q + 5 = 18.",
+          "Resta 5 a 18."
+        ],
+        "retroalimentacion": "q = 13; si multiplicas antes de sumar 2, alteras el orden."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.comprobar-solucion-ecuacion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P6-05"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Comprobación de la solución de ecuaciones con las cuatro operaciones",
+    "disciplina": "algebra",
+    "descripcionCorta": "Reemplaza el valor hallado y justifica si cumple la igualdad y el contexto.",
+    "palabrasClave": [
+      "sustituir",
+      "comprobar",
+      "contexto"
+    ],
+    "prerrequisitos": [
+      "mat.p6.ecuaciones-cuatro-operaciones"
+    ],
+    "ordenSugerido": 52,
+    "ideaCentral": "Una respuesta sirve si al reemplazar la letra ambos lados dan lo mismo. También debe tener sentido en la situación.",
+    "pasos": [
+      "Reemplaza la letra por el valor propuesto.",
+      "Calcula ambos miembros por separado.",
+      "Compara los resultados y revisa el contexto."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Sirve x = 4 en 3x + 2 = 14?",
+        "desarrollo": "3 × 4 + 2 = 14; coincide con la derecha.",
+        "respuesta": "Sí, sirve."
+      },
+      {
+        "situacion": "¿Sirve n = 5 en n ÷ 2 = 3?",
+        "desarrollo": "5 ÷ 2 = 2,5, distinto de 3.",
+        "respuesta": "No sirve."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Mirar solo un miembro.",
+        "correccion": "Calcula y compara los dos miembros."
+      },
+      {
+        "error": "Aceptar una cantidad imposible de objetos.",
+        "correccion": "Comprueba también el significado de la respuesta."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Sustituir",
+        "significado": "Poner un valor en lugar de la letra."
+      },
+      {
+        "termino": "Verificar",
+        "significado": "Comprobar que ambos miembros valen lo mismo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al sustituir x = 3 en x + 5 = 8, los dos miembros valen 8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 3 + 5.",
+          "La derecha ya vale 8.",
+          "Compara 8 con 8."
+        ],
+        "retroalimentacion": "Es verdadero: 3 + 5 = 8."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué valor verifica 2y = 12?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Duplica cada propuesta.",
+          "Busca un número cuyo doble sea 12.",
+          "6 × 2 = 12."
+        ],
+        "retroalimentacion": "La opción 6 verifica 2y = 12.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "12"
+          },
+          {
+            "id": "d",
+            "texto": "24"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Al probar m = 7 en m − 2 = 5, ¿se cumple? Responde sí o no.",
+        "respuesta": "sí",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reemplaza m por 7.",
+          "Calcula 7 − 2.",
+          "Ese resultado coincide con 5."
+        ],
+        "retroalimentacion": "Sí: 7 − 2 = 5."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El valor a = 4 verifica a ÷ 2 = 4.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pon 4 en lugar de a.",
+          "4 ÷ 2 vale 2.",
+          "Compara 2 con 4."
+        ],
+        "retroalimentacion": "Es falso: el lado izquierdo vale 2."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pedro prueba n = 5 en 3n + 1 = 16. ¿Qué obtiene a la izquierda?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye n por 5.",
+          "Multiplica 3 × 5 primero.",
+          "Después suma 1."
+        ],
+        "retroalimentacion": "La opción 16 es correcta: 3 × 5 + 1 = 16.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "19"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "15"
+          },
+          {
+            "id": "d",
+            "texto": "16"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La propuesta x = 9 cumple (x − 3) ÷ 2 = 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 3 a 9.",
+          "Queda 6 ÷ 2.",
+          "El resultado coincide con 3."
+        ],
+        "retroalimentacion": "Es verdadero: (9 − 3) ÷ 2 = 3."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Prueba p = 4 en 5p − 6 = 13. ¿Cuánto vale el miembro izquierdo? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reemplaza p por 4.",
+          "5 × 4 = 20.",
+          "Resta 6 a 20."
+        ],
+        "retroalimentacion": "El miembro izquierdo vale 14, así que p = 4 no sirve."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja tiene c cuadernos y 2c + 3 = 11. ¿Cuál propuesta cumple?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 3 al total 11.",
+          "Los dos grupos suman 8.",
+          "Cada grupo tiene 4."
+        ],
+        "retroalimentacion": "La opción 4 cuadernos cumple: 2 × 4 + 3 = 11.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 cuadernos"
+          },
+          {
+            "id": "b",
+            "texto": "7 cuadernos"
+          },
+          {
+            "id": "c",
+            "texto": "8 cuadernos"
+          },
+          {
+            "id": "d",
+            "texto": "11 cuadernos"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 20x = 60 buses de 20 asientos, x = −3 cumple la igualdad y tiene sentido.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 20 por −3.",
+          "Obtienes −60, no 60.",
+          "Tampoco puede haber buses negativos."
+        ],
+        "retroalimentacion": "Es falso: −3 no cumple la ecuación ni el contexto."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para 2(q + 4) = 18, Ana propone q = 5 y Luis q = 9. ¿Quién acertó?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba primero q = 5.",
+          "2(5 + 4) = 18.",
+          "Con 9 obtienes 26."
+        ],
+        "retroalimentacion": "La opción Ana es correcta: q = 5 produce 18; q = 9 produce 26.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ambos"
+          },
+          {
+            "id": "b",
+            "texto": "Luis"
+          },
+          {
+            "id": "c",
+            "texto": "Ana"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una entrada cuesta S/ 7. Se plantea 7e = 28 y alguien dice e = 4,5 entradas. ¿Cumple la igualdad? Responde sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye e por 4,5.",
+          "7 × 4,5 = 31,5.",
+          "Compara 31,5 con 28."
+        ],
+        "retroalimentacion": "No: 4,5 entradas cuestan S/ 31,5, no S/ 28."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con t = 6, la ecuación 3(t − 2) + 1 = 13 queda 13 = 13 al sustituir.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero 6 − 2.",
+          "3 × 4 + 1 = 13.",
+          "La derecha también es 13."
+        ],
+        "retroalimentacion": "Es verdadero: ambos miembros valen 13."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

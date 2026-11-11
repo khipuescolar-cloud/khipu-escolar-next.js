@@ -1,0 +1,2090 @@
+[
+  {
+    "clave": "mat.p6.patrones-repeticion-giros",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P6-02"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones de repetición con traslaciones y giros",
+    "disciplina": "algebra",
+    "descripcionCorta": "Identifica el núcleo de un patrón gráfico que se traslada o gira y lo continúa.",
+    "palabrasClave": [
+      "patrón",
+      "núcleo",
+      "giro",
+      "traslación"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 26,
+    "ideaCentral": "Un patrón gráfico repite un núcleo de figuras. Puedes continuar la secuencia moviendo el núcleo sin cambiarlo o girando cada figura según una regla fija.",
+    "pasos": [
+      "Busca el grupo más corto que vuelve a aparecer.",
+      "Observa si cada figura conserva su orientación o gira.",
+      "Aplica el mismo movimiento al siguiente lugar.",
+      "Comprueba que toda la serie respeta la regla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una cenefa muestra ↑ → ↓ ← ↑. ¿Qué sigue?",
+        "desarrollo": "Cada flecha gira un cuarto de vuelta a la derecha: después de ↑ viene →.",
+        "respuesta": "Sigue →."
+      },
+      {
+        "situacion": "En un tejido aparecen ★ ● ● ★ ● ● ★. ¿Qué figura sigue?",
+        "desarrollo": "El núcleo ★ ● ● se desplaza sin cambiar sus figuras.",
+        "respuesta": "Sigue ●."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que el giro cambia la forma.",
+        "correccion": "Un giro cambia la orientación, pero conserva la figura."
+      },
+      {
+        "error": "Tomar una sola figura como núcleo cuando alternan tres.",
+        "correccion": "Compara varios grupos completos antes de decidir."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "núcleo",
+        "significado": "Grupo mínimo que se repite."
+      },
+      {
+        "termino": "traslación",
+        "significado": "Movimiento que desplaza una figura sin girarla."
+      },
+      {
+        "termino": "giro",
+        "significado": "Cambio de orientación alrededor de un punto."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una flecha gira 90° a la derecha: ↑, →, ↓. ¿Qué flecha sigue?",
+        "respuesta": "←",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sigue la dirección del giro de ↑ a →.",
+          "De → a ↓ también giras a la derecha.",
+          "Después de ↓, apunta hacia la izquierda."
+        ],
+        "retroalimentacion": "Si vuelves a ↑ demasiado pronto, omites ←; sigue ←."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cinta repite ● ★ ★ | ● ★ ★ | ●. ¿Qué símbolo va ahora?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Localiza el tramo entre barras.",
+          "El núcleo empieza con ● y continúa con dos estrellas.",
+          "Tras el último ● viene la primera estrella."
+        ],
+        "retroalimentacion": "No reinicies en ●: tras ese círculo sigue ★.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "●"
+          },
+          {
+            "id": "b",
+            "texto": "★"
+          },
+          {
+            "id": "c",
+            "texto": "▲"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al girar una flecha ↑ media vuelta, queda ↓.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina dos cuartos de vuelta.",
+          "Un cuarto lleva ↑ a →.",
+          "Otro cuarto lleva → a ↓."
+        ],
+        "retroalimentacion": "Verdadero: dos giros de 90° convierten ↑ en ↓."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un mosaico se repite ▲ ■ ● ▲ ■ ● ▲. ¿Qué forma continúa?",
+        "respuesta": "■",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa la secuencia en grupos de tres.",
+          "Después de ▲ viene ■ en los grupos anteriores.",
+          "El último ▲ abre un nuevo grupo."
+        ],
+        "retroalimentacion": "La figura que sigue a ▲ es ■, no ●."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La veleta gira siempre 90° a la izquierda: ↑, ←, ↓, __. ¿Qué sigue?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa el giro de ↑ hacia ←.",
+          "Desde ↓, girar a la izquierda apunta a la derecha.",
+          "Busca la flecha horizontal que señala a la derecha."
+        ],
+        "retroalimentacion": "La continuación es →; ← repetiría el giro en sentido contrario.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "↑"
+          },
+          {
+            "id": "b",
+            "texto": "←"
+          },
+          {
+            "id": "c",
+            "texto": "→"
+          },
+          {
+            "id": "d",
+            "texto": "↓"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una guarda muestra → ↓ ← ↑ → ↓. Si continúa con giros de 90° a la derecha, ¿qué flecha ocupa el séptimo lugar?",
+        "respuesta": "←",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las seis flechas mostradas.",
+          "La sexta apunta hacia abajo.",
+          "Al girar ↓ a la derecha, obtienes ←."
+        ],
+        "retroalimentacion": "El séptimo lugar es ←; ↑ vendría después."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la serie ★ ● ● ★ ● ●, el núcleo más corto es ★ ●.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el primer ★ con el cuarto.",
+          "Entre esas estrellas hay dos círculos.",
+          "El grupo que se repite tiene tres símbolos."
+        ],
+        "retroalimentacion": "Falso: el núcleo es ★ ● ●, no ★ ●."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una flecha pasa de ← a ↓ con un giro de 90° a la izquierda. Si gira otra vez igual, ¿hacia dónde apunta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mantén el sentido de giro dado.",
+          "De ← a ↓ ya avanzó un cuarto de vuelta.",
+          "Desde ↓, otro giro a la izquierda apunta a la derecha."
+        ],
+        "retroalimentacion": "La flecha queda →; ↑ exigiría dos giros más.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "→"
+          },
+          {
+            "id": "b",
+            "texto": "↑"
+          },
+          {
+            "id": "c",
+            "texto": "←"
+          },
+          {
+            "id": "d",
+            "texto": "↓"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un diseño inicia ↑ y cada nueva figura gira 90° a la derecha. Sin dibujar todas, ¿cómo apunta la figura 9?",
+        "respuesta": "↑",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuatro giros se recupera la orientación inicial.",
+          "La figura 5 vuelve a ser ↑.",
+          "De la 5 a la 9 pasan otros cuatro giros."
+        ],
+        "retroalimentacion": "La novena es ↑; contar nueve giros en vez de ocho desplaza la respuesta."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una franja se repite el núcleo ■ ● ▲. Si hay 11 figuras, ¿cuál está en el lugar 11?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada bloque completo ocupa tres lugares.",
+          "Nueve lugares forman tres núcleos completos.",
+          "El lugar 10 es ■ y el 11 es ●."
+        ],
+        "retroalimentacion": "El lugar 11 contiene ●; ▲ quedaría en el 12.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "▲"
+          },
+          {
+            "id": "b",
+            "texto": "■"
+          },
+          {
+            "id": "c",
+            "texto": "★"
+          },
+          {
+            "id": "d",
+            "texto": "●"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una flecha inicia → y gira media vuelta en cada paso, la sexta flecha apunta ←.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una media vuelta invierte la dirección.",
+          "Las posiciones impares apuntan →.",
+          "La sexta es par, como la segunda."
+        ],
+        "retroalimentacion": "Verdadero: →, ←, →, ←, →, ←."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un borde alterna triángulos con giros de 90°: ▲, ▶, ▼, ◀. Después se repite. ¿Qué figura ocupa la posición 14?",
+        "respuesta": "▶",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las orientaciones forman ciclos de cuatro.",
+          "La posición 12 termina un ciclo en ◀.",
+          "La 13 es ▲ y la 14 es ▶."
+        ],
+        "retroalimentacion": "La posición 14 es ▶; contar la 12 como inicio del ciclo lleva a error."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.patrones-aditivos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P6-02"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones aditivos con naturales y decimales",
+    "disciplina": "algebra",
+    "descripcionCorta": "Descubre la diferencia constante entre términos y la usa para continuar la secuencia.",
+    "palabrasClave": [
+      "secuencia",
+      "diferencia constante",
+      "sumar",
+      "restar"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 27,
+    "ideaCentral": "En un patrón aditivo, la diferencia entre dos términos vecinos siempre es la misma. Esa diferencia permite continuar o completar la secuencia con naturales y decimales.",
+    "pasos": [
+      "Resta dos términos consecutivos para hallar el cambio.",
+      "Comprueba que el mismo cambio se repite.",
+      "Suma o resta esa cantidad para hallar el término pedido.",
+      "Verifica el resultado con los términos vecinos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una fila de puestos tiene 12, 16 y 20 cajas. ¿Cuántas tendrá el siguiente?",
+        "desarrollo": "Las diferencias son 4 y 4; sumo 4 a 20.",
+        "respuesta": "Tendrá 24 cajas."
+      },
+      {
+        "situacion": "Una jarra marca 2,5; 2,1; 1,7 litros. ¿Qué sigue?",
+        "desarrollo": "Cada lectura baja 0,4 litros; 1,7 − 0,4 = 1,3.",
+        "respuesta": "Sigue 1,3 litros."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar un cambio distinto en cada paso.",
+        "correccion": "Resta pares vecinos y usa siempre la misma diferencia."
+      },
+      {
+        "error": "Confundir la coma decimal y restar 0,5 como si fuera 5.",
+        "correccion": "Alinea las comas antes de operar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "término",
+        "significado": "Cada número de la secuencia."
+      },
+      {
+        "termino": "diferencia constante",
+        "significado": "Cantidad fija que se suma o se resta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una colección de estampas sigue 8, 11, 14, 17. ¿Cuántas estampas indica el siguiente término? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 8 con 11.",
+          "El aumento es de 3 estampas por paso.",
+          "Suma 3 a 17."
+        ],
+        "retroalimentacion": "Si sumas 4 cambias la regla; 17 + 3 = 20."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La serie de medidas es 1,2; 1,5; 1,8. ¿Qué número sigue?",
+        "respuesta": "2,1",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las comas separan décimos.",
+          "Cada salto añade 0,3.",
+          "Calcula 1,8 + 0,3."
+        ],
+        "retroalimentacion": "La continuación es 2,1; 1,11 confunde décimos con cifras enteras."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La lista 5, 10, 15, 20 crece siempre con la misma suma de 5.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 10 − 5.",
+          "Compara también 15 − 10.",
+          "El salto final es 20 − 15."
+        ],
+        "retroalimentacion": "Verdadero: los tres saltos son de 5."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caminata suma 2 km por etapa: 3, 5, 7, __. ¿Qué distancia corresponde?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el cambio de 3 a 5.",
+          "El siguiente cambio de 5 a 7 es igual.",
+          "Agrega 2 a 7."
+        ],
+        "retroalimentacion": "Sigue 9 km; 14 sería duplicar y cambiaría la regla.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 km"
+          },
+          {
+            "id": "b",
+            "texto": "14 km"
+          },
+          {
+            "id": "c",
+            "texto": "9 km"
+          },
+          {
+            "id": "d",
+            "texto": "10 km"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una feria, la fila registrada es 36, 31, 26, __. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las cantidades disminuyen.",
+          "36 − 31 = 5 y 31 − 26 = 5.",
+          "Resta 5 a 26."
+        ],
+        "retroalimentacion": "La cantidad faltante es 21; sumar 5 invierte el sentido."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un termómetro marca 18,5; 18,0; 17,5. ¿Qué marca después? Escribe el número con coma.",
+        "respuesta": "17,0",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos primeras temperaturas.",
+          "Cada paso baja medio grado.",
+          "De 17,5 resta 0,5."
+        ],
+        "retroalimentacion": "Sigue 17,0; 18,0 repetiría un valor anterior."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 2,4; 2,8; 3,2; 3,5, todos los saltos son de 0,4.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la última diferencia.",
+          "3,5 − 3,2 = 0,3.",
+          "Las dos primeras diferencias sí son 0,4."
+        ],
+        "retroalimentacion": "Falso: el último salto es 0,3, no 0,4."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un tejido crece 6, 12, 18, __, 30 centímetros. ¿Qué medida llena el espacio?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las diferencias iniciales son de 6.",
+          "Busca un número a 6 de 18 y a 6 de 30.",
+          "Entre 18 y 30 caben dos saltos iguales."
+        ],
+        "retroalimentacion": "La medida es 24 cm; 26 rompería la diferencia constante.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "24 cm"
+          },
+          {
+            "id": "b",
+            "texto": "26 cm"
+          },
+          {
+            "id": "c",
+            "texto": "22 cm"
+          },
+          {
+            "id": "d",
+            "texto": "36 cm"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una cuenta baja 1,25 cada semana: 9,00; 7,75; 6,50. ¿Cuál es el quinto término? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Necesitas avanzar dos posiciones desde 6,50.",
+          "El cuarto término es 5,25.",
+          "Resta 1,25 otra vez."
+        ],
+        "retroalimentacion": "El quinto es 4; detenerse en 5,25 deja solo cuatro términos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La sucesión 4, 7, 10, 13 pierde su cuarto término. ¿Qué valor debe reemplazar al 13 para que desde el tercero el salto sea de 3?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Toma 10 como tercer término.",
+          "El cuarto debe estar tres unidades después.",
+          "Calcula 10 + 3."
+        ],
+        "retroalimentacion": "El cuarto debe ser 13; 16 sería el quinto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10"
+          },
+          {
+            "id": "b",
+            "texto": "13"
+          },
+          {
+            "id": "c",
+            "texto": "14"
+          },
+          {
+            "id": "d",
+            "texto": "16"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una secuencia comienza 1,5; 2,0; 2,5. Si conserva su regla, el sexto término será 4,0.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada paso aumenta 0,5.",
+          "El cuarto vale 3,0 y el quinto 3,5.",
+          "Avanza un medio más desde 3,5."
+        ],
+        "retroalimentacion": "Verdadero: la sexta posición es 4,0."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una biblioteca ordena 42, 38, 34 libros por anaquel siguiendo la misma diferencia. ¿Cuántos habrá en el sexto anaquel? Escribe solo el número.",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 42 a 38 se restan 4.",
+          "El cuarto anaquel tiene 30 libros.",
+          "Continúa 30, 26, 22."
+        ],
+        "retroalimentacion": "En el sexto hay 22; 26 corresponde al quinto."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.patrones-multiplicativos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P6-02"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones multiplicativos y su factor constante",
+    "disciplina": "algebra",
+    "descripcionCorta": "Identifica el factor constante de una secuencia multiplicativa y la continúa o completa.",
+    "palabrasClave": [
+      "factor",
+      "multiplicar",
+      "dividir",
+      "secuencia"
+    ],
+    "prerrequisitos": [
+      "mat.p6.patrones-aditivos"
+    ],
+    "ordenSugerido": 28,
+    "ideaCentral": "En un patrón multiplicativo, cada término se obtiene multiplicando el anterior por el mismo factor. Si retrocedes, divides entre ese factor.",
+    "pasos": [
+      "Divide un término entre el anterior para hallar el factor.",
+      "Confirma el factor con otro par de términos.",
+      "Multiplica para avanzar o divide para retroceder.",
+      "Comprueba que todos los pares cumplen la regla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una campaña reúne 3, 6, 12 y 24 cuadernos por grupo. ¿Qué sigue?",
+        "desarrollo": "Cada término duplica al anterior: 24 × 2 = 48.",
+        "respuesta": "Sigue 48."
+      },
+      {
+        "situacion": "Las semillas se agrupan 81, 27, 9. ¿Qué número continúa?",
+        "desarrollo": "El factor es un tercio: se divide entre 3.",
+        "respuesta": "Sigue 3."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir multiplicar por 2 con sumar 2.",
+        "correccion": "Compara cocientes: 6 ÷ 3 = 2 y 12 ÷ 6 = 2."
+      },
+      {
+        "error": "Dividir por el factor al avanzar.",
+        "correccion": "Hacia adelante multiplica; hacia atrás divide."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "factor",
+        "significado": "Número por el que se multiplica cada término."
+      },
+      {
+        "termino": "cociente",
+        "significado": "Resultado de una división entre términos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una colonia de figuras tiene 2, 4, 8, 16 piezas. ¿Cuántas piezas corresponden después? Escribe solo el número.",
+        "respuesta": 32,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 2 con 4.",
+          "Cada término es el doble del anterior.",
+          "Multiplica 16 por 2."
+        ],
+        "retroalimentacion": "La continuación es 32; sumar 2 daría 18 y rompería el patrón."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La serie 5, 15, 45 crece por un factor fijo. ¿Cuál es ese factor?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 15 entre 5.",
+          "Comprueba con 45 entre 15.",
+          "Ambos cocientes son 3."
+        ],
+        "retroalimentacion": "El factor es 3; sumar 10 solo funciona en el primer salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "3"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 4, 12, 36, 108 cada término se obtiene multiplicando por 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa 12 ÷ 4.",
+          "Luego calcula 36 ÷ 12.",
+          "Finalmente compara 108 con 36."
+        ],
+        "retroalimentacion": "Verdadero: todos los cocientes son 3."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un patrón comienza 1, 10, 100. ¿Qué número ocupa el cuarto lugar?",
+        "respuesta": "1000",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada paso agrega una multiplicación.",
+          "10 ÷ 1 y 100 ÷ 10 dan 10.",
+          "Multiplica 100 por 10."
+        ],
+        "retroalimentacion": "El cuarto término es 1000; 110 sería sumar 10."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Los grupos de semillas siguen 96, 48, 24. ¿Cuántas semillas indica el cuarto grupo? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia disminuye a la mitad.",
+          "96 ÷ 2 = 48 y 48 ÷ 2 = 24.",
+          "Divide 24 entre 2."
+        ],
+        "retroalimentacion": "La cuarta cantidad es 12; restar 48 cada vez no sirve."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En una tabla aparece 3, __, 27, 81. ¿Qué número falta?",
+        "respuesta": "9",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 27 a 81 se multiplica por 3.",
+          "El término anterior a 27 debe dar 27 al triplicarse.",
+          "Calcula 27 ÷ 3."
+        ],
+        "retroalimentacion": "Falta 9, porque 3 × 3 = 9 y 9 × 3 = 27."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La lista 2, 6, 18, 54 tiene factor constante 4.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 6 entre 2.",
+          "Verifica 18 entre 6.",
+          "Cada cociente da 3."
+        ],
+        "retroalimentacion": "Falso: el factor es 3, no 4."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un videojuego da 7, 14, 28, 56 puntos por nivel. ¿Qué puntaje corresponde al nivel siguiente?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Examina 14 ÷ 7.",
+          "También 28 ÷ 14 = 2.",
+          "Duplica 56."
+        ],
+        "retroalimentacion": "Corresponden 112 puntos; 62 vendría de sumar 6.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "84"
+          },
+          {
+            "id": "b",
+            "texto": "112"
+          },
+          {
+            "id": "c",
+            "texto": "64"
+          },
+          {
+            "id": "d",
+            "texto": "108"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un patrón es 2, 6, 18, 54. ¿Qué valor tiene el sexto término? Escribe solo el número.",
+        "respuesta": 486,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El factor se obtiene con 6 ÷ 2.",
+          "El quinto término es 54 × 3 = 162.",
+          "Multiplica 162 por 3 una vez más."
+        ],
+        "retroalimentacion": "El sexto es 486; 162 es solo el quinto."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En __, 12, 36, 108, todos los cocientes vecinos son iguales. ¿Qué primer término sirve?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 12 a 36 el factor es 3.",
+          "Para retroceder desde 12 divide entre 3.",
+          "La primera cantidad debe ser 4."
+        ],
+        "retroalimentacion": "El primer término es 4; 6 produciría factor 2 al inicio.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "6"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si empiezas en 160 y divides entre 2 en cada paso, el quinto término es 10.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Enumera 160 como primero.",
+          "Después siguen 80, 40 y 20.",
+          "La quinta posición es la mitad de 20."
+        ],
+        "retroalimentacion": "Verdadero: el quinto término es 10; 20 es el cuarto."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una secuencia multiplica por 4: 1, 4, 16, 64. ¿Cuántas unidades más tiene el sexto término que el quinto? Escribe solo el número.",
+        "respuesta": 768,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero encuentra el quinto término.",
+          "Después de 64 sigue 256 y luego 1024.",
+          "Resta 1024 − 256."
+        ],
+        "retroalimentacion": "La diferencia es 768; 1024 es el sexto término, no el aumento."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.patrones-configuraciones-puntuales",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P6-02"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones con configuraciones de puntos",
+    "disciplina": "algebra",
+    "descripcionCorta": "Analiza figuras de puntos que crecen y relaciona cada figura con su cantidad de puntos.",
+    "palabrasClave": [
+      "puntos",
+      "figura",
+      "crecimiento",
+      "patrón"
+    ],
+    "prerrequisitos": [
+      "mat.p6.patrones-aditivos"
+    ],
+    "ordenSugerido": 29,
+    "ideaCentral": "Una configuración de puntos crece siguiendo una regla visible. Cuenta los puntos que se agregan y relaciona esa cantidad con el número de figura.",
+    "pasos": [
+      "Cuenta los puntos de las primeras figuras.",
+      "Separa los puntos nuevos de los que ya estaban.",
+      "Busca cómo cambia la cantidad añadida.",
+      "Dibuja o calcula la figura siguiente y comprueba la regla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una fila de puntos tiene figuras ●, ●●, ●●●. ¿Cuántos puntos hay en la cuarta?",
+        "desarrollo": "Cada figura añade un punto al extremo.",
+        "respuesta": "Hay 4 puntos."
+      },
+      {
+        "situacion": "Un cuadrado de puntos pasa de 2 × 2 a 3 × 3. ¿Cuántos hay en el segundo?",
+        "desarrollo": "Son tres filas de tres puntos.",
+        "respuesta": "Hay 9 puntos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar dos veces un punto compartido por filas.",
+        "correccion": "Señala cada punto una sola vez al contar."
+      },
+      {
+        "error": "Suponer que todas las figuras añaden la misma cantidad.",
+        "correccion": "Compara las diferencias antes de extender el patrón."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "configuración",
+        "significado": "Disposición de puntos en una figura."
+      },
+      {
+        "termino": "crecimiento",
+        "significado": "Cambio de una figura a la siguiente."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Las figuras son ●, ●● y ●●●. ¿Cuántos puntos tiene la figura 4? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada figura alarga la fila.",
+          "La tercera tiene tres puntos.",
+          "Agrega uno a esa fila."
+        ],
+        "retroalimentacion": "La figura 4 tiene 4 puntos; no se suman todos los puntos anteriores."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un marco muestra 2, 4, 6 puntos en sus primeras tres figuras. ¿Cuántos tendrá la cuarta si añade dos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa los saltos 2→4 y 4→6.",
+          "Los dos saltos son de 2.",
+          "A 6 agrega otros 2."
+        ],
+        "retroalimentacion": "La cuarta tiene 8 puntos; 10 requeriría saltar dos figuras.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuadrado formado por 3 filas de 3 puntos tiene 9 puntos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta por filas.",
+          "Cada una de las tres filas tiene tres puntos.",
+          "Calcula 3 × 3."
+        ],
+        "retroalimentacion": "Verdadero: 3 × 3 = 9 puntos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una figura tiene dos filas: ●●● y ●●●. ¿Cuántos puntos ves? Escribe el número.",
+        "respuesta": "6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la primera fila.",
+          "La segunda fila tiene la misma cantidad.",
+          "Junta 3 + 3."
+        ],
+        "retroalimentacion": "Hay 6 puntos; contar solo una fila da 3."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Figuras en forma de L tienen 3, 5 y 7 puntos; cada una prolonga sus dos brazos. ¿Cuántos puntos tendrá la cuarta? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 3, 5 y 7.",
+          "Cada nueva L añade dos puntos.",
+          "A 7 agrega 2."
+        ],
+        "retroalimentacion": "La cuarta L tiene 9 puntos; el vértice común cuenta una sola vez."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una cuadrícula de puntos crece de 2 × 2 a 3 × 3. ¿Cuántos puntos tendrá la de 4 × 4?",
+        "respuesta": "16",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en filas y columnas.",
+          "Habrá cuatro filas de cuatro.",
+          "Multiplica 4 × 4."
+        ],
+        "retroalimentacion": "La figura de 4 × 4 contiene 16 puntos, no 8."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si las figuras tienen 1, 4 y 9 puntos formando cuadrados, la siguiente tiene 16 puntos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las figuras son cuadrados.",
+          "Sus lados miden 1, 2 y 3 puntos.",
+          "El siguiente lado mide 4 puntos."
+        ],
+        "retroalimentacion": "Verdadero: 4 × 4 = 16 puntos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura de puntos tiene tres filas de cinco puntos cada una. ¿Cuál es su total?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada fila aporta cinco.",
+          "Hay tres filas iguales.",
+          "Suma 5 + 5 + 5."
+        ],
+        "retroalimentacion": "Son 15 puntos; 8 suma filas y columnas sin contar puntos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "12"
+          },
+          {
+            "id": "d",
+            "texto": "15"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una serie de cuadrados de puntos, la figura 2 tiene 4 puntos y la 3 tiene 9. ¿Cuántos puntos nuevos se agregan al pasar de la figura 3 a la 4? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La figura 4 tiene cuatro filas de cuatro.",
+          "Eso da 16 puntos en total.",
+          "Compara 16 con los 9 de la figura 3."
+        ],
+        "retroalimentacion": "Se agregan 7 puntos; 16 es el total nuevo, no lo añadido."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una escalera de puntos tiene filas de 1, 2 y 3. Si se añade una cuarta fila de 4, ¿cuántos puntos habrá?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los puntos de las tres filas existentes.",
+          "1 + 2 + 3 = 6.",
+          "Agrega los cuatro de la fila nueva."
+        ],
+        "retroalimentacion": "Habrá 10 puntos; 4 cuenta solo la fila añadida.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "9"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una cruz de puntos tiene centro y cuatro brazos de dos puntos cada uno. Tiene 8 puntos en total.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta primero los brazos.",
+          "Cuatro brazos aportan 2 × 4 = 8.",
+          "El centro también es un punto."
+        ],
+        "retroalimentacion": "Falso: son 9 puntos al incluir el centro."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una figura rectangular tiene 3 filas de 4 puntos. La siguiente agrega una columna completa de 3 puntos. ¿Cuántos puntos tendrá? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La figura inicial tiene 3 × 4 puntos.",
+          "La columna nueva contiene 3 puntos.",
+          "Junta 12 y 3."
+        ],
+        "retroalimentacion": "La nueva figura tiene 15 puntos; agregar solo uno olvida dos puntos de la columna."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.regla-segun-posicion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P6-02",
+      "MAT-C24-P6-03"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Regla de un patrón según la posición",
+    "disciplina": "algebra",
+    "descripcionCorta": "Relaciona cada término con su número de posición en una tabla.",
+    "palabrasClave": [
+      "posición",
+      "tabla",
+      "término",
+      "regla"
+    ],
+    "prerrequisitos": [
+      "mat.p6.patrones-configuraciones-puntuales"
+    ],
+    "ordenSugerido": 30,
+    "ideaCentral": "La posición indica el lugar de un término. Una tabla permite comparar posición y valor para descubrir una regla que sirve en cada fila.",
+    "pasos": [
+      "Escribe las posiciones 1, 2, 3 junto a sus valores.",
+      "Observa cómo cambia el valor al aumentar la posición.",
+      "Prueba una regla con al menos dos filas.",
+      "Usa la regla en la posición pedida."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una tabla, posición 1→3, 2→6, 3→9. ¿Qué valor corresponde a 4?",
+        "desarrollo": "El valor es tres veces la posición; 4 × 3 = 12.",
+        "respuesta": "Corresponde 12."
+      },
+      {
+        "situacion": "La tabla da 1→5, 2→7, 3→9. ¿Qué regla relaciona ambos?",
+        "desarrollo": "Cada valor es el doble de la posición más 3.",
+        "respuesta": "Valor = 2 × posición + 3."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir posición con valor.",
+        "correccion": "La posición nombra el lugar; el valor es la cantidad de ese lugar."
+      },
+      {
+        "error": "Probar una regla solo en la primera fila.",
+        "correccion": "Comprueba que también funcione en la segunda y tercera."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "posición",
+        "significado": "Lugar numerado de un término."
+      },
+      {
+        "termino": "tabla de valores",
+        "significado": "Parejas de posiciones y términos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una tabla muestra posición 1→4, 2→8, 3→12. ¿Qué valor corresponde a la posición 4? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cada valor con su posición.",
+          "Cada valor es cuatro veces la posición.",
+          "Calcula 4 × 4."
+        ],
+        "retroalimentacion": "En la cuarta posición va 16; 12 es el valor de la tercera."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la tabla 1→6, 2→7, 3→8, ¿qué valor va con la posición 4?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El valor supera a la posición por 5.",
+          "Para 3, 3 + 5 = 8.",
+          "Aplica 4 + 5."
+        ],
+        "retroalimentacion": "Corresponde 9; 8 pertenece a la posición 3.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "9"
+          },
+          {
+            "id": "d",
+            "texto": "10"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una tabla tiene 1→2, 2→4 y 3→6, el valor es el doble de la posición.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba la primera pareja.",
+          "Verifica 2 × 2 = 4.",
+          "La tercera da 3 × 2 = 6."
+        ],
+        "retroalimentacion": "Verdadero: las tres parejas cumplen valor = 2 × posición."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La posición 1 tiene valor 10, la 2 valor 20 y la 3 valor 30. ¿Cuál es el valor de la posición 5?",
+        "respuesta": "50",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa el patrón entre posición y valor.",
+          "Cada valor es diez veces su posición.",
+          "Calcula 5 × 10."
+        ],
+        "retroalimentacion": "El valor es 50; 40 correspondería a la posición 4."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tabla registra 1→5, 2→8, 3→11. Si sigue la misma regla, ¿qué valor tiene la posición 6? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El valor sube 3 por posición.",
+          "La posición 4 vale 14 y la 5 vale 17.",
+          "A 17 suma 3 para la posición 6."
+        ],
+        "retroalimentacion": "El valor es 20; 17 es el quinto."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La tabla 1→7, 2→12, 3→17 sigue una regla de multiplicar la posición y sumar 2. ¿Por cuánto se multiplica?",
+        "respuesta": "5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuánto aumenta el valor al pasar una posición.",
+          "De 7 a 12 hay una diferencia de 5.",
+          "Prueba 3 × 5 + 2 = 17."
+        ],
+        "retroalimentacion": "Se multiplica por 5; sumar 5 sin mirar la posición describe solo el salto."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 1→4, 2→7, 3→10, la regla valor = 3 × posición + 1 funciona.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye la posición 1.",
+          "Para la posición 2, 3 × 2 + 1 = 7.",
+          "Prueba también la posición 3."
+        ],
+        "retroalimentacion": "Verdadero: 3 × 3 + 1 = 10 y las otras filas coinciden."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si una tabla da 1→9, 2→13, 3→17, ¿qué pareja continúa?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada nueva posición suma una unidad.",
+          "Los valores aumentan de cuatro en cuatro.",
+          "Tras 3→17 sigue 4→21."
+        ],
+        "retroalimentacion": "La pareja 4→21 mantiene el salto; 4→17 repetiría el valor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4→21"
+          },
+          {
+            "id": "b",
+            "texto": "4→17"
+          },
+          {
+            "id": "c",
+            "texto": "5→21"
+          },
+          {
+            "id": "d",
+            "texto": "4→22"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la tabla 1→8, 2→11, 3→14, ¿qué valor corresponde a la posición 12 sin escribir todas las filas? Escribe solo el número.",
+        "respuesta": 41,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El aumento por posición es 3.",
+          "Una regla posible es 3 × posición + 5.",
+          "Sustituye 12 en 3 × posición + 5."
+        ],
+        "retroalimentacion": "El valor es 41; 36 omite los 5 iniciales."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla 1→6, 2→10, 3→14 cumple valor = 4 × posición + 2. ¿Cuál de estas parejas también cumple?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye cada posición en la regla.",
+          "Para la posición 5, 4 × 5 + 2 = 22.",
+          "Busca la pareja que muestra 5→22."
+        ],
+        "retroalimentacion": "La pareja 5→22 cumple; 5→20 olvida sumar 2.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4→20"
+          },
+          {
+            "id": "b",
+            "texto": "5→20"
+          },
+          {
+            "id": "c",
+            "texto": "6→22"
+          },
+          {
+            "id": "d",
+            "texto": "5→22"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las tablas 1→5, 2→8, 3→11 y 1→5, 2→10, 3→15 tienen la misma regla porque empiezan en 5.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los valores de la posición 2.",
+          "La primera sube de 3 en 3.",
+          "La segunda sube de 5 en 5."
+        ],
+        "retroalimentacion": "Falso: coincidir en la primera fila no basta; sus reglas difieren."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La tabla usa valor = 2 × posición + 7. ¿En qué posición aparece el valor 25? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita los 7 que se suman al valor.",
+          "25 − 7 = 18.",
+          "Divide 18 entre 2 para hallar la posición."
+        ],
+        "retroalimentacion": "La posición es 9; 18 es el doble de la posición."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.patrones-termino-general",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P6-03",
+      "MAT-C24-P6-04"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Término general de un patrón",
+    "disciplina": "algebra",
+    "descripcionCorta": "Expresa con lenguaje algebraico la regla que da cualquier término a partir de su posición.",
+    "palabrasClave": [
+      "término general",
+      "posición",
+      "n",
+      "expresión"
+    ],
+    "prerrequisitos": [
+      "mat.p6.regla-segun-posicion"
+    ],
+    "ordenSugerido": 31,
+    "ideaCentral": "La letra n puede representar cualquier posición. Una expresión como 3n + 2 permite obtener el valor de cualquier término sin enumerar la secuencia.",
+    "pasos": [
+      "Llama n al número de posición.",
+      "Busca cuánto crece el valor al aumentar n en uno.",
+      "Ajusta la expresión con una suma o resta fija.",
+      "Sustituye dos posiciones para comprobarla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La secuencia es 5, 8, 11, 14. ¿Qué expresión la describe?",
+        "desarrollo": "Aumenta 3 y el primer valor es 3 × 1 + 2.",
+        "respuesta": "El término general es 3n + 2."
+      },
+      {
+        "situacion": "Los valores 4, 8, 12 corresponden a posiciones 1, 2, 3.",
+        "desarrollo": "Cada valor es cuatro veces su posición.",
+        "respuesta": "El término general es 4n."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir 3n para 5, 8, 11.",
+        "correccion": "Comprueba la primera posición: necesitas sumar 2."
+      },
+      {
+        "error": "Usar n como si fuera siempre el valor del término.",
+        "correccion": "n indica la posición; reemplázala por 1, 2, 3 para verificar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "término general",
+        "significado": "Expresión que calcula el valor en cualquier posición."
+      },
+      {
+        "termino": "n",
+        "significado": "Letra que representa una posición variable."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para la secuencia 2, 4, 6, 8, ¿qué expresión da el término de posición n? Escribe 2n o equivalente.",
+        "respuesta": "2n",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara valor y posición.",
+          "El valor es el doble del lugar.",
+          "Multiplica n por 2."
+        ],
+        "retroalimentacion": "La regla es 2n; n + 2 falla en la segunda posición."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los términos 4, 7, 10 siguen una regla. ¿Cuál expresión da el valor en la posición n?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El salto constante es 3.",
+          "Prueba 3n en la primera posición: da 3.",
+          "Para llegar a 4 falta sumar 1."
+        ],
+        "retroalimentacion": "La expresión es 3n + 1; 3n solo daría 3 al inicio.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3n"
+          },
+          {
+            "id": "b",
+            "texto": "3n + 1"
+          },
+          {
+            "id": "c",
+            "texto": "4n"
+          },
+          {
+            "id": "d",
+            "texto": "n + 3"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expresión 5n produce 5, 10 y 15 en las posiciones 1, 2 y 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reemplaza n por 1.",
+          "Con n = 2 obtienes 10.",
+          "Con n = 3 resulta 15."
+        ],
+        "retroalimentacion": "Verdadero: 5n coincide con los tres términos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si el término general es 2n + 3, ¿cuánto vale cuando n = 1? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "n = 1 representa el primer lugar.",
+          "Calcula 2 × 1.",
+          "Suma 3 al resultado."
+        ],
+        "retroalimentacion": "El primer término es 5; 3 es solo la parte fija."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una secuencia comienza 7, 11, 15. Escribe su término general usando n.",
+        "respuesta": "4n + 3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La diferencia entre términos es 4.",
+          "En n = 1, 4n da 4.",
+          "Para obtener 7 debes sumar 3."
+        ],
+        "retroalimentacion": "La regla es 4n + 3; 4n se queda tres unidades corto."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para T(n) = 3n − 2, ¿cuál es el tercer término? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reemplaza n por 3.",
+          "Calcula 3 × 3 = 9.",
+          "Después resta 2."
+        ],
+        "retroalimentacion": "El tercer término es 7; restar 2 antes de multiplicar cambiaría la regla."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La regla n + 6 describe la secuencia 7, 8, 9 si n empieza en 1.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba n = 1.",
+          "Luego calcula 2 + 6.",
+          "Para n = 3 obtienes 9."
+        ],
+        "retroalimentacion": "Verdadero: n + 6 genera 7, 8 y 9."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los términos 9, 16, 23 aumentan 7. ¿Qué expresión sirve para todos?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El coeficiente de n es 7.",
+          "Con n = 1, 7n vale 7.",
+          "Hay que sumar 2 para llegar al primer 9."
+        ],
+        "retroalimentacion": "Sirve 7n + 2; 7n + 9 empezaría en 16.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9n"
+          },
+          {
+            "id": "b",
+            "texto": "7n + 9"
+          },
+          {
+            "id": "c",
+            "texto": "7n + 2"
+          },
+          {
+            "id": "d",
+            "texto": "n + 8"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una tabla da n=1→6, n=2→10 y n=3→14. Escribe una expresión que dé cualquier término.",
+        "respuesta": "4n + 2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada posición añade 4 al valor.",
+          "La parte 4n da 4 en la primera.",
+          "Ajusta con 2 para llegar a 6."
+        ],
+        "retroalimentacion": "La expresión es 4n + 2; 4n + 6 empieza en 10."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos estudiantes proponen 2n + 5 y 3n + 4 para la secuencia 7, 9, 11. ¿Cuál sirve en las tres posiciones?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas dan 7 cuando n = 1.",
+          "Prueba n = 2 en cada expresión.",
+          "2n + 5 da 9; 3n + 4 da 10."
+        ],
+        "retroalimentacion": "Sirve solo 2n + 5; coincidir en el primer término no basta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo 2n + 5"
+          },
+          {
+            "id": "b",
+            "texto": "Solo 3n + 4"
+          },
+          {
+            "id": "c",
+            "texto": "Las dos"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para la secuencia 10, 13, 16, la expresión 3n + 7 funciona aunque 3n + 10 también dé 13 cuando n = 1.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Evalúa ambas expresiones en n = 1.",
+          "3n + 7 da 10, que es el primer término.",
+          "3n + 10 empieza en 13, el segundo valor."
+        ],
+        "retroalimentacion": "Verdadero: 3n + 7 produce 10, 13, 16; la otra regla empieza en 13."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La regla de un patrón es T(n) = 5n − 1. ¿Cuánto vale el término de posición 8? Escribe solo el número.",
+        "respuesta": 39,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye n por 8.",
+          "Calcula 5 × 8 = 40.",
+          "Resta 1 de 40."
+        ],
+        "retroalimentacion": "El octavo vale 39; 40 olvida la resta final."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.terminos-no-inmediatos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P6-05"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Términos lejanos de un patrón con su término general",
+    "disciplina": "algebra",
+    "descripcionCorta": "Predice y justifica términos como el 50.° sin escribir toda la secuencia.",
+    "palabrasClave": [
+      "término lejano",
+      "posición",
+      "regla general",
+      "justificación"
+    ],
+    "prerrequisitos": [
+      "mat.p6.patrones-termino-general"
+    ],
+    "ordenSugerido": 32,
+    "ideaCentral": "Para hallar un término lejano, sustituye su posición en la regla general. Así evitas escribir todos los términos anteriores y puedes justificar el resultado con una cuenta.",
+    "pasos": [
+      "Identifica el término general del patrón.",
+      "Sustituye n por la posición lejana solicitada.",
+      "Respeta el orden de las operaciones.",
+      "Comprueba la regla en una posición cercana para justificarla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una gradería sigue T(n)=2n+1. ¿Qué valor tiene T(50)?",
+        "desarrollo": "Sustituyo n por 50: 2 × 50 + 1 = 101.",
+        "respuesta": "El término 50 vale 101."
+      },
+      {
+        "situacion": "Un mosaico tiene T(n)=4n. ¿Cuántas piezas indica la posición 30?",
+        "desarrollo": "Calculo 4 × 30 sin dibujar 30 mosaicos.",
+        "respuesta": "Indica 120 piezas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo 49 saltos y olvidar el valor inicial.",
+        "correccion": "Usa la fórmula completa con n = 50."
+      },
+      {
+        "error": "Sumar antes de multiplicar.",
+        "correccion": "Primero multiplica el coeficiente por la posición."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "término lejano",
+        "significado": "Término de una posición distante del inicio."
+      },
+      {
+        "termino": "sustituir",
+        "significado": "Reemplazar n por la posición pedida."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una secuencia tiene T(n)=3n. ¿Cuánto vale el término 20? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La posición pedida es n = 20.",
+          "La regla multiplica esa posición por 3.",
+          "Calcula 3 × 20."
+        ],
+        "retroalimentacion": "El término 20 vale 60; 23 sería sumar en lugar de multiplicar."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si T(n)=n+5, ¿qué valor corresponde a la posición 40?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye n por 40.",
+          "La regla pide agregar 5.",
+          "Calcula 40 + 5."
+        ],
+        "retroalimentacion": "Corresponde 45; 40 olvida la parte fija.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "35"
+          },
+          {
+            "id": "b",
+            "texto": "40"
+          },
+          {
+            "id": "c",
+            "texto": "50"
+          },
+          {
+            "id": "d",
+            "texto": "45"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con la regla T(n)=2n, el término 50 es 100.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La posición es 50.",
+          "Multiplica 2 por esa posición.",
+          "50 + 50 = 100."
+        ],
+        "retroalimentacion": "Verdadero: T(50)=2 × 50=100."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un patrón usa T(n)=4n+1. ¿Qué número da en la posición 10?",
+        "respuesta": "41",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reemplaza n por 10.",
+          "Multiplica 4 × 10 primero.",
+          "Suma luego el 1."
+        ],
+        "retroalimentacion": "Da 41; 50 resultaría de multiplicar también el 1 por 10."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una fila de bancas sigue T(n)=5n−2. ¿Cuántas bancas señala la posición 25? Escribe solo el número.",
+        "respuesta": 123,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 5 × 25.",
+          "Obtienes 125 antes del ajuste.",
+          "Resta 2 a 125."
+        ],
+        "retroalimentacion": "La posición 25 da 123; 125 ignora el ajuste."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La regla T(n)=3n+4 describe una secuencia. ¿Cuál es el término 30?",
+        "respuesta": "94",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa n = 30.",
+          "El producto 3 × 30 es 90.",
+          "Agrega 4 a 90."
+        ],
+        "retroalimentacion": "El término 30 es 94; 34 confunde 3n con 3 + n."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si T(n)=6n−1, entonces T(20)=119.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 6 × 20.",
+          "El producto es 120.",
+          "Resta 1."
+        ],
+        "retroalimentacion": "Verdadero: 120 − 1 = 119."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El término 50 de T(n)=2n+7, ¿cuál es?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El doble de 50 es 100.",
+          "La regla además suma 7.",
+          "Junta 100 y 7."
+        ],
+        "retroalimentacion": "Es 107; 100 solo cubre 2n.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "57"
+          },
+          {
+            "id": "b",
+            "texto": "107"
+          },
+          {
+            "id": "c",
+            "texto": "100"
+          },
+          {
+            "id": "d",
+            "texto": "114"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un patrón sigue T(n)=4n−3. ¿Cuánto supera el término 50 al término 10? Escribe solo el número.",
+        "respuesta": 160,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula T(50)=197.",
+          "Después calcula T(10)=37.",
+          "Compara 197 − 37."
+        ],
+        "retroalimentacion": "La diferencia es 160; 197 es el término 50 completo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una secuencia empieza 5, 8, 11 y crece 3 cada vez. ¿Cuál es el término 100 sin enumerarla?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La regla es 3n más una cantidad fija.",
+          "En n=1, 3n da 3; faltan 2.",
+          "Calcula 3 × 100 + 2."
+        ],
+        "retroalimentacion": "El término 100 es 302; 300 omite el ajuste inicial.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "300"
+          },
+          {
+            "id": "b",
+            "texto": "305"
+          },
+          {
+            "id": "c",
+            "texto": "302"
+          },
+          {
+            "id": "d",
+            "texto": "303"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para T(n)=7n+2, el término 50 es 352, porque 7 × 50 + 2 = 352.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 7 por 50.",
+          "El producto es 350.",
+          "Añade 2 a 350."
+        ],
+        "retroalimentacion": "Verdadero: T(50)=352."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La cantidad en una hilera sigue T(n)=3n+1. ¿Cuántas unidades más tiene la posición 60 que la posición 40? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula T(60)=181.",
+          "La posición 40 vale 121.",
+          "Resta 181 − 121."
+        ],
+        "retroalimentacion": "La diferencia es 60; 181 es el valor de una sola posición."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

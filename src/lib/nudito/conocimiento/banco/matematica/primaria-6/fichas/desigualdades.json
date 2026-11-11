@@ -1,0 +1,935 @@
+[
+  {
+    "clave": "mat.p6.desigualdades-signos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P6-01",
+      "MAT-C24-P6-03"
+    ],
+    "bloque": "Desigualdades",
+    "nombre": "Desigualdades con los signos > y <",
+    "disciplina": "algebra",
+    "descripcionCorta": "Expresa condiciones de «más que» y «menos que» con desigualdades.",
+    "palabrasClave": [
+      "mayor que",
+      "menor que",
+      "desigualdad",
+      "comparar"
+    ],
+    "prerrequisitos": [
+      "mat.p6.equivalencias-balanza"
+    ],
+    "ordenSugerido": 53,
+    "ideaCentral": "Los signos > y < comparan dos cantidades: la abertura mira al número mayor. Una desigualdad expresa «más que» o «menos que» y permite comprobar qué valores cumplen una condición.",
+    "pasos": [
+      "Identifica las dos cantidades o expresiones que se comparan.",
+      "Calcula cada lado si hay operaciones.",
+      "Pon > cuando el lado izquierdo es mayor y < cuando es menor.",
+      "Lee la desigualdad en voz alta y comprueba que coincide con la situación."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un equipo juntó 36 tapitas y otro 29. ¿Cómo se comparan?",
+        "desarrollo": "36 es mayor que 29, así que la abertura del signo mira a 36.",
+        "respuesta": "36 > 29."
+      },
+      {
+        "situacion": "Para entrar a un juego debes tener menos de 12 años. ¿Qué signo relaciona edad y 12?",
+        "desarrollo": "«Menos de 12» indica que edad es menor que 12.",
+        "respuesta": "edad < 12."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Voltear el signo porque la punta parece flecha.",
+        "correccion": "La abertura siempre mira la cantidad mayor: 8 > 3."
+      },
+      {
+        "error": "Usar < para una condición que incluye igualdad.",
+        "correccion": "«Menos que» excluye el límite; si incluye igualdad se necesita ≤."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Desigualdad",
+        "significado": "Comparación que indica qué lado es mayor o menor."
+      },
+      {
+        "termino": "Mayor que",
+        "significado": "Relación escrita con > cuando la cantidad izquierda supera a la derecha."
+      },
+      {
+        "termino": "Menor que",
+        "significado": "Relación escrita con < cuando la cantidad izquierda queda por debajo de la derecha."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con > o <: 14 ___ 9.",
+        "respuesta": ">",
+        "pistas": [
+          "Compara decenas primero.",
+          "14 tiene una decena; 9 no.",
+          "14 es mayor que 9."
+        ],
+        "retroalimentacion": "14 > 9; la abertura mira a 14.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La comparación 5 < 11 se lee «cinco es menor que once».",
+        "respuesta": true,
+        "pistas": [
+          "Mira dónde está la abertura del signo.",
+          "La abertura está del lado de 11.",
+          "11 es la cantidad mayor."
+        ],
+        "retroalimentacion": "Es verdadero: 5 es menor que 11.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué símbolo completa 23 ___ 32?",
+        "respuesta": "c",
+        "pistas": [
+          "Ambos tienen dos cifras.",
+          "Compara las decenas: 2 frente a 3.",
+          "23 es menor que 32."
+        ],
+        "retroalimentacion": "23 < 32; 23 tiene menos decenas.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": ">"
+          },
+          {
+            "id": "b",
+            "texto": "="
+          },
+          {
+            "id": "c",
+            "texto": "<"
+          },
+          {
+            "id": "d",
+            "texto": "+"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La edad de Marisol es 10 años, menos de 13. Escribe solo el signo que va entre 10 y 13.",
+        "respuesta": "<",
+        "pistas": [
+          "10 va a la izquierda.",
+          "13 es mayor.",
+          "La abertura mira al 13, a la derecha."
+        ],
+        "retroalimentacion": "El signo es <: 10 < 13.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "«La caja A pesa más que 18 kg». Si a representa su peso, ¿cómo se escribe?",
+        "respuesta": "a",
+        "pistas": [
+          "«Más que» exige una cantidad mayor.",
+          "a debe ir a la izquierda.",
+          "La abertura mira a a."
+        ],
+        "retroalimentacion": "a > 18 expresa que la caja supera los 18 kg.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "a > 18"
+          },
+          {
+            "id": "b",
+            "texto": "a < 18"
+          },
+          {
+            "id": "c",
+            "texto": "18 > a"
+          },
+          {
+            "id": "d",
+            "texto": "a = 18"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si x < 7, el valor x = 7 cumple la desigualdad.",
+        "respuesta": false,
+        "pistas": [
+          "El símbolo es estricto.",
+          "«Menor que 7» excluye el 7.",
+          "7 no es menor que sí mismo."
+        ],
+        "retroalimentacion": "Es falso: 7 = 7; para x < 7 sirven valores inferiores.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula los lados y escribe el signo: 6 × 4 ___ 5 × 5.",
+        "respuesta": "<",
+        "pistas": [
+          "6 × 4 = 24.",
+          "5 × 5 = 25.",
+          "24 queda una unidad por debajo de 25."
+        ],
+        "retroalimentacion": "El signo es <: 24 < 25.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para comprar un cuaderno de S/ 8, Camila tiene menos de S/ 8. ¿Qué saldo cumple esa condición?",
+        "respuesta": "d",
+        "pistas": [
+          "Debe ser estrictamente menor que 8.",
+          "S/ 8 no cuenta.",
+          "S/ 7 está por debajo."
+        ],
+        "retroalimentacion": "S/ 7 cumple saldo < 8; S/ 8 es igual al límite.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 9"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 10"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 8"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 7"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 4 < 9 y a ambos números les sumas 6, obtienes 10 < 15.",
+        "respuesta": true,
+        "pistas": [
+          "Suma 6 a cada extremo.",
+          "4 + 6 = 10.",
+          "9 + 6 = 15; compara."
+        ],
+        "retroalimentacion": "Es verdadero: sumar lo mismo a ambos lados conserva el orden.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una competencia se pide más de 20 puntos, pero menos de 25. ¿Qué par de desigualdades representa el puntaje p?",
+        "respuesta": "b",
+        "pistas": [
+          "Primero p debe superar 20.",
+          "Después p debe quedar debajo de 25.",
+          "Ambos límites son estrictos."
+        ],
+        "retroalimentacion": "20 < p y p < 25 representan las dos condiciones.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "p < 20 y p > 25"
+          },
+          {
+            "id": "b",
+            "texto": "20 < p y p < 25"
+          },
+          {
+            "id": "c",
+            "texto": "20 > p y 25 > p"
+          },
+          {
+            "id": "d",
+            "texto": "p > 20 y p > 25"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con el menor número natural que cumple 12 < n < 15.",
+        "respuesta": "13",
+        "pistas": [
+          "Los naturales entre 12 y 15 son 13 y 14.",
+          "Ambos cumplen las dos comparaciones.",
+          "El menor es 13."
+        ],
+        "retroalimentacion": "13 es el menor natural estrictamente entre 12 y 15.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis escribió 30 − 8 > 5 × 5 para decir que tiene más fichas que Sara. ¿Qué corrección necesita?",
+        "respuesta": "c",
+        "pistas": [
+          "Evalúa ambos lados.",
+          "30 − 8 = 22; 5 × 5 = 25.",
+          "22 es menor que 25."
+        ],
+        "retroalimentacion": "Debe usar <: 30 − 8 < 5 × 5, porque 22 < 25.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cambiar 30 por 50"
+          },
+          {
+            "id": "b",
+            "texto": "Mantener > porque 30 > 5"
+          },
+          {
+            "id": "c",
+            "texto": "Cambiar > por <"
+          },
+          {
+            "id": "d",
+            "texto": "Cambiar > por ="
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.valores-cumplen-desigualdad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P6-04"
+    ],
+    "bloque": "Desigualdades",
+    "nombre": "Valores que cumplen una desigualdad",
+    "disciplina": "algebra",
+    "descripcionCorta": "Encuentra los números naturales o decimales que hacen verdadera una desigualdad.",
+    "palabrasClave": [
+      "desigualdad",
+      "valor",
+      "número natural",
+      "decimal"
+    ],
+    "prerrequisitos": [
+      "mat.p6.desigualdades-signos"
+    ],
+    "ordenSugerido": 54,
+    "ideaCentral": "Una desigualdad es verdadera solo para los valores que respetan el signo. Tú puedes sustituir un valor y comparar ambos lados.",
+    "pasos": [
+      "Identifica el signo <, >, ≤ o ≥.",
+      "Sustituye el valor propuesto.",
+      "Calcula cada lado y compara.",
+      "Si buscas todos los valores, revisa también los límites."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Para x < 5, ¿sirve x = 4?",
+        "desarrollo": "4 es menor que 5.",
+        "respuesta": "Sí, 4 cumple."
+      },
+      {
+        "situacion": "Una feria admite hasta 2,5 kg: m ≤ 2,5. ¿Sirve 2,6?",
+        "desarrollo": "2,6 supera 2,5.",
+        "respuesta": "No cumple."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tomar < como si incluyera el límite.",
+        "correccion": "Si x < 5, el 5 queda fuera."
+      },
+      {
+        "error": "Comparar solo la cifra entera de decimales.",
+        "correccion": "Compara también décimas y centésimas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Desigualdad",
+        "significado": "Comparación con signos como < o ≥."
+      },
+      {
+        "termino": "Solución",
+        "significado": "Valor que vuelve verdadera la desigualdad."
+      },
+      {
+        "termino": "Límite",
+        "significado": "Valor de referencia de la comparación."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El número 3 cumple x < 5.",
+        "respuesta": true,
+        "pistas": [
+          "Sustituye x por 3.",
+          "Compara 3 y 5.",
+          "3 está antes de 5."
+        ],
+        "retroalimentacion": "Es verdadero: 3 < 5."
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuál es el mayor natural que cumple n < 7? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "El 7 queda excluido.",
+          "Prueba el natural anterior a 7.",
+          "Ese natural es 6."
+        ],
+        "retroalimentacion": "El error es incluir 7: el mayor permitido es 6."
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si a > 4, ¿qué valor puede tomar a?",
+        "respuesta": "c",
+        "pistas": [
+          "Busca un número mayor que 4.",
+          "3 y 4 no superan el límite.",
+          "Compara 5 con 4."
+        ],
+        "retroalimentacion": "La opción 5 cumple; 4 no alcanza porque > es estricto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          },
+          {
+            "id": "d",
+            "texto": "3"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La cantidad 2,5 cumple y ≤ 2,5.",
+        "respuesta": true,
+        "pistas": [
+          "El signo incluye igualdad.",
+          "Sustituye y por 2,5.",
+          "Ambos lados quedan iguales."
+        ],
+        "retroalimentacion": "Verdadero: 2,5 ≤ 2,5."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una bolsa debe pesar menos de 3 kg. ¿Qué peso cumple p < 3?",
+        "respuesta": "b",
+        "pistas": [
+          "Descarta 3 por el signo estricto.",
+          "3,1 supera el límite.",
+          "2,9 está debajo de 3."
+        ],
+        "retroalimentacion": "2,9 kg cumple; confundir < con ≤ haría elegir 3 kg.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 kg"
+          },
+          {
+            "id": "b",
+            "texto": "2,9 kg"
+          },
+          {
+            "id": "c",
+            "texto": "3,1 kg"
+          },
+          {
+            "id": "d",
+            "texto": "4 kg"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para 2n > 10, ¿cuál es el menor natural que sirve? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Prueba naturales cercanos a 5.",
+          "Con n = 5 obtienes 10, que no supera 10.",
+          "Con n = 6 obtienes 12."
+        ],
+        "retroalimentacion": "El menor es 6; 5 da igualdad y falla."
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "De 0, 1, 2 y 3, escribe separados por coma los que cumplen x ≥ 2.",
+        "respuesta": "2,3",
+        "pistas": [
+          "El 2 sí está incluido.",
+          "0 y 1 son menores.",
+          "Quedan 2 y 3 en orden."
+        ],
+        "retroalimentacion": "La respuesta es 2,3; olvidar el 2 confunde ≥ con >."
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si t = 1,8, entonces t > 1,75.",
+        "respuesta": true,
+        "pistas": [
+          "Escribe 1,8 como 1,80.",
+          "Compara 1,80 y 1,75.",
+          "80 centésimas superan 75."
+        ],
+        "retroalimentacion": "Verdadero: 1,8 > 1,75."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una carrera se premia a quien tarda 12 minutos o menos. ¿Qué lista contiene solo tiempos válidos?",
+        "respuesta": "d",
+        "pistas": [
+          "Traduce «o menos» con ≤.",
+          "12 entra; 12,1 queda fuera.",
+          "Revisa cada número de cada lista."
+        ],
+        "retroalimentacion": "La lista 11,8; 12 cumple t ≤ 12; 12,1 no cumple.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12; 12,1"
+          },
+          {
+            "id": "b",
+            "texto": "11,9; 12,2"
+          },
+          {
+            "id": "c",
+            "texto": "12,1; 13"
+          },
+          {
+            "id": "d",
+            "texto": "11,8; 12"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Si 3x + 1 < 13 y x es natural positivo, ¿cuál es el mayor x permitido? Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Resta 1 al límite 13.",
+          "Necesitas 3x < 12.",
+          "x = 4 da igualdad; prueba 3."
+        ],
+        "retroalimentacion": "El mayor es 3: 3·3 + 1 = 10 < 13."
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Todos los naturales entre 2 y 5, incluidos los extremos, cumplen 2 ≤ n < 5.",
+        "respuesta": false,
+        "pistas": [
+          "Comprueba ambos extremos.",
+          "El 2 sí cumple 2 ≤ n.",
+          "El 5 falla porque debe ser menor que 5."
+        ],
+        "retroalimentacion": "Falso: incluir 5 ignora el signo <."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "De 0,5; 0,75; 1; 1,2, escribe el único valor que cumple 0,7 < x < 1.",
+        "respuesta": "0,75",
+        "pistas": [
+          "Busca uno mayor que 0,7.",
+          "Además debe ser menor que 1.",
+          "0,75 queda entre ambos límites."
+        ],
+        "retroalimentacion": "La respuesta es 0,75; 1 está excluido."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.modificar-miembros-desigualdad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P6-05"
+    ],
+    "bloque": "Desigualdades",
+    "nombre": "Efecto de modificar los miembros de una desigualdad",
+    "disciplina": "algebra",
+    "descripcionCorta": "Justifica qué pasa con una desigualdad al sumar o restar la misma cantidad en ambos lados.",
+    "palabrasClave": [
+      "desigualdad",
+      "sumar",
+      "restar",
+      "ambos miembros"
+    ],
+    "prerrequisitos": [
+      "mat.p6.valores-cumplen-desigualdad"
+    ],
+    "ordenSugerido": 55,
+    "ideaCentral": "Al sumar o restar la misma cantidad a ambos miembros, tú conservas el sentido de una desigualdad. Debes modificar los dos lados.",
+    "pasos": [
+      "Lee la desigualdad inicial.",
+      "Elige una suma o resta igual para ambos lados.",
+      "Calcula los dos resultados.",
+      "Comprueba que el signo mantiene su dirección."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Partes de 4 < 9 y sumas 3 a ambos lados.",
+        "desarrollo": "4 + 3 = 7 y 9 + 3 = 12.",
+        "respuesta": "7 < 12."
+      },
+      {
+        "situacion": "Si 15 > 8 y restas 5 a cada miembro.",
+        "desarrollo": "15 − 5 = 10 y 8 − 5 = 3.",
+        "respuesta": "10 > 3."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar solo un miembro.",
+        "correccion": "La propiedad exige el mismo cambio en ambos."
+      },
+      {
+        "error": "Invertir el signo después de sumar.",
+        "correccion": "Al sumar o restar igual, el signo conserva su dirección."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Miembro",
+        "significado": "Cada lado de una desigualdad."
+      },
+      {
+        "termino": "Uniformidad",
+        "significado": "Mismo cambio aplicado a ambos lados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 2 < 6, al sumar 1 a ambos miembros resulta 3 < 7.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula 2 + 1.",
+          "Calcula 6 + 1.",
+          "Compara 3 y 7."
+        ],
+        "retroalimentacion": "Verdadero: sumar 1 a ambos mantiene 3 < 7."
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si 5 < 11 y sumas 4 a ambos miembros, ¿cuál es el nuevo miembro izquierdo? Escribe solo el número.",
+        "respuesta": 9,
+        "pistas": [
+          "El izquierdo empieza en 5.",
+          "Agrégale 4.",
+          "5 + 4 = 9."
+        ],
+        "retroalimentacion": "El nuevo miembro izquierdo es 9; no se suma al 11 para responder."
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Completa la transformación: 12 > 7; resta 2 a ambos lados.",
+        "respuesta": "b",
+        "pistas": [
+          "Resta 2 de 12.",
+          "Resta también 2 de 7.",
+          "Compara 10 y 5."
+        ],
+        "retroalimentacion": "10 > 5 es correcto; restar solo a un lado rompe el cambio uniforme.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 < 5"
+          },
+          {
+            "id": "b",
+            "texto": "10 > 5"
+          },
+          {
+            "id": "c",
+            "texto": "12 > 5"
+          },
+          {
+            "id": "d",
+            "texto": "14 > 9"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 8 > 3, sumar 6 solo al 3 aplica la propiedad de uniformidad.",
+        "respuesta": false,
+        "pistas": [
+          "Cuenta los miembros modificados.",
+          "El 8 no cambió.",
+          "Para uniformidad también sumarías 6 a 8."
+        ],
+        "retroalimentacion": "Falso: se modificó solo el miembro derecho."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tras restar 7 a ambos miembros de 19 > 10, ¿qué número queda a la derecha? Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "La derecha comienza en 10.",
+          "Haz 10 − 7.",
+          "El resultado es 3."
+        ],
+        "retroalimentacion": "A la derecha queda 3; a la izquierda queda 12."
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 6 < 14 se obtiene 11 < 19. ¿Qué operación común se hizo?",
+        "respuesta": "d",
+        "pistas": [
+          "Compara 6 con 11.",
+          "Compara 14 con 19.",
+          "Ambos aumentaron en 5."
+        ],
+        "retroalimentacion": "Sumar 5 a ambos miembros produce 11 < 19.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Restar 5"
+          },
+          {
+            "id": "b",
+            "texto": "Sumar 11"
+          },
+          {
+            "id": "c",
+            "texto": "Sumar 6"
+          },
+          {
+            "id": "d",
+            "texto": "Sumar 5"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al restar 9 de ambos lados de 4 < 10, queda −5 < 1.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula 4 − 9.",
+          "Calcula 10 − 9.",
+          "−5 es menor que 1."
+        ],
+        "retroalimentacion": "Verdadero: incluso con un resultado negativo se conserva <."
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con < o >: si 21 > 16, entonces 21 − 8 __ 16 − 8.",
+        "respuesta": ">",
+        "pistas": [
+          "Ambos lados pierden 8.",
+          "Obtienes 13 y 8.",
+          "13 supera 8."
+        ],
+        "retroalimentacion": "El signo es >; restar igual no lo invierte."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lucía afirma que de 9 < 13, sumando 4 solo a la izquierda, obtiene 13 < 13 por uniformidad. ¿Qué corrección explica el fallo?",
+        "respuesta": "a",
+        "pistas": [
+          "La palabra clave es «ambos».",
+          "Lucía cambió únicamente el 9.",
+          "También debería sumar 4 al 13."
+        ],
+        "retroalimentacion": "Debe sumar 4 a ambos: 13 < 17; 13 < 13 es falso.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sumar 4 también a la derecha: 13 < 17"
+          },
+          {
+            "id": "b",
+            "texto": "Cambiar < por > sin más"
+          },
+          {
+            "id": "c",
+            "texto": "Restar 4 solo a la derecha"
+          },
+          {
+            "id": "d",
+            "texto": "Mantener 13 < 13"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una desigualdad se transforma de 18 > 12 a 11 > 5 restando lo mismo en ambos lados. ¿Cuánto se restó? Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "Mira el cambio de 18 a 11.",
+          "Calcula 18 − 11.",
+          "Comprueba 12 − 7 = 5."
+        ],
+        "retroalimentacion": "Se restó 7 a ambos; mirar solo el signo no basta."
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si a < b y restas 5 a ambos, a − 5 > b − 5.",
+        "respuesta": false,
+        "pistas": [
+          "Piensa en 2 < 4.",
+          "Al restar 5 resulta −3 < −1.",
+          "El signo no se invierte."
+        ],
+        "retroalimentacion": "Falso: a − 5 < b − 5."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "De 3 < 8 quieres obtener 10 < 15 aplicando la misma operación a ambos. Escribe la operación como «sumar 7» o «restar 7».",
+        "respuesta": "sumar 7",
+        "pistas": [
+          "Compara el miembro 3 con 10.",
+          "Aumenta en 7.",
+          "8 también aumenta a 15."
+        ],
+        "retroalimentacion": "Hay que sumar 7 a ambos miembros; restar no da 10 < 15."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

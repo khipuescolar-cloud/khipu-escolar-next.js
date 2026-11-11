@@ -1,0 +1,936 @@
+[
+  {
+    "clave": "mat.p6.moda",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P6-01",
+      "MAT-C25-P6-03",
+      "MAT-C25-P6-06"
+    ],
+    "bloque": "Moda y media",
+    "nombre": "Moda de un conjunto de datos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Identifica el dato de mayor frecuencia y lo interpreta.",
+    "palabrasClave": [
+      "moda",
+      "frecuencia",
+      "datos",
+      "recuento",
+      "empate"
+    ],
+    "prerrequisitos": [
+      "mat.p6.encuestas-entrevistas"
+    ],
+    "ordenSugerido": 103,
+    "ideaCentral": "La moda es el dato que aparece más veces. Cuenta la frecuencia de cada valor; si dos valores comparten la mayor frecuencia, hay dos modas.",
+    "pasos": [
+      "Ordena o agrupa los datos iguales.",
+      "Cuenta cuántas veces aparece cada valor.",
+      "Elige el valor con la frecuencia más alta.",
+      "Si hay empate en el máximo, menciona todas las modas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Las tallas de seis polos son 12, 14, 12, 16, 12 y 14.",
+        "desarrollo": "12 aparece 3 veces; 14, 2; 16, 1.",
+        "respuesta": "La moda es 12."
+      },
+      {
+        "situacion": "Los votos por fruta son mango, tuna, mango, tuna y papaya.",
+        "desarrollo": "Mango y tuna aparecen 2 veces cada una; papaya una.",
+        "respuesta": "Hay dos modas: mango y tuna."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escoger el número más grande como moda.",
+        "correccion": "La moda depende de cuántas veces aparece, no de su tamaño."
+      },
+      {
+        "error": "Dividir entre el número de datos.",
+        "correccion": "Eso calcula la media, no la moda."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Moda",
+        "significado": "Dato con mayor frecuencia."
+      },
+      {
+        "termino": "Frecuencia",
+        "significado": "Número de veces que aparece un dato."
+      },
+      {
+        "termino": "Datos",
+        "significado": "Valores recogidos en una observación o encuesta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Los colores elegidos son rojo, azul, rojo y verde. ¿Cuál es la moda?",
+        "respuesta": "rojo",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cada color.",
+          "Rojo aparece dos veces.",
+          "Azul y verde aparecen una sola vez."
+        ],
+        "retroalimentacion": "La moda es rojo porque aparece más veces."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Las notas son 12, 15, 12, 18, 12. ¿Cuál es la moda?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No busques la nota mayor.",
+          "Cuenta las repeticiones de 12.",
+          "12 aparece tres veces."
+        ],
+        "retroalimentacion": "La opción «12» es la moda; 18 es solo el valor mayor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "15"
+          },
+          {
+            "id": "d",
+            "texto": "14"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 3, 4, 4, 5, el dato 4 es la moda.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas veces aparece cada valor.",
+          "4 aparece dos veces.",
+          "3 y 5 aparecen una vez."
+        ],
+        "retroalimentacion": "Es verdadero: 4 tiene la mayor frecuencia."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la lista 7, 9, 7, 8, 7, ¿cuál es la moda? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa los 7.",
+          "Aparecen tres veces.",
+          "Los otros valores aparecen una sola vez."
+        ],
+        "retroalimentacion": "La moda es 7; no se calcula el promedio."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los pedidos de jugo fueron piña, mango, piña, fresa, mango, piña. ¿Cuál fue el sabor modal?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cada sabor.",
+          "Piña aparece tres veces.",
+          "Mango aparece dos y fresa una."
+        ],
+        "retroalimentacion": "La opción «Piña» tiene la frecuencia más alta: 3.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Fresa"
+          },
+          {
+            "id": "b",
+            "texto": "Mango"
+          },
+          {
+            "id": "c",
+            "texto": "Todos"
+          },
+          {
+            "id": "d",
+            "texto": "Piña"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En las edades 10, 11, 10, 11 y 12 hay dos modas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta 10 y 11 por separado.",
+          "Ambos aparecen dos veces.",
+          "12 aparece solo una vez."
+        ],
+        "retroalimentacion": "Es verdadero: 10 y 11 empatan en la mayor frecuencia."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Ventas de panes por día: 20, 25, 20, 30, 25, 20. ¿Qué valor es el más frecuente?",
+        "respuesta": "20",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Haz un recuento de 20, 25 y 30.",
+          "20 aparece tres veces.",
+          "25 aparece dos veces."
+        ],
+        "retroalimentacion": "El valor modal es 20, porque se repite tres veces."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En los datos 5, 5, 6, 7, 7, 7, 8, ¿cuántas veces aparece la moda? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica el valor más repetido.",
+          "El 7 aparece más que los demás.",
+          "Cuenta las tres apariciones de 7."
+        ],
+        "retroalimentacion": "La frecuencia modal es 3; la moda como valor es 7."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Encuesta: fútbol 4 votos, vóley 6, ajedrez 6 y danza 3. ¿Qué describe la moda?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la frecuencia mayor.",
+          "Vóley y ajedrez tienen 6 votos cada uno.",
+          "El empate produce dos modas."
+        ],
+        "retroalimentacion": "La opción «Vóley y ajedrez» identifica ambos datos más frecuentes.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Vóley y ajedrez"
+          },
+          {
+            "id": "b",
+            "texto": "Solo vóley"
+          },
+          {
+            "id": "c",
+            "texto": "Solo danza"
+          },
+          {
+            "id": "d",
+            "texto": "Fútbol y danza"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En los datos 2, 3, 4, 5, cada valor aparece una vez; por eso 5 es la moda.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las frecuencias.",
+          "Todas son iguales a 1.",
+          "Ningún valor supera a otro."
+        ],
+        "retroalimentacion": "Es falso: no hay una moda única; 5 no aparece más que los demás."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Los números de asistentes fueron 8, 9, 8, 10, 9, 8, 10, 10, 10. ¿Qué número es la moda? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los 8 y los 10.",
+          "8 aparece tres veces.",
+          "10 aparece cuatro veces."
+        ],
+        "retroalimentacion": "La moda es 10; 9 solo aparece dos veces."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En una encuesta, A recibió 5 votos, B recibió 4 y C recibió 5. ¿Qué dos letras son modas? Escribe «A y C».",
+        "respuesta": "A y C",
+        "alternativasAceptadas": [
+          "C y A"
+        ],
+        "pistas": [
+          "Compara las tres frecuencias.",
+          "La frecuencia más alta es 5.",
+          "Dos opciones tienen exactamente 5 votos."
+        ],
+        "retroalimentacion": "A y C son modas porque empatan con 5 votos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.media-reparto-equitativo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P6-01",
+      "MAT-C25-P6-03",
+      "MAT-C25-P6-06"
+    ],
+    "bloque": "Moda y media",
+    "nombre": "Media aritmética como reparto equitativo",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Calcula la media igualando cantidades y luego sumando y dividiendo.",
+    "palabrasClave": [
+      "media",
+      "promedio",
+      "reparto equitativo",
+      "suma",
+      "cantidad de datos"
+    ],
+    "prerrequisitos": [
+      "mat.p6.moda"
+    ],
+    "ordenSugerido": 104,
+    "ideaCentral": "La media aritmética es lo que tocaría a cada grupo si repartieras el total por igual. Suma todos los datos y divide entre la cantidad de datos.",
+    "pasos": [
+      "Cuenta cuántos datos hay.",
+      "Suma sus valores.",
+      "Divide la suma entre la cantidad de datos.",
+      "Comprueba que el total no cambió al repartirlo por igual."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tres equipos juntaron 4, 6 y 8 libros.",
+        "desarrollo": "Total: 4 + 6 + 8 = 18. Repartidos entre 3 equipos: 18 ÷ 3 = 6.",
+        "respuesta": "La media es 6 libros."
+      },
+      {
+        "situacion": "Cuatro días se recogieron 2, 3, 4 y 7 kg.",
+        "desarrollo": "La suma es 16 kg; 16 ÷ 4 = 4 kg.",
+        "respuesta": "La media diaria es 4 kg."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir entre el dato más grande.",
+        "correccion": "Divide entre la cantidad de datos, no entre uno de sus valores."
+      },
+      {
+        "error": "Tomar el valor que más se repite.",
+        "correccion": "Ese valor es la moda; la media usa la suma y un reparto equitativo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Media aritmética",
+        "significado": "Total dividido entre la cantidad de datos."
+      },
+      {
+        "termino": "Reparto equitativo",
+        "significado": "Distribución que deja igual cantidad a cada uno."
+      },
+      {
+        "termino": "Total",
+        "significado": "Suma de todos los datos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos mesas reúnen 4 y 8 cuadernos. Si los reparten por igual entre ambas, ¿cuántos recibe cada mesa? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 4 + 8.",
+          "Hay dos mesas.",
+          "Divide 12 entre 2."
+        ],
+        "retroalimentacion": "La media es 6 cuadernos; 8 es el valor mayor, no el reparto."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los puntajes de tres juegos son 5, 5 y 8. ¿Cuál es la media?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total es 18.",
+          "Hay tres puntajes.",
+          "Divide 18 entre 3."
+        ],
+        "retroalimentacion": "La opción «6» es la media; 5 es la moda.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "18"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La media de 2 y 10 es 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma ambos datos.",
+          "2 + 10 = 12.",
+          "Divide el total entre dos."
+        ],
+        "retroalimentacion": "Es verdadero: 12 ÷ 2 = 6."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para hallar la media de varias cantidades, ¿entre qué divides su suma: el mayor dato o la cantidad de datos?",
+        "respuesta": "cantidad de datos",
+        "alternativasAceptadas": [
+          "la cantidad de datos",
+          "número de datos",
+          "el numero de datos"
+        ],
+        "pistas": [
+          "Piensa en cuántos grupos reciben el reparto.",
+          "Cada dato representa un grupo.",
+          "El divisor cuenta los grupos, no el valor máximo."
+        ],
+        "retroalimentacion": "Divides entre la cantidad de datos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En tres días Ana leyó 12, 15 y 18 páginas. ¿Cuál fue su media diaria de páginas? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las páginas de los tres días.",
+          "12 + 15 + 18 = 45.",
+          "Divide 45 entre 3."
+        ],
+        "retroalimentacion": "La media es 15 páginas por día; 18 fue solo el máximo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cuatro macetas tienen 3, 7, 5 y 5 flores. ¿Cuántas habría en cada una tras repartirlas por igual?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay 20 flores en total.",
+          "Son cuatro macetas.",
+          "Divide 20 entre 4."
+        ],
+        "retroalimentacion": "La opción «5 flores» conserva el total y deja igual cada maceta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 flores"
+          },
+          {
+            "id": "b",
+            "texto": "4 flores"
+          },
+          {
+            "id": "c",
+            "texto": "7 flores"
+          },
+          {
+            "id": "d",
+            "texto": "20 flores"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si tres cajas tienen 4, 6 y 11 tizas, la media es 7.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 4 + 6 + 11.",
+          "El total es 21.",
+          "Hay tres cajas."
+        ],
+        "retroalimentacion": "Es verdadero: 21 ÷ 3 = 7 tizas por caja."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Cuatro puestos vendieron 10, 14, 18 y 22 vasos de chicha. ¿Cuál es su media de ventas? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa 10 + 22 y 14 + 18.",
+          "La suma total es 64.",
+          "Divide 64 entre cuatro puestos."
+        ],
+        "retroalimentacion": "La media es 16 vasos, no 64."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres aulas juntaron 9, 12 y 15 kg de papel. Se agrega una cuarta aula con 20 kg. ¿Cuál es la nueva media?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El nuevo total incluye los cuatro datos.",
+          "9 + 12 + 15 + 20 = 56.",
+          "Divide entre cuatro aulas."
+        ],
+        "retroalimentacion": "La opción «14 kg» usa 56 ÷ 4; 12 kg era la media de las tres primeras.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 kg"
+          },
+          {
+            "id": "b",
+            "texto": "18 kg"
+          },
+          {
+            "id": "c",
+            "texto": "56 kg"
+          },
+          {
+            "id": "d",
+            "texto": "14 kg"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La media de cuatro cajas es 8 lápices. Tres cajas tienen 6, 7 y 9 lápices. ¿Cuántos lápices tiene la cuarta? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total de cuatro cajas debe ser 4 × 8.",
+          "El total buscado es 32.",
+          "Las tres conocidas suman 22."
+        ],
+        "retroalimentacion": "La cuarta tiene 32 − 22 = 10 lápices; no dividas 22 entre 4."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los datos 2, 4 y 12 tienen media 6 aunque ninguno de los datos sea 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 2 + 4 + 12.",
+          "Las tres edades suman 2 + 4 + 12 = 18.",
+          "Reparte 18 entre tres datos."
+        ],
+        "retroalimentacion": "Es verdadero: la media es 6 y no necesita coincidir con un dato observado."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Cuatro grupos tienen 5, 9, 11 y 15 semillas. Si el quinto grupo recibe 10 semillas, ¿cuál es la media de los cinco grupos? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los cuatro primeros: 40.",
+          "Con el quinto grupo, el total es 50.",
+          "Divide 50 entre 5."
+        ],
+        "retroalimentacion": "La media final es 10 semillas; dividir entre 4 omite al quinto grupo."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.moda-o-media",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P6-07"
+    ],
+    "bloque": "Moda y media",
+    "nombre": "Moda o media: cuál describe mejor los datos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Decide qué medida representa mejor un grupo de datos y lo justifica.",
+    "palabrasClave": [
+      "moda",
+      "media",
+      "dato típico",
+      "frecuencia",
+      "promedio"
+    ],
+    "prerrequisitos": [
+      "mat.p6.media-reparto-equitativo"
+    ],
+    "ordenSugerido": 105,
+    "ideaCentral": "La moda muestra el dato más frecuente; la media reparte el total por igual. Elige la medida que responde a la pregunta: preferencia más común o cantidad promedio; explica tu elección con los datos.",
+    "pasos": [
+      "Lee qué quiere saber la situación: lo más elegido o el reparto promedio.",
+      "Halla la moda contando frecuencias.",
+      "Halla la media sumando y dividiendo entre el número de datos.",
+      "Elige la medida útil y justifica con el resultado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un quiosco pregunta qué fruta debe comprar más. Las preferencias son plátano, mango, plátano, tuna y plátano.",
+        "desarrollo": "Plátano aparece tres veces y es la preferencia más común.",
+        "respuesta": "Conviene usar la moda: plátano."
+      },
+      {
+        "situacion": "Un colegio quiere saber cuántos libros leyó cada aula en promedio: 2, 4 y 6.",
+        "desarrollo": "El total es 12 y hay tres aulas: 12 ÷ 3 = 4.",
+        "respuesta": "Conviene usar la media: 4 libros."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar la media para responder cuál color se eligió más.",
+        "correccion": "Los colores son categorías: cuenta frecuencias y usa la moda."
+      },
+      {
+        "error": "Elegir la moda para conocer el reparto promedio de cantidades.",
+        "correccion": "Suma las cantidades y divide entre la cantidad de datos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Moda",
+        "significado": "Dato o categoría que más se repite."
+      },
+      {
+        "termino": "Media",
+        "significado": "Total numérico repartido en partes iguales."
+      },
+      {
+        "termino": "Dato típico",
+        "significado": "Valor que ayuda a describir un grupo según la pregunta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tienda quiere saber qué sabor de helado piden más. ¿Qué medida le sirve?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca una preferencia frecuente.",
+          "Los sabores son categorías.",
+          "Cuenta qué sabor se repite más."
+        ],
+        "retroalimentacion": "La opción «Moda» identifica el sabor más pedido; la media requiere cantidades numéricas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Media"
+          },
+          {
+            "id": "b",
+            "texto": "Moda"
+          },
+          {
+            "id": "c",
+            "texto": "Suma"
+          },
+          {
+            "id": "d",
+            "texto": "Diferencia"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para informar la cantidad promedio de cuadernos por estudiante, conviene calcular la media.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta pide un promedio.",
+          "Las cantidades de cuadernos son números.",
+          "La media reparte el total entre estudiantes."
+        ],
+        "retroalimentacion": "Es verdadero: la media da cuadernos por estudiante en promedio."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En los votos rojo, azul, rojo, verde, ¿usas moda o media para hallar el color más elegido?",
+        "respuesta": "moda",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los colores no se suman.",
+          "Cuenta cuántas veces aparece cada color.",
+          "Rojo es el más frecuente."
+        ],
+        "retroalimentacion": "Usas la moda para identificar el color más elegido."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Las ventas fueron 2, 4 y 6 panes. Si piden la media, ¿qué número respondes? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La suma es 12 panes.",
+          "Hay tres ventas registradas.",
+          "Reparte 12 entre 3."
+        ],
+        "retroalimentacion": "La media es 4; elegir 6 usaría el máximo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 5, 5, 5, 10, 20, ¿qué medida muestra mejor el valor que aparece habitualmente?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la frecuencia de 5.",
+          "5 aparece tres de cinco veces.",
+          "La media es 9, valor que nadie registró."
+        ],
+        "retroalimentacion": "La opción «Moda: 5» describe el valor habitual porque se repite tres veces.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Media: 9"
+          },
+          {
+            "id": "b",
+            "texto": "Media: 5"
+          },
+          {
+            "id": "c",
+            "texto": "Moda: 20"
+          },
+          {
+            "id": "d",
+            "texto": "Moda: 5"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si se quiere planificar un reparto igual de 3, 6 y 9 materiales entre tres grupos, la moda es más útil que la media.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La meta es repartir igual.",
+          "Suma 3 + 6 + 9.",
+          "La media es 6 por grupo."
+        ],
+        "retroalimentacion": "Es falso: la media 6 sirve para el reparto; la moda no resume esa operación."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Cinco estudiantes eligen transporte: combi, caminar, combi, bici, combi. ¿Qué medida justifica elegir más espacios para la combi?",
+        "respuesta": "moda",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se comparan categorías de transporte.",
+          "Combi aparece tres veces.",
+          "Usa la medida de mayor frecuencia."
+        ],
+        "retroalimentacion": "La moda es combi y justifica más espacios para esa opción."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tres talleres recogieron 6, 9 y 12 kg. Para decidir una meta igual por taller, ¿qué media en kg propones? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el total 6 + 9 + 12.",
+          "El total es 27 kg.",
+          "Divídelo entre tres talleres."
+        ],
+        "retroalimentacion": "La media es 9 kg por taller; no es la suma 27."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cuatro familias compran 1, 1, 1 y 9 panes. ¿Qué medida informa mejor la compra más habitual y por qué?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres familias compran la misma cantidad.",
+          "La moda es 1; la media es 3.",
+          "La compra de 9 eleva la media."
+        ],
+        "retroalimentacion": "La opción «Moda: 1 pan, porque tres familias compran 1» refleja la compra habitual.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Moda: 1 pan, porque tres familias compran 1"
+          },
+          {
+            "id": "b",
+            "texto": "Media: 3 panes, porque tres familias compran 3"
+          },
+          {
+            "id": "c",
+            "texto": "Moda: 9 panes, porque es el mayor"
+          },
+          {
+            "id": "d",
+            "texto": "Media: 9 panes, porque es la compra máxima"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En las edades 10, 10, 10 y 18, la media de 12 años describe mejor la edad más frecuente que la moda de 10 años.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres de cuatro edades son 10.",
+          "La media es (10 + 10 + 10 + 18) ÷ 4 = 12.",
+          "La pregunta es por la edad más frecuente."
+        ],
+        "retroalimentacion": "Es falso: la moda 10 representa la edad que aparece tres veces; la media responde otra pregunta."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una panadería anota ventas de 4, 6 y 8 panes en tres recreos. Quiere prever cuántos panes vendería por recreo si el total se repartiera igual. ¿Qué medida usa?",
+        "respuesta": "media",
+        "alternativasAceptadas": [
+          "promedio",
+          "media aritmética"
+        ],
+        "pistas": [
+          "La frase «repartiera igual» es la clave.",
+          "El total es 18 panes.",
+          "18 ÷ 3 = 6 panes por recreo."
+        ],
+        "retroalimentacion": "Usa la media: 6 panes por recreo en un reparto igual."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una votación de menú hay arroz 8, sopa 5 y tallarines 8 votos. También se registran 4, 6 y 8 minutos de espera. ¿Qué par de medidas responde «platos más elegidos» y «espera promedio»?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para platos compara frecuencias.",
+          "Arroz y tallarines empatan con 8 votos.",
+          "Para espera calcula (4 + 6 + 8) ÷ 3."
+        ],
+        "retroalimentacion": "La opción «Moda: arroz y tallarines; media: 6 min» responde ambas preguntas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Moda: sopa; media: 6 min"
+          },
+          {
+            "id": "b",
+            "texto": "Media: arroz; moda: 8 min"
+          },
+          {
+            "id": "c",
+            "texto": "Moda: arroz y tallarines; media: 6 min"
+          },
+          {
+            "id": "d",
+            "texto": "Moda: 8 min; media: sopa"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

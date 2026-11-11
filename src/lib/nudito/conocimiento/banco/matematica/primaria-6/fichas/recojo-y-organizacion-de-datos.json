@@ -1,0 +1,935 @@
+[
+  {
+    "clave": "mat.p6.encuestas-entrevistas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P6-05",
+      "MAT-C25-P6-01"
+    ],
+    "bloque": "Recojo y organización de datos",
+    "nombre": "Elaboración de encuestas y entrevistas",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Formula preguntas adecuadas para recoger datos sobre un tema de interés.",
+    "palabrasClave": [
+      "encuesta",
+      "entrevista",
+      "pregunta clara",
+      "respuesta medible"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 36,
+    "ideaCentral": "Una encuesta usa preguntas iguales para recoger datos comparables de varias personas; una entrevista permite profundizar con preguntas abiertas. Para obtener datos útiles, define qué quieres saber y evita preguntas ambiguas o que empujen una respuesta.",
+    "pasos": [
+      "Define el tema y la información concreta que necesitas.",
+      "Elige encuesta si compararás muchas respuestas; entrevista si buscas explicaciones.",
+      "Redacta una sola idea por pregunta, con opciones que no se superpongan cuando corresponda.",
+      "Prueba la pregunta con alguien y corrige confusiones antes de registrar respuestas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Quieres saber cómo llegan tus compañeros al colegio.",
+        "desarrollo": "Pregunta «¿Cuál es tu medio principal para venir al colegio?» y ofrece caminar, bus, bicicleta u otro.",
+        "respuesta": "La encuesta permite contar respuestas por medio."
+      },
+      {
+        "situacion": "Quieres conocer por qué una artesana elige ciertos tejidos.",
+        "desarrollo": "Pregunta «¿Cómo eliges los colores de tus tejidos?» y escucha su explicación.",
+        "respuesta": "Una entrevista abierta recoge razones."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Preguntar «¿Te gusta el fútbol y el vóley?» como una sola pregunta.",
+        "correccion": "Separa los deportes para poder contar cada respuesta."
+      },
+      {
+        "error": "Sugerir la respuesta con «¿Verdad que nuestra feria fue excelente?».",
+        "correccion": "Pregunta neutralmente «¿Cómo calificarías la feria?»."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Encuesta",
+        "significado": "Conjunto de preguntas iguales aplicado a varias personas."
+      },
+      {
+        "termino": "Entrevista",
+        "significado": "Conversación con preguntas para conocer respuestas detalladas."
+      },
+      {
+        "termino": "Pregunta cerrada",
+        "significado": "Pregunta con respuestas delimitadas que puedes contar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para contar cuántos estudiantes van caminando al colegio, ¿qué pregunta sirve mejor?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Te gusta caminar?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Dónde vives?"
+          },
+          {
+            "id": "c",
+            "texto": "¿Cuál es tu medio principal para venir al colegio?"
+          },
+          {
+            "id": "d",
+            "texto": "¿Te parece bonita la ruta?"
+          }
+        ],
+        "pistas": [
+          "La pregunta debe pedir el medio de traslado.",
+          "Gustos y domicilio no indican cómo llegan.",
+          "«Medio principal» permite contar a quienes caminan."
+        ],
+        "retroalimentacion": "«¿Cuál es tu medio principal para venir al colegio?» recoge el dato; «¿Te gusta caminar?» mide gusto."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una encuesta puede repetir la misma pregunta a muchas personas para comparar sus respuestas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cómo se pueden sumar respuestas.",
+          "Si todos reciben la misma pregunta, las respuestas son comparables.",
+          "Cambiar la pregunta a cada persona dificultaría el conteo."
+        ],
+        "retroalimentacion": "Es verdadero: repetirla permite comparar y contar respuestas."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si quieres conocer las razones de una sola cocinera para elegir ingredientes, ¿usarías encuesta o entrevista? Escribe una palabra.",
+        "respuesta": "entrevista",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se busca una explicación profunda.",
+          "Conversar con una persona permite repreguntar.",
+          "Ese método se llama entrevista."
+        ],
+        "retroalimentacion": "Entrevista: permite escuchar razones; una encuesta corta sirve mejor para contar a muchas personas."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál pregunta cerrada sirve para contar frutas favoritas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Cuál prefieres: mango, plátano, papaya u otra?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Por qué te gusta comer fruta?"
+          },
+          {
+            "id": "c",
+            "texto": "Cuéntame todo sobre frutas."
+          },
+          {
+            "id": "d",
+            "texto": "¿Te gusta la fruta y el jugo?"
+          }
+        ],
+        "pistas": [
+          "Necesitas categorías contables.",
+          "Una pregunta cerrada ofrece respuestas definidas.",
+          "Busca la que enumera mango, plátano, papaya u otra."
+        ],
+        "retroalimentacion": "«¿Cuál prefieres: mango, plátano, papaya u otra?» permite contar elecciones."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "«¿Verdad que nuestra biblioteca es la mejor?» es una pregunta neutral para una encuesta.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Nota la expresión «la mejor».",
+          "La frase sugiere que se debe estar de acuerdo.",
+          "Una opción neutral sería preguntar cómo califican la biblioteca."
+        ],
+        "retroalimentacion": "Es falso: «la mejor» influye en la respuesta."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un grupo quiere saber cuántas horas estudian sus compañeros al día. ¿Cuál formulación es más precisa?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Estudias mucho?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Te gusta estudiar?"
+          },
+          {
+            "id": "c",
+            "texto": "¿Estudias y juegas?"
+          },
+          {
+            "id": "d",
+            "texto": "¿Cuántas horas estudias fuera de clase en un día habitual?"
+          }
+        ],
+        "pistas": [
+          "Debes obtener una cantidad de horas.",
+          "«Mucho» significa cosas distintas para cada persona.",
+          "Hay que precisar que es fuera de clase y en un día habitual."
+        ],
+        "retroalimentacion": "«¿Cuántas horas estudias fuera de clase en un día habitual?» recoge una cantidad comparable."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Para averiguar cuántos alumnos prefieren cada taller, ¿las opciones «Arte», «Deporte» y «Música» corresponden a pregunta abierta o cerrada? Escribe una palabra.",
+        "respuesta": "cerrada",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay respuestas previstas.",
+          "Las tres opciones delimitan las respuestas.",
+          "Una pregunta abierta dejaría responder libremente."
+        ],
+        "retroalimentacion": "Cerrada: ofrece categorías para contar preferencias."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Preguntar «¿Cuántos hermanos tienes?» permite registrar un número por estudiante.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa la palabra «cuántos».",
+          "La respuesta es una cantidad.",
+          "Cada estudiante puede responder con un número entero."
+        ],
+        "retroalimentacion": "Es verdadero: la pregunta recoge un dato numérico."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una encuesta de edades, se proponen «10–12 años» y «12–14 años». ¿Qué problema tienen?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Falta preguntar el nombre"
+          },
+          {
+            "id": "b",
+            "texto": "La edad de 12 aparece en ambas"
+          },
+          {
+            "id": "c",
+            "texto": "Son demasiadas categorías"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede preguntar la edad"
+          }
+        ],
+        "pistas": [
+          "Revisa los extremos de los intervalos.",
+          "El número 12 está en el primero.",
+          "También aparece en el segundo."
+        ],
+        "retroalimentacion": "La edad de 12 aparece en ambas; una persona de 12 años no sabe cuál marcar."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para conocer el motivo de elegir bicicleta en vez de bus, completa una pregunta neutral: «¿___ elegiste venir en bicicleta?». Escribe una palabra.",
+        "respuesta": "por qué",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se buscan razones, no un conteo.",
+          "La pregunta debe empezar con una expresión interrogativa causal.",
+          "«¿Por qué elegiste venir en bicicleta?» deja explicar la decisión."
+        ],
+        "retroalimentacion": "«Por qué» pregunta por el motivo; «cuánto» pediría una cantidad."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una encuesta busca solo la fruta favorita, preguntar a la vez fruta y bebida favorita en una única casilla facilita contar bien las frutas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una casilla debería recoger un solo dato.",
+          "Alguien puede escoger mango y chicha en la misma respuesta.",
+          "Luego sería difícil separar elecciones de frutas."
+        ],
+        "retroalimentacion": "Es falso: conviene una pregunta para fruta y otra para bebida."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres comparar qué proporción de familias usa bicicleta en dos barrios. ¿Qué plan permite comparar mejor?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hacer la misma pregunta sobre medio principal a familias de ambos barrios"
+          },
+          {
+            "id": "b",
+            "texto": "Preguntar por bicicleta solo en un barrio"
+          },
+          {
+            "id": "c",
+            "texto": "Entrevistar a una persona sin anotar barrio"
+          },
+          {
+            "id": "d",
+            "texto": "Preguntar por diversión y transporte juntos"
+          }
+        ],
+        "pistas": [
+          "Se necesitan datos de ambos barrios.",
+          "La pregunta debe ser idéntica para compararlos.",
+          "Registra también a qué barrio pertenece cada respuesta."
+        ],
+        "retroalimentacion": "Hacer la misma pregunta sobre medio principal a familias de ambos barrios permite comparar; preguntar solo en uno no."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.tablas-doble-entrada",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P6-04",
+      "MAT-C25-P6-05",
+      "MAT-C25-P6-06"
+    ],
+    "bloque": "Recojo y organización de datos",
+    "nombre": "Tablas de doble entrada",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Organiza y lee datos de dos variables cruzadas en filas y columnas.",
+    "palabrasClave": [
+      "fila",
+      "columna",
+      "cruce",
+      "categorías"
+    ],
+    "prerrequisitos": [
+      "mat.p6.encuestas-entrevistas"
+    ],
+    "ordenSugerido": 61,
+    "ideaCentral": "Una tabla de doble entrada cruza dos características: una en las filas y otra en las columnas. El número de una casilla corresponde solo a la combinación de su fila y su columna.",
+    "pasos": [
+      "Lee el título y las categorías de filas y columnas.",
+      "Ubica la fila de la primera característica.",
+      "Sigue hasta la columna de la segunda característica y lee el cruce.",
+      "Si se pide un total, suma solo las casillas de la fila o columna indicada."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tabla de libros: filas 5.° y 6.°; columnas cuentos y cómics. Los datos son 5.°: 8 y 6; 6.°: 7 y 9.",
+        "desarrollo": "Para cómics de 6.°, cruza fila 6.° con columna cómics.",
+        "respuesta": "Hay 9 cómics de 6.°."
+      },
+      {
+        "situacion": "Con la misma tabla, se pide el total de cuentos.",
+        "desarrollo": "Suma la columna cuentos: 8 + 7 = 15.",
+        "respuesta": "Hay 15 cuentos en total."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer el total de fila cuando se pide una casilla.",
+        "correccion": "Localiza ambos encabezados y toma únicamente su cruce."
+      },
+      {
+        "error": "Sumar filas y columnas sin fijarse en lo pedido.",
+        "correccion": "Marca la categoría solicitada antes de sumar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Doble entrada",
+        "significado": "Tabla que clasifica datos según dos características."
+      },
+      {
+        "termino": "Fila",
+        "significado": "Línea horizontal de casillas."
+      },
+      {
+        "termino": "Columna",
+        "significado": "Línea vertical de casillas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tabla de deportes por grado: columnas fútbol, vóley; fila 5.°: 12, 8; fila 6.°: 9, 11. ¿Cuántos de 6.° eligieron vóley? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la fila de 6.°.",
+          "Ubica la columna vóley.",
+          "El cruce de 6.° y vóley es el segundo dato de esa fila."
+        ],
+        "retroalimentacion": "Son 11; 8 corresponde al vóley de 5.°."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla: filas niñas y niños; columnas bus y caminata. ¿Qué dos características se cruzan?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Edad y deporte"
+          },
+          {
+            "id": "b",
+            "texto": "Grupo y transporte"
+          },
+          {
+            "id": "c",
+            "texto": "Mes y curso"
+          },
+          {
+            "id": "d",
+            "texto": "Precio y cantidad"
+          }
+        ],
+        "pistas": [
+          "Lee los encabezados de filas.",
+          "Niñas y niños indican grupos.",
+          "Bus y caminata indican transporte."
+        ],
+        "retroalimentacion": "Grupo y transporte son las características; la tabla no registra edades."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La casilla de la fila lunes y la columna tarde recoge datos de lunes por la tarde.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee la fila primero.",
+          "La fila limita el día a lunes.",
+          "La columna limita el turno a tarde."
+        ],
+        "retroalimentacion": "Es verdadero: el cruce corresponde a lunes y tarde."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una tabla, las categorías «mañana» y «tarde» aparecen arriba de las casillas. ¿Son encabezados de fila o de columna? Escribe una palabra.",
+        "respuesta": "columna",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los encabezados superiores nombran líneas verticales.",
+          "Cada categoría de arriba baja por una línea de casillas.",
+          "Esa línea vertical se llama columna."
+        ],
+        "retroalimentacion": "Son encabezados de columna; las filas se leen de lado a lado."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tabla de semillas: columnas maíz y frejol; fila costa: 7, 5; fila sierra: 4, 6. ¿Cuántas bolsas de maíz hay entre ambas regiones? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se pide una columna completa.",
+          "En maíz hay 7 de costa.",
+          "Agrega 4 de sierra."
+        ],
+        "retroalimentacion": "Hay 11 bolsas de maíz; sumar 5 y 6 sería frejol."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Registro de préstamos: filas lunes y martes; columnas cuentos y atlas. Lunes: 6 y 3; martes: 4 y 5. ¿Qué casilla contiene 5?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lunes-cuentos"
+          },
+          {
+            "id": "b",
+            "texto": "Martes-cuentos"
+          },
+          {
+            "id": "c",
+            "texto": "Lunes-atlas"
+          },
+          {
+            "id": "d",
+            "texto": "Martes-atlas"
+          }
+        ],
+        "pistas": [
+          "Lee los dos números de la fila martes.",
+          "Martes tiene 4 cuentos y 5 atlas.",
+          "El 5 está bajo atlas y a la altura de martes."
+        ],
+        "retroalimentacion": "Martes-atlas contiene 5; lunes-atlas contiene 3."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una tabla con filas A y B y columnas rojo y azul, sumar todas las casillas de la fila A da el total del grupo A.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una fila reúne los datos de un grupo.",
+          "La fila A incluye rojo y azul.",
+          "Al sumarlos obtienes el total de A."
+        ],
+        "retroalimentacion": "Es verdadero: el total del grupo A suma sus categorías rojo y azul."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tabla de talleres: columnas danza y teatro; 5.°: 8 y 7; 6.°: 6 y 9. ¿Cuántos inscritos hay en 5.°? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se pide el total de una fila.",
+          "En 5.° hay 8 de danza y 7 de teatro.",
+          "Suma 8 + 7."
+        ],
+        "retroalimentacion": "Hay 15 de 5.°; 6 y 9 pertenecen a 6.°."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla de venta: columnas mañana y tarde; filas sábado (14, 9) y domingo (11, 13). ¿Qué turno vendió más en los dos días juntos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mañana, 25"
+          },
+          {
+            "id": "b",
+            "texto": "Tarde, 25"
+          },
+          {
+            "id": "c",
+            "texto": "Mañana, 23"
+          },
+          {
+            "id": "d",
+            "texto": "Tarde, 22"
+          }
+        ],
+        "pistas": [
+          "Suma los datos de cada columna.",
+          "Mañana: 14 + 11.",
+          "Tarde: 9 + 13; compara 25 con 22."
+        ],
+        "retroalimentacion": "Mañana, 25 es correcto; tarde suma 22."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tabla registra animales: columnas perros y gatos; filas refugio A: 10 y 7, refugio B: 8 y 12. ¿Cuántos animales hay entre los dos refugios? Escribe solo el número.",
+        "respuesta": 37,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay cuatro casillas de animales.",
+          "Primero suma A: 10 + 7.",
+          "Suma B: 8 + 12 y combina 17 + 20."
+        ],
+        "retroalimentacion": "Hay 37 animales; omitir una casilla reduce el total."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Tabla de colores: filas 5.° y 6.°, columnas azul y verde. 5.°: 8, 5; 6.°: 4, 9. ¿Qué grado tiene más preferencias por verde? Escribe «5.°» o «6.°».",
+        "respuesta": "6.°",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee solo la columna verde.",
+          "Los datos verdes son 5 y 9.",
+          "Nueve corresponde a la fila de 6.°."
+        ],
+        "retroalimentacion": "6.° tiene más preferencias por verde, 9 frente a 5."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tabla: columnas bicicleta y a pie; 5.° tiene 6 y 10; 6.° tiene 12 y 8. En total hay más estudiantes a pie que en bicicleta.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma una columna cada vez.",
+          "Bicicleta: 6 + 12 = 18.",
+          "A pie: 10 + 8 = 18; compara."
+        ],
+        "retroalimentacion": "Es falso: ambos medios suman 18, ninguno supera al otro."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.completar-tablas-doble-entrada",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P6-04"
+    ],
+    "bloque": "Recojo y organización de datos",
+    "nombre": "Tablas de doble entrada con datos incompletos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Deduce los datos que faltan usando totales parciales y genera nueva información.",
+    "palabrasClave": [
+      "dato faltante",
+      "total de fila",
+      "total de columna",
+      "resta"
+    ],
+    "prerrequisitos": [
+      "mat.p6.tablas-doble-entrada"
+    ],
+    "ordenSugerido": 62,
+    "ideaCentral": "Un total de fila o columna permite recuperar una casilla faltante: resta al total los datos que ya conoces. Puedes cruzar totales para verificar que toda la tabla cuadre.",
+    "pasos": [
+      "Identifica la casilla vacía y el total de su fila o columna.",
+      "Suma las casillas conocidas de esa misma línea.",
+      "Resta esa suma al total para hallar lo que falta.",
+      "Verifica con el total de la otra dirección cuando esté disponible."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tabla de frutas: fila lunes, manzanas 7, peras __, total 12.",
+        "desarrollo": "Resta 12 − 7 = 5.",
+        "respuesta": "Faltan 5 peras."
+      },
+      {
+        "situacion": "Columnas bus y a pie; filas A: 6 y 4, B: 8 y __. Total a pie: 11.",
+        "desarrollo": "En la columna a pie ya hay 4 del grupo A. Calcula 11 − 4 = 7.",
+        "respuesta": "En B y a pie hay 7."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar un dato de una fila al total de otra.",
+        "correccion": "El total usado debe corresponder a la línea de la casilla vacía."
+      },
+      {
+        "error": "Sumar para rellenar una casilla faltante.",
+        "correccion": "Si el total ya incluye esa casilla, resta lo conocido."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Total parcial",
+        "significado": "Suma de una fila o una columna."
+      },
+      {
+        "termino": "Dato faltante",
+        "significado": "Valor de una casilla que se deduce de otros datos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tabla de juegos: fila lunes, ajedrez 5, damas __, total 9. ¿Qué dato falta? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa el total de lunes.",
+          "Ya hay 5 en ajedrez.",
+          "Resta 9 − 5."
+        ],
+        "retroalimentacion": "Faltan 4 en damas; sumar 9 + 5 superaría el total."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Fila martes: pan 6, queso __, total 14. ¿Qué valor completa la casilla?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6"
+          },
+          {
+            "id": "b",
+            "texto": "7"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "20"
+          }
+        ],
+        "pistas": [
+          "El total incluye ambas categorías.",
+          "Resta el pan del total.",
+          "14 − 6 = 8."
+        ],
+        "retroalimentacion": "8 completa la fila; 20 sumaría el total otra vez."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una fila suma 18 y una de sus dos casillas vale 7, la otra vale 11.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué dos números suman 18.",
+          "La primera casilla aporta 7.",
+          "18 − 7 = 11."
+        ],
+        "retroalimentacion": "Es verdadero: 7 + 11 = 18."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una columna el total es 20 y el primer dato es 12. ¿Qué operación usas para hallar el otro: suma o resta? Escribe una palabra.",
+        "respuesta": "resta",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total ya contiene ambos datos.",
+          "Quita el dato conocido.",
+          "La cuenta sería 20 − 12."
+        ],
+        "retroalimentacion": "Usas resta; sumar 12 al total lo excedería."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tabla de transporte: columna bus, grupo A 9, grupo B __, total 21. ¿Cuántos hay en B? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Trabaja solo en la columna bus.",
+          "El total es 21 y A aporta 9.",
+          "Calcula 21 − 9."
+        ],
+        "retroalimentacion": "En B hay 12; 21 es el total de ambos grupos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Fila 6.°: fútbol 11, vóley 7, básquet __, total 25. ¿Cuál es el faltante?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "9"
+          },
+          {
+            "id": "d",
+            "texto": "18"
+          }
+        ],
+        "pistas": [
+          "Primero reúne los datos conocidos.",
+          "11 + 7 = 18.",
+          "Resta 18 de 25."
+        ],
+        "retroalimentacion": "Faltan 7; responder 18 da el subtotal conocido."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la fila de cuentos, 4 son peruanos, 5 extranjeros y 12 en total. La casilla vacía de otra categoría vale 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma lo ya clasificado.",
+          "4 + 5 = 9.",
+          "12 − 9 = 3."
+        ],
+        "retroalimentacion": "Es verdadero: la tercera categoría reúne 3 cuentos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tabla de camisetas: columna azules total 30, filas chicos 13 y chicas __. ¿Cuántas chicas eligieron azul? Escribe solo el número.",
+        "respuesta": 17,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El dato vacío está en la columna azules.",
+          "Chicos aportan 13 al total de 30.",
+          "Resta 30 − 13."
+        ],
+        "retroalimentacion": "Son 17 chicas; 13 es el otro grupo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla de visitas: sábado mañana 8, tarde __, total 19; domingo mañana 7, tarde 6. ¿Qué valor falta y cuánto suma la columna tarde?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "11 y 11"
+          },
+          {
+            "id": "b",
+            "texto": "12 y 18"
+          },
+          {
+            "id": "c",
+            "texto": "10 y 16"
+          },
+          {
+            "id": "d",
+            "texto": "11 y 17"
+          }
+        ],
+        "pistas": [
+          "Primero completa la fila sábado.",
+          "19 − 8 = 11 visitas de tarde.",
+          "Luego suma esa casilla con las 6 del domingo."
+        ],
+        "retroalimentacion": "11 y 17 es correcto; 11 solo es la tarde del sábado."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tabla de libros: 5.° tiene novela 9 y poesía __, total 15; 6.° tiene novela 7 y poesía 8. ¿Cuántos libros de poesía hay en total? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Completa primero poesía de 5.°.",
+          "15 − 9 = 6.",
+          "Suma 6 de 5.° y 8 de 6.°."
+        ],
+        "retroalimentacion": "Hay 14 de poesía; 8 es solo el dato de 6.°."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tabla tiene fila A: 5 y __ con total 12; fila B: 4 y 6. Si la segunda columna suma 13, todos los totales son coherentes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Completa la casilla de A.",
+          "12 − 5 = 7.",
+          "En la segunda columna 7 + 6 = 13."
+        ],
+        "retroalimentacion": "Es verdadero: el dato faltante es 7 y la columna suma 13."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Tabla: columna rojo total 18, con 5.° igual a 7 y 6.° igual a __. La fila de 6.° suma 20. ¿Cuántos de 6.° eligieron otro color? Escribe solo el número.",
+        "respuesta": "9",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero completa rojo de 6.°.",
+          "18 − 7 = 11 alumnos de 6.° eligieron rojo.",
+          "En 6.° el total es 20; calcula 20 − 11."
+        ],
+        "retroalimentacion": "Eligieron otro color 9; 11 corresponde a rojo de 6.°."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

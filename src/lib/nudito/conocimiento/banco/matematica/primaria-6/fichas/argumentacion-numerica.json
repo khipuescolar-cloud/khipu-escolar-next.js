@@ -1,0 +1,1727 @@
+[
+  {
+    "clave": "mat.p6.afirmaciones-pares-multiplos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-07"
+    ],
+    "bloque": "Argumentación numérica",
+    "nombre": "Afirmaciones sobre pares, impares y múltiplos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Comprueba con ejemplos si afirmaciones como «la suma de dos impares es par» son verdaderas.",
+    "palabrasClave": [
+      "par",
+      "impar",
+      "múltiplo",
+      "contraejemplo"
+    ],
+    "prerrequisitos": [
+      "mat.p6.criterios-divisibilidad"
+    ],
+    "ordenSugerido": 113,
+    "ideaCentral": "Una afirmación sobre números se comprueba con una regla que valga para todos los casos; un solo contraejemplo basta para mostrar que es falsa. Puedes escribir pares como 2 × n e impares como 2 × n + 1.",
+    "pasos": [
+      "Identifica si la afirmación habla de pares, impares o múltiplos.",
+      "Prueba casos pequeños para detectar un posible contraejemplo.",
+      "Explica con la regla de pares o múltiplos por qué se cumple siempre, o muestra un caso que la contradice."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "María afirma que la suma de dos impares es par.",
+        "desarrollo": "3 + 5 = 8; en general (2a + 1) + (2b + 1) = 2(a + b + 1), que es múltiplo de 2.",
+        "respuesta": "La afirmación es verdadera."
+      },
+      {
+        "situacion": "En el taller dicen que todo múltiplo de 6 es también múltiplo de 4.",
+        "desarrollo": "18 es 6 × 3, pero no se puede escribir como 4 por un número entero.",
+        "respuesta": "Es falsa: 18 es un contraejemplo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que varios ejemplos prueban una regla para todos los números.",
+        "correccion": "Usa una propiedad general; para refutar, basta un contraejemplo."
+      },
+      {
+        "error": "Decir que 0 no es par.",
+        "correccion": "0 = 2 × 0, por eso es par y múltiplo de 2."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Contraejemplo",
+        "significado": "Caso concreto que contradice una afirmación general."
+      },
+      {
+        "termino": "Par",
+        "significado": "Número entero que es múltiplo de 2."
+      },
+      {
+        "termino": "Múltiplo",
+        "significado": "Resultado de multiplicar un número por un entero."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La suma de 7 y 9, dos impares, es un número par.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula 7 + 9.",
+          "Obtienes 16.",
+          "16 = 2 × 8."
+        ],
+        "retroalimentacion": "Es verdadero: 7 + 9 = 16, que es par.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál número refuta «todos los múltiplos de 3 son pares»?",
+        "respuesta": "c",
+        "pistas": [
+          "Busca un múltiplo de 3.",
+          "Debe ser impar para contradecir la frase.",
+          "9 = 3 × 3 y no es par."
+        ],
+        "retroalimentacion": "9 refuta la frase: es múltiplo de 3 e impar.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "9"
+          },
+          {
+            "id": "d",
+            "texto": "18"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si sumas dos números pares, el resultado siempre es par.",
+        "respuesta": true,
+        "pistas": [
+          "Piensa en 2a y 2b.",
+          "Su suma es 2a + 2b.",
+          "Saca factor común 2: 2(a + b)."
+        ],
+        "retroalimentacion": "Es verdadero: la suma conserva el factor 2.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: 5 y 11 son impares; su suma es un número ¿par o impar?",
+        "respuesta": "par",
+        "pistas": [
+          "Suma 5 + 11.",
+          "El resultado es 16.",
+          "16 se divide exactamente entre 2."
+        ],
+        "retroalimentacion": "Es par: 5 + 11 = 16.",
+        "alternativasAceptadas": [
+          "un número par"
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Alicia sostiene que el producto de un par y un impar es impar. ¿Qué cálculo demuestra que se equivoca?",
+        "respuesta": "b",
+        "pistas": [
+          "Busca un producto con un factor par y otro impar.",
+          "4 es par y 3 impar.",
+          "4 × 3 = 12, un número par."
+        ],
+        "retroalimentacion": "4 × 3 = 12 contradice la afirmación; el producto es par.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 × 5 = 15"
+          },
+          {
+            "id": "b",
+            "texto": "4 × 3 = 12"
+          },
+          {
+            "id": "c",
+            "texto": "2 × 6 = 12"
+          },
+          {
+            "id": "d",
+            "texto": "5 × 7 = 35"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Todo múltiplo de 12 también es múltiplo de 3.",
+        "respuesta": true,
+        "pistas": [
+          "Escribe 12 como producto.",
+          "12 = 3 × 4.",
+          "12n = 3 × (4n)."
+        ],
+        "retroalimentacion": "Es verdadero: cada múltiplo de 12 conserva el factor 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La afirmación «todos los impares son mayores que 10» es falsa. Escribe un contraejemplo impar positivo menor que 10.",
+        "respuesta": "1",
+        "pistas": [
+          "Debe ser impar positivo.",
+          "Busca entre 1 y 9.",
+          "1, 3, 5, 7 y 9 sirven."
+        ],
+        "retroalimentacion": "Por ejemplo, 1 es impar y menor que 10.",
+        "alternativasAceptadas": [
+          "3",
+          "5",
+          "7",
+          "9"
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué frase es siempre cierta para dos números impares?",
+        "respuesta": "d",
+        "pistas": [
+          "Representa los impares como 2a + 1 y 2b + 1.",
+          "Al sumarlos quedan dos unidades sueltas.",
+          "1 + 1 = 2; toda la suma tiene factor 2."
+        ],
+        "retroalimentacion": "La suma es par; los dos unos forman otro 2.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Su suma es impar"
+          },
+          {
+            "id": "b",
+            "texto": "Su diferencia siempre es 1"
+          },
+          {
+            "id": "c",
+            "texto": "Su producto es par"
+          },
+          {
+            "id": "d",
+            "texto": "Su suma es par"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La frase «si un número termina en 0, es múltiplo de 5 y de 2» es verdadera para cualquier número natural.",
+        "respuesta": true,
+        "pistas": [
+          "Piensa en el valor de las decenas.",
+          "Un número terminado en 0 se escribe 10n.",
+          "10n = 5 × 2n y también 2 × 5n."
+        ],
+        "retroalimentacion": "Es verdadero: terminar en 0 asegura ambos factores, 5 y 2.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un compañero dice: «Si 6 y 10 son pares, su diferencia siempre es par». ¿Cuál explicación general respalda su idea?",
+        "respuesta": "a",
+        "pistas": [
+          "No basta citar solo 6 y 10.",
+          "Escribe dos pares como 2m y 2n.",
+          "Resta: 2m − 2n = 2(m − n)."
+        ],
+        "retroalimentacion": "2m − 2n = 2(m − n), así que la diferencia conserva el factor 2.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2m − 2n = 2(m − n)"
+          },
+          {
+            "id": "b",
+            "texto": "6 + 10 = 16"
+          },
+          {
+            "id": "c",
+            "texto": "10 − 6 = 4"
+          },
+          {
+            "id": "d",
+            "texto": "Todo número menor que 10 es par"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para refutar «todo múltiplo de 4 también es múltiplo de 8», escribe el menor múltiplo positivo de 4 que falla.",
+        "respuesta": "4",
+        "pistas": [
+          "Enumera múltiplos positivos de 4 desde el primero.",
+          "El primero es 4.",
+          "4 no es 8 por un número entero."
+        ],
+        "retroalimentacion": "El contraejemplo menor es 4: múltiplo de 4, pero no de 8.",
+        "alternativasAceptadas": [
+          "cuatro"
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál afirmación sobre tres impares consecutivos como 3, 5 y 7 se cumple siempre para su suma?",
+        "respuesta": "c",
+        "pistas": [
+          "Cada impar aporta un 1 además de un par.",
+          "Tres unos suman 3, que es impar.",
+          "Suma tres expresiones 2a + 1."
+        ],
+        "retroalimentacion": "La suma siempre es impar: una parte par más 3 da impar.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siempre es par"
+          },
+          {
+            "id": "b",
+            "texto": "Siempre es múltiplo de 4"
+          },
+          {
+            "id": "c",
+            "texto": "Siempre es impar"
+          },
+          {
+            "id": "d",
+            "texto": "Siempre termina en 5"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.decimales-entre-decimales",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-06"
+    ],
+    "bloque": "Argumentación numérica",
+    "nombre": "Decimales entre dos decimales dados",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Encuentra decimales intermedios y justifica que entre dos decimales siempre hay otro.",
+    "palabrasClave": [
+      "decimal intermedio",
+      "orden decimal",
+      "milésima",
+      "densidad"
+    ],
+    "prerrequisitos": [
+      "mat.p6.comparar-ordenar-decimales"
+    ],
+    "ordenSugerido": 114,
+    "ideaCentral": "Entre dos decimales distintos siempre puedes encontrar otro. Agrega ceros sin cambiar el valor y elige una cifra que quede estrictamente en medio.",
+    "pasos": [
+      "Escribe ambos extremos con igual cantidad de cifras decimales.",
+      "Si no hay una décima intermedia, agrega una cifra decimal más.",
+      "Elige un número mayor que el primero y menor que el segundo.",
+      "Comprueba las dos comparaciones."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Qué número queda entre 2,4 y 2,5?",
+        "desarrollo": "2,4 = 2,40 y 2,5 = 2,50; 2,45 es mayor que 2,40 y menor que 2,50.",
+        "respuesta": "2,45."
+      },
+      {
+        "situacion": "Busca un decimal entre 0,09 y 0,10.",
+        "desarrollo": "0,09 = 0,090 y 0,10 = 0,100; 0,095 está entre ambos.",
+        "respuesta": "0,095."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que entre 1,2 y 1,3 no hay decimales.",
+        "correccion": "Escribe 1,20 y 1,30; 1,25 queda en medio."
+      },
+      {
+        "error": "Elegir uno de los extremos.",
+        "correccion": "«Entre» exige ser mayor que el menor y menor que el mayor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Decimal intermedio",
+        "significado": "Número decimal estrictamente mayor que un extremo y menor que el otro."
+      },
+      {
+        "termino": "Centésima",
+        "significado": "Una de cien partes iguales de la unidad."
+      },
+      {
+        "termino": "Milésima",
+        "significado": "Una de mil partes iguales de la unidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál está entre 1,2 y 1,4?",
+        "respuesta": "b",
+        "pistas": [
+          "Compara los décimos.",
+          "Debe ser mayor que 1,2.",
+          "1,3 es menor que 1,4."
+        ],
+        "retroalimentacion": "1,3 está entre 1,2 y 1,4; 1,2 es un extremo.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1,2"
+          },
+          {
+            "id": "b",
+            "texto": "1,3"
+          },
+          {
+            "id": "c",
+            "texto": "1,4"
+          },
+          {
+            "id": "d",
+            "texto": "1,5"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "2,35 está entre 2,3 y 2,4.",
+        "respuesta": true,
+        "pistas": [
+          "Escribe 2,3 como 2,30.",
+          "Escribe 2,4 como 2,40.",
+          "Compara 2,30 < 2,35 < 2,40."
+        ],
+        "retroalimentacion": "Es verdadero: 2,35 supera 2,30 y no llega a 2,40.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con una décima: 4,1 < ___ < 4,3.",
+        "respuesta": "4,2",
+        "pistas": [
+          "La parte entera es 4.",
+          "La décima debe ir entre 1 y 3.",
+          "La cifra intermedia es 2."
+        ],
+        "retroalimentacion": "4,2 cumple 4,1 < 4,2 < 4,3.",
+        "alternativasAceptadas": [
+          "4.2"
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para ubicar un número entre 0,7 y 0,8, ¿qué escritura facilita verlo?",
+        "respuesta": "d",
+        "pistas": [
+          "Puedes agregar ceros a la derecha.",
+          "0,7 equivale a 0,70.",
+          "0,8 equivale a 0,80."
+        ],
+        "retroalimentacion": "0,70 y 0,80 dejan visibles las centésimas intermedias.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7 y 8"
+          },
+          {
+            "id": "b",
+            "texto": "0,07 y 0,08"
+          },
+          {
+            "id": "c",
+            "texto": "0,7 y 0,08"
+          },
+          {
+            "id": "d",
+            "texto": "0,70 y 0,80"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Elige una centésima entre 3,46 y 3,48.",
+        "respuesta": "3,47",
+        "pistas": [
+          "Mantén 3 enteros y 4 décimos.",
+          "La centésima va entre 6 y 8.",
+          "Usa 7 centésimas."
+        ],
+        "retroalimentacion": "3,47 es mayor que 3,46 y menor que 3,48.",
+        "alternativasAceptadas": [
+          "3.47"
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una regla debe señalar un decimal entre 5,09 y 5,10. ¿Cuál sirve?",
+        "respuesta": "a",
+        "pistas": [
+          "Escribe los límites en milésimas.",
+          "5,09 = 5,090; 5,10 = 5,100.",
+          "5,095 se ubica entre 5,090 y 5,100."
+        ],
+        "retroalimentacion": "5,095 es intermedio; 5,090 equivale al límite inferior.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5,095"
+          },
+          {
+            "id": "b",
+            "texto": "5,090"
+          },
+          {
+            "id": "c",
+            "texto": "5,100"
+          },
+          {
+            "id": "d",
+            "texto": "5,11"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Entre 6,18 y 6,19 no cabe ninguna centésima distinta de los extremos, pero sí una milésima.",
+        "respuesta": true,
+        "pistas": [
+          "Las centésimas son consecutivas.",
+          "Amplía: 6,180 y 6,190.",
+          "6,185 queda estrictamente entre ambas."
+        ],
+        "retroalimentacion": "Es verdadero: no hay otra centésima, pero 6,185 sí es una milésima intermedia.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa 0,5 < ___ < 0,51 con un decimal de tres cifras decimales que termine en 5.",
+        "respuesta": "0,505",
+        "pistas": [
+          "Escribe 0,5 como 0,500.",
+          "Escribe 0,51 como 0,510.",
+          "La milésima 5 da 0,505."
+        ],
+        "retroalimentacion": "0,505 satisface 0,500 < 0,505 < 0,510.",
+        "alternativasAceptadas": [
+          "0.505"
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una alumna propone 7,305 entre 7,30 y 7,31. ¿Qué argumento lo confirma?",
+        "respuesta": "c",
+        "pistas": [
+          "Alinea tres cifras decimales.",
+          "Compara 7,300, 7,305 y 7,310.",
+          "305 milésimas está entre 300 y 310 milésimas."
+        ],
+        "retroalimentacion": "7,300 < 7,305 < 7,310, por eso su propuesta funciona.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7,305 es mayor que 7,31"
+          },
+          {
+            "id": "b",
+            "texto": "7,30 tiene menos cifras"
+          },
+          {
+            "id": "c",
+            "texto": "7,300 < 7,305 < 7,310"
+          },
+          {
+            "id": "d",
+            "texto": "7,305 es igual a 7,30"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si a dos decimales diferentes les agregas ceros al final, desaparecen los números que había entre ellos.",
+        "respuesta": false,
+        "pistas": [
+          "Agregar ceros no cambia el valor.",
+          "1,4 = 1,400 y 1,5 = 1,500.",
+          "1,450 sigue entre 1,400 y 1,500."
+        ],
+        "retroalimentacion": "Es falso: los ceros solo permiten ver más posiciones; 1,450 sigue entre 1,4 y 1,5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe el punto medio exacto entre 2,48 y 2,49 usando tres cifras decimales.",
+        "respuesta": "2,485",
+        "pistas": [
+          "Convierte los extremos a milésimas.",
+          "Son 2,480 y 2,490.",
+          "La mitad entre 480 y 490 milésimas es 485."
+        ],
+        "retroalimentacion": "El punto medio es 2,485, pues dista 0,005 de cada extremo.",
+        "alternativasAceptadas": [
+          "2.485"
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si 0,999 < x < 1, ¿qué valor puede tener x?",
+        "respuesta": "b",
+        "pistas": [
+          "1 equivale a 1,0000.",
+          "0,999 equivale a 0,9990.",
+          "0,9995 queda entre 0,9990 y 1,0000."
+        ],
+        "retroalimentacion": "0,9995 cumple ambas desigualdades; 1 es un extremo.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,9985"
+          },
+          {
+            "id": "b",
+            "texto": "0,9995"
+          },
+          {
+            "id": "c",
+            "texto": "1"
+          },
+          {
+            "id": "d",
+            "texto": "1,0005"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.errores-operar-fracciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-06",
+      "MAT-C23-P6-07"
+    ],
+    "bloque": "Argumentación numérica",
+    "nombre": "Errores frecuentes al operar fracciones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Detecta y explica errores como sumar numeradores y denominadores.",
+    "palabrasClave": [
+      "fracciones",
+      "denominador común",
+      "simplificación",
+      "error de cálculo"
+    ],
+    "prerrequisitos": [
+      "mat.p6.suma-resta-heterogeneas",
+      "mat.p6.multiplicacion-fracciones"
+    ],
+    "ordenSugerido": 115,
+    "ideaCentral": "Para revisar una operación con fracciones, identifica qué operación se hizo y comprueba si el procedimiento conserva partes del mismo tamaño. En sumas y restas se igualan denominadores; en multiplicaciones se multiplican numeradores y denominadores.",
+    "pasos": [
+      "Lee la operación original y el resultado propuesto.",
+      "Revisa si las fracciones necesitan un denominador común o si se multiplican.",
+      "Haz el cálculo correcto y, si conviene, simplifica.",
+      "Señala el paso equivocado y contrasta ambos resultados."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Pedro escribió 1/2 + 1/3 = 2/5.",
+        "desarrollo": "Las mitades y los tercios tienen distinto tamaño. Uso sextos: 3/6 + 2/6 = 5/6.",
+        "respuesta": "2/5 es incorrecto; la suma es 5/6."
+      },
+      {
+        "situacion": "Una receta dice 2/3 × 3/4 y Julia obtuvo 6/7.",
+        "desarrollo": "En una multiplicación, 2 × 3 = 6 y 3 × 4 = 12; 6/12 = 1/2.",
+        "respuesta": "El resultado correcto es 1/2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar denominadores al sumar fracciones.",
+        "correccion": "Usa denominador común y suma solo los numeradores."
+      },
+      {
+        "error": "Multiplicar una fracción por un entero sin multiplicar el numerador.",
+        "correccion": "n × a/b = (n × a)/b."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Denominador común",
+        "significado": "Mismo número de partes en que se divide cada entero antes de sumar o restar."
+      },
+      {
+        "termino": "Simplificar",
+        "significado": "Dividir numerador y denominador por un mismo número."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un estudiante escribió 1/4 + 2/4 = 3/8. Su denominador final es correcto.",
+        "respuesta": false,
+        "pistas": [
+          "Las fracciones ya están en cuartos.",
+          "Suma 1 + 2, pero conserva el tamaño de los cuartos.",
+          "El denominador debe seguir siendo 4."
+        ],
+        "retroalimentacion": "Es falso: 1/4 + 2/4 = 3/4; no se suman denominadores.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al revisar 2/5 + 1/5 = 3/10, ¿qué corrección eliges?",
+        "respuesta": "c",
+        "pistas": [
+          "Ambas fracciones tienen quintos.",
+          "Suma 2 + 1.",
+          "Mantén el denominador 5."
+        ],
+        "retroalimentacion": "La corrección es 3/5; 3/10 suma por error los denominadores.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2/10"
+          },
+          {
+            "id": "b",
+            "texto": "3/25"
+          },
+          {
+            "id": "c",
+            "texto": "3/5"
+          },
+          {
+            "id": "d",
+            "texto": "1/5"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Raúl anotó 1/2 + 1/2 = 2/4. Escribe el resultado simplificado correcto como fracción.",
+        "respuesta": "1/1",
+        "pistas": [
+          "Dos mitades completan un entero.",
+          "1/2 + 1/2 = 2/2.",
+          "2/2 equivale a 1/1."
+        ],
+        "retroalimentacion": "El resultado es 1/1, es decir, un entero; 2/4 solo representa la mitad.",
+        "alternativasAceptadas": [
+          "1"
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para multiplicar 2/3 × 1/4, se puede hacer (2 × 1)/(3 × 4) = 2/12.",
+        "respuesta": true,
+        "pistas": [
+          "Es una multiplicación, no una suma.",
+          "Multiplica numeradores entre sí.",
+          "Multiplica denominadores entre sí: 3 × 4 = 12."
+        ],
+        "retroalimentacion": "Es verdadero: 2/12, que simplificado es 1/6.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la pizarra aparece 1/2 + 1/4 = 2/6. ¿Cuál fue el error?",
+        "respuesta": "a",
+        "pistas": [
+          "Compara el tamaño de medios y cuartos.",
+          "Hay que pasar 1/2 a cuartos.",
+          "1/2 = 2/4; luego se suman 2/4 y 1/4."
+        ],
+        "retroalimentacion": "Se sumaron numeradores y denominadores sin igualar partes; el resultado es 3/4.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sumar numeradores y denominadores sin buscar cuartos"
+          },
+          {
+            "id": "b",
+            "texto": "Multiplicar los numeradores"
+          },
+          {
+            "id": "c",
+            "texto": "Simplificar 3/4"
+          },
+          {
+            "id": "d",
+            "texto": "Convertir 1/2 en 2/4"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Sofía escribió 3/4 − 1/2 = 2/2. ¿Qué fracción simplificada debería obtener?",
+        "respuesta": "1/4",
+        "pistas": [
+          "Convierte la mitad a cuartos.",
+          "1/2 = 2/4.",
+          "3/4 − 2/4 deja un cuarto."
+        ],
+        "retroalimentacion": "La respuesta es 1/4; restar por separado denominadores produce un resultado falso.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si alguien obtiene 5/6 para 2/3 × 3/4, confundió la multiplicación con una suma de fracciones.",
+        "respuesta": false,
+        "pistas": [
+          "Calcula primero el producto.",
+          "2/3 × 3/4 = 6/12 = 1/2.",
+          "La suma 2/3 + 3/4 tampoco es 5/6."
+        ],
+        "retroalimentacion": "Es falso: 5/6 no es ni el producto (1/2) ni la suma (17/12); hay otro error.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué operación corrige 2/3 × 3 = 2/9?",
+        "respuesta": "d",
+        "pistas": [
+          "El 3 entero es 3/1.",
+          "Multiplica 2 × 3 arriba.",
+          "Abajo queda 3 × 1."
+        ],
+        "retroalimentacion": "2/3 × 3/1 = 6/3 = 2; 2/9 multiplica el denominador por error.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2/3 × 1/3 = 2/9"
+          },
+          {
+            "id": "b",
+            "texto": "2/3 + 3 = 11/3"
+          },
+          {
+            "id": "c",
+            "texto": "2/3 × 3/3 = 2/3"
+          },
+          {
+            "id": "d",
+            "texto": "2/3 × 3/1 = 6/3"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lucía asegura que 3/5 + 1/10 = 4/15. ¿Qué revisión muestra el resultado correcto?",
+        "respuesta": "b",
+        "pistas": [
+          "Usa décimos como partes iguales.",
+          "3/5 = 6/10.",
+          "6/10 + 1/10 = 7/10."
+        ],
+        "retroalimentacion": "7/10 es correcto; 4/15 suma números de arriba y abajo sin denominador común.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3/5 = 3/10; total 4/10"
+          },
+          {
+            "id": "b",
+            "texto": "3/5 = 6/10; total 7/10"
+          },
+          {
+            "id": "c",
+            "texto": "3/5 = 5/10; total 6/10"
+          },
+          {
+            "id": "d",
+            "texto": "3/5 = 6/15; total 7/15"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En 5/6 − 1/3, Ana obtuvo 4/3. Corrige el cálculo y escribe la fracción simplificada.",
+        "respuesta": "1/2",
+        "pistas": [
+          "Transforma tercios en sextos.",
+          "1/3 = 2/6.",
+          "5/6 − 2/6 = 3/6; simplifica."
+        ],
+        "retroalimentacion": "El resultado es 1/2. Restar denominadores dio el 4/3 equivocado.",
+        "alternativasAceptadas": [
+          "3/6"
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Luis dice que 1/2 + 1/3 = 2/5 es imposible porque al agregar 1/3 el resultado debe superar 1/2.",
+        "respuesta": true,
+        "pistas": [
+          "Compara 2/5 con 1/2.",
+          "2/5 = 0,4 y 1/2 = 0,5.",
+          "Una suma positiva no puede ser menor que el primer sumando."
+        ],
+        "retroalimentacion": "Es verdadero: 2/5 < 1/2; la suma correcta es 5/6.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una compañera calculó 2/3 × 3/5 = 6/15 y luego dijo que 6/15 = 2/5. ¿Dónde hay error?",
+        "respuesta": "c",
+        "pistas": [
+          "Multiplica: 2 × 3 = 6 y 3 × 5 = 15.",
+          "Simplifica 6/15 dividiendo ambos términos entre 3.",
+          "Obtienes 2/5."
+        ],
+        "retroalimentacion": "No hay error: 6/15 y 2/5 son fracciones equivalentes.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En multiplicar 2 × 3"
+          },
+          {
+            "id": "b",
+            "texto": "En multiplicar 3 × 5"
+          },
+          {
+            "id": "c",
+            "texto": "No hay error"
+          },
+          {
+            "id": "d",
+            "texto": "En dividir 6 y 15 entre 3"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.razonabilidad-resultados",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-04",
+      "MAT-C23-P6-07"
+    ],
+    "bloque": "Argumentación numérica",
+    "nombre": "Razonabilidad de un resultado mediante estimación",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Usa el redondeo para decidir si un resultado es posible antes de aceptarlo.",
+    "palabrasClave": [
+      "estimación",
+      "redondeo",
+      "resultado razonable",
+      "orden de magnitud"
+    ],
+    "prerrequisitos": [
+      "mat.p6.redondeo-decimales",
+      "mat.p6.redondeo-naturales"
+    ],
+    "ordenSugerido": 116,
+    "ideaCentral": "Antes de aceptar un cálculo, redondea los datos a números fáciles y estima el resultado. Si la respuesta exacta está muy lejos de la estimación, revisa la operación.",
+    "pasos": [
+      "Identifica la operación y los datos.",
+      "Redondea cada dato a una cantidad cercana fácil de calcular.",
+      "Calcula la estimación y compara con la respuesta propuesta.",
+      "Si la diferencia es demasiado grande para el redondeo usado, detecta el error."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una bodega vende 49 paquetes a S/ 21 cada uno y alguien dice que cobra S/ 10 290.",
+        "desarrollo": "Aproximo 49 a 50 y 21 a 20: 50 × 20 = 1000.",
+        "respuesta": "S/ 10 290 no es razonable; el valor real es cercano a S/ 1000."
+      },
+      {
+        "situacion": "Se reparten 198 lápices entre 10 grupos y alguien obtiene 1 980 por grupo.",
+        "desarrollo": "198 está cerca de 200; 200 ÷ 10 = 20.",
+        "respuesta": "1 980 no es razonable; serán cerca de 20 lápices por grupo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comparar solo las últimas cifras del resultado.",
+        "correccion": "Compara primero el tamaño total: decenas, centenas o millares."
+      },
+      {
+        "error": "Redondear y exigir que el resultado exacto sea idéntico a la estimación.",
+        "correccion": "La estimación sirve para detectar errores grandes, no para dar el valor exacto."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Estimación",
+        "significado": "Cálculo aproximado que permite prever el tamaño de una respuesta."
+      },
+      {
+        "termino": "Redondeo",
+        "significado": "Reemplazar una cantidad por otra cercana y más fácil de usar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "48 + 52 se estima como 50 + 50. ¿Qué resultado propuesto parece razonable?",
+        "respuesta": "b",
+        "pistas": [
+          "Redondea ambos sumandos a 50.",
+          "50 + 50 = 100.",
+          "Elige una respuesta cercana a 100."
+        ],
+        "retroalimentacion": "100 es razonable; 10 o 1000 cambian mucho el tamaño.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10"
+          },
+          {
+            "id": "b",
+            "texto": "100"
+          },
+          {
+            "id": "c",
+            "texto": "1000"
+          },
+          {
+            "id": "d",
+            "texto": "5"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 297 + 402 se aproxima con 300 + 400, una respuesta de 699 es razonable.",
+        "respuesta": true,
+        "pistas": [
+          "Aproxima a centenas.",
+          "300 + 400 = 700.",
+          "699 está apenas a 1 de 700."
+        ],
+        "retroalimentacion": "Es verdadero: 699 concuerda con la estimación de 700.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para comprobar si 19 × 6 = 114 tiene sentido, ¿qué producto aproximado conviene?",
+        "respuesta": "d",
+        "pistas": [
+          "19 está cerca de una decena exacta.",
+          "Redondea 19 a 20.",
+          "Calcula 20 × 6."
+        ],
+        "retroalimentacion": "20 × 6 = 120 confirma que 114 es razonable.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 × 6 = 12"
+          },
+          {
+            "id": "b",
+            "texto": "19 × 60 = 1140"
+          },
+          {
+            "id": "c",
+            "texto": "10 × 6 = 60"
+          },
+          {
+            "id": "d",
+            "texto": "20 × 6 = 120"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El resultado 900 de 31 × 3 parece razonable al estimar 30 × 3.",
+        "respuesta": false,
+        "pistas": [
+          "Redondea 31 a 30.",
+          "30 × 3 = 90.",
+          "900 tiene una cifra de más."
+        ],
+        "retroalimentacion": "Es falso: se espera cerca de 90; 31 × 3 = 93.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Alguien obtiene 5 040 para 52 × 9. Redondea 52 a 50 y escribe la estimación numérica.",
+        "respuesta": "450",
+        "pistas": [
+          "Mantén el factor 9.",
+          "Multiplica 50 × 9.",
+          "5 × 9 = 45; agrega un cero."
+        ],
+        "retroalimentacion": "La estimación es 450; 5 040 tiene un orden de magnitud equivocado.",
+        "alternativasAceptadas": [
+          "450"
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tienda anuncia S/ 3,90 por cuaderno. Para 8 cuadernos dicen S/ 312. ¿Qué estimación muestra el error?",
+        "respuesta": "a",
+        "pistas": [
+          "Redondea S/ 3,90 a S/ 4.",
+          "Multiplica 4 por 8.",
+          "Esperas cerca de S/ 32."
+        ],
+        "retroalimentacion": "4 × 8 = 32; S/ 312 es demasiado grande.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 32"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 320"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 3"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 80"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 602 ÷ 3, estimar 600 ÷ 3 = 200 ayuda a rechazar una respuesta de 20.",
+        "respuesta": true,
+        "pistas": [
+          "602 está cerca de 600.",
+          "600 ÷ 3 = 200.",
+          "20 es diez veces menor que 200."
+        ],
+        "retroalimentacion": "Es verdadero: el cociente debe rondar 200, no 20.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una campaña juntaron 98, 103 y 101 botellas. Un conteo dice 302. ¿Qué evaluación corresponde?",
+        "respuesta": "c",
+        "pistas": [
+          "Aproxima cada cantidad a 100.",
+          "Tres grupos de 100 suman 300.",
+          "302 es muy cercano a 300."
+        ],
+        "retroalimentacion": "302 es razonable: 98 + 103 + 101 = 302.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Imposible; debe rondar 30"
+          },
+          {
+            "id": "b",
+            "texto": "Imposible; debe rondar 3000"
+          },
+          {
+            "id": "c",
+            "texto": "Razonable; ronda 300"
+          },
+          {
+            "id": "d",
+            "texto": "Imposible; debe ser exactamente 300"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un taxista recorrió 197 km cada día durante 5 días. El registro marca 9 850 km. ¿Qué cálculo estimado permite cuestionarlo?",
+        "respuesta": "b",
+        "pistas": [
+          "Aproxima 197 a 200.",
+          "Conserva los 5 días.",
+          "200 × 5 = 1000, lejos de 9850."
+        ],
+        "retroalimentacion": "200 × 5 = 1000; 9 850 tiene casi diez veces la distancia esperada.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "200 + 5 = 205"
+          },
+          {
+            "id": "b",
+            "texto": "200 × 5 = 1000"
+          },
+          {
+            "id": "c",
+            "texto": "197 × 50 = 9850"
+          },
+          {
+            "id": "d",
+            "texto": "200 ÷ 5 = 40"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 49 × 51, estimar 50 × 50 = 2500 hace razonable un resultado exacto de 2499.",
+        "respuesta": true,
+        "pistas": [
+          "Ambos factores están a una unidad de 50.",
+          "(50 − 1)(50 + 1) = 2500 − 1.",
+          "La diferencia con la estimación es solo 1."
+        ],
+        "retroalimentacion": "Es verdadero: 49 × 51 = 2499, muy cercano a 2500.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Se afirma que 998 ÷ 2 = 49. Redondea 998 al millar más cercano y escribe la estimación del cociente.",
+        "respuesta": "500",
+        "pistas": [
+          "998 está muy cerca de 1000.",
+          "Divide 1000 entre 2.",
+          "La mitad de 1000 es 500."
+        ],
+        "retroalimentacion": "La estimación es 500; 49 no es razonable, pues el valor exacto es 499.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una feria, 12 bolsas de 0,49 kg de quinua se estiman como 12 bolsas de 0,5 kg. ¿Qué peso total propuesto es razonable?",
+        "respuesta": "d",
+        "pistas": [
+          "0,5 kg es medio kilogramo.",
+          "Doce medios kilogramos suman 6 kg.",
+          "El peso exacto debe estar un poco por debajo de 6 kg."
+        ],
+        "retroalimentacion": "5,88 kg es razonable: 12 × 0,49 = 5,88, cercano a 6.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,588 kg"
+          },
+          {
+            "id": "b",
+            "texto": "58,8 kg"
+          },
+          {
+            "id": "c",
+            "texto": "12,49 kg"
+          },
+          {
+            "id": "d",
+            "texto": "5,88 kg"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.justificar-proceso-resolucion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-07"
+    ],
+    "bloque": "Argumentación numérica",
+    "nombre": "Explicación del proceso de resolución",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Explica los pasos seguidos, los datos usados y por qué la respuesta tiene sentido.",
+    "palabrasClave": [
+      "explicar",
+      "datos",
+      "operación",
+      "comprobación"
+    ],
+    "prerrequisitos": [
+      "mat.p6.estrategias-heuristicas"
+    ],
+    "ordenSugerido": 117,
+    "ideaCentral": "Una solución matemática se entiende cuando dices qué datos usaste, por qué elegiste cada operación y cómo comprobaste la respuesta. Explicar permite encontrar errores y convencer a otra persona.",
+    "pasos": [
+      "Separa la pregunta de los datos útiles.",
+      "Describe con palabras qué representa cada operación.",
+      "Calcula en orden y escribe la unidad de la respuesta.",
+      "Comprueba si el resultado responde a la pregunta y tiene sentido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Hay 4 cajas con 12 lápices cada una y se regalan 8. ¿Cuántos quedan?",
+        "desarrollo": "Multiplico 4 × 12 para hallar el total: 48. Resto 8 regalados: 48 − 8 = 40. Compruebo: 40 + 8 = 48.",
+        "respuesta": "Quedan 40 lápices."
+      },
+      {
+        "situacion": "Una entrada cuesta S/ 7; Ana compra 3 y paga S/ 25. ¿Cuánto recibe?",
+        "desarrollo": "Tres entradas cuestan 3 × 7 = 21. Resto del pago: 25 − 21 = 4; 21 + 4 devuelve 25.",
+        "respuesta": "Recibe S/ 4 de vuelto."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir solo una cifra sin indicar qué significa.",
+        "correccion": "Añade el dato calculado y su unidad: «quedan 40 lápices»."
+      },
+      {
+        "error": "Elegir una operación sin relacionarla con el problema.",
+        "correccion": "Explica por qué multiplicas, sumas, restas o divides según los datos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Dato útil",
+        "significado": "Información del problema necesaria para responder la pregunta."
+      },
+      {
+        "termino": "Comprobación",
+        "significado": "Paso que verifica que la respuesta concuerda con los datos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para explicar 5 bolsas con 6 panes cada una, ¿qué frase justifica 5 × 6?",
+        "respuesta": "b",
+        "pistas": [
+          "Observa que todas las bolsas tienen igual cantidad.",
+          "Hay 5 grupos de 6 panes.",
+          "Multiplicar cuenta los 5 grupos iguales."
+        ],
+        "retroalimentacion": "«Son cinco grupos de seis panes» justifica multiplicar 5 × 6.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque 5 es menor que 6"
+          },
+          {
+            "id": "b",
+            "texto": "Porque son cinco grupos de seis panes"
+          },
+          {
+            "id": "c",
+            "texto": "Porque se retiran seis panes"
+          },
+          {
+            "id": "d",
+            "texto": "Porque sobran cinco bolsas"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En «28 figuritas repartidas entre 4 amigos», decir «divido porque todos reciben la misma cantidad» explica la operación.",
+        "respuesta": true,
+        "pistas": [
+          "La pregunta trata de repartir.",
+          "Son 4 grupos iguales.",
+          "28 ÷ 4 expresa ese reparto."
+        ],
+        "retroalimentacion": "Es verdadero: la explicación conecta división y reparto igual.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En 3 paquetes de 8 galletas, ¿qué operación debes nombrar para hallar el total?",
+        "respuesta": "multiplicación",
+        "pistas": [
+          "Son grupos de igual tamaño.",
+          "Sumarías 8 + 8 + 8.",
+          "La suma repetida se expresa como 3 × 8."
+        ],
+        "retroalimentacion": "Debes nombrar la multiplicación: 3 × 8 = 24.",
+        "alternativasAceptadas": [
+          "multiplicacion",
+          "multiplicar"
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una respuesta dice «15». La pregunta era «¿cuántos metros de cinta quedan?». ¿Qué cierre comunica bien el resultado?",
+        "respuesta": "d",
+        "pistas": [
+          "La cifra sola deja una duda.",
+          "La pregunta pide una longitud restante.",
+          "Incluye «quedan» y «metros»."
+        ],
+        "retroalimentacion": "«Quedan 15 metros de cinta» indica qué mide el 15.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15 cajas"
+          },
+          {
+            "id": "b",
+            "texto": "Compré 15"
+          },
+          {
+            "id": "c",
+            "texto": "15 × 2"
+          },
+          {
+            "id": "d",
+            "texto": "Quedan 15 metros de cinta"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para hallar el vuelto de S/ 20 tras pagar S/ 13, explicar «sumé 20 y 13 porque ambos son dinero» justifica correctamente el cálculo.",
+        "respuesta": false,
+        "pistas": [
+          "Vuelto es lo que sobra del pago.",
+          "Compara dinero entregado y precio.",
+          "Debes restar 20 − 13."
+        ],
+        "retroalimentacion": "Es falso: el vuelto se obtiene restando 20 − 13 = 7 soles.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El colegio tiene 72 libros y coloca 9 por estante. ¿Qué explicación acompaña 72 ÷ 9 = 8?",
+        "respuesta": "a",
+        "pistas": [
+          "72 es el total de libros.",
+          "9 es lo que cabe en cada estante.",
+          "El cociente cuenta cuántos estantes se llenan."
+        ],
+        "retroalimentacion": "«Divido el total entre los libros por estante para hallar 8 estantes» explica el proceso.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Divido el total entre 9 libros por estante y obtengo 8 estantes"
+          },
+          {
+            "id": "b",
+            "texto": "Divido porque 72 y 9 son pares"
+          },
+          {
+            "id": "c",
+            "texto": "Sumo 72 y 9 para obtener estantes"
+          },
+          {
+            "id": "d",
+            "texto": "Resto 9 estantes a 72 libros"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Carla resolvió 6 × 4 = 24 mesas y 24 − 5 = 19 mesas. ¿Qué operación explica la frase «retiro las cinco mesas prestadas»?",
+        "respuesta": "resta",
+        "pistas": [
+          "La frase indica que se quitan mesas.",
+          "Se parte de 24 mesas.",
+          "Quitar 5 se escribe 24 − 5."
+        ],
+        "retroalimentacion": "La resta explica 24 − 5 = 19; se retiran 5 de las 24 mesas.",
+        "alternativasAceptadas": [
+          "restar",
+          "sustracción",
+          "sustraccion"
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un problema de 45 naranjas repartidas en 5 canastas, comprobar 45 ÷ 5 = 9 con 9 × 5 = 45 fortalece la explicación.",
+        "respuesta": true,
+        "pistas": [
+          "El cociente propuesto es 9.",
+          "Cinco canastas de 9 deben recuperar el total.",
+          "9 × 5 = 45."
+        ],
+        "retroalimentacion": "Es verdadero: la multiplicación inversa confirma el reparto.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una familia compra 3 entradas de S/ 12 y entrega S/ 50. ¿Qué secuencia explica el vuelto?",
+        "respuesta": "c",
+        "pistas": [
+          "Primero calcula el costo de las entradas.",
+          "3 × 12 = 36.",
+          "Luego resta 50 − 36 = 14."
+        ],
+        "retroalimentacion": "Multiplicar para hallar S/ 36 y restar para hallar S/ 14 explica las dos etapas.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "50 − 12 = 38; 38 × 3 = 114"
+          },
+          {
+            "id": "b",
+            "texto": "3 + 12 = 15; 50 − 15 = 35"
+          },
+          {
+            "id": "c",
+            "texto": "3 × 12 = 36; 50 − 36 = 14"
+          },
+          {
+            "id": "d",
+            "texto": "50 ÷ 3 = 16,67; luego suma 12"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un alumno escribió «40 ÷ 5 = 8, porque las 40 semillas se reparten en cinco macetas iguales». ¿Qué operación inversa, escrita como igualdad, comprueba su respuesta?",
+        "respuesta": "8×5=40",
+        "pistas": [
+          "Cada maceta recibe 8 semillas.",
+          "Hay 5 macetas.",
+          "Multiplica 8 por 5 para recuperar 40."
+        ],
+        "retroalimentacion": "8 × 5 = 40 comprueba que cinco grupos de ocho recuperan las 40 semillas.",
+        "alternativasAceptadas": [
+          "5×8=40",
+          "8 x 5 = 40",
+          "5 x 8 = 40",
+          "8*5=40",
+          "5*8=40"
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En «12 alumnos por fila y 4 filas; llegan 3 alumnos más», justificar 12 × 4 + 3 = 51 diciendo «primero cuento las filas iguales y luego agrego a los recién llegados» es correcto.",
+        "respuesta": true,
+        "pistas": [
+          "Las filas son cuatro grupos de doce.",
+          "12 × 4 = 48.",
+          "Los tres nuevos se suman al total."
+        ],
+        "retroalimentacion": "Es verdadero: 48 + 3 = 51 y cada paso tiene una razón.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Diego afirma que resolvió bien un reparto: «24 vasos en 6 mesas; hay 4 vasos». ¿Qué falta para que su explicación responda con precisión?",
+        "respuesta": "b",
+        "pistas": [
+          "El 4 necesita un referente.",
+          "Se dividió 24 entre 6 mesas.",
+          "El resultado indica vasos por mesa."
+        ],
+        "retroalimentacion": "Debe decir «4 vasos por mesa»; así explica qué representa el cociente.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cambiar división por suma"
+          },
+          {
+            "id": "b",
+            "texto": "Decir que son 4 vasos por mesa"
+          },
+          {
+            "id": "c",
+            "texto": "Eliminar el número 6"
+          },
+          {
+            "id": "d",
+            "texto": "Cambiar vasos por mesas"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

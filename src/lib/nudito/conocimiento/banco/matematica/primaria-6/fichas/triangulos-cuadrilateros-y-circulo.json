@@ -1,0 +1,1591 @@
+[
+  {
+    "clave": "mat.p6.clasificar-triangulos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P6-01",
+      "MAT-C26-P6-04"
+    ],
+    "bloque": "Triángulos, cuadriláteros y círculo",
+    "nombre": "Clasificación de triángulos por sus lados y ángulos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Clasifica triángulos en equiláteros, isósceles y escalenos, y en acutángulos, rectángulos y obtusángulos.",
+    "palabrasClave": [
+      "equilátero",
+      "isósceles",
+      "escaleno",
+      "acutángulo",
+      "rectángulo",
+      "obtusángulo"
+    ],
+    "prerrequisitos": [
+      "mat.p6.clasificacion-angulos"
+    ],
+    "ordenSugerido": 56,
+    "ideaCentral": "Los triángulos se pueden clasificar de dos maneras: por sus lados y por sus ángulos. Equilátero tiene tres lados iguales, isósceles al menos dos y escaleno tres diferentes; acutángulo tiene tres ángulos agudos, rectángulo uno recto y obtusángulo uno obtuso.",
+    "pasos": [
+      "Compara las longitudes de los tres lados y nombra el tipo por lados.",
+      "Revisa si hay un ángulo de 90° o uno mayor que 90°.",
+      "Si todos los ángulos son menores que 90°, di acutángulo.",
+      "Expresa las dos clasificaciones si te piden describir completamente el triángulo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un triángulo tiene dos lados de 5 cm y una base de 8 cm. Sus ángulos miden aproximadamente 37°, 37° y 106°.",
+        "desarrollo": "Dos lados iguales: isósceles. Un ángulo mayor que 90°: obtusángulo.",
+        "respuesta": "Es isósceles obtusángulo."
+      },
+      {
+        "situacion": "Otro tiene lados 3, 4 y 5 cm y ángulos 37°, 53° y 90°.",
+        "desarrollo": "Los tres lados son distintos y hay un ángulo recto.",
+        "respuesta": "Es escaleno rectángulo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que isósceles significa exactamente dos lados iguales.",
+        "correccion": "Con la definición «al menos dos», todo equilátero también cumple esa propiedad; si piden un solo nombre, usa el más específico."
+      },
+      {
+        "error": "Clasificar un triángulo por el largo de sus lados cuando se pide el tipo de ángulos.",
+        "correccion": "Observa las medidas angulares para decir acutángulo, rectángulo u obtusángulo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Equilátero",
+        "significado": "Triángulo con tres lados iguales."
+      },
+      {
+        "termino": "Escaleno",
+        "significado": "Triángulo con tres lados distintos."
+      },
+      {
+        "termino": "Rectángulo",
+        "significado": "Triángulo con un ángulo de 90°."
+      },
+      {
+        "termino": "Obtusángulo",
+        "significado": "Triángulo con un ángulo mayor que 90°."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un triángulo tiene lados de 6, 6 y 6 cm. ¿Cuál es su nombre más específico por lados?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Escaleno"
+          },
+          {
+            "id": "b",
+            "texto": "Isósceles"
+          },
+          {
+            "id": "c",
+            "texto": "Equilátero"
+          },
+          {
+            "id": "d",
+            "texto": "Rectángulo"
+          }
+        ],
+        "pistas": [
+          "Compara los tres números.",
+          "Los tres lados miden 6 cm.",
+          "Tres lados iguales definen un equilátero."
+        ],
+        "retroalimentacion": "Equilátero es el nombre más específico; rectángulo clasifica por ángulos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo con lados 4, 5 y 6 cm es escaleno.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los tres lados.",
+          "No se repite ninguna longitud.",
+          "Tres lados diferentes definen un escaleno."
+        ],
+        "retroalimentacion": "Es verdadero: 4, 5 y 6 son distintos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si un triángulo tiene un ángulo de 90°, ¿cómo se clasifica por ángulos? Escribe una palabra.",
+        "respuesta": "rectángulo",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "90° es un ángulo recto.",
+          "La clasificación angular toma el nombre de ese ángulo.",
+          "El triángulo con un recto es rectángulo."
+        ],
+        "retroalimentacion": "Rectángulo: tener un ángulo de 90° define esa clase."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ángulos de 50°, 60° y 70°: ¿qué tipo de triángulo forman por ángulos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Acutángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Obtusángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Rectángulo"
+          },
+          {
+            "id": "d",
+            "texto": "Llano"
+          }
+        ],
+        "pistas": [
+          "Mira cada abertura.",
+          "Las tres medidas son menores que 90°.",
+          "Tres ángulos agudos forman un acutángulo."
+        ],
+        "retroalimentacion": "Acutángulo es correcto; ninguno llega a 90°."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo isósceles tiene lados 7, 7 y 10 cm. ¿Cuántos lados de igual longitud tiene? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca las longitudes repetidas.",
+          "El 7 aparece dos veces.",
+          "El lado de 10 cm es diferente."
+        ],
+        "retroalimentacion": "Tiene 2 lados iguales; el tercero mide 10 cm."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo con ángulos 30°, 40° y 110° es obtusángulo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica el ángulo mayor.",
+          "110° supera 90°.",
+          "Un ángulo obtuso da nombre al triángulo."
+        ],
+        "retroalimentacion": "Es verdadero: 110° es obtuso."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un triángulo tiene lados 5, 5 y 8 cm, y ángulos aproximados de 37°, 37° y 106°. ¿Qué clasificación completa corresponde?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Escaleno acutángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Equilátero obtusángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Isósceles rectángulo"
+          },
+          {
+            "id": "d",
+            "texto": "Isósceles obtusángulo"
+          }
+        ],
+        "pistas": [
+          "Dos lados son iguales.",
+          "Eso da isósceles.",
+          "El ángulo cercano a 106° es obtuso, así que el tipo angular es obtusángulo."
+        ],
+        "retroalimentacion": "Isósceles obtusángulo describe ambos rasgos: dos lados iguales y un ángulo de unos 106°."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un triángulo tiene lados 3, 4 y 5 cm, todos diferentes. ¿Cómo se llama por sus lados? Escribe una palabra.",
+        "respuesta": "escaleno",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No repite longitudes.",
+          "La clase de tres lados distintos tiene un nombre propio.",
+          "Ese nombre empieza con «esca»."
+        ],
+        "retroalimentacion": "Escaleno; isósceles requeriría lados iguales."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál conjunto puede describir un triángulo rectángulo isósceles?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "30°, 60°, 90°"
+          },
+          {
+            "id": "b",
+            "texto": "45°, 45°, 90°"
+          },
+          {
+            "id": "c",
+            "texto": "60°, 60°, 60°"
+          },
+          {
+            "id": "d",
+            "texto": "40°, 50°, 90°"
+          }
+        ],
+        "pistas": [
+          "Un rectángulo necesita 90°.",
+          "Un isósceles tiene dos ángulos iguales.",
+          "Los otros dos ángulos deben sumar 90° y ser iguales."
+        ],
+        "retroalimentacion": "45°, 45°, 90° satisface ambas condiciones; 30°, 60°, 90° no tiene dos iguales."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo equilátero puede ser obtusángulo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres lados iguales implican tres ángulos iguales.",
+          "Los tres ángulos de un triángulo suman 180°.",
+          "Cada uno mide 60°, que es agudo."
+        ],
+        "retroalimentacion": "Es falso: todo equilátero es acutángulo con ángulos de 60°."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo tiene ángulos 35° y 55°. ¿Cuántos grados mide el tercero, que determina su clase angular? Escribe solo el número.",
+        "respuesta": 90,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los tres ángulos interiores suman 180°.",
+          "Los dos conocidos suman 35 + 55 = 90°.",
+          "Resta 180 − 90."
+        ],
+        "retroalimentacion": "El tercero mide 90°; por eso el triángulo es rectángulo."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un triángulo tiene lados 8, 8 y 8 cm. Si debes escoger un único nombre por lados, elige el más específico. Escribe una palabra.",
+        "respuesta": "equilátero",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tiene al menos dos lados iguales.",
+          "Pero también el tercero es igual.",
+          "La clase que exige los tres iguales es la más precisa."
+        ],
+        "retroalimentacion": "Equilátero es el nombre más específico; decir solo isósceles pierde información."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.suma-angulos-triangulo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P6-08"
+    ],
+    "bloque": "Triángulos, cuadriláteros y círculo",
+    "nombre": "Suma de los ángulos interiores de un triángulo",
+    "disciplina": "geometria",
+    "descripcionCorta": "Comprueba recortando y midiendo que los ángulos de un triángulo suman 180°.",
+    "palabrasClave": [
+      "triángulo",
+      "ángulos interiores",
+      "180 grados",
+      "transportador"
+    ],
+    "prerrequisitos": [
+      "mat.p6.clasificar-triangulos",
+      "mat.p6.medir-construir-angulos"
+    ],
+    "ordenSugerido": 57,
+    "ideaCentral": "Los tres ángulos interiores de cualquier triángulo suman 180°. Puedes comprobarlo midiendo o juntando las tres esquinas recortadas para formar un ángulo llano.",
+    "pasos": [
+      "Mide cada ángulo desde el interior del triángulo.",
+      "Suma las tres medidas y comprueba que obtienes 180°.",
+      "Si falta una medida, resta de 180° la suma de las otras dos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un triángulo de papel tiene ángulos de 50° y 60°. ¿Cuánto mide el tercero?",
+        "desarrollo": "50° + 60° = 110°; 180° − 110° = 70°.",
+        "respuesta": "70°."
+      },
+      {
+        "situacion": "Doblas las tres puntas de un triángulo y las colocas juntas sobre una línea recta. ¿Qué compruebas?",
+        "desarrollo": "Las puntas forman un ángulo llano de 180°.",
+        "respuesta": "La suma interior es 180°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar solo dos ángulos y llamarlo total.",
+        "correccion": "Incluye las tres esquinas; si una falta, calcúlala."
+      },
+      {
+        "error": "Creer que un triángulo grande tiene mayor suma.",
+        "correccion": "El tamaño cambia los lados, pero la suma interior sigue siendo 180°."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "ángulo interior",
+        "significado": "Abertura dentro del triángulo en una esquina."
+      },
+      {
+        "termino": "ángulo llano",
+        "significado": "Ángulo de 180° que forma una línea recta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos ángulos de un triángulo miden 40° y 60°. ¿Cuántos grados mide el tercero? Escribe solo el número.",
+        "respuesta": 80,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las dos medidas conocidas.",
+          "40 + 60 = 100.",
+          "Resta 100 de 180."
+        ],
+        "retroalimentacion": "Si respondiste 100, hallaste los conocidos; el tercero mide 80°."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los ángulos interiores de cualquier triángulo suman 180°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en las tres esquinas recortadas.",
+          "Al juntarlas forman una línea recta.",
+          "Una línea recta corresponde a 180°."
+        ],
+        "retroalimentacion": "Es verdadero: las tres esquinas forman 180°, aunque cambie el tamaño."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un triángulo rectángulo, un ángulo mide 90° y otro 35°. ¿Cuál es el tercero?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "35°"
+          },
+          {
+            "id": "b",
+            "texto": "90°"
+          },
+          {
+            "id": "c",
+            "texto": "55°"
+          },
+          {
+            "id": "d",
+            "texto": "145°"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Parte del total de 180°.",
+          "Los conocidos suman 125°.",
+          "180 − 125 = 55."
+        ],
+        "retroalimentacion": "145° suma los conocidos; el ángulo faltante es 55°."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo tiene dos ángulos de 70° cada uno. ¿Cuántos grados mide el restante? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos ángulos iguales cuentan por separado.",
+          "70 + 70 = 140.",
+          "Calcula 180 − 140."
+        ],
+        "retroalimentacion": "No basta con restar un solo 70: el restante mide 40°."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al juntar las tres puntas recortadas de un triángulo, ¿qué ángulo obtienes?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Recto de 90°"
+          },
+          {
+            "id": "b",
+            "texto": "Llano de 180°"
+          },
+          {
+            "id": "c",
+            "texto": "Completo de 360°"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina las puntas sobre el borde de una regla.",
+          "El borde es una línea recta.",
+          "Una línea recta forma 180°."
+        ],
+        "retroalimentacion": "Las puntas forman un ángulo llano de 180°, no uno recto."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una señal triangular se miden 45° y 85° en dos vértices. ¿Cuántos grados hay en el tercero? Escribe solo el número.",
+        "respuesta": 50,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero reúne 45° y 85°.",
+          "45 + 85 = 130.",
+          "El resto de 180 es 50."
+        ],
+        "retroalimentacion": "Si obtuviste 130, esa es la suma parcial; falta 50°."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo con ángulos de 30°, 60° y 90° cumple la suma de ángulos interiores.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 30 y 60.",
+          "Los dos primeros dan 90.",
+          "90 + 90 = 180."
+        ],
+        "retroalimentacion": "Es verdadero: 30° + 60° + 90° = 180°."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una compañera afirma que al agrandar un triángulo cambia la suma de sus ángulos interiores. ¿Cambia o permanece igual? Responde con una palabra.",
+        "respuesta": "permanece igual",
+        "alternativasAceptadas": [
+          "igual",
+          "no cambia"
+        ],
+        "pistas": [
+          "Agrandar modifica las longitudes.",
+          "Las puntas aún pueden formar una línea recta.",
+          "El total sigue siendo 180°."
+        ],
+        "retroalimentacion": "El error es confundir tamaño con amplitud total: permanece igual."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un dibujo marca 50°, 60° y 80° dentro de un supuesto triángulo. ¿Qué conclusión es correcta?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es válido por tener tres ángulos"
+          },
+          {
+            "id": "b",
+            "texto": "Es válido porque todos son agudos"
+          },
+          {
+            "id": "c",
+            "texto": "Le faltan 10° para 180°"
+          },
+          {
+            "id": "d",
+            "texto": "Hay una medida incorrecta: suma 190°"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Verifica la suma antes de elegir.",
+          "50 + 60 = 110.",
+          "110 + 80 = 190, que supera 180."
+        ],
+        "retroalimentacion": "La suma 190° revela una medida incorrecta; no basta con tener tres ángulos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo tiene un ángulo de 100° y los otros dos son iguales. ¿Cuántos grados mide cada uno de esos dos? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita primero el ángulo de 100°.",
+          "Quedan 80° para dos ángulos iguales.",
+          "Divide 80 entre 2."
+        ],
+        "retroalimentacion": "Responder 80° asigna todo a uno; cada ángulo igual mide 40°."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos ángulos de un triángulo son 65° y 75°, el tercero puede medir 50°.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las dos medidas dadas.",
+          "65 + 75 = 140.",
+          "Con 50 llegarías a 190, no a 180."
+        ],
+        "retroalimentacion": "Es falso: el tercer ángulo debe medir 40°, no 50°."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un triángulo los ángulos son 2x, x y 90°. ¿Cuánto vale x en grados? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos primeros suman 3x.",
+          "A 180° quítale 90°: quedan 90°.",
+          "Si 3x = 90, divide entre 3."
+        ],
+        "retroalimentacion": "No confundas x con 2x: x vale 30° y los ángulos son 60°, 30° y 90°."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.inclusion-cuadrilateros",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P6-08"
+    ],
+    "bloque": "Triángulos, cuadriláteros y círculo",
+    "nombre": "Relaciones de inclusión entre cuadriláteros",
+    "disciplina": "geometria",
+    "descripcionCorta": "Justifica por qué todo cuadrado es rectángulo y rombo, pero no al revés.",
+    "palabrasClave": [
+      "cuadrado",
+      "rectángulo",
+      "rombo",
+      "inclusión"
+    ],
+    "prerrequisitos": [
+      "mat.p6.rectas-paralelas-perpendiculares"
+    ],
+    "ordenSugerido": 58,
+    "ideaCentral": "Un cuadrado tiene cuatro ángulos rectos y cuatro lados iguales. Por esas propiedades es a la vez rectángulo y rombo; la relación inversa no siempre se cumple.",
+    "pasos": [
+      "Identifica las propiedades de cada figura, sin depender de su inclinación.",
+      "Compara lados iguales y ángulos rectos.",
+      "Comprueba si toda figura del primer grupo satisface la definición del segundo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una baldosa cuadrada tiene cuatro lados iguales y cuatro ángulos rectos. ¿Es también rombo?",
+        "desarrollo": "Un rombo exige cuatro lados iguales; la baldosa cumple eso.",
+        "respuesta": "Sí, es rombo."
+      },
+      {
+        "situacion": "Un marco rectangular mide 8 cm por 5 cm. ¿Es cuadrado?",
+        "desarrollo": "Tiene cuatro ángulos rectos, pero sus lados no son todos iguales.",
+        "respuesta": "No es cuadrado."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que un cuadrado girado deja de ser cuadrado.",
+        "correccion": "Girar no cambia ni lados ni ángulos."
+      },
+      {
+        "error": "Decir que todo rombo es cuadrado.",
+        "correccion": "Un rombo puede tener ángulos distintos de 90°."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "rectángulo",
+        "significado": "Cuadrilátero con cuatro ángulos rectos."
+      },
+      {
+        "termino": "rombo",
+        "significado": "Cuadrilátero con cuatro lados iguales."
+      },
+      {
+        "termino": "inclusión",
+        "significado": "Relación en que todas las figuras de un grupo pertenecen a otro."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Todo cuadrado es un rectángulo porque tiene cuatro ángulos rectos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda la condición de rectángulo.",
+          "Cuenta los ángulos rectos del cuadrado.",
+          "Tiene exactamente cuatro."
+        ],
+        "retroalimentacion": "Es verdadero: un cuadrado cumple la condición del rectángulo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué propiedad permite llamar rombo a un cuadrado?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tener tres lados"
+          },
+          {
+            "id": "b",
+            "texto": "Tener solo dos ángulos rectos"
+          },
+          {
+            "id": "c",
+            "texto": "Tener cuatro lados iguales"
+          },
+          {
+            "id": "d",
+            "texto": "Tener lados opuestos distintos"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la definición de rombo.",
+          "Importa la longitud de sus cuatro lados.",
+          "En un cuadrado esas cuatro longitudes coinciden."
+        ],
+        "retroalimentacion": "La propiedad es tener cuatro lados iguales; los ángulos rectos no definen al rombo."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un marco tiene cuatro ángulos rectos y lados de 6, 4, 6 y 4 cm. ¿Es cuadrado? Responde sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no es cuadrado"
+        ],
+        "pistas": [
+          "Un cuadrado exige igualdad en todos sus lados.",
+          "Compara 6 cm con 4 cm.",
+          "Como son distintos, solo cumple ser rectángulo."
+        ],
+        "retroalimentacion": "No: los lados de 6 cm y 4 cm impiden llamarlo cuadrado."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al girar 45° un cuadrado dibujado, deja de ser rectángulo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un giro conserva las medidas.",
+          "Los cuatro ángulos siguen midiendo 90°.",
+          "Sigue cumpliendo la definición de rectángulo."
+        ],
+        "retroalimentacion": "Es falso: el giro no elimina sus cuatro ángulos rectos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura tiene cuatro lados de 5 cm y ángulos de 60° y 120°. ¿Cómo se clasifica?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rombo, pero no cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Cuadrado y rectángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Rectángulo, pero no rombo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuatro lados iguales apuntan a una figura.",
+          "Para cuadrado también hacen falta ángulos rectos.",
+          "60° y 120° no son rectos."
+        ],
+        "retroalimentacion": "Es un rombo, pero no cuadrado: sus ángulos no son de 90°."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rectángulo de 3 cm por 7 cm es también rombo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa qué exige un rombo.",
+          "Sus cuatro lados deben medir igual.",
+          "En el rectángulo hay lados de 3 y de 7 cm."
+        ],
+        "retroalimentacion": "Es falso: 3 cm y 7 cm son longitudes distintas."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué figura es siempre rectángulo y rombo a la vez? Escribe su nombre.",
+        "respuesta": "cuadrado",
+        "alternativasAceptadas": [
+          "el cuadrado"
+        ],
+        "pistas": [
+          "Necesitas cuatro ángulos rectos.",
+          "También necesitas cuatro lados iguales.",
+          "La figura que cumple ambas condiciones tiene nombre propio."
+        ],
+        "retroalimentacion": "Es el cuadrado: reúne los ángulos del rectángulo y los lados del rombo."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una puerta rectangular tiene dos lados largos y dos cortos. ¿Qué afirmación está asegurada?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Es rombo"
+          },
+          {
+            "id": "c",
+            "texto": "No tiene ángulos rectos"
+          },
+          {
+            "id": "d",
+            "texto": "Tiene cuatro ángulos rectos"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La palabra rectangular ya indica una propiedad.",
+          "No asegura que todos los lados sean iguales.",
+          "Sí asegura cuatro esquinas de 90°."
+        ],
+        "retroalimentacion": "Tiene cuatro ángulos rectos; lados largos y cortos descartan el cuadrado."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un rombo tiene además cuatro ángulos rectos, entonces es cuadrado.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El rombo aporta lados iguales.",
+          "Los ángulos rectos agregan la otra condición.",
+          "Lados iguales y ángulos rectos definen al cuadrado."
+        ],
+        "retroalimentacion": "Es verdadero: ambas propiedades juntas forman un cuadrado."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Alguien afirma: «Como todo cuadrado es rombo, todo rombo es cuadrado». ¿Qué ejemplo refuta su idea?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un cuadrado de lado 4 cm"
+          },
+          {
+            "id": "b",
+            "texto": "Un rombo de ángulos 70° y 110°"
+          },
+          {
+            "id": "c",
+            "texto": "Un rectángulo de 4 cm por 6 cm"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un rombo que falle como cuadrado.",
+          "El fallo debe estar en sus ángulos.",
+          "70° y 110° no son ángulos rectos."
+        ],
+        "retroalimentacion": "El rombo de 70° y 110° refuta la inversión: no es cuadrado."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una figura tiene cuatro ángulos de 90° y cuatro lados de 9 cm. Entre rectángulo, rombo y cuadrado, ¿cuántos nombres le corresponden? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Verifica la condición de rectángulo.",
+          "También cumple la de rombo.",
+          "Al tener ambas, es cuadrado: cuenta los tres nombres."
+        ],
+        "retroalimentacion": "Le corresponden 3 nombres: rectángulo, rombo y cuadrado."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuadrado de lado 4 cm pertenece al grupo de rectángulos, pero no al de rombos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos definiciones.",
+          "Sus cuatro ángulos son rectos.",
+          "Sus cuatro lados también son iguales."
+        ],
+        "retroalimentacion": "Es falso: pertenece a ambos grupos, rectángulos y rombos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.construir-triangulos-cuadrilateros",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P6-07",
+      "MAT-C26-P6-01",
+      "MAT-C26-P6-04"
+    ],
+    "bloque": "Triángulos, cuadriláteros y círculo",
+    "nombre": "Construcción de triángulos y cuadriláteros",
+    "disciplina": "geometria",
+    "descripcionCorta": "Construye figuras con regla, escuadra, transportador y compás a partir de medidas dadas.",
+    "palabrasClave": [
+      "regla",
+      "escuadra",
+      "compás",
+      "transportador",
+      "construcción"
+    ],
+    "prerrequisitos": [
+      "mat.p6.clasificar-triangulos",
+      "mat.p6.rectas-paralelas-perpendiculares"
+    ],
+    "ordenSugerido": 59,
+    "ideaCentral": "Para construir una figura con medidas dadas, traza primero una base y usa el instrumento que controla cada dato: regla para longitudes, transportador para ángulos y compás para distancias desde un punto. Comprueba al final todos los lados y ángulos.",
+    "pasos": [
+      "Dibuja la base con la longitud indicada.",
+      "Marca ángulos con transportador o perpendiculares con escuadra.",
+      "Ubica los vértices restantes con regla o compás.",
+      "Une vértices y verifica las medidas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Necesitas un triángulo de lados 3, 4 y 5 cm.",
+        "desarrollo": "Traza 5 cm; desde sus extremos dibuja arcos de radios 3 y 4 cm. La intersección es el tercer vértice.",
+        "respuesta": "Une la intersección con los extremos."
+      },
+      {
+        "situacion": "Construyes un rectángulo de 6 por 3 cm.",
+        "desarrollo": "Dibuja 6 cm; con la escuadra levanta perpendiculares de 3 cm en ambos extremos y cierra.",
+        "respuesta": "Obtienes cuatro ángulos rectos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dibujar a ojo un ángulo dado.",
+        "correccion": "Usa el transportador y comprueba la marca de grados."
+      },
+      {
+        "error": "Elegir lados 2, 3 y 6 cm para un triángulo.",
+        "correccion": "Los dos menores deben sumar más que el mayor: 2 + 3 no supera 6."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "vértice",
+        "significado": "Punto donde se encuentran dos lados."
+      },
+      {
+        "termino": "perpendicular",
+        "significado": "Recta que forma 90° con otra."
+      },
+      {
+        "termino": "radio del compás",
+        "significado": "Abertura fijada para marcar una distancia."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para trazar un lado de 7 cm, ¿qué instrumento sirve para medirlo?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Regla"
+          },
+          {
+            "id": "b",
+            "texto": "Transportador"
+          },
+          {
+            "id": "c",
+            "texto": "Escuadra sin escala"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El dato está en centímetros.",
+          "Necesitas una escala de longitudes.",
+          "La regla muestra centímetros."
+        ],
+        "retroalimentacion": "La regla permite medir 7 cm; el transportador mide ángulos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La escuadra ayuda a construir una esquina de 90° en un rectángulo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en el ángulo de la escuadra.",
+          "Su esquina recta mide 90°.",
+          "El rectángulo tiene cuatro esquinas rectas."
+        ],
+        "retroalimentacion": "Es verdadero: la escuadra guía las perpendiculares."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Quieres marcar exactamente un ángulo de 50° en un triángulo. ¿Qué instrumento eliges?",
+        "respuesta": "transportador",
+        "alternativasAceptadas": [
+          "el transportador"
+        ],
+        "pistas": [
+          "50° es una medida angular.",
+          "La regla mide centímetros.",
+          "El instrumento con escala en grados es el transportador."
+        ],
+        "retroalimentacion": "Usa el transportador; medir solo lados no fija 50°."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Trazas un segmento de 5 cm como base de un triángulo. ¿Qué representa cada extremo?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un ángulo completo"
+          },
+          {
+            "id": "b",
+            "texto": "Un centro de círculo"
+          },
+          {
+            "id": "c",
+            "texto": "Un vértice"
+          },
+          {
+            "id": "d",
+            "texto": "Una diagonal"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los lados de un triángulo se unen en puntos.",
+          "La base ya tiene dos puntos finales.",
+          "Esos puntos serán dos de sus tres vértices."
+        ],
+        "retroalimentacion": "Cada extremo es un vértice; aún falta localizar el tercero."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para construir un triángulo de lados 3, 4 y 5 cm, puedes trazar la base de 5 cm y dos arcos de radios 3 y 4 cm desde sus extremos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada arco conserva una distancia a un extremo.",
+          "La intersección cumple las dos distancias.",
+          "Al unirla con la base aparecen lados de 3 y 4 cm."
+        ],
+        "retroalimentacion": "Es verdadero: los arcos fijan el tercer vértice con esas longitudes."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un plano pide un cuadrado de lado 4 cm. Tras trazar la base, ¿qué debes levantar en sus extremos?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dos diagonales"
+          },
+          {
+            "id": "b",
+            "texto": "Perpendiculares de 4 cm"
+          },
+          {
+            "id": "c",
+            "texto": "Ángulos de 60°"
+          },
+          {
+            "id": "d",
+            "texto": "Arcos de 8 cm"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cuadrado necesita ángulos rectos.",
+          "Además, cada lado mide 4 cm.",
+          "Levanta 90° y mide 4 cm en ambos lados nuevos."
+        ],
+        "retroalimentacion": "Perpendiculares de 4 cm completan lados iguales y ángulos rectos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una jardinera rectangular se dibuja con base de 8 cm y altura de 3 cm. ¿Cuántos ángulos rectos debes comprobar al terminar? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Es un rectángulo completo.",
+          "Revisa sus cuatro esquinas.",
+          "Cada esquina debe ser de 90°."
+        ],
+        "retroalimentacion": "Debes comprobar 4 ángulos rectos, no solo los dos de la base."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Si ya trazaste una base y debes ubicar un vértice a 6 cm de uno de sus extremos, ¿qué instrumento marca todos los puntos a esa distancia?",
+        "respuesta": "compás",
+        "alternativasAceptadas": [
+          "el compás"
+        ],
+        "pistas": [
+          "La distancia al extremo es fija.",
+          "Imagina un arco de radio 6 cm.",
+          "El compás traza ese arco."
+        ],
+        "retroalimentacion": "El compás marca los posibles puntos a 6 cm del extremo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres un triángulo de lados 2, 3 y 6 cm. ¿Qué ocurre al intentar construirlo?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sale equilátero"
+          },
+          {
+            "id": "b",
+            "texto": "Sale rectángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Hay dos soluciones"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede cerrar"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los dos lados menores con el mayor.",
+          "2 + 3 = 5 cm.",
+          "5 cm no alcanza para cerrar sobre una base de 6 cm."
+        ],
+        "retroalimentacion": "No se puede cerrar; los lados de 2 y 3 cm suman menos de 6 cm."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rectángulo de 7 por 4 cm queda bien construido si uno de sus ángulos mide 80°.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La longitud no basta para definir rectángulo.",
+          "Cada esquina debe medir 90°.",
+          "80° no es perpendicular."
+        ],
+        "retroalimentacion": "Es falso: con 80° no es rectángulo, aunque tenga lados de 7 y 4 cm."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al construir un triángulo con dos lados de 5 cm y ángulo incluido de 60°, ¿qué secuencia respeta los datos?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Traza 5 cm, marca 60° en un extremo, mide 5 cm sobre el nuevo rayo y une"
+          },
+          {
+            "id": "b",
+            "texto": "Traza 5 cm, marca 90° y une"
+          },
+          {
+            "id": "c",
+            "texto": "Dibuja tres lados de 5 cm a ojo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por uno de los lados conocidos.",
+          "El ángulo de 60° debe estar entre ambos lados.",
+          "Mide el segundo lado de 5 cm desde el vértice del ángulo."
+        ],
+        "retroalimentacion": "La primera secuencia fija ambos lados de 5 cm y el ángulo incluido de 60°."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En un dibujo la base mide 6 cm y los lados que salen de sus extremos miden 4 cm y 5 cm. Para comprobarlos sin cambiar su abertura, ¿qué instrumento usas?",
+        "respuesta": "compás",
+        "alternativasAceptadas": [
+          "el compás"
+        ],
+        "pistas": [
+          "Debes transferir una distancia fija.",
+          "La abertura del instrumento conserva el radio.",
+          "Compara cada lado con arcos de 4 y 5 cm."
+        ],
+        "retroalimentacion": "El compás conserva las aberturas de 4 y 5 cm; la escuadra no verifica esas distancias."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.circunferencia-circulo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P6-01",
+      "MAT-C26-P6-04"
+    ],
+    "bloque": "Triángulos, cuadriláteros y círculo",
+    "nombre": "Circunferencia y círculo: radio, diámetro y cuerda",
+    "disciplina": "geometria",
+    "descripcionCorta": "Reconoce los elementos del círculo y traza circunferencias con compás.",
+    "palabrasClave": [
+      "circunferencia",
+      "círculo",
+      "radio",
+      "diámetro",
+      "cuerda"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 60,
+    "ideaCentral": "La circunferencia es el borde; el círculo incluye el borde y el interior. El radio va del centro al borde, el diámetro cruza el centro de un borde al otro y mide dos radios.",
+    "pasos": [
+      "Marca el centro y abre el compás con la medida del radio.",
+      "Sin mover la punta central, gira el compás para trazar la circunferencia.",
+      "Señala radio, diámetro o cuerda según los extremos del segmento.",
+      "Comprueba que el diámetro atraviese el centro."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una moneda tiene radio de 2 cm. ¿Cuál es su diámetro?",
+        "desarrollo": "El diámetro une dos radios sobre una misma recta: 2 + 2 = 4 cm.",
+        "respuesta": "4 cm."
+      },
+      {
+        "situacion": "Una cuerda une dos puntos del borde de una tapa sin pasar por el centro. ¿Es diámetro?",
+        "desarrollo": "Todo diámetro es cuerda, pero esta no cruza el centro.",
+        "respuesta": "No; es cuerda no diametral."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar círculo solo a la línea exterior.",
+        "correccion": "La línea es circunferencia; el interior con su borde es círculo."
+      },
+      {
+        "error": "Confundir cualquier cuerda con diámetro.",
+        "correccion": "Solo la cuerda que pasa por el centro es diámetro."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "centro",
+        "significado": "Punto equidistante de todos los puntos de la circunferencia."
+      },
+      {
+        "termino": "radio",
+        "significado": "Segmento desde el centro hasta el borde."
+      },
+      {
+        "termino": "cuerda",
+        "significado": "Segmento que une dos puntos del borde."
+      },
+      {
+        "termino": "diámetro",
+        "significado": "Cuerda que pasa por el centro; mide dos radios."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama solo el borde de una rueda vista de frente?",
+        "respuesta": "circunferencia",
+        "alternativasAceptadas": [
+          "la circunferencia"
+        ],
+        "pistas": [
+          "Piensa en la línea que rodea la rueda.",
+          "No incluyas la superficie interior.",
+          "El borde tiene un nombre distinto de círculo."
+        ],
+        "retroalimentacion": "El borde es la circunferencia; el círculo incluye el interior."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "El radio de una circunferencia mide 3 cm. ¿Cuántos centímetros mide el diámetro? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El diámetro atraviesa el centro.",
+          "Está formado por dos radios.",
+          "Suma 3 + 3."
+        ],
+        "retroalimentacion": "El diámetro mide 6 cm, el doble del radio."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una cuerda une dos puntos de la circunferencia.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica sus dos extremos.",
+          "Ambos están sobre el borde.",
+          "No necesita atravesar el centro."
+        ],
+        "retroalimentacion": "Es verdadero: los extremos de toda cuerda están en la circunferencia."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Desde el centro de un círculo hasta su borde trazas un segmento. ¿Cuál es?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuerda"
+          },
+          {
+            "id": "b",
+            "texto": "Radio"
+          },
+          {
+            "id": "c",
+            "texto": "Diámetro"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Uno de sus extremos es el centro.",
+          "El otro está sobre el borde.",
+          "El diámetro tendría sus dos extremos en el borde."
+        ],
+        "retroalimentacion": "Es un radio; el diámetro va de borde a borde."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tapa circular tiene diámetro de 10 cm. ¿Con qué abertura del compás trazas su borde?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 cm"
+          },
+          {
+            "id": "b",
+            "texto": "20 cm"
+          },
+          {
+            "id": "c",
+            "texto": "5 cm"
+          },
+          {
+            "id": "d",
+            "texto": "2 cm"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La abertura es el radio.",
+          "El radio mide la mitad del diámetro.",
+          "La mitad de 10 cm es 5 cm."
+        ],
+        "retroalimentacion": "Abre el compás 5 cm; 10 cm es el diámetro completo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Todo diámetro es una cuerda que pasa por el centro.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuerda significa dos extremos en el borde.",
+          "El diámetro tiene esos dos extremos.",
+          "Además atraviesa el centro."
+        ],
+        "retroalimentacion": "Es verdadero: el diámetro es una cuerda especial."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un segmento une dos puntos del borde, pero no cruza el centro. ¿Cómo se llama?",
+        "respuesta": "cuerda",
+        "alternativasAceptadas": [
+          "una cuerda"
+        ],
+        "pistas": [
+          "Mira dónde están ambos extremos.",
+          "No cumple la condición extra del diámetro.",
+          "El nombre general para borde a borde es cuerda."
+        ],
+        "retroalimentacion": "Es una cuerda; no es diámetro porque evita el centro."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El diámetro de una circunferencia mide 14 cm. ¿Cuántos centímetros mide su radio? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El diámetro contiene dos radios.",
+          "Divide 14 entre 2.",
+          "Cada mitad mide 7 cm."
+        ],
+        "retroalimentacion": "El radio mide 7 cm; 14 cm corresponde al diámetro."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un dibujo sombrean todo el interior y también el borde de una moneda. ¿Qué figura está sombreada?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Círculo"
+          },
+          {
+            "id": "b",
+            "texto": "Solo circunferencia"
+          },
+          {
+            "id": "c",
+            "texto": "Solo radio"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La sombra ocupa una superficie.",
+          "La circunferencia es únicamente la línea exterior.",
+          "Superficie y borde forman el círculo."
+        ],
+        "retroalimentacion": "Está sombreado el círculo; la circunferencia sola no tiene interior."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una circunferencia tiene radio de 8 cm. Una cuerda pasa por el centro. ¿Cuántos centímetros mide esa cuerda? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Esa cuerda especial es diámetro.",
+          "El diámetro mide dos radios.",
+          "Calcula 8 + 8."
+        ],
+        "retroalimentacion": "Mide 16 cm: al pasar por el centro, la cuerda es un diámetro."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos segmentos parten del mismo centro y llegan a distintos puntos de una circunferencia, pueden tener longitudes diferentes.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambos segmentos son radios.",
+          "Todos los puntos del borde están a igual distancia del centro.",
+          "Por eso ambos radios miden igual."
+        ],
+        "retroalimentacion": "Es falso: los radios de una misma circunferencia tienen igual longitud."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para dibujar dos circunferencias con el mismo centro, una de radio 3 cm y otra de 6 cm, ¿qué cambias entre trazos?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo el papel"
+          },
+          {
+            "id": "b",
+            "texto": "La punta central a otro lugar"
+          },
+          {
+            "id": "c",
+            "texto": "El número de vueltas"
+          },
+          {
+            "id": "d",
+            "texto": "La abertura del compás"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El centro debe permanecer fijo.",
+          "Cada radio exige una distancia distinta.",
+          "Ajusta la abertura de 3 a 6 cm."
+        ],
+        "retroalimentacion": "Cambias la abertura del compás; mover el centro rompería la condición dada."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

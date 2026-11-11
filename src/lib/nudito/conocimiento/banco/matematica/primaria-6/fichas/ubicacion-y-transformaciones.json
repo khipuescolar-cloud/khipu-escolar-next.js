@@ -1,0 +1,1903 @@
+[
+  {
+    "clave": "mat.p6.croquis-planos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P6-02",
+      "MAT-C26-P6-06"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Croquis y planos con calles y avenidas",
+    "disciplina": "geometria",
+    "descripcionCorta": "Representa ubicaciones y recorridos en un croquis usando calles y avenidas como referencia.",
+    "palabrasClave": [
+      "croquis",
+      "plano",
+      "calle",
+      "avenida",
+      "referencia"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 118,
+    "ideaCentral": "Un croquis muestra lugares y caminos desde arriba mediante símbolos y nombres de calles. Para ubicar un sitio, identifica el cruce o tramo y relaciónalo con puntos de referencia claros.",
+    "pasos": [
+      "Lee los nombres de calles y avenidas del croquis.",
+      "Ubica cruces, esquinas y lugares señalados.",
+      "Describe el lugar usando dos referencias o un cruce preciso.",
+      "Comprueba que la descripción señale un solo lugar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En un croquis, la biblioteca está en el cruce de avenida Perú y jirón Lima.",
+        "desarrollo": "Busco la intersección de ambas vías; allí aparece el símbolo de libro.",
+        "respuesta": "La biblioteca está en ese cruce."
+      },
+      {
+        "situacion": "Una tienda aparece entre la posta y el parque sobre la calle Sol.",
+        "desarrollo": "Sigo la calle Sol y ordeno los tres símbolos.",
+        "respuesta": "La tienda está entre ambos lugares."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir una calle con el lugar situado en ella.",
+        "correccion": "Nombra la vía y agrega esquina, cruce o referencia."
+      },
+      {
+        "error": "Describir una esquina con una sola vía cuando hay varias posibles.",
+        "correccion": "Usa los nombres de las dos vías que se cruzan."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "croquis",
+        "significado": "Dibujo sencillo visto desde arriba para orientar."
+      },
+      {
+        "termino": "cruce",
+        "significado": "Punto donde se encuentran dos vías."
+      },
+      {
+        "termino": "referencia",
+        "significado": "Lugar conocido que ayuda a ubicar otro."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un croquis la farmacia está donde se cruzan la calle Lima y la avenida Grau. ¿Cómo se llama ese punto?",
+        "respuesta": "cruce",
+        "alternativasAceptadas": [
+          "el cruce",
+          "intersección"
+        ],
+        "pistas": [
+          "Las dos vías se encuentran.",
+          "No es un tramo entre esquinas.",
+          "El encuentro de vías se llama cruce."
+        ],
+        "retroalimentacion": "Es un cruce o intersección; no basta nombrar solo una vía."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un croquis puede usar símbolos para representar un colegio y una posta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un dibujo simplificado.",
+          "Los símbolos reemplazan edificios detallados.",
+          "Una leyenda puede explicar cada símbolo."
+        ],
+        "retroalimentacion": "Es verdadero: los símbolos permiten reconocer lugares sin dibujarlos completos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La panadería aparece en la esquina de avenida Arequipa y calle Los Pinos. ¿Qué dato permite ubicar esa esquina sin ambigüedad?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo el nombre de la ciudad"
+          },
+          {
+            "id": "b",
+            "texto": "Solo avenida Arequipa"
+          },
+          {
+            "id": "c",
+            "texto": "Los nombres de ambas vías"
+          },
+          {
+            "id": "d",
+            "texto": "El color de la panadería"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una avenida tiene muchas esquinas.",
+          "Busca la segunda vía que la corta.",
+          "Ambos nombres fijan un cruce concreto."
+        ],
+        "retroalimentacion": "Los nombres de ambas vías ubican el cruce; una sola avenida tiene varios."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un croquis marca P = posta y M = mercado. ¿Qué parte del croquis debe explicar qué significa P?",
+        "respuesta": "leyenda",
+        "alternativasAceptadas": [
+          "la leyenda"
+        ],
+        "pistas": [
+          "P es un símbolo.",
+          "Los símbolos necesitan explicación.",
+          "La lista de símbolos y significados se llama leyenda."
+        ],
+        "retroalimentacion": "La leyenda aclara P = posta; sin ella podría confundirse."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Sobre calle Cusco aparecen, en este orden, parque, quiosco y colegio. ¿Dónde está el quiosco?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Entre parque y colegio"
+          },
+          {
+            "id": "b",
+            "texto": "Antes del parque y del colegio"
+          },
+          {
+            "id": "c",
+            "texto": "En una calle distinta"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee el orden dado.",
+          "El quiosco ocupa la posición central.",
+          "Sus vecinos son parque y colegio."
+        ],
+        "retroalimentacion": "El quiosco está entre parque y colegio sobre calle Cusco."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el museo está en la esquina de calle Junín y avenida Brasil, nombrar solo avenida Brasil basta para fijar su ubicación exacta.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una avenida recorre muchas cuadras.",
+          "Busca el nombre de la vía que la cruza.",
+          "La calle Junín precisa la esquina."
+        ],
+        "retroalimentacion": "Es falso: avenida Brasil sola deja muchas ubicaciones posibles."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La plaza figura en el cruce de calle A y avenida B. ¿Qué dos vías debes mencionar para describir su ubicación? Escribe «calle A y avenida B».",
+        "respuesta": "calle A y avenida B",
+        "alternativasAceptadas": [
+          "avenida B y calle A"
+        ],
+        "pistas": [
+          "Busca el punto donde se encuentran.",
+          "Una referencia sola no fija el cruce.",
+          "Nombra la calle A y la avenida B."
+        ],
+        "retroalimentacion": "Debes mencionar calle A y avenida B; omitir una vuelve imprecisa la ubicación."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un plano, la posta está al lado del mercado en avenida 28 de Julio; el colegio está al otro lado de la plaza. ¿Qué referencia describe la posta?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Al otro lado de la plaza"
+          },
+          {
+            "id": "b",
+            "texto": "Dentro del colegio"
+          },
+          {
+            "id": "c",
+            "texto": "En el cruce de dos vías no nombradas"
+          },
+          {
+            "id": "d",
+            "texto": "Junto al mercado en avenida 28 de Julio"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Distingue posta de colegio.",
+          "La posta comparte tramo con el mercado.",
+          "La vía de ambos es avenida 28 de Julio."
+        ],
+        "retroalimentacion": "La posta está junto al mercado en avenida 28 de Julio; la plaza describe al colegio."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un croquis tiene norte arriba, un sitio dibujado arriba de otro se encuentra al norte de él.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee primero la orientación del papel.",
+          "Arriba corresponde a norte en este croquis.",
+          "Compara la posición vertical de los dos sitios."
+        ],
+        "retroalimentacion": "Es verdadero con norte arriba; la orientación del croquis decide esa lectura."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un plano señala dos farmacias en avenida Central: una junto al parque y otra junto a la estación. ¿Qué descripción identifica solo la primera?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Farmacia en avenida Central"
+          },
+          {
+            "id": "b",
+            "texto": "Farmacia de avenida Central junto al parque"
+          },
+          {
+            "id": "c",
+            "texto": "Farmacia en la ciudad"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos comparten avenida.",
+          "Necesitas una referencia que las distinga.",
+          "La primera está junto al parque."
+        ],
+        "retroalimentacion": "«Farmacia de avenida Central junto al parque» distingue la primera de la de la estación."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En un croquis, la biblioteca está entre la plaza y la posta en calle Comercio. ¿Qué lugar queda al otro lado de la biblioteca respecto de la plaza?",
+        "respuesta": "posta",
+        "alternativasAceptadas": [
+          "la posta"
+        ],
+        "pistas": [
+          "Identifica los extremos de la secuencia.",
+          "El orden es plaza, biblioteca, posta.",
+          "El extremo opuesto a plaza es la posta."
+        ],
+        "retroalimentacion": "La posta queda al otro lado; confundirla con plaza invierte el orden."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos lugares señalados con el mismo símbolo en un plano tienen necesariamente la misma dirección.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un símbolo identifica tipo de lugar.",
+          "Puede haber dos postas en calles diferentes.",
+          "La ubicación depende de dónde aparece cada símbolo."
+        ],
+        "retroalimentacion": "Es falso: el mismo símbolo puede aparecer en varias ubicaciones."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.puntos-cardinales",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P6-06"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Desplazamientos con puntos cardinales",
+    "disciplina": "geometria",
+    "descripcionCorta": "Describe posiciones y desplazamientos usando norte, sur, este y oeste.",
+    "palabrasClave": [
+      "norte",
+      "sur",
+      "este",
+      "oeste",
+      "desplazamiento"
+    ],
+    "prerrequisitos": [
+      "mat.p6.croquis-planos"
+    ],
+    "ordenSugerido": 119,
+    "ideaCentral": "Los puntos cardinales permiten describir dónde está un lugar y hacia dónde te mueves: norte y sur son opuestos, igual que este y oeste. En un plano orientado con norte arriba, este queda a la derecha.",
+    "pasos": [
+      "Localiza la rosa de los vientos o la flecha de norte.",
+      "Relaciona arriba, abajo, derecha e izquierda con N, S, E y O.",
+      "Sigue cada desplazamiento en orden desde el punto inicial.",
+      "Compara la posición final con la inicial."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Desde el patio caminas dos cuadras al norte y una al este.",
+        "desarrollo": "Con norte arriba, avanzas dos hacia arriba y una a la derecha.",
+        "respuesta": "Terminas al noreste del patio."
+      },
+      {
+        "situacion": "La biblioteca queda al oeste del mercado.",
+        "desarrollo": "Si miras un plano con norte arriba, oeste está a la izquierda.",
+        "respuesta": "La biblioteca está a la izquierda del mercado."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que este es siempre la derecha sin leer orientación.",
+        "correccion": "Primero verifica dónde indica norte el plano."
+      },
+      {
+        "error": "Intercambiar el lugar de salida y el de llegada.",
+        "correccion": "Describe el desplazamiento desde el punto inicial indicado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "punto cardinal",
+        "significado": "Cada dirección principal: norte, sur, este u oeste."
+      },
+      {
+        "termino": "rosa de los vientos",
+        "significado": "Símbolo que muestra las direcciones en un mapa."
+      },
+      {
+        "termino": "desplazamiento",
+        "significado": "Cambio de posición desde un lugar a otro."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un mapa con norte arriba, ¿qué dirección corresponde a la derecha?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Oeste"
+          },
+          {
+            "id": "b",
+            "texto": "Este"
+          },
+          {
+            "id": "c",
+            "texto": "Sur"
+          },
+          {
+            "id": "d",
+            "texto": "Norte"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ubica primero el norte arriba.",
+          "El sur queda abajo.",
+          "A la derecha queda el este."
+        ],
+        "retroalimentacion": "A la derecha está el este; oeste queda a la izquierda."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El sur es la dirección opuesta al norte.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la rosa de los vientos.",
+          "Norte y sur están en el mismo eje.",
+          "Uno apunta en sentido contrario al otro."
+        ],
+        "retroalimentacion": "Es verdadero: norte y sur son opuestos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Desde la plaza avanzas una cuadra hacia arriba en un plano que marca norte arriba. ¿Hacia qué punto cardinal vas?",
+        "respuesta": "norte",
+        "alternativasAceptadas": [
+          "al norte"
+        ],
+        "pistas": [
+          "La flecha del plano apunta arriba.",
+          "Arriba coincide con norte.",
+          "Nombra esa dirección cardinal."
+        ],
+        "retroalimentacion": "Vas al norte; la orientación la indica la flecha."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si la posta está al oeste del mercado, ¿dónde aparece en un mapa con norte arriba?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Arriba"
+          },
+          {
+            "id": "b",
+            "texto": "Abajo"
+          },
+          {
+            "id": "c",
+            "texto": "A la derecha"
+          },
+          {
+            "id": "d",
+            "texto": "A la izquierda"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Con norte arriba, orienta los otros puntos.",
+          "El este queda a la derecha.",
+          "El oeste es opuesto al este."
+        ],
+        "retroalimentacion": "La posta aparece a la izquierda del mercado."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Partes del colegio y caminas 3 cuadras al norte y luego 2 más al norte. ¿Cuántas cuadras al norte estás del colegio? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambos tramos van en la misma dirección.",
+          "Junta las 3 primeras con las 2 siguientes.",
+          "3 + 2 = 5."
+        ],
+        "retroalimentacion": "Estás 5 cuadras al norte; no hay un tramo que reste."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si caminas una cuadra al este y vuelves una al oeste, terminas donde empezaste.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Este y oeste son opuestos.",
+          "Los tramos tienen la misma longitud.",
+          "El segundo deshace el primero."
+        ],
+        "retroalimentacion": "Es verdadero: una cuadra al oeste cancela una al este."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un plano con norte arriba, la biblioteca está debajo de la escuela. ¿En qué dirección queda respecto de la escuela?",
+        "respuesta": "sur",
+        "alternativasAceptadas": [
+          "al sur"
+        ],
+        "pistas": [
+          "Mira la posición de la biblioteca.",
+          "Debajo es opuesto de arriba.",
+          "Opuesto al norte está el sur."
+        ],
+        "retroalimentacion": "Queda al sur de la escuela, no al norte."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Desde una esquina avanzas al norte y luego al este. ¿En qué dirección general queda el punto final?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Noreste"
+          },
+          {
+            "id": "b",
+            "texto": "Noroeste"
+          },
+          {
+            "id": "c",
+            "texto": "Sureste"
+          },
+          {
+            "id": "d",
+            "texto": "Suroeste"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Norte aporta la parte vertical.",
+          "Este aporta la horizontal derecha.",
+          "Combina norte con este."
+        ],
+        "retroalimentacion": "Queda al noreste; noroeste usaría oeste."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un plano tiene la flecha de norte apuntando a la izquierda. ¿Hacia dónde queda el sur en la hoja?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Arriba"
+          },
+          {
+            "id": "b",
+            "texto": "A la izquierda"
+          },
+          {
+            "id": "c",
+            "texto": "A la derecha"
+          },
+          {
+            "id": "d",
+            "texto": "Abajo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sur es opuesto a norte.",
+          "La flecha norte señala izquierda.",
+          "La dirección opuesta en la hoja es derecha."
+        ],
+        "retroalimentacion": "El sur queda a la derecha; aquí no vale asumir norte arriba."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tras avanzar 4 cuadras al sur y 4 al norte, quedas al sur del punto inicial.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los movimientos son opuestos.",
+          "Ambos tramos miden 4 cuadras.",
+          "Se cancelan exactamente."
+        ],
+        "retroalimentacion": "Es falso: vuelves al punto inicial, no quedas al sur."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Sales del parque, avanzas 6 cuadras al este y retrocedes 2 al oeste. ¿Cuántas cuadras al este del parque terminas? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Oeste deshace parte del avance al este.",
+          "Resta el retroceso de 2 a las 6 cuadras.",
+          "6 − 2 = 4."
+        ],
+        "retroalimentacion": "Terminas 4 cuadras al este; sumar 6 + 2 ignora el retroceso."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "La cancha está al noreste de la posta. Si regresas directamente hacia la posta, ¿qué dirección general tomas?",
+        "respuesta": "suroeste",
+        "alternativasAceptadas": [
+          "al suroeste"
+        ],
+        "pistas": [
+          "Invierte ambas partes de noreste.",
+          "El opuesto de norte es sur.",
+          "El opuesto de este es oeste."
+        ],
+        "retroalimentacion": "Regresas al suroeste; invertir solo una parte daría otra dirección."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.trazar-recorridos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P6-07"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Trazado de recorridos en mapas y planos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Traza y describe la ruta más conveniente entre dos lugares de un plano.",
+    "palabrasClave": [
+      "ruta",
+      "recorrido",
+      "cuadras",
+      "plano",
+      "trayecto"
+    ],
+    "prerrequisitos": [
+      "mat.p6.puntos-cardinales"
+    ],
+    "ordenSugerido": 120,
+    "ideaCentral": "Para trazar una ruta en un plano, sigue vías permitidas desde el origen hasta el destino y cuenta los tramos. Si comparas rutas, elige la que cumple las condiciones del mapa con menos cuadras o giros, según lo pedido.",
+    "pasos": [
+      "Marca el inicio y el destino.",
+      "Traza cada tramo sobre calles disponibles y anota su dirección.",
+      "Cuenta cuadras o giros según el criterio.",
+      "Comprueba que la ruta llegue al destino sin cruzar obstáculos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "De la escuela al parque hay dos cuadras al este y una al norte por calles abiertas.",
+        "desarrollo": "Trazo ambos segmentos sobre el plano y cuento 2 + 1 cuadras.",
+        "respuesta": "Ruta de 3 cuadras."
+      },
+      {
+        "situacion": "Dos caminos a la posta miden 4 y 6 cuadras.",
+        "desarrollo": "Si ambos están abiertos y se busca caminar menos, comparo 4 < 6.",
+        "respuesta": "Conviene el de 4 cuadras."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir una línea recta que cruza manzanas sin calle.",
+        "correccion": "Sigue solo calles o pasajes permitidos."
+      },
+      {
+        "error": "Comparar rutas sin contar todos sus tramos.",
+        "correccion": "Suma cada tramo desde el inicio hasta el destino."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "ruta",
+        "significado": "Secuencia de vías para ir de un lugar a otro."
+      },
+      {
+        "termino": "tramo",
+        "significado": "Parte del recorrido entre dos puntos."
+      },
+      {
+        "termino": "desvío",
+        "significado": "Cambio de camino para evitar un obstáculo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Vas del colegio al mercado por calles: 2 cuadras al este y 1 al norte. ¿Cuántas cuadras recorres? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos tramos.",
+          "Cuenta 2 cuadras en uno y 1 en otro.",
+          "Suma 2 + 1."
+        ],
+        "retroalimentacion": "Recorres 3 cuadras; mirar solo el tramo este deja una fuera."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para ir de la posta al parque, la calle recta está cerrada. ¿Qué ruta sirve?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cruzar por la calle cerrada"
+          },
+          {
+            "id": "b",
+            "texto": "Seguir dos calles abiertas que rodean el cierre"
+          },
+          {
+            "id": "c",
+            "texto": "Atravesar una manzana sin pasaje"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cierre impide usar esa calle.",
+          "La ruta debe seguir vías transitables.",
+          "Rodear por calles abiertas sí cumple."
+        ],
+        "retroalimentacion": "Sirve seguir las dos calles abiertas; la ruta directa está cerrada."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una ruta válida en un plano debe conectar el lugar de salida con el de llegada.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica ambos extremos.",
+          "Un trazo que termina antes no llega.",
+          "La ruta debe unir origen y destino."
+        ],
+        "retroalimentacion": "Es verdadero: sin llegar al destino el recorrido está incompleto."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un croquis de calles, el recorrido escuela → plaza → biblioteca pasa primero por la plaza. ¿Qué lugar es el destino?",
+        "respuesta": "biblioteca",
+        "alternativasAceptadas": [
+          "la biblioteca"
+        ],
+        "pistas": [
+          "Lee las flechas en orden.",
+          "El primer lugar es salida.",
+          "El último lugar es destino."
+        ],
+        "retroalimentacion": "El destino es la biblioteca; la plaza es una parada intermedia."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos rutas abiertas al estadio miden 5 y 8 cuadras. Si buscas caminar menos, ¿cuál eliges?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La de 5 cuadras"
+          },
+          {
+            "id": "b",
+            "texto": "La de 8 cuadras"
+          },
+          {
+            "id": "c",
+            "texto": "Ambas por igual"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El criterio es distancia recorrida.",
+          "Compara 5 y 8.",
+          "Cinco es menor que ocho."
+        ],
+        "retroalimentacion": "Elige la de 5 cuadras; la de 8 exige caminar 3 más."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El trayecto al museo tiene tres tramos de 2, 3 y 1 cuadras. ¿Cuántas cuadras recorres en total? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los tres tramos.",
+          "2 + 3 = 5.",
+          "Agrega la última cuadra."
+        ],
+        "retroalimentacion": "Son 6 cuadras; omitir el tramo final da 5."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una ruta de 4 cuadras es más corta que otra de 3 cuadras si tiene menos giros.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aquí se compara la distancia en cuadras.",
+          "El número de giros es otro criterio.",
+          "4 cuadras superan 3 cuadras."
+        ],
+        "retroalimentacion": "Es falso: con el criterio de cuadras, la ruta de 3 es más corta."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Desde el paradero avanzas al norte por calle Lima y luego doblas al este por avenida Sol. ¿Cuál es la segunda vía de la ruta?",
+        "respuesta": "avenida Sol",
+        "alternativasAceptadas": [
+          "la avenida Sol"
+        ],
+        "pistas": [
+          "La primera vía es calle Lima.",
+          "El giro ocurre al llegar a la otra vía.",
+          "Después del giro sigues avenida Sol."
+        ],
+        "retroalimentacion": "La segunda vía es avenida Sol; calle Lima corresponde al primer tramo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ruta A: 2 cuadras al norte y 2 al este. Ruta B: 1 al sur, 2 al este y 3 al norte. Ambas llegan a la feria. ¿Cuál tiene menos cuadras?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ruta B"
+          },
+          {
+            "id": "b",
+            "texto": "Empatan"
+          },
+          {
+            "id": "c",
+            "texto": "Ruta A"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma por separado cada ruta.",
+          "A mide 2 + 2 = 4.",
+          "B mide 1 + 2 + 3 = 6."
+        ],
+        "retroalimentacion": "Ruta A recorre 4 cuadras frente a 6 de B."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un trazo de 2 cuadras al este y 2 al oeste, sin otro tramo, lleva a un destino situado al este del inicio.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos desplazamientos son opuestos.",
+          "Tienen la misma longitud.",
+          "Terminas en el inicio."
+        ],
+        "retroalimentacion": "Es falso: regresaste al inicio, así que esa ruta no llega al destino este."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para evitar una obra, una ruta usa 3 cuadras al sur, 2 al este y 4 al norte. ¿Cuántas cuadras se caminan, contando todo el trayecto? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piden distancia caminada, no desplazamiento final.",
+          "Suma 3 + 2.",
+          "Agrega las 4 cuadras del último tramo."
+        ],
+        "retroalimentacion": "Se caminan 9 cuadras; cancelar sur con norte calcularía otra cosa."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al comparar dos caminos al hospital, uno tiene 6 cuadras y cruza una calle cerrada; el otro tiene 7 cuadras por vías abiertas. ¿Cuál es conveniente?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El de 6 por ser menor"
+          },
+          {
+            "id": "b",
+            "texto": "Los dos"
+          },
+          {
+            "id": "c",
+            "texto": "Ninguno"
+          },
+          {
+            "id": "d",
+            "texto": "El de 7 por ser transitable"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa la condición de calles abiertas.",
+          "El de 6 cruza un cierre.",
+          "La ruta de 7 sí permite llegar."
+        ],
+        "retroalimentacion": "Conviene el de 7 cuadras por vías abiertas; el de 6 no es transitable."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.plano-cartesiano-coordenadas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P6-03",
+      "MAT-C26-P6-06"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Coordenadas de lugares en planos y mapas",
+    "disciplina": "geometria",
+    "descripcionCorta": "Ubica y nombra lugares con pares ordenados en planos y mapas cuadriculados.",
+    "palabrasClave": [
+      "coordenadas",
+      "par ordenado",
+      "eje horizontal",
+      "eje vertical",
+      "origen"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 121,
+    "ideaCentral": "En un plano cuadriculado, un lugar se ubica con un par ordenado (x, y): primero avanzas en el eje horizontal y después en el vertical desde el origen (0, 0). Cambiar el orden de los números suele señalar otro lugar.",
+    "pasos": [
+      "Encuentra el origen donde se cruzan los ejes.",
+      "Lee primero la posición horizontal x.",
+      "Lee después la posición vertical y.",
+      "Escribe el par como (x, y) y comprueba el punto."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La posta está 3 cuadros a la derecha y 2 arriba del origen.",
+        "desarrollo": "Primero x = 3; después y = 2.",
+        "respuesta": "Su coordenada es (3, 2)."
+      },
+      {
+        "situacion": "En un mapa, la biblioteca se marca en (1, 4).",
+        "desarrollo": "Desde el origen avanzo 1 a la derecha y 4 hacia arriba.",
+        "respuesta": "Allí ubico la biblioteca."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir (y, x) por mirar primero la altura.",
+        "correccion": "Recuerda: horizontal primero, vertical después."
+      },
+      {
+        "error": "Contar desde la casilla 1 en vez del origen.",
+        "correccion": "Empieza donde ambos ejes marcan 0."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "origen",
+        "significado": "Punto (0, 0) donde se cruzan los ejes."
+      },
+      {
+        "termino": "abscisa",
+        "significado": "Primer número del par: posición horizontal x."
+      },
+      {
+        "termino": "ordenada",
+        "significado": "Segundo número del par: posición vertical y."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Desde el origen, el quiosco está 2 cuadros a la derecha y 3 arriba. ¿Cuál es su coordenada?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(3, 2)"
+          },
+          {
+            "id": "b",
+            "texto": "(2, 2)"
+          },
+          {
+            "id": "c",
+            "texto": "(2, 3)"
+          },
+          {
+            "id": "d",
+            "texto": "(3, 3)"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe primero el movimiento horizontal.",
+          "Horizontal vale 2.",
+          "Vertical vale 3."
+        ],
+        "retroalimentacion": "El quiosco está en (2, 3); (3, 2) invierte el orden."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se escribe la coordenada del origen? Usa paréntesis y coma.",
+        "respuesta": "(0, 0)",
+        "alternativasAceptadas": [
+          "(0,0)"
+        ],
+        "pistas": [
+          "El origen está donde se cruzan los ejes.",
+          "Allí x vale cero.",
+          "También y vale cero."
+        ],
+        "retroalimentacion": "El origen es (0, 0), no (1, 1)."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el par (4, 1), el primer número indica la posición horizontal.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda el orden x, y.",
+          "El 4 ocupa el lugar de x.",
+          "x corresponde al eje horizontal."
+        ],
+        "retroalimentacion": "Es verdadero: 4 es la coordenada horizontal."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La biblioteca está en (5, 2). ¿Cuántos cuadros a la derecha del origen se encuentra? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el primer número del par.",
+          "En (5, 2), x es 5.",
+          "x cuenta los cuadros horizontales."
+        ],
+        "retroalimentacion": "Está 5 cuadros a la derecha; 2 indica la altura."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un plano, la posta ocupa (1, 4). ¿Qué recorrido desde (0, 0) la localiza?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 a la derecha y 4 arriba"
+          },
+          {
+            "id": "b",
+            "texto": "4 a la derecha y 1 arriba"
+          },
+          {
+            "id": "c",
+            "texto": "1 abajo y 4 a la derecha"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee x antes que y.",
+          "x = 1; y = 4.",
+          "Primero derecha 1 y luego arriba 4."
+        ],
+        "retroalimentacion": "La ruta correcta es 1 a la derecha y 4 arriba; la segunda invierte números."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los puntos (2, 5) y (5, 2) indican siempre el mismo sitio.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el primer número de ambos.",
+          "Uno está en x = 2 y otro en x = 5.",
+          "El orden sí cambia la ubicación."
+        ],
+        "retroalimentacion": "Es falso: los pares invertidos marcan sitios distintos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El mercado queda en x = 3 e y = 6. Escribe su par ordenado.",
+        "respuesta": "(3, 6)",
+        "alternativasAceptadas": [
+          "(3,6)"
+        ],
+        "pistas": [
+          "x va primero.",
+          "y va después de la coma.",
+          "Coloca 3 antes de 6."
+        ],
+        "retroalimentacion": "El mercado queda en (3, 6); (6, 3) invierte los ejes."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El colegio está en (4, 7). ¿A cuántos cuadros arriba del eje horizontal se ubica? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La altura se lee en y.",
+          "y es el segundo número.",
+          "En (4, 7), y vale 7."
+        ],
+        "retroalimentacion": "Está 7 cuadros arriba del eje horizontal; 4 es la posición lateral."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La plaza se ubica en (3, 2). La farmacia está directamente arriba de ella, en (3, 5). ¿Qué coordenada se mantiene?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo y"
+          },
+          {
+            "id": "b",
+            "texto": "Ninguna"
+          },
+          {
+            "id": "c",
+            "texto": "Ambas"
+          },
+          {
+            "id": "d",
+            "texto": "x = 3"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Arriba cambia la altura.",
+          "Compara los primeros números.",
+          "Ambos pares empiezan con 3."
+        ],
+        "retroalimentacion": "Se mantiene x = 3; la altura cambia de 2 a 5."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un punto en (0, 6) está sobre el eje vertical.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Su posición horizontal es x = 0.",
+          "No se mueve a izquierda ni derecha del origen.",
+          "Solo sube 6 unidades."
+        ],
+        "retroalimentacion": "Es verdadero: x = 0 sitúa el punto sobre el eje vertical."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un estudiante marcó (6, 2) para una posta que está 2 cuadros a la derecha y 6 arriba. ¿Qué par corrige su marca?",
+        "respuesta": "(2, 6)",
+        "alternativasAceptadas": [
+          "(2,6)"
+        ],
+        "pistas": [
+          "El movimiento lateral da x.",
+          "La altura da y.",
+          "Escribe 2 primero y 6 segundo."
+        ],
+        "retroalimentacion": "La coordenada correcta es (2, 6); (6, 2) invierte los datos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Desde (2, 3) avanzas 4 cuadros a la derecha sin subir ni bajar. ¿Cuál es la nueva coordenada x? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Solo cambia x.",
+          "Empiezas con x = 2.",
+          "Suma 2 + 4."
+        ],
+        "retroalimentacion": "La nueva x es 6; y sigue siendo 3."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.ampliacion-reduccion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P6-03",
+      "MAT-C26-P6-06"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Ampliación y reducción de figuras en el plano cartesiano",
+    "disciplina": "geometria",
+    "descripcionCorta": "Amplía o reduce figuras en una cuadrícula o en el plano cartesiano manteniendo su forma.",
+    "palabrasClave": [
+      "ampliación",
+      "reducción",
+      "escala",
+      "cuadrícula",
+      "proporción"
+    ],
+    "prerrequisitos": [
+      "mat.p6.plano-cartesiano-coordenadas"
+    ],
+    "ordenSugerido": 122,
+    "ideaCentral": "Ampliar o reducir una figura exige cambiar todas sus longitudes por el mismo factor para conservar su forma. En el plano cartesiano, si el centro de escala es el origen, multiplica o divide ambas coordenadas por ese factor.",
+    "pasos": [
+      "Identifica el factor de escala indicado.",
+      "Multiplica o divide cada longitud por el mismo factor.",
+      "Si trabajas desde el origen, transforma x e y de cada vértice.",
+      "Comprueba que los lados mantengan la misma proporción."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un rectángulo de 2 por 3 cuadros se amplía al doble.",
+        "desarrollo": "Multiplico 2 × 2 y 3 × 2.",
+        "respuesta": "Mide 4 por 6 cuadros."
+      },
+      {
+        "situacion": "El punto (6, 4) se reduce a la mitad desde el origen.",
+        "desarrollo": "Divido ambas coordenadas entre 2: (3, 2).",
+        "respuesta": "Nuevo punto (3, 2)."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Duplicar solo el ancho de una figura.",
+        "correccion": "Aplica el mismo factor al ancho y al alto."
+      },
+      {
+        "error": "Sumar 2 a cada medida cuando piden duplicar.",
+        "correccion": "Duplicar significa multiplicar por 2."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "factor de escala",
+        "significado": "Número por el que se multiplican todas las longitudes."
+      },
+      {
+        "termino": "ampliación",
+        "significado": "Cambio que aumenta la figura conservando su forma."
+      },
+      {
+        "termino": "reducción",
+        "significado": "Cambio que disminuye la figura conservando su forma."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un lado de 3 cuadros se amplía al doble. ¿Cuántos cuadros mide ahora? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Doble significa factor 2.",
+          "Multiplica 3 por 2.",
+          "3 × 2 = 6."
+        ],
+        "retroalimentacion": "Mide 6 cuadros; sumar solo 2 no equivale a duplicar."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si duplicas el ancho y el alto de un rectángulo, conservas su forma.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los factores de ambas medidas.",
+          "Ambas se multiplican por 2.",
+          "La proporción permanece igual."
+        ],
+        "retroalimentacion": "Es verdadero: aplicar el mismo factor conserva la forma."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cuadrado de lado 4 cm se reduce a la mitad. ¿Cuánto mide su nuevo lado?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 cm"
+          },
+          {
+            "id": "b",
+            "texto": "2 cm"
+          },
+          {
+            "id": "c",
+            "texto": "8 cm"
+          },
+          {
+            "id": "d",
+            "texto": "1 cm"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reducir a la mitad es dividir entre 2.",
+          "Parte de 4 cm.",
+          "4 ÷ 2 = 2."
+        ],
+        "retroalimentacion": "El nuevo lado mide 2 cm; 8 cm sería una ampliación."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una cuadrícula, un rectángulo de 2 por 4 cuadros se amplía al doble. Escribe sus nuevas medidas como «ancho por alto».",
+        "respuesta": "4 por 8",
+        "alternativasAceptadas": [
+          "4x8",
+          "4 × 8"
+        ],
+        "pistas": [
+          "Transforma ambas dimensiones.",
+          "2 × 2 = 4 para el ancho.",
+          "4 × 2 = 8 para el alto."
+        ],
+        "retroalimentacion": "Las nuevas medidas son 4 por 8; cambiar solo una deformaría la figura."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un triángulo con lados 3, 4 y 5 cm se amplía por factor 2. ¿Qué lados tendrá?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5, 6 y 7 cm"
+          },
+          {
+            "id": "b",
+            "texto": "3, 8 y 10 cm"
+          },
+          {
+            "id": "c",
+            "texto": "6, 4 y 5 cm"
+          },
+          {
+            "id": "d",
+            "texto": "6, 8 y 10 cm"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aplica el mismo factor a cada lado.",
+          "3 × 2 = 6 y 4 × 2 = 8.",
+          "5 × 2 = 10."
+        ],
+        "retroalimentacion": "Los lados son 6, 8 y 10 cm; sumar 2 a cada uno no conserva la escala."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Desde el origen, el vértice (2, 3) se amplía por factor 3. ¿Cuál es su nueva coordenada x? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica ambas coordenadas por 3.",
+          "La x original es 2.",
+          "2 × 3 = 6."
+        ],
+        "retroalimentacion": "La x nueva es 6; la y nueva sería 9."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Reducir una figura a la mitad significa restar 2 a cada lado.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La mitad depende de cada longitud.",
+          "Un lado de 8 pasa a 4, no a 6.",
+          "Debes dividir cada lado entre 2."
+        ],
+        "retroalimentacion": "Es falso: reducir a la mitad es dividir por 2, no restar 2."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un vértice en (8, 6) se reduce a la mitad desde el origen. Escribe su nueva coordenada.",
+        "respuesta": "(4, 3)",
+        "alternativasAceptadas": [
+          "(4,3)"
+        ],
+        "pistas": [
+          "Divide x e y por igual.",
+          "8 ÷ 2 = 4.",
+          "6 ÷ 2 = 3."
+        ],
+        "retroalimentacion": "El nuevo vértice es (4, 3); reducir solo x deformaría la figura."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una cuadrícula, una figura de ancho 3 y alto 5 se dibuja con ancho 6 y alto 10. ¿Qué transformación se hizo?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ampliación al doble"
+          },
+          {
+            "id": "b",
+            "texto": "Reducción a la mitad"
+          },
+          {
+            "id": "c",
+            "texto": "Solo estiramiento horizontal"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 3 con 6.",
+          "Compara también 5 con 10.",
+          "Las dos dimensiones se multiplicaron por 2."
+        ],
+        "retroalimentacion": "Es una ampliación al doble; ambos tamaños crecieron con el mismo factor."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rectángulo de 4 por 6 cuadros pasa a 8 por 9 cuadros mediante una ampliación que conserva la forma.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el cambio del ancho.",
+          "4 a 8 tiene factor 2.",
+          "6 a 9 tiene factor 1,5; son distintos."
+        ],
+        "retroalimentacion": "Es falso: factores 2 y 1,5 deforman el rectángulo."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo de lados 6, 9 y 12 cm se reduce a un tercio. ¿Cuántos centímetros mide ahora el lado que era 9 cm? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un tercio significa dividir entre 3.",
+          "Fíjate solo en el lado de 9 cm.",
+          "9 ÷ 3 = 3."
+        ],
+        "retroalimentacion": "Ese lado mide 3 cm; restar 3 daría 6 cm, que no es un tercio."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Desde el origen amplías por factor 2 un triángulo con vértices (1, 1), (3, 1) y (1, 2). ¿Cuáles son los nuevos vértices?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(2, 1), (6, 1), (2, 2)"
+          },
+          {
+            "id": "b",
+            "texto": "(2, 2), (4, 2), (2, 3)"
+          },
+          {
+            "id": "c",
+            "texto": "(2, 2), (6, 2), (2, 4)"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Transforma cada par completo.",
+          "(1, 1) pasa a (2, 2).",
+          "Duplica las dos coordenadas de los otros vértices."
+        ],
+        "retroalimentacion": "Los nuevos vértices son (2, 2), (6, 2) y (2, 4); sumar 1 no es escalar por 2."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.giros-plano",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P6-03",
+      "MAT-C26-P6-06",
+      "MAT-C26-P6-07"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Giros de figuras en el plano",
+    "disciplina": "geometria",
+    "descripcionCorta": "Gira figuras un cuarto, media o tres cuartos de vuelta en el plano cartesiano.",
+    "palabrasClave": [
+      "giro",
+      "cuarto de vuelta",
+      "media vuelta",
+      "sentido horario",
+      "centro de giro"
+    ],
+    "prerrequisitos": [
+      "mat.p6.plano-cartesiano-coordenadas"
+    ],
+    "ordenSugerido": 123,
+    "ideaCentral": "Un giro mueve cada punto alrededor de un centro sin cambiar la forma ni el tamaño. Un cuarto de vuelta mide 90°, media vuelta 180° y tres cuartos 270°; el sentido horario o antihorario determina la posición final.",
+    "pasos": [
+      "Identifica el centro de giro y el sentido indicado.",
+      "Convierte la fracción de vuelta en 90°, 180° o 270°.",
+      "Gira cada vértice manteniendo su distancia al centro.",
+      "Une los vértices nuevos en el mismo orden."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una flecha hacia arriba gira un cuarto de vuelta en sentido horario.",
+        "desarrollo": "90° hacia la dirección del reloj lleva de arriba a derecha.",
+        "respuesta": "La flecha apunta a la derecha."
+      },
+      {
+        "situacion": "El punto (2, 1) gira media vuelta alrededor del origen.",
+        "desarrollo": "La media vuelta cambia ambos signos.",
+        "respuesta": "Llega a (−2, −1)."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir giro con traslado.",
+        "correccion": "En un giro los puntos rodean un centro y cambian orientación."
+      },
+      {
+        "error": "Olvidar el sentido en un cuarto de vuelta.",
+        "correccion": "Horario y antihorario llevan a lados opuestos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "centro de giro",
+        "significado": "Punto fijo alrededor del cual rota la figura."
+      },
+      {
+        "termino": "sentido horario",
+        "significado": "Dirección en que giran las manecillas del reloj."
+      },
+      {
+        "termino": "media vuelta",
+        "significado": "Giro de 180°."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una flecha hacia arriba gira un cuarto de vuelta en sentido horario. ¿Hacia dónde apunta?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Izquierda"
+          },
+          {
+            "id": "b",
+            "texto": "Derecha"
+          },
+          {
+            "id": "c",
+            "texto": "Abajo"
+          },
+          {
+            "id": "d",
+            "texto": "Arriba"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un cuarto equivale a 90°.",
+          "Imagina la manecilla del reloj desde las 12.",
+          "Va de arriba hacia la derecha."
+        ],
+        "retroalimentacion": "Apunta a la derecha; izquierda sería sentido antihorario."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos grados tiene media vuelta? Escribe solo el número.",
+        "respuesta": 180,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una vuelta completa mide 360°.",
+          "Media vuelta es la mitad.",
+          "360 ÷ 2 = 180."
+        ],
+        "retroalimentacion": "Media vuelta tiene 180°; 90° es solo un cuarto."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un giro conserva el tamaño de la figura.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en girar una baldosa.",
+          "Sus lados no se alargan.",
+          "Solo cambia su posición y orientación."
+        ],
+        "retroalimentacion": "Es verdadero: el giro no cambia longitudes."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una flecha hacia la derecha gira media vuelta. ¿Hacia dónde apunta?",
+        "respuesta": "izquierda",
+        "alternativasAceptadas": [
+          "a la izquierda"
+        ],
+        "pistas": [
+          "Media vuelta invierte la dirección.",
+          "Derecha e izquierda son opuestas.",
+          "Después de 180° apunta al lado contrario."
+        ],
+        "retroalimentacion": "Apunta a la izquierda; media vuelta no la deja igual."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una flecha hacia abajo gira un cuarto de vuelta en sentido antihorario. ¿Dónde apunta?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Arriba"
+          },
+          {
+            "id": "b",
+            "texto": "Derecha"
+          },
+          {
+            "id": "c",
+            "texto": "Izquierda"
+          },
+          {
+            "id": "d",
+            "texto": "Abajo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Antihorario va contra el reloj.",
+          "Parte de la posición de las 6.",
+          "De abajo, 90° contra el reloj lleva a derecha."
+        ],
+        "retroalimentacion": "Apunta a la derecha; izquierda sería giro horario desde abajo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tres cuartos de vuelta equivalen a ¿cuántos grados? Escribe solo el número.",
+        "respuesta": 270,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuarto mide 90°.",
+          "Tienes tres cuartos.",
+          "3 × 90 = 270."
+        ],
+        "retroalimentacion": "Tres cuartos son 270°; 180° corresponde a media vuelta."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Girar un cuarto de vuelta horario y luego otro cuarto horario equivale a media vuelta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuarto aporta 90°.",
+          "Los dos giros van en el mismo sentido.",
+          "90° + 90° = 180°."
+        ],
+        "retroalimentacion": "Es verdadero: dos cuartos seguidos forman media vuelta."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Al girar un punto (3, 2) media vuelta alrededor del origen, ¿a qué coordenada llega?",
+        "respuesta": "(-3, -2)",
+        "alternativasAceptadas": [
+          "(-3,-2)",
+          "(−3, −2)",
+          "(−3,−2)"
+        ],
+        "pistas": [
+          "Una media vuelta cambia ambos signos.",
+          "La x positiva 3 pasa a −3.",
+          "La y positiva 2 pasa a −2."
+        ],
+        "retroalimentacion": "Llega a (−3, −2); cambiar solo un signo no es media vuelta."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una flecha al este gira tres cuartos de vuelta en sentido horario. ¿Hacia dónde queda?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Norte"
+          },
+          {
+            "id": "b",
+            "texto": "Sur"
+          },
+          {
+            "id": "c",
+            "texto": "Oeste"
+          },
+          {
+            "id": "d",
+            "texto": "Este"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres cuartos son 270°.",
+          "Desde este: sur tras un cuarto, oeste tras dos.",
+          "El tercer cuarto lleva a norte."
+        ],
+        "retroalimentacion": "Queda hacia el norte; sur sería solo un cuarto horario."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un punto a 4 cuadros del centro queda a 6 cuadros después de girar 90°.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Girar conserva distancias al centro.",
+          "El punto estaba a 4 cuadros.",
+          "Tras 90° sigue a 4 cuadros."
+        ],
+        "retroalimentacion": "Es falso: sigue a 4 cuadros del centro, no a 6."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una figura gira 90° horario y luego 90° antihorario alrededor del mismo centro. ¿Qué giro neto queda, en grados? Escribe solo el número.",
+        "respuesta": 0,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los giros tienen igual amplitud.",
+          "Sus sentidos son opuestos.",
+          "Se deshacen entre sí."
+        ],
+        "retroalimentacion": "El giro neto es 0°; la figura vuelve a su orientación inicial."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El vértice (2, 0) gira un cuarto de vuelta antihorario alrededor del origen. ¿Dónde termina?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(−2, 0)"
+          },
+          {
+            "id": "b",
+            "texto": "(0, −2)"
+          },
+          {
+            "id": "c",
+            "texto": "(2, 2)"
+          },
+          {
+            "id": "d",
+            "texto": "(0, 2)"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El punto está sobre el eje horizontal positivo.",
+          "Antihorario 90° lo lleva hacia arriba.",
+          "Conserva distancia 2 al origen."
+        ],
+        "retroalimentacion": "Termina en (0, 2); (0, −2) sería giro horario."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

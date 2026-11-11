@@ -1,0 +1,2177 @@
+[
+  {
+    "clave": "mat.p6.resultados-posibles",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P6-02",
+      "MAT-C25-P6-06"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Resultados posibles de una situación aleatoria",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Lista todos los resultados posibles de lanzar dados, monedas o sacar fichas.",
+    "palabrasClave": [
+      "azar",
+      "resultados posibles",
+      "moneda",
+      "dado",
+      "lista completa"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 124,
+    "ideaCentral": "Los resultados posibles son todas las salidas que pueden ocurrir en un experimento aleatorio, aunque aún no sepas cuál saldrá. Para listarlos, considera cada opción una vez y verifica que no falte ninguna.",
+    "pasos": [
+      "Define con claridad qué se hace y qué se observa.",
+      "Anota cada resultado distinto.",
+      "Comprueba que la lista cubra todas las posibilidades sin repetirlas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Al lanzar una moneda,",
+        "desarrollo": "puede quedar cara o sello.",
+        "respuesta": "Los resultados posibles son {cara, sello}."
+      },
+      {
+        "situacion": "Al lanzar un dado común,",
+        "desarrollo": "sus caras están numeradas del 1 al 6.",
+        "respuesta": "Los resultados posibles son {1, 2, 3, 4, 5, 6}."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Anotar solo el resultado que parece más probable.",
+        "correccion": "Lista lo que puede pasar, no lo que crees que pasará."
+      },
+      {
+        "error": "Repetir una ficha con el mismo color al listar colores.",
+        "correccion": "Si se observa el color, cada color distinto aparece una sola vez."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Experimento aleatorio",
+        "significado": "Acción cuyo resultado exacto no se conoce antes."
+      },
+      {
+        "termino": "Resultado posible",
+        "significado": "Una salida que puede ocurrir."
+      },
+      {
+        "termino": "Espacio muestral",
+        "significado": "Conjunto de todos los resultados posibles."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se lanza una moneda. ¿Cuál lista contiene todos los resultados posibles?",
+        "respuesta": "b",
+        "pistas": [
+          "Una moneda tiene dos lados.",
+          "Sus nombres son cara y sello.",
+          "Busca ambos sin agregar otros."
+        ],
+        "retroalimentacion": "«Cara y sello» es la lista completa; solo cara deja fuera un resultado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo cara"
+          },
+          {
+            "id": "b",
+            "texto": "Cara y sello"
+          },
+          {
+            "id": "c",
+            "texto": "Cara, sello y seis"
+          },
+          {
+            "id": "d",
+            "texto": "Solo sello"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un dado común tiene caras del 1 al 6. ¿Cuántos resultados posibles tiene un lanzamiento? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Cuenta las caras numeradas.",
+          "Van del 1 al 6.",
+          "Cada cara es un resultado."
+        ],
+        "retroalimentacion": "Tiene 6 resultados posibles; el número 6 de una cara no es el total por sí solo.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al sacar una ficha de una bolsa que solo tiene fichas rojas y azules, verde es un resultado posible si observas el color.",
+        "respuesta": false,
+        "pistas": [
+          "Revisa los colores de la bolsa.",
+          "Solo hay rojo y azul.",
+          "Verde no está entre ellos."
+        ],
+        "retroalimentacion": "Es falso: verde no puede salir si no hay fichas verdes.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una ruleta tiene sectores A, B y C. Si observas la letra, escribe la única letra que falta en la lista A, __, C.",
+        "respuesta": "B",
+        "pistas": [
+          "Las letras de la ruleta son A, B y C.",
+          "Ya figuran A y C.",
+          "Falta la letra intermedia."
+        ],
+        "retroalimentacion": "Falta B; sin ella la lista no está completa.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se elige al azar una tarjeta numerada 2, 4 o 6. ¿Cuál número NO es un resultado posible?",
+        "respuesta": "d",
+        "pistas": [
+          "Compara cada opción con las tarjetas.",
+          "Sí aparecen 2, 4 y 6.",
+          "Elige el número ausente."
+        ],
+        "retroalimentacion": "«8» no es posible; las tarjetas disponibles solo muestran 2, 4 y 6.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "8"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa tiene 3 fichas rojas y 5 azules. Si solo anotas el color de una extracción, ¿cuántos resultados distintos hay? Escribe solo el número.",
+        "respuesta": 2,
+        "pistas": [
+          "No cuentes fichas individuales.",
+          "Los colores son rojo y azul.",
+          "Cuenta los colores distintos."
+        ],
+        "retroalimentacion": "Hay 2 resultados de color, no 8 fichas como resultados diferentes.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si lanzas un dado y registras si sale par o impar, hay dos resultados posibles.",
+        "respuesta": true,
+        "pistas": [
+          "Agrupa las caras por paridad.",
+          "2, 4 y 6 son pares.",
+          "1, 3 y 5 son impares."
+        ],
+        "retroalimentacion": "Es verdadero: las categorías son par e impar.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una caja contiene bolitas amarillas, verdes y moradas. Si registras solo el color, completa la lista: amarillo, verde, __.",
+        "respuesta": "morado",
+        "pistas": [
+          "Lee los tres colores indicados.",
+          "Ya están amarillo y verde.",
+          "Agrega el tercer color en masculino."
+        ],
+        "retroalimentacion": "Falta morado; así están todos los colores posibles.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se lanza un dado y solo se registra «menor que 4» o «4 o más». ¿Qué lista es completa y sin repeticiones?",
+        "respuesta": "c",
+        "pistas": [
+          "El registro usa dos categorías.",
+          "1, 2 y 3 pertenecen a la primera.",
+          "4, 5 y 6 pertenecen a la segunda."
+        ],
+        "retroalimentacion": "«Menor que 4; 4 o más» cubre todas las caras sin repetir categorías.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1; 2; 3"
+          },
+          {
+            "id": "b",
+            "texto": "Menor que 4"
+          },
+          {
+            "id": "c",
+            "texto": "Menor que 4; 4 o más"
+          },
+          {
+            "id": "d",
+            "texto": "4 o más; 6"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se gira una ruleta con letras P, P, Q y R. Si se observa solo la letra, ¿cuántos resultados distintos hay? Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Una letra aparece dos veces.",
+          "Las letras distintas son P, Q y R.",
+          "Cuenta esas tres letras."
+        ],
+        "retroalimentacion": "Hay 3 resultados distintos; repetir P en la ruleta no crea otra letra.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Se sacan fichas numeradas 1, 2, 3 y 4. Solo se registra si el número es primo o compuesto; el 1 no es ninguno. ¿Qué categoría falta en la lista «primo, compuesto, __»?",
+        "respuesta": "ni primo ni compuesto",
+        "pistas": [
+          "Revisa la ficha 1.",
+          "El 1 no pertenece a las dos categorías nombradas.",
+          "Nombra esa tercera categoría literalmente."
+        ],
+        "retroalimentacion": "Falta «ni primo ni compuesto», que corresponde al 1.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar un dado, la lista 1, 2, 3, 4, 5 y 6 es completa aunque todavía no sepamos qué cara saldrá.",
+        "respuesta": true,
+        "pistas": [
+          "Posible no significa seguro.",
+          "El dado tiene esas seis caras.",
+          "La lista incluye todas."
+        ],
+        "retroalimentacion": "Es verdadero: la incertidumbre sobre la salida no impide listar las seis posibilidades.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.diagrama-arbol",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P6-06"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Diagrama de árbol para contar resultados",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Organiza los resultados de dos eventos combinados en un diagrama de árbol.",
+    "palabrasClave": [
+      "diagrama de árbol",
+      "ramas",
+      "combinaciones",
+      "resultados",
+      "conteo"
+    ],
+    "prerrequisitos": [
+      "mat.p6.resultados-posibles"
+    ],
+    "ordenSugerido": 125,
+    "ideaCentral": "Un diagrama de árbol muestra cada primera opción como una rama y desde ella todas las segundas opciones. Cada camino completo representa un resultado combinado distinto.",
+    "pasos": [
+      "Dibuja una rama por cada opción del primer evento.",
+      "Desde cada rama, agrega todas las opciones del segundo evento.",
+      "Lee los caminos completos y cuéntalos una vez."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se elige jugo de mango o maracuyá y pan con queso o palta.",
+        "desarrollo": "Desde cada jugo salen dos ramas de pan: mango-queso, mango-palta, maracuyá-queso y maracuyá-palta.",
+        "respuesta": "Hay 4 combinaciones."
+      },
+      {
+        "situacion": "Se lanza una moneda y luego se elige una tarjeta A, B o C.",
+        "desarrollo": "Desde cara y sello salen tres ramas cada una.",
+        "respuesta": "Hay 6 caminos completos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dejar una segunda opción fuera de una rama.",
+        "correccion": "Cada primera opción debe conectarse con todas las segundas."
+      },
+      {
+        "error": "Contar los nodos iniciales como resultados.",
+        "correccion": "Cuenta solo caminos que llegan al final de ambos eventos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Rama",
+        "significado": "Línea que representa una opción."
+      },
+      {
+        "termino": "Camino completo",
+        "significado": "Secuencia que incluye un resultado de cada evento."
+      },
+      {
+        "termino": "Evento combinado",
+        "significado": "Dos elecciones o acciones consideradas juntas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un árbol parte de 2 sabores y de cada sabor salen 2 tamaños. ¿Cuántos caminos completos hay? Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Dibuja dos primeras ramas.",
+          "Cada una se divide en dos.",
+          "Cuenta 2 + 2 caminos finales."
+        ],
+        "retroalimentacion": "Hay 4 caminos; contar solo las ramas iniciales da 2.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se elige polo rojo o azul y gorra blanca o negra. ¿Qué camino sí aparece en el árbol completo?",
+        "respuesta": "c",
+        "pistas": [
+          "El camino necesita polo y gorra.",
+          "Azul es un polo disponible.",
+          "Negra es una gorra disponible."
+        ],
+        "retroalimentacion": "«Azul, negra» es un camino completo; rojo solo no incluye gorra.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Verde, blanca"
+          },
+          {
+            "id": "b",
+            "texto": "Rojo"
+          },
+          {
+            "id": "c",
+            "texto": "Azul, negra"
+          },
+          {
+            "id": "d",
+            "texto": "Blanca, negra"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un árbol de dos elecciones, cada camino completo incluye una opción de la primera y una de la segunda.",
+        "respuesta": true,
+        "pistas": [
+          "Piensa en los dos niveles.",
+          "El primer nivel elige una opción.",
+          "El segundo nivel completa el camino."
+        ],
+        "retroalimentacion": "Es verdadero: ambos niveles forman cada resultado combinado.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tras elegir cara o sello, hay una rama por cada una de 3 tarjetas. ¿Cuántas hojas tiene el árbol? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Hay dos opciones de moneda.",
+          "Cada una se abre en tres tarjetas.",
+          "Cuenta 3 + 3 hojas."
+        ],
+        "retroalimentacion": "El árbol tiene 6 hojas; 3 cuenta solo las de una cara de moneda.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un árbol de desayuno tiene ramas «avena» y «quinua»; desde cada una salen «plátano» y «manzana». ¿Qué fruta completa el camino quinua → __ si no es plátano?",
+        "respuesta": "manzana",
+        "pistas": [
+          "Mira las dos frutas disponibles.",
+          "Quinua conecta con ambas.",
+          "La otra fruta es manzana."
+        ],
+        "retroalimentacion": "El camino es quinua → manzana; no se omite la segunda elección.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un árbol de 3 rutas de bus y 2 horarios por ruta, ¿cuántos resultados finales se cuentan?",
+        "respuesta": "d",
+        "pistas": [
+          "Cada ruta tiene dos salidas.",
+          "Son tres rutas.",
+          "Cuenta 2 + 2 + 2."
+        ],
+        "retroalimentacion": "«6» cuenta los caminos finales; 5 sería sumar 3 + 2 sin combinar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          },
+          {
+            "id": "d",
+            "texto": "6"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el árbol muestra A→1, A→2 y B→1 para A o B y 1 o 2, falta B→2.",
+        "respuesta": true,
+        "pistas": [
+          "Cada letra debe conectarse con ambos números.",
+          "A ya tiene 1 y 2.",
+          "B solo tiene 1 en el dibujo."
+        ],
+        "retroalimentacion": "Es verdadero: B→2 completa el cuarto camino.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una ruleta da sol, luna o estrella y una moneda da cara o sello. ¿Cuántos caminos finales tendría el árbol? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Dibuja tres símbolos iniciales.",
+          "De cada uno salen cara y sello.",
+          "Cuenta dos caminos por símbolo."
+        ],
+        "retroalimentacion": "Son 6 caminos; no basta con sumar 3 + 2.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un árbol de uniforme tiene 2 polos y 3 pantalones. Luis dibuja solo 5 caminos. ¿Qué revisión encuentra el error?",
+        "respuesta": "b",
+        "pistas": [
+          "El primer polo debe unirse con tres pantalones.",
+          "El segundo también.",
+          "En total deberían ser seis caminos."
+        ],
+        "retroalimentacion": "«Falta una unión entre un polo y un pantalón» explica por qué solo hay cinco caminos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sobran dos caminos"
+          },
+          {
+            "id": "b",
+            "texto": "Falta una unión entre un polo y un pantalón"
+          },
+          {
+            "id": "c",
+            "texto": "Debe haber solo tres caminos"
+          },
+          {
+            "id": "d",
+            "texto": "Hay que quitar un polo"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un árbol se eligen 4 entradas y luego 3 platos, pero se tachan los 3 caminos de una entrada agotada. ¿Cuántos caminos quedan? Escribe solo el número.",
+        "respuesta": 9,
+        "pistas": [
+          "Antes había 4 × 3 caminos.",
+          "Eso da 12.",
+          "Resta los 3 de la entrada agotada."
+        ],
+        "retroalimentacion": "Quedan 9 caminos; restar una sola hoja deja 11 incorrectamente.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para dos monedas, el árbol tiene cara→cara, cara→sello y sello→cara. Escribe el camino faltante como primera-segunda, usando palabras.",
+        "respuesta": "sello-sello",
+        "pistas": [
+          "Hay dos ramas iniciales.",
+          "Desde sello deben salir cara y sello.",
+          "Ya figura sello→cara."
+        ],
+        "retroalimentacion": "Falta sello-sello; cada rama inicial necesita las dos salidas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un árbol con tres opciones iniciales y dos finales por cada una tiene seis caminos completos, aunque una opción final se repita en varias ramas.",
+        "respuesta": true,
+        "pistas": [
+          "Repetir una etiqueta final no fusiona caminos.",
+          "Cada inicio produce dos rutas.",
+          "Tres grupos de dos suman seis."
+        ],
+        "retroalimentacion": "Es verdadero: los caminos se distinguen por su primera opción.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.mas-menos-probable",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P6-03"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Sucesos más probables y menos probables",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Compara sucesos según sus casos favorables y los describe oralmente.",
+    "palabrasClave": [
+      "más probable",
+      "menos probable",
+      "casos favorables",
+      "equiprobable"
+    ],
+    "prerrequisitos": [
+      "mat.p6.resultados-posibles"
+    ],
+    "ordenSugerido": 126,
+    "ideaCentral": "Si los resultados elementales tienen igual oportunidad, el suceso con más casos favorables es más probable. Para comparar bolsas o ruletas distintas, considera también el total de casos posibles.",
+    "pasos": [
+      "Identifica los sucesos que comparas.",
+      "Cuenta casos favorables y casos posibles para cada uno.",
+      "Compara sus posibilidades; si los totales son iguales, compara casos favorables.",
+      "Explica cuál es más probable, menos probable o igual de probable."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una bolsa tiene 5 fichas rojas y 2 verdes.",
+        "desarrollo": "Al sacar una ficha, hay más rojas que verdes entre 7 fichas iguales.",
+        "respuesta": "Rojo es más probable."
+      },
+      {
+        "situacion": "Dos ruletas iguales tienen 4 sectores: la primera 1 azul y la segunda 3 azules.",
+        "desarrollo": "La segunda ofrece más sectores azules del mismo total.",
+        "respuesta": "Azul es más probable en la segunda."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que más probable significa seguro.",
+        "correccion": "Puede fallar aunque tenga más casos favorables."
+      },
+      {
+        "error": "Comparar solo casos favorables con totales distintos.",
+        "correccion": "Relaciona favorables con el total de cada experimento."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Suceso",
+        "significado": "Resultado o grupo de resultados que interesa."
+      },
+      {
+        "termino": "Casos favorables",
+        "significado": "Resultados que cumplen el suceso."
+      },
+      {
+        "termino": "Igual de probable",
+        "significado": "Sucesos con la misma oportunidad de ocurrir."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una bolsa tiene 7 bolitas amarillas y 2 moradas. ¿Qué color es más probable extraer?",
+        "respuesta": "a",
+        "pistas": [
+          "Compara cantidades de cada color.",
+          "Hay 7 amarillas y 2 moradas.",
+          "El color con más fichas favorece más resultados."
+        ],
+        "retroalimentacion": "«Amarillo» es más probable porque hay 7 fichas frente a 2 moradas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Amarillo"
+          },
+          {
+            "id": "b",
+            "texto": "Morado"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos igual"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un dado justo, sacar un número par es más probable que sacar el 6.",
+        "respuesta": true,
+        "pistas": [
+          "Los pares son 2, 4 y 6.",
+          "Sacar 6 tiene un solo caso.",
+          "Tres casos superan a uno."
+        ],
+        "retroalimentacion": "Es verdadero: par tiene tres casos favorables y 6 solo uno.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una ruleta de 5 sectores iguales, 4 son verdes y 1 naranja. ¿Qué color es menos probable?",
+        "respuesta": "naranja",
+        "pistas": [
+          "Todos los sectores tienen igual tamaño.",
+          "Solo uno es naranja.",
+          "Compara uno frente a cuatro."
+        ],
+        "retroalimentacion": "Naranja es menos probable; verde ocupa cuatro sectores.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una caja tiene 6 fichas negras y 3 blancas. ¿Cuántos casos favorables tiene sacar negra? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "El suceso pedido es negra.",
+          "Cuenta solo fichas negras.",
+          "Hay seis de ese color."
+        ],
+        "retroalimentacion": "Tiene 6 casos favorables; 9 es el total de fichas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Bolsa A: 3 rojas de 6. Bolsa B: 4 rojas de 10. ¿De cuál conviene sacar para que salga roja?",
+        "respuesta": "b",
+        "pistas": [
+          "Compara parte respecto al total.",
+          "A tiene la mitad roja.",
+          "B tiene menos de la mitad roja."
+        ],
+        "retroalimentacion": "«Bolsa A» ofrece mayor probabilidad: 3/6 supera 4/10, aunque 4 sea mayor que 3.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Bolsa B"
+          },
+          {
+            "id": "b",
+            "texto": "Bolsa A"
+          },
+          {
+            "id": "c",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede comparar"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos bolsas tienen 2 fichas azules cada una, azul tiene igual probabilidad aunque una bolsa tenga 4 fichas y la otra 10.",
+        "respuesta": false,
+        "pistas": [
+          "Cuenta también el total.",
+          "Compara 2 de 4 con 2 de 10.",
+          "La primera mitad supera a la segunda quinta parte."
+        ],
+        "retroalimentacion": "Es falso: con distinto total, 2 casos favorables no implican igual probabilidad.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un dado tiene tres caras con ★ y tres con ●. ¿Cómo se comparan los sucesos de sacar ★ y sacar ●? Responde «igual».",
+        "respuesta": "igual",
+        "pistas": [
+          "Cuenta cada símbolo.",
+          "Hay tres caras de cada uno.",
+          "Sus oportunidades coinciden."
+        ],
+        "retroalimentacion": "Son igual de probables: 3 caras frente a 3 caras.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una ruleta tiene 8 sectores iguales: 5 con sol y 3 con luna. ¿Cuántos casos más favorecen al sol? Escribe solo el número.",
+        "respuesta": 2,
+        "pistas": [
+          "Cuenta sectores de sol.",
+          "Cuenta sectores de luna.",
+          "Resta 5 − 3."
+        ],
+        "retroalimentacion": "El sol tiene 2 casos favorables más; 8 es el total de sectores.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Juego A: ganar con 2 de 4 tarjetas. Juego B: ganar con 5 de 8 tarjetas. ¿Cuál es más favorable?",
+        "respuesta": "d",
+        "pistas": [
+          "A ofrece 2/4 = 1/2.",
+          "B ofrece 5/8.",
+          "5/8 supera 4/8."
+        ],
+        "retroalimentacion": "«Juego B» es más favorable: 5/8 supera 2/4 = 4/8.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Juego A"
+          },
+          {
+            "id": "b",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "c",
+            "texto": "Ninguno permite ganar"
+          },
+          {
+            "id": "d",
+            "texto": "Juego B"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una bolsa con 9 rojas y 1 azul, azul es posible aunque menos probable que rojo.",
+        "respuesta": true,
+        "pistas": [
+          "Hay una azul.",
+          "Por eso sí puede salir.",
+          "Pero nueve rojas ofrecen más casos."
+        ],
+        "retroalimentacion": "Es verdadero: posible no significa tan probable como rojo.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Ruleta A: 2 verdes de 3 sectores. Ruleta B: 3 verdes de 6 sectores. ¿En cuál es más probable verde? Escribe A o B.",
+        "respuesta": "A",
+        "pistas": [
+          "A tiene 2/3 verdes.",
+          "B tiene 3/6 = 1/2.",
+          "Dos tercios es mayor que un medio."
+        ],
+        "retroalimentacion": "En A: 2/3 supera 3/6; no basta contar 3 verdes.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 12 cartas iguales, 5 tienen número par, 5 impar y 2 una estrella. ¿Qué comparación es correcta?",
+        "respuesta": "c",
+        "pistas": [
+          "Par e impar tienen cinco casos cada uno.",
+          "Estrella solo dos.",
+          "Compara ambas cantidades."
+        ],
+        "retroalimentacion": "«Par e impar son igual de probables y más probables que estrella» resume los casos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Estrella es la más probable"
+          },
+          {
+            "id": "b",
+            "texto": "Par supera a impar"
+          },
+          {
+            "id": "c",
+            "texto": "Par e impar son igual de probables y más probables que estrella"
+          },
+          {
+            "id": "d",
+            "texto": "Los tres sucesos son iguales"
+          }
+        ],
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.probabilidad-fraccion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P6-02",
+      "MAT-C25-P6-03",
+      "MAT-C25-P6-06"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Probabilidad como fracción",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Expresa la probabilidad como casos favorables entre casos posibles.",
+    "palabrasClave": [
+      "probabilidad",
+      "fracción",
+      "casos favorables",
+      "casos posibles"
+    ],
+    "prerrequisitos": [
+      "mat.p6.mas-menos-probable"
+    ],
+    "ordenSugerido": 127,
+    "ideaCentral": "Con resultados igual de probables, la probabilidad de un suceso se expresa como casos favorables entre casos posibles. Puede simplificarse la fracción sin cambiar su valor.",
+    "pasos": [
+      "Cuenta todos los resultados elementales posibles.",
+      "Cuenta los que cumplen el suceso.",
+      "Escribe favorables/posibles.",
+      "Simplifica si ambos números tienen un divisor común."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una bolsa hay 2 fichas rojas y 3 blancas.",
+        "desarrollo": "Hay 5 fichas posibles y 2 favorecen rojo.",
+        "respuesta": "P(rojo) = 2/5."
+      },
+      {
+        "situacion": "En un dado justo se busca un número par.",
+        "desarrollo": "2, 4 y 6 son tres de seis caras. 3/6 se simplifica.",
+        "respuesta": "P(par) = 1/2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Invertir numerador y denominador.",
+        "correccion": "Arriba van casos favorables y abajo el total."
+      },
+      {
+        "error": "Sumar probabilidades de resultados que se superponen sin revisar.",
+        "correccion": "Cuenta directamente los casos favorables distintos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Probabilidad",
+        "significado": "Medida de qué tan posible es un suceso."
+      },
+      {
+        "termino": "Numerador",
+        "significado": "Cantidad de casos favorables."
+      },
+      {
+        "termino": "Denominador",
+        "significado": "Cantidad total de casos posibles."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una bolsa tiene 1 ficha azul y 3 rojas. ¿Cuál es P(azul)? Escribe una fracción.",
+        "respuesta": "1/4",
+        "pistas": [
+          "Hay cuatro fichas en total.",
+          "Solo una es azul.",
+          "Escribe 1 sobre 4."
+        ],
+        "retroalimentacion": "P(azul) = 1/4; 1/3 usa solo las rojas como total.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un dado justo, ¿cuál es P(sacar 6)?",
+        "respuesta": "b",
+        "pistas": [
+          "Hay seis caras posibles.",
+          "Una muestra 6.",
+          "Forma una fracción con 1 arriba y 6 abajo."
+        ],
+        "retroalimentacion": "«1/6» es correcto: una cara favorable de seis.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6/1"
+          },
+          {
+            "id": "b",
+            "texto": "1/6"
+          },
+          {
+            "id": "c",
+            "texto": "1/5"
+          },
+          {
+            "id": "d",
+            "texto": "6/6"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si hay 2 fichas verdes entre 5 fichas iguales, P(verde) = 2/5.",
+        "respuesta": true,
+        "pistas": [
+          "Cuenta el total: cinco.",
+          "Favorables: dos verdes.",
+          "Forma 2/5."
+        ],
+        "retroalimentacion": "Es verdadero: 2 de 5 fichas favorecen verde.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una ruleta tiene 8 sectores iguales y 4 muestran sol. Escribe P(sol) sin simplificar.",
+        "respuesta": "4/8",
+        "pistas": [
+          "El total de sectores es ocho.",
+          "Cuatro muestran sol.",
+          "Pon 4 sobre 8."
+        ],
+        "retroalimentacion": "La fracción sin simplificar es 4/8; 1/2 es equivalente pero aquí se pide sin simplificar.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja tiene 3 canicas amarillas y 6 azules. ¿Cuál es P(amarilla) simplificada?",
+        "respuesta": "d",
+        "pistas": [
+          "Hay nueve canicas en total.",
+          "Tres son amarillas: 3/9.",
+          "Divide arriba y abajo entre 3."
+        ],
+        "retroalimentacion": "«1/3» es 3/9 simplificado; 3/6 ignora parte del total.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3/6"
+          },
+          {
+            "id": "b",
+            "texto": "6/9"
+          },
+          {
+            "id": "c",
+            "texto": "1/9"
+          },
+          {
+            "id": "d",
+            "texto": "1/3"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En una baraja de 10 tarjetas numeradas 1 a 10, ¿cuál es P(par) simplificada?",
+        "respuesta": "1/2",
+        "pistas": [
+          "Los pares son 2, 4, 6, 8 y 10.",
+          "Son 5 de 10 tarjetas.",
+          "Simplifica 5/10."
+        ],
+        "retroalimentacion": "P(par) = 1/2; 5/10 representa lo mismo pero se pidió simplificar.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La probabilidad de sacar rojo de una bolsa con 0 rojas y 7 negras es 0/7.",
+        "respuesta": true,
+        "pistas": [
+          "No hay casos favorables.",
+          "Sí hay siete posibles.",
+          "Escribe 0 sobre 7."
+        ],
+        "retroalimentacion": "Es verdadero: el suceso imposible tiene probabilidad 0/7 = 0.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "De 12 boletos, 9 tienen premio. ¿Cuál es P(premio) simplificada?",
+        "respuesta": "3/4",
+        "pistas": [
+          "Primero escribe 9/12.",
+          "Ambos números se dividen entre 3.",
+          "Obtienes 3/4."
+        ],
+        "retroalimentacion": "P(premio) = 3/4; 9/12 es correcta pero no está simplificada.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se lanzan dos monedas justas. ¿Cuál es P(obtener exactamente una cara)?",
+        "respuesta": "c",
+        "pistas": [
+          "Lista CC, CS, SC y SS.",
+          "CS y SC tienen una cara.",
+          "Son dos de cuatro resultados."
+        ],
+        "retroalimentacion": "«1/2» es correcto: 2/4 caminos contienen una cara.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/4"
+          },
+          {
+            "id": "b",
+            "texto": "1/3"
+          },
+          {
+            "id": "c",
+            "texto": "1/2"
+          },
+          {
+            "id": "d",
+            "texto": "3/4"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una ruleta de 12 sectores iguales tiene 3 rojos, 4 azules y 5 verdes. ¿Cuál es P(no verde) simplificada?",
+        "respuesta": "7/12",
+        "pistas": [
+          "No verde incluye rojo y azul.",
+          "Suma 3 + 4 = 7 sectores.",
+          "Escribe 7/12."
+        ],
+        "retroalimentacion": "P(no verde) = 7/12; 5/12 corresponde a verde.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un dado justo, P(sacar un número mayor que 4) = 1/3.",
+        "respuesta": true,
+        "pistas": [
+          "Mayores que 4 son 5 y 6.",
+          "Hay 2 casos de 6.",
+          "Simplifica 2/6."
+        ],
+        "retroalimentacion": "Es verdadero: 2/6 = 1/3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un sorteo tiene 15 tickets iguales; 6 son ganadores. Si se retiran 3 tickets perdedores antes del sorteo, ¿cuál es P(ganar) simplificada?",
+        "respuesta": "1/2",
+        "pistas": [
+          "Los ganadores siguen siendo seis.",
+          "El total baja de 15 a 12.",
+          "Simplifica 6/12."
+        ],
+        "retroalimentacion": "La nueva probabilidad es 1/2; usar 6/15 ignora los tickets retirados.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.predecir-tendencias",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P6-07"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Predicción de tendencias a partir de datos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Predice cómo seguirán los datos de un gráfico o una tabla y justifica.",
+    "palabrasClave": [
+      "tendencia",
+      "datos",
+      "predicción",
+      "gráfico de líneas"
+    ],
+    "prerrequisitos": [
+      "mat.p6.grafico-lineas"
+    ],
+    "ordenSugerido": 128,
+    "ideaCentral": "Una tendencia resume si los datos suelen subir, bajar o mantenerse. Puedes usarla para predecir el siguiente valor aproximado, pero una predicción basada en datos no es una certeza.",
+    "pasos": [
+      "Ordena los datos por tiempo.",
+      "Observa si suben, bajan o se mantienen y cuánto cambian.",
+      "Propón una continuación razonable basada en ese patrón.",
+      "Distingue lo observado de lo predicho."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La venta semanal de panes fue 20, 25 y 30.",
+        "desarrollo": "Aumenta de cinco en cinco.",
+        "respuesta": "Si continúa esa tendencia, se esperan 35 panes la semana siguiente."
+      },
+      {
+        "situacion": "La temperatura al mediodía fue 28, 27 y 26 °C.",
+        "desarrollo": "Disminuye un grado cada día.",
+        "respuesta": "Una predicción razonable para el día siguiente es 25 °C."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Afirmar que una tendencia garantiza el futuro.",
+        "correccion": "Explica que el próximo dato puede variar."
+      },
+      {
+        "error": "Mirar solo el primer y el último dato e ignorar saltos.",
+        "correccion": "Revisa todos los cambios antes de proyectar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Tendencia",
+        "significado": "Dirección general de una serie de datos."
+      },
+      {
+        "termino": "Predicción",
+        "significado": "Valor posible futuro apoyado en datos."
+      },
+      {
+        "termino": "Serie temporal",
+        "significado": "Datos ordenados según el tiempo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La biblioteca prestó 10, 12 y 14 libros de lunes a miércoles. Si sigue el patrón, ¿qué se prevé para jueves?",
+        "respuesta": "b",
+        "pistas": [
+          "Observa cambios diarios.",
+          "Suben dos libros por día.",
+          "Suma dos a 14."
+        ],
+        "retroalimentacion": "«16 libros» sigue la tendencia; 14 repetiría el último valor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 libros"
+          },
+          {
+            "id": "b",
+            "texto": "16 libros"
+          },
+          {
+            "id": "c",
+            "texto": "20 libros"
+          },
+          {
+            "id": "d",
+            "texto": "28 libros"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los datos 8, 7, 6 y 5 muestran una tendencia descendente.",
+        "respuesta": true,
+        "pistas": [
+          "Compara cada dato con el anterior.",
+          "Cada uno baja una unidad.",
+          "Eso es descenso."
+        ],
+        "retroalimentacion": "Es verdadero: la serie disminuye de uno en uno.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una tabla de botellas recicladas marca 4, 8, 12 en tres semanas. Si continúa igual, ¿cuántas se predicen en la cuarta? Escribe solo el número.",
+        "respuesta": 16,
+        "pistas": [
+          "Calcula las diferencias.",
+          "Cada semana aumenta en cuatro.",
+          "Suma 4 a 12."
+        ],
+        "retroalimentacion": "Se predicen 16 botellas; la tendencia aumenta de cuatro en cuatro.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Las alturas de una planta fueron 5, 5, 5 cm en tres mediciones. ¿La tendencia es ascendente, descendente o estable?",
+        "respuesta": "estable",
+        "pistas": [
+          "Compara las tres medidas.",
+          "Todas son 5 cm.",
+          "No hay subida ni bajada."
+        ],
+        "retroalimentacion": "La tendencia es estable: las tres medidas son iguales.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un gráfico de visitas muestra 30, 27, 24 y 21 por día. ¿Cuál predicción sigue el patrón?",
+        "respuesta": "d",
+        "pistas": [
+          "Cada día hay tres visitas menos.",
+          "El último valor es 21.",
+          "Resta tres."
+        ],
+        "retroalimentacion": "«18 visitas» continúa la disminución de tres por día.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "30 visitas"
+          },
+          {
+            "id": "b",
+            "texto": "24 visitas"
+          },
+          {
+            "id": "c",
+            "texto": "21 visitas"
+          },
+          {
+            "id": "d",
+            "texto": "18 visitas"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una tabla sube cada semana, podemos asegurar que seguirá subiendo para siempre.",
+        "respuesta": false,
+        "pistas": [
+          "La tabla describe el pasado.",
+          "El futuro puede cambiar.",
+          "Una tendencia solo apoya una predicción."
+        ],
+        "retroalimentacion": "Es falso: los datos pasados no garantizan el futuro.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El nivel de agua medido en cm fue 15, 18, 21 y 24. Si persiste el cambio, ¿qué nivel se estima después? Escribe solo el número.",
+        "respuesta": 27,
+        "pistas": [
+          "Resta valores consecutivos.",
+          "La diferencia constante es 3 cm.",
+          "Suma 3 a 24."
+        ],
+        "retroalimentacion": "Se estima 27 cm; no se duplica 24.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En una tabla mensual, los datos son 40, 35, 30 y 25. ¿Qué palabra describe su tendencia?",
+        "respuesta": "descendente",
+        "pistas": [
+          "Los valores van de 40 a 25.",
+          "Cada paso baja cinco.",
+          "Nombra esa dirección."
+        ],
+        "retroalimentacion": "La tendencia es descendente; cada mes hay cinco menos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los datos 10, 14, 13, 17 y 16 oscilan, pero ¿qué descripción general está mejor apoyada?",
+        "respuesta": "c",
+        "pistas": [
+          "No todos los pasos suben.",
+          "Compara comienzo y final.",
+          "Los picos y valles avanzan hacia arriba."
+        ],
+        "retroalimentacion": "«Aumenta en general con pequeñas caídas» respeta toda la serie; no es un aumento constante.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Disminuye siempre"
+          },
+          {
+            "id": "b",
+            "texto": "Permanece idéntica"
+          },
+          {
+            "id": "c",
+            "texto": "Aumenta en general con pequeñas caídas"
+          },
+          {
+            "id": "d",
+            "texto": "No cambia entre inicio y final"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una campaña, la recolección fue 50, 60, 70 kg, pero la meta de la semana siguiente es 85 kg. Si sigue el patrón, ¿cuántos kg faltarán para la meta? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "La serie aumenta 10 kg.",
+          "Predice 80 kg la siguiente semana.",
+          "Compara 80 con la meta de 85."
+        ],
+        "retroalimentacion": "Faltarán 5 kg: se predicen 80, no 85.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La serie 3, 6, 9 predice 12 si sigue el mismo cambio, pero 12 no está observado todavía.",
+        "respuesta": true,
+        "pistas": [
+          "Los tres primeros datos sí se midieron.",
+          "La diferencia es 3.",
+          "12 sería el próximo dato estimado."
+        ],
+        "retroalimentacion": "Es verdadero: 12 es una predicción, no un dato observado.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla de consumo muestra 12, 13, 12 y 13 litros. ¿Qué predicción está mejor justificada?",
+        "respuesta": "a",
+        "pistas": [
+          "Los datos alternan 12 y 13.",
+          "No hay una subida continua.",
+          "El siguiente valor del patrón sería 12."
+        ],
+        "retroalimentacion": "«Aproximadamente 12 litros si continúa la alternancia» se apoya en los datos sin afirmar certeza.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Aproximadamente 12 litros si continúa la alternancia"
+          },
+          {
+            "id": "b",
+            "texto": "20 litros porque siempre crece"
+          },
+          {
+            "id": "c",
+            "texto": "0 litros con seguridad"
+          },
+          {
+            "id": "d",
+            "texto": "13 litros porque nunca baja"
+          }
+        ],
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.decisiones-con-probabilidad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P6-07"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Decisiones a partir de la probabilidad de sucesos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Elige la opción más conveniente en juegos o situaciones de azar usando la probabilidad.",
+    "palabrasClave": [
+      "decisión",
+      "probabilidad",
+      "opción conveniente",
+      "casos favorables"
+    ],
+    "prerrequisitos": [
+      "mat.p6.probabilidad-fraccion"
+    ],
+    "ordenSugerido": 129,
+    "ideaCentral": "Para elegir entre juegos o sorteos con resultados iguales, compara la proporción de resultados favorables de cada opción. La opción con mayor probabilidad conviene si tu objetivo es lograr ese resultado, aunque ganar nunca esté garantizado.",
+    "pasos": [
+      "Define qué resultado quieres obtener.",
+      "Calcula favorables/posibles para cada alternativa.",
+      "Compara las fracciones con el mismo denominador o mediante equivalencias.",
+      "Elige y justifica la mayor probabilidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana elige entre cajas A (2 premios de 5) y B (1 de 5).",
+        "desarrollo": "2/5 supera 1/5.",
+        "respuesta": "Conviene A para intentar ganar."
+      },
+      {
+        "situacion": "Luis busca una ficha azul: bolsa A tiene 3 de 6 y B tiene 4 de 10.",
+        "desarrollo": "3/6 = 1/2 y 4/10 = 2/5; la mitad es mayor.",
+        "respuesta": "Conviene A, aunque B tenga cuatro azules."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir la bolsa con más fichas ganadoras sin mirar el total.",
+        "correccion": "Compara proporciones, no cantidades aisladas."
+      },
+      {
+        "error": "Confundir mayor probabilidad con victoria segura.",
+        "correccion": "Explica que es la mejor opción disponible, pero aún puedes perder."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Decisión informada",
+        "significado": "Elección apoyada en datos y un objetivo."
+      },
+      {
+        "termino": "Opción conveniente",
+        "significado": "Alternativa con mejor probabilidad para el resultado buscado."
+      },
+      {
+        "termino": "Riesgo",
+        "significado": "Posibilidad de un resultado no deseado."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para ganar, eliges entre cajas con 2 premios de 4 tickets o 1 premio de 4. ¿Cuál conviene?",
+        "respuesta": "a",
+        "pistas": [
+          "Ambas tienen cuatro tickets.",
+          "Compara dos premios contra uno.",
+          "Elige la mayor fracción."
+        ],
+        "retroalimentacion": "«La caja con 2 premios de 4» ofrece 2/4 frente a 1/4.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La caja con 2 premios de 4"
+          },
+          {
+            "id": "b",
+            "texto": "La caja con 1 premio de 4"
+          },
+          {
+            "id": "c",
+            "texto": "Dan igual"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna puede ganar"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una opción tiene más probabilidad de ganar, ganar está garantizado.",
+        "respuesta": false,
+        "pistas": [
+          "Más probable no significa seguro.",
+          "Puede haber tickets sin premio.",
+          "Revisa si la probabilidad es 1."
+        ],
+        "retroalimentacion": "Es falso: una opción favorable aún puede perder.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Ruleta A da premio en 3 de 5 sectores; B en 1 de 5. ¿Cuál eliges para buscar premio? Escribe A o B.",
+        "respuesta": "A",
+        "pistas": [
+          "Los totales son iguales.",
+          "Compara 3 con 1.",
+          "Elige la ruleta con más sectores de premio."
+        ],
+        "retroalimentacion": "Conviene A porque 3/5 supera 1/5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un juego ofrece 4 boletos ganadores de 10. ¿Cuántos casos favorables usas al decidir? Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "El objetivo es ganar.",
+          "Identifica los boletos con premio.",
+          "Cuenta esos cuatro."
+        ],
+        "retroalimentacion": "Se usan 4 casos favorables; 10 es el total.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Bolsa A: 2 verdes de 3. Bolsa B: 3 verdes de 6. Si quieres verde, ¿cuál eliges?",
+        "respuesta": "c",
+        "pistas": [
+          "A ofrece 2/3.",
+          "B ofrece 3/6 = 1/2.",
+          "Compara dos tercios con un medio."
+        ],
+        "retroalimentacion": "«Bolsa A» conviene: 2/3 supera 1/2, aunque B tenga tres verdes.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Bolsa B"
+          },
+          {
+            "id": "b",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "c",
+            "texto": "Bolsa A"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para evitar rojo, conviene la bolsa con 1 roja de 8 frente a otra con 3 rojas de 8.",
+        "respuesta": true,
+        "pistas": [
+          "El objetivo es no sacar roja.",
+          "Ambas tienen ocho fichas.",
+          "Menos rojas implica más no rojas."
+        ],
+        "retroalimentacion": "Es verdadero: la primera da 7/8 de no rojo frente a 5/8.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Juego A gana en 2 de 6; juego B gana en 3 de 9. ¿Qué decisión es razonable si solo importa ganar: A, B o cualquiera?",
+        "respuesta": "cualquiera",
+        "pistas": [
+          "Simplifica 2/6.",
+          "Simplifica 3/9.",
+          "Ambas son 1/3."
+        ],
+        "retroalimentacion": "Cualquiera: A y B dan la misma probabilidad de ganar, 1/3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una ruleta de 8 sectores iguales tiene 5 premios. Otra tiene 4 de 8. ¿Cuántos sectores de premio más ofrece la primera? Escribe solo el número.",
+        "respuesta": 1,
+        "pistas": [
+          "Los totales son ocho.",
+          "Compara cinco y cuatro premios.",
+          "Resta 5 − 4."
+        ],
+        "retroalimentacion": "La primera ofrece un sector favorable más del mismo total.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para no obtener multa en un juego, A tiene 1 multa de 4 cartas y B tiene 2 multas de 10. ¿Qué juego eliges?",
+        "respuesta": "d",
+        "pistas": [
+          "Calcula no multa en A: 3/4.",
+          "En B: 8/10.",
+          "8/10 es mayor que 3/4."
+        ],
+        "retroalimentacion": "«Juego B» da 8/10 de evitar multa frente a 3/4 de A.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Juego A porque tiene una multa"
+          },
+          {
+            "id": "b",
+            "texto": "Ambos iguales"
+          },
+          {
+            "id": "c",
+            "texto": "Ninguno evita multas"
+          },
+          {
+            "id": "d",
+            "texto": "Juego B"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Dos sorteos tienen igual costo. A: 4 premios de 12; B: 5 premios de 15. ¿Cuál conviene si solo importa ganar: A, B o cualquiera?",
+        "respuesta": "cualquiera",
+        "pistas": [
+          "Simplifica 4/12.",
+          "Simplifica 5/15.",
+          "Ambas valen 1/3."
+        ],
+        "retroalimentacion": "Cualquiera: ambos ofrecen 1/3 de ganar.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si quieres sacar azul, una bolsa con 6 azules de 12 es mejor que otra con 4 azules de 6.",
+        "respuesta": false,
+        "pistas": [
+          "La primera ofrece 1/2.",
+          "La segunda ofrece 2/3.",
+          "Compara las proporciones, no solo 6 y 4."
+        ],
+        "retroalimentacion": "Es falso: 4/6 supera 6/12; conviene la segunda.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Premio A: 2 boletos de 5; premio B: 3 de 10. ¿Qué justificación elige la mejor opción?",
+        "respuesta": "b",
+        "pistas": [
+          "Compara 2/5 con 3/10.",
+          "Convierte 2/5 a 4/10.",
+          "4/10 supera 3/10."
+        ],
+        "retroalimentacion": "«A, porque 2/5 = 4/10 supera 3/10» usa el total correctamente.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "B, porque 3 supera 2"
+          },
+          {
+            "id": "b",
+            "texto": "A, porque 2/5 = 4/10 supera 3/10"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos, porque hay premios"
+          },
+          {
+            "id": "d",
+            "texto": "B, porque 10 supera 5"
+          }
+        ],
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.conclusiones-estudio",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P6-07"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Conclusiones de un estudio estadístico",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Redacta conclusiones de una encuesta propia apoyándose en tablas, gráficos y medidas.",
+    "palabrasClave": [
+      "encuesta",
+      "conclusión",
+      "tabla",
+      "gráfico",
+      "muestra"
+    ],
+    "prerrequisitos": [
+      "mat.p6.moda-o-media",
+      "mat.p6.graficos-en-medios"
+    ],
+    "ordenSugerido": 130,
+    "ideaCentral": "Una conclusión estadística debe apoyarse en los datos recogidos y responder la pregunta del estudio. Describe a quienes participaron; no atribuyas a toda una población lo que solo muestra una muestra pequeña.",
+    "pasos": [
+      "Recuerda qué pregunta buscaba responder el estudio.",
+      "Lee los conteos, gráficos o medidas pertinentes.",
+      "Redacta una afirmación concreta respaldada por esos datos.",
+      "Aclara a qué grupo encuestado se refiere."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se encuestó a 20 estudiantes: 12 prefieren fútbol y 8 vóley.",
+        "desarrollo": "Fútbol tiene cuatro respuestas más entre los encuestados.",
+        "respuesta": "En ese grupo, fútbol fue la preferencia más frecuente."
+      },
+      {
+        "situacion": "En 10 familias encuestadas, 6 van caminando y 4 en bus.",
+        "desarrollo": "La mayoría de esa muestra camina.",
+        "respuesta": "Seis de las diez familias consultadas van caminando."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que todas las familias hacen lo mismo que la muestra.",
+        "correccion": "Limita la conclusión al grupo estudiado."
+      },
+      {
+        "error": "Concluir lo contrario del conteo.",
+        "correccion": "Comprueba qué categoría tiene realmente el valor mayor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Encuesta",
+        "significado": "Preguntas usadas para recoger respuestas de un grupo."
+      },
+      {
+        "termino": "Muestra",
+        "significado": "Personas u objetos que se estudiaron."
+      },
+      {
+        "termino": "Conclusión",
+        "significado": "Afirmación que resume lo que muestran los datos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Encuesta a 10 compañeros: 7 eligen mango y 3 papaya. ¿Qué conclusión se apoya en esos datos?",
+        "respuesta": "c",
+        "pistas": [
+          "Compara 7 con 3.",
+          "Mango tiene más votos.",
+          "Limita la afirmación a los compañeros encuestados."
+        ],
+        "retroalimentacion": "«En este grupo, mango fue más elegido que papaya» refleja los 7 y 3 votos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Todos los niños prefieren mango"
+          },
+          {
+            "id": "b",
+            "texto": "Nadie eligió papaya"
+          },
+          {
+            "id": "c",
+            "texto": "En este grupo, mango fue más elegido que papaya"
+          },
+          {
+            "id": "d",
+            "texto": "Papaya ganó la encuesta"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 8 de 12 estudiantes encuestados van a pie, se puede concluir que la mayoría de los encuestados va a pie.",
+        "respuesta": true,
+        "pistas": [
+          "La mitad de 12 es 6.",
+          "Ocho supera seis.",
+          "La afirmación habla de los encuestados."
+        ],
+        "retroalimentacion": "Es verdadero: 8 de 12 es mayoría en esa muestra.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una encuesta, 9 marcaron lectura y 4 deporte. ¿Cuántas respuestas más obtuvo lectura? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Identifica los dos conteos.",
+          "Lectura tiene nueve.",
+          "Resta 9 − 4."
+        ],
+        "retroalimentacion": "Lectura obtuvo 5 respuestas más; 13 sería el total, no la diferencia.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En 15 respuestas, el medio de transporte más frecuente fue bicicleta con 8. ¿Qué palabra nombra la categoría más frecuente?",
+        "respuesta": "moda",
+        "pistas": [
+          "La categoría con mayor frecuencia tiene un nombre estadístico.",
+          "Bicicleta aparece ocho veces.",
+          "Ese concepto se llama moda."
+        ],
+        "retroalimentacion": "Bicicleta es la moda porque fue la respuesta más frecuente.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla de 20 alumnos registra 6 que leen 1 libro, 10 que leen 2 y 4 que leen 3. ¿Cuál es la moda?",
+        "respuesta": "b",
+        "pistas": [
+          "Busca la frecuencia más alta.",
+          "Diez alumnos eligieron 2 libros.",
+          "La moda es el valor 2."
+        ],
+        "retroalimentacion": "«2 libros» es la moda; 10 es su frecuencia, no el valor modal.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 libro"
+          },
+          {
+            "id": "b",
+            "texto": "2 libros"
+          },
+          {
+            "id": "c",
+            "texto": "3 libros"
+          },
+          {
+            "id": "d",
+            "texto": "10 libros"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una encuesta de 5 vecinos basta para afirmar que todos los vecinos del Perú prefieren el mismo plato.",
+        "respuesta": false,
+        "pistas": [
+          "Solo respondieron cinco vecinos.",
+          "No representan necesariamente al país.",
+          "La conclusión debe acotarse."
+        ],
+        "retroalimentacion": "Es falso: cinco respuestas locales no permiten afirmar algo sobre todos los vecinos del Perú.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Encuesta: 4 prefieren teatro, 7 cine y 2 música. Completa: «Entre los encuestados, la actividad más elegida fue el __».",
+        "respuesta": "cine",
+        "pistas": [
+          "Compara 4, 7 y 2.",
+          "Siete es el mayor conteo.",
+          "Corresponde a cine."
+        ],
+        "retroalimentacion": "La conclusión dice cine, la categoría con siete respuestas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un gráfico registra 12 votos por A y 9 por B. ¿Cuántos votos sustentan que A fue más elegido? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "La afirmación trata de los votos de A.",
+          "Busca su barra o conteo.",
+          "A tiene doce."
+        ],
+        "retroalimentacion": "La conclusión sobre A se apoya en sus 12 votos; 3 es la diferencia.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se preguntó a 30 familias: 18 usan bus y 12 caminan. ¿Cuál frase es precisa?",
+        "respuesta": "d",
+        "pistas": [
+          "El grupo estudiado tiene 30 familias.",
+          "18 es mayoría.",
+          "Evita hablar de familias no consultadas."
+        ],
+        "retroalimentacion": "«Entre las 30 familias encuestadas, usar bus fue más frecuente» respeta el alcance de los datos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Todas las familias del distrito usan bus"
+          },
+          {
+            "id": "b",
+            "texto": "Nadie camina"
+          },
+          {
+            "id": "c",
+            "texto": "Caminar fue la respuesta más común"
+          },
+          {
+            "id": "d",
+            "texto": "Entre las 30 familias encuestadas, usar bus fue más frecuente"
+          }
+        ],
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si los conteos son 5, 5 y 2, hay dos categorías empatadas como las más frecuentes.",
+        "respuesta": true,
+        "pistas": [
+          "Compara los tres conteos.",
+          "El máximo es cinco.",
+          "Dos categorías alcanzan ese máximo."
+        ],
+        "retroalimentacion": "Es verdadero: dos categorías comparten la frecuencia máxima de 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Seis alumnos reportaron 1, 2, 2, 3, 3 y 7 libros. ¿Qué medida describe el valor más frecuente si hay empate? Escribe el nombre de la medida.",
+        "respuesta": "moda",
+        "pistas": [
+          "Busca repeticiones.",
+          "2 y 3 aparecen dos veces cada uno.",
+          "La medida de frecuencia máxima se llama moda."
+        ],
+        "retroalimentacion": "La medida es la moda; en esta muestra hay dos valores modales, 2 y 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un informe dice: «La media de 2, 4 y 6 libros es 6; por eso todos leen 6». ¿Qué corrección es válida?",
+        "respuesta": "a",
+        "pistas": [
+          "Suma 2 + 4 + 6 = 12.",
+          "Divide entre tres: media 4.",
+          "Los valores individuales siguen siendo distintos."
+        ],
+        "retroalimentacion": "«La media es 4 y no significa que todos lean 4» corrige cálculo e interpretación.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La media es 4 y no significa que todos lean 4"
+          },
+          {
+            "id": "b",
+            "texto": "La media es 6 y todos leen 6"
+          },
+          {
+            "id": "c",
+            "texto": "La media es 12 y todos leen 12"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede calcular una media"
+          }
+        ],
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

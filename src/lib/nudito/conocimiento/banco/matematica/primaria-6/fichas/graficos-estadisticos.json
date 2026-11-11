@@ -1,0 +1,1208 @@
+[
+  {
+    "clave": "mat.p6.barras-dobles",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P6-01"
+    ],
+    "bloque": "Gráficos estadísticos",
+    "nombre": "Gráfico de barras dobles",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Construye gráficos de barras dobles para comparar dos grupos.",
+    "palabrasClave": [
+      "barras dobles",
+      "dos grupos",
+      "escala",
+      "leyenda",
+      "categoría"
+    ],
+    "prerrequisitos": [
+      "mat.p6.tablas-doble-entrada"
+    ],
+    "ordenSugerido": 63,
+    "ideaCentral": "Un gráfico de barras dobles coloca dos barras juntas por categoría para comparar grupos. La escala y la leyenda indican cuánto vale cada bloque y a quién pertenece cada barra.",
+    "pasos": [
+      "Ordena los datos por categoría y por grupo.",
+      "Elige una escala que permita representar todos los valores.",
+      "Dibuja dos barras por categoría con la misma escala.",
+      "Añade una leyenda y revisa que cada barra coincida con su dato."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Primaria juntó 4 kg de papel y secundaria 6 kg. Si ● vale 2 kg, ¿cómo se dibujan las barras?",
+        "desarrollo": "Para primaria son 4÷2=2 bloques; para secundaria, 6÷2=3 bloques.",
+        "respuesta": "Primaria ●●; secundaria ★★★, con leyenda para cada símbolo."
+      },
+      {
+        "situacion": "En la feria, lunes se vendieron 3 jugos de mango y 5 de maracuyá. El martes, 4 y 2.",
+        "desarrollo": "Coloca lunes y martes como categorías; en cada día dibuja una barra para cada sabor de altura 3 y 5, luego 4 y 2.",
+        "respuesta": "Cada día tiene dos barras y la leyenda distingue los sabores."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar escalas distintas para las dos barras.",
+        "correccion": "Ambas series comparten una sola escala para que se puedan comparar."
+      },
+      {
+        "error": "Olvidar qué grupo representa cada símbolo.",
+        "correccion": "Escribe una leyenda clara junto al gráfico."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Leyenda",
+        "significado": "Clave que identifica cada grupo de barras."
+      },
+      {
+        "termino": "Escala",
+        "significado": "Valor que representa cada marca o bloque."
+      },
+      {
+        "termino": "Categoría",
+        "significado": "Elemento que tiene dos valores comparables, como un día."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para comparar niñas y niños que prefieren cada fruta, ¿cuántas barras debe tener cada fruta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos grupos por fruta.",
+          "Cada grupo necesita su propia barra.",
+          "Una pareja tiene dos barras."
+        ],
+        "retroalimentacion": "Cada fruta requiere dos barras: una para niñas y otra para niños.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una"
+          },
+          {
+            "id": "b",
+            "texto": "Dos"
+          },
+          {
+            "id": "c",
+            "texto": "Tres"
+          },
+          {
+            "id": "d",
+            "texto": "Cuatro"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La leyenda indica que cada ● vale 2 libros. Para representar 6 libros, ¿cuántos ● dibujas? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide la cantidad de libros entre el valor del bloque.",
+          "Cada ● representa dos libros.",
+          "6÷2 da el número de símbolos."
+        ],
+        "retroalimentacion": "Dibuja 3 bloques; seis bloques representarían 12 libros."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un gráfico de barras dobles, las dos barras de una categoría deben usar la misma escala.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si podrías compararlas con escalas diferentes.",
+          "Una altura igual debe representar una cantidad igual.",
+          "La escala compartida evita comparaciones engañosas."
+        ],
+        "retroalimentacion": "Es verdadero: la escala común permite comparar ambas series."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué elemento del gráfico indica si ● significa niñas y ★ significa niños? Escribe una palabra.",
+        "respuesta": "leyenda",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la clave que explica símbolos.",
+          "La escala explica cantidades, no grupos.",
+          "Ese elemento se llama leyenda."
+        ],
+        "retroalimentacion": "La leyenda identifica los grupos; la escala indica cuánto vale cada bloque."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la categoría lunes, grupo A tiene 8 y grupo B tiene 12. Si cada bloque vale 4, ¿cuántos bloques lleva la barra B? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa el dato del grupo B, que es 12.",
+          "Un bloque vale 4 unidades.",
+          "Calcula 12÷4."
+        ],
+        "retroalimentacion": "La barra B lleva 3 bloques; 2 bloques representarían al grupo A."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Datos de reciclaje: aula 6.° A, papel 4 kg y plástico 2 kg; aula 6.° B, papel 6 kg y plástico 4 kg. Escala: un bloque = 2 kg. ¿Cuál pareja de barras corresponde a 6.° B?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa solo los datos de 6.° B.",
+          "Papel 6 kg necesita tres bloques; plástico 4 kg necesita dos.",
+          "Busca la pareja con tres ● y dos ★."
+        ],
+        "retroalimentacion": "Para 6.° B corresponde papel ●●● y plástico ★★; la otra aula lleva menos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Papel ●●; plástico ★"
+          },
+          {
+            "id": "b",
+            "texto": "Papel ●●●; plástico ★★★"
+          },
+          {
+            "id": "c",
+            "texto": "Papel ●●●; plástico ★★"
+          },
+          {
+            "id": "d",
+            "texto": "Papel ●; plástico ★★"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una barra muestra 5 bloques de escala 2 y la otra muestra 4 bloques de escala 3, se pueden comparar sus alturas directamente.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa los valores de cada bloque.",
+          "Una escala vale 2 y la otra 3.",
+          "La altura en bloques solo se compara directamente con una escala común."
+        ],
+        "retroalimentacion": "Es falso: las escalas distintas impiden una comparación directa de alturas."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un gráfico de visitas, lunes tiene 3 niñas y 5 niños; martes tiene 4 niñas y 6 niños. Si las categorías son los días, ¿qué día lleva la pareja de barras de alturas 4 y 6?",
+        "respuesta": "martes",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el día cuyo primer dato sea 4.",
+          "La segunda barra de ese día debe medir 6.",
+          "La pareja 4 y 6 pertenece al segundo día."
+        ],
+        "retroalimentacion": "La pareja 4 y 6 corresponde a martes; lunes tiene 3 y 5."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para un gráfico doble hay datos 4 y 8 en enero, 6 y 10 en febrero. Con escala de 2 por bloque, ¿cuántos bloques dibujarás en total entre las cuatro barras? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte cada dato en bloques.",
+          "Las alturas serán 2, 4, 3 y 5 bloques.",
+          "Suma 2+4+3+5."
+        ],
+        "retroalimentacion": "Se dibujan 14 bloques en total; sumar los datos sin dividir por la escala daría 28."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una revista escolar compara goles: Ana 6, Beto 4 en abril; Ana 2, Beto 8 en mayo. Un bloque vale 2 goles. ¿Qué representación de mayo es correcta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mayo tiene los datos 2 y 8.",
+          "Ana necesita un bloque; Beto necesita cuatro.",
+          "Conserva la misma leyenda para ambos meses."
+        ],
+        "retroalimentacion": "En mayo Ana lleva ● y Beto ★★★★; intercambiar las series cambia el significado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ana ●; Beto ★★★★"
+          },
+          {
+            "id": "b",
+            "texto": "Ana ●●; Beto ★★★★"
+          },
+          {
+            "id": "c",
+            "texto": "Ana ●●●; Beto ★★"
+          },
+          {
+            "id": "d",
+            "texto": "Ana ★; Beto ●●●●"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "La tabla dice: jueves, chicas 6 y chicos 4; viernes, chicas 8 y chicos 6. En un gráfico con escala 2, se dibujó viernes chicas ●●● y chicos ★★★. ¿Qué barra de viernes hay que corregir? Responde «chicas» o «chicos».",
+        "respuesta": "chicas",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Viernes chicas son 8 y chicos 6.",
+          "Con escala 2, 8 exige cuatro bloques y 6 exige tres.",
+          "Compara esas alturas con ●●● y ★★★."
+        ],
+        "retroalimentacion": "Hay que corregir chicas: necesita cuatro ●, mientras chicos ya tiene tres ★."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con datos de 2 y 6 para enero, y 4 y 8 para febrero, usar una escala de 2 permite dibujar todas las barras con un número entero de bloques.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide cada dato entre 2.",
+          "Obtienes 1, 3, 2 y 4 bloques.",
+          "Todas las divisiones dan enteros."
+        ],
+        "retroalimentacion": "Es verdadero: las cuatro barras se dibujan con 1, 3, 2 y 4 bloques."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.interpretar-barras-dobles",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P6-04"
+    ],
+    "bloque": "Gráficos estadísticos",
+    "nombre": "Interpretación de gráficos de barras dobles",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Lee y compara la información de dos series en un mismo gráfico.",
+    "palabrasClave": [
+      "leer barras dobles",
+      "comparar grupos",
+      "diferencia",
+      "escala"
+    ],
+    "prerrequisitos": [
+      "mat.p6.barras-dobles"
+    ],
+    "ordenSugerido": 64,
+    "ideaCentral": "Para interpretar barras dobles, lee la escala y la leyenda antes de comparar. Mira dos barras de una misma categoría o sigue una serie entre categorías según la pregunta.",
+    "pasos": [
+      "Ubica la categoría y los dos grupos de la leyenda.",
+      "Convierte la altura de cada barra en cantidad usando la escala.",
+      "Compara, suma o resta solo los valores que pide la pregunta.",
+      "Explica la conclusión con categoría, grupo y unidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En el kiosco, lunes vendieron 8 panes y 6 frutas; martes, 10 panes y 4 frutas. ¿Qué diferencia hay el lunes?",
+        "desarrollo": "En lunes comparo 8 panes con 6 frutas: 8−6=2.",
+        "respuesta": "Se vendieron 2 panes más que frutas."
+      },
+      {
+        "situacion": "En una colecta, 6.° A aportó 3 bloques de papel y 6.° B, 5 bloques. Cada bloque vale 2 kg.",
+        "desarrollo": "A aportó 6 kg y B, 10 kg; 10−6=4.",
+        "respuesta": "6.° B aportó 4 kg más."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir la barra de un grupo con la del otro.",
+        "correccion": "Consulta la leyenda antes de leer la altura."
+      },
+      {
+        "error": "Leer bloques como unidades aunque la escala sea 2 o 5.",
+        "correccion": "Multiplica los bloques por el valor de la escala."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Serie",
+        "significado": "Conjunto de barras del mismo grupo en varias categorías."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Cuánto excede una cantidad a otra."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Gráfico: lunes, niñas ●●● y niños ★★. Cada símbolo vale 1 visita. ¿Cuántas visitas de niñas hubo el lunes? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la serie ● de niñas.",
+          "En lunes aparecen tres ●.",
+          "Cada ● vale una visita."
+        ],
+        "retroalimentacion": "Hubo 3 visitas de niñas; los dos ★ son de niños."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una barra doble de abril, rojo mide 4 y azul mide 7. ¿Qué grupo tiene mayor valor?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos alturas.",
+          "7 es mayor que 4.",
+          "El valor 7 pertenece a azul."
+        ],
+        "retroalimentacion": "Azul tiene mayor valor: 7 frente a 4 de rojo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rojo"
+          },
+          {
+            "id": "b",
+            "texto": "Ambos iguales"
+          },
+          {
+            "id": "c",
+            "texto": "Azul"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede saber"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si ● significa 2 kg, la barra ●●● representa 6 kg.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los tres bloques.",
+          "Cada bloque representa 2 kg.",
+          "Multiplica 3×2."
+        ],
+        "retroalimentacion": "Es verdadero: 3 bloques de 2 kg representan 6 kg."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Leyenda: ● papel, ★ plástico. En mayo se ve papel ●● y plástico ★★★. ¿Qué material tiene la barra más alta?",
+        "respuesta": "plástico",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara dos ● con tres ★.",
+          "La barra de tres símbolos es la más alta.",
+          "La leyenda asigna ★ a plástico."
+        ],
+        "retroalimentacion": "La barra de plástico es más alta; confundir la leyenda llevaría a papel."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En marzo, 6.° A reunió 12 kg y 6.° B, 8 kg de botellas. ¿Cuántos kg más reunió 6.° A? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los dos datos de marzo.",
+          "Resta 8 a 12.",
+          "La diferencia conserva la unidad kg."
+        ],
+        "retroalimentacion": "6.° A reunió 4 kg más; sumar daría el total, no la diferencia."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Gráfico de libros: enero A=4, B=6; febrero A=8, B=2. ¿En qué mes la serie A supera a B?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara A y B en cada mes.",
+          "En enero, 4 es menor que 6.",
+          "En febrero, 8 es mayor que 2."
+        ],
+        "retroalimentacion": "Febrero es el mes en que A supera a B: 8 frente a 2.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Enero"
+          },
+          {
+            "id": "b",
+            "texto": "Febrero"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En junio, dos barras de 5 y 8 unidades muestran una diferencia de 3 unidades.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica cuál es mayor.",
+          "Resta 5 a 8.",
+          "Compara el resultado con 3."
+        ],
+        "retroalimentacion": "Es verdadero: 8−5=3 unidades."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un gráfico muestra lunes: bus 9, bicicleta 3; martes: bus 6, bicicleta 5. ¿Qué transporte disminuyó de lunes a martes?",
+        "respuesta": "bus",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sigue cada serie entre lunes y martes.",
+          "Bus pasa de 9 a 6.",
+          "Bicicleta pasa de 3 a 5."
+        ],
+        "retroalimentacion": "Disminuyó bus, de 9 a 6; bicicleta aumentó."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Escala de 3 alumnos por bloque. En miércoles 6.° A tiene ●●●● y 6.° B, ★★. ¿Cuántos alumnos más tiene A? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte ambas alturas usando la escala 3.",
+          "A representa 12 alumnos; B representa 6.",
+          "Resta 6 a 12."
+        ],
+        "retroalimentacion": "A tiene 6 alumnos más; restar solo cuatro menos dos bloques daría 2 bloques, no alumnos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos series de ventas: lunes jugos 8, agua 12; martes jugos 14, agua 10. ¿Cuál conclusión está respaldada?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cada serie entre los días.",
+          "Jugos sube de 8 a 14.",
+          "Agua baja de 12 a 10."
+        ],
+        "retroalimentacion": "«Suben los jugos y baja el agua» describe ambos cambios; no son iguales en ningún día.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ambas ventas bajan"
+          },
+          {
+            "id": "b",
+            "texto": "Ambas ventas suben"
+          },
+          {
+            "id": "c",
+            "texto": "El agua supera a jugos el martes"
+          },
+          {
+            "id": "d",
+            "texto": "Suben los jugos y baja el agua"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para jueves hay 4 niñas y 10 niños; para viernes, 8 niñas y 6 niños. ¿En qué día la diferencia entre grupos es menor?",
+        "respuesta": "viernes",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula una diferencia por día.",
+          "Jueves: 10−4=6.",
+          "Viernes: 8−6=2; compara 2 con 6."
+        ],
+        "retroalimentacion": "La diferencia menor ocurre el viernes: 2 frente a 6 del jueves."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un gráfico, grupo A pasa de 3 a 7 y grupo B de 9 a 8. La distancia entre grupos se reduce de 6 a 1.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la diferencia inicial: 9−3.",
+          "Calcula la diferencia final: 8−7.",
+          "Compara las diferencias 6 y 1."
+        ],
+        "retroalimentacion": "Es verdadero: la separación baja de 6 unidades a 1."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.grafico-lineas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P6-01"
+    ],
+    "bloque": "Gráficos estadísticos",
+    "nombre": "Gráfico de líneas",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Representa cómo cambia un dato en el tiempo con un gráfico de líneas.",
+    "palabrasClave": [
+      "gráfico de líneas",
+      "tiempo",
+      "puntos",
+      "tendencia",
+      "ejes"
+    ],
+    "prerrequisitos": [
+      "mat.p6.encuestas-entrevistas"
+    ],
+    "ordenSugerido": 65,
+    "ideaCentral": "Un gráfico de líneas muestra cómo cambia una cantidad a lo largo del tiempo. Cada punto corresponde a un momento y los puntos se unen en orden temporal.",
+    "pasos": [
+      "Coloca los momentos en el eje horizontal y la cantidad en el vertical.",
+      "Elige una escala que incluya todos los valores.",
+      "Marca cada punto con su momento y su valor.",
+      "Une los puntos consecutivos y revisa subidas, bajadas o estabilidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La temperatura fue 18 °C el lunes, 20 °C el martes y 19 °C el miércoles.",
+        "desarrollo": "Marca (lunes,18), (martes,20), (miércoles,19) y une en ese orden.",
+        "respuesta": "La línea sube y luego baja."
+      },
+      {
+        "situacion": "Una planta midió 4 cm, 6 cm y 6 cm en tres semanas.",
+        "desarrollo": "Ubica los puntos (1,4), (2,6), (3,6). Entre semanas 2 y 3 la línea queda horizontal.",
+        "respuesta": "Creció primero y luego mantuvo su altura."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Unir los puntos en un orden distinto al temporal.",
+        "correccion": "Sigue los momentos del eje horizontal de izquierda a derecha."
+      },
+      {
+        "error": "Dibujar una subida entre dos valores iguales.",
+        "correccion": "Valores iguales se unen con un tramo horizontal."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Eje horizontal",
+        "significado": "Línea donde se ordenan los momentos."
+      },
+      {
+        "termino": "Tendencia",
+        "significado": "Dirección general del cambio: sube, baja o permanece."
+      },
+      {
+        "termino": "Punto",
+        "significado": "Marca que une un momento con su cantidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para mostrar la altura de una planta cada semana, ¿qué debe ir en el eje horizontal?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se observa un cambio a lo largo del tiempo.",
+          "Las semanas son los momentos.",
+          "El eje horizontal ordena los momentos."
+        ],
+        "retroalimentacion": "Las semanas van en el eje horizontal; la altura va en el vertical.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Las semanas"
+          },
+          {
+            "id": "b",
+            "texto": "Los centímetros"
+          },
+          {
+            "id": "c",
+            "texto": "La altura máxima"
+          },
+          {
+            "id": "d",
+            "texto": "La maceta"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Se registran 5, 7 y 9 libros leídos en enero, febrero y marzo. ¿Cuántos puntos se marcan en el gráfico de líneas? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay un dato por mes.",
+          "Cuenta enero, febrero y marzo.",
+          "Cada mes aporta un punto."
+        ],
+        "retroalimentacion": "Se marcan 3 puntos, uno por mes."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si los valores de lunes y martes son iguales, el tramo que une esos puntos queda horizontal.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las alturas de los dos puntos.",
+          "Ambos están al mismo nivel vertical.",
+          "Unir puntos al mismo nivel produce una línea horizontal."
+        ],
+        "retroalimentacion": "Es verdadero: valores iguales producen un tramo horizontal."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En la serie lunes 2, martes 5, miércoles 3, ¿en qué día está el punto más alto?",
+        "respuesta": "martes",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el mayor valor entre 2, 5 y 3.",
+          "El valor máximo es 5.",
+          "Relaciona el 5 con su día."
+        ],
+        "retroalimentacion": "El punto más alto está en martes, con valor 5."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La línea marca 4 visitantes el lunes y 9 el martes. ¿Cuánto sube entre esos días? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La subida es la diferencia entre valores.",
+          "Resta el dato de lunes al de martes.",
+          "9−4 da la subida."
+        ],
+        "retroalimentacion": "Sube 5 visitantes; 13 sería el total de ambos días."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Datos de lluvia: lunes 6 mm, martes 3 mm, miércoles 3 mm. ¿Cómo son los dos tramos al unir los puntos?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara lunes con martes.",
+          "De 6 a 3 baja; de 3 a 3 no cambia.",
+          "El segundo tramo es horizontal."
+        ],
+        "retroalimentacion": "Primero baja y luego queda horizontal; no hay subida.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sube y baja"
+          },
+          {
+            "id": "b",
+            "texto": "Horizontal y sube"
+          },
+          {
+            "id": "c",
+            "texto": "Baja y queda horizontal"
+          },
+          {
+            "id": "d",
+            "texto": "Baja dos veces"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una serie de ahorro semanal 8, 12 y 10 soles, la línea sube del segundo al tercer punto.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el segundo valor con el tercero.",
+          "Pasa de 12 a 10.",
+          "Cuando el valor disminuye, la línea baja."
+        ],
+        "retroalimentacion": "Es falso: de 12 a 10 la línea baja."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Los puntos son (abril, 4), (mayo, 7), (junio, 6). ¿Qué mes debe quedar entre abril y junio en el eje del tiempo?",
+        "respuesta": "mayo",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ordena los meses cronológicamente.",
+          "Después de abril viene mayo.",
+          "Antes de junio está mayo."
+        ],
+        "retroalimentacion": "Mayo queda entre abril y junio; cambiar el orden deformaría la línea."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un gráfico registra agua almacenada: lunes 10 L, martes 14 L, miércoles 11 L y jueves 15 L. ¿Cuánto aumentó del primer al último punto? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara solo el primer y el último valor.",
+          "El lunes hay 10 L; el jueves, 15 L.",
+          "Resta 15−10, aunque haya una bajada intermedia."
+        ],
+        "retroalimentacion": "El aumento neto es 5 L; sumar las subidas intermedias ignora la bajada."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un criadero anota 12, 9, 9 y 14 peces en cuatro semanas. ¿Qué descripción corresponde a la línea?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cada pareja consecutiva.",
+          "12 a 9 baja; 9 a 9 permanece.",
+          "El tramo final 9 a 14 sube."
+        ],
+        "retroalimentacion": "La línea baja, se mantiene y sube; la parte central es horizontal.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sube, se mantiene y baja"
+          },
+          {
+            "id": "b",
+            "texto": "Baja, se mantiene y sube"
+          },
+          {
+            "id": "c",
+            "texto": "Baja, baja y sube"
+          },
+          {
+            "id": "d",
+            "texto": "Se mantiene todo el tiempo"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para dibujar la serie 2, 6, 4, 8 de lunes a jueves, una alumna trazó puntos en orden 2, 4, 6, 8. ¿Qué día quedó con el valor equivocado de 4 en el segundo punto?",
+        "respuesta": "martes",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El segundo punto representa el segundo día.",
+          "El segundo día es martes y debería valer 6.",
+          "La alumna puso 4 en el punto de martes."
+        ],
+        "retroalimentacion": "El punto de martes está mal: debería mostrar 6, no 4."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una línea tiene valores 3, 8, 5 y 7, el mayor descenso entre puntos consecutivos es de 3 unidades.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica los tramos que bajan.",
+          "Solo 8 a 5 baja.",
+          "La caída es 8−5=3."
+        ],
+        "retroalimentacion": "Es verdadero: el descenso de 8 a 5 es de 3 unidades."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.graficos-en-medios",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P6-04"
+    ],
+    "bloque": "Gráficos estadísticos",
+    "nombre": "Lectura de gráficos de periódicos y revistas",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Interpreta tablas y gráficos de fuentes diversas considerando sus condiciones.",
+    "palabrasClave": [
+      "fuente",
+      "título",
+      "leyenda",
+      "escala",
+      "periodo",
+      "gráfico"
+    ],
+    "prerrequisitos": [
+      "mat.p6.interpretar-barras-dobles",
+      "mat.p6.grafico-lineas"
+    ],
+    "ordenSugerido": 66,
+    "ideaCentral": "Para leer un gráfico publicado, revisa quién recogió los datos, de cuándo son y qué indican la escala y la leyenda. Así podrás sacar una conclusión que los datos realmente apoyen.",
+    "pasos": [
+      "Lee el título y la fuente del gráfico.",
+      "Identifica lugar, fecha, grupos y unidad de medida.",
+      "Comprueba la escala antes de comparar valores.",
+      "Formula solo conclusiones respaldadas por esos datos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un diario muestra «Visitas al museo en junio»: lunes 40 y martes 60; fuente: museo municipal.",
+        "desarrollo": "El periodo es junio y la fuente es el museo. Compara 60 con 40.",
+        "respuesta": "El martes hubo 20 visitas más que el lunes, en ese museo y mes."
+      },
+      {
+        "situacion": "Una revista dice «Preferencia de 30 estudiantes de 6.° A»: fútbol 12 y vóley 8.",
+        "desarrollo": "La muestra es solo de 30 estudiantes de 6.° A, no de todo el Perú.",
+        "respuesta": "En ese grupo, fútbol supera a vóley por 4 estudiantes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Extender una encuesta de un aula a todo el país.",
+        "correccion": "Mira quiénes fueron consultados; la conclusión se limita a ese grupo."
+      },
+      {
+        "error": "Leer 4 bloques como 4 personas cuando cada bloque vale 5.",
+        "correccion": "Consulta la escala y multiplica por 5."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Fuente",
+        "significado": "Persona o entidad que proporcionó los datos."
+      },
+      {
+        "termino": "Muestra",
+        "significado": "Grupo concreto sobre el que se recogió información."
+      },
+      {
+        "termino": "Periodo",
+        "significado": "Tiempo al que corresponden los datos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un recorte titula «Lluvias en Arequipa, enero de 2025». ¿Qué dato indica el periodo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Periodo significa cuándo se midió.",
+          "Arequipa indica el lugar.",
+          "La expresión con mes y año indica el tiempo."
+        ],
+        "retroalimentacion": "Enero de 2025 es el periodo; Arequipa es el lugar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Arequipa"
+          },
+          {
+            "id": "b",
+            "texto": "Enero de 2025"
+          },
+          {
+            "id": "c",
+            "texto": "Lluvias"
+          },
+          {
+            "id": "d",
+            "texto": "El recorte"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Al pie de un gráfico dice «Fuente: biblioteca municipal». ¿Quién aportó los datos?",
+        "respuesta": "biblioteca municipal",
+        "alternativasAceptadas": [
+          "la biblioteca municipal"
+        ],
+        "pistas": [
+          "Busca la palabra «Fuente».",
+          "El nombre aparece justo después de los dos puntos.",
+          "La entidad mencionada es la biblioteca municipal."
+        ],
+        "retroalimentacion": "Los datos los aportó la biblioteca municipal; el título explica el tema."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una encuesta hecha a 20 estudiantes de un aula describe necesariamente a todos los escolares del Perú.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en cuántas personas fueron encuestadas.",
+          "Solo participaron 20 de un aula.",
+          "Ese grupo no representa automáticamente a todo el país."
+        ],
+        "retroalimentacion": "Es falso: la encuesta describe a esos 20 estudiantes, no a todos los escolares."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una nota, cada ● vale 5 visitantes y aparecen ●●● para el sábado. ¿Cuántos visitantes representa? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta tres símbolos.",
+          "Cada símbolo vale 5.",
+          "Multiplica 3×5."
+        ],
+        "retroalimentacion": "Representa 15 visitantes; leer 3 olvidaría la escala."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un periódico muestra ventas de frutas de un mercado de Piura en marzo. ¿Cuál afirmación respeta el alcance de esos datos?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el lugar y periodo indicados.",
+          "La información se limita a un mercado y a marzo.",
+          "Descarta afirmaciones sobre todo Perú o todo el año."
+        ],
+        "retroalimentacion": "«En ese mercado de Piura durante marzo» respeta el alcance del gráfico.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En todo el Perú, siempre"
+          },
+          {
+            "id": "b",
+            "texto": "En todos los mercados del año"
+          },
+          {
+            "id": "c",
+            "texto": "En cualquier ciudad del norte"
+          },
+          {
+            "id": "d",
+            "texto": "En ese mercado de Piura durante marzo"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Revista escolar: «Libros prestados en abril»; primaria 24 y secundaria 18. ¿Cuántos libros más prestó primaria en ese periodo? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos cifras de abril.",
+          "Primaria tiene 24; secundaria, 18.",
+          "Resta 24−18."
+        ],
+        "retroalimentacion": "Primaria prestó 6 libros más en abril; 42 sería el total."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un gráfico no indica la unidad del eje vertical, no puedes asegurar si el valor 8 representa personas o miles de personas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa qué información falta.",
+          "El número 8 necesita unidad.",
+          "Sin unidad, hay al menos dos interpretaciones posibles."
+        ],
+        "retroalimentacion": "Es verdadero: sin unidad no se puede afirmar qué cantidad representa 8."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una infografía dice «Fuente: municipalidad de Cusco; datos de 2024». ¿Qué año respaldan esos datos? Escribe la cifra.",
+        "respuesta": "2024",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la fecha indicada en la infografía.",
+          "La fuente nombra a la municipalidad.",
+          "El año aparece después de «datos de»."
+        ],
+        "retroalimentacion": "Los datos corresponden a 2024; no describen por sí solos otros años."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un artículo dice «De 50 estudiantes de 6.° B, 30 van caminando». ¿Cuál conclusión está justificada?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La muestra está definida: 50 estudiantes de 6.° B.",
+          "30 de ese grupo caminan.",
+          "Una afirmación sobre toda la ciudad iría más allá de la muestra."
+        ],
+        "retroalimentacion": "«30 de los 50 estudiantes de 6.° B van caminando» sí está respaldado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "30 de los 50 estudiantes de 6.° B van caminando"
+          },
+          {
+            "id": "b",
+            "texto": "Todos los niños de la ciudad caminan"
+          },
+          {
+            "id": "c",
+            "texto": "En cualquier colegio 60 % camina"
+          },
+          {
+            "id": "d",
+            "texto": "Nadie de 6.° B usa transporte"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un diario compara visitantes de enero y febrero: 4 bloques y 7 bloques; escala de 20 personas por bloque. ¿Cuántas personas más muestra febrero? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La diferencia es de tres bloques.",
+          "Cada bloque vale 20 personas.",
+          "Multiplica 3×20."
+        ],
+        "retroalimentacion": "Febrero muestra 60 personas más; 3 sería solo la diferencia en bloques."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una revista compara 2022 y 2023, pero su leyenda no dice cuál línea corresponde a cada año. ¿Qué elemento falta para atribuir los datos?",
+        "respuesta": "leyenda",
+        "alternativasAceptadas": [
+          "una leyenda",
+          "la leyenda"
+        ],
+        "pistas": [
+          "Se ven dos líneas pero no su identidad.",
+          "La clave que distingue las series está incompleta.",
+          "Nombra el elemento que debería asociar línea y año."
+        ],
+        "retroalimentacion": "Falta una leyenda completa; sin ella no se puede atribuir cada línea a un año."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una noticia titula «Aumentaron las visitas» y grafica 2023: 80, 2024: 100 para un solo museo. Es correcto concluir que en ese museo las visitas aumentaron entre esos años.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 80 con 100.",
+          "El valor de 2024 supera al de 2023.",
+          "La conclusión se limita a ese museo."
+        ],
+        "retroalimentacion": "Es verdadero: en ese museo el valor subió de 80 a 100 entre 2023 y 2024."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

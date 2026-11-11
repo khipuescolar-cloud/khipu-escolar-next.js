@@ -1,0 +1,2411 @@
+[
+  {
+    "clave": "mat.p6.conversion-longitud",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P6-07"
+    ],
+    "bloque": "Longitud, perímetro y área",
+    "nombre": "Conversión de unidades de longitud",
+    "disciplina": "geometria",
+    "descripcionCorta": "Convierte entre kilómetro, metro, centímetro y milímetro con naturales y decimales.",
+    "palabrasClave": [
+      "kilómetro",
+      "metro",
+      "centímetro",
+      "milímetro",
+      "conversión"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 89,
+    "ideaCentral": "Una longitud conserva su valor aunque cambies la unidad. Recuerda que 1 km=1000 m, 1 m=100 cm y 1 cm=10 mm; al pasar a unidades menores multiplicas.",
+    "pasos": [
+      "Identifica la unidad de origen y la unidad pedida.",
+      "Escribe las equivalencias necesarias entre ambas.",
+      "Multiplica al pasar a unidades menores o divide al pasar a mayores.",
+      "Comprueba si el número debe aumentar o disminuir y anota la nueva unidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La ruta al colegio mide 1,5 km. ¿Cuántos metros son?",
+        "desarrollo": "1 km son 1000 m; 1,5×1000=1500.",
+        "respuesta": "La ruta mide 1500 m."
+      },
+      {
+        "situacion": "Una cinta mide 250 cm. ¿Cuántos metros son?",
+        "desarrollo": "Como 100 cm forman 1 m, 250÷100=2,5.",
+        "respuesta": "Mide 2,5 m."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar al convertir centímetros a metros.",
+        "correccion": "El metro es mayor; divide los centímetros entre 100."
+      },
+      {
+        "error": "Usar 100 como factor entre kilómetro y metro.",
+        "correccion": "Un kilómetro tiene 1000 metros."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Equivalencia",
+        "significado": "Dos expresiones de la misma longitud en unidades distintas."
+      },
+      {
+        "termino": "Milímetro",
+        "significado": "Unidad pequeña: diez milímetros forman un centímetro."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una mesa mide 2 m. ¿Cuántos centímetros mide? Escribe solo el número.",
+        "respuesta": 200,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un metro contiene 100 cm.",
+          "Hay dos grupos de 100 cm.",
+          "Calcula 2×100."
+        ],
+        "retroalimentacion": "2 m son 200 cm; 20 cm sería demasiado corto para 2 m."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántos metros hay en 1 km?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la equivalencia entre km y m.",
+          "Un kilómetro reúne mil metros.",
+          "Busca la opción con 1000 m."
+        ],
+        "retroalimentacion": "1 km equivale a 1000 m; 100 m son solo una décima de km.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 m"
+          },
+          {
+            "id": "b",
+            "texto": "100 m"
+          },
+          {
+            "id": "c",
+            "texto": "1000 m"
+          },
+          {
+            "id": "d",
+            "texto": "10000 m"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una longitud de 30 mm es igual a 3 cm.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada centímetro contiene 10 mm.",
+          "Divide 30 entre 10.",
+          "30 mm son 3 grupos de 10 mm."
+        ],
+        "retroalimentacion": "Es verdadero: 30 mm=3 cm."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una regla marca 50 cm. Exprésalo en metros usando coma decimal.",
+        "respuesta": "0,5",
+        "alternativasAceptadas": [
+          "0.5"
+        ],
+        "pistas": [
+          "100 cm equivalen a 1 m.",
+          "50 es la mitad de 100.",
+          "La mitad de 1 m se escribe 0,5 m."
+        ],
+        "retroalimentacion": "50 cm son 0,5 m; escribir 5 m multiplicaría la longitud por diez."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El recorrido mide 3,4 km. ¿Cuántos metros son? Escribe solo el número.",
+        "respuesta": 3400,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte kilómetros a metros.",
+          "Multiplica 3,4 por 1000.",
+          "Mueve la coma tres lugares a la derecha."
+        ],
+        "retroalimentacion": "3,4 km son 3400 m; 340 m sería diez veces menos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cinta mide 125 cm. ¿Cuál es su longitud en metros?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De cm a m debes dividir entre 100.",
+          "125÷100=1,25.",
+          "Busca 1,25 m."
+        ],
+        "retroalimentacion": "125 cm equivalen a 1,25 m; 12,5 m exagera la longitud.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1,25 m"
+          },
+          {
+            "id": "b",
+            "texto": "12,5 m"
+          },
+          {
+            "id": "c",
+            "texto": "0,125 m"
+          },
+          {
+            "id": "d",
+            "texto": "125 m"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una aguja de 4 cm mide 400 mm.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte centímetros a milímetros.",
+          "Cada cm tiene 10 mm.",
+          "4×10=40 mm."
+        ],
+        "retroalimentacion": "Es falso: 4 cm son 40 mm, no 400 mm."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El mapa indica 0,08 km. ¿Cuántos metros representa? Escribe la cifra.",
+        "respuesta": "80",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un km contiene 1000 m.",
+          "Calcula 0,08×1000.",
+          "Ocho centésimos de 1000 son 80."
+        ],
+        "retroalimentacion": "0,08 km son 80 m; 8 m equivaldrían a 0,008 km."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un sendero tiene 1,2 km más 350 m. ¿Cuántos metros mide en total? Escribe solo el número.",
+        "respuesta": 1550,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero convierte 1,2 km a metros.",
+          "1,2 km son 1200 m.",
+          "Suma 1200+350."
+        ],
+        "retroalimentacion": "El sendero mide 1550 m; sumar 1,2 y 350 mezcla unidades."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cordel de 2 m 35 cm se expresa solo en centímetros. ¿Cuál medida corresponde?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte los 2 m a centímetros.",
+          "2 m son 200 cm.",
+          "Añade los 35 cm restantes."
+        ],
+        "retroalimentacion": "2 m 35 cm son 235 cm; 2035 cm añade un cero de más.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "35 cm"
+          },
+          {
+            "id": "b",
+            "texto": "200 cm"
+          },
+          {
+            "id": "c",
+            "texto": "2035 cm"
+          },
+          {
+            "id": "d",
+            "texto": "235 cm"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un tornillo mide 45 mm. ¿Cuántos centímetros mide? Escribe con coma decimal.",
+        "respuesta": "4,5",
+        "alternativasAceptadas": [
+          "4.5"
+        ],
+        "pistas": [
+          "Diez mm forman un cm.",
+          "Divide 45 entre 10.",
+          "El resultado queda entre 4 y 5 cm."
+        ],
+        "retroalimentacion": "45 mm son 4,5 cm; 45 cm serían 450 mm."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una ruta mide 0,75 km, también mide 750 m y 75000 cm.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 0,75 km a metros.",
+          "Son 750 m.",
+          "Multiplica 750 por 100 para obtener centímetros."
+        ],
+        "retroalimentacion": "Es verdadero: 0,75 km=750 m=75000 cm."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.perimetro-poligonos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P6-01",
+      "MAT-C26-P6-05"
+    ],
+    "bloque": "Longitud, perímetro y área",
+    "nombre": "Perímetro de polígonos regulares e irregulares",
+    "disciplina": "geometria",
+    "descripcionCorta": "Calcula el perímetro de polígonos regulares e irregulares en situaciones reales.",
+    "palabrasClave": [
+      "perímetro",
+      "contorno",
+      "lados",
+      "polígono regular",
+      "polígono irregular"
+    ],
+    "prerrequisitos": [
+      "mat.p6.conversion-longitud"
+    ],
+    "ordenSugerido": 90,
+    "ideaCentral": "El perímetro es la longitud de todo el contorno de un polígono. Suma todos sus lados; si son iguales, puedes multiplicar la longitud de uno por la cantidad de lados.",
+    "pasos": [
+      "Recorre el contorno e identifica todos los lados.",
+      "Comprueba que sus medidas estén en la misma unidad.",
+      "Suma cada lado o multiplica si todos son iguales.",
+      "Escribe el resultado con una unidad de longitud."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un jardín triangular tiene lados de 4 m, 5 m y 6 m.",
+        "desarrollo": "Sumo los tres lados: 4+5+6=15.",
+        "respuesta": "El perímetro es 15 m."
+      },
+      {
+        "situacion": "Una baldosa cuadrada tiene lados de 30 cm.",
+        "desarrollo": "Tiene cuatro lados iguales: 4×30=120.",
+        "respuesta": "Su contorno mide 120 cm."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar base por altura para hallar perímetro.",
+        "correccion": "Eso calcula área de un rectángulo; el perímetro suma el contorno."
+      },
+      {
+        "error": "Olvidar un lado de un polígono irregular.",
+        "correccion": "Recorre el borde completo y marca cada lado ya sumado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Perímetro",
+        "significado": "Longitud total del borde de una figura."
+      },
+      {
+        "termino": "Polígono regular",
+        "significado": "Polígono con todos sus lados de igual longitud."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo tiene lados de 3 cm, 4 cm y 5 cm. ¿Cuál es su perímetro en cm? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El perímetro suma lados.",
+          "Incluye los tres: 3, 4 y 5.",
+          "3+4+5=12."
+        ],
+        "retroalimentacion": "El perímetro es 12 cm; multiplicar 3×4 no recorre el borde."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cuadrado tiene cada lado de 6 m. ¿Cuánto mide su contorno?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cuadrado tiene cuatro lados iguales.",
+          "Suma 6 cuatro veces.",
+          "4×6 da 24."
+        ],
+        "retroalimentacion": "El contorno mide 24 m; 36 m² sería un área, no un perímetro.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 m"
+          },
+          {
+            "id": "b",
+            "texto": "24 m"
+          },
+          {
+            "id": "c",
+            "texto": "36 m"
+          },
+          {
+            "id": "d",
+            "texto": "6 m"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El perímetro de un pentágono de lados 2, 2, 2, 2 y 2 cm es 10 cm.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cinco lados.",
+          "Todos miden 2 cm.",
+          "Calcula 5×2."
+        ],
+        "retroalimentacion": "Es verdadero: cinco lados de 2 cm suman 10 cm."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama la longitud total del borde de un polígono?",
+        "respuesta": "perímetro",
+        "alternativasAceptadas": [
+          "perimetro"
+        ],
+        "pistas": [
+          "Piensa en el borde, no en la superficie.",
+          "Se calcula sumando lados.",
+          "La palabra empieza por «peri»."
+        ],
+        "retroalimentacion": "Se llama perímetro; el área mide la superficie interior."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una cancha rectangular mide 12 m de largo y 7 m de ancho. ¿Cuántos metros mide su perímetro? Escribe solo el número.",
+        "respuesta": 38,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El rectángulo tiene dos lados de cada medida.",
+          "Suma 12+7+12+7.",
+          "2×19=38."
+        ],
+        "retroalimentacion": "El perímetro es 38 m; 84 m² sería su área."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un terreno irregular tiene lados de 4 m, 6 m, 3 m y 5 m. ¿Qué operación da su perímetro?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No todos los lados son iguales.",
+          "Hay que sumar las cuatro medidas.",
+          "4+6+3+5=18."
+        ],
+        "retroalimentacion": "4+6+3+5=18 m recorre el contorno; multiplicar lados no corresponde.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4×6=24 m"
+          },
+          {
+            "id": "b",
+            "texto": "4+6=10 m"
+          },
+          {
+            "id": "c",
+            "texto": "4+6+3+5=18 m"
+          },
+          {
+            "id": "d",
+            "texto": "4×5=20 m"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un hexágono regular de lado 8 cm tiene perímetro de 48 cm.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un hexágono tiene seis lados.",
+          "Regular significa lados iguales.",
+          "Multiplica 6×8."
+        ],
+        "retroalimentacion": "Es verdadero: 6×8=48 cm."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una figura de cuatro lados mide 7, 9, 7 y 9 cm. ¿Cuál es su perímetro en cm? Escribe la cifra.",
+        "respuesta": "32",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los dos lados de 7.",
+          "Suma los dos lados de 9.",
+          "14+18=32."
+        ],
+        "retroalimentacion": "El perímetro es 32 cm; 7×9 sería área de un rectángulo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una huerta pentagonal tiene lados de 3 m, 4 m, 5 m, 4 m y 6 m. Se deja una abertura de 2 m sin cerco. ¿Cuántos metros de cerco se necesitan? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma primero los cinco lados.",
+          "El contorno completo es 22 m.",
+          "Resta los 2 m de abertura."
+        ],
+        "retroalimentacion": "Se necesitan 20 m de cerco; 22 m cerraría también la abertura."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un marco cuadrado de lado 1,5 m se mide en centímetros. ¿Cuál es su perímetro?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 1,5 m a 150 cm.",
+          "Hay cuatro lados iguales.",
+          "4×150=600."
+        ],
+        "retroalimentacion": "El perímetro es 600 cm; 150 cm es solo un lado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "600 cm"
+          },
+          {
+            "id": "b",
+            "texto": "150 cm"
+          },
+          {
+            "id": "c",
+            "texto": "300 cm"
+          },
+          {
+            "id": "d",
+            "texto": "225 cm"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una pista rectangular tiene perímetro 30 m y uno de sus lados mide 6 m. ¿Cuánto mide el otro lado en metros? Escribe la cifra.",
+        "respuesta": "9",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dos lados miden 6 m cada uno.",
+          "Quedan 30−12=18 m para los otros dos.",
+          "Divide 18 entre 2."
+        ],
+        "retroalimentacion": "El otro lado mide 9 m; 30−6 omite lados."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos triángulos pueden tener el mismo perímetro aunque sus lados sean distintos: uno con 5, 5 y 6 cm y otro con 4, 6 y 6 cm.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los lados del primer triángulo.",
+          "5+5+6=16.",
+          "El segundo suma 4+6+6=16."
+        ],
+        "retroalimentacion": "Es verdadero: ambos perímetros son 16 cm, aunque sus lados difieren."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.area-unidades-cuadradas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P6-05",
+      "MAT-C26-P6-07"
+    ],
+    "bloque": "Longitud, perímetro y área",
+    "nombre": "Área con unidades cuadradas: cm² y m²",
+    "disciplina": "geometria",
+    "descripcionCorta": "Mide superficies contando unidades cuadradas y elige la unidad conveniente.",
+    "palabrasClave": [
+      "área",
+      "unidad cuadrada",
+      "centímetro cuadrado",
+      "metro cuadrado",
+      "superficie"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 91,
+    "ideaCentral": "El área indica cuánto espacio cubre una superficie. Puedes medirla contando cuadrados iguales: usa cm² para objetos pequeños y m² para superficies grandes.",
+    "pasos": [
+      "Identifica la superficie que se va a cubrir.",
+      "Escoge cuadrados de la misma medida y sin superponerlos.",
+      "Cuenta cuadrados completos; junta mitades si las hay.",
+      "Escribe el resultado en cm² o m² según la unidad usada."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una tarjeta queda cubierta por 8 cuadritos de 1 cm².",
+        "desarrollo": "Cuento ocho unidades cuadradas iguales.",
+        "respuesta": "Su área es 8 cm²."
+      },
+      {
+        "situacion": "El piso de un patio se cubre con 12 baldosas de 1 m².",
+        "desarrollo": "Cada baldosa representa un metro cuadrado; cuento 12.",
+        "respuesta": "El patio tiene 12 m² de área."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar cm en vez de cm² para una superficie.",
+        "correccion": "El área se expresa en unidades cuadradas."
+      },
+      {
+        "error": "Contar dos mitades como dos cuadrados completos.",
+        "correccion": "Dos mitades forman un solo cuadrado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Área",
+        "significado": "Medida de la superficie cubierta."
+      },
+      {
+        "termino": "cm²",
+        "significado": "Superficie de un cuadrado de 1 cm por 1 cm."
+      },
+      {
+        "termino": "m²",
+        "significado": "Superficie de un cuadrado de 1 m por 1 m."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una figura cubre ●●●● cuadritos, cada uno de 1 cm². ¿Cuál es su área en cm²? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los símbolos ●.",
+          "Hay cuatro cuadrados completos.",
+          "Cada uno aporta 1 cm²."
+        ],
+        "retroalimentacion": "El área es 4 cm²; no se cuentan lados sino cuadrados cubiertos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué unidad conviene para el área del piso de un salón?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El piso es una superficie grande.",
+          "cm² sería una unidad muy pequeña.",
+          "Usa cuadrados de un metro de lado."
+        ],
+        "retroalimentacion": "Conviene m² para el piso de un salón; cm² sirve para superficies pequeñas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "cm"
+          },
+          {
+            "id": "b",
+            "texto": "m²"
+          },
+          {
+            "id": "c",
+            "texto": "m"
+          },
+          {
+            "id": "d",
+            "texto": "mm"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos medios cuadrados de 1 cm² juntos cubren 1 cm².",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada mitad vale 1/2 cm².",
+          "Junta 1/2+1/2.",
+          "El resultado es una unidad completa."
+        ],
+        "retroalimentacion": "Es verdadero: dos mitades de 1 cm² forman 1 cm²."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se abrevia «centímetro cuadrado»?",
+        "respuesta": "cm²",
+        "alternativasAceptadas": [
+          "cm2"
+        ],
+        "pistas": [
+          "Es una unidad de superficie.",
+          "Parte de cm y agrega exponente dos.",
+          "Escribe cm con un 2 elevado."
+        ],
+        "retroalimentacion": "Se abrevia cm²; cm solo mide longitud."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un mosaico cubre 7 cuadrados completos y 4 medios cuadrados de 1 m². ¿Cuál es su área en m²? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa las cuatro mitades en pares.",
+          "Cuatro mitades forman dos cuadrados.",
+          "Suma 7+2."
+        ],
+        "retroalimentacion": "El área es 9 m²; contar cada mitad como cuadrado daría 11."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una hoja pequeña está cubierta por 24 cuadritos de 1 cm². ¿Cuál es su área?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuadrito tiene área de 1 cm².",
+          "Cuenta 24 unidades iguales.",
+          "La respuesta debe llevar unidad cuadrada."
+        ],
+        "retroalimentacion": "El área es 24 cm²; 24 cm es longitud, no superficie.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "24 cm"
+          },
+          {
+            "id": "b",
+            "texto": "24 m²"
+          },
+          {
+            "id": "c",
+            "texto": "12 cm²"
+          },
+          {
+            "id": "d",
+            "texto": "24 cm²"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una región cubre 10 cuadrados de 1 cm², su área es 10 cm.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa la unidad pedida para superficie.",
+          "Cada cuadrado aporta 1 cm².",
+          "Diez cuadrados son 10 cm², no 10 cm."
+        ],
+        "retroalimentacion": "Es falso: su área es 10 cm²; cm mide longitud."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un dibujo ocupa 5 cuadrados completos y 2 mitades de cm². ¿Cuántos cm² ocupa? Escribe la cifra.",
+        "respuesta": "6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta las dos mitades.",
+          "Forman un cuadrado completo.",
+          "Suma uno a los cinco completos."
+        ],
+        "retroalimentacion": "Ocupa 6 cm²; las dos mitades no equivalen a dos cuadrados."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Al contar una figura de cuadritos de 1 cm², José anotó 12 cuadrados completos y 6 medios cuadrados, pero dos de esos medios eran marcas repetidas. ¿Cuál es el área real en cm²? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De las 6 mitades registradas, dos son duplicadas.",
+          "Quedan cuatro mitades reales.",
+          "Cuatro mitades son 2 cm²; suma 12."
+        ],
+        "retroalimentacion": "El área real es 14 cm²; contar las mitades duplicadas daría 15."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un terreno está cubierto por 18 losetas de 1 m² y quedan 4 medias losetas iguales. ¿Qué área total representa?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las cuatro medias losetas forman dos completas.",
+          "Suma 18+2.",
+          "La unidad es m²."
+        ],
+        "retroalimentacion": "El área es 20 m²; tratar medias losetas como completas daría 22 m².",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20 m²"
+          },
+          {
+            "id": "b",
+            "texto": "22 m²"
+          },
+          {
+            "id": "c",
+            "texto": "19 m²"
+          },
+          {
+            "id": "d",
+            "texto": "20 m"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una alumna anotó «16 m» al contar 16 cuadrados de 1 m². ¿Qué unidad debe escribir para corregir la medida de superficie?",
+        "respuesta": "m²",
+        "alternativasAceptadas": [
+          "m2"
+        ],
+        "pistas": [
+          "Contó superficies, no segmentos.",
+          "La medida de cada cuadrado es 1 m².",
+          "Conserva el 16 y corrige la unidad a metro cuadrado."
+        ],
+        "retroalimentacion": "Debe escribir m², de modo que el área sea 16 m²."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una figura hecha con 3 cuadrados de 1 cm² y 4 medios cuadrados de 1 cm² tiene área de 5 cm².",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta las cuatro mitades de dos en dos.",
+          "Forman dos cuadrados completos.",
+          "Suma 3+2."
+        ],
+        "retroalimentacion": "Es verdadero: 3 cm² más 2 cm² de las mitades son 5 cm²."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.area-rectangulo-cuadrado",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P6-01",
+      "MAT-C26-P6-07"
+    ],
+    "bloque": "Longitud, perímetro y área",
+    "nombre": "Área del rectángulo y del cuadrado",
+    "disciplina": "geometria",
+    "descripcionCorta": "Deduce y aplica la fórmula base por altura en rectángulos y cuadrados.",
+    "palabrasClave": [
+      "área de rectángulo",
+      "área de cuadrado",
+      "base",
+      "altura",
+      "lado"
+    ],
+    "prerrequisitos": [
+      "mat.p6.area-unidades-cuadradas"
+    ],
+    "ordenSugerido": 92,
+    "ideaCentral": "El área de un rectángulo es base por altura porque cada fila tiene tantos cuadrados como la base y hay tantas filas como la altura. En un cuadrado, base y altura son el mismo lado.",
+    "pasos": [
+      "Identifica base y altura perpendiculares.",
+      "Asegúrate de que ambas medidas estén en la misma unidad.",
+      "Multiplica base × altura; en un cuadrado, lado × lado.",
+      "Escribe el resultado en unidades cuadradas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un cartel rectangular mide 6 cm de ancho y 4 cm de alto.",
+        "desarrollo": "Cada una de 4 filas tiene 6 cuadritos: 6×4=24.",
+        "respuesta": "El área es 24 cm²."
+      },
+      {
+        "situacion": "Una mesa cuadrada tiene lado de 2 m.",
+        "desarrollo": "Su base y altura miden 2 m: 2×2=4.",
+        "respuesta": "La superficie es 4 m²."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar base y altura para hallar el área.",
+        "correccion": "Multiplica las medidas perpendiculares; la suma no cuenta los cuadrados."
+      },
+      {
+        "error": "Usar m como unidad de área.",
+        "correccion": "Al multiplicar metros por metros, el resultado es m²."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Base",
+        "significado": "Lado elegido como apoyo para medir la superficie."
+      },
+      {
+        "termino": "Altura",
+        "significado": "Distancia perpendicular entre la base y el lado opuesto."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un rectángulo mide 5 cm de base y 3 cm de altura. ¿Cuál es su área en cm²? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa base por altura.",
+          "Multiplica 5 por 3.",
+          "Cinco grupos de tres suman 15."
+        ],
+        "retroalimentacion": "El área es 15 cm²; sumar 5+3 no cuenta la superficie."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cuadrado tiene lado de 4 m. ¿Cuál es su área?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En un cuadrado, base y altura son iguales.",
+          "Multiplica 4×4.",
+          "La unidad debe ser m²."
+        ],
+        "retroalimentacion": "El área es 16 m²; 16 m sería una longitud.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 m²"
+          },
+          {
+            "id": "b",
+            "texto": "12 m²"
+          },
+          {
+            "id": "c",
+            "texto": "16 m²"
+          },
+          {
+            "id": "d",
+            "texto": "16 m"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rectángulo de 2 cm por 7 cm tiene área de 14 cm².",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica las dos medidas perpendiculares.",
+          "Calcula 2×7.",
+          "El producto es 14."
+        ],
+        "retroalimentacion": "Es verdadero: 2×7=14 cm²."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa la regla del área del rectángulo: base por _____.",
+        "respuesta": "altura",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la medida perpendicular a la base.",
+          "Va desde la base hasta el lado opuesto.",
+          "Esa distancia se llama altura."
+        ],
+        "retroalimentacion": "La regla es base por altura; no se suman los lados."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una alfombra rectangular mide 3 m por 8 m. ¿Cuántos m² cubre? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Toma 3 como una dimensión y 8 como la otra.",
+          "Multiplica 3×8.",
+          "El producto cuenta cuadrados de 1 m²."
+        ],
+        "retroalimentacion": "Cubre 24 m²; 22 m sería el perímetro."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cartulina cuadrada tiene área de 25 cm². ¿Cuánto mide su lado?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El lado multiplicado por sí mismo da 25.",
+          "Busca un número cuyo cuadrado sea 25.",
+          "5×5=25."
+        ],
+        "retroalimentacion": "El lado mide 5 cm; 25 cm es el número del área, no del lado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 cm"
+          },
+          {
+            "id": "b",
+            "texto": "10 cm"
+          },
+          {
+            "id": "c",
+            "texto": "25 cm"
+          },
+          {
+            "id": "d",
+            "texto": "50 cm"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si duplicas solo la base de un rectángulo y mantienes la altura, su área se duplica.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe área original b×h.",
+          "La nueva área es 2b×h.",
+          "Eso equivale a 2×(b×h)."
+        ],
+        "retroalimentacion": "Es verdadero: duplicar solo la base duplica el área."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un rectángulo tiene área 36 cm² y base 9 cm. ¿Cuánto mide su altura en cm? Escribe la cifra.",
+        "respuesta": "4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Área=base×altura.",
+          "La altura se obtiene dividiendo 36 entre 9.",
+          "36÷9=4."
+        ],
+        "retroalimentacion": "La altura mide 4 cm; 9+4 no determina el área."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un afiche rectangular mide 50 cm de base y 0,4 m de altura. ¿Cuál es su área en cm²? Escribe solo el número.",
+        "respuesta": 2000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 0,4 m a centímetros.",
+          "0,4 m son 40 cm.",
+          "Multiplica 50×40."
+        ],
+        "retroalimentacion": "El área es 2000 cm²; multiplicar 50×0,4 mezcla unidades."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos rectángulos tienen medidas 3×12 cm y 4×9 cm. ¿Qué comparación de áreas es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cada producto.",
+          "3×12=36 y 4×9=36.",
+          "Compara los resultados con la misma unidad."
+        ],
+        "retroalimentacion": "Ambos tienen 36 cm²; sus formas pueden ser distintas y conservar igual área.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El primero tiene más"
+          },
+          {
+            "id": "b",
+            "texto": "El segundo tiene más"
+          },
+          {
+            "id": "c",
+            "texto": "No se puede calcular"
+          },
+          {
+            "id": "d",
+            "texto": "Tienen igual área"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un piso rectangular de 6 m de ancho cubre 42 m². ¿Qué largo en metros debe tener? Escribe la cifra.",
+        "respuesta": "7",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide el área entre el ancho.",
+          "Calcula 42÷6.",
+          "Comprueba que 6×7=42."
+        ],
+        "retroalimentacion": "Debe medir 7 m de largo; 42 m es la superficie expresada sin cuadrado."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuadrado de lado 6 cm y un rectángulo de 9 cm por 4 cm cubren la misma superficie.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el cuadrado: 6×6.",
+          "Calcula el rectángulo: 9×4.",
+          "Ambos productos son 36."
+        ],
+        "retroalimentacion": "Es verdadero: ambas áreas son 36 cm²."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.area-paralelogramo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P6-01",
+      "MAT-C26-P6-08"
+    ],
+    "bloque": "Longitud, perímetro y área",
+    "nombre": "Área del paralelogramo",
+    "disciplina": "geometria",
+    "descripcionCorta": "Transforma un paralelogramo en rectángulo para deducir su área.",
+    "palabrasClave": [
+      "paralelogramo",
+      "base",
+      "altura perpendicular",
+      "área",
+      "transformación"
+    ],
+    "prerrequisitos": [
+      "mat.p6.area-rectangulo-cuadrado"
+    ],
+    "ordenSugerido": 93,
+    "ideaCentral": "Un paralelogramo puede recortarse y reacomodarse como un rectángulo sin cambiar su área. Por eso su área es base por altura perpendicular, no base por el lado inclinado.",
+    "pasos": [
+      "Elige una base del paralelogramo.",
+      "Ubica la altura que forma un ángulo recto con esa base.",
+      "Imagina trasladar un triángulo del extremo para formar un rectángulo.",
+      "Multiplica base × altura y escribe la unidad cuadrada."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un paralelogramo tiene base 8 cm y altura perpendicular 5 cm.",
+        "desarrollo": "El rectángulo reacomodado mide 8 por 5: 8×5=40.",
+        "respuesta": "Su área es 40 cm²."
+      },
+      {
+        "situacion": "Una parcela con forma de paralelogramo tiene base 12 m, altura 4 m y lado inclinado 5 m.",
+        "desarrollo": "Para el área uso la altura 4 m, no el lado 5 m: 12×4=48.",
+        "respuesta": "La parcela tiene 48 m²."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar la base por el lado oblicuo.",
+        "correccion": "La altura debe ser perpendicular a la base."
+      },
+      {
+        "error": "Dividir entre dos como en un triángulo.",
+        "correccion": "El paralelogramo completo equivale a un rectángulo de la misma base y altura."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Paralelogramo",
+        "significado": "Cuadrilátero con dos pares de lados paralelos."
+      },
+      {
+        "termino": "Altura perpendicular",
+        "significado": "Distancia recta entre bases paralelas, formando 90° con la base."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un paralelogramo tiene base 7 cm y altura perpendicular 3 cm. ¿Cuál es su área en cm²? Escribe solo el número.",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa la regla base por altura.",
+          "Multiplica 7×3.",
+          "El producto es 21 unidades cuadradas."
+        ],
+        "retroalimentacion": "El área es 21 cm²; sumar 7+3 no mide superficie."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un paralelogramo con base 10 m, altura 4 m y lado inclinado 6 m, ¿qué medida se multiplica por la base para hallar el área?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La medida buscada debe ser perpendicular.",
+          "El lado de 6 m está inclinado.",
+          "La altura perpendicular mide 4 m."
+        ],
+        "retroalimentacion": "Se multiplica por la altura de 4 m; el lado inclinado de 6 m no sirve para el área.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lado inclinado de 6 m"
+          },
+          {
+            "id": "b",
+            "texto": "Altura de 4 m"
+          },
+          {
+            "id": "c",
+            "texto": "Base de 10 m"
+          },
+          {
+            "id": "d",
+            "texto": "Suma de 4 y 6 m"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al recortar un extremo de un paralelogramo y trasladarlo al otro para formar un rectángulo, su área se conserva.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El recorte no se desecha.",
+          "Solo cambia de lugar una pieza.",
+          "La superficie total sigue cubierta por las mismas piezas."
+        ],
+        "retroalimentacion": "Es verdadero: reacomodar piezas sin perderlas conserva el área."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama la distancia perpendicular entre las dos bases paralelas?",
+        "respuesta": "altura",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No es el lado inclinado.",
+          "Forma 90° con la base.",
+          "Esa distancia se llama altura."
+        ],
+        "retroalimentacion": "Se llama altura; el lado oblicuo puede tener otra longitud."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un paralelogramo mide 9 m de base y 6 m de altura. ¿Cuántos m² ocupa? Escribe solo el número.",
+        "respuesta": 54,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica base 9 y altura 6.",
+          "Multiplica 9×6.",
+          "Escribe el resultado como superficie."
+        ],
+        "retroalimentacion": "Ocupa 54 m²; 30 m sería un cálculo de contorno, no área."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos paralelogramos tienen la misma base de 8 cm; sus alturas son 3 cm y 5 cm. ¿Cuál tiene mayor área?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La base es igual para ambos.",
+          "Calcula 8×3 y 8×5.",
+          "24 es menor que 40."
+        ],
+        "retroalimentacion": "El de altura 5 cm tiene mayor área: 40 cm² frente a 24 cm².",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El de altura 3 cm"
+          },
+          {
+            "id": "b",
+            "texto": "Tienen igual área"
+          },
+          {
+            "id": "c",
+            "texto": "El de altura 5 cm"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede saber"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un paralelogramo de base 12 cm y altura 5 cm tiene área de 30 cm².",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aplica base por altura, sin dividir.",
+          "12×5=60.",
+          "30 sería la mitad del paralelogramo."
+        ],
+        "retroalimentacion": "Es falso: el área es 60 cm²; 30 cm² sería la mitad."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un paralelogramo tiene área 48 cm² y base 8 cm. ¿Cuánto mide su altura en cm? Escribe la cifra.",
+        "respuesta": "6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Área=base×altura.",
+          "Divide 48 entre 8.",
+          "Comprueba que 8×6=48."
+        ],
+        "retroalimentacion": "La altura mide 6 cm; 48 cm² es el área, no la altura."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una pieza en forma de paralelogramo tiene base 15 cm y altura 8 cm. Se recorta y reacomoda como rectángulo sin perder material. ¿Cuál es el área del rectángulo en cm²? Escribe solo el número.",
+        "respuesta": 120,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El reacomodo conserva la superficie.",
+          "El rectángulo resultante tiene base 15 y altura 8.",
+          "Calcula 15×8."
+        ],
+        "retroalimentacion": "El rectángulo conserva 120 cm²; recortar y trasladar no reduce el área."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un paralelogramo tiene lado inclinado 10 cm, base 12 cm y altura 6 cm. ¿Cuál cálculo da su área?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se necesita base y altura perpendicular.",
+          "El lado 10 cm queda fuera del cálculo.",
+          "12×6=72."
+        ],
+        "retroalimentacion": "12×6=72 cm² usa la altura; 12×10 emplearía el lado inclinado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12×6=72 cm²"
+          },
+          {
+            "id": "b",
+            "texto": "12×10=120 cm²"
+          },
+          {
+            "id": "c",
+            "texto": "12+6=18 cm²"
+          },
+          {
+            "id": "d",
+            "texto": "12×6÷2=36 cm²"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "La base de un paralelogramo se duplica de 5 cm a 10 cm, mientras la altura sigue en 4 cm. ¿Cuál es su nueva área en cm²? Escribe la cifra.",
+        "respuesta": "40",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa la nueva base de 10 cm.",
+          "La altura permanece en 4 cm.",
+          "Multiplica 10×4."
+        ],
+        "retroalimentacion": "La nueva área es 40 cm²; usar la base anterior daría 20 cm²."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos paralelogramos, uno de base 6 cm y altura 8 cm y otro de base 12 cm y altura 4 cm, pueden tener igual área.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 6×8.",
+          "Calcula 12×4.",
+          "Ambos productos valen 48."
+        ],
+        "retroalimentacion": "Es verdadero: ambos tienen área de 48 cm²."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.area-triangulos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P6-01",
+      "MAT-C26-P6-07",
+      "MAT-C26-P6-08"
+    ],
+    "bloque": "Longitud, perímetro y área",
+    "nombre": "Área del triángulo",
+    "disciplina": "geometria",
+    "descripcionCorta": "Obtiene el área del triángulo como la mitad de un paralelogramo y la aplica.",
+    "palabrasClave": [
+      "triángulo",
+      "área",
+      "base",
+      "altura",
+      "mitad de paralelogramo"
+    ],
+    "prerrequisitos": [
+      "mat.p6.area-paralelogramo"
+    ],
+    "ordenSugerido": 94,
+    "ideaCentral": "Dos triángulos iguales pueden formar un paralelogramo de la misma base y altura. Por eso el área de un triángulo es base por altura dividido entre dos.",
+    "pasos": [
+      "Elige una base y ubica su altura perpendicular, incluso si cae fuera del triángulo.",
+      "Multiplica base por altura para hallar el área del paralelogramo correspondiente.",
+      "Divide ese producto entre dos.",
+      "Expresa el resultado en unidades cuadradas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una bandera triangular tiene base 10 cm y altura 6 cm.",
+        "desarrollo": "El paralelogramo completo tendría 10×6=60 cm²; la bandera ocupa la mitad.",
+        "respuesta": "Su área es 30 cm²."
+      },
+      {
+        "situacion": "Un jardín triangular tiene base 8 m y altura 5 m.",
+        "desarrollo": "8×5÷2=20.",
+        "respuesta": "El jardín ocupa 20 m²."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Olvidar dividir el producto entre dos.",
+        "correccion": "Base por altura da el área del paralelogramo formado por dos triángulos iguales."
+      },
+      {
+        "error": "Usar un lado inclinado como si fuera altura.",
+        "correccion": "La altura debe formar 90° con la base o con su prolongación."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Altura",
+        "significado": "Distancia perpendicular desde un vértice a la base o su prolongación."
+      },
+      {
+        "termino": "Paralelogramo correspondiente",
+        "significado": "Figura formada al juntar dos copias iguales del triángulo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo tiene base 6 cm y altura 4 cm. ¿Cuál es su área en cm²? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica base por altura.",
+          "6×4=24 corresponde a dos triángulos.",
+          "Divide 24 entre 2."
+        ],
+        "retroalimentacion": "El área es 12 cm²; 24 cm² sería el paralelogramo completo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un triángulo tiene base 8 m y altura 3 m. ¿Qué cálculo da su área?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero multiplica 8×3.",
+          "Un triángulo ocupa la mitad del paralelogramo.",
+          "Divide el producto entre 2."
+        ],
+        "retroalimentacion": "8×3÷2=12 m² es el cálculo correcto; 8×3 no divide la figura.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8+3=11 m²"
+          },
+          {
+            "id": "b",
+            "texto": "8×3=24 m²"
+          },
+          {
+            "id": "c",
+            "texto": "8×3×2=48 m²"
+          },
+          {
+            "id": "d",
+            "texto": "8×3÷2=12 m²"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo de base 10 cm y altura 2 cm tiene área 10 cm².",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 10×2.",
+          "El producto 20 corresponde a dos triángulos iguales.",
+          "La mitad de 20 es 10."
+        ],
+        "retroalimentacion": "Es verdadero: 10×2÷2=10 cm²."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Dos copias iguales de un triángulo pueden formar un ____ de la misma base y altura.",
+        "respuesta": "paralelogramo",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la figura de cuatro lados.",
+          "Sus lados opuestos quedan paralelos.",
+          "Se llama paralelogramo."
+        ],
+        "retroalimentacion": "Forman un paralelogramo; por eso el área del triángulo es la mitad."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una señal triangular mide 9 cm de base y 8 cm de altura. ¿Cuál es su área en cm²? Escribe solo el número.",
+        "respuesta": 36,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 9×8.",
+          "El paralelogramo mediría 72 cm².",
+          "Toma la mitad de 72."
+        ],
+        "retroalimentacion": "El área es 36 cm²; 72 cm² duplica la señal."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un triángulo tiene base 12 m, altura perpendicular 5 m y lado inclinado 7 m. ¿Cuál es su área?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No uses el lado inclinado.",
+          "Calcula 12×5÷2.",
+          "60÷2=30."
+        ],
+        "retroalimentacion": "El área es 30 m²; usar 7 m como altura daría otra medida.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "42 m²"
+          },
+          {
+            "id": "b",
+            "texto": "30 m²"
+          },
+          {
+            "id": "c",
+            "texto": "60 m²"
+          },
+          {
+            "id": "d",
+            "texto": "24 m²"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos triángulos de igual base y altura siempre tienen igual área aunque tengan formas distintas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La fórmula solo usa base y altura.",
+          "Si ambas medidas coinciden, coinciden los productos.",
+          "La inclinación no cambia b×h÷2."
+        ],
+        "retroalimentacion": "Es verdadero: con la misma base y altura, ambos dan el mismo producto dividido entre dos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un triángulo tiene área 24 cm² y base 8 cm. ¿Cuánto mide su altura en cm? Escribe la cifra.",
+        "respuesta": "6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica el área por 2.",
+          "48=8×altura.",
+          "Divide 48 entre 8."
+        ],
+        "retroalimentacion": "La altura mide 6 cm; dividir 24 entre 8 olvidaría el factor dos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un terreno triangular tiene base 14 m y altura 9 m. Se separa la mitad de su superficie para flores. ¿Cuántos m² se destinan a flores? Escribe solo el número.",
+        "respuesta": 31.5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero calcula el área del triángulo.",
+          "14×9÷2=63 m².",
+          "La mitad de 63 es 31,5."
+        ],
+        "retroalimentacion": "Se destinan 31,5 m²; 63 m² sería todo el terreno."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un triángulo de base 10 cm y altura 6 cm se junta con una copia idéntica. ¿Qué área tiene el paralelogramo formado?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada triángulo mide 10×6÷2.",
+          "Cada uno tiene 30 cm².",
+          "Dos copias suman 60 cm²."
+        ],
+        "retroalimentacion": "El paralelogramo tiene 60 cm²; 30 cm² es solo un triángulo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15 cm²"
+          },
+          {
+            "id": "b",
+            "texto": "30 cm²"
+          },
+          {
+            "id": "c",
+            "texto": "60 cm²"
+          },
+          {
+            "id": "d",
+            "texto": "120 cm²"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "La base de un triángulo es 16 cm y su área es 40 cm². ¿Cuánto mide la altura en cm? Escribe la cifra.",
+        "respuesta": "5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Despeja: altura=2×área÷base.",
+          "Calcula 80÷16.",
+          "El resultado es 5."
+        ],
+        "retroalimentacion": "La altura mide 5 cm; 40÷16 omite duplicar el área."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo de base 6 m y altura 8 m y otro de base 12 m y altura 4 m tienen la misma área.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 6×8÷2.",
+          "Calcula 12×4÷2.",
+          "Los dos resultados son 24."
+        ],
+        "retroalimentacion": "Es verdadero: cada triángulo tiene 24 m²."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.area-figuras-compuestas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P6-07"
+    ],
+    "bloque": "Longitud, perímetro y área",
+    "nombre": "Área de figuras compuestas por rectángulos y triángulos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Descompone una figura en rectángulos y triángulos para calcular su área.",
+    "palabrasClave": [
+      "área",
+      "rectángulo",
+      "triángulo",
+      "descomposición",
+      "base",
+      "altura"
+    ],
+    "prerrequisitos": [
+      "mat.p6.area-triangulos"
+    ],
+    "ordenSugerido": 95,
+    "ideaCentral": "Para hallar el área de una figura compuesta, sepárala en rectángulos y triángulos que no se superpongan. Calcula cada área y súmalas; si la figura tiene un hueco, réstalo.",
+    "pasos": [
+      "Traza mentalmente una línea que divida la figura en piezas conocidas.",
+      "Anota la base y altura de cada pieza en la misma unidad.",
+      "Calcula rectángulos con base × altura y triángulos con base × altura ÷ 2.",
+      "Suma las piezas, o resta la parte retirada, y escribe unidades cuadradas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un mural tiene un rectángulo de 6 m por 4 m y encima un triángulo de base 6 m y altura 2 m.",
+        "desarrollo": "Rectángulo: 6 × 4 = 24 m². Triángulo: 6 × 2 ÷ 2 = 6 m². Total: 24 + 6 = 30 m².",
+        "respuesta": "30 m²."
+      },
+      {
+        "situacion": "Un patio rectangular mide 8 m por 5 m, pero una esquina triangular de base 2 m y altura 3 m no se pavimenta.",
+        "desarrollo": "Área completa: 8 × 5 = 40 m². Esquina: 2 × 3 ÷ 2 = 3 m². Resto: 40 − 3 = 37 m².",
+        "respuesta": "37 m²."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar la base y la altura del triángulo.",
+        "correccion": "Multiplica base por altura y divide entre 2."
+      },
+      {
+        "error": "Contar dos veces la zona donde se unen piezas.",
+        "correccion": "Separa la figura en regiones que no se superpongan."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Área",
+        "significado": "Superficie que ocupa una figura, medida en unidades cuadradas."
+      },
+      {
+        "termino": "Figura compuesta",
+        "significado": "Figura formada por dos o más figuras simples."
+      },
+      {
+        "termino": "Descomponer",
+        "significado": "Separar una figura en piezas cuyo área puedes calcular."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un letrero une un rectángulo de 4 cm × 3 cm y un triángulo de base 4 cm y altura 2 cm, sin superposición. ¿Área total en cm²? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El letrero tiene dos piezas.",
+          "El rectángulo ocupa 12 cm².",
+          "El triángulo ocupa 4 cm²; suma ambas áreas."
+        ],
+        "retroalimentacion": "Olvidar el triángulo deja 12; 12 + 4 = 16 cm²."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura tiene un rectángulo de 5 m × 2 m junto a otro de 3 m × 2 m, sin solaparse. ¿Qué suma expresa su área en m²?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cada rectángulo por separado.",
+          "El primero mide 10 m² y el segundo 6 m².",
+          "Busca la suma de 10 y 6."
+        ],
+        "retroalimentacion": "La opción «10 + 6 = 16» suma las dos regiones; multiplicar todas las medidas mezcla las piezas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 + 3 = 8"
+          },
+          {
+            "id": "b",
+            "texto": "10 + 6 = 16"
+          },
+          {
+            "id": "c",
+            "texto": "5 × 3 = 15"
+          },
+          {
+            "id": "d",
+            "texto": "10 − 6 = 4"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rectángulo de 6 cm × 2 cm y un triángulo de base 6 cm y altura 2 cm, unidos sin superposición, ocupan 18 cm².",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla primero el área del rectángulo.",
+          "6 × 2 = 12 cm² para la parte rectangular.",
+          "La parte triangular ocupa la mitad de 12 cm²."
+        ],
+        "retroalimentacion": "Es verdadero: 12 + 6 = 18 cm²; el triángulo no ocupa 12 cm²."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un diseño pega dos triángulos iguales, cada uno de base 4 dm y altura 3 dm, sin encimarlos. ¿Área total en dm²? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una pieza triangular ocupa base por altura entre dos.",
+          "Cada triángulo ocupa 6 dm².",
+          "Son dos piezas de 6 dm²."
+        ],
+        "retroalimentacion": "Si respondiste 6, contaste solo una pieza; 6 + 6 = 12 dm²."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Para una figura formada por un rectángulo y un triángulo sin superposición, ¿qué operación reúne sus áreas: suma o resta?",
+        "respuesta": "suma",
+        "alternativasAceptadas": [
+          "sumar"
+        ],
+        "pistas": [
+          "Las piezas se agregan para formar toda la superficie.",
+          "No hay una parte recortada.",
+          "El área total reúne ambas áreas."
+        ],
+        "retroalimentacion": "Se usa suma: el área del rectángulo más la del triángulo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una parcela en L se divide en dos rectángulos sin solaparse: 7 m × 3 m y 2 m × 4 m. ¿Área en m²? Escribe solo el número.",
+        "respuesta": 29,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El brazo largo ocupa 7 × 3.",
+          "El otro brazo ocupa 2 × 4.",
+          "Suma 21 y 8."
+        ],
+        "retroalimentacion": "No multipliques los cuatro lados: 21 + 8 = 29 m²."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "A una cartulina de 9 cm × 6 cm le recortan un triángulo de base 4 cm y altura 3 cm. ¿Qué área queda?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cartulina completa ocupa 54 cm².",
+          "La pieza retirada es triangular.",
+          "El recorte ocupa 4 × 3 ÷ 2 = 6 cm²."
+        ],
+        "retroalimentacion": "La opción «48 cm²» resulta de 54 − 6; sumar el recorte daría más área que la cartulina.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "60 cm²"
+          },
+          {
+            "id": "b",
+            "texto": "42 cm²"
+          },
+          {
+            "id": "c",
+            "texto": "51 cm²"
+          },
+          {
+            "id": "d",
+            "texto": "48 cm²"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una escarapela reúne un cuadrado de lado 4 cm y un triángulo de base 4 cm y altura 3 cm, sin superposición. Su área es 22 cm².",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cuadrado tiene área 4 × 4.",
+          "El triángulo tiene área 4 × 3 ÷ 2.",
+          "Reúne 16 y 6."
+        ],
+        "retroalimentacion": "Es verdadero: 16 + 6 = 22 cm²."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una alfombra mide 10 m × 6 m. Se deja sin cubrir una zona rectangular de 2 m × 3 m y otra triangular de base 4 m y altura 2 m; no se cruzan. ¿Área cubierta en m²? Escribe solo el número.",
+        "respuesta": 50,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por los 60 m² de la alfombra completa.",
+          "Las zonas libres ocupan 6 m² y 4 m².",
+          "Resta ambas zonas de 60."
+        ],
+        "retroalimentacion": "Restar solo una zona da más de lo cubierto: 60 − 6 − 4 = 50 m²."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un jardín tiene dos rectángulos sin superposición de 6 m × 4 m y 3 m × 2 m. Dentro del primero hay un estanque triangular de base 2 m y altura 2 m. ¿Área plantable?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reúne las dos áreas rectangulares.",
+          "Los rectángulos suman 24 + 6 = 30 m².",
+          "El estanque ocupa 2 m² y se resta."
+        ],
+        "retroalimentacion": "La opción «28 m²» descuenta el triángulo de los 30 m²; 32 m² lo habría sumado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "28 m²"
+          },
+          {
+            "id": "b",
+            "texto": "30 m²"
+          },
+          {
+            "id": "c",
+            "texto": "26 m²"
+          },
+          {
+            "id": "d",
+            "texto": "32 m²"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un escenario ocupa un rectángulo de 8 m × 5 m y una punta triangular de base 8 m y altura 3 m. Decir que el área es 64 m² porque 40 + 24 = 64 es correcto.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa el cálculo de la punta.",
+          "8 × 3 da el área de un rectángulo completo.",
+          "La punta triangular ocupa la mitad: 12 m²."
+        ],
+        "retroalimentacion": "Es falso: 40 + 12 = 52 m²; 24 m² duplica el triángulo."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos paneles forman una figura: un rectángulo de 7 cm × 4 cm y un triángulo de base 7 cm y altura 4 cm. Se quita luego un cuadrado de 2 cm de lado, sin tocar la unión. ¿Área final en cm²? Escribe solo el número.",
+        "respuesta": 38,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula por separado 28 cm² y 14 cm².",
+          "Antes del recorte hay 42 cm².",
+          "El cuadrado retirado ocupa 2 × 2 = 4 cm²."
+        ],
+        "retroalimentacion": "No restes solo el lado 2: 28 + 14 − 4 = 38 cm²."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.perimetro-vs-area",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P6-08"
+    ],
+    "bloque": "Longitud, perímetro y área",
+    "nombre": "Relación entre perímetro y área",
+    "disciplina": "geometria",
+    "descripcionCorta": "Justifica con ejemplos que figuras con igual perímetro pueden tener distinta área.",
+    "palabrasClave": [
+      "perímetro",
+      "área",
+      "contorno",
+      "superficie",
+      "rectángulos"
+    ],
+    "prerrequisitos": [
+      "mat.p6.perimetro-poligonos",
+      "mat.p6.area-rectangulo-cuadrado"
+    ],
+    "ordenSugerido": 96,
+    "ideaCentral": "El perímetro mide el borde de una figura; el área mide la superficie interior. Dos figuras pueden tener el mismo perímetro y áreas diferentes.",
+    "pasos": [
+      "Calcula el perímetro sumando todos los lados del contorno.",
+      "Calcula el área de cada rectángulo multiplicando largo por ancho.",
+      "Compara cada medida con otra del mismo tipo y justifica con los valores."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un huerto mide 6 m × 4 m y otro 7 m × 3 m.",
+        "desarrollo": "Perímetros: 2(6 + 4) = 20 m y 2(7 + 3) = 20 m. Áreas: 24 m² y 21 m².",
+        "respuesta": "Igual perímetro, distinta área."
+      },
+      {
+        "situacion": "Dos carteles miden 5 cm × 5 cm y 6 cm × 4 cm.",
+        "desarrollo": "Sus perímetros son 20 cm; sus áreas son 25 cm² y 24 cm².",
+        "respuesta": "Cambiar los lados conservó el perímetro, pero cambió el área."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir metros del borde con metros cuadrados de superficie.",
+        "correccion": "El perímetro se expresa en m o cm; el área en m² o cm²."
+      },
+      {
+        "error": "Creer que un mismo perímetro obliga a la misma área.",
+        "correccion": "Compara, por ejemplo, 6 × 4 y 7 × 3: ambos bordes suman 20, pero sus superficies difieren."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Perímetro",
+        "significado": "Longitud total del contorno."
+      },
+      {
+        "termino": "Área",
+        "significado": "Cantidad de superficie interior."
+      },
+      {
+        "termino": "Contorno",
+        "significado": "Línea que rodea la figura."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un rectángulo mide 4 cm de largo y 2 cm de ancho. ¿Cuánto mide su perímetro en cm? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El contorno incluye cuatro lados.",
+          "Hay dos lados de 4 cm y dos de 2 cm.",
+          "Suma 4 + 2 + 4 + 2."
+        ],
+        "retroalimentacion": "Confundir el borde con 4 × 2 da 8; el perímetro es 12 cm."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una baldosa de 3 cm × 5 cm tiene 15 cm². ¿Qué mide 15 cm²?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La unidad lleva un cuadrado.",
+          "cm² mide superficie interior.",
+          "No describes el borde con cm²."
+        ],
+        "retroalimentacion": "La opción «El área» nombra la superficie de 15 cm²; el perímetro se mide en cm.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un lado"
+          },
+          {
+            "id": "b",
+            "texto": "El contorno"
+          },
+          {
+            "id": "c",
+            "texto": "El área"
+          },
+          {
+            "id": "d",
+            "texto": "La altura"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos rectángulos de 4 m × 3 m y 5 m × 2 m tienen el mismo perímetro.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para cada uno suma largo y ancho.",
+          "4 + 3 = 7 y 5 + 2 = 7.",
+          "Duplica ambas sumas."
+        ],
+        "retroalimentacion": "Es verdadero: los dos perímetros son 14 m, aunque sus áreas son 12 y 10 m²."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si quieres saber cuánta cinta necesitas para rodear una tarjeta, ¿calculas área o perímetro?",
+        "respuesta": "perímetro",
+        "alternativasAceptadas": [
+          "perimetro"
+        ],
+        "pistas": [
+          "La cinta recorre el borde.",
+          "El área sería la parte que podrías pintar.",
+          "Nombra la medida del contorno."
+        ],
+        "retroalimentacion": "Calculas el perímetro porque la cinta rodea la tarjeta."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dos jardines miden 8 m × 2 m y 6 m × 4 m. ¿En cuántos m² difieren sus áreas? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula las superficies, no los bordes.",
+          "El primero ocupa 16 m²; el segundo, 24 m².",
+          "Resta 24 − 16."
+        ],
+        "retroalimentacion": "No compares sus perímetros: las áreas difieren en 8 m²."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Qué par de rectángulos muestra igual perímetro y distinta área?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba sumando largo y ancho de cada figura.",
+          "Para igual perímetro, esas sumas deben coincidir.",
+          "En 7 × 3 y 6 × 4, ambas sumas son 10."
+        ],
+        "retroalimentacion": "La opción «7 × 3 y 6 × 4» tiene perímetros de 20 y áreas de 21 y 24.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7 × 3 y 6 × 4"
+          },
+          {
+            "id": "b",
+            "texto": "5 × 3 y 5 × 3"
+          },
+          {
+            "id": "c",
+            "texto": "7 × 3 y 7 × 4"
+          },
+          {
+            "id": "d",
+            "texto": "4 × 4 y 5 × 5"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una cartulina de 9 cm × 1 cm y otra de 6 cm × 4 cm tienen igual perímetro e igual área.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba primero 2(9 + 1) y 2(6 + 4).",
+          "Los dos bordes miden 20 cm.",
+          "Las superficies son 9 cm² y 24 cm²."
+        ],
+        "retroalimentacion": "Es falso: el perímetro coincide, pero el área no coincide."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un marco rectangular de 7 cm × 3 cm y otro de 8 cm × 2 cm tienen el mismo perímetro. ¿Cuál es el área del primero en cm²? Escribe solo el número.",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer marco tiene lados 7 y 3.",
+          "Para el área multiplica esos lados.",
+          "No uses los lados del segundo marco."
+        ],
+        "retroalimentacion": "El área del primero es 7 × 3 = 21 cm²; 20 cm es su perímetro."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un artesano dispone de 24 cm de cinta para bordear un rectángulo de 8 cm × 4 cm. ¿Cuál otro rectángulo usa toda la cinta y cubre mayor superficie?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El nuevo rectángulo debe cumplir largo + ancho = 12.",
+          "Compara las áreas con 8 × 4 = 32 cm².",
+          "6 × 6 usa 24 cm de borde y cubre 36 cm²."
+        ],
+        "retroalimentacion": "La opción «6 cm × 6 cm» mantiene 24 cm de perímetro y aumenta el área de 32 a 36 cm².",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 cm × 3 cm"
+          },
+          {
+            "id": "b",
+            "texto": "9 cm × 3 cm"
+          },
+          {
+            "id": "c",
+            "texto": "11 cm × 1 cm"
+          },
+          {
+            "id": "d",
+            "texto": "6 cm × 6 cm"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Entre rectángulos de 12 m de perímetro, uno de 5 m × 1 m y otro de 3 m × 3 m, el primero ocupa más área porque tiene el lado más largo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba que ambos bordes sumen 12 m.",
+          "Compara 5 × 1 con 3 × 3.",
+          "Las superficies son 5 m² y 9 m²."
+        ],
+        "retroalimentacion": "Es falso: el cuadrado de 3 m × 3 m ocupa 9 m², más que 5 m²."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Con 20 m de cerco se hacen dos huertos: A de 8 m × 2 m y B de 6 m × 4 m. ¿Cuántos m² más se siembran en B? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos perímetros son 20 m.",
+          "A ocupa 16 m² y B ocupa 24 m².",
+          "La pregunta compara las superficies."
+        ],
+        "retroalimentacion": "El mismo cerco no implica misma siembra: B tiene 24 − 16 = 8 m² más."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un dibujo tiene dos rectángulos de 10 cm × 2 cm y 7 cm × 5 cm. Sus perímetros son iguales. ¿Cuál tiene mayor área? Responde con sus medidas.",
+        "respuesta": "7 cm × 5 cm",
+        "alternativasAceptadas": [
+          "7 x 5",
+          "7×5",
+          "7 cm x 5 cm"
+        ],
+        "pistas": [
+          "Calcula las áreas 10 × 2 y 7 × 5.",
+          "La segunda área es 35 cm².",
+          "35 cm² supera a 20 cm²."
+        ],
+        "retroalimentacion": "El rectángulo de 7 cm × 5 cm tiene mayor área: 35 cm² frente a 20 cm²."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

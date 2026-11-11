@@ -1,0 +1,2382 @@
+[
+  {
+    "clave": "mat.p6.multiplos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03"
+    ],
+    "bloque": "Divisibilidad",
+    "nombre": "Múltiplos de un número natural",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Genera y reconoce múltiplos de un número como resultados de multiplicarlo.",
+    "palabrasClave": [
+      "múltiplo",
+      "multiplicación",
+      "secuencia"
+    ],
+    "prerrequisitos": [
+      "mat.p6.propiedades-multiplicacion"
+    ],
+    "ordenSugerido": 14,
+    "ideaCentral": "Un múltiplo de n se obtiene multiplicando n por un número natural. Tú puedes reconocerlo en una secuencia de saltos iguales.",
+    "pasos": [
+      "Elige el número base.",
+      "Multiplícalo por 0, 1, 2, 3…",
+      "Comprueba si el número buscado aparece."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una caja hay paquetes de 6 lápices.",
+        "desarrollo": "6 · 4 = 24.",
+        "respuesta": "24 es múltiplo de 6."
+      },
+      {
+        "situacion": "Una banda toca cada 8 minutos.",
+        "desarrollo": "Los tiempos son 8, 16, 24…",
+        "respuesta": "24 es múltiplo de 8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir múltiplo con divisor.",
+        "correccion": "Los múltiplos se obtienen multiplicando la base."
+      },
+      {
+        "error": "Omitir un salto en la secuencia.",
+        "correccion": "Suma siempre la misma cantidad."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Múltiplo",
+        "significado": "Resultado de multiplicar un número por un natural."
+      },
+      {
+        "termino": "Base",
+        "significado": "Número del que obtienes múltiplos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuál es el cuarto múltiplo positivo de 3? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Cuenta 3, 6…",
+          "El tercero es 9.",
+          "Después de 9 viene 12."
+        ],
+        "retroalimentacion": "El cuarto múltiplo positivo es 12; no confundas el conteo con 3 · 3."
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "21 es múltiplo de 7.",
+        "respuesta": true,
+        "pistas": [
+          "Busca una multiplicación con 7.",
+          "7 · 3 = 21.",
+          "El factor 3 es natural."
+        ],
+        "retroalimentacion": "Verdadero: 21 = 7 · 3."
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál aparece al contar de 4 en 4 desde 4?",
+        "respuesta": "b",
+        "pistas": [
+          "Enumera 4, 8, 12…",
+          "Después viene 16.",
+          "Revisa cuál opción coincide."
+        ],
+        "retroalimentacion": "16 es múltiplo de 4; 14 no aparece en la secuencia.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "14"
+          },
+          {
+            "id": "b",
+            "texto": "16"
+          },
+          {
+            "id": "c",
+            "texto": "18"
+          },
+          {
+            "id": "d",
+            "texto": "22"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa la secuencia de múltiplos positivos de 5: 5, 10, 15, __.",
+        "respuesta": "20",
+        "pistas": [
+          "La diferencia es siempre 5.",
+          "Suma 5 a 15.",
+          "15 + 5 = 20."
+        ],
+        "retroalimentacion": "Sigue 20; sumar 10 salta un múltiplo."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tira tiene grupos de 9 cuentas. ¿Cuántas cuentas hay en 6 grupos? Escribe solo el número.",
+        "respuesta": 54,
+        "pistas": [
+          "Cada grupo aporta 9.",
+          "Multiplica 9 por 6.",
+          "9 · 6 = 54."
+        ],
+        "retroalimentacion": "Son 54 cuentas, múltiplo de 9; sumar 9 + 6 sería incorrecto."
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número NO es múltiplo de 6?",
+        "respuesta": "d",
+        "pistas": [
+          "Prueba productos de 6.",
+          "6 · 5 = 30 y 6 · 7 = 42.",
+          "40 queda entre 36 y 42."
+        ],
+        "retroalimentacion": "40 no es múltiplo de 6; 30, 36 y 42 sí.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "30"
+          },
+          {
+            "id": "b",
+            "texto": "36"
+          },
+          {
+            "id": "c",
+            "texto": "42"
+          },
+          {
+            "id": "d",
+            "texto": "40"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "0 es múltiplo de 12 porque 12 · 0 = 0.",
+        "respuesta": true,
+        "pistas": [
+          "Considera el factor 0.",
+          "Multiplicar por 0 da 0.",
+          "La definición permite ese producto."
+        ],
+        "retroalimentacion": "Verdadero: 0 es múltiplo de 12."
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Entre 30 y 40, ¿cuál es el múltiplo de 8? Escribe solo el número.",
+        "respuesta": 32,
+        "pistas": [
+          "Cuenta 8 · 4 y 8 · 5.",
+          "8 · 4 = 32.",
+          "8 · 5 = 40, fuera del intervalo abierto."
+        ],
+        "retroalimentacion": "El múltiplo es 32; 40 no está entre ambos límites."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una profesora escribe 18, 24, 30 como tres múltiplos consecutivos de un mismo número. ¿Cuál es la base?",
+        "respuesta": "a",
+        "pistas": [
+          "Observa la distancia entre términos.",
+          "24 − 18 = 6.",
+          "Confirma 18 = 6 · 3."
+        ],
+        "retroalimentacion": "La base es 6; los saltos son de 6.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "12"
+          },
+          {
+            "id": "d",
+            "texto": "18"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El múltiplo de 7 inmediatamente anterior a 100 es ¿cuál? Escribe solo el número.",
+        "respuesta": 98,
+        "pistas": [
+          "Prueba 7 · 14.",
+          "7 · 14 = 98.",
+          "7 · 15 = 105 supera 100."
+        ],
+        "retroalimentacion": "Es 98; 105 ya pasó de 100."
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Todo múltiplo positivo de 10 también es múltiplo de 5.",
+        "respuesta": true,
+        "pistas": [
+          "Escribe 10 · n.",
+          "10 · n = 5 · (2n).",
+          "2n es natural."
+        ],
+        "retroalimentacion": "Verdadero: cualquier múltiplo de 10 se expresa como 5 por un natural."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con dos múltiplos consecutivos de 11: 33, __, __, 66. Escríbelos con coma.",
+        "respuesta": "44,55",
+        "pistas": [
+          "33 es 11 · 3.",
+          "Los siguientes son 11 · 4 y 11 · 5.",
+          "Después viene 66 = 11 · 6."
+        ],
+        "retroalimentacion": "Los faltantes son 44,55; no saltes el 55."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.divisores",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03"
+    ],
+    "bloque": "Divisibilidad",
+    "nombre": "Divisores de un número natural",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Encuentra todos los divisores de un número buscando parejas de factores.",
+    "palabrasClave": [
+      "divisor",
+      "factor",
+      "división exacta",
+      "parejas"
+    ],
+    "prerrequisitos": [
+      "mat.p6.multiplos"
+    ],
+    "ordenSugerido": 15,
+    "ideaCentral": "Un divisor de n lo divide sin dejar residuo. Para encontrarlos todos, tú puedes formar parejas de factores cuyo producto es n.",
+    "pasos": [
+      "Prueba factores desde 1.",
+      "Anota la pareja que completa cada producto.",
+      "Reúne ambos factores sin repetirlos.",
+      "Comprueba que no quede residuo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Para ordenar 18 libros en filas iguales.",
+        "desarrollo": "18 = 1 · 18 = 2 · 9 = 3 · 6.",
+        "respuesta": "Sus divisores son 1, 2, 3, 6, 9 y 18."
+      },
+      {
+        "situacion": "Una bolsa contiene 25 semillas.",
+        "desarrollo": "25 = 1 · 25 = 5 · 5.",
+        "respuesta": "Divisores: 1, 5 y 25."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Olvidar la pareja de un factor.",
+        "correccion": "Si 3 divide a 18, también cuenta 6."
+      },
+      {
+        "error": "Contar dos veces la pareja central de un cuadrado.",
+        "correccion": "En 5 · 5 anota 5 una sola vez."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Divisor",
+        "significado": "Número que divide exactamente a otro."
+      },
+      {
+        "termino": "Residuo",
+        "significado": "Lo que sobra tras dividir."
+      },
+      {
+        "termino": "Pareja de factores",
+        "significado": "Dos números cuyo producto es el número dado."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "4 es divisor de 20.",
+        "respuesta": true,
+        "pistas": [
+          "Divide 20 entre 4.",
+          "20 ÷ 4 = 5.",
+          "No queda residuo."
+        ],
+        "retroalimentacion": "Verdadero: 4 · 5 = 20."
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos divisores tiene 7? Escribe solo el número.",
+        "respuesta": 2,
+        "pistas": [
+          "7 solo forma 1 · 7.",
+          "Cuenta ambos factores.",
+          "Son 1 y 7."
+        ],
+        "retroalimentacion": "Tiene 2 divisores; 7 es primo."
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es divisor de 15?",
+        "respuesta": "c",
+        "pistas": [
+          "Busca productos que den 15.",
+          "3 · 5 = 15.",
+          "Comprueba cuál opción es factor."
+        ],
+        "retroalimentacion": "5 divide 15 exactamente; 4 no.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          },
+          {
+            "id": "d",
+            "texto": "7"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe los divisores de 6 en orden, separados por coma.",
+        "respuesta": "1,2,3,6",
+        "pistas": [
+          "Forma parejas de 6.",
+          "1 · 6 y 2 · 3.",
+          "Reúne los cuatro factores."
+        ],
+        "retroalimentacion": "Son 1,2,3,6; olvidar el 1 deja incompleta la lista."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos divisores distintos tiene 16? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Busca 1 · 16.",
+          "Añade 2 · 8 y 4 · 4.",
+          "El 4 se cuenta una sola vez."
+        ],
+        "retroalimentacion": "Hay 5: 1, 2, 4, 8, 16."
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "9 es divisor de 27 y de 28.",
+        "respuesta": false,
+        "pistas": [
+          "Comprueba ambas divisiones.",
+          "27 ÷ 9 = 3.",
+          "28 no es 9 por un natural."
+        ],
+        "retroalimentacion": "Falso: 9 divide 27, pero no 28."
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para repartir 24 galletas en bolsas iguales sin sobrantes, ¿qué cantidad por bolsa es imposible?",
+        "respuesta": "b",
+        "pistas": [
+          "Cada bolsa debe tener un divisor de 24.",
+          "24 ÷ 5 deja sobrante.",
+          "24 sí admite bolsas de 3, 4 u 8."
+        ],
+        "retroalimentacion": "5 es imposible; no divide 24.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "4"
+          },
+          {
+            "id": "d",
+            "texto": "8"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Falta una pareja de factores de 36: 1 · 36, 2 · 18, 3 · 12, 4 · 9, __ · __. Escríbela como 6x6.",
+        "respuesta": "6x6",
+        "pistas": [
+          "Busca el siguiente factor después de 4.",
+          "5 no divide 36.",
+          "6 · 6 = 36."
+        ],
+        "retroalimentacion": "La pareja es 6x6; 6 se anota una sola vez al listar divisores."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos divisores de 30 son mayores que 5? Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Lista parejas: 1 · 30, 2 · 15, 3 · 10, 5 · 6.",
+          "Quédate con los mayores que 5.",
+          "Son 6, 10, 15 y 30."
+        ],
+        "retroalimentacion": "Hay 4; 5 no entra porque se pide mayor que 5."
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los divisores de un número son 1, 2, 4, 7, 14 y 28. ¿Qué número es?",
+        "respuesta": "d",
+        "pistas": [
+          "El mayor divisor de un natural positivo es él mismo.",
+          "Aquí el mayor es 28.",
+          "Comprueba 4 · 7 = 28."
+        ],
+        "retroalimentacion": "28 es el número; 14 solo es uno de sus divisores.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7"
+          },
+          {
+            "id": "b",
+            "texto": "14"
+          },
+          {
+            "id": "c",
+            "texto": "21"
+          },
+          {
+            "id": "d",
+            "texto": "28"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 3 y 4 son divisores de 12, entonces 3 · 4 también es divisor de 12.",
+        "respuesta": true,
+        "pistas": [
+          "Multiplica 3 · 4.",
+          "Obtienes 12.",
+          "Todo número positivo se divide a sí mismo."
+        ],
+        "retroalimentacion": "Verdadero para este caso: 12 divide 12; no generalices a cualquier número."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una cartulina de 40 cm se corta en tiras iguales de longitud entera. Nombra, separados por coma, los divisores de 40 mayores que 8.",
+        "respuesta": "10,20,40",
+        "pistas": [
+          "Forma parejas de 40.",
+          "1 · 40, 2 · 20, 4 · 10, 5 · 8.",
+          "Selecciona solo factores mayores que 8."
+        ],
+        "retroalimentacion": "Son 10,20,40; 8 queda fuera."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.criterios-divisibilidad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03",
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Divisibilidad",
+    "nombre": "Criterios de divisibilidad por 2, 3, 5, 9 y 10",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Decide sin dividir si un número es divisible usando sus cifras.",
+    "palabrasClave": [
+      "divisibilidad",
+      "cifras",
+      "suma de cifras",
+      "última cifra"
+    ],
+    "prerrequisitos": [
+      "mat.p6.divisores"
+    ],
+    "ordenSugerido": 16,
+    "ideaCentral": "Puedes saber si un número es divisible por 2, 3, 5, 9 o 10 sin hacer la división. Mira su última cifra o suma sus cifras, según el divisor.",
+    "pasos": [
+      "Para 2, busca última cifra par; para 5, 0 o 5; para 10, 0.",
+      "Para 3 o 9, suma todas las cifras.",
+      "Comprueba si esa suma es múltiplo de 3 o 9."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Es 342 divisible por 3?",
+        "desarrollo": "3 + 4 + 2 = 9, múltiplo de 3.",
+        "respuesta": "Sí."
+      },
+      {
+        "situacion": "¿Es 475 divisible por 10?",
+        "desarrollo": "Termina en 5, no en 0.",
+        "respuesta": "No."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar la última cifra para decidir por 3.",
+        "correccion": "Para 3 se suman todas las cifras."
+      },
+      {
+        "error": "Creer que acabar en 5 sirve para 10.",
+        "correccion": "Para 10 debe terminar en 0."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Criterio",
+        "significado": "Regla rápida para decidir divisibilidad."
+      },
+      {
+        "termino": "Suma de cifras",
+        "significado": "Resultado de sumar los dígitos de un número."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "148 es divisible por 2.",
+        "respuesta": true,
+        "pistas": [
+          "Observa la última cifra.",
+          "148 termina en 8.",
+          "8 es par."
+        ],
+        "retroalimentacion": "Verdadero: 148 termina en cifra par."
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es divisible por 10?",
+        "respuesta": "b",
+        "pistas": [
+          "Busca un cero final.",
+          "25 acaba en 5.",
+          "120 acaba en 0."
+        ],
+        "retroalimentacion": "120 cumple el criterio de 10; 25 solo cumple el de 5.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25"
+          },
+          {
+            "id": "b",
+            "texto": "120"
+          },
+          {
+            "id": "c",
+            "texto": "118"
+          },
+          {
+            "id": "d",
+            "texto": "121"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Para que 47□ sea divisible por 5, escribe una cifra posible distinta de 0. Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Los números divisibles por 5 terminan en 0 o 5.",
+          "Se excluye 0.",
+          "Solo queda 5."
+        ],
+        "retroalimentacion": "La cifra es 5; terminar en 7 no sirve."
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "213 es divisible por 3 porque 2 + 1 + 3 = 6.",
+        "respuesta": true,
+        "pistas": [
+          "Suma 2, 1 y 3.",
+          "La suma es 6.",
+          "6 es múltiplo de 3."
+        ],
+        "retroalimentacion": "Verdadero: la suma de cifras es 6."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos números es divisible por 9?",
+        "respuesta": "c",
+        "pistas": [
+          "Suma las cifras de cada opción.",
+          "4 + 5 + 0 = 9.",
+          "9 es múltiplo de 9."
+        ],
+        "retroalimentacion": "450 es divisible por 9; 451 suma 10.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "451"
+          },
+          {
+            "id": "b",
+            "texto": "352"
+          },
+          {
+            "id": "c",
+            "texto": "450"
+          },
+          {
+            "id": "d",
+            "texto": "454"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En 6□3, ¿qué cifra hace que la suma de cifras sea 18 y el número divisible por 9? Escribe solo el número.",
+        "respuesta": 9,
+        "pistas": [
+          "Suma las cifras conocidas: 6 + 3.",
+          "Necesitas 9 + □ = 18.",
+          "La cifra faltante es 9."
+        ],
+        "retroalimentacion": "La cifra es 9; 693 suma 18."
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "720 es divisible a la vez por 2, 5 y 10.",
+        "respuesta": true,
+        "pistas": [
+          "Mira la última cifra.",
+          "Termina en 0.",
+          "0 sirve para los tres criterios."
+        ],
+        "retroalimentacion": "Verdadero: 720 termina en 0."
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El 315 es divisible por 3 y por 5. Escribe los dos criterios que lo muestran como «suma 9, termina en 5».",
+        "respuesta": "suma 9, termina en 5",
+        "pistas": [
+          "Suma 3 + 1 + 5.",
+          "La suma es 9, múltiplo de 3.",
+          "La última cifra es 5."
+        ],
+        "retroalimentacion": "La comprobación es suma 9, termina en 5; no hace falta dividir."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para una clave se busca un número divisible por 2 y 9, pero no por 10. ¿Cuál sirve?",
+        "respuesta": "d",
+        "pistas": [
+          "Debe acabar en cifra par distinta de 0.",
+          "Comprueba la suma de cifras.",
+          "3 + 4 + 2 = 9."
+        ],
+        "retroalimentacion": "342 sirve: acaba en 2 y sus cifras suman 9; 360 sí sería divisible por 10.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "360"
+          },
+          {
+            "id": "b",
+            "texto": "3240"
+          },
+          {
+            "id": "c",
+            "texto": "351"
+          },
+          {
+            "id": "d",
+            "texto": "342"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Qué cifra falta en 1□2 para que sea divisible por 9 y también por 2? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Las cifras conocidas suman 3.",
+          "Para llegar a 9 faltan 6.",
+          "El 2 final ya cumple el criterio de par."
+        ],
+        "retroalimentacion": "La cifra es 6: 162 suma 9 y termina en 2."
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un número divisible por 9 siempre es divisible por 3.",
+        "respuesta": true,
+        "pistas": [
+          "Todo múltiplo de 9 es múltiplo de 3.",
+          "Piensa en 9 = 3 · 3.",
+          "La suma de cifras divisible por 9 también lo es por 3."
+        ],
+        "retroalimentacion": "Verdadero: el criterio de 9 implica el de 3."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una etiqueta termina en 0 y sus cifras suman 18. ¿Por cuáles de 2, 3, 5, 9 y 10 es divisible? Escríbelos en orden con comas.",
+        "respuesta": "2,3,5,9,10",
+        "pistas": [
+          "El 0 final sirve para 2, 5 y 10.",
+          "18 es múltiplo de 3.",
+          "18 también es múltiplo de 9."
+        ],
+        "retroalimentacion": "Sirven los cinco: 2,3,5,9,10."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.primos-compuestos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03"
+    ],
+    "bloque": "Divisibilidad",
+    "nombre": "Números primos y compuestos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Clasifica números según su cantidad de divisores y usa la criba de Eratóstenes.",
+    "palabrasClave": [
+      "primo",
+      "compuesto",
+      "divisores",
+      "criba"
+    ],
+    "prerrequisitos": [
+      "mat.p6.divisores"
+    ],
+    "ordenSugerido": 17,
+    "ideaCentral": "Un primo tiene exactamente dos divisores: 1 y él mismo. Un compuesto tiene más de dos; tú puedes usar una criba para tachar múltiplos y encontrar primos.",
+    "pasos": [
+      "Recuerda que 1 no es primo ni compuesto.",
+      "Busca divisores del número.",
+      "Si solo hay dos, es primo; si hay más, compuesto.",
+      "En una criba, tacha múltiplos de primos conocidos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Qué clase de número es 13?",
+        "desarrollo": "Sus divisores son 1 y 13.",
+        "respuesta": "Es primo."
+      },
+      {
+        "situacion": "¿Qué pasa con 21?",
+        "desarrollo": "21 = 3 · 7, así que tiene 1, 3, 7 y 21.",
+        "respuesta": "Es compuesto."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar primo al 1.",
+        "correccion": "El 1 tiene solo un divisor."
+      },
+      {
+        "error": "Confundir impar con primo.",
+        "correccion": "9 es impar y compuesto: 3 · 3."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Primo",
+        "significado": "Número natural mayor que 1 con dos divisores."
+      },
+      {
+        "termino": "Compuesto",
+        "significado": "Natural mayor que 1 con más de dos divisores."
+      },
+      {
+        "termino": "Criba",
+        "significado": "Método que elimina múltiplos para encontrar primos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El 2 es un número primo.",
+        "respuesta": true,
+        "pistas": [
+          "Busca divisores de 2.",
+          "Son 1 y 2.",
+          "Exactamente dos."
+        ],
+        "retroalimentacion": "Verdadero: 2 es primo y es el único primo par."
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es compuesto?",
+        "respuesta": "c",
+        "pistas": [
+          "Busca un producto de factores distintos de 1.",
+          "9 = 3 · 3.",
+          "7, 11 y 13 tienen solo dos divisores."
+        ],
+        "retroalimentacion": "9 es compuesto; ser impar no garantiza ser primo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7"
+          },
+          {
+            "id": "b",
+            "texto": "11"
+          },
+          {
+            "id": "c",
+            "texto": "9"
+          },
+          {
+            "id": "d",
+            "texto": "13"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Clasifica el número 1: ¿primo, compuesto o ninguno?",
+        "respuesta": "ninguno",
+        "pistas": [
+          "Cuenta los divisores de 1.",
+          "Solo tiene el divisor 1.",
+          "Primo exige dos y compuesto más de dos."
+        ],
+        "retroalimentacion": "1 no es primo ni compuesto."
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Todo número par mayor que 2 es compuesto.",
+        "respuesta": true,
+        "pistas": [
+          "Un par mayor que 2 es divisible por 2.",
+          "También por 1 y por sí mismo.",
+          "Tiene más de dos divisores."
+        ],
+        "retroalimentacion": "Verdadero: cualquier par mayor que 2 es compuesto."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Entre 10 y 20, ¿cuántos números primos hay? Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Revisa 11, 12, 13…",
+          "Los primos son 11, 13, 17 y 19.",
+          "Cuéntalos."
+        ],
+        "retroalimentacion": "Hay 4 primos; 15 es compuesto por 3 · 5."
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la criba del 1 al 30, ¿qué número se tacha como múltiplo de 3 y sigue siendo compuesto?",
+        "respuesta": "b",
+        "pistas": [
+          "Busca un múltiplo de 3 mayor que 3.",
+          "15 = 3 · 5.",
+          "3 se conserva porque es primo."
+        ],
+        "retroalimentacion": "15 se tacha; 3 no se tacha como compuesto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "15"
+          },
+          {
+            "id": "c",
+            "texto": "17"
+          },
+          {
+            "id": "d",
+            "texto": "19"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "25 es primo porque termina en 5.",
+        "respuesta": false,
+        "pistas": [
+          "Busca un divisor además de 1 y 25.",
+          "25 = 5 · 5.",
+          "Tiene el divisor 5."
+        ],
+        "retroalimentacion": "Falso: 25 es compuesto."
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Clasifica 29 según su cantidad de divisores. Escribe «primo» o «compuesto».",
+        "respuesta": "primo",
+        "pistas": [
+          "Prueba divisores pequeños: 2, 3 y 5.",
+          "29 no es par ni múltiplo de 3 o 5.",
+          "Solo quedan 1 y 29 como divisores."
+        ],
+        "retroalimentacion": "29 es primo; no basta decir que es impar."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una criba hasta 50 ya tachaste múltiplos de 2, 3 y 5. ¿Cuál de estos números sin tachar es primo?",
+        "respuesta": "d",
+        "pistas": [
+          "Comprueba cada opción.",
+          "49 = 7 · 7, aunque no lo tacharon.",
+          "47 no tiene divisores 2, 3, 5 ni 7."
+        ],
+        "retroalimentacion": "47 es primo; 49 requiere tachar múltiplos de 7.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "49"
+          },
+          {
+            "id": "b",
+            "texto": "35"
+          },
+          {
+            "id": "c",
+            "texto": "27"
+          },
+          {
+            "id": "d",
+            "texto": "47"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El menor número compuesto impar mayor que 20 es ¿cuál? Escribe solo el número.",
+        "respuesta": 21,
+        "pistas": [
+          "El primer impar después de 20 es 21.",
+          "21 = 3 · 7.",
+          "Ya tiene más de dos divisores."
+        ],
+        "retroalimentacion": "Es 21; no hay impar entre 20 y 21."
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un número tiene exactamente tres divisores, es compuesto.",
+        "respuesta": true,
+        "pistas": [
+          "Tres supera los dos del primo.",
+          "Ejemplo: 4 tiene 1, 2 y 4.",
+          "Por definición es compuesto."
+        ],
+        "retroalimentacion": "Verdadero: tres divisores significan más de dos."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "De 31, 33, 35 y 37, escribe en orden los compuestos separados por coma.",
+        "respuesta": "33,35",
+        "pistas": [
+          "33 tiene factor 3.",
+          "35 = 5 · 7.",
+          "31 y 37 no tienen esos divisores pequeños."
+        ],
+        "retroalimentacion": "Son 33,35; los otros son primos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.factores-primos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03",
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Divisibilidad",
+    "nombre": "Descomposición en factores primos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Expresa un número como producto de factores primos con árbol o tabla.",
+    "palabrasClave": [
+      "factor primo",
+      "descomposición",
+      "producto",
+      "árbol de factores"
+    ],
+    "prerrequisitos": [
+      "mat.p6.primos-compuestos",
+      "mat.p6.criterios-divisibilidad"
+    ],
+    "ordenSugerido": 18,
+    "ideaCentral": "Descomponer un número es escribirlo como producto de primos. Tú puedes dividir sucesivamente o abrir un árbol hasta que todas sus hojas sean primas.",
+    "pasos": [
+      "Separa el número en dos factores.",
+      "Sigue descomponiendo cada factor compuesto.",
+      "Detente cuando todos sean primos.",
+      "Multiplica los primos para comprobar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Descompón 18.",
+        "desarrollo": "18 = 2 · 9 = 2 · 3 · 3.",
+        "respuesta": "18 = 2 · 3 · 3."
+      },
+      {
+        "situacion": "Descompón 40.",
+        "desarrollo": "40 = 4 · 10 = 2 · 2 · 2 · 5.",
+        "respuesta": "40 = 2 · 2 · 2 · 5."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dejar un factor compuesto como hoja.",
+        "correccion": "Sigue hasta llegar solo a primos."
+      },
+      {
+        "error": "Omitir factores repetidos.",
+        "correccion": "Escribe cada aparición y verifica el producto."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Factor primo",
+        "significado": "Factor que es número primo."
+      },
+      {
+        "termino": "Descomposición",
+        "significado": "Escritura de un número como producto de primos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es la descomposición prima de 12?",
+        "respuesta": "b",
+        "pistas": [
+          "12 = 3 · 4.",
+          "4 = 2 · 2.",
+          "Junta 2, 2 y 3."
+        ],
+        "retroalimentacion": "2 · 2 · 3 es correcta; 3 · 4 deja un factor compuesto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 · 4"
+          },
+          {
+            "id": "b",
+            "texto": "2 · 2 · 3"
+          },
+          {
+            "id": "c",
+            "texto": "2 · 6"
+          },
+          {
+            "id": "d",
+            "texto": "1 · 12"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La descomposición prima de 10 es 2 · 5.",
+        "respuesta": true,
+        "pistas": [
+          "Comprueba los factores.",
+          "2 y 5 son primos.",
+          "2 · 5 = 10."
+        ],
+        "retroalimentacion": "Verdadero: ambos factores son primos y dan 10."
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa 24 = 2 · 2 · 2 · __ con un factor primo.",
+        "respuesta": "3",
+        "pistas": [
+          "Multiplica los tres doses.",
+          "2 · 2 · 2 = 8.",
+          "24 ÷ 8 = 3."
+        ],
+        "retroalimentacion": "Falta 3; 8 · 3 = 24."
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos factores primos, contando repeticiones, hay en 18 = 2 · 3 · 3? Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Cuenta cada factor escrito.",
+          "Hay un 2 y dos 3.",
+          "1 + 2 = 3."
+        ],
+        "retroalimentacion": "Hay 3 factores; no cuentes solo los distintos."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un árbol para 30 termina en 2, 3 y una hoja faltante. ¿Qué primo falta?",
+        "respuesta": "c",
+        "pistas": [
+          "Multiplica 2 · 3.",
+          "Obtienes 6.",
+          "30 ÷ 6 = 5."
+        ],
+        "retroalimentacion": "Falta 5; 2 · 3 · 5 = 30.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          },
+          {
+            "id": "d",
+            "texto": "6"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "36 = 2 · 2 · 9 es una descomposición completa en primos.",
+        "respuesta": false,
+        "pistas": [
+          "Revisa si cada factor es primo.",
+          "9 es compuesto.",
+          "9 = 3 · 3."
+        ],
+        "retroalimentacion": "Falso: debe quedar 2 · 2 · 3 · 3."
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe 45 como producto de primos en orden creciente, usando «x».",
+        "respuesta": "3x3x5",
+        "pistas": [
+          "45 = 9 · 5.",
+          "El 9 que aparece en 45 aún se puede separar en dos primos.",
+          "Ordena 3, 3, 5."
+        ],
+        "retroalimentacion": "Es 3x3x5; 9x5 no termina en primos."
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En 2 · 2 · 2 · 3, ¿qué número se ha descompuesto? Escribe solo el número.",
+        "respuesta": 24,
+        "pistas": [
+          "Agrupa los tres doses.",
+          "El producto parcial de los tres factores 2 es 8.",
+          "8 · 3 = 24."
+        ],
+        "retroalimentacion": "Es 24; sumar los factores daría otro número."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos árboles de factores de 48 empiezan con 6 · 8 y 3 · 16. ¿Cuál resultado final deben compartir?",
+        "respuesta": "d",
+        "pistas": [
+          "Abre 6 y 8 hasta llegar a primos.",
+          "48 = 2 · 2 · 2 · 2 · 3.",
+          "El punto de partida no cambia el producto primo."
+        ],
+        "retroalimentacion": "Ambos terminan en 2 · 2 · 2 · 2 · 3; 6 y 8 no son primos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 · 2 · 12"
+          },
+          {
+            "id": "b",
+            "texto": "3 · 16"
+          },
+          {
+            "id": "c",
+            "texto": "2 · 4 · 6"
+          },
+          {
+            "id": "d",
+            "texto": "2 · 2 · 2 · 2 · 3"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Si 72 = 2 · 2 · 2 · 3 · 3, ¿cuántas veces aparece el factor primo 3? Escribe solo el número.",
+        "respuesta": 2,
+        "pistas": [
+          "Observa la parte final del producto.",
+          "Después de tres doses hay dos treses.",
+          "Cuenta solo los factores 3."
+        ],
+        "retroalimentacion": "Aparece 2 veces; no confundas valor del factor con cantidad."
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 60 = 2 · 2 · 3 · 5, entonces 120 = 2 · 2 · 2 · 3 · 5.",
+        "respuesta": true,
+        "pistas": [
+          "120 es el doble de 60.",
+          "Agrega un factor 2.",
+          "Comprueba 8 · 3 · 5 = 120."
+        ],
+        "retroalimentacion": "Verdadero: duplicar añade un factor primo 2."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un árbol de 84 separa 84 en 4 y 21. Escribe todas sus hojas primas en orden creciente, separadas por coma.",
+        "respuesta": "2,2,3,7",
+        "pistas": [
+          "Abre 4 como 2 · 2.",
+          "Abre 21 como 3 · 7.",
+          "Reúne las cuatro hojas."
+        ],
+        "retroalimentacion": "Son 2,2,3,7; 4 y 21 aún son compuestos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.mcm",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03",
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Divisibilidad",
+    "nombre": "Mínimo común múltiplo",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Halla el menor múltiplo común de dos o tres números por listas o factores primos.",
+    "palabrasClave": [
+      "mcm",
+      "múltiplo común",
+      "menor",
+      "coincidencia"
+    ],
+    "prerrequisitos": [
+      "mat.p6.factores-primos"
+    ],
+    "ordenSugerido": 19,
+    "ideaCentral": "El mínimo común múltiplo es el menor múltiplo positivo compartido. Tú puedes hallarlo listando múltiplos o reuniendo factores primos con su mayor repetición.",
+    "pasos": [
+      "Escribe múltiplos positivos de cada número.",
+      "Señala los que coinciden.",
+      "Elige el menor positivo.",
+      "Con factores primos, toma cada primo tantas veces como más aparezca."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Halla mcm(4,6).",
+        "desarrollo": "4: 4, 8, 12; 6: 6, 12.",
+        "respuesta": "mcm = 12."
+      },
+      {
+        "situacion": "Halla mcm(8,12).",
+        "desarrollo": "8 = 2³; 12 = 2² · 3. Toma 2³ · 3.",
+        "respuesta": "mcm = 24."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir el primer múltiplo de una sola lista.",
+        "correccion": "Debe aparecer en todas."
+      },
+      {
+        "error": "Incluir 0 como mínimo.",
+        "correccion": "El mcm se busca entre múltiplos positivos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Múltiplo común",
+        "significado": "Número que es múltiplo de todos los dados."
+      },
+      {
+        "termino": "mcm",
+        "significado": "Menor múltiplo común positivo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Halla el mcm de 2 y 3. Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Lista múltiplos de 2: 2, 4, 6.",
+          "Lista múltiplos de 3: 3, 6.",
+          "El primero común es 6."
+        ],
+        "retroalimentacion": "El mcm es 6; 3 no es múltiplo de 2."
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El mcm de 5 y 10 es 10.",
+        "respuesta": true,
+        "pistas": [
+          "10 aparece en los múltiplos de 5.",
+          "10 es múltiplo de sí mismo.",
+          "Ningún común positivo menor sirve."
+        ],
+        "retroalimentacion": "Verdadero: mcm(5,10) = 10."
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el menor múltiplo común de 4 y 8?",
+        "respuesta": "c",
+        "pistas": [
+          "Los múltiplos de 8 empiezan en 8.",
+          "8 = 4 · 2.",
+          "Ya es común."
+        ],
+        "retroalimentacion": "8 es el mcm; 4 no es múltiplo de 8.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "16"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: los múltiplos de 3 son 3, 6, 9, 12; los de 4 son 4, 8, 12. El primer común es __.",
+        "respuesta": "12",
+        "pistas": [
+          "Compara ambas listas.",
+          "Busca el primer número repetido.",
+          "12 aparece en las dos."
+        ],
+        "retroalimentacion": "El primer común positivo es 12."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Halla mcm(6,9). Escribe solo el número.",
+        "respuesta": 18,
+        "pistas": [
+          "6: 6, 12, 18.",
+          "9: 9, 18.",
+          "18 es el primero en ambas."
+        ],
+        "retroalimentacion": "mcm(6,9) = 18; 9 no es múltiplo de 6."
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Con 10 = 2 · 5 y 15 = 3 · 5, ¿qué producto da su mcm?",
+        "respuesta": "b",
+        "pistas": [
+          "Incluye cada primo presente.",
+          "Usa 2, 3 y 5 una vez.",
+          "2 · 3 · 5 = 30."
+        ],
+        "retroalimentacion": "2 · 3 · 5 da 30; omitir el 3 deja 10.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 · 5"
+          },
+          {
+            "id": "b",
+            "texto": "2 · 3 · 5"
+          },
+          {
+            "id": "c",
+            "texto": "3 · 5"
+          },
+          {
+            "id": "d",
+            "texto": "5 · 5"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "mcm(4,6) = 24 porque 24 es múltiplo de ambos.",
+        "respuesta": false,
+        "pistas": [
+          "Ser común no basta.",
+          "12 es múltiplo de 4 y de 6.",
+          "12 es menor que 24."
+        ],
+        "retroalimentacion": "Falso: mcm(4,6) = 12."
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Halla el mcm de 3, 4 y 6. Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "12 es múltiplo de 3.",
+          "También de 4 y de 6.",
+          "No hay común positivo menor."
+        ],
+        "retroalimentacion": "El mcm es 12; revisa los tres números."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Toma 12 = 2² · 3 y 18 = 2 · 3². ¿Qué factores construyen el mcm?",
+        "respuesta": "d",
+        "pistas": [
+          "Elige la mayor potencia de 2: 2².",
+          "Elige la mayor de 3: 3².",
+          "Su producto vale 36."
+        ],
+        "retroalimentacion": "2² · 3² da 36; elegir las potencias menores da 6.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 · 3"
+          },
+          {
+            "id": "b",
+            "texto": "2² · 3"
+          },
+          {
+            "id": "c",
+            "texto": "2 · 3²"
+          },
+          {
+            "id": "d",
+            "texto": "2² · 3²"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Busca el menor múltiplo positivo común de 8, 12 y 15. Escribe solo el número.",
+        "respuesta": 120,
+        "pistas": [
+          "8 = 2³ y 12 = 2² · 3.",
+          "15 = 3 · 5.",
+          "Toma 2³ · 3 · 5."
+        ],
+        "retroalimentacion": "El mcm es 120; debe incluir el factor 5 de 15."
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un número es múltiplo de otro, el mcm de ambos es el mayor.",
+        "respuesta": true,
+        "pistas": [
+          "Ejemplo: 6 y 18.",
+          "18 ya es múltiplo común.",
+          "No puede haber común positivo menor que 18 si debe ser múltiplo de 18."
+        ],
+        "retroalimentacion": "Verdadero: en ese caso el mayor es el mcm."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para 9 y 12, escribe los dos primeros múltiplos comunes positivos en orden separados por coma.",
+        "respuesta": "36,72",
+        "pistas": [
+          "mcm(9,12) = 36.",
+          "Los comunes positivos siguen en múltiplos de 36.",
+          "El siguiente es 72."
+        ],
+        "retroalimentacion": "Son 36,72; 0 no cuenta por pedir positivos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.mcd",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P6-03",
+      "MAT-C23-P6-04"
+    ],
+    "bloque": "Divisibilidad",
+    "nombre": "Máximo común divisor",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Halla el mayor divisor común de dos o tres números por listas o factores primos.",
+    "palabrasClave": [
+      "mcd",
+      "divisor común",
+      "mayor",
+      "factores primos"
+    ],
+    "prerrequisitos": [
+      "mat.p6.factores-primos"
+    ],
+    "ordenSugerido": 20,
+    "ideaCentral": "El máximo común divisor es el mayor número que divide exactamente a todos los dados. Tú puedes comparar listas de divisores o tomar factores primos comunes con su menor repetición.",
+    "pasos": [
+      "Anota los divisores de cada número.",
+      "Busca los que aparecen en todas las listas.",
+      "Elige el mayor.",
+      "Si usas factorización, multiplica los primos compartidos con menor exponente."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Halla mcd(12,18).",
+        "desarrollo": "Comunes: 1, 2, 3 y 6.",
+        "respuesta": "mcd = 6."
+      },
+      {
+        "situacion": "Halla mcd(20,30).",
+        "desarrollo": "20 = 2² · 5; 30 = 2 · 3 · 5. Comparte 2 · 5.",
+        "respuesta": "mcd = 10."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir un divisor de solo uno de los números.",
+        "correccion": "Verifica que divida a todos."
+      },
+      {
+        "error": "Confundir mayor divisor común con menor múltiplo común.",
+        "correccion": "Aquí buscas divisores, no múltiplos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Divisor común",
+        "significado": "Número que divide exactamente a todos los dados."
+      },
+      {
+        "termino": "mcd",
+        "significado": "Mayor de los divisores comunes."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Halla mcd(6,9). Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Divisores de 6: 1, 2, 3, 6.",
+          "Divisores de 9: 1, 3, 9.",
+          "El mayor compartido es 3."
+        ],
+        "retroalimentacion": "mcd = 3; 9 no divide 6."
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "mcd(4,8) = 4.",
+        "respuesta": true,
+        "pistas": [
+          "4 divide a 4.",
+          "También divide a 8.",
+          "No hay divisor común mayor que 4."
+        ],
+        "retroalimentacion": "Verdadero: el mcd es 4."
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el mayor divisor común de 10 y 15?",
+        "respuesta": "b",
+        "pistas": [
+          "Divisores de 10: 1, 2, 5, 10.",
+          "Divisores de 15: 1, 3, 5, 15.",
+          "El mayor compartido es 5."
+        ],
+        "retroalimentacion": "5 es el mcd; 10 no divide 15.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "15"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Los divisores comunes de 8 y 12 son 1, 2 y __.",
+        "respuesta": "4",
+        "pistas": [
+          "Lista divisores de 8.",
+          "Revisa cuáles dividen 12.",
+          "4 divide a ambos."
+        ],
+        "retroalimentacion": "Falta 4; 8 no divide 12."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Halla mcd(24,36). Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "24 = 2³ · 3.",
+          "36 = 2² · 3².",
+          "Toma 2² · 3 = 12."
+        ],
+        "retroalimentacion": "mcd = 12; elegir 2³ daría 24, que no divide 36."
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 18 = 2 · 3² y 30 = 2 · 3 · 5, ¿qué producto forma el mcd?",
+        "respuesta": "d",
+        "pistas": [
+          "Busca primos presentes en ambos.",
+          "Comparten 2 y un 3.",
+          "2 · 3 = 6."
+        ],
+        "retroalimentacion": "2 · 3 forma 6; 5 no aparece en 18.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3² · 5"
+          },
+          {
+            "id": "b",
+            "texto": "2 · 5"
+          },
+          {
+            "id": "c",
+            "texto": "2 · 3²"
+          },
+          {
+            "id": "d",
+            "texto": "2 · 3"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El mcd de 7 y 11 es 1.",
+        "respuesta": true,
+        "pistas": [
+          "7 y 11 son primos diferentes.",
+          "No comparten factores primos.",
+          "1 divide a ambos."
+        ],
+        "retroalimentacion": "Verdadero: mcd(7,11) = 1."
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Halla mcd(12,18,30). Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "6 divide 12 y 18.",
+          "También divide 30.",
+          "Ningún común mayor divide 18 y 12."
+        ],
+        "retroalimentacion": "El mcd de los tres es 6."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál afirmación explica mcd(16,24) = 8?",
+        "respuesta": "a",
+        "pistas": [
+          "8 divide 16 y 24.",
+          "16 no divide 24.",
+          "Ningún divisor común supera 8."
+        ],
+        "retroalimentacion": "8 es el mayor divisor compartido; 16 solo divide uno.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 divide ambos y no hay común mayor"
+          },
+          {
+            "id": "b",
+            "texto": "8 es el menor múltiplo común"
+          },
+          {
+            "id": "c",
+            "texto": "16 divide ambos"
+          },
+          {
+            "id": "d",
+            "texto": "24 divide 16"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Halla mcd(45,60,75). Escribe solo el número.",
+        "respuesta": 15,
+        "pistas": [
+          "15 divide 45.",
+          "También divide 60 y 75.",
+          "45 no divide 60; comprueba los divisores mayores."
+        ],
+        "retroalimentacion": "El mcd es 15; se deben revisar los tres."
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si a divide exactamente a b, entonces mcd(a,b) = a.",
+        "respuesta": true,
+        "pistas": [
+          "a divide a sí mismo.",
+          "También divide b, por condición.",
+          "Ningún divisor de a puede ser mayor que a."
+        ],
+        "retroalimentacion": "Verdadero para naturales positivos: a es el mcd."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Entre 1, 2, 3, 4, 6 y 12, escribe los divisores comunes de 18 y 24 en orden separados por coma.",
+        "respuesta": "1,2,3,6",
+        "pistas": [
+          "Comprueba cuáles dividen 18.",
+          "Luego revisa 24.",
+          "4 y 12 no dividen 18."
+        ],
+        "retroalimentacion": "Son 1,2,3,6; 6 es el mayor."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.situaciones-mcm-mcd",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P6-01",
+      "MAT-C23-P6-07"
+    ],
+    "bloque": "Divisibilidad",
+    "nombre": "Situaciones de coincidencia y de reparto máximo",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Reconoce si un problema de encuentros o de cortes iguales se resuelve con mcm o con mcd.",
+    "palabrasClave": [
+      "coincidencia",
+      "reparto máximo",
+      "mcm",
+      "mcd"
+    ],
+    "prerrequisitos": [
+      "mat.p6.mcm",
+      "mat.p6.mcd"
+    ],
+    "ordenSugerido": 21,
+    "ideaCentral": "Cuando varios ciclos deben coincidir otra vez, tú buscas el mcm. Cuando debes cortar o repartir en partes iguales lo más grandes posible sin sobrar, buscas el mcd.",
+    "pasos": [
+      "Pregunta si se repiten ciclos o se forman partes.",
+      "Para próxima coincidencia, halla mcm.",
+      "Para mayor tamaño igual sin sobrantes, halla mcd.",
+      "Verifica la respuesta en todas las cantidades."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos luces parpadean cada 4 y 6 segundos.",
+        "desarrollo": "La próxima coincidencia ocurre en mcm(4,6) = 12.",
+        "respuesta": "Coinciden tras 12 segundos."
+      },
+      {
+        "situacion": "Corta cintas de 18 y 24 cm en trozos iguales máximos.",
+        "desarrollo": "mcd(18,24) = 6.",
+        "respuesta": "Cada trozo mide 6 cm."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar mcd para la próxima coincidencia.",
+        "correccion": "Los ciclos se encuentran en múltiplos comunes."
+      },
+      {
+        "error": "Usar mcm para cortes máximos.",
+        "correccion": "La medida debe dividir exactamente cada longitud."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Coincidencia",
+        "significado": "Momento común de dos o más ciclos."
+      },
+      {
+        "termino": "Reparto máximo",
+        "significado": "Partes iguales del mayor tamaño posible."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos timbres suenan cada 3 y 5 minutos. Para saber cuándo coinciden de nuevo, ¿qué calculas?",
+        "respuesta": "b",
+        "pistas": [
+          "Cada timbre sigue una lista de múltiplos.",
+          "Busca el primer tiempo compartido.",
+          "Esa operación es mcm."
+        ],
+        "retroalimentacion": "Se calcula mcm; el mcd no marca la primera coincidencia.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "mcd"
+          },
+          {
+            "id": "b",
+            "texto": "mcm"
+          },
+          {
+            "id": "c",
+            "texto": "suma"
+          },
+          {
+            "id": "d",
+            "texto": "resta"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos buses salen juntos y vuelven cada 4 y 6 horas. ¿Tras cuántas horas coinciden? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Lista múltiplos de 4.",
+          "Lista múltiplos de 6.",
+          "El primer común es 12."
+        ],
+        "retroalimentacion": "Coinciden tras 12 horas; 6 no es múltiplo de 4."
+      },
+      {
+        "id": "e03",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para cortar sogas de 8 y 12 m en trozos iguales máximos sin sobrantes, se usa el mcd.",
+        "respuesta": true,
+        "pistas": [
+          "Cada tamaño debe dividir ambas longitudes.",
+          "Se pide el mayor de esos divisores.",
+          "Eso define el mcd."
+        ],
+        "retroalimentacion": "Verdadero: mcd(8,12) = 4 m."
+      },
+      {
+        "id": "e04",
+        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Se quiere dividir 10 y 15 caramelos en grupos iguales lo más grandes posible. Escribe «mcm» o «mcd».",
+        "respuesta": "mcd",
+        "pistas": [
+          "El tamaño del grupo divide 10 y 15.",
+          "Se busca el mayor divisor común.",
+          "Esa abreviatura es mcd."
+        ],
+        "retroalimentacion": "Se usa mcd; mcm daría un múltiplo, no tamaño de grupo."
+      },
+      {
+        "id": "e05",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una luz se enciende cada 6 s y otra cada 8 s. Si se encienden juntas ahora, ¿en cuántos segundos vuelven a coincidir? Escribe solo el número.",
+        "respuesta": 24,
+        "pistas": [
+          "Son ciclos que se repiten.",
+          "mcm(6,8) es 24.",
+          "24 es múltiplo de 6 y 8."
+        ],
+        "retroalimentacion": "Coinciden en 24 s; 12 no es múltiplo de 8."
+      },
+      {
+        "id": "e06",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay listones de 20 y 30 cm. Se cortan en trozos iguales y tan largos como sea posible. ¿Qué longitud tienen?",
+        "respuesta": "c",
+        "pistas": [
+          "Busca un divisor común.",
+          "10 divide 20 y 30.",
+          "No hay divisor común mayor."
+        ],
+        "retroalimentacion": "10 cm es el tamaño máximo; 60 cm sería mcm.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 cm"
+          },
+          {
+            "id": "b",
+            "texto": "60 cm"
+          },
+          {
+            "id": "c",
+            "texto": "10 cm"
+          },
+          {
+            "id": "d",
+            "texto": "20 cm"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos ferias se realizan cada 9 y 12 días. Como coinciden hoy, volverán a coincidir en 3 días.",
+        "respuesta": false,
+        "pistas": [
+          "3 es divisor común, no múltiplo de 9.",
+          "Busca mcm(9,12).",
+          "El primer común positivo es 36."
+        ],
+        "retroalimentacion": "Falso: coinciden en 36 días, no en 3."
+      },
+      {
+        "id": "e08",
+        "alternativasAceptadas": [],
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Hay 24 panes y 36 frutas para armar lotes idénticos sin sobrar nada y con el mayor número de lotes. Escribe «mcm» o «mcd».",
+        "respuesta": "mcd",
+        "pistas": [
+          "El número de lotes debe dividir 24.",
+          "También debe dividir 36.",
+          "Piden el mayor divisor común."
+        ],
+        "retroalimentacion": "Corresponde mcd; mcm no indica cuántos lotes iguales pueden formarse."
+      },
+      {
+        "id": "e09",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos talleres se repiten cada 10 y 15 días. Si hoy son el mismo día, ¿cuántas coincidencias habrá en los próximos 60 días, sin contar hoy? Escribe solo el número.",
+        "respuesta": 2,
+        "pistas": [
+          "El intervalo común es mcm(10,15).",
+          "Ese mcm es 30 días.",
+          "En 60 días ocurren en los días 30 y 60."
+        ],
+        "retroalimentacion": "Habrá 2 coincidencias; contar hoy añadiría una de más."
+      },
+      {
+        "id": "e10",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Con cuerdas de 18, 30 y 42 cm, ¿qué operación y resultado dan el mayor largo igual de cada corte?",
+        "respuesta": "d",
+        "pistas": [
+          "El largo debe dividir las tres medidas.",
+          "mcd(18,30) = 6.",
+          "6 también divide 42."
+        ],
+        "retroalimentacion": "mcd = 6 cm; mcm no corresponde a cortes.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "mcm = 6 cm"
+          },
+          {
+            "id": "b",
+            "texto": "mcd = 90 cm"
+          },
+          {
+            "id": "c",
+            "texto": "mcm = 90 cm"
+          },
+          {
+            "id": "d",
+            "texto": "mcd = 6 cm"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos alarmas suenan cada 4 y 6 minutos, su próxima coincidencia puede ocurrir antes de 6 minutos.",
+        "respuesta": false,
+        "pistas": [
+          "La coincidencia debe ser múltiplo de 6.",
+          "El primer múltiplo positivo de 6 es 6.",
+          "Además mcm(4,6) = 12."
+        ],
+        "retroalimentacion": "Falso: coinciden a los 12 minutos, no antes de 6."
+      },
+      {
+        "id": "e12",
+        "alternativasAceptadas": [],
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una pista pide elegir entre «mcm» y «mcd»: «¿Cuál es el menor número de días para que tres actividades de períodos 2, 3 y 4 vuelvan a caer juntas?». Escribe la elección y el resultado como «mcm 12».",
+        "respuesta": "mcm 12",
+        "pistas": [
+          "La palabra «vuelvan» señala ciclos.",
+          "Busca múltiplos comunes de 2, 3 y 4.",
+          "El primero positivo es 12."
+        ],
+        "retroalimentacion": "Es mcm 12; mcd sería para dividir cantidades."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

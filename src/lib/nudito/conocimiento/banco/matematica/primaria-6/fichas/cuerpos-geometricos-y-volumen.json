@@ -1,0 +1,1990 @@
+[
+  {
+    "clave": "mat.p6.prismas-cilindros",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P6-01",
+      "MAT-C26-P6-04"
+    ],
+    "bloque": "Cuerpos geométricos y volumen",
+    "nombre": "Prismas rectos y cilindros: elementos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Identifica bases, caras laterales, aristas y vértices de prismas y cilindros.",
+    "palabrasClave": [
+      "prisma",
+      "cilindro",
+      "base",
+      "arista",
+      "vértice"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 97,
+    "ideaCentral": "Un prisma recto tiene dos bases poligonales iguales y caras laterales rectangulares; un cilindro tiene dos bases circulares y una superficie lateral curva. Las aristas son encuentros de caras planas y los vértices son esquinas.",
+    "pasos": [
+      "Identifica las dos bases iguales y paralelas.",
+      "Mira si las bases son polígonos o círculos.",
+      "En un prisma, cuenta caras laterales, aristas y vértices según los lados de la base.",
+      "En un cilindro, distingue la superficie curva y la ausencia de vértices."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja de zapatos tiene bases rectangulares.",
+        "desarrollo": "Sus dos bases son rectángulos; cuatro caras laterales también son rectángulos. Cada base tiene cuatro esquinas.",
+        "respuesta": "Es un prisma rectangular con 8 vértices y 12 aristas."
+      },
+      {
+        "situacion": "Una lata de conserva tiene tapas circulares.",
+        "desarrollo": "Las dos tapas son círculos iguales y el costado es curvo; no hay esquinas.",
+        "respuesta": "Es un cilindro sin vértices."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar cara rectangular al costado curvo del cilindro.",
+        "correccion": "Al desplegarlo aparece un rectángulo, pero armado es una superficie curva."
+      },
+      {
+        "error": "Contar los círculos del cilindro como vértices.",
+        "correccion": "Un vértice es una esquina; un círculo no tiene esquinas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Base",
+        "significado": "Cada una de las dos caras iguales y paralelas del sólido."
+      },
+      {
+        "termino": "Arista",
+        "significado": "Segmento donde se encuentran dos caras planas de un prisma."
+      },
+      {
+        "termino": "Vértice",
+        "significado": "Esquina donde se encuentran aristas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una lata tiene dos bases circulares y costado curvo. ¿Qué sólido representa?",
+        "respuesta": "b",
+        "pistas": [
+          "Mira la forma de las tapas.",
+          "Son círculos, no polígonos.",
+          "El costado curvo corresponde al cilindro."
+        ],
+        "retroalimentacion": "Es un cilindro; un prisma tiene bases poligonales.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Prisma triangular"
+          },
+          {
+            "id": "b",
+            "texto": "Cilindro"
+          },
+          {
+            "id": "c",
+            "texto": "Pirámide"
+          },
+          {
+            "id": "d",
+            "texto": "Cubo"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un prisma rectangular tiene dos bases rectangulares iguales y paralelas.",
+        "respuesta": true,
+        "pistas": [
+          "Piensa en una caja cerrada.",
+          "La cara de arriba y la de abajo tienen igual forma.",
+          "Ambas bases son rectángulos paralelos."
+        ],
+        "retroalimentacion": "Es verdadero: las bases de ese prisma son rectángulos iguales.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cuántos vértices tiene un cilindro? Escribe solo el número.",
+        "respuesta": "0",
+        "pistas": [
+          "Busca esquinas en la lata.",
+          "Los círculos no tienen esquinas.",
+          "La superficie curva tampoco forma puntas."
+        ],
+        "retroalimentacion": "Tiene 0 vértices: no hay esquinas.",
+        "alternativasAceptadas": [
+          "cero"
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál objeto se parece más a un prisma rectangular?",
+        "respuesta": "d",
+        "pistas": [
+          "Busca caras planas rectangulares.",
+          "Una caja tiene esas caras.",
+          "La lata y el balón tienen partes curvas."
+        ],
+        "retroalimentacion": "Una caja de cereal cerrada se parece a un prisma rectangular.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pelota"
+          },
+          {
+            "id": "b",
+            "texto": "Lata de leche"
+          },
+          {
+            "id": "c",
+            "texto": "Cono de tránsito"
+          },
+          {
+            "id": "d",
+            "texto": "Caja de cereal cerrada"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un prisma triangular tiene dos bases triangulares y tres caras laterales.",
+        "respuesta": true,
+        "pistas": [
+          "Cuenta los lados de un triángulo.",
+          "Cada lado origina una cara lateral.",
+          "Tres lados producen tres caras laterales."
+        ],
+        "retroalimentacion": "Es verdadero: hay tres caras laterales, una por lado de cada base.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántos vértices tiene un prisma triangular?",
+        "respuesta": "a",
+        "pistas": [
+          "Cada base triangular tiene tres esquinas.",
+          "Hay dos bases.",
+          "3 + 3 = 6."
+        ],
+        "retroalimentacion": "Tiene 6 vértices: tres en cada base.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "9"
+          },
+          {
+            "id": "d",
+            "texto": "0"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una caja con bases pentagonales forma un prisma recto. ¿Cuántas caras laterales tiene? Escribe solo el número.",
+        "respuesta": "5",
+        "pistas": [
+          "La base pentagonal tiene cinco lados.",
+          "Cada lado toca una cara lateral.",
+          "Son cinco caras laterales."
+        ],
+        "retroalimentacion": "Tiene 5 caras laterales, una por cada lado del pentágono.",
+        "alternativasAceptadas": [
+          "cinco"
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué parte distingue a un cilindro de un prisma de bases poligonales?",
+        "respuesta": "c",
+        "pistas": [
+          "Ambos tienen dos bases.",
+          "Observa el costado del cilindro.",
+          "Ese costado es curvo."
+        ],
+        "retroalimentacion": "La superficie lateral curva distingue al cilindro.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dos bases iguales"
+          },
+          {
+            "id": "b",
+            "texto": "Altura"
+          },
+          {
+            "id": "c",
+            "texto": "Superficie lateral curva"
+          },
+          {
+            "id": "d",
+            "texto": "Interior vacío"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un prisma tiene bases hexagonales, entonces posee 12 vértices.",
+        "respuesta": true,
+        "pistas": [
+          "Cada hexágono tiene seis vértices.",
+          "El prisma tiene dos bases.",
+          "6 + 6 = 12."
+        ],
+        "retroalimentacion": "Es verdadero: dos bases de seis esquinas dan 12 vértices.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un prisma recto de base cuadrada, ¿cuántas aristas hay en total?",
+        "respuesta": "b",
+        "pistas": [
+          "Cuenta 4 aristas de la base inferior.",
+          "Añade 4 de la superior y 4 verticales.",
+          "4 + 4 + 4 = 12."
+        ],
+        "retroalimentacion": "Hay 12 aristas: ocho de las bases y cuatro que las unen.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "16"
+          },
+          {
+            "id": "d",
+            "texto": "6"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un prisma recto tiene 7 caras en total: 2 bases y las demás laterales. ¿Cuántos lados tiene cada base? Escribe solo el número.",
+        "respuesta": "5",
+        "pistas": [
+          "Resta las dos bases de las 7 caras.",
+          "Quedan 5 caras laterales.",
+          "Una cara lateral corresponde a cada lado de la base."
+        ],
+        "retroalimentacion": "Cada base tiene 5 lados; es un prisma pentagonal.",
+        "alternativasAceptadas": [
+          "cinco"
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al comparar un prisma triangular con un cilindro, ¿qué afirmación es correcta?",
+        "respuesta": "d",
+        "pistas": [
+          "Mira las bases y el costado de cada uno.",
+          "El prisma tiene triángulos y caras planas.",
+          "El cilindro tiene círculos y superficie curva."
+        ],
+        "retroalimentacion": "El prisma triangular tiene vértices; el cilindro no tiene vértices.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ambos tienen bases triangulares"
+          },
+          {
+            "id": "b",
+            "texto": "Ambos tienen tres caras laterales planas"
+          },
+          {
+            "id": "c",
+            "texto": "El cilindro tiene seis vértices"
+          },
+          {
+            "id": "d",
+            "texto": "El prisma tiene vértices y el cilindro no"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.desarrollo-solidos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P6-07"
+    ],
+    "bloque": "Cuerpos geométricos y volumen",
+    "nombre": "Desarrollo plano de prismas y cilindros",
+    "disciplina": "geometria",
+    "descripcionCorta": "Relaciona cada sólido con su desarrollo y lo arma.",
+    "palabrasClave": [
+      "desarrollo plano",
+      "prisma",
+      "cilindro",
+      "caras",
+      "armado"
+    ],
+    "prerrequisitos": [
+      "mat.p6.prismas-cilindros"
+    ],
+    "ordenSugerido": 98,
+    "ideaCentral": "Un desarrollo plano muestra las superficies de un sólido extendidas sin superponerse. Para que cierre, debe incluir las dos bases correctas y las caras laterales que las rodean.",
+    "pasos": [
+      "Reconoce la forma de las dos bases del sólido.",
+      "Cuenta una cara lateral por cada lado de la base del prisma; en el cilindro identifica una franja rectangular.",
+      "Comprueba que las piezas puedan plegarse hasta cerrar sin huecos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se quiere armar una caja con bases triangulares.",
+        "desarrollo": "Cada triángulo tiene tres lados, así que necesito dos triángulos y tres rectángulos laterales.",
+        "respuesta": "Ese conjunto puede formar un prisma triangular."
+      },
+      {
+        "situacion": "Se recorta papel para cubrir una lata.",
+        "desarrollo": "Dos círculos tapan arriba y abajo; una franja rectangular rodea la superficie curva.",
+        "respuesta": "El desarrollo del cilindro tiene dos círculos y un rectángulo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner una sola base en el desarrollo.",
+        "correccion": "Un prisma o cilindro cerrado necesita dos bases iguales."
+      },
+      {
+        "error": "Usar menos rectángulos que lados tiene la base del prisma.",
+        "correccion": "Cada lado de la base requiere su propia cara lateral."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Desarrollo plano",
+        "significado": "Conjunto de superficies extendidas que se pliegan para formar un sólido."
+      },
+      {
+        "termino": "Plegar",
+        "significado": "Doblar el papel por las uniones para armar el sólido."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué piezas necesitas para el desarrollo de un cilindro cerrado?",
+        "respuesta": "b",
+        "pistas": [
+          "Piensa en las dos tapas.",
+          "Las tapas son dos círculos.",
+          "El costado extendido es un rectángulo."
+        ],
+        "retroalimentacion": "Dos círculos y un rectángulo forman el desarrollo del cilindro.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un círculo y un triángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Dos círculos y un rectángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Dos cuadrados y un triángulo"
+          },
+          {
+            "id": "d",
+            "texto": "Tres círculos"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para armar un prisma triangular cerrado hacen falta dos triángulos y tres rectángulos laterales.",
+        "respuesta": true,
+        "pistas": [
+          "Cuenta las bases triangulares.",
+          "Cada triángulo tiene tres lados.",
+          "Cada lado necesita un rectángulo lateral."
+        ],
+        "retroalimentacion": "Es verdadero: dos bases y tres caras laterales cierran el prisma.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un desarrollo de prisma rectangular tiene seis caras. ¿Cuántas son las dos bases? Escribe solo el número.",
+        "respuesta": "2",
+        "pistas": [
+          "Busca las caras opuestas e iguales.",
+          "Un prisma siempre tiene dos bases.",
+          "Las otras cuatro caras son laterales."
+        ],
+        "retroalimentacion": "Son 2 bases; las otras cuatro caras completan el costado.",
+        "alternativasAceptadas": [
+          "dos"
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué par de figuras sirve como bases de un prisma de base cuadrada?",
+        "respuesta": "d",
+        "pistas": [
+          "Las bases deben ser iguales.",
+          "La base indicada es un cuadrado.",
+          "Se requieren dos cuadrados."
+        ],
+        "retroalimentacion": "Dos cuadrados iguales son las bases del prisma cuadrangular.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dos círculos"
+          },
+          {
+            "id": "b",
+            "texto": "Un cuadrado y un triángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Dos pentágonos"
+          },
+          {
+            "id": "d",
+            "texto": "Dos cuadrados iguales"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un recorte con dos círculos y dos triángulos puede cerrar un cilindro recto.",
+        "respuesta": false,
+        "pistas": [
+          "El cilindro tiene un costado continuo.",
+          "Al extender ese costado aparece un rectángulo.",
+          "Los triángulos no cubren esa superficie."
+        ],
+        "retroalimentacion": "Es falso: faltaría la franja rectangular lateral.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para un prisma pentagonal cerrado, ¿cuántos rectángulos laterales debe tener el desarrollo?",
+        "respuesta": "a",
+        "pistas": [
+          "Cuenta los lados de un pentágono.",
+          "Cada lado se une a un rectángulo.",
+          "Cinco lados exigen cinco rectángulos."
+        ],
+        "retroalimentacion": "El desarrollo necesita 5 rectángulos laterales.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "10"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Hay dos triángulos y solo dos rectángulos en un recorte. Para cerrar un prisma triangular, ¿cuántos rectángulos faltan? Escribe solo el número.",
+        "respuesta": "1",
+        "pistas": [
+          "El prisma triangular necesita tres caras laterales.",
+          "Ya hay dos rectángulos.",
+          "3 − 2 = 1."
+        ],
+        "retroalimentacion": "Falta 1 rectángulo para cubrir el tercer lado de las bases.",
+        "alternativasAceptadas": [
+          "uno"
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una banda de cuatro rectángulos y dos cuadrados iguales se pliega. ¿Qué sólido puede formar?",
+        "respuesta": "c",
+        "pistas": [
+          "Los cuadrados son bases.",
+          "Cada cuadrado tiene cuatro lados.",
+          "Cuatro rectángulos rodean los lados."
+        ],
+        "retroalimentacion": "Puede formar un prisma de base cuadrada.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cilindro"
+          },
+          {
+            "id": "b",
+            "texto": "Prisma triangular"
+          },
+          {
+            "id": "c",
+            "texto": "Prisma de base cuadrada"
+          },
+          {
+            "id": "d",
+            "texto": "Cono"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un desarrollo de prisma hexagonal tiene dos hexágonos y seis rectángulos laterales, cuenta con las piezas necesarias para cerrar.",
+        "respuesta": true,
+        "pistas": [
+          "Las dos bases son hexágonos.",
+          "Cada hexágono tiene seis lados.",
+          "Una cara lateral corresponde a cada lado."
+        ],
+        "retroalimentacion": "Es verdadero: dos hexágonos y seis rectángulos son las piezas necesarias.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un diseño para caja triangular tiene 2 triángulos y 4 rectángulos iguales. ¿Qué ajuste corrige el número de caras laterales?",
+        "respuesta": "b",
+        "pistas": [
+          "La base triangular tiene tres lados.",
+          "Solo se requieren tres caras laterales.",
+          "Hay un rectángulo adicional."
+        ],
+        "retroalimentacion": "Retirar un rectángulo deja las tres caras laterales del prisma triangular.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Añadir otro triángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Retirar un rectángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Añadir dos rectángulos"
+          },
+          {
+            "id": "d",
+            "texto": "Retirar los dos triángulos"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para un prisma de base octagonal, un desarrollo ya tiene 2 octágonos y 6 rectángulos. ¿Cuántos rectángulos más necesita? Escribe solo el número.",
+        "respuesta": "2",
+        "pistas": [
+          "El octágono tiene ocho lados.",
+          "Se necesitan ocho caras laterales.",
+          "8 − 6 = 2."
+        ],
+        "retroalimentacion": "Faltan 2 rectángulos para completar las ocho caras laterales.",
+        "alternativasAceptadas": [
+          "dos"
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos círculos iguales y una tira rectangular tienen la misma longitud de borde: el lado largo de la tira coincide con el contorno de cada círculo. ¿Por qué pueden cerrar un cilindro?",
+        "respuesta": "d",
+        "pistas": [
+          "Cada círculo tapa un extremo.",
+          "La tira envuelve el costado.",
+          "La longitud coincidente evita huecos."
+        ],
+        "retroalimentacion": "La tira rodea exactamente cada base circular y permite cerrar el costado.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los círculos se vuelven cuadrados"
+          },
+          {
+            "id": "b",
+            "texto": "La tira forma una base triangular"
+          },
+          {
+            "id": "c",
+            "texto": "Basta un solo círculo"
+          },
+          {
+            "id": "d",
+            "texto": "La tira rodea exactamente cada círculo"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.vistas-perspectivas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P6-07"
+    ],
+    "bloque": "Cuerpos geométricos y volumen",
+    "nombre": "Vistas de un sólido desde distintas perspectivas",
+    "disciplina": "geometria",
+    "descripcionCorta": "Dibuja e interpreta las vistas frontal, lateral y superior de construcciones con cubos.",
+    "palabrasClave": [
+      "vista frontal",
+      "vista lateral",
+      "vista superior",
+      "cubos",
+      "silueta"
+    ],
+    "prerrequisitos": [
+      "mat.p6.prismas-cilindros"
+    ],
+    "ordenSugerido": 99,
+    "ideaCentral": "Una construcción de cubos cambia de apariencia según desde dónde la miras. Desde arriba ves las posiciones ocupadas; desde frente o un lado, la altura visible de cada columna.",
+    "pasos": [
+      "Fija qué lado es el frente y qué lado es la derecha.",
+      "Para la vista superior, marca cada posición del piso que contiene cubos.",
+      "Para la vista frontal, mira de frente y registra la mayor altura por columna.",
+      "Para la vista lateral, mira desde la derecha y registra la mayor altura por fila."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una sola fila de izquierda a derecha hay torres de 1, 3 y 2 cubos. ¿Cómo se ven de frente?",
+        "desarrollo": "Cada torre ocupa una columna; vista de frente sus alturas son 1, 3 y 2.",
+        "respuesta": "Vista frontal: 1–3–2."
+      },
+      {
+        "situacion": "Sobre un tablero de dos filas hay cubos solo en frente-izquierda y fondo-derecha.",
+        "desarrollo": "Desde arriba se ven dos casillas ocupadas en diagonal, aunque no se aprecia la altura.",
+        "respuesta": "Vista superior: frente-izquierda y fondo-derecha."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar todos los cubos al dibujar la vista superior.",
+        "correccion": "Desde arriba cada posición ocupada se marca una vez, aunque tenga varios cubos apilados."
+      },
+      {
+        "error": "Sumar torres que están una detrás de otra en la vista frontal.",
+        "correccion": "En la silueta frontal se ve la altura máxima de esa columna."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Vista frontal",
+        "significado": "Apariencia de la construcción al mirarla desde el frente."
+      },
+      {
+        "termino": "Vista lateral",
+        "significado": "Apariencia al mirarla desde un costado."
+      },
+      {
+        "termino": "Vista superior",
+        "significado": "Distribución de posiciones ocupadas al mirarla desde arriba."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una fila tiene torres de 2 cubos a la izquierda y 1 a la derecha. ¿Qué alturas ves de frente, de izquierda a derecha?",
+        "respuesta": "b",
+        "pistas": [
+          "No cambies el orden izquierda-derecha.",
+          "La primera torre mide 2.",
+          "La segunda mide 1."
+        ],
+        "retroalimentacion": "La vista frontal es 2–1.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1–2"
+          },
+          {
+            "id": "b",
+            "texto": "2–1"
+          },
+          {
+            "id": "c",
+            "texto": "3–0"
+          },
+          {
+            "id": "d",
+            "texto": "2–2"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una torre de cuatro cubos apilados ocupa una sola casilla en la vista superior.",
+        "respuesta": true,
+        "pistas": [
+          "Mira desde arriba la posición del piso.",
+          "Los cuatro cubos están en el mismo lugar.",
+          "Solo se ve la casilla superior."
+        ],
+        "retroalimentacion": "Es verdadero: arriba aparece una posición ocupada, no cuatro.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una única torre de 3 cubos está sobre una casilla. ¿Qué altura se ve desde el frente? Escribe solo el número de cubos.",
+        "respuesta": "3",
+        "pistas": [
+          "No hay otras torres que la tapen.",
+          "Cuenta los cubos apilados.",
+          "La torre tiene altura 3."
+        ],
+        "retroalimentacion": "La vista frontal muestra 3 cubos de altura.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un tablero hay cubos en frente-izquierda y fondo-derecha; las otras casillas están vacías. ¿Qué vista informa mejor qué casillas están ocupadas?",
+        "respuesta": "d",
+        "pistas": [
+          "La pregunta pide posiciones del piso.",
+          "Desde frente algunas posiciones pueden coincidir.",
+          "Desde arriba se ve cada casilla."
+        ],
+        "retroalimentacion": "La vista superior muestra las dos casillas ocupadas en diagonal.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Vista frontal"
+          },
+          {
+            "id": "b",
+            "texto": "Vista lateral derecha"
+          },
+          {
+            "id": "c",
+            "texto": "Vista inferior"
+          },
+          {
+            "id": "d",
+            "texto": "Vista superior"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos torres de alturas 1 y 4 están una detrás de otra en la misma columna vista de frente; la silueta frontal de esa columna mide 5.",
+        "respuesta": false,
+        "pistas": [
+          "Las torres se superponen en la mirada frontal.",
+          "No apilas una torre sobre la otra.",
+          "Se ve la altura mayor: 4."
+        ],
+        "retroalimentacion": "Es falso: la altura de la silueta es 4, no 1 + 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una construcción en una fila muestra de frente alturas 1–3–2. ¿Cuántas casillas ocupadas verías desde arriba?",
+        "respuesta": "a",
+        "pistas": [
+          "Hay una casilla bajo cada torre.",
+          "Las tres alturas son positivas.",
+          "Cuenta las tres posiciones."
+        ],
+        "retroalimentacion": "Se ven 3 casillas ocupadas desde arriba.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "2"
+          },
+          {
+            "id": "d",
+            "texto": "1"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En la fila del frente hay una torre de 2 cubos y justo detrás, en la misma columna, una de 5. ¿Qué altura muestra esa columna desde el frente? Escribe solo el número.",
+        "respuesta": "5",
+        "pistas": [
+          "Las dos torres comparten columna visual.",
+          "La de atrás supera a la de adelante.",
+          "La silueta llega hasta altura 5."
+        ],
+        "retroalimentacion": "Se ve altura 5; las alturas no se suman.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se colocan tres cubos uno al lado de otro, sin apilarlos. ¿Qué descripción corresponde a la vista superior?",
+        "respuesta": "c",
+        "pistas": [
+          "Cada cubo ocupa una casilla diferente.",
+          "Las tres casillas son contiguas.",
+          "Desde arriba forman una fila de tres."
+        ],
+        "retroalimentacion": "La vista superior tiene tres casillas contiguas ocupadas.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una casilla con altura tres"
+          },
+          {
+            "id": "b",
+            "texto": "Dos casillas separadas"
+          },
+          {
+            "id": "c",
+            "texto": "Tres casillas contiguas"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna casilla"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos construcciones pueden tener la misma vista superior de tres casillas ocupadas y distintas vistas frontales si cambian las alturas.",
+        "respuesta": true,
+        "pistas": [
+          "La vista superior registra posiciones.",
+          "Una torre de una casilla puede medir 1 o 4.",
+          "La posición no cambia aunque la altura sí."
+        ],
+        "retroalimentacion": "Es verdadero: iguales posiciones pueden esconder alturas diferentes.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tablero de 2 filas: frente tiene alturas 1–2; fondo tiene 3–1 en las mismas dos columnas. ¿Qué alturas muestra la vista frontal?",
+        "respuesta": "b",
+        "pistas": [
+          "Para cada columna compara frente y fondo.",
+          "Izquierda: máximo entre 1 y 3 es 3.",
+          "Derecha: máximo entre 2 y 1 es 2."
+        ],
+        "retroalimentacion": "La silueta frontal es 3–2, los máximos por columna.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4–3"
+          },
+          {
+            "id": "b",
+            "texto": "3–2"
+          },
+          {
+            "id": "c",
+            "texto": "1–2"
+          },
+          {
+            "id": "d",
+            "texto": "3–1"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Miras desde la derecha dos filas de torres: la fila del frente mide 1 y 4 cubos; la del fondo mide 2 y 3. ¿Qué altura ves en la fila del frente? Escribe solo el número.",
+        "respuesta": "4",
+        "pistas": [
+          "Desde la derecha, las columnas de una misma fila se superponen.",
+          "Compara 1 y 4 en la fila del frente.",
+          "La silueta conserva la mayor altura."
+        ],
+        "retroalimentacion": "La fila frontal se ve de altura 4 desde la derecha.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Vista superior: dos casillas ocupadas en diagonal. Vista frontal: dos columnas de altura 2 cada una. ¿Qué construcción cumple ambas vistas?",
+        "respuesta": "d",
+        "pistas": [
+          "Debe haber una torre en cada columna.",
+          "Las casillas deben estar en diagonal.",
+          "Cada torre necesita altura 2."
+        ],
+        "retroalimentacion": "Dos torres de 2 cubos en casillas diagonales cumplen posición y altura.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una torre de 4 cubos"
+          },
+          {
+            "id": "b",
+            "texto": "Dos torres de 1 cubo en la misma fila"
+          },
+          {
+            "id": "c",
+            "texto": "Dos torres de 2 cubos en casillas contiguas de una fila"
+          },
+          {
+            "id": "d",
+            "texto": "Dos torres de 2 cubos en casillas diagonales"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.volumen-cubos-unidad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P6-05"
+    ],
+    "bloque": "Cuerpos geométricos y volumen",
+    "nombre": "Volumen con cubos unidad",
+    "disciplina": "geometria",
+    "descripcionCorta": "Mide el espacio que ocupa un cuerpo contando cubos unidad.",
+    "palabrasClave": [
+      "volumen",
+      "cubo unidad",
+      "capa",
+      "contar cubos"
+    ],
+    "prerrequisitos": [
+      "mat.p6.prismas-cilindros"
+    ],
+    "ordenSugerido": 100,
+    "ideaCentral": "El volumen cuenta cuántos cubos unidad llenan un cuerpo sin huecos ni superposiciones. Puedes contar por capas iguales y sumar los cubos de todas las capas.",
+    "pasos": [
+      "Identifica cuántos cubos hay en una capa.",
+      "Cuenta cuántas capas iguales hay.",
+      "Multiplica cubos por capa por número de capas, o suma las capas si son distintas.",
+      "Expresa el total en cubos unidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una construcción tiene dos capas de seis cubos cada una.",
+        "desarrollo": "En cada capa hay 6; 6 + 6 = 12.",
+        "respuesta": "Su volumen es 12 cubos unidad."
+      },
+      {
+        "situacion": "Un bloque tiene tres capas: la inferior de 4 cubos, la media de 3 y la superior de 1.",
+        "desarrollo": "Cuento cada cubo una sola vez: 4 + 3 + 1 = 8.",
+        "respuesta": "Ocupa 8 cubos unidad."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo la capa visible desde arriba.",
+        "correccion": "Incluye también los cubos ocultos en capas inferiores."
+      },
+      {
+        "error": "Contar dos veces un cubo que se ve desde dos lados.",
+        "correccion": "Cada cubo físico aporta una sola unidad de volumen."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cubo unidad",
+        "significado": "Cubo pequeño elegido como unidad para medir el espacio ocupado."
+      },
+      {
+        "termino": "Capa",
+        "significado": "Conjunto de cubos a una misma altura."
+      },
+      {
+        "termino": "Volumen",
+        "significado": "Cantidad de espacio que ocupa un cuerpo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una torre tiene 5 cubos unidad apilados. ¿Cuál es su volumen en cubos unidad? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Cada cubo ocupa una unidad.",
+          "La torre tiene cinco cubos.",
+          "Cuenta 1 + 1 + 1 + 1 + 1."
+        ],
+        "retroalimentacion": "El volumen es 5 cubos unidad.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos capas de 4 cubos unidad cada una ocupan 8 cubos unidad en total.",
+        "respuesta": true,
+        "pistas": [
+          "Cuenta una capa primero.",
+          "La segunda capa tiene otros cuatro.",
+          "4 + 4 = 8."
+        ],
+        "retroalimentacion": "Es verdadero: ambas capas suman 8 cubos unidad.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura hecha con 3 cubos separados pero sin superponerse ocupa ¿cuántos cubos unidad de volumen?",
+        "respuesta": "b",
+        "pistas": [
+          "El espacio de cada cubo cuenta.",
+          "Hay tres cubos físicos.",
+          "Suma una unidad por cubo."
+        ],
+        "retroalimentacion": "Ocupa 3 cubos unidad; la separación no cambia la suma de sus volúmenes.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "9"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una fila de cubos tiene 7 piezas. ¿Cuántos cubos unidad de volumen representa? Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "Cada pieza es un cubo unidad.",
+          "Todos están en una sola fila.",
+          "Cuenta las siete piezas una vez."
+        ],
+        "retroalimentacion": "El volumen es 7 cubos unidad.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una base de 2 filas con 3 cubos cada una tiene dos capas iguales. ¿Cuál es el volumen en cubos unidad? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Una capa tiene 2 × 3 cubos.",
+          "Cada capa contiene 6.",
+          "Dos capas suman 6 + 6."
+        ],
+        "retroalimentacion": "El volumen es 12 cubos unidad.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una escalerita tiene 4 cubos abajo, 3 en la segunda capa y 1 arriba. ¿Qué total ocupa?",
+        "respuesta": "c",
+        "pistas": [
+          "No supongas que todas las capas son iguales.",
+          "Suma 4 + 3 + 1.",
+          "El resultado es 8."
+        ],
+        "retroalimentacion": "Ocupa 8 cubos unidad; se suman las tres capas distintas.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "7"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una torre de 3 cubos encima de una base de 6 cubos, donde el cubo inferior de la torre ya está en esa base, ocupa 9 cubos unidad.",
+        "respuesta": false,
+        "pistas": [
+          "La torre comparte un cubo con la base.",
+          "6 + 3 cuenta el cubo compartido dos veces.",
+          "Resta una unidad: 6 + 3 − 1."
+        ],
+        "retroalimentacion": "Es falso: ocupa 8 cubos unidad; uno se había contado dos veces.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una bandeja sostiene 3 filas de 4 cubos unidad en una sola capa. ¿Qué volumen ocupan en cubos unidad? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Cada fila tiene cuatro cubos.",
+          "Hay tres filas.",
+          "3 × 4 = 12."
+        ],
+        "retroalimentacion": "Ocupan 12 cubos unidad.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura tiene capas de 9, 6 y 3 cubos unidad. ¿Qué forma de contar evita agregar cubos inexistentes?",
+        "respuesta": "a",
+        "pistas": [
+          "Las capas no son iguales.",
+          "Suma cada tamaño por separado.",
+          "9 + 6 + 3 = 18."
+        ],
+        "retroalimentacion": "Sumar 9 + 6 + 3 da 18; multiplicar 9 × 3 supondría capas iguales.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9 + 6 + 3 = 18"
+          },
+          {
+            "id": "b",
+            "texto": "9 × 3 = 27"
+          },
+          {
+            "id": "c",
+            "texto": "9 + 9 + 9 = 27"
+          },
+          {
+            "id": "d",
+            "texto": "9 − 6 − 3 = 0"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un bloque completo tiene 2 filas de 4 cubos por capa y 3 capas. Le quitan un cubo de la capa superior. ¿Cuál es su volumen en cubos unidad? Escribe solo el número.",
+        "respuesta": 23,
+        "pistas": [
+          "Una capa completa tiene 2 × 4 = 8.",
+          "Tres capas completas tienen 24.",
+          "Quitar un cubo deja 23."
+        ],
+        "retroalimentacion": "El volumen es 23 cubos unidad: 2 × 4 × 3 − 1.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si ves 6 cubos en la capa superior y sabes que hay dos capas iguales ocultas debajo, el volumen total es 18 cubos unidad.",
+        "respuesta": true,
+        "pistas": [
+          "Son tres capas en total.",
+          "Cada capa tiene seis cubos.",
+          "6 + 6 + 6 = 18."
+        ],
+        "retroalimentacion": "Es verdadero: la capa visible y las dos ocultas suman 18.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una maqueta tiene 10 cubos unidad en la primera capa, 7 en la segunda y 4 en la tercera. Se retiran 2 cubos de la segunda. ¿Cuál es el volumen final en cubos unidad? Escribe solo el número.",
+        "respuesta": 19,
+        "pistas": [
+          "Suma las tres capas originales.",
+          "10 + 7 + 4 = 21.",
+          "Retira 2 del total: 21 − 2."
+        ],
+        "retroalimentacion": "El volumen final es 19 cubos unidad.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.volumen-prisma-rectangular",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P6-01",
+      "MAT-C26-P6-05"
+    ],
+    "bloque": "Cuerpos geométricos y volumen",
+    "nombre": "Volumen del prisma de base rectangular",
+    "disciplina": "geometria",
+    "descripcionCorta": "Calcula el volumen multiplicando largo, ancho y alto, y lo expresa en cm³ o m³.",
+    "palabrasClave": [
+      "volumen",
+      "prisma rectangular",
+      "largo",
+      "ancho",
+      "alto"
+    ],
+    "prerrequisitos": [
+      "mat.p6.volumen-cubos-unidad",
+      "mat.p6.area-rectangulo-cuadrado"
+    ],
+    "ordenSugerido": 101,
+    "ideaCentral": "El volumen de un prisma rectangular se obtiene multiplicando largo × ancho × alto cuando las medidas usan la misma unidad. El resultado se expresa en unidades cúbicas, como cm³ o m³.",
+    "pasos": [
+      "Identifica largo, ancho y alto en la misma unidad.",
+      "Multiplica largo × ancho para hallar las unidades de una capa.",
+      "Multiplica el resultado por el alto.",
+      "Escribe la unidad cúbica adecuada y comprueba que el resultado es posible."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja mide 4 cm de largo, 3 cm de ancho y 2 cm de alto.",
+        "desarrollo": "Cada capa tiene 4 × 3 = 12 cubos de 1 cm³. Hay 2 capas: 12 × 2 = 24.",
+        "respuesta": "Su volumen es 24 cm³."
+      },
+      {
+        "situacion": "Un cajón de la feria mide 2 m × 1 m × 3 m.",
+        "desarrollo": "El área de base es 2 × 1 = 2 m²; al multiplicar por 3 m obtengo 6 m³.",
+        "respuesta": "Ocupa 6 m³."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar largo, ancho y alto.",
+        "correccion": "La suma no cuenta cubos: multiplica las tres medidas."
+      },
+      {
+        "error": "Expresar el volumen en cm².",
+        "correccion": "El volumen usa tres dimensiones, por eso la unidad es cm³."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Prisma rectangular",
+        "significado": "Cuerpo con caras rectangulares y tres medidas: largo, ancho y alto."
+      },
+      {
+        "termino": "Unidad cúbica",
+        "significado": "Unidad de espacio, como el cubo de 1 cm de arista (1 cm³)."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un bloque mide 2 cm de largo, 3 cm de ancho y 2 cm de alto. ¿Cuál es su volumen en cm³? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "La base tiene 2 × 3 cuadrados de 1 cm².",
+          "Hay 2 capas de esa base.",
+          "2 × 3 × 2 = 12."
+        ],
+        "retroalimentacion": "El volumen es 12 cm³, no 7 cm².",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué expresión calcula el volumen de una caja de 5 cm × 4 cm × 3 cm?",
+        "respuesta": "b",
+        "pistas": [
+          "El volumen cuenta tres dimensiones.",
+          "Multiplica largo, ancho y alto.",
+          "Usa 5 × 4 × 3."
+        ],
+        "retroalimentacion": "5 × 4 × 3 calcula 60 cm³; 5 + 4 + 3 solo suma longitudes.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 + 4 + 3"
+          },
+          {
+            "id": "b",
+            "texto": "5 × 4 × 3"
+          },
+          {
+            "id": "c",
+            "texto": "5 × 4"
+          },
+          {
+            "id": "d",
+            "texto": "2 × (5 + 4)"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una caja de 3 cm × 3 cm × 1 cm tiene volumen de 9 cm³.",
+        "respuesta": true,
+        "pistas": [
+          "La base mide 3 × 3.",
+          "Tiene una sola capa de 1 cm.",
+          "3 × 3 × 1 = 9."
+        ],
+        "retroalimentacion": "Es verdadero: una capa de 9 cubos ocupa 9 cm³.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una caja de 1 m de largo, 2 m de ancho y 4 m de alto ocupa ¿cuántos m³? Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "Multiplica las tres medidas en metros.",
+          "1 × 2 = 2.",
+          "2 × 4 = 8."
+        ],
+        "retroalimentacion": "Ocupa 8 m³.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una caja de frutas mide 6 cm de largo, 2 cm de ancho y 3 cm de alto. ¿Cuál es su volumen en cm³? Escribe solo el número.",
+        "respuesta": 36,
+        "pistas": [
+          "La base contiene 6 × 2 = 12 cm².",
+          "Hay 3 cm de alto.",
+          "12 × 3 = 36."
+        ],
+        "retroalimentacion": "Su volumen es 36 cm³.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El volumen de un prisma es 48 cm³; su largo es 4 cm y ancho 3 cm. ¿Qué alto tiene?",
+        "respuesta": "a",
+        "pistas": [
+          "El área de la base es 4 × 3.",
+          "La base es de 12 cm².",
+          "48 ÷ 12 = 4."
+        ],
+        "retroalimentacion": "El alto es 4 cm: 4 × 3 × 4 = 48 cm³.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 cm"
+          },
+          {
+            "id": "b",
+            "texto": "12 cm"
+          },
+          {
+            "id": "c",
+            "texto": "6 cm"
+          },
+          {
+            "id": "d",
+            "texto": "36 cm"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si duplicas solo el alto de una caja rectangular y mantienes largo y ancho, se duplica su volumen.",
+        "respuesta": true,
+        "pistas": [
+          "Escribe V = largo × ancho × alto.",
+          "Cambia alto por 2 × alto.",
+          "El producto completo queda multiplicado por 2."
+        ],
+        "retroalimentacion": "Es verdadero: duplicar una dimensión duplica el volumen.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un acuario rectangular mide 5 dm × 4 dm × 2 dm. ¿Cuál es su volumen en dm³? Escribe solo el número.",
+        "respuesta": 40,
+        "pistas": [
+          "La base mide 5 × 4 = 20 dm².",
+          "Multiplica por 2 dm de altura.",
+          "20 × 2 = 40."
+        ],
+        "retroalimentacion": "El volumen es 40 dm³.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos cajas tienen dimensiones A: 4 × 3 × 5 cm y B: 6 × 2 × 5 cm. ¿Cómo se comparan sus volúmenes?",
+        "respuesta": "c",
+        "pistas": [
+          "Calcula ambas bases.",
+          "4 × 3 = 12 y 6 × 2 = 12.",
+          "Ambas alturas miden 5."
+        ],
+        "retroalimentacion": "Ambas tienen 60 cm³; bases distintas pueden tener igual área.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A tiene el doble"
+          },
+          {
+            "id": "b",
+            "texto": "B tiene el doble"
+          },
+          {
+            "id": "c",
+            "texto": "Tienen el mismo volumen"
+          },
+          {
+            "id": "d",
+            "texto": "No se pueden comparar"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una caja de 8 cm × 5 cm × 3 cm se llena con cubos de 1 cm³; se retiran 20 cubos. ¿Cuánto volumen ocupado queda en cm³? Escribe solo el número.",
+        "respuesta": 100,
+        "pistas": [
+          "Calcula el volumen completo: 8 × 5 × 3.",
+          "El total es 120 cm³.",
+          "Resta los 20 cm³ retirados."
+        ],
+        "retroalimentacion": "Quedan 100 cm³ ocupados por cubos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una caja de 10 cm × 2 cm × 3 cm y otra de 5 cm × 4 cm × 3 cm tienen el mismo volumen.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula 10 × 2 y 5 × 4.",
+          "Ambas bases tienen área 20 cm².",
+          "Multiplica cada una por 3 cm."
+        ],
+        "retroalimentacion": "Es verdadero: ambas ocupan 60 cm³.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un prisma mide 72 cm³ y su base rectangular mide 6 cm por 4 cm. ¿Cuál es el alto en cm? Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "La base mide 6 × 4 = 24 cm².",
+          "Volumen = base × alto.",
+          "72 ÷ 24 = 3."
+        ],
+        "retroalimentacion": "El alto es 3 cm, porque 6 × 4 × 3 = 72 cm³.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.comparar-capacidad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P6-07"
+    ],
+    "bloque": "Cuerpos geométricos y volumen",
+    "nombre": "Capacidad: litro y mililitro",
+    "disciplina": "geometria",
+    "descripcionCorta": "Compara y estima la capacidad de recipientes en litros y mililitros.",
+    "palabrasClave": [
+      "litro",
+      "mililitro",
+      "capacidad",
+      "equivalencia"
+    ],
+    "prerrequisitos": [
+      "mat.p6.volumen-cubos-unidad"
+    ],
+    "ordenSugerido": 102,
+    "ideaCentral": "La capacidad indica cuánto líquido cabe en un recipiente. Para comparar litros y mililitros, usa 1 L = 1000 mL y expresa ambas cantidades en la misma unidad.",
+    "pasos": [
+      "Lee la cantidad y la unidad de cada recipiente.",
+      "Convierte litros a mililitros o mililitros a litros.",
+      "Compara las cantidades ya expresadas en la misma unidad.",
+      "Comprueba que la estimación concuerda con recipientes conocidos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una botella contiene 1,5 L y otra 1200 mL.",
+        "desarrollo": "1,5 L = 1500 mL; 1500 > 1200.",
+        "respuesta": "La primera tiene 300 mL más de capacidad."
+      },
+      {
+        "situacion": "Un balde admite 3 L; una jarra admite 750 mL.",
+        "desarrollo": "3 L = 3000 mL. Cuatro jarras de 750 mL suman 3000 mL.",
+        "respuesta": "El balde equivale a cuatro jarras llenas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comparar 2 L con 500 mL mirando solo 2 y 500.",
+        "correccion": "Convierte primero: 2 L = 2000 mL, que supera 500 mL."
+      },
+      {
+        "error": "Pensar que 1 L equivale a 100 mL.",
+        "correccion": "1 L tiene 1000 mL; una botella de medio litro tiene 500 mL."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Capacidad",
+        "significado": "Cantidad máxima de líquido que puede contener un recipiente."
+      },
+      {
+        "termino": "Litro",
+        "significado": "Unidad de capacidad equivalente a 1000 mililitros."
+      },
+      {
+        "termino": "Mililitro",
+        "significado": "Milésima parte de un litro."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una botella tiene capacidad de 1 L. ¿Cuántos mL caben? Escribe solo el número.",
+        "respuesta": 1000,
+        "pistas": [
+          "Recuerda la equivalencia básica.",
+          "Un litro tiene mil mililitros.",
+          "Escribe 1000."
+        ],
+        "retroalimentacion": "1 L equivale a 1000 mL.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una jarra de 750 mL tiene menos capacidad que una de 1 L.",
+        "respuesta": true,
+        "pistas": [
+          "Convierte 1 L a mL.",
+          "1 L = 1000 mL.",
+          "750 < 1000."
+        ],
+        "retroalimentacion": "Es verdadero: 750 mL es menos que 1000 mL.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué recipiente tiene mayor capacidad?",
+        "respuesta": "b",
+        "pistas": [
+          "Convierte todos a mililitros.",
+          "2 L = 2000 mL.",
+          "2000 supera 1500 y 900."
+        ],
+        "retroalimentacion": "La botella de 2 L tiene mayor capacidad.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Jarra de 1500 mL"
+          },
+          {
+            "id": "b",
+            "texto": "Botella de 2 L"
+          },
+          {
+            "id": "c",
+            "texto": "Vaso de 900 mL"
+          },
+          {
+            "id": "d",
+            "texto": "Los tres son iguales"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Medio litro equivale a ¿cuántos mL? Escribe solo el número.",
+        "respuesta": 500,
+        "pistas": [
+          "Un litro son 1000 mL.",
+          "Medio litro es la mitad.",
+          "1000 ÷ 2 = 500."
+        ],
+        "retroalimentacion": "Medio litro son 500 mL.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un termo admite 1,25 L. ¿Cuál medida expresa la misma capacidad?",
+        "respuesta": "c",
+        "pistas": [
+          "Separa 1 L y 0,25 L.",
+          "Son 1000 mL y 250 mL.",
+          "Suma 1250 mL."
+        ],
+        "retroalimentacion": "1,25 L = 1250 mL.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "125 mL"
+          },
+          {
+            "id": "b",
+            "texto": "1025 mL"
+          },
+          {
+            "id": "c",
+            "texto": "1250 mL"
+          },
+          {
+            "id": "d",
+            "texto": "12 500 mL"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una jarra de 2 L se llena con vasos de 250 mL. ¿Cuántos vasos llenos caben? Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "Convierte 2 L a 2000 mL.",
+          "Cada vaso aporta 250 mL.",
+          "2000 ÷ 250 = 8."
+        ],
+        "retroalimentacion": "Caben 8 vasos de 250 mL.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tres botellas de 600 mL contienen más que un bidón de 2 L.",
+        "respuesta": false,
+        "pistas": [
+          "Suma 600 + 600 + 600.",
+          "Obtienes 1800 mL.",
+          "El bidón equivale a 2000 mL, que supera los 1800 mL de las botellas."
+        ],
+        "retroalimentacion": "Es falso: 1800 mL es 200 mL menos que 2 L.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una cantimplora de 1 L contiene 350 mL. ¿Cuántos mL faltan para llenarla? Escribe solo el número.",
+        "respuesta": 650,
+        "pistas": [
+          "1 L son 1000 mL.",
+          "Ya hay 350 mL.",
+          "1000 − 350 = 650."
+        ],
+        "retroalimentacion": "Faltan 650 mL.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una olla de 3 L se llena con una jarra de 750 mL. ¿Cuántas jarras completas necesitas?",
+        "respuesta": "a",
+        "pistas": [
+          "3 L = 3000 mL.",
+          "Divide 3000 entre 750.",
+          "750 × 4 = 3000."
+        ],
+        "retroalimentacion": "Se necesitan 4 jarras de 750 mL.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          },
+          {
+            "id": "d",
+            "texto": "6"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos envases de 1,2 L y uno de 600 mL suman exactamente 3 L.",
+        "respuesta": true,
+        "pistas": [
+          "Cada 1,2 L son 1200 mL.",
+          "Dos envases suman 2400 mL.",
+          "2400 + 600 = 3000 mL."
+        ],
+        "retroalimentacion": "Es verdadero: 3000 mL equivalen a 3 L.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un bidón de 5 L reparte 1250 mL en una botella y 1750 mL en otra. ¿Cuántos mL quedan? Escribe solo el número.",
+        "respuesta": 2000,
+        "pistas": [
+          "5 L equivalen a 5000 mL.",
+          "Se repartieron 1250 + 1750 = 3000 mL.",
+          "5000 − 3000 = 2000."
+        ],
+        "retroalimentacion": "Quedan 2000 mL, es decir, 2 L.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana compara 0,8 L, 750 mL y 0,85 L. ¿Cuál orden va de menor a mayor capacidad?",
+        "respuesta": "d",
+        "pistas": [
+          "Pasa los litros a mililitros.",
+          "0,8 L = 800 mL y 0,85 L = 850 mL.",
+          "Ordena 750, 800 y 850."
+        ],
+        "retroalimentacion": "750 mL < 0,8 L < 0,85 L.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,85 L < 0,8 L < 750 mL"
+          },
+          {
+            "id": "b",
+            "texto": "0,8 L < 750 mL < 0,85 L"
+          },
+          {
+            "id": "c",
+            "texto": "750 mL < 0,85 L < 0,8 L"
+          },
+          {
+            "id": "d",
+            "texto": "750 mL < 0,8 L < 0,85 L"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

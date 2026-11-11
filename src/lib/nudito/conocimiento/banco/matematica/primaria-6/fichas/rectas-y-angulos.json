@@ -1,0 +1,959 @@
+[
+  {
+    "clave": "mat.p6.rectas-paralelas-perpendiculares",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P6-04"
+    ],
+    "bloque": "Rectas y ángulos",
+    "nombre": "Rectas paralelas, perpendiculares y secantes",
+    "disciplina": "geometria",
+    "descripcionCorta": "Identifica y traza rectas paralelas, perpendiculares y secantes en figuras y planos.",
+    "palabrasClave": [
+      "paralelas",
+      "perpendiculares",
+      "secantes",
+      "ángulo recto"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 33,
+    "ideaCentral": "Dos rectas paralelas mantienen la misma separación y no se cortan; las secantes se cruzan. Si las secantes forman cuatro ángulos rectos, son perpendiculares.",
+    "pasos": [
+      "Observa si las rectas se cruzan al prolongarlas.",
+      "Si no se cruzan y conservan la distancia, clasifícalas como paralelas.",
+      "Si se cruzan, comprueba si forman 90°.",
+      "Si forman 90°, di perpendiculares; de otro modo, secantes no perpendiculares."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos rieles rectos de un tramo de tren mantienen la misma separación.",
+        "desarrollo": "Aunque se prolonguen, no se cortan.",
+        "respuesta": "Representan rectas paralelas."
+      },
+      {
+        "situacion": "En una cuadrícula, una línea vertical y otra horizontal se cruzan.",
+        "desarrollo": "El cruce forma cuatro ángulos de 90°.",
+        "respuesta": "Son perpendiculares."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que toda recta que se cruza es perpendicular.",
+        "correccion": "Solo lo es si el cruce forma un ángulo recto."
+      },
+      {
+        "error": "Pensar que dos segmentos cortos no son secantes porque no se tocan en el dibujo.",
+        "correccion": "Prolonga las rectas para decidir."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Paralelas",
+        "significado": "Rectas de un mismo plano que no se cortan."
+      },
+      {
+        "termino": "Secantes",
+        "significado": "Rectas que se cruzan en un punto."
+      },
+      {
+        "termino": "Perpendiculares",
+        "significado": "Secantes que forman ángulos de 90°."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos líneas horizontales a distinta altura siguen siempre separadas. ¿Cómo son?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Secantes"
+          },
+          {
+            "id": "b",
+            "texto": "Paralelas"
+          },
+          {
+            "id": "c",
+            "texto": "Perpendiculares"
+          },
+          {
+            "id": "d",
+            "texto": "Curvas"
+          }
+        ],
+        "pistas": [
+          "Imagina prolongarlas hacia ambos lados.",
+          "Mantienen siempre la misma distancia.",
+          "Nunca se cruzan."
+        ],
+        "retroalimentacion": "Paralelas es correcto; perpendiculares sí se cruzarían."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una recta vertical y una horizontal que se cruzan forman un ángulo recto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en una esquina de cuaderno.",
+          "La dirección vertical y la horizontal forman 90°.",
+          "El cruce es perpendicular."
+        ],
+        "retroalimentacion": "Es verdadero: forman un ángulo recto de 90°."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Dos calles rectas se cruzan formando 90°. ¿Cómo se llaman esas rectas? Escribe una palabra.",
+        "respuesta": "perpendiculares",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se cruzan, así que son secantes.",
+          "El cruce tiene una condición especial: 90°.",
+          "Las secantes a 90° se llaman perpendiculares."
+        ],
+        "retroalimentacion": "Son perpendiculares; no basta llamarlas paralelas porque sí se cortan."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál pareja representa rectas secantes que NO son perpendiculares?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dos renglones horizontales"
+          },
+          {
+            "id": "b",
+            "texto": "Dos bordes verticales"
+          },
+          {
+            "id": "c",
+            "texto": "Una vertical y una horizontal"
+          },
+          {
+            "id": "d",
+            "texto": "Dos diagonales que se cruzan en 60°"
+          }
+        ],
+        "pistas": [
+          "Deben cruzarse.",
+          "Descarta parejas que nunca se cortan.",
+          "El ángulo de cruce no debe ser 90°."
+        ],
+        "retroalimentacion": "Dos diagonales que se cruzan en 60° son secantes no perpendiculares."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Toda pareja de rectas perpendiculares también es secante.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las perpendiculares forman ángulos.",
+          "Para formar esos ángulos tienen que cruzarse.",
+          "Las rectas que se cruzan se llaman secantes."
+        ],
+        "retroalimentacion": "Es verdadero: las perpendiculares son un caso especial de secantes."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un dibujo, dos segmentos no se tocan, pero al prolongar sus líneas se cruzan. ¿Son paralelas o secantes? Escribe una palabra.",
+        "respuesta": "secantes",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La clasificación se hace con rectas completas.",
+          "Aunque los segmentos no se toquen, sus prolongaciones sí.",
+          "Dos rectas que se cruzan son secantes."
+        ],
+        "retroalimentacion": "Son secantes; la longitud dibujada de los segmentos puede ocultar el cruce."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una escuadra muestra un borde vertical y otro que sube en diagonal desde el mismo vértice, formando 45°. ¿Cómo se clasifican sus rectas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Secantes no perpendiculares"
+          },
+          {
+            "id": "b",
+            "texto": "Paralelas"
+          },
+          {
+            "id": "c",
+            "texto": "Perpendiculares"
+          },
+          {
+            "id": "d",
+            "texto": "Coincidentes"
+          }
+        ],
+        "pistas": [
+          "Comparten un punto, así que se cruzan.",
+          "El ángulo indicado es 45°.",
+          "45° no es 90°."
+        ],
+        "retroalimentacion": "Secantes no perpendiculares es correcto; el cruce no forma ángulo recto."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos rectas paralelas pueden cortarse si se dibujan suficientemente largas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prolonga mentalmente ambas direcciones.",
+          "La separación de las paralelas se mantiene.",
+          "Por definición nunca comparten un punto."
+        ],
+        "retroalimentacion": "Es falso: prolongar paralelas no hace que se corten."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un plano hay r: y = 2 y s: y = 5. Ambas son horizontales. ¿Qué relación tienen?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Perpendiculares"
+          },
+          {
+            "id": "b",
+            "texto": "Secantes oblicuas"
+          },
+          {
+            "id": "c",
+            "texto": "Paralelas"
+          },
+          {
+            "id": "d",
+            "texto": "La misma recta"
+          }
+        ],
+        "pistas": [
+          "Las dos alturas son constantes y diferentes.",
+          "Nunca alcanzan la misma altura.",
+          "Al prolongarlas mantienen tres unidades de separación."
+        ],
+        "retroalimentacion": "Paralelas es correcto; y = 2 e y = 5 son líneas horizontales distintas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una línea forma 30° con otra en su cruce. ¿Cuál es el término general que sí describe la pareja? Escribe una palabra.",
+        "respuesta": "secantes",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El ángulo indica que las líneas se encuentran.",
+          "30° no es un ángulo recto.",
+          "El nombre general de rectas que se cruzan es secantes."
+        ],
+        "retroalimentacion": "Son secantes; no perpendiculares porque el ángulo es 30°."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una recta es perpendicular a dos rectas distintas del mismo plano, esas dos rectas son paralelas entre sí.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina una línea horizontal que corta dos verticales.",
+          "Cada una de esas rectas forma 90° con la misma línea.",
+          "Las dos siguen la misma dirección y no se cruzan."
+        ],
+        "retroalimentacion": "Es verdadero: las dos perpendiculares a la misma recta son paralelas entre sí."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una cuadrícula, r va de izquierda a derecha; s va de arriba abajo; t va también de izquierda a derecha, una fila más arriba. ¿Qué afirmación es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "r y t son perpendiculares"
+          },
+          {
+            "id": "b",
+            "texto": "s y t son paralelas"
+          },
+          {
+            "id": "c",
+            "texto": "r y s son paralelas"
+          },
+          {
+            "id": "d",
+            "texto": "r y t son paralelas, y s es perpendicular a ambas"
+          }
+        ],
+        "pistas": [
+          "Compara primero r y t.",
+          "Ambas son horizontales y están separadas.",
+          "s es vertical, por eso cruza a cada horizontal a 90°."
+        ],
+        "retroalimentacion": "r y t son paralelas, y s es perpendicular a ambas; las otras parejas están mal nombradas."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.clasificacion-angulos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P6-04"
+    ],
+    "bloque": "Rectas y ángulos",
+    "nombre": "Clasificación de ángulos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Distingue ángulos agudos, rectos, obtusos, llanos y de una vuelta.",
+    "palabrasClave": [
+      "agudo",
+      "recto",
+      "obtuso",
+      "llano",
+      "vuelta"
+    ],
+    "prerrequisitos": [
+      "mat.p6.rectas-paralelas-perpendiculares"
+    ],
+    "ordenSugerido": 34,
+    "ideaCentral": "La abertura de un ángulo determina su clase: agudo menor que 90°, recto igual a 90°, obtuso entre 90° y 180°, llano 180° y de una vuelta 360°. La medida exacta permite clasificar sin depender del tamaño de los lados.",
+    "pasos": [
+      "Identifica el vértice y la abertura entre los lados.",
+      "Compara la medida con 90°, 180° y 360°.",
+      "Asigna el nombre del intervalo o de la medida exacta.",
+      "Si hay dos ángulos, clasifica cada uno por separado antes de compararlos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una esquina mide 90°.",
+        "desarrollo": "Su abertura coincide exactamente con un cuarto de vuelta.",
+        "respuesta": "Es un ángulo recto."
+      },
+      {
+        "situacion": "La aguja de un reloj gira 150° desde una posición.",
+        "desarrollo": "150° es mayor que 90° y menor que 180°.",
+        "respuesta": "Es un ángulo obtuso."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar obtuso a 180°.",
+        "correccion": "180° es llano; obtuso debe ser menor que 180°."
+      },
+      {
+        "error": "Juzgar por largo de los lados dibujados.",
+        "correccion": "La clase depende de la abertura, no de la longitud de los trazos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Vértice",
+        "significado": "Punto donde se unen los dos lados del ángulo."
+      },
+      {
+        "termino": "Agudo",
+        "significado": "Ángulo con medida menor que 90°."
+      },
+      {
+        "termino": "Obtuso",
+        "significado": "Ángulo mayor que 90° y menor que 180°."
+      },
+      {
+        "termino": "Llano",
+        "significado": "Ángulo de 180° que forma una línea recta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una abertura mide 40°. ¿Qué clase de ángulo es?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Agudo"
+          },
+          {
+            "id": "b",
+            "texto": "Recto"
+          },
+          {
+            "id": "c",
+            "texto": "Obtuso"
+          },
+          {
+            "id": "d",
+            "texto": "Llano"
+          }
+        ],
+        "pistas": [
+          "Compara 40° con 90°.",
+          "40° es menor que 90°.",
+          "Los ángulos menores de 90° son agudos."
+        ],
+        "retroalimentacion": "Agudo es correcto; 40° no alcanza el ángulo recto."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un ángulo de 90° es recto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la esquina de una hoja.",
+          "Esa esquina tiene una abertura de 90°.",
+          "La medida exacta de un recto es 90°."
+        ],
+        "retroalimentacion": "Es verdadero: 90° define un ángulo recto."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un ángulo mide 180°. ¿Cómo se llama? Escribe una palabra.",
+        "respuesta": "llano",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Es media vuelta.",
+          "Sus lados quedan sobre una línea recta.",
+          "El nombre del ángulo de 180° es llano."
+        ],
+        "retroalimentacion": "Llano es la respuesta; obtuso termina antes de 180°."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál medida forma un ángulo de una vuelta completa?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "90°"
+          },
+          {
+            "id": "b",
+            "texto": "180°"
+          },
+          {
+            "id": "c",
+            "texto": "360°"
+          },
+          {
+            "id": "d",
+            "texto": "45°"
+          }
+        ],
+        "pistas": [
+          "Media vuelta mide 180°.",
+          "Una vuelta completa es el doble.",
+          "180° × 2 = 360°."
+        ],
+        "retroalimentacion": "360° forma una vuelta; 180° solo media vuelta."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un ángulo de 120° es agudo porque es menor que 180°.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para ser agudo debe ser menor que 90°.",
+          "120° supera 90°.",
+          "Está entre 90° y 180°, así que es obtuso."
+        ],
+        "retroalimentacion": "Es falso: 120° es obtuso, no agudo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un giro de 75° produce un ángulo de qué clase? Escribe una palabra.",
+        "respuesta": "agudo",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 75° con el ángulo recto.",
+          "75° es menor que 90°.",
+          "La clase bajo 90° se llama agudo."
+        ],
+        "retroalimentacion": "Es agudo; no es recto porque le faltan 15°."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas medidas representa un ángulo obtuso?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "60°"
+          },
+          {
+            "id": "b",
+            "texto": "90°"
+          },
+          {
+            "id": "c",
+            "texto": "180°"
+          },
+          {
+            "id": "d",
+            "texto": "135°"
+          }
+        ],
+        "pistas": [
+          "Un obtuso supera al recto.",
+          "También debe ser menor que el llano.",
+          "Busca una medida entre 90° y 180°."
+        ],
+        "retroalimentacion": "135° es obtuso; 180° ya es llano."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos ángulos de 35° y 85° son ambos agudos, aunque sus aberturas sean diferentes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cada medida con 90°.",
+          "35° es menor que 90°.",
+          "85° también es menor que 90°."
+        ],
+        "retroalimentacion": "Es verdadero: ambos son agudos, aunque 85° abre más."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un giro mide 90° y otro 90° en el mismo sentido. ¿Qué clase tiene el ángulo total?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Recto"
+          },
+          {
+            "id": "b",
+            "texto": "Llano"
+          },
+          {
+            "id": "c",
+            "texto": "Obtuso"
+          },
+          {
+            "id": "d",
+            "texto": "De una vuelta"
+          }
+        ],
+        "pistas": [
+          "Reúne los dos giros.",
+          "90° + 90° = 180°.",
+          "Clasifica la abertura de 180°."
+        ],
+        "retroalimentacion": "Llano es correcto; dos rectos forman media vuelta."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos grados le faltan a un ángulo de 130° para ser llano? Escribe solo el número.",
+        "respuesta": 50,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El llano mide 180°.",
+          "Ya se han abierto 130°.",
+          "Resta 180 − 130."
+        ],
+        "retroalimentacion": "Faltan 50°; 130° es la abertura actual."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un ángulo de 170° aumenta 20°, seguirá siendo obtuso.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero la nueva medida.",
+          "170° + 20° = 190°.",
+          "Un obtuso debe medir menos de 180°."
+        ],
+        "retroalimentacion": "Es falso: 190° supera el ángulo llano y ya no es obtuso."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Tres giros rectos seguidos suman 270°. ¿Es ángulo agudo, recto, obtuso, llano o mayor que llano? Escribe «mayor que llano».",
+        "respuesta": "mayor que llano",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un recto es 90°.",
+          "Tres rectos suman 270°.",
+          "270° supera los 180° de un llano."
+        ],
+        "retroalimentacion": "Es mayor que llano; llamarlo obtuso ignoraría que supera 180°."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p6.medir-construir-angulos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P6-07"
+    ],
+    "bloque": "Rectas y ángulos",
+    "nombre": "Medición y construcción de ángulos con transportador",
+    "disciplina": "geometria",
+    "descripcionCorta": "Mide y traza ángulos dados usando el transportador.",
+    "palabrasClave": [
+      "transportador",
+      "grado",
+      "centro",
+      "escala"
+    ],
+    "prerrequisitos": [
+      "mat.p6.clasificacion-angulos"
+    ],
+    "ordenSugerido": 35,
+    "ideaCentral": "Para medir o trazar un ángulo con transportador, coloca su centro en el vértice y alinea el cero con uno de los lados. Lee la escala que comienza en ese cero, pues el otro extremo puede mostrar una lectura distinta.",
+    "pasos": [
+      "Coloca el centro del transportador exactamente sobre el vértice.",
+      "Alinea el lado inicial con la marca de 0°.",
+      "Sigue la escala que parte de ese cero hasta el otro lado.",
+      "Para construir, marca la medida buscada y une esa marca con el vértice."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un rayo apunta a 0° y el otro pasa por 65° en la misma escala.",
+        "desarrollo": "Con el centro en el vértice, leo desde 0° hasta 65°.",
+        "respuesta": "El ángulo mide 65°."
+      },
+      {
+        "situacion": "Se desea trazar un ángulo de 110° desde un rayo horizontal.",
+        "desarrollo": "Ubico el centro en el origen del rayo, marco 110° en la escala correcta y dibujo el segundo rayo.",
+        "respuesta": "Queda construido un ángulo de 110°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer la escala que empieza en 180° desde el lado inicial.",
+        "correccion": "Usa la escala cuyo 0° coincide con el rayo de partida."
+      },
+      {
+        "error": "Poner el centro lejos del vértice.",
+        "correccion": "Alinea centro y vértice antes de leer o marcar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Transportador",
+        "significado": "Instrumento semicircular para medir ángulos en grados."
+      },
+      {
+        "termino": "Grado",
+        "significado": "Unidad de medida de una abertura angular."
+      },
+      {
+        "termino": "Escala",
+        "significado": "Serie de marcas numeradas del transportador."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al medir un ángulo, ¿dónde colocas el centro del transportador?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sobre el extremo del lado"
+          },
+          {
+            "id": "b",
+            "texto": "Sobre el vértice"
+          },
+          {
+            "id": "c",
+            "texto": "En la marca de 90°"
+          },
+          {
+            "id": "d",
+            "texto": "Lejos de la figura"
+          }
+        ],
+        "pistas": [
+          "El centro es el pequeño punto de referencia del instrumento.",
+          "Ambos lados nacen de un mismo punto.",
+          "Ese punto común es el vértice."
+        ],
+        "retroalimentacion": "Sobre el vértice es correcto; ponerlo en un extremo lejano cambia la lectura."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para empezar a medir, uno de los lados del ángulo debe alinearse con 0°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cero es el inicio de la escala.",
+          "Un lado sirve como referencia inicial.",
+          "Se lee desde ese lado hasta el otro."
+        ],
+        "retroalimentacion": "Es verdadero: el lado inicial se alinea con 0°."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un rayo está en 0° y el otro en 45° de la misma escala. ¿Cuántos grados mide el ángulo? Escribe solo el número.",
+        "respuesta": 45,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se empieza a leer en cero.",
+          "Avanza hasta la marca del otro rayo.",
+          "La diferencia entre 45° y 0° es 45°."
+        ],
+        "retroalimentacion": "Mide 45°; no se lee la escala opuesta."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para medir una abertura en grados, ¿qué instrumento semicircular usarías? Escribe una palabra.",
+        "respuesta": "transportador",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Es una herramienta con escala de 0° a 180°.",
+          "Tiene un centro que se coloca en el vértice.",
+          "Su nombre empieza con «trans»."
+        ],
+        "retroalimentacion": "Usarías un transportador; una regla mide longitudes."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un transportador, un lado coincide con 0° de la escala interior y el otro con 70° interior / 110° exterior. ¿Qué lectura corresponde?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "180°"
+          },
+          {
+            "id": "b",
+            "texto": "110°"
+          },
+          {
+            "id": "c",
+            "texto": "70°"
+          },
+          {
+            "id": "d",
+            "texto": "40°"
+          }
+        ],
+        "pistas": [
+          "Identifica con qué escala coincide el cero inicial.",
+          "El lado inicial está en 0° interior.",
+          "Sigue esa escala interior hasta el otro lado."
+        ],
+        "retroalimentacion": "70° es correcto; 110° viene de la escala opuesta."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para construir 120° desde un rayo que coincide con el 0° correcto, ¿en qué marca de grados trazas el segundo rayo? Escribe solo el número.",
+        "respuesta": 120,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La marca buscada es la abertura deseada.",
+          "El rayo inicial ya está alineado con cero.",
+          "Busca 120 en esa misma escala."
+        ],
+        "retroalimentacion": "Marca 120°; 60° sería leer la escala contraria."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el centro del transportador queda a 2 cm del vértice, la lectura sigue siendo confiable.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El instrumento necesita un punto de giro común.",
+          "Los rayos nacen del vértice, no de un punto desplazado.",
+          "Debes poner el centro justo en el vértice."
+        ],
+        "retroalimentacion": "Es falso: desplazar el centro altera la medición."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un transportador de doble escala, una marca muestra 35° y 145°. Si empiezas en el cero del lado que crece hacia 35°, ¿qué medida lees? Escribe solo el número.",
+        "respuesta": "35",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos números para la misma marca.",
+          "Elige la escala que empieza en tu cero.",
+          "Esa escala llega a 35°, no a 145°."
+        ],
+        "retroalimentacion": "Lees 35°; 145° corresponde al cero del lado contrario."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres dibujar 150° desde un rayo hacia la derecha. El cero de la escala elegida también está a la derecha. ¿Qué procedimiento sirve?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Marcar 150° en esa escala y unir al vértice"
+          },
+          {
+            "id": "b",
+            "texto": "Marcar 30° en esa escala"
+          },
+          {
+            "id": "c",
+            "texto": "Poner el centro sobre 150°"
+          },
+          {
+            "id": "d",
+            "texto": "Medir desde 180° sin mover el rayo"
+          }
+        ],
+        "pistas": [
+          "El cero coincide con el rayo inicial.",
+          "El centro debe quedarse sobre el vértice.",
+          "La marca final debe indicar 150° en la escala que parte de cero."
+        ],
+        "retroalimentacion": "Marcar 150° en esa escala y unir al vértice construye la abertura; 30° es complementaria en el dibujo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una abertura se midió desde 20° hasta 85° de una misma escala. ¿Cuántos grados hay entre los rayos? Escribe solo el número.",
+        "respuesta": 65,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer rayo no parte de cero.",
+          "Se necesita la diferencia entre las dos lecturas.",
+          "Calcula 85 − 20."
+        ],
+        "retroalimentacion": "La abertura es 65°; 85° es solo la lectura final."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si los rayos pasan por 40° y 140° de la misma escala, el ángulo entre ellos mide 100°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Toma las dos lecturas de la misma escala.",
+          "La abertura es la diferencia.",
+          "140 − 40 = 100."
+        ],
+        "retroalimentacion": "Es verdadero: hay 100° entre los rayos, no 140°."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un compañero lee 125° en la escala que inicia en el lado opuesto, pero tu lado inicial coincide con el 0° de la otra escala. ¿Qué medida correcta lees en ese mismo punto? Escribe solo el número.",
+        "respuesta": "55",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos escalas en un semicírculo suman 180° en cada marca.",
+          "La lectura equivocada es 125°.",
+          "Resta 180 − 125."
+        ],
+        "retroalimentacion": "Lees 55°; 125° parte del cero contrario."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
