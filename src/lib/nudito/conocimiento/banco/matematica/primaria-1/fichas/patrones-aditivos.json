@@ -15,54 +15,61 @@
     "descripcionCorta": "Construye con cubos una secuencia de torres que aumentan de uno en uno.",
     "palabrasClave": [
       "torres",
-      "filas",
-      "que",
-      "crecen"
+      "cubos",
+      "crecer de uno en uno",
+      "secuencia",
+      "uno más"
     ],
     "prerrequisitos": [
       "mat.p1.contar-hasta-10"
     ],
     "ordenSugerido": 76,
-    "ideaCentral": "Construye con cubos una secuencia de torres que aumentan de uno en uno.",
+    "ideaCentral": "Una secuencia de torres crece de uno en uno cuando cada torre tiene un cubo más que la anterior. Así puedes saber cómo será la torre que sigue.",
     "pasos": [
-      "Construye la primera torre con cubos.",
-      "Añade siempre el mismo número de cubos.",
-      "Cuenta los cubos de la torre siguiente."
+      "Cuenta los cubos de la primera torre.",
+      "Cuenta los cubos de la segunda torre y mira cuántos más tiene.",
+      "Si siempre tiene un cubo más, crece de uno en uno.",
+      "Para la torre que sigue, suma un cubo a la última."
     ],
     "ejemplos": [
       {
-        "situacion": "Una fila de torres tiene 2 cubos, luego 3 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "desarrollo": "Compara la primera torre de 2 con la segunda de 3. Mira los tapitas en el aula. Cada torre agrega 1 cubos. Usa los datos de tapitas en el aula.",
-        "respuesta": "4"
+        "situacion": "Ana hace torres de 1, 2 y 3 cubos. ¿Cuántos cubos tendrá la que sigue?",
+        "desarrollo": "Cada torre tiene un cubo más. Después de 3 viene 3 + 1.",
+        "respuesta": "La que sigue tiene 4 cubos."
       },
       {
-        "situacion": "Una fila de torres tiene 3 cubos, luego 5 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "desarrollo": "Compara la primera torre de 3 con la segunda de 5. Mira los choclos en el patio. Cada torre agrega 2 cubos. Usa los datos de choclos en el patio.",
-        "respuesta": "7"
+        "situacion": "Beto hace torres de 5, 6 y 7 cubos. ¿Cuántos cubos tendrá la siguiente?",
+        "desarrollo": "Va de uno en uno: 5, 6, 7 y luego un cubo más.",
+        "respuesta": "La siguiente tiene 8 cubos."
+      },
+      {
+        "situacion": "Una fila de torres tiene 10, 11, 12. ¿Qué torre sigue?",
+        "desarrollo": "Sumamos un cubo a la última torre: 12 + 1.",
+        "respuesta": "Sigue la torre de 13 cubos."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Cambiar el aumento a mitad de la secuencia.",
-        "correccion": "Añade siempre el mismo número de cubos."
+        "error": "Sumar 2 cubos en vez de 1.",
+        "correccion": "Mira bien: en estas torres siempre se añade solo un cubo."
       },
       {
-        "error": "Contar el número inicial como un salto.",
-        "correccion": "Construye la primera torre con cubos. Cuenta los cubos de la torre siguiente."
+        "error": "Contar mal y repetir un número, como 3, 4, 4.",
+        "correccion": "Cada torre nueva tiene un número distinto. Cuenta con el dedo cada cubo."
       }
     ],
     "vocabulario": [
       {
         "termino": "Secuencia",
-        "significado": "Lista ordenada de números u objetos."
+        "significado": "Cosas puestas una tras otra siguiendo una regla."
       },
       {
-        "termino": "Aumento",
-        "significado": "Cantidad que se añade en cada paso."
+        "termino": "Crecer",
+        "significado": "Ser cada vez más grande."
       },
       {
-        "termino": "Regla",
-        "significado": "Cambio que se repite en toda la secuencia."
+        "termino": "Uno más",
+        "significado": "Un cubo extra que se añade cada vez."
       }
     ],
     "ejercicios": [
@@ -70,179 +77,229 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En un juego con dados en el aula, una fila de torres tiene 2 cubos, luego 3 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "enunciado": "Una torre tiene 1 cubo. La siguiente tiene 2 cubos. La siguiente tiene 3 cubos. ¿Cuántos cubos tendrá la cuarta torre? Escribe solo el número.",
         "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara la primera torre de 2 con la segunda de 3. Mira los tapitas en el aula.",
-          "Cada torre agrega 1 cubos. Usa los datos de tapitas en el aula.",
-          "La siguiente tiene 4. Comprueba con los tapitas en el aula."
+          "Mira cuántos cubos más tiene cada torre.",
+          "De 1 a 2 y de 2 a 3 se añade un cubo.",
+          "Después de la torre de 3 cubos pon un cubo más."
         ],
-        "retroalimentacion": "La torre siguiente tiene 4 cubos. Mantén el crecimiento de 1 en 1."
+        "retroalimentacion": "La cuarta torre tiene 4 cubos: 3 + 1 = 4."
       },
       {
         "id": "e02",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En un juego con choclos en el patio, una fila de torres tiene 3 cubos, luego 5 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "respuesta": 7,
+        "tipo": "verdadero_falso",
+        "enunciado": "En torres que crecen de uno en uno, cada torre tiene un cubo más que la anterior.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara la primera torre de 3 con la segunda de 5. Mira los choclos en el patio.",
-          "Cada torre agrega 2 cubos. Usa los datos de choclos en el patio.",
-          "La siguiente tiene 7. Comprueba con los choclos en el patio."
+          "Piensa en torres de 2, 3 y 4 cubos.",
+          "Mira cuánto sube de una torre a la siguiente.",
+          "De uno en uno significa añadir solo un cubo cada vez."
         ],
-        "retroalimentacion": "La torre siguiente tiene 7 cubos. Mantén el crecimiento de 2 en 2."
+        "retroalimentacion": "Verdadero: crecer de uno en uno es tener siempre un cubo más."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En un juego con cuentos en la chacra, una fila de torres tiene 4 cubos, luego 5 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "respuesta": 6,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira estas torres: ● , ●● , ●●● . ¿Cuál torre sigue?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "●●●●"
+          },
+          {
+            "id": "b",
+            "texto": "●●●●●"
+          },
+          {
+            "id": "c",
+            "texto": "●●"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara la primera torre de 4 con la segunda de 5. Mira los cuentos en la chacra.",
-          "Cada torre agrega 1 cubos. Usa los datos de cuentos en la chacra.",
-          "La siguiente tiene 6. Comprueba con los cuentos en la chacra."
+          "Cuenta los ● de cada torre.",
+          "Las torres tienen 1, 2 y 3 ●.",
+          "Añade un ● más a la torre de 3."
         ],
-        "retroalimentacion": "La torre siguiente tiene 6 cubos. Mantén el crecimiento de 1 en 1."
+        "retroalimentacion": "Sigue ●●●●, que tiene 4. ●●●●● añade dos y ●● ya pasó."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En un juego con lápices en la biblioteca, una fila de torres tiene 5 cubos, luego 7 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "respuesta": 9,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Compara la primera torre de 5 con la segunda de 7. Mira los lápices en la biblioteca.",
-          "Cada torre agrega 2 cubos. Usa los datos de lápices en la biblioteca.",
-          "La siguiente tiene 9. Comprueba con los lápices en la biblioteca."
+        "tipo": "texto_corto",
+        "enunciado": "Los números de las torres son 2, 3, 4. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": "5",
+        "alternativasAceptadas": [
+          "cinco"
         ],
-        "retroalimentacion": "La torre siguiente tiene 9 cubos. Mantén el crecimiento de 2 en 2."
+        "pistas": [
+          "Los números suben de uno en uno.",
+          "Después del 4 viene un número más grande.",
+          "Cuenta: 2, 3, 4, y sigue contando."
+        ],
+        "retroalimentacion": "Sigue el 5, porque 4 + 1 = 5."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En un juego con cuyes en la mesa, una fila de torres tiene 6 cubos, luego 7 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "enunciado": "La torre de Pedro tiene 7 cubos. Si le pone 1 cubo más, ¿cuántos cubos tendrá? Escribe solo el número.",
         "respuesta": 8,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara la primera torre de 6 con la segunda de 7. Mira los cuyes en la mesa.",
-          "Cada torre agrega 1 cubos. Usa los datos de cuyes en la mesa.",
-          "La siguiente tiene 8. Comprueba con los cuyes en la mesa."
+          "Pedro añade solo un cubo.",
+          "Parte del 7 y cuenta un número más.",
+          "Después del 7 viene el ..."
         ],
-        "retroalimentacion": "La torre siguiente tiene 8 cubos. Mantén el crecimiento de 1 en 1."
+        "retroalimentacion": "Tendrá 8 cubos, porque 7 + 1 = 8."
       },
       {
         "id": "e06",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En un juego con mangos en la feria, una fila de torres tiene 7 cubos, luego 9 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "respuesta": 11,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál fila de números crece de uno en uno?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1, 3, 5, 7"
+          },
+          {
+            "id": "b",
+            "texto": "2, 3, 4, 5"
+          },
+          {
+            "id": "c",
+            "texto": "5, 4, 3, 2"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara la primera torre de 7 con la segunda de 9. Mira los semillas en la feria.",
-          "Cada torre agrega 2 cubos. Usa los datos de semillas en la feria.",
-          "La siguiente tiene 11. Comprueba con los semillas en la feria."
+          "Mira cuánto cambia el número en cada paso.",
+          "En una fila solo sube 1 cada vez.",
+          "Una fila sube de 2 en 2 y otra baja."
         ],
-        "retroalimentacion": "La torre siguiente tiene 11 cubos. Mantén el crecimiento de 2 en 2."
+        "retroalimentacion": "La fila 2, 3, 4, 5 sube de uno en uno. 1, 3, 5, 7 sube de dos en dos y 5, 4, 3, 2 va bajando."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En un juego con caramelos en el jardín, una fila de torres tiene 8 cubos, luego 9 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "respuesta": 10,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las torres de 5, 6, 7 y 9 cubos crecen de uno en uno.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara la primera torre de 8 con la segunda de 9. Mira los caramelos en el jardín.",
-          "Cada torre agrega 1 cubos. Usa los datos de caramelos en el jardín.",
-          "La siguiente tiene 10. Comprueba con los caramelos en el jardín."
+          "Compara cada torre con la que sigue.",
+          "De 5 a 6 y de 6 a 7 sube 1; mira el último paso.",
+          "De 7 a 9 no es solo un cubo."
         ],
-        "retroalimentacion": "La torre siguiente tiene 10 cubos. Mantén el crecimiento de 1 en 1."
+        "retroalimentacion": "Falso: de 7 a 9 suben 2 cubos. Falta la torre de 8."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En un juego con vasos en la cocina, una fila de torres tiene 9 cubos, luego 11 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "respuesta": 13,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Compara la primera torre de 9 con la segunda de 11. Mira los piedritas en la cocina.",
-          "Cada torre agrega 2 cubos. Usa los datos de piedritas en la cocina.",
-          "La siguiente tiene 13. Comprueba con los piedritas en la cocina."
+        "tipo": "texto_corto",
+        "enunciado": "En la fila de torres falta una: 10, 11, __, 13. Escribe el número que falta.",
+        "respuesta": "12",
+        "alternativasAceptadas": [
+          "doce"
         ],
-        "retroalimentacion": "La torre siguiente tiene 13 cubos. Mantén el crecimiento de 2 en 2."
+        "pistas": [
+          "La fila va de uno en uno.",
+          "Después del 11 viene el número de la torre que falta.",
+          "Antes del 13 hay un número."
+        ],
+        "retroalimentacion": "Falta el 12, porque 11 + 1 = 12 y 12 + 1 = 13."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En un juego con libros en la mochila, una fila de torres tiene 10 cubos, luego 11 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "respuesta": 12,
+        "enunciado": "Rosa hace una fila de torres. La primera tiene 3 cubos y cada torre tiene un cubo más que la anterior. ¿Cuántos cubos tiene la quinta torre? Escribe solo el número.",
+        "respuesta": 7,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara la primera torre de 10 con la segunda de 11. Mira los flores en la mochila.",
-          "Cada torre agrega 1 cubos. Usa los datos de flores en la mochila.",
-          "La siguiente tiene 12. Comprueba con los flores en la mochila."
+          "Escribe cuántos cubos tiene cada torre desde la primera.",
+          "Primera: 3 cubos. Segunda: 4 cubos...",
+          "Cuenta 3, 4, 5, 6 y sigue hasta llegar a la quinta torre."
         ],
-        "retroalimentacion": "La torre siguiente tiene 12 cubos. Mantén el crecimiento de 1 en 1."
+        "retroalimentacion": "Las torres son 3, 4, 5, 6 y 7. La quinta tiene 7 cubos."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En un juego con tomates en el mercado, una fila de torres tiene 11 cubos, luego 13 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "respuesta": 15,
+        "enunciado": "Ana construyó torres de 1, 2, 3 y 4 cubos. ¿Cuántos cubos usó en total? Escribe solo el número.",
+        "respuesta": 10,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara la primera torre de 11 con la segunda de 13. Mira los tizas en el mercado.",
-          "Cada torre agrega 2 cubos. Usa los datos de tizas en el mercado.",
-          "La siguiente tiene 15. Comprueba con los tizas en el mercado."
+          "Hay que juntar los cubos de las cuatro torres.",
+          "Suma 1 + 2 y luego añade las demás torres.",
+          "1 + 2 + 3 + 4 se puede sumar de a dos: 3 y 7."
         ],
-        "retroalimentacion": "La torre siguiente tiene 15 cubos. Mantén el crecimiento de 2 en 2."
+        "retroalimentacion": "Usó 1 + 2 + 3 + 4 = 10 cubos."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En un juego con plátanos en la canasta, una fila de torres tiene 12 cubos, luego 13 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "respuesta": 14,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una fila, la segunda torre tiene 8 cubos y la cuarta torre tiene 10 cubos. Crece de uno en uno. ¿Cuántos cubos tiene la tercera torre?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 cubos"
+          },
+          {
+            "id": "b",
+            "texto": "7 cubos"
+          },
+          {
+            "id": "c",
+            "texto": "9 cubos"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara la primera torre de 12 con la segunda de 13. Mira los pelotas en la canasta.",
-          "Cada torre agrega 1 cubos. Usa los datos de pelotas en la canasta.",
-          "La siguiente tiene 14. Comprueba con los pelotas en la canasta."
+          "La tercera torre está entre la segunda y la cuarta.",
+          "Entre 8 y 10 hay un número que sigue al 8.",
+          "Después de 8 viene el número de la tercera torre; luego sigue el 10."
         ],
-        "retroalimentacion": "La torre siguiente tiene 14 cubos. Mantén el crecimiento de 1 en 1."
+        "retroalimentacion": "La tercera tiene 9 cubos: 8, 9, 10. 10 es la cuarta y 7 es menor que la segunda."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En un juego con sombreros en la escuela, una fila de torres tiene 13 cubos, luego 15 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
-        "respuesta": 17,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Compara la primera torre de 13 con la segunda de 15. Mira los mandarinas en la escuela.",
-          "Cada torre agrega 2 cubos. Usa los datos de mandarinas en la escuela.",
-          "La siguiente tiene 17. Comprueba con los mandarinas en la escuela."
+        "tipo": "texto_corto",
+        "enunciado": "Una fila empieza con una torre de 20 cubos y crece de uno en uno. Escribe las tres torres que siguen, con comas, como 1, 2, 3.",
+        "respuesta": "21, 22, 23",
+        "alternativasAceptadas": [
+          "21,22,23",
+          "21 22 23",
+          "21 y 22 y 23"
         ],
-        "retroalimentacion": "La torre siguiente tiene 17 cubos. Mantén el crecimiento de 2 en 2."
+        "pistas": [
+          "Sigue contando desde el 20 con tres números.",
+          "Después del 20 viene un número más.",
+          "Escribe 21 y sigue dos veces más."
+        ],
+        "retroalimentacion": "Siguen 21, 22 y 23 cubos, sumando un cubo cada vez."
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p1.patrones-1-en-1-y-2-en-2",
@@ -259,225 +316,284 @@
     "disciplina": "algebra",
     "descripcionCorta": "Describe cómo crece una secuencia numérica hasta 20 de uno en uno o de dos en dos.",
     "palabrasClave": [
-      "patrones",
-      "que",
-      "aumentan"
+      "patrón numérico",
+      "de 1 en 1",
+      "de 2 en 2",
+      "secuencia",
+      "contar"
     ],
     "prerrequisitos": [
       "mat.p1.torres-que-crecen",
       "mat.p1.numeros-11-al-20"
     ],
     "ordenSugerido": 78,
-    "ideaCentral": "Describe cómo crece una secuencia numérica hasta 20 de uno en uno o de dos en dos.",
+    "ideaCentral": "Una secuencia de números puede crecer siempre lo mismo. Si sube de 1 en 1, cada número es uno más que el anterior. Si sube de 2 en 2, cada número es dos más que el anterior.",
     "pasos": [
-      "Mira los números en orden.",
-      "Averigua si aumentan de uno en uno o de dos en dos.",
-      "Continúa la regla para encontrar o explicar el número buscado."
+      "Mira los dos primeros números de la secuencia.",
+      "Pregúntate cuánto subió del primero al segundo.",
+      "Comprueba que siga subiendo igual en los demás.",
+      "Di la regla: «sube de 1 en 1» o «sube de 2 en 2»."
     ],
     "ejemplos": [
       {
-        "situacion": "La secuencia 2, 3, __ crece de 1 en 1. ¿Qué número sigue?",
-        "desarrollo": "Mira la diferencia entre 2 y 3. Mira los tapitas en el aula. Avanza otros 1 desde 3. Usa los datos de tapitas en el aula.",
-        "respuesta": "4"
+        "situacion": "Mira la fila: 5, 6, 7, 8, 9. ¿Cómo crece?",
+        "desarrollo": "De 5 a 6 sube 1. De 6 a 7 sube 1. Siempre sube lo mismo.",
+        "respuesta": "Crece de 1 en 1."
       },
       {
-        "situacion": "La secuencia 3, 5, __ crece de 2 en 2. ¿Qué número sigue?",
-        "desarrollo": "Mira la diferencia entre 3 y 5. Mira los choclos en el patio. Avanza otros 2 desde 5. Usa los datos de choclos en el patio.",
-        "respuesta": "7"
+        "situacion": "Una vendedora cuenta zapatos en pares: 2, 4, 6, 8, 10. ¿Cómo crece?",
+        "desarrollo": "De 2 a 4 sube 2. De 4 a 6 sube 2.",
+        "respuesta": "Crece de 2 en 2."
+      },
+      {
+        "situacion": "Los números de las casas de una calle de Cusco son 11, 13, 15. ¿Qué número sigue?",
+        "desarrollo": "11 a 13 sube 2 y 13 a 15 sube 2. A 15 le sumas 2.",
+        "respuesta": "Sigue el 17."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Cambiar el aumento a mitad de la secuencia.",
-        "correccion": "Averigua si aumentan de uno en uno o de dos en dos."
+        "error": "Pensar que 2, 4, 6 crece de 1 en 1.",
+        "correccion": "Entre 2 y 4 hay un número que se salta (el 3), así que sube de 2 en 2."
       },
       {
-        "error": "Contar el número inicial como un salto.",
-        "correccion": "Mira los números en orden. Continúa la regla para encontrar o explicar el número buscado."
+        "error": "Fijarse solo en el último número y no en cuánto sube.",
+        "correccion": "Compara dos números seguidos para saber cuánto sube cada vez."
       }
     ],
     "vocabulario": [
       {
         "termino": "Secuencia",
-        "significado": "Lista ordenada de números u objetos."
+        "significado": "Una lista de números en orden."
       },
       {
-        "termino": "Aumento",
-        "significado": "Cantidad que se añade en cada paso."
+        "termino": "Patrón",
+        "significado": "Una regla que se repite siempre igual."
       },
       {
-        "termino": "Regla",
-        "significado": "Cambio que se repite en toda la secuencia."
+        "termino": "De 2 en 2",
+        "significado": "Cada número es dos más que el anterior."
       }
     ],
     "ejercicios": [
       {
         "id": "e01",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En un juego con dados en el aula, la secuencia 2, 3, __ crece de 1 en 1. ¿Qué número sigue?",
-        "respuesta": 4,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la fila 3, 4, 5, 6, 7, ¿de cuánto en cuánto crece?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la diferencia entre 2 y 3. Mira los tapitas en el aula.",
-          "Avanza otros 1 desde 3. Usa los datos de tapitas en el aula.",
-          "Llegas a 4. Comprueba con los tapitas en el aula."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "De 2 en 2"
+          },
+          {
+            "id": "b",
+            "texto": "De 3 en 3"
+          },
+          {
+            "id": "c",
+            "texto": "De 1 en 1"
+          }
         ],
-        "retroalimentacion": "Sigue 4 porque se suma 1 cada vez."
+        "pistas": [
+          "Mira los dos primeros números: 3 y 4.",
+          "¿Cuánto hay que sumarle al 3 para llegar al 4?",
+          "Sube 1, y de 4 a 5 también sube 1."
+        ],
+        "retroalimentacion": "La fila sube 1 cada vez, así que crece de 1 en 1."
       },
       {
         "id": "e02",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En un juego con choclos en el patio, la secuencia 3, 5, __ crece de 2 en 2. ¿Qué número sigue?",
-        "respuesta": 7,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia 2, 4, 6, 8 cada número es 2 más que el anterior.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Mira la diferencia entre 3 y 5. Mira los choclos en el patio.",
-          "Avanza otros 2 desde 5. Usa los datos de choclos en el patio.",
-          "Llegas a 7. Comprueba con los choclos en el patio."
+          "Compara el 2 con el 4.",
+          "Del 4 al 6 y del 6 al 8, ¿cuánto sube?",
+          "Todos los saltos son iguales."
         ],
-        "retroalimentacion": "Sigue 7 porque se suma 2 cada vez."
+        "retroalimentacion": "Es verdadero: 2, 4, 6, 8 crece de 2 en 2."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En un juego con cuentos en la chacra, la secuencia 4, 5, __ crece de 1 en 1. ¿Qué número sigue?",
-        "respuesta": 6,
+        "enunciado": "La secuencia sube de 1 en 1: 8, 9, 10, __. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 11,
         "alternativasAceptadas": [],
         "pistas": [
-          "Mira la diferencia entre 4 y 5. Mira los cuentos en la chacra.",
-          "Avanza otros 1 desde 5. Usa los datos de cuentos en la chacra.",
-          "Llegas a 6. Comprueba con los cuentos en la chacra."
+          "Mira el último número de la fila: 10.",
+          "Sube de 1 en 1.",
+          "Suma 1 al 10."
         ],
-        "retroalimentacion": "Sigue 6 porque se suma 1 cada vez."
+        "retroalimentacion": "Después del 10 sigue 11."
       },
       {
         "id": "e04",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En un juego con lápices en la biblioteca, la secuencia 5, 7, __ crece de 2 en 2. ¿Qué número sigue?",
-        "respuesta": 9,
+        "enunciado": "Cuentas los dedos de las manos de 2 en 2: 2, 4, 6, __. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 8,
         "alternativasAceptadas": [],
         "pistas": [
-          "Mira la diferencia entre 5 y 7. Mira los lápices en la biblioteca.",
-          "Avanza otros 2 desde 7. Usa los datos de lápices en la biblioteca.",
-          "Llegas a 9. Comprueba con los lápices en la biblioteca."
+          "Mira el último número: 6.",
+          "Cada número es 2 más que el anterior.",
+          "Suma 2 al 6."
         ],
-        "retroalimentacion": "Sigue 9 porque se suma 2 cada vez."
+        "retroalimentacion": "6 más 2 son 8."
       },
       {
         "id": "e05",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En un juego con cuyes en la mesa, la secuencia 6, 7, __ crece de 1 en 1. ¿Qué número sigue?",
-        "respuesta": 8,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una abuela teje en Puno y anota las vueltas: 10, 12, 14, 16. ¿Qué regla sigue la secuencia?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la diferencia entre 6 y 7. Mira los cuyes en la mesa.",
-          "Avanza otros 1 desde 7. Usa los datos de cuyes en la mesa.",
-          "Llegas a 8. Comprueba con los cuyes en la mesa."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sube de 1 en 1"
+          },
+          {
+            "id": "b",
+            "texto": "Sube de 2 en 2"
+          },
+          {
+            "id": "c",
+            "texto": "Baja de 2 en 2"
+          }
         ],
-        "retroalimentacion": "Sigue 8 porque se suma 1 cada vez."
+        "pistas": [
+          "Compara el 10 con el 12.",
+          "Del 10 al 12 faltaría un número en medio.",
+          "Todos los saltos suben lo mismo: 2."
+        ],
+        "retroalimentacion": "Cada número es 2 más que el anterior: sube de 2 en 2."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En un juego con mangos en la feria, la secuencia 7, 9, __ crece de 2 en 2. ¿Qué número sigue?",
-        "respuesta": 11,
+        "enunciado": "Una secuencia sube de 2 en 2 y empieza en 12: 12, 14, 16, __. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 18,
         "alternativasAceptadas": [],
         "pistas": [
-          "Mira la diferencia entre 7 y 9. Mira los semillas en la feria.",
-          "Avanza otros 2 desde 9. Usa los datos de semillas en la feria.",
-          "Llegas a 11. Comprueba con los semillas en la feria."
+          "El último número que ves es 16.",
+          "La secuencia sube de 2 en 2.",
+          "Suma 2 a 16."
         ],
-        "retroalimentacion": "Sigue 11 porque se suma 2 cada vez."
+        "retroalimentacion": "16 y 2 hacen 18."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En un juego con caramelos en el jardín, la secuencia 8, 9, __ crece de 1 en 1. ¿Qué número sigue?",
-        "respuesta": 10,
+        "tipo": "verdadero_falso",
+        "enunciado": "La secuencia 5, 7, 9, 11 crece de 1 en 1.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Mira la diferencia entre 8 y 9. Mira los caramelos en el jardín.",
-          "Avanza otros 1 desde 9. Usa los datos de caramelos en el jardín.",
-          "Llegas a 10. Comprueba con los caramelos en el jardín."
+          "Mira los saltos entre 5 y 7.",
+          "¿Qué número se salta entre 5 y 7?",
+          "Se salta el 6, así que sube de otra forma."
         ],
-        "retroalimentacion": "Sigue 10 porque se suma 1 cada vez."
+        "retroalimentacion": "Es falso. 5, 7, 9, 11 crece de 2 en 2."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En un juego con vasos en la cocina, la secuencia 9, 11, __ crece de 2 en 2. ¿Qué número sigue?",
-        "respuesta": 13,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la diferencia entre 9 y 11. Mira los piedritas en la cocina.",
-          "Avanza otros 2 desde 11. Usa los datos de piedritas en la cocina.",
-          "Llegas a 13. Comprueba con los piedritas en la cocina."
+        "tipo": "texto_corto",
+        "enunciado": "Un cuy come 1 zanahoria más cada día: 4, 5, 6, __. Escribe el número que sigue.",
+        "respuesta": "7",
+        "alternativasAceptadas": [
+          "siete"
         ],
-        "retroalimentacion": "Sigue 13 porque se suma 2 cada vez."
+        "pistas": [
+          "Mira cuánto sube cada día.",
+          "Sube 1 por día.",
+          "Suma 1 al 6."
+        ],
+        "retroalimentacion": "Sube de 1 en 1: después del 6 va el 7."
       },
       {
         "id": "e09",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En un juego con libros en la mochila, la secuencia 10, 11, __ crece de 1 en 1. ¿Qué número sigue?",
-        "respuesta": 12,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana cuenta de 2 en 2 desde el 20 y se equivoca al decir: 20, 22, 24, 25. ¿Cuál debía ser el número correcto en lugar del 25?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la diferencia entre 10 y 11. Mira los flores en la mochila.",
-          "Avanza otros 1 desde 11. Usa los datos de flores en la mochila.",
-          "Llegas a 12. Comprueba con los flores en la mochila."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "26"
+          },
+          {
+            "id": "b",
+            "texto": "27"
+          },
+          {
+            "id": "c",
+            "texto": "28"
+          },
+          {
+            "id": "d",
+            "texto": "23"
+          }
         ],
-        "retroalimentacion": "Sigue 12 porque se suma 1 cada vez."
+        "pistas": [
+          "Revisa los saltos que hizo bien: 20, 22, 24.",
+          "Esos saltos subieron 2.",
+          "Después del 24 se suma 2 de nuevo."
+        ],
+        "retroalimentacion": "Debía decir 26, porque 24 más 2 es 26. Dijo 25 porque sumó solo 1."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En un juego con tomates en el mercado, la secuencia 11, 13, __ crece de 2 en 2. ¿Qué número sigue?",
-        "respuesta": 15,
+        "enunciado": "Sandra cuenta de 2 en 2 y llega a 30: 24, 26, 28, 30. ¿Cuántos números dice en total? Escribe solo el número.",
+        "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
-          "Mira la diferencia entre 11 y 13. Mira los tizas en el mercado.",
-          "Avanza otros 2 desde 13. Usa los datos de tizas en el mercado.",
-          "Llegas a 15. Comprueba con los tizas en el mercado."
+          "Cuenta cada número que dice en la lista.",
+          "Son 24, 26, 28 y 30.",
+          "Marca uno por uno cada número."
         ],
-        "retroalimentacion": "Sigue 15 porque se suma 2 cada vez."
+        "retroalimentacion": "Dice 24, 26, 28 y 30: son 4 números."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En un juego con plátanos en la canasta, la secuencia 12, 13, __ crece de 1 en 1. ¿Qué número sigue?",
-        "respuesta": 14,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la diferencia entre 12 y 13. Mira los pelotas en la canasta.",
-          "Avanza otros 1 desde 13. Usa los datos de pelotas en la canasta.",
-          "Llegas a 14. Comprueba con los pelotas en la canasta."
+        "tipo": "texto_corto",
+        "enunciado": "Mira la fila 6, 8, 10, 12. Escribe la regla con tus palabras: ¿de cuánto en cuánto sube? Escribe la regla con el formato «de 3 en 3».",
+        "respuesta": "de 2 en 2",
+        "alternativasAceptadas": [
+          "2 en 2",
+          "de 2"
         ],
-        "retroalimentacion": "Sigue 14 porque se suma 1 cada vez."
+        "pistas": [
+          "Compara el 6 con el 8.",
+          "Cuenta cuánto hay que sumar al 6 para llegar al 8.",
+          "Comprueba con el 10 y el 12: todos los saltos son iguales."
+        ],
+        "retroalimentacion": "Sube de 2 en 2: 6 más 2 es 8, 8 más 2 es 10."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En un juego con sombreros en la escuela, la secuencia 13, 15, __ crece de 2 en 2. ¿Qué número sigue?",
-        "respuesta": 17,
+        "enunciado": "La secuencia 1, 3, 5 sigue con dos números más con la misma regla. ¿Cuál es el último número que escribes? Escribe solo el número.",
+        "respuesta": 9,
         "alternativasAceptadas": [],
         "pistas": [
-          "Mira la diferencia entre 13 y 15. Mira los mandarinas en la escuela.",
-          "Avanza otros 2 desde 15. Usa los datos de mandarinas en la escuela.",
-          "Llegas a 17. Comprueba con los mandarinas en la escuela."
+          "Primero busca cuánto sube de 1 a 3.",
+          "Sube de 2 en 2.",
+          "Agrega dos números más: 5 más 2, y luego otro 2."
         ],
-        "retroalimentacion": "Sigue 17 porque se suma 2 cada vez."
+        "retroalimentacion": "La secuencia sigue 7 y 9: el último número es 9."
       }
     ],
     "fuentes": [
@@ -504,57 +620,62 @@
     "disciplina": "algebra",
     "descripcionCorta": "Completa los números que faltan en una secuencia que crece de 1 en 1 o de 2 en 2.",
     "palabrasClave": [
-      "números",
-      "que",
-      "faltan",
-      "una",
-      "secuencia",
-      "creciente"
+      "completar",
+      "secuencia creciente",
+      "número que falta",
+      "de 1 en 1",
+      "de 2 en 2"
     ],
     "prerrequisitos": [
       "mat.p1.patrones-1-en-1-y-2-en-2"
     ],
     "ordenSugerido": 106,
-    "ideaCentral": "Completa los números que faltan en una secuencia que crece de 1 en 1 o de 2 en 2.",
+    "ideaCentral": "Para completar los números que faltan, primero descubre de cuánto en cuánto sube la secuencia. Luego suma esa cantidad al número anterior.",
     "pasos": [
-      "Mira los números en orden.",
-      "Averigua si aumentan de uno en uno o de dos en dos.",
-      "Continúa la regla para encontrar o explicar el número buscado."
+      "Busca dos números seguidos que sí se vean.",
+      "Mira cuánto subió de uno al otro.",
+      "Suma esa misma cantidad al número que está antes del hueco.",
+      "Comprueba que el número nuevo encaje con el siguiente."
     ],
     "ejemplos": [
       {
-        "situacion": "Completa el número faltante entre 2 y 4 si la fila avanza de 1 en 1.",
-        "desarrollo": "La secuencia parte de 2. Mira los tapitas en el aula. Avanza 1 para hallar el lugar vacío. Usa los datos de tapitas en el aula.",
-        "respuesta": "3"
+        "situacion": "La fila dice 14, 15, __, 17. ¿Qué número falta?",
+        "desarrollo": "De 14 a 15 sube 1. Entonces después del 15 va 15 más 1.",
+        "respuesta": "Falta el 16."
       },
       {
-        "situacion": "Completa el número faltante entre 3 y 7 si la fila avanza de 2 en 2.",
-        "desarrollo": "La secuencia parte de 3. Mira los choclos en el patio. Avanza 2 para hallar el lugar vacío. Usa los datos de choclos en el patio.",
-        "respuesta": "5"
+        "situacion": "Los puestos del mercado se numeran 20, 22, __, 26. ¿Qué número falta?",
+        "desarrollo": "De 20 a 22 sube 2. A 22 le sumas 2.",
+        "respuesta": "Falta el 24."
+      },
+      {
+        "situacion": "En un autobús los asientos son 31, __, 33, 34. ¿Qué falta?",
+        "desarrollo": "De 33 a 34 sube 1, así que la secuencia sube de 1 en 1: 31 más 1.",
+        "respuesta": "Falta el 32."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Cambiar el aumento a mitad de la secuencia.",
-        "correccion": "Averigua si aumentan de uno en uno o de dos en dos."
+        "error": "Poner un número al azar en el hueco.",
+        "correccion": "Mira cuánto sube la secuencia y suma esa cantidad al anterior."
       },
       {
-        "error": "Contar el número inicial como un salto.",
-        "correccion": "Mira los números en orden. Continúa la regla para encontrar o explicar el número buscado."
+        "error": "Creer que 10, 12, __, 16 sigue de 1 en 1 y poner 13.",
+        "correccion": "10 a 12 sube 2, así que va 14."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Secuencia",
-        "significado": "Lista ordenada de números u objetos."
+        "termino": "Número que falta",
+        "significado": "El que está tapado o vacío en la secuencia."
       },
       {
-        "termino": "Aumento",
-        "significado": "Cantidad que se añade en cada paso."
+        "termino": "Creciente",
+        "significado": "Que sube: cada número es mayor que el anterior."
       },
       {
-        "termino": "Regla",
-        "significado": "Cambio que se repite en toda la secuencia."
+        "termino": "Anterior",
+        "significado": "El número que está antes."
       }
     ],
     "ejercicios": [
@@ -562,169 +683,227 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En un juego con dados en el aula, completa el número faltante entre 2 y 4 si la fila avanza de 1 en 1.",
-        "respuesta": 3,
+        "enunciado": "Completa la secuencia de 1 en 1: 6, 7, __, 9. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 8,
         "alternativasAceptadas": [],
         "pistas": [
-          "La secuencia parte de 2. Mira los tapitas en el aula.",
-          "Avanza 1 para hallar el lugar vacío. Usa los datos de tapitas en el aula.",
-          "Antes de 4 va 3. Comprueba con los tapitas en el aula."
+          "Mira el número que está antes del hueco: 7.",
+          "Esta secuencia sube de 1 en 1.",
+          "Suma 1 a 7."
         ],
-        "retroalimentacion": "Falta 3. Comprueba 2, 3, 4."
+        "retroalimentacion": "7 más 1 es 8."
       },
       {
         "id": "e02",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En un juego con choclos en el patio, completa el número faltante entre 3 y 7 si la fila avanza de 2 en 2.",
-        "respuesta": 5,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la fila 2, 4, __, 8, el número que falta es...",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "La secuencia parte de 3. Mira los choclos en el patio.",
-          "Avanza 2 para hallar el lugar vacío. Usa los datos de choclos en el patio.",
-          "Antes de 7 va 5. Comprueba con los choclos en el patio."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "7"
+          },
+          {
+            "id": "d",
+            "texto": "3"
+          }
         ],
-        "retroalimentacion": "Falta 5. Comprueba 3, 5, 7."
+        "pistas": [
+          "Mira los números 2 y 4: sube de 2 en 2.",
+          "El número del hueco va justo después del 4.",
+          "Suma 2 a 4."
+        ],
+        "retroalimentacion": "4 más 2 son 6. El 5 serviría si subiera de 1 en 1."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En un juego con cuentos en la chacra, completa el número faltante entre 4 y 6 si la fila avanza de 1 en 1.",
-        "respuesta": 5,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia 10, 11, 12, 13 el siguiente número es 14.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "La secuencia parte de 4. Mira los cuentos en la chacra.",
-          "Avanza 1 para hallar el lugar vacío. Usa los datos de cuentos en la chacra.",
-          "Antes de 6 va 5. Comprueba con los cuentos en la chacra."
+          "Mira cuánto sube de 10 a 11.",
+          "Sube 1 cada vez.",
+          "Suma 1 al último número, 13."
         ],
-        "retroalimentacion": "Falta 5. Comprueba 4, 5, 6."
+        "retroalimentacion": "Es verdadero: después del 13 viene 14."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En un juego con lápices en la biblioteca, completa el número faltante entre 5 y 9 si la fila avanza de 2 en 2.",
-        "respuesta": 7,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "La secuencia parte de 5. Mira los lápices en la biblioteca.",
-          "Avanza 2 para hallar el lugar vacío. Usa los datos de lápices en la biblioteca.",
-          "Antes de 9 va 7. Comprueba con los lápices en la biblioteca."
+        "tipo": "texto_corto",
+        "enunciado": "Completa: 15, 16, __, 18. Escribe el número que falta.",
+        "respuesta": "17",
+        "alternativasAceptadas": [
+          "diecisiete"
         ],
-        "retroalimentacion": "Falta 7. Comprueba 5, 7, 9."
+        "pistas": [
+          "Mira el número antes del hueco: 16.",
+          "La secuencia sube 1 por vez.",
+          "Entre 16 y 18 va un solo número."
+        ],
+        "retroalimentacion": "16 más 1 es 17."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En un juego con cuyes en la mesa, completa el número faltante entre 6 y 8 si la fila avanza de 1 en 1.",
-        "respuesta": 7,
+        "enunciado": "Los números de las casas de una calle de Iquitos suben de 2 en 2: 21, 23, __, 27. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 25,
         "alternativasAceptadas": [],
         "pistas": [
-          "La secuencia parte de 6. Mira los cuyes en la mesa.",
-          "Avanza 1 para hallar el lugar vacío. Usa los datos de cuyes en la mesa.",
-          "Antes de 8 va 7. Comprueba con los cuyes en la mesa."
+          "Mira el número anterior al hueco: 23.",
+          "Las casas suben de 2 en 2.",
+          "23 más 2."
         ],
-        "retroalimentacion": "Falta 7. Comprueba 6, 7, 8."
+        "retroalimentacion": "23 más 2 es 25, y 25 más 2 es 27, como indica la fila."
       },
       {
         "id": "e06",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En un juego con mangos en la feria, completa el número faltante entre 7 y 11 si la fila avanza de 2 en 2.",
-        "respuesta": 9,
+        "tipo": "opcion_multiple",
+        "enunciado": "Falta un número en esta secuencia de las cuentas de una vendedora: 30, 32, 34, __, 38. ¿Cuál es?",
+        "respuesta": "d",
         "alternativasAceptadas": [],
-        "pistas": [
-          "La secuencia parte de 7. Mira los semillas en la feria.",
-          "Avanza 2 para hallar el lugar vacío. Usa los datos de semillas en la feria.",
-          "Antes de 11 va 9. Comprueba con los semillas en la feria."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "35"
+          },
+          {
+            "id": "b",
+            "texto": "37"
+          },
+          {
+            "id": "c",
+            "texto": "33"
+          },
+          {
+            "id": "d",
+            "texto": "36"
+          }
         ],
-        "retroalimentacion": "Falta 9. Comprueba 7, 9, 11."
+        "pistas": [
+          "Revisa de cuánto en cuánto sube: 30 a 32.",
+          "Sube de 2 en 2.",
+          "Suma 2 al número que está antes del hueco, 34."
+        ],
+        "retroalimentacion": "34 más 2 es 36. El 35 sería de 1 en 1."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En un juego con caramelos en el jardín, completa el número faltante entre 8 y 10 si la fila avanza de 1 en 1.",
-        "respuesta": 9,
+        "enunciado": "Una fila de ladrillos tiene los números 40, __, 42, 43. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 41,
         "alternativasAceptadas": [],
         "pistas": [
-          "La secuencia parte de 8. Mira los caramelos en el jardín.",
-          "Avanza 1 para hallar el lugar vacío. Usa los datos de caramelos en el jardín.",
-          "Antes de 10 va 9. Comprueba con los caramelos en el jardín."
+          "Mira los dos números del final: 42 y 43.",
+          "Suben de 1 en 1.",
+          "El hueco está entre 40 y 42."
         ],
-        "retroalimentacion": "Falta 9. Comprueba 8, 9, 10."
+        "retroalimentacion": "Va el 41 entre 40 y 42."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En un juego con vasos en la cocina, completa el número faltante entre 9 y 13 si la fila avanza de 2 en 2.",
-        "respuesta": 11,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia 18, 20, __, 24 el número que falta es 21.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "La secuencia parte de 9. Mira los piedritas en la cocina.",
-          "Avanza 2 para hallar el lugar vacío. Usa los datos de piedritas en la cocina.",
-          "Antes de 13 va 11. Comprueba con los piedritas en la cocina."
+          "De 18 a 20, ¿cuánto sube?",
+          "Sube 2, así que el hueco no es solo 1 más.",
+          "Suma 2 a 20."
         ],
-        "retroalimentacion": "Falta 11. Comprueba 9, 11, 13."
+        "retroalimentacion": "Es falso. Falta el 22; el 21 es solo 1 más que 20."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En un juego con libros en la mochila, completa el número faltante entre 10 y 12 si la fila avanza de 1 en 1.",
-        "respuesta": 11,
+        "enunciado": "En la secuencia que sube de 2 en 2: 36, __, 40, __, 44. ¿Cuánto suman los dos números que faltan? Escribe solo el número.",
+        "respuesta": 80,
         "alternativasAceptadas": [],
         "pistas": [
-          "La secuencia parte de 10. Mira los flores en la mochila.",
-          "Avanza 1 para hallar el lugar vacío. Usa los datos de flores en la mochila.",
-          "Antes de 12 va 11. Comprueba con los flores en la mochila."
+          "Primero encuentra el número que va entre 36 y 40.",
+          "Suma 2 al 36: sale el primero.",
+          "El segundo va entre 40 y 44; luego suma los dos."
         ],
-        "retroalimentacion": "Falta 11. Comprueba 10, 11, 12."
+        "retroalimentacion": "Faltan 38 y 42; 38 más 42 son 80."
       },
       {
         "id": "e10",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En un juego con tomates en el mercado, completa el número faltante entre 11 y 15 si la fila avanza de 2 en 2.",
-        "respuesta": 13,
+        "tipo": "opcion_multiple",
+        "enunciado": "Daniela completa 29, 30, __, 32, 33, __ con números de 1 en 1. ¿Qué números pone en los huecos, en orden?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "La secuencia parte de 11. Mira los tizas en el mercado.",
-          "Avanza 2 para hallar el lugar vacío. Usa los datos de tizas en el mercado.",
-          "Antes de 15 va 13. Comprueba con los tizas en el mercado."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "31 y 34"
+          },
+          {
+            "id": "b",
+            "texto": "30 y 34"
+          },
+          {
+            "id": "c",
+            "texto": "31 y 35"
+          },
+          {
+            "id": "d",
+            "texto": "32 y 33"
+          }
         ],
-        "retroalimentacion": "Falta 13. Comprueba 11, 13, 15."
+        "pistas": [
+          "Compara cada hueco con el número anterior.",
+          "Primero va el que sigue a 30.",
+          "El segundo va después del 33."
+        ],
+        "retroalimentacion": "31 va después de 30 y 34 va después de 33: 31 y 34."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En un juego con plátanos en la canasta, completa el número faltante entre 12 y 14 si la fila avanza de 1 en 1.",
-        "respuesta": 13,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "La secuencia parte de 12. Mira los pelotas en la canasta.",
-          "Avanza 1 para hallar el lugar vacío. Usa los datos de pelotas en la canasta.",
-          "Antes de 14 va 13. Comprueba con los pelotas en la canasta."
+        "tipo": "texto_corto",
+        "enunciado": "La secuencia sube de 2 en 2 y los números visibles son 43 y 47, con un hueco en medio: 43, __, 47. Escribe el número que falta.",
+        "respuesta": "45",
+        "alternativasAceptadas": [
+          "cuarenta y cinco"
         ],
-        "retroalimentacion": "Falta 13. Comprueba 12, 13, 14."
+        "pistas": [
+          "De 43 a 47 hay que contar saltos de 2.",
+          "43 y 2 es el primer salto.",
+          "Después del primer salto llegas al hueco."
+        ],
+        "retroalimentacion": "43 y 2 es 45, y 45 y 2 es 47."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En un juego con sombreros en la escuela, completa el número faltante entre 13 y 17 si la fila avanza de 2 en 2.",
-        "respuesta": 15,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia de 2 en 2: 40, 42, __, 46, __, 50 los números que faltan son 44 y 48.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "La secuencia parte de 13. Mira los mandarinas en la escuela.",
-          "Avanza 2 para hallar el lugar vacío. Usa los datos de mandarinas en la escuela.",
-          "Antes de 17 va 15. Comprueba con los mandarinas en la escuela."
+          "De 40 a 42 sube 2; usa esa regla.",
+          "El primer hueco es 42 más 2.",
+          "El segundo hueco es 46 más 2."
         ],
-        "retroalimentacion": "Falta 15. Comprueba 13, 15, 17."
+        "retroalimentacion": "Es verdadero: faltan 44 y 48, porque 42 más 2 es 44 y 46 más 2 es 48."
       }
     ],
     "fuentes": [
@@ -752,55 +931,61 @@
     "descripcionCorta": "Explica cuánto aumenta cada vez una secuencia numérica y qué número sigue.",
     "palabrasClave": [
       "explicar",
-      "cómo",
       "crece",
-      "una",
-      "secuencia"
+      "aumenta",
+      "regla",
+      "secuencia numérica"
     ],
     "prerrequisitos": [
       "mat.p1.patrones-1-en-1-y-2-en-2"
     ],
     "ordenSugerido": 109,
-    "ideaCentral": "Explica cuánto aumenta cada vez una secuencia numérica y qué número sigue.",
+    "ideaCentral": "Para explicar cómo crece una secuencia, di cuánto aumenta cada vez. Con esa regla puedes decir qué número sigue y comprobar si una cuenta está bien.",
     "pasos": [
-      "Mira los números en orden.",
-      "Averigua si aumentan de uno en uno o de dos en dos.",
-      "Continúa la regla para encontrar o explicar el número buscado."
+      "Mira dos números seguidos de la secuencia.",
+      "Calcula cuánto aumentó de uno al otro.",
+      "Comprueba que ese aumento se repita en todos los saltos.",
+      "Di la regla y suma el aumento al último número para hallar el que sigue."
     ],
     "ejemplos": [
       {
-        "situacion": "La secuencia es 2, 3, 4. ¿Cómo crece?",
-        "desarrollo": "Compara 2 y 3. Mira los tapitas en el aula. Comprueba que de 3 a 4 ocurre el mismo cambio. Usa los datos de tapitas en el aula.",
-        "respuesta": "de 1 en 1"
+        "situacion": "Una vendedora de Lima junta monedas de 1 sol: 3, 4, 5, 6. ¿Cómo crece y qué sigue?",
+        "desarrollo": "De 3 a 4 aumenta 1, y de 4 a 5 también. Al 6 le sumas 1.",
+        "respuesta": "Crece de 1 en 1 y sigue el 7."
       },
       {
-        "situacion": "La secuencia es 3, 5, 7. ¿Cómo crece?",
-        "desarrollo": "Compara 3 y 5. Mira los choclos en el patio. Comprueba que de 5 a 7 ocurre el mismo cambio. Usa los datos de choclos en el patio.",
-        "respuesta": "de 2 en 2"
+        "situacion": "Una niña cuenta patitas de pollitos: 2, 4, 6, 8. ¿Cómo crece y qué sigue?",
+        "desarrollo": "De 2 a 4 aumenta 2. De 4 a 6 y de 6 a 8 igual. Al 8 le sumas 2.",
+        "respuesta": "Crece de 2 en 2 y sigue el 10."
+      },
+      {
+        "situacion": "Una secuencia dice 12, 14, 15, 16. ¿Crece siempre igual?",
+        "desarrollo": "De 12 a 14 aumenta 2, pero de 14 a 15 solo aumenta 1.",
+        "respuesta": "No, no crece siempre igual; no sigue una sola regla."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Cambiar el aumento a mitad de la secuencia.",
-        "correccion": "Averigua si aumentan de uno en uno o de dos en dos."
+        "error": "Decir «sube de 2 en 2» mirando solo el primer salto.",
+        "correccion": "Comprueba todos los saltos: deben aumentar siempre lo mismo."
       },
       {
-        "error": "Contar el número inicial como un salto.",
-        "correccion": "Mira los números en orden. Continúa la regla para encontrar o explicar el número buscado."
+        "error": "Escribir como siguiente un número igual al último.",
+        "correccion": "Suma el aumento al último número para hallar el siguiente."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Secuencia",
-        "significado": "Lista ordenada de números u objetos."
-      },
-      {
-        "termino": "Aumento",
-        "significado": "Cantidad que se añade en cada paso."
+        "termino": "Aumentar",
+        "significado": "Hacerse más grande: sumar una cantidad."
       },
       {
         "termino": "Regla",
-        "significado": "Cambio que se repite en toda la secuencia."
+        "significado": "Lo que dice cuánto cambia cada vez."
+      },
+      {
+        "termino": "Siguiente",
+        "significado": "El número que viene después."
       }
     ],
     "ejercicios": [
@@ -808,337 +993,225 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En un juego con dados en el aula, la secuencia es 2, 3, 4. ¿Cómo crece?",
-        "respuesta": "a",
+        "enunciado": "La secuencia 5, 6, 7, 8 aumenta...",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Compara 2 y 3. Mira los tapitas en el aula.",
-          "Comprueba que de 3 a 4 ocurre el mismo cambio. Usa los datos de tapitas en el aula.",
-          "Aumenta 1 en cada paso. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "de 1 en 1"
+            "texto": "De 2 en 2"
           },
           {
             "id": "b",
-            "texto": "de 2 en 2"
+            "texto": "De 1 en 1"
           },
           {
             "id": "c",
-            "texto": "disminuye"
+            "texto": "De 3 en 3"
           }
-        ]
+        ],
+        "pistas": [
+          "Mira el 5 y el 6.",
+          "¿Cuánto hay que sumar al 5 para tener 6?",
+          "Sumas 1, y de 6 a 7 también sumas 1."
+        ],
+        "retroalimentacion": "Cada número es 1 más que el anterior: aumenta de 1 en 1."
       },
       {
         "id": "e02",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En un juego con choclos en el patio, la secuencia es 3, 5, 7. ¿Cómo crece?",
-        "respuesta": "c",
+        "tipo": "numerico",
+        "enunciado": "La secuencia 10, 12, 14, 16 aumenta siempre lo mismo. ¿Cuánto aumenta cada vez? Escribe solo el número.",
+        "respuesta": 2,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara 3 y 5. Mira los choclos en el patio.",
-          "Comprueba que de 5 a 7 ocurre el mismo cambio. Usa los datos de choclos en el patio.",
-          "Aumenta 2 en cada paso. Comprueba con los choclos en el patio."
+          "Mira los dos primeros números: 10 y 12.",
+          "Cuenta cuántos pasos hay de 10 a 12.",
+          "Comprueba con 12 y 14."
         ],
-        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "de 1 en 1"
-          },
-          {
-            "id": "b",
-            "texto": "disminuye"
-          },
-          {
-            "id": "c",
-            "texto": "de 2 en 2"
-          }
-        ]
+        "retroalimentacion": "De 10 a 12 hay 2 más, y se repite: aumenta 2 cada vez."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En un juego con cuentos en la chacra, la secuencia es 4, 5, 6. ¿Cómo crece?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "La secuencia 7, 8, 9, 10 aumenta de 1 en 1.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara 4 y 5. Mira los cuentos en la chacra.",
-          "Comprueba que de 5 a 6 ocurre el mismo cambio. Usa los datos de cuentos en la chacra.",
-          "Aumenta 1 en cada paso. Comprueba con los cuentos en la chacra."
+          "Mira cuánto aumenta de 7 a 8.",
+          "Y de 8 a 9, ¿cuánto aumenta?",
+          "Siempre es lo mismo."
         ],
-        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "disminuye"
-          },
-          {
-            "id": "b",
-            "texto": "de 1 en 1"
-          },
-          {
-            "id": "c",
-            "texto": "de 2 en 2"
-          }
-        ]
+        "retroalimentacion": "Es verdadero: cada número es 1 más que el anterior."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En un juego con lápices en la biblioteca, la secuencia es 5, 7, 9. ¿Cómo crece?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "La secuencia aumenta de 1 en 1: 13, 14, 15. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 16,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara 5 y 7. Mira los lápices en la biblioteca.",
-          "Comprueba que de 7 a 9 ocurre el mismo cambio. Usa los datos de lápices en la biblioteca.",
-          "Aumenta 2 en cada paso. Comprueba con los lápices en la biblioteca."
+          "El último número es 15.",
+          "Aumenta de 1 en 1.",
+          "15 más 1."
         ],
-        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "de 2 en 2"
-          },
-          {
-            "id": "b",
-            "texto": "de 1 en 1"
-          },
-          {
-            "id": "c",
-            "texto": "disminuye"
-          }
-        ]
+        "retroalimentacion": "Después del 15 sigue el 16."
       },
       {
         "id": "e05",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En un juego con cuyes en la mesa, la secuencia es 6, 7, 8. ¿Cómo crece?",
-        "respuesta": "c",
+        "tipo": "numerico",
+        "enunciado": "Mi mamá guarda galletas en bolsitas: 22, 24, 26, 28. ¿Qué número sigue si la regla es la misma? Escribe solo el número.",
+        "respuesta": 30,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara 6 y 7. Mira los cuyes en la mesa.",
-          "Comprueba que de 7 a 8 ocurre el mismo cambio. Usa los datos de cuyes en la mesa.",
-          "Aumenta 1 en cada paso. Comprueba con los cuyes en la mesa."
+          "Descubre cuánto aumenta de 22 a 24.",
+          "Aumenta 2 cada vez.",
+          "Suma 2 al 28."
         ],
-        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "de 2 en 2"
-          },
-          {
-            "id": "b",
-            "texto": "disminuye"
-          },
-          {
-            "id": "c",
-            "texto": "de 1 en 1"
-          }
-        ]
+        "retroalimentacion": "La secuencia aumenta de 2 en 2, y 28 más 2 es 30."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En un juego con mangos en la feria, la secuencia es 7, 9, 11. ¿Cómo crece?",
+        "enunciado": "En una chacra los surcos están numerados 31, 32, 33, 34. Para decir cómo crece, ¿qué frase es correcta?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Compara 7 y 9. Mira los semillas en la feria.",
-          "Comprueba que de 9 a 11 ocurre el mismo cambio. Usa los datos de semillas en la feria.",
-          "Aumenta 2 en cada paso. Comprueba con los semillas en la feria."
-        ],
-        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "disminuye"
+            "texto": "Cada número aumenta 2"
           },
           {
             "id": "b",
-            "texto": "de 2 en 2"
+            "texto": "Cada número aumenta 1"
           },
           {
             "id": "c",
-            "texto": "de 1 en 1"
+            "texto": "Cada número aumenta 3"
+          },
+          {
+            "id": "d",
+            "texto": "Los números bajan 1"
           }
-        ]
+        ],
+        "pistas": [
+          "Compara 31 y 32.",
+          "¿Cuánto más es 32 que 31?",
+          "Los números suben, no bajan."
+        ],
+        "retroalimentacion": "Cada número es 1 más: aumenta 1 cada vez. Aumentar 2 sería saltar un número."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En un juego con caramelos en el jardín, la secuencia es 8, 9, 10. ¿Cómo crece?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Compara 8 y 9. Mira los caramelos en el jardín.",
-          "Comprueba que de 9 a 10 ocurre el mismo cambio. Usa los datos de caramelos en el jardín.",
-          "Aumenta 1 en cada paso. Comprueba con los caramelos en el jardín."
+        "tipo": "texto_corto",
+        "enunciado": "La secuencia 18, 20, 22, 24 aumenta 2 cada vez. Escribe qué número sigue después del 24.",
+        "respuesta": "26",
+        "alternativasAceptadas": [
+          "veintiséis"
         ],
-        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "de 1 en 1"
-          },
-          {
-            "id": "b",
-            "texto": "de 2 en 2"
-          },
-          {
-            "id": "c",
-            "texto": "disminuye"
-          }
-        ]
+        "pistas": [
+          "Usa el aumento que ya conoces.",
+          "El último número es 24.",
+          "Suma 2 a 24."
+        ],
+        "retroalimentacion": "24 más 2 es 26."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En un juego con vasos en la cocina, la secuencia es 9, 11, 13. ¿Cómo crece?",
-        "respuesta": "c",
+        "tipo": "verdadero_falso",
+        "enunciado": "La secuencia 3, 5, 8, 10 crece siempre de 2 en 2.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara 9 y 11. Mira los piedritas en la cocina.",
-          "Comprueba que de 11 a 13 ocurre el mismo cambio. Usa los datos de piedritas en la cocina.",
-          "Aumenta 2 en cada paso. Comprueba con los piedritas en la cocina."
+          "Mira cuánto aumenta de 3 a 5.",
+          "Ahora de 5 a 8, ¿cuánto aumenta?",
+          "Solo es de 2 en 2 si todos los saltos son iguales."
         ],
-        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "de 1 en 1"
-          },
-          {
-            "id": "b",
-            "texto": "disminuye"
-          },
-          {
-            "id": "c",
-            "texto": "de 2 en 2"
-          }
-        ]
+        "retroalimentacion": "Es falso: de 5 a 8 aumenta 3, así que no siempre aumenta lo mismo."
       },
       {
         "id": "e09",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En un juego con libros en la mochila, la secuencia es 10, 11, 12. ¿Cómo crece?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "En un bus, la cantidad de pasajeros sube así: 8, 10, 12 y 14. Si sigue igual, ¿cuántos pasajeros habrá después de dos paradas más? Escribe solo el número.",
+        "respuesta": 18,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara 10 y 11. Mira los flores en la mochila.",
-          "Comprueba que de 11 a 12 ocurre el mismo cambio. Usa los datos de flores en la mochila.",
-          "Aumenta 1 en cada paso. Comprueba con los flores en la mochila."
+          "Descubre cuánto aumenta en cada parada.",
+          "Aumenta 2 pasajeros cada parada.",
+          "Suma 2 al 14 y luego 2 otra vez."
         ],
-        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "disminuye"
-          },
-          {
-            "id": "b",
-            "texto": "de 1 en 1"
-          },
-          {
-            "id": "c",
-            "texto": "de 2 en 2"
-          }
-        ]
+        "retroalimentacion": "Después de 14 vienen 16 y 18: habrá 18 pasajeros."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En un juego con tomates en el mercado, la secuencia es 11, 13, 15. ¿Cómo crece?",
+        "enunciado": "Rita dice que la secuencia 20, 22, 24, 26, 27 aumenta de 2 en 2. ¿Dónde está su error?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Compara 11 y 13. Mira los tizas en el mercado.",
-          "Comprueba que de 13 a 15 ocurre el mismo cambio. Usa los datos de tizas en el mercado.",
-          "Aumenta 2 en cada paso. Comprueba con los tizas en el mercado."
-        ],
-        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "de 2 en 2"
+            "texto": "En el último salto aumenta solo 1"
           },
           {
             "id": "b",
-            "texto": "de 1 en 1"
+            "texto": "En el primer salto aumenta 3"
           },
           {
             "id": "c",
-            "texto": "disminuye"
+            "texto": "No hay ningún error"
+          },
+          {
+            "id": "d",
+            "texto": "La secuencia baja"
           }
-        ]
+        ],
+        "pistas": [
+          "Revisa todos los saltos, no solo el primero.",
+          "Mira el salto de 26 a 27.",
+          "Los demás saltos suman 2."
+        ],
+        "retroalimentacion": "De 26 a 27 aumenta solo 1, así que no todos los saltos son de 2."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En un juego con plátanos en la canasta, la secuencia es 12, 13, 14. ¿Cómo crece?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Compara 12 y 13. Mira los pelotas en la canasta.",
-          "Comprueba que de 13 a 14 ocurre el mismo cambio. Usa los datos de pelotas en la canasta.",
-          "Aumenta 1 en cada paso. Comprueba con los pelotas en la canasta."
+        "tipo": "texto_corto",
+        "enunciado": "La secuencia aumenta de 2 en 2 y empieza en 30: 30, 32, y siguen dos números más. Escribe los dos números que siguen, en orden y separados por coma.",
+        "respuesta": "34,36",
+        "alternativasAceptadas": [
+          "34, 36",
+          "34 36",
+          "34 y 36"
         ],
-        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "de 2 en 2"
-          },
-          {
-            "id": "b",
-            "texto": "disminuye"
-          },
-          {
-            "id": "c",
-            "texto": "de 1 en 1"
-          }
-        ]
+        "pistas": [
+          "El primer número que sigue es 32 más 2.",
+          "El segundo es el que resulta más 2.",
+          "Escribe primero el menor, luego el mayor."
+        ],
+        "retroalimentacion": "32 más 2 es 34 y 34 más 2 es 36: 34, 36."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En un juego con sombreros en la escuela, la secuencia es 13, 15, 17. ¿Cómo crece?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "Gabi mira la fila 40, 41, 42, 43 y Hugo dice que aumenta de 2 en 2. Gabi dice que aumenta de 1 en 1. Si Gabi tiene razón, ¿qué número sigue? Escribe solo el número.",
+        "respuesta": 44,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara 13 y 15. Mira los mandarinas en la escuela.",
-          "Comprueba que de 15 a 17 ocurre el mismo cambio. Usa los datos de mandarinas en la escuela.",
-          "Aumenta 2 en cada paso. Comprueba con los mandarinas en la escuela."
+          "Compara el 40 con el 41 para ver quién tiene razón.",
+          "Aumenta 1 y no 2, como dice Gabi.",
+          "Suma 1 al último número, 43."
         ],
-        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "disminuye"
-          },
-          {
-            "id": "b",
-            "texto": "de 2 en 2"
-          },
-          {
-            "id": "c",
-            "texto": "de 1 en 1"
-          }
-        ]
+        "retroalimentacion": "Gabi tiene razón: 40, 41, 42, 43 aumenta de 1 en 1 y sigue el 44."
       }
     ],
     "fuentes": [

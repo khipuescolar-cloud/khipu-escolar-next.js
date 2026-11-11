@@ -15,50 +15,59 @@
     "descripcionCorta": "Compara objetos y dice cuál es más largo o más corto.",
     "palabrasClave": [
       "largo",
-      "corto"
+      "corto",
+      "comparar",
+      "más largo",
+      "más corto"
     ],
     "prerrequisitos": [],
     "ordenSugerido": 23,
-    "ideaCentral": "Compara objetos y dice cuál es más largo o más corto.",
+    "ideaCentral": "Largo y corto se usan para comparar. Si un objeto llega más lejos que otro, es más largo; el otro es más corto.",
     "pasos": [
-      "Coloca los objetos desde el mismo punto de partida.",
-      "Observa cuál llega más lejos o más alto.",
-      "Nombra el más largo, corto, alto o bajo según la pregunta."
+      "Mira los dos objetos.",
+      "Fíjate cuál se extiende más.",
+      "Di cuál es más largo y cuál es más corto.",
+      "Un objeto puede ser largo con uno y corto con otro."
     ],
     "ejemplos": [
       {
-        "situacion": "Dos cintas parten de la misma marca: A mide 3 clips y B mide 4 clips iguales. ¿Cuál es más larga?",
-        "desarrollo": "Ambas cintas empiezan en la misma marca. Mira los tapitas en el aula. A mide 3 clips; B, 4. Usa los datos de tapitas en el aula.",
-        "respuesta": "cinta B"
+        "situacion": "Un lápiz nuevo y un borrador. ¿Cuál es más largo?",
+        "desarrollo": "El lápiz se extiende más que el borrador.",
+        "respuesta": "El lápiz es más largo y el borrador es más corto."
       },
       {
-        "situacion": "Dos cintas parten de la misma marca: A mide 4 clips y B mide 6 clips iguales. ¿Cuál es más larga?",
-        "desarrollo": "Ambas cintas empiezan en la misma marca. Mira los choclos en el patio. A mide 4 clips; B, 6. Usa los datos de choclos en el patio.",
-        "respuesta": "cinta B"
+        "situacion": "Una soga de la chacra y un hilo. ¿Cuál es más corto?",
+        "desarrollo": "El hilo es más pequeño que la soga.",
+        "respuesta": "El hilo es más corto."
+      },
+      {
+        "situacion": "Una bufanda y un chullo en Cusco: la bufanda se estira más. ¿Cuál es más largo?",
+        "desarrollo": "La que se estira más es la más larga.",
+        "respuesta": "La bufanda es más larga."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Comparar objetos que no empiezan en la misma marca.",
-        "correccion": "Coloca los objetos desde el mismo punto de partida. Observa cuál llega más lejos o más alto."
+        "error": "Decir largo solo por el grosor.",
+        "correccion": "Largo es cuánto se extiende, no cuán gordo es."
       },
       {
-        "error": "Olvidar la unidad o dejar espacios al medir.",
-        "correccion": "Nombra el más largo, corto, alto o bajo según la pregunta. Revisa cada unidad usada."
+        "error": "Pensar que un objeto siempre es largo o siempre corto.",
+        "correccion": "Depende con cuál lo compares."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Longitud",
-        "significado": "Medida de qué tan largo es un objeto."
+        "termino": "Largo",
+        "significado": "Que se extiende mucho de un extremo a otro."
       },
       {
-        "termino": "Unidad",
-        "significado": "Objeto o parte del cuerpo que usas para medir."
+        "termino": "Corto",
+        "significado": "Que se extiende poco."
       },
       {
-        "termino": "Alinear",
-        "significado": "Poner los objetos desde la misma marca de inicio."
+        "termino": "Comparar",
+        "significado": "Mirar dos cosas para ver en qué se parecen o se diferencian."
       }
     ],
     "ejercicios": [
@@ -66,347 +75,246 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el aula comparas dados. Dos cintas parten de la misma marca: A mide 3 clips y B mide 4 clips iguales. ¿Cuál es más larga?",
+        "enunciado": "¿Cuál es más largo: un lápiz nuevo o un borrador pequeño?",
         "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los tapitas en el aula.",
-          "A mide 3 clips; B, 4. Usa los datos de tapitas en el aula.",
-          "La cinta B llega más lejos. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "La cinta B es más larga porque 4 es mayor que 3. Alinea los inicios antes de comparar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cinta B"
+            "texto": "El lápiz nuevo"
           },
           {
             "id": "b",
-            "texto": "cinta A"
+            "texto": "El borrador pequeño"
           },
           {
             "id": "c",
-            "texto": "miden igual"
+            "texto": "Los dos igual"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cuánto se extiende cada objeto.",
+          "El borrador es pequeño.",
+          "Un lápiz nuevo se extiende más que un borrador."
+        ],
+        "retroalimentacion": "El lápiz nuevo es más largo. El borrador pequeño es más corto."
       },
       {
         "id": "e02",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el patio comparas choclos. Dos cintas parten de la misma marca: A mide 4 clips y B mide 6 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "c",
+        "tipo": "verdadero_falso",
+        "enunciado": "Una escalera alta es más larga que una cuchara.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los choclos en el patio.",
-          "A mide 4 clips; B, 6. Usa los datos de choclos en el patio.",
-          "La cinta B llega más lejos. Comprueba con los choclos en el patio."
+          "Imagina una escalera al lado de una cuchara.",
+          "Cuál llega más lejos.",
+          "Una cuchara cabe en la mano."
         ],
-        "retroalimentacion": "La cinta B es más larga porque 6 es mayor que 4. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cinta A"
-          },
-          {
-            "id": "b",
-            "texto": "miden igual"
-          },
-          {
-            "id": "c",
-            "texto": "cinta B"
-          }
-        ]
+        "retroalimentacion": "Verdadero: la escalera es más larga que la cuchara."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la chacra comparas cuentos. Dos cintas parten de la misma marca: A mide 5 clips y B mide 8 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los cuentos en la chacra.",
-          "A mide 5 clips; B, 8. Usa los datos de cuentos en la chacra.",
-          "La cinta B llega más lejos. Comprueba con los cuentos en la chacra."
+        "tipo": "texto_corto",
+        "enunciado": "Una culebra larga y un gusano pequeño. ¿Cuál es más corto: la culebra o el gusano?",
+        "respuesta": "el gusano",
+        "alternativasAceptadas": [
+          "gusano",
+          "el gusano pequeño"
         ],
-        "retroalimentacion": "La cinta B es más larga porque 8 es mayor que 5. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "miden igual"
-          },
-          {
-            "id": "b",
-            "texto": "cinta B"
-          },
-          {
-            "id": "c",
-            "texto": "cinta A"
-          }
-        ]
+        "pistas": [
+          "Piensa cuál animal se extiende menos.",
+          "El gusano es pequeño y la culebra se estira mucho.",
+          "Más corto es el que se extiende menos."
+        ],
+        "retroalimentacion": "El gusano es más corto, porque se extiende menos que la culebra."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la biblioteca comparas lápices. Dos cintas parten de la misma marca: A mide 6 clips y B mide 7 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "En la mesa hay 4 objetos: una soga, un lápiz, una regla y una llave. La soga es la más larga. ¿Cuántos objetos son más cortos que la soga? Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los lápices en la biblioteca.",
-          "A mide 6 clips; B, 7. Usa los datos de lápices en la biblioteca.",
-          "La cinta B llega más lejos. Comprueba con los lápices en la biblioteca."
+          "Cuenta los 4 objetos de la mesa.",
+          "La soga no se cuenta porque es la más larga.",
+          "De 4 objetos quita 1."
         ],
-        "retroalimentacion": "La cinta B es más larga porque 7 es mayor que 6. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cinta B"
-          },
-          {
-            "id": "b",
-            "texto": "cinta A"
-          },
-          {
-            "id": "c",
-            "texto": "miden igual"
-          }
-        ]
+        "retroalimentacion": "Son 3, porque 4 - 1 = 3: el lápiz, la regla y la llave."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mesa comparas cuyes. Dos cintas parten de la misma marca: A mide 7 clips y B mide 9 clips iguales. ¿Cuál es más larga?",
+        "enunciado": "Mira estas tiras: Tira A ●●●● , Tira B ●● , Tira C ●●●●●● . ¿Cuál es la más larga?",
         "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los cuyes en la mesa.",
-          "A mide 7 clips; B, 9. Usa los datos de cuyes en la mesa.",
-          "La cinta B llega más lejos. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "La cinta B es más larga porque 9 es mayor que 7. Alinea los inicios antes de comparar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cinta A"
+            "texto": "Tira A"
           },
           {
             "id": "b",
-            "texto": "miden igual"
+            "texto": "Tira B"
           },
           {
             "id": "c",
-            "texto": "cinta B"
+            "texto": "Tira C"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los ● de cada tira.",
+          "Las tiras tienen 4, 2 y 6 ●.",
+          "El número más grande es el de la tira más larga."
+        ],
+        "retroalimentacion": "La Tira C tiene 6 ●, más que la Tira A (4) y la Tira B (2)."
       },
       {
         "id": "e06",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la feria comparas mangos. Dos cintas parten de la misma marca: A mide 8 clips y B mide 11 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el palo A es más corto que el palo B, entonces el palo A es el más largo.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los semillas en la feria.",
-          "A mide 8 clips; B, 11. Usa los datos de semillas en la feria.",
-          "La cinta B llega más lejos. Comprueba con los semillas en la feria."
+          "Lee con calma: el palo A es más corto.",
+          "Más corto y más largo son opuestos.",
+          "El que es más corto no puede ser el más largo."
         ],
-        "retroalimentacion": "La cinta B es más larga porque 11 es mayor que 8. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "miden igual"
-          },
-          {
-            "id": "b",
-            "texto": "cinta B"
-          },
-          {
-            "id": "c",
-            "texto": "cinta A"
-          }
-        ]
+        "retroalimentacion": "Falso: si A es más corto, el más largo es el palo B."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el jardín comparas caramelos. Dos cintas parten de la misma marca: A mide 9 clips y B mide 10 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "Pedro ordena 5 lápices del más corto al más largo. ¿En qué lugar queda el más largo? Escribe solo el número.",
+        "respuesta": 5,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los caramelos en el jardín.",
-          "A mide 9 clips; B, 10. Usa los datos de caramelos en el jardín.",
-          "La cinta B llega más lejos. Comprueba con los caramelos en el jardín."
+          "El orden empieza por el más corto.",
+          "El más largo queda al final de la fila.",
+          "Cuenta los 5 lugares: 1, 2, 3, 4, ..."
         ],
-        "retroalimentacion": "La cinta B es más larga porque 10 es mayor que 9. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cinta B"
-          },
-          {
-            "id": "b",
-            "texto": "cinta A"
-          },
-          {
-            "id": "c",
-            "texto": "miden igual"
-          }
-        ]
+        "retroalimentacion": "El más largo queda en el lugar 5, el último."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la cocina comparas vasos. Dos cintas parten de la misma marca: A mide 10 clips y B mide 12 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los piedritas en la cocina.",
-          "A mide 10 clips; B, 12. Usa los datos de piedritas en la cocina.",
-          "La cinta B llega más lejos. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "La cinta B es más larga porque 12 es mayor que 10. Alinea los inicios antes de comparar.",
+        "enunciado": "Pedro dice: «Mi bufanda es más larga que mi lápiz». ¿Cuál frase dice lo mismo?",
+        "respuesta": "b",
         "opciones": [
           {
             "id": "a",
-            "texto": "cinta A"
+            "texto": "Mi lápiz es más largo que mi bufanda"
           },
           {
             "id": "b",
-            "texto": "miden igual"
+            "texto": "Mi lápiz es más corto que mi bufanda"
           },
           {
             "id": "c",
-            "texto": "cinta B"
+            "texto": "Mi lápiz y mi bufanda miden igual"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La bufanda es la más larga.",
+          "Entonces el lápiz es el otro objeto.",
+          "Si uno es más largo, el otro es más corto."
+        ],
+        "retroalimentacion": "Si la bufanda es más larga, el lápiz es más corto que la bufanda. Las otras frases dicen otra cosa."
       },
       {
         "id": "e09",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la mochila comparas libros. Dos cintas parten de la misma marca: A mide 4 clips y B mide 8 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "Tres tiras: la roja tiene 5 cuadritos, la azul tiene 8 cuadritos y la verde tiene 6 cuadritos. ¿Cuántos cuadritos tiene la tira más larga? Escribe solo el número.",
+        "respuesta": 8,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los flores en la mochila.",
-          "A mide 4 clips; B, 8. Usa los datos de flores en la mochila.",
-          "La cinta B llega más lejos. Comprueba con los flores en la mochila."
+          "Compara los tres números, no solo dos.",
+          "Los números son 5, 8 y 6.",
+          "La más larga tiene el número mayor."
         ],
-        "retroalimentacion": "La cinta B es más larga porque 8 es mayor que 4. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "miden igual"
-          },
-          {
-            "id": "b",
-            "texto": "cinta B"
-          },
-          {
-            "id": "c",
-            "texto": "cinta A"
-          }
-        ]
+        "retroalimentacion": "La más larga es la azul, con 8 cuadritos."
       },
       {
         "id": "e10",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el mercado comparas tomates. Dos cintas parten de la misma marca: A mide 6 clips y B mide 8 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los tizas en el mercado.",
-          "A mide 6 clips; B, 8. Usa los datos de tizas en el mercado.",
-          "La cinta B llega más lejos. Comprueba con los tizas en el mercado."
+        "tipo": "texto_corto",
+        "enunciado": "El camino A es más largo que el camino B. El camino B es más largo que el camino C. ¿Cuál es el más corto? Escribe A, B o C.",
+        "respuesta": "C",
+        "alternativasAceptadas": [
+          "camino c",
+          "el camino c",
+          "el c"
         ],
-        "retroalimentacion": "La cinta B es más larga porque 8 es mayor que 6. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cinta B"
-          },
-          {
-            "id": "b",
-            "texto": "cinta A"
-          },
-          {
-            "id": "c",
-            "texto": "miden igual"
-          }
-        ]
+        "pistas": [
+          "Ordena los caminos del más largo al más corto.",
+          "A es mayor que B, y B es mayor que C.",
+          "El último de la fila es el más corto."
+        ],
+        "retroalimentacion": "El más corto es C: A es el más largo, B está en medio y C es el más corto."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la canasta comparas plátanos. Dos cintas parten de la misma marca: A mide 8 clips y B mide 9 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los pelotas en la canasta.",
-          "A mide 8 clips; B, 9. Usa los datos de pelotas en la canasta.",
-          "La cinta B llega más lejos. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "La cinta B es más larga porque 9 es mayor que 8. Alinea los inicios antes de comparar.",
+        "enunciado": "Ana dice: «La soga es más larga que la cuerda». Luis dice: «La cuerda es más larga que el hilo». ¿Qué objeto es el más corto?",
+        "respuesta": "a",
         "opciones": [
           {
             "id": "a",
-            "texto": "cinta A"
+            "texto": "El hilo"
           },
           {
             "id": "b",
-            "texto": "miden igual"
+            "texto": "La soga"
           },
           {
             "id": "c",
-            "texto": "cinta B"
+            "texto": "La cuerda"
+          },
+          {
+            "id": "d",
+            "texto": "No se sabe"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ordena los tres objetos con lo que dicen Ana y Luis.",
+          "Soga mayor que cuerda; cuerda mayor que hilo.",
+          "El que está al final de la lista es el más corto."
+        ],
+        "retroalimentacion": "El hilo es el más corto: la soga es más larga que la cuerda y la cuerda más larga que el hilo."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la escuela comparas sombreros. Dos cintas parten de la misma marca: A mide 5 clips y B mide 8 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "Un lápiz puede ser largo al lado de un clip y corto al lado de un bastón.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los mandarinas en la escuela.",
-          "A mide 5 clips; B, 8. Usa los datos de mandarinas en la escuela.",
-          "La cinta B llega más lejos. Comprueba con los mandarinas en la escuela."
+          "Compara el lápiz primero con el clip y luego con el bastón.",
+          "Un clip es pequeño y un bastón es grande.",
+          "Cambia la comparación y cambia la respuesta."
         ],
-        "retroalimentacion": "La cinta B es más larga porque 8 es mayor que 5. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "miden igual"
-          },
-          {
-            "id": "b",
-            "texto": "cinta B"
-          },
-          {
-            "id": "c",
-            "texto": "cinta A"
-          }
-        ]
+        "retroalimentacion": "Verdadero: largo y corto dependen del objeto con que se compara."
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p1.alto-bajo",
@@ -424,390 +332,294 @@
     "descripcionCorta": "Compara la altura de personas y objetos y dice quién es más alto o más bajo.",
     "palabrasClave": [
       "alto",
-      "bajo"
+      "bajo",
+      "altura",
+      "comparar",
+      "más alto"
     ],
     "prerrequisitos": [
       "mat.p1.largo-corto"
     ],
     "ordenSugerido": 54,
-    "ideaCentral": "Compara la altura de personas y objetos y dice quién es más alto o más bajo.",
+    "ideaCentral": "Para comparar la altura, pones las cosas una al lado de la otra y miras cuál llega más arriba. La que llega más arriba es más alta y la otra es más baja.",
     "pasos": [
-      "Coloca los objetos desde el mismo punto de partida.",
-      "Observa cuál llega más lejos o más alto.",
-      "Nombra el más largo, corto, alto o bajo según la pregunta."
+      "Pon las dos cosas paradas sobre el mismo piso.",
+      "Mira hasta dónde llega la parte de arriba de cada una.",
+      "La que llega más arriba es más alta.",
+      "La que llega menos arriba es más baja."
     ],
     "ejemplos": [
       {
-        "situacion": "Una torre A tiene 3 cubos iguales y otra B tiene 4 cubos. ¿Cuál es más alta?",
-        "desarrollo": "Las dos torres usan cubos iguales. Mira los tapitas en el aula. A tiene 3 cubos y B 4. Usa los datos de tapitas en el aula.",
-        "respuesta": "torre B"
+        "situacion": "Luis y su hermana Ana están parados en el patio. Luis llega más arriba que Ana. ¿Quién es más alto?",
+        "desarrollo": "Los dos están en el mismo piso. Luis llega más arriba.",
+        "respuesta": "Luis es más alto y Ana es más baja."
       },
       {
-        "situacion": "Una torre A tiene 4 cubos iguales y otra B tiene 6 cubos. ¿Cuál es más alta?",
-        "desarrollo": "Las dos torres usan cubos iguales. Mira los choclos en el patio. A tiene 4 cubos y B 6. Usa los datos de choclos en el patio.",
-        "respuesta": "torre B"
+        "situacion": "En una chacra de Cusco hay un molle y un palto. El palto llega más arriba que el molle. ¿Cuál es más bajo?",
+        "desarrollo": "El árbol que llega menos arriba es el molle.",
+        "respuesta": "El molle es más bajo."
+      },
+      {
+        "situacion": "Una torre de 5 cubos y otra de 3 cubos. ¿Cuál es más alta?",
+        "desarrollo": "5 cubos llegan más arriba que 3 cubos.",
+        "respuesta": "La torre de 5 cubos es más alta."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Comparar objetos que no empiezan en la misma marca.",
-        "correccion": "Coloca los objetos desde el mismo punto de partida. Observa cuál llega más lejos o más alto."
+        "error": "Comparar cosas que no están en el mismo piso.",
+        "correccion": "Para comparar bien, ponlas sobre el mismo piso."
       },
       {
-        "error": "Olvidar la unidad o dejar espacios al medir.",
-        "correccion": "Nombra el más largo, corto, alto o bajo según la pregunta. Revisa cada unidad usada."
+        "error": "Decir que es más alto el que está parado más cerca.",
+        "correccion": "Mira hasta dónde llega la cabeza o la punta, no qué tan cerca está."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Longitud",
-        "significado": "Medida de qué tan largo es un objeto."
+        "termino": "Alto",
+        "significado": "Que llega más arriba."
       },
       {
-        "termino": "Unidad",
-        "significado": "Objeto o parte del cuerpo que usas para medir."
+        "termino": "Bajo",
+        "significado": "Que llega menos arriba."
       },
       {
-        "termino": "Alinear",
-        "significado": "Poner los objetos desde la misma marca de inicio."
+        "termino": "Altura",
+        "significado": "Qué tan arriba llega algo."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el aula comparas dados. Una torre A tiene 3 cubos iguales y otra B tiene 4 cubos. ¿Cuál es más alta?",
-        "respuesta": "a",
+        "enunciado": "Luis es más alto que Ana. ¿Quién es más bajo?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Las dos torres usan cubos iguales. Mira los tapitas en el aula.",
-          "A tiene 3 cubos y B 4. Usa los datos de tapitas en el aula.",
-          "La torre B alcanza más altura. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "La torre B es más alta: 4 cubos superan a 3.",
         "opciones": [
           {
             "id": "a",
-            "texto": "torre B"
+            "texto": "Luis"
           },
           {
             "id": "b",
-            "texto": "torre A"
+            "texto": "Ana"
           },
           {
             "id": "c",
-            "texto": "son igual de altas"
+            "texto": "Los dos son iguales"
           }
-        ]
+        ],
+        "pistas": [
+          "El texto dice que Luis es más alto.",
+          "Si uno es más alto, el otro es más bajo.",
+          "Entre Luis y Ana, el otro es Ana."
+        ],
+        "retroalimentacion": "Ana es más baja, porque Luis es el más alto de los dos.",
+        "id": "e01"
       },
       {
-        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un edificio de cinco pisos es más alto que una casita de un piso.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cuántos pisos tiene cada uno.",
+          "Cinco pisos suben más que un piso.",
+          "Mientras más pisos, más alto llega."
+        ],
+        "retroalimentacion": "Es verdadero: el edificio de cinco pisos llega más arriba que la casita de un piso.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El perro es más bajo que el niño. ¿Quién es más alto? Escribe una palabra.",
+        "respuesta": "niño",
+        "alternativasAceptadas": [
+          "el niño",
+          "nino",
+          "el nino"
+        ],
+        "pistas": [
+          "Si el perro es más bajo, el otro es más alto.",
+          "En el texto solo hay dos: el perro y el niño.",
+          "El que no es más bajo es el ni...."
+        ],
+        "retroalimentacion": "El niño es más alto, porque el perro es más bajo que él.",
+        "id": "e03"
+      },
+      {
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el patio comparas choclos. Una torre A tiene 4 cubos iguales y otra B tiene 6 cubos. ¿Cuál es más alta?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Las dos torres usan cubos iguales. Mira los choclos en el patio.",
-          "A tiene 4 cubos y B 6. Usa los datos de choclos en el patio.",
-          "La torre B alcanza más altura. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "La torre B es más alta: 6 cubos superan a 4.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "torre A"
-          },
-          {
-            "id": "b",
-            "texto": "son igual de altas"
-          },
-          {
-            "id": "c",
-            "texto": "torre B"
-          }
-        ]
-      },
-      {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la chacra comparas cuentos. Una torre A tiene 5 cubos iguales y otra B tiene 8 cubos. ¿Cuál es más alta?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Las dos torres usan cubos iguales. Mira los cuentos en la chacra.",
-          "A tiene 5 cubos y B 8. Usa los datos de cuentos en la chacra.",
-          "La torre B alcanza más altura. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "La torre B es más alta: 8 cubos superan a 5.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "son igual de altas"
-          },
-          {
-            "id": "b",
-            "texto": "torre B"
-          },
-          {
-            "id": "c",
-            "texto": "torre A"
-          }
-        ]
-      },
-      {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la biblioteca comparas lápices. Una torre A tiene 6 cubos iguales y otra B tiene 7 cubos. ¿Cuál es más alta?",
+        "enunciado": "¿Qué es más alto?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Las dos torres usan cubos iguales. Mira los lápices en la biblioteca.",
-          "A tiene 6 cubos y B 7. Usa los datos de lápices en la biblioteca.",
-          "La torre B alcanza más altura. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "La torre B es más alta: 7 cubos superan a 6.",
         "opciones": [
           {
             "id": "a",
-            "texto": "torre B"
+            "texto": "La mesa"
           },
           {
             "id": "b",
-            "texto": "torre A"
+            "texto": "El lápiz"
           },
           {
             "id": "c",
-            "texto": "son igual de altas"
+            "texto": "Son iguales"
           }
-        ]
+        ],
+        "pistas": [
+          "Imagina el lápiz parado junto a la mesa.",
+          "El lápiz es pequeño.",
+          "La mesa llega más arriba."
+        ],
+        "retroalimentacion": "La mesa llega más arriba que un lápiz, entonces es más alta.",
+        "id": "e04"
       },
       {
-        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la fila, Pedro es el más bajo, Rosa está en medio y Tito es el más alto. ¿Cuántos niños son más altos que Pedro? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pedro es el más bajo de los tres.",
+          "Rosa y Tito son distintos de Pedro.",
+          "Cuenta a Rosa y a Tito."
+        ],
+        "retroalimentacion": "Rosa y Tito son más altos que Pedro: son 2 niños.",
+        "id": "e05"
+      },
+      {
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mesa comparas cuyes. Una torre A tiene 7 cubos iguales y otra B tiene 9 cubos. ¿Cuál es más alta?",
+        "enunciado": "El eucalipto es más alto que el molle, y el molle es más alto que el palto. ¿Cuál árbol es el más bajo?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Las dos torres usan cubos iguales. Mira los cuyes en la mesa.",
-          "A tiene 7 cubos y B 9. Usa los datos de cuyes en la mesa.",
-          "La torre B alcanza más altura. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "La torre B es más alta: 9 cubos superan a 7.",
         "opciones": [
           {
             "id": "a",
-            "texto": "torre A"
+            "texto": "Eucalipto"
           },
           {
             "id": "b",
-            "texto": "son igual de altas"
+            "texto": "Molle"
           },
           {
             "id": "c",
-            "texto": "torre B"
+            "texto": "Palto"
           }
-        ]
+        ],
+        "pistas": [
+          "Ordena los árboles del más alto al más bajo.",
+          "Primero el eucalipto, luego el molle.",
+          "El último de la lista es el más bajo."
+        ],
+        "retroalimentacion": "El palto es el más bajo: está después del eucalipto y del molle.",
+        "id": "e06"
       },
       {
-        "id": "e06",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la feria comparas mangos. Una torre A tiene 8 cubos iguales y otra B tiene 11 cubos. ¿Cuál es más alta?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "Ana es más alta que Beto y Beto es más alto que Carla. Entonces Carla es más alta que Ana.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Las dos torres usan cubos iguales. Mira los semillas en la feria.",
-          "A tiene 8 cubos y B 11. Usa los datos de semillas en la feria.",
-          "La torre B alcanza más altura. Comprueba con los semillas en la feria."
+          "Ordena a los tres niños: Ana, Beto y Carla.",
+          "Ana está arriba de Beto y Beto está arriba de Carla.",
+          "Carla es la última, la más baja."
         ],
-        "retroalimentacion": "La torre B es más alta: 11 cubos superan a 8.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "son igual de altas"
-          },
-          {
-            "id": "b",
-            "texto": "torre B"
-          },
-          {
-            "id": "c",
-            "texto": "torre A"
-          }
-        ]
+        "retroalimentacion": "Es falso: Ana es la más alta y Carla es la más baja.",
+        "id": "e07"
       },
       {
-        "id": "e07",
         "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Tres vasos tienen estas alturas: A ■■■■, B ■■■■■■■, C ■■■■■. ¿Cuál vaso es el más alto? Escribe A, B o C.",
+        "respuesta": "B",
+        "alternativasAceptadas": [
+          "el b",
+          "vaso b"
+        ],
+        "pistas": [
+          "Cuenta los ■ de cada vaso.",
+          "A tiene 4, B tiene 7 y C tiene 5.",
+          "El que tiene más ■ llega más arriba."
+        ],
+        "retroalimentacion": "El vaso B tiene 7 ■, más que A (4) y C (5), así que es el más alto.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Ana hizo una torre de 4 cubos y Luis hizo una de 7 cubos. ¿Cuántos cubos más alta es la torre de Luis? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira las dos torres: 4 y 7.",
+          "La torre de Luis es la más alta.",
+          "Resta para saber cuánto más: 7 - 4."
+        ],
+        "retroalimentacion": "7 - 4 = 3: la torre de Luis es 3 cubos más alta.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En el jardín comparas caramelos. Una torre A tiene 9 cubos iguales y otra B tiene 10 cubos. ¿Cuál es más alta?",
+        "enunciado": "Las torres miden: Rosa 5 cubos, Pedro 8 cubos, Marta 6 cubos. ¿Cuál es el orden de la más alta a la más baja?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Las dos torres usan cubos iguales. Mira los caramelos en el jardín.",
-          "A tiene 9 cubos y B 10. Usa los datos de caramelos en el jardín.",
-          "La torre B alcanza más altura. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "La torre B es más alta: 10 cubos superan a 9.",
         "opciones": [
           {
             "id": "a",
-            "texto": "torre B"
+            "texto": "Pedro, Marta, Rosa"
           },
           {
             "id": "b",
-            "texto": "torre A"
+            "texto": "Marta, Rosa, Pedro"
           },
           {
             "id": "c",
-            "texto": "son igual de altas"
+            "texto": "Rosa, Marta, Pedro"
           }
-        ]
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la cocina comparas vasos. Una torre A tiene 10 cubos iguales y otra B tiene 12 cubos. ¿Cuál es más alta?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Las dos torres usan cubos iguales. Mira los piedritas en la cocina.",
-          "A tiene 10 cubos y B 12. Usa los datos de piedritas en la cocina.",
-          "La torre B alcanza más altura. Comprueba con los piedritas en la cocina."
         ],
-        "retroalimentacion": "La torre B es más alta: 12 cubos superan a 10.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "torre A"
-          },
-          {
-            "id": "b",
-            "texto": "son igual de altas"
-          },
-          {
-            "id": "c",
-            "texto": "torre B"
-          }
-        ]
+        "pistas": [
+          "Cuenta los cubos de cada torre.",
+          "Pedro tiene 8, Marta 6 y Rosa 5.",
+          "Ordena de mayor a menor: 8, 6, 5."
+        ],
+        "retroalimentacion": "De la más alta a la más baja: Pedro (8), Marta (6) y Rosa (5).",
+        "id": "e10"
       },
       {
-        "id": "e09",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la mochila comparas libros. Una torre A tiene 4 cubos iguales y otra B tiene 8 cubos. ¿Cuál es más alta?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "Beto hizo una torre de 6 cubos. La torre de Ana es 2 cubos más alta que la de Beto. La torre de Carla es 1 cubo más baja que la de Ana. ¿Cuántos cubos tiene la torre de Carla? Escribe solo el número.",
+        "respuesta": 7,
         "alternativasAceptadas": [],
         "pistas": [
-          "Las dos torres usan cubos iguales. Mira los flores en la mochila.",
-          "A tiene 4 cubos y B 8. Usa los datos de flores en la mochila.",
-          "La torre B alcanza más altura. Comprueba con los flores en la mochila."
+          "Primero calcula la torre de Ana: 6 más 2.",
+          "Ana tiene 8 cubos.",
+          "Carla tiene 1 cubo menos que Ana."
         ],
-        "retroalimentacion": "La torre B es más alta: 8 cubos superan a 4.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "son igual de altas"
-          },
-          {
-            "id": "b",
-            "texto": "torre B"
-          },
-          {
-            "id": "c",
-            "texto": "torre A"
-          }
-        ]
+        "retroalimentacion": "Ana tiene 6 + 2 = 8 cubos. Carla tiene 1 menos: 8 - 1 = 7 cubos.",
+        "id": "e11"
       },
       {
-        "id": "e10",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el mercado comparas tomates. Una torre A tiene 6 cubos iguales y otra B tiene 8 cubos. ¿Cuál es más alta?",
-        "respuesta": "a",
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos torres de 6 cubos, puestas sobre la misma mesa, son una más alta que la otra.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Las dos torres usan cubos iguales. Mira los tizas en el mercado.",
-          "A tiene 6 cubos y B 8. Usa los datos de tizas en el mercado.",
-          "La torre B alcanza más altura. Comprueba con los tizas en el mercado."
+          "Cuenta los cubos de cada torre: los dos son 6.",
+          "Están sobre la misma mesa, así que parten del mismo lugar.",
+          "Si llegan igual de arriba, ninguna es más alta."
         ],
-        "retroalimentacion": "La torre B es más alta: 8 cubos superan a 6.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "torre B"
-          },
-          {
-            "id": "b",
-            "texto": "torre A"
-          },
-          {
-            "id": "c",
-            "texto": "son igual de altas"
-          }
-        ]
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la canasta comparas plátanos. Una torre A tiene 8 cubos iguales y otra B tiene 9 cubos. ¿Cuál es más alta?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Las dos torres usan cubos iguales. Mira los pelotas en la canasta.",
-          "A tiene 8 cubos y B 9. Usa los datos de pelotas en la canasta.",
-          "La torre B alcanza más altura. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "La torre B es más alta: 9 cubos superan a 8.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "torre A"
-          },
-          {
-            "id": "b",
-            "texto": "son igual de altas"
-          },
-          {
-            "id": "c",
-            "texto": "torre B"
-          }
-        ]
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la escuela comparas sombreros. Una torre A tiene 5 cubos iguales y otra B tiene 8 cubos. ¿Cuál es más alta?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Las dos torres usan cubos iguales. Mira los mandarinas en la escuela.",
-          "A tiene 5 cubos y B 8. Usa los datos de mandarinas en la escuela.",
-          "La torre B alcanza más altura. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "La torre B es más alta: 8 cubos superan a 5.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "son igual de altas"
-          },
-          {
-            "id": "b",
-            "texto": "torre B"
-          },
-          {
-            "id": "c",
-            "texto": "torre A"
-          }
-        ]
+        "retroalimentacion": "Es falso: las dos tienen 6 cubos y llegan igual de arriba, son igual de altas.",
+        "id": "e12"
       }
     ],
     "fuentes": [
@@ -836,402 +648,311 @@
     "descripcionCorta": "Compara directamente dos objetos alineándolos desde el mismo punto de partida.",
     "palabrasClave": [
       "comparar",
-      "longitud",
-      "dos",
-      "objetos"
+      "alinear",
+      "línea de partida",
+      "más largo",
+      "más corto"
     ],
     "prerrequisitos": [
       "mat.p1.alto-bajo"
     ],
     "ordenSugerido": 88,
-    "ideaCentral": "Compara directamente dos objetos alineándolos desde el mismo punto de partida.",
+    "ideaCentral": "Para comparar dos objetos, pon un extremo de cada uno en la misma línea de partida. Luego mira cuál llega más lejos: ese es el más largo.",
     "pasos": [
-      "Coloca los objetos desde el mismo punto de partida.",
-      "Observa cuál llega más lejos o más alto.",
-      "Nombra el más largo, corto, alto o bajo según la pregunta."
+      "Elige los dos objetos que vas a comparar.",
+      "Pon un extremo de los dos en la misma línea.",
+      "Mira dónde termina cada uno.",
+      "El que llega más lejos es más largo."
     ],
     "ejemplos": [
       {
-        "situacion": "Dos cintas parten de la misma marca: A mide 3 clips y B mide 4 clips iguales. ¿Cuál es más larga?",
-        "desarrollo": "Ambas cintas empiezan en la misma marca. Mira los tapitas en el aula. A mide 3 clips; B, 4. Usa los datos de tapitas en el aula.",
-        "respuesta": "cinta B"
+        "situacion": "Ana compara dos lápices. Los pone con la punta izquierda en la misma línea. El rojo llega más lejos. ¿Cuál es más largo?",
+        "desarrollo": "Los dos empiezan igual, así que se puede comparar. El rojo llega más lejos.",
+        "respuesta": "El lápiz rojo es más largo."
       },
       {
-        "situacion": "Dos cintas parten de la misma marca: A mide 4 clips y B mide 6 clips iguales. ¿Cuál es más larga?",
-        "desarrollo": "Ambas cintas empiezan en la misma marca. Mira los choclos en el patio. A mide 4 clips; B, 6. Usa los datos de choclos en el patio.",
-        "respuesta": "cinta B"
+        "situacion": "Tito compara una cinta y una soga desde el borde de la mesa. La cinta termina antes. ¿Cuál es más corta?",
+        "desarrollo": "Los dos salen del borde. La cinta no llega tan lejos.",
+        "respuesta": "La cinta es más corta."
+      },
+      {
+        "situacion": "Luisa mide dos palos desde la raya del patio. Uno llega a 6 pasos y el otro a 8 pasos. ¿Cuál es más largo?",
+        "desarrollo": "Los dos parten de la raya. 8 es mayor que 6.",
+        "respuesta": "El palo de 8 pasos es más largo."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Comparar objetos que no empiezan en la misma marca.",
-        "correccion": "Coloca los objetos desde el mismo punto de partida. Observa cuál llega más lejos o más alto."
+        "error": "Empezar un objeto más adelante que el otro.",
+        "correccion": "Los dos deben salir de la misma línea para comparar bien."
       },
       {
-        "error": "Olvidar la unidad o dejar espacios al medir.",
-        "correccion": "Nombra el más largo, corto, alto o bajo según la pregunta. Revisa cada unidad usada."
+        "error": "Mirar solo dónde termina sin mirar dónde empieza.",
+        "correccion": "Mira siempre el comienzo y el final de cada objeto."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Longitud",
-        "significado": "Medida de qué tan largo es un objeto."
-      },
-      {
-        "termino": "Unidad",
-        "significado": "Objeto o parte del cuerpo que usas para medir."
+        "termino": "Línea de partida",
+        "significado": "Línea desde donde empiezan los dos objetos."
       },
       {
         "termino": "Alinear",
-        "significado": "Poner los objetos desde la misma marca de inicio."
+        "significado": "Poner los objetos con el mismo comienzo."
+      },
+      {
+        "termino": "Más largo",
+        "significado": "El que llega más lejos."
       }
     ],
     "ejercicios": [
       {
         "id": "e01",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el aula comparas dados. Dos cintas parten de la misma marca: A mide 3 clips y B mide 4 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "a",
+        "tipo": "verdadero_falso",
+        "enunciado": "Para comparar dos lápices debes poner un extremo de cada uno en la misma línea de partida.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los tapitas en el aula.",
-          "A mide 3 clips; B, 4. Usa los datos de tapitas en el aula.",
-          "La cinta B llega más lejos. Comprueba con los tapitas en el aula."
+          "Piensa en una carrera: todos salen de la misma raya.",
+          "Con lápices pasa igual.",
+          "Si empiezan en distinto lugar, no es justo comparar."
         ],
-        "retroalimentacion": "La cinta B es más larga porque 4 es mayor que 3. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cinta B"
-          },
-          {
-            "id": "b",
-            "texto": "cinta A"
-          },
-          {
-            "id": "c",
-            "texto": "miden igual"
-          }
-        ]
+        "retroalimentacion": "Verdadero: se alinea el comienzo de los dos lápices."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el patio comparas choclos. Dos cintas parten de la misma marca: A mide 4 clips y B mide 6 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los choclos en el patio.",
-          "A mide 4 clips; B, 6. Usa los datos de choclos en el patio.",
-          "La cinta B llega más lejos. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "La cinta B es más larga porque 6 es mayor que 4. Alinea los inicios antes de comparar.",
+        "enunciado": "Quieres comparar dos cintas. ¿Qué haces primero?",
+        "respuesta": "a",
         "opciones": [
           {
             "id": "a",
-            "texto": "cinta A"
+            "texto": "Pongo sus puntas de salida en la misma línea"
           },
           {
             "id": "b",
-            "texto": "miden igual"
+            "texto": "Pongo una cinta más adelante que la otra"
           },
           {
             "id": "c",
-            "texto": "cinta B"
+            "texto": "Las doblo para que se vean iguales"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda cómo empiezan los corredores.",
+          "Las dos cintas deben empezar juntas.",
+          "Doblar o adelantar una cinta cambia la comparación."
+        ],
+        "retroalimentacion": "Primero pones las puntas de salida en la misma línea. Si adelantas o doblas una cinta, ya no comparas bien."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la chacra comparas cuentos. Dos cintas parten de la misma marca: A mide 5 clips y B mide 8 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los cuentos en la chacra.",
-          "A mide 5 clips; B, 8. Usa los datos de cuentos en la chacra.",
-          "La cinta B llega más lejos. Comprueba con los cuentos en la chacra."
+        "tipo": "texto_corto",
+        "enunciado": "Dos palos tienen la punta izquierda en la misma línea. El palo rojo llega más lejos que el palo verde. ¿Cuál es más largo: el rojo o el verde?",
+        "respuesta": "el rojo",
+        "alternativasAceptadas": [
+          "rojo",
+          "el palo rojo"
         ],
-        "retroalimentacion": "La cinta B es más larga porque 8 es mayor que 5. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "miden igual"
-          },
-          {
-            "id": "b",
-            "texto": "cinta B"
-          },
-          {
-            "id": "c",
-            "texto": "cinta A"
-          }
-        ]
+        "pistas": [
+          "Mira hasta dónde llega cada palo.",
+          "Los dos empezaron en el mismo lugar.",
+          "Más largo es el que llega más lejos."
+        ],
+        "retroalimentacion": "El palo rojo es más largo porque llega más lejos."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la biblioteca comparas lápices. Dos cintas parten de la misma marca: A mide 6 clips y B mide 7 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "Alineas dos tiras. La A tiene 4 cuadritos y la B tiene 6 cuadritos. ¿Cuántos cuadritos más tiene la tira B? Escribe solo el número.",
+        "respuesta": 2,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los lápices en la biblioteca.",
-          "A mide 6 clips; B, 7. Usa los datos de lápices en la biblioteca.",
-          "La cinta B llega más lejos. Comprueba con los lápices en la biblioteca."
+          "Cuenta los dos tamaños: 4 y 6.",
+          "Parte desde el 4 y cuenta hasta el 6.",
+          "Cuando cuentas 5 y 6, dices dos números."
         ],
-        "retroalimentacion": "La cinta B es más larga porque 7 es mayor que 6. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cinta B"
-          },
-          {
-            "id": "b",
-            "texto": "cinta A"
-          },
-          {
-            "id": "c",
-            "texto": "miden igual"
-          }
-        ]
+        "retroalimentacion": "La tira B tiene 2 cuadritos más: 6 - 4 = 2."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mesa comparas cuyes. Dos cintas parten de la misma marca: A mide 7 clips y B mide 9 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los cuyes en la mesa.",
-          "A mide 7 clips; B, 9. Usa los datos de cuyes en la mesa.",
-          "La cinta B llega más lejos. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "La cinta B es más larga porque 9 es mayor que 7. Alinea los inicios antes de comparar.",
+        "enunciado": "Las tiras empiezan juntas en la línea |.  Tira A: |●●●●●   Tira B: |●●●●●●●. ¿Cuál es más larga?",
+        "respuesta": "b",
         "opciones": [
           {
             "id": "a",
-            "texto": "cinta A"
+            "texto": "La tira A"
           },
           {
             "id": "b",
-            "texto": "miden igual"
+            "texto": "La tira B"
           },
           {
             "id": "c",
-            "texto": "cinta B"
+            "texto": "Son iguales"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los ● después de la línea |.",
+          "Una tira tiene 5 ● y la otra tiene 7 ●.",
+          "Los dos empiezan juntos, así que gana la que tiene más."
+        ],
+        "retroalimentacion": "La tira B es más larga: tiene 7 ●. La tira A solo tiene 5 ●."
       },
       {
         "id": "e06",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la feria comparas mangos. Dos cintas parten de la misma marca: A mide 8 clips y B mide 11 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una regla empieza más adelante que otra, ya se ve que es más larga.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los semillas en la feria.",
-          "A mide 8 clips; B, 11. Usa los datos de semillas en la feria.",
-          "La cinta B llega más lejos. Comprueba con los semillas en la feria."
+          "Fíjate dónde empieza cada regla.",
+          "Una regla adelantada parece que llega más lejos solo por eso.",
+          "Sin salir juntas, la comparación no vale."
         ],
-        "retroalimentacion": "La cinta B es más larga porque 11 es mayor que 8. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "miden igual"
-          },
-          {
-            "id": "b",
-            "texto": "cinta B"
-          },
-          {
-            "id": "c",
-            "texto": "cinta A"
-          }
-        ]
+        "retroalimentacion": "Falso: primero hay que alinear las dos reglas desde la misma línea."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el jardín comparas caramelos. Dos cintas parten de la misma marca: A mide 9 clips y B mide 10 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los caramelos en el jardín.",
-          "A mide 9 clips; B, 10. Usa los datos de caramelos en el jardín.",
-          "La cinta B llega más lejos. Comprueba con los caramelos en el jardín."
+        "tipo": "texto_corto",
+        "enunciado": "Pablo mide desde el borde de la mesa. El lápiz llega hasta la marca 9 y el pincel hasta la marca 7. ¿Cuál es más corto?",
+        "respuesta": "el pincel",
+        "alternativasAceptadas": [
+          "pincel",
+          "el pincel es mas corto"
         ],
-        "retroalimentacion": "La cinta B es más larga porque 10 es mayor que 9. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cinta B"
-          },
-          {
-            "id": "b",
-            "texto": "cinta A"
-          },
-          {
-            "id": "c",
-            "texto": "miden igual"
-          }
-        ]
+        "pistas": [
+          "Los dos empiezan en el borde de la mesa.",
+          "Mira cuál tiene el número más pequeño: 9 o 7.",
+          "El número menor indica el objeto que llega menos lejos."
+        ],
+        "retroalimentacion": "El pincel es más corto, porque llega a 7 y el lápiz llega a 9."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la cocina comparas vasos. Dos cintas parten de la misma marca: A mide 10 clips y B mide 12 clips iguales. ¿Cuál es más larga?",
+        "enunciado": "La cinta de Luisa empieza en la marca 0 y la del hermano empieza en la marca 2. Las dos terminan en la marca 8. ¿Qué cinta es más larga?",
         "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los piedritas en la cocina.",
-          "A mide 10 clips; B, 12. Usa los datos de piedritas en la cocina.",
-          "La cinta B llega más lejos. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "La cinta B es más larga porque 12 es mayor que 10. Alinea los inicios antes de comparar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cinta A"
+            "texto": "La del hermano"
           },
           {
             "id": "b",
-            "texto": "miden igual"
+            "texto": "Son iguales"
           },
           {
             "id": "c",
-            "texto": "cinta B"
+            "texto": "La de Luisa"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira dónde empieza cada cinta, no solo dónde termina.",
+          "Luisa empieza en 0 y su hermano en 2.",
+          "Para llegar al 8, la cinta de Luisa recorre más espacio."
+        ],
+        "retroalimentacion": "La cinta de Luisa es más larga: va de 0 a 8; la del hermano va de 2 a 8."
       },
       {
         "id": "e09",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la mochila comparas libros. Dos cintas parten de la misma marca: A mide 4 clips y B mide 8 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "Ana pone su lápiz desde la marca 0 hasta la marca 8. Tomás pone su lápiz desde la marca 3 hasta la marca 9. ¿Cuántas marcas mide el lápiz más largo? Escribe solo el número.",
+        "respuesta": 8,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los flores en la mochila.",
-          "A mide 4 clips; B, 8. Usa los datos de flores en la mochila.",
-          "La cinta B llega más lejos. Comprueba con los flores en la mochila."
+          "Resuelve cada lápiz por separado.",
+          "Ana: de 0 a 8. Tomás: de 3 a 9.",
+          "Cuenta cuántas marcas recorre cada uno y compara."
         ],
-        "retroalimentacion": "La cinta B es más larga porque 8 es mayor que 4. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "miden igual"
-          },
-          {
-            "id": "b",
-            "texto": "cinta B"
-          },
-          {
-            "id": "c",
-            "texto": "cinta A"
-          }
-        ]
+        "retroalimentacion": "Ana: 8 marcas. Tomás: 9 - 3 = 6 marcas. El más largo es el de Ana, con 8."
       },
       {
         "id": "e10",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el mercado comparas tomates. Dos cintas parten de la misma marca: A mide 6 clips y B mide 8 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los tizas en el mercado.",
-          "A mide 6 clips; B, 8. Usa los datos de tizas en el mercado.",
-          "La cinta B llega más lejos. Comprueba con los tizas en el mercado."
+        "tipo": "texto_corto",
+        "enunciado": "La cuerda A empieza en la marca 0 y termina en la 7. La cuerda B empieza en la marca 2 y termina en la 10. ¿Cuál es más larga? Escribe A o B.",
+        "respuesta": "B",
+        "alternativasAceptadas": [
+          "la b",
+          "cuerda b",
+          "la cuerda b"
         ],
-        "retroalimentacion": "La cinta B es más larga porque 8 es mayor que 6. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cinta B"
-          },
-          {
-            "id": "b",
-            "texto": "cinta A"
-          },
-          {
-            "id": "c",
-            "texto": "miden igual"
-          }
-        ]
+        "pistas": [
+          "Calcula cuánto mide cada cuerda.",
+          "A: de 0 a 7. B: de 2 a 10.",
+          "Cuenta desde 2 hasta 10 y compáralo con 7."
+        ],
+        "retroalimentacion": "La cuerda B es más larga: de 2 a 10 son 8 marcas, y la A mide 7."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la canasta comparas plátanos. Dos cintas parten de la misma marca: A mide 8 clips y B mide 9 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "c",
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos tiras terminan en la marca 9. La primera empieza en la marca 1 y la segunda empieza en la marca 4. La primera es más larga.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los pelotas en la canasta.",
-          "A mide 8 clips; B, 9. Usa los datos de pelotas en la canasta.",
-          "La cinta B llega más lejos. Comprueba con los pelotas en la canasta."
+          "Los dos finales son iguales; compara los comienzos.",
+          "Una empieza más atrás, en la marca 1.",
+          "Quien empieza más atrás recorre más espacio."
         ],
-        "retroalimentacion": "La cinta B es más larga porque 9 es mayor que 8. Alinea los inicios antes de comparar.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cinta A"
-          },
-          {
-            "id": "b",
-            "texto": "miden igual"
-          },
-          {
-            "id": "c",
-            "texto": "cinta B"
-          }
-        ]
+        "retroalimentacion": "Verdadero: la primera mide de 1 a 9 (8 marcas) y la segunda de 4 a 9 (5 marcas)."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la escuela comparas sombreros. Dos cintas parten de la misma marca: A mide 5 clips y B mide 8 clips iguales. ¿Cuál es más larga?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ambas cintas empiezan en la misma marca. Mira los mandarinas en la escuela.",
-          "A mide 5 clips; B, 8. Usa los datos de mandarinas en la escuela.",
-          "La cinta B llega más lejos. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "La cinta B es más larga porque 8 es mayor que 5. Alinea los inicios antes de comparar.",
+        "enunciado": "Beto dice que su palo es más largo porque llega más lejos, pero salió desde más adelante. ¿Qué debe hacer para comprobarlo?",
+        "respuesta": "d",
         "opciones": [
           {
             "id": "a",
-            "texto": "miden igual"
+            "texto": "Aceptar lo que dice Beto"
           },
           {
             "id": "b",
-            "texto": "cinta B"
+            "texto": "Medir solo el final"
           },
           {
             "id": "c",
-            "texto": "cinta A"
+            "texto": "Cambiar de palo"
+          },
+          {
+            "id": "d",
+            "texto": "Alinear los dos desde la misma línea"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cómo se hace una comparación justa.",
+          "Los dos palos deben salir juntos.",
+          "Falta poner la misma línea de partida para los dos."
+        ],
+        "retroalimentacion": "Debe alinear los dos desde la misma línea. Aceptar lo que dice o mirar solo el final no demuestra nada."
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p1.medir-con-el-cuerpo-y-objetos",
@@ -1249,57 +970,61 @@
     "descripcionCorta": "Mide la longitud de objetos con palmos, pies, pasos, clips o lápices y cuenta cuántos usó.",
     "palabrasClave": [
       "medir",
-      "con",
-      "partes",
-      "del",
-      "cuerpo",
-      "con",
-      "objetos"
+      "palmos",
+      "pasos",
+      "clips",
+      "unidad"
     ],
     "prerrequisitos": [
       "mat.p1.comparar-longitudes"
     ],
     "ordenSugerido": 112,
-    "ideaCentral": "Mide la longitud de objetos con palmos, pies, pasos, clips o lápices y cuenta cuántos usó.",
+    "ideaCentral": "Puedes medir la longitud de un objeto con tu cuerpo o con otros objetos pequeños. Pones la unidad una tras otra, las cuentas y dices cuántas usaste.",
     "pasos": [
-      "Elige palmos, pasos o un objeto como unidad.",
-      "Coloca las unidades seguidas desde el inicio.",
-      "Cuenta las unidades y nómbralas al responder."
+      "Elige qué usarás para medir: palmos, pies, pasos, clips o lápices.",
+      "Coloca la unidad una tras otra.",
+      "Cuenta cuántas veces cabe.",
+      "Di el número y el nombre, por ejemplo: 6 clips."
     ],
     "ejemplos": [
       {
-        "situacion": "En el aula mides dados. Mides una mesa poniendo 3 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "desarrollo": "Cada palmo cuenta como una unidad de longitud. Mira los tapitas en el aula. Cuenta los 3 palmos colocados de extremo a extremo. Usa los datos de tapitas en el aula.",
-        "respuesta": "3"
+        "situacion": "Marta mide su cuaderno con clips y le caben 6. ¿Cuánto mide?",
+        "desarrollo": "Cuenta los clips uno por uno.",
+        "respuesta": "Mide 6 clips."
       },
       {
-        "situacion": "En el patio mides choclos. Mides una mesa poniendo 4 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "desarrollo": "Cada palmo cuenta como una unidad de longitud. Mira los choclos en el patio. Cuenta los 4 palmos colocados de extremo a extremo. Usa los datos de choclos en el patio.",
-        "respuesta": "4"
+        "situacion": "Tito mide la mesa de la cocina con su mano abierta y le salen 9 palmos. ¿Cuánto mide la mesa?",
+        "desarrollo": "Cada palmo es una vez que apoyas tu mano.",
+        "respuesta": "Mide 9 palmos."
+      },
+      {
+        "situacion": "Rosa mide el pasillo del colegio con pasos y da 12. ¿Cuánto mide?",
+        "desarrollo": "Cuenta cada paso que da Rosa.",
+        "respuesta": "Mide 12 pasos."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Comparar objetos que no empiezan en la misma marca.",
-        "correccion": "Elige palmos, pasos o un objeto como unidad. Coloca las unidades seguidas desde el inicio."
+        "error": "Decir solo el número, como «6», sin la unidad.",
+        "correccion": "Di siempre la unidad: 6 clips, 9 palmos."
       },
       {
-        "error": "Olvidar la unidad o dejar espacios al medir.",
-        "correccion": "Cuenta las unidades y nómbralas al responder. Revisa cada unidad usada."
+        "error": "Usar objetos de tamaños distintos al medir, como un clip grande y uno chiquito.",
+        "correccion": "Usa la misma unidad todas las veces."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Longitud",
-        "significado": "Medida de qué tan largo es un objeto."
+        "termino": "Palmo",
+        "significado": "La medida de tu mano abierta."
+      },
+      {
+        "termino": "Paso",
+        "significado": "Un paso al caminar."
       },
       {
         "termino": "Unidad",
-        "significado": "Objeto o parte del cuerpo que usas para medir."
-      },
-      {
-        "termino": "Alinear",
-        "significado": "Poner los objetos desde la misma marca de inicio."
+        "significado": "Lo que usas para medir y contar, como un clip."
       }
     ],
     "ejercicios": [
@@ -1307,179 +1032,228 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En el aula mides dados. Mides una mesa poniendo 3 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 3,
+        "enunciado": "Marta mide su cuaderno con clips. Pone 6 clips uno tras otro. ¿Cuántos clips mide el cuaderno? Escribe solo el número.",
+        "respuesta": 6,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los tapitas en el aula.",
-          "Cuenta los 3 palmos colocados de extremo a extremo. Usa los datos de tapitas en el aula.",
-          "La medida es 3 palmos. Comprueba con los tapitas en el aula."
+          "Cuenta los clips que puso Marta.",
+          "Marta puso 6 clips uno tras otro.",
+          "Cada clip es una vez la unidad."
         ],
-        "retroalimentacion": "La mesa mide 3 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "retroalimentacion": "El cuaderno mide 6 clips, el número de clips puestos."
       },
       {
         "id": "e02",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En el patio mides choclos. Mides una mesa poniendo 4 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 4,
+        "tipo": "verdadero_falso",
+        "enunciado": "Puedes medir una mesa con tus palmos.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los choclos en el patio.",
-          "Cuenta los 4 palmos colocados de extremo a extremo. Usa los datos de choclos en el patio.",
-          "La medida es 4 palmos. Comprueba con los choclos en el patio."
+          "Imagina que apoyas tu mano abierta en la mesa.",
+          "Vas pasando tu mano a lo largo.",
+          "Cada vez que apoyas la mano es un palmo."
         ],
-        "retroalimentacion": "La mesa mide 4 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "retroalimentacion": "Verdadero: se mide con palmos y se cuentan."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En la chacra mides cuentos. Mides una mesa poniendo 5 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 5,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Con qué puedes medir el largo de tu cuaderno?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Con palmos de tu mano"
+          },
+          {
+            "id": "b",
+            "texto": "Con la luna"
+          },
+          {
+            "id": "c",
+            "texto": "Con un vaso lleno"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los cuentos en la chacra.",
-          "Cuenta los 5 palmos colocados de extremo a extremo. Usa los datos de cuentos en la chacra.",
-          "La medida es 5 palmos. Comprueba con los cuentos en la chacra."
+          "Elige algo que puedas poner a lo largo, una vez tras otra.",
+          "La luna y el vaso lleno no sirven para eso.",
+          "La mano abierta sí cabe y se puede contar."
         ],
-        "retroalimentacion": "La mesa mide 5 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "retroalimentacion": "Con palmos de tu mano. La luna no se puede colocar y el vaso lleno mide cuánto cabe, no el largo."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En la biblioteca mides lápices. Mides una mesa poniendo 6 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 6,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los lápices en la biblioteca.",
-          "Cuenta los 6 palmos colocados de extremo a extremo. Usa los datos de lápices en la biblioteca.",
-          "La medida es 6 palmos. Comprueba con los lápices en la biblioteca."
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué parte del cuerpo se usa para medir con palmos? Escribe una palabra.",
+        "respuesta": "mano",
+        "alternativasAceptadas": [
+          "la mano",
+          "manos",
+          "las manos"
         ],
-        "retroalimentacion": "La mesa mide 6 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "pistas": [
+          "Piensa en un palmo abierto.",
+          "Se abre y se pone sobre el objeto.",
+          "Tiene cinco dedos."
+        ],
+        "retroalimentacion": "Se usa la mano: un palmo es el largo de tu mano abierta."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la mesa mides cuyes. Mides una mesa poniendo 7 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 7,
+        "enunciado": "Juan midió el pasillo con pasos: dio 12 pasos hasta la puerta. Luego dio 3 pasos más hasta el patio. ¿Cuántos pasos dio en total? Escribe solo el número.",
+        "respuesta": 15,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los cuyes en la mesa.",
-          "Cuenta los 7 palmos colocados de extremo a extremo. Usa los datos de cuyes en la mesa.",
-          "La medida es 7 palmos. Comprueba con los cuyes en la mesa."
+          "Junta los dos tramos.",
+          "Primero 12 pasos y después 3 pasos más.",
+          "Parte de 12 y cuenta 3 más."
         ],
-        "retroalimentacion": "La mesa mide 7 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "retroalimentacion": "Dio 12 + 3 = 15 pasos."
       },
       {
         "id": "e06",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En la feria mides mangos. Mides una mesa poniendo 8 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 8,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Con qué unidad conviene medir el largo del patio del colegio?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Con clips"
+          },
+          {
+            "id": "b",
+            "texto": "Con pasos"
+          },
+          {
+            "id": "c",
+            "texto": "Con granos de quinua"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los semillas en la feria.",
-          "Cuenta los 8 palmos colocados de extremo a extremo. Usa los datos de semillas en la feria.",
-          "La medida es 8 palmos. Comprueba con los semillas en la feria."
+          "El patio es muy grande.",
+          "Una unidad muy pequeña necesitaría contar muchísimo.",
+          "Los pasos son grandes y fáciles de contar."
         ],
-        "retroalimentacion": "La mesa mide 8 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "retroalimentacion": "Con pasos: el patio es grande. Con clips o granos de quinua tendrías que contar demasiado."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En el jardín mides caramelos. Mides una mesa poniendo 9 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 9,
+        "tipo": "verdadero_falso",
+        "enunciado": "Mides una cinta con 5 clips. El resultado es solo «5», sin decir clips.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los caramelos en el jardín.",
-          "Cuenta los 9 palmos colocados de extremo a extremo. Usa los datos de caramelos en el jardín.",
-          "La medida es 9 palmos. Comprueba con los caramelos en el jardín."
+          "Un número solo no dice con qué mediste.",
+          "Falta decir qué contaste.",
+          "Debe decir «5 clips»."
         ],
-        "retroalimentacion": "La mesa mide 9 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "retroalimentacion": "Falso: debes decir el número y la unidad, 5 clips."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la cocina mides vasos. Mides una mesa poniendo 10 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 10,
+        "enunciado": "Una cinta mide 6 clips. Una soga mide 9 clips. ¿Cuántos clips más mide la soga que la cinta? Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los piedritas en la cocina.",
-          "Cuenta los 10 palmos colocados de extremo a extremo. Usa los datos de piedritas en la cocina.",
-          "La medida es 10 palmos. Comprueba con los piedritas en la cocina."
+          "Las dos se miden con la misma unidad.",
+          "Compara 6 y 9.",
+          "Cuenta desde 6 hasta 9."
         ],
-        "retroalimentacion": "La mesa mide 10 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "retroalimentacion": "La soga mide 3 clips más: 9 - 6 = 3."
       },
       {
         "id": "e09",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En la mochila mides libros. Mides una mesa poniendo 4 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 4,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una mesa mide 9 clips. Los lápices son más largos que los clips. Si mides la mesa con lápices, ¿cuántos lápices saldrán?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Más de 9 lápices"
+          },
+          {
+            "id": "b",
+            "texto": "Exactamente 9 lápices"
+          },
+          {
+            "id": "c",
+            "texto": "Menos de 9 lápices"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los flores en la mochila.",
-          "Cuenta los 4 palmos colocados de extremo a extremo. Usa los datos de flores en la mochila.",
-          "La medida es 4 palmos. Comprueba con los flores en la mochila."
+          "Un lápiz cubre más largo que un clip.",
+          "Si la unidad es más grande, caben menos veces.",
+          "Con una unidad más grande se cuenta menos."
         ],
-        "retroalimentacion": "La mesa mide 4 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "retroalimentacion": "Saldrán menos de 9 lápices, porque cada lápiz cubre más mesa que un clip."
       },
       {
         "id": "e10",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En el mercado mides tomates. Mides una mesa poniendo 6 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 6,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los tizas en el mercado.",
-          "Cuenta los 6 palmos colocados de extremo a extremo. Usa los datos de tizas en el mercado.",
-          "La medida es 6 palmos. Comprueba con los tizas en el mercado."
+        "tipo": "texto_corto",
+        "enunciado": "Rosa y Tito miden la misma mesa con sus palmos. Rosa cuenta 7 palmos y Tito cuenta 9 palmos. ¿Quién tiene la mano más grande: Rosa o Tito?",
+        "respuesta": "Rosa",
+        "alternativasAceptadas": [
+          "la de rosa",
+          "rosa tiene la mano mas grande"
         ],
-        "retroalimentacion": "La mesa mide 6 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "pistas": [
+          "La mesa mide lo mismo para los dos.",
+          "Una mano más grande cubre más y se necesitan menos palmos.",
+          "Compara 7 y 9: ¿quién cuenta menos?"
+        ],
+        "retroalimentacion": "Rosa, porque con 7 palmos cubrió la mesa y su mano es más grande que la de Tito (9 palmos)."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la canasta mides plátanos. Mides una mesa poniendo 8 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 8,
+        "enunciado": "Mides tu cama con tus pies y caben 11 pies. Tu hermano mide la misma cama con sus pies y cuenta 14 pies. ¿Cuántos pies de diferencia hay? Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los pelotas en la canasta.",
-          "Cuenta los 8 palmos colocados de extremo a extremo. Usa los datos de pelotas en la canasta.",
-          "La medida es 8 palmos. Comprueba con los pelotas en la canasta."
+          "Compara lo que contaron los dos.",
+          "Tú contaste 11 y tu hermano 14.",
+          "Cuenta desde 11 hasta 14."
         ],
-        "retroalimentacion": "La mesa mide 8 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "retroalimentacion": "Hay 3 pies de diferencia: 14 - 11 = 3."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En la escuela mides sombreros. Mides una mesa poniendo 5 palmos seguidos, sin espacios. ¿Cuántos palmos mide?",
-        "respuesta": 5,
+        "tipo": "verdadero_falso",
+        "enunciado": "Ana mide la mesa de la sala con palmos y cuenta 8. Beto mide otra mesa con pies y cuenta 6. Entonces la mesa de Ana es más larga.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada palmo cuenta como una unidad de longitud. Mira los mandarinas en la escuela.",
-          "Cuenta los 5 palmos colocados de extremo a extremo. Usa los datos de mandarinas en la escuela.",
-          "La medida es 5 palmos. Comprueba con los mandarinas en la escuela."
+          "Fíjate en las unidades que usaron.",
+          "Ana usó palmos y Beto usó pies.",
+          "Con unidades distintas no puedes comparar los números."
         ],
-        "retroalimentacion": "La mesa mide 5 palmos según esa unidad. Indica siempre qué unidad usaste."
+        "retroalimentacion": "Falso: usaron unidades distintas, así que no se puede comparar solo con 8 y 6."
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p1.medir-sin-huecos",
@@ -1497,403 +1271,297 @@
     "descripcionCorta": "Coloca la unidad de medida una tras otra, sin espacios ni montajes, para medir bien.",
     "palabrasClave": [
       "medir",
-      "sin",
-      "dejar",
+      "unidad",
       "huecos",
-      "encimar"
+      "sin montar",
+      "clips"
     ],
     "prerrequisitos": [
       "mat.p1.medir-con-el-cuerpo-y-objetos"
     ],
     "ordenSugerido": 113,
-    "ideaCentral": "Coloca la unidad de medida una tras otra, sin espacios ni montajes, para medir bien.",
+    "ideaCentral": "Al medir con una unidad, hay que ponerla una tras otra, bien pegada. No dejes huecos y no pongas una unidad encima de otra, así la medida sale bien.",
     "pasos": [
-      "Elige una unidad que puedas repetir.",
-      "Ponla desde un extremo hasta el otro sin huecos ni montajes.",
-      "Cuenta cuántas unidades ocupó la longitud."
+      "Empieza en el borde del objeto.",
+      "Pon la primera unidad, por ejemplo un clip.",
+      "Pon la siguiente pegada a la anterior, sin hueco y sin montarla.",
+      "Cuenta todas hasta llegar al final."
     ],
     "ejemplos": [
       {
-        "situacion": "En el aula, quieres medir una cinta con dados iguales. ¿Cómo colocas las unidades para medir bien?",
-        "desarrollo": "Empieza en un extremo de la cinta. Mira los tapitas en el aula. Pon cada unidad justo donde terminó la anterior. Usa los datos de tapitas en el aula.",
-        "respuesta": "uno tras otro, sin espacios"
+        "situacion": "Ana mide una cinta con clips pegados. Llega justo al final con 5 clips. ¿Cuánto mide?",
+        "desarrollo": "No hay huecos ni clips montados. Cuenta los 5.",
+        "respuesta": "Mide 5 clips."
       },
       {
-        "situacion": "En el patio, quieres medir una cinta con choclos iguales. ¿Cómo colocas las unidades para medir bien?",
-        "desarrollo": "Empieza en un extremo de la cinta. Mira los choclos en el patio. Pon cada unidad justo donde terminó la anterior. Usa los datos de choclos en el patio.",
-        "respuesta": "uno tras otro, sin espacios"
+        "situacion": "Beto deja un hueco del tamaño de 1 clip y cuenta 6 clips. ¿Cuánto mide de verdad?",
+        "desarrollo": "El hueco también mide un clip.",
+        "respuesta": "Mide 7 clips de verdad."
+      },
+      {
+        "situacion": "Rosa mide un libro con cubitos bien pegados: 8. ¿Cuánto mide el libro?",
+        "desarrollo": "Los cubitos están pegados.",
+        "respuesta": "Mide 8 cubitos."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Comparar objetos que no empiezan en la misma marca.",
-        "correccion": "Elige una unidad que puedas repetir. Ponla desde un extremo hasta el otro sin huecos ni montajes."
+        "error": "Dejar un espacio entre las unidades.",
+        "correccion": "Pega cada unidad a la anterior para no dejar huecos."
       },
       {
-        "error": "Olvidar la unidad o dejar espacios al medir.",
-        "correccion": "Cuenta cuántas unidades ocupó la longitud. Revisa cada unidad usada."
+        "error": "Poner una unidad encima de otra.",
+        "correccion": "Ponlas una al lado de la otra, sin montarlas."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Longitud",
-        "significado": "Medida de qué tan largo es un objeto."
+        "termino": "Hueco",
+        "significado": "Espacio vacío entre dos unidades."
+      },
+      {
+        "termino": "Montar",
+        "significado": "Poner una cosa encima de otra."
       },
       {
         "termino": "Unidad",
-        "significado": "Objeto o parte del cuerpo que usas para medir."
-      },
-      {
-        "termino": "Alinear",
-        "significado": "Poner los objetos desde la misma marca de inicio."
+        "significado": "Lo que usas para medir, como un cubito."
       }
     ],
     "ejercicios": [
       {
         "id": "e01",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el aula, quieres medir una cinta con dados iguales. ¿Cómo colocas las unidades para medir bien?",
-        "respuesta": "a",
+        "tipo": "verdadero_falso",
+        "enunciado": "Al medir con clips, debes poner un clip tras otro sin dejar espacios.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Empieza en un extremo de la cinta. Mira los tapitas en el aula.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de tapitas en el aula.",
-          "No dejes huecos ni encimes unidades. Comprueba con los tapitas en el aula."
+          "Piensa en el tren de juguete: los vagones van pegados.",
+          "Los clips van uno tras otro.",
+          "Entre clips no debe quedar espacio."
         ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "uno tras otro, sin espacios"
-          },
-          {
-            "id": "b",
-            "texto": "con huecos entre ellas"
-          },
-          {
-            "id": "c",
-            "texto": "una encima de otra"
-          }
-        ]
+        "retroalimentacion": "Verdadero: los clips van uno tras otro, sin espacios."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el patio, quieres medir una cinta con choclos iguales. ¿Cómo colocas las unidades para medir bien?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Empieza en un extremo de la cinta. Mira los choclos en el patio.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de choclos en el patio.",
-          "No dejes huecos ni encimes unidades. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
+        "enunciado": "Medimos una tira con cubitos. ¿Cuál forma de poner los cubitos es la correcta?",
+        "respuesta": "b",
         "opciones": [
           {
             "id": "a",
-            "texto": "con huecos entre ellas"
+            "texto": "■ ■ ■ ■ (con huecos)"
           },
           {
             "id": "b",
-            "texto": "una encima de otra"
+            "texto": "■■■■ (juntos, sin huecos)"
           },
           {
             "id": "c",
-            "texto": "uno tras otro, sin espacios"
+            "texto": "■■■ ■ (con un hueco al final)"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira si hay espacios entre los cubitos.",
+          "La correcta no tiene espacios.",
+          "Busca la fila donde los cubitos se tocan."
+        ],
+        "retroalimentacion": "■■■■ juntos y sin huecos es lo correcto. Los otros dejan espacios y la medida sale mal."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la chacra, quieres medir una cinta con cuentos iguales. ¿Cómo colocas las unidades para medir bien?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Empieza en un extremo de la cinta. Mira los cuentos en la chacra.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de cuentos en la chacra.",
-          "No dejes huecos ni encimes unidades. Comprueba con los cuentos en la chacra."
+        "tipo": "texto_corto",
+        "enunciado": "Si dejas un hueco entre los clips al medir, ¿la medida sale bien o mal? Escribe bien o mal.",
+        "respuesta": "mal",
+        "alternativasAceptadas": [
+          "sale mal",
+          "mal."
         ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "una encima de otra"
-          },
-          {
-            "id": "b",
-            "texto": "uno tras otro, sin espacios"
-          },
-          {
-            "id": "c",
-            "texto": "con huecos entre ellas"
-          }
-        ]
+        "pistas": [
+          "Piensa en el espacio vacío que no se cuenta.",
+          "Los huecos también miden.",
+          "Si faltan cosas por contar, no sale igual."
+        ],
+        "retroalimentacion": "Sale mal: el hueco no se cuenta y la medida es distinta de la verdad."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la biblioteca, quieres medir una cinta con lápices iguales. ¿Cómo colocas las unidades para medir bien?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "Pusiste 5 clips juntos sobre un lápiz y llegan justo al final. ¿Cuántos clips mide el lápiz? Escribe solo el número.",
+        "respuesta": 5,
         "alternativasAceptadas": [],
         "pistas": [
-          "Empieza en un extremo de la cinta. Mira los lápices en la biblioteca.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de lápices en la biblioteca.",
-          "No dejes huecos ni encimes unidades. Comprueba con los lápices en la biblioteca."
+          "Cuenta solo los clips que pusiste.",
+          "No hay huecos, así que cuenta tal cual.",
+          "Son los mismos clips que pusiste."
         ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "uno tras otro, sin espacios"
-          },
-          {
-            "id": "b",
-            "texto": "con huecos entre ellas"
-          },
-          {
-            "id": "c",
-            "texto": "una encima de otra"
-          }
-        ]
+        "retroalimentacion": "Mide 5 clips."
       },
       {
         "id": "e05",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la mesa, quieres medir una cinta con cuyes iguales. ¿Cómo colocas las unidades para medir bien?",
-        "respuesta": "c",
+        "tipo": "numerico",
+        "enunciado": "Ana midió una cinta con 6 clips, pero dejó un hueco del tamaño de 1 clip. ¿Cuántos clips mide de verdad la cinta? Escribe solo el número.",
+        "respuesta": 7,
         "alternativasAceptadas": [],
         "pistas": [
-          "Empieza en un extremo de la cinta. Mira los cuyes en la mesa.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de cuyes en la mesa.",
-          "No dejes huecos ni encimes unidades. Comprueba con los cuyes en la mesa."
+          "El hueco también forma parte de la cinta.",
+          "El hueco mide como un clip.",
+          "Suma los clips que pusiste y el hueco."
         ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "con huecos entre ellas"
-          },
-          {
-            "id": "b",
-            "texto": "una encima de otra"
-          },
-          {
-            "id": "c",
-            "texto": "uno tras otro, sin espacios"
-          }
-        ]
+        "retroalimentacion": "La cinta mide 6 + 1 = 7 clips."
       },
       {
         "id": "e06",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la feria, quieres medir una cinta con mangos iguales. ¿Cómo colocas las unidades para medir bien?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "Si pones un cubito encima de otro al medir, la medida sale correcta.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Empieza en un extremo de la cinta. Mira los semillas en la feria.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de semillas en la feria.",
-          "No dejes huecos ni encimes unidades. Comprueba con los semillas en la feria."
+          "Piensa si el cubito de arriba mide alguna parte nueva.",
+          "Montar un cubito hace que no cubra tramo nuevo.",
+          "Cada cubito debe tocar a otro, no subirse."
         ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "una encima de otra"
-          },
-          {
-            "id": "b",
-            "texto": "uno tras otro, sin espacios"
-          },
-          {
-            "id": "c",
-            "texto": "con huecos entre ellas"
-          }
-        ]
+        "retroalimentacion": "Falso: los cubitos no se montan, se ponen uno al lado del otro."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En el jardín, quieres medir una cinta con caramelos iguales. ¿Cómo colocas las unidades para medir bien?",
+        "enunciado": "Beto vio que dos clips estaban uno sobre otro. ¿Qué debe hacer?",
         "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Empieza en un extremo de la cinta. Mira los caramelos en el jardín.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de caramelos en el jardín.",
-          "No dejes huecos ni encimes unidades. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
         "opciones": [
           {
             "id": "a",
-            "texto": "uno tras otro, sin espacios"
+            "texto": "Separarlos para que se toquen sin montarse"
           },
           {
             "id": "b",
-            "texto": "con huecos entre ellas"
+            "texto": "Dejarlos montados"
           },
           {
             "id": "c",
-            "texto": "una encima de otra"
+            "texto": "Añadir otro clip encima"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dos clips montados cubren menos largo.",
+          "Debe acomodarlos con cuidado.",
+          "Que se toquen, pero cada uno en su lugar."
+        ],
+        "retroalimentacion": "Debe separarlos para que se toquen sin montarse. Dejarlos o poner otro encima empeora la medida."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la cocina, quieres medir una cinta con vasos iguales. ¿Cómo colocas las unidades para medir bien?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Empieza en un extremo de la cinta. Mira los piedritas en la cocina.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de piedritas en la cocina.",
-          "No dejes huecos ni encimes unidades. Comprueba con los piedritas en la cocina."
+        "tipo": "texto_corto",
+        "enunciado": "Completa: al medir, las unidades se colocan una ______ de otra, sin huecos. Escribe tras o sobre.",
+        "respuesta": "tras",
+        "alternativasAceptadas": [
+          "tras de",
+          "una tras otra"
         ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "con huecos entre ellas"
-          },
-          {
-            "id": "b",
-            "texto": "una encima de otra"
-          },
-          {
-            "id": "c",
-            "texto": "uno tras otro, sin espacios"
-          }
-        ]
+        "pistas": [
+          "Al medir las unidades van en fila.",
+          "Sobre significa encima.",
+          "Una al lado de otra es «tras»."
+        ],
+        "retroalimentacion": "Se colocan una tras otra. «Sobre» las dejaría montadas."
       },
       {
         "id": "e09",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la mochila, quieres medir una cinta con libros iguales. ¿Cómo colocas las unidades para medir bien?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "Marcos midió una tira con 9 clips, pero dejó 2 huecos del tamaño de 1 clip cada uno. ¿Cuántos clips mide de verdad la tira? Escribe solo el número.",
+        "respuesta": 11,
         "alternativasAceptadas": [],
         "pistas": [
-          "Empieza en un extremo de la cinta. Mira los flores en la mochila.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de flores en la mochila.",
-          "No dejes huecos ni encimes unidades. Comprueba con los flores en la mochila."
+          "Hay clips y también huecos.",
+          "Cada hueco vale un clip.",
+          "Suma 9 clips y 2 huecos."
         ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "una encima de otra"
-          },
-          {
-            "id": "b",
-            "texto": "uno tras otro, sin espacios"
-          },
-          {
-            "id": "c",
-            "texto": "con huecos entre ellas"
-          }
-        ]
+        "retroalimentacion": "Mide 9 + 2 = 11 clips."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En el mercado, quieres medir una cinta con tomates iguales. ¿Cómo colocas las unidades para medir bien?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Empieza en un extremo de la cinta. Mira los tizas en el mercado.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de tizas en el mercado.",
-          "No dejes huecos ni encimes unidades. Comprueba con los tizas en el mercado."
-        ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
+        "enunciado": "Tito dejó huecos entre sus 5 clips y llegó al final de la tira. Lucía puso clips pegados y necesitó 7 para llegar al final. ¿Quién midió bien?",
+        "respuesta": "c",
         "opciones": [
           {
             "id": "a",
-            "texto": "uno tras otro, sin espacios"
+            "texto": "Tito, porque llegó al final"
           },
           {
             "id": "b",
-            "texto": "con huecos entre ellas"
+            "texto": "Los dos"
           },
           {
             "id": "c",
-            "texto": "una encima de otra"
+            "texto": "Lucía, porque no dejó huecos"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira quién dejó huecos y quién no.",
+          "Un hueco es parte de la tira aunque no tenga clips.",
+          "La medida buena es la que cuenta unidades pegadas."
+        ],
+        "retroalimentacion": "Lucía midió bien: sus clips estaban pegados. Tito dejó huecos y su 5 no cuenta todo el largo."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la canasta, quieres medir una cinta con plátanos iguales. ¿Cómo colocas las unidades para medir bien?",
-        "respuesta": "c",
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dejas huecos al medir, cuentas menos clips de los que realmente mide la tira.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Empieza en un extremo de la cinta. Mira los pelotas en la canasta.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de pelotas en la canasta.",
-          "No dejes huecos ni encimes unidades. Comprueba con los pelotas en la canasta."
+          "Los huecos son espacios donde no hay clips.",
+          "Esos espacios no se cuentan.",
+          "Menos clips contados significa una medida más chica."
         ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "con huecos entre ellas"
-          },
-          {
-            "id": "b",
-            "texto": "una encima de otra"
-          },
-          {
-            "id": "c",
-            "texto": "uno tras otro, sin espacios"
-          }
-        ]
+        "retroalimentacion": "Verdadero: cada hueco hace que cuentes menos clips de los reales."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la escuela, quieres medir una cinta con sombreros iguales. ¿Cómo colocas las unidades para medir bien?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Empieza en un extremo de la cinta. Mira los mandarinas en la escuela.",
-          "Pon cada unidad justo donde terminó la anterior. Usa los datos de mandarinas en la escuela.",
-          "No dejes huecos ni encimes unidades. Comprueba con los mandarinas en la escuela."
+        "tipo": "texto_corto",
+        "enunciado": "Un tapete mide 10 cubitos. Mediste con 8 cubitos y dejaste 1 hueco del tamaño de 1 cubito. ¿Cuántos cubitos te faltan para llegar al final? Escribe solo el número.",
+        "respuesta": "1",
+        "alternativasAceptadas": [
+          "un cubito",
+          "uno",
+          "1 cubito"
         ],
-        "retroalimentacion": "Coloca las unidades uno tras otro, sin espacios. Los huecos o montajes cambian la medida.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "una encima de otra"
-          },
-          {
-            "id": "b",
-            "texto": "uno tras otro, sin espacios"
-          },
-          {
-            "id": "c",
-            "texto": "con huecos entre ellas"
-          }
-        ]
+        "pistas": [
+          "Cuenta lo que ya cubriste.",
+          "Usaste 8 cubitos y un hueco.",
+          "10 menos lo que ya cubriste con 9."
+        ],
+        "retroalimentacion": "Te falta 1 cubito: 8 + 1 hueco = 9 y 10 - 9 = 1."
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p1.explicar-medicion",
@@ -1911,400 +1579,295 @@
     "descripcionCorta": "Explica qué unidad usó para medir y cómo comprobó qué objeto es más largo.",
     "palabrasClave": [
       "explicar",
-      "cómo",
-      "medí"
+      "medida",
+      "unidad",
+      "comparar",
+      "comprobar"
     ],
     "prerrequisitos": [
       "mat.p1.medir-sin-huecos"
     ],
     "ordenSugerido": 115,
-    "ideaCentral": "Explica qué unidad usó para medir y cómo comprobó qué objeto es más largo.",
+    "ideaCentral": "Cuando mides, dices el número y la unidad que usaste, por ejemplo 5 clips. Para saber cuál objeto es más largo, usa la misma unidad y compara.",
     "pasos": [
-      "Nombra el objeto que mediste.",
-      "Di qué unidad usaste y cuántas veces cupo.",
-      "Explica cómo la colocaste sin dejar espacios."
+      "Di qué mediste y con qué.",
+      "Di el número y la unidad.",
+      "Si comparas, usa la misma unidad en los dos objetos.",
+      "Explica por qué el mayor número es el más largo."
     ],
     "ejemplos": [
       {
-        "situacion": "En el aula, una cinta ocupa 3 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "desarrollo": "Di qué unidad se usó: clips. Mira los tapitas en el aula. Cuenta cuántos clips cubren la cinta: 3. Usa los datos de tapitas en el aula.",
-        "respuesta": "usé 3 clips iguales, uno tras otro"
+        "situacion": "Rosa midió su cinta con 5 clips. ¿Cómo explica su medida?",
+        "desarrollo": "Debe decir qué usó. Usó clips.",
+        "respuesta": "Mi cinta mide 5 clips."
       },
       {
-        "situacion": "En el patio, una cinta ocupa 4 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "desarrollo": "Di qué unidad se usó: clips. Mira los choclos en el patio. Cuenta cuántos clips cubren la cinta: 4. Usa los datos de choclos en el patio.",
-        "respuesta": "usé 4 clips iguales, uno tras otro"
+        "situacion": "Tito midió la mesa con 8 palmos. ¿Qué dice?",
+        "desarrollo": "Dice el número y la unidad.",
+        "respuesta": "La mesa mide 8 palmos."
+      },
+      {
+        "situacion": "Ana midió una soga con 9 clips y una cinta con 6 clips. ¿Cuál es más larga y cómo lo sabe?",
+        "desarrollo": "Usó clips en las dos. 9 es mayor que 6.",
+        "respuesta": "La soga es más larga porque usó 9 clips y la cinta 6."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Comparar objetos que no empiezan en la misma marca.",
-        "correccion": "Nombra el objeto que mediste. Di qué unidad usaste y cuántas veces cupo."
+        "error": "Decir solo el número, sin la unidad.",
+        "correccion": "Escribe 5 clips y no solo 5."
       },
       {
-        "error": "Olvidar la unidad o dejar espacios al medir.",
-        "correccion": "Explica cómo la colocaste sin dejar espacios. Revisa cada unidad usada."
+        "error": "Comparar números de dos unidades distintas.",
+        "correccion": "Para comparar, mide con la misma unidad."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Longitud",
-        "significado": "Medida de qué tan largo es un objeto."
-      },
-      {
         "termino": "Unidad",
-        "significado": "Objeto o parte del cuerpo que usas para medir."
+        "significado": "Lo que usas para medir, como un clip."
       },
       {
-        "termino": "Alinear",
-        "significado": "Poner los objetos desde la misma marca de inicio."
+        "termino": "Comparar",
+        "significado": "Ver cuál es mayor o menor."
+      },
+      {
+        "termino": "Comprobar",
+        "significado": "Hacer algo para estar seguro."
       }
     ],
     "ejercicios": [
       {
         "id": "e01",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el aula, una cinta ocupa 3 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Di qué unidad se usó: clips. Mira los tapitas en el aula.",
-          "Cuenta cuántos clips cubren la cinta: 3. Usa los datos de tapitas en el aula.",
-          "Explica que se pusieron uno tras otro. Comprueba con los tapitas en el aula."
+        "tipo": "texto_corto",
+        "enunciado": "Medí mi mesa con lápices y salieron 6. ¿Qué unidad usé? Escribe una palabra.",
+        "respuesta": "lápices",
+        "alternativasAceptadas": [
+          "lapices",
+          "lápiz",
+          "lapiz",
+          "los lápices"
         ],
-        "retroalimentacion": "La explicación correcta es «usé 3 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "usé 3 clips iguales, uno tras otro"
-          },
-          {
-            "id": "b",
-            "texto": "la cinta mide 3 sin decir unidad"
-          },
-          {
-            "id": "c",
-            "texto": "puse clips con espacios"
-          }
-        ]
+        "pistas": [
+          "La unidad es lo que usaste para medir.",
+          "Medí con objetos que escriben.",
+          "Medí con 6 de esos objetos."
+        ],
+        "retroalimentacion": "Usaste lápices como unidad."
       },
       {
         "id": "e02",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el patio, una cinta ocupa 4 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "respuesta": "c",
+        "tipo": "verdadero_falso",
+        "enunciado": "Al explicar una medida, debo decir el número y la unidad que usé.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Di qué unidad se usó: clips. Mira los choclos en el patio.",
-          "Cuenta cuántos clips cubren la cinta: 4. Usa los datos de choclos en el patio.",
-          "Explica que se pusieron uno tras otro. Comprueba con los choclos en el patio."
+          "Piensa en «5 clips».",
+          "Tiene un número y un nombre.",
+          "Sin el nombre, nadie sabe qué contaste."
         ],
-        "retroalimentacion": "La explicación correcta es «usé 4 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "la cinta mide 4 sin decir unidad"
-          },
-          {
-            "id": "b",
-            "texto": "puse clips con espacios"
-          },
-          {
-            "id": "c",
-            "texto": "usé 4 clips iguales, uno tras otro"
-          }
-        ]
+        "retroalimentacion": "Verdadero: se dice el número y la unidad."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En la chacra, una cinta ocupa 5 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
+        "enunciado": "Rosa dice: «Mi cinta mide 5». ¿Qué falta en su respuesta?",
         "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Di qué unidad se usó: clips. Mira los cuentos en la chacra.",
-          "Cuenta cuántos clips cubren la cinta: 5. Usa los datos de cuentos en la chacra.",
-          "Explica que se pusieron uno tras otro. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "La explicación correcta es «usé 5 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
         "opciones": [
           {
             "id": "a",
-            "texto": "puse clips con espacios"
+            "texto": "Su color"
           },
           {
             "id": "b",
-            "texto": "usé 5 clips iguales, uno tras otro"
+            "texto": "La unidad, por ejemplo clips"
           },
           {
             "id": "c",
-            "texto": "la cinta mide 5 sin decir unidad"
+            "texto": "Su precio"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿5 qué? Falta aclararlo.",
+          "Rosa debe decir con qué midió.",
+          "Clips, palmos o pasos son unidades."
+        ],
+        "retroalimentacion": "Falta la unidad, por ejemplo 5 clips. El color o el precio no dicen cómo se midió."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la biblioteca, una cinta ocupa 6 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "Pedro dice: «El banco mide 8 palmos». ¿Cuántos palmos mide? Escribe solo el número.",
+        "respuesta": 8,
         "alternativasAceptadas": [],
         "pistas": [
-          "Di qué unidad se usó: clips. Mira los lápices en la biblioteca.",
-          "Cuenta cuántos clips cubren la cinta: 6. Usa los datos de lápices en la biblioteca.",
-          "Explica que se pusieron uno tras otro. Comprueba con los lápices en la biblioteca."
+          "Lee la frase de Pedro.",
+          "Busca el número antes de la palabra palmos.",
+          "Es el primer número de la frase."
         ],
-        "retroalimentacion": "La explicación correcta es «usé 6 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "usé 6 clips iguales, uno tras otro"
-          },
-          {
-            "id": "b",
-            "texto": "la cinta mide 6 sin decir unidad"
-          },
-          {
-            "id": "c",
-            "texto": "puse clips con espacios"
-          }
-        ]
+        "retroalimentacion": "Mide 8 palmos."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mesa, una cinta ocupa 7 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
+        "enunciado": "Ana midió una soga con 9 clips y Luis midió la misma soga con 6 palmos. ¿Por qué salieron números distintos?",
         "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Di qué unidad se usó: clips. Mira los cuyes en la mesa.",
-          "Cuenta cuántos clips cubren la cinta: 7. Usa los datos de cuyes en la mesa.",
-          "Explica que se pusieron uno tras otro. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "La explicación correcta es «usé 7 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
         "opciones": [
           {
             "id": "a",
-            "texto": "la cinta mide 7 sin decir unidad"
+            "texto": "Ana midió mal siempre"
           },
           {
             "id": "b",
-            "texto": "puse clips con espacios"
+            "texto": "La soga cambió de tamaño"
           },
           {
             "id": "c",
-            "texto": "usé 7 clips iguales, uno tras otro"
+            "texto": "Usaron unidades distintas"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La soga es la misma.",
+          "Un palmo es más grande que un clip.",
+          "Mira con qué midió cada uno."
+        ],
+        "retroalimentacion": "Usaron unidades distintas, clips y palmos. La soga no cambió ni Ana midió mal."
       },
       {
         "id": "e06",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la feria, una cinta ocupa 8 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "Si mido dos cosas con unidades distintas, puedo comparar los números directamente.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Di qué unidad se usó: clips. Mira los semillas en la feria.",
-          "Cuenta cuántos clips cubren la cinta: 8. Usa los datos de semillas en la feria.",
-          "Explica que se pusieron uno tras otro. Comprueba con los semillas en la feria."
+          "Un palmo no es igual que un clip.",
+          "Los números dependen de la unidad.",
+          "Para comparar, usa la misma unidad."
         ],
-        "retroalimentacion": "La explicación correcta es «usé 8 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "puse clips con espacios"
-          },
-          {
-            "id": "b",
-            "texto": "usé 8 clips iguales, uno tras otro"
-          },
-          {
-            "id": "c",
-            "texto": "la cinta mide 8 sin decir unidad"
-          }
-        ]
+        "retroalimentacion": "Falso: para comparar hay que usar la misma unidad."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el jardín, una cinta ocupa 9 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Di qué unidad se usó: clips. Mira los caramelos en el jardín.",
-          "Cuenta cuántos clips cubren la cinta: 9. Usa los datos de caramelos en el jardín.",
-          "Explica que se pusieron uno tras otro. Comprueba con los caramelos en el jardín."
+        "tipo": "texto_corto",
+        "enunciado": "Para decir cuál de dos objetos es más largo, comparo sus medidas hechas con la misma ______. Escribe la palabra.",
+        "respuesta": "unidad",
+        "alternativasAceptadas": [
+          "la unidad"
         ],
-        "retroalimentacion": "La explicación correcta es «usé 9 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "usé 9 clips iguales, uno tras otro"
-          },
-          {
-            "id": "b",
-            "texto": "la cinta mide 9 sin decir unidad"
-          },
-          {
-            "id": "c",
-            "texto": "puse clips con espacios"
-          }
-        ]
+        "pistas": [
+          "Es lo que usas para medir.",
+          "Pueden ser clips, pasos o palmos.",
+          "Debe ser igual en los dos."
+        ],
+        "retroalimentacion": "Se compara usando la misma unidad."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la cocina, una cinta ocupa 10 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "respuesta": "c",
+        "tipo": "numerico",
+        "enunciado": "Mi lápiz mide 7 clips y mi regla mide 12 clips. ¿Cuántos clips más mide la regla? Escribe solo el número.",
+        "respuesta": 5,
         "alternativasAceptadas": [],
         "pistas": [
-          "Di qué unidad se usó: clips. Mira los piedritas en la cocina.",
-          "Cuenta cuántos clips cubren la cinta: 10. Usa los datos de piedritas en la cocina.",
-          "Explica que se pusieron uno tras otro. Comprueba con los piedritas en la cocina."
+          "Los dos se midieron con clips.",
+          "Parte de 7 y llega a 12.",
+          "Cuenta cuántos pasos hay de 7 a 12."
         ],
-        "retroalimentacion": "La explicación correcta es «usé 10 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "la cinta mide 10 sin decir unidad"
-          },
-          {
-            "id": "b",
-            "texto": "puse clips con espacios"
-          },
-          {
-            "id": "c",
-            "texto": "usé 10 clips iguales, uno tras otro"
-          }
-        ]
+        "retroalimentacion": "La regla mide 5 clips más: 12 - 7 = 5."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mochila, una cinta ocupa 4 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Di qué unidad se usó: clips. Mira los flores en la mochila.",
-          "Cuenta cuántos clips cubren la cinta: 4. Usa los datos de flores en la mochila.",
-          "Explica que se pusieron uno tras otro. Comprueba con los flores en la mochila."
-        ],
-        "retroalimentacion": "La explicación correcta es «usé 4 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
+        "enunciado": "Tito midió su cinta roja con 8 clips y la azul con 5 clips. Dice: «La roja es más larga». ¿Qué hizo bien para comprobarlo?",
+        "respuesta": "d",
         "opciones": [
           {
             "id": "a",
-            "texto": "puse clips con espacios"
+            "texto": "Midió una con clips y la otra con pasos"
           },
           {
             "id": "b",
-            "texto": "usé 4 clips iguales, uno tras otro"
+            "texto": "Miró los colores"
           },
           {
             "id": "c",
-            "texto": "la cinta mide 4 sin decir unidad"
+            "texto": "Adivinó"
+          },
+          {
+            "id": "d",
+            "texto": "Midió las dos con clips y comparó 8 y 5"
           }
-        ]
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa con qué midió cada cinta.",
+          "Las dos deben medirse igual.",
+          "Con clips en las dos se comparan 8 y 5."
+        ],
+        "retroalimentacion": "Midió las dos con clips y comparó 8 y 5. Mirar colores o adivinar no comprueba nada."
       },
       {
         "id": "e10",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el mercado, una cinta ocupa 6 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Di qué unidad se usó: clips. Mira los tizas en el mercado.",
-          "Cuenta cuántos clips cubren la cinta: 6. Usa los datos de tizas en el mercado.",
-          "Explica que se pusieron uno tras otro. Comprueba con los tizas en el mercado."
+        "tipo": "texto_corto",
+        "enunciado": "Ana midió una caja con 4 palmos y una bolsa con 6 pies. Dice que la bolsa es más larga. ¿Está bien comparar así? Responde sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no."
         ],
-        "retroalimentacion": "La explicación correcta es «usé 6 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "usé 6 clips iguales, uno tras otro"
-          },
-          {
-            "id": "b",
-            "texto": "la cinta mide 6 sin decir unidad"
-          },
-          {
-            "id": "c",
-            "texto": "puse clips con espacios"
-          }
-        ]
+        "pistas": [
+          "Mira las unidades de Ana.",
+          "Una es palmos y otra es pies.",
+          "Los números de unidades distintas no se comparan."
+        ],
+        "retroalimentacion": "No, porque midió con palmos y con pies; debe usar la misma unidad."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la canasta, una cinta ocupa 8 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "respuesta": "c",
+        "tipo": "numerico",
+        "enunciado": "Raúl midió su mesa con 14 clips. La mesa de su amigo mide 3 clips más que la suya. ¿Cuántos clips mide la mesa de su amigo? Escribe solo el número.",
+        "respuesta": 17,
         "alternativasAceptadas": [],
         "pistas": [
-          "Di qué unidad se usó: clips. Mira los pelotas en la canasta.",
-          "Cuenta cuántos clips cubren la cinta: 8. Usa los datos de pelotas en la canasta.",
-          "Explica que se pusieron uno tras otro. Comprueba con los pelotas en la canasta."
+          "La mesa del amigo es más larga.",
+          "Parte de 14 clips.",
+          "Sube 3 más desde 14."
         ],
-        "retroalimentacion": "La explicación correcta es «usé 8 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "la cinta mide 8 sin decir unidad"
-          },
-          {
-            "id": "b",
-            "texto": "puse clips con espacios"
-          },
-          {
-            "id": "c",
-            "texto": "usé 8 clips iguales, uno tras otro"
-          }
-        ]
+        "retroalimentacion": "Mide 14 + 3 = 17 clips."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la escuela, una cinta ocupa 5 clips iguales puestos sin huecos. ¿Cómo explicas la medida?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "Para comprobar cuál tira es más larga, basta con decir «creo que es esta» sin medir ni alinear.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Di qué unidad se usó: clips. Mira los mandarinas en la escuela.",
-          "Cuenta cuántos clips cubren la cinta: 5. Usa los datos de mandarinas en la escuela.",
-          "Explica que se pusieron uno tras otro. Comprueba con los mandarinas en la escuela."
+          "Comprobar es hacer algo para estar seguro.",
+          "No basta con creer.",
+          "Hay que medir o alinear las tiras."
         ],
-        "retroalimentacion": "La explicación correcta es «usé 5 clips iguales, uno tras otro». Debes mencionar la unidad y cómo la colocaste.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "puse clips con espacios"
-          },
-          {
-            "id": "b",
-            "texto": "usé 5 clips iguales, uno tras otro"
-          },
-          {
-            "id": "c",
-            "texto": "la cinta mide 5 sin decir unidad"
-          }
-        ]
+        "retroalimentacion": "Falso: comprobar significa medir con la misma unidad o alinear las tiras."
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   }
 ]

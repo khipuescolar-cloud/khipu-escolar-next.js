@@ -15,53 +15,54 @@
     "descripcionCorta": "Relaciona objetos del aula y la casa con formas geométricas que conoce.",
     "palabrasClave": [
       "formas",
-      "los",
-      "objetos",
-      "del",
-      "entorno"
+      "círculo",
+      "cuadrado",
+      "triángulo",
+      "rectángulo"
     ],
     "prerrequisitos": [],
     "ordenSugerido": 18,
-    "ideaCentral": "Relaciona objetos del aula y la casa con formas geométricas que conoce.",
+    "ideaCentral": "Muchos objetos de tu aula y tu casa se parecen a formas geométricas. Puedes buscar círculos, cuadrados, triángulos y rectángulos a tu alrededor.",
     "pasos": [
-      "Observa la forma del objeto o de la figura.",
-      "Busca sus lados, caras, puntas o superficies curvas.",
-      "Compárala con una forma conocida y nómbrala."
+      "Mira el objeto y cuenta sus lados.",
+      "Si no tiene lados y es redondo, es un círculo.",
+      "Si tiene 3 lados, es un triángulo; si tiene 4 lados iguales, un cuadrado.",
+      "Si tiene 4 lados con dos largos y dos cortos, es un rectángulo."
     ],
     "ejemplos": [
       {
-        "situacion": "¿A qué cuerpo geométrico se parece pelota?",
-        "desarrollo": "Imagina la forma de pelota. Mira los tapitas en el aula. Mira si tiene caras planas o superficie redonda. Usa los datos de tapitas en el aula.",
-        "respuesta": "esfera"
+        "situacion": "Una moneda de un sol, ¿qué forma tiene?",
+        "desarrollo": "No tiene lados rectos y es redonda.",
+        "respuesta": "Es un círculo."
       },
       {
-        "situacion": "¿A qué cuerpo geométrico se parece dado?",
-        "desarrollo": "Imagina la forma de dado. Mira los choclos en el patio. Mira si tiene caras planas o superficie redonda. Usa los datos de choclos en el patio.",
-        "respuesta": "cubo"
+        "situacion": "La puerta del aula tiene 4 lados: dos largos y dos cortos.",
+        "desarrollo": "Cuatro lados, no todos iguales.",
+        "respuesta": "Es un rectángulo."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Observa la forma del objeto o de la figura. Busca sus lados, caras, puntas o superficies curvas."
+        "error": "Llamar cuadrado a todo lo que tiene 4 lados.",
+        "correccion": "Cuadrado tiene sus 4 lados iguales; si son dos largos y dos cortos, es rectángulo."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Compárala con una forma conocida y nómbrala. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Decir que un triángulo tiene 4 lados.",
+        "correccion": "El triángulo tiene 3 lados."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
+        "termino": "Círculo",
+        "significado": "Forma redonda, sin lados rectos."
       },
       {
-        "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "termino": "Lado",
+        "significado": "Cada línea recta del borde de una forma."
       },
       {
-        "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "termino": "Triángulo",
+        "significado": "Forma con 3 lados."
       }
     ],
     "ejercicios": [
@@ -69,385 +70,242 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece pelota?",
-        "respuesta": "a",
+        "enunciado": "¿Qué forma tiene la rueda de una bicicleta?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de pelota. Mira los tapitas en el aula.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de tapitas en el aula.",
-          "Se parece a esfera. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "«pelota» se parece a esfera. Compara la forma, no el tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "Cuadrado"
           },
           {
             "id": "b",
-            "texto": "cubo"
+            "texto": "Círculo"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
+            "texto": "Triángulo"
           }
-        ]
+        ],
+        "pistas": [
+          "Piensa en una rueda: ¿tiene esquinas?",
+          "Es redonda.",
+          "Se llama igual que una moneda."
+        ],
+        "retroalimentacion": "La rueda es un círculo. No tiene lados rectos como el cuadrado o el triángulo."
       },
       {
         "id": "e02",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece dado?",
-        "respuesta": "d",
+        "tipo": "verdadero_falso",
+        "enunciado": "La puerta del aula suele parecerse a un rectángulo.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Imagina la forma de dado. Mira los choclos en el patio.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de choclos en el patio.",
-          "Se parece a cubo. Comprueba con los choclos en el patio."
+          "Mira la puerta: tiene 4 lados.",
+          "Dos lados son largos.",
+          "Dos lados son cortos."
         ],
-        "retroalimentacion": "«dado» se parece a cubo. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cilindro"
-          },
-          {
-            "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
+        "retroalimentacion": "Es verdadero: la puerta tiene 4 lados, dos largos y dos cortos."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece lata de leche?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de lata de leche. Mira los cuentos en la chacra.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de cuentos en la chacra.",
-          "Se parece a cilindro. Comprueba con los cuentos en la chacra."
+        "tipo": "texto_corto",
+        "enunciado": "Un reloj de pared redondo tiene forma de... Escribe una palabra.",
+        "respuesta": "círculo",
+        "alternativasAceptadas": [
+          "circulo",
+          "un círculo"
         ],
-        "retroalimentacion": "«lata de leche» se parece a cilindro. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cubo"
-          },
-          {
-            "id": "b",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
-          }
-        ]
+        "pistas": [
+          "El reloj es redondo.",
+          "No tiene esquinas.",
+          "Empieza con c."
+        ],
+        "retroalimentacion": "El reloj redondo tiene forma de círculo."
       },
       {
         "id": "e04",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece caja de zapatos?",
-        "respuesta": "b",
+        "enunciado": "Un cartel de «Cuidado» en la carretera tiene tres lados y tres esquinas. ¿Qué forma es?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de caja de zapatos. Mira los lápices en la biblioteca.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de lápices en la biblioteca.",
-          "Se parece a prisma rectangular. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "«caja de zapatos» se parece a prisma rectangular. Compara la forma, no el tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cilindro"
+            "texto": "Triángulo"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "Cuadrado"
           },
           {
             "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "Círculo"
           }
-        ]
+        ],
+        "pistas": [
+          "Cuenta los lados: son tres.",
+          "Tres lados es el nombre de una forma.",
+          "Las formas con tres lados empiezan con t."
+        ],
+        "retroalimentacion": "Es un triángulo porque tiene 3 lados. El cuadrado tiene 4 y el círculo no tiene lados."
       },
       {
         "id": "e05",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece canica?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "En una fiesta cuelgan banderines con forma de triángulo. ¿Cuántos lados tiene cada banderín? Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "Imagina la forma de canica. Mira los cuyes en la mesa.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de cuyes en la mesa.",
-          "Se parece a esfera. Comprueba con los cuyes en la mesa."
+          "Dibuja un triángulo con tu dedo.",
+          "Cuenta cada línea recta.",
+          "Son menos de 4."
         ],
-        "retroalimentacion": "«canica» se parece a esfera. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cubo"
-          },
-          {
-            "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
-          }
-        ]
+        "retroalimentacion": "Un triángulo tiene 3 lados."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece cubo de madera?",
-        "respuesta": "d",
+        "enunciado": "¿Cuál objeto parece un círculo?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de cubo de madera. Mira los semillas en la feria.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de semillas en la feria.",
-          "Se parece a cubo. Comprueba con los semillas en la feria."
-        ],
-        "retroalimentacion": "«cubo de madera» se parece a cubo. Compara la forma, no el tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "Un libro"
           },
           {
             "id": "b",
-            "texto": "cilindro"
+            "texto": "Una caja de zapatos"
           },
           {
             "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "Una moneda de un sol"
           }
-        ]
+        ],
+        "pistas": [
+          "Busca algo redondo.",
+          "Los libros y las cajas tienen esquinas.",
+          "Piensa en lo que usas para pagar."
+        ],
+        "retroalimentacion": "La moneda es un círculo. El libro y la caja tienen esquinas."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece tubo cerrado?",
-        "respuesta": "c",
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo tiene cuatro lados.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Imagina la forma de tubo cerrado. Mira los caramelos en el jardín.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de caramelos en el jardín.",
-          "Se parece a cilindro. Comprueba con los caramelos en el jardín."
+          "Cuenta con tu dedo los lados de un triángulo.",
+          "¿Cuántas esquinas tiene un banderín?",
+          "Tiene menos de cuatro."
         ],
-        "retroalimentacion": "«tubo cerrado» se parece a cilindro. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cubo"
-          },
-          {
-            "id": "b",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
-          }
-        ]
+        "retroalimentacion": "Es falso: el triángulo tiene 3 lados."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece caja de cereal?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "La tapa de una caja cuadrada tiene esquinas en cada punta. ¿Cuántas esquinas tiene la tapa? Escribe solo el número.",
+        "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
-          "Imagina la forma de caja de cereal. Mira los piedritas en la cocina.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de piedritas en la cocina.",
-          "Se parece a prisma rectangular. Comprueba con los piedritas en la cocina."
+          "Un cuadrado tiene tantas esquinas como lados.",
+          "Cuenta los lados de un cuadrado.",
+          "Piensa en un pañuelo cuadrado."
         ],
-        "retroalimentacion": "«caja de cereal» se parece a prisma rectangular. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cilindro"
-          },
-          {
-            "id": "b",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
+        "retroalimentacion": "Un cuadrado tiene 4 esquinas."
       },
       {
         "id": "e09",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece balón?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "Una casita está hecha con un techo ▲, una puerta ▭, dos ventanas ■■ y un sol ●. ¿Cuántas formas tienen 4 lados? Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "Imagina la forma de balón. Mira los flores en la mochila.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de flores en la mochila.",
-          "Se parece a esfera. Comprueba con los flores en la mochila."
+          "El techo y el sol no tienen 4 lados.",
+          "La puerta tiene 4 lados.",
+          "Las ventanas también."
         ],
-        "retroalimentacion": "«balón» se parece a esfera. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cubo"
-          },
-          {
-            "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
-          }
-        ]
+        "retroalimentacion": "La puerta y las dos ventanas tienen 4 lados: son 3 formas."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece dado grande?",
-        "respuesta": "d",
+        "enunciado": "Un objeto tiene 4 lados: dos largos y dos cortos. ¿Cuál puede ser?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de dado grande. Mira los tizas en el mercado.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de tizas en el mercado.",
-          "Se parece a cubo. Comprueba con los tizas en el mercado."
-        ],
-        "retroalimentacion": "«dado grande» se parece a cubo. Compara la forma, no el tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "Una pelota"
           },
           {
             "id": "b",
-            "texto": "cilindro"
+            "texto": "Una hoja de cuaderno"
           },
           {
             "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "Un cartel de «Cuidado»"
           }
-        ]
+        ],
+        "pistas": [
+          "Busca algo con 4 lados.",
+          "Una pelota es redonda y el cartel de «Cuidado» tiene 3 lados.",
+          "Es algo que usas para escribir."
+        ],
+        "retroalimentacion": "Una hoja de cuaderno es un rectángulo. La pelota es redonda y el cartel de «Cuidado» tiene tres lados."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece lata de atún?",
-        "respuesta": "c",
+        "tipo": "numerico",
+        "enunciado": "En una lista del mercado hay: caja de fósforos (rectángulo), plato (círculo), banderín (triángulo), mantel (cuadrado) y moneda (círculo). ¿Cuántos objetos son círculos? Escribe solo el número.",
+        "respuesta": 2,
         "alternativasAceptadas": [],
         "pistas": [
-          "Imagina la forma de lata de atún. Mira los pelotas en la canasta.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de pelotas en la canasta.",
-          "Se parece a cilindro. Comprueba con los pelotas en la canasta."
+          "Lee cada objeto y su forma entre paréntesis.",
+          "Busca la palabra «círculo».",
+          "Aparece dos veces."
         ],
-        "retroalimentacion": "«lata de atún» se parece a cilindro. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cubo"
-          },
-          {
-            "id": "b",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
-          }
-        ]
+        "retroalimentacion": "El plato y la moneda son círculos: 2 objetos."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece caja de libros?",
-        "respuesta": "b",
+        "enunciado": "Un cartel tiene 4 lados iguales. Pedro dice que es un rectángulo y Ana dice que es un cuadrado. ¿Quién describe mejor su forma?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de caja de libros. Mira los mandarinas en la escuela.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de mandarinas en la escuela.",
-          "Se parece a prisma rectangular. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "«caja de libros» se parece a prisma rectangular. Compara la forma, no el tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cilindro"
+            "texto": "Pedro"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "Ninguno"
           },
           {
             "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "Ana: el cuadrado tiene sus 4 lados iguales"
           }
-        ]
+        ],
+        "pistas": [
+          "Fíjate en que todos sus lados son iguales.",
+          "El rectángulo tiene lados largos y cortos.",
+          "Una forma con 4 lados iguales se llama cuadrado."
+        ],
+        "retroalimentacion": "Ana describe mejor: un cuadrado tiene sus 4 lados iguales; el rectángulo tiene dos largos y dos cortos."
       }
     ],
     "fuentes": [
@@ -474,199 +332,71 @@
     "disciplina": "geometria",
     "descripcionCorta": "Reconoce cuerpos geométricos en objetos como dados, pelotas, latas y cajas.",
     "palabrasClave": [
-      "cubo,",
-      "esfera,",
+      "cubo",
+      "esfera",
       "cilindro",
-      "caja"
+      "caja",
+      "cuerpos geométricos"
     ],
     "prerrequisitos": [
       "mat.p1.formas-del-entorno"
     ],
     "ordenSugerido": 46,
-    "ideaCentral": "Reconoce cuerpos geométricos en objetos como dados, pelotas, latas y cajas.",
+    "ideaCentral": "Los objetos que usas todos los días tienen forma de cuerpos. El dado es un cubo, la pelota es una esfera, la lata es un cilindro y la caja de zapatos es una caja.",
     "pasos": [
-      "Observa la forma del objeto o de la figura.",
-      "Busca sus lados, caras, puntas o superficies curvas.",
-      "Compárala con una forma conocida y nómbrala."
+      "Mira el objeto y toca sus partes.",
+      "Si es redondo por todos lados, es una esfera.",
+      "Si tiene tapas planas y es redondo por el costado, es un cilindro.",
+      "Si tiene caras planas y esquinas, es un cubo o una caja."
     ],
     "ejemplos": [
       {
-        "situacion": "¿A qué cuerpo geométrico se parece pelota?",
-        "desarrollo": "Imagina la forma de pelota. Mira los tapitas en el aula. Mira si tiene caras planas o superficie redonda. Usa los datos de tapitas en el aula.",
-        "respuesta": "esfera"
+        "situacion": "Luis juega con un dado en su casa de Cusco. ¿Qué cuerpo es el dado?",
+        "desarrollo": "El dado tiene caras planas, todas iguales, y esquinas.",
+        "respuesta": "El dado es un cubo."
       },
       {
-        "situacion": "¿A qué cuerpo geométrico se parece dado?",
-        "desarrollo": "Imagina la forma de dado. Mira los choclos en el patio. Mira si tiene caras planas o superficie redonda. Usa los datos de choclos en el patio.",
-        "respuesta": "cubo"
+        "situacion": "Ana patea una pelota en el parque. ¿Qué cuerpo es la pelota?",
+        "desarrollo": "La pelota es redonda por todos lados y no tiene caras planas.",
+        "respuesta": "La pelota es una esfera."
+      },
+      {
+        "situacion": "Mamá compra una lata de leche en el mercado. ¿Qué cuerpo es la lata?",
+        "desarrollo": "La lata tiene una tapa plana arriba y otra abajo, y es redonda a los lados.",
+        "respuesta": "La lata es un cilindro."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Observa la forma del objeto o de la figura. Busca sus lados, caras, puntas o superficies curvas."
+        "error": "Decir que una lata es una esfera porque es redonda.",
+        "correccion": "La esfera es redonda por todos lados. La lata tiene tapas planas, entonces es un cilindro."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Compárala con una forma conocida y nómbrala. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Decir que un dado es una caja.",
+        "correccion": "El dado tiene todas sus caras iguales. Por eso es un cubo."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
+        "termino": "Cubo",
+        "significado": "Cuerpo con seis caras planas iguales, como un dado."
       },
       {
-        "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "termino": "Esfera",
+        "significado": "Cuerpo redondo por todos lados, como una pelota."
       },
       {
-        "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "termino": "Cilindro",
+        "significado": "Cuerpo con dos tapas planas redondas, como una lata."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece pelota?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de pelota. Mira los tapitas en el aula.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de tapitas en el aula.",
-          "Se parece a esfera. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "«pelota» se parece a esfera. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cubo"
-          },
-          {
-            "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
-          }
-        ]
-      },
-      {
-        "id": "e02",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece dado?",
-        "respuesta": "d",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de dado. Mira los choclos en el patio.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de choclos en el patio.",
-          "Se parece a cubo. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "«dado» se parece a cubo. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cilindro"
-          },
-          {
-            "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
-      },
-      {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece lata de leche?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de lata de leche. Mira los cuentos en la chacra.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de cuentos en la chacra.",
-          "Se parece a cilindro. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "«lata de leche» se parece a cilindro. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cubo"
-          },
-          {
-            "id": "b",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
-          }
-        ]
-      },
-      {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece caja de zapatos?",
+        "enunciado": "La caja de zapatos de Marta tiene forma de...",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de caja de zapatos. Mira los lápices en la biblioteca.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de lápices en la biblioteca.",
-          "Se parece a prisma rectangular. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "«caja de zapatos» se parece a prisma rectangular. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cilindro"
-          },
-          {
-            "id": "b",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
-      },
-      {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece canica?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de canica. Mira los cuyes en la mesa.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de cuyes en la mesa.",
-          "Se parece a esfera. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "«canica» se parece a esfera. Compara la forma, no el tamaño.",
         "opciones": [
           {
             "id": "a",
@@ -674,241 +404,225 @@
           },
           {
             "id": "b",
-            "texto": "cubo"
+            "texto": "caja"
           },
           {
             "id": "c",
             "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
           }
-        ]
-      },
-      {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece cubo de madera?",
-        "respuesta": "d",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de cubo de madera. Mira los semillas en la feria.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de semillas en la feria.",
-          "Se parece a cubo. Comprueba con los semillas en la feria."
         ],
-        "retroalimentacion": "«cubo de madera» se parece a cubo. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cilindro"
-          },
-          {
-            "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
+        "pistas": [
+          "Piensa en cómo es una caja de zapatos: tiene tapa y fondo planos.",
+          "Una esfera es redonda como una pelota y una caja de zapatos no es así.",
+          "La caja de zapatos tiene caras planas y esquinas, como una caja."
+        ],
+        "retroalimentacion": "La caja de zapatos tiene forma de caja. No es esfera porque no es redonda, ni cilindro porque no tiene tapas redondas.",
+        "id": "e01"
       },
       {
-        "id": "e07",
-        "dificultad": 2,
+        "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece tubo cerrado?",
+        "enunciado": "¿Qué cuerpo se parece a una pelota de fútbol?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de tubo cerrado. Mira los caramelos en el jardín.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de caramelos en el jardín.",
-          "Se parece a cilindro. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "«tubo cerrado» se parece a cilindro. Compara la forma, no el tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cubo"
+            "texto": "caja"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "c",
             "texto": "cilindro"
           },
           {
-            "id": "d",
+            "id": "c",
             "texto": "esfera"
           }
-        ]
+        ],
+        "pistas": [
+          "Una pelota de fútbol rueda y es redonda por todos lados.",
+          "No tiene tapas planas como la lata ni esquinas como la caja.",
+          "Si es redonda por todos lados, es una esfera."
+        ],
+        "retroalimentacion": "La pelota se parece a la esfera. La caja y el cilindro tienen partes planas.",
+        "id": "e02"
       },
       {
-        "id": "e08",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una lata de atún tiene forma de cilindro.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina la lata de atún sobre la mesa.",
+          "La lata tiene una tapa plana arriba y otra abajo.",
+          "Una lata con dos tapas planas redondas es un cilindro."
+        ],
+        "retroalimentacion": "Es verdadero: la lata de atún tiene dos tapas planas, es un cilindro.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un dado de ludo tiene seis caras planas y todas son iguales. ¿Cómo se llama este cuerpo? Escribe una palabra.",
+        "respuesta": "cubo",
+        "alternativasAceptadas": [
+          "un cubo",
+          "es un cubo"
+        ],
+        "pistas": [
+          "Piensa en la forma de un dado.",
+          "Seis caras planas iguales es una pista del dado.",
+          "El cuerpo con seis caras iguales tiene un nombre que empieza con cu...."
+        ],
+        "retroalimentacion": "El cuerpo del dado se llama cubo, porque tiene seis caras planas iguales.",
+        "id": "e04"
+      },
+      {
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece caja de cereal?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de caja de cereal. Mira los piedritas en la cocina.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de piedritas en la cocina.",
-          "Se parece a prisma rectangular. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "«caja de cereal» se parece a prisma rectangular. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cilindro"
-          },
-          {
-            "id": "b",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
-      },
-      {
-        "id": "e09",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece balón?",
+        "enunciado": "En la tienda de doña Rosa hay un balón, un dado y una lata de duraznos. ¿Cuál tiene forma de cilindro?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de balón. Mira los flores en la mochila.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de flores en la mochila.",
-          "Se parece a esfera. Comprueba con los flores en la mochila."
-        ],
-        "retroalimentacion": "«balón» se parece a esfera. Compara la forma, no el tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "La lata de duraznos"
           },
           {
             "id": "b",
-            "texto": "cubo"
+            "texto": "El balón"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
+            "texto": "El dado"
           }
-        ]
+        ],
+        "pistas": [
+          "Busca el objeto que tenga tapa arriba y abajo.",
+          "El balón es redondo y el dado tiene esquinas.",
+          "La lata tiene dos tapas planas redondas."
+        ],
+        "retroalimentacion": "La lata de duraznos es el cilindro. El balón es una esfera y el dado es un cubo.",
+        "id": "e05"
       },
       {
-        "id": "e10",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece dado grande?",
-        "respuesta": "d",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una pelota de básquet y una lata de gaseosa tienen la misma forma.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Imagina la forma de dado grande. Mira los tizas en el mercado.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de tizas en el mercado.",
-          "Se parece a cubo. Comprueba con los tizas en el mercado."
+          "Compara cómo es la pelota con cómo es la lata.",
+          "La lata tiene tapas planas y la pelota no.",
+          "La pelota es una esfera y la lata es un cilindro."
         ],
-        "retroalimentacion": "«dado grande» se parece a cubo. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cilindro"
-          },
-          {
-            "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
+        "retroalimentacion": "Es falso: la pelota es una esfera y la lata es un cilindro. No tienen la misma forma.",
+        "id": "e06"
       },
       {
-        "id": "e11",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la repisa de la tienda hay 3 latas, 2 dados y 1 pelota. ¿Cuántos cilindros hay? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los cilindros son los objetos con forma de lata.",
+          "En la repisa las latas son 3.",
+          "Los dados y la pelota no son cilindros, solo cuentas las latas."
+        ],
+        "retroalimentacion": "Los cilindros son las latas: hay 3. Si contaste los dados, te equivocaste; ellos son cubos.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El tanque de agua de la chacra es alto, redondo a los lados y con tapa plana arriba y abajo. ¿Qué cuerpo es? Escribe una palabra.",
+        "respuesta": "cilindro",
+        "alternativasAceptadas": [
+          "un cilindro",
+          "es un cilindro"
+        ],
+        "pistas": [
+          "Piensa en una lata grande.",
+          "El tanque tiene dos tapas planas redondas.",
+          "Una lata y este tanque tienen la misma forma: ci...."
+        ],
+        "retroalimentacion": "El tanque es un cilindro. Tiene dos tapas planas y es redondo por el costado.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Sofía guarda 4 dados, 5 pelotas, 3 latas y 2 cajas de zapatos. ¿Cuántos objetos NO son esferas? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero busca cuáles son las esferas: son las pelotas.",
+          "Hay 5 pelotas, y todo lo demás no es esfera.",
+          "Suma los dados, las latas y las cajas: 4 + 3 + 2."
+        ],
+        "retroalimentacion": "No son esferas los dados, las latas y las cajas: 4 + 3 + 2 = 9. Las 5 pelotas no se cuentan.",
+        "id": "e09"
+      },
+      {
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece lata de atún?",
+        "enunciado": "Tomás dice: «La lata de leche es una esfera porque es redonda». ¿Qué le respondes?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la forma de lata de atún. Mira los pelotas en la canasta.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de pelotas en la canasta.",
-          "Se parece a cilindro. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "«lata de atún» se parece a cilindro. Compara la forma, no el tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cubo"
+            "texto": "Tienes razón, todo lo redondo es esfera"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "No, la lata es un cubo"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
+            "texto": "No, la lata tiene tapas planas y es un cilindro"
           }
-        ]
+        ],
+        "pistas": [
+          "Tomás mira solo el costado de la lata. Mira también la tapa.",
+          "La esfera es redonda por todos lados, incluso arriba y abajo.",
+          "Las tapas planas de la lata muestran que es un cilindro."
+        ],
+        "retroalimentacion": "La lata tiene tapas planas, así que es un cilindro. Ser redonda por un lado no basta para ser esfera.",
+        "id": "e10"
       },
       {
-        "id": "e12",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿A qué cuerpo geométrico se parece caja de libros?",
-        "respuesta": "b",
+        "tipo": "texto_corto",
+        "enunciado": "Un cuerpo no tiene caras planas ni esquinas y se parece a una naranja. Otro cuerpo tiene dos tapas planas. ¿Cómo se llama el primer cuerpo?",
+        "respuesta": "esfera",
+        "alternativasAceptadas": [
+          "una esfera",
+          "es una esfera"
+        ],
+        "pistas": [
+          "Hay dos cuerpos en el texto; la pregunta es por el primero.",
+          "El primero no tiene caras planas ni esquinas.",
+          "Una naranja es redonda por todos lados, como una pelota."
+        ],
+        "retroalimentacion": "El primer cuerpo es una esfera, que se parece a la naranja. El segundo, con dos tapas planas, es el cilindro.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si junto una lata, un dado y una pelota, tengo tres cuerpos distintos.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Imagina la forma de caja de libros. Mira los mandarinas en la escuela.",
-          "Mira si tiene caras planas o superficie redonda. Usa los datos de mandarinas en la escuela.",
-          "Se parece a prisma rectangular. Comprueba con los mandarinas en la escuela."
+          "Nombra cada objeto: lata, dado, pelota.",
+          "La lata es un cilindro y el dado es un cubo.",
+          "La pelota es una esfera: son tres nombres diferentes."
         ],
-        "retroalimentacion": "«caja de libros» se parece a prisma rectangular. Compara la forma, no el tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cilindro"
-          },
-          {
-            "id": "b",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
+        "retroalimentacion": "Es verdadero: la lata es un cilindro, el dado es un cubo y la pelota es una esfera.",
+        "id": "e12"
       }
     ],
     "fuentes": [
@@ -1762,393 +1476,297 @@
     "disciplina": "geometria",
     "descripcionCorta": "Distingue objetos con puntas o esquinas de los que son redondeados.",
     "palabrasClave": [
+      "esquina",
+      "punta",
+      "redondeado",
       "objetos",
-      "con",
-      "puntas",
-      "esquinas"
+      "tocar"
     ],
     "prerrequisitos": [
       "mat.p1.ruedan-no-ruedan"
     ],
     "ordenSugerido": 52,
-    "ideaCentral": "Distingue objetos con puntas o esquinas de los que son redondeados.",
+    "ideaCentral": "Algunos objetos tienen puntas o esquinas que se sienten al tocarlos, como un dado o un libro. Otros son redondeados y se deslizan suave en tu mano, como una pelota.",
     "pasos": [
-      "Observa la forma del objeto o de la figura.",
-      "Busca sus lados, caras, puntas o superficies curvas.",
-      "Compárala con una forma conocida y nómbrala."
+      "Toca el objeto con tu mano, con cuidado.",
+      "Si sientes una punta que pincha o un borde que se junta, tiene esquina.",
+      "Si todo el objeto es suave y curvo, es redondeado.",
+      "Cuenta las esquinas tocando una por una."
     ],
     "ejemplos": [
       {
-        "situacion": "El contorno de un triángulo tiene esquinas. ¿Sí o no?",
-        "desarrollo": "Recorre mentalmente el borde de un triángulo. Mira los tapitas en el aula. Busca cambios bruscos de dirección en el borde. Usa los datos de tapitas en el aula.",
-        "respuesta": "sí"
+        "situacion": "Lucía toca un dado y una canica. ¿Cuál tiene esquinas?",
+        "desarrollo": "El dado tiene puntas donde se juntan sus lados. La canica es suave por todos lados.",
+        "respuesta": "El dado tiene esquinas; la canica es redondeada."
       },
       {
-        "situacion": "El contorno de un cuadrado tiene esquinas. ¿Sí o no?",
-        "desarrollo": "Recorre mentalmente el borde de un cuadrado. Mira los choclos en el patio. Busca cambios bruscos de dirección en el borde. Usa los datos de choclos en el patio.",
-        "respuesta": "sí"
+        "situacion": "Un libro de cuentos está sobre la mesa de Pedro. ¿Tiene esquinas?",
+        "desarrollo": "Toca la tapa: en cada rincón se juntan dos bordes. Eso es una esquina.",
+        "respuesta": "Sí, el libro tiene esquinas."
+      },
+      {
+        "situacion": "Rosa elige una naranja del mercado. ¿Tiene puntas?",
+        "desarrollo": "La naranja es curva por todos lados y no pincha.",
+        "respuesta": "No, la naranja es redondeada."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Observa la forma del objeto o de la figura. Busca sus lados, caras, puntas o superficies curvas."
+        "error": "Pensar que todo lo que rueda tiene esquinas.",
+        "correccion": "Las pelotas ruedan justo porque son redondeadas y no tienen esquinas."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Compárala con una forma conocida y nómbrala. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Olvidar que un libro o una mesa también tienen esquinas.",
+        "correccion": "Toca los rincones: donde se juntan dos bordes hay una esquina."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
+        "termino": "Esquina",
+        "significado": "Lugar donde se juntan dos bordes, como el rincón de un libro."
       },
       {
-        "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "termino": "Punta",
+        "significado": "Parte que termina en pico, como la de un lápiz."
       },
       {
-        "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "termino": "Redondeado",
+        "significado": "Suave y curvo, sin esquinas."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el aula, durante la clase de formas, el contorno de un triángulo tiene esquinas. ¿Sí o no?",
-        "respuesta": "a",
+        "enunciado": "¿Cuál de estos objetos tiene esquinas?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre mentalmente el borde de un triángulo. Mira los tapitas en el aula.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de tapitas en el aula.",
-          "La respuesta es sí. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "Un triángulo tiene esquinas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "sí"
+            "texto": "Una pelota"
           },
           {
             "id": "b",
-            "texto": "no"
+            "texto": "Un dado"
           },
           {
             "id": "c",
-            "texto": "no se puede saber"
+            "texto": "Una naranja"
           }
-        ]
+        ],
+        "pistas": [
+          "Piensa en cuál objeto pincha un poquito en la mano.",
+          "La pelota y la naranja son suaves por todos lados.",
+          "El dado tiene esquinas donde se juntan sus lados."
+        ],
+        "retroalimentacion": "El dado tiene esquinas. La pelota y la naranja son redondeadas.",
+        "id": "e01"
       },
       {
-        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una canica no tiene esquinas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina que tocas una canica con tu dedo.",
+          "¿Sientes alguna punta o rincón en la canica?",
+          "La canica es suave y curva por todos lados."
+        ],
+        "retroalimentacion": "Es verdadero: la canica es redondeada y no tiene esquinas.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una pelota de fútbol, ¿tiene esquinas o es redondeada? Escribe una palabra: esquinas o redondeada.",
+        "respuesta": "redondeada",
+        "alternativasAceptadas": [
+          "es redondeada",
+          "redondeado"
+        ],
+        "pistas": [
+          "Piensa en cómo sientes la pelota con la mano.",
+          "La pelota no pincha ni tiene rincones.",
+          "Es suave y curva por todos lados: es re...."
+        ],
+        "retroalimentacion": "La pelota es redondeada. Por eso rueda sin trabarse.",
+        "id": "e03"
+      },
+      {
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el patio, durante la clase de formas, el contorno de un cuadrado tiene esquinas. ¿Sí o no?",
+        "enunciado": "Mario guarda objetos en su mochila. ¿Cuál NO tiene esquinas?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre mentalmente el borde de un cuadrado. Mira los choclos en el patio.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de choclos en el patio.",
-          "La respuesta es sí. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "Un cuadrado tiene esquinas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "no"
+            "texto": "Una caja de zapatos"
           },
           {
             "id": "b",
-            "texto": "no se puede saber"
+            "texto": "Un libro"
           },
           {
             "id": "c",
-            "texto": "sí"
+            "texto": "Una canica"
           }
-        ]
+        ],
+        "pistas": [
+          "Busca el objeto que no tenga rincones.",
+          "La caja y el libro tienen rincones donde se juntan sus bordes.",
+          "La canica es lisa y curva, sin rincones."
+        ],
+        "retroalimentacion": "La canica no tiene esquinas. La caja de zapatos y el libro sí las tienen.",
+        "id": "e04"
       },
       {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la chacra, durante la clase de formas, el contorno de un rectángulo tiene esquinas. ¿Sí o no?",
-        "respuesta": "b",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Sobre la mesa hay 2 dados, 3 canicas, 1 caja de fósforos y 2 pelotas. ¿Cuántos objetos tienen esquinas? Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "Recorre mentalmente el borde de un rectángulo. Mira los cuentos en la chacra.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de cuentos en la chacra.",
-          "La respuesta es sí. Comprueba con los cuentos en la chacra."
+          "Primero separa los objetos que pinchan al tocarlos.",
+          "Los dados y la caja de fósforos tienen esquinas; las canicas y las pelotas no.",
+          "Suma los dados y la caja: 2 + 1."
         ],
-        "retroalimentacion": "Un rectángulo tiene esquinas.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "no se puede saber"
-          },
-          {
-            "id": "b",
-            "texto": "sí"
-          },
-          {
-            "id": "c",
-            "texto": "no"
-          }
-        ]
+        "retroalimentacion": "Tienen esquinas los 2 dados y la caja de fósforos: 2 + 1 = 3. Las canicas y las pelotas no cuentan.",
+        "id": "e05"
       },
       {
-        "id": "e04",
-        "dificultad": 1,
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La tapa de un cuaderno tiene esquinas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la tapa de tu cuaderno, no el lomo.",
+          "Mira los rincones: ahí se juntan dos bordes.",
+          "Donde se juntan dos bordes hay una esquina, y la tapa los tiene."
+        ],
+        "retroalimentacion": "Es verdadero: la tapa del cuaderno tiene esquinas, en cada rincón donde se juntan dos bordes.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la biblioteca, durante la clase de formas, el contorno de un círculo tiene esquinas. ¿Sí o no?",
+        "enunciado": "Pedro busca un juguete sin puntas ni esquinas para su hermanito bebé. ¿Cuál elige?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre mentalmente el borde de un círculo. Mira los lápices en la biblioteca.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de lápices en la biblioteca.",
-          "La respuesta es no. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "Un círculo no tiene esquinas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "no"
+            "texto": "Una pelota de trapo"
           },
           {
             "id": "b",
-            "texto": "sí"
+            "texto": "Un dado de madera"
           },
           {
             "id": "c",
-            "texto": "no se puede saber"
+            "texto": "Un bloque cuadrado"
           }
-        ]
+        ],
+        "pistas": [
+          "Un bebé se puede lastimar con puntas.",
+          "El dado y el bloque tienen esquinas.",
+          "La pelota es suave, sin esquinas."
+        ],
+        "retroalimentacion": "La pelota de trapo es redondeada y segura. El dado y el bloque tienen esquinas.",
+        "id": "e07"
       },
       {
-        "id": "e05",
         "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Juan toca una naranja y luego un dado. ¿Cuál de los dos le pincha más la mano? Escribe el nombre del objeto.",
+        "respuesta": "dado",
+        "alternativasAceptadas": [
+          "el dado",
+          "un dado"
+        ],
+        "pistas": [
+          "Piensa cuál tiene esquinas.",
+          "La naranja es suave por todos lados.",
+          "Las esquinas están en el dado, no en la naranja."
+        ],
+        "retroalimentacion": "El dado pincha más porque tiene esquinas. La naranja es redondeada.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Cada cuaderno de Carla tiene 4 esquinas en su tapa. Ella tiene 3 cuadernos. ¿Cuántas esquinas hay en las tapas de todos sus cuadernos? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay que contar las esquinas de cada cuaderno y juntarlas.",
+          "Cada cuaderno suma 4: cuenta de 4 en 4.",
+          "Suma 4 + 4 + 4."
+        ],
+        "retroalimentacion": "Son 3 cuadernos con 4 esquinas cada uno: 4 + 4 + 4 = 12 esquinas.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mesa, durante la clase de formas, el contorno de un triángulo tiene esquinas. ¿Sí o no?",
+        "enunciado": "Elige el grupo donde TODOS los objetos tienen esquinas.",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre mentalmente el borde de un triángulo. Mira los cuyes en la mesa.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de cuyes en la mesa.",
-          "La respuesta es sí. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "Un triángulo tiene esquinas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "no"
+            "texto": "canica, naranja, caja"
           },
           {
             "id": "b",
-            "texto": "no se puede saber"
+            "texto": "pelota, dado, libro"
           },
           {
             "id": "c",
-            "texto": "sí"
+            "texto": "dado, caja de zapatos, libro"
           }
-        ]
-      },
-      {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la feria, durante la clase de formas, el contorno de un cuadrado tiene esquinas. ¿Sí o no?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre mentalmente el borde de un cuadrado. Mira los semillas en la feria.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de semillas en la feria.",
-          "La respuesta es sí. Comprueba con los semillas en la feria."
         ],
-        "retroalimentacion": "Un cuadrado tiene esquinas.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "no se puede saber"
-          },
-          {
-            "id": "b",
-            "texto": "sí"
-          },
-          {
-            "id": "c",
-            "texto": "no"
-          }
-        ]
-      },
-      {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el jardín, durante la clase de formas, el contorno de un rectángulo tiene esquinas. ¿Sí o no?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
         "pistas": [
-          "Recorre mentalmente el borde de un rectángulo. Mira los caramelos en el jardín.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de caramelos en el jardín.",
-          "La respuesta es sí. Comprueba con los caramelos en el jardín."
+          "Revisa los objetos de cada grupo uno por uno.",
+          "La canica, la naranja y la pelota no tienen esquinas.",
+          "Solo en un grupo, los tres objetos pinchan al tocarlos."
         ],
-        "retroalimentacion": "Un rectángulo tiene esquinas.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "sí"
-          },
-          {
-            "id": "b",
-            "texto": "no"
-          },
-          {
-            "id": "c",
-            "texto": "no se puede saber"
-          }
-        ]
+        "retroalimentacion": "Dado, caja de zapatos y libro tienen esquinas. En los otros grupos hay una canica, una naranja o una pelota, que son redondeadas.",
+        "id": "e10"
       },
       {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la cocina, durante la clase de formas, el contorno de un círculo tiene esquinas. ¿Sí o no?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre mentalmente el borde de un círculo. Mira los piedritas en la cocina.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de piedritas en la cocina.",
-          "La respuesta es no. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "Un círculo no tiene esquinas.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "sí"
-          },
-          {
-            "id": "b",
-            "texto": "no se puede saber"
-          },
-          {
-            "id": "c",
-            "texto": "no"
-          }
-        ]
-      },
-      {
-        "id": "e09",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la mochila, durante la clase de formas, el contorno de un triángulo tiene esquinas. ¿Sí o no?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre mentalmente el borde de un triángulo. Mira los flores en la mochila.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de flores en la mochila.",
-          "La respuesta es sí. Comprueba con los flores en la mochila."
+        "tipo": "texto_corto",
+        "enunciado": "Un juguete rueda muy bien y no pincha al tocarlo. ¿Tiene esquinas? Responde sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no tiene",
+          "no tiene esquinas"
         ],
-        "retroalimentacion": "Un triángulo tiene esquinas.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "no se puede saber"
-          },
-          {
-            "id": "b",
-            "texto": "sí"
-          },
-          {
-            "id": "c",
-            "texto": "no"
-          }
-        ]
+        "pistas": [
+          "Piensa en un juguete que rueda, como una pelota.",
+          "Si pinchara tendría esquinas, pero el texto dice que no pincha.",
+          "Los objetos que ruedan bien son redondeados, entonces la respuesta es no."
+        ],
+        "retroalimentacion": "No tiene esquinas. Un objeto que rueda bien y no pincha es redondeado.",
+        "id": "e11"
       },
       {
-        "id": "e10",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el mercado, durante la clase de formas, el contorno de un cuadrado tiene esquinas. ¿Sí o no?",
-        "respuesta": "a",
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un objeto tiene esquinas, rueda tan bien como una pelota.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Recorre mentalmente el borde de un cuadrado. Mira los tizas en el mercado.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de tizas en el mercado.",
-          "La respuesta es sí. Comprueba con los tizas en el mercado."
+          "Piensa en cómo ruedan un dado y una pelota.",
+          "El dado se frena porque sus esquinas chocan con la mesa.",
+          "La pelota rueda mejor porque no tiene esquinas."
         ],
-        "retroalimentacion": "Un cuadrado tiene esquinas.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "sí"
-          },
-          {
-            "id": "b",
-            "texto": "no"
-          },
-          {
-            "id": "c",
-            "texto": "no se puede saber"
-          }
-        ]
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la canasta, durante la clase de formas, el contorno de un rectángulo tiene esquinas. ¿Sí o no?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre mentalmente el borde de un rectángulo. Mira los pelotas en la canasta.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de pelotas en la canasta.",
-          "La respuesta es sí. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "Un rectángulo tiene esquinas.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "no"
-          },
-          {
-            "id": "b",
-            "texto": "no se puede saber"
-          },
-          {
-            "id": "c",
-            "texto": "sí"
-          }
-        ]
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la escuela, durante la clase de formas, el contorno de un círculo tiene esquinas. ¿Sí o no?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre mentalmente el borde de un círculo. Mira los mandarinas en la escuela.",
-          "Busca cambios bruscos de dirección en el borde. Usa los datos de mandarinas en la escuela.",
-          "La respuesta es no. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "Un círculo no tiene esquinas.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "no se puede saber"
-          },
-          {
-            "id": "b",
-            "texto": "no"
-          },
-          {
-            "id": "c",
-            "texto": "sí"
-          }
-        ]
+        "retroalimentacion": "Es falso: los objetos con esquinas, como el dado, no ruedan bien. La pelota rueda porque es redondeada.",
+        "id": "e12"
       }
     ],
     "fuentes": [
@@ -3003,225 +2621,291 @@
     "disciplina": "geometria",
     "descripcionCorta": "Señala y cuenta las caras planas y las puntas de un cuerpo geométrico.",
     "palabrasClave": [
-      "caras",
+      "caras planas",
       "puntas",
-      "los",
-      "cuerpos"
+      "cubo",
+      "cilindro",
+      "esfera"
     ],
     "prerrequisitos": [
       "mat.p1.puntas-y-esquinas"
     ],
     "ordenSugerido": 86,
-    "ideaCentral": "Señala y cuenta las caras planas y las puntas de un cuerpo geométrico.",
+    "ideaCentral": "Los cuerpos tienen partes que puedes contar. Las caras son las partes planas y las puntas son los rincones donde se juntan. Un cubo tiene 6 caras planas y 8 puntas.",
     "pasos": [
-      "Observa la forma del objeto o de la figura.",
-      "Busca sus lados, caras, puntas o superficies curvas.",
-      "Compárala con una forma conocida y nómbrala."
+      "Elige un cuerpo y míralo por todos lados.",
+      "Pasa tu mano por las partes planas y cuéntalas: son las caras.",
+      "Toca los rincones que pinchan y cuéntalos: son las puntas.",
+      "Si no hay partes planas o puntas, la respuesta es 0."
     ],
     "ejemplos": [
       {
-        "situacion": "¿Cuántas caras planas tiene pelota si lo consideras como esfera?",
-        "desarrollo": "Identifica el cuerpo esfera. Mira los tapitas en el aula. Cuenta solo sus superficies planas. Usa los datos de tapitas en el aula.",
-        "respuesta": "0"
+        "situacion": "Un dado de ludo tiene forma de cubo. ¿Cuántas caras planas tiene?",
+        "desarrollo": "Cuenta: arriba, abajo y los cuatro lados. Son 1 + 1 + 4.",
+        "respuesta": "El dado tiene 6 caras planas."
       },
       {
-        "situacion": "¿Cuántas caras planas tiene dado si lo consideras como cubo?",
-        "desarrollo": "Identifica el cuerpo cubo. Mira los choclos en el patio. Cuenta solo sus superficies planas. Usa los datos de choclos en el patio.",
-        "respuesta": "6"
+        "situacion": "Una lata de leche, ¿cuántas caras planas tiene?",
+        "desarrollo": "Tiene la tapa de arriba y el fondo de abajo. El costado es curvo, no es plano.",
+        "respuesta": "La lata tiene 2 caras planas."
+      },
+      {
+        "situacion": "Una pelota de Lima, ¿cuántas puntas tiene?",
+        "desarrollo": "Pasa la mano por toda la pelota: no pincha en ninguna parte.",
+        "respuesta": "La pelota tiene 0 puntas."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Observa la forma del objeto o de la figura. Busca sus lados, caras, puntas o superficies curvas."
+        "error": "Contar solo las caras que se ven y olvidar las de abajo o de atrás.",
+        "correccion": "Gira el cuerpo en tus manos y cuenta todas las caras, incluso las de abajo."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Compárala con una forma conocida y nómbrala. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Confundir caras con puntas.",
+        "correccion": "Las caras son partes planas; las puntas son rincones que pinchan."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
-      },
-      {
         "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "significado": "Parte plana de un cuerpo."
       },
       {
-        "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "termino": "Punta",
+        "significado": "Rincón donde se juntan varias caras."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene pelota si lo consideras como esfera?",
-        "respuesta": 0,
+        "enunciado": "Un dado tiene forma de cubo. ¿Cuántas caras planas tiene? Escribe solo el número.",
+        "respuesta": 6,
         "alternativasAceptadas": [],
         "pistas": [
-          "Identifica el cuerpo esfera. Mira los tapitas en el aula.",
-          "Cuenta solo sus superficies planas. Usa los datos de tapitas en el aula.",
-          "Tiene 0 caras planas. Comprueba con los tapitas en el aula."
+          "Gira el dado en tu mano.",
+          "Cuenta arriba, abajo y los cuatro lados.",
+          "Son 1 de arriba, 1 de abajo y 4 de los lados: 1 + 1 + 4."
         ],
-        "retroalimentacion": "El esfera tiene 0 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "retroalimentacion": "El dado tiene 6 caras planas. Si dijiste 4, olvidaste la de arriba y la de abajo.",
+        "id": "e01"
       },
       {
-        "id": "e02",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene dado si lo consideras como cubo?",
-        "respuesta": 6,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos cuerpos no tiene ninguna cara plana?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Identifica el cuerpo cubo. Mira los choclos en el patio.",
-          "Cuenta solo sus superficies planas. Usa los datos de choclos en el patio.",
-          "Tiene 6 caras planas. Comprueba con los choclos en el patio."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cilindro"
+          },
+          {
+            "id": "b",
+            "texto": "Cubo"
+          },
+          {
+            "id": "c",
+            "texto": "Esfera"
+          }
         ],
-        "retroalimentacion": "El cubo tiene 6 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "pistas": [
+          "Busca el que sea redondo por todos lados.",
+          "El cubo y el cilindro tienen partes planas.",
+          "La pelota es una esfera y no tiene partes planas."
+        ],
+        "retroalimentacion": "La esfera no tiene caras planas. El cubo y el cilindro sí las tienen.",
+        "id": "e02"
       },
       {
-        "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene lata de leche si lo consideras como cilindro?",
-        "respuesta": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una lata de leche tiene dos caras planas.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Identifica el cuerpo cilindro. Mira los cuentos en la chacra.",
-          "Cuenta solo sus superficies planas. Usa los datos de cuentos en la chacra.",
-          "Tiene 2 caras planas. Comprueba con los cuentos en la chacra."
+          "Mira la lata de leche por arriba y por abajo.",
+          "La tapa y el fondo son partes planas.",
+          "El costado es curvo, así que solo la tapa y el fondo cuentan: 2."
         ],
-        "retroalimentacion": "El cilindro tiene 2 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "retroalimentacion": "Es verdadero: la lata tiene la tapa y el fondo, que son 2 caras planas.",
+        "id": "e03"
       },
       {
-        "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene caja de zapatos si lo consideras como prisma rectangular?",
-        "respuesta": 6,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántas puntas tiene una pelota?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Identifica el cuerpo prisma rectangular. Mira los lápices en la biblioteca.",
-          "Cuenta solo sus superficies planas. Usa los datos de lápices en la biblioteca.",
-          "Tiene 6 caras planas. Comprueba con los lápices en la biblioteca."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ninguna"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro"
+          },
+          {
+            "id": "c",
+            "texto": "Ocho"
+          }
         ],
-        "retroalimentacion": "El prisma rectangular tiene 6 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "pistas": [
+          "Pasa tu mano por una pelota.",
+          "¿Sientes algún rincón que pinche?",
+          "La pelota es redondeada, así que no tiene puntas."
+        ],
+        "retroalimentacion": "La pelota no tiene ninguna punta porque es redondeada. El cubo es el que tiene 8.",
+        "id": "e04"
       },
       {
-        "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene canica si lo consideras como esfera?",
-        "respuesta": 0,
+        "enunciado": "Una caja de zapatos tiene 6 caras. Marta pinta 2 caras de rojo. ¿Cuántas caras quedan sin pintar? Escribe solo el número.",
+        "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
-          "Identifica el cuerpo esfera. Mira los cuyes en la mesa.",
-          "Cuenta solo sus superficies planas. Usa los datos de cuyes en la mesa.",
-          "Tiene 0 caras planas. Comprueba con los cuyes en la mesa."
+          "Empieza con las 6 caras de la caja.",
+          "Marta ya pintó 2 de ellas.",
+          "Quita: 6 menos 2."
         ],
-        "retroalimentacion": "El esfera tiene 0 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "retroalimentacion": "Quedan 6 - 2 = 4 caras sin pintar. Si sumaste 6 + 2, te saliste de las caras que tiene la caja.",
+        "id": "e05"
       },
       {
-        "id": "e06",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene cubo de madera si lo consideras como cubo?",
-        "respuesta": 6,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Identifica el cuerpo cubo. Mira los semillas en la feria.",
-          "Cuenta solo sus superficies planas. Usa los datos de semillas en la feria.",
-          "Tiene 6 caras planas. Comprueba con los semillas en la feria."
+        "tipo": "texto_corto",
+        "enunciado": "¿Cuántas puntas tiene una lata de atún? Escribe el número.",
+        "respuesta": "0",
+        "alternativasAceptadas": [
+          "cero",
+          "ninguna",
+          "no tiene"
         ],
-        "retroalimentacion": "El cubo tiene 6 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "pistas": [
+          "Toca los bordes de una lata.",
+          "La tapa es redonda y se une al costado de forma suave.",
+          "Sin rincones que pinchen, el número es cero."
+        ],
+        "retroalimentacion": "La lata no tiene puntas: son 0. Sus tapas son redondas y no forman rincones.",
+        "id": "e06"
       },
       {
-        "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene tubo cerrado si lo consideras como cilindro?",
-        "respuesta": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La esfera tiene seis caras planas.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Identifica el cuerpo cilindro. Mira los caramelos en el jardín.",
-          "Cuenta solo sus superficies planas. Usa los datos de caramelos en el jardín.",
-          "Tiene 2 caras planas. Comprueba con los caramelos en el jardín."
+          "Piensa en una naranja o una pelota.",
+          "¿Tiene partes planas?",
+          "La esfera es redonda por todos lados: no tiene ninguna cara plana."
         ],
-        "retroalimentacion": "El cilindro tiene 2 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "retroalimentacion": "Es falso: la esfera tiene 0 caras planas. Quien tiene 6 es el cubo.",
+        "id": "e07"
       },
       {
-        "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene caja de cereal si lo consideras como prisma rectangular?",
-        "respuesta": 6,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cuerpo tiene 2 caras planas y ninguna punta. ¿Cuál es?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Identifica el cuerpo prisma rectangular. Mira los piedritas en la cocina.",
-          "Cuenta solo sus superficies planas. Usa los datos de piedritas en la cocina.",
-          "Tiene 6 caras planas. Comprueba con los piedritas en la cocina."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cilindro"
+          },
+          {
+            "id": "b",
+            "texto": "Esfera"
+          },
+          {
+            "id": "c",
+            "texto": "Cubo"
+          }
         ],
-        "retroalimentacion": "El prisma rectangular tiene 6 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "pistas": [
+          "El cubo tiene 6 caras, así que no sirve.",
+          "La esfera no tiene caras planas.",
+          "La tapa y el fondo son las 2 caras planas de una lata."
+        ],
+        "retroalimentacion": "Es el cilindro: tiene 2 caras planas y ninguna punta. La esfera tiene 0 caras y el cubo tiene 6.",
+        "id": "e08"
       },
       {
-        "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene balón si lo consideras como esfera?",
-        "respuesta": 0,
+        "enunciado": "Un dado tiene 6 caras planas y una lata tiene 2. Ana junta 1 dado y 2 latas. ¿Cuántas caras planas hay en total? Escribe solo el número.",
+        "respuesta": 10,
         "alternativasAceptadas": [],
         "pistas": [
-          "Identifica el cuerpo esfera. Mira los flores en la mochila.",
-          "Cuenta solo sus superficies planas. Usa los datos de flores en la mochila.",
-          "Tiene 0 caras planas. Comprueba con los flores en la mochila."
+          "Cuenta las caras de cada objeto.",
+          "El dado trae 6 y cada lata trae 2.",
+          "Dos latas son 2 + 2 = 4; luego suma 6 + 4."
         ],
-        "retroalimentacion": "El esfera tiene 0 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "retroalimentacion": "El dado tiene 6, las dos latas tienen 2 + 2 = 4, y 6 + 4 = 10 caras planas.",
+        "id": "e09"
       },
       {
-        "id": "e10",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene dado grande si lo consideras como cubo?",
-        "respuesta": 6,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja tiene 6 caras y 8 puntas. Beto dice que tiene 6 puntas. ¿Qué pasó?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Identifica el cuerpo cubo. Mira los tizas en el mercado.",
-          "Cuenta solo sus superficies planas. Usa los datos de tizas en el mercado.",
-          "Tiene 6 caras planas. Comprueba con los tizas en el mercado."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La caja no tiene puntas"
+          },
+          {
+            "id": "b",
+            "texto": "Contó mal las caras"
+          },
+          {
+            "id": "c",
+            "texto": "Confundió las caras con las puntas"
+          }
         ],
-        "retroalimentacion": "El cubo tiene 6 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "pistas": [
+          "Fíjate en el número 6: ¿de qué lo contó Beto?",
+          "La caja sí tiene puntas; son los rincones que pinchan.",
+          "El 6 es el número de caras. Las puntas son 8."
+        ],
+        "retroalimentacion": "Beto confundió las caras con las puntas: la caja tiene 6 caras y 8 puntas.",
+        "id": "e10"
       },
       {
-        "id": "e11",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene lata de atún si lo consideras como cilindro?",
-        "respuesta": 2,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Identifica el cuerpo cilindro. Mira los pelotas en la canasta.",
-          "Cuenta solo sus superficies planas. Usa los datos de pelotas en la canasta.",
-          "Tiene 2 caras planas. Comprueba con los pelotas en la canasta."
+        "tipo": "texto_corto",
+        "enunciado": "Una caja tiene 6 caras y 8 puntas. ¿Tiene más caras o más puntas? Escribe: caras o puntas.",
+        "respuesta": "puntas",
+        "alternativasAceptadas": [
+          "más puntas",
+          "puntas"
         ],
-        "retroalimentacion": "El cilindro tiene 2 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "pistas": [
+          "Compara los dos números que te da el problema.",
+          "Las caras son 6 y las puntas son 8.",
+          "Ocho es mayor que seis, entonces hay más ...."
+        ],
+        "retroalimentacion": "Hay más puntas: 8 es mayor que 6.",
+        "id": "e11"
       },
       {
-        "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "¿Cuántas caras planas tiene caja de libros si lo consideras como prisma rectangular?",
-        "respuesta": 6,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una lata y una pelota tienen el mismo número de puntas.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Identifica el cuerpo prisma rectangular. Mira los mandarinas en la escuela.",
-          "Cuenta solo sus superficies planas. Usa los datos de mandarinas en la escuela.",
-          "Tiene 6 caras planas. Comprueba con los mandarinas en la escuela."
+          "Cuenta las puntas de la lata y de la pelota por separado.",
+          "La lata no tiene rincones que pinchen.",
+          "La lata tiene 0 puntas y la pelota también 0: son iguales."
         ],
-        "retroalimentacion": "El prisma rectangular tiene 6 caras planas. Una superficie curva no cuenta como cara plana aquí."
+        "retroalimentacion": "Es verdadero: la lata y la pelota tienen 0 puntas cada una.",
+        "id": "e12"
       }
     ],
     "fuentes": [
@@ -3249,223 +2933,284 @@
     "descripcionCorta": "Cuenta los lados de figuras planas y las describe por ellos.",
     "palabrasClave": [
       "lados",
-      "las",
-      "figuras"
+      "triángulo",
+      "cuadrado",
+      "rectángulo",
+      "círculo"
     ],
     "prerrequisitos": [
       "mat.p1.figuras-planas"
     ],
     "ordenSugerido": 87,
-    "ideaCentral": "Cuenta los lados de figuras planas y las describe por ellos.",
+    "ideaCentral": "Los lados son las líneas rectas que forman una figura. El triángulo tiene 3 lados, el cuadrado y el rectángulo tienen 4. El círculo no tiene lados rectos.",
     "pasos": [
-      "Observa la forma del objeto o de la figura.",
-      "Busca sus lados, caras, puntas o superficies curvas.",
-      "Compárala con una forma conocida y nómbrala."
+      "Mira la figura y busca sus líneas rectas.",
+      "Pasa tu dedo por cada lado, uno por uno.",
+      "Cuenta en voz alta: 1, 2, 3...",
+      "Di el nombre de la figura según sus lados."
     ],
     "ejemplos": [
       {
-        "situacion": "¿Cuántos lados rectos tiene un triángulo?",
-        "desarrollo": "Recorre el borde del triángulo. Mira los tapitas en el aula. Cuenta solo los segmentos rectos. Usa los datos de tapitas en el aula.",
-        "respuesta": "3"
+        "situacion": "Un banderín del colegio tiene forma de triángulo. ¿Cuántos lados tiene?",
+        "desarrollo": "Pasa el dedo por cada lado: 1, 2, 3.",
+        "respuesta": "Tiene 3 lados."
       },
       {
-        "situacion": "¿Cuántos lados rectos tiene un cuadrado?",
-        "desarrollo": "Recorre el borde del cuadrado. Mira los choclos en el patio. Cuenta solo los segmentos rectos. Usa los datos de choclos en el patio.",
-        "respuesta": "4"
+        "situacion": "Un pañuelo cuadrado de la abuela tiene lados iguales. ¿Cuántos lados tiene?",
+        "desarrollo": "Cuenta los bordes: arriba, abajo, izquierda y derecha. Son 4.",
+        "respuesta": "Tiene 4 lados."
+      },
+      {
+        "situacion": "Una moneda de un sol es redonda. ¿Tiene lados rectos?",
+        "desarrollo": "Su borde es una curva y no tiene líneas rectas.",
+        "respuesta": "No, el círculo no tiene lados rectos."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Observa la forma del objeto o de la figura. Busca sus lados, caras, puntas o superficies curvas."
+        "error": "Contar dos veces el mismo lado o saltarse uno.",
+        "correccion": "Marca el lado donde empiezas y cuenta sin pasar dos veces por el mismo."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Compárala con una forma conocida y nómbrala. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Decir que el círculo tiene 1 lado.",
+        "correccion": "El círculo es una línea curva, no tiene lados rectos."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
+        "termino": "Lado",
+        "significado": "Cada línea recta del borde de una figura."
       },
       {
-        "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "termino": "Triángulo",
+        "significado": "Figura con 3 lados."
       },
       {
-        "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "termino": "Rectángulo",
+        "significado": "Figura con 4 lados, dos largos y dos cortos."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En el aula, durante la clase de formas, ¿Cuántos lados rectos tiene un triángulo?",
+        "enunciado": "Un banderín tiene forma de triángulo. ¿Cuántos lados tiene? Escribe solo el número.",
         "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "Recorre el borde del triángulo. Mira los tapitas en el aula.",
-          "Cuenta solo los segmentos rectos. Usa los datos de tapitas en el aula.",
-          "Tiene 3 lados rectos. Comprueba con los tapitas en el aula."
+          "Pasa tu dedo por el borde del banderín.",
+          "Cuenta cada línea recta una vez.",
+          "Un triángulo tiene un lado de abajo y otros dos."
         ],
-        "retroalimentacion": "Un triángulo tiene 3 lados rectos. Un círculo no tiene segmentos rectos."
+        "retroalimentacion": "El triángulo tiene 3 lados. Si contaste 4, confundiste el triángulo con el cuadrado.",
+        "id": "e01"
       },
       {
-        "id": "e02",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En el patio, durante la clase de formas, ¿Cuántos lados rectos tiene un cuadrado?",
-        "respuesta": 4,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué figura tiene 4 lados del mismo tamaño?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Triángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Círculo"
+          }
+        ],
+        "pistas": [
+          "Piensa cuántos lados tiene cada figura.",
+          "El triángulo tiene 3 y el círculo no tiene lados rectos.",
+          "Solo una figura de la lista tiene 4 lados iguales."
+        ],
+        "retroalimentacion": "El cuadrado tiene 4 lados iguales. El triángulo tiene 3 y el círculo no tiene lados rectos.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un círculo tiene lados rectos.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Recorre el borde del cuadrado. Mira los choclos en el patio.",
-          "Cuenta solo los segmentos rectos. Usa los datos de choclos en el patio.",
-          "Tiene 4 lados rectos. Comprueba con los choclos en el patio."
+          "Mira el borde de una moneda.",
+          "¿Hay alguna línea recta en su borde?",
+          "El borde del círculo es una curva, sin líneas rectas."
         ],
-        "retroalimentacion": "Un cuadrado tiene 4 lados rectos. Un círculo no tiene segmentos rectos."
+        "retroalimentacion": "Es falso: el círculo no tiene lados rectos, su borde es curvo.",
+        "id": "e03"
       },
       {
-        "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En la chacra, durante la clase de formas, ¿Cuántos lados rectos tiene un rectángulo?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre el borde del rectángulo. Mira los cuentos en la chacra.",
-          "Cuenta solo los segmentos rectos. Usa los datos de cuentos en la chacra.",
-          "Tiene 4 lados rectos. Comprueba con los cuentos en la chacra."
+        "tipo": "texto_corto",
+        "enunciado": "Una figura tiene 3 lados. ¿Cómo se llama? Escribe una palabra.",
+        "respuesta": "triángulo",
+        "alternativasAceptadas": [
+          "triangulo",
+          "un triángulo",
+          "es un triángulo"
         ],
-        "retroalimentacion": "Un rectángulo tiene 4 lados rectos. Un círculo no tiene segmentos rectos."
+        "pistas": [
+          "Piensa en una figura de pocos lados.",
+          "Tiene menos lados que el cuadrado.",
+          "Su nombre empieza con tri, como «tres»."
+        ],
+        "retroalimentacion": "La figura de 3 lados se llama triángulo.",
+        "id": "e04"
       },
       {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En la biblioteca, durante la clase de formas, ¿Cuántos lados rectos tiene un círculo?",
-        "respuesta": 0,
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La ventana de la casa de Rosa en Cusco tiene 4 lados: dos largos y dos cortos. ¿Qué figura es?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre el borde del círculo. Mira los lápices en la biblioteca.",
-          "Cuenta solo los segmentos rectos. Usa los datos de lápices en la biblioteca.",
-          "Tiene 0 lados rectos. Comprueba con los lápices en la biblioteca."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Rectángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Triángulo"
+          }
         ],
-        "retroalimentacion": "Un círculo tiene 0 lados rectos. Un círculo no tiene segmentos rectos."
+        "pistas": [
+          "Cuenta cuántos lados dice el texto.",
+          "Con 4 lados también puede ser cuadrado, pero ahí todos son iguales.",
+          "Si hay dos lados largos y dos cortos, es un rectángulo."
+        ],
+        "retroalimentacion": "La ventana es un rectángulo: tiene 4 lados, dos largos y dos cortos. El cuadrado tiene sus 4 lados iguales.",
+        "id": "e05"
       },
       {
-        "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la mesa, durante la clase de formas, ¿Cuántos lados rectos tiene un triángulo?",
+        "enunciado": "Una profesora cuelga un pañuelo cuadrado y un banderín triangular. ¿Cuántos lados hay entre los dos? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los lados del pañuelo y luego los del banderín.",
+          "El cuadrado tiene 4 y el triángulo tiene 3.",
+          "Suma los dos números: 4 + 3."
+        ],
+        "retroalimentacion": "El pañuelo tiene 4 lados y el banderín tiene 3: 4 + 3 = 7 lados.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo tiene más lados que un cuadrado.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los lados de cada figura.",
+          "El triángulo tiene 3 lados y el cuadrado tiene 4.",
+          "Tres es menor que cuatro."
+        ],
+        "retroalimentacion": "Es falso: el triángulo tiene 3 lados y el cuadrado tiene 4, así que tiene menos.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una moneda de un sol es redonda y no tiene ninguna línea recta. ¿Qué figura es? Escribe una palabra.",
+        "respuesta": "círculo",
+        "alternativasAceptadas": [
+          "circulo",
+          "un círculo",
+          "es un círculo"
+        ],
+        "pistas": [
+          "Piensa en una moneda sobre la mesa.",
+          "Su borde no tiene líneas rectas.",
+          "Una figura redonda se llama cír...."
+        ],
+        "retroalimentacion": "La moneda es un círculo: no tiene lados rectos.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Rosa dibuja 2 triángulos y 1 cuadrado. ¿Cuántos lados dibujó en total? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero cuenta los lados de los dos triángulos.",
+          "Cada triángulo tiene 3, o sea 3 + 3.",
+          "Luego suma los 4 lados del cuadrado a esos 6."
+        ],
+        "retroalimentacion": "Los triángulos tienen 3 + 3 = 6 lados, y con el cuadrado, 6 + 4 = 10 lados.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tomás dice: «Un rectángulo y un cuadrado tienen distinto número de lados». ¿Qué le respondes?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tienes razón, el rectángulo tiene 5"
+          },
+          {
+            "id": "b",
+            "texto": "Tienes razón, el cuadrado tiene 3"
+          },
+          {
+            "id": "c",
+            "texto": "Te equivocas, los dos tienen 4 lados"
+          }
+        ],
+        "pistas": [
+          "Cuenta los lados del rectángulo y del cuadrado.",
+          "El rectángulo tiene 4 y el cuadrado tiene 4.",
+          "Se parecen en el número de lados, aunque no en el largo."
+        ],
+        "retroalimentacion": "Los dos tienen 4 lados. Cambia el largo de los lados, pero no cuántos son.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una figura tiene un lado menos que el cuadrado. ¿Cuántos lados tiene? Escribe solo el número.",
         "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "Recorre el borde del triángulo. Mira los cuyes en la mesa.",
-          "Cuenta solo los segmentos rectos. Usa los datos de cuyes en la mesa.",
-          "Tiene 3 lados rectos. Comprueba con los cuyes en la mesa."
+          "Empieza por saber cuántos lados tiene el cuadrado.",
+          "El cuadrado tiene 4 lados.",
+          "Quita 1 a esos 4 lados."
         ],
-        "retroalimentacion": "Un triángulo tiene 3 lados rectos. Un círculo no tiene segmentos rectos."
+        "retroalimentacion": "El cuadrado tiene 4 lados y la figura tiene uno menos: 4 - 1 = 3. Es un triángulo.",
+        "id": "e11"
       },
       {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En la feria, durante la clase de formas, ¿Cuántos lados rectos tiene un cuadrado?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre el borde del cuadrado. Mira los semillas en la feria.",
-          "Cuenta solo los segmentos rectos. Usa los datos de semillas en la feria.",
-          "Tiene 4 lados rectos. Comprueba con los semillas en la feria."
-        ],
-        "retroalimentacion": "Un cuadrado tiene 4 lados rectos. Un círculo no tiene segmentos rectos."
-      },
-      {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En el jardín, durante la clase de formas, ¿Cuántos lados rectos tiene un rectángulo?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre el borde del rectángulo. Mira los caramelos en el jardín.",
-          "Cuenta solo los segmentos rectos. Usa los datos de caramelos en el jardín.",
-          "Tiene 4 lados rectos. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "Un rectángulo tiene 4 lados rectos. Un círculo no tiene segmentos rectos."
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En la cocina, durante la clase de formas, ¿Cuántos lados rectos tiene un círculo?",
-        "respuesta": 0,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre el borde del círculo. Mira los piedritas en la cocina.",
-          "Cuenta solo los segmentos rectos. Usa los datos de piedritas en la cocina.",
-          "Tiene 0 lados rectos. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "Un círculo tiene 0 lados rectos. Un círculo no tiene segmentos rectos."
-      },
-      {
-        "id": "e09",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En la mochila, durante la clase de formas, ¿Cuántos lados rectos tiene un triángulo?",
-        "respuesta": 3,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre el borde del triángulo. Mira los flores en la mochila.",
-          "Cuenta solo los segmentos rectos. Usa los datos de flores en la mochila.",
-          "Tiene 3 lados rectos. Comprueba con los flores en la mochila."
+        "tipo": "texto_corto",
+        "enunciado": "Una figura tiene 4 lados y los 4 miden lo mismo. ¿Es un cuadrado o un rectángulo? Escribe una palabra.",
+        "respuesta": "cuadrado",
+        "alternativasAceptadas": [
+          "un cuadrado",
+          "es un cuadrado"
         ],
-        "retroalimentacion": "Un triángulo tiene 3 lados rectos. Un círculo no tiene segmentos rectos."
-      },
-      {
-        "id": "e10",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En el mercado, durante la clase de formas, ¿Cuántos lados rectos tiene un cuadrado?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
         "pistas": [
-          "Recorre el borde del cuadrado. Mira los tizas en el mercado.",
-          "Cuenta solo los segmentos rectos. Usa los datos de tizas en el mercado.",
-          "Tiene 4 lados rectos. Comprueba con los tizas en el mercado."
+          "Hay dos figuras con 4 lados: cuadrado y rectángulo.",
+          "En el rectángulo, dos lados son largos y dos son cortos.",
+          "Si todos los lados miden lo mismo, es el cua...."
         ],
-        "retroalimentacion": "Un cuadrado tiene 4 lados rectos. Un círculo no tiene segmentos rectos."
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En la canasta, durante la clase de formas, ¿Cuántos lados rectos tiene un rectángulo?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre el borde del rectángulo. Mira los pelotas en la canasta.",
-          "Cuenta solo los segmentos rectos. Usa los datos de pelotas en la canasta.",
-          "Tiene 4 lados rectos. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "Un rectángulo tiene 4 lados rectos. Un círculo no tiene segmentos rectos."
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En la escuela, durante la clase de formas, ¿Cuántos lados rectos tiene un círculo?",
-        "respuesta": 0,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Recorre el borde del círculo. Mira los mandarinas en la escuela.",
-          "Cuenta solo los segmentos rectos. Usa los datos de mandarinas en la escuela.",
-          "Tiene 0 lados rectos. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "Un círculo tiene 0 lados rectos. Un círculo no tiene segmentos rectos."
+        "retroalimentacion": "Es un cuadrado: sus 4 lados miden lo mismo. El rectángulo tiene lados largos y cortos.",
+        "id": "e12"
       }
     ],
     "fuentes": [
@@ -3906,440 +3651,298 @@
     "descripcionCorta": "Agrupa objetos según su forma o si ruedan, y explica el criterio que usó.",
     "palabrasClave": [
       "clasificar",
-      "objetos",
-      "por",
-      "forma"
+      "agrupar",
+      "forma",
+      "rueda",
+      "criterio"
     ],
     "prerrequisitos": [
       "mat.p1.ruedan-no-ruedan"
     ],
     "ordenSugerido": 90,
-    "ideaCentral": "Agrupa objetos según su forma o si ruedan, y explica el criterio que usó.",
+    "ideaCentral": "Clasificar es juntar objetos que se parecen. Puedes agruparlos por su forma o por si ruedan o no, y decir por qué los pusiste juntos.",
     "pasos": [
-      "Observa la forma del objeto o de la figura.",
-      "Busca sus lados, caras, puntas o superficies curvas.",
-      "Compárala con una forma conocida y nómbrala."
+      "Mira todos los objetos y elige una regla, por ejemplo la forma.",
+      "Junta los que cumplen la regla en el mismo grupo.",
+      "Revisa que ningún objeto esté en el grupo equivocado.",
+      "Explica tu regla con tus palabras."
     ],
     "ejemplos": [
       {
-        "situacion": "Clasificas pelota por su forma. ¿En qué grupo lo colocas?",
-        "desarrollo": "Mira la forma de pelota. Mira los tapitas en el aula. El tamaño no cambia el tipo de cuerpo. Usa los datos de tapitas en el aula.",
-        "respuesta": "esfera"
+        "situacion": "Pedro tiene una pelota, un dado, una canica y una caja. Los separa en dos grupos: los que ruedan y los que no.",
+        "desarrollo": "La pelota y la canica son redondas y ruedan. El dado y la caja tienen esquinas y no ruedan bien.",
+        "respuesta": "Grupo que rueda: pelota y canica. Grupo que no rueda: dado y caja."
       },
       {
-        "situacion": "Clasificas dado por su forma. ¿En qué grupo lo colocas?",
-        "desarrollo": "Mira la forma de dado. Mira los choclos en el patio. El tamaño no cambia el tipo de cuerpo. Usa los datos de choclos en el patio.",
-        "respuesta": "cubo"
+        "situacion": "En la tienda de doña Rosa hay latas de atún y tarros de miel. ¿Los puedes juntar?",
+        "desarrollo": "Los dos tienen tapa plana arriba y abajo y son redondos de lado.",
+        "respuesta": "Sí, van juntos porque los dos son cilindros."
+      },
+      {
+        "situacion": "Ana junta una naranja, una canica y una pelota. ¿Cuál es su regla?",
+        "desarrollo": "Los tres son redondos por todos lados.",
+        "respuesta": "Su regla es: son esferas."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Observa la forma del objeto o de la figura. Busca sus lados, caras, puntas o superficies curvas."
+        "error": "Juntar objetos por color en lugar de por forma cuando piden agrupar por forma.",
+        "correccion": "Fíjate en la regla que te piden. Si es forma, mira si son redondos o tienen esquinas."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Compárala con una forma conocida y nómbrala. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Dejar un objeto en un grupo donde no cumple la regla.",
+        "correccion": "Al final, repasa cada grupo: todos los objetos deben cumplir la regla."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
+        "termino": "Clasificar",
+        "significado": "Juntar los objetos que se parecen."
       },
       {
-        "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "termino": "Grupo",
+        "significado": "Conjunto de objetos que cumplen la misma regla."
       },
       {
-        "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "termino": "Rodar",
+        "significado": "Moverse dando vueltas, como una pelota."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Clasificas pelota por su forma. ¿En qué grupo lo colocas?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de pelota. Mira los tapitas en el aula.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de tapitas en el aula.",
-          "Corresponde al grupo esfera. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "«pelota» tiene forma de esfera aunque cambie su tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cubo"
-          },
-          {
-            "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
-          }
-        ]
-      },
-      {
-        "id": "e02",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Clasificas dado por su forma. ¿En qué grupo lo colocas?",
-        "respuesta": "d",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de dado. Mira los choclos en el patio.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de choclos en el patio.",
-          "Corresponde al grupo cubo. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "«dado» tiene forma de cubo aunque cambie su tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cilindro"
-          },
-          {
-            "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
-      },
-      {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Clasificas lata de leche por su forma. ¿En qué grupo lo colocas?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de lata de leche. Mira los cuentos en la chacra.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de cuentos en la chacra.",
-          "Corresponde al grupo cilindro. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "«lata de leche» tiene forma de cilindro aunque cambie su tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cubo"
-          },
-          {
-            "id": "b",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
-          }
-        ]
-      },
-      {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Clasificas caja de zapatos por su forma. ¿En qué grupo lo colocas?",
+        "enunciado": "Una pelota y una naranja están en el mismo grupo. ¿Qué otro objeto va con ellas?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de caja de zapatos. Mira los lápices en la biblioteca.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de lápices en la biblioteca.",
-          "Corresponde al grupo prisma rectangular. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "«caja de zapatos» tiene forma de prisma rectangular aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cilindro"
+            "texto": "Un dado"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "Una canica"
           },
           {
             "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "Una caja"
           }
-        ]
+        ],
+        "pistas": [
+          "Piensa en qué se parecen la pelota y la naranja.",
+          "Las dos son redondas por todos lados.",
+          "De las opciones, solo una también es redonda por todos lados."
+        ],
+        "retroalimentacion": "La canica va con ellas porque también es redonda. El dado y la caja tienen esquinas.",
+        "id": "e01"
       },
       {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Clasificas canica por su forma. ¿En qué grupo lo colocas?",
-        "respuesta": "a",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La pelota y la canica van en el mismo grupo porque las dos son redondas.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Mira la forma de canica. Mira los cuyes en la mesa.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de cuyes en la mesa.",
-          "Corresponde al grupo esfera. Comprueba con los cuyes en la mesa."
+          "Piensa en cómo son la pelota y la canica.",
+          "Las dos son suaves y sin esquinas.",
+          "Si se parecen en la forma, pueden ir juntas."
         ],
-        "retroalimentacion": "«canica» tiene forma de esfera aunque cambie su tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cubo"
-          },
-          {
-            "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
-          }
-        ]
+        "retroalimentacion": "Es verdadero: las dos son esferas, así que van juntas.",
+        "id": "e02"
       },
       {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Clasificas cubo de madera por su forma. ¿En qué grupo lo colocas?",
-        "respuesta": "d",
-        "alternativasAceptadas": [],
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Grupo A: pelota, canica y naranja. ¿Ruedan o no ruedan? Escribe una opción: ruedan o no ruedan.",
+        "respuesta": "ruedan",
+        "alternativasAceptadas": [
+          "ruedan bien",
+          "sí ruedan",
+          "si ruedan"
+        ],
         "pistas": [
-          "Mira la forma de cubo de madera. Mira los semillas en la feria.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de semillas en la feria.",
-          "Corresponde al grupo cubo. Comprueba con los semillas en la feria."
+          "Piensa en una pelota sobre el piso.",
+          "Las tres son redondas por todos lados.",
+          "Lo redondo se mueve dando vueltas: ruedan."
         ],
-        "retroalimentacion": "«cubo de madera» tiene forma de cubo aunque cambie su tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cilindro"
-          },
-          {
-            "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
+        "retroalimentacion": "Ruedan, porque las tres son redondas y no tienen esquinas.",
+        "id": "e03"
       },
       {
-        "id": "e07",
-        "dificultad": 2,
+        "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Clasificas tubo cerrado por su forma. ¿En qué grupo lo colocas?",
+        "enunciado": "Las latas de atún y los tarros de miel van juntos. ¿Cuál de estos NO va con ellos?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de tubo cerrado. Mira los caramelos en el jardín.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de caramelos en el jardín.",
-          "Corresponde al grupo cilindro. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "«tubo cerrado» tiene forma de cilindro aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cubo"
+            "texto": "Una lata de leche"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "Un tarro de mermelada"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
+            "texto": "Un dado"
           }
-        ]
+        ],
+        "pistas": [
+          "Las latas y los tarros tienen tapa plana arriba y abajo.",
+          "La lata de leche y el tarro de mermelada también tienen tapas planas.",
+          "El dado es el único que no tiene forma de lata."
+        ],
+        "retroalimentacion": "El dado no va con ellos: es un cubo. Los otros tres son cilindros.",
+        "id": "e04"
       },
       {
-        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la mesa hay 3 canicas, 2 dados, 4 pelotas y 1 caja. ¿Cuántos objetos ruedan? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca los objetos redondos.",
+          "Ruedan las canicas y las pelotas.",
+          "Suma las canicas y las pelotas: 3 + 4."
+        ],
+        "retroalimentacion": "Ruedan 3 canicas y 4 pelotas: 3 + 4 = 7. Los dados y la caja no ruedan bien.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los objetos con esquinas forman un grupo y los redondos otro. Un libro va con los redondos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si un libro tiene esquinas o no.",
+          "Toca los rincones de la tapa de un libro.",
+          "El libro tiene esquinas, así que va con los que tienen esquinas."
+        ],
+        "retroalimentacion": "Es falso: el libro tiene esquinas, entonces va con el dado y la caja.",
+        "id": "e06"
+      },
+      {
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Clasificas caja de cereal por su forma. ¿En qué grupo lo colocas?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de caja de cereal. Mira los piedritas en la cocina.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de piedritas en la cocina.",
-          "Corresponde al grupo prisma rectangular. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "«caja de cereal» tiene forma de prisma rectangular aunque cambie su tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "cilindro"
-          },
-          {
-            "id": "b",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
-      },
-      {
-        "id": "e09",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Clasificas balón por su forma. ¿En qué grupo lo colocas?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de balón. Mira los flores en la mochila.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de flores en la mochila.",
-          "Corresponde al grupo esfera. Comprueba con los flores en la mochila."
-        ],
-        "retroalimentacion": "«balón» tiene forma de esfera aunque cambie su tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cubo"
-          },
-          {
-            "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
-          }
-        ]
-      },
-      {
-        "id": "e10",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Clasificas dado grande por su forma. ¿En qué grupo lo colocas?",
-        "respuesta": "d",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de dado grande. Mira los tizas en el mercado.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de tizas en el mercado.",
-          "Corresponde al grupo cubo. Comprueba con los tizas en el mercado."
-        ],
-        "retroalimentacion": "«dado grande» tiene forma de cubo aunque cambie su tamaño.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "esfera"
-          },
-          {
-            "id": "b",
-            "texto": "cilindro"
-          },
-          {
-            "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
-          }
-        ]
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Clasificas lata de atún por su forma. ¿En qué grupo lo colocas?",
+        "enunciado": "Ana puso el dado, la caja de fósforos y el libro en el grupo A, y la pelota, la canica y la naranja en el grupo B. ¿Qué regla usó?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de lata de atún. Mira los pelotas en la canasta.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de pelotas en la canasta.",
-          "Corresponde al grupo cilindro. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "«lata de atún» tiene forma de cilindro aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cubo"
+            "texto": "Por su tamaño"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "Por su color"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
+            "texto": "Con esquinas y redondos"
           }
-        ]
+        ],
+        "pistas": [
+          "Ana mira cómo es cada objeto al tocarlo.",
+          "El grupo A pincha y el grupo B es suave.",
+          "El grupo A tiene esquinas y el grupo B es redondo."
+        ],
+        "retroalimentacion": "Ana separó los objetos con esquinas de los redondos. No usó el color ni el tamaño.",
+        "id": "e07"
       },
       {
-        "id": "e12",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Luis junta una lata de atún, un tarro de miel y un tubo de cartón en un solo grupo. ¿Qué forma tiene el grupo?",
+        "respuesta": "cilindro",
+        "alternativasAceptadas": [
+          "un cilindro",
+          "son cilindros",
+          "cilindros"
+        ],
+        "pistas": [
+          "Los tres tienen tapa arriba y abajo.",
+          "Esas tapas son planas y redondas.",
+          "Una lata y un tubo tienen la forma del cilin...."
+        ],
+        "retroalimentacion": "El grupo es de cilindros: la lata, el tarro y el tubo tienen tapas planas redondas.",
+        "id": "e08"
+      },
+      {
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Clasificas caja de libros por su forma. ¿En qué grupo lo colocas?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "En una caja hay 15 objetos: 6 pelotas, 4 canicas y el resto son dados. ¿Cuántos objetos no ruedan? Escribe solo el número.",
+        "respuesta": 5,
         "alternativasAceptadas": [],
         "pistas": [
-          "Mira la forma de caja de libros. Mira los mandarinas en la escuela.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de mandarinas en la escuela.",
-          "Corresponde al grupo prisma rectangular. Comprueba con los mandarinas en la escuela."
+          "Primero suma los objetos que sí ruedan: pelotas y canicas.",
+          "6 + 4 son los que ruedan.",
+          "Quita ese número del total: 15 menos 10."
         ],
-        "retroalimentacion": "«caja de libros» tiene forma de prisma rectangular aunque cambie su tamaño.",
+        "retroalimentacion": "Ruedan 6 + 4 = 10 objetos. No ruedan 15 - 10 = 5, que son los dados.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rita quiere un grupo donde TODOS los objetos rueden. ¿Cuál elige?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "cilindro"
+            "texto": "Dado, pelota, caja"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "Libro, canica, naranja"
           },
           {
             "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "Naranja, canica, pelota"
           }
-        ]
+        ],
+        "pistas": [
+          "Revisa cada grupo y busca objetos con esquinas.",
+          "En los dos primeros grupos hay un dado, una caja o un libro.",
+          "El grupo sin esquinas es el que rueda completo."
+        ],
+        "retroalimentacion": "Naranja, canica y pelota ruedan. En los otros grupos hay dado, caja o libro, que no ruedan bien.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Rosa junta un dado, un libro y una caja en un grupo. ¿Qué tienen en común? Escribe una palabra: esquinas o redondeados.",
+        "respuesta": "esquinas",
+        "alternativasAceptadas": [
+          "tienen esquinas",
+          "con esquinas"
+        ],
+        "pistas": [
+          "Toca los tres objetos con las manos.",
+          "Los tres tienen partes que pinchan.",
+          "No son suaves como una pelota: tienen es...."
+        ],
+        "retroalimentacion": "Los tres tienen esquinas. Esa es la regla del grupo.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Se puede formar un grupo con una pelota y un dado si la regla es «todos ruedan».",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si la pelota y el dado ruedan igual.",
+          "La pelota rueda bien y el dado se frena.",
+          "Como el dado no rueda, no cumple la regla."
+        ],
+        "retroalimentacion": "Es falso: el dado tiene esquinas y no rueda bien, así que no cumple la regla.",
+        "id": "e12"
       }
     ],
     "fuentes": [

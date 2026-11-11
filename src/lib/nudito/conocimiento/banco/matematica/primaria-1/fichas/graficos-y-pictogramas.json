@@ -14,236 +14,293 @@
     "disciplina": "estadistica",
     "descripcionCorta": "Apila cubos o bloques para representar cuántos eligieron cada opción.",
     "palabrasClave": [
-      "gráfico",
-      "barras",
-      "con",
-      "material",
-      "concreto"
+      "gráfico de barras",
+      "cubos",
+      "torre",
+      "más alto",
+      "datos"
     ],
     "prerrequisitos": [
       "mat.p1.datos-por-categorias"
     ],
     "ordenSugerido": 91,
-    "ideaCentral": "Apila cubos o bloques para representar cuántos eligieron cada opción.",
+    "ideaCentral": "Con cubos puedes hacer un gráfico de barras. Apilas un cubo por cada persona que eligió una opción. La torre más alta es la opción elegida por más personas.",
     "pasos": [
-      "Lee el nombre de cada categoría.",
-      "Cuenta un símbolo, cubo o casillero por respuesta.",
-      "Comprueba que la altura o fila coincide con el dato."
+      "Reparte un color o lugar para cada opción.",
+      "Pon un cubo por cada persona que la eligió.",
+      "Apila los cubos hacia arriba.",
+      "Compara las torres: la más alta tiene más personas."
     ],
     "ejemplos": [
       {
-        "situacion": "Para representar 3 votos por mango, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "desarrollo": "Un cubo o casillero vale una respuesta. Mira los tapitas en el aula. La categoría mango tiene 3 votos. Usa los datos de tapitas en el aula.",
-        "respuesta": "3"
+        "situacion": "5 niños prefieren la fresa. ¿Cuántos cubos tiene su torre?",
+        "desarrollo": "Un cubo por niño: 5.",
+        "respuesta": "La torre de fresa tiene 5 cubos."
       },
       {
-        "situacion": "Para representar 2 votos por vóley, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "desarrollo": "Un cubo o casillero vale una respuesta. Mira los choclos en el patio. La categoría vóley tiene 2 votos. Usa los datos de choclos en el patio.",
-        "respuesta": "2"
+        "situacion": "Torre de papa: 3 cubos. Torre de camote: 6 cubos. ¿Cuál opción eligieron más?",
+        "desarrollo": "Compara 3 y 6. 6 es más.",
+        "respuesta": "Eligieron más camote."
+      },
+      {
+        "situacion": "En el recreo, 4 niños eligen fútbol y 2 eligen vóley. ¿Cuántos cubos más tiene fútbol?",
+        "desarrollo": "Compara 4 con 2: faltan 2.",
+        "respuesta": "Fútbol tiene 2 cubos más."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Contar un símbolo como si valiera más de uno.",
-        "correccion": "Cuenta un símbolo, cubo o casillero por respuesta."
+        "error": "Poner más de un cubo por persona.",
+        "correccion": "Un cubo por cada persona, nada más."
       },
       {
-        "error": "Leer la fila o barra de otra categoría.",
-        "correccion": "Lee el nombre de cada categoría. Comprueba que la altura o fila coincide con el dato."
+        "error": "Creer que la torre más baja es la más elegida.",
+        "correccion": "La torre más alta es la que más personas eligieron."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Gráfico",
-        "significado": "Dibujo que muestra datos organizados."
+        "termino": "Torre",
+        "significado": "Cubos puestos uno encima de otro."
       },
       {
-        "termino": "Barra",
-        "significado": "Fila o columna cuya longitud muestra una cantidad."
+        "termino": "Gráfico de barras",
+        "significado": "Dibujo con torres o columnas para comparar datos."
       },
       {
-        "termino": "Símbolo",
-        "significado": "Dibujo pequeño que representa una respuesta."
+        "termino": "Más alto",
+        "significado": "Que tiene más cubos puestos."
       }
     ],
     "ejercicios": [
       {
         "id": "e01",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Para representar 3 votos por mango, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "respuesta": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para saber cuántos eligieron una opción, apilas un cubo por cada persona.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los tapitas en el aula.",
-          "La categoría mango tiene 3 votos. Usa los datos de tapitas en el aula.",
-          "La barra alcanza 3 unidades. Comprueba con los tapitas en el aula."
+          "Un cubo representa una persona.",
+          "Si 2 personas eligen algo, hay 2 cubos.",
+          "Se apilan para formar una torre."
         ],
-        "retroalimentacion": "La barra de mango mide 3 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Verdadero: cada cubo es una persona."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Para representar 2 votos por vóley, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "respuesta": 2,
+        "enunciado": "La torre de los que prefieren fresa tiene 5 cubos. ¿Cuántos niños eligieron fresa? Escribe solo el número.",
+        "respuesta": 5,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los choclos en el patio.",
-          "La categoría vóley tiene 2 votos. Usa los datos de choclos en el patio.",
-          "La barra alcanza 2 unidades. Comprueba con los choclos en el patio."
+          "Un cubo es un niño.",
+          "Cuenta los cubos de la torre.",
+          "Hay 5 cubos."
         ],
-        "retroalimentacion": "La barra de vóley mide 2 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "5 niños eligieron fresa, uno por cada cubo."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Para representar 1 votos por verde, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "respuesta": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una torre de cubos hay 3 cubos azules. ¿Qué significa?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hay 3 colores"
+          },
+          {
+            "id": "b",
+            "texto": "3 personas eligieron azul"
+          },
+          {
+            "id": "c",
+            "texto": "El azul pesa 3"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los cuentos en la chacra.",
-          "La categoría verde tiene 1 votos. Usa los datos de cuentos en la chacra.",
-          "La barra alcanza 1 unidades. Comprueba con los cuentos en la chacra."
+          "Cada cubo cuenta a una persona.",
+          "El color de los cubos es azul.",
+          "Tres cubos son tres personas."
         ],
-        "retroalimentacion": "La barra de verde mide 1 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "3 personas eligieron azul. No son 3 colores ni se habla del peso."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Para representar 5 votos por perro, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "respuesta": 5,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los lápices en la biblioteca.",
-          "La categoría perro tiene 5 votos. Usa los datos de lápices en la biblioteca.",
-          "La barra alcanza 5 unidades. Comprueba con los lápices en la biblioteca."
+        "tipo": "texto_corto",
+        "enunciado": "La torre de papa tiene 2 cubos y la torre de camote tiene 6 cubos. ¿Qué torre es más alta? Escribe papa o camote.",
+        "respuesta": "camote",
+        "alternativasAceptadas": [
+          "el camote",
+          "torre de camote"
         ],
-        "retroalimentacion": "La barra de perro mide 5 unidades. No dejes espacios entre los cubos o casilleros."
+        "pistas": [
+          "Compara los cubos de cada torre.",
+          "2 es menos que 6.",
+          "La más alta tiene más cubos."
+        ],
+        "retroalimentacion": "Camote, porque tiene 6 cubos y papa solo 2."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Para representar 4 votos por poema, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "respuesta": 4,
+        "enunciado": "La torre roja tiene 4 cubos, la verde tiene 3 cubos y la amarilla tiene 5 cubos. ¿Cuántos cubos usas en total? Escribe solo el número.",
+        "respuesta": 12,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los cuyes en la mesa.",
-          "La categoría poema tiene 4 votos. Usa los datos de cuyes en la mesa.",
-          "La barra alcanza 4 unidades. Comprueba con los cuyes en la mesa."
+          "Junta los cubos de las tres torres.",
+          "Suma 4 y 3, y luego suma 5.",
+          "4 + 3 da 7 y luego añade lo que falta."
         ],
-        "retroalimentacion": "La barra de poema mide 4 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Usas 4 + 3 + 5 = 12 cubos."
       },
       {
         "id": "e06",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Para representar 5 votos por camote, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "respuesta": 5,
+        "tipo": "opcion_multiple",
+        "enunciado": "Torres de bebidas: chicha ■■■■■■, jugo ■■■, agua ■■■■. ¿Qué bebida eligieron más niños?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Chicha"
+          },
+          {
+            "id": "b",
+            "texto": "Agua"
+          },
+          {
+            "id": "c",
+            "texto": "Jugo"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los semillas en la feria.",
-          "La categoría camote tiene 5 votos. Usa los datos de semillas en la feria.",
-          "La barra alcanza 5 unidades. Comprueba con los semillas en la feria."
+          "Cuenta los ■ de cada torre.",
+          "Chicha tiene 6 ■, agua 4 ■ y jugo 3 ■.",
+          "La torre más alta es la más elegida."
         ],
-        "retroalimentacion": "La barra de camote mide 5 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "La chicha, con 6 ■, es la más elegida. El agua tiene 4 y el jugo 3."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Para representar 6 votos por cumbia, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "respuesta": 6,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si la torre de lúcuma tiene 3 cubos y la de fresa tiene 5 cubos, más niños eligieron lúcuma.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los caramelos en el jardín.",
-          "La categoría cumbia tiene 6 votos. Usa los datos de caramelos en el jardín.",
-          "La barra alcanza 6 unidades. Comprueba con los caramelos en el jardín."
+          "Compara 3 y 5.",
+          "La torre más alta tiene más niños.",
+          "Más niños eligieron fresa."
         ],
-        "retroalimentacion": "La barra de cumbia mide 6 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Falso: más niños eligieron fresa, con 5 cubos."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Para representar 4 votos por saltar, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
+        "enunciado": "Ana apila 6 cubos para fútbol y 2 cubos para vóley. ¿Cuántos cubos más tiene la torre de fútbol? Escribe solo el número.",
         "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los piedritas en la cocina.",
-          "La categoría saltar tiene 4 votos. Usa los datos de piedritas en la cocina.",
-          "La barra alcanza 4 unidades. Comprueba con los piedritas en la cocina."
+          "Compara las dos torres.",
+          "Mira cuántos hay en fútbol y cuántos en vóley.",
+          "Cuenta desde 2 hasta 6."
         ],
-        "retroalimentacion": "La barra de saltar mide 4 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Fútbol tiene 4 cubos más: 6 - 2 = 4."
       },
       {
         "id": "e09",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Para representar 4 votos por crayola, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "respuesta": 4,
+        "tipo": "opcion_multiple",
+        "enunciado": "Torres de ciudades: Cusco 4 cubos, Lima 7 cubos, Iquitos 5 cubos. ¿Cuántos niños más eligieron Lima que Cusco?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 niños más"
+          },
+          {
+            "id": "b",
+            "texto": "4 niños más"
+          },
+          {
+            "id": "c",
+            "texto": "3 niños más"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los flores en la mochila.",
-          "La categoría crayola tiene 4 votos. Usa los datos de flores en la mochila.",
-          "La barra alcanza 4 unidades. Comprueba con los flores en la mochila."
+          "Compara solo Lima y Cusco.",
+          "Lima tiene 7 y Cusco tiene 4.",
+          "Cuenta desde 4 hasta 7."
         ],
-        "retroalimentacion": "La barra de crayola mide 4 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Eligieron 3 niños más Lima que Cusco: 7 - 4 = 3. 2 y 4 no coinciden con la diferencia."
       },
       {
         "id": "e10",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Para representar 2 votos por agua, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "respuesta": 2,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los tizas en el mercado.",
-          "La categoría agua tiene 2 votos. Usa los datos de tizas en el mercado.",
-          "La barra alcanza 2 unidades. Comprueba con los tizas en el mercado."
+        "tipo": "texto_corto",
+        "enunciado": "Torre A: 8 cubos. Torre B: 3 cubos. Torre C: 8 cubos. ¿Qué dos torres tienen la misma cantidad? Escribe las dos letras, como D y E.",
+        "respuesta": "A y C",
+        "alternativasAceptadas": [
+          "a y c",
+          "a, c",
+          "a c",
+          "c y a",
+          "a,c"
         ],
-        "retroalimentacion": "La barra de agua mide 2 unidades. No dejes espacios entre los cubos o casilleros."
+        "pistas": [
+          "Mira los números de cubos de cada torre.",
+          "Hay dos números iguales.",
+          "Uno de los números es 3, que está solo."
+        ],
+        "retroalimentacion": "A y C tienen 8 cubos cada una; B tiene solo 3."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Para representar 6 votos por soga, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "respuesta": 6,
+        "enunciado": "Preguntas qué fruta prefieren: 6 niños eligen plátano, 5 eligen mango y 2 eligen fresa. ¿Cuántos niños participaron? Escribe solo el número.",
+        "respuesta": 13,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los pelotas en la canasta.",
-          "La categoría soga tiene 6 votos. Usa los datos de pelotas en la canasta.",
-          "La barra alcanza 6 unidades. Comprueba con los pelotas en la canasta."
+          "Cada niño pone un cubo en una torre.",
+          "Cuenta los cubos de las tres torres.",
+          "6 + 5 es 11, y falta una torre."
         ],
-        "retroalimentacion": "La barra de soga mide 6 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Participaron 6 + 5 + 2 = 13 niños."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Para representar 5 votos por estrella, apilas un cubo por voto. ¿Cuántos cubos tendrá la barra?",
-        "respuesta": 5,
+        "tipo": "verdadero_falso",
+        "enunciado": "La torre más baja es la opción que eligieron más niños.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los mandarinas en la escuela.",
-          "La categoría estrella tiene 5 votos. Usa los datos de mandarinas en la escuela.",
-          "La barra alcanza 5 unidades. Comprueba con los mandarinas en la escuela."
+          "Piensa en una torre con muchos cubos.",
+          "Muchos cubos son muchas personas.",
+          "La torre alta es la que más se eligió."
         ],
-        "retroalimentacion": "La barra de estrella mide 5 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Falso: la torre más alta es la que más eligieron."
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p1.pictograma-horizontal",
@@ -260,233 +317,293 @@
     "disciplina": "estadistica",
     "descripcionCorta": "Representa datos con un símbolo para cada persona u objeto en filas horizontales.",
     "palabrasClave": [
-      "pictogramas",
-      "horizontales"
+      "pictograma",
+      "símbolo",
+      "fila",
+      "datos",
+      "★"
     ],
     "prerrequisitos": [
       "mat.p1.tabla-de-conteo"
     ],
     "ordenSugerido": 94,
-    "ideaCentral": "Representa datos con un símbolo para cada persona u objeto en filas horizontales.",
+    "ideaCentral": "Un pictograma muestra datos con dibujos. En un pictograma horizontal, pones un símbolo por cada persona u objeto, uno al lado del otro en una fila.",
     "pasos": [
-      "Lee el nombre de cada categoría.",
-      "Cuenta un símbolo, cubo o casillero por respuesta.",
-      "Comprueba que la altura o fila coincide con el dato."
+      "Escribe el nombre de cada opción.",
+      "Cuenta cuántos eligieron cada una.",
+      "Dibuja un símbolo por cada uno, en una fila.",
+      "Cuenta los símbolos de la fila para saber cuántos son."
     ],
     "ejemplos": [
       {
-        "situacion": "Cada símbolo ● representa una respuesta. Si 3 estudiantes eligieron mango, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "desarrollo": "Cada símbolo representa una persona. Mira los tapitas en el aula. Cuenta las 3 respuestas de mango. Usa los datos de tapitas en el aula.",
-        "respuesta": "3"
+        "situacion": "En la clase, 3 niños prefieren la papa. ¿Cómo dibujas su fila?",
+        "desarrollo": "Un símbolo por niño: 3 símbolos.",
+        "respuesta": "Papa: ★★★"
       },
       {
-        "situacion": "Cada símbolo ● representa una respuesta. Si 2 estudiantes eligieron vóley, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "desarrollo": "Cada símbolo representa una persona. Mira los choclos en el patio. Cuenta las 2 respuestas de vóley. Usa los datos de choclos en el patio.",
-        "respuesta": "2"
+        "situacion": "2 niños prefieren el camote y 4 niños la yuca. ¿Cómo quedan las filas?",
+        "desarrollo": "Camote tiene 2 símbolos y yuca tiene 4.",
+        "respuesta": "Camote: ★★  y  Yuca: ★★★★"
+      },
+      {
+        "situacion": "En el pictograma, Choclo tiene ★★★★★. ¿Cuántos niños lo eligieron?",
+        "desarrollo": "Cuenta los ★ de la fila.",
+        "respuesta": "5 niños."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Contar un símbolo como si valiera más de uno.",
-        "correccion": "Cuenta un símbolo, cubo o casillero por respuesta."
+        "error": "Dibujar dos símbolos para una sola persona.",
+        "correccion": "Un símbolo es para una sola persona."
       },
       {
-        "error": "Leer la fila o barra de otra categoría.",
-        "correccion": "Lee el nombre de cada categoría. Comprueba que la altura o fila coincide con el dato."
+        "error": "Dibujar los símbolos hacia abajo en una columna.",
+        "correccion": "En el pictograma horizontal, se ponen al lado, en la fila."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Gráfico",
-        "significado": "Dibujo que muestra datos organizados."
-      },
-      {
-        "termino": "Barra",
-        "significado": "Fila o columna cuya longitud muestra una cantidad."
+        "termino": "Pictograma",
+        "significado": "Dibujo que muestra datos con símbolos."
       },
       {
         "termino": "Símbolo",
-        "significado": "Dibujo pequeño que representa una respuesta."
+        "significado": "Dibujo pequeño que representa algo, como una estrella."
+      },
+      {
+        "termino": "Fila",
+        "significado": "Línea de cosas una al lado de otra."
       }
     ],
     "ejercicios": [
       {
         "id": "e01",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 3 estudiantes eligieron mango, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un pictograma, cada símbolo cuenta 1 persona o 1 objeto.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los tapitas en el aula.",
-          "Cuenta las 3 respuestas de mango. Usa los datos de tapitas en el aula.",
-          "La fila tiene 3 símbolos. Comprueba con los tapitas en el aula."
+          "Piensa en dibujar una estrella por niño.",
+          "Cada niño tiene su estrella.",
+          "Un símbolo cuenta uno."
         ],
-        "retroalimentacion": "La fila de mango representa 3 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Verdadero: cada símbolo representa una persona o un objeto."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 2 estudiantes eligieron vóley, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 2,
+        "enunciado": "En la fila de las manzanas hay ●●●●. Cada ● es una manzana. ¿Cuántas manzanas son? Escribe solo el número.",
+        "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los choclos en el patio.",
-          "Cuenta las 2 respuestas de vóley. Usa los datos de choclos en el patio.",
-          "La fila tiene 2 símbolos. Comprueba con los choclos en el patio."
+          "Cuenta los puntos ● uno por uno.",
+          "Toca cada ● con el dedo.",
+          "Cuenta hasta el último ●."
         ],
-        "retroalimentacion": "La fila de vóley representa 2 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Hay 4 manzanas, una por cada ●."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 1 estudiantes eligieron verde, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres niños prefieren la papa. ¿Cuántos ★ pones en la fila de papa?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "★★"
+          },
+          {
+            "id": "b",
+            "texto": "★★★"
+          },
+          {
+            "id": "c",
+            "texto": "★★★★"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los cuentos en la chacra.",
-          "Cuenta las 1 respuestas de verde. Usa los datos de cuentos en la chacra.",
-          "La fila tiene 1 símbolos. Comprueba con los cuentos en la chacra."
+          "Un ★ es un niño.",
+          "Son 3 niños.",
+          "Cuenta 3 estrellas."
         ],
-        "retroalimentacion": "La fila de verde representa 1 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Pones ★★★. ★★ son solo 2 niños y ★★★★ son 4."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 5 estudiantes eligieron perro, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 5,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cada símbolo representa una persona. Mira los lápices en la biblioteca.",
-          "Cuenta las 5 respuestas de perro. Usa los datos de lápices en la biblioteca.",
-          "La fila tiene 5 símbolos. Comprueba con los lápices en la biblioteca."
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llaman los dibujitos que cuentan cada dato en un pictograma? Escribe una palabra.",
+        "respuesta": "símbolos",
+        "alternativasAceptadas": [
+          "simbolos",
+          "símbolo",
+          "simbolo",
+          "los símbolos"
         ],
-        "retroalimentacion": "La fila de perro representa 5 respuestas. Cada ● vale uno."
+        "pistas": [
+          "Son las estrellas ★ o puntos ● que dibujas.",
+          "Cada dibujito representa un dato.",
+          "Empieza con la letra s."
+        ],
+        "retroalimentacion": "Se llaman símbolos."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 4 estudiantes eligieron poema, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 4,
+        "enunciado": "Para el pictograma de helados, 4 niños prefieren lúcuma y 2 niños prefieren fresa. ¿Cuántos ★ dibujas en total? Escribe solo el número.",
+        "respuesta": 6,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los cuyes en la mesa.",
-          "Cuenta las 4 respuestas de poema. Usa los datos de cuyes en la mesa.",
-          "La fila tiene 4 símbolos. Comprueba con los cuyes en la mesa."
+          "Cuenta los ★ de las dos filas.",
+          "Lúcuma tiene 4 y fresa tiene 2.",
+          "Suma 4 y 2."
         ],
-        "retroalimentacion": "La fila de poema representa 4 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Dibujas 6 ★: 4 + 2 = 6."
       },
       {
         "id": "e06",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 5 estudiantes eligieron camote, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 5,
+        "tipo": "opcion_multiple",
+        "enunciado": "Paseo del colegio: 3 niños prefieren Cusco, 5 prefieren Lima y 2 prefieren Iquitos. ¿Qué fila tiene 5 ★?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lima"
+          },
+          {
+            "id": "b",
+            "texto": "Iquitos"
+          },
+          {
+            "id": "c",
+            "texto": "Cusco"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los semillas en la feria.",
-          "Cuenta las 5 respuestas de camote. Usa los datos de semillas en la feria.",
-          "La fila tiene 5 símbolos. Comprueba con los semillas en la feria."
+          "Busca el lugar con 5 niños.",
+          "Cusco tiene 3 y Iquitos tiene 2.",
+          "Los 5 niños eligieron una ciudad grande de la costa."
         ],
-        "retroalimentacion": "La fila de camote representa 5 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Lima tiene 5 ★. Cusco tiene 3 y Iquitos tiene 2."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 6 estudiantes eligieron cumbia, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 6,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un pictograma horizontal, los símbolos se dibujan uno debajo del otro en una columna.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los caramelos en el jardín.",
-          "Cuenta las 6 respuestas de cumbia. Usa los datos de caramelos en el jardín.",
-          "La fila tiene 6 símbolos. Comprueba con los caramelos en el jardín."
+          "La palabra horizontal es importante.",
+          "Horizontal es como acostado, de lado a lado.",
+          "Los símbolos van uno al lado del otro."
         ],
-        "retroalimentacion": "La fila de cumbia representa 6 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Falso: se dibujan uno al lado del otro, en una fila."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 4 estudiantes eligieron saltar, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cada símbolo representa una persona. Mira los piedritas en la cocina.",
-          "Cuenta las 4 respuestas de saltar. Usa los datos de piedritas en la cocina.",
-          "La fila tiene 4 símbolos. Comprueba con los piedritas en la cocina."
+        "tipo": "texto_corto",
+        "enunciado": "Cuenta: Mote ★★★★★★. ¿Cuántos niños eligieron mote? Escribe solo el número.",
+        "respuesta": "6",
+        "alternativasAceptadas": [
+          "seis"
         ],
-        "retroalimentacion": "La fila de saltar representa 4 respuestas. Cada ● vale uno."
+        "pistas": [
+          "Cuenta una estrella por vez.",
+          "Hay más de cinco ★ en la fila.",
+          "Cuenta 1, 2, 3, 4, 5 y sigue."
+        ],
+        "retroalimentacion": "6 niños eligieron mote."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 4 estudiantes eligieron crayola, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 4,
+        "enunciado": "Rosa pregunta a su familia: 3 comen arroz, 2 comen fideos y 4 comen sopa. ¿Cuántos ★ tiene el pictograma en total? Escribe solo el número.",
+        "respuesta": 9,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los flores en la mochila.",
-          "Cuenta las 4 respuestas de crayola. Usa los datos de flores en la mochila.",
-          "La fila tiene 4 símbolos. Comprueba con los flores en la mochila."
+          "Junta las tres filas.",
+          "Son 3, 2 y 4 estrellas.",
+          "Suma de a dos: 3 + 2 y luego añade 4."
         ],
-        "retroalimentacion": "La fila de crayola representa 4 respuestas. Cada ● vale uno."
+        "retroalimentacion": "En total hay 9 ★: 3 + 2 + 4 = 9."
       },
       {
         "id": "e10",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 2 estudiantes eligieron agua, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un pictograma, la fila de pollo tiene ★★★★★ y la de cuy tiene ★★. ¿Cuántos ★ hay que agregar a la fila de cuy para igualarla con pollo?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 ★"
+          },
+          {
+            "id": "b",
+            "texto": "5 ★"
+          },
+          {
+            "id": "c",
+            "texto": "3 ★"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los tizas en el mercado.",
-          "Cuenta las 2 respuestas de agua. Usa los datos de tizas en el mercado.",
-          "La fila tiene 2 símbolos. Comprueba con los tizas en el mercado."
+          "Compara las dos filas.",
+          "Pollo tiene 5 y cuy tiene 2.",
+          "Cuenta cuántos faltan desde 2 hasta 5."
         ],
-        "retroalimentacion": "La fila de agua representa 2 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Hay que agregar 3 ★: 2 + 3 = 5. Con 2 ★ no llega y 5 ★ pasaría de largo."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 6 estudiantes eligieron soga, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 6,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un pictograma, la fila A tiene 6 ★ y la fila B tiene 4 ★. Hay 2 niños más en A que en B.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los pelotas en la canasta.",
-          "Cuenta las 6 respuestas de soga. Usa los datos de pelotas en la canasta.",
-          "La fila tiene 6 símbolos. Comprueba con los pelotas en la canasta."
+          "Compara 6 y 4.",
+          "Cuenta cuántos hay de más en A.",
+          "6 - 4 te dice la diferencia."
         ],
-        "retroalimentacion": "La fila de soga representa 6 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Verdadero: 6 - 4 = 2, así que A tiene 2 más que B."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Cada símbolo ● representa una respuesta. Si 5 estudiantes eligieron estrella, ¿cuántos símbolos dibujas en su fila horizontal?",
-        "respuesta": 5,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cada símbolo representa una persona. Mira los mandarinas en la escuela.",
-          "Cuenta las 5 respuestas de estrella. Usa los datos de mandarinas en la escuela.",
-          "La fila tiene 5 símbolos. Comprueba con los mandarinas en la escuela."
+        "tipo": "texto_corto",
+        "enunciado": "En el pictograma, Papa tiene ★★★, Camote tiene ★★★★★★ y Yuca tiene ★★. ¿Qué alimento eligieron más niños?",
+        "respuesta": "camote",
+        "alternativasAceptadas": [
+          "el camote"
         ],
-        "retroalimentacion": "La fila de estrella representa 5 respuestas. Cada ● vale uno."
+        "pistas": [
+          "Cuenta las estrellas de cada fila.",
+          "Papa tiene 3 y Yuca tiene 2.",
+          "La fila más larga tiene 6."
+        ],
+        "retroalimentacion": "Camote, porque su fila tiene 6 ★, más que papa (3) y yuca (2)."
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p1.leer-pictograma",
@@ -503,54 +620,62 @@
     "disciplina": "estadistica",
     "descripcionCorta": "Lee cuántos hay de cada opción en un pictograma horizontal.",
     "palabrasClave": [
-      "lectura",
-      "pictogramas",
-      "símbolo"
+      "pictograma",
+      "leer datos",
+      "símbolo",
+      "comparar filas",
+      "cuántos"
     ],
     "prerrequisitos": [
       "mat.p1.pictograma-horizontal"
     ],
     "ordenSugerido": 96,
-    "ideaCentral": "Lee cuántos hay de cada opción en un pictograma horizontal.",
+    "ideaCentral": "En un pictograma de 1 símbolo = 1 persona, cuentas los símbolos de cada fila para saber cuántos eligieron esa opción. La fila más larga es la que más personas eligieron.",
     "pasos": [
-      "Lee el nombre de cada categoría.",
-      "Cuenta un símbolo, cubo o casillero por respuesta.",
-      "Comprueba que la altura o fila coincide con el dato."
+      "Lee el nombre de la fila.",
+      "Cuenta los símbolos de esa fila.",
+      "Compara los números entre filas.",
+      "Responde la pregunta con el número o el nombre de la fila."
     ],
     "ejemplos": [
       {
-        "situacion": "En un pictograma, la fila de mango muestra ● ● ●. Cada ● vale uno. ¿Cuántos eligieron mango?",
-        "desarrollo": "Cada símbolo representa una persona. Mira los tapitas en el aula. Cuenta las 3 respuestas de mango. Usa los datos de tapitas en el aula.",
-        "respuesta": "3"
+        "situacion": "Plátano: ★★★. ¿Cuántos niños eligieron plátano?",
+        "desarrollo": "Cuenta los ★ de la fila.",
+        "respuesta": "3 niños."
       },
       {
-        "situacion": "En un pictograma, la fila de vóley muestra ● ●. Cada ● vale uno. ¿Cuántos eligieron vóley?",
-        "desarrollo": "Cada símbolo representa una persona. Mira los choclos en el patio. Cuenta las 2 respuestas de vóley. Usa los datos de choclos en el patio.",
-        "respuesta": "2"
+        "situacion": "Mango: ★★★★★ y Fresa: ★★. ¿Cuál tiene más?",
+        "desarrollo": "5 es mayor que 2.",
+        "respuesta": "Mango."
+      },
+      {
+        "situacion": "Mango: ★★★★★ y Fresa: ★★. ¿Cuántos más eligieron mango que fresa?",
+        "desarrollo": "Cuenta desde 2 hasta 5.",
+        "respuesta": "3 niños más."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Contar un símbolo como si valiera más de uno.",
-        "correccion": "Cuenta un símbolo, cubo o casillero por respuesta."
+        "error": "Contar la palabra de la fila como si fuera un símbolo.",
+        "correccion": "Cuenta solo los ★ de cada fila."
       },
       {
-        "error": "Leer la fila o barra de otra categoría.",
-        "correccion": "Lee el nombre de cada categoría. Comprueba que la altura o fila coincide con el dato."
+        "error": "Pensar que la fila de arriba siempre es la mayor.",
+        "correccion": "Fíjate en cuántos ★ tiene cada fila, no en su lugar."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Gráfico",
-        "significado": "Dibujo que muestra datos organizados."
+        "termino": "Pictograma",
+        "significado": "Gráfico que usa símbolos para mostrar datos."
       },
       {
-        "termino": "Barra",
-        "significado": "Fila o columna cuya longitud muestra una cantidad."
+        "termino": "Fila",
+        "significado": "Línea de símbolos de una opción."
       },
       {
-        "termino": "Símbolo",
-        "significado": "Dibujo pequeño que representa una respuesta."
+        "termino": "Cada ★ es 1",
+        "significado": "Cada estrella vale una persona."
       }
     ],
     "ejercicios": [
@@ -558,179 +683,246 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de mango muestra ● ● ●. Cada ● vale uno. ¿Cuántos eligieron mango?",
-        "respuesta": 3,
+        "enunciado": "Mira el pictograma. ¿Cuántos niños eligieron mango? Escribe solo el número.",
+        "respuesta": 5,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los tapitas en el aula.",
-          "Cuenta las 3 respuestas de mango. Usa los datos de tapitas en el aula.",
-          "La fila tiene 3 símbolos. Comprueba con los tapitas en el aula."
+          "Busca la fila del mango.",
+          "Cuenta las ★ de esa fila.",
+          "Cuenta 1, 2, 3, 4 y sigue."
         ],
-        "retroalimentacion": "La fila de mango representa 3 respuestas. Cada ● vale uno."
+        "retroalimentacion": "5 niños eligieron mango.",
+        "lectura": "Plátano: ★★★\nMango: ★★★★★\nFresa: ★★\nUva: ★★★★"
       },
       {
         "id": "e02",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de vóley muestra ● ●. Cada ● vale uno. ¿Cuántos eligieron vóley?",
-        "respuesta": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Según el pictograma, ¿qué fruta tiene menos ★?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Uva"
+          },
+          {
+            "id": "b",
+            "texto": "Fresa"
+          },
+          {
+            "id": "c",
+            "texto": "Mango"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los choclos en el patio.",
-          "Cuenta las 2 respuestas de vóley. Usa los datos de choclos en el patio.",
-          "La fila tiene 2 símbolos. Comprueba con los choclos en el patio."
+          "Cuenta las ★ de las cuatro filas.",
+          "Plátano tiene 3, mango 5, fresa 2 y uva 4.",
+          "Busca el número más pequeño."
         ],
-        "retroalimentacion": "La fila de vóley representa 2 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Fresa tiene menos, solo 2 ★. Uva tiene 4 y mango tiene 5.",
+        "lectura": "Plátano: ★★★\nMango: ★★★★★\nFresa: ★★\nUva: ★★★★"
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de verde muestra ●. Cada ● vale uno. ¿Cuántos eligieron verde?",
-        "respuesta": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Seis niños eligieron plátano.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los cuentos en la chacra.",
-          "Cuenta las 1 respuestas de verde. Usa los datos de cuentos en la chacra.",
-          "La fila tiene 1 símbolos. Comprueba con los cuentos en la chacra."
+          "Busca la fila de plátano.",
+          "Cuenta cada estrella de esa fila con el dedo.",
+          "La fila de plátano tiene tres estrellas."
         ],
-        "retroalimentacion": "La fila de verde representa 1 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Falso: plátano tiene 3 ★, así que 3 niños lo eligieron.",
+        "lectura": "Plátano: ★★★\nMango: ★★★★★\nFresa: ★★\nUva: ★★★★"
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de perro muestra ● ● ● ● ●. Cada ● vale uno. ¿Cuántos eligieron perro?",
-        "respuesta": 5,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cada símbolo representa una persona. Mira los lápices en la biblioteca.",
-          "Cuenta las 5 respuestas de perro. Usa los datos de lápices en la biblioteca.",
-          "La fila tiene 5 símbolos. Comprueba con los lápices en la biblioteca."
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué fruta eligieron 4 niños?",
+        "respuesta": "uva",
+        "alternativasAceptadas": [
+          "la uva"
         ],
-        "retroalimentacion": "La fila de perro representa 5 respuestas. Cada ● vale uno."
+        "pistas": [
+          "Busca una fila con cuatro ★.",
+          "Plátano tiene 3 y mango 5.",
+          "Una de las filas tiene un nombre corto."
+        ],
+        "retroalimentacion": "Uva, que tiene 4 ★.",
+        "lectura": "Plátano: ★★★\nMango: ★★★★★\nFresa: ★★\nUva: ★★★★"
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de poema muestra ● ● ● ●. Cada ● vale uno. ¿Cuántos eligieron poema?",
-        "respuesta": 4,
+        "enunciado": "¿Cuántos niños eligieron plátano y fresa en total? Escribe solo el número.",
+        "respuesta": 5,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los cuyes en la mesa.",
-          "Cuenta las 4 respuestas de poema. Usa los datos de cuyes en la mesa.",
-          "La fila tiene 4 símbolos. Comprueba con los cuyes en la mesa."
+          "Busca las dos filas.",
+          "Plátano tiene 3 ★ y fresa tiene 2 ★.",
+          "Junta las dos cantidades."
         ],
-        "retroalimentacion": "La fila de poema representa 4 respuestas. Cada ● vale uno."
+        "retroalimentacion": "En total 3 + 2 = 5 niños.",
+        "lectura": "Plátano: ★★★\nMango: ★★★★★\nFresa: ★★\nUva: ★★★★"
       },
       {
         "id": "e06",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de camote muestra ● ● ● ● ●. Cada ● vale uno. ¿Cuántos eligieron camote?",
-        "respuesta": 5,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántos niños más eligieron mango que plátano?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 niños más"
+          },
+          {
+            "id": "b",
+            "texto": "1 niño más"
+          },
+          {
+            "id": "c",
+            "texto": "2 niños más"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los semillas en la feria.",
-          "Cuenta las 5 respuestas de camote. Usa los datos de semillas en la feria.",
-          "La fila tiene 5 símbolos. Comprueba con los semillas en la feria."
+          "Compara solo las dos filas.",
+          "Mango tiene 5 y plátano tiene 3.",
+          "Cuenta desde 3 hasta 5."
         ],
-        "retroalimentacion": "La fila de camote representa 5 respuestas. Cada ● vale uno."
+        "retroalimentacion": "2 niños más: 5 - 3 = 2.",
+        "lectura": "Plátano: ★★★\nMango: ★★★★★\nFresa: ★★\nUva: ★★★★"
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de cumbia muestra ● ● ● ● ● ●. Cada ● vale uno. ¿Cuántos eligieron cumbia?",
-        "respuesta": 6,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fila de uva tiene más ★ que la de plátano.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los caramelos en el jardín.",
-          "Cuenta las 6 respuestas de cumbia. Usa los datos de caramelos en el jardín.",
-          "La fila tiene 6 símbolos. Comprueba con los caramelos en el jardín."
+          "Cuenta las ★ de uva y de plátano.",
+          "Uva tiene 4 y plátano tiene 3.",
+          "Compara 4 con 3."
         ],
-        "retroalimentacion": "La fila de cumbia representa 6 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Verdadero: uva tiene 4 ★ y plátano solo 3.",
+        "lectura": "Plátano: ★★★\nMango: ★★★★★\nFresa: ★★\nUva: ★★★★"
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de saltar muestra ● ● ● ●. Cada ● vale uno. ¿Cuántos eligieron saltar?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cada símbolo representa una persona. Mira los piedritas en la cocina.",
-          "Cuenta las 4 respuestas de saltar. Usa los datos de piedritas en la cocina.",
-          "La fila tiene 4 símbolos. Comprueba con los piedritas en la cocina."
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué fruta eligió el mayor número de niños?",
+        "respuesta": "mango",
+        "alternativasAceptadas": [
+          "el mango"
         ],
-        "retroalimentacion": "La fila de saltar representa 4 respuestas. Cada ● vale uno."
+        "pistas": [
+          "La fila más larga es la más elegida.",
+          "Cuenta las ★ de cada fruta.",
+          "Una fruta tiene 5 ★."
+        ],
+        "retroalimentacion": "Mango, con 5 ★ es la fila más larga.",
+        "lectura": "Plátano: ★★★\nMango: ★★★★★\nFresa: ★★\nUva: ★★★★"
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de crayola muestra ● ● ● ●. Cada ● vale uno. ¿Cuántos eligieron crayola?",
-        "respuesta": 4,
+        "enunciado": "Mira el pictograma de la chacra. ¿Cuántos niños participaron en total? Escribe solo el número.",
+        "respuesta": 18,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los flores en la mochila.",
-          "Cuenta las 4 respuestas de crayola. Usa los datos de flores en la mochila.",
-          "La fila tiene 4 símbolos. Comprueba con los flores en la mochila."
+          "Cuenta las ★ de cada una de las cuatro filas.",
+          "Los números son 6, 4, 3 y 5.",
+          "Suma de a dos: 6 + 4 y luego 3 + 5."
         ],
-        "retroalimentacion": "La fila de crayola representa 4 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Participaron 6 + 4 + 3 + 5 = 18 niños.",
+        "lectura": "Cuy: ★★★★★★\nGallina: ★★★★\nOveja: ★★★\nLlama: ★★★★★"
       },
       {
         "id": "e10",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de agua muestra ● ●. Cada ● vale uno. ¿Cuántos eligieron agua?",
-        "respuesta": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el pictograma de la chacra, ¿cuántos niños más eligieron cuy que oveja?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 niños más"
+          },
+          {
+            "id": "b",
+            "texto": "4 niños más"
+          },
+          {
+            "id": "c",
+            "texto": "1 niño más"
+          },
+          {
+            "id": "d",
+            "texto": "3 niños más"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los tizas en el mercado.",
-          "Cuenta las 2 respuestas de agua. Usa los datos de tizas en el mercado.",
-          "La fila tiene 2 símbolos. Comprueba con los tizas en el mercado."
+          "Mira solo cuy y oveja.",
+          "Cuy tiene 6 y oveja tiene 3.",
+          "Cuenta desde 3 hasta 6."
         ],
-        "retroalimentacion": "La fila de agua representa 2 respuestas. Cada ● vale uno."
+        "retroalimentacion": "3 niños más: 6 - 3 = 3.",
+        "lectura": "Cuy: ★★★★★★\nGallina: ★★★★\nOveja: ★★★\nLlama: ★★★★★"
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de soga muestra ● ● ● ● ● ●. Cada ● vale uno. ¿Cuántos eligieron soga?",
-        "respuesta": 6,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cada símbolo representa una persona. Mira los pelotas en la canasta.",
-          "Cuenta las 6 respuestas de soga. Usa los datos de pelotas en la canasta.",
-          "La fila tiene 6 símbolos. Comprueba con los pelotas en la canasta."
+        "tipo": "texto_corto",
+        "enunciado": "En el pictograma de la chacra, ¿qué dos animales sumados dan 10 niños? Escribe los dos nombres con una y.",
+        "respuesta": "cuy y gallina",
+        "alternativasAceptadas": [
+          "gallina y cuy",
+          "cuy, gallina",
+          "cuy gallina",
+          "gallina cuy"
         ],
-        "retroalimentacion": "La fila de soga representa 6 respuestas. Cada ● vale uno."
+        "pistas": [
+          "Prueba sumando los números de dos filas.",
+          "Cuy 6, gallina 4, oveja 3 y llama 5.",
+          "Junta el número más grande con otro y ve si da 10."
+        ],
+        "retroalimentacion": "Cuy y gallina: 6 + 4 = 10. Otras parejas dan 9, 11, 8 o 7.",
+        "lectura": "Cuy: ★★★★★★\nGallina: ★★★★\nOveja: ★★★\nLlama: ★★★★★"
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En un pictograma, la fila de estrella muestra ● ● ● ● ●. Cada ● vale uno. ¿Cuántos eligieron estrella?",
-        "respuesta": 5,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si llegan 2 niños más que eligen oveja, oveja tendrá igual cantidad de ★ que gallina.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cada símbolo representa una persona. Mira los mandarinas en la escuela.",
-          "Cuenta las 5 respuestas de estrella. Usa los datos de mandarinas en la escuela.",
-          "La fila tiene 5 símbolos. Comprueba con los mandarinas en la escuela."
+          "Calcula cuántas ★ tendría oveja con 2 más.",
+          "Oveja tiene 3 y se suman 2.",
+          "Compara el nuevo número con las 4 ★ de gallina."
         ],
-        "retroalimentacion": "La fila de estrella representa 5 respuestas. Cada ● vale uno."
+        "retroalimentacion": "Falso: 3 + 2 = 5, y gallina tiene 4; oveja tendría más.",
+        "lectura": "Cuy: ★★★★★★\nGallina: ★★★★\nOveja: ★★★\nLlama: ★★★★★"
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p1.barras-verticales",
@@ -747,236 +939,294 @@
     "disciplina": "estadistica",
     "descripcionCorta": "Pinta columnas en una cuadrícula para representar datos sin escala.",
     "palabrasClave": [
-      "gráfico",
-      "barras",
-      "pintando",
+      "gráfico de barras",
+      "cuadrícula",
       "casilleros",
-      "cuadrícula"
+      "columna",
+      "datos"
     ],
     "prerrequisitos": [
       "mat.p1.barras-con-material"
     ],
     "ordenSugerido": 116,
-    "ideaCentral": "Pinta columnas en una cuadrícula para representar datos sin escala.",
+    "ideaCentral": "En un gráfico de barras en cuadrícula, pintas un casillero por cada persona, de abajo hacia arriba. La columna más alta es la opción más elegida.",
     "pasos": [
-      "Lee el nombre de cada categoría.",
-      "Cuenta un símbolo, cubo o casillero por respuesta.",
-      "Comprueba que la altura o fila coincide con el dato."
+      "Haz una columna para cada opción.",
+      "Cuenta cuántos eligieron cada opción.",
+      "Pinta un casillero por cada persona, de abajo hacia arriba.",
+      "Compara las columnas: la más alta tiene más personas."
     ],
     "ejemplos": [
       {
-        "situacion": "Pintas un casillero por cada uno de los 3 votos de mango. ¿Qué altura en casilleros tiene la columna?",
-        "desarrollo": "Un cubo o casillero vale una respuesta. Mira los tapitas en el aula. La categoría mango tiene 3 votos. Usa los datos de tapitas en el aula.",
-        "respuesta": "3"
+        "situacion": "4 niños prefieren el choclo. ¿Cuántos casilleros pintas?",
+        "desarrollo": "Un casillero por niño: 4.",
+        "respuesta": "Pintas 4 casilleros."
       },
       {
-        "situacion": "Pintas un casillero por cada uno de los 2 votos de vóley. ¿Qué altura en casilleros tiene la columna?",
-        "desarrollo": "Un cubo o casillero vale una respuesta. Mira los choclos en el patio. La categoría vóley tiene 2 votos. Usa los datos de choclos en el patio.",
-        "respuesta": "2"
+        "situacion": "Columna de cuy: 5 casilleros. Columna de pollo: 3 casilleros. ¿Cuál es más alta?",
+        "desarrollo": "5 es mayor que 3.",
+        "respuesta": "La de cuy."
+      },
+      {
+        "situacion": "En una columna hay 6 casilleros y en otra 4. ¿Cuántos casilleros más tiene la primera?",
+        "desarrollo": "6 - 4 = 2.",
+        "respuesta": "2 casilleros más."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Contar un símbolo como si valiera más de uno.",
-        "correccion": "Cuenta un símbolo, cubo o casillero por respuesta."
+        "error": "Pintar casilleros en cualquier lugar, sin seguir la columna.",
+        "correccion": "Pinta los casilleros uno encima de otro, de abajo hacia arriba."
       },
       {
-        "error": "Leer la fila o barra de otra categoría.",
-        "correccion": "Lee el nombre de cada categoría. Comprueba que la altura o fila coincide con el dato."
+        "error": "Pintar más de un casillero por persona.",
+        "correccion": "Solo un casillero por persona."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Gráfico",
-        "significado": "Dibujo que muestra datos organizados."
+        "termino": "Cuadrícula",
+        "significado": "Dibujo con muchos cuadraditos."
       },
       {
-        "termino": "Barra",
-        "significado": "Fila o columna cuya longitud muestra una cantidad."
+        "termino": "Casillero",
+        "significado": "Un cuadradito de la cuadrícula."
       },
       {
-        "termino": "Símbolo",
-        "significado": "Dibujo pequeño que representa una respuesta."
+        "termino": "Columna",
+        "significado": "Fila de casilleros que sube."
       }
     ],
     "ejercicios": [
       {
         "id": "e01",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 3 votos de mango. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un gráfico de barras, pintas un casillero por cada persona.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los tapitas en el aula.",
-          "La categoría mango tiene 3 votos. Usa los datos de tapitas en el aula.",
-          "La barra alcanza 3 unidades. Comprueba con los tapitas en el aula."
+          "Un casillero cuenta a una persona.",
+          "Si son 3 personas, pintas 3.",
+          "Un casillero, una persona."
         ],
-        "retroalimentacion": "La barra de mango mide 3 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Verdadero: un casillero es una persona."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 2 votos de vóley. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 2,
+        "enunciado": "La columna de choclo tiene 4 casilleros pintados. ¿Cuántos niños eligieron choclo? Escribe solo el número.",
+        "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los choclos en el patio.",
-          "La categoría vóley tiene 2 votos. Usa los datos de choclos en el patio.",
-          "La barra alcanza 2 unidades. Comprueba con los choclos en el patio."
+          "Cada casillero pintado es un niño.",
+          "Cuenta los casilleros pintados.",
+          "Toca cada casillero con el dedo."
         ],
-        "retroalimentacion": "La barra de vóley mide 2 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "4 niños eligieron choclo."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 1 votos de verde. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al pintar una columna, ¿hacia dónde sube?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hacia abajo"
+          },
+          {
+            "id": "b",
+            "texto": "Hacia los lados"
+          },
+          {
+            "id": "c",
+            "texto": "Hacia arriba"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los cuentos en la chacra.",
-          "La categoría verde tiene 1 votos. Usa los datos de cuentos en la chacra.",
-          "La barra alcanza 1 unidades. Comprueba con los cuentos en la chacra."
+          "Una columna crece como una torre.",
+          "Las torres crecen hacia el cielo.",
+          "La columna sube desde el piso de la cuadrícula."
         ],
-        "retroalimentacion": "La barra de verde mide 1 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Sube hacia arriba. Hacia abajo o hacia los lados no forman una columna."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 5 votos de perro. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 5,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los lápices en la biblioteca.",
-          "La categoría perro tiene 5 votos. Usa los datos de lápices en la biblioteca.",
-          "La barra alcanza 5 unidades. Comprueba con los lápices en la biblioteca."
+        "tipo": "texto_corto",
+        "enunciado": "2 niños prefieren la pera. ¿Cuántos casilleros pintas en la columna de pera? Escribe solo el número.",
+        "respuesta": "2",
+        "alternativasAceptadas": [
+          "dos"
         ],
-        "retroalimentacion": "La barra de perro mide 5 unidades. No dejes espacios entre los cubos o casilleros."
+        "pistas": [
+          "Pintas un casillero por niño.",
+          "Hay 2 niños.",
+          "Pinta tantos como niños."
+        ],
+        "retroalimentacion": "Pintas 2 casilleros, uno por cada niño."
       },
       {
         "id": "e05",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 4 votos de poema. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 4,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el gráfico, perro tiene 5 casilleros pintados y gato tiene 2. ¿Cuántos niños más eligieron perro que gato?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 niños más"
+          },
+          {
+            "id": "b",
+            "texto": "3 niños más"
+          },
+          {
+            "id": "c",
+            "texto": "7 niños más"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los cuyes en la mesa.",
-          "La categoría poema tiene 4 votos. Usa los datos de cuyes en la mesa.",
-          "La barra alcanza 4 unidades. Comprueba con los cuyes en la mesa."
+          "Compara las dos columnas.",
+          "Perro tiene 5 y gato tiene 2.",
+          "Cuenta desde 2 hasta 5."
         ],
-        "retroalimentacion": "La barra de poema mide 4 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "3 niños más eligieron perro: 5 - 2 = 3. 7 sería juntar las dos columnas."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 5 votos de camote. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 5,
+        "enunciado": "Pintas 3 casilleros para tortuga, 5 para cuy y 1 para loro. ¿Cuántos casilleros pintaste en total? Escribe solo el número.",
+        "respuesta": 9,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los semillas en la feria.",
-          "La categoría camote tiene 5 votos. Usa los datos de semillas en la feria.",
-          "La barra alcanza 5 unidades. Comprueba con los semillas en la feria."
+          "Junta las tres columnas.",
+          "Suma 3 y 5, y luego suma 1.",
+          "3 + 5 son 8; añade el último."
         ],
-        "retroalimentacion": "La barra de camote mide 5 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Pintaste 3 + 5 + 1 = 9 casilleros."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 6 votos de cumbia. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 6,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el gráfico, la columna con 2 casilleros pintados muestra más niños que la columna con 5 casilleros.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los caramelos en el jardín.",
-          "La categoría cumbia tiene 6 votos. Usa los datos de caramelos en el jardín.",
-          "La barra alcanza 6 unidades. Comprueba con los caramelos en el jardín."
+          "Compara 2 y 5.",
+          "Más casilleros es más niños.",
+          "5 es mayor que 2."
         ],
-        "retroalimentacion": "La barra de cumbia mide 6 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Falso: la columna con 5 casilleros muestra más niños."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 4 votos de saltar. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los piedritas en la cocina.",
-          "La categoría saltar tiene 4 votos. Usa los datos de piedritas en la cocina.",
-          "La barra alcanza 4 unidades. Comprueba con los piedritas en la cocina."
+        "tipo": "texto_corto",
+        "enunciado": "Columnas del clima: sol ■■■■, nube ■■■■■■■, lluvia ■■. ¿Qué clima eligieron más niños?",
+        "respuesta": "nube",
+        "alternativasAceptadas": [
+          "la nube"
         ],
-        "retroalimentacion": "La barra de saltar mide 4 unidades. No dejes espacios entre los cubos o casilleros."
+        "pistas": [
+          "Cuenta los ■ de cada columna.",
+          "Sol tiene 4, nube tiene 7 y lluvia tiene 2.",
+          "La columna más alta tiene el número mayor."
+        ],
+        "retroalimentacion": "Nube, con 7 ■, es la columna más alta."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 4 votos de crayola. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 4,
+        "enunciado": "En el gráfico, quinua tiene 5 casilleros, maíz tiene 3 casilleros y trigo tiene 2 casilleros menos que quinua. ¿Cuántos casilleros pintaste en trigo? Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los flores en la mochila.",
-          "La categoría crayola tiene 4 votos. Usa los datos de flores en la mochila.",
-          "La barra alcanza 4 unidades. Comprueba con los flores en la mochila."
+          "Mira primero cuántos casilleros tiene quinua.",
+          "Quinua tiene 5 y trigo tiene 2 menos.",
+          "Quita 2 a 5."
         ],
-        "retroalimentacion": "La barra de crayola mide 4 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Trigo tiene 5 - 2 = 3 casilleros."
       },
       {
         "id": "e10",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 2 votos de agua. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pintaste 4 casilleros en fresa, 4 en lúcuma y 6 en chirimoya. ¿Cuáles columnas son igual de altas?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Fresa y chirimoya"
+          },
+          {
+            "id": "b",
+            "texto": "Lúcuma y chirimoya"
+          },
+          {
+            "id": "c",
+            "texto": "Las tres"
+          },
+          {
+            "id": "d",
+            "texto": "Fresa y lúcuma"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los tizas en el mercado.",
-          "La categoría agua tiene 2 votos. Usa los datos de tizas en el mercado.",
-          "La barra alcanza 2 unidades. Comprueba con los tizas en el mercado."
+          "Mira cuáles números coinciden.",
+          "Fresa tiene 4, lúcuma tiene 4 y chirimoya tiene 6.",
+          "Dos números son iguales y uno es mayor."
         ],
-        "retroalimentacion": "La barra de agua mide 2 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Fresa y lúcuma tienen 4 cada una, igual de altas. Chirimoya tiene 6."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 6 votos de soga. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 6,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los pelotas en la canasta.",
-          "La categoría soga tiene 6 votos. Usa los datos de pelotas en la canasta.",
-          "La barra alcanza 6 unidades. Comprueba con los pelotas en la canasta."
+        "tipo": "texto_corto",
+        "enunciado": "Ana pintó 7 casilleros en una columna y 3 en otra. Quiere que las dos queden iguales pintando más casilleros solo en la columna chica. ¿Cuántos casilleros más debe pintar? Escribe solo el número.",
+        "respuesta": "4",
+        "alternativasAceptadas": [
+          "cuatro"
         ],
-        "retroalimentacion": "La barra de soga mide 6 unidades. No dejes espacios entre los cubos o casilleros."
+        "pistas": [
+          "La columna chica debe llegar al mismo número que la grande.",
+          "Compara 3 y 7.",
+          "Cuenta desde 3 hasta 7."
+        ],
+        "retroalimentacion": "Debe pintar 4 casilleros más: 3 + 4 = 7."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Pintas un casillero por cada uno de los 5 votos de estrella. ¿Qué altura en casilleros tiene la columna?",
-        "respuesta": 5,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si todas las columnas del gráfico tienen el mismo alto, cada opción tiene la misma cantidad de personas.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Un cubo o casillero vale una respuesta. Mira los mandarinas en la escuela.",
-          "La categoría estrella tiene 5 votos. Usa los datos de mandarinas en la escuela.",
-          "La barra alcanza 5 unidades. Comprueba con los mandarinas en la escuela."
+          "Mira la altura de las columnas.",
+          "Misma altura quiere decir mismo número de casilleros.",
+          "Mismo número de casilleros es la misma cantidad de personas."
         ],
-        "retroalimentacion": "La barra de estrella mide 5 unidades. No dejes espacios entre los cubos o casilleros."
+        "retroalimentacion": "Verdadero: columnas del mismo alto tienen igual cantidad."
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p1.leer-barras",
@@ -993,226 +1243,284 @@
     "disciplina": "estadistica",
     "descripcionCorta": "Lee la información de un gráfico de barras verticales simple.",
     "palabrasClave": [
-      "lectura",
-      "gráficos",
-      "barras",
-      "contando",
-      "casilleros"
+      "gráfico de barras",
+      "barra",
+      "casillero",
+      "leer",
+      "contar"
     ],
     "prerrequisitos": [
       "mat.p1.barras-verticales"
     ],
     "ordenSugerido": 117,
-    "ideaCentral": "Lee la información de un gráfico de barras verticales simple.",
+    "ideaCentral": "Un gráfico de barras muestra cuántos hay de cada cosa. Cada casillero de la barra vale 1, así que para leer la barra solo cuentas los casilleros.",
     "pasos": [
-      "Lee el nombre de cada categoría.",
-      "Cuenta un símbolo, cubo o casillero por respuesta.",
-      "Comprueba que la altura o fila coincide con el dato."
+      "Lee el título para saber qué cuenta el gráfico.",
+      "Busca la barra de lo que te preguntan.",
+      "Cuenta los casilleros de esa barra, uno por uno.",
+      "Responde con el número y di lo que representa."
     ],
     "ejemplos": [
       {
-        "situacion": "Un gráfico de barras dice: mango altura 3, plátano altura 5, manzana altura 2. ¿Cuántos casilleros tiene la barra de mango?",
-        "desarrollo": "Ubica la barra de mango. Mira los tapitas en el aula. Lee su altura en casilleros. Usa los datos de tapitas en el aula.",
-        "respuesta": "3"
+        "situacion": "En el salón de Ana, la barra de «Plátano» tiene 6 casilleros. ¿Cuántos niños eligieron plátano?",
+        "desarrollo": "Cada casillero es un niño. Cuenta: 1, 2, 3, 4, 5, 6.",
+        "respuesta": "6 niños eligieron plátano."
       },
       {
-        "situacion": "Un gráfico de barras dice: fútbol altura 4, vóley altura 2, ajedrez altura 3. ¿Cuántos casilleros tiene la barra de vóley?",
-        "desarrollo": "Ubica la barra de vóley. Mira los choclos en el patio. Lee su altura en casilleros. Usa los datos de choclos en el patio.",
-        "respuesta": "2"
+        "situacion": "En otro gráfico, la barra de «Cuy» tiene 7 casilleros y la de «Gato» tiene 3. ¿Cuántos niños tienen gato?",
+        "desarrollo": "Busca la barra de gato y cuenta sus casilleros: son 3.",
+        "respuesta": "3 niños tienen gato."
+      },
+      {
+        "situacion": "En la combi de Cusco, la barra de «Bici» tiene 3 casilleros. ¿Cuántos van en bici?",
+        "desarrollo": "Cada casillero es un niño: son 3.",
+        "respuesta": "3 niños van en bici."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Contar un símbolo como si valiera más de uno.",
-        "correccion": "Cuenta un símbolo, cubo o casillero por respuesta."
+        "error": "Leer la barra de otra fila porque están muy juntas.",
+        "correccion": "Pasa el dedo por la barra que te piden, sin cambiarte de fila."
       },
       {
-        "error": "Leer la fila o barra de otra categoría.",
-        "correccion": "Lee el nombre de cada categoría. Comprueba que la altura o fila coincide con el dato."
+        "error": "Contar el nombre como si fuera un casillero.",
+        "correccion": "Cuenta solo los cuadraditos de la barra, no el nombre."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Gráfico",
-        "significado": "Dibujo que muestra datos organizados."
+        "termino": "Gráfico de barras",
+        "significado": "Dibujo con barras que muestra cuántos hay de cada cosa."
       },
       {
-        "termino": "Barra",
-        "significado": "Fila o columna cuya longitud muestra una cantidad."
-      },
-      {
-        "termino": "Símbolo",
-        "significado": "Dibujo pequeño que representa una respuesta."
+        "termino": "Casillero",
+        "significado": "Cada cuadradito de la barra; vale 1."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: mango altura 3, plátano altura 5, manzana altura 2. ¿Cuántos casilleros tiene la barra de mango?",
-        "respuesta": 3,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ubica la barra de mango. Mira los tapitas en el aula.",
-          "Lee su altura en casilleros. Usa los datos de tapitas en el aula.",
-          "Tiene 3 casilleros. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "La barra de mango tiene 3 casilleros. Lee solo la categoría pedida."
-      },
-      {
-        "id": "e02",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: fútbol altura 4, vóley altura 2, ajedrez altura 3. ¿Cuántos casilleros tiene la barra de vóley?",
-        "respuesta": 2,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ubica la barra de vóley. Mira los choclos en el patio.",
-          "Lee su altura en casilleros. Usa los datos de choclos en el patio.",
-          "Tiene 2 casilleros. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "La barra de vóley tiene 2 casilleros. Lee solo la categoría pedida."
-      },
-      {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: rojo altura 2, azul altura 6, verde altura 1. ¿Cuántos casilleros tiene la barra de verde?",
-        "respuesta": 1,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ubica la barra de verde. Mira los cuentos en la chacra.",
-          "Lee su altura en casilleros. Usa los datos de cuentos en la chacra.",
-          "Tiene 1 casilleros. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "La barra de verde tiene 1 casilleros. Lee solo la categoría pedida."
-      },
-      {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: perro altura 5, gato altura 3, conejo altura 2. ¿Cuántos casilleros tiene la barra de perro?",
-        "respuesta": 5,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ubica la barra de perro. Mira los lápices en la biblioteca.",
-          "Lee su altura en casilleros. Usa los datos de lápices en la biblioteca.",
-          "Tiene 5 casilleros. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "La barra de perro tiene 5 casilleros. Lee solo la categoría pedida."
-      },
-      {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: cuento altura 2, poema altura 4, adivinanza altura 6. ¿Cuántos casilleros tiene la barra de poema?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ubica la barra de poema. Mira los cuyes en la mesa.",
-          "Lee su altura en casilleros. Usa los datos de cuyes en la mesa.",
-          "Tiene 4 casilleros. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "La barra de poema tiene 4 casilleros. Lee solo la categoría pedida."
-      },
-      {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: choclo altura 4, papa altura 3, camote altura 5. ¿Cuántos casilleros tiene la barra de camote?",
-        "respuesta": 5,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ubica la barra de camote. Mira los semillas en la feria.",
-          "Lee su altura en casilleros. Usa los datos de semillas en la feria.",
-          "Tiene 5 casilleros. Comprueba con los semillas en la feria."
-        ],
-        "retroalimentacion": "La barra de camote tiene 5 casilleros. Lee solo la categoría pedida."
-      },
-      {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: cumbia altura 6, huayno altura 2, marinera altura 3. ¿Cuántos casilleros tiene la barra de cumbia?",
+        "enunciado": "Mira el gráfico. ¿Cuántos casilleros tiene la barra de Plátano? Escribe solo el número.",
         "respuesta": 6,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ubica la barra de cumbia. Mira los caramelos en el jardín.",
-          "Lee su altura en casilleros. Usa los datos de caramelos en el jardín.",
-          "Tiene 6 casilleros. Comprueba con los caramelos en el jardín."
+          "Busca la fila que dice Plátano.",
+          "Pasa el dedo por los cuadraditos de esa fila.",
+          "Cuenta 1, 2, 3, 4, 5, 6."
         ],
-        "retroalimentacion": "La barra de cumbia tiene 6 casilleros. Lee solo la categoría pedida."
+        "retroalimentacion": "La barra de Plátano tiene 6 casilleros. Si dijiste 4, miraste la barra de Manzana.",
+        "lectura": "Frutas favoritas del salón (cada ■ es un niño)\nManzana: ■■■■\nPlátano: ■■■■■■\nNaranja: ■■■\nUva: ■■",
+        "id": "e01"
       },
       {
-        "id": "e08",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el gráfico, ¿cuántos casilleros tiene la barra de Manzana?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          }
+        ],
+        "pistas": [
+          "Busca la fila que dice Manzana.",
+          "Cuenta los cuadraditos uno por uno.",
+          "Son más que los de Naranja y menos que los de Plátano."
+        ],
+        "retroalimentacion": "La barra de Manzana tiene 4 casilleros. Naranja tiene 3 y Plátano tiene 6.",
+        "lectura": "Frutas favoritas del salón (cada ■ es un niño)\nManzana: ■■■■\nPlátano: ■■■■■■\nNaranja: ■■■\nUva: ■■",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el gráfico, la barra de Naranja tiene 3 casilleros.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la fila de Naranja.",
+          "Cuenta sus cuadraditos con tu dedo.",
+          "Hay un cuadradito, otro y otro más: 3."
+        ],
+        "retroalimentacion": "Es verdadero: la barra de Naranja tiene 3 casilleros.",
+        "lectura": "Frutas favoritas del salón (cada ■ es un niño)\nManzana: ■■■■\nPlátano: ■■■■■■\nNaranja: ■■■\nUva: ■■",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En el gráfico, ¿cuántos niños eligieron uva? Escribe solo el número.",
+        "respuesta": "2",
+        "alternativasAceptadas": [
+          "dos"
+        ],
+        "pistas": [
+          "La pregunta pide un número de niños.",
+          "Cada casillero de la barra de Uva es un niño.",
+          "La barra de Uva es la más corta."
+        ],
+        "retroalimentacion": "2 niños eligieron uva. Cada cuadrito es un niño.",
+        "lectura": "Frutas favoritas del salón (cada ■ es un niño)\nManzana: ■■■■\nPlátano: ■■■■■■\nNaranja: ■■■\nUva: ■■",
+        "id": "e04"
+      },
+      {
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: correr altura 3, saltar altura 4, caminar altura 2. ¿Cuántos casilleros tiene la barra de saltar?",
-        "respuesta": 4,
+        "enunciado": "Mira el gráfico de mascotas. ¿Cuántos niños tienen un cuy? Escribe solo el número.",
+        "respuesta": 7,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ubica la barra de saltar. Mira los piedritas en la cocina.",
-          "Lee su altura en casilleros. Usa los datos de piedritas en la cocina.",
-          "Tiene 4 casilleros. Comprueba con los piedritas en la cocina."
+          "Busca la barra del cuy.",
+          "Cuenta los cuadraditos de esa barra.",
+          "La barra del cuy es la más larga de todas."
         ],
-        "retroalimentacion": "La barra de saltar tiene 4 casilleros. Lee solo la categoría pedida."
+        "retroalimentacion": "Hay 7 niños con cuy. Si contaste 5, leíste la barra del perro.",
+        "lectura": "Mascotas de los niños (cada ■ es un niño)\nPerro: ■■■■■\nGato: ■■■\nCuy: ■■■■■■■\nConejo: ■■",
+        "id": "e05"
       },
       {
-        "id": "e09",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: lápiz altura 5, plumón altura 2, crayola altura 4. ¿Cuántos casilleros tiene la barra de crayola?",
-        "respuesta": 4,
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira el gráfico de mascotas. La barra del conejo dice que...",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7 niños tienen conejo"
+          },
+          {
+            "id": "b",
+            "texto": "5 niños tienen conejo"
+          },
+          {
+            "id": "c",
+            "texto": "2 niños tienen conejo"
+          }
+        ],
+        "pistas": [
+          "Cada cuadradito de la barra del conejo es un niño.",
+          "El conejo tiene la barra más corta.",
+          "Cuenta bien: hay solo dos cuadraditos."
+        ],
+        "retroalimentacion": "La barra del conejo tiene 2 casilleros: 2 niños tienen conejo.",
+        "lectura": "Mascotas de los niños (cada ■ es un niño)\nPerro: ■■■■■\nGato: ■■■\nCuy: ■■■■■■■\nConejo: ■■",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Según el gráfico de mascotas, cinco niños tienen perro.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ubica la barra de crayola. Mira los flores en la mochila.",
-          "Lee su altura en casilleros. Usa los datos de flores en la mochila.",
-          "Tiene 4 casilleros. Comprueba con los flores en la mochila."
+          "Busca la barra de Perro.",
+          "Cuenta sus cuadraditos.",
+          "Son cinco cuadraditos."
         ],
-        "retroalimentacion": "La barra de crayola tiene 4 casilleros. Lee solo la categoría pedida."
+        "retroalimentacion": "Es verdadero: la barra de Perro tiene 5 casilleros.",
+        "lectura": "Mascotas de los niños (cada ■ es un niño)\nPerro: ■■■■■\nGato: ■■■\nCuy: ■■■■■■■\nConejo: ■■",
+        "id": "e07"
       },
       {
-        "id": "e10",
-        "dificultad": 3,
+        "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: agua altura 2, limonada altura 5, chicha altura 3. ¿Cuántos casilleros tiene la barra de agua?",
-        "respuesta": 2,
+        "enunciado": "En el gráfico de mascotas, ¿cuántos niños tienen perro o gato en total? Escribe solo el número.",
+        "respuesta": 8,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ubica la barra de agua. Mira los tizas en el mercado.",
-          "Lee su altura en casilleros. Usa los datos de tizas en el mercado.",
-          "Tiene 2 casilleros. Comprueba con los tizas en el mercado."
+          "Busca las barras del perro y del gato.",
+          "El perro tiene 5 y el gato tiene 3.",
+          "Junta los dos números: 5 + 3."
         ],
-        "retroalimentacion": "La barra de agua tiene 2 casilleros. Lee solo la categoría pedida."
+        "retroalimentacion": "El perro tiene 5 casilleros y el gato 3: 5 + 3 = 8 niños.",
+        "lectura": "Mascotas de los niños (cada ■ es un niño)\nPerro: ■■■■■\nGato: ■■■\nCuy: ■■■■■■■\nConejo: ■■",
+        "id": "e08"
       },
       {
-        "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: pelota altura 4, soga altura 6, trompo altura 2. ¿Cuántos casilleros tiene la barra de soga?",
-        "respuesta": 6,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ubica la barra de soga. Mira los pelotas en la canasta.",
-          "Lee su altura en casilleros. Usa los datos de pelotas en la canasta.",
-          "Tiene 6 casilleros. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "La barra de soga tiene 6 casilleros. Lee solo la categoría pedida."
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Un gráfico de barras dice: sol altura 3, luna altura 2, estrella altura 5. ¿Cuántos casilleros tiene la barra de estrella?",
+        "enunciado": "Mira el gráfico de transporte. ¿Cuántos niños más vienen en combi que en bici? Escribe solo el número.",
         "respuesta": 5,
         "alternativasAceptadas": [],
         "pistas": [
-          "Ubica la barra de estrella. Mira los mandarinas en la escuela.",
-          "Lee su altura en casilleros. Usa los datos de mandarinas en la escuela.",
-          "Tiene 5 casilleros. Comprueba con los mandarinas en la escuela."
+          "Lee la barra de la combi y la barra de la bici.",
+          "Combi tiene 8 y bici tiene 3.",
+          "Para saber cuántos más, resta: 8 - 3."
         ],
-        "retroalimentacion": "La barra de estrella tiene 5 casilleros. Lee solo la categoría pedida."
+        "retroalimentacion": "La combi tiene 8 y la bici 3: 8 - 3 = 5 niños más.",
+        "lectura": "¿Cómo vienen al colegio? (cada ■ es un niño)\nCombi: ■■■■■■■■\nBici: ■■■\nA pie: ■■■■■■\nMototaxi: ■■■■",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En el gráfico de transporte, ¿cuántos niños hay en total en el salón? Escribe solo el número.",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay cuatro barras y debes leerlas todas.",
+          "Combi 8, bici 3, a pie 6 y mototaxi 4.",
+          "Suma de a dos: 8 + 3 = 11 y 6 + 4 = 10; luego junta 11 + 10."
+        ],
+        "retroalimentacion": "8 + 3 + 6 + 4 = 21 niños. Si no te salió 21, revisa que leíste las cuatro barras una sola vez.",
+        "lectura": "¿Cómo vienen al colegio? (cada ■ es un niño)\nCombi: ■■■■■■■■\nBici: ■■■\nA pie: ■■■■■■\nMototaxi: ■■■■",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el gráfico de transporte, ¿qué dos barras juntas suman 10 niños?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Combi y bici"
+          },
+          {
+            "id": "b",
+            "texto": "Combi y mototaxi"
+          },
+          {
+            "id": "c",
+            "texto": "A pie y mototaxi"
+          }
+        ],
+        "pistas": [
+          "Primero lee cada barra: 8, 3, 6 y 4.",
+          "Prueba una pareja: combi y bici suman 8 + 3, que no es 10.",
+          "Fíjate en la pareja que suma 6 + 4."
+        ],
+        "retroalimentacion": "A pie (6) y mototaxi (4) suman 10. Combi y bici suman 11, y combi y mototaxi suman 12.",
+        "lectura": "¿Cómo vienen al colegio? (cada ■ es un niño)\nCombi: ■■■■■■■■\nBici: ■■■\nA pie: ■■■■■■\nMototaxi: ■■■■",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Según el gráfico de transporte, vienen más niños en bici que en mototaxi.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee la barra de bici y la barra de mototaxi.",
+          "Bici tiene 3 casilleros y mototaxi tiene 4.",
+          "Compara 3 y 4: ¿cuál es mayor?"
+        ],
+        "retroalimentacion": "Es falso: bici tiene 3 y mototaxi tiene 4, así que vienen más niños en mototaxi.",
+        "lectura": "¿Cómo vienen al colegio? (cada ■ es un niño)\nCombi: ■■■■■■■■\nBici: ■■■\nA pie: ■■■■■■\nMototaxi: ■■■■",
+        "id": "e12"
       }
     ],
     "fuentes": [
@@ -1239,393 +1547,293 @@
     "disciplina": "estadistica",
     "descripcionCorta": "Indica cuál es la opción con mayor cantidad en una tabla o gráfico.",
     "palabrasClave": [
-      "opción",
-      "que",
-      "más",
-      "repite"
+      "más se repite",
+      "mayor cantidad",
+      "tabla",
+      "gráfico",
+      "comparar"
     ],
     "prerrequisitos": [
       "mat.p1.leer-pictograma"
     ],
     "ordenSugerido": 118,
-    "ideaCentral": "Indica cuál es la opción con mayor cantidad en una tabla o gráfico.",
+    "ideaCentral": "En una tabla o gráfico, la opción que más se repite es la que tiene la mayor cantidad. Cuenta cada fila y compara los números para saber cuál es la más grande.",
     "pasos": [
-      "Lee los valores de cada categoría.",
-      "Compara la altura o la cantidad de símbolos.",
-      "Nombra la opción con el valor mayor."
+      "Cuenta cuántos hay en cada fila.",
+      "Escribe cada número al lado de su opción.",
+      "Busca el número más grande: esa es la que más se repite.",
+      "Revisa si hay dos filas con el mismo número: es un empate."
     ],
     "ejemplos": [
       {
-        "situacion": "El gráfico registra mango: 3, plátano: 5, manzana: 2. ¿Qué opción se repite más?",
-        "desarrollo": "Compara las tres cantidades 3, 5, 2. Mira los tapitas en el aula. Busca la barra o fila más larga. Usa los datos de tapitas en el aula.",
-        "respuesta": "plátano"
+        "situacion": "En el recreo de un colegio de Lima, el fútbol tiene 8 ●, la soga 5 ● y el trompo 3 ●. ¿Qué juego eligen más?",
+        "desarrollo": "Compara 8, 5 y 3. El número mayor es 8.",
+        "respuesta": "El fútbol es el juego que más se repite."
       },
       {
-        "situacion": "El gráfico registra fútbol: 4, vóley: 2, ajedrez: 3. ¿Qué opción se repite más?",
-        "desarrollo": "Compara las tres cantidades 4, 2, 3. Mira los choclos en el patio. Busca la barra o fila más larga. Usa los datos de choclos en el patio.",
-        "respuesta": "fútbol"
+        "situacion": "En el salón de Ana, el rojo tiene 4 ★, el azul 9 ★ y el verde 6 ★. ¿Qué color eligen menos?",
+        "desarrollo": "Compara 4, 9 y 6. El número más pequeño es 4.",
+        "respuesta": "El rojo es el que menos se repite."
+      },
+      {
+        "situacion": "En una chacra de Cusco, las gallinas tienen 7 ■ y las ovejas 7 ■. ¿Cuál gana?",
+        "desarrollo": "Los dos números son iguales: 7 y 7.",
+        "respuesta": "Hay empate entre gallinas y ovejas."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Contar un símbolo como si valiera más de uno.",
-        "correccion": "Compara la altura o la cantidad de símbolos."
+        "error": "Elegir la fila más larga a ojo sin contar.",
+        "correccion": "Cuenta los símbolos de cada fila, porque a veces dos filas parecen iguales."
       },
       {
-        "error": "Leer la fila o barra de otra categoría.",
-        "correccion": "Lee los valores de cada categoría. Nombra la opción con el valor mayor."
+        "error": "Decir cuál tiene más sin comparar todos los números.",
+        "correccion": "Mira todas las filas antes de decidir cuál es la mayor."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Gráfico",
-        "significado": "Dibujo que muestra datos organizados."
+        "termino": "Más se repite",
+        "significado": "La opción que tiene la mayor cantidad."
       },
       {
-        "termino": "Barra",
-        "significado": "Fila o columna cuya longitud muestra una cantidad."
+        "termino": "Empate",
+        "significado": "Cuando dos opciones tienen la misma cantidad."
       },
       {
-        "termino": "Símbolo",
-        "significado": "Dibujo pequeño que representa una respuesta."
+        "termino": "Tabla",
+        "significado": "Lista que muestra cuántos hay de cada cosa."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra mango: 3, plátano: 5, manzana: 2. ¿Qué opción se repite más?",
-        "respuesta": "a",
+        "enunciado": "Mira el gráfico. ¿Qué juego eligen más niños?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Compara las tres cantidades 3, 5, 2. Mira los tapitas en el aula.",
-          "Busca la barra o fila más larga. Usa los datos de tapitas en el aula.",
-          "La mayor frecuencia corresponde a plátano. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "«plátano» aparece 5 veces, más que las otras opciones.",
         "opciones": [
           {
             "id": "a",
-            "texto": "plátano"
+            "texto": "Trompo"
           },
           {
             "id": "b",
-            "texto": "mango"
+            "texto": "Fútbol"
           },
           {
             "id": "c",
-            "texto": "manzana"
+            "texto": "Soga"
           }
-        ]
+        ],
+        "pistas": [
+          "Cuenta los ● de cada juego.",
+          "Fútbol tiene 8, trompo 3 y soga 5.",
+          "El número 8 es el mayor de todos."
+        ],
+        "retroalimentacion": "El fútbol tiene 8 ●, más que la soga (5) y el trompo (3). Es el que más se repite.",
+        "lectura": "Juego favorito en el recreo (cada ● es un niño)\nFútbol: ●●●●●●●●\nTrompo: ●●●\nSoga: ●●●●●\nCanicas: ●●●●",
+        "id": "e01"
       },
       {
-        "id": "e02",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra fútbol: 4, vóley: 2, ajedrez: 3. ¿Qué opción se repite más?",
-        "respuesta": "c",
+        "tipo": "verdadero_falso",
+        "enunciado": "En el gráfico, el trompo es el juego que menos niños eligen.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara las tres cantidades 4, 2, 3. Mira los choclos en el patio.",
-          "Busca la barra o fila más larga. Usa los datos de choclos en el patio.",
-          "La mayor frecuencia corresponde a fútbol. Comprueba con los choclos en el patio."
+          "Cuenta los ● del trompo.",
+          "El trompo tiene 3 y los otros tienen más.",
+          "3 es el número más pequeño de la lista."
         ],
-        "retroalimentacion": "«fútbol» aparece 4 veces, más que las otras opciones.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "vóley"
-          },
-          {
-            "id": "b",
-            "texto": "ajedrez"
-          },
-          {
-            "id": "c",
-            "texto": "fútbol"
-          }
-        ]
+        "retroalimentacion": "Es verdadero: el trompo tiene 3 ●, el menor número.",
+        "lectura": "Juego favorito en el recreo (cada ● es un niño)\nFútbol: ●●●●●●●●\nTrompo: ●●●\nSoga: ●●●●●\nCanicas: ●●●●",
+        "id": "e02"
       },
       {
-        "id": "e03",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra rojo: 2, azul: 6, verde: 1. ¿Qué opción se repite más?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Compara las tres cantidades 2, 6, 1. Mira los cuentos en la chacra.",
-          "Busca la barra o fila más larga. Usa los datos de cuentos en la chacra.",
-          "La mayor frecuencia corresponde a azul. Comprueba con los cuentos en la chacra."
+        "tipo": "texto_corto",
+        "enunciado": "En el gráfico, ¿qué juego tiene la menor cantidad de niños? Escribe solo el juego.",
+        "respuesta": "trompo",
+        "alternativasAceptadas": [
+          "el trompo",
+          "un trompo"
         ],
-        "retroalimentacion": "«azul» aparece 6 veces, más que las otras opciones.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "verde"
-          },
-          {
-            "id": "b",
-            "texto": "azul"
-          },
-          {
-            "id": "c",
-            "texto": "rojo"
-          }
-        ]
+        "pistas": [
+          "Cuenta los ● de cada fila.",
+          "Las filas tienen 8, 3, 5 y 4.",
+          "La fila con 3 es la menor."
+        ],
+        "retroalimentacion": "El trompo tiene 3 ●, la fila más corta.",
+        "lectura": "Juego favorito en el recreo (cada ● es un niño)\nFútbol: ●●●●●●●●\nTrompo: ●●●\nSoga: ●●●●●\nCanicas: ●●●●",
+        "id": "e03"
       },
       {
-        "id": "e04",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra perro: 5, gato: 3, conejo: 2. ¿Qué opción se repite más?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "En el gráfico, ¿cuántos niños eligen el juego que más se repite? Escribe solo el número.",
+        "respuesta": 8,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara las tres cantidades 5, 3, 2. Mira los lápices en la biblioteca.",
-          "Busca la barra o fila más larga. Usa los datos de lápices en la biblioteca.",
-          "La mayor frecuencia corresponde a perro. Comprueba con los lápices en la biblioteca."
+          "Primero busca el juego con más ●.",
+          "Ese juego es el fútbol.",
+          "Cuenta los ● del fútbol: 8."
         ],
-        "retroalimentacion": "«perro» aparece 5 veces, más que las otras opciones.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "perro"
-          },
-          {
-            "id": "b",
-            "texto": "gato"
-          },
-          {
-            "id": "c",
-            "texto": "conejo"
-          }
-        ]
+        "retroalimentacion": "El juego más repetido es el fútbol, con 8 niños.",
+        "lectura": "Juego favorito en el recreo (cada ● es un niño)\nFútbol: ●●●●●●●●\nTrompo: ●●●\nSoga: ●●●●●\nCanicas: ●●●●",
+        "id": "e04"
       },
       {
-        "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra cuento: 2, poema: 4, adivinanza: 6. ¿Qué opción se repite más?",
+        "enunciado": "Mira el gráfico de colores. ¿Cuál color se repite más?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Compara las tres cantidades 2, 4, 6. Mira los cuyes en la mesa.",
-          "Busca la barra o fila más larga. Usa los datos de cuyes en la mesa.",
-          "La mayor frecuencia corresponde a adivinanza. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "«adivinanza» aparece 6 veces, más que las otras opciones.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cuento"
+            "texto": "Rojo"
           },
           {
             "id": "b",
-            "texto": "poema"
+            "texto": "Verde"
           },
           {
             "id": "c",
-            "texto": "adivinanza"
+            "texto": "Azul"
           }
-        ]
+        ],
+        "pistas": [
+          "Cuenta las ★ de cada color.",
+          "Rojo 4, azul 9, verde 6 y amarillo 2.",
+          "El mayor número es 9."
+        ],
+        "retroalimentacion": "El azul tiene 9 ★, el número mayor. Verde tiene 6 y rojo tiene 4.",
+        "lectura": "Color favorito del salón (cada ★ es un niño)\nRojo: ★★★★\nAzul: ★★★★★★★★★\nVerde: ★★★★★★\nAmarillo: ★★",
+        "id": "e05"
       },
       {
-        "id": "e06",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra choclo: 4, papa: 3, camote: 5. ¿Qué opción se repite más?",
-        "respuesta": "b",
+        "tipo": "texto_corto",
+        "enunciado": "En el gráfico de colores, ¿qué color eligen menos niños? Escribe solo el color.",
+        "respuesta": "amarillo",
+        "alternativasAceptadas": [
+          "el amarillo"
+        ],
+        "pistas": [
+          "Busca la fila más corta.",
+          "Compara los números de ★ de los cuatro colores.",
+          "El color con solo 2 ★ es el menor."
+        ],
+        "retroalimentacion": "El amarillo tiene solo 2 ★, el menor número.",
+        "lectura": "Color favorito del salón (cada ★ es un niño)\nRojo: ★★★★\nAzul: ★★★★★★★★★\nVerde: ★★★★★★\nAmarillo: ★★",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el gráfico de colores, ¿cuántos niños más eligieron azul que rojo? Escribe solo el número.",
+        "respuesta": 5,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara las tres cantidades 4, 3, 5. Mira los semillas en la feria.",
-          "Busca la barra o fila más larga. Usa los datos de semillas en la feria.",
-          "La mayor frecuencia corresponde a camote. Comprueba con los semillas en la feria."
+          "Lee los ★ del azul y del rojo.",
+          "El azul tiene 9 y el rojo tiene 4.",
+          "Para saber cuántos más, resta 9 - 4."
         ],
-        "retroalimentacion": "«camote» aparece 5 veces, más que las otras opciones.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "papa"
-          },
-          {
-            "id": "b",
-            "texto": "camote"
-          },
-          {
-            "id": "c",
-            "texto": "choclo"
-          }
-        ]
+        "retroalimentacion": "Azul tiene 9 y rojo 4: 9 - 4 = 5 niños más.",
+        "lectura": "Color favorito del salón (cada ★ es un niño)\nRojo: ★★★★\nAzul: ★★★★★★★★★\nVerde: ★★★★★★\nAmarillo: ★★",
+        "id": "e07"
       },
       {
-        "id": "e07",
         "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el gráfico de colores, el verde se repite más que el rojo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las ★ del verde y las del rojo.",
+          "Verde tiene 6 y rojo tiene 4.",
+          "Compara 6 con 4."
+        ],
+        "retroalimentacion": "Es verdadero: verde tiene 6 ★ y rojo tiene 4 ★.",
+        "lectura": "Color favorito del salón (cada ★ es un niño)\nRojo: ★★★★\nAzul: ★★★★★★★★★\nVerde: ★★★★★★\nAmarillo: ★★",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra cumbia: 6, huayno: 2, marinera: 3. ¿Qué opción se repite más?",
+        "enunciado": "Mira el gráfico de animales. ¿Cuál es la opción que más se repite?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Compara las tres cantidades 6, 2, 3. Mira los caramelos en el jardín.",
-          "Busca la barra o fila más larga. Usa los datos de caramelos en el jardín.",
-          "La mayor frecuencia corresponde a cumbia. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "«cumbia» aparece 6 veces, más que las otras opciones.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cumbia"
+            "texto": "La gallina y la oveja empatan"
           },
           {
             "id": "b",
-            "texto": "huayno"
+            "texto": "Solo la gallina"
           },
           {
             "id": "c",
-            "texto": "marinera"
+            "texto": "Solo el cuy"
           }
-        ]
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra correr: 3, saltar: 4, caminar: 2. ¿Qué opción se repite más?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Compara las tres cantidades 3, 4, 2. Mira los piedritas en la cocina.",
-          "Busca la barra o fila más larga. Usa los datos de piedritas en la cocina.",
-          "La mayor frecuencia corresponde a saltar. Comprueba con los piedritas en la cocina."
         ],
-        "retroalimentacion": "«saltar» aparece 4 veces, más que las otras opciones.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "correr"
-          },
-          {
-            "id": "b",
-            "texto": "caminar"
-          },
-          {
-            "id": "c",
-            "texto": "saltar"
-          }
-        ]
+        "pistas": [
+          "Cuenta los ■ de cada animal.",
+          "Cuy 5, gallina 7, oveja 7 y vaca 3.",
+          "Dos animales tienen el mismo número mayor."
+        ],
+        "retroalimentacion": "La gallina y la oveja tienen 7 ■ cada una, así que empatan. El cuy solo tiene 5.",
+        "lectura": "Animal favorito de la chacra (cada ■ es un niño)\nCuy: ■■■■■\nGallina: ■■■■■■■\nOveja: ■■■■■■■\nVaca: ■■■",
+        "id": "e09"
       },
       {
-        "id": "e09",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra lápiz: 5, plumón: 2, crayola: 4. ¿Qué opción se repite más?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "En el gráfico de animales, ¿cuántos niños más eligieron el animal que más se repite que el que menos se repite? Escribe solo el número.",
+        "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara las tres cantidades 5, 2, 4. Mira los flores en la mochila.",
-          "Busca la barra o fila más larga. Usa los datos de flores en la mochila.",
-          "La mayor frecuencia corresponde a lápiz. Comprueba con los flores en la mochila."
+          "Busca la fila más larga y la más corta.",
+          "La más larga tiene 7 y la más corta tiene 3.",
+          "Resta: 7 - 3."
         ],
-        "retroalimentacion": "«lápiz» aparece 5 veces, más que las otras opciones.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "crayola"
-          },
-          {
-            "id": "b",
-            "texto": "lápiz"
-          },
-          {
-            "id": "c",
-            "texto": "plumón"
-          }
-        ]
+        "retroalimentacion": "El mayor es 7 (gallina y oveja) y el menor es 3 (vaca): 7 - 3 = 4 niños más.",
+        "lectura": "Animal favorito de la chacra (cada ■ es un niño)\nCuy: ■■■■■\nGallina: ■■■■■■■\nOveja: ■■■■■■■\nVaca: ■■■",
+        "id": "e10"
       },
       {
-        "id": "e10",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra agua: 2, limonada: 5, chicha: 3. ¿Qué opción se repite más?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Compara las tres cantidades 2, 5, 3. Mira los tizas en el mercado.",
-          "Busca la barra o fila más larga. Usa los datos de tizas en el mercado.",
-          "La mayor frecuencia corresponde a limonada. Comprueba con los tizas en el mercado."
+        "tipo": "texto_corto",
+        "enunciado": "En el gráfico de animales, si 3 niños más eligieran cuy, ¿qué animal sería el que más se repite? Escribe solo el animal.",
+        "respuesta": "cuy",
+        "alternativasAceptadas": [
+          "el cuy"
         ],
-        "retroalimentacion": "«limonada» aparece 5 veces, más que las otras opciones.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "limonada"
-          },
-          {
-            "id": "b",
-            "texto": "agua"
-          },
-          {
-            "id": "c",
-            "texto": "chicha"
-          }
-        ]
+        "pistas": [
+          "El cuy tiene ahora 5 ■.",
+          "Suma 3 más: 5 + 3.",
+          "Compara ese número con 7, que tienen la gallina y la oveja."
+        ],
+        "retroalimentacion": "El cuy tendría 5 + 3 = 8, más que 7. Sería el que más se repite.",
+        "lectura": "Animal favorito de la chacra (cada ■ es un niño)\nCuy: ■■■■■\nGallina: ■■■■■■■\nOveja: ■■■■■■■\nVaca: ■■■",
+        "id": "e11"
       },
       {
-        "id": "e11",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra pelota: 4, soga: 6, trompo: 2. ¿Qué opción se repite más?",
-        "respuesta": "c",
+        "tipo": "numerico",
+        "enunciado": "En el gráfico de animales, ¿cuántos niños votaron en total? Escribe solo el número.",
+        "respuesta": 22,
         "alternativasAceptadas": [],
         "pistas": [
-          "Compara las tres cantidades 4, 6, 2. Mira los pelotas en la canasta.",
-          "Busca la barra o fila más larga. Usa los datos de pelotas en la canasta.",
-          "La mayor frecuencia corresponde a soga. Comprueba con los pelotas en la canasta."
+          "Hay cuatro filas y debes juntar todas.",
+          "Cuy 5, gallina 7, oveja 7, vaca 3.",
+          "Suma de a dos: 7 + 7 = 14 y 5 + 3 = 8; luego 14 + 8."
         ],
-        "retroalimentacion": "«soga» aparece 6 veces, más que las otras opciones.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "pelota"
-          },
-          {
-            "id": "b",
-            "texto": "trompo"
-          },
-          {
-            "id": "c",
-            "texto": "soga"
-          }
-        ]
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "El gráfico registra sol: 3, luna: 2, estrella: 5. ¿Qué opción se repite más?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Compara las tres cantidades 3, 2, 5. Mira los mandarinas en la escuela.",
-          "Busca la barra o fila más larga. Usa los datos de mandarinas en la escuela.",
-          "La mayor frecuencia corresponde a estrella. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "«estrella» aparece 5 veces, más que las otras opciones.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "luna"
-          },
-          {
-            "id": "b",
-            "texto": "estrella"
-          },
-          {
-            "id": "c",
-            "texto": "sol"
-          }
-        ]
+        "retroalimentacion": "5 + 7 + 7 + 3 = 22 niños en total.",
+        "lectura": "Animal favorito de la chacra (cada ■ es un niño)\nCuy: ■■■■■\nGallina: ■■■■■■■\nOveja: ■■■■■■■\nVaca: ■■■",
+        "id": "e12"
       }
     ],
     "fuentes": [
