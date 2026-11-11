@@ -3,8 +3,8 @@ import { BookOpen, CircleCheck, Clock3 } from "lucide-react";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { FormAccion } from "@/components/FormAccion";
 import { PestanasNudito } from "@/components/nudito/PestanasNudito";
-import { AREAS_NUDITO } from "@/lib/nudito/contratos";
-import { docentesDelGrupo, gruposDelDocente } from "@/lib/server/plan-anual/acceso";
+import { CURSOS_KHIPU } from "@/lib/cursos-khipu/catalogo";
+import { agrupar, docentesDelGrupo, gruposDelDocente } from "@/lib/server/plan-anual/acceso";
 import { estadoTemario } from "@/lib/server/plan-anual/temario";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { crearTemarioAccion } from "./actions";
@@ -26,17 +26,10 @@ export default async function TemariosPage({
       ? await gruposDelDocente(ctx)
       : await ctx.db.curso
           .findMany({
-            where: { areaCneb: { in: [...AREAS_NUDITO] }, salon: { anio, archivadoAt: null, grado: { not: null } } },
-            select: { nombre: true, areaCneb: true, salon: { select: { anio: true, nivel: true, grado: true } } },
+            where: { salon: { anio, archivadoAt: null, grado: { not: null } } },
+            select: { nombre: true, cursoColegio: { select: { cursoKhipu: true } }, salon: { select: { anio: true, nivel: true, grado: true } } },
           })
-          .then((cursos) => [
-            ...new Map(
-              cursos.map((c) => {
-                const g = { anio: c.salon.anio, nivel: c.salon.nivel, grado: c.salon.grado!, area: c.areaCneb!, nombreCurso: c.nombre };
-                return [[g.anio, g.nivel, g.grado, g.area].join("|"), g] as const;
-              }),
-            ).values(),
-          ]);
+          .then(agrupar);
   const visibles = grupos.filter(
     (g) =>
       g.anio === anio &&
@@ -45,7 +38,7 @@ export default async function TemariosPage({
       (!filtro.area || g.area === filtro.area),
   );
   const planes = await ctx.db.planAnual.findMany({
-    where: { anio, area: { in: [...AREAS_NUDITO] } },
+    where: { anio, area: { in: CURSOS_KHIPU.filter(c => c.nudito).map(c => c.clave) } },
     include: {
       temas: { select: { id: true } },
       conformidades: { where: { decision: "conforme" }, select: { membershipId: true, ronda: true } },
@@ -104,6 +97,7 @@ export default async function TemariosPage({
                 <option value="matematica">Matemática</option>
                 <option value="comunicacion">Comunicación</option>
                 <option value="ciencia-tecnologia">Ciencia y Tecnología</option>
+                {CURSOS_KHIPU.filter(c => c.nudito && c.clave !== c.area).map(c => <option key={c.clave} value={c.clave}>{c.nombre}</option>)}
               </select>
             </label>
           </>

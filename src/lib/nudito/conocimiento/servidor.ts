@@ -57,25 +57,47 @@ export function temaDeFicha(f: FichaConocimiento): Tema {
   };
 }
 
+type Propuesto = { clave: string; nombre: string; disciplina: string; descripcion: string; desempenosOrigen: string[]; prerrequisitos: string[]; ordenSugerido: number };
+export async function temasPropuestosDe(area: AreaNudito, nivel: NivelNudito, grado: number): Promise<{ tema: Tema; disciplina: string }[]> {
+  let fuente: { competencias: { numero: number; capacidades: { nombre: string; bloques: { nombre: string; temas: Propuesto[] }[] }[] }[] };
+  try { fuente = JSON.parse(await readFile(join(raiz, area, nivel + "-" + grado, "temario-propuesto.json"), "utf8")); }
+  catch (error) { if ((error as NodeJS.ErrnoException).code === "ENOENT") return []; throw error; }
+  return fuente.competencias.flatMap(c => c.capacidades.flatMap(cap => cap.bloques.flatMap(b => b.temas.map(t => ({
+    disciplina: t.disciplina,
+    tema: {
+      clave: t.clave, area, nivel, grado, competenciaCneb: c.numero, capacidad: cap.nombre,
+      desempenoCodigo: t.desempenosOrigen[0], nombre: t.nombre, subtema: b.nombre,
+      descripcionCorta: t.descripcion, palabrasClave: t.nombre.toLowerCase().split(/\s+/).filter(x => x.length > 2),
+      prerrequisitos: t.prerrequisitos, dificultad: { min: 1, max: 3 }, tipos: ["texto_corto"],
+      fuente: { tipo: "banco", bancoId: "propuesta" }, repaso: { idea: t.descripcion, ejemplo: t.descripcion },
+      recursos: [], origen: "cneb", version: 1, revisado: null,
+    } as Tema,
+  }))))).sort((a, b) => {
+    const aa = fuente.competencias.flatMap(c => c.capacidades.flatMap(cap => cap.bloques.flatMap(b => b.temas)));
+    return (aa.find(t => t.clave === a.tema.clave)?.ordenSugerido ?? 0) - (aa.find(t => t.clave === b.tema.clave)?.ordenSugerido ?? 0);
+  });
+}
+
+export async function temaTienePractica(clave: string): Promise<boolean> {
+  return Boolean(await fichaPorClave(clave)) || Boolean(temaPorClave(clave));
+}
+
 export async function temasDeConBanco(area: AreaNudito, nivel: NivelNudito, grado?: number): Promise<Tema[]> {
   const grados = grado === undefined ? Array.from({ length: nivel === "primaria" ? 6 : 5 }, (_, i) => i + 1) : [grado];
   const grupos = await Promise.all(grados.map(async g => {
-    const fichas = await fichasDe(area, nivel, g);
-    return fichas.length ? fichas.map(temaDeFicha) : temasDe(area, nivel, g);
+    const [propuestos, fichas] = await Promise.all([temasPropuestosDe(area, nivel, g), fichasDe(area, nivel, g)]);
+    const antiguos = temasDe(area, nivel, g);
+    const porClave = new Map<string, Tema>([...propuestos.map(p => [p.tema.clave, p.tema] as const), ...antiguos.map(t => [t.clave, t] as const), ...fichas.map(f => [f.clave, temaDeFicha(f)] as const)]);
+    return [...porClave.values()];
   }));
   return grupos.flat();
 }
 
 export async function temaPorClaveConBanco(clave: string): Promise<Tema | null> {
   const partes = /^(mat|com|cyt)\.([ps])([1-6])\.[a-z0-9-]+$/.exec(clave);
-  if (partes) {
-    const fichas = await fichasDe(areasPorPrefijo[partes[1]], partes[2] === "p" ? "primaria" : "secundaria", Number(partes[3]));
-    if (fichas.length) {
-      const ficha = fichas.find(f => f.clave === clave);
-      return ficha ? temaDeFicha(ficha) : null;
-    }
-  }
-  return temaPorClave(clave);
+  if (!partes) return temaPorClave(clave);
+  const area = areasPorPrefijo[partes[1]], nivel = partes[2] === "p" ? "primaria" : "secundaria", grado = Number(partes[3]);
+  return (await temasDeConBanco(area, nivel, grado)).find(t => t.clave === clave) ?? null;
 }
 
 export async function ejercicioDelBanco(tema: Tema, dificultad: Dificultad, semilla: number, usados: Iterable<string> = []): Promise<EjercicioConSolucion | null> {
