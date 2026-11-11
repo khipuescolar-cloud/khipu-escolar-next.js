@@ -28,7 +28,9 @@
     "dev:nube": "node scripts/dev-nube.mjs",
     "khipu:crear-superadmin": "tsx --conditions=react-server scripts/crear-superadmin.ts",
     "postinstall": "prisma generate",
-    "nudito:validar-banco": "tsx scripts/nudito-validar-banco.ts"
+    "nudito:validar-banco": "tsx scripts/nudito-validar-banco.ts",
+    "curriculum:plan-desde-cursos": "tsx scripts/curriculum/plan-desde-cursos.ts",
+    "curriculum:aprobar-todo": "tsx scripts/curriculum/aprobar-todo.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1157.0",
