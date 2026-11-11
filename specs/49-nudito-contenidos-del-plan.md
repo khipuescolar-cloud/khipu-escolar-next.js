@@ -9,7 +9,7 @@ retroalimentación; nunca genera una clase por alumno.
 ## Reglas de negocio
 1. **Temas del alumno** = temas de la última `plan_anual_versiones` publicada del grupo `(tenant, salon.anio,
    salon.nivel, salon.grado, curso Khipu)` sin exigir una lección publicada; claves `col:` históricas no se presentan. El curso especializado y su área se consultan por separado. Los temas sin ficha ni generador histórico se muestran «Pronto» y no se pueden practicar.
-   Todos disponibles desde el inicio: **sin bloqueo semanal ni por avance del docente**. Sin plan publicado: lista
+   Todos disponibles desde el inicio: **sin bloqueo semanal ni por avance del docente**, siempre que el índice curricular global esté revisado/publicado y su huella vigente. Borradores y contenidos cuya huella cambió quedan ocultos al alumno hasta revisar de nuevo. Sin plan publicado: lista
    vacía y el mensaje «Tu colegio está preparando los temas de este curso.» (Nudito nunca da malas noticias).
 2. **Se elimina «Otro tema»**: `elegirTema` solo acepta `temaClave` y la rechaza si no está en la lista del punto 1
    (también para temas de grados anteriores o desbloqueados: el desbloqueo automático al grado superior queda inactivo).
@@ -91,7 +91,7 @@ metricasContenido(ctx, { desde?, hasta? }): { reutilizadas, generadas, solicitud
 
 ## Rutas y UI
 - /nudito/temario y /nudito/temario/[id]: elección y aceptación del temario (specs/48).
-- /nudito (alumno / modo hijo): bienvenida, curso, temas de la última versión habilitada, repaso de lección publicada si existe o del catálogo, práctica y progreso.
+- /nudito (alumno / modo hijo): bienvenida, curso, temas revisados/publicados con huella vigente de la última versión habilitada, repaso de lección publicada si existe o del catálogo, práctica y progreso.
 - Las antiguas rutas /planificacion y subrutas redirigen al temario. Se retiran las pantallas de materiales, revisión de lecciones y progreso del plan; el seguimiento general permanece en /nudito/seguimiento.
 
 ## Edición docente (histórico; UI retirada)
