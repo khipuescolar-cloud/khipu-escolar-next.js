@@ -53,6 +53,9 @@ Los 33 temarios existen como `banco/<area>/<nivel>-<grado>/temario-propuesto.jso
 
 Ejercicios de opción múltiple: el orden de las opciones está mezclado (la correcta no es siempre la primera) y las explicaciones nombran la opción por su texto, no por letra (la pantalla no muestra letras). Texto corto del banco: modo `literal` (specs/43).
 
+## Avance de fichas (2026-11-11)
+Fichas completas, escritas a mano y revisadas por muestreo: Matemática 1.°, 2.°, 3.° y 4.° de primaria (490 fichas, 5 971 ejercicios). Proceso: lotes de 12 fichas por escritor (modelo medio), validación por lote, fusión por script y revisión por muestreo del supervisor. Las primeras versiones de 1.° y 2.° (hechas con plantilla) se descartaron y reescribieron; el validador ahora rechaza esa firma.
+
 ## Pendientes
 - Revisión docente de los 33 temarios (ver «decisiones dudosas» en cada `.md`).
 - Escribir las fichas de las 32 combinaciones restantes (≈ 3 700 fichas), grado por grado, con el mismo proceso que Mat. 3.°: lotes por bloque, validador y revisión por muestreo. Mientras una combinación no tenga fichas, el profesor ve el catálogo anterior.
