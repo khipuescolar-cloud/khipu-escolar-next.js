@@ -1,13 +1,13 @@
 # 51 — Plan de estudios del colegio (cursos por grado) y Nudito por curso
 
-> Estado: en desarrollo (catálogo de cursos y disciplinas listos; modelo, asistente y Nudito por curso pendientes) · Plan: Khipu Base (plan de estudios) / Khipu Pro (Nudito) · Última actualización: 2026-11-09 (Claude)
+> Estado: en desarrollo (modelo y servicio listos; asistente y Nudito por curso pendientes) · Plan: Khipu Base (plan de estudios) / Khipu Pro (Nudito) · Última actualización: 2026-11-10 (Codex)
 
 ## Objetivo
 Cada colegio dicta sus propios cursos, y no siempre son las áreas del CNEB. Muchos colegios particulares dictan Aritmética, Álgebra, Geometría, Química, Física o Razonamiento Verbal desde primaria. El colegio declara qué cursos dicta y cuáles lleva cada grado, y Nudito muestra esos cursos **como cursos**, cada uno con su temario, sus profesores y sus temas.
 
 ## Decisiones (Carlos, 2026-11-09)
 - Los cursos se eligen de la **lista de cursos de Khipu**. También se puede escribir «otro curso» con nombre libre, pero ese curso no tiene Nudito.
-- Cada curso con Nudito tiene un **banco de temas propio por curso y grado** (p. ej. Química de 5.° de primaria).
+- Hay **un único catálogo global de temas**. Cada curso muestra una vista por disciplina y grado; Matemática integrada y Álgebra pueden referirse a la misma clave global.
 - Si en un grado conviven un área y un curso especializado de esa área (p. ej. «Ciencia y Tecnología» y «Química»), **cada uno ve solo lo suyo**: el área deja de mostrar los temas con la disciplina que cedió.
 - El asistente de configuración se hará dentro del panel de dirección y administración, que todavía no está diseñado.
 
@@ -22,7 +22,7 @@ Cada colegio dicta sus propios cursos, y no siempre son las áreas del CNEB. Muc
   - Incluye las áreas CNEB (sin «transversales») y los cursos especializados: Aritmética, Álgebra, Geometría, Trigonometría, Estadística, Razonamiento Matemático, Lenguaje, Literatura, Razonamiento Verbal, Plan Lector, Biología, Química y Física.
   - Cada curso tiene clave estable, área CNEB, niveles, prefijo de tema, sinónimos y `nudito`.
   - Cada especializado declara qué **disciplinas** cede su área.
-  - Razonamiento Matemático no cede ninguna: tiene banco propio.
+  - Razonamiento Matemático no cede ninguna disciplina; la selección explícita del plan anual determina sus temas.
 - **Disciplinas** (`src/lib/nudito/conocimiento/disciplinas.ts`):
   - Matemática: aritmética, álgebra, geometría, trigonometría, estadística.
   - Comunicación: lenguaje, literatura, comprensión lectora, oralidad, escritura, razonamiento verbal.
@@ -32,15 +32,14 @@ Cada colegio dicta sus propios cursos, y no siempre son las áreas del CNEB. Muc
 - **Disciplinas cedidas.** `disciplinasCedidas(area, cursosDelGrado)` calcula qué disciplinas pierde el área en un grado.
 - **Áreas CNEB.** Trigonometría y Estadística se reconocen como Matemática (`src/lib/cneb/matematica.json`).
 
-## Modelo de datos (previsto, migración aditiva)
+## Modelo de datos (implementado, migración aditiva)
 - `CursoColegio`: `tenantId`, `cursoKhipu?` (null en los cursos propios), `nombre`, `orden`, `archivadoAt`.
-- `CursoColegioGrado`: `cursoColegioId`, `nivel`, `grado`. Es único por esas tres columnas.
+- `CursoColegioGrado`: `tenantId`, `cursoColegioId`, `anio`, `nivel`, `grado`. Es único por curso, año, nivel y grado.
 - `Curso.cursoColegioId?`: enlaza el curso del salón con su curso del colegio.
-- Un script idempotente arma el plan de estudios de los colegios existentes a partir de sus cursos.
+- `pnpm curriculum:plan-desde-cursos` arma de forma idempotente el plan de estudios de los colegios existentes a partir de sus cursos; solo acepta BD local.
 - Nudito agrupa por (colegio, año, nivel, grado, **curso de Khipu**). Para guardarlo reutiliza `planes_anuales.area`, porque las claves actuales `matematica`, `comunicacion` y `ciencia-tecnologia` ya son claves del catálogo.
 
 ## Pendientes
-- Modelo, servicio `src/lib/server/plan-estudios.ts` y script de migración.
 - Asistente dentro del panel de dirección y administración.
 - Nudito por curso:
   - grupos y acceso (`plan-anual/acceso.ts`);
@@ -48,7 +47,10 @@ Cada colegio dicta sus propios cursos, y no siempre son las áreas del CNEB. Muc
   - temas publicados (`plan-publicado.ts`);
   - exclusión por disciplina.
 - Temarios de los cursos especializados por grado (para revisión de Carlos) y después sus fichas.
-- Datos demo (specs/35): un salón de secundaria con Química y Física y uno de primaria con Aritmética.
 
 ## Pruebas
 - Unit: `cursos-khipu-catalogo.test.ts` comprueba claves y prefijos únicos, que cada curso apunte a un área CNEB válida, la detección del especializado antes que el área y las disciplinas cedidas.
+
+## Servicio implementado (sin UI)
+- Dirección y administración guardan cursos del catálogo o nombres propios y la malla anual. El servicio valida pertenencia al colegio y nivel, audita los cambios y crea los cursos faltantes en salones activos con área y plantilla CNEB.
+- Al quitar un curso de la malla, borra solo instancias sin asistencia, evaluaciones ni tareas. Conserva las usadas y devuelve avisos. Un salón nuevo hereda la malla; un curso creado a mano se enlaza a su definición institucional.

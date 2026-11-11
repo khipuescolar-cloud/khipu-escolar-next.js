@@ -82,3 +82,6 @@ Ver arriba. Archivo vacío, sin encabezado, sin columnas obligatorias (mensaje c
 ## Pendientes
 - Con Auth real, crear cuentas es el paso lento: GoTrue local ~48 cuentas/s con 6 a la vez (≈ 30 s para 1 300 familias nuevas). En producción medirlo en el primer colegio; si se acerca a `maxDuration`, dividir el archivo por nivel.
 - El CSV de alumnos sigue siendo «todo o nada» (sin vista previa ni actualización por código).
+
+## Integración con la malla anual
+Al terminar una carga de salones, los salones nuevos heredan los cursos de la malla existente para su año, nivel y grado; los cursos del archivo con el mismo nombre se enlazan en lugar de duplicarse. La vista previa sigue describiendo el archivo y el resultado avisa los cursos adicionales creados por la malla.

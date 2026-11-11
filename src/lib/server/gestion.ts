@@ -14,6 +14,7 @@ import { restaurarPlantillaOficial } from "./curriculo";
 import { encolarAvisoFamilia } from "./notificaciones/avisos-familia";
 import { areaDeCurso } from "./nudito/areas-cursos";
 import { requireFeature } from "./plan";
+import { sincronizarCursosDeSalones, vincularCursoManual } from "./plan-estudios";
 import { supabaseAdmin } from "./supabase";
 import { salonEsActivo, whereSalonActivo } from "./salones-activos";
 import { requireRol, type TenantContext } from "./tenant";
@@ -192,6 +193,7 @@ export async function crearSalon(ctx: TenantContext, entrada: z.input<typeof esq
   await exigirProfesorActivo(ctx, d.tutorId);
   const s = await ctx.db.salon.create({ data: { tenantId: ctx.tenant.id, ...d, nivel: d.nivel as Nivel } });
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "salon", entidadId: s.id });
+  if (s.grado !== null && s.grado > 0) await sincronizarCursosDeSalones(ctx, { anio: s.anio, nivel: s.nivel, grado: s.grado, salonIds: [s.id] });
   return s.id;
 }
 
@@ -247,6 +249,7 @@ export async function crearCurso(ctx: TenantContext, entrada: z.input<typeof esq
   if (!salon) throw new ErrorDeNegocio("No se encontró el salón.");
   await exigirProfesorActivo(ctx, d.profesorId);
   const c = await ctx.db.curso.create({ data: { tenantId: ctx.tenant.id, ...d, areaCneb: areaDeCurso(d.nombre, salon.nivel) } });
+  await vincularCursoManual(ctx, c.id);
   if (ctx.modulos.has("notas") && c.areaCneb && esNivelCneb(salon.nivel) && gradoValido(salon.nivel, salon.grado)) await restaurarPlantillaOficial(ctx, c.id);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "crear", entidad: "curso", entidadId: c.id });
   return c.id;
@@ -262,6 +265,7 @@ export async function editarCurso(ctx: TenantContext, id: string, entrada: { nom
   const area = actual.areaCnebManual ? {} : { areaCneb: areaDeCurso(d.nombre, actual.salon.nivel) };
   const r = await ctx.db.curso.updateMany({ where: { id }, data: { ...d, ...area } });
   if (r.count === 0) throw new ErrorDeNegocio("No se encontró el curso.");
+  await vincularCursoManual(ctx, id);
   await auditar({ tenantId: ctx.tenant.id, actorId: ctx.user.id, accion: "editar", entidad: "curso", entidadId: id });
 }
 
