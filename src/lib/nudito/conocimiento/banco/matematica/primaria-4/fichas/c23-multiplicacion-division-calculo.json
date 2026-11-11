@@ -886,302 +886,6 @@
     "revisado": null
   },
   {
-    "clave": "mat.p4.multiplicacion-dos-cifras",
-    "area": "matematica",
-    "nivel": "primaria",
-    "grado": 4,
-    "competenciaCneb": 23,
-    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
-    "desempenosOrigen": [
-      "MAT-C23-P4-04"
-    ],
-    "bloque": "Multiplicación y división",
-    "nombre": "Multiplicación por un número de dos cifras",
-    "disciplina": "aritmetica",
-    "descripcionCorta": "Multiplica por un factor de dos cifras sumando productos parciales.",
-    "palabrasClave": [
-      "multiplicación",
-      "número",
-      "cifras"
-    ],
-    "prerrequisitos": [
-      "mat.p4.multiplicacion-varias-cifras",
-      "mat.p4.distributiva-calculo"
-    ],
-    "ordenSugerido": 76,
-    "ideaCentral": "Para multiplicar por un número de dos cifras, multiplica primero por sus unidades y luego por sus decenas. El segundo producto parcial vale diez veces más por estar en la columna de decenas; suma ambos resultados.",
-    "pasos": [
-      "Separa el factor de dos cifras en decenas y unidades.",
-      "Multiplica el otro factor por las unidades.",
-      "Multiplica por las decenas y toma en cuenta su valor de diez.",
-      "Suma los dos productos parciales y comprueba."
-    ],
-    "ejemplos": [
-      {
-        "situacion": "Calcula 24 × 13.",
-        "desarrollo": "24 × 3 = 72 y 24 × 10 = 240; 72 + 240 = 312.",
-        "respuesta": "312."
-      },
-      {
-        "situacion": "Calcula 46 × 21.",
-        "desarrollo": "46 × 1 = 46 y 46 × 20 = 920; sumo 966.",
-        "respuesta": "966."
-      }
-    ],
-    "erroresFrecuentes": [
-      {
-        "error": "Tratar la cifra de decenas como unidades.",
-        "correccion": "En 34, el 3 vale 30: multiplica por 30, no por 3."
-      },
-      {
-        "error": "Olvidar sumar los dos productos parciales.",
-        "correccion": "El producto final incluye unidades y decenas del factor."
-      }
-    ],
-    "vocabulario": [
-      {
-        "termino": "Factor de dos cifras",
-        "significado": "Número entre 10 y 99 que multiplica a otro."
-      },
-      {
-        "termino": "Producto parcial",
-        "significado": "Resultado de multiplicar por una parte del factor."
-      },
-      {
-        "termino": "Decena",
-        "significado": "Grupo de diez unidades."
-      }
-    ],
-    "ejercicios": [
-      {
-        "id": "e01",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Calcula 12 × 11.",
-        "respuesta": 132,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Separa 11 en 10 + 1.",
-          "12 × 10 = 120 y 12 × 1 = 12.",
-          "Suma ambos productos."
-        ],
-        "retroalimentacion": "12 × 11 = 132."
-      },
-      {
-        "id": "e02",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿Cuánto vale 23 × 12?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "12 es 10 + 2.",
-          "23 × 10 = 230 y 23 × 2 = 46.",
-          "Suma 230 + 46."
-        ],
-        "retroalimentacion": "23 × 12 = 276.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "256"
-          },
-          {
-            "id": "b",
-            "texto": "276"
-          },
-          {
-            "id": "c",
-            "texto": "236"
-          }
-        ]
-      },
-      {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "verdadero_falso",
-        "enunciado": "Cinco cajas con 14 lápices cada una contienen 70 lápices.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "El factor de dos cifras es 14.",
-          "14 × 5 = 10×5 + 4×5.",
-          "50 + 20 = 70."
-        ],
-        "retroalimentacion": "Es verdadero: 5 × 14 = 70."
-      },
-      {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Una fila tiene 16 sillas y hay 12 filas. ¿Cuántas sillas son?",
-        "respuesta": 192,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Multiplica 16 × 12.",
-          "16 × 10 = 160.",
-          "16 × 2 = 32; suma 160 + 32."
-        ],
-        "retroalimentacion": "Hay 192 sillas; 160 cuenta solo diez filas."
-      },
-      {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Encuentra el producto de 34 y 26.",
-        "respuesta": 884,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Separa 26 en 20 + 6.",
-          "34 × 20 = 680.",
-          "34 × 6 = 204; suma 680 + 204."
-        ],
-        "retroalimentacion": "34 × 26 = 884."
-      },
-      {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Una imprenta hace 18 paquetes de 45 hojas. ¿Cuántas hojas produce?",
-        "respuesta": "d",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Multiplica 45 × 18.",
-          "45 × 10 = 450 y 45 × 8 = 360.",
-          "Suma los productos parciales."
-        ],
-        "retroalimentacion": "Produce 810 hojas.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "630"
-          },
-          {
-            "id": "b",
-            "texto": "800"
-          },
-          {
-            "id": "c",
-            "texto": "850"
-          },
-          {
-            "id": "d",
-            "texto": "810"
-          }
-        ]
-      },
-      {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "verdadero_falso",
-        "enunciado": "La operación 27 × 34 da 918.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "34 es 30 + 4.",
-          "27 × 30 = 810.",
-          "27 × 4 = 108; suma 918."
-        ],
-        "retroalimentacion": "Es verdadero: 27 × 34 = 918."
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Un puesto vende 32 canastas con 24 mangos. ¿Cuántos mangos vendió?",
-        "respuesta": 768,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Multiplica 32 × 24.",
-          "32 × 20 = 640.",
-          "32 × 4 = 128; suma 768."
-        ],
-        "retroalimentacion": "Vendió 768 mangos."
-      },
-      {
-        "id": "e09",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "¿Qué total producen 76 grupos de 48 fichas?",
-        "respuesta": 3648,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "48 se separa en 40 y 8.",
-          "76 × 40 = 3040.",
-          "76 × 8 = 608; suma."
-        ],
-        "retroalimentacion": "76 × 48 = 3648; no omitas el valor de la decena 4."
-      },
-      {
-        "id": "e10",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿Qué producto resulta de 125 × 24?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "24 = 20 + 4.",
-          "125 × 20 = 2500.",
-          "125 × 4 = 500; suma."
-        ],
-        "retroalimentacion": "125 × 24 = 3000.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "3000"
-          },
-          {
-            "id": "b",
-            "texto": "2500"
-          },
-          {
-            "id": "c",
-            "texto": "500"
-          },
-          {
-            "id": "d",
-            "texto": "30000"
-          }
-        ]
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Una fábrica arma 36 lotes de 78 botones. ¿Cuántos botones son?",
-        "respuesta": 2808,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Multiplica 78 × 36.",
-          "78 × 30 = 2340.",
-          "78 × 6 = 468; suma 2340 + 468."
-        ],
-        "retroalimentacion": "Son 2808 botones; el 3 de 36 vale treinta."
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "verdadero_falso",
-        "enunciado": "El producto de 94 × 37 es 3478.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "37 = 30 + 7.",
-          "94 × 30 = 2820.",
-          "94 × 7 = 658; suma 3478."
-        ],
-        "retroalimentacion": "Es verdadero: 94 × 37 = 3478."
-      }
-    ],
-    "fuentes": [
-      {
-        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
-        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
-      }
-    ],
-    "version": 1,
-    "revisado": null
-  },
-  {
     "clave": "mat.p4.distributiva-calculo",
     "area": "matematica",
     "nivel": "primaria",
@@ -2374,6 +2078,302 @@
           "18 × 23 ya supera 403."
         ],
         "retroalimentacion": "El residuo es 7; la división es inexacta."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.multiplicacion-dos-cifras",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Multiplicación por un número de dos cifras",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Multiplica por un factor de dos cifras sumando productos parciales.",
+    "palabrasClave": [
+      "multiplicación",
+      "número",
+      "cifras"
+    ],
+    "prerrequisitos": [
+      "mat.p4.multiplicacion-varias-cifras",
+      "mat.p4.distributiva-calculo"
+    ],
+    "ordenSugerido": 76,
+    "ideaCentral": "Para multiplicar por un número de dos cifras, multiplica primero por sus unidades y luego por sus decenas. El segundo producto parcial vale diez veces más por estar en la columna de decenas; suma ambos resultados.",
+    "pasos": [
+      "Separa el factor de dos cifras en decenas y unidades.",
+      "Multiplica el otro factor por las unidades.",
+      "Multiplica por las decenas y toma en cuenta su valor de diez.",
+      "Suma los dos productos parciales y comprueba."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 24 × 13.",
+        "desarrollo": "24 × 3 = 72 y 24 × 10 = 240; 72 + 240 = 312.",
+        "respuesta": "312."
+      },
+      {
+        "situacion": "Calcula 46 × 21.",
+        "desarrollo": "46 × 1 = 46 y 46 × 20 = 920; sumo 966.",
+        "respuesta": "966."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tratar la cifra de decenas como unidades.",
+        "correccion": "En 34, el 3 vale 30: multiplica por 30, no por 3."
+      },
+      {
+        "error": "Olvidar sumar los dos productos parciales.",
+        "correccion": "El producto final incluye unidades y decenas del factor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Factor de dos cifras",
+        "significado": "Número entre 10 y 99 que multiplica a otro."
+      },
+      {
+        "termino": "Producto parcial",
+        "significado": "Resultado de multiplicar por una parte del factor."
+      },
+      {
+        "termino": "Decena",
+        "significado": "Grupo de diez unidades."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 12 × 11.",
+        "respuesta": 132,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa 11 en 10 + 1.",
+          "12 × 10 = 120 y 12 × 1 = 12.",
+          "Suma ambos productos."
+        ],
+        "retroalimentacion": "12 × 11 = 132."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto vale 23 × 12?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "12 es 10 + 2.",
+          "23 × 10 = 230 y 23 × 2 = 46.",
+          "Suma 230 + 46."
+        ],
+        "retroalimentacion": "23 × 12 = 276.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "256"
+          },
+          {
+            "id": "b",
+            "texto": "276"
+          },
+          {
+            "id": "c",
+            "texto": "236"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Cinco cajas con 14 lápices cada una contienen 70 lápices.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El factor de dos cifras es 14.",
+          "14 × 5 = 10×5 + 4×5.",
+          "50 + 20 = 70."
+        ],
+        "retroalimentacion": "Es verdadero: 5 × 14 = 70."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una fila tiene 16 sillas y hay 12 filas. ¿Cuántas sillas son?",
+        "respuesta": 192,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 16 × 12.",
+          "16 × 10 = 160.",
+          "16 × 2 = 32; suma 160 + 32."
+        ],
+        "retroalimentacion": "Hay 192 sillas; 160 cuenta solo diez filas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Encuentra el producto de 34 y 26.",
+        "respuesta": 884,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa 26 en 20 + 6.",
+          "34 × 20 = 680.",
+          "34 × 6 = 204; suma 680 + 204."
+        ],
+        "retroalimentacion": "34 × 26 = 884."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una imprenta hace 18 paquetes de 45 hojas. ¿Cuántas hojas produce?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 45 × 18.",
+          "45 × 10 = 450 y 45 × 8 = 360.",
+          "Suma los productos parciales."
+        ],
+        "retroalimentacion": "Produce 810 hojas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "630"
+          },
+          {
+            "id": "b",
+            "texto": "800"
+          },
+          {
+            "id": "c",
+            "texto": "850"
+          },
+          {
+            "id": "d",
+            "texto": "810"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La operación 27 × 34 da 918.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "34 es 30 + 4.",
+          "27 × 30 = 810.",
+          "27 × 4 = 108; suma 918."
+        ],
+        "retroalimentacion": "Es verdadero: 27 × 34 = 918."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un puesto vende 32 canastas con 24 mangos. ¿Cuántos mangos vendió?",
+        "respuesta": 768,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 32 × 24.",
+          "32 × 20 = 640.",
+          "32 × 4 = 128; suma 768."
+        ],
+        "retroalimentacion": "Vendió 768 mangos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Qué total producen 76 grupos de 48 fichas?",
+        "respuesta": 3648,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "48 se separa en 40 y 8.",
+          "76 × 40 = 3040.",
+          "76 × 8 = 608; suma."
+        ],
+        "retroalimentacion": "76 × 48 = 3648; no omitas el valor de la decena 4."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué producto resulta de 125 × 24?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "24 = 20 + 4.",
+          "125 × 20 = 2500.",
+          "125 × 4 = 500; suma."
+        ],
+        "retroalimentacion": "125 × 24 = 3000.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3000"
+          },
+          {
+            "id": "b",
+            "texto": "2500"
+          },
+          {
+            "id": "c",
+            "texto": "500"
+          },
+          {
+            "id": "d",
+            "texto": "30000"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una fábrica arma 36 lotes de 78 botones. ¿Cuántos botones son?",
+        "respuesta": 2808,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 78 × 36.",
+          "78 × 30 = 2340.",
+          "78 × 6 = 468; suma 2340 + 468."
+        ],
+        "retroalimentacion": "Son 2808 botones; el 3 de 36 vale treinta."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "El producto de 94 × 37 es 3478.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "37 = 30 + 7.",
+          "94 × 30 = 2820.",
+          "94 × 7 = 658; suma 3478."
+        ],
+        "retroalimentacion": "Es verdadero: 94 × 37 = 3478."
       }
     ],
     "fuentes": [

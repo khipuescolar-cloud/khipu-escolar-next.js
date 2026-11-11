@@ -887,302 +887,6 @@
     "revisado": null
   },
   {
-    "clave": "mat.p4.compensacion-suma-resta",
-    "area": "matematica",
-    "nivel": "primaria",
-    "grado": 4,
-    "competenciaCneb": 23,
-    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
-    "desempenosOrigen": [
-      "MAT-C23-P4-04"
-    ],
-    "bloque": "Adición y sustracción",
-    "nombre": "Cálculo mental por compensación",
-    "disciplina": "aritmetica",
-    "descripcionCorta": "Suma o resta redondeando un número a la centena o millar y ajustando luego el resultado.",
-    "palabrasClave": [
-      "cálculo",
-      "mental",
-      "compensación"
-    ],
-    "prerrequisitos": [
-      "mat.p4.redondeo-centena-millar",
-      "mat.p4.suma-cuatro-cifras"
-    ],
-    "ordenSugerido": 36,
-    "ideaCentral": "La compensación cambia temporalmente un número por otro más fácil y luego corrige ese cambio. Si aumentas un sumando, resta lo añadido al final; si aumentas el sustraendo, vuelve a sumar lo que añadiste.",
-    "pasos": [
-      "Busca un número cercano a una decena, centena o millar exacto.",
-      "Haz el cambio que facilite la cuenta.",
-      "Calcula mentalmente con el número redondo.",
-      "Corrige exactamente lo que cambiaste y comprueba el resultado."
-    ],
-    "ejemplos": [
-      {
-        "situacion": "Calcula 398 + 257.",
-        "desarrollo": "Sube 398 a 400: 400 + 257 = 657; resta los 2 añadidos.",
-        "respuesta": "655."
-      },
-      {
-        "situacion": "Calcula 720 − 198.",
-        "desarrollo": "Sube 198 a 200: 720 − 200 = 520; devuelve 2 porque quitaste dos de más.",
-        "respuesta": "522."
-      }
-    ],
-    "erroresFrecuentes": [
-      {
-        "error": "Olvidar corregir después de usar un número redondo.",
-        "correccion": "Anota cuánto cambiaste y haz la corrección final."
-      },
-      {
-        "error": "Corregir en la dirección equivocada al restar.",
-        "correccion": "Si restaste de más al subir el sustraendo, suma lo que sobró."
-      }
-    ],
-    "vocabulario": [
-      {
-        "termino": "Compensar",
-        "significado": "Corregir un cambio temporal para conservar el resultado."
-      },
-      {
-        "termino": "Número redondo",
-        "significado": "Número fácil de usar, como una centena exacta."
-      },
-      {
-        "termino": "Sustraendo",
-        "significado": "Cantidad que se quita en una resta."
-      }
-    ],
-    "ejercicios": [
-      {
-        "id": "e01",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Calcula mentalmente 299 + 41 usando 300.",
-        "respuesta": 340,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Sube 299 a 300, un aumento de 1.",
-          "300 + 41 = 341.",
-          "Resta el 1 añadido."
-        ],
-        "retroalimentacion": "El resultado es 340; 341 olvida compensar."
-      },
-      {
-        "id": "e02",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Para 500 − 99, ¿qué corrección haces tras calcular 500 − 100 = 400?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Restaste 100 en vez de 99.",
-          "Quitaste una unidad de más.",
-          "Devuelve esa unidad al resultado."
-        ],
-        "retroalimentacion": "Debes sumar 1; así obtienes 401.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "restar 1"
-          },
-          {
-            "id": "b",
-            "texto": "sumar 1"
-          },
-          {
-            "id": "c",
-            "texto": "sumar 100"
-          }
-        ]
-      },
-      {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "verdadero_falso",
-        "enunciado": "199 + 30 se puede calcular como 200 + 30 − 1 = 229.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Se subió 199 a 200.",
-          "Ese cambio añadió 1.",
-          "Compensa restando 1."
-        ],
-        "retroalimentacion": "Es verdadero: el resultado es 229."
-      },
-      {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Calcula 840 − 199 usando 200.",
-        "respuesta": 641,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Restar 200 es fácil.",
-          "840 − 200 = 640.",
-          "Como quitaste 1 de más, súmalo."
-        ],
-        "retroalimentacion": "El resultado es 641; 640 es la cuenta sin compensar."
-      },
-      {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Calcula 998 + 476 por compensación.",
-        "respuesta": 1474,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Sube 998 a 1000.",
-          "1000 + 476 = 1476.",
-          "Resta las dos unidades añadidas."
-        ],
-        "retroalimentacion": "La suma es 1474."
-      },
-      {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "¿Qué expresión conserva el valor de 675 + 299 usando 300?",
-        "respuesta": "d",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "299 está a uno de 300.",
-          "Al subirlo, la suma aumenta uno.",
-          "Resta uno al final."
-        ],
-        "retroalimentacion": "675 + 300 − 1 conserva la suma original.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "675 + 300 + 1"
-          },
-          {
-            "id": "b",
-            "texto": "675 + 300"
-          },
-          {
-            "id": "c",
-            "texto": "675 − 300 + 1"
-          },
-          {
-            "id": "d",
-            "texto": "675 + 300 − 1"
-          }
-        ]
-      },
-      {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "verdadero_falso",
-        "enunciado": "Para 1200 − 398, se puede hacer 1200 − 400 + 2.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "398 se sube a 400.",
-          "Se restan 2 de más.",
-          "Compensa devolviendo 2."
-        ],
-        "retroalimentacion": "Es verdadero: ambas cuentas dan 802."
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Calcula mentalmente 2500 − 997.",
-        "respuesta": 1503,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Sube 997 a 1000.",
-          "2500 − 1000 = 1500.",
-          "Devuelve las tres unidades restadas de más."
-        ],
-        "retroalimentacion": "La diferencia es 1503."
-      },
-      {
-        "id": "e09",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Resuelve 3987 + 1998 usando millares cercanos.",
-        "respuesta": 5985,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Sube 3987 a 4000 (+13).",
-          "Sube 1998 a 2000 (+2); suma 6000.",
-          "Resta los 15 añadidos en total."
-        ],
-        "retroalimentacion": "El resultado es 5985; hay que corregir ambos cambios."
-      },
-      {
-        "id": "e10",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Para calcular 6005 − 2997, una alumna hace 6005 − 3000 = 3005. ¿Qué falta?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "2997 se subió tres unidades.",
-          "Se restaron tres de más.",
-          "Hay que devolver esas tres."
-        ],
-        "retroalimentacion": "Falta sumar 3, y el resultado correcto es 3008.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "sumar 3"
-          },
-          {
-            "id": "b",
-            "texto": "restar 3"
-          },
-          {
-            "id": "c",
-            "texto": "sumar 3000"
-          },
-          {
-            "id": "d",
-            "texto": "restar 2997"
-          }
-        ]
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Calcula 7498 + 198 por compensación.",
-        "respuesta": 7696,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Sube 7498 a 7500 (+2).",
-          "Sube 198 a 200 (+2); suma 7700.",
-          "Quita las cuatro unidades añadidas."
-        ],
-        "retroalimentacion": "La suma es 7696; 7700 es solo la cuenta redondeada."
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "verdadero_falso",
-        "enunciado": "La resta 4300 − 999 equivale a 4300 − 1000 + 1 = 3301.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "999 se subió una unidad.",
-          "Al restar 1000, se quitó una de más.",
-          "Devuelve esa unidad."
-        ],
-        "retroalimentacion": "Es verdadero: el resultado es 3301."
-      }
-    ],
-    "fuentes": [
-      {
-        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
-        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
-      }
-    ],
-    "version": 1,
-    "revisado": null
-  },
-  {
     "clave": "mat.p4.comprobar-suma-resta",
     "area": "matematica",
     "nivel": "primaria",
@@ -1484,6 +1188,302 @@
           "La suma sí recupera el minuendo."
         ],
         "retroalimentacion": "Es falso: la resta es correcta porque la comprobación llega a 9000."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.compensacion-suma-resta",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Cálculo mental por compensación",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Suma o resta redondeando un número a la centena o millar y ajustando luego el resultado.",
+    "palabrasClave": [
+      "cálculo",
+      "mental",
+      "compensación"
+    ],
+    "prerrequisitos": [
+      "mat.p4.redondeo-centena-millar",
+      "mat.p4.suma-cuatro-cifras"
+    ],
+    "ordenSugerido": 36,
+    "ideaCentral": "La compensación cambia temporalmente un número por otro más fácil y luego corrige ese cambio. Si aumentas un sumando, resta lo añadido al final; si aumentas el sustraendo, vuelve a sumar lo que añadiste.",
+    "pasos": [
+      "Busca un número cercano a una decena, centena o millar exacto.",
+      "Haz el cambio que facilite la cuenta.",
+      "Calcula mentalmente con el número redondo.",
+      "Corrige exactamente lo que cambiaste y comprueba el resultado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 398 + 257.",
+        "desarrollo": "Sube 398 a 400: 400 + 257 = 657; resta los 2 añadidos.",
+        "respuesta": "655."
+      },
+      {
+        "situacion": "Calcula 720 − 198.",
+        "desarrollo": "Sube 198 a 200: 720 − 200 = 520; devuelve 2 porque quitaste dos de más.",
+        "respuesta": "522."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Olvidar corregir después de usar un número redondo.",
+        "correccion": "Anota cuánto cambiaste y haz la corrección final."
+      },
+      {
+        "error": "Corregir en la dirección equivocada al restar.",
+        "correccion": "Si restaste de más al subir el sustraendo, suma lo que sobró."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Compensar",
+        "significado": "Corregir un cambio temporal para conservar el resultado."
+      },
+      {
+        "termino": "Número redondo",
+        "significado": "Número fácil de usar, como una centena exacta."
+      },
+      {
+        "termino": "Sustraendo",
+        "significado": "Cantidad que se quita en una resta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula mentalmente 299 + 41 usando 300.",
+        "respuesta": 340,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sube 299 a 300, un aumento de 1.",
+          "300 + 41 = 341.",
+          "Resta el 1 añadido."
+        ],
+        "retroalimentacion": "El resultado es 340; 341 olvida compensar."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para 500 − 99, ¿qué corrección haces tras calcular 500 − 100 = 400?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Restaste 100 en vez de 99.",
+          "Quitaste una unidad de más.",
+          "Devuelve esa unidad al resultado."
+        ],
+        "retroalimentacion": "Debes sumar 1; así obtienes 401.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "restar 1"
+          },
+          {
+            "id": "b",
+            "texto": "sumar 1"
+          },
+          {
+            "id": "c",
+            "texto": "sumar 100"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "199 + 30 se puede calcular como 200 + 30 − 1 = 229.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se subió 199 a 200.",
+          "Ese cambio añadió 1.",
+          "Compensa restando 1."
+        ],
+        "retroalimentacion": "Es verdadero: el resultado es 229."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 840 − 199 usando 200.",
+        "respuesta": 641,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Restar 200 es fácil.",
+          "840 − 200 = 640.",
+          "Como quitaste 1 de más, súmalo."
+        ],
+        "retroalimentacion": "El resultado es 641; 640 es la cuenta sin compensar."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 998 + 476 por compensación.",
+        "respuesta": 1474,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sube 998 a 1000.",
+          "1000 + 476 = 1476.",
+          "Resta las dos unidades añadidas."
+        ],
+        "retroalimentacion": "La suma es 1474."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué expresión conserva el valor de 675 + 299 usando 300?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "299 está a uno de 300.",
+          "Al subirlo, la suma aumenta uno.",
+          "Resta uno al final."
+        ],
+        "retroalimentacion": "675 + 300 − 1 conserva la suma original.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "675 + 300 + 1"
+          },
+          {
+            "id": "b",
+            "texto": "675 + 300"
+          },
+          {
+            "id": "c",
+            "texto": "675 − 300 + 1"
+          },
+          {
+            "id": "d",
+            "texto": "675 + 300 − 1"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 1200 − 398, se puede hacer 1200 − 400 + 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "398 se sube a 400.",
+          "Se restan 2 de más.",
+          "Compensa devolviendo 2."
+        ],
+        "retroalimentacion": "Es verdadero: ambas cuentas dan 802."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula mentalmente 2500 − 997.",
+        "respuesta": 1503,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sube 997 a 1000.",
+          "2500 − 1000 = 1500.",
+          "Devuelve las tres unidades restadas de más."
+        ],
+        "retroalimentacion": "La diferencia es 1503."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 3987 + 1998 usando millares cercanos.",
+        "respuesta": 5985,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sube 3987 a 4000 (+13).",
+          "Sube 1998 a 2000 (+2); suma 6000.",
+          "Resta los 15 añadidos en total."
+        ],
+        "retroalimentacion": "El resultado es 5985; hay que corregir ambos cambios."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para calcular 6005 − 2997, una alumna hace 6005 − 3000 = 3005. ¿Qué falta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "2997 se subió tres unidades.",
+          "Se restaron tres de más.",
+          "Hay que devolver esas tres."
+        ],
+        "retroalimentacion": "Falta sumar 3, y el resultado correcto es 3008.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "sumar 3"
+          },
+          {
+            "id": "b",
+            "texto": "restar 3"
+          },
+          {
+            "id": "c",
+            "texto": "sumar 3000"
+          },
+          {
+            "id": "d",
+            "texto": "restar 2997"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula 7498 + 198 por compensación.",
+        "respuesta": 7696,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sube 7498 a 7500 (+2).",
+          "Sube 198 a 200 (+2); suma 7700.",
+          "Quita las cuatro unidades añadidas."
+        ],
+        "retroalimentacion": "La suma es 7696; 7700 es solo la cuenta redondeada."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La resta 4300 − 999 equivale a 4300 − 1000 + 1 = 3301.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "999 se subió una unidad.",
+          "Al restar 1000, se quitó una de más.",
+          "Devuelve esa unidad."
+        ],
+        "retroalimentacion": "Es verdadero: el resultado es 3301."
       }
     ],
     "fuentes": [

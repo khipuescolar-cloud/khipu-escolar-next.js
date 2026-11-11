@@ -297,6 +297,305 @@
     "revisado": null
   },
   {
+    "clave": "mat.p4.problemas-division-residuo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P4-01"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Problemas de división con residuo",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Interpreta qué significa el residuo en la situación y decide la respuesta adecuada.",
+    "palabrasClave": [
+      "problemas",
+      "división",
+      "residuo"
+    ],
+    "prerrequisitos": [
+      "mat.p4.division-exacta-inexacta"
+    ],
+    "ordenSugerido": 75,
+    "ideaCentral": "Cuando una división no es exacta, el residuo son los objetos que sobran después de formar grupos iguales. Según la pregunta, puedes responder con los grupos completos, con lo que sobra o con un grupo adicional para incluir a todos.",
+    "pasos": [
+      "Divide el total entre el tamaño de cada grupo.",
+      "Anota el cociente y el residuo.",
+      "Lee si la pregunta pide grupos completos, objetos sobrantes o grupos para todos.",
+      "Comprueba que divisor × cociente + residuo sea el total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Hay 26 mandarinas para bolsas de 5. ¿Cuántas bolsas completas y cuántas sueltas?",
+        "desarrollo": "26 = 5 × 5 + 1.",
+        "respuesta": "Se llenan 5 bolsas y sobra 1 mandarina."
+      },
+      {
+        "situacion": "Viajan 26 estudiantes en combis de 5 asientos. ¿Cuántas combis se necesitan para todos?",
+        "desarrollo": "Cinco combis llevan 25 estudiantes; queda uno, que necesita otra combi.",
+        "respuesta": "Se necesitan 6 combis."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que el residuo es otro grupo completo.",
+        "correccion": "El residuo tiene menos objetos que el tamaño de un grupo."
+      },
+      {
+        "error": "Responder solo el cociente cuando todos deben viajar.",
+        "correccion": "Si sobra una persona, necesitas un vehículo adicional."
+      },
+      {
+        "error": "Añadir un grupo cuando se preguntan grupos completos.",
+        "correccion": "El grupo incompleto no cuenta como completo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Residuo",
+        "significado": "Cantidad que queda sin formar un grupo completo."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "Número de grupos completos al dividir."
+      },
+      {
+        "termino": "Divisor",
+        "significado": "Tamaño de cada grupo en estos problemas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Hay 17 galletas y se ponen 4 en cada paquete. ¿Cuántas galletas sobran?",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Forma paquetes de cuatro.",
+          "Cuatro paquetes guardan 16 galletas.",
+          "17 − 16 da las que quedan fuera."
+        ],
+        "retroalimentacion": "Sobra 1 galleta; 4 es el número de paquetes completos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Con 23 flores se hacen ramos de 5. ¿Cuántos ramos completos se pueden hacer?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada ramo debe tener cinco flores.",
+          "Cuatro ramos usan 20 flores.",
+          "Las tres restantes no completan otro ramo."
+        ],
+        "retroalimentacion": "Se hacen 4 ramos completos; 5 incluiría un ramo incompleto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 ramos"
+          },
+          {
+            "id": "b",
+            "texto": "3 ramos"
+          },
+          {
+            "id": "c",
+            "texto": "4 ramos"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si repartes 19 lápices en grupos de 6, se forman 3 grupos completos y sobra 1 lápiz.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres grupos de seis usan 18 lápices.",
+          "Compara 18 con el total 19.",
+          "El residuo es 19 − 18."
+        ],
+        "retroalimentacion": "Es verdadero: 19 = 6 × 3 + 1."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Veintidós niñas y niños necesitan mesas de 4 asientos. ¿Cuántas mesas se requieren para sentar a todos?",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cinco mesas sientan a 20 estudiantes.",
+          "Quedan dos estudiantes sin asiento.",
+          "Se necesita una mesa más, aunque no se llene."
+        ],
+        "retroalimentacion": "Se requieren 6 mesas; 5 dejarían a dos estudiantes de pie."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una librería tiene 74 cuadernos para cajas de 8. ¿Cuántos cuadernos quedan fuera de las cajas completas?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un múltiplo de 8 cercano a 74.",
+          "9 × 8 = 72.",
+          "74 − 72 es el residuo."
+        ],
+        "retroalimentacion": "Quedan 2 cuadernos; 9 es el número de cajas completas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una excursión lleva 53 personas en buses de 12 asientos. ¿Cuántos buses necesita para todas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuatro buses llevan 48 personas.",
+          "Aún quedan cinco por viajar.",
+          "Un quinto bus puede llevarlas."
+        ],
+        "retroalimentacion": "Se necesitan 5 buses; 4 dejarían cinco personas sin asiento.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 buses"
+          },
+          {
+            "id": "b",
+            "texto": "4 buses"
+          },
+          {
+            "id": "c",
+            "texto": "6 buses"
+          },
+          {
+            "id": "d",
+            "texto": "12 buses"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al poner 67 panes en bolsas de 9, se llenan 7 bolsas y sobran 4 panes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Siete bolsas usan 7 × 9 panes.",
+          "Ese producto es 63.",
+          "Calcula 67 − 63."
+        ],
+        "retroalimentacion": "Es verdadero: 67 = 9 × 7 + 4."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una artesana forma collares de 11 cuentas con 95 cuentas. ¿Cuántos collares completos logra?",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada collar requiere 11 cuentas.",
+          "8 × 11 = 88, mientras 9 × 11 supera 95.",
+          "Cuenta solo los collares completos."
+        ],
+        "retroalimentacion": "Logra 8 collares; las 7 cuentas restantes no hacen otro."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se guardan 287 lápices en cajas de 24. ¿Cuántos lápices sobran tras llenar todas las cajas posibles?",
+        "respuesta": 23,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca cuántas cajas de 24 caben en 287.",
+          "11 × 24 = 264; 12 × 24 = 288, demasiado.",
+          "287 − 264 es el residuo."
+        ],
+        "retroalimentacion": "Sobran 23 lápices; con uno más se llenaría la caja número doce."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un colegio lleva 385 estudiantes en buses de 48 asientos. ¿Cuántos buses necesita si todos viajan?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ocho buses ofrecen 384 asientos.",
+          "Hay un estudiante adicional.",
+          "Ese estudiante requiere otro bus."
+        ],
+        "retroalimentacion": "Se necesitan 9 buses; 8 dejan una persona sin asiento.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 buses"
+          },
+          {
+            "id": "b",
+            "texto": "10 buses"
+          },
+          {
+            "id": "c",
+            "texto": "48 buses"
+          },
+          {
+            "id": "d",
+            "texto": "9 buses"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un agricultor empaca 431 paltas en cajas de 36. ¿Cuántas cajas completas prepara?",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada caja completa requiere 36 paltas.",
+          "11 × 36 = 396; 12 × 36 = 432.",
+          "431 no alcanza para la caja doce."
+        ],
+        "retroalimentacion": "Prepara 11 cajas completas; sobran 35 paltas."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con 509 fichas en grupos de 25, se forman 20 grupos completos y sobran 9 fichas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Veinte grupos contienen 20 × 25 fichas.",
+          "Eso usa 500 fichas.",
+          "Resta 500 del total 509."
+        ],
+        "retroalimentacion": "Es verdadero: 509 = 25 × 20 + 9."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
     "clave": "mat.p4.problemas-precio-unitario",
     "area": "matematica",
     "nivel": "primaria",
@@ -887,305 +1186,6 @@
           "Comprueba 28 × 20 = 560."
         ],
         "retroalimentacion": "Es verdadero: se forman 20 grupos de 28 fichas."
-      }
-    ],
-    "fuentes": [
-      {
-        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
-        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
-      }
-    ],
-    "version": 1,
-    "revisado": null
-  },
-  {
-    "clave": "mat.p4.problemas-division-residuo",
-    "area": "matematica",
-    "nivel": "primaria",
-    "grado": 4,
-    "competenciaCneb": 23,
-    "capacidad": "Traduce cantidades a expresiones numéricas",
-    "desempenosOrigen": [
-      "MAT-C23-P4-01"
-    ],
-    "bloque": "Multiplicación y división",
-    "nombre": "Problemas de división con residuo",
-    "disciplina": "aritmetica",
-    "descripcionCorta": "Interpreta qué significa el residuo en la situación y decide la respuesta adecuada.",
-    "palabrasClave": [
-      "problemas",
-      "división",
-      "residuo"
-    ],
-    "prerrequisitos": [
-      "mat.p4.division-exacta-inexacta"
-    ],
-    "ordenSugerido": 75,
-    "ideaCentral": "Cuando una división no es exacta, el residuo son los objetos que sobran después de formar grupos iguales. Según la pregunta, puedes responder con los grupos completos, con lo que sobra o con un grupo adicional para incluir a todos.",
-    "pasos": [
-      "Divide el total entre el tamaño de cada grupo.",
-      "Anota el cociente y el residuo.",
-      "Lee si la pregunta pide grupos completos, objetos sobrantes o grupos para todos.",
-      "Comprueba que divisor × cociente + residuo sea el total."
-    ],
-    "ejemplos": [
-      {
-        "situacion": "Hay 26 mandarinas para bolsas de 5. ¿Cuántas bolsas completas y cuántas sueltas?",
-        "desarrollo": "26 = 5 × 5 + 1.",
-        "respuesta": "Se llenan 5 bolsas y sobra 1 mandarina."
-      },
-      {
-        "situacion": "Viajan 26 estudiantes en combis de 5 asientos. ¿Cuántas combis se necesitan para todos?",
-        "desarrollo": "Cinco combis llevan 25 estudiantes; queda uno, que necesita otra combi.",
-        "respuesta": "Se necesitan 6 combis."
-      }
-    ],
-    "erroresFrecuentes": [
-      {
-        "error": "Decir que el residuo es otro grupo completo.",
-        "correccion": "El residuo tiene menos objetos que el tamaño de un grupo."
-      },
-      {
-        "error": "Responder solo el cociente cuando todos deben viajar.",
-        "correccion": "Si sobra una persona, necesitas un vehículo adicional."
-      },
-      {
-        "error": "Añadir un grupo cuando se preguntan grupos completos.",
-        "correccion": "El grupo incompleto no cuenta como completo."
-      }
-    ],
-    "vocabulario": [
-      {
-        "termino": "Residuo",
-        "significado": "Cantidad que queda sin formar un grupo completo."
-      },
-      {
-        "termino": "Cociente",
-        "significado": "Número de grupos completos al dividir."
-      },
-      {
-        "termino": "Divisor",
-        "significado": "Tamaño de cada grupo en estos problemas."
-      }
-    ],
-    "ejercicios": [
-      {
-        "id": "e01",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Hay 17 galletas y se ponen 4 en cada paquete. ¿Cuántas galletas sobran?",
-        "respuesta": 1,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Forma paquetes de cuatro.",
-          "Cuatro paquetes guardan 16 galletas.",
-          "17 − 16 da las que quedan fuera."
-        ],
-        "retroalimentacion": "Sobra 1 galleta; 4 es el número de paquetes completos."
-      },
-      {
-        "id": "e02",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Con 23 flores se hacen ramos de 5. ¿Cuántos ramos completos se pueden hacer?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cada ramo debe tener cinco flores.",
-          "Cuatro ramos usan 20 flores.",
-          "Las tres restantes no completan otro ramo."
-        ],
-        "retroalimentacion": "Se hacen 4 ramos completos; 5 incluiría un ramo incompleto.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "5 ramos"
-          },
-          {
-            "id": "b",
-            "texto": "3 ramos"
-          },
-          {
-            "id": "c",
-            "texto": "4 ramos"
-          }
-        ]
-      },
-      {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "verdadero_falso",
-        "enunciado": "Si repartes 19 lápices en grupos de 6, se forman 3 grupos completos y sobra 1 lápiz.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Tres grupos de seis usan 18 lápices.",
-          "Compara 18 con el total 19.",
-          "El residuo es 19 − 18."
-        ],
-        "retroalimentacion": "Es verdadero: 19 = 6 × 3 + 1."
-      },
-      {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Veintidós niñas y niños necesitan mesas de 4 asientos. ¿Cuántas mesas se requieren para sentar a todos?",
-        "respuesta": 6,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cinco mesas sientan a 20 estudiantes.",
-          "Quedan dos estudiantes sin asiento.",
-          "Se necesita una mesa más, aunque no se llene."
-        ],
-        "retroalimentacion": "Se requieren 6 mesas; 5 dejarían a dos estudiantes de pie."
-      },
-      {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Una librería tiene 74 cuadernos para cajas de 8. ¿Cuántos cuadernos quedan fuera de las cajas completas?",
-        "respuesta": 2,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Busca un múltiplo de 8 cercano a 74.",
-          "9 × 8 = 72.",
-          "74 − 72 es el residuo."
-        ],
-        "retroalimentacion": "Quedan 2 cuadernos; 9 es el número de cajas completas."
-      },
-      {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Una excursión lleva 53 personas en buses de 12 asientos. ¿Cuántos buses necesita para todas?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cuatro buses llevan 48 personas.",
-          "Aún quedan cinco por viajar.",
-          "Un quinto bus puede llevarlas."
-        ],
-        "retroalimentacion": "Se necesitan 5 buses; 4 dejarían cinco personas sin asiento.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "5 buses"
-          },
-          {
-            "id": "b",
-            "texto": "4 buses"
-          },
-          {
-            "id": "c",
-            "texto": "6 buses"
-          },
-          {
-            "id": "d",
-            "texto": "12 buses"
-          }
-        ]
-      },
-      {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "verdadero_falso",
-        "enunciado": "Al poner 67 panes en bolsas de 9, se llenan 7 bolsas y sobran 4 panes.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Siete bolsas usan 7 × 9 panes.",
-          "Ese producto es 63.",
-          "Calcula 67 − 63."
-        ],
-        "retroalimentacion": "Es verdadero: 67 = 9 × 7 + 4."
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Una artesana forma collares de 11 cuentas con 95 cuentas. ¿Cuántos collares completos logra?",
-        "respuesta": 8,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cada collar requiere 11 cuentas.",
-          "8 × 11 = 88, mientras 9 × 11 supera 95.",
-          "Cuenta solo los collares completos."
-        ],
-        "retroalimentacion": "Logra 8 collares; las 7 cuentas restantes no hacen otro."
-      },
-      {
-        "id": "e09",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Se guardan 287 lápices en cajas de 24. ¿Cuántos lápices sobran tras llenar todas las cajas posibles?",
-        "respuesta": 23,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Busca cuántas cajas de 24 caben en 287.",
-          "11 × 24 = 264; 12 × 24 = 288, demasiado.",
-          "287 − 264 es el residuo."
-        ],
-        "retroalimentacion": "Sobran 23 lápices; con uno más se llenaría la caja número doce."
-      },
-      {
-        "id": "e10",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Un colegio lleva 385 estudiantes en buses de 48 asientos. ¿Cuántos buses necesita si todos viajan?",
-        "respuesta": "d",
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Ocho buses ofrecen 384 asientos.",
-          "Hay un estudiante adicional.",
-          "Ese estudiante requiere otro bus."
-        ],
-        "retroalimentacion": "Se necesitan 9 buses; 8 dejan una persona sin asiento.",
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "8 buses"
-          },
-          {
-            "id": "b",
-            "texto": "10 buses"
-          },
-          {
-            "id": "c",
-            "texto": "48 buses"
-          },
-          {
-            "id": "d",
-            "texto": "9 buses"
-          }
-        ]
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Un agricultor empaca 431 paltas en cajas de 36. ¿Cuántas cajas completas prepara?",
-        "respuesta": 11,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Cada caja completa requiere 36 paltas.",
-          "11 × 36 = 396; 12 × 36 = 432.",
-          "431 no alcanza para la caja doce."
-        ],
-        "retroalimentacion": "Prepara 11 cajas completas; sobran 35 paltas."
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "verdadero_falso",
-        "enunciado": "Con 509 fichas en grupos de 25, se forman 20 grupos completos y sobran 9 fichas.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Veinte grupos contienen 20 × 25 fichas.",
-          "Eso usa 500 fichas.",
-          "Resta 500 del total 509."
-        ],
-        "retroalimentacion": "Es verdadero: 509 = 25 × 20 + 9."
       }
     ],
     "fuentes": [

@@ -1,0 +1,623 @@
+[
+  {
+    "clave": "mat.p4.conclusiones-graficos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P4-06"
+    ],
+    "bloque": "Conclusiones",
+    "nombre": "Conclusiones a partir de tablas y gráficos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Explica conclusiones sustentadas en los datos de una tabla o gráfico.",
+    "palabrasClave": [
+      "conclusión",
+      "tabla",
+      "gráfico",
+      "datos",
+      "comparar"
+    ],
+    "prerrequisitos": [
+      "mat.p4.varias-representaciones"
+    ],
+    "ordenSugerido": 110,
+    "ideaCentral": "Una conclusión es lo que puedes decir con seguridad al mirar los datos de una tabla o gráfico. Debe apoyarse en los números, no en lo que tú imaginas.",
+    "pasos": [
+      "Lee el título y qué significa cada fila o barra.",
+      "Busca los datos más grandes, los más pequeños y compáralos.",
+      "Suma o resta si necesitas saber totales o diferencias.",
+      "Escribe una conclusión y revisa que los datos la sostengan."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tabla de votos por fruta: mango 8, plátano 12, naranja 6, uva 10. ¿Qué conclusión puedes dar?",
+        "desarrollo": "El número mayor es 12, del plátano. El menor es 6, de la naranja.",
+        "respuesta": "La fruta más elegida fue el plátano y la menos elegida fue la naranja."
+      },
+      {
+        "situacion": "Los alumnos llegan al colegio: a pie 14, en combi 9, en bicicleta 3. ¿Cuántos llegan a pie o en combi?",
+        "desarrollo": "Se suman los de a pie y combi: 14 + 9 = 23.",
+        "respuesta": "23 alumnos llegan a pie o en combi."
+      },
+      {
+        "situacion": "En la bodega de doña Carmen, el martes se vendió 35 soles y el lunes 20 soles. ¿Qué día vendió más y cuánto más?",
+        "desarrollo": "35 es mayor que 20. La diferencia es 35 - 20 = 15.",
+        "respuesta": "El martes vendió 15 soles más."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dar una conclusión que los datos no muestran, como decir que algo «gusta más» cuando la tabla solo cuenta cómo llegan.",
+        "correccion": "Una conclusión debe hablar solo de lo que dice la tabla o el gráfico."
+      },
+      {
+        "error": "Leer mal el valor de una barra o fila y compararlo con otra equivocada.",
+        "correccion": "Revisa a qué categoría pertenece cada número antes de comparar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Conclusión",
+        "significado": "Idea que sacas de los datos y puedes sostener con números."
+      },
+      {
+        "termino": "Tabla",
+        "significado": "Cuadro que ordena datos en filas y columnas."
+      },
+      {
+        "termino": "Dato",
+        "significado": "Número o información que se recoge."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tabla de votos por fruta: mango 8, plátano 12, naranja 6, uva 10. ¿Cuántos votos tuvo el plátano? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la fila que dice plátano.",
+          "En esa fila, lee el número de votos.",
+          "El plátano tiene 12 votos."
+        ],
+        "retroalimentacion": "El plátano tuvo 12 votos, que es el número que aparece junto a su nombre.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla de votos: mango 8, plátano 12, naranja 6, uva 10. ¿Qué fruta tuvo más votos?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mango"
+          },
+          {
+            "id": "b",
+            "texto": "Plátano"
+          },
+          {
+            "id": "c",
+            "texto": "Naranja"
+          },
+          {
+            "id": "d",
+            "texto": "Uva"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los cuatro números de la tabla.",
+          "Los números son 8, 12, 6 y 10.",
+          "Elige la fruta que tiene el número mayor."
+        ],
+        "retroalimentacion": "El plátano tuvo 12 votos, más que mango (8), uva (10) o naranja (6).",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tabla de votos: mango 8, plátano 12, naranja 6, uva 10. Según la tabla, la naranja tuvo menos votos que el mango.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca los votos de la naranja y del mango.",
+          "La naranja tiene 6 y el mango 8.",
+          "Compara 6 con 8."
+        ],
+        "retroalimentacion": "Es verdadero: la naranja tiene 6 votos y el mango 8, y 6 es menor que 8.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Tabla de votos: mango 8, plátano 12, naranja 6, uva 10. ¿Qué fruta tuvo menos votos? Escribe el nombre.",
+        "respuesta": "naranja",
+        "alternativasAceptadas": [
+          "la naranja"
+        ],
+        "pistas": [
+          "Mira todos los números de la tabla.",
+          "Busca el número más pequeño entre 8, 12, 6 y 10.",
+          "El 6 es el menor, ¿de qué fruta es?"
+        ],
+        "retroalimentacion": "La naranja tuvo solo 6 votos, el menor número de toda la tabla.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Alumnos que llegan al colegio: a pie 14, en combi 9, en bicicleta 3, en auto 6. ¿Cuántos alumnos más llegan a pie que en combi? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca las filas «a pie» y «en combi».",
+          "Tienes 14 y 9.",
+          "Resta 14 - 9."
+        ],
+        "retroalimentacion": "14 - 9 = 5; llegan 5 alumnos más a pie que en combi.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Alumnos que llegan al colegio: a pie 14, en combi 9, en bicicleta 3, en auto 6. ¿Qué conclusión está apoyada por los datos?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La mayoría llega en auto"
+          },
+          {
+            "id": "b",
+            "texto": "Casi todos llegan en combi"
+          },
+          {
+            "id": "c",
+            "texto": "Muy pocos alumnos llegan en bicicleta"
+          },
+          {
+            "id": "d",
+            "texto": "Nadie llega a pie"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cada frase con los números de la tabla.",
+          "El auto tiene 6 y la combi 9; a pie tiene 14.",
+          "La bicicleta tiene solo 3, el número más pequeño."
+        ],
+        "retroalimentacion": "Solo 3 alumnos llegan en bicicleta, muy pocos comparados con los demás. En auto llegan 6, en combi 9 y a pie 14, por eso las otras frases no se cumplen.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Alumnos que llegan al colegio: a pie 14, en combi 9, en bicicleta 3, en auto 6. Entre combi y auto llegan 15 alumnos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la combi y el auto en la tabla.",
+          "Combi: 9 alumnos; auto: 6 alumnos.",
+          "Suma 9 + 6."
+        ],
+        "retroalimentacion": "Es verdadero: 9 + 6 = 15 alumnos llegan en combi o en auto.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Alumnos que llegan al colegio: a pie 14, en combi 9, en bicicleta 3, en auto 6. ¿Cuántos alumnos hay en total en la tabla? Escribe solo el número.",
+        "respuesta": 32,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay que sumar los cuatro números de la tabla.",
+          "Empieza con 14 + 9 = 23.",
+          "Luego suma 3 y 6 al resultado."
+        ],
+        "retroalimentacion": "14 + 9 + 3 + 6 = 32 alumnos.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Ventas de doña Carmen (● = 5 soles): lunes ●●●●, martes ●●●●●●●, miércoles ●●●, jueves ●●●●●●. ¿Qué día vendió más? Escribe el día.",
+        "respuesta": "martes",
+        "alternativasAceptadas": [
+          "el martes"
+        ],
+        "pistas": [
+          "Cuenta los puntos de cada día.",
+          "Lunes 4, martes 7, miércoles 3, jueves 6.",
+          "El día con más puntos es el que más vendió."
+        ],
+        "retroalimentacion": "El martes tiene 7 puntos, más que cualquier otro día, así que vendió más ese día.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Ventas de doña Carmen (● = 5 soles): lunes ●●●●, martes ●●●●●●●, miércoles ●●●, jueves ●●●●●●. ¿Cuántos soles vendió en total de lunes a jueves? Escribe solo el número.",
+        "respuesta": 100,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos puntos hay en total en los cuatro días.",
+          "Son 4 + 7 + 3 + 6 = 20 puntos.",
+          "Cada punto vale 5 soles: multiplica 20 × 5."
+        ],
+        "retroalimentacion": "Hay 20 puntos y cada uno vale 5 soles: 20 × 5 = 100 soles.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ventas de doña Carmen (● = 5 soles): lunes ●●●●, martes ●●●●●●●, miércoles ●●●, jueves ●●●●●●. ¿Qué conclusión está respaldada por los datos?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Martes y jueves fueron los días de más ventas, y ambos pasaron los 25 soles"
+          },
+          {
+            "id": "b",
+            "texto": "El lunes fue el día de más ventas"
+          },
+          {
+            "id": "c",
+            "texto": "El miércoles vendió más que el jueves"
+          },
+          {
+            "id": "d",
+            "texto": "Se vendió lo mismo todos los días"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte los puntos a soles: lunes 20, martes 35, miércoles 15, jueves 30.",
+          "Busca los dos valores más altos.",
+          "35 y 30 pasan de 25; revisa cada frase con eso."
+        ],
+        "retroalimentacion": "Martes (35 soles) y jueves (30 soles) fueron los días de más ventas y ambos pasan de 25 soles. El lunes vendió 20, el miércoles 15, y no se vendió lo mismo cada día.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Alumnos que llegan al colegio: a pie 14, en combi 9, en bicicleta 3, en auto 6. Con estos datos se puede concluir que a los alumnos les gusta más caminar.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué cuenta la tabla: cómo llegan, no qué les gusta.",
+          "La tabla solo muestra el medio de transporte que usan.",
+          "Una conclusión no puede decir más de lo que muestran los datos."
+        ],
+        "retroalimentacion": "Es falso: la tabla muestra cómo llegan los alumnos, no qué les gusta. Puede ser que caminen porque viven cerca.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.decisiones-encuesta",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P4-06"
+    ],
+    "bloque": "Conclusiones",
+    "nombre": "Decisiones con base en una encuesta",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Propone una decisión para el aula usando los resultados de una encuesta.",
+    "palabrasClave": [
+      "encuesta",
+      "decisión",
+      "votos",
+      "aula",
+      "más votado"
+    ],
+    "prerrequisitos": [
+      "mat.p4.conclusiones-graficos",
+      "mat.p4.moda"
+    ],
+    "ordenSugerido": 124,
+    "ideaCentral": "Una encuesta te ayuda a decidir con datos. Comparas los votos, ves cuál opción tuvo más y piensas si las condiciones, como el costo, permiten elegirla.",
+    "pasos": [
+      "Lee los resultados de la encuesta y ordena las opciones por número de votos.",
+      "Fíjate en cuál tuvo más votos y cuántos niños participaron.",
+      "Revisa si hay condiciones como dinero o tiempo que cambien la decisión.",
+      "Escribe tu decisión y explica con los datos por qué la tomaste."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Encuesta de juegos del recreo: fútbol 14, vóley 9, soga 7. ¿Qué juego propones?",
+        "desarrollo": "Fútbol tiene 14 votos, el número mayor.",
+        "respuesta": "Propones fútbol porque tuvo más votos."
+      },
+      {
+        "situacion": "La maestra de Arequipa quiere un paseo y cuenta: zoológico 12, parque 8, museo 5, granja 5. ¿Cuántos niños votaron?",
+        "desarrollo": "Se suman todos los votos: 12 + 8 + 5 + 5 = 30.",
+        "respuesta": "Votaron 30 niños."
+      },
+      {
+        "situacion": "El zoológico ganó con 12 votos, pero cuesta 120 soles y la clase tiene 100. ¿Qué decides?",
+        "desarrollo": "Con 120 soles no alcanza para 100. El parque es el segundo más votado y no cuesta.",
+        "respuesta": "Se elige el parque, porque el dinero no alcanza para el zoológico."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decidir sin mirar la encuesta, solo con lo que a uno le gusta.",
+        "correccion": "La decisión debe apoyarse en los votos, que representan a todo el aula."
+      },
+      {
+        "error": "Pensar que con la opción más votada ya alcanza, sin mirar el costo o el tiempo.",
+        "correccion": "Revisa también las condiciones: a veces la más votada no se puede realizar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Encuesta",
+        "significado": "Preguntas que se hacen a varias personas para recoger sus opiniones."
+      },
+      {
+        "termino": "Decisión",
+        "significado": "Elección que haces apoyándote en datos."
+      },
+      {
+        "termino": "Más votado",
+        "significado": "La opción que tiene mayor número de votos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Encuesta de paseo a 30 niños: zoológico 12 votos, parque 8, museo 5, granja 5. ¿Qué paseo eligió la mayoría? Escribe el nombre.",
+        "respuesta": "zoológico",
+        "alternativasAceptadas": [
+          "el zoológico",
+          "zoologico",
+          "zoológico."
+        ],
+        "pistas": [
+          "Mira el número de votos de cada paseo.",
+          "Los votos son 12, 8, 5 y 5.",
+          "El mayor número es del paseo que ganó."
+        ],
+        "retroalimentacion": "El zoológico tuvo 12 votos, más que parque, museo o granja; por eso fue el más votado.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Encuesta de paseo a 30 niños: zoológico 12 votos, parque 8, museo 5, granja 5. ¿Cuántos niños participaron en total? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para saber cuántos votaron, junta todos los votos.",
+          "Suma 12 + 8 primero.",
+          "Al resultado súmale 5 y luego otros 5."
+        ],
+        "retroalimentacion": "12 + 8 + 5 + 5 = 30 niños.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para decidir el paseo del aula, es una buena decisión elegir el que tuvo más votos en la encuesta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué muestra el número de votos.",
+          "Más votos quiere decir que a más niños les gusta.",
+          "Elegir lo que prefiere la mayoría respeta la encuesta."
+        ],
+        "retroalimentacion": "Es verdadero: la opción con más votos representa lo que quiere la mayoría del aula, siempre que se pueda realizar.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Encuesta de juegos del recreo: fútbol 14, vóley 9, soga 7. ¿Qué juego propones para la actividad?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Soga"
+          },
+          {
+            "id": "b",
+            "texto": "Vóley"
+          },
+          {
+            "id": "c",
+            "texto": "Fútbol"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el número más grande de la encuesta.",
+          "Fútbol tiene 14, vóley 9 y soga 7.",
+          "Propón el juego que más niños eligieron."
+        ],
+        "retroalimentacion": "Fútbol tuvo 14 votos, más que vóley (9) y soga (7); se propone fútbol.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Encuesta de paseo a 30 niños: zoológico 12 votos, parque 8, museo 5, granja 5. ¿Cuántos votos más tuvo el zoológico que el parque? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca los votos del zoológico y del parque.",
+          "Zoológico 12 y parque 8.",
+          "Calcula 12 - 8."
+        ],
+        "retroalimentacion": "12 - 8 = 4; el zoológico tuvo 4 votos más que el parque.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Encuesta de bebidas para la fiesta: chicha morada 10, emoliente 4, limonada 6, maracuyá 8. ¿Qué decisión se apoya mejor en los datos?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Servir limonada porque es la más refrescante"
+          },
+          {
+            "id": "b",
+            "texto": "Servir chicha morada porque tuvo más votos"
+          },
+          {
+            "id": "c",
+            "texto": "Servir emoliente porque es tradicional"
+          },
+          {
+            "id": "d",
+            "texto": "No servir nada"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una decisión con datos mira los votos, no la opinión de una persona.",
+          "Compara 10, 4, 6 y 8 votos.",
+          "La bebida con el número más grande es la mejor respaldada."
+        ],
+        "retroalimentacion": "La chicha morada tuvo 10 votos, el mayor número. Elegir limonada o emoliente no se apoya en los votos.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Encuesta de paseo a 30 niños: zoológico 12 votos, parque 8, museo 5, granja 5. Como el zoológico tuvo 12 votos de 30, lo eligió más de la mitad del aula.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la mitad de 30.",
+          "La mitad de 30 es 15.",
+          "Compara 12 con 15."
+        ],
+        "retroalimentacion": "Es falso: la mitad de 30 es 15 y el zoológico tuvo solo 12, menos de la mitad.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Encuesta de paseo a 30 niños: zoológico 12 votos, parque 8, museo 5, granja 5. Si los niños que votaron por museo y por granja cambian su voto al zoológico, ¿cuántos votos tendría el zoológico? Escribe solo el número.",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los votos que se pasan: museo y granja.",
+          "Museo 5 y granja 5 hacen 10 votos.",
+          "Suma esos 10 a los 12 que ya tenía el zoológico."
+        ],
+        "retroalimentacion": "Museo y granja suman 5 + 5 = 10 votos; 12 + 10 = 22 votos para el zoológico.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La bibliotecaria encuestó a 30 niños sobre libros: cuentos 9, aventuras 14, poesía 3, ciencia 4. ¿Qué tipo de libro debe comprar primero? Escribe el tipo.",
+        "respuesta": "aventuras",
+        "alternativasAceptadas": [
+          "de aventuras",
+          "aventura",
+          "libros de aventuras"
+        ],
+        "pistas": [
+          "Compara los votos de los cuatro tipos de libro.",
+          "Los votos son 9, 14, 3 y 4.",
+          "Compra primero el que más niños pidieron."
+        ],
+        "retroalimentacion": "Aventuras tuvo 14 votos, la mayoría, así que se compra primero ese tipo de libro.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El zoológico ganó la encuesta, pero cuesta 4 soles por niño (30 niños) y la clase solo tiene 100 soles. El parque es el segundo más votado y no cuesta nada. ¿Qué decisión se apoya mejor en datos y condiciones?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ir al zoológico aunque falte dinero"
+          },
+          {
+            "id": "b",
+            "texto": "Decidir lanzando una moneda"
+          },
+          {
+            "id": "c",
+            "texto": "Ir al museo porque es más barato"
+          },
+          {
+            "id": "d",
+            "texto": "Ir al parque, porque el dinero no alcanza para el zoológico y es el segundo más votado"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el costo del zoológico: 30 niños × 4 soles.",
+          "30 × 4 = 120 soles, y solo hay 100.",
+          "Si no se puede pagar, busca la siguiente opción con más votos."
+        ],
+        "retroalimentacion": "El zoológico costaría 30 × 4 = 120 soles y solo hay 100. El parque, con 8 votos, es la siguiente opción y no cuesta, por eso es la mejor decisión; ir sin dinero o tirar una moneda no usa los datos.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La maestra elegirá el paseo solo si tiene más de la mitad de los 30 votos. ¿Cuántos votos debe tener como mínimo? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla la mitad de los niños que votaron.",
+          "Reparte 30 en dos grupos iguales.",
+          "Debe tener más que ese número; piensa en el siguiente."
+        ],
+        "retroalimentacion": "La mitad de 30 es 15; más de la mitad es 16 como mínimo.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una encuesta hecha solo a 5 niños del aula sirve igual de bien que una hecha a los 30 niños para decidir el paseo de toda la clase.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa a cuántos niños representa cada encuesta.",
+          "Con 5 niños faltan las opiniones de 25.",
+          "Una decisión del aula debe considerar a todos o casi todos."
+        ],
+        "retroalimentacion": "Es falso: con solo 5 niños no sabes qué prefieren los otros 25. Mientras más niños participen, mejor respalda la decisión.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

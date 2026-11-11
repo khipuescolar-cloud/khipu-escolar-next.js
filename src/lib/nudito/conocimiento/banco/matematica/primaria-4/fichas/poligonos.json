@@ -1,0 +1,1852 @@
+[
+  {
+    "clave": "mat.p4.poligonos-no-poligonos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P4-01"
+    ],
+    "bloque": "Polígonos",
+    "nombre": "Polígonos y no polígonos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Reconoce figuras cerradas de lados rectos en objetos reales y las distingue de otras.",
+    "palabrasClave": [
+      "polígono",
+      "figura cerrada",
+      "lados rectos",
+      "círculo",
+      "línea curva"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 25,
+    "ideaCentral": "Un polígono es una figura cerrada formada solo por lados rectos. Si la figura está abierta o tiene algún lado curvo, no es un polígono.",
+    "pasos": [
+      "Mira si la figura está cerrada: no debe haber huecos.",
+      "Revisa que todos sus lados sean rectos.",
+      "Comprueba que los lados no se crucen.",
+      "Si cumple todo, es un polígono; si no, no lo es."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La ventana del colegio tiene 4 lados rectos y está cerrada. ¿Es un polígono?",
+        "desarrollo": "Está cerrada y todos sus lados son rectos.",
+        "respuesta": "Sí, es un polígono."
+      },
+      {
+        "situacion": "Una moneda de S/ 1 tiene un borde curvo. ¿Es un polígono?",
+        "desarrollo": "Su borde es curvo, no recto.",
+        "respuesta": "No es un polígono."
+      },
+      {
+        "situacion": "Tres palitos forman una U abierta. ¿Es un polígono?",
+        "desarrollo": "Los lados son rectos, pero la figura está abierta.",
+        "respuesta": "No es un polígono."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que toda figura con lados rectos es polígono.",
+        "correccion": "Además debe estar cerrada: una U abierta no lo es."
+      },
+      {
+        "error": "Creer que un óvalo es polígono porque se ve «parejo».",
+        "correccion": "Si tiene borde curvo, no es polígono."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Polígono",
+        "significado": "Figura cerrada con solo lados rectos."
+      },
+      {
+        "termino": "Lado",
+        "significado": "Segmento recto del contorno."
+      },
+      {
+        "termino": "Figura abierta",
+        "significado": "Figura que no se cierra por completo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas figuras es un polígono?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Círculo"
+          },
+          {
+            "id": "c",
+            "texto": "Una línea curva"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca una figura cerrada con lados rectos.",
+          "El círculo y la línea curva no tienen lados rectos.",
+          "Piensa en la forma de una hoja de papel."
+        ],
+        "retroalimentacion": "El cuadrado es cerrado y tiene 4 lados rectos. El círculo tiene borde curvo y la línea curva no es una figura cerrada.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El círculo es un polígono.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cómo es el borde del círculo.",
+          "El borde de un círculo es curvo.",
+          "Un polígono solo tiene lados rectos."
+        ],
+        "retroalimentacion": "Es falso: el círculo tiene borde curvo, por eso no es un polígono.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La tapa de una caja de zapatos es un rectángulo. ¿Cuántos lados rectos tiene? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el contorno de la tapa.",
+          "Cuenta los lados largos y los cortos.",
+          "Hay 2 largos y 2 cortos."
+        ],
+        "retroalimentacion": "Un rectángulo tiene 4 lados rectos: 2 largos y 2 cortos.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Tres palitos forman una U sin cerrar. ¿Es un polígono? Escribe sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no es"
+        ],
+        "pistas": [
+          "Mira si los palitos se cierran.",
+          "La U tiene un hueco arriba.",
+          "Un polígono debe ser una figura cerrada."
+        ],
+        "retroalimentacion": "No es polígono: aunque los palitos son rectos, la figura está abierta.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos objetos tiene forma de polígono?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una pelota"
+          },
+          {
+            "id": "b",
+            "texto": "Una ventana rectangular"
+          },
+          {
+            "id": "c",
+            "texto": "Una moneda de un sol"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la forma de cada objeto.",
+          "La pelota y la moneda tienen borde redondo.",
+          "La ventana tiene lados rectos y está cerrada."
+        ],
+        "retroalimentacion": "La ventana rectangular es un polígono: 4 lados rectos y cerrada. La pelota y la moneda tienen bordes curvos.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rombo con 4 lados rectos iguales y cerrado es un polígono.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si es cerrado.",
+          "Revisa si todos sus lados son rectos.",
+          "Cumple las dos condiciones."
+        ],
+        "retroalimentacion": "Es verdadero: el rombo es cerrado y todos sus lados son rectos.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un cartel hay un triángulo, un círculo, un rectángulo, un óvalo y un pentágono. ¿Cuántos son polígonos? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita las figuras con borde curvo.",
+          "El círculo y el óvalo no son polígonos.",
+          "Cuenta las que quedan: triángulo, rectángulo y pentágono."
+        ],
+        "retroalimentacion": "Son 3 polígonos: triángulo, rectángulo y pentágono. El círculo y el óvalo tienen borde curvo.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Por qué una media luna no es un polígono?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es pequeña"
+          },
+          {
+            "id": "b",
+            "texto": "Tiene demasiados lados"
+          },
+          {
+            "id": "c",
+            "texto": "Tiene un lado curvo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo es el borde de la media luna.",
+          "Una de sus partes es redondeada.",
+          "Un polígono no puede tener lados curvos."
+        ],
+        "retroalimentacion": "La media luna tiene un lado curvo, y un polígono solo tiene lados rectos. Ni su tamaño ni la cantidad de lados importan.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En el patio hay 2 triángulos, 3 círculos, 4 cuadrados, 1 óvalo y 2 pentágonos dibujados en el suelo. ¿Cuántas figuras NO son polígonos? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa las figuras con borde curvo.",
+          "Los círculos y el óvalo no son polígonos.",
+          "Suma los círculos (3) y el óvalo (1)."
+        ],
+        "retroalimentacion": "Los círculos y el óvalo no son polígonos: 3 + 1 = 4. Un error es sumar todas las figuras.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana dice que un semicírculo (borde curvo arriba y base recta abajo) no es polígono. Luis dice que sí, porque tiene un lado recto. ¿Quién tiene razón?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Luis, porque tiene un lado recto"
+          },
+          {
+            "id": "b",
+            "texto": "Ambos tienen razón"
+          },
+          {
+            "id": "c",
+            "texto": "Ninguno tiene razón"
+          },
+          {
+            "id": "d",
+            "texto": "Ana, porque tiene un lado curvo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un polígono no puede tener ninguna parte curva.",
+          "Fíjate en la parte de arriba del semicírculo.",
+          "Que tenga un lado recto no basta si hay otro curvo."
+        ],
+        "retroalimentacion": "Ana tiene razón: aunque la base es recta, el borde de arriba es curvo. Para ser polígono todos los lados deben ser rectos.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una figura cerrada con 10 lados rectos que no se cruzan, como una estrella de 5 puntas, es un polígono.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si es cerrada.",
+          "Cuenta si todos los lados son rectos, aunque haya muchos.",
+          "Mira que ningún lado se cruce con otro."
+        ],
+        "retroalimentacion": "Es verdadero: es cerrada, tiene solo lados rectos y no se cruzan, aunque no se parezca a un triángulo o a un cuadrado.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una figura cerrada tiene 4 lados: 3 rectos y 1 curvo. ¿Es un polígono? Escribe sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no es"
+        ],
+        "pistas": [
+          "Cuenta cuántos lados son curvos.",
+          "Hay uno que no es recto.",
+          "Para ser polígono todos los lados deben ser rectos."
+        ],
+        "retroalimentacion": "No: tiene un lado curvo. Un polígono necesita todos sus lados rectos, no solo algunos.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.elementos-poligono",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P4-03"
+    ],
+    "bloque": "Polígonos",
+    "nombre": "Elementos de un polígono",
+    "disciplina": "geometria",
+    "descripcionCorta": "Identifica lados, vértices y ángulos en polígonos dibujados.",
+    "palabrasClave": [
+      "lados",
+      "vértices",
+      "ángulos",
+      "polígono",
+      "esquinas"
+    ],
+    "prerrequisitos": [
+      "mat.p4.poligonos-no-poligonos"
+    ],
+    "ordenSugerido": 26,
+    "ideaCentral": "Un polígono tiene lados, que son los segmentos del contorno, vértices, que son los puntos donde se unen dos lados, y ángulos, que se forman en cada vértice. Siempre hay igual cantidad de lados, vértices y ángulos.",
+    "pasos": [
+      "Cuenta los lados, uno por uno, marcando el que empiezas.",
+      "Los puntos donde se unen dos lados son los vértices.",
+      "En cada vértice se forma un ángulo.",
+      "Recuerda que lados, vértices y ángulos son la misma cantidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un triángulo está dibujado en la pizarra. ¿Cuántos lados, vértices y ángulos tiene?",
+        "desarrollo": "Cuenta los lados: 3. En cada unión hay un vértice y un ángulo.",
+        "respuesta": "3 lados, 3 vértices y 3 ángulos."
+      },
+      {
+        "situacion": "Un pentágono de cartulina tiene 5 lados. ¿Cuántos vértices tiene?",
+        "desarrollo": "Cada lado se une a otro en un vértice.",
+        "respuesta": "Tiene 5 vértices."
+      },
+      {
+        "situacion": "Una casita ⌂ dibujada con 5 lados rectos: ¿cuántos ángulos tiene?",
+        "desarrollo": "Tiene tantos ángulos como lados.",
+        "respuesta": "5 ángulos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar un lado dos veces.",
+        "correccion": "Marca el lado donde empiezas y avanza por el contorno."
+      },
+      {
+        "error": "Creer que los vértices son menos que los lados.",
+        "correccion": "En un polígono cerrado hay tantos vértices como lados."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Vértice",
+        "significado": "Punto donde se unen dos lados."
+      },
+      {
+        "termino": "Lado",
+        "significado": "Segmento recto del contorno."
+      },
+      {
+        "termino": "Ángulo",
+        "significado": "Abertura que se forma entre dos lados en un vértice."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo tiene tres puntas. ¿Cuántos vértices tiene? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los vértices son las esquinas.",
+          "Cuenta las puntas del triángulo.",
+          "Hay una en cada unión de dos lados."
+        ],
+        "retroalimentacion": "Un triángulo tiene 3 vértices, uno en cada punta.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se llama el punto donde se unen dos lados de un polígono?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Centro"
+          },
+          {
+            "id": "b",
+            "texto": "Diagonal"
+          },
+          {
+            "id": "c",
+            "texto": "Vértice"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en una esquina de un cuadrado.",
+          "Ese punto está donde dos lados se juntan.",
+          "No es el medio de la figura."
+        ],
+        "retroalimentacion": "Se llama vértice. El centro está en medio de la figura y la diagonal es un segmento que une vértices no seguidos.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuadrado tiene 4 lados y 4 vértices.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los lados del cuadrado.",
+          "Cuenta sus esquinas.",
+          "Compara ambos números."
+        ],
+        "retroalimentacion": "Es verdadero: el cuadrado tiene 4 lados y 4 vértices.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un hexágono es el polígono de los panales. ¿Cuántos lados tiene? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda el prefijo «hexa».",
+          "Hexa quiere decir seis.",
+          "Cuenta los lados de un panal."
+        ],
+        "retroalimentacion": "El hexágono tiene 6 lados.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un pentágono tiene lados y vértices. ¿Cuántos son entre lados y vértices en total? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un pentágono tiene 5 lados.",
+          "También tiene 5 vértices.",
+          "Suma ambos."
+        ],
+        "retroalimentacion": "5 lados + 5 vértices = 10. Un error es creer que tiene solo 5 elementos en total.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántos ángulos tiene un rectángulo?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay un ángulo en cada vértice.",
+          "Un rectángulo tiene 4 esquinas.",
+          "El número de ángulos es igual al de vértices."
+        ],
+        "retroalimentacion": "El rectángulo tiene 4 ángulos, uno en cada esquina. Tres sería un triángulo.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un polígono puede tener 5 lados y 6 vértices.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cuántos vértices se forman cuando se unen los lados.",
+          "Cada lado empieza y termina en un vértice.",
+          "En un polígono hay tantos vértices como lados."
+        ],
+        "retroalimentacion": "Es falso: un polígono de 5 lados tiene 5 vértices.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El segmento recto que forma el contorno de un polígono y une dos vértices seguidos se llama...",
+        "respuesta": "lado",
+        "alternativasAceptadas": [
+          "lados",
+          "un lado"
+        ],
+        "pistas": [
+          "Piensa en el borde de un cuaderno.",
+          "Cada borde recto del cuaderno une dos esquinas.",
+          "Se llama igual que cada borde de un cuadrado."
+        ],
+        "retroalimentacion": "Se llama lado: es cada segmento recto del contorno.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Pablo dibuja 2 triángulos y 1 cuadrado, todos separados. ¿Cuántos vértices hay en total? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los vértices de cada figura por separado.",
+          "Cada triángulo tiene 3 y el cuadrado 4.",
+          "Suma 3 + 3 + 4."
+        ],
+        "retroalimentacion": "3 + 3 + 4 = 10 vértices. Un error es olvidar el segundo triángulo.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un polígono tiene 7 vértices. ¿Cuántos lados y ángulos tiene?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 lados y 7 ángulos"
+          },
+          {
+            "id": "b",
+            "texto": "7 lados y 7 ángulos"
+          },
+          {
+            "id": "c",
+            "texto": "7 lados y 14 ángulos"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lados, vértices y ángulos tienen la misma cantidad.",
+          "Si hay 7 vértices, hay 7 ángulos.",
+          "También hay 7 lados."
+        ],
+        "retroalimentacion": "Tiene 7 lados y 7 ángulos: la cantidad es la misma en los tres elementos.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un pentágono y un hexágono están dibujados. Si de sus lados totales quitas los vértices de un triángulo, ¿cuánto queda? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los lados: 5 + 6.",
+          "Suma da 11 lados.",
+          "Resta los 3 vértices del triángulo."
+        ],
+        "retroalimentacion": "5 + 6 = 11 y 11 − 3 = 8.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una casita ⌂ está formada por un rectángulo con un triángulo pegado arriba, compartiendo un lado. ¿Cuántos lados tiene el contorno de la casita? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El lado donde se pegan las figuras queda adentro.",
+          "El rectángulo aporta 3 lados al contorno.",
+          "El triángulo aporta 2 lados al contorno."
+        ],
+        "retroalimentacion": "3 lados del rectángulo + 2 del triángulo = 5. El lado compartido ya no es parte del contorno.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.clasificar-poligonos-lados",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P4-03"
+    ],
+    "bloque": "Polígonos",
+    "nombre": "Clasificación de polígonos por número de lados",
+    "disciplina": "geometria",
+    "descripcionCorta": "Nombra triángulos, cuadriláteros, pentágonos y hexágonos según sus lados.",
+    "palabrasClave": [
+      "triángulo",
+      "cuadrilátero",
+      "pentágono",
+      "hexágono",
+      "número de lados"
+    ],
+    "prerrequisitos": [
+      "mat.p4.elementos-poligono"
+    ],
+    "ordenSugerido": 27,
+    "ideaCentral": "Los polígonos se nombran según su número de lados: el triángulo tiene 3, el cuadrilátero 4, el pentágono 5 y el hexágono 6.",
+    "pasos": [
+      "Cuenta los lados del polígono.",
+      "Busca el nombre que corresponde a ese número.",
+      "Recuerda: 3 triángulo, 4 cuadrilátero, 5 pentágono, 6 hexágono.",
+      "Comprueba que la figura sea cerrada."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una señal de tránsito tiene 3 lados. ¿Cómo se llama?",
+        "desarrollo": "Tiene 3 lados.",
+        "respuesta": "Es un triángulo."
+      },
+      {
+        "situacion": "Una ventana tiene 4 lados rectos. ¿Cómo se llama?",
+        "desarrollo": "Cuenta los lados: 4.",
+        "respuesta": "Es un cuadrilátero."
+      },
+      {
+        "situacion": "Un panal de abejas tiene celdas de 6 lados. ¿Cómo se llama esa figura?",
+        "desarrollo": "Cuenta los lados: 6.",
+        "respuesta": "Es un hexágono."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar «cuadrado» a todo cuadrilátero.",
+        "correccion": "El cuadrado es solo uno de los cuadriláteros: también está el rectángulo."
+      },
+      {
+        "error": "Confundir pentágono con hexágono.",
+        "correccion": "Penta es 5 y hexa es 6."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cuadrilátero",
+        "significado": "Polígono de 4 lados."
+      },
+      {
+        "termino": "Pentágono",
+        "significado": "Polígono de 5 lados."
+      },
+      {
+        "termino": "Hexágono",
+        "significado": "Polígono de 6 lados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se llama el polígono de 3 lados?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuadrilátero"
+          },
+          {
+            "id": "b",
+            "texto": "Pentágono"
+          },
+          {
+            "id": "c",
+            "texto": "Triángulo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en una señal de «ceda el paso».",
+          "Tri quiere decir tres.",
+          "Es la figura con 3 lados y 3 vértices."
+        ],
+        "retroalimentacion": "El triángulo tiene 3 lados. El cuadrilátero tiene 4 y el pentágono 5.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un pentágono tiene el prefijo «penta». ¿Cuántos lados tiene? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Penta quiere decir cinco.",
+          "Piensa en el Pentágono, el edificio con 5 lados.",
+          "Cuenta los lados de esa figura."
+        ],
+        "retroalimentacion": "El pentágono tiene 5 lados.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuadrado es un cuadrilátero.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los lados del cuadrado.",
+          "Tiene 4 lados.",
+          "Los polígonos de 4 lados se llaman cuadriláteros."
+        ],
+        "retroalimentacion": "Es verdadero: el cuadrado tiene 4 lados, así que es un cuadrilátero.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe el nombre del polígono de 6 lados.",
+        "respuesta": "hexágono",
+        "alternativasAceptadas": [
+          "un hexágono",
+          "hexagono"
+        ],
+        "pistas": [
+          "Cuenta seis lados.",
+          "Piensa en el prefijo hexa.",
+          "Hexa quiere decir seis."
+        ],
+        "retroalimentacion": "El polígono de 6 lados se llama hexágono.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una ventana tiene 4 lados rectos. ¿Cómo se llama su forma?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Triángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Cuadrilátero"
+          },
+          {
+            "id": "c",
+            "texto": "Pentágono"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los lados de la ventana: son 4.",
+          "El triángulo tiene menos lados.",
+          "El pentágono tiene más."
+        ],
+        "retroalimentacion": "Es un cuadrilátero porque tiene 4 lados. El triángulo tiene 3 y el pentágono 5.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un rótulo del mercado tiene forma de pentágono y otro de hexágono. ¿Cuántos lados tienen entre los dos? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El pentágono tiene 5 lados.",
+          "El hexágono tiene 6 lados.",
+          "Suma 5 + 6."
+        ],
+        "retroalimentacion": "5 + 6 = 11 lados.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rectángulo es un pentágono.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los lados del rectángulo.",
+          "Cuenta cuántas esquinas tiene un rectángulo: son cuatro.",
+          "Un pentágono tiene 5."
+        ],
+        "retroalimentacion": "Es falso: el rectángulo tiene 4 lados, por eso es un cuadrilátero.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una figura cerrada tiene 5 vértices. ¿Cómo se llama? Escribe el nombre.",
+        "respuesta": "pentágono",
+        "alternativasAceptadas": [
+          "un pentágono",
+          "pentagono"
+        ],
+        "pistas": [
+          "Vértices y lados son la misma cantidad.",
+          "Si hay 5 vértices, hay 5 lados.",
+          "El polígono de 5 lados tiene prefijo penta."
+        ],
+        "retroalimentacion": "Tiene 5 vértices, así que tiene 5 lados y se llama pentágono.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un dibujo hay 3 triángulos y 2 hexágonos. ¿Cuántos lados hay en total? Escribe solo el número.",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula los lados de los triángulos: 3 × 3.",
+          "Calcula los lados de los hexágonos: 2 × 6.",
+          "Suma 9 y 12."
+        ],
+        "retroalimentacion": "3 × 3 = 9 y 2 × 6 = 12; 9 + 12 = 21.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura tiene 2 lados más que un triángulo. ¿Cómo se llama?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pentágono"
+          },
+          {
+            "id": "b",
+            "texto": "Hexágono"
+          },
+          {
+            "id": "c",
+            "texto": "Cuadrilátero"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El triángulo tiene 3 lados.",
+          "Suma 2 lados: 3 + 2.",
+          "Busca el polígono de ese número."
+        ],
+        "retroalimentacion": "3 + 2 = 5 lados: es un pentágono. El hexágono tendría 3 lados más y el cuadrilátero uno más.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo, un cuadrilátero, un pentágono y un hexágono están juntos. ¿Cuántos lados tienen en total? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe los lados de cada uno: 3, 4, 5, 6.",
+          "Suma 3 + 4.",
+          "Sigue sumando 5 y 6."
+        ],
+        "retroalimentacion": "3 + 4 + 5 + 6 = 18 lados.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Juan tiene 14 palitos y arma un hexágono con ellos. ¿Cuántos palitos le sobran? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un hexágono usa un palito por lado.",
+          "Un hexágono tiene 6 lados.",
+          "Resta 14 − 6."
+        ],
+        "retroalimentacion": "14 − 6 = 8 palitos sobran.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.angulo-recto",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P4-03"
+    ],
+    "bloque": "Polígonos",
+    "nombre": "El ángulo recto",
+    "disciplina": "geometria",
+    "descripcionCorta": "Reconoce ángulos rectos en figuras y objetos usando una escuadra o una hoja doblada.",
+    "palabrasClave": [
+      "ángulo recto",
+      "escuadra",
+      "esquina",
+      "hoja doblada",
+      "cuadrado"
+    ],
+    "prerrequisitos": [
+      "mat.p4.elementos-poligono"
+    ],
+    "ordenSugerido": 61,
+    "ideaCentral": "Un ángulo recto es el que forma la esquina de una hoja de papel o de una escuadra. Se comprueba apoyando la escuadra o una hoja doblada: si encaja justo, el ángulo es recto.",
+    "pasos": [
+      "Toma una escuadra o dobla una hoja para formar una esquina.",
+      "Apoya la esquina de la escuadra sobre el ángulo.",
+      "Si encaja sin que sobre ni falte espacio, es un ángulo recto.",
+      "Si queda más abierto o más cerrado, no es recto."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La esquina de la pizarra del colegio parece cuadrada. ¿Cómo comprobar que es recto?",
+        "desarrollo": "Apoyas la esquina de una hoja en ella.",
+        "respuesta": "Si encaja justo, es un ángulo recto."
+      },
+      {
+        "situacion": "Un cuadrado tiene 4 vértices. ¿Cuántos ángulos rectos tiene?",
+        "desarrollo": "Todas sus esquinas son iguales a la de una hoja.",
+        "respuesta": "4 ángulos rectos."
+      },
+      {
+        "situacion": "Un triángulo rectángulo tiene una esquina que encaja con la escuadra. ¿Cuántos ángulos rectos tiene?",
+        "desarrollo": "Solo una esquina encaja.",
+        "respuesta": "1 ángulo recto."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que cualquier esquina es un ángulo recto.",
+        "correccion": "Compruébalo con la escuadra o con una hoja: algunas esquinas son más abiertas o cerradas."
+      },
+      {
+        "error": "Pensar que el ángulo recto depende del tamaño de los lados.",
+        "correccion": "Un ángulo recto es igual de «abierto» aunque los lados sean cortos o largos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Ángulo recto",
+        "significado": "Ángulo como la esquina de una hoja o de una escuadra."
+      },
+      {
+        "termino": "Escuadra",
+        "significado": "Regla en forma de triángulo con una esquina recta."
+      },
+      {
+        "termino": "Esquina",
+        "significado": "Lugar donde se unen dos lados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un ángulo recto se parece a la esquina de una hoja de cuaderno.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la esquina de tu cuaderno.",
+          "Esa esquina encaja justo con la escuadra.",
+          "Esa forma es la del ángulo recto."
+        ],
+        "retroalimentacion": "Es verdadero: la esquina de una hoja es un ángulo recto.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos objetos tiene una esquina en ángulo recto?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La punta de un lápiz"
+          },
+          {
+            "id": "b",
+            "texto": "El borde de una moneda"
+          },
+          {
+            "id": "c",
+            "texto": "La esquina de una hoja de cuaderno"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca una esquina que parezca una «L».",
+          "La punta del lápiz es afilada y la moneda es redonda.",
+          "La hoja de cuaderno es rectangular."
+        ],
+        "retroalimentacion": "La esquina de una hoja de cuaderno es recta. La punta del lápiz es más cerrada y el borde de la moneda no tiene esquina.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una hoja de cuaderno es rectangular. ¿Cuántas esquinas con ángulo recto tiene? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las esquinas de la hoja.",
+          "Todas las esquinas de una hoja son iguales.",
+          "Hay una en cada vértice."
+        ],
+        "retroalimentacion": "Una hoja rectangular tiene 4 esquinas y todas son ángulos rectos.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe el nombre de la regla en forma de triángulo que sirve para comprobar si un ángulo es recto.",
+        "respuesta": "escuadra",
+        "alternativasAceptadas": [
+          "una escuadra",
+          "la escuadra"
+        ],
+        "pistas": [
+          "Es un instrumento de dibujo.",
+          "Tiene forma de triángulo.",
+          "Una de sus esquinas es un ángulo recto."
+        ],
+        "retroalimentacion": "Se llama escuadra: su esquina recta se apoya en el ángulo que quieres comprobar.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dos triángulos rectángulos tienen cada uno un ángulo recto. ¿Cuántos ángulos rectos hay entre los dos? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada triángulo tiene un ángulo recto.",
+          "Son dos triángulos.",
+          "Suma 1 + 1."
+        ],
+        "retroalimentacion": "1 + 1 = 2 ángulos rectos.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Apoyas una hoja doblada sobre un ángulo y queda un hueco entre los bordes. ¿Qué significa?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es más abierto que un recto"
+          },
+          {
+            "id": "b",
+            "texto": "Es recto"
+          },
+          {
+            "id": "c",
+            "texto": "Es más cerrado que un recto"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Si hay hueco, los lados no tocan la hoja.",
+          "El ángulo se abre más que la hoja.",
+          "Compara con la esquina de la hoja."
+        ],
+        "retroalimentacion": "Si queda un hueco, el ángulo es más abierto que un recto. Si encajara justo, sería recto, y si se pasara de la hoja, sería más cerrado.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo puede tener dos ángulos rectos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un triángulo rectángulo.",
+          "Solo una esquina encaja con la escuadra.",
+          "Con dos ángulos rectos los lados no se cerrarían."
+        ],
+        "retroalimentacion": "Es falso: un triángulo tiene como máximo un ángulo recto.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dibujas un rectángulo y un cuadrado. ¿Cuántos ángulos rectos hay en total? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El rectángulo tiene 4 ángulos rectos.",
+          "El cuadrado también tiene 4.",
+          "Suma los ángulos de ambos."
+        ],
+        "retroalimentacion": "4 + 4 = 8 ángulos rectos.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Con cartulina se arman 3 cuadrados y 2 triángulos rectángulos. ¿Cuántos ángulos rectos tienen en total? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuadrado tiene 4 ángulos rectos.",
+          "Cada triángulo rectángulo tiene 1.",
+          "Calcula 3 × 4 y 2 × 1 y suma."
+        ],
+        "retroalimentacion": "3 × 4 = 12 y 2 × 1 = 2; 12 + 2 = 14 ángulos rectos.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marta duda si la esquina de su triángulo de cartulina es recta. ¿Qué debe hacer?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Contar los lados"
+          },
+          {
+            "id": "b",
+            "texto": "Medir el lado más largo"
+          },
+          {
+            "id": "c",
+            "texto": "Colocar una escuadra en la esquina y ver si encaja justo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Necesita un instrumento para comparar.",
+          "La escuadra tiene una esquina recta.",
+          "Si encaja sin hueco, es recta."
+        ],
+        "retroalimentacion": "Debe apoyar la escuadra: si encaja justo, es recta. Contar o medir lados no dice nada sobre la esquina.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un cuadrilátero tiene sus 4 ángulos rectos, entonces es un rectángulo o un cuadrado.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la forma de una puerta.",
+          "Una puerta tiene 4 esquinas rectas.",
+          "Los cuadrados y rectángulos son los que tienen 4 ángulos rectos."
+        ],
+        "retroalimentacion": "Es verdadero: los cuadriláteros con 4 ángulos rectos son rectángulos, y el cuadrado es un caso particular.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una cuadrícula de 2 filas y 3 columnas está formada por 6 cuadrados pequeños. ¿Cuántos ángulos rectos tienen en total los 6 cuadrados pequeños? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuadrado pequeño tiene 4 ángulos rectos.",
+          "Hay 6 cuadrados pequeños.",
+          "Multiplica 6 × 4."
+        ],
+        "retroalimentacion": "6 × 4 = 24 ángulos rectos.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.paralelas-perpendiculares",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P4-03",
+      "MAT-C26-P4-06"
+    ],
+    "bloque": "Polígonos",
+    "nombre": "Líneas paralelas y perpendiculares",
+    "disciplina": "geometria",
+    "descripcionCorta": "Identifica y traza rectas que no se cortan o que se cortan formando ángulo recto.",
+    "palabrasClave": [
+      "paralelas",
+      "perpendiculares",
+      "rectas",
+      "ángulo recto",
+      "líneas"
+    ],
+    "prerrequisitos": [
+      "mat.p4.angulo-recto"
+    ],
+    "ordenSugerido": 62,
+    "ideaCentral": "Las rectas paralelas nunca se cortan y siempre están a la misma distancia. Las perpendiculares se cortan formando un ángulo recto, como la esquina de una hoja.",
+    "pasos": [
+      "Mira si las dos rectas se cortan o no.",
+      "Si no se cortan y guardan la misma distancia, son paralelas.",
+      "Si se cortan, revisa si la esquina es recta como la de una hoja.",
+      "Si es recta, son perpendiculares."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Los dos rieles de una vía de tren en la sierra. ¿Qué rectas forman?",
+        "desarrollo": "Los rieles no se cortan y siempre guardan la misma distancia.",
+        "respuesta": "Son rectas paralelas."
+      },
+      {
+        "situacion": "Una esquina de una ventana cuadrada: el lado de arriba y el lado derecho. ¿Qué rectas forman?",
+        "desarrollo": "Se cortan en una esquina recta.",
+        "respuesta": "Son rectas perpendiculares."
+      },
+      {
+        "situacion": "Las líneas de un cuaderno cuadriculado: dos líneas horizontales y una vertical. ¿Cómo son entre sí?",
+        "desarrollo": "Las horizontales no se cortan; la vertical corta a cada una en ángulo recto.",
+        "respuesta": "Las horizontales son paralelas y la vertical es perpendicular a ambas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que son paralelas dos rectas que se van a cortar más adelante.",
+        "correccion": "Paralelas nunca se cortan, por más que las alargues."
+      },
+      {
+        "error": "Pensar que cortarse ya es ser perpendiculares.",
+        "correccion": "Además de cortarse, deben formar un ángulo recto."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Paralelas",
+        "significado": "Rectas que nunca se cortan."
+      },
+      {
+        "termino": "Perpendiculares",
+        "significado": "Rectas que se cortan formando ángulo recto."
+      },
+      {
+        "termino": "Ángulo recto",
+        "significado": "Esquina como la de una hoja de papel."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos rectas paralelas nunca se cortan, aunque las alargues mucho.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en los dos rieles de una vía de tren.",
+          "Los rieles siempre guardan la misma distancia.",
+          "Si se mantienen a la misma distancia, nunca se cruzan."
+        ],
+        "retroalimentacion": "Es verdadero: las rectas paralelas siempre están a la misma distancia y nunca se cortan."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los dos bordes largos de una vía de tren van uno al lado del otro y nunca se juntan. Son rectas...",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "perpendiculares"
+          },
+          {
+            "id": "b",
+            "texto": "que se cortan en cruz"
+          },
+          {
+            "id": "c",
+            "texto": "que forman una esquina recta"
+          },
+          {
+            "id": "d",
+            "texto": "paralelas"
+          }
+        ],
+        "pistas": [
+          "Los bordes no se cruzan en ningún punto.",
+          "Rectas que no se cortan guardan siempre la misma distancia.",
+          "Esas rectas se llaman paralelas."
+        ],
+        "retroalimentacion": "Los rieles son paralelas porque nunca se cortan. Las perpendiculares sí se cortan formando una esquina recta."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Dos rectas que se cortan formando un ángulo recto, como la esquina de una hoja, se llaman ___. Escribe la palabra.",
+        "respuesta": "perpendiculares",
+        "alternativasAceptadas": [
+          "perpendicular",
+          "rectas perpendiculares"
+        ],
+        "pistas": [
+          "Piensa en las dos líneas de la esquina de tu cuaderno.",
+          "Se cortan formando una esquina recta.",
+          "Es una palabra larga que empieza con per."
+        ],
+        "retroalimentacion": "Se llaman perpendiculares: se cortan formando un ángulo recto."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una hoja de papel tiene forma rectangular. ¿Cuántas esquinas rectas tiene en total? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira las esquinas de tu cuaderno o de una hoja.",
+          "Cada esquina es un ángulo recto formado por dos lados.",
+          "Un rectángulo tiene tantas esquinas como lados."
+        ],
+        "retroalimentacion": "Un rectángulo tiene 4 esquinas, y todas son ángulos rectos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un cuaderno cuadriculado, una línea horizontal y una línea vertical que se cruzan son...",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "paralelas"
+          },
+          {
+            "id": "b",
+            "texto": "oblicuas"
+          },
+          {
+            "id": "c",
+            "texto": "perpendiculares"
+          },
+          {
+            "id": "d",
+            "texto": "iguales"
+          }
+        ],
+        "pistas": [
+          "Imagina que dibujas la cruz de una ventana.",
+          "Las dos líneas se cortan y forman esquinas rectas.",
+          "Cuando se cortan en ángulo recto son perpendiculares."
+        ],
+        "retroalimentacion": "Horizontal y vertical se cortan en ángulo recto: son perpendiculares. No son paralelas porque sí se cruzan."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos pares de lados paralelos tiene un rectángulo? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los lados opuestos de un rectángulo no se cortan.",
+          "Los lados largos son un par.",
+          "Los lados cortos son el otro par."
+        ],
+        "retroalimentacion": "Un rectángulo tiene 2 pares de lados paralelos: los dos largos y los dos cortos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos rectas que se cortan sin formar ángulo recto son perpendiculares.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Perpendicular significa que forma una esquina recta.",
+          "Si se cortan pero la esquina no es recta, no cumplen.",
+          "Esas rectas solo se cortan, pero no son perpendiculares."
+        ],
+        "retroalimentacion": "Es falso: para ser perpendiculares deben formar un ángulo recto. Cortarse no basta."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el centro de una ventana hay una cruz formada por una línea vertical y una horizontal. ¿Cuántos ángulos rectos se forman alrededor del centro? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dibuja la cruz y mira las esquinas alrededor del centro.",
+          "La cruz divide el espacio en partes iguales.",
+          "Aparecen una esquina arriba a cada lado y una abajo a cada lado."
+        ],
+        "retroalimentacion": "Se forman 4 ángulos rectos alrededor del centro de la cruz."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un cuadrado tiene 4 lados. Dos lados que se tocan en una esquina son perpendiculares. ¿Cuántas parejas de lados perpendiculares tiene el cuadrado? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada esquina del cuadrado une dos lados.",
+          "El cuadrado tiene tantas esquinas como lados.",
+          "Cuenta una pareja por cada esquina."
+        ],
+        "retroalimentacion": "Hay 4 esquinas y por eso 4 parejas de lados perpendiculares. Los lados opuestos no son perpendiculares, son paralelos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La letra H tiene dos rectas verticales y una horizontal que las une. ¿Qué afirmación es correcta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Las verticales son perpendiculares entre sí"
+          },
+          {
+            "id": "b",
+            "texto": "Las verticales son paralelas y cada una es perpendicular a la horizontal"
+          },
+          {
+            "id": "c",
+            "texto": "La horizontal es paralela a las dos verticales"
+          },
+          {
+            "id": "d",
+            "texto": "Las tres rectas son paralelas"
+          }
+        ],
+        "pistas": [
+          "Compara dos a dos: vertical con vertical y vertical con horizontal.",
+          "Las dos verticales nunca se cortan.",
+          "La horizontal las cruza formando esquinas rectas."
+        ],
+        "retroalimentacion": "Las verticales no se cortan, son paralelas, y cada una corta a la horizontal en ángulo recto. Decir que son perpendiculares entre sí es un error."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos rectas son perpendiculares a una misma tercera recta, entonces esas dos rectas son paralelas entre sí.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina una recta horizontal y dos verticales que la cruzan en ángulo recto.",
+          "Las dos verticales se levantan igual desde la horizontal.",
+          "Mantienen la misma distancia y no se cortan."
+        ],
+        "retroalimentacion": "Es verdadero: las dos rectas guardan siempre la misma distancia, así que son paralelas."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una rejilla de una chacra tiene 6 líneas verticales y 4 horizontales. ¿Cuántas líneas son paralelas a una de las verticales, sin contarla? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las líneas verticales son paralelas entre sí.",
+          "Las horizontales cortan a las verticales, no son paralelas.",
+          "Hay 6 verticales, y una es la que ya elegiste."
+        ],
+        "retroalimentacion": "Hay 5 líneas paralelas a una vertical: las otras verticales. Las 4 horizontales no son paralelas a ella."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.comparar-angulos-recto",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P4-06"
+    ],
+    "bloque": "Polígonos",
+    "nombre": "Ángulos mayores y menores que el recto",
+    "disciplina": "geometria",
+    "descripcionCorta": "Estima si un ángulo es igual, mayor o menor que el ángulo recto.",
+    "palabrasClave": [
+      "ángulo recto",
+      "mayor",
+      "menor",
+      "comparar ángulos",
+      "esquina"
+    ],
+    "prerrequisitos": [
+      "mat.p4.angulo-recto"
+    ],
+    "ordenSugerido": 63,
+    "ideaCentral": "Puedes comparar cualquier ángulo con el ángulo recto, la esquina de una hoja. Si se abre más es mayor, si se abre menos es menor y si es como la esquina es igual al recto.",
+    "pasos": [
+      "Toma la esquina de una hoja como ángulo recto.",
+      "Compara tu ángulo con esa esquina.",
+      "Si se abre más, es mayor; si se abre menos, es menor.",
+      "Si coincide con la esquina, es igual al recto."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La esquina de una mesa y la esquina de una hoja, ¿cómo son?",
+        "desarrollo": "Las dos son esquinas rectas.",
+        "respuesta": "Son ángulos rectos."
+      },
+      {
+        "situacion": "El ángulo entre las agujas de un reloj a las 2 en punto, ¿cómo es respecto al recto?",
+        "desarrollo": "Las agujas están más juntas que a las 3 en punto.",
+        "respuesta": "Es menor que el ángulo recto."
+      },
+      {
+        "situacion": "Una puerta abierta forma un ángulo más abierto que la esquina de la pared. ¿Cómo es?",
+        "desarrollo": "Se abre más que la esquina recta.",
+        "respuesta": "Es mayor que el ángulo recto."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que un ángulo es mayor porque sus lados son más largos.",
+        "correccion": "La abertura es lo que importa, no lo largo de los lados."
+      },
+      {
+        "error": "Creer que todos los ángulos son rectos.",
+        "correccion": "Compara con la esquina de la hoja: algunos se abren más y otros menos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Ángulo recto",
+        "significado": "Esquina como la de una hoja de papel."
+      },
+      {
+        "termino": "Mayor que el recto",
+        "significado": "Ángulo que se abre más que una esquina de hoja."
+      },
+      {
+        "termino": "Menor que el recto",
+        "significado": "Ángulo que se abre menos que una esquina de hoja."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El ángulo de la esquina de una hoja de cuaderno es un ángulo recto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la esquina de tu hoja.",
+          "Es la esquina que forman dos lados perpendiculares.",
+          "Esa esquina es el ángulo recto."
+        ],
+        "retroalimentacion": "Es verdadero: la esquina de una hoja de cuaderno es un ángulo recto."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un ángulo que se abre más que la esquina de una hoja es...",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "menor que el ángulo recto"
+          },
+          {
+            "id": "b",
+            "texto": "mayor que el ángulo recto"
+          },
+          {
+            "id": "c",
+            "texto": "igual al ángulo recto"
+          },
+          {
+            "id": "d",
+            "texto": "imposible de comparar"
+          }
+        ],
+        "pistas": [
+          "Compara con la esquina de la hoja.",
+          "Se abre más, o sea tiene mayor abertura.",
+          "Si se abre más que el recto, es mayor."
+        ],
+        "retroalimentacion": "Si el ángulo se abre más que la esquina de la hoja, es mayor que el recto."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un ángulo que se abre menos que la esquina de una hoja es ___ que el ángulo recto. Escribe la palabra que falta: mayor, menor o igual.",
+        "respuesta": "menor",
+        "alternativasAceptadas": [
+          "es menor",
+          "más pequeño"
+        ],
+        "pistas": [
+          "Compara su abertura con la de la esquina de la hoja.",
+          "Si se abre menos, es más cerrado.",
+          "Más cerrado quiere decir de menor abertura."
+        ],
+        "retroalimentacion": "El ángulo que se abre menos que el recto es menor que el ángulo recto."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mira un cuaderno rectangular. ¿Cuántas esquinas forman ángulos rectos? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las esquinas de la tapa.",
+          "Un rectángulo tiene 4 esquinas.",
+          "Todas las esquinas del cuaderno son rectas."
+        ],
+        "retroalimentacion": "Un cuaderno rectangular tiene 4 esquinas y todas son ángulos rectos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "A las 3 en punto, las agujas de un reloj forman un ángulo...",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "menor que el ángulo recto"
+          },
+          {
+            "id": "b",
+            "texto": "mayor que el ángulo recto"
+          },
+          {
+            "id": "c",
+            "texto": "igual al ángulo recto"
+          },
+          {
+            "id": "d",
+            "texto": "que no se puede comparar"
+          }
+        ],
+        "pistas": [
+          "Imagina las agujas: una en el 12 y otra en el 3.",
+          "Forman una esquina como la de una hoja.",
+          "Esa esquina es un ángulo recto."
+        ],
+        "retroalimentacion": "A las 3 en punto la aguja larga está en el 12 y la corta en el 3, y forman un ángulo recto."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "A la 1 en punto, la aguja larga está en el 12 y la corta en el 1. ¿Cómo es el ángulo entre las agujas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "menor que el ángulo recto"
+          },
+          {
+            "id": "b",
+            "texto": "igual al ángulo recto"
+          },
+          {
+            "id": "c",
+            "texto": "mayor que el ángulo recto"
+          },
+          {
+            "id": "d",
+            "texto": "no existe"
+          }
+        ],
+        "pistas": [
+          "Compara con la hora de las 3 en punto, que forma una esquina recta.",
+          "De la 1 al 12 hay menos separación que del 3 al 12.",
+          "Si las agujas están más juntas, el ángulo es más cerrado."
+        ],
+        "retroalimentacion": "A la 1 las agujas están más juntas que a las 3, así que el ángulo es menor que el recto."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "A las 4 en punto, las agujas del reloj forman un ángulo mayor que el ángulo recto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara con las 3 en punto, que es un ángulo recto.",
+          "A las 4 la aguja corta está más lejos del 12 que a las 3.",
+          "Más lejos significa un ángulo más abierto."
+        ],
+        "retroalimentacion": "Es verdadero: a las 4 en punto el ángulo es más abierto que el recto."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Mira estos ángulos: A se abre más que la esquina de una hoja; B se abre menos; C es igual; D se abre menos; E se abre más. ¿Cuántos son menores que el ángulo recto? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los menores son los que se abren menos que la esquina de la hoja.",
+          "Fíjate cuáles dicen «se abre menos».",
+          "Son B y D."
+        ],
+        "retroalimentacion": "B y D se abren menos que el recto, así que 2 ángulos son menores. C es igual, y A y E son mayores."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se miran los relojes a la 1, 2, 3, 4, 5 y 8 en punto. En cuántos de ellos las agujas forman un ángulo mayor que el recto? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "A las 3 en punto las agujas forman un ángulo recto.",
+          "A la 1 y a las 2 el ángulo es menor que el recto.",
+          "Los mayores son los que quedan después de las 3; revisa el 8."
+        ],
+        "retroalimentacion": "Son mayores que el recto los ángulos de las 4, las 5 y las 8, es decir, 3 relojes."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pedro pone la esquina de una hoja sobre un ángulo y ve que el ángulo cabe por completo dentro de la esquina, sin salirse. ¿Qué ángulo es?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "igual al recto"
+          },
+          {
+            "id": "b",
+            "texto": "mayor que el recto"
+          },
+          {
+            "id": "c",
+            "texto": "no se puede saber"
+          },
+          {
+            "id": "d",
+            "texto": "menor que el recto"
+          }
+        ],
+        "pistas": [
+          "Imagina el ángulo dibujado dentro de la esquina de la hoja.",
+          "Si cabe dentro, la esquina de la hoja es más abierta.",
+          "El que cabe dentro es más cerrado."
+        ],
+        "retroalimentacion": "Como cabe dentro de la esquina de la hoja, es menos abierto: es menor que el recto."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un ángulo que no es menor ni mayor que el ángulo recto es igual al ángulo recto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay tres posibilidades al comparar con el recto: menor, mayor o igual.",
+          "Si descartas las dos primeras, queda una.",
+          "Esa tercera posibilidad es igual."
+        ],
+        "retroalimentacion": "Es verdadero: al comparar con el recto solo hay tres opciones. Si no es menor ni mayor, es igual."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "¿A qué hora es más abierto el ángulo entre las agujas: a las 5 en punto o a las 2 en punto? Escribe 5 o 2.",
+        "respuesta": "5",
+        "alternativasAceptadas": [
+          "las 5",
+          "a las 5",
+          "5 en punto",
+          "las 5 en punto"
+        ],
+        "pistas": [
+          "Compara cada hora con las 3 en punto.",
+          "A las 2 el ángulo es menor que el recto; a las 5 es mayor.",
+          "El más abierto es el que se aleja más de las agujas juntas."
+        ],
+        "retroalimentacion": "A las 5 en punto el ángulo es más abierto: es mayor que el recto, y a las 2 es menor."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

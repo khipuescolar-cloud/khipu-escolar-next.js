@@ -1,0 +1,959 @@
+[
+  {
+    "clave": "mat.p4.croquis-referencias",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P4-02"
+    ],
+    "bloque": "Ubicación y recorridos",
+    "nombre": "Croquis con puntos de referencia",
+    "disciplina": "geometria",
+    "descripcionCorta": "Dibuja un croquis de lugares cercanos ubicando objetos fijos como referencia.",
+    "palabrasClave": [
+      "croquis",
+      "punto de referencia",
+      "ubicación",
+      "plano",
+      "lugares"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 29,
+    "ideaCentral": "Un croquis es un dibujo sencillo que muestra dónde están los lugares. Para hacerlo bien, usa puntos de referencia fijos y respeta si cada lugar queda a la izquierda, a la derecha o al frente.",
+    "pasos": [
+      "Elige puntos de referencia que no se muevan, como el mercado o la iglesia.",
+      "Ubica los demás lugares: a la izquierda, a la derecha o al frente de esos puntos.",
+      "Dibuja cada lugar en la posición real y ponle su nombre.",
+      "Lee tu croquis y comprueba que otra persona lo entienda."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un croquis de la calle muestra de izquierda a derecha: Plaza, Bodega, Colegio. ¿Qué lugar está en el medio?",
+        "desarrollo": "Hay tres lugares en fila y el segundo queda en el medio.",
+        "respuesta": "La bodega."
+      },
+      {
+        "situacion": "La casa de Ana en Iquitos está al frente de la iglesia. ¿Cuál es el punto de referencia?",
+        "desarrollo": "El punto de referencia es el lugar fijo con el que se ubica otro.",
+        "respuesta": "La iglesia."
+      },
+      {
+        "situacion": "Si el colegio está a la derecha de la farmacia, ¿dónde dibujas el colegio en el croquis?",
+        "desarrollo": "Se respeta la posición real: derecha en la realidad, derecha en el dibujo.",
+        "respuesta": "A la derecha de la farmacia."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dibujar los lugares en el orden contrario al real.",
+        "correccion": "Comprueba cada lado: izquierda o derecha en la realidad debe ser igual en el croquis."
+      },
+      {
+        "error": "Usar referencias que se mueven, como un carro estacionado.",
+        "correccion": "Usa edificios y lugares fijos conocidos por todos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Croquis",
+        "significado": "Dibujo sencillo de un lugar que muestra dónde están las cosas."
+      },
+      {
+        "termino": "Punto de referencia",
+        "significado": "Lugar fijo y conocido que sirve para ubicar otros."
+      },
+      {
+        "termino": "Al frente de",
+        "significado": "Ubicado enfrente, al otro lado de la calle."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un croquis se dibujan lugares usando puntos de referencia, como un parque o una tienda.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa para qué sirve un croquis: ayudar a ubicar lugares.",
+          "Para ubicar lugares se usan cosas conocidas del entorno.",
+          "Esas cosas conocidas son los puntos de referencia."
+        ],
+        "retroalimentacion": "Es verdadero: un croquis se apoya en puntos de referencia para ubicar los lugares."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para dibujar un croquis de tu barrio, ¿cuál es un buen punto de referencia que siempre está en el mismo lugar?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El mercado del barrio"
+          },
+          {
+            "id": "b",
+            "texto": "Una mototaxi que pasa"
+          },
+          {
+            "id": "c",
+            "texto": "Un perro en la calle"
+          },
+          {
+            "id": "d",
+            "texto": "Una nube en el cielo"
+          }
+        ],
+        "pistas": [
+          "Un punto de referencia no debe cambiar de lugar.",
+          "Una mototaxi, un perro o una nube se mueven.",
+          "Un edificio no se mueve."
+        ],
+        "retroalimentacion": "El mercado es fijo y todos lo reconocen. Mototaxis, perros y nubes se mueven, por eso no sirven."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un croquis de la calle muestra, de izquierda a derecha: Plaza, Bodega, Colegio, Posta. ¿Cuántos lugares están dibujados? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta uno por uno los lugares nombrados.",
+          "Plaza, Bodega, Colegio y Posta.",
+          "Hay un lugar por cada nombre."
+        ],
+        "retroalimentacion": "Hay 4 lugares dibujados: plaza, bodega, colegio y posta."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un croquis, los lugares están dibujados de izquierda a derecha así: Bodega, Colegio, Parque. ¿Qué lugar está en el medio? Escribe su nombre.",
+        "respuesta": "Colegio",
+        "alternativasAceptadas": [
+          "el colegio"
+        ],
+        "pistas": [
+          "Mira el orden: hay tres lugares en fila.",
+          "El primero es la Bodega y el último el Parque.",
+          "Entre ellos queda el que está segundo."
+        ],
+        "retroalimentacion": "El colegio está en el medio, entre la bodega y el parque."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El croquis dice: «El colegio está a la derecha de la bodega y el parque está a la izquierda de la bodega». ¿Cuál es el orden de izquierda a derecha?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Colegio, bodega, parque"
+          },
+          {
+            "id": "b",
+            "texto": "Parque, bodega, colegio"
+          },
+          {
+            "id": "c",
+            "texto": "Bodega, parque, colegio"
+          },
+          {
+            "id": "d",
+            "texto": "Parque, colegio, bodega"
+          }
+        ],
+        "pistas": [
+          "Ubica primero la bodega como referencia.",
+          "El parque va a su izquierda y el colegio a su derecha.",
+          "El parque queda antes de la bodega y el colegio después."
+        ],
+        "retroalimentacion": "El orden es parque, bodega, colegio. El orden colegio, bodega, parque está al revés."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El croquis de una calle de Cusco muestra: Parque, Bodega, Farmacia, Ferretería, Colegio, en ese orden. ¿Cuántos lugares hay entre el parque y el colegio? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No cuentes el parque ni el colegio, solo los de en medio.",
+          "Entre ellos están la bodega, la farmacia y la ferretería.",
+          "Cuéntalos: son tres nombres."
+        ],
+        "retroalimentacion": "Entre el parque y el colegio hay 3 lugares: bodega, farmacia y ferretería. Si dices 5, contaste también los extremos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en la realidad el parque está a la izquierda de la bodega, en el croquis puedes dibujarlo a la derecha de la bodega.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un croquis debe respetar dónde están los lugares en la realidad.",
+          "Si está a la izquierda en la realidad, debe estar a la izquierda en el dibujo.",
+          "Cambiar el lado confundiría a quien lo lea."
+        ],
+        "retroalimentacion": "Es falso: el croquis conserva la posición real, así que el parque debe ir a la izquierda de la bodega."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El croquis dice que la casa de Luis está «al frente del mercado». ¿Qué lugar es el punto de referencia para ubicar la casa? Escribe su nombre.",
+        "respuesta": "mercado",
+        "alternativasAceptadas": [
+          "el mercado"
+        ],
+        "pistas": [
+          "Un punto de referencia es el lugar conocido que usas para ubicar otro.",
+          "La casa se ubica con respecto a otro lugar.",
+          "El lugar nombrado después de «al frente de» es el punto de referencia."
+        ],
+        "retroalimentacion": "El punto de referencia es el mercado, porque la casa se ubica «al frente» de él."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un croquis tiene estas pistas: «La posta está entre el colegio y la iglesia», «la iglesia está a la derecha del colegio» y «el mercado está a la izquierda del colegio». ¿Cuál es el orden de izquierda a derecha?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Colegio, mercado, posta, iglesia"
+          },
+          {
+            "id": "b",
+            "texto": "Mercado, colegio, iglesia, posta"
+          },
+          {
+            "id": "c",
+            "texto": "Mercado, colegio, posta, iglesia"
+          },
+          {
+            "id": "d",
+            "texto": "Iglesia, posta, colegio, mercado"
+          }
+        ],
+        "pistas": [
+          "Empieza por la pista de dos lugares: iglesia a la derecha del colegio.",
+          "La posta queda entre el colegio y la iglesia.",
+          "El mercado va a la izquierda del colegio, o sea al principio."
+        ],
+        "retroalimentacion": "El orden es mercado, colegio, posta, iglesia. Poner la iglesia antes de la posta rompe la pista de que la posta está entre el colegio y la iglesia."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una calle de Lima las casas están numeradas del 1 al 6. El colegio está frente a la casa 2 y el parque frente a la casa 5. ¿Cuántas casas hay entre el colegio y el parque? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No cuentes las casas 2 y 5, que son las de los extremos.",
+          "Las casas del medio son las numeradas entre 2 y 5.",
+          "Son la 3 y la 4."
+        ],
+        "retroalimentacion": "Entre las casas 2 y 5 están la 3 y la 4, es decir, 2 casas."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un croquis que ubica la tienda solo con «cerca de mi casa» es suficiente para que cualquiera la encuentre.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si otra persona sabe dónde está tu casa.",
+          "«Cerca de mi casa» no es un punto fijo que todos conozcan.",
+          "Hay que usar lugares conocidos y decir a qué lado queda."
+        ],
+        "retroalimentacion": "Es falso: «cerca de mi casa» no da una referencia clara; el croquis necesita puntos fijos como un parque o una esquina."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una calle hay 5 locales en fila. La panadería es el segundo desde la izquierda y la farmacia está 2 locales a la derecha de la panadería. ¿Qué número de local es la farmacia, contando desde la izquierda? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La panadería es el local número 2.",
+          "Moverte 2 locales a la derecha suma 2 al número.",
+          "2 + 2 = ..."
+        ],
+        "retroalimentacion": "La farmacia es el local 4: 2 + 2 = 4. Si respondes 3, solo te moviste un local."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.instrucciones-ubicacion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P4-05"
+    ],
+    "bloque": "Ubicación y recorridos",
+    "nombre": "Instrucciones para ubicar y desplazarse",
+    "disciplina": "geometria",
+    "descripcionCorta": "Da y sigue indicaciones para llegar a un lugar usando referencias del entorno.",
+    "palabrasClave": [
+      "indicaciones",
+      "ubicación",
+      "dirección",
+      "referencia",
+      "recorrido"
+    ],
+    "prerrequisitos": [
+      "mat.p4.croquis-referencias"
+    ],
+    "ordenSugerido": 30,
+    "ideaCentral": "Para dar o seguir indicaciones necesitas un punto de partida, una dirección y las cuadras a avanzar. Los puntos de referencia, como un parque o una farmacia, ayudan a no perderte.",
+    "pasos": [
+      "Ubica dónde empiezas y hacia dónde miras.",
+      "Lee o di cada tramo: cuántas cuadras y en qué dirección.",
+      "Usa puntos de referencia para señalar dónde giras.",
+      "Revisa el camino completo antes de salir."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Para ir de la casa al mercado: «Camina 3 cuadras recto y gira a la derecha en la farmacia». ¿Cuál es la referencia?",
+        "desarrollo": "La referencia es el lugar donde se hace el giro.",
+        "respuesta": "La farmacia."
+      },
+      {
+        "situacion": "Estás en la plaza de Cusco, caminas 4 cuadras al este y 2 al norte. ¿Cuántas cuadras caminaste?",
+        "desarrollo": "Suma los dos tramos.",
+        "respuesta": "4 + 2 = 6 cuadras."
+      },
+      {
+        "situacion": "Caminas 2 cuadras al este y 2 al oeste. ¿Dónde estás?",
+        "desarrollo": "Las dos direcciones se cancelan.",
+        "respuesta": "En el mismo lugar donde empezaste."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir «a la derecha» sin explicar desde dónde.",
+        "correccion": "Di dónde estás y qué lugar usas como referencia."
+      },
+      {
+        "error": "Olvidar sumar todos los tramos al contar el recorrido.",
+        "correccion": "Suma todas las cuadras caminadas, de ida y de vuelta si hay regreso."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Punto de referencia",
+        "significado": "Lugar conocido que ayuda a ubicarte."
+      },
+      {
+        "termino": "Dirección",
+        "significado": "Hacia dónde vas: norte, sur, este, oeste, izquierda o derecha."
+      },
+      {
+        "termino": "Recorrido",
+        "significado": "Camino que sigues de un lugar a otro."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Desde el colegio caminas 3 cuadras en línea recta hasta el mercado y luego 2 cuadras más hasta la plaza. ¿Cuántas cuadras caminaste en total? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las cuadras de cada tramo.",
+          "El primer tramo es de 3 cuadras y el segundo de 2.",
+          "3 + 2 = ..."
+        ],
+        "retroalimentacion": "Caminaste 3 + 2 = 5 cuadras. Si dices 3 olvidaste el segundo tramo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La indicación «gira a la derecha en el parque» usa el parque como punto de referencia.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa dónde debes hacer el giro.",
+          "El giro se hace en el parque.",
+          "El parque es el lugar conocido que te ayuda a ubicarte."
+        ],
+        "retroalimentacion": "Es verdadero: el parque es el punto de referencia que te dice dónde girar."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para llegar a la plaza te dicen: «Camina 2 cuadras y gira a la izquierda en la farmacia». ¿Qué lugar es el punto de referencia?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La farmacia"
+          },
+          {
+            "id": "b",
+            "texto": "La plaza"
+          },
+          {
+            "id": "c",
+            "texto": "Las 2 cuadras"
+          },
+          {
+            "id": "d",
+            "texto": "La izquierda"
+          }
+        ],
+        "pistas": [
+          "El punto de referencia es un lugar conocido, no un número ni una dirección.",
+          "Busca el lugar donde dice que debes girar.",
+          "Ese lugar aparece después de «en la»."
+        ],
+        "retroalimentacion": "La farmacia es el lugar donde debes girar. La plaza es a donde llegas, no la referencia."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El lado contrario a «izquierda» es «___». Escribe la palabra que falta.",
+        "respuesta": "derecha",
+        "alternativasAceptadas": [
+          "la derecha"
+        ],
+        "pistas": [
+          "Piensa en los lados de tu cuerpo.",
+          "Si izquierda es un lado, el otro lado es...",
+          "Empieza con d."
+        ],
+        "retroalimentacion": "El lado contrario a izquierda es derecha."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Desde la puerta del colegio avanzas 4 cuadras hacia el este (derecha) y luego 2 cuadras hacia el norte (arriba). ¿Cuántas cuadras recorres en total? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Son dos tramos: uno hacia el este y otro hacia el norte.",
+          "El este son 4 cuadras y el norte 2.",
+          "Suma los dos tramos."
+        ],
+        "retroalimentacion": "Recorres 4 + 2 = 6 cuadras en total. No restes: los dos tramos se caminan."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis camina mirando al norte y sigue las indicaciones: «Avanza 3 cuadras, gira a la derecha y avanza 1 cuadra». Después de girar a la derecha, ¿hacia dónde mira?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hacia el este"
+          },
+          {
+            "id": "b",
+            "texto": "Hacia el oeste"
+          },
+          {
+            "id": "c",
+            "texto": "Hacia el sur"
+          },
+          {
+            "id": "d",
+            "texto": "Hacia el norte"
+          }
+        ],
+        "pistas": [
+          "Imagina un mapa con el norte arriba.",
+          "Si miras hacia arriba y giras a tu derecha, vas hacia el lado derecho del mapa.",
+          "El lado derecho del mapa es el este."
+        ],
+        "retroalimentacion": "Mirando al norte, la derecha es el este. El oeste sería girar a la izquierda."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si caminas 2 cuadras hacia el este y luego 2 cuadras hacia el oeste, regresas al punto de inicio.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Este y oeste son direcciones contrarias.",
+          "Las 2 cuadras del segundo tramo deshacen las 2 del primero.",
+          "Vuelves a donde empezaste."
+        ],
+        "retroalimentacion": "Es verdadero: ir 2 cuadras al este y volver 2 al oeste te deja en el mismo punto."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el plano, la casa está en el inicio. La panadería queda 3 cuadras al este de la casa y la posta queda 2 cuadras al este de la panadería. ¿A cuántas cuadras al este de la casa está la posta? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La posta está más lejos que la panadería, siempre hacia el este.",
+          "De la casa a la panadería hay 3 cuadras.",
+          "Suma las 2 cuadras que hay de la panadería a la posta."
+        ],
+        "retroalimentacion": "La posta está a 3 + 2 = 5 cuadras de la casa. Si dices 2, olvidaste el primer tramo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Estás en tu casa. El colegio está 3 cuadras al este y 2 cuadras al norte. ¿Qué indicación te lleva correctamente?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Avanza 3 cuadras al este y luego 2 al norte"
+          },
+          {
+            "id": "b",
+            "texto": "Avanza 2 cuadras al este y luego 3 al norte"
+          },
+          {
+            "id": "c",
+            "texto": "Avanza 3 cuadras al oeste y luego 2 al norte"
+          },
+          {
+            "id": "d",
+            "texto": "Avanza 3 cuadras al este y luego 2 al sur"
+          }
+        ],
+        "pistas": [
+          "Ordena los dos datos: la cantidad y su dirección.",
+          "Este es 3 cuadras y norte es 2 cuadras.",
+          "Las otras opciones cambian un número o una dirección."
+        ],
+        "retroalimentacion": "La indicación correcta usa 3 cuadras al este y 2 al norte. En las otras se cambia una cantidad o se va al lado contrario."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para ir a la posta caminas 5 cuadras al este y 3 cuadras al norte. Regresas por el mismo camino. ¿Cuántas cuadras caminas entre ida y vuelta? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero cuánto mide la ida.",
+          "La ida mide 5 + 3 = 8 cuadras.",
+          "La vuelta mide lo mismo que la ida."
+        ],
+        "retroalimentacion": "La ida mide 8 cuadras y la vuelta otras 8, así que caminas 16 cuadras. Si respondes 8 solo contaste un camino."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si a Ana le dices solo «gira a la derecha», sin decir qué referencia usar ni hacia dónde mira, ella puede ubicarse sin dudas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pregúntate: ¿a la derecha de qué y desde dónde?",
+          "Sin referencia, la derecha puede ser cualquier lugar.",
+          "Una buena indicación nombra un punto de referencia."
+        ],
+        "retroalimentacion": "Es falso: sin punto de referencia ni dirección inicial, «derecha» puede significar cosas distintas."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Sigues estas indicaciones: 3 cuadras al este, 2 al norte, 3 al oeste y 2 al sur. ¿Dónde terminas respecto al inicio? Escribe «en el mismo lugar» o «en otro lugar».",
+        "respuesta": "en el mismo lugar",
+        "alternativasAceptadas": [
+          "mismo lugar",
+          "en el inicio",
+          "al inicio",
+          "en el punto de inicio"
+        ],
+        "pistas": [
+          "Compara los movimientos este y oeste, y norte y sur.",
+          "3 al este y 3 al oeste se cancelan.",
+          "2 al norte y 2 al sur también se cancelan."
+        ],
+        "retroalimentacion": "Terminas en el mismo lugar: este y oeste se cancelan, y norte y sur también."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.desplazamientos-cuadricula",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P4-05",
+      "MAT-C26-P4-06"
+    ],
+    "bloque": "Ubicación y recorridos",
+    "nombre": "Desplazamientos en cuadrícula",
+    "disciplina": "geometria",
+    "descripcionCorta": "Describe y realiza recorridos contando casillas hacia arriba, abajo, izquierda o derecha.",
+    "palabrasClave": [
+      "cuadrícula",
+      "desplazamiento",
+      "recorrido",
+      "casillas",
+      "derecha e izquierda",
+      "arriba y abajo"
+    ],
+    "prerrequisitos": [
+      "mat.p4.instrucciones-ubicacion"
+    ],
+    "ordenSugerido": 66,
+    "ideaCentral": "En una cuadrícula puedes describir un recorrido diciendo cuántas casillas te mueves y hacia dónde: arriba, abajo, izquierda o derecha. Derecha e izquierda cambian la columna; arriba y abajo cambian la fila.",
+    "pasos": [
+      "Ubica la casilla de partida y la de llegada en la cuadrícula.",
+      "Mira cuántas columnas cambian: ese es el movimiento hacia la derecha o la izquierda.",
+      "Mira cuántas filas cambian: ese es el movimiento hacia arriba o abajo.",
+      "Escribe el recorrido con número y dirección, por ejemplo «4 derecha, 2 arriba», y comprueba contando casilla por casilla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En el plano del mercado de Cusco, Rosa está en la casilla (2, 1) y quiere ir al puesto de quinua en (5, 3). ¿Qué recorrido hace?",
+        "desarrollo": "La columna pasa de 2 a 5: son 3 casillas a la derecha. La fila pasa de 1 a 3: son 2 casillas hacia arriba.",
+        "respuesta": "3 casillas a la derecha y 2 hacia arriba."
+      },
+      {
+        "situacion": "Un cuy sale de la casilla (6, 4) de la chacra y sigue: 2 izquierda y 3 abajo. ¿En qué casilla termina?",
+        "desarrollo": "A la columna 6 le restas 2 y queda 4. A la fila 4 le restas 3 y queda 1.",
+        "respuesta": "Termina en la casilla (4, 1)."
+      },
+      {
+        "situacion": "Luis camina por el plano de su barrio en Lima: 4 casillas a la derecha, 1 hacia arriba y 2 a la derecha. ¿Cuántas casillas recorrió?",
+        "desarrollo": "Suma cada tramo: 4 + 1 + 2 = 7.",
+        "respuesta": "Recorrió 7 casillas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir el sentido: ir hacia la izquierda cuando la casilla de llegada está a la derecha.",
+        "correccion": "Compara los números de columna: si el de llegada es mayor, vas a la derecha; si es menor, a la izquierda."
+      },
+      {
+        "error": "Contar la casilla de partida como parte del recorrido.",
+        "correccion": "Empieza a contar desde la casilla siguiente: la casilla donde estás no cuenta como movimiento."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cuadrícula",
+        "significado": "Dibujo formado por filas y columnas de casillas iguales."
+      },
+      {
+        "termino": "Casilla",
+        "significado": "Cada cuadradito de la cuadrícula."
+      },
+      {
+        "termino": "Recorrido",
+        "significado": "Lista de movimientos que sigues para ir de una casilla a otra."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Rosa juega con una ficha en una cuadrícula de 8 columnas numeradas del 1 al 8. Está en la columna 2 y avanza 5 casillas hacia la derecha. ¿En qué columna queda? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Moverte a la derecha te lleva a columnas con números mayores.",
+          "Empieza en la columna 2 y cuenta 5 casillas hacia la derecha: 3, 4, 5...",
+          "Después del 5 cuentas el 6 y el 7; la quinta casilla es la columna 7."
+        ],
+        "retroalimentacion": "Hacia la derecha las columnas aumentan: 2 + 5 = 7. Quien responde 3 solo contó una casilla. La respuesta es la columna 7."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en una cuadrícula te mueves 3 casillas hacia arriba y luego 3 casillas hacia abajo, vuelves a la casilla donde empezaste.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en subir una escalera y bajar la misma cantidad de escalones.",
+          "Arriba y abajo son movimientos contrarios sobre la misma columna.",
+          "Subes 3 y bajas 3, así que avanzas 0 en total: terminas donde empezaste."
+        ],
+        "retroalimentacion": "Es verdadero: subir 3 y bajar 3 se cancelan, y la ficha regresa a su casilla de partida."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el mapa cuadriculado de la chacra, el cuy está en una casilla y su comedero está 4 casillas más a la izquierda, en la misma fila. ¿Qué instrucción lleva al cuy hasta su comedero?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Avanzar 4 casillas hacia la derecha"
+          },
+          {
+            "id": "b",
+            "texto": "Avanzar 4 casillas hacia la izquierda"
+          },
+          {
+            "id": "c",
+            "texto": "Avanzar 4 casillas hacia arriba"
+          },
+          {
+            "id": "d",
+            "texto": "Avanzar 4 casillas hacia abajo"
+          }
+        ],
+        "pistas": [
+          "Fíjate en la palabra «izquierda» del enunciado: dice dónde está el comedero.",
+          "El comedero está en la misma fila, así que el cuy no sube ni baja.",
+          "Es un movimiento de lado de 4 casillas: elige la opción que dice hacia dónde."
+        ],
+        "retroalimentacion": "El comedero está a la izquierda, en la misma fila: la instrucción es avanzar 4 casillas hacia la izquierda. Avanzar hacia la derecha te alejaría y arriba o abajo cambiarían la fila."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un plano cuadriculado del mercado, la bodega está 3 casillas más abajo del puesto de papas, en la misma columna. Para ir del puesto a la bodega, ¿hacia dónde te mueves? Escribe una sola palabra.",
+        "respuesta": "abajo",
+        "alternativasAceptadas": [
+          "hacia abajo",
+          "bajar",
+          "abajo."
+        ],
+        "pistas": [
+          "Mira la palabra que dice dónde está la bodega respecto del puesto.",
+          "La bodega está en la misma columna, así que no te mueves de lado.",
+          "Te mueves en la dirección contraria a «arriba»."
+        ],
+        "retroalimentacion": "La bodega está más abajo, así que te mueves hacia abajo (3 casillas). Hacia arriba te alejarías de ella."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un plano, la columna se cuenta de izquierda a derecha y la fila de abajo hacia arriba. Una combi parte de la casilla (columna 2, fila 3), avanza 4 casillas a la derecha y luego 2 hacia arriba. ¿En qué columna termina? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La combi parte de la columna 2; piensa cuál de los dos movimientos cambia la columna.",
+          "Subir 2 casillas no cambia la columna; solo cambia la fila.",
+          "Solo importa el movimiento de 4 casillas a la derecha: 2 + 4."
+        ],
+        "retroalimentacion": "Subir cambia la fila, no la columna. La columna cambia solo con los 4 pasos a la derecha: 2 + 4 = 6. Quien responde 8 sumó también las 2 casillas de subida. La respuesta es 6."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una ficha empieza en la casilla (1, 1), con la columna primero y la fila después. Sigue este recorrido: 2 casillas a la derecha, 3 hacia arriba y 2 a la izquierda. ¿En qué casilla termina?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(3, 4)"
+          },
+          {
+            "id": "b",
+            "texto": "(5, 4)"
+          },
+          {
+            "id": "c",
+            "texto": "(1, 4)"
+          },
+          {
+            "id": "d",
+            "texto": "(1, 6)"
+          }
+        ],
+        "pistas": [
+          "Haz un movimiento a la vez; escribe cada casilla por la que pasa la ficha.",
+          "Después de las 2 a la derecha y las 3 hacia arriba estás en (3, 4).",
+          "Las 2 casillas a la izquierda le restan 2 a la columna 3 y no cambian la fila 4."
+        ],
+        "retroalimentacion": "Pasa por (3, 1), luego (3, 4) y vuelve 2 a la izquierda: termina en (1, 4). La casilla (3, 4) es la parada anterior, no la final."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Vas de la casilla (5, 5) a la casilla (5, 2) de la cuadrícula. Escribe la instrucción con el número y la dirección, por ejemplo «2 izquierda».",
+        "respuesta": "3 abajo",
+        "alternativasAceptadas": [
+          "abajo 3",
+          "3 casillas abajo",
+          "3 hacia abajo",
+          "3 casillas hacia abajo",
+          "abajo 3 casillas"
+        ],
+        "pistas": [
+          "Compara las dos casillas: el primer número es igual en ambas.",
+          "Como la columna 5 no cambia, el movimiento es hacia arriba o hacia abajo.",
+          "La fila baja de 5 a 2: cuenta cuántas casillas hay entre ellas y escribe la dirección."
+        ],
+        "retroalimentacion": "La fila pasa de 5 a 2, o sea baja 3 casillas: «3 abajo». Quien escribe «3 arriba» confunde el sentido, porque 2 es menor que 5."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un robot de juguete sigue esta ruta: 3 casillas a la derecha, 2 arriba, 3 a la derecha y 2 arriba. ¿Cuántas casillas se movió en total? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada instrucción dice cuántas casillas avanzó el robot.",
+          "Los números de la ruta son 3, 2, 3 y 2.",
+          "Suma todos: 3 + 2 + 3 + 2."
+        ],
+        "retroalimentacion": "Se suman todas las casillas recorridas: 3 + 2 + 3 + 2 = 10. Quien responde 5 solo sumó una pareja de movimientos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para ir de la casilla (2, 2) a la casilla (6, 4) basta con moverte 4 casillas a la derecha y 2 casillas hacia arriba.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara primero las columnas de las dos casillas y luego las filas.",
+          "La columna pasa de 2 a 6 y la fila pasa de 2 a 4.",
+          "De 2 a 6 hay 4 casillas a la derecha y de 2 a 4 hay 2 casillas hacia arriba."
+        ],
+        "retroalimentacion": "Es verdadero: 6 - 2 = 4 casillas a la derecha y 4 - 2 = 2 casillas hacia arriba."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Mariela está en la casilla (7, 6) y quiere llegar a la casilla (3, 2) moviéndose solo hacia la izquierda y hacia abajo, sin dar rodeos. ¿Cuántas casillas recorre en total? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa el recorrido en dos partes: el cambio de columna y el cambio de fila.",
+          "La columna baja de 7 a 3 y la fila baja de 6 a 2.",
+          "Cada parte es una resta de 4; después suma las dos partes."
+        ],
+        "retroalimentacion": "Hacia la izquierda: 7 - 3 = 4 casillas; hacia abajo: 6 - 2 = 4 casillas. En total son 4 + 4 = 8. Quien responde 4 se olvida de una de las dos partes."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El cuy de la chacra está en la casilla (2, 2) y la quinua está en la casilla (6, 5). ¿Qué recorrido lleva al cuy hasta la quinua?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 casillas a la derecha y 4 hacia arriba"
+          },
+          {
+            "id": "b",
+            "texto": "4 casillas a la izquierda y 3 hacia abajo"
+          },
+          {
+            "id": "c",
+            "texto": "4 casillas a la derecha y 3 hacia abajo"
+          },
+          {
+            "id": "d",
+            "texto": "4 casillas a la derecha y 3 hacia arriba"
+          }
+        ],
+        "pistas": [
+          "Calcula cuánto cambia la columna y cuánto cambia la fila, de (2, 2) a (6, 5).",
+          "La columna sube 4 y la fila sube 3; eso te dice los sentidos.",
+          "Busca la opción que combine 4 en el eje horizontal y 3 en el vertical, con sentidos que aumentan."
+        ],
+        "retroalimentacion": "La columna aumenta 4 (derecha) y la fila aumenta 3 (arriba). «3 a la derecha y 4 arriba» cambia los números y «3 hacia abajo» o «izquierda» van en sentido contrario."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una ficha parte de la casilla (1, 7). Sigue este recorrido: 6 casillas a la derecha, 4 hacia abajo, 2 a la izquierda y 1 hacia arriba. ¿En qué fila termina? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para saber la fila solo importan los movimientos hacia arriba y hacia abajo.",
+          "La ficha empieza en la fila 7 y se mueve 4 hacia abajo y 1 hacia arriba.",
+          "Resta 4 a la fila 7 y luego suma 1."
+        ],
+        "retroalimentacion": "Los movimientos a la derecha y la izquierda no cambian la fila: 7 - 4 = 3 y luego 3 + 1 = 4. Quien responde 3 olvida la subida final. Termina en la fila 4."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Ana dice: «Para ir de la casilla (3, 3) a la casilla (3, 7) hay que moverse 4 casillas a la derecha». Su recorrido está mal. ¿Hacia dónde debió moverse? Escribe una sola palabra.",
+        "respuesta": "arriba",
+        "alternativasAceptadas": [
+          "hacia arriba",
+          "subir",
+          "arriba."
+        ],
+        "pistas": [
+          "Compara las columnas de las dos casillas: ¿cambian o no?",
+          "Como la columna 3 es la misma, el movimiento no es de lado.",
+          "La fila aumenta de 3 a 7, así que el movimiento es vertical y hacia donde crecen las filas."
+        ],
+        "retroalimentacion": "La columna no cambia, solo la fila pasa de 3 a 7: se mueve 4 casillas hacia arriba. Moverse a la derecha cambiaría la columna."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

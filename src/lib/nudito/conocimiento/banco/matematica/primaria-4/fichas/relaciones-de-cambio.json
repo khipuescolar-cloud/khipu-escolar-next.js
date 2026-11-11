@@ -1,0 +1,1228 @@
+[
+  {
+    "clave": "mat.p4.tabla-dos-magnitudes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P4-04"
+    ],
+    "bloque": "Relaciones de cambio",
+    "nombre": "Relación entre dos magnitudes en una tabla",
+    "disciplina": "algebra",
+    "descripcionCorta": "Describe cómo cambia una cantidad cuando cambia otra, como número de cuadernos y precio.",
+    "palabrasClave": [
+      "tabla",
+      "magnitudes",
+      "relación",
+      "regla",
+      "cantidad",
+      "precio"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 98,
+    "ideaCentral": "Una tabla de dos magnitudes pone en filas cantidades que cambian juntas, como número de cuadernos y soles. Si miras cómo cambia cada fila, descubres la regla que las une.",
+    "pasos": [
+      "Lee qué cantidad hay en cada fila, por ejemplo cuadernos y soles.",
+      "Mira de cuánto en cuánto sube la primera fila y luego la segunda.",
+      "Busca la regla que se repite, como «cada cuaderno cuesta 5 soles».",
+      "Usa la regla para hallar un dato que no está en la tabla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En el mercado de Surquillo, Ana ve la tabla: Cuadernos 1, 2, 3, 4 y Soles 4, 8, 12, 16. ¿Cuánto costarían 5 cuadernos?",
+        "desarrollo": "Los soles suben 4 con cada cuaderno: 4, 8, 12, 16. Después de 16 viene 16 + 4.",
+        "respuesta": "5 cuadernos cuestan 20 soles."
+      },
+      {
+        "situacion": "Una chacra de Cusco llena bolsas de quinua: Bolsas 1, 2, 3 y Kilos 2, 4, 6. ¿Cuántos kilos hay por bolsa?",
+        "desarrollo": "Con 1 bolsa hay 2 kilos, y cada bolsa más agrega 2 kilos.",
+        "respuesta": "Cada bolsa tiene 2 kilos."
+      },
+      {
+        "situacion": "En una combi de Lima, 1 persona paga 2 soles, 2 personas pagan 4 y 3 personas pagan 6. ¿Cuánto pagan 5 personas?",
+        "desarrollo": "Cada persona agrega 2 soles; 5 personas son 5 grupos de 2.",
+        "respuesta": "5 personas pagan 10 soles."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que la regla es sumar el mismo número a las dos filas.",
+        "correccion": "Cada fila cambia a su propio ritmo; compara cuánto sube cada una y busca cuántos soles corresponden a 1 cuaderno."
+      },
+      {
+        "error": "Mirar solo un par de datos para decidir la regla.",
+        "correccion": "Revisa todas las columnas: si una no cumple, la regla no sirve."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Magnitud",
+        "significado": "Algo que se puede contar o medir, como cuadernos, kilos o soles."
+      },
+      {
+        "termino": "Regla",
+        "significado": "Lo que se repite en la tabla y te dice cómo cambia una cantidad cuando cambia la otra."
+      },
+      {
+        "termino": "Tabla",
+        "significado": "Cuadro con filas y columnas que ordena datos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mira la tabla de cuadernos de don Tito:\nCuadernos: 1 | 2 | 3\nSoles: 5 | 10 | 15\n¿Cuántos soles cuestan 4 cuadernos? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate de cuánto en cuánto suben los soles al agregar un cuaderno.",
+          "Los soles suben de 5 en 5: 5, 10, 15 y sigue.",
+          "Después de 15 viene 15 + 5."
+        ],
+        "retroalimentacion": "Cada cuaderno más suma 5 soles. Si sumaste 1 en vez de 5 te equivocaste de regla. Después de 15 viene 20."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla Panes: 1 | 2 | 3 y Soles: 2 | 4 | 6, cada pan cuesta 2 soles.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cuánto pagas por 1 pan.",
+          "Con 1 pan pagas 2 soles; con 2 panes pagas 4.",
+          "Cada pan más agrega 2 soles, siempre."
+        ],
+        "retroalimentacion": "Es verdadero: 1 pan cuesta 2 soles, 2 panes cuestan 4 y 3 panes cuestan 6."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el comedor de doña Lucía hay esta tabla:\nMesas: 1 | 2 | 3 | 4\nSillas: 4 | 8 | 12 | 16\n¿Cuántas sillas hay por cada mesa?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 sillas"
+          },
+          {
+            "id": "b",
+            "texto": "4 sillas"
+          },
+          {
+            "id": "c",
+            "texto": "8 sillas"
+          },
+          {
+            "id": "d",
+            "texto": "16 sillas"
+          }
+        ],
+        "pistas": [
+          "Mira la tabla con 1 sola mesa.",
+          "Con 1 mesa hay un número de sillas en la fila de abajo.",
+          "Debajo del 1 está el 4."
+        ],
+        "retroalimentacion": "Hay 4 sillas por mesa. 16 sillas son las que hay con 4 mesas, no con una."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mira la tabla de maíz:\nBolsas: 1 | 2 | 3\nKilos: 2 | 4 | 6\n¿Cuántos kilos hay en 3 bolsas? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la columna donde dice 3 bolsas.",
+          "Debajo del 3 está la cantidad de kilos.",
+          "Debajo del 3 está el 6."
+        ],
+        "retroalimentacion": "En 3 bolsas hay 6 kilos. Cada bolsa trae 2 kilos y 3 × 2 = 6."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tabla de cuadernos dice:\nCuadernos: 2 | 4 | 6\nSoles: 10 | 20 | 30\n¿Cuánto cuesta 1 cuaderno? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La tabla no empieza en 1 cuaderno; mira de dos en dos.",
+          "2 cuadernos cuestan 10 soles; reparte esos 10 soles entre 2.",
+          "10 ÷ 2 = ..."
+        ],
+        "retroalimentacion": "Si crees que 1 cuaderno cuesta 10 soles, olvidaste que ese precio es de 2 cuadernos. Cada cuaderno cuesta 5 soles."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira la tabla de cuyes del mercado:\nCuyes: 1 | 2 | 3 | 4\nSoles: 18 | 36 | 54 | 72\n¿Qué regla cumple la tabla?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cada cuy cuesta 18 soles"
+          },
+          {
+            "id": "b",
+            "texto": "Cada cuy cuesta 36 soles"
+          },
+          {
+            "id": "c",
+            "texto": "Cada cuy cuesta 4 soles"
+          },
+          {
+            "id": "d",
+            "texto": "Cada cuy cuesta 72 soles"
+          }
+        ],
+        "pistas": [
+          "Mira el precio cuando hay un solo cuy.",
+          "Con 1 cuy se pagan 18 soles y con 2 cuyes 36.",
+          "Al agregar un cuy, los soles suben 18."
+        ],
+        "retroalimentacion": "La regla es que cada cuy cuesta 18 soles. 72 soles es lo que cuestan los 4 cuyes juntos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La tabla Latas: 1 | 2 | 3 y Soles: 3 | 6 | 10 muestra que cada lata cuesta 3 soles.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si los soles suben siempre lo mismo.",
+          "De 1 a 2 latas suben 3 soles; de 2 a 3 latas suben otro número.",
+          "Con 3 latas debería ser 9 soles, pero la tabla dice 10."
+        ],
+        "retroalimentacion": "Es falso: de 2 a 3 latas los soles suben 4, no 3. La regla de 3 soles por lata no se cumple."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Hay una tabla con dos filas sin título, A y B.\nFila A: 1 | 2 | 3 | 4\nFila B: 3 | 6 | 9 | 12\nUna fila cuenta panes y la otra soles; cada pan cuesta 3 soles. ¿Qué fila cuenta los soles? Escribe A o B.",
+        "respuesta": "B",
+        "alternativasAceptadas": [
+          "fila b",
+          "la b",
+          "b"
+        ],
+        "pistas": [
+          "Piensa: ¿cuál fila crece de 3 en 3, panes o soles?",
+          "Si cada pan cuesta 3 soles, los soles van 3, 6, 9...",
+          "Esa fila es la que tiene 3, 6, 9, 12."
+        ],
+        "retroalimentacion": "Cuenta los soles la fila B, porque crece de 3 en 3. La fila A solo cuenta los panes: 1, 2, 3, 4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Don Mario vende bolsas de maíz y anota:\nBolsas: 2 | 3 | 5\nSoles: 14 | 21 | 35\n¿Cuánto paga Rosa por 8 bolsas? Escribe solo el número.",
+        "respuesta": 56,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La tabla no tiene la columna de 1 bolsa; búscala tú.",
+          "14 soles por 2 bolsas: reparte entre 2 para saber el precio de una.",
+          "Cada bolsa cuesta 7 soles; ahora calcula 8 × 7."
+        ],
+        "retroalimentacion": "Cada bolsa cuesta 7 soles y 8 × 7 = 56. Si sumas 35 + 21 usas columnas que no son 8 bolsas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos puestos venden queso así:\nPuesto A: 1 kg cuesta 4 soles, 2 kg cuestan 8 soles, 3 kg cuestan 12 soles.\nPuesto B: 1 kg cuesta 3 soles, 2 kg cuestan 6 soles, 3 kg cuestan 10 soles.\n¿Qué afirmación es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En los dos puestos cada kilo cuesta lo mismo en todas las compras"
+          },
+          {
+            "id": "b",
+            "texto": "En B cada kilo cuesta siempre 3 soles"
+          },
+          {
+            "id": "c",
+            "texto": "En A el precio por kilo cambia en cada compra"
+          },
+          {
+            "id": "d",
+            "texto": "En A cada kilo cuesta 4 soles siempre; en B el precio por kilo no se mantiene"
+          }
+        ],
+        "pistas": [
+          "Revisa los saltos de la tabla de cada puesto.",
+          "En A los soles suben 4, 4 y 4; mira cuánto suben en B.",
+          "En B suben 3 y luego 4."
+        ],
+        "retroalimentacion": "En A los soles suben siempre 4, y en B suben 3 y luego 4, así que el precio por kilo no se mantiene. Decir que en B siempre cuesta 3 soles es un error."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Carla ahorra cada día la misma cantidad:\nDías: 1 | 2 | 3 | 4\nSoles ahorrados: 3 | 6 | 9 | 12\nQuiere juntar 30 soles. ¿En cuántos días lo logra? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la regla: ¿cuántos soles ahorra cada día?",
+          "Ahorra 3 soles por día; pregúntate cuántos 3 caben en 30.",
+          "30 ÷ 3 = ..."
+        ],
+        "retroalimentacion": "Ahorra 3 soles por día y 30 ÷ 3 = 10. Si respondes 12 miraste el último dato de la tabla sin continuarla."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Daniela dice: «Si 2 pasajes de combi cuestan 6 soles, 4 pasajes cuestan 10 soles porque 6 + 4 = 10». Su razonamiento es correcto.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Averigua primero cuánto cuesta 1 pasaje.",
+          "Cada pasaje cuesta 3 soles porque 6 ÷ 2 = 3.",
+          "4 pasajes son 4 × 3, no 6 + 4."
+        ],
+        "retroalimentacion": "Es falso: cada pasaje cuesta 3 soles y 4 pasajes cuestan 12 soles. Daniela sumó el número de pasajes en vez de aplicar la regla."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.cambio-dibujos-graficos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P4-04"
+    ],
+    "bloque": "Relaciones de cambio",
+    "nombre": "Relación de cambio en dibujos",
+    "disciplina": "algebra",
+    "descripcionCorta": "Describe con dibujos o esquemas cómo varía una magnitud respecto de otra.",
+    "palabrasClave": [
+      "dibujo",
+      "esquema",
+      "pictograma",
+      "cambio",
+      "representar"
+    ],
+    "prerrequisitos": [
+      "mat.p4.tabla-dos-magnitudes"
+    ],
+    "ordenSugerido": 99,
+    "ideaCentral": "Los dibujos y esquemas muestran cómo cambia una cantidad cuando cambia otra. Si cada figura o grupo vale lo mismo, puedes contar de a poco para descubrir el patrón.",
+    "pasos": [
+      "Mira qué representa cada dibujo o símbolo, como ● o ★.",
+      "Cuenta cuánto agrega cada paso.",
+      "Describe el cambio con tus palabras: «cada caja agrega 3 limones».",
+      "Usa el cambio para dibujar el siguiente paso o calcular el total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Cada canasta de la chacra lleva 3 mazorcas. Canasta 1: ●●●. Canasta 2: ●●● ●●●. ¿Cuántas mazorcas habrá en 3 canastas?",
+        "desarrollo": "Cada canasta agrega ●●●, o sea 3 mazorcas: 3, 6 y luego 9.",
+        "respuesta": "3 canastas tienen 9 mazorcas."
+      },
+      {
+        "situacion": "En la tienda de doña Rosa cada mesa tiene 4 patas. Mesa 1: ||||. Mesa 2: |||| ||||. ¿Cuántas patas hay con 3 mesas?",
+        "desarrollo": "Cada mesa agrega |||| patas: 4, 8, 12.",
+        "respuesta": "Con 3 mesas hay 12 patas."
+      },
+      {
+        "situacion": "Si cada ★ vale 2 cuyes y la jaula A tiene ★★★, ¿cuántos cuyes hay en la jaula A?",
+        "desarrollo": "Hay 3 estrellas y cada una vale 2 cuyes: 3 × 2.",
+        "respuesta": "La jaula A tiene 6 cuyes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo los dibujos y olvidar cuánto vale cada uno.",
+        "correccion": "Revisa qué valor tiene cada símbolo: 3 estrellas de 5 soles son 15 soles, no 3."
+      },
+      {
+        "error": "Dibujar el siguiente paso agregando la cantidad equivocada.",
+        "correccion": "Mira antes cuánto agregó el paso anterior y repite ese mismo cambio."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Pictograma",
+        "significado": "Dibujo en el que cada figura vale una cantidad."
+      },
+      {
+        "termino": "Esquema",
+        "significado": "Dibujo sencillo que resume cómo se organizan los datos."
+      },
+      {
+        "termino": "Patrón",
+        "significado": "Lo que se repite en cada paso."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Cada vaso lleva 2 cucharadas de azúcar.\nVaso 1: ●●\nVaso 2: ●● ●●\nVaso 3: ●● ●● ●●\n¿Cuántas cucharadas llevarán 4 vasos? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada ● es una cucharada.",
+          "Cada vaso nuevo agrega ●●, es decir 2 cucharadas.",
+          "Cuenta de 2 en 2: 2, 4, 6, ..."
+        ],
+        "retroalimentacion": "Cada vaso agrega 2 cucharadas: 2, 4, 6 y 8. Con 4 vasos son 8 cucharadas."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Bolsa 1: ★★★\nBolsa 2: ★★★ ★★★\nEl dibujo muestra que cada bolsa agrega 3 estrellas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las estrellas de la bolsa 1.",
+          "La bolsa 1 tiene 3 estrellas; mira cuántas más aparecen en la bolsa 2.",
+          "La bolsa 2 tiene otras 3 estrellas más: ★★★ ★★★."
+        ],
+        "retroalimentacion": "Es verdadero: de una bolsa a la siguiente se agregan 3 estrellas, así que el cambio es de 3 en 3."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Triciclo 1: ●●●\nTriciclo 2: ●●● ●●●\nTriciclo 3: ●●● ●●● ●●●\nSi cada ● es una rueda, ¿qué significa cada grupo ●●●?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Las 3 puertas de una combi"
+          },
+          {
+            "id": "b",
+            "texto": "Las 6 ruedas de dos triciclos"
+          },
+          {
+            "id": "c",
+            "texto": "Las 3 ruedas de un triciclo"
+          },
+          {
+            "id": "d",
+            "texto": "Las 9 ruedas de tres triciclos"
+          }
+        ],
+        "pistas": [
+          "Un triciclo es un vehículo con ruedas; cada ● es una rueda.",
+          "Un solo grupo ●●● aparece por cada triciclo.",
+          "Un grupo = un triciclo = 3 ruedas."
+        ],
+        "retroalimentacion": "Cada grupo ●●● son las 3 ruedas de un triciclo. Los 9 ● juntos son las ruedas de los 3 triciclos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un pictograma, cada ★ vale 5 soles. Don Luis vendió el lunes ★★★★. ¿Cuántos soles vendió el lunes? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas ★ hay el lunes.",
+          "Hay 4 estrellas y cada una vale 5 soles.",
+          "Calcula 4 × 5, o suma 5 + 5 + 5 + 5."
+        ],
+        "retroalimentacion": "4 estrellas valen 4 × 5 = 20 soles. Responder 4 es decir solo cuántas estrellas hay."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una panadería, cada ★ vale 4 panes.\nMañana: ★★★\nTarde: ★★★★★\n¿Cuántos panes más se vendieron en la tarde que en la mañana? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero mira cuántas estrellas hay en cada turno.",
+          "La tarde tiene 5 estrellas y la mañana 3; compara esa diferencia.",
+          "Hay 2 estrellas de diferencia y cada una vale 4 panes."
+        ],
+        "retroalimentacion": "La diferencia es 5 − 3 = 2 estrellas, y 2 × 4 = 8 panes. Si restas 5 − 3 y paras, falta multiplicar por 4."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una chacra de Cusco se siembra así:\nFila 1: ●●●●\nFila 2: ●●●●●●●●\nFila 3: ●●●●●●●●●●●●\nSi sigue igual, ¿cuántas plantas tendrá la fila 5? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las plantas de cada fila y mira cómo crecen.",
+          "Fila 1 tiene 4, fila 2 tiene 8 y fila 3 tiene 12: sube de 4 en 4.",
+          "Después de 12 vienen 16 (fila 4) y luego la fila 5."
+        ],
+        "retroalimentacion": "Cada fila agrega 4 plantas: 4, 8, 12, 16 y 20. La fila 5 tiene 20 plantas, no 5 × 5."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Jaula 1: ●●\nJaula 2: ●●●●\nJaula 3: ●●●●●\nEl dibujo muestra que cada jaula agrega 2 cuyes.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los cuyes de cada jaula: 2, 4 y ...",
+          "De la jaula 2 a la jaula 3 mira cuántos cuyes se agregan.",
+          "Pasó de 4 a 5, o sea agregó solo 1."
+        ],
+        "retroalimentacion": "Es falso: de la jaula 2 a la 3 solo se agrega 1 cuy. Para que cada jaula agregara 2 tendría 6."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Dos esquemas de soles ahorrados:\nA: ★ | ★★ | ★★★\nB: ★ | ★★ | ★★★★\n¿Cuál esquema muestra que cada paso agrega una estrella? Escribe A o B.",
+        "respuesta": "A",
+        "alternativasAceptadas": [
+          "esquema a",
+          "el a",
+          "a"
+        ],
+        "pistas": [
+          "Cuenta las estrellas de cada paso en A y en B.",
+          "En A hay 1, 2 y 3 estrellas; en B hay 1, 2 y 4.",
+          "En uno de los esquemas el último paso agrega 2 estrellas."
+        ],
+        "retroalimentacion": "Es el esquema A: 1, 2 y 3 estrellas, siempre una más. En B el último paso salta de 2 a 4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un pictograma de papa cada ★ vale 6 kg.\nLima: ★★\nCusco: ★★★★★\nUn camión descarga 2 estrellas de Cusco. ¿Cuántos kg quedan en total entre Lima y Cusco? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero cuenta todas las estrellas: Lima y Cusco.",
+          "Hay 2 + 5 = 7 estrellas; el camión quita 2.",
+          "Quedan 5 estrellas y cada una vale 6 kg."
+        ],
+        "retroalimentacion": "Quedan 7 − 2 = 5 estrellas y 5 × 6 = 30 kg. Si quitas 2 kg y no 2 estrellas, te equivocas porque cada estrella vale 6 kg."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Don Beto lleva 4 jaulas con 3 cuyes cada una al mercado. ¿Qué dibujo y qué total son correctos?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "[●●●] [●●●] [●●●] = 9 cuyes"
+          },
+          {
+            "id": "b",
+            "texto": "[●●●] [●●●] [●●●] [●●●] = 12 cuyes"
+          },
+          {
+            "id": "c",
+            "texto": "[●●●●] [●●●●] [●●●●] = 12 cuyes"
+          },
+          {
+            "id": "d",
+            "texto": "[●●●] [●●●] [●●●] [●●●] = 7 cuyes"
+          }
+        ],
+        "pistas": [
+          "Revisa dos cosas: cuántas jaulas dibuja y cuántos cuyes hay en cada una.",
+          "Debe haber 4 grupos y cada grupo de 3 cuyes.",
+          "Suma 3 + 3 + 3 + 3."
+        ],
+        "retroalimentacion": "Hay que dibujar 4 grupos de 3 cuyes: 12 en total. El dibujo de 3 grupos de 4 tiene también 12, pero no representa las jaulas del problema."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un esquema por días:\nDía 1: ●\nDía 2: ●●●\nDía 3: ●●●●●\nCada día se agregan 2 ●. ¿Cuántos ● habrá el día 7? Escribe solo el número.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira con cuántos ● empieza el día 1 y cuántos se agregan.",
+          "El día 1 tiene 1 ●; hasta el día 7 hay 6 saltos de 2.",
+          "Calcula 1 + 6 × 2."
+        ],
+        "retroalimentacion": "Del día 1 al 7 hay 6 saltos de 2: 1 + 12 = 13. Si respondes 14 olvidaste que el día 1 no agrega 2."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un pictograma cada ★ vale 10 soles. El lunes se dibujan ★★★ y el martes ★★. Entre los dos días se vendieron 40 soles.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las estrellas de los dos días juntos.",
+          "3 + 2 = 5 estrellas en total.",
+          "Cada estrella vale 10 soles, así que 5 estrellas valen más de 40."
+        ],
+        "retroalimentacion": "Es falso: 5 estrellas × 10 soles = 50 soles. Con 40 soles solo habría 4 estrellas."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.valores-faltantes-cambio",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P4-05"
+    ],
+    "bloque": "Relaciones de cambio",
+    "nombre": "Valores que faltan en una relación de cambio",
+    "disciplina": "algebra",
+    "descripcionCorta": "Completa una tabla de dos magnitudes encontrando la relación entre ellas.",
+    "palabrasClave": [
+      "tabla",
+      "valor faltante",
+      "regla",
+      "completar",
+      "relación de cambio"
+    ],
+    "prerrequisitos": [
+      "mat.p4.tabla-dos-magnitudes"
+    ],
+    "ordenSugerido": 115,
+    "ideaCentral": "Si descubres la regla que une dos cantidades, puedes completar los valores que faltan en la tabla. Busca primero cuánto cambia una fila cuando la otra sube 1.",
+    "pasos": [
+      "Mira los pares que sí están completos.",
+      "Halla de cuánto en cuánto sube cada fila.",
+      "Escribe la regla, por ejemplo «cada pan cuesta 2 soles».",
+      "Usa la regla para completar el valor que falta y revisa con otro par."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la tabla de cuadernos: Cuadernos 1, 2, 3, 4 y Soles 3, 6, ?, 12. ¿Qué número falta?",
+        "desarrollo": "Los soles suben de 3 en 3: 3, 6, 9, 12.",
+        "respuesta": "Falta el 9."
+      },
+      {
+        "situacion": "Una tabla de kilos y soles: Kilos 1, 2, ?, 4 y Soles 4, 8, 12, 16. ¿Qué kilos faltan?",
+        "desarrollo": "El precio de 1 kilo es 4. Para 12 soles, 12 ÷ 4 = 3.",
+        "respuesta": "Falta 3 kilos."
+      },
+      {
+        "situacion": "Una familia de Iquitos camina: Horas 1, 2, 3 y Km 4, 8, 12. ¿Cuántos km en 6 horas?",
+        "desarrollo": "Camina 4 km por hora, entonces 6 × 4.",
+        "respuesta": "Recorren 24 km en 6 horas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Completar el número que falta sumando siempre 1.",
+        "correccion": "Primero mira cuánto suben realmente los datos de la fila de abajo."
+      },
+      {
+        "error": "Confundir el valor que falta con el que va en la otra fila.",
+        "correccion": "Revisa en qué fila está el hueco y qué magnitud representa."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Valor faltante",
+        "significado": "El número que no está escrito en la tabla y debes encontrar."
+      },
+      {
+        "termino": "Regla",
+        "significado": "Lo que se repite y permite completar la tabla."
+      },
+      {
+        "termino": "Columna",
+        "significado": "Cada par de datos que se leen juntos, de arriba abajo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Completa la tabla de huevos de la granja:\nCajas: 1 | 2 | 3 | 4\nHuevos: 6 | 12 | ? | 24\n¿Qué número va en lugar de ?? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira de cuánto en cuánto suben los huevos.",
+          "6, 12, ...: cada caja suma 6 huevos.",
+          "Después de 12 viene 12 + 6, y antes de 24 está 24 − 6."
+        ],
+        "retroalimentacion": "Cada caja agrega 6 huevos: 6, 12, 18, 24. El número que falta es 18."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un camión recorre la misma distancia cada hora:\nHoras: 1 | 2 | 3 | 4\nKm: 5 | 10 | 15 | ?\n¿Cuántos km recorre en 4 horas? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los kilómetros suben igual en cada hora.",
+          "Suben de 5 en 5.",
+          "15 + 5 = ..."
+        ],
+        "retroalimentacion": "El camión agrega 5 km cada hora: 5, 10, 15 y 20. En 4 horas recorre 20 km."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Completa la tabla de latas de atún:\nLatas: 1 | 2 | 3 | 4\nSoles: 3 | 6 | 9 | ?\n¿Qué número falta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "13"
+          },
+          {
+            "id": "d",
+            "texto": "7"
+          }
+        ],
+        "pistas": [
+          "Mira los números ya escritos: 3, 6, 9.",
+          "Suben de 3 en 3.",
+          "Suma 3 a 9."
+        ],
+        "retroalimentacion": "Los soles suben de 3 en 3, así que después de 9 va 12. El 10 no sigue ese salto."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Bolsas: 1 | 2 | 3 | 4 y Naranjas: 8 | 16 | 24 | ?. El número que falta es 32.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira de cuánto en cuánto suben las naranjas.",
+          "Suben de 8 en 8: 8, 16, 24.",
+          "24 + 8 = ..."
+        ],
+        "retroalimentacion": "Es verdadero: 24 + 8 = 32, porque cada bolsa trae 8 naranjas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Pasajes de combi:\nPasajes: 1 | 2 | ? | 4\nSoles: 2 | 4 | 6 | 8\n¿Cuántos pasajes se pagan con 6 soles? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aquí falta un dato de la fila de arriba.",
+          "Cada pasaje cuesta 2 soles.",
+          "Mira qué número de arriba está sobre el 6."
+        ],
+        "retroalimentacion": "Con 6 soles se pagan 3 pasajes, porque 6 ÷ 2 = 3. Ese es el número que falta en la fila de arriba."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la tienda de útiles:\nCuadernos: 2 | 4 | 6 | 8\nSoles: 10 | 20 | 30 | ?\n¿Cuántos soles cuestan 8 cuadernos? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla cuánto sube la fila de soles cuando suben 2 cuadernos.",
+          "Cada 2 cuadernos agregan 10 soles.",
+          "30 + 10 = ..."
+        ],
+        "retroalimentacion": "Cada 2 cuadernos agregan 10 soles: 10, 20, 30, 40. Si sumas 2 en lugar de 10, no sigues la regla."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Metros de tela: 1 | 2 | 3 y soles: 12 | 24 | 36. Para saber cuántos soles cuestan 10 metros, ¿debes sumar 12 o multiplicar por 12? Escribe sumar o multiplicar.",
+        "respuesta": "multiplicar",
+        "alternativasAceptadas": [
+          "multiplicar por 12",
+          "multiplicar por 12 los metros",
+          "x",
+          "por"
+        ],
+        "pistas": [
+          "Piensa en cuánto cuesta 1 metro.",
+          "Un metro cuesta 12, y 10 metros son 10 veces ese precio.",
+          "Repetir 12 diez veces es lo mismo que 10 × 12."
+        ],
+        "retroalimentacion": "Debes multiplicar: 10 × 12 = 120 soles. Sumar 12 solo te sirve para pasar de un metro al siguiente."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Completa la tabla de mesas:\nMesas: 1 | 2 | ? | 5\nPatas: 4 | 8 | 12 | ?\n¿Qué números faltan, en orden?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 y 16"
+          },
+          {
+            "id": "b",
+            "texto": "3 y 20"
+          },
+          {
+            "id": "c",
+            "texto": "4 y 20"
+          },
+          {
+            "id": "d",
+            "texto": "3 y 24"
+          }
+        ],
+        "pistas": [
+          "Cada mesa tiene un número fijo de patas.",
+          "Cada mesa tiene 4 patas: 4, 8, 12.",
+          "12 patas son 3 mesas; para 5 mesas calcula 5 × 4."
+        ],
+        "retroalimentacion": "Con 12 patas hay 3 mesas, y 5 mesas tienen 20 patas. Respuestas como 3 y 16 olvidan que 5 × 4 = 20."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un caminante avanza siempre igual:\nHoras: 2 | ? | 6\nKm: 12 | 18 | 36\nSi recorrió 48 km, ¿cuántas horas caminó? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla cuántos km recorre en 1 hora con los datos de 2 horas.",
+          "En 2 horas recorre 12 km, o sea 6 km por hora.",
+          "Cuenta cuántos grupos de 6 caben en 48."
+        ],
+        "retroalimentacion": "Camina 6 km por hora y 48 ÷ 6 = 8 horas. La hora que falta en la tabla es 3, no el 8."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Luis y su papá tienen edades que cambian juntas:\nEdad de Luis: 5 | 6 | 7 | 8\nEdad del papá: 33 | 34 | 35 | ?\nCuando Luis tenga 10 años, ¿cuántos años tendrá su papá? Escribe solo el número.",
+        "respuesta": 38,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aquí ambos suben 1 al año; no es multiplicar.",
+          "Cada edad del papá es la de Luis más una misma cantidad.",
+          "33 − 5 = 28, así que suma 28 a la edad de Luis."
+        ],
+        "retroalimentacion": "El papá tiene siempre 28 años más que Luis: 10 + 28 = 38. La regla es sumar 28, no multiplicar."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla Cuyes: 3 | 6 | 9 y Soles: 54 | 108 | 162, 12 cuyes cuestan 200 soles.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el precio de 1 cuy.",
+          "54 ÷ 3 = 18 soles por cuy.",
+          "12 cuyes son 12 × 18."
+        ],
+        "retroalimentacion": "Es falso: 12 × 18 = 216 soles. Con 200 soles no alcanza."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la feria, cada kilo de queso cuesta lo que indica la tabla:\nKilos: 1 | 2 | 3\nSoles: 8 | 16 | 24\nDoña Marta lleva 100 soles. ¿Cuántos kilos completos puede comprar? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada kilo cuesta 8 soles.",
+          "Cuenta cuántos 8 caben en 100.",
+          "12 × 8 = 96 y 13 × 8 = 104."
+        ],
+        "retroalimentacion": "12 kilos cuestan 96 soles, y 13 kilos costarían 104, que es más de 100. Puede comprar 12 kilos completos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.justificar-relacion-cambio",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P4-07"
+    ],
+    "bloque": "Relaciones de cambio",
+    "nombre": "Explicación de relaciones de cambio",
+    "disciplina": "algebra",
+    "descripcionCorta": "Justifica con ejemplos la relación hallada entre dos magnitudes y su proceso.",
+    "palabrasClave": [
+      "justificar",
+      "explicar",
+      "regla",
+      "comprobar",
+      "argumentar"
+    ],
+    "prerrequisitos": [
+      "mat.p4.valores-faltantes-cambio"
+    ],
+    "ordenSugerido": 116,
+    "ideaCentral": "Justificar es explicar por qué una relación es cierta usando los datos de la tabla, un dibujo o una cuenta. Una buena justificación nombra la regla y la comprueba.",
+    "pasos": [
+      "Lee la afirmación y busca los datos de la tabla.",
+      "Halla la regla, por ejemplo cuánto cuesta 1.",
+      "Haz la cuenta que comprueba la afirmación.",
+      "Explica con tus palabras por qué es verdadera o falsa."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana dice que 4 cuadernos de 5 soles cuestan 20 soles. ¿Cómo lo justificas?",
+        "desarrollo": "Cada cuaderno cuesta 5 soles y son 4 cuadernos: 4 × 5.",
+        "respuesta": "Es cierto porque 4 × 5 = 20."
+      },
+      {
+        "situacion": "Hugo dice: «Si 3 kg de quinua cuestan 9 soles, 6 kg cuestan 18 soles». ¿Qué piensas?",
+        "desarrollo": "6 kg son el doble de 3 kg, y el doble de 9 es 18.",
+        "respuesta": "Tiene razón: al duplicar los kilos se duplica el precio."
+      },
+      {
+        "situacion": "Eva dice: «2 entradas cuestan 10 soles, así que 4 entradas cuestan 14». ¿Es cierto?",
+        "desarrollo": "Cada entrada cuesta 5 soles; 4 entradas son 4 × 5.",
+        "respuesta": "Es falso: 4 entradas cuestan 20 soles."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Justificar solo con «porque sí» o sin usar los datos.",
+        "correccion": "Menciona la regla y haz la cuenta con los números de la tabla."
+      },
+      {
+        "error": "Sumar los números de la pregunta sin pensar qué representan.",
+        "correccion": "Pregunta qué significa cada número, kilos o soles, antes de operar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Justificar",
+        "significado": "Explicar con razones por qué algo es cierto."
+      },
+      {
+        "termino": "Comprobar",
+        "significado": "Hacer una cuenta o prueba para ver si algo es verdadero."
+      },
+      {
+        "termino": "Afirmación",
+        "significado": "Algo que alguien dice y que se puede verificar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 1 pan cuesta 2 soles, 3 panes cuestan 6 soles. Puedes comprobarlo sumando 2 + 2 + 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cuánto pagas por cada pan.",
+          "Cada pan cuesta 2 soles y compras 3 panes.",
+          "Suma 2 tres veces: 2 + 2 + 2."
+        ],
+        "retroalimentacion": "Es verdadero: 2 + 2 + 2 = 6 soles. Sumar tres veces el precio de un pan justifica el total."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pedro dice: «5 bolsas de quinua cuestan 15 soles porque cada bolsa cuesta 3 soles». ¿Qué cuenta justifica su respuesta?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 + 3 = 8"
+          },
+          {
+            "id": "b",
+            "texto": "15 − 5 = 10"
+          },
+          {
+            "id": "c",
+            "texto": "5 × 3 = 15"
+          },
+          {
+            "id": "d",
+            "texto": "3 + 3 = 6"
+          }
+        ],
+        "pistas": [
+          "Hay 5 bolsas y cada una cuesta lo mismo.",
+          "Se repite 3 soles cinco veces.",
+          "Esa repetición se escribe con una multiplicación."
+        ],
+        "retroalimentacion": "La cuenta correcta es 5 × 3 = 15, porque son 5 bolsas de 3 soles. 5 + 3 mezcla bolsas con soles."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mira la tabla:\nKilos: 1 | 2 | 3\nSoles: 4 | 8 | 12\nLola explica: «Cada kilo cuesta lo mismo porque 8 ÷ 2 es igual a 12 ÷ 3». ¿Cuánto vale 8 ÷ 2? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide los soles entre los kilos.",
+          "8 soles son de 2 kilos.",
+          "¿Cuántas veces cabe el 2 en el 8?"
+        ],
+        "retroalimentacion": "8 ÷ 2 = 4 y 12 ÷ 3 = 4: cada kilo cuesta 4 soles. Por eso Lola puede justificar la regla."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para justificar que 3 entradas de 5 soles cuestan 15 soles, escribe la multiplicación con la x, empezando por 3. Ejemplo de formato: 3 x 5.",
+        "respuesta": "3 x 5",
+        "alternativasAceptadas": [
+          "3x5",
+          "3 × 5",
+          "3×5",
+          "3 x 5 = 15",
+          "3x5=15",
+          "3 × 5 = 15",
+          "3×5=15"
+        ],
+        "pistas": [
+          "Son 3 entradas, y cada una cuesta 5 soles.",
+          "Debes escribir primero el número de entradas.",
+          "Escribe 3, luego el signo y luego 5."
+        ],
+        "retroalimentacion": "La multiplicación es 3 × 5, que da 15 soles. Cada entrada cuesta 5 soles."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mateo dice: «Si 2 kg de papa cuestan 10 soles, 4 kg cuestan 20 soles». Sara dice: «4 kg cuestan 14 soles, porque 10 + 4». ¿Quién tiene razón?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mateo, porque al duplicar los kilos se duplica el precio"
+          },
+          {
+            "id": "b",
+            "texto": "Sara, porque 10 + 4 = 14"
+          },
+          {
+            "id": "c",
+            "texto": "Las dos, porque cada una hizo una suma"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna, porque no se puede calcular"
+          }
+        ],
+        "pistas": [
+          "Compara cuántos kilos hay: de 2 a 4 kg.",
+          "4 kg es el doble de 2 kg; piensa qué pasa con el precio.",
+          "El doble de 10 soles es 10 + 10."
+        ],
+        "retroalimentacion": "Mateo tiene razón: si los kilos se duplican, el precio también, y 10 + 10 = 20. Sara suma 4 como si fueran soles."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tabla de latas:\nLatas: 2 | 4 | 6\nSoles: 8 | 16 | 24\nBeto justifica: «cada lata cuesta lo mismo». Con ese precio, ¿cuántos soles cuestan 10 latas? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descubre el precio de una lata usando cualquier columna.",
+          "8 soles son de 2 latas, por lo tanto 1 lata cuesta 4.",
+          "Multiplica 10 por ese precio."
+        ],
+        "retroalimentacion": "Cada lata cuesta 4 soles y 10 × 4 = 40. Beto puede mostrar que las tres columnas cumplen esa regla."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Carlos dice: «Como 3 cuadernos cuestan 12 soles, 6 cuadernos cuestan 18 soles porque 12 + 6». Su justificación es correcta.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "6 cuadernos es el doble de 3 cuadernos.",
+          "Si se duplica el número de cuadernos, se duplica el precio.",
+          "El doble de 12 es 24."
+        ],
+        "retroalimentacion": "Es falso: 6 cuadernos cuestan 24 soles, porque 12 + 12 = 24. Carlos sumó el número de cuadernos en vez de duplicar."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla de cajas de lápices es:\nCajas: 1 | 2 | 3\nLápices: 6 | 12 | 18\n¿Cuál es la mejor justificación de que 5 cajas traen 30 lápices?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 + 6 = 11"
+          },
+          {
+            "id": "b",
+            "texto": "Cada caja trae 6 lápices y 5 × 6 = 30"
+          },
+          {
+            "id": "c",
+            "texto": "30 es un número grande"
+          },
+          {
+            "id": "d",
+            "texto": "5 es impar"
+          }
+        ],
+        "pistas": [
+          "Una justificación debe usar la regla de la tabla.",
+          "La regla es cuántos lápices trae una caja.",
+          "Cada caja trae 6 lápices, y compras 5 cajas."
+        ],
+        "retroalimentacion": "La mejor justificación usa la regla: 6 lápices por caja y 5 × 6 = 30. Las otras no usan los datos de la tabla."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Rosa dice: «Si 4 combis llevan 60 personas, entonces 7 combis llevan 105». Para comprobarlo, ¿cuántas personas lleva cada combi? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reparte las 60 personas entre las 4 combis.",
+          "60 ÷ 4 = ...",
+          "Después comprueba que 7 × ese número da 105."
+        ],
+        "retroalimentacion": "Cada combi lleva 15 personas porque 60 ÷ 4 = 15, y 7 × 15 = 105. Rosa tenía razón."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la tabla Horas: 1 | 2 | 3 y Km: 50 | 100 | 150, Elena dice: «En 5 horas recorre 250 km, y en 10 horas 500 km, porque al doblar las horas se dobla la distancia». ¿Es correcta su justificación?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No: 10 horas son 300 km"
+          },
+          {
+            "id": "b",
+            "texto": "No: 5 horas son 200 km"
+          },
+          {
+            "id": "c",
+            "texto": "No: las horas no se pueden duplicar"
+          },
+          {
+            "id": "d",
+            "texto": "Sí: 5 h son 250 km y 10 h el doble, 500 km"
+          }
+        ],
+        "pistas": [
+          "Primero halla cuántos km recorre en 1 hora.",
+          "Recorre 50 km por hora; calcula 5 × 50.",
+          "Si las horas se duplican, también se duplican los km."
+        ],
+        "retroalimentacion": "Es correcta: 5 × 50 = 250 km, y 10 horas es el doble, 500 km. No es cierto que 10 horas den solo 300 km."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tienda cobra 10 soles por 2 gorras. Lucy dice: «Si compro 9 gorras pagaré 45 soles». Su afirmación es correcta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla el precio de 1 gorra.",
+          "10 soles son de 2 gorras, entonces 1 gorra cuesta 5.",
+          "Calcula 9 × 5."
+        ],
+        "retroalimentacion": "Es verdadero: 1 gorra cuesta 5 soles y 9 × 5 = 45. Lucy puede justificarlo con la regla."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Don Pablo dice: «12 botellas de chicha cuestan 36 soles». Si el precio por botella es el mismo, ¿cuántos soles más se pagan por 20 botellas que por 12? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla el precio de una botella.",
+          "36 ÷ 12 = 3 soles por botella.",
+          "Calcula el precio de 20 botellas y réstale 36."
+        ],
+        "retroalimentacion": "Cada botella cuesta 3 soles; 20 botellas cuestan 60, o sea 60 − 36 = 24 soles más."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
