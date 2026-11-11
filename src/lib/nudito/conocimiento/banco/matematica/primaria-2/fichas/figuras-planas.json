@@ -1,0 +1,2832 @@
+[
+  {
+    "clave": "mat.p2.lineas-abiertas-cerradas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P2-03"
+    ],
+    "bloque": "Figuras planas",
+    "nombre": "Líneas abiertas y cerradas",
+    "disciplina": "geometria",
+    "descripcionCorta": "Distingue líneas abiertas y cerradas e identifica el interior y el exterior de una figura.",
+    "palabrasClave": [
+      "línea abierta",
+      "línea cerrada",
+      "interior",
+      "exterior",
+      "figura"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 20,
+    "ideaCentral": "Una línea cerrada vuelve al punto donde empezó y encierra un espacio. Una línea abierta tiene los extremos separados. Lo que está adentro es el interior y lo de afuera es el exterior.",
+    "pasos": [
+      "Sigue la línea con el dedo desde su inicio.",
+      "Si vuelves al punto de partida sin levantar el dedo, es cerrada; si no, es abierta.",
+      "En una línea cerrada, lo que está encerrado es el interior.",
+      "Lo que está fuera es el exterior."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una cuerda forma un aro en el suelo, con los extremos unidos. ¿Es abierta o cerrada?",
+        "desarrollo": "Los extremos se tocan y forman una vuelta completa.",
+        "respuesta": "Es cerrada."
+      },
+      {
+        "situacion": "Un cerco de chacra tiene un hueco. ¿Es abierto o cerrado?",
+        "desarrollo": "Los extremos no se juntan, queda un hueco.",
+        "respuesta": "Es abierto."
+      },
+      {
+        "situacion": "Un cuy está dentro de un corral cerrado. ¿Dónde está?",
+        "desarrollo": "Está encerrado dentro de la línea.",
+        "respuesta": "Está en el interior."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que toda línea curva es cerrada.",
+        "correccion": "Una curva puede ser abierta, como una S. Es cerrada solo si vuelve al inicio."
+      },
+      {
+        "error": "Creer que una línea abierta tiene interior.",
+        "correccion": "Si no se cierra, no encierra nada: no hay interior ni exterior."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Línea cerrada",
+        "significado": "Línea que empieza y termina en el mismo punto."
+      },
+      {
+        "termino": "Línea abierta",
+        "significado": "Línea cuyos extremos no se unen."
+      },
+      {
+        "termino": "Interior",
+        "significado": "Lo que queda encerrado dentro de una línea cerrada."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una línea cerrada empieza y termina en el mismo punto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina dibujar un círculo sin levantar el lápiz.",
+          "Al final llegas donde empezaste.",
+          "Eso es lo que hace una línea cerrada."
+        ],
+        "retroalimentacion": "Es verdadero: la línea cerrada vuelve a su punto de partida."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas es una línea cerrada?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La letra L"
+          },
+          {
+            "id": "b",
+            "texto": "Un aro de hula hula"
+          },
+          {
+            "id": "c",
+            "texto": "Una raya recta"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una línea cerrada no tiene extremos sueltos.",
+          "Mira cuál forma una vuelta completa.",
+          "El aro es una vuelta que se une consigo misma."
+        ],
+        "retroalimentacion": "El aro de hula hula se cierra. La letra L y la raya recta tienen extremos libres."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una línea cuyo comienzo no se une con su final es una línea... Escribe una palabra.",
+        "respuesta": "abierta",
+        "alternativasAceptadas": [
+          "abierto"
+        ],
+        "pistas": [
+          "Piensa en una cuerda estirada.",
+          "Sus extremos están separados.",
+          "Lo contrario de cerrada."
+        ],
+        "retroalimentacion": "Es una línea abierta, porque no se une consigo misma."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una línea abierta tiene un interior.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para tener interior, la línea debe encerrar algo.",
+          "Una línea abierta tiene un hueco.",
+          "Lo que hay en el hueco puede salir y entrar libremente."
+        ],
+        "retroalimentacion": "Es falso: una línea abierta no encierra nada, así que no tiene interior."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dibujaste estas líneas: círculo, letra C, triángulo, letra L, cuadrado y letra S. Escribe solo cuántas son líneas cerradas.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cada dibujo: ¿sus extremos se unen?",
+          "La C, la L y la S tienen extremos sueltos.",
+          "Cuenta el círculo, el triángulo y el cuadrado."
+        ],
+        "retroalimentacion": "Son cerradas el círculo, el triángulo y el cuadrado: 3."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una pelota queda dentro de un corral cerrado. ¿Dónde está la pelota?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En el exterior"
+          },
+          {
+            "id": "b",
+            "texto": "En el interior"
+          },
+          {
+            "id": "c",
+            "texto": "Sobre la línea"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El corral es una línea cerrada.",
+          "La pelota está encerrada.",
+          "Lo encerrado se llama interior."
+        ],
+        "retroalimentacion": "En el interior, porque está dentro de la línea cerrada."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dentro del corral cerrado hay 5 cuyes y fuera hay 3. Escribe solo cuántos cuyes están en el exterior.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El corral es la línea cerrada.",
+          "Los cuyes de afuera están en el exterior.",
+          "Cuenta solo los de afuera."
+        ],
+        "retroalimentacion": "Hay 3 cuyes en el exterior. Los 5 de adentro están en el interior."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una figura de línea cerrada separa el interior del exterior.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un cerco de chacra completamente cerrado.",
+          "Hay un lado de adentro y otro de afuera.",
+          "¿Una línea cerrada los separa?"
+        ],
+        "retroalimentacion": "Es verdadero: la línea cerrada separa lo de adentro de lo de afuera."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cuy se escapa de una chacra cercada, porque el cerco tiene un hueco. ¿Por qué pasa esto?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque la línea del cerco es abierta"
+          },
+          {
+            "id": "b",
+            "texto": "Porque la línea del cerco es cerrada"
+          },
+          {
+            "id": "c",
+            "texto": "Porque el cuy es muy rápido"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cómo es el cerco: tiene un hueco.",
+          "Un hueco quiere decir que los extremos no se unen.",
+          "Con un hueco, el cuy puede pasar del interior al exterior."
+        ],
+        "retroalimentacion": "El cerco es una línea abierta; el hueco deja pasar al cuy."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la chacra hay 8 semillas: 3 dentro del aro, 4 fuera y 1 sobre la línea del aro. Escribe solo cuántas están en el exterior.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El exterior es lo que está fuera de la línea.",
+          "Una semilla sobre la línea no está ni adentro ni afuera.",
+          "Cuenta solo las que están fuera."
+        ],
+        "retroalimentacion": "Hay 4 semillas fuera, o sea en el exterior; 3 en el interior y 1 sobre la línea."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tienes una línea en forma de U. ¿Qué haces para convertirla en una línea cerrada?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Borrar la mitad de la línea"
+          },
+          {
+            "id": "b",
+            "texto": "Hacerla más larga"
+          },
+          {
+            "id": "c",
+            "texto": "Unir los dos extremos"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La U tiene dos puntas separadas.",
+          "Para cerrarla, las dos puntas deben tocarse.",
+          "Piensa qué hacer con las dos puntas."
+        ],
+        "retroalimentacion": "Unes los dos extremos y queda una línea cerrada. Alargarla o borrarla no la cierra."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Toda línea curva es cerrada.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la letra S o en una espiral.",
+          "Son curvas, pero no vuelven al inicio.",
+          "¿Una curva tiene siempre los extremos unidos?"
+        ],
+        "retroalimentacion": "Es falso: una S es curva y abierta. Solo es cerrada si vuelve a su punto de partida."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.figuras-planas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P2-01"
+    ],
+    "bloque": "Figuras planas",
+    "nombre": "Cuadrado, rectángulo, círculo y triángulo",
+    "disciplina": "geometria",
+    "descripcionCorta": "Reconoce y dibuja las figuras planas básicas en objetos del entorno.",
+    "palabrasClave": [
+      "cuadrado",
+      "rectángulo",
+      "círculo",
+      "triángulo",
+      "figuras planas"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 50,
+    "ideaCentral": "Las figuras planas son el cuadrado, el rectángulo, el círculo y el triángulo. Las reconoces por sus lados y por su forma en objetos como ventanas, monedas y banderines.",
+    "pasos": [
+      "Mira si la figura tiene lados rectos o es redonda.",
+      "Cuenta los lados y las esquinas.",
+      "Compara el largo de los lados.",
+      "Dibuja la figura con tu regla o a mano."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una moneda de un sol vista de frente. ¿Qué figura es?",
+        "desarrollo": "No tiene lados rectos ni esquinas: es redonda.",
+        "respuesta": "Un círculo."
+      },
+      {
+        "situacion": "La puerta de la casa de Ana tiene 4 lados, 2 largos y 2 cortos. ¿Qué figura es?",
+        "desarrollo": "Cuatro lados con esquinas: dos largos iguales y dos cortos iguales.",
+        "respuesta": "Un rectángulo."
+      },
+      {
+        "situacion": "El banderín de la fiesta tiene 3 lados y 3 esquinas. ¿Qué figura es?",
+        "desarrollo": "Con tres lados se forma un triángulo.",
+        "respuesta": "Un triángulo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar «cuadrado» a todo lo que tiene cuatro lados.",
+        "correccion": "El cuadrado tiene los cuatro lados iguales. Si dos son largos y dos cortos, es un rectángulo."
+      },
+      {
+        "error": "Creer que el círculo tiene lados.",
+        "correccion": "El círculo tiene un borde curvo, sin lados rectos ni esquinas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Lado",
+        "significado": "Línea recta que forma el borde de una figura."
+      },
+      {
+        "termino": "Esquina",
+        "significado": "Punto donde se juntan dos lados."
+      },
+      {
+        "termino": "Figura plana",
+        "significado": "Dibujo que está en una hoja, sin grosor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una pizza entera de la pizzería de Lima vista desde arriba, ¿qué figura parece?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Triángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Círculo"
+          },
+          {
+            "id": "c",
+            "texto": "Cuadrado"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el borde de la pizza.",
+          "No tiene esquinas.",
+          "Su borde es redondo."
+        ],
+        "retroalimentacion": "Es un círculo, porque es redondo y no tiene esquinas."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una figura tiene 3 lados rectos y 3 esquinas. ¿Cómo se llama? Escribe una palabra.",
+        "respuesta": "triángulo",
+        "alternativasAceptadas": [
+          "triangulo",
+          "el triángulo"
+        ],
+        "pistas": [
+          "Cuenta los lados: son tres.",
+          "Piensa en un techo de dos aguas o un banderín.",
+          "Su nombre empieza con tri-."
+        ],
+        "retroalimentacion": "Es un triángulo: tres lados y tres esquinas."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una ventana puede tener forma de rectángulo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la ventana de tu casa.",
+          "¿Tiene lados largos y cortos?",
+          "Los rectángulos tienen 2 lados largos y 2 lados cortos."
+        ],
+        "retroalimentacion": "Es verdadero: muchas ventanas son rectángulos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La bandera del Perú, ¿qué figura tiene?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rectángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Círculo"
+          },
+          {
+            "id": "c",
+            "texto": "Triángulo"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina la bandera extendida.",
+          "Tiene 4 lados, y no son todos iguales.",
+          "Dos lados son más largos que los otros dos."
+        ],
+        "retroalimentacion": "Un rectángulo, porque tiene dos lados largos y dos lados cortos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dibujaste 2 círculos, 3 cuadrados y 4 triángulos. Escribe solo cuántas figuras tienen lados rectos.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los círculos no tienen lados rectos.",
+          "Los cuadrados y los triángulos sí.",
+          "Suma 3 + 4."
+        ],
+        "retroalimentacion": "3 + 4 = 7 figuras con lados rectos; los círculos no."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Tiene 4 lados y 4 esquinas, con dos lados largos y dos cortos. ¿Qué figura es? Escribe una palabra.",
+        "respuesta": "rectángulo",
+        "alternativasAceptadas": [
+          "rectangulo",
+          "el rectángulo"
+        ],
+        "pistas": [
+          "Cuenta los lados: son cuatro.",
+          "No todos los lados miden igual.",
+          "Piensa en una puerta o en un cuaderno."
+        ],
+        "retroalimentacion": "Es un rectángulo: dos lados largos iguales y dos cortos iguales."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El cuadrado tiene sus cuatro lados del mismo largo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un pañuelo cuadrado.",
+          "Mide mentalmente cada lado.",
+          "¿Los cuatro lados son iguales?"
+        ],
+        "retroalimentacion": "Es verdadero: el cuadrado tiene sus cuatro lados iguales."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos objetos no tiene forma de rectángulo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La puerta del salón"
+          },
+          {
+            "id": "b",
+            "texto": "La rueda de la combi"
+          },
+          {
+            "id": "c",
+            "texto": "El cuaderno de Pedro"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué objetos tienen cuatro esquinas.",
+          "Una rueda no tiene esquinas.",
+          "La rueda es redonda."
+        ],
+        "retroalimentacion": "La rueda de la combi es un círculo. La puerta y el cuaderno son rectángulos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Mira esta fila: ▲ ■ ● ▲ ▭ ▲ ■ ●. Escribe solo cuántos triángulos (▲) hay.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recorre la fila de izquierda a derecha.",
+          "Busca solo el símbolo ▲.",
+          "Marca cada ▲ que veas y cuéntalos."
+        ],
+        "retroalimentacion": "Hay 3 triángulos: en la posición 1, la 4 y la 6."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un mosaico hay 4 cuadrados y 2 rectángulos. Escribe solo cuántos lados rectos hay en total.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuadrado y cada rectángulo tiene 4 lados.",
+          "Cuenta cuántas figuras hay: 4 + 2.",
+          "Multiplica por 4 lados: suma 4 + 4 + 4 + 4 + 4 + 4."
+        ],
+        "retroalimentacion": "4 + 2 = 6 figuras y 6 x 4 = 24 lados."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué afirmación sobre el círculo es verdadera?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene 4 lados iguales"
+          },
+          {
+            "id": "b",
+            "texto": "No tiene lados rectos ni esquinas"
+          },
+          {
+            "id": "c",
+            "texto": "Tiene 3 esquinas"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en una moneda.",
+          "¿Puedes contar esquinas en una moneda?",
+          "Su borde es una sola línea redonda."
+        ],
+        "retroalimentacion": "El círculo no tiene lados rectos ni esquinas; su borde es curvo."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En el mercado hay 3 carteles cuadrados, 2 carteles redondos y 5 carteles rectangulares. Escribe solo cuántos carteles tienen esquinas.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los carteles redondos no tienen esquinas.",
+          "Cuenta los cuadrados y los rectangulares.",
+          "Suma 3 + 5."
+        ],
+        "retroalimentacion": "3 + 5 = 8 carteles con esquinas; los 2 redondos no."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.lados-y-vertices",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P2-03"
+    ],
+    "bloque": "Figuras planas",
+    "nombre": "Lados y vértices de las figuras",
+    "disciplina": "geometria",
+    "descripcionCorta": "Cuenta los lados y vértices de cuadrados, rectángulos y triángulos.",
+    "palabrasClave": [
+      "lados",
+      "vértices",
+      "triángulo",
+      "cuadrado",
+      "rectángulo"
+    ],
+    "prerrequisitos": [
+      "mat.p2.figuras-planas"
+    ],
+    "ordenSugerido": 52,
+    "ideaCentral": "Los lados son las rayas rectas que forman la figura y los vértices son las esquinas donde se juntan. El triángulo tiene 3 lados y 3 vértices; el cuadrado y el rectángulo, 4 y 4.",
+    "pasos": [
+      "Mira la figura y cuenta sus lados rectos, uno por uno.",
+      "Cuenta sus esquinas: son los vértices.",
+      "Marca con un punto cada vértice para no contar dos veces.",
+      "Recuerda: en estas figuras hay tantos lados como vértices."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Cuántos lados y vértices tiene un banderín triangular?",
+        "desarrollo": "Cuento las rayas: 3. Cuento las esquinas: 3.",
+        "respuesta": "3 lados y 3 vértices."
+      },
+      {
+        "situacion": "¿Cuántos lados y vértices tiene la hoja de tu cuaderno (rectángulo)?",
+        "desarrollo": "Cuento 4 rayas rectas y 4 esquinas.",
+        "respuesta": "4 lados y 4 vértices."
+      },
+      {
+        "situacion": "Hay 2 cuadrados sobre la mesa. ¿Cuántos lados hay en total?",
+        "desarrollo": "Cada cuadrado tiene 4 lados: 4 + 4 = 8.",
+        "respuesta": "8 lados."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar un vértice dos veces porque se mira desde dos lados.",
+        "correccion": "Marca cada esquina con un punto al contarla, así no la repites."
+      },
+      {
+        "error": "Pensar que el círculo tiene un vértice.",
+        "correccion": "El círculo no tiene esquinas, así que tiene 0 vértices."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Lado",
+        "significado": "Raya recta que forma el borde de una figura."
+      },
+      {
+        "termino": "Vértice",
+        "significado": "Esquina de una figura, donde se unen dos lados."
+      },
+      {
+        "termino": "Figura",
+        "significado": "Forma plana que dibujas en una hoja."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Escribe solo cuántos lados tiene un triángulo.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina un banderín de fiesta.",
+          "Recorre su borde con el dedo: cada raya recta es un lado.",
+          "Cuenta las rayas rectas."
+        ],
+        "retroalimentacion": "El triángulo tiene 3 lados."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Escribe solo cuántos vértices (esquinas) tiene un cuadrado.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un vértice es una esquina.",
+          "Mira las puntas de una hoja cuadrada.",
+          "Cuenta las esquinas de una hoja cuadrada."
+        ],
+        "retroalimentacion": "El cuadrado tiene 4 vértices, uno en cada esquina."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rectángulo tiene 4 vértices.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la hoja de tu cuaderno.",
+          "Cuenta sus esquinas, una por una.",
+          "¿Hay 4 esquinas?"
+        ],
+        "retroalimentacion": "Es verdadero: un rectángulo tiene 4 esquinas, o sea 4 vértices."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué figura tiene 3 vértices?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rectángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Cuadrado"
+          },
+          {
+            "id": "c",
+            "texto": "Triángulo"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las esquinas de cada figura.",
+          "Dos de ellas tienen 4 esquinas.",
+          "Una tiene solo tres: es la del banderín."
+        ],
+        "retroalimentacion": "El triángulo tiene 3 vértices. El cuadrado y el rectángulo tienen 4."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Sobre la mesa hay 2 cuadrados. Escribe solo cuántos lados hay en total.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuadrado tiene 4 lados.",
+          "Hay dos cuadrados.",
+          "Suma 4 + 4."
+        ],
+        "retroalimentacion": "4 + 4 = 8 lados."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Hay 2 triángulos y 1 rectángulo. Escribe solo cuántos vértices hay en total.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un triángulo tiene 3 vértices y el rectángulo 4.",
+          "Los dos triángulos suman 3 + 3.",
+          "Al total de los triángulos súmale los 4 del rectángulo."
+        ],
+        "retroalimentacion": "3 + 3 = 6 y 6 + 4 = 10 vértices."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo tiene más vértices que lados.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los lados de un triángulo.",
+          "Cuenta sus vértices.",
+          "¿Uno es mayor que el otro, o son iguales?"
+        ],
+        "retroalimentacion": "Es falso: el triángulo tiene 3 lados y 3 vértices, tantos como lados."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas frases es correcta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El rectángulo tiene 4 lados y 3 vértices"
+          },
+          {
+            "id": "b",
+            "texto": "El cuadrado tiene 4 lados y 4 vértices"
+          },
+          {
+            "id": "c",
+            "texto": "El triángulo tiene 3 lados y 4 vértices"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cada frase contando lados y vértices.",
+          "Dos frases no tienen el mismo número de lados y vértices.",
+          "En estas figuras hay tantas esquinas como lados."
+        ],
+        "retroalimentacion": "El cuadrado tiene 4 lados y 4 vértices. En las otras dos frases el número de vértices no coincide con los lados."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tienes 3 triángulos y 2 cuadrados. Escribe solo cuántos lados hay en total.",
+        "respuesta": 17,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero los lados de los triángulos: 3 + 3 + 3.",
+          "Luego los lados de los cuadrados: 4 + 4.",
+          "Suma los dos resultados."
+        ],
+        "retroalimentacion": "9 + 8 = 17 lados."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una guirnalda de fiesta tiene triángulos y en total 12 vértices. Escribe solo cuántos triángulos tiene.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada triángulo aporta 3 vértices.",
+          "Cuenta de 3 en 3: 3, 6, 9...",
+          "¿Cuántos tres hacen 12?"
+        ],
+        "retroalimentacion": "12 vértices dividido en grupos de 3 da 4 triángulos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura tiene 4 lados y 4 vértices, y sus cuatro lados son iguales. ¿Qué figura es?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Rectángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Triángulo"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dos figuras tienen 4 lados y 4 vértices.",
+          "Mira qué pasa con el largo de los lados.",
+          "En una de ellas los cuatro lados son del mismo tamaño."
+        ],
+        "retroalimentacion": "Es un cuadrado. El rectángulo también tiene 4 lados, pero dos son más largos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Marta dice que un círculo tiene 1 vértice. Escribe solo cuántos vértices tiene realmente un círculo.",
+        "respuesta": 0,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué es un vértice: un punto donde se juntan dos lados.",
+          "Mira el borde de una moneda.",
+          "Un borde redondo y suave, ¿tiene esquinas?"
+        ],
+        "retroalimentacion": "El círculo tiene 0 vértices, porque no tiene esquinas."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.lados-rectos-curvos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P2-03"
+    ],
+    "bloque": "Figuras planas",
+    "nombre": "Figuras con lados rectos y curvos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Distingue figuras con lados rectos, con lados curvos o con ambos.",
+    "palabrasClave": [
+      "lado recto",
+      "lado curvo",
+      "círculo",
+      "figura",
+      "arco"
+    ],
+    "prerrequisitos": [
+      "mat.p2.figuras-planas"
+    ],
+    "ordenSugerido": 53,
+    "ideaCentral": "Algunas figuras tienen solo lados rectos, como el cuadrado. Otras tienen solo lados curvos, como el círculo. Y otras tienen ambos, como una ventana con arco.",
+    "pasos": [
+      "Mira el borde de la figura con tu dedo.",
+      "Si va derecho, es un lado recto; si se dobla suave, es un lado curvo.",
+      "Revisa todo el borde.",
+      "Decide: solo rectos, solo curvos o ambos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El plato de Ana es redondo. ¿Qué lados tiene?",
+        "desarrollo": "Su borde se dobla todo el tiempo.",
+        "respuesta": "Solo lados curvos."
+      },
+      {
+        "situacion": "El pañuelo de Luis es cuadrado. ¿Qué lados tiene?",
+        "desarrollo": "Todos sus bordes van derechos.",
+        "respuesta": "Solo lados rectos."
+      },
+      {
+        "situacion": "Una ventana de iglesia en Cusco tiene arco arriba y tres lados derechos. ¿Qué lados tiene?",
+        "desarrollo": "Arriba se dobla y abajo va derecho.",
+        "respuesta": "Rectos y curvos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que todas las figuras con esquinas solo tienen lados rectos.",
+        "correccion": "Una figura puede tener esquinas y un lado curvo, como una media luna."
+      },
+      {
+        "error": "Pensar que una figura redonda siempre tiene todo el borde curvo.",
+        "correccion": "Una media luna tiene un lado curvo y uno recto."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Lado recto",
+        "significado": "Borde que va derecho, sin doblarse."
+      },
+      {
+        "termino": "Lado curvo",
+        "significado": "Borde que se dobla suave, como un arco."
+      },
+      {
+        "termino": "Semicírculo",
+        "significado": "Media luna: un lado recto y otro curvo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El círculo tiene un borde curvo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en una moneda.",
+          "Pasa el dedo por su borde.",
+          "¿Va derecho o se dobla?"
+        ],
+        "retroalimentacion": "Es verdadero: el borde del círculo es curvo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál figura tiene solo lados rectos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Círculo"
+          },
+          {
+            "id": "b",
+            "texto": "Óvalo"
+          },
+          {
+            "id": "c",
+            "texto": "Triángulo"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira si el borde de cada figura es redondo.",
+          "Dos de ellas son redondeadas.",
+          "Una tiene tres rayas derechas."
+        ],
+        "retroalimentacion": "El triángulo tiene solo lados rectos. El círculo y el óvalo son curvos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Los lados de un cuadrado, ¿son rectos o curvos? Escribe una palabra.",
+        "respuesta": "rectos",
+        "alternativasAceptadas": [
+          "recto",
+          "rectas",
+          "derechos"
+        ],
+        "pistas": [
+          "Imagina el borde de un pañuelo cuadrado.",
+          "¿Se dobla en algún lado?",
+          "Cada borde va derecho."
+        ],
+        "retroalimentacion": "Los lados del cuadrado son rectos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El rectángulo tiene lados curvos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la puerta de tu casa.",
+          "Mira cómo van sus bordes.",
+          "¿Alguna parte se dobla?"
+        ],
+        "retroalimentacion": "Es falso: el rectángulo tiene solo lados rectos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué figura tiene un lado recto y un lado curvo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Media luna"
+          },
+          {
+            "id": "c",
+            "texto": "Círculo"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en una media luna de juguete.",
+          "Tiene una parte derecha abajo.",
+          "Y una parte curva arriba."
+        ],
+        "retroalimentacion": "La media luna (semicírculo) tiene un lado recto y uno curvo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tienes un círculo, un triángulo, un cuadrado, un óvalo y un rectángulo. Escribe solo cuántos tienen lados rectos.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los lados rectos no se doblan.",
+          "El círculo y el óvalo tienen bordes curvos.",
+          "Cuenta el triángulo, el cuadrado y el rectángulo."
+        ],
+        "retroalimentacion": "El triángulo, el cuadrado y el rectángulo tienen lados rectos: son 3."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una ventana en arco tiene tres lados rectos y uno... Completa con una palabra: recto o curvo.",
+        "respuesta": "curvo",
+        "alternativasAceptadas": [
+          "curva",
+          "curvado"
+        ],
+        "pistas": [
+          "Imagina la parte de arriba de la ventana.",
+          "Esa parte no va derecha, se dobla hacia arriba.",
+          "Los otros tres lados son derechos."
+        ],
+        "retroalimentacion": "El lado de arriba es curvo; los otros tres son rectos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una media luna tiene un lado recto y uno curvo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dibuja una media luna.",
+          "Mira la parte de abajo y la de arriba.",
+          "¿Son los dos lados iguales?"
+        ],
+        "retroalimentacion": "Es verdadero: tiene un lado recto y uno curvo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Hay 10 figuras: 4 tienen solo lados rectos, 3 solo curvos y el resto tienen los dos. Escribe solo cuántas tienen los dos tipos de lados.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta las figuras que ya clasificaste: 4 y 3.",
+          "4 + 3 = 7.",
+          "Resta 10 - 7."
+        ],
+        "retroalimentacion": "4 + 3 = 7 y 10 - 7 = 3 figuras con ambos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El portón de una casa en Arequipa tiene arriba un arco. ¿Qué parte del portón es el lado curvo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los lados de los costados"
+          },
+          {
+            "id": "b",
+            "texto": "La parte de arriba"
+          },
+          {
+            "id": "c",
+            "texto": "El piso"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo es un arco.",
+          "Un arco se dobla.",
+          "Los costados van derechos."
+        ],
+        "retroalimentacion": "La parte de arriba es curva. Los costados y el piso son rectos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos pares tiene figuras con lados rectos y curvos al mismo tiempo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuadrado y triángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Círculo y óvalo"
+          },
+          {
+            "id": "c",
+            "texto": "Media luna y ventana en arco"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa el borde de cada figura del par.",
+          "Cuadrado y triángulo tienen solo rectos; círculo y óvalo solo curvos.",
+          "El par que mezcla ambos lados es el que sobra."
+        ],
+        "retroalimentacion": "La media luna y la ventana en arco tienen un lado curvo y los demás rectos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una figura tiene un lado curvo, entonces no puede tener ningún lado recto.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la media luna.",
+          "Mírala con cuidado: ¿todo su borde es curvo?",
+          "Una parte va derecha."
+        ],
+        "retroalimentacion": "Es falso: la media luna tiene un lado curvo y uno recto."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.bloques-logicos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P2-07"
+    ],
+    "bloque": "Figuras planas",
+    "nombre": "Clasificar con bloques lógicos: forma, color y tamaño",
+    "disciplina": "geometria",
+    "descripcionCorta": "Agrupa piezas según uno o dos atributos y explica qué tienen en común.",
+    "palabrasClave": [
+      "bloques lógicos",
+      "forma",
+      "color",
+      "tamaño",
+      "clasificar"
+    ],
+    "prerrequisitos": [
+      "mat.p2.lados-y-vertices"
+    ],
+    "ordenSugerido": 58,
+    "ideaCentral": "Los bloques lógicos se pueden agrupar por forma, color o tamaño. Para clasificar, eliges una regla y pones juntos los que cumplen la regla.",
+    "pasos": [
+      "Mira un bloque: ¿qué forma, color y tamaño tiene?",
+      "Elige una regla, por ejemplo «los rojos».",
+      "Pon juntos los bloques que cumplen la regla.",
+      "Di qué tienen en común."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Hay un triángulo rojo grande y un círculo rojo pequeño. ¿Qué tienen en común?",
+        "desarrollo": "Una forma es distinta y también el tamaño; el color es igual.",
+        "respuesta": "El color rojo."
+      },
+      {
+        "situacion": "Ana separa grandes y pequeños. ¿Qué regla usó?",
+        "desarrollo": "Miró cuánto mide cada bloque.",
+        "respuesta": "Usó el tamaño."
+      },
+      {
+        "situacion": "Marta junta triángulos azules grandes. ¿Qué atributos tienen en común?",
+        "desarrollo": "Todos son azules, grandes y triángulos.",
+        "respuesta": "Forma, color y tamaño."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Mezclar reglas mientras agrupas, como juntar rojos y también cuadrados sin decir cómo.",
+        "correccion": "Elige una regla antes y úsala con todos los bloques."
+      },
+      {
+        "error": "Pensar que dos bloques del mismo color son iguales en todo.",
+        "correccion": "Pueden tener distinta forma o tamaño. Compara cada atributo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Atributo",
+        "significado": "Característica de un bloque: forma, color o tamaño."
+      },
+      {
+        "termino": "Clasificar",
+        "significado": "Agrupar según una regla."
+      },
+      {
+        "termino": "En común",
+        "significado": "Lo que tienen igual varios bloques."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tienes un triángulo rojo grande. ¿Cuál de estas palabras dice su color?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rojo"
+          },
+          {
+            "id": "b",
+            "texto": "Grande"
+          },
+          {
+            "id": "c",
+            "texto": "Triángulo"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay tres atributos: forma, color y tamaño.",
+          "Grande habla del tamaño y triángulo de la forma.",
+          "El color es lo que ves al mirar sin tocar."
+        ],
+        "retroalimentacion": "El color es rojo. Grande es el tamaño y triángulo es la forma."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Hay 6 bloques: ● azul, ● rojo, ■ azul, ▲ rojo, ■ rojo, ● azul. Escribe solo cuántos son azules.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el color de cada bloque.",
+          "Marca los azules.",
+          "Cuenta: son los de la posición 1, 3 y 6."
+        ],
+        "retroalimentacion": "Los azules son ● azul, ■ azul y ● azul: 3."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos bloques de la misma forma pueden tener distinto color.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un círculo rojo y un círculo azul.",
+          "¿Los dos son círculos?",
+          "Pero ¿tienen el mismo color?"
+        ],
+        "retroalimentacion": "Es verdadero: la forma y el color son atributos distintos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Separas bloques en grandes y pequeños. ¿Qué atributo usaste? Escribe una palabra.",
+        "respuesta": "tamaño",
+        "alternativasAceptadas": [
+          "tamano",
+          "el tamaño"
+        ],
+        "pistas": [
+          "Mira cuánto mide cada bloque.",
+          "Grande y pequeño no son colores ni formas.",
+          "Hablan de cuánto ocupa."
+        ],
+        "retroalimentacion": "Usaste el tamaño."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Hay 9 bloques. 4 son pequeños y el resto son grandes. Escribe solo cuántos son grandes.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa primero los pequeños.",
+          "Hay 9 en total y 4 pequeños.",
+          "Resta 9 - 4."
+        ],
+        "retroalimentacion": "9 - 4 = 5 bloques grandes."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un triángulo rojo grande y un círculo rojo pequeño. ¿Qué tienen en común?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El tamaño"
+          },
+          {
+            "id": "b",
+            "texto": "El color"
+          },
+          {
+            "id": "c",
+            "texto": "La forma"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la forma de los dos: ¿es igual?",
+          "Compara el tamaño: grande y pequeño.",
+          "Lo que se repite es el color."
+        ],
+        "retroalimentacion": "Los dos son de color rojo. La forma y el tamaño son diferentes."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuadrado azul pequeño y un cuadrado rojo pequeño tienen la misma forma y el mismo tamaño.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la forma de los dos bloques.",
+          "Compara su tamaño.",
+          "Solo cambia el color."
+        ],
+        "retroalimentacion": "Es verdadero: los dos son cuadrados pequeños, solo cambia el color."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres hacer un grupo con la regla «bloques grandes». ¿Cuál de estos bloques entra?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Círculo azul pequeño"
+          },
+          {
+            "id": "b",
+            "texto": "Triángulo rojo grande"
+          },
+          {
+            "id": "c",
+            "texto": "Cuadrado amarillo pequeño"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La regla habla del tamaño.",
+          "Ignora forma y color.",
+          "Busca el que dice grande."
+        ],
+        "retroalimentacion": "El triángulo rojo grande es grande. Los otros dos son pequeños."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Hay 8 bloques: ● rojo grande, ● rojo pequeño, ■ rojo grande, ■ azul grande, ▲ azul pequeño, ▲ rojo grande, ■ azul pequeño, ● azul grande. Escribe solo cuántos son rojos y grandes a la vez.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca primero los rojos.",
+          "De los rojos, quédate solo con los grandes.",
+          "Cuéntalos: ● rojo grande, ■ rojo grande y ▲ rojo grande."
+        ],
+        "retroalimentacion": "Los rojos grandes son ● ■ ▲: 3 bloques."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un grupo tiene ▲ azul pequeño, ■ azul pequeño y ● azul pequeño. ¿Qué tienen en común todos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Color azul y tamaño pequeño"
+          },
+          {
+            "id": "b",
+            "texto": "Solo la forma"
+          },
+          {
+            "id": "c",
+            "texto": "Color rojo y tamaño grande"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la forma de cada uno: triángulo, cuadrado, círculo.",
+          "¿Son iguales en forma?",
+          "Fíjate en el color y el tamaño: se repiten."
+        ],
+        "retroalimentacion": "Los tres son azules y pequeños; la forma cambia."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Armaste el grupo «cuadrados». ¿Qué bloque no pertenece?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuadrado rojo grande"
+          },
+          {
+            "id": "b",
+            "texto": "Triángulo rojo grande"
+          },
+          {
+            "id": "c",
+            "texto": "Cuadrado azul pequeño"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La regla es la forma.",
+          "Mira solo la forma de cada bloque.",
+          "Busca el que no es cuadrado."
+        ],
+        "retroalimentacion": "El triángulo rojo grande no pertenece, porque no es cuadrado."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un grupo con la regla «bloques rojos» puede haber círculos, cuadrados y triángulos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La regla solo habla del color.",
+          "¿La forma importa en esa regla?",
+          "Mientras sean rojos, entran de cualquier forma."
+        ],
+        "retroalimentacion": "Es verdadero: la regla es el color, y la forma no importa."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.armar-figuras",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P2-06"
+    ],
+    "bloque": "Figuras planas",
+    "nombre": "Armar figuras con otras figuras",
+    "disciplina": "geometria",
+    "descripcionCorta": "Forma figuras nuevas juntando triángulos, cuadrados y rectángulos.",
+    "palabrasClave": [
+      "armar figuras",
+      "juntar",
+      "triángulos",
+      "cuadrados",
+      "rectángulos"
+    ],
+    "prerrequisitos": [
+      "mat.p2.lados-y-vertices"
+    ],
+    "ordenSugerido": 92,
+    "ideaCentral": "Puedes formar figuras nuevas juntando otras. Dos cuadrados forman un rectángulo y dos triángulos iguales pueden formar un cuadrado.",
+    "pasos": [
+      "Mira las piezas que tienes: triángulos, cuadrados o rectángulos.",
+      "Júntalas por un lado del mismo largo.",
+      "Observa la figura que se forma y cuenta sus lados.",
+      "Prueba otras formas de juntarlas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana pega dos cuadrados iguales por un lado. ¿Qué figura sale?",
+        "desarrollo": "Quedan 4 lados largos y 2 cortos... en total una figura con 4 esquinas, larga.",
+        "respuesta": "Un rectángulo."
+      },
+      {
+        "situacion": "Luis corta un cuadrado por la diagonal. ¿Cuántos triángulos salen?",
+        "desarrollo": "La raya lo parte en dos partes iguales con 3 lados.",
+        "respuesta": "2 triángulos."
+      },
+      {
+        "situacion": "Rosa arma una casita: un cuadrado y un triángulo arriba. ¿Cuántas figuras usó?",
+        "desarrollo": "Un cuadrado y un triángulo suman 1 + 1.",
+        "respuesta": "2 figuras."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pegar figuras por lados de distinto largo y esperar que encajen.",
+        "correccion": "Júntalas por lados que midan lo mismo."
+      },
+      {
+        "error": "Pensar que juntar dos triángulos siempre forma un cuadrado.",
+        "correccion": "Puede salir un cuadrado, un rectángulo o un triángulo grande, según cómo los juntes."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Armar",
+        "significado": "Juntar varias piezas para formar una figura."
+      },
+      {
+        "termino": "Diagonal",
+        "significado": "Raya que une dos esquinas lejanas de una figura."
+      },
+      {
+        "termino": "Pieza",
+        "significado": "Cada figura pequeña que usas para armar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si pegas dos cuadrados iguales por un lado, ¿qué figura se forma?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Triángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Círculo"
+          },
+          {
+            "id": "c",
+            "texto": "Rectángulo"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta mentalmente dos cuadrados por el lado.",
+          "Quedan largos y cortos.",
+          "La figura larga y con 4 esquinas tiene dos lados largos y dos cortos."
+        ],
+        "retroalimentacion": "Se forma un rectángulo, porque queda más largo que ancho."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos triángulos iguales pueden formar un cuadrado.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dibuja un cuadrado y trázale una raya de esquina a esquina.",
+          "¿En cuántas partes lo partiste?",
+          "Las dos partes son triángulos iguales."
+        ],
+        "retroalimentacion": "Es verdadero: un cuadrado partido por la diagonal son dos triángulos iguales."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un cuadrado se parte con una raya de esquina a esquina. Escribe solo cuántos triángulos salen.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina el cuadrado de una hoja de papel.",
+          "Dobla de esquina a esquina.",
+          "Cuenta las partes que quedan."
+        ],
+        "retroalimentacion": "Salen 2 triángulos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Dos cuadrados pegados forman un... Escribe el nombre de la figura.",
+        "respuesta": "rectángulo",
+        "alternativasAceptadas": [
+          "rectangulo",
+          "un rectángulo"
+        ],
+        "pistas": [
+          "Junta dos cuadraditos de papel.",
+          "La figura sale larga.",
+          "Tiene 4 esquinas, dos lados largos y dos cortos."
+        ],
+        "retroalimentacion": "Forman un rectángulo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Armas una fila con 5 cuadrados pequeños. Quieres hacer otra fila igual encima. Escribe solo cuántos cuadrados necesitas en total.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una fila tiene 5 cuadrados.",
+          "Haces dos filas iguales.",
+          "Suma 5 + 5."
+        ],
+        "retroalimentacion": "5 + 5 = 10 cuadrados."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Juntas dos triángulos grandes iguales por su lado más largo. ¿Qué figura puede salir?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Un círculo"
+          },
+          {
+            "id": "c",
+            "texto": "Una media luna"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en el cuadrado partido por la diagonal.",
+          "Esa raya es el lado más largo de cada triángulo.",
+          "Al juntarlos por ese lado, recuperas la figura de 4 lados iguales."
+        ],
+        "retroalimentacion": "Puede salir un cuadrado. Con triángulos no se forman figuras curvas."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con 4 triángulos iguales se puede armar un cuadrado grande.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un cuadrado con sus dos diagonales.",
+          "Las dos rayas lo parten en partes iguales.",
+          "Cuenta cuántas partes triangulares salen."
+        ],
+        "retroalimentacion": "Es verdadero: un cuadrado con las dos diagonales se parte en 4 triángulos iguales."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Con qué piezas puedes armar un rectángulo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Con un círculo y un triángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Con dos cuadrados iguales"
+          },
+          {
+            "id": "c",
+            "texto": "Con tres círculos"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un rectángulo tiene lados rectos y 4 esquinas.",
+          "Busca piezas que tengan lados rectos.",
+          "Dos cuadrados pegados forman una figura larga."
+        ],
+        "retroalimentacion": "Con dos cuadrados iguales pegados por un lado. Los círculos tienen borde curvo y no sirven."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una casita se arma con 1 cuadrado y 1 triángulo. Ana quiere armar 3 casitas iguales. Escribe solo cuántas figuras necesita.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada casita usa 2 figuras.",
+          "Son 3 casitas iguales.",
+          "Suma 2 + 2 + 2."
+        ],
+        "retroalimentacion": "2 + 2 + 2 = 6 figuras."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para un cohete usas 1 triángulo de punta, 2 rectángulos de cuerpo y 2 triángulos de alas. Escribe solo cuántas figuras usaste.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las piezas: la punta, el cuerpo y las alas.",
+          "1 + 2 + 2.",
+          "Cuenta todas las piezas."
+        ],
+        "retroalimentacion": "1 + 2 + 2 = 5 figuras."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al pegar dos triángulos iguales, siempre sale un cuadrado.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en otras formas de pegar dos triángulos.",
+          "Si los juntas por un lado corto, la figura cambia.",
+          "Puedes formar un rectángulo o hasta un triángulo más grande."
+        ],
+        "retroalimentacion": "Es falso: según el lado que unas, puede salir un cuadrado, un rectángulo u otra figura."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tienes 3 cuadrados pegados en fila y quieres un rectángulo con 4 cuadrados en fila. ¿Qué necesitas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 cuadrado más"
+          },
+          {
+            "id": "b",
+            "texto": "3 cuadrados más"
+          },
+          {
+            "id": "c",
+            "texto": "1 triángulo"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los cuadrados que ya tienes.",
+          "La fila final debe tener 4 cuadrados.",
+          "Resta 4 - 3."
+        ],
+        "retroalimentacion": "Necesitas 1 cuadrado más: 3 + 1 = 4. El triángulo no completa la fila."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.clasificar-por-lados",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P2-07"
+    ],
+    "bloque": "Figuras planas",
+    "nombre": "Clasificar figuras por el número de lados",
+    "disciplina": "geometria",
+    "descripcionCorta": "Agrupa figuras según sus lados y afirma, por ejemplo, que toda figura de tres lados es un triángulo.",
+    "palabrasClave": [
+      "lados",
+      "triángulo",
+      "cuadrilátero",
+      "pentágono",
+      "clasificar"
+    ],
+    "prerrequisitos": [
+      "mat.p2.lados-y-vertices"
+    ],
+    "ordenSugerido": 93,
+    "ideaCentral": "Puedes agrupar figuras contando sus lados. Si una figura tiene 3 lados, es un triángulo; con 4 lados, un cuadrilátero; con 5, un pentágono; con 6, un hexágono.",
+    "pasos": [
+      "Mira la figura y toca con el dedo cada lado, uno por uno.",
+      "Cuenta cuántos lados tiene y di el número en voz alta.",
+      "Busca el nombre que va con ese número: 3 es triángulo, 4 es cuadrilátero, 5 es pentágono, 6 es hexágono.",
+      "Junta en un mismo grupo las figuras que tienen el mismo número de lados."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa recorta un cartel con 3 lados rectos. ¿Cómo se llama su figura?",
+        "desarrollo": "Cuenta los lados: 1, 2, 3. Toda figura de 3 lados es un triángulo.",
+        "respuesta": "Es un triángulo."
+      },
+      {
+        "situacion": "En la chacra de don Julio, un corral tiene 4 lados y otro tiene 5 lados. ¿Cómo se llama cada uno?",
+        "desarrollo": "El primero tiene 4 lados, así que es un cuadrilátero. El segundo tiene 5 lados, así que es un pentágono.",
+        "respuesta": "El corral de 4 lados es un cuadrilátero y el de 5 lados es un pentágono."
+      },
+      {
+        "situacion": "Mateo tiene un pañuelo de 4 lados y una ventana de 4 lados, aunque la ventana es más larga. ¿Van en el mismo grupo?",
+        "desarrollo": "Los dos tienen 4 lados. Para agrupar por lados solo importa cuántos lados hay, no si son largos o cortos.",
+        "respuesta": "Sí, van juntos: los dos son cuadriláteros."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que una figura de 4 lados no es cuadrilátero porque sus lados no son iguales.",
+        "correccion": "Un cuadrilátero solo necesita 4 lados. Pueden ser iguales o distintos."
+      },
+      {
+        "error": "Contar las esquinas y los lados mal, saltándote uno o contando dos veces el mismo.",
+        "correccion": "Marca con un punto el primer lado y cuenta dando la vuelta hasta volver a él."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Lado",
+        "significado": "Cada línea que forma el borde de una figura."
+      },
+      {
+        "termino": "Triángulo",
+        "significado": "Figura de 3 lados."
+      },
+      {
+        "termino": "Cuadrilátero",
+        "significado": "Figura de 4 lados, como el cuadrado y el rectángulo."
+      },
+      {
+        "termino": "Pentágono",
+        "significado": "Figura de 5 lados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una señal de tránsito que ves en la combi tiene forma de triángulo. ¿Cuántos lados tiene? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la palabra triángulo: «tri» quiere decir tres.",
+          "Dibuja un triángulo en el aire y cuenta sus lados.",
+          "Un triángulo tiene tantos lados como vértices: 3."
+        ],
+        "retroalimentacion": "Un triángulo tiene 3 lados. Si pusiste otro número, vuelve a contarlos tocándolos uno por uno."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se llama el grupo de figuras que tienen 4 lados?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Triángulos"
+          },
+          {
+            "id": "b",
+            "texto": "Cuadriláteros"
+          },
+          {
+            "id": "c",
+            "texto": "Pentágonos"
+          },
+          {
+            "id": "d",
+            "texto": "Círculos"
+          }
+        ],
+        "pistas": [
+          "Cuenta cuántos lados tiene un cuadrado.",
+          "El cuadrado, el rectángulo y la ventana tienen 4 lados.",
+          "Las figuras de 4 lados se llaman cuadriláteros."
+        ],
+        "retroalimentacion": "Las figuras de 4 lados son los cuadriláteros. Los triángulos tienen 3 lados, los pentágonos 5 y los círculos no tienen lados rectos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Toda figura que tiene tres lados es un triángulo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un triángulo y cuenta sus lados.",
+          "Si una figura tiene 3 lados, ¿cómo se llama?",
+          "No importa si es grande o pequeña: con 3 lados es triángulo."
+        ],
+        "retroalimentacion": "Es verdadero: toda figura de 3 lados es un triángulo, sea grande o pequeña."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Camila dibujó una figura con 5 lados. ¿Cómo se llama? Escribe la palabra.",
+        "respuesta": "pentágono",
+        "alternativasAceptadas": [
+          "un pentágono",
+          "el pentágono",
+          "pentagono"
+        ],
+        "pistas": [
+          "Cuenta: 5 lados es más que el cuadrilátero.",
+          "Su nombre empieza con la letra p.",
+          "Las figuras de 5 lados se llaman pen-tá-go-nos."
+        ],
+        "retroalimentacion": "Una figura de 5 lados es un pentágono."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la chacra de don Julio hay 3 corrales triangulares y 2 corrales cuadrados. ¿Cuántos lados tienen todos los corrales juntos? Escribe solo el número.",
+        "respuesta": 17,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla los lados de los 3 triángulos: cada uno tiene 3 lados.",
+          "Los 3 triángulos tienen 3 + 3 + 3 = 9 lados. Ahora mira los 2 cuadrados.",
+          "Cada cuadrado tiene 4 lados: 4 + 4 = 8. Suma 9 + 8."
+        ],
+        "retroalimentacion": "Los triángulos tienen 9 lados y los cuadrados 8. Juntos: 9 + 8 = 17. Un error común es contar solo las figuras (5) y no sus lados."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lucía tiene 4 figuras. A: 4 lados iguales. B: 3 lados. C: 2 lados largos y 2 lados cortos. D: 6 lados. ¿Cuáles son cuadriláteros?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "B y D"
+          },
+          {
+            "id": "b",
+            "texto": "A y C"
+          },
+          {
+            "id": "c",
+            "texto": "A y B"
+          },
+          {
+            "id": "d",
+            "texto": "C y D"
+          }
+        ],
+        "pistas": [
+          "Busca las figuras que tienen exactamente 4 lados.",
+          "La figura B tiene 3 lados y la D tiene 6, así que no sirven.",
+          "A tiene 4 lados y C también: los dos son cuadriláteros aunque C no tenga lados iguales."
+        ],
+        "retroalimentacion": "Las figuras A y C tienen 4 lados, por eso son cuadriláteros. La figura C no tiene lados iguales, pero igual cuenta."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una figura con 6 lados se llama pentágono.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda cuántos lados tiene un pentágono.",
+          "El pentágono tiene 5 lados, uno menos que 6.",
+          "La figura de 6 lados se llama hexágono."
+        ],
+        "retroalimentacion": "Es falso: el pentágono tiene 5 lados. La figura de 6 lados es el hexágono."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Mateo agrupó cuatro figuras: una tarjeta de 4 lados, un pañuelo de 3 lados, una ventana de 4 lados y un cartel de 3 lados. ¿Cuántas figuras puso en el grupo de los triángulos? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un triángulo es una figura de 3 lados. ¿Cuáles figuras tienen 3 lados?",
+          "Solo el pañuelo y el cartel tienen 3 lados.",
+          "Cuenta esas figuras: pañuelo y cartel."
+        ],
+        "retroalimentacion": "Hay 2 triángulos: el pañuelo y el cartel. La tarjeta y la ventana tienen 4 lados y van en otro grupo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Ana dibujó tres figuras: un triángulo, un cuadrado y una más. Entre las tres suman 12 lados. ¿Cómo se llama la tercera figura?",
+        "respuesta": "pentágono",
+        "alternativasAceptadas": [
+          "un pentágono",
+          "el pentágono",
+          "pentagono"
+        ],
+        "pistas": [
+          "Primero suma los lados del triángulo y del cuadrado: 3 + 4.",
+          "3 + 4 = 7 lados. Faltan para llegar a 12.",
+          "12 − 7 = 5 lados. ¿Cómo se llama la figura de 5 lados?"
+        ],
+        "retroalimentacion": "El triángulo y el cuadrado suman 7 lados. A 12 le faltan 5, así que la tercera figura es un pentágono."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Sara dice: «Una figura con 4 lados rectos es cuadrilátero, aunque sus lados no sean iguales». ¿Qué opción explica mejor la idea?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sara se equivoca: los cuadriláteros deben tener 4 lados iguales."
+          },
+          {
+            "id": "b",
+            "texto": "Sara se equivoca: solo el cuadrado es cuadrilátero."
+          },
+          {
+            "id": "c",
+            "texto": "Sara tiene razón: para ser cuadrilátero basta contar 4 lados."
+          },
+          {
+            "id": "d",
+            "texto": "Sara tiene razón: pero la figura debe ser pequeña."
+          }
+        ],
+        "pistas": [
+          "Piensa en un rectángulo: ¿tiene 4 lados?",
+          "Un rectángulo tiene 2 lados largos y 2 cortos, y es cuadrilátero.",
+          "Para clasificar por lados solo cuenta cuántos hay."
+        ],
+        "retroalimentacion": "Sara tiene razón: para ser cuadrilátero basta con 4 lados. El tamaño o que los lados sean iguales no cambia ese grupo."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una figura tiene 2 lados más que un cuadrilátero. ¿Cuántos lados tiene? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda cuántos lados tiene un cuadrilátero.",
+          "Un cuadrilátero tiene 4 lados. Ahora agrega 2.",
+          "4 + 2 = ?"
+        ],
+        "retroalimentacion": "Un cuadrilátero tiene 4 lados y la figura tiene 2 más: 4 + 2 = 6 lados, es un hexágono."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dibujo un triángulo más grande, ya no es triángulo sino un cuadrilátero.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los lados del triángulo grande: ¿cambian?",
+          "Hacer una figura más grande no agrega lados.",
+          "El triángulo grande sigue teniendo 3 lados, así que sigue siendo triángulo."
+        ],
+        "retroalimentacion": "Es falso: el tamaño no cambia el número de lados. Un triángulo grande sigue siendo triángulo porque tiene 3 lados."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.figura-en-otra-posicion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P2-07"
+    ],
+    "bloque": "Figuras planas",
+    "nombre": "Una figura en distinta posición",
+    "disciplina": "geometria",
+    "descripcionCorta": "Comprueba que una figura sigue siendo la misma aunque se gire o cambie de posición.",
+    "palabrasClave": [
+      "girar figura",
+      "posición",
+      "misma figura",
+      "triángulo",
+      "rectángulo"
+    ],
+    "prerrequisitos": [
+      "mat.p2.clasificar-por-lados"
+    ],
+    "ordenSugerido": 113,
+    "ideaCentral": "Una figura sigue siendo la misma aunque la gires o la cambies de lugar. Sus lados y su forma no cambian, solo cambia cómo está puesta.",
+    "pasos": [
+      "Mira cuántos lados tiene la figura antes de moverla.",
+      "Gírala o cámbiala de lugar con la mano o con la imaginación.",
+      "Cuenta los lados otra vez: si son los mismos, es la misma figura.",
+      "Si calza encima de la otra al girarla, son iguales."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Pedro tiene un pañuelo cuadrado sobre la mesa. Lo gira hasta que queda como una punta hacia arriba. ¿Sigue siendo cuadrado?",
+        "desarrollo": "Antes tenía 4 lados iguales y después también. Solo giró.",
+        "respuesta": "Sí, sigue siendo un cuadrado."
+      },
+      {
+        "situacion": "Una tarjeta rectangular está acostada. La ponemos parada. ¿Cambió de figura?",
+        "desarrollo": "Tiene 4 lados: 2 largos y 2 cortos. Parada o acostada, tiene lo mismo.",
+        "respuesta": "No, sigue siendo un rectángulo."
+      },
+      {
+        "situacion": "Doña Elsa gira un cartel triangular en el mercado de San Pedro, en Cusco. ¿Cuántos lados tiene ahora?",
+        "desarrollo": "Girar no quita ni pone lados. Tenía 3 lados y ahora también.",
+        "respuesta": "Tiene 3 lados: sigue siendo un triángulo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que una figura cambia de nombre solo porque la giraste.",
+        "correccion": "Girar solo cambia la posición. El nombre depende de los lados."
+      },
+      {
+        "error": "Creer que un cuadrado «de punta» tiene más o menos lados.",
+        "correccion": "Cuenta sus lados: siguen siendo 4."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Girar",
+        "significado": "Mover una figura dándole vueltas sin cambiarla."
+      },
+      {
+        "termino": "Posición",
+        "significado": "El modo en que está puesta una figura."
+      },
+      {
+        "termino": "Misma figura",
+        "significado": "Dos figuras con la misma forma y los mismos lados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si giras un triángulo de cartulina, sigue siendo un triángulo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en tu cartulina: al girarla, ¿le sale o le falta un lado?",
+          "Girar solo la mueve de lugar.",
+          "El triángulo mantiene sus 3 lados al girar."
+        ],
+        "retroalimentacion": "Es verdadero: girar no cambia los lados, así que el triángulo sigue siendo triángulo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un cuadrado tiene 4 lados. Lo giras hasta que queda con una punta hacia arriba. ¿Cuántos lados tiene ahora? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Girar el cuadrado no corta sus lados.",
+          "Cuenta otra vez los lados del cuadrado girado.",
+          "Tenía 4 lados antes de girar; ahora tiene los mismos."
+        ],
+        "retroalimentacion": "El cuadrado girado sigue teniendo 4 lados. Girar solo cambia cómo está puesto."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pedro pone su pañuelo cuadrado sobre la mesa con una punta hacia él. ¿Qué pasa con la figura?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se vuelve un triángulo."
+          },
+          {
+            "id": "b",
+            "texto": "Sigue siendo un cuadrado."
+          },
+          {
+            "id": "c",
+            "texto": "Gana un lado más."
+          },
+          {
+            "id": "d",
+            "texto": "Pierde un lado."
+          }
+        ],
+        "pistas": [
+          "Piensa si el pañuelo cambió o solo está puesto distinto.",
+          "Al mover el pañuelo no se corta ni se agrega nada.",
+          "Es el mismo pañuelo, así que es el mismo cuadrado."
+        ],
+        "retroalimentacion": "El pañuelo sigue siendo un cuadrado: solo cambió su posición, no sus lados."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una ventana en forma de rectángulo está acostada. La pegas parada en la pared. ¿Qué figura es ahora? Escribe una palabra.",
+        "respuesta": "rectángulo",
+        "alternativasAceptadas": [
+          "un rectángulo",
+          "el rectángulo",
+          "rectangulo"
+        ],
+        "pistas": [
+          "Piensa si la ventana cambió de forma o solo de posición.",
+          "Tiene 2 lados largos y 2 lados cortos, parada o acostada.",
+          "Sigue siendo la misma figura, con el mismo nombre."
+        ],
+        "retroalimentacion": "Parada o acostada, la ventana es un rectángulo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si volteas un triángulo, cambia y pasa a tener 4 lados.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Voltear es mover la figura, no dibujarle algo nuevo.",
+          "Cuenta los lados del triángulo antes y después de voltearlo.",
+          "Tenía 3 lados antes y tiene 3 lados después."
+        ],
+        "retroalimentacion": "Es falso: voltear no agrega lados. El triángulo sigue teniendo 3 lados."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si pones una caja cuadrada sobre una esquina, la caja pasa a tener 3 lados.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en tu caja: ¿le falta algún lado al ponerla de esquina?",
+          "Apoyarla en una esquina solo cambia su posición.",
+          "La caja cuadrada sigue teniendo sus 4 lados."
+        ],
+        "retroalimentacion": "Es falso: ponerla sobre una esquina no le quita lados, sigue teniendo 4."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tienes un triángulo con la punta hacia arriba. ¿Cuál de estas figuras es el mismo triángulo en otra posición?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un cuadrado con una punta hacia arriba"
+          },
+          {
+            "id": "b",
+            "texto": "Un pentágono con la punta hacia abajo"
+          },
+          {
+            "id": "c",
+            "texto": "Un círculo grande"
+          },
+          {
+            "id": "d",
+            "texto": "Un triángulo con la punta hacia abajo"
+          }
+        ],
+        "pistas": [
+          "Fíjate en cuántos lados tiene el triángulo.",
+          "Busca una figura con 3 lados.",
+          "Solo una opción tiene 3 lados: el triángulo con la punta hacia abajo."
+        ],
+        "retroalimentacion": "El triángulo con la punta hacia abajo es el mismo triángulo girado. Las otras figuras tienen 4 lados, 5 lados o ninguno recto."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Gira un hexágono de madera tres veces seguidas sobre la mesa. ¿Cuántos lados tiene al final? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda cuántos lados tiene un hexágono.",
+          "Un hexágono tiene 6 lados.",
+          "Girar tres veces no cambia el número de lados."
+        ],
+        "retroalimentacion": "El hexágono sigue teniendo 6 lados sin importar cuántas veces lo gires."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa gira un cartel de 3 lados y dice: «Ahora es otra figura porque la punta ya no está arriba». ¿Qué le explicas?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene razón, cambió de figura."
+          },
+          {
+            "id": "b",
+            "texto": "Ya no es triángulo porque está en otro lugar."
+          },
+          {
+            "id": "c",
+            "texto": "La figura es la misma: girar no cambia sus lados."
+          },
+          {
+            "id": "d",
+            "texto": "Tiene razón porque ahora se ve más pequeño."
+          }
+        ],
+        "pistas": [
+          "Cuenta los lados del cartel antes y después de girarlo.",
+          "Siguen siendo 3 lados.",
+          "Si los lados no cambian, la figura es la misma."
+        ],
+        "retroalimentacion": "El cartel sigue teniendo 3 lados: es la misma figura. Girarla no la vuelve otra."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una caja hay 3 triángulos (uno está girado), 2 cuadrados (uno está de punta) y 1 pentágono. ¿Cuántas clases distintas de figuras hay? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa por el nombre de la figura, no por cómo están puestas.",
+          "El triángulo girado sigue siendo triángulo y el cuadrado de punta sigue siendo cuadrado.",
+          "Los nombres distintos son: triángulo, cuadrado y pentágono."
+        ],
+        "retroalimentacion": "Hay 3 clases: triángulo, cuadrado y pentágono. Si contaste 5 es porque separaste las figuras giradas, pero son las mismas."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Jorge gira cada una de sus piezas: 2 triángulos y 2 cuadrados. Después de girar todas las piezas, ¿cuántos lados hay entre todas? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Girar no cambia los lados. Cuenta los de cada tipo de figura.",
+          "Los 2 triángulos tienen 3 + 3 = 6 lados.",
+          "Los 2 cuadrados tienen 4 + 4 = 8 lados. Suma 6 + 8."
+        ],
+        "retroalimentacion": "Los triángulos suman 6 lados y los cuadrados 8: 6 + 8 = 14. Girar las piezas no cambió ningún lado."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para saber si dos piezas son la misma figura, puedes girar una y ver si calza sobre la otra.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina dos tapas iguales: ¿se pueden poner una encima de la otra?",
+          "Si al girar una queda igual que la otra, tienen la misma forma.",
+          "Girar sirve para comparar sin cambiar la figura."
+        ],
+        "retroalimentacion": "Es verdadero: si al girar una pieza calza sobre la otra, son la misma figura."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.semejanzas-diferencias-formas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P2-07"
+    ],
+    "bloque": "Figuras planas",
+    "nombre": "Semejanzas y diferencias entre formas",
+    "disciplina": "geometria",
+    "descripcionCorta": "Compara dos formas geométricas y explica en qué se parecen y en qué se diferencian.",
+    "palabrasClave": [
+      "comparar formas",
+      "semejanzas",
+      "diferencias",
+      "lados rectos",
+      "lados curvos"
+    ],
+    "prerrequisitos": [
+      "mat.p2.forma-de-las-caras",
+      "mat.p2.lados-rectos-curvos"
+    ],
+    "ordenSugerido": 114,
+    "ideaCentral": "Para comparar dos formas, mira qué tienen igual (semejanzas) y qué tienen distinto (diferencias). Puedes fijarte en cuántos lados tienen y si sus bordes son rectos o curvos.",
+    "pasos": [
+      "Mira las dos formas con calma.",
+      "Cuenta los lados de cada una y mira si el borde es recto o curvo.",
+      "Di qué tienen igual: «las dos tienen…».",
+      "Di qué tienen distinto: «una tiene…, la otra tiene…»."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Compara una ventana cuadrada con una puerta rectangular.",
+        "desarrollo": "Las dos tienen 4 lados y 4 esquinas. El cuadrado tiene los 4 lados iguales; la puerta tiene 2 largos y 2 cortos.",
+        "respuesta": "Se parecen en que tienen 4 lados; se diferencian en que el cuadrado tiene los lados iguales."
+      },
+      {
+        "situacion": "Compara la tapa redonda de una olla con una tarjeta triangular.",
+        "desarrollo": "La tapa tiene borde curvo y no tiene esquinas. La tarjeta tiene 3 lados rectos y 3 esquinas.",
+        "respuesta": "Se diferencian en que una es curva y la otra recta; no se parecen en el número de lados."
+      },
+      {
+        "situacion": "Compara un pentágono y un hexágono.",
+        "desarrollo": "Los dos tienen lados rectos. El pentágono tiene 5 lados y el hexágono 6.",
+        "respuesta": "Se parecen en los lados rectos; el hexágono tiene un lado más."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir solo en qué se diferencian y olvidar lo que tienen igual.",
+        "correccion": "Una buena comparación dice las dos cosas: semejanzas y diferencias."
+      },
+      {
+        "error": "Creer que el círculo tiene 1 lado recto.",
+        "correccion": "El círculo tiene un borde curvo, no tiene lados rectos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Semejanza",
+        "significado": "Algo que dos formas tienen igual."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Algo que dos formas tienen distinto."
+      },
+      {
+        "termino": "Lado recto",
+        "significado": "Borde de la figura que no se curva."
+      },
+      {
+        "termino": "Lado curvo",
+        "significado": "Borde que se dobla, como el de una tapa redonda."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿En qué se parecen el cuadrado y el rectángulo?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los dos tienen 3 lados."
+          },
+          {
+            "id": "b",
+            "texto": "Los dos tienen bordes curvos."
+          },
+          {
+            "id": "c",
+            "texto": "Los dos tienen 4 lados."
+          },
+          {
+            "id": "d",
+            "texto": "Los dos tienen 5 lados."
+          }
+        ],
+        "pistas": [
+          "Cuenta los lados del cuadrado y luego los del rectángulo.",
+          "El cuadrado tiene 4 lados; mira cuántos tiene el rectángulo.",
+          "Los dos tienen 4 lados."
+        ],
+        "retroalimentacion": "El cuadrado y el rectángulo se parecen en que tienen 4 lados. Ninguno de los dos tiene bordes curvos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo y un cuadrado: ¿cuántos lados más tiene el cuadrado que el triángulo? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero cuenta los lados de cada figura.",
+          "El triángulo tiene 3 lados y el cuadrado tiene 4.",
+          "Resta: 4 − 3."
+        ],
+        "retroalimentacion": "El cuadrado tiene 4 lados y el triángulo 3. La diferencia es 4 − 3 = 1 lado más."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El círculo y el cuadrado tienen los dos lados rectos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el borde de una moneda de un sol. ¿Es recto?",
+          "El borde de una moneda se dobla todo alrededor.",
+          "El círculo tiene borde curvo, no lados rectos."
+        ],
+        "retroalimentacion": "Es falso: el cuadrado tiene lados rectos, pero el círculo tiene un borde curvo."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El triángulo tiene lados rectos. La tapa redonda de una olla tiene un borde... ¿recto o curvo? Escribe la palabra.",
+        "respuesta": "curvo",
+        "alternativasAceptadas": [
+          "curva",
+          "borde curvo",
+          "es curvo"
+        ],
+        "pistas": [
+          "Pasa tu dedo por el borde de una tapa redonda.",
+          "El borde no se queda derecho, se va doblando.",
+          "Cuando un borde se dobla así se llama curvo."
+        ],
+        "retroalimentacion": "El borde de una tapa redonda es curvo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Compara el triángulo y el cuadrado. ¿Cuál frase dice una diferencia?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los dos tienen lados rectos."
+          },
+          {
+            "id": "b",
+            "texto": "El cuadrado tiene 4 lados y el triángulo tiene 3 lados."
+          },
+          {
+            "id": "c",
+            "texto": "Los dos tienen esquinas."
+          },
+          {
+            "id": "d",
+            "texto": "Los dos son figuras planas."
+          }
+        ],
+        "pistas": [
+          "Una diferencia es algo que NO tienen igual.",
+          "Las opciones que dicen «los dos» son semejanzas.",
+          "Solo una frase compara un número distinto de lados."
+        ],
+        "retroalimentacion": "Una diferencia es algo distinto: el cuadrado tiene 4 lados y el triángulo 3. Las otras frases son semejanzas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos lados más tiene un hexágono que un triángulo? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda los lados de cada figura.",
+          "El hexágono tiene 6 lados y el triángulo tiene 3.",
+          "Calcula 6 − 3."
+        ],
+        "retroalimentacion": "El hexágono tiene 6 lados y el triángulo 3: 6 − 3 = 3 lados más."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una diferencia entre el cuadrado y un rectángulo largo es que el cuadrado tiene sus 4 lados iguales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mide con tu mente los lados de un cuadrado: ¿son iguales?",
+          "En un rectángulo largo hay 2 lados largos y 2 lados cortos.",
+          "En el cuadrado los 4 lados miden lo mismo."
+        ],
+        "retroalimentacion": "Es verdadero: el cuadrado tiene sus 4 lados iguales y el rectángulo largo tiene lados largos y cortos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Compara la tapa redonda de una olla con una ventana cuadrada. ¿Qué es verdadero?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Las dos tienen lados rectos."
+          },
+          {
+            "id": "b",
+            "texto": "La tapa es curva y la ventana tiene lados rectos."
+          },
+          {
+            "id": "c",
+            "texto": "La ventana es curva y la tapa tiene lados rectos."
+          },
+          {
+            "id": "d",
+            "texto": "Las dos tienen 4 esquinas."
+          }
+        ],
+        "pistas": [
+          "Piensa cómo es el borde de cada una.",
+          "La tapa redonda no tiene esquinas.",
+          "La ventana cuadrada tiene 4 lados rectos."
+        ],
+        "retroalimentacion": "La tapa tiene un borde curvo y la ventana tiene lados rectos, por eso se diferencian."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "La figura A tiene 2 lados largos y 2 cortos. La figura B tiene 4 lados iguales. ¿Cuál es el cuadrado? Escribe A o B.",
+        "respuesta": "B",
+        "alternativasAceptadas": [
+          "figura b",
+          "la b",
+          "b"
+        ],
+        "pistas": [
+          "Recuerda cómo son los lados de un cuadrado.",
+          "El cuadrado tiene sus 4 lados iguales.",
+          "La figura con 4 lados iguales es la que dice B."
+        ],
+        "retroalimentacion": "El cuadrado tiene 4 lados iguales: es la figura B. La figura A, con lados largos y cortos, es un rectángulo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tienes un triángulo, un cuadrado y un pentágono. Suma los lados de la figura que tiene más lados y los de la que tiene menos lados. Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca cuál figura tiene más lados y cuál menos.",
+          "La que más tiene es el pentágono (5 lados) y la que menos tiene es el triángulo (3 lados).",
+          "Suma 5 + 3."
+        ],
+        "retroalimentacion": "El pentágono tiene 5 lados y el triángulo 3: 5 + 3 = 8. El cuadrado (4 lados) no entra en la suma."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Compara un triángulo y un cuadrado. ¿Qué frase dice una semejanza y una diferencia a la vez?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los dos tienen 3 lados, pero uno es más grande."
+          },
+          {
+            "id": "b",
+            "texto": "Los dos son curvos, pero uno tiene más lados."
+          },
+          {
+            "id": "c",
+            "texto": "Los dos tienen lados rectos, pero el cuadrado tiene un lado más."
+          },
+          {
+            "id": "d",
+            "texto": "No se parecen en nada."
+          }
+        ],
+        "pistas": [
+          "Busca una frase con «los dos» y con «pero».",
+          "Primero necesitas algo igual y luego algo distinto.",
+          "Los dos tienen lados rectos (igual) y el cuadrado tiene 4 mientras el triángulo tiene 3 (distinto)."
+        ],
+        "retroalimentacion": "La frase correcta dice que los dos tienen lados rectos (semejanza) y que el cuadrado tiene un lado más (diferencia)."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rectángulo y un triángulo se parecen en que los dos tienen 4 lados.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los lados del triángulo.",
+          "El triángulo no tiene 4 lados.",
+          "El triángulo tiene 3 lados y el rectángulo 4: no se parecen en eso."
+        ],
+        "retroalimentacion": "Es falso: el triángulo tiene 3 lados y el rectángulo tiene 4. Sí se parecen en que los dos tienen lados rectos."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  }
+]
