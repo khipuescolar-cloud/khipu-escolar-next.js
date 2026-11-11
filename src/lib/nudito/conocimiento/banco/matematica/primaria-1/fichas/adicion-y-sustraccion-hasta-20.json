@@ -4940,46 +4940,47 @@
       "mat.p1.sumar-o-restar"
     ],
     "ordenSugerido": 97,
-    "ideaCentral": "Crea un problema sencillo de agregar, quitar o juntar a partir de una escena o una operación.",
+    "ideaCentral": "Puedes crear una pregunta a partir de lo que ocurre en una escena. La pregunta debe poder responderse con las cantidades que aparecen.",
     "pasos": [
-      "Lee la escena y reconoce qué sucede con los objetos.",
-      "Elige un dibujo, una operación o una pregunta que represente la escena.",
-      "Comprueba que la respuesta hable de la cantidad preguntada."
+      "Observa qué objetos y cantidades muestra la escena.",
+      "Decide si se juntan, se agregan o se quitan objetos.",
+      "Escribe una pregunta que use esos datos.",
+      "Comprueba que la operación responde exactamente a tu pregunta."
     ],
     "ejemplos": [
       {
-        "situacion": "Una escena muestra dos grupos de 2 y 1 dados en el aula. ¿Qué pregunta crea un problema de juntar?",
-        "desarrollo": "Observa qué pasa en la escena de dados. Mira los dados en el aula. La pregunta debe referirse a todos los grupos juntos. Usa los datos de dados en el aula.",
-        "respuesta": "¿Cuántos dados hay en total?"
+        "situacion": "Hay 3 mangos y 2 plátanos en una canasta.",
+        "desarrollo": "La escena muestra dos grupos de frutas que están juntos. Preguntamos por todas las frutas.",
+        "respuesta": "¿Cuántas frutas hay en total? Se puede resolver con 3 + 2."
       },
       {
-        "situacion": "Una escena muestra 3 choclos y luego 2 salen en el patio. ¿Qué pregunta crea un problema de quitar?",
-        "desarrollo": "Observa qué pasa en la escena de choclos. Mira los choclos en el patio. La pregunta debe referirse a los que quedan. Usa los datos de choclos en el patio.",
-        "respuesta": "¿Cuántos choclos quedan?"
+        "situacion": "En una caja había 8 tizas y se sacaron 2.",
+        "desarrollo": "La cantidad disminuye; interesa saber lo que permanece en la caja.",
+        "respuesta": "¿Cuántas tizas quedan? Se puede resolver con 8 − 2."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Elegir una pregunta que no corresponde a la escena.",
-        "correccion": "Lee la escena y reconoce qué sucede con los objetos. Elige un dibujo, una operación o una pregunta que represente la escena."
+        "error": "Preguntar por un dato que no aparece en la escena, como el precio.",
+        "correccion": "Usa solo las cantidades y objetos que sí conoces."
       },
       {
-        "error": "Responder sin usar todos los datos necesarios.",
-        "correccion": "Comprueba que la respuesta hable de la cantidad preguntada. Revisa los objetos del problema."
+        "error": "Preguntar por el total cuando la escena dice que se quitaron objetos.",
+        "correccion": "Si los objetos salen, pregunta cuántos quedan y usa una resta."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Problema",
-        "significado": "Situación con datos y una pregunta."
+        "termino": "Escena",
+        "significado": "Situación descrita con objetos y acciones."
       },
       {
-        "termino": "Operación",
-        "significado": "Cuenta que ayuda a resolver el problema."
+        "termino": "Dato",
+        "significado": "Cantidad que aparece en la escena."
       },
       {
-        "termino": "Respuesta",
-        "significado": "Resultado que contesta la pregunta."
+        "termino": "Pregunta",
+        "significado": "Lo que quieres averiguar con los datos."
       }
     ],
     "ejercicios": [
@@ -4987,337 +4988,341 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra dos grupos de 2 y 1 dados en el aula. ¿Qué pregunta crea un problema de juntar?",
+        "enunciado": "En una canasta hay 3 mangos y 2 plátanos. ¿Qué pregunta convierte la escena en un problema de juntar?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de dados. Mira los dados en el aula.",
-          "La pregunta debe referirse a todos los grupos juntos. Usa los datos de dados en el aula.",
-          "Elige «¿Cuántos dados hay en total?». Comprueba con los dados en el aula."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos dados hay en total?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿Cuántos dados hay en total?"
+            "texto": "¿Cuántas frutas hay en total?"
           },
           {
             "id": "b",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "¿Cuántos mangos se comieron?"
           },
           {
             "id": "c",
-            "texto": "¿Cuántos dados había ayer?"
+            "texto": "¿Cuánto cuesta la canasta?"
           }
-        ]
+        ],
+        "pistas": [
+          "Hay dos grupos de frutas dentro de la misma canasta.",
+          "Para juntarlos, pregunta por todas las frutas.",
+          "La pregunta debe tener respuesta 3 + 2."
+        ],
+        "retroalimentacion": "«¿Cuántas frutas hay en total?» se resuelve juntando 3 mangos y 2 plátanos."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra 3 choclos y luego 2 salen el patio. ¿Qué pregunta crea un problema de quitar?",
-        "respuesta": "c",
+        "enunciado": "Luis tenía 4 figuritas y su prima le dio 3. Elige la pregunta que usa el cambio ocurrido.",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de choclos. Mira los choclos en el patio.",
-          "La pregunta debe referirse a los que quedan. Usa los datos de choclos en el patio.",
-          "Elige «¿Cuántos choclos quedan?». Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos choclos quedan?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "¿Qué dibujo tiene cada figurita?"
           },
           {
             "id": "b",
-            "texto": "¿Cuántos choclos había ayer?"
+            "texto": "¿Cuántas figuritas tiene ahora Luis?"
           },
           {
             "id": "c",
-            "texto": "¿Cuántos choclos quedan?"
+            "texto": "¿Cuántos años tiene su prima?"
           }
-        ]
+        ],
+        "pistas": [
+          "Primero había cuatro figuritas.",
+          "Después llegaron tres más.",
+          "Pregunta por la cantidad después de agregar."
+        ],
+        "retroalimentacion": "«¿Cuántas figuritas tiene ahora Luis?» usa los dos datos: 4 + 3."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra dos grupos de 4 y 3 cuentos en la chacra. ¿Qué pregunta crea un problema de juntar?",
-        "respuesta": "b",
+        "enunciado": "Una caja guardaba 8 tizas; la profesora sacó 2. ¿Qué se podría preguntar para formar un problema de quitar?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de cuentos. Mira los cuentos en la chacra.",
-          "La pregunta debe referirse a todos los grupos juntos. Usa los datos de cuentos en la chacra.",
-          "Elige «¿Cuántos cuentos hay en total?». Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos cuentos hay en total?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿Cuántos cuentos había ayer?"
+            "texto": "¿De qué color es la caja?"
           },
           {
             "id": "b",
-            "texto": "¿Cuántos cuentos hay en total?"
+            "texto": "¿Cuántas tizas se compraron ayer?"
           },
           {
             "id": "c",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "¿Cuántas tizas quedan en la caja?"
           }
-        ]
+        ],
+        "pistas": [
+          "Las tizas salen de la caja.",
+          "La cantidad final es menor que ocho.",
+          "La pregunta útil pide las que quedan."
+        ],
+        "retroalimentacion": "«¿Cuántas tizas quedan en la caja?» permite resolver 8 − 2."
       },
       {
         "id": "e04",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra 5 lápices y luego 4 salen la biblioteca. ¿Qué pregunta crea un problema de quitar?",
-        "respuesta": "a",
+        "enunciado": "En la pizarra aparece 5 + 2. ¿Cuál de estas historias corresponde a esa suma?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de lápices. Mira los lápices en la biblioteca.",
-          "La pregunta debe referirse a los que quedan. Usa los datos de lápices en la biblioteca.",
-          "Elige «¿Cuántos lápices quedan?». Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos lápices quedan?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿Cuántos lápices quedan?"
+            "texto": "Había 5 libros y se prestaron 2."
           },
           {
             "id": "b",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "Hay 5 cuyes en un corral y llegan 2 más."
           },
           {
             "id": "c",
-            "texto": "¿Cuántos lápices había ayer?"
+            "texto": "Hay 5 lápices rojos y 2 rotos; se guardan los rotos."
           }
-        ]
+        ],
+        "pistas": [
+          "El signo + indica que dos cantidades se juntan.",
+          "Busca una historia donde cinco objetos reciban dos más.",
+          "Los cuyes que llegan aumentan el grupo."
+        ],
+        "retroalimentacion": "La historia de los cuyes representa 5 + 2; prestar o retirar objetos requeriría una resta."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra dos grupos de 6 y 2 cuyes en la mesa. ¿Qué pregunta crea un problema de juntar?",
-        "respuesta": "c",
+        "enunciado": "En el patio juegan 6 niñas y 4 niños. Una pregunta dice «¿Cuántos niños juegan?». ¿Qué palabra debes cambiar para preguntar por todo el grupo?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de cuyes. Mira los cuyes en la mesa.",
-          "La pregunta debe referirse a todos los grupos juntos. Usa los datos de cuyes en la mesa.",
-          "Elige «¿Cuántos cuyes hay en total?». Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos cuyes hay en total?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "patio"
           },
           {
             "id": "b",
-            "texto": "¿Cuántos cuyes había ayer?"
+            "texto": "niños"
           },
           {
             "id": "c",
-            "texto": "¿Cuántos cuyes hay en total?"
+            "texto": "juegan"
+          },
+          {
+            "id": "d",
+            "texto": "cuántos"
           }
-        ]
+        ],
+        "pistas": [
+          "La pregunta actual nombra solo uno de los dos grupos.",
+          "Busca la palabra que excluye a las niñas.",
+          "Reemplázala por «estudiantes» para incluir a todos."
+        ],
+        "retroalimentacion": "Cambia «niños» por «estudiantes»: así la pregunta pide 6 + 4."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra 7 mangos y luego 3 salen la feria. ¿Qué pregunta crea un problema de quitar?",
-        "respuesta": "b",
+        "enunciado": "Una combi llevaba 9 pasajeros. En el paradero bajaron 3 y no subió nadie. ¿Cuál es la pregunta necesaria para usar 9 − 3?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de mangos. Mira los mangos en la feria.",
-          "La pregunta debe referirse a los que quedan. Usa los datos de mangos en la feria.",
-          "Elige «¿Cuántos mangos quedan?». Comprueba con los mangos en la feria."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos mangos quedan?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿Cuántos mangos había ayer?"
+            "texto": "¿Cuántos pasajeros siguen en la combi?"
           },
           {
             "id": "b",
-            "texto": "¿Cuántos mangos quedan?"
+            "texto": "¿Cuántos paraderos tiene la ruta?"
           },
           {
             "id": "c",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "¿Cuántos pasajeros había ayer?"
           }
-        ]
+        ],
+        "pistas": [
+          "Los tres pasajeros bajaron.",
+          "La operación 9 − 3 cuenta a quienes permanecen.",
+          "Pregunta por los pasajeros que siguen dentro."
+        ],
+        "retroalimentacion": "«¿Cuántos pasajeros siguen en la combi?» se responde con 9 − 3."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra dos grupos de 8 y 4 caramelos en el jardín. ¿Qué pregunta crea un problema de juntar?",
-        "respuesta": "a",
+        "enunciado": "Para la kermés, Rosa puso 7 vasos en una mesa y Ana puso 5 en otra. ¿Qué pregunta reúne los datos de ambas mesas?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de caramelos. Mira los caramelos en el jardín.",
-          "La pregunta debe referirse a todos los grupos juntos. Usa los datos de caramelos en el jardín.",
-          "Elige «¿Cuántos caramelos hay en total?». Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos caramelos hay en total?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿Cuántos caramelos hay en total?"
+            "texto": "¿Quién compró los vasos?"
           },
           {
             "id": "b",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "¿Cuántos vasos hay entre las dos mesas?"
           },
           {
             "id": "c",
-            "texto": "¿Cuántos caramelos había ayer?"
+            "texto": "¿Cuántos vasos hay solo en la mesa de Rosa?"
           }
-        ]
+        ],
+        "pistas": [
+          "Hay dos mesas con cantidades distintas.",
+          "La pregunta debe incluir los vasos de Rosa y los de Ana.",
+          "«Entre las dos mesas» indica juntar 7 y 5."
+        ],
+        "retroalimentacion": "La pregunta por los vasos entre ambas mesas usa 7 + 5."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra 9 vasos y luego 5 salen la cocina. ¿Qué pregunta crea un problema de quitar?",
-        "respuesta": "c",
+        "enunciado": "El dibujo descrito muestra 10 naranjas en un cajón; 4 están fuera porque las sacaron. ¿Qué dato final puede pedir un problema de quitar?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de vasos. Mira los vasos en la cocina.",
-          "La pregunta debe referirse a los que quedan. Usa los datos de vasos en la cocina.",
-          "Elige «¿Cuántos vasos quedan?». Comprueba con los vasos en la cocina."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos vasos quedan?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "El precio del cajón"
           },
           {
             "id": "b",
-            "texto": "¿Cuántos vasos había ayer?"
+            "texto": "El número de naranjas que quedan dentro"
           },
           {
             "id": "c",
-            "texto": "¿Cuántos vasos quedan?"
+            "texto": "El color de las naranjas"
           }
-        ]
+        ],
+        "pistas": [
+          "Al comienzo las diez naranjas estaban dentro.",
+          "Cuatro ya salieron del cajón.",
+          "Pregunta por las que todavía quedan adentro."
+        ],
+        "retroalimentacion": "El número de naranjas que quedan dentro se halla con 10 − 4."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra dos grupos de 3 y 6 libros en la mochila. ¿Qué pregunta crea un problema de juntar?",
+        "enunciado": "Una escena dice: «Hay 8 hojas verdes y 3 amarillas en el suelo». Elige el problema completo que se puede resolver.",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de libros. Mira los libros en la mochila.",
-          "La pregunta debe referirse a todos los grupos juntos. Usa los datos de libros en la mochila.",
-          "Elige «¿Cuántos libros hay en total?». Comprueba con los libros en la mochila."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos libros hay en total?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿Cuántos libros había ayer?"
+            "texto": "Hay hojas en el suelo. ¿Cuánto tiempo falta para el recreo?"
           },
           {
             "id": "b",
-            "texto": "¿Cuántos libros hay en total?"
+            "texto": "Hay 8 hojas verdes y 3 amarillas. ¿Cuántas hojas hay en total?"
           },
           {
             "id": "c",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "Hay 8 hojas verdes. ¿Cuántos árboles hay?"
           }
-        ]
+        ],
+        "pistas": [
+          "Un problema debe tener datos y una pregunta relacionada.",
+          "Los colores forman dos grupos de hojas.",
+          "Pregunta por todas las hojas juntas."
+        ],
+        "retroalimentacion": "El problema completo reúne 8 hojas verdes y 3 amarillas para hallar el total."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra 5 tomates y luego 2 salen el mercado. ¿Qué pregunta crea un problema de quitar?",
+        "enunciado": "Mateo tenía 12 fichas. Después de regalar algunas, le quedaron 7. ¿Qué pregunta se puede crear con estos datos?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de tomates. Mira los tomates en el mercado.",
-          "La pregunta debe referirse a los que quedan. Usa los datos de tomates en el mercado.",
-          "Elige «¿Cuántos tomates quedan?». Comprueba con los tomates en el mercado."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos tomates quedan?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿Cuántos tomates quedan?"
+            "texto": "¿Cuántas fichas regaló Mateo?"
           },
           {
             "id": "b",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "¿Cuántos amigos tiene Mateo?"
           },
           {
             "id": "c",
-            "texto": "¿Cuántos tomates había ayer?"
+            "texto": "¿Qué forma tienen las fichas?"
           }
-        ]
+        ],
+        "pistas": [
+          "Conoces la cantidad inicial y la final.",
+          "El cambio fue regalar fichas.",
+          "Pregunta cuántas salieron: 12 − 7."
+        ],
+        "retroalimentacion": "«¿Cuántas fichas regaló Mateo?» usa los dos datos y se resuelve con 12 − 7."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra dos grupos de 6 y 5 plátanos en la canasta. ¿Qué pregunta crea un problema de juntar?",
+        "enunciado": "Un cartel muestra «6 + 5 = 11». ¿Qué historia tiene pregunta y datos que coinciden exactamente con la operación?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de plátanos. Mira los plátanos en la canasta.",
-          "La pregunta debe referirse a todos los grupos juntos. Usa los datos de plátanos en la canasta.",
-          "Elige «¿Cuántos plátanos hay en total?». Comprueba con los plátanos en la canasta."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos plátanos hay en total?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "Hay 11 galletas y se comen 5. ¿Cuántas quedan?"
           },
           {
             "id": "b",
-            "texto": "¿Cuántos plátanos había ayer?"
+            "texto": "Hay 6 galletas y 5 panes. ¿Cuánto cuestan?"
           },
           {
             "id": "c",
-            "texto": "¿Cuántos plátanos hay en total?"
+            "texto": "Hay 6 galletas y llegan 5 más. ¿Cuántas hay ahora?"
           }
-        ]
+        ],
+        "pistas": [
+          "La operación termina en once y empieza con seis y cinco.",
+          "Busca una historia donde se agreguen cinco a seis.",
+          "La pregunta debe pedir la nueva cantidad de galletas."
+        ],
+        "retroalimentacion": "La historia en que llegan cinco galletas usa 6 + 5 = 11."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Una escena muestra 4 sombreros y luego 3 salen la escuela. ¿Qué pregunta crea un problema de quitar?",
-        "respuesta": "b",
+        "enunciado": "Tienes un dibujo descrito: 9 peces en el estanque y 2 peces fuera en un balde. ¿Cuál pregunta exige decidir qué dos grupos juntar?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa qué pasa en la escena de sombreros. Mira los sombreros en la escuela.",
-          "La pregunta debe referirse a los que quedan. Usa los datos de sombreros en la escuela.",
-          "Elige «¿Cuántos sombreros quedan?». Comprueba con los sombreros en la escuela."
-        ],
-        "retroalimentacion": "La pregunta «¿Cuántos sombreros quedan?» corresponde a la escena. Debe preguntar por un dato que la operación permita hallar.",
         "opciones": [
           {
             "id": "a",
-            "texto": "¿Cuántos sombreros había ayer?"
+            "texto": "¿Cuántos peces hay entre el estanque y el balde?"
           },
           {
             "id": "b",
-            "texto": "¿Cuántos sombreros quedan?"
+            "texto": "¿Cuántos peces hay solo en el estanque?"
           },
           {
             "id": "c",
-            "texto": "¿De qué color es el cielo?"
+            "texto": "¿De qué color es el balde?"
           }
-        ]
+        ],
+        "pistas": [
+          "El estanque contiene nueve peces.",
+          "El balde contiene otros dos.",
+          "Para usar ambos grupos, pregunta por todos los peces."
+        ],
+        "retroalimentacion": "La pregunta por los peces entre el estanque y el balde se resuelve con 9 + 2."
       }
     ],
     "fuentes": [
