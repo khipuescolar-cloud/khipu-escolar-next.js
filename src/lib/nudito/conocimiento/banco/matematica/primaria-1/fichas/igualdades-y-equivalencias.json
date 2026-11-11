@@ -1,0 +1,1605 @@
+[
+  {
+    "clave": "mat.p1.colecciones-igual-cantidad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-01",
+      "MAT-C24-P1-03"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Colecciones con la misma cantidad",
+    "disciplina": "algebra",
+    "descripcionCorta": "Reconoce cuándo dos colecciones de hasta 10 objetos tienen la misma cantidad aunque se vean distintas.",
+    "palabrasClave": [
+      "colecciones",
+      "con",
+      "misma",
+      "cantidad"
+    ],
+    "prerrequisitos": [
+      "mat.p1.mas-menos-tantos-como"
+    ],
+    "ordenSugerido": 41,
+    "ideaCentral": "Reconoce cuándo dos colecciones de hasta 10 objetos tienen la misma cantidad aunque se vean distintas.",
+    "pasos": [
+      "Cuenta cada grupo aunque esté distribuido de otra forma.",
+      "Compara los totales y comprueba si tienen la misma cantidad.",
+      "Di si la disposición cambió o no la cantidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un grupo de 2 dados está en fila y otro de 3 dados en círculo en el aula. ¿Tienen la misma cantidad?",
+        "desarrollo": "Cuenta la fila: 2 dados. Mira los tapitas en el aula. Cuenta el círculo: 3 dados. Usa los datos de tapitas en el aula.",
+        "respuesta": "false"
+      },
+      {
+        "situacion": "Un grupo de 3 choclos está en fila y otro de 3 choclos en círculo en el patio. ¿Tienen la misma cantidad?",
+        "desarrollo": "Cuenta la fila: 3 choclos. Mira los choclos en el patio. Cuenta el círculo: 3 choclos. Usa los datos de choclos en el patio.",
+        "respuesta": "true"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir la forma del grupo con su cantidad.",
+        "correccion": "Cuenta cada grupo aunque esté distribuido de otra forma. Compara los totales y comprueba si tienen la misma cantidad."
+      },
+      {
+        "error": "Decir que hay igualdad sin comprobar los dos lados.",
+        "correccion": "Di si la disposición cambió o no la cantidad."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Igualdad",
+        "significado": "Dos cantidades que tienen el mismo valor."
+      },
+      {
+        "termino": "Equilibrio",
+        "significado": "Estado de una balanza con ambos platillos al mismo nivel."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Cantidad que falta para que dos grupos sean iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una fila hay tres tapitas. En otra hay tres tapitas más separadas entre sí. ¿Tienen la misma cantidad?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, ambas tienen tres"
+          },
+          {
+            "id": "b",
+            "texto": "No, la fila larga tiene más"
+          },
+          {
+            "id": "c",
+            "texto": "No se puede contar"
+          }
+        ],
+        "pistas": [
+          "Cuenta la primera fila: uno, dos, tres.",
+          "Cuenta la segunda sin fijarte en sus espacios.",
+          "Las dos terminan en tres."
+        ],
+        "retroalimentacion": "Ambas colecciones tienen tres tapitas; separar los objetos no agrega ninguno."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un plato tiene cuatro uvas juntas. Otro tiene cuatro uvas en los bordes. ¿Qué relación hay entre las cantidades?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El segundo tiene más"
+          },
+          {
+            "id": "b",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "c",
+            "texto": "El primero tiene más"
+          }
+        ],
+        "pistas": [
+          "Cuenta las uvas del primer plato.",
+          "Luego cuenta las del segundo, aunque estén lejos unas de otras.",
+          "En ambos hay cuatro."
+        ],
+        "retroalimentacion": "Los platos tienen la misma cantidad de uvas: cuatro en cada uno."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana dibuja cinco soles pequeños y Luis cinco soles grandes. ¿Cuál grupo tiene más dibujos?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El de Luis"
+          },
+          {
+            "id": "b",
+            "texto": "El de Ana"
+          },
+          {
+            "id": "c",
+            "texto": "Ninguno: hay cinco en cada grupo"
+          }
+        ],
+        "pistas": [
+          "El tamaño del dibujo no es una unidad más.",
+          "Cuenta los soles de Ana y los de Luis.",
+          "Ambos grupos contienen cinco dibujos."
+        ],
+        "retroalimentacion": "Hay cinco soles en cada grupo; el tamaño no cambia la cantidad."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Emparejas dos lápices con dos borradores, uno con uno. ¿Qué descubres?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Quedan parejas completas y las cantidades son iguales"
+          },
+          {
+            "id": "b",
+            "texto": "Sobran lápices"
+          },
+          {
+            "id": "c",
+            "texto": "Sobran borradores"
+          }
+        ],
+        "pistas": [
+          "Da un borrador a cada lápiz.",
+          "Se forman dos parejas.",
+          "No sobra ningún objeto."
+        ],
+        "retroalimentacion": "Dos lápices y dos borradores tienen la misma cantidad: se emparejan sin sobrantes."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja guarda seis bloques rojos. Otra tiene cinco azules. ¿Son colecciones iguales en cantidad?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, porque son bloques"
+          },
+          {
+            "id": "b",
+            "texto": "No; la primera tiene uno más"
+          },
+          {
+            "id": "c",
+            "texto": "Sí, porque la segunda caja es grande"
+          }
+        ],
+        "pistas": [
+          "Cuenta seis en la primera caja.",
+          "Cuenta cinco en la segunda.",
+          "Seis y cinco son distintos."
+        ],
+        "retroalimentacion": "No son iguales: la primera caja tiene seis bloques y la segunda cinco."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cuatro niños forman una fila larga y otros cuatro una fila corta. ¿Cómo compruebas si son tantos como los del otro grupo?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mides la longitud de las filas"
+          },
+          {
+            "id": "b",
+            "texto": "Miras el color de sus zapatos"
+          },
+          {
+            "id": "c",
+            "texto": "Emparejas un niño de cada fila"
+          }
+        ],
+        "pistas": [
+          "Una fila larga puede tener espacios grandes.",
+          "Para comparar cantidades, forma parejas.",
+          "Cuatro parejas muestran que hay tantos como."
+        ],
+        "retroalimentacion": "Emparejar uno a uno muestra que ambas filas tienen cuatro niños."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos grupos tienen siete semillas cada uno. Mueves las semillas de un grupo y ahora ocupan más mesa. ¿Qué pasó con la cantidad?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sigue siendo siete"
+          },
+          {
+            "id": "b",
+            "texto": "Aumentó a ocho"
+          },
+          {
+            "id": "c",
+            "texto": "Disminuyó a seis"
+          }
+        ],
+        "pistas": [
+          "Mover semillas no crea otras nuevas.",
+          "Ninguna semilla salió del grupo.",
+          "El total sigue siendo siete."
+        ],
+        "retroalimentacion": "El grupo conserva siete semillas aunque esté más extendido."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay ocho vasos sobre una mesa y ocho platos debajo. ¿Qué dato basta para afirmar que las colecciones son iguales?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los platos son más grandes"
+          },
+          {
+            "id": "b",
+            "texto": "Cada grupo tiene ocho objetos"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos objetos se usan para comer"
+          }
+        ],
+        "pistas": [
+          "La pregunta compara cantidad, no tamaño ni uso.",
+          "Cuenta los objetos en cada grupo.",
+          "Ocho y ocho coinciden."
+        ],
+        "retroalimentacion": "La igualdad se debe a que ambos grupos tienen ocho objetos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una niña dice que nueve canicas en círculo son menos que nueve canicas en línea porque el círculo se ve pequeño. ¿Qué le responderías?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El círculo siempre tiene menos"
+          },
+          {
+            "id": "b",
+            "texto": "La línea siempre tiene más"
+          },
+          {
+            "id": "c",
+            "texto": "Ambas tienen nueve; importa el conteo"
+          }
+        ],
+        "pistas": [
+          "La forma en que se colocan no cambia cuántas hay.",
+          "Cuenta las canicas de cada grupo una vez.",
+          "Nueve y nueve son iguales."
+        ],
+        "retroalimentacion": "Ambos grupos contienen nueve canicas; la disposición visual no cambia el total."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una colección tiene diez cuentas. Divides la otra, también de diez, en dos montones de cinco. ¿Siguen siendo iguales?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, porque cinco y cinco son diez"
+          },
+          {
+            "id": "b",
+            "texto": "No, porque ahora hay dos montones"
+          },
+          {
+            "id": "c",
+            "texto": "No, porque solo se ve un cinco"
+          }
+        ],
+        "pistas": [
+          "La primera colección tiene diez.",
+          "La otra se separó en cinco y cinco.",
+          "Cinco más cinco vuelve a ser diez."
+        ],
+        "retroalimentacion": "Las colecciones siguen iguales: 5 + 5 = 10."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un cuento aparecen seis animales dibujados. En otra página hay seis árboles. ¿Qué afirmación es correcta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hay más árboles por ser altos"
+          },
+          {
+            "id": "b",
+            "texto": "Hay tantas figuras de árboles como de animales"
+          },
+          {
+            "id": "c",
+            "texto": "No se pueden comparar dibujos distintos"
+          }
+        ],
+        "pistas": [
+          "Los grupos pueden contener objetos distintos.",
+          "Cuenta seis dibujos en cada página.",
+          "Las cantidades coinciden."
+        ],
+        "retroalimentacion": "Hay tantas figuras de árboles como de animales: seis de cada tipo."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un grupo tiene ocho botones ordenados en dos filas de cuatro. Otro tiene ocho en una sola fila. ¿Qué prueba descarta que la fila única tenga más?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cambiar los botones de color"
+          },
+          {
+            "id": "b",
+            "texto": "Separar todavía más la fila única"
+          },
+          {
+            "id": "c",
+            "texto": "Contar o emparejar los ocho de cada grupo"
+          }
+        ],
+        "pistas": [
+          "La cantidad no depende de las filas.",
+          "Cuenta cuatro y cuatro en el primer grupo.",
+          "Empareja esos ocho con los ocho de la fila única."
+        ],
+        "retroalimentacion": "Al contar o emparejar aparecen ocho en cada grupo, así que son iguales."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.igualdades",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-01"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Igualdades: dos grupos iguales",
+    "disciplina": "algebra",
+    "descripcionCorta": "Escribe con el signo igual que dos grupos tienen la misma cantidad, como 2 + 5 = 3 + 4.",
+    "palabrasClave": [
+      "igual",
+      "igualdad",
+      "signo =",
+      "misma cantidad",
+      "sumas"
+    ],
+    "prerrequisitos": [
+      "mat.p1.colecciones-igual-cantidad",
+      "mat.p1.signos-mas-menos-igual"
+    ],
+    "ordenSugerido": 75,
+    "ideaCentral": "El signo igual (=) dice que lo de un lado vale lo mismo que lo del otro lado. Así 2 + 5 = 3 + 4, porque las dos sumas dan 7.",
+    "pasos": [
+      "Resuelve la suma de la izquierda.",
+      "Resuelve la suma de la derecha.",
+      "Si los dos resultados son iguales, pon el signo =.",
+      "Si falta un número, busca el que haga iguales los dos lados."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana tiene 2 papas rojas y 5 amarillas. Luis tiene 3 rojas y 4 amarillas. ¿Tienen lo mismo?",
+        "desarrollo": "Ana: 2 + 5 = 7. Luis: 3 + 4 = 7. Los dos lados valen 7.",
+        "respuesta": "Sí: 2 + 5 = 3 + 4."
+      },
+      {
+        "situacion": "Pedro tiene 6 soles. Su hermana tiene 4 soles y una moneda más. ¿Cuántos soles vale la moneda para tener lo mismo?",
+        "desarrollo": "Para igualar: 6 = 4 + __. Faltan 2.",
+        "respuesta": "La moneda vale 2 soles: 6 = 4 + 2."
+      },
+      {
+        "situacion": "¿Es verdad que 4 + 3 = 5 + 3?",
+        "desarrollo": "4 + 3 = 7 y 5 + 3 = 8. No son iguales.",
+        "respuesta": "No es verdad."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que el signo = solo quiere decir «escribe la respuesta».",
+        "correccion": "El signo = dice que los dos lados valen lo mismo."
+      },
+      {
+        "error": "Comparar solo el primer número de cada suma.",
+        "correccion": "Resuelve cada suma completa y luego compara los resultados."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Igual (=)",
+        "significado": "Signo que dice que los dos lados valen lo mismo."
+      },
+      {
+        "termino": "Igualdad",
+        "significado": "Dos lados unidos por el signo igual, como 3 + 2 = 4 + 1."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Es verdad que 2 + 3 = 4 + 1.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve el lado izquierdo: 2 + 3.",
+          "Resuelve el lado derecho: 4 + 1.",
+          "Los dos dan 5."
+        ],
+        "retroalimentacion": "Es verdadero: 2 + 3 = 5 y 4 + 1 = 5.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Completa: 1 + 4 = 2 + __. Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve 1 + 4 primero.",
+          "1 + 4 vale 5.",
+          "Busca qué número sumado a 2 da 5."
+        ],
+        "retroalimentacion": "1 + 4 = 5, y 2 + 3 = 5. Falta el 3.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál suma vale lo mismo que 4 + 2?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 + 3"
+          },
+          {
+            "id": "b",
+            "texto": "3 + 3"
+          },
+          {
+            "id": "c",
+            "texto": "1 + 2"
+          }
+        ],
+        "pistas": [
+          "Resuelve 4 + 2.",
+          "4 + 2 da 6.",
+          "Busca la suma de las opciones que también da 6."
+        ],
+        "retroalimentacion": "4 + 2 = 6 y 3 + 3 = 6. Las otras dan 7 y 3.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Ana tiene 3 papas y 3 camotes. Luis tiene 2 papas y 4 camotes. ¿Tienen la misma cantidad? Responde sí o no.",
+        "respuesta": "sí",
+        "alternativasAceptadas": [
+          "si",
+          "sí tienen",
+          "si tienen"
+        ],
+        "pistas": [
+          "Calcula cuánto tiene Ana: 3 + 3.",
+          "Calcula cuánto tiene Luis: 2 + 4.",
+          "Los dos tienen 6."
+        ],
+        "retroalimentacion": "Ana: 3 + 3 = 6. Luis: 2 + 4 = 6. Tienen lo mismo.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una balanza queda en equilibrio. En un platillo hay 6 piedritas y 2 semillas. En el otro hay 5 piedritas y algunas semillas. ¿Cuántas semillas hay en el segundo platillo? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero cuenta cuánto hay en el platillo que ya está completo.",
+          "En el primer platillo hay 6 + 2 = 8 cosas. El otro también debe tener 8.",
+          "El segundo platillo tiene 5 piedritas. ¿Cuántas faltan para llegar a 8?"
+        ],
+        "retroalimentacion": "Los dos platillos pesan lo mismo: 6 + 2 = 8. Con 5 piedritas, faltan 3 semillas, porque 5 + 3 = 8.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Es verdad que 7 + 2 = 6 + 4.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 7 + 2.",
+          "Calcula el lado derecho: 6 + 4.",
+          "Los resultados son 9 y 10."
+        ],
+        "retroalimentacion": "Es falso: 7 + 2 = 9, pero 6 + 4 = 10. No son iguales.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Elige la igualdad verdadera.",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 + 3 = 4 + 3"
+          },
+          {
+            "id": "b",
+            "texto": "7 + 1 = 6 + 3"
+          },
+          {
+            "id": "c",
+            "texto": "6 + 2 = 5 + 3"
+          }
+        ],
+        "pistas": [
+          "Resuelve los dos lados de cada opción.",
+          "5 + 3 es 8, pero 4 + 3 es 7. Esa no sirve.",
+          "7 + 1 es 8, pero 6 + 3 es 9. La otra sí da lo mismo en los dos lados."
+        ],
+        "retroalimentacion": "6 + 2 = 8 y 5 + 3 = 8, por eso es verdadera. En las otras, un lado da 8 y el otro da 7 o 9.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Rosa tiene 5 caramelos y 4 chocolates. Luis tiene 6 caramelos y algunos chocolates. Los dos tienen la misma cantidad de dulces. ¿Cuántos chocolates tiene Luis? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántos dulces tiene Rosa: 5 + 4.",
+          "Rosa tiene 9. Luis también debe tener 9.",
+          "Luis ya tiene 6 caramelos. ¿Cuánto falta para llegar a 9?"
+        ],
+        "retroalimentacion": "Rosa tiene 5 + 4 = 9. Luis tiene 6 + 3 = 9, o sea 3 chocolates.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Doña Rosa pone 9 manzanas y 4 plátanos en su canasta. Su vecino pone 7 manzanas y algunos plátanos en la suya. Las dos canastas tienen la misma cantidad de frutas. ¿Cuántos plátanos pone el vecino? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla cuántas frutas tiene la canasta de doña Rosa.",
+          "Doña Rosa tiene 9 + 4 = 13 frutas. La otra canasta también tiene 13.",
+          "El vecino ya puso 7 manzanas. ¿Cuántas frutas faltan para llegar a 13?"
+        ],
+        "retroalimentacion": "La canasta de doña Rosa tiene 13 frutas. Al vecino le faltan 6 plátanos, porque 7 + 6 = 13.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana dice: «5 + 6 = 4 + 8». ¿Qué le dices?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, son iguales"
+          },
+          {
+            "id": "b",
+            "texto": "No: 5 + 6 = 12 y 4 + 8 = 11"
+          },
+          {
+            "id": "c",
+            "texto": "No: 5 + 6 = 11 y 4 + 8 = 12"
+          }
+        ],
+        "pistas": [
+          "Resuelve los dos lados con cuidado.",
+          "5 + 6 es 11.",
+          "4 + 8 es 12, que es distinto de 11."
+        ],
+        "retroalimentacion": "5 + 6 = 11 y 4 + 8 = 12. No son iguales, así que Ana se equivocó.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En la chacra, el corral A tiene 7 vacas y 5 ovejas. El corral B tiene 6 vacas y algunas ovejas, y los dos corrales tienen los mismos animales. ¿Cuántas ovejas hay en el corral B? Escribe solo el número.",
+        "respuesta": "6",
+        "alternativasAceptadas": [
+          "seis"
+        ],
+        "pistas": [
+          "Calcula los animales del corral A: 7 + 5.",
+          "El corral A tiene 12 animales y el B también.",
+          "En B ya hay 6 vacas; ¿cuántas ovejas faltan para 12?"
+        ],
+        "retroalimentacion": "A tiene 7 + 5 = 12 animales. B tiene 6 + 6 = 12, o sea 6 ovejas.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 8 + 5 = 9 + 4, entonces 8 + 5 es más grande que 9 + 4.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El signo = dice que los dos lados valen lo mismo.",
+          "Calcula 8 + 5 y 9 + 4.",
+          "Los dos dan 13."
+        ],
+        "retroalimentacion": "Es falso: 8 + 5 = 13 y 9 + 4 = 13, entonces valen lo mismo.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.balanza-equilibrio",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-03"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "La balanza en equilibrio",
+    "disciplina": "algebra",
+    "descripcionCorta": "Explica que una balanza queda en equilibrio cuando hay igual cantidad en ambos platillos.",
+    "palabrasClave": [
+      "balanza",
+      "equilibrio",
+      "platillo",
+      "igual cantidad",
+      "comparar"
+    ],
+    "prerrequisitos": [
+      "mat.p1.colecciones-igual-cantidad"
+    ],
+    "ordenSugerido": 77,
+    "ideaCentral": "Una balanza está en equilibrio cuando los dos platillos tienen la misma cantidad. Si un platillo tiene más, ese platillo baja.",
+    "pasos": [
+      "Cuenta lo que hay en un platillo.",
+      "Cuenta lo que hay en el otro platillo.",
+      "Si los dos números son iguales, hay equilibrio.",
+      "Si no son iguales, baja el platillo que tiene más."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un platillo tiene 5 cubos y el otro tiene 5 cubos. ¿Cómo queda la balanza?",
+        "desarrollo": "Los dos tienen 5. Son iguales.",
+        "respuesta": "Queda en equilibrio."
+      },
+      {
+        "situacion": "En un platillo hay 7 papas y en el otro 4 papas. ¿Qué platillo baja?",
+        "desarrollo": "7 es más que 4. Baja el que tiene más.",
+        "respuesta": "Baja el platillo de 7 papas."
+      },
+      {
+        "situacion": "A la izquierda hay 6 cubos y a la derecha 4. ¿Cuántos cubos faltan a la derecha para el equilibrio?",
+        "desarrollo": "Hay que llegar a 6: 4 y dos más.",
+        "respuesta": "Faltan 2 cubos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que el platillo con menos objetos baja.",
+        "correccion": "Baja el platillo que tiene más peso, o sea más objetos."
+      },
+      {
+        "error": "Creer que es equilibrio si hay cosas distintas pero del mismo número, sin contarlas.",
+        "correccion": "Cuenta siempre los dos platillos y compara los números."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Balanza",
+        "significado": "Objeto con dos platillos que sirve para comparar."
+      },
+      {
+        "termino": "Platillo",
+        "significado": "Cada lado de la balanza donde pones cosas."
+      },
+      {
+        "termino": "Equilibrio",
+        "significado": "Cuando los dos lados están iguales y la balanza queda recta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una balanza está en equilibrio cuando los dos platillos tienen igual cantidad de cubos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un balancín con dos niños del mismo peso.",
+          "Quedaría recto, ni sube ni baja.",
+          "Recto significa lo mismo de los dos lados."
+        ],
+        "retroalimentacion": "Verdadero: igual cantidad en los dos platillos da equilibrio."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 5 cubos y la balanza está en equilibrio. ¿Cuántos cubos hay en el otro platillo? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Equilibrio es igual cantidad en los dos lados.",
+          "Un lado tiene 5 cubos.",
+          "El otro lado debe tener el mismo número que 5."
+        ],
+        "retroalimentacion": "Hay 5 cubos, porque en el equilibrio los dos platillos tienen lo mismo."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un platillo hay 4 limones y en el otro también hay 4 limones. ¿Cómo queda la balanza?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se inclina a la derecha"
+          },
+          {
+            "id": "b",
+            "texto": "En equilibrio"
+          },
+          {
+            "id": "c",
+            "texto": "Se inclina a la izquierda"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 4 y 4.",
+          "Los dos números son iguales.",
+          "Si no hay lado más pesado, ningún platillo baja."
+        ],
+        "retroalimentacion": "Queda en equilibrio porque 4 y 4 son iguales. Si se inclinara, un lado tendría más."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un platillo hay 6 papas y en el otro hay 3 papas. ¿Qué platillo baja: el de 6 o el de 3?",
+        "respuesta": "el de 6",
+        "alternativasAceptadas": [
+          "6",
+          "de 6",
+          "el de seis",
+          "seis"
+        ],
+        "pistas": [
+          "Mira cuál platillo tiene más papas.",
+          "6 es más grande que 3.",
+          "El lado con más peso baja."
+        ],
+        "retroalimentacion": "Baja el de 6 papas, porque tiene más que el de 3."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el platillo izquierdo hay 8 cubos y en el derecho hay 5 cubos. ¿Cuántos cubos faltan en el derecho para el equilibrio? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El derecho debe llegar al mismo número que el izquierdo.",
+          "Parte desde 5 y cuenta hasta 8.",
+          "5, 6, 7, 8: cuenta cuántos pasos diste."
+        ],
+        "retroalimentacion": "Faltan 3 cubos: 5 + 3 = 8."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿En cuál balanza hay equilibrio?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7 manzanas contra 6 manzanas"
+          },
+          {
+            "id": "b",
+            "texto": "3 manzanas contra 8 manzanas"
+          },
+          {
+            "id": "c",
+            "texto": "9 manzanas contra 9 manzanas"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cada par de números.",
+          "Busca dos números que sean iguales.",
+          "En una balanza equilibrada los dos lados cuentan lo mismo."
+        ],
+        "retroalimentacion": "Hay equilibrio con 9 contra 9. En 7 contra 6 y en 3 contra 8 un lado tiene más."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en un platillo hay 10 cubos y en el otro hay 12 cubos, la balanza está en equilibrio.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 10 y 12.",
+          "Cuenta cuántos cubos hay más en un lado.",
+          "Los números no son iguales."
+        ],
+        "retroalimentacion": "Falso: 12 es más que 10, así que baja el platillo de 12 cubos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un platillo hay 4 cubos y luego se ponen 3 cubos más. En el otro hay 7 cubos. ¿Hay equilibrio? Responde sí o no.",
+        "respuesta": "sí",
+        "alternativasAceptadas": [
+          "si"
+        ],
+        "pistas": [
+          "Primero junta los cubos del primer platillo.",
+          "4 y 3 más es el total del primer lado.",
+          "Compara ese total con los 7 del otro platillo."
+        ],
+        "retroalimentacion": "Sí: 4 + 3 = 7 y el otro platillo también tiene 7."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Sofía pone 9 cubos en un platillo. En el otro ya hay 6 cubos y ella pone 2 cubos más. ¿Cuántos cubos más necesita para el equilibrio? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero mira cuántos cubos tiene ahora el segundo platillo.",
+          "6 y 2 más son los cubos del segundo platillo.",
+          "Ese platillo tiene 8 y el otro 9; ¿cuántos faltan?"
+        ],
+        "retroalimentacion": "Con 6 + 2 = 8 en un platillo y 9 en el otro, falta 1 cubo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "A la izquierda hay 6 cubos. A la derecha hay 2 cubos y 3 cubos más. ¿Qué haces para el equilibrio?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Poner 1 cubo a la derecha"
+          },
+          {
+            "id": "b",
+            "texto": "Quitar 1 cubo de la derecha"
+          },
+          {
+            "id": "c",
+            "texto": "Poner 1 cubo a la izquierda"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos cubos hay en total a la derecha.",
+          "2 y 3 son 5 cubos; la izquierda tiene 6.",
+          "Para igualar 5 con 6, hace falta un cubo en el lado que tiene menos."
+        ],
+        "retroalimentacion": "Pones 1 cubo a la derecha: 2 + 3 = 5 y con uno más llegan a 6. Quitar de la derecha o poner a la izquierda aumenta la diferencia."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 7 cubos a la izquierda y 5 a la derecha. Si pones 2 cubos más a la derecha, queda en equilibrio.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántos cubos tendrá la derecha después de poner 2.",
+          "5 con 2 más es el nuevo número.",
+          "Compara ese número con 7."
+        ],
+        "retroalimentacion": "Verdadero: 5 + 2 = 7, igual que la izquierda."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una balanza queda en equilibrio con 10 cubos en un platillo. En el otro hay 4 cubos rojos y los demás son azules. ¿Cuántos cubos azules hay? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos platillos tienen 10 cubos.",
+          "Del otro platillo, 4 son rojos.",
+          "¿Cuántos faltan desde 4 para llegar a 10?"
+        ],
+        "retroalimentacion": "Hay 6 cubos azules, porque 4 + 6 = 10."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.sumas-que-valen-lo-mismo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P1-04"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Sumas que valen lo mismo",
+    "disciplina": "algebra",
+    "descripcionCorta": "Encuentra distintas sumas que dan el mismo número, como 6 = 4 + 2 = 3 + 3.",
+    "palabrasClave": [
+      "descomponer",
+      "sumas",
+      "mismo número",
+      "parejas",
+      "partes"
+    ],
+    "prerrequisitos": [
+      "mat.p1.igualdades",
+      "mat.p1.descomponer-hasta-10"
+    ],
+    "ordenSugerido": 79,
+    "ideaCentral": "Un mismo número se puede formar con distintas sumas. Por ejemplo, 6 = 4 + 2 = 3 + 3 = 5 + 1. Todas esas sumas valen lo mismo.",
+    "pasos": [
+      "Elige el número que quieres formar.",
+      "Prueba una pareja de números que sumen ese número.",
+      "Cambia un número y busca el que completa el total.",
+      "Comprueba cada suma sumando de nuevo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa tiene 6 caramelos y quiere repartirlos en dos bolsitas. ¿De qué formas puede hacerlo?",
+        "desarrollo": "Prueba: 5 + 1 = 6, 4 + 2 = 6 y 3 + 3 = 6.",
+        "respuesta": "Puede poner 5 y 1, 4 y 2, o 3 y 3."
+      },
+      {
+        "situacion": "Pedro tiene 8 soles. En un bolsillo hay 5. ¿Cuántos hay en el otro?",
+        "desarrollo": "8 = 5 + __. Como 5 + 3 = 8, el otro tiene 3.",
+        "respuesta": "Hay 3 soles en el otro bolsillo."
+      },
+      {
+        "situacion": "¿Es verdad que 4 + 3 y 5 + 2 valen lo mismo?",
+        "desarrollo": "4 + 3 = 7 y 5 + 2 = 7.",
+        "respuesta": "Sí, las dos valen 7."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que una sola suma forma cada número.",
+        "correccion": "Un número se forma con muchas sumas. Por ejemplo, 7 = 6 + 1 = 5 + 2 = 4 + 3."
+      },
+      {
+        "error": "Dar una pareja que no suma el número pedido.",
+        "correccion": "Comprueba sumando: las dos partes juntas deben dar el número."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Descomponer",
+        "significado": "Separar un número en dos partes que sumadas dan el mismo número."
+      },
+      {
+        "termino": "Pareja",
+        "significado": "Los dos números de una suma."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Completa: 5 = 2 + __. Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cuántos faltan a 2 para llegar a 5.",
+          "Cuenta desde 2: 3, 4, 5.",
+          "Contaste tres números: el que falta es ese."
+        ],
+        "retroalimentacion": "2 + 3 = 5, por eso falta el 3.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas sumas da 7?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 + 3"
+          },
+          {
+            "id": "b",
+            "texto": "2 + 2"
+          },
+          {
+            "id": "c",
+            "texto": "3 + 4"
+          }
+        ],
+        "pistas": [
+          "Suma cada opción con tus dedos.",
+          "5 + 3 da 8 y 2 + 2 da 4.",
+          "Una opción da exactamente 7."
+        ],
+        "retroalimentacion": "3 + 4 = 7. 5 + 3 da 8 y 2 + 2 da 4.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Es verdad que 5 = 1 + 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 1 + 4.",
+          "Cuenta desde el 4 un número más.",
+          "1 + 4 da 5."
+        ],
+        "retroalimentacion": "Es verdadero: 1 + 4 = 5.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Ana tiene 8 caramelos en dos bolsitas. En una hay 5. ¿Cuántos hay en la otra? Escribe solo el número.",
+        "respuesta": "3",
+        "alternativasAceptadas": [
+          "tres"
+        ],
+        "pistas": [
+          "Ana tiene 8 en total, repartidos en dos bolsitas.",
+          "Una bolsita tiene 5 y la otra tiene el resto.",
+          "¿Cuánto falta a 5 para llegar a 8?"
+        ],
+        "retroalimentacion": "5 + 3 = 8, entonces en la otra bolsita hay 3 caramelos.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Mira: 7 = 5 + 2 = 4 + __. Escribe el número que falta.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Todas las sumas deben dar 7.",
+          "Ya tienes 4 en la segunda suma.",
+          "¿Cuánto falta a 4 para llegar a 7?"
+        ],
+        "retroalimentacion": "4 + 3 = 7, así que falta el 3.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué dos sumas valen 9?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 + 5 y 6 + 2"
+          },
+          {
+            "id": "b",
+            "texto": "4 + 5 y 6 + 3"
+          },
+          {
+            "id": "c",
+            "texto": "7 + 3 y 5 + 4"
+          }
+        ],
+        "pistas": [
+          "Calcula las cuatro sumas.",
+          "6 + 2 da 8 y 7 + 3 da 10.",
+          "Una opción tiene dos sumas que dan 9."
+        ],
+        "retroalimentacion": "4 + 5 = 9 y 6 + 3 = 9. En las otras opciones hay sumas que dan 8 o 10.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las sumas 7 + 3 y 6 + 4 valen lo mismo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 7 + 3.",
+          "Calcula 6 + 4.",
+          "Las dos dan 10."
+        ],
+        "retroalimentacion": "Es verdadero: 7 + 3 = 10 y 6 + 4 = 10.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Marta parte 8 galletas en dos platos con la misma cantidad cada uno. ¿Cuántas galletas hay en cada plato? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos platos deben tener lo mismo.",
+          "Busca un número que sumado a sí mismo dé 8.",
+          "Prueba con 4: ¿cuánto es 4 + 4?"
+        ],
+        "retroalimentacion": "4 + 4 = 8, entonces cada plato tiene 4 galletas.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas sumas diferentes de dos números mayores que 0 dan 6? Cuenta 1 + 5 y 5 + 1 como una sola. Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por el 1: 1 + 5 da 6.",
+          "Sigue con 2 + 4 y luego con 3 + 3.",
+          "Si sigues con 4 + 2, ya lo contaste al revés."
+        ],
+        "retroalimentacion": "Son 1 + 5, 2 + 4 y 3 + 3: 3 sumas.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tomás escribió: 9 = 5 + 4 = 6 + 2 = 7 + 2. ¿Cuál suma está mal?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 + 2"
+          },
+          {
+            "id": "b",
+            "texto": "7 + 2"
+          },
+          {
+            "id": "c",
+            "texto": "5 + 4"
+          }
+        ],
+        "pistas": [
+          "Calcula cada suma y compárala con 9.",
+          "5 + 4 da 9 y 7 + 2 da 9.",
+          "Una de las tres no da 9."
+        ],
+        "retroalimentacion": "6 + 2 da 8, no 9. Las otras dos sí valen 9.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Rosa tiene 12 manzanas en dos canastas: 5 en una y 7 en la otra. Pasa 2 manzanas de la segunda canasta a la primera. ¿Cuántas manzanas hay ahora en la primera? Escribe solo el número.",
+        "respuesta": "7",
+        "alternativasAceptadas": [
+          "siete"
+        ],
+        "pistas": [
+          "Rosa mueve las manzanas, pero el total sigue siendo 12.",
+          "La primera canasta tenía 5 y recibe 2.",
+          "Suma 5 + 2."
+        ],
+        "retroalimentacion": "La primera tenía 5 y recibe 2: 5 + 2 = 7. La segunda queda con 5, y 7 + 5 = 12.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Es verdad que 10 = 6 + 4 = 7 + 3 = 8 + 3.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cada suma una por una.",
+          "6 + 4 y 7 + 3 dan 10.",
+          "Revisa 8 + 3, la última."
+        ],
+        "retroalimentacion": "Es falso: 8 + 3 = 11, no 10. Las otras dos sumas sí valen 10.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.cuantos-faltan-equilibrio",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P1-05"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "¿Cuántos faltan para equilibrar la balanza?",
+    "disciplina": "algebra",
+    "descripcionCorta": "Halla cuántos objetos agregar o quitar en un platillo para lograr el equilibrio y explica cómo lo hizo.",
+    "palabrasClave": [
+      "balanza",
+      "equilibrio",
+      "agregar",
+      "quitar",
+      "cuántos faltan"
+    ],
+    "prerrequisitos": [
+      "mat.p1.balanza-equilibrio"
+    ],
+    "ordenSugerido": 107,
+    "ideaCentral": "Una balanza está equilibrada cuando los dos platillos tienen la misma cantidad. Si un lado tiene más, puedes agregar al otro lado o quitar del lado que tiene más.",
+    "pasos": [
+      "Cuenta cuántos hay en cada platillo.",
+      "Mira cuál platillo tiene más y cuántos más tiene.",
+      "Agrega esa cantidad al platillo que tiene menos, o quita del que tiene más.",
+      "Cuenta de nuevo para comprobar que quedaron iguales."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una balanza del mercado hay 5 papas a la izquierda y 3 a la derecha. ¿Cuántas agregas a la derecha para equilibrar?",
+        "desarrollo": "Hay 5 y 3. Para llegar de 3 a 5 faltan 2.",
+        "respuesta": "Agregas 2 papas a la derecha."
+      },
+      {
+        "situacion": "Hay 4 limones a la izquierda y 7 a la derecha. ¿Cuántos quitas de la derecha?",
+        "desarrollo": "Hay 3 más a la derecha que a la izquierda: 7 - 4 = 3.",
+        "respuesta": "Quitas 3 limones de la derecha."
+      },
+      {
+        "situacion": "Hay 6 y 6 en los dos platillos. ¿Qué pasa?",
+        "desarrollo": "Los dos lados tienen lo mismo.",
+        "respuesta": "La balanza está equilibrada."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Agregar la cantidad total del platillo que tiene más.",
+        "correccion": "Solo agregas lo que falta, la diferencia entre los dos platillos."
+      },
+      {
+        "error": "Agregar al lado que ya tiene más.",
+        "correccion": "Agrega al lado que tiene menos, o quita del lado que tiene más."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Equilibrio",
+        "significado": "Cuando los dos platillos de la balanza tienen la misma cantidad."
+      },
+      {
+        "termino": "Platillo",
+        "significado": "Cada lado de la balanza donde se pone lo que se pesa."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una balanza tiene 5 canicas en el platillo izquierdo y 3 en el derecho. ¿Cuántas canicas agregas a la derecha para que se equilibre? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas hay en cada platillo: 5 y 3.",
+          "El platillo derecho tiene menos.",
+          "Cuenta desde 3 hasta 5: 4, 5."
+        ],
+        "retroalimentacion": "Faltan 2: 3 + 2 = 5. Así los dos platillos quedan con 5.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una balanza está equilibrada si los dos platillos tienen la misma cantidad.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en dos niños sentados en un balancín.",
+          "Si pesan lo mismo, el balancín queda recto.",
+          "Misma cantidad en los dos lados significa equilibrio."
+        ],
+        "retroalimentacion": "Es verdadero: con la misma cantidad en cada platillo, la balanza se equilibra.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una balanza tiene 6 manzanas a la izquierda y 6 naranjas a la derecha. ¿Qué pasa?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Baja el platillo derecho"
+          },
+          {
+            "id": "b",
+            "texto": "Queda equilibrada"
+          },
+          {
+            "id": "c",
+            "texto": "Baja el platillo izquierdo"
+          }
+        ],
+        "pistas": [
+          "Cuenta los dos lados: manzanas y naranjas.",
+          "Hay 6 y 6.",
+          "Si tienen igual cantidad, no baja ninguno."
+        ],
+        "retroalimentacion": "Hay 6 en cada lado, entonces queda equilibrada. No baja ningún platillo.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un platillo tiene 3 canicas y el otro tiene 7. ¿Cuántas canicas quitas del que tiene 7 para equilibrar? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El platillo con 7 es el que tiene más.",
+          "Quita hasta que quede con 3.",
+          "Cuenta hacia atrás desde 7 hasta llegar a 3."
+        ],
+        "retroalimentacion": "7 - 4 = 3: quitas 4 canicas y quedan 3 en cada lado.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la balanza de la bodega hay 9 papas a la izquierda y 5 a la derecha. ¿Cuántas papas pones a la derecha para equilibrar? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los dos lados: 9 y 5.",
+          "La derecha tiene menos papas.",
+          "Cuenta desde 5 hasta 9: ¿cuántos números cuentas?"
+        ],
+        "retroalimentacion": "Faltan 4 papas: 5 + 4 = 9.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay 8 granos de quinua en un platillo y 12 en el otro. Ana quiere equilibrar quitando del que tiene más. ¿Cuántos quita?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "4"
+          }
+        ],
+        "pistas": [
+          "El platillo con más tiene 12 granos.",
+          "Debe quedar con 8, como el otro.",
+          "Resta 12 - 8."
+        ],
+        "retroalimentacion": "12 - 8 = 4: Ana quita 4 granos y quedan 8 en cada platillo.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una balanza tiene 7 frutas a la izquierda y 4 a la derecha. Si agregas 3 a la derecha, se equilibra.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántas frutas hay más a la izquierda.",
+          "7 - 4 deja una diferencia.",
+          "Si agregas esa diferencia a la derecha, quedan 7 y 7."
+        ],
+        "retroalimentacion": "Es verdadero: 4 + 3 = 7, y los dos platillos tienen 7.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El platillo izquierdo tiene 6 caramelos y el derecho tiene 9. Si quitas 3 del derecho, ¿se equilibra? Responde sí o no.",
+        "respuesta": "sí",
+        "alternativasAceptadas": [
+          "si",
+          "sí se equilibra",
+          "si se equilibra"
+        ],
+        "pistas": [
+          "Calcula cuántos caramelos quedan en el platillo derecho si quitas 3.",
+          "9 - 3 da el nuevo número de la derecha.",
+          "Compara ese número con 6."
+        ],
+        "retroalimentacion": "9 - 3 = 6, y la izquierda tiene 6. Se equilibra.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El platillo izquierdo tiene 12 piedritas y el derecho tiene 7. Ya pusiste 2 piedritas más en el derecho. ¿Cuántas faltan todavía para equilibrar? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero calcula cuántas piedritas hay ahora a la derecha: 7 + 2.",
+          "Ahora la derecha tiene 9 y la izquierda tiene 12.",
+          "Calcula cuánto falta de 9 a 12."
+        ],
+        "retroalimentacion": "7 + 2 = 9 y 12 - 9 = 3. Faltan 3 piedritas.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En el platillo izquierdo hay 9 pelotitas rojas y 4 azules. En el derecho hay 6 pelotitas. ¿Cuántas agregas a la derecha para equilibrar? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero junta las pelotitas del platillo izquierdo.",
+          "9 + 4 da el total de la izquierda.",
+          "Ese total es 13. Calcula cuánto falta de 6 a 13."
+        ],
+        "retroalimentacion": "9 + 4 = 13 y 13 - 6 = 7. Agregas 7 pelotitas a la derecha.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una balanza tiene 8 en cada platillo. Le agregas 3 al platillo izquierdo. ¿Qué haces para equilibrarla de nuevo?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Agrego 3 al platillo derecho"
+          },
+          {
+            "id": "b",
+            "texto": "Quito 3 del platillo derecho"
+          },
+          {
+            "id": "c",
+            "texto": "Agrego 8 al platillo derecho"
+          }
+        ],
+        "pistas": [
+          "Antes de agregar, la balanza estaba equilibrada con 8 y 8.",
+          "Ahora la izquierda tiene 3 más: 8 + 3.",
+          "Para quedar igual, la derecha también necesita 3 más."
+        ],
+        "retroalimentacion": "Si el izquierdo sube a 11, el derecho debe llegar a 11: agregas 3. Quitar del derecho lo alejaría más.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una balanza tiene 7 en cada platillo y está equilibrada. Quitas 2 del platillo izquierdo. ¿Cuántos debes quitar del derecho para equilibrarla de nuevo? Escribe solo el número.",
+        "respuesta": "2",
+        "alternativasAceptadas": [
+          "dos"
+        ],
+        "pistas": [
+          "La izquierda queda con 7 menos 2.",
+          "Ahora la izquierda tiene 5 y la derecha todavía tiene 7.",
+          "Para que la derecha baje a 5, calcula 7 - 5."
+        ],
+        "retroalimentacion": "La izquierda quedó con 5. Quitas 2 de la derecha: 7 - 2 = 5.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

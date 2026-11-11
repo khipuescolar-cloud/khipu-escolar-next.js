@@ -1,0 +1,3085 @@
+[
+  {
+    "clave": "mat.p1.que-se-repite",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-02"
+    ],
+    "bloque": "Patrones de repetición",
+    "nombre": "¿Qué se repite? Secuencias de objetos",
+    "disciplina": "algebra",
+    "descripcionCorta": "Observa una fila de objetos y descubre qué elementos se repiten una y otra vez.",
+    "palabrasClave": [
+      "patrón",
+      "repetir",
+      "secuencia",
+      "colores",
+      "figuras"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 16,
+    "ideaCentral": "Un patrón es una fila de cosas que se repiten siempre en el mismo orden. Para descubrirlo, busca qué cosas se repiten una y otra vez.",
+    "pasos": [
+      "Mira la fila de izquierda a derecha.",
+      "Busca qué se repite, como un color o una figura.",
+      "Descubre en qué orden se repiten.",
+      "Comprueba que ese orden sea igual en toda la fila."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En un collar hay: ● ★ ● ★ ● ★. ¿Qué se repite?",
+        "desarrollo": "Primero un círculo, luego una estrella, y otra vez lo mismo.",
+        "respuesta": "Se repiten círculo y estrella."
+      },
+      {
+        "situacion": "Un tejido cusqueño muestra: rojo, azul, rojo, azul, rojo. ¿Qué se repite?",
+        "desarrollo": "Los colores rojo y azul se alternan.",
+        "respuesta": "Se repiten rojo y azul."
+      },
+      {
+        "situacion": "Una fila de sombreros: ▲ ▲ ● ▲ ▲ ●. ¿Qué se repite?",
+        "desarrollo": "Dos triángulos y un círculo, una y otra vez.",
+        "respuesta": "Se repiten triángulo, triángulo y círculo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que cualquier fila es un patrón.",
+        "correccion": "En un patrón el mismo grupo de cosas vuelve a aparecer en el mismo orden."
+      },
+      {
+        "error": "Ver solo una cosa que se repite y olvidar las demás.",
+        "correccion": "Mira todos los elementos y el orden en que aparecen."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Patrón",
+        "significado": "Una fila donde algo se repite siempre igual."
+      },
+      {
+        "termino": "Repetir",
+        "significado": "Volver a aparecer en el mismo orden."
+      },
+      {
+        "termino": "Secuencia",
+        "significado": "Una fila de cosas en orden."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira la fila ★ ● ★ ● ★ ●. ¿Qué se repite?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dos estrellas"
+          },
+          {
+            "id": "b",
+            "texto": "Estrella y círculo"
+          },
+          {
+            "id": "c",
+            "texto": "Tres círculos"
+          }
+        ],
+        "pistas": [
+          "Mira cuál es el primer dibujo.",
+          "Después de la estrella viene un círculo.",
+          "Esa pareja aparece una y otra vez."
+        ],
+        "retroalimentacion": "La estrella y el círculo se repiten: ★ ●, ★ ●, ★ ●."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la fila rojo, azul, rojo, azul, rojo, se repiten el rojo y el azul.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuál es el color que va primero.",
+          "Después del rojo viene el azul.",
+          "Ese par vuelve a aparecer."
+        ],
+        "retroalimentacion": "Es verdadero: rojo y azul se alternan."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la fila ▲ ▲ ● ▲ ▲ ●, ¿qué dibujo se repite dos veces seguidas?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El círculo"
+          },
+          {
+            "id": "b",
+            "texto": "El cuadrado"
+          },
+          {
+            "id": "c",
+            "texto": "El triángulo"
+          }
+        ],
+        "pistas": [
+          "Mira qué dibujo va primero en cada grupo.",
+          "El primer dibujo aparece dos veces seguidas.",
+          "No es el círculo, que aparece una sola vez."
+        ],
+        "retroalimentacion": "El triángulo aparece dos veces seguidas en cada grupo."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un collar tiene ● ★ ● ★ ● ★ ● ★. ¿Cuántas estrellas hay? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta solo las estrellas.",
+          "Cada ★ va después de un círculo.",
+          "Marca cada ★ con el dedo mientras cuentas."
+        ],
+        "retroalimentacion": "Hay 4 estrellas en la fila."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Mira la fila rojo, verde, rojo, verde, rojo, verde. ¿Qué color va primero en la pareja que se repite? Escribe solo el color.",
+        "respuesta": "rojo",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira dónde empieza la fila.",
+          "La fila empieza con un color y luego cambia.",
+          "La pareja siempre empieza con el mismo color que la fila."
+        ],
+        "retroalimentacion": "La pareja que se repite es rojo, verde: empieza con rojo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fila 1, 2, 3, 1, 2, 3 es un patrón porque 1, 2, 3 se repite.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántos números hay antes de que vuelva el 1.",
+          "Se repite el grupo 1, 2, 3.",
+          "Se repite en el mismo orden."
+        ],
+        "retroalimentacion": "Es verdadero: 1, 2, 3 vuelve a aparecer en el mismo orden."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la chacra, don Luis planta quinua y maíz así: quinua, quinua, maíz, quinua, quinua, maíz. ¿Cuál es el grupo que se repite?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Quinua, maíz"
+          },
+          {
+            "id": "b",
+            "texto": "Maíz, quinua, maíz"
+          },
+          {
+            "id": "c",
+            "texto": "Quinua, quinua, maíz"
+          },
+          {
+            "id": "d",
+            "texto": "Quinua, maíz, maíz"
+          }
+        ],
+        "pistas": [
+          "Mira dónde vuelve a empezar la fila.",
+          "La fila empieza con dos quinuas.",
+          "Después de las dos quinuas va un maíz."
+        ],
+        "retroalimentacion": "El grupo que se repite es quinua, quinua, maíz."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una pulsera tiene ● ● ★ ● ● ★ ● ● ★. ¿Cuántas veces se repite el grupo ● ● ★? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada grupo tiene dos círculos y una estrella.",
+          "Marca cada vez que aparece una ★.",
+          "Cuenta las estrellas."
+        ],
+        "retroalimentacion": "El grupo ● ● ★ aparece 3 veces."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Mira la fila ★ ● ● ★ ● ● ★ ● ●. ¿Cuántos círculos hay en total? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta primero cuántos grupos hay.",
+          "Cada grupo es ★ ● ●.",
+          "Hay 3 grupos con 2 círculos cada uno."
+        ],
+        "retroalimentacion": "Hay 3 grupos y cada uno tiene 2 círculos: 6 círculos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fila ● ★ ★ ● ★ ● ★ ★ no tiene un grupo que se repite siempre igual.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cómo empieza cada grupo.",
+          "Compara el primer grupo con el que sigue.",
+          "El orden de los dibujos cambia."
+        ],
+        "retroalimentacion": "Es verdadero: el orden cambia, así que no hay un patrón."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos niños miran la fila ▲ ● ▲ ● ▲ ●. Ana dice que se repite «triángulo, círculo». Beto dice que se repite «círculo, triángulo». ¿Quién tiene razón?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo Ana"
+          },
+          {
+            "id": "b",
+            "texto": "Solo Beto"
+          },
+          {
+            "id": "c",
+            "texto": "Ninguno"
+          },
+          {
+            "id": "d",
+            "texto": "Los dos"
+          }
+        ],
+        "pistas": [
+          "Mira por dónde empieza la fila.",
+          "Ana empieza por el triángulo y Beto por el círculo.",
+          "Las dos formas dicen lo mismo en distinto orden."
+        ],
+        "retroalimentacion": "Los dos describen lo que se repite: el triángulo y el círculo se alternan."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un cartel muestra ■ ● ■ ● ■ ● ■ ● ■ ●. ¿Cuántos grupos «■ ●» hay? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta solo los cuadrados.",
+          "Cada ■ empieza un grupo.",
+          "Hay 5 cuadrados."
+        ],
+        "retroalimentacion": "El grupo ■ ● aparece 5 veces."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.patrones-colores-formas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-02"
+    ],
+    "bloque": "Patrones de repetición",
+    "nombre": "Patrones con colores y formas",
+    "disciplina": "algebra",
+    "descripcionCorta": "Arma secuencias que se repiten según el color o la forma de los objetos.",
+    "palabrasClave": [
+      "patrón",
+      "colores",
+      "formas",
+      "armar",
+      "criterio"
+    ],
+    "prerrequisitos": [
+      "mat.p1.que-se-repite"
+    ],
+    "ordenSugerido": 17,
+    "ideaCentral": "Puedes armar un patrón repitiendo colores o repitiendo formas. Eliges un grupo, como rojo-azul o círculo-cuadrado, y lo pones una vez tras otra en el mismo orden.",
+    "pasos": [
+      "Elige si el patrón va a repetir colores o formas.",
+      "Elige el grupo que vas a repetir, por ejemplo rojo, amarillo.",
+      "Colócalo una vez, y luego otra vez, en el mismo orden.",
+      "Comprueba la fila de izquierda a derecha."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Armas una fila de cuentas con los colores rojo y amarillo, alternando. ¿Cómo queda?",
+        "desarrollo": "Pones rojo, luego amarillo, luego rojo, luego amarillo.",
+        "respuesta": "Rojo, amarillo, rojo, amarillo, rojo, amarillo."
+      },
+      {
+        "situacion": "Quieres un patrón con formas: círculo y cuadrado. ¿Cómo queda?",
+        "desarrollo": "Alternas ● y ■ en el mismo orden.",
+        "respuesta": "● ■ ● ■ ● ■."
+      },
+      {
+        "situacion": "El patrón es «verde, verde, azul». ¿Cómo se ve con 6 piezas?",
+        "desarrollo": "Pones verde, verde, azul y repites el grupo una vez más.",
+        "respuesta": "Verde, verde, azul, verde, verde, azul."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar el orden del grupo en la segunda vuelta.",
+        "correccion": "Cada vez que repites, usa el grupo en el mismo orden."
+      },
+      {
+        "error": "Mezclar colores y formas a la vez sin darte cuenta.",
+        "correccion": "Decide qué vas a repetir, el color o la forma, y fíjate solo en eso."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Forma",
+        "significado": "La figura de un objeto: círculo, cuadrado, triángulo."
+      },
+      {
+        "termino": "Color",
+        "significado": "Cómo se ve algo: rojo, azul, amarillo."
+      },
+      {
+        "termino": "Alternar",
+        "significado": "Poner una cosa, luego otra, y volver a empezar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para un patrón de colores alternando rojo y azul, ¿cuál fila es correcta?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rojo, rojo, azul, azul"
+          },
+          {
+            "id": "b",
+            "texto": "Azul, azul, rojo, rojo"
+          },
+          {
+            "id": "c",
+            "texto": "Rojo, azul, rojo, azul"
+          },
+          {
+            "id": "d",
+            "texto": "Rojo, azul, azul, rojo"
+          }
+        ],
+        "pistas": [
+          "Alternar es poner uno, luego otro.",
+          "Empieza por rojo y sigue con azul.",
+          "Después de azul vuelve a poner rojo."
+        ],
+        "retroalimentacion": "Rojo, azul, rojo, azul alterna los colores. Rojo, rojo, azul, azul repite cada uno dos veces."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fila ● ■ ● ■ ● ■ es un patrón de formas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira las formas: círculo y cuadrado.",
+          "El círculo siempre va antes del cuadrado.",
+          "Esa pareja se repite."
+        ],
+        "retroalimentacion": "Es verdadero: ● ■ se repite en el mismo orden."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La fila es amarillo, verde, amarillo, verde, amarillo, __. Escribe el color que falta.",
+        "respuesta": "verde",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuál va después de cada amarillo.",
+          "Después de cada amarillo viene verde.",
+          "El último amarillo también es seguido por el mismo color."
+        ],
+        "retroalimentacion": "Después del último amarillo va verde."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una fila alterna ▲ y ●: ▲ ● ▲ ● ▲ ●. ¿Cuántos triángulos hay? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta solo los triángulos ▲.",
+          "Hay uno antes de cada círculo.",
+          "Hay tantos triángulos como círculos."
+        ],
+        "retroalimentacion": "Hay 3 triángulos, uno antes de cada círculo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tienes cuentas: rojo, rojo, azul, rojo, rojo, azul. ¿Cuál es el grupo de colores que se repite?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Azul, rojo, rojo"
+          },
+          {
+            "id": "b",
+            "texto": "Rojo, azul"
+          },
+          {
+            "id": "c",
+            "texto": "Rojo, rojo, azul"
+          },
+          {
+            "id": "d",
+            "texto": "Rojo, rojo, rojo"
+          }
+        ],
+        "pistas": [
+          "Mira cómo empieza la fila.",
+          "Empieza con dos rojos.",
+          "Después va un azul y vuelve a empezar."
+        ],
+        "retroalimentacion": "El grupo es rojo, rojo, azul. Rojo, azul no sirve porque falta un rojo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Armas un patrón con «● ■ ■» y lo repites 3 veces. ¿Cuántas piezas usas en total? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas piezas tiene un grupo: ● ■ ■.",
+          "Cada grupo tiene 3 piezas.",
+          "Hay 3 grupos: suma 3 más 3 más 3."
+        ],
+        "retroalimentacion": "Cada grupo usa 3 piezas y los repites 3 veces: 9 piezas."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el patrón es azul, verde, verde, la fila azul, verde, verde, azul, azul, verde sigue ese patrón.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El grupo que debe repetirse es azul, verde, verde.",
+          "Mira la primera vuelta: azul, verde, verde.",
+          "Compara con la segunda vuelta: azul, azul, verde."
+        ],
+        "retroalimentacion": "Es falso: en la segunda vuelta va azul, azul, verde en vez de azul, verde, verde."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un patrón de formas alternas, la fila empieza con ★ ● ★ ●. Escribe la forma que sigue.",
+        "respuesta": "★",
+        "alternativasAceptadas": [
+          "estrella"
+        ],
+        "pistas": [
+          "Mira el orden de las formas.",
+          "Se alternan la estrella y el círculo.",
+          "Después del círculo vuelve la primera."
+        ],
+        "retroalimentacion": "Después de ● vuelve ★."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marta arma una pulsera con cuentas amarillas y rojas. Pone: A R A R A R. Luego quiere hacer el patrón «A A R» con la misma cantidad de 6 cuentas. ¿Cuál es la fila correcta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A A R R A A"
+          },
+          {
+            "id": "b",
+            "texto": "A A R A A R"
+          },
+          {
+            "id": "c",
+            "texto": "A R R A R R"
+          },
+          {
+            "id": "d",
+            "texto": "A A A R R R"
+          }
+        ],
+        "pistas": [
+          "El grupo es A A R.",
+          "Se repite dos veces para las 6 cuentas.",
+          "Escribe A A R y luego otra vez A A R."
+        ],
+        "retroalimentacion": "A A R A A R repite dos veces el grupo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la fila ● ■ ● ■ ● ■ ● ■, ¿cuántas figuras hay en total, entre círculos y cuadrados? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántas figuras tiene la fila entera.",
+          "Cada ● va acompañado de un ■.",
+          "Cuenta todas las figuras: círculos y cuadrados."
+        ],
+        "retroalimentacion": "Hay 4 círculos y 4 cuadrados: 8 figuras."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el patrón rojo, azul, amarillo repetido, el sexto color es amarillo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe seis colores repitiendo el grupo.",
+          "Rojo, azul, amarillo, rojo, azul, ...",
+          "Cuenta hasta el sexto."
+        ],
+        "retroalimentacion": "Es verdadero: la fila es rojo, azul, amarillo, rojo, azul, amarillo."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El patrón es círculo, cuadrado, cuadrado. Escribe la forma que va en el lugar 5 de la fila.",
+        "respuesta": "cuadrado",
+        "alternativasAceptadas": [
+          "un cuadrado",
+          "■"
+        ],
+        "pistas": [
+          "Escribe las formas lugar por lugar.",
+          "1 círculo, 2 cuadrado, 3 cuadrado, 4 círculo, ...",
+          "Sigue contando hasta el lugar 5."
+        ],
+        "retroalimentacion": "La fila es círculo, cuadrado, cuadrado, círculo, cuadrado: en el 5 va cuadrado."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.patrones-sonidos-movimientos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-02"
+    ],
+    "bloque": "Patrones de repetición",
+    "nombre": "Patrones de sonidos y movimientos con un criterio",
+    "disciplina": "algebra",
+    "descripcionCorta": "Reconoce y reproduce secuencias de palmadas, sonidos y movimientos del cuerpo.",
+    "palabrasClave": [
+      "patrón",
+      "sonidos",
+      "palmadas",
+      "movimientos",
+      "repetir"
+    ],
+    "prerrequisitos": [
+      "mat.p1.que-se-repite"
+    ],
+    "ordenSugerido": 42,
+    "ideaCentral": "Un patrón de sonidos o movimientos es algo que se repite siempre en el mismo orden. Si escuchas bien, sabes qué viene después.",
+    "pasos": [
+      "Escucha o mira todo el patrón con calma.",
+      "Busca el pedacito que se repite.",
+      "Di en voz alta ese pedacito: por ejemplo, palmada, pie.",
+      "Sigue el orden para saber qué viene."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Mamá toca la olla así: pum, tak, pum, tak, pum. ¿Qué suena después?",
+        "desarrollo": "Se repite «pum, tak». Después de pum viene tak.",
+        "respuesta": "Suena tak."
+      },
+      {
+        "situacion": "En el patio bailas: salto, salto, agacho, salto, salto, agacho. ¿Qué haces después?",
+        "desarrollo": "Se repite «salto, salto, agacho». Ya hiciste el agacho. Empieza otra vez.",
+        "respuesta": "Haces salto."
+      },
+      {
+        "situacion": "Tito aplaude, aplaude, pisa, aplaude, aplaude. ¿Qué hace ahora?",
+        "desarrollo": "El pedacito es «aplaude, aplaude, pisa». Ya hizo dos aplausos.",
+        "respuesta": "Ahora pisa."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir el sonido que más te gusta, sin mirar el orden.",
+        "correccion": "Mira el orden. El patrón dice qué viene, no lo que te gusta."
+      },
+      {
+        "error": "Creer que el patrón empieza de nuevo antes de terminar.",
+        "correccion": "Termina el pedacito entero. Luego empieza otra vez."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Patrón",
+        "significado": "Algo que se repite en el mismo orden."
+      },
+      {
+        "termino": "Palmada",
+        "significado": "Un golpe con las manos."
+      },
+      {
+        "termino": "Se repite",
+        "significado": "Vuelve a pasar igual."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Haces: palmada, pie, palmada, pie, palmada, ... ¿Qué sigue?",
+        "respuesta": "pie",
+        "alternativasAceptadas": [
+          "un pie",
+          "pisada",
+          "el pie"
+        ],
+        "pistas": [
+          "Escucha cómo se alternan los sonidos.",
+          "Antes del último hubo palmada y pie, uno tras otro.",
+          "Después de la palmada viene un movimiento de tu pie."
+        ],
+        "retroalimentacion": "Se repite «palmada, pie». Después de una palmada viene pie.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cantas: pum, tak, pum, tak, pum. ¿Qué sonido sigue?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "pum"
+          },
+          {
+            "id": "b",
+            "texto": "tak"
+          },
+          {
+            "id": "c",
+            "texto": "pum pum"
+          }
+        ],
+        "pistas": [
+          "Mira cómo cambia: pum, luego tak, luego pum.",
+          "Los dos sonidos van uno y uno, en turnos.",
+          "El último fue pum. El otro sonido es el que sigue."
+        ],
+        "retroalimentacion": "Muchos dicen pum otra vez. Pero se alternan: después de pum viene tak.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En «salto, salto, agacho, salto, salto, agacho» lo que se repite es «salto, salto, agacho».",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el pedacito que se repite.",
+          "Lee de a tres: salto, salto, agacho.",
+          "Los tres vuelven a salir iguales y en el mismo orden."
+        ],
+        "retroalimentacion": "Es verdad: «salto, salto, agacho» sale dos veces igual.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "El patrón es: palmada, palmada, pie. Y se repite. ¿Cuántos movimientos tiene el pedacito que se repite? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los movimientos que dice el patrón antes de repetir.",
+          "Hay dos palmadas y un pie.",
+          "Cuenta con tus dedos: palmada, palmada, pie."
+        ],
+        "retroalimentacion": "El pedacito tiene 3 movimientos: 2 palmadas y 1 pie.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Haces: aplaudo, aplaudo, salto, aplaudo, aplaudo, salto, aplaudo. ¿Qué sigue?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Salto"
+          },
+          {
+            "id": "b",
+            "texto": "Agacho"
+          },
+          {
+            "id": "c",
+            "texto": "Aplaudo"
+          }
+        ],
+        "pistas": [
+          "Mira cuántos aplausos van seguidos.",
+          "Cada vez hay dos aplausos antes del salto.",
+          "Ahora ya hiciste un aplauso. Falta el segundo."
+        ],
+        "retroalimentacion": "Después de un solo aplauso viene otro aplauso. Luego va el salto.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Tocas el tambor: pum, pum, ta, pum. ¿Qué sonido viene ahora?",
+        "respuesta": "pum",
+        "alternativasAceptadas": [
+          "otro pum",
+          "un pum"
+        ],
+        "pistas": [
+          "Busca el pedacito que se repite en el tambor.",
+          "Se repite «pum, pum, ta» y ya tocaste un pum.",
+          "Faltan dos sonidos del pedacito: primero el segundo pum."
+        ],
+        "retroalimentacion": "El pedacito es «pum, pum, ta». Después de un pum viene otro pum.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los sonidos «tin, tin, pan, tin, pan, pan» forman un patrón que se repite.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira si sale un pedacito igual dos veces.",
+          "Primero hay tin, tin, pan. Luego cambia.",
+          "Después del primer pan vuelve un solo tin, y no dos."
+        ],
+        "retroalimentacion": "Es falso: no hay un pedacito que se repita igual.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Juan hace: salto, paso, salto, paso, salto, paso, salto, paso. ¿Cuántos saltos hace? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta solo los saltos, no los pasos.",
+          "Salto y paso van de dos en dos: hay 8 movimientos.",
+          "Hay un salto en cada pareja. Cuenta las parejas."
+        ],
+        "retroalimentacion": "Hay 4 saltos, uno en cada pareja «salto, paso».",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa empieza así: palmada, rodilla, rodilla. Lo repite una vez más. ¿Cómo queda?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "palmada, rodilla, rodilla, palmada, rodilla, rodilla"
+          },
+          {
+            "id": "b",
+            "texto": "palmada, rodilla, rodilla, rodilla, palmada, palmada"
+          },
+          {
+            "id": "c",
+            "texto": "palmada, rodilla, palmada, rodilla, palmada, rodilla"
+          }
+        ],
+        "pistas": [
+          "Repetir es hacer el mismo pedacito, sin cambios.",
+          "El pedacito de Rosa tiene tres movimientos.",
+          "Escribe el pedacito dos veces, uno detrás de otro."
+        ],
+        "retroalimentacion": "Se escribe «palmada, rodilla, rodilla» dos veces. Las otras cambian el orden.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El patrón es: pie, pie, palmada. Lo repites 4 veces. ¿Cuántas veces mueves el pie? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos pies hay en una sola vuelta.",
+          "En una vuelta hay 2 pies. Son 4 vueltas.",
+          "Suma 2 + 2 + 2 + 2."
+        ],
+        "retroalimentacion": "En cada vuelta hay 2 pies. 2 + 2 + 2 + 2 = 8.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Sonidos: pum, tak, tak, pum, tak, tak, pum, tak. ¿Qué dos sonidos siguen? Escríbelos separados por coma.",
+        "respuesta": "tak, pum",
+        "alternativasAceptadas": [
+          "tak pum",
+          "tak y pum"
+        ],
+        "pistas": [
+          "Primero busca el pedacito que se repite.",
+          "El pedacito es «pum, tak, tak». El último pum va con el último tak.",
+          "Falta un tak para terminar la vuelta. Luego empieza de nuevo."
+        ],
+        "retroalimentacion": "Falta un tak y luego vuelve pum. Siguen: tak, pum.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "El patrón «palmada, pie, pie, palmada, pie, pie» se repite cada 3 movimientos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa el patrón en grupos de tres.",
+          "El primer grupo es palmada, pie, pie.",
+          "El segundo grupo es igual al primero."
+        ],
+        "retroalimentacion": "Es verdad: «palmada, pie, pie» se repite, y tiene 3 movimientos.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.patrones-repeticion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-03"
+    ],
+    "bloque": "Patrones de repetición",
+    "nombre": "Patrones de repetición",
+    "disciplina": "algebra",
+    "descripcionCorta": "Describe con sus palabras cómo se forma un patrón de repetición de un criterio.",
+    "palabrasClave": [
+      "patrón de repetición",
+      "describir",
+      "regla",
+      "repite",
+      "orden"
+    ],
+    "prerrequisitos": [
+      "mat.p1.patrones-colores-formas"
+    ],
+    "ordenSugerido": 43,
+    "ideaCentral": "Puedes decir con tus palabras cómo se forma un patrón de repetición. Se nombra el grupo que se repite y se explica que siempre aparece en el mismo orden.",
+    "pasos": [
+      "Mira qué grupo de cosas se repite.",
+      "Nómbralos en orden, por ejemplo «rojo, azul».",
+      "Di que ese grupo vuelve a aparecer una y otra vez.",
+      "Comprueba que tu frase sirve para toda la fila."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La fila es ★ ● ★ ● ★ ●. ¿Cómo se forma?",
+        "desarrollo": "Primero va una estrella y después un círculo; luego se repite.",
+        "respuesta": "Se repite estrella y círculo, en ese orden."
+      },
+      {
+        "situacion": "Una tela de Cusco tiene rayas: negra, blanca, blanca, negra, blanca, blanca. ¿Cómo se forma?",
+        "desarrollo": "El grupo es negra, blanca, blanca y se vuelve a poner.",
+        "respuesta": "Se repite negra, blanca, blanca."
+      },
+      {
+        "situacion": "La fila es 1, 2, 1, 2, 1, 2. ¿Cómo se forma?",
+        "desarrollo": "Los números 1 y 2 se alternan.",
+        "respuesta": "Se repiten el 1 y el 2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Describir solo la primera figura y olvidar las demás.",
+        "correccion": "Nombra todo el grupo que se repite, en orden."
+      },
+      {
+        "error": "Decir un grupo en otro orden.",
+        "correccion": "Di las cosas en el mismo orden en que van en la fila."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Describir",
+        "significado": "Contar con palabras cómo es algo."
+      },
+      {
+        "termino": "Patrón de repetición",
+        "significado": "Una fila donde un grupo se repite en el mismo orden."
+      },
+      {
+        "termino": "Orden",
+        "significado": "El lugar que ocupa cada cosa."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira la fila ▲ ■ ▲ ■ ▲ ■. ¿Cómo se forma?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se repiten el cuadrado y el triángulo, en ese orden"
+          },
+          {
+            "id": "b",
+            "texto": "Se repite solo el triángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Se repiten triángulo y cuadrado, en ese orden"
+          }
+        ],
+        "pistas": [
+          "Mira la primera figura de la fila.",
+          "Empieza con ▲ y después viene ■.",
+          "Di las figuras en el mismo orden en que aparecen."
+        ],
+        "retroalimentacion": "Se repiten triángulo y cuadrado, en ese orden."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la fila 1, 2, 1, 2, 1, 2, se repiten el 1 y el 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los números de la fila.",
+          "Solo hay dos números distintos.",
+          "Se alternan: 1, 2, 1, 2."
+        ],
+        "retroalimentacion": "Es verdadero: el 1 y el 2 se alternan."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La fila es rojo, azul, rojo, azul. ¿Cuántos colores diferentes se repiten? Escribe el número.",
+        "respuesta": "2",
+        "alternativasAceptadas": [
+          "dos"
+        ],
+        "pistas": [
+          "Cuenta los colores distintos que ves.",
+          "Hay rojo y azul.",
+          "El rojo y el azul se repiten."
+        ],
+        "retroalimentacion": "Se repiten 2 colores: rojo y azul."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Hay una fila con cuentas de colores: ● ★ ● ★ ● ★. ¿Cuántas figuras tiene el grupo que se repite? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira dónde vuelve a empezar la fila.",
+          "El grupo es ● ★.",
+          "Cuenta cuántas figuras tiene ese grupo."
+        ],
+        "retroalimentacion": "El grupo ● ★ tiene 2 figuras."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una pulsera tiene A A B A A B A A B. ¿Cuál frase describe el patrón?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se repiten A, B"
+          },
+          {
+            "id": "b",
+            "texto": "Se repiten A, A, B"
+          },
+          {
+            "id": "c",
+            "texto": "Se repiten B, A, A"
+          },
+          {
+            "id": "d",
+            "texto": "Se repite solo A"
+          }
+        ],
+        "pistas": [
+          "Mira cómo empieza la fila.",
+          "Empieza con dos A y luego va una B.",
+          "Después se repite en el mismo orden."
+        ],
+        "retroalimentacion": "El grupo A, A, B se repite en ese orden. Si dijéramos B, A, A, cambiaríamos el comienzo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En la fila verde, verde, amarillo, verde, verde, amarillo, ¿qué color se repite dos veces seguidas? Escribe el color.",
+        "respuesta": "verde",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el color que aparece junto a otro igual.",
+          "Ese color va primero en cada grupo.",
+          "El otro color aparece solo una vez en cada grupo."
+        ],
+        "retroalimentacion": "El verde aparece dos veces seguidas en cada grupo."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fila ★ ★ ● ★ ● ● no se forma repitiendo un grupo en el mismo orden.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el primer grupo con el segundo.",
+          "El primer grupo empieza con dos estrellas.",
+          "El segundo no empieza igual."
+        ],
+        "retroalimentacion": "Es verdadero: no hay un grupo que se repita siempre igual."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La fila es ● ■ ● ■ ● ■ ● ■. ¿Cuántas veces se repite el grupo ● ■? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos círculos hay.",
+          "Cada círculo empieza un grupo.",
+          "Hay tantos grupos como círculos."
+        ],
+        "retroalimentacion": "El grupo ● ■ se repite 4 veces."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis dice que en A B B A B B A B B se repite «A B». Ana dice que se repite «A B B». ¿Quién tiene razón?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo Ana"
+          },
+          {
+            "id": "b",
+            "texto": "Solo Luis"
+          },
+          {
+            "id": "c",
+            "texto": "Los dos"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
+          }
+        ],
+        "pistas": [
+          "Mira cuántas B hay después de cada A.",
+          "Después de cada A van dos B.",
+          "El grupo completo debe tener todas las letras."
+        ],
+        "retroalimentacion": "Solo Ana: el grupo es A B B. Luis olvida una B."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un patrón se forma repitiendo «★ ★ ●». ¿Cuántas estrellas hay en dos vueltas del grupo? Escribe solo el número.",
+        "respuesta": "4",
+        "alternativasAceptadas": [
+          "cuatro"
+        ],
+        "pistas": [
+          "Escribe el grupo dos veces.",
+          "Es ★ ★ ● ★ ★ ●.",
+          "Cuenta solo las estrellas."
+        ],
+        "retroalimentacion": "Cada vuelta tiene 2 estrellas, así que en dos vueltas hay 4."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El patrón es «■ ● ●». Lo repites 3 veces. ¿Cuántas figuras hay en total entre cuadrados y círculos? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántas figuras tiene el grupo ■ ● ●.",
+          "Tiene 3 figuras.",
+          "Hay 3 vueltas: 3 más 3 más 3."
+        ],
+        "retroalimentacion": "3 figuras en cada una de las 3 vueltas son 9."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el patrón dice «rojo, azul» y repites 5 veces el grupo, usas 10 colores.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos colores tiene el grupo.",
+          "Tiene 2 colores.",
+          "5 vueltas de 2 colores hacen 5 veces 2."
+        ],
+        "retroalimentacion": "Es verdadero: 5 grupos de 2 son 10 colores."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.nucleo-patron",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-03"
+    ],
+    "bloque": "Patrones de repetición",
+    "nombre": "El núcleo del patrón",
+    "disciplina": "algebra",
+    "descripcionCorta": "Identifica la parte que se repite en un patrón y la encierra.",
+    "palabrasClave": [
+      "núcleo",
+      "patrón",
+      "grupo que se repite",
+      "encerrar",
+      "unidad del patrón"
+    ],
+    "prerrequisitos": [
+      "mat.p1.patrones-repeticion"
+    ],
+    "ordenSugerido": 44,
+    "ideaCentral": "El núcleo es el grupo más pequeño que se repite en un patrón. Si lo encierras, ves de qué piezas se forma toda la fila.",
+    "pasos": [
+      "Mira cómo empieza la fila.",
+      "Busca dónde vuelve a aparecer el mismo comienzo.",
+      "Encierra las piezas que hay desde el inicio hasta antes de que vuelva a empezar.",
+      "Comprueba que ese grupo se repite siempre igual."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La fila es ● ★ ● ★ ● ★. ¿Cuál es el núcleo?",
+        "desarrollo": "Empieza con ●. El ● vuelve después de 2 figuras. El grupo es ● ★.",
+        "respuesta": "El núcleo es ● ★."
+      },
+      {
+        "situacion": "La fila es rojo, rojo, azul, rojo, rojo, azul. ¿Cuál es el núcleo?",
+        "desarrollo": "Empieza con rojo, rojo y vuelve a empezar después del azul.",
+        "respuesta": "El núcleo es rojo, rojo, azul."
+      },
+      {
+        "situacion": "La fila es 1, 2, 3, 1, 2, 3, 1, 2, 3. ¿Cuál es el núcleo?",
+        "desarrollo": "El 1 vuelve después de 3 números.",
+        "respuesta": "El núcleo es 1, 2, 3."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Encerrar un grupo demasiado largo, como ● ★ ● ★.",
+        "correccion": "El núcleo es el grupo más corto que se repite: ● ★."
+      },
+      {
+        "error": "Encerrar un grupo demasiado corto, como solo ●.",
+        "correccion": "El núcleo debe ser el grupo con el que se arma toda la fila."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Núcleo",
+        "significado": "El grupo más pequeño que se repite en un patrón."
+      },
+      {
+        "termino": "Encerrar",
+        "significado": "Rodear con una línea las piezas del grupo."
+      },
+      {
+        "termino": "Repetir",
+        "significado": "Volver a poner el mismo grupo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la fila ▲ ■ ▲ ■ ▲ ■, ¿cuál es el núcleo?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "▲"
+          },
+          {
+            "id": "b",
+            "texto": "▲ ■ ▲"
+          },
+          {
+            "id": "c",
+            "texto": "▲ ■"
+          },
+          {
+            "id": "d",
+            "texto": "■ ■"
+          }
+        ],
+        "pistas": [
+          "Mira dónde vuelve a aparecer el primer ▲.",
+          "El primer ▲ vuelve después de 2 figuras.",
+          "El grupo tiene el ▲ y el que va justo después."
+        ],
+        "retroalimentacion": "El núcleo es ▲ ■. Solo el ▲ no alcanza para armar la fila."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la fila ● ● ★ ● ● ★, el núcleo es ● ● ★.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira dónde vuelve a empezar la fila.",
+          "Empieza con ● ● y después viene una ★.",
+          "Después de ★ vuelve a empezar igual."
+        ],
+        "retroalimentacion": "Es verdadero: ● ● ★ es el grupo que se repite."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la fila A B A B A B, ¿cuántas letras tiene el núcleo? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el grupo que se repite.",
+          "El grupo es A B.",
+          "Cuenta las letras de ese grupo."
+        ],
+        "retroalimentacion": "El núcleo A B tiene 2 letras."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe el núcleo de la fila rojo, azul, rojo, azul, rojo, azul. Sepáralo con coma.",
+        "respuesta": "rojo, azul",
+        "alternativasAceptadas": [
+          "rojo,azul",
+          "rojo azul"
+        ],
+        "pistas": [
+          "Mira cómo empieza la fila.",
+          "Empieza con rojo y luego va azul.",
+          "Después de azul vuelve a empezar."
+        ],
+        "retroalimentacion": "El grupo que se repite es rojo, azul."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un tejido de Cusco los colores son verde, verde, rojo, verde, verde, rojo, verde, verde, rojo. ¿Cuál es el núcleo?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rojo, verde, verde"
+          },
+          {
+            "id": "b",
+            "texto": "Verde, rojo"
+          },
+          {
+            "id": "c",
+            "texto": "Verde, verde, rojo, verde, verde"
+          },
+          {
+            "id": "d",
+            "texto": "Verde, verde, rojo"
+          }
+        ],
+        "pistas": [
+          "Mira cuántos verdes hay antes del primer rojo.",
+          "Son 2 verdes y luego un rojo.",
+          "Después del rojo vuelve a empezar la fila."
+        ],
+        "retroalimentacion": "El núcleo es verde, verde, rojo. Si encierras más piezas, el grupo ya no es el más pequeño."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La fila ● ■ ■ ● ■ ■ ● ■ ■ se arma repitiendo un núcleo. ¿Cuántas veces se repite el núcleo? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero descubre el núcleo: ● ■ ■.",
+          "Cada núcleo empieza con un ●.",
+          "Cuenta los círculos."
+        ],
+        "retroalimentacion": "El núcleo ● ■ ■ se repite 3 veces, una por cada círculo."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El núcleo de ★ ● ★ ● ★ ● es ★ ● ★.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántas piezas hay antes de que vuelva a empezar.",
+          "Después de ★ ● ya vuelve el ★.",
+          "El núcleo debe ser el más corto posible."
+        ],
+        "retroalimentacion": "Es falso: el núcleo es ★ ●, que es más corto."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La fila es 4, 5, 6, 4, 5, 6, 4, 5, 6. ¿Cuántos números tiene el núcleo? Escribe solo el número.",
+        "respuesta": "3",
+        "alternativasAceptadas": [
+          "tres"
+        ],
+        "pistas": [
+          "Mira cuándo vuelve a salir el 4.",
+          "Entre un 4 y el siguiente hay 3 números.",
+          "Cuenta 4, 5, 6."
+        ],
+        "retroalimentacion": "El núcleo 4, 5, 6 tiene 3 números."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una fila de 12 piezas se arma repitiendo un núcleo de 3 piezas. ¿Cuántas veces se repite el núcleo? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada vez que repites usas 3 piezas.",
+          "Cuenta de 3 en 3 hasta llegar a 12.",
+          "Dices 3, 6, 9, 12: cuenta cuántos números dices."
+        ],
+        "retroalimentacion": "3, 6, 9, 12 son 4 números: el núcleo se repite 4 veces."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una vendedora ordena frutas: mango, mango, papaya, mango, mango, papaya, mango, mango. La fila está incompleta. ¿Qué fruta falta al final para terminar bien el núcleo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mango"
+          },
+          {
+            "id": "b",
+            "texto": "Papaya"
+          },
+          {
+            "id": "c",
+            "texto": "Otro mango"
+          },
+          {
+            "id": "d",
+            "texto": "Una naranja"
+          }
+        ],
+        "pistas": [
+          "Descubre el núcleo: mango, mango, papaya.",
+          "La fila termina con mango, mango: el último grupo está sin terminar.",
+          "Mira qué pieza del grupo todavía no aparece en la última vuelta."
+        ],
+        "retroalimentacion": "El grupo es mango, mango, papaya. La fila termina con dos mangos; falta papaya."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un patrón tiene núcleo ▲ ▲ ● . Escribe con letras (T para ▲ y C para ●) las 6 primeras figuras del patrón, sin espacios.",
+        "respuesta": "TTCTTC",
+        "alternativasAceptadas": [
+          "T T C T T C",
+          "ttcttc"
+        ],
+        "pistas": [
+          "El núcleo tiene 3 figuras.",
+          "Repite el núcleo dos veces.",
+          "Escribe T T C y luego otra vez T T C."
+        ],
+        "retroalimentacion": "Repetir el núcleo dos veces da TTCTTC."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos patrones tienen núcleos distintos, ● ★ y ● ● ★, la fila con núcleo más largo usa más piezas por vuelta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las piezas de cada núcleo.",
+          "● ★ tiene 2 y ● ● ★ tiene 3.",
+          "Una vuelta del más largo usa más piezas."
+        ],
+        "retroalimentacion": "Es verdadero: 3 piezas son más que 2 en cada vuelta."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.continuar-patron",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P1-04"
+    ],
+    "bloque": "Patrones de repetición",
+    "nombre": "Continuar un patrón de repetición",
+    "disciplina": "algebra",
+    "descripcionCorta": "Dibuja o coloca los elementos que siguen en un patrón de repetición.",
+    "palabrasClave": [
+      "continuar",
+      "patrón",
+      "qué sigue",
+      "completar",
+      "repetición"
+    ],
+    "prerrequisitos": [
+      "mat.p1.nucleo-patron"
+    ],
+    "ordenSugerido": 45,
+    "ideaCentral": "Para continuar un patrón, descubre el grupo que se repite y sigue poniendo sus piezas en el mismo orden. Siempre mira cuál es la última pieza y cuál toca ahora.",
+    "pasos": [
+      "Encuentra el grupo que se repite.",
+      "Mira cuál fue la última pieza de la fila.",
+      "Busca esa pieza dentro del grupo.",
+      "Coloca la pieza que sigue en el grupo, y repite."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La fila es ● ★ ● ★ ●. ¿Qué pieza sigue?",
+        "desarrollo": "El grupo es ● ★. La última pieza es ●, y en el grupo después del ● viene ★.",
+        "respuesta": "Sigue ★."
+      },
+      {
+        "situacion": "Ana pone botones: rojo, rojo, azul, rojo, rojo. ¿Qué botón sigue?",
+        "desarrollo": "El grupo es rojo, rojo, azul. Ya puso rojo, rojo, falta el tercero.",
+        "respuesta": "Sigue azul."
+      },
+      {
+        "situacion": "La fila es ▲ ■ ● ▲ ■. ¿Qué sigue?",
+        "desarrollo": "El grupo es ▲ ■ ●. Después de ▲ ■ falta ●.",
+        "respuesta": "Sigue ●."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Repetir la última pieza otra vez.",
+        "correccion": "Mira qué pieza va después de ella en el grupo."
+      },
+      {
+        "error": "Empezar de nuevo el grupo antes de terminarlo.",
+        "correccion": "Termina el grupo que ya empezaste antes de comenzar otro."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Continuar",
+        "significado": "Seguir poniendo piezas que faltan."
+      },
+      {
+        "termino": "Grupo",
+        "significado": "Las piezas que se repiten."
+      },
+      {
+        "termino": "Siguiente",
+        "significado": "La que viene después."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La fila es ★ ● ★ ● ★. ¿Qué pieza sigue?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "★"
+          },
+          {
+            "id": "b",
+            "texto": "■"
+          },
+          {
+            "id": "c",
+            "texto": "▲"
+          },
+          {
+            "id": "d",
+            "texto": "●"
+          }
+        ],
+        "pistas": [
+          "Mira la última pieza de la fila: ★.",
+          "En el patrón, después de ★ va otra figura.",
+          "Es la que está entre dos estrellas."
+        ],
+        "retroalimentacion": "Después de ★ sigue ●."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la fila rojo, azul, rojo, azul, rojo, después va azul.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuál es la última pieza.",
+          "La última pieza es rojo.",
+          "En el patrón, después de rojo viene azul."
+        ],
+        "retroalimentacion": "Es verdadero: sigue azul."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La fila es A B A B A. Escribe la letra que sigue.",
+        "respuesta": "B",
+        "alternativasAceptadas": [
+          "b"
+        ],
+        "pistas": [
+          "Mira la última letra.",
+          "La última es A.",
+          "Después de A en el patrón viene la otra letra."
+        ],
+        "retroalimentacion": "Después de A sigue B."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La fila es 1, 2, 1, 2, 1. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el último número: 1.",
+          "Se repiten 1 y 2.",
+          "Después de 1 viene el otro número."
+        ],
+        "retroalimentacion": "Después de 1 sigue 2."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una ceremonia ponen flores así: amarilla, amarilla, roja, amarilla, amarilla. ¿Qué flor sigue?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Roja"
+          },
+          {
+            "id": "b",
+            "texto": "Amarilla"
+          },
+          {
+            "id": "c",
+            "texto": "Blanca"
+          },
+          {
+            "id": "d",
+            "texto": "Azul"
+          }
+        ],
+        "pistas": [
+          "Descubre el grupo que se repite.",
+          "El grupo es amarilla, amarilla, roja.",
+          "Ya pusieron amarilla, amarilla; falta la tercera."
+        ],
+        "retroalimentacion": "Sigue roja, que completa el grupo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La fila es ● ■ ■ ● ■ ■ ● ■. ¿Cuántas piezas faltan para terminar el grupo actual? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El grupo es ● ■ ■.",
+          "La fila termina con ● ■.",
+          "Compara cuántas piezas faltan para completar el tercero."
+        ],
+        "retroalimentacion": "Al grupo ● ■ solo le falta un ■ para completar ● ■ ■."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la fila ▲ ● ▲ ● ▲ ●, la pieza que sigue es ●.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuál es la última pieza de la fila.",
+          "La última pieza es ●.",
+          "Después de ● viene ▲."
+        ],
+        "retroalimentacion": "Es falso: sigue ▲."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La fila es 3, 4, 5, 3, 4, 5, 3. Escribe el número que sigue.",
+        "respuesta": "4",
+        "alternativasAceptadas": [
+          "cuatro"
+        ],
+        "pistas": [
+          "Descubre el grupo que se repite: 3, 4, 5.",
+          "La fila termina con 3.",
+          "En el grupo, después de 3 viene un número."
+        ],
+        "retroalimentacion": "Después de 3 viene 4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El patrón ● ★ ★ se repite en una fila de 9 piezas. ¿Cuántas estrellas hay en toda la fila? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántas veces cabe el grupo de 3 piezas en 9.",
+          "Caben 3 grupos.",
+          "Cada grupo tiene 2 estrellas: 2 más 2 más 2."
+        ],
+        "retroalimentacion": "3 grupos de 2 estrellas hacen 6 estrellas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El patrón es verde, azul, azul. Ya pusiste 7 piezas. ¿De qué color es la pieza número 8?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Verde y azul"
+          },
+          {
+            "id": "b",
+            "texto": "Verde"
+          },
+          {
+            "id": "c",
+            "texto": "Azul"
+          },
+          {
+            "id": "d",
+            "texto": "Rojo"
+          }
+        ],
+        "pistas": [
+          "Escribe la fila: verde, azul, azul, verde, azul, azul, verde.",
+          "Ya hay 7 piezas, y la 7 es verde.",
+          "Después de verde va el siguiente del grupo."
+        ],
+        "retroalimentacion": "La pieza 8 es azul, porque después de verde viene azul."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El patrón es ★ ● ● ★ ● ●. Escribe con letras (E para ★, C para ●) las 3 piezas que siguen después de ★ ● ● ★, sin espacios.",
+        "respuesta": "CCE",
+        "alternativasAceptadas": [
+          "C C E",
+          "cce"
+        ],
+        "pistas": [
+          "Busca en la fila cuál fue la última pieza que pusieron.",
+          "Esa pieza es el ★, que cierra un grupo.",
+          "Escribe lo que sigue en el grupo y vuelve a empezar."
+        ],
+        "retroalimentacion": "Después de ★ vienen ●, ● y ★: CCE."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el grupo es ▲ ■ ● y la fila termina en ■, la siguiente pieza es ●.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ubica ■ dentro del grupo ▲ ■ ●.",
+          "Mira cuál va después.",
+          "La que va después de ■ es una figura que no es ▲."
+        ],
+        "retroalimentacion": "Es verdadero: después de ■ va ●."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.completar-patron",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P1-04"
+    ],
+    "bloque": "Patrones de repetición",
+    "nombre": "El elemento que falta en un patrón",
+    "disciplina": "algebra",
+    "descripcionCorta": "Encuentra el elemento que falta en medio de un patrón de repetición.",
+    "palabrasClave": [
+      "patrón",
+      "repetición",
+      "falta",
+      "unidad",
+      "completar"
+    ],
+    "prerrequisitos": [
+      "mat.p1.continuar-patron"
+    ],
+    "ordenSugerido": 80,
+    "ideaCentral": "Un patrón de repetición es una fila de cosas que se repite siempre igual. Si falta una, miras el grupo que se repite y la descubres.",
+    "pasos": [
+      "Mira la fila y busca el grupo que se repite.",
+      "Lee ese grupo en voz alta.",
+      "Busca dónde está el espacio vacío.",
+      "Pon lo que toca según el grupo y lee todo otra vez."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "● ★ ● ★ ● __ ● ★. ¿Qué falta?",
+        "desarrollo": "El grupo es ● ★. Después de ● siempre va ★.",
+        "respuesta": "Falta ★."
+      },
+      {
+        "situacion": "Rosa siembra en la chacra: maíz, papa, papa, maíz, papa, __. ¿Qué siembra al final?",
+        "desarrollo": "El grupo es maíz, papa, papa. Ya puso maíz y una papa; toca otra papa.",
+        "respuesta": "Falta papa."
+      },
+      {
+        "situacion": "En el mercado de Cusco, Luis ordena bolsas: 1, 2, 3, 1, __, 3. ¿Qué número falta?",
+        "desarrollo": "El grupo es 1, 2, 3. Después del 1 va el 2.",
+        "respuesta": "Falta el 2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner lo primero que se te ocurre sin mirar el grupo.",
+        "correccion": "Primero encuentra el grupo que se repite. Luego mira lo que va antes y después del espacio."
+      },
+      {
+        "error": "Elegir lo que hay después del espacio.",
+        "correccion": "Mira lo que va antes del espacio. Eso te dice qué sigue."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Patrón",
+        "significado": "Fila de cosas que se repite siempre igual."
+      },
+      {
+        "termino": "Grupo que se repite",
+        "significado": "Las cosas que vuelven a salir una y otra vez."
+      },
+      {
+        "termino": "Falta",
+        "significado": "Es el espacio vacío que tú completas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Mira la fila: ● ★ ● ★ ● __ ● ★. ¿Qué figura va en el espacio?",
+        "respuesta": "★",
+        "alternativasAceptadas": [
+          "estrella",
+          "una estrella"
+        ],
+        "pistas": [
+          "Lee la fila de izquierda a derecha.",
+          "Las figuras se turnan: ●, ★, ●, ★.",
+          "Antes del espacio hay ●. Después de ● va la otra figura."
+        ],
+        "retroalimentacion": "Se repite ● ★. Después de ● va ★. Falta la estrella."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En las sillas del comedor hay números: 1, 2, 1, 2, 1, __, 1, 2. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántos números distintos usa la fila.",
+          "Solo se turnan el 1 y el 2.",
+          "Antes del espacio hay un 1. Después de 1 viene el otro número."
+        ],
+        "retroalimentacion": "Se repite 1, 2. Después del 1 va el 2."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Don Pedro siembra en su chacra: maíz, frijol, maíz, ___, maíz, frijol. ¿Qué siembra en el espacio?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "maíz"
+          },
+          {
+            "id": "b",
+            "texto": "frijol"
+          },
+          {
+            "id": "c",
+            "texto": "papa"
+          }
+        ],
+        "pistas": [
+          "Lee las dos primeras semillas: maíz, frijol.",
+          "Ese grupo se repite: maíz, frijol, maíz...",
+          "Después de maíz toca la semilla que va en segundo lugar del grupo."
+        ],
+        "retroalimentacion": "Se repite maíz, frijol. Después del maíz va frijol. No va papa porque no está en el patrón."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la fila ▲ ■ ▲ __ ▲ ■, la figura que falta es ■.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee el grupo de las dos primeras figuras: ▲ ■.",
+          "Mira cuál va antes del espacio: ▲.",
+          "Después de ▲ siempre viene ■."
+        ],
+        "retroalimentacion": "Es verdadero: se repite ▲ ■ y después de ▲ va ■."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Lucía enhebra cuentas: rojo, azul, verde, rojo, azul, __, rojo, azul, verde. ¿Qué color falta?",
+        "respuesta": "verde",
+        "alternativasAceptadas": [
+          "la verde",
+          "verde."
+        ],
+        "pistas": [
+          "Busca el grupo: empieza en rojo y termina antes de volver a rojo.",
+          "El grupo es rojo, azul, verde.",
+          "Antes del espacio hay rojo y azul. Falta el tercer color del grupo."
+        ],
+        "retroalimentacion": "El grupo es rojo, azul, verde. Después de azul va verde."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tomás apunta números: 5, 6, 7, 5, 6, 7, 5, __, 7. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Encuentra los tres números que se repiten.",
+          "El grupo es 5, 6, 7.",
+          "Antes del espacio hay un 5 y después un 7. Falta el que va en medio."
+        ],
+        "retroalimentacion": "El grupo es 5, 6, 7. Entre 5 y 7 va 6."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cuy come: zanahoria, pasto, pasto, zanahoria, ___, pasto. ¿Qué come en el espacio?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "pasto"
+          },
+          {
+            "id": "b",
+            "texto": "quinua"
+          },
+          {
+            "id": "c",
+            "texto": "zanahoria"
+          }
+        ],
+        "pistas": [
+          "Mira cuántas comidas tiene el grupo antes de repetirse.",
+          "El grupo es zanahoria, pasto, pasto.",
+          "Ya comió zanahoria; en el espacio va el primer pasto del grupo."
+        ],
+        "retroalimentacion": "El grupo es zanahoria, pasto, pasto. En el espacio va pasto. La quinua no está en el patrón."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Mira la fila: ● ● ★ ● ● ★ ● __ ★. ¿Qué figura falta?",
+        "respuesta": "●",
+        "alternativasAceptadas": [
+          "círculo",
+          "circulo",
+          "punto",
+          "un círculo"
+        ],
+        "pistas": [
+          "Cuenta cuántas figuras tiene el grupo.",
+          "El grupo es ● ● ★: dos círculos y una estrella.",
+          "Ya hay un ● en ese grupo; falta el segundo antes de ★."
+        ],
+        "retroalimentacion": "El grupo es ● ● ★. Antes de ★ van dos ●, por eso falta ●."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Faltan dos letras en la fila A B C A B C A __ __ A B C. Escríbelas separadas por un espacio.",
+        "respuesta": "B C",
+        "alternativasAceptadas": [
+          "b c",
+          "b,c",
+          "bc"
+        ],
+        "pistas": [
+          "Empieza por buscar el grupo: A B C.",
+          "Después de la A de la posición 7 siguen las otras dos letras del grupo.",
+          "Si la fila vuelve a empezar con A, el grupo termina con C."
+        ],
+        "retroalimentacion": "El grupo A B C se repite. Después de A van B y C."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa dice que en ● ★ ★ ● ★ ★ ● __ ★ va ★. Lucho dice que va ●. ¿Quién tiene razón?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lucho: va ●"
+          },
+          {
+            "id": "b",
+            "texto": "Ninguno: va otra figura"
+          },
+          {
+            "id": "c",
+            "texto": "Rosa: va ★"
+          }
+        ],
+        "pistas": [
+          "Busca el grupo: ● ★ ★.",
+          "Después del ● del final deben venir dos ★.",
+          "Hay una ★ al final; falta la primera ★ del grupo."
+        ],
+        "retroalimentacion": "El grupo es ● ★ ★. Después de ● va ★, así que Rosa tiene razón."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 5 5 8 5 5 8 5 __ 8 falta un 8, porque antes del 8 siempre hay dos 5.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe el grupo que se repite: 5 5 8.",
+          "Antes del espacio hay un solo 5.",
+          "Para tener dos 5 antes del 8 falta otro 5."
+        ],
+        "retroalimentacion": "Es falso: el grupo es 5 5 8 y falta un 5."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El grupo tiene cuatro figuras: A A B C A A B C A A __ C. ¿Qué letra falta?",
+        "respuesta": "B",
+        "alternativasAceptadas": [
+          "la b",
+          "letra b"
+        ],
+        "pistas": [
+          "Cuenta cuántas letras tiene el grupo.",
+          "El grupo es A A B C.",
+          "Ya hay A A al inicio del último grupo; falta la tercera letra."
+        ],
+        "retroalimentacion": "El grupo A A B C pide B después de dos A."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.crear-patron",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P1-04"
+    ],
+    "bloque": "Patrones de repetición",
+    "nombre": "Crear un patrón propio",
+    "disciplina": "algebra",
+    "descripcionCorta": "Inventa un patrón de repetición con objetos, dibujos o sonidos.",
+    "palabrasClave": [
+      "crear patrón",
+      "regla",
+      "repetir",
+      "objetos",
+      "dibujos"
+    ],
+    "prerrequisitos": [
+      "mat.p1.continuar-patron"
+    ],
+    "ordenSugerido": 81,
+    "ideaCentral": "Para crear un patrón, eliges un pedacito y lo repites siempre igual. Con una regla clara, tu patrón siempre funciona.",
+    "pasos": [
+      "Elige la regla: qué cosas y en qué orden.",
+      "Pon el pedacito una vez.",
+      "Repítelo igual, sin cambios.",
+      "Lee tu patrón de nuevo para comprobar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Regla: «chapa, piedra». ¿Cómo se ve con 6 objetos?",
+        "desarrollo": "Pones chapa, piedra, y repites dos veces más.",
+        "respuesta": "chapa, piedra, chapa, piedra, chapa, piedra."
+      },
+      {
+        "situacion": "Regla: «●, ●, ★». Completa: ● ● ★ ● ● ___",
+        "desarrollo": "El pedacito es ●, ●, ★. Falta cerrar la vuelta.",
+        "respuesta": "Falta ★."
+      },
+      {
+        "situacion": "Quieres hacer un collar con frijol y maíz, uno y uno.",
+        "desarrollo": "Eliges frijol, maíz y repites.",
+        "respuesta": "frijol, maíz, frijol, maíz, frijol, maíz."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar el orden a la mitad: ● ★ ● ★ ★ ●.",
+        "correccion": "Si la regla es ● ★, siempre va ● y luego ★."
+      },
+      {
+        "error": "Usar muchas cosas distintas sin repetir.",
+        "correccion": "Un patrón repite un pedacito. Elige pocas cosas y repítelas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Regla",
+        "significado": "Lo que dice cómo se repite el patrón."
+      },
+      {
+        "termino": "Repetir",
+        "significado": "Poner de nuevo lo mismo."
+      },
+      {
+        "termino": "Patrón",
+        "significado": "Objetos que se repiten en el mismo orden."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La regla es «chapa, piedra». Completa: chapa, piedra, chapa, ___",
+        "respuesta": "piedra",
+        "alternativasAceptadas": [
+          "una piedra",
+          "la piedra"
+        ],
+        "pistas": [
+          "Mira la regla: chapa y luego piedra.",
+          "Ya pusiste una chapa en este lugar.",
+          "Después de chapa va el otro objeto."
+        ],
+        "retroalimentacion": "Después de chapa va piedra.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres un patrón con ● y ★ que vaya ● ★ ● ★. ¿Cuál es?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "● ● ★ ★ ● ●"
+          },
+          {
+            "id": "b",
+            "texto": "● ★ ● ★ ● ★"
+          },
+          {
+            "id": "c",
+            "texto": "★ ★ ★ ● ● ●"
+          }
+        ],
+        "pistas": [
+          "Debe alternar ● y ★ uno tras otro.",
+          "El primero es ● y el siguiente es ★.",
+          "Busca la fila donde nunca hay dos iguales juntos."
+        ],
+        "retroalimentacion": "Alterna ● ★ ● ★ ● ★. Las otras repiten dos o tres figuras seguidas.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "«● ★ ● ★ ● ★» es un patrón y lo que se repite es «● ★».",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira de a dos figuras.",
+          "Las parejas son ● ★, ● ★, ● ★.",
+          "Las tres parejas son iguales."
+        ],
+        "retroalimentacion": "Es verdad: la pareja «● ★» sale tres veces.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Haces un collar: frijol, maíz, frijol, maíz, frijol, maíz. ¿Cuántos granos de maíz tiene? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta solo los granos de maíz.",
+          "Hay un maíz en cada pareja de frijol y maíz.",
+          "Hay 3 parejas."
+        ],
+        "retroalimentacion": "Hay 3 parejas «frijol, maíz», así que 3 granos de maíz.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La regla es: dos palmadas y un salto. ¿Qué fila sigue la regla?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "palmada, salto, salto, palmada, salto, salto"
+          },
+          {
+            "id": "b",
+            "texto": "salto, salto, palmada, salto, salto, palmada"
+          },
+          {
+            "id": "c",
+            "texto": "palmada, palmada, salto, palmada, palmada, salto"
+          }
+        ],
+        "pistas": [
+          "Empieza por la regla: primero palmadas.",
+          "Deben ir 2 palmadas y luego 1 salto, siempre.",
+          "Busca la fila donde cada salto va después de dos palmadas."
+        ],
+        "retroalimentacion": "Debe ser «palmada, palmada, salto» repetido. Las otras tienen más saltos o empiezan con salto.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La regla es «● ● ★». Completa: ● ● ★ ● ● ★ ● ● ___",
+        "respuesta": "★",
+        "alternativasAceptadas": [
+          "estrella",
+          "*"
+        ],
+        "pistas": [
+          "Mira la regla: dos ● y luego una figura distinta.",
+          "En la última vuelta ya pusiste dos ●.",
+          "La figura que falta cierra la vuelta."
+        ],
+        "retroalimentacion": "Después de ● ● viene ★.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Sara usa la regla «cuadrado, círculo, círculo». Dibuja: cuadrado, círculo, círculo, círculo, cuadrado. ¿Sigue la regla?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara dibujo y regla, figura por figura.",
+          "La regla tiene un cuadrado y dos círculos.",
+          "Sara puso tres círculos seguidos."
+        ],
+        "retroalimentacion": "Es falso: puso 3 círculos seguidos, y la regla dice solo 2.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La regla es «rojo, verde». Pones 10 chapas siguiendo la regla. ¿Cuántas son verdes? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada pareja tiene un rojo y un verde.",
+          "Con 10 chapas formas parejas de 2.",
+          "Cuenta cuántas parejas hay: 2, 4, 6, 8, 10."
+        ],
+        "retroalimentacion": "Hay 5 parejas, y cada una tiene 1 verde: 5 verdes.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La regla es: una piedra y dos semillas. Tienes 7 lugares. ¿Cómo los llenas? P es piedra y S es semilla.",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "P S S P S S P"
+          },
+          {
+            "id": "b",
+            "texto": "P S P S S P S"
+          },
+          {
+            "id": "c",
+            "texto": "P P S S P P S"
+          }
+        ],
+        "pistas": [
+          "La regla se escribe P S S. Escríbela dos veces.",
+          "Después de P S S P S S queda un lugar.",
+          "El último lugar empieza otra vez la regla."
+        ],
+        "retroalimentacion": "Queda P S S P S S P: se repite P S S y el lugar 7 empieza otra vuelta.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La regla es «sol, luna, luna». La dibujas 4 veces, una vuelta tras otra. ¿Cuántas lunas dibujas? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas lunas hay en una sola vuelta.",
+          "En una vuelta hay 2 lunas y debes hacer 4 vueltas.",
+          "Suma 2 + 2 + 2 + 2."
+        ],
+        "retroalimentacion": "Cada vuelta tiene 2 lunas. 2 + 2 + 2 + 2 = 8.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "La regla es «cuy, gallina, gallina». Completa los dos que faltan: cuy, gallina, gallina, cuy, ___, ___",
+        "respuesta": "gallina, gallina",
+        "alternativasAceptadas": [
+          "gallina gallina",
+          "gallina y gallina",
+          "dos gallinas"
+        ],
+        "pistas": [
+          "Lee la regla completa: hay tres animales.",
+          "Después del segundo cuy faltan los otros dos de la regla.",
+          "El animal que va después del cuy se repite dos veces."
+        ],
+        "retroalimentacion": "Después de cuy van dos gallinas, como dice la regla.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tomás dice: «Para crear un patrón basta con poner tres cosas distintas, en cualquier orden».",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué hace que un patrón sea un patrón.",
+          "Debe haber un pedacito que se repite.",
+          "Con tres cosas sin repetir, no hay pedacito."
+        ],
+        "retroalimentacion": "Es falso: un patrón necesita un pedacito que se repita igual.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.explicar-patron",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P1-05"
+    ],
+    "bloque": "Patrones de repetición",
+    "nombre": "Explicar cómo continúa un patrón",
+    "disciplina": "algebra",
+    "descripcionCorta": "Explica con sus palabras qué elemento sigue en un patrón y por qué.",
+    "palabrasClave": [
+      "patrón",
+      "qué sigue",
+      "explicar",
+      "repetir",
+      "porque"
+    ],
+    "prerrequisitos": [
+      "mat.p1.continuar-patron"
+    ],
+    "ordenSugerido": 82,
+    "ideaCentral": "Para explicar un patrón, di qué se repite y qué viene después. Tu explicación debe tener un «porque».",
+    "pasos": [
+      "Mira bien el patrón.",
+      "Di qué pedacito se repite.",
+      "Mira cómo termina el patrón.",
+      "Di qué viene y por qué."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En «cuy, pato, cuy, pato, cuy» ¿qué sigue?",
+        "desarrollo": "Se repite «cuy, pato». Acabó en cuy.",
+        "respuesta": "Sigue pato, porque después de cuy va pato."
+      },
+      {
+        "situacion": "En «★ ★ ● ★ ★ ● ★» ¿qué sigue?",
+        "desarrollo": "Se repite «★ ★ ●». Hay una ★.",
+        "respuesta": "Sigue ★, porque faltan dos ★ antes de ●."
+      },
+      {
+        "situacion": "En «A, B, B, A, B, B, A, B» ¿qué sigue?",
+        "desarrollo": "El pedacito es A, B, B. Ya salió una B.",
+        "respuesta": "Sigue B, porque cada A lleva dos B."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir solo la respuesta, sin explicar.",
+        "correccion": "Explica con «porque». Di qué se repite."
+      },
+      {
+        "error": "Mirar solo el último elemento.",
+        "correccion": "Mira todo el patrón para ver cómo se repite."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Explicar",
+        "significado": "Decir cómo pasa algo y por qué."
+      },
+      {
+        "termino": "Porque",
+        "significado": "Palabra para dar una razón."
+      },
+      {
+        "termino": "Sigue",
+        "significado": "Lo que viene después."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En el patrón «rojo, azul, rojo, azul, rojo», ¿qué color sigue?",
+        "respuesta": "azul",
+        "alternativasAceptadas": [
+          "el azul"
+        ],
+        "pistas": [
+          "Mira cómo se alternan los colores.",
+          "El último color es rojo.",
+          "Después de rojo viene el otro color del patrón."
+        ],
+        "retroalimentacion": "Se alternan rojo y azul. Después de rojo sigue azul.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el patrón «cuy, pato, cuy, pato, cuy», ¿qué animal sigue?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuy"
+          },
+          {
+            "id": "b",
+            "texto": "Oveja"
+          },
+          {
+            "id": "c",
+            "texto": "Pato"
+          }
+        ],
+        "pistas": [
+          "Mira cuántos animales distintos hay.",
+          "Hay dos: cuy y pato, uno y uno.",
+          "El último fue cuy. Sigue el otro animal."
+        ],
+        "retroalimentacion": "Hay un pato después de cada cuy. No aparece oveja.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En «sol, luna, sol, luna», después de sol viene luna.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate qué hay después de cada sol.",
+          "El primer sol va con una luna.",
+          "El segundo sol también tiene luna."
+        ],
+        "retroalimentacion": "Es verdad: después de cada sol viene una luna.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Miras: ★ ● ★ ● ★ ● ★. ¿Cuántas ★ hay? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta solo las estrellas.",
+          "Las estrellas están en el lugar 1, 3, 5 y 7.",
+          "Marca cada ★ con un dedo."
+        ],
+        "retroalimentacion": "Hay 4 estrellas: la primera, la tercera, la quinta y la séptima.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana dice que en «★ ● ★ ● ★» sigue ●. ¿Por qué?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque después de ★ siempre viene ●"
+          },
+          {
+            "id": "b",
+            "texto": "Porque ● me gusta más"
+          },
+          {
+            "id": "c",
+            "texto": "Porque ● es una figura redonda"
+          }
+        ],
+        "pistas": [
+          "Una buena razón habla del patrón.",
+          "Mira qué hay después de cada estrella.",
+          "Elige la razón que dice qué pasa en el patrón."
+        ],
+        "retroalimentacion": "La razón correcta habla del patrón: después de cada ★ viene ●.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Patrón: 3, 3, 5, 3, 3, 5, 3, 3. ¿Qué número sigue?",
+        "respuesta": "5",
+        "alternativasAceptadas": [
+          "cinco",
+          "el 5"
+        ],
+        "pistas": [
+          "Los números forman un pedacito que se repite.",
+          "El pedacito es 3, 3, 5.",
+          "Ya hay dos 3 seguidos al final."
+        ],
+        "retroalimentacion": "Después de dos 3 viene 5.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En «pie, pie, mano, pie, pie, mano, pie» sigue mano.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira qué viene después de un solo pie.",
+          "El pedacito es «pie, pie, mano».",
+          "Primero falta un pie más."
+        ],
+        "retroalimentacion": "Es falso: sigue pie, y recién después viene mano.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El patrón de chapas es: roja, roja, azul, roja, roja, azul. ¿Cuántas chapas tiene el pedacito que se repite? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El pedacito se repite dos veces en esta fila.",
+          "Hay 6 chapas en total.",
+          "Divide las 6 chapas en dos grupos iguales."
+        ],
+        "retroalimentacion": "El pedacito «roja, roja, azul» tiene 3 chapas.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis mira: cuadrado, círculo, círculo, cuadrado, círculo, círculo, cuadrado. ¿Qué sigue y por qué?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuadrado, porque siempre se alternan"
+          },
+          {
+            "id": "b",
+            "texto": "Círculo, porque cada cuadrado va seguido de dos círculos"
+          },
+          {
+            "id": "c",
+            "texto": "Círculo, porque hay más círculos"
+          }
+        ],
+        "pistas": [
+          "Mira qué hay después de cada cuadrado.",
+          "Siempre hay dos círculos juntos.",
+          "El último es cuadrado, y recién empieza su vuelta."
+        ],
+        "retroalimentacion": "Cada cuadrado lleva dos círculos. Como el último es cuadrado, sigue círculo.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Patrón de flores: roja, amarilla, amarilla, roja, amarilla, amarilla, roja, amarilla. Siguen 2 flores más. ¿Cuántas amarillas hay en total? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero cuenta las amarillas que ya hay.",
+          "Ya hay 5 amarillas. Falta saber las 2 flores nuevas.",
+          "La flor 9 es amarilla y la 10 es roja."
+        ],
+        "retroalimentacion": "Hay 5 amarillas. Se agrega 1 amarilla y 1 roja, y son 6 amarillas.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Patrón: azul, rojo, rojo, azul, rojo, rojo, azul, rojo. ¿Qué color sigue?",
+        "respuesta": "rojo",
+        "alternativasAceptadas": [
+          "el rojo"
+        ],
+        "pistas": [
+          "Lee el pedacito: ¿cuántos rojos van juntos?",
+          "Hay dos rojos después de cada azul.",
+          "Ya hay un rojo después del último azul."
+        ],
+        "retroalimentacion": "Después del azul van dos rojos. Ya hay uno, así que sigue rojo.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En «A, B, B, A, B, B, A» sigue B porque después de cada A van dos B.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántas B van después de cada A.",
+          "Después del primer A hay B y B.",
+          "El último A todavía no tiene sus B."
+        ],
+        "retroalimentacion": "Es verdad: cada A lleva dos B, y el último A aún no tiene ninguna.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.error-en-patron",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P1-05"
+    ],
+    "bloque": "Patrones de repetición",
+    "nombre": "Encontrar el error en un patrón",
+    "disciplina": "algebra",
+    "descripcionCorta": "Descubre el elemento que rompe un patrón de repetición y lo corrige.",
+    "palabrasClave": [
+      "error",
+      "patrón",
+      "corregir",
+      "repetición",
+      "lugar"
+    ],
+    "prerrequisitos": [
+      "mat.p1.explicar-patron"
+    ],
+    "ordenSugerido": 108,
+    "ideaCentral": "Un error en un patrón es una pieza que no sigue la regla. Para encontrarla, compara cada lugar con lo que debería venir.",
+    "pasos": [
+      "Descubre el pedacito que se repite.",
+      "Revisa cada lugar con tu dedo.",
+      "Para donde algo no sigue el orden.",
+      "Di qué debería ir ahí."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "rojo, azul, rojo, azul, azul, rojo. ¿Dónde está el error?",
+        "desarrollo": "Debe alternar. En el lugar 5 debe ir rojo, pero hay azul.",
+        "respuesta": "El error está en el lugar 5; va rojo."
+      },
+      {
+        "situacion": "★ ● ★ ● ★ ★. ¿Qué lugar está mal?",
+        "desarrollo": "Va ★ y luego ●. El último es ★ y debe ser ●.",
+        "respuesta": "El lugar 6 es el error; va ●."
+      },
+      {
+        "situacion": "A, B, B, A, B, A. ¿Qué cambia?",
+        "desarrollo": "El pedacito es A, B, B. En el lugar 6 debe ir B.",
+        "respuesta": "El error está en el lugar 6; va B."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que todo está mal por un solo error.",
+        "correccion": "Busca solo la pieza que no sigue la regla."
+      },
+      {
+        "error": "Mirar solo el principio.",
+        "correccion": "Revisa lugar por lugar hasta el final."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Error",
+        "significado": "Lo que no sigue la regla."
+      },
+      {
+        "termino": "Corregir",
+        "significado": "Cambiar para que quede bien."
+      },
+      {
+        "termino": "Lugar",
+        "significado": "El sitio de cada pieza, 1.°, 2.°, 3.°..."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Miras: rojo, azul, rojo, azul, azul, rojo. ¿En qué lugar está el error? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los colores deben alternar: rojo, azul, rojo, azul.",
+          "En el lugar 4 hay azul y en el 5 también.",
+          "El lugar 5 debería ser rojo."
+        ],
+        "retroalimentacion": "En el lugar 5 hay azul y debe ir rojo.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Miras: ★ ● ★ ● ★ ★. ¿Dónde está el error?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La primera ★"
+          },
+          {
+            "id": "b",
+            "texto": "La última ★"
+          },
+          {
+            "id": "c",
+            "texto": "El segundo ●"
+          }
+        ],
+        "pistas": [
+          "Se alternan ★ y ●.",
+          "Al final hay dos ★ juntas.",
+          "La última ★ debería ser el otro dibujo."
+        ],
+        "retroalimentacion": "El error es la última ★: debe ir ●, porque se alternan.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En «gato, perro, gato, perro, gato, perro» no hay ningún error.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cada pareja, de dos en dos.",
+          "Las tres parejas son gato y perro.",
+          "No hay ninguna pareja distinta."
+        ],
+        "retroalimentacion": "Es verdad: todas las parejas son «gato, perro».",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Miras: A, B, A, B, B, B. ¿Qué letra debe ir en el lugar 5?",
+        "respuesta": "A",
+        "alternativasAceptadas": [
+          "la A"
+        ],
+        "pistas": [
+          "Cuenta hasta el lugar 5 con tu dedo.",
+          "Las letras se alternan: A, B, A, B...",
+          "Después de B en el lugar 4 va la otra letra."
+        ],
+        "retroalimentacion": "En el lugar 5 va A, porque se alternan A y B.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Miras: palmada, palmada, pie, palmada, pie, pie. El patrón es «palmada, palmada, pie». ¿Qué lugar es el error?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lugar 3"
+          },
+          {
+            "id": "b",
+            "texto": "Lugar 4"
+          },
+          {
+            "id": "c",
+            "texto": "Lugar 5"
+          }
+        ],
+        "pistas": [
+          "Separa de a tres: palmada, palmada, pie.",
+          "La segunda tanda empieza bien en el lugar 4.",
+          "El lugar 5 debería ser palmada, no pie."
+        ],
+        "retroalimentacion": "En el lugar 5 hay pie y debe haber palmada.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Miras: rojo, azul, rojo, azul, rojo, rojo, azul. El error está en el lugar 6. ¿Cuántas piezas están bien antes del error? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las piezas que están antes del lugar 6.",
+          "Las piezas bien son las del lugar 1 al lugar 5.",
+          "Cuenta: 1, 2, 3, 4, 5."
+        ],
+        "retroalimentacion": "Antes del lugar 6 hay 5 piezas bien puestas.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En «● ★ ★ ● ★ ★ ● ● ★» el error está en el lugar 8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El pedacito es ●, ★, ★.",
+          "Los lugares 7 y 8 deberían ser ● y ★.",
+          "En el lugar 8 hay ●, pero debe haber ★."
+        ],
+        "retroalimentacion": "Es verdad: en el lugar 8 hay ● y debe ir ★.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Corrige: pie, mano, pie, mano, pie, pie. ¿Qué debe ir en el lugar 6?",
+        "respuesta": "mano",
+        "alternativasAceptadas": [
+          "la mano"
+        ],
+        "pistas": [
+          "Mira cómo alternan pie y mano.",
+          "En el lugar 5 va pie.",
+          "Después de pie va el otro."
+        ],
+        "retroalimentacion": "En el lugar 6 debe ir mano.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Miras: A, B, B, A, B, B, A, B, A. ¿Cuál es la corrección?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El lugar 9 debe ser B"
+          },
+          {
+            "id": "b",
+            "texto": "El lugar 8 debe ser A"
+          },
+          {
+            "id": "c",
+            "texto": "No hay error"
+          },
+          {
+            "id": "d",
+            "texto": "El lugar 7 debe ser B"
+          }
+        ],
+        "pistas": [
+          "El pedacito es A, B, B.",
+          "Hasta el lugar 8 todo sigue la regla.",
+          "En el lugar 9 debe ir la letra que completa la tanda."
+        ],
+        "retroalimentacion": "En el lugar 9 hay A y debe haber B. Antes todo está bien.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Patrón: rojo, verde, verde, rojo, verde, rojo, rojo, verde. Solo hay un error. ¿En qué lugar está? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee el pedacito: rojo, verde, verde.",
+          "La segunda tanda es lugar 4, 5 y 6: rojo, verde, rojo.",
+          "El lugar 6 no es verde, como debería."
+        ],
+        "retroalimentacion": "El lugar 6 es rojo y debe ser verde.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Miras: A A B A A B A B B. ¿Qué letra debe ir en el lugar 8?",
+        "respuesta": "A",
+        "alternativasAceptadas": [
+          "la A"
+        ],
+        "pistas": [
+          "El pedacito es A, A, B.",
+          "La tercera tanda empieza en el lugar 7.",
+          "El lugar 8 debe ser igual al lugar 2."
+        ],
+        "retroalimentacion": "En el lugar 8 debe ir A: la tanda es A, A, B.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en «azul, rojo, azul, rojo, azul, azul» cambias el último azul por rojo, ya no hay error.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cómo quedaría la fila.",
+          "Sería azul, rojo, azul, rojo, azul, rojo.",
+          "Ahora se alternan bien."
+        ],
+        "retroalimentacion": "Es verdad: con rojo al final se alternan azul y rojo.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  }
+]

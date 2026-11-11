@@ -1,0 +1,2093 @@
+[
+  {
+    "clave": "mat.p1.datos-por-categorias",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P1-01"
+    ],
+    "bloque": "Recogida y organización de datos",
+    "nombre": "Organizar datos por categorías",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Agrupa respuestas como colores o frutas favoritas en categorías para contarlas.",
+    "palabrasClave": [
+      "datos",
+      "categorías",
+      "agrupar",
+      "contar",
+      "favorito"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 55,
+    "ideaCentral": "Los datos son respuestas. Cuando hay muchas, juntas las que son iguales en grupos llamados categorías. Así es más fácil contarlas.",
+    "pasos": [
+      "Lee todas las respuestas.",
+      "Elige las categorías: una por cada respuesta distinta.",
+      "Junta en cada categoría las respuestas iguales.",
+      "Cuenta cuántas hay en cada una."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Los niños dijeron su fruta favorita: plátano, uva, plátano, plátano. ¿Cuántas categorías hay?",
+        "desarrollo": "Las frutas distintas son plátano y uva.",
+        "respuesta": "Hay 2 categorías."
+      },
+      {
+        "situacion": "En el mismo grupo, ¿cuántos eligieron plátano?",
+        "desarrollo": "Juntas los «plátano»: son 3.",
+        "respuesta": "3 niños."
+      },
+      {
+        "situacion": "Colores favoritos: rojo, azul, rojo, verde, rojo. ¿Qué categoría tiene más?",
+        "desarrollo": "Rojo 3, azul 1 y verde 1.",
+        "respuesta": "Rojo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que cada niño es una categoría.",
+        "correccion": "Las categorías son respuestas distintas, no niños."
+      },
+      {
+        "error": "Poner en grupos distintos respuestas que son iguales.",
+        "correccion": "Junta las respuestas iguales en una sola categoría."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Dato",
+        "significado": "Una respuesta que recoges."
+      },
+      {
+        "termino": "Categoría",
+        "significado": "Un grupo de respuestas iguales."
+      },
+      {
+        "termino": "Agrupar",
+        "significado": "Juntar cosas que son iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Los niños dicen su fruta favorita: plátano, plátano, naranja, plátano, naranja. ¿Cuántos eligieron plátano? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la palabra plátano en la lista.",
+          "Marca cada plátano que veas.",
+          "Cuenta las marcas."
+        ],
+        "retroalimentacion": "Plátano aparece 3 veces. Naranja aparece 2 veces."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Las respuestas sobre el color favorito son: rojo, azul, rojo, verde, azul, rojo. ¿Cuántas categorías distintas hay? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una categoría es un color distinto.",
+          "Anota cada color una sola vez.",
+          "Los colores son rojo, azul y verde."
+        ],
+        "retroalimentacion": "Hay 3 categorías: rojo, azul y verde. No son 6 porque los colores se repiten."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Agrupar datos por categorías es juntar las respuestas que son iguales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo ordenas tus útiles por clase.",
+          "Los lápices con lápices, los cuadernos con cuadernos.",
+          "Así se juntan las respuestas iguales."
+        ],
+        "retroalimentacion": "Es verdadero: cada categoría junta respuestas iguales."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Los niños eligieron su animal favorito: perro, gato, perro, perro, gato. ¿Qué categoría tiene más respuestas?",
+        "respuesta": "perro",
+        "alternativasAceptadas": [
+          "el perro",
+          "perros"
+        ],
+        "pistas": [
+          "Cuenta las veces de perro.",
+          "Cuenta las veces de gato.",
+          "Perro 3 y gato 2: compara."
+        ],
+        "retroalimentacion": "Perro tiene 3 respuestas y gato 2. Gana perro."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Diez niños dijeron su sabor de helado: 4 fresa, 3 lúcuma y el resto chocolate. ¿Cuántos eligieron chocolate? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta lo que ya sabes: fresa y lúcuma.",
+          "4 + 3 = 7.",
+          "De los 10 niños quita 7."
+        ],
+        "retroalimentacion": "Chocolate: 10 − 4 − 3 = 3 niños. Si pusiste 7, calculaste el total de las otras dos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Con los datos manzana, uva, plátano, manzana, uva, manzana, ¿cuántas manzanas hay?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "2"
+          }
+        ],
+        "pistas": [
+          "Busca solo la palabra manzana.",
+          "Marca cada manzana en la lista.",
+          "Hay una al inicio, una en el medio y una al final."
+        ],
+        "retroalimentacion": "Hay 3 manzanas. Responder 2 es contar las uvas."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 6 niños respondieron, y hay 2 categorías, las respuestas de las dos categorías pueden sumar 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada niño da una respuesta.",
+          "Las respuestas de todas las categorías se juntan.",
+          "Por ejemplo 4 en una y 2 en otra."
+        ],
+        "retroalimentacion": "Es verdadero: todas las respuestas, sumadas, son 6."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Los niños dicen cómo llegan al colegio: bus, a pie, bus, moto, a pie, bus, a pie, bus. ¿Qué categoría tiene exactamente 4 respuestas?",
+        "respuesta": "bus",
+        "alternativasAceptadas": [
+          "el bus",
+          "en bus"
+        ],
+        "pistas": [
+          "Cuenta cada categoría por separado.",
+          "A pie tiene 3 y moto tiene 1.",
+          "Queda la categoría que se repite más veces."
+        ],
+        "retroalimentacion": "Bus aparece 4 veces; a pie, 3; moto, 1."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La profe pregunta el color favorito a 12 niños: azul, rojo, azul, verde, rojo, azul, verde, azul, rojo, azul, verde, azul. ¿Cuántos más eligieron azul que rojo? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos eligieron azul: son 6.",
+          "Cuenta cuántos eligieron rojo: son 3.",
+          "Resta 6 − 3."
+        ],
+        "retroalimentacion": "Azul 6, rojo 3. Hay 6 − 3 = 3 niños más en azul."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rocío dice: «Hay 5 categorías porque 5 niños respondieron». Los datos son rojo, rojo, azul, azul, rojo. ¿Qué respuesta corrige su error?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hay 5 categorías, Rocío tiene razón"
+          },
+          {
+            "id": "b",
+            "texto": "Hay 3 categorías: rojo, azul y blanco"
+          },
+          {
+            "id": "c",
+            "texto": "Hay 2 categorías: rojo y azul; 5 es el número de niños"
+          },
+          {
+            "id": "d",
+            "texto": "No hay categorías"
+          }
+        ],
+        "pistas": [
+          "Mira los colores distintos que aparecen.",
+          "Solo aparecen rojo y azul.",
+          "5 es cuántos niños respondieron, no cuántos colores."
+        ],
+        "retroalimentacion": "Hay 2 categorías, rojo y azul. El 5 es el número de niños."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las respuestas «verde» y «Verde» deben ir en categorías distintas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee las dos palabras.",
+          "Dicen lo mismo: el color verde.",
+          "Las respuestas iguales van juntas."
+        ],
+        "retroalimentacion": "Es falso: significan lo mismo y van en la misma categoría."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la chacra se cosecha: papa, camote, papa, yuca, camote, papa, camote, papa, yuca, papa. ¿Cuántos datos tiene la categoría que menos se repite? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta papa, camote y yuca por separado.",
+          "Papa 5, camote 3.",
+          "Compara con yuca y elige la menor."
+        ],
+        "retroalimentacion": "Yuca tiene solo 2 datos: es la categoría con menos."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.preguntas-sencillas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P1-04"
+    ],
+    "bloque": "Recogida y organización de datos",
+    "nombre": "Preguntas para recoger datos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Formula una pregunta sencilla para conocer los gustos o características de sus compañeros.",
+    "palabrasClave": [
+      "pregunta",
+      "datos",
+      "gustos",
+      "compañeros",
+      "encuesta"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 57,
+    "ideaCentral": "Para saber qué piensan tus compañeros, haces una pregunta sencilla. Una buena pregunta se responde con una palabra.",
+    "pasos": [
+      "Piensa qué quieres saber.",
+      "Escribe una pregunta corta.",
+      "Usa palabras como «¿Cuál?» o «¿Qué?».",
+      "Pregunta a todos lo mismo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Quieres saber qué fruta prefieren. ¿Qué preguntas?",
+        "desarrollo": "Hablas de la fruta que más les gusta.",
+        "respuesta": "«¿Cuál es tu fruta favorita?»"
+      },
+      {
+        "situacion": "Quieres saber cuántos hermanos tienen. ¿Qué preguntas?",
+        "desarrollo": "Quieres un número.",
+        "respuesta": "«¿Cuántos hermanos tienes?»"
+      },
+      {
+        "situacion": "Quieres saber cómo llegan al cole.",
+        "desarrollo": "Piensas en la combi, a pie o en moto.",
+        "respuesta": "«¿Cómo llegas al colegio?»"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Preguntar algo que no te sirve, como «¿Qué hora es?», para saber gustos.",
+        "correccion": "La pregunta debe hablar de lo que quieres saber."
+      },
+      {
+        "error": "Hacer una pregunta muy larga.",
+        "correccion": "Haz preguntas cortas y fáciles de responder."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Pregunta",
+        "significado": "Palabras para saber algo."
+      },
+      {
+        "termino": "Favorito",
+        "significado": "Lo que más te gusta."
+      },
+      {
+        "termino": "Datos",
+        "significado": "Lo que sabes de tus compañeros, como fruta o color."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres saber la fruta favorita de tus compañeros. ¿Qué preguntas?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Dónde vives?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Cuál es tu fruta favorita?"
+          },
+          {
+            "id": "c",
+            "texto": "¿Qué hora es?"
+          }
+        ],
+        "pistas": [
+          "Piensa en lo que quieres saber: la fruta.",
+          "La pregunta debe nombrar la fruta.",
+          "Busca la que dice «fruta» y «favorita»."
+        ],
+        "retroalimentacion": "La pregunta «¿Cuál es tu fruta favorita?» habla de la fruta. Las otras hablan de otra cosa.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "«¿Te gusta la quinua o el arroz?» es una pregunta para conocer gustos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee la pregunta despacio.",
+          "Hay dos comidas para elegir.",
+          "Se pregunta qué te gusta."
+        ],
+        "retroalimentacion": "Es verdad: pregunta qué comida les gusta.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Quieres saber qué juego les gusta. Completa: ¿Cuál es tu ___ favorito?",
+        "respuesta": "juego",
+        "alternativasAceptadas": [
+          "el juego"
+        ],
+        "pistas": [
+          "Piensa en lo que quieres saber.",
+          "Quieres saber de qué juegan.",
+          "La palabra que falta es lo que preguntas."
+        ],
+        "retroalimentacion": "La pregunta es «¿Cuál es tu juego favorito?».",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Lees tres preguntas: 1) ¿Cuál es tu fruta favorita? 2) ¿Cuánto es 2 más 3? 3) ¿Qué juego te gusta? ¿Cuántas preguntas sirven para conocer gustos? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee cada pregunta una por una.",
+          "La pregunta 2 es de sumar.",
+          "Las otras dos hablan de lo que te gusta."
+        ],
+        "retroalimentacion": "Sirven las preguntas 1 y 3, porque preguntan por gustos. Son 2.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres saber cuántos hermanos tienen tus compañeros. ¿Qué preguntas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Cuántos hermanos tienes?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Qué comes?"
+          },
+          {
+            "id": "c",
+            "texto": "¿Cuál es tu color?"
+          }
+        ],
+        "pistas": [
+          "Lo que quieres saber es una cantidad.",
+          "La pregunta debe hablar de hermanos.",
+          "Busca la que empieza con «¿Cuántos?»."
+        ],
+        "retroalimentacion": "«¿Cuántos hermanos tienes?» pregunta justo por hermanos. Las otras preguntan por otra cosa.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La pregunta «¿Te gusta el helado?» te dice qué sabor prefiere cada niño.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira qué se puede responder.",
+          "Se responde con sí o no.",
+          "No dice vainilla ni fresa."
+        ],
+        "retroalimentacion": "Es falso: con sí o no no sabes el sabor. Debes preguntar «¿Qué sabor prefieres?».",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Quieres saber cómo llegan al colegio. Completa: ¿Cómo ___ al colegio?",
+        "respuesta": "llegas",
+        "alternativasAceptadas": [
+          "vienes",
+          "llegas tú"
+        ],
+        "pistas": [
+          "Piensa en la forma de llegar: combi, a pie, moto.",
+          "Falta un verbo de moverse.",
+          "El verbo va con «tú»."
+        ],
+        "retroalimentacion": "La pregunta es «¿Cómo llegas al colegio?».",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Ana pregunta: «¿Qué prefieres: cuy, pollo o trucha?» ¿Cuántas respuestas se pueden elegir? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta lo que se puede elegir.",
+          "Cada comida es una respuesta.",
+          "Hay cuy, pollo y trucha."
+        ],
+        "retroalimentacion": "Hay 3 respuestas posibles: cuy, pollo y trucha.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres saber cuál es el animal favorito de la clase. ¿Cuál es la mejor pregunta?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Tienes un perro grande?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Qué animal es mejor que el gato?"
+          },
+          {
+            "id": "c",
+            "texto": "¿Cuál es tu animal favorito?"
+          }
+        ],
+        "pistas": [
+          "Busca una pregunta que todos puedan responder.",
+          "Debe hablar de gustos, no de lo que tienes.",
+          "No debe decir que un animal es mejor."
+        ],
+        "retroalimentacion": "«¿Cuál es tu animal favorito?» deja a cada niño decir su gusto. Las otras no sirven.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tu profesora dice: haz 2 preguntas por cada tema. Los temas son fruta, juego y color. ¿Cuántas preguntas haces? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay 3 temas y 2 preguntas por tema.",
+          "Suma 2 tres veces.",
+          "2 + 2 + 2."
+        ],
+        "retroalimentacion": "Son 3 temas y 2 preguntas por tema: 2 + 2 + 2 = 6.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Quieres saber de qué color es la mochila de cada compañero. Completa la palabra que falta: ¿De qué ___ es tu mochila?",
+        "respuesta": "color",
+        "alternativasAceptadas": [
+          "el color"
+        ],
+        "pistas": [
+          "Piensa en lo que quieres averiguar de la mochila.",
+          "Quieres saber si es azul, rojo o verde.",
+          "Esas palabras son nombres de colores."
+        ],
+        "retroalimentacion": "La pregunta es «¿De qué color es tu mochila?».",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La pregunta «¿Verdad que el fútbol es el mejor juego?» es buena porque deja elegir libremente.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate si la pregunta ya dice la respuesta.",
+          "La pregunta empuja a decir fútbol.",
+          "Una buena pregunta deja que cada uno elija."
+        ],
+        "retroalimentacion": "Es falsa: la pregunta ya empuja a decir fútbol. Debe ser «¿Cuál es tu juego favorito?».",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.recoger-datos-material",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P1-04"
+    ],
+    "bloque": "Recogida y organización de datos",
+    "nombre": "Recoger datos con material concreto",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Registra respuestas colocando chapas, piedritas o fichas por cada compañero.",
+    "palabrasClave": [
+      "datos",
+      "chapas",
+      "registrar",
+      "contar",
+      "material concreto"
+    ],
+    "prerrequisitos": [
+      "mat.p1.preguntas-sencillas"
+    ],
+    "ordenSugerido": 58,
+    "ideaCentral": "Para recoger datos, pones un objeto, como una chapa, por cada compañero que responde. Luego cuentas los objetos.",
+    "pasos": [
+      "Pon una caja para cada respuesta.",
+      "Cada niño responde y pones un objeto en su caja.",
+      "Cuenta los objetos de cada caja.",
+      "Compara las cantidades."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Cuatro niños dicen que les gusta la papa. ¿Cuántas chapas pones en papa?",
+        "desarrollo": "Una chapa por niño.",
+        "respuesta": "Pones 4 chapas."
+      },
+      {
+        "situacion": "Papa ●●●●● y yuca ●●●. ¿Cuántos niños respondieron?",
+        "desarrollo": "Junta las chapas de las dos cajas.",
+        "respuesta": "5 + 3 = 8 niños."
+      },
+      {
+        "situacion": "Pollo ●●●●, trucha ●●. ¿Qué eligen más?",
+        "desarrollo": "Hay más chapas en pollo.",
+        "respuesta": "Eligen más pollo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner dos chapas por un niño.",
+        "correccion": "Una chapa por cada niño."
+      },
+      {
+        "error": "Contar mal las chapas.",
+        "correccion": "Toca cada chapa con tu dedo y cuenta en voz alta."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Dato",
+        "significado": "Una respuesta que recoges."
+      },
+      {
+        "termino": "Chapa",
+        "significado": "Una tapita que usamos para contar."
+      },
+      {
+        "termino": "Registrar",
+        "significado": "Anotar o guardar la respuesta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Cada niño pone una chapa en su fruta favorita. 4 niños pusieron su chapa en manzana. ¿Cuántos niños eligieron manzana? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una chapa quiere decir un niño.",
+          "Hay 4 chapas en manzana.",
+          "Cuenta las chapas de manzana."
+        ],
+        "retroalimentacion": "Hay 4 chapas en manzana: 4 niños eligieron manzana.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis dice que su fruta favorita es el mango. ¿Qué haces?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pones una chapa en mango"
+          },
+          {
+            "id": "b",
+            "texto": "Pones tres chapas en mango"
+          },
+          {
+            "id": "c",
+            "texto": "Guardas la chapa"
+          }
+        ],
+        "pistas": [
+          "Luis es un solo niño.",
+          "Cada niño recibe una chapa.",
+          "La chapa va en lo que dijo Luis."
+        ],
+        "retroalimentacion": "Pones una chapa en mango, porque cada niño pone solo una. Más chapas o ninguna da un dato falso.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Debes poner una piedrita por cada niño que responde.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cuántas piedritas pone cada niño.",
+          "Cada niño responde una vez.",
+          "Así puedes contar los niños."
+        ],
+        "retroalimentacion": "Es verdad: una piedrita por cada niño.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un niño dice: «Prefiero el cuy». ¿En qué caja pones su ficha?",
+        "respuesta": "cuy",
+        "alternativasAceptadas": [
+          "en cuy",
+          "la caja del cuy",
+          "en la de cuy"
+        ],
+        "pistas": [
+          "Escucha qué dijo el niño.",
+          "Pones la ficha donde dice su respuesta.",
+          "La respuesta es una comida."
+        ],
+        "retroalimentacion": "La ficha va en la caja de «cuy».",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Hay dos filas de chapas: quinua ●●●● y arroz ●●●. ¿Cuántos niños respondieron en total? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada chapa es un niño.",
+          "Junta las chapas de quinua y de arroz.",
+          "4 más 3."
+        ],
+        "retroalimentacion": "4 + 3 = 7 niños respondieron.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira las chapas: pollo ●●●●●, trucha ●●, cuy ●●●. ¿Qué eligieron más niños?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Trucha"
+          },
+          {
+            "id": "b",
+            "texto": "Cuy"
+          },
+          {
+            "id": "c",
+            "texto": "Pollo"
+          }
+        ],
+        "pistas": [
+          "Cuenta las chapas de cada fila.",
+          "Compara 5, 2 y 3.",
+          "Elige la fila más larga."
+        ],
+        "retroalimentacion": "Pollo tiene 5 chapas, más que cuy y trucha.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 6 niños dicen que su color favorito es rojo, pones 4 chapas en rojo y 2 en azul.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira qué dijeron los 6 niños.",
+          "Los 6 dijeron rojo.",
+          "Ninguno dijo azul."
+        ],
+        "retroalimentacion": "Es falso: van 6 chapas en rojo y ninguna en azul.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Ana puso 3 chapas en «perro» y 5 en «gato». ¿Qué mascota eligieron más niños?",
+        "respuesta": "gato",
+        "alternativasAceptadas": [
+          "el gato"
+        ],
+        "pistas": [
+          "Mira cuántas chapas tiene cada mascota.",
+          "Compara 3 con 5.",
+          "5 es mayor que 3."
+        ],
+        "retroalimentacion": "Gato tiene 5 chapas, más que perro con 3.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marta puso 6 chapas en total. 4 chapas están en azul y las otras en rojo. ¿Cuántas están en rojo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10"
+          },
+          {
+            "id": "b",
+            "texto": "2"
+          },
+          {
+            "id": "c",
+            "texto": "3"
+          }
+        ],
+        "pistas": [
+          "Hay 6 chapas en total.",
+          "4 son azules, las demás son rojas.",
+          "Quita 4 de 6."
+        ],
+        "retroalimentacion": "6 - 4 = 2 chapas rojas. Sumar da 10, que es más que el total.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Hay 12 niños. En fresa pusieron ●●●●● y en plátano ●●●●. Los demás eligieron piña. ¿Cuántos niños eligieron piña? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos niños ya respondieron fresa y plátano.",
+          "Fresa y plátano suman 9.",
+          "Faltan los que son de 12 menos 9."
+        ],
+        "retroalimentacion": "5 + 4 = 9 niños ya eligieron. 12 - 9 = 3 eligieron piña.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Chapas: mango ●●●, papaya ●●●●●●, lúcuma ●●●●. ¿Qué fruta tiene menos chapas?",
+        "respuesta": "mango",
+        "alternativasAceptadas": [
+          "el mango"
+        ],
+        "pistas": [
+          "Cuenta las chapas de cada fruta.",
+          "Tienes 3, 6 y 4 chapas.",
+          "Busca el número más pequeño."
+        ],
+        "retroalimentacion": "Mango tiene 3 chapas: el número más pequeño.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si rojo tiene ●●●●● y azul tiene ●●●●, rojo tiene 1 chapa más que azul.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las chapas de cada color.",
+          "Rojo tiene 5 y azul tiene 4.",
+          "Resta 5 menos 4."
+        ],
+        "retroalimentacion": "Es verdad: 5 - 4 = 1 chapa más.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.lista-de-datos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P1-04"
+    ],
+    "bloque": "Recogida y organización de datos",
+    "nombre": "Listas de datos con dibujos o nombres",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Anota en una lista las respuestas obtenidas para luego contarlas.",
+    "palabrasClave": [
+      "lista",
+      "anotar",
+      "datos",
+      "respuestas",
+      "contar"
+    ],
+    "prerrequisitos": [
+      "mat.p1.recoger-datos-material"
+    ],
+    "ordenSugerido": 92,
+    "ideaCentral": "Una lista de datos es una hoja donde anotas cada respuesta que te dan. Puedes escribirlas o dibujarlas, una debajo de otra.",
+    "pasos": [
+      "Pregunta a cada persona su respuesta.",
+      "Anota la respuesta en tu lista, con letra o dibujo.",
+      "Anota una vez por cada persona.",
+      "Al final cuenta cuántas anotaste."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Preguntas la mascota a 3 amigos: perro, gato, perro. ¿Cómo queda la lista?",
+        "desarrollo": "Anotas una línea por amigo.",
+        "respuesta": "1. perro, 2. gato, 3. perro."
+      },
+      {
+        "situacion": "En tu lista de comidas: quinua, arroz, quinua. ¿Cuántas veces está quinua?",
+        "desarrollo": "Cuentas la palabra: sale 2 veces.",
+        "respuesta": "2 veces."
+      },
+      {
+        "situacion": "Tu lista tiene 5 respuestas. ¿Cuántos amigos respondieron?",
+        "desarrollo": "Una respuesta por amigo.",
+        "respuesta": "5 amigos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Anotar una respuesta dos veces para la misma persona.",
+        "correccion": "Anota una sola vez por persona."
+      },
+      {
+        "error": "Olvidar anotar a alguien.",
+        "correccion": "Cuenta tus anotaciones y compara con el número de amigos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Lista",
+        "significado": "Hoja donde anotas las respuestas una debajo de otra."
+      },
+      {
+        "termino": "Anotar",
+        "significado": "Escribir o dibujar una respuesta."
+      },
+      {
+        "termino": "Respuesta repetida",
+        "significado": "La que varias personas dicen igual."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En tu lista anotaste: cuy, perro, cuy. ¿Cuántas respuestas anotaste? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cada línea de la lista.",
+          "Hay cuy, perro y cuy.",
+          "Cada palabra es una respuesta."
+        ],
+        "retroalimentacion": "Anotaste 3 respuestas. No son 2 porque «cuy» se anotó dos veces."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una lista de datos sirve para anotar las respuestas y después contarlas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa para qué anotas lo que dicen tus amigos.",
+          "Anotas para no olvidar.",
+          "Después puedes contar cada respuesta."
+        ],
+        "retroalimentacion": "Es verdadero: la lista guarda las respuestas para contarlas."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una lista de comida favorita anotaste: quinua, arroz, quinua, fideo. ¿Qué respuesta se repite?",
+        "respuesta": "quinua",
+        "alternativasAceptadas": [
+          "la quinua"
+        ],
+        "pistas": [
+          "Lee la lista palabra por palabra.",
+          "Busca una palabra que salga más de una vez.",
+          "Arroz y fideo salen una vez."
+        ],
+        "retroalimentacion": "Quinua aparece 2 veces, las otras una vez."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres saber el color favorito de 5 amigos. ¿Qué haces en tu lista?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Anoto el número de la casa de cada uno"
+          },
+          {
+            "id": "b",
+            "texto": "Solo recuerdo sin anotar"
+          },
+          {
+            "id": "c",
+            "texto": "Anoto o dibujo la respuesta de cada amigo"
+          }
+        ],
+        "pistas": [
+          "Piensa qué necesitas guardar.",
+          "Necesitas la respuesta, no la casa.",
+          "Escribe o dibuja lo que cada uno responde."
+        ],
+        "retroalimentacion": "Anotas o dibujas el color de cada amigo. Solo recordar puede hacerte olvidar respuestas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Anotaste frutas: lúcuma, naranja, lúcuma, uva, naranja, lúcuma. ¿Cuántas veces anotaste lúcuma? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca solo la palabra lúcuma.",
+          "Pon un dedo en cada lúcuma.",
+          "Hay una al inicio, una en el medio y una al final."
+        ],
+        "retroalimentacion": "Lúcuma aparece 3 veces. Con 2 contaste las naranjas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tu lista de mascotas es: pez, loro, pez, perro, loro, pez. ¿Cuántos peces hay?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "2"
+          },
+          {
+            "id": "c",
+            "texto": "4"
+          }
+        ],
+        "pistas": [
+          "Busca la palabra pez.",
+          "Anota cada pez con una marca.",
+          "Hay un pez en cada rincón de la lista: inicio, mitad y final."
+        ],
+        "retroalimentacion": "Hay 3 peces. Si dijiste 2, contaste los loros."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en la lista aparece «azul» dos veces, es porque dos niños dijeron azul.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada respuesta es de una persona.",
+          "Si la misma respuesta sale dos veces, la dijeron dos personas.",
+          "Cuenta azul y mira cuántos son."
+        ],
+        "retroalimentacion": "Es verdadero: cada línea es una persona."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En tu lista de transporte anotaste: combi, bus, combi, tren, combi, bus. ¿Qué medio aparece más veces?",
+        "respuesta": "combi",
+        "alternativasAceptadas": [
+          "la combi",
+          "combis"
+        ],
+        "pistas": [
+          "Cuenta combi, bus y tren por separado.",
+          "Bus sale 2 veces y tren 1.",
+          "Falta contar combi: sale más veces que bus."
+        ],
+        "retroalimentacion": "Combi aparece 3 veces, bus 2 y tren 1."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En tu lista de 9 postres anotaste: helado, flan, helado, gelatina, flan, helado, flan, helado, gelatina. ¿Cuántas respuestas no son helado? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos helados hay: son 4.",
+          "Hay 9 respuestas en total.",
+          "Resta 9 − 4."
+        ],
+        "retroalimentacion": "Helado son 4, así que 9 − 4 = 5 no son helado."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marta preguntó a 8 niños y anotó: rojo, azul, rojo, azul, rojo, azul, rojo. ¿Qué le pasó?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Anotó una respuesta de más"
+          },
+          {
+            "id": "b",
+            "texto": "Anotó 7 y le falta 1 dato"
+          },
+          {
+            "id": "c",
+            "texto": "Anotó bien los 8 datos"
+          }
+        ],
+        "pistas": [
+          "Cuenta cuántas respuestas anotó Marta.",
+          "Hay 7 palabras en su lista.",
+          "Preguntó a 8 niños."
+        ],
+        "retroalimentacion": "Anotó 7 respuestas y preguntó a 8. Falta anotar 1 dato."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si cambias el orden de la lista, cambia cuántos «cuy» hay.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cuántos cuyes hay en tu lista.",
+          "Cambiar el orden mueve las palabras de lugar.",
+          "Las palabras siguen siendo las mismas."
+        ],
+        "retroalimentacion": "Es falso: cambiar el orden no cambia cuántos hay."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Preguntaste a 10 niños. Tu lista tiene: gato, perro, gato, gato, perro. Los otros 5 niños dijeron todos «perro». ¿Cuántos perros habrá en total? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En la lista actual cuenta los perros: 2.",
+          "Los otros 5 niños también dijeron perro.",
+          "Suma 2 y 5."
+        ],
+        "retroalimentacion": "2 + 5 = 7 perros. Si pusiste 5, olvidaste los perros de la lista."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.tabla-de-conteo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P1-04"
+    ],
+    "bloque": "Recogida y organización de datos",
+    "nombre": "Tabla de conteo con marcas o dibujos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Organiza los datos en una tabla marcando y contando cuántos hay de cada categoría.",
+    "palabrasClave": [
+      "tabla",
+      "marcas",
+      "contar",
+      "categorías",
+      "conteo"
+    ],
+    "prerrequisitos": [
+      "mat.p1.lista-de-datos",
+      "mat.p1.datos-por-categorias"
+    ],
+    "ordenSugerido": 93,
+    "ideaCentral": "Una tabla de conteo tiene una fila por cada categoría. Haces una marca por cada dato y después cuentas las marcas.",
+    "pasos": [
+      "Escribe en la tabla cada categoría.",
+      "Lee un dato y haz una marca | en su categoría.",
+      "Haz una marca por cada dato.",
+      "Cuenta las marcas de cada categoría."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Datos: sol, nube, sol. ¿Cómo marcas?",
+        "desarrollo": "Sol lleva dos marcas y nube una.",
+        "respuesta": "Sol ||, nube |."
+      },
+      {
+        "situacion": "En la tabla: papa |||, yuca ||. ¿Cuántos datos hay?",
+        "desarrollo": "3 + 2 = 5.",
+        "respuesta": "5 datos."
+      },
+      {
+        "situacion": "En la tabla: cuy ||||, gato |. ¿Qué categoría tiene más?",
+        "desarrollo": "Cuy tiene 4 marcas y gato 1.",
+        "respuesta": "Cuy."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Marcar dos veces el mismo dato.",
+        "correccion": "Una marca por cada dato, no más."
+      },
+      {
+        "error": "Poner la marca en otra categoría.",
+        "correccion": "Mira bien el dato y busca su fila."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Tabla de conteo",
+        "significado": "Tabla donde marcas cada dato para contarlo."
+      },
+      {
+        "termino": "Marca",
+        "significado": "Una rayita | que vale un dato."
+      },
+      {
+        "termino": "Total",
+        "significado": "Todos los datos juntos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la tabla de frutas, la fila de plátano tiene |||| . ¿Cuántos plátanos son? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada rayita | vale un plátano.",
+          "Cuenta las rayitas de la fila.",
+          "Hay cuatro rayitas."
+        ],
+        "retroalimentacion": "Hay 4 rayitas: 4 plátanos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una tabla de conteo haces una marca por cada dato.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cuántas marcas haces por cada respuesta.",
+          "Una respuesta, una marca.",
+          "No haces más de una."
+        ],
+        "retroalimentacion": "Es verdadero: una marca por cada dato."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cuentas las mochilas por color. Aparece el primer niño con mochila azul. ¿Qué haces?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Borro la fila Azul"
+          },
+          {
+            "id": "b",
+            "texto": "Escribo su nombre en la fila Rojo"
+          },
+          {
+            "id": "c",
+            "texto": "Hago una marca | en la fila Azul"
+          }
+        ],
+        "pistas": [
+          "Busca la fila del color azul.",
+          "Cada niño es un dato.",
+          "Un dato se marca con una rayita."
+        ],
+        "retroalimentacion": "Haces una marca | en la fila Azul. Escribir el nombre o borrar no cuenta el dato."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la tabla hay || en la fila cuy y | en la fila gato. ¿Cuántas marcas hay en total? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta primero las marcas de cuy.",
+          "Luego cuenta la de gato.",
+          "Junta 2 y 1."
+        ],
+        "retroalimentacion": "2 + 1 = 3 marcas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Tabla de colores: Rojo ||||, Azul ||, Verde |||. ¿Qué color tiene más marcas?",
+        "respuesta": "rojo",
+        "alternativasAceptadas": [
+          "el rojo"
+        ],
+        "pistas": [
+          "Cuenta las marcas de cada color.",
+          "Rojo 4, azul 2 y verde 3.",
+          "Compara 4, 2 y 3."
+        ],
+        "retroalimentacion": "Rojo tiene 4 marcas, el mayor número."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Marcaste helados vendidos: fresa ||||, lúcuma |||||, chocolate ||. ¿Cuántos helados se vendieron en total? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cada fila por separado: 4, 5 y 2.",
+          "Junta primero 4 y 5.",
+          "Al resultado súmale 2."
+        ],
+        "retroalimentacion": "4 + 5 + 2 = 11 helados."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los datos son sol, nube, sol, sol, nube. ¿Qué tabla de conteo es correcta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sol ||, Nube |||"
+          },
+          {
+            "id": "b",
+            "texto": "Sol |||, Nube ||"
+          },
+          {
+            "id": "c",
+            "texto": "Sol |||||, Nube ||||"
+          }
+        ],
+        "pistas": [
+          "Cuenta cuántas veces sale sol.",
+          "Sol sale 3 veces y nube 2.",
+          "Busca la tabla con 3 y 2."
+        ],
+        "retroalimentacion": "Sol sale 3 veces y nube 2: Sol |||, Nube ||."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una tabla con Mango |||| y Uva || hay 6 datos en total.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las rayitas de mango: son 4.",
+          "Cuenta las rayitas de uva: son 2.",
+          "Junta 4 y 2."
+        ],
+        "retroalimentacion": "Es verdadero: 4 + 2 = 6."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la tabla del recreo: fútbol |||||, soga ||||, trompo ||. Luego 3 niños más eligen soga. ¿Cuántos niños hay en total en la tabla? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero suma todas las marcas: 5, 4 y 2.",
+          "Eso da 11 niños.",
+          "Agrega los 3 niños nuevos."
+        ],
+        "retroalimentacion": "5 + 4 + 2 = 11 y 11 + 3 = 14 niños."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lucía marcó gato ||| y perro ||. Pero preguntó a 6 niños. ¿Qué pasó?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Le sobró una marca"
+          },
+          {
+            "id": "b",
+            "texto": "Le faltó marcar 1 respuesta"
+          },
+          {
+            "id": "c",
+            "texto": "Marcó bien a todos"
+          }
+        ],
+        "pistas": [
+          "Cuenta las marcas: 3 y 2.",
+          "Eso da 5.",
+          "Preguntó a 6 niños."
+        ],
+        "retroalimentacion": "Hay 5 marcas para 6 niños: falta 1."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si haces dos marcas por el mismo niño, la tabla queda con un dato de más.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un niño es un dato.",
+          "Dos marcas cuentan dos datos.",
+          "Entonces hay uno de más."
+        ],
+        "retroalimentacion": "Es verdadero: sobra una marca."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tabla de la chacra: papa |||||, camote |||, yuca ||. ¿Cuántas marcas más tiene papa que yuca? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las marcas de papa: 5.",
+          "Cuenta las de yuca: 2.",
+          "Resta 5 − 2."
+        ],
+        "retroalimentacion": "5 − 2 = 3 marcas más. El camote no entra en esta comparación."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.leer-tabla-conteo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P1-03"
+    ],
+    "bloque": "Recogida y organización de datos",
+    "nombre": "Lectura de tablas de conteo: cuántos hay de cada uno",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Lee cuántos hay de cada categoría en una tabla de conteo simple.",
+    "palabrasClave": [
+      "tabla",
+      "leer",
+      "cuántos hay",
+      "más",
+      "menos"
+    ],
+    "prerrequisitos": [
+      "mat.p1.tabla-de-conteo"
+    ],
+    "ordenSugerido": 95,
+    "ideaCentral": "En una tabla de conteo cada fila dice cuántos hay de una categoría. Lees el número de cada fila y comparas para saber cuál tiene más o menos.",
+    "pasos": [
+      "Lee el nombre de cada fila.",
+      "Mira cuántos hay en la fila que buscas.",
+      "Compara los números: el mayor es el que tiene más.",
+      "Si piden el total, junta todos los números."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tabla: Manzana 4, Naranja 2. ¿Cuántas naranjas hay?",
+        "desarrollo": "Buscas la fila Naranja: dice 2.",
+        "respuesta": "2 naranjas."
+      },
+      {
+        "situacion": "Tabla: Rojo 3, Azul 6, Verde 2. ¿Cuál tiene más?",
+        "desarrollo": "Comparas 3, 6 y 2: el mayor es 6.",
+        "respuesta": "Azul."
+      },
+      {
+        "situacion": "Tabla: Cuy 5, Gallina 7. ¿Cuántos animales hay?",
+        "desarrollo": "5 + 7 = 12.",
+        "respuesta": "12 animales."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer otra fila.",
+        "correccion": "Pon el dedo en la fila que te piden."
+      },
+      {
+        "error": "Decir que tiene más la fila que está primero.",
+        "correccion": "Compara los números, no el lugar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Fila",
+        "significado": "Cada línea de la tabla con su categoría."
+      },
+      {
+        "termino": "Más",
+        "significado": "El número mayor."
+      },
+      {
+        "termino": "Menos",
+        "significado": "El número menor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tabla de frutas: Manzana 4, Naranja 2. ¿Cuántas naranjas hay? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la fila Naranja.",
+          "No leas la fila Manzana.",
+          "Al lado de Naranja está el número."
+        ],
+        "retroalimentacion": "En la fila Naranja dice 2."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en la tabla la fila Pollo dice 5, hay 5 pollos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El número de la fila dice cuántos hay.",
+          "La fila se llama Pollo.",
+          "El número es 5."
+        ],
+        "retroalimentacion": "Es verdadero: el número dice cuántos hay."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Tabla de colores: Rojo 3, Azul 6, Verde 2. ¿Qué color tiene más?",
+        "respuesta": "azul",
+        "alternativasAceptadas": [
+          "el azul"
+        ],
+        "pistas": [
+          "Mira los tres números.",
+          "Son 3, 6 y 2.",
+          "Elige la fila del número más grande."
+        ],
+        "retroalimentacion": "Azul tiene 6, el mayor."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla de mascotas: Gato 2, Perro 5. ¿Cuántos perros hay?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "7"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          }
+        ],
+        "pistas": [
+          "Busca la fila Perro.",
+          "No leas la fila Gato.",
+          "Perro dice cinco."
+        ],
+        "retroalimentacion": "En la fila Perro dice 5. Responder 2 es leer la fila Gato."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tienda de Cusco: quinua 9 bolsas, maíz 6 bolsas, trigo 4 bolsas. ¿Cuántas bolsas más de quinua que de maíz hay? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca los números de quinua y maíz.",
+          "Son 9 y 6.",
+          "Resta 9 − 6."
+        ],
+        "retroalimentacion": "Hay 9 − 6 = 3 bolsas más de quinua."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Tabla de deportes: Fútbol 7, Vóley 5, Básquet 3. ¿Qué deporte tiene menos niños?",
+        "respuesta": "básquet",
+        "alternativasAceptadas": [
+          "basquet",
+          "el básquet",
+          "basquetbol",
+          "básquetbol"
+        ],
+        "pistas": [
+          "Lee los tres números: 7, 5 y 3.",
+          "Busca el más pequeño.",
+          "El menor es 3."
+        ],
+        "retroalimentacion": "Básquet tiene 3, el número menor."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla del clima: sol 5, nube 3, lluvia 2. ¿Cuántos días se anotaron en total?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "12"
+          },
+          {
+            "id": "d",
+            "texto": "10"
+          }
+        ],
+        "pistas": [
+          "Hay tres filas con números.",
+          "Junta 5 y 3 primero.",
+          "A ese resultado súmale 2."
+        ],
+        "retroalimentacion": "5 + 3 + 2 = 10 días. 8 olvida la lluvia."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla Papa 6 y Yuca 6 hay más papas que yucas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los dos números.",
+          "Papa dice 6 y yuca dice 6.",
+          "Si son iguales, no hay más de una."
+        ],
+        "retroalimentacion": "Es falso: ambos tienen 6, son iguales."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tabla de útiles vendidos: lápiz 12, borrador 7, tajador 5, regla 9. ¿Cuántos útiles se vendieron en total? Escribe solo el número.",
+        "respuesta": 33,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay cuatro números para juntar.",
+          "12 + 7 = 19.",
+          "Suma después 5 y luego 9."
+        ],
+        "retroalimentacion": "12 + 7 + 5 + 9 = 33 útiles."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla de juegos: trompo 8, soga 12, bolitas 5. ¿Qué juegos juntos suman 13 niños?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Trompo y soga"
+          },
+          {
+            "id": "b",
+            "texto": "Soga y bolitas"
+          },
+          {
+            "id": "c",
+            "texto": "Trompo y bolitas"
+          }
+        ],
+        "pistas": [
+          "Prueba sumar de dos en dos.",
+          "Trompo y soga dan 20.",
+          "Soga y bolitas dan 17; falta otra pareja."
+        ],
+        "retroalimentacion": "Trompo y bolitas: 8 + 5 = 13. Trompo y soga dan 20 y soga y bolitas 17."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla Cuy 15 y Gallina 9, hay 6 cuyes más que gallinas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca los dos números: 15 y 9.",
+          "Para saber cuántos más, resta.",
+          "Calcula 15 − 9."
+        ],
+        "retroalimentacion": "Es verdadero: 15 − 9 = 6."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Hay 30 niños. En la tabla de colores: Rojo 11, Azul 9 y Verde sin anotar. ¿Cuántos niños eligieron verde? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta lo que ya está anotado: 11 y 9.",
+          "11 + 9 = 20.",
+          "Quita 20 del total de 30."
+        ],
+        "retroalimentacion": "30 − 11 − 9 = 10 niños eligieron verde."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.decisiones-con-datos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P1-05"
+    ],
+    "bloque": "Recogida y organización de datos",
+    "nombre": "Decisiones sencillas con los datos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Toma una decisión del aula a partir de los datos, como qué juego elegir, y la explica.",
+    "palabrasClave": [
+      "decisión",
+      "votos",
+      "datos",
+      "elegir",
+      "más votos"
+    ],
+    "prerrequisitos": [
+      "mat.p1.mayor-frecuencia"
+    ],
+    "ordenSugerido": 119,
+    "ideaCentral": "Después de contar, tomas la decisión con lo que dicen los datos. Eliges lo que tiene más votos y explicas por qué.",
+    "pasos": [
+      "Cuenta los votos de cada opción.",
+      "Compara las cantidades.",
+      "Elige la opción con más votos.",
+      "Explica con «porque»."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Fútbol ●●●●● y soga ●●. ¿Qué juego elige el aula?",
+        "desarrollo": "Fútbol tiene más votos.",
+        "respuesta": "Elige fútbol, porque tiene más votos."
+      },
+      {
+        "situacion": "Parque ●●●●●●, museo ●●●●●. ¿A dónde van de paseo?",
+        "desarrollo": "6 es más que 5.",
+        "respuesta": "Van al parque, porque tiene más votos."
+      },
+      {
+        "situacion": "Arte ●●●●●, música ●●●●●. ¿Qué pasa?",
+        "desarrollo": "Hay el mismo número.",
+        "respuesta": "Hay empate; deciden otra vez."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir lo que a ti te gusta aunque tenga menos votos.",
+        "correccion": "Elige lo que tiene más votos."
+      },
+      {
+        "error": "Elegir la opción con menos votos.",
+        "correccion": "Elige la que más niños escogieron."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Votos",
+        "significado": "Las respuestas de los niños."
+      },
+      {
+        "termino": "Empate",
+        "significado": "Cuando dos opciones tienen los mismos votos."
+      },
+      {
+        "termino": "Decisión",
+        "significado": "Lo que eliges hacer."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Fútbol tiene ●●●●● y soga tiene ●●. ¿Qué juego elige el aula?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Soga"
+          },
+          {
+            "id": "b",
+            "texto": "Fútbol"
+          },
+          {
+            "id": "c",
+            "texto": "Ninguno"
+          }
+        ],
+        "pistas": [
+          "Cuenta las chapas de cada juego.",
+          "Fútbol tiene 5 y soga tiene 2.",
+          "Elige el que tiene más."
+        ],
+        "retroalimentacion": "Fútbol tiene 5 votos, más que soga con 2.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Se elige el juego que tiene más chapas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué dicen más chapas.",
+          "Más chapas son más niños.",
+          "Más niños quieren ese juego."
+        ],
+        "retroalimentacion": "Es verdad: más chapas quiere decir que más niños lo eligieron.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Colores: azul ●●●, rojo ●●●●●●, verde ●●. ¿Qué color eligen?",
+        "respuesta": "rojo",
+        "alternativasAceptadas": [
+          "el rojo"
+        ],
+        "pistas": [
+          "Cuenta las chapas de cada color.",
+          "Tienes 3, 6 y 2.",
+          "El número más grande es el ganador."
+        ],
+        "retroalimentacion": "Rojo tiene 6 chapas, más que azul y verde.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Canción A tiene ●●●● y canción B tiene ●●●●●●●. ¿Cuántos votos tiene la canción que gana? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos canciones.",
+          "Gana la que tiene más chapas.",
+          "Cuenta las chapas de la ganadora."
+        ],
+        "retroalimentacion": "Gana la canción B con 7 votos.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Paseo: parque ●●●●●●, museo ●●●●●, mercado ●●●●. ¿Qué eligen y por qué?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Museo, porque está en el medio"
+          },
+          {
+            "id": "b",
+            "texto": "Mercado, porque tiene menos votos"
+          },
+          {
+            "id": "c",
+            "texto": "Parque, porque tiene más votos"
+          }
+        ],
+        "pistas": [
+          "Cuenta los votos de cada lugar.",
+          "Hay 6, 5 y 4 votos.",
+          "La razón debe hablar de los votos."
+        ],
+        "retroalimentacion": "Parque tiene 6 votos, el mayor. Estar en medio o tener menos votos no son buenas razones.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Merienda: pan ●●●●●●● y galleta ●●●●●. ¿Cuántos votos más tiene el pan que la galleta? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los votos del pan y los de la galleta.",
+          "Pan tiene 7 y galleta tiene 5.",
+          "Resta 7 menos 5."
+        ],
+        "retroalimentacion": "7 - 5 = 2 votos más.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Hay 8 votos por cuentos y 5 por títeres. Hacemos títeres porque tiene menos votos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 8 con 5.",
+          "Los cuentos tienen más votos.",
+          "Se elige la opción que gana, no la que pierde."
+        ],
+        "retroalimentacion": "Es falso: se eligen cuentos, que tienen 8 votos.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Juegos: soga ●●●●●●, trompo ●●●●●●●●, bolitas ●●●●●●●. ¿Qué juego gana?",
+        "respuesta": "trompo",
+        "alternativasAceptadas": [
+          "el trompo"
+        ],
+        "pistas": [
+          "Mira cuántas chapas tiene la soga, el trompo y las bolitas.",
+          "Los números son 6, 8 y 7.",
+          "Busca el 8."
+        ],
+        "retroalimentacion": "Trompo tiene 8 votos: gana.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Arte tiene ●●●●●, música tiene ●●●●● y danza ●●. ¿Qué decisión es mejor?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Elegir entre arte y música, votando de nuevo"
+          },
+          {
+            "id": "b",
+            "texto": "Elegir danza, porque tiene menos votos"
+          },
+          {
+            "id": "c",
+            "texto": "No hacer nada"
+          }
+        ],
+        "pistas": [
+          "Compara arte y música.",
+          "Tienen el mismo número de votos.",
+          "Hay que decidir entre las dos."
+        ],
+        "retroalimentacion": "Arte y música empatan con 5 votos. Se vota otra vez entre las dos. Danza tiene menos votos.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Votan 20 niños. Tren ●●●●●●●● y bus ●●●●●●●. Los demás eligen barco. ¿Cuántos votos tiene el barco? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta los votos de tren y bus.",
+          "8 más 7 son 15.",
+          "Quita 15 de 20."
+        ],
+        "retroalimentacion": "8 + 7 = 15. 20 - 15 = 5 votos.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Hay 6 votos por pelota roja, 4 por azul y 9 por verde. Si compran una pelota, ¿de qué color?",
+        "respuesta": "verde",
+        "alternativasAceptadas": [
+          "la verde",
+          "pelota verde"
+        ],
+        "pistas": [
+          "Compara 6, 4 y 9.",
+          "Mira cuál es el número mayor.",
+          "El 9 es de un color de los tres."
+        ],
+        "retroalimentacion": "La verde tiene 9 votos, el mayor.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el mercado tiene 3 votos y el museo 8, decir «vamos al mercado porque me gusta a mí» es una decisión con los datos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 3 con 8.",
+          "La razón es lo que te gusta a ti.",
+          "Una decisión con datos usa los votos."
+        ],
+        "retroalimentacion": "Es falso: los datos dicen museo, que tiene 8 votos.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1226 @@
+[
+  {
+    "clave": "mat.p1.torres-que-crecen",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-02"
+    ],
+    "bloque": "Patrones aditivos",
+    "nombre": "Torres y filas que crecen",
+    "disciplina": "algebra",
+    "descripcionCorta": "Construye con cubos una secuencia de torres que aumentan de uno en uno.",
+    "palabrasClave": [
+      "torres",
+      "cubos",
+      "crecer de uno en uno",
+      "secuencia",
+      "uno más"
+    ],
+    "prerrequisitos": [
+      "mat.p1.contar-hasta-10"
+    ],
+    "ordenSugerido": 76,
+    "ideaCentral": "Una secuencia de torres crece de uno en uno cuando cada torre tiene un cubo más que la anterior. Así puedes saber cómo será la torre que sigue.",
+    "pasos": [
+      "Cuenta los cubos de la primera torre.",
+      "Cuenta los cubos de la segunda torre y mira cuántos más tiene.",
+      "Si siempre tiene un cubo más, crece de uno en uno.",
+      "Para la torre que sigue, suma un cubo a la última."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana hace torres de 1, 2 y 3 cubos. ¿Cuántos cubos tendrá la que sigue?",
+        "desarrollo": "Cada torre tiene un cubo más. Después de 3 viene 3 + 1.",
+        "respuesta": "La que sigue tiene 4 cubos."
+      },
+      {
+        "situacion": "Beto hace torres de 5, 6 y 7 cubos. ¿Cuántos cubos tendrá la siguiente?",
+        "desarrollo": "Va de uno en uno: 5, 6, 7 y luego un cubo más.",
+        "respuesta": "La siguiente tiene 8 cubos."
+      },
+      {
+        "situacion": "Una fila de torres tiene 10, 11, 12. ¿Qué torre sigue?",
+        "desarrollo": "Sumamos un cubo a la última torre: 12 + 1.",
+        "respuesta": "Sigue la torre de 13 cubos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar 2 cubos en vez de 1.",
+        "correccion": "Mira bien: en estas torres siempre se añade solo un cubo."
+      },
+      {
+        "error": "Contar mal y repetir un número, como 3, 4, 4.",
+        "correccion": "Cada torre nueva tiene un número distinto. Cuenta con el dedo cada cubo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Secuencia",
+        "significado": "Cosas puestas una tras otra siguiendo una regla."
+      },
+      {
+        "termino": "Crecer",
+        "significado": "Ser cada vez más grande."
+      },
+      {
+        "termino": "Uno más",
+        "significado": "Un cubo extra que se añade cada vez."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una torre tiene 1 cubo. La siguiente tiene 2 cubos. La siguiente tiene 3 cubos. ¿Cuántos cubos tendrá la cuarta torre? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántos cubos más tiene cada torre.",
+          "De 1 a 2 y de 2 a 3 se añade un cubo.",
+          "Después de la torre de 3 cubos pon un cubo más."
+        ],
+        "retroalimentacion": "La cuarta torre tiene 4 cubos: 3 + 1 = 4."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En torres que crecen de uno en uno, cada torre tiene un cubo más que la anterior.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en torres de 2, 3 y 4 cubos.",
+          "Mira cuánto sube de una torre a la siguiente.",
+          "De uno en uno significa añadir solo un cubo cada vez."
+        ],
+        "retroalimentacion": "Verdadero: crecer de uno en uno es tener siempre un cubo más."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira estas torres: ● , ●● , ●●● . ¿Cuál torre sigue?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "●●●●"
+          },
+          {
+            "id": "b",
+            "texto": "●●●●●"
+          },
+          {
+            "id": "c",
+            "texto": "●●"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los ● de cada torre.",
+          "Las torres tienen 1, 2 y 3 ●.",
+          "Añade un ● más a la torre de 3."
+        ],
+        "retroalimentacion": "Sigue ●●●●, que tiene 4. ●●●●● añade dos y ●● ya pasó."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Los números de las torres son 2, 3, 4. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": "5",
+        "alternativasAceptadas": [
+          "cinco"
+        ],
+        "pistas": [
+          "Los números suben de uno en uno.",
+          "Después del 4 viene un número más grande.",
+          "Cuenta: 2, 3, 4, y sigue contando."
+        ],
+        "retroalimentacion": "Sigue el 5, porque 4 + 1 = 5."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La torre de Pedro tiene 7 cubos. Si le pone 1 cubo más, ¿cuántos cubos tendrá? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pedro añade solo un cubo.",
+          "Parte del 7 y cuenta un número más.",
+          "Después del 7 viene el ..."
+        ],
+        "retroalimentacion": "Tendrá 8 cubos, porque 7 + 1 = 8."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál fila de números crece de uno en uno?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1, 3, 5, 7"
+          },
+          {
+            "id": "b",
+            "texto": "2, 3, 4, 5"
+          },
+          {
+            "id": "c",
+            "texto": "5, 4, 3, 2"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuánto cambia el número en cada paso.",
+          "En una fila solo sube 1 cada vez.",
+          "Una fila sube de 2 en 2 y otra baja."
+        ],
+        "retroalimentacion": "La fila 2, 3, 4, 5 sube de uno en uno. 1, 3, 5, 7 sube de dos en dos y 5, 4, 3, 2 va bajando."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las torres de 5, 6, 7 y 9 cubos crecen de uno en uno.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cada torre con la que sigue.",
+          "De 5 a 6 y de 6 a 7 sube 1; mira el último paso.",
+          "De 7 a 9 no es solo un cubo."
+        ],
+        "retroalimentacion": "Falso: de 7 a 9 suben 2 cubos. Falta la torre de 8."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En la fila de torres falta una: 10, 11, __, 13. Escribe el número que falta.",
+        "respuesta": "12",
+        "alternativasAceptadas": [
+          "doce"
+        ],
+        "pistas": [
+          "La fila va de uno en uno.",
+          "Después del 11 viene el número de la torre que falta.",
+          "Antes del 13 hay un número."
+        ],
+        "retroalimentacion": "Falta el 12, porque 11 + 1 = 12 y 12 + 1 = 13."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Rosa hace una fila de torres. La primera tiene 3 cubos y cada torre tiene un cubo más que la anterior. ¿Cuántos cubos tiene la quinta torre? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe cuántos cubos tiene cada torre desde la primera.",
+          "Primera: 3 cubos. Segunda: 4 cubos...",
+          "Cuenta 3, 4, 5, 6 y sigue hasta llegar a la quinta torre."
+        ],
+        "retroalimentacion": "Las torres son 3, 4, 5, 6 y 7. La quinta tiene 7 cubos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Ana construyó torres de 1, 2, 3 y 4 cubos. ¿Cuántos cubos usó en total? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay que juntar los cubos de las cuatro torres.",
+          "Suma 1 + 2 y luego añade las demás torres.",
+          "1 + 2 + 3 + 4 se puede sumar de a dos: 3 y 7."
+        ],
+        "retroalimentacion": "Usó 1 + 2 + 3 + 4 = 10 cubos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una fila, la segunda torre tiene 8 cubos y la cuarta torre tiene 10 cubos. Crece de uno en uno. ¿Cuántos cubos tiene la tercera torre?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 cubos"
+          },
+          {
+            "id": "b",
+            "texto": "7 cubos"
+          },
+          {
+            "id": "c",
+            "texto": "9 cubos"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La tercera torre está entre la segunda y la cuarta.",
+          "Entre 8 y 10 hay un número que sigue al 8.",
+          "Después de 8 viene el número de la tercera torre; luego sigue el 10."
+        ],
+        "retroalimentacion": "La tercera tiene 9 cubos: 8, 9, 10. 10 es la cuarta y 7 es menor que la segunda."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una fila empieza con una torre de 20 cubos y crece de uno en uno. Escribe las tres torres que siguen, con comas, como 1, 2, 3.",
+        "respuesta": "21, 22, 23",
+        "alternativasAceptadas": [
+          "21,22,23",
+          "21 22 23",
+          "21 y 22 y 23"
+        ],
+        "pistas": [
+          "Sigue contando desde el 20 con tres números.",
+          "Después del 20 viene un número más.",
+          "Escribe 21 y sigue dos veces más."
+        ],
+        "retroalimentacion": "Siguen 21, 22 y 23 cubos, sumando un cubo cada vez."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p1.patrones-1-en-1-y-2-en-2",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-03"
+    ],
+    "bloque": "Patrones aditivos",
+    "nombre": "Patrones que aumentan de 1 en 1 y de 2 en 2",
+    "disciplina": "algebra",
+    "descripcionCorta": "Describe cómo crece una secuencia numérica hasta 20 de uno en uno o de dos en dos.",
+    "palabrasClave": [
+      "patrón numérico",
+      "de 1 en 1",
+      "de 2 en 2",
+      "secuencia",
+      "contar"
+    ],
+    "prerrequisitos": [
+      "mat.p1.torres-que-crecen",
+      "mat.p1.numeros-11-al-20"
+    ],
+    "ordenSugerido": 78,
+    "ideaCentral": "Una secuencia de números puede crecer siempre lo mismo. Si sube de 1 en 1, cada número es uno más que el anterior. Si sube de 2 en 2, cada número es dos más que el anterior.",
+    "pasos": [
+      "Mira los dos primeros números de la secuencia.",
+      "Pregúntate cuánto subió del primero al segundo.",
+      "Comprueba que siga subiendo igual en los demás.",
+      "Di la regla: «sube de 1 en 1» o «sube de 2 en 2»."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Mira la fila: 5, 6, 7, 8, 9. ¿Cómo crece?",
+        "desarrollo": "De 5 a 6 sube 1. De 6 a 7 sube 1. Siempre sube lo mismo.",
+        "respuesta": "Crece de 1 en 1."
+      },
+      {
+        "situacion": "Una vendedora cuenta zapatos en pares: 2, 4, 6, 8, 10. ¿Cómo crece?",
+        "desarrollo": "De 2 a 4 sube 2. De 4 a 6 sube 2.",
+        "respuesta": "Crece de 2 en 2."
+      },
+      {
+        "situacion": "Los números de las casas de una calle de Cusco son 11, 13, 15. ¿Qué número sigue?",
+        "desarrollo": "11 a 13 sube 2 y 13 a 15 sube 2. A 15 le sumas 2.",
+        "respuesta": "Sigue el 17."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que 2, 4, 6 crece de 1 en 1.",
+        "correccion": "Entre 2 y 4 hay un número que se salta (el 3), así que sube de 2 en 2."
+      },
+      {
+        "error": "Fijarse solo en el último número y no en cuánto sube.",
+        "correccion": "Compara dos números seguidos para saber cuánto sube cada vez."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Secuencia",
+        "significado": "Una lista de números en orden."
+      },
+      {
+        "termino": "Patrón",
+        "significado": "Una regla que se repite siempre igual."
+      },
+      {
+        "termino": "De 2 en 2",
+        "significado": "Cada número es dos más que el anterior."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la fila 3, 4, 5, 6, 7, ¿de cuánto en cuánto crece?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "De 2 en 2"
+          },
+          {
+            "id": "b",
+            "texto": "De 3 en 3"
+          },
+          {
+            "id": "c",
+            "texto": "De 1 en 1"
+          }
+        ],
+        "pistas": [
+          "Mira los dos primeros números: 3 y 4.",
+          "¿Cuánto hay que sumarle al 3 para llegar al 4?",
+          "Sube 1, y de 4 a 5 también sube 1."
+        ],
+        "retroalimentacion": "La fila sube 1 cada vez, así que crece de 1 en 1."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia 2, 4, 6, 8 cada número es 2 más que el anterior.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el 2 con el 4.",
+          "Del 4 al 6 y del 6 al 8, ¿cuánto sube?",
+          "Todos los saltos son iguales."
+        ],
+        "retroalimentacion": "Es verdadero: 2, 4, 6, 8 crece de 2 en 2."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La secuencia sube de 1 en 1: 8, 9, 10, __. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el último número de la fila: 10.",
+          "Sube de 1 en 1.",
+          "Suma 1 al 10."
+        ],
+        "retroalimentacion": "Después del 10 sigue 11."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Cuentas los dedos de las manos de 2 en 2: 2, 4, 6, __. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el último número: 6.",
+          "Cada número es 2 más que el anterior.",
+          "Suma 2 al 6."
+        ],
+        "retroalimentacion": "6 más 2 son 8."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una abuela teje en Puno y anota las vueltas: 10, 12, 14, 16. ¿Qué regla sigue la secuencia?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sube de 1 en 1"
+          },
+          {
+            "id": "b",
+            "texto": "Sube de 2 en 2"
+          },
+          {
+            "id": "c",
+            "texto": "Baja de 2 en 2"
+          }
+        ],
+        "pistas": [
+          "Compara el 10 con el 12.",
+          "Del 10 al 12 faltaría un número en medio.",
+          "Todos los saltos suben lo mismo: 2."
+        ],
+        "retroalimentacion": "Cada número es 2 más que el anterior: sube de 2 en 2."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una secuencia sube de 2 en 2 y empieza en 12: 12, 14, 16, __. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El último número que ves es 16.",
+          "La secuencia sube de 2 en 2.",
+          "Suma 2 a 16."
+        ],
+        "retroalimentacion": "16 y 2 hacen 18."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La secuencia 5, 7, 9, 11 crece de 1 en 1.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los saltos entre 5 y 7.",
+          "¿Qué número se salta entre 5 y 7?",
+          "Se salta el 6, así que sube de otra forma."
+        ],
+        "retroalimentacion": "Es falso. 5, 7, 9, 11 crece de 2 en 2."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un cuy come 1 zanahoria más cada día: 4, 5, 6, __. Escribe el número que sigue.",
+        "respuesta": "7",
+        "alternativasAceptadas": [
+          "siete"
+        ],
+        "pistas": [
+          "Mira cuánto sube cada día.",
+          "Sube 1 por día.",
+          "Suma 1 al 6."
+        ],
+        "retroalimentacion": "Sube de 1 en 1: después del 6 va el 7."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana cuenta de 2 en 2 desde el 20 y se equivoca al decir: 20, 22, 24, 25. ¿Cuál debía ser el número correcto en lugar del 25?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "26"
+          },
+          {
+            "id": "b",
+            "texto": "27"
+          },
+          {
+            "id": "c",
+            "texto": "28"
+          },
+          {
+            "id": "d",
+            "texto": "23"
+          }
+        ],
+        "pistas": [
+          "Revisa los saltos que hizo bien: 20, 22, 24.",
+          "Esos saltos subieron 2.",
+          "Después del 24 se suma 2 de nuevo."
+        ],
+        "retroalimentacion": "Debía decir 26, porque 24 más 2 es 26. Dijo 25 porque sumó solo 1."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Sandra cuenta de 2 en 2 y llega a 30: 24, 26, 28, 30. ¿Cuántos números dice en total? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cada número que dice en la lista.",
+          "Son 24, 26, 28 y 30.",
+          "Marca uno por uno cada número."
+        ],
+        "retroalimentacion": "Dice 24, 26, 28 y 30: son 4 números."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Mira la fila 6, 8, 10, 12. Escribe la regla con tus palabras: ¿de cuánto en cuánto sube? Escribe la regla con el formato «de 3 en 3».",
+        "respuesta": "de 2 en 2",
+        "alternativasAceptadas": [
+          "2 en 2",
+          "de 2"
+        ],
+        "pistas": [
+          "Compara el 6 con el 8.",
+          "Cuenta cuánto hay que sumar al 6 para llegar al 8.",
+          "Comprueba con el 10 y el 12: todos los saltos son iguales."
+        ],
+        "retroalimentacion": "Sube de 2 en 2: 6 más 2 es 8, 8 más 2 es 10."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La secuencia 1, 3, 5 sigue con dos números más con la misma regla. ¿Cuál es el último número que escribes? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero busca cuánto sube de 1 a 3.",
+          "Sube de 2 en 2.",
+          "Agrega dos números más: 5 más 2, y luego otro 2."
+        ],
+        "retroalimentacion": "La secuencia sigue 7 y 9: el último número es 9."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.numeros-que-faltan-secuencia",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P1-04"
+    ],
+    "bloque": "Patrones aditivos",
+    "nombre": "Números que faltan en una secuencia creciente",
+    "disciplina": "algebra",
+    "descripcionCorta": "Completa los números que faltan en una secuencia que crece de 1 en 1 o de 2 en 2.",
+    "palabrasClave": [
+      "completar",
+      "secuencia creciente",
+      "número que falta",
+      "de 1 en 1",
+      "de 2 en 2"
+    ],
+    "prerrequisitos": [
+      "mat.p1.patrones-1-en-1-y-2-en-2"
+    ],
+    "ordenSugerido": 106,
+    "ideaCentral": "Para completar los números que faltan, primero descubre de cuánto en cuánto sube la secuencia. Luego suma esa cantidad al número anterior.",
+    "pasos": [
+      "Busca dos números seguidos que sí se vean.",
+      "Mira cuánto subió de uno al otro.",
+      "Suma esa misma cantidad al número que está antes del hueco.",
+      "Comprueba que el número nuevo encaje con el siguiente."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La fila dice 14, 15, __, 17. ¿Qué número falta?",
+        "desarrollo": "De 14 a 15 sube 1. Entonces después del 15 va 15 más 1.",
+        "respuesta": "Falta el 16."
+      },
+      {
+        "situacion": "Los puestos del mercado se numeran 20, 22, __, 26. ¿Qué número falta?",
+        "desarrollo": "De 20 a 22 sube 2. A 22 le sumas 2.",
+        "respuesta": "Falta el 24."
+      },
+      {
+        "situacion": "En un autobús los asientos son 31, __, 33, 34. ¿Qué falta?",
+        "desarrollo": "De 33 a 34 sube 1, así que la secuencia sube de 1 en 1: 31 más 1.",
+        "respuesta": "Falta el 32."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner un número al azar en el hueco.",
+        "correccion": "Mira cuánto sube la secuencia y suma esa cantidad al anterior."
+      },
+      {
+        "error": "Creer que 10, 12, __, 16 sigue de 1 en 1 y poner 13.",
+        "correccion": "10 a 12 sube 2, así que va 14."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Número que falta",
+        "significado": "El que está tapado o vacío en la secuencia."
+      },
+      {
+        "termino": "Creciente",
+        "significado": "Que sube: cada número es mayor que el anterior."
+      },
+      {
+        "termino": "Anterior",
+        "significado": "El número que está antes."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Completa la secuencia de 1 en 1: 6, 7, __, 9. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el número que está antes del hueco: 7.",
+          "Esta secuencia sube de 1 en 1.",
+          "Suma 1 a 7."
+        ],
+        "retroalimentacion": "7 más 1 es 8."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la fila 2, 4, __, 8, el número que falta es...",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "7"
+          },
+          {
+            "id": "d",
+            "texto": "3"
+          }
+        ],
+        "pistas": [
+          "Mira los números 2 y 4: sube de 2 en 2.",
+          "El número del hueco va justo después del 4.",
+          "Suma 2 a 4."
+        ],
+        "retroalimentacion": "4 más 2 son 6. El 5 serviría si subiera de 1 en 1."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia 10, 11, 12, 13 el siguiente número es 14.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuánto sube de 10 a 11.",
+          "Sube 1 cada vez.",
+          "Suma 1 al último número, 13."
+        ],
+        "retroalimentacion": "Es verdadero: después del 13 viene 14."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: 15, 16, __, 18. Escribe el número que falta.",
+        "respuesta": "17",
+        "alternativasAceptadas": [
+          "diecisiete"
+        ],
+        "pistas": [
+          "Mira el número antes del hueco: 16.",
+          "La secuencia sube 1 por vez.",
+          "Entre 16 y 18 va un solo número."
+        ],
+        "retroalimentacion": "16 más 1 es 17."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Los números de las casas de una calle de Iquitos suben de 2 en 2: 21, 23, __, 27. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el número anterior al hueco: 23.",
+          "Las casas suben de 2 en 2.",
+          "23 más 2."
+        ],
+        "retroalimentacion": "23 más 2 es 25, y 25 más 2 es 27, como indica la fila."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Falta un número en esta secuencia de las cuentas de una vendedora: 30, 32, 34, __, 38. ¿Cuál es?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "35"
+          },
+          {
+            "id": "b",
+            "texto": "37"
+          },
+          {
+            "id": "c",
+            "texto": "33"
+          },
+          {
+            "id": "d",
+            "texto": "36"
+          }
+        ],
+        "pistas": [
+          "Revisa de cuánto en cuánto sube: 30 a 32.",
+          "Sube de 2 en 2.",
+          "Suma 2 al número que está antes del hueco, 34."
+        ],
+        "retroalimentacion": "34 más 2 es 36. El 35 sería de 1 en 1."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una fila de ladrillos tiene los números 40, __, 42, 43. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 41,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los dos números del final: 42 y 43.",
+          "Suben de 1 en 1.",
+          "El hueco está entre 40 y 42."
+        ],
+        "retroalimentacion": "Va el 41 entre 40 y 42."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia 18, 20, __, 24 el número que falta es 21.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 18 a 20, ¿cuánto sube?",
+          "Sube 2, así que el hueco no es solo 1 más.",
+          "Suma 2 a 20."
+        ],
+        "retroalimentacion": "Es falso. Falta el 22; el 21 es solo 1 más que 20."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la secuencia que sube de 2 en 2: 36, __, 40, __, 44. ¿Cuánto suman los dos números que faltan? Escribe solo el número.",
+        "respuesta": 80,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero encuentra el número que va entre 36 y 40.",
+          "Suma 2 al 36: sale el primero.",
+          "El segundo va entre 40 y 44; luego suma los dos."
+        ],
+        "retroalimentacion": "Faltan 38 y 42; 38 más 42 son 80."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Daniela completa 29, 30, __, 32, 33, __ con números de 1 en 1. ¿Qué números pone en los huecos, en orden?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "31 y 34"
+          },
+          {
+            "id": "b",
+            "texto": "30 y 34"
+          },
+          {
+            "id": "c",
+            "texto": "31 y 35"
+          },
+          {
+            "id": "d",
+            "texto": "32 y 33"
+          }
+        ],
+        "pistas": [
+          "Compara cada hueco con el número anterior.",
+          "Primero va el que sigue a 30.",
+          "El segundo va después del 33."
+        ],
+        "retroalimentacion": "31 va después de 30 y 34 va después de 33: 31 y 34."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "La secuencia sube de 2 en 2 y los números visibles son 43 y 47, con un hueco en medio: 43, __, 47. Escribe el número que falta.",
+        "respuesta": "45",
+        "alternativasAceptadas": [
+          "cuarenta y cinco"
+        ],
+        "pistas": [
+          "De 43 a 47 hay que contar saltos de 2.",
+          "43 y 2 es el primer salto.",
+          "Después del primer salto llegas al hueco."
+        ],
+        "retroalimentacion": "43 y 2 es 45, y 45 y 2 es 47."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia de 2 en 2: 40, 42, __, 46, __, 50 los números que faltan son 44 y 48.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 40 a 42 sube 2; usa esa regla.",
+          "El primer hueco es 42 más 2.",
+          "El segundo hueco es 46 más 2."
+        ],
+        "retroalimentacion": "Es verdadero: faltan 44 y 48, porque 42 más 2 es 44 y 46 más 2 es 48."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.explicar-como-crece",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P1-05"
+    ],
+    "bloque": "Patrones aditivos",
+    "nombre": "Explicar cómo crece una secuencia",
+    "disciplina": "algebra",
+    "descripcionCorta": "Explica cuánto aumenta cada vez una secuencia numérica y qué número sigue.",
+    "palabrasClave": [
+      "explicar",
+      "crece",
+      "aumenta",
+      "regla",
+      "secuencia numérica"
+    ],
+    "prerrequisitos": [
+      "mat.p1.patrones-1-en-1-y-2-en-2"
+    ],
+    "ordenSugerido": 109,
+    "ideaCentral": "Para explicar cómo crece una secuencia, di cuánto aumenta cada vez. Con esa regla puedes decir qué número sigue y comprobar si una cuenta está bien.",
+    "pasos": [
+      "Mira dos números seguidos de la secuencia.",
+      "Calcula cuánto aumentó de uno al otro.",
+      "Comprueba que ese aumento se repita en todos los saltos.",
+      "Di la regla y suma el aumento al último número para hallar el que sigue."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una vendedora de Lima junta monedas de 1 sol: 3, 4, 5, 6. ¿Cómo crece y qué sigue?",
+        "desarrollo": "De 3 a 4 aumenta 1, y de 4 a 5 también. Al 6 le sumas 1.",
+        "respuesta": "Crece de 1 en 1 y sigue el 7."
+      },
+      {
+        "situacion": "Una niña cuenta patitas de pollitos: 2, 4, 6, 8. ¿Cómo crece y qué sigue?",
+        "desarrollo": "De 2 a 4 aumenta 2. De 4 a 6 y de 6 a 8 igual. Al 8 le sumas 2.",
+        "respuesta": "Crece de 2 en 2 y sigue el 10."
+      },
+      {
+        "situacion": "Una secuencia dice 12, 14, 15, 16. ¿Crece siempre igual?",
+        "desarrollo": "De 12 a 14 aumenta 2, pero de 14 a 15 solo aumenta 1.",
+        "respuesta": "No, no crece siempre igual; no sigue una sola regla."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir «sube de 2 en 2» mirando solo el primer salto.",
+        "correccion": "Comprueba todos los saltos: deben aumentar siempre lo mismo."
+      },
+      {
+        "error": "Escribir como siguiente un número igual al último.",
+        "correccion": "Suma el aumento al último número para hallar el siguiente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Aumentar",
+        "significado": "Hacerse más grande: sumar una cantidad."
+      },
+      {
+        "termino": "Regla",
+        "significado": "Lo que dice cuánto cambia cada vez."
+      },
+      {
+        "termino": "Siguiente",
+        "significado": "El número que viene después."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La secuencia 5, 6, 7, 8 aumenta...",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "De 2 en 2"
+          },
+          {
+            "id": "b",
+            "texto": "De 1 en 1"
+          },
+          {
+            "id": "c",
+            "texto": "De 3 en 3"
+          }
+        ],
+        "pistas": [
+          "Mira el 5 y el 6.",
+          "¿Cuánto hay que sumar al 5 para tener 6?",
+          "Sumas 1, y de 6 a 7 también sumas 1."
+        ],
+        "retroalimentacion": "Cada número es 1 más que el anterior: aumenta de 1 en 1."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La secuencia 10, 12, 14, 16 aumenta siempre lo mismo. ¿Cuánto aumenta cada vez? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los dos primeros números: 10 y 12.",
+          "Cuenta cuántos pasos hay de 10 a 12.",
+          "Comprueba con 12 y 14."
+        ],
+        "retroalimentacion": "De 10 a 12 hay 2 más, y se repite: aumenta 2 cada vez."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La secuencia 7, 8, 9, 10 aumenta de 1 en 1.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuánto aumenta de 7 a 8.",
+          "Y de 8 a 9, ¿cuánto aumenta?",
+          "Siempre es lo mismo."
+        ],
+        "retroalimentacion": "Es verdadero: cada número es 1 más que el anterior."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La secuencia aumenta de 1 en 1: 13, 14, 15. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El último número es 15.",
+          "Aumenta de 1 en 1.",
+          "15 más 1."
+        ],
+        "retroalimentacion": "Después del 15 sigue el 16."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Mi mamá guarda galletas en bolsitas: 22, 24, 26, 28. ¿Qué número sigue si la regla es la misma? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descubre cuánto aumenta de 22 a 24.",
+          "Aumenta 2 cada vez.",
+          "Suma 2 al 28."
+        ],
+        "retroalimentacion": "La secuencia aumenta de 2 en 2, y 28 más 2 es 30."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una chacra los surcos están numerados 31, 32, 33, 34. Para decir cómo crece, ¿qué frase es correcta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cada número aumenta 2"
+          },
+          {
+            "id": "b",
+            "texto": "Cada número aumenta 1"
+          },
+          {
+            "id": "c",
+            "texto": "Cada número aumenta 3"
+          },
+          {
+            "id": "d",
+            "texto": "Los números bajan 1"
+          }
+        ],
+        "pistas": [
+          "Compara 31 y 32.",
+          "¿Cuánto más es 32 que 31?",
+          "Los números suben, no bajan."
+        ],
+        "retroalimentacion": "Cada número es 1 más: aumenta 1 cada vez. Aumentar 2 sería saltar un número."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La secuencia 18, 20, 22, 24 aumenta 2 cada vez. Escribe qué número sigue después del 24.",
+        "respuesta": "26",
+        "alternativasAceptadas": [
+          "veintiséis"
+        ],
+        "pistas": [
+          "Usa el aumento que ya conoces.",
+          "El último número es 24.",
+          "Suma 2 a 24."
+        ],
+        "retroalimentacion": "24 más 2 es 26."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La secuencia 3, 5, 8, 10 crece siempre de 2 en 2.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuánto aumenta de 3 a 5.",
+          "Ahora de 5 a 8, ¿cuánto aumenta?",
+          "Solo es de 2 en 2 si todos los saltos son iguales."
+        ],
+        "retroalimentacion": "Es falso: de 5 a 8 aumenta 3, así que no siempre aumenta lo mismo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un bus, la cantidad de pasajeros sube así: 8, 10, 12 y 14. Si sigue igual, ¿cuántos pasajeros habrá después de dos paradas más? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descubre cuánto aumenta en cada parada.",
+          "Aumenta 2 pasajeros cada parada.",
+          "Suma 2 al 14 y luego 2 otra vez."
+        ],
+        "retroalimentacion": "Después de 14 vienen 16 y 18: habrá 18 pasajeros."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rita dice que la secuencia 20, 22, 24, 26, 27 aumenta de 2 en 2. ¿Dónde está su error?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En el último salto aumenta solo 1"
+          },
+          {
+            "id": "b",
+            "texto": "En el primer salto aumenta 3"
+          },
+          {
+            "id": "c",
+            "texto": "No hay ningún error"
+          },
+          {
+            "id": "d",
+            "texto": "La secuencia baja"
+          }
+        ],
+        "pistas": [
+          "Revisa todos los saltos, no solo el primero.",
+          "Mira el salto de 26 a 27.",
+          "Los demás saltos suman 2."
+        ],
+        "retroalimentacion": "De 26 a 27 aumenta solo 1, así que no todos los saltos son de 2."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "La secuencia aumenta de 2 en 2 y empieza en 30: 30, 32, y siguen dos números más. Escribe los dos números que siguen, en orden y separados por coma.",
+        "respuesta": "34,36",
+        "alternativasAceptadas": [
+          "34, 36",
+          "34 36",
+          "34 y 36"
+        ],
+        "pistas": [
+          "El primer número que sigue es 32 más 2.",
+          "El segundo es el que resulta más 2.",
+          "Escribe primero el menor, luego el mayor."
+        ],
+        "retroalimentacion": "32 más 2 es 34 y 34 más 2 es 36: 34, 36."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Gabi mira la fila 40, 41, 42, 43 y Hugo dice que aumenta de 2 en 2. Gabi dice que aumenta de 1 en 1. Si Gabi tiene razón, ¿qué número sigue? Escribe solo el número.",
+        "respuesta": 44,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el 40 con el 41 para ver quién tiene razón.",
+          "Aumenta 1 y no 2, como dice Gabi.",
+          "Suma 1 al último número, 43."
+        ],
+        "retroalimentacion": "Gabi tiene razón: 40, 41, 42, 43 aumenta de 1 en 1 y sigue el 44."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
