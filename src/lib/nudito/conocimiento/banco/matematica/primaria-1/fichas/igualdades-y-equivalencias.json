@@ -1,0 +1,1229 @@
+[
+  {
+    "clave": "mat.p1.colecciones-igual-cantidad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-01",
+      "MAT-C24-P1-03"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Colecciones con la misma cantidad",
+    "disciplina": "algebra",
+    "descripcionCorta": "Reconoce cuándo dos colecciones de hasta 10 objetos tienen la misma cantidad aunque se vean distintas.",
+    "palabrasClave": [
+      "colecciones",
+      "con",
+      "misma",
+      "cantidad"
+    ],
+    "prerrequisitos": [
+      "mat.p1.mas-menos-tantos-como"
+    ],
+    "ordenSugerido": 41,
+    "ideaCentral": "Reconoce cuándo dos colecciones de hasta 10 objetos tienen la misma cantidad aunque se vean distintas.",
+    "pasos": [
+      "Cuenta cada grupo aunque esté distribuido de otra forma.",
+      "Compara los totales y comprueba si tienen la misma cantidad.",
+      "Di si la disposición cambió o no la cantidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un grupo de 2 dados está en fila y otro de 3 dados en círculo en el aula. ¿Tienen la misma cantidad?",
+        "desarrollo": "Cuenta la fila: 2 dados. Mira los tapitas en el aula. Cuenta el círculo: 3 dados. Usa los datos de tapitas en el aula.",
+        "respuesta": "false"
+      },
+      {
+        "situacion": "Un grupo de 3 choclos está en fila y otro de 3 choclos en círculo en el patio. ¿Tienen la misma cantidad?",
+        "desarrollo": "Cuenta la fila: 3 choclos. Mira los choclos en el patio. Cuenta el círculo: 3 choclos. Usa los datos de choclos en el patio.",
+        "respuesta": "true"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir la forma del grupo con su cantidad.",
+        "correccion": "Cuenta cada grupo aunque esté distribuido de otra forma. Compara los totales y comprueba si tienen la misma cantidad."
+      },
+      {
+        "error": "Decir que hay igualdad sin comprobar los dos lados.",
+        "correccion": "Di si la disposición cambió o no la cantidad."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Igualdad",
+        "significado": "Dos cantidades que tienen el mismo valor."
+      },
+      {
+        "termino": "Equilibrio",
+        "significado": "Estado de una balanza con ambos platillos al mismo nivel."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Cantidad que falta para que dos grupos sean iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 2 dados está en fila y otro de 3 dados en círculo en el aula. ¿Tienen la misma cantidad?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 2 dados. Mira los tapitas en el aula.",
+          "Cuenta el círculo: 3 dados. Usa los datos de tapitas en el aula.",
+          "Compara los dos totales. Comprueba con los tapitas en el aula."
+        ],
+        "retroalimentacion": "La fila tiene 2 y el círculo 3. La forma no cambia el número de objetos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 3 choclos está en fila y otro de 3 choclos en círculo en el patio. ¿Tienen la misma cantidad?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 3 choclos. Mira los choclos en el patio.",
+          "Cuenta el círculo: 3 choclos. Usa los datos de choclos en el patio.",
+          "Compara los dos totales. Comprueba con los choclos en el patio."
+        ],
+        "retroalimentacion": "La fila tiene 3 y el círculo 3. La forma no cambia el número de objetos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 4 cuentos está en fila y otro de 5 cuentos en círculo en la chacra. ¿Tienen la misma cantidad?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 4 cuentos. Mira los cuentos en la chacra.",
+          "Cuenta el círculo: 5 cuentos. Usa los datos de cuentos en la chacra.",
+          "Compara los dos totales. Comprueba con los cuentos en la chacra."
+        ],
+        "retroalimentacion": "La fila tiene 4 y el círculo 5. La forma no cambia el número de objetos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 5 lápices está en fila y otro de 5 lápices en círculo en la biblioteca. ¿Tienen la misma cantidad?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 5 lápices. Mira los lápices en la biblioteca.",
+          "Cuenta el círculo: 5 lápices. Usa los datos de lápices en la biblioteca.",
+          "Compara los dos totales. Comprueba con los lápices en la biblioteca."
+        ],
+        "retroalimentacion": "La fila tiene 5 y el círculo 5. La forma no cambia el número de objetos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 6 cuyes está en fila y otro de 7 cuyes en círculo en la mesa. ¿Tienen la misma cantidad?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 6 cuyes. Mira los cuyes en la mesa.",
+          "Cuenta el círculo: 7 cuyes. Usa los datos de cuyes en la mesa.",
+          "Compara los dos totales. Comprueba con los cuyes en la mesa."
+        ],
+        "retroalimentacion": "La fila tiene 6 y el círculo 7. La forma no cambia el número de objetos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 7 mangos está en fila y otro de 7 mangos en círculo en la feria. ¿Tienen la misma cantidad?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 7 mangos. Mira los semillas en la feria.",
+          "Cuenta el círculo: 7 mangos. Usa los datos de semillas en la feria.",
+          "Compara los dos totales. Comprueba con los semillas en la feria."
+        ],
+        "retroalimentacion": "La fila tiene 7 y el círculo 7. La forma no cambia el número de objetos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 8 caramelos está en fila y otro de 9 caramelos en círculo en el jardín. ¿Tienen la misma cantidad?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 8 caramelos. Mira los caramelos en el jardín.",
+          "Cuenta el círculo: 9 caramelos. Usa los datos de caramelos en el jardín.",
+          "Compara los dos totales. Comprueba con los caramelos en el jardín."
+        ],
+        "retroalimentacion": "La fila tiene 8 y el círculo 9. La forma no cambia el número de objetos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 9 vasos está en fila y otro de 9 vasos en círculo en la cocina. ¿Tienen la misma cantidad?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 9 vasos. Mira los piedritas en la cocina.",
+          "Cuenta el círculo: 9 vasos. Usa los datos de piedritas en la cocina.",
+          "Compara los dos totales. Comprueba con los piedritas en la cocina."
+        ],
+        "retroalimentacion": "La fila tiene 9 y el círculo 9. La forma no cambia el número de objetos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 3 libros está en fila y otro de 4 libros en círculo en la mochila. ¿Tienen la misma cantidad?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 3 libros. Mira los flores en la mochila.",
+          "Cuenta el círculo: 4 libros. Usa los datos de flores en la mochila.",
+          "Compara los dos totales. Comprueba con los flores en la mochila."
+        ],
+        "retroalimentacion": "La fila tiene 3 y el círculo 4. La forma no cambia el número de objetos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 4 tomates está en fila y otro de 4 tomates en círculo en el mercado. ¿Tienen la misma cantidad?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 4 tomates. Mira los tizas en el mercado.",
+          "Cuenta el círculo: 4 tomates. Usa los datos de tizas en el mercado.",
+          "Compara los dos totales. Comprueba con los tizas en el mercado."
+        ],
+        "retroalimentacion": "La fila tiene 4 y el círculo 4. La forma no cambia el número de objetos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 5 plátanos está en fila y otro de 6 plátanos en círculo en la canasta. ¿Tienen la misma cantidad?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 5 plátanos. Mira los pelotas en la canasta.",
+          "Cuenta el círculo: 6 plátanos. Usa los datos de pelotas en la canasta.",
+          "Compara los dos totales. Comprueba con los pelotas en la canasta."
+        ],
+        "retroalimentacion": "La fila tiene 5 y el círculo 6. La forma no cambia el número de objetos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de 6 sombreros está en fila y otro de 6 sombreros en círculo en la escuela. ¿Tienen la misma cantidad?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta la fila: 6 sombreros. Mira los mandarinas en la escuela.",
+          "Cuenta el círculo: 6 sombreros. Usa los datos de mandarinas en la escuela.",
+          "Compara los dos totales. Comprueba con los mandarinas en la escuela."
+        ],
+        "retroalimentacion": "La fila tiene 6 y el círculo 6. La forma no cambia el número de objetos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.igualdades",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-01"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Igualdades: dos grupos iguales",
+    "disciplina": "algebra",
+    "descripcionCorta": "Escribe con el signo igual que dos grupos tienen la misma cantidad, como 2 + 5 = 3 + 4.",
+    "palabrasClave": [
+      "igualdades:",
+      "dos",
+      "grupos",
+      "iguales"
+    ],
+    "prerrequisitos": [
+      "mat.p1.colecciones-igual-cantidad",
+      "mat.p1.signos-mas-menos-igual"
+    ],
+    "ordenSugerido": 75,
+    "ideaCentral": "Escribe con el signo igual que dos grupos tienen la misma cantidad, como 2 + 5 = 3 + 4.",
+    "pasos": [
+      "Calcula la cantidad de la izquierda del signo igual.",
+      "Calcula la cantidad de la derecha.",
+      "Comprueba que ambos lados valgan lo mismo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Los dados muestran 2 + 1 = 3. ¿Es una igualdad verdadera?",
+        "desarrollo": "Calcula el lado izquierdo: 2 + 1 = 3. Mira los tapitas en el aula. El lado derecho dice 3. Usa los datos de tapitas en el aula.",
+        "respuesta": "true"
+      },
+      {
+        "situacion": "Los choclos muestran 3 + 2 = 4. ¿Es una igualdad verdadera?",
+        "desarrollo": "Calcula el lado izquierdo: 3 + 2 = 5. Mira los choclos en el patio. El lado derecho dice 4. Usa los datos de choclos en el patio.",
+        "respuesta": "false"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir la forma del grupo con su cantidad.",
+        "correccion": "Calcula la cantidad de la izquierda del signo igual. Calcula la cantidad de la derecha."
+      },
+      {
+        "error": "Decir que hay igualdad sin comprobar los dos lados.",
+        "correccion": "Comprueba que ambos lados valgan lo mismo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Igualdad",
+        "significado": "Dos cantidades que tienen el mismo valor."
+      },
+      {
+        "termino": "Equilibrio",
+        "significado": "Estado de una balanza con ambos platillos al mismo nivel."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Cantidad que falta para que dos grupos sean iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los dados muestran 2 + 1 = 3. ¿Es una igualdad verdadera?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 2 + 1 = 3. Mira los tapitas en el aula.",
+          "El lado derecho dice 3. Usa los datos de tapitas en el aula.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los tapitas en el aula."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 3 y el derecho 3. El signo = exige que sean iguales."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los choclos muestran 3 + 2 = 4. ¿Es una igualdad verdadera?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 3 + 2 = 5. Mira los choclos en el patio.",
+          "El lado derecho dice 4. Usa los datos de choclos en el patio.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los choclos en el patio."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 5 y el derecho 4. El signo = exige que sean iguales."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los cuentos muestran 4 + 3 = 7. ¿Es una igualdad verdadera?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 4 + 3 = 7. Mira los cuentos en la chacra.",
+          "El lado derecho dice 7. Usa los datos de cuentos en la chacra.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los cuentos en la chacra."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 7 y el derecho 7. El signo = exige que sean iguales."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los lápices muestran 5 + 2 = 6. ¿Es una igualdad verdadera?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 5 + 2 = 7. Mira los lápices en la biblioteca.",
+          "El lado derecho dice 6. Usa los datos de lápices en la biblioteca.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los lápices en la biblioteca."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 7 y el derecho 6. El signo = exige que sean iguales."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los cuyes muestran 6 + 1 = 7. ¿Es una igualdad verdadera?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 6 + 1 = 7. Mira los cuyes en la mesa.",
+          "El lado derecho dice 7. Usa los datos de cuyes en la mesa.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los cuyes en la mesa."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 7 y el derecho 7. El signo = exige que sean iguales."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los mangos muestran 7 + 2 = 8. ¿Es una igualdad verdadera?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 7 + 2 = 9. Mira los semillas en la feria.",
+          "El lado derecho dice 8. Usa los datos de semillas en la feria.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los semillas en la feria."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 9 y el derecho 8. El signo = exige que sean iguales."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los caramelos muestran 8 + 1 = 9. ¿Es una igualdad verdadera?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 8 + 1 = 9. Mira los caramelos en el jardín.",
+          "El lado derecho dice 9. Usa los datos de caramelos en el jardín.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los caramelos en el jardín."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 9 y el derecho 9. El signo = exige que sean iguales."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los vasos muestran 9 + 1 = 9. ¿Es una igualdad verdadera?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 9 + 1 = 10. Mira los piedritas en la cocina.",
+          "El lado derecho dice 9. Usa los datos de piedritas en la cocina.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los piedritas en la cocina."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 10 y el derecho 9. El signo = exige que sean iguales."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los libros muestran 3 + 4 = 7. ¿Es una igualdad verdadera?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 3 + 4 = 7. Mira los flores en la mochila.",
+          "El lado derecho dice 7. Usa los datos de flores en la mochila.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los flores en la mochila."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 7 y el derecho 7. El signo = exige que sean iguales."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los tomates muestran 4 + 3 = 6. ¿Es una igualdad verdadera?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 4 + 3 = 7. Mira los tizas en el mercado.",
+          "El lado derecho dice 6. Usa los datos de tizas en el mercado.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los tizas en el mercado."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 7 y el derecho 6. El signo = exige que sean iguales."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los plátanos muestran 5 + 2 = 7. ¿Es una igualdad verdadera?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 5 + 2 = 7. Mira los pelotas en la canasta.",
+          "El lado derecho dice 7. Usa los datos de pelotas en la canasta.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los pelotas en la canasta."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 7 y el derecho 7. El signo = exige que sean iguales."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los sombreros muestran 6 + 1 = 6. ¿Es una igualdad verdadera?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 6 + 1 = 7. Mira los mandarinas en la escuela.",
+          "El lado derecho dice 6. Usa los datos de mandarinas en la escuela.",
+          "Comprueba si ambos lados valen lo mismo. Comprueba con los mandarinas en la escuela."
+        ],
+        "retroalimentacion": "El lado izquierdo vale 7 y el derecho 6. El signo = exige que sean iguales."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.balanza-equilibrio",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-03"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "La balanza en equilibrio",
+    "disciplina": "algebra",
+    "descripcionCorta": "Explica que una balanza queda en equilibrio cuando hay igual cantidad en ambos platillos.",
+    "palabrasClave": [
+      "balanza",
+      "equilibrio"
+    ],
+    "prerrequisitos": [
+      "mat.p1.colecciones-igual-cantidad"
+    ],
+    "ordenSugerido": 77,
+    "ideaCentral": "Explica que una balanza queda en equilibrio cuando hay igual cantidad en ambos platillos.",
+    "pasos": [
+      "Cuenta los objetos idénticos de cada platillo.",
+      "Compara las dos cantidades.",
+      "Si coinciden, la balanza está equilibrada."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una balanza hay 2 dados en un platillo y 2 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "desarrollo": "Cuenta el primer platillo: 2. Mira los tapitas en el aula. Cuenta el otro: 2. Usa los datos de tapitas en el aula.",
+        "respuesta": "true"
+      },
+      {
+        "situacion": "En una balanza hay 3 choclos en un platillo y 4 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "desarrollo": "Cuenta el primer platillo: 3. Mira los choclos en el patio. Cuenta el otro: 4. Usa los datos de choclos en el patio.",
+        "respuesta": "false"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir la forma del grupo con su cantidad.",
+        "correccion": "Cuenta los objetos idénticos de cada platillo. Compara las dos cantidades."
+      },
+      {
+        "error": "Decir que hay igualdad sin comprobar los dos lados.",
+        "correccion": "Si coinciden, la balanza está equilibrada."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Igualdad",
+        "significado": "Dos cantidades que tienen el mismo valor."
+      },
+      {
+        "termino": "Equilibrio",
+        "significado": "Estado de una balanza con ambos platillos al mismo nivel."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Cantidad que falta para que dos grupos sean iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 2 dados en un platillo y 2 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 2. Mira los tapitas en el aula.",
+          "Cuenta el otro: 2. Usa los datos de tapitas en el aula.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los tapitas en el aula."
+        ],
+        "retroalimentacion": "Los platillos tienen 2 y 2. El equilibrio requiere cantidades iguales de objetos idénticos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 3 choclos en un platillo y 4 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 3. Mira los choclos en el patio.",
+          "Cuenta el otro: 4. Usa los datos de choclos en el patio.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los choclos en el patio."
+        ],
+        "retroalimentacion": "Los platillos tienen 3 y 4. El equilibrio requiere cantidades iguales de objetos idénticos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 4 cuentos en un platillo y 4 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 4. Mira los cuentos en la chacra.",
+          "Cuenta el otro: 4. Usa los datos de cuentos en la chacra.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los cuentos en la chacra."
+        ],
+        "retroalimentacion": "Los platillos tienen 4 y 4. El equilibrio requiere cantidades iguales de objetos idénticos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 5 lápices en un platillo y 6 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 5. Mira los lápices en la biblioteca.",
+          "Cuenta el otro: 6. Usa los datos de lápices en la biblioteca.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los lápices en la biblioteca."
+        ],
+        "retroalimentacion": "Los platillos tienen 5 y 6. El equilibrio requiere cantidades iguales de objetos idénticos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 6 cuyes en un platillo y 6 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 6. Mira los cuyes en la mesa.",
+          "Cuenta el otro: 6. Usa los datos de cuyes en la mesa.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los cuyes en la mesa."
+        ],
+        "retroalimentacion": "Los platillos tienen 6 y 6. El equilibrio requiere cantidades iguales de objetos idénticos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 7 mangos en un platillo y 8 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 7. Mira los semillas en la feria.",
+          "Cuenta el otro: 8. Usa los datos de semillas en la feria.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los semillas en la feria."
+        ],
+        "retroalimentacion": "Los platillos tienen 7 y 8. El equilibrio requiere cantidades iguales de objetos idénticos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 8 caramelos en un platillo y 8 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 8. Mira los caramelos en el jardín.",
+          "Cuenta el otro: 8. Usa los datos de caramelos en el jardín.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los caramelos en el jardín."
+        ],
+        "retroalimentacion": "Los platillos tienen 8 y 8. El equilibrio requiere cantidades iguales de objetos idénticos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 9 vasos en un platillo y 10 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 9. Mira los piedritas en la cocina.",
+          "Cuenta el otro: 10. Usa los datos de piedritas en la cocina.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los piedritas en la cocina."
+        ],
+        "retroalimentacion": "Los platillos tienen 9 y 10. El equilibrio requiere cantidades iguales de objetos idénticos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 3 libros en un platillo y 3 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 3. Mira los flores en la mochila.",
+          "Cuenta el otro: 3. Usa los datos de flores en la mochila.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los flores en la mochila."
+        ],
+        "retroalimentacion": "Los platillos tienen 3 y 3. El equilibrio requiere cantidades iguales de objetos idénticos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 4 tomates en un platillo y 5 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 4. Mira los tizas en el mercado.",
+          "Cuenta el otro: 5. Usa los datos de tizas en el mercado.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los tizas en el mercado."
+        ],
+        "retroalimentacion": "Los platillos tienen 4 y 5. El equilibrio requiere cantidades iguales de objetos idénticos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 5 plátanos en un platillo y 5 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 5. Mira los pelotas en la canasta.",
+          "Cuenta el otro: 5. Usa los datos de pelotas en la canasta.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los pelotas en la canasta."
+        ],
+        "retroalimentacion": "Los platillos tienen 5 y 5. El equilibrio requiere cantidades iguales de objetos idénticos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 6 sombreros en un platillo y 7 en el otro. ¿Está equilibrada si todos pesan igual?",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta el primer platillo: 6. Mira los mandarinas en la escuela.",
+          "Cuenta el otro: 7. Usa los datos de mandarinas en la escuela.",
+          "Hay equilibrio solo con la misma cantidad. Comprueba con los mandarinas en la escuela."
+        ],
+        "retroalimentacion": "Los platillos tienen 6 y 7. El equilibrio requiere cantidades iguales de objetos idénticos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.sumas-que-valen-lo-mismo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P1-04"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Sumas que valen lo mismo",
+    "disciplina": "algebra",
+    "descripcionCorta": "Encuentra distintas sumas que dan el mismo número, como 6 = 4 + 2 = 3 + 3.",
+    "palabrasClave": [
+      "sumas",
+      "que",
+      "valen",
+      "mismo"
+    ],
+    "prerrequisitos": [
+      "mat.p1.igualdades",
+      "mat.p1.descomponer-hasta-10"
+    ],
+    "ordenSugerido": 79,
+    "ideaCentral": "Encuentra distintas sumas que dan el mismo número, como 6 = 4 + 2 = 3 + 3.",
+    "pasos": [
+      "Calcula el total de la primera suma.",
+      "Busca otra pareja de partes que forme ese total.",
+      "Comprueba que las dos sumas valgan lo mismo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Si 2 + 1 = 3, completa otra suma del mismo valor: 1 + ¿cuánto? = 3.",
+        "desarrollo": "La nueva suma debe valer 3. Mira los tapitas en el aula. Ya tienes 1 en la primera parte. Usa los datos de tapitas en el aula.",
+        "respuesta": "2"
+      },
+      {
+        "situacion": "Si 3 + 2 = 5, completa otra suma del mismo valor: 2 + ¿cuánto? = 5.",
+        "desarrollo": "La nueva suma debe valer 5. Mira los choclos en el patio. Ya tienes 2 en la primera parte. Usa los datos de choclos en el patio.",
+        "respuesta": "3"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir la forma del grupo con su cantidad.",
+        "correccion": "Calcula el total de la primera suma. Busca otra pareja de partes que forme ese total."
+      },
+      {
+        "error": "Decir que hay igualdad sin comprobar los dos lados.",
+        "correccion": "Comprueba que las dos sumas valgan lo mismo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Igualdad",
+        "significado": "Dos cantidades que tienen el mismo valor."
+      },
+      {
+        "termino": "Equilibrio",
+        "significado": "Estado de una balanza con ambos platillos al mismo nivel."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Cantidad que falta para que dos grupos sean iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Con dados en el aula, si 2 + 1 = 3, completa otra suma del mismo valor: 1 + ¿cuánto? = 3.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 3. Mira los tapitas en el aula.",
+          "Ya tienes 1 en la primera parte. Usa los datos de tapitas en el aula.",
+          "Faltan 2 para completar 3. Comprueba con los tapitas en el aula."
+        ],
+        "retroalimentacion": "1 + 2 = 3, igual que 2 + 1."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Con choclos en el patio, si 3 + 2 = 5, completa otra suma del mismo valor: 2 + ¿cuánto? = 5.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 5. Mira los choclos en el patio.",
+          "Ya tienes 2 en la primera parte. Usa los datos de choclos en el patio.",
+          "Faltan 3 para completar 5. Comprueba con los choclos en el patio."
+        ],
+        "retroalimentacion": "2 + 3 = 5, igual que 3 + 2."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Con cuentos en la chacra, si 4 + 3 = 7, completa otra suma del mismo valor: 3 + ¿cuánto? = 7.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 7. Mira los cuentos en la chacra.",
+          "Ya tienes 3 en la primera parte. Usa los datos de cuentos en la chacra.",
+          "Faltan 4 para completar 7. Comprueba con los cuentos en la chacra."
+        ],
+        "retroalimentacion": "3 + 4 = 7, igual que 4 + 3."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Con lápices en la biblioteca, si 5 + 2 = 7, completa otra suma del mismo valor: 4 + ¿cuánto? = 7.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 7. Mira los lápices en la biblioteca.",
+          "Ya tienes 4 en la primera parte. Usa los datos de lápices en la biblioteca.",
+          "Faltan 3 para completar 7. Comprueba con los lápices en la biblioteca."
+        ],
+        "retroalimentacion": "4 + 3 = 7, igual que 5 + 2."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Con cuyes en la mesa, si 6 + 1 = 7, completa otra suma del mismo valor: 5 + ¿cuánto? = 7.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 7. Mira los cuyes en la mesa.",
+          "Ya tienes 5 en la primera parte. Usa los datos de cuyes en la mesa.",
+          "Faltan 2 para completar 7. Comprueba con los cuyes en la mesa."
+        ],
+        "retroalimentacion": "5 + 2 = 7, igual que 6 + 1."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Con mangos en la feria, si 7 + 2 = 9, completa otra suma del mismo valor: 6 + ¿cuánto? = 9.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 9. Mira los semillas en la feria.",
+          "Ya tienes 6 en la primera parte. Usa los datos de semillas en la feria.",
+          "Faltan 3 para completar 9. Comprueba con los semillas en la feria."
+        ],
+        "retroalimentacion": "6 + 3 = 9, igual que 7 + 2."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Con caramelos en el jardín, si 8 + 1 = 9, completa otra suma del mismo valor: 7 + ¿cuánto? = 9.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 9. Mira los caramelos en el jardín.",
+          "Ya tienes 7 en la primera parte. Usa los datos de caramelos en el jardín.",
+          "Faltan 2 para completar 9. Comprueba con los caramelos en el jardín."
+        ],
+        "retroalimentacion": "7 + 2 = 9, igual que 8 + 1."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Con vasos en la cocina, si 9 + 1 = 10, completa otra suma del mismo valor: 8 + ¿cuánto? = 10.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 10. Mira los piedritas en la cocina.",
+          "Ya tienes 8 en la primera parte. Usa los datos de piedritas en la cocina.",
+          "Faltan 2 para completar 10. Comprueba con los piedritas en la cocina."
+        ],
+        "retroalimentacion": "8 + 2 = 10, igual que 9 + 1."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Con libros en la mochila, si 3 + 4 = 7, completa otra suma del mismo valor: 2 + ¿cuánto? = 7.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 7. Mira los flores en la mochila.",
+          "Ya tienes 2 en la primera parte. Usa los datos de flores en la mochila.",
+          "Faltan 5 para completar 7. Comprueba con los flores en la mochila."
+        ],
+        "retroalimentacion": "2 + 5 = 7, igual que 3 + 4."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Con tomates en el mercado, si 4 + 3 = 7, completa otra suma del mismo valor: 3 + ¿cuánto? = 7.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 7. Mira los tizas en el mercado.",
+          "Ya tienes 3 en la primera parte. Usa los datos de tizas en el mercado.",
+          "Faltan 4 para completar 7. Comprueba con los tizas en el mercado."
+        ],
+        "retroalimentacion": "3 + 4 = 7, igual que 4 + 3."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Con plátanos en la canasta, si 5 + 2 = 7, completa otra suma del mismo valor: 4 + ¿cuánto? = 7.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 7. Mira los pelotas en la canasta.",
+          "Ya tienes 4 en la primera parte. Usa los datos de pelotas en la canasta.",
+          "Faltan 3 para completar 7. Comprueba con los pelotas en la canasta."
+        ],
+        "retroalimentacion": "4 + 3 = 7, igual que 5 + 2."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Con sombreros en la escuela, si 6 + 1 = 7, completa otra suma del mismo valor: 5 + ¿cuánto? = 7.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva suma debe valer 7. Mira los mandarinas en la escuela.",
+          "Ya tienes 5 en la primera parte. Usa los datos de mandarinas en la escuela.",
+          "Faltan 2 para completar 7. Comprueba con los mandarinas en la escuela."
+        ],
+        "retroalimentacion": "5 + 2 = 7, igual que 6 + 1."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.cuantos-faltan-equilibrio",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P1-05"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "¿Cuántos faltan para equilibrar la balanza?",
+    "disciplina": "algebra",
+    "descripcionCorta": "Halla cuántos objetos agregar o quitar en un platillo para lograr el equilibrio y explica cómo lo hizo.",
+    "palabrasClave": [
+      "¿cuántos",
+      "faltan",
+      "para",
+      "equilibrar",
+      "balanza?"
+    ],
+    "prerrequisitos": [
+      "mat.p1.balanza-equilibrio"
+    ],
+    "ordenSugerido": 107,
+    "ideaCentral": "Halla cuántos objetos agregar o quitar en un platillo para lograr el equilibrio y explica cómo lo hizo.",
+    "pasos": [
+      "Cuenta los objetos de cada platillo.",
+      "Halla la diferencia entre el más lleno y el menos lleno.",
+      "Agrega los objetos que faltan y revisa el equilibrio."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En un platillo hay 2 dados y en el otro 3 iguales en el aula. ¿Cuántos añades al primero para equilibrar?",
+        "desarrollo": "El primer platillo tiene 2 dados. Mira los tapitas en el aula. El segundo tiene 3; cuenta lo que falta desde 2. Usa los datos de tapitas en el aula.",
+        "respuesta": "1"
+      },
+      {
+        "situacion": "En un platillo hay 3 choclos y en el otro 5 iguales en el patio. ¿Cuántos añades al primero para equilibrar?",
+        "desarrollo": "El primer platillo tiene 3 choclos. Mira los choclos en el patio. El segundo tiene 5; cuenta lo que falta desde 3. Usa los datos de choclos en el patio.",
+        "respuesta": "2"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir la forma del grupo con su cantidad.",
+        "correccion": "Cuenta los objetos de cada platillo. Halla la diferencia entre el más lleno y el menos lleno."
+      },
+      {
+        "error": "Decir que hay igualdad sin comprobar los dos lados.",
+        "correccion": "Agrega los objetos que faltan y revisa el equilibrio."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Igualdad",
+        "significado": "Dos cantidades que tienen el mismo valor."
+      },
+      {
+        "termino": "Equilibrio",
+        "significado": "Estado de una balanza con ambos platillos al mismo nivel."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Cantidad que falta para que dos grupos sean iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 2 dados y en el otro 3 iguales en el aula. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 2 dados. Mira los tapitas en el aula.",
+          "El segundo tiene 3; cuenta lo que falta desde 2. Usa los datos de tapitas en el aula.",
+          "Añade 1 para igualarlos. Comprueba con los tapitas en el aula."
+        ],
+        "retroalimentacion": "2 + 1 = 3. Si añades menos, la balanza seguirá inclinada."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 3 choclos y en el otro 5 iguales en el patio. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 3 choclos. Mira los choclos en el patio.",
+          "El segundo tiene 5; cuenta lo que falta desde 3. Usa los datos de choclos en el patio.",
+          "Añade 2 para igualarlos. Comprueba con los choclos en el patio."
+        ],
+        "retroalimentacion": "3 + 2 = 5. Si añades menos, la balanza seguirá inclinada."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 4 cuentos y en el otro 7 iguales en la chacra. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 4 cuentos. Mira los cuentos en la chacra.",
+          "El segundo tiene 7; cuenta lo que falta desde 4. Usa los datos de cuentos en la chacra.",
+          "Añade 3 para igualarlos. Comprueba con los cuentos en la chacra."
+        ],
+        "retroalimentacion": "4 + 3 = 7. Si añades menos, la balanza seguirá inclinada."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 5 lápices y en el otro 7 iguales en la biblioteca. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 5 lápices. Mira los lápices en la biblioteca.",
+          "El segundo tiene 7; cuenta lo que falta desde 5. Usa los datos de lápices en la biblioteca.",
+          "Añade 2 para igualarlos. Comprueba con los lápices en la biblioteca."
+        ],
+        "retroalimentacion": "5 + 2 = 7. Si añades menos, la balanza seguirá inclinada."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 6 cuyes y en el otro 7 iguales en la mesa. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 6 cuyes. Mira los cuyes en la mesa.",
+          "El segundo tiene 7; cuenta lo que falta desde 6. Usa los datos de cuyes en la mesa.",
+          "Añade 1 para igualarlos. Comprueba con los cuyes en la mesa."
+        ],
+        "retroalimentacion": "6 + 1 = 7. Si añades menos, la balanza seguirá inclinada."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 7 mangos y en el otro 9 iguales en la feria. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 7 mangos. Mira los semillas en la feria.",
+          "El segundo tiene 9; cuenta lo que falta desde 7. Usa los datos de semillas en la feria.",
+          "Añade 2 para igualarlos. Comprueba con los semillas en la feria."
+        ],
+        "retroalimentacion": "7 + 2 = 9. Si añades menos, la balanza seguirá inclinada."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 8 caramelos y en el otro 9 iguales en el jardín. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 8 caramelos. Mira los caramelos en el jardín.",
+          "El segundo tiene 9; cuenta lo que falta desde 8. Usa los datos de caramelos en el jardín.",
+          "Añade 1 para igualarlos. Comprueba con los caramelos en el jardín."
+        ],
+        "retroalimentacion": "8 + 1 = 9. Si añades menos, la balanza seguirá inclinada."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 9 vasos y en el otro 10 iguales en la cocina. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 9 vasos. Mira los piedritas en la cocina.",
+          "El segundo tiene 10; cuenta lo que falta desde 9. Usa los datos de piedritas en la cocina.",
+          "Añade 1 para igualarlos. Comprueba con los piedritas en la cocina."
+        ],
+        "retroalimentacion": "9 + 1 = 10. Si añades menos, la balanza seguirá inclinada."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 3 libros y en el otro 7 iguales en la mochila. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 3 libros. Mira los flores en la mochila.",
+          "El segundo tiene 7; cuenta lo que falta desde 3. Usa los datos de flores en la mochila.",
+          "Añade 4 para igualarlos. Comprueba con los flores en la mochila."
+        ],
+        "retroalimentacion": "3 + 4 = 7. Si añades menos, la balanza seguirá inclinada."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 4 tomates y en el otro 7 iguales en el mercado. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 4 tomates. Mira los tizas en el mercado.",
+          "El segundo tiene 7; cuenta lo que falta desde 4. Usa los datos de tizas en el mercado.",
+          "Añade 3 para igualarlos. Comprueba con los tizas en el mercado."
+        ],
+        "retroalimentacion": "4 + 3 = 7. Si añades menos, la balanza seguirá inclinada."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 5 plátanos y en el otro 7 iguales en la canasta. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 5 plátanos. Mira los pelotas en la canasta.",
+          "El segundo tiene 7; cuenta lo que falta desde 5. Usa los datos de pelotas en la canasta.",
+          "Añade 2 para igualarlos. Comprueba con los pelotas en la canasta."
+        ],
+        "retroalimentacion": "5 + 2 = 7. Si añades menos, la balanza seguirá inclinada."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un platillo hay 6 sombreros y en el otro 7 iguales en la escuela. ¿Cuántos añades al primero para equilibrar?",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer platillo tiene 6 sombreros. Mira los mandarinas en la escuela.",
+          "El segundo tiene 7; cuenta lo que falta desde 6. Usa los datos de mandarinas en la escuela.",
+          "Añade 1 para igualarlos. Comprueba con los mandarinas en la escuela."
+        ],
+        "retroalimentacion": "6 + 1 = 7. Si añades menos, la balanza seguirá inclinada."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
